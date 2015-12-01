@@ -88,7 +88,9 @@ class PetsDeliImporterWriterDependencyContainer extends AbstractBusinessDependen
     {
         return $this->getFactory()->createWriterAbstractProductCmsBlockWriter(
             $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::CMS_BLOCK_FACADE),
-            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_FACADE)
+            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::PRODUCT_FACADE),
+            $this->getProvidedDependency(PetsDeliImporterWriterDependencyProvider::CMS_FACADE)
+
         );
     }
 }

@@ -24,7 +24,7 @@ class CmsBlockFacade extends PavFeatureCmsBlockFacade
      */
     public function getCmsBlocksForPage(PageInterface $pageTransfer)
     {
-        $this->getDependencyContainer()->createBlockReader()->getByPage($pageTransfer);
+        return $this->getDependencyContainer()->createBlockReader()->getByPage($pageTransfer);
     }
 
 }

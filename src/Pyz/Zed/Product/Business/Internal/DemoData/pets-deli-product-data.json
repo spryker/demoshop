@@ -30,27 +30,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -171,27 +171,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -312,27 +312,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -453,27 +453,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -594,27 +594,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -735,27 +735,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -876,27 +876,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -1017,27 +1017,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -1158,27 +1158,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -1299,27 +1299,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -1440,27 +1440,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -1581,27 +1581,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -1722,27 +1722,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -1863,27 +1863,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -2004,27 +2004,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -2145,27 +2145,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -2286,27 +2286,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -2541,27 +2541,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -2796,27 +2796,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -2976,27 +2976,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -3231,27 +3231,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -3486,27 +3486,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -3666,27 +3666,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -3846,27 +3846,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -4026,27 +4026,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -4167,27 +4167,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -4308,27 +4308,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -4449,27 +4449,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -4590,27 +4590,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -4731,27 +4731,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -4872,27 +4872,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -5127,27 +5127,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -5382,27 +5382,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -5523,27 +5523,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -5664,27 +5664,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -5805,27 +5805,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -5946,27 +5946,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -6087,27 +6087,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -6228,27 +6228,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -6369,27 +6369,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -6510,27 +6510,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -6651,27 +6651,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -6792,27 +6792,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -6933,27 +6933,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -7074,27 +7074,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -7215,27 +7215,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -7356,27 +7356,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -7497,27 +7497,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -7638,27 +7638,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -7779,27 +7779,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -7920,27 +7920,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -8061,27 +8061,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -8202,27 +8202,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -8343,27 +8343,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -8484,27 +8484,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -8625,27 +8625,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -8766,27 +8766,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -8907,27 +8907,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -9048,27 +9048,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -9189,27 +9189,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -9330,27 +9330,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -9471,27 +9471,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -9612,27 +9612,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -9753,27 +9753,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -9894,27 +9894,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -10035,27 +10035,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -10176,27 +10176,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -10317,27 +10317,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -10497,27 +10497,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -10677,27 +10677,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -10860,27 +10860,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -11043,27 +11043,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -11184,27 +11184,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -11325,27 +11325,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -11466,27 +11466,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -11607,27 +11607,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -11748,27 +11748,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -11889,27 +11889,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -12030,27 +12030,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -12171,27 +12171,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -12312,27 +12312,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -12453,27 +12453,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -12594,27 +12594,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -12735,27 +12735,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -12876,27 +12876,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -13017,27 +13017,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -13158,27 +13158,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -13288,27 +13288,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -13527,27 +13527,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -13766,27 +13766,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -14005,27 +14005,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -14176,27 +14176,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -14347,27 +14347,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {
@@ -14522,27 +14522,27 @@
           "accordion": [
             {
               "shipment": {
-                "block": "pdp_accordion_shipment"
+                "block": "pdp_shipment"
               }
             },
             {
               "storage": {
-                "block": "pdp_accordion_storage"
+                "block": "pdp_storage"
               }
             },
             {
               "roduction_quality": {
-                "block": "pdp_accordion_production_quality"
+                "block": "pdp_production_quality"
               }
             },
             {
               "feeding_recommendation": {
-                "block": "pdp_accordion_feeding_recommendation"
+                "block": "pdp_feeding_recommendation"
               }
             },
             {
               "preparation": {
-                "block": "pdp_accordion_preparation"
+                "block": "pdp_preparation"
               }
             },
             {

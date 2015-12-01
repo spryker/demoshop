@@ -18,6 +18,7 @@ class PetsDeliImporterWriterDependencyProvider extends AbstractBundleDependencyP
     const STOCK_FACADE = 'STOCK FACADE';
     const CATEGORY_FACADE = 'CATEGORY FACADE';
     const CMS_BLOCK_FACADE = 'CMS BLOCK FACADE';
+    const CMS_FACADE = 'CMS FACADE';
 
 
     /**
@@ -64,6 +65,10 @@ class PetsDeliImporterWriterDependencyProvider extends AbstractBundleDependencyP
 
         $container[self::CMS_BLOCK_FACADE] = function (container $container) {
             return $container->getLocator()->cmsBlock()->facade();
+        };
+
+        $container[self::CMS_FACADE] = function (container $container) {
+            return $container->getLocator()->cms()->facade();
         };
 
         return $container;

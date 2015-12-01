@@ -5,7 +5,6 @@ namespace Pyz\Zed\PetsDeliImporterWriter\Business\Writer;
 use Generated\Shared\CmsBlock\BlockInterface;
 use Generated\Shared\Product\AbstractProductInterface;
 use Generated\Shared\ProductDynamicImporter\PavProductDynamicImporterAbstractProductInterface;
-use Generated\Shared\Transfer\BlockTransfer;
 use PavFeature\Zed\ProductDynamicImporter\Business\Writer\ProductWriterInterface;
 use Pyz\Zed\Cms\Business\CmsFacade;
 use Pyz\Zed\CmsBlock\Business\CmsBlockFacade;
@@ -22,6 +21,7 @@ class AbstractProductCmsBlockWriter implements ProductWriterInterface
      * AbstractProductWriter constructor.
      * @param CmsBlockFacade $cmsBlockFacade
      * @param ProductFacade $productFacade
+     * @param CmsFacade $cmsFacade
      */
     public function __construct(
         CmsBlockFacade $cmsBlockFacade,
