@@ -4,8 +4,12 @@ namespace Pyz\Yves\Cart\Communication\Controller;
 
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
+use SprykerFeature\Client\Cart\Service\CartClientInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
+/**
+ * @method CartClientInterface getClient()
+ */
 class CouponController extends AbstractController
 {
 
@@ -16,7 +20,7 @@ class CouponController extends AbstractController
      */
     public function addAction($couponCode)
     {
-        $cartClient = $this->getLocator()->cart()->client();
+        $cartClient = $this->getClient();
         $cart = $cartClient->addCoupon($couponCode);
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
@@ -29,7 +33,7 @@ class CouponController extends AbstractController
      */
     public function removeAction($couponCode)
     {
-        $cartClient = $this->getLocator()->cart()->client();
+        $cartClient = $this->getClient();
         $cart = $cartClient->removeCoupon($couponCode);
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
@@ -40,7 +44,7 @@ class CouponController extends AbstractController
      */
     public function clearAction()
     {
-        $cartClient = $this->getLocator()->cart()->client();
+        $cartClient = $this->getClient();
         $cart = $cartClient->clearCoupons();
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);

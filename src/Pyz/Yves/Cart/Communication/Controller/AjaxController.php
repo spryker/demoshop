@@ -4,10 +4,14 @@ namespace Pyz\Yves\Cart\Communication\Controller;
 
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
+use SprykerFeature\Client\Cart\Service\CartClientInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
 
+/**
+ * @method CartClientInterface getClient()
+ */
 class AjaxController extends AbstractController
 {
 
@@ -16,7 +20,7 @@ class AjaxController extends AbstractController
      */
     public function indexAction()
     {
-        $cartClient = $this->getLocator()->cart()->client();
+        $cartClient = $this->getClient();
         $cart = $cartClient->getCart();
         foreach ($cart->getItems() as $item) {
             if (empty($item->getName())) {
@@ -38,7 +42,7 @@ class AjaxController extends AbstractController
      */
     public function addAction($sku, $quantity, $optionValueUsageIds = [])
     {
-        $cartClient = $this->getLocator()->cart()->client();
+        $cartClient = $this->getClient();
 
         $itemTransfer = new ItemTransfer();
 
@@ -65,7 +69,7 @@ class AjaxController extends AbstractController
      */
     public function removeAction($sku, $groupKey = null)
     {
-        $cartClient = $this->getLocator()->cart()->client();
+        $cartClient = $this->getClient();
         $itemTransfer = new ItemTransfer();
         $itemTransfer->setSku($sku)->setGroupKey($groupKey);
 
@@ -82,7 +86,7 @@ class AjaxController extends AbstractController
      */
     public function increaseAction($sku, $groupKey = null)
     {
-        $cartClient = $this->getLocator()->cart()->client();
+        $cartClient = $this->getClient();
 
         $itemTransfer = new ItemTransfer();
         $itemTransfer->setSku($sku);
@@ -101,7 +105,7 @@ class AjaxController extends AbstractController
      */
     public function decreaseAction($sku, $groupKey = null)
     {
-        $cartClient = $this->getLocator()->cart()->client();
+        $cartClient = $this->getClient();
 
         $itemTransfer = new ItemTransfer();
         $itemTransfer->setSku($sku);
