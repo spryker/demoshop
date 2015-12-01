@@ -24,7 +24,8 @@ class AfterbuyExportManager
     const KEY_ATTRIBUTE_WEIGHT = 'weight';
     const KEY_COUPON_AMOUNT = 'amount';
     const VALUE_COUPON_NAME = 'RABATT';
-    const CONVERSION_MG_TO_KG = 100;
+    const CONVERSION_MG_TO_KG = 1000;
+    const CONVERSION_CENT_TO_EUROS = 100;
 
     /** @var string */
     protected $afterbuyUrl;
@@ -160,6 +161,7 @@ class AfterbuyExportManager
         }
 
         $postData = $this->addPaymentInfo($postData);
+        $postData = $this->addShippingMethodInfo($order, $postData);
 
         return $postData;
     }
@@ -170,11 +172,9 @@ class AfterbuyExportManager
      */
     protected function addPaymentInfo(array $postData)
     {
-
         $salesOrderId = $postData[AfterbuyConstants::SALES_ORDER_ID];
         $payment = $this->adyenFacade->getPaymentBySalesOrderId($salesOrderId);
 
-        $pspRef = $payment->getPspReference();
         $setPay = true;
 
         switch ($payment->getPaymentMethod()) {
@@ -208,7 +208,6 @@ class AfterbuyExportManager
 
         $postData[AfterbuyConstants::PAYMENT_METHOD] = $paymentMethodName;
         $postData[AfterbuyConstants::PAYMENT_STATUS] = $setPay;
-        $postData[AfterbuyConstants::PAYMENT_ID] = $pspRef;
 
         return $postData;
     }
@@ -229,7 +228,7 @@ class AfterbuyExportManager
             $postData[AfterbuyConstants::ITEM_NUMBER . $numberOfItems] = $item->getSku();
             $postData[AfterbuyConstants::ITEM_QUANTITY_ORDERED . $numberOfItems] = $item->getQuantity();
             $postData[AfterbuyConstants::ITEM_NAME . $numberOfItems] = $item->getName();
-            $postData[AfterbuyConstants::ITEM_PRICE . $numberOfItems] = $item->getPriceToPay();
+            $postData[AfterbuyConstants::ITEM_PRICE . $numberOfItems] = $this->convertPriceInCentToEuro($item->getGrossPrice());
             $postData[AfterbuyConstants::ITEM_TAX_PERCENTAGE . $numberOfItems] = $item->getTaxPercentage();
             $postData = $this->addProductAttributesInfo($item, $numberOfItems, $postData);
         }
@@ -252,10 +251,10 @@ class AfterbuyExportManager
     {
         foreach ($coupons as $coupon) {
             $nbItem ++;
-            $postData[AfterbuyConstants::ITEM_NUMBER . $nbItem] = $coupon[self::KEY_COUPON_NAME];
+            $postData[AfterbuyConstants::ITEM_NUMBER . $nbItem] = $nbItem;
             $postData[AfterbuyConstants::ITEM_QUANTITY_ORDERED . $nbItem] = 1;
             $postData[AfterbuyConstants::ITEM_NAME . $nbItem] = $coupon[self::KEY_COUPON_NAME];
-            $postData[AfterbuyConstants::ITEM_PRICE . $nbItem] = (-1) * $coupon[self::KEY_COUPON_AMOUNT];
+            $postData[AfterbuyConstants::ITEM_PRICE . $nbItem] = (-1) * $this->convertPriceInCentToEuro($coupon[self::KEY_COUPON_AMOUNT]);
             $postData[AfterbuyConstants::ITEM_TAX_PERCENTAGE . $nbItem] = 19;
         }
 
@@ -314,7 +313,7 @@ class AfterbuyExportManager
         $postData[AfterbuyConstants::ITEM_ATTRIBUTE . $numberOfItems] = implode('|', $attributes);
 
         $abstractProductId = $this->productFacade->getAbstractProductIdByConcreteSku($item->getSku());
-        $concreteProduct = $this->productFacade->getConcreteProduct($item->getSku());
+        $concreteProduct = $this->productFacade->getConcreteProductByConcreteSku($item->getSku());
         $productUrl = $this->urlFacade->getUrlByAbstractProductId($abstractProductId);
         $postData[AfterbuyConstants::ITEM_LINK . $numberOfItems] = $this->orderExporterConfig->getYvesHost() . $productUrl->getUrl();
         $postData[AfterbuyConstants::ITEM_WEIGHT . $numberOfItems] = $this->getProductWeight($concreteProduct);
@@ -328,8 +327,7 @@ class AfterbuyExportManager
      */
     protected function getProductWeight(SpyProduct $product)
     {
-        $productAttributes = json_decode($product->getAttributes());
-
+        $productAttributes = (array) json_decode($product->getAttributes());
         if (isset($productAttributes[self::KEY_ATTRIBUTE_WEIGHT])) {
             return $productAttributes[self::KEY_ATTRIBUTE_WEIGHT] / self::CONVERSION_MG_TO_KG;
         }
@@ -364,7 +362,7 @@ class AfterbuyExportManager
     {
         $shipmentMethod = $order->getShipmentMethod();
         $postData[AfterbuyConstants::SHIPPING_SERVICE] = $shipmentMethod->getShipmentCarrier()->getName();
-        $postData[AfterbuyConstants::SHIPPING_COST] = $shipmentMethod->getPrice();
+        $postData[AfterbuyConstants::SHIPPING_COST] = $this->convertPriceInCentToEuro($shipmentMethod->getPrice());
 
         return $postData;
     }
@@ -428,6 +426,15 @@ class AfterbuyExportManager
     protected function sendOrderInfoToAfterbuy($postVariables, array $orderItems, $orderId)
     {
         $this->afterbuyConnector->sendToAfterbuy($postVariables, $orderItems, $orderId);
+    }
+
+    /**
+     * @param int $price
+     * @return float
+     */
+    protected function convertPriceInCentToEuro($price)
+    {
+        return $price / self::CONVERSION_CENT_TO_EUROS;
     }
 
 }
