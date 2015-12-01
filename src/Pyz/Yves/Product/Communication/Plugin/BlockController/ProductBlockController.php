@@ -47,6 +47,9 @@ class ProductBlockController extends AbstractPlugin implements BlockControllerIn
             ->setByKey(ProductDataFormatter::PRODUCT, ProductDataFormatter::formatProduct($product))
         ;
 
+        // TODO Remove Hack
+        $product = array_merge($product, $product['abstract_attributes']);
+
         $result = [
             'product' => $product,
 
