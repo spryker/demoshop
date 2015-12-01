@@ -87,6 +87,14 @@ class Address extends AbstractType
                     'data-depending-value' => $dataDependingValue
                 ],
             ])
+            ->add('address-line3', 'text', [
+                'label' => 'Adresszusatz',
+                'required' => false,
+                'property_path' => 'address3',
+                'attr' => [
+                    'class' => 'input--1-1'
+                ],
+            ])
             ->add('zip_code', 'text', [
                 'label' => 'PLZ',
                 'required' => true,
@@ -116,8 +124,7 @@ class Address extends AbstractType
                     60   => 'Germany',
                     14 => 'Austria',
                 ),
-                'label' => 'Land',
-                'property_path' => 'address3'
+                'label' => 'Land'
             ))
         ;
     }

@@ -9,8 +9,6 @@ import { EVENTS as CHECKBOX_EVENTS } from '../../forms/checkbox';
 
 import { validateForm } from '../../forms/validator';
 
-import 'node-adyen-cse';
-
 
 'use strict';
 
@@ -33,7 +31,6 @@ $(document).ready(function () {
 
         var $guestButton, $checkout, $navigations, $contentContainer, $contents, index, messageService;
 
-        initAdyenPaymentForm();
 
         $guestButton = $('.js-button-guestcheckout');
         $checkout = $(this);
@@ -54,19 +51,21 @@ $(document).ready(function () {
 
 
         $contents.find('.checkout__step-button').click(function () {
-            if (validateStep(index).valid && index < $contents.size() - 1) {
+            if ((validateStep(index).valid && !!validateCreditCard()) && index < $contents.size() - 1) {
                 index++;
-                updateStep();
             }
+
+            updateStep();
         });
 
         $navigations.click(function () {
             var newIndex = $navigations.index($(this));
 
-            if (newIndex < index || validateStep(index).valid) {
+            if (newIndex < index || (validateStep(index).valid && !!validateCreditCard())) {
                 index = newIndex;
-                updateStep();
             }
+
+            updateStep();
         });
 
         $guestButton.click(function () {
@@ -113,6 +112,7 @@ $(document).ready(function () {
             RADIO_EVENTS.VALIDATION_UPDATED,
             CHECKBOX_EVENTS.VALIDATION_UPDATED
         ].join(' '), validateCheckout);
+
         function validateCheckout () {
             var result = {
                 valid: true,
@@ -130,51 +130,84 @@ $(document).ready(function () {
         }
 
 
-        function initAdyenPaymentForm () {
-            var $adyenPaymentForm = $('#adyen-encrypted-form')[0];
-
-            if ($('#adyen-encrypted-form').size()) {
-                var form, key, options;
-
-                form = $adyenPaymentForm[0];
-                options = {};
-
-                adyen.encrypt.createEncryptedForm(form, ADYEN_KEY, options);
-            }
-        }
-
-
         $checkout.submit(function (event) {
             event.preventDefault();
 
             var values = {};
+
+
             $.each($checkout.serializeArray(), function (i, field) {
-                values[field.name] = field.value;
-            });
-
-            $.post($checkout.attr('action'), values)
-            .done(function (response) {
-                if (response.success) {
-                    window.location = response.url;
-
-                } else if (response.errors) {
-
-                    $.each(response.errors, function (index, value) {
-                        messageService.add({ type: 'invalid', message: value.message + ' (' + value.errorCode + ')' });
-                    });
-
-                } else {
-
-                    messageService.add({ type: 'invalid', message: 'Es ist ein Fehler aufgetreten. Leider konnte Ihre Bestelung nicht aufgebeben werden.' });
+                if (field.name.indexOf('checkout') > -1) {
+                    if (field.name.indexOf('adyen_encrypted') === -1) {
+                        values[field.name] = field.value;
+                    }
                 }
-            })
-            .fail(function () {
-                messageService.add({ type: 'invalid', message: 'Es ist ein Fehler aufgetreten. Leider konnte Ihre Bestelung nicht aufgebeben werden.' });
-            })
-            .always(function () {
-                $('html, body').animate({scrollTop: 0}, 'slow');
             });
+
+
+            // TODO: validation should not update value
+            var encryptedData = validateCreditCard()
+            if (encryptedData) {
+
+                if (typeof encryptedData === 'string') {
+                    values['adyen-encrypted-data'] = encryptedData;
+                }
+
+                $.post($checkout.attr('action'), values)
+                .done(function (response) {
+                    if (response.success) {
+                        window.location = response.url;
+
+                    } else if (response.errors) {
+
+                        $.each(response.errors, function (index, value) {
+                            messageService.add({ type: 'invalid', message: value.message + ' (' + value.errorCode + ')' });
+                        });
+
+                    } else {
+
+                        messageService.add({ type: 'invalid', message: 'Es ist ein Fehler aufgetreten. Leider konnte Ihre Bestelung nicht aufgebeben werden.' });
+                    }
+                })
+                .fail(function () {
+                    messageService.add({ type: 'invalid', message: 'Es ist ein Fehler aufgetreten. Leider konnte Ihre Bestelung nicht aufgebeben werden.' });
+                })
+                .always(function () {
+                    $('html, body').animate({scrollTop: 0}, 'slow');
+                });
+            }
         });
+
+
+
+        function validateCreditCard () {
+            if ($('[name="checkout[adyen_payment][payment_method]"]:checked').val() === 'adyen.payment.method.creditcard.cse') {
+                var cardData, encryptedData, cseInstance;
+
+                cardData = {};
+
+                $('[data-encrypted-name]').each(function () {
+                    var $input = $(this);
+
+                    cardData[$input.data('encrypted-name')] = $input.val();
+                });
+
+                cseInstance = adyen.encrypt.createEncryption(ADYEN_KEY, {});
+                encryptedData = cseInstance.encrypt(cardData);
+
+                if (!encryptedData) {
+                    index = 1;
+                    updateStep();
+
+                    messageService.add({ type: 'invalid', message: 'Die eingegeben Kredikarten-Informationen sind ungültig.' });
+                }
+
+                return encryptedData;
+
+            } else {
+                return true
+            }
+        }
 
 
 
@@ -189,12 +222,6 @@ $(document).ready(function () {
                 console.log('[ERROR] ');
                 console.log(data);
             });
-        });
-
-
-
-        $(document).on(EVENTS.VALIDATE, function () {
-
         });
 
 
