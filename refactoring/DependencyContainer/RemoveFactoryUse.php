@@ -57,10 +57,11 @@ class RemoveFactoryUse extends AbstractRefactor
     private function getDependencyContainerCollection()
     {
         $directories = [
-//            __DIR__ . '/../../src/Pyz/Zed/*/*/',
+            __DIR__ . '/../../src/Pyz/Zed/*/*/',
             __DIR__ . '/../../src/Pyz/Yves/*/*/',
-//            __DIR__ . '/../../vendor/spryker/spryker/Bundles/*/src/*/Zed/*/*/',
-//            __DIR__ . '/../../vendor/spryker/spryker/Bundles/*/src/*/Yves/*/*/',
+            __DIR__ . '/../../src/Pyz/Client/*/*/',
+            __DIR__ . '/../../vendor/spryker/spryker/Bundles/*/src/*/Zed/*/*/',
+            __DIR__ . '/../../vendor/spryker/spryker/Bundles/*/src/*/Client/*/*/',
         ];
 
         $dependencyContainer = $this->getFiles($directories, '*DependencyContainer.php');
