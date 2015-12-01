@@ -105,10 +105,14 @@ class AfterbuyExportManager
      */
     public function exportOrderItems(array $orderItems, SpySalesOrder $order)
     {
-        $afterbuyInfo = $this->configureAfterbuy();
+        $configuration = $this->configureAfterbuy();
+        $afterbuyInfo = [];
         $afterbuyInfo = $this->getOrderInfo($order, $afterbuyInfo);
         $afterbuyInfo = $this->addItemsInfo($orderItems, $afterbuyInfo);
-        $postString = $this->buildPostString($afterbuyInfo);
+        $afterbuyInfo = $this->encodeValueUTF8($afterbuyInfo);
+
+        $results = array_merge($configuration, $afterbuyInfo);
+        $postString = $this->buildPostString($results);
 
         $this->sendOrderInfoToAfterbuy($postString, $orderItems, $afterbuyInfo[AfterbuyConstants::SALES_ORDER_ID]);
     }
@@ -335,24 +339,6 @@ class AfterbuyExportManager
         return 0.00;
     }
 
-
-//    /**
-//     * @param SpySalesOrderItem $item
-//     * @param $numberOfItems
-//     * @param array $postData
-//     * @return array
-//     */
-//    protected function addItemDiscountInfo(SpySalesOrderItem $item, $numberOfItems, array $postData)
-//    {
-//        if (!null == $item->getDiscounts()->getData()) {
-//            // @TODO calculate Discounts information (const PAYMENT_CHARGE or ITEM_PRICE)
-//        } else {
-//            $postData[AfterbuyConstants::ITEM_PRICE . $numberOfItems] = 0; // @TODO mandatory field for Afterbuy, update when prices are implemented
-//        }
-//
-//        return $postData;
-//    }
-
     /**
      * @param SpySalesOrder $order
      * @param array $postData
@@ -435,6 +421,21 @@ class AfterbuyExportManager
     protected function convertPriceInCentToEuro($price)
     {
         return $price / self::CONVERSION_CENT_TO_EUROS;
+    }
+
+    /**
+     * @param array $postData
+     * @return array
+     */
+    protected function encodeValueUTF8(array $postData)
+    {
+        foreach ($postData as $key => $value) {
+            if (is_string($value)) {
+                $postData[$key] = utf8_decode($value);
+            }
+        }
+
+        return $postData;
     }
 
 }
