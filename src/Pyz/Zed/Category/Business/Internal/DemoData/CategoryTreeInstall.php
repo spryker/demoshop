@@ -155,9 +155,11 @@ class CategoryTreeInstall extends AbstractInstaller
         $urlTransfer->setUrl($rawNode['url']);
         $this->urlFacade->saveUrl($urlTransfer);
 
+        $position = 1;
         foreach ($rawNode['cms_block_names'] as $cmsBlockName) {
             $cmsBlockTransfer = $this->cmsBlockFacade->getCmsBlockByName($cmsBlockName);
-            $this->cmsBlockFacade->linkPageToBlock($pageTransfer->getIdCmsPage(), $cmsBlockTransfer->getIdCmsBlock());
+            $this->cmsBlockFacade->linkPageToBlock($pageTransfer->getIdCmsPage(), $cmsBlockTransfer->getIdCmsBlock(), $position);
+            $position++;
         }
 
         foreach ($rawNode['children'] as $subNode) {

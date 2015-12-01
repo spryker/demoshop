@@ -48,7 +48,21 @@ class AbstractProductCmsBlockWriter implements ProductWriterInterface
         }
         $blockList = array_unique($blockList);
 
-        $this->assignBlocksToProductPages($blockList, $abstractProductTransfer);
+        $predefinedProductPageBlockSetPrefix = [
+            "header_top",
+            "navigation",
+            "product_detail",
+        ];
+        $predefinedProductPageBlockSetSuffix = [
+            "footer_communication",
+            "footer_payment",
+            "footer_newsletter",
+            "footer_navigation"
+        ];
+
+        $finalBlockList = array_merge($predefinedProductPageBlockSetPrefix, $blockList, $predefinedProductPageBlockSetSuffix);
+
+        $this->assignBlocksToProductPages($finalBlockList, $abstractProductTransfer);
     }
 
     protected function extractBlocksFromProductAttributes(array $attributes)
@@ -93,8 +107,7 @@ class AbstractProductCmsBlockWriter implements ProductWriterInterface
                     $position
                 );
                 unset ($existingBlocks[$blockName]);
-            }
-            else {
+            } else {
                 $blockTransfer = $this->cmsBlockFacade->getCmsBlockByName($blockName);
                 $this->cmsBlockFacade->linkPageToBlock(
                     $pageTransfer->getIdCmsPage(),
@@ -104,6 +117,7 @@ class AbstractProductCmsBlockWriter implements ProductWriterInterface
                 unset ($existingBlocks[$blockName]);
             }
         }
+
 
         foreach ($existingBlocks as $blockTransfer) {
             $this->cmsBlockFacade->unlinkPageBlock($pageTransfer->getIdCmsPage(), $blockTransfer->getIdCmsBlock());
