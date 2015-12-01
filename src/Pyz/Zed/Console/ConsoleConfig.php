@@ -56,6 +56,7 @@ class ConsoleConfig extends SprykerConsoleConfig
             $this->getLocator()->mailchimpNewsletter()->consoleSynchronizeConsole(),
             $this->getLocator()->customer()->consoleMagentoCustomerImport(),
             $this->getLocator()->productFeed()->consoleGeneratorConsole(),
+            $this->getLocator()->adyen()->consoleSimulateNotificationConsole()
         ];
 
         $gitCommands = $this->getLocator()->git()->facade()->getConsoleCommands();
