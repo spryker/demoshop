@@ -591,3 +591,7 @@ keys:
     translations:
       de_DE: 'Kundenaccout erstellen'
       en_US: 'Create customer account'
+
+  close:
+    translations:
+        en_US: 'Close'

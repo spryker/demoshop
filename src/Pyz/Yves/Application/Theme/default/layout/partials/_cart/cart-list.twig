@@ -1,0 +1,17 @@
+<div class="cart__labels">
+  <div class="cart__label--name">Deine Bestellung</div>
+  <div class="cart__label--price">Preis</div>
+</div>
+<div class="cart__items js-cart-items">
+    {% for cartItem in cart.items %}
+        {% include "@application/layout/partials/cart/cart-item.twig" with {name:cartItem.sku, quantity:cartItem.quantity, price:cartItem.priceToPay} %}
+    {% endfor %}
+</div>
+<div class="cart__shipping"><!--
+  --><div class="cart__shipping-label" colspan="2">Versand</div><!--
+  --><div class="cart__shipping-price js-cart-shipping">€ 2,50</div><!--
+--></div>
+<div class="cart__total"><!--
+  --><div class="cart__total-label" colspan="2">Gesamt</div><!--
+  --><div class="cart__total-price js-cart-total">€ 53,47</div><!--
+--></div>
