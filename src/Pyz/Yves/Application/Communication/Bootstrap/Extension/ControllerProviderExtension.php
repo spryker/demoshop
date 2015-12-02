@@ -2,7 +2,6 @@
 
 namespace Pyz\Yves\Application\Communication\Bootstrap\Extension;
 
-use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
@@ -28,7 +27,6 @@ class ControllerProviderExtension implements ControllerProviderExtensionInterfac
         $ssl = Config::get(YvesConfig::YVES_SSL_ENABLED);
 
         return [
-            new ApplicationControllerProvider($ssl),
             new CheckoutControllerProvider($ssl),
             new CustomerControllerProvider($ssl),
             new CartControllerProvider($ssl),

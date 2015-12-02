@@ -23,7 +23,6 @@ class BlockPageController extends AbstractController
     public function indexAction(array $pageData, Request $request)
     {
         $edit = $request->get('edit') ? (bool) $request->get('edit') : false;
-
         $parameters = [
             'placeholders' => $pageData['placeholders'],
             'edit' => $edit,

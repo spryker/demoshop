@@ -4,7 +4,7 @@ namespace Pyz\Zed\Cms\Business;
 
 use Generated\Shared\Category\NodeInterface;
 use Generated\Shared\Cms\PageInterface;
-use Generated\Shared\Url\UrlInterface;
+use Generated\Shared\Product\AbstractProductInterface;
 use SprykerEngine\Shared\Kernel\Messenger\MessengerInterface;
 use SprykerFeature\Zed\Cms\Business\CmsFacade as SprykerCmsFacade;
 use SprykerFeature\Zed\ProductCategory\Dependency\Facade\CmsToCategoryInterface;
@@ -28,17 +28,24 @@ class CmsFacade extends SprykerCmsFacade implements CmsToCategoryInterface
      * @return PageInterface
      */
     public function getPageByCategoryNode(NodeInterface $nodeTransfer)  {
-        return $this->getDependencyContainer()->createPageCategoryManager()->getPageByCategoryNode($nodeTransfer);
+        return $this->getDependencyContainer()->getPageManager()->getPageByCategoryNode($nodeTransfer);
     }
 
     /**
-     * @param PageInterface $pageTransfer
-     * @param string $url
-     * @return UrlInterface
+     * @param AbstractProductInterface $abstractProductTransfer
+     * @return PageInterface
      */
-    public function updatePageUrl(PageInterface $pageTransfer, $url)
-    {
-        return $this->getDependencyContainer()->createPageManager()->updatePageUrl($pageTransfer, $url);
+    public function getOrCreatePageByAbstractProduct(AbstractProductInterface $abstractProductTransfer)  {
+        return $this->getDependencyContainer()->getPageManager()->getOrCreatePageByAbstractProduct($abstractProductTransfer);
     }
 
+    /**
+     * @param AbstractProductInterface $abstractProductTransfer
+     * @return PageInterface
+     */
+    public function getPageByAbstractProduct(AbstractProductInterface $abstractProductTransfer)  {
+    {
+        return $this->getDependencyContainer()->getPageManager()->getPageByAbstractProduct($abstractProductTransfer);
+    }
+    }
 }

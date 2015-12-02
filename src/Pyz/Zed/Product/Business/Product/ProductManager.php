@@ -9,6 +9,7 @@ use Generated\Shared\Transfer\AbstractProductTransfer;
 use Generated\Shared\Transfer\ConcreteProductTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
+use Generated\Shared\Transfer\UrlTransfer;
 use Orm\Zed\Locale\Persistence\SpyLocale;
 use Orm\Zed\Product\Persistence\SpyAbstractProduct;
 use Orm\Zed\Product\Persistence\SpyLocalizedAbstractProductAttributes;
@@ -16,12 +17,14 @@ use Orm\Zed\Product\Persistence\SpyLocalizedProductAttributes;
 use Orm\Zed\Product\Persistence\SpyProduct;
 use Propel\Runtime\Collection\Collection;
 use Pyz\SprykerBugfixInterface;
+use Pyz\Zed\Cms\Business\CmsFacade;
 use Pyz\Zed\Locale\Business\LocaleFacade;
 use Pyz\Zed\Product\Persistence\ProductQueryContainer;
 use Pyz\Zed\Product\ProductConfig;
 use Pyz\Zed\Url\Business\UrlFacade;
 use SprykerFeature\Zed\Product\Business\Exception\MissingProductException;
 use SprykerFeature\Zed\Product\Business\Product\ProductManager as SprykerProductManager;
+use SprykerFeature\Zed\Product\Dependency\Facade\ProductToTouchInterface;
 
 
 class ProductManager extends SprykerProductManager implements ProductManagerInterface, SprykerBugfixInterface
@@ -33,6 +36,8 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
     /** @var  UrlFacade $urlFacade */
     protected $urlFacade;
 
+    protected $cmsFacade;
+
     /**
      * @var ProductQueryContainer
      */
@@ -40,6 +45,23 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
 
     const COL_ATTRIBUTES_ABSTRACT_PRODUCT = 'SpyAbstractProduct.Attributes';
 
+    /**
+     * @param ProductQueryContainer $productQueryContainer
+     * @param ProductToTouchInterface $touchFacade
+     * @param UrlFacade $urlFacade
+     * @param LocaleFacade $localeFacade
+     * @param CmsFacade $cmsFacade
+     */
+    public function __construct(
+        ProductQueryContainer $productQueryContainer,
+        ProductToTouchInterface $touchFacade,
+        UrlFacade $urlFacade,
+        LocaleFacade $localeFacade,
+        CmsFacade $cmsFacade
+    ) {
+        parent::__construct($productQueryContainer, $touchFacade, $urlFacade, $localeFacade);
+        $this->cmsFacade = $cmsFacade;
+    }
 
     /**
      * @param $abstractSku
@@ -238,24 +260,41 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
 
             $locale = $this->fillLocaleId($localizedAttribute->getLocale());
 
-            $urlTransfer = $this->urlFacade->getUrlByIdAbstractProductAndIdLocale(
-                $abstractProductTransfer->getIdAbstractProduct(),
-                $locale->getIdLocale()
-            );
 
-            if ($urlTransfer->getIdUrl() && !array_key_exists(ProductConfig::ABSTRACT_URL_ATTRIBUTES_KEY, $attributes)) {
-                $this->urlFacade->deleteUrl($urlTransfer);
-            } else {
+            $pageTransfer = $this->cmsFacade->getOrCreatePageByAbstractProduct($abstractProductTransfer);
 
+            if (!$pageTransfer->getIdCmsPage()) {
+
+                $pageTransfer
+                    ->setFkAbstractProduct($abstractProductTransfer->getIdAbstractProduct())
+                    ->setFkTemplate(1)
+                    ->setIsActive(true)
+                    ;
+
+                $pageTransfer = $this->cmsFacade->savePage($pageTransfer);
+                $this->cmsFacade->touchPageActive($pageTransfer);
+                $urlTransfer = new UrlTransfer();
                 $urlTransfer
                     // need to set the ResourceId here because the value from ->setFkAbstractProduct() is overwritten
                     // in the save url function
-                    ->setResourceType(\SprykerFeature\Shared\Product\ProductConfig::RESOURCE_TYPE_ABSTRACT_PRODUCT)
-                    ->setResourceId($abstractProductTransfer->getIdAbstractProduct())
+                    ->setResourceType(\SprykerFeature\Shared\Cms\CmsConfig::RESOURCE_TYPE_PAGE)
+                    ->setResourceId($pageTransfer->getIdCmsPage())
                     ->setFkLocale($locale->getIdLocale())
                     ->setUrl($attributes[ProductConfig::ABSTRACT_URL_ATTRIBUTES_KEY]);
-                $this->urlFacade->saveUrlAndTouch($urlTransfer);
+
             }
+            else {
+                $urlTransfer = $this->urlFacade->getOrCreateUrlByIdPage($pageTransfer->getIdCmsPage(), $locale->getIdLocale());
+                $urlTransfer
+                    // need to set the ResourceId here because the value from ->setFkAbstractProduct() is overwritten
+                    // in the save url function
+                    ->setResourceType(\SprykerFeature\Shared\Cms\CmsConfig::RESOURCE_TYPE_PAGE)
+                    ->setUrl($attributes[ProductConfig::ABSTRACT_URL_ATTRIBUTES_KEY]);
+            }
+
+            $this->urlFacade->saveUrlAndTouch($urlTransfer);
+
+            // TODO: add deletion of urls and pages if the product does not have locale entry anymore
         }
     }
 

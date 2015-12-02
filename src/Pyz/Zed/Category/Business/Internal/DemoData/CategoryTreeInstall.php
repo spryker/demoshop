@@ -101,6 +101,7 @@ class CategoryTreeInstall extends AbstractInstaller
     protected function getDemoTree()
     {
         $jsonData = file_get_contents(__DIR__ . '/pets-deli-category-tree.json');
+
         return json_decode($jsonData, true);
     }
 
@@ -123,12 +124,9 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function addRootNode(array $rawNode)
     {
-        $idCategory = $this->createCategory($rawNode);
-        $categoryNodeTransfer = new NodeTransfer();
-        $categoryNodeTransfer->setIsRoot(true);
-        $categoryNodeTransfer->setFkCategory($idCategory);
+        $idCategoryNode = $this->createNode($rawNode, null);
 
-        return $this->categoryTreeWriter->createCategoryNode($categoryNodeTransfer, $this->locale, false);
+        return $idCategoryNode;
     }
 
     /**
@@ -137,32 +135,44 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function addChild(array $rawNode, $idParentNode)
     {
+        $idCategoryNode = $this->createNode($rawNode, $idParentNode);
+        foreach ($rawNode['children'] as $subNode) {
+            $this->addChild($subNode, $idCategoryNode);
+        }
+    }
+
+    protected function createNode($rawNode, $idParentNode)
+    {
         $idCategory = $this->createCategory($rawNode);
 
         $categoryNodeTransfer = new NodeTransfer();
-        $categoryNodeTransfer->setIsRoot(false);
+
         $categoryNodeTransfer->setFkCategory($idCategory);
-        $categoryNodeTransfer->setFkParentCategoryNode($idParentNode);
+        if ($idParentNode === null) {
+            $categoryNodeTransfer->setIsRoot(true);
+        } else {
+            $categoryNodeTransfer->setFkParentCategoryNode($idParentNode);
+            $categoryNodeTransfer->setIsRoot(false);
+        }
+
 
         $idCategoryNode = $this->categoryTreeWriter->createCategoryNode($categoryNodeTransfer, $this->locale, true);
         $categoryNodeTransfer->setIdCategoryNode($idCategoryNode);
 
         $pageTransfer = $this->cmsFacade->getPageByCategoryNode($categoryNodeTransfer);
 
-        $urlTransfer = $this->urlFacade->getUrlByIdPage($pageTransfer->getIdCmsPage());
+        // TODO: resolve 46 to correct locale
+        $urlTransfer = $this->urlFacade->getUrlByIdPage($pageTransfer->getIdCmsPage(), 46);
         $urlTransfer->setUrl($rawNode['url']);
         $this->urlFacade->saveUrl($urlTransfer);
 
+        $position = 1;
         foreach ($rawNode['cms_block_names'] as $cmsBlockName) {
             $cmsBlockTransfer = $this->cmsBlockFacade->getCmsBlockByName($cmsBlockName);
-            $this->cmsBlockFacade->linkPageToBlock($pageTransfer->getIdCmsPage(), $cmsBlockTransfer->getIdCmsBlock());
+            $this->cmsBlockFacade->linkPageToBlock($pageTransfer->getIdCmsPage(), $cmsBlockTransfer->getIdCmsBlock(), $position);
+            $position++;
         }
-
-        foreach ($rawNode['children'] as $subNode) {
-            $this->addChild($subNode, $idCategoryNode);
-        }
-
-
+        return $idCategoryNode;
     }
 
     /**

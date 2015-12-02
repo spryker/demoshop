@@ -21,7 +21,7 @@ class ApplicationControllerProvider extends YvesControllerProvider
 
     protected function defineControllers(Application $app)
     {
-        $this->createGetController('/', self::ROUTE_HOME, 'Application', 'Index');
+        $this->createGetController('/', self::ROUTE_HOME, 'CmsBlock', 'Index');
     }
 
 }

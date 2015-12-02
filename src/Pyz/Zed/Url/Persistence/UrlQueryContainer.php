@@ -20,4 +20,18 @@ class UrlQueryContainer extends SprykerQueryContainer implements UrlQueryContain
     }
 
 
+    /**
+     * @param $idPage
+     * @param $idLocale
+     * @return SpyUrlQuery
+     */
+    public function queryUrlByIdPageAndLocale($idPage, $idLocale)
+    {
+        $query = SpyUrlQuery::create();
+        $query
+            ->filterByFkResourcePage($idPage)
+            ->filterByFkLocale($idLocale)
+            ;
+        return $query;
+    }
 }

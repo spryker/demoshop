@@ -6,7 +6,7 @@ use Generated\Shared\Transfer\BlockLocalizedTransfer;
 use Generated\Shared\Transfer\BlockTransfer;
 use PavFeature\Zed\CmsBlock\Business\Writer\CmsBlockWriterInterface;
 use Pyz\Zed\CmsBlock\Dependency\Facade\CmsBlockToLocaleInterface;
-use Pyz\Zed\CmsBlock\Dependency\Facade\CmsBlockToTouchInterface;
+use PavFeature\Zed\CmsBlock\Dependency\Facade\CmsBlockToTouchInterface;
 use Pyz\Zed\CmsBlock\Dependency\Facade\CmsBlockToUrlInterface;
 use SprykerFeature\Shared\Cms\CmsConfig;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
@@ -72,29 +72,9 @@ class CmsBlockInstaller extends AbstractInstaller
      */
     protected function getBlockData()
     {
+        $jsonData = file_get_contents(__DIR__ . '/pets-deli-blocks.json');
 
-        $blockList = [
-            "header_top",
-            "navigation",
-            "faq",
-            "catalog",
-            "why_questions",
-            "footer_communication",
-            "footer_payment",
-            "footer_newsletter",
-            "footer_navigation",
-            "start_page",
-        ];
-        $return = [];
-        foreach ($blockList as $blockName) {
-            $return[] = [
-                self::PAGE_URLS => [],
-                self::NAME => $blockName,
-                self::TEMPLATE_TYPE => $blockName,
-                self::LOCALIZED_VALUES => [],
-            ];
-        }
-        return $return;
+        return json_decode($jsonData, true);
     }
 
     /**

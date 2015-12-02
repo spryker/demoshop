@@ -24,35 +24,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Trockenfleisch Hühnerbrustfilet Hunde 100g",
           "short_description": {
             "markdown": "Luftgetrocknetes PETS DELI Trockenfleisch als gesunder Snack oder kleine Belohnung.\n"
@@ -156,35 +139,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Trockenfleisch Rinderfilet 100g",
           "short_description": {
             "markdown": "Luftgetrocknetes PETS DELI Trockenfleisch als gesunder Snack oder kleine Belohnung.\n"
@@ -288,35 +254,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Trockenfleisch Känguru Hunde 100g",
           "short_description": {
             "markdown": "Luftgetrocknetes PETS DELI Trockenfleisch als gesunder Snack oder kleine Belohnung.\n"
@@ -420,35 +369,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Trockenfleisch Entenbrustfilet Hunde 100g",
           "short_description": {
             "markdown": "Luftgetrocknetes PETS DELI Trockenfleisch als gesunder Snack oder kleine Belohnung.\n"
@@ -552,35 +484,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Lachsöl Hunde 250ml",
           "short_description": {
             "markdown": "Unverzichtbare Nahrungserg\u00e4nzung f\u00fcr Ihr Tier.\n"
@@ -684,35 +599,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Leinöl Hunde 250ml",
           "short_description": {
             "markdown": "PETS DELI Lein\u00f6l. Der Topseller f\u00fcr die Nahrungserg\u00e4nzung.\n"
@@ -816,35 +714,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Mixflocken Hunde 250g",
           "short_description": {
             "markdown": "PETS DELI Supplements f\u00fcr die artgerechte Ern\u00e4hrung.\n"
@@ -948,35 +829,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Reis-Gemüse-Flocken Hunde 250g",
           "short_description": {
             "markdown": "PETS DELI Supplements f\u00fcr eine vollwertige Ern\u00e4hrung.\n"
@@ -1080,35 +944,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Gemüse-Kräuter-Flocken Hunde 250g",
           "short_description": {
             "markdown": "PETS DELI Supplements. Gem\u00fcse und Kr\u00e4uter.\n"
@@ -1212,35 +1059,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies Strauß-Kartoffel 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. Mit Strau\u00dfenfleisch und Kartoffeln.\n"
@@ -1344,35 +1174,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Rote Bete für Hunde 100g",
           "short_description": {
             "markdown": "Rote Beete. Getrocknet. Pure, nat\u00fcrliche Vitamine und Mineralstoffe.\n"
@@ -1476,35 +1289,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies Strauß-Reis 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. Mit Strau\u00dfenfleisch und Reis.\n"
@@ -1608,35 +1404,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies BIO-Mix Hunde 100g",
           "short_description": {
             "markdown": "PETS DELI BIO Cookies. Alle Sorten in einer Packung.\n"
@@ -1740,35 +1519,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies BIO-Spinat 100g",
           "short_description": {
             "markdown": "PETS DELI BIO Cookies. Mit Spinat.\n"
@@ -1872,35 +1634,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies BIO-Tomate 100g",
           "short_description": {
             "markdown": "PETS DELI BIO Cookies. Mit Tomate.\n"
@@ -2004,35 +1749,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies Kraftprotz 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. Der Energielieferant f\u00fcr Hunde.\n"
@@ -2136,35 +1864,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Menübox für Hunde Hühnerbrustfilet",
           "short_description": {
             "markdown": "Fertige Men\u00fcbox mit H\u00fchnerbrustfilet, Obst und Gem\u00fcse."
@@ -2382,35 +2093,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Menübox für Hunde Weißfischfilet",
           "short_description": {
             "markdown": "Fertige Men\u00fcbox mit Wei\u00dffischfilet, Karotten, Banane und Reis."
@@ -2615,7 +2309,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Menübox für Katzen Rinderfilet",
-        "url": "/katzen-nahrung/supplements-fuer-katzen/menubox-rind-katze.html",
+        "url": "/katzen-nahrung/hochwertige-katzenfutter-menues/menubox-rind-katze.html",
         "media": [
           {
             "url": "pets-deli-menübox-für-katzen-rinderfilet-4921159.jpg",
@@ -2628,35 +2322,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Menübox für Katzen Rinderfilet",
           "short_description": {
             "markdown": "Fertige Men\u00fcbox mit Muskelfleisch vom Rind, Brokkoli und Kartoffeln."
@@ -2799,35 +2476,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Menübox für Hunde Känguru",
           "short_description": {
             "markdown": "Fertige Men\u00fcbox mit bestem Fleisch vom K\u00e4nguru, Brokkoli, Karotten und Kartoffeln."
@@ -3045,35 +2705,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Menübox für Hunde Putenbrustfilet",
           "short_description": {
             "markdown": "Fertige Men\u00fcbox mit Putenbrustfilet, p\u00fcrierter Brokkoli, p\u00fcrierte Mango und Reis."
@@ -3278,7 +2921,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Menübox für Katzen Känguru ",
-        "url": "/katzen-nahrung/supplements-fuer-katzen/menubox-kaenguru-katze.html",
+        "url": "/katzen-nahrung/hochwertige-katzenfutter-menues/menubox-kaenguru-katze.html",
         "media": [
           {
             "url": "pets-deli-menübox-für-katzen-känguru--4921160.jpg",
@@ -3291,35 +2934,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Menübox für Katzen Känguru ",
           "short_description": {
             "markdown": "Fertige Men\u00fcbox mit bestem Fleisch vom K\u00e4nguru, Karotten und Kartoffeln."
@@ -3449,7 +3075,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Menübox für Katzen Hühnerbrustfilet ",
-        "url": "/katzen-nahrung/supplements-fuer-katzen/menubox-huhn-katze.html",
+        "url": "/katzen-nahrung/hochwertige-katzenfutter-menues/menubox-huhn-katze.html",
         "media": [
           {
             "url": "pets-deli-menübox-für-katzen-hühnerbrustfilet--4921161.jpg",
@@ -3462,35 +3088,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Menübox für Katzen Hühnerbrustfilet ",
           "short_description": {
             "markdown": "Fertige Men\u00fcbox mit zartem H\u00fchnerbrustfilet, Karotten und Kartoffeln."
@@ -3620,7 +3229,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Menübox für Katzen Putenbrustfilet ",
-        "url": "/katzen-nahrung/supplements-fuer-katzen/menubox-pute-katze.html",
+        "url": "/katzen-nahrung/hochwertige-katzenfutter-menues/menubox-pute-katze.html",
         "media": [
           {
             "url": "pets-deli-menübox-für-katzen-putenbrustfilet--4921162.jpg",
@@ -3633,35 +3242,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Menübox für Katzen Putenbrustfilet ",
           "short_description": {
             "markdown": "Fertige Men\u00fcbox mit zartem Putenbrustfilet, Mango und Reis."
@@ -3804,35 +3396,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies BIO-Huhn 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. Aus BIO H\u00fchnerfleisch."
@@ -3936,35 +3511,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies BIO-Rind 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. Aus BIO Rindfleisch."
@@ -4068,35 +3626,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies Lachs-Käse 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. Mit Lachs und K\u00e4se."
@@ -4200,35 +3741,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies Lachs-Bierhefe 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. Aus BIO Lachs mit Bierhefe."
@@ -4332,35 +3856,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies BIO-Müsliriegel 50g",
           "short_description": {
             "markdown": "PETS DELI Cookies. M\u00fcsliriegel f\u00fcr Hunde.\n"
@@ -4464,35 +3971,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies BIO-Aloe-Vera-Taler Hunde 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. Aloe Vera Taler f\u00fcr Hunde.\n"
@@ -4596,35 +4086,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Menübox für Hunde Hirschfleisch",
           "short_description": {
             "markdown": "Fertige Men\u00fcbox mit hochwertigem Hirschfleisch, p\u00fcrierten \u00c4pfeln, p\u00fcriertem K\u00fcrbis und p\u00fcrierten Kartoffeln."
@@ -4842,35 +4315,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Menübox für Hunde Rinderfilet",
           "short_description": {
             "markdown": "Fertige Men\u00fcbox mit frischem Muskelfleisch vom Rind, p\u00fcriertem Brokkoli, p\u00fcriertem K\u00fcrbis und p\u00fcrierten Kartoffeln."
@@ -5088,35 +4544,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies BIO-Parmesan Hunde 100g",
           "short_description": {
             "markdown": "PETS DELI BIO Cookies. Mit Parmesan.\n"
@@ -5220,35 +4659,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies BIO-Weihnachts-Mix 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. \n"
@@ -5352,35 +4774,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Trockenfleisch Büffelhaut 2 Stück",
           "short_description": {
             "markdown": "Luftgetrocknete PETS DELI B\u00fcffelhaut als Kausnack zur Zahnpflege.\n"
@@ -5484,35 +4889,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Trockenfleisch Hirsch 100g",
           "short_description": {
             "markdown": "Luftgetrocknetes PETS DELI Trockenfleisch als gesunder Snack oder kleine Belohnung.\n"
@@ -5616,35 +5004,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Trockenfleisch Lachshaut 30g",
           "short_description": {
             "markdown": "PETS DELI Lachshautr\u00f6llchen als besondere Belohnung f\u00fcr Ihren Liebling.\n"
@@ -5748,35 +5119,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Trockenfleisch Reh 100g",
           "short_description": {
             "markdown": "Luftgetrocknetes PETS DELI Trockenfleisch als gesunder Snack oder kleine Belohnung.\n"
@@ -5880,35 +5234,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Trockenfleisch Lamm 70g",
           "short_description": {
             "markdown": "Luftgetrocknetes PETS DELI Trockenfleisch als gesunder Snack oder kleine Belohnung.\n"
@@ -6012,35 +5349,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies Lamm-Minis 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. \n"
@@ -6144,35 +5464,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies Wild-Minis 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. \n"
@@ -6276,35 +5579,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies Känguru-Minis 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. \n"
@@ -6408,35 +5694,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Geweihstange klein",
           "short_description": {
             "markdown": "Geweihstangen als langlebiger Kausnack.\n"
@@ -6540,35 +5809,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Geweihstange mittel",
           "short_description": {
             "markdown": "Luftgetrocknetes PETS DELI Trockenfleisch als gesunder Snack oder kleine Belohnung.\n"
@@ -6672,35 +5924,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Geweihstange groß",
           "short_description": {
             "markdown": "Luftgetrocknetes PETS DELI Trockenfleisch als gesunder Snack oder kleine Belohnung.\n"
@@ -6804,35 +6039,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Kauwurzel klein",
           "short_description": {
             "markdown": "Luftgetrocknetes PETS DELI Trockenfleisch als gesunder Snack oder kleine Belohnung."
@@ -6936,35 +6154,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Kauwurzel mittel",
           "short_description": {
             "markdown": "Luftgetrocknetes PETS DELI Trockenfleisch als gesunder Snack oder kleine Belohnung.\n"
@@ -7068,35 +6269,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Kauwurzel groß",
           "short_description": {
             "markdown": "Luftgetrocknetes PETS DELI Trockenfleisch als gesunder Snack oder kleine Belohnung."
@@ -7200,35 +6384,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies Enten-Minis 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. \n"
@@ -7332,35 +6499,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies Straußen-Minis 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. \n"
@@ -7464,35 +6614,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies Lachs-Minis für Katzen 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. \n"
@@ -7596,35 +6729,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Trockenfleisch Wild-Nuggets 70g",
           "short_description": {
             "markdown": "Luftgetrocknetes PETS DELI Trockenfleisch als gesunder Snack oder kleine Belohnung.\n"
@@ -7728,35 +6844,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Trockenfleisch Kaninchen-Nuggets 70g",
           "short_description": {
             "markdown": "Luftgetrocknetes PETS DELI Trockenfleisch als gesunder Snack oder kleine Belohnung.\n"
@@ -7860,35 +6959,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies Lamm-Minis für Katzen 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. \n"
@@ -7992,35 +7074,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies Enten-Minis für Katzen 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. \n"
@@ -8124,35 +7189,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies Wild-Minis für Katzen 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. \n"
@@ -8256,35 +7304,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Früchte-Mix Hunde 250g",
           "short_description": {
             "markdown": "PETS DELI Supplements f\u00fcr die artgerechte Ern\u00e4hrung.\n"
@@ -8375,7 +7406,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Mineral-Mix 100g für Katzen",
-        "url": "/katzen-nahrung/hochwertige-katzenfutter-menues/mineralmix-katzen.html",
+        "url": "/katzen-nahrung/supplements-fuer-katzen/mineralmix-katzen.html",
         "media": [
           {
             "url": "pets-deli-mineral-mix-100g-für-katzen-4924176.jpg",
@@ -8388,35 +7419,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Mineral-Mix 100g für Katzen",
           "short_description": {
             "markdown": "PETS DELI Supplements f\u00fcr die artgerechte Ern\u00e4hrung.\n"
@@ -8520,35 +7534,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Mineral-Mix 200g für Hunde",
           "short_description": {
             "markdown": "PETS DELI Supplements f\u00fcr die artgerechte Ern\u00e4hrung.\n"
@@ -8652,35 +7649,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies BIO-Käsestangen 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. \n"
@@ -8784,35 +7764,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies Fischlein für Katzen 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. \n"
@@ -8916,35 +7879,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies Sternlein für Katzen 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. \n"
@@ -9048,35 +7994,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Trockenfleisch Strauß 100g",
           "short_description": {
             "markdown": "Luftgetrocknetes PETS DELI Trockenfleisch als gesunder Snack oder kleine Belohnung.\n"
@@ -9180,35 +8109,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Trockenfisch Sprotte Hunde 100g",
           "short_description": {
             "markdown": "Luftgetrockneter PETS DELI Trockenfisch als gesunder Snack oder kleine Belohnung.\n"
@@ -9312,35 +8224,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Brustbeinknochen vom Rind 500g",
           "short_description": {
             "markdown": "PETS DELI Brustbeinknochen mit Frischfleisch vom Rind.\n"
@@ -9444,35 +8339,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies Rinder-Minis 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies."
@@ -9576,35 +8454,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies Puten-Minis 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies."
@@ -9695,7 +8556,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Menübox für Katzen Hirschfleisch",
-        "url": "/katzen-nahrung/supplements-fuer-katzen/menubox-hirsch-katze.html",
+        "url": "/katzen-nahrung/hochwertige-katzenfutter-menues/menubox-hirsch-katze.html",
         "media": [
           {
             "url": "pets-deli-menübox-für-katzen-hirschfleisch-4921163.jpg",
@@ -9708,35 +8569,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Menübox für Katzen Hirschfleisch",
           "short_description": {
             "markdown": "Fertige Men\u00fcbox mit zartem Hirschfilet, K\u00fcrbis und Kartoffeln."
@@ -9866,7 +8710,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Menübox für Katzen Weißfischfilet",
-        "url": "/katzen-nahrung/supplements-fuer-katzen/menubox-fisch-katze.html",
+        "url": "/katzen-nahrung/hochwertige-katzenfutter-menues/menubox-fisch-katze.html",
         "media": [
           {
             "url": "pets-deli-menübox-für-katzen-weißfischfilet-4921164.jpg",
@@ -9879,35 +8723,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Menübox für Katzen Weißfischfilet",
           "short_description": {
             "markdown": "Fertige Men\u00fcbox mit zartem Wei\u00dffischfilet, Bananen und Reis."
@@ -10050,35 +8877,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Menübox für Hunde Känguru hypoallergen",
           "short_description": {
             "markdown": "Fertige Men\u00fcbox mit bestem Fleisch vom K\u00e4nguru mit p\u00fcrierten Karotten."
@@ -10224,35 +9034,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Menübox für Hunde Hühnerbrustfilet Diät/Light",
           "short_description": {
             "markdown": "Fertige Men\u00fcbox mit H\u00fchnerbrustfilet mit p\u00fcrierten Karotten."
@@ -10398,35 +9191,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Kräuter-Mix 100g für Hunde",
           "short_description": {
             "markdown": "PETS DELI Supplements"
@@ -10517,7 +9293,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Leinöl Katzen 250ml",
-        "url": "/katzen-nahrung/hochwertige-katzenfutter-menues/leinoel-katzen.html",
+        "url": "/katzen-nahrung/supplements-fuer-katzen/leinoel-katzen.html",
         "media": [
           {
             "url": "pets-deli-leinöl-katzen-250ml-4924177.jpg",
@@ -10530,35 +9306,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Leinöl Katzen 250ml",
           "short_description": {
             "markdown": "PETS DELI Lein\u00f6l. Der Topseller f\u00fcr die Nahrungserg\u00e4nzung.\n"
@@ -10649,7 +9408,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Lachsöl Katzen 250ml",
-        "url": "/katzen-nahrung/hochwertige-katzenfutter-menues/lachsoel-katzen-150.html",
+        "url": "/katzen-nahrung/supplements-fuer-katzen/lachsoel-katzen-150.html",
         "media": [
           {
             "url": "pets-deli-lachsöl-katzen-250ml-4924178.jpg",
@@ -10662,35 +9421,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Lachsöl Katzen 250ml",
           "short_description": {
             "markdown": "Unverzichtbare Nahrungserg\u00e4nzung f\u00fcr Ihr Tier.\n"
@@ -10781,7 +9523,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Mixflocken Katzen 250g",
-        "url": "/katzen-nahrung/hochwertige-katzenfutter-menues/mixflocken-katzen.html",
+        "url": "/katzen-nahrung/supplements-fuer-katzen/mixflocken-katzen.html",
         "media": [
           {
             "url": "pets-deli-mixflocken-katzen-250g-4924179.jpg",
@@ -10794,35 +9536,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Mixflocken Katzen 250g",
           "short_description": {
             "markdown": "PETS DELI Supplements f\u00fcr die artgerechte Ern\u00e4hrung.\n"
@@ -10913,7 +9638,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Reis-Gemüse-Flocken Katzen 250g",
-        "url": "/katzen-nahrung/hochwertige-katzenfutter-menues/reis-gemuese-flocken-katzen.html",
+        "url": "/katzen-nahrung/supplements-fuer-katzen/reis-gemuese-flocken-katzen.html",
         "media": [
           {
             "url": "pets-deli-reis-gemüse-flocken-katzen-250g-4924180.jpg",
@@ -10926,35 +9651,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Reis-Gemüse-Flocken Katzen 250g",
           "short_description": {
             "markdown": "PETS DELI Supplements f\u00fcr eine vollwertige Ern\u00e4hrung.\n"
@@ -11045,7 +9753,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Gemüse-Kräuter-Flocken-Katzen 250g",
-        "url": "/katzen-nahrung/hochwertige-katzenfutter-menues/gemuese-kraeuter-flocken-katzen.html",
+        "url": "/katzen-nahrung/supplements-fuer-katzen/gemuese-kraeuter-flocken-katzen.html",
         "media": [
           {
             "url": "pets-deli-gemüse-kräuter-flocken-katzen-250g-4924181.jpg",
@@ -11058,35 +9766,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Gemüse-Kräuter-Flocken-Katzen 250g",
           "short_description": {
             "markdown": "PETS DELI Supplements. Gem\u00fcse und Kr\u00e4uter.\n"
@@ -11177,7 +9868,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Früchte-Mix Katzen 250g",
-        "url": "/katzen-nahrung/hochwertige-katzenfutter-menues/fruechtemix-katzen.html",
+        "url": "/katzen-nahrung/supplements-fuer-katzen/fruechtemix-katzen.html",
         "media": [
           {
             "url": "pets-deli-früchte-mix-katzen-250g-4924182.jpg",
@@ -11190,35 +9881,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Früchte-Mix Katzen 250g",
           "short_description": {
             "markdown": "PETS DELI Supplements f\u00fcr die artgerechte Ern\u00e4hrung.\n"
@@ -11309,7 +9983,7 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Rote Beete für Katzen 100g",
-        "url": "/katzen-nahrung/hochwertige-katzenfutter-menues/rote-beete-katzen.html",
+        "url": "/katzen-nahrung/supplements-fuer-katzen/rote-beete-katzen.html",
         "media": [
           {
             "url": "pets-deli-rote-beete-für-katzen-100g-4924183.jpg",
@@ -11322,35 +9996,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Rote Beete für Katzen 100g",
           "short_description": {
             "markdown": "Rote Beete. Getrocknet. Pure, nat\u00fcrliche Vitamine und Mineralstoffe.\n"
@@ -11454,35 +10111,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies BIO-Mix Katzen 100g",
           "short_description": {
             "markdown": "PETS DELI BIO Cookies. Alle Sorten in einer Packung.\n"
@@ -11586,35 +10226,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies BIO-Aloe-Vera-Taler Katzen 100g",
           "short_description": {
             "markdown": "PETS DELI Cookies. Aloe Vera Taler f\u00fcr Hunde.\n"
@@ -11718,35 +10341,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Cookies BIO-Parmesan Katzen 100g",
           "short_description": {
             "markdown": "PETS DELI BIO Cookies. Mit Parmesan.\n"
@@ -11850,35 +10456,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Trockenfleisch Entenbrustfilet Katzen 100g",
           "short_description": {
             "markdown": "Luftgetrocknetes PETS DELI Trockenfleisch als gesunder Snack oder kleine Belohnung.\n"
@@ -11982,35 +10571,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Trockenfleisch Hühnerbrustfilet Katzen 100g",
           "short_description": {
             "markdown": "Luftgetrocknetes PETS DELI Trockenfleisch als gesunder Snack oder kleine Belohnung.\n"
@@ -12114,35 +10686,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Trockenfleisch Känguru Katzen 100g",
           "short_description": {
             "markdown": "Luftgetrocknetes PETS DELI Trockenfleisch als gesunder Snack oder kleine Belohnung.\n"
@@ -12246,35 +10801,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Trockenfisch Sprotte Katzen 100g",
           "short_description": {
             "markdown": "Luftgetrockneter PETS DELI Trockenfisch als gesunder Snack oder kleine Belohnung.\n"
@@ -12378,35 +10916,18 @@
           }
         ],
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Kaltgepresstes Trockenfutter für Hunde Huhn 5kg (für einen Monat)",
           "short_description": {
             "markdown": "Schonend kaltgepresstes Trockenfutter in Lebensmittelqualit\u00e4t mit 100% nat\u00fcrlichen Zutaten"
@@ -12499,35 +11020,18 @@
         "name": "PETS DELI Monatsbestellung für kleine Hunde (30 Menüboxen)",
         "url": "/hunde-nahrung/nahrungsergaenzung-fuer-hunde/monatsbestellung-hund-30.html",
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Monatsbestellung für kleine Hunde (30 Menüboxen)",
           "short_description": {
             "markdown": "Individuelle PETS DELI Men\u00fc&#039;s, perfekt angepasst an Ihr Tier."
@@ -12541,7 +11045,7 @@
     "attributes": {
       "ean": "",
       "pet_type": "Hunde",
-      "sku_formatted": "4911-189",
+      "sku_formatted": "4911-188",
       "old_sku": "64286050",
       "recommended_products": [
         "49141361",
@@ -12589,7 +11093,7 @@
           "weight": "7.5",
           "weight_unit": "kg",
           "old_sku": "64286050",
-          "sku_formatted": "4911-189-1"
+          "sku_formatted": "4911-188-1"
         }
       },
       {
@@ -12609,7 +11113,7 @@
           "weight": "15",
           "weight_unit": "kg",
           "old_sku": "64286050",
-          "sku_formatted": "4911-189-2"
+          "sku_formatted": "4911-188-2"
         }
       }
     ],
@@ -12729,35 +11233,18 @@
         "name": "PETS DELI Monatsbestellung für große Hunde (60 Menüboxen)",
         "url": "/hunde-nahrung/nahrungsergaenzung-fuer-hunde/monatsbestellung-hund-60.html",
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Monatsbestellung für große Hunde (60 Menüboxen)",
           "short_description": {
             "markdown": "Individuelle PETS DELI Men\u00fc&#039;s, perfekt angepasst an Ihr Tier."
@@ -12771,7 +11258,7 @@
     "attributes": {
       "ean": "",
       "pet_type": "Hunde",
-      "sku_formatted": "4911-190",
+      "sku_formatted": "4911-189",
       "old_sku": "64287320",
       "recommended_products": [
         "49141361",
@@ -12819,7 +11306,7 @@
           "weight": "15",
           "weight_unit": "kg",
           "old_sku": "64287320",
-          "sku_formatted": "4911-190-1"
+          "sku_formatted": "4911-189-1"
         }
       },
       {
@@ -12839,7 +11326,7 @@
           "weight": "30",
           "weight_unit": "kg",
           "old_sku": "64287320",
-          "sku_formatted": "4911-190-2"
+          "sku_formatted": "4911-189-2"
         }
       }
     ],
@@ -12959,35 +11446,18 @@
         "name": "PETS DELI Starter-Paket für Hunde (10x Menüboxen)",
         "url": "/hunde-nahrung/nahrungsergaenzung-fuer-hunde/starterpaket-hund-163.html",
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Starter-Paket für Hunde (10x Menüboxen)",
           "short_description": {
             "markdown": "Individuelle PETS DELI Men\u00fc&#039;s, perfekt angepasst an Ihr Tier."
@@ -13001,7 +11471,7 @@
     "attributes": {
       "ean": "",
       "pet_type": "Hunde",
-      "sku_formatted": "4911-191",
+      "sku_formatted": "4911-190",
       "old_sku": "58188594",
       "recommended_products": [
         "49141361",
@@ -13049,7 +11519,7 @@
           "weight": "2.5",
           "weight_unit": "kg",
           "old_sku": "58188594",
-          "sku_formatted": "4911-191-1"
+          "sku_formatted": "4911-190-1"
         }
       },
       {
@@ -13069,7 +11539,7 @@
           "weight": "5",
           "weight_unit": "kg",
           "old_sku": "58188594",
-          "sku_formatted": "4911-191-2"
+          "sku_formatted": "4911-190-2"
         }
       }
     ],
@@ -13187,37 +11657,20 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Starter-Paket für Katzen (10x Menüboxen)",
-        "url": "/katzen-nahrung/supplements-fuer-katzen/starterpaket-katze.html",
+        "url": "/katzen-nahrung/hochwertige-katzenfutter-menues/starterpaket-katze.html",
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Starter-Paket für Katzen (10x Menüboxen)",
           "short_description": {
             "markdown": "Individuelle PETS DELI Men\u00fc&#039;s, perfekt angepasst an Ihr Tier.\n\n"
@@ -13231,7 +11684,7 @@
     "attributes": {
       "ean": "",
       "pet_type": "Katzen",
-      "sku_formatted": "4921-192",
+      "sku_formatted": "4921-191",
       "old_sku": "59937927",
       "recommended_products": [
         "49141361",
@@ -13279,7 +11732,7 @@
           "weight": "1.5",
           "weight_unit": "kg",
           "old_sku": "59937927",
-          "sku_formatted": "4921-192-1"
+          "sku_formatted": "4921-191-1"
         }
       }
     ],
@@ -13349,37 +11802,20 @@
       {
         "locale": "de_DE",
         "name": "PETS DELI Monatsbestellung für Katzen (30x Menüboxen)",
-        "url": "/katzen-nahrung/supplements-fuer-katzen/monatsbestellung-katze-30.html",
+        "url": "/katzen-nahrung/hochwertige-katzenfutter-menues/monatsbestellung-katze-30.html",
         "attributes": {
-          "why_pets_deli": "why.pets.deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "Storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": "product_info"
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Monatsbestellung für Katzen (30x Menüboxen)",
           "short_description": {
             "markdown": "Individuelle PETS DELI Men\u00fc&#039;s, perfekt angepasst an Ihr Tier."
@@ -13393,7 +11829,7 @@
     "attributes": {
       "ean": "",
       "pet_type": "Katzen",
-      "sku_formatted": "4921-193",
+      "sku_formatted": "4921-192",
       "old_sku": "64270893",
       "recommended_products": [
         "49141361",
@@ -13441,7 +11877,7 @@
           "weight": "4.5",
           "weight_unit": "kg",
           "old_sku": "64270893",
-          "sku_formatted": "4921-193-1"
+          "sku_formatted": "4921-192-1"
         }
       }
     ],
@@ -13513,35 +11949,18 @@
         "name": "PETS DELI Rundum-Sorglos-Paket für Hunde (für einen Monat)",
         "url": "/hunde-nahrung/hochwertige-hundefutter-menues/rundumsorglospaket-hund.html",
         "attributes": {
-          "why_pets_deli": "why_pets_deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": ""
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Rundum-Sorglos-Paket für Hunde (für einen Monat)",
           "meta_keyword": "",
           "meta_description": "",
@@ -13679,35 +12098,18 @@
         "name": "PETS DELI Rundum-Sorglos-Paket für Katzen (für einen Monat)",
         "url": "/katzen-nahrung/hochwertige-katzenfutter-menues/rundumsorglospaket-katze.html",
         "attributes": {
-          "why_pets_deli": "why_pets_deli",
-          "accordion": {
-            "blocks": [
-              {
-                "key": "shipment",
-                "name": "shippment"
-              },
-              {
-                "key": "storage",
-                "name": "storage"
-              },
-              {
-                "key": "production_quality",
-                "name": "production_quality"
-              },
-              {
-                "key": "feeding_recommendation",
-                "name": "feeding_recommendation"
-              },
-              {
-                "key": "preparation",
-                "name": "preparation"
-              }
-            ],
-            "product_info": {
-              "markdown": "product_info"
-            }
+          "why_pets_deli": {
+            "block": "pdp_why_pets_deli"
           },
-          "delivery_time": "delivery_time",
+          "accordion": {
+            "block": "pdp_default_accordion"
+          },
+          "product_info": {
+            "markdown": ""
+          },
+          "delivery_time": {
+            "glossary": "pdp.delivery.time"
+          },
           "meta_title": "PETS DELI Rundum-Sorglos-Paket für Katzen (für einen Monat)",
           "meta_keyword": "",
           "meta_description": "",

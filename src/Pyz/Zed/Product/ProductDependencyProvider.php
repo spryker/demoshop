@@ -12,6 +12,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
     const FACADE_PRODUCT_DYNAMIC_IMPORTER = 'product dynamic importer';
     const FACADE_CATEGORIES = 'facade categories';
     const FACADE_PRODUCT_DYNAMIC = 'facade product dynamic';
+    const FACADE_CMS = 'facade cms';
 
     /**
      * @param Container $container
@@ -25,6 +26,10 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
 
         $container[self::FACADE_PRODUCT_DYNAMIC_IMPORTER] = function (Container $container) {
             return $container->getLocator()->productDynamicImporter()->facade();
+        };
+
+        $container[self::FACADE_CMS] = function (Container $container) {
+            return $container->getLocator()->cms()->facade();
         };
 
         return $container;
@@ -76,7 +81,6 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
         $container[self::FACADE_PRODUCT_DYNAMIC_IMPORTER] = function (Container $container) {
             return $container->getLocator()->productDynamicImporter()->facade();
         };
-
         return $container;
     }
 

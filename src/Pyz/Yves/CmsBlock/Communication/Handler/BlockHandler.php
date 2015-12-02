@@ -3,7 +3,6 @@
 namespace Pyz\Yves\CmsBlock\Communication\Handler;
 
 use Pyz\Yves\CmsBlock\Dependency\Plugin\BlockControllerInterface;
-use Pyz\Yves\CmsBlock\Communication\Exception\BlockDataProviderMissingException;
 use Symfony\Component\HttpFoundation\Request;
 
 class BlockHandler implements BlockHandlerInterface
@@ -16,6 +15,7 @@ class BlockHandler implements BlockHandlerInterface
     const NAME = 'name';
     const DYNAMIC_DATA = 'dynamicData';
     const CMS_VALUES = 'cmsValues';
+    const ID_PRODUCT = 'id_product';
 
     /**
      * @var BlockControllerInterface[]
@@ -37,7 +37,6 @@ class BlockHandler implements BlockHandlerInterface
      * @param Request $request
      *
      * @return array
-     * @throws BlockDataProviderMissingException
      */
     public function fetchBlocks(array $pageData, Request $request)
     {
@@ -51,20 +50,16 @@ class BlockHandler implements BlockHandlerInterface
         foreach ($pageData[self::BLOCKS] as $block) {
             $templateType = $block[self::TEMPLATE_TYPE];
 
-            if (!array_key_exists($templateType, $this->blockControllers)) {
-                throw new BlockDataProviderMissingException(
-                    sprintf(
-                        'For template-type "%s" is no BlockController registered in CmsBlockSettings.',
-                        $templateType
-                    )
-                );
+            $dynamicData = [];
+            if (array_key_exists($templateType, $this->blockControllers)) {
+                $blockController = $this->blockControllers[$templateType];
+                $dynamicData = $blockController->blockAction($pageAttributes, $request);
             }
 
-            $blockController = $this->blockControllers[$templateType];
             $blockData[] = [
                 self::TEMPLATE => $templateType,
                 self::CMS_VALUES => $block[self::VALUES],
-                self::DYNAMIC_DATA => $blockController->blockAction($pageAttributes, $request)
+                self::DYNAMIC_DATA => $dynamicData,
             ];
         }
 
@@ -79,7 +74,8 @@ class BlockHandler implements BlockHandlerInterface
     protected function extractPageAttributes(array $pageData)
     {
         return [
-            self::ID_CATEGORY_NODE => $pageData[self::ID_CATEGORY_NODE]
+            self::ID_CATEGORY_NODE => $pageData[self::ID_CATEGORY_NODE],
+            self::ID_PRODUCT => $pageData[self::ID_PRODUCT],
         ];
     }
 

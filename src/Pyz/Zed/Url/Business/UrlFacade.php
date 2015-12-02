@@ -22,10 +22,21 @@ class UrlFacade extends SprykerUrlFacade implements
 
     /**
      * @param $idPage
+     * @param $idLocale
      * @return UrlInterface
      */
-    public function getUrlByIdPage($idPage)
+    public function getUrlByIdPage($idPage, $idLocale)
     {
-        return $this->getDependencyContainer()->getUrlManager()->getUrlByIdPage($idPage);
+        return $this->getDependencyContainer()->getUrlManager()->getUrlByIdPage($idPage, $idLocale);
+    }
+
+    /**
+     * @param $idPage
+     * @param $idLocale
+     * @return UrlInterface
+     */
+    public function getOrCreateUrlByIdPage($idPage, $idLocale)
+    {
+        return $this->getDependencyContainer()->getUrlManager()->getOrCreateUrlByIdPage($idPage, $idLocale);
     }
 }

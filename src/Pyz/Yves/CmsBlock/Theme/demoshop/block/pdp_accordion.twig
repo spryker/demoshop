@@ -1,0 +1,18 @@
+<div class="product-accordion js-product-accordion">
+    {% for cmsKey, cmsValue in cmsValues %}
+        {% include '@application/layout/content/product/details/product-accordion-item.twig' with {
+        item: {
+            title: cmsKey,
+            content: cmsValue
+        }
+        } %}
+    {% endfor %}
+
+    {#{% include '@application/layout/content/product/details/product-accordion-item.twig' with {#}
+        {#item: {#}
+            {#title: 'Title',#}
+            {#content: dynamicData.product_attribute#}
+        {#}#}
+    {#} %}#}
+
+</div>

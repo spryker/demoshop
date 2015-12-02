@@ -1,0 +1,92 @@
+[
+  {
+    "name": "header_top",
+    "template_type": "header_top",
+    "localized_values": [],
+    "page_urls": []
+
+  },
+  {
+    "name": "navigation",
+    "template_type": "navigation",
+    "localized_values": [],
+    "page_urls": []
+
+  },
+  {
+    "name": "faq",
+    "template_type": "faq",
+    "localized_values": [],
+    "page_urls": []
+
+  },
+  {
+    "name": "catalog",
+    "template_type": "catalog",
+    "localized_values": [],
+    "page_urls": []
+
+  },
+  {
+    "name": "why_questions",
+    "template_type": "why_questions",
+    "localized_values": [],
+    "page_urls": []
+
+  },
+  {
+    "name": "footer_communication",
+    "template_type": "footer_communication",
+    "localized_values": [],
+    "page_urls": []
+
+  },
+  {
+    "name": "footer_payment",
+    "template_type": "footer_payment",
+    "localized_values": [],
+    "page_urls": []
+
+  },
+  {
+    "name": "footer_newsletter",
+    "template_type": "footer_newsletter",
+    "localized_values": [],
+    "page_urls": []
+
+  },
+  {
+    "name": "footer_navigation",
+    "template_type": "footer_navigation",
+    "localized_values": [],
+    "page_urls": []
+
+  },
+  {
+    "name": "start_page",
+    "template_type": "start_page",
+    "localized_values": [],
+    "page_urls": []
+
+  },
+  {
+    "name": "product_detail",
+    "template_type": "product_detail",
+    "localized_values": [],
+    "page_urls": []
+
+  },
+  {
+    "name": "pdp_why_pets_deli",
+    "template_type": "pdp_why_pets_deli",
+    "localized_values": [],
+    "page_urls": []
+
+  },
+  {
+    "name": "pdp_default_accordion",
+    "template_type": "pdp_accordion",
+    "localized_values": [],
+    "page_urls": []
+  }
+]

@@ -6,7 +6,7 @@
 
 namespace Pyz\Zed\Touch\Business;
 
-use Pyz\Zed\CmsBlock\Dependency\Facade\CmsBlockToTouchInterface;
+use PavFeature\Zed\CmsBlock\Dependency\Facade\CmsBlockToTouchInterface;
 use SprykerFeature\Zed\Category\Dependency\Facade\CategoryToTouchInterface;
 use SprykerFeature\Zed\Price\Dependency\Facade\PriceToTouchInterface;
 use SprykerFeature\Zed\Product\Dependency\Facade\ProductToTouchInterface;
