@@ -25,8 +25,6 @@ $(document).ready(function () {
                 for (let i in Object.keys(results)) {
                     let result = results[i];
 
-                    console.info(result);
-
                     if (result.isSuccess) {
                         messageService.add({ type: 'valid', message: 'Success'});
 

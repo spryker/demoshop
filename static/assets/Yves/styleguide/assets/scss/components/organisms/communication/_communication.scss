@@ -13,14 +13,14 @@
 }
 
 .communication__channels{
-    @include limitWidth;
+    @include limitWidth(500px);
     overflow: hidden;
 }
 
 .communication__channel{
     width: 50%;
     margin: 0 0 50px 0;
-    padding-top: 53px;
+    padding: 53px 10px 0;
     float: left;
     text-align: center;
 
@@ -64,7 +64,12 @@
 }
 
 
-@media (min-width: $_wMedium) {
+@media (min-width: $_wLarge) {
+
+    .communication__channels{
+        @include limitWidth;
+    }
+
     .communication__channel{
         width: 25%;
     }

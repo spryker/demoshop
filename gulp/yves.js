@@ -1,11 +1,7 @@
 'use strict';
 
 var p = require('path');
-var R = require('ramda');
-var is = require('is_js');
-var argv = require('yargs').argv;
 var colors = require('colors');
-var rjs = require('requirejs');
 var stringFormat = require('string-format');
 stringFormat.extend(String.prototype);
 
@@ -72,50 +68,50 @@ var tasks = {
             .pipe(plumber(options.always.plumber))
             .pipe(gulp.dest(publicPath + '/fonts/'));
     },
-    css: function(mode) {
-        return gulp
-            .src(assets.css)
-            .pipe(plumber(options.always.plumber))
-            .pipe(autoprefixer(options.always.autoprefixer))
-            .pipe(sass(options[mode].sassYves))
-            .pipe(rename(options.always.renameYves))
-            .pipe(gulp.dest(publicPath + '/css/'));
-    },
-    js: function(mode) {
-        // TODO: browserify or requriejs
-
-        // rjs.optimize({
-        //     optimize: mode === 'development' ? 'none' : 'uglify2',
-        //     appDir: assetsPath + '/js',
-        //     baseUrl: './',
-        //     dir: publicPath + '/js',
-		// 	modules: [
-		// 		{name: 'schemes/category'},
-		// 		{name: 'schemes/pdp'},
-		// 		//{name: 'schemes/tips'},
-		// 		{name: 'schemes/checkout'},
-		// 		//{name: 'schemes/customer'},
-		// 		//{name: 'schemes/cart'},
-		// 		//{name: 'schemes/wishlist'},
-        //         //{name: 'schemes/home'},
-        //         //{name: 'schemes/cross-selling'}
-		// 	]
-        // });
-
-        var browserified = browserify(assetsPath + '/scripts/main.js')
-            .bundle()
-            .pipe(source('main.js'))
-            .pipe(gulp.dest(publicPath + '/js/'));
-
-        var vendor = gulp.src(assetsPath + '/scripts/vendor/*.js')
-            .pipe(maps.init())
-            .pipe(concat('vendor.js'))
-            .pipe(uglify())
-            .pipe(maps.write('./'))
-            .pipe(gulp.dest(publicPath + '/js/'));
-
-        return mergeStreams(browserified, vendor);
-    }
+    // css: function(mode) {
+    //     return gulp
+    //         .src(assets.css)
+    //         .pipe(plumber(options.always.plumber))
+    //         .pipe(autoprefixer(options.always.autoprefixer))
+    //         .pipe(sass(options[mode].sassYves))
+    //         .pipe(rename(options.always.renameYves))
+    //         .pipe(gulp.dest(publicPath + '/css/'));
+    // },
+    // js: function(mode) {
+    //     // TODO: browserify or requriejs
+    //
+    //     // rjs.optimize({
+    //     //     optimize: mode === 'development' ? 'none' : 'uglify2',
+    //     //     appDir: assetsPath + '/js',
+    //     //     baseUrl: './',
+    //     //     dir: publicPath + '/js',
+	// 	// 	modules: [
+	// 	// 		{name: 'schemes/category'},
+	// 	// 		{name: 'schemes/pdp'},
+	// 	// 		//{name: 'schemes/tips'},
+	// 	// 		{name: 'schemes/checkout'},
+	// 	// 		//{name: 'schemes/customer'},
+	// 	// 		//{name: 'schemes/cart'},
+	// 	// 		//{name: 'schemes/wishlist'},
+    //     //         //{name: 'schemes/home'},
+    //     //         //{name: 'schemes/cross-selling'}
+	// 	// 	]
+    //     // });
+    //
+    //     var browserified = browserify(assetsPath + '/scripts/main.js')
+    //         .bundle()
+    //         .pipe(source('main.js'))
+    //         .pipe(gulp.dest(publicPath + '/js/'));
+    //
+    //     var vendor = gulp.src(assetsPath + '/scripts/vendor/*.js')
+    //         .pipe(maps.init())
+    //         .pipe(concat('vendor.js'))
+    //         .pipe(uglify())
+    //         .pipe(maps.write('./'))
+    //         .pipe(gulp.dest(publicPath + '/js/'));
+    //
+    //     return mergeStreams(browserified, vendor);
+    // }
 };
 
 function build(mode) {
@@ -130,11 +126,11 @@ function build(mode) {
     console.log('[ BUILD  ] copying images...'.green);
     //tasks.images(mode);
 
-    console.log('[ BUILD  ] building scss and copying css...'.green);
-    tasks.css(mode);
+    // console.log('[ BUILD  ] building scss and copying css...'.green);
+    // tasks.css(mode);
 
-    console.log('[ BUILD  ] uglifying js...'.green);
-    tasks.js(mode);
+    // console.log('[ BUILD  ] uglifying js...'.green);
+    // tasks.js(mode);
 }
 
 gulp.task('dist', function() {

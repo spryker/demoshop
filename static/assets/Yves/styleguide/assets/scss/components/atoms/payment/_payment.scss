@@ -27,12 +27,12 @@
     @include limitWidth(700px);
     width: 100%;
     display: table;
+    text-align: center;
 }
 
 .payment__method{
-    display: block !important;
     width: 33.333%;
-    float: left;
+    height: 50px;
 
     vertical-align: middle;
     padding: 0 !important;
@@ -69,7 +69,7 @@
 }
 
 
-@media (min-width: $_wMedium){
+@media (min-width: 700px){
     .payment__method{
         display: table-cell !important;
         width: auto;

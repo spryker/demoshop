@@ -5,14 +5,35 @@
 // Styleguide: organisms.featured-products
 
 .featured-products{
+    overflow: hidden;
+    position: relative;
     padding: 95px 0 85px;
-    background: $_rgbAlabaster;
-    @include sectionShadow;
+    background: #F9F9F9;
+    min-height: 900px;
 }
 
 .featured-products__inner{
     @include pageWidth;
+    position: relative;
+    z-index: 1;
 }
+
+.featured-products__background{
+    position: absolute;
+    top: 50%;
+    width: 50%;
+    max-width: 320px;
+    transform: translate(0, -50%);
+}
+
+.featured-products__background--left{
+    left: 0;
+}
+
+.featured-products__background--right{
+    right: 0
+}
+
 
 .featured-products__intro{
     width: 100%;
@@ -28,11 +49,20 @@
     text-align: center;
 }
 
-.featured-products__description{
-    margin-bottom: 100px;
+.featured-products__facts{
+    margin-bottom: 130px;
+}
 
-    color: $_rgbSilverChalice;
-    text-align: center;
+.featured-products__fact{
+    @include pdif('check', 22px, 44px);
+    margin: 0 22px;
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 30px;
+    color: $_rgbTundora;
+
+    &:before{
+        color: $_rgbApple;
+    }
 }
 
 

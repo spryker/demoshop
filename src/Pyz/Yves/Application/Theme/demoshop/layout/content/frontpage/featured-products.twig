@@ -1,16 +1,28 @@
 {% set data = {
     headline: 'Unsere Starter Packete',
-    description: 'Starten Sie jetzt die gesunde Ernährung Ihres Vierbeiners',
-    image: '/images/product/featured_background.png'
+    facts: [
+        'Für jedes Alter',
+        'Für jede Rasse'
+    ],
+    images: {
+        left: '/images/frontpage/featured-products/dog.jpg',
+        right: '/images/frontpage/featured-products/cat.jpg'
+    }
 } %}
 
 
-<div class="featured-products" style="background-image: url({{ data.image }});
-">
+<div class="featured-products">
+    <img class="featured-products__background featured-products__background--left" src="{{ data.images.left }}">
+    <img class="featured-products__background featured-products__background--right" src="{{ data.images.right }}">
+
     <div class="featured-products__inner">
         <div class="featured-products__intro">
             <h2 class="featured-products__headline">{{ data.headline }}</h2>
-            <p class="featured-products__description">{{ data.description }}</p>
+            <div class="featured-products__facts">
+                {% for fact in data.facts %}
+                    <span class="featured-products__fact">{{ fact }}</span>
+                {% endfor %}
+            </div>
         </div>
         <div class="featured-products__products">
             {% include "@application/layout/content/product/product-card.twig" with {

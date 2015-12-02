@@ -4,6 +4,7 @@ namespace Pyz\Yves\Checkout\Communication\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use PavFeature\Shared\Adyen\AdyenPaymentMethodConstants;
 
 class PaymentDetail extends AbstractType
 {
@@ -70,7 +71,7 @@ class PaymentDetail extends AbstractType
                     'class' => 'input--1-1',
                     'data-required' => true,
                     'data-depending-field' => 'checkout[adyen_payment][payment_method]',
-                    'data-depending-value' => 'adyen.payment.method.sepa.directdebit',
+                    'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_ELECTRONIC_DIRECT_DEBIT,
                     'data-regexp' => '^[0-9]{1,11}$'
                 ]
             ])
@@ -81,7 +82,7 @@ class PaymentDetail extends AbstractType
                     'class' => 'input--1-1',
                     'data-required' => true,
                     'data-depending-field' => 'checkout[adyen_payment][payment_method]',
-                    'data-depending-value' => 'adyen.payment.method.sepa.directdebit',
+                    'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_ELECTRONIC_DIRECT_DEBIT,
                     'data-regexp' => '^[1-9]{1}[0-9]{3,7}$'
 
                 ]
@@ -93,7 +94,7 @@ class PaymentDetail extends AbstractType
                     'class' => 'input--1-1',
                     'data-required' => true,
                     'data-depending-field' => 'checkout[adyen_payment][payment_method]',
-                    'data-depending-value' => 'adyen.payment.method.sepa.directdebit',
+                    'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_ELECTRONIC_DIRECT_DEBIT,
                 ],
             ])
 
@@ -117,7 +118,7 @@ class PaymentDetail extends AbstractType
                     'autocomplete' => 'off',
                     'data-required' => true,
                     'data-depending-field' => 'checkout[adyen_payment][payment_method]',
-                    'data-depending-value' => 'adyen.payment.method.creditcard.cse'
+                    'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE
                 ],
             ])
             ->add('adyen_encrypted_form_number', 'text', [
@@ -131,7 +132,7 @@ class PaymentDetail extends AbstractType
                     'class' => 'input--3-4',
                     'data-required' => true,
                     'data-depending-field' => 'checkout[adyen_payment][payment_method]',
-                    'data-depending-value' => 'adyen.payment.method.creditcard.cse'
+                    'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE
                 ],
             ])
             ->add('adyen_encrypted_form_cvc', 'text', [
@@ -145,7 +146,7 @@ class PaymentDetail extends AbstractType
                     'class' => 'input--1-4',
                     'data-required' => true,
                     'data-depending-field' => 'checkout[adyen_payment][payment_method]',
-                    'data-depending-value' => 'adyen.payment.method.creditcard.cse'
+                    'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE
                 ],
             ])
             ->add('adyen_encrypted_form_holder_name', 'text', [
@@ -159,7 +160,7 @@ class PaymentDetail extends AbstractType
                     'class' => 'input--1-1',
                     'data-required' => true,
                     'data-depending-field' => 'checkout[adyen_payment][payment_method]',
-                    'data-depending-value' => 'adyen.payment.method.creditcard.cse'
+                    'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE
                 ],
             ])
             ->add('adyen_encrypted_form_expiry_month', 'choice', array(
