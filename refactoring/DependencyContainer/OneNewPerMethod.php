@@ -4,11 +4,9 @@ namespace Spryker\Refactor\DependencyContainer;
 
 use SprykerFeature\Zed\Development\Business\Refactor\AbstractRefactor;
 use SprykerFeature\Zed\Development\Business\Refactor\RefactorException;
-use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 use Zend\Code\Generator\ClassGenerator;
-use Zend\Code\Generator\MethodGenerator;
 use Zend\Code\Reflection\ClassReflection;
 
 class OneNewPerMethod extends AbstractRefactor
