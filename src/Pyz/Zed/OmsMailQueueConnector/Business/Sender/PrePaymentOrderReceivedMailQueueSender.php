@@ -59,12 +59,4 @@ class PrePaymentOrderReceivedMailQueueSender extends PavPrePaymentOrderReceivedM
 
         return false;
     }
-
-    /**
-     * @param SpySalesOrder $orderEntity
-     */
-    public function send(SpySalesOrder $orderEntity)
-    {
-        parent::send($orderEntity);
-    }
 }
