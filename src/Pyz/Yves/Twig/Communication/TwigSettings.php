@@ -43,11 +43,9 @@ class TwigSettings
      */
     public function getTwigFunctions()
     {
-        $twigCustomer = $this->getLocator()->customer()->pluginTwigCustomer()
-            ->setCustomerClient($this->getLocator()->customer()->client());
+        $twigCustomer = $this->getLocator()->customer()->pluginTwigCustomer();
 
-        $twigCmsBlock = $this->getLocator()->cms()->pluginTwigCmsBlock()
-            ->setCmsClient($this->getLocator()->cms()->client());
+        $twigCmsBlock = $this->getLocator()->cms()->pluginTwigCmsBlock();
 
         return [
             $this->getLocator()->product()->pluginTwigPrice(),

@@ -9,30 +9,16 @@ use Silex\Application;
 use SprykerEngine\Yves\Kernel\Communication\AbstractPlugin;
 use SprykerFeature\Client\Cms\Service\CmsClientInterface;
 
+/**
+ * @method CmsClientInterface getClient()
+ */
 class TwigCmsBlock extends AbstractPlugin implements TwigFunctionPluginInterface
 {
-
-    /**
-     * @var CmsClientInterface
-     */
-    private $cmsClient;
 
     /**
      * @var string
      */
     private $locale;
-
-    /**
-     * @param CmsClientInterface $cmsClient
-     *
-     * @return self
-     */
-    public function setCmsClient(CmsClientInterface $cmsClient)
-    {
-        $this->cmsClient = $cmsClient;
-
-        return $this;
-    }
 
     /**
      * @param Application $application
@@ -67,7 +53,7 @@ class TwigCmsBlock extends AbstractPlugin implements TwigFunctionPluginInterface
     public function renderCmsBlock(\Twig_Environment $twig, array $context, $blockName, $blockType = null, $blockValue = null)
     {
         $cmsBlockTransfer = $this->createBlockTransfer($blockName, $blockType, $blockValue);
-        $cmsBlockArray = $this->cmsClient->findBlockByName($cmsBlockTransfer);
+        $cmsBlockArray = $this->getClient()->findBlockByName($cmsBlockTransfer);
 
         if ($cmsBlockArray === null) {
             return '';

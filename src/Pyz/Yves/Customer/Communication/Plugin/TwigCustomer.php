@@ -12,25 +12,11 @@ use Silex\Application;
 use SprykerEngine\Yves\Kernel\Communication\AbstractPlugin;
 use Twig_SimpleFunction;
 
+/**
+ * @method CustomerClientInterface getClient()
+ */
 class TwigCustomer extends AbstractPlugin implements TwigFunctionPluginInterface
 {
-
-    /**
-     * @var CustomerClientInterface
-     */
-    private $customerClient;
-
-    /**
-     * @param CustomerClientInterface $customerClient
-     *
-     * @return self
-     */
-    public function setCustomerClient(CustomerClientInterface $customerClient)
-    {
-        $this->customerClient = $customerClient;
-
-        return $this;
-    }
 
     /**
      * @param Application $application
@@ -41,14 +27,14 @@ class TwigCustomer extends AbstractPlugin implements TwigFunctionPluginInterface
     {
         return [
             new Twig_SimpleFunction('getUsername', function () {
-                if (!$this->customerClient->isLoggedIn()) {
+                if (!$this->getClient()->isLoggedIn()) {
                     return null;
                 }
 
-                return $this->customerClient->getCustomer()->getEmail();
+                return $this->getClient()->getCustomer()->getEmail();
             }),
             new Twig_SimpleFunction('isLoggedIn', function () {
-                return $this->customerClient->isLoggedIn();
+                return $this->getClient()->isLoggedIn();
             }),
         ];
     }

@@ -14,25 +14,11 @@ use Symfony\Component\Security\Core\User\User;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
+/**
+ * @method CustomerClientInterface getClient()
+ */
 class UserProvider extends AbstractPlugin implements UserProviderInterface
 {
-
-    /**
-     * @var CustomerClientInterface
-     */
-    private $customerClient;
-
-    /**
-     * @param CustomerClientInterface $customerClient
-     *
-     * @return self
-     */
-    public function setCustomerClient(CustomerClientInterface $customerClient)
-    {
-        $this->customerClient = $customerClient;
-
-        return $this;
-    }
 
     /**
      * @param string $username
@@ -41,13 +27,13 @@ class UserProvider extends AbstractPlugin implements UserProviderInterface
      */
     public function loadUserByUsername($username)
     {
-        if (!$this->customerClient->isLoggedIn()) {
+        if (!$this->getClient()->isLoggedIn()) {
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->setEmail($username);
-            $customerTransfer = $this->customerClient->getCustomerByEmail($customerTransfer);
-            $this->customerClient->setCustomer($customerTransfer);
+            $customerTransfer = $this->getClient()->getCustomerByEmail($customerTransfer);
+            $this->getClient()->setCustomer($customerTransfer);
         } else {
-            $customerTransfer = $this->customerClient->getCustomer();
+            $customerTransfer = $this->getClient()->getCustomer();
         }
 
         return new User(

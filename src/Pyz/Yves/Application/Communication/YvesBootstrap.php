@@ -48,9 +48,9 @@ class YvesBootstrap extends AbstractYvesBootstrap
             new TwigServiceProvider(),
             new ApplicationServiceProvider(),
             new SessionServiceProvider(),
-            $this->getSessionServiceProviderExtension(),
+            $this->createSessionServiceProviderExtension(),
             new SecurityServiceProvider(),
-            $this->getSecurityServiceProviderExtension(),
+            $this->createSecurityServiceProviderExtension(),
             $this->getLocator()->application()->pluginServiceProviderYvesSecurityServiceProvider(),
             $this->getLocator()->application()->pluginServiceProviderExceptionServiceProvider(),
             new YvesLoggingServiceProvider(new EventJournalClient(), new Api()),
@@ -60,7 +60,7 @@ class YvesBootstrap extends AbstractYvesBootstrap
             new ServiceControllerServiceProvider(),
             new RememberMeServiceProvider(),
             new RoutingServiceProvider(),
-            $this->getTranslationServiceProvider(),
+            $this->createTranslationServiceProvider(),
             new ValidatorServiceProvider(),
             new FormServiceProvider(),
             new HttpFragmentServiceProvider(),
@@ -105,21 +105,17 @@ class YvesBootstrap extends AbstractYvesBootstrap
     /**
      * @return SessionServiceProvider
      */
-    private function getSessionServiceProviderExtension()
+    private function createSessionServiceProviderExtension()
     {
-        $sessionServiceProvider = $this->getLocator()->session()->pluginServiceProviderSessionServiceProvider();
-        $sessionServiceProvider->setClient($this->getLocator()->session()->client());
-
-        return $sessionServiceProvider;
+        return $this->getLocator()->session()->pluginServiceProviderSessionServiceProvider();
     }
 
     /**
      * @return SecurityServiceProvider
      */
-    private function getSecurityServiceProviderExtension()
+    private function createSecurityServiceProviderExtension()
     {
-        $userProvider = $this->getLocator()->customer()->pluginUserProvider()
-            ->setCustomerClient($this->getLocator()->customer()->client());
+        $userProvider = $this->getLocator()->customer()->pluginUserProvider();
 
         $securityServiceProvider = $this->getLocator()->customer()->pluginServiceProviderSecurityServiceProvider();
         $securityServiceProvider->setUserProvider($userProvider);
@@ -130,11 +126,9 @@ class YvesBootstrap extends AbstractYvesBootstrap
     /**
      * @return TranslationServiceProvider
      */
-    private function getTranslationServiceProvider()
+    private function createTranslationServiceProvider()
     {
-        return $this->getLocator()->glossary()
-            ->pluginServiceProviderTranslationServiceProvider()
-            ->setGlossaryClient($this->getLocator()->glossary()->client());
+        return $this->getLocator()->glossary()->pluginServiceProviderTranslationServiceProvider();
     }
 
     /**
