@@ -1,66 +1,72 @@
 {% spaceless %}
+    {% set content %}{% block content %}{% endblock %}{% endset %}
+    {% set meta_title = hasGlobalValue('meta_title') ? getGlobalValue('meta_title') : 'Hundefutter und Katzenfutter online kaufen | PETS DELI' %}
+    {% set meta_description = hasGlobalValue('meta_description') ? getGlobalValue('meta_description') : 'Hundefutter und Katzenfutter hier online bestellen bei PETS DELI. Frisch ✓ Lebensmittelqualität ✓ Ohne Zusätze ✓ Fertig zubereitet ✓ Tierärztlich Empfohlen ✓' %}
+    {% set meta_keywords = hasGlobalValue('meta_keywords') ? getGlobalValue('meta_keywords') : '' %}
+
     <!DOCTYPE html>
     <html lang="de">
-        <head>
-            <meta charset="utf-8" />
-            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-            <meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=no">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=no">
 
-            <title>{% block meta_title %}Hundefutter und Katzenfutter online kaufen | PETS DELI{% endblock %}</title>
-            <meta name="description" content="{% block meta_description %}Hundefutter und Katzenfutter hier online bestellen bei PETS DELI. Frisch ✓ Lebensmittelqualität ✓ Ohne Zusätze ✓ Fertig zubereitet ✓ Tierärztlich Empfohlen ✓{% endblock %}">
-            <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+        <title>{{ meta_title }}</title>
+        <meta name="description" content="{{ meta_description }}">
+        <meta name="keywords" content="{{ meta_keywords }}">
 
-            <link rel="shortcut icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="/images/favicon/favicon.ico" type="image/x-icon">
 
-            <link rel="stylesheet" href="/css/styleguide.css" />
+        <link rel="stylesheet" href="/css/styleguide.css"/>
 
-            {% include "@application/layout/partials/tracking-base.twig" %}
-            {% include "@application/layout/partials/tracking.twig" %}
-        </head>
+        {% include "@application/layout/partials/tracking-base.twig" %}
+        {% include "@application/layout/partials/tracking.twig" %}
+    </head>
 
-        <body class="no-js">
-            <noscript>
-                <div class="messages">
-                    <div class="message message--invalid">
-                        {{ 'notification.js.required' | trans }}
-                    </div>
-                </div>
-            </noscript>
+    <body class="no-js">
+    <noscript>
+        <div class="messages">
+            <div class="message message--invalid">
+                {{ 'notification.js.required' | trans }}
+            </div>
+        </div>
+    </noscript>
 
-            <script type="text/javascript">
-                // TODO: move to partial file
-                window.translator = new (function () {
-                    var store = {};
+    <script type="text/javascript">
+        // TODO: move to partial file
+        window.translator = new (function () {
+            var store = {};
 
-                    this.addTranslation = function (key, translation) {
-                        store[key] = translation;
-                    };
+            this.addTranslation = function (key, translation) {
+                store[key] = translation;
+            };
 
-                    this.getTranslation = function (key, strict) {
-                        if (!!store[key]) {
-                            return store[key];
-                        } else {
-                            return strict ? false : key;
-                        }
-                    };
-                })();
-            </script>
+            this.getTranslation = function (key, strict) {
+                if (!!store[key]) {
+                    return store[key];
+                } else {
+                    return strict ? false : key;
+                }
+            };
+        })();
+    </script>
 
-        {#
-            {% block header %}
-                {% include "@application/layout/partials/header.twig" %}
-            {% endblock %}
+    {#
+        {% block header %}
+            {% include "@application/layout/partials/header.twig" %}
+        {% endblock %}
 #}
-            {% block content %}{% endblock %}
-{#
-            {% block footer %}
-                {% include "@application/layout/partials/footer.twig" %}
-            {% endblock %}
-#}
-            <script src="/js/sg-main.js"></script>
-            <script type="text/javascript">
-                document.body.className = '';
-            </script>
-        </body>
+    {{ content }}
+
+    {#
+                {% block footer %}
+                    {% include "@application/layout/partials/footer.twig" %}
+                {% endblock %}
+    #}
+    <script src="/js/sg-main.js"></script>
+    <script type="text/javascript">
+        document.body.className = '';
+    </script>
+    </body>
     </html>
 {% endspaceless %}

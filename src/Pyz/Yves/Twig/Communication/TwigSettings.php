@@ -49,6 +49,7 @@ class TwigSettings
 
         return [
             $this->getLocator()->price()->pluginTwigPrice(),
+            $this->getLocator()->cms()->pluginTwigGlobalKeyValue(),
             $this->getLocator()->cms()->pluginTwigCms(),
             $twigCustomer,
             $this->getLocator()->assets()->pluginTwigAsset()
