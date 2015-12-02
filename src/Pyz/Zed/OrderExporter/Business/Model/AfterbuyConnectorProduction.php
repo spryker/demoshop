@@ -38,9 +38,9 @@ class AfterbuyConnectorProduction extends  AbstractAfterbuyConnector
     /**
      * @param $postVariables
      * @param array $orderItems
-     * @param int$orderId
+     * @param int $idOrder
      */
-    public function sendToAfterbuy($postVariables, array $orderItems, $orderId)
+    public function sendToAfterbuy($postVariables, array $orderItems, $idOrder)
     {
         $afterbuyTransfer = new AfterbuyExportTransfer();
         $connection = curl_init();
@@ -60,7 +60,7 @@ class AfterbuyConnectorProduction extends  AbstractAfterbuyConnector
         $afterbuyTransfer->setRequest($postVariables);
         $orderItemTransfers = $this->createOrderItemsTransfer($orderItems);
         $afterbuyTransfer->setOrderItems($orderItemTransfers);
-        $afterbuyTransfer->setOrderId($orderId);
+        $afterbuyTransfer->setOrderId($idOrder);
 
         $this->afterbuyResponseWriter->saveAfterbuyResponse($afterbuyTransfer, $sendingResponse);
     }

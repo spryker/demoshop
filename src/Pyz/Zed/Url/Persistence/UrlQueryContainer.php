@@ -4,12 +4,13 @@ namespace Pyz\Zed\Url\Persistence;
 
 use Orm\Zed\Url\Persistence\SpyUrlQuery;
 use SprykerFeature\Zed\Url\Persistence\UrlQueryContainer as SprykerQueryContainer;
+use Orm\Zed\Url\Persistence\Base\SpyUrl;
 
 class UrlQueryContainer extends SprykerQueryContainer implements UrlQueryContainerInterface
 {
 
     /**
-     * @param $idPage
+     * @param int $idPage
      * @return SpyUrlQuery
      */
     public function queryUrlByIdPage($idPage)
@@ -19,6 +20,19 @@ class UrlQueryContainer extends SprykerQueryContainer implements UrlQueryContain
         return $query;
     }
 
+    /**
+     * @param int $abstractProductId
+     * @param int $idLocale
+     * @return SpyUrl
+     */
+    public function queryUrlByAbstractProductId($abstractProductId, $idLocale)
+    {
+        return SpyUrlQuery::create()
+            ->useCmsPageQuery()
+                ->filterByFkAbstractProduct($abstractProductId)
+            ->endUse()
+            ->filterByFkLocale($idLocale);
+    }
 
     /**
      * @param $idPage
@@ -34,4 +48,5 @@ class UrlQueryContainer extends SprykerQueryContainer implements UrlQueryContain
             ;
         return $query;
     }
+
 }

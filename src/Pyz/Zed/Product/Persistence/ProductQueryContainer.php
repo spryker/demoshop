@@ -38,6 +38,16 @@ class ProductQueryContainer extends SprykerProductQueryContainer implements Spry
     }
 
     /**
+     * @param string $concreteSku
+     * @return SpyProductQuery
+     */
+    public function queryConcreteProductByConcreteSku($concreteSku)
+    {
+        return SpyProductQuery::create()
+            ->filterBySku($concreteSku);
+    }
+
+    /**
      * @param int $idBundleProduct
      * @param int $idBundledProduct
      * @return SpyProductToBundleQuery
@@ -75,4 +85,5 @@ class ProductQueryContainer extends SprykerProductQueryContainer implements Spry
             ->addAnd(SpyProductTableMap::COL_FK_ABSTRACT_PRODUCT, $idAbstractProduct, Criteria::EQUAL)
             ;
     }
+
 }

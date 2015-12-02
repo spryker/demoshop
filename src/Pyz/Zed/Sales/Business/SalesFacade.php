@@ -2,37 +2,98 @@
 
 namespace Pyz\Zed\Sales\Business;
 
-use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToSalesInterface;
+use Generated\Shared\Sales\ItemInterface;
+use Generated\Shared\Sales\OrderInterface;
+use Generated\Shared\Sales\SalesDiscountCodeInterface;
+use Generated\Shared\Sales\SalesDiscountInterface;
+use Generated\Shared\Sales\SalesItemConfigurationInterface;
+use Generated\Shared\Sales\SalesOrderItemInterface;
+use Orm\Zed\Sales\Persistence\Base\SpySalesOrder;
+use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToSalesFacade;
 use SprykerFeature\Zed\Sales\Business\SalesFacade as SprykerSalesFacade;
 use SprykerFeature\Zed\SalesCheckoutConnector\Dependency\Facade\SalesCheckoutConnectorToSalesInterface as SpySalesCheckoutConnectorToSalesInterface;
 use Pyz\Zed\SalesCheckoutConnector\Dependency\Facade\SalesCheckoutConnectorToSalesInterface;
-use Orm\Zed\Sales\Persistence\Base\SpySalesOrderItem;
 
 /**
  * @method SalesDependencyContainer getDependencyContainer()
  */
-class SalesFacade extends SprykerSalesFacade implements SpySalesCheckoutConnectorToSalesInterface, OrderExporterToSalesInterface, SalesCheckoutConnectorToSalesInterface
+class SalesFacade extends SprykerSalesFacade implements SpySalesCheckoutConnectorToSalesInterface, OrderExporterToSalesFacade, SalesCheckoutConnectorToSalesInterface
 {
     /**
-     * @param int $orderItemId
-     * @return SpySalesOrderItem
+     * @param int $idOrderItem
+     * @return ItemInterface
      */
-    public function getOrderItemById($orderItemId)
+    public function getOrderItemById($idOrderItem)
     {
         return $this->getDependencyContainer()
             ->createSalesManager()
-            ->getOrderItemById($orderItemId);
+            ->getOrderItemById($idOrderItem);
     }
 
     /**
-     * @param $salesOrderId
-     * @return \Orm\Zed\Sales\Persistence\SpySalesOrder
+     * @param int $idSalesOrder
+     * @return SpySalesOrder
      */
-    public function getSalesOrderById($salesOrderId)
+    public function getSalesOrderEntityById($idSalesOrder)
     {
         return $this->getDependencyContainer()
             ->createSalesManager()
-            ->getOrderDetailsBySalesId($salesOrderId);
+            ->getSalesOrderEntityById($idSalesOrder);
+    }
+
+    /**
+     * @param int $idSalesOrder
+     * @return OrderInterface
+     */
+    public function getSalesOrderById($idSalesOrder)
+    {
+        return $this->getDependencyContainer()
+            ->createSalesManager()
+            ->getOrderDetailsBySalesId($idSalesOrder);
+    }
+
+    /**
+     * @param int $idSalesOrder
+     * @return SalesDiscountInterface[]
+     */
+    public function getSalesDiscountsByOrderId($idSalesOrder)
+    {
+        return $this->getDependencyContainer()
+            ->createSalesManager()
+            ->getSalesDiscountsByOrderId($idSalesOrder);
+    }
+
+    /**
+     * @param int $idSalesOrderItem
+     * @return SalesItemConfigurationInterface[]
+     */
+    public function getSalesOrderItemConfigurationByItemId($idSalesOrderItem)
+    {
+        return $this->getDependencyContainer()
+            ->createSalesManager()
+            ->getSalesOrderItemConfigurationByItemId($idSalesOrderItem);
+    }
+
+    /**
+     * @param int $idSalesDiscount
+     * @return SalesDiscountCodeInterface
+     */
+    public function getSalesDiscountCodeBySalesDiscountId($idSalesDiscount)
+    {
+        return $this->getDependencyContainer()
+            ->createSalesManager()
+            ->getSalesDiscountCodeBySalesDiscountId($idSalesDiscount);
+    }
+
+    /**
+     * @param int $idSalesDiscount
+     * @return bool
+     */
+    public function hasDiscountCodeByDiscountId($idSalesDiscount)
+    {
+        return $this->getDependencyContainer()
+            ->createSalesManager()
+            ->hasDiscountCodeByDiscountId($idSalesDiscount);
     }
 
 }

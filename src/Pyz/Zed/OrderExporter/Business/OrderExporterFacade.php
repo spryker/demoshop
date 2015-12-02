@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\OrderExporter\Business;
 
+use Generated\Shared\Sales\ItemInterface;
 use SprykerEngine\Zed\Kernel\Business\AbstractFacade;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -15,7 +16,7 @@ use Orm\Zed\OrderExporter\Persistence\PdSalesOrderItemAfterbuyExport;
 class OrderExporterFacade extends AbstractFacade
 {
     /**
-     * @param $salesOrderId
+     * @param int $salesOrderId
      * @return SpySalesOrder
      */
     public function getSalesOrderById($salesOrderId)
@@ -26,7 +27,7 @@ class OrderExporterFacade extends AbstractFacade
     }
 
     /**
-     * @param SpySalesOrder[] $orderItems
+     * @param ItemInterface[] $orderItems
      */
     public function exportOrderItems(array $orderItems)
     {
@@ -40,7 +41,7 @@ class OrderExporterFacade extends AbstractFacade
     }
 
     /**
-     * @param $orderItemId
+     * @param int $orderItemId
      * @return SpySalesOrderItem
      */
     public function getOrderItemById($orderItemId)
@@ -51,7 +52,7 @@ class OrderExporterFacade extends AbstractFacade
     }
 
     /**
-     * @param array $orderItems
+     * @param ItemInterface[] $orderItems
      * @return int|null
      * @throws \Exception
      */
@@ -74,7 +75,7 @@ class OrderExporterFacade extends AbstractFacade
     }
 
     /**
-     * @param $salesOrderItemId
+     * @param int $salesOrderItemId
      * @return PdSalesOrderItemAfterbuyExport
      */
     public function findOrderItemAfterbuyExportByItemId($salesOrderItemId)

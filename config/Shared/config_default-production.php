@@ -29,3 +29,8 @@ $config[YvesConfig::YVES_SSL_ENABLED]
     = $config[YvesConfig::YVES_COMPLETE_SSL_ENABLED]
     = true;
 
+
+$config[AfterbuyExportConstantInterface::AFTERBUY_EMAILS] = [
+    'ds@petsdeli.de',
+    'raed.marji@project-a.com'
+];

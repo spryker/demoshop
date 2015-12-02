@@ -5,7 +5,9 @@ namespace Pyz\Zed\Product\Business;
 use Generated\Shared\Product\AbstractProductInterface;
 use Generated\Shared\Product\ConcreteProductInterface;
 use Generated\Shared\Product\ProductToBundleRelationInterface;
+use Orm\Zed\Product\Persistence\SpyProduct;
 use Pyz\SprykerBugfixInterface;
+use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToProductFacade;
 use Pyz\Zed\Product\Business\Attribute\MediaAttributes;
 use SprykerFeature\Zed\Product\Business\ProductFacade as SprykerProductFacade;
 use SprykerFeature\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface;
@@ -27,7 +29,8 @@ class ProductFacade extends SprykerProductFacade implements
     TaxProductConnectorToProductInterface,
     ProductOptionToProductInterface,
     ProductOptionExporterToProductInterface,
-    SprykerBugfixInterface
+    SprykerBugfixInterface,
+    OrderExporterToProductFacade
 {
 
     /**
@@ -148,7 +151,20 @@ class ProductFacade extends SprykerProductFacade implements
        return $this->getDependencyContainer()->createProductBundleManager()->getAssignedBundledProducts($bundleProduct);
     }
 
+    /**
+     * @param int $idAbstractProduct
+     * @return bool
+     */
     public function deleteBundleProductsByAbstractProductId($idAbstractProduct) {
         return $this->getDependencyContainer()->createProductBundleManager()->deleteBundleProductsByAbstractProductId($idAbstractProduct);
+    }
+
+    /**
+     * @param string $concreteSku
+     * @return ConcreteProductInterface
+     */
+    public function getConcreteProductByConcreteSku($concreteSku)
+    {
+        return $this->getDependencyContainer()->createProductManager()->getConcreteProductByConcreteSku($concreteSku);
     }
 }

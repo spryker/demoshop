@@ -8,8 +8,8 @@ interface SalesCheckoutConnectorToSalesInterface
 {
 
     /**
-     * @param $salesOrderId
+     * @param int $salesOrderId
      * @return SpySalesOrder
      */
-    public function getSalesOrderById($salesOrderId);
+    public function getSalesOrderEntityById($salesOrderId);
 }

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<transfers xmlns="http://xsd.spryker.com"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://xsd.spryker.com ../../src/Spryker/TransferObjectDefinitionSchema.xsd">
+
+    <transfer name="SalesOrderItem">
+        <property name="orderItemId" type="int" />
+        <property name="salesItemConfiguration" type="SalesItemConfiguration[]" />
+    </transfer>
+
+    <transfer name="SalesItemConfiguration">
+        <property name="idSalesOrderItemConfiguration" type="int" />
+        <property name="fkOrderItem" type="int" />
+        <property name="groupKey" type="string" />
+        <property name="groupKeyLocalized" type="string" />
+        <property name="groupValue" type="string" />
+        <property name="groupValueLocalized" type="string" />
+    </transfer>
+
+    <transfer name="SalesDiscount">
+        <property name="idSalesDiscount" type="int" />
+        <property name="fkSalesOrder" type="int" />
+        <property name="fkSalesOrderItem" type="int" />
+        <property name="description" type="string" />
+        <property name="displayName" type="string" />
+        <property name="amount" type="float" />
+    </transfer>
+
+    <transfer name="SalesDiscountCode">
+        <property name="idSalesDiscountCode" type="int" />
+        <property name="fkSalesDiscount" type="int" />
+        <property name="code" type="string" />
+    </transfer>
+
+    <transfer name="Address">
+        <property name="country" type="Country" />
+    </transfer>
+
+    <transfer name="Order">
+        <property name="shipmentMethod" type="ShipmentMethod" />
+    </transfer>
+
+    <transfer name="Item">
+        <property name="taxPercentage" type="float"/>
+    </transfer>
+
+</transfers>
+

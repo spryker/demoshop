@@ -4,6 +4,7 @@ namespace Pyz\Zed\OrderExporter;
 
 use Pyz\Shared\OrderExporter\AfterbuyExportConstantInterface;
 use SprykerEngine\Zed\Kernel\AbstractBundleConfig;
+use SprykerFeature\Shared\System\SystemConfig;
 
 class OrderExporterConfig extends AbstractBundleConfig
 {
@@ -61,5 +62,13 @@ class OrderExporterConfig extends AbstractBundleConfig
     public function getAfterbuyConnectionTimeout()
     {
         return $this->get(AfterbuyExportConstantInterface::AFTERBUY_CONNECTION_TIMEOUT);
+    }
+
+    /**
+     * @return string
+     */
+    public function getYvesHost()
+    {
+        return $this->get(SystemConfig::HOST_YVES);
     }
 }

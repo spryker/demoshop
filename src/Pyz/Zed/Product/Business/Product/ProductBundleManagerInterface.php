@@ -37,4 +37,5 @@ interface ProductBundleManagerInterface
      * @return bool
      */
     public function deleteBundleProductsByAbstractProductId($idAbstractProduct);
+
 }
