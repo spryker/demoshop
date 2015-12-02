@@ -303,9 +303,9 @@
         <price>499</price>
         <tax>0.19</tax>
         <category>Wilde Tiere</category>
-        <height>V</height>
-        <width>V</width>
-        <depth>V</depth>
+        <height></height>
+        <width></width>
+        <depth></depth>
         <name>Riesenschildkröte</name>
         <locales>
             <locale id="de_DE">
@@ -369,9 +369,9 @@
         <price>679</price>
         <tax>0.19</tax>
         <category>Wilde Tiere</category>
-        <height>V</height>
-        <width>V</width>
-        <depth>V</depth>
+        <height></height>
+        <width></width>
+        <depth></depth>
         <name>Gorilla Männchen</name>
         <locales>
             <locale id="de_DE">
@@ -379,10 +379,10 @@
                 <image>2015_72_RGB_14661.jpg</image>
                 <main_color>green</main_color>
                 <other_colors>blau, schwarz</other_colors>
-                <description>V</description>
-                <description_long>V</description_long>
-                <fun_fact>V</fun_fact>
-                <scientific_name>V</scientific_name>
+                <description></description>
+                <description_long></description_long>
+                <fun_fact></fun_fact>
+                <scientific_name></scientific_name>
             </locale>
             <locale id="en_US">
                 <name>Gorilla male</name>
@@ -415,7 +415,7 @@
                 <description></description>
                 <description_long></description_long>
                 <fun_fact></fun_fact>
-                <scientific_name>V</scientific_name>
+                <scientific_name></scientific_name>
             </locale>
             <locale id="en_US">
                 <name>Gorilla female with baby</name>
