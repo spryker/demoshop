@@ -1,17 +1,41 @@
 #!/bin/bash
 #
+# *** Pets-Deli deployment
+#
 # check_configuration
 # This script is executed on all hosts after unpacking release tarball.
 # It should return 0 if configuration is OK, 1 if there are any problems found.
 #
 #
 
-FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
-outfile="/tmp/deploy-${deploy_outfile_prefix}-check-configuration"
-`touch $outfile`
+#Exit if a command exits with a non-zero status
+set -e
 
-# noop
+#Exit if an uninitialised variable is used
+set -o nounset
 
+FILEPATH=`pwd`/$0
+BASEDIR=`dirname $FILEPATH`
+source "$BASEDIR/vars"
+source "$BASEDIR/functions"
+outfile=`mktemp /tmp/deploy-XXXXXX`
 
-rm -f $outfile
-exit $return
+### Checks for non store-specific items
+# Check for config files
+if is_default_store; then
+  # Check for config files
+  if [ ! -f $shared_dir/config_local.php ]; then
+    echo "ERROR: config_local.php not found"
+    exit 1
+  fi
+fi
+
+### Checks for store-specific items
+# Check for config files
+if [ ! -f $shared_dir/config_local_${APPLICATION_STORE}.php ]; then
+  echo "ERROR: config_local_${APPLICATION_STORE}.php not found"
+  exit 1
+fi
+
+rm -f "$outfile"
+exit 0

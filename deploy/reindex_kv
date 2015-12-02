@@ -1,0 +1,38 @@
+#!/bin/bash
+#
+# *** Pets-Deli deployment
+#
+# reindex_kv
+# This script is executed only if deployer chooeses to, on all hosts, after unpacking release tarball, after the maintenance time.
+#
+#
+
+#Exit if a command exits with a non-zero status
+set -e
+
+#Exit if an uninitialised variable is used
+set -o nounset
+
+FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars
+outfile=`mktemp /tmp/deploy-XXXXXX`
+
+cd "$destination_release_dir"
+
+# flush the CACHE instance of redis (it's the default one on port 6379)
+if [ "${environment}" == "production" ]; then
+    #echo "NOT DEFINED FOR PRODUCTION YET"
+    #exit 1
+    # TODO: replace the hardcoded redis host
+    echo "FLUSHDB" | redis-cli -h pd-cache-prod.tcy8g5.ng.0001.euc1.cache.amazonaws.com
+elif [ "${environment}" == "staging" ]; then
+    echo "FLUSHDB" | redis-cli -p 13009
+else
+    echo "FLUSHDB" | redis-cli
+fi
+
+
+vendor/bin/console collector:storage:export
+
+
+rm -f "$outfile"
+exit 0

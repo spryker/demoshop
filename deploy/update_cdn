@@ -1,19 +1,35 @@
 #!/bin/bash
 #
+# *** Pets-Deli deployment
+#
 # update_cdn
 
-FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR/functions
-outfile="/tmp/deploy-${deploy_outfile_prefix}-update-cdn"
-`touch $outfile`
+#Exit if a command exits with a non-zero status
+set -e
 
-export APPLICATION_ENV=$environment
+#Exit if an uninitialised variable is used
+set -o nounset
 
-cd $BASEDIR
-cd ../
-vendor/bin/pav-console collector:search:export
-vendor/bin/pav-console collector:storage:export
+FILEPATH=`pwd`/$0
+BASEDIR=`dirname $FILEPATH`
+source "$BASEDIR/vars"
+source "$BASEDIR/functions"
+outfile=`mktemp /tmp/deploy-XXXXXX`
 
+### Copy assets to CDN
+cd "$destination_release_dir"
 
+echo "Distributing assets to CDN - if configured"
+#APPLICATION_ENV=$environment php -d "newrelic.appname='Deploy($environment)'" vendor/bin/console cloud:publish-files -e $environment -s ${APPLICATION_STORE} &> $outfile
+echo "...manually disabled in file ${0}..."
+return=$?
 
-rm -rf $outfile
+echo "CDN output saved in $outfile"
+
+if [ $return -ne 0 ]; then
+  echo "CDN returned error!"
+  cat "$outfile"
+  exit $return
+fi
+
 exit 0

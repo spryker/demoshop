@@ -8,11 +8,19 @@ FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BA
 outfile="/tmp/deploy-${deploy_outfile_prefix}-send-notifications"
 `touch $outfile`
 
+### Newrelic notifications
+for APP in Yves Zed; do
+  app_name="$APP(${environment})"
+  echo "Send deployment notification to New Relic for: $app_name .."
+  vendor/bin/console newrelic:record-deployment "$app_name" "$deploy_user" "$revision" "$scm_path" "$changelog" | grep '<error>' | sed 's/^/Newrelic API:/'
+done
+
+
 slack_msg="Finished deployment of *${scm_path}* to release *${deploy_outfile_prefix}* in *${environment}*"
 slack_msg="${slack_msg}\nDeployed by: $deploy_user from host `/bin/hostname`"
 
 echo $slack_msg
-send_slack_notification "${slack_msg}"
+#send_slack_notification "${slack_msg}"
 
 rm -f $outfile
 exit 0

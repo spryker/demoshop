@@ -1,14 +1,20 @@
 #!/bin/sh
 clear
+
+npm config set loglevel warn
+
+
 echo
 echo '==> NPM setup'
 echo
-npm install -d
+echo "# npm install .."
+npm install -d --quiet
 echo
 
 # TODO: move styleguide into root package.json/gulpfile.js
 cd static/assets/Yves/styleguide
-npm install -d
+echo "# npm install [styleguide] .."
+npm install -d --quiet
 cd -
 echo
 

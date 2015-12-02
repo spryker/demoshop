@@ -2,6 +2,7 @@
 
 sudo /etc/init.d/postgresql restart
 sudo dropdb DE_development_zed
+sudo createdb -E UTF8 -T template0 DE_development_zed
 set -e
 curl -XDELETE 'http://localhost:10005/_all'
 redis-cli -p 10009 flushdb

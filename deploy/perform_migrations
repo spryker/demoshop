@@ -1,36 +1,39 @@
 #!/bin/bash
 #
+# *** Pets-Deli deployment
+#
 # perform_migrations
 # This script is executed on tools host after unpacking release tarball.
 # It is executed only if check_for_migrations script returned true
 # It should execute database migrations. The site is in maintenance mode during execution of this script
 #
 
+#Exit if a command exits with a non-zero status
+set -e
+
+#Exit if an uninitialised variable is used
+set -o nounset
+
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; . $BASEDIR/vars; source $BASEDIR/functions
-outfile="/tmp/deploy-${deploy_outfile_prefix}-perform-migrations"
-`touch $outfile`
+outfile=`mktemp /tmp/deploy-perfmig-XXXXXX`
 
-export APPLICATION_ENV=$environment
+### Execute migrate
+cd "$destination_release_dir"
 
-# flush the CACHE instance of redis (it's the default one on port 6379)
-if [ "${environment}" == "prod" ]; then
-    echo "NOT DEFINED FOR PRODUCTION YET"
-    exit 1
-    //echo "FLUSHDB" | redis-cli -h wh-cache-prod.0k516h.ng.0001.apse1.cache.amazonaws.com
-elif [ "${environment}" == "staging" ]; then
-    echo "FLUSHDB" | redis-cli -p 13009
-else
-    echo "FLUSHDB" | redis-cli
+APPLICATION_ENV=${environment} vendor/bin/pav-console propel:migrate &> "$outfile"
+return=$?
+
+echo "Migrate output saved in $outfile"
+
+if [ $return -ne 0 ]; then
+  echo "Migrate returned error!"
+  cat "$outfile"
+  exit $return
 fi
 
+cat "$outfile"
 
-cd $BASEDIR
-cd ..
 
-vendor/bin/pav-console propel:config:convert
-vendor/bin/pav-console propel:model:build
-vendor/bin/pav-console propel:diff
-vendor/bin/pav-console propel:migrate
 
 rm -rf $outfile
 exit 0
