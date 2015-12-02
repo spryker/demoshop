@@ -16,6 +16,7 @@ use Generated\Shared\Transfer\SalesDiscountTransfer;
 use Generated\Shared\Transfer\SalesItemConfigurationTransfer;
 use Generated\Shared\Transfer\ShipmentCarrierTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
+use Orm\Zed\Sales\Persistence\SpySalesOrder;
 use Pyz\Zed\Sales\Persistence\SalesQueryContainerInterface;
 use SprykerFeature\Zed\Sales\Business\Model\OrderManager as SprykerOrderManager;
 use SprykerFeature\Zed\Sales\Business\Model\OrderReferenceGeneratorInterface;
@@ -179,5 +180,14 @@ class SalesManager extends SprykerOrderManager
         $entities = $this->queryContainer->querySalesDiscountCodeBySalesDiscountId($idSalesDiscount)->find();
 
         return (bool) (count($entities) > 0);
+    }
+
+    /**
+     * @param int $idSalesOrder
+     * @return SpySalesOrder
+     */
+    public function getSalesOrderEntityById($idSalesOrder)
+    {
+        return $this->queryContainer->querySalesOrderDetailsById($idSalesOrder)->findOne();
     }
 }

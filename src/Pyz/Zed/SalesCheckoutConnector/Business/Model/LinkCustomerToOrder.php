@@ -28,7 +28,7 @@ class LinkCustomerToOrder implements LinkCustomerToOrderInterface
     public function saveOrderCustomerLink(OrderTransfer $orderTransfer, CheckoutResponseTransfer $checkoutResponse)
     {
         if ($orderTransfer->getIdSalesOrder() !== null) {
-            $orderEntity = $this->salesFacade->getSalesOrderById($orderTransfer->getIdSalesOrder());
+            $orderEntity = $this->salesFacade->getSalesOrderEntityById($orderTransfer->getIdSalesOrder());
             if ($orderEntity !== null) {
                 $orderEntity->setFkCustomer($orderTransfer->getCustomer()->getIdCustomer());
             }
