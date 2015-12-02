@@ -6,10 +6,8 @@
 
 namespace Pyz\Zed\Category\Business\Manager;
 
-use Generated\Shared\Transfer\LocaleTransfer;
-use Generated\Shared\Transfer\NodeTransfer;
+use Generated\Shared\Transfer\UrlTransfer;
 use SprykerEngine\Zed\Locale\Persistence\LocaleQueryContainer;
-use SprykerFeature\Shared\Category\CategoryConfig;
 use SprykerFeature\Zed\Category\Business\Generator\UrlPathGeneratorInterface;
 use SprykerFeature\Zed\Category\Business\Manager\NodeUrlManager as SprykerNodeUrlManager;
 use SprykerFeature\Zed\Category\Business\Tree\CategoryTreeReaderInterface;
@@ -42,37 +40,31 @@ class NodeUrlManager extends SprykerNodeUrlManager
     }
 
     /**
-     * @param NodeTransfer $categoryNodeTransfer
-     * @param LocaleTransfer $localeTransfer
+     * @param UrlTransfer $urlTransfer
+     * @param string $url
+     * @param int|null $idResource
+     * @param int|null $idLocale
      *
      * @return void
      */
-    public function createUrl(NodeTransfer $categoryNodeTransfer, LocaleTransfer $localeTransfer)
+    protected function updateTransferUrl(UrlTransfer $urlTransfer, $url, $idResource = null, $idLocale = null)
     {
-        $categoryAttributes = $this->categoryQueryContainer->queryAttributeByCategoryId($categoryNodeTransfer->getFkCategory())->find();
-
-        foreach ($categoryAttributes as $categoryAttribute) {
-            $localeEntity = $this->localeQueryContainer->queryLocales()->filterByIdLocale($categoryAttribute->getFkLocale())->findOne();
-            $localeTransfer = new LocaleTransfer();
-            $localeTransfer->fromArray($localeEntity->toArray());
-
-            $this->createLocalizedUrl($categoryNodeTransfer, $localeTransfer);
+        if ($idLocale === null) {
+            $idLocale = $urlTransfer->getFkLocale();
         }
-    }
 
-    /**
-     * @param NodeTransfer $categoryNodeTransfer
-     * @param LocaleTransfer $localeTransfer
-     *
-     * @return void
-     */
-    protected function createLocalizedUrl(NodeTransfer $categoryNodeTransfer, LocaleTransfer $localeTransfer)
-    {
-        $path = $this->categoryTreeReader->getPath($categoryNodeTransfer->getIdCategoryNode(), $localeTransfer);
-        $categoryUrl = $this->generateUrlFromPathTokens($path);
-        $idNode = $categoryNodeTransfer->getIdCategoryNode();
-        $url = $this->urlFacade->createUrl('/' . mb_substr($localeTransfer->getLocaleName(), 0, 2) . $categoryUrl, $localeTransfer, CategoryConfig::RESOURCE_TYPE_CATEGORY_NODE, $idNode);
-        $this->urlFacade->touchUrlActive($url->getIdUrl());
+        $localeEntity = $this->localeQueryContainer
+            ->queryLocales()
+            ->filterByIdLocale($idLocale)
+            ->findOne();
+
+        $locale = mb_substr($localeEntity->getLocaleName(), 0, 2);
+
+        if (strpos('/' . $locale . '/', $url) !== 0) {
+            $url = '/' . $locale . $url;
+        }
+
+        parent::updateTransferUrl($urlTransfer, $url, $idResource, $idLocale);
     }
 
 }
