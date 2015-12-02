@@ -3,10 +3,12 @@
 namespace Pyz\Zed\Customer\Business;
 
 use Generated\Shared\Customer\CustomerLoginResultInterface;
+use Generated\Shared\Transfer\CustomerResponseTransfer;
+use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Zed\Customer\Business\Customer\Customer;
 use Generated\Shared\Customer\CustomerMagentoPasswordMigrationInterface;
 use SprykerFeature\Zed\Customer\Business\CustomerFacade as SprykerCustomerFacade;
-use SprykerFeature\Zed\CustomerCheckoutConnector\Dependency\Facade\CustomerCheckoutConnectorToCustomerInterface;
+use Pyz\Zed\CustomerCheckoutConnector\Dependency\Facade\CustomerCheckoutConnectorToCustomerInterface;
 
 /**
  * @method CustomerDependencyContainer getDependencyContainer()
@@ -52,5 +54,44 @@ class CustomerFacade extends SprykerCustomerFacade implements CustomerCheckoutCo
         return $this->getDependencyContainer()
             ->createCsvReader()
             ->importData();
+    }
+
+    /**
+     * @param $email
+     *
+     * @return bool
+     */
+    public function hasCustomerWithPasswordByEmail($email)
+    {
+        return $this->getDependencyContainer()
+            ->createCustomer()
+            ->hasCustomerWithPasswordByEmail($email)
+        ;
+    }
+
+    /**
+     * @param CustomerTransfer $customerTransfer
+     *
+     * @return CustomerResponseTransfer
+     */
+    public function createGuest(CustomerTransfer $customerTransfer)
+    {
+        return $this->getDependencyContainer()
+            ->createCustomer()
+            ->createGuest($customerTransfer)
+        ;
+    }
+
+    /**
+     * @param CustomerTransfer $customerTransfer
+     *
+     * @return CustomerResponseTransfer
+     */
+    public function updateGuest(CustomerTransfer $customerTransfer)
+    {
+        return $this->getDependencyContainer()
+            ->createCustomer()
+            ->updateGuest($customerTransfer)
+        ;
     }
 }

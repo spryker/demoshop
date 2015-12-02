@@ -25,11 +25,12 @@ class CreatePassword extends AbstractType
         $builder
             ->add('restore_key', 'hidden')
             ->add('password', 'password', [
-                'label' => 'customer.create.password',
+                'label' => 'customer.password.create',
             ])
             ->add('submit', 'submit', [
-                'label' => 'customer.create.submit',
+                'label' => 'customer.password.submit',
             ])
+            ->setAction('/password/create/')
         ;
     }
 

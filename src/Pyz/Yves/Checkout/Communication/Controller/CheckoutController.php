@@ -220,9 +220,9 @@ class CheckoutController extends AbstractController
 
         if ($customer->getIdCustomer()) {
             $result['form'] = $this->createForm(
-                $this->getLocator()->customer()->pluginCreatePasswordForm(),
+                $this->getLocator()->customer()->pluginCreatePasswordForm()->createPasswordForm(),
                 [ 'restore_key' => $customer->getRestorePasswordKey() ]
-            );
+            )->createView();
         }
 
         return $result;
@@ -264,7 +264,7 @@ class CheckoutController extends AbstractController
             $redirectUrl = $checkoutResponseTransfer->getRedirectUrl() .
                 '&' . http_build_query($checkoutResponseTransfer->getRedirectPayload(), null, '&');
         } else {
-            $redirectUrl = CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS;
+            $redirectUrl = '/' . CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS;
         }
 /*
         // TODO can be use for testing hmac
