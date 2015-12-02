@@ -75,7 +75,7 @@ class SalesConfig extends SprykerFeatureSalesConfig
         $sequenceNumberSettingsTransfer->setName(self::NAME_ORDER_REFERENCE);
 
         $sequenceNumberSettingsTransfer->setIncrementMinimum(1);
-        $sequenceNumberSettingsTransfer->setIncrementMaximum(1);
+        $sequenceNumberSettingsTransfer->setIncrementMaximum(42);
         $sequenceNumberSettingsTransfer->setMinimumNumber(1);
 
 
