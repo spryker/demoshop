@@ -14,7 +14,7 @@ use SprykerEngine\Yves\Application\Communication\Plugin\ControllerProviderInterf
 use SprykerEngine\Yves\Kernel\Locator;
 use Symfony\Component\Routing\RouterInterface;
 
-// FIXME: #688 move this class into core
+// FIXME: spryker/spryker#688 move this class into core
 abstract class AbstractYvesBootstrap
 {
     /**
