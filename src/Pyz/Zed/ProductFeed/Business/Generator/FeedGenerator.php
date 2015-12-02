@@ -119,13 +119,18 @@ class FeedGenerator implements FeedGeneratorInterface
             'categoryName'
         );
         $products->withColumn(
-            SpyUrlTableMap::COL_URL,
-            'abstractProductUrl'
-        );
-        $products->withColumn(
             SpyPriceProductTableMap::COL_PRICE,
             'productPrice'
         );
+        $products->withColumn(
+            SpyProductTableMap::COL_CREATED_AT,
+            'createdAt'
+        );
+        $products->withColumn(
+            SpyProductTableMap::COL_UPDATED_AT,
+            'updatedAt'
+        );
+
 
         $productList = $products->find()->getIterator();
 
@@ -141,7 +146,9 @@ class FeedGenerator implements FeedGeneratorInterface
 
         $csvWriter->insertOne([
             'ID',
-            'SKU',
+            'sku',
+            'old_sku',
+            'ean',
             'price',
             'short_description',
             'description',
@@ -150,26 +157,33 @@ class FeedGenerator implements FeedGeneratorInterface
             'weight',
             'weight_unit',
             'delivery_time',
-            'category'
+            'category',
+            'created_at',
+            'updated_at'
         ]);
 
         while ($product = $productList->getNext()) {
             $productAttributes = json_decode($product->getConcreteAttributes(), true);
+            $abstractAttributes = json_decode($product->getAbstractAttributes(), true);
             $localizedAttributes = json_decode($product->getLocalizedAttributes(), true);
             $abstractLocalizedAttributes = json_decode($product->getAbstractLocalizedAttributes(), true);
 
             $row = [];
             $row[] = $product->getIdProduct();
             $row[] = $product->getConcreteSku();
+            $row[] = isset($productAttributes['old_sku'])? $productAttributes['old_sku'] : '';
+            $row[] = isset($abstractAttributes['ean'])? $abstractAttributes['ean'] : '';
             $row[] = CurrencyManager::getInstance()->convertCentToDecimal($product->getProductPrice());
             $row[] = isset($abstractLocalizedAttributes['short_description']['markdown'])? $abstractLocalizedAttributes['short_description']['markdown'] : '';
             $row[] = isset($abstractLocalizedAttributes['description']['markdown'])? $abstractLocalizedAttributes['description']['markdown'] : '';
             $row[] = isset($localizedAttributes['media'][0]['thumbnail_url'])? $localizedAttributes['media'][0]['thumbnail_url'] : '';
-            $row[] = $product->getAbstractProductUrl();
+            $row[] = isset($abstractLocalizedAttributes['url'])? $abstractLocalizedAttributes['url'] : '';
             $row[] = isset($productAttributes['weight'])? $productAttributes['weight'] : '';
             $row[] = isset($productAttributes['weight_unit'])? $productAttributes['weight_unit'] : '';
             $row[] = isset($localizedAttributes['delivery_time'])? $localizedAttributes['delivery_time'] : '';
             $row[] = $product->getCategoryName();
+            $row[] = $product->getCreatedAt()->format('c');
+            $row[] = $product->getUpdatedAt()->format('c');
 
             $csvWriter->insertOne($row);
         }
