@@ -6,7 +6,6 @@
 
 namespace Pyz\Zed\Category\Business\Manager;
 
-use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\UrlTransfer;
 use SprykerEngine\Zed\Locale\Persistence\LocaleQueryContainer;
 use SprykerFeature\Zed\Category\Business\Generator\UrlPathGeneratorInterface;
@@ -54,17 +53,14 @@ class NodeUrlManager extends SprykerNodeUrlManager
             $idLocale = $urlTransfer->getFkLocale();
         }
 
-        $localeTransfer = new LocaleTransfer();
-        $localeTransfer->fromArray(
-            $this->localeQueryContainer
-                ->queryLocales()
-                ->filterByIdLocale($idLocale)
-                ->findOne()
-                ->toArray()
-        );
-        $locale = mb_substr($localeTransfer->getLocaleName(), 0, 2);
+        $localeEntity = $this->localeQueryContainer
+            ->queryLocales()
+            ->filterByIdLocale($idLocale)
+            ->findOne();
 
-        if (strstr($url, $locale) === false) {
+        $locale = mb_substr($localeEntity->getLocaleName(), 0, 2);
+
+        if (strpos('/' . $locale . '/', $url) !== 0) {
             $url = '/' . $locale . $url;
         }
 

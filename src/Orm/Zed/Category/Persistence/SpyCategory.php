@@ -2,6 +2,9 @@
 
 namespace Orm\Zed\Category\Persistence;
 
+use Orm\Zed\Category\Persistence\Map\SpyCategoryAttributeTableMap;
+use Propel\Runtime\ActiveQuery\Criteria;
+use Propel\Runtime\Collection\ObjectCollection;
 use SprykerFeature\Zed\Category\Persistence\Propel\AbstractSpyCategory as BaseSpyCategory;
 
 /**
@@ -15,4 +18,22 @@ use SprykerFeature\Zed\Category\Persistence\Propel\AbstractSpyCategory as BaseSp
  */
 class SpyCategory extends BaseSpyCategory
 {
+
+    /**
+     * @param int $idLocale
+     *
+     * @return SpyCategoryAttribute[]|ObjectCollection
+     */
+    public function getLocalisedAttributes($idLocale)
+    {
+        $criteria = new Criteria();
+        $criteria->addAnd(
+            SpyCategoryAttributeTableMap::COL_FK_LOCALE,
+            $idLocale,
+            Criteria::EQUAL
+        );
+
+        return $this->getAttributes($criteria);
+    }
+
 }
