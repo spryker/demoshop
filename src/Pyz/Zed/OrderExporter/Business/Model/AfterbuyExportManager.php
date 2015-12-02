@@ -4,6 +4,7 @@ namespace Pyz\Zed\OrderExporter\Business\Model;
 
 use Orm\Zed\Product\Persistence\SpyProduct;
 use Orm\Zed\Sales\Persistence\SpySalesDiscountCode;
+use PavFeature\Shared\Adyen\AdyenPaymentMethodConstants;
 use Pyz\Zed\OrderExporter\AfterbuyConstants;
 use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToAdyenFacade;
 use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToProductFacade;
@@ -25,7 +26,7 @@ class AfterbuyExportManager
     const KEY_ATTRIBUTE_WEIGHT = 'weight';
     const KEY_COUPON_AMOUNT = 'amount';
     const VALUE_COUPON_NAME = 'RABATT';
-    const CONVERSION_MG_TO_KG = 1000;
+    const CONVERSION_G_TO_KG = 1000;
     const CONVERSION_CENT_TO_EUROS = 100;
     const CONVERSION_PERCENTAGE = 100;
 
@@ -111,7 +112,7 @@ class AfterbuyExportManager
         $afterbuyInfo = [];
         $afterbuyInfo = $this->getOrderInfo($order, $afterbuyInfo);
         $afterbuyInfo = $this->addItemsInfo($orderItems, $afterbuyInfo);
-        $afterbuyInfo = $this->encodeValueUTF8($afterbuyInfo);
+        $afterbuyInfo = $this->decodeValueUtf8($afterbuyInfo);
 
         $results = array_merge($configuration, $afterbuyInfo);
         $postString = $this->buildPostString($results);
@@ -180,26 +181,26 @@ class AfterbuyExportManager
         $setPay = true;
 
         switch ($payment->getPaymentMethod()) {
-            case 'adyen.payment.method.creditcard.cse':
+            case AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE:
                 $paymentMethodName = AfterbuyConstants::PAYMENT_METHOD_CREDITCARD;
                 break;
-            case 'adyen.payment.method.paypal':
+            case AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_PAYPAL:
                 $paymentMethodName = AfterbuyConstants::PAYMENT_METHOD_PAYPAL;
                 break;
-            case 'adyen.payment.method.sofortueberweisung':
+            case AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SOFORTUEBERWEISUNG:
                 $paymentMethodName = AfterbuyConstants::PAYMENT_METHOD_SOFORTUEBERWEISUNG;
                 break;
-            case 'adyen.payment.method.sepa.directdebit':
+            case AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA:
                 $paymentMethodName = AfterbuyConstants::PAYMENT_METHOD_SEPA;
                 $postData[AfterbuyConstants::PAYMENT_BANK_ACCOUNT_NUMBER] = $payment->getPavPaymentAdyenDetail()->getBankAccountNumber();
                 $postData[AfterbuyConstants::PAYMENT_BANK_ACCOUNT_OWNER] = $payment->getPavPaymentAdyenDetail()->getOwnerName();
                 $postData[AfterbuyConstants::PAYMENT_BANK_CODE] = $payment->getPavPaymentAdyenDetail()->getBankLocationId();
                 $setPay = false;
                 break;
-            case 'adyen.payment.method.german.bank.transfer':
+            case AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_GERMAN_BANK_TRANSFER:
                 $paymentMethodName = AfterbuyConstants::PAYMENT_METHOD_PREPAYMENT;
                 break;
-            case 'adyen.payment.method.openinvoice.klarna':
+            case AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_OPEN_INVOICE_KLARNA:
                 $paymentMethodName = AfterbuyConstants::PAYMENT_METHOD_INVOICE;
                 $setPay = false;
                 break;
@@ -365,7 +366,7 @@ class AfterbuyExportManager
     {
         $productAttributes = (array) json_decode($product->getAttributes());
         if (isset($productAttributes[self::KEY_ATTRIBUTE_WEIGHT])) {
-            return $productAttributes[self::KEY_ATTRIBUTE_WEIGHT] / self::CONVERSION_MG_TO_KG;
+            return $productAttributes[self::KEY_ATTRIBUTE_WEIGHT] / self::CONVERSION_G_TO_KG;
         }
 
         return 0.00;
@@ -470,7 +471,7 @@ class AfterbuyExportManager
      * @param array $postData
      * @return array
      */
-    protected function encodeValueUTF8(array $postData)
+    protected function decodeValueUtf8(array $postData)
     {
         foreach ($postData as $key => $value) {
             if (is_string($value)) {
