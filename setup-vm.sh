@@ -28,24 +28,6 @@ function writeErrorMessage {
     fi
 }
 
-function deleteDb {
-    # postgres
-    export PGPASSWORD=mate20mg
-    sudo pg_ctlcluster 9.4 main restart --force
-    sudo dropdb DE_development_zed
-
-    # mysql
-    # mysql -u root -e "DROP DATABASE DE_development_zed;"
-}
-
-function createDb {
-    # postgres
-    sudo createdb DE_development_zed
-
-    # mysql
-    # mysql -u root -e "CREATE DATABASE DE_development_zed;"
-}
-
 COMPOSER_TIMESTAMP=$(stat -c %Y "composer.phar")
 CURRENT_TIMESTAMP=$(date +"%s")
 
@@ -71,11 +53,11 @@ if [[ $RESET == 1 ]]; then
     curl -XDELETE 'http://localhost:9200/_all' &> /dev/null
 
     labelText "Drop Database"
-    deleteDb
+    mysql -u root -e "DROP DATABASE DE_development_zed;"
     writeErrorMessage "Could not delete Database"
 
     labelText "Recreate Database"
-    createDb
+    mysql -u root -e "CREATE DATABASE DE_development_zed;"
     writeErrorMessage "Could not create Database"
 
     if [[ -d "./node_modules" ]]; then

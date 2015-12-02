@@ -38,7 +38,7 @@ $config[ApplicationConfig::YVES_TWIG_OPTIONS] = [
     'cache' => \SprykerFeature\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Yves/twig'),
 ];
 
-$config[SystemConfig::ZED_DB_ENGINE] = 'pgsql';
+$config[SystemConfig::ZED_DB_ENGINE] = 'mysql';
 
 $config[DbDumpConfig::DB_DUMP_USERNAME] = '';
 $config[DbDumpConfig::DB_DUMP_PASSWORD] = '';
@@ -114,15 +114,15 @@ $config[SystemConfig::PROPEL] = [
     'database' => [
         'connections' => [
             'default' => [
-                'adapter' => 'pgsql',
-                'dsn' => 'pgsql:host=127.0.0.1;dbname=DE_development_zed;user=development;password=mate20mg',
+                'adapter' => 'mysql',
+                'dsn' => 'mysql:host=127.0.0.1;dbname=DE_development_zed',
                 'user' => 'development',
                 'password' => '',
                 'settings' => [
-/*                    'charset' => 'utf8',
+                    'charset' => 'utf8',
                     'queries' => [
                         'utf8' => 'SET NAMES utf8 COLLATE utf8_unicode_ci, COLLATION_CONNECTION = utf8_unicode_ci, COLLATION_DATABASE = utf8_unicode_ci, COLLATION_SERVER = utf8_unicode_ci',
-                    ],*/
+                    ],
                 ],
             ],
         ],
@@ -144,7 +144,7 @@ $config[SystemConfig::PROPEL] = [
     'paths' => [
         'phpDir' => APPLICATION_ROOT_DIR,
         'sqlDir' => APPLICATION_ROOT_DIR . '/src/Orm/Propel/' . $currentStore . '/Sql',
-        'migrationDir' => APPLICATION_ROOT_DIR . '/src/Orm/Propel/' . $currentStore . '/Migration_PostgreSQL',
+        'migrationDir' => APPLICATION_ROOT_DIR . '/src/Orm/Propel/' . $currentStore . '/Migration',
         'schemaDir' => APPLICATION_ROOT_DIR . '/src/Orm/Propel/' . $currentStore . '/Schema',
         'phpConfDir' => APPLICATION_ROOT_DIR . '/src/Orm/Propel/' . $currentStore . '/Config',
     ],
