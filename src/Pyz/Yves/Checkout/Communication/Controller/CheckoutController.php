@@ -60,7 +60,7 @@ class CheckoutController extends AbstractController
 
         if (count($container->createCartClient()->getCart()->getItems()) < 1) {
             $this->addInfoMessage('Your cart is empty.');
-            return $this->redirectResponseInternal(ApplicationControllerProvider::ROUTE_HOME);
+            return $this->redirectResponseInternal('/');
         }
 
         $paymentMethodsTransfer = $this->getPaymentMethods();
