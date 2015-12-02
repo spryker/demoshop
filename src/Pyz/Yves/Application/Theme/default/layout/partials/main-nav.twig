@@ -1,0 +1,18 @@
+<nav class="main-nav js-main-nav">
+    <section class="main-nav__categories">
+        <ul class="main-nav__category-list">
+            {% for category in categories %}
+                {% if category.image is defined and category.image != '' and category.image != '#' %}
+                    {% set categoryImage = '/images/nav/' ~ category.image %}
+                {% else %}
+                    {% set categoryImage = '#' %}
+                {% endif %}
+                {% include "@application/layout/partials/main-nav-button.twig" with {
+                    name: category.name,
+                    url: category.url,
+                    imageUrl: categoryImage,
+                } %}
+            {% endfor %}
+        </ul>
+    </section>
+</nav>

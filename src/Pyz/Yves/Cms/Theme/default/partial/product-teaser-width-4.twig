@@ -1,0 +1,9 @@
+<div class="product-teaser col col25">
+  {% set product = block.getProduct() %}
+  <a href="{{ product.url }}">
+    <img width="100%" src="{{ getFirstProductImagesBySize(product.product_images, 'xxl') }}" alt="{{ product.name }}">
+    <h4>{{ product.name }}</h4>
+
+    <div class="price">{{ product.price|price }}</div>
+  </a>
+</div>
