@@ -29,6 +29,7 @@ class CmsBlockSettings
             $this->locator->catalog()->pluginBlockControllerCatalogBlockController(),
             $this->locator->product()->pluginBlockControllerProductBlockController(),
             $this->locator->product()->pluginBlockControllerAccordionBlockController(),
+            $this->locator->application()->pluginBlockControllerStartPageBlockController(),
         ];
     }
 }
