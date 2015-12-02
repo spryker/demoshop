@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{ locale | default('en') }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta name="description" content="{{ page_description | default('') }}">
+    <meta name="keywords" content="{{ page_keywords | default('') }}">
+    <meta name="author" content="Spryker System GmbH">
+    <link rel="icon" href="/images/favicon.ico">
+
+    <title>{{ page_title | default('Spryker Demoshop') | trans }}</title>
+
+    <meta name="description" content="{{ page_description | default('') | trans }}" />
+{% block page_meta %}{% endblock %}
+
+{% block css %}
+    <link href='http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/main.css" />
+{% endblock css %}
+
+</head>
+<body>
+
+{% block body %}
+
+    {% include "@application/layout/partials/header.twig" %}
+
+    {% block content %}{% endblock content %}
+
+    {% include "@application/layout/partials/footer.twig" %}
+    {% include "@application/layout/partials/overlay.twig" %}
+
+    {% block footer_js %}
+    <script src="/js/main.js"></script>
+    {% endblock footer_js %}
+
+{% endblock body %}
+
+</body>
+</html>
