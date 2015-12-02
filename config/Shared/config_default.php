@@ -350,7 +350,6 @@ $config[AfterbuyExportConstantInterface::AFTERBUY_PARTNER_PASS] = '6/UMU16Qn/=hC
 $config[AfterbuyExportConstantInterface::AFTERBUY_USER_ID] = 'petsdelideutschland';
 $config[AfterbuyExportConstantInterface::AFTERBUY_URL] = 'https://api.afterbuy.de/afterbuy/ShopInterface.aspx?';
 $config[AfterbuyExportConstantInterface::AFTERBUY_EMAILS] = [
-//    'ds@petsdeli.de',
     'raed.marji@project-a.com'
 ];
 $config[AfterbuyExportConstantInterface::AFTERBUY_CONNECTION_TIMEOUT] = 120;
