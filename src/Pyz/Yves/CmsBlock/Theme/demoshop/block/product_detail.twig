@@ -2,9 +2,16 @@
 {% set options = dynamicData.options %}
 {% set pricings = dynamicData.pricings %}
 
-{{ setGlobalValue('meta_title', product.meta_title) }}
-{{ setGlobalValue('meta_description', product.meta_description) }}
-{{ setGlobalValue('meta_keywords', product.meta_description) }}
+{% if product.meta_title is defined  %}
+    {{ setGlobalValue('meta_title', product.meta_title) }}
+{% endif %}
+
+{% if product.meta_description  is defined  %}
+    {{ setGlobalValue('meta_description', product.meta_description) }}
+{% endif %}
+{% if product.meta_keywords is defined  %}
+    {{ setGlobalValue('meta_keywords', product.meta_keywords) }}
+{% endif %}
 
 <div class="product">
 
