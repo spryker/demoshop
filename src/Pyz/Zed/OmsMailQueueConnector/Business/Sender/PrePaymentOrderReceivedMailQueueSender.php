@@ -37,7 +37,7 @@ class PrePaymentOrderReceivedMailQueueSender extends PavPrePaymentOrderReceivedM
      */
     public function getMailTransfer(SpySalesOrder $orderEntity)
     {
-        $mailTransfer = parent::getMailTransfer($orderEntity);
+        $mailTransfer = $this->getMailTransfer($orderEntity);
         /** @var PavPaymentAdyen $adyenPayment */
         $adyenPayment = $orderEntity->getPavPaymentAdyens()->getFirst();
         $psp = $adyenPayment->getPspReference();
