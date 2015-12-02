@@ -12,12 +12,12 @@ use Generated\Shared\Transfer\ExpenseTransfer;
 class ShipmentCartConnectorFacade extends AbstractFacade
 {
     /**
-     * @param $countryId
+     * @param $countryIso2
      * @return SpyShipmentMethod
      */
-    public function getShipmentMethodByCountryId($countryId)
+    public function getShipmentMethodByCountryIso2($countryIso2)
     {
-        return $this->getDependencyContainer()->createShipmentFacade()->getShipmentMethodByCountryId($countryId);
+        return $this->getDependencyContainer()->createShipmentFacade()->getShipmentMethodByCountryIso2($countryIso2);
     }
 
     /**

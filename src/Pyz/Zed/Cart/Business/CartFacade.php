@@ -25,12 +25,12 @@ class CartFacade extends SpyCartFacade
     }
 
     /**
-     * @param int $countryId
+     * @param string $countryIso2
      * @return ExpenseTransfer
      */
-    public function getShipmentMethodByCountryId($countryId)
+    public function getShipmentMethodByCountryIso2($countryIso2)
     {
-        return $this->getDependencyContainer()->getShipmentPlugin()->getShipmentMethodByCountry($countryId);
+        return $this->getDependencyContainer()->getShipmentPlugin()->getShipmentMethodByCountryIso2($countryIso2);
     }
 
 }

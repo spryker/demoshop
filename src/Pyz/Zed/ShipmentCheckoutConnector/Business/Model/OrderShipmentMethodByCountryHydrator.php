@@ -24,8 +24,8 @@ class OrderShipmentMethodByCountryHydrator implements OrderShipmentMethodByCount
      */
     public function hydrateOrder(OrderTransfer $orderTransfer, CheckoutRequestTransfer $checkoutRequest)
     {
-        $countryId = $checkoutRequest->getShippingAddress()->getAddress3();
-        $shipmentMethod = $this->shipmentFacade->getShipmentMethodByCountryId($countryId);
+        $countryIso2 = $checkoutRequest->getShippingAddress()->getIso2Code();
+        $shipmentMethod = $this->shipmentFacade->getShipmentMethodByCountryIso2($countryIso2);
         $orderTransfer->setFkShipmentMethod($shipmentMethod->getIdShipmentMethod());
     }
 }

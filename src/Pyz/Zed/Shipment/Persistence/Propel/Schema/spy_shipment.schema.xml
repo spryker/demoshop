@@ -4,7 +4,7 @@
     <table name="spy_shipment_method">
         <column name="fk_country" required="false" type="INTEGER" />
 
-        <foreign-key foreignTable="spy_country" phpName="SpyShipmentMethod" refPhpName="SpyCountry">
+        <foreign-key name="spy_shipment_method-fk_country" foreignTable="spy_country" phpName="SpyCountry" refPhpName="ShipmentMethods">
             <reference local="fk_country" foreign="id_country"/>
         </foreign-key>
 

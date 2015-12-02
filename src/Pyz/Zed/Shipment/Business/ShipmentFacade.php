@@ -23,14 +23,14 @@ class ShipmentFacade extends SprykerShipmentFacade implements ShipmentCheckoutCo
     }
 
     /**
-     * @param $countryId
+     * @param $countryIso2
      * @return SpyShipmentMethod
      */
-    public function getShipmentMethodByCountryId($countryId)
+    public function getShipmentMethodByCountryIso2($countryIso2)
     {
         return $this->getDependencyContainer()
             ->createShipmentMethodManager()
-            ->getShipmentMethod($countryId);
+            ->getShipmentMethod($countryIso2);
     }
 
     /**

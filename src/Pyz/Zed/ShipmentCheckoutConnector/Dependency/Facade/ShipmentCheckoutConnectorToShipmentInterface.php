@@ -7,8 +7,8 @@ use Orm\Zed\Shipment\Persistence\SpyShipmentMethod;
 interface ShipmentCheckoutConnectorToShipmentInterface
 {
     /**
-     * @param $countryId
+     * @param $countryIso2
      * @return SpyShipmentMethod
      */
-    public function getShipmentMethodByCountryId($countryId);
+    public function getShipmentMethodByCountryIso2($countryIso2);
 }

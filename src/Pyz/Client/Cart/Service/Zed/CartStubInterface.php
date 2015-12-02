@@ -11,5 +11,5 @@ interface CartStubInterface
      * @param ChangeTransfer $changeTransfer
      * @return CartInterface
      */
-    public function addExpenseByCountryId(ChangeTransfer $changeTransfer);
+    public function addExpenseByCountry(ChangeTransfer $changeTransfer);
 }

@@ -12,7 +12,7 @@ class CartStub extends SpyCartStub implements CartStubInterface
      * @param ChangeTransfer $changeTransfer
      * @return CartInterface
      */
-    public function addExpenseByCountryId(ChangeTransfer $changeTransfer)
+    public function addExpenseByCountry(ChangeTransfer $changeTransfer)
     {
         return $this->zedStub->call('/cart/gateway/add-expense-by-country', $changeTransfer);
     }

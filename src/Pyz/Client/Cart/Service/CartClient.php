@@ -19,11 +19,11 @@ class CartClient extends SpyCartClient implements SprykerBugfixInterface
      * @param CountryTransfer $countryTransfer
      * @return CartInterface
      */
-    public function addExpenseByCountryId(CountryTransfer $countryTransfer)
+    public function addExpenseByCountry(CountryTransfer $countryTransfer)
     {
         $changeTransfer = $this->createCartChange();
-        $changeTransfer->setShipmentCountryId($countryTransfer->getIdCountry());
-        $cartTransfer = $this->getZedStub()->addExpenseByCountryId($changeTransfer);
+        $changeTransfer->setShipmentCountryIso2($countryTransfer->getIso2Code());
+        $cartTransfer = $this->getZedStub()->addExpenseByCountry($changeTransfer);
 
         return $this->handleCartResponse($cartTransfer);
     }

@@ -272,7 +272,7 @@ $(document).ready(function () {
 
 
 
-        var $shippingCountry = $('#checkout_billing_address_country');
+        var $shippingCountry = $('#checkout_billing_address_iso2code');
         $shippingCountry.change(getShipmentPrice);
 
         function getShipmentPrice () {
@@ -280,7 +280,7 @@ $(document).ready(function () {
             $.ajax({
                 url : $('#addShipmentFee').val(),
                 method: 'POST',
-                data: { 'fkCountry' : $shippingCountry.val() },
+                data: { 'iso2Country' : $shippingCountry.val() },
                 dataType: 'html'
 
             })
