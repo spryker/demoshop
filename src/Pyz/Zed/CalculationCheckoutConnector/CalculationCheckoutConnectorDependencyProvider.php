@@ -1,0 +1,11 @@
+<?php
+
+namespace Pyz\Zed\CalculationCheckoutConnector;
+
+use SprykerEngine\Zed\Kernel\Container;
+use SprykerFeature\Zed\CalculationCheckoutConnector\CalculationCheckoutConnectorDependencyProvider as SprykerCalculationCheckoutConnectorDependencyProvider;
+
+class CalculationCheckoutConnectorDependencyProvider extends SprykerCalculationCheckoutConnectorDependencyProvider
+{
+
+}

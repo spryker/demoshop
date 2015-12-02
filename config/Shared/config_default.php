@@ -19,6 +19,7 @@ use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumb
 use Pyz\Shared\OrderExporter\AfterbuyExportConstantInterface;
 use Pyz\Shared\Glossary\GlossaryConfig;
 use PavFeature\Shared\Adyen\AdyenConfigConstants;
+use Pyz\Shared\CalculationCheckoutConnector\CalculationCheckoutConnectorConfig;
 
 $config[SystemConfig::PROJECT_NAMESPACES] = [
     'Pyz',
@@ -385,7 +386,6 @@ $config[SystemConfig::ZED_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Z
 
 $config[SequenceNumberConstants::ENVIRONMENT_PREFIX] = "D";
 
-
 $config[MailchimpClientConfig::MAILCHIMP_API_KEY] = '49eccb87d7ba7432cf574df60e3d910d-us11';
 $config[MailchimpClientConfig::MAILCHIMP_SUBSCRIBER_LIST_ID] = 'fc2fd7191f';
 
@@ -400,3 +400,5 @@ $config[ProductFeedConfig::PRODUCT_FEED_CSV_PARAMETERS] = [
     'encoding' => 'UTF-8',
     'enclosure' => '"'
 ];
+
+$config[CalculationCheckoutConnectorConfig::MINIMUM_CHECKOUT_CART_VALUE] = 1500; // 15€
