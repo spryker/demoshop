@@ -2,38 +2,37 @@
     headline: 'Das sagen unsere Kunden',
     clients: [
         {
-            image: '/images/client/Gas.png',
-            name: 'Gas',
-            quote: 'Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed mi libero, efficitur quis nulla non, luctus finibus tortor.',
+            image: '/images/client/mohrle.jpg',
+            name: 'Mohrle',
+            quote: '“Mein Perserkater Mohrle hatte starke Haut- und Fellprobleme bis er Frischfutter von PETS DELI bekam - seine kahlen Stellen und der Juckreiz gehören nun der Vergangenheit an und er hat ein wunderbares, dichtes und glänzendes Fell bekommen!”',
+            owner: 'Ulrike Mielke aus Stendal'
         },
         {
-            image: '/images/client/Romeo.png',
-            name: 'Romeo',
-            quote: 'Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed mi libero, efficitur quis nulla non, luctus finibus tortor.',
+            image: '/images/client/matisse.jpg',
+            name: 'Matisse',
+            quote: '“Ich selbst bin Vegetarier und wollte meine Stubentiger trotzdem artgerecht mit rohem Fleisch ernähren. Herkömmliches Barf-Futter hat für mich nichts mit dem Fleisch, was ich noch aus Muttis Küche kenne, gemeinsam - es stinkt, sieht unappetitlich aus und wurde von meinen Katzen nicht angerührt. Mit PETS DELI war das ganz anders - meine Katzen fressen das Futter liebend gern und sehen viel gesünder aus!”',
+            owner: 'Juliane Herdes aus ?'
         }
     ]
 } %}
 
 <div class="clients">
-    <div class="clients__inner">
 
-        <div class="clients__testimonials">
-            <h2 class="clients__headline">{{ data.headline }}</h2>
+    <div class="clients__testimonials">
+        <h2 class="clients__headline">{{ data.headline }}</h2>
 
-            <div class="clients__items">
+        <div class="clients__items">
 
-                {% for client in data.clients %}
-                <div class="clients__item">
-                    <img class="clients__item-image" src="{{ client.image }}">
-                    <h3 class="clients__item-name">{{ client.name }}</h3>
-                    <p class="clients__item-quote">{{ client.quote }}</p>
-                </div>
-                {% endfor %}
-
+            {% for client in data.clients %}
+            <div class="clients__item">
+                <img class="clients__item-image" src="{{ client.image }}">
+                <h3 class="clients__item-name">{{ client.name }}</h3>
+                <p class="clients__item-quote">{{ client.quote }}</p>
+                <p class="clients__item-owner">{{ client.owner }}</p>
             </div>
+            {% endfor %}
+
         </div>
-
-        <div class="clients__image"></div>
-
     </div>
+
 </div>

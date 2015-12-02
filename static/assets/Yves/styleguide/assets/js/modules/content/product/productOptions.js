@@ -98,7 +98,7 @@ $(document).ready(function () {
             })
             .done(function (data) {
                 quantityString = (quantity > 1) ? 'Produkte' : 'Produkt';
-                messageService.add({ type: 'valid message--cart', message: `${quantity} ${quantityString} zum Warenkorb hinzugefügt.` });
+                messageService.add({ type: 'valid message--cart', message: `${quantity} ${quantityString} zum <a href="/checkout/">Warenkorb</a> hinzugefügt.` });
 
                 $(document).trigger(EVENTS.UPDATE_CART);
             })

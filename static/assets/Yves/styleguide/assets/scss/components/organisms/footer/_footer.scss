@@ -16,6 +16,8 @@
 }
 
 .footer__row{
+    display: flex;
+    flex-wrap: wrap;
     margin-top: 0;
     margin-bottom: 0;
     @include clearfix;
@@ -41,10 +43,16 @@
 }
 
 .footer__column{
+    order: 1;
     width: 100%;
-    margin-bottom: 60px;
+    margin: 0 auto 60px;
     float: left;
     text-align: left;
+    max-width: 310px;
+}
+
+.footer__column--social{
+    order: 0;
 }
 
 .footer__logo{
@@ -74,27 +82,36 @@
 }
 
 .footer__social{
-    height: 44px;
+    height: 70px;
+    width: 70px;
     margin: 10px 5px 0;
     color: $_rgbSilverChalice;
 
     cursor: pointer;
+
+    &:before{
+        width: 100%;
+    }
+}
+
+.footer__socials{
+    white-space: nowrap;
 }
 
 .footer__social--facebook{
-    @include pdif('facebook', 44px, 44px);
+    @include pdif('facebook', 38px, 0);
 }
 
 .footer__social--twitter{
-    @include pdif('twitter', 44px, 44px);
+    @include pdif('twitter', 30px, 0);
 }
 
 .footer__social--instagram{
-    @include pdif('instagram', 44px, 44px);
+    @include pdif('instagram', 32px, 0);
 }
 
 .footer__social--youtube{
-    @include pdif('youtube', 44px, 44px);
+    @include pdif('youtube', 36px, 0);
 }
 
 
@@ -107,11 +124,50 @@
 @media (min-width: $_wMedium) {
     .footer__column{
         width: 50%;
+        max-width: none;
         text-align: center;
+    }
+
+
+    .footer__column--social{
+        order: 1;
+    }
+
+    .footer__social{
+        width: 44px;
+        height: 44px;
+
+        &:before{
+            text-align: center;
+        }
+    }
+
+    .footer__social--facebook{
+        &:before{
+            font-size: 23px;
+        }
+    }
+
+    .footer__social--twitter{
+        &:before{
+            font-size: 21px;
+        }
+    }
+
+    .footer__social--instagram{
+        &:before{
+            font-size: 20px;
+        }
+    }
+
+    .footer__social--youtube{
+        &:before{
+            font-size: 22px;
+        }
     }
 }
 
-@media (min-width: $_wLarge) {
+@media (min-width: 850px) {
     .footer__column{
         width: 25%;
     }

@@ -10,39 +10,21 @@
     background: $_rgbWhite;
 }
 
-.clients__inner{
-    @include pageWidth;
-    padding-left: 0;
-    padding-right: 0;
-    display: flex;
-}
-
 .clients__testimonials{
-    padding: 80px ($_xSpacing / 2) 100px;
+    @include pageWidth;
+    padding-top: 80px;
+    padding-bottom: 50px;
 
     text-align: center;
 }
 
-.clients__image{
-    display: none;
-    width: 33.333%;
-    background: url(../images/client/background.jpg);
-    background-position: center;
-    background-size: cover;
-}
-
 .clients__headline{
-    margin-bottom: 110px;
+    margin-bottom: 40px;
 
     font-family: $_ffBrandonGrotesque-Black;
     font-size: $_fsLarge;
     line-height: 1.1em;
     color: $_rgbApple;
-}
-
-.clients__description{
-    margin-bottom: 50px;
-    color: $_rgbSilverChalice;
 }
 
 .clients__items{
@@ -52,37 +34,44 @@
 .clients__item{
     padding: 0 25px;
     width: 100%;
-    float: left;
+    display: inline-block;
+    vertical-align: top;
 
     & + .clients__item{
         margin-top: 100px;
     }
+}
 
-    .clients__item-image{
-        @include responsiveImage;
-        max-width: 130px;
-        margin: 0 auto 15px auto;
-    }
+.clients__item-image{
+    @include responsiveImage;
+    max-width: 130px;
+    margin: 0 auto 15px auto;
+}
 
-    .clients__item-name{
-        margin: 10px 0;
+.clients__item-name{
+    margin: 25px 0 20px;
 
-        font-family: $_ffBrandonGrotesque-Bold;
-        font-size: 18px;
-        color: $_rgbTundora;
-    }
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: 18px;
+    color: $_rgbTundora;
+}
 
-    .clients__item-quote{
-        font-size: 22px;
-        color: $_rgbSilverChalice;
-        max-width: 300px;
-        margin: 0 auto;
-    }
+.clients__item-quote{
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: $_rgbSilverChalice;
+}
+
+.clients__item-owner{
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: 22px;
+    color: $_rgbTundora;
 }
 
 @media (min-width: $_wMedium) {
     .clients__item{
         width: 50%;
+        padding: 0 55px;
 
         & + .clients__item{
             margin-top: 0;
@@ -91,10 +80,6 @@
 }
 
 @media (min-width: $_wLarge) {
-    .clients__testimonials{
-        width: 66.666%;
-    }
-
     .clients__items{
         padding-right: 60px;
     }

@@ -34,6 +34,7 @@
         @include responsiveImage;
 
         transition: opacity $_tShort ease-in-out;
+        padding: 50px;
     }
 }
 

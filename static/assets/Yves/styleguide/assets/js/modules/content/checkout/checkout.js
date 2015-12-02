@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { prefixCss, scrollTo } from '../../common/helpers';
+import { prefixCss, scrollTo, getFormData } from '../../common/helpers';
 import { MessageService } from '../../common/messages';
 
 import { EVENTS as STEPPER_EVENTS } from '../../forms/stepper';
@@ -8,6 +8,7 @@ import { EVENTS as RADIO_EVENTS } from '../../forms/radio';
 import { EVENTS as CHECKBOX_EVENTS } from '../../forms/checkbox';
 
 import { validateForm } from '../../forms/validator';
+import { submitNewsletter } from '../footer/newsletter';
 
 
 'use strict';
@@ -59,9 +60,16 @@ $(document).ready(function () {
         });
 
         $navigations.click(function () {
-            var newIndex = $navigations.index($(this));
+            var valid, newIndex;
 
-            if (newIndex < index || (validateStep(index).valid && !!validateCreditCard())) {
+            valid = true;
+            newIndex = $navigations.index($(this));
+
+            for (let i = index; i < newIndex; i++) {
+                valid = valid && validateStep(i).valid;
+            }
+
+            if (newIndex < index || (valid && !!validateCreditCard())) {
                 index = newIndex;
             }
 
@@ -143,6 +151,9 @@ $(document).ready(function () {
                     }
                 }
             });
+
+
+            submitNewsletterSubscription();
 
 
             // TODO: validation should not update value
@@ -295,6 +306,27 @@ $(document).ready(function () {
         function renderCart (data) {
             $('.checkout .cart__items').html(data);
             $(document).trigger(STEPPER_EVENTS.INITIALIZE_STEPPERS);
+        }
+
+
+        function submitNewsletterSubscription () {
+            var $form, action;
+
+            $form = $('.checkout__newsletter');
+            action = $form.data('action');
+
+            var email, newsletterDogs, newsletterCats;
+
+            email = window.translator.getTranslation('app.user.username', true) || $checkout.find('#checkout_email').val();
+            newsletterDogs = $form.find('#CheckoutNewsletterTypeDogsCheckbox').is(':checked');
+            newsletterCats = $form.find('#CheckoutNewsletterTypeCatsCheckbox').is(':checked');
+
+
+            submitNewsletter(action, {
+                email: email,
+                NewsletterTypeDogs: newsletterDogs ? 1 : 0,
+                NewsletterTypeCats: newsletterCats ? 1 : 0
+            });
         }
 
     });
