@@ -17,6 +17,7 @@ use Pyz\Yves\Tracking\Business\DataFormatter\CartDataFormatter;
 use Pyz\Yves\Tracking\Business\DataFormatter\CheckoutDataFormatter;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Checkout\Communication\CheckoutDependencyContainer;
+use SprykerFeature\Shared\Library\Log;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -291,6 +292,7 @@ class CheckoutController extends AbstractController
     public function redirectPaymentReturnAction(Request $request)
     {
         $params = $request->query->all();
+        Log::logRaw($params, 'hpp-payment-return.log');
 
         $hppCheckPaymentReturnTransfer = new AdyenHppPaymentReturnCheckTransfer();
         $hppCheckPaymentReturnTransfer->fromArray($params, true);
