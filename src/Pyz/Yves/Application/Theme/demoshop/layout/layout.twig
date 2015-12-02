@@ -45,18 +45,18 @@
                 })();
             </script>
 
+        {#
             {% block header %}
                 {% include "@application/layout/partials/header.twig" %}
             {% endblock %}
-
+#}
             {% block content %}{% endblock %}
-
+{#
             {% block footer %}
                 {% include "@application/layout/partials/footer.twig" %}
             {% endblock %}
-
+#}
             <script src="/js/sg-main.js"></script>
-
             <script type="text/javascript">
                 document.body.className = '';
             </script>

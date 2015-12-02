@@ -1,2 +1,79 @@
-{#{{ dump(dynamicData) }}#}
+{%
+    set data = {
+        menus: [
+            {
+                headline: 'Produkte',
+                links: [
+                    { url: '/hunde/', title: 'Hunde'},
+                    { url: '/katzen/', title: 'Katzen'}
+                ]
+            },
+            {
+                headline: 'Hilfe',
+                links: [
+                    { url: '/haufige-fragen/', title: 'Häufige Fragen'},
+                    { url: '/versand/', title: 'Versand'},
+                    { url: '/sitemap/', title: 'Sitemap'}
+                ]
+            },
+            {
+                headline: 'Über uns',
+                links: [
+                    { url: '/jobs/', title: 'Jobs'},
+                    { url: '/presse/', title: 'Presse'},
+                    { url: '/impressum/', title: 'Impressum'},
+                    { url: '/agb-und-widerruf/', title: 'AGB & Widerruf'}
+                ]
+            }
+        ],
+        social: {
+            headline: 'Follow Us on',
+            channels: [
+                { key: 'facebook', url: 'https://www.facebook.com/petsdeli.de' },
+                { key: 'twitter', url: 'https://twitter.com/petsdeli_de' },
+                { key: 'instagram', url: 'https://instagram.com/petsdeli.de' },
+                { key: 'youtube', url: 'https://www.youtube.com/user/petsdeli' }
+            ]
+        },
+        copyright: ['2015 Petsdeli', 'Copyright']
+    }
+%}
 
+
+
+<footer class="footer">
+    <div class="footer__inner">
+        <nav class="footer__row">
+
+            {% for menu in data.menus %}
+            <div class="footer__column">
+                <h2>{{ menu.headline }}</h2>
+
+                <ul>
+                    {% for link in menu.links %}
+                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+
+            <div class="footer__column">
+                <h2>{{ data.social.headline }}</h2>
+
+                {% for channel in data.social.channels %}
+                <a href="{{ channel.url }}" class="footer__social footer__social--{{ channel.key }}"></a>
+                {% endfor %}
+            </div>
+        </nav>
+
+        <div class="footer__logo">
+            <img src="/images/logo/logo_header.png" alt="Pets Deli Logo" />
+        </div>
+
+        <div class="footer__copyrights">
+            {% for item in data.copyright %}
+            <span class="footer__copyright">{{ item }}</span>
+            {% endfor %}
+        </div>
+    </div>
+</footer>

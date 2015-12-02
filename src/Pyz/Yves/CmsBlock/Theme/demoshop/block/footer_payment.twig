@@ -1,2 +1,18 @@
-{#{{ dump(dynamicData) }}#}
+{%
+    set data = {
+        headline: 'Unsere Zahlarten',
+        methods: ['paypal', 'visa', 'mastercard', 'klarna', 'sepa', 'sofort']
+    }
+%}
 
+
+
+<div class="payment">
+   <h2 class="payment__headline">{{ data.headline }}</h2>
+
+   <div class="payment__methods">
+       {% for method in data.methods %}
+       <div class="payment__method payment__method__{{ method }}"></div>
+       {% endfor %}
+   </div>
+</div>
