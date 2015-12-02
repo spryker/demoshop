@@ -5,15 +5,7 @@
 
     <transfer name="Change">
         <property name="expenses" type="Expense[]" singular="expense" />
-        <property name="items" type="Item[]" singular="item" />
-        <property name="couponCode" type="string" />
-        <property name="cart" type="Cart" />
-        <property name="shipmentCountryId" type="int" />
-        <property name="order" type="Order" />
-        <property name="userId" type="string" />
-        <property name="cartHash" type="string" />
-        <property name="deleteReason" type="string" />
-        <property name="isMerged" type="string" />
+        <property name="shipmentCountryIso2" type="string" />
     </transfer>
 
     <transfer name="Item">

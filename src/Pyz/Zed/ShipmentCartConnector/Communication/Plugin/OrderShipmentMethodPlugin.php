@@ -13,12 +13,12 @@ use Generated\Shared\Transfer\ExpenseTransfer;
 class OrderShipmentMethodPlugin extends AbstractPlugin implements OrderShipmentMethodInterface
 {
     /**
-     * @param int $countryId
+     * @param string $countryIso2
      * @return ExpenseTransfer
      */
-    public function getShipmentMethodByCountry($countryId)
+    public function getShipmentMethodByCountryIso2($countryIso2)
     {
-        $shipmentMethod =  $this->getFacade()->getShipmentMethodByCountryId($countryId);
+        $shipmentMethod =  $this->getFacade()->getShipmentMethodByCountryIso2($countryIso2);
 
         return $this->getFacade()->getShipmentMethodAsCartExpense($shipmentMethod);
     }

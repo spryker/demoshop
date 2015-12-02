@@ -32,7 +32,7 @@ class GatewayController extends SpyGatewayController
      */
     protected function addShipmentMethodToTransfer(ChangeTransfer $changeTransfer)
     {
-        $shipmentMethod = $this->getFacade()->getShipmentMethodByCountryId($changeTransfer->getShipmentCountryId());
+        $shipmentMethod = $this->getFacade()->getShipmentMethodByCountryIso2($changeTransfer->getShipmentCountryIso2());
         $changeTransfer->addExpense($shipmentMethod);
 
         return $changeTransfer;

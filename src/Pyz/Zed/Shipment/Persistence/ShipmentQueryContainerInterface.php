@@ -7,10 +7,10 @@ use Orm\Zed\Shipment\Persistence\Base\SpyShipmentMethodQuery;
 interface ShipmentQueryContainerInterface
 {
     /**
-     * @param $countryId
+     * @param $countryIso2
      * @return $this|SpyShipmentMethodQuery
      */
-    public function queryShipmentMethodByCountryId($countryId);
+    public function queryShipmentMethodByCountryIso2($countryIso2);
 
     /**
      * @return $this|SpyShipmentMethodQuery

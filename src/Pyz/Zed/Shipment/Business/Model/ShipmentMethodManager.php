@@ -24,13 +24,13 @@ class ShipmentMethodManager
     }
 
     /**
-     * @param $countryId
+     * @param $countryIso2
      * @return SpyShipmentMethod
      */
-    public function getShipmentMethod($countryId)
+    public function getShipmentMethod($countryIso2)
     {
-        if ($this->isShipmentMethodForCountryId($countryId)) {
-             return $this->getShipmentMethodForCountryId($countryId);
+        if ($this->isShipmentMethodForCountryIso2($countryIso2)) {
+             return $this->getShipmentMethodForCountryIso2($countryIso2);
         }
             return $this->getDefaultShipmentMethod();
     }
@@ -59,24 +59,24 @@ class ShipmentMethodManager
     }
 
     /**
-     * @param $countryId
+     * @param $countryIso2
      * @return bool
      */
-    protected function isShipmentMethodForCountryId($countryId)
+    protected function isShipmentMethodForCountryIso2($countryIso2)
     {
-        $shipmentMethod = $this->queryContainer->queryShipmentMethodByCountryId($countryId)
+        $shipmentMethod = $this->queryContainer
+            ->queryShipmentMethodByCountryIso2($countryIso2)
             ->findOne();
-
         return (bool)($shipmentMethod !== null);
     }
 
     /**
-     * @param $countryId
+     * @param $countryIso2
      * @return SpyShipmentMethod
      */
-    protected function getShipmentMethodForCountryId($countryId)
+    protected function getShipmentMethodForCountryIso2($countryIso2)
     {
-        return $this->queryContainer->queryShipmentMethodByCountryId($countryId)
+        return $this->queryContainer->queryShipmentMethodByCountryIso2($countryIso2)
             ->findOne();
     }
 

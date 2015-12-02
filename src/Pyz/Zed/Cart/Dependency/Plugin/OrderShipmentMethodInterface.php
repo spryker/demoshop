@@ -7,8 +7,8 @@ use Generated\Shared\Transfer\ExpenseTransfer;
 interface OrderShipmentMethodInterface
 {
     /**
-     * @param int $countryId
+     * @param string $countryIso2
      * @return ExpenseTransfer
      */
-    public function getShipmentMethodByCountry($countryId);
+    public function getShipmentMethodByCountryIso2($countryIso2);
 }
