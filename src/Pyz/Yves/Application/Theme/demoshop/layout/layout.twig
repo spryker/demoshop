@@ -28,6 +28,7 @@
             </noscript>
 
             <script type="text/javascript">
+                // TODO: move to partial file
                 window.translator = new (function () {
                     var store = {};
 
@@ -35,11 +36,11 @@
                         store[key] = translation;
                     };
 
-                    this.getTranslation = function (key) {
+                    this.getTranslation = function (key, strict) {
                         if (!!store[key]) {
                             return store[key];
                         } else {
-                            return key;
+                            return strict ? false : key;
                         }
                     };
                 })();

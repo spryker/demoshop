@@ -235,17 +235,40 @@
 
 
 .checkout__cart{
-    @include pageWidth(0);
+    //@include pageWidth(0);
     margin-top: 30px;
     border-bottom: 1px solid $_rgbSilver;
 }
+
+
+.checkout__end{
+    //@include pageWidth(0);
+    margin-top: 30px;
+}
+
+.checkout__newsletter{
+    overflow: hidden;
+    text-align: right;
+    padding: 0 20px;
+}
+
+.checkout__newsletter-headline{
+    margin-bottom: 10px;
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: 14px;
+    color: #535B6F;
+}
+
+.checkout__newsletter-checkboxes{
+}
+
 
 
 // TODO: unify padding
 .checkout__terms{
     float: right;
     width: 100%;
-    padding: 27px 20px 0 20px;
+    padding: 35px 20px 0 20px;
     margin-bottom: -20px;
     max-width: 660px;
 }
@@ -279,6 +302,12 @@
     .checkout__navigation{
         width: auto;
         padding: 0 50px;
+    }
+}
+
+@media (min-width: $_wMedium){
+    .checkout__terms{
+        padding-top: 25px;
     }
 }
 
@@ -336,6 +365,10 @@
 .cart-position--total{
     .cart-position__left{
         line-height: 1.5;
+    }
+
+    .cart-position__right{
+        color: #6A6A6A;
     }
 }
 

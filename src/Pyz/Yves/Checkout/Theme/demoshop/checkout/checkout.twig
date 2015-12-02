@@ -32,7 +32,6 @@
 
             <div class="checkout__contents">
 
-
                 {{ form_start(form, {'attr': {'id': 'adyen-encrypted-form'}}) }}
 
                 <section class="checkout__content checkout__content--account">
@@ -133,13 +132,37 @@
 
                 <section class="checkout__content checkout__content--confirmation">
 
-                    <div class="checkout__step-headline">Adresse</div>
+                    <div class="checkout__step-headline">Bestätigung</div>
 
                     <div class="checkout__cart">
                         {% include "@checkout/checkout/cartWithCouponTextfield.twig" %}
+                    </div>
+
+                    <div class="checkout__end">
+                        <div class="checkout__newsletter" data-action="{{ url('NEWSLETTER_SUBSCRIPTION_ROUTE') }}">
+                            <h3 class="checkout__newsletter-headline">Abonnieren Sie unseren Newsletter
+    </h3>
+
+                            <div class="checkout__newsletter-checkboxes">
+                                {% include '@application/layout/common/forms/checkbox.twig' with {
+                                    id: 'CheckoutNewsletterTypeDogsCheckbox',
+                                    name: 'NewsletterTypeDogs',
+                                    label: 'Für Hunde',
+                                    modifier: 'checkbox--right checkbox--large',
+                                    value: 1
+                                } %}
+
+                                {% include '@application/layout/common/forms/checkbox.twig' with {
+                                    id: 'CheckoutNewsletterTypeCatsCheckbox',
+                                    name: 'NewsletterTypeCats',
+                                    label: 'Für Katzen',
+                                    modifier: 'checkbox--right checkbox--large',
+                                    value: 1
+                                } %}
+                            </div>
+                        </div>
 
                         <div class="checkout__terms">
-                            {#{ form_widget(form.newsletter) }#}
                             {{ form_widget(form.terms) }}
                         </div>
 
@@ -164,7 +187,6 @@
 
     {% else %}
 
-
         <article class="product product--justice-league">
             <section class="product__overview">
                 <h2 class="product__name">{{ 'cart.empty' | trans }}</h2>
@@ -173,6 +195,15 @@
 
     {% endif %}
 
+
+
+    {% if app.user.username is defined %}
+        <script type="text/javascript">
+            translator.addTranslation('app.user.username', '{{ app.user.username }}');
+        </script>
+    {% endif %}
+
     <script type="text/javascript" src="/js/vendor/adyen.encrypt.nodom.min.js"></script>
+
 
 {% endblock %}

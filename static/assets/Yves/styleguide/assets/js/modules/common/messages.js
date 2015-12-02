@@ -17,10 +17,10 @@ function show ($message, delay) {
     setTimeout(function () {
         $message.fadeIn();
 
-        // auto hide after 5s
-        // setTimeout(function () {
-        //     hide($message);
-        // }, 5000);
+        //auto hide after 5s
+        setTimeout(function () {
+            hide($message);
+        }, 5000);
     }, delay);
 }
 

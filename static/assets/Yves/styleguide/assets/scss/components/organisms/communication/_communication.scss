@@ -24,6 +24,10 @@
     float: left;
     text-align: center;
 
+    &:nth-child(2n+1){
+        clear: left;
+    }
+
     &:before{
         top: 0 !important;
         margin-top: 0 !important;
@@ -72,5 +76,9 @@
 
     .communication__channel{
         width: 25%;
+
+        &:nth-child(2n+1){
+            clear: none;
+        }
     }
 }

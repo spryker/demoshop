@@ -60,7 +60,7 @@
 }
 
 .cart-layer__items{
-    @include pageWidth;
+    //@include pageWidth;
     display: table;
     width: 100%;
 
