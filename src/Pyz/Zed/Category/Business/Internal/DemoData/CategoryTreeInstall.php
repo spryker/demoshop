@@ -124,12 +124,9 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function addRootNode(array $rawNode)
     {
-        $idCategory = $this->createCategory($rawNode);
-        $categoryNodeTransfer = new NodeTransfer();
-        $categoryNodeTransfer->setIsRoot(true);
-        $categoryNodeTransfer->setFkCategory($idCategory);
+        $idCategoryNode = $this->createNode($rawNode, null);
 
-        return $this->categoryTreeWriter->createCategoryNode($categoryNodeTransfer, $this->locale, false);
+        return $idCategoryNode;
     }
 
     /**
@@ -138,12 +135,26 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function addChild(array $rawNode, $idParentNode)
     {
+        $idCategoryNode = $this->createNode($rawNode, $idParentNode);
+        foreach ($rawNode['children'] as $subNode) {
+            $this->addChild($subNode, $idCategoryNode);
+        }
+    }
+
+    protected function createNode($rawNode, $idParentNode)
+    {
         $idCategory = $this->createCategory($rawNode);
 
         $categoryNodeTransfer = new NodeTransfer();
-        $categoryNodeTransfer->setIsRoot(false);
+
         $categoryNodeTransfer->setFkCategory($idCategory);
-        $categoryNodeTransfer->setFkParentCategoryNode($idParentNode);
+        if ($idParentNode === null) {
+            $categoryNodeTransfer->setIsRoot(true);
+        } else {
+            $categoryNodeTransfer->setFkParentCategoryNode($idParentNode);
+            $categoryNodeTransfer->setIsRoot(false);
+        }
+
 
         $idCategoryNode = $this->categoryTreeWriter->createCategoryNode($categoryNodeTransfer, $this->locale, true);
         $categoryNodeTransfer->setIdCategoryNode($idCategoryNode);
@@ -161,12 +172,7 @@ class CategoryTreeInstall extends AbstractInstaller
             $this->cmsBlockFacade->linkPageToBlock($pageTransfer->getIdCmsPage(), $cmsBlockTransfer->getIdCmsBlock(), $position);
             $position++;
         }
-
-        foreach ($rawNode['children'] as $subNode) {
-            $this->addChild($subNode, $idCategoryNode);
-        }
-
-
+        return $idCategoryNode;
     }
 
     /**

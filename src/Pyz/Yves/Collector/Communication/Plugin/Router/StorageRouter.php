@@ -66,34 +66,28 @@ class StorageRouter extends AbstractRouter
      */
     public function match($pathinfo)
     {
-        if ($pathinfo !== '/') {
 
-            $urlDetails = $this->getUrlMatcher()->matchUrl($pathinfo, $this->getApplication()['locale']);
+        $urlDetails = $this->getUrlMatcher()->matchUrl($pathinfo, $this->getApplication()['locale']);
 
-            if($urlDetails === false) {
+        if ($urlDetails === false) {
 
-                if (preg_match('#[.]{1,}/$#', $pathinfo))
-                { // We try it again without a trailing slash
-                    $urlDetails = $this->getUrlMatcher()->matchUrl(rtrim($pathinfo . '/'), $this->getApplication()['locale']);
-                }
-                else
-                {
-                    $pathinfo = $pathinfo . '/';
-                    $urlDetails = $this->getUrlMatcher()->matchUrl($pathinfo, $this->getApplication()['locale']);
-                    if($urlDetails !== false)
-                    {
-                        $urlDetails['type'] = 'redirect';
-                        $urlDetails['data']['to_url'] = $pathinfo;
-                        $urlDetails['data']['status'] = 301;
-                    }
+            if (preg_match('#[.]{1,}/$#', $pathinfo)) { // We try it again without a trailing slash
+                $urlDetails = $this->getUrlMatcher()->matchUrl(rtrim($pathinfo . '/'), $this->getApplication()['locale']);
+            } else {
+                $pathinfo = $pathinfo . '/';
+                $urlDetails = $this->getUrlMatcher()->matchUrl($pathinfo, $this->getApplication()['locale']);
+                if ($urlDetails !== false) {
+                    $urlDetails['type'] = 'redirect';
+                    $urlDetails['data']['to_url'] = $pathinfo;
+                    $urlDetails['data']['status'] = 301;
                 }
             }
+        }
 
-            if ($urlDetails) {
-                foreach ($this->getResourceCreators() as $resourceCreator) {
-                    if ($urlDetails['type'] === $resourceCreator->getType()) {
-                        return $resourceCreator->createResource($this->getApplication(), $urlDetails['data']);
-                    }
+        if ($urlDetails) {
+            foreach ($this->getResourceCreators() as $resourceCreator) {
+                if ($urlDetails['type'] === $resourceCreator->getType()) {
+                    return $resourceCreator->createResource($this->getApplication(), $urlDetails['data']);
                 }
             }
         }

@@ -1,1 +1,31 @@
-{#{{ dump(dynamicData) }}#}
+{% block content %}
+
+    {% include '@application/layout/content/frontpage/hero.twig' %}
+
+    {% include '@application/layout/content/frontpage/plus.twig' %}
+
+    {% include '@application/layout/content/frontpage/press.twig' %}
+
+    {% include '@application/layout/content/frontpage/teaser.twig' with {
+        title: 'Für Hunde',
+        button: {
+            url: '/hunde/',
+            title: 'Jetzt entdecken'
+        },
+        image: '/images/teaser/dog.jpg'
+    } %}
+
+    {% include '@application/layout/content/frontpage/teaser.twig' with {
+        title: 'Für Katzen',
+        button: {
+            url: '/katzen/',
+            title: 'Jetzt entdecken'
+        },
+        image: '/images/teaser/cat.jpg'
+    } %}
+
+    {% include '@application/layout/content/frontpage/clients.twig' %}
+
+    {% include '@application/layout/content/frontpage/featured-products.twig' %}
+
+{% endblock %}
