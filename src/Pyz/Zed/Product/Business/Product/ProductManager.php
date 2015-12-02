@@ -321,10 +321,17 @@ class ProductManager extends SprykerProductManager implements ProductManagerInte
 
     /**
      * @param string $concreteSku
-     * @return SpyProduct
+     * @return ConcreteProductInterface
      */
     public function getConcreteProductByConcreteSku($concreteSku)
     {
-        return $this->productQueryContainer->queryConcreteProductByConcreteSku($concreteSku)->findOne();
+        $entity = $this->productQueryContainer->queryConcreteProductByConcreteSku($concreteSku)->findOne();
+        $transfer = new ConcreteProductTransfer();
+        $transfer->fromArray($entity->toArray(), true);
+
+        $attributes = (array) json_decode($entity->getAttributes());
+        $transfer->setAttributes($attributes);
+
+        return $transfer;
     }
 }

@@ -2,13 +2,13 @@
 
 namespace Pyz\Zed\OrderExporter\Dependency\Facade;
 
-use Orm\Zed\Adyen\Persistence\PavPaymentAdyen;
+use Generated\Shared\Adyen\AdyenPaymentInterface;
 
 interface OrderExporterToAdyenFacade
 {
     /**
      * @param int $idSalesOrder
-     * @return PavPaymentAdyen
+     * @return AdyenPaymentInterface
      */
     public function getPaymentBySalesOrderId($idSalesOrder);
 }

@@ -2,14 +2,14 @@
 
 namespace Pyz\Zed\SalesCheckoutConnector\Dependency\Facade;
 
-use Orm\Zed\Sales\Persistence\SpySalesOrder;
+use Generated\Shared\Sales\OrderInterface;
 
 interface SalesCheckoutConnectorToSalesInterface
 {
 
     /**
-     * @param $salesOrderId
-     * @return SpySalesOrder
+     * @param int $salesOrderId
+     * @return OrderInterface
      */
     public function getSalesOrderById($salesOrderId);
 }

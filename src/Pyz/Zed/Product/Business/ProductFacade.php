@@ -161,7 +161,7 @@ class ProductFacade extends SprykerProductFacade implements
 
     /**
      * @param string $concreteSku
-     * @return SpyProduct
+     * @return ConcreteProductInterface
      */
     public function getConcreteProductByConcreteSku($concreteSku)
     {

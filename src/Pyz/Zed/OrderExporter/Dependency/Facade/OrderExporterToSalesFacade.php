@@ -2,41 +2,47 @@
 
 namespace Pyz\Zed\OrderExporter\Dependency\Facade;
 
-use Orm\Zed\Sales\Persistence\Base\SpySalesOrder;
-use Orm\Zed\Sales\Persistence\SpySalesDiscountCode;
-use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
-use Orm\Zed\Sales\Persistence\SpySalesDiscount;
-use Orm\Zed\Sales\Persistence\Base\PavSalesOrderItemConfiguration;
+use Generated\Shared\Sales\ItemInterface;
+use Generated\Shared\Sales\OrderInterface;
+use Generated\Shared\Sales\SalesDiscountCodeInterface;
+use Generated\Shared\Sales\SalesDiscountInterface;
+use Generated\Shared\Sales\SalesItemConfigurationInterface;
 
 interface OrderExporterToSalesFacade
 {
     /**
      * @param int $orderItemId
-     * @return SpySalesOrderItem
+     * @return ItemInterface
      */
     public function getOrderItemById($orderItemId);
 
     /**
      * @param int $idSalesOrder
-     * @return SpySalesOrder
+     * @return OrderInterface
      */
     public function getSalesOrderById($idSalesOrder);
 
     /**
      * @param int $idSalesOrder
-     * @return SpySalesDiscount[]
+     * @return SalesDiscountInterface[]
      */
     public function getSalesDiscountsByOrderId($idSalesOrder);
 
     /**
      * @param int $idSalesOrderItem
-     * @return PavSalesOrderItemConfiguration[]
+     * @return SalesItemConfigurationInterface[]
      */
     public function getSalesOrderItemConfigurationByItemId($idSalesOrderItem);
 
     /**
      * @param int $idSalesDiscount
-     * @return SpySalesDiscountCode
+     * @return SalesDiscountCodeInterface
      */
     public function getSalesDiscountCodeBySalesDiscountId($idSalesDiscount);
+
+    /**
+     * @param int $idSalesDiscount
+     * @return bool
+     */
+    public function hasDiscountCodeByDiscountId($idSalesDiscount);
 }

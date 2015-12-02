@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\OrderExporter\Business;
 
+use Generated\Shared\Sales\ItemInterface;
 use SprykerEngine\Zed\Kernel\Business\AbstractFacade;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -26,7 +27,7 @@ class OrderExporterFacade extends AbstractFacade
     }
 
     /**
-     * @param SpySalesOrder[] $orderItems
+     * @param ItemInterface[] $orderItems
      */
     public function exportOrderItems(array $orderItems)
     {
@@ -51,7 +52,7 @@ class OrderExporterFacade extends AbstractFacade
     }
 
     /**
-     * @param array $orderItems
+     * @param ItemInterface[] $orderItems
      * @return int|null
      * @throws \Exception
      */

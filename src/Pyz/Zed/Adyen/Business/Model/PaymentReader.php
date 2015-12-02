@@ -2,7 +2,10 @@
 
 namespace Pyz\Zed\Adyen\Business\Model;
 
-use Orm\Zed\Adyen\Persistence\PavPaymentAdyen;
+use Generated\Shared\Adyen\AdyenPaymentInterface;
+use Generated\Shared\Transfer\AdyenPaymentDetailTransfer;
+use Generated\Shared\Transfer\AdyenPaymentTransfer;
+use Generated\Shared\Transfer\PaymentDetailTransfer;
 use Pyz\Zed\Adyen\Persistence\AdyenQueryContainerInterface;
 
 class PaymentReader implements PaymentReaderInterface
@@ -22,13 +25,23 @@ class PaymentReader implements PaymentReaderInterface
 
     /**
      * @param int $idSalesOrder
-     * @return PavPaymentAdyen
+     * @return AdyenPaymentInterface
      */
     public function getPaymentBySalesOrderId($idSalesOrder)
     {
-        return $this->queryContainer->queryPaymentBySalesOrderId($idSalesOrder)
+        $entity = $this->queryContainer->queryPaymentBySalesOrderId($idSalesOrder)
             ->find()
             ->getFirst();
+
+        $paymentDetails = $entity->getPavPaymentAdyenDetail();
+        $detailsTransfer = new AdyenPaymentDetailTransfer();
+        $detailsTransfer->fromArray($paymentDetails->toArray(), true);
+
+        $transfer = new AdyenPaymentTransfer();
+        $transfer->fromArray($entity->toArray(), true);
+        $transfer->setPaymentDetail($detailsTransfer);
+
+        return $transfer;
     }
 
 }

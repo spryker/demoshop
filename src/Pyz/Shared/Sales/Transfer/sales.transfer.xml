@@ -17,5 +17,32 @@
         <property name="groupValueLocalized" type="string" />
     </transfer>
 
+    <transfer name="SalesDiscount">
+        <property name="idSalesDiscount" type="int" />
+        <property name="fkSalesOrder" type="int" />
+        <property name="fkSalesOrderItem" type="int" />
+        <property name="description" type="string" />
+        <property name="displayName" type="string" />
+        <property name="amount" type="float" />
+    </transfer>
+
+    <transfer name="SalesDiscountCode">
+        <property name="idSalesDiscountCode" type="int" />
+        <property name="fkSalesDiscount" type="int" />
+        <property name="code" type="string" />
+    </transfer>
+
+    <transfer name="Address">
+        <property name="country" type="Country" />
+    </transfer>
+
+    <transfer name="Order">
+        <property name="shipmentMethod" type="ShipmentMethod" />
+    </transfer>
+
+    <transfer name="Item">
+        <property name="taxPercentage" type="float"/>
+    </transfer>
+
 </transfers>
 

@@ -40,7 +40,7 @@ interface ProductManagerInterface extends SprykerProductManagerInterface
 
     /**
      * @param string $concreteSku
-     * @return SpyProduct
+     * @return ConcreteProductInterface
      */
     public function getConcreteProductByConcreteSku($concreteSku);
 

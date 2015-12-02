@@ -9,6 +9,7 @@
 
     <transfer name="ShipmentMethod">
         <property name="fkCountry" type="int" />
+        <property name="shipmentCarrier" type="ShipmentCarrier" />
     </transfer>
 
 </transfers>

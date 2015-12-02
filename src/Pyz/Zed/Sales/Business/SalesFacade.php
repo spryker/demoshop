@@ -2,15 +2,16 @@
 
 namespace Pyz\Zed\Sales\Business;
 
-use Orm\Zed\Sales\Persistence\SpySalesDiscountCode;
+use Generated\Shared\Sales\ItemInterface;
+use Generated\Shared\Sales\OrderInterface;
+use Generated\Shared\Sales\SalesDiscountCodeInterface;
+use Generated\Shared\Sales\SalesDiscountInterface;
+use Generated\Shared\Sales\SalesItemConfigurationInterface;
+use Generated\Shared\Sales\SalesOrderItemInterface;
 use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToSalesFacade;
 use SprykerFeature\Zed\Sales\Business\SalesFacade as SprykerSalesFacade;
 use SprykerFeature\Zed\SalesCheckoutConnector\Dependency\Facade\SalesCheckoutConnectorToSalesInterface as SpySalesCheckoutConnectorToSalesInterface;
 use Pyz\Zed\SalesCheckoutConnector\Dependency\Facade\SalesCheckoutConnectorToSalesInterface;
-use Orm\Zed\Sales\Persistence\Base\SpySalesOrderItem;
-use Orm\Zed\Sales\Persistence\SpySalesDiscount;
-use Orm\Zed\Sales\Persistence\SpySalesOrder;
-use Orm\Zed\Sales\Persistence\Base\PavSalesOrderItemConfiguration;
 
 /**
  * @method SalesDependencyContainer getDependencyContainer()
@@ -19,7 +20,7 @@ class SalesFacade extends SprykerSalesFacade implements SpySalesCheckoutConnecto
 {
     /**
      * @param int $idOrderItem
-     * @return SpySalesOrderItem
+     * @return ItemInterface
      */
     public function getOrderItemById($idOrderItem)
     {
@@ -30,7 +31,7 @@ class SalesFacade extends SprykerSalesFacade implements SpySalesCheckoutConnecto
 
     /**
      * @param int $idSalesOrder
-     * @return SpySalesOrder
+     * @return OrderInterface
      */
     public function getSalesOrderById($idSalesOrder)
     {
@@ -41,7 +42,7 @@ class SalesFacade extends SprykerSalesFacade implements SpySalesCheckoutConnecto
 
     /**
      * @param int $idSalesOrder
-     * @return SpySalesDiscount[]
+     * @return SalesDiscountInterface[]
      */
     public function getSalesDiscountsByOrderId($idSalesOrder)
     {
@@ -52,7 +53,7 @@ class SalesFacade extends SprykerSalesFacade implements SpySalesCheckoutConnecto
 
     /**
      * @param int $idSalesOrderItem
-     * @return PavSalesOrderItemConfiguration[]
+     * @return SalesItemConfigurationInterface[]
      */
     public function getSalesOrderItemConfigurationByItemId($idSalesOrderItem)
     {
@@ -63,13 +64,24 @@ class SalesFacade extends SprykerSalesFacade implements SpySalesCheckoutConnecto
 
     /**
      * @param int $idSalesDiscount
-     * @return SpySalesDiscountCode
+     * @return SalesDiscountCodeInterface
      */
     public function getSalesDiscountCodeBySalesDiscountId($idSalesDiscount)
     {
         return $this->getDependencyContainer()
             ->createSalesManager()
             ->getSalesDiscountCodeBySalesDiscountId($idSalesDiscount);
+    }
+
+    /**
+     * @param int $idSalesDiscount
+     * @return bool
+     */
+    public function hasDiscountCodeByDiscountId($idSalesDiscount)
+    {
+        return $this->getDependencyContainer()
+            ->createSalesManager()
+            ->hasDiscountCodeByDiscountId($idSalesDiscount);
     }
 
 }

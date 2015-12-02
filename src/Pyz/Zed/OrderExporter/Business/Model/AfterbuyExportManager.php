@@ -2,6 +2,14 @@
 
 namespace Pyz\Zed\OrderExporter\Business\Model;
 
+use Generated\Shared\Product\ConcreteProductInterface;
+use Generated\Shared\Sales\AddressInterface;
+use Generated\Shared\Sales\ItemInterface;
+use Generated\Shared\Sales\OrderInterface;
+use Generated\Shared\Sales\SalesDiscountCodeInterface;
+use Generated\Shared\Sales\SalesDiscountInterface;
+use Generated\Shared\Sales\SalesOrderItemInterface;
+use Generated\Shared\Transfer\ItemTransfer;
 use Orm\Zed\Product\Persistence\SpyProduct;
 use Orm\Zed\Sales\Persistence\SpySalesDiscountCode;
 use PavFeature\Shared\Adyen\AdyenPaymentMethodConstants;
@@ -82,7 +90,7 @@ class AfterbuyExportManager
     }
 
     /**
-     * @param SpySalesOrderItem[] $orderItems
+     * @param ItemInterface[] $orderItems
      * @return int|null
      * @throws \Exception
      */
@@ -104,9 +112,9 @@ class AfterbuyExportManager
 
     /**
      * @param array $orderItems
-     * @param SpySalesOrder $order
+     * @param OrderInterface $order
      */
-    public function exportOrderItems(array $orderItems, SpySalesOrder $order)
+    public function exportOrderItems(array $orderItems, OrderInterface $order)
     {
         $configuration = $this->configureAfterbuy();
         $afterbuyInfo = [];
@@ -135,12 +143,12 @@ class AfterbuyExportManager
     }
 
     /**
-     * @param SpySalesOrder $order
+     * @param OrderInterface $order
      * @param array $postData
      * @return array
      * @throws \Propel\Runtime\Exception\PropelException
      */
-    protected function getOrderInfo(SpySalesOrder $order, array $postData)
+    protected function getOrderInfo(OrderInterface $order, array $postData)
     {
         $shippingAddress = $order->getShippingAddress();
         $billingAddress = $order->getBillingAddress();
@@ -192,9 +200,9 @@ class AfterbuyExportManager
                 break;
             case AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA:
                 $paymentMethodName = AfterbuyConstants::PAYMENT_METHOD_SEPA;
-                $postData[AfterbuyConstants::PAYMENT_BANK_ACCOUNT_NUMBER] = $payment->getPavPaymentAdyenDetail()->getBankAccountNumber();
-                $postData[AfterbuyConstants::PAYMENT_BANK_ACCOUNT_OWNER] = $payment->getPavPaymentAdyenDetail()->getOwnerName();
-                $postData[AfterbuyConstants::PAYMENT_BANK_CODE] = $payment->getPavPaymentAdyenDetail()->getBankLocationId();
+                $postData[AfterbuyConstants::PAYMENT_BANK_ACCOUNT_NUMBER] = $payment->getPaymentDetail()->getBankAccountNumber();
+                $postData[AfterbuyConstants::PAYMENT_BANK_ACCOUNT_OWNER] = $payment->getPaymentDetail()->getOwnerName();
+                $postData[AfterbuyConstants::PAYMENT_BANK_CODE] = $payment->getPaymentDetail()->getBankLocationId();
                 $setPay = false;
                 break;
             case AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_GERMAN_BANK_TRANSFER:
@@ -302,14 +310,14 @@ class AfterbuyExportManager
     }
 
     /**
-     * @param int $salesDiscountId
+     * @param int $idSalesDiscount
      * @param string $couponName
      * @return string
      */
-    protected function addDiscountCodeToCouponName($salesDiscountId, $couponName)
+    protected function addDiscountCodeToCouponName($idSalesDiscount, $couponName)
     {
-        if ($this->discountHasCode($salesDiscountId)) {
-            $couponCode = $this->getSalesDiscountCodeByDiscountId($salesDiscountId)->getCode();
+        if ($this->salesFacade->hasDiscountCodeByDiscountId($idSalesDiscount)) {
+            $couponCode = $this->getSalesDiscountCodeByDiscountId($idSalesDiscount)->getCode();
             $couponName .= '|' . $couponCode;
         }
 
@@ -317,30 +325,21 @@ class AfterbuyExportManager
     }
 
     /**
-     * @param int $salesDiscountId
-     * @return bool
+     * @param int $idSalesDiscount
+     * @return SalesDiscountCodeInterface
      */
-    protected function discountHasCode($salesDiscountId)
+    protected function getSalesDiscountCodeByDiscountId($idSalesDiscount)
     {
-        return (bool) (!$this->salesFacade->getSalesDiscountCodeBySalesDiscountId($salesDiscountId) == null);
-    }
-
-    /**
-     * @param $salesDiscountId
-     * @return SpySalesDiscountCode
-     */
-    protected function getSalesDiscountCodeByDiscountId($salesDiscountId)
-    {
-        return $this->salesFacade->getSalesDiscountCodeBySalesDiscountId($salesDiscountId);
+        return $this->salesFacade->getSalesDiscountCodeBySalesDiscountId($idSalesDiscount);
     }
     
     /**
-     * @param SpySalesOrderItem $item
+     * @param ItemTransfer $item
      * @param $numberOfItems
      * @param array $postData
      * @return array
      */
-    protected function addProductAttributesInfo(SpySalesOrderItem $item, $numberOfItems, array $postData)
+    protected function addProductAttributesInfo(ItemTransfer $item, $numberOfItems, array $postData)
     {
         $itemConfigurations = $this->salesFacade->getSalesOrderItemConfigurationByItemId($item->getIdSalesOrderItem());
         $attributes = [];
@@ -359,25 +358,24 @@ class AfterbuyExportManager
     }
 
     /**
-     * @param SpyProduct $product
+     * @param ConcreteProductInterface $product
      * @return float
      */
-    protected function getProductWeight(SpyProduct $product)
+    protected function getProductWeight(ConcreteProductInterface $product)
     {
-        $productAttributes = (array) json_decode($product->getAttributes());
-        if (isset($productAttributes[self::KEY_ATTRIBUTE_WEIGHT])) {
-            return $productAttributes[self::KEY_ATTRIBUTE_WEIGHT] / self::CONVERSION_G_TO_KG;
+        if (isset($product->getAttributes()[self::KEY_ATTRIBUTE_WEIGHT])) {
+            return $product->getAttributes()[self::KEY_ATTRIBUTE_WEIGHT] / self::CONVERSION_G_TO_KG;
         }
 
         return 0.00;
     }
 
     /**
-     * @param SpySalesOrder $order
+     * @param OrderInterface $order
      * @param array $postData
      * @return array
      */
-    protected function addShippingMethodInfo(SpySalesOrder $order, array $postData)
+    protected function addShippingMethodInfo(OrderInterface $order, array $postData)
     {
         $shipmentMethod = $order->getShipmentMethod();
         $postData[AfterbuyConstants::SHIPPING_SERVICE] = $shipmentMethod->getShipmentCarrier()->getName();
@@ -387,12 +385,12 @@ class AfterbuyExportManager
     }
 
     /**
-     * @param SpySalesOrderAddress $shippingAddress
+     * @param AddressInterface $shippingAddress
      * @param array $postData
      * @return array
      * @throws \Propel\Runtime\Exception\PropelException
      */
-    protected function addShippingAddressInfo(SpySalesOrderAddress $shippingAddress, array $postData)
+    protected function addShippingAddressInfo(AddressInterface $shippingAddress, array $postData)
     {
         $postData[AfterbuyConstants::SHIPPING_COMPANY_NAME] = $shippingAddress->getCompany();
         $postData[AfterbuyConstants::SHIPPING_SALUTATION] = $shippingAddress->getSalutation();
@@ -408,12 +406,12 @@ class AfterbuyExportManager
     }
 
     /**
-     * @param SpySalesOrderAddress $billingAddress
+     * @param AddressInterface $billingAddress
      * @param array $postData
      * @return array
      * @throws \Propel\Runtime\Exception\PropelException
      */
-    protected function addBillingAddressInfo(SpySalesOrderAddress $billingAddress, array $postData)
+    protected function addBillingAddressInfo(AddressInterface $billingAddress, array $postData)
     {
         $postData[AfterbuyConstants::BILLING_COMPANY_NAME] = $billingAddress->getCompany();
         $postData[AfterbuyConstants::BILLING_SALUTATION] = $billingAddress->getSalutation();
