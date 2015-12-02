@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "afe9a4ebaf8041ab10575a5b7be1d121",
-    "content-hash": "b5e9fe5af111b2b3b24da8220b5cf331",
+    "hash": "bc9c4edaef1b485f9b9af86948e5a85e",
+    "content-hash": "5c0bd06a6ce7b0d1310323b1b00fcc7b",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -705,11 +705,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "v0.18.0",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "f2e8f5726f13dae7c25dcdffbf635706f82db32b"
+                "reference": "652d9cb049671f2481cc08cad08c0a7ab9ce0906"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -798,7 +798,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-12-01 15:12:23"
+            "time": "2015-12-01 15:12:37"
         },
         {
             "name": "symfony-cmf/routing",
@@ -4517,6 +4517,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "spryker/spryker": 20,
         "propel/propel": 20,
         "silex/silex": 20,
         "pimple/pimple": 20
