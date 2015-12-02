@@ -1,0 +1,82 @@
+{% form_theme form.billing_address '@checkout/checkout/theme.twig' %}
+{% form_theme form.shipping_address '@checkout/checkout/theme.twig' %}
+{% form_theme form '@checkout/checkout/theme.twig' %}
+
+{% block content %}
+    {% if cart.items|length > 0 %}
+        <div class="checkout">
+            <div class="checkout__wrapper">
+                <div class="checkout__cart js-checkout-cart">
+                    {% include "@checkout/checkout/cart.twig" %}
+                </div>
+                <div class="checkout__form">
+                    {{ form_start(form) }}
+                    <section class="checkout__form-block js-checkout-address">
+                        <h1 class="form-block__heading">{{ "page.checkout.address.heading" | trans }}</h1>
+
+                        <div id="summary-text" style="display:none;">
+                            <strong>{{ 'page.checkout.summary.billing' | trans }}</strong> <br />
+                            <div id="summary-text-billing"></div>
+                            <br />
+                            <strong>{{ 'page.checkout.summary.shipping' | trans }}</strong> <br />
+                            <div id="summary-text-shipping"></div>
+                        </div>
+
+                        <div id="address-fields">
+                            {{ form_widget(form.email) }}
+                            {{ form_widget(form.billing_address) }}
+
+                            {{ form_widget(form.create_account) }}{{ form_label(form.create_account) }}
+                            <div id="create_account" style="display: none;">
+                                {{ form_widget(form.password.first, { 'attr': {'placeholder': 'customer.password'} })}}
+                                {{ form_widget(form.password.second, { 'attr': {'placeholder': 'password.confirm'} }) }}
+                            </div>
+
+
+                            <input type="checkbox" name="different-delivery-address" id="different-delivery-address" class="padded js-delivery-address-checkbox" tabindex="270">
+                            <label for="different-delivery-address">{{ "page.checkout.address.billing-isnt-shipping-address" | trans }}</label>
+
+                            {{ form_widget(form.shipping_address) }}
+                        </div>
+
+                        <button class="cta js-address-button" disabled tabindex="370">{{ "page.checkout.address.next-step" | trans }}</button>
+                        <button class="js-edit-formblock form-block__edit">{{ "page.checkout.address.edit" | trans }}</button>
+                    </section>
+
+                    <section class="checkout__form-block js-form-block js-checkout-payment js-checkout-collapsed">
+                        <h1 class="form-block__heading">{{ "page.checkout.payment.heading" | trans }}</h1>
+                        {{ form_widget(form.payment_method) }}
+                        <button class="cta js-payment-button" disabled>{{ "page.checkout.payment.next-step" | trans }}</button>
+                        <button class="js-edit-formblock form-block__edit">{{ "page.checkout.payment.edit" | trans }}</button>
+                    </section>
+                    <section class="checkout__form-block js-form-block js-checkout-shipment js-checkout-collapsed">
+                        <h1 class="form-block__heading">{{ "page.checkout.shipment.heading" | trans }}</h1>
+                        {{ form_widget(form.id_shipment_method) }}
+                        <button class="cta js-shipment-button" disabled>{{ "page.checkout.shipment.next-step" | trans }}</button>
+                        <button class="js-edit-formblock form-block__edit">{{ "page.checkout.shipment.edit" | trans }}</button>
+                    </section>
+                    <section class="checkout__form-block checkout__form-block--confirm js-form-block js-checkout-confirm js-checkout-collapsed">
+                        <h1 class="form-block__heading">{{ "page.checkout.finalize.heading" | trans }}</h1>
+                        <div>
+                            {% include "@checkout/checkout/cart.twig" %}
+                        </div>
+                        {#<input type="text" name="checkout-voucher-code" class="padded confirm__voucher-code js-voucher-code" placeholder="Gutscheincode eingeben">
+                        <button class="confirm__voucher-submit js-voucher-submit">Gutscheincode einlösen</button>#}
+                        <div class="confirm__agb-submit">
+                            {{ form_widget(form.terms) }}
+                            <label for="{{ form.terms.vars.id }}" class="confirm__agb-label"><a href="/agb" target="_blank">{{ 'page.checkout.terms'|trans }}</a></label>
+                            <button type="submit" id="checkout_submit" disabled="disabled" class="cta confirm__submit js-checkout-submit">{{ 'page.checkout.finalize.buy-now'|trans }}</button>
+                        </div>
+                    </section>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <article class="product product--justice-league">
+            <section class="product__overview">
+                <h2 class="product__name">{{ 'cart.empty'|trans }}</h2>
+            </section>
+        </article>
+    {% endif %}
+{% endblock %}

@@ -77,7 +77,7 @@ $config[ApplicationConstants::ZED_SSL_ENABLED] = false;
 $config[ApplicationConstants::ZED_API_SSL_ENABLED] = false;
 $config[ApplicationConstants::ZED_SSL_EXCLUDED] = ['system/heartbeat'];
 
-$config[ApplicationConstants::YVES_THEME] = 'demoshop';
+$config[ApplicationConstants::YVES_THEME] = 'default';
 $config[ApplicationConstants::YVES_TRUSTED_PROXIES] = [];
 $config[ApplicationConstants::YVES_SSL_ENABLED] = false;
 $config[ApplicationConstants::YVES_COMPLETE_SSL_ENABLED] = false;

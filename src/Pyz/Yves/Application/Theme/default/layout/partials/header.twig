@@ -1,0 +1,14 @@
+<header class="header">
+    <a href="/" class="shop-logo">{{ 'Spryker Shop'|trans }}</a>
+    <a href="#" class="nav-toggle js-nav-toggle"><span></span></a>
+    <nav class="main-nav"></nav>
+    <div class="header__search js-search">
+        {# @TODO create Url dynamic #}
+        <form action="/search">
+            <button class="search__button js-search-button">{{ 'Search'|trans }}</button>
+            <input name="q" type="text" class="search__box js-search-box">
+        </form>
+    </div>
+    {% include "@cart/ajax/overlay.twig" %}
+</header>
+{% include "@application/layout/partials/main-nav.twig" %}
