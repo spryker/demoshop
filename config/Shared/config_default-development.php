@@ -63,6 +63,7 @@ $config[PyzZedRequestConfig::YVES_TO_ZED_CURL_LOG_ENABLED] = true;
 $config[PyzZedRequestConfig::YVES_TO_ZED_CURL_LOG_FILE_PATH] = '/tmp/yves_to_zed_curl.log';
 
 $config[SystemConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = true;
+//$config[YvesConfig::YVES_SHOW_EXCEPTION_STACK_TRACE] = false;
 
 $config[SequenceNumberConstants::ENVIRONMENT_PREFIX] = "D";
 

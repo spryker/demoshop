@@ -71,7 +71,7 @@ class PaymentDetail extends AbstractType
                     'class' => 'input--1-1',
                     'data-required' => true,
                     'data-depending-field' => 'checkout[adyen_payment][payment_method]',
-                    'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_ELECTRONIC_DIRECT_DEBIT,
+                    'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA,
                     'data-regexp' => '^[0-9]{1,11}$'
                 ]
             ])
@@ -82,7 +82,7 @@ class PaymentDetail extends AbstractType
                     'class' => 'input--1-1',
                     'data-required' => true,
                     'data-depending-field' => 'checkout[adyen_payment][payment_method]',
-                    'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_ELECTRONIC_DIRECT_DEBIT,
+                    'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA,
                     'data-regexp' => '^[1-9]{1}[0-9]{3,7}$'
 
                 ]
@@ -94,7 +94,7 @@ class PaymentDetail extends AbstractType
                     'class' => 'input--1-1',
                     'data-required' => true,
                     'data-depending-field' => 'checkout[adyen_payment][payment_method]',
-                    'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_ELECTRONIC_DIRECT_DEBIT,
+                    'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA,
                 ],
             ])
 
@@ -132,7 +132,8 @@ class PaymentDetail extends AbstractType
                     'class' => 'input--3-4',
                     'data-required' => true,
                     'data-depending-field' => 'checkout[adyen_payment][payment_method]',
-                    'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE
+                    'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE,
+                    'data-regexp' => '^[1-9]{1}[0-9]{15}$'
                 ],
             ])
             ->add('adyen_encrypted_form_cvc', 'text', [
@@ -146,7 +147,8 @@ class PaymentDetail extends AbstractType
                     'class' => 'input--1-4',
                     'data-required' => true,
                     'data-depending-field' => 'checkout[adyen_payment][payment_method]',
-                    'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE
+                    'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE,
+                    'data-regexp' => '^[1-9]{1}[0-9]{2}$'
                 ],
             ])
             ->add('adyen_encrypted_form_holder_name', 'text', [

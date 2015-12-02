@@ -45,7 +45,7 @@ $(document).ready(function () {
             var validationResult = validateInput($input);
 
             $input.removeClass('input--valid');
-            $inputField.find('.input--error').remove();
+            $input.find('.input__error').remove();
 
             if (validationResult.valid) {
                 $input.removeClass('input--invalid');

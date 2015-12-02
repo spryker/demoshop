@@ -18,9 +18,9 @@ function show ($message, delay) {
         $message.fadeIn();
 
         // auto hide after 5s
-        setTimeout(function () {
-            hide($message);
-        }, 5000);
+        // setTimeout(function () {
+        //     hide($message);
+        // }, 5000);
     }, delay);
 }
 

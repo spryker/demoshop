@@ -63,8 +63,7 @@ function validateInput ($element) {
     $input = $element.find('.input__text');
     value = $input.val();
 
-    var $dependingField = $('[name="' + $input.data('depending-field') + '"]').filter(':checked');
-    dataRequired = $input.data('required') && $dependingField.val() == $input.data('depending-value');
+    dataRequired = $input.data('required') && $('[name="' + $input.data('depending-field') + '"]').filter(':checked').val() == $input.data('depending-value');
     required = $input.prop('required') || dataRequired;
 
     if (required) {
@@ -74,19 +73,21 @@ function validateInput ($element) {
         } else {
             result.valid = result.valid && true;
         }
-    }
 
-    var regepx = $input.data('regexp');
-    if (!!regepx) {
-        var match = value.match(new RegExp(regepx));
+        // TODO: possibly separation of required and format validation necessary
+        var regepx = $input.data('regexp');
+        if (!!regepx) {
+            var match = value.match(new RegExp(regepx));
 
-        if (!match) {
-            result.valid = result.valid && false;
-            result.messages.push(`${label} ist ungültig.`);
-        } else {
-            result.valid = result.valid && true;
+            if (!match) {
+                result.valid = result.valid && false;
+                result.messages.push(`${label} ist ungültig.`);
+            } else {
+                result.valid = result.valid && true;
+            }
         }
     }
+
 
     return result;
 }

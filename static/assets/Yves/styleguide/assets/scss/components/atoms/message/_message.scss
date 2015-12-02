@@ -12,7 +12,6 @@
 .messages{
     position: fixed;
     z-index: 999;
-    @include pageWidth;
     padding-left: 45px;
     padding-right: 45px;
     width: 100%;
@@ -23,6 +22,8 @@
 
 .message{
     display: block;
+    @include pageWidth;
+    margin: 0 auto;
     position: relative;
     padding: 25px 25px 25px 80px;
 
