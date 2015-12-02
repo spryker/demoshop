@@ -25,7 +25,7 @@ class SecurityController extends AbstractController
     {
         if ($this->isGranted('ROLE_USER')) {
             $this->addInfoMessage(Messages::CUSTOMER_ALREADY_AUTHENTICATED);
-            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
+            return $this->redirectResponseInternal('/');
         }
 
         return ['error' => $this->getSecurityError($request)];
@@ -44,7 +44,7 @@ class SecurityController extends AbstractController
         $securityContext = $this->getApplication()['security'];
         $securityContext->setToken(null);
 
-        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
+        return $this->redirectResponseInternal('/');
     }
 
     /**
@@ -86,11 +86,11 @@ class SecurityController extends AbstractController
         if ($customerTransfer->getRegistered()) {
             $this->addSuccessMessage(Messages::CUSTOMER_REGISTRATION_CONFIRMED);
 
-            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
+            return $this->redirectResponseInternal('/');
         }
         $this->addErrorMessage(Messages::CUSTOMER_REGISTRATION_TIMEOUT);
 
-        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
+        return $this->redirectResponseInternal('/');
     }
 
 }
