@@ -22,8 +22,9 @@ interface UrlQueryContainerInterface extends SprykerUrlQueryContainerInterface
     public function queryUrlByIdPageAndLocale($idPage, $idLocale);
 
     /**
-     * @param int $abstractProductId
+     * @param $abstractProductId
+     * @param $idLocale
      * @return SpyUrlQuery
      */
-    public function queryUrlByAbstractProductId($abstractProductId);
+    public function queryUrlByAbstractProductId($abstractProductId, $idLocale);
 }

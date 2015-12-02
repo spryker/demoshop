@@ -177,9 +177,9 @@ class SalesManager extends SprykerOrderManager
      */
     public function hasDiscountCodeByDiscountId($idSalesDiscount)
     {
-        $entities = $this->queryContainer->querySalesDiscountCodeBySalesDiscountId($idSalesDiscount)->find();
+        $numberCodes = $this->queryContainer->querySalesDiscountCodeBySalesDiscountId($idSalesDiscount)->count();
 
-        return (bool) (count($entities) > 0);
+        return (bool) ($numberCodes > 0);
     }
 
     /**

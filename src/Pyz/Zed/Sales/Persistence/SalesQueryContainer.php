@@ -73,4 +73,5 @@ class SalesQueryContainer extends SprykerSalesQueryContainer implements SalesQue
         return SpySalesDiscountCodeQuery::create()
             ->filterByFkSalesDiscount($idSalesDiscount);
     }
+
 }

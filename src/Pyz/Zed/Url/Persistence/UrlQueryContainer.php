@@ -22,12 +22,16 @@ class UrlQueryContainer extends SprykerQueryContainer implements UrlQueryContain
 
     /**
      * @param int $abstractProductId
+     * @param int $idLocale
      * @return SpyUrl
      */
-    public function queryUrlByAbstractProductId($abstractProductId)
+    public function queryUrlByAbstractProductId($abstractProductId, $idLocale)
     {
         return SpyUrlQuery::create()
-            ->filterByFkResourceAbstractProduct($abstractProductId);
+            ->useCmsPageQuery()
+                ->filterByFkAbstractProduct($abstractProductId)
+            ->endUse()
+            ->filterByFkLocale($idLocale);
     }
 
     /**
@@ -44,4 +48,5 @@ class UrlQueryContainer extends SprykerQueryContainer implements UrlQueryContain
             ;
         return $query;
     }
+
 }

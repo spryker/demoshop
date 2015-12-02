@@ -39,7 +39,9 @@ class UrlManager extends SprykerUrlManager
      */
     public function getUrlByAbstractProductId($abstractProductId)
     {
-        return $this->urlQueryContainer->queryUrlByAbstractProductId($abstractProductId)
+        $idLocale = $this->localeFacade->getCurrentLocale()->getIdLocale();
+
+        return  $this->urlQueryContainer->queryUrlByAbstractProductId($abstractProductId, $idLocale)
             ->findOne();
     }
 }
