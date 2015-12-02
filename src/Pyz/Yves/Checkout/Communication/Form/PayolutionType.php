@@ -16,15 +16,8 @@ use Symfony\Component\HttpFoundation\Request;
 class PayolutionType extends AbstractType
 {
 
-    const FIELD_ADDRESS = 'address';
-    const FIELD_GENDER = 'gender';
     const FIELD_DATE_OF_BIRTH = 'date_of_birth';
-    const FIELD_EMAIL = 'email';
     const FIELD_PHONE = 'address_phone';
-    const FIELD_LANGUAGE_CODE = 'language_iso2_code';
-    const FIELD_CURRENCY_CODE = 'currency_iso3_code';
-    const FIELD_ACCOUNT_BRAND = 'account_brand';
-    const FIELD_CLIENT_IP = 'client_ip';
     const FIELD_INSTALLMENT_PAYMENT_DETAIL_INDEX = 'installment_payment_detail_index';
     const FIELD_BANK_ACCOUNT_HOLDER = 'bank_account_holder';
     const FIELD_BANK_ACCOUNT_IBAN = 'bank_account_iban';
@@ -44,11 +37,6 @@ class PayolutionType extends AbstractType
      * @var PayolutionCalculationResponseTransfer
      */
     private $payolutionCalculationResponseTransfer;
-
-    public $choices = [
-        '0' => 'hi',
-        '1' => 'hello',
-    ];
 
     /**
      * @param Request $request
@@ -80,23 +68,17 @@ class PayolutionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add(self::FIELD_ADDRESS, new AddressType($this->tabIndexOffset + 100), [
-                'data_class' => 'Generated\Shared\Transfer\AddressTransfer',
-                'error_bubbling' => true,
-            ])
-            ->add(self::FIELD_GENDER, 'choice', [
-                'choices' => [
-                    'Mr' => 'customer.salutation.mr',
-                    'Mrs' => 'customer.salutation.mrs',
-                ],
-                'property_path' => 'address.salutation',
+            ->add(self::FIELD_INSTALLMENT_PAYMENT_DETAIL_INDEX, 'choice', [
+                'choices' => $this->getInstallmentPayments(),
                 'label' => false,
                 'required' => true,
-                'expanded' => true,
+                'expanded' => false,
                 'multiple' => false,
                 'empty_value' => false,
                 'attr' => [
-                    'style' => 'display: block;',
+                    'tabindex' => 100 + $this->tabIndexOffset,
+                    'style' => 'width: 100%; height: 65px; border: solid 1px #c3bec2;',
+                    'class' => 'js-payolution-installment',
                 ],
             ])
             ->add(self::FIELD_DATE_OF_BIRTH, 'birthday', [
@@ -108,19 +90,8 @@ class PayolutionType extends AbstractType
                 'attr' => [
                     'placeholder' => 'customer.birth_date',
                     'class' => 'padded js-checkout-payolution-payment-date-of-birth',
-                    'style' => 'width: 49%;',
-                    'tabindex' => 160 + $this->tabIndexOffset,
-                ],
-            ])
-            ->add(self::FIELD_EMAIL, 'text', [
-                'label' => false,
-                'required' => true,
-                'property_path' => 'address.email',
-                'attr' => [
-                    'placeholder' => 'customer.email',
-                    'class' => 'padded js-checkout-payolution-payment-email',
-                    'style' => 'width: 49%;',
-                    'tabindex' => 170 + $this->tabIndexOffset,
+                    'style' => 'width: 49%; float: left;',
+                    'tabindex' => 101 + $this->tabIndexOffset,
                 ],
             ])
             ->add(self::FIELD_PHONE, 'text', [
@@ -130,19 +101,8 @@ class PayolutionType extends AbstractType
                 'attr' => [
                     'placeholder' => 'customer.phone',
                     'class' => 'padded js-checkout-payolution-payment-phone',
-                    'style' => 'width: 49%;',
-                    'tabindex' => 180 + $this->tabIndexOffset,
-                ],
-            ])
-            ->add(self::FIELD_INSTALLMENT_PAYMENT_DETAIL_INDEX, 'choice', [
-                'choices' => $this->getInstallmentPayments(),
-                'label' => false,
-                'required' => true,
-                'expanded' => true,
-                'multiple' => false,
-                'empty_value' => false,
-                'attr' => [
-                    'style' => 'display: block;',
+                    'style' => 'width: 49%; clear: none; float: right;',
+                    'tabindex' => 102 + $this->tabIndexOffset,
                 ],
             ])
             ->add(self::FIELD_BANK_ACCOUNT_HOLDER, 'text', [
@@ -150,9 +110,9 @@ class PayolutionType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'Bank account holder',
-                    'class' => 'padded',
-                    'style' => 'width: 49%;',
-                    'tabindex' => 190 + $this->tabIndexOffset,
+                    'class' => 'padded js-payolution-installment',
+                    'style' => 'width: 49%; float: left;',
+                    'tabindex' => 103 + $this->tabIndexOffset,
                 ],
             ])
             ->add(self::FIELD_BANK_ACCOUNT_IBAN, 'text', [
@@ -160,9 +120,9 @@ class PayolutionType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'Bank account IBAN',
-                    'class' => 'padded',
-                    'style' => 'width: 49%;',
-                    'tabindex' => 200 + $this->tabIndexOffset,
+                    'class' => 'padded js-payolution-installment',
+                    'style' => 'width: 49%; clear: none; float: right;',
+                    'tabindex' => 104 + $this->tabIndexOffset,
                 ],
             ])
             ->add(self::FIELD_BANK_ACCOUNT_BIC, 'text', [
@@ -170,9 +130,9 @@ class PayolutionType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'Bank account BIC',
-                    'class' => 'padded',
-                    'style' => 'width: 49%;',
-                    'tabindex' => 210 + $this->tabIndexOffset,
+                    'class' => 'padded js-payolution-installment',
+                    'style' => 'width: 49%; clear: none; float: left;',
+                    'tabindex' => 105 + $this->tabIndexOffset,
                 ],
             ]);
     }
@@ -197,7 +157,7 @@ class PayolutionType extends AbstractType
 
         foreach ($paymentDetails as $paymentDetail) {
             $choices[] = $paymentDetail->getInstallments()[0]->getAmount() / 100
-                .' Euros for '.
+                .' € for '.
                 $paymentDetail->getDuration()
                 .' months ';
             ;

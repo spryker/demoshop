@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 class CheckoutType extends AbstractType
 {
 
+    const FORM_ACTION = 'checkout/buy';
     const FIELD_EMAIL = 'email';
     const FIELD_BILLING_ADDRESS = 'billing_address';
     const FIELD_SHIPPING_ADDRESS = 'shipping_address';
@@ -84,7 +85,7 @@ class CheckoutType extends AbstractType
                     'tabindex' => 100,
                     'class' => 'padded js-checkout-email',
                     'placeholder' => 'customer.email',
-                    'style' => 'width:100%',
+                    'style' => 'width: 49%; clear: none; float: left;',
                 ],
             ])
             ->add(self::FIELD_BILLING_ADDRESS, new AddressType(200), [
@@ -170,7 +171,8 @@ class CheckoutType extends AbstractType
                     'tabindex' => 602,
                     'class' => 'padded js-create_account',
                 ],
-            ]);
+            ])
+            ->setAction(self::FORM_ACTION);
     }
 
     /**
@@ -201,8 +203,7 @@ class CheckoutType extends AbstractType
             );
 
             $shipmentDescription = $this->translate($method->getGlossaryKeyName())
-                .  ' ' . $this->translate($method->getGlossaryKeyDescription())
-                .  ' | ' . $this->translate('page.checkout.shipping.price') . ': ' . $price;
+                .  ' ' . $this->translate($method->getGlossaryKeyDescription());
 
             if ($deliveryTime !== null) {
                 $shipmentDescription .= ' | ' . $this->translate('page.checkout.shipping.delivery_time') . ': ' . $deliveryTime;

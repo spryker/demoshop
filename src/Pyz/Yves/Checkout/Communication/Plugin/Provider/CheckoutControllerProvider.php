@@ -9,6 +9,7 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
 {
 
     const ROUTE_CHECKOUT = 'checkout';
+    const ROUTE_CHECKOUT_SUBMIT = 'checkout/buy';
     const ROUTE_CHECKOUT_SUCCESS = 'checkout/success';
     const ROUTE_CHECKOUT_REGULAR_REDIRECT_PAYMENT_CANCELLATION = 'checkout/regular-redirect-payment-cancellation';
 
@@ -17,7 +18,12 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
         $allowedLocalesPattern = $this->getAllowedLocalesPattern();
 
         $this->createController('/{checkout}', self::ROUTE_CHECKOUT, 'Checkout', 'Checkout')
-            ->method('GET|POST')
+            ->method('GET')
+            ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
+            ->value('checkout', 'checkout');
+
+        $this->createController('/{checkout}/buy', self::ROUTE_CHECKOUT_SUBMIT, 'Checkout', 'Checkout', 'buy')
+            ->method('POST')
             ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
             ->value('checkout', 'checkout');
 

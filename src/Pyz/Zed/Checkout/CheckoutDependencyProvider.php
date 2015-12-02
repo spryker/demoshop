@@ -23,7 +23,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
         return [
             $container->getLocator()->customerCheckoutConnector()->pluginCustomerPreConditionCheckerPlugin(),
             $container->getLocator()->availabilityCheckoutConnector()->pluginProductsAvailablePreConditionPlugin(),
-//            $container->getLocator()->payolution()->pluginCheckoutPreCheckPlugin(),
+            $container->getLocator()->payolution()->pluginCheckoutPreCheckPlugin(),
         ];
     }
 

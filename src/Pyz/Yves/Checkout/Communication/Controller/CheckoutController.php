@@ -13,6 +13,7 @@ use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer;
+use Orm\Zed\Payolution\Persistence\Map\SpyPaymentPayolutionTableMap;
 use Pyz\Yves\Checkout\Communication\Form\CheckoutType;
 use Pyz\Yves\Checkout\Communication\Plugin\Provider\CheckoutControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
@@ -31,9 +32,20 @@ use Symfony\Component\HttpFoundation\Request;
 class CheckoutController extends AbstractController
 {
 
+    /*
+     * @var static array
+     */
     protected static $payolutionPaymentMethodMapper = [
         'payolution_invoice' => PayolutionApiConstants::BRAND_INVOICE,
         'payolution_installment' => PayolutionApiConstants::BRAND_INSTALLMENT,
+    ];
+
+    /*
+    * @var static array
+    */
+    protected static $genderMapper = [
+        'Mr' => SpyPaymentPayolutionTableMap::COL_GENDER_MALE,
+        'Mrs' => SpyPaymentPayolutionTableMap::COL_GENDER_FEMALE,
     ];
 
     /**
@@ -53,7 +65,42 @@ class CheckoutController extends AbstractController
 
         $checkoutTransfer = new CheckoutRequestTransfer();
 
-        $payolutionCalculationResponseTransfer = $this->getPayolutionInstallmentPayments($checkoutTransfer);
+        $payolutionCalculationResponseTransfer = $cartTransfer->getTotals() === null ?
+            new PayolutionCalculationResponseTransfer() :
+            $this->getPayolutionInstallmentPayments($checkoutTransfer);
+
+
+        $checkoutFormType = $this
+            ->getDependencyContainer()
+            ->createCheckoutForm($request, $shipmentTransfer, $payolutionCalculationResponseTransfer);
+        $checkoutForm = $this->createForm($checkoutFormType, $checkoutTransfer);
+
+        return [
+            'form' => $checkoutForm->createView(),
+            'cart' => $this->getCartTransfer(),
+        ];
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return array
+     */
+    public function buyAction(Request $request)
+    {
+        $cartTransfer = $this->getCartTransfer();
+        $shipmentMethodAvailabilityTransfer = new ShipmentMethodAvailabilityTransfer();
+        $shipmentMethodAvailabilityTransfer->setCart($cartTransfer);
+        $shipmentTransfer = $this
+            ->getDependencyContainer()
+            ->createShipmentClient()
+            ->getAvailableMethods($shipmentMethodAvailabilityTransfer);
+
+        $checkoutTransfer = new CheckoutRequestTransfer();
+
+        $payolutionCalculationResponseTransfer = $cartTransfer->getTotals() === null ?
+            new PayolutionCalculationResponseTransfer() :
+            $this->getPayolutionInstallmentPayments($checkoutTransfer);
 
         $checkoutFormType = $this
             ->getDependencyContainer()
@@ -233,15 +280,19 @@ class CheckoutController extends AbstractController
             ->getPaymentDetails()[$checkoutRequestTransfer->getPayolutionPayment()->getInstallmentPaymentDetailIndex()];
         $installmentAmount = $installmentPaymentDetail->getInstallments()[0]->getAmount() / 100;
         $installmentDuration = $installmentPaymentDetail->getDuration();
+        $gender = self::$genderMapper[$checkoutRequestTransfer->getBillingAddress()->getSalutation()];
 
         $checkoutRequestTransfer->getPayolutionPayment()
             ->setAccountBrand(self::$payolutionPaymentMethodMapper[$checkoutRequestTransfer->getPaymentMethod()])
+            ->setAddress($checkoutRequestTransfer->getBillingAddress())
             ->setCurrencyIso3Code(CurrencyManager::getInstance()->getDefaultCurrency()->getIsoCode())
             ->setLanguageIso2Code($checkoutRequestTransfer->getBillingAddress()->getIso2Code())
-            ->setGender('Male')
+            ->setGender($gender)
             ->setClientIp($request->getClientIp())
             ->setInstallmentAmount($installmentAmount)
             ->setInstallmentDuration($installmentDuration);
+
+        $checkoutRequestTransfer->getPayolutionPayment()->getAddress()->setEmail($checkoutRequestTransfer->getEmail());
     }
 
     /**

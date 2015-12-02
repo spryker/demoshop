@@ -101,11 +101,11 @@ module.exports = {
         $('input[name="checkout[payment_method]"]').on('change', function (event) {
             $paymentButton.attr('disabled', $('input[name="checkout[payment_method]"]:checked').length != 1);
 
-            var $payolutionForm = $('.js-payolution-payment');
-            if ('payolution_invoice' === event.target.value && !!event.target.checked) {
-                $payolutionForm.show();
+            var $payolutionInstallmentForm = $('.js-payolution-installment');
+            if ('payolution_installment' === event.target.value && !!event.target.checked) {
+                $payolutionInstallmentForm.show();
             } else {
-                $payolutionForm.hide();
+                $payolutionInstallmentForm.hide();
             }
         });
 
@@ -176,19 +176,20 @@ module.exports = {
                 $('.js-checkout-address').addClass('js-checkout-collapsed js-checkout-completed');
             }
 
-            $('.js-checkout-payment').removeClass('js-checkout-collapsed');
-
-        });
-
-        $('.js-payment-button').click(function (event) {
-            event.preventDefault();
-            $('.js-checkout-payment').addClass('js-checkout-collapsed js-checkout-completed');
             $('.js-checkout-shipment').removeClass('js-checkout-collapsed');
+
         });
 
         $('.js-shipment-button').click(function (event) {
             event.preventDefault();
             $('.js-checkout-shipment').addClass('js-checkout-collapsed js-checkout-completed');
+            $('.js-checkout-payment').removeClass('js-checkout-collapsed');
+            $('.js-payolution-installment').hide();
+        });
+
+        $('.js-payment-button').click(function (event) {
+            event.preventDefault();
+            $('.js-checkout-payment').addClass('js-checkout-collapsed js-checkout-completed');
             $('.js-checkout-confirm').removeClass('js-checkout-collapsed');
             $('.js-checkout-cart').hide();
         });

@@ -302,37 +302,17 @@ keys:
       en_US: 'Example:</br>Wayne Manor 1</br>10292 Gotham City</br>z.H. Alfred Pennyworth'
   page.checkout.address.next-step:
     translations:
-      de_DE: 'Weiter - Zahlungsart wählen'
-      en_US: 'Continue to Payment Method'
+      de_DE: 'Weiter - Lieferart wählen'
+      en_US: 'Continue to Shippment Method'
   page.checkout.address.edit:
     translations:
       de_DE: 'Adresse bearbeiten'
       en_US: 'edit Address Data'
 
-  page.checkout.payment.heading:
-    translations:
-      de_DE: '2. Zahlungsart wählen'
-      en_US: '2. Payment Method'
-  page.checkout.payment.edit:
-    translations:
-      de_DE: 'Zahlungsart bearbeiten'
-      en_US: 'edit Payment Method'
-  page.checkout.payment.next-step:
-    translations:
-      de_DE: 'Weiter - Prüfen und Kauf abschließen'
-      en_US: 'Continue to finalise order'
   page.checkout.shipment.heading:
     translations:
-      de_DE: '3. Lieferart wählen'
-      en_US: '3. Shipping Method'
-  page.checkout.summary.billing:
-    translations:
-      de_DE: 'Rechnungsadresse'
-      en_US: 'Invoice Address'
-  page.checkout.summary.shipping:
-    translations:
-      de_DE: 'Lieferadresse'
-      en_US: 'Shipping Address'
+      de_DE: '2. Lieferart wählen'
+      en_US: '2. Shipping Method'
   shipment.standart.name:
     translations:
       de_DE: 'Standard'
@@ -363,8 +343,30 @@ keys:
       en_US: 'edit Shipment Method'
   page.checkout.shipment.next-step:
     translations:
-      de_DE: 'Weiter'
-      en_US: 'Continue'
+      de_DE: 'Weiter - Zahlungsart wählen'
+      en_US: 'Continue to Payment Method'
+
+  page.checkout.payment.heading:
+    translations:
+      de_DE: '3. Zahlungsart wählen'
+      en_US: '3. Payment Method'
+  page.checkout.payment.edit:
+    translations:
+      de_DE: 'Zahlungsart bearbeiten'
+      en_US: 'edit Payment Method'
+  page.checkout.payment.next-step:
+    translations:
+      de_DE: 'Weiter - Prüfen und Kauf abschließen'
+      en_US: 'Continue to finalise order'
+
+  page.checkout.summary.billing:
+    translations:
+      de_DE: 'Rechnungsadresse'
+      en_US: 'Invoice Address'
+  page.checkout.summary.shipping:
+    translations:
+      de_DE: 'Lieferadresse'
+      en_US: 'Shipping Address'
   page.checkout.finalize.heading:
     translations:
       de_DE: '4. Prüfen und Kauf abschließen'
@@ -564,10 +566,10 @@ keys:
     translations:
       de_DE: 'Payolution Rechnung'
       en_US: 'Payolution Invoice'
-    payment.payolution.installment:
-      translations:
-        de_DE: 'Payolution Ratenkauf'
-        en_US: 'Payolution Installment'
+  payment.payolution.installment:
+    translations:
+      de_DE: 'Payolution Ratenkauf'
+      en_US: 'Payolution Installment'
 
   address.street:
     translations:

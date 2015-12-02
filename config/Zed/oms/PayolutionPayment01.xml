@@ -32,18 +32,6 @@
                 <event>pre-authorize payment</event>
             </transition>
 
-            <transition happy="true" condition="Payolution/IsPreAuthorizationApproved">
-                <source>pre-authorization failed</source>
-                <target>pre-authorization succeed</target>
-                <event>retry pre-authorize payment</event>
-            </transition>
-
-            <transition>
-                <source>pre-authorization failed</source>
-                <target>pre-authorization failed</target>
-                <event>retry pre-authorize payment</event>
-            </transition>
-
             <transition>
                 <source>pre-authorization succeed</source>
                 <target>pre-authorization invalid</target>
