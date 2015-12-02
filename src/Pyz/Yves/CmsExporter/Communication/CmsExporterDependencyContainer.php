@@ -21,7 +21,7 @@ class CmsExporterDependencyContainer extends AbstractCommunicationDependencyCont
      */
     public function createPageResourceCreator()
     {
-        return $this->getFactory()->createResourceCreatorPageResourceCreator(
+        return new PageResourceCreator(
             $this->getLocator()
         );
     }

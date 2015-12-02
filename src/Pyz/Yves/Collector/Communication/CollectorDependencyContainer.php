@@ -38,7 +38,7 @@ class CollectorDependencyContainer extends AbstractCommunicationDependencyContai
      */
     public function createUrlMapper()
     {
-        return $this->getFactory()->createMapperUrlMapper(
+        return new UrlMapper(
             $this->createFacetConfig()
         );
     }

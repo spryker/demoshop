@@ -2,6 +2,9 @@
 
 namespace Pyz\Zed\Shipment\Business;
 
+use Pyz\Zed\Shipment\ShipmentDependencyProvider;
+use SprykerFeature\Zed\Shipment\Business\Model\Method;
+use SprykerFeature\Zed\Shipment\Business\Model\Carrier;
 use Pyz\Zed\Shipment\Business\Internal\DemoData\ShipmentInstall;
 use SprykerEngine\Shared\Kernel\Messenger\MessengerInterface;
 use SprykerFeature\Zed\Shipment\Business\ShipmentDependencyContainer as SprykerShipmentDependencyContainer;
@@ -20,7 +23,7 @@ class ShipmentDependencyContainer extends SprykerShipmentDependencyContainer
      */
     public function createDemoDataInstaller(MessengerInterface $messenger)
     {
-        $installer = $this->getFactory()->createInternalDemoDataShipmentInstall(
+        $installer = new ShipmentInstall(
             $this->getQueryContainer(),
             $this->createCarrier(),
             $this->createMethod()
@@ -28,6 +31,25 @@ class ShipmentDependencyContainer extends SprykerShipmentDependencyContainer
         $installer->setMessenger($messenger);
 
         return $installer;
+    }
+
+    /**
+     * @return Carrier
+     */
+    public function createCarrier()
+    {
+        return new Carrier();
+    }
+
+    /**
+     * @return Method
+     */
+    public function createMethod()
+    {
+        return new Method(
+            $this->getQueryContainer(),
+            $this->getProvidedDependency(ShipmentDependencyProvider::PLUGINS)
+        );
     }
 
 }

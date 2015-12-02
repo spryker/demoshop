@@ -17,8 +17,7 @@ class CmsQueryContainer extends SprykerCmsQueryContainer
     public function queryUrlByPath($url)
     {
         return $this->getProvidedDependency(CmsDependencyProvider::URL_QUERY_CONTAINER)
-            ->queryUrl($url)
-        ;
+            ->queryUrl($url);
     }
 
 }

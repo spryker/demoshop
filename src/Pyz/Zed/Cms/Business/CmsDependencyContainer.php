@@ -2,6 +2,10 @@
 
 namespace Pyz\Zed\Cms\Business;
 
+use SprykerFeature\Zed\Cms\Business\Mapping\GlossaryKeyMappingManager;
+use SprykerFeature\Zed\Cms\Business\Block\BlockManager;
+use SprykerFeature\Zed\Cms\Business\Template\TemplateManager;
+use SprykerFeature\Zed\Cms\Business\Page\PageManager;
 use Pyz\Zed\Cms\Business\Internal\DemoData\CmsInstall;
 use Pyz\Zed\Cms\CmsDependencyProvider;
 use Pyz\Zed\Glossary\Business\GlossaryFacade;
@@ -20,7 +24,7 @@ class CmsDependencyContainer extends SprykerCmsDependencyContainer
      */
     public function createDemoDataInstaller(MessengerInterface $messenger)
     {
-        $installer = $this->getFactory()->createInternalDemoDataCmsInstall(
+        $installer = new CmsInstall(
             $this->createGlossaryFacade(),
             $this->createUrlFacade(),
             $this->createLocaleFacade(),
@@ -58,6 +62,62 @@ class CmsDependencyContainer extends SprykerCmsDependencyContainer
     public function createLocaleFacade()
     {
         return $this->getProvidedDependency(CmsDependencyProvider::FACADE_LOCALE);
+    }
+
+    /**
+     * @return PageManagerInterface
+     */
+    public function getPageManager()
+    {
+        return new PageManager(
+                    $this->getCmsQueryContainer(),
+                    $this->getTemplateManager(),
+                    $this->getBlockManager(),
+                    $this->getGlossaryFacade(),
+                    $this->getTouchFacade(),
+                    $this->getUrlFacade(),
+                    $this->getLocator()
+                );
+    }
+
+    /**
+     * @return TemplateManagerInterface
+     */
+    public function getTemplateManager()
+    {
+        return new TemplateManager(
+                    $this->getCmsQueryContainer(),
+                    $this->getLocator(),
+                    $this->getConfig(),
+                    $this->getFinder()
+                );
+    }
+
+    /**
+     * @return BlockManagerInterface
+     */
+    public function getBlockManager()
+    {
+        return new BlockManager(
+                    $this->getCmsQueryContainer(),
+                    $this->getTouchFacade(),
+                    $this->getProvidedDependency(CmsDependencyProvider::PLUGIN_PROPEL_CONNECTION)
+                );
+    }
+
+    /**
+     * @return GlossaryKeyMappingManagerInterface
+     */
+    public function getGlossaryKeyMappingManager()
+    {
+        return new GlossaryKeyMappingManager(
+                    $this->getGlossaryFacade(),
+                    $this->getCmsQueryContainer(),
+                    $this->getTemplateManager(),
+                    $this->getPageManager(),
+                    $this->getLocator(),
+                    $this->getProvidedDependency(CmsDependencyProvider::PLUGIN_PROPEL_CONNECTION)
+                );
     }
 
 }

@@ -7,6 +7,7 @@
  */
 class PropelMigration_1447765664
 {
+
     public $comment = '';
 
     public function preUp($manager)
@@ -33,11 +34,11 @@ class PropelMigration_1447765664
      * Get the SQL statements for the Up migration
      *
      * @return array list of the SQL strings to execute for the Up migration
-     *               the keys being the datasources
+     *   the keys being the datasources
      */
     public function getUpSQL()
     {
-        return array (
+        return [
   'zed' => '
 # This is a fix for InnoDB in MySQL >= 4.1.x
 # It "suspends judgement" for fkey relationships until are tables are set.
@@ -1958,18 +1959,18 @@ CREATE TABLE `spy_user_archive`
 # This restores the fkey checks, after having unset them earlier
 SET FOREIGN_KEY_CHECKS = 1;
 ',
-);
+];
     }
 
     /**
      * Get the SQL statements for the Down migration
      *
      * @return array list of the SQL strings to execute for the Down migration
-     *               the keys being the datasources
+     *   the keys being the datasources
      */
     public function getDownSQL()
     {
-        return array (
+        return [
   'zed' => '
 # This is a fix for InnoDB in MySQL >= 4.1.x
 # It "suspends judgement" for fkey relationships until are tables are set.
@@ -2198,7 +2199,7 @@ DROP TABLE IF EXISTS `spy_user_archive`;
 # This restores the fkey checks, after having unset them earlier
 SET FOREIGN_KEY_CHECKS = 1;
 ',
-);
+];
     }
 
 }

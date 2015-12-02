@@ -90,7 +90,7 @@ class Order extends AbstractType
      */
     public function addGuestFields(FormEvent $event)
     {
-//        if (!$this->customerModel || !$this->customerModel->isAuthenticated()) {
+        //        if (!$this->customerModel || !$this->customerModel->isAuthenticated()) {
 //            $event->getForm()->add('email', 'email', ['required' => true, 'constraints' => [new NotBlank(), new Email()]]);
 //        }
     }

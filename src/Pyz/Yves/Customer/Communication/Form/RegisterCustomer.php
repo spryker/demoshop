@@ -34,8 +34,7 @@ class RegisterCustomer extends AbstractType
             ])
             ->add('submit', 'submit', [
                 'label' => 'customer.register.submit',
-            ])
-        ;
+            ]);
     }
 
 }

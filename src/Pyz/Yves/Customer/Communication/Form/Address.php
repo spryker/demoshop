@@ -73,8 +73,7 @@ class Address extends AbstractType
             ])
             ->add('submit', 'submit', [
                 'label' => 'customer.address.submit',
-            ])
-        ;
+            ]);
     }
 
 }

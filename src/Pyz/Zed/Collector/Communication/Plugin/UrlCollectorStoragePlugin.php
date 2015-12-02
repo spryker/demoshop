@@ -32,8 +32,7 @@ class UrlCollectorStoragePlugin extends AbstractCollectorPlugin
     ) {
         $this->getDependencyContainer()
             ->getCollectorFacade()
-            ->runStorageUrlCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater)
-        ;
+            ->runStorageUrlCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }
 
 }

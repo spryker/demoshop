@@ -2,6 +2,14 @@
 
 namespace Pyz\Yves\Customer\Communication;
 
+use SprykerFeature\Zed\Customer\Communication\Form\AddressForm;
+use SprykerFeature\Zed\Customer\Communication\Form\CustomerForm;
+use SprykerFeature\Zed\Customer\Communication\Table\AddressTable;
+use SprykerFeature\Zed\Customer\Communication\Table\CustomerTable;
+use Pyz\Yves\Customer\Communication\Form\RestorePassword;
+use Pyz\Yves\Customer\Communication\Form\Profile;
+use Pyz\Yves\Customer\Communication\Form\ForgotPassword;
+use Pyz\Yves\Customer\Communication\Form\DeleteCustomer;
 use Generated\Zed\Ide\FactoryAutoCompletion\CustomerCommunication;
 use Pyz\Yves\Customer\Communication\Form\Address;
 use Pyz\Yves\Customer\Communication\Form\RegisterCustomer;
@@ -19,7 +27,7 @@ class CustomerDependencyContainer extends AbstractCommunicationDependencyContain
      */
     public function createFormAddress()
     {
-        return $this->getFactory()->createFormAddress();
+        return new Address();
     }
 
     /**
@@ -27,7 +35,7 @@ class CustomerDependencyContainer extends AbstractCommunicationDependencyContain
      */
     public function createFormRegister()
     {
-        return $this->getFactory()->createFormRegisterCustomer();
+        return new RegisterCustomer();
     }
 
     /**
@@ -35,7 +43,7 @@ class CustomerDependencyContainer extends AbstractCommunicationDependencyContain
      */
     public function createFormDelete()
     {
-        return $this->getFactory()->createFormDeleteCustomer();
+        return new DeleteCustomer();
     }
 
     /**
@@ -43,7 +51,7 @@ class CustomerDependencyContainer extends AbstractCommunicationDependencyContain
      */
     public function createFormForgot()
     {
-        return $this->getFactory()->createFormForgotPassword();
+        return new ForgotPassword();
     }
 
     /**
@@ -51,7 +59,7 @@ class CustomerDependencyContainer extends AbstractCommunicationDependencyContain
      */
     public function createFormProfile()
     {
-        return $this->getFactory()->createFormProfile();
+        return new Profile();
     }
 
     /**
@@ -59,7 +67,7 @@ class CustomerDependencyContainer extends AbstractCommunicationDependencyContain
      */
     public function createFormRestore()
     {
-        return $this->getFactory()->createFormRestorePassword();
+        return new RestorePassword();
     }
 
     /**
@@ -68,6 +76,51 @@ class CustomerDependencyContainer extends AbstractCommunicationDependencyContain
     public function createCustomerClient()
     {
         return $this->getLocator()->customer()->client();
+    }
+
+    /**
+     * @return CustomerTable
+     */
+    public function createCustomerTable()
+    {
+        return new CustomerTable($this->getQueryContainer());
+    }
+
+    /**
+     * @param int $idCustomer
+     *
+     * @return AddressTable
+     */
+    public function createCustomerAddressTable($idCustomer)
+    {
+        return new AddressTable($this->getQueryContainer(), $idCustomer);
+    }
+
+    /**
+     * @param string $formActionType
+     *
+     * @throws \ErrorException
+     *
+     * @return FormInterface
+     */
+    public function createCustomerForm($formActionType)
+    {
+        $customerForm = new CustomerForm($this->getQueryContainer(), $formActionType);
+
+        return $this->createForm($customerForm);
+    }
+
+    /**
+     * @return FormInterface
+     */
+    public function createAddressForm()
+    {
+        $customerAddressForm = new AddressForm(
+                        $this->getProvidedDependency(CustomerDependencyProvider::COUNTRY_FACADE),
+                        $this->getQueryContainer()
+                    );
+
+        return $this->createForm($customerAddressForm);
     }
 
 }

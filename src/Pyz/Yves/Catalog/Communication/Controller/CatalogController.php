@@ -25,15 +25,13 @@ class CatalogController extends AbstractController
     {
         $search = $this->getDependencyContainer()
             ->createCatalogClient()
-            ->createFacetSearch($request, $categoryNode)
-        ;
+            ->createFacetSearch($request, $categoryNode);
 
         $search->setItemsPerPage(self::ITEMS_PER_PAGE);
 
         $categoryTree = $this->getDependencyContainer()
             ->createCategoryExporterClient()
-            ->getTreeFromCategoryNode($categoryNode, $this->getLocale())
-        ;
+            ->getTreeFromCategoryNode($categoryNode, $this->getLocale());
 
         $searchResults = array_merge($search->getResult(), ['category' => $categoryNode, 'categoryTree' => $categoryTree]);
 
@@ -56,8 +54,7 @@ class CatalogController extends AbstractController
     {
         $search = $this->getDependencyContainer()
             ->createCatalogClient()
-            ->createFulltextSearch($request)
-        ;
+            ->createFulltextSearch($request);
 
         $search->setItemsPerPage(self::ITEMS_PER_PAGE);
 

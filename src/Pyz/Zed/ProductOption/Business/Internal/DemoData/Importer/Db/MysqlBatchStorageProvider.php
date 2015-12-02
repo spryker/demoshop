@@ -52,7 +52,6 @@ class MysqlBatchStorageProvider implements BatchStorageProviderInterface
 //            INSERT INTO phonebook VALUES( 'john doe', '1234' );
 //        END IF;';
 
-
         // @todo postgres-sql
         $sql = sprintf(
             "REPLACE INTO $tableName (%s) VALUES %s",

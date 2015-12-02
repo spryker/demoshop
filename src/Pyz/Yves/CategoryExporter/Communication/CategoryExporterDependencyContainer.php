@@ -23,7 +23,7 @@ class CategoryExporterDependencyContainer extends AbstractCommunicationDependenc
      */
     public function createCategoryResourceCreator()
     {
-        return $this->getFactory()->createResourceCreatorCategoryResourceCreator($this->getLocator());
+        return new CategoryResourceCreator($this->getLocator());
     }
 
 }

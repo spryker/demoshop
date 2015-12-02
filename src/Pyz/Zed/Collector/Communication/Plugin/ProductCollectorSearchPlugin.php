@@ -32,8 +32,7 @@ class ProductCollectorSearchPlugin extends AbstractCollectorPlugin
     ) {
         return $this->getDependencyContainer()
             ->getCollectorFacade()
-            ->runSearchProductCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater)
-        ;
+            ->runSearchProductCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }
 
 }

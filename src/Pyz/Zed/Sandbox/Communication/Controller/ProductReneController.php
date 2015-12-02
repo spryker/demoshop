@@ -109,8 +109,7 @@ class ProductReneController extends AbstractController
         $stockProductTransfer
             ->setSku($productData['sku'])
             ->setQuantity($productData['stock'])
-            ->setStockType('Warehouse1')
-        ;
+            ->setStockType('Warehouse1');
         $stockFacade->createStockProduct($stockProductTransfer);
     }
 
@@ -183,8 +182,7 @@ class ProductReneController extends AbstractController
         $taxRateTransfer = new TaxRateTransfer();
         $taxRateTransfer
             ->setName('19 %')
-            ->setRate(str_replace('%', '', $productData['tax_rate']))
-        ;
+            ->setRate(str_replace('%', '', $productData['tax_rate']));
 
         $taxSetTransfer = new TaxSetTransfer();
         $taxSetTransfer->setName('German Tax rate')->addTaxRate($taxRateTransfer);

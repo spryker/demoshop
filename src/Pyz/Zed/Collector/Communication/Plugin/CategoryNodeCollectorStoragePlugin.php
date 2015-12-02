@@ -32,8 +32,7 @@ class CategoryNodeCollectorStoragePlugin extends AbstractCollectorPlugin
     ) {
         return $this->getDependencyContainer()
             ->getCollectorFacade()
-            ->runStorageCategoryNodeCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater)
-        ;
+            ->runStorageCategoryNodeCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }
 
 }

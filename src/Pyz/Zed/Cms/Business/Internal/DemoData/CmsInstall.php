@@ -246,8 +246,7 @@ class CmsInstall extends AbstractInstaller
                 $fromUrl,
                 $this->localeFacade->getCurrentLocale(),
                 $redirectTransfer->getIdRedirect()
-            )
-        ;
+            );
     }
 
     /**

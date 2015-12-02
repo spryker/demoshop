@@ -20,7 +20,7 @@ class RedirectExporterDependencyContainer extends AbstractCommunicationDependenc
      */
     public function createRedirectResourceCreator()
     {
-        return $this->getFactory()->createResourceCreatorRedirectResourceCreator(
+        return new RedirectResourceCreator(
             $this->getLocator()
         );
     }

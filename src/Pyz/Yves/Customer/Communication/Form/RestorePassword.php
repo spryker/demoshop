@@ -29,8 +29,7 @@ class RestorePassword extends AbstractType
             ])
             ->add('submit', 'submit', [
                 'label' => 'customer.restore.submit',
-            ])
-        ;
+            ]);
     }
 
 }
