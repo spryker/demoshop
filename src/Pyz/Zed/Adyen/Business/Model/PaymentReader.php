@@ -21,12 +21,12 @@ class PaymentReader implements PaymentReaderInterface
     }
 
     /**
-     * @param $salesOrderId
+     * @param int $idSalesOrder
      * @return PavPaymentAdyen
      */
-    public function getPaymentBySalesOrderId($salesOrderId)
+    public function getPaymentBySalesOrderId($idSalesOrder)
     {
-        return $this->queryContainer->queryPaymentBySalesOrderId($salesOrderId)
+        return $this->queryContainer->queryPaymentBySalesOrderId($idSalesOrder)
             ->find()
             ->getFirst();
     }

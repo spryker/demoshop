@@ -8,8 +8,8 @@ interface OrderExporterToUrlFacade
 {
 
     /**
-     * @param $abstractProductId
+     * @param int $idAbstractProduct
      * @return SpyUrl
      */
-    public function getUrlByAbstractProductId($abstractProductId);
+    public function getUrlByAbstractProductId($idAbstractProduct);
 }

@@ -87,18 +87,18 @@ class AfterbuyExportManager
      */
     public function getOrderIdFromOrderItems(array $orderItems)
     {
-        $orderId = null;
+        $idOrder = null;
         foreach ($orderItems as $orderItem) {
-            if (!$orderId) {
-                $orderId = $orderItem->getFkSalesOrder();
+            if (!$idOrder) {
+                $idOrder = $orderItem->getFkSalesOrder();
             } else {
-                if ($orderId != $orderItem->getFkSalesOrder()) {
+                if ($idOrder != $orderItem->getFkSalesOrder()) {
                     throw new \Exception ('Items should come from the same order');
                 }
             }
         }
 
-        return $orderId;
+        return $idOrder;
     }
 
     /**
@@ -174,8 +174,8 @@ class AfterbuyExportManager
      */
     protected function addPaymentInfo(array $postData)
     {
-        $salesOrderId = $postData[AfterbuyConstants::SALES_ORDER_ID];
-        $payment = $this->adyenFacade->getPaymentBySalesOrderId($salesOrderId);
+        $idSalesOrder = $postData[AfterbuyConstants::SALES_ORDER_ID];
+        $payment = $this->adyenFacade->getPaymentBySalesOrderId($idSalesOrder);
 
         $setPay = true;
 
@@ -265,13 +265,13 @@ class AfterbuyExportManager
 
     /**
      * @param array $itemIds
-     * @param int $salesOrderId
+     * @param int $idSalesOrder
      * @return array
      */
-    protected function createSubCoupon(array $itemIds, $salesOrderId)
+    protected function createSubCoupon(array $itemIds, $idSalesOrder)
     {
         $discountsToExport = [];
-        $salesDiscounts = $this->salesFacade->getSalesDiscountsByOrderId($salesOrderId);
+        $salesDiscounts = $this->salesFacade->getSalesDiscountsByOrderId($idSalesOrder);
         foreach ($salesDiscounts as $salesDiscount) {
             if (isset($itemIds[$salesDiscount->getFkSalesOrderItem()])) {
                 $discountsToExport[] = $salesDiscount;
@@ -439,11 +439,11 @@ class AfterbuyExportManager
     /**
      * @param $postVariables
      * @param array $orderItems
-     * @param int $orderId
+     * @param int $idOrder
      */
-    protected function sendOrderInfoToAfterbuy($postVariables, array $orderItems, $orderId)
+    protected function sendOrderInfoToAfterbuy($postVariables, array $orderItems, $idOrder)
     {
-        $this->afterbuyConnector->sendToAfterbuy($postVariables, $orderItems, $orderId);
+        $this->afterbuyConnector->sendToAfterbuy($postVariables, $orderItems, $idOrder);
     }
 
     /**

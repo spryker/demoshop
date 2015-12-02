@@ -18,58 +18,58 @@ use Orm\Zed\Sales\Persistence\Base\PavSalesOrderItemConfiguration;
 class SalesFacade extends SprykerSalesFacade implements SpySalesCheckoutConnectorToSalesInterface, OrderExporterToSalesFacade, SalesCheckoutConnectorToSalesInterface
 {
     /**
-     * @param int $orderItemId
+     * @param int $idOrderItem
      * @return SpySalesOrderItem
      */
-    public function getOrderItemById($orderItemId)
+    public function getOrderItemById($idOrderItem)
     {
         return $this->getDependencyContainer()
             ->createSalesManager()
-            ->getOrderItemById($orderItemId);
+            ->getOrderItemById($idOrderItem);
     }
 
     /**
-     * @param int $salesOrderId
+     * @param int $idSalesOrder
      * @return SpySalesOrder
      */
-    public function getSalesOrderById($salesOrderId)
+    public function getSalesOrderById($idSalesOrder)
     {
         return $this->getDependencyContainer()
             ->createSalesManager()
-            ->getOrderDetailsBySalesId($salesOrderId);
+            ->getOrderDetailsBySalesId($idSalesOrder);
     }
 
     /**
-     * @param int $salesOrderId
+     * @param int $idSalesOrder
      * @return SpySalesDiscount[]
      */
-    public function getSalesDiscountsByOrderId($salesOrderId)
+    public function getSalesDiscountsByOrderId($idSalesOrder)
     {
         return $this->getDependencyContainer()
             ->createSalesManager()
-            ->getSalesDiscountsByOrderId($salesOrderId);
+            ->getSalesDiscountsByOrderId($idSalesOrder);
     }
 
     /**
-     * @param int $salesOrderItemId
+     * @param int $idSalesOrderItem
      * @return PavSalesOrderItemConfiguration[]
      */
-    public function getSalesOrderItemConfigurationByItemId($salesOrderItemId)
+    public function getSalesOrderItemConfigurationByItemId($idSalesOrderItem)
     {
         return $this->getDependencyContainer()
             ->createSalesManager()
-            ->getSalesOrderItemConfigurationByItemId($salesOrderItemId);
+            ->getSalesOrderItemConfigurationByItemId($idSalesOrderItem);
     }
 
     /**
-     * @param $salesDiscountId
+     * @param int $idSalesDiscount
      * @return SpySalesDiscountCode
      */
-    public function getSalesDiscountCodeBySalesDiscountId($salesDiscountId)
+    public function getSalesDiscountCodeBySalesDiscountId($idSalesDiscount)
     {
         return $this->getDependencyContainer()
             ->createSalesManager()
-            ->getSalesDiscountCodeBySalesDiscountId($salesDiscountId);
+            ->getSalesDiscountCodeBySalesDiscountId($idSalesDiscount);
     }
 
 }

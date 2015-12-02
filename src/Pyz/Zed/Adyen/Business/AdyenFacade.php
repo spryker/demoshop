@@ -12,12 +12,12 @@ use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToAdyenFacade;
 class AdyenFacade extends PavAdyenFacade implements OrderExporterToAdyenFacade
 {
     /**
-     * @param int $salesOrderId
+     * @param int $idSalesOrder
      * @return PavPaymentAdyen
      */
-    public function getPaymentBySalesOrderId($salesOrderId)
+    public function getPaymentBySalesOrderId($idSalesOrder)
     {
-        return $this->getDependencyContainer()->createPaymentReader()->getPaymentBySalesOrderId($salesOrderId);
+        return $this->getDependencyContainer()->createPaymentReader()->getPaymentBySalesOrderId($idSalesOrder);
     }
 
 }

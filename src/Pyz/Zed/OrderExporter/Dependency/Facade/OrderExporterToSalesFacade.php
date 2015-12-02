@@ -17,26 +17,26 @@ interface OrderExporterToSalesFacade
     public function getOrderItemById($orderItemId);
 
     /**
-     * @param int $salesOrderId
+     * @param int $idSalesOrder
      * @return SpySalesOrder
      */
-    public function getSalesOrderById($salesOrderId);
+    public function getSalesOrderById($idSalesOrder);
 
     /**
-     * @param int $salesOrderId
+     * @param int $idSalesOrder
      * @return SpySalesDiscount[]
      */
-    public function getSalesDiscountsByOrderId($salesOrderId);
+    public function getSalesDiscountsByOrderId($idSalesOrder);
 
     /**
-     * @param int $salesOrderItemId
+     * @param int $idSalesOrderItem
      * @return PavSalesOrderItemConfiguration[]
      */
-    public function getSalesOrderItemConfigurationByItemId($salesOrderItemId);
+    public function getSalesOrderItemConfigurationByItemId($idSalesOrderItem);
 
     /**
-     * @param int $salesDiscountId
+     * @param int $idSalesDiscount
      * @return SpySalesDiscountCode
      */
-    public function getSalesDiscountCodeBySalesDiscountId($salesDiscountId);
+    public function getSalesDiscountCodeBySalesDiscountId($idSalesDiscount);
 }

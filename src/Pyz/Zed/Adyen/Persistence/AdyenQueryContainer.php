@@ -8,13 +8,13 @@ use PavFeature\Zed\Adyen\Persistence\AdyenQueryContainer as PavAdyenQueryContain
 class AdyenQueryContainer extends PavAdyenQueryContainer implements AdyenQueryContainerInterface
 {
     /**
-     * @param int $salesOrderId
+     * @param int $idSalesOrder
      * @return PavPaymentAdyenQuery
      */
-    public function queryPaymentBySalesOrderId($salesOrderId)
+    public function queryPaymentBySalesOrderId($idSalesOrder)
     {
         return PavPaymentAdyenQuery::create()
-            ->filterByFkSalesOrder($salesOrderId);
+            ->filterByFkSalesOrder($idSalesOrder);
     }
 
 }

@@ -55,52 +55,52 @@ class SalesManager extends SprykerOrderManager
     }
 
     /**
-     * @param int $orderSalesId
+     * @param int $idOrderSales
      * @return SpySalesOrder
      */
-    public function getOrderDetailsBySalesId($orderSalesId)
+    public function getOrderDetailsBySalesId($idOrderSales)
     {
-        return $this->queryContainer->querySalesOrderDetailsById($orderSalesId)
+        return $this->queryContainer->querySalesOrderDetailsById($idOrderSales)
             ->findOne();
     }
 
     /**
-     * @param int $orderItemId
+     * @param int $idOrderItem
      * @return SpySalesOrderItem
      */
-    public function getOrderItemById($orderItemId)
+    public function getOrderItemById($idOrderItem)
     {
-        return $this->queryContainer->querySalesOrderItemById($orderItemId)
+        return $this->queryContainer->querySalesOrderItemById($idOrderItem)
             ->findOne();
     }
 
     /**
-     * @param int $salesOrderId
+     * @param int $idSalesOrder
      * @return SpySalesDiscount[]
      */
-    public function getSalesDiscountsByOrderId($salesOrderId)
+    public function getSalesDiscountsByOrderId($idSalesOrder)
     {
-        return $this->queryContainer->querySalesDiscountByOrderId($salesOrderId)
+        return $this->queryContainer->querySalesDiscountByOrderId($idSalesOrder)
             ->find();
     }
 
     /**
-     * @param int $salesOrderItemId
+     * @param int $idSalesOrderItem
      * @return PavSalesOrderItemConfiguration[]
      */
-    public function getSalesOrderItemConfigurationByItemId($salesOrderItemId)
+    public function getSalesOrderItemConfigurationByItemId($idSalesOrderItem)
     {
-        return $this->queryContainer->querySalesOrderItemConfigurationByItemId($salesOrderItemId)
+        return $this->queryContainer->querySalesOrderItemConfigurationByItemId($idSalesOrderItem)
             ->find();
     }
 
     /**
-     * @param $salesDiscountId
+     * @param int $idSalesDiscount
      * @return SpySalesDiscountCode
      */
-    public function getSalesDiscountCodeBySalesDiscountId($salesDiscountId)
+    public function getSalesDiscountCodeBySalesDiscountId($idSalesDiscount)
     {
-        return $this->queryContainer->querySalesDiscountCodeBySalesDiscountId($salesDiscountId)
+        return $this->queryContainer->querySalesDiscountCodeBySalesDiscountId($idSalesDiscount)
             ->findOne();
     }
 }

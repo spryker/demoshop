@@ -11,32 +11,32 @@ use Orm\Zed\Sales\Persistence\Base\PavSalesOrderItemConfigurationQuery;
 interface SalesQueryContainerInterface
 {
     /**
-     * @param $idSalesOrder
+     * @param int $idSalesOrder
      * @return SpySalesOrderQuery
      */
     public function querySalesOrderDetailsById($idSalesOrder);
 
     /**
-     * @param $orderItemId
+     * @param int $idOrderItem
      * @return SpySalesOrderItemQuery
      */
-    public function querySalesOrderItemById($orderItemId);
+    public function querySalesOrderItemById($idOrderItem);
 
     /**
-     * @param $salesOrderId
+     * @param int $idSalesOrder
      * @return SpySalesDiscountQuery
      */
-    public function querySalesDiscountByOrderId($salesOrderId);
+    public function querySalesDiscountByOrderId($idSalesOrder);
 
     /**
-     * @param int $salesOrderItemId
+     * @param int $idSalesOrderItem
      * @return PavSalesOrderItemConfigurationQuery
      */
-    public function querySalesOrderItemConfigurationByItemId($salesOrderItemId);
+    public function querySalesOrderItemConfigurationByItemId($idSalesOrderItem);
 
     /**
-     * @param int $salesDiscountId
+     * @param int $idSalesDiscount
      * @return SpySalesDiscountCodeQuery
      */
-    public function querySalesDiscountCodeBySalesDiscountId($salesDiscountId);
+    public function querySalesDiscountCodeBySalesDiscountId($idSalesDiscount);
 }

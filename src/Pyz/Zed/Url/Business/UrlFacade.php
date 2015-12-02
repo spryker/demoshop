@@ -44,12 +44,12 @@ class UrlFacade extends SprykerUrlFacade implements
     }
 
     /**
-     * @param int $abstractProductId
+     * @param int $idAbstractProduct
      * @return SpyUrl
      */
-    public function getUrlByAbstractProductId($abstractProductId)
+    public function getUrlByAbstractProductId($idAbstractProduct)
     {
-        return $this->getDependencyContainer()->getUrlManager()->getUrlByAbstractProductId($abstractProductId);
+        return $this->getDependencyContainer()->getUrlManager()->getUrlByAbstractProductId($idAbstractProduct);
     }
 
 }

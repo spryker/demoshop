@@ -7,8 +7,8 @@ use Orm\Zed\Adyen\Persistence\PavPaymentAdyenQuery;
 interface AdyenQueryContainerInterface
 {
     /**
-     * @param int $salesOrderId
+     * @param int $idSalesOrder
      * @return PavPaymentAdyenQuery
      */
-    public function queryPaymentBySalesOrderId($salesOrderId);
+    public function queryPaymentBySalesOrderId($idSalesOrder);
 }

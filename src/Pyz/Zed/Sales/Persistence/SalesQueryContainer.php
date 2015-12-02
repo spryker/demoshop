@@ -13,8 +13,8 @@ use Orm\Zed\Sales\Persistence\SpySalesDiscountQuery;
 class SalesQueryContainer extends SprykerSalesQueryContainer implements SalesQueryContainerInterface
 {
     /**
-     * @param $idSalesOrder
-     * @return \Orm\Zed\Sales\Persistence\SpySalesOrderQuery
+     * @param int $idSalesOrder
+     * @return SpySalesOrderQuery
      */
     public function querySalesOrderDetailsById($idSalesOrder)
     {
@@ -33,44 +33,44 @@ class SalesQueryContainer extends SprykerSalesQueryContainer implements SalesQue
     }
 
     /**
-     * @param $orderItemId
-     * @return $this|SpySalesOrderItemQuery
+     * @param int $idOrderItem
+     * @return SpySalesOrderItemQuery
      */
-    public function querySalesOrderItemById($orderItemId)
+    public function querySalesOrderItemById($idOrderItem)
     {
         $query = SpySalesOrderItemQuery::create('orderItem')
-            ->filterByIdSalesOrderItem($orderItemId);
+            ->filterByIdSalesOrderItem($idOrderItem);
 
         return $query;
     }
 
     /**
-     * @param int $salesOrderId
+     * @param int $idSalesOrder
      * @return SpySalesDiscountQuery
      */
-    public function querySalesDiscountByOrderId($salesOrderId)
+    public function querySalesDiscountByOrderId($idSalesOrder)
     {
         return SpySalesDiscountQuery::create('salesDiscount')
-            ->filterByFkSalesOrder($salesOrderId);
+            ->filterByFkSalesOrder($idSalesOrder);
     }
 
     /**
-     * @param int $salesOrderItemId
+     * @param int $idSalesOrderItem
      * @return PavSalesOrderItemConfigurationQuery
      */
-    public function querySalesOrderItemConfigurationByItemId($salesOrderItemId)
+    public function querySalesOrderItemConfigurationByItemId($idSalesOrderItem)
     {
         return PavSalesOrderItemConfigurationQuery::create()
-            ->filterByFkSalesOrderItem($salesOrderItemId);
+            ->filterByFkSalesOrderItem($idSalesOrderItem);
     }
 
     /**
-     * @param int $salesDiscountId
+     * @param int $idSalesDiscount
      * @return SpySalesDiscountCode
      */
-    public function querySalesDiscountCodeBySalesDiscountId($salesDiscountId)
+    public function querySalesDiscountCodeBySalesDiscountId($idSalesDiscount)
     {
         return SpySalesDiscountCodeQuery::create()
-            ->filterByFkSalesDiscount($salesDiscountId);
+            ->filterByFkSalesDiscount($idSalesDiscount);
     }
 }

@@ -7,8 +7,8 @@ use Orm\Zed\Adyen\Persistence\PavPaymentAdyen;
 interface PaymentReaderInterface
 {
     /**
-     * @param $salesOrderId
+     * @param int $idSalesOrder
      * @return PavPaymentAdyen
      */
-    public function getPaymentBySalesOrderId($salesOrderId);
+    public function getPaymentBySalesOrderId($idSalesOrder);
 }
