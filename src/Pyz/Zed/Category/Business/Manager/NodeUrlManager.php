@@ -42,8 +42,8 @@ class NodeUrlManager extends SprykerNodeUrlManager
     /**
      * @param UrlTransfer $urlTransfer
      * @param string $url
-     * @param null $idResource
-     * @param null $idLocale
+     * @param int $idResource
+     * @param int $idLocale
      *
      * @return void
      */
