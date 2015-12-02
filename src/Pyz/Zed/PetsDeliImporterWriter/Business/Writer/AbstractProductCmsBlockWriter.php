@@ -48,6 +48,7 @@ class AbstractProductCmsBlockWriter implements ProductWriterInterface
         }
         $blockList = array_unique($blockList);
 
+        // TODO: cleanup predefined blocks
         $predefinedProductPageBlockSetPrefix = [
             "header_top",
             "navigation",
@@ -65,6 +66,10 @@ class AbstractProductCmsBlockWriter implements ProductWriterInterface
         $this->assignBlocksToProductPages($finalBlockList, $abstractProductTransfer);
     }
 
+    /**
+     * @param array $attributes
+     * @return array
+     */
     protected function extractBlocksFromProductAttributes(array $attributes)
     {
 
@@ -87,6 +92,10 @@ class AbstractProductCmsBlockWriter implements ProductWriterInterface
         return array_unique($blocks);
     }
 
+    /**
+     * @param array $blockList
+     * @param AbstractProductInterface $abstractProductTransfer
+     */
     protected function assignBlocksToProductPages(array $blockList, AbstractProductInterface $abstractProductTransfer)
     {
         $pageTransfer = $this->cmsFacade->getPageByAbstractProduct($abstractProductTransfer);
