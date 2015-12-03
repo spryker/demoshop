@@ -1,18 +1,27 @@
 {% extends "@application/layout/layout.twig" %}
 
 {% block content %}
-    <article class="product product--justice-league">
-        <section class="product__overview">
-            <h1 class="product__name">Danke</h1>
-            <h2 class="product__category">Dies ist ein DemoShop</h2>
-            <p>Daher wird natürlich nichts verschickt!</p>
-        </section>
-        <section class="product__main-image">
-            <img src="/images/yay.png" alt="" style="width: 100%;"/>
-        </section>
+    <div class="order-success order-success--register">
+        <div class="order-success__inner">
 
-        {% include "@customer/customer/create-password.twig" %}
+            <div class="order-success__content">
+                <h1 class="order-success__headline">Vielen Dank für Ihren Einkauf!</h1>
+                <p class="order-success__details">
+                    Ihre Bestellnummer lautet: <span class="order-success__number">{{ '124034-125' }}</span>
+                </p>
+                <a class="order-success__button button button--wide" href="/">Weiter einkaufen</a>
+            </div>
 
-    </article>
-    {#<a href="https://projects.invisionapp.com/d/main#/console/2544044/70211543/preview">Have a look on invisionapp.com</a>#}
+
+            {% include "@customer/customer/create-password.twig" %}
+
+
+            <div class="order-success__image">
+                <img src="{{ random(['/images/checkout/checkout-dog.jpg', '/images/checkout/checkout-cat.jpg']) }}" alt="Tierbild" />
+            </div>
+        </div>
+    </div>
+
+
+
 {% endblock %}

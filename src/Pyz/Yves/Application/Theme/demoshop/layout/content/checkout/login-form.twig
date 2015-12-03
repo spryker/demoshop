@@ -9,7 +9,7 @@
 
 
 
-<div class="login-slider">
+<div class="login-slider js-login-slider">
     <div class="slider__headline">
         Kasse
     </div>
@@ -67,7 +67,8 @@
                     {% include '@application/layout/common/forms/input-password.twig' with {
                         label: 'Ihr Passwort',
                         id: 'user_password',
-                        name: '_password'
+                        name: '_password',
+                        forgot: true
                     } %}
 
                     {% include '@application/layout/common/forms/button.twig' with {

@@ -51,13 +51,13 @@
 
 .input__label{
     display: block;
-    padding: 0 0 10px 14px;
+    padding-bottom: 10px;
 
     font-family: $_ffBrandonGrotesque-Bold;
     font-size: 13px;
     color: $_rgbOsloGray;
     text-transform: uppercase;
-    text-align: left;
+    text-align: center;
 }
 
 .input__text{
@@ -79,6 +79,11 @@
     @include placeholderColor($_rgbOsloGray);
 
     transition: border-color $_tShort ease-in-out;
+}
+
+.input--hidden{
+    position: absolute;
+    left: -1000em;
 }
 
 .input--ghost{
@@ -191,6 +196,14 @@
     }
 }
 
+
+@media (min-width: $_wMedium) {
+    .input__label{
+        display: inline-block;
+        padding-left: 14px;
+        text-align: left;
+    }
+}
 
 
 @media (min-width: $_wLarge) {

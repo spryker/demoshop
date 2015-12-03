@@ -8,15 +8,33 @@
     width: 100%;
     margin-top: 18px;
     float: left;
+    text-align: center;
 
     .dropdown{
+        display: inline-block;
+        float: none;
         margin-top: 0;
         width: auto;
+    }
+
+    .checkout__lock{
+        display: none;
     }
 }
 
 .input-validity__separator{
-    float: left;
+    display: inline-block;
     margin: 0 8px;
     line-height: 50px;
+}
+
+
+@media (min-width: 480px) {
+    .input-validity{
+        text-align: left;
+
+        .checkout__lock{
+            display: block;
+        }
+    }
 }

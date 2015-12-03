@@ -6,7 +6,7 @@ function validateForm ($element) {
 
     var $inputs, $radios, $checkboxes, result;
 
-result = {
+    result = {
         valid: true,
         messages: []
     };
@@ -58,7 +58,7 @@ function validateInput ($element) {
     };
 
     $label = $element.find('.input__label');
-    label = $label.size() ? $label.text() : 'Das';
+    label = $label.size() ? $label.text().replace('*', '') : 'Das';
 
     $input = $element.find('.input__text');
     value = $input.val();

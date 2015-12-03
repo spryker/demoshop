@@ -10,6 +10,10 @@
     }
 }
 
+.login-slider__inner{
+    overflow: hidden;
+}
+
 .slider__headline{
     padding: 6px 0;
 
@@ -34,6 +38,8 @@
     font-family: $_ffBrandonGrotesque-Black;
     font-size: 30px;
     color: $_rgbSilverChalice;
+    max-width: 100%;
+    line-height: 1.2;
 
     @include decoratorStrip($_rgbSilverChalice);
 
@@ -41,6 +47,13 @@
     transition: color $_tShort ease-in-out;
 }
 
+// TODO: remove and add class to markup
+.login-slider:not(.js-login-slider) .login-slider__navigation{
+    white-space: normal;
+    color: $_rgbApple;
+    
+    @include decoratorStrip($_rgbApple);
+}
 .login-slider__navigation--active{
     color: $_rgbApple;
 

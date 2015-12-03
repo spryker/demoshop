@@ -11,8 +11,7 @@
 .product{
     position: relative;
     background: $_rgbWhite;
-    padding: 165px 0 45px 0;
-    @include cardShadow;
+    padding: 65px 0 0;
 }
 
 .product__detail{
@@ -40,6 +39,7 @@
 }
 
 .product__features{
+    background: $_rgbWhite;
     display: flex;
     @include pageWidth(0);
 
