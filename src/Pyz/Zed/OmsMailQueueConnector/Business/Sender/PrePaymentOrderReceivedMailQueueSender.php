@@ -2,10 +2,10 @@
 
 namespace Pyz\Zed\OmsMailQueueConnector\Business\Sender;
 
-use Orm\Zed\Sales\Persistence\Base\SpySalesOrder;
+use Orm\Zed\Sales\Persistence\SpySalesOrder;
 use Generated\Shared\Transfer\MailTransfer;
 use Generated\Shared\Transfer\MailRecipientTransfer;
-use Orm\Zed\Adyen\Persistence\Base\PavPaymentAdyen;
+use Orm\Zed\Adyen\Persistence\PavPaymentAdyen;
 use PavFeature\Zed\OmsMailQueueConnector\Business\Sender\PrePaymentOrderReceivedMailQueueSender as PavPrePaymentOrderReceivedMailQueueSender;
 
 class PrePaymentOrderReceivedMailQueueSender extends PavPrePaymentOrderReceivedMailQueueSender
