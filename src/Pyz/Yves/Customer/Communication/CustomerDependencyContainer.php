@@ -19,7 +19,7 @@ class CustomerDependencyContainer extends AbstractCommunicationDependencyContain
      */
     public function createFormAddress()
     {
-        return $this->getFactory()->createFormAddressForm();
+        return $this->getFactory()->createFormAddress();
     }
 
     /**

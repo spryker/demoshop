@@ -1,6 +1,9 @@
 {% extends "@application/layout/layout.twig" %}
 
 {% block content %}
+
+    {% include "@application/layout/header.twig" %}
+
     <h1>{{ "customer.profile" }}</h1>
     {{ form_start(form) }}
     {{ form_widget(form) }}
@@ -21,4 +24,7 @@
         <br>
         <a href="/customer/address/new">{{ "customer.profile.address.new" | trans }}</a>
     </div>
+
+    {% include "@application/layout/footer.twig" %}
+
 {% endblock %}

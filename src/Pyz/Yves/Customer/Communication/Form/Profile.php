@@ -31,10 +31,6 @@ class Profile extends AbstractType
                 'label' => 'customer.profile.first_name',
                 'required' => false,
             ])
-            ->add('middle_name', 'text', [
-                'label' => 'customer.profile.middle_name',
-                'required' => false,
-            ])
             ->add('last_name', 'text', [
                 'label' => 'customer.profile.last_name',
                 'required' => false,

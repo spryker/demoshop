@@ -2,6 +2,8 @@
 
 {% block content %}
 
+    {% include "@application/layout/header.twig" %}
+
     <!--  TODO: dry with forgot/restore-->
     <div class="login-slider">
 
@@ -31,5 +33,7 @@
         </div>
 
     </div>
+
+    {% include "@application/layout/footer.twig" %}
 
 {% endblock %}

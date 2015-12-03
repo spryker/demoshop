@@ -1,6 +1,9 @@
 {% extends "@application/layout/layout.twig" %}
 
 {% block content %}
+
+    {% include "@application/layout/header.twig" %}
+
     <div class="order-success{% if form is defined %} order-success--register{% endif %}">
         <div class="order-success__inner">
 
@@ -22,5 +25,7 @@
             </div>
         </div>
     </div>
+
+    {% include "@application/layout/footer.twig" %}
 
 {% endblock %}
