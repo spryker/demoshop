@@ -20,6 +20,8 @@ class CmsDependencyProvider extends PavCmsDependencyProvider
 
     const FACADE_FILE_UPLOAD = 'file upload facade';
 
+    const FACADE_CMS_BLOCK = 'cms block facade';
+
     /**
      * @param Container $container
      *
@@ -48,6 +50,10 @@ class CmsDependencyProvider extends PavCmsDependencyProvider
 
         $container[self::FACADE_TOUCH] = function (Container $container) {
             return $container->getLocator()->touch()->facade();
+        };
+
+        $container[self::FACADE_CMS_BLOCK] = function (Container $container) {
+            return $container->getLocator()->cmsBlock()->facade();
         };
 
         return $container;
