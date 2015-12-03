@@ -394,3 +394,5 @@ $config[ProductFeedConfig::PRODUCT_FEED_CSV_PARAMETERS] = [
 ];
 
 $config[CalculationCheckoutConnectorConfig::MINIMUM_CHECKOUT_CART_VALUE] = 1500; // 15€
+
+$config[YvesConfig::YVES_SHOW_EXCEPTION_STACK_TRACE] = false; 
