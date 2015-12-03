@@ -203,7 +203,8 @@ class CheckoutType extends AbstractType
             );
 
             $shipmentDescription = $this->translate($method->getGlossaryKeyName())
-                .  ' ' . $this->translate($method->getGlossaryKeyDescription());
+                .  ' ' . $this->translate($method->getGlossaryKeyDescription())
+                .  ' | ' . $this->translate('page.checkout.shipping.price') . ': ' . $price;
 
             if ($deliveryTime !== null) {
                 $shipmentDescription .= ' | ' . $this->translate('page.checkout.shipping.delivery_time') . ': ' . $deliveryTime;
