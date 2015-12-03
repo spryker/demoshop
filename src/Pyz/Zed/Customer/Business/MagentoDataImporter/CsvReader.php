@@ -60,7 +60,6 @@ class CsvReader implements CsvReaderInterface
         $handle = fopen($this->filePath, 'r');
         $fieldNames = fgetcsv($handle, null, ';');
 
-        $counter = 0;
         while ($row = fgetcsv($handle, null, ';')) {
             $keyValues = array_combine($fieldNames, $row);
 
@@ -86,8 +85,6 @@ class CsvReader implements CsvReaderInterface
 
 
             }
-            $counter++;
-
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->fromArray($keyValues, true);
 
