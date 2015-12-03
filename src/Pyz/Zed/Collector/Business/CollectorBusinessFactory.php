@@ -15,6 +15,7 @@ use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector
 use Pyz\Zed\Collector\Business\Storage\BlockCollector;
 use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector;
 use Pyz\Zed\Collector\Business\Storage\NavigationCollector;
+use Pyz\Zed\Collector\Business\Storage\NewCategoryNodeCollector;
 use Pyz\Zed\Collector\Business\Storage\PageCollector;
 use Pyz\Zed\Collector\Business\Storage\ProductCollector;
 use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
@@ -62,6 +63,21 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         );
 
         return $storageCategoryNodeCollector;
+    }
+
+    /**
+     * @return NewCategoryNodeCollector
+     */
+    public function createStorageNewCategoryNodeCollector()
+    {
+        $storageNewCategoryNodeCollector = $this->getFactory()->createStorageNewCategoryNodeCollector(
+            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY)
+        );
+        $storageNewCategoryNodeCollector->setTouchQueryContainer(
+            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
+        );
+
+        return $storageNewCategoryNodeCollector;
     }
 
     /**
