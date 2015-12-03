@@ -50,7 +50,9 @@ $(document).ready(function () {
                     });
                 }
 
-                $(document).trigger(INPUT_EVENTS.VALIDATE);
+                setTimeout(function () {
+                    $(document).trigger(INPUT_EVENTS.VALIDATE);
+                }, 100)
             }
         }
     });

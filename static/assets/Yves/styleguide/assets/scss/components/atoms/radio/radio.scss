@@ -28,47 +28,30 @@
     }
 }
 
-.radio--vorkasse, .radio--adyen-payment-method-german-bank-transfer{
-  .radio__image{
-    width: 88px;
-  }
-}
 
-.radio--rechnung{
-  .radio__image{
-    width: 98px;
-  }
-}
-
-.radio--sofort, .radio--adyen-payment-method-sofortueberweisung{
-  .radio__image{
-    width: 95px;
-  }
-}
-
-.radio--credit, .radio--adyen-payment-method-creditcard-cse{
-  .radio__image{
-    width: 149px;
-  }
-}
-
-.radio--sepa, .radio--adyen-payment-method-sepa-directdebit{
-  .radio__image{
-    width: 79px;
-  }
-}
-
-.radio--paypal, .radio--adyen-payment-method-paypal{
-  .radio__image{
-    width: 86px;
-  }
-}
 
 .radio__image{
   @include responsiveImage(inline-block);
   margin-right: 15px;
   vertical-align: middle;
 }
+
+.radio__image--checked{
+    display: none;
+}
+
+
+.radio--checked{
+    .radio__image--unchecked{
+        display: none;
+    }
+
+    .radio__image--checked{
+        display: inline-block;
+    }
+}
+
+
 
 
 .radio__label{

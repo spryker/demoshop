@@ -3,15 +3,16 @@
         menus: [
             {
                 main: {
-                    headline: 'Hundeprodukte',
+                    headline: ('category.dog' | trans ),
                     image: '/images/menu/dog.png',
                     button: {
-                        title: 'Informationen zu Hundeprodukten',
+                        title: 'Informationen',
+                        title2: 'zu Hundeprodukten',
                         url: '/hunde-nahrung/'
                     }
                 },
                 product: {
-                    url: '/hunde-nahrung/nahrungsergaenzung-fuer-hunde/starterpaket-hund-163.html',
+                    url: '/hunde-nahrung/hochwertige-hundefutter-menues/starterpaket-hund-163.html',
                     image: '/images/menu/teaser_product.jpg',
                     label: 'Neu bei PETS DELI',
                     title: 'Starter Paket',
@@ -22,31 +23,25 @@
                     {
                         type: 'small',
                         modifier: 'half',
-                        title: 'Starter Paket',
-                        url: '/hunde-nahrung/'
-                    },
-                    {
-                        type: 'small',
-                        modifier: 'quarter',
-                        title: 'Einzelne Menüs',
+                        title: ('category.dog_basefood' | trans),
                         url: '/hunde-nahrung/hochwertige-hundefutter-menues.html'
                     },
                     {
                         type: 'small',
-                        modifier: 'quarter',
-                        title: 'Beilagen',
+                        modifier: 'third-large',
+                        title: ('category.dog_supplements' | trans),
                         url: '/hunde-nahrung/nahrungsergaenzung-fuer-hunde.html'
                     },
                     {
                         type: 'small',
-                        modifier: 'quarter',
-                        title: 'Snacks',
+                        modifier: 'third',
+                        title: ('category.dog_snacks' | trans),
                         url: '/hunde-nahrung/hundekekse.html'
                     },
                     {
                         type: 'small',
-                        modifier: 'quarter',
-                        title: 'Trockenfleisch',
+                        modifier: 'third',
+                        title: ('category.dog_dry_meat' | trans),
                         url: '/hunde-nahrung/trockenfleisch-fuer-hunde.html'
                     }
                 ]
@@ -57,12 +52,13 @@
                     headline: 'Katzenprodukte',
                     image: '/images/menu/cat.jpg',
                     button: {
-                        title: 'Informationen zu Katzenprodukten',
+                        title: 'Informationen',
+                        title2: 'zu Katzenprodukten',
                         url: '/katzen-nahrung/'
                     }
                 },
                 product: {
-                    url: '/katzen-nahrung/supplements-fuer-katzen/starterpaket-katze.html',
+                    url: '/katzen-nahrung/hochwertige-katzenfutter-menues/starterpaket-katze.html',
                     image: '/images/menu/teaser_product.jpg',
                     label: 'Neu bei PETS DELI',
                     title: 'Starter Paket',
@@ -73,63 +69,121 @@
                     {
                         type: 'small',
                         modifier: 'half',
-                        title: 'Starter Paket',
-                        url: '/katzen-nahrung/'
-                    },
-                    {
-                        type: 'small',
-                        modifier: 'quarter',
-                        title: 'Einzelne Menüs',
+                        title: 'Basisnahrung',
                         url: '/katzen-nahrung/hochwertige-katzenfutter-menues.html'
                     },
                     {
                         type: 'small',
-                        modifier: 'quarter',
+                        modifier: 'third-large',
                         title: 'Beilagen',
                         url: '/katzen-nahrung/supplements-fuer-katzen.html'
                     },
                     {
                         type: 'small',
-                        modifier: 'quarter',
+                        modifier: 'third',
                         title: 'Snacks',
                         url: '/katzen-nahrung/katzensnacks.html'
                     },
                     {
                         type: 'small',
-                        modifier: 'quarter',
+                        modifier: 'third',
                         title: 'Trockenfleisch',
                         url: '/katzen-nahrung/trockenfleisch-fuer-katzen.html'
                     }
                 ]
             },
-
-            {
-                main: {
-                    headline: 'Warum?',
-                    image: '/images/menu/support_girl.jpg',
-                    button: {
-                        title: 'Informationen zu Hundeprodukten',
-                        url: '/warum/'
-                    }
-                },
-                teasers: []
-            },
-
-            {
-                main: {
-                    headline: 'Fragen',
-                    image: '/images/menu/support_dog.jpg',
-                    button: {
-                        title: 'Support Bereich',
-                        url: '/faq/'
-                    }
-                },
-                teasers: []
-            }
         ]
     }
 %}
 
+
+{#
+{
+    main: {
+        headline: 'Warum?',
+        image: '/images/menu/support_girl.jpg',
+        button: {
+            title: 'Informationen zu Hundeprodukten',
+            url: '/hunde-nahrung/'
+        }
+    },
+    teasers: [
+        {
+            type: 'small',
+            modifier: 'quarter',
+            title: 'How it works',
+            url: '/hunde-nahrung/'
+        },
+        {
+            type: 'small',
+            modifier: 'quarter',
+            title: 'FAQ',
+            url: '/hunde-nahrung/'
+        },
+        {
+            type: 'small',
+            modifier: 'quarter',
+            title: 'How to feed your pet',
+            url: '/hunde-nahrung/'
+        },
+        {
+            type: 'small',
+            modifier: 'quarter',
+            title: 'Shipping',
+            url: '/hunde-nahrung/'
+        },
+        {
+            type: 'small',
+            modifier: 'quarter',
+            title: 'Retail Stores',
+            url: '/hunde-nahrung/'
+        },
+        {
+            type: 'small',
+            modifier: 'quarter',
+            title: 'Animal Moments',
+            url: '/hunde-nahrung/'
+        },
+        {
+            type: 'small',
+            modifier: 'quarter',
+            title: 'Press and TV',
+            url: '/hunde-nahrung/'
+        },
+        {
+            type: 'small',
+            modifier: 'quarter',
+            title: 'Jobs',
+            url: '/hunde-nahrung/'
+        }
+    ]
+},
+
+{
+    main: {
+        headline: 'Fragen',
+        image: '/images/menu/support_dog.jpg',
+        button: {
+            title: 'Support Bereich',
+            url: '/hunde-nahrung/'
+        }
+    },
+    teasers: [
+        {
+            type: 'small',
+            modifier: 'half',
+            title: 'Customer service',
+            url: '/hunde-nahrung/'
+        },
+        {
+            type: 'small',
+            modifier: 'half',
+            title: 'Retail store',
+            url: '/hunde-nahrung/'
+        }
+    ]
+}
+#}
 
 
 <div class="menu">
@@ -143,20 +197,24 @@
                     headline: menu.main.headline,
                     image: menu.main.image,
                     button: menu.main.button.title,
+                    button2: menu.main.button.title2,
                     url: menu.main.button.url
                 } %}
 
                 <div class="menu__bottom">
-                    {% if menu.product is defined %}
-                        {% include '@application/layout/header/menu-teaser-product.twig' with { product: menu.product } %}
-                    {%  endif %}
-
                     {% for teaser in menu.teasers %}
                         {% include '@application/layout/header/menu-teaser-' ~ teaser.type ~ '.twig' with {
                             modifier: teaser.modifier,
                             title: teaser.title,
                             url: teaser.url
                         } %}
+
+                        {% if loop.index == 1 %}
+                            {% if menu.product is defined %}
+                                {% include '@application/layout/header/menu-teaser-product.twig' with { product: menu.product } %}
+                            {%  endif %}
+                        {%  endif %}
+
                     {% endfor %}
                 </div>
             </div>

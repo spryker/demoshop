@@ -166,8 +166,10 @@ function populateForm($form, blockData) {
             }
 
             populateForm($subform, content);
+
         } else {
             var $element = $form.find('> .block-form__wrapper [name="' + key + '"]');
+
             //console.info(key, $element, content);
             $element.val(content);
         }

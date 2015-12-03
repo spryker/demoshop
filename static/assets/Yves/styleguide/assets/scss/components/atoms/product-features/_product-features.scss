@@ -5,7 +5,7 @@
 // Styleguide: atoms.product-features
 
 .product-features{
-    padding: 35px ($_xSpacing / 2) 0;
+    padding: 0 ($_xSpacing / 2);
 
     clear: both;
 }
@@ -15,7 +15,6 @@
 
     font-family: $_ffBrandonGrotesque-Black;
     font-size: 22px;
-    //letter-spacing: 0.33px;
     color: $_rgbApple;
 }
 
@@ -26,7 +25,6 @@
     font-family: $_ffBrandonGrotesque-Bold;
     font-size: 20px;
     color: $_rgbDoveGray;
-    //letter-spacing: 0.3px;
 }
 
 .product-features__list{

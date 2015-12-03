@@ -398,3 +398,44 @@
         float: right;
     }
 }
+
+
+
+
+.checkout{
+    .radio--adyen-payment-method-german-bank-transfer{
+      .radio__image{
+        width: 88px;
+      }
+    }
+
+    .radio--rechnung{
+      .radio__image{
+        width: 98px;
+      }
+    }
+
+    .radio--adyen-payment-method-sofortueberweisung{
+      .radio__image{
+        width: 95px;
+      }
+    }
+
+    .radio--adyen-payment-method-creditcard-cse{
+      .radio__image{
+        width: 149px;
+      }
+    }
+
+    .radio--adyen-payment-method-sepa-directdebit{
+      .radio__image{
+        width: 79px;
+      }
+    }
+
+    .radio--adyen-payment-method-paypal{
+      .radio__image{
+        width: 86px;
+      }
+    }
+}

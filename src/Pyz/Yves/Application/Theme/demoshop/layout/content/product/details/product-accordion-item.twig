@@ -1,4 +1,4 @@
-<div class="product-accordion-item">
+<div class="product-accordion-item {{ item.modifier | default('')}}">
     <button class="product-accordion-item__header">
         <div class="product-accordion-item__limit">
             <div class="product-accordion-item__inner">
@@ -15,12 +15,9 @@
     <div class="product-accordion-item__content">
         <div class="product-accordion-item__limit">
             <div class="product-accordion-item__inner">
-                <p>#Unsere <strong>tiefgekühlten PETS DELI</strong> Menüboxen bieten Ihrem Hund die Grundlage für ein gesundes Hundefutter und einer gesunden und artgerechten Ernährung. Wir verwenden ausschließlich frische Zutaten in Lebensmittelqualität von ausgewählten Bezugsquellen und verzichten auf tierische Nebenerzeugnisse oder Zusätze in unserem Frischfutter.</p>
-                <p>#Unsere gesunden Menüboxen für Hunde bestehen aus 60% reinem Muskelfleisch und 40% aus frischem Obst, Gemüse und Kohlenhydraten. Das gesunde Hundefutter in unseren Menüboxen kann mit unseren Supplements verfeinert werden. In diesem Starterpaket erhalten Sie 10 portionierte Menüboxen mit Frischfutter (zwei Größen wählbar: 250g und 500g).</p>
-                <ul>
-                    <li>#Lorem</li>
-                    <li>#Ipsum</li>
-                </ul>
+                {% markdown %}
+                    {{ item.content | nl2br }}
+                {% endmarkdown %}
             </div>
         </div>
     </div>

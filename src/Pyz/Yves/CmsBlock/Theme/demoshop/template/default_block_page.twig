@@ -2,6 +2,13 @@
 
 {% block content %}
     {{ spyCms('content') | raw }}
-    {% include "@CmsBlock/partial/blocks.twig" with { blocks: blocks } %}
-{% endblock %}
 
+    {% for block in blocks %}
+
+        {% include "@CmsBlock/block/" ~ block.template ~ ".twig" with {
+            dynamicData:block.dynamicData,
+            cmsValues:block.cmsValues
+        } %}
+
+    {% endfor %}
+{% endblock %}

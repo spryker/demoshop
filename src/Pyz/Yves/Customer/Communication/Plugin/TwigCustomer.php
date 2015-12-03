@@ -45,7 +45,12 @@ class TwigCustomer extends AbstractPlugin implements TwigFunctionPluginInterface
                     return null;
                 }
 
-                return $this->customerClient->getCustomer()->getEmail();
+                $customer = $this->customerClient->getCustomer();
+                if ($customer->getFirstName()) {
+                    return $customer->getFirstName();
+                }
+
+                return $customer->getEmail();
             }),
             new Twig_SimpleFunction('isLoggedIn', function () {
                 return $this->customerClient->isLoggedIn();

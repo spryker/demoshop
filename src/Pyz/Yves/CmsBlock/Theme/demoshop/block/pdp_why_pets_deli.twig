@@ -1,0 +1,26 @@
+<div class="product__features">
+    <div class="product-features">
+
+        {% if cmsValues.headline is defined %}
+            <h2 class="product-features__title">{{ cmsValues.headline }}</h2>
+        {% endif %}
+
+        {% if cmsValues.features is defined %}
+            <div class="product-features__list">
+                {% for feature in cmsValues.features %}
+
+                    {% if feature.title is defined %}
+                        <h3 class="product-features__category">{{ feature.title }}</h3>
+                    {% endif %}
+
+                    <ul class="product-features__list">
+                        {% for bullet in feature.bullets %}
+                            <li class="product-features__item">{{ bullet.bullet }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+</div>

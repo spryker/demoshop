@@ -40,19 +40,9 @@
         </div>
     </div>
 
-    <div class="product__features">
-        {% include '@application/layout/content/product/details/product-features.twig' with {
+        {% include '@application/layout/content/product/details/product-related.twig' with {
         product: product
         } %}
-    </div>
-
-    {#{% include '@application/layout/content/product/details/product-accordion.twig' with {#}
-    {#product: product#}
-    {#} %}#}
-
-    {% include '@application/layout/content/product/details/product-related.twig' with {
-    product: product
-    } %}
 
 
     {% if options is not empty %}

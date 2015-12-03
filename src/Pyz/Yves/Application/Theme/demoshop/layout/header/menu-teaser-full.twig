@@ -4,7 +4,7 @@
         <h2 class="menu-teaser-full__headline">{{ headline }}</h2>
 
         {% include '@application/layout/common/forms/button.twig' with {
-            title: button,
+            title: (button ~ '<span>' ~ button2 ~ '</span>'),
             url: url(url)
         } %}
 
