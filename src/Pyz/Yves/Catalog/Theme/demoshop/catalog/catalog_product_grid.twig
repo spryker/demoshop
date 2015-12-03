@@ -1,14 +1,6 @@
 {% include "@application/layout/content/category/header.twig" with {
     category: ('category.' ~ category.category_key) | trans,
-    image: '/images/category/category.header.' ~ category.category_key ~ '.jpg',
-    facts: [
-        'Fertige and Frische
-        Menüboxen',
-        'Bestes Muskelfleisch in
-        Lebensmittelqualität',
-        '100% naturliche Zutaten
-        ohne Zusätze'
-    ]
+    image: '/images/category/category.header.' ~ category.category_key ~ '.jpg'
 } %}
 
 {% include "@application/layout/content/category/product-grid.twig" with {
