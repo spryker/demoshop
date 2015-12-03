@@ -89,12 +89,10 @@ class CheckoutController extends AbstractController
                     $checkoutRequest->setIdUser($customerTransfer->getIdCustomer());
                 }
 
-                /** TODO: START OF HACK PAYMENT METHOD */
                 $paymentMethod = $checkoutRequest->getAdyenPayment()->getPaymentMethod();
 
                 $adyenPaymentTransfer = $checkoutRequest->getAdyenPayment();
                 $adyenPaymentDetails = $adyenPaymentTransfer->getPaymentDetail();
-                $adyenPaymentDetails->setAmount($this->getCart()->getTotals()->getGrandTotalWithDiscounts());
 
                 if($paymentMethod === AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE) {
                     $adyenPaymentDetails->setEncryptedCardData($request->get('adyen-encrypted-data'));
