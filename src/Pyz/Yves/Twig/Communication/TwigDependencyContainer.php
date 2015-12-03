@@ -29,7 +29,7 @@ class TwigDependencyContainer extends AbstractCommunicationDependencyContainer
      */
     public function createYvesTwigExtension(Application $application)
     {
-        return $this->getFactory()->createModelYvesExtension($application, $this->getSettings());
+        return new YvesExtension($application, $this->getSettings());
     }
 
     /**
@@ -38,7 +38,7 @@ class TwigDependencyContainer extends AbstractCommunicationDependencyContainer
     protected function getSettings()
     {
         if (!isset($this->settings)) {
-            $this->settings = $this->getFactory()->createTwigSettings($this->getLocator());
+            $this->settings = new TwigSettings($this->getLocator());
         }
 
         return $this->settings;

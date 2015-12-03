@@ -28,8 +28,7 @@ class ForgotPassword extends AbstractType
             ])
             ->add('submit', 'submit', [
                 'label' => 'customer.forgot.submit',
-            ])
-        ;
+            ]);
     }
 
 }

@@ -134,8 +134,7 @@ class StockInstall extends AbstractInstaller
         $transferStockProduct->setSku($row[self::SKU])
             ->setIsNeverOutOfStock($row[self::NEVER_OUT_OF_STOCK])
             ->setQuantity($row[self::QUANTITY])
-            ->setStockType($stockType->getName())
-        ;
+            ->setStockType($stockType->getName());
 
         return $transferStockProduct;
     }
@@ -149,8 +148,7 @@ class StockInstall extends AbstractInstaller
     {
         $stockCount = $this->queryContainer
             ->queryStockByName($stockType->getName())
-            ->count()
-        ;
+            ->count();
 
         return $stockCount > 0;
     }

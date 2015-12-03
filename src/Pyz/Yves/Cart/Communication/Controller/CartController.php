@@ -84,7 +84,6 @@ class CartController extends AbstractController
      */
     public function changeAction($sku, $quantity, $groupKey = null)
     {
-
         $cartClient = $this->getClient();
         $itemTransfer = new ItemTransfer();
         $itemTransfer->setSku($sku);

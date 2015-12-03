@@ -21,8 +21,7 @@ class MailQueueFacade extends AbstractFacade
     {
         $this->getDependencyContainer()
             ->createMailQueueManager()
-            ->processMailMessageFromQueue($queueMessage)
-        ;
+            ->processMailMessageFromQueue($queueMessage);
     }
 
     /**
@@ -34,8 +33,7 @@ class MailQueueFacade extends AbstractFacade
     {
         $this->getDependencyContainer()
             ->createMailQueueManager()
-            ->sendEmailToQueue($mailTransfer)
-        ;
+            ->sendEmailToQueue($mailTransfer);
     }
 
     /**
@@ -47,8 +45,7 @@ class MailQueueFacade extends AbstractFacade
     {
         return $this->getDependencyContainer()
             ->createMailFacade()
-            ->sendMail($mailTransfer)
-        ;
+            ->sendMail($mailTransfer);
     }
 
     /**
@@ -61,8 +58,7 @@ class MailQueueFacade extends AbstractFacade
     {
         $this->getDependencyContainer()
             ->createQueueFacade()
-            ->publishMessage($queueName, $queueMessage)
-        ;
+            ->publishMessage($queueName, $queueMessage);
     }
 
     /**

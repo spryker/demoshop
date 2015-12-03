@@ -94,8 +94,7 @@ class ProductCategoryMappingInstall extends AbstractInstaller
 
             if (!$this->productCategoryManager->hasProductCategoryMapping($sku, $categoryName, $locale)) {
                 $categoryNodeIds[] = $this->productCategoryManager
-                    ->createProductCategoryMapping($sku, $categoryName, $locale)
-                ;
+                    ->createProductCategoryMapping($sku, $categoryName, $locale);
             }
         }
     }

@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-refactor/remove-factory-use-from-dependency-container",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
@@ -47,7 +47,8 @@
     "zendframework/zend-servicemanager": "~2.3.0",
     "zendframework/zend-eventmanager": "2.3.9",
 
-    "nesbot/carbon": "1.13.0"
+    "nesbot/carbon": "1.13.0",
+    "h4cc/phpqatools": "~1.2"
   },
   "require-dev": {
     "silex/web-profiler": "~1.0.2",
@@ -62,6 +63,9 @@
       "Unit": "tests",
       "YvesUnit": "tests",
       "Functional": "tests"
+    },
+    "psr-4": {
+      "Spryker\\Refactor\\": "refactoring"
     }
   },
   "minimum-stability": "stable",

@@ -2,6 +2,19 @@
 
 namespace Pyz\Zed\ProductOption\Business;
 
+use SprykerFeature\Zed\ProductOption\Business\Model\ProductOptionReader;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Db\MysqlBatchStorageProvider;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\BatchProcessor\InMemoryBatchProcessor;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Decorator\InMemoryProductOptionQueryContainer;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Model\BatchedDataImportWriter;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\ProductOptionWriter;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\OptionWriter;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductOptionUsageImporterVisitor;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductOptionImporterVisitor;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLProductTransformer;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLOptionsTransformer;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\XMLProductReader;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\XMLOptionsReader;
 use Generated\Zed\Ide\FactoryAutoCompletion\ProductOptionBusiness;
 use SprykerFeature\Zed\ProductOption\Business\ProductOptionDependencyContainer as SprykerDependencyContainer;
 use Psr\Log\LoggerInterface;
@@ -30,7 +43,7 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
      */
     public function createDemoDataInstaller(LoggerInterface $messenger)
     {
-        $installer = $this->getFactory()->createInternalDemoDataProductOptionDataInstall(
+        $installer = new ProductOptionDataInstall(
             $this->createOptionsWriter(),
             $this->createProductOptionWriter()
         );
@@ -45,7 +58,7 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
      */
     public function createOptionsReader()
     {
-        return $this->getFactory()->createInternalDemoDataImporterReaderXMLOptionsReader(
+        return new XMLOptionsReader(
             $this->getConfig()->getOptionsDemoDataPath(),
             $this->createXMLOptionsTransformer()
         );
@@ -56,7 +69,7 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
      */
     public function createProductOptionReader()
     {
-        return $this->getFactory()->createInternalDemoDataImporterReaderXMLProductReader(
+        return new XMLProductReader(
             $this->getConfig()->getProductOptionDemoDataPath(),
             $this->createXMLProductTransformer()
         );
@@ -67,7 +80,7 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
      */
     public function createXMLOptionsTransformer()
     {
-        return $this->getFactory()->createInternalDemoDataImporterTransformerXMLOptionsTransformer();
+        return new XMLOptionsTransformer();
     }
 
     /**
@@ -75,7 +88,7 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
      */
     public function createXMLProductTransformer()
     {
-        return $this->getFactory()->createInternalDemoDataImporterTransformerXMLProductTransformer();
+        return new XMLProductTransformer();
     }
 
     /**
@@ -83,7 +96,7 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
      */
     public function createOptionsVisitor()
     {
-        return $this->getFactory()->createInternalDemoDataImporterVisitorProductOptionImporterVisitor(
+        return new ProductOptionImporterVisitor(
             $this->getProductOptionFacade()
         );
     }
@@ -93,7 +106,7 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
      */
     public function createProductVisitor()
     {
-        return $this->getFactory()->createInternalDemoDataImporterVisitorProductOptionUsageImporterVisitor(
+        return new ProductOptionUsageImporterVisitor(
             $this->getProductOptionFacade()
         );
     }
@@ -103,7 +116,7 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
      */
     public function createOptionsWriter()
     {
-        return $this->getFactory()->createInternalDemoDataImporterWriterOptionWriter(
+        return new OptionWriter(
             $this->createOptionsReader(),
             [$this->createOptionsVisitor()]
         );
@@ -114,7 +127,7 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
      */
     public function createProductOptionWriter()
     {
-        return $this->getFactory()->createInternalDemoDataImporterWriterProductOptionWriter(
+        return new ProductOptionWriter(
             $this->createProductOptionReader(),
             [$this->createProductVisitor()]
         );
@@ -139,16 +152,27 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
             return parent::getDataImportWriterModel();
         }
 
-        return $this->getFactory()->createInternalDemoDataImporterModelBatchedDataImportWriter(
-            $this->getFactory()->createInternalDemoDataImporterDecoratorInMemoryProductOptionQueryContainer(
+        return new BatchedDataImportWriter(
+            new InMemoryProductOptionQueryContainer(
                 $this->getQueryContainer()
             ),
             $this->getProvidedDependency(ProductOptionDependencyProvider::FACADE_PRODUCT),
             $this->getProvidedDependency(ProductOptionDependencyProvider::FACADE_LOCALE),
-            $this->getFactory()->createInternalDemoDataImporterBatchProcessorInMemoryBatchProcessor(
-                $this->getFactory()->createInternalDemoDataImporterDbMysqlBatchStorageProvider()
+            new InMemoryBatchProcessor(
+                new MysqlBatchStorageProvider()
             )
         );
+    }
+
+    /**
+     * @return ProductOptionReaderInterface
+     */
+    public function getProductOptionReaderModel()
+    {
+        return new ProductOptionReader(
+                    $this->getQueryContainer(),
+                    $this->getProvidedDependency(ProductOptionDependencyProvider::FACADE_LOCALE)
+                );
     }
 
 }

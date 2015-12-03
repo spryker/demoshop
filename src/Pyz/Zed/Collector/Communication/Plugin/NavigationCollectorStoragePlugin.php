@@ -32,8 +32,7 @@ class NavigationCollectorStoragePlugin extends AbstractCollectorPlugin
     ) {
         return $this->getDependencyContainer()
             ->getCollectorFacade()
-            ->runStorageNavigationCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater)
-        ;
+            ->runStorageNavigationCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }
 
 }

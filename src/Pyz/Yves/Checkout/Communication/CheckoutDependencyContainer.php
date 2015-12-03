@@ -58,8 +58,7 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
      */
     public function createCheckoutForm(Request $request, ShipmentTransfer $shipmentTransfer)
     {
-        return $this->getFactory()
-            ->createFormCheckoutType(
+        return new CheckoutType(
                 $request,
                 $shipmentTransfer,
                 $this->createGlossaryClient()

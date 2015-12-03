@@ -32,8 +32,7 @@ class RedirectCollectorStoragePlugin extends AbstractCollectorPlugin
     ) {
         return $this->getDependencyContainer()
             ->getCollectorFacade()
-            ->runStorageRedirectCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater)
-        ;
+            ->runStorageRedirectCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }
 
 }

@@ -32,8 +32,7 @@ class TranslationCollectorStoragePlugin extends AbstractCollectorPlugin
     ) {
         return $this->getDependencyContainer()
             ->getCollectorFacade()
-            ->runStorageTranslationCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater)
-        ;
+            ->runStorageTranslationCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }
 
 }

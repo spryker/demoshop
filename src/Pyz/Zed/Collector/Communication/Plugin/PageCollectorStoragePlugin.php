@@ -32,8 +32,7 @@ class PageCollectorStoragePlugin extends AbstractCollectorPlugin
     ) {
         return $this->getDependencyContainer()
             ->getCollectorFacade()
-            ->runStoragePageCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater)
-        ;
+            ->runStoragePageCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }
 
 }

@@ -309,8 +309,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             ->withColumn(
                 'GROUP_CONCAT(DISTINCT ' . SpyTaxRateTableMap::COL_RATE . ')',
                 'tax_rate_rates'
-            )
-        ;
+            );
 
         // Category
         $baseQuery->addJoin(

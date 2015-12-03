@@ -53,8 +53,7 @@ class NavigationCollector extends AbstractPropelCollectorPlugin
         $join
             ->setLeftTableName(SpyTouchTableMap::TABLE_NAME)
             ->setRightTableName(SpyCategoryNodeTableMap::TABLE_NAME)
-            ->setJoinCondition(new BasicCriterion(new Criteria(), 'is_root', '1'))
-        ;
+            ->setJoinCondition(new BasicCriterion(new Criteria(), 'is_root', '1'));
         $baseQuery->addJoinObject($join);
 
         $baseQuery->addJoin(

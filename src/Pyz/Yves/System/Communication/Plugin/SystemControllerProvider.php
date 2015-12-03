@@ -18,8 +18,7 @@ class SystemControllerProvider extends YvesControllerProvider
         $allowedLocalesPattern = $this->getAllowedLocalesPattern();
 
         $this->createController('/{system}/heartbeat', self::ROUTE_HEARTBEAT, 'System', 'Heartbeat', 'index')
-            ->assert('system', $allowedLocalesPattern . 'system|system')
-        ;
+            ->assert('system', $allowedLocalesPattern . 'system|system');
     }
 
 }

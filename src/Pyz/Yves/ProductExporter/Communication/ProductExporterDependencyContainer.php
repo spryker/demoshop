@@ -6,6 +6,8 @@
 
 namespace Pyz\Yves\ProductExporter\Communication;
 
+use Pyz\Yves\ProductExporter\Communication\Builder\FrontendProductBuilder;
+use Pyz\Yves\ProductExporter\Communication\ResourceCreator\ProductResourceCreator;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 
 /**
@@ -24,7 +26,7 @@ class ProductExporterDependencyContainer extends AbstractCommunicationDependency
      */
     public function createProductResourceCreator()
     {
-        return $this->getFactory()->createResourceCreatorProductResourceCreator(
+        return new ProductResourceCreator(
             $this->createFrontendProductBuilder(),
             $this->getLocator()
         );
@@ -35,7 +37,7 @@ class ProductExporterDependencyContainer extends AbstractCommunicationDependency
      */
     protected function createFrontendProductBuilder()
     {
-        return $this->getFactory()->createBuilderFrontendProductBuilder($this->getFactory());
+        return new FrontendProductBuilder($this->getFactory());
     }
 
 }

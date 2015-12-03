@@ -30,8 +30,7 @@ class BlockCollectorStoragePlugin extends AbstractPlugin implements CollectorPlu
     {
         $this->getDependencyContainer()
             ->getCollectorFacade()
-            ->runStorageBlockCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater)
-        ;
+            ->runStorageBlockCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }
 
     /**

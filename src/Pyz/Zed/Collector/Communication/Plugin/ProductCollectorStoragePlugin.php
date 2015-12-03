@@ -32,8 +32,7 @@ class ProductCollectorStoragePlugin extends AbstractCollectorPlugin
     ) {
         return $this->getDependencyContainer()
             ->getCollectorFacade()
-            ->runStorageProductCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater)
-        ;
+            ->runStorageProductCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }
 
 }

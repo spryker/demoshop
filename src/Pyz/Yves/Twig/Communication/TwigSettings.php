@@ -44,12 +44,10 @@ class TwigSettings
     public function getTwigFunctions()
     {
         $twigCustomer = $this->getLocator()->customer()->pluginTwigCustomer()
-            ->setCustomerClient($this->getLocator()->customer()->client())
-        ;
+            ->setCustomerClient($this->getLocator()->customer()->client());
 
         $twigCmsBlock = $this->getLocator()->cms()->pluginTwigCmsBlock()
-            ->setCmsClient($this->getLocator()->cms()->client())
-        ;
+            ->setCmsClient($this->getLocator()->cms()->client());
 
         return [
             $this->getLocator()->price()->pluginTwigPrice(),

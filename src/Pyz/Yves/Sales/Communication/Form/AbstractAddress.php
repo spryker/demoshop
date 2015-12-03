@@ -53,8 +53,7 @@ abstract class AbstractAddress extends AbstractType
             ->add('zipCode', 'text', ['constraints' => [new NotBlank()]])
             ->add('iso2Country', 'country', [
                 'translation_domain' => 'none',
-            ])
-        ;
+            ]);
     }
 
 }

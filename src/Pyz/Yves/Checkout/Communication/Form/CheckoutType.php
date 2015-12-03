@@ -145,9 +145,7 @@ class CheckoutType extends AbstractType
                     'tabindex' => 602,
                     'class' => 'padded js-create_account',
                 ],
-            ])
-
-        ;
+            ]);
     }
 
     /**

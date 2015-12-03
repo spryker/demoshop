@@ -128,8 +128,7 @@ class AddressType extends AbstractType
             ])
             ->add(self::FIELD_ISO_2_CODE, 'hidden', [
                 'data' => 'DE',
-            ])
-        ;
+            ]);
     }
 
     /**

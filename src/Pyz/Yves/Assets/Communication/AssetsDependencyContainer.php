@@ -6,6 +6,9 @@
 
 namespace Pyz\Yves\Assets\Communication;
 
+use Pyz\Yves\Assets\Communication\Model\UrlParameterCacheBuster;
+use Pyz\Yves\Assets\Communication\Model\MediaUrlBuilder;
+use Pyz\Yves\Assets\Communication\Model\AssetUrlBuilder;
 use Generated\Yves\Ide\FactoryAutoCompletion\AssetsCommunication;
 use SprykerFeature\Shared\Library\Config;
 use SprykerFeature\Shared\System\SystemConfig;
@@ -35,7 +38,7 @@ class AssetsDependencyContainer extends AbstractCommunicationDependencyContainer
             $host = Config::get(SystemConfig::HOST_SSL_STATIC_ASSETS);
         }
 
-        return $this->getFactory()->createModelAssetUrlBuilder($host, $this->createCacheBuster());
+        return new AssetUrlBuilder($host, $this->createCacheBuster());
     }
 
     /**
@@ -53,7 +56,7 @@ class AssetsDependencyContainer extends AbstractCommunicationDependencyContainer
             $host = Config::get(SystemConfig::HOST_SSL_STATIC_MEDIA);
         }
 
-        return $this->getFactory()->createModelMediaUrlBuilder($host);
+        return new MediaUrlBuilder($host);
     }
 
     /**
@@ -68,7 +71,7 @@ class AssetsDependencyContainer extends AbstractCommunicationDependencyContainer
             $cacheBust = file_get_contents($hashFile);
         }
 
-        return $this->getFactory()->createModelUrlParameterCacheBuster($cacheBust);
+        return new UrlParameterCacheBuster($cacheBust);
     }
 
 }

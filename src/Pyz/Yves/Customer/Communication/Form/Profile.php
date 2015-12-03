@@ -49,8 +49,7 @@ class Profile extends AbstractType
             ])
             ->add('submit', 'submit', [
                 'label' => 'customer.profile.submit',
-            ])
-        ;
+            ]);
     }
 
 }

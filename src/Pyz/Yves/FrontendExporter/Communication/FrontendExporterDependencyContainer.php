@@ -26,7 +26,7 @@ class FrontendExporterDependencyContainer extends AbstractCommunicationDependenc
      */
     public function createResourceCreators()
     {
-        $settings = $this->getFactory()->createFrontendExporterSettings(
+        $settings = new FrontendExporterSettings(
             $this->getLocator()
         );
 
@@ -38,7 +38,7 @@ class FrontendExporterDependencyContainer extends AbstractCommunicationDependenc
      */
     public function createUrlMapper()
     {
-        return $this->getFactory()->createMapperUrlMapper(
+        return new UrlMapper(
             $this->createFacetConfig()
         );
     }
@@ -49,8 +49,7 @@ class FrontendExporterDependencyContainer extends AbstractCommunicationDependenc
     public function createUrlMatcher()
     {
         $urlMatcher = $this->getLocator()->frontendExporter()
-            ->client()
-        ;
+            ->client();
 
         return $urlMatcher;
     }
