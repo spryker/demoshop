@@ -11,12 +11,13 @@
     <!-- TODO: check/clean attributes -->
 
     {% set type = type | default('text') %}
+    {% set class = (attr.class | default('')) ~ (type == 'hidden' ? ' input--hidden' : '') %}
 
-    <div class="input {{ attr.class | default('') }}">
+    <div class="input {{ class }}">
 
         {% if label is defined %}
         <label class="input__label" {% if id is defined %} for="{{ id }}" {% endif %}>
-            {{ label | trans }}
+            {{ label | trans }}{% if required is defined %}*{% endif %}
         </label>
         {% endif %}
 
@@ -40,9 +41,12 @@
 
 {% block password_widget %}
     {% set type = type | default('password') %}
+    {% set forgot = forgot | default(false) %}
 
     <div class="password-input">
-        <a class="password-input__forgot" href="/password/forgot/">Vergessen?</a>
+        {% if forgot %}
+            <a class="password-input__forgot" href="/password/forgot/">Vergessen?</a>
+        {% endif %}
 
         {{ block('form_widget_simple', {type: 'password'}) }}
 
@@ -80,15 +84,25 @@
     {% set modifier = 'radio--' ~ value | replace({'.': '-'}) %}
 
     {% if modifier == 'radio--adyen-payment-method-german-bank-transfer' %}
-        {% set image = '/images/checkout/vorkasse.jpg' %}
+        {% set imageBw = '/images/checkout/vorkasse-bw.jpg' %}
+        {% set imageColor = '/images/checkout/vorkasse-color.jpg' %}
+
     {% elseif modifier == 'radio--adyen-payment-method-creditcard-cse' %}
-        {% set image = '/images/checkout/credit.jpg' %}
+        {% set imageBw = '/images/checkout/credit-card-bw.jpg' %}
+        {% set imageColor = '/images/checkout/credit-card-color.jpg' %}
+
     {% elseif modifier == 'radio--adyen-payment-method-sepa-directdebit' %}
-        {% set image = '/images/checkout/sepa.jpg' %}
+        {% set imageBw = '/images/checkout/sepa-bw.jpg' %}
+        {% set imageColor = '/images/checkout/sepa-color.jpg' %}
+
     {% elseif modifier == 'radio--adyen-payment-method-paypal' %}
-        {% set image = '/images/checkout/paypal.jpg' %}
+        {% set imageBw = '/images/checkout/paypal-bw.jpg' %}
+        {% set imageColor = '/images/checkout/paypal-color.jpg' %}
+
     {% elseif modifier == 'radio--adyen-payment-method-sofortueberweisung' %}
-        {% set image = '/images/checkout/sofort.jpg' %}
+        {% set imageBw = '/images/checkout/sofort-bw.jpg' %}
+        {% set imageColor = '/images/checkout/sofort-color.jpg' %}
+
     {% endif %}
 
 
@@ -96,8 +110,11 @@
         <input class="radio__input" type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
 
         <label class="radio__label" for="{{id}}">
-            {% if image is defined %}
-                <img class="radio__image" src="{{ image }}" alt="{{ label }}" draggable="false" />
+            {% if imageBw is defined %}
+                <img class="radio__image radio__image--unchecked" src="{{ imageBw }}" alt="{{ label }}" draggable="false" />
+            {% endif %}
+            {% if imageColor is defined %}
+                <img class="radio__image radio__image--checked" src="{{ imageColor }}" alt="{{ label }}" draggable="false" />
             {% endif %}
             {{ label | trans }}
         </label>

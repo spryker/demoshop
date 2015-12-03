@@ -20,6 +20,12 @@
     background-position: 80% center !important;
     background-size: contain !important;
     background-repeat: no-repeat !important;
+
+    .button{
+        span{
+            display: none;
+        }
+    }
 }
 
 .menu-teaser-full__headline{
@@ -29,3 +35,14 @@
     font-size: $_fsLarge;
     color: $_rgbApple;
 }
+
+@media (min-width: $_wLarge) {
+    .menu-teaser-full__inner{
+        .button{
+            span{
+                display: inline-block;
+            }
+        }
+    }
+}
+

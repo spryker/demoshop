@@ -12,6 +12,8 @@ $(document).ready(function () {
         $accordion = $(this);
         $items = $accordion.find('.product-accordion-item');
 
+        $items.filter('.product-accordion-item--active').find('.product-accordion-item__content').show();
+
         $items.each(function () {
             var $item, $header;
 

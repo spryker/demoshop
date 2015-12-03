@@ -1,0 +1,17 @@
+{
+  "type": "form",
+  "fields": {
+    "entries": {
+      "type": "form",
+      "multiple": true,
+      "fields": {
+        "title": {
+          "type": "text"
+        },
+        "content": {
+          "type": "textarea"
+        }
+      }
+    }
+  }
+}

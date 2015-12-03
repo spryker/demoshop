@@ -4,7 +4,7 @@
     <div class="product-gallery">
 
         {% if product.category is not empty %}
-            {% set category = product.category | first %}
+            {% set category = product.category | last %}
 
             <a class="product-gallery__back" href="{{ category.url }}">
                 {{ category.name }}

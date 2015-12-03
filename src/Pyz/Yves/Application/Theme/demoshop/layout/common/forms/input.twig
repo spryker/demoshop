@@ -2,7 +2,7 @@
 
     {% if label is defined %}
     <label class="input__label" {% if id is defined %} for="{{ id }}" {% endif %}>
-        {{ label }}
+        {{ label }}{% if required is defined %}*{% endif %}
     </label>
     {% endif %}
 

@@ -46,6 +46,7 @@
     font-size: 60px;
     letter-spacing: 3.17px;
     line-height: 28px;
+    text-align: center;
 
     &:after{
         content: '';
@@ -120,6 +121,7 @@
 @media (min-width: $_wMedium) {
     .category-header__hero-title{
         position: relative;
+        z-index: 1;
         height: 350px;
         float: left;
         width: 50%;
@@ -131,17 +133,17 @@
         float: left;
         width: 50%;
 
-        background-position: 60px center !important;
+        //background-position: 60px center !important;
     }
 
     .category-header__hero-headline{
-        text-align: right;
-        padding-right: 30px;
+        //text-align: right;
+        //padding-right: 30px;
 
-        &:after{
-            left: auto;
-            right: 80px;
-        }
+        // &:after{
+        //     left: auto;
+        //     right: 80px;
+        // }
     }
 
     .category-header__hero-content{

@@ -1,6 +1,6 @@
 {% include "@application/layout/content/category/header.twig" with {
-    category: category.name,
-    image: '/images/category/header.jpg',
+    category: ('category.' ~ category.category_key) | trans,
+    image: '/images/category/category.header.' ~ category.category_key ~ '.jpg',
     facts: [
         'Fertige and Frische
         Menüboxen',

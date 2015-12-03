@@ -133,7 +133,7 @@ class PaymentDetail extends AbstractType
                     'data-required' => true,
                     'data-depending-field' => 'checkout[adyen_payment][payment_method]',
                     'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE,
-                    'data-regexp' => '^[1-9]{1}[0-9]{15}$'
+                    'data-regexp' => '^(\d{4} *\d{4} *\d{4} *\d{4})$'
                 ],
             ])
             ->add('adyen_encrypted_form_cvc', 'text', [

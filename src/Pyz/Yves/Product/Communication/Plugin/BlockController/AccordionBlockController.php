@@ -39,7 +39,7 @@ class AccordionBlockController extends AbstractPlugin implements BlockController
 
         // TODO: add the dynamic part of the accordion here
         $result = [
-            'product_attribute' => $product['type']
+            'product_attribute' => $product['abstract_attributes']['description']['markdown']
         ];
 
         return $result;

@@ -1,0 +1,27 @@
+{
+  "type": "form",
+  "fields": {
+    "headline": {
+      "type": "text"
+    },
+    "features": {
+      "type": "form",
+      "multiple": true,
+      "fields": {
+        "title": {
+          "type": "text"
+        },
+        "bullets": {
+          "type": "form",
+          "multiple": true,
+          "fields": {
+            "bullet": {
+              "type": "text"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+        

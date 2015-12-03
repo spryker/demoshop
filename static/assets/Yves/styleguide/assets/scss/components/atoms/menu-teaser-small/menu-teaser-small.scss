@@ -27,7 +27,6 @@
     width: calc(100% - 20px);
     transform: translate(0, -50%);
 
-    text-transform: uppercase;
     color: $_rgbApple;
     text-align: center;
     text-decoration: none;
@@ -42,6 +41,10 @@
 
 @media (min-width: $_wMedium) {
     .menu-teaser-small--quarter{
+        width: 50%;
+    }
+
+    .menu-teaser-small--third{
         width: 50%;
     }
 }
@@ -61,6 +64,10 @@
 }
 
 @media (min-width: $_wLarge) {
+    .menu-teaser-small--third, .menu-teaser-small--third-large{
+        width: 33.333%;
+    }
+
     .menu-teaser-small--high{
         height: (195px * 2);
     }

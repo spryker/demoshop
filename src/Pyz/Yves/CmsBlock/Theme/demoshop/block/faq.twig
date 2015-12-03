@@ -1,0 +1,29 @@
+{% set pets = cmsValues.pets %}
+
+{% for pet in pets %}
+    <h1>{{ pet.pet }}</h1>
+
+    {% for category in pet.categories %}
+        {% if category.category is defined %}
+            <h2>{{ category.category }}</h2>
+        {% endif %}
+
+        {% for faq in category.faqs %}
+
+            <div class="">
+                {% if faq.question is defined %}
+                    <h3>{{ faq.question }}</h3>
+                {% endif %}
+
+                {% if faq.answer is defined %}
+                    {% markdown %}
+                        {{ faq.answer | nl2br }}
+                    {% endmarkdown %}
+                {% endif %}
+            </div>
+
+        {% endfor %}
+
+    {% endfor %}
+
+{% endfor %}

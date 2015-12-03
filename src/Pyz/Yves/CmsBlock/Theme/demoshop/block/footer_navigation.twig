@@ -57,12 +57,14 @@
             </div>
             {% endfor %}
 
-            <div class="footer__column">
+            <div class="footer__column footer__column--social">
                 <h2>{{ data.social.headline }}</h2>
 
-                {% for channel in data.social.channels %}
-                <a href="{{ channel.url }}" class="footer__social footer__social--{{ channel.key }}"></a>
-                {% endfor %}
+                <div class="footer__socials">
+                    {% for channel in data.social.channels %}
+                    <a href="{{ channel.url }}" class="footer__social footer__social--{{ channel.key }}"></a>
+                    {% endfor %}
+                </div>
             </div>
         </nav>
 

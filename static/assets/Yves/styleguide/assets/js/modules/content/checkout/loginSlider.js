@@ -6,7 +6,7 @@ import { getViewport, prefixCss } from '../../common/helpers';
 
 $(document).ready(function () {
 
-    $('.login-slider').each(function () {
+    $('.js-login-slider').each(function () {
         var $slider, $navigationContainer, $navigations, $contentContainer, $contents;
 
         $slider = $(this);

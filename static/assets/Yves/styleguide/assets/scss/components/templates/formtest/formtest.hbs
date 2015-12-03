@@ -2,71 +2,82 @@
     <div class="block-form__blueprint" data-label="Blueprint">
         <textarea name="blueprint">
 {
-    "type": "form",
-    "fields": {
-        "entries": {
-            "type": "form",
-            "multiple": true,
-            "fields": {
-                "question": {
-                    "type": "text"
-                },
-                "answer": {
-                    "type": "textarea"
-                },
-                "example": {
-                    "type": "form",
-                    "fields": {
-                        "title": {
-                            "type": "text"
-                        }
-                    }
-                },
-                "example2": {
-                    "type": "form",
-                    "multiple": true,
-                    "fields": {
-                        "title": {
-                            "type": "text"
-                        }
-                    }
-                }
-            }
+  "type": "form",
+  "fields": {
+    "headline": {
+      "type": "text"
+    },
+    "features": {
+      "type": "form",
+      "multiple": true,
+      "fields": {
+        "title": {
+          "type": "text"
         },
-        "whatever": {
-            "type": "text"
+        "bullets": {
+          "type": "form",
+          "multiple": true,
+          "fields": {
+            "bullet": {
+              "type": "text"
+            }
+          }
         }
+      }
     }
+  }
 }
         </textarea>
     </div>
 
     <div class="block-form__content" data-label="Content">
         <textarea name="content">
-{
-    "entries": [
-        {
-            "question": "Some question",
-            "answer": "Some answer",
-            "example": {
-                "title": "Some title"
+{  
+   "headline":"Features",
+   "features":[
+      {
+         "title":"Das bekommen Sie:",
+         "bullets":[
+            {
+               "bullet":"Unkompliziert - 10 fertig portionierte Menüboxen"
+            },
+            {
+               "bullet":"Natur pur - ausschließlich 100% natürliche Zutaten"
+            },
+            {
+               "bullet":"Sicherheit - von Experten zusammengestellte und überprüfte Menüs"
             }
-        },
-        {
-            "question": "Some question2",
-            "answer": "Some answer2",
-            "title": "Some title2",
-            "example2": [
-                {
-                    "title": "Some title"
-                },
-                {
-                    "title": "Some title"
-                }
-            ]
-        }
-    ],
-    "whatever": "Some more text"
+         ]
+      },
+      {
+         "title":"Was wir Ihnen bieten:",
+         "bullets":[
+            {
+               "bullet":"100% Lebensmittelqualität"
+            },
+            {
+               "bullet":"Nur hochwertiges Muskelfleisch"
+            },
+            {
+               "bullet":"Tiefgefroren und fertig verpackt für maximale Frische"
+            }
+         ]
+      },
+      {
+         "title":"Was Sie niemals bei uns bekommen werden:",
+         "bullets":[
+            {
+               "bullet":"Tierische Nebenerzeugnisse"
+            },
+            {
+               "bullet":"Künstliche Zusatzstoffe"
+            },
+            {
+               "bullet":"Minderwertige Qualität"
+            }
+         ]
+      }
+   ]
 }
         </textarea>
     </div>
