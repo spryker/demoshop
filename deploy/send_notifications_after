@@ -19,8 +19,7 @@ done
 slack_msg="Finished deployment of *${scm_path}* to release *${deploy_outfile_prefix}* in *${environment}*"
 slack_msg="${slack_msg}\nDeployed by: $deploy_user from host `/bin/hostname`"
 
-echo $slack_msg
-#send_slack_notification "${slack_msg}"
+send_slack_notification "${slack_msg}"
 
 rm -f $outfile
 exit 0
