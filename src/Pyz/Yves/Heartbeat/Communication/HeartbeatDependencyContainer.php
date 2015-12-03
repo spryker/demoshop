@@ -16,7 +16,7 @@ class HeartbeatDependencyContainer extends AbstractCommunicationDependencyContai
 {
 
     /**
-     * @return \Pyz\Yves\Heartbeat\Communication\Model\HealthChecker
+     * @return HealthChecker
      */
     public function createHealthChecker()
     {
