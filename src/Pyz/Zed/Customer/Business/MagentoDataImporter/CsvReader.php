@@ -52,29 +52,50 @@ class CsvReader implements CsvReaderInterface
      */
     public function importData()
     {
-        if ( !file_exists($this->filePath) ) {
-            throw new Exception('File not found.');
+        if (!file_exists($this->filePath)) {
+            throw new Exception('File not found in ' . $this->filePath);
         }
 
         $customerImported = 0;
         $handle = fopen($this->filePath, 'r');
-        $fieldNames = fgetcsv($handle,null,';');
+        $fieldNames = fgetcsv($handle, null, ';');
 
-        while ($row = fgetcsv($handle,null,';'))
-        {
+        while ($row = fgetcsv($handle, null, ';')) {
             $keyValues = array_combine($fieldNames, $row);
 
+            foreach ($keyValues as $key => $value) {
+                if ($value === 'NULL') {
+                    $keyValues[$key] = null;
+                }
+
+                if ($key === 'salutation') {
+                    $salutation = $value;
+                    $keyValues[$key] = str_replace(['frau', 'herr', 'dr.', '---'], ['Mrs', 'Mr', 'Dr', 'Mrs'], strtolower($salutation));
+
+                    switch ($keyValues[$key]) {
+                        case 'Mr':
+                            $keyValues['gender'] = 'Male';
+                            break;
+                        case 'Mrs':
+                            $keyValues['gender'] = 'Female';
+                            break;
+
+                    }
+                }
+
+
+            }
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->fromArray($keyValues, true);
 
             if (!$this->findCustomerByEmail($customerTransfer->getEmail())) {
                 $customerEntity = $this->saveCustomer($customerTransfer);
                 $this->hydrateAddressTransfer($customerEntity, $keyValues);
-                $customerImported ++;
+                $customerImported++;
             }
         }
         fclose($handle);
-    
+
         return $customerImported;
     }
 
@@ -104,6 +125,7 @@ class CsvReader implements CsvReaderInterface
             $countryId = $this->countryFacade->getIdCountryByIso2Code($keyValues['countryiso']);
             $addressTransfer->setFkCountry($countryId);
         }
+
         $addressTransfer->fromArray($keyValues, true);
         $addressTransfer->setFkCustomer($customerEntity->getIdCustomer());
         $this->saveCustomerAddress($addressTransfer);
@@ -120,7 +142,8 @@ class CsvReader implements CsvReaderInterface
             $addressEntity->fromArray($addressTransfer->toArray());
             $addressEntity->save();
         } catch (\Exception $e) {
-            // don't save if fields missing
+            #var_dump($e);
+            #die;
         }
     }
 
@@ -132,7 +155,7 @@ class CsvReader implements CsvReaderInterface
     {
         $customerEntity = $this->customerQueryContainer->queryCustomerByEmail($email)->findOne();
 
-        return (bool) ($customerEntity != null);
+        return (bool)($customerEntity != null);
     }
 
 }
