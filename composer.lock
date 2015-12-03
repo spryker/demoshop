@@ -1316,13 +1316,8 @@
             "version": "v1.0.0",
             "source": {
                 "type": "git",
-<<<<<<< HEAD
-                "url": "git@github.com:spryker/spryker.git",
-                "reference": "6e5c4cc064c428b36102150a57744ddf7238d90e"
-=======
                 "url": "https://github.com/nrk/predis.git",
                 "reference": "d4be306d0aca28b5633b96adef03b29fea569c2f"
->>>>>>> Add refactor scripts
             },
             "dist": {
                 "type": "zip",
@@ -1372,32 +1367,8 @@
             "time": "2014-08-01 09:59:50"
         },
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "name": "symfony/config",
-            "version": "v2.7.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/config.git",
-                "reference": "61973327bfb054f6f470de7be033a28b76c1dc20"
-            },
-<<<<<<< HEAD
-            "time": "2015-12-02 16:33:30"
-        },
-        {
-            "name": "symfony-cmf/routing",
-            "version": "1.3.0",
-=======
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/61973327bfb054f6f470de7be033a28b76c1dc20",
-                "reference": "61973327bfb054f6f470de7be033a28b76c1dc20",
-=======
-=======
->>>>>>> update composser
             "name": "propel/propel",
             "version": "2.0.0-alpha5",
->>>>>>> Add refactor scripts
             "source": {
                 "type": "git",
                 "url": "https://github.com/propelorm/Propel2.git",
@@ -2191,7 +2162,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "4dcab920948b59d73663f917c3fad7e2df18181f"
+                "reference": "54909e582ead1fb2f04cc3e9a37c53c7a82a9996"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -2280,7 +2251,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-12-02 09:27:55"
+            "time": "2015-12-03 06:17:24"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -3359,38 +3330,6 @@
             "time": "2015-07-10 04:45:33"
         },
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "name": "fabpot/php-cs-fixer",
-            "version": "v1.11",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "bd3ec2c2b774e0e127ac2c737ec646d9cf2f9eef"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/bd3ec2c2b774e0e127ac2c737ec646d9cf2f9eef",
-                "reference": "bd3ec2c2b774e0e127ac2c737ec646d9cf2f9eef",
-                "shasum": ""
-            },
-            "require": {
-                "ext-tokenizer": "*",
-                "php": ">=5.3.6",
-                "sebastian/diff": "~1.1",
-                "symfony/console": "~2.3|~3.0",
-                "symfony/event-dispatcher": "~2.1|~3.0",
-                "symfony/filesystem": "~2.1|~3.0",
-                "symfony/finder": "~2.1|~3.0",
-                "symfony/process": "~2.3|~3.0",
-                "symfony/stopwatch": "~2.5|~3.0"
-=======
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/5b446eb5d6cafeff20736de6468eba380a9ff64e",
-                "reference": "5b446eb5d6cafeff20736de6468eba380a9ff64e",
-=======
-=======
->>>>>>> update composser
             "name": "symfony/routing",
             "version": "v2.6.12",
             "target-dir": "Symfony/Component/Routing",
@@ -3407,7 +3346,6 @@
             },
             "require": {
                 "php": ">=5.3.3"
->>>>>>> Add refactor scripts
             },
             "require-dev": {
                 "doctrine/annotations": "~1.0",
@@ -3450,16 +3388,6 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "description": "A tool to automatically fix PHP code style",
-<<<<<<< HEAD
-            "time": "2015-12-01 22:34:33"
-=======
-            "time": "2015-11-30 20:15:33"
-=======
-=======
->>>>>>> update composser
             "description": "Symfony Routing Component",
             "homepage": "https://symfony.com",
             "keywords": [
@@ -3469,11 +3397,6 @@
                 "url"
             ],
             "time": "2015-07-09 16:02:48"
-<<<<<<< HEAD
->>>>>>> Add refactor scripts
->>>>>>> Add refactor scripts
-=======
->>>>>>> update composser
         },
         {
             "name": "symfony/security",
@@ -4513,19 +4436,6 @@
             "time": "2015-06-30 03:38:01"
         },
         {
-<<<<<<< HEAD
-            "name": "sebastian/environment",
-            "version": "1.3.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "6e7133793a8e5a5714a551a8324337374be209df"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/6e7133793a8e5a5714a551a8324337374be209df",
-                "reference": "6e7133793a8e5a5714a551a8324337374be209df",
-=======
             "name": "facebook/webdriver",
             "version": "v0.6.0",
             "source": {
@@ -4537,7 +4447,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/2c5b305ea91b00ebbc433ad1663b7f16c1b31ec5",
                 "reference": "2c5b305ea91b00ebbc433ad1663b7f16c1b31ec5",
->>>>>>> Add refactor scripts
                 "shasum": ""
             },
             "require": {
@@ -4565,11 +4474,7 @@
                 "selenium",
                 "webdriver"
             ],
-<<<<<<< HEAD
-            "time": "2015-12-02 08:37:27"
-=======
             "time": "2015-02-09 19:39:34"
->>>>>>> Add refactor scripts
         },
         {
             "name": "guzzlehttp/guzzle",
