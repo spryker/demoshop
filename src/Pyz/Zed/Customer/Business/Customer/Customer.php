@@ -4,11 +4,20 @@ namespace Pyz\Zed\Customer\Business\Customer;
 
 use Generated\Shared\Customer\CustomerLoginResultInterface;
 use Generated\Shared\Transfer\CustomerInfoTransfer;
+use Generated\Shared\Transfer\CustomerResponseTransfer;
 use Orm\Zed\Customer\Persistence\SpyCustomer;
+use Propel\Runtime\Exception\PropelException;
+use Generated\Shared\Customer\CustomerInterface;
 use Pyz\Zed\Customer\Business\Customer\CustomerInterface as CustomerModelInterface;
+use Pyz\Zed\Customer\Persistence\CustomerQueryContainerInterface;
 use SprykerFeature\Zed\Customer\Business\Customer\Customer as SprykerFeatureCustomer;
 use Generated\Shared\Customer\CustomerInterface as CustomerTransferInterface;
+use SprykerFeature\Zed\Customer\Business\Exception\CustomerNotFoundException;
+use SprykerFeature\Zed\Customer\Business\Exception\CustomerNotUpdatedException;
 
+/**
+ * @property CustomerQueryContainerInterface $queryContainer
+ */
 class Customer extends SprykerFeatureCustomer implements CustomerModelInterface
 {
     /**
@@ -46,6 +55,88 @@ class Customer extends SprykerFeatureCustomer implements CustomerModelInterface
     }
 
     /**
+     * @param CustomerInterface $customerTransfer
+     *
+     * @throws PropelException
+     *
+     * @return CustomerResponseTransfer
+     */
+    public function createGuest(CustomerInterface $customerTransfer)
+    {
+        $customerEntity = new SpyCustomer();
+        $customerEntity->fromArray($customerTransfer->toArray());
+
+        $customerEntity->setCustomerReference($this->customerReferenceGenerator->generateCustomerReference($customerTransfer));
+        $customerEntity->setRegistrationKey($this->generateKey());
+        $customerEntity->setRestorePasswordKey($this->generateKey());
+
+        $customerEntity->save();
+
+        $customerTransfer->setIdCustomer($customerEntity->getPrimaryKey());
+        $customerTransfer->setCustomerReference($customerEntity->getCustomerReference());
+        $customerTransfer->setRegistrationKey($customerEntity->getRegistrationKey());
+        $customerTransfer->setRestorePasswordKey($customerEntity->getRestorePasswordKey());
+
+        $customerResponseTransfer = $this->createCustomerResponseTransfer();
+        $customerResponseTransfer
+            ->setIsSuccess(true)
+            ->setCustomerTransfer($customerTransfer);
+
+        return $customerResponseTransfer;
+    }
+
+    /**
+     * @param CustomerInterface $customerTransfer
+     *
+     * @throws PropelException
+     * @throws CustomerNotFoundException
+     * @throws CustomerNotUpdatedException
+     *
+     * @return CustomerResponseTransfer
+     */
+    public function updateGuest(CustomerInterface $customerTransfer)
+    {
+        $customerEntity = $this->getCustomer($customerTransfer);
+
+        if ($customerEntity->getPassword() !== null) {
+            $customerResponseTransfer = $this->createCustomerEmailAlreadyUsedResponse();
+
+            return $customerResponseTransfer;
+        }
+
+        $customerTransfer->setIdCustomer($customerEntity->getPrimaryKey());
+        $customerTransfer->setCustomerReference($customerEntity->getCustomerReference());
+        $customerTransfer->setRegistrationKey($customerEntity->getRegistrationKey());
+        $customerTransfer->setRestorePasswordKey($customerEntity->getRestorePasswordKey());
+
+        $customerEntity->fromArray($customerTransfer->toArray());
+        $customerResponseTransfer = $this->createCustomerResponseTransfer();
+
+        $customerEntity->save();
+        $customerResponseTransfer
+            ->setIsSuccess(true)
+            ->setCustomerTransfer($customerTransfer)
+        ;
+
+        return $customerResponseTransfer;
+    }
+
+    /**
+     * @param string $email
+     *
+     * @return bool
+     */
+    public function hasCustomerWithPasswordByEmail($email)
+    {
+        $customerCount = $this->queryContainer
+            ->queryCustomerWithPasswordByEmail($email)
+            ->count()
+        ;
+
+        return $customerCount > 0;
+    }
+
+    /**
      * @param SpyCustomer $customerEntity
      *
      * @return CustomerInfoTransfer
@@ -71,5 +162,4 @@ class Customer extends SprykerFeatureCustomer implements CustomerModelInterface
 
         return ($orderCount !== 0);
     }
-
 }

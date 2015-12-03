@@ -63,6 +63,7 @@ class OrderSuccessSession implements OrderSuccessSessionInterface
         $orderSuccess->setItems($order->getItems());
         $orderSuccess->setTotals($order->getTotals());
         $orderSuccess->setExpenses($order->getExpenses());
+        $orderSuccess->setCustomer($order->getCustomer());
 
         return $orderSuccess;
     }
