@@ -1,27 +1,26 @@
 {% extends "@application/layout/layout.twig" %}
 
 {% block content %}
-    <div class="order-success order-success--register">
+    <div class="order-success{% if form is defined %} order-success--register{% endif %}">
         <div class="order-success__inner">
 
             <div class="order-success__content">
                 <h1 class="order-success__headline">Vielen Dank für Ihren Einkauf!</h1>
                 <p class="order-success__details">
-                    Ihre Bestellnummer lautet: <span class="order-success__number">{{ '124034-125' }}</span>
+                    Ihre Bestellnummer lautet: <span class="order-success__number">{{ order.customer.customer_reference }}</span>
                 </p>
                 <a class="order-success__button button button--wide" href="/">Weiter einkaufen</a>
             </div>
 
 
-            {% include "@customer/customer/create-password.twig" %}
-
+            {% if form is defined %}
+                {% include "@customer/customer/create-password.twig" %}
+            {% endif %}
 
             <div class="order-success__image">
                 <img src="{{ random(['/images/checkout/checkout-dog.jpg', '/images/checkout/checkout-cat.jpg']) }}" alt="Tierbild" />
             </div>
         </div>
     </div>
-
-
 
 {% endblock %}

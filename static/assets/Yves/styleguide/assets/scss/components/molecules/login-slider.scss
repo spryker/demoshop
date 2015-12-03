@@ -51,7 +51,9 @@
 .login-slider:not(.js-login-slider) .login-slider__navigation{
     white-space: normal;
     color: $_rgbApple;
-    
+    display: block;
+    text-align: center;
+
     @include decoratorStrip($_rgbApple);
 }
 .login-slider__navigation--active{

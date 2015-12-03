@@ -1,20 +1,25 @@
 <div class="product-accordion js-product-accordion">
-    {% for entry in cmsValues.entries %}
+    {% if cmsValues.entries is defined %}
+        {% for entry in cmsValues.entries %}
 
+            {% include '@application/layout/content/product/details/product-accordion-item.twig' with {
+            item: {
+                title: entry.title is defined ? entry.title : '',
+                content: entry.content is defined ? entry.content : ''
+            }
+        } %}
+        {% endfor %}
+    {% endif %}
+
+
+    {% if dynamicData.product_attribute is defined %}
         {% include '@application/layout/content/product/details/product-accordion-item.twig' with {
-        item: {
-            title: entry.title is defined ? entry.title : '',
-            content: entry.content is defined ? entry.content : ''
-        }
-    } %}
-    {% endfor %}
-
-    {% include '@application/layout/content/product/details/product-accordion-item.twig' with {
-        item: {
-            title: 'Zusätzliche Produktinformationen',
-            content: dynamicData.product_attribute,
-            modifier: 'product-accordion-item--active'
-        }
-    } %}
+            item: {
+                title: 'Zusätzliche Produktinformationen',
+                content: dynamicData.product_attribute,
+                modifier: 'product-accordion-item--active'
+            }
+        } %}
+    {% endif %}
 
 </div>
