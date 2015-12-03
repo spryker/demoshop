@@ -1,0 +1,35 @@
+.error{
+    position: relative;
+    z-index: 1;
+    @include pageWidth;
+    padding-top: 55px;
+
+    background: $_rgbWhite;
+}
+
+.error__inner{
+    text-align: center;
+}
+
+.error__headline{
+    margin-bottom: 10px;
+
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 40px;
+    color: $_rgbApple;
+    line-height: 1em;
+}
+
+.error__text{
+    margin-bottom: 25px;
+
+    font-size: 20px;
+    color: $_rgbSilverChalice;
+}
+
+.error__image{
+    padding: 20px 0 40px;
+    @include responsiveImage;
+    max-width: 800px;
+    margin: 0 auto;
+}
