@@ -8,8 +8,8 @@ use SprykerFeature\Shared\Heartbeat\Code\HealthIndicatorInterface;
 class SessionHealthIndicator extends AbstractHealthIndicator implements HealthIndicatorInterface
 {
 
-    const HEALTH_MESSAGE_UNABLE_TO_WRITE_SESSION = 'Unable to write session';
-    const HEALTH_MESSAGE_UNABLE_TO_READ_SESSION = 'Unable to read session';
+    const FAILURE_MESSAGE_UNABLE_TO_WRITE_SESSION = 'Unable to write session';
+    const FAILURE_MESSAGE_UNABLE_TO_READ_SESSION = 'Unable to read session';
     const KEY_HEARTBEAT = 'heartbeat';
 
     /**
@@ -42,8 +42,8 @@ class SessionHealthIndicator extends AbstractHealthIndicator implements HealthIn
         try {
             $this->sessionClient->set(self::KEY_HEARTBEAT, 'ok');
         } catch (\Exception $e) {
-            $this->addDysfunction(self::HEALTH_MESSAGE_UNABLE_TO_WRITE_SESSION);
-            $this->addDysfunction($e->getMessage());
+            $this->addFailure(self::FAILURE_MESSAGE_UNABLE_TO_WRITE_SESSION);
+            $this->addFailure($e->getMessage());
         }
     }
 
@@ -55,8 +55,8 @@ class SessionHealthIndicator extends AbstractHealthIndicator implements HealthIn
         try {
             $this->sessionClient->get(self::KEY_HEARTBEAT);
         } catch (\Exception $e) {
-            $this->addDysfunction(self::HEALTH_MESSAGE_UNABLE_TO_READ_SESSION);
-            $this->addDysfunction($e->getMessage());
+            $this->addFailure(self::FAILURE_MESSAGE_UNABLE_TO_READ_SESSION);
+            $this->addFailure($e->getMessage());
         }
     }
 

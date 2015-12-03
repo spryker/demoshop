@@ -26,7 +26,7 @@ abstract class AbstractHealthIndicator implements HealthIndicatorInterface
     /**
      * @param string $message
      */
-    protected function addDysfunction($message)
+    protected function addFailure($message)
     {
         $healthIndicatorReport = $this->getHealthIndicatorReport();
         $healthIndicatorReport->setStatus(false);

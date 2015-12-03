@@ -8,7 +8,7 @@ use SprykerFeature\Shared\Heartbeat\Code\HealthIndicatorInterface;
 class SearchHealthIndicator extends AbstractHealthIndicator implements HealthIndicatorInterface
 {
 
-    const HEALTH_MESSAGE_UNABLE_TO_CONNECT_TO_SEARCH = 'Unable to connect to search';
+    const FAILURE_MESSAGE_UNABLE_TO_CONNECT_TO_SEARCH = 'Unable to connect to search';
 
     /**
      * @var SearchClient
@@ -39,8 +39,8 @@ class SearchHealthIndicator extends AbstractHealthIndicator implements HealthInd
         try {
             $this->searchClient->getIndexClient()->getStats();
         } catch (\Exception $e) {
-            $this->addDysfunction(self::HEALTH_MESSAGE_UNABLE_TO_CONNECT_TO_SEARCH);
-            $this->addDysfunction($e->getMessage());
+            $this->addFailure(self::FAILURE_MESSAGE_UNABLE_TO_CONNECT_TO_SEARCH);
+            $this->addFailure($e->getMessage());
         }
     }
 

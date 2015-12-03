@@ -8,7 +8,7 @@ use SprykerFeature\Shared\Heartbeat\Code\HealthIndicatorInterface;
 class StorageHealthIndicator extends AbstractHealthIndicator implements HealthIndicatorInterface
 {
 
-    const HEALTH_MESSAGE_UNABLE_TO_READ_FROM_STORAGE = 'Unable to read from storage';
+    const FAILURE_MESSAGE_UNABLE_TO_READ_FROM_STORAGE = 'Unable to read from storage';
     const KEY_HEARTBEAT = 'heartbeat';
 
     /**
@@ -40,8 +40,8 @@ class StorageHealthIndicator extends AbstractHealthIndicator implements HealthIn
         try {
             $this->storageClient->get(self::KEY_HEARTBEAT);
         } catch (\Exception $e) {
-            $this->addDysfunction(self::HEALTH_MESSAGE_UNABLE_TO_READ_FROM_STORAGE);
-            $this->addDysfunction($e->getMessage());
+            $this->addFailure(self::FAILURE_MESSAGE_UNABLE_TO_READ_FROM_STORAGE);
+            $this->addFailure($e->getMessage());
         }
     }
 
