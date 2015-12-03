@@ -20,7 +20,9 @@ use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumb
 use Pyz\Shared\OrderExporter\AfterbuyExportConstantInterface;
 use Pyz\Shared\Glossary\GlossaryConfig;
 use PavFeature\Shared\Adyen\AdyenConfigConstants;
+
 use Pyz\Shared\CalculationCheckoutConnector\CalculationCheckoutConnectorConfig;
+use PavFeature\Shared\OmsMailQueueConnector\OmsMailQueueConnectorConfig;
 
 $config[SystemConfig::PROJECT_NAMESPACES] = [
     'Pyz',
@@ -398,3 +400,12 @@ $config[ProductFeedConfig::PRODUCT_FEED_CSV_PARAMETERS] = [
 ];
 
 $config[CalculationCheckoutConnectorConfig::MINIMUM_CHECKOUT_CART_VALUE] = 1500; // 15€
+
+$config[OmsMailQueueConnectorConfig::ORDER_SEPA_RECEIVED_TEMPLATE_NAME] = 'sepa-order-received-test-template';
+$config[OmsMailQueueConnectorConfig::ORDER_SEPA_RECEIVED_EMAIL_SUBJECT] = 'Order received';
+
+$config[OmsMailQueueConnectorConfig::ORDER_PREPAYMENT_RECEIVED_TEMPLATE_NAME] = 'prepayment-order-received-test-template';
+$config[OmsMailQueueConnectorConfig::ORDER_PREPAYMENT_RECEIVED_EMAIL_SUBJECT] = 'Order received';
+
+$config[OmsMailQueueConnectorConfig::ORDER_CONFIRMATION_TEMPLATE_NAME] = 'order-confirmation';
+$config[OmsMailQueueConnectorConfig::ORDER_CONFIRMATION_EMAIL_SUBJECT] = 'Order confirmation';
