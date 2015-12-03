@@ -1,12 +1,22 @@
 <div class="menu-teaser-full">
-    <div class="menu-teaser-full__inner" style="background-image: url({{ image }});">
+    <div class="menu-teaser-full__inner">
 
-        <h2 class="menu-teaser-full__headline">{{ headline }}</h2>
+        <div class="menu-teaser-full__content">
+            <div class="menu-teaser-full__content-inner">
 
-        {% include '@application/layout/common/forms/button.twig' with {
-            title: (button ~ '<span>' ~ button2 ~ '</span>'),
-            url: url(url)
-        } %}
+                <h2 class="menu-teaser-full__headline">{{ headline }}</h2>
+
+                {% include '@application/layout/common/forms/button.twig' with {
+                    title: (button ~ '<span>' ~ button2 ~ '</span>'),
+                    url: url(url)
+                } %}
+
+            </div>
+        </div>
+
+        <div class="menu-teaser-full__image">
+            <img src="{{ image }}" alt="{{ headline }}" />
+        </div>
 
     </div>
 </div>

@@ -1,6 +1,10 @@
 import $ from 'jquery';
 window.$ = $;
 
+import keys from 'object-keys';
+Object.keys = Object.keys || keys;
+
+
 
 // common functionality
 import './modules/common/bodyScrolling';
