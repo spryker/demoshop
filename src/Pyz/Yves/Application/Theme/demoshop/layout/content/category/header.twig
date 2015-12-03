@@ -7,16 +7,22 @@
            </div>
        </div>
 
-       <div class="category-header__hero-image" style="background: url({{image}});"></div>
+       <div class="category-header__hero-image">
+           <img src="{{ image }}" alt="Produktabbildung {{ category }}" />
+       </div>
    </div>
 
 
-   <div class="category-header__facts">
-       {% for fact in facts %}
-       <div class="category-header__fact">
-           {{ fact | nl2br }}
+   <div class="category-header__badges">
+       <div class="category-header__badge">
+            <img src="/images/category/batch_quality.jpg" alt="Stempel Qualität" />
+        </div>
+        <div class="category-header__badge">
+            <img src="/images/category/batch_artgerecht.jpg" alt="Stempel artgerecht" />
+        </div>
+        <div class="category-header__badge">
+            <img src="/images/category/batch_tricks.jpg" alt="Stempel keine Tricks" />
        </div>
-       {% endfor %}
    </div>
 
 
