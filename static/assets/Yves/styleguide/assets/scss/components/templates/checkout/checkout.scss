@@ -322,6 +322,11 @@
     display: table-row;
 }
 
+.cart__items{
+    display: table;
+    width: 100%;
+}
+
 .cart-position__left, .cart-position__right{
     overflow: hidden;
     display: table-cell;

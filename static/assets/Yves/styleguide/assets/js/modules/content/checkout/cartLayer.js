@@ -31,10 +31,10 @@ $(document).ready(function () {
 
     function loadCart() {
         $.get(ENDPOINTS.CART)
-            .done(function (data) {
-                renderCart(data)
-                setItemCount(data);
-            });
+        .done(function (data) {
+            renderCart(data)
+            setItemCount(data);
+        });
     };
 
 
@@ -88,6 +88,8 @@ $(document).ready(function () {
             renderCart(data);
             setItemCount(data);
         });
+
+        $(document).trigger(CHECKOUT_EVENTS.CART_WILL_UPDATE);
     };
 
     function removeSku (e) {
@@ -102,11 +104,14 @@ $(document).ready(function () {
         groupKey = $item.data('group-key');
 
         $.post('/cart/remove/' + sku + '/' + groupKey + '/')
-            .done(function (data) {
-                renderCart(data);
-            }).always(function () {
-                setItemCount();
-            });
+        .done(function (data) {
+            renderCart(data);
+        }).always(function () {
+            setItemCount();
+        });
+
+        $(document).trigger(CHECKOUT_EVENTS.CART_WILL_UPDATE);
+
     };
 });
 

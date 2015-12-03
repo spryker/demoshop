@@ -20,6 +20,7 @@ import { submitNewsletter } from '../footer/newsletter';
 
 const EVENTS = {
     UPDATE_CART: 'CHECKOUT_UPDATE_CART',
+    CART_WILL_UPDATE: 'CHECKOUT_CART_WILL_UPDATE',
     VALIDATE: 'CHECKOUT_VALIDATE'
 };
 
@@ -138,6 +139,7 @@ $(document).ready(function () {
         }
 
 
+        var ongoingRequest = null;
         $checkout.submit(function (event) {
             event.preventDefault();
 
@@ -164,7 +166,8 @@ $(document).ready(function () {
                     values['adyen-encrypted-data'] = encryptedData;
                 }
 
-                $.post($checkout.attr('action'), values)
+                $checkout.find('button[type="submit"]').prop('disabled', true);
+                ongoingRequest = $.post($checkout.attr('action'), values)
                 .done(function (response) {
                     if (response.success) {
                         window.location = response.url;
@@ -185,6 +188,9 @@ $(document).ready(function () {
                 })
                 .always(function () {
                     $('html, body').animate({scrollTop: 0}, 'slow');
+
+                    $checkout.find('button[type="submit"]').prop('disabled', false);
+                    ongoingRequest = null;
                 });
             }
         });
@@ -233,6 +239,11 @@ $(document).ready(function () {
                 console.log('[ERROR] ');
                 console.log(data);
             });
+
+            if (ongoingRequest === null) {
+                $checkout.find('button[type="submit"]').prop('disabled', false);
+            };
+
         });
 
 
@@ -328,6 +339,10 @@ $(document).ready(function () {
                 NewsletterTypeCats: newsletterCats ? 1 : 0
             });
         }
+
+        $(document).on(EVENTS.CART_WILL_UPDATE, function () {
+            $checkout.find('button[type="submit"]').prop('disabled', true);
+        });
 
     });
 
