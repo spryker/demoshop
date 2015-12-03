@@ -37,6 +37,8 @@
     cursor: pointer;
     text-align: left;
 
+    pointer-events: initial;
+
     a{
         text-decoration: none;
         font-family: $_ffBrandonGrotesque-Bold;

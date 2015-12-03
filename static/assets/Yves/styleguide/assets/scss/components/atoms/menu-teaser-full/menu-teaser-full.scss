@@ -8,32 +8,57 @@
 
 
 .menu-teaser-full{
-    min-height: 220px;
+    padding: 0 20px;
+    overflow: hidden;
     background: $_rgbWhite;
 }
 
 .menu-teaser-full__inner{
     position: relative;
-    @include pageWidth;
-    padding: 60px 38px 40px;
-
-    background-position: 80% center !important;
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
+    @include limitWidth(720px);
 
     .button{
         span{
+            padding-left: 5px;
             display: none;
         }
     }
 }
 
+.menu-teaser-full__content{
+    position: relative;
+    z-index: 1;
+    width: 50%;
+    height: 220px;
+    float: left;
+}
+
+.menu-teaser-full__content-inner{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translate(0, -50%);
+}
+
 .menu-teaser-full__headline{
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 
     font-family: $_ffBrandonGrotesque-Black;
     font-size: $_fsLarge;
     color: $_rgbApple;
+    line-height: 1em;
+}
+
+.menu-teaser-full__image{
+    width: 50%;
+    height: 220px;
+    float: left;
+    text-align: center;
+
+    img{
+        display: inline-block;
+        max-height: 220px;
+    }
 }
 
 @media (min-width: $_wLarge) {
