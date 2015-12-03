@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\CustomerCheckoutConnector\Business\Model;
+namespace Pyz\Zed\CustomerCheckoutConnector\Business;
 
 use Generated\Shared\CustomerCheckoutConnector\CheckoutRequestInterface;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;

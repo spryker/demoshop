@@ -197,6 +197,7 @@ class CheckoutController extends AbstractController
 
         $checkoutClient->clearOrderSuccess();
 
+
         //@todo add finish form?
 
         $trackingPurchase = CheckoutDataFormatter::formatPurchase(
@@ -211,9 +212,20 @@ class CheckoutController extends AbstractController
             ->setByKey(CheckoutDataFormatter::PRODUCTS, CartDataFormatter::formatCartItems($orderTransfer->getItems()))
         ;
 
-        return [
+        $result = [
             'order' => $orderTransfer->toArray(true),
         ];
+
+        $customer = $orderTransfer->getCustomer();
+
+        if ($customer->getIdCustomer()) {
+            $result['form'] = $this->createForm(
+                $this->getLocator()->customer()->pluginCreatePasswordForm()->createPasswordForm(),
+                [ 'restore_key' => $customer->getRestorePasswordKey() ]
+            )->createView();
+        }
+
+        return $result;
     }
 
     /**
@@ -252,7 +264,7 @@ class CheckoutController extends AbstractController
             $redirectUrl = $checkoutResponseTransfer->getRedirectUrl() .
                 '&' . http_build_query($checkoutResponseTransfer->getRedirectPayload(), null, '&');
         } else {
-            $redirectUrl = CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS;
+            $redirectUrl = '/' . CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS;
         }
 /*
         // TODO can be use for testing hmac

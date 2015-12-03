@@ -63,6 +63,14 @@ class CustomerDependencyContainer extends AbstractCommunicationDependencyContain
     }
 
     /**
+     * @return Form\CreatePassword
+     */
+    public function createFormCreatePassword()
+    {
+        return $this->getFactory()->createFormCreatePassword();
+    }
+
+    /**
      * @return CustomerClient
      */
     public function createCustomerClient()

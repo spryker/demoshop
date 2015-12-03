@@ -7,8 +7,15 @@ use Orm\Zed\Customer\Persistence\SpyCustomerQuery;
 interface CustomerQueryContainerInterface
 {
     /**
-     * @param $email
+     * @param string $email
      * @return SpyCustomerQuery
      */
     public function queryCustomerByEmail($email);
+
+    /**
+     * @param string $email
+     *
+     * @return SpyCustomerQuery
+     */
+    public function queryCustomerWithPasswordByEmail($email);
 }
