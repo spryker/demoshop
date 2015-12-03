@@ -3,8 +3,9 @@
 namespace Pyz\Zed\Cms\Business;
 
 use Pyz\Zed\Cms\Business\Internal\DemoData\CmsInstall;
-use Pyz\Zed\Cms\Business\Page\PageManager;
+use Pyz\Zed\Cms\Business\Page\PageManagerInterface;
 use Pyz\Zed\Cms\CmsDependencyProvider;
+use Pyz\Zed\Cms\Dependency\Facade\CmsToCmsBlockFacade;
 use Pyz\Zed\Glossary\Business\GlossaryFacade;
 use Pyz\Zed\Locale\Business\LocaleFacade;
 use Pyz\Zed\Url\Business\UrlFacade;
@@ -52,5 +53,31 @@ class CmsDependencyContainer extends SprykerCmsDependencyContainer
     public function createLocaleFacade()
     {
         return $this->getProvidedDependency(CmsDependencyProvider::FACADE_LOCALE);
+    }
+
+    /**
+     * @return CmsToCmsBlockFacade
+     * @throws \ErrorException
+     */
+    protected function getCmsBlockFacade()
+    {
+        return $this->getProvidedDependency(CmsDependencyProvider::FACADE_CMS_BLOCK);
+    }
+
+    /**
+     * @return PageManagerInterface
+     */
+    public function getPageManager()
+    {
+        return $this->getFactory()->createPagePageManager(
+            $this->getCmsQueryContainer(),
+            $this->getTemplateManager(),
+            $this->getBlockManager(),
+            $this->getGlossaryFacade(),
+            $this->getTouchFacade(),
+            $this->getUrlFacade(),
+            $this->getLocator(),
+            $this->getCmsBlockFacade()
+        );
     }
 }
