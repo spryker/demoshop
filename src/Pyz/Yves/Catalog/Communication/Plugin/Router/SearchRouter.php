@@ -6,6 +6,7 @@
 
 namespace Pyz\Yves\Catalog\Communication\Plugin\Router;
 
+use Pyz\Yves\Collector\Communication\Mapper\UrlMapperInterface;
 use Silex\Application;
 use SprykerEngine\Yves\Kernel\Locator;
 use SprykerFeature\Shared\Application\Communication\ControllerServiceBuilder;
@@ -14,7 +15,7 @@ use SprykerEngine\Yves\Kernel\Communication\BundleControllerAction;
 use SprykerEngine\Yves\Kernel\Communication\Controller\RouteNameResolver;
 use SprykerEngine\Yves\Kernel\Communication\ControllerLocator;
 use Pyz\Yves\Catalog\Communication\CatalogDependencyContainer;
-use Pyz\Yves\FrontendExporter\Communication\Mapper\UrlMapperInterface;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;

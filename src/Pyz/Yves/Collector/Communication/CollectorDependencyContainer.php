@@ -26,10 +26,10 @@ class CollectorDependencyContainer extends AbstractCommunicationDependencyContai
     public function createResourceCreators()
     {
         return [
-            $this->getLocator()->productExporter()->pluginProductResourceCreator()->createProductResourceCreator(),
-            $this->getLocator()->categoryExporter()->pluginCategoryResourceCreator()->createCategoryResourceCreator(),
-            $this->getLocator()->redirectExporter()->pluginRedirectResourceCreator()->createRedirectResourceCreator(),
-            $this->getLocator()->cmsExporter()->pluginPageResourceCreator()->createPageResourceCreator(),
+            $this->getLocator()->product()->pluginProductResourceCreator()->createProductResourceCreator(),
+            $this->getLocator()->category()->pluginCategoryResourceCreator()->createCategoryResourceCreator(),
+            $this->getLocator()->redirect()->pluginRedirectResourceCreator()->createRedirectResourceCreator(),
+            $this->getLocator()->cms()->pluginPageResourceCreator()->createPageResourceCreator(),
         ];
     }
 

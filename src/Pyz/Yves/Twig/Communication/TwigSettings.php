@@ -34,7 +34,7 @@ class TwigSettings
     {
         return [
             $this->getLocator()->twig()->pluginTwigNative(),
-            $this->getLocator()->price()->pluginTwigPrice(),
+            $this->getLocator()->product()->pluginTwigPrice(),
         ];
     }
 
@@ -50,7 +50,7 @@ class TwigSettings
             ->setCmsClient($this->getLocator()->cms()->client());
 
         return [
-            $this->getLocator()->price()->pluginTwigPrice(),
+            $this->getLocator()->product()->pluginTwigPrice(),
             $this->getLocator()->cms()->pluginTwigCms(),
             $twigCmsBlock,
             $twigCustomer,

@@ -6,9 +6,9 @@
 
 namespace Pyz\Yves\Catalog\Communication;
 
+use Pyz\Yves\Collector\Communication\Mapper\UrlMapperInterface;
 use Silex\Application;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
-use Pyz\Yves\FrontendExporter\Communication\Mapper\UrlMapperInterface;
 use SprykerFeature\Client\Catalog\Service\CatalogClient;
 use SprykerFeature\Client\CategoryExporter\Service\CategoryExporterClient;
 
@@ -20,7 +20,7 @@ class CatalogDependencyContainer extends AbstractCommunicationDependencyContaine
      */
     public function createUrlMapper()
     {
-        return $this->getLocator()->frontendExporter()->pluginUrlMapper()->createUrlMapper();
+        return $this->getLocator()->collector()->pluginUrlMapper()->createUrlMapper();
     }
 
     /**
