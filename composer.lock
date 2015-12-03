@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "30735ca1b9cab0b9e4b8f0881ecbb5b4",
-    "content-hash": "5e3e1ac1a78a7286dbda3e8ba9d2c42a",
+    "hash": "c6bc882577a9ab793d9c95c40721f545",
+    "content-hash": "2edba734e971fda5c07371c69f15d4c4",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -2158,11 +2158,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-refactor/remove-factory-use-from-dependency-container",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "5b58a0831db3882dde0928bf060b025a07bf103d"
+                "reference": "176ce5a565148b27f7d93276a2c64243b94b3882"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -2251,7 +2251,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-12-03 06:32:26"
+            "time": "2015-12-03 06:52:54"
         },
         {
             "name": "squizlabs/php_codesniffer",
