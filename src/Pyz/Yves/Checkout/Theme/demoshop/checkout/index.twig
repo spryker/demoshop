@@ -1,5 +1,9 @@
 {% extends "@application/layout/layout.twig" %}
 
 {% block content %}
+    {% include "@application/layout/header.twig" %}
+
     {% include "@checkout/checkout/checkout.twig" %}
+
+    {% include "@application/layout/footer.twig" %}
 {% endblock %}

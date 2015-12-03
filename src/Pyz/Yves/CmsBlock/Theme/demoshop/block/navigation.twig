@@ -23,7 +23,7 @@
             { url: '/warum/', title: 'Warum?', modifier: 'support'},
             { url: '/faq/', title: 'Fragen?', modifier: 'contact'},
             {
-                url: (app.user is not null ? 'logout' : 'login'),
+                url: (app.user is not null ? 'profile' : 'login'),
                 title: (app.user is not null ? getUsername() : 'Anmelden'),
                 modifier: 'login'},
             { url: 'checkout', title: 'Warenkorb', modifier: 'cart', menu: app.request.attributes.get('_route') != 'checkout' ? 'cart' : ''},

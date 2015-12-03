@@ -110,20 +110,17 @@ class CustomerController extends AbstractController
      */
     public function profileAction()
     {
-        $customerTransfer = new CustomerTransfer();
-
-        $form = $this->createForm($this->getDependencyContainer()->createFormProfile());
+        $customerTransfer = $this->getDependencyContainer()->createCustomerClient()->getCustomer();
+        $form = $this->createForm($this->getDependencyContainer()->createFormProfile(), $customerTransfer);
 
         if ($form->isValid()) {
-            $customerTransfer->fromArray($form->getData());
+            $customerTransfer = $form->getData();
             $customerTransfer->setEmail($this->getUsername());
 
             $this->getLocator()->customer()->client()->updateCustomer($customerTransfer);
 
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
         }
-
-        $form->setData($customerTransfer->toArray());
 
         return [
             'form' => $form->createView(),

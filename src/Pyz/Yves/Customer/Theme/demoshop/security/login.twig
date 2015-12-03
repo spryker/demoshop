@@ -1,6 +1,9 @@
 {% extends "@application/layout/layout.twig" %}
 
 {% block content %}
+
+    {% include "@application/layout/header.twig" %}
+
     {% if error  %}
         <b>{{ error }}</b>
     {% endif %}
@@ -48,6 +51,8 @@
         </div>
 
     </div>
+
+    {% include "@application/layout/footer.twig" %}
 
 {% endblock %}
 
