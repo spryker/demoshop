@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use Orm\Zed\Category\Persistence\Map\SpyCategoryTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
@@ -58,6 +59,11 @@ class CategoryNodeCollector extends AbstractPropelCollectorPlugin
             SpyCategoryAttributeTableMap::COL_FK_CATEGORY,
             Criteria::INNER_JOIN
         );
+        $baseQuery->addJoin(
+            SpyCategoryNodeTableMap::COL_FK_CATEGORY,
+            SpyCategoryTableMap::COL_ID_CATEGORY,
+            Criteria::INNER_JOIN
+        );
 
         $baseQuery->addJoin(
             SpyCategoryAttributeTableMap::COL_FK_LOCALE,
@@ -86,6 +92,11 @@ class CategoryNodeCollector extends AbstractPropelCollectorPlugin
             SpyCategoryNodeTableMap::COL_ID_CATEGORY_NODE,
             'node_id'
         );
+        $baseQuery->withColumn(
+            SpyCategoryTableMap::COL_CATEGORY_KEY,
+            'category_key'
+        );
+
         $baseQuery->withColumn(
             SpyCategoryNodeTableMap::COL_FK_CATEGORY,
             'category_id'
@@ -128,6 +139,7 @@ class CategoryNodeCollector extends AbstractPropelCollectorPlugin
 
         return [
             'node_id' => $categoryNode['node_id'],
+            'category_key' => $categoryNode['category_key'],
             'name' => $categoryNode['category_name'],
             'url' => $categoryUrls[0],
             'image' => $categoryNode['category_image_name'],
