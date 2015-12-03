@@ -5,6 +5,7 @@ namespace Pyz\Yves\Checkout\Communication;
 use Generated\Shared\Adyen\AdyenPaymentMethodsInterface;
 use Generated\Shared\Transfer\CartTransfer;
 use Generated\Yves\Ide\FactoryAutoCompletion\CheckoutCommunication;
+use Pyz\Client\Customer\Service\CustomerClientInterface;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 use SprykerFeature\Client\Cart\Service\CartClientInterface;
 use Pyz\Client\Checkout\Service\CheckoutClient;
@@ -56,6 +57,14 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
     public function createAdyenClient()
     {
         return $this->getLocator()->adyen()->client();
+    }
+
+    /**
+     * @return CustomerClientInterface
+     */
+    public function createCustomerClient()
+    {
+        return $this->getLocator()->customer()->client();
     }
 
     /**

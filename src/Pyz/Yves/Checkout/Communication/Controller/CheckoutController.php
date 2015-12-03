@@ -70,19 +70,25 @@ class CheckoutController extends AbstractController
         $checkoutTransfer = new CheckoutRequestTransfer();
         $checkoutTransfer->setIsGuest(false); // for now there is no guest checkout. When an order is performed the customer is saved
 
+        $customerClient = $this->getDependencyContainer()->createCustomerClient();
+        $customerTransfer = $customerClient->getCustomer();
+
         $form = $this->createForm($checkoutForm, $checkoutTransfer);
 
         if ($request->isMethod('POST')) {
             if ($form->isValid()) {
                 $checkoutClient = $this->getDependencyContainer()->createCheckoutClient();
+
                 /** @var CheckoutRequestTransfer $checkoutRequest */
                 $checkoutRequest = $form->getData();
 
                 $this->setShippingAddress($checkoutRequest);
 
+                if ($customerTransfer !== null) {
+                    $checkoutRequest->setIdUser($customerTransfer->getIdCustomer());
+                }
+
                 /** TODO: START OF HACK PAYMENT METHOD */
-
-
                 $paymentMethod = $checkoutRequest->getAdyenPayment()->getPaymentMethod();
 
                 $adyenPaymentTransfer = $checkoutRequest->getAdyenPayment();
@@ -218,7 +224,7 @@ class CheckoutController extends AbstractController
 
         $customer = $orderTransfer->getCustomer();
 
-        if ($customer->getIdCustomer()) {
+        if ($customer->getPassword() === null) {
             $result['form'] = $this->createForm(
                 $this->getLocator()->customer()->pluginCreatePasswordForm()->createPasswordForm(),
                 [ 'restore_key' => $customer->getRestorePasswordKey() ]
