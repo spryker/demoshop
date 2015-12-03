@@ -51,7 +51,8 @@ WITH RECURSIVE
     SELECT
       n.id_category_node,
       n.fk_parent_category_node,
-      n.fk_category
+      n.fk_category,
+      n.node_order
     FROM spy_category_node n
       INNER JOIN spy_category c ON c.id_category = n.fk_category AND c.is_active = 't'
     WHERE n.fk_parent_category_node = %d
@@ -61,7 +62,8 @@ WITH RECURSIVE
     SELECT
       n.id_category_node,
       n.fk_parent_category_node,
-      n.fk_category
+      n.fk_category,
+      n.node_order
     FROM tree
        INNER JOIN spy_category_node n ON n.fk_parent_category_node = tree.id_category_node
        INNER JOIN spy_category c ON c.id_category = n.fk_category AND c.is_active = 't'
@@ -84,7 +86,7 @@ FROM tree
     AND t.touched >= '%s'
     AND t.item_type = '%s'
   )
-ORDER BY tree.id_category_node
+ORDER BY tree.fk_parent_category_node ASC, tree.node_order DESC
         ";
 
         $idRoot = 1;
