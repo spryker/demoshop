@@ -14,13 +14,10 @@
 
         <div class="product-gallery__image">
             {% set image = product.media | first %}
-
-            {% if image.url is defined %}
-                <noscript>
-                    <img src="/images/products/{{ image.url }}" alt="Produktabbildung" />
-                </noscript>
-                <img class="js-lazy-image" data-image-src="/images/products/{{ image.url }}" alt="Produktabbildung" />
-            {% endif %}
+            <noscript>
+                <img src="{{ getProductImageUrl(image) }}" alt="Produktabbildung" />
+            </noscript>
+            <img class="js-lazy-image" data-image-src="{{ getProductImageUrl(image) }}" alt="Produktabbildung" />
         </div>
 
 

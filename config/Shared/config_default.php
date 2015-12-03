@@ -9,6 +9,7 @@ use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Auth\AuthConfig;
 use SprykerFeature\Shared\Customer\CustomerConfig;
 use SprykerFeature\Shared\DbDump\DbDumpConfig;
+use SprykerFeature\Shared\ProductImage\ProductImageConfig;
 use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\User\UserConfig;
@@ -157,31 +158,23 @@ $config[SystemConfig::PROPEL] = [
     ],
 ];
 
-$config[SystemConfig::CLOUD_ENABLED] = false;
-$config[SystemConfig::CLOUD_OBJECT_STORAGE_ENABLED] = false;
-$config[SystemConfig::CLOUD_OBJECT_STORAGE_PROVIDER_NAME] = 'rackspace';
-$config[SystemConfig::CLOUD_OBJECT_STORAGE_DATA_CONTAINERS] = [
-    'defaultPrivateContainerName' => 'pyz-private',
-    'defaultPublicContainerName' => '',
-    'defaultPublicCdnContainerName' => 'pyz-cdn',
-    'defaultImagesContainerName' => 'pyz-private',
-];
-
-
-$config[SystemConfig::CLOUD_CDN_ENABLED] = false;
+$config[SystemConfig::CLOUD_ENABLED]
+    = $config[SystemConfig::CLOUD_OBJECT_STORAGE_ENABLED]
+    = $config[SystemConfig::CLOUD_CDN_ENABLED]
+    = true;
 
 $config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_PREFIX] = 'media';
-$config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_HTTP] = '';
-$config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_HTTPS] = '';
+$config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_HTTP] = 's3.eu-central-1.amazonaws.com/pd-prod-assets';
+$config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_HTTPS] = 's3.eu-central-1.amazonaws.com/pd-prod-assets';
 
 $config[SystemConfig::CLOUD_CDN_STATIC_ASSETS_PREFIX] = '';
 $config[SystemConfig::CLOUD_CDN_STATIC_ASSETS_HTTP] = '';
 $config[SystemConfig::CLOUD_CDN_STATIC_ASSETS_HTTPS] = '';
 
-$config[SystemConfig::CLOUD_CDN_PRODUCT_IMAGES_PATH_NAME] = '/images/products/';
+$config[SystemConfig::CLOUD_CDN_PRODUCT_IMAGES_PATH_NAME]
+    = $config[ProductImageConfig::PRODUCT_IMAGE_IMAGE_URL_PREFIX]
+    = 'images/products';
 
-$config[SystemConfig::CLOUD_CDN_DELETE_LOCAL_PROCESSED_IMAGES] = false;
-$config[SystemConfig::CLOUD_CDN_DELETE_LOCAL_ORIGINAL_IMAGES] = false;
 
 $config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
     'api-key' => 'W-oNqoH_RPRodHpYgm3trg',
