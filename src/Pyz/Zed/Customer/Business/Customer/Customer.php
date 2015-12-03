@@ -7,7 +7,6 @@ use Generated\Shared\Transfer\CustomerInfoTransfer;
 use Generated\Shared\Transfer\CustomerResponseTransfer;
 use Orm\Zed\Customer\Persistence\SpyCustomer;
 use Propel\Runtime\Exception\PropelException;
-use Generated\Shared\Customer\CustomerInterface;
 use Pyz\Zed\Customer\Business\Customer\CustomerInterface as CustomerModelInterface;
 use Pyz\Zed\Customer\Persistence\CustomerQueryContainerInterface;
 use SprykerFeature\Zed\Customer\Business\Customer\Customer as SprykerFeatureCustomer;
@@ -55,13 +54,13 @@ class Customer extends SprykerFeatureCustomer implements CustomerModelInterface
     }
 
     /**
-     * @param CustomerInterface $customerTransfer
+     * @param CustomerTransferInterface $customerTransfer
      *
      * @throws PropelException
      *
      * @return CustomerResponseTransfer
      */
-    public function createGuest(CustomerInterface $customerTransfer)
+    public function createGuest(CustomerTransferInterface $customerTransfer)
     {
         $customerEntity = new SpyCustomer();
         $customerEntity->fromArray($customerTransfer->toArray());
@@ -86,7 +85,7 @@ class Customer extends SprykerFeatureCustomer implements CustomerModelInterface
     }
 
     /**
-     * @param CustomerInterface $customerTransfer
+     * @param CustomerTransferInterface $customerTransfer
      *
      * @throws PropelException
      * @throws CustomerNotFoundException
@@ -94,7 +93,7 @@ class Customer extends SprykerFeatureCustomer implements CustomerModelInterface
      *
      * @return CustomerResponseTransfer
      */
-    public function updateGuest(CustomerInterface $customerTransfer)
+    public function updateGuest(CustomerTransferInterface $customerTransfer)
     {
         $customerEntity = $this->getCustomer($customerTransfer);
 

@@ -4,7 +4,6 @@ namespace Pyz\Zed\CustomerCheckoutConnector\Business;
 
 use Generated\Zed\Ide\FactoryAutoCompletion\CustomerCheckoutConnectorBusiness;
 use Pyz\Zed\CustomerCheckoutConnector\CustomerCheckoutConnectorDependencyProvider;
-use Pyz\Zed\CustomerCheckoutConnector\Business\Model\PreconditionCheckerInterface;
 use SprykerFeature\Zed\CustomerCheckoutConnector\Business\CustomerCheckoutConnectorDependencyContainer as SprykerCustomerCheckoutConnectorDependencyContainer;
 
 /**
