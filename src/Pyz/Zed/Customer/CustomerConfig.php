@@ -25,7 +25,7 @@ class CustomerConfig extends SprykerCustomerConfig
         $sequenceNumberSettingsTransfer->setName(self::NAME_CUSTOMER_REFERENCE);
 
         $sequenceNumberSettingsTransfer->setIncrementMinimum(1);
-        $sequenceNumberSettingsTransfer->setIncrementMaximum(1);
+        $sequenceNumberSettingsTransfer->setIncrementMaximum(38);
         $sequenceNumberSettingsTransfer->setMinimumNumber(1);
 
         $sequenceNumberPrefixParts = [];
