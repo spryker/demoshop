@@ -2162,7 +2162,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "54909e582ead1fb2f04cc3e9a37c53c7a82a9996"
+                "reference": "5b58a0831db3882dde0928bf060b025a07bf103d"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -2251,7 +2251,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-12-03 06:17:24"
+            "time": "2015-12-03 06:32:26"
         },
         {
             "name": "squizlabs/php_codesniffer",
