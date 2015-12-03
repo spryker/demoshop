@@ -10,7 +10,7 @@ use Pyz\Yves\Application\Communication\Plugin\ApplicationControllerProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
-use Pyz\Yves\System\Communication\Plugin\SystemControllerProvider;
+use Pyz\Yves\System\Communication\Plugin\Provider\SystemControllerProvider;
 use Pyz\Yves\Wishlist\Communication\Plugin\WishlistControllerProvider;
 use SprykerEngine\Shared\Application\Communication\Application;
 use SprykerEngine\Shared\Config;

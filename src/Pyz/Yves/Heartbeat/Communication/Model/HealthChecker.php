@@ -1,12 +1,11 @@
 <?php
 
-namespace Pyz\Yves\Heartbeat\Communication\Plugin;
+namespace Pyz\Yves\Heartbeat\Communication\Model;
 
 use Generated\Shared\Transfer\HealthReportTransfer;
-use SprykerEngine\Yves\Kernel\Communication\AbstractPlugin;
 use SprykerFeature\Shared\Heartbeat\Code\HealthIndicatorInterface;
 
-class Doctor extends AbstractPlugin
+class HealthChecker
 {
 
     /**
@@ -61,17 +60,17 @@ class Doctor extends AbstractPlugin
     /**
      * @return bool
      */
-    public function isPatientAlive()
+    public function isSystemAlive()
     {
-        $patientIsAlive = true;
+        $systemIsAlive = true;
 
         foreach ($this->healthReport->getHealthIndicatorReport() as $healthIndicatorReport) {
             if (!$healthIndicatorReport->getStatus()) {
-                $patientIsAlive = false;
+                $systemIsAlive = false;
             }
         }
 
-        return $patientIsAlive;
+        return $systemIsAlive;
     }
 
 }

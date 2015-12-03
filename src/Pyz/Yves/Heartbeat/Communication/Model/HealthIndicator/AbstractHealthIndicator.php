@@ -1,14 +1,13 @@
 <?php
 
-namespace Pyz\Yves\Heartbeat\Communication\Plugin;
+namespace Pyz\Yves\Heartbeat\Communication\Model\HealthIndicator;
 
 use Generated\Shared\Transfer\HealthReportTransfer;
 use Generated\Shared\Transfer\HealthDetailTransfer;
 use Generated\Shared\Transfer\HealthIndicatorReportTransfer;
-use SprykerEngine\Yves\Kernel\Communication\AbstractPlugin;
 use SprykerFeature\Shared\Heartbeat\Code\HealthIndicatorInterface;
 
-abstract class AbstractHealthIndicatorPlugin extends AbstractPlugin implements HealthIndicatorInterface
+abstract class AbstractHealthIndicator implements HealthIndicatorInterface
 {
 
     /**

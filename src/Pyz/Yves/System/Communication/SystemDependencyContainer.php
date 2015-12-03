@@ -6,18 +6,18 @@
 
 namespace Pyz\Yves\System\Communication;
 
-use Pyz\Yves\Heartbeat\Communication\Plugin\Ambulance;
+use Pyz\Yves\Heartbeat\Communication\Plugin\HeartbeatMonitor;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 
 class SystemDependencyContainer extends AbstractCommunicationDependencyContainer
 {
 
     /**
-     * @return Ambulance
+     * @return HeartbeatMonitor
      */
-    public function createAmbulance()
+    public function createHeartbeatMonitor()
     {
-        return $this->getLocator()->heartbeat()->pluginAmbulance();
+        return $this->getLocator()->heartbeat()->pluginHeartbeatMonitor();
     }
 
 }
