@@ -35,6 +35,36 @@
 
   },
   {
+    "name": "jobs",
+    "template_type": "jobs",
+    "localized_values": [],
+    "page_urls": []
+  },
+  {
+    "name": "shipping",
+    "template_type": "shipping",
+    "localized_values": [],
+    "page_urls": []
+  },
+  {
+    "name": "press",
+    "template_type": "press",
+    "localized_values": [],
+    "page_urls": []
+  },
+  {
+    "name": "about_us_impressum",
+    "template_type": "about_us_impressum",
+    "localized_values": [],
+    "page_urls": []
+  },
+  {
+    "name": "agb",
+    "template_type": "agb",
+    "localized_values": [],
+    "page_urls": []
+  },
+  {
     "name": "footer_communication",
     "template_type": "footer_communication",
     "localized_values": [],

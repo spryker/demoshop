@@ -193,6 +193,81 @@
         "footer_navigation"
       ],
       "children": []
+    },
+    {
+      "name": "Versand",
+      "url": "/versand/",
+      "category_key": "shipping",
+      "cms_block_names": [
+        "header_top",
+        "navigation",
+        "shipping",
+        "footer_communication",
+        "footer_payment",
+        "footer_newsletter",
+        "footer_navigation"
+      ],
+      "children": []
+    },
+    {
+      "name": "Jobs",
+      "url": "/jobs/",
+      "category_key": "jobs",
+      "cms_block_names": [
+        "header_top",
+        "navigation",
+        "jobs",
+        "footer_communication",
+        "footer_payment",
+        "footer_newsletter",
+        "footer_navigation"
+      ],
+      "children": []
+    },
+    {
+      "name": "Presse",
+      "url": "/press/",
+      "category_key": "press",
+      "cms_block_names": [
+        "header_top",
+        "navigation",
+        "press",
+        "footer_communication",
+        "footer_payment",
+        "footer_newsletter",
+        "footer_navigation"
+      ],
+      "children": []
+    },
+    {
+      "name": "Impressum & Über uns",
+      "url": "/uber-uns-impressum/",
+      "category_key": "about_us_impressum",
+      "cms_block_names": [
+        "header_top",
+        "navigation",
+        "about_us_impressum",
+        "footer_communication",
+        "footer_payment",
+        "footer_newsletter",
+        "footer_navigation"
+      ],
+      "children": []
+    },
+    {
+      "name": "AGB",
+      "url": "/agb/",
+      "category_key": "agb",
+      "cms_block_names": [
+        "header_top",
+        "navigation",
+        "agb",
+        "footer_communication",
+        "footer_payment",
+        "footer_newsletter",
+        "footer_navigation"
+      ],
+      "children": []
     }
   ]
 }
