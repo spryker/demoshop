@@ -23,7 +23,9 @@ class CreatePassword extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('restore_key', 'hidden')
+            ->add('restore_key', 'hidden', [
+                'required' => true
+            ])
             ->add('password', 'password', [
                 'label' => 'customer.password.create',
             ])

@@ -68,12 +68,14 @@ class Customer extends SprykerFeatureCustomer implements CustomerModelInterface
 
         $customerEntity->setCustomerReference($this->customerReferenceGenerator->generateCustomerReference($customerTransfer));
         $customerEntity->setRegistrationKey($this->generateKey());
+        $customerEntity->setRestorePasswordKey($this->generateKey());
 
         $customerEntity->save();
 
         $customerTransfer->setIdCustomer($customerEntity->getPrimaryKey());
         $customerTransfer->setCustomerReference($customerEntity->getCustomerReference());
         $customerTransfer->setRegistrationKey($customerEntity->getRegistrationKey());
+        $customerTransfer->setRestorePasswordKey($customerEntity->getRestorePasswordKey());
 
         $customerResponseTransfer = $this->createCustomerResponseTransfer();
         $customerResponseTransfer
@@ -105,6 +107,7 @@ class Customer extends SprykerFeatureCustomer implements CustomerModelInterface
         $customerTransfer->setIdCustomer($customerEntity->getPrimaryKey());
         $customerTransfer->setCustomerReference($customerEntity->getCustomerReference());
         $customerTransfer->setRegistrationKey($customerEntity->getRegistrationKey());
+        $customerTransfer->setRestorePasswordKey($customerEntity->getRestorePasswordKey());
 
         $customerEntity->fromArray($customerTransfer->toArray());
         $customerResponseTransfer = $this->createCustomerResponseTransfer();

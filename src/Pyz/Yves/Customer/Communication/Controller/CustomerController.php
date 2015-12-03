@@ -63,15 +63,15 @@ class CustomerController extends AbstractController
      */
     public function createPasswordAction(Request $request)
     {
-        $restoreKey = $request->query->get('restore_key');
         $form = $this->createForm(
-            $this->getDependencyContainer()->createFormCreatePassword(),
-            [ 'restore_key' =>  $restoreKey ]
+            $this->getDependencyContainer()->createFormCreatePassword()
         );
 
         if ($form->isValid()) {
+            $formData = $form->getData();
             $customerTransfer = new CustomerTransfer();
-            $customerTransfer->setRestorePasswordKey($restoreKey);
+            $customerTransfer->setRestorePasswordKey($formData['restore_key']);
+            $customerTransfer->setPassword($formData['password']);
             $this->getLocator()->customer()->client()->restorePassword($customerTransfer);
             $this->getLocator()->customer()->client()->logout();
 
