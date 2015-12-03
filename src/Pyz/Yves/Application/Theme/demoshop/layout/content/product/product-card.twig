@@ -6,12 +6,10 @@
         <a class="product-card__inner" href="{{ product.abstract_attributes.url }}">
             <div class="product-card__image">
                 <!-- <div class="product-card__label"></div> -->
-                {% if image.url is defined %}
-                    <noscript>
-                        <img width="403" height="403" src="/images/products/{{ image.url }}" alt="Produktabbildung" />
-                    </noscript>
-                    <img class="js-lazy-image" data-image-src="/images/products/{{ image.url }}" alt="Produktabbildung" />
-                {% endif %}
+                <noscript>
+                    <img width="403" height="403" src="{{ getProductImageUrl(image) }}" alt="Produktabbildung" />
+                </noscript>
+                <img class="js-lazy-image" data-image-src="{{ getProductImageUrl(image) }}" alt="Produktabbildung" />
             </div>
             <div class="product-card__content">
                 <div class="product-card__infos">
