@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Yves\Application\Communication\Plugin\ServiceProvider;
+namespace Pyz\Yves\Application\Communication\Plugin\Provider;
 
 use Silex\Application;
 use Silex\ServiceProviderInterface;

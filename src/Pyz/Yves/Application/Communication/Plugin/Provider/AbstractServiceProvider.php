@@ -1,17 +1,14 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
-namespace Pyz\Yves\Application\Provider;
+namespace Pyz\Yves\Application\Communication\Plugin\Provider;
 
 use Generated\Yves\Ide\AutoCompletion;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
+use SprykerEngine\Yves\Kernel\Communication\AbstractPlugin;
 use SprykerEngine\Yves\Kernel\Locator;
 
-abstract class AbstractServiceProvider implements ServiceProviderInterface
+abstract class AbstractServiceProvider extends AbstractPlugin implements ServiceProviderInterface
 {
 
     /**

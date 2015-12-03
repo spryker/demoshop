@@ -1,10 +1,6 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
-namespace Pyz\Yves\Application\Provider;
+namespace Pyz\Yves\Application\Communication\Plugin\Provider;
 
 use Pyz\Yves\Application\Communication\Plugin\YvesControllerProvider;
 use Silex\Application;

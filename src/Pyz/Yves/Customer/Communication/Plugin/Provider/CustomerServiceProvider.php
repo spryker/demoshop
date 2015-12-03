@@ -4,12 +4,12 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace Pyz\Yves\CategoryExporter\Provider;
+namespace Pyz\Yves\Customer\Communication\Plugin\Provider;
 
-use Pyz\Yves\Application\Provider\AbstractServiceProvider;
+use Pyz\Yves\Application\Communication\Plugin\Provider\AbstractServiceProvider;
 use Silex\Application;
 
-class CategoryExporterServiceProvider extends AbstractServiceProvider
+class CustomerServiceProvider extends AbstractServiceProvider
 {
 
     /**
@@ -20,7 +20,9 @@ class CategoryExporterServiceProvider extends AbstractServiceProvider
     public function register(Application $app)
     {
         $this->addGlobalTemplateVariable($app, [
-            'categories' => $this->getLocator()->categoryExporter()->client()->getNavigationCategories($app['locale']),
+            'registerForm' => $app['form.factory']->create(
+                $this->getLocator()->customer()->pluginRegisterForm()->createFormRegister()
+            )->createView(),
         ]);
     }
 

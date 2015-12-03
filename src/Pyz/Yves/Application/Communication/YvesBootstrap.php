@@ -2,15 +2,12 @@
 
 namespace Pyz\Yves\Application\Communication;
 
+use Generated\Yves\Ide\AutoCompletion;
 use Pyz\Shared\Application\Business\Routing\SilexRouter;
-use Pyz\Yves\Application\Provider\ApplicationControllerProvider;
-use Pyz\Yves\Application\Provider\ApplicationServiceProvider;
+use Pyz\Yves\Application\Communication\Plugin\Provider\ApplicationControllerProvider;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
-use Pyz\Yves\CategoryExporter\Provider\CategoryExporterServiceProvider;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
-use Pyz\Yves\Customer\Provider\CustomerServiceProvider;
-use Pyz\Yves\Glossary\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
 use Pyz\Yves\System\Communication\Plugin\SystemControllerProvider;
 use Pyz\Yves\Twig\Communication\Plugin\TwigServiceProvider;
 use Pyz\Yves\Wishlist\Communication\Plugin\WishlistControllerProvider;
@@ -24,10 +21,13 @@ use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use Silex\ServiceProviderInterface;
 use SprykerEngine\Shared\Config;
+use SprykerEngine\Shared\Application\Communication\Application;
+use SprykerEngine\Yves\Application\Communication\Application as YvesApplication;
 use SprykerEngine\Yves\Application\Communication\Plugin\ControllerProviderInterface;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\CookieServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\MonologServiceProvider;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\YvesLoggingServiceProvider;
+use SprykerEngine\Yves\Kernel\Locator;
 use SprykerFeature\Client\Lumberjack\Service\EventJournalClient;
 use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
@@ -36,63 +36,83 @@ use SprykerFeature\Shared\NewRelic\Api;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use Symfony\Component\Routing\RouterInterface;
 
-class YvesBootstrap extends AbstractYvesBootstrap
+class YvesBootstrap
 {
+
+    /**
+     * @var YvesApplication
+     */
+    protected $application;
+
+    public function __construct()
+    {
+        $this->application = new YvesApplication();
+    }
+
+    /**
+     * @return Application
+     */
+    public function boot()
+    {
+        $this->registerServiceProviders();
+
+        $this->registerRouters();
+
+        $this->registerControllerProviders();
+
+        return $this->application;
+    }
 
     /**
      * @return ServiceProviderInterface[]
      */
-    protected function getServiceProviders()
+    protected function registerServiceProviders()
     {
-        $serviceProviders = [
-            new TwigServiceProvider(),
-            new ApplicationServiceProvider(),
-            new SessionServiceProvider(),
-            $this->createSessionServiceProviderExtension(),
-            new SecurityServiceProvider(),
-            $this->createSecurityServiceProviderExtension(),
-            $this->getLocator()->application()->pluginServiceProviderYvesSecurityServiceProvider(),
-            $this->getLocator()->application()->pluginServiceProviderExceptionServiceProvider(),
-            new YvesLoggingServiceProvider(new EventJournalClient(), new Api()),
-            new MonologServiceProvider(),
-            new CookieServiceProvider(),
-            new UrlGeneratorServiceProvider(),
-            new ServiceControllerServiceProvider(),
-            new RememberMeServiceProvider(),
-            new RoutingServiceProvider(),
-            $this->createTranslationServiceProvider(),
-            new ValidatorServiceProvider(),
-            new FormServiceProvider(),
-            new HttpFragmentServiceProvider(),
-            new CustomerServiceProvider(),
-            new CategoryExporterServiceProvider(),
-        ];
+        $this->application->register(new TwigServiceProvider());
+        $this->application->register($this->getLocator()->application()->pluginProviderApplicationServiceProvider());
+        $this->application->register(new SessionServiceProvider());
+        $this->application->register($this->getLocator()->session()->pluginServiceProviderSessionServiceProvider());
+        $this->application->register(new SecurityServiceProvider());
+        $this->application->register($this->createSecurityServiceProviderExtension());
+        $this->application->register($this->getLocator()->application()->pluginProviderYvesSecurityServiceProvider());
+        $this->application->register($this->getLocator()->application()->pluginServiceProviderExceptionServiceProvider());
+        $this->application->register(new YvesLoggingServiceProvider(new EventJournalClient(), new Api()));
+        $this->application->register(new MonologServiceProvider());
+        $this->application->register(new CookieServiceProvider());
+        $this->application->register(new UrlGeneratorServiceProvider());
+        $this->application->register(new ServiceControllerServiceProvider());
+        $this->application->register(new RememberMeServiceProvider());
+        $this->application->register(new RoutingServiceProvider());
+        $this->application->register($this->getLocator()->glossary()->pluginServiceProviderTranslationServiceProvider());
+        $this->application->register(new ValidatorServiceProvider());
+        $this->application->register(new FormServiceProvider());
+        $this->application->register(new HttpFragmentServiceProvider());
+        $this->application->register($this->getLocator()->customer()->pluginProviderCustomerServiceProvider());
+        $this->application->register($this->getLocator()->categoryExporter()->pluginProviderCategoryExporterServiceProvider());
 
-        $this->setWebProfilerServiceProvider($serviceProviders);
-
-        return $serviceProviders;
+        if (Config::get(ApplicationConfig::ENABLE_WEB_PROFILER, false)) {
+            $this->application->register(new WebProfilerServiceProvider());
+        }
     }
 
     /**
      * @return RouterInterface[]
      */
-    protected function getRouters()
+    protected function registerRouters()
     {
-        return [
-            $this->getLocator()->collector()->pluginRouterStorageRouter()->setSsl(false),
-            $this->getLocator()->catalog()->pluginRouterSearchRouter()->setSsl(false),
-            new SilexRouter($this->application),
-        ];
+        $this->application->addRouter($this->getLocator()->collector()->pluginRouterStorageRouter()->setSsl(false));
+        $this->application->addRouter($this->getLocator()->catalog()->pluginRouterSearchRouter()->setSsl(false));
+        $this->application->addRouter(new SilexRouter($this->application));
     }
 
     /**
      * @return ControllerProviderInterface[]
      */
-    protected function getControllerProviders()
+    protected function registerControllerProviders()
     {
         $ssl = Config::get(YvesConfig::YVES_SSL_ENABLED);
 
-        return [
+        $controllerProviders = [
             new ApplicationControllerProvider(false),
             new CheckoutControllerProvider($ssl),
             new CustomerControllerProvider($ssl),
@@ -100,14 +120,10 @@ class YvesBootstrap extends AbstractYvesBootstrap
             new WishlistControllerProvider($ssl),
             new SystemControllerProvider($ssl),
         ];
-    }
 
-    /**
-     * @return SessionServiceProvider
-     */
-    private function createSessionServiceProviderExtension()
-    {
-        return $this->getLocator()->session()->pluginServiceProviderSessionServiceProvider();
+        foreach ($controllerProviders as $controllerProvider) {
+            $this->application->mount($controllerProvider->getUrlPrefix(), $controllerProvider);
+        }
     }
 
     /**
@@ -124,23 +140,11 @@ class YvesBootstrap extends AbstractYvesBootstrap
     }
 
     /**
-     * @return TranslationServiceProvider
+     * @return AutoCompletion
      */
-    private function createTranslationServiceProvider()
+    protected function getLocator()
     {
-        return $this->getLocator()->glossary()->pluginServiceProviderTranslationServiceProvider();
-    }
-
-    /**
-     * @param array $serviceProviders
-     *
-     * @return array
-     */
-    private function setWebProfilerServiceProvider(array &$serviceProviders)
-    {
-        if (Config::get(ApplicationConfig::ENABLE_WEB_PROFILER, false)) {
-            $serviceProviders[] = new WebProfilerServiceProvider();
-        }
+        return Locator::getInstance();
     }
 
 }
