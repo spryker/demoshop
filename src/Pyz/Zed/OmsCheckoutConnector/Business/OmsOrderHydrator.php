@@ -14,9 +14,11 @@ use SprykerFeature\Zed\OmsCheckoutConnector\Business\OmsOrderHydrator as BaseOms
 class OmsOrderHydrator extends BaseOmsOrderHydrator
 {
 
-    const PAYMENT_METHOD_INVOICE = 'invoice';
-    const PAYMENT_METHOD_PAYOLUTION_INVOICE = 'payolution_invoice';
-    const PAYMENT_METHOD_PAYOLUTION_INSTALLMENT = 'payolution_installment';
+    protected static $paymentMethodStateMachineMapper = [
+        'invoice' =>  OmsConfig::ORDER_PROCESS_INVOICE_01,
+        'payolution_invoice' => OmsConfig::ORDER_PROCESS_PAYOLUTION_PAYMENT_01,
+        'payolution_installment' => OmsConfig::ORDER_PROCESS_PAYOLUTION_PAYMENT_01,
+    ];
 
     /**
      * @param OrderTransfer $order
@@ -28,18 +30,10 @@ class OmsOrderHydrator extends BaseOmsOrderHydrator
     {
         $paymentMethod = $request->getPaymentMethod();
 
-        switch ($paymentMethod) {
-            case self::PAYMENT_METHOD_INVOICE:
-                $order->setProcess(OmsConfig::ORDER_PROCESS_INVOICE_01);
-                break;
-            case self::PAYMENT_METHOD_PAYOLUTION_INVOICE:
-                $order->setProcess(OmsConfig::ORDER_PROCESS_PAYOLUTION_PAYMENT_01);
-                break;
-            case self::PAYMENT_METHOD_PAYOLUTION_INSTALLMENT:
-                $order->setProcess(OmsConfig::ORDER_PROCESS_PAYOLUTION_PAYMENT_01);
-                break;
-            default:
-                parent::hydrateOrderTransfer($order, $request);
+        if (array_key_exists($paymentMethod, self::$paymentMethodStateMachineMapper)) {
+            $order->setProcess(self::$paymentMethodStateMachineMapper[$paymentMethod]);
+        } else {
+            parent::hydrateOrderTransfer($order, $request);
         }
     }
 

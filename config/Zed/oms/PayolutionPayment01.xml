@@ -32,6 +32,18 @@
                 <event>pre-authorize payment</event>
             </transition>
 
+            <transition happy="true" condition="Payolution/IsReAuthorizationApproved">
+                <source>pre-authorization succeed</source>
+                <target>pre-authorization succeed</target>
+                <event>re-authorize payment</event>
+            </transition>
+
+            <transition happy="true">
+                <source>pre-authorization succeed</source>
+                <target>pre-authorization failed</target>
+                <event>re-authorize payment</event>
+            </transition>
+
             <transition>
                 <source>pre-authorization succeed</source>
                 <target>pre-authorization invalid</target>
@@ -143,7 +155,7 @@
 
         <events>
             <event name="pre-authorize payment" onEnter="true" command="Payolution/PreAuthorize"/>
-            <event name="retry pre-authorize payment" manual="true" command="Payolution/PreAuthorize"/>
+            <event name="re-authorize payment" manual="true" command="Payolution/ReAuthorize"/>
             <event name="pre-authorize timeout" timeout="21days"/>
             <event name="revert payment" manual="true" command="Payolution/Revert"/>
             <event name="retry revert payment" manual="true" command="Payolution/Revert"/>
