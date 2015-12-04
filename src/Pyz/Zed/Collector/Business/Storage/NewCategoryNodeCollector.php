@@ -66,7 +66,7 @@ WITH RECURSIVE
       n.node_order
     FROM tree
        INNER JOIN spy_category_node n ON n.fk_parent_category_node = tree.id_category_node
-       INNER JOIN spy_category c ON c.id_category = n.fk_category AND c.is_active = 't'
+       INNER JOIN spy_category c ON c.id_category = tree.fk_category AND c.is_active = 't'
   )
 SELECT
   t.id_touch as %s,
@@ -89,22 +89,7 @@ FROM tree
 ORDER BY tree.fk_parent_category_node ASC, tree.node_order DESC
         ";
 
-        $idRoot = 1;
-        $idLocale = 46;
-        $touchEvent = 0;
-        $touchItemType = 'categorynode';
-        $touchedWhen = '2015-12-03 19:26:53';
-
-        $sql = sprintf($sql, $idRoot, self::TOUCH_EXPORTER_ID, $idLocale, $idLocale, $touchEvent, $touchedWhen, $touchItemType);
-
-        $conn = $this->touchQueryContainer->getConnection();
-        $st = $conn->prepare($sql);
-
-        $st->execute([
-
-        ]);
-
-        $results = $st->fetchAll(\PDO::FETCH_ASSOC);
+        return $sql;
 
         dump($results);
         die;
