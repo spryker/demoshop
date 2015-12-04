@@ -24,44 +24,45 @@
     </head>
 
     <body class="no-js">
-    <noscript>
-        <div class="messages">
-            <div class="message message--invalid">
-                {{ 'notification.js.required' | trans }}
+
+        {% include "@application/layout/partials/google-tag-snippet.twig" %}
+
+        <noscript>
+            <div class="messages">
+                <div class="message message--invalid">
+                    {{ 'notification.js.required' | trans }}
+                </div>
             </div>
-        </div>
-    </noscript>
+        </noscript>
 
-    <script type="text/javascript">
-        // TODO: move to partial file
-        window.translator = new (function () {
-            var store = {};
+        <script type="text/javascript">
+            // TODO: move to partial file
+            window.translator = new (function () {
+                var store = {};
 
-            this.addTranslation = function (key, translation) {
-                store[key] = translation;
-            };
+                this.addTranslation = function (key, translation) {
+                    store[key] = translation;
+                };
 
-            this.getTranslation = function (key, strict) {
-                if (!!store[key]) {
-                    return store[key];
-                } else {
-                    return strict ? false : key;
-                }
-            };
-        })();
-    </script>
-
-
-    {{ content }}
+                this.getTranslation = function (key, strict) {
+                    if (!!store[key]) {
+                        return store[key];
+                    } else {
+                        return strict ? false : key;
+                    }
+                };
+            })();
+        </script>
 
 
-    <script src="/js/sg-main.js"></script>
+        {{ content }}
 
-    <script type="text/javascript">
-        document.body.className = '';
-    </script>
 
-    {% include "@application/layout/partials/google-tag-snippet.twig" %}
+        <script src="/js/sg-main.js"></script>
+
+        <script type="text/javascript">
+            document.body.className = '';
+        </script>
 
     </body>
     </html>

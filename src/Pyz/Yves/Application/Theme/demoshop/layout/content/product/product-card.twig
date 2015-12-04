@@ -1,15 +1,15 @@
 {% if product.concrete_products is defined %}
     {% set productConcrete = product.concrete_products | first %}
-    {% set image = productConcrete.attributes.media | first %}
-
+    {% set image = product.abstract_attributes.media is defined ? product.abstract_attributes.media : '' | first  %}
+    
     <div class="product-card">
         <a class="product-card__inner" href="{{ product.abstract_attributes.url }}">
             <div class="product-card__image">
                 <!-- <div class="product-card__label"></div> -->
                 <noscript>
-                    <img width="403" height="403" src="{{ getProductImageUrl(image) }}" alt="Produktabbildung" />
+                    <img width="403" height="403" src="{{ getProductImageUrl(image | first) }}" alt="Produktabbildung" />
                 </noscript>
-                <img class="js-lazy-image" data-image-src="{{ getProductImageUrl(image) }}" alt="Produktabbildung" />
+                <img class="js-lazy-image" data-image-src="{{ getProductImageUrl(image | first) }}" alt="Produktabbildung" />
             </div>
             <div class="product-card__content">
                 <div class="product-card__infos">
