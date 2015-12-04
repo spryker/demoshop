@@ -27,7 +27,6 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             'Adyen/IsCaptureNotificationSuccess' => $container->getLocator()->adyen()->pluginConditionIsCaptureNotificationSuccessPlugin(),
 
             'Adyen/HasPendingNotificationReceived' => $container->getLocator()->adyen()->pluginConditionHasPendingNotificationReceivedPlugin(),
-            'Adyen/IsPendingNotificationSuccess' => $container->getLocator()->adyen()->pluginConditionIsPendingNotificationSuccessPlugin(),
 
             'Adyen/IsAuthoriseTransactionSuccess' => $container->getLocator()->adyen()->pluginConditionIsAuthoriseTransactionSuccessPlugin(),
             'Adyen/IsCaptureTransactionSuccess' => $container->getLocator()->adyen()->pluginConditionIsCaptureTransactionSuccessPlugin(),
@@ -46,11 +45,15 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
 
             'Adyen/Authorise' => $container->getLocator()->adyen()->pluginCommandAuthorisePlugin(),
             'Adyen/AuthoriseCreditCard' => $container->getLocator()->adyen()->pluginCommandAuthoriseCreditCardPlugin(),
+
             'Adyen/Capture' => $container->getLocator()->adyen()->pluginCommandCapturePlugin(),
             'Adyen/Cancel' => $container->getLocator()->adyen()->pluginCommandCancelPlugin(),
+
             'OmsMailQueueConnector/OrderConfirmationMail' => $container->getLocator()->omsMailQueueConnector()->pluginCommandOrderConfirmationMail(),
             'OmsMailQueueConnector/SepaOrderReceivedMail' => $container->getLocator()->omsMailQueueConnector()->pluginCommandSepaOrderReceivedMail(),
-            'OmsMailQueueConnector/PrePaymentOrderReceivedMail' => $container->getLocator()->omsMailQueueConnector()->pluginCommandPrePaymentOrderReceivedMail()
+            'OmsMailQueueConnector/PrePaymentOrderReceivedMail' => $container->getLocator()->omsMailQueueConnector()->pluginCommandPrePaymentOrderReceivedMail(),
+
+            'OmsDiscountConnector/ReleaseUsedVoucherCode' => $container->getLocator()->omsDiscountConnector()->pluginCommandReleaseUsedVoucherCodes()
         ];
     }
 

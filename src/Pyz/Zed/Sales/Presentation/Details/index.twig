@@ -1,0 +1,33 @@
+{% extends '@Gui/Layout/layout.twig' %}
+
+{% block section_title %}
+
+    {% if orderDetails.isTest %}
+        <span class="label label-danger" style="font-size:20px;">TEST</span>
+    {% endif %}
+    &nbsp;&nbsp;
+    {{ 'ID:' | trans }}  <strong>{{ idOrder }}</strong> -
+    {{ 'Ref. Nr.:' | trans }} <strong>{{ orderDetails.orderReference }}</strong>
+    <br />
+    <span style="font-size: 14px;font-weight: bold;">{{ orderDetails.CreatedAt.date | date('d.m.Y G:i:s', false) }}</span>
+
+{% endblock %}
+
+{% block content %}
+
+    {% include '@Sales/Details/section/customer-details.twig' %}
+
+    <div class="spy-layout">
+        {% include '@Sales/Details/section/calculation.twig' %}
+        {% include '@Sales/Details/section/order-items.twig' %}
+        {% include '@Sales/Details/section/payment-logs.twig' %}
+        {% include '@Sales/Details/section/expenses.twig' %}
+        {% include '@Sales/Details/section/refunds.twig' %}
+        {#{% include '@Sales/Details/section/invoices.twig' %}#}
+        {#{% include '@Sales/Details/section/payment-overview.twig' %}#}
+        {#{% include '@Sales/Details/section/shipping.twig' %}#}
+        {#{% include '@Sales/Details/section/returns.twig' %}#}
+        {#{% include '@Sales/Details/section/comments.twig' %}#}
+    </div>
+
+{% endblock %}
