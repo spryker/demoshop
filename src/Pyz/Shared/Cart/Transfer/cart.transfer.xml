@@ -19,6 +19,7 @@
 
     <transfer name="Cart">
         <property name="couponMessage" type="string" />
+        <property name="couponIsSuccess" type="bool" />
     </transfer>
 
 </transfers>
