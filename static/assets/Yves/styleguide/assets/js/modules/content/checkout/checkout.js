@@ -296,9 +296,10 @@ $(document).ready(function () {
 
             })
             .done(function (data) {
-                if (data.errorMessage) {
-                    messageService.add({ type: 'invalid', message: data.errorMessage });
+                if (data.isSuccess === false) {
+                    messageService.add({ type: 'invalid', message: data.message });
                 } else {
+                    messageService.add({ type: 'valid', message: data.message });
                     renderCart(data.html);
                 }
             }).always(function () {

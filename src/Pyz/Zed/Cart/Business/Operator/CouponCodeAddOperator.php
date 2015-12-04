@@ -24,6 +24,10 @@ class CouponCodeAddOperator extends SprykerCouponCodeAddOperator
 
         $couponMessageGenerator = new CouponMessageGenerator();
 
+        $cart->setCouponIsSuccess(
+            $couponMessageGenerator->isSuccess($oldCart, $cart)
+        );
+
         $cart->setCouponMessage(
             $couponMessageGenerator->getMessage($oldCart, $cart)
         );

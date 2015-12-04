@@ -74,7 +74,8 @@ class AjaxController extends AbstractController
         }
 
         return new JsonResponse([
-            'errorMessage' => $cartClient->getCart()->getCouponMessage(),
+            'isSuccess' => $cartClient->getCart()->getCouponIsSuccess(),
+            'message' => $cartClient->getCart()->getCouponMessage(),
             'html' => $this->renderView('@checkout/ajax/add-coupon.twig', [
                 'cart' => $cartClient->getCart(),
                 'products' => $products
