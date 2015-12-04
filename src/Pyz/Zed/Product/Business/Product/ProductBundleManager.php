@@ -2,10 +2,13 @@
 
 namespace Pyz\Zed\Product\Business\Product;
 
+use Generated\Shared\Product\AbstractProductInterface;
 use Generated\Shared\Product\ConcreteProductInterface;
 use Generated\Shared\Product\ProductToBundleRelationInterface;
+use Generated\Shared\Transfer\AbstractProductTransfer;
 use Orm\Zed\Product\Persistence\SpyProductToBundle;
 use Pyz\SprykerBugfixInterface;
+use Pyz\Yves\ProductExporter\Communication\Model\AbstractProduct;
 use Pyz\Zed\Product\Persistence\ProductQueryContainer;
 use Orm\Zed\Product\Persistence\SpyProduct;
 
@@ -124,4 +127,20 @@ class ProductBundleManager implements ProductBundleManagerInterface, SprykerBugf
         return true;
     }
 
+
+    /**
+     * @param ConcreteProductInterface $bundleProduct
+     * @return AbstractProductInterface[]
+     */
+    public function getAssignedBundledAbstractProducts(ConcreteProductInterface $bundleProduct)
+    {
+        $query = $this->productQueryContainer->queryAbstractProductByBundleProduct($bundleProduct->getIdConcreteProduct());
+        $result = [];
+        foreach ($query->find() as $abstractProduct) {
+            $transfer = new AbstractProductTransfer();
+            $transfer->fromArray($abstractProduct->toArray(), true);
+            $result[] = $transfer;
+        }
+        return $result;
+    }
 }

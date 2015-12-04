@@ -151,6 +151,15 @@ class ProductFacade extends SprykerProductFacade implements
        return $this->getDependencyContainer()->createProductBundleManager()->getAssignedBundledProducts($bundleProduct);
     }
 
+     /**
+     * @param ConcreteProductInterface $bundleProduct
+     * @return AbstractProductInterface[]
+     */
+    public function getAssignedBundledAbstractProducts(ConcreteProductInterface $bundleProduct)
+    {
+       return $this->getDependencyContainer()->createProductBundleManager()->getAssignedBundledAbstractProducts($bundleProduct);
+    }
+
     /**
      * @param int $idAbstractProduct
      * @return bool
