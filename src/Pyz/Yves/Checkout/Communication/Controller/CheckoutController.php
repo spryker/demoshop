@@ -87,6 +87,7 @@ class CheckoutController extends AbstractController
 
                 if ($customerTransfer !== null) {
                     $checkoutRequest->setIdUser($customerTransfer->getIdCustomer());
+                    $checkoutRequest->setEmail($customerTransfer->getEmail());
                 }
 
                 $paymentMethod = $checkoutRequest->getAdyenPayment()->getPaymentMethod();
