@@ -161,4 +161,46 @@ class Customer extends SprykerFeatureCustomer implements CustomerModelInterface
 
         return ($orderCount !== 0);
     }
+
+    /**
+     * @param CustomerInterface $customerTransfer
+     *
+     * @throws PropelException
+     * @throws CustomerNotFoundException
+     *
+     * @return CustomerResponseTransfer
+     */
+    public function restorePassword(CustomerInterface $customerTransfer)
+    {
+        $customerTransfer = $this->encryptPassword($customerTransfer);
+
+        $customerResponseTransfer = $this->createCustomerResponseTransfer();
+
+        try {
+            $customerEntity = $this->getCustomer($customerTransfer);
+        } catch (CustomerNotFoundException $e) {
+            $customerError = new CustomerErrorTransfer();
+            $customerError->setMessage(Messages::CUSTOMER_TOKEN_INVALID);
+
+            $customerResponseTransfer
+                ->setIsSuccess(false)
+                ->addError($customerError);
+
+            return $customerResponseTransfer;
+        }
+
+        $customerEntity->setRestorePasswordDate(null);
+        $customerEntity->setRestorePasswordKey(null);
+        $customerEntity->setMagentoPasswordHash(null);
+
+        $customerEntity->setPassword($customerTransfer->getPassword());
+
+        $customerEntity->save();
+        $customerTransfer->fromArray($customerEntity->toArray(), true);
+        $this->sendPasswordRestoreConfirmation($customerTransfer);
+
+        $customerResponseTransfer->setCustomerTransfer($customerTransfer);
+
+        return $customerResponseTransfer;
+    }
 }
