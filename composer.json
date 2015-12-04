@@ -55,7 +55,7 @@
     "phpmd/phpmd": "*",
     "codeception/codeception": "2.1",
     "fabpot/php-cs-fixer": "^1.9",
-    "squizlabs/php_codesniffer": "2.4.0"
+    "squizlabs/php_codesniffer": "~2.4.0"
   },
   "autoload": {
     "psr-0": {
