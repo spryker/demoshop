@@ -23,8 +23,8 @@
             { url: '/warum/', title: 'Warum?', modifier: 'support', menu: 'none'},
             { url: '/faq/', title: 'Fragen?', modifier: 'contact', menu: 'none'},
             {
-                url: (app.user is not null ? 'profile' : 'login'),
-                title: (app.user is not null ? getUsername() : 'Anmelden'),
+                url: (app.user is not null ? '/logout/' : '/login/'),
+                title: (app.user is not null ? 'Abmelden' : 'Anmelden'),
                 modifier: 'login'},
             { url: 'checkout', title: 'Warenkorb', modifier: 'cart', menu: app.request.attributes.get('_route') != 'checkout' ? 'cart' : ''},
         ]
@@ -60,8 +60,8 @@
                 <ul class="navbar__links">
 
                     {% for link in data.links %}
-                        {# TODO: Check if request_uri is full (with http) url #}
-                        {% set active = (app.request.uri == url(link.url)) %}
+{# TODO: Check if request_uri is full (with http) url #}
+                        {% set active = (app.request.uri == link.url) %}
 
                         <li
                             {% if link.menu is defined and (link.menu is not empty and link.menu != 'none') %}
