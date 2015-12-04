@@ -30,7 +30,7 @@
 }
 
 .product-accordion-item__header, .product-accordion-item__content {
-    padding: 30px 0 30px $_wGallerySmall;
+    padding: 30px 24px;
 }
 
 .product-accordion-item__header{
@@ -104,7 +104,7 @@
 }
 
 
-@media (min-width: $_wLarge) {
+@media (min-width: 675px) {
     // TODO: variables for gallery/options width
     .product-accordion-item__header, .product-accordion-item__content {
         padding: 30px 0 30px ($_wGallerySmall + 12px);

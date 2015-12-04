@@ -180,6 +180,10 @@
       content: '\E028';
     }
     
+    @if $name == 'vorkasse' {
+      content: '\E029';
+    }
+    
   }
 }
 
@@ -362,6 +366,10 @@
     
     @if $name == 'delivery' {
       content: '\E028';
+    }
+    
+    @if $name == 'vorkasse' {
+      content: '\E029';
     }
     
   }
