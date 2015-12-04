@@ -25,9 +25,18 @@
             </div>
 
             <div class="checkout__navigations">
-                <div class="checkout__navigation">1 Adresse</div>
-                <div class="checkout__navigation">2 Zahlart</div>
-                <div class="checkout__navigation">3 Bestätigung</div>
+                <div class="checkout__navigation">
+                    <div class="checkout__navigation-step">1 Adresse</div>
+                    <div class="checkout__navigation-option"></div>
+                </div>
+                <div class="checkout__navigation">
+                    <div class="checkout__navigation-step">2 Zahlart</div>
+                    <div class="checkout__navigation-option"></div>
+                </div>
+                <div class="checkout__navigation">
+                    <div class="checkout__navigation-step">3 Bestätigung</div>
+                    <div class="checkout__navigation-option"></div>
+                </div>
             </div>
 
             <div class="checkout__contents">
@@ -205,5 +214,14 @@
 
     <script type="text/javascript" src="/js/vendor/adyen.encrypt.nodom.min.js"></script>
 
+
+    <script type="text/javascript">
+        // TODO: create makro
+        translator.addTranslation('adyen.payment.method.german.bank.transfer', '{{ 'adyen.payment.method.german.bank.transfer' | trans }}');
+        translator.addTranslation('adyen.payment.method.creditcard.cse', '{{ 'adyen.payment.method.creditcard.cse' | trans }}');
+        translator.addTranslation('adyen.payment.method.sepa.directdebit', '{{ 'adyen.payment.method.sepa.directdebit' | trans }}');
+        translator.addTranslation('adyen.payment.method.paypal', '{{ 'adyen.payment.method.paypal' | trans }}');
+        translator.addTranslation('adyen.payment.method.sofortueberweisung', '{{ 'adyen.payment.method.sofortueberweisung' | trans }}');
+    </script>
 
 {% endblock %}

@@ -100,17 +100,7 @@
     font-size: 16px;
     color: $_rgbDoveGray;
 
-    strong{
-        font-family: $_ffBrandonGrotesque-Bold;
-    }
-
-    ul, ol{
-        margin: 1em 0;
-    }
-
-    li{
-        margin-left: 30px;
-    }
+    @include wysiwyg;
 }
 
 

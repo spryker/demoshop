@@ -26,6 +26,10 @@
     color: $_rgbDoveGray;
 }
 
+.product-content__description{
+    @include wysiwyg;
+}
+
 .product-content__label{
     font-family: $_ffBrandonGrotesque-Bold;
 }

@@ -54,7 +54,28 @@ $(document).ready(function () {
 
         $contents.find('.checkout__step-button').click(function () {
             if ((validateStep(index).valid && !!validateCreditCard()) && index < $contents.size() - 1) {
+
+
+                var option;
+
+                switch(index) {
+                case 0:
+                    option = $('#different-delivery-address:checked').size() ? $('#checkout_shipping_address_street').val() : $('#checkout_billing_address_street').val();
+                    $('.checkout__navigation-option').eq(index).text(option);
+                    break;
+
+                case 1:
+                    option = $('input[name="checkout[adyen_payment][payment_method]"]:checked').val();
+                    $('.checkout__navigation-option').eq(index).text(window.translator.getTranslation(option));
+                    break;
+                }
+
+                if (option) {
+                    pushToDataLayer(index, option);
+                }
+
                 index++;
+
             }
 
             updateStep();
@@ -70,7 +91,8 @@ $(document).ready(function () {
                 valid = valid && validateStep(i).valid;
             }
 
-            if (newIndex < index || (valid && !!validateCreditCard())) {
+            // TODO: reenable quick skip
+            if (newIndex < index ) { //|| (valid && !!validateCreditCard())
                 index = newIndex;
             }
 
@@ -170,7 +192,14 @@ $(document).ready(function () {
                 ongoingRequest = $.post($checkout.attr('action'), values)
                 .done(function (response) {
                     if (response.success) {
-                        window.location = response.url;
+
+                        // tracking and redirect
+                        pushToDataLayer(index, 'post');
+
+                        setTimeout(function () {
+                            window.location = response.url;
+                        });
+
 
                     } else if (response.errors) {
 
@@ -270,6 +299,7 @@ $(document).ready(function () {
             .fail(function(data) {
                 console.log('[ERROR] ');
                 console.log(data);
+                messageService.add({type: 'invalid', message: data);
             }).always(function () {
                 $button.prop('disabled', false);
             });
@@ -339,6 +369,47 @@ $(document).ready(function () {
                 NewsletterTypeCats: newsletterCats ? 1 : 0
             });
         }
+
+
+        function pushToDataLayer (index, option) {
+
+            // TODO: abstract into module, remove from checkout
+            var purchase, products;
+
+            products = window.dataLayer[1].page.products;
+
+            var data = {
+                'event': 'checkout',
+                'ecommerce': {
+                    'checkout': {
+                      'actionField': {
+                          'step': index + 1,
+                          'option': option
+                      },
+                      'products': []
+                    }
+                }
+            };
+
+            for (var i = 0; i < products.length; i++) {
+                var product = products[i];
+
+                data.ecommerce.checkout.products.push({
+                      'name': product.name,
+                      'id': product.id,
+                      'price': product.price,
+                      'brand': product.brand,
+                      'category': '',
+                      'variant': '',
+                      'quantity': product.quantity
+                });
+            }
+
+            console.info(data);
+            window.dataLayer.push(data);
+        }
+
+
 
         $(document).on(EVENTS.CART_WILL_UPDATE, function () {
             $checkout.find('button[type="submit"]').prop('disabled', true);

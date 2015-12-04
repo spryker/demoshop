@@ -8,7 +8,7 @@
     {% if product.description.markdown is defined %}
         <div class="product-content__description">
             {% markdown %}
-                {{ product.description.markdown | nl2br}}
+                {{ product.description.markdown }}
             {% endmarkdown %}
         </div>
     {% endif %}
