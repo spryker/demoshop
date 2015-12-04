@@ -34,15 +34,15 @@ class InstallerConfig extends SprykerInstallerConfig
         $locator = $this->getLocator();
 
         return [
-            $locator->category()->pluginDemoDataInstaller(),
-            $locator->glossary()->pluginDemoDataInstaller(),
+//            $locator->category()->pluginDemoDataInstaller(),
+//            $locator->glossary()->pluginDemoDataInstaller(),
             $locator->cms()->pluginDemoDataInstaller(),
-            $locator->product()->pluginDemoDataInstaller(),
-            $locator->productCategory()->pluginDemoDataInstaller(),
-            $locator->price()->pluginDemoDataInstaller(),
-            $locator->productSearch()->pluginDemoDataInstaller(),
-            $locator->stock()->pluginDemoDataInstaller(),
-            $locator->shipment()->pluginDemoDataInstaller(),
+//            $locator->product()->pluginDemoDataInstaller(),
+//            $locator->productCategory()->pluginDemoDataInstaller(),
+//            $locator->price()->pluginDemoDataInstaller(),
+//            $locator->productSearch()->pluginDemoDataInstaller(),
+//            $locator->stock()->pluginDemoDataInstaller(),
+//            $locator->shipment()->pluginDemoDataInstaller(),
         ];
     }
 

@@ -2,113 +2,10 @@
 <pages>
     <page>
         <template>static</template>
-        <locales>
-            <locale name="de_DE">
-                <url>/de/impressum</url>
-                <placeholders>
-                    <placeholder>
-                        <name>title</name>
-                        <translation><![CDATA[
-                        <h2>Impressum</h2>
-                 ]]></translation>
-                    </placeholder>
-                    <placeholder>
-                        <name>content</name>
-                        <translation><![CDATA[
-        <p>Demoshop<br/>
-            Julie-Wolfthornstraße 1<br/>10555 Berlin</p>
-
-        <p>Telefon: 030 5678909<br/>
-            E-Mail: <a href="mailto:info@spryker.com">info@spryker.com</a><br/>
-        </p>
-
-        <p><strong>Vertreten durch:</strong><br/>Spryker<br/>Geschäftsführer: Max Mustermann<br/>Registergericht: Hamburg<br/>Registernummer:
-            56789</p>
-
-        <p><strong>Registereintrag:</strong><br/>Eingetragen im Handelsregister.<br/>Registergericht: Hamburg<br/>Registernummer:
-            34567888456789</p>
-
-        <p><strong>Umsatzsteuer-ID: </strong><br/>Umsatzsteuer-Identifikationsnummer nach §27a Umsatzsteuergesetz:<br/>34567</p>
-
-        <p>Quelle: <a href="http://www.experten-branchenbuch.de/">www.experten-branchenbuch.de</a></p><br/><br/>
-
-        <h2>Datenschutzerklärung:</h2>
-
-        <p><strong>Datenschutz</strong><br/>Nachfolgend möchten wir Sie über unsere Datenschutzerklärung informieren. Sie finden
-            hier Informationen über die Erhebung und Verwendung persönlicher Daten bei der Nutzung unserer Webseite. Wir
-            beachten dabei das für Deutschland geltende Datenschutzrecht. Sie können diese Erklärung jederzeit auf unserer
-            Webseite abrufen.
-            <br/><br/>
-            Wir weisen ausdrücklich darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail)
-            Sicherheitslücken aufweisen und nicht lückenlos vor dem Zugriff durch Dritte geschützt werden kann.
-            <br/><br/>
-            Die Verwendung der Kontaktdaten unseres Impressums zur gewerblichen Werbung ist ausdrücklich nicht erwünscht, es sei
-            denn wir hatten zuvor unsere schriftliche Einwilligung erteilt oder es besteht bereits eine Geschäftsbeziehung. Der
-            Anbieter und alle auf dieser Website genannten Personen widersprechen hiermit jeder kommerziellen Verwendung und
-            Weitergabe ihrer Daten.
-            <br/><br/>
-            <strong>Personenbezogene Daten</strong>
-            <br/>
-            Sie können unsere Webseite ohne Angabe personenbezogener Daten besuchen. Soweit auf unseren Seiten personenbezogene
-            Daten (wie Name, Anschrift oder E-Mail Adresse) erhoben werden, erfolgt dies, soweit möglich, auf freiwilliger
-            Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben. Sofern zwischen Ihnen
-            und uns ein Vertragsverhältnis begründet, inhaltlich ausgestaltet oder geändert werden soll oder Sie an uns eine
-            Anfrage stellen, erheben und verwenden wir personenbezogene Daten von Ihnen, soweit dies zu diesen Zwecken
-            erforderlich ist (Bestandsdaten). Wir erheben, verarbeiten und nutzen personenbezogene Daten soweit dies
-            erforderlich ist, um Ihnen die Inanspruchnahme des Webangebots zu ermöglichen (Nutzungsdaten). Sämtliche
-            personenbezogenen Daten werden nur solange gespeichert wie dies für den geannten Zweck (Bearbeitung Ihrer Anfrage
-            oder Abwicklung eines Vertrags) erforderlich ist. Hierbei werden steuer- und handelsrechtliche Aufbewahrungsfristen
-            berücksichtigt. Auf Anordnung der zuständigen Stellen dürfen wir im Einzelfall Auskunft über diese Daten
-            (Bestandsdaten) erteilen, soweit dies für Zwecke der Strafverfolgung, zur Gefahrenabwehr, zur Erfüllung der
-            gesetzlichen Aufgaben der Verfassungsschutzbehörden oder des Militärischen Abschirmdienstes oder zur Durchsetzung
-            der Rechte am geistigen Eigentum erforderlich ist.</p>
-
-        <p><strong>Auskunftsrecht</strong><br/>Sie haben das jederzeitige Recht, sich unentgeltlich und unverzüglich über die zu
-            Ihrer Person erhobenen Daten zu erkundigen. Sie haben das jederzeitige Recht, Ihre Zustimmung zur Verwendung Ihrer
-            angegeben persönlichen Daten mit Wirkung für die Zukunft zu widerrufen. Zur Auskunftserteilung wenden Sie sich bitte
-            an den Anbieter unter den Kontaktdaten im Impressum.</p>
-        ]]></translation>
-                    </placeholder>
-                </placeholders>
-            </locale>
-            <locale name="en_US">
-                <url>/en/imprint</url>
-                <placeholders>
-                    <placeholder>
-                        <name>title</name>
-                        <translation>
-                            <![CDATA[
-                        <h2>Imprint</h2>
-                 ]]></translation>
-                    </placeholder>
-                    <placeholder>
-                        <name>content</name>
-                        <translation>
-                            <![CDATA[
-                        <p>Demoshop<br/>
-                            US PO-BOX:72833 1 (888) 455545</p>
-                 ]]></translation>
-                    </placeholder>
-                </placeholders>
-            </locale>
-        </locales>
-    </page>
-    <page>
-        <template>static</template>
-        <locales>
-            <locale name="de_DE">
-                <url>/de/agb</url>
-                <placeholders>
-                    <placeholder>
-                        <name>title</name>
-                        <translation>
-                            <![CDATA[
-            <h2>Allgemeine Geschäftsbedingungen (AGB)</h2>
-                 ]]></translation>
-                    </placeholder>
-                    <placeholder>
-                        <name>content</name>
-                        <translation><![CDATA[
+        <url>/agb</url>
+        <placeholder>content</placeholder>
+        <translation><![CDATA[
+        <h2>Allgemeine Geschäftsbedingungen (AGB)</h2>
             <br/>
             <br/><br/>
             <b>§ 1 Geltungsbereich & Abwehrklausel</b>
@@ -239,47 +136,15 @@
             <div style="font-size:11px;">
                 <br/>
                 <i>Quelle: <a href="http://www.kluge-recht.de">kluge-recht.de</a></i>
-            </div>]]></translation>
-                    </placeholder>
-                </placeholders>
-            </locale>
-            <locale name="en_US">
-                <url>/en/conditions</url>
-                <placeholders>
-                    <placeholder>
-                        <name>title</name>
-                        <translation>
-                            <![CDATA[
-                        <h2>Terms and Conditions</h2>
-                 ]]></translation>
-                    </placeholder>
-                    <placeholder>
-                        <name>content</name>
-                        <translation>
-                            <![CDATA[
-                        Terms and Conditions
-                 ]]></translation>
-                    </placeholder>
-                </placeholders>
-            </locale>
-        </locales>
+            </div>]]>
+        </translation>
     </page>
     <page>
         <template>static</template>
-        <locales>
-            <locale name="de_DE">
-                <url>/de/datenschutz</url>
-                <placeholders>
-                    <placeholder>
-                        <name>title</name>
-                        <translation>
-                            <![CDATA[
-                        <h2>Datenschutzerklärung</h2>
-                 ]]></translation>
-                    </placeholder>
-                    <placeholder>
-                        <name>content</name>
-                        <translation><![CDATA[
+        <url>/datenschutz</url>
+        <placeholder>content</placeholder>
+        <translation><![CDATA[
+        <h2>Datenschutzerklärung</h2>
 
         <p>Die Nutzung unserer Seite ist ohne eine Angabe von personenbezogenen Daten möglich. Für die Nutzung einzelner
             Services unserer Seite können sich hierfür abweichende Regelungen ergeben, die in diesem Falle nachstehend gesondert
@@ -310,29 +175,67 @@
         <p>
             <a target="_blank" href="https://www.ratgeberrecht.eu/leistungen/muster-datenschutzerklaerung.html">Muster-Datenschutzerklärung</a>
             der Anwaltskanzlei Weiß &amp; Partner</p>
-            ]]></translation>
-                    </placeholder>
-                </placeholders>
-            </locale>
-            <locale name="en_US">
-                <url>/en/privacy</url>
-                <placeholders>
-                    <placeholder>
-                        <name>title</name>
-                        <translation>
-                            <![CDATA[
-                        <h2>Privacy</h2>
-                 ]]></translation>
-                    </placeholder>
-                    <placeholder>
-                        <name>content</name>
-                        <translation>
-                            <![CDATA[
-                        Privacy Content ...
-                 ]]></translation>
-                    </placeholder>
-                </placeholders>
-            </locale>
-        </locales>
+            ]]>
+        </translation>
+    </page>
+    <page>
+        <template>static</template>
+        <url>/impressum</url>
+        <placeholder>content</placeholder>
+        <translation><![CDATA[
+        <h2>Impressum</h2>
+        <p>Demoshop<br/>
+            Julie-Wolfthornstraße 1<br/>10555 Berlin</p>
+
+        <p>Telefon: 030 5678909<br/>
+            E-Mail: <a href="mailto:info@spryker.com">info@spryker.com</a><br/>
+        </p>
+
+        <p><strong>Vertreten durch:</strong><br/>Spryker<br/>Geschäftsführer: Max Mustermann<br/>Registergericht: Hamburg<br/>Registernummer:
+            56789</p>
+
+        <p><strong>Registereintrag:</strong><br/>Eingetragen im Handelsregister.<br/>Registergericht: Hamburg<br/>Registernummer:
+            34567888456789</p>
+
+        <p><strong>Umsatzsteuer-ID: </strong><br/>Umsatzsteuer-Identifikationsnummer nach §27a Umsatzsteuergesetz:<br/>34567</p>
+
+        <p>Quelle: <a href="http://www.experten-branchenbuch.de/">www.experten-branchenbuch.de</a></p><br/><br/>
+
+        <h2>Datenschutzerklärung:</h2>
+
+        <p><strong>Datenschutz</strong><br/>Nachfolgend möchten wir Sie über unsere Datenschutzerklärung informieren. Sie finden
+            hier Informationen über die Erhebung und Verwendung persönlicher Daten bei der Nutzung unserer Webseite. Wir
+            beachten dabei das für Deutschland geltende Datenschutzrecht. Sie können diese Erklärung jederzeit auf unserer
+            Webseite abrufen.
+            <br/><br/>
+            Wir weisen ausdrücklich darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail)
+            Sicherheitslücken aufweisen und nicht lückenlos vor dem Zugriff durch Dritte geschützt werden kann.
+            <br/><br/>
+            Die Verwendung der Kontaktdaten unseres Impressums zur gewerblichen Werbung ist ausdrücklich nicht erwünscht, es sei
+            denn wir hatten zuvor unsere schriftliche Einwilligung erteilt oder es besteht bereits eine Geschäftsbeziehung. Der
+            Anbieter und alle auf dieser Website genannten Personen widersprechen hiermit jeder kommerziellen Verwendung und
+            Weitergabe ihrer Daten.
+            <br/><br/>
+            <strong>Personenbezogene Daten</strong>
+            <br/>
+            Sie können unsere Webseite ohne Angabe personenbezogener Daten besuchen. Soweit auf unseren Seiten personenbezogene
+            Daten (wie Name, Anschrift oder E-Mail Adresse) erhoben werden, erfolgt dies, soweit möglich, auf freiwilliger
+            Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben. Sofern zwischen Ihnen
+            und uns ein Vertragsverhältnis begründet, inhaltlich ausgestaltet oder geändert werden soll oder Sie an uns eine
+            Anfrage stellen, erheben und verwenden wir personenbezogene Daten von Ihnen, soweit dies zu diesen Zwecken
+            erforderlich ist (Bestandsdaten). Wir erheben, verarbeiten und nutzen personenbezogene Daten soweit dies
+            erforderlich ist, um Ihnen die Inanspruchnahme des Webangebots zu ermöglichen (Nutzungsdaten). Sämtliche
+            personenbezogenen Daten werden nur solange gespeichert wie dies für den geannten Zweck (Bearbeitung Ihrer Anfrage
+            oder Abwicklung eines Vertrags) erforderlich ist. Hierbei werden steuer- und handelsrechtliche Aufbewahrungsfristen
+            berücksichtigt. Auf Anordnung der zuständigen Stellen dürfen wir im Einzelfall Auskunft über diese Daten
+            (Bestandsdaten) erteilen, soweit dies für Zwecke der Strafverfolgung, zur Gefahrenabwehr, zur Erfüllung der
+            gesetzlichen Aufgaben der Verfassungsschutzbehörden oder des Militärischen Abschirmdienstes oder zur Durchsetzung
+            der Rechte am geistigen Eigentum erforderlich ist.</p>
+
+        <p><strong>Auskunftsrecht</strong><br/>Sie haben das jederzeitige Recht, sich unentgeltlich und unverzüglich über die zu
+            Ihrer Person erhobenen Daten zu erkundigen. Sie haben das jederzeitige Recht, Ihre Zustimmung zur Verwendung Ihrer
+            angegeben persönlichen Daten mit Wirkung für die Zukunft zu widerrufen. Zur Auskunftserteilung wenden Sie sich bitte
+            an den Anbieter unter den Kontaktdaten im Impressum.</p>
+        ]]></translation>
     </page>
 </pages>

@@ -3,9 +3,34 @@
     <block>
         <template>quote_block</template>
         <blockName>quotes_1</blockName>
-        <placeholder>quote_reference</placeholder>
-        <translation>Wir sind alle Engel mit nur einem Flügel - um fliegen zu können; müssen wir uns umarmen._Luciano De Crescenzo</translation>
+        <locales>
+            <locale name="de_DE">
+                <placeholders>
+                    <placeholder>
+                        <name>quote</name>
+                        <translation>Wir sind alle Engel mit nur einem Flügel - um fliegen zu können; müssen wir uns umarmen.</translation>
+                    </placeholder>
+                    <placeholder>
+                        <name>reference</name>
+                        <translation>Luciano De Crescenzo</translation>
+                    </placeholder>
+                </placeholders>
+            </locale>
+            <locale name="en_US">
+                <placeholders>
+                    <placeholder>
+                        <name>quote</name>
+                        <translation>English quotes</translation>
+                    </placeholder>
+                    <placeholder>
+                        <name>reference</name>
+                        <translation>English Name</translation>
+                    </placeholder>
+                </placeholders>
+            </locale>
+        </locales>
     </block>
+    <!--
     <block>
         <template>quote_block</template>
         <blockName>quotes_2</blockName>
@@ -18,4 +43,5 @@
         <placeholder>quote_reference</placeholder>
         <translation>Gäbe es nicht das Herz; das du liebst; wärest du feiner Staub; den der Wind davonträgt._Khalil Gibran</translation>
     </block>
+    -->
 </blocks>
