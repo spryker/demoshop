@@ -292,14 +292,15 @@ $(document).ready(function () {
                 url : $('#checkoutAddCouponUrl').val(),
                 method: 'POST',
                 data: { 'couponCode' : $('#cart__coupon-code').val() },
-                dataType: 'html'
+                dataType: 'json'
 
             })
-            .done(renderCart)
-            .fail(function(data) {
-                console.log('[ERROR] ');
-                console.log(data);
-                messageService.add({type: 'invalid', message: data);
+            .done(function (data) {
+                if (data.errorMessage) {
+                    messageService.add({ type: 'invalid', message: data.errorMessage });
+                } else {
+                    renderCart(data.html);
+                }
             }).always(function () {
                 $button.prop('disabled', false);
             });
