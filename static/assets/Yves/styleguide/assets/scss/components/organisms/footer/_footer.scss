@@ -122,6 +122,10 @@
 
 
 @media (min-width: $_wMedium) {
+    .footer__row{
+        display: block;
+    }
+
     .footer__column{
         width: 50%;
         max-width: none;

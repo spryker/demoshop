@@ -69,6 +69,7 @@ class PaymentDetail extends AbstractType
                 'required' => false,
                 'attr' => [
                     'class' => 'input--1-1',
+                    'autocomplete' => 'off',
                     'data-required' => true,
                     'data-depending-field' => 'checkout[adyen_payment][payment_method]',
                     'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA,
@@ -80,6 +81,7 @@ class PaymentDetail extends AbstractType
                 'required' => false,
                 'attr' => [
                     'class' => 'input--1-1',
+                    'autocomplete' => 'off',
                     'data-required' => true,
                     'data-depending-field' => 'checkout[adyen_payment][payment_method]',
                     'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA,
@@ -92,6 +94,7 @@ class PaymentDetail extends AbstractType
                 'required' => false,
                 'attr' => [
                     'class' => 'input--1-1',
+                    'autocomplete' => 'off',
                     'data-required' => true,
                     'data-depending-field' => 'checkout[adyen_payment][payment_method]',
                     'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_SEPA,
@@ -115,7 +118,6 @@ class PaymentDetail extends AbstractType
                     'id' => 'adyen-encrypted-form-expiry-generationtime',
                     'data-encrypted-name' => 'generationtime',
                     'value' => date('c'),
-                    'autocomplete' => 'off',
                     'data-required' => true,
                     'data-depending-field' => 'checkout[adyen_payment][payment_method]',
                     'data-depending-value' => AdyenPaymentMethodConstants::ADYEN_PAYMENT_METHOD_CREDIT_CARD_CSE
@@ -172,6 +174,7 @@ class PaymentDetail extends AbstractType
                 'attr' => [
                     'id' => 'adyen-encrypted-form-expiry-month',
                     'data-encrypted-name' => 'expiryMonth',
+                    'autocomplete' => 'off',
                     'placeholder' => 'MM',
                     'autocomplete' => 'off',
                     'data-required' => true
@@ -184,6 +187,7 @@ class PaymentDetail extends AbstractType
                 'attr' => [
                     'id' => 'adyen-encrypted-form-expiry-year',
                     'data-encrypted-name' => 'expiryYear',
+                    'autocomplete' => 'off',
                     'placeholder' => 'YYYY',
                     'autocomplete' => 'off',
                     'data-required' => true

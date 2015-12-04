@@ -68,6 +68,10 @@
     @include pdif('sofort', 36px, 111px);
 }
 
+.payment__method__vorkasse{
+    @include pdif('vorkasse', 29px, 82px);
+}
+
 
 @media (min-width: 700px){
     .payment__method{
