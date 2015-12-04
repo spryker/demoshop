@@ -110,7 +110,6 @@ class CheckoutController extends AbstractController
 
                 $checkoutRequest->setCart($this->getCart());
 
-                $checkoutRequest->setShippingAddress($checkoutRequest->getBillingAddress());
                 $checkoutRequest->setPaymentMethod($paymentMethod);
 
                 /** @var CheckoutResponseTransfer $checkoutResponseTransfer */
