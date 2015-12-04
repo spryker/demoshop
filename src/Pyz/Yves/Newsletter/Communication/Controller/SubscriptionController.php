@@ -37,22 +37,24 @@ class SubscriptionController extends AbstractController
             $newsletterTypes[] = $newsletterType;
         }
 
-        $subscriptionRequest->setNewsletterSubscriber($subscriber);
-        $subscriptionRequest->setNewsletterTypes($newsletterTypes);
-
-        /** @var NewsletterSubscriptionResponseTransfer $transferResult */
-        $transferResult = $this->locator->mailchimpNewsletter()->client()->subscribeWithDoubleOptIn($subscriptionRequest);
-
-        /** @var NewsletterSubscriptionResultTransfer $subscriptionResult */
         $subscriptionsResults = [];
-        foreach($transferResult->getSubscriptionResults() as $subscriptionResult)
-        {
-            $subscriptionResult = [
-                'name' => $subscriptionResult->getNewsletterType()->getName(),
-                'isSuccess' => $subscriptionResult->getIsSuccess(),
-                'errorMessage' => $subscriptionResult->getErrorMessage()
-            ];
-            $subscriptionsResults[] = $subscriptionResult;
+
+        if ($newsletterTypes->count() > 0) {
+            $subscriptionRequest->setNewsletterSubscriber($subscriber);
+            $subscriptionRequest->setNewsletterTypes($newsletterTypes);
+            /** @var NewsletterSubscriptionResponseTransfer $transferResult */
+            $transferResult = $this->locator->mailchimpNewsletter()->client()->subscribeWithDoubleOptIn($subscriptionRequest);
+
+            /** @var NewsletterSubscriptionResultTransfer $subscriptionResult */
+            foreach($transferResult->getSubscriptionResults() as $subscriptionResult)
+            {
+                $subscriptionResult = [
+                    'name' => $subscriptionResult->getNewsletterType()->getName(),
+                    'isSuccess' => $subscriptionResult->getIsSuccess(),
+                    'errorMessage' => $subscriptionResult->getErrorMessage()
+                ];
+                $subscriptionsResults[] = $subscriptionResult;
+            }
         }
 
         if($request->isXmlHttpRequest())
