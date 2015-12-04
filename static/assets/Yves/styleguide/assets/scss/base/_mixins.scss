@@ -108,6 +108,33 @@
 }
 
 @mixin wysiwyg{
+    h1{
+        font-family: $_ffBrandonGrotesque-Black;
+        font-size: $_fsMedium;
+        color: $_rgbApple;
+        line-height: 1.2em;
+        margin: 0.5em 0;
+        clear: both;
+    }
+
+    h2{
+        font-family: $_ffBrandonGrotesque-Black;
+        font-size: 22px;
+        color: $_rgbApple;
+        line-height: 1.2em;
+        margin: 0.5em 0;
+        clear: both;
+    }
+
+    h3{
+        font-family: $_ffBrandonGrotesque-Bold;
+        font-size: 20px;
+        color: $_rgbDoveGray;
+        line-height: 1.2em;
+        margin: 0.5em 0;
+        clear: both;
+    }
+
     strong{
         font-family: $_ffBrandonGrotesque-Bold;
         font-weight: normal;
@@ -118,6 +145,16 @@
     }
 
     li{
-        margin-left: 30px;
+        margin-left: 20px;
+    }
+
+    p {
+        @include clearfix;
+        margin-bottom: 1em;
+
+        img{
+            float: left;
+            margin: 5px 5px 5px 0;
+        }
     }
 }

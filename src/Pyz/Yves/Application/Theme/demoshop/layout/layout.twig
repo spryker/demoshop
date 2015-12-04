@@ -51,22 +51,18 @@
         })();
     </script>
 
-    {#
-        {% block header %}
-            {% include "@application/layout/partials/header.twig" %}
-        {% endblock %}
-#}
+
     {{ content }}
 
-    {#
-                {% block footer %}
-                    {% include "@application/layout/partials/footer.twig" %}
-                {% endblock %}
-    #}
+
     <script src="/js/sg-main.js"></script>
+
     <script type="text/javascript">
         document.body.className = '';
     </script>
+
+    {% include "@application/layout/partials/google-tag-snippet.twig" %}
+
     </body>
     </html>
 {% endspaceless %}
