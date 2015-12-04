@@ -166,12 +166,15 @@ $(document).ready(function () {
             event.preventDefault();
 
             var values = {};
-
+            var includeDelivery = $('#different-delivery-address:checked').size() > 0;
 
             $.each($checkout.serializeArray(), function (i, field) {
                 if (field.name.indexOf('checkout') > -1) {
                     if (field.name.indexOf('adyen_encrypted') === -1) {
-                        values[field.name] = field.value;
+
+                        if (includeDelivery || field.name.indexOf('shipping_address') === -1) {
+                            values[field.name] = field.value;
+                        }
                     }
                 }
             });
