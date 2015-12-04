@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
+use Generated\Shared\Transfer\ConcreteProductTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use PavFeature\Zed\ProductDynamic\Business\ProductDynamicFacade;
 use PavFeature\Zed\ProductDynamic\Persistence\ProductDynamicQueryContainer;
@@ -10,6 +11,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Join;
 use Pyz\Zed\Collector\Business\Exception\WrongJsonStringException;
 use Pyz\Zed\Price\Business\PriceFacade;
+use Pyz\Zed\Product\Business\ProductFacade;
 use Pyz\Zed\Propel\Business\PropelFacade;
 use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
@@ -85,6 +87,9 @@ class ProductCollector extends AbstractPropelCollectorPlugin
      */
     private $productDynamicQueryContainer;
 
+    /** @var  ProductFacade */
+    private $productFacade;
+
     /**
      * @param PriceFacade $priceFacade
      * @param PriceQueryContainer $priceQueryContainer
@@ -93,6 +98,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
      * @param PropelFacade $propelFacade
      * @param ProductDynamicFacade $productDynamicFacade
      * @param ProductDynamicQueryContainer $productDynamicQueryContainer
+     * @param ProductFacade $productFacade
      */
     public function __construct(
         PriceFacade $priceFacade,
@@ -101,7 +107,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         ProductOptionExporterFacade $productOptionExporterFacade,
         PropelFacade $propelFacade,
         ProductDynamicFacade $productDynamicFacade,
-        ProductDynamicQueryContainer $productDynamicQueryContainer
+        ProductDynamicQueryContainer $productDynamicQueryContainer,
+        ProductFacade $productFacade
     ) {
         $this->priceFacade = $priceFacade;
         $this->priceQueryContainer = $priceQueryContainer;
@@ -110,6 +117,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $this->propelFacade = $propelFacade;
         $this->productDynamicFacade = $productDynamicFacade;
         $this->productDynamicQueryContainer = $productDynamicQueryContainer;
+        $this->productFacade = $productFacade;
     }
 
     /**
@@ -156,6 +164,10 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $baseQuery->withColumn(
             'MIN( spy_product.sku)',
             'concrete_sku'
+        );
+        $baseQuery->withColumn(
+            'MIN( spy_product.id_product)',
+            'id_concrete_product'
         );
         $baseQuery->addJoin(
             SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
@@ -386,7 +398,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         if (false) {
             $baseQuery->addAnd(
                 SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
-                92,
+                93,
                 Criteria::EQUAL
             );
         }
@@ -701,12 +713,12 @@ class ProductCollector extends AbstractPropelCollectorPlugin
      * @param array $toClean
      * @return array
      */
-    protected function removeEmptyValuesFromArray(array $toClean) {
+    protected function removeEmptyValuesFromArray(array $toClean)
+    {
         foreach ($toClean as $key => $value) {
             if (empty($value)) {
                 unset($toClean[$key]);
-            }
-            elseif (is_array($value)) {
+            } elseif (is_array($value)) {
                 $toClean[$key] = $this->removeEmptyValuesFromArray($value);
             }
         }
@@ -714,6 +726,10 @@ class ProductCollector extends AbstractPropelCollectorPlugin
     }
 
 
+    /**
+     * @param array $oneConcreteProduct
+     * @return array
+     */
     protected function createAbstractProductData(array $oneConcreteProduct)
     {
         $abstractProductData = [];
@@ -801,11 +817,33 @@ class ProductCollector extends AbstractPropelCollectorPlugin
      */
     protected function loadConcreteProductDynamicCollection(array $concreteProductData)
     {
-        if ($concreteProductData[ProductDynamicQueryContainer::PRODUCT_TYPE] !== ProductDynamicConfig::DYNAMIC_PRODUCT_TYPE_DYNAMIC) {
-            return [];
-        }
 
-        return $this->productDynamicFacade->loadRelatedProductDynamicCollection($concreteProductData);
+        switch ($concreteProductData[ProductDynamicQueryContainer::PRODUCT_TYPE]) {
+            case ProductDynamicConfig::DYNAMIC_PRODUCT_TYPE_DYNAMIC:
+                return $this->productDynamicFacade->loadRelatedProductDynamicCollection($concreteProductData);
+                break;
+            case ProductDynamicConfig::DYNAMIC_PRODUCT_TYPE_BUNDLE:
+
+                $concreteProductTransfer = new ConcreteProductTransfer();
+                $concreteProductTransfer->setIdConcreteProduct($concreteProductData['id_concrete_product']);
+
+                /** @var $productFacade ProductFacade */
+                $bundledProducts = $this->productFacade->getAssignedBundledAbstractProducts($concreteProductTransfer);
+
+                foreach ($bundledProducts as $abstractProductTransfer) {
+                    if ($abstractProductTransfer->getType() === ProductDynamicConfig::DYNAMIC_PRODUCT_TYPE_DYNAMIC) {
+                        return $this->productDynamicFacade->loadRelatedProductDynamicCollection(
+                            [
+                                'id_abstract_product' => $abstractProductTransfer->getIdAbstractProduct(),
+                                'product_group_values' => $concreteProductData['product_group_values']
+                            ]
+                        );
+                    }
+                }
+
+                break;
+        }
+        return [];
     }
 
     /**

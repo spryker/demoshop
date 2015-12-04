@@ -20,6 +20,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
     const QUERY_CONTAINER_CATEGORY_CMS = 'category_cms_query_container';
     const CMS_BLOCK_FACADE = 'cms_block_facade';
     const CMS_BLOCK_QUERY_CONTAINER = 'cms_block_query_container';
+    const FACADE_PRODUCT = 'product_facade';
 
     /**
      * @var Container
@@ -72,6 +73,10 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[self::CMS_BLOCK_FACADE] = function (Container $container) {
             return $container->getLocator()->cmsBlock()->facade();
+        };
+
+        $container[self::FACADE_PRODUCT] = function (Container $container) {
+            return $container->getLocator()->product()->facade();
         };
 
         $container[self::QUERY_CONTAINER_PRODUCT_DYNAMIC] = function (Container $container) {

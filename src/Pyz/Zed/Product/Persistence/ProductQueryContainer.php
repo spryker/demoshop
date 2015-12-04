@@ -2,9 +2,12 @@
 
 namespace Pyz\Zed\Product\Persistence;
 
+use Orm\Zed\Product\Persistence\Base\SpyAbstractProduct;
 use Orm\Zed\Product\Persistence\Base\SpyProductQuery;
+use Orm\Zed\Product\Persistence\Map\SpyAbstractProductTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductToBundleTableMap;
+use Orm\Zed\Product\Persistence\SpyAbstractProductQuery;
 use Orm\Zed\Product\Persistence\SpyLocalizedAbstractProductAttributesQuery;
 use Orm\Zed\Product\Persistence\SpyProductToBundleQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
@@ -83,6 +86,27 @@ class ProductQueryContainer extends SprykerProductQueryContainer implements Spry
                 Criteria::INNER_JOIN
             )
             ->addAnd(SpyProductTableMap::COL_FK_ABSTRACT_PRODUCT, $idAbstractProduct, Criteria::EQUAL)
+            ;
+    }
+
+    /**
+     * @param $idConcreteProduct
+     * @return SpyAbstractProductQuery
+     */
+    public function queryAbstractProductByBundleProduct($idConcreteProduct)
+    {
+        return SpyAbstractProductQuery::create()
+            ->addJoin(
+                SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
+                SpyProductTableMap::COL_FK_ABSTRACT_PRODUCT,
+                Criteria::INNER_JOIN
+            )
+            ->addJoin(
+                SpyProductTableMap::COL_ID_PRODUCT,
+                SpyProductToBundleTableMap::COL_FK_RELATED_PRODUCT,
+                Criteria::INNER_JOIN
+            )
+            ->addAnd(SpyProductToBundleTableMap::COL_FK_PRODUCT, $idConcreteProduct, Criteria::EQUAL)
             ;
     }
 
