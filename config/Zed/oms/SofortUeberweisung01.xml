@@ -53,6 +53,12 @@
             </transition>
 
             <transition>
+                <source>invalid</source>
+                <target>invalid</target>
+                <event>release used voucher</event>
+            </transition>
+
+            <transition>
                 <source>redirected</source>
                 <target>redirect payment timeout</target>
                 <event>adyen timeout authorise notification not received</event>
@@ -122,6 +128,7 @@
             <event name="adyen invalidate error payment" onEnter="true" />
             <event name="adyen timeout payment cancellation" command="Adyen/Cancel" timeout="2days"/>
             <event name="send order confirmation mail" onEnter="true" command="OmsMailQueueConnector/OrderConfirmationMail"/>
+            <event name="release used voucher" onEnter="true" command="OmsDiscountConnector/ReleaseUsedVoucherCode"/>
         </events>
 
     </process>

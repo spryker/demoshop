@@ -40,6 +40,12 @@
                 <event>adyen check authorise request</event>
             </transition>
 
+            <transition>
+                <source>invalid</source>
+                <target>invalid</target>
+                <event>release used voucher</event>
+            </transition>
+
             <transition happy="true" condition="Adyen/HasAuthoriseNotificationReceived">
                 <source>waiting for authorise notification</source>
                 <target>authorise notification received</target>
@@ -95,6 +101,7 @@
             <event name="adyen check authorise request" onEnter="true" />
             <event name="send order confirmation mail" onEnter="true" command="OmsMailQueueConnector/OrderConfirmationMail"/>
             <event name="timeout missing authorise notification" timeout="1days"/>
+            <event name="release used voucher" onEnter="true" command="OmsDiscountConnector/ReleaseUsedVoucherCode"/>
         </events>
 
     </process>

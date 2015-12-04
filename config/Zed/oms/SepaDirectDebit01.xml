@@ -41,6 +41,12 @@
             </transition>
 
             <transition>
+                <source>invalid</source>
+                <target>invalid</target>
+                <event>release used voucher</event>
+            </transition>
+
+            <transition>
                 <source>waiting for authorise notification</source>
                 <target>waiting for authorise notification</target>
                 <event>send order received mail</event>
@@ -102,6 +108,7 @@
             <event name="send order confirmation mail" onEnter="true" command="OmsMailQueueConnector/OrderConfirmationMail"/>
             <event name="send order received mail" onEnter="true" command="OmsMailQueueConnector/SepaOrderReceivedMail"/>
             <event name="timeout missing authorise notification" timeout="3days"/>
+            <event name="release used voucher" onEnter="true" command="OmsDiscountConnector/ReleaseUsedVoucherCode"/>
         </events>
 
     </process>
