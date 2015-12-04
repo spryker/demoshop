@@ -8,9 +8,12 @@
 
 
 .menu-teaser-full{
+    position: relative;
+    z-index: 1;
     padding: 0 20px;
     overflow: hidden;
     background: $_rgbWhite;
+    box-shadow: 1px 1px 0 1px #ECECEC;
 }
 
 .menu-teaser-full__inner{

@@ -106,3 +106,18 @@
         background: $_color;
     }
 }
+
+@mixin wysiwyg{
+    strong{
+        font-family: $_ffBrandonGrotesque-Bold;
+        font-weight: normal;
+    }
+
+    ul, ol{
+        margin: 1em 0;
+    }
+
+    li{
+        margin-left: 30px;
+    }
+}

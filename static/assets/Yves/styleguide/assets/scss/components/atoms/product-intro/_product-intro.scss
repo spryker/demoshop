@@ -35,6 +35,8 @@
 
     font-size: 16px;
     color: $_rgbDoveGray;
+
+    @include wysiwyg;
 }
 
 .product-info__additional{

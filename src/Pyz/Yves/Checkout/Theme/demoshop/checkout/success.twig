@@ -26,6 +26,53 @@
         </div>
     </div>
 
+    <script type="text/javascript">
+        // TODO: abstract into module, remove inline
+        (function () {
+            var purchase, products;
+
+            purchase = window.dataLayer[1].page.purchase;
+            products = window.dataLayer[1].page.products;
+
+            var data = {
+                'ecommerce': {
+                    'purchase': {
+                      'actionField': {
+                        'id': purchase.id,
+                        'affiliation': 'Online Store',
+                        'revenue': purchase.revenue,
+                        'tax': purchase.tax,
+                        'shipping': dataLayer[1].page.purchase.shipping ? dataLayer[1].page.purchase.shipping : 0,
+                        'coupon': dataLayer[1].page.purchase.coupon ? dataLayer[1].page.purchase.coupon : ''
+                      },
+                      'products': []
+                    }
+                }
+            };
+
+            if (dataLayer[1].page.purchase.shipping) {
+
+            }
+
+            for (var i = 0; i < products.length; i++) {
+                var product = products[i];
+
+                data.ecommerce.purchase.products.push({
+                      'name': product.name,
+                      'id': product.id,
+                      'price': product.price,
+                      'brand': product.brand,
+                      'category': '',
+                      'variant': '',
+                      'quantity': product.quantity
+                });
+            }
+
+            console.info(data);
+            window.dataLayer.push(data);
+        }());
+    </script>
+
     {% include "@application/layout/footer.twig" %}
 
 {% endblock %}

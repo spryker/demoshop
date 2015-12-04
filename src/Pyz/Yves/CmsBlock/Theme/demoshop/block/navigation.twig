@@ -26,7 +26,7 @@
                 url: (app.user is not null ? '/logout/' : '/login/'),
                 title: (app.user is not null ? 'Abmelden' : 'Anmelden'),
                 modifier: 'login'},
-            { url: 'checkout', title: 'Warenkorb', modifier: 'cart', menu: app.request.attributes.get('_route') != 'checkout' ? 'cart' : ''},
+            { url: '/checkout/', title: 'Warenkorb', modifier: 'cart', menu: app.request.attributes.get('_route') != 'checkout' ? 'cart' : ''},
         ]
     }
 %}

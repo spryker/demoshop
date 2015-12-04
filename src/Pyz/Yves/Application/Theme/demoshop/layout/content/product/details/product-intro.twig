@@ -7,9 +7,9 @@
 
     {% if product.short_description.markdown is defined %}
         <div class="product-info__description">
-                {% markdown %}
-                    {{ product.short_description.markdown }}
-                {% endmarkdown %}
+            {% markdown %}
+                {{ product.short_description.markdown }}
+            {% endmarkdown %}
         </div>
     {% endif %}
     <!-- <div class="product-info__additional">#(Fütterungsempfehlung: 2-3% des Körpergewichts pro Tag.)</div> -->

@@ -50,6 +50,7 @@
     max-height: calc(100vh - 103px);
     overflow-y: auto;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 .menu--open{
@@ -72,7 +73,6 @@
     background: $_rgbWhite;
 
     @include clearfix;
-    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
 }
 
 
