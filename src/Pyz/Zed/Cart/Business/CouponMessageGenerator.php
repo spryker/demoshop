@@ -43,7 +43,7 @@ class CouponMessageGenerator implements SprykerBugfixInterface
     {
         $message = self::COUPON_ERROR_MSG;
 
-        if($this->isSuccess($oldCart, $newCart) === false)
+        if($this->isSuccess($oldCart, $newCart) === true)
         {
             //a discount was added so the coupon should be valid
             $message = self::COUPON_SUCCESS_MSG;
