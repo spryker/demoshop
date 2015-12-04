@@ -1,14 +1,14 @@
 {% extends "@application/layout/layout.twig" %}
 {% block content %}
     <div class="catalog">
-        <h2>Wishlist</h2>
+        <h2>{{ 'whishlist.whishlist' }}</h2>
         <ul>
         {% for wishlistItem in customerWishlist.getItems() %}
             <li>{{ wishlistItem.getConcreteProduct().getName() }} X ({{ wishlistItem.getQuantity() }})
-                <a href="{{ path('wishlist/remove', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">Remove</a>
-                <a href="{{ path('wishlist/decrease', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">Reduce</a>
-                <a href="{{ path('wishlist/increase', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">Increase</a>
-                <a href="{{ path('wishlist/add-to-cart', {groupKey:  wishlistItem.getGroupKey()  }) }}">Move to cart</a>
+                <a href="{{ path('wishlist/remove', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">{{ 'whishlist.remove' | trans }}</a>
+                <a href="{{ path('wishlist/decrease', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">{{ 'whishlist.reduce' | trans }}</a>
+                <a href="{{ path('wishlist/increase', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">{{ 'whishlist.increase' }}</a>
+                <a href="{{ path('wishlist/add-to-cart', {groupKey:  wishlistItem.getGroupKey()  }) }}">{{ 'whishlist.move.to.cart' | trans }}Move to cart</a>
             </li>
         {% endfor %}
         </ul>

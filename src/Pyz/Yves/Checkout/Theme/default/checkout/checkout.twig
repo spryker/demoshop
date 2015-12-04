@@ -3,7 +3,7 @@
 {% form_theme form '@checkout/checkout/theme.twig' %}
 
 {% block content %}
-    {% if cart.items|length > 0 %}
+    {% if cart.items | length > 0 %}
         <div class="checkout">
             <div class="checkout__wrapper">
                 <div class="checkout__cart js-checkout-cart">
@@ -28,10 +28,9 @@
 
                             {{ form_widget(form.create_account) }}{{ form_label(form.create_account) }}
                             <div id="create_account" style="display: none;">
-                                {{ form_widget(form.password.first, { 'attr': {'placeholder': 'customer.password'} })}}
-                                {{ form_widget(form.password.second, { 'attr': {'placeholder': 'password.confirm'} }) }}
+                                {{ form_widget(form.password.first, { 'attr': { 'placeholder': 'customer.password' } }) }}
+                                {{ form_widget(form.password.second, { 'attr': { 'placeholder': 'password.confirm' } }) }}
                             </div>
-
 
                             <input type="checkbox" name="different-delivery-address" id="different-delivery-address" class="padded js-delivery-address-checkbox" tabindex="270">
                             <label for="different-delivery-address">{{ "page.checkout.address.billing-isnt-shipping-address" | trans }}</label>
@@ -60,12 +59,10 @@
                         <div>
                             {% include "@checkout/checkout/cart.twig" %}
                         </div>
-                        {#<input type="text" name="checkout-voucher-code" class="padded confirm__voucher-code js-voucher-code" placeholder="Gutscheincode eingeben">
-                        <button class="confirm__voucher-submit js-voucher-submit">Gutscheincode einlösen</button>#}
                         <div class="confirm__agb-submit">
                             {{ form_widget(form.terms) }}
-                            <label for="{{ form.terms.vars.id }}" class="confirm__agb-label"><a href="/agb" target="_blank">{{ 'page.checkout.terms'|trans }}</a></label>
-                            <button type="submit" id="checkout_submit" disabled="disabled" class="cta confirm__submit js-checkout-submit">{{ 'page.checkout.finalize.buy-now'|trans }}</button>
+                            <label for="{{ form.terms.vars.id }}" class="confirm__agb-label"><a href="/agb" target="_blank">{{ 'page.checkout.terms' | trans }}</a></label>
+                            <button type="submit" id="checkout_submit" disabled="disabled" class="cta confirm__submit js-checkout-submit">{{ 'page.checkout.finalize.buy-now' | trans }}</button>
                         </div>
                     </section>
                     {{ form_end(form) }}
@@ -75,7 +72,7 @@
     {% else %}
         <article class="product product--justice-league">
             <section class="product__overview">
-                <h2 class="product__name">{{ 'cart.empty'|trans }}</h2>
+                <h2 class="product__name">{{ 'cart.empty' | trans }}</h2>
             </section>
         </article>
     {% endif %}
