@@ -1,8 +1,8 @@
-{% if cart.items|length > 0 %}
+{% if cart.items | length > 0 %}
     {% spaceless %}
         <div class="cart__labels">
-            <div class="cart__label--name">{{ 'cart.your-order'|trans }}</div>
-            <div class="cart__label--price">{{ 'cart.price'|trans }}</div>
+            <div class="cart__label--name">{{ 'cart.your-order' | trans }}</div>
+            <div class="cart__label--price">{{ 'cart.price' | trans }}</div>
         </div>
         <div class="cart__items js-cart-items">
             {% for item in cart.items %}
@@ -21,7 +21,7 @@
                             <input type="button" value="x" class="spinner__increment cart-remove">
                         </div>
                     </div>
-                    <div class="cart__item-price">{{ (item.totalPrice)|price }}</div>
+                    <div class="cart__item-price">{{ item.totalPrice | price }}</div>
                 </div>
             {% endfor %}
         </div>
@@ -31,14 +31,14 @@
               <div class="cart__shipping-price js-cart-shipping">{{ 250|price }}</div>
             </div>#}
             <div class="cart__total">
-              <div class="cart__total-label" colspan="2">{{ 'cart.total'|trans }}</div>
-              <div class="cart__total-price js-cart-total">{{ cart.totals.grandTotal|price }}</div>
+              <div class="cart__total-label" colspan="2">{{ 'cart.total' | trans }}</div>
+              <div class="cart__total-price js-cart-total">{{ cart.totals.grandTotal | price }}</div>
             </div>
         {% endif %}
-        <a href="{{ url('checkout') }}" class="cart__to-checkout cta">{{ 'cart.checkout'|trans }}</a>
+        <a href="{{ url('checkout') }}" class="cart__to-checkout cta">{{ 'cart.checkout' | trans }}</a>
     {% endspaceless %}
 {% else %}
     <div style="text-align: center; font-weight: bold; font-size: 1.2em">
-        {{ 'cart.empty'|trans }}
+        {{ 'cart.empty' | trans }}
     </div>
 {% endif %}

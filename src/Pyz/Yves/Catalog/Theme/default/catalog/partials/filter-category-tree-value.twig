@@ -3,9 +3,9 @@
     id="filter-{{ filterName }}-{{ value }}"
     name="filter-{{ filterName }}"
     value="{{ value }}"
-    {% if isDefault %}
+    {% if isDefault -%}
         checked=checked
-    {% endif %}
+    {%- endif %}
     class="js-filter-category {% if isDefault %}js-filter-default-value{% endif %}"
 />
 <label for="filter-{{ filterName }}-{{ value }}">{{ displayValue }}

@@ -1,8 +1,8 @@
 <form action="#" name="login" class="login-form js-login-form" data-register-url="{{ url('register') }}" data-login-url="{{ url('login_check') }}">
-    <input type="text" class="login__email padded" name="_username" placeholder="{{ 'Email Address'|trans }}">
-    <input type="password" class="login__password padded" name="_password" placeholder="{{ 'Password'|trans }}">
-    <button class="login__forgot-password">{{ 'Recover Password' | trans }}</button>
-    <label for="agb" class="login__agb"><input type="checkbox" name="agb"> {{ 'Accept Terms and Conditions'|trans }}</label>
-    <input type="submit" class="login__submit js-login-submit cta" value="{{ 'Login'|trans }}">
-    <button class="login__switch js-login-form-switch">{{ 'Create account'|trans }}</button>
+    <input type="text" class="login__email padded" name="_username" placeholder="{{ 'global.email.address' | trans }}">
+    <input type="password" class="login__password padded" name="_password" placeholder="{{ 'global.password' | trans }}">
+    <button class="login__forgot-password">{{ 'global.recover.password' | trans }}</button>
+    <label for="agb" class="login__agb"><input type="checkbox" name="agb"> {{ 'global.accept.terms.and.conditions' | trans }}</label>
+    <input type="submit" class="login__submit js-login-submit cta" value="{{ 'global.login' | trans }}">
+    <button class="login__switch js-login-form-switch">{{ 'global.create.account' | trans }}</button>
 </form>

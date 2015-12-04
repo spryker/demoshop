@@ -215,6 +215,11 @@ keys:
     translations:
       de_DE: 'Der Warenkorb ist zur Zeit leer!'
       en_US: 'Your shopping cart is empty!'
+  cart.cart:
+    translations:
+      de_DE: 'Warenkorb'
+      en_US: 'Cart'
+
 
   auth.login:
     translations:
@@ -592,6 +597,70 @@ keys:
       de_DE: 'Kundenaccout erstellen'
       en_US: 'Create customer account'
 
-  close:
+  whishlist.whishlist:
+    translations:
+      en_US: 'Whishlist'
+  whishlist.remove:
+    translations:
+      en_US: 'Remove'
+  whishlist.reduce:
+    translations:
+      en_US: 'Reduce'
+  whishlist.increase:
+    translations:
+      en_US: 'Increase'
+  whishlist.move.to.cart:
+    translations:
+      en_US: 'Move to cart'
+
+  checkout.thank.you:
+    translations:
+      en_US: 'Thank you'
+  checkout.this.is.demoshop:
+    translations:
+      en_US: 'This is a demoshop'
+  checkout.nothing.will.be.sent:
+    translations:
+      en_US: "Therefore, of course, nothing will be sent!"
+
+  global.order.ascendent:
+    translations:
+        en_US: 'A-Z'
+  global.order.descendent:
+    translations:
+        en_US: 'Z-A'
+
+  global.close:
     translations:
         en_US: 'Close'
+  global.search:
+    translations:
+        en_US: 'Search'
+  global.spryker.shop:
+    translations:
+        en_US: 'Spryker Shop'
+  global.email.address:
+    translations:
+        en_US: 'Email Address'
+  global.password:
+    translations:
+        en_US: 'Password'
+  global.recover.password:
+    translations:
+        en_US: 'Recover Password'
+  global.accept.terms.and.conditions:
+    translations:
+        en_US: 'Accept Terms and Conditions'
+  global.login:
+    translations:
+        en_US: 'Login'
+  global.create.account:
+    translations:
+        en_US: 'Create Account'
+  global.cart:
+    translations:
+        en_US: 'Cart'
+
+  error.404:
+    translations:
+        en_US: 'Error 404'
