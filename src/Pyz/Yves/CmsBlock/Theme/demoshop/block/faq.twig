@@ -1,4 +1,8 @@
-{% set pets = cmsValues.pets %}
+{% if cmsValues.pets is defined %}
+    {%  set pets = cmsValues.pets %}
+{% else %}
+    {%  set pets = [] %}
+{% endif %}
 
 {% for pet in pets %}
     <h1>{{ pet.pet }}</h1>
