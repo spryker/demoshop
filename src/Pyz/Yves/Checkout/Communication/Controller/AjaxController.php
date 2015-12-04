@@ -5,6 +5,7 @@ namespace Pyz\Yves\Checkout\Communication\Controller;
 use Generated\Shared\Transfer\CountryTransfer;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Generated\Shared\Transfer\CartTransfer;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -72,9 +73,12 @@ class AjaxController extends AbstractController
             ];
         }
 
-        return $this->viewResponse([
-            'cart' => $cartClient->getCart(),
-            'products' => $products,
+        return new JsonResponse([
+            'errorMessage' => $cartClient->getCart()->getCouponMessage(),
+            'html' => $this->renderView('@checkout/ajax/add-coupon.twig', [
+                'cart' => $cartClient->getCart(),
+                'products' => $products
+            ])->getContent()
         ]);
 
         // @Todo: replace with this once coupon error messages are fixed by Spryker
