@@ -28,7 +28,9 @@ class MailSender implements MailSenderInterface
         $ids = $this->getOrderItemIdFromTransfer($orderItemAfterbuyResponseEntity);
         $to      = $this->getFormattedEmailAddresses();
         $subject = 'Afterbuy Export ' . $success . ' order Item ID ' . implode('-', $ids);
-        mail($to, $subject, $this->createMailMessage($afterbuyResponseEntity, $ids));
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+        mail($to, $subject, $this->createMailMessage($afterbuyResponseEntity, $ids), $headers);
     }
 
     /**
