@@ -386,7 +386,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         if (false) {
             $baseQuery->addAnd(
                 SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
-                88,
+                92,
                 Criteria::EQUAL
             );
         }
@@ -609,7 +609,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         }
 
 
-
         return $nodes;
     }
 
@@ -683,6 +682,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                 }
                 if ($hasNullValuesOnly) {
                     $oneConcreteProduct[$fieldName] = [];
+                } else {
+                    $oneConcreteProduct[$fieldName] = $this->removeEmptyValuesFromArray($oneConcreteProduct[$fieldName]);
                 }
             }
         }
@@ -696,12 +697,31 @@ class ProductCollector extends AbstractPropelCollectorPlugin
     }
 
 
+    /**
+     * @param array $toClean
+     * @return array
+     */
+    protected function removeEmptyValuesFromArray(array $toClean) {
+        foreach ($toClean as $key => $value) {
+            if (empty($value)) {
+                unset($toClean[$key]);
+            }
+            elseif (is_array($value)) {
+                $toClean[$key] = $this->removeEmptyValuesFromArray($value);
+            }
+        }
+        return $toClean;
+    }
+
+
     protected function createAbstractProductData(array $oneConcreteProduct)
     {
         $abstractProductData = [];
 
         $decodedAttributes = $oneConcreteProduct[self::ABSTRACT_ATTRIBUTES];
         $decodedLocalizedAttributes = $oneConcreteProduct[self::ABSTRACT_LOCALIZED_ATTRIBUTES];
+
+
         $mergedAttributes = array_merge($decodedAttributes, $decodedLocalizedAttributes);
 
         $abstractProductData[self::ABSTRACT_ATTRIBUTES] = $this->normalizeAttributes($mergedAttributes);
