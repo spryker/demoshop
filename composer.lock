@@ -920,7 +920,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:project-a/adyen-payment-gateway.git",
-                "reference": "d23f327c0f6fa96d490f3d865956ae3a8be871b9"
+                "reference": "5010189f677f507efdac44dba5363e4cf31b27cb"
             },
             "require": {
                 "guzzlehttp/guzzle": "~6.1",
@@ -948,7 +948,7 @@
                 "gateway",
                 "payment"
             ],
-            "time": "2015-12-04 16:53:40"
+            "time": "2015-12-04 17:51:37"
         },
         {
             "name": "project-a/spryker",
