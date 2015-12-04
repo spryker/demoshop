@@ -5,7 +5,7 @@
 #
 
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
-outfile="/tmp/deploy-${deploy_outfile_prefix}-send-notifications"
+outfile="/tmp/deploy-${deploy_outfile_prefix}-send-notifications-after"
 `touch $outfile`
 
 ### Newrelic notifications
@@ -16,7 +16,7 @@ for APP in Yves Zed; do
 done
 
 
-slack_msg="Finished deployment of *${scm_path}* to release *${deploy_outfile_prefix}* in *${environment}*"
+slack_msg=":white_check_mark: Finished deployment of *${scm_path}* to release *${deploy_outfile_prefix}* in *${environment}*"
 slack_msg="${slack_msg}\nDeployed by: $deploy_user from host `/bin/hostname`"
 
 send_slack_notification "${slack_msg}"

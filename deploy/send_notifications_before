@@ -13,13 +13,13 @@ set -e
 set -o nounset
 
 FILEPATH=`pwd`/$0; BASEDIR=`dirname $FILEPATH`; source $BASEDIR/vars; source $BASEDIR/functions
-outfile=`mktemp /tmp/deploy-XXXXXX`
+outfile="/tmp/deploy-${deploy_outfile_prefix}-send-notifications-before"
+`touch $outfile`
 
-### Slack notifications
+slack_msg=":no_entry: Start deployment of *${scm_path}* to release *${deploy_outfile_prefix}* in *${environment}*"
+slack_msg="${slack_msg}\n Deployment started by : $deploy_user from host `/bin/hostname`"
 
-#if [ "$environemt" == "production" ] && [ -n $slack_domain ] && [ -n $slack_token ]; then
-#curl -X GET "https://slack.com/api/chat.postMessage?token=$slack_token&channel=$slack_channel&text=Starting deployment of $scm_path to $environment ($revision: $deploy_user, `hostname`)"
-#fi
+send_slack_notification "${slack_msg}"
 
 rm -f "$outfile"
 exit 0
