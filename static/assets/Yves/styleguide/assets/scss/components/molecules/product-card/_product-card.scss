@@ -27,14 +27,14 @@
 
 .product-card__image{
     position: relative;
-    padding-bottom: 100%;
+    padding-bottom: 80%;
 
     img{
         position: absolute;
         @include responsiveImage;
 
         transition: opacity $_tShort ease-in-out;
-        padding: 50px;
+        padding: 40px 70px 0 70px;
     }
 }
 

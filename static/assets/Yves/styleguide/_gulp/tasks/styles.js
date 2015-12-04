@@ -57,8 +57,7 @@ function generateStyles (entry, title) {
           includePaths: ['./' + paths.source.root + ' css'],
       }))
       //.pipe(minifyCSS())
-      //.pipe(prefix('last 2 versions'))
-      .pipe(prefix('last 1 versions'))
+      .pipe(prefix('last 2 versions'))
       //.pipe(sourcemaps.write('./'))
       .pipe(gulp.dest(paths.dest.styles))
       .pipe(_if(development, notify({

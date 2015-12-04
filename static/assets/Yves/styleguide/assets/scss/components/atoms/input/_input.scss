@@ -200,6 +200,7 @@
 @media (min-width: $_wMedium) {
     .input__label{
         display: inline-block;
+        width: 100%;
         padding-left: 14px;
         text-align: left;
     }

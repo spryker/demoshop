@@ -20,8 +20,8 @@
         links: [
             { url: '/hunde-nahrung/', title: 'Hunde', menu: 'menu'},
             { url: '/katzen-nahrung/', title: 'Katzen', menu: 'menu'},
-            { url: '/warum/', title: 'Warum?', modifier: 'support'},
-            { url: '/faq/', title: 'Fragen?', modifier: 'contact'},
+            { url: '/warum/', title: 'Warum?', modifier: 'support', menu: 'none'},
+            { url: '/faq/', title: 'Fragen?', modifier: 'contact', menu: 'none'},
             {
                 url: (app.user is not null ? 'profile' : 'login'),
                 title: (app.user is not null ? getUsername() : 'Anmelden'),
@@ -64,7 +64,7 @@
                         {% set active = (app.request.uri == url(link.url)) %}
 
                         <li
-                            {% if link.menu is defined and link.menu is not empty %}
+                            {% if link.menu is defined and (link.menu is not empty or link.menu != 'none') %}
                                 data-menu="{{ link.menu }}"
                             {% endif %}
 
@@ -84,9 +84,9 @@
                                     href="{{ link.url }}"
                                 {% endif %}>
 
-                                {% if link.menu is not defined or link.menu != 'menu' %} <span> {% endif %}
+                                {% if link.menu is not defined or link.menu not in ['menu', 'none'] %} <span> {% endif %}
                                     {{ link.title }}
-                                {% if link.menu is not defined or link.menu != 'menu' %} </span> {% endif %}
+                                {% if link.menu is not defined or link.menu not in ['menu', 'none'] %} </span> {% endif %}
 
                             </a>
                         </li>
