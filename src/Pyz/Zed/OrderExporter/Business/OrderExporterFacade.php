@@ -3,10 +3,11 @@
 namespace Pyz\Zed\OrderExporter\Business;
 
 use Generated\Shared\Sales\ItemInterface;
+use Orm\Zed\Sales\Persistence\SpySalesOrder;
 use SprykerEngine\Zed\Kernel\Business\AbstractFacade;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Orm\Zed\Sales\Persistence\SpySalesOrder;
+use Generated\Shared\Sales\OrderInterface;
 use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 use Orm\Zed\OrderExporter\Persistence\PdSalesOrderItemAfterbuyExport;
 
@@ -17,7 +18,7 @@ class OrderExporterFacade extends AbstractFacade
 {
     /**
      * @param int $salesOrderId
-     * @return SpySalesOrder
+     * @return OrderInterface
      */
     public function getSalesOrderById($salesOrderId)
     {
@@ -27,7 +28,7 @@ class OrderExporterFacade extends AbstractFacade
     }
 
     /**
-     * @param ItemInterface[] $orderItems
+     * @param SpySalesOrderItem[] $orderItems
      */
     public function exportOrderItems(array $orderItems)
     {
@@ -42,7 +43,7 @@ class OrderExporterFacade extends AbstractFacade
 
     /**
      * @param int $orderItemId
-     * @return SpySalesOrderItem
+     * @return ItemInterface
      */
     public function getOrderItemById($orderItemId)
     {
@@ -52,7 +53,7 @@ class OrderExporterFacade extends AbstractFacade
     }
 
     /**
-     * @param ItemInterface[] $orderItems
+     * @param SpySalesOrderItem[] $orderItems
      * @return int|null
      * @throws \Exception
      */

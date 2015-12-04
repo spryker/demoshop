@@ -8,10 +8,8 @@ use Generated\Shared\Sales\ItemInterface;
 use Generated\Shared\Sales\OrderInterface;
 use Generated\Shared\Sales\SalesDiscountCodeInterface;
 use Generated\Shared\Sales\SalesDiscountInterface;
-use Generated\Shared\Sales\SalesOrderItemInterface;
-use Generated\Shared\Transfer\ItemTransfer;
-use Orm\Zed\Product\Persistence\SpyProduct;
-use Orm\Zed\Sales\Persistence\SpySalesDiscountCode;
+use Orm\Zed\Sales\Persistence\SpySalesOrder;
+use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 use PavFeature\Shared\Adyen\AdyenPaymentMethodConstants;
 use Pyz\Zed\OrderExporter\AfterbuyConstants;
 use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToAdyenFacade;
@@ -19,10 +17,6 @@ use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToProductFacade;
 use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToSalesFacade;
 use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToUrlFacade;
 use Pyz\Zed\OrderExporter\OrderExporterConfig;
-use Orm\Zed\Sales\Persistence\SpySalesOrderAddress;
-use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
-use Orm\Zed\Sales\Persistence\SpySalesOrder;
-use Orm\Zed\Sales\Persistence\SpySalesDiscount;
 
 /**
  * @link https://confluence.project-a.com/display/PD/Afterbuy+Orders+export
@@ -90,7 +84,7 @@ class AfterbuyExportManager
     }
 
     /**
-     * @param ItemInterface[] $orderItems
+     * @param SpySalesOrderItem[] $orderItems
      * @return int|null
      * @throws \Exception
      */
@@ -111,7 +105,7 @@ class AfterbuyExportManager
     }
 
     /**
-     * @param array $orderItems
+     * @param SpySalesOrderItem[] $orderItems
      * @param OrderInterface $order
      */
     public function exportOrderItems(array $orderItems, OrderInterface $order)
@@ -290,7 +284,7 @@ class AfterbuyExportManager
     }
 
     /**
-     * @param SpySalesDiscount[] $discountsToExport
+     * @param SalesDiscountInterface[] $discountsToExport
      * @return array
      */
     protected function aggregateCouponsIntoSubCoupons(array $discountsToExport)
@@ -334,12 +328,12 @@ class AfterbuyExportManager
     }
     
     /**
-     * @param ItemTransfer $item
+     * @param SpySalesOrderItem $item
      * @param $numberOfItems
      * @param array $postData
      * @return array
      */
-    protected function addProductAttributesInfo(ItemTransfer $item, $numberOfItems, array $postData)
+    protected function addProductAttributesInfo(SpySalesOrderItem $item, $numberOfItems, array $postData)
     {
         $itemConfigurations = $this->salesFacade->getSalesOrderItemConfigurationByItemId($item->getIdSalesOrderItem());
         $attributes = [];
@@ -437,7 +431,7 @@ class AfterbuyExportManager
 
     /**
      * @param $postVariables
-     * @param array $orderItems
+     * @param SpySalesOrderItem[] $orderItems
      * @param int $idOrder
      */
     protected function sendOrderInfoToAfterbuy($postVariables, array $orderItems, $idOrder)
