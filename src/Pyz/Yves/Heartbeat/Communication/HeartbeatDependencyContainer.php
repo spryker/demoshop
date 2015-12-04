@@ -6,52 +6,28 @@
 
 namespace Pyz\Yves\Heartbeat\Communication;
 
-use Pyz\Yves\Heartbeat\Communication\Plugin\Doctor;
+use Pyz\Yves\Heartbeat\Communication\Model\HealthChecker;
+use Pyz\Yves\Heartbeat\Communication\Model\HealthIndicator\SearchHealthIndicator;
+use Pyz\Yves\Heartbeat\Communication\Model\HealthIndicator\SessionHealthIndicator;
+use Pyz\Yves\Heartbeat\Communication\Model\HealthIndicator\StorageHealthIndicator;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
-use SprykerFeature\Client\Search\Service\SearchClient;
-use SprykerFeature\Client\Session\Service\SessionClient;
-use SprykerFeature\Client\Storage\Service\StorageClient;
 
 class HeartbeatDependencyContainer extends AbstractCommunicationDependencyContainer
 {
 
     /**
-     * @return Doctor
+     * @return HealthChecker
      */
-    public function createDoctor()
+    public function createHealthChecker()
     {
-        $doctor = $this->getLocator()->heartbeat()->pluginDoctor();
-        $doctor->setHealthIndicator([
-            $this->getLocator()->heartbeat()->pluginSearchHealthIndicator(),
-            $this->getLocator()->heartbeat()->pluginSessionHealthIndicator(),
-            $this->getLocator()->heartbeat()->pluginStorageHealthIndicator(),
+        $healthChecker = new HealthChecker();
+        $healthChecker->setHealthIndicator([
+            new SearchHealthIndicator($this->getLocator()->search()->client()),
+            new SessionHealthIndicator($this->getLocator()->session()->client()),
+            new StorageHealthIndicator($this->getLocator()->storage()->client()),
         ]);
 
-        return $doctor;
-    }
-
-    /**
-     * @return SessionClient
-     */
-    public function createSessionClient()
-    {
-        return $this->getLocator()->session()->client();
-    }
-
-    /**
-     * @return StorageClient
-     */
-    public function createStorageClient()
-    {
-        return $this->getLocator()->storage()->client();
-    }
-
-    /**
-     * @return SearchClient
-     */
-    public function createSearchClient()
-    {
-        return $this->getLocator()->search()->client();
+        return $healthChecker;
     }
 
 }

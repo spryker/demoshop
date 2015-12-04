@@ -19,16 +19,16 @@ class HeartbeatController extends AbstractController
 
     public function indexAction()
     {
-        $ambulance = $this->getDependencyContainer()->createAmbulance();
+        $heartbeatMonitor = $this->getDependencyContainer()->createHeartbeatMonitor();
 
-        if ($ambulance->isSystemAlive()) {
+        if ($heartbeatMonitor->isSystemAlive()) {
             return $this->jsonResponse(
                 [self::SYSTEM_STATUS => self::SYSTEM_UP],
                 Response::HTTP_OK
             );
         } else {
             return $this->jsonResponse(
-                [self::SYSTEM_STATUS => self::SYSTEM_DOWN, self::STATUS_REPORT => $ambulance->getReport()->toArray()],
+                [self::SYSTEM_STATUS => self::SYSTEM_DOWN, self::STATUS_REPORT => $heartbeatMonitor->getReport()->toArray()],
                 Response::HTTP_SERVICE_UNAVAILABLE
             );
         }

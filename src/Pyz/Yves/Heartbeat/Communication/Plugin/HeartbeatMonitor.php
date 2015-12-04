@@ -2,13 +2,14 @@
 
 namespace Pyz\Yves\Heartbeat\Communication\Plugin;
 
+use Generated\Shared\Transfer\HealthReportTransfer;
 use Pyz\Yves\Heartbeat\Communication\HeartbeatDependencyContainer;
 use SprykerEngine\Yves\Kernel\Communication\AbstractPlugin;
 
 /**
  * @method HeartbeatDependencyContainer getDependencyContainer()
  */
-class Ambulance extends AbstractPlugin
+class HeartbeatMonitor extends AbstractPlugin
 {
 
     /**
@@ -16,15 +17,15 @@ class Ambulance extends AbstractPlugin
      */
     public function isSystemAlive()
     {
-        return $this->getDependencyContainer()->createDoctor()->doHealthCheck()->isPatientAlive();
+        return $this->getDependencyContainer()->createHealthChecker()->doHealthCheck()->isSystemAlive();
     }
 
     /**
-     * @return HealthReportInterface
+     * @return HealthReportTransfer
      */
     public function getReport()
     {
-        return $this->getDependencyContainer()->createDoctor()->doHealthCheck()->getReport();
+        return $this->getDependencyContainer()->createHealthChecker()->doHealthCheck()->getReport();
     }
 
 }
