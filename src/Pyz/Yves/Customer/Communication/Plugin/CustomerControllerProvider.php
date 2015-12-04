@@ -16,6 +16,7 @@ class CustomerControllerProvider extends YvesControllerProvider
     const ROUTE_CONFIRM_REGISTRATION = 'confirm_registration';
     const ROUTE_PASSWORD_FORGOT = 'forgot';
     const ROUTE_PASSWORD_RESTORE = 'restore';
+    const ROUTE_PASSWORD_CREATE = 'create';
     const ROUTE_DELETE = 'delete';
     const ROUTE_CUSTOMER_PROFILE = 'profile';
     const ROUTE_CUSTOMER_ADDRESS = 'address';
@@ -34,7 +35,7 @@ class CustomerControllerProvider extends YvesControllerProvider
 
         $this->createController('/password/forgot/', self::ROUTE_PASSWORD_FORGOT, 'Customer', 'Customer', 'forgotPassword');
         $this->createController('/password/restore/', self::ROUTE_PASSWORD_RESTORE, 'Customer', 'Customer', 'restorePassword');
-        $this->createController('/password/create/', self::ROUTE_PASSWORD_RESTORE, 'Customer', 'Customer', 'createPassword');
+        $this->createController('/password/create/', self::ROUTE_PASSWORD_CREATE, 'Customer', 'Customer', 'createPassword');
         $this->createController('/customer/delete/', self::ROUTE_DELETE, 'Customer', 'Customer', 'delete');
         //TODO remove customer profile pages for now
 //        $this->createController('/customer/profile/', self::ROUTE_CUSTOMER_PROFILE, 'Customer', 'Customer', 'profile');

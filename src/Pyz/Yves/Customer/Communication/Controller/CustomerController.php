@@ -45,8 +45,10 @@ class CustomerController extends AbstractController
         $form = $this->createForm($this->getDependencyContainer()->createFormRestore());
 
         if ($form->isValid()) {
+            $formData = $form->getData();
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->setRestorePasswordKey($request->query->get('token'));
+            $customerTransfer->setPassword($formData['password']);
             $this->getLocator()->customer()->client()->restorePassword($customerTransfer);
             $this->getLocator()->customer()->client()->logout();
 
