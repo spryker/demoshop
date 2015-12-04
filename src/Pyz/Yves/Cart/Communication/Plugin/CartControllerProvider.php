@@ -35,8 +35,6 @@ class CartControllerProvider extends YvesControllerProvider
      */
     protected function defineControllers(Application $app)
     {
-        $this->createGetController('/cart/', self::ROUTE_CART, 'Cart', 'Cart');
-
         $this->createGetController('/cart/add/{sku}/', self::ROUTE_CART_ADD, 'Cart', 'Cart', 'add')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->convert('quantity', [$this, 'getQuantityFromRequest'])
