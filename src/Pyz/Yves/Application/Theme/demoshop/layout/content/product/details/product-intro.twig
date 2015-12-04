@@ -1,7 +1,7 @@
 {% set initial = (pricings | first) %}
 
 <div class="product-intro">
-    <h1 class="product-info__title">{{ product.abstract_name }}</h1>
+    <h1 class="product-info__title">{{ product.abstract_name }} <span style="display: none;">{{ product.id_abstract_product }}</span></h1>
     <div class="product-info__subtitle">
         <span class="js-product-weight">{{ initial.weight }}</span>{{ ('unit.' ~ initial.unit | trim ) | trans }}</div>
 

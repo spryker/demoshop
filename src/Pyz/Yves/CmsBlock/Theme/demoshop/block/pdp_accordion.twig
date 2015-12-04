@@ -1,4 +1,15 @@
 <div class="product-accordion js-product-accordion">
+
+    {% if dynamicData.feeding_recommendation is defined %}
+        {% include '@application/layout/content/product/details/product-accordion-item.twig' with {
+            item: {
+                title: 'Fütterungsempfehlung',
+                content: dynamicData.feeding_recommendation
+            }
+        } %}
+    {% endif %}
+
+
     {% if cmsValues.entries is defined %}
         {% for entry in cmsValues.entries %}
 
@@ -12,11 +23,11 @@
     {% endif %}
 
 
-    {% if dynamicData.product_attribute is defined %}
+    {% if dynamicData.product_info is defined %}
         {% include '@application/layout/content/product/details/product-accordion-item.twig' with {
             item: {
                 title: 'Zusätzliche Produktinformationen',
-                content: dynamicData.product_attribute,
+                content: dynamicData.product_info,
                 modifier: 'product-accordion-item--active'
             }
         } %}
