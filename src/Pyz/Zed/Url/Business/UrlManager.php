@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Url\Business;
 
+use Generated\Shared\Transfer\UrlTransfer;
 use Generated\Shared\Url\UrlInterface;
 use Pyz\Zed\Url\Persistence\UrlQueryContainerInterface;
 use SprykerFeature\Zed\Url\Business\UrlManager as SprykerUrlManager;
@@ -43,5 +44,25 @@ class UrlManager extends SprykerUrlManager
 
         return  $this->urlQueryContainer->queryUrlByAbstractProductId($abstractProductId, $idLocale)
             ->findOne();
+    }
+
+    /**
+     * @param int $idAbstractProduct
+     * @param int $idLocale
+     * @return UrlInterface
+     */
+    public function getUrlByIdAbstractProductAndIdLocale($idAbstractProduct, $idLocale) {
+
+
+        $result = $this->urlQueryContainer->queryUrlByAbstractProductId($idAbstractProduct, $idLocale)
+            ->findOne();
+
+        $urlTransfer = new UrlTransfer();
+        if ($result !== null) {
+            $urlTransfer->fromArray($result->toArray(), true);
+        }
+
+        return $urlTransfer;
+
     }
 }
