@@ -180,7 +180,7 @@ class CheckoutController extends AbstractController
     protected function setShippingAddress(CheckoutRequestTransfer $checkoutRequestTransfer)
     {
         $shippingAddressTransfer = $checkoutRequestTransfer->getShippingAddress();
-        if ($shippingAddressTransfer->getAddress1() === null) {
+        if ($shippingAddressTransfer === null) {
             $checkoutRequestTransfer->setShippingAddress($checkoutRequestTransfer->getBillingAddress());
         }
     }
