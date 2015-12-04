@@ -2,12 +2,12 @@
 /**
  * (c) Spryker Systems GmbH copyright protected.
  */
-namespace Pyz\Yves\Application\Communication\Plugin;
+namespace Pyz\Yves\Application\Communication\Plugin\Provider;
 
 use SprykerEngine\Shared\Kernel\Store;
 use SprykerEngine\Yves\Application\Communication\Plugin\YvesControllerProvider as SprykerYvesControllerProvider;
 
-abstract class YvesControllerProvider extends SprykerYvesControllerProvider
+abstract class AbstractYvesControllerProvider extends SprykerYvesControllerProvider
 {
 
     /**

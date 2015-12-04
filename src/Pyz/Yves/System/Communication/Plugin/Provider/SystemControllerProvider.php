@@ -2,10 +2,10 @@
 
 namespace Pyz\Yves\System\Communication\Plugin\Provider;
 
-use Pyz\Yves\Application\Communication\Plugin\YvesControllerProvider;
+use Pyz\Yves\Application\Communication\Plugin\Provider\AbstractYvesControllerProvider;
 use Silex\Application;
 
-class SystemControllerProvider extends YvesControllerProvider
+class SystemControllerProvider extends AbstractYvesControllerProvider
 {
 
     const ROUTE_HEARTBEAT = 'system/heartbeat';

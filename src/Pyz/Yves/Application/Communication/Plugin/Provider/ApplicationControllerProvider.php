@@ -2,10 +2,9 @@
 
 namespace Pyz\Yves\Application\Communication\Plugin\Provider;
 
-use Pyz\Yves\Application\Communication\Plugin\YvesControllerProvider;
 use Silex\Application;
 
-class ApplicationControllerProvider extends YvesControllerProvider
+class ApplicationControllerProvider extends AbstractYvesControllerProvider
 {
 
     const ROUTE_HOME = 'home';

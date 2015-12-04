@@ -4,13 +4,13 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace Pyz\Yves\Cart\Communication\Plugin;
+namespace Pyz\Yves\Cart\Communication\Plugin\Provider;
 
-use Pyz\Yves\Application\Communication\Plugin\YvesControllerProvider;
+use Pyz\Yves\Application\Communication\Plugin\Provider\AbstractYvesControllerProvider;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 
-class CartControllerProvider extends YvesControllerProvider
+class CartControllerProvider extends AbstractYvesControllerProvider
 {
 
     const ROUTE_CART = 'cart';

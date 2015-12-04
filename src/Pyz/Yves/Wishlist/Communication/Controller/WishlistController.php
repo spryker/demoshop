@@ -7,7 +7,7 @@ namespace Pyz\Yves\Wishlist\Communication\Controller;
 
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
-use Pyz\Yves\Wishlist\Communication\Plugin\WishlistControllerProvider;
+use Pyz\Yves\Wishlist\Communication\Plugin\Provider\WishlistControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use SprykerFeature\Client\Wishlist\Service\WishlistClientInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;

@@ -4,7 +4,7 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace Pyz\Yves\Session\Communication\Plugin\ServiceProvider;
+namespace Pyz\Yves\Session\Communication\Plugin\Provider;
 
 use Pyz\Yves\Session\Business\Model\SessionFactory;
 use Silex\Application;

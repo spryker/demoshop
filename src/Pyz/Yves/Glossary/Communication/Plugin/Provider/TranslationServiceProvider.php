@@ -3,7 +3,7 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace Pyz\Yves\Glossary\Communication\Plugin\ServiceProvider;
+namespace Pyz\Yves\Glossary\Communication\Plugin\Provider;
 
 use Pyz\Yves\Glossary\Communication\GlossaryDependencyContainer;
 use Silex\Application;

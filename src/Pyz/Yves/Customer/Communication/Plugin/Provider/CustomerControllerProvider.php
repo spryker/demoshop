@@ -1,11 +1,11 @@
 <?php
 
-namespace Pyz\Yves\Customer\Communication\Plugin;
+namespace Pyz\Yves\Customer\Communication\Plugin\Provider;
 
-use Pyz\Yves\Application\Communication\Plugin\YvesControllerProvider;
+use Pyz\Yves\Application\Communication\Plugin\Provider\AbstractYvesControllerProvider;
 use Silex\Application;
 
-class CustomerControllerProvider extends YvesControllerProvider
+class CustomerControllerProvider extends AbstractYvesControllerProvider
 {
 
     const ROUTE_LOGIN = 'login';

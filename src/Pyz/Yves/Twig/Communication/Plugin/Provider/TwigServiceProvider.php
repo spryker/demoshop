@@ -4,7 +4,7 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace Pyz\Yves\Twig\Communication\Plugin;
+namespace Pyz\Yves\Twig\Communication\Plugin\Provider;
 
 use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Library\Config;
@@ -163,7 +163,7 @@ class TwigServiceProvider extends SilexTwigServiceProvider
                     if (class_exists('Symfony\Bridge\Twig\Extension\RoutingExtension')) {
                         if (isset($app['form.factory'])) {
                             $app['twig.loader']->addLoader(
-                                new \Twig_Loader_Filesystem(__DIR__ . '/../Resources/views/Form')
+                                new \Twig_Loader_Filesystem(__DIR__ . '/../../Resources/views/Form')
                             );
                         }
                     }

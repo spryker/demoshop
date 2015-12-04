@@ -5,12 +5,12 @@ namespace Pyz\Yves\Application\Communication;
 use Generated\Yves\Ide\AutoCompletion;
 use Pyz\Shared\Application\Business\Routing\SilexRouter;
 use Pyz\Yves\Application\Communication\Plugin\Provider\ApplicationControllerProvider;
-use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
-use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
-use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
-use Pyz\Yves\System\Communication\Plugin\SystemControllerProvider;
-use Pyz\Yves\Twig\Communication\Plugin\TwigServiceProvider;
-use Pyz\Yves\Wishlist\Communication\Plugin\WishlistControllerProvider;
+use Pyz\Yves\Cart\Communication\Plugin\Provider\CartControllerProvider;
+use Pyz\Yves\Checkout\Communication\Plugin\Provider\CheckoutControllerProvider;
+use Pyz\Yves\Customer\Communication\Plugin\Provider\CustomerControllerProvider;
+use Pyz\Yves\System\Communication\Plugin\Provider\SystemControllerProvider;
+use Pyz\Yves\Twig\Communication\Plugin\Provider\TwigServiceProvider;
+use Pyz\Yves\Wishlist\Communication\Plugin\Provider\WishlistControllerProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
@@ -71,7 +71,7 @@ class YvesBootstrap
         $this->application->register(new TwigServiceProvider());
         $this->application->register($this->getLocator()->application()->pluginProviderApplicationServiceProvider());
         $this->application->register(new SessionServiceProvider());
-        $this->application->register($this->getLocator()->session()->pluginServiceProviderSessionServiceProvider());
+        $this->application->register($this->getLocator()->session()->pluginProviderSessionServiceProvider());
         $this->application->register(new SecurityServiceProvider());
         $this->application->register($this->createSecurityServiceProviderExtension());
         $this->application->register($this->getLocator()->application()->pluginProviderYvesSecurityServiceProvider());
@@ -83,7 +83,7 @@ class YvesBootstrap
         $this->application->register(new ServiceControllerServiceProvider());
         $this->application->register(new RememberMeServiceProvider());
         $this->application->register(new RoutingServiceProvider());
-        $this->application->register($this->getLocator()->glossary()->pluginServiceProviderTranslationServiceProvider());
+        $this->application->register($this->getLocator()->glossary()->pluginProviderTranslationServiceProvider());
         $this->application->register(new ValidatorServiceProvider());
         $this->application->register(new FormServiceProvider());
         $this->application->register(new HttpFragmentServiceProvider());
@@ -133,7 +133,7 @@ class YvesBootstrap
     {
         $userProvider = $this->getLocator()->customer()->pluginUserProvider();
 
-        $securityServiceProvider = $this->getLocator()->customer()->pluginServiceProviderSecurityServiceProvider();
+        $securityServiceProvider = $this->getLocator()->customer()->pluginProviderSecurityServiceProvider();
         $securityServiceProvider->setUserProvider($userProvider);
 
         return $securityServiceProvider;
