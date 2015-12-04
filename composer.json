@@ -16,6 +16,8 @@
     "guzzle/http": "~3.7, <= 3.8",
     "league/csv": "*",
 
+    "guzzlehttp/guzzle": "~6.1",
+
     "monolog/monolog": "~1.7",
 
     "php": ">=5.6.0",
