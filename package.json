@@ -1,12 +1,15 @@
 {
   "private": true,
-  "name": "Spryker",
+  "name": "yves_zed",
   "version": "0.3.0",
   "description": "Gulp asset distribution for Yves & Zed",
   "author": {
     "name": "Spryker",
     "email": "info@spryker.com",
     "url": "http://spryker.com/"
+  },
+  "scripts": {
+    "spy-yves-new": "gulp --gulpfile gulp/yves-new/gulpfile.js --cwd ."
   },
   "dependencies": {
     "animate.css": "^3.4.0",
