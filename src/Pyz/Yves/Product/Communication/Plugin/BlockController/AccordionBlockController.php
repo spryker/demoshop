@@ -34,14 +34,22 @@ class AccordionBlockController extends AbstractPlugin implements BlockController
         $idProduct = $pageAttributes[BlockHandler::ID_PRODUCT];
         $product = $this->getDependencyContainer()
             ->createProductClient()
-            ->getAbstractProductFromStorageByIdForCurrentLocale($idProduct)
-        ;
+            ->getAbstractProductFromStorageByIdForCurrentLocale($idProduct);
 
-        // TODO: add the dynamic part of the accordion here
-        $result = [
-            'feeding_recommendation' => $product['abstract_attributes']['feeding_recommendation']['markdown'],
-            'product_info' => $product['abstract_attributes']['product_info']['markdown']
-        ];
+        if (isset(
+            $product['abstract_attributes'],
+            $product['abstract_attributes']['feeding_recommendation'],
+            $product['abstract_attributes']['feeding_recommendation']['markdown']
+        )) {
+            $result['feeding_recommendation'] = $product['abstract_attributes']['feeding_recommendation']['markdown'];
+        }
+        if (isset(
+            $product['abstract_attributes'],
+            $product['abstract_attributes']['product_info'],
+            $product['abstract_attributes']['product_info']['markdown']
+        )) {
+            $result['product_info']  = $product['abstract_attributes']['product_info']['markdown'];
+        }
 
         return $result;
     }
