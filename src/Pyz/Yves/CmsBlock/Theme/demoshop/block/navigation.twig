@@ -60,11 +60,11 @@
                 <ul class="navbar__links">
 
                     {% for link in data.links %}
-{# TODO: Check if request_uri is full (with http) url #}
+                        {# TODO: Check if request_uri is full (with http) url #}
                         {% set active = (app.request.uri == url(link.url)) %}
 
                         <li
-                            {% if link.menu is defined and (link.menu is not empty or link.menu != 'none') %}
+                            {% if link.menu is defined and (link.menu is not empty and link.menu != 'none') %}
                                 data-menu="{{ link.menu }}"
                             {% endif %}
 
