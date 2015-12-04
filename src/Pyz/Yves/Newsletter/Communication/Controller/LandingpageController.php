@@ -8,6 +8,8 @@ use Generated\Shared\Transfer\NewsletterSubscriberTransfer;
 class LandingpageController extends AbstractController
 {
     /**
+     * double opt-in landing page
+     *
      * @param $subscriber_key
      * @return array
      */
