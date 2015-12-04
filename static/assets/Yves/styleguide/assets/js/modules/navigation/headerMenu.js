@@ -30,11 +30,16 @@ $(document).ready(function () {
 
             $target = $(e.target).closest('.navbar__link');
 
-            e.preventDefault();
-            showMenu($trigger.index($target));
+            if ($(this).hasClass('navbar__link--open')) {
+                $trigger.removeClass('navbar__link--open');
+                hideMenu();
 
-            $trigger.removeClass('navbar__link--open');
-            $(this).addClass('navbar__link--open');
+            } else {
+                showMenu($trigger.index($target));
+
+                $trigger.removeClass('navbar__link--open');
+                $(this).addClass('navbar__link--open');
+            }
 
             $(document).trigger(NAVBAR_EVENTS.NAVSTATE_CHANGE);
         });
