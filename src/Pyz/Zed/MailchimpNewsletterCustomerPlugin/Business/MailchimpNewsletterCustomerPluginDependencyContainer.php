@@ -3,7 +3,7 @@
 namespace Pyz\Zed\MailchimpNewsletterCustomerPlugin\Business;
 
 use SprykerEngine\Zed\Kernel\Business\AbstractBusinessDependencyContainer;
-use PavFeature\Zed\MailchimpNewsletterCustomerPlugin\MailchimpNewsletterCustomerPluginDependencyProvider;
+use Pyz\Zed\MailchimpNewsletterCustomerPlugin\MailchimpNewsletterCustomerPluginDependencyProvider;
 
 class MailchimpNewsletterCustomerPluginDependencyContainer extends AbstractBusinessDependencyContainer
 {
