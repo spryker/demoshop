@@ -60,7 +60,7 @@
                 <ul class="navbar__links">
 
                     {% for link in data.links %}
-
+{# TODO: Check if request_uri is full (with http) url #}
                         {% set active = (app.request.uri == url(link.url)) %}
 
                         <li
@@ -81,7 +81,7 @@
 
                             <a
                                 {% if link.url is defined and not active %}
-                                    href="{{ url(link.url) }}"
+                                    href="{{ link.url }}"
                                 {% endif %}>
 
                                 {% if link.menu is not defined or link.menu != 'menu' %} <span> {% endif %}
