@@ -34,7 +34,7 @@ class ControllerProviderExtension implements ControllerProviderExtensionInterfac
             new ApplicationControllerProvider($ssl),
             new WishlistControllerProvider($ssl),
             new SystemControllerProvider(false),
-            new NewsletterControllerProvider(false)
+            new NewsletterControllerProvider($ssl)
         ];
     }
 
