@@ -47,15 +47,15 @@
     "zendframework/zend-servicemanager": "~2.3.0",
     "zendframework/zend-eventmanager": "2.3.9",
 
-    "nesbot/carbon": "1.13.0",
-    "h4cc/phpqatools": "~1.2"
+    "nesbot/carbon": "1.13.0"
   },
   "require-dev": {
     "silex/web-profiler": "~1.0.2",
     "pdepend/pdepend": "*",
     "phpmd/phpmd": "*",
     "codeception/codeception": "2.1",
-    "fabpot/php-cs-fixer": "^1.9"
+    "fabpot/php-cs-fixer": "^1.9",
+    "squizlabs/php_codesniffer": "~2.4.0"
   },
   "autoload": {
     "psr-0": {
