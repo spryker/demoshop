@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\OmsOrderExporterConnector\Communication\Plugin\Command;
 
+use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\CommandByOrderInterface;
 use Orm\Zed\Sales\Persistence\SpySalesOrder;
 use SprykerFeature\Zed\Oms\Business\Util\ReadOnlyArrayObject;
@@ -14,7 +15,7 @@ use Pyz\Zed\OmsOrderExporterConnector\Communication\OmsOrderExporterConnectorDep
 class ExportOrderItemsToAfterbuy extends AbstractCommand implements CommandByOrderInterface
 {
     /**
-     * @param SpySalesOrder[] $orderItems
+     * @param SpySalesOrderItem[] $orderItems
      * @param SpySalesOrder $orderEntity
      * @param ReadOnlyArrayObject $data
      *

@@ -26,7 +26,7 @@ abstract class AbstractAfterbuyConnector
 
     /**
      * @param $postVariables
-     * @param array $orderItems
+     * @param SpySalesOrderItem[] $orderItems
      * @param int $idOrder
      */
     abstract public function sendToAfterbuy($postVariables, array $orderItems, $idOrder);
