@@ -1,6 +1,14 @@
 {% extends "@application/layout/layout.twig" %}
 {% block content %}
     {% include "@application/layout/header.twig" %}
-    {{ dump(approvalResponse) }}
+    {% if approvalResponse.isSuccess == true %}
+        <div class="newsletter-doi-success">
+            {{ 'newsletter.doi.success.message' | trans }}
+        </div>
+    {% else %}
+        <div class="newsletter-doi-error">
+            {{ approvalResponse.errorMessage | trans }}
+        </div>
+    {% endif %}
     {% include "@application/layout/footer.twig" %}
 {% endblock %}
