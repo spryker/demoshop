@@ -34,7 +34,7 @@
         </transitions>
 
         <events>
-            <event name="export to afterbuy" manual="true" command="OrderExporter/ExportOrderItems"/>
+            <event name="export to afterbuy" onEnter="true" command="OrderExporter/ExportOrderItems"/>
             <event name="retry export to afterbuy" manual="true"/>
         </events>
 
