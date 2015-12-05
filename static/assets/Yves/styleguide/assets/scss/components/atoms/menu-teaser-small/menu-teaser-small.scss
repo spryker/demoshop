@@ -83,3 +83,9 @@
         }
     }
 }
+
+@media (min-width: 1700px) {
+    .menu-teaser-small--half, .menu-teaser-small--third, .menu-teaser-small--third-large{
+        width: 17.5%;
+    }
+}

@@ -20,14 +20,6 @@
     -moz-osx-font-smoothing: grayscale;
 
     
-    @if $name == 'minus-circle' {
-      content: '\E02A';
-    }
-    
-    @if $name == 'plus-circle' {
-      content: '\E02B';
-    }
-    
     @if $name == 'arrow-left' {
       content: '\E001';
     }
@@ -190,6 +182,14 @@
     
     @if $name == 'vorkasse' {
       content: '\E029';
+    }
+    
+    @if $name == 'minus-circle' {
+      content: '\E02A';
+    }
+    
+    @if $name == 'plus-circle' {
+      content: '\E02B';
     }
     
   }
@@ -216,14 +216,6 @@
     -moz-osx-font-smoothing: grayscale;
 
     
-    @if $name == 'minus-circle' {
-      content: '\E02A';
-    }
-    
-    @if $name == 'plus-circle' {
-      content: '\E02B';
-    }
-    
     @if $name == 'arrow-left' {
       content: '\E001';
     }
@@ -386,6 +378,14 @@
     
     @if $name == 'vorkasse' {
       content: '\E029';
+    }
+    
+    @if $name == 'minus-circle' {
+      content: '\E02A';
+    }
+    
+    @if $name == 'plus-circle' {
+      content: '\E02B';
     }
     
   }
