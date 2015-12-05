@@ -92,8 +92,28 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storageNewCategoryNodeCollector->setCriteriaBuilder(
             $this->createCriteriaBuilder()
         );
+        $storageNewCategoryNodeCollector->setQueryBuilder(
+            $this->createStorageQueryBuilderAdapterByName('NewCategoryNodeCollector')
+        );
 
         return $storageNewCategoryNodeCollector;
+    }
+
+    /**
+     * @param $name
+     *
+     * @return NewAbstractPropelCollectorQuery
+     */
+    public function createStorageQueryBuilderAdapterByName($name)
+    {
+        $engines = SystemConfig::ZED_DB_SUPPORTED_ENGINES;
+        $adapterName = $engines[Config::get(SystemConfig::ZED_DB_ENGINE)];
+
+        $queryBuilderClassName = "\\Pyz\\Zed\\Collector\\Business\\Storage\\QueryBuilder\\${adapterName}\\${name}";
+
+        $queryBuilder = new $queryBuilderClassName();
+
+        return $queryBuilder;
     }
 
     /**
