@@ -2,44 +2,13 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
-use Generated\Shared\Transfer\LocaleTransfer;
-use Orm\Zed\Touch\Persistence\SpyTouchQuery;
 use SprykerFeature\Shared\Category\CategoryConfig;
-use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
-use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
 use SprykerFeature\Zed\Collector\Business\Exporter\NewAbstractPropelCollectorPlugin;
-use SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
 
 class NewCategoryNodeCollector extends NewAbstractPropelCollectorPlugin
 {
 
-    use KeyBuilderTrait;
-
-    /**
-     * @var CategoryQueryContainer
-     */
-    protected $categoryQueryContainer;
-
-    /**
-     * @param CategoryQueryContainer $categoryQueryContainer
-     */
-    public function __construct(CategoryQueryContainer $categoryQueryContainer)
-    {
-        $this->categoryQueryContainer = $categoryQueryContainer;
-    }
-
-    protected function getTouchItemType()
-    {
-        return 'categorynode';
-    }
-
-    /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
-     *
-     * @return string
-     */
-    protected function createQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
+    protected function collectCriteria()
     {
         $sql = '
 WITH RECURSIVE
@@ -67,6 +36,7 @@ WITH RECURSIVE
   )
 SELECT
   t.id_touch AS %s,
+  t.item_id AS %s,
   tree.*,
   u.url,
   ca.name,
@@ -84,77 +54,39 @@ FROM tree
     AND t.item_type = :spy_touch_item_type
   )
 ';
-        $sql = sprintf($sql, self::TOUCH_EXPORTER_ID);
+        $sql = sprintf($sql, self::COLLECTOR_TOUCH_ID, static::COLLECTOR_RESOURCE_ID);
 
-        $this->getCriteriaBuilder()
+        $this->criteriaBuilder
             ->sql($sql)
             ->setOrderBy([
                 'tree.fk_parent_category_node' => 'ASC',
                 'tree.node_order' => 'DESC',
             ])
-            ->setExtraParameter('fk_locale_1', $locale->getIdLocale())
-            ->setExtraParameter('fk_locale_2', $locale->getIdLocale());
+            ->setExtraParameter('fk_locale_1', $this->criteriaLocale->getIdLocale())
+            ->setExtraParameter('fk_locale_2', $this->criteriaLocale->getIdLocale());
     }
 
     /**
-     * @param array $resultSet
-     * @param LocaleTransfer $locale
-     * @param TouchUpdaterSet $touchUpdaterSet
+     * @param array $collectItemData
      *
      * @return array
      */
-    protected function processData($resultSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
-    {
-        $processedResultSet = [];
-
-        foreach ($resultSet as $index => $categoryNode) {
-            $categoryKey = $this->generateKey($categoryNode['id_category_node'], $locale->getLocaleName());
-            $processedResultSet[$categoryKey] = $this->formatCategoryNode($categoryNode);
-            $touchUpdaterSet->add($categoryKey, $categoryNode[self::TOUCH_EXPORTER_ID]);
-        }
-
-        return $processedResultSet;
-    }
-
-    /**
-     * @param array $categoryNode
-     *
-     * @return array
-     */
-    protected function formatCategoryNode(array $categoryNode)
+    protected function collectItem(array $collectItemData)
     {
         return [
-            'node_id' => $categoryNode['id_category_node'],
-            'name' => $categoryNode['name'],
-            'url' => $categoryNode['url'],
-            'image' => $categoryNode['category_image_name'],
+            'node_id' => $collectItemData['id_category_node'],
+            'name' => $collectItemData['name'],
+            'url' => $collectItemData['url'],
+            'image' => $collectItemData['category_image_name'],
             'children' => [],
             'parents' => [],
         ];
     }
 
     /**
-     * @param string $identifier
-     *
      * @return string
      */
-    protected function buildKey($identifier)
-    {
-        return $this->getResourceType() . '.' . $identifier;
-    }
-
-    /**
-     * @return string
-     */
-    public function getBundleName()
-    {
-        return 'resource';
-    }
-
-    /**
-     * @return string
-     */
-    protected function getResourceType()
+    protected function collectResourceType()
     {
         return CategoryConfig::RESOURCE_TYPE_CATEGORY_NODE;
     }

@@ -84,9 +84,8 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStorageNewCategoryNodeCollector()
     {
-        $storageNewCategoryNodeCollector = new \Pyz\Zed\Collector\Business\Storage\NewCategoryNodeCollector(
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY)
-        );
+        $storageNewCategoryNodeCollector = new \Pyz\Zed\Collector\Business\Storage\NewCategoryNodeCollector();
+
         $storageNewCategoryNodeCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
         );
