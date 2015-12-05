@@ -2,9 +2,9 @@
 
 namespace Pyz\Zed\Collector\Business\Storage\QueryBuilder\PostgreSql;
 
-use SprykerFeature\Zed\Collector\Business\Exporter\NewAbstractPropelCollectorQuery;
+use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPdoCollectorQuery;
 
-class NewCategoryNodeCollector extends NewAbstractPropelCollectorQuery
+class CategoryNodeCollector extends AbstractPdoCollectorQuery
 {
 
     /**

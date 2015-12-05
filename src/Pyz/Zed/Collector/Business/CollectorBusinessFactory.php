@@ -93,7 +93,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->createCriteriaBuilder()
         );
         $storageNewCategoryNodeCollector->setQueryBuilder(
-            $this->createStorageQueryBuilderAdapterByName('NewCategoryNodeCollector')
+            $this->createStorageQueryBuilderAdapterByName('CategoryNodeCollector')
         );
 
         return $storageNewCategoryNodeCollector;
@@ -102,7 +102,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     /**
      * @param $name
      *
-     * @return NewAbstractPropelCollectorQuery
+     * @return AbstractPdoCollectorQuery
      */
     public function createStorageQueryBuilderAdapterByName($name)
     {
@@ -469,7 +469,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return \Everon\Component\CriteriaBuilder\BuilderInterface
+     * @return \Everon\Component\CriteriaBuilder\CriteriaBuilderInterface
      */
     protected function createCriteriaBuilder()
     {

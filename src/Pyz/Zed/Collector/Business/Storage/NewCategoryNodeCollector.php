@@ -3,9 +3,9 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use SprykerFeature\Shared\Category\CategoryConfig;
-use SprykerFeature\Zed\Collector\Business\Exporter\NewAbstractPropelCollectorPlugin;
+use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPdoCollectorPlugin;
 
-class NewCategoryNodeCollector extends NewAbstractPropelCollectorPlugin
+class NewCategoryNodeCollector extends AbstractPdoCollectorPlugin
 {
 
     /**
