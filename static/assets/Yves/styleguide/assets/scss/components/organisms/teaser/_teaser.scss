@@ -5,9 +5,18 @@
 // Styleguide: organisms.teaser
 
 
+.teasers{
+    @include clearfix;
+    background: $_rgbWhite;
+}
+
+.teasers__inner{
+    @include limitWidth(1600px);
+}
+
 .teaser{
     position: relative;
-    height: 580px;
+    padding-bottom: 100%;
     width: 100%;
     float: left;
 }
@@ -27,15 +36,14 @@
     top: 50%;
     left: 0;
     width: 100%;
-    transform: translate3d(0, -50%, 0);
+    transform: translate(0, -50%);
 
     text-align: center;
-    color: #FFF;
+    color: $_rgbWhite;
 }
 
 .teaser__content{
-    padding-top: 60px;
-    @include limitWidth();
+    @include limitWidth;
 
     .button{
         margin-left: 11px;
@@ -48,13 +56,12 @@
 
     font-size: $_fsLarge;
     font-family: $_ffBrandonGrotesque-Black;
-    text-align: center;
-    color: $_rgbWhite;
 }
 
 
 @media (min-width: $_wLarge) {
     .teaser{
+        padding-bottom: 50%;
         width: 50%;
     }
 }

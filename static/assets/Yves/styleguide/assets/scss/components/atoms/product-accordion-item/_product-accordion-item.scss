@@ -6,6 +6,24 @@
 
 .product-accordion-item{
     @include pageWidth(0);
+    position: relative;
+
+    &:before, &:after{
+        content: '';
+        height: 100%;
+        width: 100vw;
+        position: absolute;
+        top: 0;
+        border-bottom: 1px solid $_rgbSilver;
+    }
+
+    &:before{
+        right: 0;
+    }
+
+    &:after{
+        left: 0;
+    }
 }
 
 
@@ -15,7 +33,6 @@
     }
 
     .product-accordion-item__plus {
-        opacity: 0;
         transform: rotate(90deg);
     }
 
@@ -34,11 +51,30 @@
 }
 
 .product-accordion-item__header{
+    position: relative;
+    z-index: 1;
     width: 100%;
     border-bottom: 1px solid $_rgbSilver;
 
     text-align: left;
     cursor: pointer;
+
+    &:before, &:after{
+        content: '';
+        height: 100%;
+        width: 100vw;
+        position: absolute;
+        top: 1px;
+        border-bottom: 1px solid $_rgbSilver;
+    }
+
+    &:before{
+        right: 0;
+    }
+
+    &:after{
+        left: 0;
+    }
 }
 
 .product-accordion-item__title{
@@ -61,43 +97,45 @@
     width: 24px;
     height: 24px;
     margin-top: -12px;
-    background: $_rgbApple;
-    font-size: 20px;
-    font-weight: bold;
-    color: $_rgbWhite;
-    border-radius: 50%;
 
     cursor: pointer;
 }
 
 .product-accordion-item__plus, .product-accordion-item__minus {
-    font-family: Helvetica Neue;
     width: 24px;
     height: 24px;
+
     display: block;
-    position: absolute;
+    position: absolute !important;
     top: 0;
     left: 0;
-    line-height: 19px;
-    text-align: center;
+
+    color: $_rgbApple;
+    font-size: 24px;
+    line-height: 24px;
+
     transition: 0.2s opacity ease-out, 0.3s transform ease-in-out;
 }
 
 .product-accordion-item__plus {
     opacity: 1;
     transform: rotate(0deg);
+
+    @include pdif('plus-circle', 24px, 24px);
 }
 
 .product-accordion-item__minus {
     opacity: 0;
     transform: rotate(-90deg);
+
+    @include pdif('minus-circle', 24px, 24px);
 }
 
 .product-accordion-item__content{
     display: none;
     border-bottom: 1px solid $_rgbSilver;
 
-    font-size: 16px;
+    font-size: 22px;
     color: $_rgbDoveGray;
 
     @include wysiwyg;
@@ -112,6 +150,12 @@
 
     .product-accordion-item__inner{
         max-width: 400px;
+    }
+}
+
+@media (min-width: $_wLarge){
+    .product-accordion-item__content{
+        font-size: 16px;
     }
 }
 

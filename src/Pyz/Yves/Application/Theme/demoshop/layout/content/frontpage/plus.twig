@@ -1,32 +1,32 @@
-{% set data = {
-    items: [
+{% set items = [
         {
-            figure: '100%',
-            label: 'Lebensmittelqualität',
+            image: '/images/category/batch_quality.jpg',
+            label: '100% Lebensmittelqualität',
             description: 'Alle Zutaten und Produkte von uns besitzen Lebensmittelqualität, um ihnen das Höchstmaß an Qualität bieten zu können.'
         },
         {
-            figure: '100%',
-            label: 'Naturnah und artgerecht',
+            image: '/images/category/batch_artgerecht.jpg',
+            label: '100% Naturnah und artgerecht',
             description: 'Wir verwenden ausschließlich natürliche Zutaten und verzichten gänzlich auf tierische Nebenerzeugnisse und Abfallprodukte.'
         },
         {
-            figure: '0%',
-            label: 'Tricks',
+            image: '/images/category/batch_tricks.jpg',
+            label: '0% Tricks',
             description: 'Für unsere Produkte verwenden wir ausnahmslos reines Muskelfleisch, frische Zutaten und keinerlei tierische Nebenerzeugnisse oder künstliche Zusätze - 100% Transparenz.'
         }
-    ]
-} %}
+] %}
 
 
 <div class="plus" id="plus-section">
     <div class="plus__inner">
 
-        {% for item in data.items %}
+        {% for item in items %}
 
             <div class="plus__item">
-                <div class="plus__figure">{{ item.figure }}</div>
-                <div class="plus__label">{{ item.label }}</div>
+                <div class="plus__image">
+                    <img src="{{ item.image }}" alt="{{ item.label }}" />
+                </div>
+
                 <div class="plus__description">{{ item.description }}</div>
             </div>
 

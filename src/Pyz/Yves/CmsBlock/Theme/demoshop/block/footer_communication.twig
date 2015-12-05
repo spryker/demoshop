@@ -14,6 +14,7 @@
                 icon: 'mail',
                 link: {
                     title: 'office@petsdeli.de',
+                    url: 'mailto:office@petsdeli.de'
                 }
             },
             {
@@ -27,7 +28,9 @@
                 headline: 'Ladengeschäfte',
                 icon: 'store',
                 link: {
+                    target: '_blank',
                     title: 'Unsere Ladengeschäfte',
+                    url: 'https://www.google.de/maps/place/PETS+DELI+am+Roseneck/@52.4779465,13.2788739,17z/data=!3m1!4b1!4m2!3m1!1s0x47a850a5ada15193:0xcc513e65edfecadb'
                 }
             },
         ]
@@ -42,7 +45,7 @@
         <div class="communication__channel communication__channel--{{ channel.icon }}">
             <h2 class="communication__label">{{ channel.headline }}</h2>
 
-            <a {% if channel.link.url is defined %} href="{{ channel.link.url }}" {% endif %} class="communication__info">
+            <a {% if channel.link.target is defined %} target="{{ channel.link.target }}" {% endif %} {% if channel.link.url is defined %} href="{{ channel.link.url }}" {% endif %} class="communication__info">
                 {{ channel.link.title }}
             </a>
         </div>

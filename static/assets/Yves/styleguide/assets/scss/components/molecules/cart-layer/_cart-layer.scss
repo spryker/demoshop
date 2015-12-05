@@ -50,10 +50,10 @@
 }
 
 .cart-layer__headline{
-    margin: 27px;
+    margin: 30px 95px 25px 25px;
 
     font-family: $_ffBrandonGrotesque-Black;
-    font-size: $_fsLarge;
+    font-size: 45px;
     line-height: 1em;
     color: $_rgbApple;
     text-align: center;
@@ -110,15 +110,22 @@
 
     &:before{
         position: absolute;
-        margin: 0 0 0-18px;
         left: 50%;
-        top: 22px;
+        top: 53px;
+        margin-left: -18px;
     }
 }
 
 
 
 // TODO: invert
+
+@media (min-width: $_wMedium) {
+    .cart-layer__headline{
+        margin: 27px;
+        font-size: 50px;
+    }
+}
 
 @media (max-width: $_wLarge) {
     .cart-layer__upsell{

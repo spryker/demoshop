@@ -33,7 +33,7 @@
 .product-info__description{
     margin-top: 20px;
 
-    font-size: 16px;
+    font-size: 22px;
     color: $_rgbDoveGray;
 
     @include wysiwyg;
@@ -45,6 +45,13 @@
     font-family: $_ffBrandonGrotesque-Bold;
     font-size: 15px;
     color: $_rgbDoveGray;
+}
+
+
+@media (min-width: $_wLarge){
+    .product-info__description{
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 1050px) {

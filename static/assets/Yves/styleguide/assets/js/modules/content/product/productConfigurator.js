@@ -39,7 +39,7 @@ $(document).ready(function () {
         $configurator.addClass('product-configurator--background');
         setTimeout(function () {
           $configurator.addClass('product-configurator--show')
-        }, 100);
+        });
     }
 
     function close () {

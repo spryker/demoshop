@@ -8,8 +8,8 @@
     @include pdif('close', 20px, 20px);
     position: absolute;
     z-index: 2;
-    top: 20px;
-    right: 30px;
+    top: 14px;
+    right: 14px;
     width: 56px;
     height: 56px;
     line-height: 56px;
@@ -25,4 +25,18 @@
     }
 
     @include ripple;
+}
+
+@media (min-width: $_wMedium) {
+    .close-button{
+        top: 24px;
+        right: 19px;
+    }
+}
+
+@media (min-width: $_wLarge) {
+    .close-button{
+        top: 35px;
+        right: 44px;
+    }
 }

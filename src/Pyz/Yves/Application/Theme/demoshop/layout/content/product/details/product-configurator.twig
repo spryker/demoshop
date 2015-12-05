@@ -1,7 +1,6 @@
 {% set data = {
     headline: 'Inhalt anpassen',
-    description: 'Wählen Sie die Zutaten ab, die Ihr Tier nicht verträgt.
-    Das Paket wird dennoch immer 10 Menüboxen enthalten.',
+    description: 'Wählen Sie die Zutaten ab, die Ihr Tier nicht verträgt. Das Paket wird dennoch immer 10 Menüboxen enthalten.',
     label: 'Wählen Sie Zutaten aus oder ab:',
     button: 'Meine Auswahl speichern',
     titles: {
@@ -22,7 +21,7 @@
         </h2>
 
         <div class="product-configurator__description">
-            {{ data.description | nl2br }}
+            {{ data.description }}
         </div>
 
         {% set option = options | first %}

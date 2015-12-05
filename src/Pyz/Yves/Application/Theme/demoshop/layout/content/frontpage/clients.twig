@@ -2,16 +2,14 @@
     headline: 'Das sagen unsere Kunden',
     clients: [
         {
-            image: '/images/client/mohrle.jpg',
-            name: 'Mohrle',
-            quote: '“Mein Perserkater Mohrle hatte starke Haut- und Fellprobleme bis er Frischfutter von PETS DELI bekam - seine kahlen Stellen und der Juckreiz gehören nun der Vergangenheit an und er hat ein wunderbares, dichtes und glänzendes Fell bekommen!”',
-            owner: 'Ulrike Mielke aus Stendal'
+            image: '/images/client/aimee.jpg',
+            quote: '“Wir haben alle möglichen (billigen und teuren) Trocken- und Naßfuttervarianten ausprobiert, aber irgendwie hat mich nie etwas richtig überzeugt. Es gab immer wieder unschöne Nebeneffekte: Durchfall, Verstopfungen, Probleme mit ihrem Fell, Vitalitätsverlust oder Geruch - mit PETS DELI haben wir endlich das perfekte Futter gefunden und Aimée sah noch nie besser aus!”',
+            owner: 'Kristina Seemayer mit Hündin Aimée'
         },
         {
-            image: '/images/client/matisse.jpg',
-            name: 'Matisse',
-            quote: '“Ich selbst bin Vegetarier und wollte meine Stubentiger trotzdem artgerecht mit rohem Fleisch ernähren. Herkömmliches Barf-Futter hat für mich nichts mit dem Fleisch, was ich noch aus Muttis Küche kenne, gemeinsam - es stinkt, sieht unappetitlich aus und wurde von meinen Katzen nicht angerührt. Mit PETS DELI war das ganz anders - meine Katzen fressen das Futter liebend gern und sehen viel gesünder aus!”',
-            owner: 'Juliane Herdes aus ?'
+            image: '/images/client/barry.jpg',
+            quote: '“Unser Pudel Barry ist ein sehr mäkeliger Fresser, aber bei PETS DELI frisst er jedes mal mit Genuss seinen Napf leer und auch wir riechen das Futter gerne - Endlich haben wir das richtige Futter für Barry gefunden!”',
+            owner: 'Pia Retterath mit Pudel Barry'
         }
     ]
 } %}
@@ -26,7 +24,6 @@
             {% for client in data.clients %}
             <div class="clients__item">
                 <img class="clients__item-image" src="{{ client.image }}">
-                <h3 class="clients__item-name">{{ client.name }}</h3>
                 <p class="clients__item-quote">{{ client.quote }}</p>
                 <p class="clients__item-owner">{{ client.owner }}</p>
             </div>
