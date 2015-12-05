@@ -3,8 +3,9 @@
 namespace Pyz\Zed\Adyen\Persistence;
 
 use Orm\Zed\Adyen\Persistence\PavPaymentAdyenQuery;
+use PavFeature\Zed\Adyen\Persistence\AdyenQueryContainerInterface as PavAdyenQueryContainerInterface;
 
-interface AdyenQueryContainerInterface
+interface AdyenQueryContainerInterface extends PavAdyenQueryContainerInterface
 {
     /**
      * @param int $idSalesOrder

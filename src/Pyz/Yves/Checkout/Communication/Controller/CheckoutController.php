@@ -299,7 +299,7 @@ class CheckoutController extends AbstractController
         $checkResponse = $adyenClient->checkHppPaymentReturn($hppCheckPaymentReturnTransfer);
 
         $this->handleRedirectPaymentReturnCustomerMessage($checkResponse);
-        $redirectUrl = $checkResponse->getRedirectUrl();
+        $redirectUrl = $checkResponse->getRedirectRoute();
 
         return $this->redirectResponseInternal($redirectUrl);
     }

@@ -2,11 +2,13 @@
 
 namespace Pyz\Zed\Adyen\Communication\Controller;
 
-use PavFeature\Zed\Adyen\Business\AdyenFacade;
+use PavFeature\Shared\Adyen\AdyenHppReturnResponseConstants;
+use Pyz\Zed\Adyen\Business\AdyenFacade;
 use Generated\Shared\Adyen\AdyenHppPaymentReturnCheckInterface;
 use Generated\Shared\Adyen\AdyenHppPaymentReturnCheckResponseInterface;
 use PavFeature\Zed\Adyen\Communication\Controller\GatewayController as PavGatewayController;
 use PavFeature\Zed\Adyen\Communication\AdyenDependencyContainer;
+use Pyz\Shared\Adyen\Code\AdyenStateMachineEvents;
 
 /**
  * @method AdyenFacade getFacade()
@@ -21,15 +23,17 @@ class GatewayController extends PavGatewayController
      */
     public function checkHppPaymentReturnAction(AdyenHppPaymentReturnCheckInterface $hppPaymentReturnCheck)
     {
-
-        //$container->createSalesFacade(); $hppPaymentReturnCheck->get
-        return $this->getFacade()
+        $checkResponse = $this->getFacade()
             ->checkHppPaymentReturn($hppPaymentReturnCheck);
+
+        $this->getFacade()
+            ->triggerStateMachineEventOnHppPaymentReturn(
+                $hppPaymentReturnCheck,
+                $checkResponse
+            );
+
+        return $checkResponse;
     }
 
-    protected function triggerStateMachineEvent(AdyenHppPaymentReturnCheckInterface $hppPaymentReturnCheck)
-    {
-        //$this->getFacade()->get
-    }
 
 }
