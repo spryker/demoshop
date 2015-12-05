@@ -1,0 +1,88 @@
+<div class="press">
+    {% if cmsValues.press is defined %}
+        {% set press = cmsValues.press %}
+
+        <div class="press__press">
+
+            {% if press.headline is defined %}
+                <h1>{{ press.headline }}</h1>
+            {% endif %}
+
+            {% if press.references is defined %}
+                <div class="press__press-references">
+
+                    {% for reference in press.references %}
+                        <div class="press_press-reference">
+                            {% if reference.url is defined %}
+                                {{ reference.url }}
+                            {% endif %}
+
+                            {% if reference.image is defined %}
+                                {{ reference.image }}
+                            {% endif %}
+
+                            {% if reference.alt is defined %}
+                                {{ reference.alt }}
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+
+                </div>
+            {% endif %}
+        </div>
+
+    {% endif %}
+
+
+    {% if cmsValues.videos is defined %}
+        {% set videos = cmsValues.videos %}
+
+        <div class="press__videos">
+
+            {% if videos.headline is defined %}
+                <h1>{{ videos.headline }}</h1>
+            {% endif %}
+
+            {% if videos.youtube is defined %}
+                <div class="press__videos-youtubes">
+
+                    {% for youtube in videos.youtube %}
+                        <div class="press__videos-youtube">
+                            {% if youtube.id is defined %}
+                                {{ youtube.id }}
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+
+
+
+    {% if cmsValues.radio is defined %}
+        {% set radio = cmsValues.radio %}
+
+        <div class="press__radio">
+
+            {% if radio.headline is defined %}
+                <h1>{{ radio.headline }}</h1>
+            {% endif %}
+
+            {% if radio.soundcloud is defined %}
+                <div class="press__radio-soundclouds">
+
+                    {% for soundcloud in radio.soundcloud %}
+                        <div class="press__radio-soundcloud">
+                            {% if soundcloud.id is defined %}
+                                {{ soundcloud.id }}
+                            {% endif %}
+                         </div>
+                    {% endfor %}
+
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>

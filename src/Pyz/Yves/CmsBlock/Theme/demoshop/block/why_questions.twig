@@ -1,1 +1,202 @@
-WHY!!!
+<div class="why">
+    {% if cmsValues.header is defined %}
+        {% set header = cmsValues.header %}
+
+        <div class="why__header">
+
+            {% if header.headline is defined %}
+                <h1 class="why__header-headline">{{ header.headline }}</h1>
+            {% endif %}
+
+            {% if header.image is defined %}
+                <div class="why__header-image">
+                    <img src="{{ header.image.url }}" alt="{{ header.image.alt }}" />
+                </div>
+            {% endif %}
+
+            {% if header.checkmarks is defined %}
+                <div class="why__header-checkmarks">
+
+                    {% for checkmark in header.checkmarks %}
+                        <div class="why__header-checkmark">
+                            {{ checkmark.text }}
+                        </div>
+                    {% endfor %}
+
+                </div>
+            {% endif %}
+
+            {% if header.content is defined %}
+                <div class="why__header-content">
+                    {% markdown %}
+                        {{ header.content }}
+                    {% endmarkdown %}
+                </div>
+            {% endif %}
+
+        </div>
+    {% endif %}
+
+
+
+    {% if cmsValues.products is defined %}
+        {% set products = cmsValues.products %}
+
+        <div class="why__products">
+
+            {% if products.headline is defined %}
+                <h2 class="why__products-headline">{{ products.headline }}</h2>
+            {% endif %}
+
+            {% if products.pets is defined %}
+                <div class="why__products-pets">
+
+                    {% for pet in products.pets %}
+                        <div class="why__products-pet">
+
+                            {% if pet.image is defined %}
+                                <div class="why__products-image">
+                                    <img src="{{ pet.image.url }}" alt="{{ pet.image.alt }}" />
+                                </div>
+
+                                <p class="why__products-title">{{ pet.image.alt }}</p>
+                            {% endif %}
+
+                        </div>
+                    {% endfor %}
+
+                </div>
+            {% endif %}
+
+        </div>
+    {% endif %}
+
+
+
+    {% if cmsValues.order is defined %}
+        {% set order = cmsValues.order %}
+
+        <div class="why__order">
+
+            {% if order.headline is defined %}
+                <h2 class="why__order-headline">{{ order.headline }}</h2>
+            {% endif %}
+
+            {% if order.steps is defined %}
+                <div class="why__order-steps">
+
+                    {% for step in order.steps %}
+                        <div class="why__order-step">
+
+                            {% if step.image is defined %}
+                                <div class="why__order-image">
+                                    <img src="{{ step.image.url }}" alt="{{ step.image.alt }}" />
+                                </div>
+                            {% endif %}
+
+                            {% if step.title is defined %}
+                                <h3 class="why__order-title">{{ step.title }}</h3>
+                            {% endif %}
+
+                            {% if step.description is defined %}
+                                <p class="why__order-title">>
+                                    {% markdown %}
+                                        {{ step.description }}
+                                    {% endmarkdown %}
+                                </p>
+                            {% endif %}
+
+                        </div>
+                    {% endfor %}
+
+                </div>
+            {% endif %}
+
+        </div>
+    {% endif %}
+
+
+
+    {% if cmsValues.information is defined %}
+
+        <div class="why__information">
+
+            {% for information in cmsValues.information %}
+                <div class="why__information-step">
+
+                    {% if information.headline is defined %}
+                        <h2 class="why__information-headline">{{ information.headline }}</h2>
+                    {% endif %}
+
+                    {% if information.content is defined %}
+                        <p class="why__information-content">
+                            {% markdown %}
+                                {{ information.content }}
+                            {% endmarkdown %}
+                        </p>
+                    {% endif %}
+
+
+                    {% if information.images is defined %}
+                        <div class="why__information-images">
+
+                            {% for image in information.images %}
+                                {% set image = image.image %}
+
+                                <div class="why__information-image">
+                                    <img src="{{ image.url }}" alt="{{ image.alt }}" />
+
+                                    <p class="why__information-title">{{ image.alt }}</p>
+
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                    {% endif %}
+
+                </div>
+            {% endfor %}
+
+        </div>
+    {% endif %}
+
+
+
+    {% if cmsValues.petscategories is defined %}
+        {% set petscategories = cmsValues.petscategories %}
+
+        <div class="why__categories">
+
+            {% for pet in petscategories %}
+
+                {% if pet.headline is defined %}
+                    <h2 class="why__petscategories-headline">{{ pet.headline }}</h2>
+                {% endif %}
+
+                {% for category in pet.categories %}
+                    <div class="why__petscategories-image">
+                        {% if category.image is defined %}
+                            <div class="why__petscategories-image">
+                                <img src="{{ category.image.url }}" alt="{{ category.image.alt }}" />
+                            </div>
+                        {% endif %}
+
+                        {% if category.title is defined %}
+                            <h3 class="why__petscategories-title">{{ category.title }}</h3>
+                        {% endif %}
+
+                        {% if category.description is defined %}
+                            <p class="why__petscategories-description">
+                                {{ category.description }}
+                            </p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+
+            {% endfor %}
+
+
+        </div>
+    {% endif %}
+
+</div>

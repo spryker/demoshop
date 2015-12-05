@@ -1,0 +1,56 @@
+<div class="categories">
+
+    {% if cmsValues.header is defined %}
+        {% set header = cmsValues.header %}
+
+        <div class="categories__header">
+            <div class="category__header-image">
+                {% if header.image is defined %}
+                    <img src="{{ header.image.url }}" alt="{{ header.image.alt }}" />
+                {% endif %}
+            </div>
+
+            {% if header.intro is defined %}
+                <h1 class="categories__headline">{{ header.headline }}</h1>
+            {% endif %}
+
+            {% if header.intro is defined %}
+                <p class="categories__intro">
+                    {{ header.intro }}
+                </p>
+            {% endif %}
+        </div>
+
+    {% endif %}
+
+
+    {% if cmsValues.categories is defined %}
+        {% set categories = cmsValues.categories %}
+
+        <div class="categories__categories">
+
+            {% for category in categories %}
+                <div class="categories__category">
+
+                    {% if category.image is defined %}
+                        <div class="categories__category-image">
+                            <img src="{{ category.image.url }}" alt="{{ category.image.alt }}" />
+                        </div>
+                    {% endif %}
+
+                    {% if category.title is defined %}
+                        <h2 class="categories__category-title">{{ category.title }}</h2>
+                    {% endif %}
+
+                    {% if category.title is defined %}
+                        <p class="categories__category-description">
+                            {{ category.description }}
+                        </p>
+                    {% endif %}
+
+                </div>
+            {% endfor %}
+
+        </div>
+    {% endif %}
+</div>

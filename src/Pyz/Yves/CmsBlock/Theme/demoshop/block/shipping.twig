@@ -1,0 +1,99 @@
+<div class="shipping">
+    {% if cmsValues.header is defined %}
+        {% set header = cmsValues.header %}
+
+        <div class="shipping__header">
+            {% if header.headline is defined %}
+                <h1 class="shipping__headline">{{ header.headline }}</h1>
+            {% endif %}
+
+            {% if header.intro is defined %}
+                <div class="shipping__intro">
+                    {% markdown %}
+                        {{ header.intro }}
+                    {% endmarkdown %}
+                </div>
+            {% endif %}
+
+        </div>
+    {% endif %}
+
+
+    {% if cmsValues.shipping is defined %}
+        {% set shipping = cmsValues.shipping %}
+
+        <div class="shipping__shipping">
+            {% if shipping.headline is defined %}
+                <h2 class="shipping__shipping-headline">{{ shipping.headline }}</h2>
+            {% endif %}
+
+            {% if shipping.countries is defined %}
+                <div class="shipping__countries">
+                    {% for country in shipping.countries %}
+
+                        <div class="shipping__left">
+                            {% if shipping.headline is defined %}
+                                <div class="shipping__country">
+                                    {{ country.country }}
+                                </div>
+                            {% endif %}
+
+                            {% if shipping.headline is defined %}
+                                <div class="shipping__carrier">
+                                    {{ country.carrier }}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="shipping__right">
+                            {% if shipping.headline is defined %}
+                                <div class="shipping__fee">
+                                    {{ country.fee }}
+                                </div>
+                            {% endif %}
+
+                            <div class="shipping__conditions">
+                                {% for condition in country.conditions %}
+
+                                    {% if shipping.headline is defined %}
+                                        <div class="shipping__condition">
+                                            {{ condition.condition }}
+                                        </div>
+                                    {% endif %}
+
+                                {% endfor %}
+                            </div>
+                        </div>
+
+
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+
+
+    {% if cmsValues.information is defined %}
+
+        <div class="shipping__information">
+            {% markdown %}
+                {{ cmsValues.information }}
+            {% endmarkdown %}
+        </div>
+    {% endif %}
+
+
+    {% if cmsValues.image is defined %}
+        {% set image = cmsValues.image %}
+
+        <div class="shipping__image">
+            {% if image.url is defined %}
+                {{ image.url }}
+            {% endif %}
+
+            {% if image.alt is defined %}
+                {{ image.alt }}
+            {% endif %}
+        </div>
+    {% endif %}
+</div>

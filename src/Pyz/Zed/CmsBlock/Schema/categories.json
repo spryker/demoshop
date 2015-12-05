@@ -1,0 +1,50 @@
+{
+    "type": "form",
+    "fields": {
+        "header": {
+            "type": "form",
+            "fields": {
+                "image": {
+                    "type": "form",
+                    "fields": {
+                        "url": {
+                            "type": "text"
+                        },
+                        "alt": {
+                            "type": "text"
+                        }
+                    }
+                },
+                "headline": {
+                    "type": "text"
+                },
+                "intro": {
+                    "type": "textarea"
+                }
+            }
+        },
+        "categories": {
+            "type": "form",
+            "multiple": true,
+            "fields": {
+                "image": {
+                    "type": "form",
+                    "fields": {
+                        "url": {
+                            "type": "text"
+                        },
+                        "alt": {
+                            "type": "text"
+                        }
+                    }
+                },
+                "title": {
+                    "type": "text"
+                },
+                "description": {
+                    "type": "textarea"
+                }
+            }
+        }
+    }
+}

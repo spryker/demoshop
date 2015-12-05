@@ -14,8 +14,19 @@
 <div class="featured-products">
 
     <div class="featured-products__inner">
-        <img class="featured-products__background featured-products__background--left" src="{{ data.images.left }}">
-        <img class="featured-products__background featured-products__background--right" src="{{ data.images.right }}">
+
+        {% include '@application/layout/common/lazy-image.twig' with {
+            src: data.images.left,
+            class: 'featured-products__background featured-products__background--left',
+            label: 'Produktabbildung'
+        } %}
+
+        {% include '@application/layout/common/lazy-image.twig' with {
+            src: data.images.right,
+            class: 'featured-products__background featured-products__background--right',
+            label: 'Produktabbildung'
+        } %}
+
 
         <div class="featured-products__intro">
             <h2 class="featured-products__headline">{{ data.headline }}</h2>
@@ -29,6 +40,7 @@
                 {% endfor %}
             </div>
         </div>
+
 
         <div class="featured-products__products">
             {% include "@application/layout/content/product/product-card.twig" with {

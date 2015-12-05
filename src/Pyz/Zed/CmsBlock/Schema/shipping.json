@@ -1,0 +1,62 @@
+{
+    "type": "form",
+    "fields": {
+        "header": {
+            "type": "form",
+            "fields": {
+                "headline": {
+                    "type": "text"
+                },
+                "intro": {
+                    "type": "textarea"
+                }
+            }
+        },
+        "shipping": {
+            "type": "form",
+            "fields": {
+                "title": {
+                    "type": "text"
+                },
+                "countries": {
+                    "type": "form",
+                    "multiple": true,
+                    "fields": {
+                        "country": {
+                            "type": "text"
+                        },
+                        "carrier": {
+                            "type": "text"
+                        },
+                        "fee": {
+                            "type": "text"
+                        },
+                        "conditions": {
+                            "type": "form",
+                            "multiple": true,
+                            "fields": {
+                                "condition": {
+                                    "type": "text"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "information": {
+            "type": "textarea"
+        },
+        "image": {
+            "type": "form",
+            "fields": {
+                "url": {
+                    "type": "text"
+                },
+                "alt": {
+                    "type": "text"
+                }
+            }
+        }
+    }
+}

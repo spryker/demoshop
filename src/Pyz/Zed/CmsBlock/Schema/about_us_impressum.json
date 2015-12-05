@@ -1,0 +1,20 @@
+{
+    "type": "form",
+    "fields": {
+        "headline": {
+            "type": "text"
+        },
+        "blocks": {
+            "type": "form",
+            "multiple": true,
+            "fields": {
+                "title": {
+                    "type": "text"
+                },
+                "content": {
+                    "type": "textarea"
+                }
+            }
+        }
+    }
+}
