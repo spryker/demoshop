@@ -84,7 +84,7 @@ function scrollTo ($target, velocity, callback) {
 
     // TODO: header epsilon into shared variable
     $scrollable.animate({
-        scrollTop: target - $navbarBottom.outerHeight() - (target > 50 ? $navbarTop.outerHeight() : 0)
+        scrollTop: target - $navbarBottom.outerHeight() - (target < 50 ? $navbarTop.outerHeight() : 0)
     }, Math.abs(current - target) * velocity, callback);
 }
 

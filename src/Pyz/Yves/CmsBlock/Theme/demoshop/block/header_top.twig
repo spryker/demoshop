@@ -9,7 +9,7 @@
 
     menus: [
         {
-            headline: 'Support',
+            headline: 'Menü',
             links: [
                 { url: '/warum/' , title: 'Warum' },
                 { url: '/faq/' , title: 'Fragen?' },
@@ -43,7 +43,7 @@
                     {{ menu.headline }}
                 </div>
 
-                <ul class="offcanvas__items">
+                <ul class="offcanvas__items" style="display: block;">
                 {% for link in menu.links %}
                     <li class="offcanvas__item">
                         <a href="{{ link.url }}">{{ link.title }}</a>

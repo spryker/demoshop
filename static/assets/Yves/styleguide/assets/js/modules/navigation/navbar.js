@@ -23,8 +23,6 @@ $(document).ready(function () {
         $offcanvas = $('.offcanvas');
         $navbarTop = $('.navbar__top');
 
-        //determineActive();
-
         updateMarker();
 
 
@@ -39,27 +37,13 @@ $(document).ready(function () {
         $(window).scroll(checkTopBar);
 
 
-        function determineActive () {
-            var url = window.location.href.toLowerCase();
-
-            $trigger.each(function () {
-                var target = (window.location.host +  $(this).find('a').attr('href')).toLowerCase();
-
-                if (url.indexOf(target) > -1) {
-                    $(this).addClass('navbar__link--active');
-                    return false;
-                }
-            });
-        }
-
-
         function updateMarker () {
             var $active, width, left;
 
             $active = $('.navbar__link--open').size() ? $('.navbar__link--open').children().eq(0) : $('.navbar__link--active').children().eq(0);
 
             width = $active.size() ? $active.outerWidth() : 50;
-            left = $active.size() ? $active.offset().left : -50;
+            left = $active.size() ? $active.offset().left : $('.navbar__logo:visible').size() ? $('.navbar__logo').offset().left + 10 : -50;
 
             $marker.css({
                 left: left + 'px',

@@ -22,7 +22,7 @@
     position: relative;
     margin-bottom: 30px;
 
-    font-size: 16px;
+    font-size: 22px;
     color: $_rgbDoveGray;
 }
 
@@ -42,6 +42,14 @@
     margin: 19px 0 0 0;
 }
 
+
+
+@media (min-width: $_wLarge){
+    .product-content__description,
+    .product-content__customize{
+        font-size: 16px;
+    }
+}
 
 
 @media (min-width: 1250px) {

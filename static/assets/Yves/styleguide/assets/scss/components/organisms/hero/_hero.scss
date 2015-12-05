@@ -33,22 +33,26 @@
 }
 
 .hero__content{
+    padding: 0 14px;
 }
 
 .hero__headline{
     margin-bottom: 25px;
 
     font-family: $_ffBrandonGrotesque-Black;
-    font-size: 60px;
-    line-height: 60px;
+    font-size: 46px;
+    line-height: 1em;
     color: $_rgbWhite;
+
+    text-shadow: 0 0 6px rgba(0,0,0,0.5);
 }
 
 .hero__description{
     font-family: $_ffBrandonGrotesque-Black;
-    font-size: 30px;
-    line-height: 43px;
+    font-size: 18px;
     color: $_rgbWhite;
+
+    text-shadow: 0 0 6px rgba(0,0,0,0.5);
 }
 
 .hero__scroll{
@@ -79,5 +83,23 @@
 @media (min-width: $_wLarge) {
     .hero{
         height: calc(100vh - 103px);
+    }
+
+    .hero__headline{
+        font-size: 60px;
+        text-shadow: none;
+    }
+
+    .hero__description{
+        font-size: 33px;
+        text-shadow: none;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero__headline{
+        margin-bottom: 15px;
+
+        font-size: 40px;
     }
 }

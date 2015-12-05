@@ -7,13 +7,14 @@
 .featured-products{
     overflow: hidden;
     position: relative;
-    padding: 95px 0 85px;
     background: #F9F9F9;
-    min-height: 900px;
 }
 
 .featured-products__inner{
     @include pageWidth;
+    padding-top: 95px;
+    padding-bottom: 85px;
+    min-height: 900px;
     position: relative;
     z-index: 1;
 }

@@ -113,25 +113,28 @@ $(document).ready(function () {
 
 
         function updateStickyPosition () {
-            var limit, scrollTop, padding;
+            $options.addClass('product-options--sticky')
+            $options.css('top', optionsOffset);
 
-            padding = 20;
-
-            limit = $stickyLimiter.offset().top - (optionsOffset + $options.outerHeight() + padding);
-            scrollTop = $(window).scrollTop();
-
-            if (scrollTop <= limit) {
-                if (!$options.hasClass('product-options--sticky')) {
-                    $options.addClass('product-options--sticky')
-                    $options.css('top', optionsOffset);
-                }
-
-            } else {
-                if ($options.hasClass('product-options--sticky')) {
-                    $options.removeClass('product-options--sticky')
-                    $options.css('top', limit);
-                }
-            }
+            // var limit, scrollTop, padding;
+            //
+            // padding = 20;
+            //
+            // limit = $stickyLimiter.offset().top - (optionsOffset + $options.outerHeight() + padding);
+            // scrollTop = $(window).scrollTop();
+            //
+            // if (scrollTop <= limit) {
+            //     if (!$options.hasClass('product-options--sticky')) {
+            //         $options.addClass('product-options--sticky')
+            //         $options.css('top', optionsOffset);
+            //     }
+            //
+            // } else {
+            //     if ($options.hasClass('product-options--sticky')) {
+            //         $options.removeClass('product-options--sticky')
+            //         $options.css('top', limit);
+            //     }
+            // }
         }
     });
 

@@ -19,6 +19,7 @@
 .menu-teaser-full__inner{
     position: relative;
     @include limitWidth(720px);
+    display: flex;
 
     .button{
         span{
@@ -31,32 +32,30 @@
 .menu-teaser-full__content{
     position: relative;
     z-index: 1;
-    width: 50%;
     height: 220px;
-    float: left;
+    flex-shrink: 1;
+    display: flex;
 }
 
 .menu-teaser-full__content-inner{
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    transform: translate(0, -50%);
+    align-self: center;
 }
 
 .menu-teaser-full__headline{
-    margin-bottom: 20px;
+    margin: 20px 0 15px;
 
     font-family: $_ffBrandonGrotesque-Black;
     font-size: $_fsLarge;
     color: $_rgbApple;
-    line-height: 1em;
+    line-height: 0.9em;
 }
 
 .menu-teaser-full__image{
-    width: 50%;
     height: 220px;
-    float: left;
     text-align: center;
+    flex-grow: 1;
+    width: 100%;
+    text-align: left;
 
     img{
         display: inline-block;

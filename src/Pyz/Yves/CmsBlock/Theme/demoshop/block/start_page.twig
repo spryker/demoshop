@@ -6,23 +6,29 @@
 
     {% include '@application/layout/content/frontpage/press.twig' %}
 
-    {% include '@application/layout/content/frontpage/teaser.twig' with {
-        title: 'Für Hunde',
-        button: {
-            url: '/hunde-nahrung/',
-            title: 'Jetzt entdecken'
-        },
-        image: '/images/teaser/dog.jpg'
-    } %}
+    <div class="teasers">
+        <div class="teasers__inner">
 
-    {% include '@application/layout/content/frontpage/teaser.twig' with {
-        title: 'Für Katzen',
-        button: {
-            url: '/katzen-nahrung/',
-            title: 'Jetzt entdecken'
-        },
-        image: '/images/teaser/cat.jpg'
-    } %}
+            {% include '@application/layout/content/frontpage/teaser.twig' with {
+                title: 'Für Hunde',
+                button: {
+                    url: '/hunde-nahrung/',
+                    title: 'Jetzt entdecken'
+                },
+                image: '/images/teaser/dog.jpg'
+            } %}
+
+            {% include '@application/layout/content/frontpage/teaser.twig' with {
+                title: 'Für Katzen',
+                button: {
+                    url: '/katzen-nahrung/',
+                    title: 'Jetzt entdecken'
+                },
+                image: '/images/teaser/cat.jpg'
+            } %}
+            
+        </div>
+    </div>
 
     {% include '@application/layout/content/frontpage/clients.twig' %}
 

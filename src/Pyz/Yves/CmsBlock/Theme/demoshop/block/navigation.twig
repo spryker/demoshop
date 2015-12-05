@@ -1,6 +1,5 @@
 {%
     set data = {
-        wordmark: 'Pets Deli',
         items: [
             'Geld - zurück - Garantie',
             'Kostenloser Tiefkühl-Versand',
@@ -8,7 +7,7 @@
         ],
         press: {
             title: 'Bekannt aus',
-            references: ['bild', 'ard']
+            references: ['bild', 'zdf']
         },
         logo: {
             url: '/',
@@ -37,7 +36,7 @@
 
         <div class="navbar__top">
            <div class="navbar__center">
-                <div class="navbar__wordmark">{{ data.wordmark }}</div>
+                <img class="navbar__wordmark" src="/images/logo/logo_inline.png" alt="Pets Deli Logo" />
 
                 {% for item in data.items %}
                     <div class="navbar__item">{{ item }}</div>

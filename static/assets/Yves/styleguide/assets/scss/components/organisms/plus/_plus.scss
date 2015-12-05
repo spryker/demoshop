@@ -5,7 +5,7 @@
 // Styleguide: organisms.plus
 
 .plus{
-    padding: 100px 0;
+    padding: 50px 0;
     background: $_rgbWhite;
     clear: both;
 }
@@ -13,10 +13,11 @@
 .plus__inner{
     @include clearfix;
     @include pageWidth;
+
+    text-align: center;
 }
 
 .plus__item{
-    text-align: center;
     padding: 0 24px;
 
     & + .plus__item{
@@ -24,55 +25,52 @@
     }
 }
 
-.plus__figure{
-    padding: 23px 0 5px;
+.plus__image{
+    margin-bottom: 20px;
 
-    font-family: $_ffBrandonGrotesque-Black;
-    color: $_rgbApple;
-    font-size: 36px;
-    line-height: 52px;
-
-    @include pdif('paw', 20px, 0);
-
-    &:before{
-        top: 0;
-        transform: none;
-        width: 100%;
-        text-align: center;
-        margin-top: 0;
+    img{
+        @include responsiveImage
+        max-width: 147px;
+        margin: 0 auto;
     }
-
-    &:after{
-        content: '';
-        position: absolute;
-        width: 60px;
-        height: 2px;
-        top: 70px;
-        left: 50%;
-        margin-left: -30px;
-        background: $_rgbApple;
-
-    }
-}
-
-.plus__label{
-    margin-bottom: 25px;
-
-    font-family: $_ffBrandonGrotesque-Bold;
-    font-size: $_fsSmaller;
-    color: $_rgbApple;
 }
 
 .plus__description{
+    max-width: 330px;
+    margin: 0 auto;
+
     color: $_rgbSilverChalice;
 }
 
+@media (min-width: 600px) {
+    .plus__item{
+        width: 50%;
+        display: inline-block;
+        margin-top: 0 !important;
+        vertical-align: top;
 
-@media (min-width: $_wLarge) {
+        &:last-child{
+            margin-top: 50px !important;
+        }
+    }
+
+    .plus__description{
+        max-width: 300px;
+    }
+}
+
+
+@media (min-width: 900px) {
+    .plus{
+        padding: 70px 0;
+    }
+
     .plus__item{
         width: 33.333%;
-        float: left;
-        margin-top: 0 !important;
+
+        &:last-child{
+            margin-top: 0 !important;
+        }
     }
 
     .plus__label{

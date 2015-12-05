@@ -1,13 +1,13 @@
 .error{
     position: relative;
     z-index: 1;
-    @include pageWidth;
     padding-top: 55px;
 
     background: $_rgbWhite;
 }
 
 .error__inner{
+    @include pageWidth;
     text-align: center;
 }
 

@@ -1,5 +1,5 @@
 {% set data = {
-    headline: 'Unsere Starter Packete',
+    headline: 'Unsere Starter Pakete',
     facts: [
         'Für jedes Alter',
         'Für jede Rasse'
@@ -12,10 +12,11 @@
 
 
 <div class="featured-products">
-    <img class="featured-products__background featured-products__background--left" src="{{ data.images.left }}">
-    <img class="featured-products__background featured-products__background--right" src="{{ data.images.right }}">
 
     <div class="featured-products__inner">
+        <img class="featured-products__background featured-products__background--left" src="{{ data.images.left }}">
+        <img class="featured-products__background featured-products__background--right" src="{{ data.images.right }}">
+
         <div class="featured-products__intro">
             <h2 class="featured-products__headline">{{ data.headline }}</h2>
             <div class="featured-products__facts">

@@ -13,13 +13,13 @@
 .clients__testimonials{
     @include pageWidth;
     padding-top: 80px;
-    padding-bottom: 50px;
+    padding-bottom: 80px;
 
     text-align: center;
 }
 
 .clients__headline{
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 
     font-family: $_ffBrandonGrotesque-Black;
     font-size: $_fsLarge;
@@ -45,19 +45,13 @@
 .clients__item-image{
     @include responsiveImage;
     max-width: 130px;
-    margin: 0 auto 15px auto;
+    margin: 0 auto 60px auto;
 }
 
-.clients__item-name{
-    margin: 25px 0 20px;
-
-    font-family: $_ffBrandonGrotesque-Bold;
-    font-size: 18px;
-    color: $_rgbTundora;
-}
 
 .clients__item-quote{
-    margin-bottom: 20px;
+    max-width: 510px;
+    margin: 0 auto 30px auto;
     font-size: 22px;
     color: $_rgbSilverChalice;
 }
@@ -68,7 +62,7 @@
     color: $_rgbTundora;
 }
 
-@media (min-width: $_wMedium) {
+@media (min-width: $_wLarge + 1px) {
     .clients__item{
         width: 50%;
         padding: 0 55px;
@@ -76,15 +70,5 @@
         & + .clients__item{
             margin-top: 0;
         }
-    }
-}
-
-@media (min-width: $_wLarge) {
-    .clients__items{
-        padding-right: 60px;
-    }
-
-    .clients__image{
-        display: block;
     }
 }
