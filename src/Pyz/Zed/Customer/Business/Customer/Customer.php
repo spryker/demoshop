@@ -163,14 +163,14 @@ class Customer extends SprykerFeatureCustomer implements CustomerModelInterface
     }
 
     /**
-     * @param CustomerInterface $customerTransfer
+     * @param CustomerTransferInterface $customerTransfer
      *
      * @throws PropelException
      * @throws CustomerNotFoundException
      *
      * @return CustomerResponseTransfer
      */
-    public function restorePassword(CustomerInterface $customerTransfer)
+    public function restorePassword(CustomerTransferInterface $customerTransfer)
     {
         $customerTransfer = $this->encryptPassword($customerTransfer);
 
