@@ -18,7 +18,7 @@ class NewCategoryNodeCollector extends NewAbstractPropelCollectorPlugin
     /**
      * @var CategoryQueryContainer
      */
-    private $categoryQueryContainer;
+    protected $categoryQueryContainer;
 
     /**
      * @param CategoryQueryContainer $categoryQueryContainer
@@ -41,10 +41,7 @@ class NewCategoryNodeCollector extends NewAbstractPropelCollectorPlugin
      */
     protected function createQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
     {
-        //$params = $baseQuery->getParams();
-        //$sql = $baseQuery->createSelectSql($params);
-
-        $sql = "
+        $sql = '
 WITH RECURSIVE
     tree AS
   (
@@ -54,8 +51,8 @@ WITH RECURSIVE
       n.fk_category,
       n.node_order
     FROM spy_category_node n
-      INNER JOIN spy_category c ON c.id_category = n.fk_category AND c.is_active = 't'
-    WHERE n.fk_parent_category_node = %d
+      INNER JOIN spy_category c ON c.id_category = n.fk_category AND c.is_active = true
+    WHERE n.is_root = true
 
     UNION
 
@@ -66,10 +63,10 @@ WITH RECURSIVE
       n.node_order
     FROM tree
        INNER JOIN spy_category_node n ON n.fk_parent_category_node = tree.id_category_node
-       INNER JOIN spy_category c ON c.id_category = tree.fk_category AND c.is_active = 't'
+       INNER JOIN spy_category c ON c.id_category = tree.fk_category AND c.is_active = true
   )
 SELECT
-  t.id_touch as %s,
+  t.id_touch AS %s,
   tree.*,
   u.url,
   ca.name,
@@ -78,32 +75,25 @@ SELECT
   ca.meta_keywords,
   ca.category_image_name
 FROM tree
-  INNER JOIN spy_url u ON (u.fk_resource_categorynode = tree.id_category_node AND u.fk_locale = %d)
-  INNER JOIN spy_category_attribute ca ON (ca.fk_category = tree.fk_category AND ca.fk_locale = %d)
+  INNER JOIN spy_url u ON (u.fk_resource_categorynode = tree.id_category_node AND u.fk_locale = :fk_locale_1)
+  INNER JOIN spy_category_attribute ca ON (ca.fk_category = tree.fk_category AND ca.fk_locale = :fk_locale_2)
   INNER JOIN spy_touch t ON (
     tree.id_category_node = t.item_id
-    AND t.item_event = %d
-    AND t.touched >= '%s'
-    AND t.item_type = '%s'
+    AND t.item_event = :spy_touch_item_event
+    AND t.touched >= :spy_touch_touched
+    AND t.item_type = :spy_touch_item_type
   )
-ORDER BY tree.fk_parent_category_node ASC, tree.node_order DESC
-        ";
+';
+        $sql = sprintf($sql, self::TOUCH_EXPORTER_ID);
 
-        return $sql;
-
-        dump($results);
-        die;
-
-        /*
-        $connection = Propel::getConnection();
-        $query = 'SELECT MAX(?) AS max FROM ?';
-        $statement = $connection->prepareStatement($query);
-        $statement->setString(1, ArticlePeer::CREATED_AT);
-        $statement->setString(2, ArticlePeer::TABLE_NAME);
-        $resultset = $statement->executeQuery();
-        $resultset->next();
-        $max = $resultset->getInt('max');
-        */
+        $this->getCriteriaBuilder()
+            ->sql($sql)
+            ->setOrderBy([
+                'tree.fk_parent_category_node' => 'ASC',
+                'tree.node_order' => 'DESC',
+            ])
+            ->setExtraParameter('fk_locale_1', $locale->getIdLocale())
+            ->setExtraParameter('fk_locale_2', $locale->getIdLocale());
     }
 
     /**
@@ -118,7 +108,7 @@ ORDER BY tree.fk_parent_category_node ASC, tree.node_order DESC
         $processedResultSet = [];
 
         foreach ($resultSet as $index => $categoryNode) {
-            $categoryKey = $this->generateKey($categoryNode['node_id'], $locale->getLocaleName());
+            $categoryKey = $this->generateKey($categoryNode['id_category_node'], $locale->getLocaleName());
             $processedResultSet[$categoryKey] = $this->formatCategoryNode($categoryNode);
             $touchUpdaterSet->add($categoryKey, $categoryNode[self::TOUCH_EXPORTER_ID]);
         }
