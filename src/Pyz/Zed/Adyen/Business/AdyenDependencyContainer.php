@@ -34,7 +34,7 @@ class AdyenDependencyContainer extends PavAdyenDependencyContainer
         return $this->getFactory()
             ->createHppHppPaymentReturnStateMachineManager(
                 $this->getQueryContainer(),
-                $this->createOmsFacade()
+                $this->getLocator()->oms()->facade() // TODO get via provided key
             );
     }
 

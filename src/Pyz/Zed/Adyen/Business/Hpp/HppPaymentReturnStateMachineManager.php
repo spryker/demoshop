@@ -94,12 +94,12 @@ class HppPaymentReturnStateMachineManager implements HppPaymentReturnStateMachin
      */
     protected function getStateMachineEventToTrigger(AdyenHppPaymentReturnCheckResponseInterface $checkResponse)
     {
-        switch ($checkResponse->getResponseKey()) {
-            case AdyenHppReturnResponseConstants::ADYEN_HPP_RETURN_RESPONSE_CANCELLED :
+        switch ($checkResponse->getInternalHppReturnCheckResponseKey()) {
+            case AdyenHppReturnResponseConstants::ADYEN_HPP_RETURN_CHECK_RESPONSE_CANCELLED :
                 return AdyenStateMachineEvents::ADYEN_REDIRECT_PAYMENT_CANCELLED;
-            case AdyenHppReturnResponseConstants::ADYEN_HPP_RETURN_RESPONSE_ERROR :
-            case AdyenHppReturnResponseConstants::ADYEN_HPP_RETURN_RESPONSE_FAILURE :
-            case AdyenHppReturnResponseConstants::ADYEN_HPP_RETURN_RESPONSE_INVALID :
+            case AdyenHppReturnResponseConstants::ADYEN_HPP_RETURN_CHECK_RESPONSE_ERROR :
+            case AdyenHppReturnResponseConstants::ADYEN_HPP_RETURN_CHECK_RESPONSE_FAILURE :
+            case AdyenHppReturnResponseConstants::ADYEN_HPP_RETURN_CHECK_RESPONSE_INVALID :
                 return AdyenStateMachineEvents::ADYEN_REDIRECT_PAYMENT_ERROR;
             default :
                 return null;
