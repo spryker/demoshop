@@ -381,12 +381,9 @@
     }
 }
 
-.why__categories-image{
-}
-
 .why__categories-title{
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 
     font-family: BrandonGrotesque-Black;
     font-size: 34px;
@@ -463,8 +460,19 @@
     .why__categories-pet{
         padding: 30px;
     }
+
+    .why__categories-description{
+        font-size: 22px;
+    }
 }
 
+@media (max-width: 600px) {
+    .why__categories-category{
+        width: 100%;
+
+        margin-bottom: 50px;
+    }
+}
 
 @media (max-width: $_wMedium) {
     .why__header-checkmark{
@@ -481,12 +489,6 @@
         padding: 0;
         width: 50%;
     }
-
-    .why__categories-category{
-        width: 100%;
-
-        margin-bottom: 50px;
-    }
 }
 
 
@@ -499,11 +501,8 @@
         padding: 0 10px;
     }
 
-    // .why__information-images, .why__information-titles{
-    //     flex-wrap: wrap;
-    // }
-    //
-    // .why__information-image, .why__information-title{
-    //     width: 50%;
-    // }
+
+    .why__categories-description{
+        max-width: none;
+    }
 }
