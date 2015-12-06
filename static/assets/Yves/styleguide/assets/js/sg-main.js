@@ -49,5 +49,8 @@ import './modules/content/product/productAccordion';
 import './modules/content/product/productOptions';
 // import './modules/productSlider'; (currently not in use)
 
+// cms pages
+import './modules/content/cms/why.js';
+
 // temporarily included
-import './modules/zed/formBuilder';
+//import './modules/zed/formBuilder';
