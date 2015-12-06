@@ -1,6 +1,9 @@
 .why{
-    @include pageWidth;
     background: $_rgbWhite;
+}
+
+.why__inner{
+    @include pageWidth;
 }
 
 
@@ -28,6 +31,8 @@
     z-index: 0;
 
     img{
+        max-width: 1000px;
+        margin: 0 auto;
         @include responsiveImage;
     }
 }
@@ -51,7 +56,7 @@
     @include pdif('check-circle', 70px, 98px);
 
     & + .why__header-checkmark{
-        margin-top: 50px;
+        margin-top: 70px;
     }
 }
 
@@ -356,6 +361,11 @@
     text-align: center;
 }
 
+.why__categories-content-inner{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
 .why__categories-category{
     display: inline-block;
     width: 50%;
@@ -365,6 +375,8 @@
 
 .why__categories-image{
     img{
+        max-width: 350px;
+        margin: 0 auto;
         @include responsiveImage;
     }
 }
@@ -402,7 +414,7 @@
     .why__header-checkmark{
         width: 50%;
         float: left;
-        margin-top: 50px;
+        margin-top: 50px !important;
 
         &:nth-child(2n+1) {
             clear: left;
