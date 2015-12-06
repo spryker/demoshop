@@ -1,0 +1,30 @@
+{% if cmsValues.blocks is defined %}
+
+    {% for block in cmsValues.blocks %}
+        <div class="imprint">
+
+            {% if block.headline is defined %}
+                <h1 class="imprint__headline">{{ block.headline }}</h1>
+            {% endif %}
+
+
+            <div class="imprint__block imprint__block--{{ loop.index is even ? 'left' : 'right' }}">
+
+                {% if block.title is defined %}
+                    <h2 class="imprint__title">{{ block.title }}</h2>
+                {% endif %}
+
+                {% if block.content is defined %}
+                    <div class="imprint__content">
+                        {% markdown %}
+                            {{ block.content }}
+                        {% endmarkdown %}
+                    </div>
+                {% endif %}
+
+            </div>
+
+        </div>
+    {% endfor %}
+
+{% endif %}

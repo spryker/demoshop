@@ -192,6 +192,10 @@
       content: '\E02B';
     }
     
+    @if $name == 'check-circle' {
+      content: '\E02C';
+    }
+    
   }
 }
 
@@ -386,6 +390,10 @@
     
     @if $name == 'plus-circle' {
       content: '\E02B';
+    }
+    
+    @if $name == 'check-circle' {
+      content: '\E02C';
     }
     
   }

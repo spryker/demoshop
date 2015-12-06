@@ -1,0 +1,62 @@
+{
+    "type": "form",
+    "fields": {
+        "press": {
+            "type": "form",
+            "fields": {
+                "headline": {
+                    "type": "text"
+                },
+                "references": {
+                    "type": "form",
+                    "multiple": true,
+                    "fields": {
+                        "image": {
+                            "type": "text"
+                        },
+                        "alt": {
+                            "type": "text"
+                        },
+                        "url": {
+                            "type": "text"
+                        }
+                    }
+                }
+            }
+        },
+        "videos": {
+            "type": "form",
+            "fields": {
+                "headline": {
+                    "type": "text"
+                },
+                "youtube": {
+                    "type": "form",
+                    "multiple": true,
+                    "fields": {
+                        "id": {
+                            "type": "text"
+                        }
+                    }
+                }
+            }
+        },
+        "radio": {
+            "type": "form",
+            "fields": {
+                "headline": {
+                    "type": "text"
+                },
+                "soundcloud": {
+                    "type": "form",
+                    "multiple": true,
+                    "fields": {
+                        "id": {
+                            "type": "text"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

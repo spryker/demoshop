@@ -1,0 +1,37 @@
+<div class="jobs">
+    {% if cmsValues.header is defined %}
+        {% set header = cmsValues.header %}
+
+        <div class="jobs__header">
+
+            {% if header.headline is defined %}
+                <h1 class="jobs__headline">{{ header.headline }}</h1>
+            {% endif %}
+
+            {% if header.image is defined %}
+                <img src="{{ header.image }}" />
+            {% endif %}
+
+        </div>
+    {% endif %}
+
+    {% if cmsValues.jobs is defined %}
+        {% for job in cmsValues.jobs %}
+
+            <div class="jobs__jobs">
+                {% if job.title is defined %}
+                    <h2 class="jobs__job-title">{{ job.title }}</h2>
+                {% endif %}
+
+                {% if job.content is defined %}
+                    <div class="jobs__job-description">
+                        {% markdown %}
+                            {{ job.content }}
+                        {% endmarkdown %}
+                    </div>
+                {% endif %}
+            </div>
+
+        {% endfor %}
+    {% endif %}
+</div>

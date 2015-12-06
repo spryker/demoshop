@@ -14,33 +14,83 @@
 <div class="featured-products">
 
     <div class="featured-products__inner">
-        <img class="featured-products__background featured-products__background--left" src="{{ data.images.left }}">
-        <img class="featured-products__background featured-products__background--right" src="{{ data.images.right }}">
+
+        {% include '@application/layout/common/lazy-image.twig' with {
+            src: data.images.left,
+            class: 'featured-products__background featured-products__background--left',
+            label: 'Produktabbildung'
+        } %}
+
+        {% include '@application/layout/common/lazy-image.twig' with {
+            src: data.images.right,
+            class: 'featured-products__background featured-products__background--right',
+            label: 'Produktabbildung'
+        } %}
+
 
         <div class="featured-products__intro">
             <h2 class="featured-products__headline">{{ data.headline }}</h2>
             <div class="featured-products__facts">
                 {% for fact in data.facts %}
-                    <span class="featured-products__fact">{{ fact }}</span>
+                    <span class="featured-products__fact">
+                        <span class="featured-products__fact-inner">
+                            {{ fact }}
+                        </span>
+                    </span>
                 {% endfor %}
             </div>
         </div>
+
+
         <div class="featured-products__products">
             {% include "@application/layout/content/product/product-card.twig" with {
                 product: {
-                    abstract_name: 'PETS DELI MIXFLOCKEN 250G',
-                    valid_price: 350,
-                    url: 'http://www.de.pets-deli.dev/pets-deli-mixflocken-250g'
+                    abstract_name: 'Starter-Paket für Hunde',
+                    concrete_products: [{
+                        prices: {
+                            DEFAULT: 2000
+                        },
+                        attributes: {
+                            weight_unit: 'kg',
+                            weight: 2.5
+                        }
+                    }],
+                    abstract_attributes: {
+                        url: '/hunde-nahrung/hochwertige-hundefutter-menues/starterpaket-hund-163.html',
+                        media: [
+                            {
+                                url: 'pets-deli-starter-paket-f%C3%BCr-hunde-(10x-men%C3%BCboxen)-4911190.jpg'
+
+                            }
+                        ]
+                    }
                 }
             } %}
 
             {% include "@application/layout/content/product/product-card.twig" with {
                 product: {
-                    abstract_name: 'PETS DELI LEINÖL 250ML',
-                    valid_price: 700,
-                    url: 'http://www.de.pets-deli.dev/pets-deli-leinoel-250ml'
+                    abstract_name: 'Starter-Paket für Katzen',
+                    concrete_products: [{
+                        prices: {
+                            DEFAULT: 1500
+                        },
+                        attributes: {
+                            weight_unit: 'kg',
+                            weight: 1.5
+                        }
+                    }],
+                    abstract_attributes: {
+                        url: '/katzen-nahrung/hochwertige-katzenfutter-menues/starterpaket-katze.html',
+                        media: [
+                            {
+                                url: 'pets-deli-starter-paket-f%C3%BCr-katzen-(10x-men%C3%BCboxen)-4921191.jpg'
+
+                            }
+                        ]
+                    }
                 }
             } %}
         </div>
+
     </div>
 </div>

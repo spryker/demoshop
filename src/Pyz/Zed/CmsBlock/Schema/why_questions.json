@@ -1,0 +1,159 @@
+{
+    "type": "form",
+    "fields": {
+        "header": {
+            "type": "form",
+            "fields": {
+                "headline": {
+                    "type": "text"
+                },
+                "image": {
+                    "type": "form",
+                    "fields": {
+                        "url": {
+                            "type": "text"
+                        },
+                        "alt": {
+                            "type": "text"
+                        }
+                    }
+                },
+                "checkmarks": {
+                    "type": "form",
+                    "multiple": true,
+                    "fields": {
+                        "text": {
+                            "type": "text"
+                        }
+                    }
+                },
+                "content": {
+                    "type": "textarea"
+                }
+            }
+        },
+        "products": {
+            "type": "form",
+            "fields": {
+                "headline": {
+                    "type": "text"
+                },
+                "pets": {
+                    "type": "form",
+                    "multiple": true,
+                    "fields": {
+                        "image": {
+                            "type": "form",
+                            "fields": {
+                                "url": {
+                                    "type": "text"
+                                },
+                                "alt": {
+                                    "type": "text"
+                                }
+                            }
+                        },
+                        "pet": {
+                            "type": "text"
+                        }
+                    }
+                }
+            }
+        },
+        "order": {
+            "type": "form",
+            "fields": {
+                "headline": {
+                    "type": "text"
+                },
+                "steps": {
+                    "type": "form",
+                    "multiple": true,
+                    "fields": {
+                        "image": {
+                            "type": "form",
+                            "fields": {
+                                "url": {
+                                    "type": "text"
+                                },
+                                "alt": {
+                                    "type": "text"
+                                }
+                            }
+                        },
+                        "title": {
+                            "type": "text"
+                        },
+                        "description": {
+                            "type": "textarea"
+                        }
+                    }
+                }
+            }
+        },
+        "information": {
+            "type": "form",
+            "multiple": true,
+            "fields": {
+                "headline": {
+                    "type": "text"
+                },
+                "content": {
+                    "type": "textarea"
+                },
+                "images": {
+                    "type": "form",
+                    "multiple": true,
+                    "fields": {
+                        "image": {
+                            "type": "form",
+                            "fields": {
+                                "url": {
+                                    "type": "text"
+                                },
+                                "alt": {
+                                    "type": "text"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "petscategories": {
+            "type": "form",
+            "multiple": true,
+            "fields": {
+                "title": {
+                    "type": "text"
+                },
+                "categories": {
+                    "type": "form",
+                    "multiple": true,
+                    "fields": {
+                        "url": {
+                            "type": "text"
+                        },
+                        "image": {
+                            "type": "form",
+                            "fields": {
+                                "url": {
+                                    "type": "text"
+                                },
+                                "alt": {
+                                    "type": "text"
+                                }
+                            }
+                        },
+                        "title": {
+                            "type": "text"
+                        },
+                        "description": {
+                            "type": "textarea"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
