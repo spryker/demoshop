@@ -17,9 +17,9 @@
     position: relative;
     z-index: 1;
 
-    font-family: BrandonGrotesque-Black;
+    font-family: $_ffBrandonGrotesque-Black;
     font-size: 60px;
-    color: #62BC46;
+    color: $_rgbApple;
     text-align: center;
 
     @include decoratorStrip;
@@ -49,9 +49,9 @@
 }
 
 .why__header-checkmark{
-    font-family: BrandonGrotesque-Bold;
+    font-family: $_ffBrandonGrotesque-Bold;
     font-size: 22px;
-    color: #62BC46;
+    color: $_rgbApple;
 
     @include pdif('check-circle', 70px, 98px);
 
@@ -85,9 +85,9 @@
     position: relative;
     margin-bottom: 25px;
 
-    font-family: BrandonGrotesque-Black;
+    font-family: $_ffBrandonGrotesque-Black;
     font-size: 50px;
-    color: #62BC46;
+    color: $_rgbApple;
     text-align: center;
 
     @include decoratorStrip;
@@ -123,9 +123,9 @@
 .why__products-title{
     position: relative;
 
-    font-family: BrandonGrotesque-Black;
+    font-family: $_ffBrandonGrotesque-Black;
     font-size: 34px;
-    color: #62BC46;
+    color: $_rgbApple;
 
     @include decoratorStrip;
 }
@@ -140,10 +140,10 @@
     position: relative;
     margin-bottom: 35px;
 
-    font-family: BrandonGrotesque-Black;
+    font-family: $_ffBrandonGrotesque-Black;
     font-size: 50px;
     line-height: 1.1em;
-    color: #62BC46;
+    color: $_rgbApple;
     text-align: center;
 
     @include decoratorStrip;
@@ -178,9 +178,9 @@
 .why__order-title{
     position: relative;
 
-    font-family: BrandonGrotesque-Black;
+    font-family: $_ffBrandonGrotesque-Black;
     font-size: 36px;
-    color: #62BC46;
+    color: $_rgbApple;
 
     &:after{
         content: '';
@@ -221,10 +221,10 @@
     width: 100%;
     margin-bottom: 35px;
 
-    font-family: BrandonGrotesque-Black;
+    font-family: $_ffBrandonGrotesque-Black;
     font-size: 50px;
     line-height: 1.1em;
-    color: #62BC46;
+    color: $_rgbApple;
 }
 
 .why__information-content{
@@ -286,7 +286,7 @@
     padding: 0 15px;
     min-height: 3em;
 
-    font-family: BrandonGrotesque-Black;
+    font-family: $_ffBrandonGrotesque-Black;
     font-size: 22px;
     line-height: 31px;
     color: #65BA4D;
@@ -317,7 +317,7 @@
     padding: 0 60px;
     position: relative;
 
-    font-family: BrandonGrotesque-Black;
+    font-family: $_ffBrandonGrotesque-Black;
     font-size: 40px;
     line-height: 1.1em;
     color: #6A6A6A;
@@ -385,9 +385,9 @@
     position: relative;
     margin-bottom: 20px;
 
-    font-family: BrandonGrotesque-Black;
+    font-family: $_ffBrandonGrotesque-Black;
     font-size: 34px;
-    color: #62BC46;
+    color: $_rgbApple;
 
     @include decoratorStrip;
 }
@@ -396,7 +396,6 @@
     max-width: 280px;
     margin: 0 auto;
 
-    font-family: BrandonGrotesque-Regular;
     font-size: 16px;
     color: #6A6A6A;
 }

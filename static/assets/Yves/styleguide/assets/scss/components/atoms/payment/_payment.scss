@@ -80,3 +80,9 @@
         float: none;
     }
 }
+
+@media (max-width: 400px){
+    .payment__method{
+        width: 50%;
+    }
+}
