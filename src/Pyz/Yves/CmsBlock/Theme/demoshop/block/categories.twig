@@ -31,7 +31,7 @@
             <div class="categories__categories">
 
                 {% for category in categories %}
-                    <div class="categories__category">
+                    <a href="{{ category.url | default('') }}" class="categories__category">
 
                         {% if category.image is defined %}
                             <div class="categories__category-image">
@@ -49,7 +49,7 @@
                             </p>
                         {% endif %}
 
-                    </div>
+                    </a>
                 {% endfor %}
 
             </div>
