@@ -1,0 +1,88 @@
+.imprint{
+    padding: 65px 0;
+    background: $_rgbWhite;
+}
+
+.imprint__inner{
+    @include pageWidth(55px);
+}
+
+.imprint__headline{
+    position: relative;
+    z-index: 1;
+
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 60px;
+    color: $_rgbApple;
+    text-align: center;
+
+    @include decoratorStrip;
+}
+
+.imprint__blocks{
+    overflow: hidden;
+}
+
+.imprint__block{
+    margin-top: 50px;
+    padding: 0 30px;
+    float: left;
+}
+
+.imprint__block--left{
+    width: 60%;
+    clear: left;
+}
+
+.imprint__block--right{
+    width: 40%;
+}
+
+.imprint__content{
+    @include wysiwyg;
+
+    h2{
+        margin: 20px 0 30px;
+        font-size: 24px;
+
+        &:first-child{
+            margin-top: 0;
+        }
+    }
+
+    p, li{
+        color: #898989;
+    }
+
+    p, ul{
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+@media (max-width: $_wLarge){
+
+    .imprint__block{
+        width: 100% !important;
+    }
+
+    .imprint__content{
+        p, li{
+            font-size: 22px;
+        }
+    }
+
+}
+
+@media (max-width: $_wMedium){
+    .imprint__inner{
+        padding: 0;
+    }
+
+    .imprint__block{
+        padding: 0 20px;
+    }
+
+}
