@@ -1,6 +1,7 @@
 {% set product = dynamicData.product %}
-{% set options = dynamicData.options %}
-{% set pricings = dynamicData.pricings %}
+{% set config = dynamicData.config %}
+{% set pet = dynamicData.pet %}
+
 
 {% if product.meta_title is defined  %}
     {{ setGlobalValue('meta_title', product.meta_title) }}
@@ -12,6 +13,7 @@
 {% if product.meta_keywords is defined  %}
     {{ setGlobalValue('meta_keywords', product.meta_keywords) }}
 {% endif %}
+
 
 <div class="product">
 
@@ -45,7 +47,7 @@
         } %}
 
 
-    {% if options is not empty %}
+    {% if config.options is defined %}
         {% include '@application/layout/content/product/details/product-configurator.twig' %}
     {% endif %}
 </div>

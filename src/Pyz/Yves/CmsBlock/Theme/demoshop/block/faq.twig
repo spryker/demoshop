@@ -1,33 +1,67 @@
-{% if cmsValues.pets is defined %}
-    {%  set pets = cmsValues.pets %}
-{% else %}
-    {%  set pets = [] %}
-{% endif %}
+<div class="faq">
 
-{% for pet in pets %}
-    <h1>{{ pet.pet }}</h1>
+    {% if cmsValues.pets is defined %}
+        {% set pets = cmsValues.pets %}
 
-    {% for category in pet.categories %}
-        {% if category.category is defined %}
-            <h2>{{ category.category }}</h2>
-        {% endif %}
+        <div class="faq__navigation">
+            <div class="faq__navigation-inner">
 
-        {% for faq in category.faqs %}
+                <div class="faq__title">FAQ</div>
 
-            <div class="">
-                {% if faq.question is defined %}
-                    <h3>{{ faq.question }}</h3>
-                {% endif %}
 
-                {% if faq.answer is defined %}
-                    {% markdown %}
-                        {{ faq.answer | nl2br }}
-                    {% endmarkdown %}
-                {% endif %}
+                {% for pet in pets %}
+                    {% set petIndex = loop.index %}
+
+                    <button class="faq__pet {{ petIndex == 1 ? 'faq__pet--active' : '' }}" data-pet="{{ petIndex }}">
+                        {{ pet.pet }}
+                    </button>
+                {% endfor %}
+
             </div>
+        </div>
+    {% endif %}
 
-        {% endfor %}
 
-    {% endfor %}
 
-{% endfor %}
+    <div class="faq__categories">
+        <div class="faq__categories-inner">
+
+            {% if cmsValues.general is defined %}
+                {% set general = cmsValues.general %}
+                {% set petIndex = 0 %}
+
+                {% for category in general.general_categories %}
+                    {% set categoryIndex = loop.index %}
+
+                    <button class="faq__category" data-pet="{{ petIndex }}" data-category="{{ petIndex }}.{{ categoryIndex }}">
+                        {{ category.category }}
+                    </button>
+                {% endfor %}
+            {% endif %}
+
+
+            {% if cmsValues.pets is defined %}
+                {% set pets = cmsValues.pets %}
+
+                {% for pet in pets %}
+                    {% set petIndex = loop.index %}
+
+                    {% if pet.pet_categories is defined %}
+
+                        {% for category in pet.pet_categories %}
+                            {% set categoryIndex = loop.index %}
+
+                            <button class="faq__category" data-pet="{{ petIndex }}" data-category="{{ petIndex }}.{{ categoryIndex }}">
+                                {{ category.category }}
+                            </button>
+                        {% endfor %}
+                    {% endif %}
+
+                {% endfor %}
+            {% endif %}
+
+        </div>
+    </div>
+
+
+</div>

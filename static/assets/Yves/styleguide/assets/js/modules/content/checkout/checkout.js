@@ -62,11 +62,13 @@ $(document).ready(function () {
                 case 0:
                     option = $('#different-delivery-address:checked').size() ? $('#checkout_shipping_address_street').val() : $('#checkout_billing_address_street').val();
                     $('.checkout__navigation-option').eq(index).text(option);
+                    $('.checkout__navigation').eq(index).addClass('checkout__navigation--done');
                     break;
 
                 case 1:
                     option = $('input[name="checkout[adyen_payment][payment_method]"]:checked').val();
                     $('.checkout__navigation-option').eq(index).text(window.translator.getTranslation(option));
+                    $('.checkout__navigation').eq(index).addClass('checkout__navigation--done');
                     break;
                 }
 
@@ -410,7 +412,6 @@ $(document).ready(function () {
                 });
             }
 
-            console.info(data);
             window.dataLayer.push(data);
         }
 

@@ -1,35 +1,61 @@
 {
-  "type": "form",
-  "fields": {
-    "pets": {
-      "type": "form",
-      "multiple": true,
-      "fields": {
-        "pet": {
-          "type": "text"
-        },
-        "categories": {
-          "type": "form",
-          "multiple": true,
-          "fields": {
-            "category": {
-              "type": "text"
-            },
-            "faqs": {
-                "type": "form",
-                "multiple": true,
-                "fields": {
-                    "question": {
-                        "type": "text"
-                    },
-                    "answer": {
-                        "type": "textarea"
+    "type": "form",
+    "fields": {
+        "general": {
+            "type": "form",
+            "fields": {
+                "general_categories": {
+                    "type": "form",
+                    "multiple": true,
+                    "fields": {
+                        "category": {
+                            "type": "text"
+                        },
+                        "general_faqs": {
+                            "type": "form",
+                            "multiple": true,
+                            "fields": {
+                                "question": {
+                                    "type": "text"
+                                },
+                                "answer": {
+                                    "type": "textarea"
+                                }
+                            }
+                        }
                     }
                 }
             }
-          }
+        },
+        "pets": {
+            "type": "form",
+            "multiple": true,
+            "fields": {
+                "pet": {
+                    "type": "text"
+                },
+                "pet_categories": {
+                    "type": "form",
+                    "multiple": true,
+                    "fields": {
+                        "category": {
+                            "type": "text"
+                        },
+                        "pet_faqs": {
+                            "type": "form",
+                            "multiple": true,
+                            "fields": {
+                                "question": {
+                                    "type": "text"
+                                },
+                                "answer": {
+                                    "type": "textarea"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
-      }
     }
-  }
 }

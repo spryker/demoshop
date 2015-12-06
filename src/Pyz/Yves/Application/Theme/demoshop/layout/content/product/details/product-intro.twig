@@ -1,14 +1,16 @@
-{% set initial = (pricings | first) %}
+{% set initial = config.options | first %}
 
 <div class="product-intro">
     <h1 class="product-info__title">{{ product.abstract_name }} <span style="display: none;">{{ product.id_abstract_product }}</span></h1>
+
     <div class="product-info__subtitle">
-        <span class="js-product-weight">{{ initial.weight }}</span>{{ ('unit.' ~ initial.unit | trim ) | trans }}</div>
+        <span class="js-product-weight">{{ initial.weight.value | replace({'.': ','})}}{{ ('unit.' ~ initial.weight.unit | trim ) | trans }}</span>
+    </div>
 
     {% if product.short_description.markdown is defined %}
         <div class="product-info__description">
             {% markdown %}
-                {{ product.short_description.markdown }}
+                {{ product.short_description.markdown | raw }}
             {% endmarkdown %}
         </div>
     {% endif %}

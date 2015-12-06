@@ -24,8 +24,6 @@
                         <div class="product-card__price-total">
                             {% if productConcrete.prices is defined %}
                                 {{ productConcrete.prices.DEFAULT | price }}
-                            {% else %}
-                                {{ product.valid_price | price }}
                             {% endif %}
                         </div>
                         <div class="product-card__price-relative">
@@ -36,7 +34,7 @@
                                 {% set absolute = productConcrete.prices.DEFAULT %}
                                 {% set relative = (absolute / weight * base) %}
 
-                                {{ weight }}{{ ('unit.' ~ unit) | trans }} ({{ relative | price }} / {{ base }}{{ ('unit.' ~ unit) | trans }})
+                                {{ weight | replace({'.':','}) }}{{ ('unit.' ~ unit) | trans }} ({{ relative | price }} / {{ base }}{{ ('unit.' ~ unit) | trans }})
                             {% endif %}
                         </div>
                     </div>

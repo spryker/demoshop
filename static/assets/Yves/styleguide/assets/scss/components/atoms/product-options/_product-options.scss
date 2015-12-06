@@ -5,14 +5,11 @@
 // Styleguide: atoms.product-options
 
 .product-options{
-    position: absolute;
+    position: fixed;
+    top: 130px;
     padding: 20px;
     z-index: 2;
     background: rgba(255, 255, 255, 0.8);
-}
-
-.product-options--sticky{
-    position: fixed;
 }
 
 .product-options__select{
@@ -42,6 +39,7 @@
 
     .dropdown__button{
         border-width: 2px;
+        background: $_rgbWhite;
 
         &:before{
             top: -2px;

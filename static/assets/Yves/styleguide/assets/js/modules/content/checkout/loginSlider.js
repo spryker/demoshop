@@ -24,6 +24,11 @@ $(document).ready(function () {
 
 
         updateOffset();
+
+        setTimeout(function () {
+            $navigations.css('opacity', 1);
+        }, 100);
+
         $(window).resize(function () {
             updateOffset();
         });

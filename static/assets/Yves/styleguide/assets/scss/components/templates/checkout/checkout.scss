@@ -31,21 +31,26 @@
     border-top: 1px solid #ECECEC;
     border-bottom: 1px solid #ECECEC;
     text-align: center;
-    display: table;
     width: 100%;
 
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
 }
 
 .checkout__navigation{
+    overflow: hidden;
     position: relative;
     display: table-cell;
     width: 1%;
+    max-width: 33.333%;
     border-left: 1px solid #ECECEC;
+
+    height: 60px;
+    line-height: 60px;
+    vertical-align: top;
 
     font-size: 22px;
     color: $_rgbSilverChalice;
-    line-height: 47px;
+
 
     text-align: center;
     white-space: nowrap;
@@ -58,10 +63,24 @@
     }
 }
 
+.checkout__navigation--done{
+    line-height: 45px;
+}
+
+
 .checkout__navigation--active{
     background: $_rgbApple;
     font-family: $_ffBrandonGrotesque-Black;
     color: $_rgbWhite;
+}
+
+.checkout__navigation-option{
+    margin-top: -7px;
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    font-size: 12px;
+    line-height: 1em;
 }
 
 
