@@ -180,9 +180,9 @@
                 <div class="why__categories-pets">
                     {% for pet in petscategories %}
                         {% if pet.title is defined %}
-                            <h2 class="why__categories-pet {{ loop.first ? 'why__categories-pet--active' : '' }}">
+                            <button class="why__categories-pet {{ loop.first ? 'why__categories-pet--active' : '' }}">
                                 {{ pet.title }}
-                            </h2>
+                            </button>
                         {% endif %}
                     {% endfor %}
                 </div>

@@ -61,12 +61,10 @@ $(document).ready(function () {
         $form.find('input:checkbox').each(function() {
             if (!this.checked) {
                 // remove line breaks #TODO:730 translation
-                unchecked.push('No ' + $(this).parent('label').text().replace(/\r?\n|\r|\s/g, ''));
+                unchecked.push($(this).parent('label').find('.image-checkbox__label').text().replace(/\r?\n|\r|\s/g, ''));
             }
         });
 
-        $status.text(unchecked.length ? 'Customized: ' + unchecked.join(', ') : '');
+        $status.text(unchecked.length ? 'Ohne ' + unchecked.join(', ') : '');
     }
 });
-
-// #TODO:460 dynamic pricing

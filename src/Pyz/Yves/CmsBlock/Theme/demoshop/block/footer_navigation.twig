@@ -18,15 +18,13 @@
             {
                 headline: 'Über uns',
                 links: [
-                    { url: '/jobs/', title: 'Jobs'},
-                    { url: '/presse/', title: 'Presse'},
                     { url: '/impressum/', title: 'Impressum'},
                     { url: '/agb/', title: 'AGB & Widerruf'}
                 ]
             }
         ],
         social: {
-            headline: 'Follow Us on',
+            headline: 'Folgen Sie uns',
             channels: [
                 { key: 'facebook', url: 'https://www.facebook.com/petsdeli.de' },
                 { key: 'twitter', url: 'https://twitter.com/petsdeli_de' },
@@ -34,7 +32,7 @@
                 { key: 'youtube', url: 'https://www.youtube.com/user/petsdeli' }
             ]
         },
-        copyright: ['2015 PETSDELI', 'Copyright']
+        copyright: ['&#169; 2015 PETS DELI Roseneck GmbH']
     }
 %}
 
@@ -73,7 +71,7 @@
 
         <div class="footer__copyrights">
             {% for item in data.copyright %}
-            <span class="footer__copyright">{{ item }}</span>
+            <span class="footer__copyright">{{ item | raw }}</span>
             {% endfor %}
         </div>
     </div>

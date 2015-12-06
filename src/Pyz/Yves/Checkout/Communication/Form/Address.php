@@ -118,8 +118,8 @@ class Address extends AbstractType
             ->add('iso2code', 'choice', array(
                 'required' => true,
                 'choices' => array(
-                    'DE' => 'Germany',
-                    'AT' => 'Austria',
+                    'DE' => 'Deutschland',
+                    'AT' => 'Österreich',
                 ),
                 'label' => 'Land'
             ))

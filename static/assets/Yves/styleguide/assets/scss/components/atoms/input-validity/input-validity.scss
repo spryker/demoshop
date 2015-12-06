@@ -10,6 +10,10 @@
     float: left;
     text-align: center;
 
+    .input__label{
+        padding-left: 19px;
+    }
+
     .dropdown{
         display: inline-block;
         float: none;

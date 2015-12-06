@@ -14,59 +14,103 @@ $(document).ready(function () {
 
     $('.js-product-options').each(function () {
 
-        var $options, $stickyLimiter, optionsOffset, $configurator, $submit, $weightSelect, $weight, $totalPrice, $relativePrice, productConfig, messageService;
+        var $options, $configurator, $submit, $weightSelect, $weight, $totalPrice, $relativePrice, productConfig, messageService;
 
         messageService = new MessageService();
 
         $options = $(this);
-
         $weightSelect = $options.find('.js-product-weight-select select');
-        $weight = $options.find('.js-product-weight');
-        $totalPrice = $options.find('.js-product-options__total');
-        $relativePrice = $options.find('.js-product-options__relative');
+        $weight = $('.js-product-weight');
+        $totalPrice = $('.js-product-price-total');
+        $relativePrice = $('.js-product-options__relative');
         $configurator = $('.js-product-configurator form');
+
+        // TODO: update pricings and configurator
+        updateProductConfig();
+        $weightSelect.change(updateProductConfig);
 
         $options.submit(addProduct);
 
-        // TODO: update pricings and configurator
-        $weightSelect.change(updateProductConfig);
 
-        productConfig = {};
-
-        // TODO: window/document variables
-
-
-
-        // TODO: separate components: sticky / productoptions
-        $stickyLimiter = $($options.data('sticky-limit'));
-
-        if ($stickyLimiter.size()) {
-            updateOffset();
-            $(window).scroll(updateStickyPosition);
-            $(window).resize(throttle(updateOffset, 250));
-        }
-
-
-
-
-        function updateOffset () {
-            $options.removeClass('product-options--sticky')
-            $options.css('top', 0);
-
-            setTimeout(function () {
-                optionsOffset = $options.offset().top;
-                updateStickyPosition();
-            });
-        }
 
         function updateProductConfig () {
-            productConfig.weight = $(this).find('option:checked').text();
-            productConfig.pricing = window.pricings[productConfig.weight];
+            var weight, config;
 
-            $totalPrice.text(productConfig.pricing.absolute);
-            $relativePrice.text(productConfig.pricing.relative);
-            $weight.text(productConfig.weight);
+            weight = $weightSelect.find('option:checked').text();
+            config = window.productConfig.options[weight];
+
+            $options.attr('data-sku', config.sku);
+            $totalPrice.text(config.prices.total);
+            $relativePrice.text(config.prices.relative);
+            $weight.text(config.weight.value.replace('.',',') + config.weight.unit);
+
+            updateConfigurator(config);
         }
+
+
+        function updateConfigurator (config) {
+            var content = ``;
+
+            if (config.options.meat.length && window.productConfig.type !== 'simple') {
+                content += `<h3 class="product-configurator__subheadline">${'Fleischsorten'}</h3>`;
+                content += `<div class="product-configurator__composition">`;
+                content += `<div class="product-configurator__composition-label">${'Wählen Sie Zutaten aus oder ab:'}</div>`;
+
+                for (let option of config.options.meat) {
+                    let label, sublabel;
+
+                    label = window.translator.getTranslation('product-group.meat.' + option);
+                    sublabel = window.translator.getTranslation('configurator.fixings.' + window.productConfig.pet + '.' + option);
+
+                    content += `
+                    <div class="image-checkbox">
+                        <label class="image-checkbox__inner" for="meat_${option}" style="background: url(/images/product/meat_${option}.jpg);">
+                            <input class="image-checkbox__checkbox" type="checkbox" id="meat_${option}" name="meat" value="${option}" checked>
+
+                            <div class="image-checkbox__content">
+                                <div class="image-checkbox__label">${label}</div>
+                                <div class="image-checkbox__sublabel">${sublabel}</div>
+                            </div>
+
+                            <div class="image-checkbox__disabled" style="background: url(/images/product/meat_${option}_bw.jpg);"></div>
+                        </label>
+                    </div>`;
+                }
+
+                content += `</div>`;
+            }
+
+            if (config.options.carbs.length) {
+                content += `<h3 class="product-configurator__subheadline">${'Kohlenhydrate'}</h3>`;
+                content += `<div class="product-configurator__composition">`;
+                content += `<div class="product-configurator__composition-label">${'Wählen Sie Zutaten aus oder ab:'}</div>`;
+
+                for (let option of config.options.carbs) {
+
+                    let label = window.translator.getTranslation('product-group.carbs.value.' + option);
+
+                    content += `
+                    <div class="image-checkbox">
+                        <label class="image-checkbox__inner" for="carbs_${option}" style="background: url(/images/product/carbs_${option}.jpg);">
+                            <input class="image-checkbox__checkbox" type="checkbox" id="carbs_${option}" name="carbs" value="${option}" checked>
+
+                            <div class="image-checkbox__content">
+                                <div class="image-checkbox__label">${label}</div>
+                            </div>
+
+                            <div class="image-checkbox__disabled" style="background: url(/images/product/carbs_${option}_bw.jpg);"></div>
+                        </label>
+                    </div>`;
+                }
+
+                content += `</div>`;
+            }
+
+            $configurator.find('.js-configurator-options').html(content);
+        }
+
+
+
 
         function addProduct (event) {
             event.preventDefault();
@@ -74,7 +118,7 @@ $(document).ready(function () {
             var $form, sku, quantity, quantityString
 
             $form = $(this);
-            sku = $options.data('sku');
+            sku = $options.attr('data-sku');
             quantity = $options.find('[name=quantity]').val();
 
             var postData = getFormData($configurator);
@@ -93,49 +137,29 @@ $(document).ready(function () {
             $.post($options.attr('action'), {
                 sku: sku,
                 quantity: quantity,
-                weight: productConfig.weight,
+                weight: $weightSelect.find('option:checked').text(),
                 ingredients: postData
             })
             .done(function (data) {
                 quantityString = (quantity > 1) ? 'Produkte' : 'Produkt';
-                messageService.add({ type: 'valid message--cart', message: `${quantity} ${quantityString} zum <a href="/checkout/">Warenkorb</a> hinzugefügt.` });
+                messageService.add({
+                    type: 'valid message--cart',
+                    message: `${quantity} ${quantityString} zum <a href="/checkout/">Warenkorb</a> hinzugefügt.`
+                });
 
                 $(document).trigger(EVENTS.UPDATE_CART);
             })
             .error(function () {
                 quantityString = (quantity > 1) ? 'Die Produkte konnten' : 'Das Produkt konnte';
-                messageService.add({ type: 'invalid message--cart', message: `${quantityString} nicht zum Warenkorb hinzugefügt werden.` });
+                messageService.add({
+                    type: 'invalid message--cart',
+                    message: `${quantityString} nicht zum Warenkorb hinzugefügt werden.`
+                });
             })
             .always(function () {
                 $form.find('button').prop('disabled', false);
             });
         };
-
-
-        function updateStickyPosition () {
-            $options.addClass('product-options--sticky')
-            $options.css('top', optionsOffset);
-
-            // var limit, scrollTop, padding;
-            //
-            // padding = 20;
-            //
-            // limit = $stickyLimiter.offset().top - (optionsOffset + $options.outerHeight() + padding);
-            // scrollTop = $(window).scrollTop();
-            //
-            // if (scrollTop <= limit) {
-            //     if (!$options.hasClass('product-options--sticky')) {
-            //         $options.addClass('product-options--sticky')
-            //         $options.css('top', optionsOffset);
-            //     }
-            //
-            // } else {
-            //     if ($options.hasClass('product-options--sticky')) {
-            //         $options.removeClass('product-options--sticky')
-            //         $options.css('top', limit);
-            //     }
-            // }
-        }
     });
 
 });

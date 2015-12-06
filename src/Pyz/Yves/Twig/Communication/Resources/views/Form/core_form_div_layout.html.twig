@@ -15,7 +15,7 @@
 
     <div class="input {{ class }}">
 
-        {% if label is defined %}
+        {% if label is defined and label != false %}
         <label class="input__label" {% if id is defined %} for="{{ id }}" {% endif %}>
             {{ label | trans }}{% if required is defined and required %}*{% endif %}
         </label>
@@ -144,7 +144,7 @@
 
 
     <div class="dropdown">
-        {% if label is defined %}
+        {% if label is defined and label != false %}
             <label class="input__label" for="{{ id }}">{{ label }}*</label>
         {% endif %}
 

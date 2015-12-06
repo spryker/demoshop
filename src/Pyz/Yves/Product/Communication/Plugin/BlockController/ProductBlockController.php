@@ -59,38 +59,79 @@ class ProductBlockController extends AbstractPlugin implements BlockControllerIn
             'pricings' => [],
         ];
 
+
         $result = $this->addCategoryToResult($product['category'], $result);
+
+
+        $config = [
+            'type' => $product['product_type'],
+            'options' => []
+        ];
 
         foreach ($product['concrete_products'] as $concrete) {
 
-            $weight = $concrete['attributes']['weight'];
-            $unit = $concrete['attributes']['weight_unit'];
-
-            $result['pricings'][$weight] = [
-                'weight' => $weight,
-                'absolute' => $concrete['prices']['DEFAULT'],
-                'relative' => $concrete['prices']['DEFAULT'] / $weight * (in_array($unit, ['ml', 'g']) ? 100 : 1),
-                'unit' => $unit
-            ];
-
-            $productType = $product['product_type'];
-
-            if (in_array($productType, [
+            if (in_array($product['product_type'], [
                 ProductDynamicConstants::PRODUCT_DYNAMIC_TYPE_DYNAMIC,
                 ProductDynamicConstants::PRODUCT_DYNAMIC_TYPE_BUNDLE
             ])) {
-                $result = $this->addDynamicProductsToResult($concrete, $weight, $result);
+
+                foreach ($concrete['concrete_products_dynamic'] as $dynamic) {
+
+                    foreach ($dynamic['groups'] as $group) {
+                        if ($group['key'] === 'weight') {
+                            $base = $group['value'];
+
+                            if (!isset($config['options'][$base])) {
+                                $config['options'][$base] = [
+                                    'sku' => $concrete['sku'],
+                                    'weight' => [
+                                        'value' => $concrete['attributes']['weight'],
+                                        'unit' => $concrete['attributes']['weight_unit']
+                                    ],
+                                    'price' => $concrete['prices']['DEFAULT']
+                                ];
+                            }
+
+                            foreach ($dynamic['groups'] as $group) {
+                                if ($group['key'] !== 'weight' && $group['value'] !== 'no') {
+                                    $config['options'][$base][$group['key']][$group['value']] = $group['value'];
+                                }
+                            }
+
+                        }
+                    }
+                }
+
             } else {
-                $result = $this->addSimpleProductToResult($concrete, $weight, $result);
+
+                foreach ( $concrete['product_group_values'] as $key => $base ) {
+                    if ($key === 'weight') {
+
+                        if (!isset($config['options'][$base])) {
+                            $config['options'][$base] = [
+                                'sku' => $concrete['sku'],
+                                'weight' => [
+                                    'value' => $concrete['attributes']['weight'],
+                                    'unit' => $concrete['attributes']['weight_unit']
+                                ],
+                                'price' => $concrete['prices']['DEFAULT']
+                            ];
+                        }
+
+                        foreach ( $concrete['product_group_values'] as $key => $value ) {
+                            if ($key !== 'weight' && $value !== 'no') {
+                                $config['options'][$base][$key][$value] = $value;
+                            }
+                        }
+
+                    }
+                }
+
             }
         }
 
-        foreach ($result['options'] AS &$options) {
-            foreach ($options AS &$option) {
-                $option = array_unique($option);
-            }
-        }
 
+        $result['config'] = $config;
 
         return $result;
     }

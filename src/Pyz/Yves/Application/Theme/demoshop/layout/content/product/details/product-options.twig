@@ -1,31 +1,78 @@
-{% set productConcrete = product.concrete_products | first %}
-{% set initial = (pricings | first) %}
+{% set initial = (config.options | first) %}
+
 
 <script type="text/javascript">
-    window.pricings = {
-    {% for weight, pricing in pricings %}
-        '{{ weight }}' : {
-            absolute: '{{ pricing.absolute | price}}',
-            relative: '250g (€1.40 / 100g)'
-        }{% if loop.last != true %},{% endif %}
-    {% endfor %}
-    }
+    {% spaceless %}
+    window.productConfig = {
+        'pet': '{{ 'hunde' in app.request.uri ? 'dog' : 'cat' }}',
+        'type': '{{ config.type }}',
+        'options': {
+            {% for weight, option in config.options %}
+                '{{weight}}' : {
+                    'sku': '{{ option.sku }}',
+                    'weight': {
+                        'value': '{{ option.weight.value }}',
+                        'unit': '{{ option.weight.unit }}'
+                    },
+                    'prices': {
+                        'total': '{{ option.price | price }}',
+                        'relative': '{{ (option.price * (option.weight.unit in ['g', 'ml'] ? 100 : 1 ) / option.weight.value) | price }}'
+                    },
+                    'options': {
+                        'meat': [
+                            {% for key, value in option.meat %}
+                                '{{ value }}',
+                            {% endfor %}
+                        ],
+                        'carbs': [
+                            {% for key, value in option.carbs %}
+                                '{{ value }}',
+                            {% endfor %}
+                        ]
+                    }
+                },
+            {% endfor %}
+        }
+    };
+    {% endspaceless %}
+
+
+    window.translator.addTranslation('configurator.fixings.cat.beef', '{{ 'configurator.fixings.cat.beef' | trans }}');
+    window.translator.addTranslation('configurator.fixings.cat.chicken', '{{ 'configurator.fixings.cat.chicken' | trans }}');
+    window.translator.addTranslation('configurator.fixings.cat.deer', '{{ 'configurator.fixings.cat.deer' | trans }}');
+    window.translator.addTranslation('configurator.fixings.cat.fish', '{{ 'configurator.fixings.cat.fish' | trans }}');
+    window.translator.addTranslation('configurator.fixings.cat.kangaroo', '{{ 'configurator.fixings.cat.kangaroo' | trans }}');
+    window.translator.addTranslation('configurator.fixings.cat.turkey', '{{ 'configurator.fixings.cat.turkey' | trans }}');
+    window.translator.addTranslation('configurator.fixings.dog.beef', '{{ 'configurator.fixings.dog.beef' | trans }}');
+    window.translator.addTranslation('configurator.fixings.dog.chicken', '{{ 'configurator.fixings.dog.chicken' | trans }}');
+    window.translator.addTranslation('configurator.fixings.dog.deer', '{{ 'configurator.fixings.dog.deer' | trans }}');
+    window.translator.addTranslation('configurator.fixings.dog.fish', '{{ 'configurator.fixings.dog.fish' | trans }}');
+    window.translator.addTranslation('configurator.fixings.dog.kangaroo', '{{ 'configurator.fixings.dog.kangaroo' | trans }}');
+    window.translator.addTranslation('configurator.fixings.dog.turkey', '{{ 'configurator.fixings.dog.turkey' | trans }}');
+    window.translator.addTranslation('product-group.carbs.value.potatoes', '{{ 'product-group.carbs.value.potatoes' | trans }}');
+    window.translator.addTranslation('product-group.carbs.value.rice', '{{ 'product-group.carbs.value.rice' | trans }}');
+    window.translator.addTranslation('product-group.meat.beef', '{{ 'product-group.meat.beef' | trans }}');
+    window.translator.addTranslation('product-group.meat.chicken', '{{ 'product-group.meat.chicken' | trans }}');
+    window.translator.addTranslation('product-group.meat.deer', '{{ 'product-group.meat.deer' | trans }}');
+    window.translator.addTranslation('product-group.meat.fish', '{{ 'product-group.meat.fish' | trans }}');
+    window.translator.addTranslation('product-group.meat.kangaroo', '{{ 'product-group.meat.kangaroo' | trans }}');
+    window.translator.addTranslation('product-group.meat.turkey', '{{ 'product-group.meat.turkey' | trans }}');
 </script>
 
-<form action="/cart/add/" method="POST" class="product-options js-product-options" data-sku="{{ productConcrete.sku }}" data-sticky-limit=".js-product-accordion">
 
-    {% if options is not empty %}
-        {% set option = options | first %}
-        {% if option.weight is defined %}
-            <div class="product-options__select js-product-weight-select">
-                {% include  '@application/layout/common/forms/dropdown.twig' with {
-                    label: 'Größe',
-                    id: 'weight',
-                    name: 'weight',
-                    options: option.weight
-                } %}
-            </div>
-        {% endif %}
+
+
+<form action="/cart/add/" method="POST" class="product-options js-product-options" data-sku="{{ initial.sku }}" data-sticky-limit=".js-product-accordion">
+
+    {% if config.options is defined %}
+        <div class="product-options__select js-product-weight-select">
+            {% include  '@application/layout/common/forms/dropdown.twig' with {
+                label: 'Größe',
+                id: 'weight',
+                name: 'weight',
+                options: (config.options | keys)
+            } %}
+        </div>
     {% endif %}
 
     <div class="product-options__select">
@@ -37,18 +84,18 @@
     </div>
 
     <div class="product-options__pricing">
-        {% set initial = (pricings | first ) %}
 
-        <div class="product-options__total">
-            {{ initial.absolute | price}}
+        <div class="product-options__total js-product-price-total">
+            {{ initial.price | price}}
         </div>
 
         <div class="product-options__relative">
-            <span class="js-product-weight">{{ initial.weight }}</span>{{ ('unit.' ~ initial.unit | trim) | trans }} ({{ initial.relative | price }} / {{ initial.unit == 'ml' or initial.unit == 'g' ? 100 : 1 }}{{ initial.unit }})
+            {% set base = initial.weight.unit in ['ml', 'g'] ? 100 : 1 %}
+
+            <span class="js-product-weight">{{ initial.weight.value | replace({'.':','}) }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }}</span> ({{ (initial.price * base / initial.weight.value) | price }} / {{ base }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }}
         </div>
     </div>
 
-    <!-- TODO: strings into glossary -->
     {% include '@application/layout/common/forms/button.twig' with {
         type: 'submit',
         title: 'In den Warenkorb',

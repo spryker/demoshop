@@ -4,10 +4,17 @@
 //
 // Styleguide: atoms.product-features
 
+
 .product-features{
+    overflow: hidden;
+    background: $_rgbWhite;
     padding: 0 ($_xSpacing / 2);
 
     clear: both;
+}
+
+.product-features__inner{
+    @include pageWidth;
 }
 
 .product-features__title{
@@ -34,6 +41,25 @@
 .product-features__item{
     margin-left: 30px;
 
-    font-size: 16px;
+    font-size: 22px;
     color: $_rgbDoveGray;
+}
+
+@media (min-width: 675px){
+    .product-features__inner{
+        padding-left: $_wGallerySmall;
+    }
+}
+
+@media (min-width: $_wLarge){
+    .product-features__item{
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1050px){
+    .product-features__inner{
+        padding-left: $_wGalleryBig;
+        padding-right: $_wOptions;
+    }
 }

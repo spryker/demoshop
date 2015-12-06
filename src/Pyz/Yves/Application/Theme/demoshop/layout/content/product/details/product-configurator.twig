@@ -1,6 +1,6 @@
 {% set data = {
     headline: 'Inhalt anpassen',
-    description: 'Wählen Sie die Zutaten ab, die Ihr Tier nicht verträgt. Das Paket wird dennoch immer 10 Menüboxen enthalten.',
+    description: 'Wählen Sie die Zutaten ab, die Ihr Tier nicht verträgt.' ~ (config.type == 'simple' ? '' : ' Die Anzahl der im Paket enthaltenen Menüboxen bleibt dabei unverändert.'),
     label: 'Wählen Sie Zutaten aus oder ab:',
     button: 'Meine Auswahl speichern',
     titles: {
@@ -24,45 +24,7 @@
             {{ data.description }}
         </div>
 
-        {% set option = options | first %}
-        {% for category, categoryOptions in option %}
-            {% if category != 'weight' %}
-
-                {% if data.titles[category] is defined %}
-                    <h3 class="product-configurator__subheadline">
-                        {{ data.titles[category] }}
-                    </h3>
-                {% endif %}
-
-                <div class="product-configurator__composition">
-                    <div class="product-configurator__composition-label">
-                        {{ data.label }}
-                    </div>
-
-                    {% for categoryOption in categoryOptions %}
-
-                        {% set pet = ('hunde' in  app.request.attributes.get('_route')) ? 'dog' : 'cat' %}
-
-                        {# TODO: dynamic category dog/cat #}
-                        {% if categoryOption != 'no' %}
-                            {% include '@application/layout/content/product/configurator/image-checkbox.twig' with {
-                                checkbox: {
-                                    id: category ~ '_' ~ categoryOption,
-                                    name: category,
-                                    value: categoryOption,
-                                    label: (categoryOption | capitalize),
-                                    sublabel: (category == 'meat' ? (('configurator.fixings.' ~ pet ~ '.' ~ categoryOption | trim) | trans) : ''),
-                                    image: '/images/product/' ~ category ~ '_' ~ categoryOption ~ '.jpg',
-                                    image_bw: '/images/product/' ~ category ~ '_' ~ categoryOption ~ '_bw.jpg'
-                                }
-                            } %}
-                        {% endif %}
-
-                    {% endfor %}
-
-                </div>
-            {% endif %}
-        {% endfor %}
+        <div class="js-configurator-options"></div>
 
         <div class="product-configurator__save">
             <button class="button" type="submit">

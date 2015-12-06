@@ -1,8 +1,5 @@
-{% set data = {
-    customize: 'Falls Ihr Tier einige Zutaten schlecht verträgt, können Sie die Auswahl hier anpassen.'
-} %}
-
 <div class="product-content">
+
     <h1 class="product-content__title">Inhalt</h1>
 
     {% if product.description.markdown is defined %}
@@ -13,10 +10,12 @@
         </div>
     {% endif %}
 
-    {% if options is not empty %}
+
+    {% if config.options is not empty %}
         <div class="product-content__customize">
-            {{ data.customize }}
+            Falls Ihr Tier einige Zutaten schlecht verträgt, können Sie die Auswahl hier anpassen.
             <button type="button" class="product-content__button button js-product-customize">Inhalt anpassen</button>
         </div>
     {% endif %}
+
 </div>
