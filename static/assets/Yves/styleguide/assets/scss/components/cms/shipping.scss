@@ -1,0 +1,203 @@
+.shipping{
+    padding: 70px 0;
+    background: $_rgbWhite;
+    overflow: hidden;
+}
+
+.shipping__inner{
+    @include pageWidth(55px);
+}
+
+
+
+.shipping__header{
+    max-width: 590px;
+    margin: 0 auto 50px auto;
+
+    text-align: center;
+}
+
+.shipping__headline{
+    position: relative;
+    margin-bottom: 50px;
+
+    font-family: BrandonGrotesque-Black;
+    font-size: 60px;
+    color: #62BC46;
+
+    @include decoratorStrip;
+}
+
+.shipping__intro{
+    font-family: BrandonGrotesque-Regular;
+    font-size: 16px;
+    color: #898989;
+}
+
+
+
+
+.shipping__shipping{
+}
+
+.shipping__countries{
+    margin-bottom: 50px;
+    @include clearfix;
+}
+
+.shipping__country{
+    float: left;
+    width: 50%;
+
+    margin-bottom: 20px;
+
+    &:nth-child(2n) {
+        padding-left: 30px;
+    }
+
+    &:nth-child(2n+1) {
+        padding-right: 30px;
+    }
+}
+
+.shipping__country-inner{
+    position: relative;
+    max-width: 360px;
+}
+
+.shipping__left{
+    padding-right: 80px;
+}
+
+.shipping__country-name{
+    font-family: BrandonGrotesque-Bold;
+    font-size: 22px;
+    color: #898989;
+}
+
+.shipping__carrier{
+    font-size: 22px;
+    color: #898989;
+}
+
+.shipping__right{
+    position: absolute;
+    right: 0;
+    top: 36px;
+
+    text-align: right;
+}
+
+.shipping__fee{
+    margin-right: 10px;
+
+    font-family: sans-serif;
+    font-size: 22px;
+    color: #838C8E;
+    line-height: 26px;
+}
+
+.shipping__fee--free{
+    color: $_rgbApple;
+}
+
+
+.shipping__condition{
+    font-family: sans-serif;
+    font-size: 10px;
+    color: #898989;
+}
+
+.shipping__bottom{
+    display: flex;
+}
+
+.shipping__information, .shipping__image{
+    float: left;
+    width: 50%;
+}
+
+.shipping__information{
+    @include wysiwyg;
+    font-size: 16px;
+    color: #6A6A6A;
+
+    h2{
+        margin-bottom: 0.7em;
+    }
+}
+
+.shipping__image{
+    align-self: center;
+
+    img{
+        @include responsiveImage;
+    }
+}
+
+
+@media (max-width: $_wLarge) {
+
+    .shipping__inner{
+        @include pageWidth(65px);
+    }
+
+    .shipping__header{
+        max-width: none;
+    }
+
+    .shipping__intro{
+        text-align: center;
+        font-size: 22px;
+    }
+
+    .shipping__country{
+        width: 100%;
+        padding: 0 !important;
+    }
+
+    .shipping__country-inner{
+        max-width: none;
+    }
+
+
+    .shipping__bottom{
+        display: block;
+    }
+
+    .shipping__information, .shipping__image{
+        width: 100%;
+    }
+}
+
+
+@media (max-width: $_wMedium) {
+    .shipping__inner{
+        @include pageWidth(20px);
+    }
+
+    .shipping__intro{
+        text-align: left;
+    }
+
+    .shipping__country{
+        margin-bottom: 70px
+    }
+
+    .shipping__conditions{
+        margin-top: 10px;
+    }
+
+
+    .shipping__condition{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 400px) {
+    .shipping__right {
+        top: 72px;
+    }
+}
+
+
