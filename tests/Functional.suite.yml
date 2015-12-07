@@ -10,3 +10,33 @@ modules:
     enabled:
       - Filesystem
       - \Module\Functional
+
+#      - PhpBrowser:
+#          url: 'http://www.de.pets-deli.dev/'
+
+      - WebDriver:
+          url:         'http://www.de.pets-deli.dev/'
+          browser:     'phantomjs'
+          window_size: '1920x1200'
+          wait:        10
+          capabilities:
+            unexpectedAlertBehaviour: 'accept'
+
+env:
+    development:
+        modules:
+            config:
+                PhpBrowser:
+                    url: 'http://www.de.pets-deli.dev/'
+
+    staging:
+        modules:
+            config:
+                PhpBrowser:
+                    url: 'http://www.de.pets-deli2.dev/'
+
+    production:
+        modules:
+            config:
+                PhpBrowser:
+                    url: 'https://neu.petsdeli.de/'
