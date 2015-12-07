@@ -16,18 +16,6 @@
                     </placeholder>
                 </placeholders>
             </locale>
-            <locale name="en_US">
-                <placeholders>
-                    <placeholder>
-                        <name>quote</name>
-                        <translation>English quotes</translation>
-                    </placeholder>
-                    <placeholder>
-                        <name>reference</name>
-                        <translation>English Name</translation>
-                    </placeholder>
-                </placeholders>
-            </locale>
         </locales>
     </block>
     <block>
@@ -46,18 +34,6 @@
                     </placeholder>
                 </placeholders>
             </locale>
-            <locale name="en_US">
-                <placeholders>
-                    <placeholder>
-                        <name>quote</name>
-                        <translation>English quotes</translation>
-                    </placeholder>
-                    <placeholder>
-                        <name>reference</name>
-                        <translation>English Name</translation>
-                    </placeholder>
-                </placeholders>
-            </locale>
         </locales>
     </block>
     <block>
@@ -73,18 +49,6 @@
                     <placeholder>
                         <name>reference</name>
                         <translation>Khalil Gibran</translation>
-                    </placeholder>
-                </placeholders>
-            </locale>
-            <locale name="en_US">
-                <placeholders>
-                    <placeholder>
-                        <name>quote</name>
-                        <translation>English quotes</translation>
-                    </placeholder>
-                    <placeholder>
-                        <name>reference</name>
-                        <translation>English Name</translation>
                     </placeholder>
                 </placeholders>
             </locale>

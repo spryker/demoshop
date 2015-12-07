@@ -71,26 +71,6 @@
                     </placeholder>
                 </placeholders>
             </locale>
-            <locale name="en_US">
-                <url>/en/imprint</url>
-                <placeholders>
-                    <placeholder>
-                        <name>title</name>
-                        <translation>
-                            <![CDATA[
-                        <h2>Imprint</h2>
-                 ]]></translation>
-                    </placeholder>
-                    <placeholder>
-                        <name>content</name>
-                        <translation>
-                            <![CDATA[
-                        <p>Demoshop<br/>
-                            US PO-BOX:72833 1 (888) 455545</p>
-                 ]]></translation>
-                    </placeholder>
-                </placeholders>
-            </locale>
         </locales>
     </page>
     <page>
@@ -243,25 +223,6 @@
                     </placeholder>
                 </placeholders>
             </locale>
-            <locale name="en_US">
-                <url>/en/conditions</url>
-                <placeholders>
-                    <placeholder>
-                        <name>title</name>
-                        <translation>
-                            <![CDATA[
-                        <h2>Terms and Conditions</h2>
-                 ]]></translation>
-                    </placeholder>
-                    <placeholder>
-                        <name>content</name>
-                        <translation>
-                            <![CDATA[
-                        Terms and Conditions
-                 ]]></translation>
-                    </placeholder>
-                </placeholders>
-            </locale>
         </locales>
     </page>
     <page>
@@ -311,25 +272,6 @@
             <a target="_blank" href="https://www.ratgeberrecht.eu/leistungen/muster-datenschutzerklaerung.html">Muster-Datenschutzerklärung</a>
             der Anwaltskanzlei Weiß &amp; Partner</p>
             ]]></translation>
-                    </placeholder>
-                </placeholders>
-            </locale>
-            <locale name="en_US">
-                <url>/en/privacy</url>
-                <placeholders>
-                    <placeholder>
-                        <name>title</name>
-                        <translation>
-                            <![CDATA[
-                        <h2>Privacy</h2>
-                 ]]></translation>
-                    </placeholder>
-                    <placeholder>
-                        <name>content</name>
-                        <translation>
-                            <![CDATA[
-                        Privacy Content ...
-                 ]]></translation>
                     </placeholder>
                 </placeholders>
             </locale>
