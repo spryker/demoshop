@@ -109,6 +109,29 @@ if is_default_store; then
 fi
 
 
+
+
+# Add hash to JS filename
+cd $deploy_source_dir/static/public/Yves/js
+filename_js_orig="sg-main.js"
+echo "Creating hashed version of ${filename_js_orig} .."
+hash="`md5sum ${filename_js_orig}`"
+filename_js="sg-main-${hash:0:8}.js"
+ln -s $filename_js_orig $filename_js
+
+# Add hash to css file
+cd $deploy_source_dir/static/public/Yves/css
+filename_css_orig="styles.css"
+echo "Creating hashed version of ${filename_css_orig} .."
+hash="`md5sum ${filename_css_orig}`"
+filename_css="styles-${hash:0:8}.css"
+ln -s $filename_css_orig $filename_css
+
+layoutfile="$deploy_source_dir/src/Pyz/Yves/Application/Theme/demoshop/layout/layout.twig"
+sed -i.bak s/${filename_js_orig}/${filename_js}/g ${layoutfile}
+sed -i.bak s/${filename_css_orig}/${filename_css}/g ${layoutfile}
+
+
 ### Allright, no error, deployment continues.
 rm -f $outfile
 exit 0
