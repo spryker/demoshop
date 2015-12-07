@@ -27,7 +27,7 @@ env:
         modules:
             config:
                 WebDriver:
-                    url: 'http://www.de.staging.pd-pa.de/'
+                    url: 'http://projecta:mate20mg@www.de.staging.pd-pa.de/'
 
     production:
         modules:
