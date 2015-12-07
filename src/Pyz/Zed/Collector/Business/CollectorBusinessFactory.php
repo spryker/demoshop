@@ -95,6 +95,9 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storageNewCategoryNodeCollector->setQueryBuilder(
             $this->createStorageQueryBuilderAdapterByName('CategoryNodeCollector')
         );
+        $storageNewCategoryNodeCollector->setExportUpdater(
+            $this->createKeyValueExportUpdaterMarker()
+        );
 
         return $storageNewCategoryNodeCollector;
     }
@@ -114,6 +117,9 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         );
         $storageNewCategoryNodeCollector->setQueryBuilder(
             $this->createStorageQueryBuilderAdapterByName('ProductCollector')
+        );
+        $storageNewCategoryNodeCollector->setExportUpdater(
+            $this->createKeyValueExportUpdaterMarker()
         );
 
         return $storageNewCategoryNodeCollector;

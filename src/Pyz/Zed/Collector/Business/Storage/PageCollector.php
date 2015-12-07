@@ -72,7 +72,7 @@ class PageCollector extends AbstractPropelCollectorPlugin
         $baseQuery->withColumn(SpyGlossaryKeyTableMap::COL_KEY, 'translation_key');
         $baseQuery->withColumn(
             SpyTouchTableMap::COL_ID_TOUCH,
-            self::TOUCH_EXPORTER_ID
+            self::COLLECTOR_TOUCH_ID
         );
 
         return $baseQuery;
@@ -98,7 +98,7 @@ class PageCollector extends AbstractPropelCollectorPlugin
             $processedResultSet[$pageKey]['template'] = $page['template_path'];
             $processedResultSet[$pageKey]['placeholders'] = isset($processedResultSet[$pageKey]['placeholders']) ? $processedResultSet[$pageKey]['placeholders'] : [];
             $processedResultSet[$pageKey]['placeholders'][$page['placeholder']] = $page['translation_key'];
-            $touchUpdaterSet->add($pageKey, $page[self::TOUCH_EXPORTER_ID]);
+            $touchUpdaterSet->add($pageKey, $page[self::COLLECTOR_TOUCH_ID]);
         }
 
         return $processedResultSet;

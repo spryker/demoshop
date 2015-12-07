@@ -54,7 +54,7 @@ class UrlCollector extends AbstractPropelCollectorPlugin
 
         $baseQuery->withColumn(
             SpyTouchTableMap::COL_ID_TOUCH,
-            self::TOUCH_EXPORTER_ID
+            self::COLLECTOR_TOUCH_ID
         );
 
         return $baseQuery;
@@ -110,7 +110,7 @@ class UrlCollector extends AbstractPropelCollectorPlugin
                 'type' => $resourceArguments['resourceType'],
             ];
 
-            $touchUpdaterSet->add($indexKey, $url[self::TOUCH_EXPORTER_ID]);
+            $touchUpdaterSet->add($indexKey, $url[self::COLLECTOR_TOUCH_ID]);
         }
 
         return $processedResultSet;

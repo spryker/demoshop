@@ -69,7 +69,7 @@ class BlockCollector extends AbstractPropelCollectorPlugin
         $baseQuery->withColumn(SpyCmsTemplateTableMap::COL_TEMPLATE_PATH, 'template_path');
         $baseQuery->withColumn(SpyCmsPageTableMap::COL_IS_ACTIVE, 'isActive');
         $baseQuery->withColumn(SpyGlossaryKeyTableMap::COL_KEY, 'translation_key');
-        $baseQuery->withColumn(SpyTouchTableMap::COL_ID_TOUCH, self::TOUCH_EXPORTER_ID);
+        $baseQuery->withColumn(SpyTouchTableMap::COL_ID_TOUCH, self::COLLECTOR_TOUCH_ID);
 
         return $baseQuery;
     }
@@ -101,7 +101,7 @@ class BlockCollector extends AbstractPropelCollectorPlugin
             $returnedResultSet[$blockKey]['placeholders'] = isset($returnedResultSet[$blockKey]['placeholders']) ? $returnedResultSet[$blockKey]['placeholders'] : [];
             $returnedResultSet[$blockKey]['placeholders'][$block['placeholder']] = $block['translation_key'];
 
-            $touchUpdaterSet->add($blockKey, $block[self::TOUCH_EXPORTER_ID]);
+            $touchUpdaterSet->add($blockKey, $block[self::COLLECTOR_TOUCH_ID]);
         }
 
         return $returnedResultSet;

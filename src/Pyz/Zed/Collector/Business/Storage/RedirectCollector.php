@@ -58,7 +58,7 @@ class RedirectCollector extends AbstractPropelCollectorPlugin
         $baseQuery->withColumn(SpyUrlRedirectTableMap::COL_TO_URL, self::KEY_TO_URL);
         $baseQuery->withColumn(
             SpyTouchTableMap::COL_ID_TOUCH,
-            self::TOUCH_EXPORTER_ID
+            self::COLLECTOR_TOUCH_ID
         );
 
         return $baseQuery;
@@ -83,7 +83,7 @@ class RedirectCollector extends AbstractPropelCollectorPlugin
                 self::KEY_ID => $redirect[self::KEY_ID],
             ];
 
-            $touchUpdaterSet->add($redirectKey, $redirect[self::TOUCH_EXPORTER_ID]);
+            $touchUpdaterSet->add($redirectKey, $redirect[self::COLLECTOR_TOUCH_ID]);
         }
 
         return $processedResultSet;

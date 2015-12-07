@@ -253,7 +253,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         );
         $baseQuery->withColumn(
             SpyTouchTableMap::COL_ID_TOUCH,
-            self::TOUCH_EXPORTER_ID
+            self::COLLECTOR_TOUCH_ID
         );
         $baseQuery->orderBy('depth', Criteria::DESC);
         $baseQuery->orderBy('descendant_id', Criteria::DESC);
@@ -295,7 +295,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                     'all-parents' => explode(',', $productRawData['category_parent_ids']),
                 ];
 
-                $touchUpdaterSet->add($index, $resultSet[$index][self::TOUCH_EXPORTER_ID]);
+                $touchUpdaterSet->add($index, $resultSet[$index][self::COLLECTOR_TOUCH_ID]);
             }
         }
 
