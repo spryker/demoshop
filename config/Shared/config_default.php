@@ -194,7 +194,7 @@ $config[CustomerConfig::SHOP_MAIL_REGISTRATION_TOKEN]   = 'registration.token';
 $config[CustomerConfig::SHOP_MAIL_REGISTRATION_SUBJECT] = 'registration.mail.subject';
 
 $config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORE_TOKEN]   = 'password.restore';
-$config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORE_SUBJECT] = 'password.restore.mail.subject';
+$config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORE_SUBJECT] = 'Neues Passwort';
 
 $config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_TOKEN]   = 'password.change.confirmation';
 $config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_SUBJECT] = 'password.change.confirmation.mail.subject';
@@ -388,7 +388,7 @@ $config[MailchimpClientConfig::MAILCHIMP_API_KEY] = '49eccb87d7ba7432cf574df60e3
 $config[MailchimpClientConfig::MAILCHIMP_SUBSCRIBER_LIST_ID] = 'fc2fd7191f';
 
 $config[NewsletterDoiMailQueueConnectorConfig::DOI_CONFIRMATION_TEMPLATE_NAME] = 'newsletter-doi-test-template';
-$config[NewsletterDoiMailQueueConnectorConfig::DOI_CONFIRMATION_EMAIL_SUBJECT] = 'DOI confirmation';
+$config[NewsletterDoiMailQueueConnectorConfig::DOI_CONFIRMATION_EMAIL_SUBJECT] = 'Bitte bestätigen Sie Ihre PETS DELI Newsletter-Anmeldung';
 $config[NewsletterDoiMailQueueConnectorConfig::DOI_CONFIRMATION_URL] = $config[SystemConfig::HOST_YVES] . '/newsletter/confirmation/';
 
 $config[ProductFeedConfig::PRODUCT_FEED_FILE_NAME] = 'products.csv';
@@ -402,10 +402,10 @@ $config[ProductFeedConfig::PRODUCT_FEED_CSV_PARAMETERS] = [
 $config[CalculationCheckoutConnectorConfig::MINIMUM_CHECKOUT_CART_VALUE] = 1500; // 15€
 
 $config[OmsMailQueueConnectorConfig::ORDER_SEPA_RECEIVED_TEMPLATE_NAME] = 'sepa-order-received-test-template';
-$config[OmsMailQueueConnectorConfig::ORDER_SEPA_RECEIVED_EMAIL_SUBJECT] = 'Order received';
+$config[OmsMailQueueConnectorConfig::ORDER_SEPA_RECEIVED_EMAIL_SUBJECT] = 'Bestätigung Ihrer Bestellung Ref %s';
 
 $config[OmsMailQueueConnectorConfig::ORDER_PREPAYMENT_RECEIVED_TEMPLATE_NAME] = 'prepayment-order-received-test-template';
-$config[OmsMailQueueConnectorConfig::ORDER_PREPAYMENT_RECEIVED_EMAIL_SUBJECT] = 'Order received';
+$config[OmsMailQueueConnectorConfig::ORDER_PREPAYMENT_RECEIVED_EMAIL_SUBJECT] = 'Bestätigung Ihrer Bestellung Ref %s';
 
 $config[OmsMailQueueConnectorConfig::ORDER_CONFIRMATION_TEMPLATE_NAME] = 'order-confirmation';
-$config[OmsMailQueueConnectorConfig::ORDER_CONFIRMATION_EMAIL_SUBJECT] = 'Order confirmation';
+$config[OmsMailQueueConnectorConfig::ORDER_CONFIRMATION_EMAIL_SUBJECT] = 'Bestätigung Ihrer Bestellung Ref %s';
