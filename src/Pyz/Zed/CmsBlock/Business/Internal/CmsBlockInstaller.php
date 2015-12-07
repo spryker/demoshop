@@ -126,11 +126,14 @@ class CmsBlockInstaller extends AbstractInstaller
      */
     protected function linkBlockWithPages(BlockTransfer $blockTransfer, array $pageUrls)
     {
+        $position = 0;
         foreach ($pageUrls as $pageUrl) {
+            $position++;
             $urlTransfer = $this->urlFacade->getUrlByPath($pageUrl);
             $this->blockWriter->linkPageWithBlock(
                 $urlTransfer->getFkPage(),
-                $blockTransfer->getIdCmsBlock()
+                $blockTransfer->getIdCmsBlock(),
+                $position
             );
             $this->touchFacade->touchActive(CmsConfig::RESOURCE_TYPE_PAGE, $urlTransfer->getFkPage());
         }
