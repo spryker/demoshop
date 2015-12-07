@@ -1,6 +1,6 @@
 {% if type is defined %}
     <button type="{{ type }}" class="button button--{{ modifier | default('') }}">
-        {{ title }}
+        {{ title|trans({}) }}
     </button>
 
 {% else %}
