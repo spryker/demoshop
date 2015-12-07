@@ -22,7 +22,7 @@ $(document).ready(function () {
         $contentContainer.css({'width': 100 * $contents.size() + '%'});
         $contents.css({'width': 100 / $contents.size() + '%'});
 
-        var index = 1;
+        var index = Math.min(1, $navigations.size() - 1);
 
 
         updateOffset();
