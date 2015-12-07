@@ -16,27 +16,26 @@ modules:
 
       - WebDriver:
           url:         'http://www.de.pets-deli.dev/'
+#          host:        'floeH:1bcf0e48-bcf2-4005-8d19-577d17f0e7de@ondemand.saucelabs.com'
           browser:     'phantomjs'
-          window_size: '1920x1200'
-          wait:        10
+#          browser:     'firefox'
           capabilities:
+#            platform:                 'Windows 10'
+#            version:                  '42.0'
             unexpectedAlertBehaviour: 'accept'
 
-env:
-    development:
-        modules:
-            config:
-                PhpBrowser:
-                    url: 'http://www.de.pets-deli.dev/'
+          window_size: '1920x1200'
+          wait:        10
 
+env:
     staging:
         modules:
             config:
-                PhpBrowser:
-                    url: 'http://www.de.pets-deli2.dev/'
+                WebDriver:
+                    url: 'http://projecta:mate20mg@www.de.staging.pd-pa.de/'
 
     production:
         modules:
             config:
-                PhpBrowser:
+                WebDriver:
                     url: 'https://neu.petsdeli.de/'
