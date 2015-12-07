@@ -52,11 +52,6 @@ class ProductBlockController extends AbstractPlugin implements BlockControllerIn
 
         $result = [
             'product' => $product,
-
-            // TODO: unify options and pricings
-            'pet' => 'none',
-            'options' => [],
-            'pricings' => [],
         ];
 
 
@@ -104,27 +99,43 @@ class ProductBlockController extends AbstractPlugin implements BlockControllerIn
 
             } else {
 
-                foreach ( $concrete['product_group_values'] as $key => $base ) {
-                    if ($key === 'weight') {
+                if (count($concrete['product_group_values'])) {
 
-                        if (!isset($config['options'][$base])) {
-                            $config['options'][$base] = [
-                                'sku' => $concrete['sku'],
-                                'weight' => [
-                                    'value' => $concrete['attributes']['weight'],
-                                    'unit' => $concrete['attributes']['weight_unit']
-                                ],
-                                'price' => $concrete['prices']['DEFAULT']
-                            ];
-                        }
+                    foreach ( $concrete['product_group_values'] as $key => $base ) {
+                        if ($key === 'weight') {
 
-                        foreach ( $concrete['product_group_values'] as $key => $value ) {
-                            if ($key !== 'weight' && $value !== 'no') {
-                                $config['options'][$base][$key][$value] = $value;
+                            if (!isset($config['options'][$base])) {
+                                $config['options'][$base] = [
+                                    'sku' => $concrete['sku'],
+                                    'weight' => [
+                                        'value' => $concrete['attributes']['weight'],
+                                        'unit' => $concrete['attributes']['weight_unit']
+                                    ],
+                                    'price' => $concrete['prices']['DEFAULT']
+                                ];
                             }
-                        }
 
+                            foreach ( $concrete['product_group_values'] as $key => $value ) {
+                                if ($key !== 'weight' && $value !== 'no') {
+                                    $config['options'][$base][$key][$value] = $value;
+                                }
+                            }
+
+                        }
                     }
+
+                } else {
+
+                    $base = $concrete['attributes']['weight'] . $concrete['attributes']['weight_unit'];
+
+                    $config['options'][$base] = [
+                        'sku' => $concrete['sku'],
+                        'weight' => [
+                            'value' => $concrete['attributes']['weight'],
+                            'unit' => $concrete['attributes']['weight_unit']
+                        ],
+                        'price' => $concrete['prices']['DEFAULT']
+                    ];
                 }
 
             }
