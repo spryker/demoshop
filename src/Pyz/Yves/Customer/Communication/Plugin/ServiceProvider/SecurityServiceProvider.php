@@ -116,6 +116,7 @@ class SecurityServiceProvider extends AbstractPlugin implements
         $response = new Response(json_encode($array));
         $response->headers->set('Location', $request->headers->get('referer'));
         $response->headers->set('Content-Type', 'application/json');
+        $request->getSession()->getFlashBag()->add('flash.messages.success', 'customer.login.success');
 
         return $response;
     }
@@ -132,6 +133,7 @@ class SecurityServiceProvider extends AbstractPlugin implements
         $response = new Response(json_encode($array));
         $response->headers->set('Location', $request->headers->get('referer'));
         $response->headers->set('Content-Type', 'application/json');
+        $request->getSession()->getFlashBag()->add('flash.messages.error', 'customer.login.failed');
 
         return $response;
     }
