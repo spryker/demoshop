@@ -228,7 +228,7 @@ class AfterbuyExportManager
         $itemIds = [];
         foreach ($items as $item) {
             $numberOfItems ++;
-            $itemIds[$item->getIdSalesOrderItem()] = $item->getIdSalesOrderItem();
+            $itemIds[$item->getIdSalesOrderItem()] = $item->getQuantity();
             $postData[AfterbuyConstants::ITEM_SKU . $numberOfItems] = $item->getSku();
             $postData[AfterbuyConstants::ITEM_NUMBER . $numberOfItems] = $item->getSku();
             $postData[AfterbuyConstants::ITEM_QUANTITY_ORDERED . $numberOfItems] = $item->getQuantity();
@@ -277,6 +277,8 @@ class AfterbuyExportManager
         $salesDiscounts = $this->salesFacade->getSalesDiscountsByOrderId($idSalesOrder);
         foreach ($salesDiscounts as $salesDiscount) {
             if (isset($itemIds[$salesDiscount->getFkSalesOrderItem()])) {
+                $priceByQuantity = $salesDiscount->getAmount() * $itemIds[$salesDiscount->getFkSalesOrderItem()];
+                $salesDiscount->setAmount($priceByQuantity);
                 $discountsToExport[] = $salesDiscount;
             }
         }
