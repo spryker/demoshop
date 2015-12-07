@@ -259,7 +259,7 @@ class AfterbuyExportManager
             $postData[AfterbuyConstants::ITEM_NUMBER . $nbItem] = $nbItem;
             $postData[AfterbuyConstants::ITEM_QUANTITY_ORDERED . $nbItem] = 1;
             $postData[AfterbuyConstants::ITEM_NAME . $nbItem] = $coupon[self::KEY_COUPON_NAME];
-            $postData[AfterbuyConstants::ITEM_PRICE . $nbItem] = (-1) * $this->convertPriceInCentToEuro($coupon[self::KEY_COUPON_AMOUNT]);
+            $postData[AfterbuyConstants::ITEM_PRICE . $nbItem] = $this->convertPriceInCentToEuro((-1) * $coupon[self::KEY_COUPON_AMOUNT]);
             $postData[AfterbuyConstants::ITEM_TAX_PERCENTAGE . $nbItem] = 19;
         }
 
