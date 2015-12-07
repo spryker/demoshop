@@ -99,10 +99,10 @@ class CheckoutController extends AbstractController
                     $adyenPaymentDetails->setEncryptedCardData($request->get('adyen-encrypted-data'));
                 }
 
-                /** @TODO remove hardcoded values */
-                $adyenPaymentDetails->setCountry('DE');
-                /** End of TODO */
+                /** @TODO rethink iso2code thingy */
+                $adyenPaymentDetails->setCountry($checkoutRequest->getBillingAddress()->getIso2Code());
                 $adyenPaymentDetails->setIp($request->getClientIp());
+                /** End of TODO */
 
                 $adyenPaymentTransfer->setPaymentMethod($paymentMethod);
                 $adyenPaymentTransfer->setPaymentDetail($adyenPaymentDetails);
