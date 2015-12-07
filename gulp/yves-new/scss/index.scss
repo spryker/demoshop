@@ -152,7 +152,7 @@ $screen-lg-min: 1200px;
 
 .homepage-thumbnail {
   width: 100%;
-
+  position: relative;;
 
   background-size: cover;
   background-repeat: no-repeat;
@@ -173,7 +173,10 @@ $screen-lg-min: 1200px;
 
   h1, h2 {
     background: #333;
-    display: inline-block;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    font-size: 0;
 
     a {
       color: #fff;
@@ -181,13 +184,23 @@ $screen-lg-min: 1200px;
   }
 
   h1 {
+    right: 20px;
+    bottom: 20px;
+    padding: 5px 10px;
+    border-radius: 6px;
+
     a {
-      font-size: 24px;
+      font-size: 36px;
     }
   }
   h2 {
+    right: 20px;
+    bottom: 80px;
+    padding: 5px;
+    border-radius: 4px;
     a {
-      font-size: 18px;
+      font-size: 16px;
+      line-height: 16px;
     }
   }
 }
