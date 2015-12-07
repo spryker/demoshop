@@ -1,11 +1,15 @@
 import $ from 'jquery';
 window.$ = $;
 
+// polyfills
 import 'babel-polyfill';
-
 import keys from 'object-keys';
 Object.keys = Object.keys || keys;
 
+
+// 300ms
+var SwiftClick = require("swiftclick");
+SwiftClick.attach(document.body);
 
 
 // common functionality
