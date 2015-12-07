@@ -36,7 +36,7 @@ $(document).ready(function () {
         $configurator = $('.js-product-configurator form');
 
         // TODO: update pricings and configurator
-        //updateProductConfig();
+        updateProductConfig();
         $weightSelect.change(updateProductConfig);
 
         $options.submit(addProduct);
@@ -44,27 +44,38 @@ $(document).ready(function () {
 
 
         function updateProductConfig () {
-            var weight, value, config;
 
-            weight = $weightSelect.find('option:checked').text();
-            value = $weightSelect.find('option:checked').val();
-            config = window.productConfig.options[weight];
+            $('.js-product-customize').hide();
 
-            $(document).trigger(DROPDOWN_EVENTS.UPDATE_DROPDOWN, value);
+            if ($weightSelect.size()) {
+                var weight, value, config;
 
-            $options.attr('data-sku', config.sku);
-            $totalPrice.text(config.prices.total);
-            $relativePrice.text(config.prices.relative);
-            $weight.text(config.weight.value.replace('.',',') + config.weight.unit);
+                weight = $weightSelect.find('option:checked').text();
+                value = $weightSelect.find('option:checked').val();
+                config = window.productConfig.options[weight];
 
-            updateConfigurator(config);
+                $(document).trigger(DROPDOWN_EVENTS.UPDATE_DROPDOWN, value);
+
+                $options.attr('data-sku', config.sku);
+                $totalPrice.text(config.prices.total);
+                $relativePrice.text(config.prices.relative);
+                $weight.text(config.weight.value.replace('.',',') + config.weight.unit);
+
+                updateConfigurator(config);
+            }
         }
 
 
         function updateConfigurator (config) {
             var content = ``;
 
+            console.info(config.options.meat.length && window.productConfig.type !== 'simple');
+            console.info(config.options.carbs.length);
+
+
             if (config.options.meat.length && window.productConfig.type !== 'simple') {
+                $('.js-product-customize').show();
+
                 content += `<h3 class="product-configurator__subheadline">${'Fleischsorten'}</h3>`;
                 content += `<div class="product-configurator__composition">`;
                 content += `<div class="product-configurator__composition-label">${'Wählen Sie Zutaten aus oder ab:'}</div>`;
@@ -94,6 +105,8 @@ $(document).ready(function () {
             }
 
             if (config.options.carbs.length) {
+                $('.js-product-customize').show();
+
                 content += `<h3 class="product-configurator__subheadline">${'Kohlenhydrate'}</h3>`;
                 content += `<div class="product-configurator__composition">`;
                 content += `<div class="product-configurator__composition-label">${'Wählen Sie Zutaten aus oder ab:'}</div>`;
