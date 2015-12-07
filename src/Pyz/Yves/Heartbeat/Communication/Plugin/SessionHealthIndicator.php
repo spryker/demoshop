@@ -19,6 +19,8 @@ class SessionHealthIndicator extends AbstractHealthIndicatorPlugin implements He
     {
         $this->checkWriteSession();
         $this->checkReadSession();
+
+        session_destroy();
     }
 
     private function checkWriteSession()
