@@ -19,22 +19,39 @@ class SubscriptionController extends AbstractController
      */
     public function indexAction(Request $request)
     {
-        $subscriptionRequest = new NewsletterSubscriptionRequestTransfer();
+        $newsletterTypeDogs = (bool)$request->get('NewsletterTypeDogs');
+        $catSubscription = (bool)$request->get('NewsletterTypeCats');
 
+        $subscriptionRequest = new NewsletterSubscriptionRequestTransfer();
         $subscriber = new NewsletterSubscriberTransfer();
         $subscriber->setEmail($request->get('email'));
-
         $newsletterTypes = new \ArrayObject();
-        if((bool)$request->get('NewsletterTypeDogs') === true) {
+
+        if($newsletterTypeDogs === true)
+        {
             $newsletterType = new NewsletterTypeTransfer();
             $newsletterType->setName('dogs');
             $newsletterTypes[] = $newsletterType;
         }
 
-        if((bool)$request->get('NewsletterTypeCats') === true) {
+        if($catSubscription === true)
+        {
             $newsletterType = new NewsletterTypeTransfer();
             $newsletterType->setName('cats');
             $newsletterTypes[] = $newsletterType;
+        }
+
+        if($newsletterTypeDogs === false && $catSubscription === false)
+        {
+            return new JsonResponse([
+                'subscriptionsResults' => [
+                    [
+                        'name' => null,
+                        'isSuccess' => false,
+                        'errorMessage' => 'newsletter.subscription.no_type_selected'
+                    ]
+                ]
+            ]);
         }
 
         $subscriptionsResults = [];
@@ -48,11 +65,11 @@ class SubscriptionController extends AbstractController
             /** @var NewsletterSubscriptionResultTransfer $subscriptionResult */
             foreach($transferResult->getSubscriptionResults() as $subscriptionResult)
             {
-                $subscriptionResult = [
+                $subscriptionResult = [[
                     'name' => $subscriptionResult->getNewsletterType()->getName(),
                     'isSuccess' => $subscriptionResult->getIsSuccess(),
                     'errorMessage' => $subscriptionResult->getErrorMessage()
-                ];
+                ]];
                 $subscriptionsResults[] = $subscriptionResult;
             }
         }
