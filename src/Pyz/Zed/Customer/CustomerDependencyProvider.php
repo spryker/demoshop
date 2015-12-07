@@ -41,9 +41,7 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
             SprykerCustomerDependencyProvider::PASSWORD_RESTORE_TOKEN_SENDERS => [
                 $container->getLocator()->customerMailQueueConnector()->pluginPasswordRestoreTokenSender(),
             ],
-            SprykerCustomerDependencyProvider::PASSWORD_RESTORED_CONFIRMATION_SENDERS => [
-                $container->getLocator()->customerMailQueueConnector()->pluginPasswordRestoredConfirmationSender(),
-            ],
+            SprykerCustomerDependencyProvider::PASSWORD_RESTORED_CONFIRMATION_SENDERS => [],
         ];
     }
 
