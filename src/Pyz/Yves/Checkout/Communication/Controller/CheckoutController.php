@@ -190,6 +190,7 @@ class CheckoutController extends AbstractController
     public function successAction()
     {
         $checkoutClient = $this->getDependencyContainer()->createCheckoutClient();
+        /** @var \Generated\Shared\Transfer\OrderTransfer $orderTransfer */
         $orderTransfer = $checkoutClient->getOrderSuccess();
 
         if ($orderTransfer === null) {
@@ -201,11 +202,8 @@ class CheckoutController extends AbstractController
 
         $checkoutClient->clearOrderSuccess();
 
-
-        //@todo add finish form?
-
         $trackingPurchase = CheckoutDataFormatter::formatPurchase(
-            $orderTransfer->getIdSalesOrder(),
+            $orderTransfer->getOrderReference(),
             $orderTransfer->getTotals(),
             $orderTransfer->getExpenses()
         );
