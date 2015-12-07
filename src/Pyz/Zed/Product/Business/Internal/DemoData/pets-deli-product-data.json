@@ -2370,6 +2370,7 @@
       }
     ],
     "product_group_keys": [
+      "weight",
       "meat",
       "carbs"
     ],
@@ -2404,6 +2405,7 @@
           "sku_formatted": "4921-159-1"
         },
         "product_group_key_values": {
+          "weight": "150g",
           "meat": "beef",
           "carbs": "rice"
         }
@@ -2438,6 +2440,7 @@
           "sku_formatted": "4921-159-2"
         },
         "product_group_key_values": {
+          "weight": "150g",
           "meat": "beef",
           "carbs": "no"
         }
@@ -2975,6 +2978,7 @@
       }
     ],
     "product_group_keys": [
+      "weight",
       "meat",
       "carbs"
     ],
@@ -3009,6 +3013,7 @@
           "sku_formatted": "4921-160-1"
         },
         "product_group_key_values": {
+          "weight": "150g",
           "meat": "kangaroo",
           "carbs": "rice"
         }
@@ -3043,6 +3048,7 @@
           "sku_formatted": "4921-160-2"
         },
         "product_group_key_values": {
+          "weight": "150g",
           "meat": "kangaroo",
           "carbs": "no"
         }
@@ -3128,6 +3134,7 @@
       }
     ],
     "product_group_keys": [
+      "weight",
       "meat",
       "carbs"
     ],
@@ -3162,6 +3169,7 @@
           "sku_formatted": "4921-161-1"
         },
         "product_group_key_values": {
+          "weight": "150g",
           "meat": "chicken",
           "carbs": "rice"
         }
@@ -3196,6 +3204,7 @@
           "sku_formatted": "4921-161-2"
         },
         "product_group_key_values": {
+          "weight": "150g",
           "meat": "chicken",
           "carbs": "no"
         }
@@ -3281,6 +3290,7 @@
       }
     ],
     "product_group_keys": [
+      "weight",
       "meat",
       "carbs"
     ],
@@ -3315,6 +3325,7 @@
           "sku_formatted": "4921-162-1"
         },
         "product_group_key_values": {
+          "weight": "150g",
           "meat": "turkey",
           "carbs": "rice"
         }
@@ -3349,6 +3360,7 @@
           "sku_formatted": "4921-162-2"
         },
         "product_group_key_values": {
+          "weight": "150g",
           "meat": "turkey",
           "carbs": "rice"
         }
@@ -8601,6 +8613,7 @@
       }
     ],
     "product_group_keys": [
+      "weight",
       "meat",
       "carbs"
     ],
@@ -8635,6 +8648,7 @@
           "sku_formatted": "4921-163-1"
         },
         "product_group_key_values": {
+          "weight": "150g",
           "meat": "deer",
           "carbs": "rice"
         }
@@ -8669,6 +8683,7 @@
           "sku_formatted": "4921-163-2"
         },
         "product_group_key_values": {
+          "weight": "150g",
           "meat": "deer",
           "carbs": "no"
         }
@@ -8754,6 +8769,7 @@
       }
     ],
     "product_group_keys": [
+      "weight",
       "meat",
       "carbs"
     ],
@@ -8788,6 +8804,7 @@
           "sku_formatted": "4921-164-1"
         },
         "product_group_key_values": {
+          "weight": "150g",
           "meat": "fish",
           "carbs": "rice"
         }
@@ -8822,6 +8839,7 @@
           "sku_formatted": "4921-164-2"
         },
         "product_group_key_values": {
+          "weight": "150g",
           "meat": "fish",
           "carbs": "rice"
         }
@@ -12000,7 +12018,7 @@
         "locales": [
           {
             "locale": "de_DE",
-            "name": "PETS DELI Rundum-Sorglos-Paket für Hunde (für einen Monat) 250g"
+            "name": "PETS DELI Rundum-Sorglos-Paket für Hunde (für einen Monat) 500g"
           }
         ],
         "price": "6990",

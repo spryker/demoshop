@@ -107,7 +107,8 @@ class AbstractProductCmsBlockWriter implements ProductWriterInterface
         }
 
 
-        foreach ($blockList as $position => $blockName) {
+        $position = 0;
+        foreach ($blockList as $blockName) {
             $position++;
             if (isset($existingBlocks[$blockName])) {
                 $this->cmsBlockFacade->linkPageToBlock(
