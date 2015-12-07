@@ -3,12 +3,14 @@
 namespace Pyz\Zed\Customer\Business\Customer;
 
 use Generated\Shared\Customer\CustomerLoginResultInterface;
+use Generated\Shared\Transfer\CustomerErrorTransfer;
 use Generated\Shared\Transfer\CustomerInfoTransfer;
 use Generated\Shared\Transfer\CustomerResponseTransfer;
 use Orm\Zed\Customer\Persistence\SpyCustomer;
 use Propel\Runtime\Exception\PropelException;
 use Pyz\Zed\Customer\Business\Customer\CustomerInterface as CustomerModelInterface;
 use Pyz\Zed\Customer\Persistence\CustomerQueryContainerInterface;
+use SprykerFeature\Shared\Customer\Code\Messages;
 use SprykerFeature\Zed\Customer\Business\Customer\Customer as SprykerFeatureCustomer;
 use Generated\Shared\Customer\CustomerInterface as CustomerTransferInterface;
 use SprykerFeature\Zed\Customer\Business\Exception\CustomerNotFoundException;
