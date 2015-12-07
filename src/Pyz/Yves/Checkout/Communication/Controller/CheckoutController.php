@@ -101,9 +101,8 @@ class CheckoutController extends AbstractController
 
                 /** @TODO remove hardcoded values */
                 $adyenPaymentDetails->setCountry('DE');
-                $adyenPaymentDetails->setIp('127.0.0.1');
-                $adyenPaymentDetails->setCurrency('EUR');
                 /** End of TODO */
+                $adyenPaymentDetails->setIp($request->getClientIp());
 
                 $adyenPaymentTransfer->setPaymentMethod($paymentMethod);
                 $adyenPaymentTransfer->setPaymentDetail($adyenPaymentDetails);
