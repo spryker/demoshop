@@ -23,20 +23,14 @@ modules:
             unexpectedAlertBehaviour: 'accept'
 
 env:
-    development:
-        modules:
-            config:
-                PhpBrowser:
-                    url: 'http://www.de.pets-deli.dev/'
-
     staging:
         modules:
             config:
-                PhpBrowser:
-                    url: 'http://www.de.pets-deli2.dev/'
+                WebDriver:
+                    url: 'http://www.de.staging.pd-pa.de/'
 
     production:
         modules:
             config:
-                PhpBrowser:
+                WebDriver:
                     url: 'https://neu.petsdeli.de/'

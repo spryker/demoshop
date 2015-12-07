@@ -75,7 +75,7 @@ class NoGuy extends \Codeception\Actor
         // Product Overview Page
         $this->click('Basisnahrung');
         $this->see('PETS DELI Menübox für Katzen Hühnerbrustfilet');
-        $this->createScreenshot('katzen_basisnahrung');
+        $this->createScreenshot('cats_basisnahrung');
 
         // Product Detail Page
         $this->click(['xpath' => '//a[@class="product-card__inner"]']);
@@ -109,6 +109,7 @@ class NoGuy extends \Codeception\Actor
         $this->createScreenshot('checkout');
         $this->fillField('#user_email',    'florian.preusner@project-a.com');
         $this->fillField('#user_password', 'mate20mg');
+        $this->createScreenshot('checkout_after_fill');
 
         $this->click('Einloggen');
         $this->createScreenshot('checkout_login');
