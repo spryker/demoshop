@@ -26,13 +26,13 @@ $(document).ready(function () {
 
     $(document)
         .on('click', '.cart-item__delete', removeSku)
-        .on('change', '[name="product_quantity"]', changeQty)
+        .on('change', '[name="product_quantity"]', changeQty);
 
 
     function loadCart() {
         $.get(ENDPOINTS.CART)
         .done(function (data) {
-            renderCart(data)
+            renderCart(data);
             setItemCount(data);
         });
     };

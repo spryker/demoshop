@@ -45,7 +45,7 @@ $(document).ready(function () {
     function close () {
         $(document).trigger(BODY_EVENTS.ENABLE_SCROLLING);
 
-        $configurator.removeClass('product-configurator--show')
+        $configurator.removeClass('product-configurator--show');
         setTimeout(function () {
             $configurator.removeClass('product-configurator--background');
         }, 500);

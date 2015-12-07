@@ -37,8 +37,8 @@ $(document).ready(function () {
         $guestButton = $('.js-button-guestcheckout');
         $checkout = $(this);
         $navigations = $checkout.find('.checkout__navigation');
-        $contentContainer = $checkout.find('.checkout__contents')
-        $contents = $contentContainer.find('.checkout__content')
+        $contentContainer = $checkout.find('.checkout__contents');
+        $contents = $contentContainer.find('.checkout__content');
 
         $contentContainer.css({'width': 100 * $contents.size() + '%'});
         $contents.css({'width': 100 / $contents.size() + '%'});
@@ -186,7 +186,7 @@ $(document).ready(function () {
 
 
             // TODO: validation should not update value
-            var encryptedData = validateCreditCard()
+            var encryptedData = validateCreditCard();
             if (encryptedData) {
 
                 if (typeof encryptedData === 'string') {
@@ -312,12 +312,12 @@ $(document).ready(function () {
             });
         };
 
-        $('.js-cart__remove-coupon-link').click(removeCoupon);
+        $(document).on('click', '.js-cart__remove-coupon-link', removeCoupon);
         function removeCoupon (event) {
             event.preventDefault();
 
             $.ajax({
-                url : $checkoutRemoveCouponUrlInput.val(),
+                url : $(document).find('#checkoutRemoveCouponUrl').val(),
                 method: 'POST',
                 data: { 'couponCode' : $(this).data('couponCode') },
                 dataType: 'html'

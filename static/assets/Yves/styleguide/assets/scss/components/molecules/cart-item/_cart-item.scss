@@ -115,6 +115,25 @@
     }
 }
 
+.cart__remove-coupon-link{
+    flex-grow: 1;
+    margin-right: 40px;
+    display: inline-block;
+    color: $_rgbOsloGray;
+    vertical-align: middle;
+    text-align: right;
+
+    cursor: pointer;
+
+    &:before{
+        position: relative;
+        top: 4px;
+        content: '\0E012';
+        font-family: $_ffPetsDeliIcons;
+        font-size: 32px;
+    }
+}
+
 .cart-item__quantity{
     margin: 0 0 25px;
 }

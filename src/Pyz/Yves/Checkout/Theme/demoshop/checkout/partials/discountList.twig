@@ -1,11 +1,13 @@
 {% for discount in cart.totals.discount.discountItems %}
-    {% if discount.codes is not empty %}
-        <div class="cart-position  cart-position--discounts">
-            <div class="cart-position__left"></div>
+        <div class="cart-position cart-position--discounts">
+            <div class="cart-position__left">
+                {% if discount.codes is not empty %}
+                    <a href="#" class="cart__remove-coupon-link js-cart__remove-coupon-link" data-coupon-code="{{ discount.codes | first }}"></a>
+                {% endif %}
+            </div>
             <div class="cart-position__right">
-                {{ discount.name }} <a href="#" class="cart__remove-coupon-link js-cart__remove-coupon-link" data-coupon-code="{{ discount.codes | first }}"></a>
+                {{ discount.name }}
                 <span class="cart-position__price">- {{ discount.amount | price }}<span>
             </div>
         </div>
-    {% endif %}
 {% endfor %}
