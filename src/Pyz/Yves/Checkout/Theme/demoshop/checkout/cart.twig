@@ -17,8 +17,8 @@
             <div class="cart-position">
                 <div class="cart-position__left"></div>
                 <div class="cart-position__right">
-                    {{ expense.name }}
-                    <span class="cart-position__price">{{ expense.grossPrice | price }}<span>
+                    {{ expense.name|trans }}
+                    <span class="cart-position__price">{{ expense.grossPrice | price }}</span>
                 </div>
             </div>
         {% endfor %}
