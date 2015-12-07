@@ -12,8 +12,6 @@
 .messages{
     position: fixed;
     z-index: 999;
-    padding-left: 45px;
-    padding-right: 45px;
     width: 100%;
     top: 50px;
     left: 0;
@@ -35,7 +33,7 @@
     font-size: 20px;
     color: $_rgbWhite;
     cursor: pointer;
-    text-align: left;
+    text-align: center;
 
     pointer-events: initial;
 

@@ -1,0 +1,117 @@
+.tablet-options{
+    position: absolute;
+    top: 103px;
+    left: 0;
+    width: 100%;
+    background: $_rgbWhite;
+    padding: 12px;
+
+    @include sectionShadow;
+    display: none;
+}
+
+.tablet-options__left{
+    display: flex;
+    flex-grow: 1;
+    padding-right: 20px;
+}
+
+.tablet-options__left-inner{
+    margin-top: 10px;
+    align-self: center;
+}
+
+.tablet-options__right{
+
+}
+
+.tablet-options__right-top{
+    white-space: nowrap;
+}
+
+
+.tablet-options__select{
+    display: inline-block;
+    vertical-align: bottom;
+    margin-bottom: 10px;
+    padding-right: 5px;
+
+    label{
+        display: block;
+        padding-left: 0;
+        padding-bottom: 5px;
+        margin-bottom: 0;
+
+        font-family: $_ffBrandonGrotesque-Bold;
+        font-size: $_fsSmall;
+        color: $_rgbOsloGray3;
+        text-align: center;
+        text-transform: none;
+    }
+
+    .dropdown, .stepper{
+        margin-top: 0;
+    }
+
+    .dropdown{
+        padding-left: 0;
+    }
+
+    .dropdown__button{
+        border-width: 2px;
+        background: $_rgbWhite;
+
+        &:before{
+            top: -2px;
+        }
+    }
+}
+
+.tablet-options__pricing{
+    display: inline-block;
+    vertical-align: bottom;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+.tablet-options__total{
+    font-family: $_ffBrandonGrotesque-Bold;
+    font-size: 28px;
+    line-height: 33px;
+    color: $_rgbOsloGray;
+}
+
+.tablet-options__relative{
+    font-family: $_ffHelveticaNeue;
+    font-size: 10px;
+    line-height: 14px;
+    color: $_rgbSilverChalices2;
+}
+
+.tablet-options__button{
+    display: block;
+    width: 100%;
+}
+
+.tablet-options__title{
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 26px;
+    color: $_rgbApple;
+    line-height: 1.2em;
+}
+
+.tablet-options__subtitle{
+    font-family: $_ffBrandonGrotesque-Black;
+    font-size: 20px;
+    color: #6A6A6A;
+    line-height: 29px;
+}
+
+
+
+@media (min-width: 676px) and (max-width: 1050px){
+    .tablet-options{
+        display: flex;
+    }
+}

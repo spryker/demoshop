@@ -99,16 +99,9 @@
                 <div class="navbar__marker"></div>
             </div>
         </div>
+        {% include '@application/layout/header/menu.twig' %}
+
     </div>
-
-    {% include '@application/layout/header/menu.twig' %}
-
-    {% if headerBlocks is defined %}
-        {% for headerBlock in headerBlocks %}
-            {{ include(headerBlock) }}
-        {% endfor %}
-    {% endif %}
-
 </nav>
 
 <div class="navbar__pusher"></div>

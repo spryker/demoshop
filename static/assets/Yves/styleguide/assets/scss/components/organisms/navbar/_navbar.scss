@@ -19,7 +19,6 @@
 .navbar__inner{
     position: relative;
     z-index: 3;
-    box-shadow: 0 0 30px 0 rgba(0,0,0,0.2);
 }
 
 .navbar__pusher{
@@ -27,6 +26,8 @@
 }
 
 .navbar__top{
+    position: relative;
+    z-index: 3;
     padding: 8px 0 9px 0;
     background: $_rgbApple;
 
@@ -84,6 +85,11 @@
 
 .navbar__bottom{
     @include clearfix;
+
+    position: relative;
+    z-index: 4;
+    box-shadow: 0 0 30px 0 rgba(0,0,0,0.2);
+
     background: $_rgbWhite;
 }
 

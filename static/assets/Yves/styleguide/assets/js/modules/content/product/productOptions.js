@@ -4,6 +4,7 @@ import { MessageService } from '../../common/messages';
 import { getFormData } from '../../common/helpers';
 
 import { EVENTS } from '../checkout/cartLayer';
+import { EVENTS as DROPDOWN_EVENTS} from '../../forms/dropdown';
 
 'use strict';
 
@@ -11,6 +12,15 @@ import { EVENTS } from '../checkout/cartLayer';
 $(document).ready(function () {
 
     // TODO: js-class
+
+    $('.tablet-options').appendTo('.navbar__inner');
+    $('.mobile-options').appendTo('.navbar__inner');
+    $('.mobile-options__title').text($('.mobile-options__title').text().replace('PETS DELI ', ''));
+
+    $('.mobile-options__add').click(function () {
+        $('.mobile-options').addClass('mobile-options--open');
+    });
+
 
     $('.js-product-options').each(function () {
 
@@ -26,7 +36,7 @@ $(document).ready(function () {
         $configurator = $('.js-product-configurator form');
 
         // TODO: update pricings and configurator
-        updateProductConfig();
+        //updateProductConfig();
         $weightSelect.change(updateProductConfig);
 
         $options.submit(addProduct);
@@ -34,10 +44,13 @@ $(document).ready(function () {
 
 
         function updateProductConfig () {
-            var weight, config;
+            var weight, value, config;
 
             weight = $weightSelect.find('option:checked').text();
+            value = $weightSelect.find('option:checked').val();
             config = window.productConfig.options[weight];
+
+            $(document).trigger(DROPDOWN_EVENTS.UPDATE_DROPDOWN, value);
 
             $options.attr('data-sku', config.sku);
             $totalPrice.text(config.prices.total);
@@ -158,6 +171,7 @@ $(document).ready(function () {
             })
             .always(function () {
                 $form.find('button').prop('disabled', false);
+                $('.mobile-options').removeClass('mobile-options--open');
             });
         };
     });
