@@ -49,10 +49,15 @@ class CustomerController extends AbstractController
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->setRestorePasswordKey($request->query->get('token'));
             $customerTransfer->setPassword($formData['password']);
-            $this->getLocator()->customer()->client()->restorePassword($customerTransfer);
+            $customerResponse = $this->getLocator()->customer()->client()->restorePassword($customerTransfer);
             $this->getLocator()->customer()->client()->logout();
 
-            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
+            if ($customerResponse->getIsSuccess()) {
+                return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
+            }
+
+            $this->addErrorMessage(Messages::CUSTOMER_TOKEN_INVALID);
+
         }
 
         return ['form' => $form->createView()];

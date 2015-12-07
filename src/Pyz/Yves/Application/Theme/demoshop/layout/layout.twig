@@ -55,6 +55,14 @@
             })();
         </script>
 
+        <div class="messages">
+            {% for msg in app.session.flashbag.get('flash.messages.success') %}
+                <div class="message message--valid">{{ msg | trans }}</div>
+            {% endfor %}
+            {%  for msg in app.session.flashbag.get('flash.messages.error') %}
+                <div class="message message--invalid">{{ msg | trans }}</div>
+            {% endfor %}
+        </div>
 
         {{ content }}
 
