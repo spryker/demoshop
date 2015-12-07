@@ -3,19 +3,55 @@
     <block>
         <template>quote_block</template>
         <blockName>quotes_1</blockName>
-        <placeholder>quote_reference</placeholder>
-        <translation>Wir sind alle Engel mit nur einem Flügel - um fliegen zu können; müssen wir uns umarmen._Luciano De Crescenzo</translation>
+        <locales>
+            <locale name="de_DE">
+                <placeholders>
+                    <placeholder>
+                        <name>quote</name>
+                        <translation>Wir sind alle Engel mit nur einem Flügel - um fliegen zu können; müssen wir uns umarmen.</translation>
+                    </placeholder>
+                    <placeholder>
+                        <name>reference</name>
+                        <translation>Luciano De Crescenzo</translation>
+                    </placeholder>
+                </placeholders>
+            </locale>
+        </locales>
     </block>
     <block>
         <template>quote_block</template>
         <blockName>quotes_2</blockName>
-        <placeholder>quote_reference</placeholder>
-        <translation>Eine Hochzeit ist ein Ereignis; eine Ehe eine Leistung._Unbekannter Autor</translation>
+        <locales>
+            <locale name="de_DE">
+                <placeholders>
+                    <placeholder>
+                        <name>quote</name>
+                        <translation>Eine Hochzeit ist ein Ereignis; eine Ehe eine Leistung.</translation>
+                    </placeholder>
+                    <placeholder>
+                        <name>reference</name>
+                        <translation>Unbekannter Autor</translation>
+                    </placeholder>
+                </placeholders>
+            </locale>
+        </locales>
     </block>
     <block>
         <template>quote_block</template>
         <blockName>quotes_3</blockName>
-        <placeholder>quote_reference</placeholder>
-        <translation>Gäbe es nicht das Herz; das du liebst; wärest du feiner Staub; den der Wind davonträgt._Khalil Gibran</translation>
+        <locales>
+            <locale name="de_DE">
+                <placeholders>
+                    <placeholder>
+                        <name>quote</name>
+                        <translation>Gäbe es nicht das Herz; das du liebst; wärest du feiner Staub; den der Wind davonträgt.</translation>
+                    </placeholder>
+                    <placeholder>
+                        <name>reference</name>
+                        <translation>Khalil Gibran</translation>
+                    </placeholder>
+                </placeholders>
+            </locale>
+        </locales>
     </block>
 </blocks>

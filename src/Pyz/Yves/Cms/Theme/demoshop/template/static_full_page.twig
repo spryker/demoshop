@@ -1,8 +1,10 @@
 {% extends '@Cms/layout/full.twig' %}
 
 {% block content %}
+    <!-- CMS_PLACEHOLDER : "title" -->
     <!-- CMS_PLACEHOLDER : "content" -->
     <div class="cms-page">
+        {{ spyCms('title') | raw }}
         {{ spyCms('content') | raw }}
     </div>
 {% endblock %}

@@ -405,8 +405,8 @@ keys:
 
   page.imprint.url:
     translations:
-      de_DE: '/impressum'
-      en_US: '/imprint'
+      de_DE: '/de/impressum'
+      en_US: '/en/imprint'
 
   page.imprint.title:
     translations:
@@ -415,8 +415,8 @@ keys:
 
   page.terms.url:
     translations:
-      de_DE: '/agb'
-      en_US: '/gtc'
+      de_DE: '/de/agb'
+      en_US: '/en/gtc'
   page.terms.title:
     translations:
       de_DE: 'AGB'
@@ -424,8 +424,8 @@ keys:
 
   page.privacy.url:
     translations:
-      de_DE: '/datenschutz'
-      en_US: 'Name'
+      de_DE: '/de/datenschutz'
+      en_US: '/en/privacy'
   page.privacy.title:
     translations:
       de_DE: 'Datenschutz'

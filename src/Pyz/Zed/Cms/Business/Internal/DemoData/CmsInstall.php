@@ -4,6 +4,7 @@ namespace Pyz\Zed\Cms\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\CmsBlockTransfer;
 use Generated\Shared\Transfer\CmsTemplateTransfer;
+use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageTransfer;
 use Pyz\Zed\Cms\CmsConfig;
 use Pyz\Zed\Cms\Dependency\Facade\CmsToLocaleInterface;
@@ -25,6 +26,7 @@ class CmsInstall extends AbstractInstaller
     const STATUS = 'status';
     const BLOCK_NAME = 'blockName';
     const PLACEHOLDER = 'placeholder';
+    const PLACEHOLDERS = 'placeholders';
     const TRANSLATION = 'translation';
     const TEMPLATE = 'template';
     const TEMPLATE_PATH = 'template_path';
@@ -36,6 +38,8 @@ class CmsInstall extends AbstractInstaller
     const CATEGORY = 'category';
     const FILE_CONTAINS_INVALID_DATA = 'XML file contains invalid data.';
     const LOCALE = 'locale';
+    const LOCALES = 'locales';
+    const NAME = 'name';
 
     /**
      * @var CmsToGlossaryInterface
@@ -148,82 +152,31 @@ class CmsInstall extends AbstractInstaller
     }
 
     /**
-     * @param $localeStaticFilePath
-     * @param $fileName
+     * @param \SimpleXMLElement $pageItem
      *
-     * @return string
+     * @return void
      */
-    public function getFileName($localeStaticFilePath, $fileName)
+    private function installPage(\SimpleXMLElement $pageItem)
     {
-        return $localeStaticFilePath . DIRECTORY_SEPARATOR . $fileName;
-    }
+        $templateTransfer = $this->getOrCreateTemplate((string) $pageItem->{self::TEMPLATE});
+        $pageTransfer = null;
 
-    /**
-     * @param string $template
-     *
-     * @return CmsTemplateTransfer
-     */
-    private function getOrCreateTemplate($template)
-    {
-        if ($this->templateManager->hasTemplatePath($this->templates[$template])) {
-            return $this->templateManager->getTemplateByPath($this->templates[$template]);
+        foreach ($pageItem->{self::LOCALES}->children() as $locale) {
+            $localeTransfer = $this->getLocale($locale);
+            $url = (string) $locale->{self::URL};
+            if ($this->urlFacade->hasUrl($url)) {
+                $this->warning(sprintf('Page with URL %s already exists. Skipping.', $url));
+
+                continue;
+            }
+
+            if ($pageTransfer === null) {
+                $pageTransfer = $this->createPage($templateTransfer);
+            }
+
+            $this->createPageUrl($pageTransfer, $url, $localeTransfer);
+            $this->createPlaceholder($locale, $pageTransfer, $localeTransfer);
         }
-
-        return $this->templateManager->createTemplate(
-            $this->templateNames[$template],
-            $this->templates[$template]
-        );
-    }
-
-    /**
-     * @param string $templateName
-     * @param string $templatePath
-     *
-     * @return CmsTemplateTransfer
-     */
-    private function getOrCreateTemplateByPath($templateName, $templatePath)
-    {
-        if ($this->templateManager->hasTemplatePath($templatePath)) {
-            return $this->templateManager->getTemplateByPath($templatePath);
-        }
-
-        return $this->templateManager->createTemplate(
-            $templateName,
-            $templatePath
-        );
-    }
-
-    /**
-     * @param string $filePath
-     *
-     * @return bool
-     */
-    private function checkPathExists($filePath)
-    {
-        return is_dir($filePath);
-    }
-
-    /**
-     * @param string $template
-     * @param string $url
-     * @param string $placeholder
-     * @param string $translation
-     */
-    private function installPage($template, $url, $placeholder, $translation)
-    {
-        if ($this->urlFacade->hasUrl($url)) {
-            $this->warning(sprintf('Page with URL %s already exists. Skipping.', $url));
-
-            return;
-        }
-
-        $templateTransfer = $this->getOrCreateTemplate($template);
-        $pageTransfer = $this->createPage($templateTransfer);
-        $this->keyMappingManager->addPlaceholderText($pageTransfer, $placeholder, $translation);
-        $urlTransfer = $this->pageManager->createPageUrl($pageTransfer, $url);
-
-        $this->pageManager->touchPageActive($pageTransfer);
-        $this->urlFacade->touchUrlActive($urlTransfer->getIdUrl());
     }
 
     /**
@@ -250,26 +203,25 @@ class CmsInstall extends AbstractInstaller
     }
 
     /**
-     * @param string $template
-     * @param string $blockName
-     * @param string $placeholder
-     * @param string $translation
+     * @param \SimpleXMLElement $blockItem
+     *
+     * @return void
      */
-    private function installBlock($template, $blockName, $placeholder, $translation)
+    protected function installBlock(\SimpleXMLElement $blockItem)
     {
+        $blockName = (string) $blockItem->{self::BLOCK_NAME};
         if ($this->cmsQueryContainer->queryBlockByNameAndTypeValue($blockName, $this->blockDemoType, $this->blockDemoValue)->count() > 0) {
             $this->warning(sprintf('Block with Name %s already exists. Skipping.', $blockName));
 
             return;
         }
 
-        $placeholders = explode('_', $placeholder);
-        $translations = explode('_', $translation);
-        $templateTransfer = $this->getOrCreateTemplate($template);
+        $templateTransfer = $this->getOrCreateTemplate((string) $blockItem->{self::TEMPLATE});
         $pageTransfer = $this->createPage($templateTransfer);
 
-        foreach ($placeholders as $key => $value) {
-            $this->keyMappingManager->addPlaceholderText($pageTransfer, $value, $translations[$key]);
+        foreach ($blockItem->{self::LOCALES}->children() as $locale) {
+            $localeTransfer = $this->getLocale($locale);
+            $this->createPlaceholder($locale, $pageTransfer, $localeTransfer);
         }
 
         $cmsBlockTransfer = $this->createCmsBlockTransfer($blockName, $this->blockDemoType, $this->blockDemoValue, $pageTransfer);
@@ -292,22 +244,13 @@ class CmsInstall extends AbstractInstaller
     }
 
     /**
-     * @param string $localeStaticFilePath
+     * @param string $filePath
      */
-    private function installPageFromDemoDataFile($localeStaticFilePath)
+    private function installPageFromDemoDataFile($filePath)
     {
-        $pageDataArray = $this->getDataFromFileAsArray($localeStaticFilePath, self::PAGE);
-        foreach ($pageDataArray as $pageData) {
-            if ($pageData[self::TEMPLATE] !== null) {
-                $this->installPage(
-                    $pageData[self::TEMPLATE],
-                    $pageData[self::URL],
-                    $pageData[self::PLACEHOLDER],
-                    $pageData[self::TRANSLATION]
-                );
-            } else {
-                $this->warning(sprintf(self::FILE_CONTAINS_INVALID_DATA));
-            }
+        $pageXmlElements = $this->getDataFromFileAsArray($filePath, self::PAGE);
+        foreach ($pageXmlElements as $pageElement) {
+            $this->installPage($pageElement);
         }
     }
 
@@ -317,12 +260,10 @@ class CmsInstall extends AbstractInstaller
     private function installRedirectFromDemoDataFile($filePath)
     {
         $redirectDataArray = $this->getDataFromFileAsArray($filePath, self::REDIRECT);
+        $redirectDataArray = $this->createCmsRedirectsArray($redirectDataArray);
+
         foreach ($redirectDataArray as $redirectData) {
-            if ($redirectData[self::FROM_URL] !== null) {
-                $this->installRedirect($redirectData[self::FROM_URL], $redirectData[self::TO_URL], $redirectData[self::STATUS]);
-            } else {
-                $this->warning(sprintf(self::FILE_CONTAINS_INVALID_DATA));
-            }
+            $this->installRedirect($redirectData[self::FROM_URL], $redirectData[self::TO_URL], $redirectData[self::STATUS]);
         }
     }
 
@@ -331,13 +272,10 @@ class CmsInstall extends AbstractInstaller
      */
     private function installBlockFromDemoDataFile($filePath)
     {
-        $blockDataArray = $this->getDataFromFileAsArray($filePath, self::BLOCK);
-        foreach ($blockDataArray as $blockData) {
-            if ($blockData[self::BLOCK_NAME] !== null) {
-                $this->installBlock($blockData[self::TEMPLATE], $blockData[self::BLOCK_NAME], $blockData[self::PLACEHOLDER], $blockData[self::TRANSLATION]);
-            } else {
-                $this->warning(sprintf(self::FILE_CONTAINS_INVALID_DATA));
-            }
+        $blockXmlElements = $this->getDataFromFileAsArray($filePath, self::BLOCK);
+
+        foreach ($blockXmlElements as $blockElement) {
+            $this->installBlock($blockElement);
         }
     }
 
@@ -345,7 +283,7 @@ class CmsInstall extends AbstractInstaller
      * @param string $filePath
      * @param string $type
      *
-     * @return array
+     * @return \SimpleXMLElement[]
      */
     private function getDataFromFileAsArray($filePath, $type)
     {
@@ -355,19 +293,7 @@ class CmsInstall extends AbstractInstaller
         $xmlContent = file_get_contents($splFileInfo->getPath() . DIRECTORY_SEPARATOR . $splFileInfo->getBasename());
         $xml = new \SimpleXMLElement($xmlContent);
 
-        if ($type === self::PAGE) {
-            return $this->createCmsPagesImportArray($xml->{$type});
-        }
-
-        if ($type === self::BLOCK) {
-            return $this->createCmsBlocksImportArray($xml->{$type});
-        }
-
-        if ($type === self::REDIRECT) {
-            return $this->createCmsRedirectsArray($xml->{$type});
-        }
-
-        return [];
+        return $xml->{$type};
     }
 
     /**
@@ -394,48 +320,6 @@ class CmsInstall extends AbstractInstaller
      *
      * @return array
      */
-    protected function createCmsPagesImportArray(\SimpleXMLElement $xmlElement)
-    {
-        $elementList = [];
-
-        foreach ($xmlElement as $item) {
-            $elementList[] = [
-                self::TEMPLATE => (string) $item->{self::TEMPLATE},
-                self::URL => (string) $item->{self::URL},
-                self::PLACEHOLDER => (string) $item->{self::PLACEHOLDER},
-                self::TRANSLATION => (string) $item->{self::TRANSLATION},
-            ];
-        }
-
-        return $elementList;
-    }
-
-    /**
-     * @param \SimpleXMLElement $xmlElement
-     *
-     * @return array
-     */
-    protected function createCmsBlocksImportArray(\SimpleXMLElement $xmlElement)
-    {
-        $elementList = [];
-
-        foreach ($xmlElement as $item) {
-            $elementList[] = [
-                self::TEMPLATE => (string) $item->{self::TEMPLATE},
-                self::BLOCK_NAME => (string) $item->{self::BLOCK_NAME},
-                self::PLACEHOLDER => (string) $item->{self::PLACEHOLDER},
-                self::TRANSLATION => (string) $item->{self::TRANSLATION},
-            ];
-        }
-
-        return $elementList;
-    }
-
-    /**
-     * @param \SimpleXMLElement $xmlElement
-     *
-     * @return array
-     */
     protected function createCmsRedirectsArray(\SimpleXMLElement $xmlElement)
     {
         $elementList = [];
@@ -449,6 +333,85 @@ class CmsInstall extends AbstractInstaller
         }
 
         return $elementList;
+    }
+
+    /**
+     * @param string $localeStaticFilePath
+     * @param string $fileName
+     *
+     * @return string
+     */
+    public function getFileName($localeStaticFilePath, $fileName)
+    {
+        return $localeStaticFilePath . DIRECTORY_SEPARATOR . $fileName;
+    }
+
+    /**
+     * @param string $template
+     *
+     * @return CmsTemplateTransfer
+     */
+    private function getOrCreateTemplate($template)
+    {
+        if ($this->templateManager->hasTemplatePath($this->templates[$template])) {
+            return $this->templateManager->getTemplateByPath($this->templates[$template]);
+        }
+
+        return $this->templateManager->createTemplate(
+            $this->templateNames[$template],
+            $this->templates[$template]
+        );
+    }
+
+    /**
+     * @param string $locale
+     *
+     * @return LocaleTransfer
+     */
+    protected function getLocale($locale)
+    {
+        $localeName = (string) $locale[self::NAME];
+        $localeTransfer = $this->localeFacade->getLocale($localeName);
+
+        return $localeTransfer;
+    }
+
+    /**
+     * @param string $locale
+     * @param PageTransfer $pageTransfer
+     * @param LocaleTransfer $localeTransfer
+     *
+     * @return void
+     */
+    protected function createPlaceholder($locale, PageTransfer $pageTransfer, LocaleTransfer $localeTransfer)
+    {
+        foreach ($locale->{self::PLACEHOLDERS}->children() as $placeholder) {
+            $this->keyMappingManager->addPlaceholderText($pageTransfer, (string) $placeholder->{self::NAME}, (string) $placeholder->{self::TRANSLATION}, $localeTransfer, false);
+        }
+    }
+
+    /**
+     * @param PageTransfer $pageTransfer
+     * @param string $url
+     * @param LocaleTransfer $localeTransfer
+     *
+     * @return void
+     */
+    protected function createPageUrl($pageTransfer, $url, LocaleTransfer $localeTransfer)
+    {
+        $urlTransfer = $this->pageManager->createPageUrlWithLocale($pageTransfer, $url, $localeTransfer);
+        $this->pageManager->touchPageActive($pageTransfer);
+        $this->urlFacade->touchUrlActive($urlTransfer->getIdUrl());
+    }
+
+    /**
+     * @param string $filePath
+     *
+     * @return bool
+     */
+    private function checkPathExists($filePath)
+    {
+        return is_dir($filePath);
     }
 
 }
