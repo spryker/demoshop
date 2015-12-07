@@ -283,7 +283,6 @@ $(document).ready(function () {
         });
 
 
-
         $(document).on('click', '.js-voucher-form-trigger', function () {
             $(this).hide();
 
@@ -329,14 +328,24 @@ $(document).ready(function () {
             .fail(function(data) {
                 console.log('[ERROR] ', data);
             });
+
         };
 
+        $(document).on('click', '#invoice-address .checkout__step-button', function() {
+
+            var includeDelivery = $('#different-delivery-address').prop('checked');
+            var $shippingCountry;
+
+            if (includeDelivery) {
+                $shippingCountry = $('#checkout_shipping_address_iso2code');
+            } else {
+                $shippingCountry = $('#checkout_billing_address_iso2code');
+            }
+            $shippingCountry.change(getShipmentPrice($shippingCountry));
+        });
 
 
-        var $shippingCountry = $('#checkout_billing_address_iso2code');
-        $shippingCountry.change(getShipmentPrice);
-
-        function getShipmentPrice () {
+        function getShipmentPrice ($shippingCountry) {
 
             $.ajax({
                 url : $('#addShipmentFee').val(),
