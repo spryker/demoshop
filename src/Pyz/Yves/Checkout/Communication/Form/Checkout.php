@@ -69,27 +69,6 @@ class Checkout extends AbstractType
                     'class' => 'payment-options',
                 ],
             ])
-
-            // TODO: backend functionality for newsletter subscription
-            // ->add('newsletter', 'checkbox', [
-            //     'label' => '**Abonnieren Sie unseren Newsletter**
-            //     Ja, ich möchte hilfreiche Tipps für mein Haustier erhalten und über Aktionen & Gutscheine per E-Mail informiert werden. Abmeldung jederzeit möglich.',
-            //     'required' => false,
-            //     'mapped' => false,
-            //     'attr' => [
-            //         'tabindex' => 400,
-            //         'class' => 'checkbox--large checkbox--right',
-            //     ],
-            // ])
-            ->add('terms', 'checkbox', [
-                'label' => 'Ich habe die Allgemeinen Geschäftsbedingungen gelesen und stimme diesen ausdrücklich zu',
-                'required' => true,
-                'mapped' => false,
-                'attr' => [
-                    'tabindex' => 400,
-                    'class' => 'checkbox--large checkbox--right',
-                ],
-            ])
         ;
     }
 

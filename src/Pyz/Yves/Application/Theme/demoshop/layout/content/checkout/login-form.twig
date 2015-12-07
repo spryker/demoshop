@@ -16,45 +16,14 @@
 
     <div class="login-slider__navigations">
         <div class="login-slider__inner">
-
-            <!-- <div class="login-slider__navigation">Wilkommen zurück!</div> -->
             <div class="login-slider__navigation">Bestandskunde</div>
             <div class="login-slider__navigation">Neukunde</div>
-
         </div>
     </div>
 
 
     <div class="login-slider__contents">
         <div class="login-slider__inner">
-
-            <!-- <div class="login-slider__content">
-                <form class="login-slider__form">
-                    <p class="user-box__description">
-                        francesco@provider.com
-                    </p>
-
-                    {# include '@application/layout/common/forms/input.twig' with {
-                        type: 'hidden',
-                        id: 'known_email',
-                        name: '_username'
-                    } #}
-
-                    {# include '@application/layout/common/forms/input-password.twig' with {
-                        label: 'Ihr Passwort',
-                        id: 'known_password',
-                        name: '_password'
-                    } #}
-
-                    <a href="#" class="user-box__not">You are not Fancesco?</a>
-
-                    {# include '@application/layout/common/forms/button.twig' with {
-                        title: 'Einloggen',
-                        modifier: 'cta',
-                        type: 'submit'
-                    } #}
-                </form>
-            </div> -->
 
             <div class="login-slider__content">
                 <form action="{{ path('login_check') }}" method="post" name="login" class="login-slider__form" data-register-url="{{ url('register') }}" data-login-url="{{ url('login_check') }}">
@@ -81,7 +50,7 @@
             </div>
 
             <div class="login-slider__content">
-                <form class="login-slider__form">
+                <form class="login-slider__form js-login-form">
                     {% include '@application/layout/common/forms/button.twig' with {
                         title: 'Weiter zur Kasse',
                         modifier: 'cta js-button-guestcheckout',
