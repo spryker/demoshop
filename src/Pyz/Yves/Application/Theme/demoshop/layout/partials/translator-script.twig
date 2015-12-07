@@ -1,0 +1,18 @@
+<script type="text/javascript">
+    // TODO: move to partial file
+    window.translator = new (function () {
+        var store = {};
+
+        this.addTranslation = function (key, translation) {
+            store[key] = translation;
+        };
+
+        this.getTranslation = function (key, strict) {
+            if (!!store[key]) {
+                return store[key];
+            } else {
+                return strict ? false : key;
+            }
+        };
+    })();
+</script>

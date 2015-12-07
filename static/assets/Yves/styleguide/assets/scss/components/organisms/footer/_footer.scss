@@ -22,7 +22,6 @@
     margin-bottom: 0;
     @include clearfix;
     clear: both;
-    padding-bottom: 30px;
 
     h2{
         color: $_rgbApple;
@@ -53,6 +52,14 @@
 
 .footer__column--social{
     order: 0;
+}
+
+.footer__facebook{
+    padding-bottom: 40px;
+
+    a{
+        color: transparent;
+    }
 }
 
 .footer__logo{
