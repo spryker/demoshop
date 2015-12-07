@@ -1,6 +1,8 @@
 import $ from 'jquery';
 window.$ = $;
 
+import 'babel-polyfill';
+
 import keys from 'object-keys';
 Object.keys = Object.keys || keys;
 
