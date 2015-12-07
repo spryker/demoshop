@@ -196,9 +196,6 @@ $config[CustomerConfig::SHOP_MAIL_REGISTRATION_SUBJECT] = 'registration.mail.sub
 $config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORE_TOKEN]   = 'password.restore';
 $config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORE_SUBJECT] = 'password.restore.mail.subject';
 
-$config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_TOKEN]   = 'password.change.confirmation';
-$config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_SUBJECT] = 'password.change.confirmation.mail.subject';
-
 $config[UserConfig::USER_SYSTEM_USERS] = [
     'yves_system',
 ];
