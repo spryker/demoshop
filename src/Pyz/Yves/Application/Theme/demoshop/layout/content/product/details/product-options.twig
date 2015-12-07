@@ -19,16 +19,20 @@
                         'relative': '{{ (option.price * (option.weight.unit in ['g', 'ml'] ? 100 : 1 ) / option.weight.value) | price }}'
                     },
                     'options': {
+                        {% if option.meat is defined  %}
                         'meat': [
                             {% for key, value in option.meat %}
                                 '{{ value }}',
                             {% endfor %}
                         ],
+                        {% endif %}
+                        {% if option.carbs is defined  %}
                         'carbs': [
                             {% for key, value in option.carbs %}
                                 '{{ value }}',
                             {% endfor %}
                         ]
+                        {% endif %}
                     }
                 },
             {% endfor %}
@@ -65,7 +69,7 @@
 
 <form action="/cart/add/" method="POST" class="product-options js-product-options" data-sku="{{ initial.sku }}">
 
-    {% if config.options is defined %}
+    {% if config.options is defined and config.options | length > 1 %}
         <div class="product-options__select js-product-weight-select">
             {% include  '@application/layout/common/forms/dropdown.twig' with {
                 label: 'Größe',
@@ -136,7 +140,7 @@
     <div class="tablet-options__right">
 
         <div class="tablet-options__right-top">
-            {% if config.options is defined %}
+            {% if config.options is defined and config.options | length > 1 %}
                 <div class="tablet-options__select js-product-weight-select">
                     {% include  '@application/layout/common/forms/dropdown.twig' with {
                         label: 'Größe',
@@ -184,7 +188,7 @@
 <form action="/cart/add/" method="POST" class="mobile-options js-product-options" data-sku="{{ initial.sku }}">
 
     <div class="mobile-options__top">
-        {% if config.options is defined %}
+        {% if config.options is defined and config.options | length > 1 %}
             <div class="mobile-options__select js-product-weight-select">
                 {% include  '@application/layout/common/forms/dropdown.twig' with {
                     label: 'Größe',
