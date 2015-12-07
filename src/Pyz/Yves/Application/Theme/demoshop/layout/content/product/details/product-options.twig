@@ -69,8 +69,8 @@
 
 <form action="/cart/add/" method="POST" class="product-options js-product-options" data-sku="{{ initial.sku }}">
 
-    {% if config.options is defined and config.options | length > 1 %}
-        <div class="product-options__select js-product-weight-select">
+    {% if config.options is defined and config.options | length > 0 %}
+        <div class="product-options__select {{ config.options | length == 0 ? 'product-options__select--hidden' : '' }} js-product-weight-select">
             {% include  '@application/layout/common/forms/dropdown.twig' with {
                 label: 'Größe',
                 id: 'weight',
@@ -141,7 +141,7 @@
 
         <div class="tablet-options__right-top">
             {% if config.options is defined and config.options | length > 1 %}
-                <div class="tablet-options__select js-product-weight-select">
+                <div class="tablet-options__select {{ config.options | length == 0 ? 'tablet-options__select--hidden' : '' }} js-product-weight-select">
                     {% include  '@application/layout/common/forms/dropdown.twig' with {
                         label: 'Größe',
                         id: 'weight',
@@ -189,7 +189,7 @@
 
     <div class="mobile-options__top">
         {% if config.options is defined and config.options | length > 1 %}
-            <div class="mobile-options__select js-product-weight-select">
+            <div class="mobile-options__select {{ config.options | length == 0 ? 'mobile-options__select--hidden' : '' }} js-product-weight-select">
                 {% include  '@application/layout/common/forms/dropdown.twig' with {
                     label: 'Größe',
                     id: 'weight',

@@ -69,10 +69,6 @@ $(document).ready(function () {
         function updateConfigurator (config) {
             var content = ``;
 
-            console.info(config.options.meat.length && window.productConfig.type !== 'simple');
-            console.info(config.options.carbs.length);
-
-
             if (config.options.meat.length && window.productConfig.type !== 'simple') {
                 $('.js-product-customize').show();
 
