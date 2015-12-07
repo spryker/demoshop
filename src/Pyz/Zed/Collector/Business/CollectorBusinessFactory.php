@@ -100,6 +100,26 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
+     * @return NewCategoryNodeCollector
+     */
+    public function createStorageNewProductCollector()
+    {
+        $storageNewCategoryNodeCollector = new \Pyz\Zed\Collector\Business\Storage\NewProductCollector();
+
+        $storageNewCategoryNodeCollector->setTouchQueryContainer(
+            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
+        );
+        $storageNewCategoryNodeCollector->setCriteriaBuilder(
+            $this->createCriteriaBuilder()
+        );
+        $storageNewCategoryNodeCollector->setQueryBuilder(
+            $this->createStorageQueryBuilderAdapterByName('ProductCollector')
+        );
+
+        return $storageNewCategoryNodeCollector;
+    }
+
+    /**
      * @param $name
      *
      * @return AbstractPdoCollectorQuery
@@ -109,7 +129,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $engines = SystemConfig::ZED_DB_SUPPORTED_ENGINES;
         $adapterName = $engines[Config::get(SystemConfig::ZED_DB_ENGINE)];
 
-        $queryBuilderClassName = "\\Pyz\\Zed\\Collector\\Business\\Storage\\QueryBuilder\\${adapterName}\\${name}";
+        $queryBuilderClassName = "\\Pyz\\Zed\\Collector\\Persistence\\Storage\\QueryBuilder\\${adapterName}\\${name}";
 
         $queryBuilder = new $queryBuilderClassName();
 

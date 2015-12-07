@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\Collector\Business\Storage\QueryBuilder\PostgreSql;
+namespace Pyz\Zed\Collector\Persistence\Storage\QueryBuilder\PostgreSql;
 
 use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPdoCollectorQuery;
 

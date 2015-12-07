@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\Collector\Business\Storage\QueryBuilder\MySql;
+namespace Pyz\Zed\Collector\Persistence\Storage\QueryBuilder\MySql;
 
 use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPdoCollectorQuery;
 
