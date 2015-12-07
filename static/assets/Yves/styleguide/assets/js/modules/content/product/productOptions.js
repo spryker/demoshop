@@ -69,7 +69,7 @@ $(document).ready(function () {
         function updateConfigurator (config) {
             var content = ``;
 
-            if (config.options.meat.length && window.productConfig.type !== 'simple') {
+            if (config.options && config.options.meat && config.options.meat.length && window.productConfig.type !== 'simple') {
                 $('.js-product-customize').show();
 
                 content += `<h3 class="product-configurator__subheadline">${'Fleischsorten'}</h3>`;
@@ -100,7 +100,7 @@ $(document).ready(function () {
                 content += `</div>`;
             }
 
-            if (config.options.carbs.length) {
+            if (config.options && config.options.carbs && config.options.carbs.length) {
                 $('.js-product-customize').show();
 
                 content += `<h3 class="product-configurator__subheadline">${'Kohlenhydrate'}</h3>`;

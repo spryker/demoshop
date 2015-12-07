@@ -226,6 +226,8 @@ $(document).ready(function () {
                     $checkout.find('button[type="submit"]').prop('disabled', false);
                     ongoingRequest = null;
                 });
+
+                messageService.add({ type: 'valid', message: 'Ihr Bestellung wird bearbeitet. Bitte bleiben Sie auf dieser Seite.' });
             }
         });
 

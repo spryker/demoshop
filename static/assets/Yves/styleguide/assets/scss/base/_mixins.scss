@@ -53,32 +53,32 @@
 }
 
 @mixin ripple{
-    overflow: hidden;
-
-    &:after{
-        content: '';
-        background: rgba(0,0,0,0.3);
-        display: block;
-        position: absolute;
-        border-radius: 50%;
-        padding-top: 240%;
-        padding-left: 240%;
-        top: 50%;
-        left: 50%;
-        opacity: 0;
-        transition: all $_tMedium;
-        transform: translate(-50%, -50%);
-        backface-visibility: hidden;
-    }
-
-    &:active:after {
-        padding-top: 0;
-        padding-left: 0;
-        margin-top: 0;
-        margin-left: 0;
-        opacity: 1;
-        transition: 0s;
-    }
+    // overflow: hidden;
+    //
+    // &:after{
+    //     content: '';
+    //     background: rgba(0,0,0,0.3);
+    //     display: block;
+    //     position: absolute;
+    //     border-radius: 50%;
+    //     padding-top: 240%;
+    //     padding-left: 240%;
+    //     top: 50%;
+    //     left: 50%;
+    //     opacity: 0;
+    //     transition: all $_tMedium;
+    //     transform: translate(-50%, -50%);
+    //     backface-visibility: hidden;
+    // }
+    //
+    // &:active:after {
+    //     padding-top: 0;
+    //     padding-left: 0;
+    //     margin-top: 0;
+    //     margin-left: 0;
+    //     opacity: 1;
+    //     transition: 0s;
+    // }
 }
 
 @mixin sectionShadow{
