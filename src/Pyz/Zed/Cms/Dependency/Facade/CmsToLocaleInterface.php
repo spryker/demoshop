@@ -19,7 +19,6 @@ interface CmsToLocaleInterface
      */
     public function hasLocale($localeName);
 
-
     /**
      * @param string $localeName
      *

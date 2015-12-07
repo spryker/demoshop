@@ -209,7 +209,6 @@ class CmsInstall extends AbstractInstaller
      */
     protected function installBlock(\SimpleXMLElement $blockItem)
     {
-
         $blockName = (string) $blockItem->{self::BLOCK_NAME};
         if ($this->cmsQueryContainer->queryBlockByNameAndTypeValue($blockName, $this->blockDemoType, $this->blockDemoValue)->count() > 0) {
             $this->warning(sprintf('Block with Name %s already exists. Skipping.', $blockName));
@@ -220,7 +219,6 @@ class CmsInstall extends AbstractInstaller
         $templateTransfer = $this->getOrCreateTemplate((string) $blockItem->{self::TEMPLATE});
         $pageTransfer = $this->createPage($templateTransfer);
 
-
         foreach ($blockItem->{self::LOCALES}->children() as $locale) {
             $localeTransfer = $this->getLocale($locale);
             $this->createPlaceholder($locale, $pageTransfer, $localeTransfer);
@@ -229,7 +227,6 @@ class CmsInstall extends AbstractInstaller
         $cmsBlockTransfer = $this->createCmsBlockTransfer($blockName, $this->blockDemoType, $this->blockDemoValue, $pageTransfer);
         $this->blockManager->saveBlockAndTouch($cmsBlockTransfer);
         $this->pageManager->touchPageActive($pageTransfer);
-
     }
 
     /**
@@ -373,7 +370,7 @@ class CmsInstall extends AbstractInstaller
      */
     protected function getLocale($locale)
     {
-        $localeName = (string)$locale[self::NAME];
+        $localeName = (string) $locale[self::NAME];
         $localeTransfer = $this->localeFacade->getLocale($localeName);
 
         return $localeTransfer;
@@ -389,7 +386,7 @@ class CmsInstall extends AbstractInstaller
     protected function createPlaceholder($locale, PageTransfer $pageTransfer, LocaleTransfer $localeTransfer)
     {
         foreach ($locale->{self::PLACEHOLDERS}->children() as $placeholder) {
-            $this->keyMappingManager->addPlaceholderText($pageTransfer, (string)$placeholder->{self::NAME}, (string)$placeholder->{self::TRANSLATION}, $localeTransfer, false);
+            $this->keyMappingManager->addPlaceholderText($pageTransfer, (string) $placeholder->{self::NAME}, (string) $placeholder->{self::TRANSLATION}, $localeTransfer, false);
         }
     }
 
