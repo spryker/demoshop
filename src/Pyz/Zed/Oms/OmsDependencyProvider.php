@@ -1,9 +1,5 @@
 <?php
 
-/*
- * (c) Copyright Spryker Systems GmbH 2015
- */
-
 namespace Pyz\Zed\Oms;
 
 use SprykerEngine\Zed\Kernel\Container;

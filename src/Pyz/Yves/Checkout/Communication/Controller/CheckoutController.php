@@ -103,12 +103,12 @@ class CheckoutController extends AbstractController
 
             $checkoutResponseTransfer = $this->requestCheckout();
             if ($checkoutResponseTransfer->getIsSuccess() === false) {
-                return $this->errors($checkoutResponseTransfer->getErrors());
+                return $this->getErrors($checkoutResponseTransfer->getErrors());
             }
 
             $this->clearCart();
 
-            return $this->redirect($checkoutResponseTransfer);
+            return $this->redirectSuccess($checkoutResponseTransfer);
         }
 
         return [
@@ -354,7 +354,7 @@ class CheckoutController extends AbstractController
      *
      * @return JsonResponse
      */
-    protected function errors($errors)
+    protected function getErrors($errors)
     {
         $returnErrors = [];
         foreach ($errors as $error) {
@@ -376,7 +376,7 @@ class CheckoutController extends AbstractController
      *
      * @return JsonResponse
      */
-    protected function redirect(CheckoutResponseTransfer $checkoutResponseTransfer)
+    protected function redirectSuccess(CheckoutResponseTransfer $checkoutResponseTransfer)
     {
         $redirectUrl = $checkoutResponseTransfer->getIsExternalRedirect()
             ? $checkoutResponseTransfer->getRedirectUrl()

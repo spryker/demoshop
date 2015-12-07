@@ -7,6 +7,7 @@
 namespace Pyz\Yves\Checkout\Communication\Form;
 
 use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
+use SprykerFeature\Shared\Library\Currency\CurrencyManager;
 use SprykerFeature\Shared\Payolution\PayolutionApiConstants;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -156,7 +157,8 @@ class PayolutionType extends AbstractType
         $choices = [];
 
         foreach ($paymentDetails as $paymentDetail) {
-            $choices[] = $paymentDetail->getInstallments()[0]->getAmount() / 100
+            $choices[] =
+                CurrencyManager::getInstance()->convertCentToDecimal($paymentDetail->getInstallments()[0]->getAmount())
                 .' € for '.
                 $paymentDetail->getDuration()
                 .' months ';

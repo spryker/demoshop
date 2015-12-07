@@ -4,6 +4,7 @@ namespace Pyz\Yves\Checkout\Communication\Form;
 
 use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
+use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
 use SprykerFeature\Client\Glossary\Service\GlossaryClientInterface;
 use SprykerFeature\Shared\Library\Currency\CurrencyManager;
 use Symfony\Component\Form\AbstractType;
@@ -14,7 +15,6 @@ use Symfony\Component\HttpFoundation\Request;
 class CheckoutType extends AbstractType
 {
 
-    const FORM_ACTION = 'checkout/buy';
     const FIELD_EMAIL = 'email';
     const FIELD_BILLING_ADDRESS = 'billing_address';
     const FIELD_SHIPPING_ADDRESS = 'shipping_address';
@@ -24,6 +24,7 @@ class CheckoutType extends AbstractType
     const FIELD_TERMS = 'terms';
     const FIELD_PASSWORD = 'password';
     const FIELD_CREATE_ACCOUNT = 'create_account';
+    const PAYOLUTION_TAB_INDEX_OFFSET = 400;
 
     /**
      * @var Request
@@ -105,8 +106,6 @@ class CheckoutType extends AbstractType
             ])
             ->add(self::FIELD_PAYMENT_METHOD, 'choice', [
                 'choices' => [
-//                    'prepay' => 'payment.prepay',
-//                    'invoice' => 'payment.invoice',
                     'payolution_invoice' => 'payment.payolution.invoice',
                     'payolution_installment' => 'payment.payolution.installment',
                 ],
@@ -123,7 +122,7 @@ class CheckoutType extends AbstractType
                 new PayolutionType(
                     $this->request,
                     $this->payolutionCalculationResponseTransfer,
-                    400
+                    self::PAYOLUTION_TAB_INDEX_OFFSET
                 ),
                 [
                 'data_class' => 'Generated\Shared\Transfer\PayolutionPaymentTransfer',
@@ -172,7 +171,7 @@ class CheckoutType extends AbstractType
                     'class' => 'padded js-create_account',
                 ],
             ])
-            ->setAction(self::FORM_ACTION);
+            ->setAction(CheckoutControllerProvider::ROUTE_CHECKOUT_SUBMIT);
     }
 
     /**

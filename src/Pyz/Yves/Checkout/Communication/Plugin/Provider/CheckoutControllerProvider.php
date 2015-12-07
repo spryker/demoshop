@@ -4,6 +4,7 @@ namespace Pyz\Yves\Checkout\Communication\Plugin\Provider;
 
 use Pyz\Yves\Application\Communication\Plugin\Provider\AbstractYvesControllerProvider;
 use Silex\Application;
+use Symfony\Component\HttpFoundation\Request;
 
 class CheckoutControllerProvider extends AbstractYvesControllerProvider
 {
@@ -18,12 +19,12 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
         $allowedLocalesPattern = $this->getAllowedLocalesPattern();
 
         $this->createController('/{checkout}', self::ROUTE_CHECKOUT, 'Checkout', 'Checkout')
-            ->method('GET')
+            ->method(Request::METHOD_GET)
             ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
             ->value('checkout', 'checkout');
 
         $this->createController('/{checkout}/buy', self::ROUTE_CHECKOUT_SUBMIT, 'Checkout', 'Checkout', 'buy')
-            ->method('POST')
+            ->method(Request::METHOD_POST)
             ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
             ->value('checkout', 'checkout');
 
@@ -37,14 +38,14 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
             ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
             ->value('checkout', 'checkout');
         
-        $this->createGetController(
+        $this->createController(
             '/{checkout}/regular-redirect-payment-cancellation',
             self::ROUTE_CHECKOUT_REGULAR_REDIRECT_PAYMENT_CANCELLATION,
             'Checkout',
             'Checkout',
             'regularRedirectPaymentCancellation'
         )
-        ->method('GET|POST')
+        ->method(Request::METHOD_GET.'|'.Request::METHOD_POST)
         ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
         ->value('checkout', 'checkout');
     }

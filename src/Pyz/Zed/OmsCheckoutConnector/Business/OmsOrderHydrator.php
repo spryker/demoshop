@@ -1,8 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
 namespace Pyz\Zed\OmsCheckoutConnector\Business;
 
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
