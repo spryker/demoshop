@@ -96,7 +96,7 @@
 }
 
 
-.input--invalid{
+.input--invalid.input--touched{
     .input__text{
         border-color: $_rgbCarnation;
     }
@@ -122,7 +122,7 @@
     }
 }
 
-.input--invalid, .input--valid{
+.input--invalid.input--touched, .input--valid{
     .input__field:after{
         position: absolute;
         top: 50%;
@@ -173,7 +173,7 @@
     }
 }
 
-.input--invalid{
+.input--invalid.input--focussed.input--touched{
     .input__error{
         display: block;
     }

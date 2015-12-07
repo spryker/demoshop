@@ -28,6 +28,7 @@ $(document).ready(function () {
             });
 
             $text.bind('blur change', function () {
+                $input.addClass('input--touched');
                 $input.removeClass('input--focussed');
 
                 validateInstant();
@@ -35,7 +36,10 @@ $(document).ready(function () {
             });
 
 
-            $text.bind('keyup', validateInstant);
+            $text.bind('keyup', function () {
+                $input.removeClass('input--touched');
+                validateInstant();
+            });
 
             $(document).on(EVENTS.VALIDATE, validateAfter);
         }
