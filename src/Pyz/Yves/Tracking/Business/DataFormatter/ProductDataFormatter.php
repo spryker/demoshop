@@ -5,7 +5,6 @@ namespace Pyz\Yves\Tracking\Business\DataFormatter;
 use PavFeature\Yves\Tracking\Business\DataFormatter\AbstractDataFormatter;
 use Pyz\Yves\Tracking\Business\TrackingConstants;
 use SprykerFeature\Shared\Library\Currency\CurrencyManager;
-use SprykerFeature\Shared\Product\Model\AbstractProductInterface;
 
 class ProductDataFormatter extends AbstractDataFormatter
 {
@@ -16,9 +15,13 @@ class ProductDataFormatter extends AbstractDataFormatter
      *
      * @return array
      */
-    public static function formatProduct(array $product)
+    public static function formatProduct(array $product = null)
     {
         $productData = [];
+
+        if ($product === null) {
+            return $productData;
+        }
 
         try {
             $productAttributes = $product['abstract_attributes'];
