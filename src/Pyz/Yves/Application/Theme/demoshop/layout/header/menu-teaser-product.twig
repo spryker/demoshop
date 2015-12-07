@@ -1,5 +1,5 @@
 
-<div class="menu-teaser-product">
+<a href="{{ product.url }}" class="menu-teaser-product">
     <div class="menu-teaser-product__label">{{ product.label }}</div>
     <div class="menu-teaser-product__image" style="background-image: url({{ product.image }});"></div>
 
@@ -7,8 +7,8 @@
         <div class="menu-teaser-product__description">{{ product.description }}</div>
         <div class="menu-teaser-product__title">{{ product.title }}</div>
         <div class="menu-teaser-product__price">{{ product.price | price }}</div>
-        <a href="{{ product.url }}" class="menu-teaser-product__button button">
+        <div class="menu-teaser-product__button button">
             Zum Produkt
-        </a>
+        </div>
     </div>
-</div>
+</a>
