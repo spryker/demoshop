@@ -11,7 +11,8 @@
   "dependencies": {
     "jquery": "2.1.4",
     "lodash": "^3.10.1",
-    "object-keys": "^1.0.9"
+    "object-keys": "^1.0.9",
+    "swiftclick": "^1.2.0"
   },
   "devDependencies": {
     "babel-polyfill": "^6.3.14",
