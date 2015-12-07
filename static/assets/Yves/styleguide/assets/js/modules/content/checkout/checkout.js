@@ -209,7 +209,7 @@ $(document).ready(function () {
                     } else if (response.errors) {
 
                         $.each(response.errors, function (index, value) {
-                            messageService.add({ type: 'invalid', message: value.message + ' (' + value.errorCode + ')' });
+                            messageService.add({ type: 'invalid', message: value.message });
                         });
 
                     } else {
