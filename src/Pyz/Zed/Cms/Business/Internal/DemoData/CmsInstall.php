@@ -397,7 +397,7 @@ class CmsInstall extends AbstractInstaller
      *
      * @return void
      */
-    protected function createPageUrl($pageTransfer, $url, LocaleTransfer  $localeTransfer)
+    protected function createPageUrl($pageTransfer, $url, LocaleTransfer $localeTransfer)
     {
         $urlTransfer = $this->pageManager->createPageUrlWithLocale($pageTransfer, $url, $localeTransfer);
         $this->pageManager->touchPageActive($pageTransfer);
