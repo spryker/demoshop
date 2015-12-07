@@ -51,14 +51,14 @@ function generateStyles (entry, title) {
       .pipe(plumber({
         errorHandler: notify.onError("Error: <%= error.message %>")
       }))
-      //.pipe(sourcemaps.init())
+      .pipe(sourcemaps.init())
       .pipe(bulkSass())
       .pipe(sass({
           includePaths: ['./' + paths.source.root + ' css'],
       }))
-      //.pipe(minifyCSS())
+      .pipe(minifyCSS())
       .pipe(prefix('last 2 versions'))
-      //.pipe(sourcemaps.write('./'))
+      .pipe(sourcemaps.write('./'))
       .pipe(gulp.dest(paths.dest.styles))
       .pipe(_if(development, notify({
         message: 'Task "styles:' + title + '" completed',

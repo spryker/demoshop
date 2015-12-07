@@ -45,6 +45,8 @@ class Checkout extends AbstractType
                 'label' => 'E-Mail-Adresse',
                 'attr' => [
                     'class' => 'input--1-1',
+                    'data-required' => true,
+                    'data-regexp' => '([a-z0-9äöüß]+([-_.]?[a-z0-9äöüß])*)@[a-z0-9äöüß]+([-_.]?[a-z0-9äöüß]*)*[a-z0-9äöüß]+\.[a-z]{2,4}'
                 ],
             ])
             ->add('billing_address', new Address(200), [
