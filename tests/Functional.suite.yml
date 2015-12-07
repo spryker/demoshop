@@ -16,11 +16,16 @@ modules:
 
       - WebDriver:
           url:         'http://www.de.pets-deli.dev/'
+#          host:        'floeH:1bcf0e48-bcf2-4005-8d19-577d17f0e7de@ondemand.saucelabs.com'
           browser:     'phantomjs'
+#          browser:     'firefox'
+          capabilities:
+#            platform:                 'Windows 10'
+#            version:                  '42.0'
+            unexpectedAlertBehaviour: 'accept'
+
           window_size: '1920x1200'
           wait:        10
-          capabilities:
-            unexpectedAlertBehaviour: 'accept'
 
 env:
     staging:
