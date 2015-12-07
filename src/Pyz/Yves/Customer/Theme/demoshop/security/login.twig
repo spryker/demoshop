@@ -9,7 +9,7 @@
     {% endif %}
 
 
-    <div class="login-slider">
+    <div class="login-slider js-login-slider">
 
         <div class="login-slider__navigations">
             <div class="login-slider__inner">
@@ -24,7 +24,7 @@
             <div class="login-slider__inner">
 
                 <div class="login-slider__content">
-                    <form class="login-slider__form" action="{{ path('login_check') }}" method="post">
+                    <form class="login-slider__form js-login-form" action="{{ path('login_check') }}" method="post">
 
                         {% include   '@application/layout/common/forms/input.twig' with {
                             label: 'Ihre E-Mail Adresse',

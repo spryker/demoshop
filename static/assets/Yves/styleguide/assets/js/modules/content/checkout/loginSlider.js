@@ -1,5 +1,7 @@
 import $ from 'jquery';
-import { getViewport, prefixCss } from '../../common/helpers';
+
+import { getViewport, prefixCss, getFormData } from '../../common/helpers';
+import { MessageService } from '../../common/messages';
 
 'use strict';
 
@@ -71,5 +73,33 @@ $(document).ready(function () {
 
         }
     });
+
+
+    // $('.js-login-form').each(function () {
+    //     var $form, messageService;
+    //
+    //     $form = $(this);
+    //     messageService = new MessageService();
+    //
+    //     $form.submit(function (event) {
+    //         event.preventDefault();
+    //
+    //         $.ajax({
+    //             url: $(this).attr('action'),
+    //             method: 'POST',
+    //             data: getFormData($form),
+    //             dataType: 'json'
+    //
+    //         }).done(function (data) {
+    //             if (data.isSuccess === false) {
+    //                 messageService.add({ type: 'invalid', message: data.message });
+    //             } else {
+    //                 messageService.add({ type: 'valid', message: data.message });
+    //             }
+    //
+    //         });
+    //
+    //     });
+    // });
 
 });

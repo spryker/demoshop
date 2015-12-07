@@ -36,7 +36,10 @@
 
         <div class="navbar__top">
            <div class="navbar__center">
-                <img class="navbar__wordmark" src="/images/logo/logo_inline.png" alt="Pets Deli Logo" />
+
+               <a class="navbar__wordmark"  href="{{ data.logo.url }}">
+                   <img src="/images/logo/logo_inline.png" alt="Pets Deli Logo" />
+               </a>
 
                 {% for item in data.items %}
                     <div class="navbar__item">{{ item }}</div>

@@ -14,6 +14,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    backface-visibility: hidden;
 }
 
 .navbar__inner{
@@ -27,7 +28,7 @@
 
 .navbar__top{
     position: relative;
-    z-index: 3;
+    z-index: 5;
     padding: 8px 0 9px 0;
     background: $_rgbApple;
 
@@ -49,10 +50,6 @@
 
 .navbar__top--hidden{
     margin-top: -45px;
-}
-
-.navbar__top--hidden{
-
 }
 
 .navbar__item{
@@ -94,10 +91,13 @@
 }
 
 .navbar__wordmark{
-    display: inline-block;
-    width: auto;
-    height: 28px;
-    vertical-align: middle;
+
+    img{
+        display: inline-block;
+        width: auto;
+        height: 28px;
+        vertical-align: middle;
+    }
 }
 
 .navbar__logo{
