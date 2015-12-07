@@ -20,7 +20,7 @@ class SubscriptionController extends AbstractController
     public function indexAction(Request $request)
     {
         $newsletterTypeDogs = (bool)$request->get('NewsletterTypeDogs');
-        $catSubscription = (bool)$request->get('NewsletterTypeCats');
+        $newsletterTypeCats = (bool)$request->get('NewsletterTypeCats');
 
         $subscriptionRequest = new NewsletterSubscriptionRequestTransfer();
         $subscriber = new NewsletterSubscriberTransfer();
@@ -34,14 +34,14 @@ class SubscriptionController extends AbstractController
             $newsletterTypes[] = $newsletterType;
         }
 
-        if($catSubscription === true)
+        if($newsletterTypeCats === true)
         {
             $newsletterType = new NewsletterTypeTransfer();
             $newsletterType->setName('cats');
             $newsletterTypes[] = $newsletterType;
         }
 
-        if($newsletterTypeDogs === false && $catSubscription === false)
+        if($newsletterTypeDogs === false && $newsletterTypeCats === false)
         {
             return new JsonResponse([
                 'subscriptionsResults' => [
@@ -65,11 +65,11 @@ class SubscriptionController extends AbstractController
             /** @var NewsletterSubscriptionResultTransfer $subscriptionResult */
             foreach($transferResult->getSubscriptionResults() as $subscriptionResult)
             {
-                $subscriptionResult = [[
+                $subscriptionResult = [
                     'name' => $subscriptionResult->getNewsletterType()->getName(),
                     'isSuccess' => $subscriptionResult->getIsSuccess(),
                     'errorMessage' => $subscriptionResult->getErrorMessage()
-                ]];
+                ];
                 $subscriptionsResults[] = $subscriptionResult;
             }
         }
