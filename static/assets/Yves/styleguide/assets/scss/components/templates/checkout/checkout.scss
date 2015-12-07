@@ -359,11 +359,16 @@
     font-family: $_ffBrandonGrotesque-Bold;
     font-size: 14px;
     color: $_rgbOsloGray;
-    line-height: 20px;
     text-transform: uppercase;
     text-align: right;
     min-height: 60px;
     line-height: 60px;
+}
+
+.cart-position--discounts {
+    .cart-position__left {
+        padding: 0px;
+    }
 }
 
 .cart-position__right{
