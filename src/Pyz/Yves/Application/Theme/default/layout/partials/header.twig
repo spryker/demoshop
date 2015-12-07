@@ -1,9 +1,9 @@
+{#
 <header class="header">
     <a href="/" class="shop-logo">{{ 'global.spryker.shop' | trans }}</a>
     <a href="#" class="nav-toggle js-nav-toggle"><span></span></a>
     <nav class="main-nav"></nav>
     <div class="header__search js-search">
-        {# @TODO create Url dynamic #}
         <form action="/search">
             <button class="search__button js-search-button">{{ 'search' | trans }}</button>
             <input name="q" type="text" class="search__box js-search-box">
@@ -11,4 +11,72 @@
     </div>
     {% include "@cart/ajax/overlay.twig" %}
 </header>
-{% include "@application/layout/partials/main-nav.twig" %}
+#}
+
+<nav class="navbar navbar-spryker navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button data-target=".bs-example-js-navbar-collapse" data-toggle="collapse" type="button" class="navbar-toggle collapsed">
+                <span class="sr-only">{{ 'Toggle navigation' | trans }}</span>
+                <span class="icon-bar"></span> <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            {#<a href="#" class="navbar-brand">{{ 'Spryker Framework' | trans }}</a>#}
+            <a href="/" class="navbar-brand2 shop-logo">{#{ 'global.spryker.shop' | trans }#}</a>
+        </div>
+        <div class="collapse navbar-collapse bs-example-js-navbar-collapse">
+            <div class="text-center">
+                <div class="pull-right header-nav-placeholder">
+                    <div class="header-cart pull-right"><a href=""><i class="fa fa-shopping-cart fa-inverse"></i></a></div>
+                    <div class="js-search pull-right">
+                        <form action="/search">
+                            <button class="btn js-search-button"><i class="fa fa-search"></i></button>
+                            <input type="text" class="search--box js-search-box" name="q" />
+                        </form>
+                    </div>
+                </div>
+                <a href="" class="header-categories-dropdown"><i class="fa fa-bars"></i></a>
+            </div>
+            {#
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="fa fa-globe"></span> <span class="caret"></span> </a>
+                    <ul aria-labelledby="drop1" class="dropdown-menu">
+                        <li><a href="#">{{ 'English' | trans }}</a></li>
+                        <li><a href="#">{{ 'Deutsch' | trans }}</a></li>
+                        <li><a href="#">{{ 'Espanol' | trans }}</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="fa fa-eur"></span> <span class="caret"></span> </a>
+                    <ul aria-labelledby="drop2" class="dropdown-menu">
+                        <li><a href="#">{{ 'Euro (EUR)' | trans }}</a></li>
+                        <li><a href="#">{{ 'Pounds (GBP)' | trans }}</a></li>
+                        <li><a href="#">{{ 'Dollars (USD)' | trans }}</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="fa fa-user"></span> <span class="caret"></span> </a>
+                    <ul aria-labelledby="drop3" class="dropdown-menu header-user-menu">
+                        <li><a href="#"><span class="fa fa-cogs"></span> {{ 'Personal Information' }}</a></li>
+                        <li><a href="#"><span class="fa fa-map-marker"></span> {{ 'My Addresses' | trans }}</a></li>
+                        <li><a href="#"><span class="fa fa-unlock-alt"></span> {{ 'Change Password' | trans }}</a></li>
+                        <li><a href="#"><span class="fa fa-bars"></span> {{ 'Order History' | trans }}</a></li>
+                        <li><a href="#"><span class="fa fa-percent"></span> {{ 'Discounts' | trans }}</a></li>
+                        <li class="divider" role="separator"></li>
+                        <li><a href="#"><span class="fa fa-sign-out"></span> {{ 'Logout' | trans }}</a></li>
+                    </ul>
+                </li>
+            </ul>
+            #}
+        </div>
+    </div>
+</nav>
+
+{#{% include "@application/layout/partials/main-nav.twig" %}#}
+
+
+{% for i in 1..60 %}
+    <p class="asd">&nbsp;</p>
+{% endfor %}
+
