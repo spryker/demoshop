@@ -309,9 +309,7 @@ class CheckoutController extends AbstractController
      */
     protected function handleRedirectPaymentReturnCustomerMessage(AdyenHppPaymentReturnCheckResponseInterface $checkResponse)
     {
-        if ($checkResponse->getIsSuccess()) {
-            $this->addSuccessMessage($checkResponse->getCustomerMessage());
-        } else {
+        if (!$checkResponse->getIsSuccess()) {
             $this->addErrorMessage($checkResponse->getCustomerMessage());
         }
     }
