@@ -6,6 +6,7 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Orm\Zed\Product\Persistence\Base\SpyProductQuery;
 use Orm\Zed\Product\Persistence\Map\SpyAbstractProductTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyLocalizedAbstractProductAttributesTableMap;
+use Orm\Zed\Product\Persistence\Map\SpyLocalizedProductAttributesTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductToBundleTableMap;
 use Orm\Zed\Product\Persistence\SpyAbstractProductQuery;
@@ -17,7 +18,6 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Join;
 use Pyz\SprykerBugfixInterface;
 use SprykerFeature\Zed\Product\Persistence\ProductQueryContainer as SprykerProductQueryContainer;
-use SprykerFeature\Zed\Product\Persistence\Propel\Map\SpyLocalizedProductAttributesTableMap;
 
 class ProductQueryContainer extends SprykerProductQueryContainer implements SprykerBugfixInterface
 {
