@@ -5,7 +5,6 @@
         <ean>4005086136823</ean>
         <price>359</price>
         <tax>0.19</tax>
-        <category>Wald und Wiese</category>
         <height>5,0</height>
         <width>5,5</width>
         <depth>2,0</depth>
@@ -38,7 +37,6 @@
         <ean>4005086137288</ean>
         <price>599</price>
         <tax>0.19</tax>
-        <category>Wilde Tiere</category>
         <height>12,0</height>
         <width>5,0</width>
         <depth>1,0</depth>
@@ -71,7 +69,6 @@
         <ean>4005086137455</ean>
         <price>359</price>
         <tax>0.19</tax>
-        <category>Wald und Wiese</category>
         <height>3,0</height>
         <width>5,0</width>
         <depth>2,5</depth>
@@ -104,7 +101,6 @@
         <ean>4005086137479</ean>
         <price>499</price>
         <tax>0.19</tax>
-        <category>Wald und Wiese</category>
         <height>3,5</height>
         <width>7,5</width>
         <depth>3,0</depth>
@@ -137,7 +133,6 @@
         <ean>4005086137837</ean>
         <price>359</price>
         <tax>0.19</tax>
-        <category>Wald und Wiese</category>
         <height>3,0</height>
         <width>5,7</width>
         <depth>1,8</depth>
@@ -170,7 +165,6 @@
         <ean>4005086143210</ean>
         <price>499</price>
         <tax>0.19</tax>
-        <category>Wilde Tiere</category>
         <height>9,0</height>
         <width>1,0</width>
         <depth>2,5</depth>
@@ -203,7 +197,6 @@
         <ean>4005086143647</ean>
         <price>359</price>
         <tax>0.19</tax>
-        <category>Wilde Tiere</category>
         <height>4,5</height>
         <width>7,5</width>
         <depth>2,5</depth>
@@ -236,7 +229,6 @@
         <ean>4005086143654</ean>
         <price>599</price>
         <tax>0.19</tax>
-        <category>Meere</category>
         <height>7,0</height>
         <width>1,5</width>
         <depth>1,0</depth>
@@ -269,7 +261,6 @@
         <ean>4005086143913</ean>
         <price>599</price>
         <tax>0.19</tax>
-        <category>Wilde Tiere</category>
         <height>9,5</height>
         <width>1,5</width>
         <depth>5,0</depth>
@@ -302,7 +293,6 @@
         <ean>4005086146013</ean>
         <price>499</price>
         <tax>0.19</tax>
-        <category>Wilde Tiere</category>
         <height></height>
         <width></width>
         <depth></depth>
@@ -335,7 +325,6 @@
         <ean>4005086146341</ean>
         <price>599</price>
         <tax>0.19</tax>
-        <category>Wilde Tiere</category>
         <height>9,5</height>
         <width>9,0</width>
         <depth>8,0</depth>
@@ -368,7 +357,6 @@
         <ean>4005086146617</ean>
         <price>679</price>
         <tax>0.19</tax>
-        <category>Wilde Tiere</category>
         <height></height>
         <width></width>
         <depth></depth>
@@ -401,7 +389,6 @@
         <ean>4005086146624</ean>
         <price>679</price>
         <tax>0.19</tax>
-        <category>Wilde Tiere</category>
         <height></height>
         <width></width>
         <depth></depth>
@@ -434,7 +421,6 @@
         <ean>4005086146778</ean>
         <price>599</price>
         <tax>0.19</tax>
-        <category>Wilde Tiere</category>
         <height>4,0</height>
         <width>3,0</width>
         <depth>5,0</depth>
@@ -467,7 +453,6 @@
         <ean>4005086146815</ean>
         <price>679</price>
         <tax>0.19</tax>
-        <category>Wilde Tiere</category>
         <height>1,5</height>
         <width>6,0</width>
         <depth>7,0</depth>
@@ -500,7 +485,6 @@
         <ean>4005086146846</ean>
         <price>359</price>
         <tax>0.19</tax>
-        <category>Wald und Wiese</category>
         <height>1,5</height>
         <width>4,0</width>
         <depth>4,0</depth>
@@ -533,7 +517,6 @@
         <ean>4005086146860</ean>
         <price>679</price>
         <tax>0.19</tax>
-        <category>Wald und Wiese</category>
         <height>5,0</height>
         <width>5,5</width>
         <depth>11,0</depth>
@@ -566,7 +549,6 @@
         <ean>4005086146938</ean>
         <price>499</price>
         <tax>0.19</tax>
-        <category>Wald und Wiese</category>
         <height>6,5</height>
         <width>3,5</width>
         <depth>2,5</depth>
@@ -599,7 +581,6 @@
         <ean>4005086146952</ean>
         <price>599</price>
         <tax>0.19</tax>
-        <category>Meere</category>
         <height>5,5</height>
         <width>8,0</width>
         <depth>3,5</depth>
@@ -632,7 +613,6 @@
         <ean>4005086146983</ean>
         <price>599</price>
         <tax>0.19</tax>
-        <category>Meere</category>
         <height>3,5</height>
         <width>15,0</width>
         <depth>12,5</depth>
@@ -665,7 +645,6 @@
         <ean>4005086147003</ean>
         <price>599</price>
         <tax>0.19</tax>
-        <category>Meere</category>
         <height>6,0</height>
         <width>16,0</width>
         <depth>8,0</depth>
@@ -698,7 +677,6 @@
         <ean>4005086147027</ean>
         <price>599</price>
         <tax>0.19</tax>
-        <category>Meere</category>
         <height>9,5</height>
         <width>6,0</width>
         <depth>4,0</depth>
@@ -731,7 +709,6 @@
         <ean>4005086147034</ean>
         <price>359</price>
         <tax>0.19</tax>
-        <category>Meere</category>
         <height>5,5</height>
         <width>3,5</width>
         <depth>2,0</depth>
@@ -764,7 +741,6 @@
         <ean>4005086147058</ean>
         <price>499</price>
         <tax>0.19</tax>
-        <category>Meere</category>
         <height>3,0</height>
         <width>3,0</width>
         <depth>5,0</depth>
@@ -797,7 +773,6 @@
         <ean>4005086147065</ean>
         <price>599</price>
         <tax>0.19</tax>
-        <category>Wilde Tiere</category>
         <height>5,0</height>
         <width>1,0</width>
         <depth>4,0</depth>
@@ -830,7 +805,6 @@
         <ean>4005086147096</ean>
         <price>599</price>
         <tax>0.19</tax>
-        <category>Wald und Wiese</category>
         <height>1,5</height>
         <width>1,0</width>
         <depth>4,5</depth>
@@ -863,7 +837,6 @@
         <ean>4005086147119</ean>
         <price>359</price>
         <tax>0.19</tax>
-        <category>Wald und Wiese</category>
         <height>5,0</height>
         <width>4,5</width>
         <depth>2,5</depth>
@@ -896,7 +869,6 @@
         <ean>4005086147133</ean>
         <price>359</price>
         <tax>0.19</tax>
-        <category>Wald und Wiese</category>
         <height>2,0</height>
         <width>4,0</width>
         <depth>5,0</depth>
@@ -929,7 +901,6 @@
         <ean>4005086147188</ean>
         <price>359</price>
         <tax>0.19</tax>
-        <category>Wilde Tiere</category>
         <height>3,5</height>
         <width>4,0</width>
         <depth>3,0</depth>
@@ -962,7 +933,6 @@
         <ean>4005086147225</ean>
         <price>359</price>
         <tax>0.19</tax>
-        <category>Wald und Wiese</category>
         <height>2,0</height>
         <width>5,0</width>
         <depth>4,5</depth>
@@ -995,7 +965,6 @@
         <ean>4005086147232</ean>
         <price>499</price>
         <tax>0.19</tax>
-        <category>Wilde Tiere</category>
         <height>2,5</height>
         <width>6,5</width>
         <depth>2,5</depth>
@@ -1028,7 +997,6 @@
         <ean>4005086147256</ean>
         <price>359</price>
         <tax>0.19</tax>
-        <category>Meere</category>
         <height>6,0</height>
         <width>2,5</width>
         <depth>3,5</depth>
@@ -1061,7 +1029,6 @@
         <ean>4005086147355</ean>
         <price>599</price>
         <tax>0.19</tax>
-        <category>Wilde Tiere</category>
         <height>5,2</height>
         <width>3,1</width>
         <depth>8,6</depth>

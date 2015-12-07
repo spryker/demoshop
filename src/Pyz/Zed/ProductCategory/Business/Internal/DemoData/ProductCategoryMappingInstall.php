@@ -14,6 +14,9 @@ use Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterf
 class ProductCategoryMappingInstall extends AbstractInstaller
 {
 
+    const SKU = 'sku';
+    const CATEGORY_KEY = 'category_key';
+
     /**
      * @var ProductCategoryToLocaleInterface
      */
@@ -82,12 +85,12 @@ class ProductCategoryMappingInstall extends AbstractInstaller
     protected function installProductCategories(LocaleTransfer $locale)
     {
         foreach ($this->getDemoProductCategories() as $demoProductCategory) {
-            $sku = $demoProductCategory['sku'];
-            if (!$this->productFacade->hasProductAbstract($sku)) {
+            $sku = $demoProductCategory[self::SKU];
+            if (!$this->productFacade->hasAbstractProduct($sku)) {
                 continue;
             }
 
-            $categoryName = $demoProductCategory['category'];
+            $categoryName = $demoProductCategory[self::CATEGORY_KEY];
             if (!$this->categoryFacade->hasCategoryNode($categoryName, $locale)) {
                 continue;
             }
