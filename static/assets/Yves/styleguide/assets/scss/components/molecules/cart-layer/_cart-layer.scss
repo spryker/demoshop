@@ -86,12 +86,12 @@
     font-size: 30px;
     color: $_rgbQuincy;
     text-transform: uppercase;
-    white-space: nowrap;
 
     em{
         padding-left: 25px;
         font-style: normal;
         font-size: 40px;
+        white-space: nowrap;
     }
 }
 
@@ -120,6 +120,17 @@
 
 // TODO: invert
 
+@media (max-width: $_wMedium) {
+    .cart-layer__amount{
+        padding: 17px;
+
+        .button{
+            width: 100%;
+        }
+    }
+}
+
+
 @media (min-width: $_wMedium) {
     .cart-layer__headline{
         margin: 27px;
@@ -134,5 +145,11 @@
 
     .cart-layer__amount{
         width: 100%;
+    }
+}
+
+@media (max-width: 350px) {
+    .cart-item__left-inner{
+        display: block;
     }
 }

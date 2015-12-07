@@ -9,7 +9,7 @@
 .product{
     position: relative;
     background: $_rgbWhite;
-    padding: 65px 0 0;
+    padding: 170px 0 0;
 }
 
 .product__detail{
@@ -49,6 +49,10 @@
 }
 
 @media (min-width: 1051px) {
+    .product{
+        padding-top: 65px;
+    }
+
     .product__options{
         display: block;
     }
@@ -69,5 +73,12 @@
 
     .product__gallery{
         width: $_wGalleryBig;
+    }
+}
+
+@media (max-width: 360px) {
+    .product__gallery{
+        max-width: 330px;
+        width: 100%;
     }
 }

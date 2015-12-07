@@ -3,6 +3,11 @@ import $ from 'jquery';
 'use strict';
 
 
+const EVENTS = {
+    UPDATE_DROPDOWN: 'DROPDOWN_UPDATE_DROPDOWN'
+};
+
+
 $(document).ready(function () {
 
     $('.dropdown').each(function () {
@@ -32,6 +37,14 @@ $(document).ready(function () {
         $select.bind('blur', function () {
             $dropdown.removeClass('dropdown--focussed');
         });
+
+        $(document).on(EVENTS.UPDATE_DROPDOWN, function (event, value) {
+            $select.val(value);
+            updateButton();
+        });
     });
 
 });
+
+
+export { EVENTS };

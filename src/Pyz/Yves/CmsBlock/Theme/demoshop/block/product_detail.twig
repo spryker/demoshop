@@ -35,11 +35,9 @@
             } %}
         </div>
 
-        <div class="product__options">
-            {% include '@application/layout/content/product/details/product-options.twig' with {
+        {% include '@application/layout/content/product/details/product-options.twig' with {
             product: product
             } %}
-        </div>
     </div>
 
         {% include '@application/layout/content/product/details/product-related.twig' with {

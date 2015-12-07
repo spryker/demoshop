@@ -61,8 +61,9 @@
 
 
 
+<div class="product__options">
 
-<form action="/cart/add/" method="POST" class="product-options js-product-options" data-sku="{{ initial.sku }}" data-sticky-limit=".js-product-accordion">
+<form action="/cart/add/" method="POST" class="product-options js-product-options" data-sku="{{ initial.sku }}">
 
     {% if config.options is defined %}
         <div class="product-options__select js-product-weight-select">
@@ -109,6 +110,136 @@
 
         <div class="product-options__delivery-info">
             Versand erfolgt für Bestellungen bis 12.00 Uhr Mo-Do normalerweise am selben Tag.
+        </div>
+    </div>
+
+</form>
+
+</div>
+
+
+
+
+
+<form action="/cart/add/" method="POST" class="tablet-options js-product-options" data-sku="{{ initial.sku }}">
+
+    <div class="tablet-options__left">
+        <div class="tablet-options__left-inner">
+            <h1 class="tablet-options__title">{{ product.abstract_name }}</h1>
+
+            <div class="tablet-options__subtitle">
+                <span class="js-product-weight">{{ initial.weight.value | replace({'.': ','})}}{{ ('unit.' ~ initial.weight.unit | trim ) | trans }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="tablet-options__right">
+
+        <div class="tablet-options__right-top">
+            {% if config.options is defined %}
+                <div class="tablet-options__select js-product-weight-select">
+                    {% include  '@application/layout/common/forms/dropdown.twig' with {
+                        label: 'Größe',
+                        id: 'weight',
+                        name: 'weight',
+                        options: (config.options | keys)
+                    } %}
+                </div>
+            {% endif %}
+
+            <div class="tablet-options__select">
+                {% include  '@application/layout/common/forms/stepper.twig' with {
+                    label: 'Anzahl',
+                    id: 'quantity',
+                    name: 'quantity'
+                } %}
+            </div>
+
+            <div class="tablet-options__pricing">
+
+                <div class="tablet-options__total js-product-price-total">
+                    {{ initial.price | price}}
+                </div>
+
+                <div class="tablet-options__relative">
+                    {% set base = initial.weight.unit in ['ml', 'g'] ? 100 : 1 %}
+
+                    <span class="js-product-weight">{{ initial.weight.value | replace({'.':','}) }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }}</span> ({{ (initial.price * base / initial.weight.value) | price }} / {{ base }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }}
+                </div>
+            </div>
+        </div>
+
+        {% include '@application/layout/common/forms/button.twig' with {
+            type: 'submit',
+            title: 'In den Warenkorb',
+            modifier: 'cta tablet-options__button button'
+        } %}
+    </div>
+
+</form>
+
+
+
+
+<form action="/cart/add/" method="POST" class="mobile-options js-product-options" data-sku="{{ initial.sku }}">
+
+    <div class="mobile-options__top">
+        {% if config.options is defined %}
+            <div class="mobile-options__select js-product-weight-select">
+                {% include  '@application/layout/common/forms/dropdown.twig' with {
+                    label: 'Größe',
+                    id: 'weight',
+                    name: 'weight',
+                    options: (config.options | keys)
+                } %}
+            </div>
+        {% endif %}
+
+        <div class="mobile-options__select">
+            {% include  '@application/layout/common/forms/stepper.twig' with {
+                label: 'Anzahl',
+                id: 'quantity',
+                name: 'quantity'
+            } %}
+        </div>
+    </div>
+
+    <div class="mobile-options__middle">
+        <div class="mobile-options__description">
+            <h1 class="mobile-options__title">{{ product.abstract_name }}</h1>
+
+            <div class="mobile-options__subtitle">
+                <span class="js-product-weight">{{ initial.weight.value | replace({'.': ','})}}{{ ('unit.' ~ initial.weight.unit | trim ) | trans }}</span>
+            </div>
+        </div>
+
+        <div class="mobile-options__middle-right">
+            <div class="mobile-options__middle-right-inner">
+
+                <div class="mobile-options__pricing">
+                    <div class="mobile-options__total js-product-price-total">
+                        {{ initial.price | price}}
+                    </div>
+
+                    <div class="mobile-options__relative">
+                        {% set base = initial.weight.unit in ['ml', 'g'] ? 100 : 1 %}
+
+                        <span class="js-product-weight">{{ initial.weight.value | replace({'.':','}) }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }}</span> ({{ (initial.price * base / initial.weight.value) | price }} / {{ base }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }}
+                    </div>
+                </div>
+
+                <button type="button" class="button--cta mobile-options__add"></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-options__bottom">
+        <div class="">
+            {% include '@application/layout/common/forms/button.twig' with {
+                type: 'submit',
+                title: 'In den Warenkorb',
+                modifier: 'cta mobile-options__button button'
+            } %}
         </div>
     </div>
 
