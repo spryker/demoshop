@@ -141,7 +141,6 @@ class ProductBlockController extends AbstractPlugin implements BlockControllerIn
             }
         }
 
-
         $result['config'] = $config;
 
         return $result;
