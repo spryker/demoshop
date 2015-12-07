@@ -57,6 +57,7 @@ class ConsoleConfig extends SprykerConsoleConfig
 
         if (Environment::isDevelopment()) {
             $commands[] = $this->getLocator()->development()->consoleCodeStyleFixerConsole();
+            $commands[] = $this->getLocator()->development()->consoleCodeStyleSnifferConsole();
         }
 
         $gitCommands = $this->getLocator()->git()->facade()->getConsoleCommands();
