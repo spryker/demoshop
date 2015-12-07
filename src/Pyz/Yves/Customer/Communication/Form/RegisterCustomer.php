@@ -24,7 +24,7 @@ class RegisterCustomer extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', 'text', [
+            ->add('email', 'email', [
                 'label' => 'customer.register.email',
                 'constraints' => new NotBlank(),
             ])

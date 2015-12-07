@@ -40,7 +40,7 @@ class Checkout extends AbstractType
     {
 
         $builder
-            ->add('email', 'text', [
+            ->add('email', 'email', [
                 'required' => true,
                 'label' => 'E-Mail-Adresse',
                 'attr' => [
