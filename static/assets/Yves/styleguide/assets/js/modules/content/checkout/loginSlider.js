@@ -22,7 +22,7 @@ $(document).ready(function () {
         $contentContainer.css({'width': 100 * $contents.size() + '%'});
         $contents.css({'width': 100 / $contents.size() + '%'});
 
-        var index = 0;
+        var index = 1;
 
 
         updateOffset();
