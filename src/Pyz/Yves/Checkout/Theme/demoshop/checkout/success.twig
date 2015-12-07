@@ -34,18 +34,20 @@
             purchase = window.dataLayer[1].page.purchase;
             products = window.dataLayer[1].page.products;
 
-            var data = {
+            var data =
+            {
+                'event': 'purchase',
                 'ecommerce': {
                     'purchase': {
-                      'actionField': {
-                        'id': purchase.id,
-                        'affiliation': 'Online Store',
-                        'revenue': purchase.revenue,
-                        'tax': purchase.tax,
-                        'shipping': dataLayer[1].page.purchase.shipping ? dataLayer[1].page.purchase.shipping : 0,
-                        'coupon': dataLayer[1].page.purchase.coupon ? dataLayer[1].page.purchase.coupon : ''
-                      },
-                      'products': []
+                        'actionField': {
+                            'id': purchase.id,
+                            'affiliation': 'Online Store',
+                            'revenue': purchase.revenue,
+                            'tax': purchase.tax,
+                            'shipping': dataLayer[1].page.purchase.shipping ? dataLayer[1].page.purchase.shipping : 0,
+                            'coupon': dataLayer[1].page.purchase.coupon ? dataLayer[1].page.purchase.coupon : ''
+                        },
+                        'products': []
                     }
                 }
             };
