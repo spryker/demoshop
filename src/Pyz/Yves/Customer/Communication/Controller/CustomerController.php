@@ -23,6 +23,8 @@ class CustomerController extends AbstractController
     {
         $form = $this->createForm($this->getDependencyContainer()->createFormForgot());
 
+        $this->getLocator()->customer()->client()->logout();
+
         if ($form->isValid()) {
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->fromArray($form->getData());
@@ -44,13 +46,14 @@ class CustomerController extends AbstractController
     {
         $form = $this->createForm($this->getDependencyContainer()->createFormRestore());
 
+        $this->getLocator()->customer()->client()->logout();
+
         if ($form->isValid()) {
             $formData = $form->getData();
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->setRestorePasswordKey($request->query->get('token'));
             $customerTransfer->setPassword($formData['password']);
             $customerResponse = $this->getLocator()->customer()->client()->restorePassword($customerTransfer);
-            $this->getLocator()->customer()->client()->logout();
 
             if ($customerResponse->getIsSuccess()) {
                 return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
