@@ -9,7 +9,6 @@ use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerFeature\Shared\Application\ApplicationConfig;
 use Pyz\Shared\Acl\AclConfig;
-use Pyz\Zed\Acl\AclConfig as ZedAclConfig;
 use SprykerFeature\Shared\Session\SessionConfig;
 use Pyz\Client\ZedRequest\Service\ZedRequestConfig as PyzZedRequestConfig;
 
@@ -54,7 +53,7 @@ $config[AclConfig::ACL_USER_RULE_WHITELIST][] = [
 
 $config[AclConfig::ACL_DEFAULT_USER] = [
             'admin@spryker.com' => [
-                'group' => ZedAclConfig::ROOT_GROUP,
+                'group' => AclConfig::ROOT_GROUP,
             ],
         ];
 
