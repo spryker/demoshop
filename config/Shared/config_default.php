@@ -386,7 +386,7 @@ $config[MailchimpClientConfig::MAILCHIMP_SUBSCRIBER_LIST_ID] = 'fc2fd7191f';
 
 $config[NewsletterDoiMailQueueConnectorConfig::DOI_CONFIRMATION_TEMPLATE_NAME] = 'newsletter-doi-test-template';
 $config[NewsletterDoiMailQueueConnectorConfig::DOI_CONFIRMATION_EMAIL_SUBJECT] = 'Bitte bestätigen Sie Ihre PETS DELI Newsletter-Anmeldung';
-$config[NewsletterDoiMailQueueConnectorConfig::DOI_CONFIRMATION_URL] = $config[SystemConfig::HOST_YVES] . '/newsletter/confirmation/';
+$config[NewsletterDoiMailQueueConnectorConfig::DOI_CONFIRMATION_URL] = '/newsletter/confirmation/';
 
 $config[ProductFeedConfig::PRODUCT_FEED_FILE_NAME] = 'products.csv';
 
