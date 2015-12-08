@@ -4,10 +4,12 @@ namespace Pyz\Yves\Cart\Communication\Controller;
 
 use Generated\Shared\Transfer\CartItemConfigurationTransfer;
 use Generated\Shared\Transfer\ItemConfigurationTransfer;
+use Pyz\Shared\CalculationCheckoutConnector\CalculationCheckoutConnectorConfig;
 use Pyz\Yves\Tracking\Business\DataFormatter\CartDataFormatter;
 use Pyz\Yves\Tracking\Business\Tracking;
 use Pyz\Yves\Application\Communication\Bootstrap\Extension\GlobalTemplateVariablesExtension;
 use Pyz\Yves\Cart\Communication\Plugin\CartControllerProvider;
+use SprykerEngine\Shared\Config;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Generated\Shared\Transfer\ItemTransfer;
@@ -53,6 +55,7 @@ class AjaxController extends AbstractController
         return $this->viewResponse([
             'cart' => $cart,
             'products' => $products,
+            'minimumCartValue' => Config::get(CalculationCheckoutConnectorConfig::MINIMUM_CHECKOUT_CART_VALUE),
             GlobalTemplateVariablesExtension::TWIG_TRACKING_CONTAINER => $tracking,
         ]);
     }

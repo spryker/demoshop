@@ -19,6 +19,10 @@
 
     <div class="cart-layer__upsell">&nbsp;</div>
 
+    <input id="minimumCartValue" type="hidden" value="{{ minimumCartValue }}">
+
+    <input id="totalCartForMinimumValueCheck" type="hidden" value="{{ cart.totals.grandTotalWithDiscounts }}">
+
     <div class="cart-layer__amount">
         <div class="cart-layer__total">Gesamtbetrag
             <em>{{ cart.totals.grandTotalWithDiscounts | price }}</em>
@@ -27,12 +31,10 @@
             {% include '@application/layout/common/forms/button.twig' with {
                 modifier: 'cta',
                 title: 'Weiter zur Kasse',
-                url: '/checkout/'
+                url: '#'
             } %}
         </div>
     </div>
-
-
 
 
 
