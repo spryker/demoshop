@@ -1,12 +1,14 @@
 <?php
 
 /**
-@author Michael Kugele
- */
-
-/**
+ * Notes:
+ *
+ * - jobs[]['name'] must not contains spaces or any other characters, that have to be urlencode()'d
+ * -jobs[]['role'] default value is 'admin'
+ *
  * @todo use values from config/stores.php
  */
+
 $allStores = ['DE'];
 
 /* -- MAIL QUEUE -- */
