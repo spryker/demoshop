@@ -4,8 +4,13 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "hash": "4a54cf38b81802d62632abac12844b49",
     "content-hash": "c147982da4c6f79c9af8e1e4b40f2a86",
+=======
+    "hash": "f10b8e70fdca3422360c708f1285b4d8",
+    "content-hash": "ef73b33010391cffe679cb6f502d71e2",
+>>>>>>> #332 update composer
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -1674,6 +1679,7 @@
             "time": "2015-06-30 16:10:16"
         },
         {
+<<<<<<< HEAD
             "name": "symfony/property-access",
             "version": "v2.6.12",
             "target-dir": "Symfony/Component/PropertyAccess",
@@ -1681,6 +1687,17 @@
                 "type": "git",
                 "url": "https://github.com/symfony/property-access.git",
                 "reference": "4fc7a0e50d131d8c59ef839da3ae03c50108a3bb"
+=======
+            "name": "spryker/spryker",
+            "version": "dev-feature/774-Remove-Factory",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/spryker.git",
+                "reference": "95a06f65674c8af53468cc8cb39b51ca4ba51076"
+            },
+            "require": {
+                "digital-canvas/zend-framework": ">=1.12.2"
+>>>>>>> #332 update composer
             },
             "dist": {
                 "type": "zip",
@@ -1705,6 +1722,7 @@
                     "Symfony\\Component\\PropertyAccess\\": ""
                 }
             },
+<<<<<<< HEAD
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -1733,6 +1751,9 @@
                 "reflection"
             ],
             "time": "2015-07-10 04:45:33"
+=======
+            "time": "2015-12-03 07:45:28"
+>>>>>>> #332 update composer
         },
         {
             "name": "symfony/routing",
