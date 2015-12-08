@@ -61,6 +61,12 @@
 
             <transition>
                 <source>waiting for authorise notification</source>
+                <target>customer cancelled payment</target>
+                <event>adyen redirect payment cancelled</event>
+            </transition>
+
+            <transition>
+                <source>waiting for authorise notification</source>
                 <target>clarify authorise notification not received</target>
                 <event>timeout missing authorise notification</event>
             </transition>
@@ -69,7 +75,6 @@
                 <source>clarify authorise notification not received</source>
                 <target>authorise notification received</target>
             </transition>
-
 
             <transition>
                 <source>authorise notification received</source>
