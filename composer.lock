@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "abfb36e8b4a7baff2375d19d43951889",
-    "content-hash": "bd11bdb847b326815d917914e32002cf",
+    "hash": "8b093b57ff8eb6178ed0aaeb75f541eb",
+    "content-hash": "effd92bae9ca718680afc23186a4c50b",
     "packages": [
         {
             "name": "aptoma/twig-markdown",
@@ -952,11 +952,11 @@
         },
         {
             "name": "project-a/spryker",
-            "version": "dev-develop",
+            "version": "dev-bugfix/fix-newsletter-doi-url",
             "source": {
                 "type": "git",
                 "url": "git@github.com:project-a/spryker.git",
-                "reference": "e1c2e6952435f6fcc4bc2ab90cc60d17b1f405d8"
+                "reference": "c6ddba12b4acfc490a64b7e12735c1845e709458"
             },
             "replace": {
                 "spryker/pav-console": "self.version"
@@ -974,7 +974,7 @@
                     "PavFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-12-08 07:15:53"
+            "time": "2015-12-08 09:16:42"
         },
         {
             "name": "propel/propel",
