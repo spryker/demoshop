@@ -34,7 +34,12 @@ class ImageController extends AbstractController
      */
     public function uploadAction(Request $request)
     {
-        if($request->isMethod('POST') === false) {
+        // @TODO: re-enable!
+        throw new \Exception('ImageController->uploadAction is disabled due to server settings!');
+
+
+
+        if ($request->isMethod('POST') === false) {
             throw new BadRequestHttpException('Only POST is allowed for file uploads');
         }
 
