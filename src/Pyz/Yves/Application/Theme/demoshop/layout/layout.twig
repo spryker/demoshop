@@ -24,8 +24,8 @@
         {% include "@application/layout/partials/tracking.twig" %}
     </head>
 
-    <body class="no-js">
 
+    <body class="no-js">
         {% include "@application/layout/partials/google-tag-snippet.twig" %}
 
         <noscript>
@@ -51,6 +51,7 @@
                 <div class="message message--invalid">{{ msg | trans }}</div>
             {% endfor %}
         </div>
+
 
         {{ content }}
 
