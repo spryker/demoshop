@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4a54cf38b81802d62632abac12844b49",
-    "content-hash": "c147982da4c6f79c9af8e1e4b40f2a86",
+    "hash": "65bfe7a494e1820618332e94de8cdbb5",
+    "content-hash": "d9e3c5c280a70110562a6d9f71c94941",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -700,11 +700,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-feature/SP-177-Plugins_newable",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "96a96ae62dac241d898b519417e954ef68cceaef"
+                "reference": "f47195957d311d7d7333de27dab940a2b262daa5"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -793,7 +793,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-12-08 16:34:36"
+            "time": "2015-12-09 11:57:28"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2859,16 +2859,16 @@
         },
         {
             "name": "facebook/webdriver",
-            "version": "1.0.4",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/php-webdriver.git",
-                "reference": "a6e209a309bf7cd71acf15476f40b11a25d5a79d"
+                "reference": "518a9e0635e69777f07e41619cdf5d82fae284b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/a6e209a309bf7cd71acf15476f40b11a25d5a79d",
-                "reference": "a6e209a309bf7cd71acf15476f40b11a25d5a79d",
+                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/518a9e0635e69777f07e41619cdf5d82fae284b6",
+                "reference": "518a9e0635e69777f07e41619cdf5d82fae284b6",
                 "shasum": ""
             },
             "require": {
@@ -2898,7 +2898,7 @@
                 "selenium",
                 "webdriver"
             ],
-            "time": "2015-11-03 22:17:22"
+            "time": "2015-12-08 17:04:30"
         },
         {
             "name": "guzzlehttp/guzzle",
