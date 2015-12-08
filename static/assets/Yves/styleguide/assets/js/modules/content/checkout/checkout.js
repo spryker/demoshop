@@ -436,6 +436,11 @@ $(document).ready(function () {
             $checkout.find('button[type="submit"]').prop('disabled', true);
         });
 
+
+        $('input[name="checkout[adyen_payment][payment_method]"]').change(function () {
+            scrollTo($(this), 1 , null, -20);
+        });
+
     });
 
 });

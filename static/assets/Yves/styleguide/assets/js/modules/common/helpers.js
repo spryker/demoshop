@@ -62,15 +62,9 @@ function getFormData ($form) {
 }
 
 
+// TODO: pass option object instead of parameter list
 // scroll to target jQuery object
-function scrollTo ($target, velocity, callback) {
-    if (typeof velocity === 'undefined') {
-        velocity = 1;
-    }
-
-    if (typeof callback !== 'function') {
-        callback = function () {};
-    }
+function scrollTo ($target, velocity = 1, callback = function (){} , offset = 0) {
 
     var $window, $navbarTop, $navbarBottom, $scrollable, current, target;
 
@@ -84,7 +78,7 @@ function scrollTo ($target, velocity, callback) {
 
     // TODO: header epsilon into shared variable
     $scrollable.animate({
-        scrollTop: target - $navbarBottom.outerHeight() - (target < 50 ? $navbarTop.outerHeight() : 0)
+        scrollTop: target - $navbarBottom.outerHeight() - (target < 50 ? $navbarTop.outerHeight() : 0) + offset
     }, Math.abs(current - target) * velocity, callback);
 }
 
