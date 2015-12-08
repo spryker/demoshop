@@ -120,9 +120,10 @@ class CategoryTreeInstall extends AbstractInstaller
         $idCategory = $this->createCategory($rawNode);
 
         $rootNodeTransfer = new NodeTransfer();
-        $rootNodeTransfer->setIsRoot(true);
         $rootNodeTransfer->setFkCategory($idCategory);
         $rootNodeTransfer->setNodeOrder((int) $rawNode->{self::NODE_ORDER});
+        $rootNodeTransfer->setIsRoot(true);
+        $rootNodeTransfer->setIsMain(true);
 
         $this->categoryTreeWriter->createCategoryNode($rootNodeTransfer, $this->locale);
 
@@ -137,10 +138,11 @@ class CategoryTreeInstall extends AbstractInstaller
         $idCategory = $this->createCategory($rawNode);
 
         $childNodeTransfer = new NodeTransfer();
-        $childNodeTransfer->setIsRoot(false);
         $childNodeTransfer->setFkCategory($idCategory);
         $childNodeTransfer->setFkParentCategoryNode($this->getParentId($rawNode));
         $childNodeTransfer->setNodeOrder((int) $rawNode->{self::NODE_ORDER});
+        $childNodeTransfer->setIsMain(true);
+        $childNodeTransfer->setIsRoot(false);
 
         $this->categoryTreeWriter->createCategoryNode($childNodeTransfer, $this->locale);
     }
