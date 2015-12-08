@@ -44,10 +44,10 @@ class Customer extends SprykerFeatureCustomer implements CustomerModelInterface
             $customerEntity = $this->getCustomer($customerTransfer);
         } catch (CustomerNotFoundException $e) {
             throw new CustomerNotFoundException(sprintf(
-                "id='%s' email='%s' password='%s' ",
+                'id="%s" email="%s" restore_key="%s" ',
                 $customerTransfer->getIdCustomer(),
                 $customerTransfer->getEmail(),
-                $customerTransfer->getPassword()
+                $customerTransfer->getRestorePasswordKey()
             ));
         }
         $customerTransfer->fromArray($customerEntity->toArray(), true);
