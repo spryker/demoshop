@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4a54cf38b81802d62632abac12844b49",
-    "content-hash": "c147982da4c6f79c9af8e1e4b40f2a86",
+    "hash": "b0ef10b0da51a4f87b1c68b1256f39c6",
+    "content-hash": "eb5e5c071ccc601c37024b067de21117",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -700,11 +700,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-implement-payolution-into-demoshop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "deaa9371a5e2564a8689d4e6ec2402ecf4352c7d"
+                "reference": "5dabb35640b3369b6fa1afdc0e520087c18b018c"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -793,7 +793,7 @@
                     "SprykerFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-12-07 15:41:23"
+            "time": "2015-12-08 13:06:11"
         },
         {
             "name": "symfony-cmf/routing",
@@ -3768,23 +3768,23 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "2b0112e42c338afa9ad9dfeb94d66f6d84c2f828"
+                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/2b0112e42c338afa9ad9dfeb94d66f6d84c2f828",
-                "reference": "2b0112e42c338afa9ad9dfeb94d66f6d84c2f828",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/13edfd8706462032c2f52b4b862974dd46b71c9e",
+                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "~5"
+                "phpunit/phpunit": "~4.8"
             },
             "type": "library",
             "extra": {
@@ -3816,7 +3816,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2015-12-06 07:21:36"
+            "time": "2015-12-08 07:14:41"
         },
         {
             "name": "sebastian/environment",

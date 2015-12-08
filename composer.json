@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-implement-payolution-into-demoshop",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
