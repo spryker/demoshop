@@ -35,6 +35,11 @@ class ProductTable extends SprykerProductTable
             self::OPTIONS => self::OPTIONS,
         ]);
 
+        $config->setSearchable([
+            SpyAbstractProductTableMap::COL_SKU,
+            SpyLocalizedAbstractProductAttributesTableMap::COL_NAME,
+        ]);
+
         return $config;
     }
 
