@@ -9,5 +9,4 @@ use SprykerFeature\Zed\Development\Business\Refactor\RefactorException;
 
 class NoFileFoundException extends RefactorException
 {
-
 }

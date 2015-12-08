@@ -1,15 +1,22 @@
 <?php
 
 $finder = Symfony\CS\Finder\DefaultFinder::create()
-    ->in(__DIR__ . '/src')
+    ->in(__DIR__)
     ->exclude('Generated')
     ->exclude('Propel/Base')
     ->exclude('Propel/Map')
-    ->exclude('Propel/*/Migration')
+    ->exclude('Propel/DE/Migration')
+    ->exclude('data/DE/cache')
     ->exclude('tests/_helpers')
     ->exclude('tests/_support')
     ->exclude('Presentation')
+    ->exclude('vendor')
+    ->exclude('static')
+    ->exclude('deploy')
+    ->exclude('codeception')
+    ->exclude('gulp')
     ->notName('*.twig')
+    ->notName('*.yml')
 ;
 
 return Symfony\CS\Config\Config::create()

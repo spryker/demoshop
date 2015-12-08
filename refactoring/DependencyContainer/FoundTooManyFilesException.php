@@ -10,5 +10,4 @@ use SprykerFeature\Zed\Development\Business\Refactor\RefactorException;
 
 class FoundTooManyFilesException extends RefactorException
 {
-
 }

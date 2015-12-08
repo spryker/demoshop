@@ -25,7 +25,6 @@ use Generated\Shared\Transfer\CartTransfer;
 use Generated\Shared\Transfer\TaxSetTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
 
-
 abstract class AbstractFacadeTest extends AbstractFunctionalTest
 {
 
@@ -223,7 +222,7 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
             ->setClientIp(self::CLIENT_IP)
             ->setInstallmentAmount(self::INSTALLMENT_AMOUNT)
             ->setInstallmentDuration(self::INSTALLMENT_DURATION)
-            ->setBankAccountHolder(self::FIRST_NAME.' '.self::LAST_NAME)
+            ->setBankAccountHolder(self::FIRST_NAME . ' ' . self::LAST_NAME)
             ->setBankAccountBic(self::BIC)
             ->setBankAccountIban(self::IBAN);
 
@@ -292,7 +291,7 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
             ->setDateOfBirth(self::BIRTH_DATE)
             ->setInstallmentAmount(self::INSTALLMENT_AMOUNT)
             ->setInstallmentDuration(self::INSTALLMENT_DURATION)
-            ->setBankAccountHolder(self::FIRST_NAME.' '.self::LAST_NAME)
+            ->setBankAccountHolder(self::FIRST_NAME . ' ' . self::LAST_NAME)
             ->setBankAccountBic(self::BIC)
             ->setBankAccountIban(self::IBAN);
     }

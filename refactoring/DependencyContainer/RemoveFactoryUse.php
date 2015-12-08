@@ -259,8 +259,7 @@ class RemoveFactoryUse extends AbstractRefactor
         } catch (RefactorException $exception) {
             $message = $exception->getMessage()
                 . PHP_EOL . 'Current path: ' . $directory
-                . PHP_EOL . 'Current create name: ' . $createName
-            ;
+                . PHP_EOL . 'Current create name: ' . $createName;
             throw new RefactorException($message);
         }
         $foundFiles = [];

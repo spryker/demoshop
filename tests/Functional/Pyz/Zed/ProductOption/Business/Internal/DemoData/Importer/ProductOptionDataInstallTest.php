@@ -17,7 +17,7 @@ use Orm\Zed\Product\Persistence\SpyAbstractProductQuery;
  *
  * @method ProductOptionFacade getFacade()
  */
-class ProductOptionInstallerTest extends AbstractFunctionalTest
+class ProductOptionDataInstallTest extends AbstractFunctionalTest
 {
 
     public function testImportXmlOptions()
@@ -39,16 +39,14 @@ class ProductOptionInstallerTest extends AbstractFunctionalTest
         foreach ($skus as $sku) {
             $abstractProductEntity = SpyAbstractProductQuery::create()
                 ->filterBySku($sku)
-                ->findOne()
-            ;
+                ->findOne();
 
             if (!$abstractProductEntity) {
                 $abstractProductEntity = new SpyAbstractProduct();
             }
             $abstractProductEntity
                 ->setSku($sku)
-                ->setAttributes('{}')
-            ;
+                ->setAttributes('{}');
 
             if ($abstractProductEntity->isNew()) {
                 $abstractProductEntity->save();
@@ -57,8 +55,7 @@ class ProductOptionInstallerTest extends AbstractFunctionalTest
             $concreteProductEntity = SpyProductQuery::create()
                 ->filterBySku($sku)
                 ->filterByFkAbstractProduct($abstractProductEntity->getIdAbstractProduct())
-                ->findOne()
-            ;
+                ->findOne();
 
             if (!$concreteProductEntity) {
                 $concreteProductEntity = new SpyProduct();
@@ -66,12 +63,12 @@ class ProductOptionInstallerTest extends AbstractFunctionalTest
             $concreteProductEntity
                 ->setSku($sku)
                 ->setAttributes('{}')
-                ->setSpyAbstractProduct($abstractProductEntity)
-            ;
+                ->setSpyAbstractProduct($abstractProductEntity);
 
             if ($concreteProductEntity->isNew()) {
                 $concreteProductEntity->save();
             }
         }
     }
+
 }

@@ -13,9 +13,11 @@ use Orm\Zed\Touch\Persistence\SpyTouchQuery;
  */
 class TouchTest extends Test
 {
+
     public function testDatabaseAccessWorks()
     {
         $query = SpyTouchQuery::create();
         $query->count();
     }
+
 }
