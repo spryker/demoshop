@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <maintenance>
+        <pages>
+            <current-revision>
+                <label>Current Revision</label>
+                <title>Current Revision</title>
+                <bundle>setup</bundle>
+                <controller>rev</controller>
+                <action>index</action>
+                <icon>fa-code</icon>
+            </current-revision>
+        </pages>
+    </maintenance>
+</config>
