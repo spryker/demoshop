@@ -30,14 +30,14 @@
                 <action>index</action>
                 <icon>fa-link</icon>
             </redirects>
-            <images>
+            <!--images> TODO: File upload does not work right now.
                 <label>Images</label>
                 <title>Images</title>
                 <bundle>cms</bundle>
                 <controller>image</controller>
                 <action>index</action>
                 <icon>fa-file-picture-o</icon>
-            </images>
+            </images-->
             <translations>
                 <label>Translations</label>
                 <title>Translations</title>
