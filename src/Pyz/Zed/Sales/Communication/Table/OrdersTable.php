@@ -56,7 +56,7 @@ class OrdersTable extends SprykerOrdersTable
             $results[] = [
                 SpySalesOrderTableMap::COL_ID_SALES_ORDER => $item[SpySalesOrderTableMap::COL_ID_SALES_ORDER],
                 SpySalesOrderTableMap::COL_ORDER_REFERENCE => $item[SpySalesOrderTableMap::COL_ORDER_REFERENCE],
-                SpySalesOrderTableMap::COL_CREATED_AT => $item[SpySalesOrderTableMap::COL_CREATED_AT],
+                SpySalesOrderTableMap::COL_CREATED_AT => (new \DateTime($item[SpySalesOrderTableMap::COL_CREATED_AT]))->format('d.m.Y H:i:s'),
                 SpySalesOrderTableMap::COL_EMAIL => $item[SpySalesOrderTableMap::COL_EMAIL],
                 SpySalesOrderTableMap::COL_FIRST_NAME => $item[SpySalesOrderTableMap::COL_FIRST_NAME] . ' ' . $item[SpySalesOrderTableMap::COL_LAST_NAME],
                 SpySalesOrderTableMap::COL_GRAND_TOTAL => $this->formatPrice($item[SpySalesOrderTableMap::COL_GRAND_TOTAL]),

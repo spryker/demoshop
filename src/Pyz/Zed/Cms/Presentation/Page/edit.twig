@@ -1,0 +1,60 @@
+{% extends '@Gui/Layout/layout.twig' %}
+
+{% set widget_title = 'Edit a Cms page' %}
+
+{% block head_title widget_title %}
+{% block section_title widget_title %}
+
+{% block action %}
+    {{ backActionButton('/cms/page/', 'Back to CMS' | trans) }}
+    {{ createActionButton('/cms/page/add/', 'Add CMS Page' | trans) }}
+{% endblock %}
+
+
+{% block content %}
+
+    <div id="spy-cms" class="glossary">
+    {% if isSynced %}
+        <div class="alert">
+            <div class="green">New template(s) detected and added to the template list.</div>
+        </div>
+    {% endif %}
+
+    {% embed '@Gui/Partials/widget.twig' %}
+
+        {% block widget_content %}
+
+            {{ form_start(form) }}
+
+                {{ form_widget(form) }}
+
+                <input type="submit" class="btn btn-primary" value="{{ 'Save' | trans }}" />
+
+            {{ form_end(form) }}
+
+        {% endblock %}
+
+    {% endembed %}
+
+    {% embed '@Gui/Partials/widget.twig' with { widget_title: 'CMS blocks' } %}
+
+        {% block widget_content %}
+
+            {{ blocks | raw }}
+
+            {{ createActionButton('/cms/page-block/add/?id-page=' ~ idPage , 'Add CMS Block' | trans) }}
+
+        {% endblock %}
+
+    {% endembed %}
+
+</div>
+
+{% endblock %}
+
+{% block footer_js %}
+    {{ parent() }}
+    <script>
+        $('.spryker-form-select2combobox').select2();
+    </script>
+{% endblock %}

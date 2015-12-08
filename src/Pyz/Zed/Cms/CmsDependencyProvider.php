@@ -21,6 +21,8 @@ class CmsDependencyProvider extends PavCmsDependencyProvider
     const FACADE_FILE_UPLOAD = 'file upload facade';
 
     const FACADE_CMS_BLOCK = 'cms block facade';
+    const QUERY_CONTAINER_CATEGORY_CMS = 'category query container';
+    const QUERY_CONTAINER_PRODUCT = 'product query container';
 
     /**
      * @param Container $container
@@ -69,6 +71,18 @@ class CmsDependencyProvider extends PavCmsDependencyProvider
 
         $container[self::FACADE_GLOSSARY] = function (Container $container) {
             return $container->getLocator()->glossary()->facade();
+        };
+
+        $container[self::QUERY_CONTAINER_CATEGORY_CMS] = function (Container $container) {
+            return $container->getLocator()->categoryCmsConnector()->queryContainer();
+        };
+
+        $container[self::QUERY_CONTAINER_PRODUCT] = function (Container $container) {
+            return $container->getLocator()->product()->queryContainer();
+        };
+
+        $container[self::FACADE_URL] = function (Container $container) {
+            return $container->getLocator()->url()->facade();
         };
 
         return $container;

@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Product\Persistence;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use Orm\Zed\Cms\Persistence\Map\SpyCmsPageTableMap;
 use Orm\Zed\Product\Persistence\Base\SpyProductQuery;
 use Orm\Zed\Product\Persistence\Map\SpyAbstractProductTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyLocalizedAbstractProductAttributesTableMap;
@@ -177,6 +178,35 @@ class ProductQueryContainer extends SprykerProductQueryContainer implements Spry
             )
             ->groupBy(SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT)
         ;
+    }
+
+    /**
+     * @param int $idLocale
+     *
+     * @return SpyLocalizedAbstractProductAttributesQuery
+     */
+    public function queryAbstractProductAttributesNotLinkedToPage($idLocale, $idPage)
+    {
+        $query = SpyLocalizedAbstractProductAttributesQuery::create()
+            ->filterByFkLocale($idLocale)
+            ->joinSpyAbstractProduct()
+            ->addJoin(
+                SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
+                SpyCmsPageTableMap::COL_FK_ABSTRACT_PRODUCT,
+                Criteria::LEFT_JOIN
+            )
+            ->addAnd(
+                SpyCmsPageTableMap::COL_ID_CMS_PAGE,
+                null,
+                Criteria::ISNULL
+            )
+            ->addOr(
+                SpyCmsPageTableMap::COL_ID_CMS_PAGE,
+                $idPage
+            )
+        ;
+
+        return $query;
     }
 
 }

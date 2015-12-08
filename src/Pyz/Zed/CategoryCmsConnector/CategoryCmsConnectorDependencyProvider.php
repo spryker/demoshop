@@ -9,6 +9,7 @@ class CategoryCmsConnectorDependencyProvider extends PavFeatureCategoryCmsConnec
 {
 
     const FACADE_CMS = 'cms facade';
+    const QUERY_CONTAINER_CATEGORY = 'category query container';
 
     /**
      * @param Container $container
@@ -20,15 +21,24 @@ class CategoryCmsConnectorDependencyProvider extends PavFeatureCategoryCmsConnec
         $container[self::FACADE_CMS] = function (Container $container) {
             return $container->getLocator()->cms()->facade();
         };
-
-        $container['category query container'] = function (Container $container) {
-            return $container->getLocator()->cms()->facade();
-        };
-
     }
 
     public function provideCommunicationLayerDependencies(Container $container)
     {
 
+    }
+
+    /**
+     * @param Container $container
+     *
+     * @return Container
+     */
+    public function providePersistenceLayerDependencies(Container $container)
+    {
+        $container[self::QUERY_CONTAINER_CATEGORY] = function (Container $container) {
+            return $container->getLocator()->category()->queryContainer();
+        };
+
+        return $container;
     }
 }
