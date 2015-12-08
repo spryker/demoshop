@@ -293,8 +293,10 @@ class CheckoutController extends AbstractController
             ->setCurrencyIso3Code(CurrencyManager::getInstance()->getDefaultCurrency()->getIsoCode())
             ->setLanguageIso2Code($billingAddress->getIso2Code())
             ->setGender(self::$payolutionGenderMapper[$billingAddress->getSalutation()])
-            ->setClientIp($request->getClientIp())
-            ->getAddress()->setEmail($this->checkoutRequestTransfer->getEmail());
+            ->setClientIp($request->getClientIp());
+
+        $payolutionPaymentTransfer->getAddress()
+            ->setEmail($this->checkoutRequestTransfer->getEmail());
 
         if ($payolutionPaymentTransfer->getAccountBrand() === PayolutionApiConstants::BRAND_INSTALLMENT) {
             $this->setPayolutionInstallmentPayment($payolutionPaymentTransfer);
