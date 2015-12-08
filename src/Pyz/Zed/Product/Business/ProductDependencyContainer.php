@@ -21,10 +21,6 @@ use Psr\Log\LoggerInterface;
 use Pyz\Zed\Product\Business\Internal\DemoData\ProductDataInstall;
 use Pyz\Zed\Product\ProductConfig;
 
-/**
- * @method ProductBusiness getFactory()
- * @method ProductConfig getConfig()
- */
 class ProductDependencyContainer extends SprykerDependencyContainer
 {
 

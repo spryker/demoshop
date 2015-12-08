@@ -8,9 +8,6 @@ use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\Exceptio
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionService\SubRequestExceptionHandler;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * @method ApplicationCommunication getFactory()
- */
 class ApplicationDependencyContainer extends SprykerApplicationDependencyContainer
 {
 

@@ -11,9 +11,6 @@ use Silex\Application;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 use Pyz\Yves\Twig\Communication\Model\YvesExtension;
 
-/**
- * @method TwigCommunication getFactory()
- */
 class TwigDependencyContainer extends AbstractCommunicationDependencyContainer
 {
 

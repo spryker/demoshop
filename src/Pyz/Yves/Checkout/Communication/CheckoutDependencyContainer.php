@@ -14,9 +14,6 @@ use SprykerFeature\Client\Payolution\Service\PayolutionClientInterface;
 use SprykerFeature\Client\Shipment\Service\ShipmentClientInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-/**
- * @method CheckoutCommunication getFactory()
- */
 class CheckoutDependencyContainer extends AbstractCommunicationDependencyContainer
 {
 

@@ -17,9 +17,6 @@ use Pyz\Yves\Assets\Communication\Model\AssetUrlBuilderInterface;
 use Pyz\Yves\Assets\Communication\Model\CacheBusterInterface;
 use Pyz\Yves\Assets\Communication\Model\MediaUrlBuilderInterface;
 
-/**
- * @method AssetsCommunication getFactory()
- */
 class AssetsDependencyContainer extends AbstractCommunicationDependencyContainer
 {
 

@@ -14,9 +14,6 @@ use SprykerFeature\Client\Collector\Service\Matcher\UrlMatcher;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 use Silex\Application;
 
-/**
- * @method CollectorCommunication getFactory()
- */
 class CollectorDependencyContainer extends AbstractCommunicationDependencyContainer
 {
 

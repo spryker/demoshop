@@ -12,9 +12,6 @@ use Generated\Yves\Ide\FactoryAutoCompletion\GlossaryCommunication;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 use SprykerFeature\Client\Glossary\Service\GlossaryClientInterface;
 
-/**
- * @method GlossaryCommunication getFactory()
- */
 class GlossaryDependencyContainer extends AbstractCommunicationDependencyContainer
 {
 

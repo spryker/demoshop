@@ -16,9 +16,6 @@ use Pyz\Yves\Customer\Communication\Form\RegisterCustomer;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 use SprykerFeature\Client\Customer\Service\CustomerClient;
 
-/**
- * @method CustomerCommunication getFactory()
- */
 class CustomerDependencyContainer extends AbstractCommunicationDependencyContainer
 {
 

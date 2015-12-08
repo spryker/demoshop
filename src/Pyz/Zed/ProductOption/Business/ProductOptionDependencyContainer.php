@@ -30,7 +30,6 @@ use Pyz\Zed\ProductOption\ProductOptionDependencyProvider;
 use SprykerFeature\Zed\ProductOption\Business\Model\DataImportWriterInterface;
 
 /**
- * @method ProductOptionBusiness getFactory()
  * @method ProductOptionConfig getConfig()
  */
 class ProductOptionDependencyContainer extends SprykerDependencyContainer

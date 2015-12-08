@@ -11,9 +11,6 @@ use SprykerEngine\Shared\Kernel\Store;
 use SprykerEngine\Zed\Kernel\Business\AbstractBusinessDependencyContainer;
 use SprykerFeature\Zed\Mail\Business\MailFacade;
 
-/**
- * @method MailQueueBusiness getFactory()
- */
 class MailQueueDependencyContainer extends AbstractBusinessDependencyContainer
 {
 

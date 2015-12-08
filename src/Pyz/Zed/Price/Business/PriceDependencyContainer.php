@@ -11,9 +11,6 @@ use SprykerFeature\Zed\Price\Business\PriceDependencyContainer as SprykerPriceDe
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Price\Business\Internal\DemoData\PriceInstall;
 
-/**
- * @method PriceBusiness getFactory()
- */
 class PriceDependencyContainer extends SprykerPriceDependencyContainer
 {
 

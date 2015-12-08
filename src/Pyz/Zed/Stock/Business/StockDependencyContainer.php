@@ -12,7 +12,6 @@ use Psr\Log\LoggerInterface;
 use Pyz\Zed\Stock\Business\Internal\DemoData\StockInstall;
 
 /**
- * @method StockBusiness getFactory()
  * @method StockQueryContainer getQueryContainer()
  */
 class StockDependencyContainer extends SprykerStockDependencyContainer
