@@ -1,9 +1,80 @@
 {% extends "@Application/layout/layout.twig" %}
 
 {% block content %}
+
+    <div class="homepage-gallery">
+        <div class="row col--height-3">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6">
+                        {% include "@application/index/partials/homepage-thumbnail.twig" with {
+                            width: "page.home.featured.top-left.left.width"| trans,
+                            height: "page.home.featured.top-left.left.height" | trans,
+                            name: "page.home.featured.top-left.left.name"| trans,
+                            category: "page.home.featured.top-left.left.category" | trans,
+                            img: "page.home.featured.top-left.left.img"| trans,
+                            url: "page.home.featured.top-left.left.url" | trans
+                        } %}
+                    </div>
+                    <div class="col-md-6">
+                        {% include "@application/index/partials/homepage-thumbnail.twig" with {
+                            width: "page.home.featured.top-left.right.width"| trans,
+                            height: "page.home.featured.top-left.right.height" | trans,
+                            name: "page.home.featured.top-left.right.name"| trans,
+                            category: "page.home.featured.top-left.right.category" | trans,
+                            img: "page.home.featured.top-left.right.img"| trans,
+                            url: "page.home.featured.top-left.right.url" | trans
+                        } %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                {% include "@application/index/partials/homepage-thumbnail.twig" with {
+                    width: "page.home.featured.top-right.first.width"| trans,
+                    height: "page.home.featured.top-right.first.height" | trans,
+                    img: "page.home.featured.top-right.first.img"| trans,
+                    url: "page.home.featured.top-right.first.url" | trans
+                } %}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row col--height-1">
+                    <div class="col-md-12">
+                        {% include "@application/index/partials/homepage-thumbnail.twig" with { width: "page.home.featured.bottom-left.top.width"| trans, height: "page.home.featured.bottom-left.top.height" | trans, name: "page.home.featured.bottom-left.top.name"| trans, category: "page.home.featured.bottom-left.top.category" | trans, img: "page.home.featured.bottom-left.top.img"| trans, url: "page.home.featured.bottom-left.top.url" | trans } %}
+                    </div>
+                    <div class="col-md-12">
+                        {% include "@application/index/partials/homepage-thumbnail.twig" with { width: "page.home.featured.bottom-left.bottom.width"| trans, height: "page.home.featured.bottom-left.bottom.height" | trans, name: "page.home.featured.bottom-left.bottom.name"| trans, category: "page.home.featured.bottom-left.bottom.category" | trans, img: "page.home.featured.bottom-left.bottom.img"| trans, url: "page.home.featured.bottom-left.bottom.url" | trans } %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row col--height-2">
+                    <div class="col-md-6">
+                        {% include "@application/index/partials/homepage-thumbnail.twig" with { width: "page.home.featured.bottom-right.left.width"| trans, height: "page.home.featured.bottom-right.left.height" | trans, name: "page.home.featured.bottom-right.left.name"| trans, category: "page.home.featured.bottom-right.left.category" | trans, img: "page.home.featured.bottom-right.left.img"| trans, url: "page.home.featured.bottom-right.left.url" | trans } %}
+                    </div>
+                    <div class="col-md-6">
+                        {% include "@application/index/partials/homepage-thumbnail.twig" with { width: "page.home.featured.bottom-right.right.width"| trans, height: "page.home.featured.bottom-right.right.height" | trans, name: "page.home.featured.bottom-right.right.name"| trans, category: "page.home.featured.bottom-right.right.category" | trans, img: "page.home.featured.bottom-right.right.img"| trans, url: "page.home.featured.bottom-right.right.url" | trans } %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {#
+    @todo remove commented code
     <div class="featured-products">
         <div class="featured-products__quarter">
-            {% include "@application/index/partials/featured.twig" with { width: "page.home.featured.top-left.left.width"| trans, height: "page.home.featured.top-left.left.height" | trans, name: "page.home.featured.top-left.left.name"| trans, category: "page.home.featured.top-left.left.category" | trans, img: "page.home.featured.top-left.left.img"| trans, url: "page.home.featured.top-left.left.url" | trans } %}
+            {% include "@application/index/partials/featured.twig" with {
+                width: "page.home.featured.top-left.left.width"| trans,
+                height: "page.home.featured.top-left.left.height" | trans,
+                name: "page.home.featured.top-left.left.name"| trans,
+                category: "page.home.featured.top-left.left.category" | trans,
+                img: "page.home.featured.top-left.left.img"| trans,
+                url: "page.home.featured.top-left.left.url" | trans
+            } %}
             {% include "@application/index/partials/featured.twig" with { width: "page.home.featured.top-left.right.width"| trans, height: "page.home.featured.top-left.right.height" | trans, name: "page.home.featured.top-left.right.name"| trans, category: "page.home.featured.top-left.right.category" | trans, img: "page.home.featured.top-left.right.img"| trans, url: "page.home.featured.top-left.right.url" | trans } %}
         </div>
         <div class="featured-products__quarter js-featured-carousel">
@@ -19,15 +90,6 @@
             {% include "@application/index/partials/featured.twig" with { width: "page.home.featured.bottom-right.right.width"| trans, height: "page.home.featured.bottom-right.right.height" | trans, name: "page.home.featured.bottom-right.right.name"| trans, category: "page.home.featured.bottom-right.right.category" | trans, img: "page.home.featured.bottom-right.right.img"| trans, url: "page.home.featured.bottom-right.right.url" | trans } %}
         </div>
     </div>
+    #}
+
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
