@@ -348,7 +348,7 @@ class AfterbuyExportManager
         $concreteProduct = $this->productFacade->getConcreteProductByConcreteSku($item->getSku());
         $productUrl = $this->urlFacade->getUrlByAbstractProductId($abstractProductId);
         $postData[AfterbuyConstants::ITEM_LINK . $numberOfItems] = $this->orderExporterConfig->getYvesHost() . $productUrl->getUrl();
-        $postData[AfterbuyConstants::ITEM_WEIGHT . $numberOfItems] = $this->getProductWeight($concreteProduct);
+        $postData[AfterbuyConstants::ITEM_WEIGHT . $numberOfItems] = $this->convertDecimalDotToDecimalComma($this->getProductWeight($concreteProduct));
 
         return $postData;
     }
