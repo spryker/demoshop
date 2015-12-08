@@ -1,0 +1,6 @@
+<article class="homepage-thumbnail" style="background-image: url('{{ img }}');">
+    <a href="{{ url }}" class="thumbnail-url">
+        {% if name is defined %}<h1>{{ name }}</h1>{% endif %}
+        {% if name is defined %}<h2>{{ category }}</h2>{% endif %}
+    </a>
+</article>
