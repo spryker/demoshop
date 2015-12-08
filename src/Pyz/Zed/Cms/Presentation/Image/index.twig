@@ -30,9 +30,12 @@
         {% embed '@Gui/Partials/widget.twig' with { widget_title: 'Upload CMS file' } %}
             {% block widget_content %}
 
+                {# The server is NOT ready for file uploads yet #}
+                <div style="color: #900;">The file upload is currently disabled!</div>
+
                 <form action="/cms/image/upload" method="post" enctype="multipart/form-data">
-                    <input type="file" name="{{ file_request }}">
-                    <input type="submit">
+                    <input type="file" name="{{ file_request }}" disabled>
+                    <input type="submit" disabled>
                 </form>
 
             {% endblock %}
