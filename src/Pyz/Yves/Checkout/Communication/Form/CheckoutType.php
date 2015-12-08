@@ -84,9 +84,8 @@ class CheckoutType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'tabindex' => 100,
-                    'class' => 'padded js-checkout-email',
+                    'class' => 'padded js-checkout-email input_field field_left',
                     'placeholder' => 'customer.email',
-                    'style' => 'width: 49%; clear: none; float: left;',
                 ],
             ])
             ->add(self::FIELD_BILLING_ADDRESS, new AddressType(200), [

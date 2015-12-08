@@ -78,8 +78,7 @@ class PayolutionType extends AbstractType
                 'empty_value' => false,
                 'attr' => [
                     'tabindex' => 100 + $this->tabIndexOffset,
-                    'style' => 'width: 100%; height: 65px; border: solid 1px #c3bec2;',
-                    'class' => 'js-payolution-installment',
+                    'class' => 'js-payolution-installment input_field field_full_size',
                 ],
             ])
             ->add(self::FIELD_DATE_OF_BIRTH, 'birthday', [
@@ -90,8 +89,7 @@ class PayolutionType extends AbstractType
                 'input' => 'string',
                 'attr' => [
                     'placeholder' => 'customer.birth_date',
-                    'class' => 'padded js-checkout-payolution-payment-date-of-birth',
-                    'style' => 'width: 49%; float: left;',
+                    'class' => 'padded js-checkout-payolution-payment-date-of-birth input_field field_left',
                     'tabindex' => 101 + $this->tabIndexOffset,
                 ],
             ])
@@ -101,8 +99,7 @@ class PayolutionType extends AbstractType
                 'property_path' => 'address.phone',
                 'attr' => [
                     'placeholder' => 'customer.phone',
-                    'class' => 'padded js-checkout-payolution-payment-phone',
-                    'style' => 'width: 49%; clear: none; float: right;',
+                    'class' => 'padded js-checkout-payolution-payment-phone input_field field_right',
                     'tabindex' => 102 + $this->tabIndexOffset,
                 ],
             ])
@@ -111,8 +108,7 @@ class PayolutionType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'Bank account holder',
-                    'class' => 'padded js-payolution-installment',
-                    'style' => 'width: 49%; float: left;',
+                    'class' => 'padded js-payolution-installment input_field field_left',
                     'tabindex' => 103 + $this->tabIndexOffset,
                 ],
             ])
@@ -121,8 +117,7 @@ class PayolutionType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'Bank account IBAN',
-                    'class' => 'padded js-payolution-installment',
-                    'style' => 'width: 49%; clear: none; float: right;',
+                    'class' => 'padded js-payolution-installment input_field field_right',
                     'tabindex' => 104 + $this->tabIndexOffset,
                 ],
             ])
@@ -131,8 +126,7 @@ class PayolutionType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'Bank account BIC',
-                    'class' => 'padded js-payolution-installment',
-                    'style' => 'width: 49%; clear: none; float: left;',
+                    'class' => 'padded js-payolution-installment input_field field_left',
                     'tabindex' => 105 + $this->tabIndexOffset,
                 ],
             ]);

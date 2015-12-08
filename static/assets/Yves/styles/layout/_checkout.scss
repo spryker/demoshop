@@ -167,6 +167,26 @@
     color: $muted-color;
   }
 
+  .input_field {
+    height: 65px;
+    border: solid 1px #c3bec2;
+  }
+
+  .field_full_size {
+    width: 100%;
+  }
+
+  .field_left {
+    float: left;
+    width: 48%;
+  }
+
+  .field_right {
+    float: right;
+    clear: none;
+    width: 48%;
+  }
+
 }
 
 .checkout__form-block {

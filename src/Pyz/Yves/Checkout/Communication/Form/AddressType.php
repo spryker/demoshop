@@ -59,7 +59,7 @@ class AddressType extends AbstractType
                 'empty_value' => false,
                 'attr' => [
                     'tabindex' => 10 + $this->offset,
-                    'style' => 'width: 49%; float: right; height: 65px; border: solid 1px #c3bec2;',
+                    'class' => 'input_field field_right',
                 ],
             ])
             ->add(self::FIELD_FIRST_NAME, 'text', [
@@ -70,9 +70,8 @@ class AddressType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'tabindex' => 11 + $this->offset,
-                    'class' => 'padded js-checkout-name',
+                    'class' => 'padded js-checkout-name input_field field_left',
                     'placeholder' => 'customer.first_name',
-                    'style' => 'width: 49%; float: left;',
                 ],
             ])
             ->add(self::FIELD_LAST_NAME, 'text', [
@@ -83,9 +82,8 @@ class AddressType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'tabindex' => 12 + $this->offset,
-                    'class' => 'padded js-checkout-name',
+                    'class' => 'padded js-checkout-name input_field field_right',
                     'placeholder' => 'customer.last_name',
-                    'style' => 'width: 49%; clear: none; float: right;',
                 ],
             ])
             ->add(self::FIELD_STREET, 'text', [
@@ -97,9 +95,8 @@ class AddressType extends AbstractType
                 'property_path' => 'address1',
                 'attr' => [
                     'tabindex' => 13 + $this->offset,
-                    'class' => 'padded js-checkout-name',
+                    'class' => 'padded js-checkout-name input_field field_left',
                     'placeholder' => 'address.street',
-                    'style' => 'width: 49%; float: left;',
                 ],
             ])
             ->add(self::FIELD_STREET_NR, 'text', [
@@ -111,9 +108,8 @@ class AddressType extends AbstractType
                 'property_path' => 'address2',
                 'attr' => [
                     'tabindex' => 14 + $this->offset,
-                    'class' => 'padded js-checkout-name',
+                    'class' => 'padded js-checkout-name input_field field_right',
                     'placeholder' => 'address.street_nr',
-                    'style' => 'width: 49%; float: right;  clear: none;',
                 ],
             ])
             ->add(self::FIELD_ZIP_CODE, 'text', [
@@ -124,9 +120,8 @@ class AddressType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'tabindex' => 15 + $this->offset,
-                    'class' => 'padded js-checkout-name',
+                    'class' => 'padded js-checkout-name input_field field_left',
                     'placeholder' => 'address.zip_code',
-                    'style' => 'width: 49%; float: left;',
                 ],
             ])
             ->add(self::FIELD_CITY, 'text', [
@@ -137,9 +132,8 @@ class AddressType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'tabindex' => 16 + $this->offset,
-                    'class' => 'padded js-checkout-name',
+                    'class' => 'padded js-checkout-name input_field field_right',
                     'placeholder' => 'address.city',
-                    'style' => 'width: 49%; float: right; clear: none;',
                 ],
             ])
             ->add(self::FIELD_ISO_2_CODE, 'hidden', [
