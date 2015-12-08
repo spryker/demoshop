@@ -166,7 +166,7 @@ $(document).ready(function () {
                 quantityString = (quantity > 1) ? 'Produkte' : 'Produkt';
                 messageService.add({
                     type: 'valid message--cart',
-                    message: `${quantity} ${quantityString} zum <a href="/checkout/">Warenkorb</a> hinzugefügt.`
+                    message: `${quantity} ${quantityString} zum <a class="js-open-cart" href="/checkout/">Warenkorb</a> hinzugefügt.`
                 });
 
                 $(document).trigger(EVENTS.UPDATE_CART);
