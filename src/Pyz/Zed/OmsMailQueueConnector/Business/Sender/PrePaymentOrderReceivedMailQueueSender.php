@@ -18,17 +18,14 @@ class PrePaymentOrderReceivedMailQueueSender extends PavPrePaymentOrderReceivedM
      */
     public function formatPSP($psp)
     {
-        if(preg_match('#^[0-9]{16}$#', $psp))
-        {
+        if (preg_match('#^[0-9]{16}$#', $psp)) {
             return substr($psp, 0, 3) . '-' .
-                   substr($psp, 3, 4) . '-' .
-                   substr($psp, 7, 4) . '-' .
-                   substr($psp, 11, 5);
+            substr($psp, 3, 4) . '-' .
+            substr($psp, 7, 4) . '-' .
+            substr($psp, 11, 5);
+        } else {
+            return false;
         }
-       else
-       {
-           return false;
-       }
     }
 
     /**
@@ -42,17 +39,15 @@ class PrePaymentOrderReceivedMailQueueSender extends PavPrePaymentOrderReceivedM
         $adyenPayment = $orderEntity->getPavPaymentAdyens()->getFirst();
         $psp = $adyenPayment->getPspReference();
 
-        if(empty($psp) === false
-            && $this->formatPSP($psp) !== false)
-        {
-            $mailRecipientTransfer = new MailRecipientTransfer();
-            $mailRecipientTransfer->setMergeVars(
-                array_merge(
-                    ['psp' => $this->formatPSP($psp)],
-                    $this->getOrderMergeVars($orderEntity)
-                )
-            );
-            $mailTransfer->addRecipient($mailRecipientTransfer);
+        if (empty($psp) === false
+            && $this->formatPSP($psp) !== false
+        ) {
+            $mergeVars = $this->getOrderMergeVars($orderEntity);
+            $mergeVars['psp'] = $this->formatPSP($psp);
+            $recipients = $mailTransfer->getRecipients();
+            foreach ($recipients as $mailRecipientTransfer) {
+                $mailRecipientTransfer->setMergeVars($mergeVars);
+            }
 
             return $mailTransfer;
         }
