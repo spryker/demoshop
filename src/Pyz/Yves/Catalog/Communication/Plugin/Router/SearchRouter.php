@@ -15,7 +15,6 @@ use SprykerEngine\Yves\Kernel\Communication\BundleControllerAction;
 use SprykerEngine\Yves\Kernel\Communication\Controller\RouteNameResolver;
 use SprykerEngine\Yves\Kernel\Communication\ControllerLocator;
 use Pyz\Yves\Catalog\Communication\CatalogDependencyContainer;
-
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;

@@ -2,6 +2,23 @@
 
 namespace Pyz\Zed\Collector\Business;
 
+use SprykerFeature\Zed\Collector\Business\Internal\InstallElasticsearch;
+use SprykerFeature\Zed\Collector\Business\Exporter\KeyBuilder\SearchMarkerKeyBuilder;
+use SprykerFeature\Zed\Collector\Business\Exporter\Reader\Search\ElasticsearchMarkerReader;
+use SprykerFeature\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchMarkerWriter;
+use SprykerFeature\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchUpdateWriter;
+use SprykerFeature\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchWriter;
+use SprykerFeature\Zed\Collector\Business\Exporter\SearchCollector;
+use SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdater as KeyValueTouchUpdater;
+use SprykerFeature\Zed\Collector\Business\Exporter\Writer\Search\TouchUpdater;
+use SprykerFeature\Zed\Collector\Business\Model\BatchResult;
+use SprykerFeature\Zed\Collector\Business\Model\FailedResult;
+use SprykerFeature\Zed\Collector\Business\Exporter\KeyBuilder\KvMarkerKeyBuilder;
+use SprykerFeature\Zed\Collector\Business\Exporter\Reader\KeyValue\RedisReader;
+use SprykerFeature\Zed\Collector\Business\Exporter\ExportMarker;
+use SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\RedisWriter;
+use SprykerFeature\Zed\Collector\Business\Exporter\KeyValueCollector;
+use SprykerFeature\Zed\Collector\Business\Exporter\Collector;
 use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector;
 use Pyz\Zed\Collector\Business\Storage\BlockCollector;
 use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector;
@@ -25,7 +42,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     public function createSearchProductCollector()
     {
-        $searchProductCollector = new \Pyz\Zed\Collector\Business\Search\ProductCollector(
+        $searchProductCollector = new SearchProductCollector(
             $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRICE),
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRICE),
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY),
@@ -43,7 +60,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     public function createStorageCategoryNodeCollector()
     {
-        $storageCategoryNodeCollector = new \Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector(
+        $storageCategoryNodeCollector = new CategoryNodeCollector(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY)
         );
         $storageCategoryNodeCollector->setTouchQueryContainer(
@@ -58,7 +75,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     public function createStorageNavigationCollector()
     {
-        $storageNavigationCollector = new \Pyz\Zed\Collector\Business\Storage\NavigationCollector(
+        $storageNavigationCollector = new NavigationCollector(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY)
         );
         $storageNavigationCollector->setTouchQueryContainer(
@@ -73,7 +90,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     public function createStoragePageCollector()
     {
-        $storagePageCollector = new \Pyz\Zed\Collector\Business\Storage\PageCollector();
+        $storagePageCollector = new PageCollector();
 
         $storagePageCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
@@ -87,7 +104,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     public function createStorageProductCollector()
     {
-        $storageProductCollector = new \Pyz\Zed\Collector\Business\Storage\ProductCollector(
+        $storageProductCollector = new ProductCollector(
             $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRICE),
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRICE),
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY),
@@ -105,7 +122,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     public function createStorageRedirectCollector()
     {
-        $storageRedirectCollector = new \Pyz\Zed\Collector\Business\Storage\RedirectCollector();
+        $storageRedirectCollector = new RedirectCollector();
 
         $storageRedirectCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
@@ -119,7 +136,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     public function createStorageTranslationCollector()
     {
-        $storageTranslationCollector = new \Pyz\Zed\Collector\Business\Storage\TranslationCollector();
+        $storageTranslationCollector = new TranslationCollector();
 
         $storageTranslationCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
@@ -133,7 +150,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     public function createStorageUrlCollector()
     {
-        $storageUrlCollector = new \Pyz\Zed\Collector\Business\Storage\UrlCollector();
+        $storageUrlCollector = new UrlCollector();
 
         $storageUrlCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
@@ -147,19 +164,18 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     public function createStorageBlockCollector()
     {
-        $collector = new \Pyz\Zed\Collector\Business\Storage\BlockCollector();
+        $collector = new BlockCollector();
         $collector->setTouchQueryContainer($this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH));
 
         return $collector;
     }
-
 
     /**
      * @return Collector
      */
     public function createYvesKeyValueExporter()
     {
-        return new \SprykerFeature\Zed\Collector\Business\Exporter\Collector(
+        return new Collector(
                     $this->createTouchQueryContainer(),
                     $this->createKeyValueExporter()
                 );
@@ -170,7 +186,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     protected function createKeyValueExporter()
     {
-        $keyValueExporter = new \SprykerFeature\Zed\Collector\Business\Exporter\KeyValueCollector(
+        $keyValueExporter = new KeyValueCollector(
                     $this->createTouchQueryContainer(),
                     $this->createKeyValueWriter(),
                     $this->createKeyValueMarker(),
@@ -179,11 +195,11 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
                     $this->createExporterWriterKeyValueTouchUpdater()
                 );
 
-                foreach ($this->getProvidedDependency(CollectorDependencyProvider::STORAGE_PLUGINS) as $touchItemType => $collectorPlugin) {
-                    $keyValueExporter->addCollectorPlugin($touchItemType, $collectorPlugin);
-                }
+        foreach ($this->getProvidedDependency(CollectorDependencyProvider::STORAGE_PLUGINS) as $touchItemType => $collectorPlugin) {
+            $keyValueExporter->addCollectorPlugin($touchItemType, $collectorPlugin);
+        }
 
-                return $keyValueExporter;
+        return $keyValueExporter;
     }
 
     /**
@@ -191,7 +207,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     protected function createKeyValueWriter()
     {
-        return new \SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\RedisWriter(
+        return new RedisWriter(
                     StorageInstanceBuilder::getStorageReadWriteInstance()
                 );
     }
@@ -201,7 +217,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     public function createKeyValueMarker()
     {
-        return new \SprykerFeature\Zed\Collector\Business\Exporter\ExportMarker(
+        return new ExportMarker(
                     $this->createKeyValueWriter(),
                     $this->createRedisReader(),
                     $this->createKvMarkerKeyBuilder()
@@ -213,7 +229,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     protected function createRedisReader()
     {
-        return new \SprykerFeature\Zed\Collector\Business\Exporter\Reader\KeyValue\RedisReader(
+        return new RedisReader(
                     StorageInstanceBuilder::getStorageReadWriteInstance()
                 );
     }
@@ -223,7 +239,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     protected function createKvMarkerKeyBuilder()
     {
-        return new \SprykerFeature\Zed\Collector\Business\Exporter\KeyBuilder\KvMarkerKeyBuilder();
+        return new KvMarkerKeyBuilder();
     }
 
     /**
@@ -231,7 +247,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     protected function createFailedResultModel()
     {
-        return new \SprykerFeature\Zed\Collector\Business\Model\FailedResult();
+        return new FailedResult();
     }
 
     /**
@@ -239,7 +255,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     protected function createBatchResultModel()
     {
-        return new \SprykerFeature\Zed\Collector\Business\Model\BatchResult();
+        return new BatchResult();
     }
 
     /**
@@ -247,7 +263,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     protected function createExporterWriterSearchTouchUpdater()
     {
-        return new \SprykerFeature\Zed\Collector\Business\Exporter\Writer\Search\TouchUpdater();
+        return new TouchUpdater();
     }
 
     /**
@@ -255,7 +271,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     protected function createExporterWriterKeyValueTouchUpdater()
     {
-        return new \SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdater();
+        return new KeyValueTouchUpdater();
     }
 
     /**
@@ -264,9 +280,9 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
     public function getYvesSearchExporter()
     {
         $config = $this->getConfig();
-                $searchWriter = $this->createSearchWriter();
+        $searchWriter = $this->createSearchWriter();
 
-                return new \SprykerFeature\Zed\Collector\Business\Exporter\Collector(
+        return new Collector(
                     $this->createTouchQueryContainer(),
                     $this->createElasticsearchExporter(
                         $searchWriter,
@@ -280,7 +296,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     public function getYvesSearchUpdateExporter()
     {
-        return new \SprykerFeature\Zed\Collector\Business\Exporter\Collector(
+        return new Collector(
                     $this->createTouchQueryContainer(),
                     $this->createElasticsearchExporter(
                         $this->createSearchUpdateWriter(),
@@ -297,7 +313,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     protected function createElasticsearchExporter(WriterInterface $searchWriter, CollectorConfig $config)
     {
-        $searchExporter = new \SprykerFeature\Zed\Collector\Business\Exporter\SearchCollector(
+        $searchExporter = new SearchCollector(
                     $this->createTouchQueryContainer(),
                     $searchWriter,
                     $this->createSearchMarker(),
@@ -306,11 +322,11 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
                     $this->createExporterWriterSearchTouchUpdater()
                 );
 
-                foreach ($this->getProvidedDependency(CollectorDependencyProvider::SEARCH_PLUGINS) as $touchItemType => $collectorPlugin) {
-                    $searchExporter->addCollectorPlugin($touchItemType, $collectorPlugin);
-                }
+        foreach ($this->getProvidedDependency(CollectorDependencyProvider::SEARCH_PLUGINS) as $touchItemType => $collectorPlugin) {
+            $searchExporter->addCollectorPlugin($touchItemType, $collectorPlugin);
+        }
 
-                return $searchExporter;
+        return $searchExporter;
     }
 
     /**
@@ -318,13 +334,13 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     protected function createSearchWriter()
     {
-        $elasticSearchWriter = new \SprykerFeature\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchWriter(
+        $elasticSearchWriter = new ElasticsearchWriter(
                     StorageInstanceBuilder::getElasticsearchInstance(),
                     $this->getConfig()->getSearchIndexName(),
                     $this->getConfig()->getSearchDocumentType()
                 );
 
-                return $elasticSearchWriter;
+        return $elasticSearchWriter;
     }
 
     /**
@@ -334,13 +350,13 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
     {
         $settings = $this->getConfig();
 
-                $elasticsearchUpdateWriter = new \SprykerFeature\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchUpdateWriter(
+        $elasticsearchUpdateWriter = new ElasticsearchUpdateWriter(
                     StorageInstanceBuilder::getElasticsearchInstance(),
                     $settings->getSearchIndexName(),
                     $settings->getSearchDocumentType()
                 );
 
-                return $elasticsearchUpdateWriter;
+        return $elasticsearchUpdateWriter;
     }
 
     /**
@@ -348,7 +364,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     public function createSearchMarker()
     {
-        return new \SprykerFeature\Zed\Collector\Business\Exporter\ExportMarker(
+        return new ExportMarker(
                     $this->createSearchMarkerWriter(),
                     $this->createSearchMarkerReader(),
                     $this->createSearchMarkerKeyBuilder()
@@ -360,13 +376,13 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     protected function createSearchMarkerWriter()
     {
-        $elasticSearchWriter = new \SprykerFeature\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchMarkerWriter(
+        $elasticSearchWriter = new ElasticsearchMarkerWriter(
                     StorageInstanceBuilder::getElasticsearchInstance(),
                     $this->getConfig()->getSearchIndexName(),
                     $this->getConfig()->getSearchDocumentType()
                 );
 
-                return $elasticSearchWriter;
+        return $elasticSearchWriter;
     }
 
     /**
@@ -374,7 +390,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     protected function createSearchMarkerReader()
     {
-        return new \SprykerFeature\Zed\Collector\Business\Exporter\Reader\Search\ElasticsearchMarkerReader(
+        return new ElasticsearchMarkerReader(
                     StorageInstanceBuilder::getElasticsearchInstance(),
                     $this->getConfig()->getSearchIndexName(),
                     $this->getConfig()->getSearchDocumentType()
@@ -386,7 +402,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     protected function createSearchMarkerKeyBuilder()
     {
-        return new \SprykerFeature\Zed\Collector\Business\Exporter\KeyBuilder\SearchMarkerKeyBuilder();
+        return new SearchMarkerKeyBuilder();
     }
 
     /**
@@ -396,14 +412,14 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      */
     public function createInstaller(\SprykerEngine\Shared\Kernel\Messenger\MessengerInterface $messenger)
     {
-        $installer = new \SprykerFeature\Zed\Collector\Business\Internal\InstallElasticsearch(
+        $installer = new InstallElasticsearch(
                     StorageInstanceBuilder::getElasticsearchInstance(),
                     $this->getConfig()->getSearchIndexName()
                 );
 
-                $installer->setMessenger($messenger);
+        $installer->setMessenger($messenger);
 
-                return $installer;
+        return $installer;
     }
 
 }
