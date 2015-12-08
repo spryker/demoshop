@@ -19,22 +19,39 @@ class SubscriptionController extends AbstractController
      */
     public function indexAction(Request $request)
     {
-        $subscriptionRequest = new NewsletterSubscriptionRequestTransfer();
+        $newsletterTypeDogs = (bool)$request->get('NewsletterTypeDogs');
+        $newsletterTypeCats = (bool)$request->get('NewsletterTypeCats');
 
+        $subscriptionRequest = new NewsletterSubscriptionRequestTransfer();
         $subscriber = new NewsletterSubscriberTransfer();
         $subscriber->setEmail($request->get('email'));
-
         $newsletterTypes = new \ArrayObject();
-        if((bool)$request->get('NewsletterTypeDogs') === true) {
+
+        if($newsletterTypeDogs === true)
+        {
             $newsletterType = new NewsletterTypeTransfer();
             $newsletterType->setName('dogs');
             $newsletterTypes[] = $newsletterType;
         }
 
-        if((bool)$request->get('NewsletterTypeCats') === true) {
+        if($newsletterTypeCats === true)
+        {
             $newsletterType = new NewsletterTypeTransfer();
             $newsletterType->setName('cats');
             $newsletterTypes[] = $newsletterType;
+        }
+
+        if($newsletterTypeDogs === false && $newsletterTypeCats === false)
+        {
+            return new JsonResponse([
+                'subscriptionsResults' => [
+                    [
+                        'name' => null,
+                        'isSuccess' => false,
+                        'errorMessage' => 'newsletter.subscription.no_type_selected'
+                    ]
+                ]
+            ]);
         }
 
         $subscriptionsResults = [];

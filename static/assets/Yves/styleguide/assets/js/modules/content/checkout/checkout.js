@@ -380,6 +380,10 @@ $(document).ready(function () {
             newsletterDogs = $form.find('#CheckoutNewsletterTypeDogsCheckbox').is(':checked');
             newsletterCats = $form.find('#CheckoutNewsletterTypeCatsCheckbox').is(':checked');
 
+            if(newsletterDogs === false && newsletterCats === false)
+            { //if no newsletter type is selected we abort
+                return;
+            }
 
             submitNewsletter(action, {
                 email: email,
