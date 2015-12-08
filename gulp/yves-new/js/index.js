@@ -38,6 +38,22 @@ var headerSearchBox = new function() {
     };
 };
 
+function showHideElement(elementIdOrClass) {
+    var categoriesElement = $(elementIdOrClass);
+    if (categoriesElement.is(':visible')) {
+        categoriesElement.fadeOut('fast');
+        return;
+    }
+    categoriesElement.fadeIn('fast');
+}
+
 $(document).ready(function () {
     headerSearchBox.init();
+
+    $('#nav-categories').click(function(e){
+        e.preventDefault();
+
+        showHideElement('.header-categories');
+    });
+
 });
