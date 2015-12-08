@@ -664,3 +664,10 @@ keys:
   error.404:
     translations:
         en_US: 'Error 404'
+
+  homepage.carousel.previous:
+    translations:
+      en_US: 'Previous'
+  homepage.carousel.next:
+    translations:
+      en_US: 'Next'
