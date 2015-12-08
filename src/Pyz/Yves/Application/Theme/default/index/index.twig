@@ -29,12 +29,38 @@
                 </div>
             </div>
             <div class="col-md-6">
-                {% include "@application/index/partials/homepage-thumbnail.twig" with {
-                    width: "page.home.featured.top-right.first.width"| trans,
-                    height: "page.home.featured.top-right.first.height" | trans,
-                    img: "page.home.featured.top-right.first.img"| trans,
-                    url: "page.home.featured.top-right.first.url" | trans
-                } %}
+                <div data-example-id="homepage-carousel">
+                    <div data-ride="carousel" class="carousel slide" id="carousel-generic">
+                        <ol class="carousel-indicators">
+                            <li data-slide-to="0" data-target="#carousel-example-generic" class="active"></li>
+                            <li data-slide-to="1" data-target="#carousel-example-generic"></li>
+                        </ol>
+                        <div role="listbox" class="carousel-inner">
+                            <div class="item active">
+                                {% include "@application/index/partials/homepage-thumbnail.twig" with {
+                                img: "page.home.featured.top-right.first.img"| trans,
+                                url: "page.home.featured.top-right.first.url" | trans
+                                } %}
+                            </div>
+                            <div class="item">
+                                {% include "@application/index/partials/homepage-thumbnail.twig" with {
+                                img: "page.home.featured.top-right.second.img"| trans,
+                                url: "page.home.featured.top-right.second.url" | trans
+                                } %}
+                            </div>
+                        </div>
+                        <a data-slide="prev" role="button" href="#carousel-generic"
+                           class="left carousel-control">
+                            <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">{{ 'homepage.carousel.previous' }}</span>
+                        </a>
+                        <a data-slide="next" role="button" href="#carousel-generic" class="right carousel-control">
+                            <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">{{ 'homepage.carousel.next' }}</span>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
 

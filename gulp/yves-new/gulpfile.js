@@ -11,6 +11,11 @@ gulp.task('images', function(){
         .pipe(gulp.dest(config.targetDir + 'images/default/'));
 });
 
+gulp.task('fonts', function(){
+    gulp.src(config.sourceDir + 'fonts/**/*.*', { base: config.sourceDir + 'fonts/' })
+        .pipe(gulp.dest(config.targetDir + 'fonts/'));
+});
+
 gulp.task('scss', function(){
     return gulp.src(config.sourceDir + 'scss/index.scss')
         .pipe(p.plumber())
@@ -31,4 +36,4 @@ gulp.task('watch', function(){
     gulp.watch(config.sourceDir + 'js/**/*.js', ['js']);
 });
 
-gulp.task('default', ['images', 'scss', 'js']);
+gulp.task('default', ['images', 'scss', 'js', 'fonts']);
