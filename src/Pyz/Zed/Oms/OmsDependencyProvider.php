@@ -1,9 +1,5 @@
 <?php
 
-/*
- * (c) Copyright Spryker Systems GmbH 2015
- */
-
 namespace Pyz\Zed\Oms;
 
 use SprykerEngine\Zed\Kernel\Container;
@@ -24,26 +20,26 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
     protected function getConditionPlugins(Container $container)
     {
         return [
-            'Payolution/PreAuthorizationIsApproved' => $container
+            'Payolution/IsPreAuthorizationApproved' => $container
                 ->getLocator()
                 ->payolution()
-                ->pluginOmsConditionPreAuthorizationIsApprovedPlugin(),
-            'Payolution/ReAuthorizationIsApproved' => $container
+                ->pluginOmsConditionIsPreAuthorizationApprovedPlugin(),
+            'Payolution/IsReAuthorizationApproved' => $container
                 ->getLocator()
                 ->payolution()
-                ->pluginOmsConditionReAuthorizationIsApprovedPlugin(),
-            'Payolution/ReversalIsApproved' => $container
+                ->pluginOmsConditionIsReAuthorizationApprovedPlugin(),
+            'Payolution/IsReversalApproved' => $container
                 ->getLocator()
                 ->payolution()
-                ->pluginOmsConditionReversalIsApprovedPlugin(),
-            'Payolution/CaptureIsApproved' => $container
+                ->pluginOmsConditionIsReversalApprovedPlugin(),
+            'Payolution/IsCaptureApproved' => $container
                 ->getLocator()
                 ->payolution()
-                ->pluginOmsConditionCaptureIsApprovedPlugin(),
-            'Payolution/RefundIsApproved' => $container
+                ->pluginOmsConditionIsCaptureApprovedPlugin(),
+            'Payolution/IsRefundApproved' => $container
                 ->getLocator()
                 ->payolution()
-                ->pluginOmsConditionRefundIsApprovedPlugin(),
+                ->pluginOmsConditionIsRefundApprovedPlugin(),
         ];
     }
 
@@ -55,10 +51,6 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
     protected function getCommandPlugins(Container $container)
     {
         return [
-            'Nopayment/SetAsPaid' => $container->getLocator()->nopayment()->pluginCommandNopaymentCommandPlugin(),
-            'Oms/SendPaymentRequest' => $container->getLocator()->oms()->pluginOmsCommandSendPaymentRequest(),
-            'Oms/CreateInvoice' => $container->getLocator()->oms()->pluginOmsCommandCreateInvoice(),
-            'Oms/SendInvoice' => $container->getLocator()->oms()->pluginOmsCommandSendInvoice(),
             'Payolution/PreAuthorize' => $container
                 ->getLocator()
                 ->payolution()

@@ -340,10 +340,10 @@ $config[PayolutionConfigConstants::TRANSACTION_CHANNEL_INVOICE] = '8a82941850cd6
 $config[PayolutionConfigConstants::TRANSACTION_CHANNEL_INSTALLMENT] = '8a82941850cd6ba60150cdbf9af40280';
 $config[PayolutionConfigConstants::CALCULATION_CHANNEL] = 'spryker-installment';
 
-$config[PayolutionConfigConstants::MIN_ORDER_GRAND_TOTAL_INVOICE] = '2';
-$config[PayolutionConfigConstants::MAX_ORDER_GRAND_TOTAL_INVOICE] = '5000';
-$config[PayolutionConfigConstants::MIN_ORDER_GRAND_TOTAL_INSTALLMENT] = '2';
-$config[PayolutionConfigConstants::MAX_ORDER_GRAND_TOTAL_INSTALLMENT] = '5000';
+$config[PayolutionConfigConstants::MIN_ORDER_GRAND_TOTAL_INVOICE] = '500';
+$config[PayolutionConfigConstants::MAX_ORDER_GRAND_TOTAL_INVOICE] = '500000';
+$config[PayolutionConfigConstants::MIN_ORDER_GRAND_TOTAL_INSTALLMENT] = '500';
+$config[PayolutionConfigConstants::MAX_ORDER_GRAND_TOTAL_INSTALLMENT] = '500000';
 
 $config[NewRelicConfig::NEWRELIC_API_KEY] = null;
 

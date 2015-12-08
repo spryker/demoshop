@@ -2,6 +2,9 @@
 
 namespace Pyz\Yves\Checkout\Communication\Controller;
 
+use Generated\Shared\Transfer\AddressTransfer;
+use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
+use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Generated\Shared\Transfer\CartTransfer;
 use Generated\Shared\Transfer\CheckoutErrorTransfer;
@@ -9,10 +12,13 @@ use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer;
+use Orm\Zed\Payolution\Persistence\Map\SpyPaymentPayolutionTableMap;
 use Pyz\Yves\Checkout\Communication\Form\CheckoutType;
 use Pyz\Yves\Checkout\Communication\Plugin\Provider\CheckoutControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use Pyz\Yves\Checkout\Communication\CheckoutDependencyContainer;
+use SprykerFeature\Shared\Library\Currency\CurrencyManager;
+use SprykerFeature\Shared\Payolution\PayolutionApiConstants;
 use SprykerFeature\Shared\Shipment\ShipmentConstants;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -26,123 +32,221 @@ class CheckoutController extends AbstractController
 {
 
     /**
-     * @param Request $request
-     *
-     * @return array|RedirectResponse
+     * @var array
      */
-    public function indexAction(Request $request)
-    {
-        $shipmentMethodAvailabilityTransfer = new ShipmentMethodAvailabilityTransfer();
-        $shipmentMethodAvailabilityTransfer->setCart($this->getCartTransfer());
+    protected static $payolutionPaymentMethodMapper = [
+        'payolution_invoice' => PayolutionApiConstants::BRAND_INVOICE,
+        'payolution_installment' => PayolutionApiConstants::BRAND_INSTALLMENT,
+    ];
 
-        $shipmentTransfer = $this->getDependencyContainer()->createShipmentClient()
-            ->getAvailableMethods($shipmentMethodAvailabilityTransfer);
-
-        $checkoutFormType = $this->getDependencyContainer()->createCheckoutForm($request, $shipmentTransfer);
-
-        $checkoutTransfer = new CheckoutRequestTransfer();
-        $checkoutForm = $this->createForm($checkoutFormType, $checkoutTransfer);
-
-        if ($request->isMethod('POST')) {
-            if ($checkoutForm->isValid()) {
-                /** @var CheckoutRequestTransfer $checkoutRequestTransfer */
-                $checkoutRequestTransfer = $checkoutForm->getData();
-
-                $checkoutRequestTransfer->setCart($this->getCartTransfer());
-
-                $this->setShippingAddress($checkoutRequestTransfer);
-                $this->setShippingMethod($shipmentTransfer, $checkoutRequestTransfer);
-                $this->setCustomerPassword($checkoutForm, $checkoutRequestTransfer);
-
-                $checkoutResponseTransfer = $this->getDependencyContainer()
-                    ->createCheckoutClient()
-                    ->requestCheckout($checkoutRequestTransfer);
-
-                if ($checkoutResponseTransfer->getIsSuccess()) {
-                    $this->getDependencyContainer()->createCartClient()->clearCart();
-
-                    return $this->redirect($checkoutResponseTransfer);
-                }
-
-                return $this->errors($checkoutResponseTransfer->getErrors());
-            }
-        }
-
-        return [
-            'form' => $checkoutForm->createView(),
-            'cart' => $this->getCartTransfer(),
-        ];
-    }
+    /**
+     * @var array
+     */
+    protected static $payolutionGenderMapper = [
+        'Mr' => SpyPaymentPayolutionTableMap::COL_GENDER_MALE,
+        'Mrs' => SpyPaymentPayolutionTableMap::COL_GENDER_FEMALE,
+    ];
 
     /**
      * @param Request $request
      *
      * @return array
      */
-    public function successAction(Request $request)
+    public function indexAction(Request $request)
     {
-        //@todo copy look and feel from invision!
-        //@todo add finish form?
+        $checkoutRequestTransfer = $this->createCheckoutRequestTransfer();
+        $cartTransfer = $this->getCartTransfer();
+        $checkoutRequestTransfer->setCart($cartTransfer);
+        $shipmentTransfer = $this->getShipmentTransfer($cartTransfer);
+        $payolutionInstallmentPayments = $this->getPayolutionInstallmentPayments($checkoutRequestTransfer, $cartTransfer);
 
-        return [];
+        $checkoutForm = $this->buildCheckoutForm($checkoutRequestTransfer, $shipmentTransfer, $payolutionInstallmentPayments, $request);
+
+        return [
+            'form' => $checkoutForm->createView(),
+            'cart' => $cartTransfer,
+        ];
     }
 
     /**
-     * @param CheckoutErrorTransfer[] $errors
+     * @param Request $request
      *
-     * @return JsonResponse
+     * @return array|RedirectResponse
      */
-    protected function errors($errors)
+    public function buyAction(Request $request)
     {
-        $returnErrors = [];
-        foreach ($errors as $error) {
-            $returnErrors[] = [
-                'errorCode' => $error->getErrorCode(),
-                'message' => $error->getMessage(),
-                'step' => $error->getStep(),
-            ];
+        $checkoutRequestTransfer = $this->createCheckoutRequestTransfer();
+        $cartTransfer = $this->getCartTransfer();
+        $checkoutRequestTransfer->setCart($cartTransfer);
+        $shipmentTransfer = $this->getShipmentTransfer($cartTransfer);
+        $payolutionInstallmentPayments = $this->getPayolutionInstallmentPayments($checkoutRequestTransfer, $cartTransfer);
+
+        $checkoutForm = $this->buildCheckoutForm($checkoutRequestTransfer, $shipmentTransfer, $payolutionInstallmentPayments, $request);
+
+        if ($checkoutForm->isValid()) {
+            $this->setCheckoutSubmittedData($cartTransfer, $shipmentTransfer, $payolutionInstallmentPayments, $checkoutForm, $request);
+
+            $checkoutResponseTransfer = $this->requestCheckout($checkoutRequestTransfer);
+            if (!$checkoutResponseTransfer->getIsSuccess()) {
+                return $this->getErrors($checkoutResponseTransfer->getErrors());
+            }
+
+            $this->clearCart();
+
+            return $this->redirectSuccess($checkoutResponseTransfer);
         }
 
-        return new JsonResponse([
-            'success' => false,
-            'errors' => $returnErrors,
-        ]);
+        return [
+            'form' => $checkoutForm->createView(),
+            'cart' => $cartTransfer,
+        ];
     }
 
     /**
-     * @param CheckoutResponseTransfer $checkoutResponseTransfer
-     *
-     * @return JsonResponse
+     * @param CartTransfer $cartTransfer
+     * @param ShipmentTransfer $shipmentTransfer
+     * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
+     * @param FormInterface $checkoutForm
+     * @param Request $request
      */
-    public function redirect(CheckoutResponseTransfer $checkoutResponseTransfer)
-    {
-        $redirectUrl = $checkoutResponseTransfer->getIsExternalRedirect()
-            ? $checkoutResponseTransfer->getRedirectUrl()
-            : CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS;
+    protected function setCheckoutSubmittedData(
+        CartTransfer $cartTransfer,
+        ShipmentTransfer $shipmentTransfer,
+        PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer,
+        FormInterface $checkoutForm,
+        Request $request
+    ) {
+        $checkoutRequestTransfer = $checkoutForm->getData();
+        $this->setCheckoutShipment($checkoutRequestTransfer, $cartTransfer, $shipmentTransfer);
+        $this->setCheckoutPayolutionPayment($checkoutRequestTransfer, $payolutionCalculationResponseTransfer, $request);
+        $this->setCustomerPassword($checkoutRequestTransfer, $checkoutForm);
+    }
 
-        return new JsonResponse([
-            'success' => true,
-            'url' => $redirectUrl,
-        ]);
+    /**
+     * @return CheckoutRequestTransfer
+     */
+    protected function createCheckoutRequestTransfer()
+    {
+        return new CheckoutRequestTransfer();
     }
 
     /**
      * @return CartTransfer
      */
-    public function getCartTransfer()
+    protected function getCartTransfer()
     {
-        return $this->getDependencyContainer()->createCartClient()->getCart();
+        return $this
+            ->getDependencyContainer()
+            ->getCartClient()
+            ->getCart();
     }
 
     /**
+     * @param CartTransfer $cartTransfer
+     *
+     * @return ShipmentTransfer
+     */
+    protected function getShipmentTransfer(CartTransfer $cartTransfer)
+    {
+        $shipmentMethodAvailabilityTransfer = (new ShipmentMethodAvailabilityTransfer())->setCart($cartTransfer);
+
+        return $this
+            ->getDependencyContainer()
+            ->getShipmentClient()
+            ->getAvailableMethods($shipmentMethodAvailabilityTransfer);
+    }
+
+    /**
+     * @param CheckoutRequestTransfer $checkoutRequestTransfer
+     * @param CartTransfer $cartTransfer
+     *
+     * @return PayolutionCalculationResponseTransfer
+     */
+    protected function getPayolutionInstallmentPayments(CheckoutRequestTransfer $checkoutRequestTransfer, CartTransfer $cartTransfer)
+    {
+        return $cartTransfer->getTotals() === null
+            ? new PayolutionCalculationResponseTransfer()
+            : $this->getPayolutionCalculationResponseTransfer($checkoutRequestTransfer);
+    }
+
+    /**
+     * @param CheckoutRequestTransfer $checkoutRequestTransfer
+     *
+     * @return PayolutionCalculationResponseTransfer
+     */
+    protected function getPayolutionCalculationResponseTransfer(CheckoutRequestTransfer $checkoutRequestTransfer)
+    {
+        $addressTransfer = (new AddressTransfer())->setIso2Code(APPLICATION_STORE);
+        $payolutionPaymentTransfer = (new PayolutionPaymentTransfer())
+            ->setAddress($addressTransfer)
+            ->setCurrencyIso3Code(CurrencyManager::getInstance()->getDefaultCurrency()->getIsoCode());
+
+        $checkoutRequestTransfer->setPayolutionPayment($payolutionPaymentTransfer);
+
+        return $this->payolutionCalculationResponseTransfer = $this
+            ->getDependencyContainer()
+            ->getPayolutionClient()
+            ->calculateInstallmentPayments($checkoutRequestTransfer);
+    }
+
+    /**
+     * @param CheckoutRequestTransfer $checkoutRequestTransfer
      * @param ShipmentTransfer $shipmentTransfer
+     * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
+     * @param Request $request
+     *
+     * @return FormInterface
+     */
+    protected function buildCheckoutForm(
+        CheckoutRequestTransfer $checkoutRequestTransfer,
+        ShipmentTransfer $shipmentTransfer,
+        PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer,
+        Request $request
+    ) {
+        $checkoutFormType = $this
+            ->getDependencyContainer()
+            ->createCheckoutForm($request, $shipmentTransfer, $payolutionCalculationResponseTransfer);
+
+        return $this->createForm($checkoutFormType, $checkoutRequestTransfer);
+    }
+
+    /**
+     * @param CheckoutRequestTransfer $checkoutRequestTransfer
+     * @param CartTransfer $cartTransfer
+     * @param ShipmentTransfer $shipmentTransfer
+     *
+     * @return void
+     */
+    protected function setCheckoutShipment(CheckoutRequestTransfer $checkoutRequestTransfer, CartTransfer $cartTransfer, ShipmentTransfer $shipmentTransfer)
+    {
+        $this->setCheckoutShippingAddress($checkoutRequestTransfer);
+        $this->setCheckoutShippingMethod($checkoutRequestTransfer, $cartTransfer, $shipmentTransfer);
+    }
+
+    /**
      * @param CheckoutRequestTransfer $checkoutRequestTransfer
      *
      * @return void
      */
-    protected function setShippingMethod(
-        ShipmentTransfer $shipmentTransfer,
-        CheckoutRequestTransfer $checkoutRequestTransfer
+    protected function setCheckoutShippingAddress(CheckoutRequestTransfer $checkoutRequestTransfer)
+    {
+        $shippingAddressTransfer = $checkoutRequestTransfer->getShippingAddress();
+        if ($shippingAddressTransfer->getAddress1() === null) {
+            $checkoutRequestTransfer->setShippingAddress($checkoutRequestTransfer->getBillingAddress());
+        }
+    }
+
+    /**
+     * @param CheckoutRequestTransfer $checkoutRequestTransfer
+     * @param CartTransfer $cartTransfer
+     * @param ShipmentTransfer $shipmentTransfer
+     *
+     * @return void
+     */
+    protected function setCheckoutShippingMethod(
+        CheckoutRequestTransfer $checkoutRequestTransfer,
+        CartTransfer $cartTransfer,
+        ShipmentTransfer $shipmentTransfer
     ) {
         foreach ($shipmentTransfer->getMethods() as $shipmentMethodTransfer) {
             if ($shipmentMethodTransfer->getIdShipmentMethod() === $checkoutRequestTransfer->getIdShipmentMethod()) {
@@ -153,7 +257,7 @@ class CheckoutController extends AbstractController
                 $shipmentExpenseTransfer->setGrossPrice($shipmentMethodTransfer->getPrice());
                 $shipmentExpenseTransfer->setName($shipmentMethodTransfer->getName());
 
-                $this->replaceShipmentExpenseInCart($checkoutRequestTransfer->getCart(), $shipmentExpenseTransfer);
+                $this->replaceShipmentExpenseInCart($cartTransfer, $shipmentExpenseTransfer);
             }
         }
     }
@@ -178,29 +282,137 @@ class CheckoutController extends AbstractController
 
     /**
      * @param CheckoutRequestTransfer $checkoutRequestTransfer
+     * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
+     * @param Request $request
      *
      * @return void
      */
-    protected function setShippingAddress(CheckoutRequestTransfer $checkoutRequestTransfer)
+    protected function setCheckoutPayolutionPayment(
+        CheckoutRequestTransfer $checkoutRequestTransfer,
+        PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer,
+        Request $request
+    ) {
+        $payolutionPaymentTransfer = $checkoutRequestTransfer->getPayolutionPayment();
+        $billingAddress = $checkoutRequestTransfer->getBillingAddress();
+
+        $payolutionPaymentTransfer
+            ->setAccountBrand(self::$payolutionPaymentMethodMapper[$checkoutRequestTransfer->getPaymentMethod()])
+            ->setAddress($billingAddress)
+            ->setCurrencyIso3Code(CurrencyManager::getInstance()->getDefaultCurrency()->getIsoCode())
+            ->setLanguageIso2Code($billingAddress->getIso2Code())
+            ->setGender(self::$payolutionGenderMapper[$billingAddress->getSalutation()])
+            ->setClientIp($request->getClientIp());
+
+        $payolutionPaymentTransfer->getAddress()
+            ->setEmail($checkoutRequestTransfer->getEmail());
+
+        if ($payolutionPaymentTransfer->getAccountBrand() === PayolutionApiConstants::BRAND_INSTALLMENT) {
+            $this->setPayolutionInstallmentPayment($payolutionPaymentTransfer, $payolutionCalculationResponseTransfer);
+        }
+
+        $checkoutRequestTransfer->setPayolutionPayment($payolutionPaymentTransfer);
+    }
+
+    /**
+     * @param PayolutionPaymentTransfer $payolutionPaymentTransfer
+     * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
+     *
+     * @return void
+     */
+    protected function setPayolutionInstallmentPayment(
+        PayolutionPaymentTransfer $payolutionPaymentTransfer,
+        PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
+    ) {
+        $installmentPaymentDetail = $payolutionCalculationResponseTransfer
+            ->getPaymentDetails()[$payolutionPaymentTransfer->getInstallmentPaymentDetailIndex()];
+
+        $payolutionPaymentTransfer
+            ->setInstallmentAmount($installmentPaymentDetail->getInstallments()[0]->getAmount())
+            ->setInstallmentDuration($installmentPaymentDetail->getDuration());
+    }
+
+    /**
+     * @param CheckoutRequestTransfer $checkoutRequestTransfer
+     * @param FormInterface $checkoutForm
+     *
+     * @return void
+     */
+    protected function setCustomerPassword(CheckoutRequestTransfer $checkoutRequestTransfer, FormInterface $checkoutForm)
     {
-        $shippingAddressTransfer = $checkoutRequestTransfer->getShippingAddress();
-        if ($shippingAddressTransfer->getAddress1() === null) {
-            $checkoutRequestTransfer->setShippingAddress($checkoutRequestTransfer->getBillingAddress());
+        $createAccount = $checkoutForm[CheckoutType::FIELD_CREATE_ACCOUNT]->getData();
+
+        if ($createAccount) {
+            $checkoutRequestTransfer->setCustomerPassword($checkoutForm[CheckoutType::FIELD_PASSWORD]->getData());
         }
     }
 
     /**
-     * @param FormInterface $checkoutForm
      * @param CheckoutRequestTransfer $checkoutRequestTransfer
      *
+     * @return CheckoutResponseTransfer
+     */
+    protected function requestCheckout(CheckoutRequestTransfer $checkoutRequestTransfer)
+    {
+        return $this->getDependencyContainer()
+            ->getCheckoutClient()
+            ->requestCheckout($checkoutRequestTransfer);
+    }
+
+    /**
      * @return void
      */
-    protected function setCustomerPassword(FormInterface $checkoutForm, CheckoutRequestTransfer $checkoutRequestTransfer)
+    protected function clearCart()
     {
-        $createAccount = $checkoutForm[CheckoutType::FIELD_CREATE_ACCOUNT]->getData();
-        if ($createAccount) {
-            $checkoutRequestTransfer->setCustomerPassword($checkoutForm[CheckoutType::FIELD_PASSWORD]->getData());
+        $this->getDependencyContainer()->getCartClient()->clearCart();
+    }
+
+    /**
+     * @param CheckoutErrorTransfer[] $errors
+     *
+     * @return JsonResponse
+     */
+    protected function getErrors($errors)
+    {
+        $returnErrors = [];
+        foreach ($errors as $error) {
+            $returnErrors[] = [
+                'errorCode' => $error->getErrorCode(),
+                'message' => $error->getMessage(),
+                'step' => $error->getStep(),
+            ];
         }
+
+        return new JsonResponse([
+            'success' => false,
+            'errors' => $returnErrors,
+        ]);
+    }
+
+    /**
+     * @param CheckoutResponseTransfer $checkoutResponseTransfer
+     *
+     * @return JsonResponse
+     */
+    protected function redirectSuccess(CheckoutResponseTransfer $checkoutResponseTransfer)
+    {
+        $redirectUrl = $checkoutResponseTransfer->getIsExternalRedirect()
+            ? $checkoutResponseTransfer->getRedirectUrl()
+            : CheckoutControllerProvider::ROUTE_CHECKOUT_SUCCESS;
+
+        return new JsonResponse([
+            'success' => true,
+            'url' => $redirectUrl,
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return array
+     */
+    public function successAction(Request $request)
+    {
+        return $this->viewResponse();
     }
 
 }

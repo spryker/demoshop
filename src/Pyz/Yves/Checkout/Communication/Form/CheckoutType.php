@@ -2,7 +2,9 @@
 
 namespace Pyz\Yves\Checkout\Communication\Form;
 
+use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
+use Pyz\Yves\Checkout\Communication\Plugin\Provider\CheckoutControllerProvider;
 use SprykerFeature\Client\Glossary\Service\GlossaryClientInterface;
 use SprykerFeature\Shared\Library\Currency\CurrencyManager;
 use Symfony\Component\Form\AbstractType;
@@ -22,6 +24,7 @@ class CheckoutType extends AbstractType
     const FIELD_TERMS = 'terms';
     const FIELD_PASSWORD = 'password';
     const FIELD_CREATE_ACCOUNT = 'create_account';
+    const PAYOLUTION_TAB_INDEX_OFFSET = 400;
 
     /**
      * @var Request
@@ -39,18 +42,26 @@ class CheckoutType extends AbstractType
     private $glossaryClient;
 
     /**
+     * @var PayolutionCalculationResponseTransfer
+     */
+    private $payolutionCalculationResponseTransfer;
+
+    /**
      * @param Request $request
      * @param ShipmentTransfer $shipmentTransfer
      * @param GlossaryClientInterface $glossaryClient
+     * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
      */
     public function __construct(
         Request $request,
         ShipmentTransfer $shipmentTransfer,
-        GlossaryClientInterface $glossaryClient
+        GlossaryClientInterface $glossaryClient,
+        PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
     ) {
         $this->request = $request;
         $this->shipmentTransfer = $shipmentTransfer;
         $this->glossaryClient = $glossaryClient;
+        $this->payolutionCalculationResponseTransfer = $payolutionCalculationResponseTransfer;
     }
 
     /**
@@ -73,9 +84,8 @@ class CheckoutType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'tabindex' => 100,
-                    'class' => 'padded js-checkout-email',
+                    'class' => 'padded js-checkout-email input_field field_left',
                     'placeholder' => 'customer.email',
-                    'style' => 'width:100%',
                 ],
             ])
             ->add(self::FIELD_BILLING_ADDRESS, new AddressType(200), [
@@ -95,8 +105,8 @@ class CheckoutType extends AbstractType
             ])
             ->add(self::FIELD_PAYMENT_METHOD, 'choice', [
                 'choices' => [
-                    'prepay' => 'payment.prepay',
-                    'invoice' => 'payment.invoice',
+                    'payolution_invoice' => 'payment.payolution.invoice',
+                    'payolution_installment' => 'payment.payolution.installment',
                 ],
                 'expanded' => true,
                 'multiple' => false,
@@ -105,6 +115,20 @@ class CheckoutType extends AbstractType
                 'attr' => [
                     'style' => 'display: block;',
                 ],
+            ])
+            ->add(
+                self::FIELD_PAYOLUTION_PAYMENT,
+                new PayolutionType(
+                    $this->request,
+                    $this->payolutionCalculationResponseTransfer,
+                    self::PAYOLUTION_TAB_INDEX_OFFSET
+                ),
+                [
+                'data_class' => 'Generated\Shared\Transfer\PayolutionPaymentTransfer',
+                'error_bubbling' => true,
+                'attr' => [
+                    'class' => 'js-payolution-payment',
+                 ],
             ])
             ->add(self::FIELD_ID_SHIPMENT_METHOD, 'choice', [
                 'choices' => $this->prepareShipmentMethods(),
@@ -145,7 +169,8 @@ class CheckoutType extends AbstractType
                     'tabindex' => 602,
                     'class' => 'padded js-create_account',
                 ],
-            ]);
+            ])
+            ->setAction(CheckoutControllerProvider::ROUTE_CHECKOUT_SUBMIT);
     }
 
     /**

@@ -101,6 +101,12 @@ module.exports = {
         $('input[name="checkout[payment_method]"]').on('change', function (event) {
             $paymentButton.attr('disabled', $('input[name="checkout[payment_method]"]:checked').length != 1);
 
+            var $payolutionInstallmentForm = $('.js-payolution-installment');
+            if ('payolution_installment' === event.target.value && !!event.target.checked) {
+                $payolutionInstallmentForm.show();
+            } else {
+                $payolutionInstallmentForm.hide();
+            }
         });
 
         $('input[name="checkout[id_shipment_method]"]').on('change', function () {
@@ -138,6 +144,8 @@ module.exports = {
         $('.js-address-button').click(function (event) {
             event.preventDefault();
 
+            $('.js-checkout-address').addClass('js-checkout-collapsed js-checkout-completed');
+
             var checkoutAddress = $(event.currentTarget).parents('.js-checkout-address');
             if (checkoutAddress.length > 0) {
                 var summaryBilling = '';
@@ -168,19 +176,20 @@ module.exports = {
                 $('.js-checkout-address').addClass('js-checkout-collapsed js-checkout-completed');
             }
 
-            $('.js-checkout-payment').removeClass('js-checkout-collapsed');
-
-        });
-
-        $('.js-payment-button').click(function (event) {
-            event.preventDefault();
-            $('.js-checkout-payment').addClass('js-checkout-collapsed js-checkout-completed');
             $('.js-checkout-shipment').removeClass('js-checkout-collapsed');
+
         });
 
         $('.js-shipment-button').click(function (event) {
             event.preventDefault();
             $('.js-checkout-shipment').addClass('js-checkout-collapsed js-checkout-completed');
+            $('.js-checkout-payment').removeClass('js-checkout-collapsed');
+            $('.js-payolution-installment').hide();
+        });
+
+        $('.js-payment-button').click(function (event) {
+            event.preventDefault();
+            $('.js-checkout-payment').addClass('js-checkout-collapsed js-checkout-completed');
             $('.js-checkout-confirm').removeClass('js-checkout-collapsed');
             $('.js-checkout-cart').hide();
         });

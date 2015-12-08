@@ -1,8 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
 namespace Pyz\Zed\OmsCheckoutConnector\Business;
 
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
@@ -14,7 +11,11 @@ use SprykerFeature\Zed\OmsCheckoutConnector\Business\OmsOrderHydrator as BaseOms
 class OmsOrderHydrator extends BaseOmsOrderHydrator
 {
 
-    const PAYMENT_METHOD_INVOICE = 'invoice';
+    protected static $paymentMethodStateMachineMapper = [
+        'invoice' => OmsConfig::ORDER_PROCESS_INVOICE_01,
+        'payolution_invoice' => OmsConfig::ORDER_PROCESS_PAYOLUTION_PAYMENT_01,
+        'payolution_installment' => OmsConfig::ORDER_PROCESS_PAYOLUTION_PAYMENT_01,
+    ];
 
     /**
      * @param OrderTransfer $order
@@ -26,12 +27,10 @@ class OmsOrderHydrator extends BaseOmsOrderHydrator
     {
         $paymentMethod = $request->getPaymentMethod();
 
-        switch ($paymentMethod) {
-            case self::PAYMENT_METHOD_INVOICE:
-                $order->setProcess(OmsConfig::ORDER_PROCESS_INVOICE_01);
-                break;
-            default:
-                parent::hydrateOrderTransfer($order, $request);
+        if (array_key_exists($paymentMethod, self::$paymentMethodStateMachineMapper)) {
+            $order->setProcess(self::$paymentMethodStateMachineMapper[$paymentMethod]);
+        } else {
+            parent::hydrateOrderTransfer($order, $request);
         }
     }
 
