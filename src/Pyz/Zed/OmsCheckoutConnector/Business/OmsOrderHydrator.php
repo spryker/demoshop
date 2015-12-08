@@ -12,7 +12,7 @@ class OmsOrderHydrator extends BaseOmsOrderHydrator
 {
 
     protected static $paymentMethodStateMachineMapper = [
-        'invoice' =>  OmsConfig::ORDER_PROCESS_INVOICE_01,
+        'invoice' => OmsConfig::ORDER_PROCESS_INVOICE_01,
         'payolution_invoice' => OmsConfig::ORDER_PROCESS_PAYOLUTION_PAYMENT_01,
         'payolution_installment' => OmsConfig::ORDER_PROCESS_PAYOLUTION_PAYMENT_01,
     ];

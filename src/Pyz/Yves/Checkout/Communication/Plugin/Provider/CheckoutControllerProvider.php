@@ -37,7 +37,7 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
         )
             ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
             ->value('checkout', 'checkout');
-        
+
         $this->createController(
             '/{checkout}/regular-redirect-payment-cancellation',
             self::ROUTE_CHECKOUT_REGULAR_REDIRECT_PAYMENT_CANCELLATION,
@@ -45,7 +45,7 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
             'Checkout',
             'regularRedirectPaymentCancellation'
         )
-        ->method(Request::METHOD_GET.'|'.Request::METHOD_POST)
+        ->method(Request::METHOD_GET . '|' . Request::METHOD_POST)
         ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
         ->value('checkout', 'checkout');
     }
