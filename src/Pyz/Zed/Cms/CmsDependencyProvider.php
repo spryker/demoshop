@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Cms;
 
+use Pyz\Zed\Cms\Communication\Plugin\DemoDataInstaller;
 use SprykerEngine\Zed\Kernel\Container;
 use SprykerFeature\Zed\Cms\CmsDependencyProvider as SprykerCmsDependencyProvider;
 
@@ -29,7 +30,7 @@ class CmsDependencyProvider extends SprykerCmsDependencyProvider
 
         // @todo this is not a external dependency
         $container[self::PLUGIN_DEMO_DATA_INSTALLER] = function (Container $container) {
-            return $container->getLocator()->cms()->pluginDemoDataInstaller();
+            return new DemoDataInstaller();
         };
 
         $container[self::FACADE_GLOSSARY] = function (Container $container) {

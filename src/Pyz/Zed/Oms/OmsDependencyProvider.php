@@ -2,6 +2,20 @@
 
 namespace Pyz\Zed\Oms;
 
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Command\RefundPlugin;
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Command\CapturePlugin;
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Command\RevertPlugin;
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Command\ReAuthorizePlugin;
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Command\PreAuthorizePlugin;
+use Pyz\Zed\Oms\Communication\Plugin\Oms\Command\SendInvoice;
+use Pyz\Zed\Oms\Communication\Plugin\Oms\Command\CreateInvoice;
+use Pyz\Zed\Oms\Communication\Plugin\Oms\Command\SendPaymentRequest;
+use SprykerFeature\Zed\Nopayment\Communication\Plugin\Command\NopaymentCommandPlugin;
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Condition\RefundIsApprovedPlugin;
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Condition\CaptureIsApprovedPlugin;
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Condition\ReversalIsApprovedPlugin;
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Condition\ReAuthorizationIsApprovedPlugin;
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Condition\PreAuthorizationIsApprovedPlugin;
 use SprykerEngine\Zed\Kernel\Container;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\CommandInterface;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Condition\ConditionInterface;
@@ -20,26 +34,11 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
     protected function getConditionPlugins(Container $container)
     {
         return [
-            'Payolution/IsPreAuthorizationApproved' => $container
-                ->getLocator()
-                ->payolution()
-                ->pluginOmsConditionIsPreAuthorizationApprovedPlugin(),
-            'Payolution/IsReAuthorizationApproved' => $container
-                ->getLocator()
-                ->payolution()
-                ->pluginOmsConditionIsReAuthorizationApprovedPlugin(),
-            'Payolution/IsReversalApproved' => $container
-                ->getLocator()
-                ->payolution()
-                ->pluginOmsConditionIsReversalApprovedPlugin(),
-            'Payolution/IsCaptureApproved' => $container
-                ->getLocator()
-                ->payolution()
-                ->pluginOmsConditionIsCaptureApprovedPlugin(),
-            'Payolution/IsRefundApproved' => $container
-                ->getLocator()
-                ->payolution()
-                ->pluginOmsConditionIsRefundApprovedPlugin(),
+            'Payolution/PreAuthorizationIsApproved' => new PreAuthorizationIsApprovedPlugin(),
+            'Payolution/ReAuthorizationIsApproved' => new ReAuthorizationIsApprovedPlugin(),
+            'Payolution/ReversalIsApproved' => new ReversalIsApprovedPlugin(),
+            'Payolution/CaptureIsApproved' => new CaptureIsApprovedPlugin(),
+            'Payolution/RefundIsApproved' => new RefundIsApprovedPlugin(),
         ];
     }
 
@@ -51,26 +50,12 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
     protected function getCommandPlugins(Container $container)
     {
         return [
-            'Payolution/PreAuthorize' => $container
-                ->getLocator()
-                ->payolution()
-                ->pluginOmsCommandPreAuthorizePlugin(),
-            'Payolution/ReAuthorize' => $container
-                ->getLocator()
-                ->payolution()
-                ->pluginOmsCommandReAuthorizePlugin(),
-            'Payolution/Revert' => $container
-                ->getLocator()
-                ->payolution()
-                ->pluginOmsCommandRevertPlugin(),
-            'Payolution/Capture' => $container
-                ->getLocator()
-                ->payolution()
-                ->pluginOmsCommandCapturePlugin(),
-            'Payolution/Refund' => $container
-                ->getLocator()
-                ->payolution()
-                ->pluginOmsCommandRefundPlugin(),
+            'Payolution/PreAuthorize' => new PreAuthorizePlugin(),
+            'Payolution/ReAuthorize' => new ReAuthorizePlugin(),
+            'Payolution/Revert' => new RevertPlugin(),
+            'Payolution/Capture' => new CapturePlugin(),
+            'Payolution/Refund' => new RefundPlugin(),
+
         ];
     }
 

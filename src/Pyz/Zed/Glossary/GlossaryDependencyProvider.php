@@ -6,6 +6,7 @@
 
 namespace Pyz\Zed\Glossary;
 
+use Pyz\Zed\Glossary\Communication\Plugin\YamlInstallerPlugin;
 use SprykerEngine\Zed\Kernel\Container;
 use SprykerFeature\Zed\Glossary\GlossaryDependencyProvider as SprykerGlossaryDependencyProvider;
 
@@ -25,7 +26,7 @@ class GlossaryDependencyProvider extends SprykerGlossaryDependencyProvider
 
         // @todo this is not a external dependency
         $container[self::PLUGIN_YML_INSTALLER] = function (Container $container) {
-            return $container->getLocator()->glossary()->pluginYamlInstallerPlugin();
+            return new YamlInstallerPlugin();
         };
 
         return $container;

@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Queue;
 
+use Pyz\Zed\MailQueue\Communication\Plugin\MailQueueTaskWorkerPlugin;
 use SprykerEngine\Zed\Kernel\Container;
 use SprykerFeature\Zed\Queue\Dependency\Plugin\TaskPluginInterface;
 use SprykerFeature\Zed\Queue\QueueDependencyProvider as CoreQueueDependencyProvider;
@@ -18,8 +19,8 @@ class QueueDependencyProvider extends CoreQueueDependencyProvider
     {
         parent::provideBusinessLayerDependencies($container);
 
-        $container[self::WORKER_TASKS] = function (Container $container) {
-            return $this->getMaiQueueTaskPlugins($container);
+        $container[self::WORKER_TASKS] = function () {
+            return $this->getMaiQueueTaskPlugins();
         };
 
         return $container;
@@ -38,15 +39,13 @@ class QueueDependencyProvider extends CoreQueueDependencyProvider
     }
 
     /**
-     * @param Container $container
-     *
      * @return TaskPluginInterface[]
      */
-    protected function getMaiQueueTaskPlugins(Container $container)
+    protected function getMaiQueueTaskPlugins()
     {
-        $plugins[] = $container->getLocator()->mailQueue()->pluginMailQueueTaskWorkerPlugin();
-
-        return $plugins;
+        return [
+            new MailQueueTaskWorkerPlugin(),
+        ];
     }
 
 }

@@ -2,6 +2,22 @@
 
 namespace Pyz\Zed\Installer;
 
+use Pyz\Zed\Shipment\Communication\Plugin\DemoDataInstaller as ShipmentShipmentShipmentDemoDataInstaller;
+use Pyz\Zed\Stock\Communication\Plugin\DemoDataInstaller as StockStockStockDemoDataInstaller;
+use Pyz\Zed\ProductSearch\Communication\Plugin\DemoDataInstaller as ProductSearchProductSearchProductSearchDemoDataInstaller;
+use Pyz\Zed\Price\Communication\Plugin\DemoDataInstaller as PricePricePriceDemoDataInstaller;
+use Pyz\Zed\ProductCategory\Communication\Plugin\DemoDataInstaller as ProductCategoryProductCategoryProductCategoryDemoDataInstaller;
+use Pyz\Zed\Product\Communication\Plugin\DemoDataInstaller as ProductProductProductDemoDataInstaller;
+use Pyz\Zed\Cms\Communication\Plugin\DemoDataInstaller as CommunicationCommunicationDemoDataInstaller;
+use Pyz\Zed\Glossary\Communication\Plugin\DemoDataInstaller as PluginDemoDataInstaller;
+use Pyz\Zed\Category\Communication\Plugin\DemoDataInstaller;
+use SprykerFeature\Zed\Acl\Communication\Plugin\Installer as AclAclAclInstaller;
+use SprykerFeature\Zed\User\Communication\Plugin\Installer as UserUserUserInstaller;
+use SprykerFeature\Zed\Country\Communication\Plugin\Installer as CountryCountryCountryInstaller;
+use SprykerEngine\Zed\Locale\Communication\Plugin\Installer as LocaleLocaleLocaleInstaller;
+use SprykerFeature\Zed\Price\Communication\Plugin\Installer as CommunicationCommunicationInstaller;
+use SprykerFeature\Zed\Product\Communication\Plugin\Installer as PluginInstaller;
+use SprykerFeature\Zed\Collector\Communication\Plugin\Installer;
 use SprykerFeature\Zed\Installer\InstallerConfig as SprykerInstallerConfig;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
 
@@ -13,16 +29,14 @@ class InstallerConfig extends SprykerInstallerConfig
      */
     public function getInstallerStack()
     {
-        $locator = $this->getLocator();
-
         return [
-            $locator->collector()->pluginInstaller(),
-            $locator->product()->pluginInstaller(),
-            $locator->price()->pluginInstaller(),
-            $locator->locale()->pluginInstaller(),
-            $locator->country()->pluginInstaller(),
-            $locator->user()->pluginInstaller(),
-            $locator->acl()->pluginInstaller(),
+            new Installer(),
+            new PluginInstaller(),
+            new CommunicationCommunicationInstaller(),
+            new LocaleLocaleLocaleInstaller(),
+            new CountryCountryCountryInstaller(),
+            new UserUserUserInstaller(),
+            new AclAclAclInstaller(),
         ];
     }
 
@@ -31,18 +45,16 @@ class InstallerConfig extends SprykerInstallerConfig
      */
     public function getDemoDataInstallerStack()
     {
-        $locator = $this->getLocator();
-
         return [
-            $locator->category()->pluginDemoDataInstaller(),
-            $locator->glossary()->pluginDemoDataInstaller(),
-            $locator->cms()->pluginDemoDataInstaller(),
-            $locator->product()->pluginDemoDataInstaller(),
-            $locator->productCategory()->pluginDemoDataInstaller(),
-            $locator->price()->pluginDemoDataInstaller(),
-            $locator->productSearch()->pluginDemoDataInstaller(),
-            $locator->stock()->pluginDemoDataInstaller(),
-            $locator->shipment()->pluginDemoDataInstaller(),
+            new DemoDataInstaller(),
+            new PluginDemoDataInstaller(),
+            new CommunicationCommunicationDemoDataInstaller(),
+            new ProductProductProductDemoDataInstaller(),
+            new ProductCategoryProductCategoryProductCategoryDemoDataInstaller(),
+            new PricePricePriceDemoDataInstaller(),
+            new ProductSearchProductSearchProductSearchDemoDataInstaller(),
+            new StockStockStockDemoDataInstaller(),
+            new ShipmentShipmentShipmentDemoDataInstaller(),
         ];
     }
 

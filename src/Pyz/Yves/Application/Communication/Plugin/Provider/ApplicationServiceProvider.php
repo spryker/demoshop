@@ -2,6 +2,8 @@
 
 namespace Pyz\Yves\Application\Communication\Plugin\Provider;
 
+use Pyz\Yves\Application\Communication\Plugin\Pimple;
+use Pyz\Yves\Twig\Communication\Plugin\TwigYves;
 use Silex\Application;
 use SprykerEngine\Shared\Config;
 use SprykerEngine\Shared\Kernel\Store;
@@ -17,6 +19,7 @@ use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 
 class ApplicationServiceProvider extends AbstractServiceProvider
 {
+
     const LOCALE = 'locale';
     const REQUEST_URI = 'REQUEST_URI';
 
@@ -44,7 +47,7 @@ class ApplicationServiceProvider extends AbstractServiceProvider
         $this->setProtocolCheck();
 
         $this->addTwigExtension($this->application, [
-            $this->getLocator()->twig()->pluginTwigYves()->getTwigYvesExtension($this->application),
+            (new TwigYves())->getTwigYvesExtension($this->application),
         ]);
 
         $this->addGlobalTemplateVariable($this->application, [
@@ -67,7 +70,7 @@ class ApplicationServiceProvider extends AbstractServiceProvider
      */
     protected function setPimpleApplication()
     {
-        $pimplePlugin = $this->getLocator()->application()->pluginPimple();
+        $pimplePlugin = new Pimple();
         $pimplePlugin->setApplication($this->application);
     }
 

@@ -2,6 +2,11 @@
 
 namespace Pyz\Zed\Cart;
 
+use SprykerFeature\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemGroupKeyOptionPlugin;
+use SprykerFeature\Zed\Cart\Communication\Plugin\SkuGroupKeyPlugin;
+use SprykerFeature\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemProductOptionPlugin;
+use SprykerFeature\Zed\PriceCartConnector\Communication\Plugin\CartItemPricePlugin;
+use SprykerFeature\Zed\ProductCartConnector\Communication\Plugin\ProductCartPlugin;
 use SprykerFeature\Zed\Cart\CartConfig as SprykerCartConfig;
 use SprykerFeature\Zed\Cart\Dependency\ItemExpanderPluginInterface;
 
@@ -15,11 +20,11 @@ class CartConfig extends SprykerCartConfig
     {
         $plugins = parent::getCartItemPlugins();
 
-        $plugins[] = $this->getLocator()->productCartConnector()->pluginProductCartPlugin();
-        $plugins[] = $this->getLocator()->priceCartConnector()->pluginCartItemPricePlugin();
-        $plugins[] = $this->getLocator()->productOptionCartConnector()->pluginCartItemProductOptionPlugin();
-        $plugins[] = $this->getLocator()->cart()->pluginSkuGroupKeyPlugin();
-        $plugins[] = $this->getLocator()->productOptionCartConnector()->pluginCartItemGroupKeyOptionPlugin();
+        $plugins[] = new ProductCartPlugin();
+        $plugins[] = new CartItemPricePlugin();
+        $plugins[] = new CartItemProductOptionPlugin();
+        $plugins[] = new SkuGroupKeyPlugin();
+        $plugins[] = new CartItemGroupKeyOptionPlugin();
 
         return $plugins;
     }

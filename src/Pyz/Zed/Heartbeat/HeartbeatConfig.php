@@ -2,6 +2,10 @@
 
 namespace Pyz\Zed\Heartbeat;
 
+use SprykerFeature\Zed\SearchHeartbeatConnector\Communication\Plugin\HealthIndicatorPlugin as SearchHeartbeatConnectorSearchHeartbeatConnectorSearchHeartbeatConnectorHealthIndicatorPlugin;
+use SprykerFeature\Zed\StorageHeartbeatConnector\Communication\Plugin\HealthIndicatorPlugin as CommunicationCommunicationHealthIndicatorPlugin;
+use SprykerFeature\Zed\SessionHeartbeatConnector\Communication\Plugin\HealthIndicatorPlugin as PluginHealthIndicatorPlugin;
+use SprykerFeature\Zed\PropelHeartbeatConnector\Communication\Plugin\HealthIndicatorPlugin;
 use SprykerFeature\Shared\Heartbeat\Code\HealthIndicatorInterface;
 use SprykerFeature\Zed\Heartbeat\HeartbeatConfig as SprykerHeartbeatConfig;
 
@@ -14,10 +18,10 @@ class HeartbeatConfig extends SprykerHeartbeatConfig
     public function getHealthIndicator()
     {
         return [
-            $this->getLocator()->propelHeartbeatConnector()->pluginHealthIndicatorPlugin(),
-            $this->getLocator()->sessionHeartbeatConnector()->pluginHealthIndicatorPlugin(),
-            $this->getLocator()->storageHeartbeatConnector()->pluginHealthIndicatorPlugin(),
-            $this->getLocator()->searchHeartbeatConnector()->pluginHealthIndicatorPlugin(),
+            new HealthIndicatorPlugin(),
+            new PluginHealthIndicatorPlugin(),
+            new CommunicationCommunicationHealthIndicatorPlugin(),
+            new SearchHeartbeatConnectorSearchHeartbeatConnectorSearchHeartbeatConnectorHealthIndicatorPlugin(),
         ];
     }
 
