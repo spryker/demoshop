@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import { EVENTS as STEPPER_EVENTS } from '../../forms/stepper';
+import { MessageService } from '../../common/messages';
 import { EVENTS as CHECKOUT_EVENTS } from './checkout';
 
 'use strict';
@@ -30,6 +31,7 @@ $(document).ready(function () {
 
 
     function loadCart() {
+
         $.get(ENDPOINTS.CART)
         .done(function (data) {
             renderCart(data);
@@ -37,10 +39,12 @@ $(document).ready(function () {
         });
     };
 
+    $(document).on('click', '.cart-layer__amount .button--cta', function () {
+        verifyMinimumCartValue();
+    });
 
     function renderCart (data) {
         $cartLayer.html(data);
-
         $(document).trigger(CHECKOUT_EVENTS.UPDATE_CART, data);
         $(document).trigger(STEPPER_EVENTS.INITIALIZE_STEPPERS);
     };
@@ -69,6 +73,21 @@ $(document).ready(function () {
         }
     };
 
+    function verifyMinimumCartValue() {
+
+        var messageService = new MessageService();
+        var minimumValue = parseInt($('#minimumCartValue').val(), 10);
+        var totalCart = parseInt($('#totalCartForMinimumValueCheck').val(), 10);
+
+        if(minimumValue > totalCart) {
+            messageService.add({
+                type: 'invalid message--cart',
+                message: 'error.cart-total-is-too-low'
+            });
+        } else {
+            window.location = '/checkout/';
+        }
+    }
 
     function changeQty (e) {
         e.preventDefault();
