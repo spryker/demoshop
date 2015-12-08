@@ -4,7 +4,7 @@ use PavFeature\Shared\MailchimpClient\MailchimpClientConfig;
 use PavFeature\Shared\NewsletterDoiMailQueueConnector\NewsletterDoiMailQueueConnectorConfig;
 use Pyz\Shared\Mail\MailConfig;
 use Pyz\Shared\ProductFeed\ProductFeedConfig;
-use SprykerFeature\Shared\Acl\AclConfig;
+use Pyz\Shared\Acl\AclConfig;
 use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Auth\AuthConfig;
 use SprykerFeature\Shared\Customer\CustomerConfig;

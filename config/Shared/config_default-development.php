@@ -8,7 +8,8 @@ use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerFeature\Shared\Application\ApplicationConfig;
-use SprykerFeature\Shared\Acl\AclConfig;
+use Pyz\Shared\Acl\AclConfig;
+use Pyz\Zed\Acl\AclConfig as ZedAclConfig;
 use SprykerFeature\Shared\Session\SessionConfig;
 use Pyz\Client\ZedRequest\Service\ZedRequestConfig as PyzZedRequestConfig;
 
@@ -51,6 +52,12 @@ $config[AclConfig::ACL_USER_RULE_WHITELIST][] = [
     'type' => 'allow',
 ];
 
+$config[AclConfig::ACL_DEFAULT_USER] = [
+            'admin@spryker.com' => [
+                'group' => ZedAclConfig::ROOT_GROUP,
+            ],
+        ];
+
 $config[SystemConfig::PROPEL_DEBUG] = true;
 $config[ApplicationConfig::ENABLE_APPLICATION_DEBUG] = true;
 $config[ApplicationConfig::SHOW_SYMFONY_TOOLBAR] = true;
@@ -66,4 +73,6 @@ $config[SystemConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = true;
 //$config[YvesConfig::YVES_SHOW_EXCEPTION_STACK_TRACE] = false;
 
 $config[SequenceNumberConstants::ENVIRONMENT_PREFIX] = "D";
+
+
 
