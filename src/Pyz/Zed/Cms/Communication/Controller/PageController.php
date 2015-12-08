@@ -8,7 +8,9 @@ use Pyz\Zed\Cms\Communication\Form\CmsPageForm;
 use Pyz\Zed\Cms\Persistence\CmsQueryContainer;
 use SprykerFeature\Zed\Cms\Communication\Table\CmsPageTable;
 use PavFeature\Zed\Cms\Communication\Controller\PageController as PavPageController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * @method CmsQueryContainer getQueryContainer()
@@ -59,5 +61,22 @@ class PageController extends PavPageController
             'idPage' => $idPage,
             'blocks' => $pageBlocks->render()
         ]);
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return JsonResponse
+     */
+    public function pageBlockTableAction(Request $request)
+    {
+        $idCmsPage = $request->query->get('id-page', null);
+        if ($idCmsPage === null) {
+            throw new NotFoundHttpException('No id-page parameter given.');
+        }
+
+        $table = $this->getDependencyContainer()->createCmsPageBlockTable($idCmsPage);
+
+        return $this->jsonResponse($table->fetchData());
     }
 }
