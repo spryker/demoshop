@@ -87,7 +87,7 @@ class CheckoutController extends AbstractController
             $this->setCheckoutSubmittedData($cartTransfer, $shipmentTransfer, $payolutionInstallmentPayments, $checkoutForm, $request);
 
             $checkoutResponseTransfer = $this->requestCheckout($checkoutRequestTransfer);
-            if ($checkoutResponseTransfer->getIsSuccess() === false) {
+            if (!$checkoutResponseTransfer->getIsSuccess()) {
                 return $this->getErrors($checkoutResponseTransfer->getErrors());
             }
 
@@ -137,7 +137,7 @@ class CheckoutController extends AbstractController
     {
         return $this
             ->getDependencyContainer()
-            ->createCartClient()
+            ->getCartClient()
             ->getCart();
     }
 
@@ -152,7 +152,7 @@ class CheckoutController extends AbstractController
 
         return $this
             ->getDependencyContainer()
-            ->createShipmentClient()
+            ->getShipmentClient()
             ->getAvailableMethods($shipmentMethodAvailabilityTransfer);
     }
 
@@ -185,7 +185,7 @@ class CheckoutController extends AbstractController
 
         return $this->payolutionCalculationResponseTransfer = $this
             ->getDependencyContainer()
-            ->createPayolutionClient()
+            ->getPayolutionClient()
             ->calculateInstallmentPayments($checkoutRequestTransfer);
     }
 
@@ -214,6 +214,8 @@ class CheckoutController extends AbstractController
      * @param CheckoutRequestTransfer $checkoutRequestTransfer
      * @param CartTransfer $cartTransfer
      * @param ShipmentTransfer $shipmentTransfer
+     *
+     * @return void
      */
     protected function setCheckoutShipment(CheckoutRequestTransfer $checkoutRequestTransfer, CartTransfer $cartTransfer, ShipmentTransfer $shipmentTransfer)
     {
@@ -223,6 +225,8 @@ class CheckoutController extends AbstractController
 
     /**
      * @param CheckoutRequestTransfer $checkoutRequestTransfer
+     *
+     * @return void
      */
     protected function setCheckoutShippingAddress(CheckoutRequestTransfer $checkoutRequestTransfer)
     {
@@ -236,6 +240,8 @@ class CheckoutController extends AbstractController
      * @param CheckoutRequestTransfer $checkoutRequestTransfer
      * @param CartTransfer $cartTransfer
      * @param ShipmentTransfer $shipmentTransfer
+     *
+     * @return void
      */
     protected function setCheckoutShippingMethod(
         CheckoutRequestTransfer $checkoutRequestTransfer,
@@ -278,6 +284,8 @@ class CheckoutController extends AbstractController
      * @param CheckoutRequestTransfer $checkoutRequestTransfer
      * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
      * @param Request $request
+     *
+     * @return void
      */
     protected function setCheckoutPayolutionPayment(
         CheckoutRequestTransfer $checkoutRequestTransfer,
@@ -308,6 +316,8 @@ class CheckoutController extends AbstractController
     /**
      * @param PayolutionPaymentTransfer $payolutionPaymentTransfer
      * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
+     *
+     * @return void
      */
     protected function setPayolutionInstallmentPayment(
         PayolutionPaymentTransfer $payolutionPaymentTransfer,
@@ -324,6 +334,8 @@ class CheckoutController extends AbstractController
     /**
      * @param CheckoutRequestTransfer $checkoutRequestTransfer
      * @param FormInterface $checkoutForm
+     *
+     * @return void
      */
     protected function setCustomerPassword(CheckoutRequestTransfer $checkoutRequestTransfer, FormInterface $checkoutForm)
     {
@@ -342,7 +354,7 @@ class CheckoutController extends AbstractController
     protected function requestCheckout(CheckoutRequestTransfer $checkoutRequestTransfer)
     {
         return $this->getDependencyContainer()
-            ->createCheckoutClient()
+            ->getCheckoutClient()
             ->requestCheckout($checkoutRequestTransfer);
     }
 
@@ -351,7 +363,7 @@ class CheckoutController extends AbstractController
      */
     protected function clearCart()
     {
-        $this->getDependencyContainer()->createCartClient()->clearCart();
+        $this->getDependencyContainer()->getCartClient()->clearCart();
     }
 
     /**

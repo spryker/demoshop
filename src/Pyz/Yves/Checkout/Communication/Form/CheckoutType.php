@@ -4,7 +4,7 @@ namespace Pyz\Yves\Checkout\Communication\Form;
 
 use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
-use Pyz\Yves\Checkout\Communication\Plugin\CheckoutControllerProvider;
+use Pyz\Yves\Checkout\Communication\Plugin\Provider\CheckoutControllerProvider;
 use SprykerFeature\Client\Glossary\Service\GlossaryClientInterface;
 use SprykerFeature\Shared\Library\Currency\CurrencyManager;
 use Symfony\Component\Form\AbstractType;

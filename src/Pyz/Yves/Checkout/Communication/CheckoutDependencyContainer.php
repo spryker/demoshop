@@ -23,7 +23,7 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
     /**
      * @return CheckoutClient
      */
-    public function createCheckoutClient()
+    public function getCheckoutClient()
     {
         return $this->getLocator()->checkout()->client();
     }
@@ -31,7 +31,7 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
     /**
      * @return CartClientInterface
      */
-    public function createCartClient()
+    public function getCartClient()
     {
         return $this->getLocator()->cart()->client();
     }
@@ -39,7 +39,7 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
     /**
      * @return ShipmentClientInterface
      */
-    public function createShipmentClient()
+    public function getShipmentClient()
     {
         return $this->getLocator()->shipment()->client();
     }
@@ -47,7 +47,7 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
     /**
      * @return GlossaryClientInterface
      */
-    public function createGlossaryClient()
+    public function getGlossaryClient()
     {
         return $this->getLocator()->glossary()->client();
     }
@@ -55,7 +55,7 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
     /**
      * @return PayolutionClientInterface
      */
-    public function createPayolutionClient()
+    public function getPayolutionClient()
     {
         return $this->getLocator()->payolution()->client();
     }
@@ -70,12 +70,12 @@ class CheckoutDependencyContainer extends AbstractCommunicationDependencyContain
     public function createCheckoutForm(
         Request $request,
         ShipmentTransfer $shipmentTransfer,
-        PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer)
-    {
+        PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
+    ) {
         return new CheckoutType(
                 $request,
                 $shipmentTransfer,
-                $this->createGlossaryClient(),
+                $this->getGlossaryClient(),
                 $payolutionCalculationResponseTransfer
             );
     }
