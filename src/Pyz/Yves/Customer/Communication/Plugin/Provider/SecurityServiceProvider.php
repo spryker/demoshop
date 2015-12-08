@@ -4,7 +4,7 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace Pyz\Yves\Customer\Communication\Plugin\ServiceProvider;
+namespace Pyz\Yves\Customer\Communication\Plugin\Provider;
 
 use Silex\Application;
 use Silex\ServiceProviderInterface;

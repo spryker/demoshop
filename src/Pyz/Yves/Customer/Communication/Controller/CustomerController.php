@@ -4,7 +4,7 @@ namespace Pyz\Yves\Customer\Communication\Controller;
 
 use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Yves\Customer\Communication\CustomerDependencyContainer;
-use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
+use Pyz\Yves\Customer\Communication\Plugin\Provider\CustomerControllerProvider;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
 use SprykerFeature\Client\Customer\Service\CustomerClientInterface;
 use Symfony\Component\HttpFoundation\Request;

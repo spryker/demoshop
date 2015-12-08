@@ -3,7 +3,7 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace Pyz\Yves\Glossary\Communication\Plugin\ServiceProvider;
+namespace Pyz\Yves\Glossary\Communication\Plugin\Provider;
 
 use Pyz\Yves\Glossary\Communication\GlossaryDependencyContainer;
 use Silex\Application;
@@ -13,26 +13,10 @@ use SprykerFeature\Client\Glossary\Service\GlossaryClientInterface;
 
 /**
  * @method GlossaryDependencyContainer getDependencyContainer()
+ * @method GlossaryClientInterface getClient()
  */
 class TranslationServiceProvider extends AbstractPlugin implements ServiceProviderInterface
 {
-
-    /**
-     * @var GlossaryClientInterface
-     */
-    private $glossaryClient;
-
-    /**
-     * @param GlossaryClientInterface $glossaryClient
-     *
-     * @return self
-     */
-    public function setGlossaryClient(GlossaryClientInterface $glossaryClient)
-    {
-        $this->glossaryClient = $glossaryClient;
-
-        return $this;
-    }
 
     /**
      * @param Application $app
@@ -41,7 +25,7 @@ class TranslationServiceProvider extends AbstractPlugin implements ServiceProvid
     {
         $app['translator'] = $app->share(function ($app) {
             $twigTranslator = $this->getDependencyContainer()->createTwigTranslator(
-                $this->glossaryClient, $app['locale']
+                $this->getClient(), $app['locale']
             );
 
             return $twigTranslator;

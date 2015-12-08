@@ -1,11 +1,11 @@
 <?php
 
-namespace Pyz\Yves\Checkout\Communication\Plugin;
+namespace Pyz\Yves\Checkout\Communication\Plugin\Provider;
 
-use Pyz\Yves\Application\Communication\Plugin\YvesControllerProvider;
+use Pyz\Yves\Application\Communication\Plugin\Provider\AbstractYvesControllerProvider;
 use Silex\Application;
 
-class CheckoutControllerProvider extends YvesControllerProvider
+class CheckoutControllerProvider extends AbstractYvesControllerProvider
 {
 
     const ROUTE_CHECKOUT = 'checkout';

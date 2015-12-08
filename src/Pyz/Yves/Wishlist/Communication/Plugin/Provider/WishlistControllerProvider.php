@@ -4,13 +4,13 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace Pyz\Yves\Wishlist\Communication\Plugin;
+namespace Pyz\Yves\Wishlist\Communication\Plugin\Provider;
 
-use Pyz\Yves\Application\Communication\Plugin\YvesControllerProvider;
+use Pyz\Yves\Application\Communication\Plugin\Provider\AbstractYvesControllerProvider;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 
-class WishlistControllerProvider extends YvesControllerProvider
+class WishlistControllerProvider extends AbstractYvesControllerProvider
 {
 
     const ROUTE_WISHLIST = 'wishlist';

@@ -4,7 +4,7 @@ namespace Pyz\Yves\Customer\Communication\Controller;
 
 use Generated\Shared\Transfer\AddressTransfer;
 use Pyz\Yves\Customer\Communication\CustomerDependencyContainer;
-use Pyz\Yves\Customer\Communication\Plugin\CustomerControllerProvider;
+use Pyz\Yves\Customer\Communication\Plugin\Provider\CustomerControllerProvider;
 use SprykerFeature\Client\Customer\Service\CustomerClientInterface;
 use SprykerFeature\Shared\Customer\Code\Messages;
 use SprykerEngine\Yves\Application\Communication\Controller\AbstractController;
