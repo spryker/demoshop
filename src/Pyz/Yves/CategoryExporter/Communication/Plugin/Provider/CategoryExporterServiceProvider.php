@@ -35,7 +35,6 @@ class CategoryExporterServiceProvider extends AbstractServiceProvider
      */
     public function boot(Application $app)
     {
-        // do nothing
     }
 
 }

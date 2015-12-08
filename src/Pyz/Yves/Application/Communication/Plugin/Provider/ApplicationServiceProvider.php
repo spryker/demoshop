@@ -120,8 +120,8 @@ class ApplicationServiceProvider extends AbstractServiceProvider
         $this->application[self::LOCALE] = $store->getCurrentLocale();
 
         if (array_key_exists(self::REQUEST_URI, $_SERVER)) {
-            $requestUrI = $_SERVER[self::REQUEST_URI];
-            $identifier = mb_substr($requestUrI, 1, 2);
+            $requestUri = $_SERVER[self::REQUEST_URI];
+            $identifier = mb_substr($requestUri, 1, 2);
 
             if ($identifier !== false && array_key_exists($identifier, $store->getLocales())) {
                 $store->setCurrentLocale($store->getLocales()[$identifier]);
