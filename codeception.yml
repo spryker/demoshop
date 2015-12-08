@@ -20,8 +20,6 @@ include:
 - vendor/spryker/spryker/Bundles/DiscountCheckoutConnector
 - vendor/spryker/spryker/Bundles/Git
 - vendor/spryker/spryker/Bundles/Glossary
-- vendor/spryker/spryker/Bundles/GlossaryDistributor
-- vendor/spryker/spryker/Bundles/GlossaryQueue
 - vendor/spryker/spryker/Bundles/Heartbeat
 - vendor/spryker/spryker/Bundles/ItemGrouper
 - vendor/spryker/spryker/Bundles/Kernel
@@ -44,7 +42,6 @@ include:
 - vendor/spryker/spryker/Bundles/ProductOptionCheckoutConnector
 - vendor/spryker/spryker/Bundles/ProductOptionExporter
 - vendor/spryker/spryker/Bundles/Propel
-- vendor/spryker/spryker/Bundles/PropelHeartbeatConnector
 - vendor/spryker/spryker/Bundles/Queue
 - vendor/spryker/spryker/Bundles/Sales
 - vendor/spryker/spryker/Bundles/SequenceNumber

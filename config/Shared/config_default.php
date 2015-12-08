@@ -5,7 +5,6 @@ use SprykerFeature\Shared\Acl\AclConfig;
 use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Auth\AuthConfig;
 use SprykerFeature\Shared\Customer\CustomerConfig;
-use SprykerFeature\Shared\DbDump\DbDumpConfig;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\User\UserConfig;
 use SprykerFeature\Shared\Yves\YvesConfig;
@@ -39,13 +38,6 @@ $config[ApplicationConfig::YVES_TWIG_OPTIONS] = [
 ];
 
 $config[SystemConfig::ZED_DB_ENGINE] = 'mysql';
-
-$config[DbDumpConfig::DB_DUMP_USERNAME] = '';
-$config[DbDumpConfig::DB_DUMP_PASSWORD] = '';
-$config[DbDumpConfig::DB_DUMP_DATABASE] = '';
-$config[DbDumpConfig::DB_DUMP_HOST] = 'localhost';
-$config[DbDumpConfig::DB_DUMP_MYSQLDUMP_BIN] = '/usr/bin/mysqldump';
-$config[DbDumpConfig::DB_DUMP_MYSQL_BIN] = '/usr/bin/mysql';
 
 $config[SystemConfig::STORAGE_KV_SOURCE] = 'redis';
 
