@@ -212,18 +212,22 @@ $(document).ready(function () {
                             messageService.add({ type: 'invalid', message: value.message });
                         });
 
+                        $checkout.find('button[type="submit"]').prop('disabled', false);
                     } else {
 
                         messageService.add({ type: 'invalid', message: 'Es ist ein Fehler aufgetreten. Leider konnte Ihre Bestelung nicht aufgebeben werden.' });
+
+                        $checkout.find('button[type="submit"]').prop('disabled', false);
                     }
                 })
                 .fail(function () {
                     messageService.add({ type: 'invalid', message: 'Es ist ein Fehler aufgetreten. Leider konnte Ihre Bestelung nicht aufgebeben werden.' });
+
+                    $checkout.find('button[type="submit"]').prop('disabled', false);
                 })
                 .always(function () {
                     $('html, body').animate({scrollTop: 0}, 'slow');
 
-                    $checkout.find('button[type="submit"]').prop('disabled', false);
                     ongoingRequest = null;
                 });
 
@@ -434,6 +438,11 @@ $(document).ready(function () {
 
         $(document).on(EVENTS.CART_WILL_UPDATE, function () {
             $checkout.find('button[type="submit"]').prop('disabled', true);
+        });
+
+
+        $('input[name="checkout[adyen_payment][payment_method]"]').change(function () {
+            scrollTo($(this), 1 , null, -20);
         });
 
     });

@@ -133,6 +133,12 @@ $(document).ready(function () {
         function updateHeight () {
             height = $menu.height();
         }
+
+        $(document).on('click', '.js-open-cart', function (event) {
+            event.preventDefault();
+
+            showMenu($trigger.size() - 1);
+        });
     });
 
 });
