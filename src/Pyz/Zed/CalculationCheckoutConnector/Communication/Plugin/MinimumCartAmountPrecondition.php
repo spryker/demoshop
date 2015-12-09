@@ -21,9 +21,10 @@ class MinimumCartAmountPrecondition extends AbstractPlugin implements CheckoutPr
     public function checkCondition(CheckoutRequestTransfer $checkoutRequest, CheckoutResponseTransfer $checkoutResponse)
     {
         $minimumCheckoutCartValue = $this->getDependencyContainer()->getConfig()->getMinimumCheckoutCartValue();
-        $subtotal = $checkoutRequest->getCart()->getTotals()->getSubtotal();
+        $subtotal = $checkoutRequest->getCart()->getTotals()->getGrandTotalWithDiscounts();
 
         if ($subtotal < $minimumCheckoutCartValue)
+
         {
             $error = new CheckoutErrorTransfer();
             $error->setErrorCode(1);
