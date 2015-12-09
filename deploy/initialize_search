@@ -23,7 +23,7 @@ cd "$destination_release_dir"
 
 # Initialize search (create search mapping)
 echo "Initialize search mapping for $APPLICATION_STORE"
-vendor/bin/console setup:search
+vendor/bin/pav-console setup:search
 return=$?
 
 exit $return

@@ -12,7 +12,7 @@ outfile="/tmp/deploy-${deploy_outfile_prefix}-send-notifications-after"
 for APP in Yves Zed; do
   app_name="$APP(${environment})"
   echo "Send deployment notification to New Relic for: $app_name .."
-  vendor/bin/console newrelic:record-deployment "$app_name" "$deploy_user" "$revision" "$scm_path" "$changelog" | grep '<error>' | sed 's/^/Newrelic API:/'
+  vendor/bin/pav-console newrelic:record-deployment "$app_name" "$deploy_user" "$revision" "$scm_path" "$changelog" | grep '<error>' | sed 's/^/Newrelic API:/'
 done
 
 

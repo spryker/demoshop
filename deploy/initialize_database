@@ -25,7 +25,7 @@ cd "$destination_release_dir"
 
 # Initialize database (fill in default values)
 echo "Initialize database with default values (incl. state machine states) for $APPLICATION_STORE"
-vendor/bin/console setup:init-db
+vendor/bin/pav-console setup:init-db
 return=$?
 
 rm -f $outfile

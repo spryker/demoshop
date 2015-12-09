@@ -26,7 +26,7 @@ if [ ! -d $destination_current_dir ]; then
   echo "Host is fresh!"
   exit
 fi
-APPLICATION_ENV="${environment}" vendor/bin/console setup:jenkins:disable
+APPLICATION_ENV="${environment}" vendor/bin/pav-console setup:jenkins:disable
 
 rm -f "$outfile"
 exit 0
