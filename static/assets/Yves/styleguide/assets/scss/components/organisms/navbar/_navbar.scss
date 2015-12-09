@@ -121,6 +121,14 @@
     display: table;
     width: 100%;
     float: left;
+
+    &:not(.navbar__links--open) {
+        .navbar__link--active{
+            a, div{
+                color: $_rgbQuincy;
+            }
+        }
+    }
 }
 
 .navbar__link{
@@ -141,9 +149,15 @@
         height: 72px;
         text-decoration: none;
         text-transform: uppercase;
-        color: $_rgbQuincy;
+        color: $_rgbSilverChalice;
 
         cursor: pointer;
+
+        transition: color $_tShort ease-in-out;
+
+        &:hover{
+            color: $_rgbQuincy;
+        }
     }
 
     span{
@@ -154,6 +168,13 @@
         width: 100%;
     }
 }
+
+.navbar__link--open{
+    a, div{
+        color: $_rgbQuincy;
+    }
+}
+
 
 .navbar__marker{
     content: '';
