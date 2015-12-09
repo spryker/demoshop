@@ -22,7 +22,6 @@ $(document).ready(function () {
     $cartLayer = $('.cart-layer__inner');
     firstRender = true;
 
-    // #TODO:390 changes to cart items
 
     loadCart();
     $(document).on(EVENTS.UPDATE_CART, loadCart);
