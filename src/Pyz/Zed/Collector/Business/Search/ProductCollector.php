@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Collector\Business\Search;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use Orm\Zed\Category\Persistence\Map\SpyCategoryTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Join;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -29,6 +30,7 @@ use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 
 class ProductCollector extends AbstractPropelCollectorPlugin
 {
+    const INTEGER_SORT = 'integer-sort';
     /**
      * @var PriceFacade
      */
@@ -229,7 +231,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             Criteria::EQUAL
         );
 
-
         // Product availability
         $baseQuery->addJoin(
             SpyProductTableMap::COL_ID_PRODUCT,
@@ -245,11 +246,16 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         );
         $baseQuery->addJoin(
             SpyProductCategoryTableMap::COL_FK_CATEGORY,
-            SpyCategoryNodeTableMap::COL_ID_CATEGORY_NODE,
+            SpyCategoryTableMap::COL_ID_CATEGORY,
             Criteria::INNER_JOIN
         );
         $baseQuery->addJoin(
+            SpyCategoryTableMap::COL_ID_CATEGORY,
             SpyCategoryNodeTableMap::COL_FK_CATEGORY,
+            Criteria::INNER_JOIN
+        );
+        $baseQuery->addJoin(
+            SpyCategoryTableMap::COL_ID_CATEGORY,
             SpyCategoryAttributeTableMap::COL_FK_CATEGORY,
             Criteria::INNER_JOIN
         );
@@ -269,8 +275,12 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $baseQuery = $this->categoryQueryContainer->joinRelatedCategoryQueryWithUrls($baseQuery, 'categoryParents', 'parent');
 
         $baseQuery->withColumn(
-            'JSON_AGG(DISTINCT spy_category_node.id_category_node)',
+            'JSON_AGG(spy_category_node.id_category_node)',
             'node_id'
+        );
+        $baseQuery->withColumn(
+            'JSON_AGG(spy_product_category.product_order)',
+            'category_product_order'
         );
         $baseQuery->withColumn(
             SpyCategoryNodeTableMap::COL_FK_CATEGORY,
@@ -316,9 +326,22 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                 $processedResultSet[$index]['bool-facet']['available'] = $isAvailable;
 
                 // Category
+                $nodeIds = json_decode($productRawData['node_id'], true);
+                $categoryProductOrder = json_decode($productRawData['category_product_order'], true);
+                $parentIds = json_decode($productRawData['category_parent_ids'], true);
+
+                if (!array_key_exists(self::INTEGER_SORT, $processedResultSet[$index])) {
+                    $processedResultSet[$index][self::INTEGER_SORT] = [];
+                }
+
+                $processedResultSet[$index][self::INTEGER_SORT] = array_merge(
+                    $processedResultSet[$index][self::INTEGER_SORT],
+                    $this->getProductCategorySorting($nodeIds, $categoryProductOrder)
+                );
+
                 $processedResultSet[$index]['category'] = [
-                    'direct-parents' => json_decode($productRawData['node_id'], true),
-                    'all-parents' => json_decode($productRawData['category_parent_ids'], true),
+                    'direct-parents' => array_values(array_unique($nodeIds)),
+                    'all-parents' => array_values(array_unique($parentIds)),
                 ];
             }
         }
@@ -334,12 +357,30 @@ class ProductCollector extends AbstractPropelCollectorPlugin
      */
     protected function buildProducts(array &$resultSet, $locale)
     {
-
         $processedResultSet = [];
         $processedResultSet = $this->productSearchFacade->createSearchProducts($resultSet, $processedResultSet, $locale);
         $keys = array_keys($processedResultSet);
         $resultSet = array_combine($keys, $resultSet);
 
         return $processedResultSet;
+    }
+
+    /**
+     * @param array $nodeIds
+     * @param array $productCategoryOrder
+     *
+     * @return array
+     */
+    protected function getProductCategorySorting(array $nodeIds, array $productCategoryOrder)
+    {
+        $productCategorySorting = [];
+        foreach ($nodeIds as $index => $nodeId) {
+            $sortKey = sprintf('ProductCategoryOrder_%s', $nodeId);
+            if (array_key_exists($index, $productCategoryOrder)) {
+                $productCategorySorting[$sortKey] = $productCategoryOrder[$index];
+            }
+        }
+
+        return $productCategorySorting;
     }
 }
