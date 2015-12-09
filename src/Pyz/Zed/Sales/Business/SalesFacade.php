@@ -9,6 +9,7 @@ use Generated\Shared\Sales\SalesDiscountInterface;
 use Generated\Shared\Sales\SalesItemConfigurationInterface;
 use Generated\Shared\Sales\SalesOrderItemInterface;
 use Orm\Zed\Sales\Persistence\Base\SpySalesOrder;
+use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 use Pyz\Zed\OrderExporter\Dependency\Facade\OrderExporterToSalesFacade;
 use SprykerFeature\Zed\Sales\Business\SalesFacade as SprykerSalesFacade;
 use SprykerFeature\Zed\SalesCheckoutConnector\Dependency\Facade\SalesCheckoutConnectorToSalesInterface as SpySalesCheckoutConnectorToSalesInterface;
@@ -28,6 +29,17 @@ class SalesFacade extends SprykerSalesFacade implements SpySalesCheckoutConnecto
         return $this->getDependencyContainer()
             ->createSalesManager()
             ->getOrderItemById($idOrderItem);
+    }
+
+    /**
+     * @param $orderItemId
+     * @return SpySalesOrderItem
+     */
+    public function getOrderItemEntityById($orderItemId)
+    {
+        return $this->getDependencyContainer()
+            ->createSalesManager()
+            ->getOrderItemEntityById($orderItemId);
     }
 
     /**
@@ -95,5 +107,4 @@ class SalesFacade extends SprykerSalesFacade implements SpySalesCheckoutConnecto
             ->createSalesManager()
             ->hasDiscountCodeByDiscountId($idSalesDiscount);
     }
-
 }

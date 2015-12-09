@@ -53,6 +53,17 @@ class OrderExporterFacade extends AbstractFacade
     }
 
     /**
+     * @param int $orderItemId
+     * @return SpySalesOrderItem
+     */
+    public function getOrderItemEntityById($orderItemId)
+    {
+        return $this->getDependencyContainer()
+            ->getSalesFacade()
+            ->getOrderItemEntityById($orderItemId);
+    }
+
+    /**
      * @param SpySalesOrderItem[] $orderItems
      * @return int|null
      * @throws \Exception
@@ -85,5 +96,7 @@ class OrderExporterFacade extends AbstractFacade
             ->createOrderExportManager()
             ->findOrderItemAfterbuyExportByItemId($salesOrderItemId);
     }
+
+
 
 }
