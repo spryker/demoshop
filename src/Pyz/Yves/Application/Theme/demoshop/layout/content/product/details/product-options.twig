@@ -97,7 +97,7 @@
         <div class="product-options__relative">
             {% set base = initial.weight.unit in ['ml', 'g'] ? 100 : 1 %}
 
-            <span class="js-product-weight">{{ initial.weight.value | replace({'.':','}) }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }}</span> ({{ (initial.price * base / initial.weight.value) | price }} / {{ base }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }}
+            <span class="js-product-weight">{{ initial.weight.value | replace({'.':','}) }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }}</span> ({{ (initial.price * base / initial.weight.value) | price }} / {{ base }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }})
         </div>
     </div>
 
@@ -168,7 +168,7 @@
                 <div class="tablet-options__relative">
                     {% set base = initial.weight.unit in ['ml', 'g'] ? 100 : 1 %}
 
-                    <span class="js-product-weight">{{ initial.weight.value | replace({'.':','}) }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }}</span> ({{ (initial.price * base / initial.weight.value) | price }} / {{ base }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }}
+                    <span class="js-product-weight">{{ initial.weight.value | replace({'.':','}) }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }}</span> ({{ (initial.price * base / initial.weight.value) | price }} / {{ base }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }})
                 </div>
             </div>
         </div>
@@ -228,7 +228,7 @@
                     <div class="mobile-options__relative">
                         {% set base = initial.weight.unit in ['ml', 'g'] ? 100 : 1 %}
 
-                        <span class="js-product-weight">{{ initial.weight.value | replace({'.':','}) }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }}</span> ({{ (initial.price * base / initial.weight.value) | price }} / {{ base }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }}
+                        <span class="js-product-weight">{{ initial.weight.value | replace({'.':','}) }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }}</span> ({{ (initial.price * base / initial.weight.value) | price }} / {{ base }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }})
                     </div>
                 </div>
 
