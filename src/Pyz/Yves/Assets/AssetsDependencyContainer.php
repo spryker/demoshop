@@ -28,10 +28,10 @@ class AssetsDependencyContainer extends AbstractDependencyContainer
      */
     public function createAssetUrlBuilder($isDomainSecured = false)
     {
-        $host = Config::get(SystemConfig::HOST_STATIC_ASSETS);
+        $host = Config::get(ApplicationConfig::HOST_STATIC_ASSETS);
 
         if ($isDomainSecured) {
-            $host = Config::get(SystemConfig::HOST_SSL_STATIC_ASSETS);
+            $host = Config::get(ApplicationConfig::HOST_SSL_STATIC_ASSETS);
         }
 
         return new AssetUrlBuilder($host, $this->createCacheBuster());
@@ -46,10 +46,10 @@ class AssetsDependencyContainer extends AbstractDependencyContainer
      */
     public function createMediaUrlBuilder($isDomainSecured = false)
     {
-        $host = Config::get(SystemConfig::HOST_STATIC_MEDIA);
+        $host = Config::get(ApplicationConfig::HOST_STATIC_MEDIA);
 
         if ($isDomainSecured) {
-            $host = Config::get(SystemConfig::HOST_SSL_STATIC_MEDIA);
+            $host = Config::get(ApplicationConfig::HOST_SSL_STATIC_MEDIA);
         }
 
         return new MediaUrlBuilder($host);

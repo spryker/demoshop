@@ -13,7 +13,6 @@ use SprykerEngine\Yves\Kernel\AbstractPlugin;
 use SprykerFeature\Client\Session\Service\SessionClientInterface;
 use SprykerFeature\Shared\Library\Config;
 use SprykerFeature\Shared\Session\SessionConfig;
-use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\Application\ApplicationConfig;
 
 /**
@@ -40,7 +39,7 @@ class SessionServiceProvider extends AbstractPlugin implements ServiceProviderIn
 
         $sessionStorageOptions = [
             'cookie_httponly' => true,
-            'cookie_lifetime' => Config::get(SystemConfig::YVES_STORAGE_SESSION_TIME_TO_LIVE),
+            'cookie_lifetime' => Config::get(ApplicationConfig::YVES_STORAGE_SESSION_TIME_TO_LIVE),
         ];
 
         $name = Config::get(ApplicationConfig::YVES_SESSION_NAME);
@@ -128,13 +127,13 @@ class SessionServiceProvider extends AbstractPlugin implements ServiceProviderIn
         $path = null;
         switch ($saveHandler) {
             case SessionConfig::SESSION_HANDLER_REDIS:
-                $path = Config::get(SystemConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL)
-                    . '://' . Config::get(SystemConfig::YVES_STORAGE_SESSION_REDIS_HOST)
-                    . ':' . Config::get(SystemConfig::YVES_STORAGE_SESSION_REDIS_PORT);
+                $path = Config::get(ApplicationConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL)
+                    . '://' . Config::get(ApplicationConfig::YVES_STORAGE_SESSION_REDIS_HOST)
+                    . ':' . Config::get(ApplicationConfig::YVES_STORAGE_SESSION_REDIS_PORT);
                 break;
 
             case SessionConfig::SESSION_HANDLER_FILE:
-                $path = Config::get(SystemConfig::YVES_STORAGE_SESSION_FILE_PATH);
+                $path = Config::get(ApplicationConfig::YVES_STORAGE_SESSION_FILE_PATH);
                 break;
 
             default:
