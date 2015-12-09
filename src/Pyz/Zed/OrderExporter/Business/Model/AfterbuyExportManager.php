@@ -155,6 +155,7 @@ class AfterbuyExportManager
 
         $postData[AfterbuyConstants::CUSTOMER_EMAIL] = $email;
         $postData[AfterbuyConstants::SALES_ORDER_ID] = $order->getIdSalesOrder();
+        $postData[AfterbuyConstants::ORDER_COMMENT] = $order->getOrderReference();
 
         $postData = $this->addShippingAddressInfo($shippingAddress, $postData);
 
@@ -393,6 +394,14 @@ class AfterbuyExportManager
         $postData[AfterbuyConstants::SHIPPING_FIRST_NAME] = $shippingAddress->getFirstName();
         $postData[AfterbuyConstants::SHIPPING_LAST_NAME] = $shippingAddress->getLastName();
         $postData[AfterbuyConstants::SHIPPING_STREET] = $shippingAddress->getAddress1();
+
+        if ($shippingAddress->getAddress2()) {
+            $postData[AfterbuyConstants::SHIPPING_STREET] .= " " . $shippingAddress->getAddress2();
+        }
+        if ($shippingAddress->getAddress3()) {
+            $postData[AfterbuyConstants::SHIPPING_COMPANY_NAME] .= '; ' . $shippingAddress->getAddress3();
+        }
+
         $postData[AfterbuyConstants::SHIPPING_ZIP_CODE] = $shippingAddress->getZipCode();
         $postData[AfterbuyConstants::SHIPPING_CITY] = $shippingAddress->getCity();
         $postData[AfterbuyConstants::SHIPPING_PHONE] = $shippingAddress->getPhone();
@@ -414,6 +423,12 @@ class AfterbuyExportManager
         $postData[AfterbuyConstants::BILLING_FIRST_NAME] = $billingAddress->getFirstName();
         $postData[AfterbuyConstants::BILLING_LAST_NAME] = $billingAddress->getLastName();
         $postData[AfterbuyConstants::BILLING_STREET] = $billingAddress->getAddress1();
+        if ($billingAddress->getAddress2()) {
+            $postData[AfterbuyConstants::BILLING_STREET] .= " " . $billingAddress->getAddress2();
+        }
+        if ($billingAddress->getAddress3()) {
+            $postData[AfterbuyConstants::BILLING_COMPANY_NAME] .= '; ' . $billingAddress->getAddress3();
+        }
         $postData[AfterbuyConstants::BILLING_ZIP_CODE] = $billingAddress->getZipCode();
         $postData[AfterbuyConstants::BILLING_CITY] = $billingAddress->getCity();
         $postData[AfterbuyConstants::BILLING_PHONE] = $billingAddress->getPhone();

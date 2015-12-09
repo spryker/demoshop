@@ -7,6 +7,7 @@ use Generated\Shared\Sales\OrderInterface;
 use Generated\Shared\Sales\SalesDiscountCodeInterface;
 use Generated\Shared\Sales\SalesDiscountInterface;
 use Generated\Shared\Sales\SalesItemConfigurationInterface;
+use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 
 interface OrderExporterToSalesFacade
 {
@@ -15,6 +16,12 @@ interface OrderExporterToSalesFacade
      * @return ItemInterface
      */
     public function getOrderItemById($orderItemId);
+
+    /**
+     * @param $orderItemId
+     * @return SpySalesOrderItem
+     */
+    public function getOrderItemEntityById($orderItemId);
 
     /**
      * @param int $idSalesOrder
@@ -45,4 +52,5 @@ interface OrderExporterToSalesFacade
      * @return bool
      */
     public function hasDiscountCodeByDiscountId($idSalesDiscount);
+
 }
