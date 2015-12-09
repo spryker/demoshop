@@ -2,10 +2,10 @@
     set data = {
         channels: [
             {
-                headline: 'Beratungs-Telefon',
+                headline: 'Beratung',
                 icon: 'call',
                 link: {
-                    title: '+49 / 30 - 208 98 48 99',
+                    title: '<span>+49 / 30 -</span><span>208 98 48 99</span>',
                     url: 'tel:+4930208984899'
                 }
             },
@@ -42,13 +42,13 @@
     <div class="communication__channels">
 
         {% for channel in data.channels %}
-        <div class="communication__channel communication__channel--{{ channel.icon }}">
+        <a class="communication__channel communication__channel--{{ channel.icon }}" {% if channel.link.target is defined %} target="{{ channel.link.target }}" {% endif %} {% if channel.link.url is defined %} href="{{ channel.link.url }}" {% endif %}>
             <h2 class="communication__label">{{ channel.headline }}</h2>
 
-            <a {% if channel.link.target is defined %} target="{{ channel.link.target }}" {% endif %} {% if channel.link.url is defined %} href="{{ channel.link.url }}" {% endif %} class="communication__info">
-                {{ channel.link.title }}
-            </a>
-        </div>
+            <div class="communication__info">
+                {{ channel.link.title | raw }}
+            </div>
+        </a>
         {% endfor %}
 
     </div>
