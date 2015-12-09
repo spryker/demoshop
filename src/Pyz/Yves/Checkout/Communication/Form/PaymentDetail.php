@@ -80,7 +80,7 @@ class PaymentDetail extends AbstractType
                 'label' => 'BLZ',
                 'required' => false,
                 'attr' => [
-                    'class' => 'input--1-1',
+                    'class' => 'input--2-3',
                     'autocomplete' => 'off',
                     'data-required' => true,
                     'data-depending-field' => 'checkout[adyen_payment][payment_method]',
