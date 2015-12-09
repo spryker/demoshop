@@ -139,7 +139,7 @@ function npm_install() {
 # send a string message to slack "it-bot-log" channel
 function send_slack_notification() {
 
-  if [ "${environment}" == "prod" ]; then
+  if [ "${environment}" == "production" ]; then
     slack_channel_url="https://hooks.slack.com/services/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" # channel: "pets-deli-production deployment"
   else
     slack_channel_url="https://hooks.slack.com/services/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" # channel: "pets-deliy-deployment"
