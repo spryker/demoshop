@@ -74,6 +74,9 @@ Vagrant.configure(2) do |config|
   # The VirtualBox IP-address for the browser
   config.vm.network :private_network, ip: VM_IP
 
+  ## Uncomment to make your VM available within the local network
+  #config.vm.network "public_network", type: "dhcp", bridge: "eth0"
+
   # Port forwarding for services running on VM:
   config.vm.network "forwarded_port", guest: 1080,  host: 1080,  auto_correct: true   # Mailcatcher
   config.vm.network "forwarded_port", guest: 3306,  host: 3306,  auto_correct: true   # MySQL
