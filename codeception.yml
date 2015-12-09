@@ -52,7 +52,6 @@ include:
 - vendor/spryker/spryker/Bundles/TaxProductConnector
 - vendor/spryker/spryker/Bundles/Touch
 - vendor/spryker/spryker/Bundles/Transfer
-- vendor/spryker/spryker/Bundles/Translation
 - vendor/spryker/spryker/Bundles/Url
 - vendor/spryker/spryker/Bundles/User
 - vendor/spryker/spryker/Bundles/Wishlist

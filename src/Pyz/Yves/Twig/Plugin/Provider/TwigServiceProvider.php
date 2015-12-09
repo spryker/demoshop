@@ -110,7 +110,7 @@ class TwigServiceProvider extends SilexTwigServiceProvider
     protected function registerYvesLoader(Application $app)
     {
         $app['twig.loader.yves'] = $app->share(function () {
-            $themeName = Config::get(YvesConfig::YVES_THEME);
+            $themeName = Config::get(ApplicationConfig::YVES_THEME);
             $namespace = Config::get(SystemConfig::PROJECT_NAMESPACE);
             $store = \SprykerEngine\Shared\Kernel\Store::getInstance()->getStoreName();
 

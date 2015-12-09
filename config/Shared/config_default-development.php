@@ -5,14 +5,13 @@
  */
 
 use SprykerFeature\Shared\System\SystemConfig;
-use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Acl\AclConfig;
 use SprykerFeature\Shared\Session\SessionConfig;
 use SprykerFeature\Shared\Log\Config\DefaultLoggerConfig;
 use SprykerFeature\Shared\Payone\PayoneConfigConstants;
 
-$config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_REDIS;
+$config[ApplicationConfig::YVES_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_REDIS;
 $config[SystemConfig::ZED_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_FILE;
 
 $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL] = 'tcp';
@@ -23,11 +22,11 @@ $config[SystemConfig::ZED_STORAGE_SESSION_REDIS_PROTOCOL] = $config[SystemConfig
 $config[SystemConfig::ZED_STORAGE_SESSION_REDIS_HOST] = $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_HOST];
 $config[SystemConfig::ZED_STORAGE_SESSION_REDIS_PORT] = $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PORT];
 
-$config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
+$config[ApplicationConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
 
 $config[SystemConfig::JENKINS_BASE_URL] = 'http://' . $config[SystemConfig::HOST_ZED_GUI] . ':10007/jenkins';
 $config[SystemConfig::JENKINS_DIRECTORY] = '/data/shop/development/shared/data/common/jenkins';
-$config[YvesConfig::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = true;
+$config[ApplicationConfig::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = true;
 
 $config[PayoneConfigConstants::PAYONE] = [
     PayoneConfigConstants::PAYONE_CREDENTIALS_ENCODING => 'UTF-8',

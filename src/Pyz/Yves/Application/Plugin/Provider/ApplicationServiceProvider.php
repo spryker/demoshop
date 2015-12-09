@@ -12,7 +12,6 @@ use SprykerFeature\Shared\Library\Application\Environment as ApplicationEnvironm
 use SprykerFeature\Shared\Library\DataDirectory;
 use SprykerFeature\Shared\Library\Environment;
 use SprykerFeature\Shared\System\SystemConfig;
-use SprykerFeature\Shared\Yves\YvesConfig;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Controller\ControllerResolver;
@@ -109,7 +108,7 @@ class ApplicationServiceProvider extends AbstractServiceProvider
      */
     protected function setTrustedProxies()
     {
-        $proxies = Config::get(YvesConfig::YVES_TRUSTED_PROXIES);
+        $proxies = Config::get(ApplicationConfig::YVES_TRUSTED_PROXIES);
         Request::setTrustedProxies($proxies);
     }
 
@@ -148,14 +147,14 @@ class ApplicationServiceProvider extends AbstractServiceProvider
      */
     protected function setProtocolCheck()
     {
-        if (!Config::get(YvesConfig::YVES_SSL_ENABLED) || !Config::get(YvesConfig::YVES_COMPLETE_SSL_ENABLED)) {
+        if (!Config::get(ApplicationConfig::YVES_SSL_ENABLED) || !Config::get(ApplicationConfig::YVES_COMPLETE_SSL_ENABLED)) {
             return;
         }
 
         $this->application->before(
             function (Request $request) {
                 if (!$request->isSecure()
-                    && !in_array($request->getPathInfo(), Config::get(YvesConfig::YVES_SSL_EXCLUDED))
+                    && !in_array($request->getPathInfo(), Config::get(ApplicationConfig::YVES_SSL_EXCLUDED))
                 ) {
                     $fakeRequest = clone $request;
                     $fakeRequest->server->set('HTTPS', true);

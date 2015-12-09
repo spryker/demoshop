@@ -14,7 +14,7 @@ use SprykerFeature\Client\Session\Service\SessionClientInterface;
 use SprykerFeature\Shared\Library\Config;
 use SprykerFeature\Shared\Session\SessionConfig;
 use SprykerFeature\Shared\System\SystemConfig;
-use SprykerFeature\Shared\Yves\YvesConfig;
+use SprykerFeature\Shared\Application\ApplicationConfig;
 
 /**
  * @method SessionClientInterface getClient()
@@ -29,11 +29,11 @@ class SessionServiceProvider extends AbstractPlugin implements ServiceProviderIn
      */
     public function register(Application $app)
     {
-        $saveHandler = Config::get(YvesConfig::YVES_SESSION_SAVE_HANDLER);
+        $saveHandler = Config::get(ApplicationConfig::YVES_SESSION_SAVE_HANDLER);
 
         if (!in_array($saveHandler, $this->getSaveHandler())) {
-            if (Config::get(YvesConfig::YVES_SESSION_SAVE_HANDLER) && $this->getSavePath($saveHandler)) {
-                ini_set('session.save_handler', Config::get(YvesConfig::YVES_SESSION_SAVE_HANDLER));
+            if (Config::get(ApplicationConfig::YVES_SESSION_SAVE_HANDLER) && $this->getSavePath($saveHandler)) {
+                ini_set('session.save_handler', Config::get(ApplicationConfig::YVES_SESSION_SAVE_HANDLER));
                 session_save_path($this->getSavePath($saveHandler));
             }
         }
@@ -43,11 +43,11 @@ class SessionServiceProvider extends AbstractPlugin implements ServiceProviderIn
             'cookie_lifetime' => Config::get(SystemConfig::YVES_STORAGE_SESSION_TIME_TO_LIVE),
         ];
 
-        $name = Config::get(YvesConfig::YVES_SESSION_NAME);
+        $name = Config::get(ApplicationConfig::YVES_SESSION_NAME);
         if ($name) {
             $sessionStorageOptions['name'] = $name;
         }
-        $cookieDomain = Config::get(YvesConfig::YVES_SESSION_COOKIE_DOMAIN);
+        $cookieDomain = Config::get(ApplicationConfig::YVES_SESSION_COOKIE_DOMAIN);
         if ($cookieDomain) {
             $sessionStorageOptions['cookie_domain'] = $cookieDomain;
         }

@@ -7,7 +7,6 @@ use SprykerFeature\Shared\Auth\AuthConfig;
 use SprykerFeature\Shared\Customer\CustomerConfig;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\User\UserConfig;
-use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
 use SprykerFeature\Shared\NewRelic\NewRelicConfig;
 use SprykerFeature\Shared\Session\SessionConfig;
@@ -62,11 +61,11 @@ $config[SystemConfig::HOST_ZED_GUI]
 
 $config[SystemConfig::LOG_LEVEL] = Monolog\Logger::INFO;
 
-$config[YvesConfig::TRANSFER_USERNAME] = 'yves';
-$config[YvesConfig::TRANSFER_PASSWORD] = 'o7&bg=Fz;nSslHBC';
-$config[YvesConfig::TRANSFER_SSL] = false;
-$config[YvesConfig::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = false;
-$config[YvesConfig::TRANSFER_DEBUG_SESSION_NAME] = 'XDEBUG_SESSION';
+$config[ApplicationConfig::TRANSFER_USERNAME] = 'yves';
+$config[ApplicationConfig::TRANSFER_PASSWORD] = 'o7&bg=Fz;nSslHBC';
+$config[ApplicationConfig::TRANSFER_SSL] = false;
+$config[ApplicationConfig::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = false;
+$config[ApplicationConfig::TRANSFER_DEBUG_SESSION_NAME] = 'XDEBUG_SESSION';
 
 $config[SystemConfig::ZED_LIBRARY_PASSWORD_ALGORITHM] = PASSWORD_BCRYPT;
 $config[SystemConfig::ZED_LIBRARY_PASSWORD_OPTIONS] = [];
@@ -83,18 +82,18 @@ $config[SystemConfig::ZED_SSL_ENABLED] = false;
 $config[SystemConfig::ZED_API_SSL_ENABLED] = false;
 $config[SystemConfig::ZED_SSL_EXCLUDED] = ['system/heartbeat'];
 
-$config[YvesConfig::YVES_THEME] = 'demoshop';
-$config[YvesConfig::YVES_TRUSTED_PROXIES] = [];
-$config[YvesConfig::YVES_SSL_ENABLED] = false;
-$config[YvesConfig::YVES_COMPLETE_SSL_ENABLED] = false;
-$config[YvesConfig::YVES_SSL_EXCLUDED] = ['/monitoring/heartbeat'];
+$config[ApplicationConfig::YVES_THEME] = 'demoshop';
+$config[ApplicationConfig::YVES_TRUSTED_PROXIES] = [];
+$config[ApplicationConfig::YVES_SSL_ENABLED] = false;
+$config[ApplicationConfig::YVES_COMPLETE_SSL_ENABLED] = false;
+$config[ApplicationConfig::YVES_SSL_EXCLUDED] = ['/monitoring/heartbeat'];
 
-$config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_REDIS;
-$config[YvesConfig::YVES_SESSION_NAME] = 'yves_session';
-$config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
+$config[ApplicationConfig::YVES_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_REDIS;
+$config[ApplicationConfig::YVES_SESSION_NAME] = 'yves_session';
+$config[ApplicationConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
 
-$config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
-$config[YvesConfig::YVES_SHOW_EXCEPTION_STACK_TRACE] = true;
+$config[ApplicationConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
+$config[ApplicationConfig::YVES_SHOW_EXCEPTION_STACK_TRACE] = true;
 $config[SystemConfig::ZED_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
 $config[SystemConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = true;
 

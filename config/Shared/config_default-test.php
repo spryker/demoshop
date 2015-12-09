@@ -5,7 +5,7 @@
  */
 
 use SprykerFeature\Shared\System\SystemConfig;
-use SprykerFeature\Shared\Yves\YvesConfig;
+use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Session\SessionConfig;
 use SprykerFeature\Shared\Payone\PayoneConfigConstants;
 
@@ -15,7 +15,7 @@ $config[SystemConfig::ZED_DB_DATABASE] = 'DE_development_zed';
 $config[SystemConfig::ZED_DB_HOST] = '127.0.0.1';
 $config[SystemConfig::ZED_DB_PORT] = 3306;
 
-$config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_REDIS;
+$config[ApplicationConfig::YVES_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_REDIS;
 $config[SystemConfig::ZED_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_FILE;
 
 $config[SystemConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL] = 'tcp';

@@ -5,11 +5,11 @@
  */
 
 use SprykerFeature\Shared\System\SystemConfig;
-use SprykerFeature\Shared\Yves\YvesConfig;
+use SprykerFeature\Shared\Application\ApplicationConfig;
 
 $config[SystemConfig::CLOUD_ENABLED] = true;
 $config[SystemConfig::CLOUD_OBJECT_STORAGE_ENABLED] = true;
 $config[SystemConfig::CLOUD_CDN_ENABLED] = true;
 
-$config[YvesConfig::YVES_SHOW_EXCEPTION_STACK_TRACE] = false;
+$config[ApplicationConfig::YVES_SHOW_EXCEPTION_STACK_TRACE] = false;
 $config[SystemConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = false;

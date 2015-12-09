@@ -2,7 +2,7 @@
 
 use SprykerFeature\Shared\Mail\MailConfig;
 use SprykerFeature\Shared\System\SystemConfig;
-use SprykerFeature\Shared\Yves\YvesConfig;
+use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
 use SprykerFeature\Shared\Payone\PayoneConfigConstants;
 use SprykerFeature\Shared\Session\SessionConfig;
@@ -29,7 +29,7 @@ $config[SystemConfig::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
 $config[SystemConfig::ELASTICA_PARAMETER__PORT] = '9200';
 
 $yvesHost = 'www.de.spryker.dev';
-$config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
+$config[ApplicationConfig::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
 $config[SystemConfig::HOST_YVES] = 'http://' . $yvesHost;
 $config[SystemConfig::HOST_STATIC_ASSETS] = $config[SystemConfig::HOST_STATIC_MEDIA] = $yvesHost;
 
