@@ -2,6 +2,25 @@
 
 namespace Pyz\Zed\Checkout;
 
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Checkout\OrderHydrationPlugin;
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Checkout\PreCheckPlugin;
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Checkout\SaveOrderPlugin;
+use SprykerFeature\Zed\ShipmentCheckoutConnector\Communication\Plugin\OrderShipmentSavePlugin;
+use SprykerFeature\Zed\DiscountCheckoutConnector\Communication\Plugin\DiscountOrderSavePlugin;
+use SprykerFeature\Zed\SalesCheckoutConnector\Communication\Plugin\SalesOrderSaverPlugin;
+use SprykerFeature\Zed\CustomerCheckoutConnector\Communication\Plugin\OrderCustomerSavePlugin;
+use SprykerFeature\Zed\DiscountCheckoutConnector\Communication\Plugin\DiscountOrderHydrationPlugin;
+use SprykerFeature\Zed\ShipmentCheckoutConnector\Communication\Plugin\OrderShipmentHydrationPlugin;
+use SprykerFeature\Zed\OmsCheckoutConnector\Communication\Plugin\OrderOmsHydrationPlugin;
+use SprykerFeature\Zed\ItemGrouperCheckoutConnector\Communication\Plugin\OrderItemGroupingHydrationPlugin;
+use SprykerFeature\Zed\ProductOptionCheckoutConnector\Communication\Plugin\GroupKeyProductOptionHydrationPlugin;
+use SprykerFeature\Zed\CartCheckoutConnector\Communication\Plugin\ProductSkuGroupKeyHydrationPlugin;
+use SprykerFeature\Zed\ProductOptionCheckoutConnector\Communication\Plugin\OrderProductOptionHydrationPlugin;
+use SprykerFeature\Zed\CartCheckoutConnector\Communication\Plugin\OrderCartHydrationPlugin;
+use SprykerFeature\Zed\CustomerCheckoutConnector\Communication\Plugin\OrderCustomerHydrationPlugin;
+use SprykerFeature\Zed\CalculationCheckoutConnector\Communication\Plugin\Recalculate;
+use SprykerFeature\Zed\AvailabilityCheckoutConnector\Communication\Plugin\ProductsAvailablePreConditionPlugin;
+use SprykerFeature\Zed\CustomerCheckoutConnector\Communication\Plugin\CustomerPreConditionCheckerPlugin;
 use SprykerEngine\Zed\Kernel\Container;
 use SprykerFeature\Zed\Checkout\CheckoutDependencyProvider as SprykerCheckoutDependencyProvider;
 use SprykerFeature\Zed\Checkout\Dependency\Plugin\CheckoutOrderHydrationInterface;
@@ -21,9 +40,9 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     protected function getCheckoutPreConditions(Container $container)
     {
         return [
-            $container->getLocator()->customerCheckoutConnector()->pluginCustomerPreConditionCheckerPlugin(),
-            $container->getLocator()->availabilityCheckoutConnector()->pluginProductsAvailablePreConditionPlugin(),
-            $container->getLocator()->payolution()->pluginCheckoutPreCheckPlugin(),
+            new CustomerPreConditionCheckerPlugin(),
+            new ProductsAvailablePreConditionPlugin(),
+            new PreCheckPlugin(),
         ];
     }
 
@@ -35,7 +54,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     protected function getCheckoutPreHydrator(Container $container)
     {
         $preHydrator = parent::getCheckoutPreHydrator($container);
-        $preHydrator[] = $container->getLocator()->calculationCheckoutConnector()->pluginRecalculate();
+        $preHydrator[] = new Recalculate();
 
         return $preHydrator;
     }
@@ -48,16 +67,16 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     protected function getCheckoutOrderHydrators(Container $container)
     {
         return [
-            $container->getLocator()->customerCheckoutConnector()->pluginOrderCustomerHydrationPlugin(),
-            $container->getLocator()->cartCheckoutConnector()->pluginOrderCartHydrationPlugin(),
-            $container->getLocator()->productOptionCheckoutConnector()->pluginOrderProductOptionHydrationPlugin(),
-            $container->getLocator()->cartCheckoutConnector()->pluginProductSkuGroupKeyHydrationPlugin(),
-            $container->getLocator()->productOptionCheckoutConnector()->pluginGroupKeyProductOptionHydrationPlugin(),
-            $container->getLocator()->itemGrouperCheckoutConnector()->pluginOrderItemGroupingHydrationPlugin(),
-            $container->getLocator()->omsCheckoutConnector()->pluginOrderOmsHydrationPlugin(),
-            $container->getLocator()->shipmentCheckoutConnector()->pluginOrderShipmentHydrationPlugin(),
-            $container->getLocator()->discountCheckoutConnector()->pluginDiscountOrderHydrationPlugin(),
-            $container->getLocator()->payolution()->pluginCheckoutOrderHydrationPlugin(),
+            new OrderCustomerHydrationPlugin(),
+            new OrderCartHydrationPlugin(),
+            new OrderProductOptionHydrationPlugin(),
+            new ProductSkuGroupKeyHydrationPlugin(),
+            new GroupKeyProductOptionHydrationPlugin(),
+            new OrderItemGroupingHydrationPlugin(),
+            new OrderOmsHydrationPlugin(),
+            new OrderShipmentHydrationPlugin(),
+            new DiscountOrderHydrationPlugin(),
+            new OrderHydrationPlugin(),
         ];
     }
 
@@ -69,11 +88,11 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     protected function getCheckoutOrderSavers(Container $container)
     {
         return [
-            $container->getLocator()->customerCheckoutConnector()->pluginOrderCustomerSavePlugin(),
-            $container->getLocator()->salesCheckoutConnector()->pluginSalesOrderSaverPlugin(),
-            $container->getLocator()->discountCheckoutConnector()->pluginDiscountOrderSavePlugin(),
-            $container->getLocator()->shipmentCheckoutConnector()->pluginOrderShipmentSavePlugin(),
-            $container->getLocator()->payolution()->pluginCheckoutSaveOrderPlugin(),
+            new OrderCustomerSavePlugin(),
+            new SalesOrderSaverPlugin(),
+            new DiscountOrderSavePlugin(),
+            new OrderShipmentSavePlugin(),
+            new SaveOrderPlugin(),
         ];
     }
 

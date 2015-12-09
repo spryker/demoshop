@@ -6,6 +6,7 @@
 
 namespace Pyz\Yves\Customer\Communication\Plugin\Provider;
 
+use Pyz\Yves\Customer\Communication\Plugin\RegisterForm;
 use Pyz\Yves\Application\Communication\Plugin\Provider\AbstractServiceProvider;
 use Silex\Application;
 
@@ -21,7 +22,7 @@ class CustomerServiceProvider extends AbstractServiceProvider
     {
         $this->addGlobalTemplateVariable($app, [
             'registerForm' => $app['form.factory']->create(
-                $this->getLocator()->customer()->pluginRegisterForm()->createFormRegister()
+                (new RegisterForm())->createFormRegister()
             )->createView(),
         ]);
     }

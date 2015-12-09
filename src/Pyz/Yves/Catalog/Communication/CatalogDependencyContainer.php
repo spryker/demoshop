@@ -6,6 +6,8 @@
 
 namespace Pyz\Yves\Catalog\Communication;
 
+use Pyz\Yves\Application\Communication\Plugin\Pimple;
+use Pyz\Yves\Collector\Communication\Plugin\UrlMapper;
 use Pyz\Yves\Collector\Communication\Mapper\UrlMapperInterface;
 use Silex\Application;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
@@ -20,7 +22,7 @@ class CatalogDependencyContainer extends AbstractCommunicationDependencyContaine
      */
     public function createUrlMapper()
     {
-        return $this->getLocator()->collector()->pluginUrlMapper()->createUrlMapper();
+        return (new UrlMapper())->createUrlMapper();
     }
 
     /**
@@ -28,7 +30,7 @@ class CatalogDependencyContainer extends AbstractCommunicationDependencyContaine
      */
     public function createApplication()
     {
-        return $this->getLocator()->application()->pluginPimple()->getApplication();
+        return (new Pimple())->getApplication();
     }
 
     /**

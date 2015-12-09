@@ -17,7 +17,7 @@ class SystemDependencyContainer extends AbstractCommunicationDependencyContainer
      */
     public function createHeartbeatMonitor()
     {
-        return $this->getLocator()->heartbeat()->pluginHeartbeatMonitor();
+        return new HeartbeatMonitor();
     }
 
 }

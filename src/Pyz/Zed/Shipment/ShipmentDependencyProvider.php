@@ -6,6 +6,12 @@
 
 namespace Pyz\Zed\Shipment;
 
+use Pyz\Zed\Shipment\Communication\Plugin\DeliveryTime\DHLPaketPlugin as DeliveryTimeDHLPaketPlugin;
+use Pyz\Zed\Shipment\Communication\Plugin\DeliveryTime\DHLExpressPlugin as DeliveryTimeDHLExpressPlugin;
+use Pyz\Zed\Shipment\Communication\Plugin\PriceCalculation\DHLPaketPlugin as PriceCalculationDHLPaketPlugin;
+use Pyz\Zed\Shipment\Communication\Plugin\PriceCalculation\DHLExpressPlugin as PriceCalculationDHLExpressPlugin;
+use Pyz\Zed\Shipment\Communication\Plugin\Availability\DHLPaketPlugin;
+use Pyz\Zed\Shipment\Communication\Plugin\Availability\DHLExpressPlugin;
 use SprykerFeature\Zed\Shipment\ShipmentDependencyProvider as SprykerShipmentDependencyProvider;
 use SprykerEngine\Zed\Kernel\Container;
 
@@ -62,12 +68,8 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
     protected function getAvailabilityPlugins(Container $container)
     {
         $plugins = [
-            ShipmentConfig::DHL_EXPRESS => $container->getLocator()
-                ->shipment()
-                ->pluginAvailabilityDHLExpressPlugin(),
-            ShipmentConfig::DHL_PAKET => $container->getLocator()
-                ->shipment()
-                ->pluginAvailabilityDHLPaketPlugin(),
+            ShipmentConfig::DHL_EXPRESS => new DHLExpressPlugin(),
+            ShipmentConfig::DHL_PAKET => new DHLPaketPlugin(),
         ];
 
         return $plugins;
@@ -81,12 +83,8 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
     protected function getPriceCalculationPlugins(Container $container)
     {
         $plugins = [
-            ShipmentConfig::DHL_EXPRESS => $container->getLocator()
-                ->shipment()
-                ->pluginPriceCalculationDHLExpressPlugin(),
-            ShipmentConfig::DHL_PAKET => $container->getLocator()
-                ->shipment()
-                ->pluginPriceCalculationDHLPaketPlugin(),
+            ShipmentConfig::DHL_EXPRESS => new PriceCalculationDHLExpressPlugin(),
+            ShipmentConfig::DHL_PAKET => new PriceCalculationDHLPaketPlugin(),
         ];
 
         return $plugins;
@@ -100,12 +98,8 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
     protected function getDeliveryTimePlugins(Container $container)
     {
         $plugins = [
-            ShipmentConfig::DHL_EXPRESS => $container->getLocator()
-                ->shipment()
-                ->pluginDeliveryTimeDHLExpressPlugin(),
-            ShipmentConfig::DHL_PAKET => $container->getLocator()
-                ->shipment()
-                ->pluginDeliveryTimeDHLPaketPlugin(),
+            ShipmentConfig::DHL_EXPRESS => new DeliveryTimeDHLExpressPlugin(),
+            ShipmentConfig::DHL_PAKET => new DeliveryTimeDHLPaketPlugin(),
         ];
 
         return $plugins;

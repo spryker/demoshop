@@ -6,6 +6,9 @@
 
 namespace Pyz\Zed\Customer;
 
+use SprykerFeature\Zed\CustomerMailConnector\Communication\Plugin\PasswordRestoredConfirmationSender;
+use SprykerFeature\Zed\CustomerMailConnector\Communication\Plugin\PasswordRestoreTokenSender;
+use SprykerFeature\Zed\CustomerMailConnector\Communication\Plugin\RegistrationTokenSender;
 use SprykerEngine\Zed\Kernel\Container;
 use SprykerFeature\Zed\Customer\CustomerDependencyProvider as SprykerCustomerDependencyProvider;
 
@@ -21,13 +24,13 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
     {
         return [
             SprykerCustomerDependencyProvider::REGISTRATION_TOKEN_SENDERS => [
-                $container->getLocator()->customerMailConnector()->pluginRegistrationTokenSender(),
+                new RegistrationTokenSender(),
             ],
             SprykerCustomerDependencyProvider::PASSWORD_RESTORE_TOKEN_SENDERS => [
-                $container->getLocator()->customerMailConnector()->pluginPasswordRestoreTokenSender(),
+                new PasswordRestoreTokenSender(),
             ],
             SprykerCustomerDependencyProvider::PASSWORD_RESTORED_CONFIRMATION_SENDERS => [
-                $container->getLocator()->customerMailConnector()->pluginPasswordRestoredConfirmationSender(),
+                new PasswordRestoredConfirmationSender(),
             ],
         ];
     }

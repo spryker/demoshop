@@ -5,6 +5,9 @@
  */
 namespace Pyz\Zed\Wishlist;
 
+use SprykerFeature\Zed\ProductOptionWishlistConnector\Communication\Plugin\PreSaveGroupKeyProductOptionPlugin;
+use SprykerFeature\Zed\Wishlist\Communication\Plugin\PreSaveSkuGroupKeyPlugin;
+use SprykerFeature\Zed\ItemGrouperWishlistConnector\Communication\Plugin\PreSaveItemGroupingPlugin;
 use SprykerFeature\Zed\Wishlist\WishlistDependencyProvider as BaseWishlistDependencyProvider;
 use SprykerEngine\Zed\Kernel\Container;
 use SprykerFeature\Zed\Wishlist\Business\Operator\Add;
@@ -22,12 +25,12 @@ class WishlistDependencyProvider extends BaseWishlistDependencyProvider
      */
     protected function preSavePlugins(Container $container)
     {
-        $groupingPlugin = $container->getLocator()->itemGrouperWishlistConnector()->pluginPreSaveItemGroupingPlugin();
+        $groupingPlugin = new PreSaveItemGroupingPlugin();
 
         return [
             Add::OPERATION_NAME => [
-                $container->getLocator()->wishlist()->pluginPreSaveSkuGroupKeyPlugin(),
-                $container->getLocator()->productOptionWishlistConnector()->pluginPreSaveGroupKeyProductOptionPlugin(),
+                new PreSaveSkuGroupKeyPlugin(),
+                new PreSaveGroupKeyProductOptionPlugin(),
                 $groupingPlugin,
             ],
             Decrease::OPERATION_NAME => [
