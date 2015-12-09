@@ -6,6 +6,12 @@
 
 namespace Pyz\Yves\Twig\Communication;
 
+use Pyz\Yves\Assets\Communication\Plugin\TwigAsset;
+use Pyz\Yves\Cms\Communication\Plugin\TwigCms;
+use Pyz\Yves\Cms\Communication\Plugin\TwigCmsBlock;
+use Pyz\Yves\Customer\Communication\Plugin\TwigCustomer;
+use Pyz\Yves\Product\Communication\Plugin\TwigPrice;
+use Pyz\Yves\Twig\Communication\Plugin\TwigNative;
 use Generated\Yves\Ide\AutoCompletion;
 use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use Pyz\Yves\Twig\Communication\Dependency\Plugin\TwigFilterPluginInterface;
@@ -33,8 +39,8 @@ class TwigSettings
     public function getTwigFilters()
     {
         return [
-            $this->getLocator()->twig()->pluginTwigNative(),
-            $this->getLocator()->product()->pluginTwigPrice(),
+            new TwigNative(),
+            new TwigPrice(),
         ];
     }
 
@@ -43,16 +49,16 @@ class TwigSettings
      */
     public function getTwigFunctions()
     {
-        $twigCustomer = $this->getLocator()->customer()->pluginTwigCustomer();
+        $twigCustomer = new TwigCustomer();
 
-        $twigCmsBlock = $this->getLocator()->cms()->pluginTwigCmsBlock();
+        $twigCmsBlock = new TwigCmsBlock();
 
         return [
-            $this->getLocator()->product()->pluginTwigPrice(),
-            $this->getLocator()->cms()->pluginTwigCms(),
+            new TwigPrice(),
+            new TwigCms(),
             $twigCmsBlock,
             $twigCustomer,
-            $this->getLocator()->assets()->pluginTwigAsset(),
+            new TwigAsset(),
         ];
     }
 

@@ -2,6 +2,15 @@
 
 namespace Pyz\Zed\Collector;
 
+use Pyz\Zed\Collector\Communication\Plugin\UrlCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\RedirectCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\BlockCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\PageCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\TranslationCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\NavigationCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\CategoryNodeCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\ProductCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\ProductCollectorSearchPlugin;
 use SprykerEngine\Zed\Kernel\Container;
 use SprykerFeature\Zed\Collector\CollectorDependencyProvider as SprykerCollectorDependencyProvider;
 
@@ -49,20 +58,20 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[self::SEARCH_PLUGINS] = function (Container $container) {
             return [
-                'abstract_product' => $container->getLocator()->collector()->pluginProductCollectorSearchPlugin(),
+                'abstract_product' => new ProductCollectorSearchPlugin(),
             ];
         };
 
         $container[self::STORAGE_PLUGINS] = function (Container $container) {
             return [
-                'abstract_product' => $container->getLocator()->collector()->pluginProductCollectorStoragePlugin(),
-                'categorynode' => $container->getLocator()->collector()->pluginCategoryNodeCollectorStoragePlugin(),
-                'navigation' => $container->getLocator()->collector()->pluginNavigationCollectorStoragePlugin(),
-                'translation' => $container->getLocator()->collector()->pluginTranslationCollectorStoragePlugin(),
-                'page' => $container->getLocator()->collector()->pluginPageCollectorStoragePlugin(),
-                'block' => $container->getLocator()->collector()->pluginBlockCollectorStoragePlugin(),
-                'redirect' => $container->getLocator()->collector()->pluginRedirectCollectorStoragePlugin(),
-                'url' => $container->getLocator()->collector()->pluginUrlCollectorStoragePlugin(),
+                'abstract_product' => new ProductCollectorStoragePlugin(),
+                'categorynode' => new CategoryNodeCollectorStoragePlugin(),
+                'navigation' => new NavigationCollectorStoragePlugin(),
+                'translation' => new TranslationCollectorStoragePlugin(),
+                'page' => new PageCollectorStoragePlugin(),
+                'block' => new BlockCollectorStoragePlugin(),
+                'redirect' => new RedirectCollectorStoragePlugin(),
+                'url' => new UrlCollectorStoragePlugin(),
             ];
         };
 

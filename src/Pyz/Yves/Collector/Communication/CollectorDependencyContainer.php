@@ -6,6 +6,11 @@
 
 namespace Pyz\Yves\Collector\Communication;
 
+use Pyz\Yves\Application\Communication\Plugin\Pimple;
+use Pyz\Yves\Cms\Communication\Plugin\PageResourceCreator;
+use Pyz\Yves\Redirect\Communication\Plugin\RedirectResourceCreator;
+use Pyz\Yves\Category\Communication\Plugin\CategoryResourceCreator;
+use Pyz\Yves\Product\Communication\Plugin\ProductResourceCreator;
 use Pyz\Yves\Collector\Communication\Creator\ResourceCreatorInterface;
 use Pyz\Yves\Collector\Communication\Mapper\UrlMapper;
 use SprykerFeature\Client\Catalog\Service\Model\FacetConfig;
@@ -22,10 +27,10 @@ class CollectorDependencyContainer extends AbstractCommunicationDependencyContai
     public function createResourceCreators()
     {
         return [
-            $this->getLocator()->product()->pluginProductResourceCreator()->createProductResourceCreator(),
-            $this->getLocator()->category()->pluginCategoryResourceCreator()->createCategoryResourceCreator(),
-            $this->getLocator()->redirect()->pluginRedirectResourceCreator()->createRedirectResourceCreator(),
-            $this->getLocator()->cms()->pluginPageResourceCreator()->createPageResourceCreator(),
+            (new ProductResourceCreator())->createProductResourceCreator(),
+            (new CategoryResourceCreator())->createCategoryResourceCreator(),
+            (new RedirectResourceCreator())->createRedirectResourceCreator(),
+            (new PageResourceCreator())->createPageResourceCreator(),
         ];
     }
 
@@ -62,7 +67,7 @@ class CollectorDependencyContainer extends AbstractCommunicationDependencyContai
      */
     public function createApplication()
     {
-        return $this->getLocator()->application()->pluginPimple()->getApplication();
+        return (new Pimple())->getApplication();
     }
 
 }
