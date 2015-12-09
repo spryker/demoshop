@@ -19,6 +19,7 @@ import './modules/common/messages';
 import './modules/common/lazyImages';
 
 // forms related
+import './modules/forms/button';
 import './modules/forms/dropdown';
 import './modules/forms/radio';
 import './modules/forms/checkbox';
