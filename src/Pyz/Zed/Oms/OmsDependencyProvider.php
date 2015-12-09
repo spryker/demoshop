@@ -11,11 +11,11 @@ use Pyz\Zed\Oms\Communication\Plugin\Oms\Command\SendInvoice;
 use Pyz\Zed\Oms\Communication\Plugin\Oms\Command\CreateInvoice;
 use Pyz\Zed\Oms\Communication\Plugin\Oms\Command\SendPaymentRequest;
 use SprykerFeature\Zed\Nopayment\Communication\Plugin\Command\NopaymentCommandPlugin;
-use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Condition\RefundIsApprovedPlugin;
-use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Condition\CaptureIsApprovedPlugin;
-use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Condition\ReversalIsApprovedPlugin;
-use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Condition\ReAuthorizationIsApprovedPlugin;
-use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Condition\PreAuthorizationIsApprovedPlugin;
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Condition\IsCaptureApprovedPlugin;
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Condition\IsPreAuthorizationApprovedPlugin;
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Condition\IsReAuthorizationApprovedPlugin;
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Condition\IsRefundApprovedPlugin;
+use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Condition\IsReversalApprovedPlugin;
 use SprykerEngine\Zed\Kernel\Container;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\CommandInterface;
 use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Condition\ConditionInterface;
@@ -34,11 +34,11 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
     protected function getConditionPlugins(Container $container)
     {
         return [
-            'Payolution/PreAuthorizationIsApproved' => new PreAuthorizationIsApprovedPlugin(),
-            'Payolution/ReAuthorizationIsApproved' => new ReAuthorizationIsApprovedPlugin(),
-            'Payolution/ReversalIsApproved' => new ReversalIsApprovedPlugin(),
-            'Payolution/CaptureIsApproved' => new CaptureIsApprovedPlugin(),
-            'Payolution/RefundIsApproved' => new RefundIsApprovedPlugin(),
+            'Payolution/IsPreAuthorizationApprovedPlugin' => new IsPreAuthorizationApprovedPlugin(),
+            'Payolution/IsReAuthorizationApprovedPlugin' => new IsReAuthorizationApprovedPlugin(),
+            'Payolution/IsReversalApprovedPlugin' => new IsReversalApprovedPlugin(),
+            'Payolution/IsCaptureApprovedPlugin' => new IsCaptureApprovedPlugin(),
+            'Payolution/IsRefundApprovedPlugin' => new IsRefundApprovedPlugin(),
         ];
     }
 
