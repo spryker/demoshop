@@ -17,17 +17,19 @@ const EVENTS = {
 
 
 $(document).ready(function () {
-    var $cartLayer = $('.cart-layer__inner');
+    var $cartLayer, firstRender;
+
+    $cartLayer = $('.cart-layer__inner');
+    firstRender = true;
 
     // #TODO:390 changes to cart items
 
     loadCart();
-
     $(document).on(EVENTS.UPDATE_CART, loadCart);
 
-    $(document)
-        .on('click', '.cart-item__delete', removeSku)
-        .on('change', '[name="product_quantity"]', changeQty);
+
+    $(document).on('click', '.cart-item__delete-icon', removeSku);
+    $(document).on('change', '[name="product_quantity"]', changeQty);
 
 
     function loadCart() {
@@ -37,17 +39,29 @@ $(document).ready(function () {
             renderCart(data);
             setItemCount(data);
         });
-    };
+    }
 
-    $(document).on('click', '.cart-layer__amount .button--cta', function () {
-        verifyMinimumCartValue();
+    $(document).on('click', '.cart-layer .button--cta', function (event) {
+
+        if (!verifyMinimumCartValue()) {
+            event.preventDefault();
+
+            var messageService = new MessageService();
+            messageService.add({
+                type: 'invalid message--cart',
+                message: 'error.cart-total-is-too-low'
+            });
+        }
     });
 
     function renderCart (data) {
         $cartLayer.html(data);
+
         $(document).trigger(CHECKOUT_EVENTS.UPDATE_CART, data);
         $(document).trigger(STEPPER_EVENTS.INITIALIZE_STEPPERS);
-    };
+
+        enableCartLink();
+    }
 
 
     function setItemCount (data) {
@@ -71,22 +85,18 @@ $(document).ready(function () {
         } else {
             $trigger.removeClass('navbar__link--bubble');
         }
-    };
+    }
 
     function verifyMinimumCartValue() {
 
-        var messageService = new MessageService();
-        var minimumValue = parseInt($('#minimumCartValue').val(), 10);
-        var totalCart = parseInt($('#totalCartForMinimumValueCheck').val(), 10);
+        var minimumValue, totalCart, valid;
 
-        if(minimumValue > totalCart) {
-            messageService.add({
-                type: 'invalid message--cart',
-                message: 'error.cart-total-is-too-low'
-            });
-        } else {
-            window.location = '/checkout/';
-        }
+        minimumValue = parseInt($('#minimumCartValue').val(), 10);
+        totalCart = parseInt($('#totalCartForMinimumValueCheck').val(), 10);
+
+        valid = minimumValue <= totalCart;
+
+        return valid;
     }
 
     function changeQty (e) {
@@ -101,6 +111,8 @@ $(document).ready(function () {
         groupKey = $item.data('group-key');
         qty = parseInt($input.val(), 10);
 
+        disableCartLink();
+
         $.post('/cart/change/' + sku + '/' + groupKey + '/', {
             quantity: qty
         }).done(function (data) {
@@ -109,7 +121,7 @@ $(document).ready(function () {
         });
 
         $(document).trigger(CHECKOUT_EVENTS.CART_WILL_UPDATE);
-    };
+    }
 
     function removeSku (e) {
         e.preventDefault();
@@ -122,16 +134,27 @@ $(document).ready(function () {
         sku = $item.data('sku');
         groupKey = $item.data('group-key');
 
+        disableCartLink();
+
         $.post('/cart/remove/' + sku + '/' + groupKey + '/')
         .done(function (data) {
             renderCart(data);
-        }).always(function () {
-            setItemCount();
+            setItemCount(data);
         });
 
         $(document).trigger(CHECKOUT_EVENTS.CART_WILL_UPDATE);
 
-    };
+    }
+
+
+    function disableCartLink () {
+        $cartLayer.find('.button--cta').addClass('button--disabled');
+    }
+
+    function enableCartLink () {
+        $cartLayer.find('.button--cta').removeClass('button--disabled');
+    }
+
 });
 
 export { EVENTS };

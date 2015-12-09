@@ -17,7 +17,7 @@
 
         {% if label is defined and label != false %}
         <label class="input__label" {% if id is defined %} for="{{ id }}" {% endif %}>
-            {{ label | trans }}{% if required is defined and required %}*{% endif %}
+            {{ label | trans }}{% if (required is defined and required) or (attr['data-required'] is defined and attr['data-required']) %}*{% endif %}
         </label>
         {% endif %}
 

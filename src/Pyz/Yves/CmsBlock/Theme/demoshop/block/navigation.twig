@@ -1,13 +1,16 @@
+{% use '@Application/layout/common/icons.twig' %}
+
+
 {%
     set data = {
         items: [
-            'Geld - zurück - Garantie',
+            'Geld-zurück-Garantie',
             'Kostenloser Tiefkühl-Versand',
-            'Hotline: 030 - 208 98 48 99'
+            'Hotline: +49 / 30 - 208 98 48 99'
         ],
         press: {
             title: 'Bekannt aus',
-            references: ['bild', 'zdf']
+            references: ['bild', 'ard', 'spiegel_inverted']
         },
         logo: {
             url: '/',
@@ -45,9 +48,9 @@
                     <div class="navbar__item">{{ item }}</div>
                 {% endfor %}
 
-                <div class="navbar__item">{{ data.press.title }}
+                <div class="navbar__item navbar__item--press">{{ data.press.title }}
                     {% for reference in data.press.references %}
-                        <span class="navbar__press navbar__press--{{ reference }}"></span>
+                        {{ block('icon_' ~ reference) }}
                     {% endfor %}
                 </div>
             </div>

@@ -61,6 +61,7 @@ class Checkout extends AbstractType
                 'required' => false,
                 'attr' => [
                     'class' => 'js-delivery-address',
+                    'data-require' => true,
                 ],
             ])
             ->add('adyen_payment', new AdyenPayment($this->paymentMethodsTransfer), [

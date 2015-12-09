@@ -18,10 +18,11 @@ class Address extends AbstractType
     /**
      * @param int $offset
      */
-    public function __construct($offset = 0, $dependingField = NULL)
+    public function __construct($offset = 0, $dependingField = NULL, $required = false)
     {
         $this->offset = $offset;
         $this->dependingField = $dependingField;
+        $this->required = $required;
     }
 
     /**
@@ -39,7 +40,7 @@ class Address extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-        $dataRequired = is_null($this->dependingField) ? false : 'true';
+        $dataRequired = is_null($this->dependingField) && !$this->required ? false : 'true';
         $dataDependingField = is_null($this->dependingField) ? false : $this->dependingField;
         $dataDependingValue = is_null($this->dependingField) ? false : 1;
 

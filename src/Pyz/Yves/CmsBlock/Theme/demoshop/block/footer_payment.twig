@@ -1,3 +1,6 @@
+{% use '@Application/layout/common/icons.twig' %}
+
+
 {%
     set data = {
         headline: 'Unsere Zahlarten',
@@ -12,7 +15,9 @@
 
    <div class="payment__methods">
        {% for method in data.methods %}
-       <div class="payment__method payment__method__{{ method }}"></div>
+       <div class="payment__method payment__method__{{ method }}">
+           {{ block('icon_' ~ method) }}
+       </div>
        {% endfor %}
    </div>
 </div>

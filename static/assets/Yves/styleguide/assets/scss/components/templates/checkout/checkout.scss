@@ -220,7 +220,7 @@
 .checkout__subform--sepa{
     .checkout__lock{
         position: absolute;
-        right: 28px;
+        right: 0;
         bottom: 15px;
     }
 }
@@ -430,6 +430,16 @@
 
     .cart-position__price{
         float: right;
+    }
+
+    .checkout__subform--sepa{
+        .checkout__subform-inner{
+            padding-bottom: 40px;
+        }
+
+        .checkout__lock{
+            right: 5px;
+        }
     }
 }
 

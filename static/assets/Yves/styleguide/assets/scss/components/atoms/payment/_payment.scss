@@ -23,7 +23,6 @@
 
 .payment__methods{
     height: 36px;
-    color: $_rgbSilverChalice;
     @include limitWidth(700px);
     width: 100%;
     display: table;
@@ -31,6 +30,7 @@
 }
 
 .payment__method{
+    display: inline-block;
     width: 33.333%;
     height: 50px;
 
@@ -42,34 +42,59 @@
         position: static !important;
         margin: 0 !important;
     }
+
+    path{
+        fill: $_rgbSilverChalice;
+    }
 }
 
 .payment__method__paypal{
-    @include pdif('paypal', 18px, 72px);
+    svg{
+        height: 18px;
+        width: auto; //72px);
+    }
 }
 
 .payment__method__visa{
-    @include pdif('visa', 17px, 54px);
+    svg{
+        height: 17px;
+        width: auto; //54px);
+    }
 }
 
 .payment__method__mastercard{
-    @include pdif('mastercard', 33px, 57px);
+    svg{
+        height: 33px;
+        width: auto; //57px);
+    }
 }
 
 .payment__method__klarna{
-    @include pdif('klarna', 24px, 87px);
+    svg{
+        height: 24px;
+        width: auto; //87px);
+    }
 }
 
 .payment__method__sepa{
-    @include pdif('sepa', 21px, 78px);
+    svg{
+        height: 21px;
+        width: auto; //78px);
+    }
 }
 
 .payment__method__sofort{
-    @include pdif('sofort', 36px, 111px);
+    svg{
+        height: 36px;
+        width: auto; //111px);
+    }
 }
 
 .payment__method__vorkasse{
-    @include pdif('vorkasse', 29px, 82px);
+    svg{
+        height: 29px;
+        width: auto; //82px);
+    }
 }
 
 

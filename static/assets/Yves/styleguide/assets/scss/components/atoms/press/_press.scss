@@ -13,51 +13,29 @@
 
 .press__inner{
     @include pageWidth;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .press__item{
-    margin: 0 30px;
+    display: flex;
+    margin: 0 10px;
     height: 70px;
     color: $_rgbSilverChalice;
-
-    &:before{
-        width: 100%;
-        text-align: center;
-    }
+    align-content: center;
+    align-items: center;
+    flex-grow: 1;
 }
 
-.press__item--zdf{
-    @include pdif('zdf', 42px, 71px);
-}
+.press__icon{
+    width: 100%;
+    text-align: center;
 
-.press__item--spiegel{
-    @include pdif('spiegel', 16px, 117px);
-}
+    svg{
+        display: inline-block;
 
-.press__item--bild{
-    @include pdif('bild', 42px, 39px);
-}
-
-.press__item--newyorktimes{
-    @include pdif('newyorktimes', 28px, 202px);
-}
-
-.press__item--bunte{
-    @include pdif('bunte', 28px, 65px);
-}
-
-.press__item--ard{
-    @include pdif('ard', 41px, 41px);
-}
-
-
-@media (min-width: $_wLarge) {
-    .press__inner{
-        display: flex!important;
-        justify-content: space-around;
-    }
-
-    .press__item{
-        flex-grow: 1;
+        .icon__background{
+            fill: $_rgbSilverChalice;
+        }
     }
 }

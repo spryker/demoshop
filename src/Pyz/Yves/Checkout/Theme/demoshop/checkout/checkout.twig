@@ -26,15 +26,15 @@
 
             <div class="checkout__navigations">
                 <div class="checkout__navigation">
-                    <div class="checkout__navigation-step">1 Adresse</div>
+                    <div class="checkout__navigation-step">1. Adresse</div>
                     <div class="checkout__navigation-option"></div>
                 </div>
                 <div class="checkout__navigation">
-                    <div class="checkout__navigation-step">2 Zahlart</div>
+                    <div class="checkout__navigation-step">2. Zahlart</div>
                     <div class="checkout__navigation-option"></div>
                 </div>
                 <div class="checkout__navigation">
-                    <div class="checkout__navigation-step">3 Bestätigung</div>
+                    <div class="checkout__navigation-step">3. Bestätigung</div>
                     <div class="checkout__navigation-option"></div>
                 </div>
             </div>
@@ -97,6 +97,9 @@
                                             {{ form_widget(form.adyen_payment.payment_detail.ownerName) }}
                                             {{ form_widget(form.adyen_payment.payment_detail.bank_account_number) }}
                                             {{ form_widget(form.adyen_payment.payment_detail.bank_location_id) }}
+
+                                            <div class="checkout__lock">Secure Connection</div>
+
                                         </div>
                                     </div>
 
@@ -221,7 +224,6 @@
         translator.addTranslation('adyen.payment.failed', '{{ 'adyen.payment.failed' | trans }}');
         translator.addTranslation('coupon.error_msg', '{{ 'coupon.error_msg' | trans }}');
         translator.addTranslation('coupon.success_msg', '{{ 'coupon.success_msg' | trans }}');
-        translator.addTranslation('error.cart-total-is-too-low', '{{ 'error.cart-total-is-too-low' | trans }}');
     </script>
 
 {% endblock %}

@@ -62,21 +62,25 @@
     text-decoration: none;
 }
 
-.navbar__press {
-    margin-left: 10px;
-    height: 9px;
-}
+.navbar__item--press {
 
-.navbar__press--bild{
-    @include pdif('bild', 18px, 18px);
-}
+    svg{
+        margin: -5px 0 -4px 10px;
+        height: 18px;
+        width: auto;
 
-.navbar__press--spiegel{
-    @include pdif('spiegel-inverted', 18px, 96px);
-}
+        path{
+            fill: $_rgbWhite;
+        }
 
-.navbar__press--zdf{
-    @include pdif('zdf', 19px, 33px);
+        .icon__background{
+            fill: white;
+        }
+
+        .icon__foreground{
+            fill: $_rgbApple;
+        }
+    }
 }
 
 
