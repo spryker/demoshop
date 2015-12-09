@@ -17,6 +17,7 @@ use Generated\Shared\Transfer\SalesItemConfigurationTransfer;
 use Generated\Shared\Transfer\ShipmentCarrierTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
 use Orm\Zed\Sales\Persistence\SpySalesOrder;
+use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 use Pyz\Zed\Sales\Persistence\SalesQueryContainerInterface;
 use SprykerFeature\Zed\Sales\Business\Model\OrderManager as SprykerOrderManager;
 use SprykerFeature\Zed\Sales\Business\Model\OrderReferenceGeneratorInterface;
@@ -111,13 +112,24 @@ class SalesManager extends SprykerOrderManager
      */
     public function getOrderItemById($idOrderItem)
     {
-        $entity = $this->queryContainer->querySalesOrderItemById($idOrderItem)
-            ->findOne();
+        $entity = $this->getOrderItemEntityById($idOrderItem);
 
         $transfer = new ItemTransfer();
         $transfer->fromArray($entity->toArray(), true);
 
         return $transfer;
+    }
+
+    /**
+     * @param $orderItemId
+     * @return SpySalesOrderItem
+     */
+    public function getOrderItemEntityById($orderItemId)
+    {
+        $entity = $this->queryContainer->querySalesOrderItemById($orderItemId)
+            ->findOne();
+
+        return $entity;
     }
 
     /**
@@ -144,7 +156,7 @@ class SalesManager extends SprykerOrderManager
      */
     public function getSalesOrderItemConfigurationByItemId($idSalesOrderItem)
     {
-        $entities =  $this->queryContainer->querySalesOrderItemConfigurationByItemId($idSalesOrderItem)
+        $entities = $this->queryContainer->querySalesOrderItemConfigurationByItemId($idSalesOrderItem)
             ->find();
 
         $transfers = [];
@@ -179,7 +191,7 @@ class SalesManager extends SprykerOrderManager
     {
         $numberCodes = $this->queryContainer->querySalesDiscountCodeBySalesDiscountId($idSalesDiscount)->count();
 
-        return (bool) ($numberCodes > 0);
+        return (bool)($numberCodes > 0);
     }
 
     /**
@@ -190,4 +202,6 @@ class SalesManager extends SprykerOrderManager
     {
         return $this->queryContainer->querySalesOrderDetailsById($idSalesOrder)->findOne();
     }
+
+
 }

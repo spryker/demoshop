@@ -62,7 +62,7 @@ class AfterbuyOrderItemExportConsole extends Console
      */
     protected function getOrderItemById($orderItemId)
     {
-        $orderItem = $this->getFacade()->getOrderItemById($orderItemId);
+        $orderItem = $this->getFacade()->getOrderItemEntityById($orderItemId);
         if ($orderItem == null) {
             throw new EntityNotFoundException("Order Item with id " . $orderItem . ' not found');
         }
