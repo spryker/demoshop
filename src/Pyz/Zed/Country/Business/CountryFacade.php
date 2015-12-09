@@ -11,7 +11,6 @@ use Pyz\Zed\Customer\Dependency\Facade\CustomerToCountryInterface;
 class CountryFacade extends SprykerCountryFacade implements
     SpyCustomerToCountryInterface,
     SalesToCountryInterface,
-    CustomerToCountryInterface,
     ShipmentToCountryInterface
 {
 

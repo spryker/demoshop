@@ -47,16 +47,6 @@ class CustomerFacade extends SprykerCustomerFacade implements CustomerCheckoutCo
     }
 
     /**
-     * @return int
-     */
-    public function importMagentoCustomerInfo()
-    {
-        return $this->getDependencyContainer()
-            ->createCsvReader()
-            ->importData();
-    }
-
-    /**
      * @param $email
      *
      * @return bool
