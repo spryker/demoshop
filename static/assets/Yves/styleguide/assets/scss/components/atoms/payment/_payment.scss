@@ -22,10 +22,8 @@
 }
 
 .payment__methods{
-    height: 36px;
     @include limitWidth(700px);
     width: 100%;
-    display: table;
     text-align: center;
 }
 
@@ -99,10 +97,13 @@
 
 
 @media (min-width: 700px){
+    .payment__methods{
+        display: flex;
+    }
+
     .payment__method{
-        display: table-cell !important;
+        flex-grow: 1;
         width: auto;
-        float: none;
     }
 }
 
