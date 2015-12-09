@@ -34,6 +34,13 @@ class OrdersTable extends SprykerOrdersTable
             SpySalesOrderTableMap::COL_FK_CUSTOMER => 'Customer Id',
             self::URL => 'Url',
         ]);
+        $config->setSearchable([
+            SpySalesOrderTableMap::COL_EMAIL,
+            SpySalesOrderTableMap::COL_FIRST_NAME,
+            SpySalesOrderTableMap::COL_GRAND_TOTAL,
+            PavPaymentAdyenTableMap::COL_PAYMENT_METHOD,
+            SpySalesOrderTableMap::COL_ORDER_REFERENCE,
+        ]);
         $config->setSortable([
             SpySalesOrderTableMap::COL_CREATED_AT,
         ]);
