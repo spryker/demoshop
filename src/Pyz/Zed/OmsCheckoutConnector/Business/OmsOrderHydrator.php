@@ -36,7 +36,7 @@ class OmsOrderHydrator implements OmsOrderHydratorInterface
                 $order->setProcess(OmsConstants::ORDER_PROCESS_CREDIT_CARD_01);
                 break;
             default:
-                throw new NoStatemachineProcessException();
+                throw new NoStatemachineProcessException('Not able to map process for given payment method: ' . $request->getPaymentMethod());
         }
     }
 
