@@ -21,6 +21,7 @@ $jobs[] = [
     'enable'   => true,
     'run_on_non_production' => true,
     'stores'   => $allStores,
+    'notifications' => ['stephan.schulze@project-a.com', 'joerg.stick@project-a.com', 'server-alert@petsdeli.de']
 ];
 
 $jobs[] = [
@@ -30,6 +31,7 @@ $jobs[] = [
     'enable'   => true,
     'run_on_non_production' => true,
     'stores'   => $allStores,
+    'notifications' => ['stephan.schulze@project-a.com', 'joerg.stick@project-a.com', 'server-alert@petsdeli.de']
 ];
 
 /* EXPORTER */
@@ -40,6 +42,7 @@ $jobs[] = [
     'enable'   => true,
     'run_on_non_production' => true,
     'stores'   => $allStores,
+    'notifications' => ['stephan.schulze@project-a.com', 'server-alert@petsdeli.de']
 ];
 
 $jobs[] = [
@@ -48,6 +51,7 @@ $jobs[] = [
     'schedule' => '*/10 * * * *',
     'enable'   => true,
     'stores'   => $allStores,
+    'notifications' => ['stephan.schulze@project-a.com', 'server-alert@petsdeli.de']
 ];
 
 $jobs[] = [
@@ -57,6 +61,7 @@ $jobs[] = [
     'enable'   => true,
     'run_on_non_production' => true,
     'stores'   => $allStores,
+    'notifications' => ['stephan.schulze@project-a.com', 'server-alert@petsdeli.de']
 ];
 
 /* -- MAILCHIMP SYNCHRONIZATION -- */
@@ -67,5 +72,6 @@ $jobs[] = [
     'enable'   => true,
     'run_on_non_production' => true,
     'stores'   => $allStores,
+    'notifications' => ['stephan.schulze@project-a.com', 'server-alert@petsdeli.de']
 ];
 
