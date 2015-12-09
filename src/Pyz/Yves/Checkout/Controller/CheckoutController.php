@@ -327,6 +327,7 @@ class CheckoutController extends AbstractController
             ->getPaymentDetails()[$payolutionPaymentTransfer->getInstallmentPaymentDetailIndex()];
 
         $payolutionPaymentTransfer
+            ->setInstallmentCalculationId($payolutionCalculationResponseTransfer->getIdentificationUniqueid())
             ->setInstallmentAmount($installmentPaymentDetail->getInstallments()[0]->getAmount())
             ->setInstallmentDuration($installmentPaymentDetail->getDuration());
     }
