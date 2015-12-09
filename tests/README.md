@@ -6,6 +6,7 @@ Codeception Tests
 - You will find frontend (yves) tests in Functional/Pyz/Yves.
 - Configuration (urls, helpers, ...) are placed in Functional.suite.yml
 
+
 ### Requirements
 
 #### phantomjs
@@ -32,16 +33,17 @@ modules:
       - \Module\Functional
 
       - WebDriver:
-          url:         'http://www.de.pets-deli.dev/'
-          host:        'SAUCELABS_USER:ACCESSKEY@ondemand.saucelabs.com'
-          browser:     'firefox'
+          url:     'http://www.de.pets-deli.dev/'
+          host:    'SAUCELABS_USER:ACCESSKEY@ondemand.saucelabs.com'
+          browser: 'firefox'
           capabilities:
-            platform:                 'Windows 10'
-            version:                  '42.0'
-
-          window_size: '1920x1200'
+            platform: 'Windows 10'
+            version:  '42.0'
+#          window_size: '1920x1200'
           wait:        10
 ```
+
+Available platforms can be found [here](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/).
 
 
 ### Execution
@@ -56,6 +58,7 @@ To specify a different environment than development please use argument "--env":
 ```bash
 $ php vendor/bin/codecept -vvv --env=staging run Functional Pyz/Yves
 ```
+
 
 ### Debugging
 Every failing test is creating a screenshot and saves the source code of the failed step. You can find these files in *_output* directory.

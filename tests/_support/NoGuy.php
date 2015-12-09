@@ -21,17 +21,27 @@ class NoGuy extends \Codeception\Actor
 
     private $testName;
     private $createScreenshots = false;
+    private $screenshotCounter = 1;
 
+    /**
+     * @param string $name
+     */
     public function setTestName($name) {
 
         $this->testName = $name;
     }
 
+    /**
+     * @param bool $bool
+     */
     public function activateScreenshots($bool) {
 
         $this->createScreenshots = $bool;
     }
 
+    /**
+     * @param string $name
+     */
     public function createScreenshot($name) {
 
         if(!$this->createScreenshots) {
@@ -39,7 +49,8 @@ class NoGuy extends \Codeception\Actor
             return;
         }
 
-        $filename = sprintf('%s__%s', $this->testName, $name);
+        $counter = str_pad($this->screenshotCounter++, 3, '0', STR_PAD_LEFT);
+        $filename = sprintf('%s__%s_%s', $this->testName, $counter, $name);
 
         $this->makeScreenshot($filename);
     }
@@ -91,6 +102,10 @@ class NoGuy extends \Codeception\Actor
         $priceTotal   = $amount * $pricePerUnit;
 
         $this->click('In den Warenkorb');
+
+        // wait until product was successfully added (ajax request)
+        $this->waitForElement('.navbar__link--bubble', 20);
+
         $this->createScreenshot('add2basket');
 
         return $priceTotal;
@@ -98,32 +113,38 @@ class NoGuy extends \Codeception\Actor
 
     public function doCustomerCheckout($expectedPrice) {
 
+        // Register
+        $email = $this->register();
+
         // Open basket
         $this->click('Warenkorb');
         $this->createScreenshot('basket');
-        $this->see('Gesamtbetrag', '.cart-layer__total');
-        $this->see('2,00 €');
+//        $this->see('Gesamtbetrag', '.cart-layer__total');
+//        $this->see('2,00 €');
 
         // Checkout
         $this->click('Weiter zur Kasse');
         $this->createScreenshot('checkout');
-        $this->fillField('#user_email',    'florian.preusner@project-a.com');
+        $this->fillField('#user_email',    $email);
         $this->fillField('#user_password', 'mate20mg');
-        $this->createScreenshot('checkout_after_fill');
-
-        $this->click('Einloggen');
         $this->createScreenshot('checkout_login');
 
-        // should be relevant in the future
+        $this->click('Einloggen');
+        $this->createScreenshot('checkout_login_after');
+
+        // @todo: Should be relevant in the future?
         // Address
-        $this->fillField('#checkout_billing_address_first_name',    'Max');
-        $this->fillField('#checkout_billing_address_last_name',     'Mustermann');
+        $this->fillField('#checkout_billing_address_city',          'Berlin');
+        $this->fillField('#checkout_billing_address_first_name',    'Test');
+        $this->fillField('#checkout_billing_address_last_name',     'Test');
         $this->fillField('#checkout_billing_address_street',        'Julie-Wolfthorn-Straße');
         $this->fillField('#checkout_billing_address_street_nr',     '1');
         $this->fillField('#checkout_billing_address_address-line3', '');
         $this->fillField('#checkout_billing_address_zip_code',      '10115');
         $this->fillField('#checkout_billing_address_city',          'Berlin');
         $this->fillField('#checkout_billing_address_iso2code',      'DE');
+
+        $this->createScreenshot('checkout_address');
 
         $this->click('Weiter zu Zahlrtarten');
         $this->createScreenshot('checkout_payment');
@@ -151,8 +172,9 @@ class NoGuy extends \Codeception\Actor
 
         // Address
         $this->fillField('#checkout_email',                         'florian.preusner@project-a.com');
-        $this->fillField('#checkout_billing_address_first_name',    'Max');
-        $this->fillField('#checkout_billing_address_last_name',     'Mustermann');
+        $this->fillField('#checkout_billing_address_first_name',    'Test');
+        $this->fillField('#checkout_billing_address_first_name',    'Test');
+        $this->fillField('#checkout_billing_address_last_name',     'Test');
         $this->fillField('#checkout_billing_address_street',        'Julie-Wolfthorn-Straße');
         $this->fillField('#checkout_billing_address_street_nr',     '1');
         $this->fillField('#checkout_billing_address_zip_code',      '10115');
@@ -183,6 +205,9 @@ class NoGuy extends \Codeception\Actor
         $this->createScreenshot('checkout_payment_confirmation');
     }
 
+    /**
+     * @param $expectedPrice
+     */
     protected function finishCheckout($expectedPrice) {
 
         $this->see(number_format($expectedPrice, 2, ',', '')) . ' €';
@@ -196,11 +221,36 @@ class NoGuy extends \Codeception\Actor
         $this->comment(sprintf('Order successfully created: %s', $orderNumber));
     }
 
+    /**
+     * @param  float  $price
+     * @return string
+     */
     protected function cleanupPrice($price) {
 
         $withoutCurrency = str_replace('€', '', $price);
         $float           = str_replace(',', '.', $withoutCurrency);
 
         return trim($float);
+    }
+
+    /**
+     * @return string
+     */
+    public function register() {
+
+        // wildcard email address
+        $email = sprintf('florian.preusner+testing_%s@project-a.com', uniqid());
+
+        $this->amOnPage('/register');
+        $this->fillField('#registerForm_email',    $email);
+        $this->fillField('#registerForm_password', 'mate20mg');
+
+        $this->createScreenshot('register');
+
+        $this->click('Registrieren');
+
+        $this->createScreenshot('register_after');
+
+        return $email;
     }
 }

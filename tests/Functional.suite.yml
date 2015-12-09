@@ -38,4 +38,4 @@ env:
         modules:
             config:
                 WebDriver:
-                    url: 'https://neu.petsdeli.de/'
+                    url: 'https://www.petsdeli.de/'
