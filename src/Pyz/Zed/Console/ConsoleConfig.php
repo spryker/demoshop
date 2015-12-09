@@ -56,6 +56,7 @@ class ConsoleConfig extends SprykerConsoleConfig
         ];
 
         if (Environment::isDevelopment()) {
+            $commands[] = $this->getLocator()->development()->consoleCodeTestConsole();
             $commands[] = $this->getLocator()->development()->consoleCodeStyleFixerConsole();
             $commands[] = $this->getLocator()->development()->consoleCodeStyleSnifferConsole();
         }
