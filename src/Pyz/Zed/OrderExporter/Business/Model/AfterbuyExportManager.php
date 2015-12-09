@@ -399,7 +399,7 @@ class AfterbuyExportManager
             $postData[AfterbuyConstants::SHIPPING_STREET] .= " " . $shippingAddress->getAddress2();
         }
         if ($shippingAddress->getAddress3()) {
-            $postData[AfterbuyConstants::SHIPPING_COMPANY_NAME] .= '; ' . $shippingAddress->getAddress3();
+            $postData[AfterbuyConstants::SHIPPING_COMPANY_NAME] .= (!empty($postData[AfterbuyConstants::SHIPPING_COMPANY_NAME])?'; ':'') . $shippingAddress->getAddress3();
         }
 
         $postData[AfterbuyConstants::SHIPPING_ZIP_CODE] = $shippingAddress->getZipCode();
@@ -427,7 +427,7 @@ class AfterbuyExportManager
             $postData[AfterbuyConstants::BILLING_STREET] .= " " . $billingAddress->getAddress2();
         }
         if ($billingAddress->getAddress3()) {
-            $postData[AfterbuyConstants::BILLING_COMPANY_NAME] .= '; ' . $billingAddress->getAddress3();
+            $postData[AfterbuyConstants::BILLING_COMPANY_NAME] .= (!empty($postData[AfterbuyConstants::BILLING_COMPANY_NAME])?'; ':'') . $billingAddress->getAddress3();
         }
         $postData[AfterbuyConstants::BILLING_ZIP_CODE] = $billingAddress->getZipCode();
         $postData[AfterbuyConstants::BILLING_CITY] = $billingAddress->getCity();
