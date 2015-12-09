@@ -22,12 +22,36 @@ class HeartbeatDependencyContainer extends AbstractDependencyContainer
     {
         $healthChecker = new HealthChecker();
         $healthChecker->setHealthIndicator([
-            new SearchHealthIndicator($this->getLocator()->search()->client()),
-            new SessionHealthIndicator($this->getLocator()->session()->client()),
-            new StorageHealthIndicator($this->getLocator()->storage()->client()),
+            $this->createSearchHealthIndicator(),
+            $this->createSessionHealthIndicator(),
+            $this->createStorageHealthIndicator(),
         ]);
 
         return $healthChecker;
+    }
+
+    /**
+     * @return SearchHealthIndicator
+     */
+    protected function createSearchHealthIndicator()
+    {
+        return new SearchHealthIndicator($this->getLocator()->search()->client());
+    }
+
+    /**
+     * @return SessionHealthIndicator
+     */
+    protected function createSessionHealthIndicator()
+    {
+        return new SessionHealthIndicator($this->getLocator()->session()->client());
+    }
+
+    /**
+     * @return StorageHealthIndicator
+     */
+    protected function createStorageHealthIndicator()
+    {
+        return new StorageHealthIndicator($this->getLocator()->storage()->client());
     }
 
 }
