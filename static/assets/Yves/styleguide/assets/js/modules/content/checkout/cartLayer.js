@@ -26,7 +26,7 @@ $(document).ready(function () {
     $(document).on(EVENTS.UPDATE_CART, loadCart);
 
     $(document)
-        .on('click', '.cart-item__delete', removeSku)
+        .on('click', '.cart-item__delete-icon', removeSku)
         .on('change', '[name="product_quantity"]', changeQty);
 
 
@@ -125,8 +125,7 @@ $(document).ready(function () {
         $.post('/cart/remove/' + sku + '/' + groupKey + '/')
         .done(function (data) {
             renderCart(data);
-        }).always(function () {
-            setItemCount();
+            setItemCount(data);
         });
 
         $(document).trigger(CHECKOUT_EVENTS.CART_WILL_UPDATE);

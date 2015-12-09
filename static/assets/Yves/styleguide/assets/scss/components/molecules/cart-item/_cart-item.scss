@@ -103,7 +103,9 @@
     color: $_rgbOsloGray;
     vertical-align: middle;
     text-align: right;
+}
 
+.cart-item__delete-icon{
     cursor: pointer;
 
     &:before{
@@ -114,6 +116,7 @@
         font-size: 32px;
     }
 }
+
 
 .cart__remove-coupon-link{
     flex-grow: 1;
