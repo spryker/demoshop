@@ -8,25 +8,6 @@ use SprykerFeature\Zed\Customer\CustomerDependencyProvider as SprykerCustomerDep
 class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
 {
 
-    const FACADE_COUNTRY = 'facade country';
-
-
-    /**
-     * @param Container $container
-     * @return Container
-     */
-    public function provideBusinessLayerDependencies(Container $container)
-    {
-        $container = parent::provideBusinessLayerDependencies($container);
-
-        $container[self::FACADE_COUNTRY] = function (Container $container) {
-            return $container->getLocator()->country()->facade();
-        };
-
-        return $container;
-    }
-
-
     /**
      * @param Container $container
      *
