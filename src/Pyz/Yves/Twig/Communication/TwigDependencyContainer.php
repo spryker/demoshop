@@ -6,7 +6,6 @@
 
 namespace Pyz\Yves\Twig\Communication;
 
-use Generated\Yves\Ide\FactoryAutoCompletion\TwigCommunication;
 use Silex\Application;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 use Pyz\Yves\Twig\Communication\Model\YvesExtension;

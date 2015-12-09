@@ -15,7 +15,6 @@ use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLPro
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLOptionsTransformer;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\XMLProductReader;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\XMLOptionsReader;
-use Generated\Zed\Ide\FactoryAutoCompletion\ProductOptionBusiness;
 use SprykerFeature\Zed\ProductOption\Business\ProductOptionDependencyContainer as SprykerDependencyContainer;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductOption\ProductOptionConfig;

@@ -2,7 +2,6 @@
 
 namespace Pyz\Yves\Application\Communication;
 
-use Generated\Yves\Ide\FactoryAutoCompletion\ApplicationCommunication;
 use SprykerEngine\Yves\Application\Communication\ApplicationDependencyContainer as SprykerApplicationDependencyContainer;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionService\ExceptionHandlerInterface;
 use SprykerEngine\Yves\Application\Communication\Plugin\ServiceProvider\ExceptionService\SubRequestExceptionHandler;

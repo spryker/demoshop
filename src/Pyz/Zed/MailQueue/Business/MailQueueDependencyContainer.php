@@ -3,7 +3,6 @@
 namespace Pyz\Zed\MailQueue\Business;
 
 use Pyz\Zed\MailQueue\Business\Model\MailQueueManager;
-use Generated\Zed\Ide\FactoryAutoCompletion\MailQueueBusiness;
 use Pyz\Zed\MailQueue\Business\Model\MailQueueManagerInterface;
 use Pyz\Zed\MailQueue\MailQueueDependencyProvider;
 use Pyz\Zed\Queue\Business\QueueFacade;

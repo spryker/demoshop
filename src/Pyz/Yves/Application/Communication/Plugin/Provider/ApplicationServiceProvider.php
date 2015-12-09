@@ -17,6 +17,7 @@ use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 
 class ApplicationServiceProvider extends AbstractServiceProvider
 {
+
     const LOCALE = 'locale';
     const REQUEST_URI = 'REQUEST_URI';
 

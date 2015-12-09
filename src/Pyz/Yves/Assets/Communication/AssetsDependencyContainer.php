@@ -9,7 +9,6 @@ namespace Pyz\Yves\Assets\Communication;
 use Pyz\Yves\Assets\Communication\Model\UrlParameterCacheBuster;
 use Pyz\Yves\Assets\Communication\Model\MediaUrlBuilder;
 use Pyz\Yves\Assets\Communication\Model\AssetUrlBuilder;
-use Generated\Yves\Ide\FactoryAutoCompletion\AssetsCommunication;
 use SprykerFeature\Shared\Library\Config;
 use SprykerFeature\Shared\System\SystemConfig;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
