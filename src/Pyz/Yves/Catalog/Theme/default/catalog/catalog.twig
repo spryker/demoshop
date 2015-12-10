@@ -1,3 +1,5 @@
+{% import '@catalog/catalog/macros.twig' as tree %}
+
 <div class="row catalog">
     <div class="col-md-3 sidebar">
         <div class="block">
@@ -11,130 +13,76 @@
         </div>
 
         <div class="block">
-            <ul class="site-categories">
-                <li><a href="">All <span>20</span></a></li>
-                <li><a href="">Afrika <span>14</span></a></li>
-                <li><a href="">Asia and Australia <span>30</span></a></li>
-                <li><a href="">America <span>12</span></a></li>
-            </ul>
+            {{ tree.categoriesTree(categories, category) }}
         </div>
 
         <div class="block">
-            <div class="block-title">Color</div>
-
-        </div>
-
-        <div class="block">
-            <div class="block-title">Price</div>
-            <input type="hidden" id="price-range-min" name="price-range[min]">
-            <input type="hidden" id="price-range-max" name="price-range[max]">
+            <div class="block-title">{{ 'catalog.price' | trans }}</div>
             <div id="price-range"></div>
+            {{ 'catalog.price.from' | trans }} <input class="price-range-display" type="text" id="price-range-min" name="price-range[min]"> {{ 'catalog.price.to' | trans }} <input class="price-range-display" type="text" id="price-range-max" name="price-range[max]">
         </div>
 
+        {#
         <div class="block">
             <div class="block-title">Other Features</div>
             <ul>
-                {% for i in 1..4 %}
-                <li><label><input type="checkbox" /> Label {{ i }}</label></li>
-                {% endfor %}
+                <li><label><input type="checkbox" /> New</label></li>
+                <li><label><input type="checkbox" /> Sale</label></li>
+                <li><label><input type="checkbox" /> Besonders Toll</label></li>
+                <li><label><input type="checkbox" /> Aus Kunststoff</label></li>
+                <li><label><input type="checkbox" /> Aus Holz</label></li>
             </ul>
         </div>
-
-        {#<aside class="catalog__filter js-filters">#}
-            {#{% include "@catalog/catalog/partials/filter-category-tree.twig" with {#}
-                {#filterName: 'category',#}
-                {#selectedCategory: (category is defined ? category : null)#}
-            {#} %}#}
-            {#{% include "@catalog/catalog/partials/filter-range.twig" with {#}
-                {#filterName: 'price',#}
-                {#min: (facets.price.rangeValues.min | default(0)) | priceRaw | floor,#}
-                {#max:(facets.price.rangeValues.max | default(0)) | priceRaw | ceil#}
-            {#} %}#}
-            {#{% include "@catalog/catalog/partials/filter-color.twig" with {#}
-                {#filterName: 'main_color',#}
-                {#id: 42#}
-            {#} %}#}
-        {#</aside>#}
-        {#<button class="catalog__toggle-filters js-toggle-filters">#}
-            {#<span class="js-show-filters">{{ "catalog.filter.show" | trans }}</span>#}
-            {#<span class="js-hide-filters">{{ "catalog.filter.hide" | trans }}</span>#}
-        {#</button>#}
+        #}
 
     </div>
     <div class="col-md-9">
-        content
-    </div>
-</div>
+        <div class="row header-category-listing">
+            <div class="col-md-6 product-count">{{ numFound }} {{ 'catalog.products.found' | trans }}</div>
+            <div class="col-md-6 text-right">
+                {{ 'catalog.sort.by' }} <div class="btn-group group-round" role="group">
+                    <button type="button" class="btn btn-primary">A-Z</button>
+                    <button type="button" class="btn btn-default">Z-A</button>
+                </div>
 
-
-<hr>
-<hr>
-<hr>
-
-
-<div class="catalog">
-    <h1 class="catalog__section-title">
-        {% if category is defined %}
-            {{ category.name }}
-        {% elseif searchString is defined %}
-            {{ 'search' | trans }}
-        {% endif %}
-    </h1>
-
-    <aside class="catalog__filter js-filters">
-        {% include "@catalog/catalog/partials/filter-category-tree.twig" with { filterName: 'category', selectedCategory: (category is defined ? category : null)} %}
-        {% include "@catalog/catalog/partials/filter-range.twig" with { filterName: 'price', min: (facets.price.rangeValues.min | default(0)) | priceRaw | floor, max:(facets.price.rangeValues.max | default(0)) | priceRaw | ceil} %}
-        {% include "@catalog/catalog/partials/filter-color.twig" with { filterName: 'main_color', id: 42} %}
-    </aside>
-    <button class="catalog__toggle-filters js-toggle-filters">
-        <span class="js-show-filters">{{ "catalog.filter.show" | trans }}</span>
-        <span class="js-hide-filters">{{ "catalog.filter.hide" | trans }}</span>
-    </button>
-
-    {% if searchString is defined %}
-        <h2 class="catalog__search-term">{{ 'search.resultsFor' | trans }}: {{ searchString }}</h2>
-    {% endif %}
-
-    <section class="catalog__active-filters">
-        <h1>{{ "catalog.filter.active" | trans }}</h1>
-        <ul class="active-filter__list">
-            {% include "@catalog/catalog/partials/active-filter.twig" with { name: 'category', value: '', id: 42} %}
-            {% include "@catalog/catalog/partials/active-filter.twig" with { name: 'color', value: '', id: 42} %}
-            {% include "@catalog/catalog/partials/active-filter.twig" with { name: 'price', value: '', id: 42} %}
-        </ul>
-    </section>
-
-    <header class="catalog__summary">
-        <div class="summary__total-count"><span class="amount">{{ numFound }}</span> {{ "catalog.itemsFound" | trans }}</div>
-        <div class="ui-helper-hidden pagination-max-page">{{ maxPage }}</div>
-        <div class="summary__sorting">
-            {{ "catalog.sort" | trans }}
-            <button class="sorting__button--inc name">{{ 'global.order.ascendent' | trans }}</button>
-            <button class="sorting__button--dec name">{{ 'global.order.descendent' | trans }}</button>
-            <button class="sorting__button--inc price">
-                <span class="sorting__label--small">{{ "catalog.currency" | trans }}</span>
-                <span class="sorting__label--medium">{{ "catalog.currency" | trans }}</span>
-                <span class="sorting__label--large">{{ "catalog.currency" | trans }}</span>
-            </button>
-            <button class="sorting__button--dec price">
-                <span class="sorting__label--large">{{ "catalog.currency" | trans }}</span>
-                <span class="sorting__label--medium">{{ "catalog.currency" | trans }}</span>
-                <span class="sorting__label--small">{{ "catalog.currency" | trans }}</span>
-            </button>
+                <div class="btn-group group-round" role="group">
+                    <button type="button" class="btn btn-primary">
+                        <span class="filter-small">&euro;</span>
+                        <span class="filter-middle">&euro;</span>
+                        <span class="filter-large">&euro;</span>
+                    </button>
+                    <button type="button" class="btn btn-default">
+                        <span class="filter-large">&euro;</span>
+                        <span class="filter-middle">&euro;</span>
+                        <span class="filter-small">&euro;</span>
+                    </button>
+                </div>
+            </div>
         </div>
-    </header>
-
-    <div class="catalog__products-holder js-products-holder">
-        <section class="catalog__products js-products-current">
+        <div class="row">
             {% for product in products %}
-                {% include "@catalog/catalog/partials/product.twig" with { detailsUrl: product.url, imageUrl: product.abstract_attributes.image_url, name: product.abstract_name, priceValue: product.valid_price } %}
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="thumbnail product-item">
+                    <div class="product-thumbnail">
+                        <a href="{{ product.url }}" title="{{ product.abstract_name }}">
+                            <img src="{{ product.abstract_attributes.image_url }}" alt="{{ product.abstract_name }}">
+                        </a>
+                    </div>
+                    <div class="caption text-center">
+                        <div class="product-name">{{ product.abstract_name }}</div>
+                        <div class="product-price">{#<span>{{ product.old_price | price }}</span> #}{{ product.valid_price | price }}</div>
+                    </div>
+                </div>
+            </div>
             {% endfor %}
-        </section>
-        <div class="catalog__loading-text">{{ "catalog.loading" | trans }}</div>
-    </div>
+        </div>
 
-    <div class="catalog__pagination">
-        <button class="pagination__button js-pagination-prev">{{ "catalog.prev" | trans }}</button>
-        <button class="pagination__button js-pagination-next">{{ "catalog.next" | trans }}</button>
+        <nav>
+            <ul class="pager">
+                <li><a href="#">{{ 'pagination.previous' | trans }}</a></li>
+                <li><a href="#">{{ 'pagination.next' | trans }}</a></li>
+            </ul>
+        </nav>
+
     </div>
 </div>
