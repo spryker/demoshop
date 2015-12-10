@@ -35,8 +35,9 @@ class AddressController extends AbstractController
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
         }
 
-        $form = $this->buildForm($this->getDependencyContainer()->createFormAddress());
-        $form->handleRequest($request);
+        $form = $this
+            ->buildForm($this->getDependencyContainer()->createFormAddress())
+            ->handleRequest($request);
 
         if ($form->isValid()) {
             $addressTransfer = new AddressTransfer();
@@ -75,8 +76,9 @@ class AddressController extends AbstractController
      */
     public function createAction(Request $request)
     {
-        $form = $this->buildForm($this->getDependencyContainer()->createFormAddress());
-        $form->handleRequest($request);
+        $form = $this
+            ->buildForm($this->getDependencyContainer()->createFormAddress())
+            ->handleRequest($request);
 
         if ($form->isValid()) {
             $addressTransfer = new AddressTransfer();
