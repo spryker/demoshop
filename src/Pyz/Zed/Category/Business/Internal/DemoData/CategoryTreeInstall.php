@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\Category\Business\Internal\DemoData;
 
-use Generated\Shared\Cms\CmsBlockInterface;
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
@@ -15,7 +14,6 @@ use SprykerFeature\Zed\Category\Business\Model\CategoryWriterInterface;
 use SprykerFeature\Zed\Category\Business\Tree\CategoryTreeWriter;
 use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
 use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
-use SprykerFeature\Zed\Library\Import\Reader\CsvFileReader;
 
 class CategoryTreeInstall extends AbstractInstaller
 {
@@ -125,7 +123,6 @@ class CategoryTreeInstall extends AbstractInstaller
     protected function addRootNode(array $rawNode)
     {
         $idCategoryNode = $this->createNode($rawNode, null);
-
         return $idCategoryNode;
     }
 
@@ -161,8 +158,8 @@ class CategoryTreeInstall extends AbstractInstaller
 
         $pageTransfer = $this->cmsFacade->getPageByCategoryNode($categoryNodeTransfer);
 
-        // TODO: resolve 46 to correct locale
-        $urlTransfer = $this->urlFacade->getUrlByIdPage($pageTransfer->getIdCmsPage(), 46);
+
+        $urlTransfer = $this->urlFacade->getUrlByIdPage($pageTransfer->getIdCmsPage(), $this->locale->getIdLocale());
         $urlTransfer->setUrl($rawNode['url']);
         $this->urlFacade->saveUrl($urlTransfer);
 
