@@ -75,3 +75,13 @@ $jobs[] = [
     'notifications' => ['stephan.schulze@project-a.com', 'server-alert@petsdeli.de']
 ];
 
+$jobs[] = [
+    'name'     => 'product-feed-generation',
+    'command'  => '$PHP_BIN vendor/bin/pav-console product-feed:generate',
+    'schedule' => '*/10 * * * *',
+    'enable'   => true,
+    'run_on_non_production' => true,
+    'stores'   => $allStores,
+    'notifications' => ['stephan.schulze@project-a.com', 'server-alert@petsdeli.de']
+];
+
