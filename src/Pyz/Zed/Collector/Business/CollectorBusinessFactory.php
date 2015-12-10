@@ -28,7 +28,6 @@ use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector
 use Pyz\Zed\Collector\Business\Storage\BlockCollector;
 use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector;
 use Pyz\Zed\Collector\Business\Storage\NavigationCollector;
-use Pyz\Zed\Collector\Business\Storage\NewCategoryNodeCollector;
 use Pyz\Zed\Collector\Business\Storage\PageCollector;
 use Pyz\Zed\Collector\Business\Storage\ProductCollector;
 use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
@@ -53,6 +52,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createSearchProductCollector()
     {
         $searchProductCollector = new SearchProductCollector(
+            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRICE),
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRICE),
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY),
             $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_SEARCH)
@@ -231,9 +231,9 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createYvesKeyValueExporter()
     {
         return new Collector(
-                    $this->createTouchQueryContainer(),
-                    $this->createKeyValueExporter()
-                );
+                $this->createTouchQueryContainer(),
+                $this->createKeyValueExporter()
+            );
     }
 
     /**
@@ -241,14 +241,14 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     protected function createKeyValueExporter()
     {
-        $keyValueExporter = new KeyValueCollector(
-                    $this->createTouchQueryContainer(),
-                    $this->createKeyValueWriter(),
-                    $this->createKeyValueMarker(),
-                    $this->createFailedResultModel(),
-                    $this->createBatchResultModel(),
-                    $this->createExporterWriterKeyValueTouchUpdater()
-                );
+        $keyValueExporter = new KeyValueExporter(
+            $this->createTouchQueryContainer(),
+            $this->createKeyValueWriter(),
+            $this->createKeyValueMarker(),
+            $this->createFailedResultModel(),
+            $this->createBatchResultModel(),
+            $this->createExporterWriterKeyValueTouchUpdater()
+        );
 
         foreach ($this->getProvidedDependency(CollectorDependencyProvider::STORAGE_PLUGINS) as $touchItemType => $collectorPlugin) {
             $keyValueExporter->addCollectorPlugin($touchItemType, $collectorPlugin);
@@ -263,8 +263,8 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     protected function createKeyValueWriter()
     {
         return new RedisWriter(
-                    StorageInstanceBuilder::getStorageReadWriteInstance()
-                );
+            StorageInstanceBuilder::getStorageReadWriteInstance()
+        );
     }
 
     /**
@@ -273,10 +273,10 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createKeyValueMarker()
     {
         return new ExportMarker(
-                    $this->createKeyValueWriter(),
-                    $this->createRedisReader(),
-                    $this->createKvMarkerKeyBuilder()
-                );
+            $this->createKeyValueWriter(),
+            $this->createRedisReader(),
+            $this->createKvMarkerKeyBuilder()
+        );
     }
 
     /**
@@ -285,8 +285,8 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     protected function createRedisReader()
     {
         return new RedisReader(
-                    StorageInstanceBuilder::getStorageReadWriteInstance()
-                );
+            StorageInstanceBuilder::getStorageReadWriteInstance()
+        );
     }
 
     /**
@@ -338,12 +338,12 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $searchWriter = $this->createSearchWriter();
 
         return new Collector(
-                    $this->createTouchQueryContainer(),
-                    $this->createElasticsearchExporter(
-                        $searchWriter,
-                        $config
-                    )
-                );
+            $this->createTouchQueryContainer(),
+            $this->createElasticSearchExporter(
+                $searchWriter,
+                $config
+            )
+        );
     }
 
     /**
@@ -352,30 +352,30 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createYvesSearchUpdateExporter()
     {
         return new Collector(
-                    $this->createTouchQueryContainer(),
-                    $this->createElasticsearchExporter(
-                        $this->createSearchUpdateWriter(),
-                        $this->getConfig()
-                    )
-                );
+            $this->createTouchQueryContainer(),
+            $this->createElasticSearchExporter(
+                $this->createSearchUpdateWriter(),
+                $this->getConfig()
+            )
+        );
     }
 
     /**
      * @param WriterInterface $searchWriter
      * @param CollectorConfig $config
      *
-     * @return SearchCollector
+     * @return SearchExporter
      */
-    protected function createElasticsearchExporter(WriterInterface $searchWriter, CollectorConfig $config)
+    protected function createElasticSearchExporter(WriterInterface $searchWriter, CollectorConfig $config)
     {
-        $searchExporter = new SearchCollector(
-                    $this->createTouchQueryContainer(),
-                    $searchWriter,
-                    $this->createSearchMarker(),
-                    $this->createFailedResultModel(),
-                    $this->createBatchResultModel(),
-                    $this->createExporterWriterSearchTouchUpdater()
-                );
+        $searchExporter = new SearchExporter(
+            $this->createTouchQueryContainer(),
+            $searchWriter,
+            $this->createSearchMarker(),
+            $this->createFailedResultModel(),
+            $this->createBatchResultModel(),
+            $this->createExporterWriterSearchTouchUpdater()
+        );
 
         foreach ($this->getProvidedDependency(CollectorDependencyProvider::SEARCH_PLUGINS) as $touchItemType => $collectorPlugin) {
             $searchExporter->addCollectorPlugin($touchItemType, $collectorPlugin);
@@ -385,15 +385,15 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return ElasticsearchWriter
+     * @return ElasticSearchWriter
      */
     protected function createSearchWriter()
     {
-        $elasticSearchWriter = new ElasticsearchWriter(
-                    StorageInstanceBuilder::getElasticsearchInstance(),
-                    $this->getConfig()->getSearchIndexName(),
-                    $this->getConfig()->getSearchDocumentType()
-                );
+        $elasticSearchWriter = new ElasticSearchWriter(
+            StorageInstanceBuilder::getElasticsearchInstance(),
+            $this->getConfig()->getSearchIndexName(),
+            $this->getConfig()->getSearchDocumentType()
+        );
 
         return $elasticSearchWriter;
     }
@@ -405,13 +405,13 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     {
         $settings = $this->getConfig();
 
-        $elasticsearchUpdateWriter = new ElasticsearchUpdateWriter(
-                    StorageInstanceBuilder::getElasticsearchInstance(),
-                    $settings->getSearchIndexName(),
-                    $settings->getSearchDocumentType()
-                );
+        $elasticSearchUpdateWriter = new ElasticSearchUpdateWriter(
+            StorageInstanceBuilder::getElasticsearchInstance(),
+            $settings->getSearchIndexName(),
+            $settings->getSearchDocumentType()
+        );
 
-        return $elasticsearchUpdateWriter;
+        return $elasticSearchUpdateWriter;
     }
 
     /**
@@ -420,36 +420,36 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createSearchMarker()
     {
         return new ExportMarker(
-                    $this->createSearchMarkerWriter(),
-                    $this->createSearchMarkerReader(),
-                    $this->createSearchMarkerKeyBuilder()
-                );
+            $this->createSearchMarkerWriter(),
+            $this->createSearchMarkerReader(),
+            $this->createSearchMarkerKeyBuilder()
+        );
     }
 
     /**
-     * @return ElasticsearchMarkerWriter
+     * @return ElasticSearchMarkerWriter
      */
     protected function createSearchMarkerWriter()
     {
-        $elasticSearchWriter = new ElasticsearchMarkerWriter(
-                    StorageInstanceBuilder::getElasticsearchInstance(),
-                    $this->getConfig()->getSearchIndexName(),
-                    $this->getConfig()->getSearchDocumentType()
-                );
+        $elasticSearchWriter = new ElasticSearchMarkerWriter(
+            StorageInstanceBuilder::getElasticsearchInstance(),
+            $this->getConfig()->getSearchIndexName(),
+            $this->getConfig()->getSearchDocumentType()
+        );
 
         return $elasticSearchWriter;
     }
 
     /**
-     * @return ElasticsearchMarkerReader
+     * @return ElasticSearchMarkerReader
      */
     protected function createSearchMarkerReader()
     {
-        return new ElasticsearchMarkerReader(
-                    StorageInstanceBuilder::getElasticsearchInstance(),
-                    $this->getConfig()->getSearchIndexName(),
-                    $this->getConfig()->getSearchDocumentType()
-                );
+        return new ElasticSearchMarkerReader(
+            StorageInstanceBuilder::getElasticsearchInstance(),
+            $this->getConfig()->getSearchIndexName(),
+            $this->getConfig()->getSearchDocumentType()
+        );
     }
 
     /**
@@ -463,14 +463,14 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     /**
      * @param MessengerInterface $messenger
      *
-     * @return InstallElasticsearch
+     * @return InstallElasticSearch
      */
     public function createInstaller(MessengerInterface $messenger)
     {
-        $installer = new InstallElasticsearch(
-                    StorageInstanceBuilder::getElasticsearchInstance(),
-                    $this->getConfig()->getSearchIndexName()
-                );
+        $installer = new InstallElasticSearch(
+            StorageInstanceBuilder::getElasticsearchInstance(),
+            $this->getConfig()->getSearchIndexName()
+        );
 
         $installer->setMessenger($messenger);
 
