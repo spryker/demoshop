@@ -53,6 +53,6 @@ class ProductFeedConfig extends AbstractBundleConfig
      */
     public function getHostStaticMedia()
     {
-        return $this->get(SystemConfig::HOST_SSL_STATIC_MEDIA);
+        return $this->get(SystemConfig::CLOUD_CDN_STATIC_MEDIA_HTTPS);
     }
 }

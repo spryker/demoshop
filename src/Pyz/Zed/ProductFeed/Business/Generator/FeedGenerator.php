@@ -272,8 +272,8 @@ class FeedGenerator implements FeedGeneratorInterface
                 isset($abstractLocalizedAttributes['description']['markdown'])? $abstractLocalizedAttributes['description']['markdown'] : ''
             );
 
-            $row[] = isset($localizedAttributes['media'][0]['thumbnail_url'])?
-                $this->productFeedConfig->getHostStaticMedia() . $localizedAttributes['media'][0]['thumbnail_url'] : '';
+            $row[] = isset($localizedAttributes['media'][0]['url'])?
+                'https://' . $this->productFeedConfig->getHostStaticMedia() . '/media/images/products/' . $localizedAttributes['media'][0]['url'] : '';
 
             $row[] = isset($abstractLocalizedAttributes['url'])?
                 $this->productFeedConfig->getHostYves() . $abstractLocalizedAttributes['url'] : '';
