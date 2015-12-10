@@ -82,5 +82,6 @@ $jobs[] = [
     'enable'   => true,
     'run_on_non_production' => true,
     'stores'   => $allStores,
+    'notifications' => ['stephan.schulze@project-a.com', 'server-alert@petsdeli.de']
 ];
 
