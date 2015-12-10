@@ -19,8 +19,19 @@ class NoGuy extends \Codeception\Actor
 {
     use _generated\NoGuyActions;
 
+    /**
+     * @var string
+     */
     private $testName;
-    private $createScreenshots = false;
+
+    /**
+     * @var bool
+     */
+    private $debugging = false;
+
+    /**
+     * @var int
+     */
     private $screenshotCounter = 1;
 
     /**
@@ -34,9 +45,9 @@ class NoGuy extends \Codeception\Actor
     /**
      * @param bool $bool
      */
-    public function activateScreenshots($bool) {
+    public function setDebugging($bool) {
 
-        $this->createScreenshots = $bool;
+        $this->debugging = $bool;
     }
 
     /**
@@ -44,12 +55,12 @@ class NoGuy extends \Codeception\Actor
      */
     public function createScreenshot($name) {
 
-        if(!$this->createScreenshots) {
+        if(!$this->debugging) {
 
             return;
         }
 
-        $counter = str_pad($this->screenshotCounter++, 3, '0', STR_PAD_LEFT);
+        $counter  = str_pad($this->screenshotCounter++, 3, '0', STR_PAD_LEFT);
         $filename = sprintf('%s__%s_%s', $this->testName, $counter, $name);
 
         $this->makeScreenshot($filename);
@@ -69,11 +80,14 @@ class NoGuy extends \Codeception\Actor
 
         // Product Overview Page
         $this->click('Basisnahrung');
+
+        $this->waitForText('PETS DELI Menübox für Hunde Weißfischfilet');
         $this->see('PETS DELI Menübox für Hunde Weißfischfilet');
         $this->createScreenshot('dogs_overview');
 
         // Product Detail Page
         $this->click(['xpath' => '//a[@class="product-card__inner"]']);
+        $this->waitForText('Fertige Menübox mit Weißfischfilet, Karotten, Banane und Reis.');
         $this->seeInTitle('PETS DELI Menübox für Hunde Weißfischfilet');
         $this->createScreenshot('dogs_detail');
     }
@@ -134,7 +148,6 @@ class NoGuy extends \Codeception\Actor
 
         // @todo: Should be relevant in the future?
         // Address
-        $this->fillField('#checkout_billing_address_city',          'Berlin');
         $this->fillField('#checkout_billing_address_first_name',    'Test');
         $this->fillField('#checkout_billing_address_last_name',     'Test');
         $this->fillField('#checkout_billing_address_street',        'Julie-Wolfthorn-Straße');
@@ -171,6 +184,11 @@ class NoGuy extends \Codeception\Actor
         $this->createScreenshot('checkout_guest');
 
         // Address
+
+        $this->createScreenshot('city_before');
+        $this->fillField('#checkout_billing_address_city',          'Berlin');
+        $this->createScreenshot('city_after');
+
         $this->fillField('#checkout_email',                         'florian.preusner@project-a.com');
         $this->fillField('#checkout_billing_address_first_name',    'Test');
         $this->fillField('#checkout_billing_address_first_name',    'Test');
