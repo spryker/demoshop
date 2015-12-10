@@ -9,6 +9,7 @@ namespace Pyz\Yves\Category;
 use Generated\Yves\Ide\FactoryAutoCompletion\CategoryCommunication;
 use SprykerEngine\Yves\Kernel\AbstractDependencyContainer;
 use Pyz\Yves\Category\ResourceCreator\CategoryResourceCreator;
+use SprykerFeature\Client\CategoryExporter\Service\CategoryExporterClient;
 
 class CategoryDependencyContainer extends AbstractDependencyContainer
 {
@@ -24,6 +25,14 @@ class CategoryDependencyContainer extends AbstractDependencyContainer
     public function createCategoryResourceCreator()
     {
         return new CategoryResourceCreator($this->getLocator());
+    }
+
+    /**
+     * @return CategoryExporterClient
+     */
+    public function getCategoryExporterClient()
+    {
+        return $this->getLocator()->categoryExporter()->client();
     }
 
 }

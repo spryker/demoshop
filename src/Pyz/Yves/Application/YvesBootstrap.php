@@ -6,7 +6,7 @@ use Pyz\Yves\Customer\Plugin\Provider\SecurityServiceProvider as ProviderSecurit
 use Pyz\Yves\Customer\Plugin\UserProvider;
 use Pyz\Yves\Catalog\Plugin\Router\SearchRouter;
 use Pyz\Yves\Collector\Plugin\Router\StorageRouter;
-use Pyz\Yves\CategoryExporter\Plugin\Provider\CategoryExporterServiceProvider;
+use Pyz\Yves\Category\Plugin\Provider\CategoryServiceProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerServiceProvider;
 use Pyz\Yves\Glossary\Plugin\Provider\TranslationServiceProvider;
 use SprykerEngine\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
@@ -92,7 +92,7 @@ class YvesBootstrap
         $this->application->register(new FormServiceProvider());
         $this->application->register(new HttpFragmentServiceProvider());
         $this->application->register(new CustomerServiceProvider());
-        $this->application->register(new CategoryExporterServiceProvider());
+        $this->application->register(new CategoryServiceProvider());
 
         if (Config::get(ApplicationConfig::ENABLE_WEB_PROFILER, false)) {
             $this->application->register(new WebProfilerServiceProvider());
