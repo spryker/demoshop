@@ -10,16 +10,15 @@ class LandingpageController extends AbstractController
     /**
      * double opt-in landing page
      *
-     * @param $subscriber_key
+     * @param $subscriberKey
      * @return array
      */
-    public function indexAction($subscriber_key)
+    public function indexAction($subscriberKey)
     {
         $newsletterSubscriber = new NewsletterSubscriberTransfer();
-        $newsletterSubscriber->setSubscriberKey($subscriber_key);
+        $newsletterSubscriber->setSubscriberKey($subscriberKey);
         $approvalResponse = $this->getLocator()->mailchimpNewsletter()->client()->approveDoubleOptInSubscriber($newsletterSubscriber);
 
-        $approvalResponse->getErrorMessage();
         $approvalResponse = [
             'isSuccess' => $approvalResponse->getIsSuccess(),
             'errorMessage' => $approvalResponse->getErrorMessage()
