@@ -8,9 +8,9 @@ use SprykerEngine\Zed\Kernel\Container;
 class MailQueueDependencyProvider extends AbstractBundleDependencyProvider
 {
 
-    const MAIL_FACADE = 'mail facade';
-    const QUEUE_FACADE = 'queue facade';
-    const MAIL_QUEUE_FACADE = 'mail queue facade';
+    const FACADE_MAIL = 'mail facade';
+    const FACADE_QUEUE = 'queue facade';
+    const FACADE_MAIL_QUEUE = 'mail queue facade';
 
     /**
      * @param Container $container
@@ -19,15 +19,15 @@ class MailQueueDependencyProvider extends AbstractBundleDependencyProvider
      */
     public function provideBusinessLayerDependencies(Container $container)
     {
-        $container[self::MAIL_FACADE] = function (Container $container) {
+        $container[self::FACADE_MAIL] = function (Container $container) {
             return $container->getLocator()->mail()->facade();
         };
 
-        $container[self::QUEUE_FACADE] = function (Container $container) {
+        $container[self::FACADE_QUEUE] = function (Container $container) {
             return $container->getLocator()->queue()->facade();
         };
 
-        $container[self::MAIL_QUEUE_FACADE] = function (Container $container) {
+        $container[self::FACADE_MAIL_QUEUE] = function (Container $container) {
             return $container->getLocator()->mailQueue()->facade();
         };
 
@@ -41,15 +41,15 @@ class MailQueueDependencyProvider extends AbstractBundleDependencyProvider
      */
     public function provideCommunicationLayerDependencies(Container $container)
     {
-        $container[self::MAIL_FACADE] = function (Container $container) {
+        $container[self::FACADE_MAIL] = function (Container $container) {
             return $container->getLocator()->mail()->facade();
         };
 
-        $container[self::QUEUE_FACADE] = function (Container $container) {
+        $container[self::FACADE_QUEUE] = function (Container $container) {
             return $container->getLocator()->queue()->facade();
         };
 
-        $container[self::MAIL_QUEUE_FACADE] = function (Container $container) {
+        $container[self::FACADE_MAIL_QUEUE] = function (Container $container) {
             return $container->getLocator()->mailQueue()->facade();
         };
 
