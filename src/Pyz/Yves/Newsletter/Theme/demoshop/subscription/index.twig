@@ -1,3 +1,24 @@
-//@TODO no javascript fallback
-
-{{ dump(subscriptionsResults) }}
+{% extends "@application/layout/layout.twig" %}
+{% block content %}
+    {% include "@application/layout/header.twig" %}
+    <div class="newsletter_message">
+    {% for subscriptionResult in subscriptionsResults %}
+            {% if subscriptionResult.isSuccess == true %}
+                <div class="newsletter-success-headline">
+                    {{ 'newsletter.' ~ subscriptionResult.name ~ '.subscription.success.headline' | trans }}
+                </div>
+                <div class="newsletter-message-details">
+                    {{ 'newsletter.' ~ subscriptionResult.name ~ '.subscription.success.message' | trans }}
+                </div>
+            {% else %}
+                <div class="newsletter-error-headline">
+                    {{ 'newsletter.' ~ subscriptionResult.name ~ '.subscription.error.headline' | trans }}
+                </div>
+                <div class="newsletter-message-details">
+                    {{ subscriptionResult.errorMessage | trans }}
+                </div>
+            {% endif %}
+    {% endfor %}
+    </div>
+    {% include "@application/layout/footer.twig" %}
+{% endblock %}
