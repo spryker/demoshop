@@ -73,6 +73,7 @@ Vagrant.configure(2) do |config|
 
   # The VirtualBox IP-address for the browser
   config.vm.network :private_network, ip: VM_IP
+  config.vm.network "public_network", type: "dhcp", bridge: "en0: WLAN (AirPort)"
 
   ## Uncomment to make your VM available within the local network
   #config.vm.network "public_network", type: "dhcp", bridge: "eth0"
@@ -85,7 +86,7 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest: 10005,  host: 10005,  auto_correct: true   # Elasticsearch
   config.vm.network "forwarded_port", guest: 10007, host: 10007, auto_correct: true   # Jenkins (development)
   config.vm.network "forwarded_port", guest: 11007, host: 11007, auto_correct: true   # Jenkins (testing)
-  
+
 
   # bootstrap saltstack via salt repository
   config.vm.provision "shell", path: SALT_LOCAL_CONFIG_PATH + "/scripts/bootstrap_saltstack.sh"

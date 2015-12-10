@@ -92,7 +92,7 @@ $(document).ready(function () {
 
                     content += `
                     <div class="image-checkbox">
-                        <label class="image-checkbox__inner" for="meat_${option}" style="background: url(/images/product/meat_${option}.jpg);">
+                        <label class="image-checkbox__inner" for="meat_${option}" style="background: url(/images/product/${window.productConfig.pet}.meat_${option}.jpg);">
                             <input class="image-checkbox__checkbox" type="checkbox" id="meat_${option}" name="meat" value="${option}" checked>
 
                             <div class="image-checkbox__content">
@@ -100,7 +100,7 @@ $(document).ready(function () {
                                 <div class="image-checkbox__sublabel">${sublabel}</div>
                             </div>
 
-                            <div class="image-checkbox__disabled" style="background: url(/images/product/meat_${option}_bw.jpg);"></div>
+                            <div class="image-checkbox__disabled" style="background: url(/images/product/${window.productConfig.pet}.meat_${option}_bw.jpg);"></div>
                         </label>
                     </div>`;
                 }
