@@ -68,3 +68,33 @@
         padding: 0;
     }
 }
+
+.newsletter_message {
+    padding:  96px  0;
+    background: #fff;
+    text-align: center;
+}
+
+.newsletter-success-headline {
+    color: $_rgbApple;
+    margin-bottom: 15px;
+    font-family: BrandonGrotesque-Black;
+    font-size: 40px;
+    line-height: 1.1;
+    letter-spacing: 1.74px;
+}
+
+.newsletter-error-headline {
+    color: $_rgbTotemPole;
+    margin-bottom: 15px;
+    font-family: BrandonGrotesque-Black;
+    font-size: 40px;
+    line-height: 1.1;
+    letter-spacing: 1.74px;
+}
+
+.newsletter-message-details {
+    margin-bottom: 35px;
+    font-size: 20px;
+    color: $_rgbSilverChalice;
+}

@@ -1,22 +1,25 @@
 {% extends "@application/layout/layout.twig" %}
 {% block content %}
+    {{ dump(unsubscriptionResults) }}
+    {% for unsubscriptionResult in  unsubscriptionResults %}
     {% include "@application/layout/header.twig" %}
     <div class="newsletter_message">
-        {% if approvalResponse.isSuccess == true %}
+        {% if unsubscriptionResult.isSuccess == true %}
             <div class="newsletter-success-headline">
-                {{ 'newsletter.doi.success.headline' | trans }}
+                {{ 'newsletter.unsubscription.success.headline' | trans }}
             </div>
             <div class="newsletter-message-details">
-                {{ 'newsletter.doi.success.message' | trans }}
+                {{ 'newsletter.unsubscription.success.message' | trans }}
             </div>
         {% else %}
             <div class="newsletter-error-headline">
-                {{ 'newsletter.doi.error.headline' | trans }}
+                {{ 'newsletter.unsubscription.error.headline' | trans }}
             </div>
             <div class="newsletter-message-details">
-                {{ approvalResponse.errorMessage | trans }}
+                {{ unsubscriptionResult.errorMessage | trans }}
             </div>
         {% endif %}
     </div>
+    {% endfor %}
     {% include "@application/layout/footer.twig" %}
 {% endblock %}
