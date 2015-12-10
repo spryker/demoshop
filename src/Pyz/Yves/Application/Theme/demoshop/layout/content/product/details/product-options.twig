@@ -187,7 +187,7 @@
 
 <form action="/cart/add/" method="POST" class="mobile-options js-product-options" data-sku="{{ initial.sku }}">
     <div class="mobile-options__inner">
-        
+
 
         <div class="mobile-options__top">
             <div class="mobile-options__padding">
@@ -228,14 +228,16 @@
                 <div class="mobile-options__middle-right-inner">
 
                     <div class="mobile-options__pricing">
-                        <div class="mobile-options__total js-product-price-total">
-                            {{ initial.price | price}}
-                        </div>
+                        <div class="">
+                            <div class="mobile-options__total js-product-price-total">
+                                {{ initial.price | price}}
+                            </div>
 
-                        <div class="mobile-options__relative">
-                            {% set base = initial.weight.unit in ['ml', 'g'] ? 100 : 1 %}
+                            <div class="mobile-options__relative">
+                                {% set base = initial.weight.unit in ['ml', 'g'] ? 100 : 1 %}
 
-                            <span class="js-product-weight">{{ initial.weight.value | replace({'.':','}) }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }}</span> ({{ (initial.price * base / initial.weight.value) | price }} / {{ base }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }})
+                                <span class="js-product-weight">{{ initial.weight.value | replace({'.':','}) }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }}</span> ({{ (initial.price * base / initial.weight.value) | price }} / {{ base }}{{ ('unit.' ~ initial.weight.unit | trim) | trans }})
+                            </div>
                         </div>
                     </div>
 
