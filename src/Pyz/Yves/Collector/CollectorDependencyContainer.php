@@ -27,10 +27,10 @@ class CollectorDependencyContainer extends AbstractDependencyContainer
     public function createResourceCreators()
     {
         return [
-            (new ProductResourceCreator())->createProductResourceCreator(),
-            (new CategoryResourceCreator())->createCategoryResourceCreator(),
-            (new RedirectResourceCreator())->createRedirectResourceCreator(),
-            (new PageResourceCreator())->createPageResourceCreator(),
+            $this->createProductResourceCreator(),
+            $this->createCategoryResourceCreator(),
+            $this->createRedirectResourceCreator(),
+            $this->createPageResourceCreator(),
         ];
     }
 
@@ -68,6 +68,38 @@ class CollectorDependencyContainer extends AbstractDependencyContainer
     public function createApplication()
     {
         return (new Pimple())->getApplication();
+    }
+
+    /**
+     * @return ProductResourceCreator
+     */
+    protected function createProductResourceCreator()
+    {
+        return (new ProductResourceCreator())->createProductResourceCreator();
+    }
+
+    /**
+     * @return CategoryResourceCreator
+     */
+    protected function createCategoryResourceCreator()
+    {
+        return (new CategoryResourceCreator())->createCategoryResourceCreator();
+    }
+
+    /**
+     * @return RedirectResourceCreator
+     */
+    protected function createRedirectResourceCreator()
+    {
+        return (new RedirectResourceCreator())->createRedirectResourceCreator();
+    }
+
+    /**
+     * @return PageResourceCreator
+     */
+    protected function createPageResourceCreator()
+    {
+        return (new PageResourceCreator())->createPageResourceCreator();
     }
 
 }
