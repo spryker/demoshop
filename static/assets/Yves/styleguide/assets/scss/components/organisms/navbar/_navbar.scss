@@ -85,6 +85,18 @@
     }
 }
 
+.navbar__press-icon--bild{
+    width: 17px;
+}
+
+.navbar__press-icon--ard{
+    width: 18px;
+}
+
+.navbar__press-icon--spiegel_inverted{
+    width: 95px;
+}
+
 
 .navbar__bottom{
     @include clearfix;

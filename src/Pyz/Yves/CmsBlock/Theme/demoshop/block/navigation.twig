@@ -51,7 +51,7 @@
 
                 <div class="navbar__item navbar__item--press">{{ data.press.title }}
                     {% for reference in data.press.references %}
-                        {{ block('icon_' ~ reference) }}
+                        <span class="navbar__press-icon--{{ reference }}">{{ block('icon_' ~ reference) }}</span>
                     {% endfor %}
                 </div>
             </div>
