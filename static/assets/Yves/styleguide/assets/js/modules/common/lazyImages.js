@@ -7,7 +7,7 @@ $(document).ready(function () {
 
     var $images, checkImages;
 
-    $images = $('.js-lazy-image');
+    $images = $('.js-lazy-image:visible');
 
     checkImages = throttle(function () {
 

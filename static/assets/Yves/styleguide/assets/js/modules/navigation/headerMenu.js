@@ -10,12 +10,14 @@ import { EVENTS as BODY_EVENTS } from '../common/bodyScrolling';
 $(document).ready(function () {
 
     $('.menu').each(function () {
-        var $menu, $close, $trigger, height, closed, $slider, index;
+        var $menu, $close, $triggerContainer, $trigger, height, closed, $slider, index;
 
         $menu = $(this);
         $slider = $menu.find('.menu__slider');
         $close = $menu.find('.close-button');
-        $trigger = $('.navbar__link[data-menu]');
+
+        $triggerContainer = $('.navbar__links');
+        $trigger = $triggerContainer.find('.navbar__link[data-menu]');
 
         updateHeight();
         hideMenu();
@@ -45,6 +47,9 @@ $(document).ready(function () {
         });
 
 
+        $('.navbar__link--active:not([data-menu])').click(hideMenu);
+
+
         $(window).resize(throttle(function () {
             updateHeight();
 
@@ -71,6 +76,9 @@ $(document).ready(function () {
                 $menu.removeClass('js-processed');
             }
 
+            $triggerContainer.removeClass('navbar__links--open')
+
+
             closed = true;
             $menu.css({
                 'margin-top': -height
@@ -94,6 +102,9 @@ $(document).ready(function () {
             if (typeof disableTransition === 'boolean' && disableTransition) {
                 $menu.removeClass('js-processed');
             }
+
+            $triggerContainer.addClass('navbar__links--open')
+
 
             if (newIndex !== index) {
 

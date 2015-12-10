@@ -121,10 +121,19 @@
     display: table;
     width: 100%;
     float: left;
+
+    &:not(.navbar__links--open) {
+        .navbar__link--active{
+            a, div{
+                color: $_rgbQuincy;
+            }
+        }
+    }
 }
 
 .navbar__link{
     display: table-cell;
+    height: 72px;
     width: 1%;
     text-align: center;
     vertical-align: top;
@@ -141,9 +150,15 @@
         height: 72px;
         text-decoration: none;
         text-transform: uppercase;
-        color: $_rgbQuincy;
+        color: $_rgbSilverChalice;
 
         cursor: pointer;
+
+        transition: color $_tShort ease-in-out;
+
+        &:hover{
+            color: $_rgbQuincy;
+        }
     }
 
     span{
@@ -154,6 +169,13 @@
         width: 100%;
     }
 }
+
+.navbar__link--open{
+    a, div{
+        color: $_rgbQuincy;
+    }
+}
+
 
 .navbar__marker{
     content: '';
@@ -172,7 +194,7 @@
     display: none;
 }
 
-.navbar__link--login{
+.navbar__link--login, .navbar__link--logout{
     border-left: 1px solid #ECECEC;
 
     a{
@@ -180,9 +202,21 @@
         overflow: hidden;
         text-overflow: ellipsis;
 
+    }
+}
+
+.navbar__link--login{
+    a{
         @include pdif('user', 20px, 30px);
     }
 }
+
+.navbar__link--logout{
+    a{
+        @include pdif('logout', 18px, 30px);
+    }
+}
+
 
 .navbar__link--cart{
     border-left: 1px solid #ECECEC;
@@ -221,7 +255,7 @@
     border-left: 1px solid #ECECEC;
 
     div{
-        @include pdif('more', 9px, 40px);
+        @include pdif('more', 6px, 26px);
     }
 }
 
@@ -291,7 +325,7 @@
 }
 
 @media (min-width: 650px) and (max-width: 830px) {
-    .navbar__link--login, .navbar__link--cart{
+    .navbar__link--login, .navbar__link--logout, .navbar__link--cart{
         a{
             padding: 13px 0 0 0;
             font-size: 12px;

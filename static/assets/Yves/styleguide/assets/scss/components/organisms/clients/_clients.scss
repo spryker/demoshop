@@ -72,3 +72,9 @@
         }
     }
 }
+
+@media (max-width: $_wMedium) {
+    .clients__headline{
+        font-size: 40px;
+    }
+}

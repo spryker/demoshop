@@ -9,7 +9,6 @@
     @include sectionShadow;
 
     background: $_rgbApple;
-    color: $_rgbWhite;
 }
 
 .communication__channels{
@@ -22,7 +21,9 @@
     margin: 0 0 50px 0;
     padding: 53px 10px 0;
     float: left;
+
     text-align: center;
+    text-decoration: none;
 
     &:nth-child(2n+1){
         clear: left;
@@ -33,6 +34,7 @@
         margin-top: 0 !important;
         width: 100%;
         text-align: center;
+        color: $_rgbWhite;
     }
 }
 
@@ -53,18 +55,28 @@
 }
 
 .communication__label{
+    margin-bottom: 7px;
+
     font-family: $_ffBrandonGrotesque-Bold;
     font-size: 16px;
     line-height: 23px;
     text-transform: uppercase;
+    color: $_rgbWhite;
 }
 
 .communication__info{
+    display: inline-block;
+    padding: 0 5px;
+
     font-family: $_ffBrandonGrotesque-Bold;
     font-size: 16px;
-    line-height: 23px;
+    line-height: 1.3em;
     text-decoration: none;
-    color: $_rgbWhite
+    color: $_rgbWhite;
+
+    span{
+        display: inline-block;
+    }
 }
 
 

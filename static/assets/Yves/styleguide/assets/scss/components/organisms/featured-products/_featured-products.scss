@@ -164,3 +164,13 @@
         width: auto;
     }
 }
+
+@media (max-width: $_wMedium) {
+    .featured-products__headline{
+        font-size: 40px;
+    }
+
+    .featured-products__background{
+        display: none;
+    }
+}

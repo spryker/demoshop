@@ -5,6 +5,7 @@ import { getFormData } from '../../common/helpers';
 
 import { EVENTS } from '../checkout/cartLayer';
 import { EVENTS as DROPDOWN_EVENTS} from '../../forms/dropdown';
+import { EVENTS as BODY_EVENTS } from '../../common/bodyScrolling';
 
 'use strict';
 
@@ -17,9 +18,28 @@ $(document).ready(function () {
     $('.mobile-options').appendTo('.navbar__inner');
     $('.mobile-options__title').text($('.mobile-options__title').text().replace('PETS DELI ', ''));
 
-    $('.mobile-options__add').click(function () {
-        $('.mobile-options').addClass('mobile-options--open');
+    $('.mobile-options__inner').click(function (event) {
+        event.stopPropagation();
+        openMobileOptions();
     });
+
+    $('.mobile-options').click(function (event) {
+        if ($(this.target).parent('.mobile-options__inner').size() === 0) {
+            closeMobileOptions();
+        }
+    });
+
+
+    function openMobileOptions () {
+        $('.mobile-options').addClass('mobile-options--open');
+        $(document).trigger(BODY_EVENTS.DISABLE_SCROLLING);
+    }
+
+    function closeMobileOptions () {
+        $('.mobile-options').removeClass('mobile-options--open');
+        $(document).trigger(BODY_EVENTS.ENABLE_SCROLLING);
+    }
+
 
 
     $('.js-product-options').each(function () {
@@ -84,7 +104,7 @@ $(document).ready(function () {
 
                     content += `
                     <div class="image-checkbox">
-                        <label class="image-checkbox__inner" for="meat_${option}" style="background: url(/images/product/meat_${option}.jpg);">
+                        <label class="image-checkbox__inner" for="meat_${option}" style="background: url(/images/product/${window.productConfig.pet}.meat_${option}.jpg);">
                             <input class="image-checkbox__checkbox" type="checkbox" id="meat_${option}" name="meat" value="${option}" checked>
 
                             <div class="image-checkbox__content">
@@ -92,7 +112,7 @@ $(document).ready(function () {
                                 <div class="image-checkbox__sublabel">${sublabel}</div>
                             </div>
 
-                            <div class="image-checkbox__disabled" style="background: url(/images/product/meat_${option}_bw.jpg);"></div>
+                            <div class="image-checkbox__disabled" style="background: url(/images/product/${window.productConfig.pet}.meat_${option}_bw.jpg);"></div>
                         </label>
                     </div>`;
                 }
@@ -180,7 +200,7 @@ $(document).ready(function () {
             })
             .always(function () {
                 $form.find('button').prop('disabled', false);
-                $('.mobile-options').removeClass('mobile-options--open');
+                closeMobileOptions();
             });
         };
     });
