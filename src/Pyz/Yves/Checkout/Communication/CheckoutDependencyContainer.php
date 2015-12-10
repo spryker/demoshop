@@ -4,7 +4,6 @@ namespace Pyz\Yves\Checkout\Communication;
 
 use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
-use Generated\Yves\Ide\FactoryAutoCompletion\CheckoutCommunication;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 use SprykerFeature\Client\Cart\Service\CartClientInterface;
 use SprykerFeature\Client\Checkout\Service\CheckoutClient;
@@ -14,9 +13,6 @@ use SprykerFeature\Client\Payolution\Service\PayolutionClientInterface;
 use SprykerFeature\Client\Shipment\Service\ShipmentClientInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-/**
- * @method CheckoutCommunication getFactory()
- */
 class CheckoutDependencyContainer extends AbstractCommunicationDependencyContainer
 {
 

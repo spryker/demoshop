@@ -3,7 +3,6 @@
 namespace Pyz\Zed\MailQueue\Business;
 
 use Pyz\Zed\MailQueue\Business\Model\MailQueueManager;
-use Generated\Zed\Ide\FactoryAutoCompletion\MailQueueBusiness;
 use Pyz\Zed\MailQueue\Business\Model\MailQueueManagerInterface;
 use Pyz\Zed\MailQueue\MailQueueDependencyProvider;
 use Pyz\Zed\Queue\Business\QueueFacade;
@@ -11,9 +10,6 @@ use SprykerEngine\Shared\Kernel\Store;
 use SprykerEngine\Zed\Kernel\Business\AbstractBusinessDependencyContainer;
 use SprykerFeature\Zed\Mail\Business\MailFacade;
 
-/**
- * @method MailQueueBusiness getFactory()
- */
 class MailQueueDependencyContainer extends AbstractBusinessDependencyContainer
 {
 

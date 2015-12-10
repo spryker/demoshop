@@ -6,14 +6,10 @@ use SprykerFeature\Zed\Price\Business\Internal\Install;
 use SprykerFeature\Zed\Price\Business\Model\BulkWriter;
 use SprykerFeature\Zed\Price\Business\Model\Writer;
 use SprykerFeature\Zed\Price\Business\Model\Reader;
-use Generated\Zed\Ide\FactoryAutoCompletion\PriceBusiness;
 use SprykerFeature\Zed\Price\Business\PriceDependencyContainer as SprykerPriceDependencyContainer;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Price\Business\Internal\DemoData\PriceInstall;
 
-/**
- * @method PriceBusiness getFactory()
- */
 class PriceDependencyContainer extends SprykerPriceDependencyContainer
 {
 

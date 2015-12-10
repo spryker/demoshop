@@ -11,7 +11,6 @@ use Pyz\Yves\Cms\Communication\Plugin\PageResourceCreator;
 use Pyz\Yves\Redirect\Communication\Plugin\RedirectResourceCreator;
 use Pyz\Yves\Category\Communication\Plugin\CategoryResourceCreator;
 use Pyz\Yves\Product\Communication\Plugin\ProductResourceCreator;
-use Generated\Yves\Ide\FactoryAutoCompletion\CollectorCommunication;
 use Pyz\Yves\Collector\Communication\Creator\ResourceCreatorInterface;
 use Pyz\Yves\Collector\Communication\Mapper\UrlMapper;
 use SprykerFeature\Client\Catalog\Service\Model\FacetConfig;
@@ -19,9 +18,6 @@ use SprykerFeature\Client\Collector\Service\Matcher\UrlMatcher;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 use Silex\Application;
 
-/**
- * @method CollectorCommunication getFactory()
- */
 class CollectorDependencyContainer extends AbstractCommunicationDependencyContainer
 {
 

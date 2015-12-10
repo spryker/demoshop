@@ -5,7 +5,7 @@
 
 namespace Functional\Pyz\Zed\Payolution;
 
-use SprykerFeature\Zed\Payolution;
+use SprykerFeature\Zed\Payolution\Business\PayolutionFacade;
 
 /**
  * @group Pyz
@@ -20,7 +20,7 @@ class FacadeTest extends AbstractFacadeTest
     {
         $this->markTestSkipped();
 
-        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+        $PayolutionFacade = new PayolutionFacade();
 
         $this->setPaymentInvoice();
 
@@ -32,7 +32,7 @@ class FacadeTest extends AbstractFacadeTest
     {
         $this->markTestSkipped();
 
-        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+        $PayolutionFacade = new PayolutionFacade();
 
         $this->setPaymentInvoice();
 
@@ -45,7 +45,7 @@ class FacadeTest extends AbstractFacadeTest
     {
         $this->markTestSkipped();
 
-        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+        $PayolutionFacade = new PayolutionFacade();
 
         $this->setPaymentInvoice();
 
@@ -63,7 +63,7 @@ class FacadeTest extends AbstractFacadeTest
     {
         $this->markTestSkipped();
 
-        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+        $PayolutionFacade = new PayolutionFacade();
 
         $this->setPaymentInvoice();
 
@@ -82,7 +82,7 @@ class FacadeTest extends AbstractFacadeTest
     {
         $this->markTestSkipped();
 
-        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+        $PayolutionFacade = new PayolutionFacade();
 
         $this->setPaymentInvoice();
 
@@ -101,7 +101,7 @@ class FacadeTest extends AbstractFacadeTest
     {
         $this->markTestSkipped();
 
-        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+        $PayolutionFacade = new PayolutionFacade();
 
         $this->setPaymentInvoice();
 
@@ -120,7 +120,7 @@ class FacadeTest extends AbstractFacadeTest
     {
         $this->markTestSkipped();
 
-        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+        $PayolutionFacade = new PayolutionFacade();
 
         $this->setPaymentInvoice();
 
@@ -140,7 +140,7 @@ class FacadeTest extends AbstractFacadeTest
     {
         $this->markTestSkipped();
 
-        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+        $PayolutionFacade = new PayolutionFacade();
 
         $this->setPaymentInstallment();
 
@@ -154,7 +154,7 @@ class FacadeTest extends AbstractFacadeTest
     {
         $this->markTestSkipped();
 
-        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+        $PayolutionFacade = new PayolutionFacade();
 
         $this->setPaymentInstallment();
 
@@ -167,7 +167,7 @@ class FacadeTest extends AbstractFacadeTest
     {
         $this->markTestSkipped();
 
-        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+        $PayolutionFacade = new PayolutionFacade();
 
         $this->setPaymentInstallment();
 
@@ -185,7 +185,7 @@ class FacadeTest extends AbstractFacadeTest
     {
         $this->markTestSkipped();
 
-        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+        $PayolutionFacade = new PayolutionFacade();
 
         $this->setPaymentInstallment();
 
@@ -204,7 +204,7 @@ class FacadeTest extends AbstractFacadeTest
     {
         $this->markTestSkipped();
 
-        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+        $PayolutionFacade = new PayolutionFacade();
 
         $this->setPaymentInstallment();
 
@@ -223,7 +223,7 @@ class FacadeTest extends AbstractFacadeTest
     {
         $this->markTestSkipped();
 
-        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+        $PayolutionFacade = new PayolutionFacade();
 
         $this->setPaymentInstallment();
 
@@ -242,7 +242,7 @@ class FacadeTest extends AbstractFacadeTest
     {
         $this->markTestSkipped();
 
-        $PayolutionFacade = $this->getFacade('SprykerFeature', 'Payolution');
+        $PayolutionFacade = new PayolutionFacade();
 
         $this->setPaymentInstallment();
 

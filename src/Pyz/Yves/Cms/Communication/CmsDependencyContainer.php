@@ -6,13 +6,9 @@
 
 namespace Pyz\Yves\Cms\Communication;
 
-use Generated\Yves\Ide\FactoryAutoCompletion\CmsCommunication;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 use Pyz\Yves\Cms\Communication\ResourceCreator\PageResourceCreator;
 
-/**
- * @method CmsCommunication getFactory()
- */
 class CmsDependencyContainer extends AbstractCommunicationDependencyContainer
 {
 

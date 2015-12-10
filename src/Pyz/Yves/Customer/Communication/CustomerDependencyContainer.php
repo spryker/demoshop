@@ -10,15 +10,11 @@ use Pyz\Yves\Customer\Communication\Form\RestorePassword;
 use Pyz\Yves\Customer\Communication\Form\Profile;
 use Pyz\Yves\Customer\Communication\Form\ForgotPassword;
 use Pyz\Yves\Customer\Communication\Form\DeleteCustomer;
-use Generated\Zed\Ide\FactoryAutoCompletion\CustomerCommunication;
 use Pyz\Yves\Customer\Communication\Form\Address;
 use Pyz\Yves\Customer\Communication\Form\RegisterCustomer;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 use SprykerFeature\Client\Customer\Service\CustomerClient;
 
-/**
- * @method CustomerCommunication getFactory()
- */
 class CustomerDependencyContainer extends AbstractCommunicationDependencyContainer
 {
 

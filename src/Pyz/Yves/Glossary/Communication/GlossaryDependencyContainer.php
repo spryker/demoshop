@@ -8,13 +8,9 @@ namespace Pyz\Yves\Glossary\Communication;
 
 use SprykerFeature\Zed\Glossary\Communication\Form\TranslationForm;
 use SprykerFeature\Zed\Glossary\Communication\Table\TranslationTable;
-use Generated\Yves\Ide\FactoryAutoCompletion\GlossaryCommunication;
 use SprykerEngine\Yves\Kernel\Communication\AbstractCommunicationDependencyContainer;
 use SprykerFeature\Client\Glossary\Service\GlossaryClientInterface;
 
-/**
- * @method GlossaryCommunication getFactory()
- */
 class GlossaryDependencyContainer extends AbstractCommunicationDependencyContainer
 {
 
