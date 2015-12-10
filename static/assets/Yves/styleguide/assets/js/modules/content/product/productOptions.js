@@ -5,6 +5,7 @@ import { getFormData } from '../../common/helpers';
 
 import { EVENTS } from '../checkout/cartLayer';
 import { EVENTS as DROPDOWN_EVENTS} from '../../forms/dropdown';
+import { EVENTS as BODY_EVENTS } from '../../common/bodyScrolling';
 
 'use strict';
 
@@ -19,15 +20,26 @@ $(document).ready(function () {
 
     $('.mobile-options__inner').click(function (event) {
         event.stopPropagation();
-
-        $('.mobile-options').addClass('mobile-options--open');
+        openMobileOptions();
     });
 
     $('.mobile-options').click(function (event) {
         if ($(this.target).parent('.mobile-options__inner').size() === 0) {
-            $('.mobile-options').removeClass('mobile-options--open');
+            closeMobileOptions();
         }
     });
+
+
+    function openMobileOptions () {
+        $('.mobile-options').addClass('mobile-options--open');
+        $(document).trigger(BODY_EVENTS.DISABLE_SCROLLING);
+    }
+
+    function closeMobileOptions () {
+        $('.mobile-options').removeClass('mobile-options--open');
+        $(document).trigger(BODY_EVENTS.ENABLE_SCROLLING);
+    }
+
 
 
     $('.js-product-options').each(function () {
@@ -188,7 +200,7 @@ $(document).ready(function () {
             })
             .always(function () {
                 $form.find('button').prop('disabled', false);
-                $('.mobile-options').removeClass('mobile-options--open');
+                closeMobileOptions();
             });
         };
     });
