@@ -47,6 +47,9 @@ $(document).ready(function () {
         });
 
 
+        $('.navbar__link--active').click(hideMenu);
+
+
         $(window).resize(throttle(function () {
             updateHeight();
 
