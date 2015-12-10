@@ -1,0 +1,58 @@
+.catalog {
+  background: #f3f3f5;
+
+  h1.section-title {
+
+  }
+
+  .block {
+    border-bottom: 1px solid #fff;
+    margin: 0 5% 10px;
+
+    .block-title {
+      color: #777;
+      text-transform: uppercase;
+      padding: 15px 0;
+      font-size: 24px;
+    }
+  }
+
+  .sidebar {
+
+    ul {
+      padding: 0;
+
+      li {
+        margin: 0;
+        list-style-type: none;
+
+        label {
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}
+
+.site-categories {
+
+
+  li {
+
+    a {
+      color: #000;
+
+      span {
+        color: #757c8c;
+
+        &:before {
+          content: "(";
+        }
+
+        &:after {
+          content: ")";
+        }
+      }
+    }
+  }
+}
