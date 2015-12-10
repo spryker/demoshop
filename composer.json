@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-feature/854-Remove_yves_communication_layer",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
