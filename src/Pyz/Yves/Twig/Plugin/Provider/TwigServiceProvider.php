@@ -8,8 +8,6 @@ namespace Pyz\Yves\Twig\Plugin\Provider;
 
 use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Library\Config;
-use SprykerFeature\Shared\System\SystemConfig;
-use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerEngine\Yves\Application\Application as SprykerApplication;
 use SprykerEngine\Yves\Application\Routing\Helper;
 use Silex\Application;

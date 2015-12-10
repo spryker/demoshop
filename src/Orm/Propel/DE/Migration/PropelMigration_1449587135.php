@@ -55,18 +55,6 @@ DROP TABLE IF EXISTS `spy_search_page_element`;
 
 DROP TABLE IF EXISTS `spy_search_page_element_template`;
 
-DROP INDEX `spy_payment_payolution_transaction_request_log_u_052e1d` ON `spy_payment_payolution_transaction_request_log`;
-
-CREATE UNIQUE INDEX `spy_payment_payolution_transaction_request_log_u_052e1d` ON `spy_payment_payolution_transaction_request_log` (`transaction_id`(255));
-
-ALTER TABLE `spy_sales_order_item_option`
-
-  CHANGE `tax_percentage` `tax_percentage` DECIMAL(8,2) DEFAULT 0.0 NOT NULL;
-
-ALTER TABLE `spy_tax_rate`
-
-  CHANGE `rate` `rate` DECIMAL(8,2) DEFAULT 0.0 NOT NULL;
-
 # This restores the fkey checks, after having unset them earlier
 SET FOREIGN_KEY_CHECKS = 1;
 ',
@@ -86,18 +74,6 @@ SET FOREIGN_KEY_CHECKS = 1;
 # This is a fix for InnoDB in MySQL >= 4.1.x
 # It "suspends judgement" for fkey relationships until are tables are set.
 SET FOREIGN_KEY_CHECKS = 0;
-
-DROP INDEX `spy_payment_payolution_transaction_request_log_u_052e1d` ON `spy_payment_payolution_transaction_request_log`;
-
-CREATE UNIQUE INDEX `spy_payment_payolution_transaction_request_log_u_052e1d` ON `spy_payment_payolution_transaction_request_log` (`transaction_id`);
-
-ALTER TABLE `spy_sales_order_item_option`
-
-  CHANGE `tax_percentage` `tax_percentage` DECIMAL(8,2) DEFAULT 0.00 NOT NULL;
-
-ALTER TABLE `spy_tax_rate`
-
-  CHANGE `rate` `rate` DECIMAL(8,2) DEFAULT 0.00 NOT NULL;
 
 CREATE TABLE `spy_distributor_item`
 (
