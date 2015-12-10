@@ -143,6 +143,7 @@ $(document).ready(function () {
         }
 
         function updateHeight () {
+            console.info('update height');
             height = $menu.height();
 
             if (!$menu.hasClass('menu--open')) {
@@ -158,7 +159,7 @@ $(document).ready(function () {
             showMenu($trigger.size() - 1);
         });
 
-        $(document).on(CARTLAYER_EVENTS.UPDATE_CART, updateHeight);
+        $(document).on(CARTLAYER_EVENTS.UPDATED_CARTLAYER, updateHeight);
     });
 
 });
