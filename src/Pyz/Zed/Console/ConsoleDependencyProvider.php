@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Console;
 
 use Pyz\Zed\MailQueue\Communication\Console\MailQueueConsole;
+use SprykerEngine\Zed\Transfer\Communication\Console\GeneratorConsole;
 use SprykerFeature\Shared\Library\Environment;
 use SprykerFeature\Zed\Application\Communication\Console\ApplicationIntegrationCheckConsole;
 use SprykerFeature\Zed\Application\Communication\Console\BuildNavigationConsole;
@@ -22,7 +23,6 @@ use SprykerFeature\Zed\Oms\Communication\Console\CheckTimeoutConsole;
 use SprykerFeature\Zed\ProductSearch\Communication\Console\ProductSearchConsole;
 use SprykerFeature\Zed\Queue\Communication\Console\QueueWorkerConsole;
 use SprykerFeature\Zed\Search\Communication\Console\SearchConsole;
-
 use Symfony\Component\Console\Command\Command;
 use SprykerEngine\Zed\Kernel\Container;
 use SprykerFeature\Zed\Console\ConsoleDependencyProvider as SprykerConsoleDependencyProvider;
@@ -31,6 +31,8 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
 {
 
     /**
+     * @param Container $container
+     *
      * @return Command[]
      */
     public function getConsoleCommands(Container $container)
@@ -45,6 +47,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new DemoDataInstallConsole(),
             new CheckConditionConsole(),
             new CheckTimeoutConsole(),
+            new GeneratorConsole(),
             new ProductSearchConsole(),
             new SearchConsole(),
             new DeleteAllCachesConsole(),
