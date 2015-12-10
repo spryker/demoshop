@@ -3,9 +3,10 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use SprykerFeature\Shared\Category\CategoryConfig;
-use SprykerFeature\Zed\Collector\Business\Exporter\AbstractKeyValuePdoCollectorPlugin;
+use SprykerFeature\Zed\Collector\Business\Collector\KeyValue\AbstractKeyValuePdoCollector;
+use SprykerFeature\Zed\Collector\CollectorConfig;
 
-class CategoryNodeCollector extends AbstractKeyValuePdoCollectorPlugin
+class CategoryNodeCollector extends AbstractKeyValuePdoCollector
 {
 
     /**
@@ -17,7 +18,7 @@ class CategoryNodeCollector extends AbstractKeyValuePdoCollectorPlugin
     protected function collectItem($touchKey, array $collectItemData)
     {
         return [
-            'node_id' => $collectItemData[self::COLLECTOR_RESOURCE_ID],
+            'node_id' => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
             'name' => $collectItemData['name'],
             'url' => $collectItemData['url'],
             'image' => $collectItemData['category_image_name'],

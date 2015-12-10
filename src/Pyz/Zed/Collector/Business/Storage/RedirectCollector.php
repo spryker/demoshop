@@ -2,10 +2,10 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
-use SprykerFeature\Zed\Collector\Business\Exporter\AbstractKeyValuePropelCollectorPlugin;
+use SprykerFeature\Zed\Collector\Business\Collector\KeyValue\AbstractKeyValuePropelCollector;
 use SprykerFeature\Zed\Url\UrlConfig;
 
-class RedirectCollector extends AbstractKeyValuePropelCollectorPlugin
+class RedirectCollector extends AbstractKeyValuePropelCollector
 {
 
     const KEY_FROM_URL = 'from_url';

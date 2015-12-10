@@ -2,10 +2,10 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
-use SprykerFeature\Zed\Collector\Business\Exporter\AbstractKeyValuePdoCollectorPlugin;
+use SprykerFeature\Zed\Collector\Business\Collector\KeyValue\AbstractKeyValuePdoCollector;
 use SprykerFeature\Zed\Url\UrlConfig;
 
-class UrlCollector extends AbstractKeyValuePdoCollectorPlugin
+class UrlCollector extends AbstractKeyValuePdoCollector
 {
 
     /**
