@@ -98,7 +98,7 @@
     }
 }
 
-@media (max-width: $_wLarge){
+@media (max-width: $_wLarge - 1px){
     .menu-teaser-product__description{
         display: block;
     }
