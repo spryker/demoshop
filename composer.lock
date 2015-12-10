@@ -956,7 +956,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:project-a/spryker.git",
-                "reference": "797f8b920a4c0fa126f8e8968480afc0759bd18a"
+                "reference": "47662b1360235a2429420ff52b24e7117f53bba7"
             },
             "replace": {
                 "spryker/pav-console": "self.version"
@@ -974,7 +974,7 @@
                     "PavFeature\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-12-10 13:59:48"
+            "time": "2015-12-10 15:22:28"
         },
         {
             "name": "propel/propel",
