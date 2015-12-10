@@ -18,13 +18,22 @@ modules:
           url:         'http://www.de.pets-deli.dev/'
 #          host:        'floeH:1bcf0e48-bcf2-4005-8d19-577d17f0e7de@ondemand.saucelabs.com'
           browser:     'phantomjs'
-#          browser:     'firefox'
+#          browser:      'safari'
           capabilities:
-#            platform:                 'Windows 10'
-#            version:                  '42.0'
+#            platform:                 'OS X 10.10'
+#            version:                  '9.1'
+#            device:                   'iPad Air'
+
+            # Deactivate phishing check when using HTTP auth in Safari
+            # https://wiki.saucelabs.com/display/DOCS/Setting+Up+Pre-Run+Executables
+            # @todo: "prerun" is not supported by codeception right now: https://github.com/Codeception/Codeception/issues/1497
+#            prerun:
+#                executable: 'https://gist.githubusercontent.com/saucyallison/3a73a4e0736e556c990d/raw/d26b0195d48b404628fc12342cb97f1fc5ff58ec/disable_fraud.sh'
+#                background: 'false'
+
             unexpectedAlertBehaviour: 'accept'
 
-          window_size: '1920x1200'
+          window_size: '1280x960'
           wait:        10
 
 env:

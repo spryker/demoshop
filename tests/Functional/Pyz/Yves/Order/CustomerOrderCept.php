@@ -2,7 +2,7 @@
 
 $I = new NoGuy($scenario);
 $I->setTestName('happy_checkout_customer');
-$I->activateScreenshots(true);
+$I->setDebugging(true);
 
 $I->verifyHome();
 $I->openDogsProductDetailPage();
