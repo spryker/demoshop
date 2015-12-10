@@ -9,6 +9,11 @@ class UrlCollector extends AbstractKeyValuePdoCollectorPlugin
 {
 
     /**
+     * @var int
+     */
+    protected $chunkSize = 5000;
+
+    /**
      * @param string $touchKey
      * @param array $collectItemData
      *
