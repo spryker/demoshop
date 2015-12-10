@@ -1,10 +1,6 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
-namespace Pyz\Yves\Assets\Model;
+namespace Pyz\Yves\Twig\Model;
 
 class MediaUrlBuilder extends AbstractUrlBuilder implements MediaUrlBuilderInterface
 {

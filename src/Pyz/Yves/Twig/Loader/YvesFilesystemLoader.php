@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Yves\Twig\Loader;
 
 use Twig_Error_Loader;
