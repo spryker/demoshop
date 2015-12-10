@@ -73,7 +73,6 @@ Vagrant.configure(2) do |config|
 
   # The VirtualBox IP-address for the browser
   config.vm.network :private_network, ip: VM_IP
-  config.vm.network "public_network", type: "dhcp", bridge: "en0: WLAN (AirPort)"
 
   ## Uncomment to make your VM available within the local network
   #config.vm.network "public_network", type: "dhcp", bridge: "eth0"
