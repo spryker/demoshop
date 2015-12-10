@@ -38,7 +38,7 @@ class GlossaryDependencyContainer extends SprykerGlossaryDependencyContainer
                     $this->getTouchFacade(),
                     $this->getLocaleFacade(),
                     $this->createKeyManager(),
-                    $this->getFlashMessagesFacade()
+                    $this->getMessagesFacade()
                 );
     }
 

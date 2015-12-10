@@ -42,7 +42,6 @@ use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use SprykerFeature\Shared\NewRelic\Api;
-use SprykerFeature\Shared\Yves\YvesConfig;
 use Symfony\Component\Routing\RouterInterface;
 
 class YvesBootstrap
@@ -119,7 +118,7 @@ class YvesBootstrap
      */
     protected function registerControllerProviders()
     {
-        $ssl = Config::get(YvesConfig::YVES_SSL_ENABLED);
+        $ssl = Config::get(ApplicationConfig::YVES_SSL_ENABLED);
 
         $controllerProviders = [
             new ApplicationControllerProvider(false),

@@ -8,8 +8,6 @@ namespace Pyz\Yves\Twig\Plugin\Provider;
 
 use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Library\Config;
-use SprykerFeature\Shared\System\SystemConfig;
-use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerEngine\Yves\Application\Application as SprykerApplication;
 use SprykerEngine\Yves\Application\Routing\Helper;
 use Silex\Application;
@@ -110,8 +108,8 @@ class TwigServiceProvider extends SilexTwigServiceProvider
     protected function registerYvesLoader(Application $app)
     {
         $app['twig.loader.yves'] = $app->share(function () {
-            $themeName = Config::get(YvesConfig::YVES_THEME);
-            $namespace = Config::get(SystemConfig::PROJECT_NAMESPACE);
+            $themeName = Config::get(ApplicationConfig::YVES_THEME);
+            $namespace = Config::get(ApplicationConfig::PROJECT_NAMESPACE);
             $store = \SprykerEngine\Shared\Kernel\Store::getInstance()->getStoreName();
 
             return new YvesFilesystemLoader(

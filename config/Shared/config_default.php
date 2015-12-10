@@ -5,10 +5,7 @@ use SprykerFeature\Shared\Acl\AclConfig;
 use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Auth\AuthConfig;
 use SprykerFeature\Shared\Customer\CustomerConfig;
-use SprykerFeature\Shared\DbDump\DbDumpConfig;
-use SprykerFeature\Shared\System\SystemConfig;
 use SprykerFeature\Shared\User\UserConfig;
-use SprykerFeature\Shared\Yves\YvesConfig;
 use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
 use SprykerFeature\Shared\NewRelic\NewRelicConfig;
 use SprykerFeature\Shared\Session\SessionConfig;
@@ -16,19 +13,16 @@ use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumb
 use SprykerFeature\Shared\Log\Config\DefaultLoggerConfig;
 use SprykerFeature\Shared\Payolution\PayolutionConfigConstants;
 
-$config[SystemConfig::PROJECT_NAMESPACES] = [
+$config[ApplicationConfig::PROJECT_NAMESPACES] = [
     'Pyz',
 ];
-$config[SystemConfig::CORE_NAMESPACES] = [
+$config[ApplicationConfig::CORE_NAMESPACES] = [
     'SprykerFeature',
     'SprykerEngine',
 ];
 
-$config[SystemConfig::CURRENT_APPLICATION_STORE] = APPLICATION_STORE;
-$config[SystemConfig::CURRENT_APPLICATION_ENV] = APPLICATION_ENV;
-
-$config[SystemConfig::PROJECT_TIMEZONE] = 'UTC';
-$config[SystemConfig::PROJECT_NAMESPACE] = 'Pyz';
+$config[ApplicationConfig::PROJECT_TIMEZONE] = 'UTC';
+$config[ApplicationConfig::PROJECT_NAMESPACE] = 'Pyz';
 
 $config[ApplicationConfig::ZED_TWIG_OPTIONS] = [
     'cache' => \SprykerFeature\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Zed/twig'),
@@ -38,79 +32,72 @@ $config[ApplicationConfig::YVES_TWIG_OPTIONS] = [
     'cache' => \SprykerFeature\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Yves/twig'),
 ];
 
-$config[SystemConfig::ZED_DB_ENGINE] = 'mysql';
+$config[ApplicationConfig::ZED_DB_ENGINE] = 'mysql';
 
-$config[DbDumpConfig::DB_DUMP_USERNAME] = '';
-$config[DbDumpConfig::DB_DUMP_PASSWORD] = '';
-$config[DbDumpConfig::DB_DUMP_DATABASE] = '';
-$config[DbDumpConfig::DB_DUMP_HOST] = 'localhost';
-$config[DbDumpConfig::DB_DUMP_MYSQLDUMP_BIN] = '/usr/bin/mysqldump';
-$config[DbDumpConfig::DB_DUMP_MYSQL_BIN] = '/usr/bin/mysql';
+$config[ApplicationConfig::STORAGE_KV_SOURCE] = 'redis';
 
-$config[SystemConfig::STORAGE_KV_SOURCE] = 'redis';
+$config[ApplicationConfig::ELASTICA_PARAMETER__HOST] = 'localhost';
+$config[ApplicationConfig::ELASTICA_PARAMETER__TRANSPORT] = 'http';
+$config[ApplicationConfig::ELASTICA_PARAMETER__PORT] = '10005';
+$config[ApplicationConfig::ELASTICA_PARAMETER__INDEX_NAME] = 'page';
 
-$config[SystemConfig::ELASTICA_PARAMETER__HOST] = 'localhost';
-$config[SystemConfig::ELASTICA_PARAMETER__TRANSPORT] = 'http';
-$config[SystemConfig::ELASTICA_PARAMETER__PORT] = '10005';
-$config[SystemConfig::ELASTICA_PARAMETER__INDEX_NAME] = 'page';
-
-$config[SystemConfig::HOST_YVES]
-    = $config[SystemConfig::HOST_STATIC_ASSETS]
-    = $config[SystemConfig::HOST_STATIC_MEDIA]
-    = $config[SystemConfig::HOST_SSL_YVES]
-    = $config[SystemConfig::HOST_SSL_STATIC_ASSETS]
-    = $config[SystemConfig::HOST_SSL_STATIC_MEDIA]
+$config[ApplicationConfig::HOST_YVES]
+    = $config[ApplicationConfig::HOST_STATIC_ASSETS]
+    = $config[ApplicationConfig::HOST_STATIC_MEDIA]
+    = $config[ApplicationConfig::HOST_SSL_YVES]
+    = $config[ApplicationConfig::HOST_SSL_STATIC_ASSETS]
+    = $config[ApplicationConfig::HOST_SSL_STATIC_MEDIA]
     = 'www.spryker.dev';
 
-$config[SystemConfig::HOST_ZED_GUI]
-    = $config[SystemConfig::HOST_ZED_API]
-    = $config[SystemConfig::HOST_SSL_ZED_GUI]
-    = $config[SystemConfig::HOST_SSL_ZED_API]
+$config[ApplicationConfig::HOST_ZED_GUI]
+    = $config[ApplicationConfig::HOST_ZED_API]
+    = $config[ApplicationConfig::HOST_SSL_ZED_GUI]
+    = $config[ApplicationConfig::HOST_SSL_ZED_API]
     = 'zed.spryker.dev';
 
-$config[SystemConfig::LOG_LEVEL] = Monolog\Logger::INFO;
+$config[ApplicationConfig::LOG_LEVEL] = Monolog\Logger::INFO;
 
-$config[YvesConfig::TRANSFER_USERNAME] = 'yves';
-$config[YvesConfig::TRANSFER_PASSWORD] = 'o7&bg=Fz;nSslHBC';
-$config[YvesConfig::TRANSFER_SSL] = false;
-$config[YvesConfig::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = false;
-$config[YvesConfig::TRANSFER_DEBUG_SESSION_NAME] = 'XDEBUG_SESSION';
+$config[ApplicationConfig::TRANSFER_USERNAME] = 'yves';
+$config[ApplicationConfig::TRANSFER_PASSWORD] = 'o7&bg=Fz;nSslHBC';
+$config[ApplicationConfig::TRANSFER_SSL] = false;
+$config[ApplicationConfig::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = false;
+$config[ApplicationConfig::TRANSFER_DEBUG_SESSION_NAME] = 'XDEBUG_SESSION';
 
-$config[SystemConfig::ZED_LIBRARY_PASSWORD_ALGORITHM] = PASSWORD_BCRYPT;
-$config[SystemConfig::ZED_LIBRARY_PASSWORD_OPTIONS] = [];
+//$config[ApplicationConfig::ZED_LIBRARY_PASSWORD_ALGORITHM] = PASSWORD_BCRYPT;
+//$config[ApplicationConfig::ZED_LIBRARY_PASSWORD_OPTIONS] = [];
 
-$config[SystemConfig::YVES_STORAGE_SESSION_TIME_TO_LIVE] = SessionConfig::SESSION_LIFETIME_1_HOUR;
-$config[SystemConfig::YVES_STORAGE_SESSION_FILE_PATH] = session_save_path();
+$config[ApplicationConfig::YVES_STORAGE_SESSION_TIME_TO_LIVE] = SessionConfig::SESSION_LIFETIME_1_HOUR;
+$config[ApplicationConfig::YVES_STORAGE_SESSION_FILE_PATH] = session_save_path();
 
-$config[SystemConfig::ZED_STORAGE_SESSION_TIME_TO_LIVE] = SessionConfig::SESSION_LIFETIME_30_DAYS;
-$config[SystemConfig::ZED_STORAGE_SESSION_COOKIE_NAME] = 'zed_session';
-$config[SystemConfig::ZED_STORAGE_SESSION_FILE_PATH] = session_save_path();
-$config[SystemConfig::ZED_SESSION_SAVE_HANDLER] = null;
+$config[ApplicationConfig::ZED_STORAGE_SESSION_TIME_TO_LIVE] = SessionConfig::SESSION_LIFETIME_30_DAYS;
+$config[ApplicationConfig::ZED_STORAGE_SESSION_COOKIE_NAME] = 'zed_session';
+$config[ApplicationConfig::ZED_STORAGE_SESSION_FILE_PATH] = session_save_path();
+$config[ApplicationConfig::ZED_SESSION_SAVE_HANDLER] = null;
 
-$config[SystemConfig::ZED_SSL_ENABLED] = false;
-$config[SystemConfig::ZED_API_SSL_ENABLED] = false;
-$config[SystemConfig::ZED_SSL_EXCLUDED] = ['system/heartbeat'];
+$config[ApplicationConfig::ZED_SSL_ENABLED] = false;
+$config[ApplicationConfig::ZED_API_SSL_ENABLED] = false;
+$config[ApplicationConfig::ZED_SSL_EXCLUDED] = ['system/heartbeat'];
 
-$config[YvesConfig::YVES_THEME] = 'demoshop';
-$config[YvesConfig::YVES_TRUSTED_PROXIES] = [];
-$config[YvesConfig::YVES_SSL_ENABLED] = false;
-$config[YvesConfig::YVES_COMPLETE_SSL_ENABLED] = false;
-$config[YvesConfig::YVES_SSL_EXCLUDED] = ['/monitoring/heartbeat'];
+$config[ApplicationConfig::YVES_THEME] = 'demoshop';
+$config[ApplicationConfig::YVES_TRUSTED_PROXIES] = [];
+$config[ApplicationConfig::YVES_SSL_ENABLED] = false;
+$config[ApplicationConfig::YVES_COMPLETE_SSL_ENABLED] = false;
+$config[ApplicationConfig::YVES_SSL_EXCLUDED] = ['/monitoring/heartbeat'];
 
-$config[YvesConfig::YVES_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_REDIS;
-$config[YvesConfig::YVES_SESSION_NAME] = 'yves_session';
-$config[YvesConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[SystemConfig::HOST_YVES];
+$config[ApplicationConfig::YVES_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_REDIS;
+$config[ApplicationConfig::YVES_SESSION_NAME] = 'yves_session';
+$config[ApplicationConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[ApplicationConfig::HOST_YVES];
 
-$config[YvesConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
-$config[YvesConfig::YVES_SHOW_EXCEPTION_STACK_TRACE] = true;
-$config[SystemConfig::ZED_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
-$config[SystemConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = true;
+$config[ApplicationConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
+$config[ApplicationConfig::YVES_SHOW_EXCEPTION_STACK_TRACE] = true;
+$config[ApplicationConfig::ZED_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
+$config[ApplicationConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = true;
 
 $config[CustomerConfig::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^/customer)';
 $config[CustomerConfig::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
 
 $currentStore = \SprykerEngine\Shared\Kernel\Store::getInstance()->getStoreName();
-$config[SystemConfig::PROPEL] = [
+$config[ApplicationConfig::PROPEL] = [
     'database' => [
         'connections' => [
             'default' => [
@@ -150,30 +137,16 @@ $config[SystemConfig::PROPEL] = [
     ],
 ];
 
-$config[SystemConfig::CLOUD_ENABLED] = false;
-$config[SystemConfig::CLOUD_OBJECT_STORAGE_ENABLED] = false;
-$config[SystemConfig::CLOUD_OBJECT_STORAGE_PROVIDER_NAME] = 'rackspace';
-$config[SystemConfig::CLOUD_OBJECT_STORAGE_DATA_CONTAINERS] = [
-    'defaultPrivateContainerName' => 'pyz-private',
-    'defaultPublicContainerName' => '',
-    'defaultPublicCdnContainerName' => 'pyz-cdn',
-    'defaultImagesContainerName' => 'pyz-private',
-];
+$config[ApplicationConfig::CLOUD_ENABLED] = false;
+$config[ApplicationConfig::CLOUD_OBJECT_STORAGE_ENABLED] = false;
 
-$config[SystemConfig::CLOUD_CDN_ENABLED] = false;
+$config[ApplicationConfig::CLOUD_CDN_ENABLED] = false;
 
-$config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_PREFIX] = 'media';
-$config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_HTTP] = '';
-$config[SystemConfig::CLOUD_CDN_STATIC_MEDIA_HTTPS] = '';
+$config[ApplicationConfig::CLOUD_CDN_STATIC_MEDIA_PREFIX] = 'media';
+$config[ApplicationConfig::CLOUD_CDN_STATIC_MEDIA_HTTP] = '';
+$config[ApplicationConfig::CLOUD_CDN_STATIC_MEDIA_HTTPS] = '';
 
-$config[SystemConfig::CLOUD_CDN_STATIC_ASSETS_PREFIX] = '';
-$config[SystemConfig::CLOUD_CDN_STATIC_ASSETS_HTTP] = '';
-$config[SystemConfig::CLOUD_CDN_STATIC_ASSETS_HTTPS] = '';
-
-$config[SystemConfig::CLOUD_CDN_PRODUCT_IMAGES_PATH_NAME] = '/images/products/';
-
-$config[SystemConfig::CLOUD_CDN_DELETE_LOCAL_PROCESSED_IMAGES] = false;
-$config[SystemConfig::CLOUD_CDN_DELETE_LOCAL_ORIGINAL_IMAGES] = false;
+$config[ApplicationConfig::CLOUD_CDN_PRODUCT_IMAGES_PATH_NAME] = '/images/products/';
 
 $config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
     'api-key' => '5hGEFy0SpJXIft1GSULiVw',
@@ -314,7 +287,7 @@ $config[LumberjackConfig::COLLECTOR_OPTIONS] = [
     ],
 ];
 
-$config[SystemConfig::PROPEL_DEBUG] = false;
+$config[ApplicationConfig::PROPEL_DEBUG] = false;
 $config[ApplicationConfig::SHOW_SYMFONY_TOOLBAR] = false;
 $config[SequenceNumberConfig::ENVIRONMENT_PREFIX] = '';
 
