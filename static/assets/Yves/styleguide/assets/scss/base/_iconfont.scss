@@ -20,6 +20,10 @@
     -moz-osx-font-smoothing: grayscale;
 
     
+    @if $name == 'logout' {
+      content: '\E02D';
+    }
+    
     @if $name == 'arrow-left' {
       content: '\E001';
     }
@@ -219,6 +223,10 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
+    
+    @if $name == 'logout' {
+      content: '\E02D';
+    }
     
     @if $name == 'arrow-left' {
       content: '\E001';

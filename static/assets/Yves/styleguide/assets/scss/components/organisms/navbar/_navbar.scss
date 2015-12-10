@@ -193,7 +193,7 @@
     display: none;
 }
 
-.navbar__link--login{
+.navbar__link--login, .navbar__link--logout{
     border-left: 1px solid #ECECEC;
 
     a{
@@ -201,9 +201,21 @@
         overflow: hidden;
         text-overflow: ellipsis;
 
+    }
+}
+
+.navbar__link--login{
+    a{
         @include pdif('user', 20px, 30px);
     }
 }
+
+.navbar__link--logout{
+    a{
+        @include pdif('logout', 18px, 30px);
+    }
+}
+
 
 .navbar__link--cart{
     border-left: 1px solid #ECECEC;
@@ -312,7 +324,7 @@
 }
 
 @media (min-width: 650px) and (max-width: 830px) {
-    .navbar__link--login, .navbar__link--cart{
+    .navbar__link--login, .navbar__link--logout, .navbar__link--cart{
         a{
             padding: 13px 0 0 0;
             font-size: 12px;
