@@ -40,3 +40,16 @@
         right: 44px;
     }
 }
+
+@media (max-width: 420px) {
+    .close-button {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+
+        &:before{
+            margin-top: -7px;
+            font-size: 15px;
+        }
+    }
+}

@@ -17,8 +17,16 @@ $(document).ready(function () {
     $('.mobile-options').appendTo('.navbar__inner');
     $('.mobile-options__title').text($('.mobile-options__title').text().replace('PETS DELI ', ''));
 
-    $('.mobile-options__add').click(function () {
+    $('.mobile-options__inner').click(function (event) {
+        event.stopPropagation();
+
         $('.mobile-options').addClass('mobile-options--open');
+    });
+
+    $('.mobile-options').click(function (event) {
+        if ($(this.target).parent('.mobile-options__inner').size() === 0) {
+            $('.mobile-options').removeClass('mobile-options--open');
+        }
     });
 
 

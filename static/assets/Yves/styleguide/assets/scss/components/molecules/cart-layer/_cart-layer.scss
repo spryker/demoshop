@@ -148,6 +148,26 @@
     }
 }
 
+@media (max-width: 420px) {
+    .cart-layer__headline {
+        margin: 17px 95px 14px 25px;
+        font-size: 35px;
+    }
+
+    .cart-layer__amount {
+        padding: 10px 10px 30px;
+    }
+
+    .cart-layer__total {
+        padding-bottom: 10px;
+        font-size: 20px;
+    }
+
+    .cart-layer__total em {
+        font-size: 25px;
+    }
+}
+
 @media (max-width: 350px) {
     .cart-item__left-inner{
         display: block;

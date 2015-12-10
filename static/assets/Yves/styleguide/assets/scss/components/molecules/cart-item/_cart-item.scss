@@ -243,3 +243,30 @@
         }
     }
 }
+
+@media (max-width: 420px){
+    .cart-item__left {
+        padding: 10px;
+    }
+
+    .cart-item__right{
+        white-space: nowrap;
+
+        .stepper{
+            margin: 0;
+        }
+    }
+
+    .cart-item__title{
+        display: inline-block;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .cart-item__price{
+        width: auto;
+        padding: 10px;
+
+        font-size: 18px;
+    }
+}
