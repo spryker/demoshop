@@ -1,31 +1,34 @@
 <?php
 
-namespace Pyz\Yves\Catalog\Business\Creator;
+/**
+ * (c) Spryker Systems GmbH copyright protected
+ */
 
-use Pyz\Client\Catalog\Service\Model\FacetConfig;
+namespace Pyz\Yves\Redirect\ResourceCreator;
+
 use Pyz\Yves\Collector\Creator\ResourceCreatorInterface;
+use SprykerFeature\Shared\Application\Communication\ControllerServiceBuilder;
+use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
 use Silex\Application;
 use SprykerEngine\Yves\Kernel\BundleControllerAction;
 use SprykerEngine\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
 use SprykerEngine\Yves\Kernel\ControllerLocator;
-use SprykerEngine\Yves\Kernel\Locator;
-use SprykerFeature\Shared\Application\Communication\ControllerServiceBuilder;
-use SprykerFeature\Shared\Category\CategoryConfig;
 
-class CatalogResourceCreator implements ResourceCreatorInterface
+class RedirectResourceCreator implements ResourceCreatorInterface
 {
 
     /**
-     * @var FacetConfig
+     * @var LocatorLocatorInterface
      */
-    protected $facetConfig;
+    protected $locator;
 
     /**
-     * @param FacetConfig $facetConfig
+     * @param LocatorLocatorInterface $locator
      */
-    public function __construct(FacetConfig $facetConfig)
-    {
-        $this->facetConfig = $facetConfig;
+    public function __construct(
+        LocatorLocatorInterface $locator
+    ) {
+        $this->locator = $locator;
     }
 
     /**
@@ -33,7 +36,7 @@ class CatalogResourceCreator implements ResourceCreatorInterface
      */
     public function getType()
     {
-        return CategoryConfig::RESOURCE_TYPE_CATEGORY_NODE;
+        return 'redirect';
     }
 
     /**
@@ -44,13 +47,13 @@ class CatalogResourceCreator implements ResourceCreatorInterface
      */
     public function createResource(Application $app, array $data)
     {
-        $bundleControllerAction = new BundleControllerAction('Catalog', 'Catalog', 'index');
+        $bundleControllerAction = new BundleControllerAction('Redirect', 'Redirect', 'redirect');
         $controllerResolver = new ControllerLocator($bundleControllerAction);
         $routeResolver = new BundleControllerActionRouteNameResolver($bundleControllerAction);
 
         $service = (new ControllerServiceBuilder())->createServiceForController(
             $app,
-            Locator::getInstance(),
+            $this->locator,
             $bundleControllerAction,
             $controllerResolver,
             $routeResolver
@@ -59,8 +62,7 @@ class CatalogResourceCreator implements ResourceCreatorInterface
         return [
             '_controller' => $service,
             '_route' => $routeResolver->resolve(),
-            'category' => $data,
-            'facetConfig' => $this->facetConfig,
+            'meta' => $data,
         ];
     }
 

@@ -3,7 +3,7 @@
 /* YVES Front Controller */
 
 use SprykerFeature\Shared\Library\Application\Environment;
-use Pyz\Yves\Application\Communication\YvesBootstrap;
+use Pyz\Yves\Application\YvesBootstrap;
 
 define('YVES_START', microtime(true));
 
