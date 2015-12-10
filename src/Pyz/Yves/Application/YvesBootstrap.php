@@ -12,7 +12,7 @@ use Pyz\Yves\Glossary\Plugin\Provider\TranslationServiceProvider;
 use SprykerEngine\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
 use Pyz\Yves\Heartbeat\Plugin\Provider\HeartbeatControllerProvider;
 use Pyz\Yves\Application\Plugin\Provider\YvesSecurityServiceProvider;
-use Pyz\Yves\Session\Plugin\Provider\SessionServiceProvider as ProviderSessionServiceProvider;
+use Pyz\Yves\Application\Plugin\Provider\SessionServiceProvider as ProviderSessionServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
 use Pyz\Shared\Application\Business\Routing\SilexRouter;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;

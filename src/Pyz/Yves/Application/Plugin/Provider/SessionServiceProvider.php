@@ -4,19 +4,19 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace Pyz\Yves\Session\Plugin\Provider;
+namespace Pyz\Yves\Application\Plugin\Provider;
 
-use Pyz\Yves\Session\Business\Model\SessionFactory;
+use Pyz\Yves\Application\ApplicationDependencyContainer;
+use Pyz\Yves\Application\Business\Model\SessionFactory;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
+use SprykerEngine\Shared\Config;
 use SprykerEngine\Yves\Kernel\AbstractPlugin;
-use SprykerFeature\Client\Session\Service\SessionClientInterface;
-use SprykerFeature\Shared\Library\Config;
 use SprykerFeature\Shared\Session\SessionConfig;
 use SprykerFeature\Shared\Application\ApplicationConfig;
 
 /**
- * @method SessionClientInterface getClient()
+ * @method ApplicationDependencyContainer getDependencyContainer()
  */
 class SessionServiceProvider extends AbstractPlugin implements ServiceProviderInterface
 {
@@ -90,7 +90,7 @@ class SessionServiceProvider extends AbstractPlugin implements ServiceProviderIn
                 });
         }
 
-        $this->getClient()->setContainer($app['session']);
+        $this->getDependencyContainer()->getSessionClient()->setContainer($app['session']);
     }
 
     /**

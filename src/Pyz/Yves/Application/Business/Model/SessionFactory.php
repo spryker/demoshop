@@ -4,7 +4,7 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace Pyz\Yves\Session\Business\Model;
+namespace Pyz\Yves\Application\Business\Model;
 
 use SprykerEngine\Shared\Config;
 use SprykerFeature\Shared\Session\Business\Model\SessionFactory as SharedSessionFactory;
