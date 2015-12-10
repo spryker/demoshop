@@ -47,7 +47,7 @@ $(document).ready(function () {
         });
 
 
-        $('.navbar__link--active').click(hideMenu);
+        $('.navbar__link--active:not([data-menu])').click(hideMenu);
 
 
         $(window).resize(throttle(function () {
