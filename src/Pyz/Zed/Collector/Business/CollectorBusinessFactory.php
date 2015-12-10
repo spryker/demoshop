@@ -75,54 +75,14 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storageCategoryNodeCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
         );
+        $storageCategoryNodeCollector->setCriteriaBuilder(
+            $this->createCriteriaBuilder()
+        );
+        $storageCategoryNodeCollector->setQueryBuilder(
+            $this->createStoragePdoQueryAdapterByName('CategoryNodeCollector')
+        );
 
         return $storageCategoryNodeCollector;
-    }
-
-    /**
-     * @return NewCategoryNodeCollector
-     */
-    public function createStorageNewCategoryNodeCollector()
-    {
-        $storageNewCategoryNodeCollector = new \Pyz\Zed\Collector\Business\Storage\NewCategoryNodeCollector();
-
-        $storageNewCategoryNodeCollector->setTouchQueryContainer(
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
-        );
-        $storageNewCategoryNodeCollector->setCriteriaBuilder(
-            $this->createCriteriaBuilder()
-        );
-        $storageNewCategoryNodeCollector->setQueryBuilder(
-            $this->createStorageQueryBuilderAdapterByName('CategoryNodeCollector')
-        );
-        $storageNewCategoryNodeCollector->setExportUpdater(
-            $this->createKeyValueExportUpdaterMarker()
-        );
-
-        return $storageNewCategoryNodeCollector;
-    }
-
-    /**
-     * @return NewCategoryNodeCollector
-     */
-    public function createStorageNewProductCollector()
-    {
-        $storageNewCategoryNodeCollector = new \Pyz\Zed\Collector\Business\Storage\NewProductCollector();
-
-        $storageNewCategoryNodeCollector->setTouchQueryContainer(
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
-        );
-        $storageNewCategoryNodeCollector->setCriteriaBuilder(
-            $this->createCriteriaBuilder()
-        );
-        $storageNewCategoryNodeCollector->setQueryBuilder(
-            $this->createStorageQueryBuilderAdapterByName('ProductCollector')
-        );
-        $storageNewCategoryNodeCollector->setExportUpdater(
-            $this->createKeyValueExportUpdaterMarker()
-        );
-
-        return $storageNewCategoryNodeCollector;
     }
 
     /**
@@ -130,12 +90,26 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      *
      * @return AbstractPdoCollectorQuery
      */
-    public function createStorageQueryBuilderAdapterByName($name)
+    public function createStoragePdoQueryAdapterByName($name)
     {
         $engines = SystemConfig::ZED_DB_SUPPORTED_ENGINES;
         $adapterName = $engines[Config::get(SystemConfig::ZED_DB_ENGINE)];
 
-        $queryBuilderClassName = "\\Pyz\\Zed\\Collector\\Persistence\\Storage\\QueryBuilder\\${adapterName}\\${name}";
+        $queryBuilderClassName = "\\Pyz\\Zed\\Collector\\Persistence\\Storage\\Pdo\\${adapterName}\\${name}";
+
+        $queryBuilder = new $queryBuilderClassName();
+
+        return $queryBuilder;
+    }
+
+    /**
+     * @param $name
+     *
+     * @return AbstractPdoCollectorQuery
+     */
+    public function createStoragePropelQueryAdapterByName($name)
+    {
+        $queryBuilderClassName = "\\Pyz\\Zed\\Collector\\Persistence\\Storage\\Propel\\${name}";
 
         $queryBuilder = new $queryBuilderClassName();
 
@@ -199,6 +173,9 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storageRedirectCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
         );
+        $storageRedirectCollector->setQueryBuilder(
+            $this->createStoragePropelQueryAdapterByName('RedirectCollector')
+        );
 
         return $storageRedirectCollector;
     }
@@ -226,6 +203,12 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
 
         $storageUrlCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
+        );
+        $storageUrlCollector->setCriteriaBuilder(
+            $this->createCriteriaBuilder()
+        );
+        $storageUrlCollector->setQueryBuilder(
+            $this->createStoragePdoQueryAdapterByName('UrlCollector')
         );
 
         return $storageUrlCollector;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Pyz\Zed\Collector\Persistence\Storage\QueryBuilder\PostgreSql;
+namespace Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql;
 
-use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPdoCollectorQuery;
+use SprykerFeature\Zed\Collector\Persistence\Exporter\AbstractPdoCollectorQuery;
 
 class ProductCollector extends AbstractPdoCollectorQuery
 {
@@ -10,7 +10,7 @@ class ProductCollector extends AbstractPdoCollectorQuery
     /**
      * @return void
      */
-    public function prepareQuery()
+    protected function prepareQuery()
     {
         $sql = '
 SELECT
@@ -105,9 +105,8 @@ GROUP BY abstract_sku, abstract_sku, abstract_sku, spy_abstract_product.id_abstr
   spy_category_closure_table.fk_category_node_descendant, spy_category_closure_table.depth,
   spy_category_node.fk_category, "spy_touch"."id_touch", spy_product.id_product
 ';
-        $sql = sprintf($sql, static::COLLECTOR_TOUCH_ID, static::COLLECTOR_RESOURCE_ID);
-
-        $this->criteriaBuilder->sql($sql)
+        $this->criteriaBuilder
+            ->sql($sql)
             ->setOrderBy([
                 'depth' => 'DESC',
                 'descendant_id' => 'DESC',

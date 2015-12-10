@@ -4,13 +4,14 @@ namespace Pyz\Zed\Collector\Business;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
-use Spryker\Zed\Collector\Business\CollectorFacade as SprykerCollectorFacade;
-use Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface;
-use Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface;
-use Spryker\Zed\Collector\Business\Model\BatchResultInterface;
+use SprykerFeature\Zed\Collector\Business\CollectorFacade as SprykerCollectorFacade;
+use SprykerFeature\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface;
+use SprykerFeature\Zed\Collector\Business\Exporter\Writer\WriterInterface;
+use SprykerFeature\Zed\Collector\Business\Model\BatchResultInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * @method CollectorBusinessFactory getFactory()
+ * @method CollectorDependencyContainer getDependencyContainer()
  */
 class CollectorFacade extends SprykerCollectorFacade
 {
@@ -21,12 +22,16 @@ class CollectorFacade extends SprykerCollectorFacade
      * @param BatchResultInterface $result
      * @param $dataWriter
      * @param TouchUpdaterInterface $touchUpdater
+     * @param OutputInterface $output
      *
      * @return void
      */
-    public function runSearchProductCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
+    public function runSearchProductCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
+        BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
     {
-        $this->getFactory()->createSearchProductCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getDependencyContainer()
+            ->createSearchProductCollector()
+            ->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater, $output);
     }
 
     /**
@@ -35,12 +40,16 @@ class CollectorFacade extends SprykerCollectorFacade
      * @param BatchResultInterface $result
      * @param $dataWriter
      * @param TouchUpdaterInterface $touchUpdater
+     * @param OutputInterface $output
      *
      * @return void
      */
-    public function runStorageCategoryNodeCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
+    public function runStorageCategoryNodeCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
+        BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
     {
-        $this->getFactory()->createStorageCategoryNodeCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getDependencyContainer()
+            ->createStorageCategoryNodeCollector()
+            ->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater, $output);
     }
 
     /**
@@ -49,12 +58,16 @@ class CollectorFacade extends SprykerCollectorFacade
      * @param BatchResultInterface $result
      * @param $dataWriter
      * @param TouchUpdaterInterface $touchUpdater
+     * @param OutputInterface $output
      *
      * @return void
      */
-    public function runStorageNewCategoryNodeCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
+    public function runStorageNavigationCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
+        BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
     {
-        $this->getDependencyContainer()->createStorageNewCategoryNodeCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getDependencyContainer()
+            ->createStorageNavigationCollector()
+            ->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater, $output);
     }
 
     /**
@@ -63,12 +76,16 @@ class CollectorFacade extends SprykerCollectorFacade
      * @param BatchResultInterface $result
      * @param $dataWriter
      * @param TouchUpdaterInterface $touchUpdater
+     * @param OutputInterface $output
      *
      * @return void
      */
-    public function runStorageNewProductCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
+    public function runStoragePageCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
+        BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
     {
-        $this->getDependencyContainer()->createStorageNewProductCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getDependencyContainer()
+            ->createStoragePageCollector()
+            ->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater, $output);
     }
 
     /**
@@ -77,12 +94,16 @@ class CollectorFacade extends SprykerCollectorFacade
      * @param BatchResultInterface $result
      * @param $dataWriter
      * @param TouchUpdaterInterface $touchUpdater
+     * @param OutputInterface $output
      *
      * @return void
      */
-    public function runStorageNavigationCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
+    public function runStorageProductCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
+        BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
     {
-        $this->getFactory()->createStorageNavigationCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getDependencyContainer()
+            ->createStorageProductCollector()
+            ->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater, $output);
     }
 
     /**
@@ -91,12 +112,16 @@ class CollectorFacade extends SprykerCollectorFacade
      * @param BatchResultInterface $result
      * @param $dataWriter
      * @param TouchUpdaterInterface $touchUpdater
+     * @param OutputInterface $output
      *
      * @return void
      */
-    public function runStoragePageCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
+    public function runStorageRedirectCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
+        BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
     {
-        $this->getFactory()->createStoragePageCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getDependencyContainer()
+            ->createStorageRedirectCollector()
+            ->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater, $output);
     }
 
     /**
@@ -105,12 +130,16 @@ class CollectorFacade extends SprykerCollectorFacade
      * @param BatchResultInterface $result
      * @param $dataWriter
      * @param TouchUpdaterInterface $touchUpdater
+     * @param OutputInterface $output
      *
      * @return void
      */
-    public function runStorageProductCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
+    public function runStorageTranslationCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
+        BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
     {
-        $this->getFactory()->createStorageProductCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getDependencyContainer()
+            ->createStorageTranslationCollector()
+            ->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater, $output);
     }
 
     /**
@@ -119,40 +148,16 @@ class CollectorFacade extends SprykerCollectorFacade
      * @param BatchResultInterface $result
      * @param $dataWriter
      * @param TouchUpdaterInterface $touchUpdater
+     * @param OutputInterface $output
      *
      * @return void
      */
-    public function runStorageRedirectCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
+    public function runStorageUrlCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
+        BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
     {
-        $this->getFactory()->createStorageRedirectCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
-    }
-
-    /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
-     * @param BatchResultInterface $result
-     * @param $dataWriter
-     * @param TouchUpdaterInterface $touchUpdater
-     *
-     * @return void
-     */
-    public function runStorageTranslationCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
-    {
-        $this->getFactory()->createStorageTranslationCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
-    }
-
-    /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
-     * @param BatchResultInterface $result
-     * @param $dataWriter
-     * @param TouchUpdaterInterface $touchUpdater
-     *
-     * @return void
-     */
-    public function runStorageUrlCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
-    {
-        $this->getFactory()->createStorageUrlCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getDependencyContainer()
+            ->createStorageUrlCollector()
+            ->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater, $output);
     }
 
     /**
@@ -161,12 +166,16 @@ class CollectorFacade extends SprykerCollectorFacade
      * @param BatchResultInterface $result
      * @param WriterInterface $dataWriter
      * @param TouchUpdaterInterface $touchUpdater
+     * @param OutputInterface $output
      *
      * @return void
      */
-    public function runStorageBlockCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater)
+    public function runStorageBlockCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
+        BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
     {
-        $this->getFactory()->createStorageBlockCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getDependencyContainer()
+            ->createStorageBlockCollector()
+            ->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater, $output);
     }
 
 }

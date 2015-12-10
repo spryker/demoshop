@@ -1,8 +1,8 @@
 <?php
 
-namespace Pyz\Zed\Collector\Persistence\Storage\QueryBuilder\MySql;
+namespace Pyz\Zed\Collector\Persistence\Storage\Pdo\MySql;
 
-use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPdoCollectorQuery;
+use SprykerFeature\Zed\Collector\Persistence\Exporter\AbstractPdoCollectorQuery;
 
 class CategoryNodeCollector extends AbstractPdoCollectorQuery
 {
@@ -10,7 +10,7 @@ class CategoryNodeCollector extends AbstractPdoCollectorQuery
     /**
      * @return void
      */
-    public function prepareQuery()
+    protected function prepareQuery()
     {
         $sql = '
 SELECT
@@ -61,13 +61,11 @@ WHERE `spy_touch`.`item_type` = :spy_touch_item_type AND `spy_touch`.`item_event
       `spy_touch`.`touched` >= :spy_touch_touched AND spy_locale.id_locale = :fk_locale AND
       spy_category_closure_table.depth > 0
 ';
-        $sql = sprintf($sql, static::COLLECTOR_TOUCH_ID, static::COLLECTOR_RESOURCE_ID);
-
         dump($sql);
         exit();
 
         $this->criteriaBuilder
-            ->sql($sql . ' %s')
+            ->sql($sql)
             ->setOrderBy([
                 'depth' => 'DESC',
                 'descendant_id' => 'DESC',

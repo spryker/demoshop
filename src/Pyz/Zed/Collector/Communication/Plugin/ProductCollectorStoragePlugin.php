@@ -3,17 +3,13 @@
 namespace Pyz\Zed\Collector\Communication\Plugin;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Pyz\Zed\Collector\Business\CollectorFacade;
-use Pyz\Zed\Collector\Communication\CollectorCommunicationFactory;
+use Pyz\Zed\Collector\Communication\CollectorDependencyContainer;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
-use Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface;
-use Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface;
-use Spryker\Zed\Collector\Business\Model\BatchResultInterface;
-use Spryker\Zed\Collector\Communication\Plugin\AbstractCollectorPlugin;
+use SprykerFeature\Zed\Collector\Business\Model\BatchResultInterface;
+use SprykerFeature\Zed\Collector\Communication\Plugin\AbstractCollectorPlugin;
 
 /**
- * @method CollectorCommunicationFactory getFactory()
- * @method CollectorFacade getFacade()
+ * @method CollectorDependencyContainer getDependencyContainer()
  */
 class ProductCollectorStoragePlugin extends AbstractCollectorPlugin
 {
@@ -22,17 +18,17 @@ class ProductCollectorStoragePlugin extends AbstractCollectorPlugin
      * @param SpyTouchQuery $baseQuery
      * @param LocaleTransfer $locale
      * @param BatchResultInterface $result
-     * @param WriterInterface $dataWriter
-     * @param TouchUpdaterInterface $touchUpdater
+     *
+     * @return void
      */
     public function run(
         SpyTouchQuery $baseQuery,
         LocaleTransfer $locale,
-        BatchResultInterface $result,
-        WriterInterface $dataWriter,
-        TouchUpdaterInterface $touchUpdater
+        BatchResultInterface $result
     ) {
-        $this->getFacade()->runStorageProductCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getDependencyContainer()
+            ->getCollectorFacade()
+            ->runStorageProductCollector($baseQuery, $locale, $result, $this->dataWriter, $this->touchUpdater, $this->output);
     }
 
 }
