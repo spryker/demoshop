@@ -89,20 +89,20 @@ var productQuantityUpdater = new function(){
 var categoryListingPriceFilter = new function(){
     var self = this;
 
-    self.updateMinValue = function(ui){
-        $('#price-range-min').val(ui.values[0]);
+    self.updateMinValue = function(value){
+        $('#price-range-min').val(value);
     };
-    self.updateMaxValue = function(ui){
-        $('#price-range-max').val(ui.values[1]);
+    self.updateMaxValue = function(value){
+        $('#price-range-max').val(value);
     };
 
     self.updateSelectedValues = function(ui){
-        self.updateMinValue(ui);
-        self.updateMaxValue(ui);
+        self.updateMinValue(ui.values[0]);
+        self.updateMaxValue(ui.values[1]);
     };
 
     self.init = function(){
-        $( "#price-range" ).slider({
+        var sliderOptions = {
             range: true,
             min: 1,
             max: 10,
@@ -110,7 +110,10 @@ var categoryListingPriceFilter = new function(){
             slide: function( event, ui ) {
                 self.updateSelectedValues(ui);
             }
-        });
+        };
+        self.updateMinValue(sliderOptions.min);
+        self.updateMaxValue(sliderOptions.max);
+        $( "#price-range" ).slider(sliderOptions);
     };
 };
 
