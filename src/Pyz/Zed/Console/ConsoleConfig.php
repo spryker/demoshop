@@ -2,69 +2,8 @@
 
 namespace Pyz\Zed\Console;
 
-use SprykerFeature\Shared\Library\Environment;
 use SprykerFeature\Zed\Console\ConsoleConfig as SprykerConsoleConfig;
-use Symfony\Component\Console\Command\Command;
 
 class ConsoleConfig extends SprykerConsoleConfig
 {
-
-    /**
-     * @return Command[]
-     */
-    public function getConsoleCommands()
-    {
-        $commands = [
-            $this->getLocator()->application()->consoleApplicationIntegrationCheckConsole(),
-            $this->getLocator()->application()->consoleBuildNavigationConsole(),
-            $this->getLocator()->collector()->consoleCollectorStorageExportConsole(),
-            $this->getLocator()->collector()->consoleCollectorSearchExportConsole(),
-            $this->getLocator()->collector()->consoleCollectorSearchUpdateConsole(),
-            $this->getLocator()->installer()->consoleInitializeDatabaseConsole(),
-            $this->getLocator()->installer()->consoleDemoDataInstallConsole(),
-            $this->getLocator()->oms()->consoleCheckConditionConsole(),
-            $this->getLocator()->oms()->consoleCheckTimeoutConsole(),
-            $this->getLocator()->maintenance()->consoleFossMarkDownGeneratorConsole(),
-            $this->getLocator()->setup()->consoleRemoveGeneratedDirectoryConsole(),
-            $this->getLocator()->setup()->consoleInstallConsole(),
-            $this->getLocator()->propel()->consolePropelInstallConsole(),
-            $this->getLocator()->propel()->consolePostgresqlCompatibilityConsole(),
-            $this->getLocator()->propel()->consoleBuildModelConsole(),
-            $this->getLocator()->propel()->consoleBuildSqlConsole(),
-            $this->getLocator()->propel()->consoleConvertConfigConsole(),
-            $this->getLocator()->propel()->consoleCreateDatabaseConsole(),
-            $this->getLocator()->propel()->consoleDiffConsole(),
-            $this->getLocator()->propel()->consoleInsertSqlConsole(),
-            $this->getLocator()->propel()->consoleMigrateConsole(),
-            $this->getLocator()->propel()->consoleSchemaCopyConsole(),
-            $this->getLocator()->productSearch()->consoleProductSearchConsole(),
-            $this->getLocator()->search()->consoleSearchConsole(),
-            $this->getLocator()->setup()->consoleGenerateIdeAutoCompletionConsole(),
-            $this->getLocator()->setup()->consoleGenerateZedIdeAutoCompletionConsole(),
-            $this->getLocator()->setup()->consoleGenerateYvesIdeAutoCompletionConsole(),
-            $this->getLocator()->setup()->consoleGenerateClientIdeAutoCompletionConsole(),
-            $this->getLocator()->setup()->consoleNpmRunnerConsole(),
-            $this->getLocator()->setup()->consoleJenkinsEnableConsole(),
-            $this->getLocator()->setup()->consoleJenkinsDisableConsole(),
-            $this->getLocator()->setup()->consoleJenkinsGenerateConsole(),
-            $this->getLocator()->setup()->consoleDeployPreparePropelConsole(),
-            $this->getLocator()->transfer()->consoleGeneratorConsole(),
-            $this->getLocator()->cache()->consoleDeleteAllCachesConsole(),
-            $this->getLocator()->newRelic()->consoleRecordDeploymentConsole(),
-            $this->getLocator()->queue()->consoleQueueWorkerConsole(),
-            $this->getLocator()->mailQueue()->consoleMailQueueConsole(),
-        ];
-
-        if (Environment::isDevelopment()) {
-            $commands[] = $this->getLocator()->development()->consoleCodeTestConsole();
-            $commands[] = $this->getLocator()->development()->consoleCodeStyleFixerConsole();
-            $commands[] = $this->getLocator()->development()->consoleCodeStyleSnifferConsole();
-        }
-
-        $gitCommands = $this->getLocator()->git()->facade()->getConsoleCommands();
-        $commands = array_merge($commands, $gitCommands);
-
-        return $commands;
-    }
-
 }
