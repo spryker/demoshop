@@ -2,10 +2,11 @@
 
 namespace Pyz\Yves\Customer\Form;
 
-use Symfony\Component\Form\AbstractType;
+use SprykerEngine\Shared\Gui\Form\AbstractForm;
+use SprykerEngine\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class Profile extends AbstractType
+class Profile extends AbstractForm
 {
 
     /**
@@ -50,6 +51,22 @@ class Profile extends AbstractType
             ->add('submit', 'submit', [
                 'label' => 'customer.profile.submit',
             ]);
+    }
+
+    /**
+     * @return TransferInterface|array
+     */
+    public function populateFormFields()
+    {
+        return [];
+    }
+
+    /**
+     * @return TransferInterface|null
+     */
+    protected function getDataClass()
+    {
+        return null;
     }
 
 }

@@ -19,11 +19,15 @@ class CustomerController extends AbstractController
 {
 
     /**
+     * @param Request $request
+     *
      * @return array|RedirectResponse
      */
-    public function forgotPasswordAction()
+    public function forgotPasswordAction(Request $request)
     {
-        $form = $this->createForm($this->getDependencyContainer()->createFormForgot());
+        $form = $this
+            ->buildForm($this->getDependencyContainer()->createFormForgot())
+            ->handleRequest($request);
 
         if ($form->isValid()) {
             $customerTransfer = new CustomerTransfer();
@@ -44,7 +48,9 @@ class CustomerController extends AbstractController
      */
     public function restorePasswordAction(Request $request)
     {
-        $form = $this->createForm($this->getDependencyContainer()->createFormRestore());
+        $form = $this
+            ->buildForm($this->getDependencyContainer()->createFormRestore())
+            ->handleRequest($request);
 
         if ($form->isValid()) {
             $customerTransfer = new CustomerTransfer();
@@ -66,7 +72,9 @@ class CustomerController extends AbstractController
      */
     public function deleteAction(Request $request)
     {
-        $form = $this->createForm($this->getDependencyContainer()->createFormDelete());
+        $form = $this
+            ->buildForm($this->getDependencyContainer()->createFormDelete())
+            ->handleRequest($request);
 
         if ($form->isValid()) {
             $customerTransfer = new CustomerTransfer();
@@ -76,7 +84,7 @@ class CustomerController extends AbstractController
 
                 return $this->redirectResponseInternal('home');
             } else {
-                $this->addMessageError(Messages::CUSTOMER_DELETE_FAILED);
+                $this->addErrorMessage(Messages::CUSTOMER_DELETE_FAILED);
             }
         }
 
@@ -84,18 +92,22 @@ class CustomerController extends AbstractController
     }
 
     /**
+     * @param Request $request
+     * 
      * @return array|RedirectResponse
      */
-    public function profileAction()
+    public function profileAction(Request $request)
     {
         $customerTransfer = new CustomerTransfer();
 
-        $form = $this->createForm($this->getDependencyContainer()->createFormProfile());
+        $form = $this
+            ->buildForm($this->getDependencyContainer()->createFormProfile())
+            ->handleRequest($request);
 
         if ($form->isValid()) {
             $customerTransfer->fromArray($form->getData());
             $customerTransfer->setEmail($this->getUsername());
-            $customerTransfer = $this->getClient()->updateCustomer($customerTransfer);
+            $this->getClient()->updateCustomer($customerTransfer);
 
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
         }

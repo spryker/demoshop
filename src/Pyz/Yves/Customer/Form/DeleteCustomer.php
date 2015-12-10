@@ -2,10 +2,11 @@
 
 namespace Pyz\Yves\Customer\Form;
 
-use Symfony\Component\Form\AbstractType;
+use SprykerEngine\Shared\Gui\Form\AbstractForm;
+use SprykerEngine\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class DeleteCustomer extends AbstractType
+class DeleteCustomer extends AbstractForm
 {
 
     /**
@@ -26,6 +27,22 @@ class DeleteCustomer extends AbstractType
             ->add('submit', 'submit', [
                 'label' => 'customer.delete.submit',
             ]);
+    }
+
+    /**
+     * @return TransferInterface|array
+     */
+    public function populateFormFields()
+    {
+        return [];
+    }
+
+    /**
+     * @return TransferInterface|null
+     */
+    protected function getDataClass()
+    {
+        return null;
     }
 
 }
