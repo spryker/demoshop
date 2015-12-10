@@ -49,11 +49,15 @@ class SecurityController extends AbstractController
     }
 
     /**
+     * @param Request $request
+     *
      * @return array|RedirectResponse
      */
-    public function registerAction()
+    public function registerAction(Request $request)
     {
-        $form = $this->createForm($this->getDependencyContainer()->createFormRegister());
+        $form = $this
+            ->buildForm($this->getDependencyContainer()->createFormRegister())
+            ->handleRequest($request);
 
         if ($form->isValid()) {
             $customerTransfer = new CustomerTransfer();

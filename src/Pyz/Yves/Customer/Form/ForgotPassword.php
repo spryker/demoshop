@@ -2,10 +2,11 @@
 
 namespace Pyz\Yves\Customer\Form;
 
-use Symfony\Component\Form\AbstractType;
+use SprykerEngine\Shared\Gui\Form\AbstractForm;
+use SprykerEngine\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class ForgotPassword extends AbstractType
+class ForgotPassword extends AbstractForm
 {
 
     /**
@@ -29,6 +30,22 @@ class ForgotPassword extends AbstractType
             ->add('submit', 'submit', [
                 'label' => 'customer.forgot.submit',
             ]);
+    }
+
+    /**
+     * @return TransferInterface|array
+     */
+    public function populateFormFields()
+    {
+        return [];
+    }
+
+    /**
+     * @return TransferInterface|null
+     */
+    protected function getDataClass()
+    {
+        return null;
     }
 
 }
