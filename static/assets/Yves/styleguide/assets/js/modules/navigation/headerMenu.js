@@ -3,6 +3,7 @@ import throttle from 'lodash/function/throttle';
 
 import { EVENTS as NAVBAR_EVENTS } from './navbar';
 import { EVENTS as BODY_EVENTS } from '../common/bodyScrolling';
+import { EVENTS as CARTLAYER_EVENTS } from '../content/checkout/cartLayer';
 
 'use strict';
 
@@ -143,6 +144,12 @@ $(document).ready(function () {
 
         function updateHeight () {
             height = $menu.height();
+
+            if (!$menu.hasClass('menu--open')) {
+                $menu.css({
+                    'margin-top': -height
+                });
+            }
         }
 
         $(document).on('click', '.js-open-cart', function (event) {
@@ -150,6 +157,8 @@ $(document).ready(function () {
 
             showMenu($trigger.size() - 1);
         });
+
+        $(document).on(CARTLAYER_EVENTS.UPDATE_CART, updateHeight);
     });
 
 });
