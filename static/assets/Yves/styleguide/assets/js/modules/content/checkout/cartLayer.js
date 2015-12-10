@@ -12,7 +12,8 @@ const ENDPOINTS = {
 
 
 const EVENTS = {
-    UPDATE_CART: 'CARTLAYER_UPDATE_CART'
+    UPDATE_CART: 'CARTLAYER_UPDATE_CART',
+    UPDATED_CARTLAYER: 'CARTLAYER_UPDATED_CARTLAYER'
 };
 
 
@@ -56,6 +57,7 @@ $(document).ready(function () {
     function renderCart (data) {
         $cartLayer.html(data);
 
+        $(document).trigger(EVENTS.UPDATED_CARTLAYER);
         $(document).trigger(CHECKOUT_EVENTS.UPDATE_CART, data);
         $(document).trigger(STEPPER_EVENTS.INITIALIZE_STEPPERS);
 
