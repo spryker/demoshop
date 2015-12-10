@@ -86,6 +86,34 @@ var productQuantityUpdater = new function(){
     };
 };
 
+var categoryListingPriceFilter = new function(){
+    var self = this;
+
+    self.updateMinValue = function(ui){
+        $('#price-range-min').val(ui.values[0]);
+    };
+    self.updateMaxValue = function(ui){
+        $('#price-range-max').val(ui.values[1]);
+    };
+
+    self.updateSelectedValues = function(ui){
+        self.updateMinValue(ui);
+        self.updateMaxValue(ui);
+    };
+
+    self.init = function(){
+        $( "#price-range" ).slider({
+            range: true,
+            min: 1,
+            max: 10,
+            values: [1, 10],
+            slide: function( event, ui ) {
+                self.updateSelectedValues(ui);
+            }
+        });
+    };
+};
+
 $(document).ready(function () {
     /**
      *  DO NOT ADD LOGIC IN DOCUMENT READY
@@ -103,5 +131,7 @@ $(document).ready(function () {
 
         productQuantityUpdater.init($(this));
     });
+
+    categoryListingPriceFilter.init();
 
 });
