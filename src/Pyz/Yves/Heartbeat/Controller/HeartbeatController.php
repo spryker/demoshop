@@ -32,15 +32,15 @@ class HeartbeatController extends AbstractController
                 ],
                 Response::HTTP_OK
             );
-        } else {
-            return $this->jsonResponse(
-                [
-                    self::SYSTEM_STATUS => self::SYSTEM_DOWN,
-                    self::STATUS_REPORT => $healthChecker->doHealthCheck()->getReport()->toArray(),
-                ],
-                Response::HTTP_SERVICE_UNAVAILABLE
-            );
         }
+
+        return $this->jsonResponse(
+            [
+                self::SYSTEM_STATUS => self::SYSTEM_DOWN,
+                self::STATUS_REPORT => $healthChecker->doHealthCheck()->getReport()->toArray(),
+            ],
+            Response::HTTP_SERVICE_UNAVAILABLE
+        );
     }
 
 }

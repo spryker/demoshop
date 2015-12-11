@@ -12,6 +12,8 @@ class HeartbeatControllerProvider extends AbstractYvesControllerProvider
 
     /**
      * @param Application $app
+     *
+     * @return void
      */
     protected function defineControllers(Application $app)
     {
