@@ -11,7 +11,12 @@ class UrlCollector extends AbstractKeyValuePdoCollector
     /**
      * @var int
      */
-    protected $chunkSize = 5000;
+    protected $chunkSize = 2000;
+
+    /**
+     * @var array
+     */
+    protected $resourceArgumentsCache = [];
 
     /**
      * @param string $touchKey
@@ -42,21 +47,29 @@ class UrlCollector extends AbstractKeyValuePdoCollector
      *
      * @return array
      */
-    protected function findResourceArguments(array $url)
+    protected function findResourceArguments(array &$url)
     {
         foreach ($url as $columnName => $value) {
-            if (strpos($columnName, 'fk_resource_') !== 0) {
-                continue;
-            }
-            if ($value !== null) {
-                $resourceType = str_replace('fk_resource_', '', $columnName);
-                $resourceType = str_replace('_id', '', $resourceType);
+            if (isset($this->resourceArgumentsCache[$columnName])) {
+                $resourceType = $this->resourceArgumentsCache[$columnName];
 
                 return [
                     'resourceType' => $resourceType,
                     'value' => $value,
                 ];
             }
+
+            if ($value === null || strpos($columnName, 'fk_resource_') !== 0) {
+                continue;
+            }
+
+            $resourceType = str_replace('fk_resource_', '', $columnName);
+            $this->resourceArgumentsCache[$columnName] = $resourceType;
+
+            return [
+                'resourceType' => $resourceType,
+                'value' => $value,
+            ];
         }
 
         return false;

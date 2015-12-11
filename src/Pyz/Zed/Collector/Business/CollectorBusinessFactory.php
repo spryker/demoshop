@@ -142,6 +142,11 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
         );
 
+        $storagePageCollector->setQueryBuilder(
+            $this->createStoragePropelQueryAdapterByName('PageCollector')
+        );
+
+
         return $storagePageCollector;
     }
 
@@ -190,6 +195,10 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storageTranslationCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
         );
+        $storageTranslationCollector->setQueryBuilder(
+            $this->createStoragePropelQueryAdapterByName('TranslationCollector')
+        );
+
 
         return $storageTranslationCollector;
     }
@@ -219,10 +228,15 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStorageBlockCollector()
     {
-        $collector = new BlockCollector();
-        $collector->setTouchQueryContainer($this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH));
+        $storageBlockCollector = new BlockCollector();
+        $storageBlockCollector->setTouchQueryContainer(
+            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
+        );
+        $storageBlockCollector->setQueryBuilder(
+            $this->createStoragePropelQueryAdapterByName('BlockCollector')
+        );
 
-        return $collector;
+        return $storageBlockCollector;
     }
 
     /**

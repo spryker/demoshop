@@ -11,11 +11,6 @@ use SprykerFeature\Zed\Collector\Persistence\Exporter\AbstractPropelCollectorQue
 class RedirectCollector extends AbstractPropelCollectorQuery
 {
 
-    const KEY_FROM_URL = 'from_url';
-    const KEY_TO_URL = 'to_url';
-    const KEY_STATUS = 'status';
-    const KEY_ID = 'id';
-
     /**
      * @return void
      */
@@ -33,10 +28,10 @@ class RedirectCollector extends AbstractPropelCollectorQuery
             Criteria::INNER_JOIN
         );
 
-        $this->touchQuery->withColumn(SpyRedirectTableMap::COL_ID_REDIRECT, self::KEY_ID);
-        $this->touchQuery->withColumn(SpyUrlTableMap::COL_URL, self::KEY_FROM_URL);
-        $this->touchQuery->withColumn(SpyRedirectTableMap::COL_STATUS, self::KEY_STATUS);
-        $this->touchQuery->withColumn(SpyRedirectTableMap::COL_TO_URL, self::KEY_TO_URL);
+        $this->touchQuery->withColumn(SpyRedirectTableMap::COL_ID_REDIRECT, 'id');
+        $this->touchQuery->withColumn(SpyUrlTableMap::COL_URL, 'from_url');
+        $this->touchQuery->withColumn(SpyRedirectTableMap::COL_STATUS, 'status');
+        $this->touchQuery->withColumn(SpyRedirectTableMap::COL_TO_URL, 'to_url');
     }
 
 }
