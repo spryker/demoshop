@@ -12,7 +12,12 @@
         <div class="collapse navbar-collapse bs-example-js-navbar-collapse">
             <div class="text-center">
                 <div class="pull-right header-nav-placeholder">
-                    <div class="header-cart pull-right"><a href=""><i class="fa fa-shopping-cart fa-inverse"></i></a></div>
+                    <div class="header-cart pull-right dropdown">
+                        <a href="#" id="header-cart-tooltip"><i class="fa fa-shopping-cart fa-inverse"></i></a>
+                        <div class="cart-tooltip" id="header-cart-list">
+                            this is my cart
+                        </div>
+                    </div>
                     <div class="js-search pull-right">
                         <form action="/search">
                             <button class="btn js-search-button"><i class="fa fa-search"></i></button>
