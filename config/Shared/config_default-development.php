@@ -4,60 +4,60 @@
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a development environment.
  */
 
-use SprykerFeature\Shared\Application\ApplicationConfig;
-use SprykerFeature\Shared\Acl\AclConfig;
-use SprykerFeature\Shared\Session\SessionConfig;
+use SprykerFeature\Shared\Application\ApplicationConstants;
+use SprykerFeature\Shared\Acl\AclConstants;
+use SprykerFeature\Shared\Session\SessionConstants;
 use SprykerFeature\Shared\Log\Config\DefaultLoggerConfig;
-use SprykerFeature\Shared\Payone\PayoneConfigConstants;
+use SprykerFeature\Shared\Payone\PayoneConstants;
 
-$config[ApplicationConfig::YVES_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_REDIS;
-$config[ApplicationConfig::ZED_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_FILE;
+$config[ApplicationConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
+$config[ApplicationConstants::ZED_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_FILE;
 
-$config[ApplicationConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL] = 'tcp';
-$config[ApplicationConfig::YVES_STORAGE_SESSION_REDIS_HOST] = '127.0.0.1';
-$config[ApplicationConfig::YVES_STORAGE_SESSION_REDIS_PORT] = '10009';
+$config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL] = 'tcp';
+$config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST] = '127.0.0.1';
+$config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT] = '10009';
 
-$config[ApplicationConfig::ZED_STORAGE_SESSION_REDIS_PROTOCOL] = $config[ApplicationConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL];
-$config[ApplicationConfig::ZED_STORAGE_SESSION_REDIS_HOST] = $config[ApplicationConfig::YVES_STORAGE_SESSION_REDIS_HOST];
-$config[ApplicationConfig::ZED_STORAGE_SESSION_REDIS_PORT] = $config[ApplicationConfig::YVES_STORAGE_SESSION_REDIS_PORT];
+$config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_PROTOCOL] = $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL];
+$config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_HOST] = $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST];
+$config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_PORT] = $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT];
 
-$config[ApplicationConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[ApplicationConfig::HOST_YVES];
+$config[ApplicationConstants::YVES_SESSION_COOKIE_DOMAIN] = $config[ApplicationConstants::HOST_YVES];
 
-$config[ApplicationConfig::JENKINS_BASE_URL] = 'http://' . $config[ApplicationConfig::HOST_ZED_GUI] . ':10007/jenkins';
-$config[ApplicationConfig::JENKINS_DIRECTORY] = '/data/shop/development/shared/data/common/jenkins';
-$config[ApplicationConfig::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = true;
+$config[ApplicationConstants::JENKINS_BASE_URL] = 'http://' . $config[ApplicationConstants::HOST_ZED_GUI] . ':10007/jenkins';
+$config[ApplicationConstants::JENKINS_DIRECTORY] = '/data/shop/development/shared/data/common/jenkins';
+$config[ApplicationConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = true;
 
-$config[PayoneConfigConstants::PAYONE] = [
-    PayoneConfigConstants::PAYONE_CREDENTIALS_ENCODING => 'UTF-8',
-    PayoneConfigConstants::PAYONE_CREDENTIALS_KEY => 'oZZfMY6L224Q51jq',
-    PayoneConfigConstants::PAYONE_CREDENTIALS_MID => '29250',
-    PayoneConfigConstants::PAYONE_CREDENTIALS_AID => '29499',
-    PayoneConfigConstants::PAYONE_CREDENTIALS_PORTAL_ID => '2020679',
-    PayoneConfigConstants::PAYONE_PAYMENT_GATEWAY_URL => 'https://api.pay1.de/post-gateway/',
-    PayoneConfigConstants::PAYONE_REDIRECT_SUCCESS_URL => $config[ApplicationConfig::HOST_YVES] . '/checkout/success/',
-    PayoneConfigConstants::PAYONE_REDIRECT_ERROR_URL => $config[ApplicationConfig::HOST_YVES] . '/checkout/index/',
-    PayoneConfigConstants::PAYONE_REDIRECT_BACK_URL => $config[ApplicationConfig::HOST_YVES] . '/checkout/regular-redirect-payment-cancellation/',
-    PayoneConfigConstants::PAYONE_MODE => '',
+$config[PayoneConstants::PAYONE] = [
+    PayoneConstants::PAYONE_CREDENTIALS_ENCODING => 'UTF-8',
+    PayoneConstants::PAYONE_CREDENTIALS_KEY => 'oZZfMY6L224Q51jq',
+    PayoneConstants::PAYONE_CREDENTIALS_MID => '29250',
+    PayoneConstants::PAYONE_CREDENTIALS_AID => '29499',
+    PayoneConstants::PAYONE_CREDENTIALS_PORTAL_ID => '2020679',
+    PayoneConstants::PAYONE_PAYMENT_GATEWAY_URL => 'https://api.pay1.de/post-gateway/',
+    PayoneConstants::PAYONE_REDIRECT_SUCCESS_URL => $config[ApplicationConstants::HOST_YVES] . '/checkout/success/',
+    PayoneConstants::PAYONE_REDIRECT_ERROR_URL => $config[ApplicationConstants::HOST_YVES] . '/checkout/index/',
+    PayoneConstants::PAYONE_REDIRECT_BACK_URL => $config[ApplicationConstants::HOST_YVES] . '/checkout/regular-redirect-payment-cancellation/',
+    PayoneConstants::PAYONE_MODE => '',
 ];
 
-$config[ApplicationConfig::NAVIGATION_CACHE_ENABLED] = true;
+$config[ApplicationConstants::NAVIGATION_CACHE_ENABLED] = true;
 
-$config[AclConfig::ACL_USER_RULE_WHITELIST][] = [
+$config[AclConstants::ACL_USER_RULE_WHITELIST][] = [
     'bundle' => 'wdt',
     'controller' => '*',
     'action' => '*',
     'type' => 'allow',
 ];
 
-$config[ApplicationConfig::PROPEL_DEBUG] = true;
+$config[ApplicationConstants::PROPEL_DEBUG] = true;
 
-$config[ApplicationConfig::ALLOW_INTEGRATION_CHECKS] = true;
-$config[ApplicationConfig::DISPLAY_ERRORS] = true;
-$config[ApplicationConfig::ENABLE_APPLICATION_DEBUG] = true;
-$config[ApplicationConfig::SET_REPEAT_DATA] = true;
-$config[ApplicationConfig::STORE_PREFIX] = 'DEV';
+$config[ApplicationConstants::ALLOW_INTEGRATION_CHECKS] = true;
+$config[ApplicationConstants::DISPLAY_ERRORS] = true;
+$config[ApplicationConstants::ENABLE_APPLICATION_DEBUG] = true;
+$config[ApplicationConstants::SET_REPEAT_DATA] = true;
+$config[ApplicationConstants::STORE_PREFIX] = 'DEV';
 
-$config[ApplicationConfig::ENABLE_WEB_PROFILER] = true;
-$config[ApplicationConfig::SHOW_SYMFONY_TOOLBAR] = true;
+$config[ApplicationConstants::ENABLE_WEB_PROFILER] = true;
+$config[ApplicationConstants::SHOW_SYMFONY_TOOLBAR] = true;
 
 $config[DefaultLoggerConfig::DEFAULT_LOG_LEVEL] = Monolog\Logger::INFO;

@@ -7,7 +7,7 @@ use Pyz\Yves\Twig\Plugin\TwigYves;
 use Silex\Application;
 use SprykerEngine\Shared\Config;
 use SprykerEngine\Shared\Kernel\Store;
-use SprykerFeature\Shared\Application\ApplicationConfig;
+use SprykerFeature\Shared\Application\ApplicationConstants;
 use SprykerFeature\Shared\Library\Application\Environment as ApplicationEnvironment;
 use SprykerFeature\Shared\Library\DataDirectory;
 use SprykerFeature\Shared\Library\Environment;
@@ -77,7 +77,7 @@ class ApplicationServiceProvider extends AbstractServiceProvider
      */
     protected function setDebugMode()
     {
-        $this->application['debug'] = Config::get(ApplicationConfig::ENABLE_APPLICATION_DEBUG, false);
+        $this->application['debug'] = Config::get(ApplicationConstants::ENABLE_APPLICATION_DEBUG, false);
     }
 
     /**
@@ -97,7 +97,7 @@ class ApplicationServiceProvider extends AbstractServiceProvider
      */
     protected function setProfilerCacheDirectory()
     {
-        if (Config::get(ApplicationConfig::ENABLE_WEB_PROFILER, false)) {
+        if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER, false)) {
             $this->application['profiler.cache_dir'] = DataDirectory::getLocalStoreSpecificPath('cache/profiler');
         }
     }
@@ -107,7 +107,7 @@ class ApplicationServiceProvider extends AbstractServiceProvider
      */
     protected function setTrustedProxies()
     {
-        $proxies = Config::get(ApplicationConfig::YVES_TRUSTED_PROXIES);
+        $proxies = Config::get(ApplicationConstants::YVES_TRUSTED_PROXIES);
         Request::setTrustedProxies($proxies);
     }
 
@@ -138,7 +138,7 @@ class ApplicationServiceProvider extends AbstractServiceProvider
      */
     protected function setLogLevel()
     {
-        $this->application['monolog.level'] = Config::get(ApplicationConfig::LOG_LEVEL);
+        $this->application['monolog.level'] = Config::get(ApplicationConstants::LOG_LEVEL);
     }
 
     /**
@@ -146,14 +146,14 @@ class ApplicationServiceProvider extends AbstractServiceProvider
      */
     protected function setProtocolCheck()
     {
-        if (!Config::get(ApplicationConfig::YVES_SSL_ENABLED) || !Config::get(ApplicationConfig::YVES_COMPLETE_SSL_ENABLED)) {
+        if (!Config::get(ApplicationConstants::YVES_SSL_ENABLED) || !Config::get(ApplicationConstants::YVES_COMPLETE_SSL_ENABLED)) {
             return;
         }
 
         $this->application->before(
             function (Request $request) {
                 if (!$request->isSecure()
-                    && !in_array($request->getPathInfo(), Config::get(ApplicationConfig::YVES_SSL_EXCLUDED))
+                    && !in_array($request->getPathInfo(), Config::get(ApplicationConstants::YVES_SSL_EXCLUDED))
                 ) {
                     $fakeRequest = clone $request;
                     $fakeRequest->server->set('HTTPS', true);

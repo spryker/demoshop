@@ -11,7 +11,7 @@ use Orm\Zed\Glossary\Persistence\Map\SpyGlossaryKeyTableMap;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
-use SprykerFeature\Shared\Cms\CmsConfig;
+use SprykerFeature\Shared\Cms\CmsConstants;
 use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
 use SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
@@ -130,7 +130,7 @@ class BlockCollector extends AbstractPropelCollectorPlugin
      */
     protected function getResourceType()
     {
-        return CmsConfig::RESOURCE_TYPE_BLOCK;
+        return CmsConstants::RESOURCE_TYPE_BLOCK;
     }
 
 }

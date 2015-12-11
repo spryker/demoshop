@@ -3,7 +3,7 @@
 namespace Pyz\Zed\ProductOption;
 
 use SprykerFeature\Zed\ProductOption\ProductOptionConfig as SprykerProductOptionConfig;
-use SprykerFeature\Shared\Application\ApplicationConfig;
+use SprykerFeature\Shared\Application\ApplicationConstants;
 
 class ProductOptionConfig extends SprykerProductOptionConfig
 {
@@ -31,7 +31,7 @@ class ProductOptionConfig extends SprykerProductOptionConfig
      */
     public function getDatabaseAdapter()
     {
-        $propelConfig = $this->get(ApplicationConfig::PROPEL);
+        $propelConfig = $this->get(ApplicationConstants::PROPEL);
 
         $dbAdapter = $propelConfig['database']['connections']['default']['adapter'];
 

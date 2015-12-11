@@ -12,8 +12,8 @@ use Silex\Application;
 use Silex\ServiceProviderInterface;
 use SprykerEngine\Shared\Config;
 use SprykerEngine\Yves\Kernel\AbstractPlugin;
-use SprykerFeature\Shared\Session\SessionConfig;
-use SprykerFeature\Shared\Application\ApplicationConfig;
+use SprykerFeature\Shared\Session\SessionConstants;
+use SprykerFeature\Shared\Application\ApplicationConstants;
 
 /**
  * @method ApplicationDependencyContainer getDependencyContainer()
@@ -28,25 +28,25 @@ class SessionServiceProvider extends AbstractPlugin implements ServiceProviderIn
      */
     public function register(Application $app)
     {
-        $saveHandler = Config::get(ApplicationConfig::YVES_SESSION_SAVE_HANDLER);
+        $saveHandler = Config::get(ApplicationConstants::YVES_SESSION_SAVE_HANDLER);
 
         if (!in_array($saveHandler, $this->getSaveHandler())) {
-            if (Config::get(ApplicationConfig::YVES_SESSION_SAVE_HANDLER) && $this->getSavePath($saveHandler)) {
-                ini_set('session.save_handler', Config::get(ApplicationConfig::YVES_SESSION_SAVE_HANDLER));
+            if (Config::get(ApplicationConstants::YVES_SESSION_SAVE_HANDLER) && $this->getSavePath($saveHandler)) {
+                ini_set('session.save_handler', Config::get(ApplicationConstants::YVES_SESSION_SAVE_HANDLER));
                 session_save_path($this->getSavePath($saveHandler));
             }
         }
 
         $sessionStorageOptions = [
             'cookie_httponly' => true,
-            'cookie_lifetime' => Config::get(ApplicationConfig::YVES_STORAGE_SESSION_TIME_TO_LIVE),
+            'cookie_lifetime' => Config::get(ApplicationConstants::YVES_STORAGE_SESSION_TIME_TO_LIVE),
         ];
 
-        $name = Config::get(ApplicationConfig::YVES_SESSION_NAME);
+        $name = Config::get(ApplicationConstants::YVES_SESSION_NAME);
         if ($name) {
             $sessionStorageOptions['name'] = $name;
         }
-        $cookieDomain = Config::get(ApplicationConfig::YVES_SESSION_COOKIE_DOMAIN);
+        $cookieDomain = Config::get(ApplicationConstants::YVES_SESSION_COOKIE_DOMAIN);
         if ($cookieDomain) {
             $sessionStorageOptions['cookie_domain'] = $cookieDomain;
         }
@@ -56,28 +56,28 @@ class SessionServiceProvider extends AbstractPlugin implements ServiceProviderIn
 
         // We manually register our own couchbase session handler, for all other handlers we use the generic one
         switch ($saveHandler) {
-            case SessionConfig::SESSION_HANDLER_COUCHBASE:
+            case SessionConstants::SESSION_HANDLER_COUCHBASE:
                 $couchbaseSessionHandler = $sessionHelper->registerCouchbaseSessionHandler($this->getSavePath($saveHandler));
                 $app['session.storage.handler'] = $app->share(function () use ($couchbaseSessionHandler) {
                     return $couchbaseSessionHandler;
                 });
                 break;
 
-            case SessionConfig::SESSION_HANDLER_MYSQL:
+            case SessionConstants::SESSION_HANDLER_MYSQL:
                 $mysqlSessionHandler = $sessionHelper->registerMysqlSessionHandler($this->getSavePath($saveHandler));
                 $app['session.storage.handler'] = $app->share(function () use ($mysqlSessionHandler) {
                     return $mysqlSessionHandler;
                 });
                 break;
 
-            case SessionConfig::SESSION_HANDLER_REDIS:
+            case SessionConstants::SESSION_HANDLER_REDIS:
                 $redisSessionHandler = $sessionHelper->registerRedisSessionHandler($this->getSavePath($saveHandler));
                 $app['session.storage.handler'] = $app->share(function () use ($redisSessionHandler) {
                     return $redisSessionHandler;
                 });
                 break;
 
-            case SessionConfig::SESSION_HANDLER_FILE:
+            case SessionConstants::SESSION_HANDLER_FILE:
                 $redisSessionHandler = $sessionHelper->registerFileSessionHandler($this->getSavePath($saveHandler));
                 $app['session.storage.handler'] = $app->share(function () use ($redisSessionHandler) {
                     return $redisSessionHandler;
@@ -99,10 +99,10 @@ class SessionServiceProvider extends AbstractPlugin implements ServiceProviderIn
     protected function getSaveHandler()
     {
         return [
-            SessionConfig::SESSION_HANDLER_COUCHBASE,
-            SessionConfig::SESSION_HANDLER_MYSQL,
-            SessionConfig::SESSION_HANDLER_REDIS,
-            SessionConfig::SESSION_HANDLER_FILE,
+            SessionConstants::SESSION_HANDLER_COUCHBASE,
+            SessionConstants::SESSION_HANDLER_MYSQL,
+            SessionConstants::SESSION_HANDLER_REDIS,
+            SessionConstants::SESSION_HANDLER_FILE,
         ];
     }
 
@@ -126,14 +126,14 @@ class SessionServiceProvider extends AbstractPlugin implements ServiceProviderIn
     {
         $path = null;
         switch ($saveHandler) {
-            case SessionConfig::SESSION_HANDLER_REDIS:
-                $path = Config::get(ApplicationConfig::YVES_STORAGE_SESSION_REDIS_PROTOCOL)
-                    . '://' . Config::get(ApplicationConfig::YVES_STORAGE_SESSION_REDIS_HOST)
-                    . ':' . Config::get(ApplicationConfig::YVES_STORAGE_SESSION_REDIS_PORT);
+            case SessionConstants::SESSION_HANDLER_REDIS:
+                $path = Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL)
+                    . '://' . Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST)
+                    . ':' . Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT);
                 break;
 
-            case SessionConfig::SESSION_HANDLER_FILE:
-                $path = Config::get(ApplicationConfig::YVES_STORAGE_SESSION_FILE_PATH);
+            case SessionConstants::SESSION_HANDLER_FILE:
+                $path = Config::get(ApplicationConstants::YVES_STORAGE_SESSION_FILE_PATH);
                 break;
 
             default:

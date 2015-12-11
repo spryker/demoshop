@@ -7,7 +7,7 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
 use Pyz\Zed\Locale\Business\LocaleFacade;
 use SprykerEngine\Zed\Touch\Business\TouchFacade;
-use SprykerFeature\Shared\Category\CategoryConfig;
+use SprykerFeature\Shared\Category\CategoryConstants;
 use SprykerFeature\Zed\Category\Business\Model\CategoryWriter;
 use SprykerFeature\Zed\Category\Business\Model\CategoryWriterInterface;
 use SprykerFeature\Zed\Category\Business\Tree\CategoryTreeWriter;
@@ -205,7 +205,7 @@ class CategoryTreeInstall extends AbstractInstaller
             return;
         }
 
-        $this->touchFacade->touchActive(CategoryConfig::RESOURCE_TYPE_NAVIGATION, $rootNodeTransfer->getIdCategoryNode());
+        $this->touchFacade->touchActive(CategoryConstants::RESOURCE_TYPE_NAVIGATION, $rootNodeTransfer->getIdCategoryNode());
     }
 
 }

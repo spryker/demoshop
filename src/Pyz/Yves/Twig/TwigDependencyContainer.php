@@ -9,7 +9,7 @@ use Pyz\Yves\Twig\Model\YvesExtension;
 use Pyz\Yves\Twig\Model\UrlParameterCacheBuster;
 use Pyz\Yves\Twig\Model\MediaUrlBuilder;
 use Pyz\Yves\Twig\Model\AssetUrlBuilder;
-use SprykerFeature\Shared\Application\ApplicationConfig;
+use SprykerFeature\Shared\Application\ApplicationConstants;
 use Pyz\Yves\Twig\Model\AssetUrlBuilderInterface;
 use Pyz\Yves\Twig\Model\CacheBusterInterface;
 use Pyz\Yves\Twig\Model\MediaUrlBuilderInterface;
@@ -51,10 +51,10 @@ class TwigDependencyContainer extends AbstractDependencyContainer
      */
     public function createAssetUrlBuilder($isDomainSecured = false)
     {
-        $host = Config::get(ApplicationConfig::HOST_STATIC_ASSETS);
+        $host = Config::get(ApplicationConstants::HOST_STATIC_ASSETS);
 
         if ($isDomainSecured) {
-            $host = Config::get(ApplicationConfig::HOST_SSL_STATIC_ASSETS);
+            $host = Config::get(ApplicationConstants::HOST_SSL_STATIC_ASSETS);
         }
 
         return new AssetUrlBuilder($host, $this->createCacheBuster());
@@ -67,10 +67,10 @@ class TwigDependencyContainer extends AbstractDependencyContainer
      */
     public function createMediaUrlBuilder($isDomainSecured = false)
     {
-        $host = Config::get(ApplicationConfig::HOST_STATIC_MEDIA);
+        $host = Config::get(ApplicationConstants::HOST_STATIC_MEDIA);
 
         if ($isDomainSecured) {
-            $host = Config::get(ApplicationConfig::HOST_SSL_STATIC_MEDIA);
+            $host = Config::get(ApplicationConstants::HOST_SSL_STATIC_MEDIA);
         }
 
         return new MediaUrlBuilder($host);

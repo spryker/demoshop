@@ -6,7 +6,7 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
-use SprykerFeature\Shared\Cms\CmsConfig;
+use SprykerFeature\Shared\Cms\CmsConstants;
 use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use Orm\Zed\Cms\Persistence\Map\SpyCmsGlossaryKeyMappingTableMap;
 use Orm\Zed\Cms\Persistence\Map\SpyCmsPageTableMap;
@@ -127,7 +127,7 @@ class PageCollector extends AbstractPropelCollectorPlugin
      */
     protected function getResourceType()
     {
-        return CmsConfig::RESOURCE_TYPE_PAGE;
+        return CmsConstants::RESOURCE_TYPE_PAGE;
     }
 
 }
