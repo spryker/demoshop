@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
+use SprykerEngine\Shared\Kernel\Store;
 use SprykerFeature\Zed\Collector\Business\Collector\KeyValue\AbstractKeyValuePdoCollector;
 use SprykerFeature\Zed\Url\UrlConfig;
 
@@ -27,11 +28,24 @@ class UrlCollector extends AbstractKeyValuePdoCollector
     protected function collectItem($touchKey, array $collectItemData)
     {
         $resourceArguments = $this->findResourceArguments($collectItemData);
+        $referenceKey = $this->generateResourceKey($resourceArguments, $this->locale->getLocaleName());
 
         return [
-            'reference_key' => $touchKey,
+            'reference_key' => $referenceKey,
             'type' => $resourceArguments['resourceType'],
         ];
+    }
+
+    /**
+     * @param $data
+     * @param $localeName
+     * @param array $collectedItemData
+     *
+     * @return string
+     */
+    protected function collectKey($data, $localeName, array $collectedItemData)
+    {
+        return $this->generateKey($collectedItemData['url'], $localeName);
     }
 
     /**
@@ -73,6 +87,24 @@ class UrlCollector extends AbstractKeyValuePdoCollector
         }
 
         return false;
+    }
+
+    /**
+     * @param array $data
+     * @param string $localeName
+     *
+     * @return string
+     */
+    protected function generateResourceKey($data, $localeName)
+    {
+        $keyParts = [
+            Store::getInstance()->getStoreName(),
+            $localeName,
+            'resource',
+            $data['resourceType'] . '.' . $data['value'],
+        ];
+
+        return $this->escapeKey(implode($this->keySeparator, $keyParts));
     }
 
 }

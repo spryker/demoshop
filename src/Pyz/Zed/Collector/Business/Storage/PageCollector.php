@@ -16,7 +16,7 @@ class PageCollector extends AbstractKeyValuePropelCollector
      */
     protected function collectItem($touchKey, array $collectItemData)
     {
-        $placeholders = isset($processedResultSet[$touchKey]['placeholders']) ? $processedResultSet[$touchKey]['placeholders'] : [];
+        $placeholders = isset($collectItemData[$touchKey]['placeholders']) ? $collectItemData[$touchKey]['placeholders'] : [];
         $placeholders[$collectItemData['placeholder']] = $collectItemData['translation_key'];
 
         return [
