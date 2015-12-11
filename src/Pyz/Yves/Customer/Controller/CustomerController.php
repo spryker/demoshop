@@ -93,7 +93,7 @@ class CustomerController extends AbstractController
 
     /**
      * @param Request $request
-     * 
+     *
      * @return array|RedirectResponse
      */
     public function profileAction(Request $request)

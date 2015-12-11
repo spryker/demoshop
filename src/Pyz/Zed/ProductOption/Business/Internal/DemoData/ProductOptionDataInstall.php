@@ -12,6 +12,7 @@ class ProductOptionDataInstall extends AbstractInstaller
      * @var WriterInterface
      */
     protected $optionWriter;
+
     protected $productOptionWriter;
 
     /**

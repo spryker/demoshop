@@ -22,9 +22,6 @@ class ProductController extends AbstractController
 
     public function createAndCollectProductAction()
     {
-        //        $connection = Propel::getConnection();
-        //       $connection->beginTransaction();
-
         $productFacade = $this->getLocator()->product()->facade();
         $priceFacade = $this->getLocator()->price()->facade();
         $stockFacade = $this->getLocator()->stock()->facade();
@@ -74,14 +71,14 @@ class ProductController extends AbstractController
         //$abstractProductTransfer->addLocalizedAttributes($localizedAttributesTransferEN);
 
         /*
-        using multiple addLocalizedAttributes() causes error: 
+        using multiple addLocalizedAttributes() causes error:
             "Tried to create abstract attributes for abstract product 90, locale id 46, but it already exists"
-        
+
         $abstractProductTransfer->addLocalizedAttributes($localizedAttributesTransferDE);
         $abstractProductTransfer->addLocalizedAttributes($localizedAttributesTransferEN);
-        
-        same with 
-        
+
+        same with
+
         $abstractProductTransfer->setLocalizedAttributes([$localizedAttributesTransferDE]);
         $abstractProductTransfer->addLocalizedAttributes($localizedAttributesTransferEN);
         */
@@ -89,7 +86,7 @@ class ProductController extends AbstractController
         $idAbstractProduct = $productFacade->createAbstractProduct($abstractProductTransfer);
 
         foreach ($variantData as $variantItemData) {
-            //to test saving localized attributes for concrete products 
+            //to test saving localized attributes for concrete products
             $localizedAttributesTransferDE = new LocalizedAttributesTransfer();
             $localizedAttributesTransferDE->setName($variantItemData['name']);
             $localizedAttributesTransferDE->setLocale($localeTransferDE);
