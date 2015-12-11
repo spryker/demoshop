@@ -9,7 +9,7 @@ use Pyz\Yves\Collector\Plugin\Router\StorageRouter;
 use Pyz\Yves\CategoryExporter\Plugin\Provider\CategoryExporterServiceProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerServiceProvider;
 use Pyz\Yves\Glossary\Plugin\Provider\TranslationServiceProvider;
-use SprykerEngine\Yves\Application\Plugin\ServiceProvider\ExceptionServiceProvider;
+use SprykerEngine\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\YvesSecurityServiceProvider;
 use Pyz\Yves\Session\Plugin\Provider\SessionServiceProvider as ProviderSessionServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
@@ -29,32 +29,28 @@ use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
-use Silex\ServiceProviderInterface;
 use SprykerEngine\Shared\Config;
-use SprykerEngine\Shared\Application\Communication\Application;
-use SprykerEngine\Yves\Application\Application as YvesApplication;
-use SprykerEngine\Yves\Application\Plugin\ControllerProviderInterface;
-use SprykerEngine\Yves\Application\Plugin\ServiceProvider\CookieServiceProvider;
-use SprykerEngine\Yves\Application\Plugin\ServiceProvider\MonologServiceProvider;
-use SprykerEngine\Yves\Application\Plugin\ServiceProvider\YvesLoggingServiceProvider;
+use SprykerEngine\Yves\Application\Application;
+use SprykerEngine\Yves\Application\Plugin\Provider\CookieServiceProvider;
+use SprykerEngine\Yves\Application\Plugin\Provider\MonologServiceProvider;
+use SprykerEngine\Yves\Application\Plugin\Provider\YvesLoggingServiceProvider;
 use SprykerFeature\Client\Lumberjack\Service\EventJournalClient;
 use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use SprykerFeature\Shared\NewRelic\Api;
-use Symfony\Component\Routing\RouterInterface;
 
 class YvesBootstrap
 {
 
     /**
-     * @var YvesApplication
+     * @var Application
      */
     protected $application;
 
     public function __construct()
     {
-        $this->application = new YvesApplication();
+        $this->application = new Application();
     }
 
     /**
@@ -72,7 +68,7 @@ class YvesBootstrap
     }
 
     /**
-     * @return ServiceProviderInterface[]
+     * @return void
      */
     protected function registerServiceProviders()
     {
@@ -104,7 +100,7 @@ class YvesBootstrap
     }
 
     /**
-     * @return RouterInterface[]
+     * @return void
      */
     protected function registerRouters()
     {
@@ -114,7 +110,7 @@ class YvesBootstrap
     }
 
     /**
-     * @return ControllerProviderInterface[]
+     * @return void
      */
     protected function registerControllerProviders()
     {
