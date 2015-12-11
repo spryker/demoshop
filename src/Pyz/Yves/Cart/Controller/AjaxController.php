@@ -58,7 +58,9 @@ class AjaxController extends AbstractController
 
         $cartClient->addItem($itemTransfer);
 
-        return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART_OVERLAY);
+        return $this->jsonResponse([
+            'success' => true,
+        ]);
     }
 
     /**
