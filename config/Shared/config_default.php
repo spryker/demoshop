@@ -1,103 +1,103 @@
 <?php
 
-use Pyz\Shared\Mail\MailConfig;
-use SprykerFeature\Shared\Acl\AclConfig;
-use SprykerFeature\Shared\Application\ApplicationConfig;
-use SprykerFeature\Shared\Auth\AuthConfig;
-use SprykerFeature\Shared\Customer\CustomerConfig;
-use SprykerFeature\Shared\User\UserConfig;
-use SprykerEngine\Shared\Lumberjack\LumberjackConfig;
-use SprykerFeature\Shared\NewRelic\NewRelicConfig;
-use SprykerFeature\Shared\Session\SessionConfig;
+use Pyz\Shared\Mail\MailConstants;
+use SprykerFeature\Shared\Acl\AclConstants;
+use SprykerFeature\Shared\Application\ApplicationConstants;
+use SprykerFeature\Shared\Auth\AuthConstants;
+use SprykerFeature\Shared\Customer\CustomerConstants;
+use SprykerFeature\Shared\User\UserConstants;
+use SprykerEngine\Shared\Lumberjack\LumberjackConstants;
+use SprykerFeature\Shared\NewRelic\NewRelicConstants;
+use SprykerFeature\Shared\Session\SessionConstants;
 use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumberConfig;
 use SprykerFeature\Shared\Log\Config\DefaultLoggerConfig;
-use SprykerFeature\Shared\Payolution\PayolutionConfigConstants;
+use SprykerFeature\Shared\Payolution\PayolutionConstants;
 
-$config[ApplicationConfig::PROJECT_NAMESPACES] = [
+$config[ApplicationConstants::PROJECT_NAMESPACES] = [
     'Pyz',
 ];
-$config[ApplicationConfig::CORE_NAMESPACES] = [
+$config[ApplicationConstants::CORE_NAMESPACES] = [
     'SprykerFeature',
     'SprykerEngine',
 ];
 
-$config[ApplicationConfig::PROJECT_TIMEZONE] = 'UTC';
-$config[ApplicationConfig::PROJECT_NAMESPACE] = 'Pyz';
+$config[ApplicationConstants::PROJECT_TIMEZONE] = 'UTC';
+$config[ApplicationConstants::PROJECT_NAMESPACE] = 'Pyz';
 
-$config[ApplicationConfig::ZED_TWIG_OPTIONS] = [
+$config[ApplicationConstants::ZED_TWIG_OPTIONS] = [
     'cache' => \SprykerFeature\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Zed/twig'),
 ];
 
-$config[ApplicationConfig::YVES_TWIG_OPTIONS] = [
+$config[ApplicationConstants::YVES_TWIG_OPTIONS] = [
     'cache' => \SprykerFeature\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Yves/twig'),
 ];
 
-$config[ApplicationConfig::ZED_DB_ENGINE] = 'mysql';
+$config[ApplicationConstants::ZED_DB_ENGINE] = 'mysql';
 
-$config[ApplicationConfig::STORAGE_KV_SOURCE] = 'redis';
+$config[ApplicationConstants::STORAGE_KV_SOURCE] = 'redis';
 
-$config[ApplicationConfig::ELASTICA_PARAMETER__HOST] = 'localhost';
-$config[ApplicationConfig::ELASTICA_PARAMETER__TRANSPORT] = 'http';
-$config[ApplicationConfig::ELASTICA_PARAMETER__PORT] = '10005';
-$config[ApplicationConfig::ELASTICA_PARAMETER__INDEX_NAME] = 'page';
+$config[ApplicationConstants::ELASTICA_PARAMETER__HOST] = 'localhost';
+$config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT] = 'http';
+$config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = '10005';
+$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'page';
 
-$config[ApplicationConfig::HOST_YVES]
-    = $config[ApplicationConfig::HOST_STATIC_ASSETS]
-    = $config[ApplicationConfig::HOST_STATIC_MEDIA]
-    = $config[ApplicationConfig::HOST_SSL_YVES]
-    = $config[ApplicationConfig::HOST_SSL_STATIC_ASSETS]
-    = $config[ApplicationConfig::HOST_SSL_STATIC_MEDIA]
+$config[ApplicationConstants::HOST_YVES]
+    = $config[ApplicationConstants::HOST_STATIC_ASSETS]
+    = $config[ApplicationConstants::HOST_STATIC_MEDIA]
+    = $config[ApplicationConstants::HOST_SSL_YVES]
+    = $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS]
+    = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA]
     = 'www.spryker.dev';
 
-$config[ApplicationConfig::HOST_ZED_GUI]
-    = $config[ApplicationConfig::HOST_ZED_API]
-    = $config[ApplicationConfig::HOST_SSL_ZED_GUI]
-    = $config[ApplicationConfig::HOST_SSL_ZED_API]
+$config[ApplicationConstants::HOST_ZED_GUI]
+    = $config[ApplicationConstants::HOST_ZED_API]
+    = $config[ApplicationConstants::HOST_SSL_ZED_GUI]
+    = $config[ApplicationConstants::HOST_SSL_ZED_API]
     = 'zed.spryker.dev';
 
-$config[ApplicationConfig::LOG_LEVEL] = Monolog\Logger::INFO;
+$config[ApplicationConstants::LOG_LEVEL] = Monolog\Logger::INFO;
 
-$config[ApplicationConfig::TRANSFER_USERNAME] = 'yves';
-$config[ApplicationConfig::TRANSFER_PASSWORD] = 'o7&bg=Fz;nSslHBC';
-$config[ApplicationConfig::TRANSFER_SSL] = false;
-$config[ApplicationConfig::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = false;
-$config[ApplicationConfig::TRANSFER_DEBUG_SESSION_NAME] = 'XDEBUG_SESSION';
+$config[ApplicationConstants::TRANSFER_USERNAME] = 'yves';
+$config[ApplicationConstants::TRANSFER_PASSWORD] = 'o7&bg=Fz;nSslHBC';
+$config[ApplicationConstants::TRANSFER_SSL] = false;
+$config[ApplicationConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = false;
+$config[ApplicationConstants::TRANSFER_DEBUG_SESSION_NAME] = 'XDEBUG_SESSION';
 
-//$config[ApplicationConfig::ZED_LIBRARY_PASSWORD_ALGORITHM] = PASSWORD_BCRYPT;
-//$config[ApplicationConfig::ZED_LIBRARY_PASSWORD_OPTIONS] = [];
+//$config[ApplicationConstants::ZED_LIBRARY_PASSWORD_ALGORITHM] = PASSWORD_BCRYPT;
+//$config[ApplicationConstants::ZED_LIBRARY_PASSWORD_OPTIONS] = [];
 
-$config[ApplicationConfig::YVES_STORAGE_SESSION_TIME_TO_LIVE] = SessionConfig::SESSION_LIFETIME_1_HOUR;
-$config[ApplicationConfig::YVES_STORAGE_SESSION_FILE_PATH] = session_save_path();
+$config[ApplicationConstants::YVES_STORAGE_SESSION_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_1_HOUR;
+$config[ApplicationConstants::YVES_STORAGE_SESSION_FILE_PATH] = session_save_path();
 
-$config[ApplicationConfig::ZED_STORAGE_SESSION_TIME_TO_LIVE] = SessionConfig::SESSION_LIFETIME_30_DAYS;
-$config[ApplicationConfig::ZED_STORAGE_SESSION_COOKIE_NAME] = 'zed_session';
-$config[ApplicationConfig::ZED_STORAGE_SESSION_FILE_PATH] = session_save_path();
-$config[ApplicationConfig::ZED_SESSION_SAVE_HANDLER] = null;
+$config[ApplicationConstants::ZED_STORAGE_SESSION_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_30_DAYS;
+$config[ApplicationConstants::ZED_STORAGE_SESSION_COOKIE_NAME] = 'zed_session';
+$config[ApplicationConstants::ZED_STORAGE_SESSION_FILE_PATH] = session_save_path();
+$config[ApplicationConstants::ZED_SESSION_SAVE_HANDLER] = null;
 
-$config[ApplicationConfig::ZED_SSL_ENABLED] = false;
-$config[ApplicationConfig::ZED_API_SSL_ENABLED] = false;
-$config[ApplicationConfig::ZED_SSL_EXCLUDED] = ['system/heartbeat'];
+$config[ApplicationConstants::ZED_SSL_ENABLED] = false;
+$config[ApplicationConstants::ZED_API_SSL_ENABLED] = false;
+$config[ApplicationConstants::ZED_SSL_EXCLUDED] = ['system/heartbeat'];
 
-$config[ApplicationConfig::YVES_THEME] = 'demoshop';
-$config[ApplicationConfig::YVES_TRUSTED_PROXIES] = [];
-$config[ApplicationConfig::YVES_SSL_ENABLED] = false;
-$config[ApplicationConfig::YVES_COMPLETE_SSL_ENABLED] = false;
-$config[ApplicationConfig::YVES_SSL_EXCLUDED] = ['/monitoring/heartbeat'];
+$config[ApplicationConstants::YVES_THEME] = 'demoshop';
+$config[ApplicationConstants::YVES_TRUSTED_PROXIES] = [];
+$config[ApplicationConstants::YVES_SSL_ENABLED] = false;
+$config[ApplicationConstants::YVES_COMPLETE_SSL_ENABLED] = false;
+$config[ApplicationConstants::YVES_SSL_EXCLUDED] = ['/monitoring/heartbeat'];
 
-$config[ApplicationConfig::YVES_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_REDIS;
-$config[ApplicationConfig::YVES_SESSION_NAME] = 'yves_session';
-$config[ApplicationConfig::YVES_SESSION_COOKIE_DOMAIN] = $config[ApplicationConfig::HOST_YVES];
+$config[ApplicationConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
+$config[ApplicationConstants::YVES_SESSION_NAME] = 'yves_session';
+$config[ApplicationConstants::YVES_SESSION_COOKIE_DOMAIN] = $config[ApplicationConstants::HOST_YVES];
 
-$config[ApplicationConfig::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
-$config[ApplicationConfig::YVES_SHOW_EXCEPTION_STACK_TRACE] = true;
-$config[ApplicationConfig::ZED_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
-$config[ApplicationConfig::ZED_SHOW_EXCEPTION_STACK_TRACE] = true;
+$config[ApplicationConstants::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
+$config[ApplicationConstants::YVES_SHOW_EXCEPTION_STACK_TRACE] = true;
+$config[ApplicationConstants::ZED_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
+$config[ApplicationConstants::ZED_SHOW_EXCEPTION_STACK_TRACE] = true;
 
-$config[CustomerConfig::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^/customer)';
-$config[CustomerConfig::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
+$config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^/customer)';
+$config[CustomerConstants::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
 
 $currentStore = \SprykerEngine\Shared\Kernel\Store::getInstance()->getStoreName();
-$config[ApplicationConfig::PROPEL] = [
+$config[ApplicationConstants::PROPEL] = [
     'database' => [
         'connections' => [
             'default' => [
@@ -137,18 +137,18 @@ $config[ApplicationConfig::PROPEL] = [
     ],
 ];
 
-$config[ApplicationConfig::CLOUD_ENABLED] = false;
-$config[ApplicationConfig::CLOUD_OBJECT_STORAGE_ENABLED] = false;
+$config[ApplicationConstants::CLOUD_ENABLED] = false;
+$config[ApplicationConstants::CLOUD_OBJECT_STORAGE_ENABLED] = false;
 
-$config[ApplicationConfig::CLOUD_CDN_ENABLED] = false;
+$config[ApplicationConstants::CLOUD_CDN_ENABLED] = false;
 
-$config[ApplicationConfig::CLOUD_CDN_STATIC_MEDIA_PREFIX] = 'media';
-$config[ApplicationConfig::CLOUD_CDN_STATIC_MEDIA_HTTP] = '';
-$config[ApplicationConfig::CLOUD_CDN_STATIC_MEDIA_HTTPS] = '';
+$config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_PREFIX] = 'media';
+$config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTP] = '';
+$config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = '';
 
-$config[ApplicationConfig::CLOUD_CDN_PRODUCT_IMAGES_PATH_NAME] = '/images/products/';
+$config[ApplicationConstants::CLOUD_CDN_PRODUCT_IMAGES_PATH_NAME] = '/images/products/';
 
-$config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
+$config[MailConstants::MAIL_PROVIDER_MANDRILL] = [
     'api-key' => '5hGEFy0SpJXIft1GSULiVw',
     'host' => 'smtp.mandrillapp.com',
     'port' => '587',
@@ -157,23 +157,23 @@ $config[MailConfig::MAIL_PROVIDER_MANDRILL] = [
     'from_name' => 'Demoshop',
 ];
 
-$config[CustomerConfig::SHOP_MAIL_FROM_EMAIL_NAME] = '';
-$config[CustomerConfig::SHOP_MAIL_FROM_EMAIL_ADDRESS] = 'service@demoshop.de';
+$config[CustomerConstants::SHOP_MAIL_FROM_EMAIL_NAME] = '';
+$config[CustomerConstants::SHOP_MAIL_FROM_EMAIL_ADDRESS] = 'service@demoshop.de';
 
-$config[CustomerConfig::SHOP_MAIL_REGISTRATION_TOKEN] = 'registration.token';
-$config[CustomerConfig::SHOP_MAIL_REGISTRATION_SUBJECT] = 'registration.mail.subject';
+$config[CustomerConstants::SHOP_MAIL_REGISTRATION_TOKEN] = 'registration.token';
+$config[CustomerConstants::SHOP_MAIL_REGISTRATION_SUBJECT] = 'registration.mail.subject';
 
-$config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORE_TOKEN] = 'password.restore';
-$config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORE_SUBJECT] = 'password.restore.mail.subject';
+$config[CustomerConstants::SHOP_MAIL_PASSWORD_RESTORE_TOKEN] = 'password.restore';
+$config[CustomerConstants::SHOP_MAIL_PASSWORD_RESTORE_SUBJECT] = 'password.restore.mail.subject';
 
-$config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_TOKEN] = 'password.change.confirmation';
-$config[CustomerConfig::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_SUBJECT] = 'password.change.confirmation.mail.subject';
+$config[CustomerConstants::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_TOKEN] = 'password.change.confirmation';
+$config[CustomerConstants::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_SUBJECT] = 'password.change.confirmation.mail.subject';
 
-$config[UserConfig::USER_SYSTEM_USERS] = [
+$config[UserConstants::USER_SYSTEM_USERS] = [
     'yves_system',
 ];
 
-$config[AuthConfig::AUTH_DEFAULT_CREDENTIALS] = [
+$config[AuthConstants::AUTH_DEFAULT_CREDENTIALS] = [
     'yves_system' => [
         'rules' => [
             [
@@ -186,7 +186,7 @@ $config[AuthConfig::AUTH_DEFAULT_CREDENTIALS] = [
     ],
 ];
 
-$config[AclConfig::ACL_DEFAULT_RULES] = [
+$config[AclConstants::ACL_DEFAULT_RULES] = [
     [
         'bundle' => 'auth',
         'controller' => 'login',
@@ -225,7 +225,7 @@ $config[AclConfig::ACL_DEFAULT_RULES] = [
     ],
 ];
 
-$config[AclConfig::ACL_USER_RULE_WHITELIST] = [
+$config[AclConstants::ACL_USER_RULE_WHITELIST] = [
     [
         'bundle' => 'application',
         'controller' => '*',
@@ -246,7 +246,7 @@ $config[AclConfig::ACL_USER_RULE_WHITELIST] = [
     ],
 ];
 
-$config[AclConfig::ACL_DEFAULT_CREDENTIALS] = [
+$config[AclConstants::ACL_DEFAULT_CREDENTIALS] = [
     'yves_system' => [
         'rules' => [
             [
@@ -259,66 +259,66 @@ $config[AclConfig::ACL_DEFAULT_CREDENTIALS] = [
     ],
 ];
 
-$config[ApplicationConfig::NAVIGATION_CACHE_ENABLED] = true;
+$config[ApplicationConstants::NAVIGATION_CACHE_ENABLED] = true;
 
-$config[LumberjackConfig::COLLECTORS]['YVES'] = [
+$config[LumberjackConstants::COLLECTORS]['YVES'] = [
     '\SprykerEngine\Shared\Lumberjack\Model\Collector\ServerDataCollector',
     '\SprykerEngine\Shared\Lumberjack\Model\Collector\RequestDataCollector',
     '\SprykerEngine\Shared\Lumberjack\Model\Collector\EnvironmentDataCollector',
     '\SprykerFeature\Client\Lumberjack\Service\YvesDataCollector',
 ];
-$config[LumberjackConfig::WRITERS]['YVES'] = [
+$config[LumberjackConstants::WRITERS]['YVES'] = [
     '\SprykerEngine\Shared\Lumberjack\Model\Writer\File',
 ];
 
-$config[LumberjackConfig::COLLECTORS]['ZED'] = [
+$config[LumberjackConstants::COLLECTORS]['ZED'] = [
     '\SprykerEngine\Shared\Lumberjack\Model\Collector\ServerDataCollector',
     '\SprykerEngine\Shared\Lumberjack\Model\Collector\RequestDataCollector',
     '\SprykerEngine\Shared\Lumberjack\Model\Collector\EnvironmentDataCollector',
 ];
-$config[LumberjackConfig::WRITERS]['ZED'] = [
+$config[LumberjackConstants::WRITERS]['ZED'] = [
     '\SprykerEngine\Shared\Lumberjack\Model\Writer\File',
 ];
 
-$config[LumberjackConfig::COLLECTOR_OPTIONS] = [
+$config[LumberjackConstants::COLLECTOR_OPTIONS] = [
     '\SprykerEngine\Shared\Lumberjack\Model\Collector\RequestDataCollector' => [
         'param_blacklist' => ['cc', 'password'],
         'filtered_content' => '***FILTERED***',
     ],
 ];
 
-$config[ApplicationConfig::PROPEL_DEBUG] = false;
-$config[ApplicationConfig::SHOW_SYMFONY_TOOLBAR] = false;
+$config[ApplicationConstants::PROPEL_DEBUG] = false;
+$config[ApplicationConstants::SHOW_SYMFONY_TOOLBAR] = false;
 $config[SequenceNumberConfig::ENVIRONMENT_PREFIX] = '';
 
-$config[LumberjackConfig::WRITER_OPTIONS] = [
+$config[LumberjackConstants::WRITER_OPTIONS] = [
     '\SprykerEngine\Shared\Lumberjack\Model\Writer\File' => ['log_path' => '/data/logs/development/DE/'],
 ];
 
-$config[PayolutionConfigConstants::TRANSACTION_GATEWAY_URL] = 'https://test.ctpe.net/frontend/payment.prc';
-$config[PayolutionConfigConstants::CALCULATION_GATEWAY_URL] = 'https://test-payment.payolution.com/payolution-payment/rest/request/v2';
+$config[PayolutionConstants::TRANSACTION_GATEWAY_URL] = 'https://test.ctpe.net/frontend/payment.prc';
+$config[PayolutionConstants::CALCULATION_GATEWAY_URL] = 'https://test-payment.payolution.com/payolution-payment/rest/request/v2';
 
-$config[PayolutionConfigConstants::TRANSACTION_SECURITY_SENDER] = '8a82941850cd6ba60150cdba275b0201';
-$config[PayolutionConfigConstants::TRANSACTION_USER_LOGIN] = '8a82941850cd6ba60150cdba275c0205';
-$config[PayolutionConfigConstants::TRANSACTION_USER_PASSWORD] = 'EANPb8wg';
-$config[PayolutionConfigConstants::CALCULATION_SENDER] = 'SPY';
-$config[PayolutionConfigConstants::CALCULATION_USER_LOGIN] = 'spryker-installment';
-$config[PayolutionConfigConstants::CALCULATION_USER_PASSWORD] = '0mQzn5iqhr3idfZZjvsEPOrlDvT97Tg3M5d';
+$config[PayolutionConstants::TRANSACTION_SECURITY_SENDER] = '8a82941850cd6ba60150cdba275b0201';
+$config[PayolutionConstants::TRANSACTION_USER_LOGIN] = '8a82941850cd6ba60150cdba275c0205';
+$config[PayolutionConstants::TRANSACTION_USER_PASSWORD] = 'EANPb8wg';
+$config[PayolutionConstants::CALCULATION_SENDER] = 'SPY';
+$config[PayolutionConstants::CALCULATION_USER_LOGIN] = 'spryker-installment';
+$config[PayolutionConstants::CALCULATION_USER_PASSWORD] = '0mQzn5iqhr3idfZZjvsEPOrlDvT97Tg3M5d';
 
-$config[PayolutionConfigConstants::TRANSACTION_MODE] = 'CONNECTOR_TEST';
-$config[PayolutionConfigConstants::CALCULATION_MODE] = 'TEST';
+$config[PayolutionConstants::TRANSACTION_MODE] = 'CONNECTOR_TEST';
+$config[PayolutionConstants::CALCULATION_MODE] = 'TEST';
 
-$config[PayolutionConfigConstants::TRANSACTION_CHANNEL_PRE_CHECK] = '8a82941850cd6ba60150cdc25e54028f';
-$config[PayolutionConfigConstants::TRANSACTION_CHANNEL_INVOICE] = '8a82941850cd6ba60150cdbf9af40280';
-$config[PayolutionConfigConstants::TRANSACTION_CHANNEL_INSTALLMENT] = '8a82941850cd6ba60150cdbf9af40280';
-$config[PayolutionConfigConstants::CALCULATION_CHANNEL] = 'spryker-installment';
+$config[PayolutionConstants::TRANSACTION_CHANNEL_PRE_CHECK] = '8a82941850cd6ba60150cdc25e54028f';
+$config[PayolutionConstants::TRANSACTION_CHANNEL_INVOICE] = '8a82941850cd6ba60150cdbf9af40280';
+$config[PayolutionConstants::TRANSACTION_CHANNEL_INSTALLMENT] = '8a82941850cd6ba60150cdbf9af40280';
+$config[PayolutionConstants::CALCULATION_CHANNEL] = 'spryker-installment';
 
-$config[PayolutionConfigConstants::MIN_ORDER_GRAND_TOTAL_INVOICE] = '500';
-$config[PayolutionConfigConstants::MAX_ORDER_GRAND_TOTAL_INVOICE] = '500000';
-$config[PayolutionConfigConstants::MIN_ORDER_GRAND_TOTAL_INSTALLMENT] = '500';
-$config[PayolutionConfigConstants::MAX_ORDER_GRAND_TOTAL_INSTALLMENT] = '500000';
+$config[PayolutionConstants::MIN_ORDER_GRAND_TOTAL_INVOICE] = '500';
+$config[PayolutionConstants::MAX_ORDER_GRAND_TOTAL_INVOICE] = '500000';
+$config[PayolutionConstants::MIN_ORDER_GRAND_TOTAL_INSTALLMENT] = '500';
+$config[PayolutionConstants::MAX_ORDER_GRAND_TOTAL_INSTALLMENT] = '500000';
 
-$config[NewRelicConfig::NEWRELIC_API_KEY] = null;
+$config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 
 $config[DefaultLoggerConfig::DEFAULT_LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application.log';
 $config[DefaultLoggerConfig::DEFAULT_LOG_LEVEL] = Monolog\Logger::ERROR;

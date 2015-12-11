@@ -10,7 +10,7 @@ use SprykerEngine\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver
 use SprykerEngine\Yves\Kernel\ControllerLocator;
 use SprykerEngine\Yves\Kernel\Locator;
 use SprykerFeature\Shared\Application\Communication\ControllerServiceBuilder;
-use SprykerFeature\Shared\Category\CategoryConfig;
+use SprykerFeature\Shared\Category\CategoryConstants;
 
 class CatalogResourceCreator implements ResourceCreatorInterface
 {
@@ -33,7 +33,7 @@ class CatalogResourceCreator implements ResourceCreatorInterface
      */
     public function getType()
     {
-        return CategoryConfig::RESOURCE_TYPE_CATEGORY_NODE;
+        return CategoryConstants::RESOURCE_TYPE_CATEGORY_NODE;
     }
 
     /**

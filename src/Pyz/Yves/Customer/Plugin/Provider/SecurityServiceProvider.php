@@ -10,7 +10,7 @@ use Silex\Application;
 use Silex\ServiceProviderInterface;
 use SprykerEngine\Shared\Config;
 use SprykerEngine\Yves\Kernel\AbstractPlugin;
-use SprykerFeature\Shared\Customer\CustomerConfig;
+use SprykerFeature\Shared\Customer\CustomerConstants;
 use Pyz\Yves\Customer\Plugin\UserProvider;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -82,11 +82,11 @@ class SecurityServiceProvider extends AbstractPlugin implements
                 'IS_AUTHENTICATED_ANONYMOUSLY',
             ],
             [
-                Config::get(CustomerConfig::CUSTOMER_SECURED_PATTERN),
+                Config::get(CustomerConstants::CUSTOMER_SECURED_PATTERN),
                 'ROLE_USER',
             ],
             [
-                Config::get(CustomerConfig::CUSTOMER_ANONYMOUS_PATTERN),
+                Config::get(CustomerConstants::CUSTOMER_ANONYMOUS_PATTERN),
                 'IS_AUTHENTICATED_ANONYMOUSLY',
             ],
         ];

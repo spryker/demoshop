@@ -7,7 +7,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
-use SprykerFeature\Shared\Category\CategoryConfig;
+use SprykerFeature\Shared\Category\CategoryConstants;
 use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryAttributeTableMap;
@@ -173,7 +173,7 @@ class CategoryNodeCollector extends AbstractPropelCollectorPlugin
      */
     protected function getResourceType()
     {
-        return CategoryConfig::RESOURCE_TYPE_CATEGORY_NODE;
+        return CategoryConstants::RESOURCE_TYPE_CATEGORY_NODE;
     }
 
     /**

@@ -8,7 +8,7 @@ namespace Pyz\Yves\Application\Business\Model;
 
 use SprykerEngine\Shared\Config;
 use SprykerFeature\Shared\Session\Business\Model\SessionFactory as SharedSessionFactory;
-use SprykerFeature\Shared\Application\ApplicationConfig;
+use SprykerFeature\Shared\Application\ApplicationConstants;
 
 class SessionFactory extends SharedSessionFactory
 {
@@ -18,7 +18,7 @@ class SessionFactory extends SharedSessionFactory
      */
     protected function getSessionLifetime()
     {
-        $lifetime = (int) Config::get(ApplicationConfig::YVES_STORAGE_SESSION_TIME_TO_LIVE);
+        $lifetime = (int) Config::get(ApplicationConstants::YVES_STORAGE_SESSION_TIME_TO_LIVE);
 
         return $lifetime;
     }
