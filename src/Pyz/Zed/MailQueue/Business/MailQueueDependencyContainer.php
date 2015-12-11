@@ -30,7 +30,7 @@ class MailQueueDependencyContainer extends AbstractBusinessDependencyContainer
      */
     public function createMailFacade()
     {
-        return $this->getProvidedDependency(MailQueueDependencyProvider::MAIL_FACADE);
+        return $this->getProvidedDependency(MailQueueDependencyProvider::FACADE_MAIL);
     }
 
     /**
@@ -40,7 +40,7 @@ class MailQueueDependencyContainer extends AbstractBusinessDependencyContainer
      */
     public function createQueueFacade()
     {
-        return $this->getProvidedDependency(MailQueueDependencyProvider::QUEUE_FACADE);
+        return $this->getProvidedDependency(MailQueueDependencyProvider::FACADE_QUEUE);
     }
 
     /**
@@ -50,7 +50,7 @@ class MailQueueDependencyContainer extends AbstractBusinessDependencyContainer
      */
     public function createMailQueueFacade()
     {
-        return $this->getProvidedDependency(MailQueueDependencyProvider::MAIL_QUEUE_FACADE);
+        return $this->getProvidedDependency(MailQueueDependencyProvider::FACADE_MAIL_QUEUE);
     }
 
     /**
