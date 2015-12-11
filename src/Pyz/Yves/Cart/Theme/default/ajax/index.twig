@@ -1,28 +1,42 @@
 {% if cart.items | length > 0 %}
     {% spaceless %}
-        <div class="cart__labels">
-            <div class="cart__label--name">{{ 'cart.your-order' | trans }}</div>
-            <div class="cart__label--price">{{ 'cart.price' | trans }}</div>
+
+        <div class="row">
+            <div class="col-md-6">{{ 'cart.your-order' | trans }}</div>
+            <div class="col-md-6 text-right">{{ 'cart.price' | trans }}</div>
         </div>
-        <div class="cart__items js-cart-items">
+
+        {#<div class="cart__labels">#}
+            {#<div class="cart__label--name">{{ 'cart.your-order' | trans }}</div>#}
+            {#<div class="cart__label--price">{{ 'cart.price' | trans }}</div>#}
+        {#</div>#}
+        <div class="header-cart-items">
             {% for item in cart.items %}
-                <div class="cart-item" data-sku="{{ item.sku }}" data-group-key="{{ item.groupKey }}">
-                    {% if item.thumbnail is defined and item.thumbnail is not empty %}
-                        <img class="cart__item-image" src="{{ item.thumbnail }}">
-                    {% endif %}
-                    <div class="cart__item-quantity">{{ item.quantity }}</div>
-                    <div class="cart__item-name">{{ item.name }}</div>
-                    <div class="cart__item-quantity--spinner">
-                        <div class="spinner light">
-                            <input type="button" value="-"class="spinner__decrement cart-decrement">
-                            <input type="number" value="{{ item.quantity }}" min="1" class="spinner__number cart-quantity">
-                            <input type="hidden" name="groupKey" value="{{ item.groupKey }}"  />
-                            <input type="button" value="+" class="spinner__increment cart-increment">
-                            <input type="button" value="x" class="spinner__increment cart-remove">
-                        </div>
+                <div class="col-md-6 cart-item" data-sku="{{ item.sku }}" data-group-key="{{ item.groupKey }}">
+                    <div class="pull-left item-name">{{ item.name }}</div>
+                    <div class="pull-left quantity-container">
+                        <div class="quantity-modifier left"><a class="quantity-minus" href="#"><i class="fa fa-minus"></i></a></div>
+                        <div class="quantity-input" id="product-quantity">{{ item.quantity }}</div>
+                        <div class="quantity-modifier right"><a class="quantity-plus" href="#"><i class="fa fa-plus"></i></a></div>
                     </div>
-                    <div class="cart__item-price">{{ item.totalPrice | price }}</div>
+
+                    {#
+                    {% if item.thumbnail is defined and item.thumbnail is not empty %}
+                        <img class="cart-item-image" src="{{ item.thumbnail }}">
+                    {% endif %}
+                    <div class="float-left cart-item-quantity">{{ item.quantity }}</div>
+                    <div class="float-left cart-item-name">{{ item.name }}</div>
+                    <div class="float-left">
+                        <input type="button" value="-"class="spinner__decrement cart-decrement float-left">
+                        <input type="number" value="{{ item.quantity }}" min="1" class="cart-spinner-number float-left">
+                        <input type="hidden" name="groupKey" value="{{ item.groupKey }}" class="float-left" />
+                        <input type="button" value="+" class="spinner__increment cart-increment float-left">
+                        <input type="button" value="x" class="spinner__increment cart-remove float-left">
+                    </div>
+                    #}
+
                 </div>
+                <div class="col-md-6 text-right">{{ item.totalPrice | price }}</div>
             {% endfor %}
         </div>
         {% if cart.totals %}

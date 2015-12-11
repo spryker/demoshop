@@ -24,65 +24,15 @@
                     </div>
                     <div class="quantity-modifier right"><a href="#" class="quantity-plus"><i class="fa fa-plus"></i></a></div>
                 </div>
-                {#
-                <div class="input-group">
-                    <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-minus"></i></span>
-                    <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-plus"></i></span>
-                </div>
-                #}
             </div>
             <div class="clearfix"></div>
 
-            {#{% include "@application/layout/partials/spinner.twig" with {#}
-                {#class: "product__quantity",#}
-                {#style: "caplet",#}
-                {#name: "quantity",#}
-                {#value: "1"#}
-            {#} %}#}
-            <button class="btn btn-orange btn-add-to-cart btn-lg cta" data-sku="{{ product.abstractSku }}">{{ "page.detail.add-to-cart" | trans }}</button>
+            <button class="btn btn-orange btn-add-to-cart btn-lg cta" data-action="addToCart" data-sku="{{ product.abstractSku }}">{{ "page.detail.add-to-cart" | trans }}</button>
 
         </div>
         <div class="col-md-6">
 
             <img src="{{ product.image_url }}" class="product-main-image" alt="" />
-
-            {#
-            <pre>
-            {{ dump(product) }}
-            </pre>
-
-            <div data-example-id="homepage-carousel">
-                <div data-ride="carousel" class="carousel slide" id="carousel-generic">
-                    <ol class="carousel-indicators">
-                        <li data-slide-to="0" data-target="#carousel-example-generic" class="active"></li>
-                        <li data-slide-to="1" data-target="#carousel-example-generic"></li>
-                    </ol>
-                    <div role="listbox" class="carousel-inner">
-                        <div class="item active">
-                            {% include "@application/index/partials/homepage-thumbnail.twig" with {
-                            img: "page.home.featured.top-right.first.img"| trans,
-                            url: "page.home.featured.top-right.first.url" | trans
-                            } %}
-                        </div>
-                        <div class="item">
-                            {% include "@application/index/partials/homepage-thumbnail.twig" with {
-                            img: "page.home.featured.top-right.second.img"| trans,
-                            url: "page.home.featured.top-right.second.url" | trans
-                            } %}
-                        </div>
-                    </div>
-                    <a data-slide="prev" role="button" href="#carousel-generic"
-                       class="left carousel-control">
-                        <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
-                        <span class="sr-only">{{ 'homepage.carousel.previous' }}</span>
-                    </a>
-                    <a data-slide="next" role="button" href="#carousel-generic" class="right carousel-control">
-                        <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
-                        <span class="sr-only">{{ 'homepage.carousel.next' }}</span>
-                    </a>
-                </div>
-            </div>
-            #}
 
             <div class="background-dark product-padding-details">
                 <section class="product-description">
@@ -111,48 +61,5 @@
 
         </div>
     </article>
-
-    {#
-    <article class="product product--justice-league">
-        <section class="product__overview">
-            {% if category is not null %}
-            <h2 class="product__category">{{ category.name }}</h2>
-            {% endif %}
-
-            <h1 class="product__name">{{ product.abstract_name }}</h1>
-
-            <p>{{ product.description }}</p>
-
-            <p class="product__price">{{ product.price | price }}</p>
-
-            {% include "@application/layout/partials/spinner.twig" with { class: "product__quantity", style: "caplet", name: "quantity", value: "1" } %}
-            <button class="product__add-button cta" data-sku="{{ product.abstractSku }}">{{ "page.detail.add-to-cart" | trans }}</button> <br />
-        </section>
-        <section class="product__main-image">
-            <img src="{{ product.image_url }}" alt="" style="width: 100%;"/>
-        </section>
-        <section class="product__details">
-            <p>{{ product.fun_fact }}</p>
-
-            <p>{{ product.description_long }}</p>
-            <dl class="product__specifications">
-                <dt>{{ "page.detail.dimensions" | trans }}</dt>
-                <dd>{{ product.width }}x{{ product.height }}x{{ product.depth }} cm</dd>
-                {% if product.material is not null %}
-                <dt>{{ "page.detail.material" | trans }}</dt>
-                <dd>{{ product.material }}</dd>
-                {% endif %}
-            </dl>
-        </section>
-        <section class="product__gallery">
-            {% for image in product.images_detail %}
-                <img src="{{ image }}" alt="">
-            {% endfor %}
-        </section>
-        <section class="product__warnings">
-            <p class="warning__under-3">{{ "page.detail.small-parts-warning" | trans }}</p>
-        </section>
-    </article>
-    #}
 
 {% endblock %}
