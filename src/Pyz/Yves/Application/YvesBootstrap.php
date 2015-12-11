@@ -39,7 +39,6 @@ use SprykerFeature\Shared\Application\ApplicationConfig;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use SprykerFeature\Shared\NewRelic\Api;
-use Symfony\Component\Routing\RouterInterface;
 
 class YvesBootstrap
 {
