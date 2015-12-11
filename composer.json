@@ -46,7 +46,12 @@
     "zendframework/zend-servicemanager": "~2.3.0",
     "zendframework/zend-eventmanager": "2.3.9",
 
-    "nesbot/carbon": "1.13.0"
+    "nesbot/carbon": "1.13.0",
+
+    "everon/collection": "@dev",
+    "everon/criteria-builder": "@dev",
+    "everon/factory": "@dev",
+    "everon/utils": "@dev"
   },
   "require-dev": {
     "silex/web-profiler": "~1.0.2",
