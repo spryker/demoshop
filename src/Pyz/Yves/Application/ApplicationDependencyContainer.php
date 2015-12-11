@@ -7,6 +7,7 @@ use SprykerEngine\Yves\Application\Application;
 use SprykerEngine\Yves\Application\ApplicationDependencyContainer as SprykerApplicationDependencyContainer;
 use SprykerEngine\Yves\Application\Plugin\Provider\ExceptionService\ExceptionHandlerInterface;
 use SprykerEngine\Yves\Application\Plugin\Provider\ExceptionService\SubRequestExceptionHandler;
+use SprykerFeature\Client\Session\Service\SessionClientInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 class ApplicationDependencyContainer extends SprykerApplicationDependencyContainer
@@ -44,6 +45,14 @@ class ApplicationDependencyContainer extends SprykerApplicationDependencyContain
     protected function createApplication()
     {
         return (new Pimple())->getApplication();
+    }
+
+    /**
+     * @return SessionClientInterface
+     */
+    public function getSessionClient()
+    {
+        return $this->getLocator()->session()->client();
     }
 
 }

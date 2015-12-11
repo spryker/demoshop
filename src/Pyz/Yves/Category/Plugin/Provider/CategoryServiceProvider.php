@@ -4,16 +4,16 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace Pyz\Yves\CategoryExporter\Plugin\Provider;
+namespace Pyz\Yves\Category\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
+use Pyz\Yves\Category\CategoryDependencyContainer;
 use Silex\Application;
-use SprykerFeature\Client\CategoryExporter\Service\CategoryExporterClient;
 
 /**
- * @method CategoryExporterClient getClient()
+ * @method CategoryDependencyContainer getDependencyContainer()
  */
-class CategoryExporterServiceProvider extends AbstractServiceProvider
+class CategoryServiceProvider extends AbstractServiceProvider
 {
 
     /**
@@ -24,7 +24,7 @@ class CategoryExporterServiceProvider extends AbstractServiceProvider
     public function register(Application $app)
     {
         $this->addGlobalTemplateVariable($app, [
-            'categories' => $this->getClient()->getNavigationCategories($app['locale']),
+            'categories' => $this->getDependencyContainer()->getCategoryExporterClient()->getNavigationCategories($app['locale']),
         ]);
     }
 

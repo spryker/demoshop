@@ -1,12 +1,8 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Yves\Twig;
 
-use Pyz\Yves\Assets\Plugin\TwigAsset;
+use Pyz\Yves\Twig\Plugin\TwigAsset;
 use Pyz\Yves\Cms\Plugin\TwigCms;
 use Pyz\Yves\Cms\Plugin\TwigCmsBlock;
 use Pyz\Yves\Customer\Plugin\TwigCustomer;

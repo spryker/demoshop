@@ -1,19 +1,15 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
+namespace Pyz\Yves\Twig\Plugin;
 
-namespace Pyz\Yves\Assets\Plugin;
-
-use Silex\Application;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
+use Pyz\Yves\Twig\TwigDependencyContainer;
+use Silex\Application;
 use SprykerEngine\Yves\Kernel\AbstractPlugin;
-use Pyz\Yves\Assets\AssetsDependencyContainer;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
- * @method AssetsDependencyContainer getDependencyContainer()
+ * @method TwigDependencyContainer getDependencyContainer()
  */
 class TwigAsset extends AbstractPlugin implements TwigFunctionPluginInterface
 {

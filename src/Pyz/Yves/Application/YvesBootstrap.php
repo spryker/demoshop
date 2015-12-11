@@ -6,19 +6,19 @@ use Pyz\Yves\Customer\Plugin\Provider\SecurityServiceProvider as ProviderSecurit
 use Pyz\Yves\Customer\Plugin\UserProvider;
 use Pyz\Yves\Catalog\Plugin\Router\SearchRouter;
 use Pyz\Yves\Collector\Plugin\Router\StorageRouter;
-use Pyz\Yves\CategoryExporter\Plugin\Provider\CategoryExporterServiceProvider;
+use Pyz\Yves\Category\Plugin\Provider\CategoryServiceProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerServiceProvider;
 use Pyz\Yves\Glossary\Plugin\Provider\TranslationServiceProvider;
 use SprykerEngine\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
+use Pyz\Yves\Heartbeat\Plugin\Provider\HeartbeatControllerProvider;
 use Pyz\Yves\Application\Plugin\Provider\YvesSecurityServiceProvider;
-use Pyz\Yves\Session\Plugin\Provider\SessionServiceProvider as ProviderSessionServiceProvider;
+use Pyz\Yves\Application\Plugin\Provider\SessionServiceProvider as ProviderSessionServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
 use Pyz\Shared\Application\Business\Routing\SilexRouter;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
-use Pyz\Yves\System\Plugin\Provider\SystemControllerProvider;
 use Pyz\Yves\Twig\Plugin\Provider\TwigServiceProvider;
 use Pyz\Yves\Wishlist\Plugin\Provider\WishlistControllerProvider;
 use Silex\Provider\FormServiceProvider;
@@ -92,7 +92,7 @@ class YvesBootstrap
         $this->application->register(new FormServiceProvider());
         $this->application->register(new HttpFragmentServiceProvider());
         $this->application->register(new CustomerServiceProvider());
-        $this->application->register(new CategoryExporterServiceProvider());
+        $this->application->register(new CategoryServiceProvider());
 
         if (Config::get(ApplicationConfig::ENABLE_WEB_PROFILER, false)) {
             $this->application->register(new WebProfilerServiceProvider());
@@ -122,7 +122,7 @@ class YvesBootstrap
             new CustomerControllerProvider($ssl),
             new CartControllerProvider($ssl),
             new WishlistControllerProvider($ssl),
-            new SystemControllerProvider($ssl),
+            new HeartbeatControllerProvider($ssl),
         ];
 
         foreach ($controllerProviders as $controllerProvider) {
