@@ -12,8 +12,8 @@ use Silex\Application;
 use Silex\ServiceProviderInterface;
 use SprykerEngine\Shared\Config;
 use SprykerEngine\Yves\Kernel\AbstractPlugin;
-use SprykerFeature\Shared\Session\SessionConfig;
-use SprykerFeature\Shared\Application\ApplicationConfig;
+use SprykerFeature\Shared\Session\SessionConstants;
+use SprykerFeature\Shared\Application\ApplicationConstants;
 
 /**
  * @method ApplicationDependencyContainer getDependencyContainer()
