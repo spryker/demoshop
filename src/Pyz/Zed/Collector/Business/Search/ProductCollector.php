@@ -3,63 +3,37 @@
 namespace Pyz\Zed\Collector\Business\Search;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Propel\Runtime\ActiveQuery\Criteria;
-use Propel\Runtime\ActiveQuery\Join;
-use Pyz\Zed\Price\Business\PriceFacade;
 use Pyz\Zed\ProductSearch\Business\ProductSearchFacade;
-use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
-use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
-use Orm\Zed\Touch\Persistence\SpyTouchQuery;
 use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
-use Orm\Zed\Category\Persistence\Map\SpyCategoryAttributeTableMap;
-use Orm\Zed\Category\Persistence\Map\SpyCategoryNodeTableMap;
-use SprykerFeature\Zed\Collector\Business\Exporter\AbstractSearchPropelCollectorPlugin;
+use SprykerFeature\Zed\Collector\Business\Collector\Search\AbstractSearchPropelCollector;
 use SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
-use SprykerFeature\Zed\Price\Persistence\PriceQueryContainer;
-use Orm\Zed\Product\Persistence\Map\SpyAbstractProductTableMap;
-use Orm\Zed\Product\Persistence\Map\SpyLocalizedAbstractProductAttributesTableMap;
-use Orm\Zed\Product\Persistence\Map\SpyLocalizedProductAttributesTableMap;
-use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
-use Orm\Zed\ProductCategory\Persistence\Map\SpyProductCategoryTableMap;
-use Orm\Zed\ProductSearch\Persistence\Map\SpySearchableProductsTableMap;
-use Orm\Zed\Stock\Persistence\Map\SpyStockProductTableMap;
-use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 
-class ProductCollector extends AbstractSearchPropelCollectorPlugin
+class ProductCollector extends AbstractSearchPropelCollector
 {
-
-    /**
-     * @var PriceFacade
-     */
-    private $priceFacade;
-
-    /**
-     * @var PriceQueryContainer
-     */
-    private $priceQueryContainer;
 
     /**
      * @var CategoryQueryContainer
      */
-    private $categoryQueryContainer;
+    protected $categoryQueryContainer;
 
     /**
      * @var ProductSearchFacade
      */
-    private $productSearchFacade;
+    protected $productSearchFacade;
 
     /**
-     * @param PriceFacade $priceFacade
-     * @param PriceQueryContainer $priceQueryContainer
      * @param CategoryQueryContainer $categoryQueryContainer
      * @param ProductSearchFacade $productSearchFacade
      */
-    public function __construct(PriceFacade $priceFacade, PriceQueryContainer $priceQueryContainer, CategoryQueryContainer $categoryQueryContainer, ProductSearchFacade $productSearchFacade)
+    public function __construct(CategoryQueryContainer $categoryQueryContainer, ProductSearchFacade $productSearchFacade)
     {
-        $this->priceFacade = $priceFacade;
-        $this->priceQueryContainer = $priceQueryContainer;
         $this->categoryQueryContainer = $categoryQueryContainer;
         $this->productSearchFacade = $productSearchFacade;
+    }
+
+    protected function collectItem($touchKey, array $collectItemData)
+    {
+        return $collectItemData;
     }
 
     protected function collectResourceType()
@@ -68,206 +42,17 @@ class ProductCollector extends AbstractSearchPropelCollectorPlugin
     }
 
     /**
-     * @param SpyTouchQuery $baseQuery
+     * @param array $collectedSet
      * @param LocaleTransfer $locale
+     * @param TouchUpdaterSet $touchUpdaterSet
      *
-     * @return SpyTouchQuery
+     * @return array
      */
-    protected function createQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
+    protected function collectData(array $collectedSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
     {
-        $baseQuery->clearSelectColumns();
+        $collectedSet = $this->processData($collectedSet, $locale, $touchUpdaterSet);
 
-        // Abstract & concrete product - including localized attributes & url
-        $baseQuery->addJoin(
-            SpyTouchTableMap::COL_ITEM_ID,
-            SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
-            Criteria::INNER_JOIN
-        );
-
-        $baseQuery->addJoinObject(
-            new Join(
-                SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
-                SpyProductTableMap::COL_FK_ABSTRACT_PRODUCT,
-                Criteria::LEFT_JOIN
-            ),
-            'productConcreteJoin'
-        );
-
-        $baseQuery->addJoinCondition(
-            'productConcreteJoin',
-            SpyProductTableMap::COL_IS_ACTIVE,
-            true,
-            Criteria::EQUAL
-        );
-
-        $baseQuery->withColumn(
-            'GROUP_CONCAT(spy_product.sku)',
-            'concrete_skus'
-        );
-
-        $baseQuery->addJoin(
-            SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
-            SpyLocalizedAbstractProductAttributesTableMap::COL_FK_ABSTRACT_PRODUCT,
-            Criteria::INNER_JOIN
-        );
-
-        $baseQuery->addJoin(
-            SpyLocalizedAbstractProductAttributesTableMap::COL_FK_LOCALE,
-            SpyLocaleTableMap::COL_ID_LOCALE,
-            Criteria::INNER_JOIN
-        );
-
-        $baseQuery->addAnd(
-            SpyLocaleTableMap::COL_ID_LOCALE,
-            $locale->getIdLocale(),
-            Criteria::EQUAL
-        );
-        $baseQuery->addAnd(
-            SpyLocaleTableMap::COL_IS_ACTIVE,
-            true,
-            Criteria::EQUAL
-        );
-
-        $baseQuery->addJoinObject(
-            (new Join(
-                SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
-                SpyUrlTableMap::COL_FK_RESOURCE_ABSTRACT_PRODUCT,
-                Criteria::LEFT_JOIN
-            ))->setRightTableAlias('product_urls'),
-            'productUrlsJoin'
-        );
-
-        $baseQuery->addJoinCondition(
-            'productUrlsJoin',
-            'product_urls.fk_locale = ' .
-            SpyLocaleTableMap::COL_ID_LOCALE
-        );
-
-        $baseQuery->addJoinObject(
-            new Join(
-                SpyProductTableMap::COL_ID_PRODUCT,
-                SpyLocalizedProductAttributesTableMap::COL_FK_PRODUCT,
-                Criteria::INNER_JOIN
-            ),
-            'productAttributesJoin'
-        );
-
-        $baseQuery->addJoinCondition(
-            'productAttributesJoin',
-            SpyLocalizedProductAttributesTableMap::COL_FK_LOCALE . ' = ' .
-            SpyLocaleTableMap::COL_ID_LOCALE
-        );
-
-        $baseQuery->withColumn(SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT, 'id_abstract_product');
-
-        $baseQuery->withColumn(
-            SpyAbstractProductTableMap::COL_ATTRIBUTES,
-            'abstract_attributes'
-        );
-        $baseQuery->withColumn(
-            SpyLocalizedAbstractProductAttributesTableMap::COL_ATTRIBUTES,
-            'abstract_localized_attributes'
-        );
-        $baseQuery->withColumn(
-            "GROUP_CONCAT(spy_product.attributes SEPARATOR '$%')",
-            'concrete_attributes'
-        );
-        $baseQuery->withColumn(
-            "GROUP_CONCAT(spy_product_localized_attributes.attributes SEPARATOR '$%')",
-            'concrete_localized_attributes'
-        );
-        $baseQuery->withColumn(
-            'GROUP_CONCAT(product_urls.url)',
-            'product_urls'
-        );
-        $baseQuery->withColumn(
-            SpyLocalizedAbstractProductAttributesTableMap::COL_NAME,
-            'abstract_name'
-        );
-        $baseQuery->withColumn(
-            'GROUP_CONCAT(spy_product_localized_attributes.name)',
-            'concrete_names'
-        );
-
-        $baseQuery->withColumn(SpyAbstractProductTableMap::COL_SKU, 'abstract_sku');
-        $baseQuery->withColumn(SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT, 'id_abstract_product');
-
-        $baseQuery->addJoinObject(
-            new Join(
-                SpyProductTableMap::COL_ID_PRODUCT,
-                SpySearchableProductsTableMap::COL_FK_PRODUCT,
-                Criteria::INNER_JOIN
-            ),
-            'searchableJoin'
-        );
-        $baseQuery->addJoinCondition(
-            'searchableJoin',
-            SpySearchableProductsTableMap::COL_FK_LOCALE . ' = ' .
-            SpyLocaleTableMap::COL_ID_LOCALE
-        );
-        $baseQuery->addAnd(
-            SpySearchableProductsTableMap::COL_IS_SEARCHABLE,
-            true,
-            Criteria::EQUAL
-        );
-
-        // Product availability
-        $baseQuery->addJoin(
-            SpyProductTableMap::COL_ID_PRODUCT,
-            SpyStockProductTableMap::COL_FK_PRODUCT,
-            Criteria::INNER_JOIN
-        );
-        $baseQuery->withColumn(SpyStockProductTableMap::COL_QUANTITY, 'quantity');
-        $baseQuery->withColumn(SpyStockProductTableMap::COL_IS_NEVER_OUT_OF_STOCK, 'is_never_out_of_stock');
-
-        // Category
-        $baseQuery->addJoin(
-            SpyTouchTableMap::COL_ITEM_ID,
-            SpyProductCategoryTableMap::COL_FK_ABSTRACT_PRODUCT,
-            Criteria::LEFT_JOIN
-        );
-        $baseQuery->addJoin(
-            SpyProductCategoryTableMap::COL_FK_CATEGORY,
-            SpyCategoryNodeTableMap::COL_ID_CATEGORY_NODE,
-            Criteria::INNER_JOIN
-        );
-        $baseQuery->addJoin(
-            SpyCategoryNodeTableMap::COL_FK_CATEGORY,
-            SpyCategoryAttributeTableMap::COL_FK_CATEGORY,
-            Criteria::INNER_JOIN
-        );
-
-        $excludeDirectParent = false;
-        $excludeRoot = true;
-
-        $baseQuery = $this->categoryQueryContainer->joinCategoryQueryWithUrls($baseQuery);
-        $baseQuery = $this->categoryQueryContainer->selectCategoryAttributeColumns($baseQuery);
-
-        $baseQuery = $this->categoryQueryContainer->joinCategoryQueryWithChildrenCategories($baseQuery);
-        $baseQuery = $this->categoryQueryContainer->joinLocalizedRelatedCategoryQueryWithAttributes($baseQuery, 'categoryChildren', 'child');
-        $baseQuery = $this->categoryQueryContainer->joinRelatedCategoryQueryWithUrls($baseQuery, 'categoryChildren', 'child');
-
-        $baseQuery = $this->categoryQueryContainer->joinCategoryQueryWithParentCategories($baseQuery, $excludeDirectParent, $excludeRoot);
-        $baseQuery = $this->categoryQueryContainer->joinLocalizedRelatedCategoryQueryWithAttributes($baseQuery, 'categoryParents', 'parent');
-        $baseQuery = $this->categoryQueryContainer->joinRelatedCategoryQueryWithUrls($baseQuery, 'categoryParents', 'parent');
-
-        $baseQuery->withColumn(
-            'GROUP_CONCAT(DISTINCT spy_category_node.id_category_node)',
-            'node_id'
-        );
-        $baseQuery->withColumn(
-            SpyCategoryNodeTableMap::COL_FK_CATEGORY,
-            'category_id'
-        );
-        $baseQuery->withColumn(
-            SpyTouchTableMap::COL_ID_TOUCH,
-            self::COLLECTOR_TOUCH_ID
-        );
-        $baseQuery->orderBy('depth', Criteria::DESC);
-        $baseQuery->orderBy('descendant_id', Criteria::DESC);
-        $baseQuery->groupBy('abstract_sku');
-
-        return $baseQuery;
+        return parent::collectData($collectedSet, $locale, $touchUpdaterSet);
     }
 
     /**
@@ -302,8 +87,6 @@ class ProductCollector extends AbstractSearchPropelCollectorPlugin
                     'direct-parents' => explode(',', $productRawData['node_id']),
                     'all-parents' => explode(',', $productRawData['category_parent_ids']),
                 ];
-
-                $touchUpdaterSet->add($index, $resultSet[$index][self::COLLECTOR_TOUCH_ID]);
             }
         }
 

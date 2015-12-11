@@ -312,26 +312,24 @@ $config[EventJournalConstants::FILTERS]['ZED'] = [
     '\\Spryker\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter',
 ];
 
-
 $config[EventJournalConstants::FILTERS]['YVES'] = [
     '\\Spryker\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter',
 ];
 
 $config[EventJournalConstants::FILTER_OPTIONS] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter' =>
-    [
+    '\\Spryker\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter' => [
         'filter_pattern' => [
             ['registerForm', 'password', 'first'],
             ['registerForm', 'password', 'second'],
             ['_password'],
-            ['transfer', 'login', 'password']
-        ]
-    ]
+            ['transfer', 'login', 'password'],
+        ],
+    ],
 ];
 
 $config[EventJournalConstants::WRITER_OPTIONS] = [
     '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File' => [
-        'log_path' => APPLICATION_ROOT_DIR . '/data/DE/logs/'
+        'log_path' => APPLICATION_ROOT_DIR . '/data/DE/logs/',
     ],
 ];
 

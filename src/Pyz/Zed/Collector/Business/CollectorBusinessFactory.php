@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Collector\Business;
 
+use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\Collector\Business\Exporter\ExporterInterface;
 use Spryker\Zed\Collector\Business\Exporter\MarkerInterface;
@@ -60,6 +61,9 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $searchProductCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
         );
+        $searchProductCollector->setQueryBuilder(
+            $this->createSearchPdoQueryAdapterByName('ProductCollector')
+        );
 
         return $searchProductCollector;
     }
@@ -92,8 +96,8 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStoragePdoQueryAdapterByName($name)
     {
-        $engines = SystemConfig::ZED_DB_SUPPORTED_ENGINES;
-        $adapterName = $engines[Config::get(SystemConfig::ZED_DB_ENGINE)];
+        $engines = ApplicationConstants::ZED_DB_SUPPORTED_ENGINES;
+        $adapterName = $engines[Config::get(ApplicationConstants::ZED_DB_ENGINE)];
 
         $queryBuilderClassName = "\\Pyz\\Zed\\Collector\\Persistence\\Storage\\Pdo\\${adapterName}\\${name}";
 
@@ -105,11 +109,42 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     /**
      * @param $name
      *
-     * @return AbstractPdoCollectorQuery
+     * @return AbstractPropelCollectorQuery
      */
     public function createStoragePropelQueryAdapterByName($name)
     {
         $queryBuilderClassName = "\\Pyz\\Zed\\Collector\\Persistence\\Storage\\Propel\\${name}";
+
+        $queryBuilder = new $queryBuilderClassName();
+
+        return $queryBuilder;
+    }
+
+    /**
+     * @param $name
+     *
+     * @return AbstractPdoCollectorQuery
+     */
+    public function createSearchPdoQueryAdapterByName($name)
+    {
+        $engines = ApplicationConfig::ZED_DB_SUPPORTED_ENGINES;
+        $adapterName = $engines[Config::get(ApplicationConfig::ZED_DB_ENGINE)];
+
+        $queryBuilderClassName = "\\Pyz\\Zed\\Collector\\Persistence\\Search\\Pdo\\${adapterName}\\${name}";
+
+        $queryBuilder = new $queryBuilderClassName();
+
+        return $queryBuilder;
+    }
+
+    /**
+     * @param $name
+     *
+     * @return AbstractPropelCollectorQuery
+     */
+    public function createSearchPropelQueryAdapterByName($name)
+    {
+        $queryBuilderClassName = "\\Pyz\\Zed\\Collector\\Persistence\\Search\\Propel\\${name}";
 
         $queryBuilder = new $queryBuilderClassName();
 
@@ -145,7 +180,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storagePageCollector->setQueryBuilder(
             $this->createStoragePropelQueryAdapterByName('PageCollector')
         );
-
 
         return $storagePageCollector;
     }
@@ -198,7 +232,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storageTranslationCollector->setQueryBuilder(
             $this->createStoragePropelQueryAdapterByName('TranslationCollector')
         );
-
 
         return $storageTranslationCollector;
     }
