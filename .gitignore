@@ -14,7 +14,6 @@ GPATH
 GRTAGS
 GTAGS
 
-
 # OS
 .DS_Store
 
@@ -56,6 +55,8 @@ npm-debug.log
 !/tests/_log/.gitkeep
 /tests/_output/*
 !/tests/_output/.gitkeep
+/tests/_support/_generated/*
+!/tests/_support/_generated/.gitkeep
 
 # propel classes
 /src/Propel/Base/*

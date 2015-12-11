@@ -22,7 +22,9 @@ class CatalogDependencyContainer extends AbstractDependencyContainer
      */
     public function createUrlMapper()
     {
-        return (new UrlMapper())->createUrlMapper();
+        $urlMapper = (new UrlMapper())->createUrlMapper();
+
+        return $urlMapper;
     }
 
     /**
@@ -30,7 +32,9 @@ class CatalogDependencyContainer extends AbstractDependencyContainer
      */
     public function createApplication()
     {
-        return (new Pimple())->getApplication();
+        $application = (new Pimple())->getApplication();
+
+        return $application;
     }
 
     /**

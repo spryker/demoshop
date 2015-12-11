@@ -151,14 +151,20 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
         }
 
         return new BatchedDataImportWriter(
-            new InMemoryProductOptionQueryContainer(
-                $this->getQueryContainer()
-            ),
+            $this->createInMemoryProductOptionQueryContainer(),
             $this->getProvidedDependency(ProductOptionDependencyProvider::FACADE_PRODUCT),
             $this->getProvidedDependency(ProductOptionDependencyProvider::FACADE_LOCALE),
-            new InMemoryBatchProcessor(
-                new MysqlBatchStorageProvider()
-            )
+            $this->createInMemoryBatchProcessor()
+        );
+    }
+
+    /**
+     * @return InMemoryProductOptionQueryContainer
+     */
+    protected function createInMemoryProductOptionQueryContainer()
+    {
+        return new InMemoryProductOptionQueryContainer(
+            $this->getQueryContainer()
         );
     }
 
@@ -168,9 +174,27 @@ class ProductOptionDependencyContainer extends SprykerDependencyContainer
     public function getProductOptionReaderModel()
     {
         return new ProductOptionReader(
-                    $this->getQueryContainer(),
-                    $this->getProvidedDependency(ProductOptionDependencyProvider::FACADE_LOCALE)
-                );
+            $this->getQueryContainer(),
+            $this->getProvidedDependency(ProductOptionDependencyProvider::FACADE_LOCALE)
+        );
+    }
+
+    /**
+     * @return InMemoryBatchProcessor
+     */
+    protected function createInMemoryBatchProcessor()
+    {
+        return new InMemoryBatchProcessor(
+            $this->createMySqlBatchStorageProvider()
+        );
+    }
+
+    /**
+     * @return MysqlBatchStorageProvider
+     */
+    protected function createMySqlBatchStorageProvider()
+    {
+        return new MysqlBatchStorageProvider();
     }
 
 }

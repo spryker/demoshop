@@ -3,6 +3,7 @@
 namespace Pyz\Yves\Application;
 
 use Pyz\Yves\Application\Plugin\Pimple;
+use SprykerEngine\Yves\Application\Application;
 use SprykerEngine\Yves\Application\ApplicationDependencyContainer as SprykerApplicationDependencyContainer;
 use SprykerEngine\Yves\Application\Plugin\ServiceProvider\ExceptionService\ExceptionHandlerInterface;
 use SprykerEngine\Yves\Application\Plugin\ServiceProvider\ExceptionService\SubRequestExceptionHandler;
@@ -18,15 +19,31 @@ class ApplicationDependencyContainer extends SprykerApplicationDependencyContain
     {
         $defaultExceptionHandlers = parent::createExceptionHandlers();
 
-        $application = (new Pimple())->getApplication();
-
         $exceptionHandlers = [
-            Response::HTTP_NOT_FOUND => new SubRequestExceptionHandler($application),
+            Response::HTTP_NOT_FOUND => $this->createSubRequestExceptionHandler(),
         ];
 
         $exceptionHandlers = ($exceptionHandlers + $defaultExceptionHandlers);
 
         return $exceptionHandlers;
+    }
+
+    /**
+     * @return SubRequestExceptionHandler
+     */
+    protected function createSubRequestExceptionHandler()
+    {
+        $application = $this->createApplication();
+
+        return new SubRequestExceptionHandler($application);
+    }
+
+    /**
+     * @return Application
+     */
+    protected function createApplication()
+    {
+        return (new Pimple())->getApplication();
     }
 
 }
