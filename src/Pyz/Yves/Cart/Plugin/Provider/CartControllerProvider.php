@@ -86,8 +86,14 @@ class CartControllerProvider extends AbstractYvesControllerProvider
                 }
             );
 
-        $this->createGetController('/{cart}/coupon/remove/{couponCode}', self::ROUTE_CART_COUPON_REMOVE, 'Cart', 'Coupon', 'remove')
-            ->assert('cart', $allowedLocalesPattern . 'cart|cart');
+        $this->createGetController('/{cart}/coupon/remove', self::ROUTE_CART_COUPON_REMOVE, 'Cart', 'Coupon', 'remove')
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart')
+            ->convert(
+                'couponCode',
+                function ($unused, Request $request) {
+                    return $request->query->get('code');
+                }
+            );
 
         $this->createGetController('/{cart}/coupon/clear', self::ROUTE_CART_COUPON_CLEAR, 'Cart', 'Coupon', 'clear')
             ->assert('cart', $allowedLocalesPattern . 'cart|cart');

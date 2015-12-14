@@ -21,7 +21,7 @@ use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\TotalsTransfer;
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
-use Generated\Shared\Transfer\CartTransfer;
+use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\TaxSetTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
 
@@ -55,52 +55,52 @@ abstract class AbstractFacadeTest extends Test
     const INSTALLMENT_DURATION = 3;
 
     /**
-     * @var \Generated\Shared\Transfer\OrderTransfer
+     * @var OrderTransfer
      */
     private $orderTransfer;
 
     /**
-     * @var \Orm\Zed\Payolution\Persistence\SpyPaymentPayolution
+     * @var SpyPaymentPayolution
      */
     private $paymentEntity;
 
     /**
-     * @var \Generated\Shared\Transfer\CheckoutRequestTransfer
+     * @var CheckoutRequestTransfer
      */
     private $checkoutRequestTransfer;
 
     /**
-     * @var \Orm\Zed\Sales\Persistence\SpySalesOrder
+     * @var SpySalesOrder
      */
     private $orderEntity;
 
     /**
-     * @var \Generated\Shared\Transfer\PayolutionPaymentTransfer
+     * @var PayolutionPaymentTransfer
      */
     private $payolutionPaymentTransfer;
 
     /**
-     * @var \Generated\Shared\Transfer\CustomerTransfer
+     * @var CustomerTransfer
      */
     private $customerTransfer;
 
     /**
-     * @var \Generated\Shared\Transfer\AddressTransfer
+     * @var AddressTransfer
      */
     private $addressTransfer;
 
     /**
-     * @var \Generated\Shared\Transfer\TotalsTransfer
+     * @var TotalsTransfer
      */
     private $totalsTransfer;
 
     /**
-     * @var \Generated\Shared\Transfer\ItemTransfer
+     * @var ItemTransfer
      */
     private $itemTransfer;
 
     /**
-     * @var \Generated\Shared\Transfer\CartTransfer
+     * @var QuoteTransfer
      */
     private $cartTransfer;
 
@@ -160,7 +160,7 @@ abstract class AbstractFacadeTest extends Test
     }
 
     /**
-     * @return \Generated\Shared\Transfer\OrderTransfer
+     * @return OrderTransfer
      */
     protected function getOrderTransfer()
     {
@@ -168,7 +168,7 @@ abstract class AbstractFacadeTest extends Test
     }
 
     /**
-     * @return \Orm\Zed\Payolution\Persistence\SpyPaymentPayolution
+     * @return SpyPaymentPayolution
      */
     protected function getPaymentEntity()
     {
@@ -176,7 +176,7 @@ abstract class AbstractFacadeTest extends Test
     }
 
     /**
-     * @return \Generated\Shared\Transfer\CheckoutRequestTransfer
+     * @return CheckoutRequestTransfer
      */
     protected function getCheckoutRequestTransfer()
     {
@@ -345,7 +345,7 @@ abstract class AbstractFacadeTest extends Test
      */
     protected function setCartTransferTestData()
     {
-        $this->cartTransfer = (new CartTransfer())
+        $this->cartTransfer = (new QuoteTransfer())
             ->addItem($this->itemTransfer)
             ->setTotals($this->totalsTransfer);
     }

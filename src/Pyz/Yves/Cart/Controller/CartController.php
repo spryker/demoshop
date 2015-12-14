@@ -21,11 +21,11 @@ class CartController extends AbstractController
     public function indexAction()
     {
         $cartClient = $this->getClient();
-        $cartItems = $cartClient->getCart()->getItems();
+        $quoteTransfer = $cartClient->getQuote();
 
         return $this->viewResponse([
-            'cartItems' => $cartItems,
-            'totals' => $cartClient->getCart()->getTotals(),
+            'cartItems' => $quoteTransfer->getItems(),
+            'totals' => $quoteTransfer->getTotals(),
         ]);
     }
 

@@ -23,9 +23,9 @@
                 {% for cartItem in cartItems %}
                     <tr>
                         <td><h3>{{ cartItem.id }} </h3>{# @todo image and name instead of sku #}</td>
-                        <td>{{ cartItem.grossPrice }}</td>
+                        <td>{{ cartItem.unitGrossPrice }}</td>
                         <td>{{ cartItem.quantity }}</td>
-                        <td>{{ cartItem.priceToPay }}</td>
+                        <td>{{ cartItem.sumGrossPrice }}</td>
 
                         <td>
                             {#<img src="{{ getFirstProductImagesBySize(product.product_images, 'm') }}" alt="" width="20%" />#}
@@ -41,7 +41,7 @@
                                     {#<li>{{ product.dimension_in_cm }}</li>#}
                                 {#{% endif %}#}
                             {#</ul>#}
-                            <a href="{{ url('cart/remove', {'sku':cartItem.sku, 'uid':cartItem.uniqueIdentifier}) }}" class="remove">
+                            <a href="{{ url('cart/remove', {'sku':cartItem.sku, 'uid':cartItem.groupKey}) }}" class="remove">
                                 <span class="glyphicon glyphicon-trash"></span>
                                 {{ 'cart.remove'|trans }}
                             </a>

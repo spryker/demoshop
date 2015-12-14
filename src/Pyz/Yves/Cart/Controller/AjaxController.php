@@ -21,15 +21,10 @@ class AjaxController extends AbstractController
     public function indexAction()
     {
         $cartClient = $this->getClient();
-        $cart = $cartClient->getCart();
-        foreach ($cart->getItems() as $item) {
-            if (empty($item->getName())) {
-                $item->setName('Product ' . mt_rand(1, 99));
-            }
-        }
+        $quoteTransfer = $cartClient->getQuote();
 
         return $this->viewResponse([
-            'cart' => $cart,
+            'cart' => $quoteTransfer,
         ]);
     }
 
