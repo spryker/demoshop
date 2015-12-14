@@ -72,7 +72,7 @@ class PayolutionType extends AbstractType
                 'choices' => $this->getInstallmentPayments(),
                 'label' => false,
                 'required' => true,
-                'expanded' => false,
+                'expanded' => true,
                 'multiple' => false,
                 'empty_value' => false,
                 'attr' => [
@@ -154,7 +154,8 @@ class PayolutionType extends AbstractType
                 CurrencyManager::getInstance()->convertCentToDecimal($paymentDetail->getInstallments()[0]->getAmount())
                 . ' € for ' .
                 $paymentDetail->getDuration()
-                . ' months ';
+                . ' months '
+                . '<a href="installment/detail/id/' . $this->payolutionCalculationResponseTransfer->getIdentificationUniqueid() . '/duration/' . $paymentDetail->getDuration() . '"">Show Details</a>';
         }
 
         return $choices;

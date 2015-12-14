@@ -24,6 +24,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Guzzle\Http\Client as GuzzleClient;
 
 /**
  * @method CheckoutDependencyContainer getDependencyContainer()
@@ -79,7 +80,7 @@ class CheckoutController extends AbstractController
         $cartTransfer = $this->getCartTransfer();
         $checkoutRequestTransfer->setCart($cartTransfer);
         $shipmentTransfer = $this->getShipmentTransfer($cartTransfer);
-        $payolutionInstallmentPayments = $this->getPayolutionInstallmentPayments($checkoutRequestTransfer, $cartTransfer);
+        $payolutionInstallmentPayments = $this->getPayolutionInstallmentPaymentsFromSession($checkoutRequestTransfer);
 
         $checkoutForm = $this->buildCheckoutForm($checkoutRequestTransfer, $shipmentTransfer, $payolutionInstallmentPayments, $request);
 
@@ -183,10 +184,43 @@ class CheckoutController extends AbstractController
 
         $checkoutRequestTransfer->setPayolutionPayment($payolutionPaymentTransfer);
 
-        return $this->payolutionCalculationResponseTransfer = $this
-            ->getDependencyContainer()
+        $payolutionCalculationResponseTransfer = $this->getDependencyContainer()
             ->getPayolutionClient()
             ->calculateInstallmentPayments($checkoutRequestTransfer);
+
+        return $this->storePayolutionInstallmentPaymentsInSession($payolutionCalculationResponseTransfer);
+    }
+
+    /**
+     * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
+     *
+     * @return PayolutionCalculationResponseTransfer
+     */
+    protected function storePayolutionInstallmentPaymentsInSession(PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer)
+    {
+        return $this->getDependencyContainer()
+            ->getPayolutionClient()
+            ->storeInstallmentPaymentsInSession($payolutionCalculationResponseTransfer);
+    }
+
+    /**
+     * @param CheckoutRequestTransfer $checkoutRequestTransfer
+     *
+     * @return PayolutionCalculationResponseTransfer
+     */
+    protected function getPayolutionInstallmentPaymentsFromSession(CheckoutRequestTransfer $checkoutRequestTransfer)
+    {
+        $addressTransfer = (new AddressTransfer())->setIso2Code(APPLICATION_STORE);
+        $payolutionPaymentTransfer = (new PayolutionPaymentTransfer())
+            ->setAddress($addressTransfer)
+            ->setCurrencyIso3Code(CurrencyManager::getInstance()->getDefaultCurrency()->getIsoCode());
+
+        $checkoutRequestTransfer->setPayolutionPayment($payolutionPaymentTransfer);
+
+        return $this
+            ->getDependencyContainer()
+            ->getPayolutionClient()
+            ->getInstallmentPaymentsFromSession();
     }
 
     /**
@@ -256,8 +290,6 @@ class CheckoutController extends AbstractController
                 $shipmentExpenseTransfer->setType(ShipmentConstants::SHIPMENT_EXPENSE_TYPE);
                 $shipmentExpenseTransfer->setGrossPrice($shipmentMethodTransfer->getPrice());
                 $shipmentExpenseTransfer->setName($shipmentMethodTransfer->getName());
-
-                $this->replaceShipmentExpenseInCart($cartTransfer, $shipmentExpenseTransfer);
             }
         }
     }
@@ -414,6 +446,33 @@ class CheckoutController extends AbstractController
     public function successAction(Request $request)
     {
         return $this->viewResponse();
+    }
+
+    /**
+     * @param string $id
+     * @param string $installmentDuration
+     *
+     * @throws ApiHttpRequestException
+     *
+     * @return array
+     */
+    public function displayInstallmentDetailsAction($id, $installmentDuration)
+    {
+        $client = new GuzzleClient();
+        $url = 'https://test-payment.payolution.com/payolution-payment/rest/query/customerinfo/pdf?trxId=' . $id . '&duration=' . $installmentDuration;
+        $username = 'spryker-installment';
+        $password = '0mQzn5iqhr3idfZZjvsEPOrlDvT97Tg3M5d';
+
+        $request = $client->get($url);
+
+        $request->setAuth($username, $password);
+        $response = $request->send();
+
+        header('Content-type: application/pdf');
+        header('Content-Disposition: attachment; filename="zahlungskonditionen.pdf"');
+        header('Content-Length: '.strlen($response));
+
+        return $response;
     }
 
 }

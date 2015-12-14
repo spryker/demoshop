@@ -34,11 +34,11 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
     protected function getConditionPlugins(Container $container)
     {
         return [
-            'Payolution/IsPreAuthorizationApprovedPlugin' => new IsPreAuthorizationApprovedPlugin(),
-            'Payolution/IsReAuthorizationApprovedPlugin' => new IsReAuthorizationApprovedPlugin(),
-            'Payolution/IsReversalApprovedPlugin' => new IsReversalApprovedPlugin(),
-            'Payolution/IsCaptureApprovedPlugin' => new IsCaptureApprovedPlugin(),
-            'Payolution/IsRefundApprovedPlugin' => new IsRefundApprovedPlugin(),
+            'Payolution/IsPreAuthorizationApproved' => new IsPreAuthorizationApprovedPlugin(),
+            'Payolution/IsReAuthorizationApproved' => new IsReAuthorizationApprovedPlugin(),
+            'Payolution/IsReversalApproved' => new IsReversalApprovedPlugin(),
+            'Payolution/IsCaptureApproved' => new IsCaptureApprovedPlugin(),
+            'Payolution/IsRefundApproved' => new IsRefundApprovedPlugin(),
         ];
     }
 
