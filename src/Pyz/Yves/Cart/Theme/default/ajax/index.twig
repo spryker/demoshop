@@ -5,54 +5,33 @@
             <div class="col-md-6">{{ 'cart.your-order' | trans }}</div>
             <div class="col-md-6 text-right">{{ 'cart.price' | trans }}</div>
         </div>
-
-        {#<div class="cart__labels">#}
-            {#<div class="cart__label--name">{{ 'cart.your-order' | trans }}</div>#}
-            {#<div class="cart__label--price">{{ 'cart.price' | trans }}</div>#}
-        {#</div>#}
         <div class="header-cart-items">
             {% for item in cart.items %}
-                <div class="col-md-6 cart-item" data-sku="{{ item.sku }}" data-group-key="{{ item.groupKey }}">
+                <div class="cart-item" data-sku="{{ item.sku }}" data-group-key="{{ item.groupKey }}">
                     <div class="pull-left item-name">{{ item.name }}</div>
                     <div class="pull-left quantity-container">
                         <div class="quantity-modifier left"><a class="quantity-minus" href="#"><i class="fa fa-minus"></i></a></div>
                         <div class="quantity-input" id="product-quantity">{{ item.quantity }}</div>
                         <div class="quantity-modifier right"><a class="quantity-plus" href="#"><i class="fa fa-plus"></i></a></div>
                     </div>
-
-                    {#
-                    {% if item.thumbnail is defined and item.thumbnail is not empty %}
-                        <img class="cart-item-image" src="{{ item.thumbnail }}">
-                    {% endif %}
-                    <div class="float-left cart-item-quantity">{{ item.quantity }}</div>
-                    <div class="float-left cart-item-name">{{ item.name }}</div>
-                    <div class="float-left">
-                        <input type="button" value="-"class="spinner__decrement cart-decrement float-left">
-                        <input type="number" value="{{ item.quantity }}" min="1" class="cart-spinner-number float-left">
-                        <input type="hidden" name="groupKey" value="{{ item.groupKey }}" class="float-left" />
-                        <input type="button" value="+" class="spinner__increment cart-increment float-left">
-                        <input type="button" value="x" class="spinner__increment cart-remove float-left">
-                    </div>
-                    #}
+                    <div class="pull-right item-price text-right">{{ item.totalPrice | price }}</div>
 
                 </div>
-                <div class="col-md-6 text-right">{{ item.totalPrice | price }}</div>
             {% endfor %}
         </div>
+        <div class="clearfix"></div>
+
         {% if cart.totals %}
-            {#<div class="cart__shipping">
-              <div class="cart__shipping-label" colspan="2">{{ 'cart.shipping'|trans }}</div>
-              <div class="cart__shipping-price js-cart-shipping">{{ 250|price }}</div>
-            </div>#}
-            <div class="cart__total">
-              <div class="cart__total-label" colspan="2">{{ 'cart.total' | trans }}</div>
-              <div class="cart__total-price js-cart-total">{{ cart.totals.grandTotal | price }}</div>
+            <div class="header-cart-totals">
+                <div class="row">
+                  <div class="col-md-12 text-right"><span class="cart-label">{{ 'cart.total' | trans }}</span> <span class="cart-total-price">{{ cart.totals.grandTotal | price }}</span></div>
+                </div>
             </div>
         {% endif %}
-        <a href="{{ url('checkout') }}" class="cart__to-checkout cta">{{ 'cart.checkout' | trans }}</a>
+        <a href="{{ url('checkout') }}">{{ 'cart.checkout' | trans }}</a>
     {% endspaceless %}
 {% else %}
-    <div style="text-align: center; font-weight: bold; font-size: 1.2em">
+    <div class="header-cart-empty">
         {{ 'cart.empty' | trans }}
     </div>
 {% endif %}
