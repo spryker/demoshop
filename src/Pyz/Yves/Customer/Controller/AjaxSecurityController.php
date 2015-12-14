@@ -6,7 +6,7 @@ use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Yves\Customer\CustomerDependencyContainer;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use SprykerEngine\Yves\Application\Controller\AbstractController;
-use SprykerFeature\Client\Customer\Service\CustomerClientInterface;
+use SprykerFeature\Client\Customer\CustomerClientInterface;
 use SprykerFeature\Shared\Customer\Code\Messages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

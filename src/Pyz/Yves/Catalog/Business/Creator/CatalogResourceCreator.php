@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Catalog\Business\Creator;
 
-use Pyz\Client\Catalog\Service\Model\FacetConfig;
+use Pyz\Client\Catalog\Model\FacetConfig;
 use Pyz\Yves\Collector\Creator\ResourceCreatorInterface;
 use Silex\Application;
 use SprykerEngine\Yves\Kernel\BundleControllerAction;

@@ -13,7 +13,7 @@ use Pyz\Yves\Customer\Form\DeleteCustomer;
 use Pyz\Yves\Customer\Form\Address;
 use Pyz\Yves\Customer\Form\RegisterCustomer;
 use SprykerEngine\Yves\Kernel\AbstractDependencyContainer;
-use SprykerFeature\Client\Customer\Service\CustomerClient;
+use SprykerFeature\Client\Customer\CustomerClient;
 
 class CustomerDependencyContainer extends AbstractDependencyContainer
 {

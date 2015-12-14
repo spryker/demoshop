@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Heartbeat\Model\HealthIndicator;
 
-use SprykerFeature\Client\Search\Service\SearchClient;
+use SprykerFeature\Client\Search\SearchClient;
 use SprykerFeature\Shared\Heartbeat\Code\HealthIndicatorInterface;
 
 class SearchHealthIndicator extends AbstractHealthIndicator implements HealthIndicatorInterface

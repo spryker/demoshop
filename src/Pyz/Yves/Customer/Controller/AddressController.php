@@ -5,7 +5,7 @@ namespace Pyz\Yves\Customer\Controller;
 use Generated\Shared\Transfer\AddressTransfer;
 use Pyz\Yves\Customer\CustomerDependencyContainer;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
-use SprykerFeature\Client\Customer\Service\CustomerClientInterface;
+use SprykerFeature\Client\Customer\CustomerClientInterface;
 use SprykerFeature\Shared\Customer\Code\Messages;
 use SprykerEngine\Yves\Application\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;

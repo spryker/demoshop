@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Heartbeat\Model\HealthIndicator;
 
-use SprykerFeature\Client\Session\Service\SessionClientInterface;
+use SprykerFeature\Client\Session\SessionClientInterface;
 use SprykerFeature\Shared\Heartbeat\Code\HealthIndicatorInterface;
 
 class SessionHealthIndicator extends AbstractHealthIndicator implements HealthIndicatorInterface

@@ -9,7 +9,7 @@ use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
 use Pyz\Yves\Wishlist\Plugin\Provider\WishlistControllerProvider;
 use SprykerEngine\Yves\Application\Controller\AbstractController;
-use SprykerFeature\Client\Wishlist\Service\WishlistClientInterface;
+use SprykerFeature\Client\Wishlist\WishlistClientInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
