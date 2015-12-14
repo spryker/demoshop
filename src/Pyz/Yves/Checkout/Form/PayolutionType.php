@@ -155,7 +155,7 @@ class PayolutionType extends AbstractType
                 . ' € for ' .
                 $paymentDetail->getDuration()
                 . ' months '
-                . '<a href="installment/detail/id/' . $this->payolutionCalculationResponseTransfer->getIdentificationUniqueid() . '/duration/' . $paymentDetail->getDuration() . '"">Show Details</a>';
+                . '<a href="installment/id/' . $this->payolutionCalculationResponseTransfer->getIdentificationUniqueid() . '/duration/' . $paymentDetail->getDuration() . '"">Show Details</a>';
         }
 
         return $choices;

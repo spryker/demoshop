@@ -25,6 +25,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Guzzle\Http\Client as GuzzleClient;
+use Guzzle\Http\Message\Response as GuzzleResponse;
 
 /**
  * @method CheckoutDependencyContainer getDependencyContainer()
@@ -80,7 +81,7 @@ class CheckoutController extends AbstractController
         $cartTransfer = $this->getCartTransfer();
         $checkoutRequestTransfer->setCart($cartTransfer);
         $shipmentTransfer = $this->getShipmentTransfer($cartTransfer);
-        $payolutionInstallmentPayments = $this->getPayolutionInstallmentPaymentsFromSession($checkoutRequestTransfer);
+        $payolutionInstallmentPayments = $this->getPayolutionInstallmentPayments($checkoutRequestTransfer, $cartTransfer);
 
         $checkoutForm = $this->buildCheckoutForm($checkoutRequestTransfer, $shipmentTransfer, $payolutionInstallmentPayments, $request);
 
@@ -89,10 +90,11 @@ class CheckoutController extends AbstractController
 
             $checkoutResponseTransfer = $this->requestCheckout($checkoutRequestTransfer);
             if (!$checkoutResponseTransfer->getIsSuccess()) {
+                $this->getDependencyContainer()->getPayolutionClient()->removeInstallmentPaymentsFromSession();
                 return $this->getErrors($checkoutResponseTransfer->getErrors());
             }
 
-            $this->clearCart();
+            $this->clearSession();
 
             return $this->redirectSuccess($checkoutResponseTransfer);
         }
@@ -167,7 +169,30 @@ class CheckoutController extends AbstractController
     {
         return $cartTransfer->getTotals() === null
             ? new PayolutionCalculationResponseTransfer()
-            : $this->getPayolutionCalculationResponseTransfer($checkoutRequestTransfer);
+            : $this->getPayolutionCalculationResponseTransfer($checkoutRequestTransfer, $cartTransfer);
+    }
+
+    /**
+     * @param CheckoutRequestTransfer $checkoutRequestTransfer
+     * @param CartTransfer $cartTransfer
+     *
+     * @return PayolutionCalculationResponseTransfer
+     */
+    protected function getPayolutionCalculationResponseTransfer(CheckoutRequestTransfer $checkoutRequestTransfer, CartTransfer $cartTransfer)
+    {
+        $addressTransfer = (new AddressTransfer())->setIso2Code(APPLICATION_STORE);
+        $payolutionPaymentTransfer = (new PayolutionPaymentTransfer())
+            ->setAddress($addressTransfer)
+            ->setCurrencyIso3Code(CurrencyManager::getInstance()->getDefaultCurrency()->getIsoCode());
+        $checkoutRequestTransfer->setPayolutionPayment($payolutionPaymentTransfer);
+
+        $payolutionCalculationResponseTransfer = $this->getDependencyContainer()->getPayolutionClient()->hasInstallmentPaymentsInSession()
+            ? $this->getPayolutionInstallmentPaymentsFromSession($checkoutRequestTransfer)
+            : $this->calculatePayolutionInstallmentPayments($checkoutRequestTransfer);
+
+        return $cartTransfer->getTotals()->getGrandTotal() === $payolutionCalculationResponseTransfer->getPaymentDetails()[0]->getOriginalAmount()
+            ? $payolutionCalculationResponseTransfer
+            : $this->calculatePayolutionInstallmentPayments($checkoutRequestTransfer);
     }
 
     /**
@@ -175,20 +200,27 @@ class CheckoutController extends AbstractController
      *
      * @return PayolutionCalculationResponseTransfer
      */
-    protected function getPayolutionCalculationResponseTransfer(CheckoutRequestTransfer $checkoutRequestTransfer)
+    protected function calculatePayolutionInstallmentPayments(CheckoutRequestTransfer $checkoutRequestTransfer)
     {
-        $addressTransfer = (new AddressTransfer())->setIso2Code(APPLICATION_STORE);
-        $payolutionPaymentTransfer = (new PayolutionPaymentTransfer())
-            ->setAddress($addressTransfer)
-            ->setCurrencyIso3Code(CurrencyManager::getInstance()->getDefaultCurrency()->getIsoCode());
-
-        $checkoutRequestTransfer->setPayolutionPayment($payolutionPaymentTransfer);
-
-        $payolutionCalculationResponseTransfer = $this->getDependencyContainer()
+        $payolutionCalculationResponseTransfer = $this
+            ->getDependencyContainer()
             ->getPayolutionClient()
             ->calculateInstallmentPayments($checkoutRequestTransfer);
 
         return $this->storePayolutionInstallmentPaymentsInSession($payolutionCalculationResponseTransfer);
+    }
+
+    /**
+     * @param CheckoutRequestTransfer $checkoutRequestTransfer
+     *
+     * @return PayolutionCalculationResponseTransfer
+     */
+    protected function getPayolutionInstallmentPaymentsFromSession(CheckoutRequestTransfer $checkoutRequestTransfer)
+    {
+        return $this
+            ->getDependencyContainer()
+            ->getPayolutionClient()
+            ->getInstallmentPaymentsFromSession();
     }
 
     /**
@@ -201,26 +233,6 @@ class CheckoutController extends AbstractController
         return $this->getDependencyContainer()
             ->getPayolutionClient()
             ->storeInstallmentPaymentsInSession($payolutionCalculationResponseTransfer);
-    }
-
-    /**
-     * @param CheckoutRequestTransfer $checkoutRequestTransfer
-     *
-     * @return PayolutionCalculationResponseTransfer
-     */
-    protected function getPayolutionInstallmentPaymentsFromSession(CheckoutRequestTransfer $checkoutRequestTransfer)
-    {
-        $addressTransfer = (new AddressTransfer())->setIso2Code(APPLICATION_STORE);
-        $payolutionPaymentTransfer = (new PayolutionPaymentTransfer())
-            ->setAddress($addressTransfer)
-            ->setCurrencyIso3Code(CurrencyManager::getInstance()->getDefaultCurrency()->getIsoCode());
-
-        $checkoutRequestTransfer->setPayolutionPayment($payolutionPaymentTransfer);
-
-        return $this
-            ->getDependencyContainer()
-            ->getPayolutionClient()
-            ->getInstallmentPaymentsFromSession();
     }
 
     /**
@@ -394,9 +406,10 @@ class CheckoutController extends AbstractController
     /**
      * @return void
      */
-    protected function clearCart()
+    protected function clearSession()
     {
         $this->getDependencyContainer()->getCartClient()->clearCart();
+        $this->getDependencyContainer()->getPayolutionClient()->removeInstallmentPaymentsFromSession();
     }
 
     /**
@@ -449,27 +462,27 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param string $id
-     * @param string $installmentDuration
+     * @param $calculationRequestId
+     * @param $installmentDuration
      *
-     * @throws ApiHttpRequestException
-     *
-     * @return array
+     * @return GuzzleResponse
      */
-    public function displayInstallmentDetailsAction($id, $installmentDuration)
+    public function displayInstallmentDetailsAction($calculationRequestId, $installmentDuration)
     {
         $client = new GuzzleClient();
-        $url = 'https://test-payment.payolution.com/payolution-payment/rest/query/customerinfo/pdf?trxId=' . $id . '&duration=' . $installmentDuration;
-        $username = 'spryker-installment';
-        $password = '0mQzn5iqhr3idfZZjvsEPOrlDvT97Tg3M5d';
+        $requestCredentials = $this->getDependencyContainer()->getPayolutionCalculationCredentials();
+        $url = 'https://test-payment.payolution.com/payolution-payment/rest/query/customerinfo/pdf?trxId=' . $calculationRequestId . '&duration=' . $installmentDuration;
 
         $request = $client->get($url);
-
-        $request->setAuth($username, $password);
+        $request->setAuth(
+            $requestCredentials[PayolutionConfigConstants::CALCULATION_USER_LOGIN],
+            $requestCredentials[PayolutionConfigConstants::CALCULATION_USER_PASSWORD]
+        );
         $response = $request->send();
 
+        $attachmentFileName = 'payolution_payment_detail_' . $installmentDuration . '.pdf';
         header('Content-type: application/pdf');
-        header('Content-Disposition: attachment; filename="zahlungskonditionen.pdf"');
+        header('Content-Disposition: attachment; filename=' . $attachmentFileName);
         header('Content-Length: '.strlen($response));
 
         return $response;

@@ -51,7 +51,7 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
         ->value('checkout', 'checkout');
 
         $this->createGetController(
-            '/installment/detail/id/{id}/duration/{installmentDuration}',
+            '/installment/id/{calculationRequestId}/duration/{installmentDuration}',
             self::ROUTE_INSTALLMENT_DETAIL,
             'Checkout',
             'Checkout',
