@@ -12,22 +12,6 @@ class SalesConfig extends SprykerFeatureSalesConfig
 {
 
     /**
-     * @return mixed
-     */
-    public function getStateMachineFactoryHook()
-    {
-        return $this->factory->createModelOrderprocessStatemachineFactoryHook();
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getStatemachineDefinitionContainer()
-    {
-        return $this->factory->createModelOrderprocessDefinitionContainer();
-    }
-
-    /**
      * @param ItemTransfer $transferItem
      * @param OrderTransfer $transferOrder
      *
