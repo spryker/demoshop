@@ -3,24 +3,12 @@
 namespace Pyz\Zed\Product\Business;
 
 use Spryker\Zed\Product\Business\ProductFacade as SprykerProductFacade;
-use Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface;
-use Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToProductInterface;
-use Spryker\Zed\Stock\Dependency\Facade\StockToProductInterface;
-use Spryker\Zed\TaxProductConnector\Dependency\Facade\TaxProductConnectorToProductInterface;
-use Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToProductInterface;
-use Spryker\Zed\ProductOptionExporter\Dependency\Facade\ProductOptionExporterToProductInterface;
 use Psr\Log\LoggerInterface;
 
 /**
  * @method ProductBusinessFactory getFactory()
  */
-class ProductFacade extends SprykerProductFacade implements
-    ProductSearchToProductInterface,
-    StockToProductInterface,
-    ProductCategoryToProductInterface,
-    TaxProductConnectorToProductInterface,
-    ProductOptionToProductInterface,
-    ProductOptionExporterToProductInterface
+class ProductFacade extends SprykerProductFacade
 {
 
     /**

@@ -26,9 +26,6 @@ class CategoryDependencyProvider extends SprykerDependencyProvider
             return $container->getLocator()->locale()->queryContainer();
         };
 
-        $container[self::QUERY_CONTAINER_CATEGORY] = function (Container $container) {
-            return $container->getLocator()->category()->queryContainer();
-        };
 
         return $container;
     }

@@ -55,7 +55,7 @@ class ProductCategoryBusinessFactory extends SprykerBusinessFactory
     {
         return new ProductCategoryManager(
                     $this->createCategoryQueryContainer(),
-                    $this->createProductCategoryQueryContainer(),
+                    $this->getQueryContainer(),
                     $this->createProductFacade(),
                     $this->createCategoryFacade(),
                     $this->createTouchFacade(),

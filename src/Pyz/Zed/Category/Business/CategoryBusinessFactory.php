@@ -52,7 +52,7 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
             $this->createCategoryTreeReader(),
             $this->createUrlPathGenerator(),
             $this->createUrlFacade(),
-            $this->getProvidedDependency(CategoryDependencyProvider::QUERY_CONTAINER_CATEGORY),
+            $this->getQueryContainer(),
             $this->getProvidedDependency(CategoryDependencyProvider::QUERY_CONTAINER_LOCALE)
         );
     }

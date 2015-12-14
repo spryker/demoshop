@@ -3,14 +3,12 @@
 namespace Pyz\Zed\Glossary\Business;
 
 use Psr\Log\LoggerInterface;
-use Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface;
 use Spryker\Zed\Glossary\Business\GlossaryFacade as SprykerGlossaryFacade;
 
 /**
  * @method GlossaryBusinessFactory getFactory()
  */
-class GlossaryFacade extends SprykerGlossaryFacade implements
-    CmsToGlossaryInterface
+class GlossaryFacade extends SprykerGlossaryFacade
 {
 
     /**
