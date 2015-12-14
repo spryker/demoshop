@@ -1,8 +1,8 @@
 <?php
 
-namespace Pyz\Client\Catalog\Service\Model;
+namespace Pyz\Client\Catalog\Model;
 
-use SprykerFeature\Client\Catalog\Service\Model\FacetConfig as CoreFacetConfig;
+use SprykerFeature\Client\Catalog\Model\FacetConfig as CoreFacetConfig;
 
 class FacetConfig extends CoreFacetConfig
 {

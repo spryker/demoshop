@@ -7,7 +7,7 @@ use SprykerEngine\Yves\Application\Application;
 use SprykerEngine\Yves\Application\ApplicationDependencyContainer as SprykerApplicationDependencyContainer;
 use SprykerEngine\Yves\Application\Plugin\Provider\ExceptionService\ExceptionHandlerInterface;
 use SprykerEngine\Yves\Application\Plugin\Provider\ExceptionService\SubRequestExceptionHandler;
-use SprykerFeature\Client\Session\Service\SessionClientInterface;
+use SprykerFeature\Client\Session\SessionClientInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 class ApplicationDependencyContainer extends SprykerApplicationDependencyContainer

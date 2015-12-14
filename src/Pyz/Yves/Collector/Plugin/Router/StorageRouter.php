@@ -11,7 +11,7 @@ use Pyz\Yves\Collector\Creator\ResourceCreatorInterface;
 use Pyz\Yves\Collector\Mapper\UrlMapperInterface;
 use Silex\Application;
 use SprykerEngine\Yves\Application\Routing\AbstractRouter;
-use SprykerFeature\Client\Collector\Service\Matcher\UrlMatcherInterface;
+use SprykerFeature\Client\Collector\Matcher\UrlMatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;

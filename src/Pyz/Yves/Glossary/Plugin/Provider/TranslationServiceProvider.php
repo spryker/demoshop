@@ -9,7 +9,7 @@ use Pyz\Yves\Glossary\GlossaryDependencyContainer;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 use SprykerEngine\Yves\Kernel\AbstractPlugin;
-use SprykerFeature\Client\Glossary\Service\GlossaryClientInterface;
+use SprykerFeature\Client\Glossary\GlossaryClientInterface;
 
 /**
  * @method GlossaryDependencyContainer getDependencyContainer()

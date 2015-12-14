@@ -13,8 +13,8 @@ use Pyz\Yves\Category\Plugin\CategoryResourceCreator;
 use Pyz\Yves\Product\Plugin\ProductResourceCreator;
 use Pyz\Yves\Collector\Creator\ResourceCreatorInterface;
 use Pyz\Yves\Collector\Mapper\UrlMapper;
-use SprykerFeature\Client\Catalog\Service\Model\FacetConfig;
-use SprykerFeature\Client\Collector\Service\Matcher\UrlMatcher;
+use SprykerFeature\Client\Catalog\Model\FacetConfig;
+use SprykerFeature\Client\Collector\Matcher\UrlMatcher;
 use SprykerEngine\Yves\Kernel\AbstractDependencyContainer;
 use Silex\Application;
 

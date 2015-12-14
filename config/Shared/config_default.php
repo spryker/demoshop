@@ -265,7 +265,7 @@ $config[LumberjackConstants::COLLECTORS]['YVES'] = [
     '\SprykerEngine\Shared\Lumberjack\Model\Collector\ServerDataCollector',
     '\SprykerEngine\Shared\Lumberjack\Model\Collector\RequestDataCollector',
     '\SprykerEngine\Shared\Lumberjack\Model\Collector\EnvironmentDataCollector',
-    '\SprykerFeature\Client\Lumberjack\Service\YvesDataCollector',
+    '\SprykerFeature\Client\Lumberjack\YvesDataCollector',
 ];
 $config[LumberjackConstants::WRITERS]['YVES'] = [
     '\SprykerEngine\Shared\Lumberjack\Model\Writer\File',

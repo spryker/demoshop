@@ -11,8 +11,8 @@ use Pyz\Yves\Collector\Plugin\UrlMapper;
 use Pyz\Yves\Collector\Mapper\UrlMapperInterface;
 use Silex\Application;
 use SprykerEngine\Yves\Kernel\AbstractDependencyContainer;
-use SprykerFeature\Client\Catalog\Service\CatalogClient;
-use SprykerFeature\Client\CategoryExporter\Service\CategoryExporterClient;
+use SprykerFeature\Client\Catalog\CatalogClient;
+use SprykerFeature\Client\CategoryExporter\CategoryExporterClient;
 
 class CatalogDependencyContainer extends AbstractDependencyContainer
 {
