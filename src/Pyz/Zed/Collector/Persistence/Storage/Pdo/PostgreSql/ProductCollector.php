@@ -111,7 +111,7 @@ GROUP BY abstract_sku, abstract_sku, abstract_sku, spy_abstract_product.id_abstr
                 'depth' => 'DESC',
                 'descendant_id' => 'DESC',
             ])
-            ->setExtraParameter('fk_locale', $this->locale->getIdLocale());
+            ->setParameter('fk_locale', $this->locale->getIdLocale());
     }
 
 }

@@ -71,7 +71,7 @@ WHERE `spy_touch`.`item_type` = :spy_touch_item_type AND `spy_touch`.`item_event
                 'descendant_id' => 'DESC',
             ])
             ->setGroupBy('category_id')
-            ->setExtraParameter('fk_locale', $this->locale->getIdLocale());
+            ->setParameter('fk_locale', $this->locale->getIdLocale());
     }
 
 }

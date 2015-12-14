@@ -33,7 +33,7 @@ FROM spy_url u
     LEFT JOIN spy_touch_storage ON spy_touch_storage.fk_touch = t.id_touch AND spy_touch_storage.fk_locale = :fk_locale_1
 ';
         $this->criteriaBuilder->sql($sql)
-            ->setExtraParameter('fk_locale_1', $this->locale->getIdLocale());
+            ->setParameter('fk_locale_1', $this->locale->getIdLocale());
     }
 
     protected function getColumns($alias='u')

@@ -48,10 +48,10 @@
 
     "nesbot/carbon": "1.13.0",
 
-    "everon/collection": "@dev",
-    "everon/criteria-builder": "@dev",
-    "everon/factory": "@dev",
-    "everon/utils": "@dev"
+    "everon/collection": "~1.0",
+    "everon/criteria-builder": "~1.0",
+    "everon/factory": "~1.0",
+    "everon/utils": "~1.0"
   },
   "require-dev": {
     "silex/web-profiler": "~1.0.2",

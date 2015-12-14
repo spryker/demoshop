@@ -65,9 +65,9 @@ class CategoryNodeCollector extends AbstractPdoCollectorQuery
                 'tree.fk_parent_category_node' => 'ASC',
                 'tree.node_order' => 'DESC',
             ])
-            ->setExtraParameter('fk_locale_1', $this->locale->getIdLocale())
-            ->setExtraParameter('fk_locale_2', $this->locale->getIdLocale())
-            ->setExtraParameter('fk_locale_3', $this->locale->getIdLocale());
+            ->setParameter('fk_locale_1', $this->locale->getIdLocale())
+            ->setParameter('fk_locale_2', $this->locale->getIdLocale())
+            ->setParameter('fk_locale_3', $this->locale->getIdLocale());
     }
 
 }
