@@ -464,8 +464,8 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param $calculationRequestId
-     * @param $installmentDuration
+     * @param string $calculationRequestId
+     * @param string $installmentDuration
      *
      * @return GuzzleResponse
      */
