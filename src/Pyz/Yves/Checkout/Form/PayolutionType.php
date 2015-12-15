@@ -71,7 +71,7 @@ class PayolutionType extends AbstractType
             ->add(self::FIELD_INSTALLMENT_PAYMENT_DETAIL_INDEX, 'choice', [
                 'choices' => $this->getInstallmentPayments(),
                 'label' => false,
-                'required' => true,
+                'required' => false,
                 'expanded' => true,
                 'multiple' => false,
                 'empty_value' => false,

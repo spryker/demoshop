@@ -313,7 +313,7 @@ $config[PayolutionConfigConstants::MIN_ORDER_GRAND_TOTAL_INVOICE] = '500';
 $config[PayolutionConfigConstants::MAX_ORDER_GRAND_TOTAL_INVOICE] = '500000';
 $config[PayolutionConfigConstants::MIN_ORDER_GRAND_TOTAL_INSTALLMENT] = '500';
 $config[PayolutionConfigConstants::MAX_ORDER_GRAND_TOTAL_INSTALLMENT] = '500000';
-$config[PayolutionConfigConstants::PAYOLUTION_BCC_EMAIL] = 'email@payolution.com';
+$config[PayolutionConfigConstants::PAYOLUTION_BCC_EMAIL] = 'invoices@payolution.com';
 
 $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 
