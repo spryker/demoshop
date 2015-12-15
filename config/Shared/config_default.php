@@ -268,35 +268,35 @@ $config[AclConstants::ACL_DEFAULT_CREDENTIALS] = [
 $config[ApplicationConstants::NAVIGATION_CACHE_ENABLED] = true;
 
 $config[EventJournalConstants::COLLECTORS]['YVES'] = [
-    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Collector\\ServerDataCollector',
-    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Collector\\RequestDataCollector',
-    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Collector\\EnvironmentDataCollector',
-    '\\SprykerFeature\\Client\\EventJournal\\Service\\YvesDataCollector',
+    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\ServerDataCollector',
+    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\RequestDataCollector',
+    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\EnvironmentDataCollector',
+    '\\Spryker\\Client\\EventJournal\\YvesDataCollector',
 ];
 $config[EventJournalConstants::WRITERS]['YVES'] = [
-    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Writer\\File',
+    '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File',
 ];
 
 $config[EventJournalConstants::COLLECTORS]['ZED'] = [
-    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Collector\\ServerDataCollector',
-    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Collector\\RequestDataCollector',
-    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Collector\\EnvironmentDataCollector',
+    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\ServerDataCollector',
+    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\RequestDataCollector',
+    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\EnvironmentDataCollector',
 ];
 $config[EventJournalConstants::WRITERS]['ZED'] = [
-    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Writer\\File',
+    '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File',
 ];
 
 $config[EventJournalConstants::FILTERS]['ZED'] = [
-    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter',
+    '\\Spryker\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter',
 ];
 
 
 $config[EventJournalConstants::FILTERS]['YVES'] = [
-    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter',
+    '\\Spryker\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter',
 ];
 
 $config[EventJournalConstants::FILTER_OPTIONS] = [
-    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter' =>
+    '\\Spryker\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter' =>
     [
         'filter_pattern' => [
             ['registerForm', 'password', 'first'],
@@ -308,7 +308,7 @@ $config[EventJournalConstants::FILTER_OPTIONS] = [
 ];
 
 $config[EventJournalConstants::WRITER_OPTIONS] = [
-    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Writer\\File' => [
+    '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File' => [
         'log_path' => APPLICATION_ROOT_DIR . '/data/DE/'
     ],
 ];

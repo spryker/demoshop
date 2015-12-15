@@ -34,7 +34,7 @@ use Spryker\Yves\Application\Application;
 use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\MonologServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\YvesLoggingServiceProvider;
-use Spryker\Client\Lumberjack\EventJournalClient;
+use Spryker\Client\EventJournal\EventJournalClient;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
