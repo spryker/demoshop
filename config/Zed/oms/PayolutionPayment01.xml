@@ -64,9 +64,9 @@
         </events>
     </process>
 
-    <process name="Authorization" file="payolutionSubProcesses/Authorization.xml"/>
-    <process name="Shipment" file="subProcesses/Shipment.xml"/>
-    <process name="Capture" file="payolutionSubProcesses/Capture.xml"/>
-    <process name="Refund" file="payolutionSubProcesses/Refund.xml"/>
-    <process name="Closing" file="payolutionSubProcesses/Closing.xml"/>
+    <process name="Authorization" file="PayolutionSubProcesses/Authorization.xml"/>
+    <process name="Shipment" file="SubProcesses/Shipment.xml"/>
+    <process name="Capture" file="PayolutionSubProcesses/Capture.xml"/>
+    <process name="Refund" file="PayolutionSubProcesses/Refund.xml"/>
+    <process name="Closing" file="PayolutionSubProcesses/Closing.xml"/>
 </statemachine>
