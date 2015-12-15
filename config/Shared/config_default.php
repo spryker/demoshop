@@ -11,7 +11,7 @@ use Spryker\Shared\NewRelic\NewRelicConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumberConfig;
 use Spryker\Shared\Log\Config\DefaultLoggerConfig;
-use Spryker\Shared\Payolution\PayolutionConstants;
+use Spryker\Shared\Payolution\PayolutionConfigConstants;
 
 $config[ApplicationConstants::PROJECT_NAMESPACES] = [
     'Pyz',

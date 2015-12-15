@@ -15,6 +15,7 @@ use Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer;
 use Orm\Zed\Payolution\Persistence\Map\SpyPaymentPayolutionTableMap;
 use Pyz\Yves\Checkout\Form\CheckoutType;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
+use Spryker\Shared\Payolution\PayolutionConfigConstants;
 use Spryker\Yves\Application\Controller\AbstractController;
 use Pyz\Yves\Checkout\CheckoutDependencyContainer;
 use Spryker\Shared\Library\Currency\CurrencyManager;
