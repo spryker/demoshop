@@ -6,7 +6,7 @@ use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Auth\AuthConstants;
 use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\User\UserConstants;
-use Spryker\Shared\Lumberjack\LumberjackConstants;
+use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\NewRelic\NewRelicConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumberConfig;
@@ -92,6 +92,12 @@ $config[ApplicationConstants::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static
 $config[ApplicationConstants::YVES_SHOW_EXCEPTION_STACK_TRACE] = true;
 $config[ApplicationConstants::ZED_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
 $config[ApplicationConstants::ZED_SHOW_EXCEPTION_STACK_TRACE] = true;
+
+$config[ApplicationConstants::YVES_COOKIE_DEVICE_ID_NAME] = 'did';
+$config[ApplicationConstants::YVES_COOKIE_DEVICE_ID_VALID_FOR] = '+5 year';
+$config[ApplicationConstants::YVES_COOKIE_DOMAIN] = $config[ApplicationConstants::HOST_YVES];
+$config[ApplicationConstants::YVES_COOKIE_VISITOR_ID_NAME] = 'vid';
+$config[ApplicationConstants::YVES_COOKIE_VISITOR_ID_VALID_FOR] = '+30 minute';
 
 $config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^/customer)';
 $config[CustomerConstants::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
@@ -261,39 +267,55 @@ $config[AclConstants::ACL_DEFAULT_CREDENTIALS] = [
 
 $config[ApplicationConstants::NAVIGATION_CACHE_ENABLED] = true;
 
-$config[LumberjackConstants::COLLECTORS]['YVES'] = [
-    '\Spryker\Shared\Lumberjack\Model\Collector\ServerDataCollector',
-    '\Spryker\Shared\Lumberjack\Model\Collector\RequestDataCollector',
-    '\Spryker\Shared\Lumberjack\Model\Collector\EnvironmentDataCollector',
-    '\Spryker\Client\Lumberjack\YvesDataCollector',
+$config[EventJournalConstants::COLLECTORS]['YVES'] = [
+    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Collector\\ServerDataCollector',
+    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Collector\\RequestDataCollector',
+    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Collector\\EnvironmentDataCollector',
+    '\\SprykerFeature\\Client\\EventJournal\\Service\\YvesDataCollector',
 ];
-$config[LumberjackConstants::WRITERS]['YVES'] = [
-    '\Spryker\Shared\Lumberjack\Model\Writer\File',
-];
-
-$config[LumberjackConstants::COLLECTORS]['ZED'] = [
-    '\Spryker\Shared\Lumberjack\Model\Collector\ServerDataCollector',
-    '\Spryker\Shared\Lumberjack\Model\Collector\RequestDataCollector',
-    '\Spryker\Shared\Lumberjack\Model\Collector\EnvironmentDataCollector',
-];
-$config[LumberjackConstants::WRITERS]['ZED'] = [
-    '\Spryker\Shared\Lumberjack\Model\Writer\File',
+$config[EventJournalConstants::WRITERS]['YVES'] = [
+    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Writer\\File',
 ];
 
-$config[LumberjackConstants::COLLECTOR_OPTIONS] = [
-    '\Spryker\Shared\Lumberjack\Model\Collector\RequestDataCollector' => [
-        'param_blacklist' => ['cc', 'password'],
-        'filtered_content' => '***FILTERED***',
+$config[EventJournalConstants::COLLECTORS]['ZED'] = [
+    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Collector\\ServerDataCollector',
+    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Collector\\RequestDataCollector',
+    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Collector\\EnvironmentDataCollector',
+];
+$config[EventJournalConstants::WRITERS]['ZED'] = [
+    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Writer\\File',
+];
+
+$config[EventJournalConstants::FILTERS]['ZED'] = [
+    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter',
+];
+
+
+$config[EventJournalConstants::FILTERS]['YVES'] = [
+    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter',
+];
+
+$config[EventJournalConstants::FILTER_OPTIONS] = [
+    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter' =>
+    [
+        'filter_pattern' => [
+            ['registerForm', 'password', 'first'],
+            ['registerForm', 'password', 'second'],
+            ['_password'],
+            ['transfer', 'login', 'password']
+        ]
+    ]
+];
+
+$config[EventJournalConstants::WRITER_OPTIONS] = [
+    '\\SprykerEngine\\Shared\\EventJournal\\Model\\Writer\\File' => [
+        'log_path' => APPLICATION_ROOT_DIR . '/data/DE/'
     ],
 ];
 
 $config[ApplicationConstants::PROPEL_DEBUG] = false;
 $config[ApplicationConstants::SHOW_SYMFONY_TOOLBAR] = false;
 $config[SequenceNumberConfig::ENVIRONMENT_PREFIX] = '';
-
-$config[LumberjackConstants::WRITER_OPTIONS] = [
-    '\Spryker\Shared\Lumberjack\Model\Writer\File' => ['log_path' => '/data/logs/development/DE/'],
-];
 
 $config[PayolutionConstants::TRANSACTION_GATEWAY_URL] = 'https://test.ctpe.net/frontend/payment.prc';
 $config[PayolutionConstants::CALCULATION_GATEWAY_URL] = 'https://test-payment.payolution.com/payolution-payment/rest/request/v2';
