@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "v0.19.0",
+    "spryker/spryker": "dev-feature/1002-frontend-infrastructure-core",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
