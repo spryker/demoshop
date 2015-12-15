@@ -14,10 +14,12 @@ use Spryker\Zed\ProductSearch\Business\Operation\DefaultOperation;
 use Spryker\Zed\ProductSearch\Business\Internal\InstallProductSearch;
 use Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
 use Spryker\Zed\ProductSearch\Business\Processor\ProductSearchProcessor;
+use Spryker\Zed\ProductSearch\Business\Processor\ProductSearchProcessorInterface;
 use Spryker\Zed\ProductSearch\Business\Transformer\ProductAttributesTransformer;
 use Spryker\Zed\ProductSearch\Business\ProductSearchDependencyContainer as SprykerProductSearchDependencyContainer;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductSearch\Business\Internal\DemoData\ProductAttributeMappingInstall;
+use Spryker\Zed\ProductSearch\Business\Transformer\ProductAttributesTransformerInterface;
 
 class ProductSearchDependencyContainer extends SprykerProductSearchDependencyContainer
 {
@@ -87,21 +89,6 @@ class ProductSearchDependencyContainer extends SprykerProductSearchDependencyCon
     protected function createDefaultOperation()
     {
         return new DefaultOperation();
-    }
-
-    /**
-     * @return OperationLocatorInterface
-     */
-    protected function createOperationLocator()
-    {
-        $locator = new OperationLocator();
-        $config = $this->getConfig();
-
-        foreach ($config->getPossibleOperations() as $operation) {
-            $locator->addOperation($operation);
-        }
-
-        return $locator;
     }
 
     /**

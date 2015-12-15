@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\Glossary\Business;
+namespace Pyz\Zed\Installer\Business;
 
 use Spryker\Zed\Installer\Business\InstallerDependencyContainer as SprykerInstallerDependencyContainer;
 
