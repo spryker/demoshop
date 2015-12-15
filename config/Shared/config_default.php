@@ -1,35 +1,35 @@
 <?php
 
 use Pyz\Shared\Mail\MailConstants;
-use SprykerFeature\Shared\Acl\AclConstants;
-use SprykerFeature\Shared\Application\ApplicationConstants;
-use SprykerFeature\Shared\Auth\AuthConstants;
-use SprykerFeature\Shared\Customer\CustomerConstants;
-use SprykerFeature\Shared\User\UserConstants;
-use SprykerEngine\Shared\Lumberjack\LumberjackConstants;
-use SprykerFeature\Shared\NewRelic\NewRelicConstants;
-use SprykerFeature\Shared\Session\SessionConstants;
-use SprykerFeature\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumberConfig;
-use SprykerFeature\Shared\Log\Config\DefaultLoggerConfig;
-use SprykerFeature\Shared\Payolution\PayolutionConstants;
+use Spryker\Shared\Acl\AclConstants;
+use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Auth\AuthConstants;
+use Spryker\Shared\Customer\CustomerConstants;
+use Spryker\Shared\User\UserConstants;
+use Spryker\Shared\Lumberjack\LumberjackConstants;
+use Spryker\Shared\NewRelic\NewRelicConstants;
+use Spryker\Shared\Session\SessionConstants;
+use Spryker\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumberConfig;
+use Spryker\Shared\Log\Config\DefaultLoggerConfig;
+use Spryker\Shared\Payolution\PayolutionConstants;
 
 $config[ApplicationConstants::PROJECT_NAMESPACES] = [
     'Pyz',
 ];
 $config[ApplicationConstants::CORE_NAMESPACES] = [
-    'SprykerFeature',
-    'SprykerEngine',
+    'Spryker',
+    'Spryker',
 ];
 
 $config[ApplicationConstants::PROJECT_TIMEZONE] = 'UTC';
 $config[ApplicationConstants::PROJECT_NAMESPACE] = 'Pyz';
 
 $config[ApplicationConstants::ZED_TWIG_OPTIONS] = [
-    'cache' => \SprykerFeature\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Zed/twig'),
+    'cache' => \Spryker\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Zed/twig'),
 ];
 
 $config[ApplicationConstants::YVES_TWIG_OPTIONS] = [
-    'cache' => \SprykerFeature\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Yves/twig'),
+    'cache' => \Spryker\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Yves/twig'),
 ];
 
 $config[ApplicationConstants::ZED_DB_ENGINE] = 'mysql';
@@ -96,7 +96,7 @@ $config[ApplicationConstants::ZED_SHOW_EXCEPTION_STACK_TRACE] = true;
 $config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^/customer)';
 $config[CustomerConstants::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
 
-$currentStore = \SprykerEngine\Shared\Kernel\Store::getInstance()->getStoreName();
+$currentStore = \Spryker\Shared\Kernel\Store::getInstance()->getStoreName();
 $config[ApplicationConstants::PROPEL] = [
     'database' => [
         'connections' => [
@@ -124,7 +124,7 @@ $config[ApplicationConstants::PROPEL] = [
         'objectModel' => [
             'defaultKeyType' => 'fieldName',
             'builders' => [
-                'object' => '\SprykerEngine\Zed\Propel\Business\Builder\ObjectBuilder',
+                'object' => '\Spryker\Zed\Propel\Business\Builder\ObjectBuilder',
             ],
          ],
     ],
@@ -262,26 +262,26 @@ $config[AclConstants::ACL_DEFAULT_CREDENTIALS] = [
 $config[ApplicationConstants::NAVIGATION_CACHE_ENABLED] = true;
 
 $config[LumberjackConstants::COLLECTORS]['YVES'] = [
-    '\SprykerEngine\Shared\Lumberjack\Model\Collector\ServerDataCollector',
-    '\SprykerEngine\Shared\Lumberjack\Model\Collector\RequestDataCollector',
-    '\SprykerEngine\Shared\Lumberjack\Model\Collector\EnvironmentDataCollector',
-    '\SprykerFeature\Client\Lumberjack\YvesDataCollector',
+    '\Spryker\Shared\Lumberjack\Model\Collector\ServerDataCollector',
+    '\Spryker\Shared\Lumberjack\Model\Collector\RequestDataCollector',
+    '\Spryker\Shared\Lumberjack\Model\Collector\EnvironmentDataCollector',
+    '\Spryker\Client\Lumberjack\YvesDataCollector',
 ];
 $config[LumberjackConstants::WRITERS]['YVES'] = [
-    '\SprykerEngine\Shared\Lumberjack\Model\Writer\File',
+    '\Spryker\Shared\Lumberjack\Model\Writer\File',
 ];
 
 $config[LumberjackConstants::COLLECTORS]['ZED'] = [
-    '\SprykerEngine\Shared\Lumberjack\Model\Collector\ServerDataCollector',
-    '\SprykerEngine\Shared\Lumberjack\Model\Collector\RequestDataCollector',
-    '\SprykerEngine\Shared\Lumberjack\Model\Collector\EnvironmentDataCollector',
+    '\Spryker\Shared\Lumberjack\Model\Collector\ServerDataCollector',
+    '\Spryker\Shared\Lumberjack\Model\Collector\RequestDataCollector',
+    '\Spryker\Shared\Lumberjack\Model\Collector\EnvironmentDataCollector',
 ];
 $config[LumberjackConstants::WRITERS]['ZED'] = [
-    '\SprykerEngine\Shared\Lumberjack\Model\Writer\File',
+    '\Spryker\Shared\Lumberjack\Model\Writer\File',
 ];
 
 $config[LumberjackConstants::COLLECTOR_OPTIONS] = [
-    '\SprykerEngine\Shared\Lumberjack\Model\Collector\RequestDataCollector' => [
+    '\Spryker\Shared\Lumberjack\Model\Collector\RequestDataCollector' => [
         'param_blacklist' => ['cc', 'password'],
         'filtered_content' => '***FILTERED***',
     ],
@@ -292,7 +292,7 @@ $config[ApplicationConstants::SHOW_SYMFONY_TOOLBAR] = false;
 $config[SequenceNumberConfig::ENVIRONMENT_PREFIX] = '';
 
 $config[LumberjackConstants::WRITER_OPTIONS] = [
-    '\SprykerEngine\Shared\Lumberjack\Model\Writer\File' => ['log_path' => '/data/logs/development/DE/'],
+    '\Spryker\Shared\Lumberjack\Model\Writer\File' => ['log_path' => '/data/logs/development/DE/'],
 ];
 
 $config[PayolutionConstants::TRANSACTION_GATEWAY_URL] = 'https://test.ctpe.net/frontend/payment.prc';

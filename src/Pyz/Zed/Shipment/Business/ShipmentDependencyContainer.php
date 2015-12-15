@@ -3,12 +3,12 @@
 namespace Pyz\Zed\Shipment\Business;
 
 use Pyz\Zed\Shipment\ShipmentDependencyProvider;
-use SprykerFeature\Zed\Shipment\Business\Model\Method;
-use SprykerFeature\Zed\Shipment\Business\Model\Carrier;
+use Spryker\Zed\Shipment\Business\Model\Method;
+use Spryker\Zed\Shipment\Business\Model\Carrier;
 use Pyz\Zed\Shipment\Business\Internal\DemoData\ShipmentInstall;
-use SprykerEngine\Shared\Kernel\Messenger\MessengerInterface;
-use SprykerFeature\Zed\Shipment\Business\ShipmentDependencyContainer as SprykerShipmentDependencyContainer;
-use SprykerFeature\Zed\Shipment\Persistence\ShipmentQueryContainer;
+use Spryker\Shared\Kernel\Messenger\MessengerInterface;
+use Spryker\Zed\Shipment\Business\ShipmentDependencyContainer as SprykerShipmentDependencyContainer;
+use Spryker\Zed\Shipment\Persistence\ShipmentQueryContainer;
 
 /**
  * @method ShipmentQueryContainer getQueryContainer()

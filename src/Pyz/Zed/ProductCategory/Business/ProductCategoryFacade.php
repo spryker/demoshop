@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\ProductCategory\Business;
 
-use SprykerFeature\Zed\ProductCategory\Business\ProductCategoryFacade as SprykerProductCategoryFacade;
+use Spryker\Zed\ProductCategory\Business\ProductCategoryFacade as SprykerProductCategoryFacade;
 use Psr\Log\LoggerInterface;
 
 /**

@@ -6,9 +6,9 @@
 
 namespace Pyz\Yves\Product\Plugin;
 
-use SprykerFeature\Shared\Library\Currency\CurrencyManager;
+use Spryker\Shared\Library\Currency\CurrencyManager;
 use Silex\Application;
-use SprykerEngine\Yves\Kernel\AbstractPlugin;
+use Spryker\Yves\Kernel\AbstractPlugin;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFilterPluginInterface;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
 

@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Category\Persistence;
 
-use SprykerFeature\Zed\Category\Persistence\Propel\AbstractSpyCategoryClosureTable as BaseSpyCategoryClosureTable;
+use Spryker\Zed\Category\Persistence\Propel\AbstractSpyCategoryClosureTable as BaseSpyCategoryClosureTable;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_category_closure_table' table.

@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Oms\Persistence;
 
-use SprykerFeature\Zed\Oms\Persistence\Propel\AbstractSpyOmsEventTimeoutQuery as BaseSpyOmsEventTimeoutQuery;
+use Spryker\Zed\Oms\Persistence\Propel\AbstractSpyOmsEventTimeoutQuery as BaseSpyOmsEventTimeoutQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_oms_event_timeout' table.

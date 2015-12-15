@@ -3,7 +3,7 @@
 namespace Functional\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer;
 
 use Pyz\Zed\ProductOption\Business\ProductOptionFacade;
-use SprykerEngine\Zed\Kernel\AbstractFunctionalTest;
+use Spryker\Zed\Kernel\AbstractFunctionalTest;
 use Orm\Zed\Product\Persistence\SpyAbstractProduct;
 use Orm\Zed\Product\Persistence\SpyProduct;
 use Orm\Zed\Product\Persistence\SpyProductQuery;
@@ -22,7 +22,7 @@ class ProductOptionDataInstallTest extends AbstractFunctionalTest
 
     public function testImportXmlOptions()
     {
-        $stub = $this->getMockBuilder('SprykerFeature\Zed\Console\Business\Model\ConsoleMessenger')
+        $stub = $this->getMockBuilder('Spryker\Zed\Console\Business\Model\ConsoleMessenger')
             ->disableOriginalConstructor()
             ->getMock();
 

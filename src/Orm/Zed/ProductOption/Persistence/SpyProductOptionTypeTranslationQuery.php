@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\ProductOption\Persistence;
 
-use SprykerFeature\Zed\ProductOption\Persistence\Propel\AbstractSpyProductOptionTypeTranslationQuery as BaseSpyProductOptionTypeTranslationQuery;
+use Spryker\Zed\ProductOption\Persistence\Propel\AbstractSpyProductOptionTypeTranslationQuery as BaseSpyProductOptionTypeTranslationQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_product_option_type_translation' table.

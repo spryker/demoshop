@@ -1,4 +1,4 @@
-# SprykerFeature Demo Shop
+# Spryker Demo Shop
 
 ## 2.0.0
 *2014-03-10 | Christian Burgas*
@@ -8,5 +8,5 @@
 ## 1.0.0
 *2014-03-06 | Jörg Stick*
 
-- Initial working version of SprykerFeature Demo Shop
+- Initial working version of Spryker Demo Shop
     Created after Bundle release

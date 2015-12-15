@@ -6,13 +6,13 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
-use SprykerFeature\Shared\Cms\CmsConstants;
-use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
+use Spryker\Shared\Cms\CmsConstants;
+use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use Orm\Zed\Cms\Persistence\Map\SpyCmsGlossaryKeyMappingTableMap;
 use Orm\Zed\Cms\Persistence\Map\SpyCmsPageTableMap;
 use Orm\Zed\Cms\Persistence\Map\SpyCmsTemplateTableMap;
-use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
-use SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
+use Spryker\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
+use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
 use Orm\Zed\Glossary\Persistence\Map\SpyGlossaryKeyTableMap;
 use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 

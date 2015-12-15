@@ -3,7 +3,7 @@
 namespace Pyz\Zed\Price\Communication\Plugin;
 
 use Pyz\Zed\Price\Business\PriceFacade;
-use SprykerFeature\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
+use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 use Pyz\Zed\Price\Communication\PriceDependencyContainer;
 
 /**

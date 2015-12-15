@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\ProductOption;
 
-use SprykerFeature\Zed\ProductOption\ProductOptionConfig as SprykerProductOptionConfig;
-use SprykerFeature\Shared\Application\ApplicationConstants;
+use Spryker\Zed\ProductOption\ProductOptionConfig as SprykerProductOptionConfig;
+use Spryker\Shared\Application\ApplicationConstants;
 
 class ProductOptionConfig extends SprykerProductOptionConfig
 {

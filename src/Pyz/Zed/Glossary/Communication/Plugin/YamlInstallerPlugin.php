@@ -8,10 +8,10 @@ namespace Pyz\Zed\Glossary\Communication\Plugin;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Zed\Glossary\Business\GlossaryFacade;
-use SprykerEngine\Zed\Kernel\Communication\AbstractPlugin;
-use SprykerFeature\Zed\Glossary\Communication\GlossaryDependencyContainer;
-use SprykerFeature\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
-use SprykerFeature\Zed\Glossary\Persistence\GlossaryQueryContainer;
+use Spryker\Zed\Kernel\Communication\AbstractPlugin;
+use Spryker\Zed\Glossary\Communication\GlossaryDependencyContainer;
+use Spryker\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
+use Spryker\Zed\Glossary\Persistence\GlossaryQueryContainer;
 use Symfony\Component\Yaml\Yaml;
 
 /**

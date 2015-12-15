@@ -7,9 +7,9 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
-use SprykerFeature\Shared\Glossary\Code\KeyBuilder\GlossaryKeyBuilder;
-use SprykerFeature\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
-use SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
+use Spryker\Shared\Glossary\Code\KeyBuilder\GlossaryKeyBuilder;
+use Spryker\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
+use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
 use Orm\Zed\Glossary\Persistence\Map\SpyGlossaryKeyTableMap;
 use Orm\Zed\Glossary\Persistence\Map\SpyGlossaryTranslationTableMap;
 

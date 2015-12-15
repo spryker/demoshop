@@ -4,8 +4,8 @@
  */
 namespace Pyz\Yves\Application\Plugin\Provider;
 
-use SprykerEngine\Shared\Kernel\Store;
-use SprykerEngine\Yves\Application\Plugin\Provider\YvesControllerProvider as SprykerYvesControllerProvider;
+use Spryker\Shared\Kernel\Store;
+use Spryker\Yves\Application\Plugin\Provider\YvesControllerProvider as SprykerYvesControllerProvider;
 
 abstract class AbstractYvesControllerProvider extends SprykerYvesControllerProvider
 {

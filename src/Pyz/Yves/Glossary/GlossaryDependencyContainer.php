@@ -6,10 +6,10 @@
 
 namespace Pyz\Yves\Glossary;
 
-use SprykerFeature\Zed\Glossary\Communication\Form\TranslationForm;
-use SprykerFeature\Zed\Glossary\Communication\Table\TranslationTable;
-use SprykerEngine\Yves\Kernel\AbstractDependencyContainer;
-use SprykerFeature\Client\Glossary\GlossaryClientInterface;
+use Spryker\Zed\Glossary\Communication\Form\TranslationForm;
+use Spryker\Zed\Glossary\Communication\Table\TranslationTable;
+use Spryker\Yves\Kernel\AbstractDependencyContainer;
+use Spryker\Client\Glossary\GlossaryClientInterface;
 
 class GlossaryDependencyContainer extends AbstractDependencyContainer
 {

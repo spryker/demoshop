@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Shipment;
 
-use SprykerFeature\Zed\Shipment\ShipmentConfig as SprykerShipmentConfig;
+use Spryker\Zed\Shipment\ShipmentConfig as SprykerShipmentConfig;
 
 class ShipmentConfig extends SprykerShipmentConfig
 {

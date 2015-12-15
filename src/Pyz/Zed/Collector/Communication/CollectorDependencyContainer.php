@@ -3,8 +3,8 @@
 namespace Pyz\Zed\Collector\Communication;
 
 use Pyz\Zed\Collector\Business\CollectorFacade;
-use SprykerFeature\Zed\Collector\CollectorDependencyProvider;
-use SprykerFeature\Zed\Collector\Communication\CollectorDependencyContainer as SprykerCollectorDependencyContainer;
+use Spryker\Zed\Collector\CollectorDependencyProvider;
+use Spryker\Zed\Collector\Communication\CollectorDependencyContainer as SprykerCollectorDependencyContainer;
 
 class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
 {

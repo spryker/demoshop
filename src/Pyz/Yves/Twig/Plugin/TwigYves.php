@@ -3,7 +3,7 @@
 namespace Pyz\Yves\Twig\Plugin;
 
 use Silex\Application;
-use SprykerEngine\Yves\Kernel\AbstractPlugin;
+use Spryker\Yves\Kernel\AbstractPlugin;
 use Pyz\Yves\Twig\TwigDependencyContainer;
 
 /**

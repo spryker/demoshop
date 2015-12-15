@@ -3,13 +3,13 @@
 namespace Pyz\Yves\Twig;
 
 use Silex\Application;
-use SprykerEngine\Shared\Config;
-use SprykerEngine\Yves\Kernel\AbstractDependencyContainer;
+use Spryker\Shared\Config;
+use Spryker\Yves\Kernel\AbstractDependencyContainer;
 use Pyz\Yves\Twig\Model\YvesExtension;
 use Pyz\Yves\Twig\Model\UrlParameterCacheBuster;
 use Pyz\Yves\Twig\Model\MediaUrlBuilder;
 use Pyz\Yves\Twig\Model\AssetUrlBuilder;
-use SprykerFeature\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Application\ApplicationConstants;
 use Pyz\Yves\Twig\Model\AssetUrlBuilderInterface;
 use Pyz\Yves\Twig\Model\CacheBusterInterface;
 use Pyz\Yves\Twig\Model\MediaUrlBuilderInterface;

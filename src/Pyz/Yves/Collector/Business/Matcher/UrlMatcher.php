@@ -6,8 +6,8 @@
 
 namespace Pyz\Yves\Collector\Business\Matcher;
 
-use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderInterface;
-use SprykerFeature\Shared\Library\Storage\Adapter\KeyValue\ReadInterface;
+use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderInterface;
+use Spryker\Shared\Library\Storage\Adapter\KeyValue\ReadInterface;
 
 class UrlMatcher implements UrlMatcherInterface
 {

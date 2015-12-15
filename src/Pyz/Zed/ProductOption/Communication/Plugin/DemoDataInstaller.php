@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\ProductOption\Communication\Plugin;
 
-use SprykerFeature\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
+use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 use Pyz\Zed\ProductOption\Communication\ProductOptionDependencyContainer;
 
 /**

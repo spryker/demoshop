@@ -6,7 +6,7 @@ use Generated\Shared\Transfer\MailRecipientTransfer;
 use Generated\Shared\Transfer\MailTransfer;
 use Pyz\Zed\MailQueue\Business\MailQueueFacade;
 use Pyz\Zed\MailQueue\Communication\MailQueueDependencyContainer;
-use SprykerFeature\Zed\Console\Business\Model\Console;
+use Spryker\Zed\Console\Business\Model\Console;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 

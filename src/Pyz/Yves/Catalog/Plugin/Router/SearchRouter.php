@@ -8,12 +8,12 @@ namespace Pyz\Yves\Catalog\Plugin\Router;
 
 use Pyz\Yves\Collector\Mapper\UrlMapperInterface;
 use Silex\Application;
-use SprykerEngine\Yves\Kernel\Locator;
-use SprykerFeature\Shared\Application\Communication\ControllerServiceBuilder;
-use SprykerEngine\Yves\Application\Routing\AbstractRouter;
-use SprykerEngine\Yves\Kernel\BundleControllerAction;
-use SprykerEngine\Yves\Kernel\Controller\RouteNameResolver;
-use SprykerEngine\Yves\Kernel\ControllerLocator;
+use Spryker\Yves\Kernel\Locator;
+use Spryker\Shared\Application\Communication\ControllerServiceBuilder;
+use Spryker\Yves\Application\Routing\AbstractRouter;
+use Spryker\Yves\Kernel\BundleControllerAction;
+use Spryker\Yves\Kernel\Controller\RouteNameResolver;
+use Spryker\Yves\Kernel\ControllerLocator;
 use Pyz\Yves\Catalog\CatalogDependencyContainer;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
@@ -34,7 +34,7 @@ class SearchRouter extends AbstractRouter
             $request = $this->getRequest();
             $requestParameters = $request->query->all();
             //if no page is provided we generate a url to change the filter and therefore want to reset the page
-            //TODO @see SprykerFeature\Yves\Catalog\Business\Model\AbstractSearch Line 77
+            //TODO @see Spryker\Yves\Catalog\Business\Model\AbstractSearch Line 77
             //     same todo to put parameter name into constant
             if (!isset($parameters['page']) && isset($requestParameters['page'])) {
                 unset($requestParameters['page']);

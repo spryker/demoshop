@@ -2,8 +2,8 @@
 
 namespace Pyz\Yves\Heartbeat\Model\HealthIndicator;
 
-use SprykerFeature\Client\Storage\StorageClientInterface;
-use SprykerFeature\Shared\Heartbeat\Code\HealthIndicatorInterface;
+use Spryker\Client\Storage\StorageClientInterface;
+use Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface;
 
 class StorageHealthIndicator extends AbstractHealthIndicator implements HealthIndicatorInterface
 {

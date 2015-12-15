@@ -2,20 +2,20 @@
 
 namespace Pyz\Zed\ProductSearch\Business;
 
-use SprykerEngine\Shared\Kernel\Messenger\MessengerInterface;
-use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderInterface;
-use SprykerFeature\Shared\Library\Storage\StorageInstanceBuilder;
-use SprykerFeature\Zed\ProductSearch\Business\Builder\ProductResourceKeyBuilder;
-use SprykerFeature\Zed\ProductSearch\Business\Locator\OperationLocatorInterface;
-use SprykerFeature\Zed\ProductSearch\Business\Operation\OperationInterface;
-use SprykerFeature\Zed\ProductSearch\Business\Operation\OperationManager;
-use SprykerFeature\Zed\ProductSearch\Business\Locator\OperationLocator;
-use SprykerFeature\Zed\ProductSearch\Business\Operation\DefaultOperation;
-use SprykerFeature\Zed\ProductSearch\Business\Internal\InstallProductSearch;
-use SprykerFeature\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
-use SprykerFeature\Zed\ProductSearch\Business\Processor\ProductSearchProcessor;
-use SprykerFeature\Zed\ProductSearch\Business\Transformer\ProductAttributesTransformer;
-use SprykerFeature\Zed\ProductSearch\Business\ProductSearchDependencyContainer as SprykerProductSearchDependencyContainer;
+use Spryker\Shared\Kernel\Messenger\MessengerInterface;
+use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderInterface;
+use Spryker\Shared\Library\Storage\StorageInstanceBuilder;
+use Spryker\Zed\ProductSearch\Business\Builder\ProductResourceKeyBuilder;
+use Spryker\Zed\ProductSearch\Business\Locator\OperationLocatorInterface;
+use Spryker\Zed\ProductSearch\Business\Operation\OperationInterface;
+use Spryker\Zed\ProductSearch\Business\Operation\OperationManager;
+use Spryker\Zed\ProductSearch\Business\Locator\OperationLocator;
+use Spryker\Zed\ProductSearch\Business\Operation\DefaultOperation;
+use Spryker\Zed\ProductSearch\Business\Internal\InstallProductSearch;
+use Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
+use Spryker\Zed\ProductSearch\Business\Processor\ProductSearchProcessor;
+use Spryker\Zed\ProductSearch\Business\Transformer\ProductAttributesTransformer;
+use Spryker\Zed\ProductSearch\Business\ProductSearchDependencyContainer as SprykerProductSearchDependencyContainer;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductSearch\Business\Internal\DemoData\ProductAttributeMappingInstall;
 

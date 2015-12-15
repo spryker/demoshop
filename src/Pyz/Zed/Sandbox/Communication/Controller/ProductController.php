@@ -9,8 +9,8 @@ use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Zed\Ide\AutoCompletion;
 use Propel\Runtime\Propel;
 use Pyz\Zed\Sandbox\Communication\Controller\Product\DataProvider;
-use SprykerEngine\Zed\Kernel\Locator;
-use SprykerFeature\Zed\Application\Communication\Controller\AbstractController;
+use Spryker\Zed\Kernel\Locator;
+use Spryker\Zed\Application\Communication\Controller\AbstractController;
 
 class ProductController extends AbstractController
 {

@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\Category\Business;
 
-use SprykerFeature\Zed\Category\Business\CategoryFacade as SprykerCategoryFacade;
-use SprykerFeature\Zed\ProductCategory\Dependency\Facade\ProductCategoryToCategoryInterface;
+use Spryker\Zed\Category\Business\CategoryFacade as SprykerCategoryFacade;
+use Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToCategoryInterface;
 use Psr\Log\LoggerInterface;
 
 /**

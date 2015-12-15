@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Payolution\Persistence;
 
-use SprykerFeature\Zed\Payolution\Persistence\Propel\AbstractSpyPaymentPayolutionOrderItemQuery as BaseSpyPaymentPayolutionOrderItemQuery;
+use Spryker\Zed\Payolution\Persistence\Propel\AbstractSpyPaymentPayolutionOrderItemQuery as BaseSpyPaymentPayolutionOrderItemQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_payment_payolution_order_item' table.

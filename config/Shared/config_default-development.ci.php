@@ -1,10 +1,10 @@
 <?php
 
-use SprykerFeature\Shared\Mail\MailConstants;
-use SprykerFeature\Shared\Application\ApplicationConstants;
-use SprykerEngine\Shared\Lumberjack\LumberjackConstants;
-use SprykerFeature\Shared\Payone\PayoneConstants;
-use SprykerFeature\Shared\Session\SessionConstants;
+use Spryker\Shared\Mail\MailConstants;
+use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Lumberjack\LumberjackConstants;
+use Spryker\Shared\Payone\PayoneConstants;
+use Spryker\Shared\Session\SessionConstants;
 
 $config[ApplicationConstants::ZED_DB_USERNAME] = 'ubuntu';
 $config[ApplicationConstants::ZED_DB_PASSWORD] = '';
@@ -64,7 +64,7 @@ $config[PayoneConstants::PAYONE] = [
 ];
 
 $config[LumberjackConstants::WRITER_OPTIONS] = [
-    '\SprykerEngine\Shared\Lumberjack\Model\Writer\File' => ['log_path' => '/data/logs/development/DE/'],
+    '\Spryker\Shared\Lumberjack\Model\Writer\File' => ['log_path' => '/data/logs/development/DE/'],
 ];
 
 $config[SessionConstants::SESSION_IS_TEST] = true;

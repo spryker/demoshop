@@ -4,9 +4,9 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace YvesUnit\SprykerFeature\Yves\Assets\Communication;
+namespace YvesUnit\Spryker\Yves\Assets\Communication;
 
-use SprykerFeature\Yves\Assets\Communication\Model\UrlParameterCacheBuster;
+use Spryker\Yves\Assets\Communication\Model\UrlParameterCacheBuster;
 
 class UrlParameterCacheBusterTest extends \PHPUnit_Framework_TestCase
 {

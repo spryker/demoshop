@@ -6,7 +6,7 @@
 
 namespace Functional\Pyz\Zed\Payolution;
 
-use SprykerEngine\Zed\Kernel\AbstractFunctionalTest;
+use Spryker\Zed\Kernel\AbstractFunctionalTest;
 use Orm\Zed\Country\Persistence\SpyCountryQuery;
 use Orm\Zed\Customer\Persistence\SpyCustomer;
 use Orm\Zed\Customer\Persistence\Map\SpyCustomerTableMap;
@@ -14,7 +14,7 @@ use Orm\Zed\Payolution\Persistence\Map\SpyPaymentPayolutionTableMap;
 use Orm\Zed\Payolution\Persistence\SpyPaymentPayolution;
 use Orm\Zed\Sales\Persistence\SpySalesOrder;
 use Orm\Zed\Sales\Persistence\SpySalesOrderAddress;
-use SprykerFeature\Shared\Payolution\PayolutionApiConstants;
+use Spryker\Shared\Payolution\PayolutionApiConstants;
 use Generated\Shared\Transfer\OrderTransfer;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\AddressTransfer;

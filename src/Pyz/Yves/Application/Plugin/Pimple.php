@@ -6,8 +6,8 @@
 
 namespace Pyz\Yves\Application\Plugin;
 
-use SprykerEngine\Shared\Application\Communication\Application;
-use SprykerEngine\Yves\Kernel\AbstractPlugin;
+use Spryker\Shared\Application\Communication\Application;
+use Spryker\Yves\Kernel\AbstractPlugin;
 
 class Pimple extends AbstractPlugin
 {

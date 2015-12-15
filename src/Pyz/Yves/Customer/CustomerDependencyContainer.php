@@ -2,18 +2,18 @@
 
 namespace Pyz\Yves\Customer;
 
-use SprykerFeature\Zed\Customer\Communication\Form\AddressForm;
-use SprykerFeature\Zed\Customer\Communication\Form\CustomerForm;
-use SprykerFeature\Zed\Customer\Communication\Table\AddressTable;
-use SprykerFeature\Zed\Customer\Communication\Table\CustomerTable;
+use Spryker\Zed\Customer\Communication\Form\AddressForm;
+use Spryker\Zed\Customer\Communication\Form\CustomerForm;
+use Spryker\Zed\Customer\Communication\Table\AddressTable;
+use Spryker\Zed\Customer\Communication\Table\CustomerTable;
 use Pyz\Yves\Customer\Form\RestorePassword;
 use Pyz\Yves\Customer\Form\Profile;
 use Pyz\Yves\Customer\Form\ForgotPassword;
 use Pyz\Yves\Customer\Form\DeleteCustomer;
 use Pyz\Yves\Customer\Form\Address;
 use Pyz\Yves\Customer\Form\RegisterCustomer;
-use SprykerEngine\Yves\Kernel\AbstractDependencyContainer;
-use SprykerFeature\Client\Customer\CustomerClient;
+use Spryker\Yves\Kernel\AbstractDependencyContainer;
+use Spryker\Client\Customer\CustomerClient;
 
 class CustomerDependencyContainer extends AbstractDependencyContainer
 {

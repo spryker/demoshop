@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Product;
 
-use SprykerFeature\Zed\Product\ProductConfig as SprykerProductConfig;
+use Spryker\Zed\Product\ProductConfig as SprykerProductConfig;
 
 class ProductConfig extends SprykerProductConfig
 {

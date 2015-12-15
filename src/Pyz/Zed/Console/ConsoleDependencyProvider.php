@@ -3,29 +3,29 @@
 namespace Pyz\Zed\Console;
 
 use Pyz\Zed\MailQueue\Communication\Console\MailQueueConsole;
-use SprykerEngine\Zed\Transfer\Communication\Console\GeneratorConsole;
-use SprykerFeature\Shared\Library\Environment;
-use SprykerFeature\Zed\Application\Communication\Console\ApplicationIntegrationCheckConsole;
-use SprykerFeature\Zed\Application\Communication\Console\BuildNavigationConsole;
-use SprykerFeature\Zed\Cache\Communication\Console\DeleteAllCachesConsole;
-use SprykerFeature\Zed\Collector\Communication\Console\CollectorSearchExportConsole;
-use SprykerFeature\Zed\Collector\Communication\Console\CollectorSearchUpdateConsole;
-use SprykerFeature\Zed\Collector\Communication\Console\CollectorStorageExportConsole;
-use SprykerFeature\Zed\Development\Communication\Console\CodeStyleFixerConsole;
-use SprykerFeature\Zed\Development\Communication\Console\CodeStyleSnifferConsole;
-use SprykerFeature\Zed\Development\Communication\Console\CodeTestConsole;
-use SprykerFeature\Zed\Installer\Communication\Console\DemoDataInstallConsole;
-use SprykerFeature\Zed\Installer\Communication\Console\InitializeDatabaseConsole;
-use SprykerFeature\Zed\Maintenance\Communication\Console\FossMarkDownGeneratorConsole;
-use SprykerFeature\Zed\NewRelic\Communication\Console\RecordDeploymentConsole;
-use SprykerFeature\Zed\Oms\Communication\Console\CheckConditionConsole;
-use SprykerFeature\Zed\Oms\Communication\Console\CheckTimeoutConsole;
-use SprykerFeature\Zed\ProductSearch\Communication\Console\ProductSearchConsole;
-use SprykerFeature\Zed\Queue\Communication\Console\QueueWorkerConsole;
-use SprykerFeature\Zed\Search\Communication\Console\SearchConsole;
+use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
+use Spryker\Shared\Library\Environment;
+use Spryker\Zed\Application\Communication\Console\ApplicationIntegrationCheckConsole;
+use Spryker\Zed\Application\Communication\Console\BuildNavigationConsole;
+use Spryker\Zed\Cache\Communication\Console\DeleteAllCachesConsole;
+use Spryker\Zed\Collector\Communication\Console\CollectorSearchExportConsole;
+use Spryker\Zed\Collector\Communication\Console\CollectorSearchUpdateConsole;
+use Spryker\Zed\Collector\Communication\Console\CollectorStorageExportConsole;
+use Spryker\Zed\Development\Communication\Console\CodeStyleFixerConsole;
+use Spryker\Zed\Development\Communication\Console\CodeStyleSnifferConsole;
+use Spryker\Zed\Development\Communication\Console\CodeTestConsole;
+use Spryker\Zed\Installer\Communication\Console\DemoDataInstallConsole;
+use Spryker\Zed\Installer\Communication\Console\InitializeDatabaseConsole;
+use Spryker\Zed\Maintenance\Communication\Console\FossMarkDownGeneratorConsole;
+use Spryker\Zed\NewRelic\Communication\Console\RecordDeploymentConsole;
+use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole;
+use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole;
+use Spryker\Zed\ProductSearch\Communication\Console\ProductSearchConsole;
+use Spryker\Zed\Queue\Communication\Console\QueueWorkerConsole;
+use Spryker\Zed\Search\Communication\Console\SearchConsole;
 use Symfony\Component\Console\Command\Command;
-use SprykerEngine\Zed\Kernel\Container;
-use SprykerFeature\Zed\Console\ConsoleDependencyProvider as SprykerConsoleDependencyProvider;
+use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Console\ConsoleDependencyProvider as SprykerConsoleDependencyProvider;
 
 class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
 {

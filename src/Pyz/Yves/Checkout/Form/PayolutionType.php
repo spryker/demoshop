@@ -7,7 +7,7 @@
 namespace Pyz\Yves\Checkout\Form;
 
 use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
-use SprykerFeature\Shared\Library\Currency\CurrencyManager;
+use Spryker\Shared\Library\Currency\CurrencyManager;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;

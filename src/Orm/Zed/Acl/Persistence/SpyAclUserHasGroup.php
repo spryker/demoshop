@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Acl\Persistence;
 
-use SprykerFeature\Zed\Acl\Persistence\Propel\AbstractSpyAclUserHasGroup as BaseSpyAclUserHasGroup;
+use Spryker\Zed\Acl\Persistence\Propel\AbstractSpyAclUserHasGroup as BaseSpyAclUserHasGroup;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_acl_user_has_group' table.

@@ -2,12 +2,12 @@
 
 namespace Pyz\Zed\Glossary\Business;
 
-use SprykerFeature\Zed\Glossary\Business\Key\KeyManager;
-use SprykerFeature\Zed\Glossary\Business\Translation\TranslationManager;
+use Spryker\Zed\Glossary\Business\Key\KeyManager;
+use Spryker\Zed\Glossary\Business\Translation\TranslationManager;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Glossary\Business\Internal\DemoData\GlossaryInstall;
 use Pyz\Zed\Glossary\GlossaryDependencyProvider;
-use SprykerFeature\Zed\Glossary\Business\GlossaryDependencyContainer as SprykerGlossaryDependencyContainer;
+use Spryker\Zed\Glossary\Business\GlossaryDependencyContainer as SprykerGlossaryDependencyContainer;
 
 class GlossaryDependencyContainer extends SprykerGlossaryDependencyContainer
 {

@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Product\Persistence;
 
-use SprykerFeature\Zed\Product\Persistence\Propel\AbstractSpyLocalizedAbstractProductAttributesQuery as BaseSpyLocalizedAbstractProductAttributesQuery;
+use Spryker\Zed\Product\Persistence\Propel\AbstractSpyLocalizedAbstractProductAttributesQuery as BaseSpyLocalizedAbstractProductAttributesQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_abstract_product_localized_attributes' table.

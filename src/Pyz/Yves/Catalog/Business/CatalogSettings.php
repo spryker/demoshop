@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Catalog\Business;
 
-use SprykerFeature\Shared\Price\Code\PriceTypeConstants;
+use Spryker\Shared\Price\Code\PriceTypeConstants;
 
 class CatalogSettings
 {

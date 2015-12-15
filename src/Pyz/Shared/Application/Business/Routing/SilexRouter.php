@@ -6,7 +6,7 @@
 
 namespace Pyz\Shared\Application\Business\Routing;
 
-use SprykerFeature\Shared\Application\Business\Routing\SilexRouter as SprykerSilexRouter;
+use Spryker\Shared\Application\Business\Routing\SilexRouter as SprykerSilexRouter;
 
 /**
  * The default router, which matches/generates all the routes

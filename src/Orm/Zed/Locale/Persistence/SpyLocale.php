@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Locale\Persistence;
 
-use SprykerEngine\Zed\Locale\Persistence\Propel\AbstractSpyLocale as BaseSpyLocale;
+use Spryker\Zed\Locale\Persistence\Propel\AbstractSpyLocale as BaseSpyLocale;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_locale' table.

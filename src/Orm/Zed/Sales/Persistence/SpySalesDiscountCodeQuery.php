@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Sales\Persistence;
 
-use SprykerFeature\Zed\Sales\Persistence\Propel\AbstractSpySalesDiscountCodeQuery as BaseSpySalesDiscountCodeQuery;
+use Spryker\Zed\Sales\Persistence\Propel\AbstractSpySalesDiscountCodeQuery as BaseSpySalesDiscountCodeQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_sales_discount_code' table.

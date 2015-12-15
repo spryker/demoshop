@@ -4,13 +4,13 @@ namespace Pyz\Yves\Checkout;
 
 use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
-use SprykerEngine\Yves\Kernel\AbstractDependencyContainer;
-use SprykerFeature\Client\Cart\CartClientInterface;
-use SprykerFeature\Client\Checkout\CheckoutClient;
+use Spryker\Yves\Kernel\AbstractDependencyContainer;
+use Spryker\Client\Cart\CartClientInterface;
+use Spryker\Client\Checkout\CheckoutClient;
 use Pyz\Yves\Checkout\Form\CheckoutType;
-use SprykerFeature\Client\Glossary\GlossaryClientInterface;
-use SprykerFeature\Client\Payolution\PayolutionClientInterface;
-use SprykerFeature\Client\Shipment\ShipmentClientInterface;
+use Spryker\Client\Glossary\GlossaryClientInterface;
+use Spryker\Client\Payolution\PayolutionClientInterface;
+use Spryker\Client\Shipment\ShipmentClientInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class CheckoutDependencyContainer extends AbstractDependencyContainer

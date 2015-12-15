@@ -2,7 +2,7 @@
 
 namespace Pyz\Shared\Mail;
 
-use SprykerFeature\Shared\Mail\MailConstants as CoreMailConstants;
+use Spryker\Shared\Mail\MailConstants as CoreMailConstants;
 
 interface MailConstants extends CoreMailConstants
 {

@@ -3,12 +3,12 @@
 namespace Pyz\Zed\Sales;
 
 use Generated\Shared\Transfer\OrderTransfer;
-use SprykerFeature\Zed\Sales\SalesConfig as SprykerFeatureSalesConfig;
+use Spryker\Shared\Payone\PayoneApiConstants;
+use Spryker\Zed\Sales\SalesConfig as SprykerSalesConfig;
 use Pyz\Zed\Sales\Business\ConstantsInterface\Orderprocess;
 use Generated\Shared\Transfer\ItemTransfer;
-use SprykerFeature\Zed\Payone\Business\Model\Api\ApiConstants as PayoneApiConstants;
 
-class SalesConfig extends SprykerFeatureSalesConfig
+class SalesConfig extends SprykerSalesConfig
 {
 
     /**

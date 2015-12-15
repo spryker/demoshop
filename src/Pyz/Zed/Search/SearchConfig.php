@@ -6,9 +6,9 @@
 
 namespace Pyz\Zed\Search;
 
-use SprykerFeature\Zed\ProductSearch\Communication\Plugin\Installer;
-use SprykerFeature\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
-use SprykerFeature\Zed\Search\SearchConfig as SprykerSearchConfig;
+use Spryker\Zed\ProductSearch\Communication\Plugin\Installer;
+use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
+use Spryker\Zed\Search\SearchConfig as SprykerSearchConfig;
 
 class SearchConfig extends SprykerSearchConfig
 {

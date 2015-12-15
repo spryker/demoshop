@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\ProductSearch\Business;
 
-use SprykerFeature\Zed\ProductSearch\Business\ProductSearchFacade as SprykerProductSearchFacade;
+use Spryker\Zed\ProductSearch\Business\ProductSearchFacade as SprykerProductSearchFacade;
 use Psr\Log\LoggerInterface;
 
 /**

@@ -10,9 +10,9 @@ use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Collector\Plugin\UrlMapper;
 use Pyz\Yves\Collector\Mapper\UrlMapperInterface;
 use Silex\Application;
-use SprykerEngine\Yves\Kernel\AbstractDependencyContainer;
-use SprykerFeature\Client\Catalog\CatalogClient;
-use SprykerFeature\Client\CategoryExporter\CategoryExporterClient;
+use Spryker\Yves\Kernel\AbstractDependencyContainer;
+use Spryker\Client\Catalog\CatalogClient;
+use Spryker\Client\CategoryExporter\CategoryExporterClient;
 
 class CatalogDependencyContainer extends AbstractDependencyContainer
 {

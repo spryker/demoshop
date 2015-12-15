@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Newsletter\Persistence;
 
-use SprykerFeature\Zed\Newsletter\Persistence\Propel\AbstractSpyNewsletterType as BaseSpyNewsletterType;
+use Spryker\Zed\Newsletter\Persistence\Propel\AbstractSpyNewsletterType as BaseSpyNewsletterType;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_newsletter_type' table.

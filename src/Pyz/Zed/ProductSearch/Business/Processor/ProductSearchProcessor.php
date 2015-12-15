@@ -3,7 +3,7 @@
 namespace Pyz\Zed\ProductSearch\Business\Processor;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use SprykerFeature\Zed\ProductSearch\Business\Processor\ProductSearchProcessor as CoreProductSearchProcessor;
+use Spryker\Zed\ProductSearch\Business\Processor\ProductSearchProcessor as CoreProductSearchProcessor;
 
 class ProductSearchProcessor extends CoreProductSearchProcessor
 {

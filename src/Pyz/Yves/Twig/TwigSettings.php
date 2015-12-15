@@ -9,7 +9,7 @@ use Pyz\Yves\Customer\Plugin\TwigCustomer;
 use Pyz\Yves\Product\Plugin\TwigPrice;
 use Pyz\Yves\Twig\Plugin\TwigNative;
 use Generated\Yves\Ide\AutoCompletion;
-use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
+use Spryker\Shared\Kernel\LocatorLocatorInterface;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFilterPluginInterface;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
 

@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Cms\Persistence;
 
-use SprykerFeature\Zed\Cms\Persistence\Propel\AbstractSpyCmsGlossaryKeyMapping as BaseSpyCmsGlossaryKeyMapping;
+use Spryker\Zed\Cms\Persistence\Propel\AbstractSpyCmsGlossaryKeyMapping as BaseSpyCmsGlossaryKeyMapping;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_cms_glossary_key_mapping' table.

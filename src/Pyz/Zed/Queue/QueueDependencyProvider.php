@@ -3,9 +3,9 @@
 namespace Pyz\Zed\Queue;
 
 use Pyz\Zed\MailQueue\Communication\Plugin\MailQueueTaskWorkerPlugin;
-use SprykerEngine\Zed\Kernel\Container;
-use SprykerFeature\Zed\Queue\Dependency\Plugin\TaskPluginInterface;
-use SprykerFeature\Zed\Queue\QueueDependencyProvider as CoreQueueDependencyProvider;
+use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Queue\Dependency\Plugin\TaskPluginInterface;
+use Spryker\Zed\Queue\QueueDependencyProvider as CoreQueueDependencyProvider;
 
 class QueueDependencyProvider extends CoreQueueDependencyProvider
 {

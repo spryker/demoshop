@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\ProductOption;
 
-use SprykerEngine\Zed\Kernel\Container;
-use SprykerFeature\Zed\ProductOption\ProductOptionDependencyProvider as SprykerProductOptionDependencyProvider;
+use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\ProductOption\ProductOptionDependencyProvider as SprykerProductOptionDependencyProvider;
 
 class ProductOptionDependencyProvider extends SprykerProductOptionDependencyProvider
 {

@@ -7,8 +7,8 @@
 namespace Pyz\Zed\Glossary;
 
 use Pyz\Zed\Glossary\Communication\Plugin\YamlInstallerPlugin;
-use SprykerEngine\Zed\Kernel\Container;
-use SprykerFeature\Zed\Glossary\GlossaryDependencyProvider as SprykerGlossaryDependencyProvider;
+use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Glossary\GlossaryDependencyProvider as SprykerGlossaryDependencyProvider;
 
 class GlossaryDependencyProvider extends SprykerGlossaryDependencyProvider
 {

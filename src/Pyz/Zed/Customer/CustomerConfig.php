@@ -6,7 +6,7 @@
 
 namespace Pyz\Zed\Customer;
 
-use SprykerFeature\Zed\Customer\CustomerConfig as SprykerCustomerConfig;
+use Spryker\Zed\Customer\CustomerConfig as SprykerCustomerConfig;
 
 class CustomerConfig extends SprykerCustomerConfig
 {

@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Product\Persistence;
 
-use SprykerFeature\Zed\Product\Persistence\Propel\AbstractSpyTypeValueQuery as BaseSpyTypeValueQuery;
+use Spryker\Zed\Product\Persistence\Propel\AbstractSpyTypeValueQuery as BaseSpyTypeValueQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_attribute_type_value' table.

@@ -2,11 +2,11 @@
 
 namespace Pyz\Zed\Stock\Business;
 
-use SprykerFeature\Zed\Stock\Business\Model\Writer;
-use SprykerFeature\Zed\Stock\Business\Model\Reader;
-use SprykerFeature\Zed\Stock\Business\Model\Calculator;
-use SprykerFeature\Zed\Stock\Business\StockDependencyContainer as SprykerStockDependencyContainer;
-use SprykerFeature\Zed\Stock\Persistence\StockQueryContainer;
+use Spryker\Zed\Stock\Business\Model\Writer;
+use Spryker\Zed\Stock\Business\Model\Reader;
+use Spryker\Zed\Stock\Business\Model\Calculator;
+use Spryker\Zed\Stock\Business\StockDependencyContainer as SprykerStockDependencyContainer;
+use Spryker\Zed\Stock\Persistence\StockQueryContainer;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Stock\Business\Internal\DemoData\StockInstall;
 

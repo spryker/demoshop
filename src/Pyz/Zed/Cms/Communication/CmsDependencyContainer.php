@@ -2,15 +2,15 @@
 
 namespace Pyz\Zed\Cms\Communication;
 
-use SprykerFeature\Zed\Cms\Communication\Form\CmsGlossaryForm;
-use SprykerFeature\Zed\Cms\Communication\Form\CmsRedirectForm;
-use SprykerFeature\Zed\Cms\Communication\Form\CmsBlockForm;
-use SprykerFeature\Zed\Cms\Communication\Form\CmsPageForm;
-use SprykerFeature\Zed\Cms\Communication\Table\CmsGlossaryTable;
-use SprykerFeature\Zed\Cms\Communication\Table\CmsRedirectTable;
-use SprykerFeature\Zed\Cms\Communication\Table\CmsBlockTable;
-use SprykerFeature\Zed\Cms\Communication\Table\CmsPageTable;
-use SprykerFeature\Zed\Cms\Communication\CmsDependencyContainer as SprykerCmsDependencyContainer;
+use Spryker\Zed\Cms\Communication\Form\CmsGlossaryForm;
+use Spryker\Zed\Cms\Communication\Form\CmsRedirectForm;
+use Spryker\Zed\Cms\Communication\Form\CmsBlockForm;
+use Spryker\Zed\Cms\Communication\Form\CmsPageForm;
+use Spryker\Zed\Cms\Communication\Table\CmsGlossaryTable;
+use Spryker\Zed\Cms\Communication\Table\CmsRedirectTable;
+use Spryker\Zed\Cms\Communication\Table\CmsBlockTable;
+use Spryker\Zed\Cms\Communication\Table\CmsPageTable;
+use Spryker\Zed\Cms\Communication\CmsDependencyContainer as SprykerCmsDependencyContainer;
 
 class CmsDependencyContainer extends SprykerCmsDependencyContainer
 {

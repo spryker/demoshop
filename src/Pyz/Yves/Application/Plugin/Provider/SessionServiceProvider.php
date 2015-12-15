@@ -10,10 +10,10 @@ use Pyz\Yves\Application\ApplicationDependencyContainer;
 use Pyz\Yves\Application\Business\Model\SessionFactory;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
-use SprykerEngine\Shared\Config;
-use SprykerEngine\Yves\Kernel\AbstractPlugin;
-use SprykerFeature\Shared\Session\SessionConstants;
-use SprykerFeature\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Config;
+use Spryker\Yves\Kernel\AbstractPlugin;
+use Spryker\Shared\Session\SessionConstants;
+use Spryker\Shared\Application\ApplicationConstants;
 
 /**
  * @method ApplicationDependencyContainer getDependencyContainer()

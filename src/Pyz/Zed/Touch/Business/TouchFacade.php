@@ -6,16 +6,16 @@
 
 namespace Pyz\Zed\Touch\Business;
 
-use SprykerFeature\Zed\Category\Dependency\Facade\CategoryToTouchInterface;
-use SprykerFeature\Zed\Price\Dependency\Facade\PriceToTouchInterface;
-use SprykerFeature\Zed\Product\Dependency\Facade\ProductToTouchInterface;
-use SprykerFeature\Zed\ProductCategory\Dependency\Facade\ProductCategoryToTouchInterface;
-use SprykerFeature\Zed\ProductSearch\Dependency\Facade\ProductSearchToTouchInterface;
-use SprykerFeature\Zed\Stock\Dependency\Facade\StockToTouchInterface;
-use SprykerEngine\Zed\Touch\Business\TouchFacade as SprykerTouchFacade;
-use SprykerFeature\Zed\Cms\Dependency\Facade\CmsToTouchInterface;
-use SprykerFeature\Zed\Glossary\Dependency\Facade\GlossaryToTouchInterface;
-use SprykerFeature\Zed\Url\Dependency\UrlToTouchInterface;
+use Spryker\Zed\Category\Dependency\Facade\CategoryToTouchInterface;
+use Spryker\Zed\Price\Dependency\Facade\PriceToTouchInterface;
+use Spryker\Zed\Product\Dependency\Facade\ProductToTouchInterface;
+use Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToTouchInterface;
+use Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToTouchInterface;
+use Spryker\Zed\Stock\Dependency\Facade\StockToTouchInterface;
+use Spryker\Zed\Touch\Business\TouchFacade as SprykerTouchFacade;
+use Spryker\Zed\Cms\Dependency\Facade\CmsToTouchInterface;
+use Spryker\Zed\Glossary\Dependency\Facade\GlossaryToTouchInterface;
+use Spryker\Zed\Url\Dependency\UrlToTouchInterface;
 
 class TouchFacade extends SprykerTouchFacade implements
     CategoryToTouchInterface,

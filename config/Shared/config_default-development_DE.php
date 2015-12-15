@@ -1,8 +1,8 @@
 <?php
 
-use SprykerFeature\Shared\Mail\MailConstants;
-use SprykerFeature\Shared\Application\ApplicationConstants;
-use SprykerEngine\Shared\Lumberjack\LumberjackConstants;
+use Spryker\Shared\Mail\MailConstants;
+use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Lumberjack\LumberjackConstants;
 
 $config[ApplicationConstants::ZED_DB_USERNAME] = 'development';
 $config[ApplicationConstants::ZED_DB_PASSWORD] = 'mate20mg';
@@ -45,5 +45,5 @@ $config[ApplicationConstants::ZED_RABBITMQ_PASSWORD] = 'mate20mg';
 $config[ApplicationConstants::ZED_RABBITMQ_VHOST] = '/DE_development_zed';
 
 $config[LumberjackConstants::WRITER_OPTIONS] = [
-    '\SprykerEngine\Shared\Lumberjack\Model\Writer\File' => ['log_path' => '/data/logs/development/DE/'],
+    '\Spryker\Shared\Lumberjack\Model\Writer\File' => ['log_path' => '/data/logs/development/DE/'],
 ];

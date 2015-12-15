@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Acl\Persistence;
 
-use SprykerFeature\Zed\Acl\Persistence\Propel\AbstractSpyAclRoleArchive as BaseSpyAclRoleArchive;
+use Spryker\Zed\Acl\Persistence\Propel\AbstractSpyAclRoleArchive as BaseSpyAclRoleArchive;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_acl_role_archive' table.

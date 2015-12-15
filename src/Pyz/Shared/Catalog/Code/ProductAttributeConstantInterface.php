@@ -2,7 +2,7 @@
 
 namespace Pyz\Shared\Catalog\Code;
 
-use SprykerFeature\Shared\Catalog\Code\ProductAttributeConstantInterface as CoreProductAttributeConstantInterface;
+use Spryker\Shared\Catalog\Code\ProductAttributeConstantInterface as CoreProductAttributeConstantInterface;
 
 interface ProductAttributeConstantInterface extends CoreProductAttributeConstantInterface
 {

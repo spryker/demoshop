@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Queue\Business;
 
-use SprykerFeature\Zed\Queue\Business\QueueFacade as CoreQueueFacade;
+use Spryker\Zed\Queue\Business\QueueFacade as CoreQueueFacade;
 
 class QueueFacade extends CoreQueueFacade
 {

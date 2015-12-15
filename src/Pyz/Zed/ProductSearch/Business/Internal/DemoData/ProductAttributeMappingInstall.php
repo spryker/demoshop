@@ -2,13 +2,13 @@
 
 namespace Pyz\Zed\ProductSearch\Business\Internal\DemoData;
 
-use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
+use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 use Orm\Zed\Product\Persistence\SpyProduct;
 use Orm\Zed\Product\Persistence\SpyProductAttributesMetadataQuery;
 use Orm\Zed\Product\Persistence\SpyProductQuery;
-use SprykerFeature\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
-use SprykerFeature\Zed\ProductSearch\Dependency\Facade\ProductSearchToLocaleInterface;
-use SprykerFeature\Zed\ProductSearch\Dependency\Facade\ProductSearchToTouchInterface;
+use Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
+use Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToLocaleInterface;
+use Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToTouchInterface;
 use Orm\Zed\ProductSearch\Persistence\SpySearchableProductsQuery;
 use Propel\Runtime\Exception\PropelException;
 

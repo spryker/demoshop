@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Twig\Plugin;
 
-use SprykerEngine\Yves\Kernel\AbstractPlugin;
+use Spryker\Yves\Kernel\AbstractPlugin;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFilterPluginInterface;
 
 class TwigNative extends AbstractPlugin implements TwigFilterPluginInterface

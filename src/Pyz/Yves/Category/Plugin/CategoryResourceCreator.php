@@ -6,7 +6,7 @@
 
 namespace Pyz\Yves\Category\Plugin;
 
-use SprykerEngine\Yves\Kernel\AbstractPlugin;
+use Spryker\Yves\Kernel\AbstractPlugin;
 use Pyz\Yves\Category\CategoryDependencyContainer;
 
 /**

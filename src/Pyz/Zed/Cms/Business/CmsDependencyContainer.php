@@ -2,17 +2,17 @@
 
 namespace Pyz\Zed\Cms\Business;
 
-use SprykerFeature\Zed\Cms\Business\Mapping\GlossaryKeyMappingManager;
-use SprykerFeature\Zed\Cms\Business\Block\BlockManager;
-use SprykerFeature\Zed\Cms\Business\Template\TemplateManager;
-use SprykerFeature\Zed\Cms\Business\Page\PageManager;
+use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManager;
+use Spryker\Zed\Cms\Business\Block\BlockManager;
+use Spryker\Zed\Cms\Business\Template\TemplateManager;
+use Spryker\Zed\Cms\Business\Page\PageManager;
 use Pyz\Zed\Cms\Business\Internal\DemoData\CmsInstall;
 use Pyz\Zed\Cms\CmsDependencyProvider;
 use Pyz\Zed\Glossary\Business\GlossaryFacade;
 use Pyz\Zed\Locale\Business\LocaleFacade;
 use Pyz\Zed\Url\Business\UrlFacade;
-use SprykerEngine\Shared\Kernel\Messenger\MessengerInterface;
-use SprykerFeature\Zed\Cms\Business\CmsDependencyContainer as SprykerCmsDependencyContainer;
+use Spryker\Shared\Kernel\Messenger\MessengerInterface;
+use Spryker\Zed\Cms\Business\CmsDependencyContainer as SprykerCmsDependencyContainer;
 
 class CmsDependencyContainer extends SprykerCmsDependencyContainer
 {

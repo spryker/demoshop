@@ -8,11 +8,11 @@ namespace Pyz\Yves\Product\ResourceCreator;
 
 use Pyz\Yves\Collector\Creator\ResourceCreatorInterface;
 use Silex\Application;
-use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
-use SprykerFeature\Shared\Application\Communication\ControllerServiceBuilder;
-use SprykerEngine\Yves\Kernel\BundleControllerAction;
-use SprykerEngine\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
-use SprykerEngine\Yves\Kernel\ControllerLocator;
+use Spryker\Shared\Kernel\LocatorLocatorInterface;
+use Spryker\Shared\Application\Communication\ControllerServiceBuilder;
+use Spryker\Yves\Kernel\BundleControllerAction;
+use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
+use Spryker\Yves\Kernel\ControllerLocator;
 use Pyz\Yves\Product\Builder\FrontendProductBuilderInterface;
 
 class ProductResourceCreator implements ResourceCreatorInterface

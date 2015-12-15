@@ -2,13 +2,13 @@
 
 namespace Pyz\Zed\Product\Business;
 
-use SprykerFeature\Zed\Product\Business\ProductFacade as SprykerProductFacade;
-use SprykerFeature\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface;
-use SprykerFeature\Zed\ProductSearch\Dependency\Facade\ProductSearchToProductInterface;
-use SprykerFeature\Zed\Stock\Dependency\Facade\StockToProductInterface;
-use SprykerFeature\Zed\TaxProductConnector\Dependency\Facade\TaxProductConnectorToProductInterface;
-use SprykerFeature\Zed\ProductOption\Dependency\Facade\ProductOptionToProductInterface;
-use SprykerFeature\Zed\ProductOptionExporter\Dependency\Facade\ProductOptionExporterToProductInterface;
+use Spryker\Zed\Product\Business\ProductFacade as SprykerProductFacade;
+use Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface;
+use Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToProductInterface;
+use Spryker\Zed\Stock\Dependency\Facade\StockToProductInterface;
+use Spryker\Zed\TaxProductConnector\Dependency\Facade\TaxProductConnectorToProductInterface;
+use Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToProductInterface;
+use Spryker\Zed\ProductOptionExporter\Dependency\Facade\ProductOptionExporterToProductInterface;
 use Psr\Log\LoggerInterface;
 
 /**

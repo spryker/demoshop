@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Acl\Persistence;
 
-use SprykerFeature\Zed\Acl\Persistence\Propel\AbstractSpyAclRuleQuery as BaseSpyAclRuleQuery;
+use Spryker\Zed\Acl\Persistence\Propel\AbstractSpyAclRuleQuery as BaseSpyAclRuleQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_acl_rule' table.

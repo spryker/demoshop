@@ -4,11 +4,11 @@ namespace Pyz\Zed\Stock\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\StockProductTransfer;
 use Generated\Shared\Transfer\TypeTransfer;
-use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
-use SprykerFeature\Zed\Library\Import\Reader\CsvFileReader;
-use SprykerFeature\Zed\Stock\Business\Model\ReaderInterface;
-use SprykerFeature\Zed\Stock\Business\Model\WriterInterface;
-use SprykerFeature\Zed\Stock\Persistence\StockQueryContainer;
+use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
+use Spryker\Zed\Library\Import\Reader\CsvFileReader;
+use Spryker\Zed\Stock\Business\Model\ReaderInterface;
+use Spryker\Zed\Stock\Business\Model\WriterInterface;
+use Spryker\Zed\Stock\Persistence\StockQueryContainer;
 
 class StockInstall extends AbstractInstaller
 {

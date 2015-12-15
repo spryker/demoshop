@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Stock\Persistence;
 
-use SprykerFeature\Zed\Stock\Persistence\Propel\AbstractSpyStockQuery as BaseSpyStockQuery;
+use Spryker\Zed\Stock\Persistence\Propel\AbstractSpyStockQuery as BaseSpyStockQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_stock' table.

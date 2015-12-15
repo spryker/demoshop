@@ -5,12 +5,12 @@ namespace Pyz\Yves\Catalog\Business\Creator;
 use Pyz\Client\Catalog\Model\FacetConfig;
 use Pyz\Yves\Collector\Creator\ResourceCreatorInterface;
 use Silex\Application;
-use SprykerEngine\Yves\Kernel\BundleControllerAction;
-use SprykerEngine\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
-use SprykerEngine\Yves\Kernel\ControllerLocator;
-use SprykerEngine\Yves\Kernel\Locator;
-use SprykerFeature\Shared\Application\Communication\ControllerServiceBuilder;
-use SprykerFeature\Shared\Category\CategoryConstants;
+use Spryker\Yves\Kernel\BundleControllerAction;
+use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
+use Spryker\Yves\Kernel\ControllerLocator;
+use Spryker\Yves\Kernel\Locator;
+use Spryker\Shared\Application\Communication\ControllerServiceBuilder;
+use Spryker\Shared\Category\CategoryConstants;
 
 class CatalogResourceCreator implements ResourceCreatorInterface
 {

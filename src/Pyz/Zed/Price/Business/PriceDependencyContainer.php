@@ -2,11 +2,15 @@
 
 namespace Pyz\Zed\Price\Business;
 
-use SprykerFeature\Zed\Price\Business\Internal\Install;
-use SprykerFeature\Zed\Price\Business\Model\BulkWriter;
-use SprykerFeature\Zed\Price\Business\Model\Writer;
-use SprykerFeature\Zed\Price\Business\Model\Reader;
-use SprykerFeature\Zed\Price\Business\PriceDependencyContainer as SprykerPriceDependencyContainer;
+use Spryker\Shared\Kernel\Messenger\MessengerInterface;
+use Spryker\Zed\Price\Business\Internal\Install;
+use Spryker\Zed\Price\Business\Model\BulkWriter;
+use Spryker\Zed\Price\Business\Model\BulkWriterInterface;
+use Spryker\Zed\Price\Business\Model\ReaderInterface;
+use Spryker\Zed\Price\Business\Model\Writer;
+use Spryker\Zed\Price\Business\Model\Reader;
+use Spryker\Zed\Price\Business\Model\WriterInterface;
+use Spryker\Zed\Price\Business\PriceDependencyContainer as SprykerPriceDependencyContainer;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Price\Business\Internal\DemoData\PriceInstall;
 
@@ -74,7 +78,7 @@ class PriceDependencyContainer extends SprykerPriceDependencyContainer
      *
      * @return Install
      */
-    public function getInstaller(\SprykerEngine\Shared\Kernel\Messenger\MessengerInterface $messenger)
+    public function getInstaller(MessengerInterface $messenger)
     {
         $installer = new Install(
                     $this->getLocator()->price()->facade(),
