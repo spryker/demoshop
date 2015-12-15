@@ -2,13 +2,13 @@
 
 namespace Pyz\Zed\Cart;
 
-use SprykerFeature\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemGroupKeyOptionPlugin;
-use SprykerFeature\Zed\Cart\Communication\Plugin\SkuGroupKeyPlugin;
-use SprykerFeature\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemProductOptionPlugin;
-use SprykerFeature\Zed\PriceCartConnector\Communication\Plugin\CartItemPricePlugin;
-use SprykerFeature\Zed\ProductCartConnector\Communication\Plugin\ProductCartPlugin;
-use SprykerFeature\Zed\Cart\CartConfig as SprykerCartConfig;
-use SprykerFeature\Zed\Cart\Dependency\ItemExpanderPluginInterface;
+use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemGroupKeyOptionPlugin;
+use Spryker\Zed\Cart\Communication\Plugin\SkuGroupKeyPlugin;
+use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemProductOptionPlugin;
+use Spryker\Zed\PriceCartConnector\Communication\Plugin\CartItemPricePlugin;
+use Spryker\Zed\ProductCartConnector\Communication\Plugin\ProductCartPlugin;
+use Spryker\Zed\Cart\CartConfig as SprykerCartConfig;
+use Spryker\Zed\Cart\Dependency\ItemExpanderPluginInterface;
 
 class CartConfig extends SprykerCartConfig
 {

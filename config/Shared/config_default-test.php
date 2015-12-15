@@ -4,9 +4,9 @@
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a development environment.
  */
 
-use SprykerFeature\Shared\Application\ApplicationConstants;
-use SprykerFeature\Shared\Session\SessionConstants;
-use SprykerFeature\Shared\Payone\PayoneConstants;
+use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Session\SessionConstants;
+use Spryker\Shared\Payone\PayoneConstants;
 
 $config[ApplicationConstants::ZED_DB_USERNAME] = 'development';
 $config[ApplicationConstants::ZED_DB_PASSWORD] = 'mate20mg';

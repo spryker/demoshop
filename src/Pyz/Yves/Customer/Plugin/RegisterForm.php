@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Customer\Plugin;
 
-use SprykerEngine\Yves\Kernel\AbstractPlugin;
+use Spryker\Yves\Kernel\AbstractPlugin;
 
 class RegisterForm extends AbstractPlugin
 {

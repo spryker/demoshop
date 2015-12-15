@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Product\Persistence;
 
-use SprykerFeature\Zed\Product\Persistence\Propel\AbstractSpyProductQuery as BaseSpyProductQuery;
+use Spryker\Zed\Product\Persistence\Propel\AbstractSpyProductQuery as BaseSpyProductQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_product' table.

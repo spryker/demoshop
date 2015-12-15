@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\OmsCheckoutConnector\Business;
 
-use SprykerFeature\Zed\OmsCheckoutConnector\Business\OmsOrderHydratorInterface;
-use SprykerFeature\Zed\OmsCheckoutConnector\Business\OmsCheckoutConnectorDependencyContainer as BaseOmsChekcoutConnectorDependencyContainer;
+use Spryker\Zed\OmsCheckoutConnector\Business\OmsOrderHydratorInterface;
+use Spryker\Zed\OmsCheckoutConnector\Business\OmsCheckoutConnectorDependencyContainer as BaseOmsChekcoutConnectorDependencyContainer;
 
 class OmsCheckoutConnectorDependencyContainer extends BaseOmsChekcoutConnectorDependencyContainer
 {

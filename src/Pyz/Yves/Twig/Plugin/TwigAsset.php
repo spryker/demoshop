@@ -5,7 +5,7 @@ namespace Pyz\Yves\Twig\Plugin;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
 use Pyz\Yves\Twig\TwigDependencyContainer;
 use Silex\Application;
-use SprykerEngine\Yves\Kernel\AbstractPlugin;
+use Spryker\Yves\Kernel\AbstractPlugin;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**

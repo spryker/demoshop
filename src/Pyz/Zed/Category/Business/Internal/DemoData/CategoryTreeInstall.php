@@ -6,13 +6,13 @@ use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
 use Pyz\Zed\Locale\Business\LocaleFacade;
-use SprykerEngine\Zed\Touch\Business\TouchFacade;
-use SprykerFeature\Shared\Category\CategoryConstants;
-use SprykerFeature\Zed\Category\Business\Model\CategoryWriter;
-use SprykerFeature\Zed\Category\Business\Model\CategoryWriterInterface;
-use SprykerFeature\Zed\Category\Business\Tree\CategoryTreeWriter;
-use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
-use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
+use Spryker\Zed\Touch\Business\TouchFacade;
+use Spryker\Shared\Category\CategoryConstants;
+use Spryker\Zed\Category\Business\Model\CategoryWriter;
+use Spryker\Zed\Category\Business\Model\CategoryWriterInterface;
+use Spryker\Zed\Category\Business\Tree\CategoryTreeWriter;
+use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
+use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 
 class CategoryTreeInstall extends AbstractInstaller
 {

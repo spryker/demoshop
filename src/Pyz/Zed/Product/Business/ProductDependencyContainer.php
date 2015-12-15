@@ -2,20 +2,20 @@
 
 namespace Pyz\Zed\Product\Business;
 
-use SprykerFeature\Zed\Product\Business\Product\ProductManager;
-use SprykerFeature\Zed\Product\Business\Attribute\AttributeManager;
-use SprykerFeature\Zed\Product\Business\Internal\Install;
-use SprykerFeature\Zed\Product\Business\Model\ProductBatchResult;
-use SprykerFeature\Zed\Product\Business\Importer\Writer\Db\ConcreteProductWriter;
-use SprykerFeature\Zed\Product\Business\Importer\Writer\Db\AbstractProductWriter;
-use SprykerFeature\Zed\Product\Business\Importer\Writer\ProductWriter;
-use SprykerFeature\Zed\Product\Business\Importer\Builder\ProductBuilder;
-use SprykerFeature\Zed\Product\Business\Importer\Reader\File\CsvReader;
-use SprykerFeature\Zed\Product\Business\Importer\Validator\ImportProductValidator;
-use SprykerFeature\Zed\Product\Business\Importer\FileImporter;
-use SprykerFeature\Zed\Product\Business\Importer\Upload\UploadedFileImporter;
-use SprykerFeature\Zed\Product\Business\Builder\SimpleAttributeMergeBuilder;
-use SprykerFeature\Zed\Product\Business\ProductDependencyContainer as SprykerDependencyContainer;
+use Spryker\Zed\Product\Business\Product\ProductManager;
+use Spryker\Zed\Product\Business\Attribute\AttributeManager;
+use Spryker\Zed\Product\Business\Internal\Install;
+use Spryker\Zed\Product\Business\Model\ProductBatchResult;
+use Spryker\Zed\Product\Business\Importer\Writer\Db\ConcreteProductWriter;
+use Spryker\Zed\Product\Business\Importer\Writer\Db\AbstractProductWriter;
+use Spryker\Zed\Product\Business\Importer\Writer\ProductWriter;
+use Spryker\Zed\Product\Business\Importer\Builder\ProductBuilder;
+use Spryker\Zed\Product\Business\Importer\Reader\File\CsvReader;
+use Spryker\Zed\Product\Business\Importer\Validator\ImportProductValidator;
+use Spryker\Zed\Product\Business\Importer\FileImporter;
+use Spryker\Zed\Product\Business\Importer\Upload\UploadedFileImporter;
+use Spryker\Zed\Product\Business\Builder\SimpleAttributeMergeBuilder;
+use Spryker\Zed\Product\Business\ProductDependencyContainer as SprykerDependencyContainer;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Product\Business\Internal\DemoData\ProductDataInstall;
 
@@ -143,7 +143,7 @@ class ProductDependencyContainer extends SprykerDependencyContainer
      *
      * @return Install
      */
-    public function createInstaller(\SprykerEngine\Shared\Kernel\Messenger\MessengerInterface $messenger)
+    public function createInstaller(\Spryker\Shared\Kernel\Messenger\MessengerInterface $messenger)
     {
         $installer = new Install(
                     $this->createAttributeManager()

@@ -3,7 +3,7 @@
 namespace Pyz\Zed\Shipment\Communication\Plugin;
 
 use Pyz\Zed\Shipment\Business\ShipmentFacade;
-use SprykerFeature\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
+use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 
 /**
  * @method ShipmentFacade getFacade()

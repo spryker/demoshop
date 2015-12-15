@@ -8,7 +8,7 @@ namespace Pyz\Yves\Collector\Plugin;
 
 use Pyz\Yves\Collector\CollectorDependencyContainer;
 use Pyz\Yves\Collector\Mapper;
-use SprykerEngine\Yves\Kernel\AbstractPlugin;
+use Spryker\Yves\Kernel\AbstractPlugin;
 
 /**
  * @method CollectorDependencyContainer getDependencyContainer()

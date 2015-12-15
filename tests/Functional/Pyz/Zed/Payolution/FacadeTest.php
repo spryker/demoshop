@@ -5,7 +5,7 @@
 
 namespace Functional\Pyz\Zed\Payolution;
 
-use SprykerFeature\Zed\Payolution\Business\PayolutionFacade;
+use Spryker\Zed\Payolution\Business\PayolutionFacade;
 
 /**
  * @group Pyz

@@ -1,6 +1,6 @@
 <?php
 
-use SprykerFeature\Shared\Library\SystemUnderTest\SystemUnderTestBootstrap;
+use Spryker\Shared\Library\SystemUnderTest\SystemUnderTestBootstrap;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/_helpers/EnvironmentalTestCaseInterface.php';

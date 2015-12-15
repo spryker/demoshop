@@ -5,7 +5,7 @@
 
 namespace Pyz\Yves\Glossary;
 
-use SprykerFeature\Client\Glossary\GlossaryClientInterface;
+use Spryker\Client\Glossary\GlossaryClientInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 
 class TwigTranslator implements TranslatorInterface

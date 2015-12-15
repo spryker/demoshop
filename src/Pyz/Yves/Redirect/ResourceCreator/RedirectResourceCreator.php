@@ -7,12 +7,12 @@
 namespace Pyz\Yves\Redirect\ResourceCreator;
 
 use Pyz\Yves\Collector\Creator\ResourceCreatorInterface;
-use SprykerFeature\Shared\Application\Communication\ControllerServiceBuilder;
-use SprykerEngine\Shared\Kernel\LocatorLocatorInterface;
+use Spryker\Shared\Application\Communication\ControllerServiceBuilder;
+use Spryker\Shared\Kernel\LocatorLocatorInterface;
 use Silex\Application;
-use SprykerEngine\Yves\Kernel\BundleControllerAction;
-use SprykerEngine\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
-use SprykerEngine\Yves\Kernel\ControllerLocator;
+use Spryker\Yves\Kernel\BundleControllerAction;
+use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
+use Spryker\Yves\Kernel\ControllerLocator;
 
 class RedirectResourceCreator implements ResourceCreatorInterface
 {

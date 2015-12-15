@@ -3,7 +3,7 @@
 namespace Pyz\Zed\Glossary\Communication\Plugin;
 
 use Pyz\Zed\Glossary\Business\GlossaryFacade;
-use SprykerFeature\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
+use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 use Pyz\Zed\Glossary\Communication\GlossaryDependencyContainer;
 
 /**

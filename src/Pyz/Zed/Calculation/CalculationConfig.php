@@ -2,24 +2,24 @@
 
 namespace Pyz\Zed\Calculation;
 
-use SprykerFeature\Zed\Calculation\Communication\Plugin\ItemTotalPriceCalculatorPlugin;
-use SprykerFeature\Zed\Calculation\Communication\Plugin\ItemPriceToPayCalculatorPlugin;
-use SprykerFeature\Zed\Calculation\Communication\Plugin\TaxTotalsCalculatorPlugin;
-use SprykerFeature\Zed\DiscountCalculationConnector\Communication\Plugin\GrandTotalWithDiscountsTotalsCalculatorPlugin;
-use SprykerFeature\Zed\DiscountCalculationConnector\Communication\Plugin\DiscountTotalsCalculatorPlugin;
-use SprykerFeature\Zed\Calculation\Communication\Plugin\ProductOptionPriceToPayCalculatorPlugin;
-use SprykerFeature\Zed\Calculation\Communication\Plugin\ExpensePriceToPayCalculatorPlugin;
-use SprykerFeature\Zed\DiscountCalculationConnector\Communication\Plugin\DiscountCalculatorPlugin;
-use SprykerFeature\Zed\Calculation\Communication\Plugin\GrandTotalTotalsCalculatorPlugin;
-use SprykerFeature\Zed\Calculation\Communication\Plugin\SubtotalWithoutItemExpensesTotalsCalculatorPlugin;
-use SprykerFeature\Zed\Calculation\Communication\Plugin\SubtotalTotalsCalculatorPlugin;
-use SprykerFeature\Zed\Calculation\Communication\Plugin\ExpenseTotalsCalculatorPlugin;
-use SprykerFeature\Zed\DiscountCalculationConnector\Communication\Plugin\RemoveAllCalculatedDiscountsCalculatorPlugin;
-use SprykerFeature\Zed\Calculation\Communication\Plugin\RemoveAllExpensesCalculatorPlugin;
-use SprykerFeature\Zed\Calculation\Communication\Plugin\RemoveTotalsCalculatorPlugin;
-use SprykerFeature\Zed\Calculation\CalculationConfig as SprykerCalculationConfig;
-use SprykerFeature\Zed\Calculation\Dependency\Plugin\CalculatorPluginInterface;
-use SprykerFeature\Zed\Calculation\Dependency\Plugin\TotalsCalculatorPluginInterface;
+use Spryker\Zed\Calculation\Communication\Plugin\ItemTotalPriceCalculatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\ItemPriceToPayCalculatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\TaxTotalsCalculatorPlugin;
+use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\GrandTotalWithDiscountsTotalsCalculatorPlugin;
+use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\DiscountTotalsCalculatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\ProductOptionPriceToPayCalculatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\ExpensePriceToPayCalculatorPlugin;
+use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\DiscountCalculatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\GrandTotalTotalsCalculatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\SubtotalWithoutItemExpensesTotalsCalculatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\SubtotalTotalsCalculatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\ExpenseTotalsCalculatorPlugin;
+use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\RemoveAllCalculatedDiscountsCalculatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\RemoveAllExpensesCalculatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\RemoveTotalsCalculatorPlugin;
+use Spryker\Zed\Calculation\CalculationConfig as SprykerCalculationConfig;
+use Spryker\Zed\Calculation\Dependency\Plugin\CalculatorPluginInterface;
+use Spryker\Zed\Calculation\Dependency\Plugin\TotalsCalculatorPluginInterface;
 
 class CalculationConfig extends SprykerCalculationConfig
 {

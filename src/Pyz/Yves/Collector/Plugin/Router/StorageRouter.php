@@ -10,8 +10,8 @@ use Pyz\Yves\Collector\CollectorDependencyContainer;
 use Pyz\Yves\Collector\Creator\ResourceCreatorInterface;
 use Pyz\Yves\Collector\Mapper\UrlMapperInterface;
 use Silex\Application;
-use SprykerEngine\Yves\Application\Routing\AbstractRouter;
-use SprykerFeature\Client\Collector\Matcher\UrlMatcherInterface;
+use Spryker\Yves\Application\Routing\AbstractRouter;
+use Spryker\Client\Collector\Matcher\UrlMatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
@@ -46,7 +46,7 @@ class StorageRouter extends AbstractRouter
             $request = $this->getRequest();
             $requestParameters = $request->query->all();
             //if no page is provided we generate a url to change the filter and therefore want to reset the page
-            //TODO @see SprykerFeature\Yves\Catalog\Business\Model\AbstractSearch Line 77
+            //TODO @see Spryker\Yves\Catalog\Business\Model\AbstractSearch Line 77
             //     same todo to put parameter name into constant
             if (!isset($parameters['page']) && isset($requestParameters['page'])) {
                 unset($requestParameters['page']);

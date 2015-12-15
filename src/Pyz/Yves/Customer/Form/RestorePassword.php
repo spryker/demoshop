@@ -2,8 +2,8 @@
 
 namespace Pyz\Yves\Customer\Form;
 
-use SprykerEngine\Shared\Gui\Form\AbstractForm;
-use SprykerEngine\Shared\Transfer\TransferInterface;
+use Spryker\Shared\Gui\Form\AbstractForm;
+use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class RestorePassword extends AbstractForm

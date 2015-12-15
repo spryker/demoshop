@@ -6,8 +6,8 @@ use Generated\Shared\Transfer\CmsBlockTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
 use Silex\Application;
-use SprykerEngine\Yves\Kernel\AbstractPlugin;
-use SprykerFeature\Client\Cms\CmsClientInterface;
+use Spryker\Yves\Kernel\AbstractPlugin;
+use Spryker\Client\Cms\CmsClientInterface;
 
 /**
  * @method CmsClientInterface getClient()

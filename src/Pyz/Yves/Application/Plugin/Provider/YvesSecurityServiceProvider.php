@@ -4,7 +4,7 @@ namespace Pyz\Yves\Application\Plugin\Provider;
 
 use Silex\Application;
 use Silex\ServiceProviderInterface;
-use SprykerEngine\Yves\Kernel\AbstractPlugin;
+use Spryker\Yves\Kernel\AbstractPlugin;
 use Symfony\Component\Security\Core\Encoder\BCryptPasswordEncoder;
 
 class YvesSecurityServiceProvider extends AbstractPlugin implements ServiceProviderInterface

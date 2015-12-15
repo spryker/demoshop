@@ -6,7 +6,7 @@
 
 namespace Pyz\Yves\Collector\Mapper;
 
-use SprykerFeature\Client\Catalog\Model\FacetConfig;
+use Spryker\Client\Catalog\Model\FacetConfig;
 use Symfony\Component\HttpFoundation\Request;
 
 /**

@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Discount\Persistence;
 
-use SprykerFeature\Zed\Discount\Persistence\Propel\AbstractSpyDiscountVoucher as BaseSpyDiscountVoucher;
+use Spryker\Zed\Discount\Persistence\Propel\AbstractSpyDiscountVoucher as BaseSpyDiscountVoucher;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_discount_voucher' table.

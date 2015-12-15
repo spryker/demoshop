@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Distributor\Persistence;
 
-use SprykerFeature\Zed\Distributor\Persistence\Propel\AbstractSpyDistributorReceiverQuery as BaseSpyDistributorReceiverQuery;
+use Spryker\Zed\Distributor\Persistence\Propel\AbstractSpyDistributorReceiverQuery as BaseSpyDistributorReceiverQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_distributor_receiver' table.

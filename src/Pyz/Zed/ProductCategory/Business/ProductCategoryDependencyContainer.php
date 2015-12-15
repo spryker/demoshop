@@ -2,17 +2,17 @@
 
 namespace Pyz\Zed\ProductCategory\Business;
 
-use SprykerFeature\Zed\ProductCategory\Business\ProductCategoryManagerInterface;
-use SprykerFeature\Zed\ProductCategory\Business\TransferGenerator;
-use SprykerFeature\Zed\ProductCategory\Business\ProductCategoryManager;
+use Spryker\Zed\ProductCategory\Business\ProductCategoryManagerInterface;
+use Spryker\Zed\ProductCategory\Business\TransferGenerator;
+use Spryker\Zed\ProductCategory\Business\ProductCategoryManager;
 use Pyz\Zed\ProductCategory\ProductCategoryConfig;
-use SprykerFeature\Zed\Library\Import\Reader\CsvFileReader;
-use SprykerFeature\Zed\Library\Import\ReaderInterface;
+use Spryker\Zed\Library\Import\Reader\CsvFileReader;
+use Spryker\Zed\Library\Import\ReaderInterface;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductCategory\Business\Internal\DemoData\ProductCategoryMappingInstall;
-use SprykerFeature\Zed\ProductCategory\Business\ProductCategoryDependencyContainer as SprykerDependencyContainer;
-use SprykerFeature\Zed\ProductCategory\Business\TransferGeneratorInterface;
-use SprykerFeature\Zed\ProductCategory\ProductCategoryDependencyProvider;
+use Spryker\Zed\ProductCategory\Business\ProductCategoryDependencyContainer as SprykerDependencyContainer;
+use Spryker\Zed\ProductCategory\Business\TransferGeneratorInterface;
+use Spryker\Zed\ProductCategory\ProductCategoryDependencyProvider;
 
 /**
  * @method ProductCategoryConfig getConfig()

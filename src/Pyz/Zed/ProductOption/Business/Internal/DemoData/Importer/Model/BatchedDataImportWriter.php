@@ -2,13 +2,13 @@
 
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Model;
 
-use SprykerFeature\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface;
+use Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface;
 use Orm\Zed\ProductOption\Persistence\SpyProductOptionType;
 use Orm\Zed\ProductOption\Persistence\SpyProductOptionValue;
-use SprykerFeature\Zed\ProductOption\Dependency\Facade\ProductOptionToProductInterface;
-use SprykerFeature\Zed\ProductOption\Dependency\Facade\ProductOptionToLocaleInterface;
+use Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToProductInterface;
+use Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToLocaleInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\BatchProcessor\AbstractBatchProcessor;
-use SprykerFeature\Zed\ProductOption\Business\Model\DataImportWriter;
+use Spryker\Zed\ProductOption\Business\Model\DataImportWriter;
 
 class BatchedDataImportWriter extends DataImportWriter
 {

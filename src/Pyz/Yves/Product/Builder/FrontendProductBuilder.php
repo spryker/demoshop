@@ -7,7 +7,7 @@
 namespace Pyz\Yves\Product\Builder;
 
 use Generated\Yves\Ide\FactoryAutoCompletion\Product;
-use SprykerEngine\Shared\Kernel\Factory\FactoryInterface;
+use Spryker\Shared\Kernel\Factory\FactoryInterface;
 use Pyz\Yves\Product\Model\AbstractProduct;
 
 class FrontendProductBuilder implements FrontendProductBuilderInterface

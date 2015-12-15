@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\Shipment\Business;
 
-use SprykerEngine\Shared\Kernel\Messenger\MessengerInterface;
-use SprykerFeature\Zed\Shipment\Business\ShipmentFacade as SprykerShipmentFacade;
+use Spryker\Shared\Kernel\Messenger\MessengerInterface;
+use Spryker\Zed\Shipment\Business\ShipmentFacade as SprykerShipmentFacade;
 
 /**
  * @method ShipmentDependencyContainer getDependencyContainer()

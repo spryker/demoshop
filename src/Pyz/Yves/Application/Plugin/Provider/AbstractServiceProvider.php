@@ -5,8 +5,8 @@ namespace Pyz\Yves\Application\Plugin\Provider;
 use Generated\Yves\Ide\AutoCompletion;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
-use SprykerEngine\Yves\Kernel\AbstractPlugin;
-use SprykerEngine\Yves\Kernel\Locator;
+use Spryker\Yves\Kernel\AbstractPlugin;
+use Spryker\Yves\Kernel\Locator;
 
 abstract class AbstractServiceProvider extends AbstractPlugin implements ServiceProviderInterface
 {

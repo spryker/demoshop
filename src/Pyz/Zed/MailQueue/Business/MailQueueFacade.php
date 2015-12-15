@@ -4,7 +4,7 @@ namespace Pyz\Zed\MailQueue\Business;
 
 use Generated\Shared\Transfer\MailTransfer;
 use Generated\Shared\Transfer\QueueMessageTransfer;
-use SprykerEngine\Zed\Kernel\Business\AbstractFacade;
+use Spryker\Zed\Kernel\Business\AbstractFacade;
 
 /**
  * @method MailQueueDependencyContainer getDependencyContainer()

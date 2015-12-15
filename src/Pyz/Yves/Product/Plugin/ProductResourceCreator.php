@@ -7,7 +7,7 @@
 namespace Pyz\Yves\Product\Plugin;
 
 use Pyz\Yves\Product\ProductDependencyContainer;
-use SprykerEngine\Yves\Kernel\AbstractPlugin;
+use Spryker\Yves\Kernel\AbstractPlugin;
 
 /**
  * @method ProductDependencyContainer getDependencyContainer()

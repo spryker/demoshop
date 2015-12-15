@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Product\Persistence;
 
-use SprykerFeature\Zed\Product\Persistence\Propel\AbstractSpyProductAttributesMetadataQuery as BaseSpyProductAttributesMetadataQuery;
+use Spryker\Zed\Product\Persistence\Propel\AbstractSpyProductAttributesMetadataQuery as BaseSpyProductAttributesMetadataQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_attributes_metadata' table.

@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Sandbox;
 
-use SprykerEngine\Zed\Kernel\AbstractBundleConfig;
+use Spryker\Zed\Kernel\AbstractBundleConfig;
 
 class SandboxConfig extends AbstractBundleConfig
 {

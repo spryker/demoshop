@@ -2,7 +2,7 @@
 
 namespace Pyz\Client\Catalog\Model;
 
-use SprykerFeature\Client\Catalog\Model\FacetConfig as CoreFacetConfig;
+use Spryker\Client\Catalog\Model\FacetConfig as CoreFacetConfig;
 
 class FacetConfig extends CoreFacetConfig
 {

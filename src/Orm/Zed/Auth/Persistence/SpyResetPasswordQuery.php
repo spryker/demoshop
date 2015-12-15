@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Auth\Persistence;
 
-use SprykerFeature\Zed\Auth\Persistence\Propel\AbstractSpyResetPasswordQuery as BaseSpyResetPasswordQuery;
+use Spryker\Zed\Auth\Persistence\Propel\AbstractSpyResetPasswordQuery as BaseSpyResetPasswordQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_auth_reset_password' table.

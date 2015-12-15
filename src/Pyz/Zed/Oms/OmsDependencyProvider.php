@@ -2,24 +2,24 @@
 
 namespace Pyz\Zed\Oms;
 
-use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Command\RefundPlugin;
-use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Command\CapturePlugin;
-use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Command\RevertPlugin;
-use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Command\ReAuthorizePlugin;
-use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Command\PreAuthorizePlugin;
+use Spryker\Zed\Payolution\Communication\Plugin\Oms\Command\RefundPlugin;
+use Spryker\Zed\Payolution\Communication\Plugin\Oms\Command\CapturePlugin;
+use Spryker\Zed\Payolution\Communication\Plugin\Oms\Command\RevertPlugin;
+use Spryker\Zed\Payolution\Communication\Plugin\Oms\Command\ReAuthorizePlugin;
+use Spryker\Zed\Payolution\Communication\Plugin\Oms\Command\PreAuthorizePlugin;
 use Pyz\Zed\Oms\Communication\Plugin\Oms\Command\SendInvoice;
 use Pyz\Zed\Oms\Communication\Plugin\Oms\Command\CreateInvoice;
 use Pyz\Zed\Oms\Communication\Plugin\Oms\Command\SendPaymentRequest;
-use SprykerFeature\Zed\Nopayment\Communication\Plugin\Command\NopaymentCommandPlugin;
-use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Condition\IsCaptureApprovedPlugin;
-use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Condition\IsPreAuthorizationApprovedPlugin;
-use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Condition\IsReAuthorizationApprovedPlugin;
-use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Condition\IsRefundApprovedPlugin;
-use SprykerFeature\Zed\Payolution\Communication\Plugin\Oms\Condition\IsReversalApprovedPlugin;
-use SprykerEngine\Zed\Kernel\Container;
-use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Command\CommandInterface;
-use SprykerFeature\Zed\Oms\Communication\Plugin\Oms\Condition\ConditionInterface;
-use SprykerFeature\Zed\Oms\OmsDependencyProvider as SprykerOmsDependencyProvider;
+use Spryker\Zed\Nopayment\Communication\Plugin\Command\NopaymentCommandPlugin;
+use Spryker\Zed\Payolution\Communication\Plugin\Oms\Condition\IsCaptureApprovedPlugin;
+use Spryker\Zed\Payolution\Communication\Plugin\Oms\Condition\IsPreAuthorizationApprovedPlugin;
+use Spryker\Zed\Payolution\Communication\Plugin\Oms\Condition\IsReAuthorizationApprovedPlugin;
+use Spryker\Zed\Payolution\Communication\Plugin\Oms\Condition\IsRefundApprovedPlugin;
+use Spryker\Zed\Payolution\Communication\Plugin\Oms\Condition\IsReversalApprovedPlugin;
+use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Oms\Communication\Plugin\Oms\Command\CommandInterface;
+use Spryker\Zed\Oms\Communication\Plugin\Oms\Condition\ConditionInterface;
+use Spryker\Zed\Oms\OmsDependencyProvider as SprykerOmsDependencyProvider;
 
 class OmsDependencyProvider extends SprykerOmsDependencyProvider
 {

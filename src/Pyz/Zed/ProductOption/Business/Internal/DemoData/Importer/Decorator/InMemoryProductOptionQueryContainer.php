@@ -12,7 +12,7 @@ use Orm\Zed\ProductOption\Persistence\SpyProductOptionTypeUsageQuery;
 use Orm\Zed\ProductOption\Persistence\SpyProductOptionValueUsageQuery;
 use Orm\Zed\Product\Persistence\SpyAbstractProductQuery;
 use Orm\Zed\Tax\Persistence\Base\SpyTaxSetQuery;
-use SprykerFeature\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface;
+use Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface;
 
 class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainerInterface
 {

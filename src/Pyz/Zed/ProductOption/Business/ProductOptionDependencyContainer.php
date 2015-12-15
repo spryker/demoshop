@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\ProductOption\Business;
 
-use SprykerFeature\Zed\ProductOption\Business\Model\ProductOptionReader;
+use Spryker\Zed\ProductOption\Business\Model\ProductOptionReader;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Db\MysqlBatchStorageProvider;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\BatchProcessor\InMemoryBatchProcessor;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Decorator\InMemoryProductOptionQueryContainer;
@@ -15,7 +15,7 @@ use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLPro
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLOptionsTransformer;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\XMLProductReader;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\XMLOptionsReader;
-use SprykerFeature\Zed\ProductOption\Business\ProductOptionDependencyContainer as SprykerDependencyContainer;
+use Spryker\Zed\ProductOption\Business\ProductOptionDependencyContainer as SprykerDependencyContainer;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductOption\ProductOptionConfig;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\ProductOptionDataInstall;
@@ -26,7 +26,7 @@ use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\ProductRead
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLTransformerInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\WriterInterface;
 use Pyz\Zed\ProductOption\ProductOptionDependencyProvider;
-use SprykerFeature\Zed\ProductOption\Business\Model\DataImportWriterInterface;
+use Spryker\Zed\ProductOption\Business\Model\DataImportWriterInterface;
 
 /**
  * @method ProductOptionConfig getConfig()

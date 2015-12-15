@@ -2,8 +2,8 @@
 
 namespace Spryker\Refactor\DependencyContainer;
 
-use SprykerFeature\Zed\Development\Business\Refactor\AbstractRefactor;
-use SprykerFeature\Zed\Development\Business\Refactor\RefactorException;
+use Spryker\Zed\Development\Business\Refactor\AbstractRefactor;
+use Spryker\Zed\Development\Business\Refactor\RefactorException;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 use Zend\Code\Generator\ClassGenerator;

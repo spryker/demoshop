@@ -6,9 +6,9 @@ use Pyz\Zed\MailQueue\Business\Model\MailQueueManager;
 use Pyz\Zed\MailQueue\Business\Model\MailQueueManagerInterface;
 use Pyz\Zed\MailQueue\MailQueueDependencyProvider;
 use Pyz\Zed\Queue\Business\QueueFacade;
-use SprykerEngine\Shared\Kernel\Store;
-use SprykerEngine\Zed\Kernel\Business\AbstractBusinessDependencyContainer;
-use SprykerFeature\Zed\Mail\Business\MailFacade;
+use Spryker\Shared\Kernel\Store;
+use Spryker\Zed\Kernel\Business\AbstractBusinessDependencyContainer;
+use Spryker\Zed\Mail\Business\MailFacade;
 
 class MailQueueDependencyContainer extends AbstractBusinessDependencyContainer
 {

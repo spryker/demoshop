@@ -2,10 +2,10 @@
 
 namespace Pyz\Zed\Price\Business\Internal\DemoData;
 
-use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
-use SprykerFeature\Zed\Library\Import\Reader\CsvFileReader;
-use SprykerFeature\Zed\Price\Business\Model\ReaderInterface;
-use SprykerFeature\Zed\Price\Business\Model\WriterInterface;
+use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
+use Spryker\Zed\Library\Import\Reader\CsvFileReader;
+use Spryker\Zed\Price\Business\Model\ReaderInterface;
+use Spryker\Zed\Price\Business\Model\WriterInterface;
 use Generated\Shared\Transfer\PriceProductTransfer;
 
 class PriceInstall extends AbstractInstaller

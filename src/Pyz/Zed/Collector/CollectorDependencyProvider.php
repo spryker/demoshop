@@ -11,8 +11,8 @@ use Pyz\Zed\Collector\Communication\Plugin\NavigationCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\CategoryNodeCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\ProductCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\ProductCollectorSearchPlugin;
-use SprykerEngine\Zed\Kernel\Container;
-use SprykerFeature\Zed\Collector\CollectorDependencyProvider as SprykerCollectorDependencyProvider;
+use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Collector\CollectorDependencyProvider as SprykerCollectorDependencyProvider;
 
 class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 {

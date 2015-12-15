@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\User\Persistence;
 
-use SprykerFeature\Zed\User\Persistence\Propel\AbstractSpyUserQuery as BaseSpyUserQuery;
+use Spryker\Zed\User\Persistence\Propel\AbstractSpyUserQuery as BaseSpyUserQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_user' table.

@@ -2,21 +2,21 @@
 
 namespace Pyz\Zed\Category\Business;
 
-use SprykerFeature\Zed\Category\Business\TransferGenerator;
-use SprykerFeature\Zed\Category\Business\Generator\UrlPathGenerator;
-use SprykerFeature\Zed\Category\Business\Tree\ClosureTableWriter;
-use SprykerFeature\Zed\Category\Business\Tree\NodeWriter;
-use SprykerFeature\Zed\Category\Business\Model\CategoryWriter;
-use SprykerFeature\Zed\Category\Business\Renderer\CategoryTreeRenderer;
-use SprykerFeature\Zed\Category\Business\Tree\CategoryTreeReader;
-use SprykerFeature\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter;
-use SprykerFeature\Zed\Category\Business\Tree\CategoryTreeWriter;
+use Spryker\Zed\Category\Business\TransferGenerator;
+use Spryker\Zed\Category\Business\Generator\UrlPathGenerator;
+use Spryker\Zed\Category\Business\Tree\ClosureTableWriter;
+use Spryker\Zed\Category\Business\Tree\NodeWriter;
+use Spryker\Zed\Category\Business\Model\CategoryWriter;
+use Spryker\Zed\Category\Business\Renderer\CategoryTreeRenderer;
+use Spryker\Zed\Category\Business\Tree\CategoryTreeReader;
+use Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter;
+use Spryker\Zed\Category\Business\Tree\CategoryTreeWriter;
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
 use Pyz\Zed\Category\CategoryDependencyProvider;
-use SprykerFeature\Zed\Category\Business\CategoryDependencyContainer as SprykerCategoryDependencyContainer;
+use Spryker\Zed\Category\Business\CategoryDependencyContainer as SprykerCategoryDependencyContainer;
 use Pyz\Zed\Category\Business\Internal\DemoData\CategoryTreeInstall;
 use Psr\Log\LoggerInterface;
-use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
+use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
 
 /**
  * @method CategoryQueryContainer getQueryContainer()

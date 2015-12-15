@@ -3,11 +3,11 @@
 namespace Pyz\Yves\Application;
 
 use Pyz\Yves\Application\Plugin\Pimple;
-use SprykerEngine\Yves\Application\Application;
-use SprykerEngine\Yves\Application\ApplicationDependencyContainer as SprykerApplicationDependencyContainer;
-use SprykerEngine\Yves\Application\Plugin\Provider\ExceptionService\ExceptionHandlerInterface;
-use SprykerEngine\Yves\Application\Plugin\Provider\ExceptionService\SubRequestExceptionHandler;
-use SprykerFeature\Client\Session\SessionClientInterface;
+use Spryker\Yves\Application\Application;
+use Spryker\Yves\Application\ApplicationDependencyContainer as SprykerApplicationDependencyContainer;
+use Spryker\Yves\Application\Plugin\Provider\ExceptionService\ExceptionHandlerInterface;
+use Spryker\Yves\Application\Plugin\Provider\ExceptionService\SubRequestExceptionHandler;
+use Spryker\Client\Session\SessionClientInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 class ApplicationDependencyContainer extends SprykerApplicationDependencyContainer

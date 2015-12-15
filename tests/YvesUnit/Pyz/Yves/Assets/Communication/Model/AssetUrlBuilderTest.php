@@ -4,10 +4,10 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace YvesUnit\SprykerFeature\Yves\Assets\Communication;
+namespace YvesUnit\Spryker\Yves\Assets\Communication;
 
-use SprykerFeature\Yves\Assets\Communication\Model\AssetUrlBuilder;
-use SprykerFeature\Yves\Assets\Communication\Model\CacheBusterInterface;
+use Spryker\Yves\Assets\Communication\Model\AssetUrlBuilder;
+use Spryker\Yves\Assets\Communication\Model\CacheBusterInterface;
 
 class AssetUrlBuilderTest extends \PHPUnit_Framework_TestCase
 {
@@ -51,7 +51,7 @@ class AssetUrlBuilderTest extends \PHPUnit_Framework_TestCase
      */
     private function getCacheBusterMock()
     {
-        $mock = $this->getMock('\SprykerFeature\Yves\Assets\Communication\Model\CacheBusterInterface');
+        $mock = $this->getMock('\Spryker\Yves\Assets\Communication\Model\CacheBusterInterface');
         $mock->expects($this->any())
             ->method('addCacheBust')
             ->will($this->returnArgument(0));

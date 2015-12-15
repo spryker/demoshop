@@ -8,8 +8,8 @@ namespace Pyz\Yves\Glossary\Plugin\Provider;
 use Pyz\Yves\Glossary\GlossaryDependencyContainer;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
-use SprykerEngine\Yves\Kernel\AbstractPlugin;
-use SprykerFeature\Client\Glossary\GlossaryClientInterface;
+use Spryker\Yves\Kernel\AbstractPlugin;
+use Spryker\Client\Glossary\GlossaryClientInterface;
 
 /**
  * @method GlossaryDependencyContainer getDependencyContainer()

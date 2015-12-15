@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Shipment\Persistence;
 
-use SprykerFeature\Zed\Shipment\Persistence\Propel\AbstractSpyShipmentCarrierQuery as BaseSpyShipmentCarrierQuery;
+use Spryker\Zed\Shipment\Persistence\Propel\AbstractSpyShipmentCarrierQuery as BaseSpyShipmentCarrierQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_shipment_carrier' table.

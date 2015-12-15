@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Price\Business;
 
-use SprykerFeature\Zed\Price\Business\PriceFacade as SprykerPriceFacade;
+use Spryker\Zed\Price\Business\PriceFacade as SprykerPriceFacade;
 use Psr\Log\LoggerInterface;
 
 /**

@@ -3,7 +3,7 @@
 namespace Pyz\Zed\Category\Communication\Plugin;
 
 use Pyz\Zed\Category\Business\CategoryFacade;
-use SprykerFeature\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
+use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 
 /**
  * @method CategoryFacade getFacade()

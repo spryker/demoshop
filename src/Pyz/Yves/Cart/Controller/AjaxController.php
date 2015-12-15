@@ -3,8 +3,8 @@
 namespace Pyz\Yves\Cart\Controller;
 
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
-use SprykerEngine\Yves\Application\Controller\AbstractController;
-use SprykerFeature\Client\Cart\CartClientInterface;
+use Spryker\Yves\Application\Controller\AbstractController;
+use Spryker\Client\Cart\CartClientInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;

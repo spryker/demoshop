@@ -9,7 +9,7 @@ use Pyz\Yves\Collector\Plugin\Router\StorageRouter;
 use Pyz\Yves\Category\Plugin\Provider\CategoryServiceProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerServiceProvider;
 use Pyz\Yves\Glossary\Plugin\Provider\TranslationServiceProvider;
-use SprykerEngine\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
+use Spryker\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
 use Pyz\Yves\Heartbeat\Plugin\Provider\HeartbeatControllerProvider;
 use Pyz\Yves\Application\Plugin\Provider\YvesSecurityServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\SessionServiceProvider as ProviderSessionServiceProvider;
@@ -29,16 +29,16 @@ use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
-use SprykerEngine\Shared\Config;
-use SprykerEngine\Yves\Application\Application;
-use SprykerEngine\Yves\Application\Plugin\Provider\CookieServiceProvider;
-use SprykerEngine\Yves\Application\Plugin\Provider\MonologServiceProvider;
-use SprykerEngine\Yves\Application\Plugin\Provider\YvesLoggingServiceProvider;
-use SprykerFeature\Client\Lumberjack\EventJournalClient;
-use SprykerFeature\Shared\Application\ApplicationConstants;
-use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
-use SprykerFeature\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
-use SprykerFeature\Shared\NewRelic\Api;
+use Spryker\Shared\Config;
+use Spryker\Yves\Application\Application;
+use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
+use Spryker\Yves\Application\Plugin\Provider\MonologServiceProvider;
+use Spryker\Yves\Application\Plugin\Provider\YvesLoggingServiceProvider;
+use Spryker\Client\Lumberjack\EventJournalClient;
+use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
+use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
+use Spryker\Shared\NewRelic\Api;
 
 class YvesBootstrap
 {

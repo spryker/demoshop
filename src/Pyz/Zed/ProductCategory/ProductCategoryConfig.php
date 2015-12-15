@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\ProductCategory;
 
-use SprykerEngine\Zed\Kernel\AbstractBundleConfig;
+use Spryker\Zed\Kernel\AbstractBundleConfig;
 
 class ProductCategoryConfig extends AbstractBundleConfig
 {

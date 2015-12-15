@@ -3,8 +3,8 @@
 namespace Pyz\Zed\Cms;
 
 use Pyz\Zed\Cms\Communication\Plugin\DemoDataInstaller;
-use SprykerEngine\Zed\Kernel\Container;
-use SprykerFeature\Zed\Cms\CmsDependencyProvider as SprykerCmsDependencyProvider;
+use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Cms\CmsDependencyProvider as SprykerCmsDependencyProvider;
 
 class CmsDependencyProvider extends SprykerCmsDependencyProvider
 {

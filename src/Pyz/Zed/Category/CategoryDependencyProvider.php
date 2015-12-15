@@ -5,8 +5,8 @@
  */
 namespace Pyz\Zed\Category;
 
-use SprykerFeature\Zed\Category\CategoryDependencyProvider as SprykerDependencyProvider;
-use SprykerEngine\Zed\Kernel\Container;
+use Spryker\Zed\Category\CategoryDependencyProvider as SprykerDependencyProvider;
+use Spryker\Zed\Kernel\Container;
 
 class CategoryDependencyProvider extends SprykerDependencyProvider
 {

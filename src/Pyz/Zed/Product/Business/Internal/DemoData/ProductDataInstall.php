@@ -6,12 +6,12 @@ use Generated\Shared\Transfer\AbstractProductTransfer;
 use Generated\Shared\Transfer\ConcreteProductTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
-use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
-use SprykerFeature\Zed\Product\Business\Attribute\AttributeManagerInterface;
-use SprykerFeature\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface;
-use SprykerFeature\Zed\Product\Business\Product\ProductManagerInterface;
-use SprykerFeature\Zed\Product\Dependency\Facade\ProductToLocaleInterface;
-use SprykerFeature\Zed\Product\Dependency\Facade\ProductToTouchInterface;
+use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
+use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
+use Spryker\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface;
+use Spryker\Zed\Product\Business\Product\ProductManagerInterface;
+use Spryker\Zed\Product\Dependency\Facade\ProductToLocaleInterface;
+use Spryker\Zed\Product\Dependency\Facade\ProductToTouchInterface;
 
 class ProductDataInstall extends AbstractInstaller
 {

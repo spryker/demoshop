@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Cms\Persistence;
 
-use SprykerFeature\Zed\Cms\Persistence\Propel\AbstractSpyCmsTemplateQuery as BaseSpyCmsTemplateQuery;
+use Spryker\Zed\Cms\Persistence\Propel\AbstractSpyCmsTemplateQuery as BaseSpyCmsTemplateQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_cms_template' table.

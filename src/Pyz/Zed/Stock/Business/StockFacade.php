@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Stock\Business;
 
-use SprykerFeature\Zed\Stock\Business\StockFacade as SprykerStockFacade;
+use Spryker\Zed\Stock\Business\StockFacade as SprykerStockFacade;
 use Psr\Log\LoggerInterface;
 
 /**

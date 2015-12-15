@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Payone\Persistence;
 
-use SprykerFeature\Zed\Payone\Persistence\Propel\AbstractSpyPaymentPayoneTransactionStatusLogOrderItem as BaseSpyPaymentPayoneTransactionStatusLogOrderItem;
+use Spryker\Zed\Payone\Persistence\Propel\AbstractSpyPaymentPayoneTransactionStatusLogOrderItem as BaseSpyPaymentPayoneTransactionStatusLogOrderItem;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_payment_payone_transaction_status_log_order_item' table.

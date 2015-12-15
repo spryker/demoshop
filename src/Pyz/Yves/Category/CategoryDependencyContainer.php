@@ -7,9 +7,9 @@
 namespace Pyz\Yves\Category;
 
 use Generated\Yves\Ide\FactoryAutoCompletion\CategoryCommunication;
-use SprykerEngine\Yves\Kernel\AbstractDependencyContainer;
+use Spryker\Yves\Kernel\AbstractDependencyContainer;
 use Pyz\Yves\Category\ResourceCreator\CategoryResourceCreator;
-use SprykerFeature\Client\CategoryExporter\CategoryExporterClient;
+use Spryker\Client\CategoryExporter\CategoryExporterClient;
 
 class CategoryDependencyContainer extends AbstractDependencyContainer
 {

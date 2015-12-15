@@ -2,8 +2,8 @@
 
 namespace Pyz\Yves\Product\Controller;
 
-use SprykerEngine\Yves\Application\Controller\AbstractController;
-use SprykerFeature\Shared\Product\Model\AbstractProductInterface;
+use Spryker\Yves\Application\Controller\AbstractController;
+use Spryker\Shared\Product\Model\AbstractProductInterface;
 
 class ProductController extends AbstractController
 {

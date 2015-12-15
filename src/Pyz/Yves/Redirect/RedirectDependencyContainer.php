@@ -6,7 +6,7 @@
 
 namespace Pyz\Yves\Redirect;
 
-use SprykerEngine\Yves\Kernel\AbstractDependencyContainer;
+use Spryker\Yves\Kernel\AbstractDependencyContainer;
 use Pyz\Yves\Redirect\ResourceCreator\RedirectResourceCreator;
 
 class RedirectDependencyContainer extends AbstractDependencyContainer

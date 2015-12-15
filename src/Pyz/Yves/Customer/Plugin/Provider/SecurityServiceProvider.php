@@ -8,9 +8,9 @@ namespace Pyz\Yves\Customer\Plugin\Provider;
 
 use Silex\Application;
 use Silex\ServiceProviderInterface;
-use SprykerEngine\Shared\Config;
-use SprykerEngine\Yves\Kernel\AbstractPlugin;
-use SprykerFeature\Shared\Customer\CustomerConstants;
+use Spryker\Shared\Config;
+use Spryker\Yves\Kernel\AbstractPlugin;
+use Spryker\Shared\Customer\CustomerConstants;
 use Pyz\Yves\Customer\Plugin\UserProvider;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

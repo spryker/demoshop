@@ -5,8 +5,8 @@ namespace Pyz\Zed\OmsCheckoutConnector\Business;
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
 use Pyz\Zed\Oms\OmsConfig;
-use SprykerFeature\Zed\OmsCheckoutConnector\Business\Exception\NoStatemachineProcessException;
-use SprykerFeature\Zed\OmsCheckoutConnector\Business\OmsOrderHydrator as BaseOmsOrderHydrator;
+use Spryker\Zed\OmsCheckoutConnector\Business\Exception\NoStatemachineProcessException;
+use Spryker\Zed\OmsCheckoutConnector\Business\OmsOrderHydrator as BaseOmsOrderHydrator;
 
 class OmsOrderHydrator extends BaseOmsOrderHydrator
 {

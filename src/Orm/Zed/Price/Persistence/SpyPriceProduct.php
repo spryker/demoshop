@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Price\Persistence;
 
-use SprykerFeature\Zed\Price\Persistence\Propel\AbstractSpyPriceProduct as BaseSpyPriceProduct;
+use Spryker\Zed\Price\Persistence\Propel\AbstractSpyPriceProduct as BaseSpyPriceProduct;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_price_product' table.

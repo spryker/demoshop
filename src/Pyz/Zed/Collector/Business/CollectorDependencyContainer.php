@@ -2,23 +2,23 @@
 
 namespace Pyz\Zed\Collector\Business;
 
-use SprykerFeature\Zed\Collector\Business\Internal\InstallElasticsearch;
-use SprykerFeature\Zed\Collector\Business\Exporter\KeyBuilder\SearchMarkerKeyBuilder;
-use SprykerFeature\Zed\Collector\Business\Exporter\Reader\Search\ElasticsearchMarkerReader;
-use SprykerFeature\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchMarkerWriter;
-use SprykerFeature\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchUpdateWriter;
-use SprykerFeature\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchWriter;
-use SprykerFeature\Zed\Collector\Business\Exporter\SearchCollector;
-use SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdater as KeyValueTouchUpdater;
-use SprykerFeature\Zed\Collector\Business\Exporter\Writer\Search\TouchUpdater;
-use SprykerFeature\Zed\Collector\Business\Model\BatchResult;
-use SprykerFeature\Zed\Collector\Business\Model\FailedResult;
-use SprykerFeature\Zed\Collector\Business\Exporter\KeyBuilder\KvMarkerKeyBuilder;
-use SprykerFeature\Zed\Collector\Business\Exporter\Reader\KeyValue\RedisReader;
-use SprykerFeature\Zed\Collector\Business\Exporter\ExportMarker;
-use SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\RedisWriter;
-use SprykerFeature\Zed\Collector\Business\Exporter\KeyValueCollector;
-use SprykerFeature\Zed\Collector\Business\Exporter\Collector;
+use Spryker\Zed\Collector\Business\Internal\InstallElasticsearch;
+use Spryker\Zed\Collector\Business\Exporter\KeyBuilder\SearchMarkerKeyBuilder;
+use Spryker\Zed\Collector\Business\Exporter\Reader\Search\ElasticsearchMarkerReader;
+use Spryker\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchMarkerWriter;
+use Spryker\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchUpdateWriter;
+use Spryker\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchWriter;
+use Spryker\Zed\Collector\Business\Exporter\SearchCollector;
+use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdater as KeyValueTouchUpdater;
+use Spryker\Zed\Collector\Business\Exporter\Writer\Search\TouchUpdater;
+use Spryker\Zed\Collector\Business\Model\BatchResult;
+use Spryker\Zed\Collector\Business\Model\FailedResult;
+use Spryker\Zed\Collector\Business\Exporter\KeyBuilder\KvMarkerKeyBuilder;
+use Spryker\Zed\Collector\Business\Exporter\Reader\KeyValue\RedisReader;
+use Spryker\Zed\Collector\Business\Exporter\ExportMarker;
+use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\RedisWriter;
+use Spryker\Zed\Collector\Business\Exporter\KeyValueCollector;
+use Spryker\Zed\Collector\Business\Exporter\Collector;
 use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector;
 use Pyz\Zed\Collector\Business\Storage\BlockCollector;
 use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector;
@@ -29,10 +29,10 @@ use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
 use Pyz\Zed\Collector\Business\Storage\TranslationCollector;
 use Pyz\Zed\Collector\Business\Storage\UrlCollector;
 use Pyz\Zed\Collector\CollectorDependencyProvider;
-use SprykerFeature\Shared\Library\Storage\StorageInstanceBuilder;
-use SprykerFeature\Zed\Collector\Business\CollectorDependencyContainer as SprykerCollectorDependencyContainer;
-use SprykerFeature\Zed\Collector\Business\Exporter\Writer\WriterInterface;
-use SprykerFeature\Zed\Collector\CollectorConfig;
+use Spryker\Shared\Library\Storage\StorageInstanceBuilder;
+use Spryker\Zed\Collector\Business\CollectorDependencyContainer as SprykerCollectorDependencyContainer;
+use Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface;
+use Spryker\Zed\Collector\CollectorConfig;
 
 class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
 {
@@ -410,7 +410,7 @@ class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
      *
      * @return InstallElasticsearch
      */
-    public function createInstaller(\SprykerEngine\Shared\Kernel\Messenger\MessengerInterface $messenger)
+    public function createInstaller(\Spryker\Shared\Kernel\Messenger\MessengerInterface $messenger)
     {
         $installer = new InstallElasticsearch(
                     StorageInstanceBuilder::getElasticsearchInstance(),

@@ -3,8 +3,8 @@
 namespace Pyz\Zed\Glossary\Business;
 
 use Psr\Log\LoggerInterface;
-use SprykerFeature\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface;
-use SprykerFeature\Zed\Glossary\Business\GlossaryFacade as SprykerGlossaryFacade;
+use Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface;
+use Spryker\Zed\Glossary\Business\GlossaryFacade as SprykerGlossaryFacade;
 
 /**
  * @method GlossaryDependencyContainer getDependencyContainer()

@@ -2,7 +2,7 @@
 
 namespace Pyz\Shared\Catalog\Code;
 
-use SprykerFeature\Shared\Catalog\Code\ProductOptionTypeConstantInterface as CoreProductOptionTypeConstantInterface;
+use Spryker\Shared\Catalog\Code\ProductOptionTypeConstantInterface as CoreProductOptionTypeConstantInterface;
 
 interface ProductOptionTypeConstantInterface extends CoreProductOptionTypeConstantInterface
 {

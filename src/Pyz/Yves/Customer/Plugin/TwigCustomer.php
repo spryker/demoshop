@@ -6,10 +6,10 @@
 
 namespace Pyz\Yves\Customer\Plugin;
 
-use SprykerFeature\Client\Customer\CustomerClientInterface;
+use Spryker\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
 use Silex\Application;
-use SprykerEngine\Yves\Kernel\AbstractPlugin;
+use Spryker\Yves\Kernel\AbstractPlugin;
 use Twig_SimpleFunction;
 
 /**

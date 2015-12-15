@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Glossary\Persistence;
 
-use SprykerFeature\Zed\Glossary\Persistence\Propel\AbstractSpyGlossaryKey as BaseSpyGlossaryKey;
+use Spryker\Zed\Glossary\Persistence\Propel\AbstractSpyGlossaryKey as BaseSpyGlossaryKey;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_glossary_key' table.

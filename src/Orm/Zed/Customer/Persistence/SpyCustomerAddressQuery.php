@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Customer\Persistence;
 
-use SprykerFeature\Zed\Customer\Persistence\Propel\AbstractSpyCustomerAddressQuery as BaseSpyCustomerAddressQuery;
+use Spryker\Zed\Customer\Persistence\Propel\AbstractSpyCustomerAddressQuery as BaseSpyCustomerAddressQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_customer_address' table.

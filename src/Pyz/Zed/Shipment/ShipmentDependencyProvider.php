@@ -12,8 +12,8 @@ use Pyz\Zed\Shipment\Communication\Plugin\PriceCalculation\DHLPaketPlugin as Pri
 use Pyz\Zed\Shipment\Communication\Plugin\PriceCalculation\DHLExpressPlugin as PriceCalculationDHLExpressPlugin;
 use Pyz\Zed\Shipment\Communication\Plugin\Availability\DHLPaketPlugin;
 use Pyz\Zed\Shipment\Communication\Plugin\Availability\DHLExpressPlugin;
-use SprykerFeature\Zed\Shipment\ShipmentDependencyProvider as SprykerShipmentDependencyProvider;
-use SprykerEngine\Zed\Kernel\Container;
+use Spryker\Zed\Shipment\ShipmentDependencyProvider as SprykerShipmentDependencyProvider;
+use Spryker\Zed\Kernel\Container;
 
 class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
 {

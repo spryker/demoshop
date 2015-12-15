@@ -6,7 +6,7 @@
 
 namespace Pyz\Zed\Auth;
 
-use SprykerFeature\Zed\Auth\AuthConfig as SprykerAuthConfig;
+use Spryker\Zed\Auth\AuthConfig as SprykerAuthConfig;
 
 class AuthConfig extends SprykerAuthConfig
 {

@@ -13,9 +13,9 @@ use Pyz\Yves\Category\Plugin\CategoryResourceCreator;
 use Pyz\Yves\Product\Plugin\ProductResourceCreator;
 use Pyz\Yves\Collector\Creator\ResourceCreatorInterface;
 use Pyz\Yves\Collector\Mapper\UrlMapper;
-use SprykerFeature\Client\Catalog\Model\FacetConfig;
-use SprykerFeature\Client\Collector\Matcher\UrlMatcher;
-use SprykerEngine\Yves\Kernel\AbstractDependencyContainer;
+use Spryker\Client\Catalog\Model\FacetConfig;
+use Spryker\Client\Collector\Matcher\UrlMatcher;
+use Spryker\Yves\Kernel\AbstractDependencyContainer;
 use Silex\Application;
 
 class CollectorDependencyContainer extends AbstractDependencyContainer

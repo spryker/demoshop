@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Product\Persistence;
 
-use SprykerFeature\Zed\Product\Persistence\Propel\AbstractSpyProductAttributesMetadata as BaseSpyProductAttributesMetadata;
+use Spryker\Zed\Product\Persistence\Propel\AbstractSpyProductAttributesMetadata as BaseSpyProductAttributesMetadata;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_attributes_metadata' table.

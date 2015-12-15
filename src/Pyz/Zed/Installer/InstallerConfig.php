@@ -11,15 +11,15 @@ use Pyz\Zed\Product\Communication\Plugin\DemoDataInstaller as ProductDemoDataIns
 use Pyz\Zed\Cms\Communication\Plugin\DemoDataInstaller as CmsDemoDataInstaller;
 use Pyz\Zed\Glossary\Communication\Plugin\DemoDataInstaller as PluginDemoDataInstaller;
 use Pyz\Zed\Category\Communication\Plugin\DemoDataInstaller;
-use SprykerFeature\Zed\Acl\Communication\Plugin\Installer as AclInstaller;
-use SprykerFeature\Zed\User\Communication\Plugin\Installer as UserInstaller;
-use SprykerFeature\Zed\Country\Communication\Plugin\Installer as CountryCountryCountryInstaller;
-use SprykerEngine\Zed\Locale\Communication\Plugin\Installer as LocaleInstaller;
-use SprykerFeature\Zed\Price\Communication\Plugin\Installer as PriceInstaller;
-use SprykerFeature\Zed\Product\Communication\Plugin\Installer as ProductInstaller;
-use SprykerFeature\Zed\Collector\Communication\Plugin\Installer;
-use SprykerFeature\Zed\Installer\InstallerConfig as SprykerInstallerConfig;
-use SprykerFeature\Zed\Installer\Business\Model\AbstractInstaller;
+use Spryker\Zed\Acl\Communication\Plugin\Installer as AclInstaller;
+use Spryker\Zed\User\Communication\Plugin\Installer as UserInstaller;
+use Spryker\Zed\Country\Communication\Plugin\Installer as CountryCountryCountryInstaller;
+use Spryker\Zed\Locale\Communication\Plugin\Installer as LocaleInstaller;
+use Spryker\Zed\Price\Communication\Plugin\Installer as PriceInstaller;
+use Spryker\Zed\Product\Communication\Plugin\Installer as ProductInstaller;
+use Spryker\Zed\Collector\Communication\Plugin\Installer;
+use Spryker\Zed\Installer\InstallerConfig as SprykerInstallerConfig;
+use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 
 class InstallerConfig extends SprykerInstallerConfig
 {

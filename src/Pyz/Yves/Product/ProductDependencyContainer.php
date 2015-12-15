@@ -8,7 +8,7 @@ namespace Pyz\Yves\Product;
 
 use Pyz\Yves\Product\Builder\FrontendProductBuilder;
 use Pyz\Yves\Product\ResourceCreator\ProductResourceCreator;
-use SprykerEngine\Yves\Kernel\AbstractDependencyContainer;
+use Spryker\Yves\Kernel\AbstractDependencyContainer;
 
 /**
  * Class ProductExportDependencyContainer
