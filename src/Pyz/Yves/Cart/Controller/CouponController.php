@@ -31,7 +31,7 @@ class CouponController extends AbstractController
         $voucherDiscount = new DiscountTransfer();
         $voucherDiscount->setVoucherCode($couponCode);
 
-        $quoteTransfer->addVoucherDiscounts($voucherDiscount);
+        $quoteTransfer->addVoucherDiscount($voucherDiscount);
 
         $quoteTransfer = $calculationClient->recalculate($quoteTransfer);
 
