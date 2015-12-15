@@ -168,6 +168,7 @@ class CheckoutController extends AbstractController
      */
     protected function getPayolutionInstallmentPayments(CheckoutRequestTransfer $checkoutRequestTransfer, CartTransfer $cartTransfer)
     {
+        // @ todo: optimize and get rid of this check #875
         return $cartTransfer->getTotals() === null
             ? new PayolutionCalculationResponseTransfer()
             : $this->getPayolutionCalculationResponseTransfer($checkoutRequestTransfer, $cartTransfer);

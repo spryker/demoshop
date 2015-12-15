@@ -149,6 +149,7 @@ class PayolutionType extends AbstractType
         $paymentDetails = $this->payolutionCalculationResponseTransfer->getPaymentDetails();
         $choices = [];
 
+        // @ todo: optimize and get rid of magic strings and <a> tag by building a proper form #875
         foreach ($paymentDetails as $paymentDetail) {
             $choices[] =
                 CurrencyManager::getInstance()->convertCentToDecimal($paymentDetail->getInstallments()[0]->getAmount())
