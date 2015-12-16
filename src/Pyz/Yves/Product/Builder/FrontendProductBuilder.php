@@ -6,24 +6,22 @@
 
 namespace Pyz\Yves\Product\Builder;
 
-use Generated\Yves\Ide\FactoryAutoCompletion\Product;
-use Spryker\Shared\Kernel\Factory\FactoryInterface;
 use Pyz\Yves\Product\Model\AbstractProduct;
 
 class FrontendProductBuilder implements FrontendProductBuilderInterface
 {
 
     /**
-     * @var FactoryInterface|Product
+     * @var AbstractProduct
      */
-    protected $factory;
+    protected $abstractProduct;
 
     /**
-     * @param FactoryInterface $factory
+     * @param AbstractProduct $abstractProduct
      */
-    public function __construct(FactoryInterface $factory)
+    public function __construct(AbstractProduct $abstractProduct)
     {
-        $this->factory = $factory;
+        $this->abstractProduct = $abstractProduct;
     }
 
     /**
@@ -33,22 +31,29 @@ class FrontendProductBuilder implements FrontendProductBuilderInterface
      */
     public function buildProduct(array $productData)
     {
-        $product = $this->factory->createModelAbstractProduct();
-
+        $abstractProduct = $this->createAbstractProductClone();
         foreach ($productData as $name => $value) {
             $arrayParts = explode('_', strtolower($name));
             $arrayParts = array_map('ucfirst', $arrayParts);
 
             $setter = 'set' . implode('', $arrayParts);
 
-            if (method_exists($product, $setter)) {
-                $product->{$setter}($value);
+            if (method_exists($abstractProduct, $setter)) {
+                $abstractProduct->{$setter}($value);
             } else {
-                $product->addAttribute($name, $value);
+                $abstractProduct->addAttribute($name, $value);
             }
         }
 
-        return $product;
+        return $abstractProduct;
+    }
+
+    /**
+     * @return AbstractProduct
+     */
+    protected function createAbstractProductClone()
+    {
+        return clone $this->abstractProduct;
     }
 
 }
