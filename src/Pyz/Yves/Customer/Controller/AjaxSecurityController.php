@@ -3,7 +3,7 @@
 namespace Pyz\Yves\Customer\Controller;
 
 use Generated\Shared\Transfer\CustomerTransfer;
-use Pyz\Yves\Customer\CustomerDependencyContainer;
+use Pyz\Yves\Customer\CustomerFactory;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use Spryker\Yves\Application\Controller\AbstractController;
 use Spryker\Client\Customer\CustomerClientInterface;
@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * @method CustomerDependencyContainer getDependencyContainer()
+ * @method CustomerFactory getFactory()
  * @method CustomerClientInterface getClient()
  */
 class AjaxSecurityController extends AbstractController

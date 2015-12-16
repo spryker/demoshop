@@ -12,9 +12,9 @@ use Pyz\Zed\Glossary\Business\GlossaryFacade;
 use Pyz\Zed\Locale\Business\LocaleFacade;
 use Pyz\Zed\Url\Business\UrlFacade;
 use Spryker\Shared\Kernel\Messenger\MessengerInterface;
-use Spryker\Zed\Cms\Business\CmsDependencyContainer as SprykerCmsDependencyContainer;
+use Spryker\Zed\Cms\Business\CmsBusinessFactory as SprykerCmsBusinessFactory;
 
-class CmsDependencyContainer extends SprykerCmsDependencyContainer
+class CmsBusinessFactory extends SprykerCmsBusinessFactory
 {
 
     /**

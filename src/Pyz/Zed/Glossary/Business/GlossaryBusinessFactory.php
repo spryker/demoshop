@@ -7,9 +7,9 @@ use Spryker\Zed\Glossary\Business\Translation\TranslationManager;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Glossary\Business\Internal\DemoData\GlossaryInstall;
 use Pyz\Zed\Glossary\GlossaryDependencyProvider;
-use Spryker\Zed\Glossary\Business\GlossaryDependencyContainer as SprykerGlossaryDependencyContainer;
+use Spryker\Zed\Glossary\Business\GlossaryBusinessFactory as SprykerGlossaryBusinessFactory;
 
-class GlossaryDependencyContainer extends SprykerGlossaryDependencyContainer
+class GlossaryBusinessFactory extends SprykerGlossaryBusinessFactory
 {
 
     /**

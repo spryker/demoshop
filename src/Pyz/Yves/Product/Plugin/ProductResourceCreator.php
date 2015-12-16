@@ -6,11 +6,11 @@
 
 namespace Pyz\Yves\Product\Plugin;
 
-use Pyz\Yves\Product\ProductDependencyContainer;
+use Pyz\Yves\Product\ProductFactory;
 use Spryker\Yves\Kernel\AbstractPlugin;
 
 /**
- * @method ProductDependencyContainer getDependencyContainer()
+ * @method ProductFactory getFactory()
  */
 class ProductResourceCreator extends AbstractPlugin
 {
@@ -20,7 +20,7 @@ class ProductResourceCreator extends AbstractPlugin
      */
     public function createProductResourceCreator()
     {
-        return $this->getDependencyContainer()->createProductResourceCreator();
+        return $this->getFactory()->createProductResourceCreator();
     }
 
 }

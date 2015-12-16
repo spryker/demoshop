@@ -3,13 +3,13 @@
 namespace Pyz\Yves\Twig\Plugin;
 
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
-use Pyz\Yves\Twig\TwigDependencyContainer;
+use Pyz\Yves\Twig\TwigFactory;
 use Silex\Application;
 use Spryker\Yves\Kernel\AbstractPlugin;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
- * @method TwigDependencyContainer getDependencyContainer()
+ * @method TwigFactory getFactory()
  */
 class TwigAsset extends AbstractPlugin implements TwigFunctionPluginInterface
 {
@@ -22,8 +22,8 @@ class TwigAsset extends AbstractPlugin implements TwigFunctionPluginInterface
     public function getFunctions(Application $application)
     {
         $isDomainSecured = $this->isDomainSecured($application);
-        $assetUrlBuilder = $this->getDependencyContainer()->createAssetUrlBuilder($isDomainSecured);
-        $mediaUrlBuilder = $this->getDependencyContainer()->createMediaUrlBuilder($isDomainSecured);
+        $assetUrlBuilder = $this->getFactory()->createAssetUrlBuilder($isDomainSecured);
+        $mediaUrlBuilder = $this->getFactory()->createMediaUrlBuilder($isDomainSecured);
 
         return [
             new \Twig_SimpleFunction('asset', function ($value) use ($assetUrlBuilder) {

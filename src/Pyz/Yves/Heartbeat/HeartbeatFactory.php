@@ -10,9 +10,9 @@ use Pyz\Yves\Heartbeat\Model\HealthChecker;
 use Pyz\Yves\Heartbeat\Model\HealthIndicator\SearchHealthIndicator;
 use Pyz\Yves\Heartbeat\Model\HealthIndicator\SessionHealthIndicator;
 use Pyz\Yves\Heartbeat\Model\HealthIndicator\StorageHealthIndicator;
-use Spryker\Yves\Kernel\AbstractDependencyContainer;
+use Spryker\Yves\Kernel\AbstractFactory;
 
-class HeartbeatDependencyContainer extends AbstractDependencyContainer
+class HeartbeatFactory extends AbstractFactory
 {
 
     /**

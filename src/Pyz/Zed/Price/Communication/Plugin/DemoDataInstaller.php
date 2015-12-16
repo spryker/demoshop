@@ -4,10 +4,10 @@ namespace Pyz\Zed\Price\Communication\Plugin;
 
 use Pyz\Zed\Price\Business\PriceFacade;
 use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
-use Pyz\Zed\Price\Communication\PriceDependencyContainer;
+use Pyz\Zed\Price\Communication\PriceCommunicationFactory;
 
 /**
- * @method PriceDependencyContainer getDependencyContainer()
+ * @method PriceCommunicationFactory getCommunicationFactory()
  * @method PriceFacade getFacade()
  */
 class DemoDataInstaller extends AbstractInstallerPlugin

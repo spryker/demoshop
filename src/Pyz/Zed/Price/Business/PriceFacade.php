@@ -6,7 +6,7 @@ use Spryker\Zed\Price\Business\PriceFacade as SprykerPriceFacade;
 use Psr\Log\LoggerInterface;
 
 /**
- * @method PriceDependencyContainer getDependencyContainer()
+ * @method PriceBusinessFactory getBusinessFactory()
  */
 class PriceFacade extends SprykerPriceFacade
 {
@@ -16,7 +16,7 @@ class PriceFacade extends SprykerPriceFacade
      */
     public function installDemoData(LoggerInterface $messenger)
     {
-        $this->getDependencyContainer()->getDemoDataInstaller($messenger)->install();
+        $this->getBusinessFactory()->getDemoDataInstaller($messenger)->install();
     }
 
 }

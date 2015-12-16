@@ -7,10 +7,10 @@
 namespace Pyz\Yves\Category\Plugin;
 
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Pyz\Yves\Category\CategoryDependencyContainer;
+use Pyz\Yves\Category\CategoryFactory;
 
 /**
- * @method CategoryDependencyContainer getDependencyContainer()
+ * @method CategoryFactory getFactory()
  */
 class CategoryResourceCreator extends AbstractPlugin
 {
@@ -20,7 +20,7 @@ class CategoryResourceCreator extends AbstractPlugin
      */
     public function createCategoryResourceCreator()
     {
-        return $this->getDependencyContainer()->createCategoryResourceCreator();
+        return $this->getFactory()->createCategoryResourceCreator();
     }
 
 }

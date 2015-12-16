@@ -5,14 +5,14 @@
 
 namespace Pyz\Yves\Glossary\Plugin\Provider;
 
-use Pyz\Yves\Glossary\GlossaryDependencyContainer;
+use Pyz\Yves\Glossary\GlossaryFactory;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 use Spryker\Yves\Kernel\AbstractPlugin;
 use Spryker\Client\Glossary\GlossaryClientInterface;
 
 /**
- * @method GlossaryDependencyContainer getDependencyContainer()
+ * @method GlossaryFactory getFactory()
  * @method GlossaryClientInterface getClient()
  */
 class TranslationServiceProvider extends AbstractPlugin implements ServiceProviderInterface
@@ -24,7 +24,7 @@ class TranslationServiceProvider extends AbstractPlugin implements ServiceProvid
     public function register(Application $app)
     {
         $app['translator'] = $app->share(function ($app) {
-            $twigTranslator = $this->getDependencyContainer()->createTwigTranslator(
+            $twigTranslator = $this->getFactory()->createTwigTranslator(
                 $this->getClient(), $app['locale']
             );
 

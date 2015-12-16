@@ -30,11 +30,11 @@ use Pyz\Zed\Collector\Business\Storage\TranslationCollector;
 use Pyz\Zed\Collector\Business\Storage\UrlCollector;
 use Pyz\Zed\Collector\CollectorDependencyProvider;
 use Spryker\Shared\Library\Storage\StorageInstanceBuilder;
-use Spryker\Zed\Collector\Business\CollectorDependencyContainer as SprykerCollectorDependencyContainer;
+use Spryker\Zed\Collector\Business\CollectorBusinessFactory as SprykerCollectorBusinessFactory;
 use Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface;
 use Spryker\Zed\Collector\CollectorConfig;
 
-class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
+class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
 {
 
     /**

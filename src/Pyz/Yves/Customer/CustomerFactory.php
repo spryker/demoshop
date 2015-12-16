@@ -12,10 +12,10 @@ use Pyz\Yves\Customer\Form\ForgotPassword;
 use Pyz\Yves\Customer\Form\DeleteCustomer;
 use Pyz\Yves\Customer\Form\Address;
 use Pyz\Yves\Customer\Form\RegisterCustomer;
-use Spryker\Yves\Kernel\AbstractDependencyContainer;
+use Spryker\Yves\Kernel\AbstractFactory;
 use Spryker\Client\Customer\CustomerClient;
 
-class CustomerDependencyContainer extends AbstractDependencyContainer
+class CustomerFactory extends AbstractFactory
 {
 
     /**

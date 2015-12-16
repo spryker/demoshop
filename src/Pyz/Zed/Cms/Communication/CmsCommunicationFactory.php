@@ -10,9 +10,9 @@ use Spryker\Zed\Cms\Communication\Table\CmsGlossaryTable;
 use Spryker\Zed\Cms\Communication\Table\CmsRedirectTable;
 use Spryker\Zed\Cms\Communication\Table\CmsBlockTable;
 use Spryker\Zed\Cms\Communication\Table\CmsPageTable;
-use Spryker\Zed\Cms\Communication\CmsDependencyContainer as SprykerCmsDependencyContainer;
+use Spryker\Zed\Cms\Communication\CmsCommunicationFactory as SprykerCmsCommunicationFactory;
 
-class CmsDependencyContainer extends SprykerCmsDependencyContainer
+class CmsCommunicationFactory extends SprykerCmsCommunicationFactory
 {
 
     /**

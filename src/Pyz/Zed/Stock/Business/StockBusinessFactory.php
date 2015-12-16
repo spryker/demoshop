@@ -5,7 +5,7 @@ namespace Pyz\Zed\Stock\Business;
 use Spryker\Zed\Stock\Business\Model\Writer;
 use Spryker\Zed\Stock\Business\Model\Reader;
 use Spryker\Zed\Stock\Business\Model\Calculator;
-use Spryker\Zed\Stock\Business\StockDependencyContainer as SprykerStockDependencyContainer;
+use Spryker\Zed\Stock\Business\StockBusinessFactory as SprykerStockBusinessFactory;
 use Spryker\Zed\Stock\Persistence\StockQueryContainer;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Stock\Business\Internal\DemoData\StockInstall;
@@ -13,7 +13,7 @@ use Pyz\Zed\Stock\Business\Internal\DemoData\StockInstall;
 /**
  * @method StockQueryContainer getQueryContainer()
  */
-class StockDependencyContainer extends SprykerStockDependencyContainer
+class StockBusinessFactory extends SprykerStockBusinessFactory
 {
 
     /**

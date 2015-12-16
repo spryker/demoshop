@@ -16,12 +16,12 @@ use Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
 use Spryker\Zed\ProductSearch\Business\Processor\ProductSearchProcessor;
 use Spryker\Zed\ProductSearch\Business\Processor\ProductSearchProcessorInterface;
 use Spryker\Zed\ProductSearch\Business\Transformer\ProductAttributesTransformer;
-use Spryker\Zed\ProductSearch\Business\ProductSearchDependencyContainer as SprykerProductSearchDependencyContainer;
+use Spryker\Zed\ProductSearch\Business\ProductSearchBusinessFactory as SprykerProductSearchBusinessFactory;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductSearch\Business\Internal\DemoData\ProductAttributeMappingInstall;
 use Spryker\Zed\ProductSearch\Business\Transformer\ProductAttributesTransformerInterface;
 
-class ProductSearchDependencyContainer extends SprykerProductSearchDependencyContainer
+class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
 {
 
     /**

@@ -6,7 +6,7 @@ use Spryker\Zed\ProductCategory\Business\ProductCategoryFacade as SprykerProduct
 use Psr\Log\LoggerInterface;
 
 /**
- * @method ProductCategoryDependencyContainer getDependencyContainer()
+ * @method ProductCategoryBusinessFactory getBusinessFactory()
  */
 class ProductCategoryFacade extends SprykerProductCategoryFacade
 {
@@ -16,7 +16,7 @@ class ProductCategoryFacade extends SprykerProductCategoryFacade
      */
     public function installDemoData(LoggerInterface $messenger)
     {
-        $this->getDependencyContainer()->createDemoDataInstaller($messenger)->install();
+        $this->getBusinessFactory()->createDemoDataInstaller($messenger)->install();
     }
 
 }

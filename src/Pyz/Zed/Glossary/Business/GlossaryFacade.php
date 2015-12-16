@@ -7,7 +7,7 @@ use Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface;
 use Spryker\Zed\Glossary\Business\GlossaryFacade as SprykerGlossaryFacade;
 
 /**
- * @method GlossaryDependencyContainer getDependencyContainer()
+ * @method GlossaryBusinessFactory getBusinessFactory()
  */
 class GlossaryFacade extends SprykerGlossaryFacade implements
     CmsToGlossaryInterface
@@ -18,7 +18,7 @@ class GlossaryFacade extends SprykerGlossaryFacade implements
      */
     public function installDemoData(LoggerInterface $messenger)
     {
-        $this->getDependencyContainer()->createDemoDataInstaller($messenger)->install();
+        $this->getBusinessFactory()->createDemoDataInstaller($messenger)->install();
     }
 
 }

@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Customer\Controller;
 
-use Pyz\Yves\Customer\CustomerDependencyContainer;
+use Pyz\Yves\Customer\CustomerFactory;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use Spryker\Yves\Application\Controller\AbstractController;
 use Spryker\Client\Customer\CustomerClientInterface;
@@ -12,7 +12,7 @@ use Spryker\Shared\Customer\Code\Messages;
 use Generated\Shared\Transfer\CustomerTransfer;
 
 /**
- * @method CustomerDependencyContainer getDependencyContainer()
+ * @method CustomerFactory getFactory()
  * @method CustomerClientInterface getClient()
  */
 class SecurityController extends AbstractController
@@ -56,7 +56,7 @@ class SecurityController extends AbstractController
     public function registerAction(Request $request)
     {
         $form = $this
-            ->buildForm($this->getDependencyContainer()->createFormRegister())
+            ->buildForm($this->getFactory()->createFormRegister())
             ->handleRequest($request);
 
         if ($form->isValid()) {

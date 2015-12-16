@@ -9,7 +9,7 @@ namespace Pyz\Zed\Glossary\Communication\Plugin;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Zed\Glossary\Business\GlossaryFacade;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
-use Spryker\Zed\Glossary\Communication\GlossaryDependencyContainer;
+use Spryker\Zed\Glossary\Communication\GlossaryCommunicationFactory;
 use Spryker\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
 use Spryker\Zed\Glossary\Persistence\GlossaryQueryContainer;
 use Symfony\Component\Yaml\Yaml;
@@ -17,7 +17,7 @@ use Symfony\Component\Yaml\Yaml;
 /**
  * @method GlossaryFacade getFacade()
  * @method GlossaryQueryContainer getQueryContainer()
- * @method GlossaryDependencyContainer getDependencyContainer()
+ * @method GlossaryCommunicationFactory getCommunicationFactory()
  */
 class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPluginInterface
 {
@@ -46,7 +46,7 @@ class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPlu
      */
     protected function installKeysAndTranslations(array $translations)
     {
-        $glossaryFacade = $this->getDependencyContainer()->createGlossaryFacade();
+        $glossaryFacade = $this->getCommunicationFactory()->createGlossaryFacade();
         foreach ($translations['keys'] as $keyName => $data) {
             if (!$glossaryFacade->hasKey($keyName)) {
                 $glossaryFacade->createKey($keyName);

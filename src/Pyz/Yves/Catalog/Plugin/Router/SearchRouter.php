@@ -14,13 +14,13 @@ use Spryker\Yves\Application\Routing\AbstractRouter;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\RouteNameResolver;
 use Spryker\Yves\Kernel\ControllerLocator;
-use Pyz\Yves\Catalog\CatalogDependencyContainer;
+use Pyz\Yves\Catalog\CatalogFactory;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 /**
- * @method CatalogDependencyContainer getDependencyContainer()
+ * @method CatalogFactory getFactory()
  */
 class SearchRouter extends AbstractRouter
 {
@@ -83,7 +83,7 @@ class SearchRouter extends AbstractRouter
      */
     private function getUrlMapper()
     {
-        return $this->getDependencyContainer()->createUrlMapper();
+        return $this->getFactory()->createUrlMapper();
     }
 
     /**
@@ -102,7 +102,7 @@ class SearchRouter extends AbstractRouter
      */
     private function getApplication()
     {
-        return $this->getDependencyContainer()->createApplication();
+        return $this->getFactory()->createApplication();
     }
 
 }

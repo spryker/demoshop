@@ -3,7 +3,7 @@
 namespace Pyz\Yves\Customer\Controller;
 
 use Generated\Shared\Transfer\CustomerTransfer;
-use Pyz\Yves\Customer\CustomerDependencyContainer;
+use Pyz\Yves\Customer\CustomerFactory;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use Spryker\Yves\Application\Controller\AbstractController;
 use Spryker\Client\Customer\CustomerClientInterface;
@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Spryker\Shared\Customer\Code\Messages;
 
 /**
- * @method CustomerDependencyContainer getDependencyContainer()
+ * @method CustomerFactory getFactory()
  * @method CustomerClientInterface getClient()
  */
 class CustomerController extends AbstractController
@@ -26,7 +26,7 @@ class CustomerController extends AbstractController
     public function forgotPasswordAction(Request $request)
     {
         $form = $this
-            ->buildForm($this->getDependencyContainer()->createFormForgot())
+            ->buildForm($this->getFactory()->createFormForgot())
             ->handleRequest($request);
 
         if ($form->isValid()) {
@@ -49,7 +49,7 @@ class CustomerController extends AbstractController
     public function restorePasswordAction(Request $request)
     {
         $form = $this
-            ->buildForm($this->getDependencyContainer()->createFormRestore())
+            ->buildForm($this->getFactory()->createFormRestore())
             ->handleRequest($request);
 
         if ($form->isValid()) {
@@ -73,7 +73,7 @@ class CustomerController extends AbstractController
     public function deleteAction(Request $request)
     {
         $form = $this
-            ->buildForm($this->getDependencyContainer()->createFormDelete())
+            ->buildForm($this->getFactory()->createFormDelete())
             ->handleRequest($request);
 
         if ($form->isValid()) {
@@ -101,7 +101,7 @@ class CustomerController extends AbstractController
         $customerTransfer = new CustomerTransfer();
 
         $form = $this
-            ->buildForm($this->getDependencyContainer()->createFormProfile())
+            ->buildForm($this->getFactory()->createFormProfile())
             ->handleRequest($request);
 
         if ($form->isValid()) {

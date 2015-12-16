@@ -9,12 +9,12 @@ namespace Pyz\Yves\Product;
 use Pyz\Yves\Product\Builder\FrontendProductBuilder;
 use Pyz\Yves\Product\Model\AbstractProduct;
 use Pyz\Yves\Product\ResourceCreator\ProductResourceCreator;
-use Spryker\Yves\Kernel\AbstractDependencyContainer;
+use Spryker\Yves\Kernel\AbstractFactory;
 
 /**
- * Class ProductExportDependencyContainer
+ * Class ProductExportFactory
  */
-class ProductDependencyContainer extends AbstractDependencyContainer
+class ProductFactory extends AbstractFactory
 {
 
     /**

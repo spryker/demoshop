@@ -17,7 +17,7 @@ use Pyz\Yves\Checkout\Form\CheckoutType;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Yves\Application\Controller\AbstractController;
-use Pyz\Yves\Checkout\CheckoutDependencyContainer;
+use Pyz\Yves\Checkout\CheckoutFactory;
 use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Symfony\Component\Form\FormInterface;
@@ -28,7 +28,7 @@ use Guzzle\Http\Client as GuzzleClient;
 use Guzzle\Http\Message\Response as GuzzleResponse;
 
 /**
- * @method CheckoutDependencyContainer getDependencyContainer()
+ * @method CheckoutFactory getFactory()
  */
 class CheckoutController extends AbstractController
 {
@@ -90,7 +90,7 @@ class CheckoutController extends AbstractController
 
             $checkoutResponseTransfer = $this->requestCheckout($checkoutRequestTransfer);
             if (!$checkoutResponseTransfer->getIsSuccess()) {
-                $this->getDependencyContainer()->getPayolutionClient()->removeInstallmentPaymentsFromSession();
+                $this->getFactory()->getPayolutionClient()->removeInstallmentPaymentsFromSession();
                 return $this->getErrors($checkoutResponseTransfer->getErrors());
             }
 
@@ -139,7 +139,7 @@ class CheckoutController extends AbstractController
     protected function getCartTransfer()
     {
         return $this
-            ->getDependencyContainer()
+            ->getFactory()
             ->getCartClient()
             ->getCart();
     }
@@ -154,7 +154,7 @@ class CheckoutController extends AbstractController
         $shipmentMethodAvailabilityTransfer = (new ShipmentMethodAvailabilityTransfer())->setCart($cartTransfer);
 
         return $this
-            ->getDependencyContainer()
+            ->getFactory()
             ->getShipmentClient()
             ->getAvailableMethods($shipmentMethodAvailabilityTransfer);
     }
@@ -187,7 +187,7 @@ class CheckoutController extends AbstractController
             ->setCurrencyIso3Code(CurrencyManager::getInstance()->getDefaultCurrency()->getIsoCode());
         $checkoutRequestTransfer->setPayolutionPayment($payolutionPaymentTransfer);
 
-        $payolutionCalculationResponseTransfer = $this->getDependencyContainer()->getPayolutionClient()->hasInstallmentPaymentsInSession()
+        $payolutionCalculationResponseTransfer = $this->getFactory()->getPayolutionClient()->hasInstallmentPaymentsInSession()
             ? $this->getPayolutionInstallmentPaymentsFromSession($checkoutRequestTransfer)
             : $this->calculatePayolutionInstallmentPayments($checkoutRequestTransfer);
 
@@ -204,7 +204,7 @@ class CheckoutController extends AbstractController
     protected function calculatePayolutionInstallmentPayments(CheckoutRequestTransfer $checkoutRequestTransfer)
     {
         $payolutionCalculationResponseTransfer = $this
-            ->getDependencyContainer()
+            ->getFactory()
             ->getPayolutionClient()
             ->calculateInstallmentPayments($checkoutRequestTransfer);
 
@@ -219,7 +219,7 @@ class CheckoutController extends AbstractController
     protected function getPayolutionInstallmentPaymentsFromSession(CheckoutRequestTransfer $checkoutRequestTransfer)
     {
         return $this
-            ->getDependencyContainer()
+            ->getFactory()
             ->getPayolutionClient()
             ->getInstallmentPaymentsFromSession();
     }
@@ -231,7 +231,7 @@ class CheckoutController extends AbstractController
      */
     protected function storePayolutionInstallmentPaymentsInSession(PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer)
     {
-        return $this->getDependencyContainer()
+        return $this->getFactory()
             ->getPayolutionClient()
             ->storeInstallmentPaymentsInSession($payolutionCalculationResponseTransfer);
     }
@@ -251,7 +251,7 @@ class CheckoutController extends AbstractController
         Request $request
     ) {
         $checkoutFormType = $this
-            ->getDependencyContainer()
+            ->getFactory()
             ->createCheckoutForm($request, $shipmentTransfer, $payolutionCalculationResponseTransfer);
 
         return $this->createForm($checkoutFormType, $checkoutRequestTransfer);
@@ -399,7 +399,7 @@ class CheckoutController extends AbstractController
      */
     protected function requestCheckout(CheckoutRequestTransfer $checkoutRequestTransfer)
     {
-        return $this->getDependencyContainer()
+        return $this->getFactory()
             ->getCheckoutClient()
             ->requestCheckout($checkoutRequestTransfer);
     }
@@ -409,8 +409,8 @@ class CheckoutController extends AbstractController
      */
     protected function clearSession()
     {
-        $this->getDependencyContainer()->getCartClient()->clearCart();
-        $this->getDependencyContainer()->getPayolutionClient()->removeInstallmentPaymentsFromSession();
+        $this->getFactory()->getCartClient()->clearCart();
+        $this->getFactory()->getPayolutionClient()->removeInstallmentPaymentsFromSession();
     }
 
     /**
@@ -471,7 +471,7 @@ class CheckoutController extends AbstractController
     public function displayInstallmentDetailsAction($calculationRequestId, $installmentDuration)
     {
         $client = new GuzzleClient();
-        $requestCredentials = $this->getDependencyContainer()->getPayolutionCalculationCredentials();
+        $requestCredentials = $this->getFactory()->getPayolutionCalculationCredentials();
         $url = 'https://test-payment.payolution.com/payolution-payment/rest/query/customerinfo/pdf?trxId=' . $calculationRequestId . '&duration=' . $installmentDuration;
 
         $request = $client->get($url);

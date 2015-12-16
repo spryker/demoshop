@@ -10,11 +10,11 @@ use Spryker\Zed\Price\Business\Model\ReaderInterface;
 use Spryker\Zed\Price\Business\Model\Writer;
 use Spryker\Zed\Price\Business\Model\Reader;
 use Spryker\Zed\Price\Business\Model\WriterInterface;
-use Spryker\Zed\Price\Business\PriceDependencyContainer as SprykerPriceDependencyContainer;
+use Spryker\Zed\Price\Business\PriceBusinessFactory as SprykerPriceBusinessFactory;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Price\Business\Internal\DemoData\PriceInstall;
 
-class PriceDependencyContainer extends SprykerPriceDependencyContainer
+class PriceBusinessFactory extends SprykerPriceBusinessFactory
 {
 
     /**

@@ -4,10 +4,10 @@ namespace Pyz\Yves\Twig\Plugin;
 
 use Silex\Application;
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Pyz\Yves\Twig\TwigDependencyContainer;
+use Pyz\Yves\Twig\TwigFactory;
 
 /**
- * @method TwigDependencyContainer getDependencyContainer()
+ * @method TwigFactory getFactory()
  */
 class TwigYves extends AbstractPlugin
 {
@@ -19,7 +19,7 @@ class TwigYves extends AbstractPlugin
      */
     public function getTwigYvesExtension(Application $application)
     {
-        return $this->getDependencyContainer()
+        return $this->getFactory()
             ->createYvesTwigExtension($application);
     }
 

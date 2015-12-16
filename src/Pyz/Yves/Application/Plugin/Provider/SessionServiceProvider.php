@@ -6,7 +6,7 @@
 
 namespace Pyz\Yves\Application\Plugin\Provider;
 
-use Pyz\Yves\Application\ApplicationDependencyContainer;
+use Pyz\Yves\Application\ApplicationFactory;
 use Pyz\Yves\Application\Business\Model\SessionFactory;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
@@ -16,7 +16,7 @@ use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 
 /**
- * @method ApplicationDependencyContainer getDependencyContainer()
+ * @method ApplicationFactory getFactory()
  */
 class SessionServiceProvider extends AbstractPlugin implements ServiceProviderInterface
 {
@@ -90,7 +90,7 @@ class SessionServiceProvider extends AbstractPlugin implements ServiceProviderIn
                 });
         }
 
-        $this->getDependencyContainer()->getSessionClient()->setContainer($app['session']);
+        $this->getFactory()->getSessionClient()->setContainer($app['session']);
     }
 
     /**

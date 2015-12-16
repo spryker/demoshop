@@ -3,7 +3,7 @@
 namespace Pyz\Yves\Customer\Controller;
 
 use Generated\Shared\Transfer\AddressTransfer;
-use Pyz\Yves\Customer\CustomerDependencyContainer;
+use Pyz\Yves\Customer\CustomerFactory;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use Spryker\Client\Customer\CustomerClientInterface;
 use Spryker\Shared\Customer\Code\Messages;
@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * @method CustomerDependencyContainer getDependencyContainer()
+ * @method CustomerFactory getFactory()
  * @method CustomerClientInterface getClient()
  */
 class AddressController extends AbstractController
@@ -36,7 +36,7 @@ class AddressController extends AbstractController
         }
 
         $form = $this
-            ->buildForm($this->getDependencyContainer()->createFormAddress())
+            ->buildForm($this->getFactory()->createFormAddress())
             ->handleRequest($request);
 
         if ($form->isValid()) {
@@ -77,7 +77,7 @@ class AddressController extends AbstractController
     public function createAction(Request $request)
     {
         $form = $this
-            ->buildForm($this->getDependencyContainer()->createFormAddress())
+            ->buildForm($this->getFactory()->createFormAddress())
             ->handleRequest($request);
 
         if ($form->isValid()) {

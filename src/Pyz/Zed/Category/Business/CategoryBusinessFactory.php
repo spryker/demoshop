@@ -13,7 +13,7 @@ use Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter;
 use Spryker\Zed\Category\Business\Tree\CategoryTreeWriter;
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
 use Pyz\Zed\Category\CategoryDependencyProvider;
-use Spryker\Zed\Category\Business\CategoryDependencyContainer as SprykerCategoryDependencyContainer;
+use Spryker\Zed\Category\Business\CategoryBusinessFactory as SprykerCategoryBusinessFactory;
 use Pyz\Zed\Category\Business\Internal\DemoData\CategoryTreeInstall;
 use Psr\Log\LoggerInterface;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
@@ -21,7 +21,7 @@ use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
 /**
  * @method CategoryQueryContainer getQueryContainer()
  */
-class CategoryDependencyContainer extends SprykerCategoryDependencyContainer
+class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
 {
 
     /**

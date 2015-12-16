@@ -5,14 +5,14 @@ namespace Pyz\Zed\MailQueue\Communication\Console;
 use Generated\Shared\Transfer\MailRecipientTransfer;
 use Generated\Shared\Transfer\MailTransfer;
 use Pyz\Zed\MailQueue\Business\MailQueueFacade;
-use Pyz\Zed\MailQueue\Communication\MailQueueDependencyContainer;
+use Pyz\Zed\MailQueue\Communication\MailQueueCommunicationFactory;
 use Spryker\Zed\Console\Business\Model\Console;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * @method MailQueueFacade getFacade()
- * @method MailQueueDependencyContainer getDependencyContainer()
+ * @method MailQueueCommunicationFactory getCommunicationFactory()
  */
 class MailQueueConsole extends Console
 {

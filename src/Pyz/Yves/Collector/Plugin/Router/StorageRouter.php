@@ -6,7 +6,7 @@
 
 namespace Pyz\Yves\Collector\Plugin\Router;
 
-use Pyz\Yves\Collector\CollectorDependencyContainer;
+use Pyz\Yves\Collector\CollectorFactory;
 use Pyz\Yves\Collector\Creator\ResourceCreatorInterface;
 use Pyz\Yves\Collector\Mapper\UrlMapperInterface;
 use Silex\Application;
@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 /**
- * @method CollectorDependencyContainer getDependencyContainer()
+ * @method CollectorFactory getFactory()
  */
 class StorageRouter extends AbstractRouter
 {
@@ -96,7 +96,7 @@ class StorageRouter extends AbstractRouter
      */
     private function getResourceCreators()
     {
-        return $this->getDependencyContainer()->createResourceCreators();
+        return $this->getFactory()->createResourceCreators();
     }
 
     /**
@@ -104,7 +104,7 @@ class StorageRouter extends AbstractRouter
      */
     private function getUrlMapper()
     {
-        return $this->getDependencyContainer()->createUrlMapper();
+        return $this->getFactory()->createUrlMapper();
     }
 
     /**
@@ -112,7 +112,7 @@ class StorageRouter extends AbstractRouter
      */
     private function getUrlMatcher()
     {
-        return $this->getDependencyContainer()->createUrlMatcher();
+        return $this->getFactory()->createUrlMatcher();
     }
 
     /**
@@ -131,7 +131,7 @@ class StorageRouter extends AbstractRouter
      */
     private function getApplication()
     {
-        return $this->getDependencyContainer()->createApplication();
+        return $this->getFactory()->createApplication();
     }
 
 }

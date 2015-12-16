@@ -4,10 +4,10 @@ namespace Pyz\Zed\Glossary\Communication\Plugin;
 
 use Pyz\Zed\Glossary\Business\GlossaryFacade;
 use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
-use Pyz\Zed\Glossary\Communication\GlossaryDependencyContainer;
+use Pyz\Zed\Glossary\Communication\GlossaryCommunicationFactory;
 
 /**
- * @method GlossaryDependencyContainer getDependencyContainer()
+ * @method GlossaryCommunicationFactory getCommunicationFactory()
  * @method GlossaryFacade getFacade()
  */
 class DemoDataInstaller extends AbstractInstallerPlugin

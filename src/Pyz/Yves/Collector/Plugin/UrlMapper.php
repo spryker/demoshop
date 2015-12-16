@@ -6,12 +6,12 @@
 
 namespace Pyz\Yves\Collector\Plugin;
 
-use Pyz\Yves\Collector\CollectorDependencyContainer;
+use Pyz\Yves\Collector\CollectorFactory;
 use Pyz\Yves\Collector\Mapper;
 use Spryker\Yves\Kernel\AbstractPlugin;
 
 /**
- * @method CollectorDependencyContainer getDependencyContainer()
+ * @method CollectorFactory getFactory()
  */
 class UrlMapper extends AbstractPlugin
 {
@@ -21,7 +21,7 @@ class UrlMapper extends AbstractPlugin
      */
     public function createUrlMapper()
     {
-        return $this->getDependencyContainer()->createUrlMapper();
+        return $this->getFactory()->createUrlMapper();
     }
 
 }
