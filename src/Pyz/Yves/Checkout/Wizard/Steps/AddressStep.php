@@ -32,6 +32,8 @@ class AddressStep implements StepInterface
     public function execute(QuoteTransfer $quoteTransfer, $data = null)
     {
         $quoteTransfer->addBillingAddress(new AddressTransfer());
+
+        return $quoteTransfer;
     }
 
     /**

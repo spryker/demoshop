@@ -28,7 +28,7 @@ class PaymenStep implements StepInterface
 
     public function execute(QuoteTransfer $quoteTransfer, $data = null)
     {
-        // TODO: Implement execute() method.
+        return $quoteTransfer;
     }
 
     /**

@@ -27,7 +27,7 @@ class ShipmentStep implements StepInterface
 
     public function preCondition(QuoteTransfer $quoteTransfer)
     {
-        // TODO: Implement preCondidion() method.
+        return $quoteTransfer;
     }
 
     /**
