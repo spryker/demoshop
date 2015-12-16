@@ -44,16 +44,16 @@ class RenameDatabaseTables extends AbstractRefactor
     protected function removeOldFiles()
     {
         $files = [
-            __DIR__ . '/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyAbstractProduct.php',
-            __DIR__ . '/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyAbstractProductQuery.php',
-            __DIR__ . '/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyLocalizedAbstractProductAttributes.php',
-            __DIR__ . '/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyLocalizedAbstractProductAttributesQuery.php',
-            __DIR__ . '/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyProductLocalizedAttributes.php',
-            __DIR__ . '/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyProductLocalizedAttributesQuery.php',
-            __DIR__ . '/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyTypeValue.php',
-            __DIR__ . '/../vendor/spryker/spryker/Bundles/Product/src/SprykerFeature/Zed/Product/Persistence/Propel/SpyTypeValueQuery.php',
-            __DIR__ . '/../vendor/spryker/spryker/Bundles/ProductSearch/src/SprykerFeature/Zed/ProductSearch/Persistence/Propel/SpySearchableProducts.php',
-            __DIR__ . '/../vendor/spryker/spryker/Bundles/ProductSearch/src/SprykerFeature/Zed/ProductSearch/Persistence/Propel/SpySearchableProductsQuery.php',
+            __DIR__ . '/../src/Orm/Zed/Product/Persistence/SpyAbstractProduct.php',
+            __DIR__ . '/../src/Orm/Zed/Product/Persistence/SpyAbstractProductQuery.php',
+            __DIR__ . '/../src/Orm/Zed/Product/Persistence/SpyLocalizedAbstractProductAttributes.php',
+            __DIR__ . '/../src/Orm/Zed/Product/Persistence/SpyLocalizedAbstractProductAttributesQuery.php',
+            __DIR__ . '/../src/Orm/Zed/Product/Persistence/SpyProductLocalizedAttributes.php',
+            __DIR__ . '/../src/Orm/Zed/Product/Persistence/SpyProductLocalizedAttributesQuery.php',
+            __DIR__ . '/../src/Orm/Zed/Product/Persistence/SpyTypeValue.php',
+            __DIR__ . '/../src/Orm/Zed/Product/Persistence/SpyTypeValueQuery.php',
+            __DIR__ . '/../src/Orm/Zed/ProductSearch/Persistence/SpySearchableProducts.php',
+            __DIR__ . '/../src/Orm/Zed/ProductSearch/Persistence/SpySearchableProductsQuery.php',
         ];
 
         $filesystem = new Filesystem();
@@ -62,8 +62,6 @@ class RenameDatabaseTables extends AbstractRefactor
 
     protected function renameInSchemaFiles()
     {
-        $searchReplaceDefinition = $this->getSearchAndReplaceDefinition();
-
         $schemaDirectories = [
             __DIR__ . '/../src/Pyz/Zed/*/Persistence/Propel/Schema',
             __DIR__ . '/../src/Pyz/Shared/*/Transfer',
@@ -71,7 +69,7 @@ class RenameDatabaseTables extends AbstractRefactor
             __DIR__ . '/../vendor/spryker/spryker/Bundles/*/src/*/Zed/*/Persistence/Propel/Schema',
         ];
         $schemaFiles = $this->getFiles($schemaDirectories);
-        $searchAndReplace = $this->buildSearchAndReplaceForSchema($searchReplaceDefinition);
+        $searchAndReplace = $this->buildSearchAndReplaceForSchema();
 
         $filesystem = new Filesystem();
         foreach ($schemaFiles as $file) {
@@ -82,12 +80,11 @@ class RenameDatabaseTables extends AbstractRefactor
     }
 
     /**
-     * @param array $searchReplaceDefinition
-     *
      * @return array
      */
-    protected function buildSearchAndReplaceForSchema(array $searchReplaceDefinition)
+    protected function buildSearchAndReplaceForSchema()
     {
+        $searchReplaceDefinition = $this->getSearchAndReplaceDefinition();
         $filter = new UnderscoreToCamelCase();
 
         $searchAndReplace = [];
@@ -111,8 +108,6 @@ class RenameDatabaseTables extends AbstractRefactor
 
     protected function renameInClasses()
     {
-        $searchReplaceDefinition = $this->getSearchAndReplaceDefinition();
-
         $classDirectories = [
             __DIR__ . '/../src/Pyz/',
             __DIR__ . '/../tests/*/Pyz/',
@@ -122,7 +117,7 @@ class RenameDatabaseTables extends AbstractRefactor
         ];
 
         $classFiles = $this->getFiles($classDirectories);
-        $searchAndReplace = $this->buildSearchAndReplaceForClasses($searchReplaceDefinition);
+        $searchAndReplace = $this->buildSearchAndReplaceForClasses();
 
         $filesystem = new Filesystem();
         foreach ($classFiles as $file) {
@@ -133,12 +128,12 @@ class RenameDatabaseTables extends AbstractRefactor
     }
 
     /**
-     * @param array $searchReplaceDefinition
-     *
      * @return array
      */
-    protected function buildSearchAndReplaceForClasses(array $searchReplaceDefinition)
+    protected function buildSearchAndReplaceForClasses()
     {
+        $searchReplaceDefinition = $this->getSearchAndReplaceDefinition();
+
         $filter = new UnderscoreToCamelCase();
 
         $searchAndReplace = [];
@@ -161,6 +156,7 @@ class RenameDatabaseTables extends AbstractRefactor
 
         return $searchAndReplace;
     }
+
     /**
      * @return array
      */
@@ -202,6 +198,7 @@ class RenameDatabaseTables extends AbstractRefactor
                 ],
             ],
         ];
+
         return $searchReplaceDefinition;
     }
 
