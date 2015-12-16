@@ -10,7 +10,7 @@ use Orm\Zed\Touch\Persistence\SpyTouchQuery;
 use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use Spryker\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
 use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
-use Orm\Zed\Url\Persistence\Map\SpyRedirectTableMap;
+use Orm\Zed\Url\Persistence\Map\SpyUrlRedirectTableMap;
 use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 
 class RedirectCollector extends AbstractPropelCollectorPlugin
@@ -41,21 +41,21 @@ class RedirectCollector extends AbstractPropelCollectorPlugin
     {
         $baseQuery->addJoin(
             SpyTouchTableMap::COL_ITEM_ID,
-            SpyRedirectTableMap::COL_ID_REDIRECT,
+            SpyUrlRedirectTableMap::COL_ID_URL_REDIRECT,
             Criteria::INNER_JOIN
         );
 
         $baseQuery->addJoin(
-            SpyRedirectTableMap::COL_ID_REDIRECT,
+            SpyUrlRedirectTableMap::COL_ID_URL_REDIRECT,
             SpyUrlTableMap::COL_FK_RESOURCE_REDIRECT,
             Criteria::INNER_JOIN
         );
 
         $baseQuery->clearSelectColumns();
-        $baseQuery->withColumn(SpyRedirectTableMap::COL_ID_REDIRECT, self::KEY_ID);
+        $baseQuery->withColumn(SpyUrlRedirectTableMap::COL_ID_URL_REDIRECT, self::KEY_ID);
         $baseQuery->withColumn(SpyUrlTableMap::COL_URL, self::KEY_FROM_URL);
-        $baseQuery->withColumn(SpyRedirectTableMap::COL_STATUS, self::KEY_STATUS);
-        $baseQuery->withColumn(SpyRedirectTableMap::COL_TO_URL, self::KEY_TO_URL);
+        $baseQuery->withColumn(SpyUrlRedirectTableMap::COL_STATUS, self::KEY_STATUS);
+        $baseQuery->withColumn(SpyUrlRedirectTableMap::COL_TO_URL, self::KEY_TO_URL);
         $baseQuery->withColumn(
             SpyTouchTableMap::COL_ID_TOUCH,
             self::TOUCH_EXPORTER_ID

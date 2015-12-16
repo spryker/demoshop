@@ -2,6 +2,7 @@
 
 namespace Spryker\Refactor;
 
+use Spryker\Refactor\Propel\RenameDatabaseTables;
 use Spryker\Zed\Development\Business\Refactor\RefactorRunner;
 
 include_once __DIR__ . '/../vendor/autoload.php';

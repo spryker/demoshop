@@ -26,21 +26,21 @@ class ProductReneController extends AbstractController
 
         $taxSetTransfer = $this->createTaxSet();
 
-        $idAbstractProduct = $this->createAbstractProduct($taxSetTransfer);
+        $idProductAbstract = $this->createAbstractProduct($taxSetTransfer);
         $productData = (new DataProvider())->getVariant1();
-        $this->createConcreteProduct($idAbstractProduct, $productData);
+        $this->createConcreteProduct($idProductAbstract, $productData);
 
         $productData = (new DataProvider())->getVariant2();
-        $this->createConcreteProduct($idAbstractProduct, $productData);
+        $this->createConcreteProduct($idProductAbstract, $productData);
 
         $this->addPriceToAbstractProduct();
-        $this->addUrlForProduct($idAbstractProduct);
+        $this->addUrlForProduct($idProductAbstract);
 
-        $this->getLocator()->touch()->facade()->touchActive('abstract_product', $idAbstractProduct);
+        $this->getLocator()->touch()->facade()->touchActive('product_abstract', $idProductAbstract);
 
         $connection->commit();
         // add localized attributes
-        echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($idAbstractProduct) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . exit();
+        echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($idProductAbstract) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . exit();
     }
 
     /**
@@ -75,34 +75,34 @@ class ProductReneController extends AbstractController
         $priceFacade->createPriceForProduct($priceProductTransfer);
     }
 
-    private function addUrlForProduct($idAbstractProduct)
+    private function addUrlForProduct($idProductAbstract)
     {
         $urlFacade = $this->getLocator()->url()->facade();
         $productData = (new DataProvider())->getProduct();
 
-        return $urlFacade->createUrlForCurrentLocale($productData['url'], 'abstractProduct', $idAbstractProduct);
+        return $urlFacade->createUrlForCurrentLocale($productData['url'], 'abstractProduct', $idProductAbstract);
     }
 
     /**
-     * @param $idAbstractProduct
+     * @param $idProductAbstract
      *
      * @return int
      */
-    private function createConcreteProduct($idAbstractProduct, array $productData)
+    private function createConcreteProduct($idProductAbstract, array $productData)
     {
         $productFacade = $this->getLocator()->product()->facade();
-        $concreteProductTransfer = $this->createConcreteProductTransfer($idAbstractProduct, $productData);
+        $concreteProductTransfer = $this->createConcreteProductTransfer($idProductAbstract, $productData);
 
-        $productFacade->createConcreteProduct($concreteProductTransfer, $idAbstractProduct);
+        $productFacade->createConcreteProduct($concreteProductTransfer, $idProductAbstract);
 
-        $this->addStockForConcreteProduct($idAbstractProduct, $productData);
+        $this->addStockForConcreteProduct($idProductAbstract, $productData);
     }
 
     /**
-     * @param $idAbstractProduct
+     * @param $idProductAbstract
      * @param array $productData
      */
-    private function addStockForConcreteProduct($idAbstractProduct, array $productData)
+    private function addStockForConcreteProduct($idProductAbstract, array $productData)
     {
         $stockFacade = $this->getLocator()->stock()->facade();
         $stockProductTransfer = new StockProductTransfer();
@@ -127,15 +127,15 @@ class ProductReneController extends AbstractController
     }
 
     /**
-     * @param $idAbstractProduct
+     * @param $idProductAbstract
      * @param array $productData
      *
      * @return ConcreteProductTransfer
      */
-    private function createConcreteProductTransfer($idAbstractProduct, array $productData)
+    private function createConcreteProductTransfer($idProductAbstract, array $productData)
     {
         $concreteProductTransfer = new ConcreteProductTransfer();
-        $concreteProductTransfer->setIdAbstractProduct($idAbstractProduct);
+        $concreteProductTransfer->setIdProductAbstract($idProductAbstract);
         $concreteProductTransfer->fromArray($productData, true);
         $concreteProductTransfer->setIsActive(true);
 

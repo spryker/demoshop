@@ -16,7 +16,7 @@ use Spryker\Zed\Product\Dependency\Facade\ProductToTouchInterface;
 class ProductDataInstall extends AbstractInstaller
 {
 
-    const ABSTRACT_PRODUCT = 'abstract_product';
+    const ABSTRACT_PRODUCT = 'product_abstract';
     const CONCRETE_PRODUCTS = 'concrete_products';
 
     /**
@@ -104,22 +104,22 @@ class ProductDataInstall extends AbstractInstaller
                 continue;
             }
 
-            $idAbstractProduct = $this->productManager->createAbstractProduct($abstractProduct);
-            $abstractProduct->setIdAbstractProduct($idAbstractProduct);
-            $this->createConcreteProducts($concreteProducts, $idAbstractProduct);
-            $this->productManager->touchProductActive($idAbstractProduct);
-            $this->createAndTouchProductUrls($abstractProduct, $idAbstractProduct, $currentLocale);
+            $idProductAbstract = $this->productManager->createAbstractProduct($abstractProduct);
+            $abstractProduct->setIdProductAbstract($idProductAbstract);
+            $this->createConcreteProducts($concreteProducts, $idProductAbstract);
+            $this->productManager->touchProductActive($idProductAbstract);
+            $this->createAndTouchProductUrls($abstractProduct, $idProductAbstract, $currentLocale);
         }
     }
 
     /**
      * @param array $concreteProducts
-     * @param $idAbstractProduct
+     * @param $idProductAbstract
      */
-    protected function createConcreteProducts(array $concreteProducts, $idAbstractProduct)
+    protected function createConcreteProducts(array $concreteProducts, $idProductAbstract)
     {
         foreach ($concreteProducts as $concreteProduct) {
-            $this->productManager->createConcreteProduct($concreteProduct, $idAbstractProduct);
+            $this->productManager->createConcreteProduct($concreteProduct, $idProductAbstract);
         }
     }
 
@@ -269,18 +269,18 @@ class ProductDataInstall extends AbstractInstaller
 
     /**
      * @param AbstractProductTransfer $abstractProduct
-     * @param $idAbstractProduct
+     * @param $idProductAbstract
      * @param LocaleTransfer $currentLocale
      */
     protected function createAndTouchProductUrls(
         AbstractProductTransfer $abstractProduct,
-        $idAbstractProduct,
+        $idProductAbstract,
         LocaleTransfer $currentLocale
     ) {
         foreach ($abstractProduct->getLocalizedAttributes() as $localizedAttributes) {
             $abstractProductUrl = $this->buildProductUrl($localizedAttributes);
             $this->productManager->createAndTouchProductUrlByIdProduct(
-                $idAbstractProduct,
+                $idProductAbstract,
                 $abstractProductUrl,
                 $localizedAttributes->getLocale()
             );

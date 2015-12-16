@@ -83,7 +83,7 @@ class ProductController extends AbstractController
         $abstractProductTransfer->addLocalizedAttributes($localizedAttributesTransferEN);
         */
 
-        $idAbstractProduct = $productFacade->createAbstractProduct($abstractProductTransfer);
+        $idProductAbstract = $productFacade->createAbstractProduct($abstractProductTransfer);
 
         foreach ($variantData as $variantItemData) {
             //to test saving localized attributes for concrete products
@@ -105,14 +105,14 @@ class ProductController extends AbstractController
                 new \ArrayObject([$localizedAttributesTransferDE, $localizedAttributesTransferEN])
             );
 
-            $productFacade->createConcreteProduct($concreteProductTransfer, $idAbstractProduct);
+            $productFacade->createConcreteProduct($concreteProductTransfer, $idProductAbstract);
         }
 
         //die(dump($productData));
 
-        //$idAbstractProduct = $this->createAbstractProduct($productData);
+        //$idProductAbstract = $this->createAbstractProduct($productData);
 
-        echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($idAbstractProduct) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . exit();
+        echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($idProductAbstract) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . exit();
 
         //        $localeTransfer = new LocaleTransfer();
         //        $localeTransfer->setIsActive(true);
@@ -128,7 +128,7 @@ class ProductController extends AbstractController
         //        $localizesAttributes[] = $localizedAttributesTransferDE;
         //        $abstractProductTransfer->setLocalizedAttributes($localizesAttributes);
         //
-        //        $idAbstractProduct = $productFacade->createAbstractProduct($abstractProductTransfer);
+        //        $idProductAbstract = $productFacade->createAbstractProduct($abstractProductTransfer);
         //
         //        $productFacade->createProductUrl($abstractProductTransfer->getSku(), $productArray['url'].time(), $localeTransfer);
         //
@@ -143,7 +143,7 @@ class ProductController extends AbstractController
         //        $concreteProductTransfer = new ConcreteProductTransfer();
         //        $concreteProductTransfer->setSku($variant['sku'].time());
         //        $concreteProductTransfer->setAttributes($variant['attributes']);
-        //        $productFacade->createConcreteProduct($concreteProductTransfer, $idAbstractProduct);
+        //        $productFacade->createConcreteProduct($concreteProductTransfer, $idProductAbstract);
         //
         //        $stockProductTransfer = new StockProductTransfer();
         //        $stockProductTransfer->setSku($concreteProductTransfer->getSku());
@@ -155,7 +155,7 @@ class ProductController extends AbstractController
         //        $concreteProductTransfer = new ConcreteProductTransfer();
         //        $concreteProductTransfer->setSku($variant['sku'].time());
         //        $concreteProductTransfer->setAttributes($variant['attributes']);
-        //        $productFacade->createConcreteProduct($concreteProductTransfer, $idAbstractProduct);
+        //        $productFacade->createConcreteProduct($concreteProductTransfer, $idProductAbstract);
         //        $stockProductTransfer = new StockProductTransfer();
         //        $stockProductTransfer->setSku($concreteProductTransfer->getSku());
         //        $stockProductTransfer->setStockType('Warehouse1');
@@ -164,7 +164,7 @@ class ProductController extends AbstractController
 
         //$connection->commitTransaction();
 
-        exit('<pre><b>' . print_r($idAbstractProduct, true) . '</b>' . PHP_EOL . __CLASS__ . ' ' . __LINE__);
+        exit('<pre><b>' . print_r($idProductAbstract, true) . '</b>' . PHP_EOL . __CLASS__ . ' ' . __LINE__);
     }
 
     /**

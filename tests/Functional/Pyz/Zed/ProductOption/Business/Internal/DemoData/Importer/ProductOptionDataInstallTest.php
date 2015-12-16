@@ -4,10 +4,10 @@ namespace Functional\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer;
 
 use Pyz\Zed\ProductOption\Business\ProductOptionFacade;
 use Spryker\Zed\Kernel\AbstractFunctionalTest;
-use Orm\Zed\Product\Persistence\SpyAbstractProduct;
+use Orm\Zed\Product\Persistence\SpyProductAbstract;
 use Orm\Zed\Product\Persistence\SpyProduct;
 use Orm\Zed\Product\Persistence\SpyProductQuery;
-use Orm\Zed\Product\Persistence\SpyAbstractProductQuery;
+use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 
 /**
  * @group Pyz
@@ -37,12 +37,12 @@ class ProductOptionDataInstallTest extends AbstractFunctionalTest
     private function loadProductsIfNotInDb(array $skus)
     {
         foreach ($skus as $sku) {
-            $abstractProductEntity = SpyAbstractProductQuery::create()
+            $abstractProductEntity = SpyProductAbstractQuery::create()
                 ->filterBySku($sku)
                 ->findOne();
 
             if (!$abstractProductEntity) {
-                $abstractProductEntity = new SpyAbstractProduct();
+                $abstractProductEntity = new SpyProductAbstract();
             }
             $abstractProductEntity
                 ->setSku($sku)
@@ -54,7 +54,7 @@ class ProductOptionDataInstallTest extends AbstractFunctionalTest
 
             $concreteProductEntity = SpyProductQuery::create()
                 ->filterBySku($sku)
-                ->filterByFkAbstractProduct($abstractProductEntity->getIdAbstractProduct())
+                ->filterByFkProductAbstract($abstractProductEntity->getIdProductAbstract())
                 ->findOne();
 
             if (!$concreteProductEntity) {
@@ -63,7 +63,7 @@ class ProductOptionDataInstallTest extends AbstractFunctionalTest
             $concreteProductEntity
                 ->setSku($sku)
                 ->setAttributes('{}')
-                ->setSpyAbstractProduct($abstractProductEntity);
+                ->setSpyProductAbstract($abstractProductEntity);
 
             if ($concreteProductEntity->isNew()) {
                 $concreteProductEntity->save();

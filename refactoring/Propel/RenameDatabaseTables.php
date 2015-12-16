@@ -4,7 +4,7 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace Spryker\Refactor;
+namespace Spryker\Refactor\Propel;
 
 use Spryker\Zed\Development\Business\Refactor\AbstractRefactor;
 use Symfony\Component\Filesystem\Filesystem;
@@ -30,12 +30,13 @@ class RenameDatabaseTables extends AbstractRefactor
     protected function removeBaseAndMapFiles()
     {
         $directories = [
-            __DIR__ . '/../src/Orm/Zed/*/Persistence/Map',
-            __DIR__ . '/../src/Orm/Zed/*/Persistence/Base',
+            APPLICATION_ROOT_DIR . '/src/Orm/Zed/*/Persistence/Map',
+            APPLICATION_ROOT_DIR . '/src/Orm/Zed/*/Persistence/Base',
         ];
 
         $filesystem = new Filesystem();
-        $filesystem->remove($directories);
+        $files = $this->getFiles($directories);
+        $filesystem->remove($files);
     }
 
     /**
@@ -44,16 +45,16 @@ class RenameDatabaseTables extends AbstractRefactor
     protected function removeOldFiles()
     {
         $files = [
-            __DIR__ . '/../src/Orm/Zed/Product/Persistence/SpyAbstractProduct.php',
-            __DIR__ . '/../src/Orm/Zed/Product/Persistence/SpyAbstractProductQuery.php',
-            __DIR__ . '/../src/Orm/Zed/Product/Persistence/SpyLocalizedAbstractProductAttributes.php',
-            __DIR__ . '/../src/Orm/Zed/Product/Persistence/SpyLocalizedAbstractProductAttributesQuery.php',
-            __DIR__ . '/../src/Orm/Zed/Product/Persistence/SpyProductLocalizedAttributes.php',
-            __DIR__ . '/../src/Orm/Zed/Product/Persistence/SpyProductLocalizedAttributesQuery.php',
-            __DIR__ . '/../src/Orm/Zed/Product/Persistence/SpyTypeValue.php',
-            __DIR__ . '/../src/Orm/Zed/Product/Persistence/SpyTypeValueQuery.php',
-            __DIR__ . '/../src/Orm/Zed/ProductSearch/Persistence/SpySearchableProducts.php',
-            __DIR__ . '/../src/Orm/Zed/ProductSearch/Persistence/SpySearchableProductsQuery.php',
+            APPLICATION_ROOT_DIR . '/src/Orm/Zed/Product/Persistence/SpyAbstractProduct.php',
+            APPLICATION_ROOT_DIR . '/src/Orm/Zed/Product/Persistence/SpyAbstractProductQuery.php',
+            APPLICATION_ROOT_DIR . '/src/Orm/Zed/Product/Persistence/SpyLocalizedAbstractProductAttributes.php',
+            APPLICATION_ROOT_DIR . '/src/Orm/Zed/Product/Persistence/SpyLocalizedAbstractProductAttributesQuery.php',
+            APPLICATION_ROOT_DIR . '/src/Orm/Zed/Product/Persistence/SpyProductLocalizedAttributes.php',
+            APPLICATION_ROOT_DIR . '/src/Orm/Zed/Product/Persistence/SpyProductLocalizedAttributesQuery.php',
+            APPLICATION_ROOT_DIR . '/src/Orm/Zed/Product/Persistence/SpyTypeValue.php',
+            APPLICATION_ROOT_DIR . '/src/Orm/Zed/Product/Persistence/SpyTypeValueQuery.php',
+            APPLICATION_ROOT_DIR . '/src/Orm/Zed/ProductSearch/Persistence/SpySearchableProducts.php',
+            APPLICATION_ROOT_DIR . '/src/Orm/Zed/ProductSearch/Persistence/SpySearchableProductsQuery.php',
         ];
 
         $filesystem = new Filesystem();
@@ -63,10 +64,10 @@ class RenameDatabaseTables extends AbstractRefactor
     protected function renameInSchemaFiles()
     {
         $schemaDirectories = [
-            __DIR__ . '/../src/Pyz/Zed/*/Persistence/Propel/Schema',
-            __DIR__ . '/../src/Pyz/Shared/*/Transfer',
-            __DIR__ . '/../vendor/spryker/spryker/Bundles/*/src/*/Shared/*/Transfer',
-            __DIR__ . '/../vendor/spryker/spryker/Bundles/*/src/*/Zed/*/Persistence/Propel/Schema',
+            APPLICATION_ROOT_DIR . '/src/Pyz/Zed/*/Persistence/Propel/Schema',
+            APPLICATION_ROOT_DIR . '/src/Pyz/Shared/*/Transfer',
+            APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles/*/src/*/Shared/*/Transfer',
+            APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles/*/src/*/Zed/*/Persistence/Propel/Schema',
         ];
         $schemaFiles = $this->getFiles($schemaDirectories);
         $searchAndReplace = $this->buildSearchAndReplaceForSchema();
@@ -109,11 +110,11 @@ class RenameDatabaseTables extends AbstractRefactor
     protected function renameInClasses()
     {
         $classDirectories = [
-            __DIR__ . '/../src/Pyz/',
-            __DIR__ . '/../tests/*/Pyz/',
-            __DIR__ . '/../tests/DataGenerator/',
-            __DIR__ . '/../vendor/spryker/spryker/Bundles/*/src/*/',
-            __DIR__ . '/../vendor/spryker/spryker/Bundles/*/tests/*/*/',
+            APPLICATION_ROOT_DIR . '/src/Pyz/',
+            APPLICATION_ROOT_DIR . '/tests/*/Pyz/',
+            APPLICATION_ROOT_DIR . '/tests/DataGenerator/',
+            APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles/*/src/*/',
+            APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles/*/tests/*/*/',
         ];
 
         $classFiles = $this->getFiles($classDirectories);
