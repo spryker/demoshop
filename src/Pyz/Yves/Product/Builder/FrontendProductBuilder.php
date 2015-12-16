@@ -31,20 +31,29 @@ class FrontendProductBuilder implements FrontendProductBuilderInterface
      */
     public function buildProduct(array $productData)
     {
+        $abstractProduct = $this->createAbstractProductClone();
         foreach ($productData as $name => $value) {
             $arrayParts = explode('_', strtolower($name));
             $arrayParts = array_map('ucfirst', $arrayParts);
 
             $setter = 'set' . implode('', $arrayParts);
 
-            if (method_exists($this->abstractProduct, $setter)) {
-                $this->abstractProduct->{$setter}($value);
+            if (method_exists($abstractProduct, $setter)) {
+                $abstractProduct->{$setter}($value);
             } else {
-                $this->abstractProduct->addAttribute($name, $value);
+                $abstractProduct->addAttribute($name, $value);
             }
         }
 
-        return $this->abstractProduct;
+        return $abstractProduct;
+    }
+
+    /**
+     * @return AbstractProduct
+     */
+    protected function createAbstractProductClone()
+    {
+        return clone $this->abstractProduct;
     }
 
 }
