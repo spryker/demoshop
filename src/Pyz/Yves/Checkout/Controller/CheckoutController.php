@@ -15,11 +15,10 @@ use Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer;
 use Orm\Zed\Payolution\Persistence\Map\SpyPaymentPayolutionTableMap;
 use Pyz\Yves\Checkout\Form\CheckoutType;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
-use Spryker\Shared\Payolution\PayolutionConfigConstants;
+use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Yves\Application\Controller\AbstractController;
 use Pyz\Yves\Checkout\CheckoutDependencyContainer;
 use Spryker\Shared\Library\Currency\CurrencyManager;
-use Spryker\Shared\Payolution\PayolutionApiConstants;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -38,8 +37,8 @@ class CheckoutController extends AbstractController
      * @var array
      */
     protected static $payolutionPaymentMethodMapper = [
-        'payolution_invoice' => PayolutionApiConstants::BRAND_INVOICE,
-        'payolution_installment' => PayolutionApiConstants::BRAND_INSTALLMENT,
+        'payolution_invoice' => PayolutionConstants::BRAND_INVOICE,
+        'payolution_installment' => PayolutionConstants::BRAND_INSTALLMENT,
     ];
 
     /**
@@ -352,7 +351,7 @@ class CheckoutController extends AbstractController
         $payolutionPaymentTransfer->getAddress()
             ->setEmail($checkoutRequestTransfer->getEmail());
 
-        if ($payolutionPaymentTransfer->getAccountBrand() === PayolutionApiConstants::BRAND_INSTALLMENT) {
+        if ($payolutionPaymentTransfer->getAccountBrand() === PayolutionConstants::BRAND_INSTALLMENT) {
             $this->setPayolutionInstallmentPayment($payolutionPaymentTransfer, $payolutionCalculationResponseTransfer);
         }
 
@@ -477,8 +476,8 @@ class CheckoutController extends AbstractController
 
         $request = $client->get($url);
         $request->setAuth(
-            $requestCredentials[PayolutionConfigConstants::CALCULATION_USER_LOGIN],
-            $requestCredentials[PayolutionConfigConstants::CALCULATION_USER_PASSWORD]
+            $requestCredentials[PayolutionConstants::CALCULATION_USER_LOGIN],
+            $requestCredentials[PayolutionConstants::CALCULATION_USER_PASSWORD]
         );
         $response = $request->send();
 

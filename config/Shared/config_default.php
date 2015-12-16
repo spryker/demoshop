@@ -11,7 +11,7 @@ use Spryker\Shared\NewRelic\NewRelicConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumberConfig;
 use Spryker\Shared\Log\Config\DefaultLoggerConfig;
-use Spryker\Shared\Payolution\PayolutionConfigConstants;
+use Spryker\Shared\Payolution\PayolutionConstants;
 
 $config[ApplicationConstants::PROJECT_NAMESPACES] = [
     'Pyz',
@@ -295,25 +295,25 @@ $config[LumberjackConstants::WRITER_OPTIONS] = [
     '\Spryker\Shared\Lumberjack\Model\Writer\File' => ['log_path' => '/data/logs/development/DE/'],
 ];
 
-$config[PayolutionConfigConstants::TRANSACTION_GATEWAY_URL] = 'https://test.ctpe.net/frontend/payment.prc';
-$config[PayolutionConfigConstants::CALCULATION_GATEWAY_URL] = 'https://test-payment.payolution.com/payolution-payment/rest/request/v2';
-$config[PayolutionConfigConstants::TRANSACTION_SECURITY_SENDER] = '8a82941850cd6ba60150cdba275b0201';
-$config[PayolutionConfigConstants::TRANSACTION_USER_LOGIN] = '8a82941850cd6ba60150cdba275c0205';
-$config[PayolutionConfigConstants::TRANSACTION_USER_PASSWORD] = 'EANPb8wg';
-$config[PayolutionConfigConstants::CALCULATION_SENDER] = 'Spyker';
-$config[PayolutionConfigConstants::CALCULATION_USER_LOGIN] = 'spryker-installment';
-$config[PayolutionConfigConstants::CALCULATION_USER_PASSWORD] = '0mQzn5iqhr3idfZZjvsEPOrlDvT97Tg3M5d';
-$config[PayolutionConfigConstants::TRANSACTION_MODE] = 'CONNECTOR_TEST';
-$config[PayolutionConfigConstants::CALCULATION_MODE] = 'TEST';
-$config[PayolutionConfigConstants::TRANSACTION_CHANNEL_PRE_CHECK] = '8a82941850cd6ba60150cdc25e54028f';
-$config[PayolutionConfigConstants::TRANSACTION_CHANNEL_INVOICE] = '8a82941850cd6ba60150cdbf9af40280';
-$config[PayolutionConfigConstants::TRANSACTION_CHANNEL_INSTALLMENT] = '8a82941850cd6ba60150cdbf9af40280';
-$config[PayolutionConfigConstants::CALCULATION_CHANNEL] = 'spryker-installment';
-$config[PayolutionConfigConstants::MIN_ORDER_GRAND_TOTAL_INVOICE] = '500';
-$config[PayolutionConfigConstants::MAX_ORDER_GRAND_TOTAL_INVOICE] = '500000';
-$config[PayolutionConfigConstants::MIN_ORDER_GRAND_TOTAL_INSTALLMENT] = '500';
-$config[PayolutionConfigConstants::MAX_ORDER_GRAND_TOTAL_INSTALLMENT] = '500000';
-$config[PayolutionConfigConstants::PAYOLUTION_BCC_EMAIL] = 'invoices@payolution.com';
+$config[PayolutionConstants::TRANSACTION_GATEWAY_URL] = 'https://test.ctpe.net/frontend/payment.prc';
+$config[PayolutionConstants::CALCULATION_GATEWAY_URL] = 'https://test-payment.payolution.com/payolution-payment/rest/request/v2';
+$config[PayolutionConstants::TRANSACTION_SECURITY_SENDER] = '8a82941850cd6ba60150cdba275b0201';
+$config[PayolutionConstants::TRANSACTION_USER_LOGIN] = '8a82941850cd6ba60150cdba275c0205';
+$config[PayolutionConstants::TRANSACTION_USER_PASSWORD] = 'EANPb8wg';
+$config[PayolutionConstants::CALCULATION_SENDER] = 'Spyker';
+$config[PayolutionConstants::CALCULATION_USER_LOGIN] = 'spryker-installment';
+$config[PayolutionConstants::CALCULATION_USER_PASSWORD] = '0mQzn5iqhr3idfZZjvsEPOrlDvT97Tg3M5d';
+$config[PayolutionConstants::TRANSACTION_MODE] = 'CONNECTOR_TEST';
+$config[PayolutionConstants::CALCULATION_MODE] = 'TEST';
+$config[PayolutionConstants::TRANSACTION_CHANNEL_PRE_CHECK] = '8a82941850cd6ba60150cdc25e54028f';
+$config[PayolutionConstants::TRANSACTION_CHANNEL_INVOICE] = '8a82941850cd6ba60150cdbf9af40280';
+$config[PayolutionConstants::TRANSACTION_CHANNEL_INSTALLMENT] = '8a82941850cd6ba60150cdbf9af40280';
+$config[PayolutionConstants::CALCULATION_CHANNEL] = 'spryker-installment';
+$config[PayolutionConstants::MIN_ORDER_GRAND_TOTAL_INVOICE] = '500';
+$config[PayolutionConstants::MAX_ORDER_GRAND_TOTAL_INVOICE] = '500000';
+$config[PayolutionConstants::MIN_ORDER_GRAND_TOTAL_INSTALLMENT] = '500';
+$config[PayolutionConstants::MAX_ORDER_GRAND_TOTAL_INSTALLMENT] = '500000';
+$config[PayolutionConstants::PAYOLUTION_BCC_EMAIL] = 'invoices@payolution.com';
 
 $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 

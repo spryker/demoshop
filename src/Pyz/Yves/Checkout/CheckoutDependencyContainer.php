@@ -13,7 +13,7 @@ use Spryker\Client\Payolution\PayolutionClientInterface;
 use Spryker\Client\Shipment\ShipmentClientInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Spryker\Shared\Config;
-use Spryker\Shared\Payolution\PayolutionConfigConstants;
+use Spryker\Shared\Payolution\PayolutionConstants;
 
 class CheckoutDependencyContainer extends AbstractDependencyContainer
 {
@@ -64,8 +64,8 @@ class CheckoutDependencyContainer extends AbstractDependencyContainer
     public function getPayolutionCalculationCredentials()
     {
         return [
-            PayolutionConfigConstants::CALCULATION_USER_LOGIN => Config::get(PayolutionConfigConstants::CALCULATION_USER_LOGIN),
-            PayolutionConfigConstants::CALCULATION_USER_PASSWORD => Config::get(PayolutionConfigConstants::CALCULATION_USER_PASSWORD),
+            PayolutionConstants::CALCULATION_USER_LOGIN => Config::get(PayolutionConstants::CALCULATION_USER_LOGIN),
+            PayolutionConstants::CALCULATION_USER_PASSWORD => Config::get(PayolutionConstants::CALCULATION_USER_PASSWORD),
         ];
     }
 
