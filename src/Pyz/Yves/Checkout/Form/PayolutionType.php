@@ -71,8 +71,8 @@ class PayolutionType extends AbstractType
             ->add(self::FIELD_INSTALLMENT_PAYMENT_DETAIL_INDEX, 'choice', [
                 'choices' => $this->getInstallmentPayments(),
                 'label' => false,
-                'required' => true,
-                'expanded' => false,
+                'required' => false,
+                'expanded' => true,
                 'multiple' => false,
                 'empty_value' => false,
                 'attr' => [
@@ -149,12 +149,14 @@ class PayolutionType extends AbstractType
         $paymentDetails = $this->payolutionCalculationResponseTransfer->getPaymentDetails();
         $choices = [];
 
+        // @ todo: optimize and get rid of magic strings and <a> tag by building a proper form #875
         foreach ($paymentDetails as $paymentDetail) {
             $choices[] =
                 CurrencyManager::getInstance()->convertCentToDecimal($paymentDetail->getInstallments()[0]->getAmount())
                 . ' € for ' .
                 $paymentDetail->getDuration()
-                . ' months ';
+                . ' months '
+                . '<a href="installment/id/' . $this->payolutionCalculationResponseTransfer->getIdentificationUniqueid() . '/duration/' . $paymentDetail->getDuration() . '"">Show Details</a>';
         }
 
         return $choices;

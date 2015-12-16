@@ -13,6 +13,7 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
     const ROUTE_CHECKOUT_SUBMIT = 'checkout/buy';
     const ROUTE_CHECKOUT_SUCCESS = 'checkout/success';
     const ROUTE_CHECKOUT_REGULAR_REDIRECT_PAYMENT_CANCELLATION = 'checkout/regular-redirect-payment-cancellation';
+    const ROUTE_INSTALLMENT_DETAIL = 'installment/detail/id/{id}/duration/{duration}';
 
     protected function defineControllers(Application $app)
     {
@@ -48,6 +49,16 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
         ->method(Request::METHOD_GET . '|' . Request::METHOD_POST)
         ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
         ->value('checkout', 'checkout');
+
+        $this->createGetController(
+            '/installment/id/{calculationRequestId}/duration/{installmentDuration}',
+            self::ROUTE_INSTALLMENT_DETAIL,
+            'Checkout',
+            'Checkout',
+            'displayInstallmentDetails'
+        )
+            ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
+            ->value('checkout', 'checkout');
     }
 
 }

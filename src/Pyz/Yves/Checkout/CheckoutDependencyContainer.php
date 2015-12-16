@@ -12,6 +12,8 @@ use Spryker\Client\Glossary\GlossaryClientInterface;
 use Spryker\Client\Payolution\PayolutionClientInterface;
 use Spryker\Client\Shipment\ShipmentClientInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Spryker\Shared\Config;
+use Spryker\Shared\Payolution\PayolutionConstants;
 
 class CheckoutDependencyContainer extends AbstractDependencyContainer
 {
@@ -54,6 +56,17 @@ class CheckoutDependencyContainer extends AbstractDependencyContainer
     public function getPayolutionClient()
     {
         return $this->getLocator()->payolution()->client();
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getPayolutionCalculationCredentials()
+    {
+        return [
+            PayolutionConstants::CALCULATION_USER_LOGIN => Config::get(PayolutionConstants::CALCULATION_USER_LOGIN),
+            PayolutionConstants::CALCULATION_USER_PASSWORD => Config::get(PayolutionConstants::CALCULATION_USER_PASSWORD),
+        ];
     }
 
     /**

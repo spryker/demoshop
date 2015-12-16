@@ -14,7 +14,7 @@ use Orm\Zed\Payolution\Persistence\Map\SpyPaymentPayolutionTableMap;
 use Orm\Zed\Payolution\Persistence\SpyPaymentPayolution;
 use Orm\Zed\Sales\Persistence\SpySalesOrder;
 use Orm\Zed\Sales\Persistence\SpySalesOrderAddress;
-use Spryker\Shared\Payolution\PayolutionApiConstants;
+use Spryker\Shared\Payolution\PayolutionConstants;
 use Generated\Shared\Transfer\OrderTransfer;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\AddressTransfer;
@@ -124,7 +124,7 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
      */
     protected function setPaymentInvoice()
     {
-        $this->accountBrand = PayolutionApiConstants::BRAND_INVOICE;
+        $this->accountBrand = PayolutionConstants::BRAND_INVOICE;
         $this->paymentMethod = 'invoice';
 
         $this->setCustomerTransferTestData();
@@ -144,7 +144,7 @@ abstract class AbstractFacadeTest extends AbstractFunctionalTest
      */
     protected function setPaymentInstallment()
     {
-        $this->accountBrand = PayolutionApiConstants::BRAND_INSTALLMENT;
+        $this->accountBrand = PayolutionConstants::BRAND_INSTALLMENT;
         $this->paymentMethod = 'instalment';
 
         $this->setCustomerTransferTestData();
