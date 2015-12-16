@@ -705,6 +705,7 @@
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "e38cdf0fd7c3e80269d615c427260c1d7e64a39c"
 =======
 <<<<<<< HEAD
@@ -713,6 +714,9 @@
                 "reference": "b3594ca8a54d3985aed9ade894a6ecbf024f286b"
 >>>>>>> #988 renamed tables
 >>>>>>> #988 renamed tables
+=======
+                "reference": "1f3a710e8e0f8ac9b739a8531a2faed899a196a8"
+>>>>>>> #988 update composer
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -796,6 +800,7 @@
                 }
             },
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2015-12-17 08:41:08"
 =======
 <<<<<<< HEAD
@@ -804,6 +809,9 @@
             "time": "2015-12-16 13:31:13"
 >>>>>>> #988 renamed tables
 >>>>>>> #988 renamed tables
+=======
+            "time": "2015-12-16 14:09:18"
+>>>>>>> #988 update composer
         },
         {
             "name": "symfony-cmf/routing",
