@@ -19,7 +19,24 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
     {
         $allowedLocalesPattern = $this->getAllowedLocalesPattern();
 
-        $this->createController('/{checkout}', self::ROUTE_CHECKOUT, 'Checkout', 'Checkout')
+
+
+
+        $this->createController('/checkout/address', 'checkout-address', 'Checkout', 'MultipageCheckout', 'address')
+            ->method('GET|POST');
+
+        $this->createController('/checkout/shipping', 'checkout-shipping','Checkout', 'MultipageCheckout', 'shipping')
+            ->method('GET|POST');
+
+        $this->createController('/checkout/payment', 'checkout-payment', 'Checkout', 'MultipageCheckout', 'payment')
+            ->method('GET|POST');
+
+        $this->createController('/checkout/summary', 'checkout-summary', 'Checkout', 'MultipageCheckout', 'summary')
+            ->method('GET|POST');
+
+
+
+        $this->createController('/{checkout}', self::ROUTE_CHECKOUT, 'Checkout', 'Checkout')->method('GET|POST')
             ->method(Request::METHOD_GET)
             ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
             ->value('checkout', 'checkout');

@@ -8,6 +8,7 @@ use Spryker\Client\Cart\CartClientInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @method \Spryker\Client\Cart\CartClientInterface getClient()
@@ -18,7 +19,7 @@ class CartController extends AbstractController
     /**
      * @return array
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $cartClient = $this->getClient();
         $quoteTransfer = $cartClient->getQuote();
