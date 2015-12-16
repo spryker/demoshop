@@ -19,6 +19,7 @@ use Pyz\Yves\Customer\Plugin\UserProvider;
 use Pyz\Yves\EventJournal\Plugin\Provider\EventJournalServiceProvider;
 use Pyz\Yves\Glossary\Plugin\Provider\TranslationServiceProvider;
 use Pyz\Yves\Heartbeat\Plugin\Provider\HeartbeatControllerProvider;
+use Pyz\Yves\NewRelic\Plugin\Provider\NewRelicServiceProvider;
 use Pyz\Yves\Twig\Plugin\Provider\TwigServiceProvider;
 use Pyz\Yves\Wishlist\Plugin\Provider\WishlistControllerProvider;
 use Silex\Provider\FormServiceProvider;
@@ -81,7 +82,7 @@ class YvesBootstrap
         $this->application->register($this->createSecurityServiceProviderExtension());
         $this->application->register(new YvesSecurityServiceProvider());
         $this->application->register(new ExceptionServiceProvider());
-        $this->application->register(new YvesLoggingServiceProvider(new EventJournalClient(), new Api()));
+        $this->application->register(new NewRelicServiceProvider());
         $this->application->register(new EventJournalServiceProvider());
         $this->application->register(new MonologServiceProvider());
         $this->application->register(new CookieServiceProvider());
