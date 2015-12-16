@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-feature/880-event_journal_finalization",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",

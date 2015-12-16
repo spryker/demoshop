@@ -271,7 +271,7 @@ $config[EventJournalConstants::COLLECTORS]['YVES'] = [
     '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\ServerDataCollector',
     '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\RequestDataCollector',
     '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\EnvironmentDataCollector',
-    '\\Spryker\\Client\\EventJournal\\YvesDataCollector',
+    '\\Pyz\\Yves\\EventJournal\\Collector\\YvesDataCollector',
 ];
 $config[EventJournalConstants::WRITERS]['YVES'] = [
     '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File',
