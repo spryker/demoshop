@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\NewRelic\Plugin\Provider;
 
-use Pyz\Yves\NewRelic\NewRelicDependencyContainer;
+use Pyz\Yves\NewRelic\NewRelicFactory;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 use Spryker\Shared\Library\System;
@@ -13,7 +13,7 @@ use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
- * @method NewRelicDependencyContainer getDependencyContainer()
+ * @method NewRelicFactory getFactory()
  */
 class NewRelicServiceProvider extends AbstractPlugin implements ServiceProviderInterface
 {
@@ -25,7 +25,7 @@ class NewRelicServiceProvider extends AbstractPlugin implements ServiceProviderI
 
     public function __construct()
     {
-        $this->newRelicApi = $this->getDependencyContainer()->createNewRelicApi();
+        $this->newRelicApi = $this->getFactory()->createNewRelicApi();
     }
 
     /**

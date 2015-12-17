@@ -5,7 +5,7 @@
 
 namespace Pyz\Yves\EventJournal\Plugin\Provider;
 
-use Pyz\Yves\EventJournal\EventJournalDependencyContainer;
+use Pyz\Yves\EventJournal\EventJournalFactory;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 use Spryker\Client\EventJournal\Event;
@@ -19,7 +19,7 @@ use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
- * @method EventJournalDependencyContainer getDependencyContainer()
+ * @method EventJournalFactory getFactory()
  */
 class EventJournalServiceProvider extends AbstractPlugin implements ServiceProviderInterface
 {
@@ -31,7 +31,7 @@ class EventJournalServiceProvider extends AbstractPlugin implements ServiceProvi
 
     public function __construct()
     {
-        $this->eventJournal = $this->getDependencyContainer()->createEventJournalClient();
+        $this->eventJournal = $this->getFactory()->createEventJournalClient();
     }
 
     /**

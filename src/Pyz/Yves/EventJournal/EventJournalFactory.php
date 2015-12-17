@@ -7,9 +7,9 @@
 namespace Pyz\Yves\EventJournal;
 
 use Spryker\Client\EventJournal\EventJournalClientInterface;
-use Spryker\Yves\Kernel\AbstractDependencyContainer;
+use Spryker\Yves\Kernel\AbstractFactory;
 
-class EventJournalDependencyContainer extends AbstractDependencyContainer
+class EventJournalFactory extends AbstractFactory
 {
 
     /**

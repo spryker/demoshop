@@ -8,9 +8,9 @@ namespace Pyz\Yves\NewRelic;
 
 use Spryker\Shared\NewRelic\Api;
 use Spryker\Shared\NewRelic\ApiInterface;
-use Spryker\Yves\Kernel\AbstractDependencyContainer;
+use Spryker\Yves\Kernel\AbstractFactory;
 
-class NewRelicDependencyContainer extends AbstractDependencyContainer
+class NewRelicFactory extends AbstractFactory
 {
 
     /**
