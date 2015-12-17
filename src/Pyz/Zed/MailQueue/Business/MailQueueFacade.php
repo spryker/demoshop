@@ -7,7 +7,7 @@ use Generated\Shared\Transfer\QueueMessageTransfer;
 use Spryker\Zed\Kernel\Business\AbstractFacade;
 
 /**
- * @method MailQueueDependencyContainer getDependencyContainer()
+ * @method MailQueueBusinessFactory getFactory()
  */
 class MailQueueFacade extends AbstractFacade
 {
@@ -19,7 +19,7 @@ class MailQueueFacade extends AbstractFacade
      */
     public function processEmailMessage(QueueMessageTransfer $queueMessage)
     {
-        $this->getDependencyContainer()
+        $this->getFactory()
             ->createMailQueueManager()
             ->processMailMessageFromQueue($queueMessage);
     }
@@ -31,7 +31,7 @@ class MailQueueFacade extends AbstractFacade
      */
     public function sendEmailToQueue(MailTransfer $mailTransfer)
     {
-        $this->getDependencyContainer()
+        $this->getFactory()
             ->createMailQueueManager()
             ->sendEmailToQueue($mailTransfer);
     }
@@ -43,7 +43,7 @@ class MailQueueFacade extends AbstractFacade
      */
     public function sendMail(MailTransfer $mailTransfer)
     {
-        return $this->getDependencyContainer()
+        return $this->getFactory()
             ->createMailFacade()
             ->sendMail($mailTransfer);
     }
@@ -56,7 +56,7 @@ class MailQueueFacade extends AbstractFacade
      */
     public function publishMessage($queueName, QueueMessageTransfer $queueMessage)
     {
-        $this->getDependencyContainer()
+        $this->getFactory()
             ->createQueueFacade()
             ->publishMessage($queueName, $queueMessage);
     }
@@ -68,7 +68,7 @@ class MailQueueFacade extends AbstractFacade
     {
         return sprintf(
             '%s.%s',
-            $this->getDependencyContainer()->getCurrentStore()->getCurrentCountry(),
+            $this->getFactory()->getCurrentStore()->getCurrentCountry(),
             'mail.queue'
         );
     }

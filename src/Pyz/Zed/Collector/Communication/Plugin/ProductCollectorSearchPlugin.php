@@ -3,7 +3,7 @@
 namespace Pyz\Zed\Collector\Communication\Plugin;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Pyz\Zed\Collector\Communication\CollectorDependencyContainer;
+use Pyz\Zed\Collector\Communication\CollectorCommunicationFactory;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
 use Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface;
 use Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface;
@@ -11,7 +11,7 @@ use Spryker\Zed\Collector\Business\Model\BatchResultInterface;
 use Spryker\Zed\Collector\Communication\Plugin\AbstractCollectorPlugin;
 
 /**
- * @method CollectorDependencyContainer getDependencyContainer()
+ * @method CollectorCommunicationFactory getFactory()
  */
 class ProductCollectorSearchPlugin extends AbstractCollectorPlugin
 {
@@ -30,7 +30,7 @@ class ProductCollectorSearchPlugin extends AbstractCollectorPlugin
         WriterInterface $dataWriter,
         TouchUpdaterInterface $touchUpdater
     ) {
-        return $this->getDependencyContainer()
+        return $this->getFactory()
             ->getCollectorFacade()
             ->runSearchProductCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }

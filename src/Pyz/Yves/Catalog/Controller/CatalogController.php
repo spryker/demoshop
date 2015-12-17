@@ -2,13 +2,13 @@
 
 namespace Pyz\Yves\Catalog\Controller;
 
-use Pyz\Yves\Catalog\CatalogDependencyContainer;
+use Pyz\Yves\Catalog\CatalogFactory;
 use Spryker\Yves\Application\Controller\AbstractController;
 use Spryker\Shared\Library\Currency\CurrencyManager;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @method CatalogDependencyContainer getDependencyContainer()
+ * @method CatalogFactory getFactory()
  */
 class CatalogController extends AbstractController
 {
@@ -23,13 +23,13 @@ class CatalogController extends AbstractController
      */
     public function indexAction(array $categoryNode, Request $request)
     {
-        $search = $this->getDependencyContainer()
+        $search = $this->getFactory()
             ->createCatalogClient()
             ->createFacetSearch($request, $categoryNode);
 
         $search->setItemsPerPage(self::ITEMS_PER_PAGE);
 
-        $categoryTree = $this->getDependencyContainer()
+        $categoryTree = $this->getFactory()
             ->createCategoryExporterClient()
             ->getTreeFromCategoryNode($categoryNode, $this->getLocale());
 
@@ -52,7 +52,7 @@ class CatalogController extends AbstractController
      */
     public function fulltextSearchAction(Request $request)
     {
-        $search = $this->getDependencyContainer()
+        $search = $this->getFactory()
             ->createCatalogClient()
             ->createFulltextSearch($request);
 

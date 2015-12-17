@@ -15,11 +15,11 @@ use Spryker\Zed\Product\Business\Importer\Validator\ImportProductValidator;
 use Spryker\Zed\Product\Business\Importer\FileImporter;
 use Spryker\Zed\Product\Business\Importer\Upload\UploadedFileImporter;
 use Spryker\Zed\Product\Business\Builder\SimpleAttributeMergeBuilder;
-use Spryker\Zed\Product\Business\ProductDependencyContainer as SprykerDependencyContainer;
+use Spryker\Zed\Product\Business\ProductBusinessFactory as SprykerBusinessFactory;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Product\Business\Internal\DemoData\ProductDataInstall;
 
-class ProductDependencyContainer extends SprykerDependencyContainer
+class ProductBusinessFactory extends SprykerBusinessFactory
 {
 
     /**

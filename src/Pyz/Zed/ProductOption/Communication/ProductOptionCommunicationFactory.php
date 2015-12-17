@@ -2,11 +2,11 @@
 
 namespace Pyz\Zed\ProductOption\Communication;
 
-use Spryker\Zed\ProductOption\Communication\ProductOptionDependencyContainer as SprykerProductOptionDependencyContainer;
+use Spryker\Zed\ProductOption\Communication\ProductOptionCommunicationFactory as SprykerProductOptionCommunicationFactory;
 use Pyz\Zed\ProductOption\Business\ProductOptionFacade;
 use Pyz\Zed\ProductOption\ProductOptionDependencyProvider;
 
-class ProductOptionDependencyContainer extends SprykerProductOptionDependencyContainer
+class ProductOptionCommunicationFactory extends SprykerProductOptionCommunicationFactory
 {
 
     /**

@@ -4,9 +4,9 @@ namespace Pyz\Zed\Collector\Communication;
 
 use Pyz\Zed\Collector\Business\CollectorFacade;
 use Spryker\Zed\Collector\CollectorDependencyProvider;
-use Spryker\Zed\Collector\Communication\CollectorDependencyContainer as SprykerCollectorDependencyContainer;
+use Spryker\Zed\Collector\Communication\CollectorCommunicationFactory as SprykerCollectorCommunicationFactory;
 
-class CollectorDependencyContainer extends SprykerCollectorDependencyContainer
+class CollectorCommunicationFactory extends SprykerCollectorCommunicationFactory
 {
 
     /**

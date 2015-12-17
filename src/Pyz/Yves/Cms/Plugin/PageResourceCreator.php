@@ -7,10 +7,10 @@
 namespace Pyz\Yves\Cms\Plugin;
 
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Pyz\Yves\Cms\CmsDependencyContainer;
+use Pyz\Yves\Cms\CmsFactory;
 
 /**
- * @method CmsDependencyContainer getDependencyContainer()
+ * @method CmsFactory getFactory()
  */
 class PageResourceCreator extends AbstractPlugin
 {
@@ -20,7 +20,7 @@ class PageResourceCreator extends AbstractPlugin
      */
     public function createPageResourceCreator()
     {
-        return $this->getDependencyContainer()->createPageResourceCreator();
+        return $this->getFactory()->createPageResourceCreator();
     }
 
 }

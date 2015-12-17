@@ -12,7 +12,7 @@ class RegisterForm extends AbstractPlugin
      */
     public function createFormRegister()
     {
-        return $this->getDependencyContainer()->createFormRegister();
+        return $this->getFactory()->createFormRegister();
     }
 
 }

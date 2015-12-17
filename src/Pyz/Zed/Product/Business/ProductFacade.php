@@ -12,7 +12,7 @@ use Spryker\Zed\ProductOptionExporter\Dependency\Facade\ProductOptionExporterToP
 use Psr\Log\LoggerInterface;
 
 /**
- * @method ProductDependencyContainer getDependencyContainer()
+ * @method ProductBusinessFactory getFactory()
  */
 class ProductFacade extends SprykerProductFacade implements
     ProductSearchToProductInterface,
@@ -30,7 +30,7 @@ class ProductFacade extends SprykerProductFacade implements
      */
     public function buildProducts(array $productsData)
     {
-        return $this->getDependencyContainer()->createProductBuilder()->buildProducts($productsData);
+        return $this->getFactory()->createProductBuilder()->buildProducts($productsData);
     }
 
     /**
@@ -40,7 +40,7 @@ class ProductFacade extends SprykerProductFacade implements
      */
     public function buildSearchProducts(array $productsData)
     {
-        return $this->getDependencyContainer()->createProductBuilder()->buildProducts($productsData);
+        return $this->getFactory()->createProductBuilder()->buildProducts($productsData);
     }
 
     /**
@@ -48,7 +48,7 @@ class ProductFacade extends SprykerProductFacade implements
      */
     public function installDemoData(LoggerInterface $messenger)
     {
-        $this->getDependencyContainer()->createDemoDataInstaller($messenger)->install();
+        $this->getFactory()->createDemoDataInstaller($messenger)->install();
     }
 
 }

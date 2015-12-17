@@ -6,7 +6,7 @@ use Spryker\Zed\Stock\Business\StockFacade as SprykerStockFacade;
 use Psr\Log\LoggerInterface;
 
 /**
- * @method StockDependencyContainer getDependencyContainer()
+ * @method StockBusinessFactory getFactory()
  */
 class StockFacade extends SprykerStockFacade
 {
@@ -16,7 +16,7 @@ class StockFacade extends SprykerStockFacade
      */
     public function installDemoData(LoggerInterface $messenger)
     {
-        $this->getDependencyContainer()->getDemoDataInstaller($messenger)->install();
+        $this->getFactory()->getDemoDataInstaller($messenger)->install();
     }
 
 }

@@ -7,10 +7,10 @@
 namespace Pyz\Yves\Redirect\Plugin;
 
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Pyz\Yves\Redirect\RedirectDependencyContainer;
+use Pyz\Yves\Redirect\RedirectFactory;
 
 /**
- * @method RedirectDependencyContainer getDependencyContainer()
+ * @method RedirectFactory getFactory()
  */
 class RedirectResourceCreator extends AbstractPlugin
 {
@@ -20,7 +20,7 @@ class RedirectResourceCreator extends AbstractPlugin
      */
     public function createRedirectResourceCreator()
     {
-        return $this->getDependencyContainer()->createRedirectResourceCreator();
+        return $this->getFactory()->createRedirectResourceCreator();
     }
 
 }

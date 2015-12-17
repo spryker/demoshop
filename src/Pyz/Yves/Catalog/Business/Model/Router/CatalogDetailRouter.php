@@ -30,7 +30,7 @@ class CatalogDetailRouter extends AbstractRouter
     public function match($pathinfo)
     {
         try {
-            $product = $this->factory->createCatalogDependencyContainer()
+            $product = $this->factory->createCatalogFactory()
                 ->createCatalogModel($this->app->getStorageKeyValue())
                 ->getProductDataByUrl($pathinfo);
 

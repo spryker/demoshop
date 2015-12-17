@@ -7,7 +7,7 @@ use Spryker\Zed\Cms\Business\CmsFacade as SprykerCmsFacade;
 use Spryker\Zed\ProductCategory\Dependency\Facade\CmsToCategoryInterface;
 
 /**
- * @method CmsDependencyContainer getDependencyContainer()
+ * @method CmsBusinessFactory getFactory()
  */
 class CmsFacade extends SprykerCmsFacade implements CmsToCategoryInterface
 {
@@ -17,7 +17,7 @@ class CmsFacade extends SprykerCmsFacade implements CmsToCategoryInterface
      */
     public function installDemoData(MessengerInterface $messenger)
     {
-        $this->getDependencyContainer()->createDemoDataInstaller($messenger)->install();
+        $this->getFactory()->createDemoDataInstaller($messenger)->install();
     }
 
 }

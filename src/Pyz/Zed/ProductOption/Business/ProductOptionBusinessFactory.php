@@ -15,7 +15,7 @@ use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLPro
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLOptionsTransformer;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\XMLProductReader;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\XMLOptionsReader;
-use Spryker\Zed\ProductOption\Business\ProductOptionDependencyContainer as SprykerDependencyContainer;
+use Spryker\Zed\ProductOption\Business\ProductOptionBusinessFactory as SprykerBusinessFactory;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductOption\ProductOptionConfig;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\ProductOptionDataInstall;
@@ -31,7 +31,7 @@ use Spryker\Zed\ProductOption\Business\Model\DataImportWriterInterface;
 /**
  * @method ProductOptionConfig getConfig()
  */
-class ProductOptionDependencyContainer extends SprykerDependencyContainer
+class ProductOptionBusinessFactory extends SprykerBusinessFactory
 {
 
     /**

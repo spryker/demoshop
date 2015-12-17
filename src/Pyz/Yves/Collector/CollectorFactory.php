@@ -15,10 +15,10 @@ use Pyz\Yves\Collector\Creator\ResourceCreatorInterface;
 use Pyz\Yves\Collector\Mapper\UrlMapper;
 use Spryker\Client\Catalog\Model\FacetConfig;
 use Spryker\Client\Collector\Matcher\UrlMatcher;
-use Spryker\Yves\Kernel\AbstractDependencyContainer;
+use Spryker\Yves\Kernel\AbstractFactory;
 use Silex\Application;
 
-class CollectorDependencyContainer extends AbstractDependencyContainer
+class CollectorFactory extends AbstractFactory
 {
 
     /**

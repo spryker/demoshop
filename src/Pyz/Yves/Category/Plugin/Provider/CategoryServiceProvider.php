@@ -7,11 +7,11 @@
 namespace Pyz\Yves\Category\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
-use Pyz\Yves\Category\CategoryDependencyContainer;
+use Pyz\Yves\Category\CategoryFactory;
 use Silex\Application;
 
 /**
- * @method CategoryDependencyContainer getDependencyContainer()
+ * @method CategoryFactory getFactory()
  */
 class CategoryServiceProvider extends AbstractServiceProvider
 {
@@ -24,7 +24,7 @@ class CategoryServiceProvider extends AbstractServiceProvider
     public function register(Application $app)
     {
         $this->addGlobalTemplateVariable($app, [
-            'categories' => $this->getDependencyContainer()->getCategoryExporterClient()->getNavigationCategories($app['locale']),
+            'categories' => $this->getFactory()->getCategoryExporterClient()->getNavigationCategories($app['locale']),
         ]);
     }
 

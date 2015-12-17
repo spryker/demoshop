@@ -6,10 +6,10 @@
 
 namespace Pyz\Yves\Cms;
 
-use Spryker\Yves\Kernel\AbstractDependencyContainer;
+use Spryker\Yves\Kernel\AbstractFactory;
 use Pyz\Yves\Cms\ResourceCreator\PageResourceCreator;
 
-class CmsDependencyContainer extends AbstractDependencyContainer
+class CmsFactory extends AbstractFactory
 {
 
     /**
