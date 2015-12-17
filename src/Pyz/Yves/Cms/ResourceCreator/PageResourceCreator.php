@@ -52,7 +52,6 @@ class PageResourceCreator implements ResourceCreatorInterface
 
         $service = (new ControllerServiceBuilder())->createServiceForController(
             $app,
-            $this->locator,
             $bundleControllerAction,
             $controllerResolver,
             $routeResolver

@@ -53,7 +53,6 @@ class CategoryResourceCreator implements ResourceCreatorInterface
 
         $service = (new ControllerServiceBuilder())->createServiceForController(
             $app,
-            $this->locator,
             $bundleControllerAction,
             $controllerResolver,
             $routeResolver

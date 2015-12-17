@@ -64,7 +64,6 @@ class SearchRouter extends AbstractRouter
 
             $service = (new ControllerServiceBuilder())->createServiceForController(
                 $this->getApplication(),
-                Locator::getInstance(),
                 $bundleControllerAction,
                 $controllerResolver,
                 $routeResolver

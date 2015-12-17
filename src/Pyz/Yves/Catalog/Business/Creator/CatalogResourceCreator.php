@@ -8,7 +8,6 @@ use Silex\Application;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
 use Spryker\Yves\Kernel\ControllerLocator;
-use Spryker\Yves\Kernel\Locator;
 use Spryker\Shared\Application\Communication\ControllerServiceBuilder;
 use Spryker\Shared\Category\CategoryConstants;
 
@@ -45,14 +44,13 @@ class CatalogResourceCreator implements ResourceCreatorInterface
     public function createResource(Application $app, array $data)
     {
         $bundleControllerAction = new BundleControllerAction('Catalog', 'Catalog', 'index');
-        $controllerResolver = new ControllerLocator($bundleControllerAction);
+        $controllerLocator = new ControllerLocator($bundleControllerAction);
         $routeResolver = new BundleControllerActionRouteNameResolver($bundleControllerAction);
 
         $service = (new ControllerServiceBuilder())->createServiceForController(
             $app,
-            Locator::getInstance(),
             $bundleControllerAction,
-            $controllerResolver,
+            $controllerLocator,
             $routeResolver
         );
 
