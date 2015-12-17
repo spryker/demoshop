@@ -42,7 +42,6 @@ include:
 - vendor/spryker/spryker/Bundles/ProductOptionCheckoutConnector
 - vendor/spryker/spryker/Bundles/ProductOptionExporter
 - vendor/spryker/spryker/Bundles/Propel
-- vendor/spryker/spryker/Bundles/Queue
 - vendor/spryker/spryker/Bundles/Sales
 - vendor/spryker/spryker/Bundles/SequenceNumber
 - vendor/spryker/spryker/Bundles/Session
