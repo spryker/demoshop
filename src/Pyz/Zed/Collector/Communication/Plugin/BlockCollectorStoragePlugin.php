@@ -12,7 +12,7 @@ use Spryker\Zed\Collector\Business\Model\BatchResultInterface;
 use Spryker\Zed\Collector\Dependency\Plugin\CollectorPluginInterface;
 
 /**
- * @method CollectorCommunicationFactory getCommunicationFactory()
+ * @method CollectorCommunicationFactory getFactory()
  */
 class BlockCollectorStoragePlugin extends AbstractPlugin implements CollectorPluginInterface
 {
@@ -28,7 +28,7 @@ class BlockCollectorStoragePlugin extends AbstractPlugin implements CollectorPlu
      */
     public function run(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater)
     {
-        $this->getCommunicationFactory()
+        $this->getFactory()
             ->getCollectorFacade()
             ->runStorageBlockCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }

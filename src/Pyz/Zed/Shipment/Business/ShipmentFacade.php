@@ -6,7 +6,7 @@ use Spryker\Shared\Kernel\Messenger\MessengerInterface;
 use Spryker\Zed\Shipment\Business\ShipmentFacade as SprykerShipmentFacade;
 
 /**
- * @method ShipmentBusinessFactory getBusinessFactory()
+ * @method ShipmentBusinessFactory getFactory()
  */
 class ShipmentFacade extends SprykerShipmentFacade
 {
@@ -16,7 +16,7 @@ class ShipmentFacade extends SprykerShipmentFacade
      */
     public function installDemoData(MessengerInterface $messenger)
     {
-        $this->getBusinessFactory()->createDemoDataInstaller($messenger)->install();
+        $this->getFactory()->createDemoDataInstaller($messenger)->install();
     }
 
 }

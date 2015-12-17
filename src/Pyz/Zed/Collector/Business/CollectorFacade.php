@@ -10,7 +10,7 @@ use Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface;
 use Spryker\Zed\Collector\Business\Model\BatchResultInterface;
 
 /**
- * @method CollectorBusinessFactory getBusinessFactory()
+ * @method CollectorBusinessFactory getFactory()
  */
 class CollectorFacade extends SprykerCollectorFacade
 {
@@ -26,7 +26,7 @@ class CollectorFacade extends SprykerCollectorFacade
      */
     public function runSearchProductCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
     {
-        $this->getBusinessFactory()->createSearchProductCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getFactory()->createSearchProductCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }
 
     /**
@@ -40,7 +40,7 @@ class CollectorFacade extends SprykerCollectorFacade
      */
     public function runStorageCategoryNodeCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
     {
-        $this->getBusinessFactory()->createStorageCategoryNodeCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getFactory()->createStorageCategoryNodeCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }
 
     /**
@@ -54,7 +54,7 @@ class CollectorFacade extends SprykerCollectorFacade
      */
     public function runStorageNavigationCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
     {
-        $this->getBusinessFactory()->createStorageNavigationCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getFactory()->createStorageNavigationCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }
 
     /**
@@ -68,7 +68,7 @@ class CollectorFacade extends SprykerCollectorFacade
      */
     public function runStoragePageCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
     {
-        $this->getBusinessFactory()->createStoragePageCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getFactory()->createStoragePageCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }
 
     /**
@@ -82,7 +82,7 @@ class CollectorFacade extends SprykerCollectorFacade
      */
     public function runStorageProductCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
     {
-        $this->getBusinessFactory()->createStorageProductCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getFactory()->createStorageProductCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }
 
     /**
@@ -96,7 +96,7 @@ class CollectorFacade extends SprykerCollectorFacade
      */
     public function runStorageRedirectCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
     {
-        $this->getBusinessFactory()->createStorageRedirectCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getFactory()->createStorageRedirectCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }
 
     /**
@@ -110,7 +110,7 @@ class CollectorFacade extends SprykerCollectorFacade
      */
     public function runStorageTranslationCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
     {
-        $this->getBusinessFactory()->createStorageTranslationCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getFactory()->createStorageTranslationCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }
 
     /**
@@ -124,7 +124,7 @@ class CollectorFacade extends SprykerCollectorFacade
      */
     public function runStorageUrlCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater)
     {
-        $this->getBusinessFactory()->createStorageUrlCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getFactory()->createStorageUrlCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }
 
     /**
@@ -138,7 +138,7 @@ class CollectorFacade extends SprykerCollectorFacade
      */
     public function runStorageBlockCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater)
     {
-        $this->getBusinessFactory()->createStorageBlockCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getFactory()->createStorageBlockCollector()->run($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }
 
 }

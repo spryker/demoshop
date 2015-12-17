@@ -7,7 +7,7 @@ use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 use Pyz\Zed\Price\Communication\PriceCommunicationFactory;
 
 /**
- * @method PriceCommunicationFactory getCommunicationFactory()
+ * @method PriceCommunicationFactory getFactory()
  * @method PriceFacade getFacade()
  */
 class DemoDataInstaller extends AbstractInstallerPlugin

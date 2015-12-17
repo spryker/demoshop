@@ -6,7 +6,7 @@ use Spryker\Zed\ProductSearch\Business\ProductSearchFacade as SprykerProductSear
 use Psr\Log\LoggerInterface;
 
 /**
- * @method ProductSearchBusinessFactory getBusinessFactory()
+ * @method ProductSearchBusinessFactory getFactory()
  */
 class ProductSearchFacade extends SprykerProductSearchFacade
 {
@@ -19,7 +19,7 @@ class ProductSearchFacade extends SprykerProductSearchFacade
      */
     public function buildProductKey($data, $locale)
     {
-        return $this->getBusinessFactory()
+        return $this->getFactory()
             ->createKeyBuilder()
             ->generateKey($data, $locale);
     }
@@ -29,7 +29,7 @@ class ProductSearchFacade extends SprykerProductSearchFacade
      */
     public function installDemoData(LoggerInterface $messenger)
     {
-        $this->getBusinessFactory()->getDemoDataInstaller($messenger)->install();
+        $this->getFactory()->getDemoDataInstaller($messenger)->install();
     }
 
 }

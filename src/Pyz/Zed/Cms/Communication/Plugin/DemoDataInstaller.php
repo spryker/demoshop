@@ -7,7 +7,7 @@ use Pyz\Zed\Cms\Communication\CmsCommunicationFactory;
 use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 
 /**
- * @method CmsCommunicationFactory getCommunicationFactory()
+ * @method CmsCommunicationFactory getFactory()
  * @method CmsFacade getFacade()
  */
 class DemoDataInstaller extends AbstractInstallerPlugin

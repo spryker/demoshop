@@ -9,7 +9,7 @@ use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\ProductOptionDataInstall;
 
 /**
- * @method ProductOptionBusinessFactory getBusinessFactory()
+ * @method ProductOptionBusinessFactory getFactory()
  */
 class ProductOptionFacade extends SprykerProductOptionFacade implements
     ProductOptionExporterToProductOptionInterface,
@@ -23,7 +23,7 @@ class ProductOptionFacade extends SprykerProductOptionFacade implements
      */
     public function installDemoData(LoggerInterface $messenger)
     {
-        $this->getBusinessFactory()->createDemoDataInstaller($messenger)->install();
+        $this->getFactory()->createDemoDataInstaller($messenger)->install();
     }
 
 }

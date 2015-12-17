@@ -7,7 +7,7 @@ use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 use Pyz\Zed\Glossary\Communication\GlossaryCommunicationFactory;
 
 /**
- * @method GlossaryCommunicationFactory getCommunicationFactory()
+ * @method GlossaryCommunicationFactory getFactory()
  * @method GlossaryFacade getFacade()
  */
 class DemoDataInstaller extends AbstractInstallerPlugin

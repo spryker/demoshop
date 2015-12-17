@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * @method MailQueueFacade getFacade()
- * @method MailQueueCommunicationFactory getCommunicationFactory()
+ * @method MailQueueCommunicationFactory getFactory()
  */
 class MailQueueConsole extends Console
 {

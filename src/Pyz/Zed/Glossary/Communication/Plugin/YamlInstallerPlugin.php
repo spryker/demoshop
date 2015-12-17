@@ -17,7 +17,7 @@ use Symfony\Component\Yaml\Yaml;
 /**
  * @method GlossaryFacade getFacade()
  * @method GlossaryQueryContainer getQueryContainer()
- * @method GlossaryCommunicationFactory getCommunicationFactory()
+ * @method GlossaryCommunicationFactory getFactory()
  */
 class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPluginInterface
 {
@@ -46,7 +46,7 @@ class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPlu
      */
     protected function installKeysAndTranslations(array $translations)
     {
-        $glossaryFacade = $this->getCommunicationFactory()->createGlossaryFacade();
+        $glossaryFacade = $this->getFactory()->createGlossaryFacade();
         foreach ($translations['keys'] as $keyName => $data) {
             if (!$glossaryFacade->hasKey($keyName)) {
                 $glossaryFacade->createKey($keyName);

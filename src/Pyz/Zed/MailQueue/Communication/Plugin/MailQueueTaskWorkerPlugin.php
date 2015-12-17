@@ -9,7 +9,7 @@ use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\Queue\Dependency\Plugin\TaskPluginInterface;
 
 /**
- * @method MailQueueCommunicationFactory getCommunicationFactory()
+ * @method MailQueueCommunicationFactory getFactory()
  * @method MailQueueFacade getFacade()
  */
 class MailQueueTaskWorkerPlugin extends AbstractPlugin implements

@@ -11,7 +11,7 @@ use Spryker\Zed\Collector\Business\Model\BatchResultInterface;
 use Spryker\Zed\Collector\Communication\Plugin\AbstractCollectorPlugin;
 
 /**
- * @method CollectorCommunicationFactory getCommunicationFactory()
+ * @method CollectorCommunicationFactory getFactory()
  */
 class RedirectCollectorStoragePlugin extends AbstractCollectorPlugin
 {
@@ -30,7 +30,7 @@ class RedirectCollectorStoragePlugin extends AbstractCollectorPlugin
         WriterInterface $dataWriter,
         TouchUpdaterInterface $touchUpdater
     ) {
-        return $this->getCommunicationFactory()
+        return $this->getFactory()
             ->getCollectorFacade()
             ->runStorageRedirectCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }
