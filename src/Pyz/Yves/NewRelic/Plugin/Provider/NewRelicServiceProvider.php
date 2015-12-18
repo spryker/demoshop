@@ -30,6 +30,8 @@ class NewRelicServiceProvider extends AbstractPlugin implements ServiceProviderI
 
     /**
      * @param Application $app
+     *
+     * @return void
      */
     public function register(Application $app)
     {
