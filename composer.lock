@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4a54cf38b81802d62632abac12844b49",
-    "content-hash": "c147982da4c6f79c9af8e1e4b40f2a86",
+    "hash": "d9bf3023681d2be36c8d5773840f85b7",
+    "content-hash": "deb7a824f62f31bd0fc67a69f04b321b",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -704,7 +704,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "99c0a93ffd8d5b23616d9c115a09aa370eee7a59"
+                "reference": "30d8031bd870f39bfaf8dbcecd1280cccf8a41d5"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -787,7 +787,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-12-18 06:28:25"
+            "time": "2015-12-18 06:39:26"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2298,51 +2298,6 @@
                 "templating"
             ],
             "time": "2015-08-12 15:56:39"
-        },
-        {
-            "name": "videlalvaro/php-amqplib",
-            "version": "v2.2.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/videlalvaro/php-amqplib.git",
-                "reference": "6ef2ca9a45bb9fb20872f824f4c7c1518315bd3f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/videlalvaro/php-amqplib/zipball/6ef2ca9a45bb9fb20872f824f4c7c1518315bd3f",
-                "reference": "6ef2ca9a45bb9fb20872f824f4c7c1518315bd3f",
-                "shasum": ""
-            },
-            "require": {
-                "ext-bcmath": "*",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "PhpAmqpLib": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL-2.1"
-            ],
-            "authors": [
-                {
-                    "name": "Alvaro Videla"
-                }
-            ],
-            "description": "This library is a pure PHP implementation of the AMQP protocol. It's been tested against RabbitMQ.",
-            "homepage": "https://github.com/videlalvaro/php-amqplib/",
-            "keywords": [
-                "message",
-                "queue",
-                "rabbitmq"
-            ],
-            "time": "2013-12-22 12:49:53"
         },
         {
             "name": "zendframework/zend-code",

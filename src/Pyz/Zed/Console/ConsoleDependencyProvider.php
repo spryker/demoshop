@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\Console;
 
-use Pyz\Zed\MailQueue\Communication\Console\MailQueueConsole;
 use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
 use Spryker\Shared\Library\Environment;
 use Spryker\Zed\Application\Communication\Console\ApplicationIntegrationCheckConsole;
@@ -21,7 +20,6 @@ use Spryker\Zed\NewRelic\Communication\Console\RecordDeploymentConsole;
 use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole;
 use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole;
 use Spryker\Zed\ProductSearch\Communication\Console\ProductSearchConsole;
-use Spryker\Zed\Queue\Communication\Console\QueueWorkerConsole;
 use Spryker\Zed\Search\Communication\Console\SearchConsole;
 use Symfony\Component\Console\Command\Command;
 use Spryker\Zed\Kernel\Container;
@@ -52,8 +50,6 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new SearchConsole(),
             new DeleteAllCachesConsole(),
             new RecordDeploymentConsole(),
-            new QueueWorkerConsole(),
-            new MailQueueConsole(),
             new FossMarkDownGeneratorConsole(),
         ];
 
