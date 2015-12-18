@@ -3,17 +3,15 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace Pyz\Yves\Checkout\Wizard;
+namespace Pyz\Yves\Checkout\Process\Steps;
 
-use Pyz\Yves\Checkout\Wizard\Steps\StepInterface;
-
-class StepConfiguration
+class BaseStep
 {
 
     /**
-     * @var StepInterface
+     * @var string
      */
-    protected $step;
+    protected $stepRoute;
 
     /**
      * @var string
@@ -21,21 +19,22 @@ class StepConfiguration
     protected $escapeRoute;
 
     /**
-     * @param StepInterface $step
+     * @param string $stepRoute
      * @param string $escapeRoute
+     *
      */
-    public function __construct(StepInterface $step, $escapeRoute)
+    public function __construct($stepRoute, $escapeRoute)
     {
-        $this->step = $step;
+        $this->stepRoute = $stepRoute;
         $this->escapeRoute = $escapeRoute;
     }
 
     /**
-     * @return StepInterface
+     * @return string
      */
-    public function getStep()
+    public function getStepRoute()
     {
-        return $this->step;
+        return $this->stepRoute;
     }
 
     /**
@@ -45,5 +44,4 @@ class StepConfiguration
     {
         return $this->escapeRoute;
     }
-
 }

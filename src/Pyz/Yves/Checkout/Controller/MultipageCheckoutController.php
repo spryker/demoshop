@@ -7,13 +7,10 @@ namespace Pyz\Yves\Checkout\Controller;
 
 use Codeception\Step;
 use Pyz\Yves\Checkout\Form\Multipage\PaymentType;
+use Pyz\Yves\Checkout\Form\Multipage\RegisterType;
 use Pyz\Yves\Checkout\Form\Multipage\ShippingType;
-use Pyz\Yves\Checkout\Wizard\StepConfiguration;
-use Pyz\Yves\Checkout\Wizard\StepProcess;
-use Pyz\Yves\Checkout\Wizard\Steps\AddressStep;
-use Pyz\Yves\Checkout\Wizard\Steps\PaymentStep;
-use Pyz\Yves\Checkout\Wizard\Steps\ShipmentStep;
-use Pyz\Yves\Checkout\Wizard\Steps\SummaryStep;
+use Pyz\Yves\Checkout\Process\StepProcess;
+use Pyz\Yves\Checkout\Process\Steps\RegisterStep;
 use Spryker\Yves\Application\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,7 +38,7 @@ class MultipageCheckoutController extends AbstractController
      *
      * @return array|RedirectResponse
      */
-    public function shippingAction(Request $request)
+    public function shipmentAction(Request $request)
     {
         return $this->createStepProcess()->process($request, new ShippingType());
     }
@@ -71,20 +68,7 @@ class MultipageCheckoutController extends AbstractController
      */
     protected function createStepProcess()
     {
-        $quoteTransfer = $this->getFactory()->getCartClient()->getQuote();
-        $stepProcess = new StepProcess(
-            $quoteTransfer,
-            $this->getApplication(),
-            [
-                'checkout-address' => new StepConfiguration(new AddressStep(), 'cart'),
-                'checkout-shipping' => new StepConfiguration(new ShipmentStep(), 'cart'),
-                'checkout-payment' => new StepConfiguration(new PaymentStep(), 'cart'),
-                'checkout-summary' => new StepConfiguration(new SummaryStep(), 'cart'),
-            ],
-            $this->getFactory()->getCartClient()
-        );
-
-        return $stepProcess;
+        return $this->getFactory()->createCheckoutProcess($this->getApplication());
     }
 
 }

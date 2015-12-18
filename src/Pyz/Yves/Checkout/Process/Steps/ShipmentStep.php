@@ -3,16 +3,20 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace Pyz\Yves\Checkout\Wizard\Steps;
+namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 
-class ShipmentStep implements StepInterface
+class ShipmentStep extends BaseStep implements StepInterface
 {
 
     public function preCondition(QuoteTransfer $quoteTransfer)
     {
+        if (count($quoteTransfer->getItems()) === 0) {
+            return false;
+        }
+
         return true;
     }
 

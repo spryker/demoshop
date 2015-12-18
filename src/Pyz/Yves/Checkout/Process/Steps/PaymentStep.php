@@ -3,30 +3,40 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace Pyz\Yves\Checkout\Wizard\Steps;
+namespace Pyz\Yves\Checkout\Process\Steps;
+
 
 use Generated\Shared\Transfer\QuoteTransfer;
 
-class SummaryStep implements StepInterface
+class PaymentStep extends BaseStep implements StepInterface
 {
 
     public function preCondition(QuoteTransfer $quoteTransfer)
     {
+        if (count($quoteTransfer->getItems()) === 0) {
+            return false;
+        }
+
         return true;
     }
 
     public function requireInput()
     {
-        // TODO: Implement requireInput() method.
+        return true;
     }
 
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
-        return true;
+        if ($quoteTransfer->getPaymentMethod()) {
+            return true;
+        }
+
+        return false;
     }
 
     public function execute(QuoteTransfer $quoteTransfer, $data = null)
     {
+        $quoteTransfer->setPaymentMethod('payolution-invoice');
         return $quoteTransfer;
     }
 

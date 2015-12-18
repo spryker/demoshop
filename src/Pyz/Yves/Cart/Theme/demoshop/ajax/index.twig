@@ -46,7 +46,7 @@
                 <div class="cart__total-price js-cart-total">{{ cart.totals.grandTotal|price }}</div>
             </div>
         {% endif %}
-        <a href="{{ url('checkout') }}" class="cart__to-checkout cta">{{ 'cart.checkout'|trans }}</a>
+        <a href="{{ path    ('checkout-address') }}" class="cart__to-checkout cta">{{ 'cart.checkout'|trans }}</a>
     {% endspaceless %}
 {% else %}
     <div style="text-align: center; font-weight: bold; font-size: 1.2em">

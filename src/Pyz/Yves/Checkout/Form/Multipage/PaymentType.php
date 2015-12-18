@@ -29,14 +29,6 @@ class PaymentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('someText', 'text', [
-                'required' => false,
-                'attr' => [
-                    'tabindex' => 100,
-                    'class' => 'padded js-checkout-email input_field field_left',
-                    'placeholder' => 'customer.email',
-                ],
-            ])
             ->add('summary', 'submit',[
 
             ]);

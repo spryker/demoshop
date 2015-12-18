@@ -15,23 +15,39 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
     const ROUTE_CHECKOUT_REGULAR_REDIRECT_PAYMENT_CANCELLATION = 'checkout/regular-redirect-payment-cancellation';
     const ROUTE_INSTALLMENT_DETAIL = 'installment/detail/id/{id}/duration/{duration}';
 
+    const CHECKOUT_ADDRESS = 'checkout-address';
+
+    const CHECKOUT_SHIPMENT = 'checkout-shipment';
+
+    const CHECKOUT_PAYMENT = 'checkout-payment';
+
+    const CHECKOUT_SUMMARY = 'checkout-summary';
+
+    const CHECKOUT_REGISTER = 'checkout-register';
+
     protected function defineControllers(Application $app)
     {
         $allowedLocalesPattern = $this->getAllowedLocalesPattern();
 
 
 
-
-        $this->createController('/checkout/address', 'checkout-address', 'Checkout', 'MultipageCheckout', 'address')
+        $this->createController('/checkout/address', self::CHECKOUT_ADDRESS, 'Checkout', 'MultipageCheckout', 'address')
             ->method('GET|POST');
 
-        $this->createController('/checkout/shipping', 'checkout-shipping','Checkout', 'MultipageCheckout', 'shipping')
+        $this->createController('/checkout/shipment', self::CHECKOUT_SHIPMENT,'Checkout', 'MultipageCheckout', 'shipment')
             ->method('GET|POST');
 
-        $this->createController('/checkout/payment', 'checkout-payment', 'Checkout', 'MultipageCheckout', 'payment')
+        $this->createController('/checkout/payment', self::CHECKOUT_PAYMENT, 'Checkout', 'MultipageCheckout', 'payment')
             ->method('GET|POST');
 
-        $this->createController('/checkout/summary', 'checkout-summary', 'Checkout', 'MultipageCheckout', 'summary')
+        $this->createController('/checkout/summary', self::CHECKOUT_SUMMARY, 'Checkout', 'MultipageCheckout', 'summary')
+            ->method('GET|POST');
+
+
+        $this->createController('/checkout/register', self::CHECKOUT_REGISTER, 'Checkout', 'MultipageCheckout', 'register')
+            ->method('GET|POST');
+
+        $this->createController('/checkout/clear', 'checkout-c', 'Checkout', 'MultipageCheckout', 'clear')
             ->method('GET|POST');
 
 
