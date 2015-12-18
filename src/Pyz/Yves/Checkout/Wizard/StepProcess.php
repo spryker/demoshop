@@ -5,8 +5,10 @@
 
 namespace Pyz\Yves\Checkout\Wizard;
 
+use Codeception\Step;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Wizard\Steps\StepInterface;
+use Spryker\Client\Cart\CartClient;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +19,7 @@ class StepProcess
 {
 
     /**
-     * @var StepInterface[]
+     * @var stepConfiguration[]
      */
     protected $steps = [];
 
@@ -37,14 +39,13 @@ class StepProcess
     protected $currentRoute;
 
     /**
-     * @var StepInterface
-     */
-    protected $currentStep;
-
-    /**
      * @var string
      */
     protected $errorRoute = 'checkout_error_route';
+    /**
+     * @var CartClient
+     */
+    private $cartClient;
 
     /**
      * StepProcess constructor.
@@ -52,15 +53,14 @@ class StepProcess
     public function __construct(
         QuoteTransfer $quoteTransfer,
         Application $application,
-        array $steps = []
-    )
-    {
+        array $steps = [],
+        CartClient $cartClient
+    ) {
         $this->quoteTransfer = $quoteTransfer;
         $this->application = $application;
         $this->steps = $steps;
-        $this->setCurrentStep();
+        $this->cartClient = $cartClient;
     }
-
 
     /**
      * @param Request $request
@@ -70,25 +70,47 @@ class StepProcess
      */
     public function process(Request $request, AbstractType $formType = null)
     {
-        if (empty($this->currentStep)) {
+        $stepConfiguration = $this->getCurrentStepConfiguration();
+
+        if ($request->get('_route') !== $this->currentRoute) {
+            return $this->createRedirectResponse($this->application->path($this->currentRoute));
+        }
+
+        if ($stepConfiguration === null) {
             return $this->createRedirectResponse($this->application->path($this->errorRoute));
         }
 
-        if (!$this->currentStep->preCondition($this->quoteTransfer)) {
-            return $this->createRedirectResponse($this->getPreviousRoute());
+        $currentStep = $stepConfiguration->getStep();
+        $escapeRoute = $this->getEscapeRoute($stepConfiguration);
+
+        if ($currentStep->preCondition($this->quoteTransfer) === false) {
+            return $this->createRedirectResponse($this->application->path($escapeRoute));
         }
 
-        $form = $this->createForm($formType);
-        if ($this->canRenderForm($request, $this->currentStep)) {
-            return ['form' => $form];
+        if ($currentStep->requireInput() === false) {
+            $route = $this->executeWithoutInput($currentStep);
+            return $this->createRedirectResponse($this->application->path($route));
         }
 
-        $data = $this->getDataForStep($form);
+        $data = null;
+        if ($formType !== null) {
+            $form = $this->createForm($formType);
 
-        $quoteTransfer = $this->currentStep->execute($this->quoteTransfer, $data);
-        $route = $this->getNextStepRoute($this->currentStep, $quoteTransfer);
-
-        return $this->createRedirectResponse($this->application->path($route));
+            if ($request->isMethod('POST')) {
+                if ($form->isValid()) {
+                    $data = $form->getData();
+                    $route = $this->executeWithFormInput($currentStep, $data);
+                    return $this->createRedirectResponse($this->application->path($route));
+                } else {
+                    // set error message
+                }
+            }
+            return ['form' => $form->createView(), 'quoteTransfer' => $this->quoteTransfer];
+        } else {
+            $this->quoteTransfer = $currentStep->execute($this->quoteTransfer);
+            $this->cartClient->storeQuoteToSession($this->quoteTransfer);
+            return ['quoteTransfer' => $this->quoteTransfer];
+        }
     }
 
     /**
@@ -102,18 +124,35 @@ class StepProcess
     }
 
     /**
-     * @return void
+     * @return StepConfiguration|null
      */
-    protected function setCurrentStep()
+    protected function getCurrentStepConfiguration()
     {
-        $currentStep = null;
-        foreach ($this->steps as $routeName => $step) {
-            if (!$step->postCondition($this->quoteTransfer)) {
+        $currentStepConfiguration = null;
+        $isLastStep = true;
+        // get where we are
+
+        foreach ($this->steps as $routeName => $stepConfiguration) {
+            if ($stepConfiguration->getStep()->postCondition($this->quoteTransfer) === false) {
                 $this->currentRoute = $routeName;
-                $this->currentStep = $step;
+                $currentStepConfiguration = $stepConfiguration;
+                $isLastStep = false;
                 break;
             }
         }
+
+        if ($isLastStep) {
+            $currentStepConfiguration = $stepConfiguration;
+            $this->currentRoute = $routeName;
+        }
+
+        reset($this->steps);
+        if ($currentStepConfiguration === null) {
+            $currentStepConfiguration = current($this->steps);
+            $this->currentRoute = key($this->steps);
+        }
+
+        return $currentStepConfiguration;
     }
 
     /**
@@ -140,20 +179,6 @@ class StepProcess
     }
 
     /**
-     * @param FormInterface $form
-     *
-     * @return string
-     */
-    protected function getDataForStep(FormInterface $form = null)
-    {
-        if (isset($form) && $form->isValid()) {
-            return $form->getData();
-        } else {
-            return 'maybe some data';
-        }
-    }
-
-    /**
      * @param StepInterface $step
      * @param QuoteTransfer $quoteTransfer
      *
@@ -169,23 +194,56 @@ class StepProcess
     }
 
     /**
-     * @param Request $request
-     * @param $step
-     *
-     * @return bool
-     */
-    protected function canRenderForm(Request $request, StepInterface $step)
-    {
-        return ($step->requireInput() && $request->isMethod('GET'));
-    }
-
-    /**
      * @param AbstractType $formType
      *
-     * @return \Symfony\Component\Form\FormInterface
+     * @return FormInterface
      */
     protected function createForm(AbstractType $formType)
     {
         return $this->application->createForm($formType);
+    }
+
+    /**
+     * @param StepConfiguration $stepConfiguration
+     *
+     * @return string
+     */
+    protected function getEscapeRoute(StepConfiguration $stepConfiguration)
+    {
+        $escapeUrl = $stepConfiguration->getEscapeRoute();
+        if ($escapeUrl === null) {
+            $escapeUrl = $this->getPreviousRoute();
+        }
+
+        return $escapeUrl;
+    }
+
+    /**
+     * @param StepInterface $currentStep
+     *
+     * @return string
+     */
+    protected function executeWithoutInput(StepInterface $currentStep)
+    {
+        $this->quoteTransfer = $currentStep->execute($this->quoteTransfer);
+        $this->cartClient->storeQuoteToSession($this->quoteTransfer);
+        $route = $this->getNextStepRoute($currentStep, $this->quoteTransfer);
+
+        return $route;
+    }
+
+    /**
+     * @param StepInterface $currentStep
+     * @param $data
+     *
+     * @return string
+     */
+    protected function executeWithFormInput(StepInterface $currentStep, $data)
+    {
+        $this->quoteTransfer = $currentStep->execute($this->quoteTransfer, $data);
+        $this->cartClient->storeQuoteToSession($this->quoteTransfer);
+        $route = $this->getNextStepRoute($currentStep, $this->quoteTransfer);
+
+        return $route;
     }
 }

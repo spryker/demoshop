@@ -5,11 +5,10 @@
 
 namespace Pyz\Yves\Cart;
 
-use Generated\Yves\Ide\FactoryAutoCompletion\CartCommunication;
-use Spryker\Yves\Kernel\AbstractDependencyContainer;
 use Spryker\Client\Calculation\Service\CalculationClient;
+use Spryker\Yves\Kernel\AbstractFactory;
 
-class CartDependencyContainer extends AbstractDependencyContainer
+class CartFactory extends AbstractFactory
 {
     /**
      * @return CalculationClient

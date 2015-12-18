@@ -10,19 +10,26 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 class AddressStep implements StepInterface
 {
+
     public function preCondition(QuoteTransfer $quoteTransfer)
     {
+        //if (count($quoteTransfer->getItems()) === 0) {
+            // add message: empty cart error
+         //   return false;
+       // }
+
         return true;
     }
 
     public function requireInput()
     {
-        return false;
+        return true;
     }
 
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
         if (count($quoteTransfer->getBillingAddresses()) === 0) {
+            // add message: billing address is not set
             return false;
         }
 
@@ -36,11 +43,4 @@ class AddressStep implements StepInterface
         return $quoteTransfer;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getData()
-    {
-        // TODO: Implement getData() method.
-    }
 }

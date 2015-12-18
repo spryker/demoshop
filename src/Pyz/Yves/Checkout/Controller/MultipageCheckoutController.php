@@ -6,25 +6,22 @@
 namespace Pyz\Yves\Checkout\Controller;
 
 use Codeception\Step;
-use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Form\Multipage\PaymentType;
 use Pyz\Yves\Checkout\Form\Multipage\ShippingType;
+use Pyz\Yves\Checkout\Wizard\StepConfiguration;
 use Pyz\Yves\Checkout\Wizard\StepProcess;
 use Pyz\Yves\Checkout\Wizard\Steps\AddressStep;
-use Pyz\Yves\Checkout\Wizard\Steps\PaymenStep;
+use Pyz\Yves\Checkout\Wizard\Steps\PaymentStep;
 use Pyz\Yves\Checkout\Wizard\Steps\ShipmentStep;
-use Pyz\Yves\Checkout\Wizard\Steps\StepInterface;
 use Pyz\Yves\Checkout\Wizard\Steps\SummaryStep;
 use Spryker\Yves\Application\Controller\AbstractController;
-use Pyz\Yves\Checkout\Wizard\CheckoutWizard;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Pyz\Yves\Checkout\CheckoutDependencyContainer;
-use Symfony\Component\Form\AbstractType;
+use Pyz\Yves\Checkout\CheckoutFactory;
 use Pyz\Yves\Checkout\Form\Multipage\AddressType;
 
 /**
- * @method CheckoutDependencyContainer getDependencyContainer()
+ * @method CheckoutFactory getFactory()
  */
 class MultipageCheckoutController extends AbstractController
 {
@@ -74,19 +71,20 @@ class MultipageCheckoutController extends AbstractController
      */
     protected function createStepProcess()
     {
-        $quoteTransfer = $this->getDependencyContainer()->getCartClient()->getQuote();
+        $quoteTransfer = $this->getFactory()->getCartClient()->getQuote();
         $stepProcess = new StepProcess(
             $quoteTransfer,
             $this->getApplication(),
             [
-                'checkout-address' => new AddressStep(),
-                'checkout-shipping' => new ShipmentStep(),
-                'checkout-payment' => new PaymenStep(),
-                'checkout-summary' => new SummaryStep(),
-            ]
+                'checkout-address' => new StepConfiguration(new AddressStep(), 'cart'),
+                'checkout-shipping' => new StepConfiguration(new ShipmentStep(), 'cart'),
+                'checkout-payment' => new StepConfiguration(new PaymentStep(), 'cart'),
+                'checkout-summary' => new StepConfiguration(new SummaryStep(), 'cart'),
+            ],
+            $this->getFactory()->getCartClient()
         );
 
         return $stepProcess;
-
     }
+
 }

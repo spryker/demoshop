@@ -22,9 +22,4 @@ interface StepInterface
      */
     public function execute(QuoteTransfer $quoteTransfer, $data = null);
 
-    /**
-     * @return mixed
-     */
-    public function getData();
-
 }

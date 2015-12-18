@@ -8,34 +8,32 @@ namespace Pyz\Yves\Checkout\Wizard\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 
-class PaymenStep implements StepInterface
+class PaymentStep implements StepInterface
 {
 
     public function preCondition(QuoteTransfer $quoteTransfer)
     {
-        // TODO: Implement preCondidion() method.
+        return true;
     }
 
     public function requireInput()
     {
-        // TODO: Implement requireInput() method.
+        return true;
     }
 
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
-        // TODO: Implement postCondition() method.
+        if ($quoteTransfer->getPaymentMethod()) {
+            return true;
+        }
+
+        return false;
     }
 
     public function execute(QuoteTransfer $quoteTransfer, $data = null)
     {
+        $quoteTransfer->setPaymentMethod('payolution-invoice');
         return $quoteTransfer;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getData()
-    {
-        // TODO: Implement getData() method.
-    }
 }

@@ -12,7 +12,7 @@ class SummaryStep implements StepInterface
 
     public function preCondition(QuoteTransfer $quoteTransfer)
     {
-        // TODO: Implement preCondidion() method.
+        return true;
     }
 
     public function requireInput()
@@ -22,7 +22,7 @@ class SummaryStep implements StepInterface
 
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
-        // TODO: Implement postCondition() method.
+        return true;
     }
 
     public function execute(QuoteTransfer $quoteTransfer, $data = null)
@@ -30,11 +30,4 @@ class SummaryStep implements StepInterface
         return $quoteTransfer;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getData()
-    {
-        // TODO: Implement getData() method.
-    }
 }

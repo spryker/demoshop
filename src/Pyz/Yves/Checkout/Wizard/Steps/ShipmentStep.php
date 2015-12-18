@@ -5,10 +5,16 @@
 
 namespace Pyz\Yves\Checkout\Wizard\Steps;
 
+use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 
 class ShipmentStep implements StepInterface
 {
+
+    public function preCondition(QuoteTransfer $quoteTransfer)
+    {
+        return true;
+    }
 
     public function requireInput()
     {
@@ -17,24 +23,17 @@ class ShipmentStep implements StepInterface
 
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
-        return false;
+        if (count($quoteTransfer->getExpenses()) === 0) {
+               return false;
+        }
+
+        return true;
     }
 
     public function execute(QuoteTransfer $quoteTransfer, $data = null)
     {
-        //storeQuoteTransfer
-    }
-
-    public function preCondition(QuoteTransfer $quoteTransfer)
-    {
+        $quoteTransfer->addExpense(new ExpenseTransfer());
         return $quoteTransfer;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getData()
-    {
-        // TODO: Implement getData() method.
-    }
 }
