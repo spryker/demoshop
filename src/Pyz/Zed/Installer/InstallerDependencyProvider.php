@@ -14,6 +14,7 @@ use Pyz\Zed\ProductCategory\Communication\Plugin\DemoDataInstaller as ProductCat
 use Pyz\Zed\Product\Communication\Plugin\DemoDataInstaller as ProductDemoDataInstaller;
 use Pyz\Zed\Cms\Communication\Plugin\DemoDataInstaller as CmsDemoDataInstaller;
 use Pyz\Zed\Glossary\Communication\Plugin\DemoDataInstaller as GlossaryDemoDataInstaller;
+use Pyz\Zed\Category\Communication\Plugin\DemoDataInstaller as CategoryDemoInstaller;
 use Spryker\Zed\Acl\Communication\Plugin\Installer as AclInstaller;
 use Spryker\Zed\User\Communication\Plugin\Installer as UserInstaller;
 use Spryker\Zed\Country\Communication\Plugin\Installer as CountryCountryCountryInstaller;
@@ -23,6 +24,7 @@ use Spryker\Zed\Product\Communication\Plugin\Installer as ProductInstaller;
 use Spryker\Zed\Collector\Communication\Plugin\Installer as CollectorInstaller;
 use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 use Spryker\Zed\Installer\InstallerDependencyProvider as SprykerInstallerDependencyProvider;
+
 
 class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
 {
@@ -49,6 +51,7 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
     public function getDemoDataInstallers()
     {
         return [
+            new CategoryDemoInstaller(),
             new GlossaryDemoDataInstaller(),
             new CmsDemoDataInstaller(),
             new ProductDemoDataInstaller(),
