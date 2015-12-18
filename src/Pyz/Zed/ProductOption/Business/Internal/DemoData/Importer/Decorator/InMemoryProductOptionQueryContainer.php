@@ -10,7 +10,7 @@ use Orm\Zed\ProductOption\Persistence\SpyProductOptionTypeTranslationQuery;
 use Orm\Zed\ProductOption\Persistence\SpyProductOptionValueTranslationQuery;
 use Orm\Zed\ProductOption\Persistence\SpyProductOptionTypeUsageQuery;
 use Orm\Zed\ProductOption\Persistence\SpyProductOptionValueUsageQuery;
-use Orm\Zed\Product\Persistence\SpyAbstractProductQuery;
+use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 use Orm\Zed\Tax\Persistence\Base\SpyTaxSetQuery;
 use Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface;
 
@@ -278,7 +278,7 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     /**
      * @param int $idProductOptionType
      *
-     * @return SpyAbstractProductQuery
+     * @return SpyProductAbstractQuery
      */
     public function queryAssociatedAbstractProductIdsForProductOptionType($idProductOptionType)
     {
@@ -288,7 +288,7 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     /**
      * @param int $idProductOptionValue
      *
-     * @return SpyAbstractProductQuery
+     * @return SpyProductAbstractQuery
      */
     public function queryAssociatedAbstractProductIdsForProductOptionValue($idProductOptionValue)
     {
@@ -298,7 +298,7 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     /**
      * @param int $idProductOptionTypeUsage
      *
-     * @return SpyAbstractProductQuery
+     * @return SpyProductAbstractQuery
      */
     public function queryAbstractProductIdForProductOptionTypeUsage($idProductOptionTypeUsage)
     {
@@ -332,24 +332,24 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     }
 
     /**
-     * @param int $idTypeUsage
+     * @param int $idProductAttributeTypeUsage
      * @param int $idLocale
      *
      * @return array
      */
-    public function queryValueUsagesForTypeUsage($idTypeUsage, $idLocale)
+    public function queryValueUsagesForTypeUsage($idProductAttributeTypeUsage, $idLocale)
     {
-        return $this->queryContainer->queryValueUsagesForTypeUsage($idTypeUsage, $idLocale);
+        return $this->queryContainer->queryValueUsagesForTypeUsage($idProductAttributeTypeUsage, $idLocale);
     }
 
     /**
-     * @param int $idTypeUsage
+     * @param int $idProductAttributeTypeUsage
      *
      * @return array
      */
-    public function queryTypeExclusionsForTypeUsage($idTypeUsage)
+    public function queryTypeExclusionsForTypeUsage($idProductAttributeTypeUsage)
     {
-        return $this->queryContainer->queryTypeExclusionsForTypeUsage($idTypeUsage);
+        return $this->queryContainer->queryTypeExclusionsForTypeUsage($idProductAttributeTypeUsage);
     }
 
     /**
@@ -394,13 +394,13 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     }
 
     /**
-     * @param int $idTypeUsage
+     * @param int $idProductAttributeTypeUsage
      *
      * @return string|null
      */
-    public function queryEffectiveTaxRateForTypeUsage($idTypeUsage)
+    public function queryEffectiveTaxRateForTypeUsage($idProductAttributeTypeUsage)
     {
-        return $this->queryContainer->queryEffectiveTaxRateForTypeUsage($idTypeUsage);
+        return $this->queryContainer->queryEffectiveTaxRateForTypeUsage($idProductAttributeTypeUsage);
     }
 
     /**

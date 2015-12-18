@@ -95,24 +95,24 @@ class BatchedDataImportWriter extends DataImportWriter
     }
 
     /**
-     * @param int $idAbstractProduct
+     * @param int $idProductAbstract
      */
-    protected function touchAbstractProductById($idAbstractProduct)
+    protected function touchAbstractProductById($idProductAbstract)
     {
         static $touchedIds = [];
 
-        if (in_array($idAbstractProduct, $touchedIds)) {
+        if (in_array($idProductAbstract, $touchedIds)) {
             return;
         }
 
         $this->batchProcessor->addValues(AbstractBatchProcessor::CACHE_KEY_TOUCH, [
              '0',
-            'abstract_product',
-            $idAbstractProduct,
+            'product_abstract',
+            $idProductAbstract,
             (new \DateTime())->format('Y-m-d H:i:s'),
         ]);
 
-        $touchedIds[] = $idAbstractProduct;
+        $touchedIds[] = $idProductAbstract;
     }
 
     /**
@@ -120,8 +120,8 @@ class BatchedDataImportWriter extends DataImportWriter
      */
     protected function touchAbstractProductByConcreteSku($concreteSku)
     {
-        $idAbstractProduct = $this->productFacade->getAbstractProductIdByConcreteSku($concreteSku);
-        $this->touchAbstractProductById($idAbstractProduct);
+        $idProductAbstract = $this->productFacade->getAbstractProductIdByConcreteSku($concreteSku);
+        $this->touchAbstractProductById($idProductAbstract);
     }
 
 }

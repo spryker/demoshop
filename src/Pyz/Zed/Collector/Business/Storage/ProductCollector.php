@@ -18,9 +18,9 @@ use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
 use Spryker\Zed\Price\Persistence\PriceQueryContainer;
 use Orm\Zed\Price\Persistence\Map\SpyPriceProductTableMap;
 use Orm\Zed\Price\Persistence\Map\SpyPriceTypeTableMap;
-use Orm\Zed\Product\Persistence\Map\SpyAbstractProductTableMap;
+use Orm\Zed\Product\Persistence\Map\SpyProductAbstractTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyLocalizedAbstractProductAttributesTableMap;
-use Orm\Zed\Product\Persistence\Map\SpyLocalizedProductAttributesTableMap;
+use Orm\Zed\Product\Persistence\Map\SpyProductLocalizedAttributesTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
 use Orm\Zed\ProductCategory\Persistence\Map\SpyProductCategoryTableMap;
 use Spryker\Zed\ProductOptionExporter\Business\ProductOptionExporterFacade;
@@ -83,7 +83,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
     protected function getTouchItemType()
     {
-        return 'abstract_product';
+        return 'product_abstract';
     }
 
     /**
@@ -99,14 +99,14 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         // Abstract & concrete product - including localized attributes & url
         $baseQuery->addJoin(
             SpyTouchTableMap::COL_ITEM_ID,
-            SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
+            SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT,
             Criteria::INNER_JOIN
         );
 
         $baseQuery->addJoinObject(
             new Join(
-                SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
-                SpyProductTableMap::COL_FK_ABSTRACT_PRODUCT,
+                SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT,
+                SpyProductTableMap::COL_FK_PRODUCT_ABSTRACT,
                 Criteria::LEFT_JOIN
             ),
             'concreteProductJoin'
@@ -125,8 +125,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         );
 
         $baseQuery->addJoin(
-            SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
-            SpyLocalizedAbstractProductAttributesTableMap::COL_FK_ABSTRACT_PRODUCT,
+            SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT,
+            SpyLocalizedAbstractProductAttributesTableMap::COL_FK_PRODUCT_ABSTRACT,
             Criteria::INNER_JOIN
         );
 
@@ -149,8 +149,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
         $baseQuery->addJoinObject(
             (new Join(
-                SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
-                SpyUrlTableMap::COL_FK_RESOURCE_ABSTRACT_PRODUCT,
+                SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT,
+                SpyUrlTableMap::COL_FK_RESOURCE_PRODUCT_ABSTRACT,
                 Criteria::LEFT_JOIN
             ))->setRightTableAlias('product_urls'),
             'productUrlsJoin'
@@ -165,7 +165,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $baseQuery->addJoinObject(
             new Join(
                 SpyProductTableMap::COL_ID_PRODUCT,
-                SpyLocalizedProductAttributesTableMap::COL_FK_PRODUCT,
+                SpyProductLocalizedAttributesTableMap::COL_FK_PRODUCT,
                 Criteria::INNER_JOIN
             ),
             'productAttributesJoin'
@@ -173,14 +173,14 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
         $baseQuery->addJoinCondition(
             'productAttributesJoin',
-            SpyLocalizedProductAttributesTableMap::COL_FK_LOCALE . ' = ' .
+            SpyProductLocalizedAttributesTableMap::COL_FK_LOCALE . ' = ' .
             SpyLocaleTableMap::COL_ID_LOCALE
         );
 
-        $baseQuery->withColumn(SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT, 'id_abstract_product');
+        $baseQuery->withColumn(SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT, 'id_product_abstract');
 
         $baseQuery->withColumn(
-            SpyAbstractProductTableMap::COL_ATTRIBUTES,
+            SpyProductAbstractTableMap::COL_ATTRIBUTES,
             'abstract_attributes'
         );
         $baseQuery->withColumn(
@@ -208,9 +208,9 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             'concrete_names'
         );
 
-        $baseQuery->withColumn(SpyAbstractProductTableMap::COL_SKU, 'abstract_sku');
-        $baseQuery->withColumn(SpyAbstractProductTableMap::COL_ATTRIBUTES, 'abstract_attributes');
-        $baseQuery->withColumn(SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT, 'id_abstract_product');
+        $baseQuery->withColumn(SpyProductAbstractTableMap::COL_SKU, 'abstract_sku');
+        $baseQuery->withColumn(SpyProductAbstractTableMap::COL_ATTRIBUTES, 'abstract_attributes');
+        $baseQuery->withColumn(SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT, 'id_product_abstract');
         $baseQuery->groupBy('abstract_sku');
 
         // Product availability
@@ -228,8 +228,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         // Product price
         $baseQuery->addJoinObject(
             (new Join(
-                SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
-                SpyPriceProductTableMap::COL_FK_ABSTRACT_PRODUCT,
+                SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT,
+                SpyPriceProductTableMap::COL_FK_PRODUCT_ABSTRACT,
                 Criteria::LEFT_JOIN
             ))->setRightTableAlias('abstract_price_table')
         );
@@ -279,7 +279,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
         // Tax set
         $baseQuery->addJoin(
-            SpyAbstractProductTableMap::COL_FK_TAX_SET,
+            SpyProductAbstractTableMap::COL_FK_TAX_SET,
             SpyTaxSetTableMap::COL_ID_TAX_SET,
             Criteria::LEFT_JOIN // @TODO Change to Criteria::INNER_JOIN as soon as there is a Tax GUI/Importer in Zed
         );
@@ -314,7 +314,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         // Category
         $baseQuery->addJoin(
             SpyTouchTableMap::COL_ITEM_ID,
-            SpyProductCategoryTableMap::COL_FK_ABSTRACT_PRODUCT,
+            SpyProductCategoryTableMap::COL_FK_PRODUCT_ABSTRACT,
             Criteria::LEFT_JOIN
         );
         $baseQuery->addJoin(
@@ -375,7 +375,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $processedResultSet = [];
         foreach ($products as $index => $productData) {
             $productKey = $this->generateKey(
-                $productData['id_abstract_product'],
+                $productData['id_product_abstract'],
                 $locale->getLocaleName()
             );
             $processedResultSet[$productKey] = $this->filterProductData($productData);
@@ -455,7 +455,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
     protected function buildKey($identifier)
     {
-        return 'abstract_product.' . $identifier;
+        return 'product_abstract.' . $identifier;
     }
 
     /**

@@ -16,12 +16,12 @@ use Orm\Zed\Category\Persistence\Map\SpyCategoryNodeTableMap;
 use Spryker\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
 use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
 use Spryker\Zed\Price\Persistence\PriceQueryContainer;
-use Orm\Zed\Product\Persistence\Map\SpyAbstractProductTableMap;
+use Orm\Zed\Product\Persistence\Map\SpyProductAbstractTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyLocalizedAbstractProductAttributesTableMap;
-use Orm\Zed\Product\Persistence\Map\SpyLocalizedProductAttributesTableMap;
+use Orm\Zed\Product\Persistence\Map\SpyProductLocalizedAttributesTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
 use Orm\Zed\ProductCategory\Persistence\Map\SpyProductCategoryTableMap;
-use Orm\Zed\ProductSearch\Persistence\Map\SpySearchableProductsTableMap;
+use Orm\Zed\ProductSearch\Persistence\Map\SpyProductSearchTableMap;
 use Orm\Zed\Stock\Persistence\Map\SpyStockProductTableMap;
 use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 
@@ -64,7 +64,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
     protected function getTouchItemType()
     {
-        return 'abstract_product';
+        return 'product_abstract';
     }
 
     /**
@@ -80,14 +80,14 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         // Abstract & concrete product - including localized attributes & url
         $baseQuery->addJoin(
             SpyTouchTableMap::COL_ITEM_ID,
-            SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
+            SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT,
             Criteria::INNER_JOIN
         );
 
         $baseQuery->addJoinObject(
             new Join(
-                SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
-                SpyProductTableMap::COL_FK_ABSTRACT_PRODUCT,
+                SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT,
+                SpyProductTableMap::COL_FK_PRODUCT_ABSTRACT,
                 Criteria::LEFT_JOIN
             ),
             'concreteProductJoin'
@@ -106,8 +106,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         );
 
         $baseQuery->addJoin(
-            SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
-            SpyLocalizedAbstractProductAttributesTableMap::COL_FK_ABSTRACT_PRODUCT,
+            SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT,
+            SpyLocalizedAbstractProductAttributesTableMap::COL_FK_PRODUCT_ABSTRACT,
             Criteria::INNER_JOIN
         );
 
@@ -130,8 +130,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
         $baseQuery->addJoinObject(
             (new Join(
-                SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
-                SpyUrlTableMap::COL_FK_RESOURCE_ABSTRACT_PRODUCT,
+                SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT,
+                SpyUrlTableMap::COL_FK_RESOURCE_PRODUCT_ABSTRACT,
                 Criteria::LEFT_JOIN
             ))->setRightTableAlias('product_urls'),
             'productUrlsJoin'
@@ -146,7 +146,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $baseQuery->addJoinObject(
             new Join(
                 SpyProductTableMap::COL_ID_PRODUCT,
-                SpyLocalizedProductAttributesTableMap::COL_FK_PRODUCT,
+                SpyProductLocalizedAttributesTableMap::COL_FK_PRODUCT,
                 Criteria::INNER_JOIN
             ),
             'productAttributesJoin'
@@ -154,14 +154,14 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
         $baseQuery->addJoinCondition(
             'productAttributesJoin',
-            SpyLocalizedProductAttributesTableMap::COL_FK_LOCALE . ' = ' .
+            SpyProductLocalizedAttributesTableMap::COL_FK_LOCALE . ' = ' .
             SpyLocaleTableMap::COL_ID_LOCALE
         );
 
-        $baseQuery->withColumn(SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT, 'id_abstract_product');
+        $baseQuery->withColumn(SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT, 'id_product_abstract');
 
         $baseQuery->withColumn(
-            SpyAbstractProductTableMap::COL_ATTRIBUTES,
+            SpyProductAbstractTableMap::COL_ATTRIBUTES,
             'abstract_attributes'
         );
         $baseQuery->withColumn(
@@ -189,24 +189,24 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             'concrete_names'
         );
 
-        $baseQuery->withColumn(SpyAbstractProductTableMap::COL_SKU, 'abstract_sku');
-        $baseQuery->withColumn(SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT, 'id_abstract_product');
+        $baseQuery->withColumn(SpyProductAbstractTableMap::COL_SKU, 'abstract_sku');
+        $baseQuery->withColumn(SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT, 'id_product_abstract');
 
         $baseQuery->addJoinObject(
             new Join(
                 SpyProductTableMap::COL_ID_PRODUCT,
-                SpySearchableProductsTableMap::COL_FK_PRODUCT,
+                SpyProductSearchTableMap::COL_FK_PRODUCT,
                 Criteria::INNER_JOIN
             ),
             'searchableJoin'
         );
         $baseQuery->addJoinCondition(
             'searchableJoin',
-            SpySearchableProductsTableMap::COL_FK_LOCALE . ' = ' .
+            SpyProductSearchTableMap::COL_FK_LOCALE . ' = ' .
             SpyLocaleTableMap::COL_ID_LOCALE
         );
         $baseQuery->addAnd(
-            SpySearchableProductsTableMap::COL_IS_SEARCHABLE,
+            SpyProductSearchTableMap::COL_IS_SEARCHABLE,
             true,
             Criteria::EQUAL
         );
@@ -223,7 +223,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         // Category
         $baseQuery->addJoin(
             SpyTouchTableMap::COL_ITEM_ID,
-            SpyProductCategoryTableMap::COL_FK_ABSTRACT_PRODUCT,
+            SpyProductCategoryTableMap::COL_FK_PRODUCT_ABSTRACT,
             Criteria::LEFT_JOIN
         );
         $baseQuery->addJoin(

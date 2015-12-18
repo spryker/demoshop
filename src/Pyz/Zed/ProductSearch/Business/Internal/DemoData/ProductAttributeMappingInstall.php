@@ -9,7 +9,7 @@ use Orm\Zed\Product\Persistence\SpyProductQuery;
 use Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
 use Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToLocaleInterface;
 use Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToTouchInterface;
-use Orm\Zed\ProductSearch\Persistence\SpySearchableProductsQuery;
+use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
 use Propel\Runtime\Exception\PropelException;
 
 class ProductAttributeMappingInstall extends AbstractInstaller
@@ -65,7 +65,7 @@ class ProductAttributeMappingInstall extends AbstractInstaller
                         ->findOneByKey($sourceField);
                     if ($attribute) {
                         $weight++;
-                        $idAttribute = $attribute->getIdAttributesMetadata();
+                        $idAttribute = $attribute->getIdProductAttributesMetadata();
                         $this->addOperation($idAttribute, $targetField, $operation, $weight);
                     }
                 }
@@ -145,7 +145,7 @@ class ProductAttributeMappingInstall extends AbstractInstaller
         /** @var SpyProduct $product */
         //TODO move this to product search facade
         foreach ($products as $product) {
-            $searchableProduct = SpySearchableProductsQuery::create()
+            $searchableProduct = SpyProductSearchQuery::create()
                 ->filterByFkProduct($product->getIdProduct())
                 ->filterByFkLocale($idLocale)
                 ->findOneOrCreate();

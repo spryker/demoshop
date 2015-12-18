@@ -198,7 +198,7 @@ class CmsInstall extends AbstractInstaller
             ->saveRedirectUrlAndTouch(
                 $fromUrl,
                 $this->localeFacade->getCurrentLocale(),
-                $redirectTransfer->getIdRedirect()
+                $redirectTransfer->getIdUrlRedirect()
             );
     }
 

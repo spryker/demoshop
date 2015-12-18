@@ -45,7 +45,7 @@ class ProductResourceCreator implements ResourceCreatorInterface
      */
     public function getType()
     {
-        return 'abstract_product';
+        return 'product_abstract';
     }
 
     /**
