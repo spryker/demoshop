@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "976831829278935c9b57279114552c6a",
-    "content-hash": "31fccefd4e1eadf5fb7d23e9eb0933bc",
+    "hash": "4a54cf38b81802d62632abac12844b49",
+    "content-hash": "c147982da4c6f79c9af8e1e4b40f2a86",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -700,23 +700,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/988-Rename-tables-which-violate-the-conventions",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "e38cdf0fd7c3e80269d615c427260c1d7e64a39c"
-=======
-<<<<<<< HEAD
-                "reference": "505b685c1b032b420c42528a4eee1355673617e1"
-=======
-                "reference": "b3594ca8a54d3985aed9ade894a6ecbf024f286b"
->>>>>>> #988 renamed tables
->>>>>>> #988 renamed tables
-=======
-                "reference": "1f3a710e8e0f8ac9b739a8531a2faed899a196a8"
->>>>>>> #988 update composer
+                "reference": "99c0a93ffd8d5b23616d9c115a09aa370eee7a59"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -799,19 +787,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2015-12-17 08:41:08"
-=======
-<<<<<<< HEAD
-            "time": "2015-12-16 14:06:18"
-=======
-            "time": "2015-12-16 13:31:13"
->>>>>>> #988 renamed tables
->>>>>>> #988 renamed tables
-=======
-            "time": "2015-12-16 14:09:18"
->>>>>>> #988 update composer
+            "time": "2015-12-18 06:28:25"
         },
         {
             "name": "symfony-cmf/routing",
