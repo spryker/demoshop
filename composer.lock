@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "966e7c1f7ad07d246e8b4ffed310f613",
-    "content-hash": "d6b4255c69c0d62f3ed69021ed8118a5",
+    "hash": "d9bf3023681d2be36c8d5773840f85b7",
+    "content-hash": "deb7a824f62f31bd0fc67a69f04b321b",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -700,15 +700,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/1027-Replace-php-amqplib",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-                "reference": "99c0a93ffd8d5b23616d9c115a09aa370eee7a59"
-=======
-                "reference": "edf2703dfde31ef25d1e4f5f5caa189031033f34"
->>>>>>> #1027 removed Queue and MailQueue bundle
+                "reference": "30d8031bd870f39bfaf8dbcecd1280cccf8a41d5"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -791,11 +787,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-<<<<<<< HEAD
-            "time": "2015-12-18 06:28:25"
-=======
-            "time": "2015-12-17 09:57:20"
->>>>>>> #1027 removed Queue and MailQueue bundle
+            "time": "2015-12-18 06:39:26"
         },
         {
             "name": "symfony-cmf/routing",
