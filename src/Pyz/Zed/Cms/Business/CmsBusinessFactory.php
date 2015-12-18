@@ -2,18 +2,24 @@
 
 namespace Pyz\Zed\Cms\Business;
 
+use Pyz\Zed\Cms\CmsConfig;
+use Spryker\Zed\Cms\Business\Block\BlockManagerInterface;
 use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManager;
 use Spryker\Zed\Cms\Business\Block\BlockManager;
+use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface;
+use Spryker\Zed\Cms\Business\Page\PageManagerInterface;
 use Spryker\Zed\Cms\Business\Template\TemplateManager;
 use Spryker\Zed\Cms\Business\Page\PageManager;
 use Pyz\Zed\Cms\Business\Internal\DemoData\CmsInstall;
 use Pyz\Zed\Cms\CmsDependencyProvider;
 use Pyz\Zed\Glossary\Business\GlossaryFacade;
-use Pyz\Zed\Locale\Business\LocaleFacade;
-use Pyz\Zed\Url\Business\UrlFacade;
 use Spryker\Shared\Kernel\Messenger\MessengerInterface;
 use Spryker\Zed\Cms\Business\CmsBusinessFactory as SprykerCmsBusinessFactory;
+use Spryker\Zed\Cms\Business\Template\TemplateManagerInterface;
 
+/**
+ * @method CmsConfig getConfig()
+ */
 class CmsBusinessFactory extends SprykerCmsBusinessFactory
 {
 
@@ -70,14 +76,13 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
     public function getPageManager()
     {
         return new PageManager(
-                    $this->getCmsQueryContainer(),
-                    $this->getTemplateManager(),
-                    $this->getBlockManager(),
-                    $this->getGlossaryFacade(),
-                    $this->getTouchFacade(),
-                    $this->getUrlFacade(),
-                    $this->getLocator()
-                );
+            $this->getCmsQueryContainer(),
+            $this->getTemplateManager(),
+            $this->getBlockManager(),
+            $this->getGlossaryFacade(),
+            $this->getTouchFacade(),
+            $this->getUrlFacade()
+        );
     }
 
     /**
@@ -86,11 +91,10 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
     public function getTemplateManager()
     {
         return new TemplateManager(
-                    $this->getCmsQueryContainer(),
-                    $this->getLocator(),
-                    $this->getConfig(),
-                    $this->getFinder()
-                );
+            $this->getCmsQueryContainer(),
+            $this->getConfig(),
+            $this->getFinder()
+        );
     }
 
     /**
@@ -99,10 +103,10 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
     public function getBlockManager()
     {
         return new BlockManager(
-                    $this->getCmsQueryContainer(),
-                    $this->getTouchFacade(),
-                    $this->getProvidedDependency(CmsDependencyProvider::PLUGIN_PROPEL_CONNECTION)
-                );
+            $this->getCmsQueryContainer(),
+            $this->getTouchFacade(),
+            $this->getProvidedDependency(CmsDependencyProvider::PLUGIN_PROPEL_CONNECTION)
+        );
     }
 
     /**
@@ -111,13 +115,12 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
     public function getGlossaryKeyMappingManager()
     {
         return new GlossaryKeyMappingManager(
-                    $this->getGlossaryFacade(),
-                    $this->getCmsQueryContainer(),
-                    $this->getTemplateManager(),
-                    $this->getPageManager(),
-                    $this->getLocator(),
-                    $this->getProvidedDependency(CmsDependencyProvider::PLUGIN_PROPEL_CONNECTION)
-                );
+            $this->getGlossaryFacade(),
+            $this->getCmsQueryContainer(),
+            $this->getTemplateManager(),
+            $this->getPageManager(),
+            $this->getProvidedDependency(CmsDependencyProvider::PLUGIN_PROPEL_CONNECTION)
+        );
     }
 
 }

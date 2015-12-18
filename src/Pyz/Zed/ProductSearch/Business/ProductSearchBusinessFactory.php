@@ -5,6 +5,7 @@ namespace Pyz\Zed\ProductSearch\Business;
 use Spryker\Shared\Kernel\Messenger\MessengerInterface;
 use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderInterface;
 use Spryker\Shared\Library\Storage\StorageInstanceBuilder;
+use Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException;
 use Spryker\Zed\ProductSearch\Business\Builder\ProductResourceKeyBuilder;
 use Spryker\Zed\ProductSearch\Business\Operation\OperationInterface;
 use Spryker\Zed\ProductSearch\Business\Operation\OperationManager;
@@ -18,6 +19,7 @@ use Spryker\Zed\ProductSearch\Business\ProductSearchBusinessFactory as SprykerPr
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductSearch\Business\Internal\DemoData\ProductAttributeMappingInstall;
 use Spryker\Zed\ProductSearch\Business\Transformer\ProductAttributesTransformerInterface;
+use Spryker\Zed\ProductSearch\ProductSearchDependencyProvider;
 
 class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
 {
@@ -69,7 +71,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
      */
     public function getInstaller(MessengerInterface $messenger)
     {
-        $collectorFacade = $this->getLocator()->collector()->facade();
+        $collectorFacade = $this->getCollectorFacade();
 
         $installer = new InstallProductSearch(
             StorageInstanceBuilder::getElasticsearchInstance(),
@@ -79,6 +81,15 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
         $installer->setMessenger($messenger);
 
         return $installer;
+    }
+
+    /**
+     * @throws ContainerKeyNotFoundException
+     * @return mixed
+     */
+    protected function getCollectorFacade()
+    {
+        return $this->getProvidedDependency(ProductSearchDependencyProvider::FACADE_COLLECTOR);
     }
 
     /**
@@ -95,8 +106,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     protected function createOperationManager()
     {
         return new OperationManager(
-            $this->createProductSearchQueryContainer(),
-            $this->getLocator()
+            $this->createProductSearchQueryContainer()
         );
     }
 

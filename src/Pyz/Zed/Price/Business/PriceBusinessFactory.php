@@ -39,10 +39,10 @@ class PriceBusinessFactory extends SprykerPriceBusinessFactory
     public function getReaderModel()
     {
         return new Reader(
-                    $this->getQueryContainer(),
-                    $this->getProductFacade(),
-                    $this->getConfig()
-                );
+            $this->getQueryContainer(),
+            $this->getProductFacade(),
+            $this->getConfig()
+        );
     }
 
     /**
@@ -51,12 +51,11 @@ class PriceBusinessFactory extends SprykerPriceBusinessFactory
     public function getWriterModel()
     {
         return new Writer(
-                    $this->getLocator(),
-                    $this->getQueryContainer(),
-                    $this->getReaderModel(),
-                    $this->getTouchFacade(),
-                    $this->getConfig()
-                );
+            $this->getQueryContainer(),
+            $this->getReaderModel(),
+            $this->getTouchFacade(),
+            $this->getConfig()
+        );
     }
 
     /**
@@ -65,12 +64,11 @@ class PriceBusinessFactory extends SprykerPriceBusinessFactory
     public function getBulkWriterModel()
     {
         return new BulkWriter(
-                    $this->getLocator(),
-                    $this->getQueryContainer(),
-                    $this->getReaderModel(),
-                    $this->getTouchFacade(),
-                    $this->getConfig()
-                );
+            $this->getQueryContainer(),
+            $this->getReaderModel(),
+            $this->getTouchFacade(),
+            $this->getConfig()
+        );
     }
 
     /**
@@ -81,9 +79,9 @@ class PriceBusinessFactory extends SprykerPriceBusinessFactory
     public function getInstaller(MessengerInterface $messenger)
     {
         $installer = new Install(
-                    $this->getLocator()->price()->facade(),
-                    $this->getConfig()
-                );
+            $this->getWriterModel(),
+            $this->getConfig()
+        );
         $installer->setMessenger($messenger);
 
         return $installer;

@@ -12,10 +12,12 @@ use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductCategory\Business\Internal\DemoData\ProductCategoryMappingInstall;
 use Spryker\Zed\ProductCategory\Business\ProductCategoryBusinessFactory as SprykerBusinessFactory;
 use Spryker\Zed\ProductCategory\Business\TransferGeneratorInterface;
+use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainer;
 use Spryker\Zed\ProductCategory\ProductCategoryDependencyProvider;
 
 /**
  * @method ProductCategoryConfig getConfig()
+ * @method ProductCategoryQueryContainer getQueryContainer()
  */
 class ProductCategoryBusinessFactory extends SprykerBusinessFactory
 {
@@ -54,15 +56,14 @@ class ProductCategoryBusinessFactory extends SprykerBusinessFactory
     public function createProductCategoryManager()
     {
         return new ProductCategoryManager(
-                    $this->createCategoryQueryContainer(),
-                    $this->getQueryContainer(),
-                    $this->createProductFacade(),
-                    $this->createCategoryFacade(),
-                    $this->createTouchFacade(),
-                    $this->createCmsFacade(),
-                    $this->getLocator(),
-                    $this->getProvidedDependency(ProductCategoryDependencyProvider::PLUGIN_PROPEL_CONNECTION)
-                );
+            $this->createCategoryQueryContainer(),
+            $this->getQueryContainer(),
+            $this->createProductFacade(),
+            $this->createCategoryFacade(),
+            $this->createTouchFacade(),
+            $this->createCmsFacade(),
+            $this->getProvidedDependency(ProductCategoryDependencyProvider::PLUGIN_PROPEL_CONNECTION)
+        );
     }
 
     /**
