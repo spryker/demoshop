@@ -25,7 +25,6 @@ use Spryker\Zed\Collector\Communication\Plugin\Installer as CollectorInstaller;
 use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 use Spryker\Zed\Installer\InstallerDependencyProvider as SprykerInstallerDependencyProvider;
 
-
 class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
 {
 
