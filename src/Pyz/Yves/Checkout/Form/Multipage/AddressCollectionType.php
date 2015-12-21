@@ -9,7 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Generated\Shared\Transfer\AddressTransfer;
 
-class MultipleAddressType extends AbstractType
+class AddressCollectionType extends AbstractType
 {
     const FIELD_BILLING_ADDRESS = 'billingAddress';
     const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
@@ -28,7 +28,7 @@ class MultipleAddressType extends AbstractType
     /**
      * @param FormBuilderInterface $builder
      *
-     * @return self
+     * @return AddressCollectionType
      */
     protected function addBillingAddress(FormBuilderInterface $builder)
     {
@@ -47,7 +47,7 @@ class MultipleAddressType extends AbstractType
     /**
      * @param FormBuilderInterface $builder
      *
-     * @return self
+     * @return AddressCollectionType
      */
     protected function addShipmentAddress(FormBuilderInterface $builder)
     {
@@ -66,11 +66,11 @@ class MultipleAddressType extends AbstractType
     /**
      * @param FormBuilderInterface $builder
      *
-     * @return self
+     * @return AddressCollectionType
      */
     protected function addSubmit(FormBuilderInterface $builder)
     {
-        $builder->add('shipment', 'submit');
+        $builder->add('checkout.step.shipment', 'submit');
 
         return $this;
     }

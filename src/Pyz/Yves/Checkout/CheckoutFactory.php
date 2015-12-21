@@ -5,6 +5,8 @@ namespace Pyz\Yves\Checkout;
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
+use Pyz\Yves\Checkout\Form\Multipage\AddressCollectionType;
+use Pyz\Yves\Checkout\Form\Multipage\ShipmentType;
 use Pyz\Yves\Checkout\Process\StepProcess;
 use Pyz\Yves\Checkout\Process\Steps\AddressStep;
 use Pyz\Yves\Checkout\Process\Steps\PaymentStep;
@@ -12,6 +14,8 @@ use Pyz\Yves\Checkout\Process\Steps\RegisterStep;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Pyz\Yves\Checkout\Process\Steps\StepInterface;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
+use Spryker\Shared\Kernel\Store;
+use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Yves\Application\Application;
 use Spryker\Yves\Kernel\AbstractFactory;
 use Pyz\Yves\Checkout\Form\CheckoutType;
@@ -158,6 +162,44 @@ class CheckoutFactory extends AbstractFactory
     protected function createSummaryStep()
     {
         return new SummaryStep(CheckoutControllerProvider::CHECKOUT_SUMMARY, ApplicationControllerProvider::ROUTE_HOME);
+    }
+
+    /**
+     * @return AddressCollectionType
+     */
+    public function createMultipleAddressType()
+    {
+       return new AddressCollectionType();
+    }
+
+    /**
+     * @return ShipmentType
+     */
+    public function createShipmentType()
+    {
+        return new ShipmentType(
+            $this->getGlossaryClient(),
+            $this->getShipmentClient(),
+            $this->getCartClient(),
+            $this->getStore(),
+            $this->getCurrencyManager()
+        );
+    }
+
+    /**
+     * @return Store
+     */
+    protected function getStore()
+    {
+        return Store::getInstance();
+    }
+
+    /**
+     * @return CurrencyManager
+     */
+    protected function getCurrencyManager()
+    {
+        return CurrencyManager::getInstance();
     }
 
 }

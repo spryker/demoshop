@@ -23,7 +23,7 @@ class DHLExpressPlugin extends AbstractPlugin implements ShipmentMethodPriceCalc
     public function getPrice(ShipmentMethodAvailabilityTransfer $shipmentMethodAvailability)
     {
         $count = 0;
-        foreach ($shipmentMethodAvailability->getCart()->getItems() as $item) {
+        foreach ($shipmentMethodAvailability->getQuote()->getItems() as $item) {
             $count += $item->getQuantity();
         }
 
