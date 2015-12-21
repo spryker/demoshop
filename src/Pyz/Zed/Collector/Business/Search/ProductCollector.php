@@ -5,7 +5,6 @@ namespace Pyz\Zed\Collector\Business\Search;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Join;
-use Pyz\Zed\Price\Business\PriceFacade;
 use Pyz\Zed\ProductSearch\Business\ProductSearchFacade;
 use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
@@ -29,11 +28,6 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 {
 
     /**
-     * @var PriceFacade
-     */
-    private $priceFacade;
-
-    /**
      * @var PriceQueryContainer
      */
     private $priceQueryContainer;
@@ -49,14 +43,12 @@ class ProductCollector extends AbstractPropelCollectorPlugin
     private $productSearchFacade;
 
     /**
-     * @param PriceFacade $priceFacade
      * @param PriceQueryContainer $priceQueryContainer
      * @param CategoryQueryContainer $categoryQueryContainer
      * @param ProductSearchFacade $productSearchFacade
      */
-    public function __construct(PriceFacade $priceFacade, PriceQueryContainer $priceQueryContainer, CategoryQueryContainer $categoryQueryContainer, ProductSearchFacade $productSearchFacade)
+    public function __construct(PriceQueryContainer $priceQueryContainer, CategoryQueryContainer $categoryQueryContainer, ProductSearchFacade $productSearchFacade)
     {
-        $this->priceFacade = $priceFacade;
         $this->priceQueryContainer = $priceQueryContainer;
         $this->categoryQueryContainer = $categoryQueryContainer;
         $this->productSearchFacade = $productSearchFacade;
