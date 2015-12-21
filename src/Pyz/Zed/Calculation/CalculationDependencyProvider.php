@@ -20,6 +20,7 @@ use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\GrandTotalWith
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Calculation\Dependency\Plugin\CalculatorPluginInterface;
 use Spryker\Zed\Tax\Communication\Plugin\TaxTotalsCalculatorPlugin;
+use Spryker\Zed\Calculation\Business\Model\Calculator\ExpenseGrossSumAmountCalculator;
 
 class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
 {
@@ -32,7 +33,7 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
         return [
             #Remove calculated values, start with clean state.
             new RemoveTotalsCalculatorPlugin(),
-            new RemoveAllExpensesCalculatorPlugin(),
+            //new RemoveAllExpensesCalculatorPlugin(),
             new RemoveAllCalculatedDiscountsCalculatorPlugin(),
 
             #Item calculators
@@ -43,6 +44,7 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
             new SubtotalTotalsCalculatorPlugin(),
 
             #Expenses (e.g. shipping)
+            new ExpenseGrossSumAmountCalculator(),
             new ExpenseTotalsCalculatorPlugin(),
 
             #Discounts

@@ -21,6 +21,9 @@ class AddressType extends AbstractType
     const FIELD_ZIP_CODE = 'zip_code';
     const FIELD_ISO_2_CODE = 'iso2code';
 
+    /**
+     * @var string
+     */
     protected $validationGroup;
 
     /**

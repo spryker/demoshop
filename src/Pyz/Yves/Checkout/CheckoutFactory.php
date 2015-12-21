@@ -14,6 +14,7 @@ use Pyz\Yves\Checkout\Process\Steps\RegisterStep;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Pyz\Yves\Checkout\Process\Steps\StepInterface;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
+use Spryker\Client\Calculation\Service\CalculationClient;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Yves\Application\Application;
@@ -66,6 +67,14 @@ class CheckoutFactory extends AbstractFactory
     public function getPayolutionClient()
     {
         return $this->getLocator()->payolution()->client();
+    }
+
+    /**
+     * @return CalculationClient
+     */
+    public function getCalculationClient()
+    {
+        return $this->getLocator()->calculation()->client();
     }
 
     /**
@@ -161,7 +170,11 @@ class CheckoutFactory extends AbstractFactory
      */
     protected function createSummaryStep()
     {
-        return new SummaryStep(CheckoutControllerProvider::CHECKOUT_SUMMARY, ApplicationControllerProvider::ROUTE_HOME);
+        return new SummaryStep(
+            CheckoutControllerProvider::CHECKOUT_SUMMARY,
+            ApplicationControllerProvider::ROUTE_HOME,
+            $this->getCalculationClient()
+        );
     }
 
     /**

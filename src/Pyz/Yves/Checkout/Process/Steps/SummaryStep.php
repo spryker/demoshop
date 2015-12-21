@@ -6,9 +6,23 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
+use Spryker\Client\Calculation\CalculationClient;
 
 class SummaryStep extends BaseStep implements StepInterface
 {
+    /**
+     * @var CalculationClient
+     */
+    protected $calculationClient;
+
+    /**
+     * SummaryStep constructor.
+     */
+    public function __construct($stepRoute, $escapeRoute, CalculationClient $calculationClient)
+    {
+        parent::__construct($stepRoute, $escapeRoute);
+        $this->calculationClient = $calculationClient;
+    }
 
     public function preCondition(QuoteTransfer $quoteTransfer)
     {
@@ -30,7 +44,7 @@ class SummaryStep extends BaseStep implements StepInterface
 
     public function execute(QuoteTransfer $quoteTransfer, $data = null)
     {
-        return $quoteTransfer;
+        return $this->calculationClient->recalculate($quoteTransfer);
     }
 
 }
