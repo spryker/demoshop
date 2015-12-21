@@ -6,11 +6,11 @@ use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Pyz\Yves\Checkout\Form\Multipage\AddressCollectionType;
+use Pyz\Yves\Checkout\Form\Multipage\PaymentType;
 use Pyz\Yves\Checkout\Form\Multipage\ShipmentType;
 use Pyz\Yves\Checkout\Process\StepProcess;
 use Pyz\Yves\Checkout\Process\Steps\AddressStep;
 use Pyz\Yves\Checkout\Process\Steps\PaymentStep;
-use Pyz\Yves\Checkout\Process\Steps\RegisterStep;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Pyz\Yves\Checkout\Process\Steps\StepInterface;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
@@ -195,6 +195,14 @@ class CheckoutFactory extends AbstractFactory
             $this->getShipmentClient(),
             $this->getCartClient(),
             $this->getStore(),
+            $this->getCurrencyManager()
+        );
+    }
+
+    public function createPaymentType()
+    {
+        return new PaymentType(
+            $this->getPayolutionClient(),
             $this->getCurrencyManager()
         );
     }

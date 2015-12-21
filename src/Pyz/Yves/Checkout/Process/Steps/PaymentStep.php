@@ -41,7 +41,7 @@ class PaymentStep extends BaseStep implements StepInterface
      */
     public function execute(QuoteTransfer $quoteTransfer, $data = null)
     {
-        $quoteTransfer->setPaymentMethod('payolution-invoice');
+//        $quoteTransfer->setPaymentMethod('payolution-invoice');
 
         return $quoteTransfer;
     }

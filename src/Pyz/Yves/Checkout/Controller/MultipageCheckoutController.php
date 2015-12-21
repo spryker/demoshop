@@ -6,9 +6,7 @@
 namespace Pyz\Yves\Checkout\Controller;
 
 use Codeception\Step;
-use Pyz\Yves\Checkout\Form\Multipage\PaymentType;
 use Pyz\Yves\Checkout\Process\StepProcess;
-use Pyz\Yves\Checkout\Process\Steps\RegisterStep;
 use Spryker\Yves\Application\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -47,7 +45,7 @@ class MultipageCheckoutController extends AbstractController
      */
     public function paymentAction(Request $request)
     {
-        return $this->createStepProcess()->process($request, new PaymentType());
+        return $this->createStepProcess()->process($request, $this->getFactory()->createPaymentType());
     }
 
     /**
