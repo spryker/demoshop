@@ -2,7 +2,7 @@
 
 use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Shared\Lumberjack\LumberjackConstants;
+use Spryker\Shared\EventJournal\EventJournalConstants;
 
 $config[ApplicationConstants::ZED_DB_USERNAME] = 'development';
 $config[ApplicationConstants::ZED_DB_PASSWORD] = 'mate20mg';
@@ -19,6 +19,7 @@ $yvesHost = 'www.de.spryker.dev';
 $config[ApplicationConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
 $config[ApplicationConstants::HOST_YVES] = 'http://' . $yvesHost;
 $config[ApplicationConstants::HOST_STATIC_ASSETS] = $config[ApplicationConstants::HOST_STATIC_MEDIA] = $yvesHost;
+$config[ApplicationConstants::YVES_COOKIE_DOMAIN] = $yvesHost;
 
 $config[ApplicationConstants::HOST_SSL_YVES] = 'https://' . $yvesHost;
 $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS] = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA] = $yvesHost;
@@ -44,6 +45,6 @@ $config[ApplicationConstants::ZED_RABBITMQ_USERNAME] = 'DE_development';
 $config[ApplicationConstants::ZED_RABBITMQ_PASSWORD] = 'mate20mg';
 $config[ApplicationConstants::ZED_RABBITMQ_VHOST] = '/DE_development_zed';
 
-$config[LumberjackConstants::WRITER_OPTIONS] = [
+$config[EventJournalConstants::WRITER_OPTIONS] = [
     '\Spryker\Shared\Lumberjack\Model\Writer\File' => ['log_path' => '/data/logs/development/DE/'],
 ];

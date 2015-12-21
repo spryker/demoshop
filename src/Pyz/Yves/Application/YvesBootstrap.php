@@ -2,23 +2,24 @@
 
 namespace Pyz\Yves\Application;
 
-use Pyz\Yves\Customer\Plugin\Provider\SecurityServiceProvider as ProviderSecurityServiceProvider;
-use Pyz\Yves\Customer\Plugin\UserProvider;
-use Pyz\Yves\Catalog\Plugin\Router\SearchRouter;
-use Pyz\Yves\Collector\Plugin\Router\StorageRouter;
-use Pyz\Yves\Category\Plugin\Provider\CategoryServiceProvider;
-use Pyz\Yves\Customer\Plugin\Provider\CustomerServiceProvider;
-use Pyz\Yves\Glossary\Plugin\Provider\TranslationServiceProvider;
-use Spryker\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
-use Pyz\Yves\Heartbeat\Plugin\Provider\HeartbeatControllerProvider;
-use Pyz\Yves\Application\Plugin\Provider\YvesSecurityServiceProvider;
-use Pyz\Yves\Application\Plugin\Provider\SessionServiceProvider as ProviderSessionServiceProvider;
-use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
 use Pyz\Shared\Application\Business\Routing\SilexRouter;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
+use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
+use Pyz\Yves\Application\Plugin\Provider\SessionServiceProvider as ProviderSessionServiceProvider;
+use Pyz\Yves\Application\Plugin\Provider\YvesSecurityServiceProvider;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
+use Pyz\Yves\Catalog\Plugin\Router\SearchRouter;
+use Pyz\Yves\Category\Plugin\Provider\CategoryServiceProvider;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
+use Pyz\Yves\Collector\Plugin\Router\StorageRouter;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
+use Pyz\Yves\Customer\Plugin\Provider\CustomerServiceProvider;
+use Pyz\Yves\Customer\Plugin\Provider\SecurityServiceProvider as ProviderSecurityServiceProvider;
+use Pyz\Yves\Customer\Plugin\UserProvider;
+use Pyz\Yves\EventJournal\Plugin\Provider\EventJournalServiceProvider;
+use Pyz\Yves\Glossary\Plugin\Provider\TranslationServiceProvider;
+use Pyz\Yves\Heartbeat\Plugin\Provider\HeartbeatControllerProvider;
+use Pyz\Yves\NewRelic\Plugin\Provider\NewRelicServiceProvider;
 use Pyz\Yves\Twig\Plugin\Provider\TwigServiceProvider;
 use Pyz\Yves\Wishlist\Plugin\Provider\WishlistControllerProvider;
 use Silex\Provider\FormServiceProvider;
@@ -29,16 +30,17 @@ use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
-use Spryker\Shared\Config;
-use Spryker\Yves\Application\Application;
-use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
-use Spryker\Yves\Application\Plugin\Provider\MonologServiceProvider;
-use Spryker\Yves\Application\Plugin\Provider\YvesLoggingServiceProvider;
-use Spryker\Client\Lumberjack\EventJournalClient;
+use Spryker\Client\EventJournal\EventJournalClient;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
+use Spryker\Shared\Config;
 use Spryker\Shared\NewRelic\Api;
+use Spryker\Yves\Application\Application;
+use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
+use Spryker\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
+use Spryker\Yves\Application\Plugin\Provider\MonologServiceProvider;
+use Spryker\Yves\Application\Plugin\Provider\YvesLoggingServiceProvider;
 
 class YvesBootstrap
 {
@@ -80,7 +82,8 @@ class YvesBootstrap
         $this->application->register($this->createSecurityServiceProviderExtension());
         $this->application->register(new YvesSecurityServiceProvider());
         $this->application->register(new ExceptionServiceProvider());
-        $this->application->register(new YvesLoggingServiceProvider(new EventJournalClient(), new Api()));
+        $this->application->register(new NewRelicServiceProvider());
+        $this->application->register(new EventJournalServiceProvider());
         $this->application->register(new MonologServiceProvider());
         $this->application->register(new CookieServiceProvider());
         $this->application->register(new UrlGeneratorServiceProvider());
