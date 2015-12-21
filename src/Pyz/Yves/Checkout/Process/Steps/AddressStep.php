@@ -56,7 +56,32 @@ class AddressStep extends BaseStep implements StepInterface
      */
     public function execute(QuoteTransfer $quoteTransfer, $modifiedQuoteTransfer = null)
     {
+        if ($this->isEmptyBillingAddress($quoteTransfer))  {
+            $modifiedQuoteTransfer->setBillingAddress($modifiedQuoteTransfer->getShippingAddress());
+        }
+
         return $modifiedQuoteTransfer;
+    }
+
+    /**
+     * @param QuoteTransfer $quoteTransfer
+     *
+     * @return bool
+     */
+    protected function isEmptyBillingAddress(QuoteTransfer $quoteTransfer)
+    {
+        if ($quoteTransfer->getBillingAddress() === null) {
+            return true;
+        }
+
+        if (empty($quoteTransfer->getBillingAddress()->getAddress1()) ||
+            empty($quoteTransfer->getBillingAddress()->getFirstName()) ||
+            empty($quoteTransfer->getBillingAddress()->getLastName())
+        ) {
+            return true;
+        }
+
+        return false;
     }
 
 }

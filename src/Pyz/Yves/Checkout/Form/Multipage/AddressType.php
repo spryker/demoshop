@@ -21,6 +21,17 @@ class AddressType extends AbstractType
     const FIELD_ZIP_CODE = 'zip_code';
     const FIELD_ISO_2_CODE = 'iso2code';
 
+    protected $validationGroup;
+
+    /**
+     * AddressType constructor.
+     * @param $validationGroup
+     */
+    public function __construct($validationGroup)
+    {
+        $this->validationGroup = $validationGroup;
+    }
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -29,21 +40,22 @@ class AddressType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $this->addSalutation($builder)
-             ->addFirstName($builder)
-             ->addLastName($builder)
-             ->addStreetName($builder)
-             ->addStreetNumber($builder)
-             ->addZipCode($builder)
-             ->addCity($builder);
+        $this->addSalutation($builder, $options)
+             ->addFirstName($builder, $options)
+             ->addLastName($builder, $options)
+             ->addStreetName($builder, $options)
+             ->addStreetNumber($builder, $options)
+             ->addZipCode($builder, $options)
+             ->addCity($builder, $options);
     }
 
     /**
      * @param FormBuilderInterface $builder
+     * @param array $options
      *
-     * @return self
+     * @return AddressType
      */
-    protected function addSalutation(FormBuilderInterface $builder)
+    protected function addSalutation(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
             self::FIELD_SALUTATION,
@@ -67,10 +79,11 @@ class AddressType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
+     * @param array $options
      *
-     * @return self
+     * @return AddressType
      */
-    protected function addFirstName(FormBuilderInterface $builder)
+    protected function addFirstName(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
             self::FIELD_FIRST_NAME,
@@ -82,7 +95,7 @@ class AddressType extends AbstractType
                     'placeholder' => 'customer.first_name',
                 ],
                 'constraints' => [
-                    new NotBlank(),
+                    new NotBlank(['groups' => $this->validationGroup]),
                 ],
             ]
         );
@@ -92,10 +105,11 @@ class AddressType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
+     * @param array $options
      *
-     * @return self
+     * @return AddressType
      */
-    protected function addLastName(FormBuilderInterface $builder)
+    protected function addLastName(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
             self::FIELD_LAST_NAME,
@@ -107,7 +121,7 @@ class AddressType extends AbstractType
                     'placeholder' => 'customer.last_name',
                 ],
                 'constraints' => [
-                    new NotBlank(),
+                    new NotBlank(['groups' => $this->validationGroup]),
                 ],
             ]
         );
@@ -117,10 +131,11 @@ class AddressType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
+     * @param array $options
      *
-     * @return self
+     * @return AddressType
      */
-    protected function addStreetName(FormBuilderInterface $builder)
+    protected function addStreetName(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
             self::FIELD_STREET,
@@ -133,7 +148,7 @@ class AddressType extends AbstractType
                     'placeholder' => 'address.street',
                 ],
                 'constraints' => [
-                    new NotBlank(),
+                    new NotBlank(['groups' => $this->validationGroup]),
                 ],
             ]
         );
@@ -143,10 +158,11 @@ class AddressType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
+     * @param array $options
      *
-     * @return self
+     * @return AddressType
      */
-    protected function addStreetNumber(FormBuilderInterface $builder)
+    protected function addStreetNumber(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
             self::FIELD_STREET_NR,
@@ -159,8 +175,8 @@ class AddressType extends AbstractType
                     'placeholder' => 'address.street_nr',
                 ],
                 'constraints' => [
-                    new NotBlank(),
-                    new Regex('[\d]'),
+                    new NotBlank(['groups' => $this->validationGroup]),
+                    new Regex('[\d]', ['groups' => $this->validationGroup]),
                 ],
             ]
         );
@@ -170,10 +186,11 @@ class AddressType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
+     * @param array $options
      *
-     * @return self
+     * @return AddressType
      */
-    protected function addZipCode(FormBuilderInterface $builder)
+    protected function addZipCode(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
             self::FIELD_ZIP_CODE,
@@ -185,8 +202,8 @@ class AddressType extends AbstractType
                     'placeholder' => 'address.zip_code',
                 ],
                 'constraints' => [
-                    new NotBlank(),
-                    new Regex('[\d]'),
+                    new NotBlank(['groups' => $this->validationGroup]),
+                    new Regex('[\d]', ['groups' => $this->validationGroup]),
                 ],
             ]
         );
@@ -196,10 +213,11 @@ class AddressType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
+     * @param array $options
      *
-     * @return self
+     * @return AddressType
      */
-    protected function addCity(FormBuilderInterface $builder)
+    protected function addCity(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
             self::FIELD_CITY,
@@ -211,12 +229,24 @@ class AddressType extends AbstractType
                     'placeholder' => 'address.city',
                 ],
                 'constraints' => [
-                    new NotBlank(),
+                    new NotBlank(['groups' => $this->validationGroup]),
                 ],
             ]
         );
 
         return $this;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getValidationGroups()
+    {
+        return [
+            'validation_groups' => [
+                'Default', $this->validationGroup
+            ]
+        ];
     }
 
     /**

@@ -27,7 +27,7 @@ class MultipageCheckoutController extends AbstractController
      */
     public function addressAction(Request $request)
     {
-        return $this->createStepProcess()->process($request, $this->getFactory()->createMultipleAddressType());
+        return $this->createStepProcess()->process($request, $this->getFactory()->createAddressCollectionType());
     }
 
     /**

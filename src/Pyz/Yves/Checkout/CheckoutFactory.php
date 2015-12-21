@@ -167,7 +167,7 @@ class CheckoutFactory extends AbstractFactory
     /**
      * @return AddressCollectionType
      */
-    public function createMultipleAddressType()
+    public function createAddressCollectionType()
     {
        return new AddressCollectionType();
     }
