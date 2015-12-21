@@ -44,4 +44,5 @@ class BaseStep
     {
         return $this->escapeRoute;
     }
+
 }

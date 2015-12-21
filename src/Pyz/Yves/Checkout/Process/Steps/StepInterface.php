@@ -23,18 +23,18 @@ interface StepInterface
 
     /**
      * @param QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
-    public function postCondition(QuoteTransfer $quoteTransfer);
-
-    /**
-     * @param QuoteTransfer $quoteTransfer
      * @param mixed $data
      *
      * @return QuoteTransfer
      */
     public function execute(QuoteTransfer $quoteTransfer, $data = null);
+
+    /**
+     * @param QuoteTransfer $quoteTransfer
+     *
+     * @return bool
+     */
+    public function postCondition(QuoteTransfer $quoteTransfer);
 
     /**
      * @return string

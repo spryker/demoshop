@@ -11,20 +11,46 @@ use Generated\Shared\Transfer\QuoteTransfer;
 class PaymentStep extends BaseStep implements StepInterface
 {
 
+    /**
+     * @param QuoteTransfer $quoteTransfer
+     *
+     * @return bool
+     */
     public function preCondition(QuoteTransfer $quoteTransfer)
     {
-        if (count($quoteTransfer->getItems()) === 0) {
+        if ($this->isCartEmpty($quoteTransfer)) {
             return false;
         }
 
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function requireInput()
     {
         return true;
     }
 
+    /**
+     * @param QuoteTransfer $quoteTransfer
+     * @param array $data
+     *
+     * @return QuoteTransfer
+     */
+    public function execute(QuoteTransfer $quoteTransfer, $data = null)
+    {
+        $quoteTransfer->setPaymentMethod('payolution-invoice');
+
+        return $quoteTransfer;
+    }
+
+    /**
+     * @param QuoteTransfer $quoteTransfer
+     *
+     * @return bool
+     */
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
         if ($quoteTransfer->getPaymentMethod()) {
@@ -34,10 +60,14 @@ class PaymentStep extends BaseStep implements StepInterface
         return false;
     }
 
-    public function execute(QuoteTransfer $quoteTransfer, $data = null)
+    /**
+     * @param QuoteTransfer $quoteTransfer
+     *
+     * @return bool
+     */
+    protected function isCartEmpty(QuoteTransfer $quoteTransfer)
     {
-        $quoteTransfer->setPaymentMethod('payolution-invoice');
-        return $quoteTransfer;
+        return count($quoteTransfer->getItems()) === 0;
     }
 
 }
