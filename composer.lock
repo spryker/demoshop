@@ -705,9 +705,13 @@
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "e84e2021b32089f582bfe4a31e57ad91f3b3edb8"
 =======
                 "reference": "ebdb4898412e94f81c6932c74ea448a9098a3adb"
+>>>>>>> #372 update composer
+=======
+                "reference": "e4d1ae4456912a122f4455eeb0a1ccea18d6075d"
 >>>>>>> #372 update composer
             },
             "require": {
@@ -792,9 +796,13 @@
                 }
             },
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2015-12-22 10:08:16"
 =======
             "time": "2015-12-21 14:20:18"
+>>>>>>> #372 update composer
+=======
+            "time": "2015-12-21 15:06:26"
 >>>>>>> #372 update composer
         },
         {
