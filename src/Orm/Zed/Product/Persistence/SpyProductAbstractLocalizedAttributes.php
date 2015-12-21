@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Product\Persistence;
 
-use Orm\Zed\Product\Persistence\Base\SpyLocalizedAbstractProductAttributes as BaseSpyLocalizedAbstractProductAttributes;
+use Orm\Zed\Product\Persistence\Base\SpyProductAbstractLocalizedAttributes as BaseSpyProductAbstractLocalizedAttributes;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_product_abstract_localized_attributes' table.
@@ -14,7 +14,7 @@ use Orm\Zed\Product\Persistence\Base\SpyLocalizedAbstractProductAttributes as Ba
  * long as it does not already exist in the output directory.
  *
  */
-class SpyLocalizedAbstractProductAttributes extends BaseSpyLocalizedAbstractProductAttributes
+class SpyProductAbstractLocalizedAttributes extends BaseSpyProductAbstractLocalizedAttributes
 {
 
 }

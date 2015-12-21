@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Collector\Business\Search;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use Orm\Zed\Product\Persistence\Map\SpyProductAbstractLocalizedAttributesTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Join;
 use Pyz\Zed\ProductSearch\Business\ProductSearchFacade;
@@ -16,7 +17,6 @@ use Spryker\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
 use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
 use Spryker\Zed\Price\Persistence\PriceQueryContainer;
 use Orm\Zed\Product\Persistence\Map\SpyProductAbstractTableMap;
-use Orm\Zed\Product\Persistence\Map\SpyLocalizedAbstractProductAttributesTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductLocalizedAttributesTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
 use Orm\Zed\ProductCategory\Persistence\Map\SpyProductCategoryTableMap;
@@ -99,12 +99,12 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
         $baseQuery->addJoin(
             SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT,
-            SpyLocalizedAbstractProductAttributesTableMap::COL_FK_PRODUCT_ABSTRACT,
+            SpyProductAbstractLocalizedAttributesTableMap::COL_FK_PRODUCT_ABSTRACT,
             Criteria::INNER_JOIN
         );
 
         $baseQuery->addJoin(
-            SpyLocalizedAbstractProductAttributesTableMap::COL_FK_LOCALE,
+            SpyProductAbstractLocalizedAttributesTableMap::COL_FK_LOCALE,
             SpyLocaleTableMap::COL_ID_LOCALE,
             Criteria::INNER_JOIN
         );
@@ -157,7 +157,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             'abstract_attributes'
         );
         $baseQuery->withColumn(
-            SpyLocalizedAbstractProductAttributesTableMap::COL_ATTRIBUTES,
+            SpyProductAbstractLocalizedAttributesTableMap::COL_ATTRIBUTES,
             'abstract_localized_attributes'
         );
         $baseQuery->withColumn(
@@ -173,7 +173,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             'product_urls'
         );
         $baseQuery->withColumn(
-            SpyLocalizedAbstractProductAttributesTableMap::COL_NAME,
+            SpyProductAbstractLocalizedAttributesTableMap::COL_NAME,
             'abstract_name'
         );
         $baseQuery->withColumn(
