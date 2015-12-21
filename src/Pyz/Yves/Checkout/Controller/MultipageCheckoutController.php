@@ -6,16 +6,16 @@
 namespace Pyz\Yves\Checkout\Controller;
 
 use Codeception\Step;
+use Pyz\Yves\Checkout\Form\Multipage\MultipleAddressType;
 use Pyz\Yves\Checkout\Form\Multipage\PaymentType;
 use Pyz\Yves\Checkout\Form\Multipage\RegisterType;
-use Pyz\Yves\Checkout\Form\Multipage\ShippingType;
+use Pyz\Yves\Checkout\Form\Multipage\ShipmentType;
 use Pyz\Yves\Checkout\Process\StepProcess;
 use Pyz\Yves\Checkout\Process\Steps\RegisterStep;
 use Spryker\Yves\Application\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Pyz\Yves\Checkout\CheckoutFactory;
-use Pyz\Yves\Checkout\Form\Multipage\AddressType;
 
 /**
  * @method CheckoutFactory getFactory()
@@ -30,7 +30,7 @@ class MultipageCheckoutController extends AbstractController
      */
     public function addressAction(Request $request)
     {
-        return $this->createStepProcess()->process($request, new AddressType());
+        return $this->createStepProcess()->process($request, new MultipleAddressType());
     }
 
     /**
@@ -40,7 +40,7 @@ class MultipageCheckoutController extends AbstractController
      */
     public function shipmentAction(Request $request)
     {
-        return $this->createStepProcess()->process($request, new ShippingType());
+        return $this->createStepProcess()->process($request, new ShipmentType());
     }
 
     /**

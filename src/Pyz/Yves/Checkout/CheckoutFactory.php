@@ -107,10 +107,8 @@ class CheckoutFactory extends AbstractFactory
     public function createCheckoutProcess(Application $application)
     {
         $cartClient = $this->getCartClient();
-        $quoteTransfer = $cartClient->getQuote();
 
         return new StepProcess(
-            $quoteTransfer,
             $application,
             $this->createSteps(),
             $cartClient

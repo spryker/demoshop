@@ -5,7 +5,6 @@
 
 namespace Pyz\Yves\Checkout\Process\Steps;
 
-use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 
 class AddressStep extends BaseStep implements StepInterface
@@ -39,7 +38,7 @@ class AddressStep extends BaseStep implements StepInterface
      */
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
-        if (count($quoteTransfer->getBillingAddresses()) === 0) {
+        if (empty($quoteTransfer->getBillingAddress())) {
             // add message: billing address is not set
             return false;
         }
@@ -48,16 +47,16 @@ class AddressStep extends BaseStep implements StepInterface
     }
 
     /**
+     * @todo do we still need two parameters if we can use one from form, check this when all steps implemented.!!
+     *
      * @param QuoteTransfer $quoteTransfer
-     * @param mixed $data
+     * @param QuoteTransfer $modifiedQuoteTransfer
      *
      * @return QuoteTransfer
      */
-    public function execute(QuoteTransfer $quoteTransfer, $data = null)
+    public function execute(QuoteTransfer $quoteTransfer, $modifiedQuoteTransfer = null)
     {
-        $quoteTransfer->addBillingAddress(new AddressTransfer());
-
-        return $quoteTransfer;
+        return $modifiedQuoteTransfer;
     }
 
 }
