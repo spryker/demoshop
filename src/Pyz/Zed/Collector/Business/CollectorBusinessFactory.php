@@ -34,6 +34,9 @@ use Spryker\Zed\Collector\Business\CollectorBusinessFactory as SprykerCollectorB
 use Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface;
 use Spryker\Zed\Collector\CollectorConfig;
 
+/**
+ * @method CollectorConfig getConfig()
+ */
 class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
 {
 

@@ -16,9 +16,11 @@ use Pyz\Zed\Glossary\Business\GlossaryFacade;
 use Spryker\Shared\Kernel\Messenger\MessengerInterface;
 use Spryker\Zed\Cms\Business\CmsBusinessFactory as SprykerCmsBusinessFactory;
 use Spryker\Zed\Cms\Business\Template\TemplateManagerInterface;
+use Pyz\Zed\Cms\Persistence\CmsQueryContainer;
 
 /**
  * @method CmsConfig getConfig()
+ * @method CmsQueryContainer getQueryContainer()
  */
 class CmsBusinessFactory extends SprykerCmsBusinessFactory
 {

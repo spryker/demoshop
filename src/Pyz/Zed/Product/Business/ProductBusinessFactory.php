@@ -18,7 +18,11 @@ use Spryker\Zed\Product\Business\Builder\SimpleAttributeMergeBuilder;
 use Spryker\Zed\Product\Business\ProductBusinessFactory as SprykerBusinessFactory;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Product\Business\Internal\DemoData\ProductDataInstall;
+use Pyz\Zed\Product\ProductConfig;
 
+/**
+ * @method ProductConfig getConfig()
+ */
 class ProductBusinessFactory extends SprykerBusinessFactory
 {
 

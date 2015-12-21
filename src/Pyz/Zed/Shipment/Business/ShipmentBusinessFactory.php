@@ -9,9 +9,11 @@ use Pyz\Zed\Shipment\Business\Internal\DemoData\ShipmentInstall;
 use Spryker\Shared\Kernel\Messenger\MessengerInterface;
 use Spryker\Zed\Shipment\Business\ShipmentBusinessFactory as SprykerShipmentBusinessFactory;
 use Spryker\Zed\Shipment\Persistence\ShipmentQueryContainer;
+use Pyz\Zed\Shipment\ShipmentConfig;
 
 /**
  * @method ShipmentQueryContainer getQueryContainer()
+ * @method ShipmentConfig getConfig()
  */
 class ShipmentBusinessFactory extends SprykerShipmentBusinessFactory
 {
