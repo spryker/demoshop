@@ -91,6 +91,7 @@ class CheckoutController extends AbstractController
             $checkoutResponseTransfer = $this->requestCheckout($checkoutRequestTransfer);
             if (!$checkoutResponseTransfer->getIsSuccess()) {
                 $this->getFactory()->getPayolutionClient()->removeInstallmentPaymentsFromSession();
+
                 return $this->getErrors($checkoutResponseTransfer->getErrors());
             }
 
@@ -484,7 +485,7 @@ class CheckoutController extends AbstractController
         $attachmentFileName = 'payolution_payment_detail_' . $installmentDuration . '.pdf';
         header('Content-type: application/pdf');
         header('Content-Disposition: attachment; filename=' . $attachmentFileName);
-        header('Content-Length: '.strlen($response));
+        header('Content-Length: ' . strlen($response));
 
         return $response;
     }

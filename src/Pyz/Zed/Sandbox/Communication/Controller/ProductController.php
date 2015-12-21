@@ -7,7 +7,6 @@ use Generated\Shared\Transfer\ConcreteProductTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Zed\Ide\AutoCompletion;
-use Propel\Runtime\Propel;
 use Pyz\Zed\Sandbox\Communication\Controller\Product\DataProvider;
 use Spryker\Zed\Kernel\Locator;
 use Spryker\Zed\Application\Communication\Controller\AbstractController;
