@@ -704,11 +704,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-                "reference": "e4f781f9857473ce8bb74c2c32a4d2502abb4aa4"
-=======
-                "reference": "46f2d3945bf1c301ceabae848a18d75e3718b9ba"
->>>>>>> #1026 removed ClassMapFactory, refactored controller resolving, removed old Zend Version
+                "reference": "2ab9a80fdeff75198028666f6005c1aeea29216b"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -779,8 +775,7 @@
                 "silex/web-profiler": "~1.0.2"
             },
             "bin": [
-                "Bundles/Console/bin/console",
-                "Bundles/Kernel/bin/build-class-map"
+                "Bundles/Console/bin/console"
             ],
             "type": "library",
             "autoload": {
@@ -791,11 +786,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-<<<<<<< HEAD
-            "time": "2015-12-22 10:25:09"
-=======
-            "time": "2015-12-22 08:30:38"
->>>>>>> #1026 removed ClassMapFactory, refactored controller resolving, removed old Zend Version
+            "time": "2015-12-22 10:48:34"
         },
         {
             "name": "symfony-cmf/routing",
