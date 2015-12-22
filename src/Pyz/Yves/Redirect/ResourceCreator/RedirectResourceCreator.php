@@ -6,30 +6,13 @@
 
 namespace Pyz\Yves\Redirect\ResourceCreator;
 
-use Pyz\Yves\Collector\Creator\ResourceCreatorInterface;
-use Spryker\Shared\Application\Communication\ControllerServiceBuilder;
-use Spryker\Shared\Kernel\LocatorLocatorInterface;
+use Pyz\Yves\Collector\Creator\AbstractResourceCreator;
 use Silex\Application;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
-use Spryker\Yves\Kernel\ControllerLocator;
 
-class RedirectResourceCreator implements ResourceCreatorInterface
+class RedirectResourceCreator extends AbstractResourceCreator
 {
-
-    /**
-     * @var LocatorLocatorInterface
-     */
-    protected $locator;
-
-    /**
-     * @param LocatorLocatorInterface $locator
-     */
-    public function __construct(
-        LocatorLocatorInterface $locator
-    ) {
-        $this->locator = $locator;
-    }
 
     /**
      * @return string
@@ -48,15 +31,8 @@ class RedirectResourceCreator implements ResourceCreatorInterface
     public function createResource(Application $app, array $data)
     {
         $bundleControllerAction = new BundleControllerAction('Redirect', 'Redirect', 'redirect');
-        $controllerResolver = new ControllerLocator($bundleControllerAction);
         $routeResolver = new BundleControllerActionRouteNameResolver($bundleControllerAction);
-
-        $service = (new ControllerServiceBuilder())->createServiceForController(
-            $app,
-            $bundleControllerAction,
-            $controllerResolver,
-            $routeResolver
-        );
+        $service = $this->createServiceForController($app, $bundleControllerAction, $routeResolver);
 
         return [
             '_controller' => $service,

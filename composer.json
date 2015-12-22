@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-feature/1026-Remove-last-usages-of-ClassMapFactory",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
@@ -8,7 +8,6 @@
     "pimple/pimple": "1.1.*@dev",
     "mandrill/mandrill": "1.0.*",
     "predis/predis": "~1.0.0",
-    "digital-canvas/zend-framework": ">=1.12.2",
 
     "guzzle/http": "~3.7, <= 3.8",
     "league/csv": "*",
@@ -40,6 +39,7 @@
 
     "twig/twig": "1.20",
 
+    "zendframework/zend-http": "~2.3.0",
     "zendframework/zend-config": "~2.3.0",
     "zendframework/zend-code": "2.3.9",
     "zendframework/zend-filter": "~2.3.0",

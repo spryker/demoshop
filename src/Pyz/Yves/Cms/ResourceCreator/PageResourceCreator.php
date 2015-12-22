@@ -6,29 +6,13 @@
 
 namespace Pyz\Yves\Cms\ResourceCreator;
 
-use Pyz\Yves\Collector\Creator\ResourceCreatorInterface;
-use Spryker\Shared\Application\Communication\ControllerServiceBuilder;
-use Spryker\Shared\Kernel\LocatorLocatorInterface;
+use Pyz\Yves\Collector\Creator\AbstractResourceCreator;
 use Silex\Application;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
-use Spryker\Yves\Kernel\ControllerLocator;
 
-class PageResourceCreator implements ResourceCreatorInterface
+class PageResourceCreator extends AbstractResourceCreator
 {
-
-    /**
-     * @var LocatorLocatorInterface
-     */
-    protected $locator;
-
-    /**
-     * @param LocatorLocatorInterface $locator
-     */
-    public function __construct(LocatorLocatorInterface $locator)
-    {
-        $this->locator = $locator;
-    }
 
     /**
      * @return string
@@ -47,15 +31,8 @@ class PageResourceCreator implements ResourceCreatorInterface
     public function createResource(Application $app, array $data)
     {
         $bundleControllerAction = new BundleControllerAction('Cms', 'Cms', 'page');
-        $controllerResolver = new ControllerLocator($bundleControllerAction);
         $routeResolver = new BundleControllerActionRouteNameResolver($bundleControllerAction);
-
-        $service = (new ControllerServiceBuilder())->createServiceForController(
-            $app,
-            $bundleControllerAction,
-            $controllerResolver,
-            $routeResolver
-        );
+        $service = $this->createServiceForController($app, $bundleControllerAction, $routeResolver);
 
         return [
             '_controller' => $service,

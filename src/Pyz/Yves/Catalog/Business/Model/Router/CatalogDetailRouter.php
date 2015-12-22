@@ -3,11 +3,9 @@
 namespace Pyz\Yves\Catalog\Business\Model\Router;
 
 use Spryker\Client\Catalog\Model\Exception\ProductNotFoundException;
-use Spryker\Shared\Application\Communication\ControllerServiceBuilder;
 use Spryker\Yves\Application\Routing\AbstractRouter;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\RouteNameResolver;
-use Spryker\Yves\Kernel\ControllerLocator;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
@@ -16,7 +14,11 @@ class CatalogDetailRouter extends AbstractRouter
 {
 
     /**
-     * {@inheritdoc}
+     * @param string $name
+     * @param array $parameters
+     * @param bool|string $referenceType
+     *
+     * @return void
      */
     public function generate($name, $parameters = [], $referenceType = self::ABSOLUTE_PATH)
     {
@@ -24,25 +26,20 @@ class CatalogDetailRouter extends AbstractRouter
     }
 
     /**
-     * {@inheritdoc}
+     * @param string $pathinfo
+     *
+     * @return array
      */
     public function match($pathinfo)
     {
         try {
-            $product = $this->factory->createCatalogFactory()
-                ->createCatalogModel($this->app->getStorageKeyValue())
-                ->getProductDataByUrl($pathinfo);
+            // @TODO get product data
+            $product = [];
 
             $bundleControllerAction = new BundleControllerAction('Catalog', 'CatalogController', 'detail');
-            $controllerResolver = new ControllerLocator($bundleControllerAction);
             $routeResolver = new RouteNameResolver('catalog/detail');
 
-            $service = (new ControllerServiceBuilder())->createServiceForController(
-                $this->app,
-                $bundleControllerAction,
-                $controllerResolver,
-                $routeResolver
-            );
+            $service = $this->createServiceForController($this->app, $bundleControllerAction, $routeResolver);
 
             return [
                 '_controller' => $service,

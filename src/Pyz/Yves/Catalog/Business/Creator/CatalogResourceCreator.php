@@ -6,8 +6,8 @@ use Pyz\Client\Catalog\Model\FacetConfig;
 use Pyz\Yves\Collector\Creator\ResourceCreatorInterface;
 use Silex\Application;
 use Spryker\Yves\Kernel\BundleControllerAction;
+use Spryker\Yves\Kernel\ClassResolver\Controller\ControllerResolver;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
-use Spryker\Yves\Kernel\ControllerLocator;
 use Spryker\Shared\Application\Communication\ControllerServiceBuilder;
 use Spryker\Shared\Category\CategoryConstants;
 
@@ -44,7 +44,7 @@ class CatalogResourceCreator implements ResourceCreatorInterface
     public function createResource(Application $app, array $data)
     {
         $bundleControllerAction = new BundleControllerAction('Catalog', 'Catalog', 'index');
-        $controllerLocator = new ControllerLocator($bundleControllerAction);
+        $controllerLocator = new ControllerResolver($bundleControllerAction);
         $routeResolver = new BundleControllerActionRouteNameResolver($bundleControllerAction);
 
         $service = (new ControllerServiceBuilder())->createServiceForController(
