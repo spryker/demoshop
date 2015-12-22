@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d18555e7f2c888abd7ce3e910c367605",
-    "content-hash": "0353aeb2d86ed92b2b8eae7b64dda0fc",
+    "hash": "d9bf3023681d2be36c8d5773840f85b7",
+    "content-hash": "deb7a824f62f31bd0fc67a69f04b321b",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -700,19 +700,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/963-add-bridges-to-bundles",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "e84e2021b32089f582bfe4a31e57ad91f3b3edb8"
-=======
-                "reference": "ebdb4898412e94f81c6932c74ea448a9098a3adb"
->>>>>>> #372 update composer
-=======
-                "reference": "e4d1ae4456912a122f4455eeb0a1ccea18d6075d"
->>>>>>> #372 update composer
+                "reference": "d40c16c0896c957bf9d4ea11b1b977e1c6a2e3d3"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -795,15 +787,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2015-12-22 10:08:16"
-=======
-            "time": "2015-12-21 14:20:18"
->>>>>>> #372 update composer
-=======
-            "time": "2015-12-21 15:06:26"
->>>>>>> #372 update composer
+            "time": "2015-12-22 10:12:24"
         },
         {
             "name": "symfony-cmf/routing",
