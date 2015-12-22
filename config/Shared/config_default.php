@@ -309,7 +309,7 @@ $config[EventJournalConstants::FILTER_OPTIONS] = [
 
 $config[EventJournalConstants::WRITER_OPTIONS] = [
     '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File' => [
-        'log_path' => APPLICATION_ROOT_DIR . '/data/DE/'
+        'log_path' => APPLICATION_ROOT_DIR . '/data/DE/logs/'
     ],
 ];
 

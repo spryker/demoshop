@@ -2,7 +2,6 @@
 
 use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Shared\Lumberjack\LumberjackConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Session\SessionConstants;
 
@@ -61,10 +60,6 @@ $config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_PORT] = $config[Applicat
 
 $config[PayoneConstants::PAYONE] = [
     PayoneConstants::PAYONE_MODE => '',
-];
-
-$config[LumberjackConstants::WRITER_OPTIONS] = [
-    '\Spryker\Shared\Lumberjack\Model\Writer\File' => ['log_path' => '/data/logs/development/DE/'],
 ];
 
 $config[SessionConstants::SESSION_IS_TEST] = true;
