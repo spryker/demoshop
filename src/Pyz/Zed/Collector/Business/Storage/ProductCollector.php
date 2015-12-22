@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use Orm\Zed\Product\Persistence\Map\SpyProductAbstractLocalizedAttributesTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Join;
 use Pyz\Zed\Price\Business\PriceFacade;
@@ -19,7 +20,6 @@ use Spryker\Zed\Price\Persistence\PriceQueryContainer;
 use Orm\Zed\Price\Persistence\Map\SpyPriceProductTableMap;
 use Orm\Zed\Price\Persistence\Map\SpyPriceTypeTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductAbstractTableMap;
-use Orm\Zed\Product\Persistence\Map\SpyLocalizedAbstractProductAttributesTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductLocalizedAttributesTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
 use Orm\Zed\ProductCategory\Persistence\Map\SpyProductCategoryTableMap;
@@ -62,6 +62,11 @@ class ProductCollector extends AbstractPropelCollectorPlugin
      * @var CategoryQueryContainer
      */
     private $categoryQueryContainer;
+
+    /**
+     * @var ProductOptionExporterFacade
+     */
+    private $productOptionExporterFacade;
 
     /**
      * @param PriceFacade $priceFacade
@@ -126,12 +131,12 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
         $baseQuery->addJoin(
             SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT,
-            SpyLocalizedAbstractProductAttributesTableMap::COL_FK_PRODUCT_ABSTRACT,
+            SpyProductAbstractLocalizedAttributesTableMap::COL_FK_PRODUCT_ABSTRACT,
             Criteria::INNER_JOIN
         );
 
         $baseQuery->addJoin(
-            SpyLocalizedAbstractProductAttributesTableMap::COL_FK_LOCALE,
+            SpyProductAbstractLocalizedAttributesTableMap::COL_FK_LOCALE,
             SpyLocaleTableMap::COL_ID_LOCALE,
             Criteria::INNER_JOIN
         );
@@ -184,7 +189,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             'abstract_attributes'
         );
         $baseQuery->withColumn(
-            SpyLocalizedAbstractProductAttributesTableMap::COL_ATTRIBUTES,
+            SpyProductAbstractLocalizedAttributesTableMap::COL_ATTRIBUTES,
             'abstract_localized_attributes'
         );
         $baseQuery->withColumn(
@@ -200,7 +205,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             'product_urls'
         );
         $baseQuery->withColumn(
-            SpyLocalizedAbstractProductAttributesTableMap::COL_NAME,
+            SpyProductAbstractLocalizedAttributesTableMap::COL_NAME,
             'abstract_name'
         );
         $baseQuery->withColumn(
@@ -453,6 +458,11 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         return $processedResultSet;
     }
 
+    /**
+     * @param $identifier
+     *
+     * @return string
+     */
     protected function buildKey($identifier)
     {
         return 'product_abstract.' . $identifier;
@@ -498,6 +508,9 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         return array_intersect_key($productData, array_flip($allowedFields));
     }
 
+    /**
+     * @return int
+     */
     private function getIdPriceType()
     {
         $defaultPriceType = $this->getDefaultPriceType();

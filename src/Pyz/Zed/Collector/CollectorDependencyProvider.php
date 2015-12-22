@@ -17,15 +17,12 @@ use Spryker\Zed\Collector\CollectorDependencyProvider as SprykerCollectorDepende
 class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 {
 
-    const FACADE_PRICE = 'price_facade';
+    const FACADE_PRICE = 'price facade';
+    const FACADE_PRODUCT_SEARCH = 'product search facade';
+    const FACADE_PRODUCT_OPTION_EXPORTER = 'product option exporter facade';
 
-    const QUERY_CONTAINER_PRICE = 'price_query_container';
-
-    const QUERY_CONTAINER_CATEGORY = 'category_query_container';
-
-    const FACADE_PRODUCT_SEARCH = 'product_search_facade';
-
-    const FACADE_PRODUCT_OPTION_EXPORTER = 'product_option_exporter_facade';
+    const QUERY_CONTAINER_PRICE = 'price query container';
+    const QUERY_CONTAINER_CATEGORY = 'category query container';
 
     /**
      * @var Container

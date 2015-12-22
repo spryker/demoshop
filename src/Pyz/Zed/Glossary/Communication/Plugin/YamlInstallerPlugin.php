@@ -46,7 +46,7 @@ class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPlu
      */
     protected function installKeysAndTranslations(array $translations)
     {
-        $glossaryFacade = $this->getFactory()->createGlossaryFacade();
+        $glossaryFacade = $this->getFacade();
         foreach ($translations['keys'] as $keyName => $data) {
             if (!$glossaryFacade->hasKey($keyName)) {
                 $glossaryFacade->createKey($keyName);

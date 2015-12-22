@@ -3,8 +3,12 @@
 namespace Pyz\Zed\Cms;
 
 use Pyz\Zed\Cms\Communication\Plugin\DemoDataInstaller;
+use Pyz\Zed\Cms\Dependency\Facade\CmsToLocaleBridge;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Cms\CmsDependencyProvider as SprykerCmsDependencyProvider;
+use Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryBridge;
+use Spryker\Zed\Cms\Dependency\Facade\CmsToTouchBridge;
+use Spryker\Zed\Cms\Dependency\Facade\CmsToUrlBridge;
 
 class CmsDependencyProvider extends SprykerCmsDependencyProvider
 {
@@ -34,19 +38,19 @@ class CmsDependencyProvider extends SprykerCmsDependencyProvider
         };
 
         $container[self::FACADE_GLOSSARY] = function (Container $container) {
-            return $container->getLocator()->glossary()->facade();
+            return new CmsToGlossaryBridge($container->getLocator()->glossary()->facade());
         };
 
         $container[self::FACADE_LOCALE] = function (Container $container) {
-            return $container->getLocator()->locale()->facade();
+            return new CmsToLocaleBridge($container->getLocator()->locale()->facade());
         };
 
         $container[self::FACADE_URL] = function (Container $container) {
-            return $container->getLocator()->url()->facade();
+            return new CmsToUrlBridge($container->getLocator()->url()->facade());
         };
 
         $container[self::FACADE_TOUCH] = function (Container $container) {
-            return $container->getLocator()->touch()->facade();
+            return new CmsToTouchBridge($container->getLocator()->touch()->facade());
         };
 
         return $container;

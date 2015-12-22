@@ -34,6 +34,9 @@ use Spryker\Zed\Collector\Business\CollectorBusinessFactory as SprykerCollectorB
 use Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface;
 use Spryker\Zed\Collector\CollectorConfig;
 
+/**
+ * @method CollectorConfig getConfig()
+ */
 class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
 {
 
@@ -43,7 +46,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createSearchProductCollector()
     {
         $searchProductCollector = new SearchProductCollector(
-            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRICE),
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRICE),
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY),
             $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_SEARCH)

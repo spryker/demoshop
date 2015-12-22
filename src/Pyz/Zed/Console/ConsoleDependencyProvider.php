@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Console;
 
+use Spryker\Zed\Development\Communication\Console\CodeCreateConsole;
 use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
 use Spryker\Shared\Library\Environment;
 use Spryker\Zed\Application\Communication\Console\ApplicationIntegrationCheckConsole;
@@ -66,6 +67,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new CodeTestConsole();
             $commands[] = new CodeStyleFixerConsole();
             $commands[] = new CodeStyleSnifferConsole();
+            $commands[] = new CodeCreateConsole();
         }
 
         return $commands;

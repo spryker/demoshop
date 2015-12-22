@@ -2,9 +2,12 @@
 
 namespace Pyz\Zed\Stock\Business;
 
+use Spryker\Zed\Stock\Business\Model\CalculatorInterface;
+use Spryker\Zed\Stock\Business\Model\ReaderInterface;
 use Spryker\Zed\Stock\Business\Model\Writer;
 use Spryker\Zed\Stock\Business\Model\Reader;
 use Spryker\Zed\Stock\Business\Model\Calculator;
+use Spryker\Zed\Stock\Business\Model\WriterInterface;
 use Spryker\Zed\Stock\Business\StockBusinessFactory as SprykerStockBusinessFactory;
 use Spryker\Zed\Stock\Persistence\StockQueryContainer;
 use Psr\Log\LoggerInterface;
@@ -39,8 +42,8 @@ class StockBusinessFactory extends SprykerStockBusinessFactory
     public function getCalculatorModel()
     {
         return new Calculator(
-                    $this->getReaderModel()
-                );
+            $this->getReaderModel()
+        );
     }
 
     /**
@@ -49,9 +52,9 @@ class StockBusinessFactory extends SprykerStockBusinessFactory
     public function getReaderModel()
     {
         return new Reader(
-                    $this->getQueryContainer(),
-                    $this->getProductFacade()
-                );
+            $this->getQueryContainer(),
+            $this->getProductFacade()
+        );
     }
 
     /**
@@ -60,11 +63,10 @@ class StockBusinessFactory extends SprykerStockBusinessFactory
     public function getWriterModel()
     {
         return new Writer(
-                    $this->getQueryContainer(),
-                    $this->getReaderModel(),
-                    $this->getTouchFacade(),
-                    $this->getLocator()
-                );
+            $this->getQueryContainer(),
+            $this->getReaderModel(),
+            $this->getTouchFacade()
+        );
     }
 
 }

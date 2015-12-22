@@ -26,4 +26,10 @@ interface CmsToLocaleInterface
      */
     public function getLocale($localeName);
 
+
+    /**
+     * @return LocaleTransfer
+     */
+    public function getCurrentLocale();
+
 }

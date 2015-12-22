@@ -8,6 +8,7 @@ use Psr\Log\LoggerInterface;
 use Pyz\Zed\Glossary\Business\Internal\DemoData\GlossaryInstall;
 use Pyz\Zed\Glossary\GlossaryDependencyProvider;
 use Spryker\Zed\Glossary\Business\GlossaryBusinessFactory as SprykerGlossaryBusinessFactory;
+use Spryker\Zed\Glossary\Business\Translation\TranslationManagerInterface;
 
 class GlossaryBusinessFactory extends SprykerGlossaryBusinessFactory
 {
@@ -34,12 +35,12 @@ class GlossaryBusinessFactory extends SprykerGlossaryBusinessFactory
     public function createTranslationManager()
     {
         return new TranslationManager(
-                    $this->getQueryContainer(),
-                    $this->getTouchFacade(),
-                    $this->getLocaleFacade(),
-                    $this->createKeyManager(),
-                    $this->getMessagesFacade()
-                );
+            $this->getQueryContainer(),
+            $this->getTouchFacade(),
+            $this->getLocaleFacade(),
+            $this->createKeyManager(),
+            $this->getMessagesFacade()
+        );
     }
 
     /**
@@ -48,8 +49,8 @@ class GlossaryBusinessFactory extends SprykerGlossaryBusinessFactory
     public function createKeyManager()
     {
         return new KeyManager(
-                    $this->getQueryContainer()
-                );
+            $this->getQueryContainer()
+        );
     }
 
 }

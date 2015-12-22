@@ -3,6 +3,7 @@
 /**
  * (c) Spryker Systems GmbH copyright protected.
  */
+
 namespace Pyz\Zed\Category;
 
 use Spryker\Zed\Category\CategoryDependencyProvider as SprykerDependencyProvider;
@@ -24,10 +25,6 @@ class CategoryDependencyProvider extends SprykerDependencyProvider
 
         $container[self::QUERY_CONTAINER_LOCALE] = function (Container $container) {
             return $container->getLocator()->locale()->queryContainer();
-        };
-
-        $container[self::QUERY_CONTAINER_CATEGORY] = function (Container $container) {
-            return $container->getLocator()->category()->queryContainer();
         };
 
         return $container;

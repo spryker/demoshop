@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Collector\Communication\Plugin;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use Pyz\Zed\Collector\Business\CollectorFacade;
 use Pyz\Zed\Collector\Communication\CollectorCommunicationFactory;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
 use Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface;
@@ -12,6 +13,7 @@ use Spryker\Zed\Collector\Communication\Plugin\AbstractCollectorPlugin;
 
 /**
  * @method CollectorCommunicationFactory getFactory()
+ * @method CollectorFacade getFacade()
  */
 class CategoryNodeCollectorStoragePlugin extends AbstractCollectorPlugin
 {
@@ -30,9 +32,7 @@ class CategoryNodeCollectorStoragePlugin extends AbstractCollectorPlugin
         WriterInterface $dataWriter,
         TouchUpdaterInterface $touchUpdater
     ) {
-        return $this->getFactory()
-            ->getCollectorFacade()
-            ->runStorageCategoryNodeCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getFacade()->runStorageCategoryNodeCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
     }
 
 }

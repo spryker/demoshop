@@ -5,12 +5,12 @@ namespace Pyz\Zed\Category\Business\Internal\DemoData;
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
-use Pyz\Zed\Locale\Business\LocaleFacade;
-use Spryker\Zed\Touch\Business\TouchFacade;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Zed\Category\Business\Model\CategoryWriter;
 use Spryker\Zed\Category\Business\Model\CategoryWriterInterface;
 use Spryker\Zed\Category\Business\Tree\CategoryTreeWriter;
+use Spryker\Zed\Category\Dependency\Facade\CategoryToLocaleInterface;
+use Spryker\Zed\Category\Dependency\Facade\CategoryToTouchInterface;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
 use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 
@@ -44,7 +44,7 @@ class CategoryTreeInstall extends AbstractInstaller
     protected $locale;
 
     /**
-     * @var LocaleFacade
+     * @var CategoryToLocaleInterface
      */
     protected $localeFacade;
 
@@ -52,15 +52,15 @@ class CategoryTreeInstall extends AbstractInstaller
      * @param CategoryWriterInterface $categoryWriter
      * @param CategoryTreeWriter $categoryTreeWriter
      * @param CategoryQueryContainer $categoryQueryContainer
-     * @param LocaleFacade $localeFacade
-     * @param TouchFacade $touchFacade
+     * @param CategoryToLocaleInterface $localeFacade
+     * @param CategoryToTouchInterface $touchFacade
      */
     public function __construct(
         CategoryWriterInterface $categoryWriter,
         CategoryTreeWriter $categoryTreeWriter,
         CategoryQueryContainer $categoryQueryContainer,
-        LocaleFacade $localeFacade,
-        TouchFacade $touchFacade
+        CategoryToLocaleInterface $localeFacade,
+        CategoryToTouchInterface $touchFacade
     ) {
         $this->categoryWriter = $categoryWriter;
         $this->categoryTreeWriter = $categoryTreeWriter;
