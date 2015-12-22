@@ -3,15 +3,13 @@
 namespace Pyz\Yves\Catalog\Business\Creator;
 
 use Pyz\Client\Catalog\Model\FacetConfig;
-use Pyz\Yves\Collector\Creator\ResourceCreatorInterface;
+use Pyz\Yves\Collector\Creator\AbstractResourceCreator;
 use Silex\Application;
 use Spryker\Yves\Kernel\BundleControllerAction;
-use Spryker\Yves\Kernel\ClassResolver\Controller\ControllerResolver;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
-use Spryker\Shared\Application\Communication\ControllerServiceBuilder;
 use Spryker\Shared\Category\CategoryConstants;
 
-class CatalogResourceCreator implements ResourceCreatorInterface
+class CatalogResourceCreator extends AbstractResourceCreator
 {
 
     /**
@@ -36,23 +34,17 @@ class CatalogResourceCreator implements ResourceCreatorInterface
     }
 
     /**
-     * @param Application $app
+     * @param Application $application
      * @param array $data
      *
      * @return array
      */
-    public function createResource(Application $app, array $data)
+    public function createResource(Application $application, array $data)
     {
         $bundleControllerAction = new BundleControllerAction('Catalog', 'Catalog', 'index');
-        $controllerLocator = new ControllerResolver($bundleControllerAction);
         $routeResolver = new BundleControllerActionRouteNameResolver($bundleControllerAction);
 
-        $service = (new ControllerServiceBuilder())->createServiceForController(
-            $app,
-            $bundleControllerAction,
-            $controllerLocator,
-            $routeResolver
-        );
+        $service = $this->createServiceForController($application, $bundleControllerAction, $routeResolver);
 
         return [
             '_controller' => $service,

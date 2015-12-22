@@ -38,17 +38,17 @@ class CategoryResourceCreator extends AbstractResourceCreator
     }
 
     /**
-     * @param Application $app
+     * @param Application $application
      * @param array $data
      *
      * @return array
      */
-    public function createResource(Application $app, array $data)
+    public function createResource(Application $application, array $data)
     {
         $bundleControllerAction = new BundleControllerAction('Catalog', 'Catalog', 'index');
         $routeResolver = new BundleControllerActionRouteNameResolver($bundleControllerAction);
 
-        $service = $this->createServiceForController($app, $bundleControllerAction, $routeResolver);
+        $service = $this->createServiceForController($application, $bundleControllerAction, $routeResolver);
 
         return [
             '_controller' => $service,

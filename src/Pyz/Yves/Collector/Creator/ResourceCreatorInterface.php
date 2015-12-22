@@ -17,11 +17,11 @@ interface ResourceCreatorInterface
     public function getType();
 
     /**
-     * @param Application $app
+     * @param Application $application
      * @param array $data
      *
      * @return array
      */
-    public function createResource(Application $app, array $data);
+    public function createResource(Application $application, array $data);
 
 }
