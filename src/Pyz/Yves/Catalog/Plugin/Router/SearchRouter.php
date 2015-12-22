@@ -8,12 +8,9 @@ namespace Pyz\Yves\Catalog\Plugin\Router;
 
 use Pyz\Yves\Collector\Mapper\UrlMapperInterface;
 use Silex\Application;
-use Spryker\Yves\Kernel\Locator;
-use Spryker\Shared\Application\Communication\ControllerServiceBuilder;
 use Spryker\Yves\Application\Routing\AbstractRouter;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\RouteNameResolver;
-use Spryker\Yves\Kernel\ControllerLocator;
 use Pyz\Yves\Catalog\CatalogFactory;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
@@ -59,16 +56,9 @@ class SearchRouter extends AbstractRouter
             $this->getUrlMapper()->injectParametersFromUrlIntoRequest($pathinfo, $request);
 
             $bundleControllerAction = new BundleControllerAction('Catalog', 'Catalog', 'fulltextSearch');
-            $controllerResolver = new ControllerLocator($bundleControllerAction);
             $routeResolver = new RouteNameResolver('catalog');
 
-            $service = (new ControllerServiceBuilder())->createServiceForController(
-                $this->getApplication(),
-                Locator::getInstance(),
-                $bundleControllerAction,
-                $controllerResolver,
-                $routeResolver
-            );
+            $service = $this->createServiceForController($this->getApplication(), $bundleControllerAction, $routeResolver);
 
             return [
                 '_controller' => $service,

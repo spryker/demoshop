@@ -74,7 +74,6 @@ chown -R ${deploy_user}. .
 
 
 echo "Generate transfers .."
-APPLICATION_ENV=${environment} vendor/bin/build-class-map
 APPLICATION_ENV=${environment} vendor/bin/console transfer:generate
 
 

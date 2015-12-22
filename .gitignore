@@ -70,9 +70,6 @@ npm-debug.log
 /src/Orm/Propel/*/Schema
 /src/Orm/Propel/*/Sql
 
-# Factory Class Map
-.class_map
-
 # PHP CS Fixer
 .php_cs.cache
 
