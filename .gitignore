@@ -45,6 +45,7 @@ config/Yves/cache_bust.php
 
 # vagrant stuff
 .vagrant
+Vagrantfile
 
 # profiling
 /profiler
