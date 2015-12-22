@@ -1,4 +1,5 @@
 <?php
+
 /**
  * (c) Spryker Systems GmbH copyright protected
  */
@@ -17,7 +18,7 @@ class AddressStep extends BaseStep implements StepInterface
      */
     public function preCondition(QuoteTransfer $quoteTransfer)
     {
-        if (count($quoteTransfer->getItems()) === 0) {
+        if ($this->isCartEmpty($quoteTransfer)) {
             return false;
         }
         return true;
@@ -29,6 +30,23 @@ class AddressStep extends BaseStep implements StepInterface
     public function requireInput()
     {
         return true;
+    }
+
+    /**
+     * @todo do we still need two parameters if we can use one from form, check this when all steps implemented.!!
+     *
+     * @param QuoteTransfer $quoteTransfer
+     * @param QuoteTransfer $modifiedQuoteTransfer
+     *
+     * @return QuoteTransfer
+     */
+    public function execute(QuoteTransfer $quoteTransfer, $modifiedQuoteTransfer = null)
+    {
+        if ($this->isBillingAddressEmpty($quoteTransfer))  {
+            $modifiedQuoteTransfer->setBillingAddress($modifiedQuoteTransfer->getShippingAddress());
+        }
+
+        return $modifiedQuoteTransfer;
     }
 
     /**
@@ -47,20 +65,13 @@ class AddressStep extends BaseStep implements StepInterface
     }
 
     /**
-     * @todo do we still need two parameters if we can use one from form, check this when all steps implemented.!!
-     *
      * @param QuoteTransfer $quoteTransfer
-     * @param QuoteTransfer $modifiedQuoteTransfer
      *
-     * @return QuoteTransfer
+     * @return bool
      */
-    public function execute(QuoteTransfer $quoteTransfer, $modifiedQuoteTransfer = null)
+    protected function isCartEmpty(QuoteTransfer $quoteTransfer)
     {
-        if ($this->isEmptyBillingAddress($quoteTransfer))  {
-            $modifiedQuoteTransfer->setBillingAddress($modifiedQuoteTransfer->getShippingAddress());
-        }
-
-        return $modifiedQuoteTransfer;
+        return count($quoteTransfer->getItems()) === 0;
     }
 
     /**
@@ -68,7 +79,7 @@ class AddressStep extends BaseStep implements StepInterface
      *
      * @return bool
      */
-    protected function isEmptyBillingAddress(QuoteTransfer $quoteTransfer)
+    protected function isBillingAddressEmpty(QuoteTransfer $quoteTransfer)
     {
         if ($quoteTransfer->getBillingAddress() === null) {
             return true;

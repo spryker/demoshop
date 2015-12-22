@@ -1,4 +1,5 @@
 <?php
+
 /**
  * (c) Spryker Systems GmbH copyright protected
  */
@@ -12,6 +13,7 @@ use Symfony\Component\Validator\Constraints\Regex;
 
 class AddressType extends AbstractType
 {
+
     const FIELD_SALUTATION = 'salutation';
     const FIELD_FIRST_NAME = 'first_name';
     const FIELD_LAST_NAME = 'last_name';
@@ -27,8 +29,7 @@ class AddressType extends AbstractType
     protected $validationGroup;
 
     /**
-     * AddressType constructor.
-     * @param $validationGroup
+     * @param string $validationGroup
      */
     public function __construct($validationGroup)
     {
@@ -39,7 +40,7 @@ class AddressType extends AbstractType
      * @param FormBuilderInterface $builder
      * @param array $options
      *
-     * return void
+     * @return void
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -56,7 +57,7 @@ class AddressType extends AbstractType
      * @param FormBuilderInterface $builder
      * @param array $options
      *
-     * @return AddressType
+     * @return self
      */
     protected function addSalutation(FormBuilderInterface $builder, array $options)
     {
@@ -79,12 +80,11 @@ class AddressType extends AbstractType
         return $this;
     }
 
-
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
      *
-     * @return AddressType
+     * @return self
      */
     protected function addFirstName(FormBuilderInterface $builder, array $options)
     {
@@ -110,7 +110,7 @@ class AddressType extends AbstractType
      * @param FormBuilderInterface $builder
      * @param array $options
      *
-     * @return AddressType
+     * @return self
      */
     protected function addLastName(FormBuilderInterface $builder, array $options)
     {
@@ -136,7 +136,7 @@ class AddressType extends AbstractType
      * @param FormBuilderInterface $builder
      * @param array $options
      *
-     * @return AddressType
+     * @return self
      */
     protected function addStreetName(FormBuilderInterface $builder, array $options)
     {
@@ -163,7 +163,7 @@ class AddressType extends AbstractType
      * @param FormBuilderInterface $builder
      * @param array $options
      *
-     * @return AddressType
+     * @return self
      */
     protected function addStreetNumber(FormBuilderInterface $builder, array $options)
     {
@@ -191,7 +191,7 @@ class AddressType extends AbstractType
      * @param FormBuilderInterface $builder
      * @param array $options
      *
-     * @return AddressType
+     * @return self
      */
     protected function addZipCode(FormBuilderInterface $builder, array $options)
     {
@@ -218,7 +218,7 @@ class AddressType extends AbstractType
      * @param FormBuilderInterface $builder
      * @param array $options
      *
-     * @return AddressType
+     * @return self
      */
     protected function addCity(FormBuilderInterface $builder, array $options)
     {
@@ -259,4 +259,5 @@ class AddressType extends AbstractType
     {
         return 'checkoutAddressForm';
     }
+
 }

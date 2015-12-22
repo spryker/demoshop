@@ -1,10 +1,10 @@
 <?php
+
 /**
  * (c) Spryker Systems GmbH copyright protected
  */
 
 namespace Pyz\Yves\Checkout\Process\Steps;
-
 
 use Generated\Shared\Transfer\QuoteTransfer;
 

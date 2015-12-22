@@ -1,11 +1,11 @@
 <?php
+
 /**
  * (c) Spryker Systems GmbH copyright protected
  */
 
 namespace Pyz\Yves\Checkout\Form\Multipage;
 
-use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Spryker\Client\Payolution\PayolutionClientInterface;
 use Symfony\Component\Form\AbstractType;
@@ -18,7 +18,7 @@ class PaymentType extends AbstractType
     const FIELD_PAYOLUTION_PAYMENT = 'paymentMethod';
 
     /**
-     * @var PayolutionCalculationResponseTransfer
+     * @var PayolutionClientInterface
      */
     protected $payolutionClient;
 
@@ -38,16 +38,17 @@ class PaymentType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $this->addPayolutionPaymentForm($builder)
-             ->addSubmit($builder);
+        $this->addPayolutionPaymentForm($builder, $options)
+             ->addSubmit($builder, $options);
     }
 
     /**
      * @param FormBuilderInterface $builder
+     * @param array $options
      *
-     * @return PaymentType
+     * @return self
      */
-    protected function addPayolutionPaymentForm(FormBuilderInterface $builder)
+    protected function addPayolutionPaymentForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
             self::FIELD_PAYOLUTION_PAYMENT,
@@ -63,10 +64,11 @@ class PaymentType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
+     * @param array $options
      *
-     * @return PaymentType
+     * @return self
      */
-    protected function addSubmit(FormBuilderInterface $builder)
+    protected function addSubmit(FormBuilderInterface $builder, array $options)
     {
         $builder->add('checkout.step.summary', 'submit');
 

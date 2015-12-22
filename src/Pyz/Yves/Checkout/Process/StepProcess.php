@@ -1,4 +1,5 @@
 <?php
+
 /**
  * (c) Spryker Systems GmbH copyright protected
  */
@@ -25,6 +26,16 @@ class StepProcess
     protected $steps = [];
 
     /**
+     * @var StepInterface[]
+     */
+    protected $completedSteps = [];
+
+    /**
+     * @var CartClient
+     */
+    protected $cartClient;
+
+    /**
      * @var Application
      */
     protected $application;
@@ -33,16 +44,6 @@ class StepProcess
      * @var string
      */
     protected $errorRoute = 'checkout_error_route';
-
-    /**
-     * @var CartClient
-     */
-    protected $cartClient;
-
-    /**
-     * @var StepInterface[]
-     */
-    protected $completedSteps = [];
 
     /**
      * @param Application $application
@@ -95,7 +96,7 @@ class StepProcess
                 }
             }
             return [
-                'previousStepUrl' => $this->getUrlForPreviousStep(),
+                'previousStepUrl' => $this->getUrlFromRoute($this->getPreviousStepRoute()),
                 'quoteTransfer' => $this->getQuoteTransfer(),
                 'form' => $form->createView(),
             ];
@@ -103,7 +104,7 @@ class StepProcess
             $quoteTransfer = $currentStep->execute($this->getQuoteTransfer());
             $this->cartClient->storeQuoteToSession($quoteTransfer);
             return [
-                'previousStepUrl' => $this->getUrlForPreviousStep(),
+                'previousStepUrl' => $this->getUrlFromRoute($this->getPreviousStepRoute()),
                 'quoteTransfer' => $this->getQuoteTransfer(),
             ];
         }
@@ -111,6 +112,9 @@ class StepProcess
 
     /**
      * @todo cleanup logic.
+     *
+     * @param Request $request
+     *
      * @return StepInterface
      */
     protected function getCurrentStep(Request $request)
@@ -137,7 +141,9 @@ class StepProcess
     }
 
     /**
-     * @return StepInterface|null
+     * @param StepInterface $currentStep
+     *
+     * @return null|StepInterface
      */
     protected function getNextStep(StepInterface $currentStep)
     {
@@ -148,9 +154,9 @@ class StepProcess
         foreach ($this->steps as $step) {
             if ($step->getStepRoute() === $currentStep->getStepRoute()) {
                 return current($this->steps);
-                break;
             }
         }
+
         return null;
     }
 
@@ -198,85 +204,6 @@ class StepProcess
     }
 
     /**
-     * @param StepInterface $currentStep
-     * @param QuoteTransfer $quoteTransfer
-     *
-     * @return string
-     */
-    protected function getNextStepRoute(StepInterface $currentStep, QuoteTransfer $quoteTransfer)
-    {
-        if ($currentStep->postCondition($quoteTransfer)) {
-            $nextStep = $this->getNextStep($currentStep);
-            if ($nextStep !== null) {
-                return $nextStep->getStepRoute();
-            }
-        }
-
-        return $currentStep->getStepRoute();
-    }
-
-    /**
-     * @param AbstractType $formType
-     * @param mixed $data
-     *
-     * @return FormInterface
-     */
-    protected function createForm(AbstractType $formType, $data = null)
-    {
-        return $this->application->createForm($formType, $data);
-    }
-
-    /**
-     * @param StepInterface $currentStep
-     *
-     * @return string
-     */
-    protected function getEscapeRoute(StepInterface $currentStep)
-    {
-        $escapeUrl = $currentStep->getEscapeRoute();
-        if ($escapeUrl === null) {
-            $escapeUrl = $this->getPreviousStep()->getStepRoute();
-        }
-
-        return $escapeUrl;
-    }
-
-    /**
-     * @param StepInterface $currentStep
-     *
-     * @return string
-     */
-    protected function executeWithoutInput(StepInterface $currentStep)
-    {
-        $quoteTransfer = $currentStep->execute($this->getQuoteTransfer());
-        $this->cartClient->storeQuoteToSession($quoteTransfer);
-        return $this->getNextStepRoute($currentStep, $quoteTransfer);
-    }
-
-    /**
-     * @param StepInterface $currentStep
-     * @param $data
-     *
-     * @return string
-     */
-    protected function executeWithFormInput(StepInterface $currentStep, $data)
-    {
-        $quoteTransfer = $currentStep->execute($this->getQuoteTransfer(), $data);
-        $this->cartClient->storeQuoteToSession($quoteTransfer);
-        return $this->getNextStepRoute($currentStep, $quoteTransfer);
-    }
-
-    /**
-     * @param string $route
-     *
-     * @return RedirectResponse
-     */
-    protected function createRedirectResponse($route)
-    {
-        return new RedirectResponse($this->getUrlFromRoute($route));
-    }
-
-    /**
      * @param Request $request
      * @param StepInterface $currentStep
      *
@@ -298,24 +225,111 @@ class StepProcess
     }
 
     /**
+     * @param StepInterface $currentStep
+     * @param QuoteTransfer $quoteTransfer
+     *
      * @return string
      */
-    protected function getUrlFromRoute($route)
+    protected function getNextStepRoute(StepInterface $currentStep, QuoteTransfer $quoteTransfer)
     {
-        return $this->application->path($route);
+        if ($currentStep->postCondition($quoteTransfer)) {
+            $nextStep = $this->getNextStep($currentStep);
+            if ($nextStep !== null) {
+                return $nextStep->getStepRoute();
+            }
+        }
+
+        return $currentStep->getStepRoute();
     }
 
     /**
      * @return string
      */
-    protected function getUrlForPreviousStep()
+    protected function getPreviousStepRoute()
     {
         $step = $this->getPreviousStep();
-        if (!empty($step)) {
-            return $this->getUrlFromRoute($this->getPreviousStep()->getStepRoute());
+        if (empty($step) === false) {
+            return $this->getPreviousStep()->getStepRoute();
         }
 
         return '';
+    }
+
+    /**
+     * @param StepInterface $currentStep
+     *
+     * @return string
+     */
+    protected function getEscapeRoute(StepInterface $currentStep)
+    {
+        $escapeUrl = $currentStep->getEscapeRoute();
+        if ($escapeUrl === null) {
+            $escapeUrl = $this->getPreviousStep()->getStepRoute();
+        }
+
+        return $escapeUrl;
+    }
+
+    /**
+     * @param string $route
+     *
+     * @return string
+     */
+    protected function getUrlFromRoute($route)
+    {
+        if (empty($route) === true) {
+            return $route;
+        }
+
+        return $this->application->path($route);
+    }
+
+    /**
+     * @param StepInterface $currentStep
+     *
+     * @return string
+     */
+    protected function executeWithoutInput(StepInterface $currentStep)
+    {
+        $quoteTransfer = $currentStep->execute($this->getQuoteTransfer());
+        $this->cartClient->storeQuoteToSession($quoteTransfer);
+
+        return $this->getNextStepRoute($currentStep, $quoteTransfer);
+    }
+
+    /**
+     * @param StepInterface $currentStep
+     * @param $data
+     *
+     * @return string
+     */
+    protected function executeWithFormInput(StepInterface $currentStep, $data)
+    {
+        $quoteTransfer = $currentStep->execute($this->getQuoteTransfer(), $data);
+        $this->cartClient->storeQuoteToSession($quoteTransfer);
+
+        return $this->getNextStepRoute($currentStep, $quoteTransfer);
+    }
+
+    /**
+     * @param AbstractType $formType
+     * @param mixed $data
+     *
+     * @return FormInterface
+     */
+    protected function createForm(AbstractType $formType, $data = null)
+    {
+        return $this->application->createForm($formType, $data);
+    }
+
+    /**
+     * @param string $route
+     *
+     * @return RedirectResponse
+     */
+    protected function createRedirectResponse($route)
+    {
+        return new RedirectResponse($this->getUrlFromRoute($route));
     }
 
     /**
@@ -325,4 +339,5 @@ class StepProcess
     {
         return $this->cartClient->getQuote();
     }
+
 }

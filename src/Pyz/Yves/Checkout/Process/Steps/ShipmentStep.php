@@ -1,4 +1,5 @@
 <?php
+
 /**
  * (c) Spryker Systems GmbH copyright protected
  */
@@ -20,7 +21,7 @@ class ShipmentStep extends BaseStep implements StepInterface
      */
     public function preCondition(QuoteTransfer $quoteTransfer)
     {
-        if (count($quoteTransfer->getItems()) === 0) {
+        if ($this->isCartEmpty($quoteTransfer)) {
             return false;
         }
 
@@ -33,16 +34,6 @@ class ShipmentStep extends BaseStep implements StepInterface
     public function requireInput()
     {
         return true;
-    }
-
-    /**
-     * @param QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
-    public function postCondition(QuoteTransfer $quoteTransfer)
-    {
-        return $this->isShipmentSet($quoteTransfer);
     }
 
     /**
@@ -64,16 +55,19 @@ class ShipmentStep extends BaseStep implements StepInterface
      *
      * @return bool
      */
-    protected function isShipmentSet(QuoteTransfer $quoteTransfer)
+    public function postCondition(QuoteTransfer $quoteTransfer)
     {
-        foreach ($quoteTransfer->getExpenses() as $expenseTransfer) {
-           if ($expenseTransfer->getType() === ShipmentConstants::SHIPMENT_EXPENSE_TYPE) {
-               return true;
-           }
-        }
+        return $this->isShipmentSet($quoteTransfer);
+    }
 
-        return false;
-
+    /**
+     * @param QuoteTransfer $quoteTransfer
+     *
+     * @return bool
+     */
+    protected function isCartEmpty(QuoteTransfer $quoteTransfer)
+    {
+        return count($quoteTransfer->getItems()) === 0;
     }
 
     /**
@@ -116,6 +110,22 @@ class ShipmentStep extends BaseStep implements StepInterface
     protected function createExpenseTransfer()
     {
         return new ExpenseTransfer();
+    }
+
+    /**
+     * @param QuoteTransfer $quoteTransfer
+     *
+     * @return bool
+     */
+    protected function isShipmentSet(QuoteTransfer $quoteTransfer)
+    {
+        foreach ($quoteTransfer->getExpenses() as $expenseTransfer) {
+            if ($expenseTransfer->getType() === ShipmentConstants::SHIPMENT_EXPENSE_TYPE) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }

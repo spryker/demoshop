@@ -1,4 +1,5 @@
 <?php
+
 /**
  * (c) Spryker Systems GmbH copyright protected
  */
@@ -20,6 +21,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class ShipmentType extends AbstractType
 {
+
     const FIELD_SHIPMENT_METHOD = 'shipmentMethod';
 
     /**
@@ -81,41 +83,18 @@ class ShipmentType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $this->addShipmentMethods($builder)
+        $this->addShipmentMethods($builder, $options)
              ->addShipmentTransformer($builder)
-             ->addSubmit($builder);
+             ->addSubmit($builder, $options);
     }
 
     /**
      * @param FormBuilderInterface $builder
+     * @param array $options
      *
      * @return self
      */
-    protected function addShipmentTransformer(FormBuilderInterface $builder)
-    {
-        $builder->get(self::FIELD_SHIPMENT_METHOD)
-            ->addModelTransformer(
-            new CallbackTransformer(
-                function (ShipmentMethodTransfer $shipmentMethodTransfer = null) {
-                    if ($shipmentMethodTransfer !== null) {
-                        return $shipmentMethodTransfer->getIdShipmentMethod();
-                    }
-                },
-                function ($submittedIdShipmentMethod) {
-                    return $this->getShipmentMethodById($submittedIdShipmentMethod);
-                }
-            )
-        );
-
-        return $this;
-    }
-
-    /**
-     * @param FormBuilderInterface $builder
-     *
-     * @return self
-     */
-    protected function addShipmentMethods(FormBuilderInterface $builder)
+    protected function addShipmentMethods(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
             self::FIELD_SHIPMENT_METHOD,
@@ -128,6 +107,43 @@ class ShipmentType extends AbstractType
                 'empty_value' => false,
             ]
         );
+
+        return $this;
+    }
+
+    /**
+     * @param FormBuilderInterface $builder
+     *
+     * @return self
+     */
+    protected function addShipmentTransformer(FormBuilderInterface $builder)
+    {
+        $builder->get(self::FIELD_SHIPMENT_METHOD)
+            ->addModelTransformer(
+                new CallbackTransformer(
+                    function (ShipmentMethodTransfer $shipmentMethodTransfer = null) {
+                        if ($shipmentMethodTransfer !== null) {
+                            return $shipmentMethodTransfer->getIdShipmentMethod();
+                        }
+                    },
+                    function ($submittedIdShipmentMethod) {
+                        return $this->getShipmentMethodById($submittedIdShipmentMethod);
+                    }
+                )
+            );
+
+        return $this;
+    }
+
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     *
+     * @return self
+     */
+    protected function addSubmit(FormBuilderInterface $builder, array $options)
+    {
+        $builder->add('checkout.step.payment', 'submit');
 
         return $this;
     }
@@ -150,7 +166,7 @@ class ShipmentType extends AbstractType
     }
 
     /**
-     * @param $method
+     * @param ShipmentMethodTransfer $method
      *
      * @return int
      */
@@ -160,6 +176,7 @@ class ShipmentType extends AbstractType
         if (!empty($method->getTime())) {
             $deliveryTime = ($method->getTime() / 3600);
         }
+
         return $deliveryTime;
     }
 
@@ -177,6 +194,7 @@ class ShipmentType extends AbstractType
 
     /**
      * @param ShipmentMethodTransfer $shipmentMethodTransfer
+     *
      * @return string
      */
     protected function getShipmentDescription(ShipmentMethodTransfer $shipmentMethodTransfer)
@@ -193,18 +211,6 @@ class ShipmentType extends AbstractType
         }
 
         return $shipmentDescription;
-    }
-
-    /**
-     * @param FormBuilderInterface $builder
-     *
-     * @return self
-     */
-    protected function addSubmit(FormBuilderInterface $builder)
-    {
-        $builder->add('checkout.step.payment', 'submit');
-
-        return $this;
     }
 
     /**
@@ -262,15 +268,11 @@ class ShipmentType extends AbstractType
 
 
     /**
-     * Returns the name of this type.
-     *
-     * @return string The name of this type
+     * @return string
      */
     public function getName()
     {
         return 'shipmentAddressForm';
     }
-
-
 
 }

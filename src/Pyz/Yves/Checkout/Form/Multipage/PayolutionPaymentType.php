@@ -1,11 +1,11 @@
 <?php
+
 /**
  * (c) Spryker Systems GmbH copyright protected
  */
 
 namespace Pyz\Yves\Checkout\Form\Multipage;
 
-use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Spryker\Client\Payolution\PayolutionClientInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,7 +21,7 @@ class PayolutionPaymentType extends AbstractType
     const FIELD_BANK_ACCOUNT_BIC = 'bank_account_bic';
 
     /**
-     * @var PayolutionCalculationResponseTransfer
+     * @var PayolutionClientInterface
      */
     protected $payolutionClient;
 
@@ -33,21 +33,26 @@ class PayolutionPaymentType extends AbstractType
         $this->payolutionClient = $payolutionClient;
     }
 
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $this->addInstallmentPaymentDetails($builder)
-             ->addDateOfBirth($builder)
-             ->addBankAccountHolder($builder)
-             ->addBankAccountIban($builder)
-             ->addBankAccountBic($builder);
+        $this->addInstallmentPaymentDetails($builder, $options)
+             ->addDateOfBirth($builder, $options)
+             ->addBankAccountHolder($builder, $options)
+             ->addBankAccountIban($builder, $options)
+             ->addBankAccountBic($builder, $options);
     }
 
     /**
      * @param FormBuilderInterface $builder
+     * @param array $options
      *
-     * @return PayolutionPaymentType
+     * @return self
      */
-    public function addInstallmentPaymentDetails(FormBuilderInterface $builder)
+    public function addInstallmentPaymentDetails(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
             self::FIELD_INSTALLMENT_PAYMENT_DETAIL_INDEX,
@@ -67,10 +72,11 @@ class PayolutionPaymentType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
+     * @param array $options
      *
-     * @return PayolutionPaymentType
+     * @return self
      */
-    protected function addDateOfBirth(FormBuilderInterface $builder)
+    protected function addDateOfBirth(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
             self::FIELD_DATE_OF_BIRTH,
@@ -91,10 +97,11 @@ class PayolutionPaymentType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
+     * @param array $options
      *
-     * @return PayolutionPaymentType
+     * @return self
      */
-    protected function addBankAccountHolder(FormBuilderInterface $builder)
+    protected function addBankAccountHolder(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
             self::FIELD_BANK_ACCOUNT_HOLDER,
@@ -113,10 +120,11 @@ class PayolutionPaymentType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
+     * @param array $options
      *
-     * @return PayolutionPaymentType
+     * @return self
      */
-    protected function addBankAccountIban(FormBuilderInterface $builder)
+    protected function addBankAccountIban(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
             self::FIELD_BANK_ACCOUNT_IBAN,
@@ -135,10 +143,11 @@ class PayolutionPaymentType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
+     * @param array $options
      *
-     * @return PayolutionPaymentType
+     * @return self
      */
-    protected function addBankAccountBic(FormBuilderInterface $builder)
+    protected function addBankAccountBic(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
             self::FIELD_BANK_ACCOUNT_BIC,

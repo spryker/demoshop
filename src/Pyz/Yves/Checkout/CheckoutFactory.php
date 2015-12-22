@@ -14,7 +14,7 @@ use Pyz\Yves\Checkout\Process\Steps\PaymentStep;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Pyz\Yves\Checkout\Process\Steps\StepInterface;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
-use Spryker\Client\Calculation\Service\CalculationClient;
+use Spryker\Client\Calculation\CalculationClient;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Yves\Application\Application;
@@ -110,8 +110,9 @@ class CheckoutFactory extends AbstractFactory
         );
         return $this->getFormFactory()->create($formType, $checkoutRequestTransfer);
     }
+
     /**
-     * @todo get rid of application dependecy.
+     * @todo get rid of application dependency.
      *
      * @param Application $application
      *
@@ -199,6 +200,9 @@ class CheckoutFactory extends AbstractFactory
         );
     }
 
+    /**
+     * @return PaymentType
+     */
     public function createPaymentType()
     {
         return new PaymentType(
