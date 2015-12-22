@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3d60cd22573bb06f37757bf7cce49632",
-    "content-hash": "0dfd4f540f9e73bca7bb72bde1ebf6f4",
+    "hash": "f24c7afd7970b2ec76c5c208bd194073",
+    "content-hash": "76fb7141817e052c39ef9f00df8e2c5c",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -700,11 +700,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/1003-Add-exception-to-ZedBootstrap",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "a54a021c1fa62afc1408eed8c8182c7584b90fe2"
+                "reference": "49afb37d66f492760567ad8bc9099f15ea72f86b"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -786,7 +786,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2015-12-22 13:56:59"
+            "time": "2015-12-22 14:12:30"
         },
         {
             "name": "symfony-cmf/routing",
