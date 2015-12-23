@@ -1,0 +1,34 @@
+.infinity-scroll {
+  border-top: 1px solid $cGrey2;
+  color: $cGrey5;
+  font-size: 16px;
+  line-height: 30px;
+  text-align: center;
+  padding: 30px 0;
+  .loader {
+    display: inline-block;
+    vertical-align: middle;
+    width: 30px;
+    background: url(/images/bg-images/bg-loader.png) no-repeat;
+    background-size: 100% 100%;
+    height: 30px;
+    margin: 0 20px 0 0;
+    -webkit-animation: load3 1.4s infinite linear;
+    animation: load3 1.4s infinite linear;
+  }
+  &>span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+@keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

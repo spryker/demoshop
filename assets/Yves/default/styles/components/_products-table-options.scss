@@ -1,0 +1,120 @@
+.products-table {
+  .details-column {
+    color: $cGrey5;
+    padding-top: 27px;
+    .category {
+      display: block;
+      font-size: 14px;
+      margin: 0 0 2px;
+    }
+    .product-name {
+      font-size: 20px;
+      margin: 0 0 10px;
+    }
+    .show-details {
+      a {
+        text-decoration: none;
+        color: $cBlue2;
+        font-size: 11px;
+        .close {
+          display: none;
+        }
+      }
+    }
+    .product-options {
+      padding: 0;
+      margin: 0;
+    }
+    .existing-notice {
+      font-size: 14px;
+      line-height: 38px;
+      .edit-notice {
+        margin-top: 10px;
+        width: 16px;
+        height: 16px;
+        float: right;
+        overflow: hidden;
+        text-indent: -9999px;
+        background: url(/images/icons/icon-edit-button.png) no-repeat;
+        background-size: 100%;
+      }
+      .holder {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        .label {
+          margin-top: 0;
+        }
+      }
+    }
+    &.open {
+      .show-details {
+        .close {
+          display: inline;
+        }
+        .open {
+          display: none;
+        }
+      }
+    }
+  }
+  .add-time {
+    font-size: 10px;
+    color: $cGrey3;
+    padding: 5px 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .products-table {
+    .item-block {
+      .details-column {
+        padding: 4px 0 0;
+        .full-details {
+          display: none;
+          border-top: 1px solid $cGrey1;
+          clear: both;
+          width: calc(100% + 30px);
+          margin: 0 -15px;
+        }
+        .category {
+          font-size: 11px;
+        }
+        .product-name {
+          font-size: 14px;
+        }
+        .show-details {
+          margin: 0 0 5px;
+        }
+        .existing-notice {
+          padding: 0 25px 0 14px;
+          font-size: 14px;
+          line-height: 38px;
+          position: relative;
+          &:after {
+            position: absolute;
+            width: 6px;
+            height: 11px;
+            top: 50%;
+            margin: -6px 0 0;
+            right: 14px;
+            content: "";
+            background: url(/images/bg-images/bg-arrow3.gif) no-repeat;
+          }
+          .edit-notice {
+            display: none;
+          }
+        }
+        &.open {
+          .full-details {
+            display: block;
+          }
+        }
+      }
+    }
+    .add-time {
+      font-size: 9px;
+      padding: 5px 15px;
+    }
+  }
+}

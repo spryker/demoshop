@@ -1,0 +1,18 @@
+.categories-list {
+  margin: 0 -6px;
+  .category-item {
+    float: left;
+    width: calc(33.3333333333333% - 12px);
+    margin: 0 6px 14px 6px;
+  }
+}
+
+@import "category-item";
+
+@media screen and (max-width: 767px) {
+  .categories-list {
+    .category-item {
+      width: calc(50% - 12px);
+    }
+  }
+}

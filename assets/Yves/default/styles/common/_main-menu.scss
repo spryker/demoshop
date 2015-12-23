@@ -1,0 +1,113 @@
+@media screen and (min-width: 768px) {
+  @import "../common/main-menu-general";
+}
+
+@media screen and (max-width: 767px) {
+  .page {
+    transition: margin 0.3s, padding 0.3s;
+  }
+  #nav {
+    font-size: 14px;
+    transition: left 0.3s;
+    box-sizing: border-box;
+    position: fixed;
+    left: -272px;
+    top: 0;
+    width: 272px;
+    height: 100%;
+    background: $cWhite;
+    z-index: 5;
+    overflow-y: auto;
+    border-right: 1px solid $cGrey2;
+    box-shadow: inset -7px 0 9px -7px rgba($cBlack, 0.4);
+    .wrapper {
+      .extra-menu {
+        color: $cGrey4;
+        .title {
+          font-size: 10px;
+          padding: 20px 15px 6px;
+          text-transform: uppercase;
+          background: $cGrey1;
+          box-shadow: inset -7px 0 9px -7px rgba($cBlack, 0.4);
+        }
+      }
+      &>ul {
+        background: $cWhite;
+        box-shadow: inset -7px 0 9px -7px rgba($cBlack, 0.4);
+        &>li {
+          border-bottom: 1px solid $cGrey2;
+          a {
+            display: block;
+            padding: 14px;
+            text-decoration: none;
+            position: relative;
+            &.sub-menu {
+              &:after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                margin: -3px 0 0;
+                right: 7px;
+                width: 11px;
+                height: 6px;
+                background: url(/images/icons/icon-arrow-down-blue.png) no-repeat;
+                background-size: 100%;
+              }
+              &.open {
+                &:after {
+                  transform: rotate(180deg);
+                }
+              }
+            }
+          }
+          .sub-menu.open + .dropdown,
+          .sub-menu.open + .dropdown > ul,
+          .sub-menu.open + ul {
+            display: block;
+          }
+          ul {
+            display: none;
+            background: $cGrey1;
+            font-size: 11px;
+            box-shadow: inset -7px 0 9px -7px rgba($cBlack, 0.4);
+            li {
+              border-top: 1px solid $cGrey2;
+              a {
+                text-decoration: none;
+                color: $cGrey5;
+                padding: 14px 15px;
+                display: block;
+              }
+            }
+          }
+        }
+        .dropdown,
+        .favorite-block {
+          display: none;
+        }
+      }
+    }
+  }
+  .menu-open {
+    height: 100vh;
+    overflow: hidden;
+    .page {
+      margin-right: -272px;
+      padding-left: 272px;
+      position: fixed;
+      &:after {
+        content: "";
+        right: 0;
+        left: 272px;
+        height: 100%;
+        position: fixed;
+        background: transparent;
+        z-index: 4;
+        top: 0;
+      }
+      #nav {
+        left: 0;
+      }
+    }
+  }
+}
