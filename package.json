@@ -27,6 +27,8 @@
     "jquery-slimscroll": "^1.3.6",
     "jquery-ui-bundle": "^1.11.4",
     "metismenu": "^2.2.0",
-    "pace": "git+https://github.com/HubSpot/pace.git"
+    "nestable": "git+https://github.com/ilmente/Nestable.git",
+    "pace": "git+https://github.com/HubSpot/pace.git",
+    "select2": "^4.0.1"
   }
 }
