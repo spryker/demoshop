@@ -1,0 +1,38 @@
+.wishlist-notification {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 20;
+  width: 112px;
+  border: 1px solid $cBlue2;
+  color: $cBlue2;
+  padding: 18px 20px 18px 66px;
+  font: 12px / 1.2 $fRobotoMedium;
+  background: $cBlue1 url(/images/icons/ico-wishlist.png) 20px 50% no-repeat;
+  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+  display: none;
+  &:after,
+  &:before {
+    bottom: 100%;
+    left: 85%;
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+  &:after {
+    border-color: rgba(237, 247, 249, 0);
+    border-bottom-color: $cBlue1;
+    border-width: 6px;
+    margin-left: -6px;
+  }
+  &:before {
+    border-color: rgba(71, 180, 209, 0);
+    border-bottom-color: $cBlue2;
+    border-width: 7px;
+    margin-left: -7px;
+  }
+}

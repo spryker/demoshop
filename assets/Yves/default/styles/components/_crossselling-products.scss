@@ -1,0 +1,35 @@
+.cross-selling-products{
+  padding: 34px 20px;
+  border-top: 1px solid $cGrey1;
+  margin: 28px -20px 26px;
+  color: $cGrey3;
+  h2{
+    font: italic 24px $fGeorgia;
+    margin: 0 0 18px;
+  }
+  ul{
+  	text-align: center;
+  	li{
+  		width: 16.66%;
+  		float: left;
+  		img{
+  			display: block;
+  			margin: 0 auto 17px;
+  			width: 100%;
+  			height: auto;
+  		}
+  		.name{
+  			display: block;
+  			padding: 0 5px;
+  			overflow: hidden;
+  			white-space: nowrap;
+  			text-overflow: ellipsis;
+  		}
+  	}
+  }
+}
+@media screen and (max-width: 767px) {
+	.cross-selling-products{
+		display: none;
+	}
+}

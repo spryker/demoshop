@@ -1,0 +1,62 @@
+@import "font-face";
+@import "reset";
+@import "vars";
+@import "mixins";
+@import "icon-sprite-styles";
+
+/* fix floats */
+.cfx:after {
+  clear: both;
+  display: block;
+  content: "";
+}
+
+body {
+  font: 12px / 1.2 $fRobotoRegular;
+  background: $cGrey1;
+}
+
+a {
+  color: $cGrey4;
+  text-decoration: none;
+   outline: 0;
+}
+/* wrapper */
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+input,
+textarea,
+button {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+.hide{display: none !important;}
+
+.invalid{border-color: $cMagenta2 !important;}
+
+.desktop-view {
+  display: block !important;
+}
+
+.mobile-view {
+  display: none !important;
+}
+
+@media screen and (max-width: 1279px) {
+  .block-wrapper {
+    padding: 0 6px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .desktop-view {
+    display: none !important;
+  }
+  .mobile-view {
+    display: block !important;
+  }
+}

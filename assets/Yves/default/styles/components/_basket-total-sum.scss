@@ -1,0 +1,104 @@
+.total-sum {
+	float: right;
+	width: 30%;
+	margin: 0;
+	color: $cGrey5;
+	font-size: 14px;
+	dt {
+		float: left;
+	}
+	dd {
+		margin: 0;
+		overflow: hidden;
+		text-align: right;
+	}
+	.tax {
+		font-size: 12px;
+		padding-bottom: 15px;
+	}
+	.promocode {
+		color: $cGrey5;
+		text-decoration: none;
+		font-size: 12px;
+		.promocode-btn{
+			&:after {
+				width: 4px;
+				height: 7px;
+				display: inline-block;
+				content: "";
+				margin: 0 0 0 8px;
+				background: url(/images/bg-images/bg-arrow5.png) no-repeat;
+			}
+		}
+		&.valid{
+			color: $cBlue2;
+		}
+		.promocode-btn.open-form{
+			display: none;
+			& + .promocode-form{
+				display: block;
+			}
+		}
+		.promocode-form{
+			display: none;
+		}
+	}
+	.promocode-form{
+		margin: 0 0 5px;
+		input[type="text"]{
+			float: left;
+			width: 109px;
+			padding: 0 11px;
+			border: 1px solid #e6e6e6;
+			border-radius: 2px;
+			color: $cGrey5;
+			font-size: 12px;
+			line-height: 38px;
+			height: 38px;
+			float: left;
+			margin: 0 4px 0 0;
+		}
+		.submit-btn{
+			padding: 0;
+			float: left;
+			width: 38px;
+			height: 38px;
+			border: 1px solid $cMagenta2;
+			border-radius: 2px;
+			background: $cWhite;
+			color: transparent;
+			cursor: pointer;
+			position: relative;
+			&:before{
+				content: '';
+				position: absolute;
+				background: url(/images/icons/icon-arrow-right-2.png) no-repeat;
+				width: 4px;
+				height: 7px;
+				left: 50%;
+				top: 50%;
+				margin: -3px 0 0 -2px;
+			}
+		}
+	}
+	.total-row {
+		color: $cMagenta2;
+		line-height: 27px;
+		padding-top: 20px;
+	}
+	dt.total-row{
+		clear: left;
+	}
+	dd.total-row {
+		font-size: 24px;
+		float: right;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.total-sum {
+		float: none;
+		width: auto;
+		padding: 0 15px 25px;
+	}
+}

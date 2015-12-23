@@ -1,0 +1,33 @@
+@import "../common/common";
+@import "../common/header";
+@import "../common/main-menu";
+@import "../common/breadcrumbs";
+@import "../common/testimonials-block";
+@import "../components/custom-select";
+
+.item-details-wrapper {
+  padding: 20px;
+  background: $cWhite;
+  margin-bottom: 35px;
+  .gallery-wrapper {
+    float: left;
+    width: calc(68% - 12px);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .item-details-wrapper {
+    padding: 0;
+    .gallery-wrapper {
+      width: auto;
+      float: none;
+      padding: 14px;
+    }
+  }
+}
+
+@import "../components/details-page-gallery";
+@import "../components/crossselling-products";
+@import "../components/product-details";
+@import "../components/wishlist-notification";
+@import "../common/footer";

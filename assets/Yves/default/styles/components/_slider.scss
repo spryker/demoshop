@@ -1,0 +1,26 @@
+.ui-slider {
+
+  .ui-slider-handle {
+    background-image: none !important;
+    background-color: $dark-color !important;
+    border-color: darken($dark-color, 10%) !important;
+    border-radius: 5px !important;
+    outline: none !important;
+
+    &::after {
+      content: '|||';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      color: rgba(255,255,255,0.8);
+      font-size: 10px;
+      letter-spacing: -3px;
+      line-height: 1;
+    }
+  }
+
+  .ui-widget-header{
+    background-image: none !important;
+    background-color: lighten($muted-color, 10%) !important;
+  }
+}

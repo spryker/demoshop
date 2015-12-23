@@ -1,0 +1,19 @@
+@import "../common/common";
+@import "../common/header";
+@import "../components/wishlist-notification";
+@import "../common/main-menu";
+@import "../common/breadcrumbs";
+@import "../common/testimonials-block";
+@import "../components/main-page-title";
+@import "../components/feedback-block";
+
+.feedback-holder {
+	margin: 0 -6px;
+	padding: 12px 0;
+}
+
+@media screen and (max-width: 767px) {
+	.feedback-block {
+		padding: 0 6px;
+	}
+}

@@ -1,0 +1,3 @@
+'use strict';
+
+module.exports = '<div class="cart__item"><img class="cart__item-image" src="<%= imageUrl %>"><div class="cart__item-quantity"><%= quantity %></div><div class="cart__item-name"><%= name %></div><div class="cart__item-quantity--spinner"><div class="spinner light"><input type="button" value="-"class="spinner__decrement js-spinner__decrement"></input><input type="number" value="<%= quantity %>" min="1" class="spinner__number js-spinner__number"></input><input type="button" value="+" class="spinner__increment js-spinner__increment"></input></div></div><div class="cart__item-price"><%= price %></div></div>';
