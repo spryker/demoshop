@@ -3,6 +3,7 @@
 namespace Functional\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer;
 
 use Pyz\Zed\ProductOption\Business\ProductOptionFacade;
+use Spryker\Zed\Console\Business\Model\ConsoleMessenger;
 use Spryker\Zed\Kernel\AbstractFunctionalTest;
 use Orm\Zed\Product\Persistence\SpyProductAbstract;
 use Orm\Zed\Product\Persistence\SpyProduct;
@@ -20,30 +21,39 @@ use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 class ProductOptionDataInstallTest extends AbstractFunctionalTest
 {
 
+    /**
+     * @return void
+     */
     public function testImportXmlOptions()
     {
-        $stub = $this->getMockBuilder('Spryker\Zed\Console\Business\Model\ConsoleMessenger')
-            ->disableOriginalConstructor()
-            ->getMock();
+        $messengerMock = $this->getMessengerMock();
 
         $this->loadProductsIfNotInDb(['136823', '137288', '137455']);
 
-        $this->getFacade()->installDemoData($stub);
+        $this->getFacade()->installDemoData($messengerMock);
     }
 
     /**
-     * @param array $skus
+     * @return \PHPUnit_Framework_MockObject_MockObject|ConsoleMessenger
      */
-    private function loadProductsIfNotInDb(array $skus)
+    protected function getMessengerMock()
     {
-        foreach ($skus as $sku) {
+        $messengerMock = $this->getMockBuilder(ConsoleMessenger::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        return $messengerMock;
+    }
+
+    /**
+     * @param array $skuCollection
+     */
+    private function loadProductsIfNotInDb(array $skuCollection)
+    {
+        foreach ($skuCollection as $sku) {
             $abstractProductEntity = SpyProductAbstractQuery::create()
                 ->filterBySku($sku)
-                ->findOne();
+                ->findOneOrCreate();
 
-            if (!$abstractProductEntity) {
-                $abstractProductEntity = new SpyProductAbstract();
-            }
             $abstractProductEntity
                 ->setSku($sku)
                 ->setAttributes('{}');
@@ -55,11 +65,8 @@ class ProductOptionDataInstallTest extends AbstractFunctionalTest
             $concreteProductEntity = SpyProductQuery::create()
                 ->filterBySku($sku)
                 ->filterByFkProductAbstract($abstractProductEntity->getIdProductAbstract())
-                ->findOne();
+                ->findOneOrCreate();
 
-            if (!$concreteProductEntity) {
-                $concreteProductEntity = new SpyProduct();
-            }
             $concreteProductEntity
                 ->setSku($sku)
                 ->setAttributes('{}')
