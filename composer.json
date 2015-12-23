@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-bugfix/1069-Error-code-handling-in-run-depending-command",
+    "spryker/spryker": "dev-develop",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
