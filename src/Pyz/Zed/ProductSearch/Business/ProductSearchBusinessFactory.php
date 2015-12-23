@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\ProductSearch\Business;
 
+use Pyz\Zed\Collector\Business\CollectorFacade;
 use Spryker\Shared\Kernel\Messenger\MessengerInterface;
 use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderInterface;
 use Spryker\Shared\Library\Storage\StorageInstanceBuilder;
@@ -85,7 +86,8 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
 
     /**
      * @throws ContainerKeyNotFoundException
-     * @return mixed
+     *
+     * @return CollectorFacade
      */
     protected function getCollectorFacade()
     {
