@@ -1,0 +1,33 @@
+@mixin media-query($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and (min-width: #{inspect(map-get($breakpoints, $breakpoint))}) {
+      @content;
+    }
+  }
+}
+
+// use rarely, if ever
+@mixin max-media-query($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and (max-width: #{inspect(map-get($breakpoints, $breakpoint))}) {
+      @content;
+    }
+  }
+}
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin bounce-transition($duration: .2s, $property: all) {
+  transition: $property $duration cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@mixin fixed-nav-shadow() {
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+}
+

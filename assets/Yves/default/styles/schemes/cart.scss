@@ -1,0 +1,83 @@
+@import "../common/common";
+@import "../common/header";
+@import "../components/wishlist-notification";
+@import "../common/main-menu";
+@import "../common/breadcrumbs";
+@import "../common/testimonials-block";
+@import "../components/custom-select";
+@import "../components/color-select";
+
+.wishlist-content {
+	background: $cWhite;
+	margin-bottom: 30px;
+}
+
+@import "../components/product-details";
+@import "../components/main-page-title";
+@import "../components/products-table";
+@import "../components/products-table-options";
+@import "../components/products-table-prices";
+@import "../components/products-table-additional-options";
+@import "../components/our-services-block";
+@import "../components/basket-total-sum";
+
+.basket {
+	.additional-options {
+		table-layout: auto;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.wishlist-content {
+		margin-bottom: 0;
+		&:after {
+			clear: both;
+			display: block;
+			content: "";
+		}
+	}
+	.basket {
+		.additional-options {
+			table-layout: fixed;
+		}
+	}
+	.additional-btns.mobile-view {
+		.desktop-view {
+			display: block !important;
+			padding: 0 0 15px;
+			background: none;
+			border: 0;
+			.back-button,
+			strong {
+				display: none;
+			}
+			.btn-order {
+				display: block;
+				position: static;
+				margin: 0 15px;
+				&:after {
+					display: none;
+				}
+			}
+		}
+		.continue-shopping {
+			@include btn;
+			background: white;
+			border: 1px solid $cMagenta2;
+			color: $cMagenta2;
+			margin: 0 15px 15px;
+			line-height: 40px;
+			font-size: 14px;
+			&:hover {
+				background: $cWhite;
+			}
+		}
+		&.top {
+			.desktop-view {
+				padding: 15px 0;
+			}
+		}
+	}
+}
+
+@import "../common/footer";

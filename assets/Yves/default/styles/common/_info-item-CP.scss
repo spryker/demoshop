@@ -1,0 +1,49 @@
+.add-info-block {
+  height: 400px;
+  background: $cGreen2;
+  text-align: center;
+  font: italic 24px / 1.2 $fGeorgia;
+  color: $cWhite;
+  overflow: hidden;
+  display: table;
+  &:hover {
+    box-shadow: none;
+  }
+  .holder {
+    display: table-cell;
+    vertical-align: middle;
+    .frame {
+      background: url(/images/icons/icon-info.png) no-repeat 50% 20px;
+      padding: 77px 25px 20px;
+    }
+    .title {
+      display: block;
+      color: $cGrey5;
+      font: normal 16px $fRobotoRegular;
+      margin: 0 0 16px;
+    }
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .add-info-block {
+    font-size: 16px;
+    .holder {
+      .frame {
+        background-size: 23px auto !important;
+        padding: 35px 25px 0;
+      }
+      .title {
+        font-size: 12px;
+        margin: 0 0 12px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .add-info-block {
+    hyphens: auto;
+    word-break: break-word;
+  }
+}

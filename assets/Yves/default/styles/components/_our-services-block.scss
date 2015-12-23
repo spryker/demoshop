@@ -1,0 +1,65 @@
+.services {
+  border-bottom: 1px solid $cGrey1;
+  margin-bottom: -20px;
+  padding: 25px;
+  .our-services {
+    width: 50%;
+    float: left;
+    text-align: center;
+    h3 {
+      font-size: 14px;
+      margin: 0 0 15px;
+      color: $cGrey4;
+    }
+    .l-side {
+      float: left;
+      width: 60%;
+      &>.cfx {
+        &>div {
+          float: left;
+          width: 33%;
+          padding: 0 10px;
+          box-sizing: border-box;
+          font-size: 11px;
+          color: $cGrey4;
+        }
+      }
+    }
+    .r-side {
+      float: right;
+      width: 30%;
+      font-size: 11px;
+      color: $cGrey4;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .services {
+    padding: 0;
+    border-bottom: 0;
+    .our-services {
+      float: none;
+      width: 100%;
+      overflow: hidden;
+      background: $cGrey1;
+      border: solid $cGrey2;
+      border-width: 1px 0;
+      padding: 45px 0;
+      h3 {
+        display: none;
+      }
+      .l-side {
+        width: 75%;
+        .cfx {
+          &>div {
+            width: 33.3333%;
+          }
+        }
+      }
+      .r-side {
+        width: 25%;
+      }
+    }
+  }
+}

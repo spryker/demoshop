@@ -1,0 +1,214 @@
+@import "header-popups";
+
+#header {
+	background: $cWhite;
+	padding: 0 20px 8px;
+	.extra-info{
+		border-bottom: 1px solid $cGrey1;
+		padding: 11px 20px 12px;
+		margin: 0 -20px 21px;
+		font-size: 11px;
+		color: $cGrey3;
+		span{
+			float: left;
+			margin: 0 23px 0 0;
+		}
+	}
+	.hamburger-menu {
+		cursor: pointer;
+		position: relative;
+		font-size: 7px;
+		color: $cBlue2;
+		float: left;
+		border-top: 2px solid $cGrey5;
+		margin: 13px 0 0 14px;
+		display: none;
+		&:before {
+			content: "";
+			position: absolute;
+			top: -7px;
+			left: 0;
+			right: 0;
+			height: 100%;
+			border-top: 2px solid $cGrey5;
+		}
+	}
+	.page-title {
+		position: absolute;
+		font-size: 12px;
+		color: $cBlue2;
+		top: 16px;
+		left: 85px;
+		text-align: center;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		right: 85px;
+		display: none;
+	}
+	.logo {
+		float: left;
+		background: url(/images/icons/icon-logo-de.png) no-repeat 0 0;
+		background-size: 100%;
+		width: 281px;
+		height: 32px;
+		margin: 0 0 0 1px;
+		a {
+			display: block;
+			height: 100%;
+			overflow: hidden;
+			text-indent: -9999px;
+		}
+	}
+}
+
+.user-menu {
+	font-size: 10px;
+	line-height: 1.2;
+	float: right;
+	margin: 2px 13px 0 0;
+	li {
+		float: left;
+		text-align: center;
+		margin-left: 35px;
+		position: relative;
+		& > a {
+			display: block;
+			position: relative;
+			text-decoration: underline;
+			&:hover {
+				color: $cBlue2;
+			}
+			&:before {
+				display: block;
+				content: "";
+				width: 30px;
+				height: 30px;
+				margin: 0 auto 6px;
+			}
+		}
+	}
+	.help{
+		 &>a{
+			&:before {
+				background: url(/images/icons/icon-user-help.png) no-repeat 50% 50%;
+			}
+		}
+		&:hover {
+			&>a:before {
+				background: url(/images/icons/icon-user-help-hover.png) no-repeat 50% 50%;
+			}
+		}
+	}
+	.registration,
+	.register{
+		&>a{
+			&:before {
+				background: url(/images/icons/icon-user-registration.png) no-repeat 50% 50%;
+			}
+		}
+		&:hover {
+			&>a:before {
+				background: url(/images/icons/icon-user-registration-hover.png) no-repeat 50% 50%;
+			}
+		}
+	}
+	.wishlist{
+		&>a{
+			&:before {
+				background: url(/images/icons/icon-user-wishlist.png) no-repeat 50% 50%;
+			}
+		}
+		&:hover {
+			&>a:before {
+				background: url(/images/icons/icon-user-wishlist-hover.png) no-repeat 50% 50%;
+			}
+		}
+	}
+	.cart{
+		&>a{
+			&:before {
+				background: url(/images/icons/icon-user-cart.png) no-repeat 50% 50%;
+			}
+		}
+		&:hover {
+			&>a:before {
+				background: url(/images/icons/icon-user-cart-hover.png) no-repeat 50% 50%;
+			}
+		}
+	}
+	.products {
+		position: absolute;
+		color: $cWhite;
+		background: $cBlue2;
+		top: -6px;
+		left: 56%;
+		border-radius: 14px;
+		min-width: 14px;
+		height: 14px;
+		padding: 3px;
+		font-size: 14px;
+		line-height: 14px;
+		border: 2px solid $cWhite;
+	}
+}
+
+@media screen and (max-width: 959px) {
+	#header {
+		padding: 0 20px 8px;
+	}
+	.user-menu {
+		li {
+			margin-left: 49px;
+		}
+		a {
+			.title {
+				display: none;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	#header {
+		padding: 7px 0 1px;
+		position: relative;
+		.extra-info{
+			display: none;
+		}
+		.logo {
+			display: none;
+		}
+		.hamburger-menu,
+		.page-title {
+			display: block;
+		}
+	}
+	.user-menu {
+		margin: 0 11px 0 0;
+		li {
+			margin-left: 25px;
+			&:first-child {
+				margin: 0;
+			}
+		}
+		a {
+			&:before {
+				background-size: 100% auto !important;
+				width: 21px;
+			}
+			.products {
+				font-size: 8px;
+				top: 4px;
+				padding: 2px;
+				height: 8px;
+				line-height: 8px;
+				min-width: 8px;
+			}
+		}
+		.help,
+		.registration {
+			display: none;
+		}
+	}
+}

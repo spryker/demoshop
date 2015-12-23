@@ -1,0 +1,185 @@
+@import "../components/category-filter";
+@import "../components/color-select";
+
+.product-options {
+  padding: 28px 0;
+}
+
+@media screen and (max-width: 767px) {
+  .detail-colors-desktop {
+    position: fixed;
+    width: 100%;
+    background: $cWhite;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    display: none;
+    height: 100%;
+    overflow: auto;
+    &>span.label {
+      display: block;
+      text-align: center;
+      color: $cBlue2;
+      float: none;
+      padding: 13px 33px;
+      font-size: 12px;
+      position: relative;
+      border-bottom: 1px solid $cGrey2;
+      cursor: pointer;
+      margin: 0;
+      &:before {
+        width: 20px;
+        height: 17px;
+        content: "";
+        background: url(/images/bg-images/bg-back.gif) no-repeat;
+        position: absolute;
+        left: 13px;
+        top: 13px;
+      }
+    }
+    .filter-drop-parent {
+      &>span {
+        width: 33.33333%;
+        padding: 14px 10px;
+        margin: 0;
+        float: left;
+        text-align: center;
+        box-sizing: border-box;
+        border-bottom: 1px solid $cGrey2;
+        &>span {
+          display: block;
+          color: $cGrey4;
+          font-size: 10px;
+          margin: 10px 0 0;
+          max-width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        &.selected {
+          &>span {
+            color: $cGrey5;
+          }
+        }
+        &>a {
+          width: 40px;
+          height: 40px;
+          display: block;
+          margin: 0 auto;
+          float: none;
+          &:after {
+            width: 44px;
+            height: 44px;
+          }
+        }
+        &>a.c03 {
+          width: 38px;
+          height: 38px;
+        }
+        &>a.selected {
+          &:after {
+            background: url(/images/bg-images/bg-selected-color2.png) 50% 50% no-repeat !important;
+          }
+        }
+        &>a.c03.selected {
+          &:after {
+            background: url(/images/bg-images/bg-selected-color-white2.png) 50% 50% no-repeat !important;
+          }
+        }
+      }
+      &>a {
+        float: none;
+        overflow: hidden;
+        display: block;
+        margin: 0;
+        line-height: 40px;
+        padding: 8px 30px 8px 14px;
+        border-bottom: 1px solid $cGrey2;
+        &.selected {
+          position: relative;
+          &:after {
+            width: 16px;
+            height: 13px;
+            content: "";
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            margin-top: -7px;
+            background: url(/images/bg-images/bg-selected-format.png) no-repeat;
+          }
+        }
+        &>img {
+          display: inline-block;
+          vertical-align: middle;
+          margin: 0 10px 0 0;
+          width: 25px;
+          height: auto;
+        }
+        &>span {
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  .opened-popup {
+    overflow: hidden;
+    .detail-colors-desktop {
+      display: block;
+    }
+  }
+  .product-options {
+    margin: 0 -15px;
+    padding: 0;
+    border-top: 1px solid $cGrey2;
+    .details-row {
+      padding: 0 15px;
+      margin: 0;
+      .details-mobile {
+        &>a {
+          display: none;
+          overflow: hidden;
+          line-height: 44px;
+          position: relative;
+          padding-right: 10px;
+          &:first-child {
+            display: block;
+          }
+          &:after {
+            width: 6px;
+            height: 11px;
+            position: absolute;
+            top: 16px;
+            right: 0;
+            content: "";
+            background: url(/images/bg-images/bg-arrow3.gif) no-repeat;
+          }
+          .opt-holder {
+            width: 26px;
+            float: left;
+            .color {
+              width: 11px;
+              height: 11px;
+              display: inline-block;
+              vertical-align: middle;
+              border-radius: 50%;
+              margin-bottom: 3px;
+              &.c01 {
+                background: $cMagenta2;
+              }
+            }
+            &>img {
+              display: inline-block;
+              vertical-align: middle;
+              max-width: 60%;
+            }
+          }
+          .label {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}

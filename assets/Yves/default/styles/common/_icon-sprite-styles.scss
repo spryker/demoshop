@@ -1,0 +1,13 @@
+%svg-common {
+  background: url(/images/icons/icons-sprite.svg) no-repeat;
+}
+
+.svg-icon-logo-de {
+  @extend %svg-common;
+  background-position: 0 0;
+}
+
+.svg-icon-logo-de-dims {
+  width: 281px;
+  height: 32px;
+}

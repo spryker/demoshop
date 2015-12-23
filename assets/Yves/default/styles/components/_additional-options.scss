@@ -1,0 +1,55 @@
+@import "details-page-options";
+
+.btn-holder {
+  &.open,
+  &:hover {
+    .additional-options {
+      display: block;
+    }
+  }
+}
+
+.additional-options {
+  display: none;
+  position: absolute;
+  background: $cWhite;
+  top: 100%;
+  margin: 10px 0 0;
+  right: 0;
+  width: 350px;
+  padding: 15px;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba($cBlack, 0.3);
+  z-index: 1;
+  &:after,
+  &:before {
+    background: $cWhite;
+    content: "";
+    width: 10px;
+    height: 10px;
+    box-shadow: 0 0 10px rgba($cBlack, 0.3);
+    position: absolute;
+    top: -5px;
+    right: 80px;
+    margin: 0 0 0 -5px;
+    transform: rotate(45deg);
+  }
+  &:after {
+    box-shadow: none;
+    transform: rotate(0);
+    width: 30px;
+    height: 13px;
+    top: 0px;
+    margin: 0 -15px 0 0;
+    background: $cWhite;
+  }
+  .product-options {
+    padding: 0;
+  }
+  .btn-order {
+    @include btn;
+    line-height: 40px;
+    width: 50%;
+    float: right;
+  }
+}
