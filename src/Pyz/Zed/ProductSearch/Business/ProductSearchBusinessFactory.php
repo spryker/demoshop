@@ -20,7 +20,6 @@ use Spryker\Zed\ProductSearch\Business\ProductSearchBusinessFactory as SprykerPr
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductSearch\Business\Internal\DemoData\ProductAttributeMappingInstall;
 use Spryker\Zed\ProductSearch\Business\Transformer\ProductAttributesTransformerInterface;
-use Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToCollectorInterface;
 use Spryker\Zed\ProductSearch\ProductSearchDependencyProvider;
 
 class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
