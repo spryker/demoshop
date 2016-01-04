@@ -1,0 +1,33 @@
+@charset 'utf-8';
+
+@import 'utils/variables';
+@import 'utils/mixins';
+@import 'utils/icon-font';
+
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/base';
+
+@import 'components/cart';
+@import 'components/cms';
+@import 'components/spinner';
+@import 'components/slider';
+@import 'components/overlay';
+@import 'components/login-form';
+@import 'components/header-cart';
+@import 'components/search';
+@import 'components/catalog-filters';
+@import 'components/main-nav';
+
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/homepage';
+@import 'layout/product';
+@import 'layout/catalog';
+@import 'layout/checkout';
+@import 'layout/layout';
+
+// @import 'jquery-ui-bundle/jquery-ui.css';
+// @import 'jquery-ui-bundle/jquery-ui.structure.css';
+// @import 'jquery-ui-bundle/jquery-ui.theme.css';
+// @import 'slick-carousel/slick/slick.scss';
