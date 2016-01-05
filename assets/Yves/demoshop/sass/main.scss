@@ -1,5 +1,9 @@
 @charset 'utf-8';
 
+@import '~jquery-ui/themes/base/jquery-ui.css';
+@import '~jquery-ui/themes/base/jquery.ui.theme.css';
+@import '~slick-carousel/slick/slick.css';
+
 @import 'utils/variables';
 @import 'utils/mixins';
 @import 'utils/icon-font';
@@ -26,8 +30,3 @@
 @import 'layout/catalog';
 @import 'layout/checkout';
 @import 'layout/layout';
-
-// @import 'jquery-ui-bundle/jquery-ui.css';
-// @import 'jquery-ui-bundle/jquery-ui.structure.css';
-// @import 'jquery-ui-bundle/jquery-ui.theme.css';
-// @import 'slick-carousel/slick/slick.scss';
