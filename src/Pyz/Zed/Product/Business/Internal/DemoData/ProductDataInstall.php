@@ -253,8 +253,8 @@ class ProductDataInstall extends AbstractInstaller
             $localizedAttributes->setLocale($this->localeFacade->getLocale($locale));
             $localizedAttributes->setName((string)$localeAttributes->{'name'});
             $localizedAttributes->setAttributes([
-                'image_url' => '/images/product/' . (string)$localeAttributes->{'image'},
-                'thumbnail_url' => '/images/product/default.png',
+                'image_url' => (string)$localeAttributes->{'image'},
+                'thumbnail_url' => 'default.png',
                 'main_color' => (string)$localeAttributes->{'main_color'},
                 'other_colors' => (string)$localeAttributes->{'other_colors'},
                 'description' => (string)$localeAttributes->{'description'},

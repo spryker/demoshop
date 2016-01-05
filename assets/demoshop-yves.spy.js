@@ -46,3 +46,4 @@ module.exports = {
         return R.merge(config, defaultThemeConfig);
     }
 };
+
