@@ -25,10 +25,10 @@ module.exports = {
                     test: /\.scss$/,
                     loader: ExtractTextPlugin.extract('style', 'css!sass')
                 }, {
-                    test: /\.(ttf|woff2?|eot)(\?v=\d+\.\d+\.\d+)?$/i,
+                    test: /\.(ttf|woff2?|eot)\??(\d*\w*=?)+$/i,
                     loader: 'file?name=/assets/demoshop/fonts/[name].[ext]'
                 }, {
-                    test: /\.(jpe?g|png|gif|svg)(\?v=\d+\.\d+\.\d+)?$/i,
+                    test: /\.(jpe?g|png|gif|svg)\??(\d*\w*=?)+$/i,
                     loader: 'file?name=/assets/demoshop/img/[name].[ext]',
                 }]
             },
