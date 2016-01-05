@@ -1,17 +1,13 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
+namespace Pyz\Yves\Payolution\Form;
 
-namespace Pyz\Yves\Checkout\Form\Multipage;
-
-use Spryker\Client\Payolution\PayolutionClientInterface;
-use Symfony\Component\Form\AbstractType;
+use Generated\Shared\Transfer\PayolutionPaymentTransfer;
+use Spryker\Shared\Gui\Form\AbstractForm;
+use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Validator\Constraints as Assert;
 
-class PayolutionPaymentType extends AbstractType
+class InstallmentForm extends AbstractForm
 {
 
     const FIELD_DATE_OF_BIRTH = 'date_of_birth';
@@ -21,16 +17,19 @@ class PayolutionPaymentType extends AbstractType
     const FIELD_BANK_ACCOUNT_BIC = 'bank_account_bic';
 
     /**
-     * @var PayolutionClientInterface
+     * @return string
      */
-    protected $payolutionClient;
+    public function getName()
+    {
+        return 'payolutionInstallmentForm';
+    }
 
     /**
-     * @param PayolutionClientInterface $payolutionClient
+     * @return TransferInterface|null
      */
-    public function __construct(PayolutionClientInterface $payolutionClient)
+    protected function getDataClass()
     {
-        $this->payolutionClient = $payolutionClient;
+        return new PayolutionPaymentTransfer();
     }
 
     /**
@@ -167,7 +166,7 @@ class PayolutionPaymentType extends AbstractType
     /**
      * @return array
      */
-    public function getInstallmentPayments()
+    protected function getInstallmentPayments()
     {
 //        $paymentDetails = $this->payolutionCalculationResponseTransfer->getPaymentDetails();
 //        $choices = [];
@@ -186,11 +185,11 @@ class PayolutionPaymentType extends AbstractType
     }
 
     /**
-     * @return string
+     * @return TransferInterface|array
      */
-    public function getName()
+    public function populateFormFields()
     {
-        return 'payolutionPaymentType';
+        return [];
     }
 
 }

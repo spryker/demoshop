@@ -12,7 +12,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\HttpFoundation\Request;
 
-class CheckoutType extends AbstractType
+class CheckoutTypeOld extends AbstractType
 {
 
     const FIELD_EMAIL = 'email';

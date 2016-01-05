@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Yves\Checkout\Process;
 
 use Codeception\Step;
@@ -11,10 +7,10 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Process\Steps\StepInterface;
 use Spryker\Client\Cart\CartClient;
 use Spryker\Client\Cart\CartClientInterface;
+use Spryker\Shared\Gui\Form\AbstractForm;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\AbstractType;
 use Spryker\Yves\Application\Application;
 
 class StepProcess
@@ -62,11 +58,11 @@ class StepProcess
 
     /**
      * @param Request $request
-     * @param AbstractType|null $formType
+     * @param AbstractForm|null $stepForm
      *
      * @return array|RedirectResponse
      */
-    public function process(Request $request, AbstractType $formType = null)
+    public function process(Request $request, AbstractForm $stepForm = null)
     {
         $currentStep = $this->getCurrentStep($request);
 
@@ -85,8 +81,8 @@ class StepProcess
             return $this->createRedirectResponse($route);
         }
 
-        if ($formType !== null) {
-            $form = $this->createForm($formType, $this->getQuoteTransfer());
+        if ($stepForm !== null) {
+            $form = $this->createForm($stepForm, $this->getQuoteTransfer());
             if ($request->isMethod('POST')) {
                 if ($form->isValid()) {
                     $route = $this->executeWithFormInput($currentStep, $form->getData());
@@ -312,14 +308,14 @@ class StepProcess
     }
 
     /**
-     * @param AbstractType $formType
+     * @param AbstractForm $form
      * @param mixed $data
      *
      * @return FormInterface
      */
-    protected function createForm(AbstractType $formType, $data = null)
+    protected function createForm(AbstractForm $form, $data = null)
     {
-        return $this->application->createForm($formType, $data);
+        return $this->application->createForm($form, $data);
     }
 
     /**

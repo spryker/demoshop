@@ -1,17 +1,15 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
+namespace Pyz\Yves\Checkout\Form\Steps;
 
-namespace Pyz\Yves\Checkout\Form\Multipage;
-
-use Symfony\Component\Form\AbstractType;
+use Generated\Shared\Transfer\AddressTransfer;
+use Spryker\Shared\Gui\Form\AbstractForm;
+use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Regex;
 
-class AddressType extends AbstractType
+class AddressForm extends AbstractForm
 {
 
     const FIELD_SALUTATION = 'salutation';
@@ -37,6 +35,22 @@ class AddressType extends AbstractType
     }
 
     /**
+     * @return string
+     */
+    public function getName()
+    {
+        return 'addressForm';
+    }
+
+    /**
+     * @return TransferInterface|null
+     */
+    protected function getDataClass()
+    {
+        return new AddressTransfer();
+    }
+
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      *
@@ -44,22 +58,21 @@ class AddressType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $this->addSalutation($builder, $options)
-             ->addFirstName($builder, $options)
-             ->addLastName($builder, $options)
-             ->addStreetName($builder, $options)
-             ->addStreetNumber($builder, $options)
-             ->addZipCode($builder, $options)
-             ->addCity($builder, $options);
+        $this->addSalutation($builder)
+             ->addFirstName($builder)
+             ->addLastName($builder)
+             ->addStreetName($builder)
+             ->addStreetNumber($builder)
+             ->addZipCode($builder)
+             ->addCity($builder);
     }
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
      *
      * @return self
      */
-    protected function addSalutation(FormBuilderInterface $builder, array $options)
+    protected function addSalutation(FormBuilderInterface $builder)
     {
         $builder->add(
             self::FIELD_SALUTATION,
@@ -82,11 +95,10 @@ class AddressType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
      *
      * @return self
      */
-    protected function addFirstName(FormBuilderInterface $builder, array $options)
+    protected function addFirstName(FormBuilderInterface $builder)
     {
         $builder->add(
             self::FIELD_FIRST_NAME,
@@ -108,11 +120,10 @@ class AddressType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
      *
      * @return self
      */
-    protected function addLastName(FormBuilderInterface $builder, array $options)
+    protected function addLastName(FormBuilderInterface $builder)
     {
         $builder->add(
             self::FIELD_LAST_NAME,
@@ -134,11 +145,10 @@ class AddressType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
      *
      * @return self
      */
-    protected function addStreetName(FormBuilderInterface $builder, array $options)
+    protected function addStreetName(FormBuilderInterface $builder)
     {
         $builder->add(
             self::FIELD_STREET,
@@ -161,11 +171,10 @@ class AddressType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
      *
      * @return self
      */
-    protected function addStreetNumber(FormBuilderInterface $builder, array $options)
+    protected function addStreetNumber(FormBuilderInterface $builder)
     {
         $builder->add(
             self::FIELD_STREET_NR,
@@ -189,11 +198,10 @@ class AddressType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
      *
      * @return self
      */
-    protected function addZipCode(FormBuilderInterface $builder, array $options)
+    protected function addZipCode(FormBuilderInterface $builder)
     {
         $builder->add(
             self::FIELD_ZIP_CODE,
@@ -216,11 +224,10 @@ class AddressType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
      *
      * @return self
      */
-    protected function addCity(FormBuilderInterface $builder, array $options)
+    protected function addCity(FormBuilderInterface $builder)
     {
         $builder->add(
             self::FIELD_CITY,
@@ -253,11 +260,11 @@ class AddressType extends AbstractType
     }
 
     /**
-     * @return string
+     * @return TransferInterface|array
      */
-    public function getName()
+    public function populateFormFields()
     {
-        return 'checkoutAddressForm';
+        return [];
     }
 
 }

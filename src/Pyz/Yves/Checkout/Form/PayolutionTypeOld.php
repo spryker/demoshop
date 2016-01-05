@@ -9,7 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\HttpFoundation\Request;
 
-class PayolutionType extends AbstractType
+class PayolutionTypeOld extends AbstractType
 {
 
     const FIELD_DATE_OF_BIRTH = 'date_of_birth';

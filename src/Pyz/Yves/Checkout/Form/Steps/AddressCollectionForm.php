@@ -1,23 +1,36 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
+namespace Pyz\Yves\Checkout\Form\Steps;
 
-namespace Pyz\Yves\Checkout\Form\Multipage;
-
-use Symfony\Component\Form\AbstractType;
+use Spryker\Shared\Gui\Form\AbstractForm;
+use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Generated\Shared\Transfer\AddressTransfer;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class AddressCollectionType extends AbstractType
+class AddressCollectionForm extends AbstractForm
 {
 
     const FIELD_BILLING_ADDRESS = 'billingAddress';
     const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
     const FIELD_SAME_AS_SHIPPING = 'same_as_shipping';
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return 'addressesForm';
+    }
+
+    /**
+     * @return TransferInterface|null
+     */
+    protected function getDataClass()
+    {
+        return null;
+    }
 
     /**
      * @param FormBuilderInterface $builder
@@ -27,23 +40,22 @@ class AddressCollectionType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $this->addShipmentAddress($builder, $options)
-             ->addSameAsShipmentCheckbox($builder, $options)
-             ->addBillingAddress($builder, $options)
-             ->addSubmit($builder, $options);
+        $this->addShipmentAddress($builder)
+             ->addSameAsShipmentCheckbox($builder)
+             ->addBillingAddress($builder)
+             ->addSubmit($builder);
     }
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
      *
      * @return self
      */
-    protected function addShipmentAddress(FormBuilderInterface $builder, array $options)
+    protected function addShipmentAddress(FormBuilderInterface $builder)
     {
         $builder->add(
             self::FIELD_SHIPPING_ADDRESS,
-            new AddressType(self::FIELD_SHIPPING_ADDRESS),
+            new AddressForm(self::FIELD_SHIPPING_ADDRESS),
             [
                 'data_class' => AddressTransfer::class,
                 'required' => false,
@@ -55,11 +67,10 @@ class AddressCollectionType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
      *
      * @return self
      */
-    protected function addSameAsShipmentCheckbox(FormBuilderInterface $builder, array $options)
+    protected function addSameAsShipmentCheckbox(FormBuilderInterface $builder)
     {
         $builder->add(
             self::FIELD_SAME_AS_SHIPPING,
@@ -77,15 +88,14 @@ class AddressCollectionType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
      *
      * @return self
      */
-    protected function addBillingAddress(FormBuilderInterface $builder, array $options)
+    protected function addBillingAddress(FormBuilderInterface $builder)
     {
         $builder->add(
             self::FIELD_BILLING_ADDRESS,
-            new AddressType(self::FIELD_BILLING_ADDRESS),
+            new AddressForm(self::FIELD_BILLING_ADDRESS),
             [
                 'data_class' => AddressTransfer::class,
                 'error_bubbling' => true,
@@ -97,11 +107,10 @@ class AddressCollectionType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
      *
      * @return self
      */
-    protected function addSubmit(FormBuilderInterface $builder, array $options)
+    protected function addSubmit(FormBuilderInterface $builder)
     {
         $builder->add('checkout.step.shipment', 'submit');
 
@@ -127,11 +136,11 @@ class AddressCollectionType extends AbstractType
     }
 
     /**
-     * @return string
+     * @return TransferInterface|array
      */
-    public function getName()
+    public function populateFormFields()
     {
-        return 'multipleAddressForm';
+        return [];
     }
 
 }

@@ -1,10 +1,6 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
-namespace Pyz\Yves\Checkout\Form\Multipage;
+namespace Pyz\Yves\Checkout\Form\Steps;
 
 use Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
@@ -12,14 +8,15 @@ use Generated\Shared\Transfer\ShipmentTransfer;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Client\Glossary\GlossaryClientInterface;
 use Spryker\Client\Shipment\ShipmentClientInterface;
+use Spryker\Shared\Gui\Form\AbstractForm;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Library\Currency\CurrencyManager;
-use Symfony\Component\Form\AbstractType;
+use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
-class ShipmentType extends AbstractType
+class ShipmentForm extends AbstractForm
 {
 
     const FIELD_SHIPMENT_METHOD = 'shipmentMethod';
@@ -73,6 +70,22 @@ class ShipmentType extends AbstractType
         $this->cartClient = $cartClient;
         $this->store = $store;
         $this->currencyManager = $currencyManager;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return 'shipmentForm';
+    }
+
+    /**
+     * @return TransferInterface|null
+     */
+    protected function getDataClass()
+    {
+        return null;
     }
 
     /**
@@ -266,13 +279,12 @@ class ShipmentType extends AbstractType
         return $this->glossaryClient->translate($translationKey, $this->store->getCurrentLocale());
     }
 
-
     /**
-     * @return string
+     * @return TransferInterface|array
      */
-    public function getName()
+    public function populateFormFields()
     {
-        return 'shipmentAddressForm';
+        return [];
     }
 
 }
