@@ -36,9 +36,14 @@ module.exports = {
                 path: path.join(cwd, './public/Yves'),
                 filename: '/assets/demoshop/js/[name].js'
             },
+
             plugins: [
                 new ExtractTextPlugin('assets/demoshop/css/[name].css', {
                     allChunks: true
+                }),
+                new webpack.ProvidePlugin({
+                    $: 'jquery',
+                    jQuery: 'jquery'
                 })
             ],
         };
