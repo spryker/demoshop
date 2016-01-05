@@ -1,0 +1,27 @@
+/**
+ * 
+ * Discount main style customization
+ * @copyright: Spryker Systems GmbH
+ *
+ */
+.load-cart-rules {
+  height: 32px;
+  line-height: 32px; }
+  .load-cart-rules .ajax-loader {
+    background: url("/bundles/images/ajax-loader.gif") top left no-repeat;
+    width: 32px;
+    height: 32px; }
+
+.collection-form > div {
+  padding-top: 10px; }
+
+.collection-form > div > .well > .form-group > label.control-label {
+  display: none; }
+
+.ajax-loaded > .well > .form-group > div > .form-group > label {
+  display: none; }
+
+.form-inline.option-chain label {
+  padding-right: 10px; }
+  .form-inline.option-chain label > input {
+    margin-right: 5px; }
