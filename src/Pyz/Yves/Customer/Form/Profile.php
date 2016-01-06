@@ -2,12 +2,26 @@
 
 namespace Pyz\Yves\Customer\Form;
 
+use Generated\Shared\Transfer\CustomerTransfer;
 use Spryker\Shared\Gui\Form\AbstractForm;
 use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class Profile extends AbstractForm
 {
+
+    /**
+     * @var CustomerTransfer
+     */
+    protected $customerTransfer;
+
+    /**
+     * @param CustomerTransfer $customerTransfer
+     */
+    public function __construct(CustomerTransfer $customerTransfer)
+    {
+        $this->customerTransfer = $customerTransfer;
+    }
 
     /**
      * @return string
@@ -24,32 +38,29 @@ class Profile extends AbstractForm
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('salutation', 'choice', [
-                'choices' => ['Mr', 'Mrs', 'Dr'],
+            ->add(CustomerTransfer::SALUTATION, 'choice', [
+                'choices' => [
+                    'Mr' => 'customer.salutation.mr',
+                    'Mrs' => 'customer.salutation.mrs',
+                    'Dr' => 'customer.salutation.dr',
+                ],
                 'label' => 'profile.form.salutation',
             ])
-            ->add('first_name', 'text', [
+            ->add(CustomerTransfer::FIRST_NAME, 'text', [
                 'label' => 'customer.profile.first_name',
-                'required' => false,
+                'required' => true,
             ])
-            ->add('middle_name', 'text', [
-                'label' => 'customer.profile.middle_name',
-                'required' => false,
-            ])
-            ->add('last_name', 'text', [
+            ->add(CustomerTransfer::LAST_NAME, 'text', [
                 'label' => 'customer.profile.last_name',
-                'required' => false,
+                'required' => true,
             ])
-            ->add('company', 'text', [
-                'label' => 'customer.profile.company',
-                'required' => false,
+            ->add(CustomerTransfer::EMAIL, 'email', [
+                'label' => 'customer.profile.email',
+                'required' => true,
             ])
-            ->add('date_of_birth', 'birthday', [
-                'label' => 'customer.profile.date_of_birth',
+            ->add(CustomerTransfer::PHONE, 'text', [
+                'label' => 'customer.profile.phone',
                 'required' => false,
-            ])
-            ->add('submit', 'submit', [
-                'label' => 'customer.profile.submit',
             ]);
     }
 
@@ -58,7 +69,10 @@ class Profile extends AbstractForm
      */
     public function populateFormFields()
     {
-        return [];
+        $customerTransfer = $this->getDataClass();
+        $customerTransfer->fromArray($this->customerTransfer->toArray());
+
+        return $customerTransfer;
     }
 
     /**
@@ -66,7 +80,7 @@ class Profile extends AbstractForm
      */
     protected function getDataClass()
     {
-        return null;
+        return new CustomerTransfer();
     }
 
 }

@@ -3,6 +3,7 @@
 namespace Pyz\Yves\Customer;
 
 use Pyz\Yves\Customer\Form\Login;
+use Pyz\Yves\Customer\Form\Password;
 use Pyz\Yves\Customer\Form\RestorePassword;
 use Pyz\Yves\Customer\Form\Profile;
 use Pyz\Yves\Customer\Form\ForgottenPassword;
@@ -41,17 +42,19 @@ class CustomerFactory extends AbstractFactory
     /**
      * @return ForgottenPassword
      */
-    public function createFormForgot()
+    public function createFormForgottenPassword()
     {
         return new ForgottenPassword();
     }
 
     /**
+     * @param CustomerTransfer $customerTransfer
+     *
      * @return Profile
      */
-    public function createFormProfile()
+    public function createFormProfile(CustomerTransfer $customerTransfer)
     {
-        return new Profile();
+        return new Profile($customerTransfer);
     }
 
     /**
@@ -59,9 +62,17 @@ class CustomerFactory extends AbstractFactory
      *
      * @return RestorePassword
      */
-    public function createFormRestore($restoreKey)
+    public function createFormRestorePassword($restoreKey)
     {
         return new RestorePassword($restoreKey);
+    }
+
+    /**
+     * @return Password
+     */
+    public function createFormPassword()
+    {
+        return new Password();
     }
 
     /**

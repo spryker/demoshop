@@ -27,7 +27,7 @@ class PasswordController extends AbstractController
     public function forgottenPasswordAction(Request $request)
     {
         $form = $this
-            ->buildForm($this->getFactory()->createFormForgot())
+            ->buildForm($this->getFactory()->createFormForgottenPassword())
             ->handleRequest($request);
 
         if ($form->isValid()) {
@@ -55,7 +55,7 @@ class PasswordController extends AbstractController
     public function restorePasswordAction(Request $request)
     {
         $form = $this
-            ->buildForm($this->getFactory()->createFormRestore($request->query->get('token')))
+            ->buildForm($this->getFactory()->createFormRestorePassword($request->query->get('token')))
             ->handleRequest($request);
 
         if ($form->isValid()) {

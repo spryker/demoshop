@@ -4,7 +4,6 @@ namespace Pyz\Yves\Customer\Controller;
 
 use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
-use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -21,52 +20,43 @@ class ProfileController extends AbstractCustomerController
      */
     public function indexAction(Request $request)
     {
-        $customerTransfer = $this->getLoggedInCustomerTransfer();
-
         $profileForm = $this
-            ->buildForm($this->getFactory()->createFormProfile())
+            ->buildForm($this->getFactory()->createFormProfile($this->getLoggedInCustomerTransfer()))
             ->handleRequest($request);
 
         if ($profileForm->isValid()) {
-            return $this->processProfileUpdate($profileForm, $customerTransfer);
+            return $this->processProfileUpdate($profileForm->getData());
         }
 
-        $profileForm->setData($customerTransfer->toArray());
+        $passwordForm = $this
+            ->buildForm($this->getFactory()->createFormPassword())
+            ->handleRequest($request);
 
-        // TODO: create Password form
-        // TODO: separate password form handling into another action?
-//        $passwordForm = $this
-//            ->buildForm($this->getFactory()->createFormPassword())
-//            ->handleRequest($request);
-//
-//        if ($passwordForm->isValid()) {
-//            return $this->processPasswordUpdate($passwordForm, $customerTransfer);
-//        }
+        if ($passwordForm->isValid()) {
+            return $this->processPasswordUpdate($passwordForm->getData());
+        }
 
         return [
             'profileForm' => $profileForm->createView(),
-//            'passwordForm' => $passwordForm->createView(),
+            'passwordForm' => $passwordForm->createView(),
         ];
     }
 
     /**
-     * @param FormInterface $profileForm
      * @param CustomerTransfer $customerTransfer
      *
      * @return RedirectResponse
      */
-    protected function processProfileUpdate(FormInterface $profileForm, CustomerTransfer $customerTransfer)
+    protected function processProfileUpdate(CustomerTransfer $customerTransfer)
     {
-        $updatedCustomerTransfer = clone $customerTransfer;
-        $updatedCustomerTransfer->fromArray($profileForm->getData());
-
         $customerResponseTransfer = $this
             ->getClient()
-            ->updateCustomer($updatedCustomerTransfer);
+            ->updateCustomer($customerTransfer);
 
         if ($customerResponseTransfer->getIsSuccess()) {
+            $this->updateLoggedInCustomerTransfer($customerResponseTransfer->getCustomerTransfer());
+
             $this->addSuccessMessage(self::MESSAGE_PROFILE_CHANGE_SUCCESS);
-            $customerTransfer->fromArray($customerResponseTransfer->getCustomerTransfer()->toArray());
         } else {
             foreach ($customerResponseTransfer->getErrors() as $customerErrorTransfer) {
                 $this->addErrorMessage($customerErrorTransfer->getMessage());
@@ -77,20 +67,21 @@ class ProfileController extends AbstractCustomerController
     }
 
     /**
-     * @param FormInterface $passwordForm
      * @param CustomerTransfer $customerTransfer
      *
      * @return RedirectResponse
      */
-    protected function processPasswordUpdate(FormInterface $passwordForm, CustomerTransfer $customerTransfer)
+    protected function processPasswordUpdate(CustomerTransfer $customerTransfer)
     {
-        $customerTransfer->fromArray($passwordForm->getData());
+        $customerTransfer->setIdCustomer($this->getLoggedInCustomerTransfer()->getIdCustomer());
 
         $customerResponseTransfer = $this
             ->getClient()
             ->updateCustomerPassword($customerTransfer);
 
         if ($customerResponseTransfer->getIsSuccess()) {
+            $this->updateLoggedInCustomerTransfer($customerResponseTransfer->getCustomerTransfer());
+
             $this->addSuccessMessage(self::MESSAGE_PASSWORD_CHANGE_SUCCESS);
         }
 
@@ -99,6 +90,17 @@ class ProfileController extends AbstractCustomerController
         }
 
         return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
+    }
+
+    /**
+     * @param CustomerTransfer $customerTransfer
+     *
+     * @return void
+     */
+    protected function updateLoggedInCustomerTransfer(CustomerTransfer $customerTransfer)
+    {
+        $loggedInCustomerTransfer = $this->getLoggedInCustomerTransfer();
+        $loggedInCustomerTransfer->fromArray($customerTransfer->toArray());
     }
 
 }
