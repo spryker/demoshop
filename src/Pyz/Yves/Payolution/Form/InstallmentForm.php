@@ -187,15 +187,15 @@ class InstallmentForm extends AbstractForm
      */
     protected function getInstallmentPayments()
     {
-        $calculationRequestTransfer = new PayolutionCalculationRequestTransfer();
-        $calculationRequestTransfer->setAmount('200')->setCounty('DE')->setCurrency('EUR');
-
-        $response =  $this->payolutionClient->calculateInstallmentPayments($calculationRequestTransfer);
+//        $calculationRequestTransfer = new PayolutionCalculationRequestTransfer();
+//        $calculationRequestTransfer->setAmount('200')->setCounty('DE')->setCurrency('EUR');
+//
+//        $response =  $this->payolutionClient->calculateInstallmentPayments($calculationRequestTransfer);
 
 
 
 //        $paymentDetails = $this->payolutionCalculationResponseTransfer->getPaymentDetails();
-//        $choices = [];
+        $choices = [];
 //
 //        // @ todo: optimize and get rid of magic strings and <a> tag by building a proper form #875
 //        foreach ($paymentDetails as $paymentDetail) {
@@ -207,7 +207,7 @@ class InstallmentForm extends AbstractForm
 //                . '<a href="installment/id/' . $this->payolutionCalculationResponseTransfer->getIdentificationUniqueid() . '/duration/' . $paymentDetail->getDuration() . '"">Show Details</a>';
 //        }
 //
-//        return $choices;
+        return $choices;
     }
 
     /**
