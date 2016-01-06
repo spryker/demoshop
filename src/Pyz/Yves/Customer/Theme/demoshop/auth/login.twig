@@ -1,0 +1,15 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block content %}
+    <div class="cms-page" style="overflow:hidden"> {# TODO: fix classes and styles #}
+        <div style="float:left; width:50%">
+            <h2>{{ 'customer.login.title' | trans }}</h2>
+            {% include "@customer/auth/partials/login-form.twig" with {'form': loginForm} %}
+        </div>
+
+        <div style="float:left; width:50%">
+            <h2>{{ 'customer.registration.title' | trans }}</h2>
+            {% include "@customer/register/partials/register-form.twig" with {'form': registerForm} %}
+        </div>
+    </div>
+{% endblock %}

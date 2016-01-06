@@ -1,0 +1,41 @@
+{{ form_start(form, {'action': url('register')}) }}
+    <label>{{ form.firstName.vars.label | trans }}</label>
+    <div>
+        {{ form_widget(form.firstName, { 'attr': {'placeholder': form.firstName.vars.label | trans } }) }}
+        {{ form_errors(form.firstName) }}
+    </div>
+
+    <label>{{ form.lastName.vars.label | trans }}</label>
+    <div>
+        {{ form_widget(form.lastName, { 'attr': {'placeholder': form.lastName.vars.label | trans } }) }}
+        {{ form_errors(form.lastName) }}
+    </div>
+
+    <label>{{ form.email.vars.label | trans }}</label>
+    <div>
+        {{ form_widget(form.email, { 'attr': {'placeholder': form.email.vars.label | trans } }) }}
+        {{ form_errors(form.email) }}
+    </div>
+
+    <label>{{ form.password.pass.vars.label | trans }}</label>
+    <div>
+        {{ form_widget(form.password.pass, { 'attr': {'placeholder': form.password.pass.vars.label | trans } }) }}
+        {{ form_errors(form.password.pass) }}
+    </div>
+
+    <label>{{ form.password.confirm.vars.label | trans }}</label>
+    <div>
+        {{ form_widget(form.password.confirm, { 'attr': {'placeholder': form.password.confirm.vars.label | trans } }) }}
+        {{ form_errors(form.password.confirm) }}
+    </div>
+
+    <div class="input-row check-row">
+        {{ form_widget(form.accept_terms) }}
+        <label for="registerForm_accept_terms">{{ form.accept_terms.vars.label | trans }}</label>
+        {{ form_errors(form.accept_terms) }}
+    </div>
+
+    <div class="frame buttons cfx">
+        <input type="submit" value="{{ 'customer.register.submit' | trans }}" />
+    </div>
+{{ form_end(form) }}

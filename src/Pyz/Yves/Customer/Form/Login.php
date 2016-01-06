@@ -5,17 +5,11 @@ namespace Pyz\Yves\Customer\Form;
 use Spryker\Shared\Gui\Form\AbstractForm;
 use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
-class DeleteCustomer extends AbstractForm
+class Login extends AbstractForm
 {
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'deleteForm';
-    }
 
     /**
      * @param FormBuilderInterface $builder
@@ -23,10 +17,27 @@ class DeleteCustomer extends AbstractForm
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
+        $builder->add('email', 'text', [
+            'label' => 'customer.login.email',
+            'constraints' => [
+                new NotBlank(),
+                new Email(),
+            ]])
+            ->add('password', 'password', [
+                'label' => 'customer.login.password',
+                'constraints' => new NotBlank(),
+            ])
             ->add('submit', 'submit', [
-                'label' => 'customer.delete.submit',
+                'label' => 'form.submit',
             ]);
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return 'loginForm';
     }
 
     /**

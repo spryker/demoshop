@@ -1,0 +1,26 @@
+{{ form_start(form, {'action': '/login_check'}) }}
+
+    {% if hasAuthError is defined and hasAuthError == true %}
+        <div style="color:red">{{ 'customer.login.failed' | trans }}</div>
+    {% endif %}
+
+    <label>{{ form.email.vars.label | trans }}</label>
+    <div>
+        {{ form_widget(form.email, { 'attr': {'placeholder': form.email.vars.label | trans } }) }}
+        {{ form_errors(form.email) }}
+    </div>
+
+    <label>{{ form.password.vars.label | trans }}</label>
+    <div>
+        {{ form_widget(form.password, { 'attr': {'placeholder': form.password.vars.label | trans } }) }}
+        {{ form_errors(form.password) }}
+    </div>
+
+    <div>
+        <a href="{{ url('password/forgot') }}" class="forgot-password">{{ 'forms.forgot-password' | trans }}</a>
+    </div>
+
+<div class="frame buttons cfx">
+    {{ form_widget(form.submit) }}
+</div>
+{{ form_end(form) }}

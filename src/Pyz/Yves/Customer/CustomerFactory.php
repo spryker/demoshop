@@ -2,14 +2,14 @@
 
 namespace Pyz\Yves\Customer;
 
+use Pyz\Yves\Customer\Form\Login;
 use Pyz\Yves\Customer\Form\RestorePassword;
 use Pyz\Yves\Customer\Form\Profile;
-use Pyz\Yves\Customer\Form\ForgotPassword;
-use Pyz\Yves\Customer\Form\DeleteCustomer;
+use Pyz\Yves\Customer\Form\ForgottenPassword;
 use Pyz\Yves\Customer\Form\Address;
-use Pyz\Yves\Customer\Form\RegisterCustomer;
+use Pyz\Yves\Customer\Form\Register;
+use Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationSuccessHandler;
 use Spryker\Yves\Kernel\AbstractFactory;
-use Spryker\Client\Customer\CustomerClient;
 
 class CustomerFactory extends AbstractFactory
 {
@@ -23,27 +23,27 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return RegisterCustomer
+     * @return Register
      */
     public function createFormRegister()
     {
-        return new RegisterCustomer();
+        return new Register();
     }
 
     /**
-     * @return DeleteCustomer
+     * @return Login
      */
-    public function createFormDelete()
+    public function createFormLogin()
     {
-        return new DeleteCustomer();
+        return new Login();
     }
 
     /**
-     * @return ForgotPassword
+     * @return ForgottenPassword
      */
     public function createFormForgot()
     {
-        return new ForgotPassword();
+        return new ForgottenPassword();
     }
 
     /**
@@ -63,11 +63,11 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return CustomerClient
+     * @return CustomerAuthenticationSuccessHandler
      */
-    public function createCustomerClient()
+    public function createCustomerAuthenticationSuccessHandler()
     {
-        return $this->getLocator()->customer()->client();
+        return new CustomerAuthenticationSuccessHandler();
     }
 
 }

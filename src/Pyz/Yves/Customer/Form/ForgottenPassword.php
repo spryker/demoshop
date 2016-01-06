@@ -6,7 +6,7 @@ use Spryker\Shared\Gui\Form\AbstractForm;
 use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class ForgotPassword extends AbstractForm
+class ForgottenPassword extends AbstractForm
 {
 
     /**

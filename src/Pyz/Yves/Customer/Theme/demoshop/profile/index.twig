@@ -1,0 +1,8 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block content %}
+    <h1>{{ "customer.profile" | trans }}</h1>
+    {{ form_start(profileForm) }}
+    {{ form_widget(profileForm) }}
+    {{ form_end(profileForm) }}
+{% endblock %}
