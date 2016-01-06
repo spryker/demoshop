@@ -14,11 +14,7 @@ class AddressStep extends BaseStep implements StepInterface
      */
     public function preCondition(QuoteTransfer $quoteTransfer)
     {
-        if ($this->isCartEmpty($quoteTransfer)) {
-            return false;
-        }
-
-        return true;
+        return !$this->isCartEmpty($quoteTransfer);
     }
 
     /**

@@ -2,10 +2,8 @@
 
 namespace Pyz\Yves\Checkout\Process;
 
-use Codeception\Step;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Process\Steps\StepInterface;
-use Spryker\Client\Cart\CartClient;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Gui\Form\AbstractForm;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -13,6 +11,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Spryker\Yves\Application\Controller\AbstractController;
 
 class StepProcess
 {
@@ -28,7 +27,7 @@ class StepProcess
     protected $completedSteps = [];
 
     /**
-     * @var CartClient
+     * @var CartClientInterface
      */
     protected $cartClient;
 
@@ -79,9 +78,8 @@ class StepProcess
             return $this->createRedirectResponse($currentStep->getStepRoute());
         }
 
-        $escapeRoute = $this->getEscapeRoute($currentStep);
-
         if ($currentStep->preCondition($this->getQuoteTransfer()) === false) {
+            $escapeRoute = $this->getEscapeRoute($currentStep);
             return $this->createRedirectResponse($escapeRoute);
         }
 
@@ -98,7 +96,7 @@ class StepProcess
                     $route = $this->executeWithFormInput($currentStep, $form->getData());
                     return $this->createRedirectResponse($route);
                 } else {
-                    //@todo add flash message.
+                    $this->setErrorFlashMessage($request, 'checkout.form.validation.failed');
                 }
             }
             return [
@@ -118,8 +116,6 @@ class StepProcess
     }
 
     /**
-     * @todo cleanup logic.
-     *
      * @param Request $request
      *
      * @return StepInterface
@@ -259,7 +255,7 @@ class StepProcess
             return $this->getPreviousStep()->getStepRoute();
         }
 
-        return '';
+        return $this->errorRoute;
     }
 
     /**
@@ -345,6 +341,17 @@ class StepProcess
     protected function getQuoteTransfer()
     {
         return $this->cartClient->getQuote();
+    }
+
+    /**
+     * @param Request $request
+     * @param string $message
+     *
+     * @return void
+     */
+    protected function setErrorFlashMessage(Request $request, $message)
+    {
+        $request->getSession()->getFlashBag()->add(AbstractController::FLASH_MESSAGES_ERROR, $message);
     }
 
 }
