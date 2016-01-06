@@ -97,7 +97,7 @@ class PaymentForm extends AbstractForm
                 'expanded' => true,
                 'multiple' => false,
                 'empty_value' => false,
-                'property_path' => self::PAYMENT_ID_PROPERTY_PATH
+                'property_path' => self::PAYMENT_ID_PROPERTY_PATH,
             ]
         );
 
@@ -117,8 +117,8 @@ class PaymentForm extends AbstractForm
                 $paymentMethodName,
                 $paymentMethodSubForm,
                 [
+                    'property_path' => 'payment.payolution',
                     'error_bubbling' => true,
-                    'property_path' => 'payment.payolution'
                 ]
             );
         }

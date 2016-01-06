@@ -187,10 +187,7 @@ class InstallmentForm extends AbstractForm
      */
     protected function getInstallmentPayments()
     {
-//        $calculationRequestTransfer = new PayolutionCalculationRequestTransfer();
-//        $calculationRequestTransfer->setAmount('200')->setCounty('DE')->setCurrency('EUR');
-//
-//        $response =  $this->payolutionClient->calculateInstallmentPayments($calculationRequestTransfer);
+        $response =  $this->payolutionClient->calculateInstallmentPayments($this->quoteTransfer);
 
 
 
