@@ -17,10 +17,10 @@
     </div>
 
     <div>
-        <a href="{{ url('password/forgot') }}" class="forgot-password">{{ 'forms.forgot-password' | trans }}</a>
+        <a href="{{ url('password/forgotten') }}">{{ 'forms.forgot-password' | trans }}</a>
     </div>
 
-<div class="frame buttons cfx">
-    {{ form_widget(form.submit) }}
-</div>
+    <div class="frame buttons cfx">
+        <input type="submit" value="{{ 'forms.submit-btn' | trans }}" />
+    </div>
 {{ form_end(form) }}

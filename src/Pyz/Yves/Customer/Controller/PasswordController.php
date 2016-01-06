@@ -2,6 +2,7 @@
 
 namespace Pyz\Yves\Customer\Controller;
 
+use Generated\Shared\Transfer\CustomerResponseTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Yves\Customer\CustomerFactory;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
@@ -17,24 +18,28 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class PasswordController extends AbstractController
 {
+
     /**
      * @param Request $request
      *
      * @return array|RedirectResponse
      */
-    public function forgotPasswordAction(Request $request)
+    public function forgottenPasswordAction(Request $request)
     {
         $form = $this
             ->buildForm($this->getFactory()->createFormForgot())
             ->handleRequest($request);
 
         if ($form->isValid()) {
-            $customerTransfer = new CustomerTransfer();
-            $customerTransfer->fromArray($form->getData());
-            $this->getClient()->forgotPassword($customerTransfer);
-            $this->addSuccessMessage(Messages::CUSTOMER_PASSWORD_RECOVERY_MAIL_SENT);
+            $customerResponseTransfer = $this->sendPasswordRecovery($form->getData());
 
-            return $this->redirectResponseInternal('home');
+            if ($customerResponseTransfer->getIsSuccess()) {
+                $this->addSuccessMessage(Messages::CUSTOMER_PASSWORD_RECOVERY_MAIL_SENT);
+            } else {
+                foreach ($customerResponseTransfer->getErrors() as $errorTransfer) {
+                    $this->addErrorMessage($errorTransfer->getMessage());
+                }
+            }
         }
 
         return $this->viewResponse([
@@ -50,23 +55,39 @@ class PasswordController extends AbstractController
     public function restorePasswordAction(Request $request)
     {
         $form = $this
-            ->buildForm($this->getFactory()->createFormRestore())
+            ->buildForm($this->getFactory()->createFormRestore($request->query->get('token')))
             ->handleRequest($request);
 
         if ($form->isValid()) {
-            $customerTransfer = new CustomerTransfer();
-            $customerTransfer->setUsername($this->getUsername()); // FIXME
-            $customerTransfer->setRestorePasswordKey($request->query->get('token'));
+            $customerResponseTransfer = $this->getClient()->restorePassword($form->getData());
 
-            $this->getClient()->restorePassword($customerTransfer);
+            if ($customerResponseTransfer->getIsSuccess()) {
+                $this->getClient()->logout();
 
-            $this->getClient()->logout();
+                $this->addSuccessMessage(Messages::CUSTOMER_PASSWORD_CHANGED);
 
-            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
+                return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
+            }
+
+            foreach ($customerResponseTransfer->getErrors() as $errorTransfer) {
+                $this->addErrorMessage($errorTransfer->getMessage());
+            }
         }
 
         return $this->viewResponse([
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @param CustomerTransfer $customerTransfer
+     *
+     * @return CustomerResponseTransfer
+     */
+    protected function sendPasswordRecovery(CustomerTransfer $customerTransfer)
+    {
+        return $this->getClient()
+            ->forgottenPassword($customerTransfer);
+    }
+
 }

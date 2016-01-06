@@ -55,11 +55,13 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
+     * @param string $restoreKey
+     *
      * @return RestorePassword
      */
-    public function createFormRestore()
+    public function createFormRestore($restoreKey)
     {
-        return new RestorePassword();
+        return new RestorePassword($restoreKey);
     }
 
     /**

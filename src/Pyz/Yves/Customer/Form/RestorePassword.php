@@ -2,12 +2,26 @@
 
 namespace Pyz\Yves\Customer\Form;
 
+use Generated\Shared\Transfer\CustomerTransfer;
 use Spryker\Shared\Gui\Form\AbstractForm;
 use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class RestorePassword extends AbstractForm
 {
+
+    /**
+     * @var string
+     */
+    protected $restoreKey;
+
+    /**
+     * @param string $restoreKey
+     */
+    public function __construct($restoreKey)
+    {
+        $this->restoreKey = $restoreKey;
+    }
 
     /**
      * @return string
@@ -24,12 +38,19 @@ class RestorePassword extends AbstractForm
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('restore_key', 'hidden')
-            ->add('password', 'password', [
-                'label' => 'customer.restore.password',
-            ])
-            ->add('submit', 'submit', [
-                'label' => 'customer.restore.submit',
+            ->add(CustomerTransfer::RESTORE_PASSWORD_KEY, 'hidden')
+            ->add(CustomerTransfer::PASSWORD, 'repeated', [
+                'first_name' => 'pass',
+                'second_name' => 'confirm',
+                'type' => 'password',
+                'invalid_message' => 'validator.constraints.password.do_not_match',
+                'required' => true,
+                'first_options' => [
+                    'label' => 'forms.password',
+                ],
+                'second_options' => [
+                    'label' => 'forms.confirm-password',
+                ],
             ]);
     }
 
@@ -38,15 +59,19 @@ class RestorePassword extends AbstractForm
      */
     public function populateFormFields()
     {
-        return [];
+        $customerTransfer = $this->getDataClass();
+
+        $customerTransfer->setRestorePasswordKey($this->restoreKey);
+
+        return $customerTransfer;
     }
 
     /**
-     * @return TransferInterface|null
+     * @return CustomerTransfer
      */
     protected function getDataClass()
     {
-        return null;
+        return new CustomerTransfer();
     }
 
 }

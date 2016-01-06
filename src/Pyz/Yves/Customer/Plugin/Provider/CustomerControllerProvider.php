@@ -11,7 +11,7 @@ class CustomerControllerProvider extends AbstractYvesControllerProvider
     const ROUTE_LOGIN = 'login';
     const ROUTE_LOGOUT = 'logout';
     const ROUTE_REGISTER = 'register';
-    const ROUTE_PASSWORD_FORGOT = 'password/forgot';
+    const ROUTE_PASSWORD_FORGOTTEN = 'password/forgotten';
     const ROUTE_PASSWORD_RESTORE = 'password/restore';
     const ROUTE_CUSTOMER_PROFILE = 'customer/profile';
     const ROUTE_CUSTOMER_ADDRESS = 'customer/address';
@@ -35,7 +35,7 @@ class CustomerControllerProvider extends AbstractYvesControllerProvider
             ->assert('register', $allowedLocalesPattern . 'register|register')
             ->value('register', 'register');
 
-        $this->createController('/{password}/forgot', self::ROUTE_PASSWORD_FORGOT, 'Customer', 'Password', 'forgotPassword')
+        $this->createController('/{password}/forgotten', self::ROUTE_PASSWORD_FORGOTTEN, 'Customer', 'Password', 'forgottenPassword')
             ->assert('password', $allowedLocalesPattern . 'password|password')
             ->value('password', 'password');
         $this->createController('/{password}/restore', self::ROUTE_PASSWORD_RESTORE, 'Customer', 'Password', 'restorePassword')

@@ -26,9 +26,6 @@ class Login extends AbstractForm
             ->add('password', 'password', [
                 'label' => 'customer.login.password',
                 'constraints' => new NotBlank(),
-            ])
-            ->add('submit', 'submit', [
-                'label' => 'form.submit',
             ]);
     }
 

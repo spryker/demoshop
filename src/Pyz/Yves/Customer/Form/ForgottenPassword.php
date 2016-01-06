@@ -2,6 +2,7 @@
 
 namespace Pyz\Yves\Customer\Form;
 
+use Generated\Shared\Transfer\CustomerTransfer;
 use Spryker\Shared\Gui\Form\AbstractForm;
 use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -14,7 +15,7 @@ class ForgottenPassword extends AbstractForm
      */
     public function getName()
     {
-        return 'forgotForm';
+        return 'forgottenPassword';
     }
 
     /**
@@ -24,11 +25,8 @@ class ForgottenPassword extends AbstractForm
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', 'email', [
-                'label' => 'customer.forgot.email',
-            ])
-            ->add('submit', 'submit', [
-                'label' => 'customer.forgot.submit',
+            ->add(CustomerTransfer::EMAIL, 'email', [
+                'label' => 'customer.forgotten_password.email',
             ]);
     }
 
@@ -37,7 +35,7 @@ class ForgottenPassword extends AbstractForm
      */
     public function populateFormFields()
     {
-        return [];
+        return $this->getDataClass();
     }
 
     /**
@@ -45,7 +43,7 @@ class ForgottenPassword extends AbstractForm
      */
     protected function getDataClass()
     {
-        return null;
+        return new CustomerTransfer();
     }
 
 }
