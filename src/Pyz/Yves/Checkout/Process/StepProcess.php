@@ -255,7 +255,7 @@ class StepProcess
             return $this->getPreviousStep()->getStepRoute();
         }
 
-        return $this->errorRoute;
+        return '';
     }
 
     /**
