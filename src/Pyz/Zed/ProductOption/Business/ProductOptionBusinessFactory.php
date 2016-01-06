@@ -142,12 +142,12 @@ class ProductOptionBusinessFactory extends SprykerBusinessFactory
     /**
      * @return DataImportWriterInterface
      */
-    public function getDataImportWriterModel()
+    public function createDataImportWriterModel()
     {
         $dbAdapter = $this->getConfig()->getDatabaseAdapter();
 
         if ($dbAdapter !== ProductOptionConfig::ADAPTER_MYSQL) {
-            return parent::getDataImportWriterModel();
+            return parent::createDataImportWriterModel();
         }
 
         return new BatchedDataImportWriter(
@@ -171,7 +171,7 @@ class ProductOptionBusinessFactory extends SprykerBusinessFactory
     /**
      * @return ProductOptionReaderInterface
      */
-    public function getProductOptionReaderModel()
+    public function createProductOptionReaderModel()
     {
         return new ProductOptionReader(
             $this->getQueryContainer(),

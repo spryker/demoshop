@@ -6,19 +6,20 @@
 namespace Pyz\Zed\Cms\Dependency\Facade;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use Spryker\Zed\Locale\Business\LocaleFacade;
 
 class CmsToLocaleBridge implements CmsToLocaleInterface
 {
 
     /**
-     * @var \SprykerEngine\Zed\Locale\Business\LocaleFacade
+     * @var \Spryker\Zed\Locale\Business\LocaleFacade
      */
     protected $localeFacade;
 
     /**
      * CmsToLocaleBridge constructor.
      *
-     * @param \SprykerEngine\Zed\Locale\Business\LocaleFacade $localeFacade
+     * @param LocaleFacade $localeFacade
      */
     public function __construct($localeFacade)
     {

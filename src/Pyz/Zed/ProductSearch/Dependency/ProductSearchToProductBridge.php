@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\ProductSearch\Dependency;
 
-use SprykerFeature\Zed\ProductSearch\Dependency\Facade\ProductSearchToProductInterface;
+use Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToProductInterface;
 
 /**
  * (c) Spryker Systems GmbH copyright protected
@@ -11,7 +11,7 @@ class ProductSearchToProductBridge implements ProductSearchToProductInterface
 {
 
     /**
-     * @var \SprykerFeature\Zed\Product\Business\ProductFacade
+     * @var \Spryker\Zed\Product\Business\ProductFacade
      */
     protected $productFacade;
 

@@ -6,18 +6,12 @@
 
 namespace Pyz\Yves\Category;
 
-use Generated\Yves\Ide\FactoryAutoCompletion\CategoryCommunication;
 use Spryker\Yves\Kernel\AbstractFactory;
 use Pyz\Yves\Category\ResourceCreator\CategoryResourceCreator;
 use Spryker\Client\CategoryExporter\CategoryExporterClient;
 
 class CategoryFactory extends AbstractFactory
 {
-
-    /**
-     * @var CategoryCommunication
-     */
-    protected $factory;
 
     /**
      * @return CategoryResourceCreator

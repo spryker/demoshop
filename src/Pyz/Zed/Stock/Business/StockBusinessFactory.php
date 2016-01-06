@@ -24,11 +24,11 @@ class StockBusinessFactory extends SprykerStockBusinessFactory
      *
      * @return StockInstall
      */
-    public function getDemoDataInstaller(LoggerInterface $messenger)
+    public function createDemoDataInstaller(LoggerInterface $messenger)
     {
         $installer = new StockInstall(
-            $this->getReaderModel(),
-            $this->getWriterModel(),
+            $this->createReaderModel(),
+            $this->createWriterModel(),
             $this->getQueryContainer()
         );
         $installer->setMessenger($messenger);
@@ -39,17 +39,17 @@ class StockBusinessFactory extends SprykerStockBusinessFactory
     /**
      * @return CalculatorInterface
      */
-    public function getCalculatorModel()
+    public function createCalculatorModel()
     {
         return new Calculator(
-            $this->getReaderModel()
+            $this->createReaderModel()
         );
     }
 
     /**
      * @return ReaderInterface
      */
-    public function getReaderModel()
+    public function createReaderModel()
     {
         return new Reader(
             $this->getQueryContainer(),
@@ -60,11 +60,11 @@ class StockBusinessFactory extends SprykerStockBusinessFactory
     /**
      * @return WriterInterface
      */
-    public function getWriterModel()
+    public function createWriterModel()
     {
         return new Writer(
             $this->getQueryContainer(),
-            $this->getReaderModel(),
+            $this->createReaderModel(),
             $this->getTouchFacade()
         );
     }

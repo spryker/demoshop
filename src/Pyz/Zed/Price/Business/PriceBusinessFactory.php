@@ -22,11 +22,11 @@ class PriceBusinessFactory extends SprykerPriceBusinessFactory
      *
      * @return PriceInstall
      */
-    public function getDemoDataInstaller(LoggerInterface $messenger)
+    public function createDemoDataInstaller(LoggerInterface $messenger)
     {
         $installer = new PriceInstall(
-            $this->getWriterModel(),
-            $this->getReaderModel()
+            $this->createWriterModel(),
+            $this->createReaderModel()
         );
         $installer->setMessenger($messenger);
 
@@ -36,7 +36,7 @@ class PriceBusinessFactory extends SprykerPriceBusinessFactory
     /**
      * @return ReaderInterface
      */
-    public function getReaderModel()
+    public function createReaderModel()
     {
         return new Reader(
             $this->getQueryContainer(),
@@ -48,11 +48,11 @@ class PriceBusinessFactory extends SprykerPriceBusinessFactory
     /**
      * @return WriterInterface
      */
-    public function getWriterModel()
+    public function createWriterModel()
     {
         return new Writer(
             $this->getQueryContainer(),
-            $this->getReaderModel(),
+            $this->createReaderModel(),
             $this->getTouchFacade(),
             $this->getConfig()
         );
@@ -61,11 +61,11 @@ class PriceBusinessFactory extends SprykerPriceBusinessFactory
     /**
      * @return BulkWriterInterface
      */
-    public function getBulkWriterModel()
+    public function createBulkWriterModel()
     {
         return new BulkWriter(
             $this->getQueryContainer(),
-            $this->getReaderModel(),
+            $this->createReaderModel(),
             $this->getTouchFacade(),
             $this->getConfig()
         );
@@ -76,10 +76,10 @@ class PriceBusinessFactory extends SprykerPriceBusinessFactory
      *
      * @return Install
      */
-    public function getInstaller(MessengerInterface $messenger)
+    public function createInstaller(MessengerInterface $messenger)
     {
         $installer = new Install(
-            $this->getWriterModel(),
+            $this->createWriterModel(),
             $this->getConfig()
         );
         $installer->setMessenger($messenger);

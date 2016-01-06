@@ -30,7 +30,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
      *
      * @return ProductAttributeMappingInstall
      */
-    public function getDemoDataInstaller(LoggerInterface $messenger)
+    public function createDemoDataInstaller(LoggerInterface $messenger)
     {
         $installer = new ProductAttributeMappingInstall(
             $this->createOperationManager(),
@@ -45,7 +45,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     /**
      * @return ProductAttributesTransformerInterface
      */
-    public function getProductAttributesTransformer()
+    public function createProductAttributesTransformer()
     {
         return new ProductAttributesTransformer(
                     $this->createProductSearchQueryContainer(),
@@ -57,7 +57,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     /**
      * @return ProductSearchProcessorInterface
      */
-    public function getProductSearchProcessor()
+    public function createProductSearchProcessor()
     {
         return new ProductSearchProcessor(
                     $this->createKeyBuilder(),
@@ -70,7 +70,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
      *
      * @return InstallProductSearch
      */
-    public function getInstaller(MessengerInterface $messenger)
+    public function createInstaller(MessengerInterface $messenger)
     {
         $collectorFacade = $this->getCollectorFacade();
 

@@ -16,7 +16,7 @@ class PriceFacade extends SprykerPriceFacade
      */
     public function installDemoData(LoggerInterface $messenger)
     {
-        $this->getFactory()->getDemoDataInstaller($messenger)->install();
+        $this->getFactory()->createDemoDataInstaller($messenger)->install();
     }
 
 }

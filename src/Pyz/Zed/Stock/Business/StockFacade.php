@@ -16,7 +16,7 @@ class StockFacade extends SprykerStockFacade
      */
     public function installDemoData(LoggerInterface $messenger)
     {
-        $this->getFactory()->getDemoDataInstaller($messenger)->install();
+        $this->getFactory()->createDemoDataInstaller($messenger)->install();
     }
 
 }

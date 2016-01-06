@@ -2,6 +2,10 @@
 
 namespace Pyz\Zed\Collector\Business;
 
+use Spryker\Shared\Kernel\Messenger\MessengerInterface;
+use Spryker\Zed\Collector\Business\Exporter\ExporterInterface;
+use Spryker\Zed\Collector\Business\Exporter\MarkerInterface;
+use Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface;
 use Spryker\Zed\Collector\Business\Internal\InstallElasticsearch;
 use Spryker\Zed\Collector\Business\Exporter\KeyBuilder\SearchMarkerKeyBuilder;
 use Spryker\Zed\Collector\Business\Exporter\Reader\Search\ElasticsearchMarkerReader;
@@ -12,6 +16,7 @@ use Spryker\Zed\Collector\Business\Exporter\SearchCollector;
 use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdater as KeyValueTouchUpdater;
 use Spryker\Zed\Collector\Business\Exporter\Writer\Search\TouchUpdater;
 use Spryker\Zed\Collector\Business\Model\BatchResult;
+use Spryker\Zed\Collector\Business\Model\BatchResultInterface;
 use Spryker\Zed\Collector\Business\Model\FailedResult;
 use Spryker\Zed\Collector\Business\Exporter\KeyBuilder\KvMarkerKeyBuilder;
 use Spryker\Zed\Collector\Business\Exporter\Reader\KeyValue\RedisReader;
@@ -32,6 +37,7 @@ use Pyz\Zed\Collector\CollectorDependencyProvider;
 use Spryker\Shared\Library\Storage\StorageInstanceBuilder;
 use Spryker\Zed\Collector\Business\CollectorBusinessFactory as SprykerCollectorBusinessFactory;
 use Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface;
+use Spryker\Zed\Collector\Business\Model\FailedResultInterface;
 use Spryker\Zed\Collector\CollectorConfig;
 
 /**
@@ -279,7 +285,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     /**
      * @return Collector
      */
-    public function getYvesSearchExporter()
+    public function createYvesSearchExporter()
     {
         $config = $this->getConfig();
         $searchWriter = $this->createSearchWriter();
@@ -296,7 +302,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     /**
      * @return Collector
      */
-    public function getYvesSearchUpdateExporter()
+    public function createYvesSearchUpdateExporter()
     {
         return new Collector(
                     $this->createTouchQueryContainer(),
@@ -412,7 +418,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      *
      * @return InstallElasticsearch
      */
-    public function createInstaller(\Spryker\Shared\Kernel\Messenger\MessengerInterface $messenger)
+    public function createInstaller(MessengerInterface $messenger)
     {
         $installer = new InstallElasticsearch(
                     StorageInstanceBuilder::getElasticsearchInstance(),

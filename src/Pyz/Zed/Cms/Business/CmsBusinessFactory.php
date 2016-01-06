@@ -36,10 +36,10 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
             $this->createGlossaryFacade(),
             $this->createUrlFacade(),
             $this->createLocaleFacade(),
-            $this->getTemplateManager(),
-            $this->getPageManager(),
-            $this->getGlossaryKeyMappingManager(),
-            $this->getBlockManager(),
+            $this->createTemplateManager(),
+            $this->createPageManager(),
+            $this->createGlossaryKeyMappingManager(),
+            $this->createBlockManager(),
             $this->getCmsQueryContainer(),
             $this->getConfig()
         );
@@ -75,12 +75,12 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
     /**
      * @return PageManagerInterface
      */
-    public function getPageManager()
+    public function createPageManager()
     {
         return new PageManager(
             $this->getCmsQueryContainer(),
-            $this->getTemplateManager(),
-            $this->getBlockManager(),
+            $this->createTemplateManager(),
+            $this->createBlockManager(),
             $this->getGlossaryFacade(),
             $this->getTouchFacade(),
             $this->getUrlFacade()
@@ -90,19 +90,19 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
     /**
      * @return TemplateManagerInterface
      */
-    public function getTemplateManager()
+    public function createTemplateManager()
     {
         return new TemplateManager(
             $this->getCmsQueryContainer(),
             $this->getConfig(),
-            $this->getFinder()
+            $this->createFinder()
         );
     }
 
     /**
      * @return BlockManagerInterface
      */
-    public function getBlockManager()
+    public function createBlockManager()
     {
         return new BlockManager(
             $this->getCmsQueryContainer(),
@@ -114,13 +114,13 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
     /**
      * @return GlossaryKeyMappingManagerInterface
      */
-    public function getGlossaryKeyMappingManager()
+    public function createGlossaryKeyMappingManager()
     {
         return new GlossaryKeyMappingManager(
             $this->getGlossaryFacade(),
             $this->getCmsQueryContainer(),
-            $this->getTemplateManager(),
-            $this->getPageManager(),
+            $this->createTemplateManager(),
+            $this->createPageManager(),
             $this->getProvidedDependency(CmsDependencyProvider::PLUGIN_PROPEL_CONNECTION)
         );
     }
