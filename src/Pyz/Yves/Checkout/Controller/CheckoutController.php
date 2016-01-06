@@ -3,7 +3,9 @@
 namespace Pyz\Yves\Checkout\Controller;
 
 use Codeception\Step;
+use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Process\StepProcess;
+use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Yves\Application\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -42,7 +44,9 @@ class CheckoutController extends AbstractController
      */
     public function paymentAction(Request $request)
     {
-        return $this->createStepProcess()->process($request, $this->getFactory()->createPaymentForm());
+        $quoteTransfer = $this->getQuoteTransfer();
+
+        return $this->createStepProcess()->process($request, $this->getFactory()->createPaymentForm($quoteTransfer));
     }
 
     /**
@@ -61,6 +65,24 @@ class CheckoutController extends AbstractController
     protected function createStepProcess()
     {
         return $this->getFactory()->createCheckoutProcess($this->getApplication());
+    }
+
+    /**
+     * @return QuoteTransfer
+     */
+    protected function getQuoteTransfer()
+    {
+        $cartClient = $this->getCartClient();
+
+        return $cartClient->getQuote();
+    }
+
+    /**
+     * @return CartClientInterface
+     */
+    protected function getCartClient()
+    {
+        return $this->getFactory()->getCartClient();
     }
 
 }

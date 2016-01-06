@@ -2,6 +2,7 @@
 
 namespace Pyz\Yves\Checkout;
 
+use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Form\Steps\AddressCollectionForm;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
 use Pyz\Yves\Checkout\Form\Steps\ShipmentForm;
@@ -11,8 +12,8 @@ use Pyz\Yves\Checkout\Process\Steps\PaymentStep;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Pyz\Yves\Checkout\Process\Steps\StepInterface;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
-use Pyz\Yves\Payolution\Plugin\PayolutionInstallmentPlugin;
-use Pyz\Yves\Payolution\Plugin\PayolutionInvoicePlugin;
+use Pyz\Yves\Payolution\Plugin\PayolutionInstallmentFormPlugin;
+use Pyz\Yves\Payolution\Plugin\PayolutionInvoiceFormPlugin;
 use Spryker\Client\Calculation\CalculationClient;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Library\Currency\CurrencyManager;
@@ -23,7 +24,6 @@ use Spryker\Client\Checkout\CheckoutClient;
 use Spryker\Client\Glossary\GlossaryClientInterface;
 use Spryker\Client\Payolution\PayolutionClientInterface;
 use Spryker\Client\Shipment\ShipmentClientInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Spryker\Shared\Config;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
@@ -39,7 +39,7 @@ class CheckoutFactory extends AbstractFactory
     {
         return [
             $this->createAddressStep(),
-            $this->createShipmentSte(),
+            $this->createShipmentStep(),
             $this->createPaymentStep(),
             $this->createSummaryStep(),
         ];
@@ -56,7 +56,7 @@ class CheckoutFactory extends AbstractFactory
     /**
      * @return ShipmentStep
      */
-    protected function createShipmentSte()
+    protected function createShipmentStep()
     {
         return new ShipmentStep(CheckoutControllerProvider::CHECKOUT_SHIPMENT, ApplicationControllerProvider::ROUTE_HOME);
     }
@@ -90,12 +90,10 @@ class CheckoutFactory extends AbstractFactory
      */
     public function createCheckoutProcess(Application $application)
     {
-        $cartClient = $this->getCartClient();
-
         return new StepProcess(
             $application,
             $this->createSteps(),
-            $cartClient
+            $this->getCartClient()
         );
     }
 
@@ -122,23 +120,23 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
+     * @param QuoteTransfer $quoteTransfer
+     *
      * @return PaymentForm
      */
-    public function createPaymentForm()
+    public function createPaymentForm(QuoteTransfer $quoteTransfer)
     {
         return new PaymentForm(
-            $this->getPaymentMethodsSubForms()
+            $quoteTransfer,
+            $this->createPaymentMethods()
         );
     }
 
-    /**
-     * @return array
-     */
-    public function getPaymentMethodsSubForms()
+    public function createPaymentMethods()
     {
         return [
-            (new PayolutionInvoicePlugin())->createSubFrom(),
-            (new PayolutionInstallmentPlugin())->createSubFrom(),
+            new PayolutionInvoiceFormPlugin(),
+            new PayolutionInstallmentFormPlugin(),
         ];
     }
 
@@ -172,14 +170,6 @@ class CheckoutFactory extends AbstractFactory
     public function getGlossaryClient()
     {
         return $this->getLocator()->glossary()->client();
-    }
-
-    /**
-     * @return PayolutionClientInterface
-     */
-    public function getPayolutionClient()
-    {
-        return $this->getLocator()->payolution()->client();
     }
 
     /**

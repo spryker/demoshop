@@ -88,10 +88,11 @@ class StepProcess
                     $route = $this->executeWithFormInput($currentStep, $form->getData());
                     return $this->createRedirectResponse($route);
                 } else {
-                    //@todo  add flash message.
+                    //@todo add flash message.
                 }
             }
             return [
+                'paymentMethodsSubForms' => ['payolution/invoice', 'payolution/installment'],
                 'previousStepUrl' => $this->getUrlFromRoute($this->getPreviousStepRoute()),
                 'quoteTransfer' => $this->getQuoteTransfer(),
                 'form' => $form->createView(),

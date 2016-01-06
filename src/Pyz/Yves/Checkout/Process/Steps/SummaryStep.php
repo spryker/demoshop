@@ -34,6 +34,7 @@ class SummaryStep extends BaseStep implements StepInterface
         if ($this->isCartEmpty($quoteTransfer)) {
             return false;
         }
+
         return true;
     }
 

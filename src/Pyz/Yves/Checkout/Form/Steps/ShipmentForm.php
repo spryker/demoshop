@@ -96,18 +96,17 @@ class ShipmentForm extends AbstractForm
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $this->addShipmentMethods($builder, $options)
+        $this->addShipmentMethods($builder)
              ->addShipmentTransformer($builder)
-             ->addSubmit($builder, $options);
+             ->addSubmit($builder);
     }
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
      *
      * @return self
      */
-    protected function addShipmentMethods(FormBuilderInterface $builder, array $options)
+    protected function addShipmentMethods(FormBuilderInterface $builder)
     {
         $builder->add(
             self::FIELD_SHIPMENT_METHOD,
@@ -150,11 +149,10 @@ class ShipmentForm extends AbstractForm
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
      *
      * @return self
      */
-    protected function addSubmit(FormBuilderInterface $builder, array $options)
+    protected function addSubmit(FormBuilderInterface $builder)
     {
         $builder->add('checkout.step.payment', 'submit');
 

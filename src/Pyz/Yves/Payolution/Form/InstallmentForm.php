@@ -2,7 +2,10 @@
 
 namespace Pyz\Yves\Payolution\Form;
 
+use Generated\Shared\Transfer\PayolutionCalculationRequestTransfer;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
+use Generated\Shared\Transfer\QuoteTransfer;
+use Spryker\Client\Payolution\PayolutionClientInterface;
 use Spryker\Shared\Gui\Form\AbstractForm;
 use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,11 +20,31 @@ class InstallmentForm extends AbstractForm
     const FIELD_BANK_ACCOUNT_BIC = 'bank_account_bic';
 
     /**
+     * @var QuoteTransfer
+     */
+    protected $quoteTransfer;
+
+    /**
+     * @var PayolutionClientInterface
+     */
+    protected $payolutionClient;
+
+    /**
+     * @param QuoteTransfer $quoteTransfer
+     * @param PayolutionClientInterface $payolutionClient
+     */
+    public function __construct(QuoteTransfer $quoteTransfer, PayolutionClientInterface $payolutionClient)
+    {
+        $this->quoteTransfer = $quoteTransfer;
+        $this->payolutionClient = $payolutionClient;
+    }
+
+    /**
      * @return string
      */
     public function getName()
     {
-        return 'payolutionInstallmentForm';
+        return 'payolutionInstallment';
     }
 
     /**
@@ -38,20 +61,19 @@ class InstallmentForm extends AbstractForm
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $this->addInstallmentPaymentDetails($builder, $options)
-             ->addDateOfBirth($builder, $options)
-             ->addBankAccountHolder($builder, $options)
-             ->addBankAccountIban($builder, $options)
-             ->addBankAccountBic($builder, $options);
+        $this->addInstallmentPaymentDetails($builder)
+             ->addDateOfBirth($builder)
+             ->addBankAccountHolder($builder)
+             ->addBankAccountIban($builder)
+             ->addBankAccountBic($builder);
     }
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
      *
      * @return self
      */
-    public function addInstallmentPaymentDetails(FormBuilderInterface $builder, array $options)
+    public function addInstallmentPaymentDetails(FormBuilderInterface $builder)
     {
         $builder->add(
             self::FIELD_INSTALLMENT_PAYMENT_DETAIL_INDEX,
@@ -71,20 +93,20 @@ class InstallmentForm extends AbstractForm
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
      *
      * @return self
      */
-    protected function addDateOfBirth(FormBuilderInterface $builder, array $options)
+    protected function addDateOfBirth(FormBuilderInterface $builder)
     {
         $builder->add(
             self::FIELD_DATE_OF_BIRTH,
             'birthday',
             [
                 'label' => false,
-                'required' => true,
+                'required' => false,
                 'widget' => 'single_text',
                 'format' => 'dd.MM.yyyy',
+                'input' => 'string',
                 'attr' => [
                     'placeholder' => 'customer.birth_date',
                 ],
@@ -96,11 +118,10 @@ class InstallmentForm extends AbstractForm
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
      *
      * @return self
      */
-    protected function addBankAccountHolder(FormBuilderInterface $builder, array $options)
+    protected function addBankAccountHolder(FormBuilderInterface $builder)
     {
         $builder->add(
             self::FIELD_BANK_ACCOUNT_HOLDER,
@@ -119,11 +140,10 @@ class InstallmentForm extends AbstractForm
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
      *
      * @return self
      */
-    protected function addBankAccountIban(FormBuilderInterface $builder, array $options)
+    protected function addBankAccountIban(FormBuilderInterface $builder)
     {
         $builder->add(
             self::FIELD_BANK_ACCOUNT_IBAN,
@@ -142,11 +162,10 @@ class InstallmentForm extends AbstractForm
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
      *
      * @return self
      */
-    protected function addBankAccountBic(FormBuilderInterface $builder, array $options)
+    protected function addBankAccountBic(FormBuilderInterface $builder)
     {
         $builder->add(
             self::FIELD_BANK_ACCOUNT_BIC,
@@ -168,6 +187,13 @@ class InstallmentForm extends AbstractForm
      */
     protected function getInstallmentPayments()
     {
+        $calculationRequestTransfer = new PayolutionCalculationRequestTransfer();
+        $calculationRequestTransfer->setAmount('200')->setCounty('DE')->setCurrency('EUR');
+
+        $response =  $this->payolutionClient->calculateInstallmentPayments($calculationRequestTransfer);
+
+
+
 //        $paymentDetails = $this->payolutionCalculationResponseTransfer->getPaymentDetails();
 //        $choices = [];
 //
