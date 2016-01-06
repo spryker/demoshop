@@ -91,7 +91,8 @@ class CheckoutFactory extends AbstractFactory
     public function createCheckoutProcess(Application $application)
     {
         return new StepProcess(
-            $application,
+            $application['form.factory'],
+            $application['url_generator'],
             $this->createSteps(),
             $this->getCartClient()
         );

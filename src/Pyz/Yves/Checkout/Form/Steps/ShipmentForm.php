@@ -15,6 +15,7 @@ use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ShipmentForm extends AbstractForm
 {
@@ -115,8 +116,11 @@ class ShipmentForm extends AbstractForm
                 'choices' => $this->createAvailableShipmentChoiceList(),
                 'expanded' => true,
                 'multiple' => false,
-                'required' => false,
+                'required' => true,
                 'empty_value' => false,
+                'constraints' => [
+                    new NotBlank(),
+                ],
             ]
         );
 

@@ -8,10 +8,11 @@ use Pyz\Yves\Checkout\Process\Steps\StepInterface;
 use Spryker\Client\Cart\CartClient;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Gui\Form\AbstractForm;
+use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Spryker\Yves\Application\Application;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class StepProcess
 {
@@ -32,26 +33,34 @@ class StepProcess
     protected $cartClient;
 
     /**
-     * @var Application
-     */
-    protected $application;
-
-    /**
      * @var string
      */
     protected $errorRoute = 'checkout_error_route';
 
     /**
-     * @param Application $application
+     * @var UrlGeneratorInterface
+     */
+    protected $urlGenerator;
+
+    /**
+     * @var FormFactoryInterface
+     */
+    protected $formFactory;
+
+    /**
+     * @param FormFactoryInterface $formFactory
+     * @param UrlGeneratorInterface $urlGenerator
      * @param StepInterface[] $steps
      * @param CartClientInterface $cartClient
      */
     public function __construct(
-        Application $application,
+        FormFactoryInterface $formFactory,
+        UrlGeneratorInterface $urlGenerator,
         array $steps,
         CartClientInterface $cartClient
     ) {
-        $this->application = $application;
+        $this->formFactory = $formFactory;
+        $this->urlGenerator = $urlGenerator;
         $this->steps = $steps;
         $this->cartClient = $cartClient;
     }
@@ -83,6 +92,7 @@ class StepProcess
 
         if ($stepForm !== null) {
             $form = $this->createForm($stepForm, $this->getQuoteTransfer());
+            $form->handleRequest($request);
             if ($request->isMethod('POST')) {
                 if ($form->isValid()) {
                     $route = $this->executeWithFormInput($currentStep, $form->getData());
@@ -278,7 +288,7 @@ class StepProcess
             return $route;
         }
 
-        return $this->application->path($route);
+        return $this->urlGenerator->generate($route);
     }
 
     /**
@@ -316,7 +326,7 @@ class StepProcess
      */
     protected function createForm(AbstractForm $form, $data = null)
     {
-        return $this->application->createForm($form, $data);
+        return $this->formFactory->create($form, $data);
     }
 
     /**
