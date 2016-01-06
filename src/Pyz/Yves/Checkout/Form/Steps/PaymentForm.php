@@ -12,7 +12,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 class PaymentForm extends AbstractForm
 {
 
-    const PAYMENT_METHOD = 'payment_method';
+    const PAYMENT_ID = 'paymentId';
+    const PAYMENT_PROPERTY_PATH = 'payment';
+    const PAYMENT_ID_PROPERTY_PATH = self::PAYMENT_PROPERTY_PATH . '.' . self::PAYMENT_ID;
 
     /**
      * @var QuoteTransfer
@@ -86,7 +88,7 @@ class PaymentForm extends AbstractForm
     protected function addPaymentMethodChoices(FormBuilderInterface $builder, $paymentMethods)
     {
         $builder->add(
-            self::PAYMENT_METHOD,
+            self::PAYMENT_ID,
             'choice',
             [
                 'choices' => array_keys($paymentMethods),
@@ -95,6 +97,7 @@ class PaymentForm extends AbstractForm
                 'expanded' => true,
                 'multiple' => false,
                 'empty_value' => false,
+                'property_path' => self::PAYMENT_ID_PROPERTY_PATH
             ]
         );
 
@@ -115,6 +118,7 @@ class PaymentForm extends AbstractForm
                 $paymentMethodSubForm,
                 [
                     'error_bubbling' => true,
+                    'property_path' => 'payment.payolution'
                 ]
             );
         }
