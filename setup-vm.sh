@@ -130,9 +130,11 @@ fi
 labelText "Install npm modules"
 $NPM install
 
-if [[ -f '/usr/local/bin/spy' ]]; then
+SPY_TOOL=`which spy`
+
+if [[ -f $SPY_TOOL ]]; then
     labelText "Run spy tool"
-    /usr/local/bin/spy all
+    $SPY_TOOL all
 fi
 
 labelText "Restart ElasticSearch"
