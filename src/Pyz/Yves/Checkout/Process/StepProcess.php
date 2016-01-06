@@ -91,7 +91,7 @@ class StepProcess
         if ($stepForm !== null) {
             $form = $this->createForm($stepForm, $this->getQuoteTransfer());
             $form->handleRequest($request);
-            if ($request->isMethod('POST')) {
+            if ($request->isMethod(Request::METHOD_POST)) {
                 if ($form->isValid()) {
                     $route = $this->executeWithFormInput($currentStep, $form->getData());
                     return $this->createRedirectResponse($route);
