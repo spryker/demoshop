@@ -2,6 +2,7 @@
 
 namespace Pyz\Yves\Checkout\Process;
 
+use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Process\Steps\StepInterface;
 use Spryker\Client\Cart\CartClientInterface;
@@ -89,7 +90,8 @@ class StepProcess
         }
 
         if ($stepForm !== null) {
-            $form = $this->createForm($stepForm, $this->getQuoteTransfer());
+            $quoteTransfer = $this->getQuoteTransfer()->setPayment(new PaymentTransfer());
+            $form = $this->createForm($stepForm, $quoteTransfer);
             $form->handleRequest($request);
             if ($request->isMethod(Request::METHOD_POST)) {
                 if ($form->isValid()) {
