@@ -7,6 +7,7 @@ use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Client\Payolution\PayolutionClientInterface;
 use Spryker\Shared\Gui\Form\AbstractForm;
+use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -187,23 +188,19 @@ class InstallmentForm extends AbstractForm
      */
     protected function getInstallmentPayments()
     {
-        $response =  $this->payolutionClient->calculateInstallmentPayments($this->quoteTransfer);
-
-
-
-//        $paymentDetails = $this->payolutionCalculationResponseTransfer->getPaymentDetails();
+        $calculationResponseTransfer =  $this->payolutionClient->calculateInstallmentPayments($this->quoteTransfer);
+        $paymentDetails = $calculationResponseTransfer->getPaymentDetails();
         $choices = [];
-//
-//        // @ todo: optimize and get rid of magic strings and <a> tag by building a proper form #875
-//        foreach ($paymentDetails as $paymentDetail) {
-//            $choices[] =
-//                CurrencyManager::getInstance()->convertCentToDecimal($paymentDetail->getInstallments()[0]->getAmount())
-//                . ' € for ' .
-//                $paymentDetail->getDuration()
-//                . ' months '
-//                . '<a href="installment/id/' . $this->payolutionCalculationResponseTransfer->getIdentificationUniqueid() . '/duration/' . $paymentDetail->getDuration() . '"">Show Details</a>';
-//        }
-//
+
+        foreach ($paymentDetails as $paymentDetail) {
+            $choices[] =
+                CurrencyManager::getInstance()->convertCentToDecimal($paymentDetail->getInstallments()[0]->getAmount())
+                . ' € for ' .
+                $paymentDetail->getDuration()
+                . ' months ';
+//                . '<a href="installment/id/' . $calculationResponseTransfer->getIdentificationUniqueid() . '/duration/' . $paymentDetail->getDuration() . '"">Show Details</a>';
+        }
+
         return $choices;
     }
 
