@@ -627,21 +627,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-<<<<<<< HEAD
                 "reference": "374c7e04040a6f781c90f7d746726a5daa78e783"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/silexphp/Silex/zipball/374c7e04040a6f781c90f7d746726a5daa78e783",
                 "reference": "374c7e04040a6f781c90f7d746726a5daa78e783",
-=======
-                "reference": "722d2493180581268ba47b8bf7275afec56b2e9d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/722d2493180581268ba47b8bf7275afec56b2e9d",
-                "reference": "722d2493180581268ba47b8bf7275afec56b2e9d",
->>>>>>> #1075 update composer
                 "shasum": ""
             },
             "require": {
@@ -705,11 +696,7 @@
             "keywords": [
                 "microframework"
             ],
-<<<<<<< HEAD
             "time": "2016-01-06 14:59:35"
-=======
-            "time": "2016-01-06 15:02:55"
->>>>>>> #1075 update composer
         },
         {
             "name": "spryker/spryker",
