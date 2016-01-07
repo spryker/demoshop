@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ac644eb1b130e9308ee19170b8b0f859",
-    "content-hash": "90ee045375ccb0787438c696ea70a2c7",
+    "hash": "5d97dc05e835c8a2e4fa6786b96cff33",
+    "content-hash": "5278db2a54197e6d1e0a1445e732dca2",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -623,16 +623,16 @@
         },
         {
             "name": "silex/silex",
-            "version": "1.3.x-dev",
+            "version": "v1.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "0361d7a64160a1e5c60ffd23e6b2f0ccd2e61188"
+                "reference": "374c7e04040a6f781c90f7d746726a5daa78e783"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/0361d7a64160a1e5c60ffd23e6b2f0ccd2e61188",
-                "reference": "0361d7a64160a1e5c60ffd23e6b2f0ccd2e61188",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/374c7e04040a6f781c90f7d746726a5daa78e783",
+                "reference": "374c7e04040a6f781c90f7d746726a5daa78e783",
                 "shasum": ""
             },
             "require": {
@@ -696,7 +696,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2016-01-04 14:45:43"
+            "time": "2016-01-06 14:59:35"
         },
         {
             "name": "spryker/spryker",
@@ -704,7 +704,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "41c55e4ac9b56b703c6398ae053c311943a7948a"
+                "reference": "511a000768f719b034c788633c6d3027bad08c03"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -786,7 +786,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2016-01-05 14:41:35"
+            "time": "2016-01-07 08:39:19"
         },
         {
             "name": "symfony-cmf/routing",
@@ -4791,7 +4791,6 @@
     "stability-flags": {
         "spryker/spryker": 20,
         "propel/propel": 20,
-        "silex/silex": 20,
         "pimple/pimple": 20
     },
     "prefer-stable": true,
