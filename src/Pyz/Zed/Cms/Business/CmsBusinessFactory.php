@@ -17,6 +17,8 @@ use Spryker\Shared\Kernel\Messenger\MessengerInterface;
 use Spryker\Zed\Cms\Business\CmsBusinessFactory as SprykerCmsBusinessFactory;
 use Spryker\Zed\Cms\Business\Template\TemplateManagerInterface;
 use Pyz\Zed\Cms\Persistence\CmsQueryContainer;
+use Spryker\Zed\Locale\Business\LocaleFacade;
+use Spryker\Zed\Url\Business\UrlFacade;
 
 /**
  * @method CmsConfig getConfig()
@@ -33,9 +35,9 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
     public function createDemoDataInstaller(MessengerInterface $messenger)
     {
         $installer = new CmsInstall(
-            $this->createGlossaryFacade(),
-            $this->createUrlFacade(),
-            $this->createLocaleFacade(),
+            $this->getGlossaryFacade(),
+            $this->getUrlFacade(),
+            $this->getLocaleFacade(),
             $this->createTemplateManager(),
             $this->createPageManager(),
             $this->createGlossaryKeyMappingManager(),
@@ -51,7 +53,7 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
     /**
      * @return GlossaryFacade
      */
-    public function createGlossaryFacade()
+    public function getGlossaryFacade()
     {
         return $this->getProvidedDependency(CmsDependencyProvider::FACADE_GLOSSARY);
     }
@@ -59,7 +61,7 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
     /**
      * @return UrlFacade
      */
-    public function createUrlFacade()
+    public function getUrlFacade()
     {
         return $this->getProvidedDependency(CmsDependencyProvider::FACADE_URL);
     }
@@ -67,7 +69,7 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
     /**
      * @return LocaleFacade
      */
-    public function createLocaleFacade()
+    public function getLocaleFacade()
     {
         return $this->getProvidedDependency(CmsDependencyProvider::FACADE_LOCALE);
     }
