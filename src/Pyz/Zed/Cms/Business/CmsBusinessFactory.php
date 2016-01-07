@@ -12,11 +12,11 @@ use Spryker\Zed\Cms\Business\Template\TemplateManager;
 use Spryker\Zed\Cms\Business\Page\PageManager;
 use Pyz\Zed\Cms\Business\Internal\DemoData\CmsInstall;
 use Pyz\Zed\Cms\CmsDependencyProvider;
-use Pyz\Zed\Glossary\Business\GlossaryFacade;
 use Spryker\Shared\Kernel\Messenger\MessengerInterface;
 use Spryker\Zed\Cms\Business\CmsBusinessFactory as SprykerCmsBusinessFactory;
 use Spryker\Zed\Cms\Business\Template\TemplateManagerInterface;
 use Pyz\Zed\Cms\Persistence\CmsQueryContainer;
+use Spryker\Zed\Locale\Business\LocaleFacade;
 
 /**
  * @method CmsConfig getConfig()
@@ -33,13 +33,13 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
     public function createDemoDataInstaller(MessengerInterface $messenger)
     {
         $installer = new CmsInstall(
-            $this->createGlossaryFacade(),
-            $this->createUrlFacade(),
-            $this->createLocaleFacade(),
-            $this->getTemplateManager(),
-            $this->getPageManager(),
-            $this->getGlossaryKeyMappingManager(),
-            $this->getBlockManager(),
+            $this->getGlossaryFacade(),
+            $this->getUrlFacade(),
+            $this->getLocaleFacade(),
+            $this->createTemplateManager(),
+            $this->createPageManager(),
+            $this->createGlossaryKeyMappingManager(),
+            $this->createBlockManager(),
             $this->getCmsQueryContainer(),
             $this->getConfig()
         );
@@ -49,25 +49,9 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
     }
 
     /**
-     * @return GlossaryFacade
-     */
-    public function createGlossaryFacade()
-    {
-        return $this->getProvidedDependency(CmsDependencyProvider::FACADE_GLOSSARY);
-    }
-
-    /**
-     * @return UrlFacade
-     */
-    public function createUrlFacade()
-    {
-        return $this->getProvidedDependency(CmsDependencyProvider::FACADE_URL);
-    }
-
-    /**
      * @return LocaleFacade
      */
-    public function createLocaleFacade()
+    public function getLocaleFacade()
     {
         return $this->getProvidedDependency(CmsDependencyProvider::FACADE_LOCALE);
     }
@@ -75,12 +59,12 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
     /**
      * @return PageManagerInterface
      */
-    public function getPageManager()
+    public function createPageManager()
     {
         return new PageManager(
             $this->getCmsQueryContainer(),
-            $this->getTemplateManager(),
-            $this->getBlockManager(),
+            $this->createTemplateManager(),
+            $this->createBlockManager(),
             $this->getGlossaryFacade(),
             $this->getTouchFacade(),
             $this->getUrlFacade()
@@ -90,19 +74,19 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
     /**
      * @return TemplateManagerInterface
      */
-    public function getTemplateManager()
+    public function createTemplateManager()
     {
         return new TemplateManager(
             $this->getCmsQueryContainer(),
             $this->getConfig(),
-            $this->getFinder()
+            $this->createFinder()
         );
     }
 
     /**
      * @return BlockManagerInterface
      */
-    public function getBlockManager()
+    public function createBlockManager()
     {
         return new BlockManager(
             $this->getCmsQueryContainer(),
@@ -114,13 +98,13 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
     /**
      * @return GlossaryKeyMappingManagerInterface
      */
-    public function getGlossaryKeyMappingManager()
+    public function createGlossaryKeyMappingManager()
     {
         return new GlossaryKeyMappingManager(
             $this->getGlossaryFacade(),
             $this->getCmsQueryContainer(),
-            $this->getTemplateManager(),
-            $this->getPageManager(),
+            $this->createTemplateManager(),
+            $this->createPageManager(),
             $this->getProvidedDependency(CmsDependencyProvider::PLUGIN_PROPEL_CONNECTION)
         );
     }
