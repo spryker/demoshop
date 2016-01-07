@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Console;
 
 use Spryker\Zed\Development\Communication\Console\CodeCreateConsole;
+use Spryker\Zed\Development\Communication\Console\CodePhpMessDetectorConsole;
 use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
 use Spryker\Shared\Library\Environment;
 use Spryker\Zed\Application\Communication\Console\ApplicationIntegrationCheckConsole;
@@ -68,6 +69,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new CodeStyleFixerConsole();
             $commands[] = new CodeStyleSnifferConsole();
             $commands[] = new CodeCreateConsole();
+            $commands[] = new CodePhpMessDetectorConsole();
         }
 
         return $commands;

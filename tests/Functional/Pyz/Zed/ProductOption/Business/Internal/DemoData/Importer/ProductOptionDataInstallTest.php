@@ -5,8 +5,6 @@ namespace Functional\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer;
 use Pyz\Zed\ProductOption\Business\ProductOptionFacade;
 use Spryker\Zed\Console\Business\Model\ConsoleMessenger;
 use Spryker\Zed\Kernel\AbstractFunctionalTest;
-use Orm\Zed\Product\Persistence\SpyProductAbstract;
-use Orm\Zed\Product\Persistence\SpyProduct;
 use Orm\Zed\Product\Persistence\SpyProductQuery;
 use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 
@@ -41,6 +39,7 @@ class ProductOptionDataInstallTest extends AbstractFunctionalTest
         $messengerMock = $this->getMockBuilder(ConsoleMessenger::class)
             ->disableOriginalConstructor()
             ->getMock();
+
         return $messengerMock;
     }
 
