@@ -2,10 +2,6 @@
 
 namespace Pyz\Yves\Customer;
 
-use Spryker\Zed\Customer\Communication\Form\AddressForm;
-use Spryker\Zed\Customer\Communication\Form\CustomerForm;
-use Spryker\Zed\Customer\Communication\Table\AddressTable;
-use Spryker\Zed\Customer\Communication\Table\CustomerTable;
 use Pyz\Yves\Customer\Form\RestorePassword;
 use Pyz\Yves\Customer\Form\Profile;
 use Pyz\Yves\Customer\Form\ForgotPassword;
@@ -35,7 +31,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return Form\DeleteCustomer
+     * @return DeleteCustomer
      */
     public function createFormDelete()
     {
@@ -43,7 +39,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return Form\ForgotPassword
+     * @return ForgotPassword
      */
     public function createFormForgot()
     {
@@ -51,7 +47,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return Form\Profile
+     * @return Profile
      */
     public function createFormProfile()
     {
@@ -59,7 +55,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return Form\RestorePassword
+     * @return RestorePassword
      */
     public function createFormRestore()
     {
@@ -72,51 +68,6 @@ class CustomerFactory extends AbstractFactory
     public function createCustomerClient()
     {
         return $this->getLocator()->customer()->client();
-    }
-
-    /**
-     * @return CustomerTable
-     */
-    public function createCustomerTable()
-    {
-        return new CustomerTable($this->getQueryContainer());
-    }
-
-    /**
-     * @param int $idCustomer
-     *
-     * @return AddressTable
-     */
-    public function createCustomerAddressTable($idCustomer)
-    {
-        return new AddressTable($this->getQueryContainer(), $idCustomer);
-    }
-
-    /**
-     * @param string $formActionType
-     *
-     * @throws \ErrorException
-     *
-     * @return FormInterface
-     */
-    public function createCustomerForm($formActionType)
-    {
-        $customerForm = new CustomerForm($this->getQueryContainer(), $formActionType);
-
-        return $this->createForm($customerForm);
-    }
-
-    /**
-     * @return FormInterface
-     */
-    public function createAddressForm()
-    {
-        $customerAddressForm = new AddressForm(
-                        $this->getProvidedDependency(CustomerDependencyProvider::COUNTRY_FACADE),
-                        $this->getQueryContainer()
-                    );
-
-        return $this->createForm($customerAddressForm);
     }
 
 }
