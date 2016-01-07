@@ -12,13 +12,11 @@ use Spryker\Zed\Cms\Business\Template\TemplateManager;
 use Spryker\Zed\Cms\Business\Page\PageManager;
 use Pyz\Zed\Cms\Business\Internal\DemoData\CmsInstall;
 use Pyz\Zed\Cms\CmsDependencyProvider;
-use Pyz\Zed\Glossary\Business\GlossaryFacade;
 use Spryker\Shared\Kernel\Messenger\MessengerInterface;
 use Spryker\Zed\Cms\Business\CmsBusinessFactory as SprykerCmsBusinessFactory;
 use Spryker\Zed\Cms\Business\Template\TemplateManagerInterface;
 use Pyz\Zed\Cms\Persistence\CmsQueryContainer;
 use Spryker\Zed\Locale\Business\LocaleFacade;
-use Spryker\Zed\Url\Business\UrlFacade;
 
 /**
  * @method CmsConfig getConfig()
@@ -48,22 +46,6 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
         $installer->setMessenger($messenger);
 
         return $installer;
-    }
-
-    /**
-     * @return GlossaryFacade
-     */
-    public function getGlossaryFacade()
-    {
-        return $this->getProvidedDependency(CmsDependencyProvider::FACADE_GLOSSARY);
-    }
-
-    /**
-     * @return UrlFacade
-     */
-    public function getUrlFacade()
-    {
-        return $this->getProvidedDependency(CmsDependencyProvider::FACADE_URL);
     }
 
     /**
