@@ -1,10 +1,13 @@
 <?php
+/**
+ * (c) Spryker Systems GmbH copyright protected
+ */
 
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 
-class PaymentStep extends BaseStep implements StepInterface
+class SuccessStep extends BaseStep implements StepInterface
 {
 
     /**
@@ -27,13 +30,11 @@ class PaymentStep extends BaseStep implements StepInterface
 
     /**
      * @param QuoteTransfer $quoteTransfer
-     * @param array $data
-     *
      * @return QuoteTransfer
      */
-    public function execute(QuoteTransfer $quoteTransfer, $data = null)
+    public function execute(QuoteTransfer $quoteTransfer)
     {
-        return $quoteTransfer;
+        return new QuoteTransfer();
     }
 
     /**
@@ -43,6 +44,11 @@ class PaymentStep extends BaseStep implements StepInterface
      */
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
+        if ($quoteTransfer->getCheckout() === null ||
+            $quoteTransfer->getCheckout()->getOrderPlaced() === false) {
+            return false;
+        }
+
         return true;
     }
 }

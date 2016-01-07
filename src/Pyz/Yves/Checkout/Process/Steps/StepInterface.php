@@ -21,11 +21,10 @@ interface StepInterface
 
     /**
      * @param QuoteTransfer $quoteTransfer
-     * @param mixed $data
      *
      * @return QuoteTransfer
      */
-    public function execute(QuoteTransfer $quoteTransfer, $data = null);
+    public function execute(QuoteTransfer $quoteTransfer);
 
     /**
      * @param QuoteTransfer $quoteTransfer
@@ -43,5 +42,10 @@ interface StepInterface
      * @return string
      */
     public function getEscapeRoute();
+
+    /**
+     * @return string
+     */
+    public function getExternalRedirectUrl();
 
 }

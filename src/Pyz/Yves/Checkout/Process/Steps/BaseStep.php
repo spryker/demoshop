@@ -2,6 +2,8 @@
 
 namespace Pyz\Yves\Checkout\Process\Steps;
 
+use Generated\Shared\Transfer\QuoteTransfer;
+
 class BaseStep
 {
 
@@ -16,9 +18,13 @@ class BaseStep
     protected $escapeRoute;
 
     /**
+     * @var string
+     */
+    protected $externalRedirectUrl;
+
+    /**
      * @param string $stepRoute
      * @param string $escapeRoute
-     *
      */
     public function __construct($stepRoute, $escapeRoute)
     {
@@ -40,6 +46,24 @@ class BaseStep
     public function getEscapeRoute()
     {
         return $this->escapeRoute;
+    }
+
+    /**
+     * @param QuoteTransfer $quoteTransfer
+     *
+     * @return bool
+     */
+    protected function isCartEmpty(QuoteTransfer $quoteTransfer)
+    {
+        return count($quoteTransfer->getItems()) === 0;
+    }
+
+    /**
+     * @return string
+     */
+    public function getExternalRedirectUrl()
+    {
+        return $this->externalRedirectUrl;
     }
 
 }

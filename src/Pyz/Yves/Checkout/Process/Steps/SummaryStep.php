@@ -25,20 +25,6 @@ class SummaryStep extends BaseStep implements StepInterface
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
-    public function preCondition(QuoteTransfer $quoteTransfer)
-    {
-        if ($this->isCartEmpty($quoteTransfer)) {
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
      * @return bool
      */
     public function requireInput()
@@ -48,11 +34,10 @@ class SummaryStep extends BaseStep implements StepInterface
 
     /**
      * @param QuoteTransfer $quoteTransfer
-     * @param null $data
      *
      * @return QuoteTransfer
      */
-    public function execute(QuoteTransfer $quoteTransfer, $data = null)
+    public function execute(QuoteTransfer $quoteTransfer)
     {
         return $this->calculationClient->recalculate($quoteTransfer);
     }
@@ -64,6 +49,12 @@ class SummaryStep extends BaseStep implements StepInterface
      */
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
+        if ($quoteTransfer->getBillingAddress() === null ||
+            $quoteTransfer->getShipmentMethod() === null ||
+            $quoteTransfer->getPayment()->getPaymentId() === null) {
+            return false;
+        }
+
         return true;
     }
 
@@ -72,9 +63,8 @@ class SummaryStep extends BaseStep implements StepInterface
      *
      * @return bool
      */
-    protected function isCartEmpty(QuoteTransfer $quoteTransfer)
+    public function preCondition(QuoteTransfer $quoteTransfer)
     {
-        return count($quoteTransfer->getItems()) === 0;
+        return !$this->isCartEmpty($quoteTransfer);
     }
-
 }

@@ -30,16 +30,15 @@ class ShipmentStep extends BaseStep implements StepInterface
 
     /**
      * @param QuoteTransfer $quoteTransfer
-     * @param QuoteTransfer $modifiedQuoteTransfer
-     *
+     * \w\
      * @return QuoteTransfer
      */
-    public function execute(QuoteTransfer $quoteTransfer, $modifiedQuoteTransfer = null)
+    public function execute(QuoteTransfer $quoteTransfer)
     {
-        $shipmentExpenseTransfer = $this->createShippingExpenseTransfer($modifiedQuoteTransfer->getShipmentMethod());
-        $this->replaceShipmentExpenseInQuote($modifiedQuoteTransfer, $shipmentExpenseTransfer);
+        $shipmentExpenseTransfer = $this->createShippingExpenseTransfer($quoteTransfer->getShipmentMethod());
+        $this->replaceShipmentExpenseInQuote($quoteTransfer, $shipmentExpenseTransfer);
 
-        return $modifiedQuoteTransfer;
+        return $quoteTransfer;
     }
 
     /**
@@ -50,16 +49,6 @@ class ShipmentStep extends BaseStep implements StepInterface
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
         return $this->isShipmentSet($quoteTransfer);
-    }
-
-    /**
-     * @param QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
-    protected function isCartEmpty(QuoteTransfer $quoteTransfer)
-    {
-        return count($quoteTransfer->getItems()) === 0;
     }
 
     /**

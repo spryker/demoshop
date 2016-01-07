@@ -2,6 +2,7 @@
 
 namespace Pyz\Yves\Checkout\Form\Steps;
 
+use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Dependency\Plugin\PaymentSubFormInterface;
 use Spryker\Shared\Gui\Form\AbstractForm;
@@ -33,6 +34,11 @@ class PaymentForm extends AbstractForm
     public function __construct(QuoteTransfer $quoteTransfer, $paymentMethodsSubForms)
     {
         $this->quoteTransfer = $quoteTransfer;
+
+        if ($this->quoteTransfer->getPayment() === null) {
+            $this->quoteTransfer->setPayment(new PaymentTransfer());
+        }
+
         $this->paymentMethodsSubForms = $paymentMethodsSubForms;
     }
 

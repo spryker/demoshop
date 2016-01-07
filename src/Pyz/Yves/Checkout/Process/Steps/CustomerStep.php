@@ -1,10 +1,14 @@
 <?php
+/**
+ * (c) Spryker Systems GmbH copyright protected
+ */
 
 namespace Pyz\Yves\Checkout\Process\Steps;
 
+use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 
-class PaymentStep extends BaseStep implements StepInterface
+class CustomerStep extends BaseStep implements StepInterface
 {
 
     /**
@@ -22,17 +26,20 @@ class PaymentStep extends BaseStep implements StepInterface
      */
     public function requireInput()
     {
-        return true;
+        return false;
     }
 
     /**
      * @param QuoteTransfer $quoteTransfer
-     * @param array $data
      *
      * @return QuoteTransfer
      */
-    public function execute(QuoteTransfer $quoteTransfer, $data = null)
+    public function execute(QuoteTransfer $quoteTransfer)
     {
+        $customerTransfer = new CustomerTransfer();
+        $customerTransfer->setIsGuest(true);
+        $quoteTransfer->setCustomer($customerTransfer);
+
         return $quoteTransfer;
     }
 
@@ -43,6 +50,20 @@ class PaymentStep extends BaseStep implements StepInterface
      */
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
+        if ($quoteTransfer->getCustomer() === null) {
+            return false;
+        }
+
         return true;
+    }
+
+    /**
+     * @param QuoteTransfer $quoteTransfer
+     *
+     * @return bool
+     */
+    protected function isCartEmpty(QuoteTransfer $quoteTransfer)
+    {
+        return count($quoteTransfer->getItems()) === 0;
     }
 }

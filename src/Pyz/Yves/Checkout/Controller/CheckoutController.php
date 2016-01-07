@@ -22,6 +22,15 @@ class CheckoutController extends AbstractController
      *
      * @return array|RedirectResponse
      */
+    public function customerAction(Request $request)
+    {
+        return $this->createStepProcess()->process($request);
+    }
+    /**
+     * @param Request $request
+     *
+     * @return array|RedirectResponse
+     */
     public function addressAction(Request $request)
     {
         return $this->createStepProcess()->process($request, $this->getFactory()->createAddressCollectionForm());
@@ -56,7 +65,34 @@ class CheckoutController extends AbstractController
      */
     public function summaryAction(Request $request)
     {
+        return $this->createStepProcess()->process($request, $this->getFactory()->createSummaryForm());
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return array|RedirectResponse
+     */
+    public function placeOrderAction(Request $request)
+    {
         return $this->createStepProcess()->process($request);
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return array|RedirectResponse
+     */
+    public function successAction(Request $request)
+    {
+        return $this->createStepProcess()->process($request);
+    }
+
+    /**
+     * @param Request $request
+     */
+    public function errorAction(Request $request)
+    {
     }
 
     /**

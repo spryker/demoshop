@@ -6,23 +6,26 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Form\Steps\AddressCollectionForm;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
 use Pyz\Yves\Checkout\Form\Steps\ShipmentForm;
+use Pyz\Yves\Checkout\Form\Steps\SummaryForm;
 use Pyz\Yves\Checkout\Process\StepProcess;
 use Pyz\Yves\Checkout\Process\Steps\AddressStep;
+use Pyz\Yves\Checkout\Process\Steps\CustomerStep;
 use Pyz\Yves\Checkout\Process\Steps\PaymentStep;
+use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Pyz\Yves\Checkout\Process\Steps\StepInterface;
+use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
 use Pyz\Yves\Payolution\Plugin\PayolutionInstallmentFormPlugin;
 use Pyz\Yves\Payolution\Plugin\PayolutionInvoiceFormPlugin;
 use Spryker\Client\Calculation\CalculationClient;
+use Spryker\Client\Checkout\CheckoutClientInterface;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Yves\Application\Application;
 use Spryker\Yves\Kernel\AbstractFactory;
 use Spryker\Client\Cart\CartClientInterface;
-use Spryker\Client\Checkout\CheckoutClient;
 use Spryker\Client\Glossary\GlossaryClientInterface;
-use Spryker\Client\Payolution\PayolutionClientInterface;
 use Spryker\Client\Shipment\ShipmentClientInterface;
 use Spryker\Shared\Config;
 use Spryker\Shared\Payolution\PayolutionConstants;
@@ -38,10 +41,13 @@ class CheckoutFactory extends AbstractFactory
     protected function createSteps()
     {
         return [
+            $this->createCustomerStep(),
             $this->createAddressStep(),
             $this->createShipmentStep(),
             $this->createPaymentStep(),
             $this->createSummaryStep(),
+            $this->createPlaceOrderStep(),
+            $this->createSuccessStep()
         ];
     }
 
@@ -80,6 +86,41 @@ class CheckoutFactory extends AbstractFactory
             $this->getCalculationClient()
         );
     }
+
+    /**
+     * @return PlaceOrderStep
+     */
+    protected function createPlaceOrderStep()
+    {
+        return new PlaceOrderStep(
+            CheckoutControllerProvider::CHECKOUT_PLACE_ORDER,
+            ApplicationControllerProvider::ROUTE_HOME,
+            $this->getCheckoutClient()
+        );
+    }
+
+    /**
+     * @return PlaceOrderStep
+     */
+    protected function createSuccessStep()
+    {
+        return new SuccessStep(
+            CheckoutControllerProvider::CHECKOUT_SUCCESS,
+            ApplicationControllerProvider::ROUTE_HOME
+        );
+    }
+
+    /**
+     * @return PlaceOrderStep
+     */
+    protected function createCustomerStep()
+    {
+        return new CustomerStep(
+            CheckoutControllerProvider::CHECKOUT_CUSTOMER,
+            ApplicationControllerProvider::ROUTE_HOME
+        );
+    }
+
 
     /**
      * @todo get rid of application dependency.
@@ -133,6 +174,14 @@ class CheckoutFactory extends AbstractFactory
         );
     }
 
+    /**
+     * @return SummaryForm
+     */
+    public function createSummaryForm()
+    {
+        return new SummaryForm();
+    }
+
     public function createPaymentMethods()
     {
         return [
@@ -142,7 +191,7 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @return CheckoutClient
+     * @return CheckoutClientInterface
      */
     public function getCheckoutClient()
     {

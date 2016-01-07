@@ -2,7 +2,6 @@
 
 namespace Pyz\Yves\Checkout\Process;
 
-use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Process\Steps\StepInterface;
 use Spryker\Client\Cart\CartClientInterface;
@@ -13,6 +12,8 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Spryker\Yves\Application\Controller\AbstractController;
+use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
+use Symfony\Component\Stopwatch\Tests\StopwatchTest;
 
 class StepProcess
 {
@@ -35,7 +36,7 @@ class StepProcess
     /**
      * @var string
      */
-    protected $errorRoute = 'checkout_error_route';
+    protected $errorRoute = CheckoutControllerProvider::CHECKOUT_ERROR;
 
     /**
      * @var UrlGeneratorInterface
@@ -76,27 +77,26 @@ class StepProcess
         $currentStep = $this->getCurrentStep($request);
 
         if ($this->canAccessStep($request, $currentStep) === false) {
-            return $this->createRedirectResponse($currentStep->getStepRoute());
+            return $this->createRedirectResponse($this->getUrlFromRoute($currentStep->getStepRoute()));
         }
 
         if ($currentStep->preCondition($this->getQuoteTransfer()) === false) {
             $escapeRoute = $this->getEscapeRoute($currentStep);
-            return $this->createRedirectResponse($escapeRoute);
+            return $this->createRedirectResponse($this->getUrlFromRoute($escapeRoute));
         }
 
         if ($currentStep->requireInput() === false) {
-            $route = $this->executeWithoutInput($currentStep);
-            return $this->createRedirectResponse($route);
+            $this->executeWithoutInput($currentStep);
+            return $this->createRedirectResponse($this->getNextRedirectUrl($currentStep));
         }
 
         if ($stepForm !== null) {
-            $quoteTransfer = $this->getQuoteTransfer()->setPayment(new PaymentTransfer());
-            $form = $this->createForm($stepForm, $quoteTransfer);
+            $form = $this->createForm($stepForm, $this->getQuoteTransfer());
             $form->handleRequest($request);
             if ($request->isMethod(Request::METHOD_POST)) {
                 if ($form->isValid()) {
-                    $route = $this->executeWithFormInput($currentStep, $form->getData());
-                    return $this->createRedirectResponse($route);
+                    $this->executeWithFormInput($currentStep, $form->getData());
+                    return $this->createRedirectResponse($this->getNextRedirectUrl($currentStep));
                 } else {
                     $this->setErrorFlashMessage($request, 'checkout.form.validation.failed');
                 }
@@ -108,8 +108,7 @@ class StepProcess
                 'form' => $form->createView(),
             ];
         } else {
-            $quoteTransfer = $currentStep->execute($this->getQuoteTransfer());
-            $this->cartClient->storeQuoteToSession($quoteTransfer);
+            $this->executeWithoutInput($currentStep);
             return [
                 'previousStepUrl' => $this->getUrlFromRoute($this->getPreviousStepRoute()),
                 'quoteTransfer' => $this->getQuoteTransfer(),
@@ -231,6 +230,22 @@ class StepProcess
 
     /**
      * @param StepInterface $currentStep
+     *
+     * @return string
+     */
+    protected function getNextRedirectUrl(StepInterface $currentStep)
+    {
+        if (!empty($currentStep->getExternalRedirectUrl())) {
+            return $currentStep->getExternalRedirectUrl();
+        }
+
+        $route = $this->getNextStepRoute($currentStep, $this->getQuoteTransfer());
+
+        return $this->getUrlFromRoute($route);
+    }
+
+    /**
+     * @param StepInterface $currentStep
      * @param QuoteTransfer $quoteTransfer
      *
      * @return string
@@ -244,7 +259,11 @@ class StepProcess
             }
         }
 
-        return $currentStep->getStepRoute();
+        if ($currentStep->requireInput() === true) {
+            return $currentStep->getStepRoute();
+        } else {
+            return $this->errorRoute;
+        }
     }
 
     /**
@@ -292,28 +311,24 @@ class StepProcess
     /**
      * @param StepInterface $currentStep
      *
-     * @return string
+     * @return void
      */
     protected function executeWithoutInput(StepInterface $currentStep)
     {
         $quoteTransfer = $currentStep->execute($this->getQuoteTransfer());
         $this->cartClient->storeQuoteToSession($quoteTransfer);
-
-        return $this->getNextStepRoute($currentStep, $quoteTransfer);
     }
 
     /**
      * @param StepInterface $currentStep
      * @param $data
      *
-     * @return string
+     * @return void
      */
     protected function executeWithFormInput(StepInterface $currentStep, $data)
     {
-        $quoteTransfer = $currentStep->execute($this->getQuoteTransfer(), $data);
+        $quoteTransfer = $currentStep->execute($data);
         $this->cartClient->storeQuoteToSession($quoteTransfer);
-
-        return $this->getNextStepRoute($currentStep, $quoteTransfer);
     }
 
     /**
@@ -328,13 +343,13 @@ class StepProcess
     }
 
     /**
-     * @param string $route
+     * @param string $url
      *
      * @return RedirectResponse
      */
-    protected function createRedirectResponse($route)
+    protected function createRedirectResponse($url)
     {
-        return new RedirectResponse($this->getUrlFromRoute($route));
+        return new RedirectResponse($url);
     }
 
     /**

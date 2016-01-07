@@ -26,20 +26,17 @@ class AddressStep extends BaseStep implements StepInterface
     }
 
     /**
-     * @todo do we still need two parameters if we can use one from form, check this when all steps implemented.!!
-     *
      * @param QuoteTransfer $quoteTransfer
-     * @param QuoteTransfer $modifiedQuoteTransfer
      *
      * @return QuoteTransfer
      */
-    public function execute(QuoteTransfer $quoteTransfer, $modifiedQuoteTransfer = null)
+    public function execute(QuoteTransfer $quoteTransfer)
     {
         if ($this->isBillingAddressEmpty($quoteTransfer))  {
-            $modifiedQuoteTransfer->setBillingAddress($modifiedQuoteTransfer->getShippingAddress());
+            $quoteTransfer->setBillingAddress($quoteTransfer->getShippingAddress());
         }
 
-        return $modifiedQuoteTransfer;
+        return $quoteTransfer;
     }
 
     /**
@@ -55,16 +52,6 @@ class AddressStep extends BaseStep implements StepInterface
         }
 
         return true;
-    }
-
-    /**
-     * @param QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
-    protected function isCartEmpty(QuoteTransfer $quoteTransfer)
-    {
-        return count($quoteTransfer->getItems()) === 0;
     }
 
     /**
