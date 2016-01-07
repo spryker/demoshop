@@ -1,0 +1,95 @@
+{{ form_start(form) }}
+    <div>
+        <label>{{ form.firstName.vars.label | trans }}</label>
+        <div>
+            {{ form_widget(form.firstName, { 'attr': {'placeholder': (form.firstName.vars.label | trans)} }) }}
+            {{ form_errors(form.firstName) }}
+        </div>
+    </div>
+
+    <div>
+        <label>{{ form.lastName.vars.label | trans }}</label>
+        <div>
+            {{ form_widget(form.lastName, { 'attr': {'placeholder': (form.lastName.vars.label | trans)} }) }}
+            {{ form_errors(form.lastName) }}
+        </div>
+    </div>
+
+    <div>
+        <label>{{ form.company.vars.label | trans }}</label>
+        <div>
+            {{ form_widget(form.company, { 'attr': {'placeholder': (form.company.vars.label | trans)} }) }}
+            {{ form_errors(form.company) }}
+        </div>
+    </div>
+
+    <div>
+        <label>{{ form.address1.vars.label | trans }}</label>
+        <div>
+            {{ form_widget(form.address1, { 'attr': {'placeholder': (form.address1.vars.label | trans)} }) }}
+            {{ form_errors(form.address1) }}
+        </div>
+    </div>
+
+    <div>
+        <label>{{ form.address2.vars.label | trans }}</label>
+        <div>
+            {{ form_widget(form.address2, { 'attr': {'placeholder': (form.address2.vars.label | trans)} }) }}
+            {{ form_errors(form.address2) }}
+        </div>
+    </div>
+
+    <div>
+        <label>{{ form.address3.vars.label | trans }}</label>
+        <div>
+            {{ form_widget(form.address3, { 'attr': {'placeholder': (form.address3.vars.label | trans)} }) }}
+            {{ form_errors(form.address3) }}
+        </div>
+    </div>
+
+    <div>
+        <label>{{ form.zipCode.vars.label | trans }}</label>
+        <div>
+            {{ form_widget(form.zipCode, { 'attr': {'placeholder': (form.zipCode.vars.label | trans)} }) }}
+            {{ form_errors(form.zipCode) }}
+        </div>
+    </div>
+
+    <div>
+        <label>{{ form.city.vars.label | trans }}</label>
+        <div>
+            {{ form_widget(form.city, { 'attr': {'placeholder': (form.city.vars.label | trans)} }) }}
+            {{ form_errors(form.city) }}
+        </div>
+    </div>
+
+    <div>
+        <label>{{ form.iso2Code.vars.label | trans }}</label>
+        <div>
+            {{ form_widget(form.iso2Code) }}
+            {{ form_errors(form.iso2Code) }}
+        </div>
+    </div>
+
+    <div>
+        <label>{{ form.phone.vars.label | trans }}</label>
+        <div>
+            {{ form_widget(form.phone, { 'attr': {'placeholder': (form.phone.vars.label | trans)} }) }}
+            {{ form_errors(form.phone) }}
+        </div>
+    </div>
+
+    <div>
+        {{ form_widget(form.isDefaultShipping) }}
+        <label for="{{ form.isDefaultShipping.vars.id }}" class="checkbox">{{ form.isDefaultShipping.vars.label | trans}}</label>
+    </div>
+
+    <div>
+        {{ form_widget(form.isDefaultBilling) }}
+        <label for="{{ form.isDefaultBilling.vars.id }}" class="checkbox">{{ form.isDefaultBilling.vars.label | trans}}</label>
+    </div>
+
+    <div class="frame buttons cfx">
+        <input type="submit" value="{{ 'forms.submit-btn' | trans }}" />
+    </div>
+{{ form_end(form) }}
