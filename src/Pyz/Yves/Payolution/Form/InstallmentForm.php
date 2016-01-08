@@ -2,7 +2,9 @@
 
 namespace Pyz\Yves\Payolution\Form;
 
-use Generated\Shared\Transfer\PayolutionCalculationRequestTransfer;
+use Generated\Shared\Transfer\PayolutionCalculationInstallmentTransfer;
+use Generated\Shared\Transfer\PayolutionCalculationPaymentDetailTransfer;
+use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Client\Payolution\PayolutionClientInterface;
@@ -62,7 +64,7 @@ class InstallmentForm extends AbstractForm
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $this->addInstallmentPaymentDetails($builder)
+        $this->addInstallmentPaymentDetails($builder, $this->quoteTransfer)
              ->addDateOfBirth($builder)
              ->addBankAccountHolder($builder)
              ->addBankAccountIban($builder)
@@ -71,19 +73,20 @@ class InstallmentForm extends AbstractForm
 
     /**
      * @param FormBuilderInterface $builder
+     * @param QuoteTransfer $quoteTransfer
      *
-     * @return self
+     * @return $this
      */
-    public function addInstallmentPaymentDetails(FormBuilderInterface $builder)
+    public function addInstallmentPaymentDetails(FormBuilderInterface $builder, QuoteTransfer $quoteTransfer)
     {
         $builder->add(
             self::FIELD_INSTALLMENT_PAYMENT_DETAIL_INDEX,
             'choice',
             [
-                'choices' => $this->getInstallmentPayments(),
+                'choices' => $this->getInstallmentPaymentChoices($quoteTransfer),
                 'label' => false,
                 'required' => false,
-                'expanded' => true,
+                'expanded' => false,
                 'multiple' => false,
                 'empty_value' => false,
             ]
@@ -184,24 +187,87 @@ class InstallmentForm extends AbstractForm
     }
 
     /**
+     * @param QuoteTransfer $quoteTransfer
+     *
      * @return array
      */
-    protected function getInstallmentPayments()
+    protected function getInstallmentPaymentChoices(QuoteTransfer $quoteTransfer)
     {
-        $calculationResponseTransfer =  $this->payolutionClient->calculateInstallmentPayments($this->quoteTransfer);
-        $paymentDetails = $calculationResponseTransfer->getPaymentDetails();
-        $choices = [];
+        $calculationResponseTransfer = $this->getInstallmentPayments($quoteTransfer);
+        return $this->buildChoices($calculationResponseTransfer->getPaymentDetails());
+    }
 
-        foreach ($paymentDetails as $paymentDetail) {
-            $choices[] =
-                CurrencyManager::getInstance()->convertCentToDecimal($paymentDetail->getInstallments()[0]->getAmount())
-                . ' € for ' .
-                $paymentDetail->getDuration()
-                . ' months ';
-//                . '<a href="installment/id/' . $calculationResponseTransfer->getIdentificationUniqueid() . '/duration/' . $paymentDetail->getDuration() . '"">Show Details</a>';
+    /**
+     * @param QuoteTransfer $quoteTransfer
+     *
+     * @return PayolutionCalculationResponseTransfer
+     */
+    protected function getInstallmentPayments(QuoteTransfer $quoteTransfer)
+    {
+        if ($this->payolutionClient->hasInstallmentPaymentsInSession()) {
+            $calculationResponseTransfer = $this->payolutionClient->getInstallmentPaymentsFromSession();
+
+            if ($this->isInstallmentPaymentsStillValid($quoteTransfer, $calculationResponseTransfer)) {
+                return $calculationResponseTransfer;
+            }
+        }
+
+        $calculationResponseTransfer = $this->payolutionClient->calculateInstallmentPayments($quoteTransfer);
+        return $this->payolutionClient->storeInstallmentPaymentsInSession($calculationResponseTransfer);
+    }
+
+    /**
+     * @param QuoteTransfer $quoteTransfer
+     * @param PayolutionCalculationResponseTransfer $calculationResponseTransfer
+     *
+     * @return bool
+     */
+    protected function isInstallmentPaymentsStillValid(QuoteTransfer $quoteTransfer, PayolutionCalculationResponseTransfer $calculationResponseTransfer)
+    {
+        return $quoteTransfer->getTotals()->getHash() === $calculationResponseTransfer->getTotalsAmountHash();
+    }
+
+    /**
+     * @param PayolutionCalculationPaymentDetailTransfer[] $installmentPaymentDetails
+     *
+     * @return array
+     */
+    protected function buildChoices($installmentPaymentDetails)
+    {
+        $choices = [];
+        foreach ($installmentPaymentDetails as $paymentDetail) {
+            $choices[] = $this->buildChoice($paymentDetail);
         }
 
         return $choices;
+    }
+
+    /**
+     * @param PayolutionCalculationPaymentDetailTransfer $paymentDetail
+     *
+     * @return string
+     *
+     * @todo: optimize format choices and add a Type maybe
+     */
+    protected function buildChoice(PayolutionCalculationPaymentDetailTransfer $paymentDetail)
+    {
+        $choice =
+            $paymentDetail->getCurrency() .
+            $this->convertCentToDecimal($paymentDetail->getInstallments()[0]->getAmount()) .
+            $paymentDetail->getDuration();
+            // . '<a href="installment/id/' . $calculationResponseTransfer->getIdentificationUniqueid() . '/duration/' . $paymentDetail->getDuration() . '"">Show Details</a>';
+
+        return $choice;
+    }
+
+    /**
+     * @param int $amount
+     *
+     * @return float
+     */
+    protected function convertCentToDecimal($amount)
+    {
+        return CurrencyManager::getInstance()->convertCentToDecimal($amount);
     }
 
     /**
