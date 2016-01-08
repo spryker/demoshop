@@ -1,0 +1,34 @@
+/**
+ * 
+ * description_here
+ * @copyright: Spryker Systems GmbH
+ *
+ */
+
+@import '~jquery-ui-bundle/jquery-ui';
+@import '~jquery-ui-bundle/jquery-ui.structure';
+@import '~jquery-ui-bundle/jquery-ui.theme';
+@import '~font-awesome/css/font-awesome';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+$header-placeholder-width: 275px;
+
+$screen-xs-max: 767px;
+$screen-sm-min: 768px;
+$screen-sm-max: 991px;
+$screen-md-min: 992px;
+$screen-md-max: 1199px;
+$screen-lg-min: 1200px;
+
+$footer-background: #393c44;
+$footer-color: #fdfdfd;
+
+@import 'mixins';
+@import 'fonts';
+@import 'base';
+@import 'header';
+@import 'header-cart';
+@import 'footer';
+@import 'product';
+@import 'catalog';
+@import 'cms';

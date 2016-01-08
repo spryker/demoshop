@@ -32,7 +32,7 @@
         </div>
         <div class="col-md-6">
 
-            <img src="{{ product.image_url }}" class="product-main-image" alt="" />
+            <img src="/assets/default/img/{{ product.image_url }}" class="product-main-image" alt="" />
 
             <div class="background-dark product-padding-details">
                 <section class="product-description">
@@ -50,7 +50,7 @@
                 </section>
                 <section class="product-gallery">
                     {% for image in product.images_detail %}
-                        <img src="{{ image }}" alt="">
+                        <img src="/assets/default/img/{{ image }}" alt="">
                     {% endfor %}
                 </section>
             </div>
