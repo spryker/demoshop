@@ -8,7 +8,7 @@ use Pyz\Yves\Cms\Plugin\TwigCmsBlock;
 use Pyz\Yves\Customer\Plugin\TwigCustomer;
 use Pyz\Yves\Product\Plugin\TwigPrice;
 use Pyz\Yves\Twig\Plugin\TwigNative;
-use Generated\Yves\Ide\AutoCompletion;
+use Generated\Client\Ide\AutoCompletion;
 use Spryker\Shared\Kernel\LocatorLocatorInterface;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFilterPluginInterface;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
