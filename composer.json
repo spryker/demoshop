@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-feature/1064-Fix-tests-and-clean-up",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
@@ -51,7 +51,9 @@
   "require-dev": {
     "silex/web-profiler": "~1.0.2",
     "pdepend/pdepend": "*",
+    "phploc/phploc": "*",
     "phpmd/phpmd": "*",
+    "sebastian/phpcpd": "*",
     "codeception/codeception": "~2.1.0",
     "fabpot/php-cs-fixer": "^1.9",
     "squizlabs/php_codesniffer": "~2.4.0"
