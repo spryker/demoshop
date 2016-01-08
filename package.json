@@ -29,8 +29,7 @@
     "metismenu": "^2.2.0",
     "nestable": "git+https://github.com/ilmente/Nestable.git",
     "pace": "git+https://github.com/HubSpot/pace.git",
-    "select2": "^4.0.1",
-    "spy-provider": "file:///Users/alessandrobellini/Dev/spy-provider"
+    "select2": "^4.0.1"
   },
   "optionalDependencies": {
     "jquery-ui": "^1.10.5",
