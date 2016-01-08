@@ -4,24 +4,36 @@
  * @copyright: Spryker Systems GmbH
  *
  */
+
 .load-cart-rules {
   height: 32px;
-  line-height: 32px; }
-  .load-cart-rules .ajax-loader {
-    background: url("/bundles/images/ajax-loader.gif") top left no-repeat;
-    width: 32px;
-    height: 32px; }
+  line-height: 32px;
+}
+
+.load-cart-rules .ajax-loader {
+  background: url("/bundles/images/ajax-loader.gif") top left no-repeat;
+  width: 32px;
+  height: 32px;
+}
 
 .collection-form > div {
-  padding-top: 10px; }
+  padding-top: 10px;
+}
 
 .collection-form > div > .well > .form-group > label.control-label {
-  display: none; }
+  display: none;
+}
 
 .ajax-loaded > .well > .form-group > div > .form-group > label {
-  display: none; }
+  display: none;
+}
 
 .form-inline.option-chain label {
-  padding-right: 10px; }
-  .form-inline.option-chain label > input {
-    margin-right: 5px; }
+  padding-right: 10px;
+}
+
+.form-inline.option-chain label > input {
+  margin-right: 5px;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiL1VzZXJzL2FsZXNzYW5kcm9iZWxsaW5pL0Rldi9kZXZ2bS9kZW1vc2hvcC92ZW5kb3Ivc3ByeWtlci9zcHJ5a2VyL0J1bmRsZXMvRGlzY291bnQvYXNzZXRzL1plZC9zYXNzL21haW4uc2NzcyIsInNvdXJjZXMiOlsiL1VzZXJzL2FsZXNzYW5kcm9iZWxsaW5pL0Rldi9kZXZ2bS9kZW1vc2hvcC92ZW5kb3Ivc3ByeWtlci9zcHJ5a2VyL0J1bmRsZXMvRGlzY291bnQvYXNzZXRzL1plZC9zYXNzL21haW4uc2NzcyJdLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIFxuICogRGlzY291bnQgbWFpbiBzdHlsZSBjdXN0b21pemF0aW9uXG4gKiBAY29weXJpZ2h0OiBTcHJ5a2VyIFN5c3RlbXMgR21iSFxuICpcbiAqL1xuXG4ubG9hZC1jYXJ0LXJ1bGVzIHtcbiAgICBoZWlnaHQ6IDMycHg7XG4gICAgbGluZS1oZWlnaHQ6IDMycHg7XG4gICAgLmFqYXgtbG9hZGVyIHtcbiAgICAgICAgYmFja2dyb3VuZDogdXJsKCcvYnVuZGxlcy9pbWFnZXMvYWpheC1sb2FkZXIuZ2lmJykgdG9wIGxlZnQgbm8tcmVwZWF0O1xuICAgICAgICB3aWR0aDogMzJweDtcbiAgICAgICAgaGVpZ2h0OiAzMnB4O1xuICAgIH1cbn1cblxuLmNvbGxlY3Rpb24tZm9ybSB7XG4gICAgPiBkaXYge1xuICAgICAgICBwYWRkaW5nLXRvcDogMTBweDtcbiAgICB9XG4gICAgPiBkaXYgPiAud2VsbCA+IC5mb3JtLWdyb3VwID4gbGFiZWwuY29udHJvbC1sYWJlbCB7XG4gICAgICAgIGRpc3BsYXk6IG5vbmU7XG4gICAgfVxufVxuXG4uYWpheC1sb2FkZWQgPiAud2VsbCA+IC5mb3JtLWdyb3VwID4gZGl2ID4gLmZvcm0tZ3JvdXAgPiBsYWJlbCB7XG4gICAgZGlzcGxheTogbm9uZTtcbn1cblxuLmZvcm0taW5saW5lLm9wdGlvbi1jaGFpbiBsYWJlbCB7XG4gICAgcGFkZGluZy1yaWdodDogMTBweDtcbiAgICA+IGlucHV0IHtcbiAgICAgICAgbWFyZ2luLXJpZ2h0OiA1cHg7XG4gICAgfVxufVxuIl0sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7R0FLRztBQUVILGdCQUFnQixDQUFDO0VBQ2IsTUFBTSxFQUFFLElBQUs7RUFDYixXQUFXLEVBQUUsSUFBSyxHQU1yQjtFQVJELGdCQUFnQixDQUdaLFlBQVksQ0FBQztJQUNULFVBQVUsRUFBRSxzQ0FBRyxDQUFvQyxHQUFHLENBQUMsSUFBSSxDQUFDLFNBQVM7SUFDckUsS0FBSyxFQUFFLElBQUs7SUFDWixNQUFNLEVBQUUsSUFBSyxHQUNoQjs7QUFHTCxnQkFBZ0IsR0FDVixHQUFHLENBQUM7RUFDRixXQUFXLEVBQUUsSUFBSyxHQUNyQjs7QUFITCxnQkFBZ0IsR0FJVixHQUFHLEdBQUcsS0FBSyxHQUFHLFdBQVcsR0FBRyxLQUFLLEFBQUEsY0FBYyxDQUFDO0VBQzlDLE9BQU8sRUFBRSxJQUFLLEdBQ2pCOztBQUdMLFlBQVksR0FBRyxLQUFLLEdBQUcsV0FBVyxHQUFHLEdBQUcsR0FBRyxXQUFXLEdBQUcsS0FBSyxDQUFDO0VBQzNELE9BQU8sRUFBRSxJQUFLLEdBQ2pCOztBQUVELFlBQVksQUFBQSxhQUFhLENBQUMsS0FBSyxDQUFDO0VBQzVCLGFBQWEsRUFBRSxJQUFLLEdBSXZCO0VBTEQsWUFBWSxBQUFBLGFBQWEsQ0FBQyxLQUFLLEdBRXpCLEtBQUssQ0FBQztJQUNKLFlBQVksRUFBRSxHQUFJLEdBQ3JCIiwibmFtZXMiOltdfQ== */
