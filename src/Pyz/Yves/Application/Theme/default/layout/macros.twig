@@ -1,7 +1,7 @@
 {# used in header main navigation in dropdown menu #}
 {% macro categoryItem(name, url, imageUrl) %}
     {% if imageUrl is defined and imageUrl != '' and imageUrl != '#' %}
-        {% set categoryImage = '/images/nav/' ~ imageUrl %}
+        {% set categoryImage = '/assets/default/img/' ~ imageUrl %}
     {% else %}
         {% set categoryImage = '#' %}
     {% endif %}
