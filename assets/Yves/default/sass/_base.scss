@@ -1,0 +1,38 @@
+
+a:active, a:focus {
+  outline: none;
+}
+
+body {
+  margin-top: 65px;
+  background-color: #fdfdfd;
+  color: #22242b;
+  font-family: Fira Sans,sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 26px;
+}
+
+.btn-orange {
+  background-color: #e2694a;
+}
+
+.btn-add-to-cart {
+  color: #fdfdfd;
+  text-transform: uppercase;
+  font-size: 17px;
+  font-weight: 500;
+
+  @media (max-width: $screen-xs-max) {
+    width: 90%;
+  }
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    width: 90%;
+  }
+  @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    width: 70%;
+  }
+  @media (min-width: $screen-lg-min) {
+    width: 50%;
+  }
+}
