@@ -7,7 +7,7 @@
 
 'use strict';
 
-var imagesRequire = require.context('../../commons/img', true);
+var imagesRequire = require.context('../img', true);
 imagesRequire.keys().forEach(function(key) {
     imagesRequire(key);
 });

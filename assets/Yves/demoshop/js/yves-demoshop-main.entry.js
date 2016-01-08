@@ -23,7 +23,7 @@ var catalog = require('./ui/catalog');
 var checkout = require('./ui/checkout');
 var mainNav = require('./ui/main-nav');
 
-var imagesRequire = require.context('../../commons/img', true);
+var imagesRequire = require.context('../img', true);
 imagesRequire.keys().forEach(function(key) {
     imagesRequire(key);
 });
