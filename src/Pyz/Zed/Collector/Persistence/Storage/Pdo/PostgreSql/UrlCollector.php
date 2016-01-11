@@ -23,17 +23,18 @@ SELECT
     ' . $columnsSql . '
     u.url AS url
 FROM spy_url u
-    INNER JOIN spy_locale l ON (u.fk_locale = l.id_locale)
+    INNER JOIN spy_locale l ON (u.fk_locale = l.id_locale AND u.fk_locale = :fk_locale_1)
     INNER JOIN spy_touch t ON (
       u.id_url = t.item_id
       AND t.item_event = :spy_touch_item_event
       AND t.touched >= :spy_touch_touched
       AND t.item_type = :spy_touch_item_type
     )
-    LEFT JOIN spy_touch_storage ON spy_touch_storage.fk_touch = t.id_touch AND spy_touch_storage.fk_locale = :fk_locale_1
+    LEFT JOIN spy_touch_storage ON spy_touch_storage.fk_touch = t.id_touch AND spy_touch_storage.fk_locale = :fk_locale_2
 ';
         $this->criteriaBuilder->sql($sql)
-            ->setParameter('fk_locale_1', $this->locale->getIdLocale());
+            ->setParameter('fk_locale_1', $this->locale->getIdLocale())
+            ->setParameter('fk_locale_2', $this->locale->getIdLocale());
     }
 
     protected function getColumns($alias='u')
