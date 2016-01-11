@@ -33,10 +33,21 @@ class TranslationCollector extends AbstractPropelCollectorQuery
             Criteria::INNER_JOIN
         );
 
-        $this->touchQuery->addAnd(SpyLocaleTableMap::COL_LOCALE_NAME, $this->locale->getLocaleName(), Criteria::EQUAL);
-        $this->touchQuery->addAnd(SpyLocaleTableMap::COL_IS_ACTIVE, true, Criteria::EQUAL);
-        $this->touchQuery->addAnd(SpyGlossaryKeyTableMap::COL_IS_ACTIVE, true, Criteria::EQUAL);
-        $this->touchQuery->addAnd(SpyGlossaryTranslationTableMap::COL_IS_ACTIVE, true, Criteria::EQUAL);
+        $this->touchQuery->addAnd(
+            SpyLocaleTableMap::COL_ID_LOCALE,
+            $this->getLocale()->getIdLocale(),
+            Criteria::EQUAL
+        );
+        $this->touchQuery->addAnd(
+            SpyGlossaryKeyTableMap::COL_IS_ACTIVE,
+            true,
+            Criteria::EQUAL
+        );
+        $this->touchQuery->addAnd(
+            SpyGlossaryTranslationTableMap::COL_IS_ACTIVE,
+            true,
+            Criteria::EQUAL
+        );
 
         $this->touchQuery->withColumn(SpyGlossaryTranslationTableMap::COL_VALUE, 'translation_value');
         $this->touchQuery->withColumn(SpyGlossaryKeyTableMap::COL_KEY, 'translation_key');

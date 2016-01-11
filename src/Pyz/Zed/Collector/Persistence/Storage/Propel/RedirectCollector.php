@@ -21,11 +21,16 @@ class RedirectCollector extends AbstractPropelCollectorQuery
             SpyRedirectTableMap::COL_ID_REDIRECT,
             Criteria::INNER_JOIN
         );
-
         $this->touchQuery->addJoin(
             SpyRedirectTableMap::COL_ID_REDIRECT,
             SpyUrlTableMap::COL_FK_RESOURCE_REDIRECT,
             Criteria::INNER_JOIN
+        );
+
+        $this->touchQuery->addAnd(
+            SpyUrlTableMap::COL_FK_LOCALE,
+            $this->getLocale()->getIdLocale(),
+            Criteria::EQUAL
         );
 
         $this->touchQuery->withColumn(SpyRedirectTableMap::COL_ID_REDIRECT, 'id');

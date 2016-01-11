@@ -7,7 +7,9 @@ use Orm\Zed\Cms\Persistence\Map\SpyCmsGlossaryKeyMappingTableMap;
 use Orm\Zed\Cms\Persistence\Map\SpyCmsPageTableMap;
 use Orm\Zed\Cms\Persistence\Map\SpyCmsTemplateTableMap;
 use Orm\Zed\Glossary\Persistence\Map\SpyGlossaryKeyTableMap;
+use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
+use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use SprykerFeature\Zed\Collector\Persistence\Exporter\AbstractPropelCollectorQuery;
 
@@ -31,8 +33,18 @@ class BlockCollector extends AbstractPropelCollectorQuery
         );
         $this->touchQuery->addJoin(
             SpyCmsPageTableMap::COL_ID_CMS_PAGE,
+            SpyUrlTableMap::COL_FK_RESOURCE_PAGE,
+            Criteria::INNER_JOIN
+        );
+        $this->touchQuery->addJoin(
+            SpyUrlTableMap::COL_FK_LOCALE,
+            SpyLocaleTableMap::COL_ID_LOCALE,
+            Criteria::INNER_JOIN
+        );
+        $this->touchQuery->addJoin(
+            SpyCmsPageTableMap::COL_ID_CMS_PAGE,
             SpyCmsGlossaryKeyMappingTableMap::COL_FK_PAGE,
-            Criteria::LEFT_JOIN
+            Criteria::INNER_JOIN
         );
         $this->touchQuery->addJoin(
             SpyCmsPageTableMap::COL_FK_TEMPLATE,
@@ -42,7 +54,13 @@ class BlockCollector extends AbstractPropelCollectorQuery
         $this->touchQuery->addJoin(
             SpyCmsGlossaryKeyMappingTableMap::COL_FK_GLOSSARY_KEY,
             SpyGlossaryKeyTableMap::COL_ID_GLOSSARY_KEY,
-            Criteria::LEFT_JOIN
+            Criteria::INNER_JOIN
+        );
+
+        $this->touchQuery->addAnd(
+            SpyUrlTableMap::COL_FK_LOCALE,
+            $this->getLocale()->getIdLocale(),
+            Criteria::EQUAL
         );
 
         $this->touchQuery->withColumn(SpyCmsBlockTableMap::COL_ID_CMS_BLOCK, 'block_id');
