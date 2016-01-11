@@ -15,8 +15,6 @@ use Symfony\Component\HttpFoundation\Request;
 class NewsletterController extends AbstractCustomerController
 {
 
-//    const PARAM_TOKEN = 'token';
-
     const MESSAGE_UNSUBSCRIPTION_SUCCESS = 'newsletter.unsubscription.success';
     const MESSAGE_UNSUBSCRIPTION_FAILED = 'newsletter.unsubscription.failed';
     const MESSAGE_SUBSCRIPTION_CONFIRMATION_APPROVED = 'newsletter.subscription.confirmation.approved';
@@ -132,84 +130,5 @@ class NewsletterController extends AbstractCustomerController
             NewsletterSubscriptionForm::FIELD_SUBSCRIBE => $subscriptionResultTransfer->getIsSuccess(),
         ];
     }
-
-//    /**
-//     * @return RedirectResponse
-//     */
-//    public function subscribeAction()
-//    {
-//        $form = $this->createForm($this->getDependencyContainer()->createFooterFormNewsletterSubscription());
-//
-//        if ($form->isValid()) {
-//            $customerTransfer = new CustomerTransfer();
-//            $customerTransfer->setEmail($form->get(FooterNewsletterSubscription::SUBSCRIBER_EMAIL)->getData());
-//
-//            $subscriptionResult = $this->getDependencyContainer()
-//                ->createNewsletterClient()
-//                ->subscribeForEditorialNewsletter($customerTransfer);
-//
-//            if ($subscriptionResult->getIsSuccess()) {
-//                $this->addSuccessMessage(self::MESSAGE_SUBSCRIPTION_SUCCESS);
-//            } else {
-//                $this->addSuccessMessage($subscriptionResult->getErrorMessage());
-//            }
-//        } else {
-//            $this->addSuccessMessage(self::MESSAGE_SUBSCRIPTION_FAILED);
-//        }
-//
-//        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
-//    }
-
-//    /**
-//     * @param Request $request
-//     *
-//     * @return RedirectResponse
-//     */
-//    public function approveAction(Request $request)
-//    {
-//        $token = $request->query->get(self::PARAM_TOKEN);
-//
-//        $subscriber = new NewsletterSubscriberTransfer();
-//        $subscriber->setSubscriberKey($token);
-//
-//        $response = $this->getDependencyContainer()
-//            ->createNewsletterClient()
-//            ->approveDoubleOptInSubscriber($subscriber);
-//
-//        if ($response->getIsSuccess()) {
-//            $this->addSuccessMessage(self::MESSAGE_SUBSCRIPTION_CONFIRMATION_APPROVED);
-//        } else {
-//            $this->addErrorMessage($response->getErrorMessage());
-//        }
-//
-//        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
-//    }
-
-//    /**
-//     * @param Request $request
-//     *
-//     * @return RedirectResponse
-//     */
-//    public function unsubscribeAction(Request $request)
-//    {
-//        $token = $request->query->get(self::PARAM_TOKEN);
-//
-//        $unsubscriptionResponse = $this->getDependencyContainer()
-//            ->createNewsletterClient()
-//            ->unsubscribeFromAllNewsletters(new CustomerTransfer(), $token);
-//
-//        $isSuccess = false;
-//        foreach ($unsubscriptionResponse->getSubscriptionResults() as $unsubscriptionResult) {
-//            $isSuccess = ($unsubscriptionResult->getIsSuccess() || $isSuccess);
-//        }
-//
-//        if ($isSuccess) {
-//            $this->addSuccessMessage(self::MESSAGE_UNSUBSCRIPTION_SUCCESS);
-//        } else {
-//            $this->addErrorMessage(self::MESSAGE_UNSUBSCRIPTION_FAILED);
-//        }
-//
-//        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_HOME);
-//    }
 
 }
