@@ -3,6 +3,7 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 
 class BaseStep
 {
@@ -23,13 +24,19 @@ class BaseStep
     protected $externalRedirectUrl;
 
     /**
+     * @var FlashMessengerInterface
+     */
+    protected $flashMessenger;
+
+    /**
      * @param string $stepRoute
      * @param string $escapeRoute
      */
-    public function __construct($stepRoute, $escapeRoute)
+    public function __construct(FlashMessengerInterface $flashMessenger, $stepRoute, $escapeRoute)
     {
         $this->stepRoute = $stepRoute;
         $this->escapeRoute = $escapeRoute;
+        $this->flashMessenger = $flashMessenger;
     }
 
     /**

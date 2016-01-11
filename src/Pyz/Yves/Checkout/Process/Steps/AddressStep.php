@@ -3,6 +3,7 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Shared\Kernel\Store;
 
 class AddressStep extends BaseStep implements StepInterface
@@ -13,13 +14,14 @@ class AddressStep extends BaseStep implements StepInterface
     private $storeConfiguration;
 
     /**
+     * @param FlashMessengerInterface $flashMessenger
      * @param string $stepRoute
      * @param string $escapeRoute
      * @param Store $storeConfiguration
      */
-    public function __construct($stepRoute, $escapeRoute, Store $storeConfiguration)
+    public function __construct(FlashMessengerInterface $flashMessenger, $stepRoute, $escapeRoute, Store $storeConfiguration)
     {
-        parent::__construct($stepRoute, $escapeRoute);
+        parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
         $this->storeConfiguration = $storeConfiguration;
     }
 

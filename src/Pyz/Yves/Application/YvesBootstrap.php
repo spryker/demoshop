@@ -36,6 +36,8 @@ use Spryker\Yves\Application\Application;
 use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\MonologServiceProvider;
+use Pyz\Yves\Application\Plugin\Provider\FlashMessengerServiceProvider;
+
 
 class YvesBootstrap
 {
@@ -90,6 +92,7 @@ class YvesBootstrap
         $this->application->register(new FormServiceProvider());
         $this->application->register(new HttpFragmentServiceProvider());
         $this->application->register(new CategoryServiceProvider());
+        $this->application->register(new FlashMessengerServiceProvider());
 
         if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER, false)) {
             $this->application->register(new WebProfilerServiceProvider());

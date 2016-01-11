@@ -3,6 +3,7 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Client\Calculation\CalculationClient;
 
 class SummaryStep extends BaseStep implements StepInterface
@@ -18,9 +19,9 @@ class SummaryStep extends BaseStep implements StepInterface
      * @param string $escapeRoute
      * @param CalculationClient $calculationClient
      */
-    public function __construct($stepRoute, $escapeRoute, CalculationClient $calculationClient)
+    public function __construct(FlashMessengerInterface $flashMessenger, $stepRoute, $escapeRoute, CalculationClient $calculationClient)
     {
-        parent::__construct($stepRoute, $escapeRoute);
+        parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
         $this->calculationClient = $calculationClient;
     }
 

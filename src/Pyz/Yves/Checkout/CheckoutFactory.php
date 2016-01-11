@@ -3,6 +3,8 @@
 namespace Pyz\Yves\Checkout;
 
 use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
+use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Checkout\Form\Steps\AddressCollectionForm;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
 use Pyz\Yves\Checkout\Form\Steps\ShipmentForm;
@@ -57,6 +59,7 @@ class CheckoutFactory extends AbstractFactory
     protected function createAddressStep()
     {
         return new AddressStep(
+            $this->getFlashMessenger(),
             CheckoutControllerProvider::CHECKOUT_ADDRESS,
             ApplicationControllerProvider::ROUTE_HOME,
             $this->getStore()
@@ -68,7 +71,11 @@ class CheckoutFactory extends AbstractFactory
      */
     protected function createShipmentStep()
     {
-        return new ShipmentStep(CheckoutControllerProvider::CHECKOUT_SHIPMENT, ApplicationControllerProvider::ROUTE_HOME);
+        return new ShipmentStep(
+            $this->getFlashMessenger(),
+            CheckoutControllerProvider::CHECKOUT_SHIPMENT,
+            ApplicationControllerProvider::ROUTE_HOME
+        );
     }
 
     /**
@@ -76,7 +83,11 @@ class CheckoutFactory extends AbstractFactory
      */
     protected function createPaymentStep()
     {
-        return new PaymentStep(CheckoutControllerProvider::CHECKOUT_PAYMENT, ApplicationControllerProvider::ROUTE_HOME);
+        return new PaymentStep(
+            $this->getFlashMessenger(),
+            CheckoutControllerProvider::CHECKOUT_PAYMENT,
+            ApplicationControllerProvider::ROUTE_HOME
+        );
     }
 
     /**
@@ -85,6 +96,7 @@ class CheckoutFactory extends AbstractFactory
     protected function createSummaryStep()
     {
         return new SummaryStep(
+            $this->getFlashMessenger(),
             CheckoutControllerProvider::CHECKOUT_SUMMARY,
             ApplicationControllerProvider::ROUTE_HOME,
             $this->getCalculationClient()
@@ -97,6 +109,7 @@ class CheckoutFactory extends AbstractFactory
     protected function createPlaceOrderStep()
     {
         return new PlaceOrderStep(
+            $this->getFlashMessenger(),
             CheckoutControllerProvider::CHECKOUT_PLACE_ORDER,
             ApplicationControllerProvider::ROUTE_HOME,
             $this->getCheckoutClient()
@@ -109,6 +122,7 @@ class CheckoutFactory extends AbstractFactory
     protected function createSuccessStep()
     {
         return new SuccessStep(
+            $this->getFlashMessenger(),
             CheckoutControllerProvider::CHECKOUT_SUCCESS,
             ApplicationControllerProvider::ROUTE_HOME
         );
@@ -120,6 +134,7 @@ class CheckoutFactory extends AbstractFactory
     protected function createCustomerStep()
     {
         return new CustomerStep(
+            $this->getFlashMessenger(),
             CheckoutControllerProvider::CHECKOUT_CUSTOMER,
             ApplicationControllerProvider::ROUTE_HOME
         );
@@ -139,7 +154,8 @@ class CheckoutFactory extends AbstractFactory
             $application['form.factory'],
             $application['url_generator'],
             $this->createSteps(),
-            $this->getCartClient()
+            $this->getCartClient(),
+            $application['flash_messenger']
         );
     }
 
@@ -232,6 +248,22 @@ class CheckoutFactory extends AbstractFactory
     public function getCalculationClient()
     {
         return $this->getLocator()->calculation()->client();
+    }
+
+    /**
+     * @return FlashMessengerInterface
+     */
+    protected function getFlashMessenger()
+    {
+        return $this->createApplication()['flash_messenger'];
+    }
+    
+    /**
+     * @return Application
+     */
+    protected function createApplication()
+    {
+        return (new Pimple())->getApplication();
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace Pyz\Yves\Checkout\Process;
 
 use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Checkout\Process\Steps\StepInterface;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Gui\Form\AbstractForm;
@@ -48,6 +49,11 @@ class StepProcess
     protected $formFactory;
 
     /**
+     * @var FlashMessengerInterface
+     */
+    protected $flashMessenger;
+
+    /**
      * @param FormFactoryInterface $formFactory
      * @param UrlGeneratorInterface $urlGenerator
      * @param StepInterface[] $steps
@@ -57,12 +63,14 @@ class StepProcess
         FormFactoryInterface $formFactory,
         UrlGeneratorInterface $urlGenerator,
         array $steps,
-        CartClientInterface $cartClient
+        CartClientInterface $cartClient,
+        FlashMessengerInterface $flashMessenger
     ) {
         $this->formFactory = $formFactory;
         $this->urlGenerator = $urlGenerator;
         $this->steps = $steps;
         $this->cartClient = $cartClient;
+        $this->flashMessenger = $flashMessenger;
     }
 
     /**
@@ -98,7 +106,7 @@ class StepProcess
                     $this->executeWithFormInput($currentStep, $form->getData());
                     return $this->createRedirectResponse($this->getNextRedirectUrl($currentStep));
                 } else {
-                    $this->setErrorFlashMessage($request, 'checkout.form.validation.failed');
+                    $this->flashMessenger->addErrorMessage('checkout.form.validation.failed');
                 }
             }
             return [
@@ -359,16 +367,4 @@ class StepProcess
     {
         return $this->cartClient->getQuote();
     }
-
-    /**
-     * @param Request $request
-     * @param string $message
-     *
-     * @return void
-     */
-    protected function setErrorFlashMessage(Request $request, $message)
-    {
-        $request->getSession()->getFlashBag()->add(AbstractController::FLASH_MESSAGES_ERROR, $message);
-    }
-
 }

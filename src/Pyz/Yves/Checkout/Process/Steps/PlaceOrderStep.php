@@ -6,6 +6,7 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 
 class PlaceOrderStep extends BaseStep implements StepInterface
@@ -16,13 +17,14 @@ class PlaceOrderStep extends BaseStep implements StepInterface
     protected $checkoutClient;
 
     /**
+     * @param FlashMessengerInterface $flashMessenger
      * @param string $stepRoute
      * @param string $escapeRoute
      * @param CheckoutClientInterface $checkoutClient
      */
-    public function __construct($stepRoute, $escapeRoute, CheckoutClientInterface $checkoutClient)
+    public function __construct(FlashMessengerInterface $flashMessenger, $stepRoute, $escapeRoute, CheckoutClientInterface $checkoutClient)
     {
-        parent::__construct($stepRoute, $escapeRoute);
+        parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
         $this->checkoutClient = $checkoutClient;
     }
 
