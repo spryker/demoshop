@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Collector\Communication\Plugin;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use Pyz\Zed\Collector\Business\CollectorFacade;
 use Pyz\Zed\Collector\Communication\CollectorCommunicationFactory;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
 use Spryker\Zed\Collector\Business\Model\BatchResultInterface;
@@ -10,6 +11,7 @@ use Spryker\Zed\Collector\Communication\Plugin\AbstractCollectorPlugin;
 
 /**
  * @method CollectorCommunicationFactory getFactory()
+ * @method CollectorFacade getFacade()
  */
 class ProductCollectorSearchPlugin extends AbstractCollectorPlugin
 {
@@ -23,8 +25,7 @@ class ProductCollectorSearchPlugin extends AbstractCollectorPlugin
      */
     public function run(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result)
     {
-        $this->getFactory()
-            ->getCollectorFacade()
+        $this->getFacade()
             ->runSearchProductCollector($baseQuery, $locale, $result, $this->dataWriter, $this->touchUpdater, $this->output);
     }
 
