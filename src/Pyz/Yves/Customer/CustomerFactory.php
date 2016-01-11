@@ -17,6 +17,7 @@ use Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationSuccessHandler;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerUserProvider;
 use Pyz\Yves\Customer\Security\User;
+use Spryker\Client\Sales\SalesClientInterface;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Kernel\AbstractFactory;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -171,6 +172,14 @@ class CustomerFactory extends AbstractFactory
     public function createNewsletterClient()
     {
         return $this->getLocator()->newsletter()->client();
+    }
+
+    /**
+     * @return SalesClientInterface
+     */
+    public function createSalesClient()
+    {
+        return $this->getLocator()->sales()->client();
     }
 
 }

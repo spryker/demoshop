@@ -1,0 +1,7 @@
+<div style="text-align:right;margin-bottom:40px;">
+    {% for expense in order.expenses %}
+        <div>{{ expense.name }}: {{ expense.priceToPay | price }}</div>
+    {% endfor %}
+
+    <h4>{{ 'customer.order.total' | trans }}: {{ order.grandTotal | price }}</h4>
+</div>

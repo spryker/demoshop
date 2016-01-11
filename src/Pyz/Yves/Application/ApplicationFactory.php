@@ -3,6 +3,11 @@
 namespace Pyz\Yves\Application;
 
 use Pyz\Yves\Application\Plugin\Pimple;
+use Pyz\Yves\Twig\Plugin\TwigYves;
+use Silex\Application as SilexApplication;
+use Spryker\Shared\Library\Context;
+use Spryker\Shared\Library\DateFormatter;
+use Spryker\Shared\Library\Twig\DateFormatterTwigExtension;
 use Spryker\Yves\Application\Application;
 use Spryker\Yves\Application\ApplicationFactory as SprykerApplicationFactory;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionService\ExceptionHandlerInterface;
@@ -53,6 +58,24 @@ class ApplicationFactory extends SprykerApplicationFactory
     public function getSessionClient()
     {
         return $this->getLocator()->session()->client();
+    }
+
+    /**
+     * @param SilexApplication $application
+     *
+     * @return \Twig_Extension
+     */
+    public function createTwigYvesExtension(SilexApplication $application)
+    {
+        return (new TwigYves())->getTwigYvesExtension($application);
+    }
+
+    /**
+     * @return DateFormatterTwigExtension
+     */
+    public function createDateFormatterTwigExtension()
+    {
+        return new DateFormatterTwigExtension(new DateFormatter(Context::getInstance()));
     }
 
 }

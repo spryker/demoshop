@@ -3,7 +3,6 @@
 namespace Pyz\Yves\Application\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Pimple;
-use Pyz\Yves\Twig\Plugin\TwigYves;
 use Silex\Application;
 use Spryker\Shared\Config;
 use Spryker\Shared\Kernel\Store;
@@ -45,7 +44,8 @@ class ApplicationServiceProvider extends AbstractServiceProvider
         $this->setProtocolCheck();
 
         $this->addTwigExtension($this->application, [
-            (new TwigYves())->getTwigYvesExtension($this->application),
+            $this->getFactory()->createTwigYvesExtension($this->application),
+            $this->getFactory()->createDateFormatterTwigExtension(),
         ]);
 
         $this->addGlobalTemplateVariable($this->application, [

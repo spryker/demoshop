@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<transfers xmlns="http://xsd.spryker.com"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://xsd.spryker.com ../../src/Spryker/TransferObjectDefinitionSchema.xsd">
+
+    <transfer name="OrderList">
+        <property name="pagination" type="Pagination" />
+    </transfer>
+
+    <transfer name="Pagination">
+        <property name="page" type="int" />
+        <property name="maxPerPage" type="int" />
+        <property name="nbResults" type="int" />
+        <property name="previousPage" type="int" />
+        <property name="nextPage" type="int" />
+        <property name="firstIndex" type="int" />
+        <property name="lastIndex" type="int" />
+    </transfer>
+
+</transfers>

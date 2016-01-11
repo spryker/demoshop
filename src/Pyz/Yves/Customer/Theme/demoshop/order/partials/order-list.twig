@@ -1,0 +1,19 @@
+<table width="100%">
+    <tr>
+        <th align="left">{{ 'customer.order.order_id' | trans }}</th>
+        <th align="left">{{ 'customer.order.date' | trans }}</th>
+        <th align="right">{{ 'customer.order.total' | trans }}</th>
+        <th align="right"></th>
+    </tr>
+    {% for order in orderList %}
+        {% set dateTime = date(order.createdAt) %}
+        <tr>
+            <td align="left">{{ order.orderReference }}</td>
+            <td align="left">{{ dateTime | formatDateShort }}</td>
+            <td align="right">{{ order.grandTotal | price }}</td>
+            <td align="right">
+                <a href="{{ path('customer/order/details', {'id': order.idSalesOrder}) }}">{{ 'customer.order.view_order' | trans }}</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
