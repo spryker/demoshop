@@ -18,7 +18,6 @@ $config[ApplicationConstants::PROJECT_NAMESPACES] = [
 ];
 $config[ApplicationConstants::CORE_NAMESPACES] = [
     'Spryker',
-    'Spryker',
 ];
 
 $config[ApplicationConstants::PROJECT_TIMEZONE] = 'UTC';
