@@ -2,9 +2,9 @@
 
 namespace Functional\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer;
 
+use Codeception\TestCase\Test;
 use Pyz\Zed\ProductOption\Business\ProductOptionFacade;
 use Spryker\Zed\Console\Business\Model\ConsoleMessenger;
-use Spryker\Zed\Kernel\AbstractFunctionalTest;
 use Orm\Zed\Product\Persistence\SpyProductQuery;
 use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 
@@ -16,7 +16,7 @@ use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
  *
  * @method ProductOptionFacade getFacade()
  */
-class ProductOptionDataInstallTest extends AbstractFunctionalTest
+class ProductOptionDataInstallTest extends Test
 {
 
     /**

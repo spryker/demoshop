@@ -56,7 +56,9 @@
     "sebastian/phpcpd": "*",
     "codeception/codeception": "~2.1.0",
     "fabpot/php-cs-fixer": "^1.9",
-    "squizlabs/php_codesniffer": "~2.4.0"
+    "squizlabs/php_codesniffer": "~2.4.0",
+    "sensiolabs/security-checker": "*",
+    "sllh/composer-versions-check": "*"
   },
   "autoload": {
     "psr-0": {
