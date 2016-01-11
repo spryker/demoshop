@@ -28,7 +28,8 @@ class ProductOptionDataInstallTest extends Test
 
         $this->loadProductsIfNotInDb(['136823', '137288', '137455']);
 
-        $this->getFacade()->installDemoData($messengerMock);
+        $productOptionFacade = new ProductOptionFacade();
+        $productOptionFacade->installDemoData($messengerMock);
     }
 
     /**
