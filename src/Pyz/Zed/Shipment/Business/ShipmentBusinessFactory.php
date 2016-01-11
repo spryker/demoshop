@@ -6,7 +6,7 @@ use Pyz\Zed\Shipment\ShipmentDependencyProvider;
 use Spryker\Zed\Shipment\Business\Model\Method;
 use Spryker\Zed\Shipment\Business\Model\Carrier;
 use Pyz\Zed\Shipment\Business\Internal\DemoData\ShipmentInstall;
-use Spryker\Shared\Kernel\Messenger\MessengerInterface;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\Shipment\Business\ShipmentBusinessFactory as SprykerShipmentBusinessFactory;
 use Spryker\Zed\Shipment\Persistence\ShipmentQueryContainer;
 use Pyz\Zed\Shipment\ShipmentConfig;

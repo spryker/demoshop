@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Collector\Business;
 
-use Spryker\Shared\Kernel\Messenger\MessengerInterface;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\Collector\Business\Exporter\ExporterInterface;
 use Spryker\Zed\Collector\Business\Exporter\MarkerInterface;
 use Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface;
