@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
-use SprykerFeature\Shared\Cms\CmsConfig;
-use SprykerFeature\Zed\Collector\Business\Collector\KeyValue\AbstractKeyValuePropelCollector;
+use Spryker\Shared\Cms\CmsConstants;
+use Spryker\Zed\Collector\Business\Collector\KeyValue\AbstractKeyValuePropelCollector;
 
 class PageCollector extends AbstractKeyValuePropelCollector
 {
@@ -32,7 +32,7 @@ class PageCollector extends AbstractKeyValuePropelCollector
      */
     protected function collectResourceType()
     {
-        return CmsConfig::RESOURCE_TYPE_PAGE;
+        return CmsConstants::RESOURCE_TYPE_PAGE;
     }
 
 }

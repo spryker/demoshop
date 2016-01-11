@@ -7,7 +7,7 @@ use Orm\Zed\Glossary\Persistence\Map\SpyGlossaryTranslationTableMap;
 use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
-use SprykerFeature\Zed\Collector\Persistence\Exporter\AbstractPropelCollectorQuery;
+use Spryker\Zed\Collector\Persistence\Exporter\AbstractPropelCollectorQuery;
 
 class TranslationCollector extends AbstractPropelCollectorQuery
 {

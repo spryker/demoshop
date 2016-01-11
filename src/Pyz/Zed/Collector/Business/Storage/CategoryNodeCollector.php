@@ -2,9 +2,9 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
-use SprykerFeature\Shared\Category\CategoryConfig;
-use SprykerFeature\Zed\Collector\Business\Collector\KeyValue\AbstractKeyValuePdoCollector;
-use SprykerFeature\Zed\Collector\CollectorConfig;
+use Spryker\Shared\Category\CategoryConstants;
+use Spryker\Zed\Collector\Business\Collector\KeyValue\AbstractKeyValuePdoCollector;
+use Spryker\Zed\Collector\CollectorConfig;
 
 class CategoryNodeCollector extends AbstractKeyValuePdoCollector
 {
@@ -32,7 +32,7 @@ class CategoryNodeCollector extends AbstractKeyValuePdoCollector
      */
     protected function collectResourceType()
     {
-        return CategoryConfig::RESOURCE_TYPE_CATEGORY_NODE;
+        return CategoryConstants::RESOURCE_TYPE_CATEGORY_NODE;
     }
 
 }

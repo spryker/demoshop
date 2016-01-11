@@ -4,9 +4,9 @@ namespace Pyz\Zed\Collector\Business\Search;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Zed\ProductSearch\Business\ProductSearchFacade;
-use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
-use SprykerFeature\Zed\Collector\Business\Collector\Search\AbstractSearchPropelCollector;
-use SprykerFeature\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
+use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
+use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPropelCollector;
+use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
 
 class ProductCollector extends AbstractSearchPropelCollector
 {

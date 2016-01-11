@@ -11,7 +11,7 @@ use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
-use SprykerFeature\Zed\Collector\Persistence\Exporter\AbstractPropelCollectorQuery;
+use Spryker\Zed\Collector\Persistence\Exporter\AbstractPropelCollectorQuery;
 
 class BlockCollector extends AbstractPropelCollectorQuery
 {

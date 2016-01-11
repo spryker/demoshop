@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
-use SprykerFeature\Shared\Cms\CmsConfig;
-use SprykerFeature\Zed\Collector\Business\Collector\KeyValue\AbstractKeyValuePropelCollector;
+use Spryker\Shared\Cms\CmsConstants;
+use Spryker\Zed\Collector\Business\Collector\KeyValue\AbstractKeyValuePropelCollector;
 
 class BlockCollector extends AbstractKeyValuePropelCollector
 {
@@ -13,7 +13,7 @@ class BlockCollector extends AbstractKeyValuePropelCollector
      */
     protected function collectResourceType()
     {
-        return CmsConfig::RESOURCE_TYPE_BLOCK;
+        return CmsConstants::RESOURCE_TYPE_BLOCK;
     }
 
     /**

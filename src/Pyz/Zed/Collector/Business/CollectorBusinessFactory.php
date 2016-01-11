@@ -4,6 +4,7 @@ namespace Pyz\Zed\Collector\Business;
 
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
+use Spryker\Shared\Config;
 use Spryker\Zed\Collector\Business\Exporter\ExporterInterface;
 use Spryker\Zed\Collector\Business\Exporter\MarkerInterface;
 use Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface;
@@ -11,19 +12,11 @@ use Spryker\Zed\Collector\Business\Internal\InstallElasticsearch;
 use Spryker\Zed\Collector\Business\Exporter\KeyBuilder\SearchMarkerKeyBuilder;
 use Spryker\Zed\Collector\Business\Exporter\Reader\Search\ElasticsearchMarkerReader;
 use Spryker\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchMarkerWriter;
-use Spryker\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchUpdateWriter;
 use Spryker\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchWriter;
-use Spryker\Zed\Collector\Business\Exporter\SearchCollector;
-use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdater as KeyValueTouchUpdater;
-use Spryker\Zed\Collector\Business\Exporter\Writer\Search\TouchUpdater;
-use Spryker\Zed\Collector\Business\Model\BatchResult;
+use Spryker\Zed\Collector\Business\Exporter\SearchExporter;
 use Spryker\Zed\Collector\Business\Model\BatchResultInterface;
-use Spryker\Zed\Collector\Business\Model\FailedResult;
 use Spryker\Zed\Collector\Business\Exporter\KeyBuilder\KvMarkerKeyBuilder;
 use Spryker\Zed\Collector\Business\Exporter\Reader\KeyValue\RedisReader;
-use Spryker\Zed\Collector\Business\Exporter\ExportMarker;
-use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\RedisWriter;
-use Spryker\Zed\Collector\Business\Exporter\KeyValueCollector;
 use Spryker\Zed\Collector\Business\Exporter\Collector;
 use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector;
 use Pyz\Zed\Collector\Business\Storage\BlockCollector;
@@ -35,11 +28,12 @@ use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
 use Pyz\Zed\Collector\Business\Storage\TranslationCollector;
 use Pyz\Zed\Collector\Business\Storage\UrlCollector;
 use Pyz\Zed\Collector\CollectorDependencyProvider;
-use Spryker\Shared\Library\Storage\StorageInstanceBuilder;
-use Spryker\Zed\Collector\Business\CollectorBusinessFactory as SprykerCollectorBusinessFactory;
 use Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface;
 use Spryker\Zed\Collector\Business\Model\FailedResultInterface;
 use Spryker\Zed\Collector\CollectorConfig;
+use Spryker\Zed\Collector\Persistence\Exporter\AbstractPdoCollectorQuery;
+use Spryker\Zed\Collector\Persistence\Exporter\AbstractPropelCollectorQuery;
+use Spryker\Zed\Collector\Business\CollectorBusinessFactory as SprykerCollectorBusinessFactory;
 
 /**
  * @method CollectorConfig getConfig()
@@ -127,8 +121,8 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createSearchPdoQueryAdapterByName($name)
     {
-        $engines = ApplicationConfig::ZED_DB_SUPPORTED_ENGINES;
-        $adapterName = $engines[Config::get(ApplicationConfig::ZED_DB_ENGINE)];
+        $engines = ApplicationConstants::ZED_DB_SUPPORTED_ENGINES;
+        $adapterName = $engines[Config::get(ApplicationConstants::ZED_DB_ENGINE)];
 
         $queryBuilderClassName = "\\Pyz\\Zed\\Collector\\Persistence\\Search\\Pdo\\${adapterName}\\${name}";
 
@@ -355,17 +349,17 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     /**
      * @return Collector
      */
-    public function getYvesSearchExporter()
+    public function createYvesSearchExporter()
     {
-        return parent::getYvesSearchExporter();
+        return parent::createYvesSearchExporter();
     }
 
     /**
      * @return Collector
      */
-    public function getYvesSearchUpdateExporter()
+    public function createYvesSearchUpdateExporter()
     {
-        return parent::getYvesSearchUpdateExporter();
+        return parent::createYvesSearchUpdateExporter();
     }
 
     /**

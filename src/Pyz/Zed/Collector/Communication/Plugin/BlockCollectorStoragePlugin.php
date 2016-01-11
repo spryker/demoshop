@@ -4,12 +4,12 @@ namespace Pyz\Zed\Collector\Communication\Plugin;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
-use Pyz\Zed\Collector\Communication\CollectorDependencyContainer;
-use SprykerFeature\Zed\Collector\Business\Model\BatchResultInterface;
-use SprykerFeature\Zed\Collector\Communication\Plugin\AbstractCollectorPlugin;
+use Pyz\Zed\Collector\Business\CollectorBusinessFactory;
+use Spryker\Zed\Collector\Business\Model\BatchResultInterface;
+use Spryker\Zed\Collector\Communication\Plugin\AbstractCollectorPlugin;
 
 /**
- * @method CollectorDependencyContainer getDependencyContainer()
+ * @method CollectorBusinessFactory getFactory()
  */
 class BlockCollectorStoragePlugin extends AbstractCollectorPlugin
 {
@@ -23,7 +23,7 @@ class BlockCollectorStoragePlugin extends AbstractCollectorPlugin
      */
     public function run(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result)
     {
-        $this->getDependencyContainer()
+        $this->getFactory()
             ->getCollectorFacade()
             ->runStorageBlockCollector($baseQuery, $locale, $result, $this->dataWriter, $this->touchUpdater, $this->output);
     }

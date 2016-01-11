@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
-use SprykerFeature\Zed\Collector\Business\Collector\KeyValue\AbstractKeyValuePropelCollector;
+use Spryker\Zed\Collector\Business\Collector\KeyValue\AbstractKeyValuePropelCollector;
 
 class TranslationCollector extends AbstractKeyValuePropelCollector
 {

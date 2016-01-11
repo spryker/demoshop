@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Collector\Persistence\Storage\Pdo\MySql;
 
-use SprykerFeature\Zed\Collector\Persistence\Exporter\AbstractPdoCollectorQuery;
+use Spryker\Zed\Collector\Persistence\Exporter\AbstractPdoCollectorQuery;
 
 class CategoryNodeCollector extends AbstractPdoCollectorQuery
 {

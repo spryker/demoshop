@@ -16,8 +16,8 @@ use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Join;
-use SprykerFeature\Zed\Category\Persistence\CategoryQueryContainer;
-use SprykerFeature\Zed\Collector\Persistence\Exporter\AbstractPropelCollectorQuery;
+use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
+use Spryker\Zed\Collector\Persistence\Exporter\AbstractPropelCollectorQuery;
 
 class ProductCollector extends AbstractPropelCollectorQuery
 {

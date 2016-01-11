@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
-use SprykerFeature\Zed\Collector\Business\Collector\KeyValue\AbstractKeyValuePropelCollector;
-use SprykerFeature\Zed\Url\UrlConfig;
+use Spryker\Zed\Collector\Business\Collector\KeyValue\AbstractKeyValuePropelCollector;
+use Spryker\Zed\Url\UrlConfig;
 
 class RedirectCollector extends AbstractKeyValuePropelCollector
 {
