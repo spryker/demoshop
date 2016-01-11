@@ -44,8 +44,7 @@ class SuccessStep extends BaseStep implements StepInterface
      */
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
-        if ($quoteTransfer->getCheckout() === null ||
-            $quoteTransfer->getCheckout()->getOrderPlaced() === false) {
+        if ($quoteTransfer->getOrderReference() === null) {
             return false;
         }
 

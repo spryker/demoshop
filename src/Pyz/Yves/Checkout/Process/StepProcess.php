@@ -76,7 +76,8 @@ class StepProcess
         $currentStep = $this->getCurrentStep($request);
 
         if ($this->canAccessStep($request, $currentStep) === false) {
-            return $this->createRedirectResponse($this->getUrlFromRoute($currentStep->getStepRoute()));
+            $escapeRoute = $currentStep->getStepRoute();
+            return $this->createRedirectResponse($this->getUrlFromRoute($escapeRoute));
         }
 
         if ($currentStep->preCondition($this->getQuoteTransfer()) === false) {
@@ -285,12 +286,12 @@ class StepProcess
      */
     protected function getEscapeRoute(StepInterface $currentStep)
     {
-        $escapeUrl = $currentStep->getEscapeRoute();
-        if ($escapeUrl === null) {
-            $escapeUrl = $this->getPreviousStep()->getStepRoute();
+        $escapeRoute = $currentStep->getEscapeRoute();
+        if ($escapeRoute === null) {
+            $escapeRoute = $this->getPreviousStep()->getStepRoute();
         }
 
-        return $escapeUrl;
+        return $escapeRoute;
     }
 
     /**

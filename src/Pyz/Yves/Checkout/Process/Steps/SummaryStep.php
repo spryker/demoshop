@@ -51,7 +51,7 @@ class SummaryStep extends BaseStep implements StepInterface
     {
         if ($quoteTransfer->getBillingAddress() === null ||
             $quoteTransfer->getShipmentMethod() === null ||
-            $quoteTransfer->getPayment()->getPaymentId() === null) {
+            (empty($quoteTransfer->getPayment()) && $quoteTransfer->getPayment()->getPaymentId() === null)) {
             return false;
         }
 

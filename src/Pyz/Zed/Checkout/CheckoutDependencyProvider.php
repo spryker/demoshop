@@ -29,7 +29,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
         return [
             new CustomerPreConditionCheckerPlugin(),
             new ProductsAvailablePreConditionPlugin(),
-            new PreCheckPlugin(),
+            //new PreCheckPlugin(),
         ];
     }
 
@@ -46,7 +46,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             new SalesOrderSaverPlugin(),
             new DiscountOrderSavePlugin(),
             new OrderShipmentSavePlugin(),
-            new SaveOrderPlugin(),
+            //new SaveOrderPlugin(),
         ];
     }
 

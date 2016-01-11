@@ -5,8 +5,6 @@
 
 namespace Pyz\Yves\Checkout\Process\Steps;
 
-use Generated\Shared\Transfer\CheckoutResponseTransfer;
-use Generated\Shared\Transfer\CheckoutTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 
@@ -57,22 +55,13 @@ class PlaceOrderStep extends BaseStep implements StepInterface
      */
     public function execute(QuoteTransfer $quoteTransfer)
     {
-        $checkoutTransfer = $this->getCheckoutTranfer($quoteTransfer);
-
-        //$checkoutResponseTransfer = $this->checkoutClient->requestCheckout($quoteTransfer);
-
-        $checkoutResponseTransfer = new CheckoutResponseTransfer();
-        $checkoutResponseTransfer->setIsExternalRedirect(false);
-        $checkoutResponseTransfer->setRedirectUrl('http://www.google.lt');
-        $checkoutResponseTransfer->setIsSuccess(true);
+        $checkoutResponseTransfer = $this->checkoutClient->requestCheckout($quoteTransfer);
 
         if ($checkoutResponseTransfer->getIsExternalRedirect()) {
             $this->externalRedirectUrl = $checkoutResponseTransfer->getRedirectUrl();
         }
 
-        $checkoutTransfer->setOrderPlaced($checkoutResponseTransfer->getIsSuccess());
-
-        $quoteTransfer->setCheckout($checkoutTransfer);
+        $quoteTransfer->setOrderReference($checkoutResponseTransfer->getSaveOrder()->getOrderReference());
 
         return $quoteTransfer;
     }
@@ -86,26 +75,12 @@ class PlaceOrderStep extends BaseStep implements StepInterface
     {
         if ($quoteTransfer->getBillingAddress() === null ||
             $quoteTransfer->getShipmentMethod() === null ||
-            $quoteTransfer->getPayment()->getPaymentId() === null ||
-            ($quoteTransfer->getCheckout() && $quoteTransfer->getCheckout()->getOrderPlaced() === false)
+            (empty($quoteTransfer->getPayment()) && $quoteTransfer->getPayment()->getPaymentId() === null) ||
+            $quoteTransfer->getOrderReference() === null
         ) {
             return false;
         }
 
         return true;
-    }
-
-    /**
-     * @param QuoteTransfer $quoteTransfer
-     *
-     * @return CheckoutTransfer
-     */
-    protected function getCheckoutTranfer(QuoteTransfer $quoteTransfer)
-    {
-        $checkoutTransfer = $quoteTransfer->getCheckout();
-        if ($checkoutTransfer === null) {
-            $checkoutTransfer = new CheckoutTransfer();
-        }
-        return $checkoutTransfer;
     }
 }

@@ -56,7 +56,11 @@ class CheckoutFactory extends AbstractFactory
      */
     protected function createAddressStep()
     {
-        return new AddressStep(CheckoutControllerProvider::CHECKOUT_ADDRESS, ApplicationControllerProvider::ROUTE_HOME);
+        return new AddressStep(
+            CheckoutControllerProvider::CHECKOUT_ADDRESS,
+            ApplicationControllerProvider::ROUTE_HOME,
+            $this->getStore()
+        );
     }
 
     /**

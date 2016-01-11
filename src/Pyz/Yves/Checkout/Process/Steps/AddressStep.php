@@ -3,9 +3,26 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
+use Spryker\Shared\Kernel\Store;
 
 class AddressStep extends BaseStep implements StepInterface
 {
+    /**
+     * @var Store
+     */
+    private $storeConfiguration;
+
+    /**
+     * @param string $stepRoute
+     * @param string $escapeRoute
+     * @param Store $storeConfiguration
+     */
+    public function __construct($stepRoute, $escapeRoute, Store $storeConfiguration)
+    {
+        parent::__construct($stepRoute, $escapeRoute);
+        $this->storeConfiguration = $storeConfiguration;
+    }
+
 
     /**
      * @param QuoteTransfer $quoteTransfer
@@ -32,6 +49,8 @@ class AddressStep extends BaseStep implements StepInterface
      */
     public function execute(QuoteTransfer $quoteTransfer)
     {
+        $quoteTransfer->getShippingAddress()->setIso2Code($this->storeConfiguration->getCurrentCountry());
+
         if ($this->isBillingAddressEmpty($quoteTransfer))  {
             $quoteTransfer->setBillingAddress($quoteTransfer->getShippingAddress());
         }
@@ -74,5 +93,4 @@ class AddressStep extends BaseStep implements StepInterface
 
         return false;
     }
-
 }
