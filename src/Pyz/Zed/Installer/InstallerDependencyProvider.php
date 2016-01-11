@@ -6,6 +6,7 @@
 
 namespace Pyz\Zed\Installer;
 
+use Pyz\Zed\Newsletter\Communication\Plugin\Installer as NewsletterInstaller;
 use Pyz\Zed\Shipment\Communication\Plugin\DemoDataInstaller as ShipmentDemoDataInstaller;
 use Pyz\Zed\Stock\Communication\Plugin\DemoDataInstaller as StockDemoDataInstaller;
 use Pyz\Zed\ProductSearch\Communication\Plugin\DemoDataInstaller as ProductSearchDemoDataInstaller;
@@ -41,6 +42,7 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
             new CountryCountryCountryInstaller(),
             new UserInstaller(),
             new AclInstaller(),
+            new NewsletterInstaller(),
         ];
     }
 

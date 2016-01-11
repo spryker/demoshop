@@ -23,7 +23,7 @@ class AuthController extends AbstractCustomerController
     public function loginAction(Request $request)
     {
         if ($this->isLoggedInCustomer()) {
-            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_OVERVIEW);
         }
 
         $loginForm = $this->buildForm(

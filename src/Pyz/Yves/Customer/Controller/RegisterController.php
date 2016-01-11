@@ -25,7 +25,7 @@ class RegisterController extends AbstractCustomerController
     public function indexAction(Request $request)
     {
         if ($this->isLoggedInCustomer()) {
-            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_OVERVIEW);
         }
 
         $registerForm = $this
@@ -40,7 +40,7 @@ class RegisterController extends AbstractCustomerController
 
                 $this->addSuccessMessage(Messages::CUSTOMER_AUTHORIZATION_SUCCESS);
 
-                return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
+                return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_OVERVIEW);
             }
 
             foreach ($customerResponseTransfer->getErrors() as $customerErrorTransfer) {

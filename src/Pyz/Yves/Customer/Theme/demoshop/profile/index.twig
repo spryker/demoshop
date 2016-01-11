@@ -2,12 +2,12 @@
 
 {% block content %}
     <div style="margin-top: 65px;padding: 30px;overflow:hidden">
-        {% include "@customer/profile/partials/navigation.twig" with {'active': 'profile'} %}
+        {% include "@customer/customer/partials/navigation.twig" with {'active': 'profile'} %}
 
         <div style="float:left;width:70%">
             <div style="float:left;width:50%">
                 <h2>{{ "customer.profile.update" | trans }}</h2>
-                {{ form_start(profileForm) }}
+                {{ form_start(profileForm, {'action': url('customer/profile/submit_profile')}) }}
                     {{ form_widget(profileForm) }}
 
                     <div class="frame buttons cfx">
@@ -18,7 +18,7 @@
 
             <div style="float:left;width:50%">
                 <h2>{{ "customer.password.update" | trans }}</h2>
-                {{ form_start(passwordForm) }}
+                {{ form_start(passwordForm, {'action': url('customer/profile/submit_password')}) }}
                 {{ form_widget(passwordForm) }}
 
                 <div class="frame buttons cfx">

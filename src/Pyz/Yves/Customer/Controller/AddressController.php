@@ -44,12 +44,16 @@ class AddressController extends AbstractCustomerController
     {
         $customerTransfer = $this->getLoggedInCustomerTransfer();
 
-        $form = $this
-            ->buildForm($this->getFactory()->createFormAddress($this->getAvailableCountries()))
+        $addressFormType = $this
+            ->getFactory()
+            ->createFormAddress($this->getAvailableCountries());
+
+        $addressForm = $this
+            ->buildForm($addressFormType)
             ->handleRequest($request);
 
-        if ($form->isValid()) {
-            $customerTransfer = $this->createAddress($customerTransfer, $form->getData());
+        if ($addressForm->isValid()) {
+            $customerTransfer = $this->createAddress($customerTransfer, $addressForm->getData());
 
             if ($customerTransfer) {
                 $this->addSuccessMessage(Messages::CUSTOMER_ADDRESS_ADDED);
@@ -61,7 +65,7 @@ class AddressController extends AbstractCustomerController
         }
 
         return $this->viewResponse([
-            'form' => $form->createView(),
+            'form' => $addressForm->createView(),
         ]);
     }
 
@@ -74,41 +78,52 @@ class AddressController extends AbstractCustomerController
      */
     public function updateAction(Request $request)
     {
-        $customerTransfer = $this->getLoggedInCustomerTransfer();
+        $addressTransfer = $this->loadAddressTransfer($request->query->getInt('id'));
 
-        $addressTransfer = new AddressTransfer();
-        $addressTransfer
-            ->setIdCustomerAddress($request->query->getInt('id'))
-            ->setFkCustomer($customerTransfer->getIdCustomer());
+        if ($addressTransfer === null) {
+            $this->addErrorMessage(Messages::CUSTOMER_ADDRESS_UNKNOWN);
 
-        if ($request->isMethod(Request::METHOD_GET)) {
-            $addressTransfer = $this->loadAddressTransfer($addressTransfer, $customerTransfer);
-
-            if ($addressTransfer === null) {
-                $this->addErrorMessage(Messages::CUSTOMER_ADDRESS_UNKNOWN);
-
-                return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_ADDRESS);
-            }
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_ADDRESS);
         }
 
-        $form = $this
-            ->buildForm($this->getFactory()->createFormAddress($this->getAvailableCountries(), $addressTransfer))
-            ->handleRequest($request);
+        $addressFormType = $this
+            ->getFactory()
+            ->createFormAddress($this->getAvailableCountries(), $addressTransfer);
 
-        if ($form->isValid()) {
-            $customerTransfer = $this->updateAddress($form->getData());
-
-            if ($customerTransfer) {
-                $this->addSuccessMessage(Messages::CUSTOMER_ADDRESS_UPDATED);
-
-                return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_ADDRESS);
-            }
-            $this->addErrorMessage(Messages::CUSTOMER_ADDRESS_NOT_ADDED);
-        }
+        $addressForm = $this
+            ->buildForm($addressFormType);
 
         return $this->viewResponse([
-            'form' => $form->createView(),
+            'form' => $addressForm->createView(),
         ]);
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return RedirectResponse
+     */
+    public function submitUpdateAction(Request $request)
+    {
+        $addressFormType = $this
+            ->getFactory()
+            ->createFormAddress($this->getAvailableCountries());
+
+        $addressForm = $this
+            ->buildForm($addressFormType)
+            ->handleRequest($request);
+
+        if ($addressForm->isValid()) {
+            $customerTransfer = $this->processAddressUpdate($addressForm->getData());
+
+            if ($customerTransfer !== null) {
+                $this->addSuccessMessage(Messages::CUSTOMER_ADDRESS_UPDATED);
+            } else {
+                $this->addErrorMessage(Messages::CUSTOMER_ADDRESS_NOT_ADDED);
+            }
+        }
+
+        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_ADDRESS);
     }
 
     /**
@@ -216,13 +231,19 @@ class AddressController extends AbstractCustomerController
     }
 
     /**
-     * @param AddressTransfer $addressTransfer
-     * @param CustomerTransfer $customerTransfer
+     * @param int $idCustomerAddress
      *
      * @return AddressTransfer|null
      */
-    protected function loadAddressTransfer(AddressTransfer $addressTransfer, CustomerTransfer $customerTransfer)
+    protected function loadAddressTransfer($idCustomerAddress)
     {
+        $customerTransfer = $this->getLoggedInCustomerTransfer();
+
+        $addressTransfer = new AddressTransfer();
+        $addressTransfer
+            ->setIdCustomerAddress($idCustomerAddress)
+            ->setFkCustomer($customerTransfer->getIdCustomer());
+
         $addressTransfer = $this
             ->getClient()
             ->getAddress($addressTransfer);
@@ -244,7 +265,7 @@ class AddressController extends AbstractCustomerController
      *
      * @return CustomerTransfer
      */
-    protected function updateAddress(AddressTransfer $addressTransfer)
+    protected function processAddressUpdate(AddressTransfer $addressTransfer)
     {
         $customerTransfer = $this
             ->getClient()

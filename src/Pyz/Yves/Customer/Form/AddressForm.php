@@ -7,7 +7,7 @@ use Spryker\Shared\Gui\Form\AbstractForm;
 use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class Address extends AbstractForm
+class AddressForm extends AbstractForm
 {
 
     /**

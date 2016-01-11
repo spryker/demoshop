@@ -7,7 +7,7 @@ use Spryker\Shared\Gui\Form\AbstractForm;
 use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class ForgottenPassword extends AbstractForm
+class PasswordForm extends AbstractForm
 {
 
     /**
@@ -15,7 +15,7 @@ class ForgottenPassword extends AbstractForm
      */
     public function getName()
     {
-        return 'forgottenPassword';
+        return 'passwordForm';
     }
 
     /**
@@ -25,8 +25,22 @@ class ForgottenPassword extends AbstractForm
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add(CustomerTransfer::EMAIL, 'email', [
-                'label' => 'customer.forgotten_password.email',
+            ->add(CustomerTransfer::PASSWORD, 'password', [
+                'label' => 'customer.password.old_password',
+                'required' => true,
+            ])
+            ->add(CustomerTransfer::NEW_PASSWORD, 'repeated', [
+                'first_name' => 'password',
+                'second_name' => 'confirm',
+                'type' => 'password',
+                'invalid_message' => 'customer.password.invalid_password',
+                'required' => true,
+                'first_options' => [
+                    'label' => 'customer.password.request.new_password',
+                ],
+                'second_options' => [
+                    'label' => 'customer.password.confirm.new_password',
+                ],
             ]);
     }
 

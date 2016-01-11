@@ -7,15 +7,28 @@ use Spryker\Shared\Gui\Form\AbstractForm;
 use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class Password extends AbstractForm
+class RestorePasswordForm extends AbstractForm
 {
+
+    /**
+     * @var string
+     */
+    protected $restoreKey;
+
+    /**
+     * @param string $restoreKey
+     */
+    public function __construct($restoreKey)
+    {
+        $this->restoreKey = $restoreKey;
+    }
 
     /**
      * @return string
      */
     public function getName()
     {
-        return 'passwordForm';
+        return 'restoreForm';
     }
 
     /**
@@ -25,21 +38,18 @@ class Password extends AbstractForm
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add(CustomerTransfer::PASSWORD, 'password', [
-                'label' => 'customer.password.old_password',
-                'required' => true,
-            ])
-            ->add(CustomerTransfer::NEW_PASSWORD, 'repeated', [
-                'first_name' => 'password',
+            ->add(CustomerTransfer::RESTORE_PASSWORD_KEY, 'hidden')
+            ->add(CustomerTransfer::PASSWORD, 'repeated', [
+                'first_name' => 'pass',
                 'second_name' => 'confirm',
                 'type' => 'password',
-                'invalid_message' => 'customer.password.invalid_password',
+                'invalid_message' => 'validator.constraints.password.do_not_match',
                 'required' => true,
                 'first_options' => [
-                    'label' => 'customer.password.request.new_password',
+                    'label' => 'forms.password',
                 ],
                 'second_options' => [
-                    'label' => 'customer.password.confirm.new_password',
+                    'label' => 'forms.confirm-password',
                 ],
             ]);
     }
@@ -49,11 +59,15 @@ class Password extends AbstractForm
      */
     public function populateFormFields()
     {
-        return $this->getDataClass();
+        $customerTransfer = $this->getDataClass();
+
+        $customerTransfer->setRestorePasswordKey($this->restoreKey);
+
+        return $customerTransfer;
     }
 
     /**
-     * @return TransferInterface|null
+     * @return CustomerTransfer
      */
     protected function getDataClass()
     {

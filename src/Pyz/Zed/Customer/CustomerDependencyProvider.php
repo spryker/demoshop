@@ -15,6 +15,29 @@ use Spryker\Zed\Customer\CustomerDependencyProvider as SprykerCustomerDependency
 class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
 {
 
+    const SALES_FACADE = 'sales facade';
+    const NEWSLETTER_FACADE = 'newsletter facade';
+
+    /**
+     * @param Container $container
+     *
+     * @return Container
+     */
+    public function provideCommunicationLayerDependencies(Container $container)
+    {
+        $container = parent::provideCommunicationLayerDependencies($container);
+
+        $container[self::SALES_FACADE] = function (Container $container) {
+            return $container->getLocator()->sales()->facade();
+        };
+
+        $container[self::NEWSLETTER_FACADE] = function (Container $container) {
+            return $container->getLocator()->newsletter()->facade();
+        };
+
+        return $container;
+    }
+
     /**
      * @param Container $container
      *

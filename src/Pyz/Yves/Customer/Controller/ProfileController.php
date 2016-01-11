@@ -14,32 +14,60 @@ class ProfileController extends AbstractCustomerController
     const MESSAGE_PASSWORD_CHANGE_SUCCESS = 'customer.password.change.success';
 
     /**
-     * @param Request $request
-     *
      * @return array|RedirectResponse
      */
-    public function indexAction(Request $request)
+    public function indexAction()
+    {
+        $profileFormType = $this
+            ->getFactory()
+            ->createFormProfile($this->getLoggedInCustomerTransfer());
+        $profileForm = $this->buildForm($profileFormType);
+
+        $passwordFormType = $this
+            ->getFactory()
+            ->createFormPassword();
+        $passwordForm = $this->buildForm($passwordFormType);
+
+        return $this->viewResponse([
+            'profileForm' => $profileForm->createView(),
+            'passwordForm' => $passwordForm->createView(),
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return RedirectResponse
+     */
+    public function submitProfileAction(Request $request)
     {
         $profileForm = $this
             ->buildForm($this->getFactory()->createFormProfile($this->getLoggedInCustomerTransfer()))
             ->handleRequest($request);
 
         if ($profileForm->isValid()) {
-            return $this->processProfileUpdate($profileForm->getData());
+            $this->processProfileUpdate($profileForm->getData());
         }
 
+        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return RedirectResponse
+     */
+    public function submitPasswordAction(Request $request)
+    {
         $passwordForm = $this
             ->buildForm($this->getFactory()->createFormPassword())
             ->handleRequest($request);
 
         if ($passwordForm->isValid()) {
-            return $this->processPasswordUpdate($passwordForm->getData());
+            $this->processPasswordUpdate($passwordForm->getData());
         }
 
-        return [
-            'profileForm' => $profileForm->createView(),
-            'passwordForm' => $passwordForm->createView(),
-        ];
+        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
     }
 
     /**
@@ -49,6 +77,8 @@ class ProfileController extends AbstractCustomerController
      */
     protected function processProfileUpdate(CustomerTransfer $customerTransfer)
     {
+        $customerTransfer->setIdCustomer($this->getLoggedInCustomerTransfer()->getIdCustomer());
+
         $customerResponseTransfer = $this
             ->getClient()
             ->updateCustomer($customerTransfer);
@@ -62,8 +92,6 @@ class ProfileController extends AbstractCustomerController
                 $this->addErrorMessage($customerErrorTransfer->getMessage());
             }
         }
-
-        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
     }
 
     /**
@@ -88,8 +116,6 @@ class ProfileController extends AbstractCustomerController
         foreach ($customerResponseTransfer->getErrors() as $customerErrorTransfer) {
             $this->addErrorMessage($customerErrorTransfer->getMessage());
         }
-
-        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
     }
 
     /**
