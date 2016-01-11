@@ -20,11 +20,8 @@ class PlaceOrderStep extends BaseStep implements StepInterface
      * @param string $escapeRoute
      * @param CheckoutClientInterface $checkoutClient
      */
-    public function __construct(
-        $stepRoute,
-        $escapeRoute,
-        CheckoutClientInterface $checkoutClient
-    ) {
+    public function __construct($stepRoute, $escapeRoute, CheckoutClientInterface $checkoutClient)
+    {
         parent::__construct($stepRoute, $escapeRoute);
         $this->checkoutClient = $checkoutClient;
     }
@@ -55,13 +52,15 @@ class PlaceOrderStep extends BaseStep implements StepInterface
      */
     public function execute(QuoteTransfer $quoteTransfer)
     {
-        $checkoutResponseTransfer = $this->checkoutClient->requestCheckout($quoteTransfer);
+        $checkoutResponseTransfer = $this->checkoutClient->placeOrder($quoteTransfer);
 
         if ($checkoutResponseTransfer->getIsExternalRedirect()) {
             $this->externalRedirectUrl = $checkoutResponseTransfer->getRedirectUrl();
         }
 
-        $quoteTransfer->setOrderReference($checkoutResponseTransfer->getSaveOrder()->getOrderReference());
+        if ($checkoutResponseTransfer->getSaveOrder() !== null) {
+            $quoteTransfer->setOrderReference($checkoutResponseTransfer->getSaveOrder()->getOrderReference());
+        }
 
         return $quoteTransfer;
     }

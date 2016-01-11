@@ -2,19 +2,18 @@
 
 namespace Pyz\Zed\Checkout;
 
-use Spryker\Zed\Payolution\Communication\Plugin\Checkout\PreCheckPlugin;
-use Spryker\Zed\Payolution\Communication\Plugin\Checkout\SaveOrderPlugin;
-use Spryker\Zed\ShipmentCheckoutConnector\Communication\Plugin\OrderShipmentSavePlugin;
-use Spryker\Zed\DiscountCheckoutConnector\Communication\Plugin\DiscountOrderSavePlugin;
-use Spryker\Zed\SalesCheckoutConnector\Communication\Plugin\SalesOrderSaverPlugin;
-use Spryker\Zed\CustomerCheckoutConnector\Communication\Plugin\OrderCustomerSavePlugin;
-use Spryker\Zed\AvailabilityCheckoutConnector\Communication\Plugin\ProductsAvailablePreConditionPlugin;
-use Spryker\Zed\CustomerCheckoutConnector\Communication\Plugin\CustomerPreConditionCheckerPlugin;
+use Spryker\Zed\Availability\Communication\Plugin\ProductsAvailableCheckoutPreConditionPlugin;
+use Spryker\Zed\Customer\Communication\Plugin\CustomerPreConditionCheckerPlugin;
+use Spryker\Zed\Customer\Communication\Plugin\OrderCustomerSavePlugin;
+use Spryker\Zed\Discount\Communication\Plugin\DiscountOrderSavePlugin;
+use Spryker\Zed\Shipment\Communication\Plugin\OrderShipmentSavePlugin;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Checkout\CheckoutDependencyProvider as SprykerCheckoutDependencyProvider;
 use Spryker\Zed\Checkout\Dependency\Plugin\CheckoutPostSaveHookInterface;
 use Spryker\Zed\Checkout\Dependency\Plugin\CheckoutPreConditionInterface;
 use Spryker\Zed\Checkout\Dependency\Plugin\CheckoutSaveOrderInterface;
+use Spryker\Zed\Sales\Communication\Plugin\SalesOrderSaverPlugin;
+use Spryker\Zed\ProductOption\Communication\Plugin\ProductOptionOrderSaverPlugin;
 
 class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
 {
@@ -28,7 +27,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     {
         return [
             new CustomerPreConditionCheckerPlugin(),
-            new ProductsAvailablePreConditionPlugin(),
+            new ProductsAvailableCheckoutPreConditionPlugin(),
             //new PreCheckPlugin(),
         ];
     }
@@ -44,6 +43,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
         return [
             new OrderCustomerSavePlugin(),
             new SalesOrderSaverPlugin(),
+            new ProductOptionOrderSaverPlugin(),
             new DiscountOrderSavePlugin(),
             new OrderShipmentSavePlugin(),
             //new SaveOrderPlugin(),
