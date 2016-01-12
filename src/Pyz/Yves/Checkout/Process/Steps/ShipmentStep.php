@@ -48,7 +48,11 @@ class ShipmentStep extends BaseStep implements StepInterface
      */
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
-        return $this->isShipmentSet($quoteTransfer);
+        if (!$this->isShipmentSet($quoteTransfer)) {
+            $this->flashMessenger->addErrorMessage('checkout.step.shipment.shipment_not_set');
+            return false;
+        }
+        return true;
     }
 
     /**

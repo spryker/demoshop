@@ -84,8 +84,8 @@ class StepProcess
         $currentStep = $this->getCurrentStep($request);
 
         if ($this->canAccessStep($request, $currentStep) === false) {
-            $escapeRoute = $currentStep->getStepRoute();
-            return $this->createRedirectResponse($this->getUrlFromRoute($escapeRoute));
+            $stepRoute = $currentStep->getStepRoute();
+            return $this->createRedirectResponse($this->getUrlFromRoute($stepRoute));
         }
 
         if ($currentStep->preCondition($this->getQuoteTransfer()) === false) {

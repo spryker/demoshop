@@ -11,7 +11,7 @@ class AddressStep extends BaseStep implements StepInterface
     /**
      * @var Store
      */
-    private $storeConfiguration;
+    protected $storeConfiguration;
 
     /**
      * @param FlashMessengerInterface $flashMessenger
@@ -68,7 +68,7 @@ class AddressStep extends BaseStep implements StepInterface
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
         if (empty($quoteTransfer->getBillingAddress())) {
-            // add message: billing address is not set
+            $this->flashMessenger->addErrorMessage('checkout.step.address.address_missing');
             return false;
         }
 

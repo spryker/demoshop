@@ -79,6 +79,7 @@ class PlaceOrderStep extends BaseStep implements StepInterface
             (empty($quoteTransfer->getPayment()) && $quoteTransfer->getPayment()->getPaymentId() === null) ||
             $quoteTransfer->getOrderReference() === null
         ) {
+            $this->flashMessenger->addErrorMessage('checkout.step.place_order.post_condition_not_met');
             return false;
         }
 

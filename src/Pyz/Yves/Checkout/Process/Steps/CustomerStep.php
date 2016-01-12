@@ -51,6 +51,7 @@ class CustomerStep extends BaseStep implements StepInterface
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
         if ($quoteTransfer->getCustomer() === null) {
+            $this->flashMessenger->addErrorMessage('checkout.step.customer.customer_not_set');
             return false;
         }
 
