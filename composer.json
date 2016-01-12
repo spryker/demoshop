@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-feature/1127-AbstractForm-is-Shared-but-requires-Zed",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",
