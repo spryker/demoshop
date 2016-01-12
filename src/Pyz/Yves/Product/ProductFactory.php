@@ -7,7 +7,7 @@
 namespace Pyz\Yves\Product;
 
 use Pyz\Yves\Product\Builder\FrontendProductBuilder;
-use Pyz\Yves\Product\Model\AbstractProduct;
+use Pyz\Yves\Product\Model\ProductAbstract;
 use Pyz\Yves\Product\ResourceCreator\ProductResourceCreator;
 use Spryker\Yves\Kernel\AbstractFactory;
 
@@ -39,11 +39,11 @@ class ProductFactory extends AbstractFactory
     }
 
     /**
-     * @return AbstractProduct
+     * @return ProductAbstract
      */
     protected function createAbstractProduct()
     {
-        return new AbstractProduct();
+        return new ProductAbstract();
     }
 
 }

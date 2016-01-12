@@ -6,20 +6,20 @@
 
 namespace Pyz\Yves\Product\Builder;
 
-use Pyz\Yves\Product\Model\AbstractProduct;
+use Pyz\Yves\Product\Model\ProductAbstract;
 
 class FrontendProductBuilder implements FrontendProductBuilderInterface
 {
 
     /**
-     * @var AbstractProduct
+     * @var ProductAbstract
      */
     protected $productAbstract;
 
     /**
-     * @param AbstractProduct $productAbstract
+     * @param ProductAbstract $productAbstract
      */
-    public function __construct(AbstractProduct $productAbstract)
+    public function __construct(ProductAbstract $productAbstract)
     {
         $this->abstractProduct = $productAbstract;
     }
@@ -27,7 +27,7 @@ class FrontendProductBuilder implements FrontendProductBuilderInterface
     /**
      * @param array $productData
      *
-     * @return AbstractProduct
+     * @return ProductAbstract
      */
     public function buildProduct(array $productData)
     {
@@ -49,7 +49,7 @@ class FrontendProductBuilder implements FrontendProductBuilderInterface
     }
 
     /**
-     * @return AbstractProduct
+     * @return ProductAbstract
      */
     protected function createAbstractProductClone()
     {

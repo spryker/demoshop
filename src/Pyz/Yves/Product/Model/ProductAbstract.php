@@ -6,9 +6,9 @@
 
 namespace Pyz\Yves\Product\Model;
 
-use Spryker\Shared\Product\Model\AbstractProductInterface;
+use Spryker\Shared\Product\Model\ProductAbstractInterface;
 
-class AbstractProduct implements AbstractProductInterface
+class ProductAbstract implements ProductAbstractInterface
 {
 
     /**
