@@ -97,7 +97,7 @@ class BatchedDataImportWriter extends DataImportWriter
     /**
      * @param int $idProductAbstract
      */
-    protected function touchAbstractProductById($idProductAbstract)
+    protected function touchProductAbstractById($idProductAbstract)
     {
         static $touchedIds = [];
 
@@ -118,10 +118,10 @@ class BatchedDataImportWriter extends DataImportWriter
     /**
      * @param string $concreteSku
      */
-    protected function touchAbstractProductByConcreteSku($concreteSku)
+    protected function touchProductAbstractByConcreteSku($concreteSku)
     {
-        $idProductAbstract = $this->productFacade->getAbstractProductIdByConcreteSku($concreteSku);
-        $this->touchAbstractProductById($idProductAbstract);
+        $idProductAbstract = $this->productFacade->getProductAbstractIdByConcreteSku($concreteSku);
+        $this->touchProductAbstractById($idProductAbstract);
     }
 
 }

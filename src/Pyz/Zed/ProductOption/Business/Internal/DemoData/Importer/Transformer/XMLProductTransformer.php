@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer;
 
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\AbstractProduct;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductAbstract;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ConcreteProduct;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConfiguration;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionType;
@@ -16,11 +16,11 @@ class XMLProductTransformer implements XMLTransformerInterface
     /**
      * @param \SimpleXMLElement $productAbstractElement
      *
-     * @return AbstractProduct
+     * @return ProductAbstract
      */
     public function transform(\SimpleXMLElement $productAbstractElement)
     {
-        return new AbstractProduct((string) $productAbstractElement['sku'], $this->parseVariants($productAbstractElement->variants));
+        return new ProductAbstract((string) $productAbstractElement['sku'], $this->parseVariants($productAbstractElement->variants));
     }
 
     /**

@@ -5,7 +5,7 @@ namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\VisitableProductInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface;
 
-class AbstractProduct implements VisitableProductInterface
+class ProductAbstract implements VisitableProductInterface
 {
 
     /**
@@ -23,7 +23,7 @@ class AbstractProduct implements VisitableProductInterface
      */
     public function accept(ProductVisitorInterface $visitor)
     {
-        $visitor->visitAbstractProduct($this);
+        $visitor->visitProductAbstract($this);
 
         $visitor->setContext($this);
 

@@ -21,7 +21,7 @@ class FrontendProductBuilder implements FrontendProductBuilderInterface
      */
     public function __construct(ProductAbstract $productAbstract)
     {
-        $this->abstractProduct = $productAbstract;
+        $this->productAbstract = $productAbstract;
     }
 
     /**
@@ -31,7 +31,7 @@ class FrontendProductBuilder implements FrontendProductBuilderInterface
      */
     public function buildProduct(array $productData)
     {
-        $productAbstract = $this->createAbstractProductClone();
+        $productAbstract = $this->createProductAbstractClone();
         foreach ($productData as $name => $value) {
             $arrayParts = explode('_', strtolower($name));
             $arrayParts = array_map('ucfirst', $arrayParts);
@@ -51,9 +51,9 @@ class FrontendProductBuilder implements FrontendProductBuilderInterface
     /**
      * @return ProductAbstract
      */
-    protected function createAbstractProductClone()
+    protected function createProductAbstractClone()
     {
-        return clone $this->abstractProduct;
+        return clone $this->productAbstract;
     }
 
 }

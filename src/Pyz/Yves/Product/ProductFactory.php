@@ -34,14 +34,14 @@ class ProductFactory extends AbstractFactory
     protected function createFrontendProductBuilder()
     {
         return new FrontendProductBuilder(
-            $this->createAbstractProduct()
+            $this->createProductAbstract()
         );
     }
 
     /**
      * @return ProductAbstract
      */
-    protected function createAbstractProduct()
+    protected function createProductAbstract()
     {
         return new ProductAbstract();
     }
