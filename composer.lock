@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fb9321ca3c439454f6af9d400e70a09e",
-    "content-hash": "538a66038259c51ad1cebc9a8e82eebf",
+    "hash": "9f0b81c72df610ac9b970e4b33f34b07",
+    "content-hash": "5b9510a741764411d7f8a5f579e2ea0d",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -700,11 +700,15 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-feature/1122-Rename-abstract_product-to-product_abstract-in-transfer-objects",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "dc161ba700007ad1e582d9f7362ac14f69771f4d"
+=======
+                "reference": "e38a73a604c1f33d6748f354edd48177026f5ac3"
+>>>>>>> #1122 update composer
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -786,7 +790,11 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
+<<<<<<< HEAD
             "time": "2016-01-12 13:39:42"
+=======
+            "time": "2016-01-12 11:54:15"
+>>>>>>> #1122 update composer
         },
         {
             "name": "symfony-cmf/routing",
