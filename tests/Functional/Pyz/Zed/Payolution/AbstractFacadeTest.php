@@ -6,7 +6,7 @@
 
 namespace Functional\Pyz\Zed\Payolution;
 
-use Spryker\Zed\Kernel\AbstractFunctionalTest;
+use Codeception\TestCase\Test;
 use Orm\Zed\Country\Persistence\SpyCountryQuery;
 use Orm\Zed\Customer\Persistence\SpyCustomer;
 use Orm\Zed\Customer\Persistence\Map\SpyCustomerTableMap;
@@ -25,7 +25,7 @@ use Generated\Shared\Transfer\CartTransfer;
 use Generated\Shared\Transfer\TaxSetTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
 
-abstract class AbstractFacadeTest extends AbstractFunctionalTest
+abstract class AbstractFacadeTest extends Test
 {
 
     const FIRST_NAME = 'Alice';

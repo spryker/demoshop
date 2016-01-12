@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Shipment\Business;
 
-use Spryker\Shared\Kernel\Messenger\MessengerInterface;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\Shipment\Business\ShipmentFacade as SprykerShipmentFacade;
 
 /**

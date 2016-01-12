@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Cms\Business;
 
-use Spryker\Shared\Kernel\Messenger\MessengerInterface;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\Cms\Business\CmsFacade as SprykerCmsFacade;
 
 /**
