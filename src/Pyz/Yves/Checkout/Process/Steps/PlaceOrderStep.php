@@ -1,11 +1,6 @@
 <?php
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
 
 namespace Pyz\Yves\Checkout\Process\Steps;
-
-use Generated\Shared\Transfer\CheckoutTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Checkout\CheckoutFactory;
@@ -14,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class PlaceOrderStep extends BaseStep implements StepInterface
 {
+
     /**
      * @var CheckoutClientInterface
      */
@@ -30,7 +26,6 @@ class PlaceOrderStep extends BaseStep implements StepInterface
         parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
         $this->checkoutClient = $checkoutClient;
     }
-
 
     /**
      * @param QuoteTransfer $quoteTransfer
@@ -51,24 +46,19 @@ class PlaceOrderStep extends BaseStep implements StepInterface
     }
 
     /**
-     * @param Request $request
      * @param QuoteTransfer $quoteTransfer
-     * @param CheckoutFactory $checkoutFactory
      *
      * @return QuoteTransfer
      */
     public function execute(Request $request, QuoteTransfer $quoteTransfer, CheckoutFactory $checkoutFactory)
     {
         $checkoutResponseTransfer = $this->checkoutClient->placeOrder($quoteTransfer);
-
         if ($checkoutResponseTransfer->getIsExternalRedirect()) {
             $this->externalRedirectUrl = $checkoutResponseTransfer->getRedirectUrl();
         }
-
         if ($checkoutResponseTransfer->getSaveOrder() !== null) {
             $quoteTransfer->setOrderReference($checkoutResponseTransfer->getSaveOrder()->getOrderReference());
         }
-
         return $quoteTransfer;
     }
 
@@ -81,28 +71,13 @@ class PlaceOrderStep extends BaseStep implements StepInterface
     {
         if ($quoteTransfer->getBillingAddress() === null ||
             $quoteTransfer->getShipmentMethod() === null ||
-            $quoteTransfer->getPayment()->getPaymentSelection() === null ||
-            ($quoteTransfer->getCheckout() && $quoteTransfer->getCheckout()->getOrderPlaced() === false)
+            (empty($quoteTransfer->getPayment()) && $quoteTransfer->getPayment()->getPaymentSelection() === null) ||
+            $quoteTransfer->getOrderReference() === null
         ) {
             $this->flashMessenger->addErrorMessage('checkout.step.place_order.post_condition_not_met');
             return false;
         }
-
         return true;
-    }
-
-    /**
-     * @param QuoteTransfer $quoteTransfer
-     *
-     * @return CheckoutTransfer
-     */
-    protected function getCheckoutTransfer(QuoteTransfer $quoteTransfer)
-    {
-        $checkoutTransfer = $quoteTransfer->getCheckout();
-        if ($checkoutTransfer === null) {
-            $checkoutTransfer = new CheckoutTransfer();
-        }
-        return $checkoutTransfer;
     }
 
 }
