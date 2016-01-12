@@ -3,6 +3,9 @@
 namespace Pyz\Zed\Collector\Business;
 
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Zed\Collector\Business\Exporter\SearchExporter;
+use Spryker\Zed\Collector\Persistence\Exporter\AbstractPdoCollectorQuery;
+use Spryker\Zed\Collector\Persistence\Exporter\AbstractPropelCollectorQuery;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Shared\Config;
 use Spryker\Zed\Collector\Business\Exporter\ExporterInterface;
