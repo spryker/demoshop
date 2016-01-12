@@ -41,7 +41,6 @@ class CustomerStep extends BaseStep implements StepInterface
     public function execute(Request $request, QuoteTransfer $quoteTransfer, CheckoutFactory $checkoutFactory)
     {
         $customerTransfer = new CustomerTransfer();
-        $customerTransfer->setIsGuest(false);
         $customerTransfer->setEmail('test@test.test');
         $quoteTransfer->setCustomer($customerTransfer);
 

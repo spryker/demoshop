@@ -13,7 +13,6 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Spryker\Yves\Application\Controller\AbstractController;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 
 class StepProcess

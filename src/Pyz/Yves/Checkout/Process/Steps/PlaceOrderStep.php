@@ -81,7 +81,7 @@ class PlaceOrderStep extends BaseStep implements StepInterface
     {
         if ($quoteTransfer->getBillingAddress() === null ||
             $quoteTransfer->getShipmentMethod() === null ||
-            $quoteTransfer->getPayment()->getPaymentId() === null ||
+            $quoteTransfer->getPayment()->getPaymentSelection() === null ||
             ($quoteTransfer->getCheckout() && $quoteTransfer->getCheckout()->getOrderPlaced() === false)
         ) {
             $this->flashMessenger->addErrorMessage('checkout.step.place_order.post_condition_not_met');
@@ -96,7 +96,7 @@ class PlaceOrderStep extends BaseStep implements StepInterface
      *
      * @return CheckoutTransfer
      */
-    protected function getCheckoutTranfer(QuoteTransfer $quoteTransfer)
+    protected function getCheckoutTransfer(QuoteTransfer $quoteTransfer)
     {
         $checkoutTransfer = $quoteTransfer->getCheckout();
         if ($checkoutTransfer === null) {
