@@ -22,7 +22,7 @@ define(['components/core',
 			view: 'PDP',
 			locale: 'de_DE',
 			mode: 'spryker',
-			idAbstractProduct: productJSON.abstractId
+			idProductAbstract: productJSON.abstractId
 		},
 
 		constructor: function (options) {

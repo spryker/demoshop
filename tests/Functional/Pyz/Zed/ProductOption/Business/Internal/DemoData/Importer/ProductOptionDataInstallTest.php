@@ -50,27 +50,27 @@ class ProductOptionDataInstallTest extends Test
     private function loadProductsIfNotInDb(array $skuCollection)
     {
         foreach ($skuCollection as $sku) {
-            $abstractProductEntity = SpyProductAbstractQuery::create()
+            $productAbstractEntity = SpyProductAbstractQuery::create()
                 ->filterBySku($sku)
                 ->findOneOrCreate();
 
-            $abstractProductEntity
+            $productAbstractEntity
                 ->setSku($sku)
                 ->setAttributes('{}');
 
-            if ($abstractProductEntity->isNew()) {
-                $abstractProductEntity->save();
+            if ($productAbstractEntity->isNew()) {
+                $productAbstractEntity->save();
             }
 
             $productConcreteEntity = SpyProductQuery::create()
                 ->filterBySku($sku)
-                ->filterByFkProductAbstract($abstractProductEntity->getIdProductAbstract())
+                ->filterByFkProductAbstract($productAbstractEntity->getIdProductAbstract())
                 ->findOneOrCreate();
 
             $productConcreteEntity
                 ->setSku($sku)
                 ->setAttributes('{}')
-                ->setSpyProductAbstract($abstractProductEntity);
+                ->setSpyProductAbstract($productAbstractEntity);
 
             if ($productConcreteEntity->isNew()) {
                 $productConcreteEntity->save();
