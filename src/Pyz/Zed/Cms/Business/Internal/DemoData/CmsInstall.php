@@ -7,7 +7,6 @@ use Generated\Shared\Transfer\CmsTemplateTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageTransfer;
 use Pyz\Zed\Cms\CmsConfig;
-use Pyz\Zed\Cms\Dependency\Facade\CmsToLocaleInterface;
 use Spryker\Zed\Cms\Business\Block\BlockManagerInterface;
 use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface;
 use Spryker\Zed\Cms\Business\Page\PageManagerInterface;
@@ -16,6 +15,7 @@ use Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToUrlInterface;
 use Spryker\Zed\Cms\Persistence\CmsQueryContainerInterface;
 use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
+use Spryker\Zed\Locale\Business\LocaleFacade;
 
 class CmsInstall extends AbstractInstaller
 {
@@ -52,7 +52,7 @@ class CmsInstall extends AbstractInstaller
     protected $urlFacade;
 
     /**
-     * @var CmsToLocaleInterface
+     * @var LocaleFacade
      */
     protected $localeFacade;
 
@@ -99,7 +99,7 @@ class CmsInstall extends AbstractInstaller
     /**
      * @param CmsToGlossaryInterface $glossaryFacade
      * @param CmsToUrlInterface $urlFacade
-     * @param CmsToLocaleInterface $localeFacade
+     * @param LocaleFacade $localeFacade
      * @param TemplateManagerInterface $templateManager
      * @param PageManagerInterface $pageManager
      * @param GlossaryKeyMappingManagerInterface $keyMappingManager
@@ -110,7 +110,7 @@ class CmsInstall extends AbstractInstaller
     public function __construct(
         CmsToGlossaryInterface $glossaryFacade,
         CmsToUrlInterface $urlFacade,
-        CmsToLocaleInterface $localeFacade,
+        LocaleFacade $localeFacade,
         TemplateManagerInterface $templateManager,
         PageManagerInterface $pageManager,
         GlossaryKeyMappingManagerInterface $keyMappingManager,
