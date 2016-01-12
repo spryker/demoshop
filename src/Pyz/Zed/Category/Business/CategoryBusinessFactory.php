@@ -2,9 +2,13 @@
 
 namespace Pyz\Zed\Category\Business;
 
+use Spryker\Zed\Category\Business\Generator\UrlPathGeneratorInterface;
+use Spryker\Zed\Category\Business\Model\CategoryWriterInterface;
 use Spryker\Zed\Category\Business\TransferGenerator;
 use Spryker\Zed\Category\Business\Generator\UrlPathGenerator;
+use Spryker\Zed\Category\Business\TransferGeneratorInterface;
 use Spryker\Zed\Category\Business\Tree\ClosureTableWriter;
+use Spryker\Zed\Category\Business\Tree\ClosureTableWriterInterface;
 use Spryker\Zed\Category\Business\Tree\NodeWriter;
 use Spryker\Zed\Category\Business\Model\CategoryWriter;
 use Spryker\Zed\Category\Business\Renderer\CategoryTreeRenderer;
@@ -16,6 +20,7 @@ use Pyz\Zed\Category\CategoryDependencyProvider;
 use Spryker\Zed\Category\Business\CategoryBusinessFactory as SprykerCategoryBusinessFactory;
 use Pyz\Zed\Category\Business\Internal\DemoData\CategoryTreeInstall;
 use Psr\Log\LoggerInterface;
+use Spryker\Zed\Category\Business\Tree\NodeWriterInterface;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
 
 /**

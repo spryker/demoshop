@@ -13,7 +13,6 @@ use Spryker\Zed\Collector\Business\Exporter\KeyBuilder\SearchMarkerKeyBuilder;
 use Spryker\Zed\Collector\Business\Exporter\Reader\Search\ElasticsearchMarkerReader;
 use Spryker\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchMarkerWriter;
 use Spryker\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchWriter;
-use Spryker\Zed\Collector\Business\Exporter\SearchExporter;
 use Spryker\Zed\Collector\Business\Model\BatchResultInterface;
 use Spryker\Zed\Collector\Business\Exporter\KeyBuilder\KvMarkerKeyBuilder;
 use Spryker\Zed\Collector\Business\Exporter\Reader\KeyValue\RedisReader;
@@ -31,8 +30,6 @@ use Pyz\Zed\Collector\CollectorDependencyProvider;
 use Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface;
 use Spryker\Zed\Collector\Business\Model\FailedResultInterface;
 use Spryker\Zed\Collector\CollectorConfig;
-use Spryker\Zed\Collector\Persistence\Exporter\AbstractPdoCollectorQuery;
-use Spryker\Zed\Collector\Persistence\Exporter\AbstractPropelCollectorQuery;
 use Spryker\Zed\Collector\Business\CollectorBusinessFactory as SprykerCollectorBusinessFactory;
 
 /**
