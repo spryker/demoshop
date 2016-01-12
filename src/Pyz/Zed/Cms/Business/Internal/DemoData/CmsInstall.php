@@ -2,12 +2,12 @@
 
 namespace Pyz\Zed\Cms\Business\Internal\DemoData;
 
+use Functional\Spryker\Zed\ProductOption\Mock\LocaleFacade;
 use Generated\Shared\Transfer\CmsBlockTransfer;
 use Generated\Shared\Transfer\CmsTemplateTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageTransfer;
 use Pyz\Zed\Cms\CmsConfig;
-use Pyz\Zed\Cms\Dependency\Facade\CmsToLocaleInterface;
 use Spryker\Zed\Cms\Business\Block\BlockManagerInterface;
 use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface;
 use Spryker\Zed\Cms\Business\Page\PageManagerInterface;
@@ -52,7 +52,7 @@ class CmsInstall extends AbstractInstaller
     protected $urlFacade;
 
     /**
-     * @var CmsToLocaleInterface
+     * @var LocaleFacade
      */
     protected $localeFacade;
 
@@ -99,7 +99,7 @@ class CmsInstall extends AbstractInstaller
     /**
      * @param CmsToGlossaryInterface $glossaryFacade
      * @param CmsToUrlInterface $urlFacade
-     * @param CmsToLocaleInterface $localeFacade
+     * @param LocaleFacade $localeFacade
      * @param TemplateManagerInterface $templateManager
      * @param PageManagerInterface $pageManager
      * @param GlossaryKeyMappingManagerInterface $keyMappingManager
@@ -110,7 +110,7 @@ class CmsInstall extends AbstractInstaller
     public function __construct(
         CmsToGlossaryInterface $glossaryFacade,
         CmsToUrlInterface $urlFacade,
-        CmsToLocaleInterface $localeFacade,
+        LocaleFacade $localeFacade,
         TemplateManagerInterface $templateManager,
         PageManagerInterface $pageManager,
         GlossaryKeyMappingManagerInterface $keyMappingManager,
