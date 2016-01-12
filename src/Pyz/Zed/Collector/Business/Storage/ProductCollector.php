@@ -101,7 +101,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
     {
         $baseQuery->clearSelectColumns();
 
-        // Abstract & product concrete - including localized attributes & url
+        // Abstract & concrete product - including localized attributes & url
         $baseQuery->addJoin(
             SpyTouchTableMap::COL_ITEM_ID,
             SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT,
