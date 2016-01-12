@@ -5,6 +5,8 @@ namespace Pyz\Yves\Checkout;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Application\Plugin\Pimple;
+use Pyz\Yves\Checkout\Dependency\Handler\PaymentHandlerInterface;
+use Pyz\Yves\Checkout\Dependency\Plugin\PaymentSubFormInterface;
 use Pyz\Yves\Checkout\Form\Steps\AddressCollectionForm;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
 use Pyz\Yves\Checkout\Form\Steps\ShipmentForm;
@@ -18,6 +20,7 @@ use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Pyz\Yves\Checkout\Process\Steps\StepInterface;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
+use Pyz\Yves\Payolution\Plugin\PayolutionHandlerPlugin;
 use Pyz\Yves\Payolution\Plugin\PayolutionInstallmentFormPlugin;
 use Pyz\Yves\Payolution\Plugin\PayolutionInvoiceFormPlugin;
 use Spryker\Client\Calculation\CalculationClient;
@@ -195,19 +198,39 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @return SummaryForm
+     * @return PaymentSubFormInterface[]
      */
-    public function createSummaryForm()
-    {
-        return new SummaryForm();
-    }
-
     public function createPaymentMethods()
     {
         return [
             new PayolutionInvoiceFormPlugin(),
             new PayolutionInstallmentFormPlugin(),
         ];
+    }
+
+    /**
+     * @param $paymentSelection
+     *
+     * @return PaymentHandlerInterface
+     */
+    public function createPaymentHandler($paymentSelection)
+    {
+        switch ($paymentSelection) {
+            case 'payolution_invoice':
+                return new PayolutionHandlerPlugin();
+                break;
+            case 'payolution_installment':
+                return new PayolutionHandlerPlugin();
+                break;
+        }
+    }
+
+    /**
+     * @return SummaryForm
+     */
+    public function createSummaryForm()
+    {
+        return new SummaryForm();
     }
 
     /**
@@ -257,7 +280,7 @@ class CheckoutFactory extends AbstractFactory
     {
         return $this->createApplication()['flash_messenger'];
     }
-    
+
     /**
      * @return Application
      */

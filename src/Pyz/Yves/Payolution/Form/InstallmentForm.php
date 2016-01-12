@@ -2,7 +2,6 @@
 
 namespace Pyz\Yves\Payolution\Form;
 
-use Generated\Shared\Transfer\PayolutionCalculationInstallmentTransfer;
 use Generated\Shared\Transfer\PayolutionCalculationPaymentDetailTransfer;
 use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
@@ -16,6 +15,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 class InstallmentForm extends AbstractForm
 {
 
+    const PAYMENT_PROVIDER = 'payolution';
+    const PAYMENT_METHOD = 'installment';
     const FIELD_DATE_OF_BIRTH = 'date_of_birth';
     const FIELD_INSTALLMENT_PAYMENT_DETAIL_INDEX = 'installment_payment_detail_index';
     const FIELD_BANK_ACCOUNT_HOLDER = 'bank_account_holder';
@@ -47,7 +48,7 @@ class InstallmentForm extends AbstractForm
      */
     public function getName()
     {
-        return 'payolutionInstallment';
+        return self::PAYMENT_PROVIDER . '_' . self::PAYMENT_METHOD;
     }
 
     /**

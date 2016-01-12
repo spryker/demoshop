@@ -5,7 +5,9 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
+use Pyz\Yves\Checkout\CheckoutFactory;
 use Spryker\Shared\Shipment\ShipmentConstants;
+use Symfony\Component\HttpFoundation\Request;
 
 class ShipmentStep extends BaseStep implements StepInterface
 {
@@ -29,11 +31,13 @@ class ShipmentStep extends BaseStep implements StepInterface
     }
 
     /**
+     * @param Request $request
      * @param QuoteTransfer $quoteTransfer
-     * \w\
+     * @param CheckoutFactory $checkoutFactory
+     *
      * @return QuoteTransfer
      */
-    public function execute(QuoteTransfer $quoteTransfer)
+    public function execute(Request $request, QuoteTransfer $quoteTransfer, CheckoutFactory $checkoutFactory)
     {
         $shipmentExpenseTransfer = $this->createShippingExpenseTransfer($quoteTransfer->getShipmentMethod());
         $this->replaceShipmentExpenseInQuote($quoteTransfer, $shipmentExpenseTransfer);

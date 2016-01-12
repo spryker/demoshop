@@ -7,6 +7,8 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Yves\Checkout\CheckoutFactory;
+use Symfony\Component\HttpFoundation\Request;
 
 class CustomerStep extends BaseStep implements StepInterface
 {
@@ -30,14 +32,17 @@ class CustomerStep extends BaseStep implements StepInterface
     }
 
     /**
+     * @param Request $request
      * @param QuoteTransfer $quoteTransfer
+     * @param CheckoutFactory $checkoutFactory
      *
      * @return QuoteTransfer
      */
-    public function execute(QuoteTransfer $quoteTransfer)
+    public function execute(Request $request, QuoteTransfer $quoteTransfer, CheckoutFactory $checkoutFactory)
     {
         $customerTransfer = new CustomerTransfer();
-        $customerTransfer->setIsGuest(true);
+        $customerTransfer->setIsGuest(false);
+        $customerTransfer->setEmail('test@test.test');
         $quoteTransfer->setCustomer($customerTransfer);
 
         return $quoteTransfer;
@@ -67,4 +72,5 @@ class CustomerStep extends BaseStep implements StepInterface
     {
         return count($quoteTransfer->getItems()) === 0;
     }
+
 }

@@ -4,7 +4,9 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
+use Pyz\Yves\Checkout\CheckoutFactory;
 use Spryker\Client\Calculation\CalculationClient;
+use Symfony\Component\HttpFoundation\Request;
 
 class SummaryStep extends BaseStep implements StepInterface
 {
@@ -34,11 +36,13 @@ class SummaryStep extends BaseStep implements StepInterface
     }
 
     /**
+     * @param Request $request
      * @param QuoteTransfer $quoteTransfer
+     * @param CheckoutFactory $checkoutFactory
      *
      * @return QuoteTransfer
      */
-    public function execute(QuoteTransfer $quoteTransfer)
+    public function execute(Request $request, QuoteTransfer $quoteTransfer, CheckoutFactory $checkoutFactory)
     {
         return $this->calculationClient->recalculate($quoteTransfer);
     }
@@ -69,4 +73,5 @@ class SummaryStep extends BaseStep implements StepInterface
     {
         return !$this->isCartEmpty($quoteTransfer);
     }
+
 }

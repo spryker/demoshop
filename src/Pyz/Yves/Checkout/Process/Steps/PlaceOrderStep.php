@@ -5,9 +5,12 @@
 
 namespace Pyz\Yves\Checkout\Process\Steps;
 
+use Generated\Shared\Transfer\CheckoutTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
+use Pyz\Yves\Checkout\CheckoutFactory;
 use Spryker\Client\Checkout\CheckoutClientInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class PlaceOrderStep extends BaseStep implements StepInterface
 {
@@ -48,11 +51,13 @@ class PlaceOrderStep extends BaseStep implements StepInterface
     }
 
     /**
+     * @param Request $request
      * @param QuoteTransfer $quoteTransfer
+     * @param CheckoutFactory $checkoutFactory
      *
      * @return QuoteTransfer
      */
-    public function execute(QuoteTransfer $quoteTransfer)
+    public function execute(Request $request, QuoteTransfer $quoteTransfer, CheckoutFactory $checkoutFactory)
     {
         $checkoutResponseTransfer = $this->checkoutClient->placeOrder($quoteTransfer);
 
@@ -76,8 +81,8 @@ class PlaceOrderStep extends BaseStep implements StepInterface
     {
         if ($quoteTransfer->getBillingAddress() === null ||
             $quoteTransfer->getShipmentMethod() === null ||
-            (empty($quoteTransfer->getPayment()) && $quoteTransfer->getPayment()->getPaymentId() === null) ||
-            $quoteTransfer->getOrderReference() === null
+            $quoteTransfer->getPayment()->getPaymentId() === null ||
+            ($quoteTransfer->getCheckout() && $quoteTransfer->getCheckout()->getOrderPlaced() === false)
         ) {
             $this->flashMessenger->addErrorMessage('checkout.step.place_order.post_condition_not_met');
             return false;
@@ -85,4 +90,19 @@ class PlaceOrderStep extends BaseStep implements StepInterface
 
         return true;
     }
+
+    /**
+     * @param QuoteTransfer $quoteTransfer
+     *
+     * @return CheckoutTransfer
+     */
+    protected function getCheckoutTranfer(QuoteTransfer $quoteTransfer)
+    {
+        $checkoutTransfer = $quoteTransfer->getCheckout();
+        if ($checkoutTransfer === null) {
+            $checkoutTransfer = new CheckoutTransfer();
+        }
+        return $checkoutTransfer;
+    }
+
 }

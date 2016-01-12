@@ -11,6 +11,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 class InvoiceForm extends AbstractForm
 {
 
+    const PAYMENT_PROVIDER = 'payolution';
+    const PAYMENT_METHOD = 'invoice';
     const FIELD_DATE_OF_BIRTH = 'date_of_birth';
 
     /**
@@ -31,7 +33,7 @@ class InvoiceForm extends AbstractForm
      */
     public function getName()
     {
-        return 'payolutionInvoice';
+        return self::PAYMENT_PROVIDER . '_' . self::PAYMENT_METHOD;
     }
 
     /**

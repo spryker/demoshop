@@ -250,58 +250,6 @@ class CheckoutControllerOld extends AbstractController
 
     /**
      * @param CheckoutRequestTransfer $checkoutRequestTransfer
-     * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
-     * @param Request $request
-     *
-     * @return void
-     */
-    protected function setCheckoutPayolutionPayment(
-        CheckoutRequestTransfer $checkoutRequestTransfer,
-        PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer,
-        Request $request
-    ) {
-        $payolutionPaymentTransfer = $checkoutRequestTransfer->getPayolutionPayment();
-        $billingAddress = $checkoutRequestTransfer->getBillingAddress();
-
-        $payolutionPaymentTransfer
-            ->setAccountBrand(self::$payolutionPaymentMethodMapper[$checkoutRequestTransfer->getPaymentMethod()])
-            ->setAddress($billingAddress)
-            ->setCurrencyIso3Code(CurrencyManager::getInstance()->getDefaultCurrency()->getIsoCode())
-            ->setLanguageIso2Code($billingAddress->getIso2Code())
-            ->setGender(self::$payolutionGenderMapper[$billingAddress->getSalutation()])
-            ->setClientIp($request->getClientIp());
-
-        $payolutionPaymentTransfer->getAddress()
-            ->setEmail($checkoutRequestTransfer->getEmail());
-
-        if ($payolutionPaymentTransfer->getAccountBrand() === PayolutionConstants::BRAND_INSTALLMENT) {
-            $this->setPayolutionInstallmentPayment($payolutionPaymentTransfer, $payolutionCalculationResponseTransfer);
-        }
-
-        $checkoutRequestTransfer->setPayolutionPayment($payolutionPaymentTransfer);
-    }
-
-    /**
-     * @param PayolutionPaymentTransfer $payolutionPaymentTransfer
-     * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
-     *
-     * @return void
-     */
-    protected function setPayolutionInstallmentPayment(
-        PayolutionPaymentTransfer $payolutionPaymentTransfer,
-        PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
-    ) {
-        $installmentPaymentDetail = $payolutionCalculationResponseTransfer
-            ->getPaymentDetails()[$payolutionPaymentTransfer->getInstallmentPaymentDetailIndex()];
-
-        $payolutionPaymentTransfer
-            ->setInstallmentCalculationId($payolutionCalculationResponseTransfer->getIdentificationUniqueid())
-            ->setInstallmentAmount($installmentPaymentDetail->getInstallments()[0]->getAmount())
-            ->setInstallmentDuration($installmentPaymentDetail->getDuration());
-    }
-
-    /**
-     * @param CheckoutRequestTransfer $checkoutRequestTransfer
      * @param FormInterface $checkoutForm
      *
      * @return void

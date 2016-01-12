@@ -6,7 +6,7 @@
     <h1>Payment</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form.paymentId) }}
+        {{ form_widget(form.paymentSelection) }}
 
         {% for paymentMethodSubForm in paymentMethodsSubForms %}
         {% include "@" ~ paymentMethodSubForm ~ ".twig" %}

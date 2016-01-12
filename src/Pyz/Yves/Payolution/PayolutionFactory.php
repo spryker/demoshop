@@ -3,6 +3,7 @@
 namespace Pyz\Yves\Payolution;
 
 use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Yves\Payolution\Handler\PayolutionHandler;
 use Pyz\Yves\Payolution\Form\InstallmentForm;
 use Pyz\Yves\Payolution\Form\InvoiceForm;
 use Spryker\Client\Payolution\PayolutionClientInterface;
@@ -32,6 +33,14 @@ class PayolutionFactory extends AbstractFactory
             $quoteTransfer,
             $this->getPayolutionClient()
         );
+    }
+
+    /**
+     * @return PayolutionHandler
+     */
+    public function createPayolutionHandler()
+    {
+        return new PayolutionHandler($this->getPayolutionClient());
     }
 
     /**

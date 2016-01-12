@@ -3,6 +3,8 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Yves\Checkout\CheckoutFactory;
+use Symfony\Component\HttpFoundation\Request;
 
 interface StepInterface
 {
@@ -26,11 +28,13 @@ interface StepInterface
     /**
      * Execute step logic, happens after form submit if provided, gets QuoteTransfer filled by data from form.
      *
+     * @param Request $request
      * @param QuoteTransfer $quoteTransfer
+     * @param CheckoutFactory $checkoutFactory
      *
-     * @return QuoteTransfer
+     * @return mixed
      */
-    public function execute(QuoteTransfer $quoteTransfer);
+    public function execute(Request $request, QuoteTransfer $quoteTransfer, CheckoutFactory $checkoutFactory);
 
     /**
      * Conditions that should be met for this step to be marked as completed. returns true when satisfied.

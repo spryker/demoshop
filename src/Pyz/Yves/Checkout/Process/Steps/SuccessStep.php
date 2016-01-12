@@ -6,6 +6,8 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Yves\Checkout\CheckoutFactory;
+use Symfony\Component\HttpFoundation\Request;
 
 class SuccessStep extends BaseStep implements StepInterface
 {
@@ -29,10 +31,13 @@ class SuccessStep extends BaseStep implements StepInterface
     }
 
     /**
+     * @param Request $request
      * @param QuoteTransfer $quoteTransfer
+     * @param CheckoutFactory $checkoutFactory
+     *
      * @return QuoteTransfer
      */
-    public function execute(QuoteTransfer $quoteTransfer)
+    public function execute(Request $request, QuoteTransfer $quoteTransfer, CheckoutFactory $checkoutFactory)
     {
         return new QuoteTransfer();
     }

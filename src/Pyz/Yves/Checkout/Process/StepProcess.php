@@ -4,6 +4,7 @@ namespace Pyz\Yves\Checkout\Process;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
+use Pyz\Yves\Checkout\CheckoutFactory;
 use Pyz\Yves\Checkout\Process\Steps\StepInterface;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Gui\Form\AbstractForm;
@@ -75,12 +76,16 @@ class StepProcess
 
     /**
      * @param Request $request
+     * @param CheckoutFactory $checkoutFactory
      * @param AbstractForm|null $stepForm
      *
      * @return array|RedirectResponse
      */
-    public function process(Request $request, AbstractForm $stepForm = null)
-    {
+    public function process(
+        Request $request,
+        CheckoutFactory $checkoutFactory,
+        AbstractForm $stepForm = null
+    ) {
         $currentStep = $this->getCurrentStep($request);
 
         if ($this->canAccessStep($request, $currentStep) === false) {
@@ -94,7 +99,7 @@ class StepProcess
         }
 
         if ($currentStep->requireInput() === false) {
-            $this->executeWithoutInput($currentStep);
+            $this->executeWithoutInput($currentStep, $request, $checkoutFactory);
             return $this->createRedirectResponse($this->getNextRedirectUrl($currentStep));
         }
 
@@ -103,7 +108,8 @@ class StepProcess
             $form->handleRequest($request);
             if ($request->isMethod(Request::METHOD_POST)) {
                 if ($form->isValid()) {
-                    $this->executeWithFormInput($currentStep, $form->getData());
+                    $quoteTransfer = $form->getData();
+                    $this->executeWithFormInput($currentStep, $request, $quoteTransfer, $checkoutFactory);
                     return $this->createRedirectResponse($this->getNextRedirectUrl($currentStep));
                 } else {
                     $this->flashMessenger->addErrorMessage('checkout.form.validation.failed');
@@ -116,7 +122,7 @@ class StepProcess
                 'form' => $form->createView(),
             ];
         } else {
-            $this->executeWithoutInput($currentStep);
+            $this->executeWithoutInput($currentStep, $request, $checkoutFactory);
             return [
                 'previousStepUrl' => $this->getUrlFromRoute($this->getPreviousStepRoute()),
                 'quoteTransfer' => $this->getQuoteTransfer(),
@@ -318,24 +324,35 @@ class StepProcess
 
     /**
      * @param StepInterface $currentStep
+     * @param Request $request
+     * @param CheckoutFactory $checkoutFactory
      *
      * @return void
      */
-    protected function executeWithoutInput(StepInterface $currentStep)
-    {
-        $quoteTransfer = $currentStep->execute($this->getQuoteTransfer());
+    protected function executeWithoutInput(
+        StepInterface $currentStep,
+        Request $request,
+        CheckoutFactory $checkoutFactory
+    ) {
+        $quoteTransfer = $currentStep->execute($request, $this->getQuoteTransfer(), $checkoutFactory);
         $this->cartClient->storeQuoteToSession($quoteTransfer);
     }
 
     /**
      * @param StepInterface $currentStep
-     * @param $data
+     * @param Request $request
+     * @param QuoteTransfer $quoteTransfer
+     * @param CheckoutFactory $checkoutFactory
      *
      * @return void
      */
-    protected function executeWithFormInput(StepInterface $currentStep, $data)
-    {
-        $quoteTransfer = $currentStep->execute($data);
+    protected function executeWithFormInput(
+        StepInterface $currentStep,
+        Request $request,
+        QuoteTransfer $quoteTransfer,
+        CheckoutFactory $checkoutFactory
+    ) {
+        $quoteTransfer = $currentStep->execute($request, $quoteTransfer, $checkoutFactory);
         $this->cartClient->storeQuoteToSession($quoteTransfer);
     }
 

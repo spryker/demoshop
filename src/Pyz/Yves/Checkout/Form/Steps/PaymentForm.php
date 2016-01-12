@@ -13,9 +13,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 class PaymentForm extends AbstractForm
 {
 
-    const PAYMENT_ID = 'paymentId';
     const PAYMENT_PROPERTY_PATH = 'payment';
-    const PAYMENT_ID_PROPERTY_PATH = self::PAYMENT_PROPERTY_PATH . '.' . self::PAYMENT_ID;
+    const PAYMENT_SELECTION = 'paymentSelection';
+    const PAYMENT_SELECTION_PROPERTY_PATH = self::PAYMENT_PROPERTY_PATH . '.' . self::PAYMENT_SELECTION;
 
     /**
      * @var QuoteTransfer
@@ -78,8 +78,9 @@ class PaymentForm extends AbstractForm
     protected function addPaymentMethods(FormBuilderInterface $builder)
     {
         $paymentMethods = $this->getPaymentMethods();
+        $paymentMethodChoices = $this->getPaymentMethodChoices($paymentMethods);
 
-        $this->addPaymentMethodChoices($builder, $paymentMethods)
+        $this->addPaymentMethodChoices($builder, $paymentMethodChoices)
              ->addPaymentMethodSubForms($builder, $paymentMethods);
 
         return $this;
@@ -87,23 +88,23 @@ class PaymentForm extends AbstractForm
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $paymentMethods
+     * @param $paymentMethodChoices
      *
-     * @return self
+     * @return $this
      */
-    protected function addPaymentMethodChoices(FormBuilderInterface $builder, $paymentMethods)
+    protected function addPaymentMethodChoices(FormBuilderInterface $builder, $paymentMethodChoices)
     {
         $builder->add(
-            self::PAYMENT_ID,
+            self::PAYMENT_SELECTION,
             'choice',
             [
-                'choices' => array_keys($paymentMethods),
+                'choices' => $paymentMethodChoices,
                 'label' => false,
                 'required' => true,
                 'expanded' => true,
                 'multiple' => false,
                 'empty_value' => false,
-                'property_path' => self::PAYMENT_ID_PROPERTY_PATH,
+                'property_path' => self::PAYMENT_SELECTION_PROPERTY_PATH,
             ]
         );
 
@@ -157,6 +158,17 @@ class PaymentForm extends AbstractForm
         }
 
         return $paymentMethods;
+    }
+
+    protected function getPaymentMethodChoices($paymentMethods)
+    {
+        $choices = [];
+
+        foreach ($paymentMethods as $paymentMethodName => $paymentMethodSubForm) {
+            $choices[$paymentMethodName] = str_replace('_', ' ', $paymentMethodName);
+        }
+
+        return $choices;
     }
 
     /**
