@@ -326,9 +326,9 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
      *
      * @return array
      */
-    public function queryTypeUsagesForConcreteProduct($idProduct, $idLocale)
+    public function queryTypeUsagesForProductConcrete($idProduct, $idLocale)
     {
-        return $this->queryContainer->queryTypeUsagesForConcreteProduct($idProduct, $idLocale);
+        return $this->queryContainer->queryTypeUsagesForProductConcrete($idProduct, $idLocale);
     }
 
     /**
@@ -378,9 +378,9 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
      *
      * @return array
      */
-    public function queryConfigPresetsForConcreteProduct($idProduct)
+    public function queryConfigPresetsForProductConcrete($idProduct)
     {
-        return $this->queryContainer->queryConfigPresetsForConcreteProduct($idProduct);
+        return $this->queryContainer->queryConfigPresetsForProductConcrete($idProduct);
     }
 
     /**

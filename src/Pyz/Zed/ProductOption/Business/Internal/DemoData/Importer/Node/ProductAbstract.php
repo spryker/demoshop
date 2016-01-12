@@ -14,7 +14,7 @@ class ProductAbstract implements VisitableProductInterface
     private $sku;
 
     /**
-     * @var ConcreteProduct[]
+     * @var ProductConcrete[]
      */
     private $variants = [];
 
@@ -36,7 +36,7 @@ class ProductAbstract implements VisitableProductInterface
 
     /**
      * @param string $sku
-     * @param ConcreteProduct[] $variants
+     * @param ProductConcrete[] $variants
      */
     public function __construct(
         $sku,
@@ -49,9 +49,9 @@ class ProductAbstract implements VisitableProductInterface
     }
 
     /**
-     * @param ConcreteProduct $variant
+     * @param ProductConcrete $variant
      */
-    private function addVariant(ConcreteProduct $variant)
+    private function addVariant(ProductConcrete $variant)
     {
         $this->variants[] = $variant;
     }
@@ -65,7 +65,7 @@ class ProductAbstract implements VisitableProductInterface
     }
 
     /**
-     * @return ConcreteProduct[]
+     * @return ProductConcrete[]
      */
     public function getVariants()
     {

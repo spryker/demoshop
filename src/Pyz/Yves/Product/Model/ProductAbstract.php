@@ -34,7 +34,7 @@ class ProductAbstract implements ProductAbstractInterface
     /**
      * @var array
      */
-    protected $concreteProducts = [];
+    protected $productConcreteCollection = [];
 
     /**
      * @var array
@@ -148,17 +148,17 @@ class ProductAbstract implements ProductAbstractInterface
     /**
      * @return array
      */
-    public function getConcreteProducts()
+    public function getProductConcreteCollection()
     {
-        return $this->concreteProducts;
+        return $this->ProductConcreteCollection;
     }
 
     /**
      * @param array $products
      */
-    public function setConcreteProducts(array $products)
+    public function setProductConcreteCollection(array $products)
     {
-        $this->concreteProducts = $products;
+        $this->ProductConcreteCollection = $products;
     }
 
     /**

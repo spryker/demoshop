@@ -3,7 +3,7 @@
 namespace Pyz\Zed\Product\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\ProductAbstractTransfer;
-use Generated\Shared\Transfer\ConcreteProductTransfer;
+use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
@@ -17,7 +17,7 @@ class ProductDataInstall extends AbstractInstaller
 {
 
     const PRODUCT_ABSTRACT = 'product_abstract';
-    const CONCRETE_PRODUCTS = 'concrete_products';
+    const PRODUCT_CONCRETE_COLLECTION = 'product_concrete_collection';
 
     /**
      * @var AttributeManagerInterface
@@ -96,7 +96,7 @@ class ProductDataInstall extends AbstractInstaller
         foreach ($this->getProductsFromFile($currentLocale) as $currentProduct) {
             /* @var ProductAbstractTransfer $productAbstract */
             $productAbstract = $currentProduct[self::PRODUCT_ABSTRACT];
-            $concreteProducts = $currentProduct[self::CONCRETE_PRODUCTS];
+            $productConcreteCollection = $currentProduct[self::PRODUCT_CONCRETE_COLLECTION];
 
             $sku = $productAbstract->getSku();
 
@@ -106,20 +106,20 @@ class ProductDataInstall extends AbstractInstaller
 
             $idProductAbstract = $this->productManager->createProductAbstract($productAbstract);
             $productAbstract->setIdProductAbstract($idProductAbstract);
-            $this->createConcreteProducts($concreteProducts, $idProductAbstract);
+            $this->createProductConcreteCollection($productConcreteCollection, $idProductAbstract);
             $this->productManager->touchProductActive($idProductAbstract);
             $this->createAndTouchProductUrls($productAbstract, $idProductAbstract, $currentLocale);
         }
     }
 
     /**
-     * @param array $concreteProducts
+     * @param array $productConcreteCollection
      * @param $idProductAbstract
      */
-    protected function createConcreteProducts(array $concreteProducts, $idProductAbstract)
+    protected function createProductConcreteCollection(array $productConcreteCollection, $idProductAbstract)
     {
-        foreach ($concreteProducts as $concreteProduct) {
-            $this->productManager->createConcreteProduct($concreteProduct, $idProductAbstract);
+        foreach ($productConcreteCollection as $productConcrete) {
+            $this->productManager->createProductConcrete($productConcrete, $idProductAbstract);
         }
     }
 
@@ -187,7 +187,7 @@ class ProductDataInstall extends AbstractInstaller
         ];
 
         $productAbstract = new ProductAbstractTransfer();
-        $concreteProduct = new ConcreteProductTransfer();
+        $productConcrete = new ProductConcreteTransfer();
 
         $locales = $this->localeFacade->getAvailableLocales();
 
@@ -216,21 +216,21 @@ class ProductDataInstall extends AbstractInstaller
             $localizedAttributes->setName((string) $localeAttributes->{'name'});
 
             $productAbstract->addLocalizedAttributes($localizedAttributes);
-            $concreteProduct->addLocalizedAttributes($localizedAttributes);
+            $productConcrete->addLocalizedAttributes($localizedAttributes);
         }
 
         $productAbstract->setSku($product->{'sku'});
         $productAbstract->setAttributes($attributes);
 
-        $concreteProduct->setSku($product->{'sku'});
-        $concreteProduct->setAttributes($attributes);
-        $concreteProduct->setProductImageUrl($productImageUrl);
-        $concreteProduct->setIsActive(true);
+        $productConcrete->setSku($product->{'sku'});
+        $productConcrete->setAttributes($attributes);
+        $productConcrete->setProductImageUrl($productImageUrl);
+        $productConcrete->setIsActive(true);
 
         return [
             self::PRODUCT_ABSTRACT => $productAbstract,
-            self::CONCRETE_PRODUCTS => [
-                $concreteProduct,
+            self::PRODUCT_CONCRETE_COLLECTION => [
+                $productConcrete,
             ],
         ];
     }

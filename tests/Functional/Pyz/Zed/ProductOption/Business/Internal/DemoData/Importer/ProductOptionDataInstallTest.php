@@ -62,18 +62,18 @@ class ProductOptionDataInstallTest extends Test
                 $abstractProductEntity->save();
             }
 
-            $concreteProductEntity = SpyProductQuery::create()
+            $productConcreteEntity = SpyProductQuery::create()
                 ->filterBySku($sku)
                 ->filterByFkProductAbstract($abstractProductEntity->getIdProductAbstract())
                 ->findOneOrCreate();
 
-            $concreteProductEntity
+            $productConcreteEntity
                 ->setSku($sku)
                 ->setAttributes('{}')
                 ->setSpyProductAbstract($abstractProductEntity);
 
-            if ($concreteProductEntity->isNew()) {
-                $concreteProductEntity->save();
+            if ($productConcreteEntity->isNew()) {
+                $productConcreteEntity->save();
             }
         }
     }

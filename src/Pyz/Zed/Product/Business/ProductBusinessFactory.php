@@ -7,14 +7,14 @@ use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
 use Spryker\Zed\Product\Business\Builder\ProductBuilderInterface;
 use Spryker\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface;
 use Spryker\Zed\Product\Business\Importer\Writer\ProductAbstractWriterInterface;
-use Spryker\Zed\Product\Business\Importer\Writer\ConcreteProductWriterInterface;
+use Spryker\Zed\Product\Business\Importer\Writer\ProductConcreteWriterInterface;
 use Spryker\Zed\Product\Business\Importer\Writer\ProductWriterInterface;
 use Spryker\Zed\Product\Business\Model\ProductBatchResultInterface;
 use Spryker\Zed\Product\Business\Product\ProductManager;
 use Spryker\Zed\Product\Business\Attribute\AttributeManager;
 use Spryker\Zed\Product\Business\Internal\Install;
 use Spryker\Zed\Product\Business\Model\ProductBatchResult;
-use Spryker\Zed\Product\Business\Importer\Writer\Db\ConcreteProductWriter;
+use Spryker\Zed\Product\Business\Importer\Writer\Db\ProductConcreteWriter;
 use Spryker\Zed\Product\Business\Importer\Writer\Db\ProductAbstractWriter;
 use Spryker\Zed\Product\Business\Importer\Writer\ProductWriter;
 use Spryker\Zed\Product\Business\Importer\Builder\ProductBuilder;
@@ -107,7 +107,7 @@ class ProductBusinessFactory extends SprykerBusinessFactory
     {
         return new ProductWriter(
             $this->createProductAbstractWriter(),
-            $this->createConcreteProductWriter()
+            $this->createProductConcreteWriter()
         );
     }
 
@@ -122,11 +122,11 @@ class ProductBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return ConcreteProductWriterInterface
+     * @return ProductConcreteWriterInterface
      */
-    protected function createConcreteProductWriter()
+    protected function createProductConcreteWriter()
     {
-        return new ConcreteProductWriter(
+        return new ProductConcreteWriter(
             $this->getCurrentLocale()
         );
     }

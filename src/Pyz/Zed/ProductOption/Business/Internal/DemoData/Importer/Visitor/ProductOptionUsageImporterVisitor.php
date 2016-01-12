@@ -4,7 +4,7 @@ namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor;
 
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Command\QueueableCommand;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductAbstract;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ConcreteProduct;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConcrete;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionType;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionTypeExclusion;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValue;
@@ -26,7 +26,7 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
     private $commandQueue = [];
 
     /**
-     * @var ProductAbstract[]|ConcreteProduct[]|ProductOptionType[]|ProductOptionValue[]
+     * @var ProductAbstract[]|ProductConcrete[]|ProductOptionType[]|ProductOptionValue[]
      */
     private $context = [];
 
@@ -53,7 +53,7 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
     }
 
     /**
-     * @param ProductAbstract|ConcreteProduct|ProductOptionType|ProductOptionValue $context
+     * @param ProductAbstract|ProductConcrete|ProductOptionType|ProductOptionValue $context
      */
     public function setContext($context)
     {
@@ -81,9 +81,9 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
     }
 
     /**
-     * @param ConcreteProduct $visitee
+     * @param ProductConcrete $visitee
      */
-    public function visitConcreteProduct(ConcreteProduct $visitee)
+    public function visitProductConcrete(ProductConcrete $visitee)
     {
     }
 

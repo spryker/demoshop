@@ -3,7 +3,7 @@
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer;
 
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductAbstract;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ConcreteProduct;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConcrete;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConfiguration;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionType;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionTypeExclusion;
@@ -26,13 +26,13 @@ class XMLProductTransformer implements XMLTransformerInterface
     /**
      * @param \SimpleXMLElement $variantsElement
      *
-     * @return ConcreteProduct[]
+     * @return ProductConcrete[]
      */
     private function parseVariants(\SimpleXMLElement $variantsElement)
     {
         $variantNodes = [];
         foreach ($variantsElement->variant as $variant) {
-            $variantNode = new ConcreteProduct(
+            $variantNode = new ProductConcrete(
                 (string) $variant['sku'],
                 $this->parseOptionTypes($variant->options),
                 $this->parseOptionTypeExclusions($variant),
