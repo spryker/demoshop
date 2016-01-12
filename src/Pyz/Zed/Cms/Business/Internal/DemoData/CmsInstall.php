@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\Cms\Business\Internal\DemoData;
 
-use Functional\Spryker\Zed\ProductOption\Mock\LocaleFacade;
 use Generated\Shared\Transfer\CmsBlockTransfer;
 use Generated\Shared\Transfer\CmsTemplateTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
@@ -16,6 +15,7 @@ use Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToUrlInterface;
 use Spryker\Zed\Cms\Persistence\CmsQueryContainerInterface;
 use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
+use Spryker\Zed\Locale\Business\LocaleFacade;
 
 class CmsInstall extends AbstractInstaller
 {
