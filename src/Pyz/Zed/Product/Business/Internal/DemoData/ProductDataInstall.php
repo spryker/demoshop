@@ -94,21 +94,21 @@ class ProductDataInstall extends AbstractInstaller
     {
         $currentLocale = $this->localeFacade->getCurrentLocale();
         foreach ($this->getProductsFromFile($currentLocale) as $currentProduct) {
-            /* @var AbstractProductTransfer $abstractProduct */
-            $abstractProduct = $currentProduct[self::ABSTRACT_PRODUCT];
+            /* @var AbstractProductTransfer $productAbstract */
+            $productAbstract = $currentProduct[self::ABSTRACT_PRODUCT];
             $concreteProducts = $currentProduct[self::CONCRETE_PRODUCTS];
 
-            $sku = $abstractProduct->getSku();
+            $sku = $productAbstract->getSku();
 
             if ($this->productManager->hasAbstractProduct($sku)) {
                 continue;
             }
 
-            $idProductAbstract = $this->productManager->createAbstractProduct($abstractProduct);
-            $abstractProduct->setIdProductAbstract($idProductAbstract);
+            $idProductAbstract = $this->productManager->createAbstractProduct($productAbstract);
+            $productAbstract->setIdProductAbstract($idProductAbstract);
             $this->createConcreteProducts($concreteProducts, $idProductAbstract);
             $this->productManager->touchProductActive($idProductAbstract);
-            $this->createAndTouchProductUrls($abstractProduct, $idProductAbstract, $currentLocale);
+            $this->createAndTouchProductUrls($productAbstract, $idProductAbstract, $currentLocale);
         }
     }
 
@@ -186,7 +186,7 @@ class ProductDataInstall extends AbstractInstaller
             'depth' => (float) $product->{'depth'},
         ];
 
-        $abstractProduct = new AbstractProductTransfer();
+        $productAbstract = new AbstractProductTransfer();
         $concreteProduct = new ConcreteProductTransfer();
 
         $locales = $this->localeFacade->getAvailableLocales();
@@ -215,12 +215,12 @@ class ProductDataInstall extends AbstractInstaller
             $localizedAttributes->setLocale($this->localeFacade->getLocale($locale));
             $localizedAttributes->setName((string) $localeAttributes->{'name'});
 
-            $abstractProduct->addLocalizedAttributes($localizedAttributes);
+            $productAbstract->addLocalizedAttributes($localizedAttributes);
             $concreteProduct->addLocalizedAttributes($localizedAttributes);
         }
 
-        $abstractProduct->setSku($product->{'sku'});
-        $abstractProduct->setAttributes($attributes);
+        $productAbstract->setSku($product->{'sku'});
+        $productAbstract->setAttributes($attributes);
 
         $concreteProduct->setSku($product->{'sku'});
         $concreteProduct->setAttributes($attributes);
@@ -228,7 +228,7 @@ class ProductDataInstall extends AbstractInstaller
         $concreteProduct->setIsActive(true);
 
         return [
-            self::ABSTRACT_PRODUCT => $abstractProduct,
+            self::ABSTRACT_PRODUCT => $productAbstract,
             self::CONCRETE_PRODUCTS => [
                 $concreteProduct,
             ],
@@ -268,20 +268,20 @@ class ProductDataInstall extends AbstractInstaller
     }
 
     /**
-     * @param AbstractProductTransfer $abstractProduct
+     * @param AbstractProductTransfer $productAbstract
      * @param $idProductAbstract
      * @param LocaleTransfer $currentLocale
      */
     protected function createAndTouchProductUrls(
-        AbstractProductTransfer $abstractProduct,
+        AbstractProductTransfer $productAbstract,
         $idProductAbstract,
         LocaleTransfer $currentLocale
     ) {
-        foreach ($abstractProduct->getLocalizedAttributes() as $localizedAttributes) {
-            $abstractProductUrl = $this->buildProductUrl($localizedAttributes);
+        foreach ($productAbstract->getLocalizedAttributes() as $localizedAttributes) {
+            $productAbstractUrl = $this->buildProductUrl($localizedAttributes);
             $this->productManager->createAndTouchProductUrlByIdProduct(
                 $idProductAbstract,
-                $abstractProductUrl,
+                $productAbstractUrl,
                 $localizedAttributes->getLocale()
             );
         }

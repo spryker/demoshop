@@ -14,13 +14,13 @@ class XMLProductTransformer implements XMLTransformerInterface
 {
 
     /**
-     * @param \SimpleXMLElement $abstractProductElement
+     * @param \SimpleXMLElement $productAbstractElement
      *
      * @return AbstractProduct
      */
-    public function transform(\SimpleXMLElement $abstractProductElement)
+    public function transform(\SimpleXMLElement $productAbstractElement)
     {
-        return new AbstractProduct((string) $abstractProductElement['sku'], $this->parseVariants($abstractProductElement->variants));
+        return new AbstractProduct((string) $productAbstractElement['sku'], $this->parseVariants($productAbstractElement->variants));
     }
 
     /**

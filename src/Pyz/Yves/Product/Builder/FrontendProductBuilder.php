@@ -14,14 +14,14 @@ class FrontendProductBuilder implements FrontendProductBuilderInterface
     /**
      * @var AbstractProduct
      */
-    protected $abstractProduct;
+    protected $productAbstract;
 
     /**
-     * @param AbstractProduct $abstractProduct
+     * @param AbstractProduct $productAbstract
      */
-    public function __construct(AbstractProduct $abstractProduct)
+    public function __construct(AbstractProduct $productAbstract)
     {
-        $this->abstractProduct = $abstractProduct;
+        $this->abstractProduct = $productAbstract;
     }
 
     /**
@@ -31,21 +31,21 @@ class FrontendProductBuilder implements FrontendProductBuilderInterface
      */
     public function buildProduct(array $productData)
     {
-        $abstractProduct = $this->createAbstractProductClone();
+        $productAbstract = $this->createAbstractProductClone();
         foreach ($productData as $name => $value) {
             $arrayParts = explode('_', strtolower($name));
             $arrayParts = array_map('ucfirst', $arrayParts);
 
             $setter = 'set' . implode('', $arrayParts);
 
-            if (method_exists($abstractProduct, $setter)) {
-                $abstractProduct->{$setter}($value);
+            if (method_exists($productAbstract, $setter)) {
+                $productAbstract->{$setter}($value);
             } else {
-                $abstractProduct->addAttribute($name, $value);
+                $productAbstract->addAttribute($name, $value);
             }
         }
 
-        return $abstractProduct;
+        return $productAbstract;
     }
 
     /**
