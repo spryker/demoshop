@@ -8,7 +8,7 @@ $config[ApplicationConstants::ZED_DB_USERNAME] = 'development';
 $config[ApplicationConstants::ZED_DB_PASSWORD] = 'mate20mg';
 $config[ApplicationConstants::ZED_DB_DATABASE] = 'DE_development_zed';
 $config[ApplicationConstants::ZED_DB_HOST] = '127.0.0.1';
-$config[ApplicationConstants::ZED_DB_PORT] = 3306;
+$config[ApplicationConstants::ZED_DB_PORT] = 5432;
 
 $dsn = sprintf('%s:host=%s;port=%d;dbname=%s',
     $config[ApplicationConstants::ZED_DB_ENGINE],

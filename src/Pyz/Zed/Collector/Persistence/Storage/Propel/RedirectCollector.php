@@ -4,6 +4,7 @@ namespace Pyz\Zed\Collector\Persistence\Storage\Propel;
 
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Url\Persistence\Map\SpyRedirectTableMap;
+use Orm\Zed\Url\Persistence\Map\SpyUrlRedirectTableMap;
 use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Zed\Collector\Persistence\Exporter\AbstractPropelCollectorQuery;
@@ -18,11 +19,11 @@ class RedirectCollector extends AbstractPropelCollectorQuery
     {
         $this->touchQuery->addJoin(
             SpyTouchTableMap::COL_ITEM_ID,
-            SpyRedirectTableMap::COL_ID_REDIRECT,
+            SpyUrlRedirectTableMap::COL_ID_URL_REDIRECT,
             Criteria::INNER_JOIN
         );
         $this->touchQuery->addJoin(
-            SpyRedirectTableMap::COL_ID_REDIRECT,
+            SpyUrlRedirectTableMap::COL_ID_URL_REDIRECT,
             SpyUrlTableMap::COL_FK_RESOURCE_REDIRECT,
             Criteria::INNER_JOIN
         );
@@ -33,10 +34,10 @@ class RedirectCollector extends AbstractPropelCollectorQuery
             Criteria::EQUAL
         );
 
-        $this->touchQuery->withColumn(SpyRedirectTableMap::COL_ID_REDIRECT, 'id');
+        $this->touchQuery->withColumn(SpyUrlRedirectTableMap::COL_ID_URL_REDIRECT, 'id');
         $this->touchQuery->withColumn(SpyUrlTableMap::COL_URL, 'from_url');
-        $this->touchQuery->withColumn(SpyRedirectTableMap::COL_STATUS, 'status');
-        $this->touchQuery->withColumn(SpyRedirectTableMap::COL_TO_URL, 'to_url');
+        $this->touchQuery->withColumn(SpyUrlRedirectTableMap::COL_STATUS, 'status');
+        $this->touchQuery->withColumn(SpyUrlRedirectTableMap::COL_TO_URL, 'to_url');
     }
 
 }
