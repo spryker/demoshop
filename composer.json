@@ -50,15 +50,15 @@
   },
   "require-dev": {
     "silex/web-profiler": "~1.0.2",
-    "pdepend/pdepend": "*",
-    "phploc/phploc": "*",
-    "phpmd/phpmd": "*",
-    "sebastian/phpcpd": "*",
+    "pdepend/pdepend": "~2.2.2",
+    "phploc/phploc": "~2.1.5",
+    "phpmd/phpmd": "2.3.2",
+    "sebastian/phpcpd": "~2.0.2",
     "codeception/codeception": "~2.1.0",
     "fabpot/php-cs-fixer": "^1.9",
     "squizlabs/php_codesniffer": "~2.4.0",
-    "sensiolabs/security-checker": "*",
-    "sllh/composer-versions-check": "*"
+    "sensiolabs/security-checker": "~v3.0.2",
+    "sllh/composer-versions-check": "~v1.0.2"
   },
   "autoload": {
     "psr-0": {
