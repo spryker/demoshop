@@ -8,7 +8,6 @@ use Pyz\Yves\Customer\CustomerFactory;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use Spryker\Client\Customer\CustomerClientInterface;
 use Spryker\Shared\Customer\Code\Messages;
-use Spryker\Yves\Application\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -16,7 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
  * @method CustomerFactory getFactory()
  * @method CustomerClientInterface getClient()
  */
-class PasswordController extends AbstractController
+class PasswordController extends AbstractCustomerController
 {
 
     /**
@@ -31,14 +30,12 @@ class PasswordController extends AbstractController
             ->handleRequest($request);
 
         if ($form->isValid()) {
-            $customerResponseTransfer = $this->sendPasswordRecovery($form->getData());
+            $customerResponseTransfer = $this->sendPasswordRestoreMail($form->getData());
 
             if ($customerResponseTransfer->getIsSuccess()) {
                 $this->addSuccessMessage(Messages::CUSTOMER_PASSWORD_RECOVERY_MAIL_SENT);
             } else {
-                foreach ($customerResponseTransfer->getErrors() as $errorTransfer) {
-                    $this->addErrorMessage($errorTransfer->getMessage());
-                }
+                $this->processResponseErrors($customerResponseTransfer);
             }
         }
 
@@ -69,9 +66,7 @@ class PasswordController extends AbstractController
                 return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
             }
 
-            foreach ($customerResponseTransfer->getErrors() as $errorTransfer) {
-                $this->addErrorMessage($errorTransfer->getMessage());
-            }
+            $this->processResponseErrors($customerResponseTransfer);
         }
 
         return $this->viewResponse([
@@ -84,10 +79,10 @@ class PasswordController extends AbstractController
      *
      * @return CustomerResponseTransfer
      */
-    protected function sendPasswordRecovery(CustomerTransfer $customerTransfer)
+    protected function sendPasswordRestoreMail(CustomerTransfer $customerTransfer)
     {
         return $this->getClient()
-            ->forgottenPassword($customerTransfer);
+            ->sendPasswordRestoreMail($customerTransfer);
     }
 
 }

@@ -17,7 +17,6 @@ class AddressController extends AbstractCustomerController
     const KEY_DEFAULT_BILLING_ADDRESS = 'default_billing_address';
     const KEY_DEFAULT_SHIPPING_ADDRESS = 'default_shipping_address';
     const KEY_ADDRESSES = 'addresses';
-    const COUNTRY_GLOSSARY_PREFIX = 'countries.iso.';
 
     /**
      * @return array|RedirectResponse
@@ -46,7 +45,7 @@ class AddressController extends AbstractCustomerController
 
         $addressFormType = $this
             ->getFactory()
-            ->createFormAddress($this->getAvailableCountries());
+            ->createFormAddress();
 
         $addressForm = $this
             ->buildForm($addressFormType)
@@ -88,7 +87,7 @@ class AddressController extends AbstractCustomerController
 
         $addressFormType = $this
             ->getFactory()
-            ->createFormAddress($this->getAvailableCountries(), $addressTransfer);
+            ->createFormAddress($addressTransfer);
 
         $addressForm = $this
             ->buildForm($addressFormType);
@@ -107,7 +106,7 @@ class AddressController extends AbstractCustomerController
     {
         $addressFormType = $this
             ->getFactory()
-            ->createFormAddress($this->getAvailableCountries());
+            ->createFormAddress();
 
         $addressForm = $this
             ->buildForm($addressFormType)
@@ -188,27 +187,6 @@ class AddressController extends AbstractCustomerController
     }
 
     /**
-     * @return array
-     */
-    protected function getAvailableCountries()
-    {
-        $countries = [];
-
-        $supportedCountries = $this
-            ->getFactory()
-            ->createStore()
-            ->getCountries();
-
-        foreach ($supportedCountries as $iso2Code) {
-            $countries[] = [
-                $iso2Code => self::COUNTRY_GLOSSARY_PREFIX . $iso2Code,
-            ];
-        }
-
-        return $countries;
-    }
-
-    /**
      * @param CustomerTransfer $customerTransfer
      * @param AddressTransfer $addressTransfer
      *
@@ -222,10 +200,6 @@ class AddressController extends AbstractCustomerController
         $customerTransfer = $this
             ->getClient()
             ->createAddressAndUpdateCustomerDefaultAddresses($addressTransfer);
-
-        $this
-            ->getClient()
-            ->setCustomer($customerTransfer);
 
         return $customerTransfer;
     }
@@ -248,15 +222,6 @@ class AddressController extends AbstractCustomerController
             ->getClient()
             ->getAddress($addressTransfer);
 
-        if ($addressTransfer !== null) {
-            $addressTransfer->setIsDefaultBilling(
-                $this->isDefaultAddress($addressTransfer, $customerTransfer->getDefaultBillingAddress())
-            );
-            $addressTransfer->setIsDefaultShipping(
-                $this->isDefaultAddress($addressTransfer, $customerTransfer->getDefaultShippingAddress())
-            );
-        }
-
         return $addressTransfer;
     }
 
@@ -270,10 +235,6 @@ class AddressController extends AbstractCustomerController
         $customerTransfer = $this
             ->getClient()
             ->updateAddressAndCustomerDefaultAddresses($addressTransfer);
-
-        $this
-            ->getClient()
-            ->setCustomer($customerTransfer);
 
         return $customerTransfer;
     }

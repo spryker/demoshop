@@ -4,7 +4,9 @@ namespace Pyz\Yves\Customer;
 
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
+use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Client\Newsletter\NewsletterClientInterface;
+use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Customer\Form\LoginForm;
 use Pyz\Yves\Customer\Form\NewsletterSubscriptionForm;
 use Pyz\Yves\Customer\Form\PasswordForm;
@@ -16,8 +18,10 @@ use Pyz\Yves\Customer\Form\RegisterForm;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationSuccessHandler;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerUserProvider;
+use Pyz\Yves\Customer\Plugin\AuthenticationHandler;
 use Pyz\Yves\Customer\Security\User;
 use Spryker\Client\Sales\SalesClientInterface;
+use Spryker\Shared\Application\Communication\Application;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Kernel\AbstractFactory;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -30,14 +34,13 @@ class CustomerFactory extends AbstractFactory
 {
 
     /**
-     * @param array $availableCountries
      * @param AddressTransfer|null $addressTransfer
      *
      * @return AddressForm
      */
-    public function createFormAddress(array $availableCountries, AddressTransfer $addressTransfer = null)
+    public function createFormAddress(AddressTransfer $addressTransfer = null)
     {
-        return new AddressForm($availableCountries, $addressTransfer);
+        return new AddressForm($this->createStore(), $addressTransfer);
     }
 
     /**
@@ -180,6 +183,30 @@ class CustomerFactory extends AbstractFactory
     public function createSalesClient()
     {
         return $this->getLocator()->sales()->client();
+    }
+
+    /**
+     * @return AuthenticationHandler
+     */
+    public function createAuthenticationHandler()
+    {
+        return new AuthenticationHandler();
+    }
+
+    /**
+     * @return CustomerClientInterface
+     */
+    public function createCustomerClient()
+    {
+        return $this->getLocator()->customer()->client();
+    }
+
+    /**
+     * @return Application
+     */
+    public function createApplication()
+    {
+        return (new Pimple())->getApplication();
     }
 
 }

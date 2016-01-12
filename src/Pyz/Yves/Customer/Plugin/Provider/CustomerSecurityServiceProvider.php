@@ -7,6 +7,7 @@
 namespace Pyz\Yves\Customer\Plugin\Provider;
 
 use Pyz\Yves\Customer\CustomerFactory;
+use Pyz\Yves\Customer\Form\LoginForm;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 use Spryker\Client\Customer\CustomerClientInterface;
@@ -21,9 +22,7 @@ use Spryker\Yves\Kernel\AbstractPlugin;
 class CustomerSecurityServiceProvider extends AbstractPlugin implements ServiceProviderInterface
 {
     const FIREWALL_SECURED = 'secured';
-
     const ROLE_USER = 'ROLE_USER';
-
     const IS_AUTHENTICATED_ANONYMOUSLY = 'IS_AUTHENTICATED_ANONYMOUSLY';
 
     /**
@@ -34,9 +33,7 @@ class CustomerSecurityServiceProvider extends AbstractPlugin implements ServiceP
     public function register(Application $app)
     {
         $this->setSecurityFirewalls($app);
-
         $this->setSecurityAccessRules($app);
-
         $this->setAuthenticationSuccessHandler($app);
     }
 
@@ -63,8 +60,8 @@ class CustomerSecurityServiceProvider extends AbstractPlugin implements ServiceP
                 'form' => [
                     'login_path' => '/login',
                     'check_path' => '/login_check',
-                    'username_parameter' => 'loginForm[email]',
-                    'password_parameter' => 'loginForm[password]',
+                    'username_parameter' => LoginForm::FORM_NAME . '[' . LoginForm::FIELD_EMAIL . ']',
+                    'password_parameter' => LoginForm::FORM_NAME . '[' . LoginForm::FIELD_PASSWORD . ']',
                 ],
                 'logout' => [
                     'logout_path' => '/logout',

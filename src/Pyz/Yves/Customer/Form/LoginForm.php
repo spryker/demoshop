@@ -11,19 +11,23 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 class LoginForm extends AbstractForm
 {
 
+    const FORM_NAME = 'loginForm';
+    const FIELD_EMAIL = 'email';
+    const FIELD_PASSWORD = 'password';
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('email', 'text', [
+        $builder->add(self::FIELD_EMAIL, 'text', [
             'label' => 'customer.login.email',
             'constraints' => [
                 new NotBlank(),
                 new Email(),
-            ]])
-            ->add('password', 'password', [
+            ], ])
+            ->add(self::FIELD_PASSWORD, self::FIELD_PASSWORD, [
                 'label' => 'customer.login.password',
                 'constraints' => new NotBlank(),
             ]);
@@ -34,7 +38,7 @@ class LoginForm extends AbstractForm
      */
     public function getName()
     {
-        return 'loginForm';
+        return self::FORM_NAME;
     }
 
     /**

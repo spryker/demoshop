@@ -16,6 +16,9 @@ class OrderController extends AbstractCustomerController
     const ORDER_LIST_SORT_FIELD = 'created_at';
     const ORDER_LIST_SORT_DIRECTION = 'DESC';
 
+    const PARAM_PAGE = 'page';
+    const DEFAULT_PAGE = 1;
+
     /**
      * @param Request $request
      *
@@ -78,7 +81,7 @@ class OrderController extends AbstractCustomerController
     protected function createPaginationTransfer(Request $request)
     {
         $paginationTransfer = new PaginationTransfer();
-        $paginationTransfer->setPage($request->query->getInt('page', 1));
+        $paginationTransfer->setPage($request->query->getInt(self::PARAM_PAGE, self::DEFAULT_PAGE));
         $paginationTransfer->setMaxPerPage(self::ORDER_LIST_LIMIT);
 
         return $paginationTransfer;

@@ -21,12 +21,10 @@ class OrderManager extends SprykerOrderManager
         $ordersQuery = $this->createOrderListQuery($orderListTransfer);
 
         if ($orderListTransfer->getPagination() !== null) {
-            $orderCollection = $this->paginateOrderCollection($orderListTransfer, $ordersQuery);
-        } else {
-            $orderCollection = $ordersQuery->find();
+            return $this->paginateOrderCollection($orderListTransfer, $ordersQuery);
         }
 
-        return $orderCollection;
+        return $ordersQuery->find();
     }
 
     /**

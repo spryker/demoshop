@@ -4,11 +4,14 @@ namespace Pyz\Yves\Customer\Form;
 
 use Generated\Shared\Transfer\AddressTransfer;
 use Spryker\Shared\Gui\Form\AbstractForm;
+use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class AddressForm extends AbstractForm
 {
+
+    const COUNTRY_GLOSSARY_PREFIX = 'countries.iso.';
 
     /**
      * @var AddressTransfer
@@ -18,15 +21,15 @@ class AddressForm extends AbstractForm
     /**
      * @var array
      */
-    protected $availableCountries;
+    protected $store;
 
     /**
-     * @param array $availableCountries
+     * @param Store $store
      * @param AddressTransfer $addressTransfer
      */
-    public function __construct(array $availableCountries, AddressTransfer $addressTransfer = null)
+    public function __construct(Store $store, AddressTransfer $addressTransfer = null)
     {
-        $this->availableCountries = $availableCountries;
+        $this->store = $store;
         $this->addressTransfer = $addressTransfer;
     }
 
@@ -80,7 +83,7 @@ class AddressForm extends AbstractForm
             ->add('iso2Code', 'choice', [
                 'label'    => 'customer.address.country',
                 'required' => true,
-                'choices' => $this->availableCountries,
+                'choices' => $this->getAvailableCountries(),
             ])
             ->add(AddressTransfer::PHONE, 'text', [
                 'label'    => 'customer.address.phone',
@@ -118,6 +121,20 @@ class AddressForm extends AbstractForm
     protected function getDataClass()
     {
         return new AddressTransfer();
+    }
+
+    /**
+     * @return array
+     */
+    protected function getAvailableCountries()
+    {
+        $countries = [];
+
+        foreach ($this->store->getCountries() as $iso2Code) {
+            $countries[$iso2Code] = self::COUNTRY_GLOSSARY_PREFIX . $iso2Code;
+        }
+
+        return $countries;
     }
 
 }

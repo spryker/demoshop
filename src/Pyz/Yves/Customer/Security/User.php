@@ -17,7 +17,7 @@ class User implements UserInterface
     /**
      * @var string
      */
-    private $username;
+    protected $username;
 
     /**
      * @var string

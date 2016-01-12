@@ -27,29 +27,29 @@ class GatewayController extends SprykerGatewayController
      */
     public function getCustomerOverviewAction(CustomerOverviewRequestTransfer $overviewRequest)
     {
-        $overviewResponse = new CustomerOverviewResponseTransfer();
+        $overviewResponseTransfer = new CustomerOverviewResponseTransfer();
 
-        $orderList = $this->getOrderList($overviewRequest);
-        $overviewResponse->setOrderList($orderList);
+        $orderListTransfer = $this->getOrderList($overviewRequest);
+        $overviewResponseTransfer->setOrderList($orderListTransfer);
 
-        $subscriptionResponse = $this->getIsSubscribed($overviewRequest->getCustomer());
-        $overviewResponse->setIsSubscribed($subscriptionResponse->getSubscriptionResults()[0]->getIsSuccess());
+        $subscriptionResponseTransfer = $this->getIsSubscribed($overviewRequest->getCustomer());
+        $overviewResponseTransfer->setIsSubscribed($subscriptionResponseTransfer->getSubscriptionResults()[0]->getIsSuccess());
 
-        return $overviewResponse;
+        return $overviewResponseTransfer;
     }
 
     /**
-     * @param CustomerOverviewRequestTransfer $overviewRequest
+     * @param CustomerOverviewRequestTransfer $overviewRequestTransfer
      *
      * @return OrderListTransfer
      */
-    protected function getOrderList(CustomerOverviewRequestTransfer $overviewRequest)
+    protected function getOrderList(CustomerOverviewRequestTransfer $overviewRequestTransfer)
     {
-        $orderList = $this->getFactory()
+        $orderListTransfer = $this->getFactory()
             ->getSalesFacade()
-            ->getOrders($overviewRequest->getOrderList());
+            ->getOrders($overviewRequestTransfer->getOrderList());
 
-        return $orderList;
+        return $orderListTransfer;
     }
 
     /**
@@ -59,23 +59,23 @@ class GatewayController extends SprykerGatewayController
      */
     protected function getIsSubscribed(CustomerTransfer $customerTransfer)
     {
-        $subscriptionRequest = new NewsletterSubscriptionRequestTransfer();
+        $subscriptionRequestTransfer = new NewsletterSubscriptionRequestTransfer();
 
-        $subscriber = new NewsletterSubscriberTransfer();
-        $subscriber->setFkCustomer($customerTransfer->getIdCustomer());
-        $subscriber->setEmail($customerTransfer->getEmail());
-        $subscriptionRequest->setNewsletterSubscriber($subscriber);
+        $subscriberTransfer = new NewsletterSubscriberTransfer();
+        $subscriberTransfer->setFkCustomer($customerTransfer->getIdCustomer());
+        $subscriberTransfer->setEmail($customerTransfer->getEmail());
+        $subscriptionRequestTransfer->setNewsletterSubscriber($subscriberTransfer);
 
-        $newsletterType = new NewsletterTypeTransfer();
-        $newsletterType->setName(NewsletterConstants::EDITORIAL_NEWSLETTER);
+        $newsletterTypeTransfer = new NewsletterTypeTransfer();
+        $newsletterTypeTransfer->setName(NewsletterConstants::EDITORIAL_NEWSLETTER);
 
-        $subscriptionRequest->addSubscriptionType($newsletterType);
+        $subscriptionRequestTransfer->addSubscriptionType($newsletterTypeTransfer);
 
-        $subscriptionResponse = $this->getFactory()
+        $subscriptionResponseTransfer = $this->getFactory()
             ->getNewsletterFacade()
-            ->checkSubscription($subscriptionRequest);
+            ->checkSubscription($subscriptionRequestTransfer);
 
-        return $subscriptionResponse;
+        return $subscriptionResponseTransfer;
     }
 
 }

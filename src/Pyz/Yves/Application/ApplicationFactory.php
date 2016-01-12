@@ -75,7 +75,15 @@ class ApplicationFactory extends SprykerApplicationFactory
      */
     public function createDateFormatterTwigExtension()
     {
-        return new DateFormatterTwigExtension(new DateFormatter(Context::getInstance()));
+        return new DateFormatterTwigExtension($this->createDateFormatter());
+    }
+
+    /**
+     * @return DateFormatter
+     */
+    public function createDateFormatter()
+    {
+        return new DateFormatter(Context::getInstance());
     }
 
 }

@@ -97,9 +97,13 @@ class CustomerController extends AbstractCustomerController
      */
     protected function getDefaultAddresses(CustomerTransfer $customerTransfer)
     {
+        $addressesTransfer = $customerTransfer->getAddresses();
+        if ($addressesTransfer === null) {
+            return [];
+        }
+
         $addresses = [];
-        $addressItems = $customerTransfer->getAddresses()->getAddresses();
-        foreach ($addressItems as $address) {
+        foreach ($addressesTransfer->getAddresses() as $address) {
             if ($customerTransfer->getDefaultBillingAddress() === $address->getIdCustomerAddress()) {
                 $addresses[self::KEY_BILLING] = $address;
             }

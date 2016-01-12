@@ -73,7 +73,7 @@ class ProfileController extends AbstractCustomerController
     /**
      * @param CustomerTransfer $customerTransfer
      *
-     * @return RedirectResponse
+     * @return void
      */
     protected function processProfileUpdate(CustomerTransfer $customerTransfer)
     {
@@ -88,16 +88,14 @@ class ProfileController extends AbstractCustomerController
 
             $this->addSuccessMessage(self::MESSAGE_PROFILE_CHANGE_SUCCESS);
         } else {
-            foreach ($customerResponseTransfer->getErrors() as $customerErrorTransfer) {
-                $this->addErrorMessage($customerErrorTransfer->getMessage());
-            }
+            $this->processResponseErrors($customerResponseTransfer);
         }
     }
 
     /**
      * @param CustomerTransfer $customerTransfer
      *
-     * @return RedirectResponse
+     * @return void
      */
     protected function processPasswordUpdate(CustomerTransfer $customerTransfer)
     {
@@ -111,10 +109,8 @@ class ProfileController extends AbstractCustomerController
             $this->updateLoggedInCustomerTransfer($customerResponseTransfer->getCustomerTransfer());
 
             $this->addSuccessMessage(self::MESSAGE_PASSWORD_CHANGE_SUCCESS);
-        }
-
-        foreach ($customerResponseTransfer->getErrors() as $customerErrorTransfer) {
-            $this->addErrorMessage($customerErrorTransfer->getMessage());
+        } else {
+            $this->processResponseErrors($customerResponseTransfer);
         }
     }
 
