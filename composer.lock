@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bc3a13c573ce30a4115f3304b90ec3ab",
-    "content-hash": "f06b09b9ebe2c7f87ab3d364f7f8c013",
+    "hash": "9f0b81c72df610ac9b970e4b33f34b07",
+    "content-hash": "5b9510a741764411d7f8a5f579e2ea0d",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -704,11 +704,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-                "reference": "dc161ba700007ad1e582d9f7362ac14f69771f4d"
-=======
                 "reference": "e38a73a604c1f33d6748f354edd48177026f5ac3"
->>>>>>> #1122 update composer
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -790,11 +786,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-<<<<<<< HEAD
-            "time": "2016-01-12 13:39:42"
-=======
             "time": "2016-01-12 11:54:15"
->>>>>>> #1122 update composer
         },
         {
             "name": "symfony-cmf/routing",
@@ -4613,26 +4605,6 @@
             "time": "2015-10-12 18:22:15"
         },
         {
-            "name": "spryker/migration",
-            "version": "dev-feature/add-product-name-refactorer",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:spryker/toolbox.git",
-                "reference": "d1342c75da382e79de975ecbdd3681b3c6ba53e4"
-            },
-            "require": {
-                "symfony/filesystem": "~2.6.9",
-                "symfony/finder": "~2.6.9"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Toolbox\\": "src"
-                }
-            },
-            "time": "2016-01-13 07:56:25"
-        },
-        {
             "name": "squizlabs/php_codesniffer",
             "version": "2.4.0",
             "source": {
@@ -5144,8 +5116,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "spryker/spryker": 20,
-        "propel/propel": 20,
-        "spryker/migration": 20
+        "propel/propel": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
