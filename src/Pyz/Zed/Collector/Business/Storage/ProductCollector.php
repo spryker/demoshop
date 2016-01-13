@@ -42,7 +42,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
     const CONCRETE_LOCALIZED_ATTRIBUTES = 'concrete_localized_attributes';
     const CONCRETE_SKUS = 'concrete_skus';
     const CONCRETE_NAMES = 'concrete_names';
-    const CONCRETE_PRODUCTS = 'concrete_products';
+    const PRODUCT_CONCRETE_COLLECTION = 'product concrete collection';
     const NAME = 'name';
     const SKU = 'sku';
     const ATTRIBUTES = 'attributes';
@@ -114,11 +114,11 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                 SpyProductTableMap::COL_FK_PRODUCT_ABSTRACT,
                 Criteria::LEFT_JOIN
             ),
-            'concreteProductJoin'
+            'productConcreteJoin'
         );
 
         $baseQuery->addJoinCondition(
-            'concreteProductJoin',
+            'productConcreteJoin',
             SpyProductTableMap::COL_IS_ACTIVE,
             true,
             Criteria::EQUAL
@@ -502,7 +502,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             'abstract_attributes',
             'abstract_name',
             'url',
-            'concrete_products',
+            'product_concrete_collection',
         ];
 
         return array_intersect_key($productData, array_flip($allowedFields));
@@ -577,7 +577,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
             $concreteSkus = explode(',', $productData[self::CONCRETE_SKUS]);
             $concreteNames = explode(',', $productData[self::CONCRETE_NAMES]);
-            $productData[self::CONCRETE_PRODUCTS] = [];
+            $productData[self::PRODUCT_CONCRETE_COLLECTION] = [];
 
             $processedConcreteSkus = [];
             for ($i = 0, $l = count($concreteSkus); $i < $l; $i++) {
@@ -589,7 +589,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                 $mergedAttributes = $this->normalizeAttributes($mergedAttributes);
 
                 $processedConcreteSkus[$concreteSkus[$i]] = true;
-                $productData[self::CONCRETE_PRODUCTS][] = [
+                $productData[self::PRODUCT_CONCRETE_COLLECTION][] = [
                     self::NAME => $concreteNames[$i],
                     self::SKU => $concreteSkus[$i],
                     self::ATTRIBUTES => $mergedAttributes,

@@ -6,7 +6,7 @@
 
 namespace Pyz\Yves\Product\Builder;
 
-use Pyz\Yves\Product\Model\AbstractProduct;
+use Pyz\Yves\Product\Model\ProductAbstract;
 
 /**
  * Interface FrontendProductBuilderInterface
@@ -17,7 +17,7 @@ interface FrontendProductBuilderInterface
     /**
      * @param array $productData
      *
-     * @return AbstractProduct
+     * @return ProductAbstract
      */
     public function buildProduct(array $productData);
 

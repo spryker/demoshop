@@ -280,9 +280,9 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
      *
      * @return SpyProductAbstractQuery
      */
-    public function queryAssociatedAbstractProductIdsForProductOptionType($idProductOptionType)
+    public function queryAssociatedProductAbstractIdsForProductOptionType($idProductOptionType)
     {
-        return $this->queryContainer->queryAssociatedAbstractProductIdsForProductOptionType($idProductOptionType);
+        return $this->queryContainer->queryAssociatedProductAbstractIdsForProductOptionType($idProductOptionType);
     }
 
     /**
@@ -290,9 +290,9 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
      *
      * @return SpyProductAbstractQuery
      */
-    public function queryAssociatedAbstractProductIdsForProductOptionValue($idProductOptionValue)
+    public function queryAssociatedProductAbstractIdsForProductOptionValue($idProductOptionValue)
     {
-        return $this->queryContainer->queryAssociatedAbstractProductIdsForProductOptionValue($idProductOptionValue);
+        return $this->queryContainer->queryAssociatedProductAbstractIdsForProductOptionValue($idProductOptionValue);
     }
 
     /**
@@ -300,16 +300,16 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
      *
      * @return SpyProductAbstractQuery
      */
-    public function queryAbstractProductIdForProductOptionTypeUsage($idProductOptionTypeUsage)
+    public function queryProductAbstractIdForProductOptionTypeUsage($idProductOptionTypeUsage)
     {
         if (static::$disableCache === true) {
-            return $this->queryContainer->queryAbstractProductIdForProductOptionTypeUsage($idProductOptionTypeUsage);
+            return $this->queryContainer->queryProductAbstractIdForProductOptionTypeUsage($idProductOptionTypeUsage);
         }
 
         static $cache;
 
         $query = $this->queryContainer
-            ->queryAbstractProductIdForProductOptionTypeUsage($idProductOptionTypeUsage);
+            ->queryProductAbstractIdForProductOptionTypeUsage($idProductOptionTypeUsage);
 
         if (isset($cache['id.' . $idProductOptionTypeUsage]) === false) {
             $cache['id.' . $idProductOptionTypeUsage] = $query->findOne();
@@ -326,9 +326,9 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
      *
      * @return array
      */
-    public function queryTypeUsagesForConcreteProduct($idProduct, $idLocale)
+    public function queryTypeUsagesForProductConcrete($idProduct, $idLocale)
     {
-        return $this->queryContainer->queryTypeUsagesForConcreteProduct($idProduct, $idLocale);
+        return $this->queryContainer->queryTypeUsagesForProductConcrete($idProduct, $idLocale);
     }
 
     /**
@@ -378,9 +378,9 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
      *
      * @return array
      */
-    public function queryConfigPresetsForConcreteProduct($idProduct)
+    public function queryConfigPresetsForProductConcrete($idProduct)
     {
-        return $this->queryContainer->queryConfigPresetsForConcreteProduct($idProduct);
+        return $this->queryContainer->queryConfigPresetsForProductConcrete($idProduct);
     }
 
     /**

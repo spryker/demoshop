@@ -82,11 +82,11 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                 SpyProductTableMap::COL_FK_PRODUCT_ABSTRACT,
                 Criteria::LEFT_JOIN
             ),
-            'concreteProductJoin'
+            'productConcreteJoin'
         );
 
         $baseQuery->addJoinCondition(
-            'concreteProductJoin',
+            'productConcreteJoin',
             SpyProductTableMap::COL_IS_ACTIVE,
             true,
             Criteria::EQUAL

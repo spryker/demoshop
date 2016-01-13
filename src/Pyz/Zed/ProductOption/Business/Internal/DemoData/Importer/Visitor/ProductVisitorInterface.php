@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor;
 
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\AbstractProduct;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ConcreteProduct;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductAbstract;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConcrete;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionType;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionTypeExclusion;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValue;
@@ -15,7 +15,7 @@ interface ProductVisitorInterface
 {
 
     /**
-     * @param AbstractProduct|ConcreteProduct|ProductOptionType|ProductOptionValue $context
+     * @param ProductAbstract|ProductConcrete|ProductOptionType|ProductOptionValue $context
      */
     public function setContext($context);
 
@@ -27,14 +27,14 @@ interface ProductVisitorInterface
     public function getCommandQueue();
 
     /**
-     * @param AbstractProduct $visitee
+     * @param ProductAbstract $visitee
      */
-    public function visitAbstractProduct(AbstractProduct $visitee);
+    public function visitProductAbstract(ProductAbstract $visitee);
 
     /**
-     * @param ConcreteProduct $visitee
+     * @param ProductConcrete $visitee
      */
-    public function visitConcreteProduct(ConcreteProduct $visitee);
+    public function visitProductConcrete(ProductConcrete $visitee);
 
     /**
      * @param ProductOptionType $visitee

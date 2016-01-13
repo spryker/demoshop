@@ -5,7 +5,7 @@ namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\VisitableProductInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface;
 
-class AbstractProduct implements VisitableProductInterface
+class ProductAbstract implements VisitableProductInterface
 {
 
     /**
@@ -14,7 +14,7 @@ class AbstractProduct implements VisitableProductInterface
     private $sku;
 
     /**
-     * @var ConcreteProduct[]
+     * @var ProductConcrete[]
      */
     private $variants = [];
 
@@ -23,7 +23,7 @@ class AbstractProduct implements VisitableProductInterface
      */
     public function accept(ProductVisitorInterface $visitor)
     {
-        $visitor->visitAbstractProduct($this);
+        $visitor->visitProductAbstract($this);
 
         $visitor->setContext($this);
 
@@ -36,7 +36,7 @@ class AbstractProduct implements VisitableProductInterface
 
     /**
      * @param string $sku
-     * @param ConcreteProduct[] $variants
+     * @param ProductConcrete[] $variants
      */
     public function __construct(
         $sku,
@@ -49,9 +49,9 @@ class AbstractProduct implements VisitableProductInterface
     }
 
     /**
-     * @param ConcreteProduct $variant
+     * @param ProductConcrete $variant
      */
-    private function addVariant(ConcreteProduct $variant)
+    private function addVariant(ProductConcrete $variant)
     {
         $this->variants[] = $variant;
     }
@@ -65,7 +65,7 @@ class AbstractProduct implements VisitableProductInterface
     }
 
     /**
-     * @return ConcreteProduct[]
+     * @return ProductConcrete[]
      */
     public function getVariants()
     {
