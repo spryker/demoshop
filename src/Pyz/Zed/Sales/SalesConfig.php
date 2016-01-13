@@ -10,6 +10,14 @@ class SalesConfig extends SprykerSalesConfig
 {
 
     /**
+     * @var array
+     */
+    protected static $stateMachineMapper = [
+        'payolution_invoice' => 'PayolutionPayment01',
+        'payolution_installment' => 'PayolutionPayment01',
+    ];
+
+    /**
      * @param QuoteTransfer $quoteTransfer
      * @param ItemTransfer $itemTransfer
      *
@@ -17,7 +25,7 @@ class SalesConfig extends SprykerSalesConfig
      */
     public function determineProcessForOrderItem(QuoteTransfer $quoteTransfer, ItemTransfer $itemTransfer)
     {
-        return 'Prepayment01';
+        return self::$stateMachineMapper[$quoteTransfer->getPayment()->getPaymentSelection()];
     }
 
 }

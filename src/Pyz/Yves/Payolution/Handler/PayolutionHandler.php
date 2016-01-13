@@ -29,8 +29,8 @@ class PayolutionHandler
      * @var array
      */
     protected static $payolutionGenderMapper = [
-        'Mr' => 'male',
-        'Mrs' => 'female',
+        'Mr' => 'Male',
+        'Mrs' => 'Female',
     ];
 
     /**

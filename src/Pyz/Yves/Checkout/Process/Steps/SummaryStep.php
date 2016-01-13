@@ -17,12 +17,17 @@ class SummaryStep extends BaseStep implements StepInterface
     protected $calculationClient;
 
     /**
-     * @param string $stepRoute
-     * @param string $escapeRoute
+     * @param FlashMessengerInterface $flashMessenger
      * @param CalculationClient $calculationClient
+     * @param $stepRoute
+     * @param $escapeRoute
      */
-    public function __construct(FlashMessengerInterface $flashMessenger, $stepRoute, $escapeRoute, CalculationClient $calculationClient)
-    {
+    public function __construct(
+        FlashMessengerInterface $flashMessenger,
+        CalculationClient $calculationClient,
+        $stepRoute,
+        $escapeRoute
+    ) {
         parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
         $this->calculationClient = $calculationClient;
     }

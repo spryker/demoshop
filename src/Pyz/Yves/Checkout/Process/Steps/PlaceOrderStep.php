@@ -17,12 +17,16 @@ class PlaceOrderStep extends BaseStep implements StepInterface
 
     /**
      * @param FlashMessengerInterface $flashMessenger
+     * @param CheckoutClientInterface $checkoutClient
      * @param string $stepRoute
      * @param string $escapeRoute
-     * @param CheckoutClientInterface $checkoutClient
      */
-    public function __construct(FlashMessengerInterface $flashMessenger, $stepRoute, $escapeRoute, CheckoutClientInterface $checkoutClient)
-    {
+    public function __construct(
+        FlashMessengerInterface $flashMessenger,
+        CheckoutClientInterface $checkoutClient,
+        $stepRoute,
+        $escapeRoute
+    ) {
         parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
         $this->checkoutClient = $checkoutClient;
     }

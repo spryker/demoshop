@@ -5,12 +5,35 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
+use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Checkout\CheckoutFactory;
+use Spryker\Client\Calculation\CalculationClient;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Symfony\Component\HttpFoundation\Request;
 
 class ShipmentStep extends BaseStep implements StepInterface
 {
+
+    /**
+     * @var CalculationClient
+     */
+    protected $calculationClient;
+
+    /**
+     * @param FlashMessengerInterface $flashMessenger
+     * @param CalculationClient $calculationClient
+     * @param $stepRoute
+     * @param $escapeRoute
+     */
+    public function __construct(
+        FlashMessengerInterface $flashMessenger,
+        CalculationClient $calculationClient,
+        $stepRoute,
+        $escapeRoute
+    ) {
+        parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
+        $this->calculationClient = $calculationClient;
+    }
 
     /**
      * @param QuoteTransfer $quoteTransfer
@@ -41,8 +64,7 @@ class ShipmentStep extends BaseStep implements StepInterface
     {
         $shipmentExpenseTransfer = $this->createShippingExpenseTransfer($quoteTransfer->getShipmentMethod());
         $this->replaceShipmentExpenseInQuote($quoteTransfer, $shipmentExpenseTransfer);
-
-        return $quoteTransfer;
+        return $this->calculationClient->recalculate($quoteTransfer);
     }
 
     /**

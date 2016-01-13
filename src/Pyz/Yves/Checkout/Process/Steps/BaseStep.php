@@ -29,8 +29,9 @@ class BaseStep
     protected $flashMessenger;
 
     /**
-     * @param string $stepRoute
-     * @param string $escapeRoute
+     * @param FlashMessengerInterface $flashMessenger
+     * @param $stepRoute
+     * @param $escapeRoute
      */
     public function __construct(FlashMessengerInterface $flashMessenger, $stepRoute, $escapeRoute)
     {

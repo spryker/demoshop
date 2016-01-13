@@ -6,6 +6,8 @@ use Spryker\Zed\Availability\Communication\Plugin\ProductsAvailableCheckoutPreCo
 use Spryker\Zed\Customer\Communication\Plugin\CustomerPreConditionCheckerPlugin;
 use Spryker\Zed\Customer\Communication\Plugin\OrderCustomerSavePlugin;
 use Spryker\Zed\Discount\Communication\Plugin\DiscountOrderSavePlugin;
+use Spryker\Zed\Payolution\Communication\Plugin\Checkout\PayolutionPreCheckPlugin;
+use Spryker\Zed\Payolution\Communication\Plugin\Checkout\PayolutionSaveOrderPlugin;
 use Spryker\Zed\Shipment\Communication\Plugin\OrderShipmentSavePlugin;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Checkout\CheckoutDependencyProvider as SprykerCheckoutDependencyProvider;
@@ -28,7 +30,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
         return [
             new CustomerPreConditionCheckerPlugin(),
             new ProductsAvailableCheckoutPreConditionPlugin(),
-            //new PreCheckPlugin(),
+            new PayolutionPreCheckPlugin(),
         ];
     }
 
@@ -46,7 +48,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             new ProductOptionOrderSaverPlugin(),
             new DiscountOrderSavePlugin(),
             new OrderShipmentSavePlugin(),
-            //new SaveOrderPlugin(),
+            new PayolutionSaveOrderPlugin(),
         ];
     }
 

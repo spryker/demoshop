@@ -63,9 +63,9 @@ class CheckoutFactory extends AbstractFactory
     {
         return new AddressStep(
             $this->getFlashMessenger(),
+            $this->getStore(),
             CheckoutControllerProvider::CHECKOUT_ADDRESS,
-            ApplicationControllerProvider::ROUTE_HOME,
-            $this->getStore()
+            ApplicationControllerProvider::ROUTE_HOME
         );
     }
 
@@ -76,6 +76,7 @@ class CheckoutFactory extends AbstractFactory
     {
         return new ShipmentStep(
             $this->getFlashMessenger(),
+            $this->getCalculationClient(),
             CheckoutControllerProvider::CHECKOUT_SHIPMENT,
             ApplicationControllerProvider::ROUTE_HOME
         );
@@ -100,9 +101,9 @@ class CheckoutFactory extends AbstractFactory
     {
         return new SummaryStep(
             $this->getFlashMessenger(),
+            $this->getCalculationClient(),
             CheckoutControllerProvider::CHECKOUT_SUMMARY,
-            ApplicationControllerProvider::ROUTE_HOME,
-            $this->getCalculationClient()
+            ApplicationControllerProvider::ROUTE_HOME
         );
     }
 
@@ -113,9 +114,9 @@ class CheckoutFactory extends AbstractFactory
     {
         return new PlaceOrderStep(
             $this->getFlashMessenger(),
+            $this->getCheckoutClient(),
             CheckoutControllerProvider::CHECKOUT_PLACE_ORDER,
-            ApplicationControllerProvider::ROUTE_HOME,
-            $this->getCheckoutClient()
+            ApplicationControllerProvider::ROUTE_HOME
         );
     }
 

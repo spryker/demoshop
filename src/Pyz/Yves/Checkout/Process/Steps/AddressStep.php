@@ -17,12 +17,16 @@ class AddressStep extends BaseStep implements StepInterface
 
     /**
      * @param FlashMessengerInterface $flashMessenger
+     * @param Store $storeConfiguration
      * @param string $stepRoute
      * @param string $escapeRoute
-     * @param Store $storeConfiguration
      */
-    public function __construct(FlashMessengerInterface $flashMessenger, $stepRoute, $escapeRoute, Store $storeConfiguration)
-    {
+    public function __construct(
+        FlashMessengerInterface $flashMessenger,
+        Store $storeConfiguration,
+        $stepRoute,
+        $escapeRoute
+    ) {
         parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
         $this->storeConfiguration = $storeConfiguration;
     }
