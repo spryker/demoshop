@@ -8,18 +8,13 @@
 'use strict';
 
 let path = require('path');
-let spy = require('spy-provider');
 let cwd = process.cwd();
 
-spy.get([
-    'webpack',
-    'extract-text-webpack-plugin'
-]);
-
+// webpack
 let webpack = require('webpack');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-module.exports = {
+let config = {
     module: {
         loaders: [{
             test: /\.css\??(\d*\w*=?\.?)+$/i,
@@ -50,3 +45,20 @@ module.exports = {
     ],
     devtool: 'sourceMap'
 };
+
+if (process.argv.indexOf('--production') === -1) {
+    config.plugins = config.plugins.concat([
+        new webpack.optimize.UglifyJsPlugin({
+            comments: false,
+            sourceMap: process.argv.indexOf('--debug') === -1,
+            compress: {
+                warnings: !!process.argv.indexOf('--debug') === -1
+            },
+            mangle: {
+                except: ['$', 'exports', 'require']
+            }
+        })
+    ]);
+}
+
+module.exports = config;
