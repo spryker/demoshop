@@ -8,20 +8,14 @@
 'use strict';
 
 let path = require('path');
-let spy = require('spy-provider');
+let R = require('ramda');
 let cwd = process.cwd();
 
-spy.get([
-    'ramda',
-    'webpack',
-    'extract-text-webpack-plugin'
-]);
-
-let R = require('ramda');
+// webpack
 let webpack = require('webpack');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-module.exports = {
+let config = {
     module: {
         loaders: [{
             test: /\.css\??(\d*\w*=?\.?)+$/i,
@@ -52,3 +46,20 @@ module.exports = {
     ],
     devtool: 'sourceMap'
 };
+
+if (process.argv.indexOf('--production') === -1) {
+    config.plugins = config.plugins.concat([
+        new webpack.optimize.UglifyJsPlugin({
+            comments: false,
+            sourceMap: process.argv.indexOf('--debug') === -1,
+            compress: {
+                warnings: !!process.argv.indexOf('--debug') === -1
+            },
+            mangle: {
+                except: ['$', 'exports', 'require']
+            }
+        })
+    ]);
+}
+
+module.exports = config;
