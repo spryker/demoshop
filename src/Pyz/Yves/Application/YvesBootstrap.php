@@ -13,9 +13,7 @@ use Pyz\Yves\Category\Plugin\Provider\CategoryServiceProvider;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Pyz\Yves\Collector\Plugin\Router\StorageRouter;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
-use Pyz\Yves\Customer\Plugin\Provider\CustomerServiceProvider;
-use Pyz\Yves\Customer\Plugin\Provider\SecurityServiceProvider as ProviderSecurityServiceProvider;
-use Pyz\Yves\Customer\Plugin\UserProvider;
+use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\EventJournal\Plugin\Provider\EventJournalServiceProvider;
 use Pyz\Yves\Glossary\Plugin\Provider\TranslationServiceProvider;
 use Pyz\Yves\Heartbeat\Plugin\Provider\HeartbeatControllerProvider;
@@ -30,17 +28,14 @@ use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
-use Spryker\Client\EventJournal\EventJournalClient;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use Spryker\Shared\Config;
-use Spryker\Shared\NewRelic\Api;
 use Spryker\Yves\Application\Application;
 use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\MonologServiceProvider;
-use Spryker\Yves\Application\Plugin\Provider\YvesLoggingServiceProvider;
 
 class YvesBootstrap
 {
@@ -79,7 +74,7 @@ class YvesBootstrap
         $this->application->register(new SessionServiceProvider());
         $this->application->register(new ProviderSessionServiceProvider());
         $this->application->register(new SecurityServiceProvider());
-        $this->application->register($this->createSecurityServiceProviderExtension());
+        $this->application->register(new CustomerSecurityServiceProvider());
         $this->application->register(new YvesSecurityServiceProvider());
         $this->application->register(new ExceptionServiceProvider());
         $this->application->register(new NewRelicServiceProvider());
@@ -94,7 +89,6 @@ class YvesBootstrap
         $this->application->register(new ValidatorServiceProvider());
         $this->application->register(new FormServiceProvider());
         $this->application->register(new HttpFragmentServiceProvider());
-        $this->application->register(new CustomerServiceProvider());
         $this->application->register(new CategoryServiceProvider());
 
         if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER, false)) {
@@ -131,19 +125,6 @@ class YvesBootstrap
         foreach ($controllerProviders as $controllerProvider) {
             $this->application->mount($controllerProvider->getUrlPrefix(), $controllerProvider);
         }
-    }
-
-    /**
-     * @return SecurityServiceProvider
-     */
-    private function createSecurityServiceProviderExtension()
-    {
-        $userProvider = new UserProvider();
-
-        $securityServiceProvider = new ProviderSecurityServiceProvider();
-        $securityServiceProvider->setUserProvider($userProvider);
-
-        return $securityServiceProvider;
     }
 
 }

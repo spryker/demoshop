@@ -1,8 +1,19 @@
-{% extends "@application/layout/reduced.twig" %}
+{% extends "@application/layout/layout.twig" %}
 
 {% block content %}
-    <h1>{{ "customer.address.new" | trans }}</h1>
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    {{ form_end(form) }}
+    <div style="margin-top: 65px;padding: 30px;overflow:hidden">
+        {% include "@customer/customer/partials/navigation.twig" with {'active': 'address'} %}
+
+        <div style="float:left;width:70%">
+
+            <h1 class="desktop-view">{{ 'customer.account.address' | trans }}</h1>
+
+            <a href="{{ url('customer/address') }}">{{ 'back' | trans }}</a>
+
+            <h2>{{ 'customer.account.edit_address_information' | trans }}</h2>
+
+            {% include "@customer/address/partials/form.twig" with {'form': form, 'formAction': url('customer/address/new')} %}
+        </div>
+    </div>
+
 {% endblock %}

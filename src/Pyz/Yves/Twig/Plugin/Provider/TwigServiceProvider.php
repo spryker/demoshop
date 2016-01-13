@@ -42,7 +42,8 @@ class TwigServiceProvider extends SilexTwigServiceProvider
     {
         $this->app = $app;
 
-        SilexTwigServiceProvider::register($app);
+        parent::register($app);
+
         $this->registerYvesLoader($app);
         $this->registerTwigLoaderChain($app);
         $this->registerTwigCache($app);

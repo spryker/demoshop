@@ -2,12 +2,11 @@
 
 namespace Pyz\Yves\NewRelic\Plugin\Provider;
 
+use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
 use Pyz\Yves\NewRelic\NewRelicFactory;
 use Silex\Application;
-use Silex\ServiceProviderInterface;
 use Spryker\Shared\Library\System;
 use Spryker\Shared\NewRelic\ApiInterface;
-use Spryker\Yves\Kernel\AbstractPlugin;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
@@ -15,7 +14,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 /**
  * @method NewRelicFactory getFactory()
  */
-class NewRelicServiceProvider extends AbstractPlugin implements ServiceProviderInterface
+class NewRelicServiceProvider extends AbstractServiceProvider
 {
 
     /**

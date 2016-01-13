@@ -1,0 +1,83 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block content %}
+    <div style="margin-top: 65px;padding: 30px;overflow:hidden">
+        {% include "@customer/customer/partials/navigation.twig" with {'active': 'overview'} %}
+
+        <div style="float:left;width:70%">
+            <h1>{{ 'customer.account.overview' | trans }}</h1>
+
+            <div>
+                <h2>{{ 'customer.account.last_orders' | trans }}</h2>
+                {% if orderList | length %}
+                    {% include "@customer/order/partials/order-list.twig" %}
+                    <a href="{{ url('customer/order') }}">{{ 'customer.order.view_all' | trans }}</a>
+                {% else %}
+                    <p>{{ 'customer.account.no_order' | trans }}</p>
+                {% endif %}
+            </div>
+
+            <div style="overflow:hidden;">
+                <h2>{{ 'customer.account.profile_data' | trans }}</h2>
+                <div style="float:left;width:50%">
+                    <h3>{{ 'customer.account.contact' | trans }}</h3>
+                    <h4>{{ customer.firstName }} {{ customer.lastName }}</h4>
+                    <p>{{ customer.email }}</p>
+                    <div>
+                        <a href="{{ url('customer/profile') }}">{{ 'edit' | trans }}</a>
+                    </div>
+                </div>
+
+                <div style="float:left;width:50%">
+                    <h3>{{ 'customer.account.newsletter' | trans }}</h3>
+                    <p>
+                        {% if isSubscribed %}
+                            {{ 'customer.newsletter.subscribed' | trans }}
+                        {% else %}
+                            {{ 'customer.newsletter.not_subscribed' | trans }}
+                        {% endif %}
+                    </p>
+                    <div>
+                        <a href="{{ url('customer/newsletter') }}">{{ 'edit' | trans }}</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="overflow:hidden;">
+                <div style="float:left;width:50%">
+                    <h3>{{ 'customer.account.default_billing_address' | trans }}</h3>
+
+                    {% if addresses.billing is defined %}
+                        <h4>{{ addresses.billing.firstName }} {{ addresses.billing.lastName }}</h4>
+                        <p>{{ addresses.billing.address1 }} {{ addresses.billing.address2 }} {{ addresses.billing.address3 }}</p>
+                        <p>{{ addresses.billing.zipCode }} {{ addresses.billing.city }}</p>
+                        <div>
+                            <a href="{{ url('customer/address/update', {'id': addresses.billing.idCustomerAddress}) }}">{{ 'edit' | trans }}</a>
+                        </div>
+                    {% else %}
+                        <div>
+                            <a href="{{ url('customer/address/new') }}">{{ 'customer.account.please_specify_billing_address' | trans }}</a>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div style="float:left;width:50%">
+                    <h3>{{ 'customer.account.default_shipping_address' | trans }}</h3>
+
+                    {% if addresses.shipping is defined %}
+                        <h4>{{ addresses.shipping.firstName }} {{ addresses.shipping.lastName }}</h4>
+                        <p>{{ addresses.shipping.address1 }} {{ addresses.shipping.address2 }} {{ addresses.shipping.address3 }}</p>
+                        <p>{{ addresses.shipping.zipCode }} {{ addresses.shipping.city }}</p>
+                        <div>
+                            <a href="{{ url('customer/address/update', {'id': addresses.shipping.idCustomerAddress}) }}">{{ 'edit' | trans }}</a>
+                        </div>
+                    {% else %}
+                        <div>
+                            <a href="{{ url('customer/address/new') }}">{{ 'customer.account.please_specify_shipping_address' | trans }}</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

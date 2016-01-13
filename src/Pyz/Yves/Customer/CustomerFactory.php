@@ -2,72 +2,211 @@
 
 namespace Pyz\Yves\Customer;
 
-use Pyz\Yves\Customer\Form\RestorePassword;
-use Pyz\Yves\Customer\Form\Profile;
-use Pyz\Yves\Customer\Form\ForgotPassword;
-use Pyz\Yves\Customer\Form\DeleteCustomer;
-use Pyz\Yves\Customer\Form\Address;
-use Pyz\Yves\Customer\Form\RegisterCustomer;
+use Generated\Shared\Transfer\AddressTransfer;
+use Generated\Shared\Transfer\CustomerTransfer;
+use Pyz\Client\Customer\CustomerClientInterface;
+use Pyz\Client\Newsletter\NewsletterClientInterface;
+use Pyz\Yves\Application\Plugin\Pimple;
+use Pyz\Yves\Customer\Form\LoginForm;
+use Pyz\Yves\Customer\Form\NewsletterSubscriptionForm;
+use Pyz\Yves\Customer\Form\PasswordForm;
+use Pyz\Yves\Customer\Form\RestorePasswordForm;
+use Pyz\Yves\Customer\Form\ProfileForm;
+use Pyz\Yves\Customer\Form\ForgottenPasswordForm;
+use Pyz\Yves\Customer\Form\AddressForm;
+use Pyz\Yves\Customer\Form\RegisterForm;
+use Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationSuccessHandler;
+use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
+use Pyz\Yves\Customer\Plugin\Provider\CustomerUserProvider;
+use Pyz\Yves\Customer\Plugin\AuthenticationHandler;
+use Pyz\Yves\Customer\Security\User;
+use Spryker\Client\Sales\SalesClientInterface;
+use Spryker\Shared\Application\Communication\Application;
+use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Kernel\AbstractFactory;
-use Spryker\Client\Customer\CustomerClient;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 class CustomerFactory extends AbstractFactory
 {
 
     /**
-     * @return Address
+     * @param AddressTransfer|null $addressTransfer
+     *
+     * @return AddressForm
      */
-    public function createFormAddress()
+    public function createFormAddress(AddressTransfer $addressTransfer = null)
     {
-        return new Address();
+        return new AddressForm($this->createStore(), $addressTransfer);
     }
 
     /**
-     * @return RegisterCustomer
+     * @return RegisterForm
      */
     public function createFormRegister()
     {
-        return new RegisterCustomer();
+        return new RegisterForm();
     }
 
     /**
-     * @return DeleteCustomer
+     * @return LoginForm
      */
-    public function createFormDelete()
+    public function createFormLogin()
     {
-        return new DeleteCustomer();
+        return new LoginForm();
     }
 
     /**
-     * @return ForgotPassword
+     * @return ForgottenPasswordForm
      */
-    public function createFormForgot()
+    public function createFormForgottenPassword()
     {
-        return new ForgotPassword();
+        return new ForgottenPasswordForm();
     }
 
     /**
-     * @return Profile
+     * @param CustomerTransfer $customerTransfer
+     *
+     * @return ProfileForm
      */
-    public function createFormProfile()
+    public function createFormProfile(CustomerTransfer $customerTransfer)
     {
-        return new Profile();
+        return new ProfileForm($customerTransfer);
     }
 
     /**
-     * @return RestorePassword
+     * @param string $restoreKey
+     *
+     * @return RestorePasswordForm
      */
-    public function createFormRestore()
+    public function createFormRestorePassword($restoreKey)
     {
-        return new RestorePassword();
+        return new RestorePasswordForm($restoreKey);
     }
 
     /**
-     * @return CustomerClient
+     * @return PasswordForm
+     */
+    public function createFormPassword()
+    {
+        return new PasswordForm();
+    }
+
+    /**
+     * @return CustomerAuthenticationSuccessHandler
+     */
+    public function createCustomerAuthenticationSuccessHandler()
+    {
+        return new CustomerAuthenticationSuccessHandler();
+    }
+
+    /**
+     * @return UserProviderInterface
+     */
+    public function createCustomerUserProvider()
+    {
+        return new CustomerUserProvider();
+    }
+
+    /**
+     * @param CustomerTransfer $customerTransfer
+     *
+     * @return UserInterface
+     */
+    public function createSecurityUser(CustomerTransfer $customerTransfer)
+    {
+        return new User(
+            $customerTransfer,
+            $customerTransfer->getEmail(),
+            $customerTransfer->getPassword(),
+            [CustomerSecurityServiceProvider::ROLE_USER]
+        );
+    }
+
+    /**
+     * @param CustomerTransfer $customerTransfer
+     *
+     * @return TokenInterface
+     */
+    public function createUsernamePasswordToken(CustomerTransfer $customerTransfer)
+    {
+        $user = $this->createSecurityUser($customerTransfer);
+
+        return new UsernamePasswordToken(
+            $user,
+            $user->getPassword(),
+            CustomerSecurityServiceProvider::FIREWALL_SECURED,
+            [CustomerSecurityServiceProvider::ROLE_USER]
+        );
+    }
+
+    /**
+     * @param string $targetUrl
+     *
+     * @return RedirectResponse
+     */
+    public function createRedirectResponse($targetUrl)
+    {
+        return new RedirectResponse($targetUrl);
+    }
+
+    /**
+     * @return Store
+     */
+    public function createStore()
+    {
+        return Store::getInstance();
+    }
+
+    /**
+     * @return NewsletterSubscriptionForm
+     */
+    public function createFormNewsletterSubscription()
+    {
+        return new NewsletterSubscriptionForm();
+    }
+
+    /**
+     * @return NewsletterClientInterface
+     */
+    public function createNewsletterClient()
+    {
+        return $this->getLocator()->newsletter()->client();
+    }
+
+    /**
+     * @return SalesClientInterface
+     */
+    public function createSalesClient()
+    {
+        return $this->getLocator()->sales()->client();
+    }
+
+    /**
+     * @return AuthenticationHandler
+     */
+    public function createAuthenticationHandler()
+    {
+        return new AuthenticationHandler();
+    }
+
+    /**
+     * @return CustomerClientInterface
      */
     public function createCustomerClient()
     {
         return $this->getLocator()->customer()->client();
+    }
+
+    /**
+     * @return Application
+     */
+    public function createApplication()
+    {
+        return (new Pimple())->getApplication();
     }
 
 }

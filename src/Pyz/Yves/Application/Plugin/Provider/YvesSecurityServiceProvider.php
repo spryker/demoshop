@@ -3,11 +3,9 @@
 namespace Pyz\Yves\Application\Plugin\Provider;
 
 use Silex\Application;
-use Silex\ServiceProviderInterface;
-use Spryker\Yves\Kernel\AbstractPlugin;
 use Symfony\Component\Security\Core\Encoder\BCryptPasswordEncoder;
 
-class YvesSecurityServiceProvider extends AbstractPlugin implements ServiceProviderInterface
+class YvesSecurityServiceProvider extends AbstractServiceProvider
 {
 
     const BCRYPT_FACTOR = 12;

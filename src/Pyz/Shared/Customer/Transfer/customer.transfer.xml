@@ -4,7 +4,17 @@
            xsi:schemaLocation="http://xsd.spryker.com ../../src/Spryker/TransferObjectDefinitionSchema.xsd">
   
     <transfer name="Customer">
-        <property name="foobar" type="string" />
+        <property name="phone" type="string" />
+    </transfer>
+
+    <transfer name="CustomerOverviewRequest">
+        <property name="customer" type="Customer" />
+        <property name="orderList" type="OrderList" />
+    </transfer>
+
+    <transfer name="CustomerOverviewResponse">
+        <property name="orderList" type="OrderList" />
+        <property name="isSubscribed" type="bool" />
     </transfer>
 
 </transfers>

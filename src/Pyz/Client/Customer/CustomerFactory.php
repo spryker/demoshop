@@ -1,0 +1,23 @@
+<?php
+
+namespace Pyz\Client\Customer;
+
+use Pyz\Client\Customer\Zed\CustomerStub;
+use Pyz\Client\Customer\Zed\CustomerStubInterface;
+use Spryker\Client\Customer\CustomerDependencyProvider;
+use Spryker\Client\Customer\CustomerFactory as SprykerCustomerFactory;
+
+class CustomerFactory extends SprykerCustomerFactory
+{
+
+    /**
+     * @return CustomerStubInterface
+     */
+    public function createZedCustomerStub()
+    {
+        return new CustomerStub(
+            $this->getProvidedDependency(CustomerDependencyProvider::SERVICE_ZED)
+        );
+    }
+
+}

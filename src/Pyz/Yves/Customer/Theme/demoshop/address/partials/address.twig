@@ -1,0 +1,13 @@
+<h4>{{ address.getFirstName() }} {{ address.getLastName() }}</h4>
+<p>{{ address.getAddress1() }} {{ address.getAddress2() }}, {{ address.getZipcode() }}</p>
+<p>{{ address.getCity() }}</p>
+<div class="links-area">
+    <a href="{{ url('customer/address/update', {'id': address.getIdCustomerAddress()}) }}" class="edit-data">
+        {{ "customer.profile.address.edit" | trans }}
+    </a>
+    {% if deletable|default(false) %}
+        <a href="{{ url('customer/address/delete', {'id': address.getIdCustomerAddress()}) }}" class="delete-btn confirm-popup">
+            {{ "customer.profile.address.delete" | trans }}
+        </a>
+    {% endif %}
+</div>

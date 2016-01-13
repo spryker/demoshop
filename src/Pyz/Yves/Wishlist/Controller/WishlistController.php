@@ -1,8 +1,4 @@
 <?php
-
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
 namespace Pyz\Yves\Wishlist\Controller;
 
 use Generated\Shared\Transfer\ItemTransfer;

@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Yves\Collector\Mapper;
 
 use Spryker\Client\Catalog\Model\FacetConfig;

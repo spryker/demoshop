@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Yves\Catalog\Plugin\Router;
 
 use Pyz\Yves\Collector\Mapper\UrlMapperInterface;

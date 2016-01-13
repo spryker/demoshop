@@ -2,122 +2,117 @@
 
 namespace Pyz\Yves\Customer\Controller;
 
+use Generated\Shared\Transfer\CustomerOverviewRequestTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
+use Generated\Shared\Transfer\FilterTransfer;
+use Generated\Shared\Transfer\OrderListTransfer;
+use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Customer\CustomerFactory;
-use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
-use Spryker\Yves\Application\Controller\AbstractController;
-use Spryker\Client\Customer\CustomerClientInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Spryker\Shared\Customer\Code\Messages;
 
 /**
  * @method CustomerFactory getFactory()
  * @method CustomerClientInterface getClient()
  */
-class CustomerController extends AbstractController
+class CustomerController extends AbstractCustomerController
 {
+    const ORDER_LIST_LIMIT = 5;
+    const ORDER_LIST_SORT_FIELD = 'created_at';
+    const ORDER_LIST_SORT_DIRECTION = 'DESC';
+
+    const KEY_BILLING = 'billing';
+    const KEY_SHIPPING = 'shipping';
 
     /**
-     * @param Request $request
-     *
      * @return array|RedirectResponse
      */
-    public function forgotPasswordAction(Request $request)
+    public function indexAction()
     {
-        $form = $this
-            ->buildForm($this->getFactory()->createFormForgot())
-            ->handleRequest($request);
+        $customerTransfer = $this->getLoggedInCustomerTransfer();
+        $overviewRequest = $this->createOverviewRequest($customerTransfer);
 
-        if ($form->isValid()) {
-            $customerTransfer = new CustomerTransfer();
-            $customerTransfer->fromArray($form->getData());
-            $this->getClient()->forgotPassword($customerTransfer);
-            $this->addSuccessMessage(Messages::CUSTOMER_PASSWORD_RECOVERY_MAIL_SENT);
+        $overviewResponse = $this
+            ->getClient()
+            ->getCustomerOverview($overviewRequest);
 
-            return $this->redirectResponseInternal('home');
-        }
-
-        return ['form' => $form->createView()];
+        return $this->viewResponse([
+            'customer' => $customerTransfer,
+            'orderList' => $overviewResponse->getOrderList()->getOrders(),
+            'addresses' => $this->getDefaultAddresses($customerTransfer),
+            'isSubscribed' => $overviewResponse->getIsSubscribed(),
+        ]);
     }
 
     /**
-     * @param Request $request
+     * @param CustomerTransfer $customerTransfer
      *
-     * @return array|RedirectResponse
+     * @return CustomerOverviewRequestTransfer
      */
-    public function restorePasswordAction(Request $request)
+    protected function createOverviewRequest(CustomerTransfer $customerTransfer)
     {
-        $form = $this
-            ->buildForm($this->getFactory()->createFormRestore())
-            ->handleRequest($request);
+        $orderListTransfer = $this->createOrderListTransfer($customerTransfer);
 
-        if ($form->isValid()) {
-            $customerTransfer = new CustomerTransfer();
-            $customerTransfer->setUsername($this->getUsername());
-            $customerTransfer->setRestorePasswordKey($request->query->get('token'));
-            $this->getClient()->restorePassword($customerTransfer);
-            $this->getClient()->logout($customerTransfer);
+        $overviewRequestTransfer = new CustomerOverviewRequestTransfer();
+        $overviewRequestTransfer->setCustomer($customerTransfer);
+        $overviewRequestTransfer->setOrderList($orderListTransfer);
 
-            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
-        }
-
-        return ['form' => $form->createView()];
+        return $overviewRequestTransfer;
     }
 
     /**
-     * @param Request $request
+     * @param CustomerTransfer $customerTransfer
      *
-     * @return array|RedirectResponse
+     * @return OrderListTransfer
      */
-    public function deleteAction(Request $request)
+    protected function createOrderListTransfer(CustomerTransfer $customerTransfer)
     {
-        $form = $this
-            ->buildForm($this->getFactory()->createFormDelete())
-            ->handleRequest($request);
+        $filterTransfer = $this->createFilterTransfer();
 
-        if ($form->isValid()) {
-            $customerTransfer = new CustomerTransfer();
-            $customerTransfer->setEmail($this->getUsername());
-            if ($this->getClient()->deleteCustomer($customerTransfer)) {
-                $this->getClient()->logout($customerTransfer);
+        $orderListTransfer = new OrderListTransfer();
+        $orderListTransfer->setIdCustomer($customerTransfer->getIdCustomer());
+        $orderListTransfer->setFilter($filterTransfer);
 
-                return $this->redirectResponseInternal('home');
-            } else {
-                $this->addErrorMessage(Messages::CUSTOMER_DELETE_FAILED);
+        return $orderListTransfer;
+    }
+
+    /**
+     * @return FilterTransfer
+     */
+    protected function createFilterTransfer()
+    {
+        $filterTransfer = new FilterTransfer();
+
+        $filterTransfer->setLimit(self::ORDER_LIST_LIMIT);
+        $filterTransfer->setOffset(0);
+        $filterTransfer->setOrderBy(self::ORDER_LIST_SORT_FIELD);
+        $filterTransfer->setOrderDirection(self::ORDER_LIST_SORT_DIRECTION);
+
+        return $filterTransfer;
+    }
+
+    /**
+     * @param CustomerTransfer $customerTransfer
+     *
+     * @return array
+     */
+    protected function getDefaultAddresses(CustomerTransfer $customerTransfer)
+    {
+        $addressesTransfer = $customerTransfer->getAddresses();
+        if ($addressesTransfer === null) {
+            return [];
+        }
+
+        $addresses = [];
+        foreach ($addressesTransfer->getAddresses() as $address) {
+            if ($customerTransfer->getDefaultBillingAddress() === $address->getIdCustomerAddress()) {
+                $addresses[self::KEY_BILLING] = $address;
+            }
+
+            if ($customerTransfer->getDefaultShippingAddress() === $address->getIdCustomerAddress()) {
+                $addresses[self::KEY_SHIPPING] = $address;
             }
         }
-
-        return ['form' => $form->createView()];
-    }
-
-    /**
-     * @param Request $request
-     *
-     * @return array|RedirectResponse
-     */
-    public function profileAction(Request $request)
-    {
-        $customerTransfer = new CustomerTransfer();
-
-        $form = $this
-            ->buildForm($this->getFactory()->createFormProfile())
-            ->handleRequest($request);
-
-        if ($form->isValid()) {
-            $customerTransfer->fromArray($form->getData());
-            $customerTransfer->setEmail($this->getUsername());
-            $this->getClient()->updateCustomer($customerTransfer);
-
-            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
-        }
-
-        $form->setData($customerTransfer->toArray());
-
-        return [
-            'form' => $form->createView(),
-            'addresses' => $customerTransfer->getAddresses(),
-        ];
+        return $addresses;
     }
 
 }
