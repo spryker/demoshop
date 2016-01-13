@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Yves\Checkout\Form;
 
 use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;

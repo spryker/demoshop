@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Yves\Category\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;

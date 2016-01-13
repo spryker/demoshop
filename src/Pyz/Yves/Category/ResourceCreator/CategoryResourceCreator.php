@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Yves\Category\ResourceCreator;
 
 use Pyz\Yves\Collector\Creator\AbstractResourceCreator;

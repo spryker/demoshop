@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Zed\ProductSearch;
 
 use Spryker\Zed\Kernel\Container;

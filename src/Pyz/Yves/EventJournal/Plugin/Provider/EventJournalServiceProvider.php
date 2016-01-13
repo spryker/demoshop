@@ -1,18 +1,14 @@
 <?php
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
 
 namespace Pyz\Yves\EventJournal\Plugin\Provider;
 
+use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
 use Pyz\Yves\EventJournal\EventJournalFactory;
 use Silex\Application;
-use Silex\ServiceProviderInterface;
 use Spryker\Client\EventJournal\Event;
 use Spryker\Client\EventJournal\EventJournalClientInterface;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config;
-use Spryker\Yves\Kernel\AbstractPlugin;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
@@ -21,7 +17,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 /**
  * @method EventJournalFactory getFactory()
  */
-class EventJournalServiceProvider extends AbstractPlugin implements ServiceProviderInterface
+class EventJournalServiceProvider extends AbstractServiceProvider
 {
 
     /**

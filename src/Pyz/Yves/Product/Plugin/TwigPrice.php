@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Yves\Product\Plugin;
 
 use Spryker\Shared\Library\Currency\CurrencyManager;

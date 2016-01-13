@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Zed\Customer;
 
 use Spryker\Zed\CustomerMailConnector\Communication\Plugin\PasswordRestoredConfirmationSender;

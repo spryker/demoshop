@@ -1,25 +1,20 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Yves\Customer\Plugin\Provider;
 
+use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
 use Pyz\Yves\Customer\CustomerFactory;
 use Pyz\Yves\Customer\Form\LoginForm;
 use Silex\Application;
-use Silex\ServiceProviderInterface;
 use Spryker\Client\Customer\CustomerClientInterface;
 use Spryker\Shared\Config;
 use Spryker\Shared\Customer\CustomerConstants;
-use Spryker\Yves\Kernel\AbstractPlugin;
 
 /**
  * @method CustomerClientInterface getClient()
  * @method CustomerFactory getFactory()
  */
-class CustomerSecurityServiceProvider extends AbstractPlugin implements ServiceProviderInterface
+class CustomerSecurityServiceProvider extends AbstractServiceProvider
 {
     const FIREWALL_SECURED = 'secured';
     const ROLE_USER = 'ROLE_USER';

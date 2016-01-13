@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Zed\Shipment;
 
 use Pyz\Zed\Shipment\Communication\Plugin\DeliveryTime\DHLPaketPlugin as DeliveryTimeDHLPaketPlugin;

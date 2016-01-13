@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Zed\Shipment\Communication\Plugin\PriceCalculation;
 
 use Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer;

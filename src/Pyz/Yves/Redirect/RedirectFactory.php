@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Yves\Redirect;
 
 use Spryker\Yves\Kernel\AbstractFactory;

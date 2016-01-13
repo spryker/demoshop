@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Yves\Collector\Business\Matcher;
 
 use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderInterface;

@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Zed\Search;
 
 use Spryker\Zed\ProductSearch\Communication\Plugin\Installer;

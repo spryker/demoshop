@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Zed\Auth;
 
 use Spryker\Zed\Auth\AuthConfig as SprykerAuthConfig;

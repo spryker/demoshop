@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Yves\NewRelic;
 
 use Spryker\Shared\NewRelic\Api;

@@ -1,24 +1,18 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Yves\Application\Plugin\Provider;
 
 use Pyz\Yves\Application\ApplicationFactory;
 use Pyz\Yves\Application\Business\Model\SessionFactory;
 use Silex\Application;
-use Silex\ServiceProviderInterface;
 use Spryker\Shared\Config;
-use Spryker\Yves\Kernel\AbstractPlugin;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 
 /**
  * @method ApplicationFactory getFactory()
  */
-class SessionServiceProvider extends AbstractPlugin implements ServiceProviderInterface
+class SessionServiceProvider extends AbstractServiceProvider
 {
 
     /**

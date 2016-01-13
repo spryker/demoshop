@@ -1,7 +1,5 @@
 <?php
-/**
- * (c) Spryker Systems GmbH copyright protected.
- */
+
 namespace Pyz\Yves\Application\Plugin\Provider;
 
 use Spryker\Shared\Kernel\Store;

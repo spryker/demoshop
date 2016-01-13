@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Yves\Customer\Plugin;
 
 use Spryker\Client\Customer\CustomerClientInterface;

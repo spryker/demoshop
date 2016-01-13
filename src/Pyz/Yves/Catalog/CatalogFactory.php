@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Yves\Catalog;
 
 use Pyz\Yves\Application\Plugin\Pimple;

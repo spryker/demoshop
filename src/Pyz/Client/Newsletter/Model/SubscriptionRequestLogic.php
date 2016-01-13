@@ -59,7 +59,7 @@ class SubscriptionRequestLogic
      *
      * @return NewsletterSubscriptionRequestTransfer
      */
-    private function createNewsletterSubscriptionRequest(CustomerTransfer $customerTransfer, $subscriberKey = null)
+    protected function createNewsletterSubscriptionRequest(CustomerTransfer $customerTransfer, $subscriberKey = null)
     {
         $subscriptionRequest = new NewsletterSubscriptionRequestTransfer();
 
@@ -75,8 +75,10 @@ class SubscriptionRequestLogic
 
     /**
      * @param NewsletterSubscriptionRequestTransfer $subscriptionRequest
+     *
+     * @return void
      */
-    private function addEditorialNewsletterType(NewsletterSubscriptionRequestTransfer $subscriptionRequest)
+    protected function addEditorialNewsletterType(NewsletterSubscriptionRequestTransfer $subscriptionRequest)
     {
         $newsletterType = new NewsletterTypeTransfer();
         $newsletterType->setName(NewsletterConstants::EDITORIAL_NEWSLETTER);

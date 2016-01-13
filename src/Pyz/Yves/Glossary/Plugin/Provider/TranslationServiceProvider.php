@@ -1,21 +1,17 @@
 <?php
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
 
 namespace Pyz\Yves\Glossary\Plugin\Provider;
 
+use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
 use Pyz\Yves\Glossary\GlossaryFactory;
 use Silex\Application;
-use Silex\ServiceProviderInterface;
-use Spryker\Yves\Kernel\AbstractPlugin;
 use Spryker\Client\Glossary\GlossaryClientInterface;
 
 /**
  * @method GlossaryFactory getFactory()
  * @method GlossaryClientInterface getClient()
  */
-class TranslationServiceProvider extends AbstractPlugin implements ServiceProviderInterface
+class TranslationServiceProvider extends AbstractServiceProvider
 {
 
     /**

@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-
 namespace Pyz\Shared\Application\Business\Routing;
 
 use Spryker\Shared\Application\Business\Routing\SilexRouter as SprykerSilexRouter;

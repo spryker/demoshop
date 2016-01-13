@@ -1,8 +1,4 @@
 <?php
-
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
 namespace Pyz\Zed\Wishlist;
 
 use Spryker\Zed\ProductOptionWishlistConnector\Communication\Plugin\PreSaveGroupKeyProductOptionPlugin;
