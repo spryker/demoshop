@@ -272,6 +272,7 @@ $config[EventJournalConstants::COLLECTORS]['YVES'] = [
     '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\EnvironmentDataCollector',
     '\\Pyz\\Yves\\EventJournal\\Collector\\YvesDataCollector',
 ];
+$config[EventJournalConstants::LOCK_OPTIONS][EventJournalConstants::NO_LOCK] = false;
 $config[EventJournalConstants::WRITERS]['YVES'] = [
     '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File',
 ];
