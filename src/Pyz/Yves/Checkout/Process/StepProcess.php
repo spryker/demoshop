@@ -4,7 +4,7 @@ namespace Pyz\Yves\Checkout\Process;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
-use Pyz\Yves\Checkout\CheckoutFactory;
+use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerInterface;
 use Pyz\Yves\Checkout\Process\Steps\StepInterface;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Gui\Form\AbstractForm;
@@ -56,8 +56,9 @@ class StepProcess
     /**
      * @param FormFactoryInterface $formFactory
      * @param UrlGeneratorInterface $urlGenerator
-     * @param StepInterface[] $steps
+     * @param array $steps
      * @param CartClientInterface $cartClient
+     * @param FlashMessengerInterface $flashMessenger
      */
     public function __construct(
         FormFactoryInterface $formFactory,
@@ -75,15 +76,15 @@ class StepProcess
 
     /**
      * @param Request $request
-     * @param CheckoutFactory $checkoutFactory
-     * @param AbstractForm|null $stepForm
+     * @param AbstractForm $stepForm
+     * @param CheckoutStepHandlerInterface[] $plugins
      *
      * @return array|RedirectResponse
      */
     public function process(
         Request $request,
-        CheckoutFactory $checkoutFactory,
-        AbstractForm $stepForm = null
+        AbstractForm $stepForm = null,
+        $plugins = []
     ) {
         $currentStep = $this->getCurrentStep($request);
 
@@ -98,7 +99,7 @@ class StepProcess
         }
 
         if ($currentStep->requireInput() === false) {
-            $this->executeWithoutInput($currentStep, $request, $checkoutFactory);
+            $this->executeWithoutInput($currentStep, $request, $plugins);
             return $this->createRedirectResponse($this->getNextRedirectUrl($currentStep));
         }
 
@@ -108,7 +109,7 @@ class StepProcess
             if ($request->isMethod(Request::METHOD_POST)) {
                 if ($form->isValid()) {
                     $quoteTransfer = $form->getData();
-                    $this->executeWithFormInput($currentStep, $request, $quoteTransfer, $checkoutFactory);
+                    $this->executeWithFormInput($currentStep, $request, $quoteTransfer, $plugins);
                     return $this->createRedirectResponse($this->getNextRedirectUrl($currentStep));
                 } else {
                     $this->flashMessenger->addErrorMessage('checkout.form.validation.failed');
@@ -121,7 +122,7 @@ class StepProcess
                 'form' => $form->createView(),
             ];
         } else {
-            $this->executeWithoutInput($currentStep, $request, $checkoutFactory);
+            $this->executeWithoutInput($currentStep, $request, $plugins);
             return [
                 'previousStepUrl' => $this->getUrlFromRoute($this->getPreviousStepRoute()),
                 'quoteTransfer' => $this->getQuoteTransfer(),
@@ -324,16 +325,16 @@ class StepProcess
     /**
      * @param StepInterface $currentStep
      * @param Request $request
-     * @param CheckoutFactory $checkoutFactory
+     * @param CheckoutStepHandlerInterface[] $plugins
      *
      * @return void
      */
     protected function executeWithoutInput(
         StepInterface $currentStep,
         Request $request,
-        CheckoutFactory $checkoutFactory
+        $plugins
     ) {
-        $quoteTransfer = $currentStep->execute($request, $this->getQuoteTransfer(), $checkoutFactory);
+        $quoteTransfer = $currentStep->execute($request, $this->getQuoteTransfer(), $plugins);
         $this->cartClient->storeQuoteToSession($quoteTransfer);
     }
 
@@ -341,7 +342,7 @@ class StepProcess
      * @param StepInterface $currentStep
      * @param Request $request
      * @param QuoteTransfer $quoteTransfer
-     * @param CheckoutFactory $checkoutFactory
+     * @param CheckoutStepHandlerInterface[] $plugins
      *
      * @return void
      */
@@ -349,9 +350,9 @@ class StepProcess
         StepInterface $currentStep,
         Request $request,
         QuoteTransfer $quoteTransfer,
-        CheckoutFactory $checkoutFactory
+        $plugins
     ) {
-        $quoteTransfer = $currentStep->execute($request, $quoteTransfer, $checkoutFactory);
+        $quoteTransfer = $currentStep->execute($request, $quoteTransfer, $plugins);
         $this->cartClient->storeQuoteToSession($quoteTransfer);
     }
 

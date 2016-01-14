@@ -3,7 +3,7 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Checkout\CheckoutFactory;
+use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class PaymentStep extends BaseStep implements StepInterface
@@ -30,14 +30,18 @@ class PaymentStep extends BaseStep implements StepInterface
     /**
      * @param Request $request
      * @param QuoteTransfer $quoteTransfer
-     * @param CheckoutFactory $checkoutFactory
+     * @param CheckoutStepHandlerInterface[] $plugins
      *
      * @return QuoteTransfer
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer, CheckoutFactory $checkoutFactory)
+    public function execute(Request $request, QuoteTransfer $quoteTransfer, $plugins = [])
     {
-        $paymentHandler = $checkoutFactory->createPaymentHandler($quoteTransfer->getPayment()->getPaymentSelection());
-        $paymentHandler->addToQuote($request, $quoteTransfer);
+        $paymentSelection = $quoteTransfer->getPayment()->getPaymentSelection();
+
+        if (isset($plugins[$paymentSelection])) {
+            $paymentHandler = $plugins[$paymentSelection];
+            $paymentHandler->addToQuote($request, $quoteTransfer);
+        }
 
         return $quoteTransfer;
     }

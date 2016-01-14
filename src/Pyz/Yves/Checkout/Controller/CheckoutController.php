@@ -4,12 +4,12 @@ namespace Pyz\Yves\Checkout\Controller;
 
 use Codeception\Step;
 use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Yves\Checkout\CheckoutFactory;
 use Pyz\Yves\Checkout\Process\StepProcess;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Yves\Application\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Pyz\Yves\Checkout\CheckoutFactory;
 
 /**
  * @method CheckoutFactory getFactory()
@@ -25,8 +25,7 @@ class CheckoutController extends AbstractController
     public function customerAction(Request $request)
     {
         return $this->createStepProcess()->process(
-            $request,
-            $this->getFactory()
+            $request
         );
     }
     /**
@@ -38,7 +37,6 @@ class CheckoutController extends AbstractController
     {
         return $this->createStepProcess()->process(
             $request,
-            $this->getFactory(),
             $this->getFactory()->createAddressCollectionForm()
         );
     }
@@ -52,8 +50,8 @@ class CheckoutController extends AbstractController
     {
         return $this->createStepProcess()->process(
             $request,
-            $this->getFactory(),
-            $this->getFactory()->createShipmentForm($this->getQuoteTransfer())
+            $this->getFactory()->createShipmentForm($this->getQuoteTransfer()),
+            $this->getFactory()->createShipmentPlugins()
         );
     }
 
@@ -66,8 +64,8 @@ class CheckoutController extends AbstractController
     {
         return $this->createStepProcess()->process(
             $request,
-            $this->getFactory(),
-            $this->getFactory()->createPaymentForm($this->getQuoteTransfer())
+            $this->getFactory()->createPaymentForm($this->getQuoteTransfer()),
+            $this->getFactory()->createPaymentPlugins()
         );
     }
 
@@ -80,7 +78,6 @@ class CheckoutController extends AbstractController
     {
         return $this->createStepProcess()->process(
             $request,
-            $this->getFactory(),
             $this->getFactory()->createSummaryForm()
         );
     }
@@ -93,8 +90,7 @@ class CheckoutController extends AbstractController
     public function placeOrderAction(Request $request)
     {
         return $this->createStepProcess()->process(
-            $request,
-            $this->getFactory()
+            $request
         );
     }
 
@@ -106,8 +102,7 @@ class CheckoutController extends AbstractController
     public function successAction(Request $request)
     {
         return $this->createStepProcess()->process(
-            $request,
-            $this->getFactory()
+            $request
         );
     }
 

@@ -193,17 +193,13 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @param string $shipmentSelection
-     *
-     * @return CheckoutStepHandlerInterface
+     * @return CheckoutStepHandlerInterface[]
      */
-    public function createShipmentHandler($shipmentSelection)
+    public function createShipmentPlugins()
     {
-        switch ($shipmentSelection) {
-            case 'dummy_shipment':
-                return new ShipmentHandlerPlugin();
-                break;
-        }
+        return [
+            'dummy_shipment' => new ShipmentHandlerPlugin(),
+        ];
     }
 
     /**
@@ -231,20 +227,14 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @param $paymentSelection
-     *
-     * @return CheckoutStepHandlerInterface
+     * @return CheckoutStepHandlerInterface[]
      */
-    public function createPaymentHandler($paymentSelection)
+    public function createPaymentPlugins()
     {
-        switch ($paymentSelection) {
-            case 'payolution_invoice':
-                return new PayolutionHandlerPlugin();
-                break;
-            case 'payolution_installment':
-                return new PayolutionHandlerPlugin();
-                break;
-        }
+        return [
+            'payolution_invoice' => new PayolutionHandlerPlugin(),
+            'payolution_installment' => new PayolutionHandlerPlugin(),
+        ];
     }
 
     /**

@@ -3,7 +3,7 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Checkout\CheckoutFactory;
+use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 interface StepInterface
@@ -30,11 +30,11 @@ interface StepInterface
      *
      * @param Request $request
      * @param QuoteTransfer $quoteTransfer
-     * @param CheckoutFactory $checkoutFactory
+     * @param CheckoutStepHandlerInterface[] $plugins
      *
-     * @return mixed
+     * @return QuoteTransfer
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer, CheckoutFactory $checkoutFactory);
+    public function execute(Request $request, QuoteTransfer $quoteTransfer, $plugins);
 
     /**
      * Conditions that should be met for this step to be marked as completed. returns true when satisfied.
@@ -53,7 +53,7 @@ interface StepInterface
     public function getStepRoute();
 
     /**
-     * Escpace route when preConditions are not satisfied user will be redirected to provided route.
+     * Escape route when preConditions are not satisfied user will be redirected to provided route.
      *
      * @return string
      */

@@ -11,7 +11,6 @@ use Spryker\Shared\Gui\Form\AbstractForm;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Shared\Transfer\TransferInterface;
-use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
@@ -95,7 +94,6 @@ class ShipmentSubForm extends AbstractForm
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $this->addShipmentMethods($builder);
-//            ->addShipmentTransformer($builder);
     }
 
     /**
@@ -123,30 +121,6 @@ class ShipmentSubForm extends AbstractForm
         return $this;
     }
 
-//    /**
-//     * @param FormBuilderInterface $builder
-//     *
-//     * @return self
-//     */
-//    protected function addShipmentTransformer(FormBuilderInterface $builder)
-//    {
-//        $builder->get(self::FIELD_ID_SHIPMENT_METHOD)
-//            ->addModelTransformer(
-//                new CallbackTransformer(
-//                    function (ShipmentMethodTransfer $shipmentMethodTransfer = null) {
-//                        if ($shipmentMethodTransfer !== null) {
-//                            return $shipmentMethodTransfer->getIdShipmentMethod();
-//                        }
-//                    },
-//                    function ($submittedIdShipmentMethod) {
-//                        return $this->getShipmentMethodById($submittedIdShipmentMethod);
-//                    }
-//                )
-//            );
-//
-//        return $this;
-//    }
-
     /**
      * @return array
      */
@@ -163,24 +137,6 @@ class ShipmentSubForm extends AbstractForm
 
         return $shipmentMethods;
     }
-
-//    /**
-//     * @param int $idShipmentMethod
-//     *
-//     * @return ShipmentMethodTransfer|null
-//     */
-//    protected function getShipmentMethodById($idShipmentMethod)
-//    {
-//        $shipmentMethodsTransfer = $this->getAvailableShipmentMethods();
-//
-//        foreach ($shipmentMethodsTransfer->getMethods() as $shipmentMethodTransfer) {
-//            if ($shipmentMethodTransfer->getIdShipmentMethod()  === $idShipmentMethod) {
-//                return $shipmentMethodTransfer;
-//            }
-//        }
-//
-//        return null;
-//    }
 
     /**
      * @return ShipmentMethodsTransfer

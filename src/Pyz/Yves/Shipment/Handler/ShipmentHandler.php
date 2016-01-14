@@ -34,8 +34,6 @@ class ShipmentHandler
      */
     public function addShipmentToQuote(Request $request, QuoteTransfer $quoteTransfer)
     {
-//        dump($quoteTransfer); die();
-
         $shipmentTransfer = $quoteTransfer->getShipment();
 
         $shipmentMethodTransfer = $this->getShipmentMethodById($quoteTransfer);

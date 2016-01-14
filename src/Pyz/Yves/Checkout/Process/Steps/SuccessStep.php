@@ -1,12 +1,9 @@
 <?php
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
 
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Checkout\CheckoutFactory;
+use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class SuccessStep extends BaseStep implements StepInterface
@@ -33,11 +30,11 @@ class SuccessStep extends BaseStep implements StepInterface
     /**
      * @param Request $request
      * @param QuoteTransfer $quoteTransfer
-     * @param CheckoutFactory $checkoutFactory
+     * @param CheckoutStepHandlerInterface[] $plugins
      *
      * @return QuoteTransfer
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer, CheckoutFactory $checkoutFactory)
+    public function execute(Request $request, QuoteTransfer $quoteTransfer, $plugins = [])
     {
         return new QuoteTransfer();
     }

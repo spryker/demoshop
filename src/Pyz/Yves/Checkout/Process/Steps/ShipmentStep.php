@@ -2,11 +2,9 @@
 
 namespace Pyz\Yves\Checkout\Process\Steps;
 
-use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Generated\Shared\Transfer\ShipmentMethodTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
-use Pyz\Yves\Checkout\CheckoutFactory;
+use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerInterface;
 use Spryker\Client\Calculation\CalculationClient;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Symfony\Component\HttpFoundation\Request;
@@ -56,14 +54,18 @@ class ShipmentStep extends BaseStep implements StepInterface
     /**
      * @param Request $request
      * @param QuoteTransfer $quoteTransfer
-     * @param CheckoutFactory $checkoutFactory
+     * @param CheckoutStepHandlerInterface[] $plugins
      *
      * @return QuoteTransfer
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer, CheckoutFactory $checkoutFactory)
+    public function execute(Request $request, QuoteTransfer $quoteTransfer, $plugins = [])
     {
-        $shipmentHandler = $checkoutFactory->createShipmentHandler($quoteTransfer->getShipment()->getShipmentSelection());
-        $shipmentHandler->addToQuote($request, $quoteTransfer);
+        $shipmentSelection = $quoteTransfer->getShipment()->getShipmentSelection();
+
+        if (isset($plugins[$shipmentSelection])) {
+            $shipmentHandler = $plugins[$shipmentSelection];
+            $shipmentHandler->addToQuote($request, $quoteTransfer);
+        }
 
         return $this->calculationClient->recalculate($quoteTransfer);
     }
