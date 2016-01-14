@@ -15,8 +15,8 @@ let cwd = process.cwd();
 let webpack = require('webpack');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-let isDebug = process.argv.indexOf('--debug') === -1;
-let isProduction = process.argv.indexOf('--production') === -1
+let isDebug = process.argv.indexOf('--debug') > -1;
+let isProduction = process.argv.indexOf('--production') > -1;
 
 module.exports = {
     module: {
