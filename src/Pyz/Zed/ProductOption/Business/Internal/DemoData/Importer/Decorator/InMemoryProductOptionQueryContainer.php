@@ -332,45 +332,45 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     }
 
     /**
-     * @param int $idProductAttributeTypeUsage
+     * @param int $idProductOptionTypeUsage
      * @param int $idLocale
      *
      * @return array
      */
-    public function queryValueUsagesForTypeUsage($idProductAttributeTypeUsage, $idLocale)
+    public function queryValueUsagesForTypeUsage($idProductOptionTypeUsage, $idLocale)
     {
-        return $this->queryContainer->queryValueUsagesForTypeUsage($idProductAttributeTypeUsage, $idLocale);
+        return $this->queryContainer->queryValueUsagesForTypeUsage($idProductOptionTypeUsage, $idLocale);
     }
 
     /**
-     * @param int $idProductAttributeTypeUsage
+     * @param int $idProductOptionTypeUsage
      *
      * @return array
      */
-    public function queryTypeExclusionsForTypeUsage($idProductAttributeTypeUsage)
+    public function queryTypeExclusionsForTypeUsage($idProductOptionTypeUsage)
     {
-        return $this->queryContainer->queryTypeExclusionsForTypeUsage($idProductAttributeTypeUsage);
+        return $this->queryContainer->queryTypeExclusionsForTypeUsage($idProductOptionTypeUsage);
     }
 
     /**
-     * @param int $idValueUsage
+     * @param int $idProductOptionValueUsage
      *
      * @return array
      */
-    public function queryValueConstraintsForValueUsage($idValueUsage)
+    public function queryValueConstraintsForValueUsage($idProductOptionValueUsage)
     {
-        return $this->queryContainer->queryValueConstraintsForValueUsage($idValueUsage);
+        return $this->queryContainer->queryValueConstraintsForValueUsage($idProductOptionValueUsage);
     }
 
     /**
-     * @param int $idValueUsage
+     * @param int $idProductOptionValueUsage
      * @param string $operator
      *
      * @return array
      */
-    public function queryValueConstraintsForValueUsageByOperator($idValueUsage, $operator)
+    public function queryValueConstraintsForValueUsageByOperator($idProductOptionValueUsage, $operator)
     {
-        return $this->queryContainer->queryValueConstraintsForValueUsageByOperator($idValueUsage, $operator);
+        return $this->queryContainer->queryValueConstraintsForValueUsageByOperator($idProductOptionValueUsage, $operator);
     }
 
     /**
@@ -384,23 +384,23 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     }
 
     /**
-     * @param int $idConfigPreset
+     * @param int $idProductOptionConfigurationPreset
      *
      * @return array
      */
-    public function queryValueUsagesForConfigPreset($idConfigPreset)
+    public function queryValueUsagesForConfigPreset($idProductOptionConfigurationPreset)
     {
-        return $this->queryContainer->queryValueUsagesForConfigPreset($idConfigPreset);
+        return $this->queryContainer->queryValueUsagesForConfigPreset($idProductOptionConfigurationPreset);
     }
 
     /**
-     * @param int $idProductAttributeTypeUsage
+     * @param int $idProductOptionTypeUsage
      *
      * @return string|null
      */
-    public function queryEffectiveTaxRateForTypeUsage($idProductAttributeTypeUsage)
+    public function queryEffectiveTaxRateForTypeUsage($idProductOptionTypeUsage)
     {
-        return $this->queryContainer->queryEffectiveTaxRateForTypeUsage($idProductAttributeTypeUsage);
+        return $this->queryContainer->queryEffectiveTaxRateForTypeUsage($idProductOptionTypeUsage);
     }
 
     /**
