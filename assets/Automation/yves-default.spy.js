@@ -1,6 +1,6 @@
 /**
  * 
- * description_here
+ * Default theme comfiguration
  * @copyright: Spryker Systems GmbH
  *
  */
@@ -14,7 +14,10 @@ let cwd = process.cwd();
 let webpack = require('webpack');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-let config = {
+let isDebug = process.argv.indexOf('--debug') === -1;
+let isProduction = process.argv.indexOf('--production') === -1
+
+module.exports = {
     module: {
         loaders: [{
             test: /\.css\??(\d*\w*=?\.?)+$/i,
@@ -41,24 +44,21 @@ let config = {
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'
+        }),
+        new webpack.DefinePlugin({
+            PRODUCTION: isProduction,
+            WATCH: isDebug
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            comments: isDebug,
+            sourceMap: isDebug,
+            compress: isProduction,
+            mangle: isProduction
         })
     ],
+    sassLoader: {
+        outputStyle: isProduction ? 'compact' : 'expanded',
+        sourceComments: !isProduction
+    },
     devtool: 'sourceMap'
 };
-
-if (process.argv.indexOf('--production') === -1) {
-    config.plugins = config.plugins.concat([
-        new webpack.optimize.UglifyJsPlugin({
-            comments: false,
-            sourceMap: process.argv.indexOf('--debug') === -1,
-            compress: {
-                warnings: !!process.argv.indexOf('--debug') === -1
-            },
-            mangle: {
-                except: ['$', 'exports', 'require']
-            }
-        })
-    ]);
-}
-
-module.exports = config;
