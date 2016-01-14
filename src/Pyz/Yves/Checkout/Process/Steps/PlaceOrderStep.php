@@ -1,6 +1,8 @@
 <?php
 
 namespace Pyz\Yves\Checkout\Process\Steps;
+use Generated\Shared\Transfer\CheckoutErrorTransfer;
+use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Checkout\CheckoutFactory;
@@ -63,6 +65,9 @@ class PlaceOrderStep extends BaseStep implements StepInterface
         if ($checkoutResponseTransfer->getSaveOrder() !== null) {
             $quoteTransfer->setOrderReference($checkoutResponseTransfer->getSaveOrder()->getOrderReference());
         }
+
+        $this->setCheckoutErrorMessages($checkoutResponseTransfer);
+
         return $quoteTransfer;
     }
 
@@ -82,6 +87,18 @@ class PlaceOrderStep extends BaseStep implements StepInterface
             return false;
         }
         return true;
+    }
+
+    /**
+     * @param CheckoutResponseTransfer $checkoutResponseTransfer
+     *
+     * @return void
+     */
+    protected function setCheckoutErrorMessages(CheckoutResponseTransfer $checkoutResponseTransfer)
+    {
+        foreach ($checkoutResponseTransfer->getErrors() as $checkoutErrorTransfer) {
+            $this->flashMessenger->addErrorMessage($checkoutErrorTransfer->getMessage());
+        }
     }
 
 }
