@@ -5,11 +5,16 @@
         "This file is @generated automatically"
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
     "hash": "fb9321ca3c439454f6af9d400e70a09e",
     "content-hash": "538a66038259c51ad1cebc9a8e82eebf",
 =======
     "hash": "2598c720551da2cefc6214df9ebded9a",
     "content-hash": "10a844655cff3a87edebb48639c33428",
+>>>>>>> update composer
+=======
+    "hash": "fb9321ca3c439454f6af9d400e70a09e",
+    "content-hash": "538a66038259c51ad1cebc9a8e82eebf",
 >>>>>>> update composer
     "packages": [
         {
@@ -753,14 +758,18 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/rename-variables",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "1c6258604a83a87878dec612de088c43d7d62263"
 =======
                 "reference": "6a8c4e820cb2d55d97b40dff043999fb57b5365a"
+>>>>>>> update composer
+=======
+                "reference": "266e9dfd2fc800290236ab47ab0af31de93c4976"
 >>>>>>> update composer
             },
             "require": {
@@ -844,9 +853,13 @@
                 }
             },
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-01-14 14:21:20"
 =======
             "time": "2016-01-14 10:14:33"
+>>>>>>> update composer
+=======
+            "time": "2016-01-14 14:30:14"
 >>>>>>> update composer
         },
         {
