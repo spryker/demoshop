@@ -5,8 +5,8 @@ namespace Pyz\Yves\Checkout;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Application\Plugin\Pimple;
-use Pyz\Yves\Checkout\Dependency\Handler\PaymentHandlerInterface;
-use Pyz\Yves\Checkout\Dependency\Plugin\PaymentSubFormInterface;
+use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerInterface;
+use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormInterface;
 use Pyz\Yves\Checkout\Form\Steps\AddressCollectionForm;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
 use Pyz\Yves\Checkout\Form\Steps\ShipmentForm;
@@ -21,8 +21,10 @@ use Pyz\Yves\Checkout\Process\Steps\StepInterface;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
 use Pyz\Yves\Payolution\Plugin\PayolutionHandlerPlugin;
-use Pyz\Yves\Payolution\Plugin\PayolutionInstallmentFormPlugin;
-use Pyz\Yves\Payolution\Plugin\PayolutionInvoiceFormPlugin;
+use Pyz\Yves\Payolution\Plugin\PayolutionInstallmentSubFormPlugin;
+use Pyz\Yves\Payolution\Plugin\PayolutionInvoiceSubFormPlugin;
+use Pyz\Yves\Shipment\Plugin\ShipmentSubFormPlugin;
+use Pyz\Yves\Shipment\Plugin\ShipmentHandlerPlugin;
 use Spryker\Client\Calculation\CalculationClient;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 use Spryker\Shared\Kernel\Store;
@@ -30,10 +32,6 @@ use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Yves\Application\Application;
 use Spryker\Yves\Kernel\AbstractFactory;
 use Spryker\Client\Cart\CartClientInterface;
-use Spryker\Client\Glossary\GlossaryClientInterface;
-use Spryker\Client\Shipment\ShipmentClientInterface;
-use Spryker\Shared\Config;
-use Spryker\Shared\Payolution\PayolutionConstants;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 
@@ -172,17 +170,40 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
+     * @param QuoteTransfer $quoteTransfer
+     *
      * @return ShipmentForm
      */
-    public function createShipmentForm()
+    public function createShipmentForm(QuoteTransfer $quoteTransfer)
     {
         return new ShipmentForm(
-            $this->getGlossaryClient(),
-            $this->getShipmentClient(),
-            $this->getCartClient(),
-            $this->getStore(),
-            $this->getCurrencyManager()
+            $quoteTransfer,
+            $this->createShipmentMethodsSubForms()
         );
+    }
+
+    /**
+     * @return CheckoutSubFormInterface[]
+     */
+    public function createShipmentMethodsSubForms()
+    {
+        return [
+            new ShipmentSubFormPlugin(),
+        ];
+    }
+
+    /**
+     * @param string $shipmentSelection
+     *
+     * @return CheckoutStepHandlerInterface
+     */
+    public function createShipmentHandler($shipmentSelection)
+    {
+        switch ($shipmentSelection) {
+            case 'dummy_shipment':
+                return new ShipmentHandlerPlugin();
+                break;
+        }
     }
 
     /**
@@ -194,25 +215,25 @@ class CheckoutFactory extends AbstractFactory
     {
         return new PaymentForm(
             $quoteTransfer,
-            $this->createPaymentMethods()
+            $this->createPaymentMethodsSubForms()
         );
     }
 
     /**
-     * @return PaymentSubFormInterface[]
+     * @return CheckoutSubFormInterface[]
      */
-    public function createPaymentMethods()
+    public function createPaymentMethodsSubForms()
     {
         return [
-            new PayolutionInvoiceFormPlugin(),
-            new PayolutionInstallmentFormPlugin(),
+            new PayolutionInvoiceSubFormPlugin(),
+            new PayolutionInstallmentSubFormPlugin(),
         ];
     }
 
     /**
      * @param $paymentSelection
      *
-     * @return PaymentHandlerInterface
+     * @return CheckoutStepHandlerInterface
      */
     public function createPaymentHandler($paymentSelection)
     {
@@ -251,22 +272,6 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @return ShipmentClientInterface
-     */
-    public function getShipmentClient()
-    {
-        return $this->getLocator()->shipment()->client();
-    }
-
-    /**
-     * @return GlossaryClientInterface
-     */
-    public function getGlossaryClient()
-    {
-        return $this->getLocator()->glossary()->client();
-    }
-
-    /**
      * @return CalculationClient
      */
     public function getCalculationClient()
@@ -288,17 +293,6 @@ class CheckoutFactory extends AbstractFactory
     protected function createApplication()
     {
         return (new Pimple())->getApplication();
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getPayolutionCalculationCredentials()
-    {
-        return [
-            PayolutionConstants::CALCULATION_USER_LOGIN => Config::get(PayolutionConstants::CALCULATION_USER_LOGIN),
-            PayolutionConstants::CALCULATION_USER_PASSWORD => Config::get(PayolutionConstants::CALCULATION_USER_PASSWORD),
-        ];
     }
 
     /**

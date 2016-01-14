@@ -60,7 +60,7 @@ class SummaryStep extends BaseStep implements StepInterface
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
         if ($quoteTransfer->getBillingAddress() === null ||
-            $quoteTransfer->getShipmentMethod() === null ||
+            $quoteTransfer->getShipment() === null ||
             (empty($quoteTransfer->getPayment()) && $quoteTransfer->getPayment()->getPaymentSelection() === null)) {
             $this->flashMessenger->addErrorMessage('checkout.step.summary.post_condition_not_met');
             return false;

@@ -37,7 +37,7 @@ class PaymentStep extends BaseStep implements StepInterface
     public function execute(Request $request, QuoteTransfer $quoteTransfer, CheckoutFactory $checkoutFactory)
     {
         $paymentHandler = $checkoutFactory->createPaymentHandler($quoteTransfer->getPayment()->getPaymentSelection());
-        $paymentHandler->addPaymentToQuote($request, $quoteTransfer);
+        $paymentHandler->addToQuote($request, $quoteTransfer);
 
         return $quoteTransfer;
     }

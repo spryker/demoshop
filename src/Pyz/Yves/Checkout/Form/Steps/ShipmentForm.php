@@ -2,75 +2,43 @@
 
 namespace Pyz\Yves\Checkout\Form\Steps;
 
-use Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer;
-use Generated\Shared\Transfer\ShipmentMethodTransfer;
+use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
-use Spryker\Client\Cart\CartClientInterface;
-use Spryker\Client\Glossary\GlossaryClientInterface;
-use Spryker\Client\Shipment\ShipmentClientInterface;
+use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormInterface;
 use Spryker\Shared\Gui\Form\AbstractForm;
-use Spryker\Shared\Kernel\Store;
-use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Shared\Transfer\TransferInterface;
-use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ShipmentForm extends AbstractForm
 {
 
-    const FIELD_SHIPMENT_METHOD = 'shipmentMethod';
+    const SHIPMENT_PROPERTY_PATH = 'shipment';
+    const SHIPMENT_SELECTION = 'shipmentSelection';
+    const SHIPMENT_SELECTION_PROPERTY_PATH = self::SHIPMENT_PROPERTY_PATH . '.' . self::SHIPMENT_SELECTION;
 
     /**
-     * @var GlossaryClientInterface
+     * @var QuoteTransfer
      */
-    protected $glossaryClient;
+    protected $quoteTransfer;
 
     /**
-     * @var ShipmentClientInterface
+     * @var CheckoutSubFormInterface[]
      */
-    protected $shipmentClient;
+    protected $shipmentMethodsSubForms;
 
     /**
-     * @var CartClientInterface
+     * @param QuoteTransfer $quoteTransfer
+     * @param CheckoutSubFormInterface[] $shipmentMethodsSubForms
      */
-    protected $cartClient;
+    public function __construct(QuoteTransfer $quoteTransfer, $shipmentMethodsSubForms)
+    {
+        $this->quoteTransfer = $quoteTransfer;
+        $this->shipmentMethodsSubForms = $shipmentMethodsSubForms;
 
-    /**
-     * @var array
-     */
-    protected $availableShipmentMethods = [];
-
-    /**
-     * @var Store
-     */
-    protected $store;
-
-    /**
-     * @var CurrencyManager
-     */
-    protected $currencyManager;
-
-    /**
-     * @param GlossaryClientInterface $glossaryClient
-     * @param ShipmentClientInterface $shipmentClient
-     * @param CartClientInterface $cartClient
-     * @param Store $store
-     * @param CurrencyManager $currencyManager
-     */
-    public function __construct(
-        GlossaryClientInterface $glossaryClient,
-        ShipmentClientInterface $shipmentClient,
-        CartClientInterface $cartClient,
-        Store $store,
-        CurrencyManager $currencyManager
-    ) {
-        $this->glossaryClient = $glossaryClient;
-        $this->shipmentClient = $shipmentClient;
-        $this->cartClient = $cartClient;
-        $this->store = $store;
-        $this->currencyManager = $currencyManager;
+        if ($this->quoteTransfer->getShipment() === null) {
+            $this->quoteTransfer->setShipment(new ShipmentTransfer());
+        }
     }
 
     /**
@@ -98,8 +66,7 @@ class ShipmentForm extends AbstractForm
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $this->addShipmentMethods($builder)
-             ->addShipmentTransformer($builder)
-             ->addSubmit($builder);
+            ->addSubmit($builder);
     }
 
     /**
@@ -109,18 +76,34 @@ class ShipmentForm extends AbstractForm
      */
     protected function addShipmentMethods(FormBuilderInterface $builder)
     {
+        $shipmentMethods = $this->getShipmentMethods();
+        $shipmentMethodChoices = $this->getShipmentMethodsChoices($shipmentMethods);
+
+        $this->addShipmentMethodChoices($builder, $shipmentMethodChoices)
+            ->addShipmentMethodSubForms($builder, $shipmentMethods);
+
+        return $this;
+    }
+
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $shipmentMethodChoices
+     *
+     * @return $this
+     */
+    protected function addShipmentMethodChoices(FormBuilderInterface $builder, $shipmentMethodChoices)
+    {
         $builder->add(
-            self::FIELD_SHIPMENT_METHOD,
+            self::SHIPMENT_SELECTION,
             'choice',
             [
-                'choices' => $this->createAvailableShipmentChoiceList(),
+                'choices' => $shipmentMethodChoices,
+                'label' => false,
+                'required' => true,
                 'expanded' => true,
                 'multiple' => false,
-                'required' => true,
                 'empty_value' => false,
-                'constraints' => [
-                    new NotBlank(),
-                ],
+                'property_path' => self::SHIPMENT_SELECTION_PROPERTY_PATH,
             ]
         );
 
@@ -129,24 +112,22 @@ class ShipmentForm extends AbstractForm
 
     /**
      * @param FormBuilderInterface $builder
+     * @param array $shipmentMethods
      *
-     * @return self
+     * @return $this
      */
-    protected function addShipmentTransformer(FormBuilderInterface $builder)
+    protected function addShipmentMethodSubForms(FormBuilderInterface $builder, $shipmentMethods)
     {
-        $builder->get(self::FIELD_SHIPMENT_METHOD)
-            ->addModelTransformer(
-                new CallbackTransformer(
-                    function (ShipmentMethodTransfer $shipmentMethodTransfer = null) {
-                        if ($shipmentMethodTransfer !== null) {
-                            return $shipmentMethodTransfer->getIdShipmentMethod();
-                        }
-                    },
-                    function ($submittedIdShipmentMethod) {
-                        return $this->getShipmentMethodById($submittedIdShipmentMethod);
-                    }
-                )
+        foreach ($shipmentMethods as $shipmentMethodName => $shipmentMethodsSubForm) {
+            $builder->add(
+                $shipmentMethodName,
+                $shipmentMethodsSubForm,
+                [
+                    'property_path' => 'shipment.method',
+                    'error_bubbling' => true,
+                ]
             );
+        }
 
         return $this;
     }
@@ -166,119 +147,42 @@ class ShipmentForm extends AbstractForm
     /**
      * @return array
      */
-    protected function createAvailableShipmentChoiceList()
+    protected function getShipmentMethods()
     {
         $shipmentMethods = [];
 
-        $shipmentTransfer = $this->getAvailableShipmentMethods();
-        foreach ($shipmentTransfer->getMethods() as $shipmentMethodTransfer) {
-            $shipmentMethods[$shipmentMethodTransfer->getIdShipmentMethod()] = $this->getShipmentDescription(
-                $shipmentMethodTransfer
-            );
+        foreach ($this->shipmentMethodsSubForms as $shipmentMethodSubForm) {
+            $subForm = $this->createSubForm($shipmentMethodSubForm);
+            $shipmentMethods[$subForm->getName()] = $subForm;
         }
 
         return $shipmentMethods;
     }
 
     /**
-     * @param ShipmentMethodTransfer $method
+     * @param array $shipmentMethods
      *
-     * @return int
+     * @return array
      */
-    protected function getDeliveryTime(ShipmentMethodTransfer $method)
+    protected function getShipmentMethodsChoices($shipmentMethods)
     {
-        $deliveryTime = 0;
-        if (!empty($method->getTime())) {
-            $deliveryTime = ($method->getTime() / 3600);
+        $choices = [];
+
+        foreach ($shipmentMethods as $shipmentMethodName => $shipmentMethodSubForm) {
+            $choices[$shipmentMethodName] = str_replace('_', ' ', $shipmentMethodName);
         }
 
-        return $deliveryTime;
+        return $choices;
     }
 
     /**
-     * @param ShipmentMethodTransfer $shipmentMethodTransfer
+     * @param CheckoutSubFormInterface $shipmentMethodSubForm
      *
-     * @return int
+     * @return AbstractForm
      */
-    protected function getFormattedShipmentPrice(ShipmentMethodTransfer $shipmentMethodTransfer)
+    protected function createSubForm(CheckoutSubFormInterface $shipmentMethodSubForm)
     {
-        return $this->currencyManager->format(
-            $this->currencyManager->convertCentToDecimal($shipmentMethodTransfer->getPrice())
-        );
-    }
-
-    /**
-     * @param ShipmentMethodTransfer $shipmentMethodTransfer
-     *
-     * @return string
-     */
-    protected function getShipmentDescription(ShipmentMethodTransfer $shipmentMethodTransfer)
-    {
-        $deliveryTime = $this->getDeliveryTime($shipmentMethodTransfer);
-        $shipmentPrice = $this->getFormattedShipmentPrice($shipmentMethodTransfer);
-
-        $shipmentDescription = $this->translate($shipmentMethodTransfer->getGlossaryKeyName())
-            . ' ' . $this->translate($shipmentMethodTransfer->getGlossaryKeyDescription())
-            . ' | ' . $this->translate('page.checkout.shipping.price') . ': ' . $shipmentPrice;
-
-        if ($deliveryTime !== 0) {
-            $shipmentDescription .= ' | ' . $this->translate('page.checkout.shipping.delivery_time') . ': ' . $deliveryTime;
-        }
-
-        return $shipmentDescription;
-    }
-
-    /**
-     * @param int $idShipmentMethod
-     *
-     * @return ShipmentMethodTransfer|null
-     */
-    protected function getShipmentMethodById($idShipmentMethod)
-    {
-        $shipmentMethodTransfer = $this->getAvailableShipmentMethods();
-        foreach ($shipmentMethodTransfer->getMethods() as $shipmentMethodTransfer) {
-          if ($shipmentMethodTransfer->getIdShipmentMethod()  === $idShipmentMethod) {
-              return $shipmentMethodTransfer;
-          }
-        }
-
-        return null;
-    }
-
-    /**
-     * @return ShipmentTransfer
-     */
-    protected function getAvailableShipmentMethods()
-    {
-        if (empty($this->availableShipmentMethods)) {
-            $shipmentMethodAvailabilityTransfer = $this->createShipmentAvailabilityTransfer()
-                ->setQuote($this->cartClient->getQuote());
-
-            $this->availableShipmentMethods = $this->shipmentClient->getAvailableMethods(
-                $shipmentMethodAvailabilityTransfer
-            );
-        }
-
-        return $this->availableShipmentMethods;
-    }
-
-    /**
-     * @return ShipmentMethodAvailabilityTransfer
-     */
-    protected function createShipmentAvailabilityTransfer()
-    {
-        return new ShipmentMethodAvailabilityTransfer();
-    }
-
-
-    /**
-     * @param string $translationKey
-     *
-     * @return string
-     */
-    protected function translate($translationKey)
-    {
-        return $this->glossaryClient->translate($translationKey, $this->store->getCurrentLocale());
+        return $shipmentMethodSubForm->createSubFrom($this->quoteTransfer);
     }
 
     /**

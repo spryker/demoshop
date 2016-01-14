@@ -6,10 +6,10 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\Shipment\Communication\Plugin\ShipmentMethodDeliveryTimePluginInterface;
 
-class DHLExpressPlugin extends AbstractPlugin implements ShipmentMethodDeliveryTimePluginInterface
+class DHLPacketPlugin extends AbstractPlugin implements ShipmentMethodDeliveryTimePluginInterface
 {
 
-    const HALF_DAY_IN_SECONDS = 43200;
+    const DAY_IN_SECONDS = 86400;
 
     /**
      * @param QuoteTransfer $quoteTransfer
@@ -18,13 +18,9 @@ class DHLExpressPlugin extends AbstractPlugin implements ShipmentMethodDeliveryT
      */
     public function getTime(QuoteTransfer $quoteTransfer)
     {
-        $count = 0;
+        $time = self::DAY_IN_SECONDS * ((date('H') < 11) ? 2 : 3);
 
-        foreach ($quoteTransfer->getItems() as $item) {
-            $count += $item->getQuantity();
-        }
-
-        return ($count < 4) ? self::HALF_DAY_IN_SECONDS : self::HALF_DAY_IN_SECONDS * 2;
+        return $time;
     }
 
 }

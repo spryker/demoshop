@@ -79,7 +79,7 @@ class PlaceOrderStep extends BaseStep implements StepInterface
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
         if ($quoteTransfer->getBillingAddress() === null ||
-            $quoteTransfer->getShipmentMethod() === null ||
+            $quoteTransfer->getShipment() === null ||
             (empty($quoteTransfer->getPayment()) && $quoteTransfer->getPayment()->getPaymentSelection() === null) ||
             $quoteTransfer->getOrderReference() === null
         ) {

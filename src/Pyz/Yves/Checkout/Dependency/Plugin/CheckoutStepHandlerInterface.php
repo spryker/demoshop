@@ -1,11 +1,11 @@
 <?php
 
-namespace Pyz\Yves\Checkout\Dependency\Handler;
+namespace Pyz\Yves\Checkout\Dependency\Plugin;
 
 use Symfony\Component\HttpFoundation\Request;
 use Generated\Shared\Transfer\QuoteTransfer;
 
-interface PaymentHandlerInterface
+interface CheckoutStepHandlerInterface
 {
 
     /**
@@ -14,6 +14,6 @@ interface PaymentHandlerInterface
      *
      * @return QuoteTransfer
      */
-    public function addPaymentToQuote(Request $request, QuoteTransfer $quoteTransfer);
+    public function addToQuote(Request $request, QuoteTransfer $quoteTransfer);
 
 }

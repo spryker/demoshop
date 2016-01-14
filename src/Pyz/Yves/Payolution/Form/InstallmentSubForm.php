@@ -12,7 +12,7 @@ use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class InstallmentForm extends AbstractForm
+class InstallmentSubForm extends AbstractForm
 {
 
     const PAYMENT_PROVIDER = 'payolution';
@@ -99,7 +99,7 @@ class InstallmentForm extends AbstractForm
     /**
      * @param FormBuilderInterface $builder
      *
-     * @return self
+     * @return InstallmentSubForm
      */
     protected function addDateOfBirth(FormBuilderInterface $builder)
     {
@@ -124,7 +124,7 @@ class InstallmentForm extends AbstractForm
     /**
      * @param FormBuilderInterface $builder
      *
-     * @return self
+     * @return InstallmentSubForm
      */
     protected function addBankAccountHolder(FormBuilderInterface $builder)
     {
@@ -146,7 +146,7 @@ class InstallmentForm extends AbstractForm
     /**
      * @param FormBuilderInterface $builder
      *
-     * @return self
+     * @return InstallmentSubForm
      */
     protected function addBankAccountIban(FormBuilderInterface $builder)
     {
@@ -168,7 +168,7 @@ class InstallmentForm extends AbstractForm
     /**
      * @param FormBuilderInterface $builder
      *
-     * @return self
+     * @return InstallmentSubForm
      */
     protected function addBankAccountBic(FormBuilderInterface $builder)
     {

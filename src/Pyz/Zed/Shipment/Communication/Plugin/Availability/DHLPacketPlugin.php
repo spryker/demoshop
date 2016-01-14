@@ -6,7 +6,7 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\Shipment\Communication\Plugin\ShipmentMethodAvailabilityPluginInterface;
 
-class DHLExpressPlugin extends AbstractPlugin implements ShipmentMethodAvailabilityPluginInterface
+class DHLPacketPlugin extends AbstractPlugin implements ShipmentMethodAvailabilityPluginInterface
 {
 
     /**

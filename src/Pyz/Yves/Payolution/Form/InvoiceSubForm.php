@@ -8,7 +8,7 @@ use Spryker\Shared\Gui\Form\AbstractForm;
 use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class InvoiceForm extends AbstractForm
+class InvoiceSubForm extends AbstractForm
 {
 
     const PAYMENT_PROVIDER = 'payolution';
@@ -56,7 +56,7 @@ class InvoiceForm extends AbstractForm
     /**
      * @param FormBuilderInterface $builder
      *
-     * @return self
+     * @return InvoiceSubForm
      */
     protected function addDateOfBirth(FormBuilderInterface $builder)
     {

@@ -1,17 +1,17 @@
 <?php
 
-namespace Pyz\Yves\Payolution\Plugin;
+namespace Pyz\Yves\Shipment\Plugin;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerInterface;
-use Pyz\Yves\Payolution\PayolutionFactory;
+use Pyz\Yves\Shipment\ShipmentFactory;
 use Spryker\Yves\Kernel\AbstractPlugin;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @method PayolutionFactory getFactory()
+ * @method ShipmentFactory getFactory()
  */
-class PayolutionHandlerPlugin extends AbstractPlugin implements CheckoutStepHandlerInterface
+class ShipmentHandlerPlugin extends AbstractPlugin implements CheckoutStepHandlerInterface
 {
 
     /**
@@ -22,7 +22,7 @@ class PayolutionHandlerPlugin extends AbstractPlugin implements CheckoutStepHand
      */
     public function addToQuote(Request $request, QuoteTransfer $quoteTransfer)
     {
-        $this->getFactory()->createPayolutionHandler()->addPaymentToQuote($request, $quoteTransfer);
+        $this->getFactory()->createShipmentHandler()->addShipmentToQuote($request, $quoteTransfer);
     }
 
 }

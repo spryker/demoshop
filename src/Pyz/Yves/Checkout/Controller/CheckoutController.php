@@ -53,7 +53,7 @@ class CheckoutController extends AbstractController
         return $this->createStepProcess()->process(
             $request,
             $this->getFactory(),
-            $this->getFactory()->createShipmentForm()
+            $this->getFactory()->createShipmentForm($this->getQuoteTransfer())
         );
     }
 

@@ -4,8 +4,8 @@ namespace Pyz\Yves\Payolution;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Payolution\Handler\PayolutionHandler;
-use Pyz\Yves\Payolution\Form\InstallmentForm;
-use Pyz\Yves\Payolution\Form\InvoiceForm;
+use Pyz\Yves\Payolution\Form\InstallmentSubForm;
+use Pyz\Yves\Payolution\Form\InvoiceSubForm;
 use Spryker\Client\Payolution\PayolutionClientInterface;
 use Spryker\Yves\Kernel\AbstractFactory;
 
@@ -15,21 +15,21 @@ class PayolutionFactory extends AbstractFactory
     /**
      * @param QuoteTransfer $quoteTransfer
      *
-     * @return InvoiceForm
+     * @return InvoiceSubForm
      */
     public function createInvoiceForm(QuoteTransfer $quoteTransfer)
     {
-        return new InvoiceForm($quoteTransfer);
+        return new InvoiceSubForm($quoteTransfer);
     }
 
     /**
      * @param QuoteTransfer $quoteTransfer
      *
-     * @return InstallmentForm
+     * @return InstallmentSubForm
      */
     public function createInstallmentForm(QuoteTransfer $quoteTransfer)
     {
-        return new InstallmentForm(
+        return new InstallmentSubForm(
             $quoteTransfer,
             $this->getPayolutionClient()
         );

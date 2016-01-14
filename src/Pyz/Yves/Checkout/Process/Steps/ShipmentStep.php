@@ -62,8 +62,9 @@ class ShipmentStep extends BaseStep implements StepInterface
      */
     public function execute(Request $request, QuoteTransfer $quoteTransfer, CheckoutFactory $checkoutFactory)
     {
-        $shipmentExpenseTransfer = $this->createShippingExpenseTransfer($quoteTransfer->getShipmentMethod());
-        $this->replaceShipmentExpenseInQuote($quoteTransfer, $shipmentExpenseTransfer);
+        $shipmentHandler = $checkoutFactory->createShipmentHandler($quoteTransfer->getShipment()->getShipmentSelection());
+        $shipmentHandler->addToQuote($request, $quoteTransfer);
+
         return $this->calculationClient->recalculate($quoteTransfer);
     }
 
@@ -78,49 +79,8 @@ class ShipmentStep extends BaseStep implements StepInterface
             $this->flashMessenger->addErrorMessage('checkout.step.shipment.shipment_not_set');
             return false;
         }
+
         return true;
-    }
-
-    /**
-     * @param QuoteTransfer $quoteTransfer
-     * @param ExpenseTransfer $expenseTransfer
-     *
-     * @return void
-     */
-    protected function replaceShipmentExpenseInQuote(QuoteTransfer $quoteTransfer, ExpenseTransfer $expenseTransfer)
-    {
-        $otherExpenseCollection = new \ArrayObject();
-        foreach ($quoteTransfer->getExpenses() as $expense) {
-            if ($expense->getType() !== ShipmentConstants::SHIPMENT_EXPENSE_TYPE) {
-                $otherExpenseCollection->append($expense);
-            }
-        }
-        $quoteTransfer->setExpenses($otherExpenseCollection);
-        $quoteTransfer->addExpense($expenseTransfer);
-    }
-
-    /**
-     * @param ShipmentMethodTransfer $shipmentMethodTransfer
-     *
-     * @return ExpenseTransfer
-     */
-    protected function createShippingExpenseTransfer(ShipmentMethodTransfer $shipmentMethodTransfer)
-    {
-        $shipmentExpenseTransfer = $this->createExpenseTransfer();
-        $shipmentExpenseTransfer->setType(ShipmentConstants::SHIPMENT_EXPENSE_TYPE);
-        $shipmentExpenseTransfer->setUnitGrossPrice($shipmentMethodTransfer->getPrice());
-        $shipmentExpenseTransfer->setName($shipmentMethodTransfer->getName());
-        $shipmentExpenseTransfer->setQuantity(1);
-
-        return $shipmentExpenseTransfer;
-    }
-
-    /**
-     * @return ExpenseTransfer
-     */
-    protected function createExpenseTransfer()
-    {
-        return new ExpenseTransfer();
     }
 
     /**

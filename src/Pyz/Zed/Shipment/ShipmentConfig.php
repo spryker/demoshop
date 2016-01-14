@@ -7,7 +7,7 @@ use Spryker\Zed\Shipment\ShipmentConfig as SprykerShipmentConfig;
 class ShipmentConfig extends SprykerShipmentConfig
 {
 
-    const DHL_PAKET = 'DHL Paket';
+    const DHL_PACKET = 'DHL Packet';
     const DHL_EXPRESS = 'DHL Express';
 
 }
