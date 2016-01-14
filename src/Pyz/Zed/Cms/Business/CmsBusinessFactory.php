@@ -3,18 +3,12 @@
 namespace Pyz\Zed\Cms\Business;
 
 use Pyz\Zed\Cms\CmsConfig;
-use Spryker\Zed\Cms\Business\Block\BlockManagerInterface;
 use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManager;
-use Spryker\Zed\Cms\Business\Block\BlockManager;
 use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface;
-use Spryker\Zed\Cms\Business\Page\PageManagerInterface;
-use Spryker\Zed\Cms\Business\Template\TemplateManager;
-use Spryker\Zed\Cms\Business\Page\PageManager;
 use Pyz\Zed\Cms\Business\Internal\DemoData\CmsInstall;
 use Pyz\Zed\Cms\CmsDependencyProvider;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\Cms\Business\CmsBusinessFactory as SprykerCmsBusinessFactory;
-use Spryker\Zed\Cms\Business\Template\TemplateManagerInterface;
 use Pyz\Zed\Cms\Persistence\CmsQueryContainer;
 use Spryker\Zed\Locale\Business\LocaleFacade;
 
@@ -40,7 +34,7 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
             $this->createPageManager(),
             $this->createGlossaryKeyMappingManager(),
             $this->createBlockManager(),
-            $this->getCmsQueryContainer(),
+            $this->getQueryContainer(),
             $this->getConfig()
         );
         $installer->setMessenger($messenger);
@@ -57,52 +51,13 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
     }
 
     /**
-     * @return PageManagerInterface
-     */
-    public function createPageManager()
-    {
-        return new PageManager(
-            $this->getCmsQueryContainer(),
-            $this->createTemplateManager(),
-            $this->createBlockManager(),
-            $this->getGlossaryFacade(),
-            $this->getTouchFacade(),
-            $this->getUrlFacade()
-        );
-    }
-
-    /**
-     * @return TemplateManagerInterface
-     */
-    public function createTemplateManager()
-    {
-        return new TemplateManager(
-            $this->getCmsQueryContainer(),
-            $this->getConfig(),
-            $this->createFinder()
-        );
-    }
-
-    /**
-     * @return BlockManagerInterface
-     */
-    public function createBlockManager()
-    {
-        return new BlockManager(
-            $this->getCmsQueryContainer(),
-            $this->getTouchFacade(),
-            $this->getProvidedDependency(CmsDependencyProvider::PLUGIN_PROPEL_CONNECTION)
-        );
-    }
-
-    /**
      * @return GlossaryKeyMappingManagerInterface
      */
     public function createGlossaryKeyMappingManager()
     {
         return new GlossaryKeyMappingManager(
             $this->getGlossaryFacade(),
-            $this->getCmsQueryContainer(),
+            $this->getQueryContainer(),
             $this->createTemplateManager(),
             $this->createPageManager(),
             $this->getProvidedDependency(CmsDependencyProvider::PLUGIN_PROPEL_CONNECTION)
