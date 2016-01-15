@@ -87,7 +87,7 @@ class AddressForm extends AbstractForm
             ])
             ->add(AddressTransfer::PHONE, 'text', [
                 'label'    => 'customer.address.phone',
-                'required' => true,
+                'required' => false,
             ])
             ->add(AddressTransfer::IS_DEFAULT_SHIPPING, 'checkbox', [
                 'label'    => 'customer.address.is_default_shipping',

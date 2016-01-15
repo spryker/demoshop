@@ -45,7 +45,7 @@ class AddressController extends AbstractCustomerController
 
         $addressFormType = $this
             ->getFactory()
-            ->createFormAddress();
+            ->createFormAddress($this->createDefaultFormDataTransfer($customerTransfer));
 
         $addressForm = $this
             ->buildForm($addressFormType)
@@ -150,6 +150,21 @@ class AddressController extends AbstractCustomerController
         }
 
         return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_ADDRESS);
+    }
+
+    /**
+     * @param CustomerTransfer $customerTransfer
+     *
+     * @return AddressTransfer
+     */
+    protected function createDefaultFormDataTransfer(CustomerTransfer $customerTransfer)
+    {
+        $addressTransfer = new AddressTransfer();
+
+        $addressTransfer->setFirstName($customerTransfer->getFirstName());
+        $addressTransfer->setLastName($customerTransfer->getLastName());
+
+        return $addressTransfer;
     }
 
     /**
