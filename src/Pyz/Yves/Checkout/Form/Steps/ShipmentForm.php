@@ -5,6 +5,7 @@ namespace Pyz\Yves\Checkout\Form\Steps;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormInterface;
+use Pyz\Yves\Checkout\Form\AbstractCheckoutSubForm;
 use Spryker\Shared\Gui\Form\AbstractForm;
 use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,16 +26,16 @@ class ShipmentForm extends AbstractForm
     /**
      * @var CheckoutSubFormInterface[]
      */
-    protected $shipmentMethodsSubForms;
+    protected $shipmentMethodsSubFormPlugins;
 
     /**
      * @param QuoteTransfer $quoteTransfer
-     * @param CheckoutSubFormInterface[] $shipmentMethodsSubForms
+     * @param CheckoutSubFormInterface[] $shipmentMethodsSubFormPlugins
      */
-    public function __construct(QuoteTransfer $quoteTransfer, $shipmentMethodsSubForms)
+    public function __construct(QuoteTransfer $quoteTransfer, $shipmentMethodsSubFormPlugins)
     {
         $this->quoteTransfer = $quoteTransfer;
-        $this->shipmentMethodsSubForms = $shipmentMethodsSubForms;
+        $this->shipmentMethodsSubFormPlugins = $shipmentMethodsSubFormPlugins;
 
         if ($this->quoteTransfer->getShipment() === null) {
             $this->quoteTransfer->setShipment(new ShipmentTransfer());
@@ -76,11 +77,11 @@ class ShipmentForm extends AbstractForm
      */
     protected function addShipmentMethods(FormBuilderInterface $builder)
     {
-        $shipmentMethods = $this->getShipmentMethods();
-        $shipmentMethodChoices = $this->getShipmentMethodsChoices($shipmentMethods);
+        $shipmentMethodSubForms = $this->getShipmentMethodSubForms();
+        $shipmentMethodChoices = $this->getShipmentMethodsChoices($shipmentMethodSubForms);
 
         $this->addShipmentMethodChoices($builder, $shipmentMethodChoices)
-            ->addShipmentMethodSubForms($builder, $shipmentMethods);
+            ->addShipmentMethodSubForms($builder, $shipmentMethodSubForms);
 
         return $this;
     }
@@ -89,7 +90,7 @@ class ShipmentForm extends AbstractForm
      * @param FormBuilderInterface $builder
      * @param array $shipmentMethodChoices
      *
-     * @return $this
+     * @return self
      */
     protected function addShipmentMethodChoices(FormBuilderInterface $builder, $shipmentMethodChoices)
     {
@@ -112,18 +113,18 @@ class ShipmentForm extends AbstractForm
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $shipmentMethods
+     * @param AbstractCheckoutSubForm[] $shipmentMethodSubForms
      *
-     * @return $this
+     * @return self
      */
-    protected function addShipmentMethodSubForms(FormBuilderInterface $builder, $shipmentMethods)
+    protected function addShipmentMethodSubForms(FormBuilderInterface $builder, $shipmentMethodSubForms)
     {
-        foreach ($shipmentMethods as $shipmentMethodName => $shipmentMethodsSubForm) {
+        foreach ($shipmentMethodSubForms as $shipmentMethodSubForm) {
             $builder->add(
-                $shipmentMethodName,
-                $shipmentMethodsSubForm,
+                $shipmentMethodSubForm->getName(),
+                $shipmentMethodSubForm,
                 [
-                    'property_path' => 'shipment.method',
+                    'property_path' => self::SHIPMENT_PROPERTY_PATH .  '.' . $shipmentMethodSubForm->getPropertyPath(),
                     'error_bubbling' => true,
                 ]
             );
@@ -145,31 +146,31 @@ class ShipmentForm extends AbstractForm
     }
 
     /**
-     * @return array
+     * @return AbstractCheckoutSubForm[]
      */
-    protected function getShipmentMethods()
+    protected function getShipmentMethodSubForms()
     {
-        $shipmentMethods = [];
+        $shipmentMethodSubForms = [];
 
-        foreach ($this->shipmentMethodsSubForms as $shipmentMethodSubForm) {
-            $subForm = $this->createSubForm($shipmentMethodSubForm);
-            $shipmentMethods[$subForm->getName()] = $subForm;
+        foreach ($this->shipmentMethodsSubFormPlugins as $shipmentMethodSubForm) {
+            $shipmentMethodSubForms[] = $this->createSubForm($shipmentMethodSubForm);
         }
 
-        return $shipmentMethods;
+        return $shipmentMethodSubForms;
     }
 
     /**
-     * @param array $shipmentMethods
+     * @param AbstractCheckoutSubForm[] $shipmentMethodSubForms
      *
      * @return array
      */
-    protected function getShipmentMethodsChoices($shipmentMethods)
+    protected function getShipmentMethodsChoices($shipmentMethodSubForms)
     {
         $choices = [];
 
-        foreach ($shipmentMethods as $shipmentMethodName => $shipmentMethodSubForm) {
-            $choices[$shipmentMethodName] = str_replace('_', ' ', $shipmentMethodName);
+        foreach ($shipmentMethodSubForms as $shipmentMethodSubForm) {
+            $subFormName = $shipmentMethodSubForm->getName();
+            $choices[$subFormName] = str_replace('_', ' ', $subFormName);
         }
 
         return $choices;
@@ -178,7 +179,7 @@ class ShipmentForm extends AbstractForm
     /**
      * @param CheckoutSubFormInterface $shipmentMethodSubForm
      *
-     * @return AbstractForm
+     * @return AbstractCheckoutSubForm
      */
     protected function createSubForm(CheckoutSubFormInterface $shipmentMethodSubForm)
     {

@@ -37,6 +37,14 @@ class InvoiceSubForm extends AbstractForm
     }
 
     /**
+     * @return string
+     */
+    public function getPropertyPath()
+    {
+        return self::PAYMENT_PROVIDER;
+    }
+
+    /**
      * @return TransferInterface|null
      */
     protected function getDataClass()

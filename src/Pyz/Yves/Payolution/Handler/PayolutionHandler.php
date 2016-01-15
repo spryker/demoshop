@@ -2,6 +2,7 @@
 
 namespace Pyz\Yves\Payolution\Handler;
 
+use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Client\Payolution\PayolutionClientInterface;
@@ -12,10 +13,15 @@ use Symfony\Component\HttpFoundation\Request;
 class PayolutionHandler
 {
 
+    const PAYMENT_PROVIDER = 'payolution';
+
     /**
-     * @var PayolutionClientInterface
+     * @var array
      */
-    protected $payolutionClient;
+    protected static $paymentMethods = [
+        'payolution_invoice' => 'invoice',
+        'payolution_installment' => 'installment',
+    ];
 
     /**
      * @var array
@@ -34,6 +40,11 @@ class PayolutionHandler
     ];
 
     /**
+     * @var PayolutionClientInterface
+     */
+    protected $payolutionClient;
+
+    /**
      * @param PayolutionClientInterface $payolutionClient
      */
     public function __construct(PayolutionClientInterface $payolutionClient)
@@ -49,11 +60,41 @@ class PayolutionHandler
      */
     public function addPaymentToQuote(Request $request, QuoteTransfer $quoteTransfer)
     {
+        $paymentSelection = $quoteTransfer->getPayment()->getPaymentSelection();
+
+        $this->setPaymentProviderAndMethod($quoteTransfer, $paymentSelection);
+        $this->setPayolutionPayment($request, $quoteTransfer, $paymentSelection);
+
+        return $quoteTransfer;
+    }
+
+    /**
+     * @param QuoteTransfer $quoteTransfer
+     * @param $paymentSelection
+     *
+     * @return void
+     */
+    protected function setPaymentProviderAndMethod(QuoteTransfer $quoteTransfer, $paymentSelection)
+    {
+        $quoteTransfer->getPayment()
+            ->setPaymentProvider(self::PAYMENT_PROVIDER)
+            ->setPaymentMethod(self::$paymentMethods[$paymentSelection]);
+    }
+
+    /**
+     * @param Request $request
+     * @param QuoteTransfer $quoteTransfer
+     * @param string $paymentSelection
+     *
+     * @return void
+     */
+    protected function setPayolutionPayment(Request $request, QuoteTransfer $quoteTransfer, $paymentSelection)
+    {
         $payolutionPaymentTransfer = $quoteTransfer->getPayment()->getPayolution();
         $billingAddress = $quoteTransfer->getBillingAddress();
 
         $payolutionPaymentTransfer
-            ->setAccountBrand(self::$payolutionPaymentMethodMapper[$quoteTransfer->getPayment()->getPaymentSelection()])
+            ->setAccountBrand(self::$payolutionPaymentMethodMapper[$paymentSelection])
             ->setAddress($billingAddress)
             ->setGender(self::$payolutionGenderMapper[$billingAddress->getSalutation()])
             ->setEmail($quoteTransfer->getCustomer()->getEmail())
@@ -64,32 +105,26 @@ class PayolutionHandler
         if ($payolutionPaymentTransfer->getAccountBrand() === PayolutionConstants::BRAND_INSTALLMENT) {
             $this->setPayolutionInstallmentPayment($payolutionPaymentTransfer);
         }
-
-        return $quoteTransfer;
     }
 
     /**
      * @param PayolutionPaymentTransfer $payolutionPaymentTransfer
      *
-     * @return PayolutionPaymentTransfer
+     * @return void
      */
     protected function setPayolutionInstallmentPayment(PayolutionPaymentTransfer $payolutionPaymentTransfer)
     {
-        if ($this->payolutionClient->hasInstallmentPaymentsInSession() === false) {
-            return $payolutionPaymentTransfer;
+        if ($this->payolutionClient->hasInstallmentPaymentsInSession() === true) {
+            $payolutionCalculationResponseTransfer = $this->payolutionClient->getInstallmentPaymentsFromSession();
+
+            $installmentPaymentDetail = $payolutionCalculationResponseTransfer
+                ->getPaymentDetails()[$payolutionPaymentTransfer->getInstallmentPaymentDetailIndex()];
+
+            $payolutionPaymentTransfer
+                ->setInstallmentCalculationId($payolutionCalculationResponseTransfer->getIdentificationUniqueid())
+                ->setInstallmentAmount($installmentPaymentDetail->getInstallments()[0]->getAmount())
+                ->setInstallmentDuration($installmentPaymentDetail->getDuration());
         }
-
-        $payolutionCalculationResponseTransfer = $this->payolutionClient->getInstallmentPaymentsFromSession();
-
-        $installmentPaymentDetail = $payolutionCalculationResponseTransfer
-            ->getPaymentDetails()[$payolutionPaymentTransfer->getInstallmentPaymentDetailIndex()];
-
-        $payolutionPaymentTransfer
-            ->setInstallmentCalculationId($payolutionCalculationResponseTransfer->getIdentificationUniqueid())
-            ->setInstallmentAmount($installmentPaymentDetail->getInstallments()[0]->getAmount())
-            ->setInstallmentDuration($installmentPaymentDetail->getDuration());
-
-        return $payolutionPaymentTransfer;
     }
 
     /**

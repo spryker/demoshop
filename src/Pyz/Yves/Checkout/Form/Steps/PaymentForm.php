@@ -5,6 +5,7 @@ namespace Pyz\Yves\Checkout\Form\Steps;
 use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormInterface;
+use Pyz\Yves\Checkout\Form\AbstractCheckoutSubForm;
 use Spryker\Shared\Gui\Form\AbstractForm;
 use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,16 +26,16 @@ class PaymentForm extends AbstractForm
     /**
      * @var CheckoutSubFormInterface[]
      */
-    protected $paymentMethodsSubForms;
+    protected $paymentMethodSubFormPlugins;
 
     /**
      * @param QuoteTransfer $quoteTransfer
-     * @param CheckoutSubFormInterface[] $paymentMethodsSubForms
+     * @param CheckoutSubFormInterface[] $paymentMethodSubFormPlugins
      */
-    public function __construct(QuoteTransfer $quoteTransfer, $paymentMethodsSubForms)
+    public function __construct(QuoteTransfer $quoteTransfer, $paymentMethodSubFormPlugins)
     {
         $this->quoteTransfer = $quoteTransfer;
-        $this->paymentMethodsSubForms = $paymentMethodsSubForms;
+        $this->paymentMethodSubFormPlugins = $paymentMethodSubFormPlugins;
 
         if ($this->quoteTransfer->getPayment() === null) {
             $this->quoteTransfer->setPayment(new PaymentTransfer());
@@ -76,11 +77,11 @@ class PaymentForm extends AbstractForm
      */
     protected function addPaymentMethods(FormBuilderInterface $builder)
     {
-        $paymentMethods = $this->getPaymentMethods();
-        $paymentMethodChoices = $this->getPaymentMethodChoices($paymentMethods);
+        $paymentMethodSubForms = $this->getPaymentMethodSubForms();
+        $paymentMethodChoices = $this->getPaymentMethodChoices($paymentMethodSubForms);
 
         $this->addPaymentMethodChoices($builder, $paymentMethodChoices)
-             ->addPaymentMethodSubForms($builder, $paymentMethods);
+             ->addPaymentMethodSubForms($builder, $paymentMethodSubForms);
 
         return $this;
     }
@@ -112,18 +113,18 @@ class PaymentForm extends AbstractForm
 
     /**
      * @param FormBuilderInterface $builder
-     * @param $paymentMethods
+     * @param AbstractCheckoutSubForm[] $paymentMethodSubForms
      *
      * @return self
      */
-    protected function addPaymentMethodSubForms(FormBuilderInterface $builder, $paymentMethods)
+    protected function addPaymentMethodSubForms(FormBuilderInterface $builder, $paymentMethodSubForms)
     {
-        foreach ($paymentMethods as $paymentMethodName => $paymentMethodSubForm) {
+        foreach ($paymentMethodSubForms as $paymentMethodSubForm) {
             $builder->add(
-                $paymentMethodName,
+                $paymentMethodSubForm->getName(),
                 $paymentMethodSubForm,
                 [
-                    'property_path' => 'payment.payolution',
+                    'property_path' => self::PAYMENT_PROPERTY_PATH . '.' . $paymentMethodSubForm->getPropertyPath(),
                     'error_bubbling' => true,
                 ]
             );
@@ -145,31 +146,31 @@ class PaymentForm extends AbstractForm
     }
 
     /**
-     * @return array
+     * @return AbstractCheckoutSubForm[]
      */
-    protected function getPaymentMethods()
+    protected function getPaymentMethodSubForms()
     {
-        $paymentMethods = [];
+        $paymentMethodSubForms = [];
 
-        foreach ($this->paymentMethodsSubForms as $paymentMethodSubForm) {
-            $subForm = $this->createSubForm($paymentMethodSubForm);
-            $paymentMethods[$subForm->getName()] = $subForm;
+        foreach ($this->paymentMethodSubFormPlugins as $paymentMethodSubFormPlugin) {
+            $paymentMethodSubForms[] = $this->createSubForm($paymentMethodSubFormPlugin);
         }
 
-        return $paymentMethods;
+        return $paymentMethodSubForms;
     }
 
     /**
-     * @param array $paymentMethods
+     * @param AbstractCheckoutSubForm[] $paymentMethodSubForms
      *
      * @return array
      */
-    protected function getPaymentMethodChoices($paymentMethods)
+    protected function getPaymentMethodChoices($paymentMethodSubForms)
     {
         $choices = [];
 
-        foreach ($paymentMethods as $paymentMethodName => $paymentMethodSubForm) {
-            $choices[$paymentMethodName] = str_replace('_', ' ', $paymentMethodName);
+        foreach ($paymentMethodSubForms as $paymentMethodSubForm) {
+            $subFormName = $paymentMethodSubForm->getName();
+            $choices[$subFormName] = str_replace('_', ' ', $subFormName);
         }
 
         return $choices;
@@ -178,7 +179,7 @@ class PaymentForm extends AbstractForm
     /**
      * @param CheckoutSubFormInterface $paymentMethodSubForm
      *
-     * @return AbstractForm
+     * @return AbstractCheckoutSubForm
      */
     protected function createSubForm(CheckoutSubFormInterface $paymentMethodSubForm)
     {
