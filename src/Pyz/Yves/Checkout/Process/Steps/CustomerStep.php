@@ -39,7 +39,7 @@ class CustomerStep extends BaseStep implements StepInterface
     {
         $customerTransfer = new CustomerTransfer();
         $customerTransfer->setIsGuest(false);
-        $customerTransfer->setEmail('test15@test.test');
+        $customerTransfer->setEmail('test18@test.test');
         $quoteTransfer->setCustomer($customerTransfer);
 
         return $quoteTransfer;
