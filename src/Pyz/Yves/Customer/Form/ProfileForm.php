@@ -45,6 +45,9 @@ class ProfileForm extends AbstractForm
                     'Dr' => 'customer.salutation.dr',
                 ],
                 'label' => 'profile.form.salutation',
+                'placeholder' => '',
+                'empty_data'  => null,
+                'required' => false,
             ])
             ->add(CustomerTransfer::FIRST_NAME, 'text', [
                 'label' => 'customer.profile.first_name',
