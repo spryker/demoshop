@@ -23,6 +23,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
     const QUERY_CONTAINER_PRICE = 'price query container';
     const QUERY_CONTAINER_CATEGORY = 'category query container';
+    const QUERY_CONTAINER_PRODUCT_CATEGORY = 'product category query container';
 
     /**
      * @var Container
@@ -45,6 +46,10 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
             return $container->getLocator()->category()->queryContainer();
         };
 
+        $container[self::QUERY_CONTAINER_PRODUCT_CATEGORY] = function (Container $container) {
+            return $container->getLocator()->productCategory()->queryContainer();
+        };
+
         $container[self::FACADE_PRODUCT_SEARCH] = function (Container $container) {
             return $container->getLocator()->productSearch()->facade();
         };
@@ -61,9 +66,9 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[self::STORAGE_PLUGINS] = function (Container $container) {
             return [
-                //'product_abstract' => new ProductCollectorStoragePlugin(),
+                'product_abstract' => new ProductCollectorStoragePlugin(),
                 'categorynode' => new CategoryNodeCollectorStoragePlugin(),
-                //'navigation' => new NavigationCollectorStoragePlugin(),
+                'navigation' => new NavigationCollectorStoragePlugin(),
                 'translation' => new TranslationCollectorStoragePlugin(),
                 'page' => new PageCollectorStoragePlugin(),
                 'block' => new BlockCollectorStoragePlugin(),

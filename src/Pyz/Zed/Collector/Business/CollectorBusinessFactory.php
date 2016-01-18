@@ -150,11 +150,16 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStorageNavigationCollector()
     {
-        $storageNavigationCollector = new NavigationCollector(
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY)
-        );
+        $storageNavigationCollector = new NavigationCollector();
+
         $storageNavigationCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
+        );
+        $storageNavigationCollector->setCriteriaBuilder(
+            $this->createCriteriaBuilder()
+        );
+        $storageNavigationCollector->setQueryBuilder(
+            $this->createStoragePdoQueryAdapterByName('NavigationCollector')
         );
 
         return $storageNavigationCollector;
@@ -170,7 +175,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storagePageCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
         );
-
         $storagePageCollector->setQueryBuilder(
             $this->createStoragePropelQueryAdapterByName('PageCollector')
         );
@@ -183,14 +187,22 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStorageProductCollector()
     {
-        $storageProductCollector = new ProductCollector(
-            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRICE),
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRICE),
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY),
-            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_OPTION_EXPORTER)
-        );
+        $storageProductCollector = new ProductCollector();
+
         $storageProductCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
+        );
+        $storageProductCollector->setCriteriaBuilder(
+            $this->createCriteriaBuilder()
+        );
+        $storageProductCollector->setQueryBuilder(
+            $this->createStoragePdoQueryAdapterByName('ProductCollector')
+        );
+        $storageProductCollector->setCategoryQueryContainer(
+            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY)
+        );
+        $storageProductCollector->setProductCategoryQueryContainer(
+            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRODUCT_CATEGORY)
         );
 
         return $storageProductCollector;
