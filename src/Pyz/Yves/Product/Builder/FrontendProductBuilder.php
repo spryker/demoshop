@@ -28,6 +28,8 @@ class FrontendProductBuilder implements FrontendProductBuilderInterface
     public function buildProduct(array $productData)
     {
         $productAbstract = $this->createProductAbstractClone();
+        $productAbstract->setName($productData['abstract_name']);
+
         foreach ($productData as $name => $value) {
             $arrayParts = explode('_', strtolower($name));
             $arrayParts = array_map('ucfirst', $arrayParts);
