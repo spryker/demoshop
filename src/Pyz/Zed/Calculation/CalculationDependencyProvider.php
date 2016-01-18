@@ -33,7 +33,7 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
         return [
             #Remove calculated values, start with clean state.
             new RemoveTotalsCalculatorPlugin(),
-            new RemoveAllExpensesCalculatorPlugin(),
+            //new RemoveAllExpensesCalculatorPlugin(),
             new RemoveAllCalculatedDiscountsCalculatorPlugin(),
 
             #Item calculators
