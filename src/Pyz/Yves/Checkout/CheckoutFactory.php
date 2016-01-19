@@ -76,7 +76,8 @@ class CheckoutFactory extends AbstractFactory
             $this->getFlashMessenger(),
             $this->getCalculationClient(),
             CheckoutControllerProvider::CHECKOUT_SHIPMENT,
-            ApplicationControllerProvider::ROUTE_HOME
+            ApplicationControllerProvider::ROUTE_HOME,
+            $this->createShipmentPlugins()
         );
     }
 
@@ -88,7 +89,8 @@ class CheckoutFactory extends AbstractFactory
         return new PaymentStep(
             $this->getFlashMessenger(),
             CheckoutControllerProvider::CHECKOUT_PAYMENT,
-            ApplicationControllerProvider::ROUTE_HOME
+            ApplicationControllerProvider::ROUTE_HOME,
+            $this->createPaymentPlugins()
         );
     }
 

@@ -30,11 +30,10 @@ interface StepInterface
      *
      * @param Request $request
      * @param QuoteTransfer $quoteTransfer
-     * @param CheckoutStepHandlerInterface[] $plugins
      *
      * @return QuoteTransfer
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer, $plugins);
+    public function execute(Request $request, QuoteTransfer $quoteTransfer);
 
     /**
      * Conditions that should be met for this step to be marked as completed. returns true when satisfied.

@@ -3,11 +3,34 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class PaymentStep extends BaseStep implements StepInterface
 {
+
+    /**
+     * @var CheckoutStepHandlerInterface[]
+     */
+    protected $paymentPlugins;
+
+    /**
+     * @param FlashMessengerInterface $flashMessenger
+     * @param string $stepRoute
+     * @param string $escapeRoute
+     * @param CheckoutStepHandlerInterface[] $paymentPlugins
+     */
+    public function __construct(
+        FlashMessengerInterface $flashMessenger,
+        $stepRoute,
+        $escapeRoute,
+        $paymentPlugins
+    ) {
+        parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
+
+        $this->paymentPlugins = $paymentPlugins;
+    }
 
     /**
      * @param QuoteTransfer $quoteTransfer
@@ -30,16 +53,15 @@ class PaymentStep extends BaseStep implements StepInterface
     /**
      * @param Request $request
      * @param QuoteTransfer $quoteTransfer
-     * @param CheckoutStepHandlerInterface[] $plugins
      *
      * @return QuoteTransfer
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer, $plugins = [])
+    public function execute(Request $request, QuoteTransfer $quoteTransfer)
     {
         $paymentSelection = $quoteTransfer->getPayment()->getPaymentSelection();
 
-        if (isset($plugins[$paymentSelection])) {
-            $paymentHandler = $plugins[$paymentSelection];
+        if (isset($this->paymentPlugins[$paymentSelection])) {
+            $paymentHandler = $this->paymentPlugins[$paymentSelection];
             $paymentHandler->addToQuote($request, $quoteTransfer);
         }
 

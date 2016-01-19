@@ -18,19 +18,28 @@ class ShipmentStep extends BaseStep implements StepInterface
     protected $calculationClient;
 
     /**
+     * @var CheckoutStepHandlerInterface[]
+     */
+    protected $shipmentPlugins;
+
+    /**
      * @param FlashMessengerInterface $flashMessenger
      * @param CalculationClient $calculationClient
-     * @param $stepRoute
-     * @param $escapeRoute
+     * @param string $stepRoute
+     * @param string $escapeRoute
+     * @param CheckoutStepHandlerInterface[] $shipmentPlugins
      */
     public function __construct(
         FlashMessengerInterface $flashMessenger,
         CalculationClient $calculationClient,
         $stepRoute,
-        $escapeRoute
+        $escapeRoute,
+        $shipmentPlugins
     ) {
         parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
+
         $this->calculationClient = $calculationClient;
+        $this->shipmentPlugins = $shipmentPlugins;
     }
 
     /**
@@ -54,16 +63,15 @@ class ShipmentStep extends BaseStep implements StepInterface
     /**
      * @param Request $request
      * @param QuoteTransfer $quoteTransfer
-     * @param CheckoutStepHandlerInterface[] $plugins
      *
      * @return QuoteTransfer
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer, $plugins = [])
+    public function execute(Request $request, QuoteTransfer $quoteTransfer)
     {
         $shipmentSelection = $quoteTransfer->getShipment()->getShipmentSelection();
 
-        if (isset($plugins[$shipmentSelection])) {
-            $shipmentHandler = $plugins[$shipmentSelection];
+        if (isset($this->shipmentPlugins[$shipmentSelection])) {
+            $shipmentHandler = $this->shipmentPlugins[$shipmentSelection];
             $shipmentHandler->addToQuote($request, $quoteTransfer);
         }
 

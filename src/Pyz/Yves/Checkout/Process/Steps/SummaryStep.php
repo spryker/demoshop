@@ -29,6 +29,7 @@ class SummaryStep extends BaseStep implements StepInterface
         $escapeRoute
     ) {
         parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
+
         $this->calculationClient = $calculationClient;
     }
 

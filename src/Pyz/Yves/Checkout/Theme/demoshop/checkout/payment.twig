@@ -9,7 +9,7 @@
         {{ form_widget(form.paymentSelection) }}
 
         {% for paymentMethodSubForm in paymentMethodsSubForms %}
-        {% include "@" ~ paymentMethodSubForm ~ ".twig" %}
+            {% include "@" ~ paymentMethodSubForm ~ ".twig" %}
         {% endfor %}
     {{ form_end(form) }}
 

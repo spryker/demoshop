@@ -24,9 +24,7 @@ class CheckoutController extends AbstractController
      */
     public function customerAction(Request $request)
     {
-        return $this->createStepProcess()->process(
-            $request
-        );
+        return $this->createStepProcess()->process($request);
     }
     /**
      * @param Request $request
@@ -50,8 +48,7 @@ class CheckoutController extends AbstractController
     {
         return $this->createStepProcess()->process(
             $request,
-            $this->getFactory()->createShipmentForm($this->getQuoteTransfer()),
-            $this->getFactory()->createShipmentPlugins()
+            $this->getFactory()->createShipmentForm($this->getQuoteTransfer())
         );
     }
 
@@ -64,8 +61,7 @@ class CheckoutController extends AbstractController
     {
         return $this->createStepProcess()->process(
             $request,
-            $this->getFactory()->createPaymentForm($this->getQuoteTransfer()),
-            $this->getFactory()->createPaymentPlugins()
+            $this->getFactory()->createPaymentForm($this->getQuoteTransfer())
         );
     }
 
@@ -89,9 +85,7 @@ class CheckoutController extends AbstractController
      */
     public function placeOrderAction(Request $request)
     {
-        return $this->createStepProcess()->process(
-            $request
-        );
+        return $this->createStepProcess()->process($request);
     }
 
     /**
@@ -101,9 +95,7 @@ class CheckoutController extends AbstractController
      */
     public function successAction(Request $request)
     {
-        return $this->createStepProcess()->process(
-            $request
-        );
+        return $this->createStepProcess()->process($request);
     }
 
     /**

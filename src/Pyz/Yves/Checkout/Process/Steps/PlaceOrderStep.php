@@ -30,6 +30,7 @@ class PlaceOrderStep extends BaseStep implements StepInterface
         $escapeRoute
     ) {
         parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
+
         $this->checkoutClient = $checkoutClient;
     }
 

@@ -22,7 +22,8 @@ class SalesBusinessFactory extends SprykerSalesBusinessFactory
             $this->getQueryContainer(),
             $this->getProvidedDependency(SalesDependencyProvider::FACADE_COUNTRY),
             $this->getProvidedDependency(SalesDependencyProvider::FACADE_OMS),
-            $this->createReferenceGenerator()
+            $this->createReferenceGenerator(),
+            $this->getConfig()
         );
     }
 

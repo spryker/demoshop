@@ -28,6 +28,7 @@ class AddressStep extends BaseStep implements StepInterface
         $escapeRoute
     ) {
         parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
+
         $this->storeConfiguration = $storeConfiguration;
     }
 

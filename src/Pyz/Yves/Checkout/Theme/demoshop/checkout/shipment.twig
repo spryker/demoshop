@@ -2,8 +2,16 @@
 
 {% block content %}
     <br /><br /><br /><br />
+
     <h1>Shipment</h1>
-    {{ form(form) }}
+
+    {{ form_start(form) }}
+    {{ form_widget(form.shipmentSelection) }}
+
+    {% for shipmentMethodSubForm in shipmentMethodsSubForms %}
+        {% include "@" ~ shipmentMethodSubForm ~ ".twig" %}
+    {% endfor %}
+    {{ form_end(form) }}
 
     <a href="{{ previousStepUrl }}">Back</a>
 {% endblock %}
