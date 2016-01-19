@@ -36,10 +36,6 @@ class ShipmentForm extends AbstractForm
     {
         $this->quoteTransfer = $quoteTransfer;
         $this->shipmentMethodsSubFormPlugins = $shipmentMethodsSubFormPlugins;
-
-        if ($this->quoteTransfer->getShipment() === null) {
-            $this->quoteTransfer->setShipment(new ShipmentTransfer());
-        }
     }
 
     /**
@@ -77,6 +73,8 @@ class ShipmentForm extends AbstractForm
      */
     protected function addShipmentMethods(FormBuilderInterface $builder)
     {
+        $this->setShipmentForDataClass();
+
         $shipmentMethodSubForms = $this->getShipmentMethodSubForms();
         $shipmentMethodChoices = $this->getShipmentMethodsChoices($shipmentMethodSubForms);
 
@@ -184,6 +182,16 @@ class ShipmentForm extends AbstractForm
     protected function createSubForm(CheckoutSubFormInterface $shipmentMethodSubForm)
     {
         return $shipmentMethodSubForm->createSubFrom($this->quoteTransfer);
+    }
+
+    /**
+     * @return void
+     */
+    protected function setShipmentForDataClass()
+    {
+        if ($this->quoteTransfer->getShipment() === null) {
+            $this->quoteTransfer->setShipment(new ShipmentTransfer());
+        }
     }
 
     /**

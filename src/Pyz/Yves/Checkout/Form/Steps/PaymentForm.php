@@ -36,10 +36,6 @@ class PaymentForm extends AbstractForm
     {
         $this->quoteTransfer = $quoteTransfer;
         $this->paymentMethodSubFormPlugins = $paymentMethodSubFormPlugins;
-
-        if ($this->quoteTransfer->getPayment() === null) {
-            $this->quoteTransfer->setPayment(new PaymentTransfer());
-        }
     }
 
     /**
@@ -77,6 +73,8 @@ class PaymentForm extends AbstractForm
      */
     protected function addPaymentMethods(FormBuilderInterface $builder)
     {
+        $this->setPaymentForDataClass();
+
         $paymentMethodSubForms = $this->getPaymentMethodSubForms();
         $paymentMethodChoices = $this->getPaymentMethodChoices($paymentMethodSubForms);
 
@@ -184,6 +182,16 @@ class PaymentForm extends AbstractForm
     protected function createSubForm(CheckoutSubFormInterface $paymentMethodSubForm)
     {
         return $paymentMethodSubForm->createSubFrom($this->quoteTransfer);
+    }
+
+    /**
+     * @return void
+     */
+    protected function setPaymentForDataClass()
+    {
+        if ($this->quoteTransfer->getPayment() === null) {
+            $this->quoteTransfer->setPayment(new PaymentTransfer());
+        }
     }
 
     /**

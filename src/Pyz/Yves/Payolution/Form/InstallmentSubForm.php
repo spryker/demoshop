@@ -256,7 +256,7 @@ class InstallmentSubForm extends AbstractCheckoutSubForm
      *
      * @return string
      *
-     * @todo: optimize format choices and add a Type maybe
+     * @todo: optimize format choices and add a Type for an installment choice
      */
     protected function buildChoice(PayolutionCalculationPaymentDetailTransfer $paymentDetail)
     {
