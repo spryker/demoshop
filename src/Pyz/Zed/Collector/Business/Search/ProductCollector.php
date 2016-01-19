@@ -4,6 +4,7 @@ namespace Pyz\Zed\Collector\Business\Search;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Zed\ProductSearch\Business\ProductSearchFacade;
+use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
 use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPropelCollector;
 use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
@@ -31,14 +32,23 @@ class ProductCollector extends AbstractSearchPropelCollector
         $this->productSearchFacade = $productSearchFacade;
     }
 
+    /**
+     * @param string $touchKey
+     * @param array $collectItemData
+     *
+     * @return array
+     */
     protected function collectItem($touchKey, array $collectItemData)
     {
         return $collectItemData;
     }
 
+    /**
+     * @return string
+     */
     protected function collectResourceType()
     {
-        return 'abstract_product';
+        return ProductConstants::RESOURCE_TYPE_PRODUCT_ABSTRACT;
     }
 
     /**
