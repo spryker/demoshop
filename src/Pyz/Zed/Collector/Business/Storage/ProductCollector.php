@@ -54,7 +54,7 @@ class ProductCollector extends AbstractKeyValuePdoCollector
      */
     protected function collectResourceType()
     {
-        return ProductConstants::RESOURCE_TYPE_ABSTRACT_PRODUCT;
+        return ProductConstants::RESOURCE_TYPE_PRODUCT_ABSTRACT;
     }
 
     protected function getAbstractAttributes($json)
