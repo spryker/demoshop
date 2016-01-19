@@ -124,9 +124,7 @@ class ProductCollector extends AbstractSearchPropelCollector
         $processedResultSet = $this->productSearchFacade->createSearchProducts($resultSet, $processedResultSet, $locale);
 
         $keys = array_keys($processedResultSet);
-        $resultSet = array_combine($keys, $processedResultSet);
-
-        //dump($resultSet); die;
+        $resultSet = array_combine($keys, $resultSet);
 
         return $processedResultSet;
     }
