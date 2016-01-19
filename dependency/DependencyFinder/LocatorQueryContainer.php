@@ -28,7 +28,7 @@ class LocatorQueryContainer extends AbstractDependencyChecker
 
                 if (preg_match('/->/', $toBundle)) {
                     $foundParts = explode('->', $toBundle);
-                    $toBundle = $foundParts[1];
+                    $toBundle = array_pop($foundParts);
                 }
 
                 $toBundle = ucfirst($toBundle);

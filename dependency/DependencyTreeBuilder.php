@@ -6,22 +6,17 @@
 
 namespace Spryker\dependency;
 
+use Spryker\Dependency\DependencyFilter\AbstractDependencyFilter;
 use Spryker\Dependency\DependencyFinder\AbstractDependencyChecker;
-use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 
 class DependencyTreeBuilder
 {
 
-    const APPLICATION_YVES = 'Yves';
-    const APPLICATION_CLIENT = 'Client';
-    const APPLICATION_ZED = 'Zed';
-
-    private $dependencyTree = [
-        self::APPLICATION_YVES => [],
-        self::APPLICATION_CLIENT => [],
-        self::APPLICATION_ZED => [],
-    ];
+    /**
+     * @var array
+     */
+    private $dependencyTree = [];
 
     /**
      * @var AbstractDependencyChecker[]
@@ -29,9 +24,34 @@ class DependencyTreeBuilder
     private $dependencyChecker = [];
 
     /**
+     * @var AbstractDependencyFilter[]
+     */
+    private $dependencyFilter = [];
+
+    /**
+     * @var Finder
+     */
+    private $finder;
+
+    /**
+     * @var FileInfoExtractor
+     */
+    private $fileInfoExtractor;
+
+    /**
+     * @param Finder $finder
+     * @param FileInfoExtractor $fileInfoExtractor
+     */
+    public function __construct(Finder $finder, FileInfoExtractor $fileInfoExtractor)
+    {
+        $this->finder = $finder;
+        $this->fileInfoExtractor = $fileInfoExtractor;
+    }
+
+    /**
      * @param AbstractDependencyChecker|array $dependencyChecker
      *
-     * @return void
+     * @return self
      */
     public function addDependencyChecker($dependencyChecker)
     {
@@ -39,22 +59,40 @@ class DependencyTreeBuilder
             foreach ($dependencyChecker as $checker) {
                 $this->addDependencyChecker($checker);
             }
+
+            return $this;
         }
 
         $this->dependencyChecker[] = $dependencyChecker;
+
+        return $this;
     }
 
     /**
-     * @param Finder $finder
+     * @param AbstractDependencyFilter|array $dependencyFilter
      *
+     * @return void
+     */
+    public function addFilter($dependencyFilter)
+    {
+        if (is_array($dependencyFilter)) {
+            foreach ($dependencyFilter as $filter) {
+                $this->addDependencyChecker($filter);
+            }
+        }
+
+        $this->dependencyFilter[] = $dependencyFilter;
+    }
+
+    /**
      * @throws \Exception
      *
      * @return array
      */
-    public function buildDependencyTree(Finder $finder)
+    public function buildDependencyTree()
     {
-        foreach ($finder as $fileInfo) {
-            $bundle = $this->getBundleNameFromFileInfo($fileInfo);
+        foreach ($this->finder->getFiles() as $fileInfo) {
+            $bundle = $this->fileInfoExtractor->getBundleNameFromFileInfo($fileInfo);
             foreach ($this->dependencyChecker as $dependencyChecker) {
                 $dependencyChecker->checkDependencies($fileInfo, $bundle);
                 if ($dependencyChecker->foundDependency()) {
@@ -77,12 +115,23 @@ class DependencyTreeBuilder
      */
     private function addDependency(SplFileInfo $fileInfo, AbstractDependencyChecker $dependencyChecker, $bundle)
     {
-        $application =$this->getApplicationNameFromFileInfo($fileInfo);
         $toBundle = $dependencyChecker->getDependency();
+
+        if (!$this->acceptBundle($toBundle)) {
+            return;
+        }
+
+        $application = $this->fileInfoExtractor->getApplicationNameFromFileInfo($fileInfo);
+        $layer = $this->fileInfoExtractor->getLayerNameFromFileInfo($fileInfo);
+
         $checker = get_class($dependencyChecker);
 
         $meta = [
-            'in file' => $fileInfo->getPathname(),
+            'file' => $fileInfo->getFilename(),
+            'depends' => $toBundle,
+            'application' => $application,
+            'bundle' => $toBundle,
+            'layer' => $layer,
         ];
 
         if (!array_key_exists($application, $this->dependencyTree)) {
@@ -102,49 +151,19 @@ class DependencyTreeBuilder
     }
 
     /**
-     * @param SplFileInfo $fileInfo
+     * @param string $bundle
      *
-     * @throws \Exception
-     *
-     * @return string
+     * @return bool
      */
-    private function getApplicationNameFromFileInfo(SplFileInfo $fileInfo)
+    protected function acceptBundle($bundle)
     {
-        $pathParts = explode(DIRECTORY_SEPARATOR, $fileInfo->getPathname());
-        $sourceDirectoryPosition = array_search('src', $pathParts);
-        if ($sourceDirectoryPosition) {
-            return $pathParts[$sourceDirectoryPosition + 2];
+        foreach ($this->dependencyFilter as $filter) {
+            if ($filter->filter($bundle)) {
+                return false;
+            }
         }
 
-        $testsDirectoryPosition = array_search('tests', $pathParts);
-        if ($testsDirectoryPosition) {
-            return $pathParts[$testsDirectoryPosition + 3];
-        }
-
-        throw new \Exception(sprintf('Could not extract application name from file "%s".', $fileInfo->getPathname()));
-    }
-
-    /**
-     * @param SplFileInfo $fileInfo
-     *
-     * @throws \Exception
-     *
-     * @return string
-     */
-    private function getBundleNameFromFileInfo(SplFileInfo $fileInfo)
-    {
-        $pathParts = explode(DIRECTORY_SEPARATOR, $fileInfo->getPathname());
-        $sourceDirectoryPosition = array_search('src', $pathParts);
-        if ($sourceDirectoryPosition) {
-            return $pathParts[$sourceDirectoryPosition + 3];
-        }
-
-        $testsDirectoryPosition = array_search('tests', $pathParts);
-        if ($testsDirectoryPosition) {
-            return $pathParts[$testsDirectoryPosition + 4];
-        }
-
-        throw new \Exception(sprintf('Could not extract bundle name from file "%s".', $fileInfo->getPathname()));
+        return true;
     }
 
 }

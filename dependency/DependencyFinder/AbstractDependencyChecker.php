@@ -47,6 +47,9 @@ abstract class AbstractDependencyChecker
      */
     public function getDependency()
     {
-        return $this->bundle;
+        $dependentBundle = $this->bundle;
+        $this->bundle = null;
+
+        return $dependentBundle;
     }
 }
