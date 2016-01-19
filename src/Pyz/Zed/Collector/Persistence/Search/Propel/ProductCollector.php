@@ -3,19 +3,22 @@
 namespace Pyz\Zed\Collector\Persistence\Search\Propel;
 
 use Orm\Zed\Category\Persistence\Map\SpyCategoryAttributeTableMap;
+use Orm\Zed\Category\Persistence\Map\SpyCategoryClosureTableTableMap;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryNodeTableMap;
 use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
-use Orm\Zed\Product\Persistence\Map\SpyAbstractProductTableMap;
-use Orm\Zed\Product\Persistence\Map\SpyLocalizedAbstractProductAttributesTableMap;
-use Orm\Zed\Product\Persistence\Map\SpyLocalizedProductAttributesTableMap;
+use Orm\Zed\Product\Persistence\Map\SpyProductAbstractLocalizedAttributesTableMap;
+use Orm\Zed\Product\Persistence\Map\SpyProductAbstractTableMap;
+use Orm\Zed\Product\Persistence\Map\SpyProductLocalizedAttributesTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
 use Orm\Zed\ProductCategory\Persistence\Map\SpyProductCategoryTableMap;
-use Orm\Zed\ProductSearch\Persistence\Map\SpySearchableProductsTableMap;
+use Orm\Zed\ProductSearch\Persistence\Map\SpyProductSearchTableMap;
 use Orm\Zed\Stock\Persistence\Map\SpyStockProductTableMap;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Join;
+use Propel\Runtime\ActiveQuery\ModelCriteria;
+use Propel\Runtime\Exception\PropelException;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
 use Spryker\Zed\Collector\Persistence\Exporter\AbstractPropelCollectorQuery;
 
@@ -53,43 +56,37 @@ class ProductCollector extends AbstractPropelCollectorQuery
         // Abstract & concrete product - including localized attributes & url
         $this->touchQuery->addJoin(
             SpyTouchTableMap::COL_ITEM_ID,
-            SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
+            SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT,
             Criteria::INNER_JOIN
         );
-
         $this->touchQuery->addJoinObject(
             new Join(
-                SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
-                SpyProductTableMap::COL_FK_ABSTRACT_PRODUCT,
+                SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT,
+                SpyProductTableMap::COL_FK_PRODUCT_ABSTRACT,
                 Criteria::LEFT_JOIN
             ),
-            'concreteProductJoin'
+            'productConcreteJoin'
         );
-
         $this->touchQuery->addJoinCondition(
-            'concreteProductJoin',
+            'productConcreteJoin',
             SpyProductTableMap::COL_IS_ACTIVE,
             true,
             Criteria::EQUAL
         );
-
         $this->touchQuery->withColumn(
-            'GROUP_CONCAT(spy_product.sku)',
+            "string_agg(spy_product.sku, ',')",
             'concrete_skus'
         );
-
         $this->touchQuery->addJoin(
-            SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
-            SpyLocalizedAbstractProductAttributesTableMap::COL_FK_ABSTRACT_PRODUCT,
+            SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT,
+            SpyProductAbstractLocalizedAttributesTableMap::COL_FK_PRODUCT_ABSTRACT,
             Criteria::INNER_JOIN
         );
-
         $this->touchQuery->addJoin(
-            SpyLocalizedAbstractProductAttributesTableMap::COL_FK_LOCALE,
+            SpyProductAbstractLocalizedAttributesTableMap::COL_FK_LOCALE,
             SpyLocaleTableMap::COL_ID_LOCALE,
             Criteria::INNER_JOIN
         );
-
         $this->touchQuery->addAnd(
             SpyLocaleTableMap::COL_ID_LOCALE,
             $this->locale->getIdLocale(),
@@ -100,90 +97,81 @@ class ProductCollector extends AbstractPropelCollectorQuery
             true,
             Criteria::EQUAL
         );
-
         $this->touchQuery->addJoinObject(
             (new Join(
-                SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT,
-                SpyUrlTableMap::COL_FK_RESOURCE_ABSTRACT_PRODUCT,
+                SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT,
+                SpyUrlTableMap::COL_FK_RESOURCE_PRODUCT_ABSTRACT,
                 Criteria::LEFT_JOIN
             ))->setRightTableAlias('product_urls'),
             'productUrlsJoin'
         );
-
         $this->touchQuery->addJoinCondition(
             'productUrlsJoin',
             'product_urls.fk_locale = ' .
             SpyLocaleTableMap::COL_ID_LOCALE
         );
-
         $this->touchQuery->addJoinObject(
             new Join(
                 SpyProductTableMap::COL_ID_PRODUCT,
-                SpyLocalizedProductAttributesTableMap::COL_FK_PRODUCT,
+                SpyProductLocalizedAttributesTableMap::COL_FK_PRODUCT,
                 Criteria::INNER_JOIN
             ),
             'productAttributesJoin'
         );
-
         $this->touchQuery->addJoinCondition(
             'productAttributesJoin',
-            SpyLocalizedProductAttributesTableMap::COL_FK_LOCALE . ' = ' .
+            SpyProductLocalizedAttributesTableMap::COL_FK_LOCALE . ' = ' .
             SpyLocaleTableMap::COL_ID_LOCALE
         );
-
-        $this->touchQuery->withColumn(SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT, 'id_abstract_product');
-
+        $this->touchQuery->withColumn(SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT, 'id_product_abstract');
         $this->touchQuery->withColumn(
-            SpyAbstractProductTableMap::COL_ATTRIBUTES,
+            SpyProductAbstractTableMap::COL_ATTRIBUTES,
             'abstract_attributes'
         );
         $this->touchQuery->withColumn(
-            SpyLocalizedAbstractProductAttributesTableMap::COL_ATTRIBUTES,
+            SpyProductAbstractLocalizedAttributesTableMap::COL_ATTRIBUTES,
             'abstract_localized_attributes'
         );
         $this->touchQuery->withColumn(
-            "GROUP_CONCAT(spy_product.attributes SEPARATOR '$%')",
+            "string_agg(spy_product.attributes, '$%')",
             'concrete_attributes'
         );
         $this->touchQuery->withColumn(
-            "GROUP_CONCAT(spy_product_localized_attributes.attributes SEPARATOR '$%')",
+            "string_agg(spy_product_localized_attributes.attributes, '$%')",
             'concrete_localized_attributes'
         );
         $this->touchQuery->withColumn(
-            'GROUP_CONCAT(product_urls.url)',
+            "string_agg(product_urls.url, ',')",
             'product_urls'
         );
         $this->touchQuery->withColumn(
-            SpyLocalizedAbstractProductAttributesTableMap::COL_NAME,
+            SpyProductAbstractLocalizedAttributesTableMap::COL_NAME,
             'abstract_name'
         );
         $this->touchQuery->withColumn(
-            'GROUP_CONCAT(spy_product_localized_attributes.name)',
+            "string_agg(spy_product_localized_attributes.name, ',')",
             'concrete_names'
         );
-
-        $this->touchQuery->withColumn(SpyAbstractProductTableMap::COL_SKU, 'abstract_sku');
-        $this->touchQuery->withColumn(SpyAbstractProductTableMap::COL_ID_ABSTRACT_PRODUCT, 'id_abstract_product');
-
+        $this->touchQuery->withColumn(SpyProductAbstractTableMap::COL_SKU, 'abstract_sku');
+        $this->touchQuery->withColumn(SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT, 'id_product_abstract');
         $this->touchQuery->addJoinObject(
             new Join(
                 SpyProductTableMap::COL_ID_PRODUCT,
-                SpySearchableProductsTableMap::COL_FK_PRODUCT,
+                SpyProductSearchTableMap::COL_FK_PRODUCT,
                 Criteria::INNER_JOIN
             ),
             'searchableJoin'
         );
         $this->touchQuery->addJoinCondition(
             'searchableJoin',
-            SpySearchableProductsTableMap::COL_FK_LOCALE . ' = ' .
+            SpyProductSearchTableMap::COL_FK_LOCALE . ' = ' .
             SpyLocaleTableMap::COL_ID_LOCALE
         );
         $this->touchQuery->addAnd(
-            SpySearchableProductsTableMap::COL_IS_SEARCHABLE,
+            SpyProductSearchTableMap::COL_IS_SEARCHABLE,
             true,
             Criteria::EQUAL
         );
-
         // Product availability
         $this->touchQuery->addJoin(
             SpyProductTableMap::COL_ID_PRODUCT,
@@ -192,11 +180,10 @@ class ProductCollector extends AbstractPropelCollectorQuery
         );
         $this->touchQuery->withColumn(SpyStockProductTableMap::COL_QUANTITY, 'quantity');
         $this->touchQuery->withColumn(SpyStockProductTableMap::COL_IS_NEVER_OUT_OF_STOCK, 'is_never_out_of_stock');
-
         // Category
         $this->touchQuery->addJoin(
             SpyTouchTableMap::COL_ITEM_ID,
-            SpyProductCategoryTableMap::COL_FK_ABSTRACT_PRODUCT,
+            SpyProductCategoryTableMap::COL_FK_PRODUCT_ABSTRACT,
             Criteria::LEFT_JOIN
         );
         $this->touchQuery->addJoin(
@@ -209,33 +196,235 @@ class ProductCollector extends AbstractPropelCollectorQuery
             SpyCategoryAttributeTableMap::COL_FK_CATEGORY,
             Criteria::INNER_JOIN
         );
-
         $excludeDirectParent = false;
         $excludeRoot = true;
-
-        $this->touchQuery = $this->categoryQueryContainer->joinCategoryQueryWithUrls($this->touchQuery);
+        $this->touchQuery = $this->joinCategoryQueryWithUrls($this->touchQuery);
         $this->touchQuery = $this->categoryQueryContainer->selectCategoryAttributeColumns($this->touchQuery);
-
-        $this->touchQuery = $this->categoryQueryContainer->joinCategoryQueryWithChildrenCategories($this->touchQuery);
-        $this->touchQuery = $this->categoryQueryContainer->joinLocalizedRelatedCategoryQueryWithAttributes($this->touchQuery, 'categoryChildren', 'child');
-        $this->touchQuery = $this->categoryQueryContainer->joinRelatedCategoryQueryWithUrls($this->touchQuery, 'categoryChildren', 'child');
-
-        $this->touchQuery = $this->categoryQueryContainer->joinCategoryQueryWithParentCategories($this->touchQuery, $excludeDirectParent, $excludeRoot);
-        $this->touchQuery = $this->categoryQueryContainer->joinLocalizedRelatedCategoryQueryWithAttributes($this->touchQuery, 'categoryParents', 'parent');
-        $this->touchQuery = $this->categoryQueryContainer->joinRelatedCategoryQueryWithUrls($this->touchQuery, 'categoryParents', 'parent');
-
+        $this->touchQuery = $this->joinCategoryQueryWithChildrenCategories($this->touchQuery);
+        $this->touchQuery = $this->joinLocalizedRelatedCategoryQueryWithAttributes($this->touchQuery, 'categoryChildren', 'child');
+        $this->touchQuery = $this->joinRelatedCategoryQueryWithUrls($this->touchQuery, 'categoryChildren', 'child');
+        $this->touchQuery = $this->joinCategoryQueryWithParentCategories($this->touchQuery, $excludeDirectParent, $excludeRoot);
+        $this->touchQuery = $this->joinLocalizedRelatedCategoryQueryWithAttributes($this->touchQuery, 'categoryParents', 'parent');
+        $this->touchQuery = $this->joinRelatedCategoryQueryWithUrls($this->touchQuery, 'categoryParents', 'parent');
         $this->touchQuery->withColumn(
-            'GROUP_CONCAT(DISTINCT spy_category_node.id_category_node)',
+            "string_agg(DISTINCT spy_category_node.id_category_node::text, ',')",
             'node_id'
         );
         $this->touchQuery->withColumn(
             SpyCategoryNodeTableMap::COL_FK_CATEGORY,
             'category_id'
         );
-
         $this->touchQuery->orderBy('depth', Criteria::DESC);
         $this->touchQuery->orderBy('descendant_id', Criteria::DESC);
         $this->touchQuery->groupBy('abstract_sku');
+    }
+
+
+    /**
+     * @param ModelCriteria $expandableQuery
+     * @param string $rightTableAlias
+     * @param string $fieldIdentifier
+     * @param string $leftTableAlias
+     *
+     * @return ModelCriteria
+     */
+    public function joinCategoryQueryWithChildrenCategories(
+        ModelCriteria $expandableQuery,
+        $rightTableAlias = 'categoryChildren',
+        $fieldIdentifier = 'child',
+        $leftTableAlias = SpyCategoryNodeTableMap::TABLE_NAME
+    ) {
+        $expandableQuery
+            ->addJoinObject(
+                (new Join(
+                    $leftTableAlias . '.id_category_node',
+                    SpyCategoryNodeTableMap::COL_FK_PARENT_CATEGORY_NODE,
+                    Criteria::LEFT_JOIN
+                ))->setRightTableAlias($rightTableAlias)
+            );
+
+        $expandableQuery->withColumn(
+            "string_agg(" . $rightTableAlias . ".id_category_node::text, ',')",
+            'category_' . $fieldIdentifier . '_ids'
+        );
+
+        return $expandableQuery;
+    }
+
+    /**
+     * @param ModelCriteria $expandableQuery
+     * @param bool $excludeDirectParent
+     * @param bool $excludeRoot
+     * @param string $leftTableAlias
+     * @param string $relationTableAlias
+     * @param string $fieldIdentifier
+     *
+     * @throws PropelException
+     *
+     * @return ModelCriteria
+     */
+    public function joinCategoryQueryWithParentCategories(
+        ModelCriteria $expandableQuery,
+        $excludeDirectParent = true,
+        $excludeRoot = true,
+        $leftTableAlias = SpyCategoryNodeTableMap::TABLE_NAME,
+        $relationTableAlias = 'categoryParents',
+        $fieldIdentifier = 'parent'
+    ) {
+        $expandableQuery
+            ->addJoinObject(
+                (new Join(
+                    $leftTableAlias . '.id_category_node',
+                    SpyCategoryClosureTableTableMap::COL_FK_CATEGORY_NODE_DESCENDANT,
+                    Criteria::LEFT_JOIN
+                ))
+            );
+
+        $expandableQuery
+            ->addJoinObject(
+                (new Join(
+                    SpyCategoryClosureTableTableMap::COL_FK_CATEGORY_NODE,
+                    SpyCategoryNodeTableMap::COL_ID_CATEGORY_NODE,
+                    Criteria::INNER_JOIN
+                ))->setRightTableAlias($relationTableAlias),
+                $relationTableAlias . 'Join'
+            );
+
+        if ($excludeDirectParent) {
+            $expandableQuery->addAnd(
+                SpyCategoryClosureTableTableMap::COL_DEPTH,
+                0,
+                Criteria::GREATER_THAN
+            );
+        }
+
+        if ($excludeRoot) {
+            $expandableQuery->addJoinCondition(
+                $relationTableAlias . 'Join',
+                $relationTableAlias . '.is_root = false'
+            );
+        }
+
+        $expandableQuery->withColumn(
+            "string_agg(" . $relationTableAlias . ".id_category_node::text, ',')",
+            'category_' . $fieldIdentifier . '_ids'
+        );
+        $expandableQuery->withColumn(
+            SpyCategoryClosureTableTableMap::COL_FK_CATEGORY_NODE_DESCENDANT,
+            'descendant_id'
+        );
+        $expandableQuery->withColumn(
+            SpyCategoryClosureTableTableMap::COL_DEPTH,
+            'depth'
+        );
+
+        return $expandableQuery;
+    }
+
+    /**
+     * @param ModelCriteria $expandableQuery
+     * @param string $leftAlias
+     *
+     * @return ModelCriteria
+     */
+    public function joinCategoryQueryWithUrls(
+        ModelCriteria $expandableQuery,
+        $leftAlias = SpyCategoryNodeTableMap::TABLE_NAME
+    ) {
+        $expandableQuery
+            ->addJoinObject(
+                (new Join(
+                    $leftAlias . '.id_category_node',
+                    SpyUrlTableMap::COL_FK_RESOURCE_CATEGORYNODE,
+                    Criteria::LEFT_JOIN
+                ))->setRightTableAlias('categoryUrls'),
+                'categoryUrlJoin'
+            );
+
+        $expandableQuery->addJoinCondition(
+            'categoryUrlJoin',
+            'categoryUrls.fk_locale = ' .
+            SpyLocaleTableMap::COL_ID_LOCALE
+        );
+
+        $expandableQuery->withColumn(
+            "string_agg(categoryUrls.url, ',')",
+            'category_urls'
+        );
+
+        return $expandableQuery;
+    }
+
+    /**
+     * @param ModelCriteria $expandableQuery
+     * @param string $relationTableAlias
+     * @param string $fieldIdentifier
+     *
+     * @return ModelCriteria
+     */
+    public function joinLocalizedRelatedCategoryQueryWithAttributes(
+        ModelCriteria $expandableQuery,
+        $relationTableAlias,
+        $fieldIdentifier
+    ) {
+        $expandableQuery->addJoinObject(
+            (new Join(
+                $relationTableAlias . '.fk_category',
+                SpyCategoryAttributeTableMap::COL_FK_CATEGORY,
+                Criteria::LEFT_JOIN
+            ))->setRightTableAlias($relationTableAlias . 'Attributes'),
+            $relationTableAlias . 'AttributesJoin'
+        );
+
+        $expandableQuery->addCond(
+            $relationTableAlias . 'AttributesJoin',
+            SpyCategoryAttributeTableMap::COL_FK_LOCALE . '=' .
+            SpyLocaleTableMap::COL_ID_LOCALE
+        );
+
+        $expandableQuery->withColumn(
+            "string_agg(" . $relationTableAlias . "Attributes.name, ',')",
+            'category_' . $fieldIdentifier . '_names'
+        );
+
+        return $expandableQuery;
+    }
+
+    /**
+     * @param ModelCriteria $expandableQuery
+     * @param string $relationTableAlias
+     * @param string $fieldIdentifier
+     *
+     * @throws PropelException
+     *
+     * @return ModelCriteria
+     */
+    public function joinRelatedCategoryQueryWithUrls(
+        ModelCriteria $expandableQuery,
+        $relationTableAlias,
+        $fieldIdentifier
+    ) {
+        $expandableQuery->addJoinObject(
+            (new Join(
+                $relationTableAlias . '.id_category_node',
+                SpyUrlTableMap::COL_FK_RESOURCE_CATEGORYNODE,
+                Criteria::LEFT_JOIN
+            ))->setRightTableAlias($relationTableAlias . 'Urls'),
+            $relationTableAlias . 'UrlJoin'
+        );
+
+        $expandableQuery->addJoinCondition(
+            $relationTableAlias . 'UrlJoin',
+            $relationTableAlias . 'Urls.fk_locale = ' .
+            SpyLocaleTableMap::COL_ID_LOCALE
+        );
+
+        $expandableQuery->withColumn(
+            "string_agg(" . $relationTableAlias . "Urls.url, ',')",
+            'category_' . $fieldIdentifier . '_urls'
+        );
+
+        return $expandableQuery;
     }
 
 }

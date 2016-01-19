@@ -60,7 +60,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[self::SEARCH_PLUGINS] = function (Container $container) {
             return [
-                //'product_abstract' => new ProductCollectorSearchPlugin(),
+                'product_abstract' => new ProductCollectorSearchPlugin(),
             ];
         };
 

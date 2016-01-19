@@ -8,9 +8,15 @@ use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
 use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPropelCollector;
 use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
+use Spryker\Zed\Price\Persistence\PriceQueryContainer;
 
 class ProductCollector extends AbstractSearchPropelCollector
 {
+
+    /**
+     * @var PriceQueryContainer
+     */
+    protected $priceQueryContainer;
 
     /**
      * @var CategoryQueryContainer
@@ -23,11 +29,13 @@ class ProductCollector extends AbstractSearchPropelCollector
     protected $productSearchFacade;
 
     /**
+     * @param PriceQueryContainer $priceQueryContainer
      * @param CategoryQueryContainer $categoryQueryContainer
      * @param ProductSearchFacade $productSearchFacade
      */
-    public function __construct(CategoryQueryContainer $categoryQueryContainer, ProductSearchFacade $productSearchFacade)
+    public function __construct(PriceQueryContainer $priceQueryContainer, CategoryQueryContainer $categoryQueryContainer, ProductSearchFacade $productSearchFacade)
     {
+        $this->priceQueryContainer = $priceQueryContainer;
         $this->categoryQueryContainer = $categoryQueryContainer;
         $this->productSearchFacade = $productSearchFacade;
     }
@@ -116,7 +124,9 @@ class ProductCollector extends AbstractSearchPropelCollector
         $processedResultSet = $this->productSearchFacade->createSearchProducts($resultSet, $processedResultSet, $locale);
 
         $keys = array_keys($processedResultSet);
-        $resultSet = array_combine($keys, $resultSet);
+        $resultSet = array_combine($keys, $processedResultSet);
+
+        //dump($resultSet); die;
 
         return $processedResultSet;
     }

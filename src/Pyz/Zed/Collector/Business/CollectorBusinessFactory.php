@@ -3,23 +3,9 @@
 namespace Pyz\Zed\Collector\Business;
 
 use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Zed\Collector\Business\Exporter\SearchExporter;
 use Spryker\Zed\Collector\Persistence\Exporter\AbstractPdoCollectorQuery;
 use Spryker\Zed\Collector\Persistence\Exporter\AbstractPropelCollectorQuery;
-use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Shared\Config;
-use Spryker\Zed\Collector\Business\Exporter\ExporterInterface;
-use Spryker\Zed\Collector\Business\Exporter\MarkerInterface;
-use Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface;
-use Spryker\Zed\Collector\Business\Internal\InstallElasticsearch;
-use Spryker\Zed\Collector\Business\Exporter\KeyBuilder\SearchMarkerKeyBuilder;
-use Spryker\Zed\Collector\Business\Exporter\Reader\Search\ElasticsearchMarkerReader;
-use Spryker\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchMarkerWriter;
-use Spryker\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchWriter;
-use Spryker\Zed\Collector\Business\Model\BatchResultInterface;
-use Spryker\Zed\Collector\Business\Exporter\KeyBuilder\KvMarkerKeyBuilder;
-use Spryker\Zed\Collector\Business\Exporter\Reader\KeyValue\RedisReader;
-use Spryker\Zed\Collector\Business\Exporter\Collector;
 use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector;
 use Pyz\Zed\Collector\Business\Storage\BlockCollector;
 use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector;
@@ -30,8 +16,6 @@ use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
 use Pyz\Zed\Collector\Business\Storage\TranslationCollector;
 use Pyz\Zed\Collector\Business\Storage\UrlCollector;
 use Pyz\Zed\Collector\CollectorDependencyProvider;
-use Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface;
-use Spryker\Zed\Collector\Business\Model\FailedResultInterface;
 use Spryker\Zed\Collector\CollectorConfig;
 use Spryker\Zed\Collector\Business\CollectorBusinessFactory as SprykerCollectorBusinessFactory;
 
@@ -47,17 +31,22 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createSearchProductCollector()
     {
         $searchProductCollector = new SearchProductCollector(
-            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRICE),
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRICE),
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY),
             $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_SEARCH)
         );
+
         $searchProductCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
         );
-        $searchProductCollector->setQueryBuilder(
-            $this->createSearchPdoQueryAdapterByName('ProductCollector')
+
+        /* @var \Pyz\Zed\Collector\Persistence\Search\Propel\ProductCollector  $queryBuilder */
+        $queryBuilder = $this->createSearchPropelQueryAdapterByName('ProductCollector');
+        $queryBuilder->setCategoryQueryContainer(
+            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY)
         );
+
+        $searchProductCollector->setQueryBuilder($queryBuilder);
 
         return $searchProductCollector;
     }
@@ -67,9 +56,8 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStorageCategoryNodeCollector()
     {
-        $storageCategoryNodeCollector = new CategoryNodeCollector(
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY)
-        );
+        $storageCategoryNodeCollector = new CategoryNodeCollector();
+
         $storageCategoryNodeCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
         );
@@ -103,20 +91,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     /**
      * @param $name
      *
-     * @return AbstractPropelCollectorQuery
-     */
-    public function createStoragePropelQueryAdapterByName($name)
-    {
-        $queryBuilderClassName = "\\Pyz\\Zed\\Collector\\Persistence\\Storage\\Propel\\${name}";
-
-        $queryBuilder = new $queryBuilderClassName();
-
-        return $queryBuilder;
-    }
-
-    /**
-     * @param $name
-     *
      * @return AbstractPdoCollectorQuery
      */
     public function createSearchPdoQueryAdapterByName($name)
@@ -132,13 +106,27 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @param $name
+     * @param string $name
      *
      * @return AbstractPropelCollectorQuery
      */
     public function createSearchPropelQueryAdapterByName($name)
     {
         $queryBuilderClassName = "\\Pyz\\Zed\\Collector\\Persistence\\Search\\Propel\\${name}";
+
+        $queryBuilder = new $queryBuilderClassName();
+
+        return $queryBuilder;
+    }
+
+    /**
+     * @param string $name
+     *
+     * @return AbstractPropelCollectorQuery
+     */
+    public function createStoragePropelQueryAdapterByName($name)
+    {
+        $queryBuilderClassName = "\\Pyz\\Zed\\Collector\\Persistence\\Storage\\Propel\\${name}";
 
         $queryBuilder = new $queryBuilderClassName();
 
@@ -268,6 +256,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createStorageBlockCollector()
     {
         $storageBlockCollector = new BlockCollector();
+
         $storageBlockCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
         );
@@ -276,171 +265,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         );
 
         return $storageBlockCollector;
-    }
-
-    /**
-     * @return Collector
-     */
-    public function createYvesKeyValueExporter()
-    {
-        return parent::createYvesKeyValueExporter();
-    }
-
-    /**
-     * @return ExporterInterface
-     */
-    protected function createKeyValueExporter()
-    {
-        return parent::createKeyValueExporter();
-    }
-
-    /**
-     * @return WriterInterface
-     */
-    protected function createKeyValueWriter()
-    {
-        return parent::createKeyValueWriter();
-    }
-
-    /**
-     * @return MarkerInterface
-     */
-    public function createKeyValueMarker()
-    {
-        return parent::createKeyValueMarker();
-    }
-
-    /**
-     * @return RedisReader
-     */
-    protected function createRedisReader()
-    {
-        return parent::createRedisReader();
-    }
-
-    /**
-     * @return KvMarkerKeyBuilder
-     */
-    protected function createKvMarkerKeyBuilder()
-    {
-        return parent::createKvMarkerKeyBuilder();
-    }
-
-    /**
-     * @return FailedResultInterface
-     */
-    protected function createFailedResultModel()
-    {
-        return parent::createFailedResultModel();
-    }
-
-    /**
-     * @return BatchResultInterface
-     */
-    protected function createBatchResultModel()
-    {
-        return parent::createBatchResultModel();
-    }
-
-    /**
-     * @return TouchUpdaterInterface
-     */
-    protected function createExporterWriterSearchTouchUpdater()
-    {
-        return parent::createExporterWriterSearchTouchUpdater();
-    }
-
-    /**
-     * @return TouchUpdaterInterface
-     */
-    protected function createExporterWriterKeyValueTouchUpdater()
-    {
-        return parent::createExporterWriterKeyValueTouchUpdater();
-    }
-
-    /**
-     * @return Collector
-     */
-    public function createYvesSearchExporter()
-    {
-        return parent::createYvesSearchExporter();
-    }
-
-    /**
-     * @return Collector
-     */
-    public function createYvesSearchUpdateExporter()
-    {
-        return parent::createYvesSearchUpdateExporter();
-    }
-
-    /**
-     * @param WriterInterface $searchWriter
-     * @param CollectorConfig $config
-     *
-     * @return SearchExporter
-     */
-    protected function createElasticSearchExporter(WriterInterface $searchWriter, CollectorConfig $config)
-    {
-        return parent::createElasticSearchExporter($searchWriter, $config);
-    }
-
-    /**
-     * @return ElasticSearchWriter
-     */
-    protected function createSearchWriter()
-    {
-        return parent::createSearchWriter();
-    }
-
-    /**
-     * @return WriterInterface
-     */
-    protected function createSearchUpdateWriter()
-    {
-        return parent::createSearchUpdateWriter();
-    }
-
-    /**
-     * @return MarkerInterface
-     */
-    public function createSearchMarker()
-    {
-        return parent::createSearchMarker();
-    }
-
-    /**
-     * @return ElasticSearchMarkerWriter
-     */
-    protected function createSearchMarkerWriter()
-    {
-        return parent::createSearchMarkerWriter();
-    }
-
-    /**
-     * @return ElasticSearchMarkerReader
-     */
-    protected function createSearchMarkerReader()
-    {
-        return parent::createSearchMarkerReader();
-    }
-
-    /**
-     * @return SearchMarkerKeyBuilder
-     */
-    protected function createSearchMarkerKeyBuilder()
-    {
-        return parent::createSearchMarkerKeyBuilder();
-    }
-
-    /**
-     * @param MessengerInterface $messenger
-     *
-     * @return InstallElasticSearch
-     */
-    public function createInstaller(MessengerInterface $messenger)
-    {
-        return parent::createInstaller($messenger);
     }
 
     /**
