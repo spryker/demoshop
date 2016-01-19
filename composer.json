@@ -68,7 +68,8 @@
       "Functional": "tests"
     },
     "psr-4": {
-      "Spryker\\Refactor\\": "refactoring"
+      "Spryker\\Refactor\\": "refactoring",
+      "Spryker\\Dependency\\": "dependency"
     }
   },
   "minimum-stability": "stable",
