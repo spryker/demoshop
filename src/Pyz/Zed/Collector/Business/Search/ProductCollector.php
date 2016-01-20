@@ -3,14 +3,15 @@
 namespace Pyz\Zed\Collector\Business\Search;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use Pyz\Zed\Collector\CollectorConfig;
 use Pyz\Zed\ProductSearch\Business\ProductSearchFacade;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
-use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPropelCollector;
+use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPdoCollector;
 use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
 use Spryker\Zed\Price\Persistence\PriceQueryContainer;
 
-class ProductCollector extends AbstractSearchPropelCollector
+class ProductCollector extends AbstractSearchPdoCollector
 {
 
     /**
@@ -105,6 +106,10 @@ class ProductCollector extends AbstractSearchPropelCollector
                     'direct-parents' => explode(',', $productRawData['node_id']),
                     'all-parents' => explode(',', $productRawData['category_parent_ids']),
                 ];
+
+                $processedResultSet[$index][CollectorConfig::COLLECTOR_TOUCH_ID] = $productRawData[CollectorConfig::COLLECTOR_TOUCH_ID];
+                $processedResultSet[$index][CollectorConfig::COLLECTOR_RESOURCE_ID] = $productRawData[CollectorConfig::COLLECTOR_RESOURCE_ID];
+                $processedResultSet[$index][CollectorConfig::COLLECTOR_SEARCH_KEY] = $productRawData[CollectorConfig::COLLECTOR_SEARCH_KEY];
             }
         }
 

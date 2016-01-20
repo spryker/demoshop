@@ -21,8 +21,7 @@ SELECT
   abstract_price.price AS abstract_price,
   t.id_touch AS %s,
   t.item_id AS %s,
-  spy_touch_storage.id_touch_storage AS %s,
-*
+  spy_touch_storage.id_touch_storage AS %s
 FROM spy_touch t
   INNER JOIN spy_product_abstract ON (t.item_id = spy_product_abstract.id_product_abstract)
   INNER JOIN spy_product_abstract_localized_attributes ON (spy_product_abstract.id_product_abstract = spy_product_abstract_localized_attributes.fk_product_abstract)
