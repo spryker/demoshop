@@ -4,6 +4,7 @@ namespace Pyz\Zed\Console;
 
 use Spryker\Zed\Development\Communication\Console\CodeCreateConsole;
 use Spryker\Zed\Development\Communication\Console\CodePhpMessDetectorConsole;
+use Spryker\Zed\Development\Communication\Console\DependencyTreeBuilderConsole;
 use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
 use Spryker\Shared\Library\Environment;
 use Spryker\Zed\Application\Communication\Console\ApplicationIntegrationCheckConsole;
@@ -40,19 +41,20 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
         $commands = [
             new ApplicationIntegrationCheckConsole(),
             new BuildNavigationConsole(),
+            new CheckConditionConsole(),
+            new CheckTimeoutConsole(),
             new CollectorStorageExportConsole(),
             new CollectorSearchExportConsole(),
             new CollectorSearchUpdateConsole(),
-            new InitializeDatabaseConsole(),
-            new DemoDataInstallConsole(),
-            new CheckConditionConsole(),
-            new CheckTimeoutConsole(),
-            new GeneratorConsole(),
-            new ProductSearchConsole(),
-            new SearchConsole(),
             new DeleteAllCachesConsole(),
-            new RecordDeploymentConsole(),
+            new DemoDataInstallConsole(),
+            new DependencyTreeBuilderConsole(),
             new FossMarkDownGeneratorConsole(),
+            new GeneratorConsole(),
+            new InitializeDatabaseConsole(),
+            new ProductSearchConsole(),
+            new RecordDeploymentConsole(),
+            new SearchConsole(),
         ];
 
         $propelCommands = $container->getLocator()->propel()->facade()->getConsoleCommands();
