@@ -31,7 +31,7 @@ class RestorePasswordForm extends AbstractForm
             ->add(self::FIELD_PASSWORD, 'repeated', [
                 'first_name' => 'pass',
                 'second_name' => 'confirm',
-                'type' => self::FIELD_PASSWORD,
+                'type' => 'password',
                 'invalid_message' => 'validator.constraints.password.do_not_match',
                 'required' => true,
                 'first_options' => [
