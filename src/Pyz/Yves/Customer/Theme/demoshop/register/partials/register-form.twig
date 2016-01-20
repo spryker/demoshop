@@ -1,14 +1,14 @@
 {{ form_start(form, {'action': url('register')}) }}
-    <label>{{ form.firstName.vars.label | trans }}</label>
+    <label>{{ form.first_name.vars.label | trans }}</label>
     <div>
-        {{ form_widget(form.firstName, { 'attr': {'placeholder': form.firstName.vars.label | trans } }) }}
-        {{ form_errors(form.firstName) }}
+        {{ form_widget(form.first_name, { 'attr': {'placeholder': form.first_name.vars.label | trans } }) }}
+        {{ form_errors(form.first_name) }}
     </div>
 
-    <label>{{ form.lastName.vars.label | trans }}</label>
+    <label>{{ form.last_name.vars.label | trans }}</label>
     <div>
-        {{ form_widget(form.lastName, { 'attr': {'placeholder': form.lastName.vars.label | trans } }) }}
-        {{ form_errors(form.lastName) }}
+        {{ form_widget(form.last_name, { 'attr': {'placeholder': form.last_name.vars.label | trans } }) }}
+        {{ form_errors(form.last_name) }}
     </div>
 
     <label>{{ form.email.vars.label | trans }}</label>

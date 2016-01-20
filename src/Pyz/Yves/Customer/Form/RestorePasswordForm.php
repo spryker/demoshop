@@ -9,19 +9,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class RestorePasswordForm extends AbstractForm
 {
-
-    /**
-     * @var string
-     */
-    protected $restoreKey;
-
-    /**
-     * @param string $restoreKey
-     */
-    public function __construct($restoreKey)
-    {
-        $this->restoreKey = $restoreKey;
-    }
+    const FIELD_RESTORE_PASSWORD_KEY = 'restore_password_key';
+    const FIELD_PASSWORD = 'password';
 
     /**
      * @return string
@@ -38,11 +27,11 @@ class RestorePasswordForm extends AbstractForm
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add(CustomerTransfer::RESTORE_PASSWORD_KEY, 'hidden')
-            ->add(CustomerTransfer::PASSWORD, 'repeated', [
+            ->add(self::FIELD_RESTORE_PASSWORD_KEY, 'hidden')
+            ->add(self::FIELD_PASSWORD, 'repeated', [
                 'first_name' => 'pass',
                 'second_name' => 'confirm',
-                'type' => 'password',
+                'type' => self::FIELD_PASSWORD,
                 'invalid_message' => 'validator.constraints.password.do_not_match',
                 'required' => true,
                 'first_options' => [
@@ -59,11 +48,7 @@ class RestorePasswordForm extends AbstractForm
      */
     public function populateFormFields()
     {
-        $customerTransfer = $this->getDataClass();
-
-        $customerTransfer->setRestorePasswordKey($this->restoreKey);
-
-        return $customerTransfer;
+        return null;
     }
 
     /**
@@ -71,7 +56,7 @@ class RestorePasswordForm extends AbstractForm
      */
     protected function getDataClass()
     {
-        return new CustomerTransfer();
+        return null;
     }
 
 }

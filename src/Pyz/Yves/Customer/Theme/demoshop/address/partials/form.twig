@@ -1,17 +1,17 @@
 {{ form_start(form, {'action': formAction}) }}
     <div>
-        <label>{{ form.firstName.vars.label | trans }}</label>
+        <label>{{ form.first_name.vars.label | trans }}</label>
         <div>
-            {{ form_widget(form.firstName, { 'attr': {'placeholder': (form.firstName.vars.label | trans)} }) }}
-            {{ form_errors(form.firstName) }}
+            {{ form_widget(form.first_name, { 'attr': {'placeholder': (form.first_name.vars.label | trans)} }) }}
+            {{ form_errors(form.first_name) }}
         </div>
     </div>
 
     <div>
-        <label>{{ form.lastName.vars.label | trans }}</label>
+        <label>{{ form.last_name.vars.label | trans }}</label>
         <div>
-            {{ form_widget(form.lastName, { 'attr': {'placeholder': (form.lastName.vars.label | trans)} }) }}
-            {{ form_errors(form.lastName) }}
+            {{ form_widget(form.last_name, { 'attr': {'placeholder': (form.last_name.vars.label | trans)} }) }}
+            {{ form_errors(form.last_name) }}
         </div>
     </div>
 
@@ -48,10 +48,10 @@
     </div>
 
     <div>
-        <label>{{ form.zipCode.vars.label | trans }}</label>
+        <label>{{ form.zip_code.vars.label | trans }}</label>
         <div>
-            {{ form_widget(form.zipCode, { 'attr': {'placeholder': (form.zipCode.vars.label | trans)} }) }}
-            {{ form_errors(form.zipCode) }}
+            {{ form_widget(form.zip_code, { 'attr': {'placeholder': (form.zip_code.vars.label | trans)} }) }}
+            {{ form_errors(form.zip_code) }}
         </div>
     </div>
 
@@ -64,10 +64,10 @@
     </div>
 
     <div>
-        <label>{{ form.iso2Code.vars.label | trans }}</label>
+        <label>{{ form.iso2_code.vars.label | trans }}</label>
         <div>
-            {{ form_widget(form.iso2Code) }}
-            {{ form_errors(form.iso2Code) }}
+            {{ form_widget(form.iso2_code) }}
+            {{ form_errors(form.iso2_code) }}
         </div>
     </div>
 
@@ -80,13 +80,13 @@
     </div>
 
     <div>
-        {{ form_widget(form.isDefaultShipping) }}
-        <label for="{{ form.isDefaultShipping.vars.id }}" class="checkbox">{{ form.isDefaultShipping.vars.label | trans}}</label>
+        {{ form_widget(form.is_default_shipping) }}
+        <label for="{{ form.is_default_shipping.vars.id }}" class="checkbox">{{ form.is_default_shipping.vars.label | trans}}</label>
     </div>
 
     <div>
-        {{ form_widget(form.isDefaultBilling) }}
-        <label for="{{ form.isDefaultBilling.vars.id }}" class="checkbox">{{ form.isDefaultBilling.vars.label | trans}}</label>
+        {{ form_widget(form.is_default_billing) }}
+        <label for="{{ form.is_default_billing.vars.id }}" class="checkbox">{{ form.is_default_billing.vars.label | trans}}</label>
     </div>
 
     <div class="frame buttons cfx">

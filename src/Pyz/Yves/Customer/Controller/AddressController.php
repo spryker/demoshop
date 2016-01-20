@@ -5,6 +5,7 @@ namespace Pyz\Yves\Customer\Controller;
 use Generated\Shared\Transfer\AddressesTransfer;
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
+use Pyz\Yves\Customer\Form\AddressForm;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use Spryker\Shared\Customer\Code\Messages;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -45,10 +46,11 @@ class AddressController extends AbstractCustomerController
 
         $addressFormType = $this
             ->getFactory()
-            ->createFormAddress($this->createDefaultFormDataTransfer($customerTransfer));
+            ->createFormAddress();
 
         $addressForm = $this
             ->buildForm($addressFormType)
+            ->setData($this->getDefaultFormData($customerTransfer))
             ->handleRequest($request);
 
         if ($addressForm->isValid()) {
@@ -87,10 +89,11 @@ class AddressController extends AbstractCustomerController
 
         $addressFormType = $this
             ->getFactory()
-            ->createFormAddress($addressTransfer);
+            ->createFormAddress();
 
         $addressForm = $this
-            ->buildForm($addressFormType);
+            ->buildForm($addressFormType)
+            ->setData($addressTransfer->toArray());
 
         return $this->viewResponse([
             'form' => $addressForm->createView(),
@@ -157,14 +160,12 @@ class AddressController extends AbstractCustomerController
      *
      * @return AddressTransfer
      */
-    protected function createDefaultFormDataTransfer(CustomerTransfer $customerTransfer)
+    protected function getDefaultFormData(CustomerTransfer $customerTransfer)
     {
-        $addressTransfer = new AddressTransfer();
-
-        $addressTransfer->setFirstName($customerTransfer->getFirstName());
-        $addressTransfer->setLastName($customerTransfer->getLastName());
-
-        return $addressTransfer;
+        return [
+            AddressForm::FIELD_FIRST_NAME => $customerTransfer->getFirstName(),
+            AddressForm::FIELD_LAST_NAME => $customerTransfer->getLastName(),
+        ];
     }
 
     /**
@@ -203,12 +204,14 @@ class AddressController extends AbstractCustomerController
 
     /**
      * @param CustomerTransfer $customerTransfer
-     * @param AddressTransfer $addressTransfer
+     * @param array $addressData
      *
      * @return CustomerTransfer
      */
-    protected function createAddress(CustomerTransfer $customerTransfer, AddressTransfer $addressTransfer)
+    protected function createAddress(CustomerTransfer $customerTransfer, array $addressData)
     {
+        $addressTransfer = new AddressTransfer();
+        $addressTransfer->fromArray($addressData);
         $addressTransfer
             ->setFkCustomer($customerTransfer->getIdCustomer());
 
@@ -241,28 +244,20 @@ class AddressController extends AbstractCustomerController
     }
 
     /**
-     * @param AddressTransfer $addressTransfer
+     * @param array $addressData
      *
      * @return CustomerTransfer
      */
-    protected function processAddressUpdate(AddressTransfer $addressTransfer)
+    protected function processAddressUpdate(array $addressData)
     {
+        $addressTransfer = new AddressTransfer();
+        $addressTransfer->fromArray($addressData);
+
         $customerTransfer = $this
             ->getClient()
             ->updateAddressAndCustomerDefaultAddresses($addressTransfer);
 
         return $customerTransfer;
-    }
-
-    /**
-     * @param AddressTransfer $addressTransfer
-     * @param int $idCustomerAddress
-     *
-     * @return bool
-     */
-    protected function isDefaultAddress(AddressTransfer $addressTransfer, $idCustomerAddress)
-    {
-        return ((int) $addressTransfer->getIdCustomerAddress() === (int) $idCustomerAddress);
     }
 
 }

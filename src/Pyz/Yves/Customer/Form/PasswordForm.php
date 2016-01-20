@@ -9,6 +9,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class PasswordForm extends AbstractForm
 {
+    const FIELD_NEW_PASSWORD = 'new_password';
+    const FIELD_PASSWORD = 'password';
 
     /**
      * @return string
@@ -25,14 +27,14 @@ class PasswordForm extends AbstractForm
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add(CustomerTransfer::PASSWORD, 'password', [
+            ->add(self::FIELD_PASSWORD, self::FIELD_PASSWORD, [
                 'label' => 'customer.password.old_password',
                 'required' => true,
             ])
-            ->add(CustomerTransfer::NEW_PASSWORD, 'repeated', [
-                'first_name' => 'password',
+            ->add(self::FIELD_NEW_PASSWORD, 'repeated', [
+                'first_name' => self::FIELD_PASSWORD,
                 'second_name' => 'confirm',
-                'type' => 'password',
+                'type' => self::FIELD_PASSWORD,
                 'invalid_message' => 'customer.password.invalid_password',
                 'required' => true,
                 'first_options' => [
@@ -49,7 +51,7 @@ class PasswordForm extends AbstractForm
      */
     public function populateFormFields()
     {
-        return $this->getDataClass();
+        return null;
     }
 
     /**
@@ -57,7 +59,7 @@ class PasswordForm extends AbstractForm
      */
     protected function getDataClass()
     {
-        return new CustomerTransfer();
+        return null;
     }
 
 }
