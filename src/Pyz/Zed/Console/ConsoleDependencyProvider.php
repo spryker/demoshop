@@ -4,7 +4,7 @@ namespace Pyz\Zed\Console;
 
 use Spryker\Zed\Development\Communication\Console\CodeCreateConsole;
 use Spryker\Zed\Development\Communication\Console\CodePhpMessDetectorConsole;
-use Spryker\Zed\Development\Communication\Console\DependencyTreeBuilderConsole;
+use Spryker\Zed\Maintenance\Communication\Console\DependencyTreeBuilderConsole;
 use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
 use Spryker\Shared\Library\Environment;
 use Spryker\Zed\Application\Communication\Console\ApplicationIntegrationCheckConsole;
