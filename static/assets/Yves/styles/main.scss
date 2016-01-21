@@ -19,6 +19,10 @@
 @import 'components/catalog-filters';
 @import 'components/main-nav';
 
+@import 'spryker/common';
+@import 'spryker/panels';
+@import 'spryker/tables';
+
 @import 'layout/header';
 @import 'layout/footer';
 @import 'layout/homepage';

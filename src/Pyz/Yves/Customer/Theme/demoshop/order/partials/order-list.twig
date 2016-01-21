@@ -1,17 +1,21 @@
-<table width="100%">
-    <tr>
-        <th align="left">{{ 'customer.order.order_id' | trans }}</th>
-        <th align="left">{{ 'customer.order.date' | trans }}</th>
-        <th align="right">{{ 'customer.order.total' | trans }}</th>
-        <th align="right"></th>
+<table width="100%" class="table">
+    <caption>
+        <a class="pull-right" href="{{ url('customer/order') }}">{{ 'customer.order.view_all' | trans }}</a>
+        <h3 class="panel-title">{{ 'customer.account.last_orders' | trans }}</h3>
+    </caption>
+    <tr class="active">
+        <th>{{ 'customer.order.order_id' | trans }}</th>
+        <th>{{ 'customer.order.date' | trans }}</th>
+        <th class="text-right">{{ 'customer.order.total' | trans }}</th>
+        <th class="text-right">{{ 'customer.table.actions' | trans }}</th>
     </tr>
     {% for order in orderList %}
         {% set dateTime = date(order.createdAt) %}
         <tr>
-            <td align="left">{{ order.orderReference }}</td>
-            <td align="left">{{ dateTime | formatDateShort }}</td>
-            <td align="right">{{ order.grandTotal | price }}</td>
-            <td align="right">
+            <td>{{ order.orderReference }}</td>
+            <td>{{ dateTime | formatDateShort }}</td>
+            <td class="text-right">{{ order.grandTotal | price }}</td>
+            <td class="text-right">
                 <a href="{{ path('customer/order/details', {'id': order.idSalesOrder}) }}">{{ 'customer.order.view_order' | trans }}</a>
             </td>
         </tr>
