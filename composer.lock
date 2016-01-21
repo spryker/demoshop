@@ -792,11 +792,16 @@
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "07727368537234e95bd513ef52d9c7cbe00b1c6c"
 =======
+=======
+>>>>>>> #1037 update composer
 <<<<<<< HEAD
                 "reference": "a29b02d6bfd295ddd229f15cd8bd8b3dce42b119"
 =======
+=======
+>>>>>>> #1037 update composer
 <<<<<<< HEAD
                 "reference": "fb392b143af0694ac00ed5a804ed1fd2ee70a57d"
 =======
@@ -810,7 +815,13 @@
                 "reference": "27090d29634f3b110ee7c4afe18ae3888119d54a"
 >>>>>>> #1037 fixed versions in composer.json, cleanups
 >>>>>>> #1037 fixed versions in composer.json, cleanups
+<<<<<<< HEAD
 >>>>>>> #1037 fixed versions in composer.json, cleanups
+=======
+=======
+                "reference": "27090d29634f3b110ee7c4afe18ae3888119d54a"
+>>>>>>> #1037 update composer
+>>>>>>> #1037 update composer
             },
             "require": {
                 "phpdocumentor/graphviz": "~1.0.0"
@@ -828,11 +839,16 @@
                 }
             },
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-02-03 14:30:55"
 =======
+=======
+>>>>>>> #1037 update composer
 <<<<<<< HEAD
             "time": "2016-02-03 11:31:45"
 =======
+=======
+>>>>>>> #1037 update composer
 <<<<<<< HEAD
             "time": "2016-01-29 12:19:03"
 =======
@@ -842,8 +858,17 @@
             "time": "2016-01-21 13:36:32"
 >>>>>>> #1037 fixed versions in composer.json, cleanups
 >>>>>>> #1037 fixed versions in composer.json, cleanups
+<<<<<<< HEAD
 >>>>>>> #1037 fixed versions in composer.json, cleanups
+<<<<<<< HEAD
 >>>>>>> #1037 fixed versions in composer.json, cleanups
+=======
+=======
+=======
+            "time": "2016-01-21 13:36:32"
+>>>>>>> #1037 update composer
+>>>>>>> #1037 update composer
+>>>>>>> #1037 update composer
         },
         {
             "name": "symfony-cmf/routing",
