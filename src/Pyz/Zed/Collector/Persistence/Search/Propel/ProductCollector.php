@@ -51,8 +51,6 @@ class ProductCollector extends AbstractPropelCollectorQuery
      */
     protected function prepareQuery()
     {
-        $this->touchQuery->clearSelectColumns();
-
         // Abstract & concrete product - including localized attributes & url
         $this->touchQuery->addJoin(
             SpyTouchTableMap::COL_ITEM_ID,
@@ -180,6 +178,7 @@ class ProductCollector extends AbstractPropelCollectorQuery
         );
         $this->touchQuery->withColumn(SpyStockProductTableMap::COL_QUANTITY, 'quantity');
         $this->touchQuery->withColumn(SpyStockProductTableMap::COL_IS_NEVER_OUT_OF_STOCK, 'is_never_out_of_stock');
+
         // Category
         $this->touchQuery->addJoin(
             SpyTouchTableMap::COL_ITEM_ID,
@@ -189,13 +188,14 @@ class ProductCollector extends AbstractPropelCollectorQuery
         $this->touchQuery->addJoin(
             SpyProductCategoryTableMap::COL_FK_CATEGORY,
             SpyCategoryNodeTableMap::COL_ID_CATEGORY_NODE,
-            Criteria::INNER_JOIN
+            Criteria::LEFT_JOIN //TODO should be INNER_JOIN, once product categories are properly installed via install-demo-data
         );
         $this->touchQuery->addJoin(
             SpyCategoryNodeTableMap::COL_FK_CATEGORY,
             SpyCategoryAttributeTableMap::COL_FK_CATEGORY,
-            Criteria::INNER_JOIN
+            Criteria::LEFT_JOIN //TODO should be INNER_JOIN, once product categories are properly installed via install-demo-data
         );
+
         $excludeDirectParent = false;
         $excludeRoot = true;
 
@@ -220,7 +220,7 @@ class ProductCollector extends AbstractPropelCollectorQuery
         $this->touchQuery->groupBy('abstract_sku');
     }
 
-
+    //TODO remove those methods once setup:demo-data-install installs proper product categories
     /**
      * @param ModelCriteria $expandableQuery
      * @param string $rightTableAlias
@@ -286,7 +286,7 @@ class ProductCollector extends AbstractPropelCollectorQuery
                 (new Join(
                     SpyCategoryClosureTableTableMap::COL_FK_CATEGORY_NODE,
                     SpyCategoryNodeTableMap::COL_ID_CATEGORY_NODE,
-                    Criteria::INNER_JOIN
+                    Criteria::LEFT_JOIN
                 ))->setRightTableAlias($relationTableAlias),
                 $relationTableAlias . 'Join'
             );
