@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class ForgottenPasswordForm extends AbstractForm
 {
+    const FIELD_EMAIL = 'email';
 
     /**
      * @return string
@@ -25,7 +26,7 @@ class ForgottenPasswordForm extends AbstractForm
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add(CustomerTransfer::EMAIL, 'email', [
+            ->add(self::FIELD_EMAIL, self::FIELD_EMAIL, [
                 'label' => 'customer.forgotten_password.email',
             ]);
     }
@@ -35,7 +36,7 @@ class ForgottenPasswordForm extends AbstractForm
      */
     public function populateFormFields()
     {
-        return $this->getDataClass();
+        return null;
     }
 
     /**
@@ -43,7 +44,7 @@ class ForgottenPasswordForm extends AbstractForm
      */
     protected function getDataClass()
     {
-        return new CustomerTransfer();
+        return null;
     }
 
 }

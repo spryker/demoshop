@@ -9,19 +9,10 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class ProfileForm extends AbstractForm
 {
-
-    /**
-     * @var CustomerTransfer
-     */
-    protected $customerTransfer;
-
-    /**
-     * @param CustomerTransfer $customerTransfer
-     */
-    public function __construct(CustomerTransfer $customerTransfer)
-    {
-        $this->customerTransfer = $customerTransfer;
-    }
+    const FIELD_EMAIL = 'email';
+    const FIELD_LAST_NAME = 'last_name';
+    const FIELD_FIRST_NAME = 'first_name';
+    const FIELD_SALUTATION = 'salutation';
 
     /**
      * @return string
@@ -38,32 +29,26 @@ class ProfileForm extends AbstractForm
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add(CustomerTransfer::SALUTATION, 'choice', [
+            ->add(self::FIELD_SALUTATION, 'choice', [
                 'choices' => [
                     'Mr' => 'customer.salutation.mr',
                     'Mrs' => 'customer.salutation.mrs',
                     'Dr' => 'customer.salutation.dr',
                 ],
                 'label' => 'profile.form.salutation',
-                'placeholder' => '',
-                'empty_data'  => null,
                 'required' => false,
             ])
-            ->add(CustomerTransfer::FIRST_NAME, 'text', [
+            ->add(self::FIELD_FIRST_NAME, 'text', [
                 'label' => 'customer.profile.first_name',
                 'required' => true,
             ])
-            ->add(CustomerTransfer::LAST_NAME, 'text', [
+            ->add(self::FIELD_LAST_NAME, 'text', [
                 'label' => 'customer.profile.last_name',
                 'required' => true,
             ])
-            ->add(CustomerTransfer::EMAIL, 'email', [
+            ->add(self::FIELD_EMAIL, self::FIELD_EMAIL, [
                 'label' => 'customer.profile.email',
                 'required' => true,
-            ])
-            ->add(CustomerTransfer::PHONE, 'text', [
-                'label' => 'customer.profile.phone',
-                'required' => false,
             ]);
     }
 
@@ -72,10 +57,7 @@ class ProfileForm extends AbstractForm
      */
     public function populateFormFields()
     {
-        $customerTransfer = $this->getDataClass();
-        $customerTransfer->fromArray($this->customerTransfer->toArray());
-
-        return $customerTransfer;
+        return null;
     }
 
     /**
@@ -83,7 +65,7 @@ class ProfileForm extends AbstractForm
      */
     protected function getDataClass()
     {
-        return new CustomerTransfer();
+        return null;
     }
 
 }

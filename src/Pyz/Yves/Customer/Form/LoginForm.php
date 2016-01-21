@@ -30,7 +30,8 @@ class LoginForm extends AbstractForm
             ->add(self::FIELD_PASSWORD, self::FIELD_PASSWORD, [
                 'label' => 'customer.login.password',
                 'constraints' => new NotBlank(),
-            ]);
+            ])
+            ->setAction('/login_check');
     }
 
     /**

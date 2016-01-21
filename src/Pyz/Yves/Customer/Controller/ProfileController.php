@@ -20,8 +20,10 @@ class ProfileController extends AbstractCustomerController
     {
         $profileFormType = $this
             ->getFactory()
-            ->createFormProfile($this->getLoggedInCustomerTransfer());
-        $profileForm = $this->buildForm($profileFormType);
+            ->createFormProfile();
+        $profileForm = $this
+            ->buildForm($profileFormType)
+            ->setData($this->getLoggedInCustomerTransfer()->toArray());
 
         $passwordFormType = $this
             ->getFactory()
@@ -42,7 +44,8 @@ class ProfileController extends AbstractCustomerController
     public function submitProfileAction(Request $request)
     {
         $profileForm = $this
-            ->buildForm($this->getFactory()->createFormProfile($this->getLoggedInCustomerTransfer()))
+            ->buildForm($this->getFactory()->createFormProfile())
+            ->setData($this->getLoggedInCustomerTransfer()->toArray())
             ->handleRequest($request);
 
         if ($profileForm->isValid()) {
@@ -71,12 +74,14 @@ class ProfileController extends AbstractCustomerController
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param array $customerData
      *
      * @return void
      */
-    protected function processProfileUpdate(CustomerTransfer $customerTransfer)
+    protected function processProfileUpdate(array $customerData)
     {
+        $customerTransfer = new CustomerTransfer();
+        $customerTransfer->fromArray($customerData);
         $customerTransfer->setIdCustomer($this->getLoggedInCustomerTransfer()->getIdCustomer());
 
         $customerResponseTransfer = $this
@@ -93,12 +98,15 @@ class ProfileController extends AbstractCustomerController
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param array $customerData
      *
      * @return void
      */
-    protected function processPasswordUpdate(CustomerTransfer $customerTransfer)
+    protected function processPasswordUpdate(array $customerData)
     {
+        $customerTransfer = new CustomerTransfer();
+        $customerTransfer->fromArray($customerData);
+
         $customerTransfer->setIdCustomer($this->getLoggedInCustomerTransfer()->getIdCustomer());
 
         $customerResponseTransfer = $this

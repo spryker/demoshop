@@ -4,7 +4,7 @@ namespace Pyz\Yves\Customer\Plugin\Provider;
 
 use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Yves\Customer\CustomerFactory;
-use Pyz\Yves\Customer\Security\User;
+use Pyz\Yves\Customer\Security\Customer;
 use Spryker\Yves\Kernel\AbstractPlugin;
 use Spryker\Client\Customer\CustomerClientInterface;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
@@ -37,7 +37,7 @@ class CustomerUserProvider extends AbstractPlugin implements UserProviderInterfa
      */
     public function refreshUser(UserInterface $user)
     {
-        if (!$user instanceof User) {
+        if (!$user instanceof Customer) {
             throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', get_class($user)));
         }
 
@@ -57,7 +57,7 @@ class CustomerUserProvider extends AbstractPlugin implements UserProviderInterfa
      */
     public function supportsClass($class)
     {
-        return $class === User::class;
+        return $class === Customer::class;
     }
 
     /**

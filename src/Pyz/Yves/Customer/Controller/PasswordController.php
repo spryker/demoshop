@@ -4,16 +4,17 @@ namespace Pyz\Yves\Customer\Controller;
 
 use Generated\Shared\Transfer\CustomerResponseTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
+use Pyz\Client\Customer\CustomerClient;
 use Pyz\Yves\Customer\CustomerFactory;
+use Pyz\Yves\Customer\Form\RestorePasswordForm;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
-use Spryker\Client\Customer\CustomerClientInterface;
 use Spryker\Shared\Customer\Code\Messages;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @method CustomerFactory getFactory()
- * @method CustomerClientInterface getClient()
+ * @method CustomerClient getClient()
  */
 class PasswordController extends AbstractCustomerController
 {
@@ -30,7 +31,10 @@ class PasswordController extends AbstractCustomerController
             ->handleRequest($request);
 
         if ($form->isValid()) {
-            $customerResponseTransfer = $this->sendPasswordRestoreMail($form->getData());
+            $customerTransfer = new CustomerTransfer();
+            $customerTransfer->fromArray($form->getData());
+
+            $customerResponseTransfer = $this->sendPasswordRestoreMail($customerTransfer);
 
             if ($customerResponseTransfer->getIsSuccess()) {
                 $this->addSuccessMessage(Messages::CUSTOMER_PASSWORD_RECOVERY_MAIL_SENT);
@@ -52,11 +56,17 @@ class PasswordController extends AbstractCustomerController
     public function restorePasswordAction(Request $request)
     {
         $form = $this
-            ->buildForm($this->getFactory()->createFormRestorePassword($request->query->get('token')))
+            ->buildForm($this->getFactory()->createFormRestorePassword())
+            ->setData([
+                RestorePasswordForm::FIELD_RESTORE_PASSWORD_KEY => $request->query->get('token'),
+            ])
             ->handleRequest($request);
 
         if ($form->isValid()) {
-            $customerResponseTransfer = $this->getClient()->restorePassword($form->getData());
+            $customerTransfer = new CustomerTransfer();
+            $customerTransfer->fromArray($form->getData());
+
+            $customerResponseTransfer = $this->getClient()->restorePassword($customerTransfer);
 
             if ($customerResponseTransfer->getIsSuccess()) {
                 $this->getClient()->logout();

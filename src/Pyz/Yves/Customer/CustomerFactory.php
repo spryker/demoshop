@@ -2,7 +2,6 @@
 
 namespace Pyz\Yves\Customer;
 
-use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Client\Newsletter\NewsletterClientInterface;
@@ -19,7 +18,7 @@ use Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationSuccessHandler;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerUserProvider;
 use Pyz\Yves\Customer\Plugin\AuthenticationHandler;
-use Pyz\Yves\Customer\Security\User;
+use Pyz\Yves\Customer\Security\Customer;
 use Spryker\Client\Sales\SalesClientInterface;
 use Spryker\Shared\Application\Communication\Application;
 use Spryker\Shared\Kernel\Store;
@@ -34,13 +33,11 @@ class CustomerFactory extends AbstractFactory
 {
 
     /**
-     * @param AddressTransfer|null $addressTransfer
-     *
      * @return AddressForm
      */
-    public function createFormAddress(AddressTransfer $addressTransfer = null)
+    public function createFormAddress()
     {
-        return new AddressForm($this->createStore(), $addressTransfer);
+        return new AddressForm($this->createStore());
     }
 
     /**
@@ -68,23 +65,19 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
-     *
      * @return ProfileForm
      */
-    public function createFormProfile(CustomerTransfer $customerTransfer)
+    public function createFormProfile()
     {
-        return new ProfileForm($customerTransfer);
+        return new ProfileForm();
     }
 
     /**
-     * @param string $restoreKey
-     *
      * @return RestorePasswordForm
      */
-    public function createFormRestorePassword($restoreKey)
+    public function createFormRestorePassword()
     {
-        return new RestorePasswordForm($restoreKey);
+        return new RestorePasswordForm();
     }
 
     /**
@@ -118,7 +111,7 @@ class CustomerFactory extends AbstractFactory
      */
     public function createSecurityUser(CustomerTransfer $customerTransfer)
     {
-        return new User(
+        return new Customer(
             $customerTransfer,
             $customerTransfer->getEmail(),
             $customerTransfer->getPassword(),
