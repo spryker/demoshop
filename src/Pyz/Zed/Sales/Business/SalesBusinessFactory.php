@@ -15,7 +15,7 @@ class SalesBusinessFactory extends SprykerSalesBusinessFactory
     public function createOrderManager()
     {
         return new OrderManager(
-            $this->createSalesQueryContainer(),
+            $this->getQueryContainer(),
             $this->getProvidedDependency(SalesDependencyProvider::FACADE_COUNTRY),
             $this->getProvidedDependency(SalesDependencyProvider::FACADE_OMS),
             $this->createReferenceGenerator()
