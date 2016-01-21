@@ -53,13 +53,11 @@ DROP TABLE IF EXISTS "spy_redirect";
 
 DROP TABLE IF EXISTS "spy_searchable_products";
 
--- ALTER TABLE "spy_price_product" DROP CONSTRAINT "spy_price_product-fk_abstract_product";
+ALTER TABLE "spy_price_product" DROP CONSTRAINT "spy_price_product-fk_abstract_product";
 
-DROP INDEX "spy_price_product-unique-fk_abstract_product" ON "spy_price_product";
+ALTER TABLE "spy_price_product" DROP CONSTRAINT "spy_price_product-unique-fk_abstract_product";
 
-ALTER TABLE "spy_price_product"
-
-  CHANGE "fk_abstract_product" "fk_product_abstract" INTEGER;
+ALTER TABLE "spy_price_product" RENAME COLUMN "fk_abstract_product" TO "fk_product_abstract";
 
 CREATE UNIQUE INDEX "spy_price_product-unique-fk_product_abstract" ON "spy_price_product" ("fk_product_abstract", "fk_product", "fk_price_type");
 
