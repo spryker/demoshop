@@ -45,7 +45,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 
 ALTER TABLE `spy_sales_order_item_option`
 
-  CHANGE `tax_rate` `tax_rate` DECIMAL(8,2) DEFAULT 0.0 NOT NULL;
+  CHANGE `tax_percentage` `tax_percentage` DECIMAL(8,2) DEFAULT 0.0 NOT NULL;
 
 ALTER TABLE `spy_tax_rate`
 
@@ -75,7 +75,7 @@ ALTER TABLE `spy_sales_order_item_option`
 
   CHANGE `tax_percentage` `tax_percentage` DECIMAL(8,2) DEFAULT 0.00 NOT NULL;
 
-ALTER TABLE `tax_rate`
+ALTER TABLE `tax_percentage`
 
   CHANGE `rate` `rate` DECIMAL(8,2) DEFAULT 0.00 NOT NULL;
 

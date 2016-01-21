@@ -20,7 +20,6 @@ use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\TotalsTransfer;
-use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\TaxSetTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
@@ -65,7 +64,7 @@ abstract class AbstractFacadeTest extends Test
     private $paymentEntity;
 
     /**
-     * @var CheckoutRequestTransfer
+     * @var QuoteTransfer
      */
     private $checkoutRequestTransfer;
 
@@ -176,7 +175,7 @@ abstract class AbstractFacadeTest extends Test
     }
 
     /**
-     * @return CheckoutRequestTransfer
+     * @return QuoteTransfer
      */
     protected function getCheckoutRequestTransfer()
     {
@@ -231,7 +230,7 @@ abstract class AbstractFacadeTest extends Test
 
     protected function setCheckoutRequestTransfer()
     {
-        $this->checkoutRequestTransfer = (new CheckoutRequestTransfer())
+        $this->checkoutRequestTransfer = (new QuoteTransfer())
             ->setIdUser(null)
             ->setShippingAddress($this->addressTransfer)
             ->setBillingAddress($this->addressTransfer)

@@ -25,7 +25,10 @@ class SalesConfig extends SprykerSalesConfig
      */
     public function determineProcessForOrderItem(QuoteTransfer $quoteTransfer, ItemTransfer $itemTransfer)
     {
-        return self::$stateMachineMapper[$quoteTransfer->getPayment()->getPaymentSelection()];
+        $stateMachineMapper = array_merge(static::$stateMachineMapper, SprykerSalesConfig::$stateMachineMapper);
+        if (array_key_exists($quoteTransfer->getPayment()->getPaymentSelection(), $stateMachineMapper) === true) {
+            return $stateMachineMapper[$quoteTransfer->getPayment()->getPaymentSelection()];
+        }
     }
 
 }

@@ -82,9 +82,9 @@ class ShipmentHandler
     protected function createShippingExpenseTransfer(ShipmentMethodTransfer $shipmentMethodTransfer)
     {
         $shipmentExpenseTransfer = $this->createExpenseTransfer();
+        $shipmentExpenseTransfer->fromArray($shipmentMethodTransfer->toArray(), true);
         $shipmentExpenseTransfer->setType(ShipmentConstants::SHIPMENT_EXPENSE_TYPE);
         $shipmentExpenseTransfer->setUnitGrossPrice($shipmentMethodTransfer->getDefaultPrice());
-        $shipmentExpenseTransfer->setName($shipmentMethodTransfer->getName());
         $shipmentExpenseTransfer->setQuantity(1);
 
         return $shipmentExpenseTransfer;
