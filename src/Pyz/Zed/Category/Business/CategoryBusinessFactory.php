@@ -51,7 +51,7 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
         return new NodeUrlManager(
             $this->createCategoryTreeReader(),
             $this->createUrlPathGenerator(),
-            $this->createUrlFacade(),
+            $this->getUrlFacade(),
             $this->getQueryContainer(),
             $this->getProvidedDependency(CategoryDependencyProvider::QUERY_CONTAINER_LOCALE)
         );
@@ -98,7 +98,7 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
      */
     public function createCategoryTreeRenderer()
     {
-        $locale = $this->createLocaleFacade()->getCurrentLocale();
+        $locale = $this->getLocaleFacade()->getCurrentLocale();
 
         return new CategoryTreeRenderer(
                     $this->getQueryContainer(),
