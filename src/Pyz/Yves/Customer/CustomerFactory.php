@@ -18,7 +18,7 @@ use Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationSuccessHandler;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerUserProvider;
 use Pyz\Yves\Customer\Plugin\AuthenticationHandler;
-use Pyz\Yves\Customer\Security\CustomerUser;
+use Pyz\Yves\Customer\Security\Customer;
 use Spryker\Client\Sales\SalesClientInterface;
 use Spryker\Shared\Application\Communication\Application;
 use Spryker\Shared\Kernel\Store;
@@ -111,7 +111,7 @@ class CustomerFactory extends AbstractFactory
      */
     public function createSecurityUser(CustomerTransfer $customerTransfer)
     {
-        return new CustomerUser(
+        return new Customer(
             $customerTransfer,
             $customerTransfer->getEmail(),
             $customerTransfer->getPassword(),
