@@ -1,0 +1,50 @@
+@mixin text-align($direction) {
+  text-align: $direction;
+}
+
+@mixin float($direction) {
+  float: $direction !important;
+}
+
+.pull-right {
+  @include float(right);
+}
+.pull-left {
+  @include float(left);
+}
+
+.text-left {
+  @include text-align(left);
+}
+.text-center {
+  @include text-align(center);
+}
+.text-right {
+  @include text-align(right);
+}
+
+.half {
+  width: 50%;
+  margin: 0;
+  padding: 0;
+
+  &.left-side {
+    padding-right: 5px;
+  }
+
+  &.right-side {
+    padding-left: 5px;
+  }
+}
+
+.clearfix {
+  clear: both;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+
+  &:after, &:before {
+    content: "";
+    font-size: 0;
+  }
+}
