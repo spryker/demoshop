@@ -41,6 +41,12 @@ function animationHover(element, animation) {
         });
 }
 
+function removeStyleAttribute(elementId) {
+    setTimeout(function(){
+        $(elementId).removeAttr('style');
+    }, 500);
+}
+
 function sideMenuFadeIn() {
     $('#side-menu').fadeIn(500);
 }
@@ -51,12 +57,13 @@ function SmoothlyMenu() {
         $('#side-menu').hide();
         // For smoothly turn on menu
         setTimeout("sideMenuFadeIn", 100);
+        removeStyleAttribute('#side-menu');
     } else if ($('body').hasClass('fixed-sidebar')) {
         $('#side-menu').hide();
         setTimeout("sideMenuFadeIn", 300);
     } else {
         // Remove all inline style from jquery fadeIn function to reset menu state
-        $('#side-menu').removeAttr('style');
+        removeStyleAttribute('#side-menu');
     }
 }
 
