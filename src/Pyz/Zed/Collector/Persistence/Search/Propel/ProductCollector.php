@@ -198,8 +198,9 @@ class ProductCollector extends AbstractPropelCollectorQuery
         );
         $excludeDirectParent = false;
         $excludeRoot = true;
+
         $this->touchQuery = $this->joinCategoryQueryWithUrls($this->touchQuery);
-        $this->touchQuery = $this->categoryQueryContainer->selectCategoryAttributeColumns($this->touchQuery);
+        $this->touchQuery = $this->selectCategoryAttributeColumns($this->touchQuery);
         $this->touchQuery = $this->joinCategoryQueryWithChildrenCategories($this->touchQuery);
         $this->touchQuery = $this->joinLocalizedRelatedCategoryQueryWithAttributes($this->touchQuery, 'categoryChildren', 'child');
         $this->touchQuery = $this->joinRelatedCategoryQueryWithUrls($this->touchQuery, 'categoryChildren', 'child');
@@ -422,6 +423,41 @@ class ProductCollector extends AbstractPropelCollectorQuery
         $expandableQuery->withColumn(
             "string_agg(" . $relationTableAlias . "Urls.url, ',')",
             'category_' . $fieldIdentifier . '_urls'
+        );
+
+        return $expandableQuery;
+    }
+
+
+    /**
+     * @param ModelCriteria $expandableQuery
+     * @param string $tableAlias
+     *
+     * @return ModelCriteria
+     */
+    public function selectCategoryAttributeColumns(
+        ModelCriteria $expandableQuery,
+        $tableAlias = SpyCategoryAttributeTableMap::TABLE_NAME
+    ) {
+        $expandableQuery->withColumn(
+            $tableAlias . '.name',
+            'category_name'
+        );
+        $expandableQuery->withColumn(
+            $tableAlias . '.meta_title',
+            'category_meta_title'
+        );
+        $expandableQuery->withColumn(
+            $tableAlias . '.meta_description',
+            'category_meta_description'
+        );
+        $expandableQuery->withColumn(
+            $tableAlias . '.meta_keywords',
+            'category_meta_keywords'
+        );
+        $expandableQuery->withColumn(
+            $tableAlias . '.category_image_name',
+            'category_image_name'
         );
 
         return $expandableQuery;

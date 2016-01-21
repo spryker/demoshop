@@ -8,10 +8,11 @@ use Pyz\Zed\ProductSearch\Business\ProductSearchFacade;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
 use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPdoCollector;
+use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPropelCollector;
 use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
 use Spryker\Zed\Price\Persistence\PriceQueryContainer;
 
-class ProductCollector extends AbstractSearchPdoCollector
+class ProductCollector extends AbstractSearchPropelCollector
 {
 
     /**
@@ -69,7 +70,7 @@ class ProductCollector extends AbstractSearchPdoCollector
      */
     protected function collectData(array $collectedSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
     {
-        $collectedSet = $this->processData($collectedSet, $locale, $touchUpdaterSet);
+        $collectedSet = $this->processData($collectedSet, $locale);
 
         return parent::collectData($collectedSet, $locale, $touchUpdaterSet);
     }
@@ -77,11 +78,10 @@ class ProductCollector extends AbstractSearchPdoCollector
     /**
      * @param array $resultSet
      * @param LocaleTransfer $locale
-     * @param TouchUpdaterSet $touchUpdaterSet
      *
      * @return array
      */
-    protected function processData($resultSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
+    protected function processData($resultSet, LocaleTransfer $locale)
     {
         $processedResultSet = $this->buildProducts($resultSet, $locale);
 
