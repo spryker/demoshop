@@ -28,6 +28,19 @@ class ProductCollector extends AbstractKeyValuePdoCollector
     protected $productCategoryQueryContainer;
 
     /**
+     * @param CategoryQueryContainerInterface $categoryQueryContainer
+     * @param ProductCategoryQueryContainerInterface $productCategoryQueryContainer
+     */
+    public function __construct(
+        CategoryQueryContainerInterface $categoryQueryContainer,
+        ProductCategoryQueryContainerInterface $productCategoryQueryContainer
+    ) {
+        $this->categoryQueryContainer = $categoryQueryContainer;
+        $this->productCategoryQueryContainer = $productCategoryQueryContainer;
+    }
+
+
+    /**
      * @param string $touchKey
      * @param array $collectItemData
      *
