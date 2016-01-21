@@ -34,8 +34,8 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     {
         $installer = new ProductAttributeMappingInstall(
             $this->createOperationManager(),
-            $this->createLocaleFacade(),
-            $this->createTouchFacade()
+            $this->getLocaleFacade(),
+            $this->getTouchFacade()
         );
         $installer->setMessenger($messenger);
 
@@ -48,7 +48,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     public function createProductAttributesTransformer()
     {
         return new ProductAttributesTransformer(
-                    $this->createProductSearchQueryContainer(),
+                    $this->getProductSearchQueryContainer(),
                     $this->createOperationLocator(),
                     $this->createDefaultOperation()
                 );
@@ -108,7 +108,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     protected function createOperationManager()
     {
         return new OperationManager(
-            $this->createProductSearchQueryContainer()
+            $this->getProductSearchQueryContainer()
         );
     }
 

@@ -31,9 +31,9 @@ class ProductCategoryBusinessFactory extends SprykerBusinessFactory
     {
         $installer = new ProductCategoryMappingInstall(
             $this->createProductCategoryManager(),
-            $this->createCategoryFacade(),
-            $this->createProductFacade(),
-            $this->createLocaleFacade(),
+            $this->getCategoryFacade(),
+            $this->getProductFacade(),
+            $this->getLocaleFacade(),
             $this->createCSVReader(),
             $this->getConfig()->getDemoDataCSVPath()
         );
@@ -56,12 +56,12 @@ class ProductCategoryBusinessFactory extends SprykerBusinessFactory
     public function createProductCategoryManager()
     {
         return new ProductCategoryManager(
-            $this->createCategoryQueryContainer(),
+            $this->getCategoryQueryContainer(),
             $this->getQueryContainer(),
-            $this->createProductFacade(),
-            $this->createCategoryFacade(),
-            $this->createTouchFacade(),
-            $this->createCmsFacade(),
+            $this->getProductFacade(),
+            $this->getCategoryFacade(),
+            $this->getTouchFacade(),
+            $this->getCmsFacade(),
             $this->getProvidedDependency(ProductCategoryDependencyProvider::PLUGIN_PROPEL_CONNECTION)
         );
     }

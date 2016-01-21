@@ -67,7 +67,7 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
                     $this->createClosureTableWriter(),
                     $this->createCategoryTreeReader(),
                     $this->createNodeUrlManager(),
-                    $this->createTouchFacade(),
+                    $this->getTouchFacade(),
                     $this->getProvidedDependency(CategoryDependencyProvider::PLUGIN_PROPEL_CONNECTION)
                 );
     }
