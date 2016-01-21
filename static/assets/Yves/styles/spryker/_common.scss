@@ -23,19 +23,6 @@
   @include text-align(right);
 }
 
-.half {
-  width: 50%;
-  margin: 0;
-  padding: 0;
-
-  &.left-side {
-    padding-right: 5px;
-  }
-
-  &.right-side {
-    padding-left: 5px;
-  }
-}
 
 .clearfix {
   clear: both;
