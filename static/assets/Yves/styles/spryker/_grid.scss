@@ -12,3 +12,9 @@
   padding-left: 10px;
   padding-right: 10px;
 }
+
+@media (max-width: 786px) {
+  .col-md-6, .col-sm-6, .col-lg-6 {
+    width: 100%;
+  }
+}
