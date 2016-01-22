@@ -90,7 +90,7 @@ class ProductCategoryMappingInstall extends AbstractInstaller
                 continue;
             }
 
-            $category = $this->categoryFacade->getCategoryByKey($demoProductCategory[self::CATEGORY_KEY]);
+            $category = $this->categoryFacade->getCategoryByKey($demoProductCategory[self::CATEGORY_KEY], $locale->getIdLocale());
             if (!$category) {
                 continue;
             }

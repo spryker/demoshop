@@ -272,7 +272,9 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createSearchProductCollectorPropelQueryAdapter()
     {
-        return new SearchProductCollectorPropelQueryAdapter();
+        return new SearchProductCollectorPropelQueryAdapter(
+            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY)
+        );
     }
 
     /**
