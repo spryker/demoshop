@@ -90,14 +90,14 @@ class ProductCategoryMappingInstall extends AbstractInstaller
                 continue;
             }
 
-            $categoryName = $demoProductCategory[self::CATEGORY_KEY];
-            if (!$this->categoryFacade->hasCategoryNode($categoryName, $locale)) {
+            $category = $this->categoryFacade->getCategoryByKey($demoProductCategory[self::CATEGORY_KEY]);
+            if (!$category) {
                 continue;
             }
 
-            if (!$this->productCategoryManager->hasProductCategoryMapping($sku, $categoryName, $locale)) {
+            if (!$this->productCategoryManager->hasProductCategoryMapping($sku, $category->getName(), $locale)) {
                 $categoryNodeIds[] = $this->productCategoryManager
-                    ->createProductCategoryMapping($sku, $categoryName, $locale);
+                    ->createProductCategoryMapping($sku, $category->getName(), $locale);
             }
         }
     }
