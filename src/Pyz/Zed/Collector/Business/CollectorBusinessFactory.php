@@ -43,11 +43,29 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $searchProductCollector->setTouchQueryContainer(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
         );
+        $searchProductCollector->setCriteriaBuilder(
+            $this->createCriteriaBuilder()
+        );
+        $searchProductCollector->setQueryBuilder(
+            $this->createSearchPdoQueryAdapterByName('ProductCollector')
+        );
+
+        return $searchProductCollector;
+/*
+        $searchProductCollector = new SearchProductCollector(
+            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRICE),
+            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY),
+            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_SEARCH)
+        );
+
+        $searchProductCollector->setTouchQueryContainer(
+            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
+        );
         $searchProductCollector->setQueryBuilder(
             $this->createSearchProductCollectorPropelQueryAdapter()
         );
 
-        return $searchProductCollector;
+        return $searchProductCollector;*/
     }
 
     /**
