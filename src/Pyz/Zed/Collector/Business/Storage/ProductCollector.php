@@ -150,7 +150,7 @@ class ProductCollector extends AbstractKeyValuePdoCollector
                     $url = $urlQuery->findOne();
                     $url = ($url) ? $url->getUrl() : null;
 
-                    $categories[$mapping->getFkCategory()] = [
+                    $categories[$nodeId] = [
                         'node_id' => $nodeId,
                         'name' => $name,
                         'url' => $url,
