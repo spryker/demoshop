@@ -1,26 +1,26 @@
-{{ form_start(form, {'action': '/login_check'}) }}
+{{ form_start(form, {'action': '/login_check', 'attr': {'class': 'form-horizontal'}}) }}
 
     {% if hasAuthError is defined and hasAuthError == true %}
         <div style="color:red">{{ 'customer.login.failed' | trans }}</div>
     {% endif %}
 
     <label>{{ form.email.vars.label | trans }}</label>
-    <div>
+    <div class="field">
         {{ form_widget(form.email, { 'attr': {'placeholder': form.email.vars.label | trans } }) }}
         {{ form_errors(form.email) }}
     </div>
 
     <label>{{ form.password.vars.label | trans }}</label>
-    <div>
+    <div class="field">
         {{ form_widget(form.password, { 'attr': {'placeholder': form.password.vars.label | trans } }) }}
         {{ form_errors(form.password) }}
     </div>
 
-    <div>
+    <div class="field">
         <a href="{{ url('password/forgotten') }}">{{ 'forms.forgot-password' | trans }}</a>
     </div>
 
     <div class="frame buttons cfx">
-        <input type="submit" value="{{ 'forms.submit-btn' | trans }}" />
+        <input type="submit" value="{{ 'forms.submit.login' | trans }}" />
     </div>
 {{ form_end(form) }}
