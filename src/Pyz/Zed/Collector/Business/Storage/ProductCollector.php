@@ -28,6 +28,11 @@ class ProductCollector extends AbstractKeyValuePdoCollector
     protected $productCategoryQueryContainer;
 
     /**
+     * @var array
+     */
+    protected $categoryCache = [];
+
+    /**
      * @param CategoryQueryContainerInterface $categoryQueryContainer
      * @param ProductCategoryQueryContainerInterface $productCategoryQueryContainer
      */
@@ -38,7 +43,6 @@ class ProductCollector extends AbstractKeyValuePdoCollector
         $this->categoryQueryContainer = $categoryQueryContainer;
         $this->productCategoryQueryContainer = $productCategoryQueryContainer;
     }
-
 
     /**
      * @param string $touchKey
@@ -118,7 +122,6 @@ class ProductCollector extends AbstractKeyValuePdoCollector
      */
     protected function getCategories($idProductAbstract)
     {
-        return [];
         $categoryMappings = $this->productCategoryQueryContainer
             ->queryLocalizedProductCategoryMappingByIdProduct($idProductAbstract)
             ->innerJoinSpyCategory()
@@ -129,15 +132,34 @@ class ProductCollector extends AbstractKeyValuePdoCollector
             )
             ->find();
 
-        $categoryIds = [];
+        $nodeIds = [];
+        $categories = [];
         foreach ($categoryMappings as $mapping) {
-            $categoryIds[$mapping->getFkCategory()] = $mapping->getSpyCategory()->getNodes();
+            $idCategory = $mapping->getFkCategory();
+            $nodeIds[$idCategory] = $mapping->getSpyCategory()->getNodes()->toArray();
+
+            foreach ($mapping->getSpyCategory()->getNodes() as $node) {
+                $queryPath = $this->categoryQueryContainer->queryPath($node->getIdCategoryNode(), $this->locale->getIdLocale());
+                $pathTokens = $queryPath->find();
+
+                foreach ($pathTokens as $pathItem) {
+                    $nodeId = $pathItem['id_category_node'];
+                    $name = $pathItem['name'];
+
+                    $urlQuery = $this->categoryQueryContainer->queryUrlByIdCategoryNode($nodeId);
+                    $url = $urlQuery->findOne();
+                    $url = ($url) ? $url->getUrl() : null;
+
+                    $categories[$mapping->getFkCategory()] = [
+                        'node_id' => $nodeId,
+                        'name' => $name,
+                        'url' => $url,
+                    ];
+                }
+            }
         }
 
-        dump($categoryIds);
-        die;
-
-        return $categoryIds;
+        return $categories;
     }
 
     /**
