@@ -8,11 +8,19 @@
 
             <h1 class="desktop-view">{{ 'customer.account.address' | trans }}</h1>
 
-            <a href="{{ url('customer/address') }}">{{ 'back' | trans }}</a>
+            <p>
+                <a href="{{ url('customer/address') }}">{{ 'back' | trans }}</a>
+            </p>
 
-            <h2>{{ 'customer.account.edit_address_information' | trans }}</h2>
+            <div class="panel">
+                <div class="panel-heading">
+                    <h2>{{ 'customer.account.edit_address_information' | trans }}</h2>
+                </div>
+                <div class="panel-body">
+                    {% include "@customer/address/partials/form.twig" with {'form': form, 'formAction': url('customer/address/new')} %}
+                </div>
+            </div>
 
-            {% include "@customer/address/partials/form.twig" with {'form': form, 'formAction': url('customer/address/new')} %}
         </div>
     </div>
 
