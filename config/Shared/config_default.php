@@ -341,3 +341,5 @@ $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 
 $config[DefaultLoggerConfig::DEFAULT_LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application.log';
 $config[DefaultLoggerConfig::DEFAULT_LOG_LEVEL] = Monolog\Logger::ERROR;
+
+$config[ApplicationConstants::ERROR_LEVEL] = E_ALL;
