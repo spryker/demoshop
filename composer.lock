@@ -754,10 +754,13 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "fb86f916c98da2009e1815137c4972aba77c6b1d"
 =======
 =======
 >>>>>>> #1162 removed PSR 4 from composer.json
+=======
+>>>>>>> #1162 removed old refactoring directory, add violation checker to console
 <<<<<<< HEAD
                 "reference": "8c2fce6dbea257221e980dd8064d6af688f98128"
 =======
@@ -778,7 +781,13 @@
                 "reference": "5fc5627d4cbdf8a5e6c719a2933e70552b15001b"
 >>>>>>> #1162 removed PSR 4 from composer.json
 >>>>>>> #1162 removed PSR 4 from composer.json
+<<<<<<< HEAD
 >>>>>>> #1162 removed PSR 4 from composer.json
+=======
+=======
+                "reference": "d2f5491605e2264484f93707f97088ca8fd0cdd6"
+>>>>>>> #1162 removed old refactoring directory, add violation checker to console
+>>>>>>> #1162 removed old refactoring directory, add violation checker to console
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -862,10 +871,13 @@
             },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-01-28 07:55:23"
 =======
 =======
 >>>>>>> #1162 removed PSR 4 from composer.json
+=======
+>>>>>>> #1162 removed old refactoring directory, add violation checker to console
 <<<<<<< HEAD
             "time": "2016-01-25 10:45:03"
 =======
@@ -886,7 +898,13 @@
             "time": "2016-01-25 08:49:19"
 >>>>>>> #1162 removed PSR 4 from composer.json
 >>>>>>> #1162 removed PSR 4 from composer.json
+<<<<<<< HEAD
 >>>>>>> #1162 removed PSR 4 from composer.json
+=======
+=======
+            "time": "2016-01-25 09:57:50"
+>>>>>>> #1162 removed old refactoring directory, add violation checker to console
+>>>>>>> #1162 removed old refactoring directory, add violation checker to console
         },
         {
             "name": "symfony-cmf/routing",

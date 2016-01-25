@@ -5,6 +5,7 @@ namespace Pyz\Zed\Console;
 use Spryker\Zed\Development\Communication\Console\CodeCreateConsole;
 use Spryker\Zed\Development\Communication\Console\CodePhpMessDetectorConsole;
 use Spryker\Zed\Maintenance\Communication\Console\DependencyTreeBuilderConsole;
+use Spryker\Zed\Maintenance\Communication\Console\DependencyTreeValidatorConsole;
 use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
 use Spryker\Shared\Library\Environment;
 use Spryker\Zed\Application\Communication\Console\ApplicationIntegrationCheckConsole;
@@ -49,6 +50,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new DeleteAllCachesConsole(),
             new DemoDataInstallConsole(),
             new DependencyTreeBuilderConsole(),
+            new DependencyTreeValidatorConsole(),
             new FossMarkDownGeneratorConsole(),
             new GeneratorConsole(),
             new InitializeDatabaseConsole(),
