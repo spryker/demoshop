@@ -6,9 +6,6 @@ use Orm\Zed\Category\Persistence\Map\SpyCategoryTableMap;
 use Orm\Zed\Category\Persistence\SpyCategoryNode;
 use Orm\Zed\Price\Persistence\Map\SpyPriceTypeTableMap;
 use Orm\Zed\Price\Persistence\SpyPriceProductQuery;
-use Orm\Zed\Product\Persistence\Base\SpyProductAbstract;
-use Orm\Zed\Product\Persistence\Map\SpyProductAbstractTableMap;
-use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\Formatter\ArrayFormatter;
 use Pyz\Zed\Collector\CollectorConfig;
@@ -97,7 +94,7 @@ class ProductCollector extends AbstractKeyValuePdoCollector
      *   },
      *   },
      *
-     * @param int $idProductAbstract
+     * @param array $collectItemData
      *
      * @return array
      */

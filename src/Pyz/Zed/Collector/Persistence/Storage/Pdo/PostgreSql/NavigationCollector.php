@@ -60,7 +60,6 @@ class NavigationCollector extends AbstractPdoCollectorQuery
 ';
         $this->criteriaBuilder
             ->sql($sql)
-            //->where('tree.fk_parent_category_node', '!=', null)
             ->setOrderBy([
                 'tree.fk_parent_category_node' => 'ASC',
                 'tree.node_order' => 'DESC',
