@@ -6,6 +6,9 @@ use Orm\Zed\Category\Persistence\Map\SpyCategoryTableMap;
 use Orm\Zed\Category\Persistence\SpyCategoryNode;
 use Orm\Zed\Price\Persistence\Map\SpyPriceTypeTableMap;
 use Orm\Zed\Price\Persistence\SpyPriceProductQuery;
+use Orm\Zed\Product\Persistence\Base\SpyProductAbstract;
+use Orm\Zed\Product\Persistence\Map\SpyProductAbstractTableMap;
+use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\Formatter\ArrayFormatter;
 use Pyz\Zed\Collector\CollectorConfig;
@@ -52,18 +55,19 @@ class ProductCollector extends AbstractKeyValuePdoCollector
      */
     protected function collectItem($touchKey, array $collectItemData)
     {
-        return [
+        $d = [
             'abstract_product_id' => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
-            'abstract_attributes' => $this->getAbstractAttributes($collectItemData['abstract_localized_attributes']),
+            'abstract_attributes' => $this->getAbstractAttributes($collectItemData),
             'abstract_name' => $collectItemData['abstract_name'],
             'abstract_sku' => $collectItemData['abstract_sku'],
             'url' => $collectItemData['abstract_url'],
-            //'concrete_products' => $this->getConcreteProducts($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
             'available' => true,
             'valid_price' => $collectItemData['abstract_price'],
-            //'prices' => $this->getPrices($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
+            'prices' => $this->getPrices($collectItemData),
             'category' => $this->getCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
         ];
+
+        return $d;
     }
 
     /**
@@ -74,14 +78,15 @@ class ProductCollector extends AbstractKeyValuePdoCollector
         return ProductConstants::RESOURCE_TYPE_PRODUCT_ABSTRACT;
     }
 
-    protected function getAbstractAttributes($json)
+    protected function getAbstractAttributes($collectItemData)
     {
-        return json_decode($json, true);
-    }
+        $abstractLocalizedAttributesData = json_decode($collectItemData['abstract_localized_attributes'], true);
+        $concreteLocalizedAttributesData = json_decode($collectItemData['concrete_localized_attributes'], true);
+        $concreteAttributesData = json_decode($collectItemData['concrete_attributes'], true);
 
-    protected function getConcreteProducts($idAbstractProduct)
-    {
-        return [];
+        $attributes = array_merge($abstractLocalizedAttributesData, $concreteLocalizedAttributesData, $concreteAttributesData);
+
+        return $attributes;
     }
 
     /**
@@ -96,14 +101,36 @@ class ProductCollector extends AbstractKeyValuePdoCollector
      *
      * @return array
      */
-    protected function getPrices($idProductAbstract)
+    protected function getPrices($collectItemData)
     {
+        $idProductAbstract = $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID];
+        $idProduct = $collectItemData['id_product'];
+
         $result = [];
         $query = SpyPriceProductQuery::create()
-            ->filterByFkProductAbstract($idProductAbstract)
+            //->leftJoinSpyProductAbstract()
+            ->joinProduct('productConcreteJoin')
             ->joinPriceType()
             ->withColumn(SpyPriceTypeTableMap::COL_NAME, 'price_name')
             ->setFormatter(new ArrayFormatter());
+
+        $query->addJoinCondition(
+            'productConcreteJoin',
+            'productConcreteJoin.is_active = ?',
+            true,
+            Criteria::EQUAL
+        );
+
+        $query->addJoinCondition(
+            'productConcreteJoin',
+            'productConcreteJoin.fk_product_abstract = ?',
+            $idProductAbstract
+        );
+
+        $query->where(
+            'productConcreteJoin.id_product = ?',
+            $idProduct
+        );
 
         $prices = $query->find();
         $data = $prices->toArray();
