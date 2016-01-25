@@ -63,13 +63,13 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
     public function createCategoryTreeWriter()
     {
         return new CategoryTreeWriter(
-                    $this->createNodeWriter(),
-                    $this->createClosureTableWriter(),
-                    $this->createCategoryTreeReader(),
-                    $this->createNodeUrlManager(),
-                    $this->getTouchFacade(),
-                    $this->getProvidedDependency(CategoryDependencyProvider::PLUGIN_PROPEL_CONNECTION)
-                );
+            $this->createNodeWriter(),
+            $this->createClosureTableWriter(),
+            $this->createCategoryTreeReader(),
+            $this->createNodeUrlManager(),
+            $this->getTouchFacade(),
+            $this->getProvidedDependency(CategoryDependencyProvider::PLUGIN_PROPEL_CONNECTION)
+        );
     }
 
     /**
@@ -88,9 +88,9 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
     public function createCategoryTreeReader()
     {
         return new CategoryTreeReader(
-                    $this->getQueryContainer(),
-                    $this->createCategoryTreeFormatter()
-                );
+            $this->getQueryContainer(),
+            $this->createCategoryTreeFormatter()
+        );
     }
 
     /**
@@ -101,9 +101,9 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
         $locale = $this->getLocaleFacade()->getCurrentLocale();
 
         return new CategoryTreeRenderer(
-                    $this->getQueryContainer(),
-                    $locale
-                );
+            $this->getQueryContainer(),
+            $locale
+        );
     }
 
     /**
@@ -112,8 +112,8 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
     public function createCategoryWriter()
     {
         return new CategoryWriter(
-                    $this->getQueryContainer()
-                );
+            $this->getQueryContainer()
+        );
     }
 
     /**
@@ -122,8 +122,8 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
     public function createNodeWriter()
     {
         return new NodeWriter(
-                    $this->getQueryContainer()
-                );
+            $this->getQueryContainer()
+        );
     }
 
     /**
@@ -132,8 +132,8 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
     protected function createClosureTableWriter()
     {
         return new ClosureTableWriter(
-                    $this->getQueryContainer()
-                );
+            $this->getQueryContainer()
+        );
     }
 
     /**

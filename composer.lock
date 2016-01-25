@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "710e008c07c5c5d0dc1a0349312d8010",
+    "hash": "fa520936b71eb7c0c40dbb453c367dd2",
     "content-hash": "f44baab28222ec151e95e372a3eea3ae",
     "packages": [
         {
@@ -753,18 +753,32 @@
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "fb86f916c98da2009e1815137c4972aba77c6b1d"
 =======
+=======
+>>>>>>> #1162 removed PSR 4 from composer.json
 <<<<<<< HEAD
                 "reference": "8c2fce6dbea257221e980dd8064d6af688f98128"
 =======
+=======
+>>>>>>> #1162 removed PSR 4 from composer.json
 <<<<<<< HEAD
                 "reference": "4c1ca3367889a53a8c37dab9f4d823f60c1687e9"
 =======
                 "reference": "c11c480abb6bdaeebfed10490a129d40c3763ca6"
 >>>>>>> #1162 update composer
+<<<<<<< HEAD
 >>>>>>> #1162 update composer
+<<<<<<< HEAD
 >>>>>>> #1162 update composer
+=======
+=======
+=======
+                "reference": "5fc5627d4cbdf8a5e6c719a2933e70552b15001b"
+>>>>>>> #1162 removed PSR 4 from composer.json
+>>>>>>> #1162 removed PSR 4 from composer.json
+>>>>>>> #1162 removed PSR 4 from composer.json
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -847,18 +861,32 @@
                 }
             },
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-01-28 07:55:23"
 =======
+=======
+>>>>>>> #1162 removed PSR 4 from composer.json
 <<<<<<< HEAD
             "time": "2016-01-25 10:45:03"
 =======
+=======
+>>>>>>> #1162 removed PSR 4 from composer.json
 <<<<<<< HEAD
             "time": "2016-01-22 11:24:58"
 =======
             "time": "2016-01-25 08:42:38"
 >>>>>>> #1162 update composer
+<<<<<<< HEAD
 >>>>>>> #1162 update composer
+<<<<<<< HEAD
 >>>>>>> #1162 update composer
+=======
+=======
+=======
+            "time": "2016-01-25 08:49:19"
+>>>>>>> #1162 removed PSR 4 from composer.json
+>>>>>>> #1162 removed PSR 4 from composer.json
+>>>>>>> #1162 removed PSR 4 from composer.json
         },
         {
             "name": "symfony-cmf/routing",
