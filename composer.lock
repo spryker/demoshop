@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fb9321ca3c439454f6af9d400e70a09e",
-    "content-hash": "538a66038259c51ad1cebc9a8e82eebf",
+    "hash": "710e008c07c5c5d0dc1a0349312d8010",
+    "content-hash": "f44baab28222ec151e95e372a3eea3ae",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -748,11 +748,23 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-feature/1162-Create-current-dependency-tree",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "fb86f916c98da2009e1815137c4972aba77c6b1d"
+=======
+<<<<<<< HEAD
+                "reference": "8c2fce6dbea257221e980dd8064d6af688f98128"
+=======
+<<<<<<< HEAD
+                "reference": "4c1ca3367889a53a8c37dab9f4d823f60c1687e9"
+=======
+                "reference": "c11c480abb6bdaeebfed10490a129d40c3763ca6"
+>>>>>>> #1162 update composer
+>>>>>>> #1162 update composer
+>>>>>>> #1162 update composer
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -834,7 +846,19 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
+<<<<<<< HEAD
             "time": "2016-01-28 07:55:23"
+=======
+<<<<<<< HEAD
+            "time": "2016-01-25 10:45:03"
+=======
+<<<<<<< HEAD
+            "time": "2016-01-22 11:24:58"
+=======
+            "time": "2016-01-25 08:42:38"
+>>>>>>> #1162 update composer
+>>>>>>> #1162 update composer
+>>>>>>> #1162 update composer
         },
         {
             "name": "symfony-cmf/routing",
