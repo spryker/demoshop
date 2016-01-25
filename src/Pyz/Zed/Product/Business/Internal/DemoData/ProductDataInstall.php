@@ -179,7 +179,7 @@ class ProductDataInstall extends AbstractInstaller
     {
         $productImageUrl = $this->buildProductImageUrl($product);
 
-        $attributes = [
+        $defaultAttributes = [
             'price' => (float) $product->{'price'},
             'width' => (float) $product->{'width'},
             'height' => (float) $product->{'height'},
@@ -187,9 +187,42 @@ class ProductDataInstall extends AbstractInstaller
         ];
 
         $productAbstract = new ProductAbstractTransfer();
-        $productConcrete = new ProductConcreteTransfer();
+        $productAbstract->setSku($product->{'sku'});
+        $productAbstract->setAttributes($defaultAttributes);
 
+        $productConcrete = new ProductConcreteTransfer();
+        $productConcrete->setSku($product->{'sku'});
+        $productConcrete->setAttributes($defaultAttributes);
+        $productConcrete->setProductImageUrl($productImageUrl);
+        $productConcrete->setIsActive(true);
+
+        $localisedAttributes = $this->getLocalisedAttributes($product, $currentLocale);
+        foreach ($localisedAttributes as $locale => $data) {
+            foreach ($data as $sku => $attributes) {
+                $productAbstract->addLocalizedAttributes($attributes);
+                $productConcrete->addLocalizedAttributes($attributes);
+            }
+        }
+
+/*        $productConcreteClone = clone $productConcrete;
+        $productConcreteClone->setSku($productConcreteClone->getSku().'-AA');*/
+
+        return [
+            self::PRODUCT_ABSTRACT => $productAbstract,
+            self::PRODUCT_CONCRETE_COLLECTION => [$productConcrete],
+        ];
+    }
+
+    /**
+     * @param \SimpleXMLElement $product
+     * @param LocaleTransfer $currentLocale
+     *
+     * @return array
+     */
+    protected function getLocalisedAttributes(\SimpleXMLElement $product, LocaleTransfer $currentLocale)
+    {
         $locales = $this->localeFacade->getAvailableLocales();
+        $attributes = [];
 
         foreach ($locales as $locale) {
             $localeAttributes = $product->xpath('locales/locale[@id="' . $locale . '"]');
@@ -199,40 +232,26 @@ class ProductDataInstall extends AbstractInstaller
                 continue;
             }
 
+            $sku = (string) $product->{'sku'};
+
             $localizedAttributes = new LocalizedAttributesTransfer();
-            $localizedAttributes->setAttributes(
-                [
-                    'image_url' => '/images/product/' . (string) $localeAttributes->{'image'},
-                    'thumbnail_url' => '/images/product/default.png',
-                    'main_color' => (string) $localeAttributes->{'main_color'},
-                    'other_colors' => (string) $localeAttributes->{'other_colors'},
-                    'description' => (string) $localeAttributes->{'description'},
-                    'description_long' => (string) $localeAttributes->{'description_long'},
-                    'fun_fact' => (string) $localeAttributes->{'fun_fact'},
-                    'scientific_name' => (string) $localeAttributes->{'scientific_name'},
-                ]
-            );
             $localizedAttributes->setLocale($this->localeFacade->getLocale($locale));
             $localizedAttributes->setName((string) $localeAttributes->{'name'});
+            $localizedAttributes->setAttributes([
+                'image_url' => '/images/product/' . (string) $localeAttributes->{'image'},
+                'thumbnail_url' => '/images/product/default.png',
+                'main_color' => (string) $localeAttributes->{'main_color'},
+                'other_colors' => (string) $localeAttributes->{'other_colors'},
+                'description' => (string) $localeAttributes->{'description'},
+                'description_long' => (string) $localeAttributes->{'description_long'},
+                'fun_fact' => (string) $localeAttributes->{'fun_fact'},
+                'scientific_name' => (string) $localeAttributes->{'scientific_name'},
+            ]);
 
-            $productAbstract->addLocalizedAttributes($localizedAttributes);
-            $productConcrete->addLocalizedAttributes($localizedAttributes);
+            $attributes[$locale][$sku] = $localizedAttributes;
         }
 
-        $productAbstract->setSku($product->{'sku'});
-        $productAbstract->setAttributes($attributes);
-
-        $productConcrete->setSku($product->{'sku'});
-        $productConcrete->setAttributes($attributes);
-        $productConcrete->setProductImageUrl($productImageUrl);
-        $productConcrete->setIsActive(true);
-
-        return [
-            self::PRODUCT_ABSTRACT => $productAbstract,
-            self::PRODUCT_CONCRETE_COLLECTION => [
-                $productConcrete,
-            ],
-        ];
+        return $attributes;
     }
 
     /**
