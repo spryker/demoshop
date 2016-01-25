@@ -92,4 +92,11 @@ class UrlCollector extends AbstractKeyValuePdoCollector
         return $this->escapeKey(implode($this->keySeparator, $keyParts));
     }
 
+    /**
+     * @return string
+     */
+    public function getBundleName()
+    {
+        return '';
+    }
 }

@@ -113,4 +113,13 @@ class NavigationCollector extends AbstractKeyValuePdoCollector
         return $nodes;
     }
 
+
+    /**
+     * @return string
+     */
+    public function getBundleName()
+    {
+        return 'category';
+    }
+
 }

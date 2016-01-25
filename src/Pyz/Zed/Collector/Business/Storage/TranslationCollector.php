@@ -25,4 +25,12 @@ class TranslationCollector extends AbstractKeyValuePropelCollector
         return 'translation';
     }
 
+    /**
+     * @return string
+     */
+    public function getBundleName()
+    {
+        return 'glossary';
+    }
+
 }
