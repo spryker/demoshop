@@ -3,12 +3,18 @@
   overflow: hidden;
 }
 
-.col-sm-12 {
+.col-sm-12, .col-xs-12 {
   width: 100%;
 }
-.col-md-6 {
+.col-md-6, .col-sm-6, .col-lg-6 {
   float: left;
   width: 50%;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+@media (max-width: 786px) {
+  .col-md-6, .col-sm-6, .col-lg-6 {
+    width: 100%;
+  }
 }

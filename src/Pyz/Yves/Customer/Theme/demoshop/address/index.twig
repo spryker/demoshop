@@ -1,49 +1,58 @@
 {% extends "@application/layout/layout.twig" %}
 
+{% macro row(address, type) %}
+    <tr>
+        <td>{{ address.getFirstName() }} {{ address.getLastName() }}</td>
+        <td>
+            {% spaceless %}
+            {{ address.getAddress1() }} {{ address.getAddress2() }},
+            {{ address.getZipcode() }},
+            {{ address.getCity() }},
+            {{ address.getPhone() }}
+            {% endspaceless %}
+        </td>
+        <td class="text-right">
+            {% if type is not empty %}<span class="label label-info">{{ type }}</span>{% endif %}
+            <a href="{{ url('customer/address/update', {'id': address.getIdCustomerAddress()}) }}" class="edit-data">
+                {{ "customer.profile.address.edit" | trans }}
+            </a>
+            <a href="{{ url('customer/address/delete', {'id': address.getIdCustomerAddress()}) }}" class="delete-btn confirm-popup">
+                {{ "customer.profile.address.delete" | trans }}
+            </a>
+        </td>
+    </tr>
+{% endmacro %}
+
+{% import _self as table %}
+
 {% block content %}
     <div style="margin-top: 65px;padding: 30px;overflow:hidden">
         {% include "@customer/customer/partials/navigation.twig" with {'active': 'address'} %}
 
-        <div style="float:left;width:70%">
-
-            <h1 class="desktop-view">{{ 'customer.account.address' | trans }}</h1>
-            <article class="welcome-message simple-block desktop-view">
-                <h2>{{ 'customer.account.edit_address_information' | trans }}</h2>
-            </article>
-
-            <div style="float:left;width:50%">
-
-                <h3>{{ 'customer.account.default_billing_address' | trans }}</h3>
-                {% if default_billing_address is not null %}
-                    {% include "@customer/address/partials/address.twig" with {'address':default_billing_address} %}
-                {% else %}
-                    <div class="links-area">
-                        <a href="{{ url('customer/address/new') }}" class="edit-data">{{ 'customer.account.please_specify_billing_address' | trans }}</a>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <a class="pull-right" href="{{ url('customer/address/new') }}">{{ 'customer.account.add_new_address' | trans }}</a>
+                        <h3>{{ 'customer.account.address' | trans }}</h3>
                     </div>
-                {% endif %}
-            </div>
+                    <div class="panel-body">
+                        <table class="table border-bottom">
+                            {% if default_billing_address is not null %}
+                                {{ table.row(default_billing_address, 'billing') }}
+                            {% endif %}
+                            {% if default_shipping_address is not null %}
+                                {{ table.row(default_shipping_address, 'shipping') }}
+                            {% endif %}
 
-            <div style="float:left;width:50%">
-                <h3>{{ 'customer.account.default_shipping_address' | trans }}</h3>
-                {% if default_shipping_address is not  null %}
-                    {% include "@customer/address/partials/address.twig" with {'address':default_shipping_address} %}
-                {% else %}
-                    <div class="links-area">
-                        <a href="{{ url('customer/address/new') }}" class="edit-data">{{ 'customer.account.please_specify_shipping_address' | trans }}</a>
+                            {% for address in addresses %}
+                                {{ table.row(address) }}
+                            {% endfor %}
+                        </table>
                     </div>
-                {% endif %}
-            </div>
-
-            <h3>{{ 'customer.account.additional_addresses' | trans }}</h3>
-            {% for address in addresses %}
-                <div>
-                    {% include "@customer/address/partials/address.twig" with {'address':address, 'deletable':true} %}
                 </div>
-            {% endfor %}
-
-            <p>
-                <a href="{{ url('customer/address/new') }}">{{ 'customer.account.add_new_address' | trans }}</a>
-            </p>
+            </div>
         </div>
+
     </div>
 {% endblock %}

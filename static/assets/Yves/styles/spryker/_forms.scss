@@ -7,3 +7,19 @@ form {
     }
   }
 }
+
+.custom-form {
+  label {
+    display: block;
+  }
+
+  input[type="submit"] {
+    width: auto;
+  }
+
+  input, select {
+    border: 1px solid #ccc;
+    max-width: 400px;
+    width: 100%;
+  }
+}

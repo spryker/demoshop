@@ -3,6 +3,7 @@ $boderColor: #cdcdcd;
 .table {
   border: 1px solid $boderColor;
   margin-bottom: 15px;
+  width: 100%;
 
   caption {
     background: #f5f5f5;
@@ -10,6 +11,16 @@ $boderColor: #cdcdcd;
     padding: 5px;
     border: 1px solid $boderColor;
     border-bottom: 0;
+  }
+
+  &.border-bottom {
+    border: 0;
+    border-top: 1px solid $boderColor;
+
+    th, td {
+      border: 0;
+      border-bottom: 1px solid $boderColor;
+    }
   }
 
   th, td {
