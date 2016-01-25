@@ -755,6 +755,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "fb86f916c98da2009e1815137c4972aba77c6b1d"
 =======
 =======
@@ -788,6 +789,9 @@
                 "reference": "d2f5491605e2264484f93707f97088ca8fd0cdd6"
 >>>>>>> #1162 removed old refactoring directory, add violation checker to console
 >>>>>>> #1162 removed old refactoring directory, add violation checker to console
+=======
+                "reference": "b7af56f04251a2ecf3312022f99c8ebd14f11ae1"
+>>>>>>> #1162 update composer
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -872,6 +876,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-01-28 07:55:23"
 =======
 =======
@@ -905,6 +910,9 @@
             "time": "2016-01-25 09:57:50"
 >>>>>>> #1162 removed old refactoring directory, add violation checker to console
 >>>>>>> #1162 removed old refactoring directory, add violation checker to console
+=======
+            "time": "2016-01-25 12:21:24"
+>>>>>>> #1162 update composer
         },
         {
             "name": "symfony-cmf/routing",
