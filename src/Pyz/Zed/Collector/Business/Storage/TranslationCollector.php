@@ -18,14 +18,17 @@ class TranslationCollector extends AbstractKeyValuePropelCollector
         return $collectItemData['translation_value'];
     }
 
+    /**
+     * @return string
+     */
     protected function collectResourceType()
     {
         return 'translation';
     }
 
     /**
-     * @param $data
-     * @param $localeName
+     * @param mixed $data
+     * @param string $localeName
      * @param array $collectedItemData
      *
      * @return string

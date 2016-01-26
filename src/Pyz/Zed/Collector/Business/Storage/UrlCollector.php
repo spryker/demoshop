@@ -32,8 +32,8 @@ class UrlCollector extends AbstractKeyValuePdoCollector
     }
 
     /**
-     * @param $data
-     * @param $localeName
+     * @param mixed $data
+     * @param string $localeName
      * @param array $collectedItemData
      *
      * @return string
@@ -114,4 +114,5 @@ class UrlCollector extends AbstractKeyValuePdoCollector
     {
         return 'url';
     }
+
 }

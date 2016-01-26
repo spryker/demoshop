@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\Collector\Communication\Plugin;
 
-
 use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Zed\Collector\Business\CollectorFacade;
 use Pyz\Zed\Collector\Communication\CollectorCommunicationFactory;

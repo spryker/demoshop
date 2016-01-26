@@ -61,7 +61,7 @@ class ProductCollector extends AbstractKeyValuePdoCollector
      */
     protected function collectItem($touchKey, array $collectItemData)
     {
-        $d = [
+        return [
             'abstract_product_id' => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
             'abstract_attributes' => $this->getAbstractAttributes($collectItemData),
             'abstract_name' => $collectItemData['abstract_name'],
@@ -72,8 +72,6 @@ class ProductCollector extends AbstractKeyValuePdoCollector
             'prices' => $this->getPrices($collectItemData),
             'category' => $this->getCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
         ];
-
-        return $d;
     }
 
     /**
@@ -84,7 +82,12 @@ class ProductCollector extends AbstractKeyValuePdoCollector
         return ProductConstants::RESOURCE_TYPE_PRODUCT_ABSTRACT;
     }
 
-    protected function getAbstractAttributes($collectItemData)
+    /**
+     * @param array $collectItemData
+     *
+     * @return array
+     */
+    protected function getAbstractAttributes(array $collectItemData)
     {
         $abstractLocalizedAttributesData = json_decode($collectItemData['abstract_localized_attributes'], true);
         $concreteLocalizedAttributesData = json_decode($collectItemData['concrete_localized_attributes'], true);
@@ -95,6 +98,11 @@ class ProductCollector extends AbstractKeyValuePdoCollector
         return $attributes;
     }
 
+    /**
+     * @param string $sku
+     *
+     * @return int
+     */
     protected function getValidPriceBySku($sku)
     {
         return $this->priceFacade->getPriceBySku($sku);

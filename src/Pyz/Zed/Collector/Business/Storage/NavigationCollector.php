@@ -113,7 +113,6 @@ class NavigationCollector extends AbstractKeyValuePdoCollector
         return $nodes;
     }
 
-
     /**
      * @return string
      */
