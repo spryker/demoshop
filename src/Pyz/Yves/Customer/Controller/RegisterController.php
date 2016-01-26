@@ -56,12 +56,15 @@ class RegisterController extends AbstractCustomerController
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param array $customerData
      *
      * @return CustomerResponseTransfer
      */
-    protected function registerCustomer(CustomerTransfer $customerTransfer)
+    protected function registerCustomer(array $customerData)
     {
+        $customerTransfer = new CustomerTransfer();
+        $customerTransfer->fromArray($customerData, true);
+
         $customerResponseTransfer = $this
             ->getFactory()
             ->createAuthenticationHandler()
