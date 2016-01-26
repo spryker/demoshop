@@ -26,6 +26,18 @@ class TranslationCollector extends AbstractKeyValuePropelCollector
     }
 
     /**
+     * @param $data
+     * @param $localeName
+     * @param array $collectedItemData
+     *
+     * @return string
+     */
+    protected function collectKey($data, $localeName, array $collectedItemData)
+    {
+        return $this->generateKey($collectedItemData['translation_key'], $localeName);
+    }
+
+    /**
      * @return string
      */
     public function getBundleName()

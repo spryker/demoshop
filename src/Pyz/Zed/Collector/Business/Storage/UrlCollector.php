@@ -93,10 +93,25 @@ class UrlCollector extends AbstractKeyValuePdoCollector
     }
 
     /**
+     * @param mixed $data
+     * @param string $localeName
+     *
+     * @return array
+     */
+    protected function getKeyParts($data, $localeName)
+    {
+        return [
+            Store::getInstance()->getStoreName(),
+            $localeName,
+            $this->buildKey($data),
+        ];
+    }
+
+    /**
      * @return string
      */
     public function getBundleName()
     {
-        return '';
+        return 'url';
     }
 }
