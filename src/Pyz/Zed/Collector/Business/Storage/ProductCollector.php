@@ -9,6 +9,7 @@ use Orm\Zed\Price\Persistence\SpyPriceProductQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\Formatter\ArrayFormatter;
 use Pyz\Zed\Collector\CollectorConfig;
+use Pyz\Zed\Price\Business\PriceFacade;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Collector\Business\Collector\KeyValue\AbstractKeyValuePdoCollector;
@@ -28,6 +29,11 @@ class ProductCollector extends AbstractKeyValuePdoCollector
     protected $productCategoryQueryContainer;
 
     /**
+     * @var PriceFacade
+     */
+    protected $priceFacade;
+
+    /**
      * @var array
      */
     protected $categoryCache = [];
@@ -35,13 +41,16 @@ class ProductCollector extends AbstractKeyValuePdoCollector
     /**
      * @param CategoryQueryContainerInterface $categoryQueryContainer
      * @param ProductCategoryQueryContainerInterface $productCategoryQueryContainer
+     * @param PriceFacade $priceFacade
      */
     public function __construct(
         CategoryQueryContainerInterface $categoryQueryContainer,
-        ProductCategoryQueryContainerInterface $productCategoryQueryContainer
+        ProductCategoryQueryContainerInterface $productCategoryQueryContainer,
+        PriceFacade $priceFacade
     ) {
         $this->categoryQueryContainer = $categoryQueryContainer;
         $this->productCategoryQueryContainer = $productCategoryQueryContainer;
+        $this->priceFacade = $priceFacade;
     }
 
     /**
@@ -59,7 +68,7 @@ class ProductCollector extends AbstractKeyValuePdoCollector
             'abstract_sku' => $collectItemData['abstract_sku'],
             'url' => $collectItemData['abstract_url'],
             'available' => true,
-            'valid_price' => $collectItemData['abstract_price'],
+            'valid_price' => $this->getValidPriceBySku($collectItemData['abstract_sku']),
             'prices' => $this->getPrices($collectItemData),
             'category' => $this->getCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
         ];
@@ -84,6 +93,11 @@ class ProductCollector extends AbstractKeyValuePdoCollector
         $attributes = array_merge($abstractLocalizedAttributesData, $concreteLocalizedAttributesData, $concreteAttributesData);
 
         return $attributes;
+    }
+
+    protected function getValidPriceBySku($sku)
+    {
+        return $this->priceFacade->getPriceBySku($sku);
     }
 
     /**

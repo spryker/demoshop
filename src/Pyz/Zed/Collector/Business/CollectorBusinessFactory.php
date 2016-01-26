@@ -132,7 +132,8 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     {
         $storageProductCollector = new ProductCollector(
             $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY),
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRODUCT_CATEGORY)
+            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRODUCT_CATEGORY),
+            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRICE)
         );
 
         $storageProductCollector->setTouchQueryContainer(
