@@ -12,13 +12,18 @@ use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumberConfig;
 use Spryker\Shared\Log\Config\DefaultLoggerConfig;
 use Spryker\Shared\Payolution\PayolutionConstants;
+use Spryker\Shared\CustomerMailConnector\CustomerMailConnectorConstants;
+use Spryker\Shared\Newsletter\NewsletterConstants;
+use Spryker\Shared\Price\PriceConstants;
+use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
 
 $config[ApplicationConstants::PROJECT_NAMESPACES] = [
     'Pyz',
 ];
 $config[ApplicationConstants::CORE_NAMESPACES] = [
-    'Spryker',
-];
+        'Spryker',
+    ]
+;
 
 $config[ApplicationConstants::PROJECT_TIMEZONE] = 'UTC';
 $config[ApplicationConstants::PROJECT_NAMESPACE] = 'Pyz';
@@ -36,6 +41,7 @@ $config[ApplicationConstants::ZED_DB_ENGINE] = 'mysql';
 $config[ApplicationConstants::STORAGE_KV_SOURCE] = 'redis';
 
 $config[ApplicationConstants::ELASTICA_PARAMETER__HOST] = 'localhost';
+
 $config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT] = 'http';
 $config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = '10005';
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'page';
@@ -144,13 +150,10 @@ $config[ApplicationConstants::PROPEL] = [
 
 $config[ApplicationConstants::CLOUD_ENABLED] = false;
 $config[ApplicationConstants::CLOUD_OBJECT_STORAGE_ENABLED] = false;
-
 $config[ApplicationConstants::CLOUD_CDN_ENABLED] = false;
-
 $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_PREFIX] = 'media';
 $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTP] = '';
 $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = '';
-
 $config[ApplicationConstants::CLOUD_CDN_PRODUCT_IMAGES_PATH_NAME] = '/images/products/';
 
 $config[MailConstants::MAIL_PROVIDER_MANDRILL] = [
@@ -162,17 +165,37 @@ $config[MailConstants::MAIL_PROVIDER_MANDRILL] = [
     'from_name' => 'Demoshop',
 ];
 
-$config[CustomerConstants::SHOP_MAIL_FROM_EMAIL_NAME] = '';
-$config[CustomerConstants::SHOP_MAIL_FROM_EMAIL_ADDRESS] = 'service@demoshop.de';
+$config[PriceConstants::DEFAULT_PRICE_TYPE] =
+    $config[PriceCartConnectorConstants::DEFAULT_PRICE_TYPE] = 'DEFAULT';
 
-$config[CustomerConstants::SHOP_MAIL_REGISTRATION_TOKEN] = 'registration.token';
-$config[CustomerConstants::SHOP_MAIL_REGISTRATION_SUBJECT] = 'registration.mail.subject';
+$config[CustomerConstants::MERGE_LANGUAGE_HANDLEBARS] =
+    $config[MailConstants::MERGE_LANGUAGE_HANDLEBARS] =
+    $config[NewsletterConstants::MERGE_LANGUAGE_HANDLEBARS] =
+    $config[CustomerMailConnectorConstants::MERGE_LANGUAGE_HANDLEBARS] = 'handlebars';
 
-$config[CustomerConstants::SHOP_MAIL_PASSWORD_RESTORE_TOKEN] = 'password.restore';
-$config[CustomerConstants::SHOP_MAIL_PASSWORD_RESTORE_SUBJECT] = 'password.restore.mail.subject';
+$config[CustomerConstants::SHOP_MAIL_FROM_EMAIL_NAME] =
+    $config[CustomerMailConnectorConstants::SHOP_MAIL_FROM_EMAIL_NAME] = '';
 
-$config[CustomerConstants::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_TOKEN] = 'password.change.confirmation';
-$config[CustomerConstants::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_SUBJECT] = 'password.change.confirmation.mail.subject';
+$config[CustomerConstants::SHOP_MAIL_FROM_EMAIL_ADDRESS] =
+    $config[CustomerMailConnectorConstants::SHOP_MAIL_FROM_EMAIL_ADDRESS] = 'service@demoshop.de';
+
+$config[CustomerConstants::SHOP_MAIL_REGISTRATION_TOKEN] =
+    $config[CustomerMailConnectorConstants::SHOP_MAIL_REGISTRATION_TOKEN] = 'registration.token';
+
+$config[CustomerConstants::SHOP_MAIL_REGISTRATION_SUBJECT] =
+    $config[CustomerMailConnectorConstants::SHOP_MAIL_REGISTRATION_SUBJECT] = 'registration.mail.subject';
+
+$config[CustomerConstants::SHOP_MAIL_PASSWORD_RESTORE_TOKEN] =
+    $config[CustomerMailConnectorConstants::SHOP_MAIL_PASSWORD_RESTORE_TOKEN] = 'password.restore';
+
+$config[CustomerConstants::SHOP_MAIL_PASSWORD_RESTORE_SUBJECT] =
+    $config[CustomerMailConnectorConstants::SHOP_MAIL_PASSWORD_RESTORE_SUBJECT] = 'password.restore.mail.subject';
+
+$config[CustomerConstants::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_TOKEN] =
+    $config[CustomerMailConnectorConstants::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_TOKEN] = 'password.change.confirmation';
+
+$config[CustomerConstants::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_SUBJECT] =
+    $config[CustomerMailConnectorConstants::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_SUBJECT] = 'password.change.confirmation.mail.subject';
 
 $config[UserConstants::USER_SYSTEM_USERS] = [
     'yves_system',
