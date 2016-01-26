@@ -30,7 +30,7 @@ class AddressController extends AbstractCustomerController
             ->getClient()
             ->getAddresses($customerTransfer);
 
-        $responseData = $this->getAddressListResponseData($addressesTransfer, $customerTransfer);
+        $responseData = $this->getAddressListResponseData($customerTransfer, $addressesTransfer);
 
         return $this->viewResponse($responseData);
     }
@@ -169,18 +169,22 @@ class AddressController extends AbstractCustomerController
     }
 
     /**
-     * @param AddressesTransfer $addressesTransfer
      * @param CustomerTransfer $customerTransfer
+     * @param AddressesTransfer|null $addressesTransfer
      *
      * @return array
      */
-    protected function getAddressListResponseData(AddressesTransfer $addressesTransfer, CustomerTransfer $customerTransfer)
+    protected function getAddressListResponseData(CustomerTransfer $customerTransfer, AddressesTransfer $addressesTransfer = null)
     {
         $responseData = [
             self::KEY_DEFAULT_BILLING_ADDRESS => null,
             self::KEY_DEFAULT_SHIPPING_ADDRESS => null,
             self::KEY_ADDRESSES => null,
         ];
+
+        if ($addressesTransfer === null) {
+            return $responseData;
+        }
 
         foreach ($addressesTransfer->getAddresses() as $addressTransfer) {
             $other = true;
