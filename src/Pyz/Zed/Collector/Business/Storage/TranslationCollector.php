@@ -15,9 +15,7 @@ class TranslationCollector extends AbstractKeyValuePropelCollector
      */
     protected function collectItem($touchKey, array $collectItemData)
     {
-        return [
-            $touchKey => $collectItemData['translation_value'],
-        ];
+        return $collectItemData['translation_value'];
     }
 
     protected function collectResourceType()
