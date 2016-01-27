@@ -4,6 +4,7 @@ machine:
   environment:
     APPLICATION_ENV: development
     APPLICATION_STORE: DE
+    DATABASE_URL: postgres://ubuntu:@127.0.0.1:5432/circle_test
   services:
     - elasticsearch
 database:
@@ -16,7 +17,7 @@ dependencies:
     - mkdir -p shared/data/common/jenkins
     - mkdir -p shared/data/common/jenkins/jobs
     - echo "memory_limit = 512M" > ~/.phpenv/versions/$(phpenv global)/etc/conf.d/memory.ini
-    - postgresql -u ubuntu circle_test
+    # - mysql -u ubuntu circle_test --execute="SET GLOBAL group_concat_max_len=1048576"
     - wget https://phar.phpunit.de/phpcpd.phar
 test:
   pre:
