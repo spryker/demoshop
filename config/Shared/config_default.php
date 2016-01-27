@@ -16,6 +16,7 @@ use Spryker\Shared\CustomerMailConnector\CustomerMailConnectorConstants;
 use Spryker\Shared\Newsletter\NewsletterConstants;
 use Spryker\Shared\Price\PriceConstants;
 use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
+use Spryker\Shared\Sales\SalesConstants;
 
 $config[ApplicationConstants::PROJECT_NAMESPACES] = [
     'Pyz',
@@ -338,7 +339,9 @@ $config[EventJournalConstants::WRITER_OPTIONS] = [
 
 $config[ApplicationConstants::PROPEL_DEBUG] = false;
 $config[ApplicationConstants::SHOW_SYMFONY_TOOLBAR] = false;
-$config[SequenceNumberConfig::ENVIRONMENT_PREFIX] = '';
+$config[SequenceNumberConfig::ENVIRONMENT_PREFIX]
+    = $config[SalesConstants::ENVIRONMENT_PREFIX]
+    = '';
 
 $config[PayolutionConstants::TRANSACTION_GATEWAY_URL] = 'https://test.ctpe.net/frontend/payment.prc';
 $config[PayolutionConstants::CALCULATION_GATEWAY_URL] = 'https://test-payment.payolution.com/payolution-payment/rest/request/v2';
