@@ -9,7 +9,7 @@ $config[ApplicationConstants::ZED_DB_USERNAME] = 'ubuntu';
 $config[ApplicationConstants::ZED_DB_PASSWORD] = '';
 $config[ApplicationConstants::ZED_DB_DATABASE] = 'circle_test';
 $config[ApplicationConstants::ZED_DB_HOST] = '127.0.0.1';
-$config[ApplicationConstants::ZED_DB_PORT] = '3306';
+$config[ApplicationConstants::ZED_DB_PORT] = 5432;
 
 $config[ApplicationConstants::PROPEL]['database']['connections']['default']['dsn'] = 'pgsql:host=127.0.0.1;dbname=circle_test';
 $config[ApplicationConstants::PROPEL]['database']['connections']['default']['user'] = 'ubuntu';
