@@ -20,6 +20,7 @@ dependencies:
     - wget https://phar.phpunit.de/phpcpd.phar
 test:
   pre:
+    - sudo service postgresql restart
     - >
       if [ -n "${RUN_SPRYKER_BUILD}" ]; then
         cd vendor/spryker/spryker && git checkout origin/${BRANCH}
