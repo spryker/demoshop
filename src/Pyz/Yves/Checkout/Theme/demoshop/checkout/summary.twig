@@ -23,9 +23,7 @@
         <tr>
             <td>Discount:</td>
             <td>
-                {% if quoteTransfer.totals.discount %}
-                   - {{ quoteTransfer.totals.discount.totalAmount|price }}
-                {% endif %}
+                - {{ quoteTransfer.totals.discounttotal|price }}
             </td>
         </tr>
         <tr>
@@ -54,7 +52,7 @@
         </tr>
         <tr>
             <td>TaxAmount:</td>
-            <td>{{ quoteTransfer.totals.taxTotal.amount|price }}</td>
+            <td>{{ quoteTransfer.totals.taxtotal|price }}</td>
         </tr>
     </table>
     <div style="clear:both;"></div>
