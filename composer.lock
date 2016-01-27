@@ -756,6 +756,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "fb86f916c98da2009e1815137c4972aba77c6b1d"
 =======
 =======
@@ -791,6 +792,9 @@
 >>>>>>> #1162 removed old refactoring directory, add violation checker to console
 =======
                 "reference": "b7af56f04251a2ecf3312022f99c8ebd14f11ae1"
+>>>>>>> #1162 update composer
+=======
+                "reference": "287064067505bda4518634f0f564959d666432d0"
 >>>>>>> #1162 update composer
             },
             "require": {
@@ -877,6 +881,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-01-28 07:55:23"
 =======
 =======
@@ -912,6 +917,9 @@
 >>>>>>> #1162 removed old refactoring directory, add violation checker to console
 =======
             "time": "2016-01-25 12:21:24"
+>>>>>>> #1162 update composer
+=======
+            "time": "2016-01-27 10:17:53"
 >>>>>>> #1162 update composer
         },
         {
