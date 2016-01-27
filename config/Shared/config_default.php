@@ -22,9 +22,8 @@ $config[ApplicationConstants::PROJECT_NAMESPACES] = [
     'Pyz',
 ];
 $config[ApplicationConstants::CORE_NAMESPACES] = [
-        'Spryker',
-    ]
-;
+    'Spryker',
+];
 
 $config[ApplicationConstants::PROJECT_TIMEZONE] = 'UTC';
 $config[ApplicationConstants::PROJECT_NAMESPACE] = 'Pyz';
@@ -42,7 +41,6 @@ $config[ApplicationConstants::ZED_DB_ENGINE] = 'mysql';
 $config[ApplicationConstants::STORAGE_KV_SOURCE] = 'redis';
 
 $config[ApplicationConstants::ELASTICA_PARAMETER__HOST] = 'localhost';
-
 $config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT] = 'http';
 $config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = '10005';
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'page';
