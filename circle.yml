@@ -20,6 +20,7 @@ dependencies:
     # - mysql -u ubuntu circle_test --execute="SET GLOBAL group_concat_max_len=1048576"
     - wget https://phar.phpunit.de/phpcpd.phar
 test:
+  adapter: postgresql
   pre:
     - >
       if [ -n "${RUN_SPRYKER_BUILD}" ]; then
