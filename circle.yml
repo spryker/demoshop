@@ -20,6 +20,9 @@ dependencies:
     - wget https://phar.phpunit.de/phpcpd.phar
 test:
   pre:
+    - sudo bash -c "echo \"host all all 0.0.0.0/0 trust\" >>
+        /etc/postgresql/9.4/main/pg_hba.conf"
+    - sudo service postgresql restart
     - >
       if [ -n "${RUN_SPRYKER_BUILD}" ]; then
         cd vendor/spryker/spryker && git checkout origin/${BRANCH}
@@ -30,5 +33,6 @@ test:
 #   - phpcpd vendor/spryker/spryker/Bundles -n
     - vendor/bin/codecept build
     - sudo service postgresql restart
-    - PGPASSWORD='' psql -U postgres -w  -c 'SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pid <> pg_backend_pid(); DROP DATABASE IF EXISTS "circle_test";'
+    - PGPASSWORD='' psql -U postgres -w  -c 'SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pid <> pg_backend_pid()'
+    - PGPASSWORD='' psql -U postgres -w  -c 'DROP DATABASE IF EXISTS "circle_test"'
     - vendor/bin/console application:integration-check
