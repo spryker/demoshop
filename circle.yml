@@ -8,6 +8,7 @@ machine:
   services:
     - elasticsearch
 database:
+  adapter: postgresql
   override:
     - mv config/Zed/propel.ci.yml config/Zed/propel.yml
     - cp config/Shared/config_default-development.ci.php config/Shared/config_default-development_DE.php
@@ -20,7 +21,6 @@ dependencies:
     # - mysql -u ubuntu circle_test --execute="SET GLOBAL group_concat_max_len=1048576"
     - wget https://phar.phpunit.de/phpcpd.phar
 test:
-  adapter: postgresql
   pre:
     - >
       if [ -n "${RUN_SPRYKER_BUILD}" ]; then
