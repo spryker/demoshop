@@ -32,7 +32,6 @@ test:
 # Bundles have tons of duplicates so build will always fail
 #   - phpcpd vendor/spryker/spryker/Bundles -n
     - vendor/bin/codecept build
-    - sudo service postgresql restart
     - PGPASSWORD='' psql -U postgres -w  -c 'SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pid <> pg_backend_pid()'
     - PGPASSWORD='' psql -U postgres -w  -c 'DROP DATABASE IF EXISTS "circle_test"'
     - vendor/bin/console application:integration-check
