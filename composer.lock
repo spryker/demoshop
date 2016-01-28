@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fa520936b71eb7c0c40dbb453c367dd2",
-    "content-hash": "f44baab28222ec151e95e372a3eea3ae",
+    "hash": "f02e4f59ba8461b4cd7f50d956993d5a",
+    "content-hash": "538a66038259c51ad1cebc9a8e82eebf",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -748,58 +748,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/1162-Create-current-dependency-tree",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "fb86f916c98da2009e1815137c4972aba77c6b1d"
-=======
-=======
->>>>>>> #1162 removed PSR 4 from composer.json
-=======
->>>>>>> #1162 removed old refactoring directory, add violation checker to console
-<<<<<<< HEAD
-                "reference": "8c2fce6dbea257221e980dd8064d6af688f98128"
-=======
-=======
->>>>>>> #1162 removed PSR 4 from composer.json
-<<<<<<< HEAD
-                "reference": "4c1ca3367889a53a8c37dab9f4d823f60c1687e9"
-=======
-                "reference": "c11c480abb6bdaeebfed10490a129d40c3763ca6"
->>>>>>> #1162 update composer
-<<<<<<< HEAD
->>>>>>> #1162 update composer
-<<<<<<< HEAD
->>>>>>> #1162 update composer
-=======
-=======
-=======
-                "reference": "5fc5627d4cbdf8a5e6c719a2933e70552b15001b"
->>>>>>> #1162 removed PSR 4 from composer.json
->>>>>>> #1162 removed PSR 4 from composer.json
-<<<<<<< HEAD
->>>>>>> #1162 removed PSR 4 from composer.json
-=======
-=======
-                "reference": "d2f5491605e2264484f93707f97088ca8fd0cdd6"
->>>>>>> #1162 removed old refactoring directory, add violation checker to console
->>>>>>> #1162 removed old refactoring directory, add violation checker to console
-=======
-                "reference": "b7af56f04251a2ecf3312022f99c8ebd14f11ae1"
->>>>>>> #1162 update composer
-=======
-                "reference": "287064067505bda4518634f0f564959d666432d0"
->>>>>>> #1162 update composer
-=======
-                "reference": "c5e34115770ebe7e18caf0ac6e1580379a5f4869"
->>>>>>> #1162 update spryker/spryker
+                "reference": "684c54c756118a47b3ca3697e4575be4f2dfeb98"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -881,54 +834,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2016-01-28 07:55:23"
-=======
-=======
->>>>>>> #1162 removed PSR 4 from composer.json
-=======
->>>>>>> #1162 removed old refactoring directory, add violation checker to console
-<<<<<<< HEAD
-            "time": "2016-01-25 10:45:03"
-=======
-=======
->>>>>>> #1162 removed PSR 4 from composer.json
-<<<<<<< HEAD
-            "time": "2016-01-22 11:24:58"
-=======
-            "time": "2016-01-25 08:42:38"
->>>>>>> #1162 update composer
-<<<<<<< HEAD
->>>>>>> #1162 update composer
-<<<<<<< HEAD
->>>>>>> #1162 update composer
-=======
-=======
-=======
-            "time": "2016-01-25 08:49:19"
->>>>>>> #1162 removed PSR 4 from composer.json
->>>>>>> #1162 removed PSR 4 from composer.json
-<<<<<<< HEAD
->>>>>>> #1162 removed PSR 4 from composer.json
-=======
-=======
-            "time": "2016-01-25 09:57:50"
->>>>>>> #1162 removed old refactoring directory, add violation checker to console
->>>>>>> #1162 removed old refactoring directory, add violation checker to console
-=======
-            "time": "2016-01-25 12:21:24"
->>>>>>> #1162 update composer
-=======
-            "time": "2016-01-27 10:17:53"
->>>>>>> #1162 update composer
-=======
-            "time": "2016-01-27 12:04:32"
->>>>>>> #1162 update spryker/spryker
+            "time": "2016-01-28 10:54:40"
         },
         {
             "name": "symfony-cmf/routing",
