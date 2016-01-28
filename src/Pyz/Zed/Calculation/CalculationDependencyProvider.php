@@ -35,8 +35,8 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
             new RemoveAllCalculatedDiscountsCalculatorPlugin(),
 
             #Item calculators
-            new ProductOptionGrossSumCalculatorPlugin(),
             new ItemGrossAmountsCalculatorPlugin(),
+            new ProductOptionGrossSumCalculatorPlugin(),
 
             #SubTotal
             new SubtotalTotalsCalculatorPlugin(),
