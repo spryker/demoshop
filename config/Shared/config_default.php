@@ -18,6 +18,10 @@ use Spryker\Shared\Price\PriceConstants;
 use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
 use Spryker\Shared\Sales\SalesConstants;
 
+$config[ApplicationConstants::SPRYKER_BUNDLES_ROOT] = [
+    APPLICATION_VENDOR_DIR . '/spryker/spryker/Bundles'
+];
+
 $config[ApplicationConstants::PROJECT_NAMESPACES] = [
     'Pyz',
 ];
