@@ -19,10 +19,12 @@ use Spryker\Zed\Sales\Business\SalesFacade;
 
 class SalesFacadeTest extends Test
 {
+    protected  $userDiscounts = true;
+
     /**
      * @return void
      */
-    public function testSalesOrderAggregatorStackShouldProvideDataFromPersistence()
+    public function testSalesOrderAggregatorWithDiscountsStackShouldProvideDataFromPersistence()
     {
         $salesFacade = $this->createSalesFacade();
 
@@ -30,28 +32,114 @@ class SalesFacadeTest extends Test
 
         $orderTransfer = $salesFacade->getOrderTotalsByIdSalesOrder($salesOrderEntity->getIdSalesOrder());
 
-        $totalsTransfer = $orderTransfer->getTotals();
-        $this->assertEquals(1390, $totalsTransfer->getSubtotal());
-        $this->assertEquals(100, $totalsTransfer->getExpenseTotal());
-        $this->assertEquals(230, $totalsTransfer->getDiscountTotal());
-        $this->assertEquals(1260, $totalsTransfer->getGrandTotal());
-
-        $calculatedDiscountTransfer = $orderTransfer->getCalculatedDiscounts()['discount1'];
-
-        $this->assertEquals('discount1', $calculatedDiscountTransfer->getDisplayName());
-        $this->assertEquals(230, $calculatedDiscountTransfer->getSumGrossAmount());
-
         $itemTransfer1 = $orderTransfer->getItems()[0];
         $itemTransfer2 = $orderTransfer->getItems()[1];
 
-        $this->assertEquals(420, $itemTransfer1->getSumGrossPriceWithProductOptionAndDiscountAmounts());
-        $this->assertEquals(750, $itemTransfer2->getSumGrossPriceWithProductOptionAndDiscountAmounts());
+        $this->assertEquals(500, $itemTransfer1->getUnitGrossPrice());
+        $this->assertEquals(800, $itemTransfer2->getUnitGrossPrice());
+
+        $this->assertEquals(1000, $itemTransfer1->getSumGrossPrice());
+        $this->assertEquals(800, $itemTransfer2->getSumGrossPrice());
 
         $this->assertEquals(67, $itemTransfer1->getUnitTaxAmountWithProductOptionAndDiscountAmounts());
         $this->assertEquals(120, $itemTransfer2->getUnitTaxAmountWithProductOptionAndDiscountAmounts());
 
-        $this->assertEquals(420, $itemTransfer1->getRefundableAmount());
+        $this->assertEquals(840, $itemTransfer1->getSumGrossPriceWithProductOptionAndDiscountAmounts());
+        $this->assertEquals(750, $itemTransfer2->getSumGrossPriceWithProductOptionAndDiscountAmounts());
+
+        $this->assertEquals(80, $itemTransfer1->getUnitTaxAmount());
+        $this->assertEquals(128, $itemTransfer2->getUnitTaxAmount());
+
+        $this->assertEquals(160, $itemTransfer1->getSumTaxAmount());
+        $this->assertEquals(128, $itemTransfer2->getSumTaxAmount());
+
+        $this->assertEquals(840, $itemTransfer1->getRefundableAmount());
         $this->assertEquals(750, $itemTransfer2->getRefundableAmount());
+
+        $expenseTransfer = $orderTransfer->getExpenses()[0];
+        $this->assertEquals(90, $expenseTransfer->getUnitGrossPriceWithDiscounts());
+        $this->assertEquals(90, $expenseTransfer->getSumGrossPriceWithDiscounts());
+
+        $this->assertEquals(16, $expenseTransfer->getUnitTaxAmount());
+        $this->assertEquals(16, $expenseTransfer->getSumTaxAmount());
+
+        $this->assertEquals(14, $expenseTransfer->getUnitTaxAmountWithDiscounts());
+        $this->assertEquals(14, $expenseTransfer->getSumTaxAmountWithDiscounts());
+
+        $this->assertEquals(90, $expenseTransfer->getRefundableAmount());
+
+        $calculatedDiscountTransfer = $orderTransfer->getCalculatedDiscounts()['discount1'];
+
+        $this->assertEquals('discount1', $calculatedDiscountTransfer->getDisplayName());
+        $this->assertEquals(230 + 110, $calculatedDiscountTransfer->getSumGrossAmount());
+
+        $totalsTransfer = $orderTransfer->getTotals();
+        $this->assertEquals(1920, $totalsTransfer->getSubtotal());
+        $this->assertEquals(100, $totalsTransfer->getExpenseTotal());
+        $this->assertEquals(340, $totalsTransfer->getDiscountTotal());
+        $this->assertEquals(1680, $totalsTransfer->getGrandTotal());
+        $this->assertEquals(268, $totalsTransfer->getTaxTotal()->getAmount());
+        $this->assertEquals(19, $totalsTransfer->getTaxTotal()->getTaxRate());
+    }
+
+    /**
+     * @return void
+     */
+    public function testSalesOrderAggregatorNODiscountsStackShouldProvideDataFromPersistence()
+    {
+        $salesFacade = $this->createSalesFacade();
+
+        $this->userDiscounts = false;
+        $salesOrderEntity = $this->createTestOrder();
+
+        $orderTransfer = $salesFacade->getOrderTotalsByIdSalesOrder($salesOrderEntity->getIdSalesOrder());
+
+        $itemTransfer1 = $orderTransfer->getItems()[0];
+        $itemTransfer2 = $orderTransfer->getItems()[1];
+
+        $this->assertEquals(500, $itemTransfer1->getUnitGrossPrice());
+        $this->assertEquals(800, $itemTransfer2->getUnitGrossPrice());
+
+        $this->assertEquals(1000, $itemTransfer1->getSumGrossPrice());
+        $this->assertEquals(800, $itemTransfer2->getSumGrossPrice());
+
+        $this->assertEquals(1060, $itemTransfer1->getSumGrossPriceWithProductOptionAndDiscountAmounts());
+        $this->assertEquals(860, $itemTransfer2->getSumGrossPriceWithProductOptionAndDiscountAmounts());
+
+        $this->assertEquals(80, $itemTransfer1->getUnitTaxAmount());
+        $this->assertEquals(128, $itemTransfer2->getUnitTaxAmount());
+
+        $this->assertEquals(160, $itemTransfer1->getSumTaxAmount());
+        $this->assertEquals(128, $itemTransfer2->getSumTaxAmount());
+
+        $this->assertEquals(85, $itemTransfer1->getUnitTaxAmountWithProductOptionAndDiscountAmounts());
+        $this->assertEquals(137, $itemTransfer2->getUnitTaxAmountWithProductOptionAndDiscountAmounts());
+
+        $this->assertEquals(169, $itemTransfer1->getSumTaxAmountWithProductOptionAndDiscountAmounts());
+        $this->assertEquals(137, $itemTransfer2->getSumTaxAmountWithProductOptionAndDiscountAmounts());
+
+        $this->assertEquals(1060, $itemTransfer1->getRefundableAmount());
+        $this->assertEquals(860, $itemTransfer2->getRefundableAmount());
+
+        $expenseTransfer = $orderTransfer->getExpenses()[0];
+        $this->assertEquals(100, $expenseTransfer->getUnitGrossPriceWithDiscounts());
+        $this->assertEquals(100, $expenseTransfer->getSumGrossPriceWithDiscounts());
+
+        $this->assertEquals(16, $expenseTransfer->getUnitTaxAmount());
+        $this->assertEquals(16, $expenseTransfer->getSumTaxAmount());
+
+        $this->assertEquals(16, $expenseTransfer->getUnitTaxAmountWithDiscounts());
+        $this->assertEquals(16, $expenseTransfer->getSumTaxAmountWithDiscounts());
+
+        $this->assertEquals(100, $expenseTransfer->getRefundableAmount());
+
+        $totalsTransfer = $orderTransfer->getTotals();
+        $this->assertEquals(1920, $totalsTransfer->getSubtotal());
+        $this->assertEquals(100, $totalsTransfer->getExpenseTotal());
+        $this->assertEquals(0, $totalsTransfer->getDiscountTotal());
+        $this->assertEquals(2020, $totalsTransfer->getGrandTotal());
+        $this->assertEquals(323, $totalsTransfer->getTaxTotal()->getAmount());
+        $this->assertEquals(19, $totalsTransfer->getTaxTotal()->getTaxRate());
     }
 
 
@@ -75,6 +163,7 @@ class SalesFacadeTest extends Test
         $salesOrderItem1 = $this->createOrderItem(
             $omsState,
             $salesOrder,
+            2,
             500,
             19,
             100,
@@ -105,6 +194,7 @@ class SalesFacadeTest extends Test
         $salesOrderItem2 = $this->createOrderItem(
             $omsState,
             $salesOrder,
+            1,
             800,
             19,
             100,
@@ -164,16 +254,20 @@ class SalesFacadeTest extends Test
     /**
      * @param SpyOmsOrderItemState $omsState
      * @param SpySalesOrder $salesOrder
-     * @param int $grossPrice
-     * @param int $taxRate
-     *
+     * @param $quantity
+     * @param $grossPrice
+     * @param $taxRate
+     * @param $discountAmount
+     * @param $discountName
      * @param array $options
-     * @return SpySalesOrderItem
+     *
      * @throws \Propel\Runtime\Exception\PropelException
+     * @return SpySalesOrderItem
      */
     protected function createOrderItem(
         SpyOmsOrderItemState $omsState,
         SpySalesOrder $salesOrder,
+        $quantity,
         $grossPrice,
         $taxRate,
         $discountAmount,
@@ -182,7 +276,7 @@ class SalesFacadeTest extends Test
     ) {
         $salesOrderItem = new SpySalesOrderItem();
         $salesOrderItem->setGrossPrice($grossPrice);
-        $salesOrderItem->setQuantity(1);
+        $salesOrderItem->setQuantity($quantity);
         $salesOrderItem->setSku('123');
         $salesOrderItem->setName('test1');
         $salesOrderItem->setTaxRate($taxRate);
@@ -234,6 +328,10 @@ class SalesFacadeTest extends Test
         $idExpense = null,
         $idOrderItemOption = null
     ) {
+        if ($this->userDiscounts === false) {
+            return;
+        }
+
         $spySalesDiscount = new SpySalesDiscount();
         $spySalesDiscount->setName('name');
         $spySalesDiscount->setFkSalesOrder($idOrder);

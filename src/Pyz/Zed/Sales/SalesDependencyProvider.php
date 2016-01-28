@@ -23,6 +23,8 @@ use Spryker\Zed\ProductOption\Communication\Plugin\OrderTotalAggregator\ProductO
 use Spryker\Zed\ProductOption\Communication\Plugin\OrderTotalAggregator\SubtotalWithProductOptionsAggregatorPlugin;
 use Spryker\Zed\ProductOptionDiscountConnector\Communication\Plugin\OrderAmountAggregator\OrderTaxAmountWithProductOptionsAndDiscountsAggregatorPlugin;
 use Spryker\Zed\ProductOptionDiscountConnector\Communication\Plugin\OrderAmountAggregator\ItemsWithProductOptionsAndDiscountsTaxAggregatorPlugin;
+use Spryker\Zed\Tax\Communication\Plugin\OrderAmountAggregator\ItemTaxAmountAggregatorPlugin;
+use Spryker\Zed\Discount\Communication\Plugin\OrderAmountAggregator\ItemTaxWithDiscountsAggregatorPlugin;
 
 class SalesDependencyProvider extends SprykerSalesDependencyProvider
 {
@@ -62,6 +64,8 @@ class SalesDependencyProvider extends SprykerSalesDependencyProvider
             new OrderGrandTotalWithDiscountsAggregatorPlugin(),
 
             ##Add tax for grand total, expenses and items with discounts.
+            new ItemTaxAmountAggregatorPlugin(),
+            new ItemTaxWithDiscountsAggregatorPlugin(),
             new ItemsWithProductOptionsAndDiscountsTaxAggregatorPlugin(),
             new OrderTaxAmountWithProductOptionsAndDiscountsAggregatorPlugin()
         ];
