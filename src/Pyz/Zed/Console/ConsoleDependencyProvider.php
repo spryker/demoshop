@@ -4,7 +4,6 @@ namespace Pyz\Zed\Console;
 
 use Spryker\Zed\Development\Communication\Console\CodeCreateConsole;
 use Spryker\Zed\Development\Communication\Console\CodePhpMessDetectorConsole;
-use Spryker\Zed\Maintenance\Communication\Console\ComposerJsonUpdaterConsole;
 use Spryker\Zed\Maintenance\Communication\Console\DependencyTreeBuilderConsole;
 use Spryker\Zed\Maintenance\Communication\Console\DependencyTreeDependencyViolationConsole;
 use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
@@ -58,7 +57,6 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new ProductSearchConsole(),
             new RecordDeploymentConsole(),
             new SearchConsole(),
-            new ComposerJsonUpdaterConsole()
         ];
 
         $propelCommands = $container->getLocator()->propel()->facade()->getConsoleCommands();
