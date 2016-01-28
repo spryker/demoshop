@@ -41,7 +41,7 @@
 
             <div class="cart__total">
                 <div class="cart__total-label" colspan="2">{{ 'cart.total.discount'|trans }}</div>
-                <div class="cart__total-price js-cart-total">-{{ cart.totals.discount.totalAmount|price }}</div>
+                <div class="cart__total-price js-cart-total">-{{ cart.totals.discountTotal|price }}</div>
                 <div class="cart__total-label" colspan="2">{{ 'cart.total'|trans }}</div>
                 <div class="cart__total-price js-cart-total">{{ cart.totals.grandTotal|price }}</div>
             </div>

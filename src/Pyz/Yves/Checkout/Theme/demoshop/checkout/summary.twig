@@ -52,7 +52,7 @@
         </tr>
         <tr>
             <td>TaxAmount:</td>
-            <td>{{ quoteTransfer.totals.taxtotal|price }}</td>
+            <td>{{ quoteTransfer.totals.taxtotal.amount|price }} ({{ quoteTransfer.totals.taxtotal.taxRate }} %)</td>
         </tr>
     </table>
     <div style="clear:both;"></div>
