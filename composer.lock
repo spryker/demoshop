@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f02e4f59ba8461b4cd7f50d956993d5a",
-    "content-hash": "538a66038259c51ad1cebc9a8e82eebf",
+    "hash": "45842f63b38cb28a7a36a6b658e15b4e",
+    "content-hash": "03c17e43f72aa4f9ab6d851531e9955c",
     "packages": [
         {
             "name": "digital-canvas/zend-framework",
@@ -47,6 +47,176 @@
                 "zf"
             ],
             "time": "2015-11-24 18:30:30"
+        },
+        {
+            "name": "everon/collection",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oliwierptak/everon-collection.git",
+                "reference": "ac6cb9dfbf886d93ad2a951382264f8f54765d4b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oliwierptak/everon-collection/zipball/ac6cb9dfbf886d93ad2a951382264f8f54765d4b",
+                "reference": "ac6cb9dfbf886d93ad2a951382264f8f54765d4b",
+                "shasum": ""
+            },
+            "require": {
+                "everon/utils": "~1.0",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Everon\\Component\\Collection\\": "src/",
+                    "Everon\\Component\\Collection\\Tests\\Unit\\": "tests/unit/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliwier Ptak",
+                    "email": "everonphp@gmail.com"
+                }
+            ],
+            "description": "Everon Collection Component",
+            "time": "2016-01-28 11:28:46"
+        },
+        {
+            "name": "everon/criteria-builder",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oliwierptak/everon-criteria-builder.git",
+                "reference": "f983baab31b6e554aa33168af4bed5564565ce05"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oliwierptak/everon-criteria-builder/zipball/f983baab31b6e554aa33168af4bed5564565ce05",
+                "reference": "f983baab31b6e554aa33168af4bed5564565ce05",
+                "shasum": ""
+            },
+            "require": {
+                "everon/collection": "~1.0",
+                "everon/factory": "~1.0",
+                "everon/utils": "~1.0",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Everon\\Component\\CriteriaBuilder\\": "src/",
+                    "Everon\\Component\\CriteriaBuilder\\Tests\\Unit\\": "tests/unit/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliwier Ptak",
+                    "email": "everonphp@gmail.com"
+                }
+            ],
+            "description": "Everon Criteria Builder Component",
+            "time": "2015-12-14 23:32:46"
+        },
+        {
+            "name": "everon/factory",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oliwierptak/everon-factory.git",
+                "reference": "f4e8bae91385e313838e2ef7dfec9f439574188c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oliwierptak/everon-factory/zipball/f4e8bae91385e313838e2ef7dfec9f439574188c",
+                "reference": "f4e8bae91385e313838e2ef7dfec9f439574188c",
+                "shasum": ""
+            },
+            "require": {
+                "everon/collection": "~1.0",
+                "everon/utils": "~1.0",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Everon\\Component\\Factory\\": "src/",
+                    "Everon\\Component\\Factory\\Tests\\Unit\\": "tests/unit/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliwier Ptak",
+                    "email": "everonphp@gmail.com"
+                }
+            ],
+            "description": "Everon Factory Component",
+            "time": "2015-12-14 23:38:25"
+        },
+        {
+            "name": "everon/utils",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oliwierptak/everon-utils.git",
+                "reference": "3f47fcf982570f59313427af5356e0e105b398af"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oliwierptak/everon-utils/zipball/3f47fcf982570f59313427af5356e0e105b398af",
+                "reference": "3f47fcf982570f59313427af5356e0e105b398af",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Everon\\Component\\Utils\\": "src/",
+                    "Everon\\Component\\Utils\\Tests\\Unit\\": "tests/unit/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliwier Ptak",
+                    "email": "everonphp@gmail.com"
+                }
+            ],
+            "description": "Everon Utils Component",
+            "time": "2015-12-14 23:41:43"
         },
         {
             "name": "guzzle/guzzle",
@@ -748,11 +918,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-feature/SP-176-new-collectors",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d55173504e005eed5f7509fb4ba6635fb747f939"
+                "reference": "39c4c3276fda3d4e44e50740c8f29c666afb26d5"
             },
             "require": {
                 "digital-canvas/zend-framework": ">=1.12.2"
@@ -834,7 +1004,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2016-01-28 11:34:43"
+            "time": "2016-01-28 16:12:08"
         },
         {
             "name": "symfony-cmf/routing",
