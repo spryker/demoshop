@@ -7,6 +7,7 @@
  */
 class PropelMigration_1453820830
 {
+
     public $comment = '';
 
     public function preUp($manager)
@@ -33,29 +34,29 @@ class PropelMigration_1453820830
      * Get the SQL statements for the Up migration
      *
      * @return array list of the SQL strings to execute for the Up migration
-     *               the keys being the datasources
+     *   the keys being the datasources
      */
     public function getUpSQL()
     {
-        return array (
+        return [
   'zed' => '
 ALTER TABLE "spy_payment_payolution_transaction_status_log" DROP CONSTRAINT "spy_payolution_transaction_status_log-transactionid";
 
 ALTER TABLE "spy_payment_payolution_transaction_request_log" DROP CONSTRAINT "spy_payment_payolution_transaction_request_log_u_63355d";
 
 ',
-);
+];
     }
 
     /**
      * Get the SQL statements for the Down migration
      *
      * @return array list of the SQL strings to execute for the Down migration
-     *               the keys being the datasources
+     *   the keys being the datasources
      */
     public function getDownSQL()
     {
-        return array (
+        return [
   'zed' => '
 ALTER TABLE "spy_payment_payolution_transaction_status_log" ADD CONSTRAINT "spy_payolution_transaction_status_log-transactionid"
     FOREIGN KEY ("identification_transactionid")
@@ -63,7 +64,7 @@ ALTER TABLE "spy_payment_payolution_transaction_status_log" ADD CONSTRAINT "spy_
 
 CREATE INDEX "spy_payment_payolution_transaction_request_log_u_63355d" ON "spy_payment_payolution_transaction_request_log" ("transaction_id");
 ',
-);
+];
     }
 
 }

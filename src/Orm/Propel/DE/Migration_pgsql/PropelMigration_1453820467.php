@@ -7,6 +7,7 @@
  */
 class PropelMigration_1453820467
 {
+
     public $comment = '';
 
     public function preUp($manager)
@@ -33,11 +34,11 @@ class PropelMigration_1453820467
      * Get the SQL statements for the Up migration
      *
      * @return array list of the SQL strings to execute for the Up migration
-     *               the keys being the datasources
+     *   the keys being the datasources
      */
     public function getUpSQL()
     {
-        return array (
+        return [
   'zed' => '
 CREATE SEQUENCE "spy_acl_role_pk_seq";
 
@@ -2119,18 +2120,18 @@ ALTER TABLE "spy_wishlist_item" ADD CONSTRAINT "spy_wishlist_item-fk_product_abs
     FOREIGN KEY ("fk_product_abstract")
     REFERENCES "spy_product_abstract" ("id_product_abstract");
 ',
-);
+];
     }
 
     /**
      * Get the SQL statements for the Down migration
      *
      * @return array list of the SQL strings to execute for the Down migration
-     *               the keys being the datasources
+     *   the keys being the datasources
      */
     public function getDownSQL()
     {
-        return array (
+        return [
   'zed' => '
 DROP TABLE IF EXISTS "spy_acl_role" CASCADE;
 
@@ -2508,7 +2509,7 @@ DROP TABLE IF EXISTS "spy_auth_reset_password_archive" CASCADE;
 
 DROP TABLE IF EXISTS "spy_user_archive" CASCADE;
 ',
-);
+];
     }
 
 }
