@@ -1,593 +1,885 @@
 keys:
-
-  page.home.featured.top-left.left.width:
-    translations:
-      de_DE: '1'
-      en_US: '1'
-
-  page.home.featured.top-left.left.height:
-    translations:
-      de_DE: '2'
-      en_US: '2'
-  page.home.featured.top-left.left.name:
-    translations:
-      de_DE: 'Gorilla Männchen'
-      en_US: 'Gorilla male'
-  page.home.featured.top-left.left.category:
-    translations:
-      de_DE: 'Wilde Tiere'
-      en_US: 'Wild animals'
-  page.home.featured.top-left.left.img:
-    translations:
-      de_DE: '/images/homepage/gorilla.jpg'
-      en_US: '/images/homepage/gorilla.jpg'
-  page.home.featured.top-left.left.url:
-    translations:
-      de_DE: '/de/gorilla-maennchen'
-      en_US: '/en/gorilla-male'
-
-  page.home.featured.top-left.right.width:
-    translations:
-      de_DE: '1'
-      en_US: '1'
-  page.home.featured.top-left.right.height:
-    translations:
-      de_DE: '2'
-      en_US: '2'
-  page.home.featured.top-left.right.name:
-    translations:
-      de_DE: 'Brillenpinguin'
-      en_US: 'Penguin'
-  page.home.featured.top-left.right.category:
-    translations:
-      de_DE: 'Meere'
-      en_US: 'Sees'
-  page.home.featured.top-left.right.img:
-    translations:
-      de_DE: '/images/homepage/penguin.jpg'
-      en_US: '/images/homepage/penguin.jpg'
-  page.home.featured.top-left.right.url:
-    translations:
-      de_DE: '/de/brillenpinguin'
-      en_US: '/en/penguin'
-
-  page.home.featured.top-right.first.width:
-    translations:
-      de_DE: '2'
-      en_US: '2'
-  page.home.featured.top-right.first.height:
-    translations:
-      de_DE: '2'
-      en_US: '2'
-  page.home.featured.top-right.first.img:
-    translations:
-      de_DE: '/images/homepage/wildlife.jpg'
-      en_US: '/images/homepage/wildlife.jpg'
-  page.home.featured.top-right.first.url:
-    translations:
-      de_DE: '/de/wilde-tiere'
-      en_US: '/en/wild-animals'
-
-  page.home.featured.top-right.second.width:
-    translations:
-      de_DE: '2'
-      en_US: '2'
-  page.home.featured.top-right.second.height:
-    translations:
-      de_DE: '2'
-      en_US: '2'
-  page.home.featured.top-right.second.img:
-    translations:
-      de_DE: '/images/homepage/dragon.jpg'
-      en_US: '/images/homepage/dragon.jpg'
-  page.home.featured.top-right.second.url:
-    translations:
-      de_DE: '/de/wilde-tiere'
-      en_US: '/en/wild-animals'
-
-  page.home.featured.bottom-left.top.width:
-    translations:
-      de_DE: '2'
-      en_US: '2'
-  page.home.featured.bottom-left.top.height:
-    translations:
-      de_DE: '1'
-      en_US: '1'
-  page.home.featured.bottom-left.top.name:
-    translations:
-      de_DE: 'Wald und Wiese'
-      en_US: 'Forest and Meadow'
-  page.home.featured.bottom-left.top.category:
-    translations:
-      de_DE: '/de/wald-und-wiese'
-      en_US: '/en/forest-and-meadow'
-  page.home.featured.bottom-left.top.img:
-    translations:
-      de_DE: '/images/homepage/teaser-waldwiese.jpg'
-      en_US: '/images/homepage/teaser-waldwiese.jpg'
-  page.home.featured.bottom-left.top.url:
-    translations:
-      de_DE: '/de/wald-und-wiese'
-      en_US: '/en/forest-and-meadow'
-
-  page.home.featured.bottom-left.bottom.width:
-    translations:
-      de_DE: '2'
-      en_US: '2'
-  page.home.featured.bottom-left.bottom.height:
-    translations:
-      de_DE: '1'
-      en_US: '1'
-  page.home.featured.bottom-left.bottom.name:
-    translations:
-      de_DE: 'Meere'
-      en_US: 'Seas'
-  page.home.featured.bottom-left.bottom.category:
-    translations:
-      de_DE: '/de/meere'
-      en_US: '/en/seas'
-  page.home.featured.bottom-left.bottom.img:
-    translations:
-      de_DE: '/images/homepage/sea.jpg'
-      en_US: '/images/homepage/sea.jpg'
-  page.home.featured.bottom-left.bottom.url:
-    translations:
-      de_DE: '/de/meere'
-      en_US: '/en/seas'
-
-  page.home.featured.bottom-right.left.width:
-    translations:
-      de_DE: '1'
-      en_US: '1'
-  page.home.featured.bottom-right.left.height:
-    translations:
-      de_DE: '2'
-      en_US: '2'
-  page.home.featured.bottom-right.left.name:
-    translations:
-      de_DE: 'Ferkel'
-      en_US: 'pig'
-  page.home.featured.bottom-right.left.category:
-    translations:
-      de_DE: 'Wald und Wiese'
-      en_US: 'Forest and Meadow'
-  page.home.featured.bottom-right.left.img:
-    translations:
-      de_DE: '/images/homepage/ferkel.jpg'
-      en_US: '/images/homepage/ferkel.jpg'
-  page.home.featured.bottom-right.left.url:
-    translations:
-      de_DE: '/de/ferkel-stehend'
-      en_US: '/en/pig-standing'
-
-  page.home.featured.bottom-right.right.width:
-    translations:
-      de_DE: '1'
-      en_US: '1'
-  page.home.featured.bottom-right.right.height:
-    translations:
-      de_DE: '2'
-      en_US: '2'
-  page.home.featured.bottom-right.right.name:
-    translations:
-      de_DE: 'Flusspferd'
-      en_US: 'Hippo'
-  page.home.featured.bottom-right.right.category:
-    translations:
-      de_DE: 'Wilde Tiere'
-      en_US: 'Wild animals'
-  page.home.featured.bottom-right.right.img:
-    translations:
-      de_DE: '/images/homepage/flusspferd.jpg'
-      en_US: '/images/homepage/flusspferd.jpg'
-  page.home.featured.bottom-right.right.url:
-    translations:
-      de_DE: '/de/flusspferd'
-      en_US: '/en/hippo'
-
-  cart.your-order:
-    translations:
-      de_DE: 'Deine Bestellung'
-      en_US: 'Your Order'
-  cart.price:
-    translations:
-      de_DE: 'Preis'
-      en_US: 'Prize'
-
-  cart.shipping.order-item:
-    translations:
-      de_DE: '+ Versand'
-      en_US: '+ Shipping'
-
-  cart.shipping:
-    translations:
-      de_DE: 'Versand'
-      en_US: 'Shipping'
-  cart.total:
-    translations:
-      de_DE: 'Gesamt'
-      en_US: 'Total'
-  cart.checkout:
-    translations:
-      de_DE: 'Zur Kasse'
-      en_US: 'Checkout'
-  cart.empty:
-    translations:
-      de_DE: 'Der Warenkorb ist zur Zeit leer!'
-      en_US: 'Your shopping cart is empty!'
-
-  auth.login:
-    translations:
-      de_DE: 'Anmelden'
-      en_US: 'Sign up'
-  auth.password:
-    translations:
-      de_DE: 'Passwort'
-      en_US: 'Password'
-  auth.password-forgot:
-    translations:
-      de_DE: 'Vergessen?'
-      en_US: 'Forgotten?'
-  auth.email:
-    translations:
-      de_DE: 'E-mail-Adresse'
-      en_US: 'E-mail'
-  auth.register:
-    translations:
-      de_DE: 'Registrieren'
-      en_US: 'Register'
-
-  auth.im-new-customer:
-    translations:
-      de_DE: 'Ich bin Neukunde'
-      en_US: 'New Customer'
-
-  auth.im-already-customer:
-    translations:
-      de_DE: 'Ich habe bereits ein Konto'
-      en_US: 'I already have an account'
-
-  navigation.menu.categories:
-    translations:
-      de_DE: 'Kategorien'
-      en_US: 'Categories'
-  navigation.menu.have-a-look:
-    translations:
-      de_DE: 'Ein Blick lohnt sich'
-      en_US: 'It is worth a look'
-
-  page.checkout.errors:
-    translations:
-      de_DE: 'Bitte überprüfen Sie Ihre Eingabe.'
-      en_US: 'Please check your entry.'
-  page.checkout.client.existing:
-    translations:
-      de_DE: 'Ich bin bereits Kunde'
-      en_US: 'Existing Customer'
-  page.checkout.client.new:
-    translations:
-      de_DE: 'Ich bin Neukunde'
-      en_US: 'New Customer'
-  customer.password:
-    translations:
-      de_DE: 'Passwort'
-      en_US: 'Password'
-  password.confirm:
-    translations:
-      de_DE: 'Passwort bestätigen'
-      en_US: 'Confirm passwort'
-  page.checkout.address.heading:
-    translations:
-      de_DE: '1. Adressangaben'
-      en_US: '1. Address Data '
-  page.checkout.address.name:
-    translations:
-      de_DE: 'Name'
-      en_US: 'Name'
-  page.checkout.address.billing-address:
-    translations:
-      de_DE: 'Rechnungsadresse'
-      en_US: 'Billing Address'
-  page.checkout.address.billing-isnt-shipping-address:
-    translations:
-      de_DE: 'Abweichende Lieferadresse'
-      en_US: 'Different Delivery Address'
-  page.checkout.address.shipping-address:
-    translations:
-      de_DE: 'Lieferadresse'
-      en_US: 'Delivery Address'
-  page.checkout.address.address-example:
-    translations:
-      de_DE: 'Beispiel:</br>Wayne Manor 1</br>10292 Gotham City</br>z.H. Alfred Pennyworth'
-      en_US: 'Example:</br>Wayne Manor 1</br>10292 Gotham City</br>z.H. Alfred Pennyworth'
-  page.checkout.address.next-step:
-    translations:
-      de_DE: 'Weiter - Lieferart wählen'
-      en_US: 'Continue to Shippment Method'
-  page.checkout.address.edit:
-    translations:
-      de_DE: 'Adresse bearbeiten'
-      en_US: 'edit Address Data'
-
-  page.checkout.shipment.heading:
-    translations:
-      de_DE: '2. Lieferart wählen'
-      en_US: '2. Shipping Method'
-  shipment.standart.name:
-    translations:
-      de_DE: 'Standard'
-      en_US: 'Standard'
-  shipment.express.name:
-    translations:
-      de_DE: 'Express'
-      en_US: 'Express'
-  shipment.standart.description:
-    translations:
-      de_DE: '2-4 Werktage'
-      en_US: '2-4 working days'
-  page.checkout.shipping.delivery_time:
-    translations:
-      de_DE: 'Lieferzeit:'
-      en_US: 'Delivery time:'
-  page.checkout.shipping.price:
-    translations:
-      de_DE: 'Preis:'
-      en_US: 'Price:'
-  shipment.express.description:
-    translations:
-      de_DE: 'innerhalb von 24-48 Stunden (Werktage)'
-      en_US: '24-48 hours (working days)'
-  page.checkout.shipment.edit:
-    translations:
-      de_DE: 'Lieferart bearbeiten'
-      en_US: 'edit Shipment Method'
-  page.checkout.shipment.next-step:
-    translations:
-      de_DE: 'Weiter - Zahlungsart wählen'
-      en_US: 'Continue to Payment Method'
-
-  page.checkout.payment.heading:
-    translations:
-      de_DE: '3. Zahlungsart wählen'
-      en_US: '3. Payment Method'
-  page.checkout.payment.edit:
-    translations:
-      de_DE: 'Zahlungsart bearbeiten'
-      en_US: 'edit Payment Method'
-  page.checkout.payment.next-step:
-    translations:
-      de_DE: 'Weiter - Prüfen und Kauf abschließen'
-      en_US: 'Continue to finalise order'
-
-  page.checkout.summary.billing:
-    translations:
-      de_DE: 'Rechnungsadresse'
-      en_US: 'Invoice Address'
-  page.checkout.summary.shipping:
-    translations:
-      de_DE: 'Lieferadresse'
-      en_US: 'Shipping Address'
-  page.checkout.finalize.heading:
-    translations:
-      de_DE: '4. Prüfen und Kauf abschließen'
-      en_US: '4. Check and finalise order'
-  shipment.international.parcel.service:
-    translations:
-      de_DE: 'International Parcel Services'
-      en_US: 'International Parcel Services'
-  page.checkout.terms:
-    translations:
-      de_DE: 'Ich akzeptiere die AGBs.'
-      en_US: 'I accept the general terms and conditions.'
-  page.checkout.finalize.enter-voucher:
-    translations:
-      de_DE: 'Gutscheincode eingeben'
-      en_US: 'Enter voucher code'
-  page.checkout.finalize.tos:
-    translations:
-      de_DE: 'Mit dem Klick auf die Schaltfläche „Jetzt kaufen“ bestätige ich die ABG von Spryker Toys'
-      en_US: 'With a click to the button "Buy now" I confirm the GTCs.'
-  page.checkout.finalize.buy-now:
-    translations:
-      de_DE: 'Jetzt kaufen'
-      en_US: 'Buy now'
-
-  page.detail.add-to-cart:
-    translations:
-      de_DE: 'In den Warenkorb'
-      en_US: 'Add to Cart'
-  page.detail.small-parts-warning:
-    translations:
-      de_DE: 'Achtung! Verschluckbare Kleinteile. Erstickungsgefahr. Für Kinder unter 3 Jahre nicht geeignet.'
-      en_US: 'Wacht out! Swallowing small parts. Suffocation risk. Not suitable for children under 3 years of age. '
-  page.detail.dimensions:
-    translations:
-      de_DE: 'Abmessungen'
-      en_US: 'Measurements'
-
-  page.imprint.url:
-    translations:
-      de_DE: '/de/impressum'
-      en_US: '/en/imprint'
-
-  page.imprint.title:
-    translations:
-      de_DE: 'Impressum'
-      en_US: 'Imprint'
-
-  page.terms.url:
-    translations:
-      de_DE: '/de/agb'
-      en_US: '/en/gtc'
-  page.terms.title:
-    translations:
-      de_DE: 'AGB'
-      en_US: 'GTC'
-
-  page.privacy.url:
-    translations:
-      de_DE: '/de/datenschutz'
-      en_US: '/en/privacy'
-  page.privacy.title:
-    translations:
-      de_DE: 'Datenschutz'
-      en_US: 'Data privacy'
-  catalog.currency:
-    translations:
-      de_DE: '€'
-      en_US: '€'
-  catalog.filter.active:
-    translations:
-      de_DE: 'Aktive Filter'
-      en_US: 'Active Filter'
-  catalog.filter.main_color:
-    translations:
-      de_DE: 'Farbe'
-      en_US: 'Color'
-  catalog.filter.extras:
-    translations:
-      de_DE: 'Sonstige Merkmale'
-      en_US: 'Other characteristics'
-  catalog.filter.price:
-    translations:
-      de_DE: 'Preisspanne'
-      en_US: 'Price range'
-  catalog.filter.pricerangeFrom:
-    translations:
-      de_DE: 'Preisspanne von'
-      en_US: 'Price range of'
-  catalog.filter.pricerangeTo:
-    translations:
-      de_DE: 'bis'
-      en_US: 'to'
-  catalog.filter.show:
-    translations:
-      de_DE: 'Filter einblenden'
-      en_US: 'insert filter'
-  catalog.filter.hide:
-    translations:
-      de_DE: 'Filter ausblenden'
-      en_US: 'hide filter'
-  catalog.itemsFound:
-    translations:
-      de_DE: 'Figuren gefunden'
-      en_US: 'Figures found'
-  catalog.loading:
-    translations:
-      de_DE: 'Loading'
-      en_US: 'Loading'
-  catalog.next:
-    translations:
-      de_DE: 'weiter'
-      en_US: 'continue'
-  catalog.prev:
-    translations:
-      de_DE: 'zurück'
-      en_US: 'back'
-  catalog.sort:
-    translations:
-      de_DE: 'Sortierung'
-      en_US: 'Sorting'
-
-  shipment.dhl:
-    translations:
-      de_DE: 'DHL'
-      en_US: 'DHL'
-  shipment.dhl.paket.name:
-    translations:
-      de_DE: 'Paket'
-      en_US: 'Package'
-  shipment.dhl.paket.description:
-    translations:
-      de_DE: 'DHL Paket is the easy, affordable, fast and reliable shipping service to over 220 countries around the world.'
-      en_US: 'DHL Paket is the easy, affordable, fast and reliable shipping service to over 220 countries around the world.'
-  shipment.dhl.express.name:
-    translations:
-      de_DE: 'Express'
-      en_US: 'Express'
-  shipment.dhl.express.description:
-    translations:
-      de_DE: 'Our force of 100,000 engaged employees is working worldwide. Local know-how and our unique network make us your International Specialists.'
-      en_US: 'Our force of 100,000 engaged employees is working worldwide. Local know-how and our unique network make us your International Specialists.'
-  shipment.dpd:
-    translations:
-      de_DE: 'DPD'
-      en_US: 'DPD'
-  shipment.hermes:
-    translations:
-      de_DE: 'Hermes'
-      en_US: 'Hermes'
-  customer.first_name:
-    translations:
-      de_DE: 'Vorname'
-      en_US: 'first name'
-  customer.last_name:
-    translations:
-      de_DE: 'Name'
-      en_US: 'name'
-  customer.salutation.mr:
-    translations:
-      de_DE: 'Herr'
-      en_US: 'Mr.'
-  customer.salutation.mrs:
-    translations:
-      de_DE: 'Frau'
-      en_US: 'Mrs.'
-  customer.birth_date:
-    translations:
-      de_DE: 'Geburtsdatum (TT.MM.YYYY)'
-      en_US: 'Date of birth (DD.MM.YYYY)'
-  customer.email:
-    translations:
-      de_DE: 'E-Mail Adresse'
-      en_US: 'E-Mail'
-  customer.phone:
-    translations:
-      de_DE: 'Telefonnummer'
-      en_US: 'Telephone number'
-
-  payment.prepay:
-    translations:
-      de_DE: 'Vorkasse'
-      en_US: 'Prepayment'
-  payment.paypal:
-    translations:
-      de_DE: 'PayPal'
-      en_US: 'PayPal'
-  payment.creditcard:
-    translations:
-      de_DE: 'Kreditkarte'
-      en_US: 'Credit card'
-  payment.invoice:
-    translations:
-      de_DE: 'Rechnung'
-      en_US: 'Invoice'
-  payment.payolution.invoice:
-    translations:
-      de_DE: 'Payolution Rechnung'
-      en_US: 'Payolution Invoice'
-  payment.payolution.installment:
-    translations:
-      de_DE: 'Payolution Ratenkauf'
-      en_US: 'Payolution Installment'
-
-  address.street:
-    translations:
-      de_DE: 'Straße'
-      en_US: 'Street'
-  address.street_nr:
-    translations:
-      de_DE: 'Nummer'
-      en_US: 'Number'
-  address.city:
-    translations:
-      de_DE: 'Stadt'
-      en_US: 'City'
-  address.zip_code:
-    translations:
-      de_DE: 'PLZ'
-      en_US: 'Zip code'
-  page.checkout.create_account:
-    translations:
-      de_DE: 'Kundenaccout erstellen'
-      en_US: 'Create customer account'
+    page.home.featured.top-left.left.width:
+        translations:
+            de_DE: '1'
+            en_US: '1'
+    page.home.featured.top-left.left.height:
+        translations:
+            de_DE: '2'
+            en_US: '2'
+    page.home.featured.top-left.left.name:
+        translations:
+            de_DE: 'Gorilla Männchen'
+            en_US: 'Gorilla male'
+    page.home.featured.top-left.left.category:
+        translations:
+            de_DE: 'Wilde Tiere'
+            en_US: 'Wild animals'
+    page.home.featured.top-left.left.img:
+        translations:
+            de_DE: /images/homepage/gorilla.jpg
+            en_US: /images/homepage/gorilla.jpg
+    page.home.featured.top-left.left.url:
+        translations:
+            de_DE: /de/gorilla-maennchen
+            en_US: /en/gorilla-male
+    page.home.featured.top-left.right.width:
+        translations:
+            de_DE: '1'
+            en_US: '1'
+    page.home.featured.top-left.right.height:
+        translations:
+            de_DE: '2'
+            en_US: '2'
+    page.home.featured.top-left.right.name:
+        translations:
+            de_DE: Brillenpinguin
+            en_US: Penguin
+    page.home.featured.top-left.right.category:
+        translations:
+            de_DE: Meere
+            en_US: Sees
+    page.home.featured.top-left.right.img:
+        translations:
+            de_DE: /images/homepage/penguin.jpg
+            en_US: /images/homepage/penguin.jpg
+    page.home.featured.top-left.right.url:
+        translations:
+            de_DE: /de/brillenpinguin
+            en_US: /en/penguin
+    page.home.featured.top-right.first.width:
+        translations:
+            de_DE: '2'
+            en_US: '2'
+    page.home.featured.top-right.first.height:
+        translations:
+            de_DE: '2'
+            en_US: '2'
+    page.home.featured.top-right.first.img:
+        translations:
+            de_DE: /images/homepage/wildlife.jpg
+            en_US: /images/homepage/wildlife.jpg
+    page.home.featured.top-right.first.url:
+        translations:
+            de_DE: /de/wilde-tiere
+            en_US: /en/wild-animals
+    page.home.featured.top-right.second.width:
+        translations:
+            de_DE: '2'
+            en_US: '2'
+    page.home.featured.top-right.second.height:
+        translations:
+            de_DE: '2'
+            en_US: '2'
+    page.home.featured.top-right.second.img:
+        translations:
+            de_DE: /images/homepage/dragon.jpg
+            en_US: /images/homepage/dragon.jpg
+    page.home.featured.top-right.second.url:
+        translations:
+            de_DE: /de/wilde-tiere
+            en_US: /en/wild-animals
+    page.home.featured.bottom-left.top.width:
+        translations:
+            de_DE: '2'
+            en_US: '2'
+    page.home.featured.bottom-left.top.height:
+        translations:
+            de_DE: '1'
+            en_US: '1'
+    page.home.featured.bottom-left.top.name:
+        translations:
+            de_DE: 'Wald und Wiese'
+            en_US: 'Forest and Meadow'
+    page.home.featured.bottom-left.top.category:
+        translations:
+            de_DE: /de/wald-und-wiese
+            en_US: /en/forest-and-meadow
+    page.home.featured.bottom-left.top.img:
+        translations:
+            de_DE: /images/homepage/teaser-waldwiese.jpg
+            en_US: /images/homepage/teaser-waldwiese.jpg
+    page.home.featured.bottom-left.top.url:
+        translations:
+            de_DE: /de/wald-und-wiese
+            en_US: /en/forest-and-meadow
+    page.home.featured.bottom-left.bottom.width:
+        translations:
+            de_DE: '2'
+            en_US: '2'
+    page.home.featured.bottom-left.bottom.height:
+        translations:
+            de_DE: '1'
+            en_US: '1'
+    page.home.featured.bottom-left.bottom.name:
+        translations:
+            de_DE: Meere
+            en_US: Seas
+    page.home.featured.bottom-left.bottom.category:
+        translations:
+            de_DE: /de/meere
+            en_US: /en/seas
+    page.home.featured.bottom-left.bottom.img:
+        translations:
+            de_DE: /images/homepage/sea.jpg
+            en_US: /images/homepage/sea.jpg
+    page.home.featured.bottom-left.bottom.url:
+        translations:
+            de_DE: /de/meere
+            en_US: /en/seas
+    page.home.featured.bottom-right.left.width:
+        translations:
+            de_DE: '1'
+            en_US: '1'
+    page.home.featured.bottom-right.left.height:
+        translations:
+            de_DE: '2'
+            en_US: '2'
+    page.home.featured.bottom-right.left.name:
+        translations:
+            de_DE: Ferkel
+            en_US: pig
+    page.home.featured.bottom-right.left.category:
+        translations:
+            de_DE: 'Wald und Wiese'
+            en_US: 'Forest and Meadow'
+    page.home.featured.bottom-right.left.img:
+        translations:
+            de_DE: /images/homepage/ferkel.jpg
+            en_US: /images/homepage/ferkel.jpg
+    page.home.featured.bottom-right.left.url:
+        translations:
+            de_DE: /de/ferkel-stehend
+            en_US: /en/pig-standing
+    page.home.featured.bottom-right.right.width:
+        translations:
+            de_DE: '1'
+            en_US: '1'
+    page.home.featured.bottom-right.right.height:
+        translations:
+            de_DE: '2'
+            en_US: '2'
+    page.home.featured.bottom-right.right.name:
+        translations:
+            de_DE: Flusspferd
+            en_US: Hippo
+    page.home.featured.bottom-right.right.category:
+        translations:
+            de_DE: 'Wilde Tiere'
+            en_US: 'Wild animals'
+    page.home.featured.bottom-right.right.img:
+        translations:
+            de_DE: /images/homepage/flusspferd.jpg
+            en_US: /images/homepage/flusspferd.jpg
+    page.home.featured.bottom-right.right.url:
+        translations:
+            de_DE: /de/flusspferd
+            en_US: /en/hippo
+    cart.your-order:
+        translations:
+            de_DE: 'Deine Bestellung'
+            en_US: 'Your Order'
+    cart.price:
+        translations:
+            de_DE: Preis
+            en_US: Prize
+    cart.shipping.order-item:
+        translations:
+            de_DE: '+ Versand'
+            en_US: '+ Shipping'
+    cart.shipping:
+        translations:
+            de_DE: Versand
+            en_US: Shipping
+    cart.total:
+        translations:
+            de_DE: Gesamt
+            en_US: Total
+    cart.checkout:
+        translations:
+            de_DE: 'Zur Kasse'
+            en_US: Checkout
+    cart.empty:
+        translations:
+            de_DE: 'Der Warenkorb ist zur Zeit leer!'
+            en_US: 'Your shopping cart is empty!'
+    auth.login:
+        translations:
+            de_DE: Anmelden
+            en_US: 'Sign up'
+    auth.password:
+        translations:
+            de_DE: Passwort
+            en_US: Password
+    auth.password-forgot:
+        translations:
+            de_DE: 'Vergessen?'
+            en_US: 'Forgotten?'
+    auth.email:
+        translations:
+            de_DE: E-mail-Adresse
+            en_US: E-mail
+    auth.register:
+        translations:
+            de_DE: Registrieren
+            en_US: Register
+    auth.im-new-customer:
+        translations:
+            de_DE: 'Ich bin Neukunde'
+            en_US: 'New Customer'
+    auth.im-already-customer:
+        translations:
+            de_DE: 'Ich habe bereits ein Konto'
+            en_US: 'I already have an account'
+    navigation.menu.categories:
+        translations:
+            de_DE: Kategorien
+            en_US: Categories
+    navigation.menu.have-a-look:
+        translations:
+            de_DE: 'Ein Blick lohnt sich'
+            en_US: 'It is worth a look'
+    page.checkout.errors:
+        translations:
+            de_DE: 'Bitte überprüfen Sie Ihre Eingabe.'
+            en_US: 'Please check your entry.'
+    page.checkout.client.existing:
+        translations:
+            de_DE: 'Ich bin bereits Kunde'
+            en_US: 'Existing Customer'
+    page.checkout.client.new:
+        translations:
+            de_DE: 'Ich bin Neukunde'
+            en_US: 'New Customer'
+    customer.password:
+        translations:
+            de_DE: Passwort
+            en_US: Password
+    password.confirm:
+        translations:
+            de_DE: 'Passwort bestätigen'
+            en_US: 'Confirm passwort'
+    page.checkout.address.heading:
+        translations:
+            de_DE: '1. Adressangaben'
+            en_US: '1. Address Data '
+    page.checkout.address.name:
+        translations:
+            de_DE: Name
+            en_US: Name
+    page.checkout.address.billing-address:
+        translations:
+            de_DE: Rechnungsadresse
+            en_US: 'Billing Address'
+    page.checkout.address.billing-isnt-shipping-address:
+        translations:
+            de_DE: 'Abweichende Lieferadresse'
+            en_US: 'Different Delivery Address'
+    page.checkout.address.shipping-address:
+        translations:
+            de_DE: Lieferadresse
+            en_US: 'Delivery Address'
+    page.checkout.address.address-example:
+        translations:
+            de_DE: 'Beispiel:</br>Wayne Manor 1</br>10292 Gotham City</br>z.H. Alfred Pennyworth'
+            en_US: 'Example:</br>Wayne Manor 1</br>10292 Gotham City</br>z.H. Alfred Pennyworth'
+    page.checkout.address.next-step:
+        translations:
+            de_DE: 'Weiter - Lieferart wählen'
+            en_US: 'Continue to Shippment Method'
+    page.checkout.address.edit:
+        translations:
+            de_DE: 'Adresse bearbeiten'
+            en_US: 'edit Address Data'
+    page.checkout.shipment.heading:
+        translations:
+            de_DE: '2. Lieferart wählen'
+            en_US: '2. Shipping Method'
+    shipment.standart.name:
+        translations:
+            de_DE: Standard
+            en_US: Standard
+    shipment.express.name:
+        translations:
+            de_DE: Express
+            en_US: Express
+    shipment.standart.description:
+        translations:
+            de_DE: '2-4 Werktage'
+            en_US: '2-4 working days'
+    page.checkout.shipping.delivery_time:
+        translations:
+            de_DE: 'Lieferzeit:'
+            en_US: 'Delivery time:'
+    page.checkout.shipping.price:
+        translations:
+            de_DE: 'Preis:'
+            en_US: 'Price:'
+    shipment.express.description:
+        translations:
+            de_DE: 'innerhalb von 24-48 Stunden (Werktage)'
+            en_US: '24-48 hours (working days)'
+    page.checkout.shipment.edit:
+        translations:
+            de_DE: 'Lieferart bearbeiten'
+            en_US: 'edit Shipment Method'
+    page.checkout.shipment.next-step:
+        translations:
+            de_DE: 'Weiter - Zahlungsart wählen'
+            en_US: 'Continue to Payment Method'
+    page.checkout.payment.heading:
+        translations:
+            de_DE: '3. Zahlungsart wählen'
+            en_US: '3. Payment Method'
+    page.checkout.payment.edit:
+        translations:
+            de_DE: 'Zahlungsart bearbeiten'
+            en_US: 'edit Payment Method'
+    page.checkout.payment.next-step:
+        translations:
+            de_DE: 'Weiter - Prüfen und Kauf abschließen'
+            en_US: 'Continue to finalise order'
+    page.checkout.summary.billing:
+        translations:
+            de_DE: Rechnungsadresse
+            en_US: 'Invoice Address'
+    page.checkout.summary.shipping:
+        translations:
+            de_DE: Lieferadresse
+            en_US: 'Shipping Address'
+    page.checkout.finalize.heading:
+        translations:
+            de_DE: '4. Prüfen und Kauf abschließen'
+            en_US: '4. Check and finalise order'
+    shipment.international.parcel.service:
+        translations:
+            de_DE: 'International Parcel Services'
+            en_US: 'International Parcel Services'
+    page.checkout.terms:
+        translations:
+            de_DE: 'Ich akzeptiere die AGBs.'
+            en_US: 'I accept the general terms and conditions.'
+    page.checkout.finalize.enter-voucher:
+        translations:
+            de_DE: 'Gutscheincode eingeben'
+            en_US: 'Enter voucher code'
+    page.checkout.finalize.tos:
+        translations:
+            de_DE: 'Mit dem Klick auf die Schaltfläche „Jetzt kaufen“ bestätige ich die ABG von Spryker Toys'
+            en_US: 'With a click to the button "Buy now" I confirm the GTCs.'
+    page.checkout.finalize.buy-now:
+        translations:
+            de_DE: 'Jetzt kaufen'
+            en_US: 'Buy now'
+    page.detail.add-to-cart:
+        translations:
+            de_DE: 'In den Warenkorb'
+            en_US: 'Add to Cart'
+    page.detail.small-parts-warning:
+        translations:
+            de_DE: 'Achtung! Verschluckbare Kleinteile. Erstickungsgefahr. Für Kinder unter 3 Jahre nicht geeignet.'
+            en_US: 'Wacht out! Swallowing small parts. Suffocation risk. Not suitable for children under 3 years of age. '
+    page.detail.dimensions:
+        translations:
+            de_DE: Abmessungen
+            en_US: Measurements
+    page.imprint.url:
+        translations:
+            de_DE: /de/impressum
+            en_US: /en/imprint
+    page.imprint.title:
+        translations:
+            de_DE: Impressum
+            en_US: Imprint
+    page.terms.url:
+        translations:
+            de_DE: /de/agb
+            en_US: /en/gtc
+    page.terms.title:
+        translations:
+            de_DE: AGB
+            en_US: GTC
+    page.privacy.url:
+        translations:
+            de_DE: /de/datenschutz
+            en_US: /en/privacy
+    page.privacy.title:
+        translations:
+            de_DE: Datenschutz
+            en_US: 'Data privacy'
+    catalog.currency:
+        translations:
+            de_DE: €
+            en_US: €
+    catalog.filter.active:
+        translations:
+            de_DE: 'Aktive Filter'
+            en_US: 'Active Filter'
+    catalog.filter.main_color:
+        translations:
+            de_DE: Farbe
+            en_US: Color
+    catalog.filter.extras:
+        translations:
+            de_DE: 'Sonstige Merkmale'
+            en_US: 'Other characteristics'
+    catalog.filter.price:
+        translations:
+            de_DE: Preisspanne
+            en_US: 'Price range'
+    catalog.filter.pricerangeFrom:
+        translations:
+            de_DE: 'Preisspanne von'
+            en_US: 'Price range of'
+    catalog.filter.pricerangeTo:
+        translations:
+            de_DE: bis
+            en_US: to
+    catalog.filter.show:
+        translations:
+            de_DE: 'Filter einblenden'
+            en_US: 'insert filter'
+    catalog.filter.hide:
+        translations:
+            de_DE: 'Filter ausblenden'
+            en_US: 'hide filter'
+    catalog.itemsFound:
+        translations:
+            de_DE: 'Figuren gefunden'
+            en_US: 'Figures found'
+    catalog.loading:
+        translations:
+            de_DE: Loading
+            en_US: Loading
+    catalog.next:
+        translations:
+            de_DE: weiter
+            en_US: continue
+    catalog.prev:
+        translations:
+            de_DE: zurück
+            en_US: back
+    catalog.sort:
+        translations:
+            de_DE: Sortierung
+            en_US: Sorting
+    shipment.dhl:
+        translations:
+            de_DE: DHL
+            en_US: DHL
+    shipment.dhl.paket.name:
+        translations:
+            de_DE: Paket
+            en_US: Package
+    shipment.dhl.paket.description:
+        translations:
+            de_DE: 'DHL Paket is the easy, affordable, fast and reliable shipping service to over 220 countries around the world.'
+            en_US: 'DHL Paket is the easy, affordable, fast and reliable shipping service to over 220 countries around the world.'
+    shipment.dhl.express.name:
+        translations:
+            de_DE: Express
+            en_US: Express
+    shipment.dhl.express.description:
+        translations:
+            de_DE: 'Our force of 100,000 engaged employees is working worldwide. Local know-how and our unique network make us your International Specialists.'
+            en_US: 'Our force of 100,000 engaged employees is working worldwide. Local know-how and our unique network make us your International Specialists.'
+    shipment.dpd:
+        translations:
+            de_DE: DPD
+            en_US: DPD
+    shipment.hermes:
+        translations:
+            de_DE: Hermes
+            en_US: Hermes
+    customer.first_name:
+        translations:
+            de_DE: Vorname
+            en_US: 'first name'
+    customer.last_name:
+        translations:
+            de_DE: Name
+            en_US: name
+    customer.salutation.mr:
+        translations:
+            de_DE: Herr
+            en_US: Mr.
+    customer.salutation.mrs:
+        translations:
+            de_DE: Frau
+            en_US: Mrs.
+    customer.birth_date:
+        translations:
+            de_DE: 'Geburtsdatum (TT.MM.YYYY)'
+            en_US: 'Date of birth (DD.MM.YYYY)'
+    customer.email:
+        translations:
+            de_DE: 'E-Mail Adresse'
+            en_US: E-Mail
+    customer.phone:
+        translations:
+            de_DE: Telefonnummer
+            en_US: 'Telephone number'
+    payment.prepay:
+        translations:
+            de_DE: Vorkasse
+            en_US: Prepayment
+    payment.paypal:
+        translations:
+            de_DE: PayPal
+            en_US: PayPal
+    payment.creditcard:
+        translations:
+            de_DE: Kreditkarte
+            en_US: 'Credit card'
+    payment.invoice:
+        translations:
+            de_DE: Rechnung
+            en_US: Invoice
+    payment.payolution.invoice:
+        translations:
+            de_DE: 'Payolution Rechnung'
+            en_US: 'Payolution Invoice'
+    payment.payolution.installment:
+        translations:
+            de_DE: 'Payolution Ratenkauf'
+            en_US: 'Payolution Installment'
+    address.street:
+        translations:
+            de_DE: Straße
+            en_US: Street
+    address.street_nr:
+        translations:
+            de_DE: Nummer
+            en_US: Number
+    address.city:
+        translations:
+            de_DE: Stadt
+            en_US: City
+    address.zip_code:
+        translations:
+            de_DE: PLZ
+            en_US: 'Zip code'
+    page.checkout.create_account:
+        translations:
+            de_DE: 'Kundenaccout erstellen'
+            en_US: 'Create customer account'
+    customer.logout:
+        translations:
+            en_US: Logout
+            de_DE: Abmelden
+    customer.login:
+        translations:
+            en_US: Login
+            de_DE: Anmelden
+    customer.login.email:
+        translations:
+            en_US: Email
+            de_DE: Email
+    customer.login.password:
+        translations:
+            en_US: Password
+            de_DE: Passwort
+    customer.login.title:
+        translations:
+            en_US: 'Access your account'
+            de_DE: 'Ich bin bereits Kunde'
+    customer.registration.title:
+        translations:
+            en_US: 'Create account'
+            de_DE: 'Ich bin Neukunde'
+    customer.account.no_order:
+        translations:
+            en_US: 'No orders at the moment'
+            de_DE: 'Keine Bestellungen'
+    customer.account:
+        translations:
+            en_US: 'Customer Account'
+            de_DE: 'Mein Konto'
+    customer.account.contact:
+        translations:
+            en_US: Contact
+            de_DE: Kontakt
+    customer.account.overview:
+        translations:
+            en_US: Overview
+            de_DE: Übersicht
+    customer.account.profile_data:
+        translations:
+            en_US: Profile
+            de_DE: Benutzerdaten
+    customer.account.address:
+        translations:
+            en_US: Addresses
+            de_DE: Adressen
+    customer.account.order_history:
+        translations:
+            en_US: 'Orders History'
+            de_DE: Bestellungen
+    customer.account.newsletter:
+        translations:
+            en_US: Newsletter
+            de_DE: Newsletter
+    customer.account.last_orders:
+        translations:
+            en_US: 'Last Orders'
+            de_DE: 'Letzte Bestellungen'
+    customer.account.default_billing_address:
+        translations:
+            en_US: 'Default Billing Address'
+            de_DE: 'Standard Rechnungsadresse'
+    customer.account.please_specify_billing_address:
+        translations:
+            en_US: 'Please Specify Billing Address'
+            de_DE: 'Bitte tragen Sie Ihre Rechnungsadresse ein.'
+    customer.account.default_shipping_address:
+        translations:
+            en_US: 'Default Shipping Address'
+            de_DE: 'Standard Lieferadresse'
+    customer.account.please_specify_shipping_address:
+        translations:
+            en_US: 'Please Specify Shipping Address'
+            de_DE: 'Bitten tragen Sie Ihre Lieferadresse ein.'
+    customer.account.edit_address_information:
+        translations:
+            en_US: 'Edit Address Information'
+            de_DE: Ändern
+    customer.account.additional_addresses:
+        translations:
+            en_US: 'Additional Addresses'
+            de_DE: 'Zusätzliche Adressen'
+    customer.account.add_new_address:
+        translations:
+            en_US: 'Add Address'
+            de_DE: 'Neue Adresse hinzufügen'
+    customer.newsletter.not_subscribed:
+        translations:
+            en_US: 'No newsletter subscription'
+            de_DE: 'Newsletter nicht abonniert.'
+    customer.profile.order_history:
+        translations:
+            en_US: 'Last Orders'
+            de_DE: Bestellungen
+    customer.account.no_orders:
+        translations:
+            en_US: 'No orders at the moment'
+            de_DE: 'Keine Bestellungen'
+    customer.address.first_name:
+        translations:
+            en_US: 'First Name'
+            de_DE: Vorname
+    customer.address.last_name:
+        translations:
+            en_US: 'Last Name'
+            de_DE: Nachname
+    customer.address.company:
+        translations:
+            en_US: Company
+            de_DE: Firma
+    customer.address.address1:
+        translations:
+            en_US: 'Address 1'
+            de_DE: 'Adresse 1'
+    customer.address.address2:
+        translations:
+            en_US: 'Address 2'
+            de_DE: 'Adresse 2'
+    customer.address.address3:
+        translations:
+            en_US: 'Address 3'
+            de_DE: 'Adresse 3'
+    customer.address.zip_code:
+        translations:
+            en_US: 'Zip Code'
+            de_DE: PLZ
+    customer.address.city:
+        translations:
+            en_US: City
+            de_DE: Stadt
+    customer.address.country:
+        translations:
+            en_US: Country
+            de_DE: Land
+    customer.address.phone:
+        translations:
+            en_US: Phone
+            de_DE: Telefon
+    customer.address.is_default_billing:
+        translations:
+            en_US: 'Is default billing address'
+            de_DE: 'Standard Rechnungsadresse'
+    customer.address.is_default_shipping:
+        translations:
+            en_US: 'Is default shipping address'
+            de_DE: 'Standard Lieferadresse'
+    customer.forgotten-password.send-new-password:
+        translations:
+            en_US: 'Recover my password'
+            de_DE: 'Neues Passwort verschickt.'
+    customer.forgotten-password.description:
+        translations:
+            en_US: 'Describe situation'
+            de_DE: 'Passwort vergessen?'
+    customer.forgotten_password.email:
+        translations:
+            en_US: 'Email Address'
+            de_DE: E-Mail-Adresse
+    customer.forgotten-password.title:
+        translations:
+            en_US: 'Recover my password'
+            de_DE: Passwort
+    customer.order.order_id:
+        translations:
+            en_US: 'Order Id'
+            de_DE: Bestellnummer
+    customer.order.view_all:
+        translations:
+            en_US: 'View All'
+            de_DE: 'Alle anzeigen'
+    customer.order.all_orders:
+        translations:
+            en_US: 'View orders'
+            de_DE: 'Alle Bestellungen anzeigen'
+    customer.order.total:
+        translations:
+            en_US: Total
+            de_DE: Summe
+    customer.order.view_order:
+        translations:
+            en_US: 'View Order'
+            de_DE: Ansehen
+    customer.order.date:
+        translations:
+            en_US: 'Order Date'
+            de_DE: Datum
+    customer.newsletter.subscription:
+        translations:
+            en_US: 'Newsletter settings'
+            de_DE: 'Meine Newsletter Einstellungen'
+    customer.newsletter.subscription_agreement:
+        translations:
+            en_US: 'I agree to newsletter subscription'
+            de_DE: 'Ja, ich möchte per E-Mail informiert werden.'
+    customer.profile:
+        translations:
+            en_US: 'Sign in'
+            de_DE: Anmelden
+    customer.profile.update:
+        translations:
+            en_US: 'Update Profile'
+            de_DE: 'Update Profile'
+    customer.profile.first_name:
+        translations:
+            en_US: 'First Name'
+            de_DE: Vorname
+    customer.profile.last_name:
+        translations:
+            en_US: 'Last Name'
+            de_DE: Nachname
+    customer.profile.email:
+        translations:
+            en_US: Email
+            de_DE: E-Mail
+    customer.profile.phone:
+        translations:
+            en_US: Phone
+            de_DE: Telefon
+    customer.profile.old_password:
+        translations:
+            en_US: 'Old Password'
+            de_DE: 'Altes Passwort'
+    customer.profile.request.new_password:
+        translations:
+            en_US: 'New Password'
+            de_DE: 'Neues Passwort'
+    customer.profile.confirm.new_password:
+        translations:
+            en_US: 'Confirm New Password'
+            de_DE: 'Passwort bestätigen'
+    customer.profile.address.edit:
+        translations:
+            en_US: Edit
+            de_DE: Ändern
+    customer.profile.address.delete:
+        translations:
+            en_US: Delete
+            de_DE: Löschen
+    customer.password.update:
+        translations:
+            en_US: 'Change Password'
+            de_DE: 'Passwort ändern'
+    customer.password.old_password:
+        translations:
+            en_US: 'Old Password'
+            de_DE: 'Altes Passwort'
+    customer.password.request.new_password:
+        translations:
+            en_US: 'New Password'
+            de_DE: 'Neues Passwort'
+    customer.password.confirm.new_password:
+        translations:
+            en_US: 'Confirm Password'
+            de_DE: 'Passwort bestätigen'
+    customer.table.actions:
+        translations:
+            en_US: Actions
+            de_DE: Aktion
+    profile.form.salutation:
+        translations:
+            en_US: Salutation
+            de_DE: Anrede
+    customer.salutation.dr:
+        translations:
+            en_US: Dr.
+            de_DE: Dr.
+    forms.submit-btn:
+        translations:
+            en_US: Submit
+            de_DE: Speichern
+    forms.submit.login:
+        translations:
+            en_US: Login
+            de_DE: Speichern
+    forms.submit.register:
+        translations:
+            en_US: Register
+            de_DE: Registrieren
+    forms.forgot-password:
+        translations:
+            en_US: 'Forgot Password'
+            de_DE: 'Passwort vergessen'
+    forms.first-name:
+        translations:
+            en_US: 'First Name'
+            de_DE: Vorname
+    forms.last-name:
+        translations:
+            en_US: 'Last Name'
+            de_DE: Nachname
+    forms.email:
+        translations:
+            en_US: Email
+            de_DE: E-Mail
+    forms.password:
+        translations:
+            en_US: Password
+            de_DE: Passwort
+    forms.confirm-password:
+        translations:
+            en_US: 'Confirm Password'
+            de_DE: 'Passwort bestätigen'
+    forms.accept_terms:
+        translations:
+            en_US: 'Accept Terms'
+            de_DE: 'Ich stimme AGB und Datenschutz zu.'
+    address.salutation:
+        translations:
+            en_US: Salutation
+            de_DE: Anrede
+    email.orderEmail.salutationMale:
+        translations:
+            en_US: Mr.
+            de_DE: Fr.
+    email.orderEmail.salutationFemale:
+        translations:
+            en_US: Ms.
+            de_DE: Hr.
