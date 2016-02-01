@@ -5,9 +5,6 @@ namespace Pyz\Zed\Category\Business;
 use Spryker\Zed\Category\Business\TransferGenerator;
 use Spryker\Zed\Category\Business\Generator\UrlPathGenerator;
 use Spryker\Zed\Category\Business\Tree\ClosureTableWriter;
-use Spryker\Zed\Category\Business\Tree\NodeWriter;
-use Spryker\Zed\Category\Business\Model\CategoryWriter;
-use Spryker\Zed\Category\Business\Renderer\CategoryTreeRenderer;
 use Spryker\Zed\Category\Business\Tree\CategoryTreeReader;
 use Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter;
 use Spryker\Zed\Category\Business\Tree\CategoryTreeWriter;
@@ -94,39 +91,6 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
     }
 
     /**
-     * @return CategoryTreeRenderer
-     */
-    public function createCategoryTreeRenderer()
-    {
-        $locale = $this->getLocaleFacade()->getCurrentLocale();
-
-        return new CategoryTreeRenderer(
-            $this->getQueryContainer(),
-            $locale
-        );
-    }
-
-    /**
-     * @return CategoryWriterInterface
-     */
-    public function createCategoryWriter()
-    {
-        return new CategoryWriter(
-            $this->getQueryContainer()
-        );
-    }
-
-    /**
-     * @return NodeWriterInterface
-     */
-    public function createNodeWriter()
-    {
-        return new NodeWriter(
-            $this->getQueryContainer()
-        );
-    }
-
-    /**
      * @return ClosureTableWriterInterface
      */
     protected function createClosureTableWriter()
@@ -134,30 +98,6 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
         return new ClosureTableWriter(
             $this->getQueryContainer()
         );
-    }
-
-    /**
-     * @return UrlPathGeneratorInterface
-     */
-    public function createUrlPathGenerator()
-    {
-        return new UrlPathGenerator();
-    }
-
-    /**
-     * @return CategoryTreeFormatter
-     */
-    protected function createCategoryTreeFormatter()
-    {
-        return new CategoryTreeFormatter();
-    }
-
-    /**
-     * @return TransferGeneratorInterface
-     */
-    public function createCategoryTransferGenerator()
-    {
-        return new TransferGenerator();
     }
 
 }

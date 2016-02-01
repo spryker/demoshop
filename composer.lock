@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bb656708b72b68eeed4cf1fed86892db",
-    "content-hash": "de383701fb3fbf40410d11fece901dd8",
+    "hash": "848e7c6947d52403cf61aef2beff756b",
+    "content-hash": "63f38787174856d1f016b75091393dda",
     "packages": [
         {
             "name": "guzzle/guzzle",
@@ -748,18 +748,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-feature/1134-Graph-2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-                "reference": "fb392b143af0694ac00ed5a804ed1fd2ee70a57d"
-=======
-                "reference": "def99fc82e8ff75b319f5a235b2157bf37f92450"
-            },
-            "require": {
-                "digital-canvas/zend-framework": ">=1.12.2"
->>>>>>> #1134 update composer
+                "reference": "18fc61c659e8905a87499a6caebf30efd7a22c50"
             },
             "replace": {
                 "spryker/acl": "self.version",
@@ -838,11 +831,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-<<<<<<< HEAD
-            "time": "2016-01-29 12:19:03"
-=======
-            "time": "2016-01-28 18:26:58"
->>>>>>> #1134 update composer
+            "time": "2016-02-01 07:06:58"
         },
         {
             "name": "symfony-cmf/routing",
@@ -3005,47 +2994,6 @@
                 "unit testing"
             ],
             "time": "2015-12-20 12:11:42"
-        },
-        {
-            "name": "digital-canvas/zend-framework",
-            "version": "1.12.17",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/digital-canvas/zend-framework.git",
-                "reference": "a2520ba36c668e8b3e2f8e73402e0d4805d55a92"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/digital-canvas/zend-framework/zipball/a2520ba36c668e8b3e2f8e73402e0d4805d55a92",
-                "reference": "a2520ba36c668e8b3e2f8e73402e0d4805d55a92",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.11"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Zend_": "library/",
-                    "ZendX_": "library/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "include-path": [
-                "library/"
-            ],
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "Zend Framework with only the libraries and require_once() calls commented out for better performance with an autoloader.",
-            "homepage": "https://github.com/digital-canvas/zend-framework",
-            "keywords": [
-                "ZF1",
-                "Zend Framework",
-                "zend",
-                "zf"
-            ],
-            "time": "2015-11-24 18:30:30"
         },
         {
             "name": "doctrine/instantiator",
