@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
     "hash": "c55a45e8d05435ba907303cc9303daa1",
     "content-hash": "94e4966e153a24625e02a593c7117914",
 =======
@@ -17,6 +18,10 @@
 =======
     "hash": "c917db26a89a5eea7a74633fa06ca669",
     "content-hash": "8308ea40a487474d1256745c29791f31",
+=======
+    "hash": "c4d1a541e55138316a29bec75f16b826",
+    "content-hash": "09b29207b0374089ae1ac72c6215da2d",
+>>>>>>> #1037 update spryker/spryker
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -46,7 +51,6 @@
             "time": "2014-12-30 15:22:37"
         },
         {
->>>>>>> #1037 fixed versions in composer.json, cleanups
             "name": "guzzle/guzzle",
             "version": "v3.8.0",
             "source": {
@@ -408,6 +412,7 @@
                 "random"
             ],
             "time": "2016-01-29 16:19:52"
+<<<<<<< HEAD
         },
         {
             "name": "phpdocumentor/graphviz",
@@ -449,6 +454,8 @@
                 }
             ],
             "time": "2014-07-19 06:52:59"
+=======
+>>>>>>> #1037 update spryker/spryker
         },
         {
             "name": "pimple/pimple",
@@ -793,10 +800,13 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "07727368537234e95bd513ef52d9c7cbe00b1c6c"
 =======
 =======
 >>>>>>> #1037 update composer
+=======
+>>>>>>> #1037 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "a29b02d6bfd295ddd229f15cd8bd8b3dce42b119"
 =======
@@ -822,6 +832,9 @@
                 "reference": "27090d29634f3b110ee7c4afe18ae3888119d54a"
 >>>>>>> #1037 update composer
 >>>>>>> #1037 update composer
+=======
+                "reference": "6506102a557ff90f725ec51423dff71d837f9174"
+>>>>>>> #1037 update spryker/spryker
             },
             "require": {
                 "phpdocumentor/graphviz": "~1.0.0"
@@ -840,10 +853,13 @@
             },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-02-03 14:30:55"
 =======
 =======
 >>>>>>> #1037 update composer
+=======
+>>>>>>> #1037 update spryker/spryker
 <<<<<<< HEAD
             "time": "2016-02-03 11:31:45"
 =======
@@ -868,7 +884,13 @@
             "time": "2016-01-21 13:36:32"
 >>>>>>> #1037 update composer
 >>>>>>> #1037 update composer
+<<<<<<< HEAD
 >>>>>>> #1037 update composer
+=======
+=======
+            "time": "2016-02-01 12:39:54"
+>>>>>>> #1037 update spryker/spryker
+>>>>>>> #1037 update spryker/spryker
         },
         {
             "name": "symfony-cmf/routing",
