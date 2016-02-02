@@ -5,7 +5,7 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerInterface;
+use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -54,7 +54,7 @@ class PlaceOrderStep extends BaseStep implements StepInterface
 
     /**
      * @param QuoteTransfer $quoteTransfer
-     * @param CheckoutStepHandlerInterface[] $plugins
+     * @param CheckoutStepHandlerPluginInterface[] $plugins
      *
      * @return QuoteTransfer
      */

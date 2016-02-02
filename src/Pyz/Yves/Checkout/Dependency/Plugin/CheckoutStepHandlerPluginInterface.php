@@ -5,7 +5,7 @@ namespace Pyz\Yves\Checkout\Dependency\Plugin;
 use Symfony\Component\HttpFoundation\Request;
 use Generated\Shared\Transfer\QuoteTransfer;
 
-interface CheckoutStepHandlerInterface
+interface CheckoutStepHandlerPluginInterface
 {
 
     /**

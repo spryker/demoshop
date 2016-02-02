@@ -4,7 +4,7 @@ namespace Pyz\Yves\Checkout\Form\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormInterface;
+use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
 use Pyz\Yves\Checkout\Form\AbstractCheckoutSubForm;
 use Spryker\Shared\Gui\Form\AbstractForm;
 use Spryker\Shared\Transfer\TransferInterface;
@@ -24,13 +24,13 @@ class ShipmentForm extends AbstractForm
     protected $quoteTransfer;
 
     /**
-     * @var CheckoutSubFormInterface[]
+     * @var CheckoutSubFormPluginInterface[]
      */
     protected $shipmentMethodsSubFormPlugins;
 
     /**
      * @param QuoteTransfer $quoteTransfer
-     * @param CheckoutSubFormInterface[] $shipmentMethodsSubFormPlugins
+     * @param CheckoutSubFormPluginInterface[] $shipmentMethodsSubFormPlugins
      */
     public function __construct(QuoteTransfer $quoteTransfer, $shipmentMethodsSubFormPlugins)
     {
@@ -175,11 +175,11 @@ class ShipmentForm extends AbstractForm
     }
 
     /**
-     * @param CheckoutSubFormInterface $shipmentMethodSubForm
+     * @param CheckoutSubFormPluginInterface $shipmentMethodSubForm
      *
      * @return AbstractCheckoutSubForm
      */
-    protected function createSubForm(CheckoutSubFormInterface $shipmentMethodSubForm)
+    protected function createSubForm(CheckoutSubFormPluginInterface $shipmentMethodSubForm)
     {
         return $shipmentMethodSubForm->createSubFrom($this->quoteTransfer);
     }

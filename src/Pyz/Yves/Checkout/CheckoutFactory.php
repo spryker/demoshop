@@ -5,8 +5,8 @@ namespace Pyz\Yves\Checkout;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Application\Plugin\Pimple;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerInterface;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormInterface;
+use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
+use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
 use Pyz\Yves\Checkout\Form\Steps\AddressCollectionForm;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
 use Pyz\Yves\Checkout\Form\Steps\ShipmentForm;
@@ -24,8 +24,8 @@ use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
 use Pyz\Yves\Payolution\Plugin\PayolutionHandlerPlugin;
 use Pyz\Yves\Payolution\Plugin\PayolutionInstallmentSubFormPlugin;
 use Pyz\Yves\Payolution\Plugin\PayolutionInvoiceSubFormPlugin;
-use Pyz\Yves\Shipment\Plugin\ShipmentSubFormPlugin;
 use Pyz\Yves\Shipment\Plugin\ShipmentHandlerPlugin;
+use Pyz\Yves\Shipment\Plugin\ShipmentSubFormPlugin;
 use Spryker\Client\Calculation\CalculationClient;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 use Spryker\Shared\Kernel\Store;
@@ -187,7 +187,7 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @return CheckoutSubFormInterface[]
+     * @return CheckoutSubFormPluginInterface[]
      */
     public function createShipmentMethodsSubForms()
     {
@@ -197,7 +197,7 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @return CheckoutStepHandlerInterface[]
+     * @return CheckoutStepHandlerPluginInterface[]
      */
     public function createShipmentPlugins()
     {
@@ -220,7 +220,7 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @return CheckoutSubFormInterface[]
+     * @return CheckoutSubFormPluginInterface[]
      */
     public function createPaymentMethodsSubForms()
     {
@@ -231,7 +231,7 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @return CheckoutStepHandlerInterface[]
+     * @return CheckoutStepHandlerPluginInterface[]
      */
     public function createPaymentPlugins()
     {

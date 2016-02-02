@@ -4,12 +4,12 @@ namespace Pyz\Yves\Checkout\Form\Steps;
 
 use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormInterface;
-use Pyz\Yves\Checkout\Form\AbstractCheckoutSubForm;
+use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
 use Spryker\Shared\Gui\Form\AbstractForm;
 use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 
 class PaymentForm extends AbstractForm
 {
@@ -24,13 +24,13 @@ class PaymentForm extends AbstractForm
     protected $quoteTransfer;
 
     /**
-     * @var CheckoutSubFormInterface[]
+     * @var CheckoutSubFormPluginInterface[]
      */
     protected $paymentMethodSubFormPlugins;
 
     /**
      * @param QuoteTransfer $quoteTransfer
-     * @param CheckoutSubFormInterface[] $paymentMethodSubFormPlugins
+     * @param CheckoutSubFormPluginInterface[] $paymentMethodSubFormPlugins
      */
     public function __construct(QuoteTransfer $quoteTransfer, $paymentMethodSubFormPlugins)
     {
@@ -111,7 +111,7 @@ class PaymentForm extends AbstractForm
 
     /**
      * @param FormBuilderInterface $builder
-     * @param AbstractCheckoutSubForm[] $paymentMethodSubForms
+     * @param SubFormInterface[] $paymentMethodSubForms
      *
      * @return self
      */
@@ -144,7 +144,7 @@ class PaymentForm extends AbstractForm
     }
 
     /**
-     * @return AbstractCheckoutSubForm[]
+     * @return SubFormInterface[]
      */
     protected function getPaymentMethodSubForms()
     {
@@ -158,7 +158,7 @@ class PaymentForm extends AbstractForm
     }
 
     /**
-     * @param AbstractCheckoutSubForm[] $paymentMethodSubForms
+     * @param SubFormInterface[] $paymentMethodSubForms
      *
      * @return array
      */
@@ -175,11 +175,11 @@ class PaymentForm extends AbstractForm
     }
 
     /**
-     * @param CheckoutSubFormInterface $paymentMethodSubForm
+     * @param CheckoutSubFormPluginInterface $paymentMethodSubForm
      *
-     * @return AbstractCheckoutSubForm
+     * @return SubFormInterface
      */
-    protected function createSubForm(CheckoutSubFormInterface $paymentMethodSubForm)
+    protected function createSubForm(CheckoutSubFormPluginInterface $paymentMethodSubForm)
     {
         return $paymentMethodSubForm->createSubFrom($this->quoteTransfer);
     }

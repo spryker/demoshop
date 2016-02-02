@@ -7,8 +7,9 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Shared\Gui\Form\AbstractForm;
 use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
+use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 
-class InvoiceSubForm extends AbstractForm
+class InvoiceSubForm extends AbstractForm implements SubFormInterface
 {
 
     const PAYMENT_PROVIDER = 'payolution';

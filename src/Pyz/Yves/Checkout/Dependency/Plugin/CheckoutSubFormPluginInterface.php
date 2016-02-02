@@ -5,7 +5,7 @@ namespace Pyz\Yves\Checkout\Dependency\Plugin;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Shared\Gui\Form\AbstractForm;
 
-interface CheckoutSubFormInterface
+interface CheckoutSubFormPluginInterface
 {
 
     /**

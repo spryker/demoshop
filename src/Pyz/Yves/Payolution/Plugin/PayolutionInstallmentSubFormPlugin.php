@@ -3,7 +3,7 @@
 namespace Pyz\Yves\Payolution\Plugin;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormInterface;
+use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
 use Pyz\Yves\Payolution\Form\InstallmentSubForm;
 use Pyz\Yves\Payolution\PayolutionFactory;
 use Spryker\Yves\Kernel\AbstractPlugin;
@@ -11,7 +11,7 @@ use Spryker\Yves\Kernel\AbstractPlugin;
 /**
  * @method PayolutionFactory getFactory()
  */
-class PayolutionInstallmentSubFormPlugin extends AbstractPlugin implements CheckoutSubFormInterface
+class PayolutionInstallmentSubFormPlugin extends AbstractPlugin implements CheckoutSubFormPluginInterface
 {
 
     /**

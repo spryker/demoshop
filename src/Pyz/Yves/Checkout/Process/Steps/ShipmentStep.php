@@ -4,7 +4,7 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerInterface;
+use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Spryker\Client\Calculation\CalculationClient;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,7 +18,7 @@ class ShipmentStep extends BaseStep implements StepInterface
     protected $calculationClient;
 
     /**
-     * @var CheckoutStepHandlerInterface[]
+     * @var CheckoutStepHandlerPluginInterface[]
      */
     protected $shipmentPlugins;
 
@@ -27,7 +27,7 @@ class ShipmentStep extends BaseStep implements StepInterface
      * @param CalculationClient $calculationClient
      * @param string $stepRoute
      * @param string $escapeRoute
-     * @param CheckoutStepHandlerInterface[] $shipmentPlugins
+     * @param CheckoutStepHandlerPluginInterface[] $shipmentPlugins
      */
     public function __construct(
         FlashMessengerInterface $flashMessenger,

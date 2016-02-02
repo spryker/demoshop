@@ -4,7 +4,7 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerInterface;
+use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class CustomerStep extends BaseStep implements StepInterface
@@ -31,7 +31,7 @@ class CustomerStep extends BaseStep implements StepInterface
     /**
      * @param Request $request
      * @param QuoteTransfer $quoteTransfer
-     * @param CheckoutStepHandlerInterface[] $plugins
+     * @param CheckoutStepHandlerPluginInterface[] $plugins
      *
      * @return QuoteTransfer
      */

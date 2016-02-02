@@ -6,13 +6,14 @@ use Generated\Shared\Transfer\PayolutionCalculationPaymentDetailTransfer;
 use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Checkout\Form\AbstractCheckoutSubForm;
 use Spryker\Client\Payolution\PayolutionClientInterface;
 use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
+use Spryker\Shared\Gui\Form\AbstractForm;
+use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 
-class InstallmentSubForm extends AbstractCheckoutSubForm
+class InstallmentSubForm extends AbstractForm implements SubFormInterface
 {
 
     const PAYMENT_PROVIDER = 'payolution';

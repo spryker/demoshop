@@ -4,7 +4,7 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerInterface;
+use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Spryker\Shared\Kernel\Store;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -54,7 +54,7 @@ class AddressStep extends BaseStep implements StepInterface
     /**
      * @param Request $request
      * @param QuoteTransfer $quoteTransfer
-     * @param CheckoutStepHandlerInterface[] $plugins
+     * @param CheckoutStepHandlerPluginInterface[] $plugins
      *
      * @return QuoteTransfer
      */

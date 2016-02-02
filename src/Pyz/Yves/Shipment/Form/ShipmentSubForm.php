@@ -5,7 +5,7 @@ namespace Pyz\Yves\Shipment\Form;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentMethodsTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
-use Pyz\Yves\Checkout\Form\AbstractCheckoutSubForm;
+use Spryker\Shared\Gui\Form\AbstractForm;
 use Spryker\Client\Glossary\GlossaryClientInterface;
 use Spryker\Client\Shipment\ShipmentClientInterface;
 use Spryker\Shared\Kernel\Store;
@@ -13,8 +13,9 @@ use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 
-class ShipmentSubForm extends AbstractCheckoutSubForm
+class ShipmentSubForm extends AbstractForm implements SubFormInterface
 {
 
     const FIELD_ID_SHIPMENT_METHOD = 'idShipmentMethod';
