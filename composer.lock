@@ -752,63 +752,10 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "429397caea3a5923471dea90b0c795c5c2f2d5d3"
+                "reference": "6ae08b0750db3da70933fefa3083295098bab7f3"
             },
-            "replace": {
-                "spryker/acl": "self.version",
-                "spryker/application": "self.version",
-                "spryker/auth": "self.version",
-                "spryker/availability": "self.version",
-                "spryker/availability-cart-connector": "self.version",
-                "spryker/availability-checkout-connector": "self.version",
-                "spryker/calculation": "self.version",
-                "spryker/cart": "self.version",
-                "spryker/catalog": "self.version",
-                "spryker/category": "self.version",
-                "spryker/category-exporter": "self.version",
-                "spryker/checkout": "self.version",
-                "spryker/cms": "self.version",
-                "spryker/cms-exporter": "self.version",
-                "spryker/collector": "self.version",
-                "spryker/config": "self.version",
-                "spryker/console": "self.version",
-                "spryker/country": "self.version",
-                "spryker/customer": "self.version",
-                "spryker/customer-mail-connector": "self.version",
-                "spryker/discount": "self.version",
-                "spryker/discount-calculation-connector": "self.version",
-                "spryker/eventjournal": "self.version",
-                "spryker/git": "self.version",
-                "spryker/glossary": "self.version",
-                "spryker/installer": "self.version",
-                "spryker/invoice": "self.version",
-                "spryker/kernel": "self.version",
-                "spryker/library": "self.version",
-                "spryker/locale": "self.version",
-                "spryker/mail": "self.version",
-                "spryker/oms": "self.version",
-                "spryker/price": "self.version",
-                "spryker/price-cart-connector": "self.version",
-                "spryker/product": "self.version",
-                "spryker/product-category": "self.version",
-                "spryker/product-search": "self.version",
-                "spryker/redirect": "self.version",
-                "spryker/redirect-exporter": "self.version",
-                "spryker/sales": "self.version",
-                "spryker/sdk": "self.version",
-                "spryker/search": "self.version",
-                "spryker/setup": "self.version",
-                "spryker/stock": "self.version",
-                "spryker/stock-sales-connector": "self.version",
-                "spryker/storage": "self.version",
-                "spryker/touch": "self.version",
-                "spryker/twig": "self.version",
-                "spryker/ui": "self.version",
-                "spryker/ui-example": "self.version",
-                "spryker/url": "self.version",
-                "spryker/user": "self.version",
-                "spryker/yves": "self.version",
-                "spryker/zed-request": "self.version"
+            "require": {
+                "phpdocumentor/graphviz": "~1.0.0"
             },
             "require-dev": {
                 "codeception/codeception": "*",
@@ -831,7 +778,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2016-02-02 14:45:32"
+            "time": "2016-02-02 18:18:49"
         },
         {
             "name": "symfony-cmf/routing",
