@@ -217,8 +217,8 @@ keys:
       en_US: 'Forgotten?'
   auth.email:
     translations:
-      de_DE: E-mail-Adresse
-      en_US: E-mail
+      de_DE: 'E-mail Adresse'
+      en_US: 'Email address'
   auth.register:
     translations:
       de_DE: Registrieren
@@ -514,7 +514,7 @@ keys:
   customer.email:
     translations:
       de_DE: 'E-Mail Adresse'
-      en_US: E-Mail
+      en_US: 'Email Address'
   customer.phone:
     translations:
       de_DE: Telefonnummer
@@ -574,7 +574,7 @@ keys:
   customer.login.email:
     translations:
       en_US: Email
-      de_DE: Email
+      de_DE: E-Mail
   customer.login.password:
     translations:
       en_US: Password
@@ -722,7 +722,7 @@ keys:
   customer.forgotten_password.email:
     translations:
       en_US: 'Email Address'
-      de_DE: E-Mail-Adresse
+      de_DE: 'E-Mail Adresse'
   customer.forgotten-password.title:
     translations:
       en_US: 'Recover my password'
