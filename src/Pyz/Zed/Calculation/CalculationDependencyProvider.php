@@ -6,6 +6,7 @@
 namespace Pyz\Zed\Calculation;
 
 use Spryker\Zed\Calculation\CalculationDependencyProvider as SprykerCalculationDependencyProvider;
+use Spryker\Zed\Calculation\Communication\Plugin\ExpensesGrossSumAmountCalculatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\ExpenseTotalsCalculatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\GrandTotalTotalsCalculatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\ItemGrossAmountsCalculatorPlugin;
@@ -19,7 +20,7 @@ use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\GrandTotalWith
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Calculation\Dependency\Plugin\CalculatorPluginInterface;
 use Spryker\Zed\Tax\Communication\Plugin\TaxTotalsCalculatorPlugin;
-use Spryker\Zed\Calculation\Business\Model\Calculator\ExpenseGrossSumAmountCalculator; //@todo move to plugin
+use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\SumGrossCalculatedDiscountAmountCalculatorPlugin;
 
 class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
 {
@@ -42,11 +43,12 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
             new SubtotalTotalsCalculatorPlugin(),
 
             #Expenses (e.g. shipping)
-            new ExpenseGrossSumAmountCalculator(),
+            new ExpensesGrossSumAmountCalculatorPlugin(),
             new ExpenseTotalsCalculatorPlugin(),
 
             #Discounts
             new DiscountCalculatorPlugin(),
+            new SumGrossCalculatedDiscountAmountCalculatorPlugin(),
             new DiscountTotalsCalculatorPlugin(),
 
             #GrandTotal
