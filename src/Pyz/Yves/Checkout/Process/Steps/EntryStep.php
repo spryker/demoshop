@@ -1,0 +1,60 @@
+<?php
+/**
+ * (c) Spryker Systems GmbH copyright protected
+ */
+
+namespace Pyz\Yves\Checkout\Process\Steps;
+
+use Generated\Shared\Transfer\QuoteTransfer;
+use Symfony\Component\HttpFoundation\Request;
+
+class EntryStep extends BaseStep implements StepInterface
+{
+
+    /**
+     * Requirements for this step, return true when satisfied.
+     *
+     * @param QuoteTransfer $quoteTransfer
+     *
+     * @return bool
+     */
+    public function preCondition(QuoteTransfer $quoteTransfer)
+    {
+        return !$this->isCartEmpty($quoteTransfer);
+    }
+
+    /**
+     * Require input, should we render view with form or just skip step after calling execute.
+     *
+     * @return bool
+     */
+    public function requireInput()
+    {
+       return false;
+    }
+
+    /**
+     * Execute step logic, happens after form submit if provided, gets QuoteTransfer filled by data from form.
+     *
+     * @param Request $request
+     * @param QuoteTransfer $quoteTransfer
+     *
+     * @return QuoteTransfer
+     */
+    public function execute(Request $request, QuoteTransfer $quoteTransfer)
+    {
+        return $quoteTransfer;
+    }
+
+    /**
+     * Conditions that should be met for this step to be marked as completed. returns true when satisfied.
+     *
+     * @param QuoteTransfer $quoteTransfer
+     *
+     * @return bool
+     */
+    public function postCondition(QuoteTransfer $quoteTransfer)
+    {
+        return true;
+    }
+}

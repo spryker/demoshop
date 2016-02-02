@@ -16,7 +16,16 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CheckoutController extends AbstractController
 {
-
+    /**
+     * @param Request $request
+     *
+     * @return array|RedirectResponse
+     */
+    public function indexAction(Request $request)
+    {
+        return $this->createStepProcess()->process($request);
+    }
+    
     /**
      * @param Request $request
      *

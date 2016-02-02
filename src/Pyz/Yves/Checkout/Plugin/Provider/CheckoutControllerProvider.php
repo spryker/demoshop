@@ -16,6 +16,7 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
     const CHECKOUT_PLACE_ORDER = 'checkout-place-order';
     const CHECKOUT_ERROR = 'checkout-error';
     const CHECKOUT_SUCCESS = 'checkout-success';
+    const CHECKOUT_INDEX = 'checkout-index';
 
     /**
      * @param Application $app
@@ -24,6 +25,10 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
      */
     protected function defineControllers(Application $app)
     {
+
+        $this->createController('/checkout', self::CHECKOUT_INDEX, 'Checkout', 'Checkout', 'index')
+            ->method('GET|POST');
+
         $this->createController('/checkout/customer', self::CHECKOUT_CUSTOMER, 'Checkout', 'Checkout', 'customer')
             ->method('GET|POST');
 

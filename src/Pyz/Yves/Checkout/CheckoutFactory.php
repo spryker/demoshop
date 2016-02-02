@@ -14,6 +14,7 @@ use Pyz\Yves\Checkout\Form\Steps\SummaryForm;
 use Pyz\Yves\Checkout\Process\StepProcess;
 use Pyz\Yves\Checkout\Process\Steps\AddressStep;
 use Pyz\Yves\Checkout\Process\Steps\CustomerStep;
+use Pyz\Yves\Checkout\Process\Steps\EntryStep;
 use Pyz\Yves\Checkout\Process\Steps\PaymentStep;
 use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
@@ -44,6 +45,7 @@ class CheckoutFactory extends AbstractFactory
     protected function createSteps()
     {
         return [
+            $this->createEntryStep(),
             $this->createCustomerStep(),
             $this->createAddressStep(),
             $this->createShipmentStep(),
@@ -301,6 +303,18 @@ class CheckoutFactory extends AbstractFactory
     protected function getCurrencyManager()
     {
         return CurrencyManager::getInstance();
+    }
+
+    /**
+     * @return EntryStep
+     */
+    private function createEntryStep()
+    {
+        return new EntryStep(
+            $this->getFlashMessenger(),
+            CheckoutControllerProvider::CHECKOUT_INDEX,
+            ApplicationControllerProvider::ROUTE_HOME
+        );
     }
 
 }
