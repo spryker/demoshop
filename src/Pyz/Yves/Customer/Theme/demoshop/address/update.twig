@@ -17,7 +17,7 @@
                     <h2>{{ 'customer.account.edit_address_information' | trans }}</h2>
                 </div>
                 <div class="panel-body">
-                    {% include "@customer/address/partials/form.twig" with {'form': form, 'formAction': url('customer/address/update/submit')} %}
+                    {% include "@customer/address/partials/form.twig" with {'form': form} %}
                 </div>
             </div>
 

@@ -5,12 +5,9 @@ namespace Pyz\Yves\Customer\Controller;
 use Generated\Shared\Transfer\AddressesTransfer;
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
-use Pyz\Yves\Customer\Form\AddressForm;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use Spryker\Shared\Customer\Code\Messages;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AddressController extends AbstractCustomerController
 {
@@ -44,14 +41,15 @@ class AddressController extends AbstractCustomerController
     {
         $customerTransfer = $this->getLoggedInCustomerTransfer();
 
-        $addressFormType = $this
-            ->getFactory()
-            ->createFormAddress();
-
+        $dataProvider = $this->getFactory()->createAddressFormDataProvider();
         $addressForm = $this
-            ->buildForm($addressFormType)
-            ->setData($this->getDefaultFormData($customerTransfer))
+            ->getFactory()
+            ->createAddressForm($dataProvider->getOptions())
             ->handleRequest($request);
+
+        if ($addressForm->isSubmitted() === false) {
+            $addressForm->setData($dataProvider->getData());
+        }
 
         if ($addressForm->isValid()) {
             $customerTransfer = $this->createAddress($customerTransfer, $addressForm->getData());
@@ -79,43 +77,17 @@ class AddressController extends AbstractCustomerController
      */
     public function updateAction(Request $request)
     {
-        $addressTransfer = $this->loadAddressTransfer($request->query->getInt('id'));
-
-        if ($addressTransfer === null) {
-            $this->addErrorMessage(Messages::CUSTOMER_ADDRESS_UNKNOWN);
-
-            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_ADDRESS);
-        }
-
-        $addressFormType = $this
-            ->getFactory()
-            ->createFormAddress();
-
+        $dataProvider = $this->getFactory()->createAddressFormDataProvider();
         $addressForm = $this
-            ->buildForm($addressFormType)
-            ->setData($addressTransfer->toArray());
-
-        return $this->viewResponse([
-            'form' => $addressForm->createView(),
-        ]);
-    }
-
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    public function submitUpdateAction(Request $request)
-    {
-        $addressFormType = $this
             ->getFactory()
-            ->createFormAddress();
-
-        $addressForm = $this
-            ->buildForm($addressFormType)
+            ->createAddressForm($dataProvider->getOptions())
             ->handleRequest($request);
 
-        if ($addressForm->isValid()) {
+        if ($addressForm->isSubmitted() === false) {
+            $idCustomerAddress = $request->query->getInt('id');
+
+            $addressForm->setData($dataProvider->getData($idCustomerAddress));
+        } elseif ($addressForm->isValid()) {
             $customerTransfer = $this->processAddressUpdate($addressForm->getData());
 
             if ($customerTransfer !== null) {
@@ -123,9 +95,13 @@ class AddressController extends AbstractCustomerController
             } else {
                 $this->addErrorMessage(Messages::CUSTOMER_ADDRESS_NOT_ADDED);
             }
+
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_ADDRESS);
         }
 
-        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_ADDRESS);
+        return $this->viewResponse([
+            'form' => $addressForm->createView(),
+        ]);
     }
 
     /**
@@ -153,19 +129,6 @@ class AddressController extends AbstractCustomerController
         }
 
         return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_ADDRESS);
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
-     *
-     * @return \Generated\Shared\Transfer\AddressTransfer
-     */
-    protected function getDefaultFormData(CustomerTransfer $customerTransfer)
-    {
-        return [
-            AddressForm::FIELD_FIRST_NAME => $customerTransfer->getFirstName(),
-            AddressForm::FIELD_LAST_NAME => $customerTransfer->getLastName(),
-        ];
     }
 
     /**
@@ -224,27 +187,6 @@ class AddressController extends AbstractCustomerController
             ->createAddressAndUpdateCustomerDefaultAddresses($addressTransfer);
 
         return $customerTransfer;
-    }
-
-    /**
-     * @param int $idCustomerAddress
-     *
-     * @return \Generated\Shared\Transfer\AddressTransfer|null
-     */
-    protected function loadAddressTransfer($idCustomerAddress)
-    {
-        $customerTransfer = $this->getLoggedInCustomerTransfer();
-
-        $addressTransfer = new AddressTransfer();
-        $addressTransfer
-            ->setIdCustomerAddress($idCustomerAddress)
-            ->setFkCustomer($customerTransfer->getIdCustomer());
-
-        $addressTransfer = $this
-            ->getClient()
-            ->getAddress($addressTransfer);
-
-        return $addressTransfer;
     }
 
     /**

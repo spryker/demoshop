@@ -2,37 +2,18 @@
 
 namespace Pyz\Yves\Customer\Form;
 
-use Spryker\Shared\Gui\Form\AbstractForm;
-use Spryker\Shared\Transfer\TransferInterface;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class LoginForm extends AbstractForm
+class LoginForm extends AbstractType
 {
 
     const FORM_NAME = 'loginForm';
+
     const FIELD_EMAIL = 'email';
     const FIELD_PASSWORD = 'password';
-
-    /**
-     * @param \Symfony\Component\Form\FormBuilderInterface $builder
-     * @param array $options
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
-        $builder->add(self::FIELD_EMAIL, 'text', [
-            'label' => 'customer.login.email',
-            'constraints' => [
-                new NotBlank(),
-                new Email(),
-            ], ])
-            ->add(self::FIELD_PASSWORD, self::FIELD_PASSWORD, [
-                'label' => 'customer.login.password',
-                'constraints' => new NotBlank(),
-            ])
-            ->setAction('/login_check');
-    }
 
     /**
      * @return string
@@ -43,19 +24,48 @@ class LoginForm extends AbstractForm
     }
 
     /**
-     * @return \Spryker\Shared\Transfer\TransferInterface|array
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     * @param array $options
      */
-    public function populateFormFields()
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        return [];
+        $builder->setAction('/login_check');
+
+        $this
+            ->addEmailField($builder)
+            ->addPasswordField($builder);
     }
 
     /**
-     * @return \Spryker\Shared\Transfer\TransferInterface|null
+     * @param FormBuilderInterface $builder
+     *
+     * @return self
      */
-    protected function getDataClass()
+    protected function addEmailField(FormBuilderInterface $builder)
     {
-        return null;
+        $builder->add(self::FIELD_EMAIL, 'text', [
+            'label' => 'customer.login.email',
+            'constraints' => [
+                new NotBlank(),
+                new Email(),
+            ]]);
+
+        return $this;
+    }
+
+    /**
+     * @param FormBuilderInterface $builder
+     *
+     * @return self
+     */
+    protected function addPasswordField(FormBuilderInterface $builder)
+    {
+        $builder->add(self::FIELD_PASSWORD, self::FIELD_PASSWORD, [
+            'label' => 'customer.login.password',
+            'constraints' => new NotBlank(),
+        ]);
+
+        return $this;
     }
 
 }

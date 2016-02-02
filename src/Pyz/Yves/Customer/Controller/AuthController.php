@@ -26,12 +26,8 @@ class AuthController extends AbstractCustomerController
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_OVERVIEW);
         }
 
-        $loginForm = $this->buildForm(
-            $this->getFactory()->createFormLogin()
-        );
-        $registerForm = $this->buildForm(
-            $this->getFactory()->createFormRegister()
-        );
+        $loginForm = $this->getFactory()->createLoginForm();
+        $registerForm = $this->getFactory()->createRegisterForm();
 
         return [
             'loginForm' => $loginForm->createView(),
