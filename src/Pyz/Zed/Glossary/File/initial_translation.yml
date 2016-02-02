@@ -677,16 +677,16 @@ keys:
       de_DE: Firma
   customer.address.address1:
     translations:
-      en_US: 'Address 1'
-      de_DE: 'Adresse 1'
+      en_US: 'Street'
+      de_DE: 'Straße'
   customer.address.address2:
     translations:
-      en_US: 'Address 2'
-      de_DE: 'Adresse 2'
+      en_US: 'Number'
+      de_DE: 'Hausnummer'
   customer.address.address3:
     translations:
-      en_US: 'Address 3'
-      de_DE: 'Adresse 3'
+      en_US: 'Addition to address'
+      de_DE: 'Adresszusatz'
   customer.address.zip_code:
     translations:
       en_US: 'Zip Code'
@@ -838,7 +838,7 @@ keys:
   forms.submit.login:
     translations:
       en_US: Login
-      de_DE: Speichern
+      de_DE: Einloggen
   forms.submit.register:
     translations:
       en_US: Register
@@ -878,8 +878,8 @@ keys:
   email.orderEmail.salutationMale:
     translations:
       en_US: Mr.
-      de_DE: Fr.
+      de_DE: Hr.
   email.orderEmail.salutationFemale:
     translations:
       en_US: Ms.
-      de_DE: Hr.
+      de_DE: Fr.
