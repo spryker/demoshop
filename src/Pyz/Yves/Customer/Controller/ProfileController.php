@@ -4,7 +4,6 @@ namespace Pyz\Yves\Customer\Controller;
 
 use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class ProfileController extends AbstractCustomerController
@@ -14,21 +13,33 @@ class ProfileController extends AbstractCustomerController
     const MESSAGE_PASSWORD_CHANGE_SUCCESS = 'customer.password.change.success';
 
     /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
      * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        $profileFormType = $this
-            ->getFactory()
-            ->createFormProfile();
         $profileForm = $this
-            ->buildForm($profileFormType)
-            ->setData($this->getLoggedInCustomerTransfer()->toArray());
-
-        $passwordFormType = $this
             ->getFactory()
-            ->createFormPassword();
-        $passwordForm = $this->buildForm($passwordFormType);
+            ->createProfileForm()
+            ->handleRequest($request);
+
+        if ($profileForm->isSubmitted() === false) {
+            $profileForm->setData($this->getLoggedInCustomerTransfer()->toArray());
+        }
+
+        if ($profileForm->isValid() && $this->processProfileUpdate($profileForm->getData()) === true) {
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
+        }
+
+        $passwordForm = $this
+            ->getFactory()
+            ->createPasswordForm()
+            ->handleRequest($request);
+
+        if ($passwordForm->isValid() && $this->processPasswordUpdate($passwordForm->getData()) === true) {
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
+        }
 
         return $this->viewResponse([
             'profileForm' => $profileForm->createView(),
@@ -37,46 +48,9 @@ class ProfileController extends AbstractCustomerController
     }
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    public function submitProfileAction(Request $request)
-    {
-        $profileForm = $this
-            ->buildForm($this->getFactory()->createFormProfile())
-            ->setData($this->getLoggedInCustomerTransfer()->toArray())
-            ->handleRequest($request);
-
-        if ($profileForm->isValid()) {
-            $this->processProfileUpdate($profileForm->getData());
-        }
-
-        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
-    }
-
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    public function submitPasswordAction(Request $request)
-    {
-        $passwordForm = $this
-            ->buildForm($this->getFactory()->createFormPassword())
-            ->handleRequest($request);
-
-        if ($passwordForm->isValid()) {
-            $this->processPasswordUpdate($passwordForm->getData());
-        }
-
-        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_PROFILE);
-    }
-
-    /**
      * @param array $customerData
      *
-     * @return void
+     * @return bool
      */
     protected function processProfileUpdate(array $customerData)
     {
@@ -92,15 +66,19 @@ class ProfileController extends AbstractCustomerController
             $this->updateLoggedInCustomerTransfer($customerResponseTransfer->getCustomerTransfer());
 
             $this->addSuccessMessage(self::MESSAGE_PROFILE_CHANGE_SUCCESS);
-        } else {
-            $this->processResponseErrors($customerResponseTransfer);
+
+            return true;
         }
+
+        $this->processResponseErrors($customerResponseTransfer);
+
+        return false;
     }
 
     /**
      * @param array $customerData
      *
-     * @return void
+     * @return bool
      */
     protected function processPasswordUpdate(array $customerData)
     {
@@ -117,9 +95,13 @@ class ProfileController extends AbstractCustomerController
             $this->updateLoggedInCustomerTransfer($customerResponseTransfer->getCustomerTransfer());
 
             $this->addSuccessMessage(self::MESSAGE_PASSWORD_CHANGE_SUCCESS);
-        } else {
-            $this->processResponseErrors($customerResponseTransfer);
+
+            return true;
         }
+
+        $this->processResponseErrors($customerResponseTransfer);
+
+        return false;
     }
 
     /**

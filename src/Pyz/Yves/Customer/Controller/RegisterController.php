@@ -30,7 +30,8 @@ class RegisterController extends AbstractCustomerController
         }
 
         $registerForm = $this
-            ->buildForm($this->getFactory()->createFormRegister())
+            ->getFactory()
+            ->createRegisterForm()
             ->handleRequest($request);
 
         if ($registerForm->isValid()) {
@@ -45,9 +46,9 @@ class RegisterController extends AbstractCustomerController
             $this->processResponseErrors($customerResponseTransfer);
         }
 
-        $loginForm = $this->buildForm(
-            $this->getFactory()->createFormLogin()
-        );
+        $loginForm = $this
+            ->getFactory()
+            ->createLoginForm();
 
         return $this->viewResponse([
             'loginForm' => $loginForm->createView(),

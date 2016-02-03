@@ -2,12 +2,10 @@
 
 namespace Pyz\Yves\Customer\Form;
 
-use Generated\Shared\Transfer\CustomerTransfer;
-use Spryker\Shared\Gui\Form\AbstractForm;
-use Spryker\Shared\Transfer\TransferInterface;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class PasswordForm extends AbstractForm
+class PasswordForm extends AbstractType
 {
     const FIELD_NEW_PASSWORD = 'new_password';
     const FIELD_PASSWORD = 'password';
@@ -26,40 +24,48 @@ class PasswordForm extends AbstractForm
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add(self::FIELD_PASSWORD, self::FIELD_PASSWORD, [
-                'label' => 'customer.password.old_password',
-                'required' => true,
-            ])
-            ->add(self::FIELD_NEW_PASSWORD, 'repeated', [
-                'first_name' => self::FIELD_PASSWORD,
-                'second_name' => 'confirm',
-                'type' => self::FIELD_PASSWORD,
-                'invalid_message' => 'customer.password.invalid_password',
-                'required' => true,
-                'first_options' => [
-                    'label' => 'customer.password.request.new_password',
-                ],
-                'second_options' => [
-                    'label' => 'customer.password.confirm.new_password',
-                ],
-            ]);
+        $this
+            ->addPasswordField($builder)
+            ->addNewPasswordField($builder);
     }
 
     /**
-     * @return \Spryker\Shared\Transfer\TransferInterface|array
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     *
+     * @return self
      */
-    public function populateFormFields()
+    protected function addNewPasswordField(FormBuilderInterface $builder)
     {
-        return null;
+        $builder->add(self::FIELD_NEW_PASSWORD, 'repeated', [
+            'first_name' => self::FIELD_PASSWORD,
+            'second_name' => 'confirm',
+            'type' => self::FIELD_PASSWORD,
+            'invalid_message' => 'customer.password.invalid_password',
+            'required' => true,
+            'first_options' => [
+                'label' => 'customer.password.request.new_password',
+            ],
+            'second_options' => [
+                'label' => 'customer.password.confirm.new_password',
+            ],
+        ]);
+
+        return $this;
     }
 
     /**
-     * @return \Spryker\Shared\Transfer\TransferInterface|null
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     *
+     * @return self
      */
-    protected function getDataClass()
+    protected function addPasswordField(FormBuilderInterface $builder)
     {
-        return null;
+        $builder->add(self::FIELD_PASSWORD, self::FIELD_PASSWORD, [
+            'label' => 'customer.password.old_password',
+            'required' => true,
+        ]);
+
+        return $this;
     }
 
 }

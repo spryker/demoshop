@@ -27,7 +27,8 @@ class PasswordController extends AbstractCustomerController
     public function forgottenPasswordAction(Request $request)
     {
         $form = $this
-            ->buildForm($this->getFactory()->createFormForgottenPassword())
+            ->getFactory()
+            ->createForgottenPasswordForm()
             ->handleRequest($request);
 
         if ($form->isValid()) {
@@ -56,7 +57,8 @@ class PasswordController extends AbstractCustomerController
     public function restorePasswordAction(Request $request)
     {
         $form = $this
-            ->buildForm($this->getFactory()->createFormRestorePassword())
+            ->getFactory()
+            ->createFormRestorePassword()
             ->setData([
                 RestorePasswordForm::FIELD_RESTORE_PASSWORD_KEY => $request->query->get('token'),
             ])

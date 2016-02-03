@@ -2,11 +2,10 @@
 
 namespace Pyz\Yves\Customer\Form;
 
-use Spryker\Shared\Gui\Form\AbstractForm;
-use Spryker\Shared\Transfer\TransferInterface;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class NewsletterSubscriptionForm extends AbstractForm
+class NewsletterSubscriptionForm extends AbstractType
 {
     const FIELD_SUBSCRIBE = 'subscribe';
 
@@ -24,27 +23,22 @@ class NewsletterSubscriptionForm extends AbstractForm
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add(self::FIELD_SUBSCRIBE, 'checkbox', [
-                'label' => 'customer.newsletter.subscription_agreement',
-                'required' => false,
-            ]);
+        $this->addSubscribeField($builder);
     }
 
     /**
-     * @return null
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     *
+     * @return $this
      */
-    public function populateFormFields()
+    protected function addSubscribeField(FormBuilderInterface $builder)
     {
-        return null;
-    }
+        $builder->add(self::FIELD_SUBSCRIBE, 'checkbox', [
+            'label' => 'customer.newsletter.subscription_agreement',
+            'required' => false,
+        ]);
 
-    /**
-     * @return \Spryker\Shared\Transfer\TransferInterface|null
-     */
-    protected function getDataClass()
-    {
-        return null;
+        return $this;
     }
 
 }
