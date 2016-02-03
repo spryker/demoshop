@@ -21,7 +21,7 @@ class RestorePasswordForm extends AbstractForm
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -44,7 +44,7 @@ class RestorePasswordForm extends AbstractForm
     }
 
     /**
-     * @return TransferInterface|array
+     * @return \Spryker\Shared\Transfer\TransferInterface|array
      */
     public function populateFormFields()
     {
@@ -52,7 +52,7 @@ class RestorePasswordForm extends AbstractForm
     }
 
     /**
-     * @return CustomerTransfer
+     * @return \Generated\Shared\Transfer\CustomerTransfer
      */
     protected function getDataClass()
     {

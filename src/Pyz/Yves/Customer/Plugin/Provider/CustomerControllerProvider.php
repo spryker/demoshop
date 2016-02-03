@@ -29,7 +29,7 @@ class CustomerControllerProvider extends AbstractYvesControllerProvider
     const ROUTE_CUSTOMER_NEWSLETTER_UNSUBSCRIBE = 'customer/newsletter/unsubscribe';
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      */
     protected function defineControllers(Application $app)
     {

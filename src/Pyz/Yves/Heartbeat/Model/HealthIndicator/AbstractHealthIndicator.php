@@ -11,12 +11,12 @@ abstract class AbstractHealthIndicator implements HealthIndicatorInterface
 {
 
     /**
-     * @var HealthReportTransfer
+     * @var \Generated\Shared\Transfer\HealthReportTransfer
      */
     private $healthIndicatorReport;
 
     /**
-     * @param HealthReportTransfer $healthReport
+     * @param \Generated\Shared\Transfer\HealthReportTransfer $healthReport
      */
     public function writeHealthReport(HealthReportTransfer $healthReport)
     {
@@ -38,7 +38,7 @@ abstract class AbstractHealthIndicator implements HealthIndicatorInterface
     }
 
     /**
-     * @return HealthIndicatorReportTransfer
+     * @return \Generated\Shared\Transfer\HealthIndicatorReportTransfer
      */
     private function getHealthIndicatorReport()
     {

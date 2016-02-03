@@ -13,7 +13,7 @@ class GlossaryInstall extends AbstractInstaller
 {
 
     /**
-     * @var GlossaryInstallerPluginInterface[]
+     * @var \Spryker\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface[]
      */
     protected $installers;
 

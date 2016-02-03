@@ -34,9 +34,9 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
 {
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return Command[]
+     * @return \Symfony\Component\Console\Command\Command[]
      */
     public function getConsoleCommands(Container $container)
     {

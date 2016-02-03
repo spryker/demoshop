@@ -13,23 +13,23 @@ use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 /**
- * @method CollectorFactory getFactory()
+ * @method \Pyz\Yves\Collector\CollectorFactory getFactory()
  */
 class StorageRouter extends AbstractRouter
 {
 
     /**
-     * @var ResourceCreatorInterface[]
+     * @var \Pyz\Yves\Collector\Creator\ResourceCreatorInterface[]
      */
     private $resourceCreators = [];
 
     /**
-     * @var UrlMatcherInterface
+     * @var \Spryker\Client\Collector\Matcher\UrlMatcherInterface
      */
     private $urlMatcher;
 
     /**
-     * @var UrlMapperInterface
+     * @var \Pyz\Yves\Collector\Mapper\UrlMapperInterface
      */
     private $urlMapper;
 
@@ -88,7 +88,7 @@ class StorageRouter extends AbstractRouter
     }
 
     /**
-     * @return ResourceCreatorInterface[]
+     * @return \Pyz\Yves\Collector\Creator\ResourceCreatorInterface[]
      */
     private function getResourceCreators()
     {
@@ -96,7 +96,7 @@ class StorageRouter extends AbstractRouter
     }
 
     /**
-     * @return UrlMapperInterface
+     * @return \Pyz\Yves\Collector\Mapper\UrlMapperInterface
      */
     private function getUrlMapper()
     {
@@ -104,7 +104,7 @@ class StorageRouter extends AbstractRouter
     }
 
     /**
-     * @return UrlMatcherInterface
+     * @return \Spryker\Client\Collector\Matcher\UrlMatcherInterface
      */
     private function getUrlMatcher()
     {
@@ -112,7 +112,7 @@ class StorageRouter extends AbstractRouter
     }
 
     /**
-     * @return Request
+     * @return \Symfony\Component\HttpFoundation\Request
      */
     private function getRequest()
     {
@@ -123,7 +123,7 @@ class StorageRouter extends AbstractRouter
     }
 
     /**
-     * @return Application
+     * @return \Silex\Application
      */
     private function getApplication()
     {

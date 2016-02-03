@@ -14,7 +14,7 @@ class CatalogFactory extends AbstractFactory
 {
 
     /**
-     * @return UrlMapperInterface
+     * @return \Pyz\Yves\Collector\Mapper\UrlMapperInterface
      */
     public function createUrlMapper()
     {
@@ -24,7 +24,7 @@ class CatalogFactory extends AbstractFactory
     }
 
     /**
-     * @return Application
+     * @return \Silex\Application
      */
     public function createApplication()
     {
@@ -34,7 +34,7 @@ class CatalogFactory extends AbstractFactory
     }
 
     /**
-     * @return CatalogClient
+     * @return \Spryker\Client\Catalog\CatalogClient
      */
     public function createCatalogClient()
     {
@@ -42,7 +42,7 @@ class CatalogFactory extends AbstractFactory
     }
 
     /**
-     * @return CategoryExporterClient
+     * @return \Spryker\Client\CategoryExporter\CategoryExporterClient
      */
     public function createCategoryExporterClient()
     {

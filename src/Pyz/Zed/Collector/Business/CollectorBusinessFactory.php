@@ -27,13 +27,13 @@ use Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface;
 use Spryker\Zed\Collector\CollectorConfig;
 
 /**
- * @method CollectorConfig getConfig()
+ * @method \Spryker\Zed\Collector\CollectorConfig getConfig()
  */
 class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
 {
 
     /**
-     * @return SearchProductCollector
+     * @return \Pyz\Zed\Collector\Business\Search\ProductCollector
      */
     public function createSearchProductCollector()
     {
@@ -50,7 +50,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return CategoryNodeCollector
+     * @return \Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector
      */
     public function createStorageCategoryNodeCollector()
     {
@@ -65,7 +65,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return NavigationCollector
+     * @return \Pyz\Zed\Collector\Business\Storage\NavigationCollector
      */
     public function createStorageNavigationCollector()
     {
@@ -80,7 +80,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return PageCollector
+     * @return \Pyz\Zed\Collector\Business\Storage\PageCollector
      */
     public function createStoragePageCollector()
     {
@@ -94,7 +94,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return ProductCollector
+     * @return \Pyz\Zed\Collector\Business\Storage\ProductCollector
      */
     public function createStorageProductCollector()
     {
@@ -112,7 +112,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return RedirectCollector
+     * @return \Pyz\Zed\Collector\Business\Storage\RedirectCollector
      */
     public function createStorageRedirectCollector()
     {
@@ -126,7 +126,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return TranslationCollector
+     * @return \Pyz\Zed\Collector\Business\Storage\TranslationCollector
      */
     public function createStorageTranslationCollector()
     {
@@ -140,7 +140,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return UrlCollector
+     * @return \Pyz\Zed\Collector\Business\Storage\UrlCollector
      */
     public function createStorageUrlCollector()
     {
@@ -154,7 +154,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return BlockCollector
+     * @return \Pyz\Zed\Collector\Business\Storage\BlockCollector
      */
     public function createStorageBlockCollector()
     {

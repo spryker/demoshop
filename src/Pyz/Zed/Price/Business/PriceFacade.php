@@ -6,13 +6,13 @@ use Spryker\Zed\Price\Business\PriceFacade as SprykerPriceFacade;
 use Psr\Log\LoggerInterface;
 
 /**
- * @method PriceBusinessFactory getFactory()
+ * @method \Pyz\Zed\Price\Business\PriceBusinessFactory getFactory()
  */
 class PriceFacade extends SprykerPriceFacade
 {
 
     /**
-     * @param LoggerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      */
     public function installDemoData(LoggerInterface $messenger)
     {

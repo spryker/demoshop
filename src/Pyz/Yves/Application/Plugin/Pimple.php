@@ -9,12 +9,12 @@ class Pimple extends AbstractPlugin
 {
 
     /**
-     * @var Application
+     * @var \Spryker\Shared\Application\Communication\Application
      */
     protected static $application;
 
     /**
-     * @param Application $application
+     * @param \Spryker\Shared\Application\Communication\Application $application
      */
     public static function setApplication(Application $application)
     {
@@ -22,7 +22,7 @@ class Pimple extends AbstractPlugin
     }
 
     /**
-     * @return Application
+     * @return \Spryker\Shared\Application\Communication\Application
      */
     public function getApplication()
     {

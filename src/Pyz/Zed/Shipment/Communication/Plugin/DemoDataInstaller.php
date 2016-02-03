@@ -6,7 +6,7 @@ use Pyz\Zed\Shipment\Business\ShipmentFacade;
 use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 
 /**
- * @method ShipmentFacade getFacade()
+ * @method \Pyz\Zed\Shipment\Business\ShipmentFacade getFacade()
  */
 class DemoDataInstaller extends AbstractInstallerPlugin
 {

@@ -13,18 +13,18 @@ use Spryker\Zed\Collector\Business\Model\BatchResultInterface;
 use Spryker\Zed\Collector\Dependency\Plugin\CollectorPluginInterface;
 
 /**
- * @method CollectorCommunicationFactory getFactory()
- * @method CollectorFacade getFacade()
+ * @method \Pyz\Zed\Collector\Communication\CollectorCommunicationFactory getFactory()
+ * @method \Pyz\Zed\Collector\Business\CollectorFacade getFacade()
  */
 class BlockCollectorStoragePlugin extends AbstractPlugin implements CollectorPluginInterface
 {
 
     /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
-     * @param BatchResultInterface $result
-     * @param WriterInterface $dataWriter
-     * @param TouchUpdaterInterface $touchUpdater
+     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
      *
      * @return void
      */
@@ -35,11 +35,11 @@ class BlockCollectorStoragePlugin extends AbstractPlugin implements CollectorPlu
     }
 
     /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
-     * @param BatchResultInterface $result
-     * @param WriterInterface $dataWriter
-     * @param TouchUpdaterInterface $touchUpdater
+     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
      *
      * @return void
      */

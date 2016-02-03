@@ -16,22 +16,22 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
 {
 
     /**
-     * @var ProductOptionFacade
+     * @var \Pyz\Zed\ProductOption\Business\ProductOptionFacade
      */
     private $productOptionsFacade;
 
     /**
-     * @var QueueableCommand[]
+     * @var \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Command\QueueableCommand[]
      */
     private $commandQueue = [];
 
     /**
-     * @var ProductAbstract[]|ProductConcrete[]|ProductOptionType[]|ProductOptionValue[]
+     * @var \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductAbstract[]|\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConcrete[]|\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionType[]|\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValue[]
      */
     private $context = [];
 
     /**
-     * @param ProductOptionFacade $productOptionsFacade
+     * @param \Pyz\Zed\ProductOption\Business\ProductOptionFacade $productOptionsFacade
      */
     public function __construct(ProductOptionFacade $productOptionsFacade)
     {
@@ -45,7 +45,7 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
     }
 
     /**
-     * @return QueueableCommand[]
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Command\QueueableCommand[]
      */
     public function getCommandQueue()
     {
@@ -53,7 +53,7 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
     }
 
     /**
-     * @param ProductAbstract|ProductConcrete|ProductOptionType|ProductOptionValue $context
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductAbstract|\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConcrete|\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionType|\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValue $context
      */
     public function setContext($context)
     {
@@ -66,7 +66,7 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
     }
 
     /**
-     * @param QueueableCommand $queueableCommand
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Command\QueueableCommand $queueableCommand
      */
     private function addToCommandQueue(QueueableCommand $queueableCommand)
     {
@@ -74,21 +74,21 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
     }
 
     /**
-     * @param ProductAbstract $visitee
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductAbstract $visitee
      */
     public function visitProductAbstract(ProductAbstract $visitee)
     {
     }
 
     /**
-     * @param ProductConcrete $visitee
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConcrete $visitee
      */
     public function visitProductConcrete(ProductConcrete $visitee)
     {
     }
 
     /**
-     * @param ProductOptionType $visitee
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionType $visitee
      */
     public function visitProductOptionType(ProductOptionType $visitee)
     {
@@ -103,7 +103,7 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
     }
 
     /**
-     * @param ProductOptionValue $visitee
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValue $visitee
      */
     public function visitProductOptionValue(ProductOptionValue $visitee)
     {
@@ -117,7 +117,7 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
     }
 
     /**
-     * @param ProductOptionValueConstraint $visitee
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValueConstraint $visitee
      */
     public function visitProductOptionValueConstraint(ProductOptionValueConstraint $visitee)
     {
@@ -137,7 +137,7 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
     }
 
     /**
-     * @param ProductOptionTypeExclusion $visitee
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionTypeExclusion $visitee
      */
     public function visitProductOptionTypeExclusion(ProductOptionTypeExclusion $visitee)
     {
@@ -149,7 +149,7 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
     }
 
     /**
-     * @param ProductConfiguration $visitee
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConfiguration $visitee
      */
     public function visitProductConfiguration(ProductConfiguration $visitee)
     {

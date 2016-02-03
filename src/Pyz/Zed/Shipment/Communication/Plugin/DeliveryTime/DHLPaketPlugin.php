@@ -5,14 +5,18 @@ namespace Pyz\Zed\Shipment\Communication\Plugin\DeliveryTime;
 use Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\Shipment\Communication\Plugin\ShipmentMethodDeliveryTimePluginInterface;
+use Pyz\Zed\Shipment\Business\ShipmentFacade;
 
+/**
+ * @method \Pyz\Zed\Shipment\Business\ShipmentFacade getFacade()
+ */
 class DHLPaketPlugin extends AbstractPlugin implements ShipmentMethodDeliveryTimePluginInterface
 {
 
     const DAY_IN_SECONDS = 86400;
 
     /**
-     * @param ShipmentMethodAvailabilityTransfer $shipmentMethodAvailability
+     * @param \Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer $shipmentMethodAvailability
      *
      * @return int
      */

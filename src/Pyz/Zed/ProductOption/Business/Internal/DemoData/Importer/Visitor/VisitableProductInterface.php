@@ -6,7 +6,7 @@ interface VisitableProductInterface
 {
 
     /**
-     * @param ProductVisitorInterface $visitor
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface $visitor
      */
     public function accept(ProductVisitorInterface $visitor);
 

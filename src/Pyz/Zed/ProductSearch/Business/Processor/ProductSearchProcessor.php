@@ -10,7 +10,7 @@ class ProductSearchProcessor extends CoreProductSearchProcessor
 
     /**
      * @param array $productData
-     * @param LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      *
      * @return array
      */

@@ -6,7 +6,7 @@ use Pyz\Zed\ProductSearch\Business\ProductSearchFacade;
 use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 
 /**
- * @method ProductSearchFacade getFacade()
+ * @method \Pyz\Zed\ProductSearch\Business\ProductSearchFacade getFacade()
  */
 class DemoDataInstaller extends AbstractInstallerPlugin
 {

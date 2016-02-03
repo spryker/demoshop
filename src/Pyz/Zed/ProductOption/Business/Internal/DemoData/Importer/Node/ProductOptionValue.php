@@ -24,12 +24,12 @@ class ProductOptionValue implements VisitableProductInterface
     private $sequence;
 
     /**
-     * @var ProductOptionValueConstraint[]
+     * @var \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValueConstraint[]
      */
     private $constraints = [];
 
     /**
-     * @param ProductVisitorInterface $visitor
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface $visitor
      */
     public function accept(ProductVisitorInterface $visitor)
     {
@@ -47,7 +47,7 @@ class ProductOptionValue implements VisitableProductInterface
     /**
      * @param string $key
      * @param int $sequence
-     * @param ProductOptionValueConstraint[] $constraints
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValueConstraint[] $constraints
      */
     public function __construct($key, $sequence = null, array $constraints = [])
     {
@@ -60,7 +60,7 @@ class ProductOptionValue implements VisitableProductInterface
     }
 
     /**
-     * @param ProductOptionValueConstraint $constraint
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValueConstraint $constraint
      */
     private function addConstraint(ProductOptionValueConstraint $constraint)
     {
@@ -100,7 +100,7 @@ class ProductOptionValue implements VisitableProductInterface
     }
 
     /**
-     * @return ProductOptionValueConstraint[]
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValueConstraint[]
      */
     public function getConstraints()
     {

@@ -16,15 +16,15 @@ use Psr\Log\LoggerInterface;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
 
 /**
- * @method CategoryQueryContainer getQueryContainer()
+ * @method \Spryker\Zed\Category\Persistence\CategoryQueryContainer getQueryContainer()
  */
 class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
 {
 
     /**
-     * @param LoggerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      *
-     * @return CategoryTreeInstall
+     * @return \Pyz\Zed\Category\Business\Internal\DemoData\CategoryTreeInstall
      */
     public function createDemoDataInstaller(LoggerInterface $messenger)
     {
@@ -41,7 +41,7 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
     }
 
     /**
-     * @return NodeUrlManager
+     * @return \Pyz\Zed\Category\Business\Manager\NodeUrlManager
      */
     protected function createNodeUrlManager()
     {
@@ -55,7 +55,7 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
     }
 
     /**
-     * @return CategoryTreeWriter
+     * @return \Spryker\Zed\Category\Business\Tree\CategoryTreeWriter
      */
     public function createCategoryTreeWriter()
     {
@@ -72,7 +72,7 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
     /**
      * @param array $category
      *
-     * @return CategoryTreeFormatter
+     * @return \Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter
      */
     public function createCategoryTreeStructure(array $category)
     {
@@ -80,7 +80,7 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
     }
 
     /**
-     * @return CategoryTreeReader
+     * @return \Spryker\Zed\Category\Business\Tree\CategoryTreeReader
      */
     public function createCategoryTreeReader()
     {

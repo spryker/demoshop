@@ -16,16 +16,16 @@ use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainer;
 use Spryker\Zed\ProductCategory\ProductCategoryDependencyProvider;
 
 /**
- * @method ProductCategoryConfig getConfig()
- * @method ProductCategoryQueryContainer getQueryContainer()
+ * @method \Pyz\Zed\ProductCategory\ProductCategoryConfig getConfig()
+ * @method \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainer getQueryContainer()
  */
 class ProductCategoryBusinessFactory extends SprykerBusinessFactory
 {
 
     /**
-     * @param LoggerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      *
-     * @return ProductCategoryMappingInstall
+     * @return \Pyz\Zed\ProductCategory\Business\Internal\DemoData\ProductCategoryMappingInstall
      */
     public function createDemoDataInstaller(LoggerInterface $messenger)
     {
@@ -43,7 +43,7 @@ class ProductCategoryBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return ReaderInterface
+     * @return \Spryker\Zed\Library\Import\ReaderInterface
      */
     protected function createCSVReader()
     {
@@ -51,7 +51,7 @@ class ProductCategoryBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return ProductCategoryManagerInterface
+     * @return \Spryker\Zed\ProductCategory\Business\ProductCategoryManagerInterface
      */
     public function createProductCategoryManager()
     {
@@ -67,7 +67,7 @@ class ProductCategoryBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return TransferGeneratorInterface
+     * @return \Spryker\Zed\ProductCategory\Business\TransferGeneratorInterface
      */
     public function createProductCategoryTransferGenerator()
     {

@@ -31,8 +31,8 @@ class UrlGenerator extends SymfonyUrlGenerator
     /**
      * @param string $name
      * @param string $url
-     * @param CompiledRoute $compiledRoute
-     * @param Route $route
+     * @param \Symfony\Component\Routing\CompiledRoute $compiledRoute
+     * @param \Symfony\Component\Routing\Route $route
      *
      * @return string
      */

@@ -25,7 +25,7 @@ class CalculationConfig extends SprykerCalculationConfig
 {
 
     /**
-     * @return CalculatorPluginInterface[]|TotalsCalculatorPluginInterface[]
+     * @return \Spryker\Zed\Calculation\Dependency\Plugin\CalculatorPluginInterface[]|\Spryker\Zed\Calculation\Dependency\Plugin\TotalsCalculatorPluginInterface[]
      */
     public function getCalculatorStack()
     {

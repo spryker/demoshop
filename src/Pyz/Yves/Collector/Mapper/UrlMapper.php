@@ -17,12 +17,12 @@ class UrlMapper implements UrlMapperInterface
     const KEY_ACTIVE = 'active';
 
     /**
-     * @var FacetConfig
+     * @var \Spryker\Client\Catalog\Model\FacetConfig
      */
     protected $facetConfig;
 
     /**
-     * @param FacetConfig $facetConfig
+     * @param \Spryker\Client\Catalog\Model\FacetConfig $facetConfig
      */
     public function __construct(FacetConfig $facetConfig)
     {
@@ -205,7 +205,7 @@ class UrlMapper implements UrlMapperInterface
 
     /**
      * @param string $pathInfo
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      */
     public function injectParametersFromUrlIntoRequest($pathInfo, Request $request)
     {

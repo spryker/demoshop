@@ -7,7 +7,7 @@ use Pyz\Yves\Collector\Mapper;
 use Spryker\Yves\Kernel\AbstractPlugin;
 
 /**
- * @method CollectorFactory getFactory()
+ * @method \Pyz\Yves\Collector\CollectorFactory getFactory()
  */
 class UrlMapper extends AbstractPlugin
 {

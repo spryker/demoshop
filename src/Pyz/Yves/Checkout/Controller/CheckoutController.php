@@ -28,7 +28,7 @@ use Guzzle\Http\Client as GuzzleClient;
 use Guzzle\Http\Message\Response as GuzzleResponse;
 
 /**
- * @method CheckoutFactory getFactory()
+ * @method \Pyz\Yves\Checkout\CheckoutFactory getFactory()
  */
 class CheckoutController extends AbstractController
 {
@@ -50,7 +50,7 @@ class CheckoutController extends AbstractController
     ];
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return array
      */
@@ -71,9 +71,9 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function buyAction(Request $request)
     {
@@ -107,11 +107,11 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param CartTransfer $cartTransfer
-     * @param ShipmentTransfer $shipmentTransfer
-     * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
-     * @param FormInterface $checkoutForm
-     * @param Request $request
+     * @param \Generated\Shared\Transfer\CartTransfer $cartTransfer
+     * @param \Generated\Shared\Transfer\ShipmentTransfer $shipmentTransfer
+     * @param \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
+     * @param \Symfony\Component\Form\FormInterface $checkoutForm
+     * @param \Symfony\Component\HttpFoundation\Request $request
      */
     protected function setCheckoutSubmittedData(
         CartTransfer $cartTransfer,
@@ -127,7 +127,7 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @return CheckoutRequestTransfer
+     * @return \Generated\Shared\Transfer\CheckoutRequestTransfer
      */
     protected function createCheckoutRequestTransfer()
     {
@@ -135,7 +135,7 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @return CartTransfer
+     * @return \Generated\Shared\Transfer\CartTransfer
      */
     protected function getCartTransfer()
     {
@@ -146,9 +146,9 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param CartTransfer $cartTransfer
+     * @param \Generated\Shared\Transfer\CartTransfer $cartTransfer
      *
-     * @return ShipmentTransfer
+     * @return \Generated\Shared\Transfer\ShipmentTransfer
      */
     protected function getShipmentTransfer(CartTransfer $cartTransfer)
     {
@@ -161,10 +161,10 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param CheckoutRequestTransfer $checkoutRequestTransfer
-     * @param CartTransfer $cartTransfer
+     * @param \Generated\Shared\Transfer\CheckoutRequestTransfer $checkoutRequestTransfer
+     * @param \Generated\Shared\Transfer\CartTransfer $cartTransfer
      *
-     * @return PayolutionCalculationResponseTransfer
+     * @return \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer
      */
     protected function getPayolutionInstallmentPayments(CheckoutRequestTransfer $checkoutRequestTransfer, CartTransfer $cartTransfer)
     {
@@ -175,10 +175,10 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param CheckoutRequestTransfer $checkoutRequestTransfer
-     * @param CartTransfer $cartTransfer
+     * @param \Generated\Shared\Transfer\CheckoutRequestTransfer $checkoutRequestTransfer
+     * @param \Generated\Shared\Transfer\CartTransfer $cartTransfer
      *
-     * @return PayolutionCalculationResponseTransfer
+     * @return \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer
      */
     protected function getPayolutionCalculationResponseTransfer(CheckoutRequestTransfer $checkoutRequestTransfer, CartTransfer $cartTransfer)
     {
@@ -198,9 +198,9 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param CheckoutRequestTransfer $checkoutRequestTransfer
+     * @param \Generated\Shared\Transfer\CheckoutRequestTransfer $checkoutRequestTransfer
      *
-     * @return PayolutionCalculationResponseTransfer
+     * @return \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer
      */
     protected function calculatePayolutionInstallmentPayments(CheckoutRequestTransfer $checkoutRequestTransfer)
     {
@@ -213,9 +213,9 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param CheckoutRequestTransfer $checkoutRequestTransfer
+     * @param \Generated\Shared\Transfer\CheckoutRequestTransfer $checkoutRequestTransfer
      *
-     * @return PayolutionCalculationResponseTransfer
+     * @return \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer
      */
     protected function getPayolutionInstallmentPaymentsFromSession(CheckoutRequestTransfer $checkoutRequestTransfer)
     {
@@ -226,9 +226,9 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
+     * @param \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
      *
-     * @return PayolutionCalculationResponseTransfer
+     * @return \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer
      */
     protected function storePayolutionInstallmentPaymentsInSession(PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer)
     {
@@ -238,12 +238,12 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param CheckoutRequestTransfer $checkoutRequestTransfer
-     * @param ShipmentTransfer $shipmentTransfer
-     * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
-     * @param Request $request
+     * @param \Generated\Shared\Transfer\CheckoutRequestTransfer $checkoutRequestTransfer
+     * @param \Generated\Shared\Transfer\ShipmentTransfer $shipmentTransfer
+     * @param \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return FormInterface
+     * @return \Symfony\Component\Form\FormInterface
      */
     protected function buildCheckoutForm(
         CheckoutRequestTransfer $checkoutRequestTransfer,
@@ -259,9 +259,9 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param CheckoutRequestTransfer $checkoutRequestTransfer
-     * @param CartTransfer $cartTransfer
-     * @param ShipmentTransfer $shipmentTransfer
+     * @param \Generated\Shared\Transfer\CheckoutRequestTransfer $checkoutRequestTransfer
+     * @param \Generated\Shared\Transfer\CartTransfer $cartTransfer
+     * @param \Generated\Shared\Transfer\ShipmentTransfer $shipmentTransfer
      *
      * @return void
      */
@@ -272,7 +272,7 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param CheckoutRequestTransfer $checkoutRequestTransfer
+     * @param \Generated\Shared\Transfer\CheckoutRequestTransfer $checkoutRequestTransfer
      *
      * @return void
      */
@@ -285,9 +285,9 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param CheckoutRequestTransfer $checkoutRequestTransfer
-     * @param CartTransfer $cartTransfer
-     * @param ShipmentTransfer $shipmentTransfer
+     * @param \Generated\Shared\Transfer\CheckoutRequestTransfer $checkoutRequestTransfer
+     * @param \Generated\Shared\Transfer\CartTransfer $cartTransfer
+     * @param \Generated\Shared\Transfer\ShipmentTransfer $shipmentTransfer
      *
      * @return void
      */
@@ -309,8 +309,8 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param CartTransfer $cartTransfer
-     * @param ExpenseTransfer $expenseTransfer
+     * @param \Generated\Shared\Transfer\CartTransfer $cartTransfer
+     * @param \Generated\Shared\Transfer\ExpenseTransfer $expenseTransfer
      *
      * @return void
      */
@@ -327,9 +327,9 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param CheckoutRequestTransfer $checkoutRequestTransfer
-     * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
-     * @param Request $request
+     * @param \Generated\Shared\Transfer\CheckoutRequestTransfer $checkoutRequestTransfer
+     * @param \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return void
      */
@@ -360,8 +360,8 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param PayolutionPaymentTransfer $payolutionPaymentTransfer
-     * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
+     * @param \Generated\Shared\Transfer\PayolutionPaymentTransfer $payolutionPaymentTransfer
+     * @param \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
      *
      * @return void
      */
@@ -379,8 +379,8 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param CheckoutRequestTransfer $checkoutRequestTransfer
-     * @param FormInterface $checkoutForm
+     * @param \Generated\Shared\Transfer\CheckoutRequestTransfer $checkoutRequestTransfer
+     * @param \Symfony\Component\Form\FormInterface $checkoutForm
      *
      * @return void
      */
@@ -394,9 +394,9 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param CheckoutRequestTransfer $checkoutRequestTransfer
+     * @param \Generated\Shared\Transfer\CheckoutRequestTransfer $checkoutRequestTransfer
      *
-     * @return CheckoutResponseTransfer
+     * @return \Generated\Shared\Transfer\CheckoutResponseTransfer
      */
     protected function requestCheckout(CheckoutRequestTransfer $checkoutRequestTransfer)
     {
@@ -415,9 +415,9 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param CheckoutErrorTransfer[] $errors
+     * @param \Generated\Shared\Transfer\CheckoutErrorTransfer[] $errors
      *
-     * @return JsonResponse
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     protected function getErrors($errors)
     {
@@ -437,9 +437,9 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param CheckoutResponseTransfer $checkoutResponseTransfer
+     * @param \Generated\Shared\Transfer\CheckoutResponseTransfer $checkoutResponseTransfer
      *
-     * @return JsonResponse
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     protected function redirectSuccess(CheckoutResponseTransfer $checkoutResponseTransfer)
     {
@@ -454,7 +454,7 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return array
      */
@@ -467,7 +467,7 @@ class CheckoutController extends AbstractController
      * @param string $calculationRequestId
      * @param string $installmentDuration
      *
-     * @return GuzzleResponse
+     * @return \Guzzle\Http\Message\Response
      */
     public function displayInstallmentDetailsAction($calculationRequestId, $installmentDuration)
     {

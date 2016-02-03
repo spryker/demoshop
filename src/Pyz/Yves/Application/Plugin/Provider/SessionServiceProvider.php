@@ -10,13 +10,13 @@ use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 
 /**
- * @method ApplicationFactory getFactory()
+ * @method \Pyz\Yves\Application\ApplicationFactory getFactory()
  */
 class SessionServiceProvider extends AbstractServiceProvider
 {
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      *
      * @return mixed
      */
@@ -101,7 +101,7 @@ class SessionServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      *
      * @return void
      */

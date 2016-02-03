@@ -6,7 +6,7 @@ use Spryker\Zed\Collector\Communication\CollectorCommunicationFactory as Spryker
 use Pyz\Zed\Collector\CollectorConfig;
 
 /**
- * @method CollectorConfig getConfig()
+ * @method \Pyz\Zed\Collector\CollectorConfig getConfig()
  */
 class CollectorCommunicationFactory extends SprykerCollectorCommunicationFactory
 {

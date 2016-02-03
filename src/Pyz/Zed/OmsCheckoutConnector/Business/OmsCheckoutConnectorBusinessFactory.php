@@ -9,7 +9,7 @@ class OmsCheckoutConnectorBusinessFactory extends BaseOmsChekcoutConnectorBusine
 {
 
     /**
-     * @return OmsOrderHydratorInterface
+     * @return \Spryker\Zed\OmsCheckoutConnector\Business\OmsOrderHydratorInterface
      */
     public function createOmsOrderHydrator()
     {

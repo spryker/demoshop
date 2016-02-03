@@ -15,9 +15,9 @@ use Spryker\Zed\Glossary\Persistence\GlossaryQueryContainer;
 use Symfony\Component\Yaml\Yaml;
 
 /**
- * @method GlossaryFacade getFacade()
- * @method GlossaryQueryContainer getQueryContainer()
- * @method GlossaryCommunicationFactory getFactory()
+ * @method \Pyz\Zed\Glossary\Business\GlossaryFacade getFacade()
+ * @method \Spryker\Zed\Glossary\Persistence\GlossaryQueryContainer getQueryContainer()
+ * @method \Spryker\Zed\Glossary\Communication\GlossaryCommunicationFactory getFactory()
  */
 class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPluginInterface
 {

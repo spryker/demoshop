@@ -9,12 +9,12 @@ class HealthChecker
 {
 
     /**
-     * @var HealthReportTransfer
+     * @var \Generated\Shared\Transfer\HealthReportTransfer
      */
     protected $healthReport;
 
     /**
-     * @var HealthIndicatorInterface[]
+     * @var \Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface[]
      */
     protected $healthIndicator;
 
@@ -41,7 +41,7 @@ class HealthChecker
     }
 
     /**
-     * @param HealthIndicatorInterface $healthIndicator
+     * @param \Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface $healthIndicator
      */
     private function check(HealthIndicatorInterface $healthIndicator)
     {
@@ -50,7 +50,7 @@ class HealthChecker
     }
 
     /**
-     * @return HealthReportTransfer
+     * @return \Generated\Shared\Transfer\HealthReportTransfer
      */
     public function getReport()
     {

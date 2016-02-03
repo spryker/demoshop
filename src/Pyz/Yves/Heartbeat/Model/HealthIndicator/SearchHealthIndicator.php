@@ -11,12 +11,12 @@ class SearchHealthIndicator extends AbstractHealthIndicator implements HealthInd
     const FAILURE_MESSAGE_UNABLE_TO_CONNECT_TO_SEARCH = 'Unable to connect to search';
 
     /**
-     * @var SearchClient
+     * @var \Spryker\Client\Search\SearchClient
      */
     protected $searchClient;
 
     /**
-     * @param SearchClient $searchClient
+     * @param \Spryker\Client\Search\SearchClient $searchClient
      */
     public function __construct(SearchClient $searchClient)
     {

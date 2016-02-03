@@ -62,7 +62,7 @@ class YvesFilesystemLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
      *
      * @param string $path A path where to look for templates
      *
-     * @throws Twig_Error_Loader
+     * @throws \Twig_Error_Loader
      */
     public function addPath($path)
     {
@@ -76,7 +76,7 @@ class YvesFilesystemLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
      *
      * @param string $path A path where to look for templates
      *
-     * @throws Twig_Error_Loader
+     * @throws \Twig_Error_Loader
      */
     public function prependPath($path)
     {
@@ -161,7 +161,7 @@ class YvesFilesystemLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
     /**
      * @param string $name
      *
-     * @throws Twig_Error_Loader
+     * @throws \Twig_Error_Loader
      *
      * @return string
      */

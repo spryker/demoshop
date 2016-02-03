@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @method CustomerFactory getFactory()
+ * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
  */
 class NewsletterController extends AbstractCustomerController
 {
@@ -22,7 +22,7 @@ class NewsletterController extends AbstractCustomerController
     const MESSAGE_SUBSCRIPTION_SUCCESS = 'newsletter.subscription.success';
 
     /**
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function indexAction()
     {
@@ -44,9 +44,9 @@ class NewsletterController extends AbstractCustomerController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function submitFormAction(Request $request)
     {
@@ -70,7 +70,7 @@ class NewsletterController extends AbstractCustomerController
 
     /**
      * @param bool $subscribe
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
      * @return void
      */
@@ -84,7 +84,7 @@ class NewsletterController extends AbstractCustomerController
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
      * @return void
      */
@@ -102,7 +102,7 @@ class NewsletterController extends AbstractCustomerController
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
      * @return void
      */
@@ -116,7 +116,7 @@ class NewsletterController extends AbstractCustomerController
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
      * @return array
      */

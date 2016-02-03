@@ -8,7 +8,7 @@ interface ProductReaderInterface
 {
 
     /**
-     * @return ProductAbstract[]
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductAbstract[]
      */
     public function getProducts();
 

@@ -6,13 +6,13 @@ use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\Shipment\Business\ShipmentFacade as SprykerShipmentFacade;
 
 /**
- * @method ShipmentBusinessFactory getFactory()
+ * @method \Pyz\Zed\Shipment\Business\ShipmentBusinessFactory getFactory()
  */
 class ShipmentFacade extends SprykerShipmentFacade
 {
 
     /**
-     * @param MessengerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      */
     public function installDemoData(MessengerInterface $messenger)
     {

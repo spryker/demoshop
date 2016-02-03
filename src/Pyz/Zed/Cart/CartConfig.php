@@ -14,7 +14,7 @@ class CartConfig extends SprykerCartConfig
 {
 
     /**
-     * @return array|ItemExpanderPluginInterface[]
+     * @return array|\Spryker\Zed\Cart\Dependency\ItemExpanderPluginInterface[]
      */
     public function getCartItemPlugins()
     {

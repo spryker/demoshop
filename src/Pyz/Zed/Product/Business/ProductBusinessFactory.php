@@ -28,13 +28,13 @@ use Pyz\Zed\Product\Business\Internal\DemoData\ProductDataInstall;
 use Pyz\Zed\Product\ProductConfig;
 
 /**
- * @method ProductConfig getConfig()
+ * @method \Pyz\Zed\Product\ProductConfig getConfig()
  */
 class ProductBusinessFactory extends SprykerBusinessFactory
 {
 
     /**
-     * @return SimpleAttributeMergeBuilder
+     * @return \Spryker\Zed\Product\Business\Builder\SimpleAttributeMergeBuilder
      */
     public function createProductBuilder()
     {
@@ -42,9 +42,9 @@ class ProductBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @param MessengerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
-     * @return ProductDataInstall
+     * @return \Pyz\Zed\Product\Business\Internal\DemoData\ProductDataInstall
      */
     public function createDemoDataInstaller(MessengerInterface $messenger)
     {
@@ -61,7 +61,7 @@ class ProductBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return FileImporter
+     * @return \Spryker\Zed\Product\Business\Importer\FileImporter
      */
     public function createProductImporter()
     {
@@ -77,7 +77,7 @@ class ProductBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return ImportProductValidator
+     * @return \Spryker\Zed\Product\Business\Importer\Validator\ImportProductValidator
      */
     protected function createImportProductValidator()
     {
@@ -85,7 +85,7 @@ class ProductBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return IteratorReaderInterface
+     * @return \Spryker\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface
      */
     protected function createCSVReader()
     {
@@ -93,7 +93,7 @@ class ProductBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return ProductBuilderInterface
+     * @return \Spryker\Zed\Product\Business\Builder\ProductBuilderInterface
      */
     protected function createImportProductBuilder()
     {
@@ -101,7 +101,7 @@ class ProductBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return ProductWriterInterface
+     * @return \Spryker\Zed\Product\Business\Importer\Writer\ProductWriterInterface
      */
     protected function createProductWriter()
     {
@@ -112,7 +112,7 @@ class ProductBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return ProductAbstractWriterInterface
+     * @return \Spryker\Zed\Product\Business\Importer\Writer\ProductAbstractWriterInterface
      */
     protected function createProductAbstractWriter()
     {
@@ -122,7 +122,7 @@ class ProductBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return ProductConcreteWriterInterface
+     * @return \Spryker\Zed\Product\Business\Importer\Writer\ProductConcreteWriterInterface
      */
     protected function createProductConcreteWriter()
     {
@@ -132,7 +132,7 @@ class ProductBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return ProductBatchResultInterface
+     * @return \Spryker\Zed\Product\Business\Model\ProductBatchResultInterface
      */
     protected function createProductBatchResult()
     {
@@ -140,9 +140,9 @@ class ProductBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @param MessengerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
-     * @return Install
+     * @return \Spryker\Zed\Product\Business\Internal\Install
      */
     public function createInstaller(MessengerInterface $messenger)
     {
@@ -155,7 +155,7 @@ class ProductBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return AttributeManagerInterface
+     * @return \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface
      */
     public function createAttributeManager()
     {
@@ -165,7 +165,7 @@ class ProductBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return ProductManagerInterface
+     * @return \Spryker\Zed\Product\Business\Product\ProductManagerInterface
      */
     public function createProductManager()
     {

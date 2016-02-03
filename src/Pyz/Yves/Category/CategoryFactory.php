@@ -10,7 +10,7 @@ class CategoryFactory extends AbstractFactory
 {
 
     /**
-     * @return CategoryResourceCreator
+     * @return \Pyz\Yves\Category\ResourceCreator\CategoryResourceCreator
      */
     public function createCategoryResourceCreator()
     {
@@ -18,7 +18,7 @@ class CategoryFactory extends AbstractFactory
     }
 
     /**
-     * @return CategoryExporterClient
+     * @return \Spryker\Client\CategoryExporter\CategoryExporterClient
      */
     public function getCategoryExporterClient()
     {

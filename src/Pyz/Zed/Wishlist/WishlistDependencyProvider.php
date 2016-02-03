@@ -15,7 +15,7 @@ class WishlistDependencyProvider extends SprykerWishlistDependencyProvider
 {
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
      * @return array
      */

@@ -11,7 +11,7 @@ class CustomerFactory extends SprykerCustomerFactory
 {
 
     /**
-     * @return CustomerStubInterface
+     * @return \Pyz\Client\Customer\Zed\CustomerStubInterface
      */
     public function createZedCustomerStub()
     {

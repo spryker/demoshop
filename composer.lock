@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c55a45e8d05435ba907303cc9303daa1",
-    "content-hash": "94e4966e153a24625e02a593c7117914",
+    "hash": "b7b790479bc991f644dea012ee899b73",
+    "content-hash": "186103ae774273d3598b1f1f727c8d0d",
     "packages": [
         {
             "name": "guzzle/guzzle",
@@ -748,11 +748,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "v0.19.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "a29b02d6bfd295ddd229f15cd8bd8b3dce42b119"
+                "reference": "6e684a6b84633a73b741a2bbb03f7935443c2bdb"
             },
             "require": {
                 "phpdocumentor/graphviz": "~1.0.0"
@@ -778,7 +778,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2016-02-03 11:31:45"
+            "time": "2016-02-03 14:04:57"
         },
         {
             "name": "symfony-cmf/routing",
@@ -5108,7 +5108,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "spryker/spryker": 20,
         "propel/propel": 20
     },
     "prefer-stable": true,

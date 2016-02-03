@@ -10,7 +10,7 @@ class SearchConfig extends SprykerSearchConfig
 {
 
     /**
-     * @return AbstractInstallerPlugin[]
+     * @return \Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin[]
      */
     public function getInstaller()
     {

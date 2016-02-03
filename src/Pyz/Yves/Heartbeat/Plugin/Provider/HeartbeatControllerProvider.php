@@ -11,7 +11,7 @@ class HeartbeatControllerProvider extends AbstractYvesControllerProvider
     const ROUTE_HEARTBEAT = 'heartbeat';
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      *
      * @return void
      */

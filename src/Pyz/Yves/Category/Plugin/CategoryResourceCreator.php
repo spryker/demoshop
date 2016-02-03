@@ -6,13 +6,13 @@ use Spryker\Yves\Kernel\AbstractPlugin;
 use Pyz\Yves\Category\CategoryFactory;
 
 /**
- * @method CategoryFactory getFactory()
+ * @method \Pyz\Yves\Category\CategoryFactory getFactory()
  */
 class CategoryResourceCreator extends AbstractPlugin
 {
 
     /**
-     * @return CategoryResourceCreator
+     * @return \Pyz\Yves\Category\Plugin\CategoryResourceCreator
      */
     public function createCategoryResourceCreator()
     {

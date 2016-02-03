@@ -15,9 +15,9 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
     const NEWSLETTER_FACADE = 'newsletter facade';
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return Container
+     * @return \Spryker\Zed\Kernel\Container
      */
     public function provideCommunicationLayerDependencies(Container $container)
     {
@@ -35,7 +35,7 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
      * @return mixed[]
      */

@@ -19,7 +19,7 @@ class ApplicationFactory extends SprykerApplicationFactory
 {
 
     /**
-     * @return ExceptionHandlerInterface[]
+     * @return \Spryker\Yves\Application\Plugin\Provider\ExceptionService\ExceptionHandlerInterface[]
      */
     public function createExceptionHandlers()
     {
@@ -35,7 +35,7 @@ class ApplicationFactory extends SprykerApplicationFactory
     }
 
     /**
-     * @return SubRequestExceptionHandler
+     * @return \Spryker\Yves\Application\Plugin\Provider\ExceptionService\SubRequestExceptionHandler
      */
     protected function createSubRequestExceptionHandler()
     {
@@ -45,7 +45,7 @@ class ApplicationFactory extends SprykerApplicationFactory
     }
 
     /**
-     * @return Application
+     * @return \Spryker\Yves\Application\Application
      */
     protected function createApplication()
     {
@@ -53,7 +53,7 @@ class ApplicationFactory extends SprykerApplicationFactory
     }
 
     /**
-     * @return SessionClientInterface
+     * @return \Spryker\Client\Session\SessionClientInterface
      */
     public function getSessionClient()
     {
@@ -61,7 +61,7 @@ class ApplicationFactory extends SprykerApplicationFactory
     }
 
     /**
-     * @param SilexApplication $application
+     * @param \Silex\Application $application
      *
      * @return \Twig_Extension
      */
@@ -71,7 +71,7 @@ class ApplicationFactory extends SprykerApplicationFactory
     }
 
     /**
-     * @return DateFormatterTwigExtension
+     * @return \Spryker\Shared\Library\Twig\DateFormatterTwigExtension
      */
     public function createDateFormatterTwigExtension()
     {
@@ -79,7 +79,7 @@ class ApplicationFactory extends SprykerApplicationFactory
     }
 
     /**
-     * @return DateFormatter
+     * @return \Spryker\Shared\Library\DateFormatter
      */
     public function createDateFormatter()
     {

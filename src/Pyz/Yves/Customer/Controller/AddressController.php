@@ -20,7 +20,7 @@ class AddressController extends AbstractCustomerController
     const KEY_ADDRESSES = 'addresses';
 
     /**
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function indexAction()
     {
@@ -36,9 +36,9 @@ class AddressController extends AbstractCustomerController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function createAction(Request $request)
     {
@@ -71,11 +71,11 @@ class AddressController extends AbstractCustomerController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @throws NotFoundHttpException
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function updateAction(Request $request)
     {
@@ -101,9 +101,9 @@ class AddressController extends AbstractCustomerController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function submitUpdateAction(Request $request)
     {
@@ -129,9 +129,9 @@ class AddressController extends AbstractCustomerController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $request)
     {
@@ -156,9 +156,9 @@ class AddressController extends AbstractCustomerController
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
-     * @return AddressTransfer
+     * @return \Generated\Shared\Transfer\AddressTransfer
      */
     protected function getDefaultFormData(CustomerTransfer $customerTransfer)
     {
@@ -169,8 +169,8 @@ class AddressController extends AbstractCustomerController
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
-     * @param AddressesTransfer|null $addressesTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\AddressesTransfer|null $addressesTransfer
      *
      * @return array
      */
@@ -207,10 +207,10 @@ class AddressController extends AbstractCustomerController
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      * @param array $addressData
      *
-     * @return CustomerTransfer
+     * @return \Generated\Shared\Transfer\CustomerTransfer
      */
     protected function createAddress(CustomerTransfer $customerTransfer, array $addressData)
     {
@@ -229,7 +229,7 @@ class AddressController extends AbstractCustomerController
     /**
      * @param int $idCustomerAddress
      *
-     * @return AddressTransfer|null
+     * @return \Generated\Shared\Transfer\AddressTransfer|null
      */
     protected function loadAddressTransfer($idCustomerAddress)
     {
@@ -250,7 +250,7 @@ class AddressController extends AbstractCustomerController
     /**
      * @param array $addressData
      *
-     * @return CustomerTransfer
+     * @return \Generated\Shared\Transfer\CustomerTransfer
      */
     protected function processAddressUpdate(array $addressData)
     {

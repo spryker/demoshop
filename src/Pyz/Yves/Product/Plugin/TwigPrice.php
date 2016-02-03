@@ -23,7 +23,7 @@ class TwigPrice extends AbstractPlugin implements TwigFilterPluginInterface, Twi
     }
 
     /**
-     * @param Application $application
+     * @param \Silex\Application $application
      *
      * @return \Twig_SimpleFunction[]
      */

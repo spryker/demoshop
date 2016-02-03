@@ -6,13 +6,13 @@ use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\Cms\Business\CmsFacade as SprykerCmsFacade;
 
 /**
- * @method CmsBusinessFactory getFactory()
+ * @method \Pyz\Zed\Cms\Business\CmsBusinessFactory getFactory()
  */
 class CmsFacade extends SprykerCmsFacade
 {
 
     /**
-     * @param MessengerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      */
     public function installDemoData(MessengerInterface $messenger)
     {

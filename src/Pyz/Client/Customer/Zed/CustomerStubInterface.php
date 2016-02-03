@@ -10,9 +10,9 @@ interface CustomerStubInterface extends SprykerCustomerStubInterface
 {
 
     /**
-     * @param CustomerOverviewRequestTransfer $overviewRequest
+     * @param \Generated\Shared\Transfer\CustomerOverviewRequestTransfer $overviewRequest
      *
-     * @return CustomerOverviewResponseTransfer
+     * @return \Generated\Shared\Transfer\CustomerOverviewResponseTransfer
      */
     public function getCustomerOverview(CustomerOverviewRequestTransfer $overviewRequest);
 

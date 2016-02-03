@@ -12,8 +12,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 /**
- * @method CustomerClientInterface getClient()
- * @method CustomerFactory getFactory()
+ * @method \Spryker\Client\Customer\CustomerClientInterface getClient()
+ * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
  */
 class CustomerUserProvider extends AbstractPlugin implements UserProviderInterface
 {
@@ -21,7 +21,7 @@ class CustomerUserProvider extends AbstractPlugin implements UserProviderInterfa
     /**
      * @param string $username
      *
-     * @return UserInterface
+     * @return \Symfony\Component\Security\Core\User\UserInterface
      */
     public function loadUserByUsername($username)
     {
@@ -31,9 +31,9 @@ class CustomerUserProvider extends AbstractPlugin implements UserProviderInterfa
     }
 
     /**
-     * @param UserInterface $user
+     * @param \Symfony\Component\Security\Core\User\UserInterface $user
      *
-     * @return UserInterface
+     * @return \Symfony\Component\Security\Core\User\UserInterface
      */
     public function refreshUser(UserInterface $user)
     {
@@ -63,7 +63,7 @@ class CustomerUserProvider extends AbstractPlugin implements UserProviderInterfa
     /**
      * @param string $email
      *
-     * @return CustomerTransfer
+     * @return \Generated\Shared\Transfer\CustomerTransfer
      */
     protected function loadCustomerByEmail($email)
     {

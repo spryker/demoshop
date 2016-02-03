@@ -12,12 +12,12 @@ class StorageHealthIndicator extends AbstractHealthIndicator implements HealthIn
     const KEY_HEARTBEAT = 'heartbeat';
 
     /**
-     * @var StorageClientInterface
+     * @var \Spryker\Client\Storage\StorageClientInterface
      */
     protected $storageClient;
 
     /**
-     * @param StorageClientInterface $storageClient
+     * @param \Spryker\Client\Storage\StorageClientInterface $storageClient
      */
     public function __construct(StorageClientInterface $storageClient)
     {

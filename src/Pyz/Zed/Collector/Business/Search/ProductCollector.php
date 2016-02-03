@@ -28,24 +28,24 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 {
 
     /**
-     * @var PriceQueryContainer
+     * @var \Spryker\Zed\Price\Persistence\PriceQueryContainer
      */
     private $priceQueryContainer;
 
     /**
-     * @var CategoryQueryContainer
+     * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainer
      */
     private $categoryQueryContainer;
 
     /**
-     * @var ProductSearchFacade
+     * @var \Pyz\Zed\ProductSearch\Business\ProductSearchFacade
      */
     private $productSearchFacade;
 
     /**
-     * @param PriceQueryContainer $priceQueryContainer
-     * @param CategoryQueryContainer $categoryQueryContainer
-     * @param ProductSearchFacade $productSearchFacade
+     * @param \Spryker\Zed\Price\Persistence\PriceQueryContainer $priceQueryContainer
+     * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainer $categoryQueryContainer
+     * @param \Pyz\Zed\ProductSearch\Business\ProductSearchFacade $productSearchFacade
      */
     public function __construct(PriceQueryContainer $priceQueryContainer, CategoryQueryContainer $categoryQueryContainer, ProductSearchFacade $productSearchFacade)
     {
@@ -60,10 +60,10 @@ class ProductCollector extends AbstractPropelCollectorPlugin
     }
 
     /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
+     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      *
-     * @return SpyTouchQuery
+     * @return \Orm\Zed\Touch\Persistence\SpyTouchQuery
      */
     protected function createQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
     {
@@ -264,8 +264,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
     /**
      * @param array $resultSet
-     * @param LocaleTransfer $locale
-     * @param TouchUpdaterSet $touchUpdaterSet
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet $touchUpdaterSet
      *
      * @return array
      */
@@ -304,7 +304,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
     /**
      * @param array $resultSet
-     * @param LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      *
      * @return array
      */

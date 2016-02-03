@@ -17,12 +17,12 @@ class TwigSettings
 {
 
     /**
-     * @var AutoCompletion
+     * @var \Generated\Client\Ide\AutoCompletion
      */
     private $locator;
 
     /**
-     * @param LocatorLocatorInterface $locator
+     * @param \Spryker\Shared\Kernel\LocatorLocatorInterface $locator
      */
     public function __construct(LocatorLocatorInterface $locator)
     {
@@ -30,7 +30,7 @@ class TwigSettings
     }
 
     /**
-     * @return TwigFilterPluginInterface[]
+     * @return \Pyz\Yves\Twig\Dependency\Plugin\TwigFilterPluginInterface[]
      */
     public function getTwigFilters()
     {
@@ -41,7 +41,7 @@ class TwigSettings
     }
 
     /**
-     * @return TwigFunctionPluginInterface[]
+     * @return \Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface[]
      */
     public function getTwigFunctions()
     {
@@ -59,7 +59,7 @@ class TwigSettings
     }
 
     /**
-     * @return AutoCompletion
+     * @return \Generated\Client\Ide\AutoCompletion
      */
     protected function getLocator()
     {

@@ -27,10 +27,10 @@ class PageCollector extends AbstractPropelCollectorPlugin
     }
 
     /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
+     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      *
-     * @return SpyTouchQuery
+     * @return \Orm\Zed\Touch\Persistence\SpyTouchQuery
      */
     protected function createQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
     {
@@ -80,8 +80,8 @@ class PageCollector extends AbstractPropelCollectorPlugin
 
     /**
      * @param array $resultSet
-     * @param LocaleTransfer $locale
-     * @param TouchUpdaterSet $touchUpdaterSet
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet $touchUpdaterSet
      *
      * @return array
      */

@@ -10,18 +10,18 @@ class OptionWriter implements WriterInterface
 {
 
     /**
-     * @var OptionReaderInterface
+     * @var \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\OptionReaderInterface
      */
     private $reader;
 
     /**
-     * @var OptionVisitorInterface[]
+     * @var \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\OptionVisitorInterface[]
      */
     private $visitors = [];
 
     /**
-     * @param OptionReaderInterface $reader
-     * @param OptionVisitorInterface[] $visitors
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\OptionReaderInterface $reader
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\OptionVisitorInterface[] $visitors
      */
     public function __construct(
         OptionReaderInterface $reader,
@@ -34,7 +34,7 @@ class OptionWriter implements WriterInterface
     }
 
     /**
-     * @param OptionVisitorInterface $visitor
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\OptionVisitorInterface $visitor
      */
     private function addVisitor(OptionVisitorInterface $visitor)
     {
@@ -53,7 +53,7 @@ class OptionWriter implements WriterInterface
     }
 
     /**
-     * @param VisitableOptionInterface $visitee
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\VisitableOptionInterface $visitee
      */
     private function visit($visitee)
     {
@@ -63,7 +63,7 @@ class OptionWriter implements WriterInterface
     }
 
     /**
-     * @param OptionVisitorInterface $visitor
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\OptionVisitorInterface $visitor
      */
     public function executeQueuedCommands($visitor)
     {

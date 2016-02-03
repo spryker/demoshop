@@ -41,7 +41,7 @@ class YvesBootstrap
 {
 
     /**
-     * @var Application
+     * @var \Spryker\Yves\Application\Application
      */
     protected $application;
 
@@ -51,7 +51,7 @@ class YvesBootstrap
     }
 
     /**
-     * @return Application
+     * @return \Spryker\Yves\Application\Application
      */
     public function boot()
     {

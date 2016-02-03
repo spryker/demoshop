@@ -54,7 +54,7 @@ class MysqlBatchStorageProvider implements BatchStorageProviderInterface
     }
 
     /**
-     * @param StatementInterface $stmt
+     * @param \Propel\Runtime\Connection\StatementInterface $stmt
      * @param array $values
      */
     private function bindValues(&$stmt, array $values)
@@ -68,7 +68,7 @@ class MysqlBatchStorageProvider implements BatchStorageProviderInterface
     }
 
     /**
-     * @return ConnectionInterface
+     * @return \Propel\Runtime\Connection\ConnectionInterface
      */
     private function getConnection()
     {

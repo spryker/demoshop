@@ -17,18 +17,18 @@ class PriceInstall extends AbstractInstaller
     const IS_ACTIVE = 'is_active';
 
     /**
-     * @var WriterInterface
+     * @var \Spryker\Zed\Price\Business\Model\WriterInterface
      */
     protected $priceWriter;
 
     /**
-     * @var ReaderInterface
+     * @var \Spryker\Zed\Price\Business\Model\ReaderInterface
      */
     protected $priceReader;
 
     /**
-     * @param WriterInterface $priceWriter
-     * @param ReaderInterface $priceReader
+     * @param \Spryker\Zed\Price\Business\Model\WriterInterface $priceWriter
+     * @param \Spryker\Zed\Price\Business\Model\ReaderInterface $priceReader
      */
     public function __construct(WriterInterface $priceWriter, ReaderInterface $priceReader)
     {

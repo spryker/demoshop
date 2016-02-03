@@ -26,9 +26,9 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
 {
 
     /**
-     * @param LoggerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      *
-     * @return ProductAttributeMappingInstall
+     * @return \Pyz\Zed\ProductSearch\Business\Internal\DemoData\ProductAttributeMappingInstall
      */
     public function createDemoDataInstaller(LoggerInterface $messenger)
     {
@@ -43,7 +43,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     }
 
     /**
-     * @return ProductAttributesTransformerInterface
+     * @return \Spryker\Zed\ProductSearch\Business\Transformer\ProductAttributesTransformerInterface
      */
     public function createProductAttributesTransformer()
     {
@@ -55,7 +55,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     }
 
     /**
-     * @return ProductSearchProcessorInterface
+     * @return \Spryker\Zed\ProductSearch\Business\Processor\ProductSearchProcessorInterface
      */
     public function createProductSearchProcessor()
     {
@@ -66,9 +66,9 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     }
 
     /**
-     * @param MessengerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
-     * @return InstallProductSearch
+     * @return \Spryker\Zed\ProductSearch\Business\Internal\InstallProductSearch
      */
     public function createInstaller(MessengerInterface $messenger)
     {
@@ -85,9 +85,9 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     }
 
     /**
-     * @throws ContainerKeyNotFoundException
+     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return CollectorFacade
+     * @return \Pyz\Zed\Collector\Business\CollectorFacade
      */
     protected function getCollectorFacade()
     {
@@ -95,7 +95,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     }
 
     /**
-     * @return OperationInterface
+     * @return \Spryker\Zed\ProductSearch\Business\Operation\OperationInterface
      */
     protected function createDefaultOperation()
     {
@@ -103,7 +103,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     }
 
     /**
-     * @return OperationManagerInterface
+     * @return \Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface
      */
     protected function createOperationManager()
     {
@@ -113,7 +113,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     }
 
     /**
-     * @return KeyBuilderInterface
+     * @return \Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderInterface
      */
     public function createKeyBuilder()
     {

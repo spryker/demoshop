@@ -14,15 +14,15 @@ use Psr\Log\LoggerInterface;
 use Pyz\Zed\Stock\Business\Internal\DemoData\StockInstall;
 
 /**
- * @method StockQueryContainer getQueryContainer()
+ * @method \Spryker\Zed\Stock\Persistence\StockQueryContainer getQueryContainer()
  */
 class StockBusinessFactory extends SprykerStockBusinessFactory
 {
 
     /**
-     * @param LoggerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      *
-     * @return StockInstall
+     * @return \Pyz\Zed\Stock\Business\Internal\DemoData\StockInstall
      */
     public function createDemoDataInstaller(LoggerInterface $messenger)
     {
@@ -37,7 +37,7 @@ class StockBusinessFactory extends SprykerStockBusinessFactory
     }
 
     /**
-     * @return CalculatorInterface
+     * @return \Spryker\Zed\Stock\Business\Model\CalculatorInterface
      */
     public function createCalculatorModel()
     {
@@ -47,7 +47,7 @@ class StockBusinessFactory extends SprykerStockBusinessFactory
     }
 
     /**
-     * @return ReaderInterface
+     * @return \Spryker\Zed\Stock\Business\Model\ReaderInterface
      */
     public function createReaderModel()
     {
@@ -58,7 +58,7 @@ class StockBusinessFactory extends SprykerStockBusinessFactory
     }
 
     /**
-     * @return WriterInterface
+     * @return \Spryker\Zed\Stock\Business\Model\WriterInterface
      */
     public function createWriterModel()
     {

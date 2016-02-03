@@ -30,15 +30,15 @@ use Pyz\Zed\ProductOption\ProductOptionDependencyProvider;
 use Spryker\Zed\ProductOption\Business\Model\DataImportWriterInterface;
 
 /**
- * @method ProductOptionConfig getConfig()
+ * @method \Pyz\Zed\ProductOption\ProductOptionConfig getConfig()
  */
 class ProductOptionBusinessFactory extends SprykerBusinessFactory
 {
 
     /**
-     * @param LoggerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      *
-     * @return ProductOptionDataInstall
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\ProductOptionDataInstall
      */
     public function createDemoDataInstaller(LoggerInterface $messenger)
     {
@@ -53,7 +53,7 @@ class ProductOptionBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return OptionReaderInterface
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\OptionReaderInterface
      */
     public function createOptionsReader()
     {
@@ -64,7 +64,7 @@ class ProductOptionBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return ProductReaderInterface
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\ProductReaderInterface
      */
     public function createProductOptionReader()
     {
@@ -75,7 +75,7 @@ class ProductOptionBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return XMLTransformerInterface
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLTransformerInterface
      */
     public function createXMLOptionsTransformer()
     {
@@ -83,7 +83,7 @@ class ProductOptionBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return XMLTransformerInterface
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLTransformerInterface
      */
     public function createXMLProductTransformer()
     {
@@ -91,7 +91,7 @@ class ProductOptionBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return OptionVisitorInterface
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\OptionVisitorInterface
      */
     public function createOptionsVisitor()
     {
@@ -101,7 +101,7 @@ class ProductOptionBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return ProductVisitorInterface
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface
      */
     public function createProductVisitor()
     {
@@ -111,7 +111,7 @@ class ProductOptionBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return WriterInterface
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\WriterInterface
      */
     public function createOptionsWriter()
     {
@@ -122,7 +122,7 @@ class ProductOptionBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return WriterInterface
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\WriterInterface
      */
     public function createProductOptionWriter()
     {
@@ -133,7 +133,7 @@ class ProductOptionBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return ProductOptionFacade
+     * @return \Pyz\Zed\ProductOption\Business\ProductOptionFacade
      */
     public function getProductOptionFacade()
     {
@@ -141,7 +141,7 @@ class ProductOptionBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return DataImportWriterInterface
+     * @return \Spryker\Zed\ProductOption\Business\Model\DataImportWriterInterface
      */
     public function createDataImportWriterModel()
     {
@@ -160,7 +160,7 @@ class ProductOptionBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return InMemoryProductOptionQueryContainer
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Decorator\InMemoryProductOptionQueryContainer
      */
     protected function createInMemoryProductOptionQueryContainer()
     {
@@ -170,7 +170,7 @@ class ProductOptionBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return ProductOptionReaderInterface
+     * @return \Spryker\Zed\ProductOption\Business\Model\ProductOptionReaderInterface
      */
     public function createProductOptionReaderModel()
     {
@@ -181,7 +181,7 @@ class ProductOptionBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return InMemoryBatchProcessor
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\BatchProcessor\InMemoryBatchProcessor
      */
     protected function createInMemoryBatchProcessor()
     {
@@ -191,7 +191,7 @@ class ProductOptionBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return MysqlBatchStorageProvider
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Db\MysqlBatchStorageProvider
      */
     protected function createMySqlBatchStorageProvider()
     {

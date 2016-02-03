@@ -8,13 +8,13 @@ use Pyz\Zed\ProductOption\ProductOptionDependencyProvider;
 use Pyz\Zed\ProductOption\ProductOptionConfig;
 
 /**
- * @method ProductOptionConfig getConfig()
+ * @method \Pyz\Zed\ProductOption\ProductOptionConfig getConfig()
  */
 class ProductOptionCommunicationFactory extends SprykerProductOptionCommunicationFactory
 {
 
     /**
-     * @return ProductOptionFacade
+     * @return \Pyz\Zed\ProductOption\Business\ProductOptionFacade
      */
     public function getInstallerFacade()
     {
