@@ -4,24 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "hash": "c55a45e8d05435ba907303cc9303daa1",
-    "content-hash": "94e4966e153a24625e02a593c7117914",
-=======
-<<<<<<< HEAD
-    "hash": "f02e4f59ba8461b4cd7f50d956993d5a",
-    "content-hash": "538a66038259c51ad1cebc9a8e82eebf",
->>>>>>> #1037 fixed versions in composer.json, cleanups
-    "packages": [
-        {
-=======
-    "hash": "c917db26a89a5eea7a74633fa06ca669",
-    "content-hash": "8308ea40a487474d1256745c29791f31",
-=======
-    "hash": "c4d1a541e55138316a29bec75f16b826",
-    "content-hash": "09b29207b0374089ae1ac72c6215da2d",
->>>>>>> #1037 update spryker/spryker
+    "hash": "32a55f669942d8cf18e8f53e52ff309b",
+    "content-hash": "f999ade983ff0343ec3b1bc267bece19",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -412,7 +396,6 @@
                 "random"
             ],
             "time": "2016-01-29 16:19:52"
-<<<<<<< HEAD
         },
         {
             "name": "phpdocumentor/graphviz",
@@ -454,8 +437,6 @@
                 }
             ],
             "time": "2014-07-19 06:52:59"
-=======
->>>>>>> #1037 update spryker/spryker
         },
         {
             "name": "pimple/pimple",
@@ -801,6 +782,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "07727368537234e95bd513ef52d9c7cbe00b1c6c"
 =======
 =======
@@ -835,6 +817,9 @@
 =======
                 "reference": "6506102a557ff90f725ec51423dff71d837f9174"
 >>>>>>> #1037 update spryker/spryker
+=======
+                "reference": "0326392e595ba409cb15938313d1dfc66c031956"
+>>>>>>> #1037 update composer
             },
             "require": {
                 "phpdocumentor/graphviz": "~1.0.0"
@@ -851,6 +836,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -891,6 +877,9 @@
             "time": "2016-02-01 12:39:54"
 >>>>>>> #1037 update spryker/spryker
 >>>>>>> #1037 update spryker/spryker
+=======
+            "time": "2016-02-03 13:13:47"
+>>>>>>> #1037 update composer
         },
         {
             "name": "symfony-cmf/routing",
@@ -2752,16 +2741,16 @@
         },
         {
             "name": "zendframework/zend-servicemanager",
-            "version": "2.7.4",
+            "version": "2.7.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-servicemanager.git",
-                "reference": "846f8a4f9c2e438e45d2de5cec11509cb7e08d79"
+                "reference": "fb5b54db5ead533b38e311f14e9c01a79218bf2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-servicemanager/zipball/846f8a4f9c2e438e45d2de5cec11509cb7e08d79",
-                "reference": "846f8a4f9c2e438e45d2de5cec11509cb7e08d79",
+                "url": "https://api.github.com/repos/zendframework/zend-servicemanager/zipball/fb5b54db5ead533b38e311f14e9c01a79218bf2b",
+                "reference": "fb5b54db5ead533b38e311f14e9c01a79218bf2b",
                 "shasum": ""
             },
             "require": {
@@ -2800,7 +2789,7 @@
                 "servicemanager",
                 "zf2"
             ],
-            "time": "2016-01-19 21:01:21"
+            "time": "2016-02-02 14:11:46"
         },
         {
             "name": "zendframework/zend-stdlib",
@@ -4786,16 +4775,16 @@
         },
         {
             "name": "symfony/browser-kit",
-            "version": "v3.0.1",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
-                "reference": "334a58c0def6dfcbe4bb57c6d2a8c06c6cc77679"
+                "reference": "dde849a0485b70a24b36f826ed3fb95b904d80c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/334a58c0def6dfcbe4bb57c6d2a8c06c6cc77679",
-                "reference": "334a58c0def6dfcbe4bb57c6d2a8c06c6cc77679",
+                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/dde849a0485b70a24b36f826ed3fb95b904d80c3",
+                "reference": "dde849a0485b70a24b36f826ed3fb95b904d80c3",
                 "shasum": ""
             },
             "require": {
@@ -4839,20 +4828,20 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
-            "time": "2015-12-26 13:39:53"
+            "time": "2016-01-27 11:34:55"
         },
         {
             "name": "symfony/css-selector",
-            "version": "v3.0.1",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "4613311fd46e146f506403ce2f8a0c71d402d2a3"
+                "reference": "6605602690578496091ac20ec7a5cbd160d4dff4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/4613311fd46e146f506403ce2f8a0c71d402d2a3",
-                "reference": "4613311fd46e146f506403ce2f8a0c71d402d2a3",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/6605602690578496091ac20ec7a5cbd160d4dff4",
+                "reference": "6605602690578496091ac20ec7a5cbd160d4dff4",
                 "shasum": ""
             },
             "require": {
@@ -4892,7 +4881,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "time": "2015-12-05 17:45:07"
+            "time": "2016-01-27 05:14:46"
         },
         {
             "name": "symfony/dependency-injection",
@@ -4958,16 +4947,16 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v3.0.1",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "7c622b0c9fb8bdb146d6dfa86c5f91dcbfdbc11d"
+                "reference": "b693a9650aa004576b593ff2e91ae749dc90123d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/7c622b0c9fb8bdb146d6dfa86c5f91dcbfdbc11d",
-                "reference": "7c622b0c9fb8bdb146d6dfa86c5f91dcbfdbc11d",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/b693a9650aa004576b593ff2e91ae749dc90123d",
+                "reference": "b693a9650aa004576b593ff2e91ae749dc90123d",
                 "shasum": ""
             },
             "require": {
@@ -5010,7 +4999,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2015-12-26 13:42:31"
+            "time": "2016-01-25 09:56:57"
         },
         {
             "name": "symfony/polyfill-mbstring",
