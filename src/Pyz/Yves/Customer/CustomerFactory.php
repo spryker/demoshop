@@ -3,8 +3,6 @@
 namespace Pyz\Yves\Customer;
 
 use Generated\Shared\Transfer\CustomerTransfer;
-use Pyz\Client\Customer\CustomerClientInterface;
-use Pyz\Client\Newsletter\NewsletterClientInterface;
 use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Customer\Form\DataProvider\AddressFormDataProvider;
 use Pyz\Yves\Customer\Form\LoginForm;
@@ -22,7 +20,6 @@ use Pyz\Yves\Customer\Plugin\AuthenticationHandler;
 use Pyz\Yves\Customer\Security\Customer;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Kernel\AbstractFactory;
-use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
@@ -32,7 +29,7 @@ class CustomerFactory extends AbstractFactory
     /**
      * @param array $formOptions
      *
-     * @return FormInterface
+     * @return \Symfony\Component\Form\FormInterface
      */
     public function createAddressForm(array $formOptions = [])
     {
@@ -42,7 +39,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return AddressFormDataProvider
+     * @return \Pyz\Yves\Customer\Form\DataProvider\AddressFormDataProvider
      */
     public function createAddressFormDataProvider()
     {

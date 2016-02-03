@@ -212,7 +212,7 @@ class AddressForm extends AbstractType
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $choices
      *
-     * @return AddressForm
+     * @return \Pyz\Yves\Customer\Form\AddressForm
      */
     protected function addIso2CodeField(FormBuilderInterface $builder, array $choices)
     {

@@ -19,7 +19,7 @@ class AddressFormDataProvider
     protected $customerClient;
 
     /**
-     * @var Store
+     * @var \Spryker\Shared\Kernel\Store
      */
     protected $store;
 
@@ -68,7 +68,7 @@ class AddressFormDataProvider
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      * @param int|null $idCustomerAddress
      *
-     * @return AddressTransfer|null
+     * @return \Generated\Shared\Transfer\AddressTransfer|null
      */
     protected function loadAddressTransfer(CustomerTransfer $customerTransfer, $idCustomerAddress = null)
     {

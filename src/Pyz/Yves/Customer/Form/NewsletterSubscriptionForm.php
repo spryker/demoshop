@@ -18,7 +18,7 @@ class NewsletterSubscriptionForm extends AbstractType
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -26,6 +26,11 @@ class NewsletterSubscriptionForm extends AbstractType
         $this->addSubscribeField($builder);
     }
 
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     *
+     * @return $this
+     */
     protected function addSubscribeField(FormBuilderInterface $builder)
     {
         $builder->add(self::FIELD_SUBSCRIBE, 'checkbox', [

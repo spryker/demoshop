@@ -14,7 +14,7 @@ use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
  * @group ProductOption
  * @group ProductOptionInstallerTest
  *
- * @method ProductOptionFacade getFacade()
+ * @method \Pyz\Zed\ProductOption\Business\ProductOptionFacade getFacade()
  */
 class ProductOptionDataInstallTest extends Test
 {
@@ -33,7 +33,7 @@ class ProductOptionDataInstallTest extends Test
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|ConsoleMessenger
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Zed\Console\Business\Model\ConsoleMessenger
      */
     protected function getMessengerMock()
     {
