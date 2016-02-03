@@ -85,7 +85,8 @@ class TwigServiceProvider extends SilexTwigServiceProvider
     protected function render(array $parameters = [])
     {
         $helper = new Helper($this->app);
-        $controller = $this->app['request']->attributes->get('_controller');
+        $request = $this->app['request_stack']->getCurrentRequest();
+        $controller = $request->attributes->get('_controller');
 
         if (!is_string($controller) || empty($controller)) {
             return;

@@ -10,9 +10,9 @@ use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Library\Application\Environment as ApplicationEnvironment;
 use Spryker\Shared\Library\DataDirectory;
 use Spryker\Shared\Library\Environment;
+use Spryker\Yves\Kernel\ControllerResolver\YvesFragmentControllerResolver;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 
 class ApplicationServiceProvider extends AbstractServiceProvider
 {
@@ -85,10 +85,8 @@ class ApplicationServiceProvider extends AbstractServiceProvider
      */
     protected function setControllerResolver()
     {
-        // We use the controller resolver from symfony as
-        // we do not need the feature from the silex one
         $this->application['resolver'] = $this->application->share(function () {
-            return new ControllerResolver($this->application['logger']);
+            return new YvesFragmentControllerResolver($this->application, $this->application['logger']);
         });
     }
 

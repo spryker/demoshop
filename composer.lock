@@ -4,8 +4,13 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "hash": "fe0191efbf8a05e6c6a7f43a436745fd",
     "content-hash": "d19eff945f4ae4d33cf5363062396f49",
+=======
+    "hash": "e653e590f5d5737545ddebac2b586dac",
+    "content-hash": "c7288c4fa4d8c02565263af1ae9c230f",
+>>>>>>> #1289 add Fragment ControllerResolver
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -775,11 +780,19 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-feature/1289-templating-embedding-controller",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "3112fb33db57b084a0ab4e55befbc40fa9ea7bc2"
+=======
+<<<<<<< HEAD
+                "reference": "a29b02d6bfd295ddd229f15cd8bd8b3dce42b119"
+=======
+                "reference": "048daa26e6920953880f503205a36bb975464c8f"
+>>>>>>> #1289 add Fragment ControllerResolver
+>>>>>>> #1289 add Fragment ControllerResolver
             },
             "require": {
                 "phpdocumentor/graphviz": "~1.0.0"
@@ -796,7 +809,15 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
+<<<<<<< HEAD
             "time": "2016-02-03 14:43:15"
+=======
+<<<<<<< HEAD
+            "time": "2016-02-03 11:31:45"
+=======
+            "time": "2016-02-03 10:51:24"
+>>>>>>> #1289 add Fragment ControllerResolver
+>>>>>>> #1289 add Fragment ControllerResolver
         },
         {
             "name": "symfony-cmf/routing",
