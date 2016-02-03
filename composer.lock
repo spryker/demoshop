@@ -5,12 +5,17 @@
         "This file is @generated automatically"
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
     "hash": "fe0191efbf8a05e6c6a7f43a436745fd",
     "content-hash": "d19eff945f4ae4d33cf5363062396f49",
 =======
     "hash": "e653e590f5d5737545ddebac2b586dac",
     "content-hash": "c7288c4fa4d8c02565263af1ae9c230f",
 >>>>>>> #1289 add Fragment ControllerResolver
+=======
+    "hash": "c55a45e8d05435ba907303cc9303daa1",
+    "content-hash": "94e4966e153a24625e02a593c7117914",
+>>>>>>> #1289 update spryker/spryker
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -780,10 +785,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/1289-templating-embedding-controller",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                 "reference": "3112fb33db57b084a0ab4e55befbc40fa9ea7bc2"
@@ -796,6 +802,9 @@
 >>>>>>> #1289 add Fragment ControllerResolver
 =======
                 "reference": "c543ff2320a7455ca9d71d037ef046867320e7fc"
+>>>>>>> #1289 update spryker/spryker
+=======
+                "reference": "8880b310923e075aa69e279d616c6b5a5b242b6d"
 >>>>>>> #1289 update spryker/spryker
             },
             "require": {
@@ -815,6 +824,7 @@
             },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-02-03 14:43:15"
 =======
 <<<<<<< HEAD
@@ -825,6 +835,9 @@
 >>>>>>> #1289 add Fragment ControllerResolver
 =======
             "time": "2016-02-03 12:03:57"
+>>>>>>> #1289 update spryker/spryker
+=======
+            "time": "2016-02-03 14:50:47"
 >>>>>>> #1289 update spryker/spryker
         },
         {
