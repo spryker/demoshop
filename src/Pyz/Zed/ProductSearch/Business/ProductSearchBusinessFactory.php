@@ -48,7 +48,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     public function createProductAttributesTransformer()
     {
         return new ProductAttributesTransformer(
-                    $this->getProductSearchQueryContainer(),
+                    $this->getQueryContainer(),
                     $this->createOperationLocator(),
                     $this->createDefaultOperation()
                 );
@@ -108,7 +108,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     protected function createOperationManager()
     {
         return new OperationManager(
-            $this->getProductSearchQueryContainer()
+            $this->getQueryContainer()
         );
     }
 
