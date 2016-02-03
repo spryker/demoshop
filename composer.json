@@ -30,6 +30,7 @@
     "symfony/routing": "~2.6.13",
     "symfony/security": "~2.6.13",
     "symfony/serializer": "~2.6.13",
+    "symfony/var-dumper": "~2.6.13",
 
     "symfony/translation": "~2.6.13",
     "symfony/twig-bridge": "~2.6.13",
