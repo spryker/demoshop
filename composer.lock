@@ -785,6 +785,7 @@
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "3112fb33db57b084a0ab4e55befbc40fa9ea7bc2"
 =======
 <<<<<<< HEAD
@@ -793,6 +794,9 @@
                 "reference": "048daa26e6920953880f503205a36bb975464c8f"
 >>>>>>> #1289 add Fragment ControllerResolver
 >>>>>>> #1289 add Fragment ControllerResolver
+=======
+                "reference": "c543ff2320a7455ca9d71d037ef046867320e7fc"
+>>>>>>> #1289 update spryker/spryker
             },
             "require": {
                 "phpdocumentor/graphviz": "~1.0.0"
@@ -810,6 +814,7 @@
                 }
             },
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-02-03 14:43:15"
 =======
 <<<<<<< HEAD
@@ -818,6 +823,9 @@
             "time": "2016-02-03 10:51:24"
 >>>>>>> #1289 add Fragment ControllerResolver
 >>>>>>> #1289 add Fragment ControllerResolver
+=======
+            "time": "2016-02-03 12:03:57"
+>>>>>>> #1289 update spryker/spryker
         },
         {
             "name": "symfony-cmf/routing",
