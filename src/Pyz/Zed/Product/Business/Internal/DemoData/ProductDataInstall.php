@@ -114,7 +114,7 @@ class ProductDataInstall extends AbstractInstaller
 
     /**
      * @param array $productConcreteCollection
-     * @param $idProductAbstract
+     * @param int $idProductAbstract
      */
     protected function createProductConcreteCollection(array $productConcreteCollection, $idProductAbstract)
     {
@@ -269,7 +269,7 @@ class ProductDataInstall extends AbstractInstaller
 
     /**
      * @param ProductAbstractTransfer $productAbstract
-     * @param $idProductAbstract
+     * @param int $idProductAbstract
      * @param LocaleTransfer $currentLocale
      */
     protected function createAndTouchProductUrls(

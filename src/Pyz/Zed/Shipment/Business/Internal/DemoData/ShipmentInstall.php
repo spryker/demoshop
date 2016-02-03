@@ -70,7 +70,7 @@ class ShipmentInstall extends AbstractInstaller
     }
 
     /**
-     * @param $idCarrier
+     * @param int $idCarrier
      */
     protected function addShipmentMethodToCarrie($idCarrier)
     {

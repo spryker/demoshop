@@ -459,7 +459,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
     }
 
     /**
-     * @param $identifier
+     * @param string $identifier
      *
      * @return string
      */
