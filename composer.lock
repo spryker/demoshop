@@ -779,7 +779,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "8880b310923e075aa69e279d616c6b5a5b242b6d"
+                "reference": "e1c184b295f5afdbf90dee116e468928bd667b48"
             },
             "require": {
                 "phpdocumentor/graphviz": "~1.0.0"
@@ -796,7 +796,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2016-02-03 14:50:47"
+            "time": "2016-02-03 15:08:48"
         },
         {
             "name": "symfony-cmf/routing",
