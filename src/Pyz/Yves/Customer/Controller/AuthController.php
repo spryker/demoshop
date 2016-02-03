@@ -9,16 +9,16 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
- * @method CustomerFactory getFactory()
- * @method CustomerClientInterface getClient()
+ * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
+ * @method \Spryker\Client\Customer\CustomerClientInterface getClient()
  */
 class AuthController extends AbstractCustomerController
 {
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function loginAction(Request $request)
     {
@@ -41,7 +41,7 @@ class AuthController extends AbstractCustomerController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return bool
      */

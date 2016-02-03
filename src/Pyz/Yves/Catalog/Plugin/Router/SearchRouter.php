@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 /**
- * @method CatalogFactory getFactory()
+ * @method \Pyz\Yves\Catalog\CatalogFactory getFactory()
  */
 class SearchRouter extends AbstractRouter
 {
@@ -65,7 +65,7 @@ class SearchRouter extends AbstractRouter
     }
 
     /**
-     * @return UrlMapperInterface
+     * @return \Pyz\Yves\Collector\Mapper\UrlMapperInterface
      */
     private function getUrlMapper()
     {
@@ -73,7 +73,7 @@ class SearchRouter extends AbstractRouter
     }
 
     /**
-     * @return Request
+     * @return \Symfony\Component\HttpFoundation\Request
      */
     private function getRequest()
     {
@@ -84,7 +84,7 @@ class SearchRouter extends AbstractRouter
     }
 
     /**
-     * @return Application
+     * @return \Silex\Application
      */
     private function getApplication()
     {

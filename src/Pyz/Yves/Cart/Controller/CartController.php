@@ -10,7 +10,7 @@ use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
 
 /**
- * @method CartClientInterface getClient()
+ * @method \Spryker\Client\Cart\CartClientInterface getClient()
  */
 class CartController extends AbstractController
 {
@@ -34,7 +34,7 @@ class CartController extends AbstractController
      * @param int $quantity
      * @param array $optionValueUsageIds
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function addAction($sku, $quantity, $optionValueUsageIds = [])
     {
@@ -61,7 +61,7 @@ class CartController extends AbstractController
      * @param string $sku
      * @param string $groupKey
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function removeAction($sku, $groupKey = null)
     {
@@ -80,7 +80,7 @@ class CartController extends AbstractController
      * @param int $quantity
      * @param string $groupKey
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function changeAction($sku, $quantity, $groupKey = null)
     {

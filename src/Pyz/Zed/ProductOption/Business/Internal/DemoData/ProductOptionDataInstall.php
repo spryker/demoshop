@@ -9,15 +9,15 @@ class ProductOptionDataInstall extends AbstractInstaller
 {
 
     /**
-     * @var WriterInterface
+     * @var \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\WriterInterface
      */
     protected $optionWriter;
 
     protected $productOptionWriter;
 
     /**
-     * @param WriterInterface $optionWriter
-     * @param WriterInterface $ProductOptionWriter
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\WriterInterface $optionWriter
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\WriterInterface $ProductOptionWriter
      */
     public function __construct(
         WriterInterface $optionWriter,

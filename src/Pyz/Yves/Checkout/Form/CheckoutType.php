@@ -27,30 +27,30 @@ class CheckoutType extends AbstractType
     const PAYOLUTION_TAB_INDEX_OFFSET = 400;
 
     /**
-     * @var Request
+     * @var \Symfony\Component\HttpFoundation\Request
      */
     protected $request;
 
     /**
-     * @var ShipmentTransfer
+     * @var \Generated\Shared\Transfer\ShipmentTransfer
      */
     protected $shipmentTransfer;
 
     /**
-     * @var GlossaryClientInterface
+     * @var \Spryker\Client\Glossary\GlossaryClientInterface
      */
     private $glossaryClient;
 
     /**
-     * @var PayolutionCalculationResponseTransfer
+     * @var \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer
      */
     private $payolutionCalculationResponseTransfer;
 
     /**
-     * @param Request $request
-     * @param ShipmentTransfer $shipmentTransfer
-     * @param GlossaryClientInterface $glossaryClient
-     * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Generated\Shared\Transfer\ShipmentTransfer $shipmentTransfer
+     * @param \Spryker\Client\Glossary\GlossaryClientInterface $glossaryClient
+     * @param \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
      */
     public function __construct(
         Request $request,
@@ -73,7 +73,7 @@ class CheckoutType extends AbstractType
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -174,7 +174,7 @@ class CheckoutType extends AbstractType
     }
 
     /**
-     * @param OptionsResolver $resolver
+     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver)
     {
@@ -215,7 +215,7 @@ class CheckoutType extends AbstractType
     }
 
     /**
-     * @return CurrencyManager
+     * @return \Spryker\Shared\Library\Currency\CurrencyManager
      */
     protected function getCurrencyManager()
     {

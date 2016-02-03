@@ -6,7 +6,7 @@ use Pyz\Zed\Category\Business\CategoryFacade;
 use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 
 /**
- * @method CategoryFacade getFacade()
+ * @method \Pyz\Zed\Category\Business\CategoryFacade getFacade()
  */
 class DemoDataInstaller extends AbstractInstallerPlugin
 {

@@ -12,7 +12,7 @@ class DHLExpressPlugin extends AbstractPlugin implements ShipmentMethodPriceCalc
     const DHL_EXPRESS_ITEM_PRICE = 4;
 
     /**
-     * @param ShipmentMethodAvailabilityTransfer $shipmentMethodAvailability
+     * @param \Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer $shipmentMethodAvailability
      *
      * @return int
      */

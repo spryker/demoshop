@@ -11,7 +11,7 @@ class TwigCms extends AbstractPlugin implements TwigFunctionPluginInterface
 {
 
     /**
-     * @param Application $application
+     * @param \Silex\Application $application
      *
      * @return \Twig_SimpleFunction[]
      */
@@ -54,9 +54,9 @@ class TwigCms extends AbstractPlugin implements TwigFunctionPluginInterface
     }
 
     /**
-     * @param Application $application
+     * @param \Silex\Application $application
      *
-     * @return TranslatorInterface
+     * @return \Symfony\Component\Translation\TranslatorInterface
      */
     protected function getTranslator(Application $application)
     {

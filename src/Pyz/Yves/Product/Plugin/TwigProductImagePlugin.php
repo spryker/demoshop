@@ -10,7 +10,7 @@ class TwigProductImagePlugin extends AbstractPlugin implements TwigFunctionPlugi
 {
 
     /**
-     * @param Application $application
+     * @param \Silex\Application $application
      *
      * @return \Twig_SimpleFunction
      */

@@ -19,7 +19,7 @@ class CheckoutFactory extends AbstractFactory
 {
 
     /**
-     * @return CheckoutClient
+     * @return \Spryker\Client\Checkout\CheckoutClient
      */
     public function getCheckoutClient()
     {
@@ -27,7 +27,7 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @return CartClientInterface
+     * @return \Spryker\Client\Cart\CartClientInterface
      */
     public function getCartClient()
     {
@@ -35,7 +35,7 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @return ShipmentClientInterface
+     * @return \Spryker\Client\Shipment\ShipmentClientInterface
      */
     public function getShipmentClient()
     {
@@ -43,7 +43,7 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @return GlossaryClientInterface
+     * @return \Spryker\Client\Glossary\GlossaryClientInterface
      */
     public function getGlossaryClient()
     {
@@ -51,7 +51,7 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @return PayolutionClientInterface
+     * @return \Spryker\Client\Payolution\PayolutionClientInterface
      */
     public function getPayolutionClient()
     {
@@ -70,11 +70,11 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @param Request $request
-     * @param ShipmentTransfer $shipmentTransfer
-     * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Generated\Shared\Transfer\ShipmentTransfer $shipmentTransfer
+     * @param \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
      *
-     * @return CheckoutType
+     * @return \Pyz\Yves\Checkout\Form\CheckoutType
      */
     public function createCheckoutForm(
         Request $request,

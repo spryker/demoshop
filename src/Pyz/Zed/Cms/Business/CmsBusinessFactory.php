@@ -13,16 +13,16 @@ use Pyz\Zed\Cms\Persistence\CmsQueryContainer;
 use Spryker\Zed\Locale\Business\LocaleFacade;
 
 /**
- * @method CmsConfig getConfig()
- * @method CmsQueryContainer getQueryContainer()
+ * @method \Pyz\Zed\Cms\CmsConfig getConfig()
+ * @method \Pyz\Zed\Cms\Persistence\CmsQueryContainer getQueryContainer()
  */
 class CmsBusinessFactory extends SprykerCmsBusinessFactory
 {
 
     /**
-     * @param MessengerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
-     * @return CmsInstall
+     * @return \Pyz\Zed\Cms\Business\Internal\DemoData\CmsInstall
      */
     public function createDemoDataInstaller(MessengerInterface $messenger)
     {
@@ -43,7 +43,7 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
     }
 
     /**
-     * @return LocaleFacade
+     * @return \Spryker\Zed\Locale\Business\LocaleFacade
      */
     public function getLocaleFacade()
     {
@@ -51,7 +51,7 @@ class CmsBusinessFactory extends SprykerCmsBusinessFactory
     }
 
     /**
-     * @return GlossaryKeyMappingManagerInterface
+     * @return \Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface
      */
     public function createGlossaryKeyMappingManager()
     {

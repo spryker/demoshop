@@ -12,16 +12,16 @@ use Spryker\Zed\Shipment\Persistence\ShipmentQueryContainer;
 use Pyz\Zed\Shipment\ShipmentConfig;
 
 /**
- * @method ShipmentQueryContainer getQueryContainer()
- * @method ShipmentConfig getConfig()
+ * @method \Spryker\Zed\Shipment\Persistence\ShipmentQueryContainer getQueryContainer()
+ * @method \Pyz\Zed\Shipment\ShipmentConfig getConfig()
  */
 class ShipmentBusinessFactory extends SprykerShipmentBusinessFactory
 {
 
     /**
-     * @param MessengerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
-     * @return ShipmentInstall
+     * @return \Pyz\Zed\Shipment\Business\Internal\DemoData\ShipmentInstall
      */
     public function createDemoDataInstaller(MessengerInterface $messenger)
     {
@@ -36,7 +36,7 @@ class ShipmentBusinessFactory extends SprykerShipmentBusinessFactory
     }
 
     /**
-     * @return Carrier
+     * @return \Spryker\Zed\Shipment\Business\Model\Carrier
      */
     public function createCarrier()
     {
@@ -44,7 +44,7 @@ class ShipmentBusinessFactory extends SprykerShipmentBusinessFactory
     }
 
     /**
-     * @return Method
+     * @return \Spryker\Zed\Shipment\Business\Model\Method
      */
     public function createMethod()
     {

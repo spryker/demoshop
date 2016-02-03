@@ -11,7 +11,7 @@ class RedirectController extends AbstractController
     /**
      * @param array $meta
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function redirectAction($meta)
     {

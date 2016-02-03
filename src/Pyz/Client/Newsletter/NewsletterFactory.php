@@ -9,7 +9,7 @@ class NewsletterFactory extends SprykerNewsletterFactory
 {
 
     /**
-     * @return SubscriptionRequestLogic
+     * @return \Pyz\Client\Newsletter\Model\SubscriptionRequestLogic
      */
     public function createSubscriptionRequestLogic()
     {

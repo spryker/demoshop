@@ -9,13 +9,13 @@ use Spryker\Yves\Kernel\AbstractPlugin;
 use Twig_SimpleFunction;
 
 /**
- * @method CustomerClientInterface getClient()
+ * @method \Spryker\Client\Customer\CustomerClientInterface getClient()
  */
 class TwigCustomer extends AbstractPlugin implements TwigFunctionPluginInterface
 {
 
     /**
-     * @param Application $application
+     * @param \Silex\Application $application
      *
      * @return array
      */

@@ -18,7 +18,7 @@ class TwigServiceProvider extends SilexTwigServiceProvider
 {
 
     /**
-     * @var SprykerApplication
+     * @var \Spryker\Yves\Application\Application
      */
     private $app;
 
@@ -36,7 +36,7 @@ class TwigServiceProvider extends SilexTwigServiceProvider
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      */
     public function register(Application $app)
     {
@@ -53,7 +53,7 @@ class TwigServiceProvider extends SilexTwigServiceProvider
     /**
      * Handles string responses.
      *
-     * @param GetResponseForControllerResultEvent $event The event to handle
+     * @param \Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent $event The event to handle
      */
     public function onKernelView(GetResponseForControllerResultEvent $event)
     {
@@ -68,7 +68,7 @@ class TwigServiceProvider extends SilexTwigServiceProvider
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      */
     public function boot(Application $app)
     {
@@ -80,7 +80,7 @@ class TwigServiceProvider extends SilexTwigServiceProvider
      *
      * @param array $parameters
      *
-     * @return Response
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     protected function render(array $parameters = [])
     {
@@ -101,7 +101,7 @@ class TwigServiceProvider extends SilexTwigServiceProvider
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      */
     protected function registerYvesLoader(Application $app)
     {
@@ -121,7 +121,7 @@ class TwigServiceProvider extends SilexTwigServiceProvider
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      */
     protected function registerTwigLoaderChain(Application $app)
     {
@@ -136,7 +136,7 @@ class TwigServiceProvider extends SilexTwigServiceProvider
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      */
     protected function registerTwigCache(Application $app)
     {
@@ -144,7 +144,7 @@ class TwigServiceProvider extends SilexTwigServiceProvider
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      */
     protected function registerTwig(Application $app)
     {

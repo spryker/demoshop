@@ -13,7 +13,7 @@ class HeartbeatConfig extends SprykerHeartbeatConfig
 {
 
     /**
-     * @return HealthIndicatorInterface[]
+     * @return \Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface[]
      */
     public function getHealthIndicator()
     {

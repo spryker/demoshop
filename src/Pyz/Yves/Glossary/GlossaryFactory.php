@@ -9,10 +9,10 @@ class GlossaryFactory extends AbstractFactory
 {
 
     /**
-     * @param GlossaryClientInterface $glossaryClient
+     * @param \Spryker\Client\Glossary\GlossaryClientInterface $glossaryClient
      * @param string $localeName
      *
-     * @return TwigTranslator
+     * @return \Pyz\Yves\Glossary\TwigTranslator
      */
     public function createTwigTranslator(GlossaryClientInterface $glossaryClient, $localeName)
     {

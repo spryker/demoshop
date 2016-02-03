@@ -9,7 +9,7 @@ class ZedBootstrap
 {
 
     /**
-     * @var SprykerZedBootstrap
+     * @var \Spryker\Zed\Application\Communication\ZedBootstrap
      */
     private $sprykerBootstrap;
 
@@ -20,7 +20,7 @@ class ZedBootstrap
     }
 
     /**
-     * @return Application
+     * @return \Spryker\Shared\Application\Communication\Application
      */
     public function boot()
     {

@@ -10,7 +10,7 @@ use Spryker\Yves\Kernel\AbstractPlugin;
 use Spryker\Client\Cms\CmsClientInterface;
 
 /**
- * @method CmsClientInterface getClient()
+ * @method \Spryker\Client\Cms\CmsClientInterface getClient()
  */
 class TwigCmsBlock extends AbstractPlugin implements TwigFunctionPluginInterface
 {
@@ -21,7 +21,7 @@ class TwigCmsBlock extends AbstractPlugin implements TwigFunctionPluginInterface
     private $locale;
 
     /**
-     * @param Application $application
+     * @param \Silex\Application $application
      *
      * @return \Twig_SimpleFunction[]
      */
@@ -73,7 +73,7 @@ class TwigCmsBlock extends AbstractPlugin implements TwigFunctionPluginInterface
      * @param string $blockType
      * @param string $blockValue
      *
-     * @return CmsBlockTransfer
+     * @return \Generated\Shared\Transfer\CmsBlockTransfer
      */
     protected function createBlockTransfer($blockName, $blockType, $blockValue)
     {

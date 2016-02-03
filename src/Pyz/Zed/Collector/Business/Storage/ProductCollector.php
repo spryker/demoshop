@@ -49,30 +49,30 @@ class ProductCollector extends AbstractPropelCollectorPlugin
     const ABSTRACT_LOCALIZED_ATTRIBUTES = 'abstract_localized_attributes';
 
     /**
-     * @var PriceFacade
+     * @var \Pyz\Zed\Price\Business\PriceFacade
      */
     private $priceFacade;
 
     /**
-     * @var PriceQueryContainer
+     * @var \Spryker\Zed\Price\Persistence\PriceQueryContainer
      */
     private $priceQueryContainer;
 
     /**
-     * @var CategoryQueryContainer
+     * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainer
      */
     private $categoryQueryContainer;
 
     /**
-     * @var ProductOptionExporterFacade
+     * @var \Spryker\Zed\ProductOptionExporter\Business\ProductOptionExporterFacade
      */
     private $productOptionExporterFacade;
 
     /**
-     * @param PriceFacade $priceFacade
-     * @param PriceQueryContainer $priceQueryContainer
-     * @param CategoryQueryContainer $categoryQueryContainer
-     * @param ProductOptionExporterFacade $productOptionExporterFacade
+     * @param \Pyz\Zed\Price\Business\PriceFacade $priceFacade
+     * @param \Spryker\Zed\Price\Persistence\PriceQueryContainer $priceQueryContainer
+     * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainer $categoryQueryContainer
+     * @param \Spryker\Zed\ProductOptionExporter\Business\ProductOptionExporterFacade $productOptionExporterFacade
      */
     public function __construct(
         PriceFacade $priceFacade,
@@ -92,10 +92,10 @@ class ProductCollector extends AbstractPropelCollectorPlugin
     }
 
     /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
+     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      *
-     * @return SpyTouchQuery
+     * @return \Orm\Zed\Touch\Persistence\SpyTouchQuery
      */
     protected function createQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
     {
@@ -368,8 +368,8 @@ class ProductCollector extends AbstractPropelCollectorPlugin
 
     /**
      * @param array $resultSet
-     * @param LocaleTransfer $locale
-     * @param TouchUpdaterSet $touchUpdaterSet
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet $touchUpdaterSet
      *
      * @return array
      */

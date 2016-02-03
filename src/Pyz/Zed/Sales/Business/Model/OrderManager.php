@@ -12,9 +12,9 @@ class OrderManager extends SprykerOrderManager
 {
 
     /**
-     * @param OrderListTransfer $orderListTransfer
+     * @param \Generated\Shared\Transfer\OrderListTransfer $orderListTransfer
      *
-     * @return SpySalesOrder[]|ObjectCollection
+     * @return \Orm\Zed\Sales\Persistence\SpySalesOrder[]|\Propel\Runtime\Collection\ObjectCollection
      */
     protected function getOrderCollection(OrderListTransfer $orderListTransfer)
     {
@@ -28,10 +28,10 @@ class OrderManager extends SprykerOrderManager
     }
 
     /**
-     * @param OrderListTransfer $orderListTransfer
-     * @param SpySalesOrderQuery $ordersQuery
+     * @param \Generated\Shared\Transfer\OrderListTransfer $orderListTransfer
+     * @param \Orm\Zed\Sales\Persistence\SpySalesOrderQuery $ordersQuery
      *
-     * @return ObjectCollection|SpySalesOrder[]
+     * @return \Propel\Runtime\Collection\ObjectCollection|\Orm\Zed\Sales\Persistence\SpySalesOrder[]
      */
     protected function paginateOrderCollection(OrderListTransfer $orderListTransfer, SpySalesOrderQuery $ordersQuery)
     {

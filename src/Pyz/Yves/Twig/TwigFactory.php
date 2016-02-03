@@ -18,14 +18,14 @@ class TwigFactory extends AbstractFactory
 {
 
     /**
-     * @var TwigSettings
+     * @var \Pyz\Yves\Twig\TwigSettings
      */
     private $settings;
 
     /**
-     * @param Application $application
+     * @param \Silex\Application $application
      *
-     * @return YvesExtension
+     * @return \Pyz\Yves\Twig\Model\YvesExtension
      */
     public function createYvesTwigExtension(Application $application)
     {
@@ -47,7 +47,7 @@ class TwigFactory extends AbstractFactory
     /**
      * @param bool $isDomainSecured
      *
-     * @return AssetUrlBuilderInterface
+     * @return \Pyz\Yves\Twig\Model\AssetUrlBuilderInterface
      */
     public function createAssetUrlBuilder($isDomainSecured = false)
     {
@@ -63,7 +63,7 @@ class TwigFactory extends AbstractFactory
     /**
      * @param bool $isDomainSecured
      *
-     * @return MediaUrlBuilderInterface
+     * @return \Pyz\Yves\Twig\Model\MediaUrlBuilderInterface
      */
     public function createMediaUrlBuilder($isDomainSecured = false)
     {
@@ -77,7 +77,7 @@ class TwigFactory extends AbstractFactory
     }
 
     /**
-     * @return CacheBusterInterface
+     * @return \Pyz\Yves\Twig\Model\CacheBusterInterface
      */
     protected function createCacheBuster()
     {

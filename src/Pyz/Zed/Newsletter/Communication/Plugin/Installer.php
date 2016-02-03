@@ -6,7 +6,7 @@ use Pyz\Zed\Newsletter\Business\NewsletterFacade;
 use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 
 /**
- * @method NewsletterFacade getFacade()
+ * @method \Pyz\Zed\Newsletter\Business\NewsletterFacade getFacade()
  */
 class Installer extends AbstractInstallerPlugin
 {

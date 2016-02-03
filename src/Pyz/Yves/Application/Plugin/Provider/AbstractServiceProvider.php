@@ -10,13 +10,13 @@ use Spryker\Yves\Kernel\AbstractPlugin;
 use Spryker\Yves\Kernel\Locator;
 
 /**
- * @method ApplicationFactory getFactory()
+ * @method \Pyz\Yves\Application\ApplicationFactory getFactory()
  */
 abstract class AbstractServiceProvider extends AbstractPlugin implements ServiceProviderInterface
 {
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      * @param \Twig_Extension[] $twigExtensions
      *
      * @return void
@@ -35,7 +35,7 @@ abstract class AbstractServiceProvider extends AbstractPlugin implements Service
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      * @param array $globalTemplateVariables
      *
      * @return void
@@ -50,7 +50,7 @@ abstract class AbstractServiceProvider extends AbstractPlugin implements Service
     }
 
     /**
-     * @return AutoCompletion
+     * @return \Generated\Client\Ide\AutoCompletion
      */
     protected function getLocator()
     {

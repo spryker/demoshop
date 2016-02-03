@@ -14,22 +14,22 @@ class ProductConcrete implements VisitableProductInterface
     private $sku;
 
     /**
-     * @var ProductOptionType[]
+     * @var \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionType[]
      */
     private $options = [];
 
     /**
-     * @var ProductOptionTypeExclusion[]
+     * @var \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionTypeExclusion[]
      */
     private $typeExclusions = [];
 
     /**
-     * @var ProductConfiguration[]
+     * @var \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConfiguration[]
      */
     private $configurations = [];
 
     /**
-     * @param ProductVisitorInterface $visitor
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface $visitor
      */
     public function accept(ProductVisitorInterface $visitor)
     {
@@ -54,9 +54,9 @@ class ProductConcrete implements VisitableProductInterface
 
     /**
      * @param string $sku
-     * @param ProductOptionType[] $options
-     * @param ProductOptionTypeExclusion[] $typeExclusions
-     * @param ProductConfiguration[] $configurations
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionType[] $options
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionTypeExclusion[] $typeExclusions
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConfiguration[] $configurations
      */
     public function __construct(
         $sku,
@@ -80,7 +80,7 @@ class ProductConcrete implements VisitableProductInterface
     }
 
     /**
-     * @param ProductOptionType $option
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionType $option
      */
     private function addOption(ProductOptionType $option)
     {
@@ -88,7 +88,7 @@ class ProductConcrete implements VisitableProductInterface
     }
 
     /**
-     * @param ProductOptionTypeExclusion $exclusion
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionTypeExclusion $exclusion
      */
     private function addExclusion(ProductOptionTypeExclusion $exclusion)
     {
@@ -96,7 +96,7 @@ class ProductConcrete implements VisitableProductInterface
     }
 
     /**
-     * @param ProductConfiguration $configuration
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConfiguration $configuration
      */
     private function addConfiguration(ProductConfiguration $configuration)
     {
@@ -112,7 +112,7 @@ class ProductConcrete implements VisitableProductInterface
     }
 
     /**
-     * @return ProductOptionType[]
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionType[]
      */
     public function getOptions()
     {
@@ -120,7 +120,7 @@ class ProductConcrete implements VisitableProductInterface
     }
 
     /**
-     * @return ProductOptionTypeExclusion[]
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionTypeExclusion[]
      */
     public function getTypeExclusions()
     {
@@ -128,7 +128,7 @@ class ProductConcrete implements VisitableProductInterface
     }
 
     /**
-     * @return ProductConfiguration[]
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConfiguration[]
      */
     public function getConfigurations()
     {

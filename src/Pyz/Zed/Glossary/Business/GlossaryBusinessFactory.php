@@ -14,9 +14,9 @@ class GlossaryBusinessFactory extends SprykerGlossaryBusinessFactory
 {
 
     /**
-     * @param LoggerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      *
-     * @return GlossaryInstall
+     * @return \Pyz\Zed\Glossary\Business\Internal\DemoData\GlossaryInstall
      */
     public function createDemoDataInstaller(LoggerInterface $messenger)
     {
@@ -30,7 +30,7 @@ class GlossaryBusinessFactory extends SprykerGlossaryBusinessFactory
     }
 
     /**
-     * @return TranslationManagerInterface
+     * @return \Spryker\Zed\Glossary\Business\Translation\TranslationManagerInterface
      */
     public function createTranslationManager()
     {

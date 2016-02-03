@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * @method HeartbeatFactory getFactory()
+ * @method \Pyz\Yves\Heartbeat\HeartbeatFactory getFactory()
  */
 class HeartbeatController extends AbstractController
 {
@@ -19,7 +19,7 @@ class HeartbeatController extends AbstractController
     const STATUS_REPORT = 'report';
 
     /**
-     * @return JsonResponse
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function indexAction()
     {

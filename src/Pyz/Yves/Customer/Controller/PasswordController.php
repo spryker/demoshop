@@ -13,16 +13,16 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @method CustomerFactory getFactory()
- * @method CustomerClient getClient()
+ * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
+ * @method \Pyz\Client\Customer\CustomerClient getClient()
  */
 class PasswordController extends AbstractCustomerController
 {
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function forgottenPasswordAction(Request $request)
     {
@@ -49,9 +49,9 @@ class PasswordController extends AbstractCustomerController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function restorePasswordAction(Request $request)
     {
@@ -85,9 +85,9 @@ class PasswordController extends AbstractCustomerController
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
-     * @return CustomerResponseTransfer
+     * @return \Generated\Shared\Transfer\CustomerResponseTransfer
      */
     protected function sendPasswordRestoreMail(CustomerTransfer $customerTransfer)
     {

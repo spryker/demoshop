@@ -9,16 +9,16 @@ use Pyz\Yves\Customer\CustomerFactory;
 use Spryker\Yves\Kernel\AbstractPlugin;
 
 /**
- * @method CustomerFactory getFactory()
- * @method CustomerClientInterface getClient()
+ * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
+ * @method \Pyz\Client\Customer\CustomerClientInterface getClient()
  */
 class AuthenticationHandler extends AbstractPlugin
 {
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
-     * @return CustomerResponseTransfer
+     * @return \Generated\Shared\Transfer\CustomerResponseTransfer
      */
     public function registerCustomer(CustomerTransfer $customerTransfer)
     {
@@ -34,7 +34,7 @@ class AuthenticationHandler extends AbstractPlugin
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
      * @return void
      */

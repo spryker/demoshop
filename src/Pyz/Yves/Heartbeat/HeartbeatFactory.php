@@ -12,7 +12,7 @@ class HeartbeatFactory extends AbstractFactory
 {
 
     /**
-     * @return HealthChecker
+     * @return \Pyz\Yves\Heartbeat\Model\HealthChecker
      */
     public function createHealthChecker()
     {
@@ -27,7 +27,7 @@ class HeartbeatFactory extends AbstractFactory
     }
 
     /**
-     * @return SearchHealthIndicator
+     * @return \Pyz\Yves\Heartbeat\Model\HealthIndicator\SearchHealthIndicator
      */
     protected function createSearchHealthIndicator()
     {
@@ -35,7 +35,7 @@ class HeartbeatFactory extends AbstractFactory
     }
 
     /**
-     * @return SessionHealthIndicator
+     * @return \Pyz\Yves\Heartbeat\Model\HealthIndicator\SessionHealthIndicator
      */
     protected function createSessionHealthIndicator()
     {
@@ -43,7 +43,7 @@ class HeartbeatFactory extends AbstractFactory
     }
 
     /**
-     * @return StorageHealthIndicator
+     * @return \Pyz\Yves\Heartbeat\Model\HealthIndicator\StorageHealthIndicator
      */
     protected function createStorageHealthIndicator()
     {

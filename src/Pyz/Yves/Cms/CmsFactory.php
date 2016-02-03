@@ -9,7 +9,7 @@ class CmsFactory extends AbstractFactory
 {
 
     /**
-     * @return PageResourceCreator
+     * @return \Pyz\Yves\Cms\ResourceCreator\PageResourceCreator
      */
     public function createPageResourceCreator()
     {

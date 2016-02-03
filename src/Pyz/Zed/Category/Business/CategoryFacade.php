@@ -6,13 +6,13 @@ use Spryker\Zed\Category\Business\CategoryFacade as SprykerCategoryFacade;
 use Psr\Log\LoggerInterface;
 
 /**
- * @method CategoryBusinessFactory getFactory()
+ * @method \Pyz\Zed\Category\Business\CategoryBusinessFactory getFactory()
  */
 class CategoryFacade extends SprykerCategoryFacade
 {
 
     /**
-     * @param LoggerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      */
     public function installDemoData(LoggerInterface $messenger)
     {

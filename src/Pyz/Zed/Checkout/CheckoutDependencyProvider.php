@@ -33,9 +33,9 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
 {
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return CheckoutPreConditionInterface[]
+     * @return \Spryker\Zed\Checkout\Dependency\Plugin\CheckoutPreConditionInterface[]
      */
     protected function getCheckoutPreConditions(Container $container)
     {
@@ -47,9 +47,9 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return CheckoutPreHydrationInterface[]
+     * @return \Spryker\Zed\Checkout\Dependency\Plugin\CheckoutPreHydrationInterface[]
      */
     protected function getCheckoutPreHydrator(Container $container)
     {
@@ -60,9 +60,9 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return CheckoutOrderHydrationInterface[]
+     * @return \Spryker\Zed\Checkout\Dependency\Plugin\CheckoutOrderHydrationInterface[]
      */
     protected function getCheckoutOrderHydrators(Container $container)
     {
@@ -81,9 +81,9 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return CheckoutSaveOrderInterface[]
+     * @return \Spryker\Zed\Checkout\Dependency\Plugin\CheckoutSaveOrderInterface[]
      */
     protected function getCheckoutOrderSavers(Container $container)
     {
@@ -97,9 +97,9 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return CheckoutPostSaveHookInterface[]
+     * @return \Spryker\Zed\Checkout\Dependency\Plugin\CheckoutPostSaveHookInterface[]
      */
     protected function getCheckoutPostHooks(Container $container)
     {

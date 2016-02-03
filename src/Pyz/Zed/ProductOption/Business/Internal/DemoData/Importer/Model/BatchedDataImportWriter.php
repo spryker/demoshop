@@ -14,15 +14,15 @@ class BatchedDataImportWriter extends DataImportWriter
 {
 
     /**
-     * @var AbstractBatchProcessor
+     * @var \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\BatchProcessor\AbstractBatchProcessor
      */
     private $batchProcessor;
 
     /**
-     * @param ProductOptionQueryContainerInterface $queryContainer
-     * @param ProductOptionToProductInterface $productFacade
-     * @param ProductOptionToLocaleInterface $localeFacade
-     * @param AbstractBatchProcessor $batchProcessor
+     * @param \Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface $queryContainer
+     * @param \Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToProductInterface $productFacade
+     * @param \Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToLocaleInterface $localeFacade
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\BatchProcessor\AbstractBatchProcessor $batchProcessor
      */
     public function __construct(
         ProductOptionQueryContainerInterface $queryContainer,
@@ -45,7 +45,7 @@ class BatchedDataImportWriter extends DataImportWriter
     }
 
     /**
-     * @param SpyProductOptionType $productOptionTypeEntity
+     * @param \Orm\Zed\ProductOption\Persistence\SpyProductOptionType $productOptionTypeEntity
      * @param array $localizedNames
      */
     protected function createOrUpdateOptionTypeTranslations(SpyProductOptionType $productOptionTypeEntity, array $localizedNames)
@@ -70,7 +70,7 @@ class BatchedDataImportWriter extends DataImportWriter
     }
 
     /**
-     * @param SpyProductOptionValue $productOptionValueEntity
+     * @param \Orm\Zed\ProductOption\Persistence\SpyProductOptionValue $productOptionValueEntity
      * @param array $localizedNames
      */
     protected function createOrUpdateOptionValueTranslations(SpyProductOptionValue $productOptionValueEntity, array $localizedNames)

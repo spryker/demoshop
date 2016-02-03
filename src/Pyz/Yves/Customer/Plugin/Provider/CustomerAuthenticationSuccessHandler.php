@@ -14,17 +14,17 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
 
 /**
- * @method CustomerClientInterface getClient()
- * @method CustomerFactory getFactory()
+ * @method \Spryker\Client\Customer\CustomerClientInterface getClient()
+ * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
  */
 class CustomerAuthenticationSuccessHandler extends AbstractPlugin implements AuthenticationSuccessHandlerInterface
 {
 
     /**
-     * @param Request $request
-     * @param TokenInterface $token
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Symfony\Component\Security\Core\Authentication\Token\TokenInterface $token
      *
-     * @return Response
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token)
     {
@@ -36,7 +36,7 @@ class CustomerAuthenticationSuccessHandler extends AbstractPlugin implements Aut
     }
 
     /**
-     * @param CustomerTransfer $customer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customer
      *
      * @return void
      */
@@ -46,9 +46,9 @@ class CustomerAuthenticationSuccessHandler extends AbstractPlugin implements Aut
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     protected function createRedirectResponse(Request $request)
     {
@@ -60,7 +60,7 @@ class CustomerAuthenticationSuccessHandler extends AbstractPlugin implements Aut
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return string
      */

@@ -21,12 +21,12 @@ class ApplicationServiceProvider extends AbstractServiceProvider
     const REQUEST_URI = 'REQUEST_URI';
 
     /**
-     * @var Application
+     * @var \Silex\Application
      */
     private $application;
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      *
      * @return void
      */
@@ -54,7 +54,7 @@ class ApplicationServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      *
      * @return void
      */

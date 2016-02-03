@@ -12,18 +12,18 @@ use Spryker\Zed\Collector\Business\Model\BatchResultInterface;
 use Spryker\Zed\Collector\Communication\Plugin\AbstractCollectorPlugin;
 
 /**
- * @method CollectorCommunicationFactory getFactory()
- * @method CollectorFacade getFacade()
+ * @method \Pyz\Zed\Collector\Communication\CollectorCommunicationFactory getFactory()
+ * @method \Pyz\Zed\Collector\Business\CollectorFacade getFacade()
  */
 class RedirectCollectorStoragePlugin extends AbstractCollectorPlugin
 {
 
     /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
-     * @param BatchResultInterface $result
-     * @param WriterInterface $dataWriter
-     * @param TouchUpdaterInterface $touchUpdater
+     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
      */
     public function run(
         SpyTouchQuery $baseQuery,

@@ -16,18 +16,18 @@ class ProductResourceCreator extends AbstractResourceCreator
 {
 
     /**
-     * @var FrontendProductBuilderInterface
+     * @var \Pyz\Yves\Product\Builder\FrontendProductBuilderInterface
      */
     protected $productBuilder;
 
     /**
-     * @var LocatorLocatorInterface
+     * @var \Spryker\Shared\Kernel\LocatorLocatorInterface
      */
     protected $locator;
 
     /**
-     * @param FrontendProductBuilderInterface $productBuilder
-     * @param LocatorLocatorInterface $locator
+     * @param \Pyz\Yves\Product\Builder\FrontendProductBuilderInterface $productBuilder
+     * @param \Spryker\Shared\Kernel\LocatorLocatorInterface $locator
      */
     public function __construct(
         FrontendProductBuilderInterface $productBuilder,
@@ -46,7 +46,7 @@ class ProductResourceCreator extends AbstractResourceCreator
     }
 
     /**
-     * @param Application $application
+     * @param \Silex\Application $application
      * @param array $data
      *
      * @return array

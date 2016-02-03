@@ -10,7 +10,7 @@ class NewRelicFactory extends AbstractFactory
 {
 
     /**
-     * @return ApiInterface
+     * @return \Spryker\Shared\NewRelic\ApiInterface
      */
     public function createNewRelicApi()
     {

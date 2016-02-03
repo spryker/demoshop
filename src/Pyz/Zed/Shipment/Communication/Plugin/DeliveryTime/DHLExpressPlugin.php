@@ -12,7 +12,7 @@ class DHLExpressPlugin extends AbstractPlugin implements ShipmentMethodDeliveryT
     const HALF_DAY_IN_SECONDS = 43200;
 
     /**
-     * @param ShipmentMethodAvailabilityTransfer $shipmentMethodAvailability
+     * @param \Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer $shipmentMethodAvailability
      *
      * @return int
      */

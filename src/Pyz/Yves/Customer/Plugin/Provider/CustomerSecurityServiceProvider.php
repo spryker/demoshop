@@ -11,8 +11,8 @@ use Spryker\Shared\Config;
 use Spryker\Shared\Customer\CustomerConstants;
 
 /**
- * @method CustomerClientInterface getClient()
- * @method CustomerFactory getFactory()
+ * @method \Spryker\Client\Customer\CustomerClientInterface getClient()
+ * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
  */
 class CustomerSecurityServiceProvider extends AbstractServiceProvider
 {
@@ -21,7 +21,7 @@ class CustomerSecurityServiceProvider extends AbstractServiceProvider
     const IS_AUTHENTICATED_ANONYMOUSLY = 'IS_AUTHENTICATED_ANONYMOUSLY';
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      *
      * @return void
      */
@@ -33,7 +33,7 @@ class CustomerSecurityServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      *
      * @return void
      */
@@ -42,7 +42,7 @@ class CustomerSecurityServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      *
      * @return void
      */
@@ -69,7 +69,7 @@ class CustomerSecurityServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      *
      * @return void
      */
@@ -88,7 +88,7 @@ class CustomerSecurityServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      *
      * @return void
      */

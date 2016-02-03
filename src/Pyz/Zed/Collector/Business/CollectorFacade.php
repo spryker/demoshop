@@ -10,17 +10,17 @@ use Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface;
 use Spryker\Zed\Collector\Business\Model\BatchResultInterface;
 
 /**
- * @method CollectorBusinessFactory getFactory()
+ * @method \Pyz\Zed\Collector\Business\CollectorBusinessFactory getFactory()
  */
 class CollectorFacade extends SprykerCollectorFacade
 {
 
     /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
-     * @param BatchResultInterface $result
+     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
      * @param $dataWriter
-     * @param TouchUpdaterInterface $touchUpdater
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
      *
      * @return void
      */
@@ -30,11 +30,11 @@ class CollectorFacade extends SprykerCollectorFacade
     }
 
     /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
-     * @param BatchResultInterface $result
+     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
      * @param $dataWriter
-     * @param TouchUpdaterInterface $touchUpdater
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
      *
      * @return void
      */
@@ -44,11 +44,11 @@ class CollectorFacade extends SprykerCollectorFacade
     }
 
     /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
-     * @param BatchResultInterface $result
+     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
      * @param $dataWriter
-     * @param TouchUpdaterInterface $touchUpdater
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
      *
      * @return void
      */
@@ -58,11 +58,11 @@ class CollectorFacade extends SprykerCollectorFacade
     }
 
     /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
-     * @param BatchResultInterface $result
+     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
      * @param $dataWriter
-     * @param TouchUpdaterInterface $touchUpdater
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
      *
      * @return void
      */
@@ -72,11 +72,11 @@ class CollectorFacade extends SprykerCollectorFacade
     }
 
     /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
-     * @param BatchResultInterface $result
+     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
      * @param $dataWriter
-     * @param TouchUpdaterInterface $touchUpdater
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
      *
      * @return void
      */
@@ -86,11 +86,11 @@ class CollectorFacade extends SprykerCollectorFacade
     }
 
     /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
-     * @param BatchResultInterface $result
+     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
      * @param $dataWriter
-     * @param TouchUpdaterInterface $touchUpdater
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
      *
      * @return void
      */
@@ -100,11 +100,11 @@ class CollectorFacade extends SprykerCollectorFacade
     }
 
     /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
-     * @param BatchResultInterface $result
+     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
      * @param $dataWriter
-     * @param TouchUpdaterInterface $touchUpdater
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
      *
      * @return void
      */
@@ -114,11 +114,11 @@ class CollectorFacade extends SprykerCollectorFacade
     }
 
     /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
-     * @param BatchResultInterface $result
+     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
      * @param $dataWriter
-     * @param TouchUpdaterInterface $touchUpdater
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
      *
      * @return void
      */
@@ -128,11 +128,11 @@ class CollectorFacade extends SprykerCollectorFacade
     }
 
     /**
-     * @param SpyTouchQuery $baseQuery
-     * @param LocaleTransfer $locale
-     * @param BatchResultInterface $result
-     * @param WriterInterface $dataWriter
-     * @param TouchUpdaterInterface $touchUpdater
+     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
      *
      * @return void
      */

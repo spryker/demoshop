@@ -16,7 +16,7 @@ class LoginForm extends AbstractForm
     const FIELD_PASSWORD = 'password';
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -43,7 +43,7 @@ class LoginForm extends AbstractForm
     }
 
     /**
-     * @return TransferInterface|array
+     * @return \Spryker\Shared\Transfer\TransferInterface|array
      */
     public function populateFormFields()
     {
@@ -51,7 +51,7 @@ class LoginForm extends AbstractForm
     }
 
     /**
-     * @return TransferInterface|null
+     * @return \Spryker\Shared\Transfer\TransferInterface|null
      */
     protected function getDataClass()
     {

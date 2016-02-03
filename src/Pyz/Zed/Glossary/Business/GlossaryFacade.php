@@ -6,13 +6,13 @@ use Psr\Log\LoggerInterface;
 use Spryker\Zed\Glossary\Business\GlossaryFacade as SprykerGlossaryFacade;
 
 /**
- * @method GlossaryBusinessFactory getFactory()
+ * @method \Pyz\Zed\Glossary\Business\GlossaryBusinessFactory getFactory()
  */
 class GlossaryFacade extends SprykerGlossaryFacade
 {
 
     /**
-     * @param LoggerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      */
     public function installDemoData(LoggerInterface $messenger)
     {

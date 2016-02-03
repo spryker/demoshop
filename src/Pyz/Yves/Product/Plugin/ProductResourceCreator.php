@@ -6,13 +6,13 @@ use Pyz\Yves\Product\ProductFactory;
 use Spryker\Yves\Kernel\AbstractPlugin;
 
 /**
- * @method ProductFactory getFactory()
+ * @method \Pyz\Yves\Product\ProductFactory getFactory()
  */
 class ProductResourceCreator extends AbstractPlugin
 {
 
     /**
-     * @return ProductResourceCreator
+     * @return \Pyz\Yves\Product\Plugin\ProductResourceCreator
      */
     public function createProductResourceCreator()
     {

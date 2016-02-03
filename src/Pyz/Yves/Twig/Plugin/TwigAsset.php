@@ -9,13 +9,13 @@ use Spryker\Yves\Kernel\AbstractPlugin;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
- * @method TwigFactory getFactory()
+ * @method \Pyz\Yves\Twig\TwigFactory getFactory()
  */
 class TwigAsset extends AbstractPlugin implements TwigFunctionPluginInterface
 {
 
     /**
-     * @param Application $application
+     * @param \Silex\Application $application
      *
      * @return \Twig_SimpleFunction[]
      */
@@ -36,9 +36,9 @@ class TwigAsset extends AbstractPlugin implements TwigFunctionPluginInterface
     }
 
     /**
-     * @param Application $application
+     * @param \Silex\Application $application
      *
-     * @return RequestStack
+     * @return \Symfony\Component\HttpFoundation\RequestStack
      */
     private function getRequestStack(Application $application)
     {
@@ -48,7 +48,7 @@ class TwigAsset extends AbstractPlugin implements TwigFunctionPluginInterface
     }
 
     /**
-     * @param Application $application
+     * @param \Silex\Application $application
      *
      * @return bool
      */

@@ -14,7 +14,7 @@ class ProfileController extends AbstractCustomerController
     const MESSAGE_PASSWORD_CHANGE_SUCCESS = 'customer.password.change.success';
 
     /**
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function indexAction()
     {
@@ -37,9 +37,9 @@ class ProfileController extends AbstractCustomerController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function submitProfileAction(Request $request)
     {
@@ -56,9 +56,9 @@ class ProfileController extends AbstractCustomerController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function submitPasswordAction(Request $request)
     {
@@ -123,7 +123,7 @@ class ProfileController extends AbstractCustomerController
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
      * @return void
      */

@@ -10,7 +10,7 @@ class DHLPaketPlugin extends AbstractPlugin implements ShipmentMethodAvailabilit
 {
 
     /**
-     * @param ShipmentMethodAvailabilityTransfer $shipmentMethodAvailability
+     * @param \Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer $shipmentMethodAvailability
      *
      * @return bool
      */

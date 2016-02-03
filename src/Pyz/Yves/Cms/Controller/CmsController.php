@@ -11,9 +11,9 @@ class CmsController extends AbstractController
 
     /**
      * @param array $meta
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return Response
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function pageAction($meta, Request $request)
     {

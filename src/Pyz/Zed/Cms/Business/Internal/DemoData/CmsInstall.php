@@ -42,17 +42,17 @@ class CmsInstall extends AbstractInstaller
     const NAME = 'name';
 
     /**
-     * @var CmsToGlossaryInterface
+     * @var \Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface
      */
     protected $glossaryFacade;
 
     /**
-     * @var CmsToUrlInterface
+     * @var \Spryker\Zed\Cms\Dependency\Facade\CmsToUrlInterface
      */
     protected $urlFacade;
 
     /**
-     * @var LocaleFacade
+     * @var \Spryker\Zed\Locale\Business\LocaleFacade
      */
     protected $localeFacade;
 
@@ -62,7 +62,7 @@ class CmsInstall extends AbstractInstaller
     protected $filePath;
 
     /**
-     * @var GlossaryKeyMappingManagerInterface
+     * @var \Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface
      */
     protected $keyMappingManager;
 
@@ -97,15 +97,15 @@ class CmsInstall extends AbstractInstaller
     protected $blockDemoValue = 0;
 
     /**
-     * @param CmsToGlossaryInterface $glossaryFacade
-     * @param CmsToUrlInterface $urlFacade
-     * @param LocaleFacade $localeFacade
-     * @param TemplateManagerInterface $templateManager
-     * @param PageManagerInterface $pageManager
-     * @param GlossaryKeyMappingManagerInterface $keyMappingManager
-     * @param BlockManagerInterface $blockManager
-     * @param CmsQueryContainerInterface $cmsQueryContainer
-     * @param CmsConfig $config
+     * @param \Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface $glossaryFacade
+     * @param \Spryker\Zed\Cms\Dependency\Facade\CmsToUrlInterface $urlFacade
+     * @param \Spryker\Zed\Locale\Business\LocaleFacade $localeFacade
+     * @param \Spryker\Zed\Cms\Business\Template\TemplateManagerInterface $templateManager
+     * @param \Spryker\Zed\Cms\Business\Page\PageManagerInterface $pageManager
+     * @param \Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface $keyMappingManager
+     * @param \Spryker\Zed\Cms\Business\Block\BlockManagerInterface $blockManager
+     * @param \Spryker\Zed\Cms\Persistence\CmsQueryContainerInterface $cmsQueryContainer
+     * @param \Pyz\Zed\Cms\CmsConfig $config
      */
     public function __construct(
         CmsToGlossaryInterface $glossaryFacade,
@@ -230,9 +230,9 @@ class CmsInstall extends AbstractInstaller
     }
 
     /**
-     * @param CmsTemplateTransfer $templateTransfer
+     * @param \Generated\Shared\Transfer\CmsTemplateTransfer $templateTransfer
      *
-     * @return PageTransfer
+     * @return \Generated\Shared\Transfer\PageTransfer
      */
     private function createPage(CmsTemplateTransfer $templateTransfer)
     {
@@ -302,7 +302,7 @@ class CmsInstall extends AbstractInstaller
      * @param string $blockValue
      * @param string $pageTransfer
      *
-     * @return CmsBlockTransfer
+     * @return \Generated\Shared\Transfer\CmsBlockTransfer
      */
     private function createCmsBlockTransfer($blockName, $blockType, $blockValue, $pageTransfer)
     {
@@ -349,7 +349,7 @@ class CmsInstall extends AbstractInstaller
     /**
      * @param string $template
      *
-     * @return CmsTemplateTransfer
+     * @return \Generated\Shared\Transfer\CmsTemplateTransfer
      */
     private function getOrCreateTemplate($template)
     {
@@ -366,7 +366,7 @@ class CmsInstall extends AbstractInstaller
     /**
      * @param string $locale
      *
-     * @return LocaleTransfer
+     * @return \Generated\Shared\Transfer\LocaleTransfer
      */
     protected function getLocale($locale)
     {
@@ -378,8 +378,8 @@ class CmsInstall extends AbstractInstaller
 
     /**
      * @param string $locale
-     * @param PageTransfer $pageTransfer
-     * @param LocaleTransfer $localeTransfer
+     * @param \Generated\Shared\Transfer\PageTransfer $pageTransfer
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
      * @return void
      */
@@ -391,9 +391,9 @@ class CmsInstall extends AbstractInstaller
     }
 
     /**
-     * @param PageTransfer $pageTransfer
+     * @param \Generated\Shared\Transfer\PageTransfer $pageTransfer
      * @param string $url
-     * @param LocaleTransfer $localeTransfer
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
      * @return void
      */

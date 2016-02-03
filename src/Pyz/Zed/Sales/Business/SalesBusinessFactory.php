@@ -10,7 +10,7 @@ class SalesBusinessFactory extends SprykerSalesBusinessFactory
 {
 
     /**
-     * @return OrderManager
+     * @return \Pyz\Zed\Sales\Business\Model\OrderManager
      */
     public function createOrderManager()
     {

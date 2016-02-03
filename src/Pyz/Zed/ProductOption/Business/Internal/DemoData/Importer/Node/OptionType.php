@@ -14,7 +14,7 @@ class OptionType implements VisitableOptionInterface
     private $key;
 
     /**
-     * @var OptionValue[]
+     * @var \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionValue[]
      */
     private $optionValues = [];
 
@@ -29,7 +29,7 @@ class OptionType implements VisitableOptionInterface
     private $taxSetKey;
 
     /**
-     * @param OptionVisitorInterface $visitor
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\OptionVisitorInterface $visitor
      */
     public function accept(OptionVisitorInterface $visitor)
     {
@@ -43,7 +43,7 @@ class OptionType implements VisitableOptionInterface
 
     /**
      * @param string $key
-     * @param OptionValue[] $optionValues
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionValue[] $optionValues
      * @param string $taxSetKey
      */
     public function __construct($key, array $optionValues, array $localizedNames = [], $taxSetKey = null)
@@ -59,7 +59,7 @@ class OptionType implements VisitableOptionInterface
     }
 
     /**
-     * @param OptionValue $optionValue
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionValue $optionValue
      */
     private function addOptionValue(OptionValue $optionValue)
     {
@@ -75,7 +75,7 @@ class OptionType implements VisitableOptionInterface
     }
 
     /**
-     * @return OptionValue[]
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionValue[]
      */
     public function getOptionValues()
     {

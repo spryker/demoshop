@@ -8,7 +8,7 @@ interface TwigFunctionPluginInterface
 {
 
     /**
-     * @param Application $application
+     * @param \Silex\Application $application
      *
      * @return \Twig_SimpleFunction[]
      */

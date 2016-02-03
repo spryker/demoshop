@@ -33,7 +33,7 @@ class CustomerFactory extends AbstractFactory
 {
 
     /**
-     * @return AddressForm
+     * @return \Pyz\Yves\Customer\Form\AddressForm
      */
     public function createFormAddress()
     {
@@ -41,7 +41,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return RegisterForm
+     * @return \Pyz\Yves\Customer\Form\RegisterForm
      */
     public function createFormRegister()
     {
@@ -49,7 +49,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return LoginForm
+     * @return \Pyz\Yves\Customer\Form\LoginForm
      */
     public function createFormLogin()
     {
@@ -57,7 +57,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return ForgottenPasswordForm
+     * @return \Pyz\Yves\Customer\Form\ForgottenPasswordForm
      */
     public function createFormForgottenPassword()
     {
@@ -65,7 +65,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return ProfileForm
+     * @return \Pyz\Yves\Customer\Form\ProfileForm
      */
     public function createFormProfile()
     {
@@ -73,7 +73,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return RestorePasswordForm
+     * @return \Pyz\Yves\Customer\Form\RestorePasswordForm
      */
     public function createFormRestorePassword()
     {
@@ -81,7 +81,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return PasswordForm
+     * @return \Pyz\Yves\Customer\Form\PasswordForm
      */
     public function createFormPassword()
     {
@@ -89,7 +89,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return CustomerAuthenticationSuccessHandler
+     * @return \Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationSuccessHandler
      */
     public function createCustomerAuthenticationSuccessHandler()
     {
@@ -97,7 +97,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return UserProviderInterface
+     * @return \Symfony\Component\Security\Core\User\UserProviderInterface
      */
     public function createCustomerUserProvider()
     {
@@ -105,9 +105,9 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
-     * @return UserInterface
+     * @return \Symfony\Component\Security\Core\User\UserInterface
      */
     public function createSecurityUser(CustomerTransfer $customerTransfer)
     {
@@ -120,9 +120,9 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
-     * @return TokenInterface
+     * @return \Symfony\Component\Security\Core\Authentication\Token\TokenInterface
      */
     public function createUsernamePasswordToken(CustomerTransfer $customerTransfer)
     {
@@ -139,7 +139,7 @@ class CustomerFactory extends AbstractFactory
     /**
      * @param string $targetUrl
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function createRedirectResponse($targetUrl)
     {
@@ -147,7 +147,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return Store
+     * @return \Spryker\Shared\Kernel\Store
      */
     public function createStore()
     {
@@ -155,7 +155,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return NewsletterSubscriptionForm
+     * @return \Pyz\Yves\Customer\Form\NewsletterSubscriptionForm
      */
     public function createFormNewsletterSubscription()
     {
@@ -163,7 +163,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return NewsletterClientInterface
+     * @return \Pyz\Client\Newsletter\NewsletterClientInterface
      */
     public function createNewsletterClient()
     {
@@ -171,7 +171,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return SalesClientInterface
+     * @return \Spryker\Client\Sales\SalesClientInterface
      */
     public function createSalesClient()
     {
@@ -179,7 +179,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return AuthenticationHandler
+     * @return \Pyz\Yves\Customer\Plugin\AuthenticationHandler
      */
     public function createAuthenticationHandler()
     {
@@ -187,7 +187,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return CustomerClientInterface
+     * @return \Pyz\Client\Customer\CustomerClientInterface
      */
     public function createCustomerClient()
     {
@@ -195,7 +195,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return Application
+     * @return \Spryker\Shared\Application\Communication\Application
      */
     public function createApplication()
     {

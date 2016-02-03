@@ -14,12 +14,12 @@ class ProductAbstract implements VisitableProductInterface
     private $sku;
 
     /**
-     * @var ProductConcrete[]
+     * @var \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConcrete[]
      */
     private $variants = [];
 
     /**
-     * @param ProductVisitorInterface $visitor
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface $visitor
      */
     public function accept(ProductVisitorInterface $visitor)
     {
@@ -36,7 +36,7 @@ class ProductAbstract implements VisitableProductInterface
 
     /**
      * @param string $sku
-     * @param ProductConcrete[] $variants
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConcrete[] $variants
      */
     public function __construct(
         $sku,
@@ -49,7 +49,7 @@ class ProductAbstract implements VisitableProductInterface
     }
 
     /**
-     * @param ProductConcrete $variant
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConcrete $variant
      */
     private function addVariant(ProductConcrete $variant)
     {
@@ -65,7 +65,7 @@ class ProductAbstract implements VisitableProductInterface
     }
 
     /**
-     * @return ProductConcrete[]
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConcrete[]
      */
     public function getVariants()
     {

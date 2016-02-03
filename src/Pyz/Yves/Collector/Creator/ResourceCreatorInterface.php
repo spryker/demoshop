@@ -13,7 +13,7 @@ interface ResourceCreatorInterface
     public function getType();
 
     /**
-     * @param Application $application
+     * @param \Silex\Application $application
      * @param array $data
      *
      * @return array

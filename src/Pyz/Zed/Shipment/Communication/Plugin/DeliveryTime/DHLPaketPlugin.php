@@ -12,7 +12,7 @@ class DHLPaketPlugin extends AbstractPlugin implements ShipmentMethodDeliveryTim
     const DAY_IN_SECONDS = 86400;
 
     /**
-     * @param ShipmentMethodAvailabilityTransfer $shipmentMethodAvailability
+     * @param \Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer $shipmentMethodAvailability
      *
      * @return int
      */

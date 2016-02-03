@@ -14,12 +14,12 @@ class NodeUrlManager extends SprykerNodeUrlManager
 {
 
     /**
-     * @var CategoryQueryContainer
+     * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainer
      */
     protected $categoryQueryContainer;
 
     /**
-     * @var LocaleQueryContainer
+     * @var \Spryker\Zed\Locale\Persistence\LocaleQueryContainer
      */
     protected $localeQueryContainer;
 
@@ -36,7 +36,7 @@ class NodeUrlManager extends SprykerNodeUrlManager
     }
 
     /**
-     * @param UrlTransfer $urlTransfer
+     * @param \Generated\Shared\Transfer\UrlTransfer $urlTransfer
      * @param string $url
      * @param int|null $idResource
      * @param int|null $idLocale

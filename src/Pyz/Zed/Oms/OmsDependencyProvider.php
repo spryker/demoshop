@@ -23,9 +23,9 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
     /**
      * Overwrite in project
      *
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return ConditionInterface[]
+     * @return \Spryker\Zed\Oms\Communication\Plugin\Oms\Condition\ConditionInterface[]
      */
     protected function getConditionPlugins(Container $container)
     {
@@ -39,9 +39,9 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return CommandInterface[]
+     * @return \Spryker\Zed\Oms\Communication\Plugin\Oms\Command\CommandInterface[]
      */
     protected function getCommandPlugins(Container $container)
     {

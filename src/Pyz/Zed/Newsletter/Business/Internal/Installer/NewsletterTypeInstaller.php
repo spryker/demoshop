@@ -9,12 +9,12 @@ use Spryker\Zed\Newsletter\Persistence\NewsletterQueryContainer;
 class NewsletterTypeInstaller
 {
     /**
-     * @var NewsletterQueryContainer
+     * @var \Spryker\Zed\Newsletter\Persistence\NewsletterQueryContainer
      */
     protected $queryContainer;
 
     /**
-     * @param NewsletterQueryContainer $queryContainer
+     * @param \Spryker\Zed\Newsletter\Persistence\NewsletterQueryContainer $queryContainer
      */
     public function __construct(NewsletterQueryContainer $queryContainer)
     {

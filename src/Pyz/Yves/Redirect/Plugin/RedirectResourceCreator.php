@@ -6,13 +6,13 @@ use Spryker\Yves\Kernel\AbstractPlugin;
 use Pyz\Yves\Redirect\RedirectFactory;
 
 /**
- * @method RedirectFactory getFactory()
+ * @method \Pyz\Yves\Redirect\RedirectFactory getFactory()
  */
 class RedirectResourceCreator extends AbstractPlugin
 {
 
     /**
-     * @return RedirectResourceCreator
+     * @return \Pyz\Yves\Redirect\Plugin\RedirectResourceCreator
      */
     public function createRedirectResourceCreator()
     {

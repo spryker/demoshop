@@ -12,16 +12,16 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @method CustomerFactory getFactory()
- * @method CustomerClientInterface getClient()
+ * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
+ * @method \Spryker\Client\Customer\CustomerClientInterface getClient()
  */
 class RegisterController extends AbstractCustomerController
 {
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function indexAction(Request $request)
     {
@@ -58,7 +58,7 @@ class RegisterController extends AbstractCustomerController
     /**
      * @param array $customerData
      *
-     * @return CustomerResponseTransfer
+     * @return \Generated\Shared\Transfer\CustomerResponseTransfer
      */
     protected function registerCustomer(array $customerData)
     {

@@ -27,12 +27,12 @@ class InMemoryBatchProcessor extends AbstractBatchProcessor
     private static $isInitiated = false;
 
     /**
-     * @var BatchStorageProviderInterface
+     * @var \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Db\BatchStorageProviderInterface
      */
     private $storageProvider;
 
     /**
-     * @param BatchStorageProviderInterface $storageProvider
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Db\BatchStorageProviderInterface $storageProvider
      */
     public function __construct(
         BatchStorageProviderInterface $storageProvider

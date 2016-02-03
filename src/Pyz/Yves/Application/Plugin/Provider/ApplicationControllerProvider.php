@@ -12,7 +12,7 @@ class ApplicationControllerProvider extends AbstractYvesControllerProvider
     const ROUTE_ERROR_404_PATH = '/error/404';
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      *
      * @return void
      */

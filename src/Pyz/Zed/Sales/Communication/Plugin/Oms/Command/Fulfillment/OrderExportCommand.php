@@ -12,8 +12,8 @@ class OrderExportCommand extends AbstractCommand implements CommandByOrderInterf
 
     /**
      * @param array $orderItems
-     * @param SpySalesOrder $orderEntity
-     * @param ReadOnlyArrayObject $data
+     * @param \Orm\Zed\Sales\Persistence\SpySalesOrder $orderEntity
+     * @param \Spryker\Zed\Oms\Business\Util\ReadOnlyArrayObject $data
      */
     public function run(array $orderItems, SpySalesOrder $orderEntity, ReadOnlyArrayObject $data)
     {

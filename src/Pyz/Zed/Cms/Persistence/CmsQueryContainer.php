@@ -12,7 +12,7 @@ class CmsQueryContainer extends SprykerCmsQueryContainer
     /**
      * @param string $url
      *
-     * @return SpyUrlQuery
+     * @return \Orm\Zed\Url\Persistence\SpyUrlQuery
      */
     public function queryUrlByPath($url)
     {

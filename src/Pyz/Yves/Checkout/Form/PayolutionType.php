@@ -20,7 +20,7 @@ class PayolutionType extends AbstractType
     const FIELD_BANK_ACCOUNT_BIC = 'bank_account_bic';
 
     /**
-     * @var Request
+     * @var \Symfony\Component\HttpFoundation\Request
      */
     private $request;
 
@@ -30,13 +30,13 @@ class PayolutionType extends AbstractType
     private $tabIndexOffset = 0;
 
     /**
-     * @var PayolutionCalculationResponseTransfer
+     * @var \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer
      */
     private $payolutionCalculationResponseTransfer;
 
     /**
-     * @param Request $request
-     * @param PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
      * @param int $tabIndexOffset
      */
     public function __construct(
@@ -58,7 +58,7 @@ class PayolutionType extends AbstractType
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -128,7 +128,7 @@ class PayolutionType extends AbstractType
     }
 
     /**
-     * @param OptionsResolver $resolver
+     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver)
     {

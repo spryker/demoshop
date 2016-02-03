@@ -9,14 +9,14 @@ use Pyz\Yves\Customer\CustomerFactory;
 use Spryker\Yves\Application\Controller\AbstractController;
 
 /**
- * @method CustomerFactory getFactory()
- * @method CustomerClientInterface getClient()
+ * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
+ * @method \Pyz\Client\Customer\CustomerClientInterface getClient()
  */
 abstract class AbstractCustomerController extends AbstractController
 {
 
     /**
-     * @return CustomerTransfer|null
+     * @return \Generated\Shared\Transfer\CustomerTransfer|null
      */
     protected function getLoggedInCustomerTransfer()
     {
@@ -36,7 +36,7 @@ abstract class AbstractCustomerController extends AbstractController
     }
 
     /**
-     * @param CustomerResponseTransfer $customerResponseTransfer
+     * @param \Generated\Shared\Transfer\CustomerResponseTransfer $customerResponseTransfer
      *
      * @return void
      */

@@ -13,12 +13,12 @@ class SessionHealthIndicator extends AbstractHealthIndicator implements HealthIn
     const KEY_HEARTBEAT = 'heartbeat';
 
     /**
-     * @var SessionClientInterface
+     * @var \Spryker\Client\Session\SessionClientInterface
      */
     protected $sessionClient;
 
     /**
-     * @param SessionClientInterface $sessionClient
+     * @param \Spryker\Client\Session\SessionClientInterface $sessionClient
      */
     public function __construct(SessionClientInterface $sessionClient)
     {

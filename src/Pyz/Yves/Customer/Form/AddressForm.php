@@ -33,7 +33,7 @@ class AddressForm extends AbstractForm
     protected $store;
 
     /**
-     * @param Store $store
+     * @param \Spryker\Shared\Kernel\Store $store
      */
     public function __construct(Store $store)
     {
@@ -49,7 +49,7 @@ class AddressForm extends AbstractForm
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -109,7 +109,7 @@ class AddressForm extends AbstractForm
     }
 
     /**
-     * @return TransferInterface|array
+     * @return \Spryker\Shared\Transfer\TransferInterface|array
      */
     public function populateFormFields()
     {
@@ -117,7 +117,7 @@ class AddressForm extends AbstractForm
     }
 
     /**
-     * @return TransferInterface|null
+     * @return \Spryker\Shared\Transfer\TransferInterface|null
      */
     protected function getDataClass()
     {

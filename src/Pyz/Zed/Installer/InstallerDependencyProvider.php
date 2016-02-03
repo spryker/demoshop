@@ -30,7 +30,7 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
 {
 
     /**
-     * @return AbstractInstaller[]
+     * @return \Spryker\Zed\Installer\Business\Model\AbstractInstaller[]
      */
     public function getInstallers()
     {
@@ -47,7 +47,7 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
     }
 
     /**
-     * @return AbstractInstaller[]
+     * @return \Spryker\Zed\Installer\Business\Model\AbstractInstaller[]
      */
     public function getDemoDataInstallers()
     {

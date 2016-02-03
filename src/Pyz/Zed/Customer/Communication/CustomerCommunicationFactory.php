@@ -11,7 +11,7 @@ class CustomerCommunicationFactory extends SprykerCustomerCommunicationFactory
 {
 
     /**
-     * @return SalesFacade
+     * @return \Spryker\Zed\Sales\Business\SalesFacade
      */
     public function getSalesFacade()
     {
@@ -19,7 +19,7 @@ class CustomerCommunicationFactory extends SprykerCustomerCommunicationFactory
     }
 
     /**
-     * @return NewsletterFacade
+     * @return \Spryker\Zed\Newsletter\Business\NewsletterFacade
      */
     public function getNewsletterFacade()
     {

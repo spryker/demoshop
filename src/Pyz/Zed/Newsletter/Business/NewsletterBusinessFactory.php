@@ -9,7 +9,7 @@ class NewsletterBusinessFactory extends SprykerNewsletterBusinessFactory
 {
 
     /**
-     * @return NewsletterTypeInstaller
+     * @return \Pyz\Zed\Newsletter\Business\Internal\Installer\NewsletterTypeInstaller
      */
     public function createNewsletterTypeInstaller()
     {

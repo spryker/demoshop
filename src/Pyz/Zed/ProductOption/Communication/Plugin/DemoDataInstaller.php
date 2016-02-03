@@ -6,7 +6,7 @@ use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 use Pyz\Zed\ProductOption\Communication\ProductOptionCommunicationFactory;
 
 /**
- * @method ProductOptionCommunicationFactory getFactory()
+ * @method \Pyz\Zed\ProductOption\Communication\ProductOptionCommunicationFactory getFactory()
  */
 class DemoDataInstaller extends AbstractInstallerPlugin
 {

@@ -9,7 +9,7 @@ class EventJournalFactory extends AbstractFactory
 {
 
     /**
-     * @return EventJournalClientInterface
+     * @return \Spryker\Client\EventJournal\EventJournalClientInterface
      */
     public function createEventJournalClient()
     {

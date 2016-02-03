@@ -20,9 +20,9 @@ class OrderController extends AbstractCustomerController
     const DEFAULT_PAGE = 1;
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function indexAction(Request $request)
     {
@@ -41,9 +41,9 @@ class OrderController extends AbstractCustomerController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function detailsAction(Request $request)
     {
@@ -53,9 +53,9 @@ class OrderController extends AbstractCustomerController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return OrderListTransfer
+     * @return \Generated\Shared\Transfer\OrderListTransfer
      */
     protected function createOrderListTransfer(Request $request)
     {
@@ -74,9 +74,9 @@ class OrderController extends AbstractCustomerController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return PaginationTransfer
+     * @return \Generated\Shared\Transfer\PaginationTransfer
      */
     protected function createPaginationTransfer(Request $request)
     {
@@ -88,7 +88,7 @@ class OrderController extends AbstractCustomerController
     }
 
     /**
-     * @return FilterTransfer
+     * @return \Generated\Shared\Transfer\FilterTransfer
      */
     protected function createFilterTransfer()
     {

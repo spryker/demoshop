@@ -25,7 +25,7 @@ class OmsConfig extends SprykerOmsConfig
     }
 
     /**
-     * @param OrderTransfer $orderTransfer
+     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
      *
      * @throws \RuntimeException
      *

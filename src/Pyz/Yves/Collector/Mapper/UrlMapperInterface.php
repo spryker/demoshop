@@ -28,7 +28,7 @@ interface UrlMapperInterface
 
     /**
      * @param string $pathInfo
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      */
     public function injectParametersFromUrlIntoRequest($pathInfo, Request $request);
 

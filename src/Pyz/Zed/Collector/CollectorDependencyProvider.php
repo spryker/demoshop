@@ -25,9 +25,9 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
     const QUERY_CONTAINER_CATEGORY = 'category query container';
 
     /**
-     * @var Container
+     * @var \Spryker\Zed\Kernel\Container
      *
-     * @return Container
+     * @return \Spryker\Zed\Kernel\Container
      */
     public function provideBusinessLayerDependencies(Container $container)
     {

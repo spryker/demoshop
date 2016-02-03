@@ -35,7 +35,7 @@ class ProductFactory extends AbstractFactory
     }
 
     /**
-     * @return ProductAbstract
+     * @return \Pyz\Yves\Product\Model\ProductAbstract
      */
     protected function createProductAbstract()
     {

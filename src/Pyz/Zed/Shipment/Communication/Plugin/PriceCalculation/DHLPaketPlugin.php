@@ -12,7 +12,7 @@ class DHLPaketPlugin extends AbstractPlugin implements ShipmentMethodPriceCalcul
     const DHL_PAKET_FIX_PRICE = 99;
 
     /**
-     * @param ShipmentMethodAvailabilityTransfer $shipmentMethodAvailability
+     * @param \Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer $shipmentMethodAvailability
      *
      * @return int
      */
