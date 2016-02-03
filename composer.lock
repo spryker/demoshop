@@ -779,51 +779,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "07727368537234e95bd513ef52d9c7cbe00b1c6c"
-=======
-=======
->>>>>>> #1037 update composer
-=======
->>>>>>> #1037 update spryker/spryker
-<<<<<<< HEAD
-                "reference": "a29b02d6bfd295ddd229f15cd8bd8b3dce42b119"
-=======
-=======
->>>>>>> #1037 update composer
-<<<<<<< HEAD
-                "reference": "fb392b143af0694ac00ed5a804ed1fd2ee70a57d"
-=======
-<<<<<<< HEAD
-                "reference": "513510343518891a265fd54be8b263efb237b13d"
->>>>>>> #1037 fixed versions in composer.json, cleanups
-            },
-            "require": {
-                "digital-canvas/zend-framework": ">=1.12.2"
-=======
-                "reference": "27090d29634f3b110ee7c4afe18ae3888119d54a"
->>>>>>> #1037 fixed versions in composer.json, cleanups
->>>>>>> #1037 fixed versions in composer.json, cleanups
-<<<<<<< HEAD
->>>>>>> #1037 fixed versions in composer.json, cleanups
-=======
-=======
-                "reference": "27090d29634f3b110ee7c4afe18ae3888119d54a"
->>>>>>> #1037 update composer
->>>>>>> #1037 update composer
-=======
-                "reference": "6506102a557ff90f725ec51423dff71d837f9174"
->>>>>>> #1037 update spryker/spryker
-=======
-                "reference": "0326392e595ba409cb15938313d1dfc66c031956"
->>>>>>> #1037 update composer
-=======
                 "reference": "3112fb33db57b084a0ab4e55befbc40fa9ea7bc2"
->>>>>>> #1037 update composer
             },
             "require": {
                 "phpdocumentor/graphviz": "~1.0.0"
@@ -840,54 +796,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2016-02-03 14:30:55"
-=======
-=======
->>>>>>> #1037 update composer
-=======
->>>>>>> #1037 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2016-02-03 11:31:45"
-=======
-=======
->>>>>>> #1037 update composer
-<<<<<<< HEAD
-            "time": "2016-01-29 12:19:03"
-=======
-<<<<<<< HEAD
-            "time": "2016-01-21 14:39:29"
-=======
-            "time": "2016-01-21 13:36:32"
->>>>>>> #1037 fixed versions in composer.json, cleanups
->>>>>>> #1037 fixed versions in composer.json, cleanups
-<<<<<<< HEAD
->>>>>>> #1037 fixed versions in composer.json, cleanups
-<<<<<<< HEAD
->>>>>>> #1037 fixed versions in composer.json, cleanups
-=======
-=======
-=======
-            "time": "2016-01-21 13:36:32"
->>>>>>> #1037 update composer
->>>>>>> #1037 update composer
-<<<<<<< HEAD
->>>>>>> #1037 update composer
-=======
-=======
-            "time": "2016-02-01 12:39:54"
->>>>>>> #1037 update spryker/spryker
->>>>>>> #1037 update spryker/spryker
-=======
-            "time": "2016-02-03 13:13:47"
->>>>>>> #1037 update composer
-=======
             "time": "2016-02-03 14:43:15"
->>>>>>> #1037 update composer
         },
         {
             "name": "symfony-cmf/routing",
