@@ -5,7 +5,11 @@ namespace Pyz\Zed\Sales\Business;
 use Pyz\Zed\Sales\Business\Model\OrderManager;
 use Spryker\Zed\Sales\Business\SalesBusinessFactory as SprykerSalesBusinessFactory;
 use Spryker\Zed\Sales\SalesDependencyProvider;
+use Pyz\Zed\Sales\SalesConfig;
 
+/**
+ * @method \Pyz\Zed\Sales\SalesConfig getConfig()
+ */
 class SalesBusinessFactory extends SprykerSalesBusinessFactory
 {
 

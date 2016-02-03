@@ -8,6 +8,7 @@ use Spryker\Zed\Newsletter\Persistence\NewsletterQueryContainer;
 
 class NewsletterTypeInstaller
 {
+
     /**
      * @var \Spryker\Zed\Newsletter\Persistence\NewsletterQueryContainer
      */
