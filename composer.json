@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-feature/1037-Cleanup-composer-json-Demoshop-Core",
+    "spryker/spryker": "dev-develop",
 
     "psr/log": "~1.0.0",
     "propel/propel": "~2.0@dev",

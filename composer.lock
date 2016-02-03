@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d4c8d59314ba3facacd0fe86b8b6a292",
-    "content-hash": "f13e56539e90dbc59200b997cb00af45",
+    "hash": "fe0191efbf8a05e6c6a7f43a436745fd",
+    "content-hash": "d19eff945f4ae4d33cf5363062396f49",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -775,10 +775,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/1037-Cleanup-composer-json-Demoshop-Core",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -820,6 +821,9 @@
 =======
                 "reference": "0326392e595ba409cb15938313d1dfc66c031956"
 >>>>>>> #1037 update composer
+=======
+                "reference": "3112fb33db57b084a0ab4e55befbc40fa9ea7bc2"
+>>>>>>> #1037 update composer
             },
             "require": {
                 "phpdocumentor/graphviz": "~1.0.0"
@@ -836,6 +840,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -879,6 +884,9 @@
 >>>>>>> #1037 update spryker/spryker
 =======
             "time": "2016-02-03 13:13:47"
+>>>>>>> #1037 update composer
+=======
+            "time": "2016-02-03 14:43:15"
 >>>>>>> #1037 update composer
         },
         {
