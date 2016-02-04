@@ -4,27 +4,20 @@ namespace Pyz\Yves\Cart\Controller;
 
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
 use Spryker\Yves\Application\Controller\AbstractController;
-use Spryker\Client\Cart\CartClientInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Generated\Shared\Transfer\ItemTransfer;
-use Generated\Shared\Transfer\ProductOptionTransfer;
 
 /**
  * @method \Spryker\Client\Cart\CartClientInterface getClient()
+ * @method \Pyz\Yves\Cart\CartFactory getFactory()
  */
 class AjaxController extends AbstractController
 {
-
     /**
      * @return array
      */
     public function indexAction()
     {
-        $cartClient = $this->getClient();
-        $quoteTransfer = $cartClient->getQuote();
-
         return $this->viewResponse([
-            'cart' => $quoteTransfer,
+            'cart' => $this->getClient()->getQuote(),
         ]);
     }
 
@@ -37,21 +30,7 @@ class AjaxController extends AbstractController
      */
     public function addAction($sku, $quantity, $optionValueUsageIds = [])
     {
-        $cartClient = $this->getClient();
-
-        $itemTransfer = new ItemTransfer();
-
-        $itemTransfer->setSku($sku);
-        $itemTransfer->setQuantity($quantity);
-
-        foreach ($optionValueUsageIds as $idOptionValueUsage) {
-            $productOptionTransfer = new ProductOptionTransfer();
-            $productOptionTransfer->setIdOptionValueUsage($idOptionValueUsage)
-                ->setLocaleCode($this->getLocale());
-            $itemTransfer->addProductOption($productOptionTransfer);
-        }
-
-        $cartClient->addItem($itemTransfer);
+        $this->getFactory()->createCartOperationHandler()->add($sku, $quantity, $optionValueUsageIds);
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART_OVERLAY);
     }
@@ -64,11 +43,7 @@ class AjaxController extends AbstractController
      */
     public function removeAction($sku, $groupKey = null)
     {
-        $cartClient = $this->getClient();
-        $itemTransfer = new ItemTransfer();
-        $itemTransfer->setSku($sku)->setGroupKey($groupKey);
-
-        $cartClient->removeItem($itemTransfer);
+        $this->getFactory()->createCartOperationHandler()->remove($sku, $groupKey);
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART_OVERLAY);
     }
@@ -81,13 +56,7 @@ class AjaxController extends AbstractController
      */
     public function increaseAction($sku, $groupKey = null)
     {
-        $cartClient = $this->getClient();
-
-        $itemTransfer = new ItemTransfer();
-        $itemTransfer->setSku($sku);
-        $itemTransfer->setGroupKey($groupKey);
-
-        $cartClient->increaseItemQuantity($itemTransfer);
+        $this->getFactory()->createCartOperationHandler()->increase($sku, $groupKey);
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART_OVERLAY);
     }
@@ -100,13 +69,7 @@ class AjaxController extends AbstractController
      */
     public function decreaseAction($sku, $groupKey = null)
     {
-        $cartClient = $this->getClient();
-
-        $itemTransfer = new ItemTransfer();
-        $itemTransfer->setSku($sku);
-        $itemTransfer->setGroupKey($groupKey);
-
-        $cartClient->decreaseItemQuantity($itemTransfer);
+        $this->getFactory()->createCartOperationHandler()->decrease($sku, $groupKey);
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART_OVERLAY);
     }
