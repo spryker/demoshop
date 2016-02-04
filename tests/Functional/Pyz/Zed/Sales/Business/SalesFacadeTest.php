@@ -7,11 +7,10 @@ namespace Functional\Pyz\Zed\Sales\Business;
 
 use Codeception\TestCase\Test;
 use Orm\Zed\Oms\Persistence\SpyOmsOrderItemState;
-use Orm\Zed\Oms\Persistence\SpyOmsOrderItemStateQuery;
 use Orm\Zed\Sales\Persistence\SpySalesDiscount;
 use Orm\Zed\Sales\Persistence\SpySalesExpense;
 use Orm\Zed\Sales\Persistence\SpySalesOrder;
-use Orm\Zed\Sales\Persistence\SpySalesOrderAddressQuery;
+use Orm\Zed\Sales\Persistence\SpySalesOrderAddress;
 use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 use Orm\Zed\Sales\Persistence\SpySalesOrderItemOption;
 use Orm\Zed\Shipment\Persistence\SpyShipmentMethodQuery;
@@ -149,13 +148,33 @@ class SalesFacadeTest extends Test
     protected function createTestOrder()
     {
         //Data like shipment or state machine is not important in this test so take any first row.
-        $billingAddress = SpySalesOrderAddressQuery::create()->findOne();
+        $salesOrderAddress = new SpySalesOrderAddress();
+        $salesOrderAddress->setAddress1(1);
+        $salesOrderAddress->setAddress2(2);
+        $salesOrderAddress->setSalutation('Mr');
+        $salesOrderAddress->setCellPhone('123456789');
+        $salesOrderAddress->setCity('City');
+        $salesOrderAddress->setCreatedAt(new \DateTime());
+        $salesOrderAddress->setUpdatedAt(new \DateTime());
+        $salesOrderAddress->setComment('comment');
+        $salesOrderAddress->setDescription('describtion');
+        $salesOrderAddress->setCompany('company');
+        $salesOrderAddress->setFirstName('First name');
+        $salesOrderAddress->setLastName('Last Name');
+        $salesOrderAddress->setFkCountry(1);
+        $salesOrderAddress->setEmail('email');
+        $salesOrderAddress->setZipCode(10405);
+        $salesOrderAddress->save();
+
         $shipmentMethod = SpyShipmentMethodQuery::create()->findOne();
-        $omsState = SpyOmsOrderItemStateQuery::create()->findOne();
+
+        $omsState = new SpyOmsOrderItemState();
+        $omsState->setName('test');
+        $omsState->save();
 
         $salesOrder = new SpySalesOrder();
-        $salesOrder->setBillingAddress($billingAddress);
-        $salesOrder->setShippingAddress(clone $billingAddress);
+        $salesOrder->setBillingAddress($salesOrderAddress);
+        $salesOrder->setShippingAddress(clone $salesOrderAddress);
         $salesOrder->setShipmentMethod($shipmentMethod);
         $salesOrder->setOrderReference('123');
         $salesOrder->save();
