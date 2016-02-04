@@ -35,6 +35,9 @@ class CalculationFacadeTest extends Test
         $this->assertEquals(100, $itemTransfer->getUnitGrossPrice());
         $this->assertEquals(200, $itemTransfer->getSumGrossPrice());
 
+        $this->assertEquals(100, $itemTransfer->getUnitGrossPriceWithDiscounts());
+        $this->assertEquals(200, $itemTransfer->getSumGrossPriceWithDiscounts());
+
         $this->assertEquals(125, $itemTransfer->getUnitGrossPriceWithProductOptions());
         $this->assertEquals(250, $itemTransfer->getSumGrossPriceWithProductOptions());
 
@@ -70,6 +73,9 @@ class CalculationFacadeTest extends Test
 
         $this->assertEquals(100, $itemTransfer->getUnitGrossPrice());
         $this->assertEquals(200, $itemTransfer->getSumGrossPrice());
+
+        $this->assertEquals(94.29, $itemTransfer->getUnitGrossPriceWithDiscounts());
+        $this->assertEquals(188.58, $itemTransfer->getSumGrossPriceWithDiscounts());
 
         $this->assertEquals(125, $itemTransfer->getUnitGrossPriceWithProductOptions());
         $this->assertEquals(250, $itemTransfer->getSumGrossPriceWithProductOptions());

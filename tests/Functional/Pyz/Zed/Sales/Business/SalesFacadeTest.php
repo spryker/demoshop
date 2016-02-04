@@ -40,6 +40,12 @@ class SalesFacadeTest extends Test
         $this->assertEquals(1000, $itemTransfer1->getSumGrossPrice());
         $this->assertEquals(800, $itemTransfer2->getSumGrossPrice());
 
+        $this->assertEquals(400, $itemTransfer1->getUnitGrossPriceWithDiscounts());
+        $this->assertEquals(700, $itemTransfer2->getUnitGrossPriceWithDiscounts());
+
+        $this->assertEquals(800, $itemTransfer1->getSumGrossPriceWithDiscounts());
+        $this->assertEquals(700, $itemTransfer2->getSumGrossPriceWithDiscounts());
+
         $this->assertEquals(67, $itemTransfer1->getUnitTaxAmountWithProductOptionAndDiscountAmounts());
         $this->assertEquals(120, $itemTransfer2->getUnitTaxAmountWithProductOptionAndDiscountAmounts());
 
@@ -101,6 +107,12 @@ class SalesFacadeTest extends Test
 
         $this->assertEquals(1000, $itemTransfer1->getSumGrossPrice());
         $this->assertEquals(800, $itemTransfer2->getSumGrossPrice());
+
+        $this->assertEquals(500, $itemTransfer1->getUnitGrossPriceWithDiscounts());
+        $this->assertEquals(800, $itemTransfer2->getUnitGrossPriceWithDiscounts());
+
+        $this->assertEquals(1000, $itemTransfer1->getSumGrossPriceWithDiscounts());
+        $this->assertEquals(800, $itemTransfer2->getSumGrossPriceWithDiscounts());
 
         $this->assertEquals(1060, $itemTransfer1->getSumGrossPriceWithProductOptionAndDiscountAmounts());
         $this->assertEquals(860, $itemTransfer2->getSumGrossPriceWithProductOptionAndDiscountAmounts());
