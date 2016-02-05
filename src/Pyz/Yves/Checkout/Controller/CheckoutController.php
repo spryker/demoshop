@@ -251,11 +251,8 @@ class CheckoutController extends AbstractController
         PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer,
         Request $request
     ) {
-        $checkoutFormType = $this
-            ->getFactory()
-            ->createCheckoutForm($request, $shipmentTransfer, $payolutionCalculationResponseTransfer);
 
-        return $this->createForm($checkoutFormType, $checkoutRequestTransfer);
+        return $this->getFactory()->createCheckoutForm($request, $shipmentTransfer, $payolutionCalculationResponseTransfer, $checkoutRequestTransfer);
     }
 
     /**
