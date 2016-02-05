@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-feature/1134-graph",
 
     "psr/log": "~1.0.0",
     "propel/propel": "~2.0@dev",
@@ -47,7 +47,7 @@
     "zendframework/zend-servicemanager": "~2.7.4",
     "zendframework/zend-eventmanager": "~2.6.2",
 
-    "phpdocumentor/graphviz": "~1.0.0",
+    "phpdocumentor/graphviz": "dev-master#a906a90",
     "nesbot/carbon": "~1.13.0"
   },
   "require-dev": {
