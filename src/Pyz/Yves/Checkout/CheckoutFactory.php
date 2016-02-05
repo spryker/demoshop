@@ -2,15 +2,11 @@
 
 namespace Pyz\Yves\Checkout;
 
+use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Spryker\Yves\Kernel\AbstractFactory;
-use Spryker\Client\Cart\CartClientInterface;
-use Spryker\Client\Checkout\CheckoutClient;
 use Pyz\Yves\Checkout\Form\CheckoutType;
-use Spryker\Client\Glossary\GlossaryClientInterface;
-use Spryker\Client\Payolution\PayolutionClientInterface;
-use Spryker\Client\Shipment\ShipmentClientInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Spryker\Shared\Config;
 use Spryker\Shared\Payolution\PayolutionConstants;
@@ -73,20 +69,23 @@ class CheckoutFactory extends AbstractFactory
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @param \Generated\Shared\Transfer\ShipmentTransfer $shipmentTransfer
      * @param \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
+     * @param CheckoutRequestTransfer $checkoutRequestTransfer
      *
-     * @return \Pyz\Yves\Checkout\Form\CheckoutType
+     * @return CheckoutType
      */
     public function createCheckoutForm(
         Request $request,
         ShipmentTransfer $shipmentTransfer,
-        PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
+        PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer,
+        CheckoutRequestTransfer $checkoutRequestTransfer
     ) {
-        return new CheckoutType(
+        $formType = new CheckoutType(
                 $request,
                 $shipmentTransfer,
                 $this->getGlossaryClient(),
                 $payolutionCalculationResponseTransfer
             );
+        return $this->getFormFactory()->create($formType, $checkoutRequestTransfer);
     }
 
 }
