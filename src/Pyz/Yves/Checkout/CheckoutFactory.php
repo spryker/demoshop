@@ -71,7 +71,7 @@ class CheckoutFactory extends AbstractFactory
      * @param \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
      * @param CheckoutRequestTransfer $checkoutRequestTransfer
      *
-     * @return CheckoutType
+     * @return \Pyz\Yves\Checkout\Form\CheckoutType
      */
     public function createCheckoutForm(
         Request $request,
@@ -80,11 +80,11 @@ class CheckoutFactory extends AbstractFactory
         CheckoutRequestTransfer $checkoutRequestTransfer
     ) {
         $formType = new CheckoutType(
-                $request,
-                $shipmentTransfer,
-                $this->getGlossaryClient(),
-                $payolutionCalculationResponseTransfer
-            );
+            $request,
+            $shipmentTransfer,
+            $this->getGlossaryClient(),
+            $payolutionCalculationResponseTransfer
+        );
         return $this->getFormFactory()->create($formType, $checkoutRequestTransfer);
     }
 
