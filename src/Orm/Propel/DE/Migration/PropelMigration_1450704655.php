@@ -75,7 +75,7 @@ ALTER TABLE `spy_sales_order_item_option`
 
   CHANGE `tax_percentage` `tax_percentage` DECIMAL(8,2) DEFAULT 0.00 NOT NULL;
 
-ALTER TABLE `tax_percentage`
+ALTER TABLE `spy_tax_rate`
 
   CHANGE `rate` `rate` DECIMAL(8,2) DEFAULT 0.00 NOT NULL;
 
