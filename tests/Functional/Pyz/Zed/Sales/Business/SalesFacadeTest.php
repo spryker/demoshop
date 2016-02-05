@@ -18,12 +18,10 @@ use Spryker\Zed\Sales\Business\SalesFacade;
 
 class SalesFacadeTest extends Test
 {
-    protected  $userDiscounts = true;
-
     /**
      * @return void
      */
-    public function testSalesOrderAggregatorWithDiscountsStackShouldProvideDataFromPersistence()
+    public function testSalesOrderAggregatorWithDiscountsStack()
     {
         $salesFacade = $this->createSalesFacade();
 
@@ -90,12 +88,11 @@ class SalesFacadeTest extends Test
     /**
      * @return void
      */
-    public function testSalesOrderAggregatorNODiscountsStackShouldProvideDataFromPersistence()
+    public function testSalesOrderAggregatorWithoutDiscounts()
     {
         $salesFacade = $this->createSalesFacade();
 
-        $this->userDiscounts = false;
-        $salesOrderEntity = $this->createTestOrder();
+        $salesOrderEntity = $this->createTestOrder($useDiscounts = false);
 
         $orderTransfer = $salesFacade->getOrderTotalsByIdSalesOrder($salesOrderEntity->getIdSalesOrder());
 
@@ -157,48 +154,49 @@ class SalesFacadeTest extends Test
     /**
      * @return SpySalesOrder
      */
-    protected function createTestOrder()
+    protected function createTestOrder($createDiscounts = true)
     {
         //Data like shipment or state machine is not important in this test so take any first row.
-        $salesOrderAddress = new SpySalesOrderAddress();
-        $salesOrderAddress->setAddress1(1);
-        $salesOrderAddress->setAddress2(2);
-        $salesOrderAddress->setSalutation('Mr');
-        $salesOrderAddress->setCellPhone('123456789');
-        $salesOrderAddress->setCity('City');
-        $salesOrderAddress->setCreatedAt(new \DateTime());
-        $salesOrderAddress->setUpdatedAt(new \DateTime());
-        $salesOrderAddress->setComment('comment');
-        $salesOrderAddress->setDescription('describtion');
-        $salesOrderAddress->setCompany('company');
-        $salesOrderAddress->setFirstName('First name');
-        $salesOrderAddress->setLastName('Last Name');
-        $salesOrderAddress->setFkCountry(1);
-        $salesOrderAddress->setEmail('email');
-        $salesOrderAddress->setZipCode(10405);
-        $salesOrderAddress->save();
+        $salesOrderAddressEntity = new SpySalesOrderAddress();
+        $salesOrderAddressEntity->setAddress1(1);
+        $salesOrderAddressEntity->setAddress2(2);
+        $salesOrderAddressEntity->setSalutation('Mr');
+        $salesOrderAddressEntity->setCellPhone('123456789');
+        $salesOrderAddressEntity->setCity('City');
+        $salesOrderAddressEntity->setCreatedAt(new \DateTime());
+        $salesOrderAddressEntity->setUpdatedAt(new \DateTime());
+        $salesOrderAddressEntity->setComment('comment');
+        $salesOrderAddressEntity->setDescription('describtion');
+        $salesOrderAddressEntity->setCompany('company');
+        $salesOrderAddressEntity->setFirstName('First name');
+        $salesOrderAddressEntity->setLastName('Last Name');
+        $salesOrderAddressEntity->setFkCountry(1);
+        $salesOrderAddressEntity->setEmail('email');
+        $salesOrderAddressEntity->setZipCode(10405);
+        $salesOrderAddressEntity->save();
 
-        $shipmentMethod = SpyShipmentMethodQuery::create()->findOne();
+        $shipmentMethodEntity = SpyShipmentMethodQuery::create()->findOne();
 
-        $omsState = new SpyOmsOrderItemState();
-        $omsState->setName('test');
-        $omsState->save();
+        $omsStateEntity = new SpyOmsOrderItemState();
+        $omsStateEntity->setName('test');
+        $omsStateEntity->save();
 
-        $salesOrder = new SpySalesOrder();
-        $salesOrder->setBillingAddress($salesOrderAddress);
-        $salesOrder->setShippingAddress(clone $salesOrderAddress);
-        $salesOrder->setShipmentMethod($shipmentMethod);
-        $salesOrder->setOrderReference('123');
-        $salesOrder->save();
+        $salesOrderEntity = new SpySalesOrder();
+        $salesOrderEntity->setBillingAddress($salesOrderAddressEntity);
+        $salesOrderEntity->setShippingAddress(clone $salesOrderAddressEntity);
+        $salesOrderEntity->setShipmentMethod($shipmentMethodEntity);
+        $salesOrderEntity->setOrderReference('123');
+        $salesOrderEntity->save();
 
-        $salesOrderItem1 = $this->createOrderItem(
-            $omsState,
-            $salesOrder,
-            2,
-            500,
-            19,
-            100,
-            'discount1',
+        $this->createOrderItem(
+            $omsStateEntity,
+            $salesOrderEntity,
+            $createDiscounts,
+            $quantity = 2,
+            $unitGrosPrice = 500,
+            $taxRate = 19,
+            $unitDiscountAmount = 100,
+            $discountDisplayName = 'discount1',
             [
                 [
                     'gross_price' => 10,
@@ -222,14 +220,16 @@ class SalesFacadeTest extends Test
                 ]
             ]
         );
-        $salesOrderItem2 = $this->createOrderItem(
-            $omsState,
-            $salesOrder,
-            1,
-            800,
-            19,
-            100,
-            'discount1',
+
+        $this->createOrderItem(
+            $omsStateEntity,
+            $salesOrderEntity,
+            $createDiscounts,
+            $quantity = 1,
+            $unitGrosPrice = 800,
+            $taxRate = 19,
+            $unitDiscountAmount = 100,
+            $discountDisplayName = 'discount1',
             [
                 [
                     'gross_price' => 20,
@@ -255,22 +255,24 @@ class SalesFacadeTest extends Test
             ]
         );
 
-        $salesExpense = new SpySalesExpense();
-        $salesExpense->setName('shiping test');
-        $salesExpense->setTaxRate(19);
-        $salesExpense->setGrossPrice(100);
-        $salesExpense->setFkSalesOrder($salesOrder->getIdSalesOrder());
-        $salesExpense->save();
+        $salesExpenseEntity = new SpySalesExpense();
+        $salesExpenseEntity->setName('shiping test');
+        $salesExpenseEntity->setTaxRate(19);
+        $salesExpenseEntity->setGrossPrice(100);
+        $salesExpenseEntity->setFkSalesOrder($salesOrderEntity->getIdSalesOrder());
+        $salesExpenseEntity->save();
 
-        $this->createSalesDiscount(
-            10,
-            'discount1',
-            $salesOrder->getIdSalesOrder(),
-            null,
-            $salesExpense->getIdSalesExpense()
-        );
+        if ($createDiscounts === true) {
+            $this->createSalesDiscount(
+                $discountAmount = 10,
+                $discountDisplayName = 'discount1',
+                $salesOrderEntity->getIdSalesOrder(),
+                $idExpense = null,
+                $salesExpenseEntity->getIdSalesExpense()
+            );
+        }
 
-        return $salesOrder;
+        return $salesOrderEntity;
     }
     
     
@@ -298,6 +300,7 @@ class SalesFacadeTest extends Test
     protected function createOrderItem(
         SpyOmsOrderItemState $omsState,
         SpySalesOrder $salesOrder,
+        $createDiscounts,
         $quantity,
         $grossPrice,
         $taxRate,
@@ -315,12 +318,14 @@ class SalesFacadeTest extends Test
         $salesOrderItem->setFkSalesOrder($salesOrder->getIdSalesOrder());
         $salesOrderItem->save();
 
-        $this->createSalesDiscount(
-            $discountAmount,
-            $discountName,
-            $salesOrder->getIdSalesOrder(),
-            $salesOrderItem->getIdSalesOrderItem()
-        );
+        if ($createDiscounts === true) {
+            $this->createSalesDiscount(
+                $discountAmount,
+                $discountName,
+                $salesOrder->getIdSalesOrder(),
+                $salesOrderItem->getIdSalesOrderItem()
+            );
+        }
 
         foreach ($options as $option) {
             $salesOrderItemOption = new SpySalesOrderItemOption();
@@ -332,14 +337,16 @@ class SalesFacadeTest extends Test
             $salesOrderItemOption->save();
             if (isset($option['discounts'])) {
                 foreach ($option['discounts'] as $discount) {
-                    $this->createSalesDiscount(
-                        $discount['amount'],
-                        $discount['name'],
-                        $salesOrder->getIdSalesOrder(),
-                        $salesOrderItem->getIdSalesOrderItem(),
-                        null,
-                        $salesOrderItemOption->getIdSalesOrderItemOption()
-                    );
+                    if ($createDiscounts === true) {
+                        $this->createSalesDiscount(
+                            $discount['amount'],
+                            $discount['name'],
+                            $salesOrder->getIdSalesOrder(),
+                            $salesOrderItem->getIdSalesOrderItem(),
+                            null,
+                            $salesOrderItemOption->getIdSalesOrderItemOption()
+                        );
+                    }
                 }
             }
         }
@@ -359,10 +366,6 @@ class SalesFacadeTest extends Test
         $idExpense = null,
         $idOrderItemOption = null
     ) {
-        if ($this->userDiscounts === false) {
-            return;
-        }
-
         $spySalesDiscount = new SpySalesDiscount();
         $spySalesDiscount->setName('name');
         $spySalesDiscount->setFkSalesOrder($idOrder);
