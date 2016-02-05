@@ -50,6 +50,7 @@ $config[AclConstants::ACL_USER_RULE_WHITELIST][] = [
 ];
 
 $config[ApplicationConstants::PROPEL_DEBUG] = true;
+//$config[ApplicationConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = true;
 
 $config[ApplicationConstants::ALLOW_INTEGRATION_CHECKS] = true;
 $config[ApplicationConstants::DISPLAY_ERRORS] = true;
