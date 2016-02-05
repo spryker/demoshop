@@ -8,7 +8,7 @@ use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Spryker\Shared\Kernel\Store;
 use Symfony\Component\HttpFoundation\Request;
 
-class AddressStep extends BaseStep implements StepInterface
+class AddressStep extends BaseStep
 {
     /**
      * @var Store
@@ -44,9 +44,11 @@ class AddressStep extends BaseStep implements StepInterface
     }
 
     /**
+     * @param QuoteTransfer $quoteTransfer
+     *
      * @return bool
      */
-    public function requireInput()
+    public function requireInput(QuoteTransfer $quoteTransfer)
     {
         return true;
     }
@@ -54,11 +56,10 @@ class AddressStep extends BaseStep implements StepInterface
     /**
      * @param Request $request
      * @param QuoteTransfer $quoteTransfer
-     * @param CheckoutStepHandlerPluginInterface[] $plugins
      *
      * @return QuoteTransfer
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer, $plugins = [])
+    public function execute(Request $request, QuoteTransfer $quoteTransfer)
     {
         $quoteTransfer->getShippingAddress()->setIso2Code($this->storeConfiguration->getCurrentCountry());
 
@@ -76,6 +77,7 @@ class AddressStep extends BaseStep implements StepInterface
      */
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
+        // FIXME: maybe use isBillingAddressEmpty()?
         if (empty($quoteTransfer->getBillingAddress())) {
             $this->flashMessenger->addErrorMessage('checkout.step.address.address_missing');
             return false;

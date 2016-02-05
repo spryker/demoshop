@@ -6,7 +6,7 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class SuccessStep extends BaseStep implements StepInterface
+class SuccessStep extends BaseStep
 {
 
     /**
@@ -20,9 +20,11 @@ class SuccessStep extends BaseStep implements StepInterface
     }
 
     /**
+     * @param QuoteTransfer $quoteTransfer
+     *
      * @return bool
      */
-    public function requireInput()
+    public function requireInput(QuoteTransfer $quoteTransfer)
     {
         return true;
     }
@@ -34,7 +36,7 @@ class SuccessStep extends BaseStep implements StepInterface
      *
      * @return QuoteTransfer
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer, $plugins = [])
+    public function execute(Request $request, QuoteTransfer $quoteTransfer)
     {
         return new QuoteTransfer();
     }

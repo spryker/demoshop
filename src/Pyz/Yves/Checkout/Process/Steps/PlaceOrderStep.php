@@ -9,7 +9,7 @@ use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class PlaceOrderStep extends BaseStep implements StepInterface
+class PlaceOrderStep extends BaseStep
 {
 
     /**
@@ -45,20 +45,23 @@ class PlaceOrderStep extends BaseStep implements StepInterface
     }
 
     /**
+     * @param QuoteTransfer $quoteTransfer
+     *
      * @return bool
      */
-    public function requireInput()
+    public function requireInput(QuoteTransfer $quoteTransfer)
     {
         return false;
     }
 
     /**
+     * @param Request $request
      * @param QuoteTransfer $quoteTransfer
      * @param CheckoutStepHandlerPluginInterface[] $plugins
      *
      * @return QuoteTransfer
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer, $plugins = [])
+    public function execute(Request $request, QuoteTransfer $quoteTransfer)
     {
         $checkoutResponseTransfer = $this->checkoutClient->placeOrder($quoteTransfer);
         if ($checkoutResponseTransfer->getIsExternalRedirect()) {

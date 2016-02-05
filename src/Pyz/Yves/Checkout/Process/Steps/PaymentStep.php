@@ -7,7 +7,7 @@ use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class PaymentStep extends BaseStep implements StepInterface
+class PaymentStep extends BaseStep
 {
 
     /**
@@ -43,9 +43,11 @@ class PaymentStep extends BaseStep implements StepInterface
     }
 
     /**
+     * @param QuoteTransfer $quoteTransfer
+     *
      * @return bool
      */
-    public function requireInput()
+    public function requireInput(QuoteTransfer $quoteTransfer)
     {
         return true;
     }
@@ -75,7 +77,20 @@ class PaymentStep extends BaseStep implements StepInterface
      */
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
+        // FIXME
         return true;
+    }
+
+    /**
+     * @return array
+     */
+    public function getTemplateVariables()
+    {
+        $templateVariables = parent::getTemplateVariables();
+
+        $templateVariables['paymentMethodsSubForms'] = ['payolution/invoice', 'payolution/installment'];
+
+        return $templateVariables;
     }
 
 }

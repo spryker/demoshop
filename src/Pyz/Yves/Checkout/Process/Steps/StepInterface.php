@@ -21,9 +21,11 @@ interface StepInterface
     /**
      * Require input, should we render view with form or just skip step after calling execute.
      *
+     * @param QuoteTransfer $quoteTransfer
+     *
      * @return bool
      */
-    public function requireInput();
+    public function requireInput(QuoteTransfer $quoteTransfer);
 
     /**
      * Execute step logic, happens after form submit if provided, gets QuoteTransfer filled by data from form.
@@ -64,5 +66,10 @@ interface StepInterface
      * @return string
      */
     public function getExternalRedirectUrl();
+
+    /**
+     * @return array
+     */
+    public function getTemplateVariables();
 
 }

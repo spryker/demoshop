@@ -26,9 +26,11 @@ class EntryStep extends BaseStep implements StepInterface
     /**
      * Require input, should we render view with form or just skip step after calling execute.
      *
+     * @param QuoteTransfer $quoteTransfer
+     *
      * @return bool
      */
-    public function requireInput()
+    public function requireInput(QuoteTransfer $quoteTransfer)
     {
        return false;
     }

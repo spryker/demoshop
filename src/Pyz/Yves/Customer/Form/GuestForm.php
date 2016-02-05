@@ -6,14 +6,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class RegisterForm extends AbstractType
+class GuestForm extends AbstractType
 {
 
     const FIELD_SALUTATION = 'salutation';
     const FIELD_FIRST_NAME = 'first_name';
     const FIELD_LAST_NAME = 'last_name';
     const FIELD_EMAIL = 'email';
-    const FIELD_PASSWORD = 'password';
+    const IS_GUEST = 'is_guest';
     const FIELD_ACCEPT_TERMS = 'accept_terms';
 
     /**
@@ -21,14 +21,12 @@ class RegisterForm extends AbstractType
      */
     public function getName()
     {
-        return 'registerForm';
+        return 'guestForm';
     }
 
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
-     *
-     * @return void
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -37,7 +35,7 @@ class RegisterForm extends AbstractType
             ->addFirstNameField($builder)
             ->addLastNameField($builder)
             ->addEmailField($builder)
-            ->addPasswordField($builder)
+            ->addIsGuestField($builder)
             ->addAcceptTermsField($builder);
     }
 
@@ -118,23 +116,10 @@ class RegisterForm extends AbstractType
      *
      * @return self
      */
-    protected function addPasswordField(FormBuilderInterface $builder)
+    protected function addIsGuestField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_PASSWORD, 'repeated', [
-            'first_name' => 'pass',
-            'second_name' => 'confirm',
-            'type' => 'password',
-            'invalid_message' => 'validator.constraints.password.do_not_match',
-            'required' => true,
-            'first_options' => [
-                'label' => 'forms.password',
-            ],
-            'second_options' => [
-                'label' => 'forms.confirm-password',
-            ],
-            'constraints' => [
-                new NotBlank(),
-            ],
+        $builder->add(self::IS_GUEST, 'hidden', [
+            'data' => true,
         ]);
 
         return $this;

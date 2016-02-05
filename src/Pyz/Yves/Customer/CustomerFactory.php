@@ -13,6 +13,7 @@ use Pyz\Yves\Customer\Form\ProfileForm;
 use Pyz\Yves\Customer\Form\ForgottenPasswordForm;
 use Pyz\Yves\Customer\Form\AddressForm;
 use Pyz\Yves\Customer\Form\RegisterForm;
+use Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationFailureHandler;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationSuccessHandler;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerUserProvider;
@@ -112,6 +113,14 @@ class CustomerFactory extends AbstractFactory
     public function createCustomerAuthenticationSuccessHandler()
     {
         return new CustomerAuthenticationSuccessHandler();
+    }
+
+    /**
+     * @return \Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationSuccessHandler
+     */
+    public function createCustomerAuthenticationFailureHandler()
+    {
+        return new CustomerAuthenticationFailureHandler($this->getFlashMessenger());
     }
 
     /**
@@ -220,6 +229,14 @@ class CustomerFactory extends AbstractFactory
     public function createApplication()
     {
         return (new Pimple())->getApplication();
+    }
+
+    /**
+     * @return \Pyz\Yves\Application\Business\Model\FlashMessengerInterface
+     */
+    protected function getFlashMessenger()
+    {
+        return $this->createApplication()['flash_messenger'];
     }
 
 }

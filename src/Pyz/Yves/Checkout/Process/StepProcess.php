@@ -3,12 +3,9 @@
 namespace Pyz\Yves\Checkout\Process;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
+use Pyz\Yves\Checkout\Form\FormCollectionInterface;
 use Pyz\Yves\Checkout\Process\Steps\StepInterface;
 use Spryker\Client\Cart\CartClientInterface;
-use Spryker\Shared\Gui\Form\AbstractForm;
-use Symfony\Component\Form\FormFactoryInterface;
-use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -43,43 +40,27 @@ class StepProcess
     protected $urlGenerator;
 
     /**
-     * @var FormFactoryInterface
-     */
-    protected $formFactory;
-
-    /**
-     * @var FlashMessengerInterface
-     */
-    protected $flashMessenger;
-
-    /**
-     * @param FormFactoryInterface $formFactory
+     * @param StepInterface[] $steps
      * @param UrlGeneratorInterface $urlGenerator
-     * @param array $steps
      * @param CartClientInterface $cartClient
-     * @param FlashMessengerInterface $flashMessenger
      */
     public function __construct(
-        FormFactoryInterface $formFactory,
-        UrlGeneratorInterface $urlGenerator,
         array $steps,
-        CartClientInterface $cartClient,
-        FlashMessengerInterface $flashMessenger
+        UrlGeneratorInterface $urlGenerator,
+        CartClientInterface $cartClient
     ) {
-        $this->formFactory = $formFactory;
         $this->urlGenerator = $urlGenerator;
         $this->steps = $steps;
         $this->cartClient = $cartClient;
-        $this->flashMessenger = $flashMessenger;
     }
 
     /**
      * @param Request $request
-     * @param AbstractForm|null $stepForm
+     * @param FormCollectionInterface|null $formCollection
      *
      * @return array|RedirectResponse
      */
-    public function process(Request $request, AbstractForm $stepForm = null)
+    public function process(Request $request, FormCollectionInterface $formCollection = null)
     {
         $currentStep = $this->getCurrentStep($request);
 
@@ -93,39 +74,24 @@ class StepProcess
             return $this->createRedirectResponse($this->getUrlFromRoute($escapeRoute));
         }
 
-        if ($currentStep->requireInput() === false) {
+        if ($currentStep->requireInput($this->getQuoteTransfer()) === false) {
             $this->executeWithoutInput($currentStep, $request);
             return $this->createRedirectResponse($this->getNextRedirectUrl($currentStep));
         }
 
-        if ($stepForm !== null) {
-            $form = $this->createForm($stepForm, $this->getQuoteTransfer());
-            $form->handleRequest($request);
-            if ($form->isSubmitted()) {
+        if ($formCollection !== null) {
+            if ($formCollection->hasSubmittedForm($request)) {
+                $form = $formCollection->handleRequest($request);
                 if ($form->isValid()) {
-                    $quoteTransfer = $form->getData();
-                    $this->executeWithFormInput($currentStep, $request, $quoteTransfer);
+                    $this->executeWithFormInput($currentStep, $request, $form->getData());
                     return $this->createRedirectResponse($this->getNextRedirectUrl($currentStep));
-                } else {
-                    $this->flashMessenger->addErrorMessage('checkout.form.validation.failed');
                 }
             }
-            return [
-                // @todo add sub-forms dynamically
-                'paymentMethodsSubForms' => ['payolution/invoice', 'payolution/installment'],
-                'shipmentMethodsSubForms' => ['shipment/method'],
-
-                'previousStepUrl' => $this->getUrlFromRoute($this->getPreviousStepRoute()),
-                'quoteTransfer' => $this->getQuoteTransfer(),
-                'form' => $form->createView(),
-            ];
-        } else {
-            $this->executeWithoutInput($currentStep, $request);
-            return [
-                'previousStepUrl' => $this->getUrlFromRoute($this->getPreviousStepRoute()),
-                'quoteTransfer' => $this->getQuoteTransfer(),
-            ];
+            return $this->getTemplateVariables($currentStep, $formCollection);
         }
+
+        $this->executeWithoutInput($currentStep, $request);
+        return $this->getTemplateVariables($currentStep);
     }
 
     /**
@@ -271,7 +237,7 @@ class StepProcess
             }
         }
 
-        if ($currentStep->requireInput() === true) {
+        if ($currentStep->requireInput($quoteTransfer) === true) {
             return $currentStep->getStepRoute();
         } else {
             return $this->errorRoute;
@@ -349,17 +315,6 @@ class StepProcess
     }
 
     /**
-     * @param AbstractForm $form
-     * @param mixed $data
-     *
-     * @return FormInterface
-     */
-    protected function createForm(AbstractForm $form, $data = null)
-    {
-        return $this->formFactory->create($form, $data);
-    }
-
-    /**
      * @param string $url
      *
      * @return RedirectResponse
@@ -376,4 +331,28 @@ class StepProcess
     {
         return $this->cartClient->getQuote();
     }
+
+    /**
+     * @param StepInterface $currentStep
+     * @param FormCollectionInterface|null $formCollection
+     *
+     * @return array
+     */
+    protected function getTemplateVariables(StepInterface $currentStep, FormCollectionInterface $formCollection = null)
+    {
+        $templateVariables = [
+            'previousStepUrl' => $this->getUrlFromRoute($this->getPreviousStepRoute()),
+            'quoteTransfer' => $this->getQuoteTransfer(),
+        ];
+        $templateVariables = array_merge($templateVariables, $currentStep->getTemplateVariables());
+
+        if ($formCollection !== null) {
+            foreach ($formCollection->getForms() as $form) {
+                $templateVariables[$form->getName()] = $form->createView();
+            }
+        }
+
+        return $templateVariables;
+    }
+
 }

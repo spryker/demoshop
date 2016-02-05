@@ -9,7 +9,7 @@ use Spryker\Client\Calculation\CalculationClient;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Symfony\Component\HttpFoundation\Request;
 
-class ShipmentStep extends BaseStep implements StepInterface
+class ShipmentStep extends BaseStep
 {
 
     /**
@@ -34,7 +34,7 @@ class ShipmentStep extends BaseStep implements StepInterface
         CalculationClient $calculationClient,
         $stepRoute,
         $escapeRoute,
-        $shipmentPlugins
+        array $shipmentPlugins
     ) {
         parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
 
@@ -53,9 +53,11 @@ class ShipmentStep extends BaseStep implements StepInterface
     }
 
     /**
+     * @param QuoteTransfer $quoteTransfer
+     *
      * @return bool
      */
-    public function requireInput()
+    public function requireInput(QuoteTransfer $quoteTransfer)
     {
         return true;
     }
@@ -107,6 +109,18 @@ class ShipmentStep extends BaseStep implements StepInterface
         }
 
         return false;
+    }
+
+    /**
+     * @return array
+     */
+    public function getTemplateVariables()
+    {
+        $templateVariables = parent::getTemplateVariables();
+
+        $templateVariables['shipmentMethodsSubForms'] = ['shipment/method'];
+
+        return $templateVariables;
     }
 
 }

@@ -2,7 +2,6 @@
 
 namespace Pyz\Yves\Checkout\Controller;
 
-use Codeception\Step;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\CheckoutFactory;
 use Pyz\Yves\Checkout\Process\StepProcess;
@@ -33,8 +32,14 @@ class CheckoutController extends AbstractController
      */
     public function customerAction(Request $request)
     {
-        return $this->createStepProcess()->process($request);
+        return $this->createStepProcess()->process(
+            $request,
+            $this->getFactory()
+                ->createFormFactory()
+                ->createCustomerFormCollection($this->getQuoteTransfer())
+        );
     }
+
     /**
      * @param Request $request
      *
@@ -44,7 +49,9 @@ class CheckoutController extends AbstractController
     {
         return $this->createStepProcess()->process(
             $request,
-            $this->getFactory()->createAddressCollectionForm()
+            $this->getFactory()
+                ->createFormFactory()
+                ->createAddressFormCollection($this->getQuoteTransfer())
         );
     }
 
@@ -57,7 +64,9 @@ class CheckoutController extends AbstractController
     {
         return $this->createStepProcess()->process(
             $request,
-            $this->getFactory()->createShipmentForm($this->getQuoteTransfer())
+            $this->getFactory()
+                ->createFormFactory()
+                ->createShipmentFormCollection($this->getQuoteTransfer())
         );
     }
 
@@ -70,7 +79,9 @@ class CheckoutController extends AbstractController
     {
         return $this->createStepProcess()->process(
             $request,
-            $this->getFactory()->createPaymentForm($this->getQuoteTransfer())
+            $this->getFactory()
+                ->createFormFactory()
+                ->createPaymentFormCollection($this->getQuoteTransfer())
         );
     }
 
@@ -83,7 +94,9 @@ class CheckoutController extends AbstractController
     {
         return $this->createStepProcess()->process(
             $request,
-            $this->getFactory()->createSummaryForm()
+            $this->getFactory()
+                ->createFormFactory()
+                ->createSummaryFormCollection($this->getQuoteTransfer())
         );
     }
 
@@ -119,7 +132,7 @@ class CheckoutController extends AbstractController
      */
     protected function createStepProcess()
     {
-        return $this->getFactory()->createCheckoutProcess($this->getApplication());
+        return $this->getFactory()->createCheckoutProcess();
     }
 
     /**

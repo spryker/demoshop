@@ -5,13 +5,13 @@
 
     <h1>Shipment</h1>
 
-    {{ form_start(form) }}
-    {{ form_widget(form.shipmentSelection) }}
+    {{ form_start(shipmentForm) }}
+    {{ form_widget(shipmentForm.shipmentSelection) }}
 
     {% for shipmentMethodSubForm in shipmentMethodsSubForms %}
-        {% include "@" ~ shipmentMethodSubForm ~ ".twig" %}
+        {% include "@" ~ shipmentMethodSubForm ~ ".twig" with {'form': shipmentForm} %}
     {% endfor %}
-    {{ form_end(form) }}
+    {{ form_end(shipmentForm) }}
 
     <a href="{{ previousStepUrl }}">Back</a>
 {% endblock %}

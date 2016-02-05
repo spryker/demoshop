@@ -8,7 +8,7 @@ use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Spryker\Client\Calculation\CalculationClient;
 use Symfony\Component\HttpFoundation\Request;
 
-class SummaryStep extends BaseStep implements StepInterface
+class SummaryStep extends BaseStep
 {
 
     /**
@@ -34,9 +34,11 @@ class SummaryStep extends BaseStep implements StepInterface
     }
 
     /**
+     * @param QuoteTransfer $quoteTransfer
+     *
      * @return bool
      */
-    public function requireInput()
+    public function requireInput(QuoteTransfer $quoteTransfer)
     {
         return true;
     }
@@ -48,7 +50,7 @@ class SummaryStep extends BaseStep implements StepInterface
      *
      * @return QuoteTransfer
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer, $plugins = [])
+    public function execute(Request $request, QuoteTransfer $quoteTransfer)
     {
         return $this->calculationClient->recalculate($quoteTransfer);
     }

@@ -5,13 +5,13 @@
 
     <h1>Payment</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form.paymentSelection) }}
+    {{ form_start(paymentForm) }}
+        {{ form_widget(paymentForm.paymentSelection) }}
 
         {% for paymentMethodSubForm in paymentMethodsSubForms %}
-            {% include "@" ~ paymentMethodSubForm ~ ".twig" %}
+            {% include "@" ~ paymentMethodSubForm ~ ".twig" with {'form': paymentForm} %}
         {% endfor %}
-    {{ form_end(form) }}
+    {{ form_end(paymentForm) }}
 
     <a href="{{ previousStepUrl }}">Back</a>
 {% endblock %}
