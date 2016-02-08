@@ -21,7 +21,6 @@ include:
 - vendor/spryker/spryker/Bundles/Git
 - vendor/spryker/spryker/Bundles/Glossary
 - vendor/spryker/spryker/Bundles/Graph
-- vendor/spryker/spryker/Bundles/GraphPhpDocumentor
 - vendor/spryker/spryker/Bundles/Heartbeat
 - vendor/spryker/spryker/Bundles/ItemGrouper
 - vendor/spryker/spryker/Bundles/Kernel
