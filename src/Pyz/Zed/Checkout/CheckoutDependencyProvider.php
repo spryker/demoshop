@@ -6,7 +6,6 @@ use Spryker\Zed\Availability\Communication\Plugin\ProductsAvailableCheckoutPreCo
 use Spryker\Zed\Customer\Communication\Plugin\CustomerPreConditionCheckerPlugin;
 use Spryker\Zed\Customer\Communication\Plugin\OrderCustomerSavePlugin;
 use Spryker\Zed\Discount\Communication\Plugin\DiscountOrderSavePlugin;
-use Spryker\Zed\Payolution\Communication\Plugin\Checkout\PayolutionPreCheckPlugin;
 use Spryker\Zed\Payolution\Communication\Plugin\Checkout\PayolutionSaveOrderPlugin;
 use Spryker\Zed\Shipment\Communication\Plugin\OrderShipmentSavePlugin;
 use Spryker\Zed\Kernel\Container;

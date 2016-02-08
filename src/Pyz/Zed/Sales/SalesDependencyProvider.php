@@ -8,6 +8,7 @@ namespace Pyz\Zed\Sales;
 use Spryker\Zed\ProductOptionDiscountConnector\Communication\Plugin\OrderAmountAggregator\DiscountTotalAmountWithProductOptionsAggregatorPlugin;
 use Spryker\Zed\ProductOptionDiscountConnector\Communication\Plugin\OrderAmountAggregator\OrderDiscountsWithProductOptionsAggregatorPlugin;
 use Spryker\Zed\ProductOptionDiscountConnector\Communication\Plugin\OrderAmountAggregator\ProductOptionDiscountsAggregatorPlugin;
+use Spryker\Zed\Sales\Communication\Plugin\OrderAmountAggregator\OrderExpenseTaxAmountAggregatorPlugin;
 use Spryker\Zed\Sales\SalesDependencyProvider as SprykerSalesDependencyProvider;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Sales\Dependency\Plugin\OrderTotalsAggregatePluginInterface;
@@ -23,11 +24,37 @@ use Spryker\Zed\ProductOption\Communication\Plugin\OrderTotalAggregator\ProductO
 use Spryker\Zed\ProductOption\Communication\Plugin\OrderTotalAggregator\SubtotalWithProductOptionsAggregatorPlugin;
 use Spryker\Zed\ProductOptionDiscountConnector\Communication\Plugin\OrderAmountAggregator\OrderTaxAmountWithProductOptionsAndDiscountsAggregatorPlugin;
 use Spryker\Zed\ProductOptionDiscountConnector\Communication\Plugin\OrderAmountAggregator\ItemsWithProductOptionsAndDiscountsTaxAggregatorPlugin;
-use Spryker\Zed\Tax\Communication\Plugin\OrderAmountAggregator\ItemTaxAmountAggregatorPlugin;
-use Spryker\Zed\Discount\Communication\Plugin\OrderAmountAggregator\ItemTaxWithDiscountsAggregatorPlugin;
+use Spryker\Zed\Sales\Communication\Plugin\OrderAmountAggregator\ItemTaxAmountAggregatorPlugin;
+use Spryker\Zed\Discount\Communication\Plugin\OrderAmountAggregator\OrderExpenseTaxWithDiscountsAggregatorPlugin;
+use Spryker\Zed\Discount\Communication\Plugin\OrderAmountAggregator\OrderExpensesWithDiscountsAggregatorPlugin;
 
 class SalesDependencyProvider extends SprykerSalesDependencyProvider
 {
+
+    /**
+     * @param Container $container
+     *
+     * @return array|OrderTotalsAggregatePluginInterface[]
+     */
+    protected function getItemAmountAggregationPlugins(Container $container)
+    {
+        return [
+
+            //aggregate sum* fields, so that amount with quantity is available.
+            new ItemGrossPriceAggregatorPlugin(),
+            new ProductOptionsGrossPriceAggregatorPlugin(),
+
+            //Aggregate item level discounts, stored in CalculatedDiscountTransfer[] tr
+            new ItemDiscountsOrderAggregatorPlugin(), //Item and expense discounts
+            new ProductOptionDiscountsAggregatorPlugin(),
+
+            ##Add tax for grand total, expenses and items with discounts.
+            new ItemTaxAmountAggregatorPlugin(),
+            new ItemsWithProductOptionsAndDiscountsTaxAggregatorPlugin(),
+        ];
+
+    }
+
     /**
      * @param Container $container
      *
@@ -38,18 +65,13 @@ class SalesDependencyProvider extends SprykerSalesDependencyProvider
         return [
             //order level expense total amount
             new ExpenseTotalAggregatorPlugin(),
-
-            //aggregate sum* fields, so that amount with quantity is available.
-            new ItemGrossPriceAggregatorPlugin(),
-            new ProductOptionsGrossPriceAggregatorPlugin(),
+            new OrderExpensesWithDiscountsAggregatorPlugin(),
+            new OrderExpenseTaxAmountAggregatorPlugin(),
+            new OrderExpenseTaxWithDiscountsAggregatorPlugin(),
 
             //SubTotal sum of all items before discounts and expenses
             new SubtotalOrderAggregatorPlugin(),
             new SubtotalWithProductOptionsAggregatorPlugin(),
-
-            //Aggregate item level discounts, stored in CalculatedDiscountTransfer[] tr
-            new ItemDiscountsOrderAggregatorPlugin(), //Item and expense discounts
-            new ProductOptionDiscountsAggregatorPlugin(),
 
             //Aggregate Discount total amount, stored in DiscountTotalsTransfer
             new DiscountTotalAmountAggregatorPlugin(), //Item and expense discounts
@@ -63,10 +85,6 @@ class SalesDependencyProvider extends SprykerSalesDependencyProvider
             new GrandTotalAggregatorPlugin(),
             new OrderGrandTotalWithDiscountsAggregatorPlugin(),
 
-            ##Add tax for grand total, expenses and items with discounts.
-            new ItemTaxAmountAggregatorPlugin(),
-            new ItemTaxWithDiscountsAggregatorPlugin(),
-            new ItemsWithProductOptionsAndDiscountsTaxAggregatorPlugin(),
             new OrderTaxAmountWithProductOptionsAndDiscountsAggregatorPlugin()
         ];
     }
