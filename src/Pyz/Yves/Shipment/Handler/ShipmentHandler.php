@@ -14,12 +14,12 @@ class ShipmentHandler
 {
 
     /**
-     * @var ShipmentClientInterface
+     * @var \Spryker\Client\Shipment\ShipmentClientInterface
      */
     protected $shipmentClient;
 
     /**
-     * @param ShipmentClientInterface $shipmentClient
+     * @param \Spryker\Client\Shipment\ShipmentClientInterface $shipmentClient
      */
     public function __construct(ShipmentClientInterface $shipmentClient)
     {
@@ -27,10 +27,10 @@ class ShipmentHandler
     }
 
     /**
-     * @param Request $request
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     public function addShipmentToQuote(Request $request, QuoteTransfer $quoteTransfer)
     {
@@ -46,9 +46,9 @@ class ShipmentHandler
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return ShipmentMethodTransfer|null
+     * @return \Generated\Shared\Transfer\ShipmentMethodTransfer|null
      */
     protected function getShipmentMethodById(QuoteTransfer $quoteTransfer)
     {
@@ -65,9 +65,9 @@ class ShipmentHandler
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return ShipmentMethodsTransfer
+     * @return \Generated\Shared\Transfer\ShipmentMethodsTransfer
      */
     protected function getAvailableShipmentMethods(QuoteTransfer $quoteTransfer)
     {
@@ -75,9 +75,9 @@ class ShipmentHandler
     }
 
     /**
-     * @param ShipmentMethodTransfer $shipmentMethodTransfer
+     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
      *
-     * @return ExpenseTransfer
+     * @return \Generated\Shared\Transfer\ExpenseTransfer
      */
     protected function createShippingExpenseTransfer(ShipmentMethodTransfer $shipmentMethodTransfer)
     {
@@ -91,8 +91,8 @@ class ShipmentHandler
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
-     * @param ExpenseTransfer $expenseTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\ExpenseTransfer $expenseTransfer
      *
      * @return void
      */
@@ -110,7 +110,7 @@ class ShipmentHandler
     }
 
     /**
-     * @return ExpenseTransfer
+     * @return \Generated\Shared\Transfer\ExpenseTransfer
      */
     protected function createExpenseTransfer()
     {

@@ -21,9 +21,9 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
 {
 
     /**
-     * @param Container $container                                                                                          ’
+     * @param \Spryker\Zed\Kernel\Container $container                                                                                          ’
      *
-     * @return CheckoutPreConditionInterface[]
+     * @return \Spryker\Zed\Checkout\Dependency\Plugin\CheckoutPreConditionInterface[]
      */
     protected function getCheckoutPreConditions(Container $container)
     {
@@ -36,9 +36,9 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
 
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return CheckoutSaveOrderInterface[]
+     * @return \Spryker\Zed\Checkout\Dependency\Plugin\CheckoutSaveOrderInterface[]
      */
     protected function getCheckoutOrderSavers(Container $container)
     {
@@ -53,9 +53,9 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return CheckoutPostSaveHookInterface[]
+     * @return \Spryker\Zed\Checkout\Dependency\Plugin\CheckoutPostSaveHookInterface[]
      */
     protected function getCheckoutPostHooks(Container $container)
     {

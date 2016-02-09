@@ -13,7 +13,7 @@ use Pyz\Yves\Customer\CustomerFactory;
 use Spryker\Yves\Kernel\AbstractPlugin;
 
 /**
- * @method CustomerFactory getFactory()
+ * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
  */
 class RegistrationCheckoutAuthenticationHandlerPlugin extends AbstractPlugin implements CheckoutAuthenticationHandlerPluginInterface
 {

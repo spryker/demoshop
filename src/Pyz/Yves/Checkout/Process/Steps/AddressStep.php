@@ -2,39 +2,40 @@
 
 namespace Pyz\Yves\Checkout\Process\Steps;
 
+use Generated\Shared\Transfer\AddressTransfer;
+use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
-use Spryker\Shared\Kernel\Store;
 use Symfony\Component\HttpFoundation\Request;
 
 class AddressStep extends BaseStep
 {
-    /**
-     * @var Store
-     */
-    protected $storeConfiguration;
 
     /**
-     * @param FlashMessengerInterface $flashMessenger
-     * @param Store $storeConfiguration
+     * @var \Pyz\Client\Customer\CustomerClientInterface
+     */
+    protected $customerClient;
+
+    /**
+     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
+     * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
      * @param string $stepRoute
      * @param string $escapeRoute
      */
     public function __construct(
         FlashMessengerInterface $flashMessenger,
-        Store $storeConfiguration,
+        CustomerClientInterface $customerClient,
         $stepRoute,
         $escapeRoute
     ) {
         parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
 
-        $this->storeConfiguration = $storeConfiguration;
+        $this->customerClient = $customerClient;
     }
 
-
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer$quoteTransfer
      *
      * @return bool
      */
@@ -44,7 +45,7 @@ class AddressStep extends BaseStep
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer$quoteTransfer
      *
      * @return bool
      */
@@ -54,32 +55,46 @@ class AddressStep extends BaseStep
     }
 
     /**
-     * @param Request $request
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Generated\Shared\Transfer\QuoteTransfer$quoteTransfer
      *
-     * @return QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     public function execute(Request $request, QuoteTransfer $quoteTransfer)
     {
-        $quoteTransfer->getShippingAddress()->setIso2Code($this->storeConfiguration->getCurrentCountry());
+        if ($quoteTransfer->getShippingAddress()->getIdCustomerAddress() !== null) {
+            $shippingAddressTransfer = $this->hydrateCustomerAddress(
+                $quoteTransfer->getShippingAddress(),
+                $this->customerClient->getCustomer()
+            );
 
-        if ($this->isBillingAddressEmpty($quoteTransfer))  {
+            $quoteTransfer->setShippingAddress($shippingAddressTransfer);
+        }
+
+        if ($quoteTransfer->getBillingSameAsShipping() === true) {
             $quoteTransfer->setBillingAddress($quoteTransfer->getShippingAddress());
+        } elseif ($quoteTransfer->getBillingAddress()->getIdCustomerAddress() !== null) {
+            $billingAddressTransfer = $this->hydrateCustomerAddress(
+                $quoteTransfer->getBillingAddress(),
+                $this->customerClient->getCustomer()
+            );
+
+            $quoteTransfer->setBillingAddress($billingAddressTransfer);
         }
 
         return $quoteTransfer;
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer$quoteTransfer
      *
      * @return bool
      */
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
-        // FIXME: maybe use isBillingAddressEmpty()?
-        if (empty($quoteTransfer->getBillingAddress())) {
+        if ($this->isAddressEmpty($quoteTransfer->getShippingAddress()) || $this->isAddressEmpty($quoteTransfer->getBillingAddress())) {
             $this->flashMessenger->addErrorMessage('checkout.step.address.address_missing');
+
             return false;
         }
 
@@ -87,23 +102,39 @@ class AddressStep extends BaseStep
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\AddressTransfer $addressTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
+     *
+     * @return \Generated\Shared\Transfer\AddressTransfer
+     */
+    protected function hydrateCustomerAddress(AddressTransfer $addressTransfer, CustomerTransfer $customerTransfer)
+    {
+        foreach ($customerTransfer->getAddresses()->getAddresses() as $customerAddressTransfer) {
+            if ($addressTransfer->getIdCustomerAddress() === $customerAddressTransfer->getIdCustomerAddress()) {
+                $addressTransfer->fromArray($customerAddressTransfer->toArray());
+                break;
+            }
+        }
+
+        return $addressTransfer;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\AddressTransfer|null $addressTransfer
      *
      * @return bool
      */
-    protected function isBillingAddressEmpty(QuoteTransfer $quoteTransfer)
+    protected function isAddressEmpty(AddressTransfer $addressTransfer = null)
     {
-        if ($quoteTransfer->getBillingAddress() === null) {
-            return true;
-        }
-
-        if (empty($quoteTransfer->getBillingAddress()->getAddress1()) ||
-            empty($quoteTransfer->getBillingAddress()->getFirstName()) ||
-            empty($quoteTransfer->getBillingAddress()->getLastName())
+        if (
+            $addressTransfer === null ||
+            empty($addressTransfer->getFirstName()) ||
+            empty($addressTransfer->getLastName())
         ) {
             return true;
         }
 
         return false;
     }
+
 }

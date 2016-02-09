@@ -18,10 +18,10 @@ class OmsOrderHydrator extends BaseOmsOrderHydrator
     ];
 
     /**
-     * @param OrderTransfer $order
-     * @param QuoteTransfer $request
+     * @param \Generated\Shared\Transfer\OrderTransfer $order
+     * @param \Generated\Shared\Transfer\QuoteTransfer $request
      *
-     * @throws NoStatemachineProcessException
+     * @throws \Spryker\Zed\OmsCheckoutConnector\Business\Exception\NoStatemachineProcessException
      */
     public function hydrateOrderTransfer(OrderTransfer $order, QuoteTransfer $request)
     {

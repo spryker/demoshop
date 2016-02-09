@@ -9,9 +9,9 @@ interface CheckoutSubFormPluginInterface
 {
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return AbstractForm
+     * @return \Spryker\Shared\Gui\Form\AbstractForm
      */
     public function createSubFrom(QuoteTransfer $quoteTransfer);
 

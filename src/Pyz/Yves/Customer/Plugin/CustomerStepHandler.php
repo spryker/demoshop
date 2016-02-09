@@ -10,8 +10,8 @@ use Spryker\Yves\Kernel\AbstractPlugin;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @method CustomerFactory getFactory()
- * @method CustomerClient getClient()
+ * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
+ * @method \Pyz\Client\Customer\CustomerClient getClient()
  */
 class CustomerStepHandler extends AbstractPlugin implements CheckoutStepHandlerPluginInterface
 {
@@ -21,12 +21,11 @@ class CustomerStepHandler extends AbstractPlugin implements CheckoutStepHandlerP
      */
     protected $authenticationHandlerPlugins;
 
-    /**
-     * @param \Pyz\Yves\Customer\Plugin\CheckoutAuthenticationHandlerPluginInterface[] $authenticationHandlerPlugins
-     */
-    public function __construct(array $authenticationHandlerPlugins)
+    public function __construct()
     {
-        $this->authenticationHandlerPlugins = $authenticationHandlerPlugins;
+        $this->authenticationHandlerPlugins = $this
+            ->getFactory()
+            ->createCustomerAuthenticationHandlerPlugins();
     }
 
     /**

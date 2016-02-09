@@ -13,9 +13,9 @@ class PayolutionFactory extends AbstractFactory
 {
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return InvoiceSubForm
+     * @return \Pyz\Yves\Payolution\Form\InvoiceSubForm
      */
     public function createInvoiceForm(QuoteTransfer $quoteTransfer)
     {
@@ -23,9 +23,9 @@ class PayolutionFactory extends AbstractFactory
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return InstallmentSubForm
+     * @return \Pyz\Yves\Payolution\Form\InstallmentSubForm
      */
     public function createInstallmentForm(QuoteTransfer $quoteTransfer)
     {
@@ -36,7 +36,7 @@ class PayolutionFactory extends AbstractFactory
     }
 
     /**
-     * @return PayolutionHandler
+     * @return \Pyz\Yves\Payolution\Handler\PayolutionHandler
      */
     public function createPayolutionHandler()
     {
@@ -44,7 +44,7 @@ class PayolutionFactory extends AbstractFactory
     }
 
     /**
-     * @return PayolutionClientInterface
+     * @return \Spryker\Client\Payolution\PayolutionClientInterface
      */
     public function getPayolutionClient()
     {

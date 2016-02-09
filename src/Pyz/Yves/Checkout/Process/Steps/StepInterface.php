@@ -12,7 +12,7 @@ interface StepInterface
     /**
      * Requirements for this step, return true when satisfied.
      *
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -21,7 +21,7 @@ interface StepInterface
     /**
      * Require input, should we render view with form or just skip step after calling execute.
      *
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -30,17 +30,17 @@ interface StepInterface
     /**
      * Execute step logic, happens after form submit if provided, gets QuoteTransfer filled by data from form.
      *
-     * @param Request $request
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     public function execute(Request $request, QuoteTransfer $quoteTransfer);
 
     /**
      * Conditions that should be met for this step to be marked as completed. returns true when satisfied.
      *
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */

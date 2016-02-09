@@ -24,12 +24,12 @@ abstract class BaseStep implements StepInterface
     protected $externalRedirectUrl;
 
     /**
-     * @var FlashMessengerInterface
+     * @var \Pyz\Yves\Application\Business\Model\FlashMessengerInterface
      */
     protected $flashMessenger;
 
     /**
-     * @param FlashMessengerInterface $flashMessenger
+     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      * @param string $stepRoute
      * @param string $escapeRoute
      */
@@ -57,7 +57,7 @@ abstract class BaseStep implements StepInterface
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */

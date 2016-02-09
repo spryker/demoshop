@@ -9,15 +9,15 @@ use Pyz\Yves\Shipment\ShipmentFactory;
 use Spryker\Yves\Kernel\AbstractPlugin;
 
 /**
- * @method ShipmentFactory getFactory()
+ * @method \Pyz\Yves\Shipment\ShipmentFactory getFactory()
  */
 class ShipmentSubFormPlugin extends AbstractPlugin implements CheckoutSubFormPluginInterface
 {
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return ShipmentSubForm
+     * @return \Pyz\Yves\Shipment\Form\ShipmentSubForm
      */
     public function createSubFrom(QuoteTransfer $quoteTransfer)
     {

@@ -40,12 +40,12 @@ class PayolutionHandler
     ];
 
     /**
-     * @var PayolutionClientInterface
+     * @var \Spryker\Client\Payolution\PayolutionClientInterface
      */
     protected $payolutionClient;
 
     /**
-     * @param PayolutionClientInterface $payolutionClient
+     * @param \Spryker\Client\Payolution\PayolutionClientInterface $payolutionClient
      */
     public function __construct(PayolutionClientInterface $payolutionClient)
     {
@@ -53,10 +53,10 @@ class PayolutionHandler
     }
 
     /**
-     * @param Request $request
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     public function addPaymentToQuote(Request $request, QuoteTransfer $quoteTransfer)
     {
@@ -69,7 +69,7 @@ class PayolutionHandler
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @param $paymentSelection
      *
      * @return void
@@ -82,8 +82,8 @@ class PayolutionHandler
     }
 
     /**
-     * @param Request $request
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @param string $paymentSelection
      *
      * @return void
@@ -108,7 +108,7 @@ class PayolutionHandler
     }
 
     /**
-     * @param PayolutionPaymentTransfer $payolutionPaymentTransfer
+     * @param \Generated\Shared\Transfer\PayolutionPaymentTransfer $payolutionPaymentTransfer
      *
      * @return void
      */

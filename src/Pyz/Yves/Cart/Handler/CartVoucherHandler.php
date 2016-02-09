@@ -14,19 +14,19 @@ use Spryker\Client\Kernel\AbstractClient;
 class CartVoucherHandler extends BaseHandler
 {
     /**
-     * @var CalculationClientInterface|AbstractClient
+     * @var \Spryker\Client\Calculation\CalculationClientInterface|\Spryker\Client\Kernel\AbstractClient
      */
     protected $calculationClient;
 
     /**
-     * @var CartClientInterface
+     * @var \Spryker\Client\Cart\CartClientInterface
      */
     protected $cartClient;
 
     /**
-     * @param CalculationClientInterface $calculationClient
-     * @param CartClientInterface $cartClient
-     * @param FlashMessengerInterface $flashMessenger
+     * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
+     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
+     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      */
     public function __construct(
         CalculationClientInterface $calculationClient,
@@ -95,7 +95,7 @@ class CartVoucherHandler extends BaseHandler
 
     /**
      * @param string $couponCode
-     * @param \ArrayObject|DiscountTransfer[] $voucherDiscounts
+     * @param \ArrayObject|\Generated\Shared\Transfer\DiscountTransfer[] $voucherDiscounts
      *
      * @return void
      */

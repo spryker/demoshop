@@ -12,13 +12,13 @@ class SummaryStep extends BaseStep
 {
 
     /**
-     * @var CalculationClient
+     * @var \Spryker\Client\Calculation\CalculationClient
      */
     protected $calculationClient;
 
     /**
-     * @param FlashMessengerInterface $flashMessenger
-     * @param CalculationClient $calculationClient
+     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
+     * @param \Spryker\Client\Calculation\CalculationClient $calculationClient
      * @param $stepRoute
      * @param $escapeRoute
      */
@@ -34,7 +34,7 @@ class SummaryStep extends BaseStep
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -44,11 +44,11 @@ class SummaryStep extends BaseStep
     }
 
     /**
-     * @param Request $request
-     * @param QuoteTransfer $quoteTransfer
-     * @param CheckoutStepHandlerPluginInterface[] $plugins
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface[] $plugins
      *
-     * @return QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     public function execute(Request $request, QuoteTransfer $quoteTransfer)
     {
@@ -56,7 +56,7 @@ class SummaryStep extends BaseStep
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -73,7 +73,7 @@ class SummaryStep extends BaseStep
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */

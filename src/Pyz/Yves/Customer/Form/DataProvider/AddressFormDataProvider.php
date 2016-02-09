@@ -8,30 +8,8 @@ use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Customer\Form\AddressForm;
 use Spryker\Shared\Kernel\Store;
 
-class AddressFormDataProvider
+class AddressFormDataProvider extends AbstractAddressFormDataProvider
 {
-
-    const COUNTRY_GLOSSARY_PREFIX = 'countries.iso.';
-
-    /**
-     * @var \Pyz\Client\Customer\CustomerClientInterface
-     */
-    protected $customerClient;
-
-    /**
-     * @var \Spryker\Shared\Kernel\Store
-     */
-    protected $store;
-
-    /**
-     * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
-     * @param \Spryker\Shared\Kernel\Store $store
-     */
-    public function __construct(CustomerClientInterface $customerClient, Store $store)
-    {
-        $this->customerClient = $customerClient;
-        $this->store = $store;
-    }
 
     /**
      * @param int|null $idCustomerAddress

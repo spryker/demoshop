@@ -3,7 +3,7 @@
 namespace Pyz\Yves\Checkout\Process;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Checkout\Form\FormCollectionInterface;
+use Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface;
 use Pyz\Yves\Checkout\Process\Steps\StepInterface;
 use Spryker\Client\Cart\CartClientInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -15,17 +15,17 @@ class StepProcess
 {
 
     /**
-     * @var StepInterface[]
+     * @var \Pyz\Yves\Checkout\Process\Steps\StepInterface[]
      */
     protected $steps = [];
 
     /**
-     * @var StepInterface[]
+     * @var \Pyz\Yves\Checkout\Process\Steps\StepInterface[]
      */
     protected $completedSteps = [];
 
     /**
-     * @var CartClientInterface
+     * @var \Spryker\Client\Cart\CartClientInterface
      */
     protected $cartClient;
 
@@ -35,14 +35,14 @@ class StepProcess
     protected $errorRoute = CheckoutControllerProvider::CHECKOUT_ERROR;
 
     /**
-     * @var UrlGeneratorInterface
+     * @var \Symfony\Component\Routing\Generator\UrlGeneratorInterface
      */
     protected $urlGenerator;
 
     /**
-     * @param StepInterface[] $steps
-     * @param UrlGeneratorInterface $urlGenerator
-     * @param CartClientInterface $cartClient
+     * @param \Pyz\Yves\Checkout\Process\Steps\StepInterface[] $steps
+     * @param \Symfony\Component\Routing\Generator\UrlGeneratorInterface $urlGenerator
+     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      */
     public function __construct(
         array $steps,
@@ -55,12 +55,12 @@ class StepProcess
     }
 
     /**
-     * @param Request $request
-     * @param FormCollectionInterface|null $formCollection
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface|null $formCollection
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function process(Request $request, FormCollectionInterface $formCollection = null)
+    public function process(Request $request, FormCollectionHandlerInterface $formCollection = null)
     {
         $currentStep = $this->getCurrentStep($request);
 
@@ -86,6 +86,8 @@ class StepProcess
                     $this->executeWithFormInput($currentStep, $request, $form->getData());
                     return $this->createRedirectResponse($this->getNextRedirectUrl($currentStep));
                 }
+            } else {
+                $formCollection->provideDefaultFormData();
             }
             return $this->getTemplateVariables($currentStep, $formCollection);
         }
@@ -95,9 +97,9 @@ class StepProcess
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return StepInterface
+     * @return \Pyz\Yves\Checkout\Process\Steps\StepInterface
      */
     protected function getCurrentStep(Request $request)
     {
@@ -123,9 +125,9 @@ class StepProcess
     }
 
     /**
-     * @param StepInterface $currentStep
+     * @param \Pyz\Yves\Checkout\Process\Steps\StepInterface $currentStep
      *
-     * @return null|StepInterface
+     * @return null|\Pyz\Yves\Checkout\Process\Steps\StepInterface
      */
     protected function getNextStep(StepInterface $currentStep)
     {
@@ -143,7 +145,7 @@ class StepProcess
     }
 
     /**
-     * @return StepInterface
+     * @return \Pyz\Yves\Checkout\Process\Steps\StepInterface
      */
     public function getPreviousStep()
     {
@@ -155,7 +157,7 @@ class StepProcess
     }
 
     /**
-     * @return StepInterface
+     * @return \Pyz\Yves\Checkout\Process\Steps\StepInterface
      */
     protected function getFirstStep()
     {
@@ -166,7 +168,7 @@ class StepProcess
     }
 
     /**
-     * @return StepInterface
+     * @return \Pyz\Yves\Checkout\Process\Steps\StepInterface
      */
     protected function getLastStep()
     {
@@ -186,8 +188,8 @@ class StepProcess
     }
 
     /**
-     * @param Request $request
-     * @param StepInterface $currentStep
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Pyz\Yves\Checkout\Process\Steps\StepInterface $currentStep
      *
      * @return bool
      */
@@ -207,7 +209,7 @@ class StepProcess
     }
 
     /**
-     * @param StepInterface $currentStep
+     * @param \Pyz\Yves\Checkout\Process\Steps\StepInterface $currentStep
      *
      * @return string
      */
@@ -223,8 +225,8 @@ class StepProcess
     }
 
     /**
-     * @param StepInterface $currentStep
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Pyz\Yves\Checkout\Process\Steps\StepInterface $currentStep
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return string
      */
@@ -258,7 +260,7 @@ class StepProcess
     }
 
     /**
-     * @param StepInterface $currentStep
+     * @param \Pyz\Yves\Checkout\Process\Steps\StepInterface $currentStep
      *
      * @return string
      */
@@ -287,8 +289,8 @@ class StepProcess
     }
 
     /**
-     * @param StepInterface $currentStep
-     * @param Request $request
+     * @param \Pyz\Yves\Checkout\Process\Steps\StepInterface $currentStep
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return void
      */
@@ -299,9 +301,9 @@ class StepProcess
     }
 
     /**
-     * @param StepInterface $currentStep
-     * @param Request $request
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Pyz\Yves\Checkout\Process\Steps\StepInterface $currentStep
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return void
      */
@@ -317,7 +319,7 @@ class StepProcess
     /**
      * @param string $url
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     protected function createRedirectResponse($url)
     {
@@ -325,7 +327,7 @@ class StepProcess
     }
 
     /**
-     * @return QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     protected function getQuoteTransfer()
     {
@@ -333,12 +335,12 @@ class StepProcess
     }
 
     /**
-     * @param StepInterface $currentStep
-     * @param FormCollectionInterface|null $formCollection
+     * @param \Pyz\Yves\Checkout\Process\Steps\StepInterface $currentStep
+     * @param \Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface|null $formCollection
      *
      * @return array
      */
-    protected function getTemplateVariables(StepInterface $currentStep, FormCollectionInterface $formCollection = null)
+    protected function getTemplateVariables(StepInterface $currentStep, FormCollectionHandlerInterface $formCollection = null)
     {
         $templateVariables = [
             'previousStepUrl' => $this->getUrlFromRoute($this->getPreviousStepRoute()),

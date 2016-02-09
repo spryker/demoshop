@@ -19,7 +19,7 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
     const CHECKOUT_INDEX = 'checkout-index';
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      *
      * @return void
      */

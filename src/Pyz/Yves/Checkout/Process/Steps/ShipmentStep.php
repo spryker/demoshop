@@ -13,21 +13,21 @@ class ShipmentStep extends BaseStep
 {
 
     /**
-     * @var CalculationClient
+     * @var \Spryker\Client\Calculation\CalculationClient
      */
     protected $calculationClient;
 
     /**
-     * @var CheckoutStepHandlerPluginInterface[]
+     * @var \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface[]
      */
     protected $shipmentPlugins;
 
     /**
-     * @param FlashMessengerInterface $flashMessenger
-     * @param CalculationClient $calculationClient
+     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
+     * @param \Spryker\Client\Calculation\CalculationClient $calculationClient
      * @param string $stepRoute
      * @param string $escapeRoute
-     * @param CheckoutStepHandlerPluginInterface[] $shipmentPlugins
+     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface[] $shipmentPlugins
      */
     public function __construct(
         FlashMessengerInterface $flashMessenger,
@@ -43,7 +43,7 @@ class ShipmentStep extends BaseStep
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -53,7 +53,7 @@ class ShipmentStep extends BaseStep
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -63,10 +63,10 @@ class ShipmentStep extends BaseStep
     }
 
     /**
-     * @param Request $request
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     public function execute(Request $request, QuoteTransfer $quoteTransfer)
     {
@@ -81,7 +81,7 @@ class ShipmentStep extends BaseStep
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -96,7 +96,7 @@ class ShipmentStep extends BaseStep
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */

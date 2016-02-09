@@ -11,15 +11,15 @@ class PaymentStep extends BaseStep
 {
 
     /**
-     * @var CheckoutStepHandlerPluginInterface[]
+     * @var \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface[]
      */
     protected $paymentPlugins;
 
     /**
-     * @param FlashMessengerInterface $flashMessenger
+     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      * @param string $stepRoute
      * @param string $escapeRoute
-     * @param CheckoutStepHandlerPluginInterface[] $paymentPlugins
+     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface[] $paymentPlugins
      */
     public function __construct(
         FlashMessengerInterface $flashMessenger,
@@ -33,7 +33,7 @@ class PaymentStep extends BaseStep
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -43,7 +43,7 @@ class PaymentStep extends BaseStep
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -53,10 +53,10 @@ class PaymentStep extends BaseStep
     }
 
     /**
-     * @param Request $request
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     public function execute(Request $request, QuoteTransfer $quoteTransfer)
     {
@@ -71,7 +71,7 @@ class PaymentStep extends BaseStep
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */

@@ -3,11 +3,12 @@
 namespace Pyz\Yves\Checkout\Form;
 
 use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class FormCollection implements FormCollectionInterface
+class FormCollectionHandler implements FormCollectionHandlerInterface
 {
 
     /**
@@ -26,6 +27,11 @@ class FormCollection implements FormCollectionInterface
     protected $formTypes = [];
 
     /**
+     * @var \Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface
+     */
+    protected $dataProvider;
+
+    /**
      * @var \Symfony\Component\Form\FormInterface[]
      */
     protected $forms = [];
@@ -34,24 +40,18 @@ class FormCollection implements FormCollectionInterface
      * @param \Symfony\Component\Form\FormFactoryInterface $formFactory
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @param \Symfony\Component\Form\FormTypeInterface[] $formTypes
+     * @param \Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface|null $dataProvider
      */
-    public function __construct(FormFactoryInterface $formFactory, QuoteTransfer $quoteTransfer, array $formTypes = [])
-    {
+    public function __construct(
+        FormFactoryInterface $formFactory,
+        QuoteTransfer $quoteTransfer,
+        array $formTypes = [],
+        DataProviderInterface $dataProvider = null
+    ) {
         $this->formFactory = $formFactory;
         $this->quoteTransfer = $quoteTransfer;
         $this->formTypes = array_values($formTypes);
-    }
-
-    /**
-     * @param \Symfony\Component\Form\FormTypeInterface $formType
-     *
-     * @return self
-     */
-    public function addFormType(FormTypeInterface $formType)
-    {
-        $this->formTypes[] = $formType;
-
-        return $this;
+        $this->dataProvider = $dataProvider;
     }
 
     /**
@@ -101,6 +101,20 @@ class FormCollection implements FormCollectionInterface
     /**
      * @return void
      */
+    public function provideDefaultFormData()
+    {
+        if ($this->dataProvider === null) {
+            return;
+        }
+
+        foreach ($this->getForms() as $form) {
+            $form->setData($this->dataProvider->getData($this->quoteTransfer));
+        }
+    }
+
+    /**
+     * @return void
+     */
     protected function createForms()
     {
         $firstIndex = count($this->forms);
@@ -117,7 +131,12 @@ class FormCollection implements FormCollectionInterface
      */
     protected function createForm(FormTypeInterface $formType)
     {
-        return $this->formFactory->create($formType, $this->quoteTransfer);
+        $options = [];
+        if ($this->dataProvider !== null) {
+            $options = $this->dataProvider->getOptions($this->quoteTransfer);
+        }
+
+        return $this->formFactory->create($formType, $this->quoteTransfer, $options);
     }
 
 }

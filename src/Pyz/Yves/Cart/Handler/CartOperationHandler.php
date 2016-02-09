@@ -15,7 +15,7 @@ class CartOperationHandler extends BaseHandler
 {
 
     /**
-     * @var CartClientInterface|AbstractClient
+     * @var \Spryker\Client\Cart\CartClientInterface|\Spryker\Client\Kernel\AbstractClient
      */
     protected $cartClient;
 
@@ -25,9 +25,9 @@ class CartOperationHandler extends BaseHandler
     protected $locale;
 
     /**
-     * @param CartClientInterface $cartClient
+     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $locale
-     * @param FlashMessengerInterface $flashMessenger
+     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      */
     public function __construct(CartClientInterface $cartClient, $locale, FlashMessengerInterface $flashMessenger)
     {
@@ -121,7 +121,7 @@ class CartOperationHandler extends BaseHandler
 
     /**
      * @param array $optionValueUsageIds
-     * @param ItemTransfer $itemTransfer
+     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
      *
      * @return void
      */

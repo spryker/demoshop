@@ -9,15 +9,15 @@ use Pyz\Yves\Payolution\PayolutionFactory;
 use Spryker\Yves\Kernel\AbstractPlugin;
 
 /**
- * @method PayolutionFactory getFactory()
+ * @method \Pyz\Yves\Payolution\PayolutionFactory getFactory()
  */
 class PayolutionInvoiceSubFormPlugin extends AbstractPlugin implements CheckoutSubFormPluginInterface
 {
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return InvoiceSubForm
+     * @return \Pyz\Yves\Payolution\Form\InvoiceSubForm
      */
     public function createSubFrom(QuoteTransfer $quoteTransfer)
     {

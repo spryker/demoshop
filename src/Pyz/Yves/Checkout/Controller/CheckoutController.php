@@ -11,14 +11,14 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @method CheckoutFactory getFactory()
+ * @method \Pyz\Yves\Checkout\CheckoutFactory getFactory()
  */
 class CheckoutController extends AbstractController
 {
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function indexAction(Request $request)
     {
@@ -26,84 +26,84 @@ class CheckoutController extends AbstractController
     }
     
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function customerAction(Request $request)
     {
         return $this->createStepProcess()->process(
             $request,
             $this->getFactory()
-                ->createFormFactory()
+                ->createCheckoutFormFactory()
                 ->createCustomerFormCollection($this->getQuoteTransfer())
         );
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function addressAction(Request $request)
     {
         return $this->createStepProcess()->process(
             $request,
             $this->getFactory()
-                ->createFormFactory()
+                ->createCheckoutFormFactory()
                 ->createAddressFormCollection($this->getQuoteTransfer())
         );
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function shipmentAction(Request $request)
     {
         return $this->createStepProcess()->process(
             $request,
             $this->getFactory()
-                ->createFormFactory()
+                ->createCheckoutFormFactory()
                 ->createShipmentFormCollection($this->getQuoteTransfer())
         );
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function paymentAction(Request $request)
     {
         return $this->createStepProcess()->process(
             $request,
             $this->getFactory()
-                ->createFormFactory()
+                ->createCheckoutFormFactory()
                 ->createPaymentFormCollection($this->getQuoteTransfer())
         );
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function summaryAction(Request $request)
     {
         return $this->createStepProcess()->process(
             $request,
             $this->getFactory()
-                ->createFormFactory()
+                ->createCheckoutFormFactory()
                 ->createSummaryFormCollection($this->getQuoteTransfer())
         );
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function placeOrderAction(Request $request)
     {
@@ -111,9 +111,9 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function successAction(Request $request)
     {
@@ -121,14 +121,14 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      */
     public function errorAction(Request $request)
     {
     }
 
     /**
-     * @return StepProcess
+     * @return \Pyz\Yves\Checkout\Process\StepProcess
      */
     protected function createStepProcess()
     {
@@ -136,7 +136,7 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @return QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     protected function getQuoteTransfer()
     {
@@ -144,7 +144,7 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @return CartClientInterface
+     * @return \Spryker\Client\Cart\CartClientInterface
      */
     protected function getCartClient()
     {

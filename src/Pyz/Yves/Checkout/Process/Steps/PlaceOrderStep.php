@@ -13,13 +13,13 @@ class PlaceOrderStep extends BaseStep
 {
 
     /**
-     * @var CheckoutClientInterface
+     * @var \Spryker\Client\Checkout\CheckoutClientInterface
      */
     protected $checkoutClient;
 
     /**
-     * @param FlashMessengerInterface $flashMessenger
-     * @param CheckoutClientInterface $checkoutClient
+     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
+     * @param \Spryker\Client\Checkout\CheckoutClientInterface $checkoutClient
      * @param string $stepRoute
      * @param string $escapeRoute
      */
@@ -35,7 +35,7 @@ class PlaceOrderStep extends BaseStep
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -45,7 +45,7 @@ class PlaceOrderStep extends BaseStep
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -55,11 +55,11 @@ class PlaceOrderStep extends BaseStep
     }
 
     /**
-     * @param Request $request
-     * @param QuoteTransfer $quoteTransfer
-     * @param CheckoutStepHandlerPluginInterface[] $plugins
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface[] $plugins
      *
-     * @return QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     public function execute(Request $request, QuoteTransfer $quoteTransfer)
     {
@@ -77,7 +77,7 @@ class PlaceOrderStep extends BaseStep
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -95,7 +95,7 @@ class PlaceOrderStep extends BaseStep
     }
 
     /**
-     * @param CheckoutResponseTransfer $checkoutResponseTransfer
+     * @param \Generated\Shared\Transfer\CheckoutResponseTransfer $checkoutResponseTransfer
      *
      * @return void
      */

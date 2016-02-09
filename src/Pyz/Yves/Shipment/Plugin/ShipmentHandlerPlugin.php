@@ -9,16 +9,16 @@ use Spryker\Yves\Kernel\AbstractPlugin;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @method ShipmentFactory getFactory()
+ * @method \Pyz\Yves\Shipment\ShipmentFactory getFactory()
  */
 class ShipmentHandlerPlugin extends AbstractPlugin implements CheckoutStepHandlerPluginInterface
 {
 
     /**
-     * @param Request $request
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     public function addToQuote(Request $request, QuoteTransfer $quoteTransfer)
     {

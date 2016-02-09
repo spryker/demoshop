@@ -16,7 +16,7 @@ use Pyz\Yves\Application\Plugin\Pimple;
 class CartFactory extends AbstractFactory
 {
     /**
-     * @return CalculationClientInterface
+     * @return \Spryker\Client\Calculation\CalculationClientInterface
      */
     public function getCalculationClient()
     {
@@ -24,7 +24,7 @@ class CartFactory extends AbstractFactory
     }
 
     /**
-     * @return CartClientInterface
+     * @return \Spryker\Client\Cart\CartClientInterface
      */
     public function getCartClient()
     {
@@ -32,7 +32,7 @@ class CartFactory extends AbstractFactory
     }
 
     /**
-     * @return CartVoucherHandler
+     * @return \Pyz\Yves\Cart\Handler\CartVoucherHandler
      */
     public function createCartVoucherHandler()
     {
@@ -40,7 +40,7 @@ class CartFactory extends AbstractFactory
     }
 
     /**
-     * @return CartOperationHandler
+     * @return \Pyz\Yves\Cart\Handler\CartOperationHandler
      */
     public function createCartOperationHandler()
     {
@@ -48,7 +48,7 @@ class CartFactory extends AbstractFactory
     }
 
     /**
-     * @return Application
+     * @return \Spryker\Yves\Application\Application
      */
     protected function createApplication()
     {

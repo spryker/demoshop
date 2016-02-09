@@ -12,7 +12,7 @@ use Pyz\Yves\Customer\Plugin\CheckoutAuthenticationHandlerPluginInterface;
 use Spryker\Yves\Kernel\AbstractPlugin;
 
 /**
- * @method CustomerClient getClient()
+ * @method \Pyz\Client\Customer\CustomerClient getClient()
  */
 class LoginCheckoutAuthenticationHandlerPlugin extends AbstractPlugin implements CheckoutAuthenticationHandlerPluginInterface
 {

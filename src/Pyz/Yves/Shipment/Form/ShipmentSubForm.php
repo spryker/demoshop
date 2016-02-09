@@ -21,36 +21,36 @@ class ShipmentSubForm extends AbstractForm implements SubFormInterface
     const FIELD_ID_SHIPMENT_METHOD = 'idShipmentMethod';
 
     /**
-     * @var QuoteTransfer
+     * @var \Generated\Shared\Transfer\QuoteTransfer
      */
     protected $quoteTransfer;
 
     /**
-     * @var ShipmentClientInterface
+     * @var \Spryker\Client\Shipment\ShipmentClientInterface
      */
     protected $shipmentClient;
 
     /**
-     * @var GlossaryClientInterface
+     * @var \Spryker\Client\Glossary\GlossaryClientInterface
      */
     protected $glossaryClient;
 
     /**
-     * @var Store
+     * @var \Spryker\Shared\Kernel\Store
      */
     protected $store;
 
     /**
-     * @var CurrencyManager
+     * @var \Spryker\Shared\Library\Currency\CurrencyManager
      */
     protected $currencyManager;
 
     /**
-     * @param QuoteTransfer $quoteTransfer
-     * @param ShipmentClientInterface $shipmentClient
-     * @param GlossaryClientInterface $glossaryClient
-     * @param Store $store
-     * @param CurrencyManager $currencyManager
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Client\Shipment\ShipmentClientInterface $shipmentClient
+     * @param \Spryker\Client\Glossary\GlossaryClientInterface $glossaryClient
+     * @param \Spryker\Shared\Kernel\Store $store
+     * @param \Spryker\Shared\Library\Currency\CurrencyManager $currencyManager
      */
     public function __construct(
         QuoteTransfer $quoteTransfer,
@@ -84,7 +84,7 @@ class ShipmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @return TransferInterface|null
+     * @return \Spryker\Shared\Transfer\TransferInterface|null
      */
     protected function getDataClass()
     {
@@ -92,7 +92,7 @@ class ShipmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      *
      * @return void
@@ -103,9 +103,9 @@ class ShipmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return ShipmentSubForm
+     * @return \Pyz\Yves\Shipment\Form\ShipmentSubForm
      */
     protected function addShipmentMethods(FormBuilderInterface $builder)
     {
@@ -145,7 +145,7 @@ class ShipmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @return ShipmentMethodsTransfer
+     * @return \Generated\Shared\Transfer\ShipmentMethodsTransfer
      */
     protected function getAvailableShipmentMethods()
     {
@@ -153,7 +153,7 @@ class ShipmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @param ShipmentMethodTransfer $shipmentMethodTransfer
+     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
      *9
      * @return string
      */
@@ -173,7 +173,7 @@ class ShipmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @param ShipmentMethodTransfer $method
+     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $method
      *
      * @return int
      */
@@ -189,7 +189,7 @@ class ShipmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @param ShipmentMethodTransfer $shipmentMethodTransfer
+     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
      *
      * @return int
      */
@@ -211,7 +211,7 @@ class ShipmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @return TransferInterface|array
+     * @return \Spryker\Shared\Transfer\TransferInterface|array
      */
     public function populateFormFields()
     {

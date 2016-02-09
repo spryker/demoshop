@@ -31,8 +31,8 @@ class CustomerAuthenticationFailureHandler extends AbstractPlugin implements Aut
     }
 
     /**
-     * @param Request $request
-     * @param AuthenticationException $exception
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Symfony\Component\Security\Core\Exception\AuthenticationException $exception
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */

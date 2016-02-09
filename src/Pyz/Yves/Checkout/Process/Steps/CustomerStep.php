@@ -12,21 +12,21 @@ class CustomerStep extends BaseStep
 {
 
     /**
-     * @var CheckoutStepHandlerPluginInterface
+     * @var \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface
      */
     protected $authHandler;
 
     /**
-     * @var CustomerClientInterface
+     * @var \Pyz\Client\Customer\CustomerClientInterface
      */
     protected $customerClient;
 
     /**
-     * @param FlashMessengerInterface $flashMessenger
+     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      * @param string $stepRoute
      * @param string $escapeRoute
-     * @param CheckoutStepHandlerPluginInterface $authHandler
-     * @param CustomerClientInterface $customerClient
+     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface $authHandler
+     * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
      */
     public function __construct(
         FlashMessengerInterface $flashMessenger,
@@ -42,7 +42,7 @@ class CustomerStep extends BaseStep
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -52,7 +52,7 @@ class CustomerStep extends BaseStep
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -70,10 +70,10 @@ class CustomerStep extends BaseStep
     }
 
     /**
-     * @param Request $request
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     public function execute(Request $request, QuoteTransfer $quoteTransfer)
     {
@@ -81,7 +81,7 @@ class CustomerStep extends BaseStep
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -100,7 +100,7 @@ class CustomerStep extends BaseStep
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */

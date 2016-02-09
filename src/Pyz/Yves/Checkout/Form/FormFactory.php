@@ -4,10 +4,12 @@ namespace Pyz\Yves\Checkout\Form;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Plugin\Pimple;
-use Pyz\Yves\Checkout\Form\Steps\AddressCollectionForm;
+use Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface;
+use Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
 use Pyz\Yves\Checkout\Form\Steps\ShipmentForm;
 use Pyz\Yves\Checkout\Form\Steps\SummaryForm;
+use Pyz\Yves\Customer\Form\DataProvider\CheckoutAddressFormDataProvider;
 use Pyz\Yves\Customer\Form\GuestForm;
 use Pyz\Yves\Customer\Form\CustomerCheckoutForm;
 use Pyz\Yves\Customer\Form\LoginForm;
@@ -15,6 +17,7 @@ use Pyz\Yves\Customer\Form\RegisterForm;
 use Pyz\Yves\Payolution\Plugin\PayolutionInstallmentSubFormPlugin;
 use Pyz\Yves\Payolution\Plugin\PayolutionInvoiceSubFormPlugin;
 use Pyz\Yves\Shipment\Plugin\ShipmentSubFormPlugin;
+use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class FormFactory extends AbstractFactory
@@ -23,7 +26,7 @@ class FormFactory extends AbstractFactory
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer
      *
-     * @return \Pyz\Yves\Checkout\Form\FormCollectionInterface
+     * @return \Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface
      */
     public function createCustomerFormCollection(QuoteTransfer $quoteTransfer)
     {
@@ -33,17 +36,17 @@ class FormFactory extends AbstractFactory
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer
      *
-     * @return \Pyz\Yves\Checkout\Form\FormCollectionInterface
+     * @return \Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface
      */
     public function createAddressFormCollection(QuoteTransfer $quoteTransfer)
     {
-        return $this->createFormCollection($quoteTransfer, $this->createAddressFormTypes());
+        return $this->createFormCollection($quoteTransfer, $this->createAddressFormTypes(), $this->createAddressFormDataProvider());
     }
 
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer
      *
-     * @return \Pyz\Yves\Checkout\Form\FormCollectionInterface
+     * @return \Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface
      */
     public function createShipmentFormCollection(QuoteTransfer $quoteTransfer)
     {
@@ -53,7 +56,7 @@ class FormFactory extends AbstractFactory
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer
      *
-     * @return \Pyz\Yves\Checkout\Form\FormCollectionInterface
+     * @return \Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface
      */
     public function createPaymentFormCollection(QuoteTransfer $quoteTransfer)
     {
@@ -63,7 +66,7 @@ class FormFactory extends AbstractFactory
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer
      *
-     * @return \Pyz\Yves\Checkout\Form\FormCollectionInterface
+     * @return \Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface
      */
     public function createSummaryFormCollection(QuoteTransfer $quoteTransfer)
     {
@@ -88,8 +91,16 @@ class FormFactory extends AbstractFactory
     protected function createAddressFormTypes()
     {
         return [
-            new AddressCollectionForm(),
+            new CheckoutAddressCollectionForm(),
         ];
+    }
+
+    /**
+     * @return \Pyz\Yves\Customer\Form\DataProvider\CheckoutAddressFormDataProvider
+     */
+    protected function createAddressFormDataProvider()
+    {
+        return new CheckoutAddressFormDataProvider($this->getLocator()->customer()->client(), $this->createStore());
     }
 
     /**
@@ -184,16 +195,13 @@ class FormFactory extends AbstractFactory
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer
      * @param \Symfony\Component\Form\FormTypeInterface[] $formTypes
+     * @param \Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface|null $dataProvider
      *
-     * @return \Pyz\Yves\Checkout\Form\FormCollection::__construct
+     * @return \Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface
      */
-    protected function createFormCollection(QuoteTransfer $quoteTransfer, array $formTypes)
+    protected function createFormCollection(QuoteTransfer $quoteTransfer, array $formTypes, DataProviderInterface $dataProvider = null)
     {
-        return new FormCollection(
-            $this->getFormFactory(),
-            $quoteTransfer,
-            $formTypes
-        );
+        return new FormCollectionHandler($this->getFormFactory(), $quoteTransfer, $formTypes, $dataProvider);
     }
 
     /**
@@ -210,6 +218,14 @@ class FormFactory extends AbstractFactory
     protected function getApplication()
     {
         return (new Pimple())->getApplication();
+    }
+
+    /**
+     * @return \Spryker\Shared\Kernel\Store
+     */
+    public function createStore()
+    {
+        return Store::getInstance();
     }
 
 }

@@ -11,12 +11,12 @@ use Spryker\Client\Kernel\AbstractClient;
 class BaseHandler
 {
     /**
-     * @var FlashMessengerInterface
+     * @var \Pyz\Yves\Application\Business\Model\FlashMessengerInterface
      */
     protected $flashMessenger;
 
     /**
-     * @param FlashMessengerInterface $flashMessenger
+     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      */
     public function __construct(FlashMessengerInterface $flashMessenger)
     {
@@ -24,7 +24,7 @@ class BaseHandler
     }
 
     /**
-     * @param AbstractClient $calculationClient
+     * @param \Spryker\Client\Kernel\AbstractClient $calculationClient
      *
      * @return void
      */

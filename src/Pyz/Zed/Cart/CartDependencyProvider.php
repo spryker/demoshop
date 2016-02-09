@@ -17,9 +17,9 @@ use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemProductO
 class CartDependencyProvider extends SprykerCartDependencyProvider
 {
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return ItemExpanderPluginInterface[]
+     * @return \Spryker\Zed\Cart\Dependency\ItemExpanderPluginInterface[]
      */
     protected function getExpanderPlugins(Container $container)
     {

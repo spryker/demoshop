@@ -19,18 +19,18 @@ class ShipmentForm extends AbstractForm
     const SHIPMENT_SELECTION_PROPERTY_PATH = self::SHIPMENT_PROPERTY_PATH . '.' . self::SHIPMENT_SELECTION;
 
     /**
-     * @var QuoteTransfer
+     * @var \Generated\Shared\Transfer\QuoteTransfer
      */
     protected $quoteTransfer;
 
     /**
-     * @var CheckoutSubFormPluginInterface[]
+     * @var \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[]
      */
     protected $shipmentMethodsSubFormPlugins;
 
     /**
-     * @param QuoteTransfer $quoteTransfer
-     * @param CheckoutSubFormPluginInterface[] $shipmentMethodsSubFormPlugins
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[] $shipmentMethodsSubFormPlugins
      */
     public function __construct(QuoteTransfer $quoteTransfer, $shipmentMethodsSubFormPlugins)
     {
@@ -47,7 +47,7 @@ class ShipmentForm extends AbstractForm
     }
 
     /**
-     * @return TransferInterface|null
+     * @return \Spryker\Shared\Transfer\TransferInterface|null
      */
     protected function getDataClass()
     {
@@ -55,7 +55,7 @@ class ShipmentForm extends AbstractForm
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      *
      * @return void
@@ -67,7 +67,7 @@ class ShipmentForm extends AbstractForm
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
      * @return self
      */
@@ -85,7 +85,7 @@ class ShipmentForm extends AbstractForm
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $shipmentMethodChoices
      *
      * @return self
@@ -110,8 +110,8 @@ class ShipmentForm extends AbstractForm
     }
 
     /**
-     * @param FormBuilderInterface $builder
-     * @param AbstractCheckoutSubForm[] $shipmentMethodSubForms
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     * @param \Pyz\Yves\Checkout\Form\AbstractCheckoutSubForm[] $shipmentMethodSubForms
      *
      * @return self
      */
@@ -132,7 +132,7 @@ class ShipmentForm extends AbstractForm
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
      * @return self
      */
@@ -144,7 +144,7 @@ class ShipmentForm extends AbstractForm
     }
 
     /**
-     * @return AbstractCheckoutSubForm[]
+     * @return \Pyz\Yves\Checkout\Form\AbstractCheckoutSubForm[]
      */
     protected function getShipmentMethodSubForms()
     {
@@ -158,7 +158,7 @@ class ShipmentForm extends AbstractForm
     }
 
     /**
-     * @param AbstractCheckoutSubForm[] $shipmentMethodSubForms
+     * @param \Pyz\Yves\Checkout\Form\AbstractCheckoutSubForm[] $shipmentMethodSubForms
      *
      * @return array
      */
@@ -175,9 +175,9 @@ class ShipmentForm extends AbstractForm
     }
 
     /**
-     * @param CheckoutSubFormPluginInterface $shipmentMethodSubForm
+     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface $shipmentMethodSubForm
      *
-     * @return AbstractCheckoutSubForm
+     * @return \Pyz\Yves\Checkout\Form\AbstractCheckoutSubForm
      */
     protected function createSubForm(CheckoutSubFormPluginInterface $shipmentMethodSubForm)
     {
@@ -195,7 +195,7 @@ class ShipmentForm extends AbstractForm
     }
 
     /**
-     * @return TransferInterface|array
+     * @return \Spryker\Shared\Transfer\TransferInterface|array
      */
     public function populateFormFields()
     {

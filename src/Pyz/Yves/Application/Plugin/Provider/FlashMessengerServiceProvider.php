@@ -38,9 +38,9 @@ class FlashMessengerServiceProvider extends AbstractPlugin implements ServicePro
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      *
-     * @return FlashMessenger
+     * @return \Pyz\Yves\Application\Business\Model\FlashMessenger
      */
     protected function createFlashMessenger(Application $app)
     {

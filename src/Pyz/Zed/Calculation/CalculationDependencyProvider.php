@@ -25,8 +25,8 @@ use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\SumGrossCalcul
 class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
 {
     /**
-     * @param Container $container
-     * @return CalculatorPluginInterface[]
+     * @param \Spryker\Zed\Kernel\Container $container
+     * @return \Spryker\Zed\Calculation\Dependency\Plugin\CalculatorPluginInterface[]
      */
     protected function getCalculatorStack(Container $container)
     {

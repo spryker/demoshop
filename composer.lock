@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f187c2edb5e97482dafa9c27750e111f",
-    "content-hash": "87d6fe42c447b61028f319998ecf4cb9",
+    "hash": "c012699c071b2b7b66c8f78e8bd57831",
+    "content-hash": "4b4d89fb504a3108fdbbd59855a1dbb1",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -779,7 +779,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "0ae710b91fbcf9a4781383c93dd0cea1800c5e15"
+                "reference": "ef95135bd1bc476e426d316580f9633791336a8d"
             },
             "require": {
                 "phpdocumentor/graphviz": "dev-master#a906a90"
@@ -796,7 +796,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2016-02-05 08:14:40"
+            "time": "2016-02-09 16:44:17"
         },
         {
             "name": "symfony-cmf/routing",
@@ -4682,31 +4682,36 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/code-sniffer.git",
-                "reference": "80a810a7f2447d96d0fd5498f9a835cc857c1c34"
+                "reference": "809e3d8a8d005859ab2cba87c9cb9f28ec99558e"
             },
             "require": {
                 "squizlabs/php_codesniffer": "~2.5"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.1.*"
+                "phpunit/phpunit": "~5.2"
             },
             "type": "library",
+            "license": [
+                "BSD-3-Clause"
+            ],
             "authors": [
                 {
                     "name": "Spryker",
                     "homepage": "http://spryker.com"
                 }
             ],
-            "description": "Spryker CodeSniffer Standards",
+            "description": "Spryker Code Sniffer Standards",
             "homepage": "http://spryker.com",
             "keywords": [
                 "codesniffer",
-                "framework"
+                "framework",
+                "phpcs",
+                "standards"
             ],
             "support": {
                 "source": "https://github.com/spryker/code-sniffer"
             },
-            "time": "2016-02-09 13:38:23"
+            "time": "2016-02-09 16:27:21"
         },
         {
             "name": "squizlabs/php_codesniffer",

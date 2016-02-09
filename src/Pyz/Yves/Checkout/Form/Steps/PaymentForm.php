@@ -14,23 +14,23 @@ use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 class PaymentForm extends AbstractForm
 {
 
-    const PAYMENT_PROPERTY_PATH = 'payment';
+    const PAYMENT_PROPERTY_PATH = QuoteTransfer::PAYMENT;
     const PAYMENT_SELECTION = 'paymentSelection';
     const PAYMENT_SELECTION_PROPERTY_PATH = self::PAYMENT_PROPERTY_PATH . '.' . self::PAYMENT_SELECTION;
 
     /**
-     * @var QuoteTransfer
+     * @var \Generated\Shared\Transfer\QuoteTransfer
      */
     protected $quoteTransfer;
 
     /**
-     * @var CheckoutSubFormPluginInterface[]
+     * @var \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[]
      */
     protected $paymentMethodSubFormPlugins;
 
     /**
-     * @param QuoteTransfer $quoteTransfer
-     * @param CheckoutSubFormPluginInterface[] $paymentMethodSubFormPlugins
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[] $paymentMethodSubFormPlugins
      */
     public function __construct(QuoteTransfer $quoteTransfer, $paymentMethodSubFormPlugins)
     {
@@ -47,7 +47,7 @@ class PaymentForm extends AbstractForm
     }
 
     /**
-     * @return TransferInterface|null
+     * @return \Spryker\Shared\Transfer\TransferInterface|null
      */
     protected function getDataClass()
     {
@@ -55,7 +55,7 @@ class PaymentForm extends AbstractForm
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      *
      * @return void
@@ -67,7 +67,7 @@ class PaymentForm extends AbstractForm
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
      * @return self
      */
@@ -85,7 +85,7 @@ class PaymentForm extends AbstractForm
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $paymentMethodChoices
      *
      * @return $this
@@ -110,8 +110,8 @@ class PaymentForm extends AbstractForm
     }
 
     /**
-     * @param FormBuilderInterface $builder
-     * @param SubFormInterface[] $paymentMethodSubForms
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     * @param \Pyz\Yves\Checkout\Dependency\SubFormInterface[] $paymentMethodSubForms
      *
      * @return self
      */
@@ -132,7 +132,7 @@ class PaymentForm extends AbstractForm
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
      * @return self
      */
@@ -144,7 +144,7 @@ class PaymentForm extends AbstractForm
     }
 
     /**
-     * @return SubFormInterface[]
+     * @return \Pyz\Yves\Checkout\Dependency\SubFormInterface[]
      */
     protected function getPaymentMethodSubForms()
     {
@@ -158,7 +158,7 @@ class PaymentForm extends AbstractForm
     }
 
     /**
-     * @param SubFormInterface[] $paymentMethodSubForms
+     * @param \Pyz\Yves\Checkout\Dependency\SubFormInterface[] $paymentMethodSubForms
      *
      * @return array
      */
@@ -175,9 +175,9 @@ class PaymentForm extends AbstractForm
     }
 
     /**
-     * @param CheckoutSubFormPluginInterface $paymentMethodSubForm
+     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface $paymentMethodSubForm
      *
-     * @return SubFormInterface
+     * @return \Pyz\Yves\Checkout\Dependency\SubFormInterface
      */
     protected function createSubForm(CheckoutSubFormPluginInterface $paymentMethodSubForm)
     {
@@ -195,7 +195,7 @@ class PaymentForm extends AbstractForm
     }
 
     /**
-     * @return TransferInterface|array
+     * @return \Spryker\Shared\Transfer\TransferInterface|array
      */
     public function populateFormFields()
     {

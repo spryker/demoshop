@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 class FlashMessenger implements FlashMessengerInterface
 {
     /**
-     * @var FlashBagInterface
+     * @var \Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface
      */
     protected $flashBag;
 

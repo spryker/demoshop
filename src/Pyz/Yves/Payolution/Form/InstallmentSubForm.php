@@ -26,18 +26,18 @@ class InstallmentSubForm extends AbstractForm implements SubFormInterface
     const FIELD_BANK_ACCOUNT_BIC = 'bank_account_bic';
 
     /**
-     * @var QuoteTransfer
+     * @var \Generated\Shared\Transfer\QuoteTransfer
      */
     protected $quoteTransfer;
 
     /**
-     * @var PayolutionClientInterface
+     * @var \Spryker\Client\Payolution\PayolutionClientInterface
      */
     protected $payolutionClient;
 
     /**
-     * @param QuoteTransfer $quoteTransfer
-     * @param PayolutionClientInterface $payolutionClient
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Client\Payolution\PayolutionClientInterface $payolutionClient
      */
     public function __construct(QuoteTransfer $quoteTransfer, PayolutionClientInterface $payolutionClient)
     {
@@ -62,7 +62,7 @@ class InstallmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @return TransferInterface|null
+     * @return \Spryker\Shared\Transfer\TransferInterface|null
      */
     protected function getDataClass()
     {
@@ -70,7 +70,7 @@ class InstallmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -83,8 +83,8 @@ class InstallmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @param FormBuilderInterface $builder
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return $this
      */
@@ -107,9 +107,9 @@ class InstallmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return InstallmentSubForm
+     * @return \Pyz\Yves\Payolution\Form\InstallmentSubForm
      */
     protected function addDateOfBirth(FormBuilderInterface $builder)
     {
@@ -132,9 +132,9 @@ class InstallmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return InstallmentSubForm
+     * @return \Pyz\Yves\Payolution\Form\InstallmentSubForm
      */
     protected function addBankAccountHolder(FormBuilderInterface $builder)
     {
@@ -154,9 +154,9 @@ class InstallmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return InstallmentSubForm
+     * @return \Pyz\Yves\Payolution\Form\InstallmentSubForm
      */
     protected function addBankAccountIban(FormBuilderInterface $builder)
     {
@@ -176,9 +176,9 @@ class InstallmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return InstallmentSubForm
+     * @return \Pyz\Yves\Payolution\Form\InstallmentSubForm
      */
     protected function addBankAccountBic(FormBuilderInterface $builder)
     {
@@ -198,7 +198,7 @@ class InstallmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return array
      */
@@ -209,9 +209,9 @@ class InstallmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return PayolutionCalculationResponseTransfer
+     * @return \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer
      */
     protected function getInstallmentPayments(QuoteTransfer $quoteTransfer)
     {
@@ -228,8 +228,8 @@ class InstallmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
-     * @param PayolutionCalculationResponseTransfer $calculationResponseTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer $calculationResponseTransfer
      *
      * @return bool
      */
@@ -239,7 +239,7 @@ class InstallmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @param PayolutionCalculationPaymentDetailTransfer[] $installmentPaymentDetails
+     * @param \Generated\Shared\Transfer\PayolutionCalculationPaymentDetailTransfer[] $installmentPaymentDetails
      *
      * @return array
      */
@@ -254,7 +254,7 @@ class InstallmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @param PayolutionCalculationPaymentDetailTransfer $paymentDetail
+     * @param \Generated\Shared\Transfer\PayolutionCalculationPaymentDetailTransfer $paymentDetail
      *
      * @return string
      *
@@ -282,7 +282,7 @@ class InstallmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @return TransferInterface|array
+     * @return \Spryker\Shared\Transfer\TransferInterface|array
      */
     public function populateFormFields()
     {

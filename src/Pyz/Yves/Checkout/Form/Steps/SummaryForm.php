@@ -20,7 +20,7 @@ class SummaryForm extends AbstractForm
      *
      * @see FormTypeExtensionInterface::buildForm()
      *
-     * @param FormBuilderInterface $builder The form builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder The form builder
      * @param array $options The options
      *
      * @return void
@@ -31,7 +31,7 @@ class SummaryForm extends AbstractForm
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
      * @return self
      */
@@ -43,7 +43,7 @@ class SummaryForm extends AbstractForm
     }
 
     /**
-     * @return TransferInterface|array
+     * @return \Spryker\Shared\Transfer\TransferInterface|array
      */
     public function populateFormFields()
     {
@@ -51,7 +51,7 @@ class SummaryForm extends AbstractForm
     }
 
     /**
-     * @return TransferInterface|null
+     * @return \Spryker\Shared\Transfer\TransferInterface|null
      */
     protected function getDataClass()
     {

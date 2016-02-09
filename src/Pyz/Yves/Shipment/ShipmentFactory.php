@@ -15,9 +15,9 @@ class ShipmentFactory extends AbstractFactory
 {
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return ShipmentSubForm
+     * @return \Pyz\Yves\Shipment\Form\ShipmentSubForm
      */
     public function createShipmentForm(QuoteTransfer $quoteTransfer)
     {
@@ -31,7 +31,7 @@ class ShipmentFactory extends AbstractFactory
     }
 
     /**
-     * @return ShipmentHandler
+     * @return \Pyz\Yves\Shipment\Handler\ShipmentHandler
      */
     public function createShipmentHandler()
     {
@@ -39,7 +39,7 @@ class ShipmentFactory extends AbstractFactory
     }
 
     /**
-     * @return ShipmentClientInterface
+     * @return \Spryker\Client\Shipment\ShipmentClientInterface
      */
     public function getShipmentClient()
     {
@@ -47,7 +47,7 @@ class ShipmentFactory extends AbstractFactory
     }
 
     /**
-     * @return GlossaryClientInterface
+     * @return \Spryker\Client\Glossary\GlossaryClientInterface
      */
     public function getGlossaryClient()
     {
@@ -55,7 +55,7 @@ class ShipmentFactory extends AbstractFactory
     }
 
     /**
-     * @return Store
+     * @return \Spryker\Shared\Kernel\Store
      */
     protected function getStore()
     {
@@ -63,7 +63,7 @@ class ShipmentFactory extends AbstractFactory
     }
 
     /**
-     * @return CurrencyManager
+     * @return \Spryker\Shared\Library\Currency\CurrencyManager
      */
     protected function getCurrencyManager()
     {

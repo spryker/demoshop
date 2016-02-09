@@ -13,11 +13,14 @@ use Pyz\Yves\Customer\Form\ProfileForm;
 use Pyz\Yves\Customer\Form\ForgottenPasswordForm;
 use Pyz\Yves\Customer\Form\AddressForm;
 use Pyz\Yves\Customer\Form\RegisterForm;
+use Pyz\Yves\Customer\Plugin\GuestCheckoutAuthenticationHandlerPlugin;
+use Pyz\Yves\Customer\Plugin\LoginCheckoutAuthenticationHandlerPlugin;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationFailureHandler;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationSuccessHandler;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerUserProvider;
 use Pyz\Yves\Customer\Plugin\AuthenticationHandler;
+use Pyz\Yves\Customer\Plugin\RegistrationCheckoutAuthenticationHandlerPlugin;
 use Pyz\Yves\Customer\Security\Customer;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Kernel\AbstractFactory;
@@ -237,6 +240,18 @@ class CustomerFactory extends AbstractFactory
     protected function getFlashMessenger()
     {
         return $this->createApplication()['flash_messenger'];
+    }
+
+    /**
+     * @return \Pyz\Yves\Customer\Plugin\CheckoutAuthenticationHandlerPluginInterface[]
+     */
+    public function createCustomerAuthenticationHandlerPlugins()
+    {
+        return [
+            new LoginCheckoutAuthenticationHandlerPlugin(),
+            new GuestCheckoutAuthenticationHandlerPlugin(),
+            new RegistrationCheckoutAuthenticationHandlerPlugin($this->getFlashMessenger()),
+        ];
     }
 
 }

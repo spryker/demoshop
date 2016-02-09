@@ -15,7 +15,7 @@ class CheckoutFactory extends AbstractFactory
 {
 
     /**
-     * @return StepProcess
+     * @return \Pyz\Yves\Checkout\Process\StepProcess
      */
     public function createCheckoutProcess()
     {
@@ -27,7 +27,7 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @return StepFactory
+     * @return \Pyz\Yves\Checkout\Process\StepFactory
      */
     public function createStepFactory()
     {
@@ -35,15 +35,15 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @return FormFactory
+     * @return \Pyz\Yves\Checkout\Form\FormFactory
      */
-    public function createFormFactory()
+    public function createCheckoutFormFactory()
     {
         return new FormFactory();
     }
 
     /**
-     * @return CartClientInterface
+     * @return \Spryker\Client\Cart\CartClientInterface
      */
     public function getCartClient()
     {
@@ -51,7 +51,7 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @return UrlGeneratorInterface
+     * @return \Symfony\Component\Routing\Generator\UrlGeneratorInterface
      */
     protected function getUrlGenerator()
     {
@@ -59,7 +59,7 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @return Application
+     * @return \Spryker\Yves\Application\Application
      */
     protected function getApplication()
     {

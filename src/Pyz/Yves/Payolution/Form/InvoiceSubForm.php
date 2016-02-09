@@ -18,12 +18,12 @@ class InvoiceSubForm extends AbstractForm implements SubFormInterface
     const FIELD_DATE_OF_BIRTH = 'date_of_birth';
 
     /**
-     * @var QuoteTransfer
+     * @var \Generated\Shared\Transfer\QuoteTransfer
      */
     protected $quoteTransfer;
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      */
     public function __construct(QuoteTransfer $quoteTransfer)
     {
@@ -47,7 +47,7 @@ class InvoiceSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @return TransferInterface|null
+     * @return \Spryker\Shared\Transfer\TransferInterface|null
      */
     protected function getDataClass()
     {
@@ -55,7 +55,7 @@ class InvoiceSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -64,9 +64,9 @@ class InvoiceSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return InvoiceSubForm
+     * @return \Pyz\Yves\Payolution\Form\InvoiceSubForm
      */
     protected function addDateOfBirth(FormBuilderInterface $builder)
     {
@@ -89,7 +89,7 @@ class InvoiceSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @return TransferInterface|array
+     * @return \Spryker\Shared\Transfer\TransferInterface|array
      */
     public function populateFormFields()
     {
