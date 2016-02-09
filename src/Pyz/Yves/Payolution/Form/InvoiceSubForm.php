@@ -5,6 +5,7 @@ namespace Pyz\Yves\Payolution\Form;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Shared\Gui\Form\AbstractForm;
+use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Pyz\Yves\Checkout\Dependency\SubFormInterface;
@@ -12,7 +13,7 @@ use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 class InvoiceSubForm extends AbstractForm implements SubFormInterface
 {
 
-    const PAYMENT_PROVIDER = 'payolution';
+    const PAYMENT_PROVIDER = PayolutionConstants::PAYOLUTION;
     const PAYMENT_METHOD = 'invoice';
     const FIELD_DATE_OF_BIRTH = 'date_of_birth';
 

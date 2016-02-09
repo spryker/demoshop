@@ -12,11 +12,12 @@ use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Spryker\Shared\Gui\Form\AbstractForm;
 use Pyz\Yves\Checkout\Dependency\SubFormInterface;
+use Spryker\Shared\Payolution\PayolutionConstants;
 
 class InstallmentSubForm extends AbstractForm implements SubFormInterface
 {
 
-    const PAYMENT_PROVIDER = 'payolution';
+    const PAYMENT_PROVIDER = PayolutionConstants::PAYOLUTION;
     const PAYMENT_METHOD = 'installment';
     const FIELD_DATE_OF_BIRTH = 'date_of_birth';
     const FIELD_INSTALLMENT_PAYMENT_DETAIL_INDEX = 'installment_payment_detail_index';

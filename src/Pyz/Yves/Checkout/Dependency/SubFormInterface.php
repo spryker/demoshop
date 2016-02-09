@@ -11,4 +11,9 @@ interface SubFormInterface
      * @return string
      */
     public function getPropertyPath();
+
+    /**
+     * @return string
+     */
+    public function getName();
 }

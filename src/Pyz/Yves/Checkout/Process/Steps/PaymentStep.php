@@ -77,7 +77,11 @@ class PaymentStep extends BaseStep
      */
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
-        // FIXME
+        if ($quoteTransfer->getPayment() === null ||
+            $quoteTransfer->getPayment()->getPaymentProvider() == null) {
+            return false;
+        }
+
         return true;
     }
 
