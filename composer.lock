@@ -7,6 +7,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "hash": "7c93c91f97b0f286aed9ac5f7e53bae9",
     "content-hash": "360aa1bc9acbcffcfb1dc68e58789bf0",
 =======
@@ -39,6 +40,10 @@
     "content-hash": "8c4f6fe0f0e190470642a16196c6cecc",
 >>>>>>> #1259 update spryker/spryker
 >>>>>>> #1259 update spryker/spryker
+=======
+    "hash": "70987ba10ea94f577944276738c08bbf",
+    "content-hash": "1922fe62ef94a2cbc1866d044047f8bb",
+>>>>>>> #1259 update composer
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -809,6 +814,7 @@
         {
             "name": "spryker/spryker",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "dev-develop",
             "source": {
                 "type": "git",
@@ -818,13 +824,18 @@
 =======
                 "reference": "1180cd8ac327418abfdd504feafe3f8f5d53426f"
 =======
+=======
+>>>>>>> #1259 update composer
             "version": "dev-feature/1259-Propel-error-message",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
                 "reference": "11a2a354343998765cbc2312f57ac489b7c1f5c9"
+<<<<<<< HEAD
 >>>>>>> #1259 update spryker/spryker
 >>>>>>> #1259 update spryker/spryker
+=======
+>>>>>>> #1259 update composer
             },
             "require": {
                 "phpdocumentor/graphviz": "dev-master#a906a90"
@@ -842,6 +853,7 @@
                 }
             },
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-02-09 15:31:26"
 =======
 <<<<<<< HEAD
@@ -850,6 +862,9 @@
             "time": "2016-02-08 09:51:32"
 >>>>>>> #1259 update spryker/spryker
 >>>>>>> #1259 update spryker/spryker
+=======
+            "time": "2016-02-08 09:51:32"
+>>>>>>> #1259 update composer
         },
         {
             "name": "symfony-cmf/routing",
