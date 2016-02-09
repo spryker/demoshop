@@ -4,6 +4,7 @@ namespace Pyz\Zed\Console;
 
 use Spryker\Zed\Development\Communication\Console\CodeCreateConsole;
 use Spryker\Zed\Development\Communication\Console\CodePhpMessDetectorConsole;
+use Spryker\Zed\Installer\Communication\Console\IcecatDataInstallConsole;
 use Spryker\Zed\Maintenance\Communication\Console\ComposerJsonUpdaterConsole;
 use Spryker\Zed\Maintenance\Communication\Console\DependencyTreeBuilderConsole;
 use Spryker\Zed\Maintenance\Communication\Console\DependencyTreeDependencyViolationConsole;
@@ -50,6 +51,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new CollectorSearchUpdateConsole(),
             new DeleteAllCachesConsole(),
             new DemoDataInstallConsole(),
+            new IcecatDataInstallConsole(),
             new DependencyTreeBuilderConsole(),
             new DependencyTreeDependencyViolationConsole(),
             new FossMarkDownGeneratorConsole(),
