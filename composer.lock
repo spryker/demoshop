@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d7cda1defe4a6a56f05ec41e60bc856d",
-    "content-hash": "f64199f58eabaac9babddd0c3150376b",
+    "hash": "7c93c91f97b0f286aed9ac5f7e53bae9",
+    "content-hash": "360aa1bc9acbcffcfb1dc68e58789bf0",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -779,7 +779,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "1180cd8ac327418abfdd504feafe3f8f5d53426f"
+                "reference": "8e1db2c1ecba7cd0a5d4440c69dc43ee99f5381f"
             },
             "require": {
                 "phpdocumentor/graphviz": "dev-master#a906a90"
@@ -796,7 +796,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2016-02-08 09:35:51"
+            "time": "2016-02-09 15:31:26"
         },
         {
             "name": "symfony-cmf/routing",
@@ -4677,23 +4677,58 @@
             "time": "2015-10-12 18:22:15"
         },
         {
+            "name": "spryker/code-sniffer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/code-sniffer.git",
+                "reference": "80a810a7f2447d96d0fd5498f9a835cc857c1c34"
+            },
+            "require": {
+                "squizlabs/php_codesniffer": "~2.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.1.*"
+            },
+            "type": "library",
+            "authors": [
+                {
+                    "name": "Spryker",
+                    "homepage": "http://spryker.com"
+                }
+            ],
+            "description": "Spryker CodeSniffer Standards",
+            "homepage": "http://spryker.com",
+            "keywords": [
+                "codesniffer",
+                "framework"
+            ],
+            "support": {
+                "source": "https://github.com/spryker/code-sniffer"
+            },
+            "time": "2016-02-09 13:38:23"
+        },
+        {
             "name": "squizlabs/php_codesniffer",
-            "version": "2.4.0",
+            "version": "2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "32a879f4f35019d78d568db2885d7779ca084a33"
+                "reference": "6731851d6aaf1d0d6c58feff1065227b7fda3ba8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/32a879f4f35019d78d568db2885d7779ca084a33",
-                "reference": "32a879f4f35019d78d568db2885d7779ca084a33",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/6731851d6aaf1d0d6c58feff1065227b7fda3ba8",
+                "reference": "6731851d6aaf1d0d6c58feff1065227b7fda3ba8",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
                 "ext-xmlwriter": "*",
                 "php": ">=5.1.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
             },
             "bin": [
                 "scripts/phpcs",
@@ -4702,7 +4737,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.x-dev"
                 }
             },
             "autoload": {
@@ -4748,7 +4783,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2015-11-23 21:30:59"
+            "time": "2016-01-19 23:39:10"
         },
         {
             "name": "symfony/browser-kit",
@@ -5189,7 +5224,8 @@
     "stability-flags": {
         "spryker/spryker": 20,
         "propel/propel": 20,
-        "phpdocumentor/graphviz": 20
+        "phpdocumentor/graphviz": 20,
+        "spryker/code-sniffer": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
