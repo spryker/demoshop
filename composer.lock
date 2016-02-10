@@ -4,51 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     "hash": "7c93c91f97b0f286aed9ac5f7e53bae9",
     "content-hash": "360aa1bc9acbcffcfb1dc68e58789bf0",
-=======
-=======
->>>>>>> #1259 update spryker/spryker
-=======
->>>>>>> #1259 update spryker/spryker
-<<<<<<< HEAD
-    "hash": "d7cda1defe4a6a56f05ec41e60bc856d",
-    "content-hash": "f64199f58eabaac9babddd0c3150376b",
-=======
-<<<<<<< HEAD
-    "hash": "d41665b5b20edab080b036192973ac33",
-    "content-hash": "02cae1e2cb448f52d3707126ec01908f",
-=======
-    "hash": "95683cfdd30deb6b172339aee39e55e9",
-    "content-hash": "42cbddc70749b657147c905a85fd905b",
->>>>>>> #1259 update spryker/spryker
->>>>>>> #1259 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-    "hash": "69d5c460e9185d18929b9c30b83288ed",
-    "content-hash": "4c820effcf03c7d59a6da88dfe3ad444",
->>>>>>> #1259 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-    "hash": "68c49aed72a0ebf87d3f589c6788cff4",
-    "content-hash": "8c4f6fe0f0e190470642a16196c6cecc",
->>>>>>> #1259 update spryker/spryker
->>>>>>> #1259 update spryker/spryker
-=======
-    "hash": "70987ba10ea94f577944276738c08bbf",
-    "content-hash": "1922fe62ef94a2cbc1866d044047f8bb",
->>>>>>> #1259 update composer
-=======
-    "hash": "d7cda1defe4a6a56f05ec41e60bc856d",
-    "content-hash": "f64199f58eabaac9babddd0c3150376b",
->>>>>>> #1259 update spryker/spryker
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -818,37 +775,11 @@
         },
         {
             "name": "spryker/spryker",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-                "reference": "8e1db2c1ecba7cd0a5d4440c69dc43ee99f5381f"
-=======
-                "reference": "1180cd8ac327418abfdd504feafe3f8f5d53426f"
-=======
-=======
->>>>>>> #1259 update composer
-            "version": "dev-feature/1259-Propel-error-message",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:spryker/spryker.git",
-                "reference": "11a2a354343998765cbc2312f57ac489b7c1f5c9"
-<<<<<<< HEAD
->>>>>>> #1259 update spryker/spryker
->>>>>>> #1259 update spryker/spryker
-=======
->>>>>>> #1259 update composer
-=======
             "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
                 "reference": "94d47dadece9b71d16e0a9ddd9db92bc7f2c63e3"
->>>>>>> #1259 update spryker/spryker
             },
             "require": {
                 "phpdocumentor/graphviz": "dev-master#a906a90"
@@ -865,23 +796,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2016-02-09 15:31:26"
-=======
-<<<<<<< HEAD
-            "time": "2016-02-08 09:35:51"
-=======
-            "time": "2016-02-08 09:51:32"
->>>>>>> #1259 update spryker/spryker
->>>>>>> #1259 update spryker/spryker
-=======
-            "time": "2016-02-08 09:51:32"
->>>>>>> #1259 update composer
-=======
             "time": "2016-02-10 06:11:34"
->>>>>>> #1259 update spryker/spryker
         },
         {
             "name": "symfony-cmf/routing",
@@ -3028,16 +2943,16 @@
     "packages-dev": [
         {
             "name": "codeception/codeception",
-            "version": "2.1.5",
+            "version": "2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "4ee562f421fd404139dd7b73ae46d075396a4baf"
+                "reference": "b199941f5e59d1e7fd32d78296c8ab98db873d89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/4ee562f421fd404139dd7b73ae46d075396a4baf",
-                "reference": "4ee562f421fd404139dd7b73ae46d075396a4baf",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/b199941f5e59d1e7fd32d78296c8ab98db873d89",
+                "reference": "b199941f5e59d1e7fd32d78296c8ab98db873d89",
                 "shasum": ""
             },
             "require": {
@@ -3104,7 +3019,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2015-12-20 12:11:42"
+            "time": "2016-02-09 22:27:48"
         },
         {
             "name": "doctrine/instantiator",
@@ -4767,31 +4682,36 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/code-sniffer.git",
-                "reference": "80a810a7f2447d96d0fd5498f9a835cc857c1c34"
+                "reference": "202f4521ba124097501ac2e9c41173c0081955e1"
             },
             "require": {
                 "squizlabs/php_codesniffer": "~2.5"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.1.*"
+                "phpunit/phpunit": "~5.2"
             },
             "type": "library",
+            "license": [
+                "BSD-3-Clause"
+            ],
             "authors": [
                 {
                     "name": "Spryker",
                     "homepage": "http://spryker.com"
                 }
             ],
-            "description": "Spryker CodeSniffer Standards",
+            "description": "Spryker Code Sniffer Standards",
             "homepage": "http://spryker.com",
             "keywords": [
                 "codesniffer",
-                "framework"
+                "framework",
+                "phpcs",
+                "standards"
             ],
             "support": {
                 "source": "https://github.com/spryker/code-sniffer"
             },
-            "time": "2016-02-09 13:38:23"
+            "time": "2016-02-09 18:20:16"
         },
         {
             "name": "squizlabs/php_codesniffer",
