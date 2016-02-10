@@ -48,7 +48,8 @@ class LoginForm extends AbstractType
             'constraints' => [
                 new NotBlank(),
                 new Email(),
-            ]]);
+            ]
+        ]);
 
         return $this;
     }

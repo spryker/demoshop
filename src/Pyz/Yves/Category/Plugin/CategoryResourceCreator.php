@@ -3,7 +3,6 @@
 namespace Pyz\Yves\Category\Plugin;
 
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Pyz\Yves\Category\CategoryFactory;
 
 /**
  * @method \Pyz\Yves\Category\CategoryFactory getFactory()

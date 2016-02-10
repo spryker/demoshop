@@ -4,7 +4,6 @@ namespace Pyz\Yves\Cms\Controller;
 
 use Spryker\Yves\Application\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class CmsController extends AbstractController
 {

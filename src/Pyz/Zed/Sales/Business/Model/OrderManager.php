@@ -3,9 +3,7 @@
 namespace Pyz\Zed\Sales\Business\Model;
 
 use Generated\Shared\Transfer\OrderListTransfer;
-use Orm\Zed\Sales\Persistence\SpySalesOrder;
 use Orm\Zed\Sales\Persistence\SpySalesOrderQuery;
-use Propel\Runtime\Collection\ObjectCollection;
 use Spryker\Zed\Sales\Business\Model\OrderManager as SprykerOrderManager;
 
 class OrderManager extends SprykerOrderManager

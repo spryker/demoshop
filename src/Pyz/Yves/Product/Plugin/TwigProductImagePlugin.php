@@ -2,6 +2,7 @@
 
 namespace Pyz\Yves\Product\Plugin;
 
+use Spryker\Shared\Library\Image;
 use Silex\Application;
 use Spryker\Yves\Kernel\AbstractPlugin;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
@@ -18,7 +19,7 @@ class TwigProductImagePlugin extends AbstractPlugin implements TwigFunctionPlugi
     {
         return [
             new \Twig_SimpleFunction('getAllProductImagesBySize', function (array $images, $size = null) {
-                $imageFilenames = \Spryker\Shared\Library\Image::getAllProductImagesBySize($images, $size);
+                $imageFilenames = Image::getAllProductImagesBySize($images, $size);
 
                 $fullImagePaths = [];
                 foreach ($imageFilenames as $filename) {
@@ -28,8 +29,8 @@ class TwigProductImagePlugin extends AbstractPlugin implements TwigFunctionPlugi
                 return $fullImagePaths;
             }),
             new \Twig_SimpleFunction('getFirstProductImagesBySize', function (array $images, $size = null) {
-                return \Spryker\Shared\Library\Image::getAbsoluteProductImageUrl(
-                    \Spryker\Shared\Library\Image::getFirstProductImageFilenameBySize($images, $size)
+                return Image::getAbsoluteProductImageUrl(
+                    Image::getFirstProductImageFilenameBySize($images, $size)
                 );
             }),
         ];

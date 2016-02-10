@@ -4,8 +4,6 @@ namespace Pyz\Zed\Collector\Communication\Plugin;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
-use Pyz\Zed\Collector\Business\CollectorFacade;
-use Pyz\Zed\Collector\Communication\CollectorCommunicationFactory;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface;
 use Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface;

@@ -5,7 +5,6 @@ namespace Pyz\Zed\Shipment\Communication\Plugin\DeliveryTime;
 use Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\Shipment\Communication\Plugin\ShipmentMethodDeliveryTimePluginInterface;
-use Pyz\Zed\Shipment\Business\ShipmentFacade;
 
 /**
  * @method \Pyz\Zed\Shipment\Business\ShipmentFacade getFacade()

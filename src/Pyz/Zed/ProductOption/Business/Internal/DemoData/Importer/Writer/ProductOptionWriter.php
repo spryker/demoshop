@@ -4,7 +4,6 @@ namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer;
 
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\ProductReaderInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\VisitableProductInterface;
 
 class ProductOptionWriter implements WriterInterface
 {

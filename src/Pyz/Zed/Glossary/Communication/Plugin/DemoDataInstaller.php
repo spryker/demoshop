@@ -2,9 +2,7 @@
 
 namespace Pyz\Zed\Glossary\Communication\Plugin;
 
-use Pyz\Zed\Glossary\Business\GlossaryFacade;
 use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
-use Pyz\Zed\Glossary\Communication\GlossaryCommunicationFactory;
 
 /**
  * @method \Pyz\Zed\Glossary\Communication\GlossaryCommunicationFactory getFactory()

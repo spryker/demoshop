@@ -10,7 +10,6 @@ use Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
 use Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToLocaleInterface;
 use Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToTouchInterface;
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
-use Propel\Runtime\Exception\PropelException;
 
 class ProductAttributeMappingInstall extends AbstractInstaller
 {

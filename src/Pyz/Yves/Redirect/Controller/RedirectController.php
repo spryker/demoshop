@@ -3,7 +3,6 @@
 namespace Pyz\Yves\Redirect\Controller;
 
 use Spryker\Yves\Application\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class RedirectController extends AbstractController
 {

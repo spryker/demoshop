@@ -2,13 +2,9 @@
 
 namespace Pyz\Yves\Customer\Controller;
 
-use Generated\Shared\Transfer\CustomerResponseTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
-use Pyz\Yves\Customer\CustomerFactory;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
-use Spryker\Client\Customer\CustomerClientInterface;
 use Spryker\Shared\Customer\Code\Messages;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**

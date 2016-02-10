@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\ProductSearch\Communication\Plugin;
 
-use Pyz\Zed\ProductSearch\Business\ProductSearchFacade;
 use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 
 /**

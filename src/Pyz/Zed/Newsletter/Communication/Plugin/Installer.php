@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\Newsletter\Communication\Plugin;
 
-use Pyz\Zed\Newsletter\Business\NewsletterFacade;
 use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 
 /**

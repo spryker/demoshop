@@ -2,24 +2,17 @@
 
 namespace Pyz\Zed\ProductSearch\Business;
 
-use Pyz\Zed\Collector\Business\CollectorFacade;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
-use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderInterface;
 use Spryker\Shared\Library\Storage\StorageInstanceBuilder;
-use Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException;
 use Spryker\Zed\ProductSearch\Business\Builder\ProductResourceKeyBuilder;
-use Spryker\Zed\ProductSearch\Business\Operation\OperationInterface;
 use Spryker\Zed\ProductSearch\Business\Operation\OperationManager;
 use Spryker\Zed\ProductSearch\Business\Operation\DefaultOperation;
 use Spryker\Zed\ProductSearch\Business\Internal\InstallProductSearch;
-use Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
 use Spryker\Zed\ProductSearch\Business\Processor\ProductSearchProcessor;
-use Spryker\Zed\ProductSearch\Business\Processor\ProductSearchProcessorInterface;
 use Spryker\Zed\ProductSearch\Business\Transformer\ProductAttributesTransformer;
 use Spryker\Zed\ProductSearch\Business\ProductSearchBusinessFactory as SprykerProductSearchBusinessFactory;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductSearch\Business\Internal\DemoData\ProductAttributeMappingInstall;
-use Spryker\Zed\ProductSearch\Business\Transformer\ProductAttributesTransformerInterface;
 use Spryker\Zed\ProductSearch\ProductSearchDependencyProvider;
 
 class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory

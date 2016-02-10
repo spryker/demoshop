@@ -7,7 +7,6 @@
 namespace YvesUnit\Spryker\Yves\Assets\Communication;
 
 use Spryker\Yves\Assets\Communication\Model\AssetUrlBuilder;
-use Spryker\Yves\Assets\Communication\Model\CacheBusterInterface;
 
 class AssetUrlBuilderTest extends \PHPUnit_Framework_TestCase
 {

@@ -85,6 +85,7 @@ class CheckoutFactory extends AbstractFactory
             $this->getGlossaryClient(),
             $payolutionCalculationResponseTransfer
         );
+
         return $this->getFormFactory()->create($formType, $checkoutRequestTransfer);
     }
 

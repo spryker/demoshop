@@ -2,9 +2,7 @@
 
 namespace Pyz\Zed\Price\Communication\Plugin;
 
-use Pyz\Zed\Price\Business\PriceFacade;
 use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
-use Pyz\Zed\Price\Communication\PriceCommunicationFactory;
 
 /**
  * @method \Pyz\Zed\Price\Communication\PriceCommunicationFactory getFactory()

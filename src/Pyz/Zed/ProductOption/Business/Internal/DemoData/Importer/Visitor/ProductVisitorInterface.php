@@ -9,7 +9,6 @@ use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOption
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValue;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValueConstraint;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConfiguration;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Command\QueueableCommand;
 
 interface ProductVisitorInterface
 {

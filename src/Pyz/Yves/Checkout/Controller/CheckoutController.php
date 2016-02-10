@@ -7,7 +7,6 @@ use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Generated\Shared\Transfer\CartTransfer;
-use Generated\Shared\Transfer\CheckoutErrorTransfer;
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\ExpenseTransfer;
@@ -17,15 +16,12 @@ use Pyz\Yves\Checkout\Form\CheckoutType;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Yves\Application\Controller\AbstractController;
-use Pyz\Yves\Checkout\CheckoutFactory;
 use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Guzzle\Http\Client as GuzzleClient;
-use Guzzle\Http\Message\Response as GuzzleResponse;
 
 /**
  * @method \Pyz\Yves\Checkout\CheckoutFactory getFactory()
@@ -251,7 +247,6 @@ class CheckoutController extends AbstractController
         PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer,
         Request $request
     ) {
-
         return $this->getFactory()->createCheckoutForm($request, $shipmentTransfer, $payolutionCalculationResponseTransfer, $checkoutRequestTransfer);
     }
 

@@ -3,7 +3,6 @@
 namespace Pyz\Yves\Redirect\Plugin;
 
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Pyz\Yves\Redirect\RedirectFactory;
 
 /**
  * @method \Pyz\Yves\Redirect\RedirectFactory getFactory()

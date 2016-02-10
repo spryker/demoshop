@@ -5,7 +5,6 @@ namespace Pyz\Yves\Twig\Plugin\Provider;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config;
 use Spryker\Shared\Kernel\Store;
-use Spryker\Yves\Application\Application as SprykerApplication;
 use Spryker\Yves\Application\Routing\Helper;
 use Silex\Application;
 use Silex\Provider\TwigServiceProvider as SilexTwigServiceProvider;

@@ -3,7 +3,6 @@
 namespace Pyz\Zed\ProductCategory\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Propel\Runtime\Exception\PropelException;
 use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 use Spryker\Zed\Library\Import\ReaderInterface;
 use Spryker\Zed\ProductCategory\Business\ProductCategoryManagerInterface;

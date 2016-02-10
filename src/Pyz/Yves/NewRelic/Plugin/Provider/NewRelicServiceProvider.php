@@ -3,10 +3,8 @@
 namespace Pyz\Yves\NewRelic\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
-use Pyz\Yves\NewRelic\NewRelicFactory;
 use Silex\Application;
 use Spryker\Shared\Library\System;
-use Spryker\Shared\NewRelic\ApiInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
@@ -75,4 +73,5 @@ class NewRelicServiceProvider extends AbstractServiceProvider
             $this->newRelicApi->markIgnoreTransaction();
         }
     }
+
 }

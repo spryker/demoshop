@@ -2,7 +2,6 @@
 
 namespace Pyz\Yves\Customer\Plugin;
 
-use Spryker\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
 use Silex\Application;
 use Spryker\Yves\Kernel\AbstractPlugin;

@@ -3,7 +3,6 @@
 namespace Pyz\Yves\Customer\Security;
 
 use Generated\Shared\Transfer\CustomerTransfer;
-use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class Customer implements UserInterface
@@ -91,4 +90,5 @@ class Customer implements UserInterface
     {
         return $this->customerTransfer;
     }
+
 }

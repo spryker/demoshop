@@ -4,7 +4,6 @@ namespace Pyz\Zed\ProductOption\Business;
 
 use Spryker\Zed\ProductOption\Business\ProductOptionFacade as SprykerProductOptionFacade;
 use Psr\Log\LoggerInterface;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\ProductOptionDataInstall;
 
 /**
  * @method \Pyz\Zed\ProductOption\Business\ProductOptionBusinessFactory getFactory()

@@ -3,10 +3,8 @@
 namespace Pyz\Yves\Customer\Plugin\Provider;
 
 use Generated\Shared\Transfer\CustomerTransfer;
-use Pyz\Yves\Customer\CustomerFactory;
 use Pyz\Yves\Customer\Security\Customer;
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Spryker\Client\Customer\CustomerClientInterface;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;

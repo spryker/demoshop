@@ -3,10 +3,8 @@
 namespace Pyz\Yves\EventJournal\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
-use Pyz\Yves\EventJournal\EventJournalFactory;
 use Silex\Application;
 use Spryker\Client\EventJournal\Event;
-use Spryker\Client\EventJournal\EventJournalClientInterface;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config;
 use Symfony\Component\HttpFoundation\Cookie;
@@ -131,7 +129,8 @@ class EventJournalServiceProvider extends AbstractServiceProvider
      *
      * @return void
      */
-    private function setTrackingCookie(Application $app, $cookieName, $validFor) {
+    private function setTrackingCookie(Application $app, $cookieName, $validFor)
+    {
         if (empty($_COOKIE[$cookieName])) {
             $_COOKIE[$cookieName] = sha1(uniqid('', true));
         }

@@ -3,7 +3,6 @@
 namespace Pyz\Yves\Category\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
-use Pyz\Yves\Category\CategoryFactory;
 use Silex\Application;
 
 /**

@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class ForgottenPasswordForm extends AbstractType
 {
+
     const FIELD_EMAIL = 'email';
 
     /**

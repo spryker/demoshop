@@ -3,7 +3,6 @@
 namespace Pyz\Client\Customer;
 
 use Pyz\Client\Customer\Zed\CustomerStub;
-use Pyz\Client\Customer\Zed\CustomerStubInterface;
 use Spryker\Client\Customer\CustomerDependencyProvider;
 use Spryker\Client\Customer\CustomerFactory as SprykerCustomerFactory;
 
