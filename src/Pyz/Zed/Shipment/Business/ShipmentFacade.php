@@ -8,7 +8,7 @@ use Spryker\Zed\Shipment\Business\ShipmentFacade as SprykerShipmentFacade;
 /**
  * @method \Pyz\Zed\Shipment\Business\ShipmentBusinessFactory getFactory()
  */
-class ShipmentFacade extends SprykerShipmentFacade
+class ShipmentFacade extends SprykerShipmentFacade implements ShipmentFacadeInterface
 {
 
     /**

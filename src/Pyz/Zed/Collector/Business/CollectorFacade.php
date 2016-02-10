@@ -12,7 +12,7 @@ use Spryker\Zed\Collector\Business\Model\BatchResultInterface;
 /**
  * @method \Pyz\Zed\Collector\Business\CollectorBusinessFactory getFactory()
  */
-class CollectorFacade extends SprykerCollectorFacade
+class CollectorFacade extends SprykerCollectorFacade implements CollectorFacadeInterface
 {
 
     /**
