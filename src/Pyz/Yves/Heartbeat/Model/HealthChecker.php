@@ -27,7 +27,7 @@ class HealthChecker
     }
 
     /**
-     * @return self
+     * @return $this
      */
     public function doHealthCheck()
     {

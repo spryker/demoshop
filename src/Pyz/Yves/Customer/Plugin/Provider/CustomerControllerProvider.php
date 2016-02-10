@@ -76,7 +76,7 @@ class CustomerControllerProvider extends AbstractYvesControllerProvider
 
         $this->createController('/{customer}/newsletter', self::ROUTE_CUSTOMER_NEWSLETTER, 'Customer', 'Newsletter', 'index')
             ->assert('customer', $allowedLocalesPattern . 'customer|customer')
-            ->value('customer', 'customer');;
+            ->value('customer', 'customer');
     }
 
 }

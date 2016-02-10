@@ -41,7 +41,7 @@ class RegisterForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     protected function addSalutationField(FormBuilderInterface $builder)
     {
@@ -62,7 +62,7 @@ class RegisterForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     protected function addFirstNameField(FormBuilderInterface $builder)
     {
@@ -79,7 +79,7 @@ class RegisterForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     protected function addLastNameField(FormBuilderInterface $builder)
     {
@@ -96,7 +96,7 @@ class RegisterForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     protected function addEmailField(FormBuilderInterface $builder)
     {
@@ -113,7 +113,7 @@ class RegisterForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     protected function addPasswordField(FormBuilderInterface $builder)
     {
@@ -140,7 +140,7 @@ class RegisterForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     protected function addAcceptTermsField(FormBuilderInterface $builder)
     {

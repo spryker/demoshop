@@ -126,8 +126,8 @@ class EventJournalServiceProvider extends AbstractServiceProvider
 
     /**
      * @param \Silex\Application $app
-     * @param $cookieName
-     * @param $validFor
+     * @param string $cookieName
+     * @param string $validFor
      *
      * @return void
      */
