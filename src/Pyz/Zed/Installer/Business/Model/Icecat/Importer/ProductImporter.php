@@ -17,6 +17,50 @@ use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatImporter;
  */
 class ProductImporter extends AbstractIcecatImporter
 {
+    /**
+     * @var string
+     */
+    protected $dataFilename = 'icecat.xml';
 
+    /**
+     * @param string $localeName
+     * @param int $icecatLangId
+     *
+     */
+    public function import($localeName, $icecatLangId)
+    {
+        $xml = $this->xmlReader->getXml($this->dataFilename);
+
+        $fileCollection = $xml->xpath('//file');
+        foreach ($fileCollection as $fileNode) {
+            $attributes = $fileNode->attributes();
+            $productFilename = 'products/' . basename($attributes['path']);
+
+            if (!$this->xmlReader->isXmlFile($productFilename)) {
+                continue;
+            }
+
+            $productData = $this->getProductDataXml($productFilename);
+
+            dump($attributes, $productData);
+        }
+
+    }
+
+    /**
+     * @param string $filename
+     *
+     * @return \SimpleXMLElement
+     */
+    protected function getProductDataXml($filename)
+    {
+        $xml = $this->xmlReader->getXml($filename);
+
+        $productNodes = $xml->xpath('//Product');
+        $productNode = $productNodes[0];
+        $attributes = $productNode->attributes();
+
+        return $attributes;
+    }
 
 }

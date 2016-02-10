@@ -18,4 +18,16 @@ interface IcecatReaderInterface
      */
     public function getXml($filename);
 
+    /**
+     * @return string
+     */
+    public function getDataDirectory();
+
+    /**
+     * @param string $filename
+     *
+     * @return bool
+     */
+    public function isXmlFile($filename);
+
 }

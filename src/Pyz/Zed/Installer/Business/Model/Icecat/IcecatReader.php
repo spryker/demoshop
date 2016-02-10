@@ -21,6 +21,16 @@ class IcecatReader implements IcecatReaderInterface
     }
 
     /**
+     * @param string $filename
+     *
+     * @return bool
+     */
+    public function isXmlFile($filename)
+    {
+        return file_exists($this->dataDirectory . '/' . $filename);
+    }
+
+    /**
      * @param $filename
      *
      * @throws XmlFileNotFoundException
@@ -36,6 +46,14 @@ class IcecatReader implements IcecatReaderInterface
         }
 
         return simplexml_load_file($filename);
+    }
+
+    /**
+     * @return string
+     */
+    public function getDataDirectory()
+    {
+        return $this->dataDirectory;
     }
 
 }

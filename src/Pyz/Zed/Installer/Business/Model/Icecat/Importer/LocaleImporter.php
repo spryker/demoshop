@@ -44,6 +44,48 @@ use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatImporter;
  */
 class LocaleImporter extends AbstractIcecatImporter
 {
+    /**
+     * @var string
+     */
+    protected $dataFilename = 'LanguageList.xml';
 
+    /**
+     * @var array
+     */
+    protected $localeData = [
+        'de_DE' => [
+            'id' => 4,
+            'sid' => 4795,
+            'countryId' => 8,
+            'countryCode' => 'DE'
+        ],
+        'en_US' => [
+            'id' => 9,
+            'sid' => 6182,
+            'countryId' => 38,
+            'countryCode' => 'US'
+        ],
+        'fr_FR' => [
+            'id' => 3,
+            'sid' => 3036,
+            'countryId' => 5,
+            'countryCode' => 'FR'
+        ],
+    ];
+
+    public function import($localeName, $icecatLangId)
+    {
+
+    }
+
+    /**
+     * @param string $localeName
+     *
+     * @return int
+     */
+    public function getIcecatLocaleId($localeName)
+    {
+        return $this->localeData[$localeName]['id'];
+    }
 
 }

@@ -26,18 +26,85 @@ use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatImporter;
  */
 class CategoryImporter extends AbstractIcecatImporter
 {
+    /**
+     * @var string
+     */
     protected $dataFilename = 'CategoriesList.xml';
 
-    public function import($locale)
+    /**
+     * @param string $localeName
+     * @param int $icecatLangId
+     *
+     */
+    public function import($localeName, $icecatLangId)
     {
         $xml = $this->xmlReader->getXml($this->dataFilename);
 
         $categoryCollection = $xml->xpath('//Category');
         foreach ($categoryCollection as $categoryNode) {
-            $attributes = $categoryNode->attributes();
-            dump($attributes);die;
+            $category = $this->getCategoryData($categoryNode, $icecatLangId);
+
+            dump($category);
+            die;
         }
 
+    }
+
+    /**
+     * @param string $filename
+     * @param int $icecatLangId
+     *
+     * @return []
+     */
+    protected function getCategoryData(\SimpleXMLElement $categoryNode, $icecatLangId)
+    {
+        $attributes = $categoryNode->attributes();
+
+        return [
+            'description' => $this->getDescription($categoryNode, $icecatLangId),
+            'name' => $this->getName($categoryNode, $icecatLangId),
+            'parent_id' => $this->getParentId($categoryNode, $icecatLangId),
+            'key' => (string) $attributes->UNCATID,
+        ];
+    }
+
+    /**
+     * @param \SimpleXMLElement $categoryNode
+     * @param int $icecatLangId
+     *
+     * @return string
+     */
+    protected function getDescription(\SimpleXMLElement $categoryNode, $icecatLangId)
+    {
+        return $this->getXmlAttributeValue(
+            $categoryNode,
+            sprintf('Description[@langid="%d"]', $icecatLangId)
+        );
+    }
+
+    /**
+     * @param \SimpleXMLElement $categoryNode
+     * @param int $icecatLangId
+     *
+     * @return string
+     */
+    protected function getName(\SimpleXMLElement $categoryNode, $icecatLangId)
+    {
+        return $this->getXmlAttributeValue(
+            $categoryNode,
+            sprintf('Name[@langid="%d"]', $icecatLangId)
+        );
+    }
+
+    /**
+     * @param \SimpleXMLElement $categoryNode
+     * @param int $icecatLangId
+     *
+     * @return string
+     */
+    protected function getParentId(\SimpleXMLElement $categoryNode, $icecatLangId)
+    {
+        return $this->getXmlAttributeValue($categoryNode, 'ParentCategory', 'ID');
     }
 
 }

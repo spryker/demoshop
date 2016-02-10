@@ -13,11 +13,13 @@ abstract class AbstractIcecatImporter
     protected $xmlReader;
 
     /**
-     * @param string $locale
+     * @param string $localeName
+     * @param $icecatLangId
+     * @return
+     * @internal param int $icecatLocaleId
      *
-     * @return void
      */
-    abstract public function import($locale);
+    abstract public function import($localeName, $icecatLangId);
 
     /**
      * IcecatInstaller constructor.
@@ -25,6 +27,30 @@ abstract class AbstractIcecatImporter
     public function __construct(IcecatReaderInterface $xmlReader)
     {
         $this->xmlReader = $xmlReader;
+    }
+
+    /**
+     * @param \SimpleXMLElement $xmlElement
+     * @param string $path
+     * @param string $attributeName
+     *
+     * @return null|string
+     */
+    protected function getXmlAttributeValue(\SimpleXMLElement $xmlElement, $path, $attributeName='Value')
+    {
+        $data = $xmlElement->xpath($path);
+        if (!$data) {
+            return null;
+        }
+
+        $data = current($data);
+        if (!$data) {
+            return null;
+        }
+
+        $attributes = $data->attributes();
+
+        return (string) $attributes->{$attributeName};
     }
 
 }

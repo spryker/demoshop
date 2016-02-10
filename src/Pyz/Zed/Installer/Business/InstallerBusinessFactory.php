@@ -5,6 +5,8 @@ namespace Pyz\Zed\Installer\Business;
 use Pyz\Zed\Installer\Business\Model\Icecat\IcecatInstaller;
 use Pyz\Zed\Installer\Business\Model\Icecat\IcecatReader;
 use Pyz\Zed\Installer\Business\Model\Icecat\Importer\CategoryImporter;
+use Pyz\Zed\Installer\Business\Model\Icecat\Importer\LocaleImporter;
+use Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductImporter;
 use Pyz\Zed\Installer\InstallerConfig;
 use Spryker\Zed\Installer\Business\InstallerBusinessFactory as SprykerInstallerBusinessFactory;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -24,8 +26,8 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
 
         return [
             InstallerConfig::CATEGORY_RESOURCE => new CategoryImporter($reader),
-            //InstallerConfig::LOCALE_RESOURCE => new IcecatLocaleImporter($output, $locale, $xmlReader),
-            //InstallerConfig::PRODUCT_RESOURCE => new IcecatProductImporter($output, $locale, $xmlReader),
+            InstallerConfig::LOCALE_RESOURCE => new LocaleImporter($reader),
+            InstallerConfig::PRODUCT_RESOURCE => new ProductImporter($reader),
         ];
     }
 

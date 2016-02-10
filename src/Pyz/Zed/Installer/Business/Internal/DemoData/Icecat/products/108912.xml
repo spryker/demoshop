@@ -1,406 +1,806 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE ICECAT-interface SYSTEM "http://data.icecat.biz/dtd/ICECAT-interface_response.dtd">
 <!-- source: Icecat.biz 2016 -->
-<ICECAT-interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://data.icecat.biz/xsd/ICECAT-interface_response.xsd">
-   <Product Code="1" HighPic="http://images.icecat.biz/img/norm/high/108912-1129.jpg" HighPicHeight="500" HighPicSize="103839" HighPicWidth="500" ID="108912" LowPic="http://images.icecat.biz/img/norm/low/108912-1129.jpg" LowPicHeight="200" LowPicSize="38409" LowPicWidth="200" Name="UG-3350" Pic500x500="" Pic500x500Height="0" Pic500x500Size="0" Pic500x500Width="0" Prod_id="UG-3350" Quality="ICECAT" ReleaseDate="2005-06-27" ThumbPic="http://images.icecat.biz/thumbs/108912.jpg" ThumbPicSize="7732" Title="Panasonic UG-3350">
-    <Category ID="375">
-    <Name ID="751" Value="laser toner &amp; cartridges" langid="1"/>
-<Name ID="1594677" Value="toners &amp; lasercartridges" langid="2"/>
-<Name ID="344035" Value="cartouches toner et laser" langid="3"/>
-<Name ID="437048" Value="Tonerkassetten" langid="4"/>
-<Name ID="454462" Value="cartucce toner e laser" langid="5"/>
-<Name ID="496573" Value="tóner y cartuchos láser" langid="6"/>
-<Name ID="603870" Value="toner og laserpatroner" langid="7"/>
-<Name ID="530484" Value="тонеры и картриджи для лазерных принтеров" langid="8"/>
-<Name ID="463313" Value="Toners &amp; Laser Cartridges" langid="9"/>
-<Name ID="1354529" Value="tôners para laser &amp; tinteiros" langid="10"/>
-<Name ID="1357033" Value="tóneres e tinteiros a laser" langid="11"/>
-<Name ID="521960" Value="墨粉&amp;激光打印机碳粉" langid="12"/>
-<Name ID="1235779" Value="lasertoners &amp; patroner" langid="13"/>
-<Name ID="514338" Value="tonery i cartridge laserowe" langid="14"/>
-<Name ID="178620" Value="tonerové náplně" langid="15"/>
-<Name ID="257491" Value="tonerek és lézerpatronok" langid="16"/>
-<Name ID="1239674" Value="laservärit ja -kasetit" langid="17"/>
-<Name ID="1241736" Value="γραφίτης για laser &amp; δοχεία" langid="18"/>
-<Name ID="147809" Value="toner- &amp; laserpatroner" langid="19"/>
-<Name ID="436079" Value="tonerler &amp; lazer kartuşlar" langid="20"/>
-<Name ID="162057" Value="тонери за лазерни устройства" langid="21"/>
-<Name ID="155374" Value="ტონერები და ლაზერული ქართრიჯები" langid="22"/>
-<Name ID="1233607" Value="tonere și cartușe pentru imprimante laser" langid="23"/>
-<Name ID="171198" Value="toneri i laserski kertridzi" langid="24"/>
-<Name ID="198510" Value="тонер і картриджі для лазерних принтерів" langid="25"/>
-<Name ID="224368" Value="トナー&amp;レーザーカートリッジ" langid="26"/>
-<Name ID="495600" Value="tòner i cartutxos làser" langid="27"/>
-<Name ID="717522" Value="laser toner &amp; cartridges" langid="28"/>
-<Name ID="310288" Value="toneri i laserske patrone" langid="29"/>
-<Name ID="286890" Value="احبار و خراطيش طابعة الليزر" langid="30"/>
-<Name ID="1918051" Value="hộp mực in cho máy in laser" langid="31"/>
-<Name ID="478718" Value="토너&amp;레이저 카트리지" langid="32"/>
-<Name ID="717523" Value="laser toner &amp; cartridges" langid="33"/>
-<Name ID="717524" Value="laser toner &amp; cartridges" langid="34"/>
-<Name ID="488820" Value="laser toner &amp; cartridges" langid="35"/>
-<Name ID="717525" Value="laser toner &amp; cartridges" langid="36"/>
-<Name ID="566951" Value="碳粉匣" langid="37"/>
-<Name ID="549254" Value="טונרים ומחסניות דיו ללייזר" langid="38"/>
-<Name ID="551698" Value="toneriai ir lazerinės kasetės" langid="39"/>
-<Name ID="582930" Value="tonera &amp; lāzera kārtridži" langid="40"/>
-<Name ID="717526" Value="laser toner &amp; cartridges" langid="41"/>
-<Name ID="855429" Value="Tonerkassetten" langid="42"/>
-<Name ID="885797" Value="toner &amp; kartrid laser" langid="43"/>
-<Name ID="937304" Value="tonerové náplne" langid="44"/>
-<Name ID="1186786" Value="تونر لیزری و کارتریج" langid="45"/>
-<Name ID="1438123" Value="tóner y cartuchos láser" langid="46"/>
-<Name ID="1873520" Value="lasertooner ja -kassetid" langid="47"/>
-<Name ID="1567010" Value="Tonerkassetten" langid="48"/>
-<Name ID="1537861" Value="cartouches toner et laser" langid="49"/>
-<Name ID="1597655" Value="toners &amp; lasercartridges" langid="50"/>
-<Name ID="1869048" Value="ผงหมึกเลเซอร์และตลับหมึก" langid="51"/>
+<ICECAT-interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:noNamespaceSchemaLocation="http://data.icecat.biz/xsd/ICECAT-interface_response.xsd">
+    <Product Code="1" HighPic="http://images.icecat.biz/img/norm/high/108912-1129.jpg" HighPicHeight="500"
+             HighPicSize="103839" HighPicWidth="500" ID="108912"
+             LowPic="http://images.icecat.biz/img/norm/low/108912-1129.jpg" LowPicHeight="200" LowPicSize="38409"
+             LowPicWidth="200" Name="UG-3350" Pic500x500="" Pic500x500Height="0" Pic500x500Size="0" Pic500x500Width="0"
+             Prod_id="UG-3350" Quality="ICECAT" ReleaseDate="2005-06-27"
+             ThumbPic="http://images.icecat.biz/thumbs/108912.jpg" ThumbPicSize="7732" Title="Panasonic UG-3350">
+        <Category ID="375">
+            <Name ID="751" Value="laser toner &amp; cartridges" langid="1"/>
+            <Name ID="1594677" Value="toners &amp; lasercartridges" langid="2"/>
+            <Name ID="344035" Value="cartouches toner et laser" langid="3"/>
+            <Name ID="437048" Value="Tonerkassetten" langid="4"/>
+            <Name ID="454462" Value="cartucce toner e laser" langid="5"/>
+            <Name ID="496573" Value="tóner y cartuchos láser" langid="6"/>
+            <Name ID="603870" Value="toner og laserpatroner" langid="7"/>
+            <Name ID="530484" Value="тонеры и картриджи для лазерных принтеров" langid="8"/>
+            <Name ID="463313" Value="Toners &amp; Laser Cartridges" langid="9"/>
+            <Name ID="1354529" Value="tôners para laser &amp; tinteiros" langid="10"/>
+            <Name ID="1357033" Value="tóneres e tinteiros a laser" langid="11"/>
+            <Name ID="521960" Value="墨粉&amp;激光打印机碳粉" langid="12"/>
+            <Name ID="1235779" Value="lasertoners &amp; patroner" langid="13"/>
+            <Name ID="514338" Value="tonery i cartridge laserowe" langid="14"/>
+            <Name ID="178620" Value="tonerové náplně" langid="15"/>
+            <Name ID="257491" Value="tonerek és lézerpatronok" langid="16"/>
+            <Name ID="1239674" Value="laservärit ja -kasetit" langid="17"/>
+            <Name ID="1241736" Value="γραφίτης για laser &amp; δοχεία" langid="18"/>
+            <Name ID="147809" Value="toner- &amp; laserpatroner" langid="19"/>
+            <Name ID="436079" Value="tonerler &amp; lazer kartuşlar" langid="20"/>
+            <Name ID="162057" Value="тонери за лазерни устройства" langid="21"/>
+            <Name ID="155374" Value="ტონერები და ლაზერული ქართრიჯები" langid="22"/>
+            <Name ID="1233607" Value="tonere și cartușe pentru imprimante laser" langid="23"/>
+            <Name ID="171198" Value="toneri i laserski kertridzi" langid="24"/>
+            <Name ID="198510" Value="тонер і картриджі для лазерних принтерів" langid="25"/>
+            <Name ID="224368" Value="トナー&amp;レーザーカートリッジ" langid="26"/>
+            <Name ID="495600" Value="tòner i cartutxos làser" langid="27"/>
+            <Name ID="717522" Value="laser toner &amp; cartridges" langid="28"/>
+            <Name ID="310288" Value="toneri i laserske patrone" langid="29"/>
+            <Name ID="286890" Value="احبار و خراطيش طابعة الليزر" langid="30"/>
+            <Name ID="1918051" Value="hộp mực in cho máy in laser" langid="31"/>
+            <Name ID="478718" Value="토너&amp;레이저 카트리지" langid="32"/>
+            <Name ID="717523" Value="laser toner &amp; cartridges" langid="33"/>
+            <Name ID="717524" Value="laser toner &amp; cartridges" langid="34"/>
+            <Name ID="488820" Value="laser toner &amp; cartridges" langid="35"/>
+            <Name ID="717525" Value="laser toner &amp; cartridges" langid="36"/>
+            <Name ID="566951" Value="碳粉匣" langid="37"/>
+            <Name ID="549254" Value="טונרים ומחסניות דיו ללייזר" langid="38"/>
+            <Name ID="551698" Value="toneriai ir lazerinės kasetės" langid="39"/>
+            <Name ID="582930" Value="tonera &amp; lāzera kārtridži" langid="40"/>
+            <Name ID="717526" Value="laser toner &amp; cartridges" langid="41"/>
+            <Name ID="855429" Value="Tonerkassetten" langid="42"/>
+            <Name ID="885797" Value="toner &amp; kartrid laser" langid="43"/>
+            <Name ID="937304" Value="tonerové náplne" langid="44"/>
+            <Name ID="1186786" Value="تونر لیزری و کارتریج" langid="45"/>
+            <Name ID="1438123" Value="tóner y cartuchos láser" langid="46"/>
+            <Name ID="1873520" Value="lasertooner ja -kassetid" langid="47"/>
+            <Name ID="1567010" Value="Tonerkassetten" langid="48"/>
+            <Name ID="1537861" Value="cartouches toner et laser" langid="49"/>
+            <Name ID="1597655" Value="toners &amp; lasercartridges" langid="50"/>
+            <Name ID="1869048" Value="ผงหมึกเลเซอร์และตลับหมึก" langid="51"/>
 
-    </Category>
-   	<CategoryFeatureGroup ID="10673" No="0">
-		<FeatureGroup ID="0">
-			<Name ID="5073" Value="Technical details" langid="1"/>
-			<Name ID="478422" Value="Technische details" langid="2"/>
-			<Name ID="344646" Value="Détails techniques" langid="3"/>
-			<Name ID="438000" Value="Technische Details" langid="4"/>
-			<Name ID="455293" Value="Dettagli tecnici" langid="5"/>
-			<Name ID="510134" Value="Detalles técnicos" langid="6"/>
-			<Name ID="55725" Value="Tekniske detaljer" langid="7"/>
-			<Name ID="537535" Value="Технические характеристики" langid="8"/>
-			<Name ID="470426" Value="Technical Details" langid="9"/>
-			<Name ID="1351220" Value="Características técnicas" langid="10"/>
-			<Name ID="422703" Value="Detalhes técnicos" langid="11"/>
-			<Name ID="529036" Value="技术细节" langid="12"/>
-			<Name ID="96141" Value="Tekniska data" langid="13"/>
-			<Name ID="521459" Value="Szczegóły Techniczne" langid="14"/>
-			<Name ID="77988" Value="Technické detaily" langid="15"/>
-			<Name ID="263813" Value="Technikai részletek" langid="16"/>
-			<Name ID="137801" Value="Tekniset tiedot" langid="17"/>
-			<Name ID="269530" Value="Τεχνικές λεπτομέρειες" langid="18"/>
-			<Name ID="153341" Value="Tekniske detaljer" langid="19"/>
-			<Name ID="437875" Value="Teknik detaylar" langid="20"/>
-			<Name ID="167593" Value="Друга техническа информация" langid="21"/>
-			<Name ID="154982" Value="ტექნიკური დეტალები" langid="22"/>
-			<Name ID="422828" Value="Detalii tehnice" langid="23"/>
-			<Name ID="171899" Value="Tehnički detalji" langid="24"/>
-			<Name ID="199442" Value="Технічні характеристики" langid="25"/>
-			<Name ID="225068" Value="技術的細目" langid="26"/>
-			<Name ID="510009" Value="Detalls tècnics" langid="27"/>
-			<Name ID="924740" Value="Detalles técnicos" langid="28"/>
-			<Name ID="316745" Value="Tehničke pojedinosti" langid="29"/>
-			<Name ID="293371" Value="التفاصيل الفنية" langid="30"/>
-			<Name ID="302366" Value="Chi tiết kỹ thuật" langid="31"/>
-			<Name ID="479545" Value="기술 상세 특성" langid="32"/>
-			<Name ID="924741" Value="Технички детали" langid="33"/>
-			<Name ID="924742" Value="Tehnične podrobnosti" langid="34"/>
-			<Name ID="488087" Value="Technical Details" langid="35"/>
-			<Name ID="924743" Value="Technical details" langid="36"/>
-			<Name ID="513040" Value="技術細節" langid="37"/>
-			<Name ID="549370" Value="פרטים טכניים" langid="38"/>
-			<Name ID="558655" Value="Techniniai duomenys" langid="39"/>
-			<Name ID="583676" Value="Tehniskās detaļas" langid="40"/>
-			<Name ID="924744" Value="Technical details" langid="41"/>
-			<Name ID="857053" Value="Technische Details" langid="42"/>
-			<Name ID="896134" Value="rincian teknis" langid="43"/>
-			<Name ID="936877" Value="Technické detaily" langid="44"/>
-			<Name ID="1188337" Value="جزئیات فنی" langid="45"/>
-			<Name ID="1444115" Value="Detalles técnicos" langid="46"/>
-			<Name ID="1898210" Value="Tehnilised andmed" langid="47"/>
-			<Name ID="1591476" Value="Technische Details" langid="48"/>
-			<Name ID="1564397" Value="Détails techniques" langid="49"/>
-			<Name ID="1537451" Value="Technische details" langid="50"/>
-			<Name ID="1873102" Value="รายละเอียดด้านเทคนิค" langid="51"/>
-		</FeatureGroup>
-	</CategoryFeatureGroup>
-	<CategoryFeatureGroup ID="2279" No="-1">
-		<FeatureGroup ID="14">
-			<Name ID="5023" Value="Weight &amp; dimensions" langid="1"/>
-			<Name ID="478407" Value="Gewicht en omvang" langid="2"/>
-			<Name ID="344631" Value="Poids et dimensions" langid="3"/>
-			<Name ID="437985" Value="Gewicht &amp; Abmessungen" langid="4"/>
-			<Name ID="455278" Value="Dimensioni e peso" langid="5"/>
-			<Name ID="510119" Value="Peso y dimensiones" langid="6"/>
-			<Name ID="605994" Value="Vægt og størrelse" langid="7"/>
-			<Name ID="537520" Value="Вес и размеры" langid="8"/>
-			<Name ID="470411" Value="Weight &amp; Dimensions" langid="9"/>
-			<Name ID="1351205" Value="Dimensões e peso" langid="10"/>
-			<Name ID="422688" Value="Pesos e dimensões" langid="11"/>
-			<Name ID="529021" Value="重量和尺寸" langid="12"/>
-			<Name ID="96126" Value="Vikt &amp; dimension" langid="13"/>
-			<Name ID="521444" Value="Waga i rozmiary" langid="14"/>
-			<Name ID="77997" Value="Hmotnost a rozměry" langid="15"/>
-			<Name ID="263798" Value="Súly és méret" langid="16"/>
-			<Name ID="137786" Value="Paino ja mitat" langid="17"/>
-			<Name ID="269515" Value="Βάρος και διαστάσεις" langid="18"/>
-			<Name ID="153326" Value="Vekt og dimensjoner" langid="19"/>
-			<Name ID="437860" Value="Ağırlık &amp; boyutlar" langid="20"/>
-			<Name ID="167578" Value="Тегло и размери" langid="21"/>
-			<Name ID="154967" Value="წონა და ზომები" langid="22"/>
-			<Name ID="422813" Value="Greutate şi dimensiuni" langid="23"/>
-			<Name ID="171884" Value="Težina i dimenzije" langid="24"/>
-			<Name ID="199454" Value="Вага та розміри" langid="25"/>
-			<Name ID="225053" Value="重量/寸法" langid="26"/>
-			<Name ID="509994" Value="Pes i dimensions" langid="27"/>
-			<Name ID="316730" Value="Težina i dimenzije" langid="29"/>
-			<Name ID="293356" Value="الوزن والأبعاد" langid="30"/>
-			<Name ID="302351" Value="Trọng lượng và kích thước" langid="31"/>
-			<Name ID="980658" Value="무게 &amp; 크기" langid="32"/>
-			<Name ID="488091" Value="Weight &amp; Dimensions" langid="35"/>
-			<Name ID="1003308" Value="重量及尺寸" langid="37"/>
-			<Name ID="549355" Value="משקל ומידות" langid="38"/>
-			<Name ID="558640" Value="Svoris ir matmenys" langid="39"/>
-			<Name ID="583661" Value="Svars&amp;dimensijas" langid="40"/>
-			<Name ID="857030" Value="Gewicht u. Abmessungen" langid="42"/>
-			<Name ID="896119" Value="Berat dan dimensi" langid="43"/>
-			<Name ID="936862" Value="Hmotnosť a rozmery" langid="44"/>
-			<Name ID="1188321" Value="وزن و ابعاد" langid="45"/>
-			<Name ID="1444127" Value="Peso y dimensiones" langid="46"/>
-			<Name ID="1898221" Value="Kaal ja mõõtmed" langid="47"/>
-			<Name ID="1591488" Value="Gewicht &amp; Abmessungen" langid="48"/>
-			<Name ID="1564409" Value="Poids et dimensions" langid="49"/>
-			<Name ID="1537463" Value="Gewicht en omvang" langid="50"/>
-			<Name ID="1873114" Value="น้ำหนักและขนาด" langid="51"/>
-		</FeatureGroup>
-	</CategoryFeatureGroup>
-	<CategoryFeatureGroup ID="2280" No="5">
-		<FeatureGroup ID="28">
-			<Name ID="5067" Value="Operational conditions" langid="1"/>
-			<Name ID="478420" Value="Eisen aan de omgeving" langid="2"/>
-			<Name ID="344644" Value="Conditions environnementales" langid="3"/>
-			<Name ID="437998" Value="Betriebsbedingungen" langid="4"/>
-			<Name ID="455291" Value="Condizioni ambientali" langid="5"/>
-			<Name ID="510132" Value="Condiciones ambientales" langid="6"/>
-			<Name ID="55723" Value="Miljømæssige betingelser" langid="7"/>
-			<Name ID="537533" Value="Внешние условия" langid="8"/>
-			<Name ID="470424" Value="Operational Conditions" langid="9"/>
-			<Name ID="1351219" Value="Condições de operação" langid="10"/>
-			<Name ID="422701" Value="Condições ambientais" langid="11"/>
-			<Name ID="529034" Value="环境条件" langid="12"/>
-			<Name ID="1017627" Value="Miljökrav" langid="13"/>
-			<Name ID="521457" Value="Warunki zewnętrzne" langid="14"/>
-			<Name ID="1799701" Value="Provozní podmínky" langid="15"/>
-			<Name ID="263811" Value="Környezeti körülmények" langid="16"/>
-			<Name ID="901869" Value="Ympäristöolosuhteet" langid="17"/>
-			<Name ID="269528" Value="Περιβαλλοντικές συνθήκες" langid="18"/>
-			<Name ID="153339" Value="Miljømessige forhold" langid="19"/>
-			<Name ID="437873" Value="Çevresel koşullar" langid="20"/>
-			<Name ID="167591" Value="Устойчивост на външната среда" langid="21"/>
-			<Name ID="154980" Value="გარემო პირობები" langid="22"/>
-			<Name ID="422826" Value="Conditii de mediu" langid="23"/>
-			<Name ID="171897" Value="Radni uslovi" langid="24"/>
-			<Name ID="199468" Value="Зовнішні умови" langid="25"/>
-			<Name ID="225066" Value="環境条件" langid="26"/>
-			<Name ID="510007" Value="Condicions ambientals" langid="27"/>
-			<Name ID="316743" Value="Radni uvjeti" langid="29"/>
-			<Name ID="293369" Value="الظروف البيئية" langid="30"/>
-			<Name ID="302364" Value="Điều kiện môi trường" langid="31"/>
-			<Name ID="479543" Value="친환경 조건" langid="32"/>
-			<Name ID="488045" Value="Operational Conditions" langid="35"/>
-			<Name ID="992921" Value="操作條件" langid="37"/>
-			<Name ID="549368" Value="תנאי הסביבה" langid="38"/>
-			<Name ID="558653" Value="Aplinkos sąlygos" langid="39"/>
-			<Name ID="583674" Value="Ārējās vides apstākļi" langid="40"/>
-			<Name ID="857050" Value="Betriebsbedingungen" langid="42"/>
-			<Name ID="896133" Value="kondisi lingkungan" langid="43"/>
-			<Name ID="1204255" Value="Prevádzkové prostredie" langid="44"/>
-			<Name ID="1188335" Value="شرایط عملیاتی" langid="45"/>
-			<Name ID="1444140" Value="Condiciones ambientales" langid="46"/>
-			<Name ID="1898235" Value="Töötingimused" langid="47"/>
-			<Name ID="1591502" Value="Betriebsbedingungen" langid="48"/>
-			<Name ID="1564423" Value="Conditions environnementales" langid="49"/>
-			<Name ID="1537477" Value="Eisen aan de omgeving" langid="50"/>
-			<Name ID="1935943" Value="เงื่อนไขในการทำงาน" langid="51"/>
-		</FeatureGroup>
-	</CategoryFeatureGroup>
-	<CategoryFeatureGroup ID="10670" No="-10">
-		<FeatureGroup ID="67">
-			<Name ID="27423" Value="Packaging data" langid="1"/>
-			<Name ID="478456" Value="Verpakking" langid="2"/>
-			<Name ID="344680" Value="Emballage" langid="3"/>
-			<Name ID="438034" Value="Verpackungsinformation" langid="4"/>
-			<Name ID="455327" Value="Packaging" langid="5"/>
-			<Name ID="510168" Value="Empaquetado" langid="6"/>
-			<Name ID="606011" Value="Information Pakning" langid="7"/>
-			<Name ID="537569" Value="Данные об упаковке" langid="8"/>
-			<Name ID="470460" Value="Packaging Data" langid="9"/>
-			<Name ID="1351253" Value="Dados da embalagem" langid="10"/>
-			<Name ID="422737" Value="Embalagem" langid="11"/>
-			<Name ID="529070" Value="封装机" langid="12"/>
-			<Name ID="96175" Value="Förpackning" langid="13"/>
-			<Name ID="521493" Value="Pakowanie danych" langid="14"/>
-			<Name ID="982565" Value="Údaje o balení" langid="15"/>
-			<Name ID="263847" Value="Csomagolás" langid="16"/>
-			<Name ID="1369627" Value="Pakkaustiedot" langid="17"/>
-			<Name ID="269564" Value="Πακέτα δεδομένων" langid="18"/>
-			<Name ID="153375" Value="Datainnpakking" langid="19"/>
-			<Name ID="437909" Value="Ambalajlama bilgisi" langid="20"/>
-			<Name ID="167627" Value="Пакетиране на данни" langid="21"/>
-			<Name ID="155016" Value="შეფუთვის მონაცემები" langid="22"/>
-			<Name ID="422862" Value="Datele de ambalare" langid="23"/>
-			<Name ID="171933" Value="pakovanje podataka" langid="24"/>
-			<Name ID="876840" Value="Дані про упаковку" langid="25"/>
-			<Name ID="225102" Value="パッケージ時データ" langid="26"/>
-			<Name ID="510043" Value="Dades de l'embalatge" langid="27"/>
-			<Name ID="316779" Value="Podaci o ambalaži" langid="29"/>
-			<Name ID="293405" Value="تعبئة البيانات" langid="30"/>
-			<Name ID="302400" Value="Dữ liệu đóng gói" langid="31"/>
-			<Name ID="479579" Value="패키지 데이타" langid="32"/>
-			<Name ID="487798" Value="Packaging Data" langid="35"/>
-			<Name ID="992948" Value="組件數據" langid="37"/>
-			<Name ID="549404" Value="חבילות מידע" langid="38"/>
-			<Name ID="558689" Value="Pakavimo duomenys" langid="39"/>
-			<Name ID="583710" Value="Informācija par iepakojumu" langid="40"/>
-			<Name ID="859240" Value="Verpacken" langid="42"/>
-			<Name ID="896169" Value="paket data" langid="43"/>
-			<Name ID="1204260" Value="Údaje o balení" langid="44"/>
-			<Name ID="1188372" Value="داده های بسته بندی" langid="45"/>
-			<Name ID="1444175" Value="Empaquetado de datos" langid="46"/>
-			<Name ID="1898262" Value="Pakendi andmed" langid="47"/>
-			<Name ID="1591537" Value="Verpackungsinformation" langid="48"/>
-			<Name ID="1564458" Value="Emballage" langid="49"/>
-			<Name ID="1537512" Value="Verpakking" langid="50"/>
-			<Name ID="1873157" Value="ข้อมูลบรรจุภัณฑ์" langid="51"/>
-		</FeatureGroup>
-	</CategoryFeatureGroup>
-	<CategoryFeatureGroup ID="10671" No="10">
-		<FeatureGroup ID="185">
-			<Name ID="1219853" Value="Features" langid="1"/>
-			<Name ID="1219854" Value="Kenmerken" langid="2"/>
-			<Name ID="1277714" Value="caractéristiques" langid="3"/>
-			<Name ID="1283170" Value="Funktionen" langid="4"/>
-			<Name ID="1318116" Value="Caratteristiche" langid="5"/>
-			<Name ID="1219858" Value="Características" langid="6"/>
-			<Name ID="1297010" Value="Funktioner" langid="7"/>
-			<Name ID="1219860" Value="Свойства" langid="8"/>
-			<Name ID="1351353" Value="Características" langid="10"/>
-			<Name ID="1364166" Value="Características" langid="11"/>
-			<Name ID="1659855" Value="Egenskaper" langid="13"/>
-			<Name ID="1366526" Value="Opis ogólny" langid="14"/>
-			<Name ID="1329332" Value="Vlastnosti" langid="15"/>
-			<Name ID="1252035" Value="Ominaisuudet" langid="17"/>
-			<Name ID="1636729" Value="Χαρακτηριστικά" langid="18"/>
-			<Name ID="1219872" Value="Özellikler" langid="20"/>
-			<Name ID="1393077" Value="Caracteristici" langid="23"/>
-			<Name ID="1219877" Value="Властивості" langid="25"/>
-			<Name ID="1219880" Value="Características" langid="28"/>
-			<Name ID="1490778" Value="مزايا" langid="30"/>
-			<Name ID="1416076" Value="產品特點" langid="37"/>
-			<Name ID="1916329" Value="Īpašības" langid="40"/>
-			<Name ID="1272022" Value="Vlastnosti" langid="44"/>
-			<Name ID="1444282" Value="Características" langid="46"/>
-			<Name ID="1898352" Value="Funktsioonid" langid="47"/>
-			<Name ID="1591646" Value="Funktionen" langid="48"/>
-			<Name ID="1564567" Value="caractéristiques" langid="49"/>
-			<Name ID="1537615" Value="Kenmerken" langid="50"/>
-			<Name ID="1935973" Value="คุณสมบัติ" langid="51"/>
-		</FeatureGroup>
-	</CategoryFeatureGroup>
+        </Category>
+        <CategoryFeatureGroup ID="10673" No="0">
+            <FeatureGroup ID="0">
+                <Name ID="5073" Value="Technical details" langid="1"/>
+                <Name ID="478422" Value="Technische details" langid="2"/>
+                <Name ID="344646" Value="Détails techniques" langid="3"/>
+                <Name ID="438000" Value="Technische Details" langid="4"/>
+                <Name ID="455293" Value="Dettagli tecnici" langid="5"/>
+                <Name ID="510134" Value="Detalles técnicos" langid="6"/>
+                <Name ID="55725" Value="Tekniske detaljer" langid="7"/>
+                <Name ID="537535" Value="Технические характеристики" langid="8"/>
+                <Name ID="470426" Value="Technical Details" langid="9"/>
+                <Name ID="1351220" Value="Características técnicas" langid="10"/>
+                <Name ID="422703" Value="Detalhes técnicos" langid="11"/>
+                <Name ID="529036" Value="技术细节" langid="12"/>
+                <Name ID="96141" Value="Tekniska data" langid="13"/>
+                <Name ID="521459" Value="Szczegóły Techniczne" langid="14"/>
+                <Name ID="77988" Value="Technické detaily" langid="15"/>
+                <Name ID="263813" Value="Technikai részletek" langid="16"/>
+                <Name ID="137801" Value="Tekniset tiedot" langid="17"/>
+                <Name ID="269530" Value="Τεχνικές λεπτομέρειες" langid="18"/>
+                <Name ID="153341" Value="Tekniske detaljer" langid="19"/>
+                <Name ID="437875" Value="Teknik detaylar" langid="20"/>
+                <Name ID="167593" Value="Друга техническа информация" langid="21"/>
+                <Name ID="154982" Value="ტექნიკური დეტალები" langid="22"/>
+                <Name ID="422828" Value="Detalii tehnice" langid="23"/>
+                <Name ID="171899" Value="Tehnički detalji" langid="24"/>
+                <Name ID="199442" Value="Технічні характеристики" langid="25"/>
+                <Name ID="225068" Value="技術的細目" langid="26"/>
+                <Name ID="510009" Value="Detalls tècnics" langid="27"/>
+                <Name ID="924740" Value="Detalles técnicos" langid="28"/>
+                <Name ID="316745" Value="Tehničke pojedinosti" langid="29"/>
+                <Name ID="293371" Value="التفاصيل الفنية" langid="30"/>
+                <Name ID="302366" Value="Chi tiết kỹ thuật" langid="31"/>
+                <Name ID="479545" Value="기술 상세 특성" langid="32"/>
+                <Name ID="924741" Value="Технички детали" langid="33"/>
+                <Name ID="924742" Value="Tehnične podrobnosti" langid="34"/>
+                <Name ID="488087" Value="Technical Details" langid="35"/>
+                <Name ID="924743" Value="Technical details" langid="36"/>
+                <Name ID="513040" Value="技術細節" langid="37"/>
+                <Name ID="549370" Value="פרטים טכניים" langid="38"/>
+                <Name ID="558655" Value="Techniniai duomenys" langid="39"/>
+                <Name ID="583676" Value="Tehniskās detaļas" langid="40"/>
+                <Name ID="924744" Value="Technical details" langid="41"/>
+                <Name ID="857053" Value="Technische Details" langid="42"/>
+                <Name ID="896134" Value="rincian teknis" langid="43"/>
+                <Name ID="936877" Value="Technické detaily" langid="44"/>
+                <Name ID="1188337" Value="جزئیات فنی" langid="45"/>
+                <Name ID="1444115" Value="Detalles técnicos" langid="46"/>
+                <Name ID="1898210" Value="Tehnilised andmed" langid="47"/>
+                <Name ID="1591476" Value="Technische Details" langid="48"/>
+                <Name ID="1564397" Value="Détails techniques" langid="49"/>
+                <Name ID="1537451" Value="Technische details" langid="50"/>
+                <Name ID="1873102" Value="รายละเอียดด้านเทคนิค" langid="51"/>
+            </FeatureGroup>
+        </CategoryFeatureGroup>
+        <CategoryFeatureGroup ID="2279" No="-1">
+            <FeatureGroup ID="14">
+                <Name ID="5023" Value="Weight &amp; dimensions" langid="1"/>
+                <Name ID="478407" Value="Gewicht en omvang" langid="2"/>
+                <Name ID="344631" Value="Poids et dimensions" langid="3"/>
+                <Name ID="437985" Value="Gewicht &amp; Abmessungen" langid="4"/>
+                <Name ID="455278" Value="Dimensioni e peso" langid="5"/>
+                <Name ID="510119" Value="Peso y dimensiones" langid="6"/>
+                <Name ID="605994" Value="Vægt og størrelse" langid="7"/>
+                <Name ID="537520" Value="Вес и размеры" langid="8"/>
+                <Name ID="470411" Value="Weight &amp; Dimensions" langid="9"/>
+                <Name ID="1351205" Value="Dimensões e peso" langid="10"/>
+                <Name ID="422688" Value="Pesos e dimensões" langid="11"/>
+                <Name ID="529021" Value="重量和尺寸" langid="12"/>
+                <Name ID="96126" Value="Vikt &amp; dimension" langid="13"/>
+                <Name ID="521444" Value="Waga i rozmiary" langid="14"/>
+                <Name ID="77997" Value="Hmotnost a rozměry" langid="15"/>
+                <Name ID="263798" Value="Súly és méret" langid="16"/>
+                <Name ID="137786" Value="Paino ja mitat" langid="17"/>
+                <Name ID="269515" Value="Βάρος και διαστάσεις" langid="18"/>
+                <Name ID="153326" Value="Vekt og dimensjoner" langid="19"/>
+                <Name ID="437860" Value="Ağırlık &amp; boyutlar" langid="20"/>
+                <Name ID="167578" Value="Тегло и размери" langid="21"/>
+                <Name ID="154967" Value="წონა და ზომები" langid="22"/>
+                <Name ID="422813" Value="Greutate şi dimensiuni" langid="23"/>
+                <Name ID="171884" Value="Težina i dimenzije" langid="24"/>
+                <Name ID="199454" Value="Вага та розміри" langid="25"/>
+                <Name ID="225053" Value="重量/寸法" langid="26"/>
+                <Name ID="509994" Value="Pes i dimensions" langid="27"/>
+                <Name ID="316730" Value="Težina i dimenzije" langid="29"/>
+                <Name ID="293356" Value="الوزن والأبعاد" langid="30"/>
+                <Name ID="302351" Value="Trọng lượng và kích thước" langid="31"/>
+                <Name ID="980658" Value="무게 &amp; 크기" langid="32"/>
+                <Name ID="488091" Value="Weight &amp; Dimensions" langid="35"/>
+                <Name ID="1003308" Value="重量及尺寸" langid="37"/>
+                <Name ID="549355" Value="משקל ומידות" langid="38"/>
+                <Name ID="558640" Value="Svoris ir matmenys" langid="39"/>
+                <Name ID="583661" Value="Svars&amp;dimensijas" langid="40"/>
+                <Name ID="857030" Value="Gewicht u. Abmessungen" langid="42"/>
+                <Name ID="896119" Value="Berat dan dimensi" langid="43"/>
+                <Name ID="936862" Value="Hmotnosť a rozmery" langid="44"/>
+                <Name ID="1188321" Value="وزن و ابعاد" langid="45"/>
+                <Name ID="1444127" Value="Peso y dimensiones" langid="46"/>
+                <Name ID="1898221" Value="Kaal ja mõõtmed" langid="47"/>
+                <Name ID="1591488" Value="Gewicht &amp; Abmessungen" langid="48"/>
+                <Name ID="1564409" Value="Poids et dimensions" langid="49"/>
+                <Name ID="1537463" Value="Gewicht en omvang" langid="50"/>
+                <Name ID="1873114" Value="น้ำหนักและขนาด" langid="51"/>
+            </FeatureGroup>
+        </CategoryFeatureGroup>
+        <CategoryFeatureGroup ID="2280" No="5">
+            <FeatureGroup ID="28">
+                <Name ID="5067" Value="Operational conditions" langid="1"/>
+                <Name ID="478420" Value="Eisen aan de omgeving" langid="2"/>
+                <Name ID="344644" Value="Conditions environnementales" langid="3"/>
+                <Name ID="437998" Value="Betriebsbedingungen" langid="4"/>
+                <Name ID="455291" Value="Condizioni ambientali" langid="5"/>
+                <Name ID="510132" Value="Condiciones ambientales" langid="6"/>
+                <Name ID="55723" Value="Miljømæssige betingelser" langid="7"/>
+                <Name ID="537533" Value="Внешние условия" langid="8"/>
+                <Name ID="470424" Value="Operational Conditions" langid="9"/>
+                <Name ID="1351219" Value="Condições de operação" langid="10"/>
+                <Name ID="422701" Value="Condições ambientais" langid="11"/>
+                <Name ID="529034" Value="环境条件" langid="12"/>
+                <Name ID="1017627" Value="Miljökrav" langid="13"/>
+                <Name ID="521457" Value="Warunki zewnętrzne" langid="14"/>
+                <Name ID="1799701" Value="Provozní podmínky" langid="15"/>
+                <Name ID="263811" Value="Környezeti körülmények" langid="16"/>
+                <Name ID="901869" Value="Ympäristöolosuhteet" langid="17"/>
+                <Name ID="269528" Value="Περιβαλλοντικές συνθήκες" langid="18"/>
+                <Name ID="153339" Value="Miljømessige forhold" langid="19"/>
+                <Name ID="437873" Value="Çevresel koşullar" langid="20"/>
+                <Name ID="167591" Value="Устойчивост на външната среда" langid="21"/>
+                <Name ID="154980" Value="გარემო პირობები" langid="22"/>
+                <Name ID="422826" Value="Conditii de mediu" langid="23"/>
+                <Name ID="171897" Value="Radni uslovi" langid="24"/>
+                <Name ID="199468" Value="Зовнішні умови" langid="25"/>
+                <Name ID="225066" Value="環境条件" langid="26"/>
+                <Name ID="510007" Value="Condicions ambientals" langid="27"/>
+                <Name ID="316743" Value="Radni uvjeti" langid="29"/>
+                <Name ID="293369" Value="الظروف البيئية" langid="30"/>
+                <Name ID="302364" Value="Điều kiện môi trường" langid="31"/>
+                <Name ID="479543" Value="친환경 조건" langid="32"/>
+                <Name ID="488045" Value="Operational Conditions" langid="35"/>
+                <Name ID="992921" Value="操作條件" langid="37"/>
+                <Name ID="549368" Value="תנאי הסביבה" langid="38"/>
+                <Name ID="558653" Value="Aplinkos sąlygos" langid="39"/>
+                <Name ID="583674" Value="Ārējās vides apstākļi" langid="40"/>
+                <Name ID="857050" Value="Betriebsbedingungen" langid="42"/>
+                <Name ID="896133" Value="kondisi lingkungan" langid="43"/>
+                <Name ID="1204255" Value="Prevádzkové prostredie" langid="44"/>
+                <Name ID="1188335" Value="شرایط عملیاتی" langid="45"/>
+                <Name ID="1444140" Value="Condiciones ambientales" langid="46"/>
+                <Name ID="1898235" Value="Töötingimused" langid="47"/>
+                <Name ID="1591502" Value="Betriebsbedingungen" langid="48"/>
+                <Name ID="1564423" Value="Conditions environnementales" langid="49"/>
+                <Name ID="1537477" Value="Eisen aan de omgeving" langid="50"/>
+                <Name ID="1935943" Value="เงื่อนไขในการทำงาน" langid="51"/>
+            </FeatureGroup>
+        </CategoryFeatureGroup>
+        <CategoryFeatureGroup ID="10670" No="-10">
+            <FeatureGroup ID="67">
+                <Name ID="27423" Value="Packaging data" langid="1"/>
+                <Name ID="478456" Value="Verpakking" langid="2"/>
+                <Name ID="344680" Value="Emballage" langid="3"/>
+                <Name ID="438034" Value="Verpackungsinformation" langid="4"/>
+                <Name ID="455327" Value="Packaging" langid="5"/>
+                <Name ID="510168" Value="Empaquetado" langid="6"/>
+                <Name ID="606011" Value="Information Pakning" langid="7"/>
+                <Name ID="537569" Value="Данные об упаковке" langid="8"/>
+                <Name ID="470460" Value="Packaging Data" langid="9"/>
+                <Name ID="1351253" Value="Dados da embalagem" langid="10"/>
+                <Name ID="422737" Value="Embalagem" langid="11"/>
+                <Name ID="529070" Value="封装机" langid="12"/>
+                <Name ID="96175" Value="Förpackning" langid="13"/>
+                <Name ID="521493" Value="Pakowanie danych" langid="14"/>
+                <Name ID="982565" Value="Údaje o balení" langid="15"/>
+                <Name ID="263847" Value="Csomagolás" langid="16"/>
+                <Name ID="1369627" Value="Pakkaustiedot" langid="17"/>
+                <Name ID="269564" Value="Πακέτα δεδομένων" langid="18"/>
+                <Name ID="153375" Value="Datainnpakking" langid="19"/>
+                <Name ID="437909" Value="Ambalajlama bilgisi" langid="20"/>
+                <Name ID="167627" Value="Пакетиране на данни" langid="21"/>
+                <Name ID="155016" Value="შეფუთვის მონაცემები" langid="22"/>
+                <Name ID="422862" Value="Datele de ambalare" langid="23"/>
+                <Name ID="171933" Value="pakovanje podataka" langid="24"/>
+                <Name ID="876840" Value="Дані про упаковку" langid="25"/>
+                <Name ID="225102" Value="パッケージ時データ" langid="26"/>
+                <Name ID="510043" Value="Dades de l'embalatge" langid="27"/>
+                <Name ID="316779" Value="Podaci o ambalaži" langid="29"/>
+                <Name ID="293405" Value="تعبئة البيانات" langid="30"/>
+                <Name ID="302400" Value="Dữ liệu đóng gói" langid="31"/>
+                <Name ID="479579" Value="패키지 데이타" langid="32"/>
+                <Name ID="487798" Value="Packaging Data" langid="35"/>
+                <Name ID="992948" Value="組件數據" langid="37"/>
+                <Name ID="549404" Value="חבילות מידע" langid="38"/>
+                <Name ID="558689" Value="Pakavimo duomenys" langid="39"/>
+                <Name ID="583710" Value="Informācija par iepakojumu" langid="40"/>
+                <Name ID="859240" Value="Verpacken" langid="42"/>
+                <Name ID="896169" Value="paket data" langid="43"/>
+                <Name ID="1204260" Value="Údaje o balení" langid="44"/>
+                <Name ID="1188372" Value="داده های بسته بندی" langid="45"/>
+                <Name ID="1444175" Value="Empaquetado de datos" langid="46"/>
+                <Name ID="1898262" Value="Pakendi andmed" langid="47"/>
+                <Name ID="1591537" Value="Verpackungsinformation" langid="48"/>
+                <Name ID="1564458" Value="Emballage" langid="49"/>
+                <Name ID="1537512" Value="Verpakking" langid="50"/>
+                <Name ID="1873157" Value="ข้อมูลบรรจุภัณฑ์" langid="51"/>
+            </FeatureGroup>
+        </CategoryFeatureGroup>
+        <CategoryFeatureGroup ID="10671" No="10">
+            <FeatureGroup ID="185">
+                <Name ID="1219853" Value="Features" langid="1"/>
+                <Name ID="1219854" Value="Kenmerken" langid="2"/>
+                <Name ID="1277714" Value="caractéristiques" langid="3"/>
+                <Name ID="1283170" Value="Funktionen" langid="4"/>
+                <Name ID="1318116" Value="Caratteristiche" langid="5"/>
+                <Name ID="1219858" Value="Características" langid="6"/>
+                <Name ID="1297010" Value="Funktioner" langid="7"/>
+                <Name ID="1219860" Value="Свойства" langid="8"/>
+                <Name ID="1351353" Value="Características" langid="10"/>
+                <Name ID="1364166" Value="Características" langid="11"/>
+                <Name ID="1659855" Value="Egenskaper" langid="13"/>
+                <Name ID="1366526" Value="Opis ogólny" langid="14"/>
+                <Name ID="1329332" Value="Vlastnosti" langid="15"/>
+                <Name ID="1252035" Value="Ominaisuudet" langid="17"/>
+                <Name ID="1636729" Value="Χαρακτηριστικά" langid="18"/>
+                <Name ID="1219872" Value="Özellikler" langid="20"/>
+                <Name ID="1393077" Value="Caracteristici" langid="23"/>
+                <Name ID="1219877" Value="Властивості" langid="25"/>
+                <Name ID="1219880" Value="Características" langid="28"/>
+                <Name ID="1490778" Value="مزايا" langid="30"/>
+                <Name ID="1416076" Value="產品特點" langid="37"/>
+                <Name ID="1916329" Value="Īpašības" langid="40"/>
+                <Name ID="1272022" Value="Vlastnosti" langid="44"/>
+                <Name ID="1444282" Value="Características" langid="46"/>
+                <Name ID="1898352" Value="Funktsioonid" langid="47"/>
+                <Name ID="1591646" Value="Funktionen" langid="48"/>
+                <Name ID="1564567" Value="caractéristiques" langid="49"/>
+                <Name ID="1537615" Value="Kenmerken" langid="50"/>
+                <Name ID="1935973" Value="คุณสมบัติ" langid="51"/>
+            </FeatureGroup>
+        </CategoryFeatureGroup>
 
-     <EANCode EAN="5025232253685"/>
-   
-   <ReasonsToBuy/>
-   <ProductBundled/>
-       <ProductDescription ID="150221" LongDesc="The Panasonic UG-3350 toner cartridge ensures your fax printer will continue to deliver optimal performance and operate at ideal levels throughout its lifespan. Compatible with the UF-585 and UF-595 Laser Fax Series, this cartridge boasts a printhead duty cycle of up to 7,500 pages.\n\nUsing high-end Panasonic consumables and supplies provides sharp, high-quality output, every time. The Panasonic printers and fax-machines have been engineered to work together with their custom-designed consumables and supplies to guarantee that your document and graphical printouts are clear and sharp, every time you print. Buy authentic Panasonic products with confidence: Panasonic backs this product with a 100 percent satisfaction guarantee." ManualPDFSize="0" ManualPDFURL="" PDFSize="0" PDFURL="" ShortDesc="UG-3350 All-in-One Cartridge, f/ UF-580/590, UF-585/595, DX-600, UF-5100/6100" URL="http://panasonic.net/pcc/products/bfax/options_consumable/#topic07" WarrantyInfo="" langid="1"/>
-    <ProductDescription ID="38124711" LongDesc=" 7500pages&lt;br /&gt;7500pages&lt;br /&gt;" ManualPDFSize="0" ManualPDFURL="" PDFSize="0" PDFURL="" ShortDesc="7500pages" URL="" WarrantyInfo="" langid="2"/>
-   
-   
-   
-    <ProductFeature Localized="0" ID="9550893" Local_ID="0" Value="7500" CategoryFeature_ID="9072" CategoryFeatureGroup_ID="10671" No="100777" Presentation_Value="7500 pages" Translated="0" Mandatory="0" Searchable="0">
-      <LocalValue Value="7500">
-      <Measure ID="55">
-        <Signs><Sign ID="38" langid="1"><![CDATA[pages]]></Sign><Sign ID="7078" langid="9"><![CDATA[pages]]></Sign></Signs>
-      </Measure>
-    </LocalValue>
-      <Feature ID="1953">
-        <Measure ID="55" Sign="">
-          <Signs><Sign ID="38" langid="1"><![CDATA[pages]]></Sign><Sign ID="487" langid="2"><![CDATA[pagina's]]></Sign><Sign ID="5751" langid="3"><![CDATA[pages]]></Sign><Sign ID="6676" langid="4"><![CDATA[Seiten]]></Sign><Sign ID="18762" langid="5"><![CDATA[pagine]]></Sign><Sign ID="7463" langid="6"><![CDATA[páginas]]></Sign><Sign ID="492" langid="7"><![CDATA[Sider]]></Sign><Sign ID="7975" langid="8"><![CDATA[страниц]]></Sign><Sign ID="7078" langid="9"><![CDATA[pages]]></Sign><Sign ID="11360" langid="11"><![CDATA[páginas]]></Sign><Sign ID="7783" langid="12"><![CDATA[页]]></Sign><Sign ID="12730" langid="13"><![CDATA[sidor]]></Sign><Sign ID="7627" langid="14"><![CDATA[strony]]></Sign><Sign ID="12228" langid="15"><![CDATA[str.]]></Sign><Sign ID="4232" langid="16"><![CDATA[oldalak]]></Sign><Sign ID="13842" langid="17"><![CDATA[pages]]></Sign><Sign ID="14578" langid="19"><![CDATA[sider]]></Sign><Sign ID="6624" langid="20"><![CDATA[Sayfalar]]></Sign><Sign ID="5391" langid="23"><![CDATA[pagini]]></Sign><Sign ID="3649" langid="25"><![CDATA[сторінок]]></Sign><Sign ID="3867" langid="26"><![CDATA[ページ]]></Sign><Sign ID="7307" langid="27"><![CDATA[pàgines]]></Sign><Sign ID="5105" langid="29"><![CDATA[stranica]]></Sign><Sign ID="4805" langid="30"><![CDATA[صفحات]]></Sign><Sign ID="4948" langid="31"><![CDATA[trang]]></Sign><Sign ID="5598" langid="32"><![CDATA[페이지]]></Sign><Sign ID="8874" langid="37"><![CDATA[頁]]></Sign><Sign ID="8327" langid="38"><![CDATA[דפים]]></Sign><Sign ID="8522" langid="39"><![CDATA[puslapiai]]></Sign><Sign ID="9042" langid="40"><![CDATA[lappuses]]></Sign><Sign ID="11141" langid="43"><![CDATA[halaman]]></Sign><Sign ID="11553" langid="44"><![CDATA[strany]]></Sign><Sign ID="15202" langid="45"><![CDATA[pages]]></Sign><Sign ID="16899" langid="46"><![CDATA[páginas]]></Sign></Signs>
-        </Measure>
-        <Name ID="6063" langid="1" Value="Page yield"/><Name ID="474864" langid="2" Value="Paginaopbrengst"/><Name ID="252007" langid="3" Value="Nombre de pages imprimées"/><Name ID="447391" langid="4" Value="Druckleistung"/><Name ID="458312" langid="5" Value="Produzione pagine"/><Name ID="506443" langid="6" Value="Producción de papel"/><Name ID="1073238" langid="7" Value="Side kapacitet"/><Name ID="845602" langid="8" Value="Производительность по страницам"/><Name ID="466868" langid="9" Value="Page yield"/><Name ID="1335886" langid="10" Value="Número máximo de páginas"/><Name ID="426006" langid="11" Value="Rendimento por página"/><Name ID="525484" langid="12" Value="页产量"/><Name ID="98953" langid="13" Value="Antal sidor"/><Name ID="517900" langid="14" Value="Wydajność strony"/><Name ID="180544" langid="15" Value="Výtěžnost stran"/><Name ID="259840" langid="16" Value="Lapfelhasználás"/><Name ID="134433" langid="17" Value="Riittoisuus"/><Name ID="268121" langid="18" Value="Απόδοση σελίδας"/><Name ID="149973" langid="19" Value="Antall sider"/><Name ID="441148" langid="20" Value="Sayfa verimi"/><Name ID="164225" langid="21" Value="Производителност на печатни страици"/><Name ID="157538" langid="22" Value="ფურცლის მიწოდება"/><Name ID="432288" langid="23" Value="Număr de pagini imprimate"/><Name ID="173468" langid="24" Value="uvlačenje lista"/><Name ID="848234" langid="25" Value="Продуктивність по сторінках"/><Name ID="226643" langid="26" Value="印刷可能ページ数"/><Name ID="500140" langid="27" Value="rendiment de pàgina"/><Name ID="312656" langid="29" Value="Uvlačenje lista"/><Name ID="289259" langid="30" Value="الصفحات التي يمكن طباعتها"/><Name ID="298254" langid="31" Value="Sản lượng trang"/><Name ID="483871" langid="32" Value="인쇄 매수"/><Name ID="491388" langid="35" Value="Page yield"/><Name ID="1000439" langid="37" Value="頁數產量"/><Name ID="544000" langid="38" Value="תפוקת עמודים"/><Name ID="555097" langid="39" Value="Lapų našumas"/><Name ID="585405" langid="40" Value="Lappušu apjoms"/><Name ID="857496" langid="42" Value="Druckleistung"/><Name ID="888500" langid="43" Value="Hasil halaman"/><Name ID="961303" langid="44" Value="Výťažnosť strán"/><Name ID="1189754" langid="45" Value="بازده صفحه"/><Name ID="1445524" langid="46" Value="Producción de papel"/><Name ID="1882684" langid="47" Value="Leheküljetootlus"/><Name ID="1576329" langid="48" Value="Druckleistung"/><Name ID="1547246" langid="49" Value="Nombre de pages imprimées"/><Name ID="1522177" langid="50" Value="Paginaopbrengst"/><Name ID="1957193" langid="51" Value="ปริมาณการพิมพ์ (Page Yield)"/>
-      </Feature>
-    </ProductFeature>
+        <EANCode EAN="5025232253685"/>
 
-    <ProductFeature Localized="0" ID="138231862" Local_ID="0" Value="Laser" CategoryFeature_ID="9073" CategoryFeatureGroup_ID="10671" No="100666" Presentation_Value="Laser" Translated="0" Mandatory="0" Searchable="0">
-      <LocalValue Value="Laser">
-      <Measure ID="29">
-        <Signs/>
-      </Measure>
-    </LocalValue>
-      <Feature ID="78">
-        <Measure ID="29" Sign="">
-          <Signs><Sign ID="19723" langid="43"><![CDATA[Teks]]></Sign></Signs>
-        </Measure>
-        <Name ID="1493" langid="1" Value="Print technology"/><Name ID="474849" langid="2" Value="Printtechnologie"/><Name ID="354368" langid="3" Value="Technologie d'impression"/><Name ID="447376" langid="4" Value="Drucktechnologie"/><Name ID="458297" langid="5" Value="Tecnologia di stampa"/><Name ID="506428" langid="6" Value="Tecnología de impresión"/><Name ID="34648" langid="7" Value="Printteknologi"/><Name ID="533963" langid="8" Value="Технология печати"/><Name ID="466853" langid="9" Value="Print technology"/><Name ID="1334849" langid="10" Value="Tecnologia de impressão"/><Name ID="425991" langid="11" Value="Tecnologia de impressão"/><Name ID="525469" langid="12" Value="打印技术"/><Name ID="1012333" langid="13" Value="Utskriftsteknologi"/><Name ID="517885" langid="14" Value="Technologia druku"/><Name ID="179286" langid="15" Value="Tisková technologie"/><Name ID="258448" langid="16" Value="Nyomtatási technika"/><Name ID="133032" langid="17" Value="Tulostustekniikka"/><Name ID="266720" langid="18" Value="Τεχνολογία εκτύπωσης"/><Name ID="148572" langid="19" Value="Utskriftsteknologi"/><Name ID="441133" langid="20" Value="Baskı teknolojisi"/><Name ID="162824" langid="21" Value="Технология на печат"/><Name ID="156137" langid="22" Value="საბეჭდი ტექნიკა"/><Name ID="432273" langid="23" Value="Tehnologia tipăririi"/><Name ID="172075" langid="24" Value="Tehnologija štampe"/><Name ID="217616" langid="25" Value="Технологія друку"/><Name ID="225244" langid="26" Value="印刷技術"/><Name ID="500125" langid="27" Value="Tecnologia d'impressió"/><Name ID="311266" langid="29" Value="Tehnologija ispisa"/><Name ID="287868" langid="30" Value="تقنية الطباعة"/><Name ID="296864" langid="31" Value="Công nghệ in"/><Name ID="483869" langid="32" Value="인쇄 기술"/><Name ID="453661" langid="34" Value="Tehnologija tiskanja"/><Name ID="488648" langid="35" Value="Print technology"/><Name ID="494397" langid="36" Value="Print technology"/><Name ID="576409" langid="37" Value="列印技術"/><Name ID="543987" langid="38" Value="טכנולוגיית הדפסה"/><Name ID="555082" langid="39" Value="Spauzdinimo technologija"/><Name ID="584020" langid="40" Value="Drukāšanas tehnoloģija"/><Name ID="855636" langid="42" Value="Drucktechnologie"/><Name ID="887259" langid="43" Value="teknologi mencetak"/><Name ID="935489" langid="44" Value="tlačová technológia"/><Name ID="1188518" langid="45" Value="تکنولوژی چاپ"/><Name ID="1444456" langid="46" Value="Tecnología de impresión"/><Name ID="1881612" langid="47" Value="Printimistehnoloogia"/><Name ID="1575095" langid="48" Value="Drucktechnologie"/><Name ID="1546012" langid="49" Value="Technologie d'impression"/><Name ID="1521104" langid="50" Value="Printtechnologie"/><Name ID="1871016" langid="51" Value="เทคโนโลยีการพิมพ์"/>
-      </Feature>
-    </ProductFeature>
+        <ReasonsToBuy/>
+        <ProductBundled/>
+        <ProductDescription ID="150221"
+                            LongDesc="The Panasonic UG-3350 toner cartridge ensures your fax printer will continue to deliver optimal performance and operate at ideal levels throughout its lifespan. Compatible with the UF-585 and UF-595 Laser Fax Series, this cartridge boasts a printhead duty cycle of up to 7,500 pages.\n\nUsing high-end Panasonic consumables and supplies provides sharp, high-quality output, every time. The Panasonic printers and fax-machines have been engineered to work together with their custom-designed consumables and supplies to guarantee that your document and graphical printouts are clear and sharp, every time you print. Buy authentic Panasonic products with confidence: Panasonic backs this product with a 100 percent satisfaction guarantee."
+                            ManualPDFSize="0" ManualPDFURL="" PDFSize="0" PDFURL=""
+                            ShortDesc="UG-3350 All-in-One Cartridge, f/ UF-580/590, UF-585/595, DX-600, UF-5100/6100"
+                            URL="http://panasonic.net/pcc/products/bfax/options_consumable/#topic07" WarrantyInfo=""
+                            langid="1"/>
+        <ProductDescription ID="38124711" LongDesc=" 7500pages&lt;br /&gt;7500pages&lt;br /&gt;" ManualPDFSize="0"
+                            ManualPDFURL="" PDFSize="0" PDFURL="" ShortDesc="7500pages" URL="" WarrantyInfo=""
+                            langid="2"/>
 
-    <ProductFeature Localized="0" ID="138231706" Local_ID="0" Value="UF-580/590, UF-585/595, DX-600, UF-5100/6100" CategoryFeature_ID="34200" CategoryFeatureGroup_ID="10671" No="100060" Presentation_Value="UF-580/590, UF-585/595, DX-600, UF-5100/6100" Translated="0" Mandatory="1" Searchable="0">
-      <LocalValue Value="UF-580/590, UF-585/595, DX-600, UF-5100/6100">
-      <Measure ID="29">
-        <Signs/>
-      </Measure>
-    </LocalValue>
-      <Feature ID="2190">
-        <Measure ID="29" Sign="">
-          <Signs><Sign ID="19723" langid="43"><![CDATA[Teks]]></Sign></Signs>
-        </Measure>
-        <Name ID="11196" langid="1" Value="Compatible products"/><Name ID="472780" langid="2" Value="Compatibele producten"/><Name ID="252217" langid="3" Value="Produits compatibles"/><Name ID="445321" langid="4" Value="Kompatible Produkte"/><Name ID="456228" langid="5" Value="Prodotti compatibili"/><Name ID="504359" langid="6" Value="Productos compatibles"/><Name ID="37232" langid="7" Value="Kompatible produkter"/><Name ID="531964" langid="8" Value="Совместимые продукты"/><Name ID="464784" langid="9" Value="Compatible products"/><Name ID="1336065" langid="10" Value="Produtos compatíveis"/><Name ID="423927" langid="11" Value="Produtos suportados"/><Name ID="523407" langid="12" Value="兼容产品"/><Name ID="96927" langid="13" Value="Kompatibla produkter"/><Name ID="515820" langid="14" Value="Obsługiwane produkty"/><Name ID="1038003" langid="15" Value="Kompatibilní produkty"/><Name ID="260051" langid="16" Value="Kompatibilis termékek"/><Name ID="134644" langid="17" Value="Yhteensopivat tuotteet"/><Name ID="268332" langid="18" Value="Υποστηριζόμενα προϊόντα"/><Name ID="150184" langid="19" Value="Støttede produkter"/><Name ID="439083" langid="20" Value="Desteklenen ürünler"/><Name ID="164436" langid="21" Value="Съвместими продукти"/><Name ID="157749" langid="22" Value="თავსებადი პროდუქტები"/><Name ID="430210" langid="23" Value="Produse compatibile"/><Name ID="173678" langid="24" Value="Kompatibilni proizvodi"/><Name ID="219093" langid="25" Value="Сумісні продукти"/><Name ID="226854" langid="26" Value="対応製品"/><Name ID="498057" langid="27" Value="Productes compatibles"/><Name ID="312867" langid="29" Value="Kompatibilni proizvodi"/><Name ID="289470" langid="30" Value="المنتجات المتوافقة"/><Name ID="298465" langid="31" Value="Các sản phẩm tương thích"/><Name ID="481082" langid="32" Value="경쟁 상품"/><Name ID="491484" langid="35" Value="Compatible products"/><Name ID="1002304" langid="37" Value="相容產品"/><Name ID="542105" langid="38" Value="מוצרים תואמים"/><Name ID="553082" langid="39" Value="Suderinami produktai"/><Name ID="585615" langid="40" Value="Savienojamie produkti"/><Name ID="858204" langid="42" Value="Kompatible Produkte"/><Name ID="888717" langid="43" Value="Kompatibel produk"/><Name ID="961520" langid="44" Value="Kompatibilné produkty"/><Name ID="1189971" langid="45" Value="محصولات سازگار"/><Name ID="1445708" langid="46" Value="Productos compatibles"/><Name ID="1882870" langid="47" Value="Ühilduvad tooted"/><Name ID="1576546" langid="48" Value="Kompatible Produkte"/><Name ID="1547463" langid="49" Value="Produits compatibles"/><Name ID="1522361" langid="50" Value="Compatibele producten"/><Name ID="1957380" langid="51" Value="ผลิตภัณฑ์ที่เข้ากันได้"/>
-      </Feature>
-    </ProductFeature>
 
-    <ProductFeature Localized="0" ID="138231705" Local_ID="0" Value="Black" CategoryFeature_ID="9879" CategoryFeatureGroup_ID="10671" No="100000" Presentation_Value="Black" Translated="0" Mandatory="1" Searchable="0">
-      <LocalValue Value="Black">
-      <Measure ID="246">
-        <Signs/>
-      </Measure>
-    </LocalValue>
-      <Feature ID="2037">
-        <Measure ID="246" Sign="">
-          <Signs/>
-        </Measure>
-        <Name ID="9107" langid="1" Value="Printing colours"/><Name ID="474870" langid="2" Value="Printkleuren"/><Name ID="252087" langid="3" Value="Cartouche d'impression, couleurs"/><Name ID="447397" langid="4" Value="Druckfarben"/><Name ID="458318" langid="5" Value="Colori di stampa"/><Name ID="506449" langid="6" Value="Colores de impresión"/><Name ID="36742" langid="7" Value="Print farver"/><Name ID="533984" langid="8" Value="Цвета печати"/><Name ID="466874" langid="9" Value="Printing colors"/><Name ID="1335951" langid="10" Value="Cores de impressão"/><Name ID="426012" langid="11" Value="Cor(es) dos cartuchos de impressão"/><Name ID="525490" langid="12" Value="印刷颜色"/><Name ID="99280" langid="13" Value="Skriver färger"/><Name ID="517906" langid="14" Value="Kolor(y) wkładów drukujących"/><Name ID="180620" langid="15" Value="Tiskové barvy"/><Name ID="259920" langid="16" Value="Nyomtatási színek"/><Name ID="134513" langid="17" Value="Tulostuskasettien väri(t)"/><Name ID="268201" langid="18" Value="Χρώματα δοχείων μελανιού"/><Name ID="150053" langid="19" Value="Farge(r) i blekkpatroner"/><Name ID="441154" langid="20" Value="Baskı kartuşlarının renkleri"/><Name ID="164305" langid="21" Value="Цветове на печат"/><Name ID="157618" langid="22" Value="ბეჭდვის ფერები"/><Name ID="432294" langid="23" Value="Culorile de imprimare"/><Name ID="173548" langid="24" Value="Boje za štampanje"/><Name ID="218950" langid="25" Value="Кольори друку"/><Name ID="226723" langid="26" Value="印刷色"/><Name ID="500146" langid="27" Value="Impressió de colors"/><Name ID="312736" langid="29" Value="Boje za ispis"/><Name ID="289339" langid="30" Value="الوان الطباعة"/><Name ID="298334" langid="31" Value="Màu sắc in"/><Name ID="483884" langid="32" Value="인쇄 색상"/><Name ID="453609" langid="34" Value="Barve tiskalnih kartuš"/><Name ID="488726" langid="35" Value="Printing colors"/><Name ID="494392" langid="36" Value="Colour(s) of print cartridges"/><Name ID="998706" langid="37" Value="列印顏色"/><Name ID="544006" langid="38" Value="צבעי הדפסה"/><Name ID="555103" langid="39" Value="Spauzdinimo spalvos"/><Name ID="585485" langid="40" Value="Drukājamās krāsas"/><Name ID="857587" langid="42" Value="Druckfarben"/><Name ID="888575" langid="43" Value="Percetakan warna"/><Name ID="961378" langid="44" Value="Tlačové farby"/><Name ID="1189829" langid="45" Value="رنگ های چاپ"/><Name ID="1445589" langid="46" Value="Colores de impresión"/><Name ID="1882749" langid="47" Value="Printimisvärvid"/><Name ID="1576404" langid="48" Value="Druckfarben"/><Name ID="1547321" langid="49" Value="Cartouche d'impression, couleurs"/><Name ID="1522242" langid="50" Value="Printkleuren"/><Name ID="1957258" langid="51" Value="การพิมพ์สี"/>
-      </Feature>
-    </ProductFeature>
+        <ProductFeature Localized="0" ID="9550893" Local_ID="0" Value="7500" CategoryFeature_ID="9072"
+                        CategoryFeatureGroup_ID="10671" No="100777" Presentation_Value="7500 pages" Translated="0"
+                        Mandatory="0" Searchable="0">
+            <LocalValue Value="7500">
+                <Measure ID="55">
+                    <Signs>
+                        <Sign ID="38" langid="1"><![CDATA[pages]]></Sign>
+                        <Sign ID="7078" langid="9"><![CDATA[pages]]></Sign>
+                    </Signs>
+                </Measure>
+            </LocalValue>
+            <Feature ID="1953">
+                <Measure ID="55" Sign="">
+                    <Signs>
+                        <Sign ID="38" langid="1"><![CDATA[pages]]></Sign>
+                        <Sign ID="487" langid="2"><![CDATA[pagina's]]></Sign>
+                        <Sign ID="5751" langid="3"><![CDATA[pages]]></Sign>
+                        <Sign ID="6676" langid="4"><![CDATA[Seiten]]></Sign>
+                        <Sign ID="18762" langid="5"><![CDATA[pagine]]></Sign>
+                        <Sign ID="7463" langid="6"><![CDATA[páginas]]></Sign>
+                        <Sign ID="492" langid="7"><![CDATA[Sider]]></Sign>
+                        <Sign ID="7975" langid="8"><![CDATA[страниц]]></Sign>
+                        <Sign ID="7078" langid="9"><![CDATA[pages]]></Sign>
+                        <Sign ID="11360" langid="11"><![CDATA[páginas]]></Sign>
+                        <Sign ID="7783" langid="12"><![CDATA[页]]></Sign>
+                        <Sign ID="12730" langid="13"><![CDATA[sidor]]></Sign>
+                        <Sign ID="7627" langid="14"><![CDATA[strony]]></Sign>
+                        <Sign ID="12228" langid="15"><![CDATA[str.]]></Sign>
+                        <Sign ID="4232" langid="16"><![CDATA[oldalak]]></Sign>
+                        <Sign ID="13842" langid="17"><![CDATA[pages]]></Sign>
+                        <Sign ID="14578" langid="19"><![CDATA[sider]]></Sign>
+                        <Sign ID="6624" langid="20"><![CDATA[Sayfalar]]></Sign>
+                        <Sign ID="5391" langid="23"><![CDATA[pagini]]></Sign>
+                        <Sign ID="3649" langid="25"><![CDATA[сторінок]]></Sign>
+                        <Sign ID="3867" langid="26"><![CDATA[ページ]]></Sign>
+                        <Sign ID="7307" langid="27"><![CDATA[pàgines]]></Sign>
+                        <Sign ID="5105" langid="29"><![CDATA[stranica]]></Sign>
+                        <Sign ID="4805" langid="30"><![CDATA[صفحات]]></Sign>
+                        <Sign ID="4948" langid="31"><![CDATA[trang]]></Sign>
+                        <Sign ID="5598" langid="32"><![CDATA[페이지]]></Sign>
+                        <Sign ID="8874" langid="37"><![CDATA[頁]]></Sign>
+                        <Sign ID="8327" langid="38"><![CDATA[דפים]]></Sign>
+                        <Sign ID="8522" langid="39"><![CDATA[puslapiai]]></Sign>
+                        <Sign ID="9042" langid="40"><![CDATA[lappuses]]></Sign>
+                        <Sign ID="11141" langid="43"><![CDATA[halaman]]></Sign>
+                        <Sign ID="11553" langid="44"><![CDATA[strany]]></Sign>
+                        <Sign ID="15202" langid="45"><![CDATA[pages]]></Sign>
+                        <Sign ID="16899" langid="46"><![CDATA[páginas]]></Sign>
+                    </Signs>
+                </Measure>
+                <Name ID="6063" langid="1" Value="Page yield"/>
+                <Name ID="474864" langid="2" Value="Paginaopbrengst"/>
+                <Name ID="252007" langid="3" Value="Nombre de pages imprimées"/>
+                <Name ID="447391" langid="4" Value="Druckleistung"/>
+                <Name ID="458312" langid="5" Value="Produzione pagine"/>
+                <Name ID="506443" langid="6" Value="Producción de papel"/>
+                <Name ID="1073238" langid="7" Value="Side kapacitet"/>
+                <Name ID="845602" langid="8" Value="Производительность по страницам"/>
+                <Name ID="466868" langid="9" Value="Page yield"/>
+                <Name ID="1335886" langid="10" Value="Número máximo de páginas"/>
+                <Name ID="426006" langid="11" Value="Rendimento por página"/>
+                <Name ID="525484" langid="12" Value="页产量"/>
+                <Name ID="98953" langid="13" Value="Antal sidor"/>
+                <Name ID="517900" langid="14" Value="Wydajność strony"/>
+                <Name ID="180544" langid="15" Value="Výtěžnost stran"/>
+                <Name ID="259840" langid="16" Value="Lapfelhasználás"/>
+                <Name ID="134433" langid="17" Value="Riittoisuus"/>
+                <Name ID="268121" langid="18" Value="Απόδοση σελίδας"/>
+                <Name ID="149973" langid="19" Value="Antall sider"/>
+                <Name ID="441148" langid="20" Value="Sayfa verimi"/>
+                <Name ID="164225" langid="21" Value="Производителност на печатни страици"/>
+                <Name ID="157538" langid="22" Value="ფურცლის მიწოდება"/>
+                <Name ID="432288" langid="23" Value="Număr de pagini imprimate"/>
+                <Name ID="173468" langid="24" Value="uvlačenje lista"/>
+                <Name ID="848234" langid="25" Value="Продуктивність по сторінках"/>
+                <Name ID="226643" langid="26" Value="印刷可能ページ数"/>
+                <Name ID="500140" langid="27" Value="rendiment de pàgina"/>
+                <Name ID="312656" langid="29" Value="Uvlačenje lista"/>
+                <Name ID="289259" langid="30" Value="الصفحات التي يمكن طباعتها"/>
+                <Name ID="298254" langid="31" Value="Sản lượng trang"/>
+                <Name ID="483871" langid="32" Value="인쇄 매수"/>
+                <Name ID="491388" langid="35" Value="Page yield"/>
+                <Name ID="1000439" langid="37" Value="頁數產量"/>
+                <Name ID="544000" langid="38" Value="תפוקת עמודים"/>
+                <Name ID="555097" langid="39" Value="Lapų našumas"/>
+                <Name ID="585405" langid="40" Value="Lappušu apjoms"/>
+                <Name ID="857496" langid="42" Value="Druckleistung"/>
+                <Name ID="888500" langid="43" Value="Hasil halaman"/>
+                <Name ID="961303" langid="44" Value="Výťažnosť strán"/>
+                <Name ID="1189754" langid="45" Value="بازده صفحه"/>
+                <Name ID="1445524" langid="46" Value="Producción de papel"/>
+                <Name ID="1882684" langid="47" Value="Leheküljetootlus"/>
+                <Name ID="1576329" langid="48" Value="Druckleistung"/>
+                <Name ID="1547246" langid="49" Value="Nombre de pages imprimées"/>
+                <Name ID="1522177" langid="50" Value="Paginaopbrengst"/>
+                <Name ID="1957193" langid="51" Value="ปริมาณการพิมพ์ (Page Yield)"/>
+            </Feature>
+        </ProductFeature>
 
-    <ProductFeature Localized="0" ID="138231708" Local_ID="0" Value="7500" CategoryFeature_ID="27812" CategoryFeatureGroup_ID="10671" No="100000" Presentation_Value="7500 pages" Translated="0" Mandatory="0" Searchable="0">
-      <LocalValue Value="7500">
-      <Measure ID="55">
-        <Signs><Sign ID="38" langid="1"><![CDATA[pages]]></Sign><Sign ID="7078" langid="9"><![CDATA[pages]]></Sign></Signs>
-      </Measure>
-    </LocalValue>
-      <Feature ID="5740">
-        <Measure ID="55" Sign="">
-          <Signs><Sign ID="38" langid="1"><![CDATA[pages]]></Sign><Sign ID="487" langid="2"><![CDATA[pagina's]]></Sign><Sign ID="5751" langid="3"><![CDATA[pages]]></Sign><Sign ID="6676" langid="4"><![CDATA[Seiten]]></Sign><Sign ID="18762" langid="5"><![CDATA[pagine]]></Sign><Sign ID="7463" langid="6"><![CDATA[páginas]]></Sign><Sign ID="492" langid="7"><![CDATA[Sider]]></Sign><Sign ID="7975" langid="8"><![CDATA[страниц]]></Sign><Sign ID="7078" langid="9"><![CDATA[pages]]></Sign><Sign ID="11360" langid="11"><![CDATA[páginas]]></Sign><Sign ID="7783" langid="12"><![CDATA[页]]></Sign><Sign ID="12730" langid="13"><![CDATA[sidor]]></Sign><Sign ID="7627" langid="14"><![CDATA[strony]]></Sign><Sign ID="12228" langid="15"><![CDATA[str.]]></Sign><Sign ID="4232" langid="16"><![CDATA[oldalak]]></Sign><Sign ID="13842" langid="17"><![CDATA[pages]]></Sign><Sign ID="14578" langid="19"><![CDATA[sider]]></Sign><Sign ID="6624" langid="20"><![CDATA[Sayfalar]]></Sign><Sign ID="5391" langid="23"><![CDATA[pagini]]></Sign><Sign ID="3649" langid="25"><![CDATA[сторінок]]></Sign><Sign ID="3867" langid="26"><![CDATA[ページ]]></Sign><Sign ID="7307" langid="27"><![CDATA[pàgines]]></Sign><Sign ID="5105" langid="29"><![CDATA[stranica]]></Sign><Sign ID="4805" langid="30"><![CDATA[صفحات]]></Sign><Sign ID="4948" langid="31"><![CDATA[trang]]></Sign><Sign ID="5598" langid="32"><![CDATA[페이지]]></Sign><Sign ID="8874" langid="37"><![CDATA[頁]]></Sign><Sign ID="8327" langid="38"><![CDATA[דפים]]></Sign><Sign ID="8522" langid="39"><![CDATA[puslapiai]]></Sign><Sign ID="9042" langid="40"><![CDATA[lappuses]]></Sign><Sign ID="11141" langid="43"><![CDATA[halaman]]></Sign><Sign ID="11553" langid="44"><![CDATA[strany]]></Sign><Sign ID="15202" langid="45"><![CDATA[pages]]></Sign><Sign ID="16899" langid="46"><![CDATA[páginas]]></Sign></Signs>
-        </Measure>
-        <Name ID="123275" langid="1" Value="Approximate page yield (black, ISO/IEC 19798)"/><Name ID="478112" langid="2" Value="Gemiddeld rendement bij onafgebroken afdrukken (zwart-wit, ISO/IEC 19798-norm)"/><Name ID="564872" langid="3" Value="Nombre approximatif de pages imprimées (noir, ISO/IEC 19798), environ"/><Name ID="450611" langid="4" Value="Druckleistung (schwartz, ISO/IEC 19798), ungefähr"/><Name ID="461566" langid="5" Value="Numero di pagine approssimativo (colore, ISO/IEC 19798)"/><Name ID="509696" langid="6" Value="Producción de páginas para imprimir (color, ISO/IEC 19798)"/><Name ID="1302601" langid="7" Value="Omtrentlig sidemængde (sort, ISO/IEC 19798)"/><Name ID="537222" langid="8" Value="Приблизительная производительность по печатным страницам (черный, ISO/IEC 19752)"/><Name ID="470116" langid="9" Value="Approximate page yield (black, ISO/IEC 19798)"/><Name ID="1338656" langid="10" Value="Quantidade aproximada de páginas por cartucho (preto, ISO/IEC 19798)"/><Name ID="429243" langid="11" Value="Rendimento por página (preto, ISO/IEC 19752)"/><Name ID="528719" langid="12" Value="近似页面产出数 (黑色, 国际标准化组织/国际电工委员会 19798)"/><Name ID="1012911" langid="13" Value="Ungefärlig Sidkapacitet (svart, ISO / IEC 19798)"/><Name ID="521146" langid="14" Value="Wydajność (w czerni, ISO/IEC 19798)"/><Name ID="184012" langid="15" Value="Přibližná výtěžnost tiskárny (černobíle, ISO/IEC 19798)"/><Name ID="258257" langid="16" Value="Hozzávetőleges nyomtatható oldalszám (fekete, ISO/IEC 19798)"/><Name ID="133007" langid="17" Value="Riittoisuus (mustavalkoinen, ISO/IEC 19798)"/><Name ID="266695" langid="18" Value="Απόδοση σελίδων χαμηλών δυνατοτήτων (ασπρόμαυρη, ISO/IEC 19798)"/><Name ID="148547" langid="19" Value="Sideytelse ISO/IEC (svart, 19798)"/><Name ID="444368" langid="20" Value="Baskı kapasitesi (siyah, ISO/IEC 19798)"/><Name ID="162799" langid="21" Value="Приблизителна производителност на печатни страници (черно, ISO/IEC 19798)"/><Name ID="156112" langid="22" Value="ფურცლის დაახლოებითი მიწოდება (შავი, ISO/IEC 19798)"/><Name ID="435525" langid="23" Value="Cantitatea apoximativă de pagini produse"/><Name ID="172050" langid="24" Value="Približan broj strana iz kertridža (crno, ISO/IEC 19798)"/><Name ID="848196" langid="25" Value="Приблизна продуктивність по друкарським аркушам (чорний, ISO/IEC 19752)"/><Name ID="225219" langid="26" Value="出力可能な概算ページ数(白黒, ISO/IEC 19798)"/><Name ID="503393" langid="27" Value="Rendiment aproximat de la pàgina (negre, ISO / IEC 19798)"/><Name ID="311075" langid="29" Value="Približan broj stranica iz patrone (crno, ISO/IEC 19798)"/><Name ID="287677" langid="30" Value="العدد التقريبي للصفحات التي يمكن طباعته(أسود, ISO/IEC 19798)"/><Name ID="296673" langid="31" Value="Hiệu suất trang in ước tính (black, ISO/IEC 19798)"/><Name ID="483518" langid="32" Value="예상 출력 가능 매수(흑백, ISO/IEC 19798,)"/><Name ID="489042" langid="35" Value="Approximate page yield (black, ISO/IEC 19798)"/><Name ID="998721" langid="37" Value="近似頁數（黑白，ISO / IEC 19798）"/><Name ID="547033" langid="38" Value="מספר דפים משוער (שחור, ISO / IEC 19798)"/><Name ID="558342" langid="39" Value="Vidutinis puslapių našumas (juodai, ISO / IEC 19798)"/><Name ID="583829" langid="40" Value="Aptuvenais lappušu apjoms  (melns, ISO/IEC 19798)"/><Name ID="862398" langid="42" Value="Druckleistung (schwartz, ISO/IEC 19798), ungefähr"/><Name ID="891849" langid="43" Value="Halaman Perkiraan hasil (hitam, ISO / IEC 19798)"/><Name ID="1019388" langid="44" Value="Približná výťažnosť tlačiarne (čiernobielo, ISO/IEC 19798)"/><Name ID="1193060" langid="45" Value="دستاورد تقریبی صفحه (سیاه, ISO/IEC 19798)"/><Name ID="1448414" langid="46" Value="Producción de páginas para imprimir (color, ISO/IEC 19798)"/><Name ID="1885590" langid="47" Value="Ligikaudne leheküljetootlus (must, ISO/IEC 19798)"/><Name ID="1579625" langid="48" Value="Druckleistung (schwartz, ISO/IEC 19798), ungefähr"/><Name ID="1550542" langid="49" Value="Nombre approximatif de pages imprimées (noir, ISO/IEC 19798), environ"/><Name ID="1525080" langid="50" Value="Gemiddeld rendement bij onafgebroken afdrukken (zwart-wit, ISO/IEC 19798-norm)"/><Name ID="1929144" langid="51" Value="จำนวนหน้าที่พิมพ์ได้โดยประมาณ (ดำ, มาตรฐาน ISO/IEC 19798)"/>
-      </Feature>
-    </ProductFeature>
+        <ProductFeature Localized="0" ID="138231862" Local_ID="0" Value="Laser" CategoryFeature_ID="9073"
+                        CategoryFeatureGroup_ID="10671" No="100666" Presentation_Value="Laser" Translated="0"
+                        Mandatory="0" Searchable="0">
+            <LocalValue Value="Laser">
+                <Measure ID="29">
+                    <Signs/>
+                </Measure>
+            </LocalValue>
+            <Feature ID="78">
+                <Measure ID="29" Sign="">
+                    <Signs>
+                        <Sign ID="19723" langid="43"><![CDATA[Teks]]></Sign>
+                    </Signs>
+                </Measure>
+                <Name ID="1493" langid="1" Value="Print technology"/>
+                <Name ID="474849" langid="2" Value="Printtechnologie"/>
+                <Name ID="354368" langid="3" Value="Technologie d'impression"/>
+                <Name ID="447376" langid="4" Value="Drucktechnologie"/>
+                <Name ID="458297" langid="5" Value="Tecnologia di stampa"/>
+                <Name ID="506428" langid="6" Value="Tecnología de impresión"/>
+                <Name ID="34648" langid="7" Value="Printteknologi"/>
+                <Name ID="533963" langid="8" Value="Технология печати"/>
+                <Name ID="466853" langid="9" Value="Print technology"/>
+                <Name ID="1334849" langid="10" Value="Tecnologia de impressão"/>
+                <Name ID="425991" langid="11" Value="Tecnologia de impressão"/>
+                <Name ID="525469" langid="12" Value="打印技术"/>
+                <Name ID="1012333" langid="13" Value="Utskriftsteknologi"/>
+                <Name ID="517885" langid="14" Value="Technologia druku"/>
+                <Name ID="179286" langid="15" Value="Tisková technologie"/>
+                <Name ID="258448" langid="16" Value="Nyomtatási technika"/>
+                <Name ID="133032" langid="17" Value="Tulostustekniikka"/>
+                <Name ID="266720" langid="18" Value="Τεχνολογία εκτύπωσης"/>
+                <Name ID="148572" langid="19" Value="Utskriftsteknologi"/>
+                <Name ID="441133" langid="20" Value="Baskı teknolojisi"/>
+                <Name ID="162824" langid="21" Value="Технология на печат"/>
+                <Name ID="156137" langid="22" Value="საბეჭდი ტექნიკა"/>
+                <Name ID="432273" langid="23" Value="Tehnologia tipăririi"/>
+                <Name ID="172075" langid="24" Value="Tehnologija štampe"/>
+                <Name ID="217616" langid="25" Value="Технологія друку"/>
+                <Name ID="225244" langid="26" Value="印刷技術"/>
+                <Name ID="500125" langid="27" Value="Tecnologia d'impressió"/>
+                <Name ID="311266" langid="29" Value="Tehnologija ispisa"/>
+                <Name ID="287868" langid="30" Value="تقنية الطباعة"/>
+                <Name ID="296864" langid="31" Value="Công nghệ in"/>
+                <Name ID="483869" langid="32" Value="인쇄 기술"/>
+                <Name ID="453661" langid="34" Value="Tehnologija tiskanja"/>
+                <Name ID="488648" langid="35" Value="Print technology"/>
+                <Name ID="494397" langid="36" Value="Print technology"/>
+                <Name ID="576409" langid="37" Value="列印技術"/>
+                <Name ID="543987" langid="38" Value="טכנולוגיית הדפסה"/>
+                <Name ID="555082" langid="39" Value="Spauzdinimo technologija"/>
+                <Name ID="584020" langid="40" Value="Drukāšanas tehnoloģija"/>
+                <Name ID="855636" langid="42" Value="Drucktechnologie"/>
+                <Name ID="887259" langid="43" Value="teknologi mencetak"/>
+                <Name ID="935489" langid="44" Value="tlačová technológia"/>
+                <Name ID="1188518" langid="45" Value="تکنولوژی چاپ"/>
+                <Name ID="1444456" langid="46" Value="Tecnología de impresión"/>
+                <Name ID="1881612" langid="47" Value="Printimistehnoloogia"/>
+                <Name ID="1575095" langid="48" Value="Drucktechnologie"/>
+                <Name ID="1546012" langid="49" Value="Technologie d'impression"/>
+                <Name ID="1521104" langid="50" Value="Printtechnologie"/>
+                <Name ID="1871016" langid="51" Value="เทคโนโลยีการพิมพ์"/>
+            </Feature>
+        </ProductFeature>
 
-    <ProductFeature Localized="0" ID="138231707" Local_ID="0" Value="1" CategoryFeature_ID="41695" CategoryFeatureGroup_ID="10671" No="100000" Presentation_Value="1" Translated="0" Mandatory="1" Searchable="0">
-      <LocalValue Value="1">
-      <Measure ID="29">
-        <Signs/>
-      </Measure>
-    </LocalValue>
-      <Feature ID="1675">
-        <Measure ID="29" Sign="">
-          <Signs><Sign ID="19723" langid="43"><![CDATA[Teks]]></Sign></Signs>
-        </Measure>
-        <Name ID="5223" langid="1" Value="Quantity"/><Name ID="474859" langid="2" Value="Aantal"/><Name ID="251841" langid="3" Value="Quantité"/><Name ID="447386" langid="4" Value="Anzahl"/><Name ID="458307" langid="5" Value="Quantità"/><Name ID="506438" langid="6" Value="Cantidad"/><Name ID="36170" langid="7" Value="Antal"/><Name ID="533973" langid="8" Value="Количество"/><Name ID="466863" langid="9" Value="Quantity"/><Name ID="1335686" langid="10" Value="Quantidade"/><Name ID="426001" langid="11" Value="Quantidade"/><Name ID="525479" langid="12" Value="数量"/><Name ID="99382" langid="13" Value="Antal"/><Name ID="517895" langid="14" Value="Ilość"/><Name ID="180301" langid="15" Value="Množství"/><Name ID="259674" langid="16" Value="Mennyiség"/><Name ID="134267" langid="17" Value="Määrä"/><Name ID="267955" langid="18" Value="Ποσότητα"/><Name ID="149807" langid="19" Value="Kvantitet/antall"/><Name ID="441143" langid="20" Value="Miktar"/><Name ID="164059" langid="21" Value="Количество"/><Name ID="157372" langid="22" Value="რაოდენობა"/><Name ID="432283" langid="23" Value="Cantitatea"/><Name ID="173303" langid="24" Value="broj"/><Name ID="218631" langid="25" Value="Кількість"/><Name ID="226477" langid="26" Value="数量"/><Name ID="500135" langid="27" Value="Quantitat"/><Name ID="312490" langid="29" Value="Količina"/><Name ID="289093" langid="30" Value="الكمية"/><Name ID="298088" langid="31" Value="Số lượng"/><Name ID="483002" langid="32" Value="수량"/><Name ID="967708" langid="34" Value="Število izdelkov na enoto"/><Name ID="488552" langid="35" Value="Quantity"/><Name ID="879618" langid="36" Value="Product count per unit"/><Name ID="1000436" langid="37" Value="數量"/><Name ID="543997" langid="38" Value="כמות"/><Name ID="555092" langid="39" Value="Kiekis"/><Name ID="585240" langid="40" Value="Daudzums"/><Name ID="968075" langid="41" Value="Product count per unit"/><Name ID="857123" langid="42" Value="Anzahl"/><Name ID="888263" langid="43" Value="Kuantitas"/><Name ID="961064" langid="44" Value="Množstvo"/><Name ID="1189515" langid="45" Value="کمیت"/><Name ID="1445319" langid="46" Value="Cantidad"/><Name ID="1882479" langid="47" Value="Kogus"/><Name ID="1576090" langid="48" Value="Anzahl"/><Name ID="1547007" langid="49" Value="Quantité"/><Name ID="1521972" langid="50" Value="Aantal"/><Name ID="1956988" langid="51" Value="จำนวน"/>
-      </Feature>
-    </ProductFeature>
+        <ProductFeature Localized="0" ID="138231706" Local_ID="0" Value="UF-580/590, UF-585/595, DX-600, UF-5100/6100"
+                        CategoryFeature_ID="34200" CategoryFeatureGroup_ID="10671" No="100060"
+                        Presentation_Value="UF-580/590, UF-585/595, DX-600, UF-5100/6100" Translated="0" Mandatory="1"
+                        Searchable="0">
+            <LocalValue Value="UF-580/590, UF-585/595, DX-600, UF-5100/6100">
+                <Measure ID="29">
+                    <Signs/>
+                </Measure>
+            </LocalValue>
+            <Feature ID="2190">
+                <Measure ID="29" Sign="">
+                    <Signs>
+                        <Sign ID="19723" langid="43"><![CDATA[Teks]]></Sign>
+                    </Signs>
+                </Measure>
+                <Name ID="11196" langid="1" Value="Compatible products"/>
+                <Name ID="472780" langid="2" Value="Compatibele producten"/>
+                <Name ID="252217" langid="3" Value="Produits compatibles"/>
+                <Name ID="445321" langid="4" Value="Kompatible Produkte"/>
+                <Name ID="456228" langid="5" Value="Prodotti compatibili"/>
+                <Name ID="504359" langid="6" Value="Productos compatibles"/>
+                <Name ID="37232" langid="7" Value="Kompatible produkter"/>
+                <Name ID="531964" langid="8" Value="Совместимые продукты"/>
+                <Name ID="464784" langid="9" Value="Compatible products"/>
+                <Name ID="1336065" langid="10" Value="Produtos compatíveis"/>
+                <Name ID="423927" langid="11" Value="Produtos suportados"/>
+                <Name ID="523407" langid="12" Value="兼容产品"/>
+                <Name ID="96927" langid="13" Value="Kompatibla produkter"/>
+                <Name ID="515820" langid="14" Value="Obsługiwane produkty"/>
+                <Name ID="1038003" langid="15" Value="Kompatibilní produkty"/>
+                <Name ID="260051" langid="16" Value="Kompatibilis termékek"/>
+                <Name ID="134644" langid="17" Value="Yhteensopivat tuotteet"/>
+                <Name ID="268332" langid="18" Value="Υποστηριζόμενα προϊόντα"/>
+                <Name ID="150184" langid="19" Value="Støttede produkter"/>
+                <Name ID="439083" langid="20" Value="Desteklenen ürünler"/>
+                <Name ID="164436" langid="21" Value="Съвместими продукти"/>
+                <Name ID="157749" langid="22" Value="თავსებადი პროდუქტები"/>
+                <Name ID="430210" langid="23" Value="Produse compatibile"/>
+                <Name ID="173678" langid="24" Value="Kompatibilni proizvodi"/>
+                <Name ID="219093" langid="25" Value="Сумісні продукти"/>
+                <Name ID="226854" langid="26" Value="対応製品"/>
+                <Name ID="498057" langid="27" Value="Productes compatibles"/>
+                <Name ID="312867" langid="29" Value="Kompatibilni proizvodi"/>
+                <Name ID="289470" langid="30" Value="المنتجات المتوافقة"/>
+                <Name ID="298465" langid="31" Value="Các sản phẩm tương thích"/>
+                <Name ID="481082" langid="32" Value="경쟁 상품"/>
+                <Name ID="491484" langid="35" Value="Compatible products"/>
+                <Name ID="1002304" langid="37" Value="相容產品"/>
+                <Name ID="542105" langid="38" Value="מוצרים תואמים"/>
+                <Name ID="553082" langid="39" Value="Suderinami produktai"/>
+                <Name ID="585615" langid="40" Value="Savienojamie produkti"/>
+                <Name ID="858204" langid="42" Value="Kompatible Produkte"/>
+                <Name ID="888717" langid="43" Value="Kompatibel produk"/>
+                <Name ID="961520" langid="44" Value="Kompatibilné produkty"/>
+                <Name ID="1189971" langid="45" Value="محصولات سازگار"/>
+                <Name ID="1445708" langid="46" Value="Productos compatibles"/>
+                <Name ID="1882870" langid="47" Value="Ühilduvad tooted"/>
+                <Name ID="1576546" langid="48" Value="Kompatible Produkte"/>
+                <Name ID="1547463" langid="49" Value="Produits compatibles"/>
+                <Name ID="1522361" langid="50" Value="Compatibele producten"/>
+                <Name ID="1957380" langid="51" Value="ผลิตภัณฑ์ที่เข้ากันได้"/>
+            </Feature>
+        </ProductFeature>
 
-   <ProductGallery>
-      <ProductPicture IsMain="Y" LowPic="http://images.icecat.biz/img/norm/low/108912-1129.jpg" LowPicHeight="200" LowPicWidth="200" LowSize="38409" No="1" Original="" OriginalSize="103099" Pic="http://images.icecat.biz/img/norm/high/108912-1129.jpg" Pic500x500="" Pic500x500Height="0" Pic500x500Size="0" Pic500x500Width="0" PicHeight="500" PicWidth="500" ProductPicture_ID="13331430" Size="103839" ThumbPic="http://images.icecat.biz/thumbs/108912.jpg" ThumbSize="7732"/>
-    </ProductGallery>
-   <ProductMultimediaObject/>
-   <ProductRelated/>
-   
-   
-	  <SummaryDescription>
-	    <ShortSummaryDescription >Panasonic UG-3350, Laser, UF-580/590, UF-585/595, DX-600, UF-5100/6100, Black</ShortSummaryDescription>
-	    <LongSummaryDescription >Panasonic UG-3350. Page yield: 7500 pages, Print technology: Laser, Compatible products: UF-580/590, UF-585/595, DX-600, UF-5100/6100</LongSummaryDescription>
-	  </SummaryDescription>
+        <ProductFeature Localized="0" ID="138231705" Local_ID="0" Value="Black" CategoryFeature_ID="9879"
+                        CategoryFeatureGroup_ID="10671" No="100000" Presentation_Value="Black" Translated="0"
+                        Mandatory="1" Searchable="0">
+            <LocalValue Value="Black">
+                <Measure ID="246">
+                    <Signs/>
+                </Measure>
+            </LocalValue>
+            <Feature ID="2037">
+                <Measure ID="246" Sign="">
+                    <Signs/>
+                </Measure>
+                <Name ID="9107" langid="1" Value="Printing colours"/>
+                <Name ID="474870" langid="2" Value="Printkleuren"/>
+                <Name ID="252087" langid="3" Value="Cartouche d'impression, couleurs"/>
+                <Name ID="447397" langid="4" Value="Druckfarben"/>
+                <Name ID="458318" langid="5" Value="Colori di stampa"/>
+                <Name ID="506449" langid="6" Value="Colores de impresión"/>
+                <Name ID="36742" langid="7" Value="Print farver"/>
+                <Name ID="533984" langid="8" Value="Цвета печати"/>
+                <Name ID="466874" langid="9" Value="Printing colors"/>
+                <Name ID="1335951" langid="10" Value="Cores de impressão"/>
+                <Name ID="426012" langid="11" Value="Cor(es) dos cartuchos de impressão"/>
+                <Name ID="525490" langid="12" Value="印刷颜色"/>
+                <Name ID="99280" langid="13" Value="Skriver färger"/>
+                <Name ID="517906" langid="14" Value="Kolor(y) wkładów drukujących"/>
+                <Name ID="180620" langid="15" Value="Tiskové barvy"/>
+                <Name ID="259920" langid="16" Value="Nyomtatási színek"/>
+                <Name ID="134513" langid="17" Value="Tulostuskasettien väri(t)"/>
+                <Name ID="268201" langid="18" Value="Χρώματα δοχείων μελανιού"/>
+                <Name ID="150053" langid="19" Value="Farge(r) i blekkpatroner"/>
+                <Name ID="441154" langid="20" Value="Baskı kartuşlarının renkleri"/>
+                <Name ID="164305" langid="21" Value="Цветове на печат"/>
+                <Name ID="157618" langid="22" Value="ბეჭდვის ფერები"/>
+                <Name ID="432294" langid="23" Value="Culorile de imprimare"/>
+                <Name ID="173548" langid="24" Value="Boje za štampanje"/>
+                <Name ID="218950" langid="25" Value="Кольори друку"/>
+                <Name ID="226723" langid="26" Value="印刷色"/>
+                <Name ID="500146" langid="27" Value="Impressió de colors"/>
+                <Name ID="312736" langid="29" Value="Boje za ispis"/>
+                <Name ID="289339" langid="30" Value="الوان الطباعة"/>
+                <Name ID="298334" langid="31" Value="Màu sắc in"/>
+                <Name ID="483884" langid="32" Value="인쇄 색상"/>
+                <Name ID="453609" langid="34" Value="Barve tiskalnih kartuš"/>
+                <Name ID="488726" langid="35" Value="Printing colors"/>
+                <Name ID="494392" langid="36" Value="Colour(s) of print cartridges"/>
+                <Name ID="998706" langid="37" Value="列印顏色"/>
+                <Name ID="544006" langid="38" Value="צבעי הדפסה"/>
+                <Name ID="555103" langid="39" Value="Spauzdinimo spalvos"/>
+                <Name ID="585485" langid="40" Value="Drukājamās krāsas"/>
+                <Name ID="857587" langid="42" Value="Druckfarben"/>
+                <Name ID="888575" langid="43" Value="Percetakan warna"/>
+                <Name ID="961378" langid="44" Value="Tlačové farby"/>
+                <Name ID="1189829" langid="45" Value="رنگ های چاپ"/>
+                <Name ID="1445589" langid="46" Value="Colores de impresión"/>
+                <Name ID="1882749" langid="47" Value="Printimisvärvid"/>
+                <Name ID="1576404" langid="48" Value="Druckfarben"/>
+                <Name ID="1547321" langid="49" Value="Cartouche d'impression, couleurs"/>
+                <Name ID="1522242" langid="50" Value="Printkleuren"/>
+                <Name ID="1957258" langid="51" Value="การพิมพ์สี"/>
+            </Feature>
+        </ProductFeature>
 
-    <Supplier ID="263" Name="Panasonic"/>
-   </Product>
+        <ProductFeature Localized="0" ID="138231708" Local_ID="0" Value="7500" CategoryFeature_ID="27812"
+                        CategoryFeatureGroup_ID="10671" No="100000" Presentation_Value="7500 pages" Translated="0"
+                        Mandatory="0" Searchable="0">
+            <LocalValue Value="7500">
+                <Measure ID="55">
+                    <Signs>
+                        <Sign ID="38" langid="1"><![CDATA[pages]]></Sign>
+                        <Sign ID="7078" langid="9"><![CDATA[pages]]></Sign>
+                    </Signs>
+                </Measure>
+            </LocalValue>
+            <Feature ID="5740">
+                <Measure ID="55" Sign="">
+                    <Signs>
+                        <Sign ID="38" langid="1"><![CDATA[pages]]></Sign>
+                        <Sign ID="487" langid="2"><![CDATA[pagina's]]></Sign>
+                        <Sign ID="5751" langid="3"><![CDATA[pages]]></Sign>
+                        <Sign ID="6676" langid="4"><![CDATA[Seiten]]></Sign>
+                        <Sign ID="18762" langid="5"><![CDATA[pagine]]></Sign>
+                        <Sign ID="7463" langid="6"><![CDATA[páginas]]></Sign>
+                        <Sign ID="492" langid="7"><![CDATA[Sider]]></Sign>
+                        <Sign ID="7975" langid="8"><![CDATA[страниц]]></Sign>
+                        <Sign ID="7078" langid="9"><![CDATA[pages]]></Sign>
+                        <Sign ID="11360" langid="11"><![CDATA[páginas]]></Sign>
+                        <Sign ID="7783" langid="12"><![CDATA[页]]></Sign>
+                        <Sign ID="12730" langid="13"><![CDATA[sidor]]></Sign>
+                        <Sign ID="7627" langid="14"><![CDATA[strony]]></Sign>
+                        <Sign ID="12228" langid="15"><![CDATA[str.]]></Sign>
+                        <Sign ID="4232" langid="16"><![CDATA[oldalak]]></Sign>
+                        <Sign ID="13842" langid="17"><![CDATA[pages]]></Sign>
+                        <Sign ID="14578" langid="19"><![CDATA[sider]]></Sign>
+                        <Sign ID="6624" langid="20"><![CDATA[Sayfalar]]></Sign>
+                        <Sign ID="5391" langid="23"><![CDATA[pagini]]></Sign>
+                        <Sign ID="3649" langid="25"><![CDATA[сторінок]]></Sign>
+                        <Sign ID="3867" langid="26"><![CDATA[ページ]]></Sign>
+                        <Sign ID="7307" langid="27"><![CDATA[pàgines]]></Sign>
+                        <Sign ID="5105" langid="29"><![CDATA[stranica]]></Sign>
+                        <Sign ID="4805" langid="30"><![CDATA[صفحات]]></Sign>
+                        <Sign ID="4948" langid="31"><![CDATA[trang]]></Sign>
+                        <Sign ID="5598" langid="32"><![CDATA[페이지]]></Sign>
+                        <Sign ID="8874" langid="37"><![CDATA[頁]]></Sign>
+                        <Sign ID="8327" langid="38"><![CDATA[דפים]]></Sign>
+                        <Sign ID="8522" langid="39"><![CDATA[puslapiai]]></Sign>
+                        <Sign ID="9042" langid="40"><![CDATA[lappuses]]></Sign>
+                        <Sign ID="11141" langid="43"><![CDATA[halaman]]></Sign>
+                        <Sign ID="11553" langid="44"><![CDATA[strany]]></Sign>
+                        <Sign ID="15202" langid="45"><![CDATA[pages]]></Sign>
+                        <Sign ID="16899" langid="46"><![CDATA[páginas]]></Sign>
+                    </Signs>
+                </Measure>
+                <Name ID="123275" langid="1" Value="Approximate page yield (black, ISO/IEC 19798)"/>
+                <Name ID="478112" langid="2"
+                      Value="Gemiddeld rendement bij onafgebroken afdrukken (zwart-wit, ISO/IEC 19798-norm)"/>
+                <Name ID="564872" langid="3"
+                      Value="Nombre approximatif de pages imprimées (noir, ISO/IEC 19798), environ"/>
+                <Name ID="450611" langid="4" Value="Druckleistung (schwartz, ISO/IEC 19798), ungefähr"/>
+                <Name ID="461566" langid="5" Value="Numero di pagine approssimativo (colore, ISO/IEC 19798)"/>
+                <Name ID="509696" langid="6" Value="Producción de páginas para imprimir (color, ISO/IEC 19798)"/>
+                <Name ID="1302601" langid="7" Value="Omtrentlig sidemængde (sort, ISO/IEC 19798)"/>
+                <Name ID="537222" langid="8"
+                      Value="Приблизительная производительность по печатным страницам (черный, ISO/IEC 19752)"/>
+                <Name ID="470116" langid="9" Value="Approximate page yield (black, ISO/IEC 19798)"/>
+                <Name ID="1338656" langid="10"
+                      Value="Quantidade aproximada de páginas por cartucho (preto, ISO/IEC 19798)"/>
+                <Name ID="429243" langid="11" Value="Rendimento por página (preto, ISO/IEC 19752)"/>
+                <Name ID="528719" langid="12" Value="近似页面产出数 (黑色, 国际标准化组织/国际电工委员会 19798)"/>
+                <Name ID="1012911" langid="13" Value="Ungefärlig Sidkapacitet (svart, ISO / IEC 19798)"/>
+                <Name ID="521146" langid="14" Value="Wydajność (w czerni, ISO/IEC 19798)"/>
+                <Name ID="184012" langid="15" Value="Přibližná výtěžnost tiskárny (černobíle, ISO/IEC 19798)"/>
+                <Name ID="258257" langid="16" Value="Hozzávetőleges nyomtatható oldalszám (fekete, ISO/IEC 19798)"/>
+                <Name ID="133007" langid="17" Value="Riittoisuus (mustavalkoinen, ISO/IEC 19798)"/>
+                <Name ID="266695" langid="18" Value="Απόδοση σελίδων χαμηλών δυνατοτήτων (ασπρόμαυρη, ISO/IEC 19798)"/>
+                <Name ID="148547" langid="19" Value="Sideytelse ISO/IEC (svart, 19798)"/>
+                <Name ID="444368" langid="20" Value="Baskı kapasitesi (siyah, ISO/IEC 19798)"/>
+                <Name ID="162799" langid="21"
+                      Value="Приблизителна производителност на печатни страници (черно, ISO/IEC 19798)"/>
+                <Name ID="156112" langid="22" Value="ფურცლის დაახლოებითი მიწოდება (შავი, ISO/IEC 19798)"/>
+                <Name ID="435525" langid="23" Value="Cantitatea apoximativă de pagini produse"/>
+                <Name ID="172050" langid="24" Value="Približan broj strana iz kertridža (crno, ISO/IEC 19798)"/>
+                <Name ID="848196" langid="25"
+                      Value="Приблизна продуктивність по друкарським аркушам (чорний, ISO/IEC 19752)"/>
+                <Name ID="225219" langid="26" Value="出力可能な概算ページ数(白黒, ISO/IEC 19798)"/>
+                <Name ID="503393" langid="27" Value="Rendiment aproximat de la pàgina (negre, ISO / IEC 19798)"/>
+                <Name ID="311075" langid="29" Value="Približan broj stranica iz patrone (crno, ISO/IEC 19798)"/>
+                <Name ID="287677" langid="30" Value="العدد التقريبي للصفحات التي يمكن طباعته(أسود, ISO/IEC 19798)"/>
+                <Name ID="296673" langid="31" Value="Hiệu suất trang in ước tính (black, ISO/IEC 19798)"/>
+                <Name ID="483518" langid="32" Value="예상 출력 가능 매수(흑백, ISO/IEC 19798,)"/>
+                <Name ID="489042" langid="35" Value="Approximate page yield (black, ISO/IEC 19798)"/>
+                <Name ID="998721" langid="37" Value="近似頁數（黑白，ISO / IEC 19798）"/>
+                <Name ID="547033" langid="38" Value="מספר דפים משוער (שחור, ISO / IEC 19798)"/>
+                <Name ID="558342" langid="39" Value="Vidutinis puslapių našumas (juodai, ISO / IEC 19798)"/>
+                <Name ID="583829" langid="40" Value="Aptuvenais lappušu apjoms  (melns, ISO/IEC 19798)"/>
+                <Name ID="862398" langid="42" Value="Druckleistung (schwartz, ISO/IEC 19798), ungefähr"/>
+                <Name ID="891849" langid="43" Value="Halaman Perkiraan hasil (hitam, ISO / IEC 19798)"/>
+                <Name ID="1019388" langid="44" Value="Približná výťažnosť tlačiarne (čiernobielo, ISO/IEC 19798)"/>
+                <Name ID="1193060" langid="45" Value="دستاورد تقریبی صفحه (سیاه, ISO/IEC 19798)"/>
+                <Name ID="1448414" langid="46" Value="Producción de páginas para imprimir (color, ISO/IEC 19798)"/>
+                <Name ID="1885590" langid="47" Value="Ligikaudne leheküljetootlus (must, ISO/IEC 19798)"/>
+                <Name ID="1579625" langid="48" Value="Druckleistung (schwartz, ISO/IEC 19798), ungefähr"/>
+                <Name ID="1550542" langid="49"
+                      Value="Nombre approximatif de pages imprimées (noir, ISO/IEC 19798), environ"/>
+                <Name ID="1525080" langid="50"
+                      Value="Gemiddeld rendement bij onafgebroken afdrukken (zwart-wit, ISO/IEC 19798-norm)"/>
+                <Name ID="1929144" langid="51" Value="จำนวนหน้าที่พิมพ์ได้โดยประมาณ (ดำ, มาตรฐาน ISO/IEC 19798)"/>
+            </Feature>
+        </ProductFeature>
+
+        <ProductFeature Localized="0" ID="138231707" Local_ID="0" Value="1" CategoryFeature_ID="41695"
+                        CategoryFeatureGroup_ID="10671" No="100000" Presentation_Value="1" Translated="0" Mandatory="1"
+                        Searchable="0">
+            <LocalValue Value="1">
+                <Measure ID="29">
+                    <Signs/>
+                </Measure>
+            </LocalValue>
+            <Feature ID="1675">
+                <Measure ID="29" Sign="">
+                    <Signs>
+                        <Sign ID="19723" langid="43"><![CDATA[Teks]]></Sign>
+                    </Signs>
+                </Measure>
+                <Name ID="5223" langid="1" Value="Quantity"/>
+                <Name ID="474859" langid="2" Value="Aantal"/>
+                <Name ID="251841" langid="3" Value="Quantité"/>
+                <Name ID="447386" langid="4" Value="Anzahl"/>
+                <Name ID="458307" langid="5" Value="Quantità"/>
+                <Name ID="506438" langid="6" Value="Cantidad"/>
+                <Name ID="36170" langid="7" Value="Antal"/>
+                <Name ID="533973" langid="8" Value="Количество"/>
+                <Name ID="466863" langid="9" Value="Quantity"/>
+                <Name ID="1335686" langid="10" Value="Quantidade"/>
+                <Name ID="426001" langid="11" Value="Quantidade"/>
+                <Name ID="525479" langid="12" Value="数量"/>
+                <Name ID="99382" langid="13" Value="Antal"/>
+                <Name ID="517895" langid="14" Value="Ilość"/>
+                <Name ID="180301" langid="15" Value="Množství"/>
+                <Name ID="259674" langid="16" Value="Mennyiség"/>
+                <Name ID="134267" langid="17" Value="Määrä"/>
+                <Name ID="267955" langid="18" Value="Ποσότητα"/>
+                <Name ID="149807" langid="19" Value="Kvantitet/antall"/>
+                <Name ID="441143" langid="20" Value="Miktar"/>
+                <Name ID="164059" langid="21" Value="Количество"/>
+                <Name ID="157372" langid="22" Value="რაოდენობა"/>
+                <Name ID="432283" langid="23" Value="Cantitatea"/>
+                <Name ID="173303" langid="24" Value="broj"/>
+                <Name ID="218631" langid="25" Value="Кількість"/>
+                <Name ID="226477" langid="26" Value="数量"/>
+                <Name ID="500135" langid="27" Value="Quantitat"/>
+                <Name ID="312490" langid="29" Value="Količina"/>
+                <Name ID="289093" langid="30" Value="الكمية"/>
+                <Name ID="298088" langid="31" Value="Số lượng"/>
+                <Name ID="483002" langid="32" Value="수량"/>
+                <Name ID="967708" langid="34" Value="Število izdelkov na enoto"/>
+                <Name ID="488552" langid="35" Value="Quantity"/>
+                <Name ID="879618" langid="36" Value="Product count per unit"/>
+                <Name ID="1000436" langid="37" Value="數量"/>
+                <Name ID="543997" langid="38" Value="כמות"/>
+                <Name ID="555092" langid="39" Value="Kiekis"/>
+                <Name ID="585240" langid="40" Value="Daudzums"/>
+                <Name ID="968075" langid="41" Value="Product count per unit"/>
+                <Name ID="857123" langid="42" Value="Anzahl"/>
+                <Name ID="888263" langid="43" Value="Kuantitas"/>
+                <Name ID="961064" langid="44" Value="Množstvo"/>
+                <Name ID="1189515" langid="45" Value="کمیت"/>
+                <Name ID="1445319" langid="46" Value="Cantidad"/>
+                <Name ID="1882479" langid="47" Value="Kogus"/>
+                <Name ID="1576090" langid="48" Value="Anzahl"/>
+                <Name ID="1547007" langid="49" Value="Quantité"/>
+                <Name ID="1521972" langid="50" Value="Aantal"/>
+                <Name ID="1956988" langid="51" Value="จำนวน"/>
+            </Feature>
+        </ProductFeature>
+
+        <ProductGallery>
+            <ProductPicture IsMain="Y" LowPic="http://images.icecat.biz/img/norm/low/108912-1129.jpg" LowPicHeight="200"
+                            LowPicWidth="200" LowSize="38409" No="1" Original="" OriginalSize="103099"
+                            Pic="http://images.icecat.biz/img/norm/high/108912-1129.jpg" Pic500x500=""
+                            Pic500x500Height="0" Pic500x500Size="0" Pic500x500Width="0" PicHeight="500" PicWidth="500"
+                            ProductPicture_ID="13331430" Size="103839"
+                            ThumbPic="http://images.icecat.biz/thumbs/108912.jpg" ThumbSize="7732"/>
+        </ProductGallery>
+        <ProductMultimediaObject/>
+        <ProductRelated/>
+
+
+        <SummaryDescription>
+            <ShortSummaryDescription>Panasonic UG-3350, Laser, UF-580/590, UF-585/595, DX-600, UF-5100/6100, Black
+            </ShortSummaryDescription>
+            <LongSummaryDescription>Panasonic UG-3350. Page yield: 7500 pages, Print technology: Laser, Compatible
+                products: UF-580/590, UF-585/595, DX-600, UF-5100/6100
+            </LongSummaryDescription>
+        </SummaryDescription>
+
+        <Supplier ID="263" Name="Panasonic"/>
+    </Product>
 </ICECAT-interface>
