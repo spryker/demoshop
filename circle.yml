@@ -30,4 +30,4 @@ test:
 #   - phpcpd vendor/spryker/spryker/Bundles -n
     - vendor/bin/codecept build
     - vendor/bin/console application:integration-check
-    - vendor/bin/phpcs vendor/spryker/spryker/Bundles --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml
+    - vendor/bin/console code:sniff
