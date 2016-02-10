@@ -8,6 +8,7 @@ use Pyz\Zed\Installer\Business\Model\Icecat\Importer\CategoryImporter;
 use Pyz\Zed\Installer\Business\Model\Icecat\Importer\LocaleImporter;
 use Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductImporter;
 use Pyz\Zed\Installer\InstallerConfig;
+use Pyz\Zed\Installer\InstallerDependencyProvider;
 use Spryker\Zed\Installer\Business\InstallerBusinessFactory as SprykerInstallerBusinessFactory;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -25,7 +26,9 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
         $reader = $this->getIcecatReader();
 
         return [
-            InstallerConfig::CATEGORY_RESOURCE => new CategoryImporter($reader),
+            InstallerConfig::CATEGORY_RESOURCE => new CategoryImporter(
+                $reader, $this->getProvidedDependency(InstallerDependencyProvider::FACADE_CATEGORY)
+            ),
             InstallerConfig::LOCALE_RESOURCE => new LocaleImporter($reader),
             InstallerConfig::PRODUCT_RESOURCE => new ProductImporter($reader),
         ];
@@ -40,7 +43,11 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     {
         $importerCollection = $this->getIcecatDataImporters();
 
-        return new IcecatInstaller($output, $importerCollection);
+        return new IcecatInstaller(
+            $output,
+            $this->getProvidedDependency(InstallerDependencyProvider::FACADE_LOCALE),
+            $importerCollection
+        );
     }
 
     /**

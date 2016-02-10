@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Installer\Business\Model\Icecat\Importer;
 
+use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatImporter;
 
 /*
@@ -23,11 +24,12 @@ class ProductImporter extends AbstractIcecatImporter
     protected $dataFilename = 'icecat.xml';
 
     /**
-     * @param string $localeName
+     * @param LocaleTransfer $localeTransfer
      * @param int $icecatLangId
      *
+     * @return void
      */
-    public function import($localeName, $icecatLangId)
+    public function import(LocaleTransfer $localeTransfer, $icecatLangId)
     {
         $xml = $this->xmlReader->getXml($this->dataFilename);
 

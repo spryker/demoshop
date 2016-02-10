@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Installer\Business\Model\Icecat\Importer;
 
+use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatImporter;
 
 /*
@@ -73,7 +74,13 @@ class LocaleImporter extends AbstractIcecatImporter
         ],
     ];
 
-    public function import($localeName, $icecatLangId)
+    /**
+     * @param LocaleTransfer $localeTransfer
+     * @param int $icecatLangId
+     *
+     * @return void
+     */
+    public function import(LocaleTransfer $localeTransfer, $icecatLangId)
     {
 
     }

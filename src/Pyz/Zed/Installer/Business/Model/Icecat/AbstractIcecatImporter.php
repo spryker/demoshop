@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Installer\Business\Model\Icecat;
 
+use Generated\Shared\Transfer\LocaleTransfer;
 use Symfony\Component\Console\Output\OutputInterface;
 
 abstract class AbstractIcecatImporter
@@ -13,13 +14,12 @@ abstract class AbstractIcecatImporter
     protected $xmlReader;
 
     /**
-     * @param string $localeName
-     * @param $icecatLangId
-     * @return
-     * @internal param int $icecatLocaleId
+     * @param LocaleTransfer $localeTransfer
+     * @param int $icecatLangId
      *
+     * @return void
      */
-    abstract public function import($localeName, $icecatLangId);
+    abstract public function import(LocaleTransfer $localeTransfer, $icecatLangId);
 
     /**
      * IcecatInstaller constructor.
