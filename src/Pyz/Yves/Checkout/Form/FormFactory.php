@@ -100,7 +100,7 @@ class FormFactory extends AbstractFactory
      */
     protected function createAddressFormDataProvider()
     {
-        return new CheckoutAddressFormDataProvider($this->getLocator()->customer()->client(), $this->createStore());
+        return new CheckoutAddressFormDataProvider($this->getCustomerClient(), $this->createStore());
     }
 
     /**
@@ -226,6 +226,14 @@ class FormFactory extends AbstractFactory
     public function createStore()
     {
         return Store::getInstance();
+    }
+
+    /**
+     * @return \Pyz\Client\Customer\CustomerClient
+     */
+    protected function getCustomerClient()
+    {
+        return $this->getLocator()->customer()->client();
     }
 
 }

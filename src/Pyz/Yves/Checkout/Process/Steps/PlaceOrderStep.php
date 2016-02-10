@@ -5,7 +5,6 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -57,7 +56,6 @@ class PlaceOrderStep extends BaseStep
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface[] $plugins
      *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
@@ -83,15 +81,7 @@ class PlaceOrderStep extends BaseStep
      */
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
-        if ($quoteTransfer->getBillingAddress() === null ||
-            $quoteTransfer->getShipment() === null ||
-            (empty($quoteTransfer->getPayment()) && $quoteTransfer->getPayment()->getPaymentSelection() === null) ||
-            $quoteTransfer->getOrderReference() === null
-        ) {
-            $this->flashMessenger->addErrorMessage('checkout.step.place_order.post_condition_not_met');
-            return false;
-        }
-        return true;
+        return $quoteTransfer->getOrderReference() !== null;
     }
 
     /**

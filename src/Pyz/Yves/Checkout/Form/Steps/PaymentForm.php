@@ -32,7 +32,7 @@ class PaymentForm extends AbstractForm
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[] $paymentMethodSubFormPlugins
      */
-    public function __construct(QuoteTransfer $quoteTransfer, $paymentMethodSubFormPlugins)
+    public function __construct(QuoteTransfer $quoteTransfer, array $paymentMethodSubFormPlugins)
     {
         $this->quoteTransfer = $quoteTransfer;
         $this->paymentMethodSubFormPlugins = $paymentMethodSubFormPlugins;
@@ -90,7 +90,7 @@ class PaymentForm extends AbstractForm
      *
      * @return $this
      */
-    protected function addPaymentMethodChoices(FormBuilderInterface $builder, $paymentMethodChoices)
+    protected function addPaymentMethodChoices(FormBuilderInterface $builder, array $paymentMethodChoices)
     {
         $builder->add(
             self::PAYMENT_SELECTION,
@@ -162,7 +162,7 @@ class PaymentForm extends AbstractForm
      *
      * @return array
      */
-    protected function getPaymentMethodChoices($paymentMethodSubForms)
+    protected function getPaymentMethodChoices(array $paymentMethodSubForms)
     {
         $choices = [];
 

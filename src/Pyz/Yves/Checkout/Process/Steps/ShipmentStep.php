@@ -6,6 +6,7 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Spryker\Client\Calculation\CalculationClient;
+use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -24,14 +25,14 @@ class ShipmentStep extends BaseStep
 
     /**
      * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
-     * @param \Spryker\Client\Calculation\CalculationClient $calculationClient
+     * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
      * @param string $stepRoute
      * @param string $escapeRoute
      * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface[] $shipmentPlugins
      */
     public function __construct(
         FlashMessengerInterface $flashMessenger,
-        CalculationClient $calculationClient,
+        CalculationClientInterface $calculationClient,
         $stepRoute,
         $escapeRoute,
         array $shipmentPlugins
@@ -88,7 +89,6 @@ class ShipmentStep extends BaseStep
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
         if (!$this->isShipmentSet($quoteTransfer)) {
-            $this->flashMessenger->addErrorMessage('checkout.step.shipment.shipment_not_set');
             return false;
         }
 

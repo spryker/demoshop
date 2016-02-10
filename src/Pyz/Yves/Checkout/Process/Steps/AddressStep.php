@@ -93,8 +93,6 @@ class AddressStep extends BaseStep
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
         if ($this->isAddressEmpty($quoteTransfer->getShippingAddress()) || $this->isAddressEmpty($quoteTransfer->getBillingAddress())) {
-            $this->flashMessenger->addErrorMessage('checkout.step.address.address_missing');
-
             return false;
         }
 

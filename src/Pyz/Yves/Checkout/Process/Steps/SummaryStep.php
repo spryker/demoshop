@@ -4,8 +4,7 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
-use Spryker\Client\Calculation\CalculationClient;
+use Spryker\Client\Calculation\CalculationClientInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class SummaryStep extends BaseStep
@@ -18,19 +17,29 @@ class SummaryStep extends BaseStep
 
     /**
      * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
-     * @param \Spryker\Client\Calculation\CalculationClient $calculationClient
+     * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
      * @param $stepRoute
      * @param $escapeRoute
      */
     public function __construct(
         FlashMessengerInterface $flashMessenger,
-        CalculationClient $calculationClient,
+        CalculationClientInterface $calculationClient,
         $stepRoute,
         $escapeRoute
     ) {
         parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
 
         $this->calculationClient = $calculationClient;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return bool
+     */
+    public function preCondition(QuoteTransfer $quoteTransfer)
+    {
+        return !$this->isCartEmpty($quoteTransfer);
     }
 
     /**
@@ -46,7 +55,6 @@ class SummaryStep extends BaseStep
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface[] $plugins
      *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
@@ -64,22 +72,11 @@ class SummaryStep extends BaseStep
     {
         if ($quoteTransfer->getBillingAddress() === null ||
             $quoteTransfer->getShipment() === null ||
-            (empty($quoteTransfer->getPayment()) && $quoteTransfer->getPayment()->getPaymentSelection() === null)) {
-            $this->flashMessenger->addErrorMessage('checkout.step.summary.post_condition_not_met');
+            (empty($quoteTransfer->getPayment()) && $quoteTransfer->getPayment()->getPaymentProvider() === null)) {
             return false;
         }
 
         return true;
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
-    public function preCondition(QuoteTransfer $quoteTransfer)
-    {
-        return !$this->isCartEmpty($quoteTransfer);
     }
 
 }

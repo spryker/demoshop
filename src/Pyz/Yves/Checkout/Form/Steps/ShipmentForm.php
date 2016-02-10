@@ -5,9 +5,7 @@ namespace Pyz\Yves\Checkout\Form\Steps;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
-use Pyz\Yves\Checkout\Form\AbstractCheckoutSubForm;
 use Spryker\Shared\Gui\Form\AbstractForm;
-use Spryker\Shared\Transfer\TransferInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -32,7 +30,7 @@ class ShipmentForm extends AbstractForm
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[] $shipmentMethodsSubFormPlugins
      */
-    public function __construct(QuoteTransfer $quoteTransfer, $shipmentMethodsSubFormPlugins)
+    public function __construct(QuoteTransfer $quoteTransfer, array $shipmentMethodsSubFormPlugins = [])
     {
         $this->quoteTransfer = $quoteTransfer;
         $this->shipmentMethodsSubFormPlugins = $shipmentMethodsSubFormPlugins;
@@ -90,7 +88,7 @@ class ShipmentForm extends AbstractForm
      *
      * @return self
      */
-    protected function addShipmentMethodChoices(FormBuilderInterface $builder, $shipmentMethodChoices)
+    protected function addShipmentMethodChoices(FormBuilderInterface $builder, array $shipmentMethodChoices)
     {
         $builder->add(
             self::SHIPMENT_SELECTION,
@@ -111,11 +109,11 @@ class ShipmentForm extends AbstractForm
 
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
-     * @param \Pyz\Yves\Checkout\Form\AbstractCheckoutSubForm[] $shipmentMethodSubForms
+     * @param \Pyz\Yves\Checkout\Dependency\SubFormInterface[] $shipmentMethodSubForms
      *
      * @return self
      */
-    protected function addShipmentMethodSubForms(FormBuilderInterface $builder, $shipmentMethodSubForms)
+    protected function addShipmentMethodSubForms(FormBuilderInterface $builder, array $shipmentMethodSubForms)
     {
         foreach ($shipmentMethodSubForms as $shipmentMethodSubForm) {
             $builder->add(
@@ -144,7 +142,7 @@ class ShipmentForm extends AbstractForm
     }
 
     /**
-     * @return \Pyz\Yves\Checkout\Form\AbstractCheckoutSubForm[]
+     * @return\Pyz\Yves\Checkout\Dependency\SubFormInterface[]
      */
     protected function getShipmentMethodSubForms()
     {
@@ -158,11 +156,11 @@ class ShipmentForm extends AbstractForm
     }
 
     /**
-     * @param \Pyz\Yves\Checkout\Form\AbstractCheckoutSubForm[] $shipmentMethodSubForms
+     * @param \Pyz\Yves\Checkout\Dependency\SubFormInterface[] $shipmentMethodSubForms
      *
      * @return array
      */
-    protected function getShipmentMethodsChoices($shipmentMethodSubForms)
+    protected function getShipmentMethodsChoices(array $shipmentMethodSubForms)
     {
         $choices = [];
 
@@ -177,7 +175,7 @@ class ShipmentForm extends AbstractForm
     /**
      * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface $shipmentMethodSubForm
      *
-     * @return \Pyz\Yves\Checkout\Form\AbstractCheckoutSubForm
+     * @return \Pyz\Yves\Checkout\Dependency\SubFormInterface
      */
     protected function createSubForm(CheckoutSubFormPluginInterface $shipmentMethodSubForm)
     {

@@ -49,7 +49,6 @@ class SuccessStep extends BaseStep
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
         if ($quoteTransfer->getOrderReference() === null) {
-            $this->flashMessenger->addErrorMessage('checkout.step.success.order_not_yet_placed');
             return false;
         }
 

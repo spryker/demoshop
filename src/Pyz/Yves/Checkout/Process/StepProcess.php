@@ -64,14 +64,14 @@ class StepProcess
     {
         $currentStep = $this->getCurrentStep($request);
 
-        if ($this->canAccessStep($request, $currentStep) === false) {
-            $stepRoute = $currentStep->getStepRoute();
-            return $this->createRedirectResponse($this->getUrlFromRoute($stepRoute));
-        }
-
         if ($currentStep->preCondition($this->getQuoteTransfer()) === false) {
             $escapeRoute = $this->getEscapeRoute($currentStep);
             return $this->createRedirectResponse($this->getUrlFromRoute($escapeRoute));
+        }
+
+        if ($this->canAccessStep($request, $currentStep) === false) {
+            $stepRoute = $currentStep->getStepRoute();
+            return $this->createRedirectResponse($this->getUrlFromRoute($stepRoute));
         }
 
         if ($currentStep->requireInput($this->getQuoteTransfer()) === false) {
@@ -232,7 +232,7 @@ class StepProcess
      */
     protected function getNextStepRoute(StepInterface $currentStep, QuoteTransfer $quoteTransfer)
     {
-        if ($currentStep->postCondition($quoteTransfer)) {
+        if ($currentStep->postCondition($quoteTransfer) === true) {
             $nextStep = $this->getNextStep($currentStep);
             if ($nextStep !== null) {
                 return $nextStep->getStepRoute();

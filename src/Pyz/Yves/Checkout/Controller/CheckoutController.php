@@ -2,12 +2,7 @@
 
 namespace Pyz\Yves\Checkout\Controller;
 
-use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Checkout\CheckoutFactory;
-use Pyz\Yves\Checkout\Process\StepProcess;
-use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Yves\Application\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
