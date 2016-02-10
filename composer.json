@@ -79,10 +79,6 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/spryker.git"
-    },
-    {
-      "type": "git",
-      "url": "git@github.com:spryker/code-sniffer.git"
     }
   ]
 }

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7c93c91f97b0f286aed9ac5f7e53bae9",
-    "content-hash": "360aa1bc9acbcffcfb1dc68e58789bf0",
+    "hash": "05a18a72abeb9fb9f957b4cb4a0aa2eb",
+    "content-hash": "06fac11922fa45eaa8d6ab8fb74a93bd",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -779,10 +779,13 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "94d47dadece9b71d16e0a9ddd9db92bc7f2c63e3"
+                "reference": "572f517dbb1ef489369339660b56637ca5f583c2"
             },
             "require": {
                 "phpdocumentor/graphviz": "dev-master#a906a90"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "dev-master"
             },
             "bin": [
                 "Bundles/Console/bin/console"
@@ -796,7 +799,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2016-02-10 06:11:34"
+            "time": "2016-02-10 11:31:27"
         },
         {
             "name": "symfony-cmf/routing",
@@ -4681,16 +4684,24 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/code-sniffer.git",
-                "reference": "202f4521ba124097501ac2e9c41173c0081955e1"
+                "url": "https://github.com/spryker/code-sniffer.git",
+                "reference": "4961a325750ee95316d0f1c07854a4690f9559fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/4961a325750ee95316d0f1c07854a4690f9559fa",
+                "reference": "4961a325750ee95316d0f1c07854a4690f9559fa",
+                "shasum": ""
             },
             "require": {
+                "php": ">=5.4.16",
                 "squizlabs/php_codesniffer": "~2.5"
             },
             "require-dev": {
                 "phpunit/phpunit": "~5.2"
             },
             "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -4708,10 +4719,7 @@
                 "phpcs",
                 "standards"
             ],
-            "support": {
-                "source": "https://github.com/spryker/code-sniffer"
-            },
-            "time": "2016-02-09 18:20:16"
+            "time": "2016-02-10 10:59:25"
         },
         {
             "name": "squizlabs/php_codesniffer",
