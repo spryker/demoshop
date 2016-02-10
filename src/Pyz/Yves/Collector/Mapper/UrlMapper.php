@@ -117,8 +117,7 @@ class UrlMapper implements UrlMapperInterface
                         $value,
                         $value[$i],
                         $active,
-                        isset($active[$i]) ? $active[$i] : $defaultActive,
-                        $this->facetConfig
+                        isset($active[$i]) ? $active[$i] : $defaultActive
                     );
                 }
             } else {
@@ -128,8 +127,7 @@ class UrlMapper implements UrlMapperInterface
                     $value,
                     $value,
                     $active,
-                    $active ?: $defaultActive,
-                    $this->facetConfig
+                    $active ?: $defaultActive
                 );
             }
         }
