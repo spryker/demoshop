@@ -5,13 +5,11 @@ namespace Pyz\Yves\Checkout\Form\Steps;
 use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
-use Spryker\Shared\Gui\Form\AbstractForm;
-use Spryker\Shared\Transfer\TransferInterface;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 
-class PaymentForm extends AbstractForm
+class PaymentForm extends AbstractType
 {
 
     const PAYMENT_PROPERTY_PATH = QuoteTransfer::PAYMENT;
@@ -44,14 +42,6 @@ class PaymentForm extends AbstractForm
     public function getName()
     {
         return 'paymentForm';
-    }
-
-    /**
-     * @return \Spryker\Shared\Transfer\TransferInterface|null
-     */
-    protected function getDataClass()
-    {
-        return null;
     }
 
     /**
@@ -192,14 +182,6 @@ class PaymentForm extends AbstractForm
         if ($this->quoteTransfer->getPayment() === null) {
             $this->quoteTransfer->setPayment(new PaymentTransfer());
         }
-    }
-
-    /**
-     * @return \Spryker\Shared\Transfer\TransferInterface|array
-     */
-    public function populateFormFields()
-    {
-        return [];
     }
 
 }

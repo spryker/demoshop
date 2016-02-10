@@ -3,7 +3,6 @@
 namespace Pyz\Yves\Checkout\Dependency\Plugin;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Spryker\Shared\Gui\Form\AbstractForm;
 
 interface CheckoutSubFormPluginInterface
 {
@@ -11,7 +10,7 @@ interface CheckoutSubFormPluginInterface
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return \Spryker\Shared\Gui\Form\AbstractForm
+     * @return \Pyz\Yves\Checkout\Dependency\SubFormInterface
      */
     public function createSubFrom(QuoteTransfer $quoteTransfer);
 

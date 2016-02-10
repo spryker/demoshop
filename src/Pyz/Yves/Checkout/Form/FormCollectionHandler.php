@@ -4,6 +4,7 @@ namespace Pyz\Yves\Checkout\Form;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface;
+use Pyz\Yves\Checkout\Form\Exception\InvalidFormHandleRequest;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,11 +21,6 @@ class FormCollectionHandler implements FormCollectionHandlerInterface
      * @var \Generated\Shared\Transfer\QuoteTransfer
      */
     protected $quoteTransfer;
-
-    /**
-     * @var \Symfony\Component\Form\AbstractType[]
-     */
-    protected $formTypes = [];
 
     /**
      * @var \Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface
@@ -50,8 +46,9 @@ class FormCollectionHandler implements FormCollectionHandlerInterface
     ) {
         $this->formFactory = $formFactory;
         $this->quoteTransfer = $quoteTransfer;
-        $this->formTypes = array_values($formTypes);
         $this->dataProvider = $dataProvider;
+
+        $this->createForms($formTypes, $quoteTransfer);
     }
 
     /**
@@ -59,10 +56,6 @@ class FormCollectionHandler implements FormCollectionHandlerInterface
      */
     public function getForms()
     {
-        if (count($this->forms) !== count($this->formTypes)) {
-            $this->createForms();
-        }
-
         return $this->forms;
     }
 
@@ -85,58 +78,70 @@ class FormCollectionHandler implements FormCollectionHandlerInterface
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
+     * @throws \Pyz\Yves\Checkout\Form\Exception\InvalidFormHandleRequest
+     *
      * @return \Symfony\Component\Form\FormInterface
      */
     public function handleRequest(Request $request)
     {
         foreach ($this->getForms() as $form) {
             if ($request->request->has($form->getName())) {
+                $form->setData(clone $this->quoteTransfer);
                 return $form->handleRequest($request);
             }
         }
 
-        return $this;
+        throw new InvalidFormHandleRequest('Form not found in Request to handle.');
     }
 
     /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return void
      */
-    public function provideDefaultFormData()
+    public function provideDefaultFormData(QuoteTransfer $quoteTransfer)
     {
         if ($this->dataProvider === null) {
-            return;
+            $formData = clone $quoteTransfer;
+        } else {
+            $formData = $this->dataProvider->getData(clone $quoteTransfer);
         }
 
         foreach ($this->getForms() as $form) {
-            $form->setData($this->dataProvider->getData($this->quoteTransfer));
+            $form->setData($formData);
         }
     }
 
     /**
+     * @param \Symfony\Component\Form\FormTypeInterface[] $formTypes
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return void
      */
-    protected function createForms()
+    protected function createForms(array $formTypes, QuoteTransfer $quoteTransfer)
     {
-        $firstIndex = count($this->forms);
-        $lastIndex = count($this->formTypes);
-        for ($i = $firstIndex; $i < $lastIndex; $i++) {
-            $this->forms[] = $this->createForm($this->formTypes[$i]);
+        foreach ($formTypes as $formType) {
+            $this->forms[] = $this->createForm($formType, $quoteTransfer);
         }
     }
 
     /**
      * @param \Symfony\Component\Form\FormTypeInterface $formType
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return \Symfony\Component\Form\FormInterface
      */
-    protected function createForm(FormTypeInterface $formType)
+    protected function createForm(FormTypeInterface $formType, QuoteTransfer $quoteTransfer)
     {
-        $options = [];
+        $options = [
+            'data_class' => QuoteTransfer::class
+        ];
+
         if ($this->dataProvider !== null) {
-            $options = $this->dataProvider->getOptions($this->quoteTransfer);
+            $options = array_merge($options, $this->dataProvider->getOptions(clone $quoteTransfer));
         }
 
-        return $this->formFactory->create($formType, $this->quoteTransfer, $options);
+        return $this->formFactory->create($formType, null, $options);
     }
 
 }

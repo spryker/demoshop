@@ -4,8 +4,6 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
-use Spryker\Client\Calculation\CalculationClient;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Symfony\Component\HttpFoundation\Request;

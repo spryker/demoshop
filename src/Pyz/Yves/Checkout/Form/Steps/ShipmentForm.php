@@ -5,11 +5,10 @@ namespace Pyz\Yves\Checkout\Form\Steps;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
-use Spryker\Shared\Gui\Form\AbstractForm;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Validator\Constraints as Assert;
 
-class ShipmentForm extends AbstractForm
+class ShipmentForm extends AbstractType
 {
 
     const SHIPMENT_PROPERTY_PATH = 'shipment';
@@ -34,6 +33,8 @@ class ShipmentForm extends AbstractForm
     {
         $this->quoteTransfer = $quoteTransfer;
         $this->shipmentMethodsSubFormPlugins = $shipmentMethodsSubFormPlugins;
+
+        $this->setShipmentForDataClass();
     }
 
     /**
@@ -45,14 +46,6 @@ class ShipmentForm extends AbstractForm
     }
 
     /**
-     * @return \Spryker\Shared\Transfer\TransferInterface|null
-     */
-    protected function getDataClass()
-    {
-        return null;
-    }
-
-    /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      *
@@ -60,7 +53,8 @@ class ShipmentForm extends AbstractForm
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $this->addShipmentMethods($builder)
+        $this
+            ->addShipmentMethods($builder)
             ->addSubmit($builder);
     }
 
@@ -71,8 +65,6 @@ class ShipmentForm extends AbstractForm
      */
     protected function addShipmentMethods(FormBuilderInterface $builder)
     {
-        $this->setShipmentForDataClass();
-
         $shipmentMethodSubForms = $this->getShipmentMethodSubForms();
         $shipmentMethodChoices = $this->getShipmentMethodsChoices($shipmentMethodSubForms);
 
@@ -142,7 +134,7 @@ class ShipmentForm extends AbstractForm
     }
 
     /**
-     * @return\Pyz\Yves\Checkout\Dependency\SubFormInterface[]
+     * @return \Pyz\Yves\Checkout\Dependency\SubFormInterface[]
      */
     protected function getShipmentMethodSubForms()
     {
@@ -190,14 +182,6 @@ class ShipmentForm extends AbstractForm
         if ($this->quoteTransfer->getShipment() === null) {
             $this->quoteTransfer->setShipment(new ShipmentTransfer());
         }
-    }
-
-    /**
-     * @return \Spryker\Shared\Transfer\TransferInterface|array
-     */
-    public function populateFormFields()
-    {
-        return [];
     }
 
 }

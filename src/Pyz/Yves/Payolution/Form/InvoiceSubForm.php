@@ -4,13 +4,13 @@ namespace Pyz\Yves\Payolution\Form;
 
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Spryker\Shared\Gui\Form\AbstractForm;
 use Spryker\Shared\Payolution\PayolutionConstants;
-use Spryker\Shared\Transfer\TransferInterface;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Pyz\Yves\Checkout\Dependency\SubFormInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class InvoiceSubForm extends AbstractForm implements SubFormInterface
+class InvoiceSubForm extends AbstractType implements SubFormInterface
 {
 
     const PAYMENT_PROVIDER = PayolutionConstants::PAYOLUTION;
@@ -31,6 +31,20 @@ class InvoiceSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
+     * @param \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
+     *
+     * @return void
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        parent::setDefaultOptions($resolver);
+
+        $resolver->setDefaults([
+            'data_class' => PayolutionPaymentTransfer::class
+        ]);
+    }
+
+    /**
      * @return string
      */
     public function getName()
@@ -44,14 +58,6 @@ class InvoiceSubForm extends AbstractForm implements SubFormInterface
     public function getPropertyPath()
     {
         return self::PAYMENT_PROVIDER;
-    }
-
-    /**
-     * @return \Spryker\Shared\Transfer\TransferInterface|null
-     */
-    protected function getDataClass()
-    {
-        return new PayolutionPaymentTransfer();
     }
 
     /**
@@ -86,14 +92,6 @@ class InvoiceSubForm extends AbstractForm implements SubFormInterface
         );
 
         return $this;
-    }
-
-    /**
-     * @return \Spryker\Shared\Transfer\TransferInterface|array
-     */
-    public function populateFormFields()
-    {
-        return [];
     }
 
 }

@@ -87,7 +87,7 @@ class StepProcess
                     return $this->createRedirectResponse($this->getNextRedirectUrl($currentStep));
                 }
             } else {
-                $formCollection->provideDefaultFormData();
+                $formCollection->provideDefaultFormData($this->getQuoteTransfer());
             }
             return $this->getTemplateVariables($currentStep, $formCollection);
         }
@@ -303,15 +303,17 @@ class StepProcess
     /**
      * @param \Pyz\Yves\Checkout\Process\Steps\StepInterface $currentStep
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $formQuoteTransfer
      *
      * @return void
      */
     protected function executeWithFormInput(
         StepInterface $currentStep,
         Request $request,
-        QuoteTransfer $quoteTransfer
+        QuoteTransfer $formQuoteTransfer
     ) {
+        $quoteTransfer = $this->getQuoteTransfer();
+        $quoteTransfer->fromArray($formQuoteTransfer->modifiedToArray());
         $quoteTransfer = $currentStep->execute($request, $quoteTransfer);
         $this->cartClient->storeQuoteToSession($quoteTransfer);
     }

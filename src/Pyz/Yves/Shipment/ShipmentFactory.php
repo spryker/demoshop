@@ -5,8 +5,6 @@ namespace Pyz\Yves\Shipment;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Shipment\Form\ShipmentSubForm;
 use Pyz\Yves\Shipment\Handler\ShipmentHandler;
-use Spryker\Client\Glossary\GlossaryClientInterface;
-use Spryker\Client\Shipment\ShipmentClientInterface;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Yves\Kernel\AbstractFactory;
@@ -17,7 +15,7 @@ class ShipmentFactory extends AbstractFactory
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return \Pyz\Yves\Shipment\Form\ShipmentSubForm
+     * @return \Pyz\Yves\Checkout\Dependency\SubFormInterface
      */
     public function createShipmentForm(QuoteTransfer $quoteTransfer)
     {

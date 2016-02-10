@@ -62,21 +62,23 @@ class AddressStep extends BaseStep
      */
     public function execute(Request $request, QuoteTransfer $quoteTransfer)
     {
+        $customerTransfer = $this->customerClient->getCustomer();
+
         if ($quoteTransfer->getShippingAddress()->getIdCustomerAddress() !== null) {
             $shippingAddressTransfer = $this->hydrateCustomerAddress(
                 $quoteTransfer->getShippingAddress(),
-                $this->customerClient->getCustomer()
+                $customerTransfer
             );
 
             $quoteTransfer->setShippingAddress($shippingAddressTransfer);
         }
 
         if ($quoteTransfer->getBillingSameAsShipping() === true) {
-            $quoteTransfer->setBillingAddress($quoteTransfer->getShippingAddress());
+            $quoteTransfer->setBillingAddress(clone $quoteTransfer->getShippingAddress());
         } elseif ($quoteTransfer->getBillingAddress()->getIdCustomerAddress() !== null) {
             $billingAddressTransfer = $this->hydrateCustomerAddress(
                 $quoteTransfer->getBillingAddress(),
-                $this->customerClient->getCustomer()
+                $customerTransfer
             );
 
             $quoteTransfer->setBillingAddress($billingAddressTransfer);
@@ -92,7 +94,16 @@ class AddressStep extends BaseStep
      */
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
-        if ($this->isAddressEmpty($quoteTransfer->getShippingAddress()) || $this->isAddressEmpty($quoteTransfer->getBillingAddress())) {
+        if ($quoteTransfer->getShippingAddress() === null || $quoteTransfer->getBillingAddress() === null) {
+            return false;
+        }
+
+        $shippingIsEmpty = $this->isAddressEmpty($quoteTransfer->getShippingAddress());
+        $billingIsEmpty = $quoteTransfer->getBillingSameAsShipping() === false && $this->isAddressEmpty($quoteTransfer->getBillingAddress());
+
+        if ($shippingIsEmpty || $billingIsEmpty) {
+            $this->flashMessenger->addErrorMessage('checkout.step.address.address_missing');
+
             return false;
         }
 
@@ -124,11 +135,12 @@ class AddressStep extends BaseStep
      */
     protected function isAddressEmpty(AddressTransfer $addressTransfer = null)
     {
-        if (
-            $addressTransfer === null ||
-            empty($addressTransfer->getFirstName()) ||
-            empty($addressTransfer->getLastName())
-        ) {
+        if ($addressTransfer === null) {
+            return true;
+        }
+
+        $hasName = (!empty($addressTransfer->getFirstName()) && !empty($addressTransfer->getLastName()));
+        if (!$addressTransfer->getIdCustomerAddress() && !$hasName) {
             return true;
         }
 

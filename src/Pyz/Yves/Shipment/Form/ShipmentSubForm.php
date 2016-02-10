@@ -3,19 +3,18 @@
 namespace Pyz\Yves\Shipment\Form;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Generated\Shared\Transfer\ShipmentMethodsTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
-use Spryker\Shared\Gui\Form\AbstractForm;
 use Spryker\Client\Glossary\GlossaryClientInterface;
 use Spryker\Client\Shipment\ShipmentClientInterface;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Library\Currency\CurrencyManager;
-use Spryker\Shared\Transfer\TransferInterface;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 
-class ShipmentSubForm extends AbstractForm implements SubFormInterface
+class ShipmentSubForm extends AbstractType implements SubFormInterface
 {
 
     const FIELD_ID_SHIPMENT_METHOD = 'idShipmentMethod';
@@ -78,17 +77,26 @@ class ShipmentSubForm extends AbstractForm implements SubFormInterface
         return 'dummy_shipment';
     }
 
+    /**
+     * @return string
+     */
     public function getPropertyPath()
     {
         return 'method';
     }
 
     /**
-     * @return \Spryker\Shared\Transfer\TransferInterface|null
+     * @param \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
+     *
+     * @return void
      */
-    protected function getDataClass()
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        return new ShipmentMethodTransfer();
+        parent::setDefaultOptions($resolver);
+
+        $resolver->setDefaults([
+            'data_class' => ShipmentMethodTransfer::class,
+        ]);
     }
 
     /**
@@ -208,14 +216,6 @@ class ShipmentSubForm extends AbstractForm implements SubFormInterface
     protected function translate($translationKey)
     {
         return $this->glossaryClient->translate($translationKey, $this->store->getCurrentLocale());
-    }
-
-    /**
-     * @return \Spryker\Shared\Transfer\TransferInterface|array
-     */
-    public function populateFormFields()
-    {
-        return [];
     }
 
 }

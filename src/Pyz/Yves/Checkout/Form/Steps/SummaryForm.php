@@ -5,11 +5,10 @@
 
 namespace Pyz\Yves\Checkout\Form\Steps;
 
-use Spryker\Shared\Gui\Form\AbstractForm;
-use Spryker\Shared\Transfer\TransferInterface;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class SummaryForm extends AbstractForm
+class SummaryForm extends AbstractType
 {
 
     /**
@@ -40,22 +39,6 @@ class SummaryForm extends AbstractForm
         $builder->add('checkout.step.place_order', 'submit');
 
         return $this;
-    }
-
-    /**
-     * @return \Spryker\Shared\Transfer\TransferInterface|array
-     */
-    public function populateFormFields()
-    {
-        return [];
-    }
-
-    /**
-     * @return \Spryker\Shared\Transfer\TransferInterface|null
-     */
-    protected function getDataClass()
-    {
-        return null;
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace Pyz\Yves\Checkout\Form;
 
+use Generated\Shared\Transfer\QuoteTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
 interface FormCollectionHandlerInterface
@@ -27,8 +28,10 @@ interface FormCollectionHandlerInterface
     public function handleRequest(Request $request);
 
     /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return void
      */
-    public function provideDefaultFormData();
+    public function provideDefaultFormData(QuoteTransfer $quoteTransfer);
 
 }

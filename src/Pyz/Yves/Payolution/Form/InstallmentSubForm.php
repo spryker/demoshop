@@ -8,13 +8,13 @@ use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Client\Payolution\PayolutionClientInterface;
 use Spryker\Shared\Library\Currency\CurrencyManager;
-use Spryker\Shared\Transfer\TransferInterface;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Spryker\Shared\Gui\Form\AbstractForm;
 use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 use Spryker\Shared\Payolution\PayolutionConstants;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class InstallmentSubForm extends AbstractForm implements SubFormInterface
+class InstallmentSubForm extends AbstractType implements SubFormInterface
 {
 
     const PAYMENT_PROVIDER = PayolutionConstants::PAYOLUTION;
@@ -62,11 +62,17 @@ class InstallmentSubForm extends AbstractForm implements SubFormInterface
     }
 
     /**
-     * @return \Spryker\Shared\Transfer\TransferInterface|null
+     * @param \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
+     *
+     * @return void
      */
-    protected function getDataClass()
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        return new PayolutionPaymentTransfer();
+        parent::setDefaultOptions($resolver);
+
+        $resolver->setDefaults([
+            'data_class' => PayolutionPaymentTransfer::class
+        ]);
     }
 
     /**
@@ -279,14 +285,6 @@ class InstallmentSubForm extends AbstractForm implements SubFormInterface
     protected function convertCentToDecimal($amount)
     {
         return CurrencyManager::getInstance()->convertCentToDecimal($amount);
-    }
-
-    /**
-     * @return \Spryker\Shared\Transfer\TransferInterface|array
-     */
-    public function populateFormFields()
-    {
-        return [];
     }
 
 }

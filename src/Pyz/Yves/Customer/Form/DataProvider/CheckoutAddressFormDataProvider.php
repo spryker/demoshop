@@ -2,9 +2,7 @@
 
 namespace Pyz\Yves\Customer\Form\DataProvider;
 
-use Generated\Shared\Transfer\AddressesTransfer;
 use Generated\Shared\Transfer\AddressTransfer;
-use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface;
@@ -20,11 +18,6 @@ class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider im
     protected $customerTransfer;
 
     /**
-     * @var \Generated\Shared\Transfer\AddressesTransfer
-     */
-    protected $customerAddressesTransfer;
-
-    /**
      * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
      * @param \Spryker\Shared\Kernel\Store $store
      */
@@ -33,9 +26,6 @@ class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider im
         parent::__construct($customerClient, $store);
 
         $this->customerTransfer = $this->customerClient->getCustomer();
-        if ($this->customerTransfer !== null) {
-            $this->customerAddressesTransfer = $this->customerClient->getAddresses($this->customerTransfer);
-        }
     }
 
     /**
@@ -111,12 +101,18 @@ class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider im
      */
     protected function getAddressChoices()
     {
-        if ($this->customerAddressesTransfer === null) {
+        if ($this->customerTransfer === null) {
+            return [];
+        }
+
+        $customerAddressesTransfer = $this->customerTransfer->getAddresses();
+
+        if ($customerAddressesTransfer === null) {
             return [];
         }
 
         $choices = [];
-        foreach ($this->customerAddressesTransfer->getAddresses() as $address) {
+        foreach ($customerAddressesTransfer->getAddresses() as $address) {
             $choices[$address->getIdCustomerAddress()] = sprintf(
                 '%s %s %s, %s %s, %s %s',
                 $address->getSalutation(),
