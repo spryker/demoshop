@@ -38,7 +38,7 @@ class ProfileForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     public function addEmailField(FormBuilderInterface $builder)
     {
@@ -57,7 +57,7 @@ class ProfileForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     public function addLastNameField(FormBuilderInterface $builder)
     {
@@ -75,7 +75,7 @@ class ProfileForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     public function addFirstNameField(FormBuilderInterface $builder)
     {
@@ -93,7 +93,7 @@ class ProfileForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     public function addSalutationField(FormBuilderInterface $builder)
     {

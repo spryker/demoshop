@@ -140,10 +140,10 @@ class UrlMapper implements UrlMapperInterface
     /**
      * @param array $mergedParameters
      * @param string $generationParameterName
-     * @param $value
-     * @param $inValue
-     * @param $active
-     * @param $inActive
+     * @param string $value
+     * @param string $inValue
+     * @param bool|array $active
+     * @param bool $inActive
      *
      * @return mixed
      */

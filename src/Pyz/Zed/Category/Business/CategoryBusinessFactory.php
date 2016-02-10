@@ -6,6 +6,7 @@ use Spryker\Zed\Category\Business\TransferGenerator;
 use Spryker\Zed\Category\Business\Generator\UrlPathGenerator;
 use Spryker\Zed\Category\Business\Tree\ClosureTableWriter;
 use Spryker\Zed\Category\Business\Tree\CategoryTreeReader;
+use Spryker\Zed\Category\Business\Tree\ClosureTableWriterInterface;
 use Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter;
 use Spryker\Zed\Category\Business\Tree\CategoryTreeWriter;
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
@@ -91,7 +92,7 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
     }
 
     /**
-     * @return ClosureTableWriterInterface
+     * @return \Spryker\Zed\Category\Business\Tree\ClosureTableWriterInterface
      */
     protected function createClosureTableWriter()
     {
