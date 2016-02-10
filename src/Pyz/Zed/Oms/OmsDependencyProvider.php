@@ -13,8 +13,6 @@ use Spryker\Zed\Payolution\Communication\Plugin\Oms\Condition\IsReAuthorizationA
 use Spryker\Zed\Payolution\Communication\Plugin\Oms\Condition\IsRefundApprovedPlugin;
 use Spryker\Zed\Payolution\Communication\Plugin\Oms\Condition\IsReversalApprovedPlugin;
 use Spryker\Zed\Kernel\Container;
-use Spryker\Zed\Oms\Communication\Plugin\Oms\Command\CommandInterface;
-use Spryker\Zed\Oms\Communication\Plugin\Oms\Condition\ConditionInterface;
 use Spryker\Zed\Oms\OmsDependencyProvider as SprykerOmsDependencyProvider;
 
 class OmsDependencyProvider extends SprykerOmsDependencyProvider

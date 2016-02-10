@@ -2,7 +2,6 @@
 
 namespace Pyz\Yves\Heartbeat\Controller;
 
-use Pyz\Yves\Heartbeat\HeartbeatFactory;
 use Spryker\Yves\Application\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;

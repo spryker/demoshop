@@ -7,7 +7,6 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
 use Silex\Application;
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Spryker\Client\Cms\CmsClientInterface;
 
 /**
  * @method \Spryker\Client\Cms\CmsClientInterface getClient()

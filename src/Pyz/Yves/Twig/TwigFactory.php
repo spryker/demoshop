@@ -10,9 +10,6 @@ use Pyz\Yves\Twig\Model\UrlParameterCacheBuster;
 use Pyz\Yves\Twig\Model\MediaUrlBuilder;
 use Pyz\Yves\Twig\Model\AssetUrlBuilder;
 use Spryker\Shared\Application\ApplicationConstants;
-use Pyz\Yves\Twig\Model\AssetUrlBuilderInterface;
-use Pyz\Yves\Twig\Model\CacheBusterInterface;
-use Pyz\Yves\Twig\Model\MediaUrlBuilderInterface;
 
 class TwigFactory extends AbstractFactory
 {

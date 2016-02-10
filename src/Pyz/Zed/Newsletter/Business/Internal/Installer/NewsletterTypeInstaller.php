@@ -45,4 +45,5 @@ class NewsletterTypeInstaller
             $newsletterType->save();
         }
     }
+
 }

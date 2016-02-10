@@ -2,7 +2,6 @@
 
 namespace Pyz\Yves\Application\Plugin\Provider;
 
-use Pyz\Yves\Application\ApplicationFactory;
 use Pyz\Yves\Application\Business\Model\SessionFactory;
 use Silex\Application;
 use Spryker\Shared\Config;

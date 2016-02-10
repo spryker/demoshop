@@ -8,6 +8,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class RegisterForm extends AbstractType
 {
+
     const FIELD_SALUTATION = 'salutation';
     const FIELD_FIRST_NAME = 'first_name';
     const FIELD_LAST_NAME = 'last_name';

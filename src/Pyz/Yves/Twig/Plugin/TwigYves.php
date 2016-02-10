@@ -4,7 +4,6 @@ namespace Pyz\Yves\Twig\Plugin;
 
 use Silex\Application;
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Pyz\Yves\Twig\TwigFactory;
 
 /**
  * @method \Pyz\Yves\Twig\TwigFactory getFactory()

@@ -3,7 +3,6 @@
 namespace Pyz\Zed\ProductOption\Communication\Plugin;
 
 use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
-use Pyz\Zed\ProductOption\Communication\ProductOptionCommunicationFactory;
 
 /**
  * @method \Pyz\Zed\ProductOption\Communication\ProductOptionCommunicationFactory getFactory()

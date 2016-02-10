@@ -3,7 +3,6 @@
 namespace Pyz\Client\Newsletter;
 
 use Generated\Shared\Transfer\CustomerTransfer;
-use Generated\Shared\Transfer\NewsletterSubscriptionResultTransfer;
 use Spryker\Client\Newsletter\NewsletterClient as SprykerNewsletterClient;
 
 /**

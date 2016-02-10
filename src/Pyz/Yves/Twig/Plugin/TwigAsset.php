@@ -3,10 +3,8 @@
 namespace Pyz\Yves\Twig\Plugin;
 
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
-use Pyz\Yves\Twig\TwigFactory;
 use Silex\Application;
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * @method \Pyz\Yves\Twig\TwigFactory getFactory()

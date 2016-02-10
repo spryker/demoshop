@@ -2,15 +2,6 @@
 
 namespace Pyz\Zed\Collector\Business;
 
-use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
-use Spryker\Zed\Collector\Business\Exporter\MarkerInterface;
-use Spryker\Zed\Collector\Business\Internal\InstallElasticsearch;
-use Spryker\Zed\Collector\Business\Exporter\KeyBuilder\SearchMarkerKeyBuilder;
-use Spryker\Zed\Collector\Business\Exporter\Reader\Search\ElasticsearchMarkerReader;
-use Spryker\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchMarkerWriter;
-use Spryker\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchUpdateWriter;
-use Spryker\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchWriter;
-use Spryker\Zed\Collector\Business\Exporter\ExportMarker;
 use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector;
 use Pyz\Zed\Collector\Business\Storage\BlockCollector;
 use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector;
@@ -21,10 +12,7 @@ use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
 use Pyz\Zed\Collector\Business\Storage\TranslationCollector;
 use Pyz\Zed\Collector\Business\Storage\UrlCollector;
 use Pyz\Zed\Collector\CollectorDependencyProvider;
-use Spryker\Shared\Library\Storage\StorageInstanceBuilder;
 use Spryker\Zed\Collector\Business\CollectorBusinessFactory as SprykerCollectorBusinessFactory;
-use Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface;
-use Spryker\Zed\Collector\CollectorConfig;
 
 /**
  * @method \Spryker\Zed\Collector\CollectorConfig getConfig()

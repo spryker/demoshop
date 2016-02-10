@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\Stock\Communication\Plugin;
 
-use Pyz\Zed\Stock\Business\StockFacade;
 use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 
 /**

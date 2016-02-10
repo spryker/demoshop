@@ -2,8 +2,6 @@
 
 namespace Pyz\Yves\Collector\Business\Matcher;
 
-use Pyz\Yves\Collector\Business\Model\UrlResource;
-
 interface UrlMatcherInterface
 {
 

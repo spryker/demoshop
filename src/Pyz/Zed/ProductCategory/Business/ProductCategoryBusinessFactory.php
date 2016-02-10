@@ -2,17 +2,12 @@
 
 namespace Pyz\Zed\ProductCategory\Business;
 
-use Spryker\Zed\ProductCategory\Business\ProductCategoryManagerInterface;
 use Spryker\Zed\ProductCategory\Business\TransferGenerator;
 use Spryker\Zed\ProductCategory\Business\ProductCategoryManager;
-use Pyz\Zed\ProductCategory\ProductCategoryConfig;
 use Spryker\Zed\Library\Import\Reader\CsvFileReader;
-use Spryker\Zed\Library\Import\ReaderInterface;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductCategory\Business\Internal\DemoData\ProductCategoryMappingInstall;
 use Spryker\Zed\ProductCategory\Business\ProductCategoryBusinessFactory as SprykerBusinessFactory;
-use Spryker\Zed\ProductCategory\Business\TransferGeneratorInterface;
-use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainer;
 use Spryker\Zed\ProductCategory\ProductCategoryDependencyProvider;
 
 /**

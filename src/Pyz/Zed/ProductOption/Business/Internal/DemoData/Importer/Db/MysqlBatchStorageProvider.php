@@ -3,8 +3,6 @@
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Db;
 
 use Propel\Runtime\Propel;
-use Propel\Runtime\Connection\ConnectionInterface;
-use Propel\Runtime\Connection\StatementInterface;
 
 class MysqlBatchStorageProvider implements BatchStorageProviderInterface
 {

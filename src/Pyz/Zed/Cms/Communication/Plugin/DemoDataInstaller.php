@@ -2,8 +2,6 @@
 
 namespace Pyz\Zed\Cms\Communication\Plugin;
 
-use Pyz\Zed\Cms\Business\CmsFacade;
-use Pyz\Zed\Cms\Communication\CmsCommunicationFactory;
 use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 
 /**

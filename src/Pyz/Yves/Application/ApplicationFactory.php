@@ -8,11 +8,8 @@ use Silex\Application as SilexApplication;
 use Spryker\Shared\Library\Context;
 use Spryker\Shared\Library\DateFormatter;
 use Spryker\Shared\Library\Twig\DateFormatterTwigExtension;
-use Spryker\Yves\Application\Application;
 use Spryker\Yves\Application\ApplicationFactory as SprykerApplicationFactory;
-use Spryker\Yves\Application\Plugin\Provider\ExceptionService\ExceptionHandlerInterface;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionService\SubRequestExceptionHandler;
-use Spryker\Client\Session\SessionClientInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 class ApplicationFactory extends SprykerApplicationFactory

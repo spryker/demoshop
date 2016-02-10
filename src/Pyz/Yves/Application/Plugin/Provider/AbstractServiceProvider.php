@@ -2,8 +2,6 @@
 
 namespace Pyz\Yves\Application\Plugin\Provider;
 
-use Generated\Client\Ide\AutoCompletion;
-use Pyz\Yves\Application\ApplicationFactory;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 use Spryker\Yves\Kernel\AbstractPlugin;

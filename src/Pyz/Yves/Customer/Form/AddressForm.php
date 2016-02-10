@@ -78,7 +78,7 @@ class AddressForm extends AbstractType
     protected function addFirstNameField(FormBuilderInterface $builder)
     {
         $builder->add(self::FIELD_FIRST_NAME, 'text', [
-            'label'    => 'customer.address.first_name',
+            'label' => 'customer.address.first_name',
             'required' => true,
             'constraints' => [
                 new NotBlank(),
@@ -96,7 +96,7 @@ class AddressForm extends AbstractType
     protected function addLastNameField(FormBuilderInterface $builder)
     {
         $builder->add(self::FIELD_LAST_NAME, 'text', [
-            'label'    => 'customer.address.last_name',
+            'label' => 'customer.address.last_name',
             'required' => true,
             'constraints' => [
                 new NotBlank(),
@@ -114,7 +114,7 @@ class AddressForm extends AbstractType
     protected function addCompanyField(FormBuilderInterface $builder)
     {
         $builder->add(self::FIELD_COMPANY, 'text', [
-            'label'    => 'customer.address.company',
+            'label' => 'customer.address.company',
             'required' => false,
         ]);
 
@@ -129,7 +129,7 @@ class AddressForm extends AbstractType
     protected function addAddress1Field(FormBuilderInterface $builder)
     {
         $builder->add(self::FIELD_ADDRESS_1, 'text', [
-            'label'    => 'customer.address.address1',
+            'label' => 'customer.address.address1',
             'required' => true,
             'constraints' => [
                 new NotBlank(),
@@ -147,7 +147,7 @@ class AddressForm extends AbstractType
     protected function addAddress2Field(FormBuilderInterface $builder)
     {
         $builder->add(self::FIELD_ADDRESS_2, 'text', [
-            'label'    => 'customer.address.address2',
+            'label' => 'customer.address.address2',
             'required' => true,
             'constraints' => [
                 new NotBlank(),
@@ -165,7 +165,7 @@ class AddressForm extends AbstractType
     protected function addAddress3Field(FormBuilderInterface $builder)
     {
         $builder->add(self::FIELD_ADDRESS_3, 'text', [
-            'label'    => 'customer.address.address3',
+            'label' => 'customer.address.address3',
             'required' => false,
         ]);
 
@@ -180,7 +180,7 @@ class AddressForm extends AbstractType
     protected function addZipCodeField(FormBuilderInterface $builder)
     {
         $builder->add(self::FIELD_ZIP_CODE, 'text', [
-            'label'    => 'customer.address.zip_code',
+            'label' => 'customer.address.zip_code',
             'required' => true,
             'constraints' => [
                 new NotBlank(),
@@ -198,7 +198,7 @@ class AddressForm extends AbstractType
     protected function addCityField(FormBuilderInterface $builder)
     {
         $builder->add(self::FIELD_CITY, 'text', [
-            'label'    => 'customer.address.city',
+            'label' => 'customer.address.city',
             'required' => true,
             'constraints' => [
                 new NotBlank(),
@@ -217,7 +217,7 @@ class AddressForm extends AbstractType
     protected function addIso2CodeField(FormBuilderInterface $builder, array $choices)
     {
         $builder->add(self::FIELD_ISO_2_CODE, 'choice', [
-            'label'    => 'customer.address.country',
+            'label' => 'customer.address.country',
             'required' => true,
             'choices' => $choices,
             'constraints' => [
@@ -236,7 +236,7 @@ class AddressForm extends AbstractType
     protected function addPhoneField(FormBuilderInterface $builder)
     {
         $builder->add(self::FIELD_PHONE, 'text', [
-            'label'    => 'customer.address.phone',
+            'label' => 'customer.address.phone',
             'required' => false,
         ]);
 
@@ -251,7 +251,7 @@ class AddressForm extends AbstractType
     protected function addIsDefaultShippingField(FormBuilderInterface $builder)
     {
         $builder->add(self::FIELD_IS_DEFAULT_SHIPPING, 'checkbox', [
-            'label'    => 'customer.address.is_default_shipping',
+            'label' => 'customer.address.is_default_shipping',
             'required' => false,
         ]);
 
@@ -266,7 +266,7 @@ class AddressForm extends AbstractType
     protected function addIsDefaultBillingField(FormBuilderInterface $builder)
     {
         $builder->add(self::FIELD_IS_DEFAULT_BILLING, 'checkbox', [
-            'label'    => 'customer.address.is_default_billing',
+            'label' => 'customer.address.is_default_billing',
             'required' => false,
         ]);
 

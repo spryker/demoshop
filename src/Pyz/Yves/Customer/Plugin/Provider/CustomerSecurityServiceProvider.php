@@ -3,10 +3,8 @@
 namespace Pyz\Yves\Customer\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
-use Pyz\Yves\Customer\CustomerFactory;
 use Pyz\Yves\Customer\Form\LoginForm;
 use Silex\Application;
-use Spryker\Client\Customer\CustomerClientInterface;
 use Spryker\Shared\Config;
 use Spryker\Shared\Customer\CustomerConstants;
 
@@ -16,6 +14,7 @@ use Spryker\Shared\Customer\CustomerConstants;
  */
 class CustomerSecurityServiceProvider extends AbstractServiceProvider
 {
+
     const FIREWALL_SECURED = 'secured';
     const ROLE_USER = 'ROLE_USER';
     const IS_AUTHENTICATED_ANONYMOUSLY = 'IS_AUTHENTICATED_ANONYMOUSLY';

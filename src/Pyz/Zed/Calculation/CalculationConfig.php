@@ -18,8 +18,6 @@ use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\RemoveAllCalcu
 use Spryker\Zed\Calculation\Communication\Plugin\RemoveAllExpensesCalculatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\RemoveTotalsCalculatorPlugin;
 use Spryker\Zed\Calculation\CalculationConfig as SprykerCalculationConfig;
-use Spryker\Zed\Calculation\Dependency\Plugin\CalculatorPluginInterface;
-use Spryker\Zed\Calculation\Dependency\Plugin\TotalsCalculatorPluginInterface;
 
 class CalculationConfig extends SprykerCalculationConfig
 {

@@ -2,7 +2,6 @@
 
 namespace Pyz\Yves\Product\Plugin;
 
-use Pyz\Yves\Product\ProductFactory;
 use Spryker\Yves\Kernel\AbstractPlugin;
 
 /**

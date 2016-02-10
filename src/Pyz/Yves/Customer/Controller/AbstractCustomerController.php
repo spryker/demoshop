@@ -3,9 +3,6 @@
 namespace Pyz\Yves\Customer\Controller;
 
 use Generated\Shared\Transfer\CustomerResponseTransfer;
-use Generated\Shared\Transfer\CustomerTransfer;
-use Pyz\Client\Customer\CustomerClientInterface;
-use Pyz\Yves\Customer\CustomerFactory;
 use Spryker\Yves\Application\Controller\AbstractController;
 
 /**

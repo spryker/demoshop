@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\Category\Communication\Plugin;
 
-use Pyz\Zed\Category\Business\CategoryFacade;
 use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 
 /**
