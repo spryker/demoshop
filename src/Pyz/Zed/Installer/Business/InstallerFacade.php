@@ -10,14 +10,23 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class InstallerFacade extends SprykerInstallerFacade
 {
+
     /**
      * @param OutputInterface $output
      *
-     * @return \Pyz\Zed\Installer\Business\Model\IcecatInstaller
+     * @return \Spryker\Zed\Installer\Business\Model\AbstractInstaller[]
      */
-    public function getIcecatDataInstaller(OutputInterface $output)
+    public function getIcecatDataInstallers(OutputInterface $output)
     {
-        return $this->getFactory()->getIcecatDataInstaller($output);
+        return $this->getFactory()->getIcecatDataInstallers($output);
+    }
+
+    /**
+     * @return \Spryker\Zed\Installer\Business\Model\AbstractInstaller[]
+     */
+    public function getIcecatDataMappers()
+    {
+        return $this->getFactory()->getIcecatDataMappers();
     }
 
 }

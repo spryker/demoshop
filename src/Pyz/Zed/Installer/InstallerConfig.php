@@ -6,6 +6,10 @@ use Spryker\Zed\Installer\InstallerConfig as SprykerInstallerConfig;
 
 class InstallerConfig extends SprykerInstallerConfig
 {
+
+    const CATEGORY_MAPPER = 'category';
+    const PRODUCT_MAPPER = 'product';
+
     /**
      * @return string
      */
@@ -13,4 +17,5 @@ class InstallerConfig extends SprykerInstallerConfig
     {
         return __DIR__ . '/Business/Internal/DemoData/Icecat/';
     }
+
 }
