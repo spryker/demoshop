@@ -5,8 +5,10 @@ namespace Pyz\Zed\Installer\Business;
 use Pyz\Zed\Installer\Business\Model\Icecat\Installer\IcecatCategoryInstaller;
 use Pyz\Zed\Installer\Business\Model\Icecat\Installer\IcecatLocaleInstaller;
 use Pyz\Zed\Installer\Business\Model\Icecat\Installer\IcecatProductInstaller;
+use Pyz\Zed\Installer\Business\Model\Icecat\Mapper\CategoryMapper;
+use Pyz\Zed\Installer\Business\Model\Icecat\Mapper\LocaleMapper;
+use Pyz\Zed\Installer\Business\Model\Icecat\Mapper\ProductMapper;
 use Pyz\Zed\Installer\InstallerConfig;
-use Pyz\Zed\Installer\InstallerDependencyProvider;
 use Spryker\Zed\Installer\Business\InstallerBusinessFactory as SprykerInstallerBusinessFactory;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -21,7 +23,13 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
      */
     public function getIcecatDataMappers()
     {
-        return $this->getProvidedDependency(InstallerDependencyProvider::MAPPERS_ICECAT_DATA);
+        $path = $this->getConfig()->getIcecatDataPath();
+
+        return [
+            InstallerConfig::CATEGORY_RESOURCE => new CategoryMapper($path),
+            InstallerConfig::LOCALE_RESOURCE => new LocaleMapper($path),
+            InstallerConfig::PRODUCT_RESOURCE => new ProductMapper($path),
+        ];
     }
 
     /**

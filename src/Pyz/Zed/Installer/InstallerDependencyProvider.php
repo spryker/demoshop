@@ -6,9 +6,6 @@
 
 namespace Pyz\Zed\Installer;
 
-use Pyz\Zed\Installer\Business\Model\Icecat\Mapper\CategoryMapper;
-use Pyz\Zed\Installer\Business\Model\Icecat\Mapper\LocaleMapper;
-use Pyz\Zed\Installer\Business\Model\Icecat\Mapper\ProductMapper;
 use Pyz\Zed\Newsletter\Communication\Plugin\Installer as NewsletterInstaller;
 use Pyz\Zed\Shipment\Communication\Plugin\DemoDataInstaller as ShipmentDemoDataInstaller;
 use Pyz\Zed\Stock\Communication\Plugin\DemoDataInstaller as StockDemoDataInstaller;
@@ -32,8 +29,6 @@ use Spryker\Zed\Installer\InstallerDependencyProvider as SprykerInstallerDepende
 class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
 {
 
-    const MAPPERS_ICECAT_DATA = 'icecat data installer mappers';
-
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
@@ -42,10 +37,6 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
     public function provideBusinessLayerDependencies(Container $container)
     {
         $container = parent::provideBusinessLayerDependencies($container);
-
-        $container[self::MAPPERS_ICECAT_DATA] = function (Container $container) {
-            return $this->getIcecatDataMappers();
-        };
 
         return $container;
     }
@@ -82,21 +73,6 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
             new ProductSearchDemoDataInstaller(),
             new StockDemoDataInstaller(),
             new ShipmentDemoDataInstaller(),
-        ];
-    }
-
-    /**
-     * @return \Pyz\Zed\Installer\Business\Model\Icecat\AbstractMapper[]
-     */
-    public function getIcecatDataMappers()
-    {
-        //$path = $this->getConfig TODO how to get config here?
-        $path = __DIR__ . '/Business/Internal/DemoData/Icecat/';
-
-        return [
-            InstallerConfig::CATEGORY_RESOURCE => new CategoryMapper($path),
-            InstallerConfig::LOCALE_RESOURCE => new LocaleMapper($path),
-            InstallerConfig::PRODUCT_RESOURCE => new ProductMapper($path),
         ];
     }
 
