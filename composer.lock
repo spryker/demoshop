@@ -779,7 +779,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "8e1db2c1ecba7cd0a5d4440c69dc43ee99f5381f"
+                "reference": "94d47dadece9b71d16e0a9ddd9db92bc7f2c63e3"
             },
             "require": {
                 "phpdocumentor/graphviz": "dev-master#a906a90"
@@ -796,7 +796,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2016-02-09 15:31:26"
+            "time": "2016-02-10 06:11:34"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2943,16 +2943,16 @@
     "packages-dev": [
         {
             "name": "codeception/codeception",
-            "version": "2.1.5",
+            "version": "2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "4ee562f421fd404139dd7b73ae46d075396a4baf"
+                "reference": "b199941f5e59d1e7fd32d78296c8ab98db873d89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/4ee562f421fd404139dd7b73ae46d075396a4baf",
-                "reference": "4ee562f421fd404139dd7b73ae46d075396a4baf",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/b199941f5e59d1e7fd32d78296c8ab98db873d89",
+                "reference": "b199941f5e59d1e7fd32d78296c8ab98db873d89",
                 "shasum": ""
             },
             "require": {
@@ -3019,7 +3019,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2015-12-20 12:11:42"
+            "time": "2016-02-09 22:27:48"
         },
         {
             "name": "doctrine/instantiator",
@@ -4682,31 +4682,36 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/code-sniffer.git",
-                "reference": "80a810a7f2447d96d0fd5498f9a835cc857c1c34"
+                "reference": "202f4521ba124097501ac2e9c41173c0081955e1"
             },
             "require": {
                 "squizlabs/php_codesniffer": "~2.5"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.1.*"
+                "phpunit/phpunit": "~5.2"
             },
             "type": "library",
+            "license": [
+                "BSD-3-Clause"
+            ],
             "authors": [
                 {
                     "name": "Spryker",
                     "homepage": "http://spryker.com"
                 }
             ],
-            "description": "Spryker CodeSniffer Standards",
+            "description": "Spryker Code Sniffer Standards",
             "homepage": "http://spryker.com",
             "keywords": [
                 "codesniffer",
-                "framework"
+                "framework",
+                "phpcs",
+                "standards"
             ],
             "support": {
                 "source": "https://github.com/spryker/code-sniffer"
             },
-            "time": "2016-02-09 13:38:23"
+            "time": "2016-02-09 18:20:16"
         },
         {
             "name": "squizlabs/php_codesniffer",

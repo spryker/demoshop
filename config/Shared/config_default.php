@@ -107,6 +107,8 @@ $config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^/custom
 $config[CustomerConstants::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
 
 $currentStore = \Spryker\Shared\Kernel\Store::getInstance()->getStoreName();
+$config[ApplicationConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = false;
+
 $config[ApplicationConstants::PROPEL] = [
     'database' => [
         'connections' => [
