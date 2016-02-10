@@ -3,7 +3,9 @@
 namespace Pyz\Zed\Installer\Business;
 
 use Pyz\Zed\Installer\Business\Model\Icecat\Installer\IcecatCategoryInstaller;
+use Pyz\Zed\Installer\Business\Model\Icecat\Installer\IcecatLocaleInstaller;
 use Pyz\Zed\Installer\Business\Model\Icecat\Installer\IcecatProductInstaller;
+use Pyz\Zed\Installer\InstallerConfig;
 use Pyz\Zed\Installer\InstallerDependencyProvider;
 use Spryker\Zed\Installer\Business\InstallerBusinessFactory as SprykerInstallerBusinessFactory;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -15,7 +17,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
 {
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Model\Icecat\AbstractMapper[]
+     * @return \Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatMapper[]
      */
     public function getIcecatDataMappers()
     {
@@ -32,8 +34,9 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
         $mappers = $this->getIcecatDataMappers();
 
         return [
-            'category' => new IcecatCategoryInstaller($output, $mappers),
-            'product_abstract' => new IcecatProductInstaller($output, $mappers),
+            InstallerConfig::CATEGORY_RESOURCE => new IcecatCategoryInstaller($output, $mappers),
+            InstallerConfig::LOCALE_RESOURCE => new IcecatLocaleInstaller($output, $mappers),
+            InstallerConfig::PRODUCT_RESOURCE => new IcecatProductInstaller($output, $mappers),
         ];
     }
 

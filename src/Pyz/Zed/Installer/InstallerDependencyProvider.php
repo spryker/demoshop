@@ -7,6 +7,7 @@
 namespace Pyz\Zed\Installer;
 
 use Pyz\Zed\Installer\Business\Model\Icecat\Mapper\CategoryMapper;
+use Pyz\Zed\Installer\Business\Model\Icecat\Mapper\LocaleMapper;
 use Pyz\Zed\Installer\Business\Model\Icecat\Mapper\ProductMapper;
 use Pyz\Zed\Newsletter\Communication\Plugin\Installer as NewsletterInstaller;
 use Pyz\Zed\Shipment\Communication\Plugin\DemoDataInstaller as ShipmentDemoDataInstaller;
@@ -93,8 +94,9 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
         $path = __DIR__ . '/Business/Internal/DemoData/Icecat/';
 
         return [
-            InstallerConfig::CATEGORY_MAPPER => new CategoryMapper($path),
-            InstallerConfig::PRODUCT_MAPPER => new ProductMapper($path),
+            InstallerConfig::CATEGORY_RESOURCE => new CategoryMapper($path),
+            InstallerConfig::LOCALE_RESOURCE => new LocaleMapper($path),
+            InstallerConfig::PRODUCT_RESOURCE => new ProductMapper($path),
         ];
     }
 

@@ -7,8 +7,9 @@ use Spryker\Zed\Installer\InstallerConfig as SprykerInstallerConfig;
 class InstallerConfig extends SprykerInstallerConfig
 {
 
-    const CATEGORY_MAPPER = 'category';
-    const PRODUCT_MAPPER = 'product';
+    const CATEGORY_RESOURCE = 'category';
+    const LOCALE_RESOURCE = 'locale';
+    const PRODUCT_RESOURCE = 'product';
 
     /**
      * @return string

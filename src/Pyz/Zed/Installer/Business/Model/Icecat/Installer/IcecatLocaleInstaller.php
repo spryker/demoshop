@@ -4,7 +4,7 @@ namespace Pyz\Zed\Installer\Business\Model\Icecat\Installer;
 
 use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatInstaller;
 
-class IcecatCategoryInstaller extends AbstractIcecatInstaller
+class IcecatLocaleInstaller extends AbstractIcecatInstaller
 {
 
     /**
@@ -12,9 +12,10 @@ class IcecatCategoryInstaller extends AbstractIcecatInstaller
      */
     public function install()
     {
-        $xml = $this->getCategoryMapper()->getXml();
-
-        dump($xml);
+        foreach ($this->mapperCollection as $mapper) {
+            dump($mapper);
+            die;
+        }
     }
 
 }

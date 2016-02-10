@@ -14,4 +14,11 @@ interface IcecatMapperInterface
      */
     public function getXml();
 
+    /**
+     * @param string $filename
+     *
+     * @return string
+     */
+    public function generateDataFileName($filename);
+
 }

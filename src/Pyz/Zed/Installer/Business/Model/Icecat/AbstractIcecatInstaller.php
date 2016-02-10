@@ -33,7 +33,23 @@ abstract class AbstractIcecatInstaller extends SprykerAbstractInstaller
      */
     protected function getCategoryMapper()
     {
-        return $this->mapperCollection[InstallerConfig::CATEGORY_MAPPER];
+        return $this->mapperCollection[InstallerConfig::CATEGORY_RESOURCE];
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Model\Icecat\Mapper\LocaleMapper
+     */
+    protected function getLocaleMapper()
+    {
+        return $this->mapperCollection[InstallerConfig::LOCALE_RESOURCE];
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Model\Icecat\Mapper\ProductMapper
+     */
+    protected function getProductMapper()
+    {
+        return $this->mapperCollection[InstallerConfig::PRODUCT_RESOURCE];
     }
 
 }
