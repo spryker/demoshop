@@ -2,12 +2,9 @@
 
 namespace Pyz\Zed\Installer\Business;
 
-use Pyz\Zed\Installer\Business\Model\Icecat\Installer\IcecatCategoryInstaller;
-use Pyz\Zed\Installer\Business\Model\Icecat\Installer\IcecatLocaleInstaller;
-use Pyz\Zed\Installer\Business\Model\Icecat\Installer\IcecatProductInstaller;
-use Pyz\Zed\Installer\Business\Model\Icecat\Mapper\CategoryMapper;
-use Pyz\Zed\Installer\Business\Model\Icecat\Mapper\LocaleMapper;
-use Pyz\Zed\Installer\Business\Model\Icecat\Mapper\ProductMapper;
+use Pyz\Zed\Installer\Business\Model\Icecat\IcecatInstaller;
+use Pyz\Zed\Installer\Business\Model\Icecat\IcecatReader;
+use Pyz\Zed\Installer\Business\Model\Icecat\Importer\CategoryImporter;
 use Pyz\Zed\Installer\InstallerConfig;
 use Spryker\Zed\Installer\Business\InstallerBusinessFactory as SprykerInstallerBusinessFactory;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -19,33 +16,39 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
 {
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatMapper[]
+     * @return \Spryker\Zed\Installer\Business\Model\AbstractInstaller[]
      */
-    public function getIcecatDataMappers()
+    public function getIcecatDataImporters()
     {
-        $path = $this->getConfig()->getIcecatDataPath();
+        $reader = $this->getIcecatReader();
 
         return [
-            InstallerConfig::CATEGORY_RESOURCE => new CategoryMapper($path),
-            InstallerConfig::LOCALE_RESOURCE => new LocaleMapper($path),
-            InstallerConfig::PRODUCT_RESOURCE => new ProductMapper($path),
+            InstallerConfig::CATEGORY_RESOURCE => new CategoryImporter($reader),
+            //InstallerConfig::LOCALE_RESOURCE => new IcecatLocaleImporter($output, $locale, $xmlReader),
+            //InstallerConfig::PRODUCT_RESOURCE => new IcecatProductImporter($output, $locale, $xmlReader),
         ];
     }
 
     /**
-     * @param OutputInterface $output
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
-     * @return \Spryker\Zed\Installer\Business\Model\AbstractInstaller[]
+     * @return \Pyz\Zed\Installer\Business\Model\Icecat\IcecatInstaller
      */
-    public function getIcecatDataInstallers(OutputInterface $output)
+    public function getIcecatDataInstaller(OutputInterface $output)
     {
-        $mappers = $this->getIcecatDataMappers();
+        $importerCollection = $this->getIcecatDataImporters();
 
-        return [
-            InstallerConfig::CATEGORY_RESOURCE => new IcecatCategoryInstaller($output, $mappers),
-            InstallerConfig::LOCALE_RESOURCE => new IcecatLocaleInstaller($output, $mappers),
-            InstallerConfig::PRODUCT_RESOURCE => new IcecatProductInstaller($output, $mappers),
-        ];
+        return new IcecatInstaller($output, $importerCollection);
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Model\Icecat\IcecatReader
+     */
+    public function getIcecatReader()
+    {
+        $path = $this->getConfig()->getIcecatDataPath();
+
+        return new IcecatReader($path);
     }
 
 }

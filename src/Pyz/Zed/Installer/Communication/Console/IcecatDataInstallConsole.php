@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Installer\Communication\Console;
 
+use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\Console\Business\Model\Console as SprykerConsole;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -32,14 +33,11 @@ class IcecatDataInstallConsole extends SprykerConsole
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $installerPlugins = $this->getFacade()->getIcecatDataInstallers($output);
-
         $messenger = $this->getMessenger();
 
-        foreach ($installerPlugins as $installer) {
-            $installer->setMessenger($messenger);
-            $installer->install();
-        }
+        $installer = $this->getFacade()->getIcecatDataInstaller($output);
+        $installer->setMessenger($messenger);
+        $installer->install();
     }
 
 }

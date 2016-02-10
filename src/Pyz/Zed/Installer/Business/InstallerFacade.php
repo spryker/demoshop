@@ -12,21 +12,12 @@ class InstallerFacade extends SprykerInstallerFacade
 {
 
     /**
-     * @param OutputInterface $output
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
-     * @return \Spryker\Zed\Installer\Business\Model\AbstractInstaller[]
+     * @return \Pyz\Zed\Installer\Business\Model\Icecat\IcecatInstaller
      */
-    public function getIcecatDataInstallers(OutputInterface $output)
+    public function getIcecatDataInstaller(OutputInterface $output)
     {
-        return $this->getFactory()->getIcecatDataInstallers($output);
+        return $this->getFactory()->getIcecatDataInstaller($output);
     }
-
-    /**
-     * @return \Spryker\Zed\Installer\Business\Model\AbstractInstaller[]
-     */
-    public function getIcecatDataMappers()
-    {
-        return $this->getFactory()->getIcecatDataMappers();
-    }
-
 }
