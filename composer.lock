@@ -8,6 +8,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "hash": "7c93c91f97b0f286aed9ac5f7e53bae9",
     "content-hash": "360aa1bc9acbcffcfb1dc68e58789bf0",
 =======
@@ -44,6 +45,10 @@
     "hash": "70987ba10ea94f577944276738c08bbf",
     "content-hash": "1922fe62ef94a2cbc1866d044047f8bb",
 >>>>>>> #1259 update composer
+=======
+    "hash": "d7cda1defe4a6a56f05ec41e60bc856d",
+    "content-hash": "f64199f58eabaac9babddd0c3150376b",
+>>>>>>> #1259 update spryker/spryker
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -815,6 +820,7 @@
             "name": "spryker/spryker",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "dev-develop",
             "source": {
                 "type": "git",
@@ -836,6 +842,13 @@
 >>>>>>> #1259 update spryker/spryker
 =======
 >>>>>>> #1259 update composer
+=======
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/spryker.git",
+                "reference": "94d47dadece9b71d16e0a9ddd9db92bc7f2c63e3"
+>>>>>>> #1259 update spryker/spryker
             },
             "require": {
                 "phpdocumentor/graphviz": "dev-master#a906a90"
@@ -854,6 +867,7 @@
             },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-02-09 15:31:26"
 =======
 <<<<<<< HEAD
@@ -865,6 +879,9 @@
 =======
             "time": "2016-02-08 09:51:32"
 >>>>>>> #1259 update composer
+=======
+            "time": "2016-02-10 06:11:34"
+>>>>>>> #1259 update spryker/spryker
         },
         {
             "name": "symfony-cmf/routing",
@@ -3410,61 +3427,6 @@
                 "uri"
             ],
             "time": "2016-01-23 01:23:02"
-        },
-        {
-            "name": "nilportugues/sql-query-formatter",
-            "version": "v1.2.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nilportugues/sql-query-formatter.git",
-                "reference": "a539162a13e3217827237d5809fbaf25e136dc0e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nilportugues/sql-query-formatter/zipball/a539162a13e3217827237d5809fbaf25e136dc0e",
-                "reference": "a539162a13e3217827237d5809fbaf25e136dc0e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5"
-            },
-            "require-dev": {
-                "fabpot/php-cs-fixer": "~1.9",
-                "nilportugues/php_backslasher": "~0.2",
-                "phpunit/phpunit": "4.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "NilPortugues\\Sql\\QueryFormatter\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nil Portugués Calderó",
-                    "email": "contact@nilportugues.com",
-                    "homepage": "http://nilportugues.com",
-                    "role": "Lead Developer"
-                }
-            ],
-            "description": "A very lightweight PHP class that reformats unreadable and computer-generated SQL query statements to human-friendly, readable text.",
-            "homepage": "http://nilportugues.com",
-            "keywords": [
-                "format",
-                "formatter",
-                "mysql",
-                "parser",
-                "query",
-                "reformat",
-                "sql",
-                "sql server",
-                "tokenizer"
-            ],
-            "time": "2015-11-02 23:24:39"
         },
         {
             "name": "pdepend/pdepend",
