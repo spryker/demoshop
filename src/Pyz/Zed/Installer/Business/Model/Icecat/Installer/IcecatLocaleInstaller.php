@@ -12,10 +12,9 @@ class IcecatLocaleInstaller extends AbstractIcecatInstaller
      */
     public function install()
     {
-        foreach ($this->mapperCollection as $mapper) {
-            dump($mapper);
-            die;
-        }
+        $xml = $this->getLocaleMapper()->getXml();
+
+        dump($xml);
     }
 
 }

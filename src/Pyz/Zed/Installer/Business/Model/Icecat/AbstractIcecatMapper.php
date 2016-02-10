@@ -33,8 +33,9 @@ abstract class AbstractIcecatMapper implements IcecatMapperInterface
     public function getXml()
     {
         $filename = $this->generateDataFileName($this->dataFilename);
+
         if (!is_file($filename)) {
-            throw new XmlFileNotFoundException($filename);
+            throw new XmlFileNotFoundException('Xml file for ' . get_class($this) . ' not found under ' . $filename);
         }
 
         return simplexml_load_file($filename);

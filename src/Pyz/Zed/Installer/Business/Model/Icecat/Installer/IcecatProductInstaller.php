@@ -12,10 +12,9 @@ class IcecatProductInstaller extends AbstractIcecatInstaller
      */
     public function install()
     {
-        foreach ($this->mapperCollection as $mapper) {
-            dump($mapper);
-            die;
-        }
+        $xml = $this->getProductMapper()->getXml();
+
+        dump($xml);
     }
 
 }

@@ -9,4 +9,7 @@ use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatMapper;
  */
 class ProductMapper extends AbstractIcecatMapper
 {
+
+    protected $dataFilename = 'icecat.xml';
+
 }
