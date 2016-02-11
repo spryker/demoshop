@@ -26,7 +26,7 @@ class CollectorFacade extends SprykerCollectorFacade implements CollectorFacadeI
      * @return void
      */
     public function runSearchProductCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
-        BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
+        BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
     {
         $this->getFactory()
             ->createSearchProductCollector()
@@ -43,7 +43,7 @@ class CollectorFacade extends SprykerCollectorFacade implements CollectorFacadeI
      * @return void
      */
     public function runStorageCategoryNodeCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
-        BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
+        BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
     {
         $this->getFactory()
             ->createStorageCategoryNodeCollector()
@@ -60,7 +60,7 @@ class CollectorFacade extends SprykerCollectorFacade implements CollectorFacadeI
      * @return void
      */
     public function runStorageNavigationCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
-        BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
+        BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
     {
         $this->getFactory()
             ->createStorageNavigationCollector()
@@ -77,7 +77,7 @@ class CollectorFacade extends SprykerCollectorFacade implements CollectorFacadeI
      * @return void
      */
     public function runStoragePageCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
-        BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
+        BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
     {
         $this->getFactory()
             ->createStoragePageCollector()
@@ -94,7 +94,7 @@ class CollectorFacade extends SprykerCollectorFacade implements CollectorFacadeI
      * @return void
      */
     public function runStorageProductCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
-        BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
+        BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
     {
         $this->getFactory()
             ->createStorageProductCollector()
@@ -111,7 +111,7 @@ class CollectorFacade extends SprykerCollectorFacade implements CollectorFacadeI
      * @return void
      */
     public function runStorageRedirectCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
-        BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
+        BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
     {
         $this->getFactory()
             ->createStorageRedirectCollector()
@@ -128,7 +128,7 @@ class CollectorFacade extends SprykerCollectorFacade implements CollectorFacadeI
      * @return void
      */
     public function runStorageTranslationCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
-        BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
+        BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
     {
         $this->getFactory()
             ->createStorageTranslationCollector()
@@ -145,7 +145,7 @@ class CollectorFacade extends SprykerCollectorFacade implements CollectorFacadeI
      * @return void
      */
     public function runStorageUrlCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
-        BatchResultInterface $result, $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
+        BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
     {
         $this->getFactory()
             ->createStorageUrlCollector()
