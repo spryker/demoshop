@@ -50,9 +50,7 @@ class CheckoutControllerTest extends Test
      */
     public function testCustomerStepShouldRenderRegisterAndLoginForms()
     {
-        $cartClient = $this->getCartClient();
         $quoteTransfer = $this->createQuoteTransfer();
-        $cartClient->storeQuoteToSession($quoteTransfer);
 
         $request = Request::createfromGlobals();
         $request->attributes->set('_route', CheckoutControllerProvider::CHECKOUT_CUSTOMER);
@@ -71,12 +69,10 @@ class CheckoutControllerTest extends Test
      */
     public function testAddressStepShouldRenderAddressForms()
     {
-        $cartClient = $this->getCartClient();
         $quoteTransfer = $this->createQuoteTransfer();
 
         $customerTransfer = new CustomerTransfer();
         $quoteTransfer->setCustomer($customerTransfer);
-        $cartClient->storeQuoteToSession($quoteTransfer);
 
         $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
 
@@ -95,15 +91,12 @@ class CheckoutControllerTest extends Test
      */
     public function testShipmentStepShouldRenderShipmentForms()
     {
-        $cartClient = $this->getCartClient();
         $quoteTransfer = $this->createQuoteTransfer();
 
         $customerTransfer = new CustomerTransfer();
         $quoteTransfer->setCustomer($customerTransfer);
 
         $this->setAddresses($quoteTransfer);
-
-        $cartClient->storeQuoteToSession($quoteTransfer);
 
         $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
 
@@ -124,8 +117,6 @@ class CheckoutControllerTest extends Test
      */
     public function testPaymentStepShouldRenderPaymenttForms()
     {
-
-        $cartClient = $this->getCartClient();
         $quoteTransfer = $this->createQuoteTransfer();
 
         $customerTransfer = new CustomerTransfer();
@@ -133,8 +124,6 @@ class CheckoutControllerTest extends Test
 
         $this->setAddresses($quoteTransfer);
         $this->setExpenses($quoteTransfer);
-
-        $cartClient->storeQuoteToSession($quoteTransfer);
 
         $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
 
@@ -154,7 +143,6 @@ class CheckoutControllerTest extends Test
      */
     public function testSummaryStepShouldRenderSummaryPage()
     {
-        $cartClient = $this->getCartClient();
         $quoteTransfer = $this->createQuoteTransfer();
 
         $customerTransfer = new CustomerTransfer();
@@ -163,8 +151,6 @@ class CheckoutControllerTest extends Test
         $this->setAddresses($quoteTransfer);
         $this->setExpenses($quoteTransfer);
         $this->setPayment($quoteTransfer);
-
-        $cartClient->storeQuoteToSession($quoteTransfer);
 
         $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
 
@@ -183,7 +169,6 @@ class CheckoutControllerTest extends Test
      */
     public function testPlaceOrderShouldReturnRedirectAndOrderReferenceIndicatingSuccess()
     {
-        $cartClient = $this->getCartClient();
         $quoteTransfer = $this->createQuoteTransfer();
 
         $customerTransfer = new CustomerTransfer();
@@ -193,8 +178,6 @@ class CheckoutControllerTest extends Test
         $this->setExpenses($quoteTransfer);
         $this->setPayment($quoteTransfer);
 
-        $cartClient->storeQuoteToSession($quoteTransfer);
-
         $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
 
         $request = Request::createfromGlobals();
@@ -203,7 +186,6 @@ class CheckoutControllerTest extends Test
         $response = $checkoutController->placeOrderAction($request);
 
         $this->assertInstanceOf(RedirectResponse::class, $response);
-        $quoteTransfer = $this->getCartClient()->getQuote();
         $this->assertEquals('#1', $quoteTransfer->getOrderReference());
     }
 
@@ -212,7 +194,6 @@ class CheckoutControllerTest extends Test
      */
     public function testSuccessStepShouldClearQuoteIfOrderWasPlaced()
     {
-        $cartClient = $this->getCartClient();
         $quoteTransfer = $this->createQuoteTransfer();
 
         $customerTransfer = new CustomerTransfer();
@@ -223,8 +204,6 @@ class CheckoutControllerTest extends Test
         $this->setPayment($quoteTransfer);
 
         $quoteTransfer->setOrderReference('#1');
-
-        $cartClient->storeQuoteToSession($quoteTransfer);
 
         $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
 
@@ -244,13 +223,10 @@ class CheckoutControllerTest extends Test
      */
     public function testWhenTryingAccessUncompletedStepShouldRedirectToLastCompleted()
     {
-        $cartClient = $this->getCartClient();
         $quoteTransfer = $this->createQuoteTransfer();
 
         $customerTransfer = new CustomerTransfer();
         $quoteTransfer->setCustomer($customerTransfer);
-
-        $cartClient->storeQuoteToSession($quoteTransfer);
 
         $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
 
@@ -269,9 +245,6 @@ class CheckoutControllerTest extends Test
      */
     public function testWhenCartEmptyShouldRedirectToEscapeUrl()
     {
-        $cartClient = $this->getCartClient();
-        $cartClient->storeQuoteToSession(new QuoteTransfer());
-
         $checkoutController = $this->createCheckoutControllerMock(new QuoteTransfer());
 
         $request = Request::createfromGlobals();
@@ -284,15 +257,7 @@ class CheckoutControllerTest extends Test
     }
 
     /**
-     * @return CartClientInterface
-     */
-    protected function getCartClient()
-    {
-        return Locator::getInstance()->cart()->client();
-    }
-
-    /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|CheckoutController
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Controller\CheckoutController
      */
     protected function createCheckoutControllerMock(QuoteTransfer $quoteTransfer)
     {
@@ -304,7 +269,7 @@ class CheckoutControllerTest extends Test
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|CheckoutFactory
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\CheckoutFactory
      */
     protected function createCheckoutFactoryMock(QuoteTransfer $quoteTransfer)
     {
@@ -312,21 +277,24 @@ class CheckoutControllerTest extends Test
             CheckoutFactory::class,
             [
                 'createStepFactory',
-                'createCheckoutFormFactory'
+                'createCheckoutFormFactory',
+                'getCartClient'
             ]
         );
 
         $formFactoryMock = $this->createFormFactoryMock($quoteTransfer);
         $stepFactorymock = $this->createStepFactoryMock($quoteTransfer);
+        $cartClientMock = $this->getCartClientMock($quoteTransfer);
 
         $checkoutFactoryMock->method('createStepFactory')->willReturn($stepFactorymock);
         $checkoutFactoryMock->method('createCheckoutFormFactory')->willReturn($formFactoryMock);
+        $checkoutFactoryMock->method('getCartClient')->willReturn($cartClientMock);
 
         return $checkoutFactoryMock;
     }
     
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|FormFactory
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Form\FormFactory
      */
     protected function createFormFactoryMock(QuoteTransfer $quoteTransfer)
     {
@@ -353,6 +321,17 @@ class CheckoutControllerTest extends Test
     }
 
     /**
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Cart\CartClientInterface
+     */
+    protected function getCartClientMock(QuoteTransfer $quoteTransfer)
+    {
+        $cartClientMock = $this->getMock(CartClientInterface::class);
+        $cartClientMock->method('getQuote')->willReturn($quoteTransfer);
+
+        return $cartClientMock;
+    }
+
+    /**
      * @return array
      */
     protected function createShipmentForm(QuoteTransfer $quoteTransfer)
@@ -361,16 +340,16 @@ class CheckoutControllerTest extends Test
     }
 
     /**
-     * @return PaymentForm
+     * @return \Pyz\Yves\Checkout\Form\Steps\PaymentForm
      */
     protected function createPaymentForm(QuoteTransfer $quoteTransfer)
     {
-       return new PaymentForm($quoteTransfer, []);
+         return new PaymentForm($quoteTransfer, []);
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
-     * @return \PHPUnit_Framework_MockObject_MockObject|StepFactory
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Process\StepFactory
      */
     protected function createStepFactoryMock(QuoteTransfer $quoteTransfer)
     {
@@ -449,7 +428,7 @@ class CheckoutControllerTest extends Test
     }
 
     /**
-     * @return ItemTransfer
+     * @return \Generated\Shared\Transfer\ItemTransfer
      */
     protected function createItemTransfer()
     {
@@ -462,7 +441,7 @@ class CheckoutControllerTest extends Test
     }
 
     /**
-     * @return QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     protected function createQuoteTransfer()
     {
@@ -474,7 +453,7 @@ class CheckoutControllerTest extends Test
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return void
      */
@@ -489,7 +468,7 @@ class CheckoutControllerTest extends Test
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return void
      */
@@ -504,7 +483,7 @@ class CheckoutControllerTest extends Test
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return void
      */
