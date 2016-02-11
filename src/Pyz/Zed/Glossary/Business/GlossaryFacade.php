@@ -8,7 +8,7 @@ use Spryker\Zed\Glossary\Business\GlossaryFacade as SprykerGlossaryFacade;
 /**
  * @method \Pyz\Zed\Glossary\Business\GlossaryBusinessFactory getFactory()
  */
-class GlossaryFacade extends SprykerGlossaryFacade
+class GlossaryFacade extends SprykerGlossaryFacade implements GlossaryFacadeInterface
 {
 
     /**

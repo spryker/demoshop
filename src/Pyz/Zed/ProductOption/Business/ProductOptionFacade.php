@@ -8,7 +8,7 @@ use Psr\Log\LoggerInterface;
 /**
  * @method \Pyz\Zed\ProductOption\Business\ProductOptionBusinessFactory getFactory()
  */
-class ProductOptionFacade extends SprykerProductOptionFacade
+class ProductOptionFacade extends SprykerProductOptionFacade implements ProductOptionFacadeInterface
 {
 
     /**
