@@ -8,7 +8,7 @@ use Spryker\Zed\Cms\Business\CmsFacade as SprykerCmsFacade;
 /**
  * @method \Pyz\Zed\Cms\Business\CmsBusinessFactory getFactory()
  */
-class CmsFacade extends SprykerCmsFacade
+class CmsFacade extends SprykerCmsFacade implements CmsFacadeInterface
 {
 
     /**
