@@ -2,6 +2,9 @@
 
 namespace Pyz\Zed\Collector;
 
+use Pyz\Zed\Collector\Communication\Plugin\NavigationCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\ProductCollectorSearchPlugin;
+use Pyz\Zed\Collector\Communication\Plugin\ProductCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\UrlCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\RedirectCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\BlockCollectorStoragePlugin;
@@ -57,15 +60,15 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[self::SEARCH_PLUGINS] = function (Container $container) {
             return [
-                //'product_abstract' => new ProductCollectorSearchPlugin(),
+                'product_abstract' => new ProductCollectorSearchPlugin(),
             ];
         };
 
         $container[self::STORAGE_PLUGINS] = function (Container $container) {
             return [
-                //'product_abstract' => new ProductCollectorStoragePlugin(),
+                'product_abstract' => new ProductCollectorStoragePlugin(),
                 'categorynode' => new CategoryNodeCollectorStoragePlugin(),
-                //'navigation' => new NavigationCollectorStoragePlugin(),
+                'navigation' => new NavigationCollectorStoragePlugin(),
                 'translation' => new TranslationCollectorStoragePlugin(),
                 'page' => new PageCollectorStoragePlugin(),
                 'block' => new BlockCollectorStoragePlugin(),
