@@ -54,7 +54,8 @@ class SuccessStepTest extends \PHPUnit_Framework_TestCase
     
     
     /**
-     * @return SuccessStep
+     * @return \Pyz\Yves\Checkout\Process\Steps\SuccessStep
+     *
      */
     protected function createSuccessStep()
     {
@@ -66,7 +67,7 @@ class SuccessStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return Request
+     * @return \Symfony\Component\HttpFoundation\Request
      */
     protected function createRequest()
     {
@@ -74,7 +75,7 @@ class SuccessStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|FlashMessengerInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Application\Business\Model\FlashMessengerInterface
      */
     protected function createFlashMessengerMock()
     {

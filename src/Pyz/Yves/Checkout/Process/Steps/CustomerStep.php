@@ -60,11 +60,11 @@ class CustomerStep extends BaseStep
      */
     public function requireInput(QuoteTransfer $quoteTransfer)
     {
-        if ($quoteTransfer->getCustomer() !== null) {
+        if ($this->isCustomerInQuote($quoteTransfer)) {
             return false;
         }
 
-        if ($this->customerClient->getCustomer() !== null) {
+        if ($this->isCustomerLogedIn()) {
             return false;
         }
 
@@ -95,16 +95,44 @@ class CustomerStep extends BaseStep
      */
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
-        if ($quoteTransfer->getCustomer() === null) {
+        if ($this->isCustomerInQuote($quoteTransfer) === false) {
             return false;
         }
 
-        if ($quoteTransfer->getCustomer()->getIsGuest() && $this->customerClient->getCustomer()) {
+        if ($this->isGuestCustomerSelected($quoteTransfer) && $this->isCustomerLogedIn()) {
             // override guest user with logged in user
             return false;
         }
 
         return true;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return bool
+     */
+    protected function isCustomerInQuote(QuoteTransfer $quoteTransfer)
+    {
+        return $quoteTransfer->getCustomer() !== null;
+    }
+
+    /**
+     * @return bool
+     */
+    protected function isCustomerLogedIn()
+    {
+        return $this->customerClient->getCustomer() !== null;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return \ArrayObject|bool
+     */
+    protected function isGuestCustomerSelected(QuoteTransfer $quoteTransfer)
+    {
+        return $quoteTransfer->getCustomer()->getIsGuest();
     }
 
 }

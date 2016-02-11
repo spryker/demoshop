@@ -3,9 +3,7 @@
 namespace Pyz\Yves\Customer\Plugin;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Client\Customer\CustomerClient;
 use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
-use Pyz\Yves\Customer\CustomerFactory;
 use Spryker\Yves\Kernel\AbstractPlugin;
 use Symfony\Component\HttpFoundation\Request;
 
