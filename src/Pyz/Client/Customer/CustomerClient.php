@@ -4,8 +4,6 @@ namespace Pyz\Client\Customer;
 
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CustomerOverviewRequestTransfer;
-use Generated\Shared\Transfer\CustomerOverviewResponseTransfer;
-use Generated\Shared\Transfer\CustomerTransfer;
 use Spryker\Client\Customer\CustomerClient as SprykerCustomerClient;
 
 /**
@@ -54,4 +52,13 @@ class CustomerClient extends SprykerCustomerClient implements CustomerClientInte
         return $customerTransfer;
     }
 
+    /**
+     * @return void
+     */
+    public function markCustomerAsDirty()
+    {
+        if ($this->isLoggedIn() !== false) {
+            $this->getCustomer()->setIsDirty(true);
+        }
+    }
 }

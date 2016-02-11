@@ -3,10 +3,30 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Client\Customer\CustomerClientInterface;
+use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class SuccessStep extends BaseStep
 {
+
+    /**
+     * @var \Pyz\Client\Customer\CustomerClientInterface
+     */
+    protected $customerClient;
+
+    /**
+     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
+     * @param string $stepRoute
+     * @param string $escapeRoute
+     * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
+     */
+    public function __construct(FlashMessengerInterface $flashMessenger, $stepRoute, $escapeRoute, CustomerClientInterface $customerClient)
+    {
+        parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
+
+        $this->customerClient = $customerClient;
+    }
 
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
@@ -29,6 +49,8 @@ class SuccessStep extends BaseStep
     }
 
     /**
+     * Empty quote transfer and mark logged in customer as "dirty" to force update it in the next request.
+     *
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
@@ -36,7 +58,9 @@ class SuccessStep extends BaseStep
      */
     public function execute(Request $request, QuoteTransfer $quoteTransfer)
     {
-        return new QuoteTransfer(); //empty quote transfer
+        $this->customerClient->markCustomerAsDirty();
+
+        return new QuoteTransfer();
     }
 
     /**

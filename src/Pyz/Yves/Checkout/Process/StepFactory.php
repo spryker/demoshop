@@ -2,29 +2,21 @@
 
 namespace Pyz\Yves\Checkout\Process;
 
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Application\Plugin\Pimple;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Pyz\Yves\Checkout\Process\Steps\EntryStep;
 use Pyz\Yves\Customer\Plugin\CustomerStepHandler;
 use Pyz\Yves\Payolution\Plugin\PayolutionHandlerPlugin;
 use Pyz\Yves\Shipment\Plugin\ShipmentHandlerPlugin;
-use Spryker\Client\Calculation\CalculationClient;
-use Spryker\Client\Checkout\CheckoutClientInterface;
 use Spryker\Yves\Kernel\AbstractFactory;
 use Pyz\Yves\Checkout\Process\Steps\AddressStep;
 use Pyz\Yves\Checkout\Process\Steps\CustomerStep;
 use Pyz\Yves\Checkout\Process\Steps\PaymentStep;
 use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
-use Pyz\Yves\Checkout\Process\Steps\StepInterface;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
-use Symfony\Component\Form\FormFactoryInterface;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Spryker\Yves\Application\Application;
 
 class StepFactory extends AbstractFactory
 {
@@ -167,7 +159,8 @@ class StepFactory extends AbstractFactory
         return new SuccessStep(
             $this->getFlashMessenger(),
             CheckoutControllerProvider::CHECKOUT_SUCCESS,
-            ApplicationControllerProvider::ROUTE_HOME
+            ApplicationControllerProvider::ROUTE_HOME,
+            $this->getLocator()->customer()->client()
         );
     }
 
