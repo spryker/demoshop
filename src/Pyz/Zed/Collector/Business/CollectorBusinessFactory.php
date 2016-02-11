@@ -211,7 +211,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStoragePdoQueryAdapterByName($name)
     {
-        $engines = ApplicationConstants::ZED_DB_SUPPORTED_ENGINES;
+        $engines = Config::get(ApplicationConstants::ZED_DB_SUPPORTED_ENGINES);
         $adapterName = $engines[Config::get(ApplicationConstants::ZED_DB_ENGINE)];
 
         $queryBuilderClassName = "\\Pyz\\Zed\\Collector\\Persistence\\Storage\\Pdo\\${adapterName}\\${name}";
@@ -228,7 +228,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createSearchPdoQueryAdapterByName($name)
     {
-        $engines = ApplicationConstants::ZED_DB_SUPPORTED_ENGINES;
+        $engines = Config::get(ApplicationConstants::ZED_DB_SUPPORTED_ENGINES);
         $adapterName = $engines[Config::get(ApplicationConstants::ZED_DB_ENGINE)];
 
         $queryBuilderClassName = "\\Pyz\\Zed\\Collector\\Persistence\\Search\\Pdo\\${adapterName}\\${name}";

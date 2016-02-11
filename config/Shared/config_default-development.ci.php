@@ -5,6 +5,7 @@ use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Session\SessionConstants;
 
+$config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
 $config[ApplicationConstants::ZED_DB_USERNAME] = 'ubuntu';
 $config[ApplicationConstants::ZED_DB_PASSWORD] = '';
 $config[ApplicationConstants::ZED_DB_DATABASE] = 'circle_test';

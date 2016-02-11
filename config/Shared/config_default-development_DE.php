@@ -4,6 +4,7 @@ use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 
+$config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
 $config[ApplicationConstants::ZED_DB_USERNAME] = 'development';
 $config[ApplicationConstants::ZED_DB_PASSWORD] = 'mate20mg';
 $config[ApplicationConstants::ZED_DB_DATABASE] = 'DE_development_zed';

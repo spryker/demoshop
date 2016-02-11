@@ -36,8 +36,12 @@ $config[ApplicationConstants::YVES_TWIG_OPTIONS] = [
     'cache' => \Spryker\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Yves/twig'),
 ];
 
-$config[ApplicationConstants::ZED_DB_ENGINE] = ApplicationConstants::ZED_DB_ENGINE_PGSQL;
-$currentStore = \Spryker\Shared\Kernel\Store::getInstance()->getStoreName();
+$config[ApplicationConstants::ZED_DB_ENGINE_MYSQL] = 'mysql';
+$config[ApplicationConstants::ZED_DB_ENGINE_PGSQL] = 'pgsql';
+$config[ApplicationConstants::ZED_DB_SUPPORTED_ENGINES] = [
+    $config[ApplicationConstants::ZED_DB_ENGINE_MYSQL] => 'MySql',
+    $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL] => 'PostgreSql'
+];
 
 $config[ApplicationConstants::PROPEL] = [
     'database' => [
@@ -62,10 +66,10 @@ $config[ApplicationConstants::PROPEL] = [
     ],
     'paths' => [
         'phpDir' => APPLICATION_ROOT_DIR,
-        'sqlDir' => APPLICATION_ROOT_DIR . '/src/Orm/Propel/' . $currentStore . '/Sql',
-        'migrationDir' => APPLICATION_ROOT_DIR . '/src/Orm/Propel/' . $currentStore . '/Migration_' . $config[ApplicationConstants::ZED_DB_ENGINE],
-        'schemaDir' => APPLICATION_ROOT_DIR . '/src/Orm/Propel/' . $currentStore . '/Schema',
-        'phpConfDir' => APPLICATION_ROOT_DIR . '/src/Orm/Propel/' . $currentStore . '/Config',
+        'sqlDir' => APPLICATION_ROOT_DIR . '/src/Orm/Propel/DE/Sql',
+        'migrationDir' => APPLICATION_ROOT_DIR . '/src/Orm/Propel/DE/Migration',
+        'schemaDir' => APPLICATION_ROOT_DIR . '/src/Orm/Propel/DE/Schema',
+        'phpConfDir' => APPLICATION_ROOT_DIR . '/src/Orm/Propel/DE/Config',
     ],
 ];
 
