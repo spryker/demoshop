@@ -53,15 +53,6 @@ class PaymentStepTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($paymentStep->postCondition($quoteTransfer));
     }
 
-    /**
-     * @return void
-     */
-    public function testGetTemplateVarsShouldReturnSubforms()
-    {
-        $paymentStep = $this->createPaymentStep([]);
-        $templateVariables = $paymentStep->getTemplateVariables();
-        $this->assertArrayHasKey('paymentMethodsSubForms', $templateVariables);
-    }
 
     /**
      * @return void
@@ -73,7 +64,7 @@ class PaymentStepTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @return PaymentStep
+     * @return \Pyz\Yves\Checkout\Process\Steps\PaymentStep
      */
     protected function createPaymentStep(array $paymentPlugins)
     {
@@ -87,7 +78,7 @@ class PaymentStepTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * @return Request
+     * @return \Symfony\Component\HttpFoundation\Request
      */
     protected function createRequest()
     {
@@ -95,7 +86,7 @@ class PaymentStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|FlashMessengerInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Application\Business\Model\FlashMessengerInterface
      */
     protected function createFlashMessengerMock()
     {
@@ -103,7 +94,7 @@ class PaymentStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|CheckoutStepHandlerPluginInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface
      */
     protected function createPaymentPluginMock()
     {

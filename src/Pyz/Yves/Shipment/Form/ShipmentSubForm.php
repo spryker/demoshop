@@ -4,17 +4,17 @@ namespace Pyz\Yves\Shipment\Form;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
+use Pyz\Yves\Checkout\Dependency\CheckoutAbstractSubFormType;
 use Spryker\Client\Glossary\GlossaryClientInterface;
 use Spryker\Client\Shipment\ShipmentClientInterface;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Library\Currency\CurrencyManager;
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 
-class ShipmentSubForm extends AbstractType implements SubFormInterface
+class ShipmentSubForm extends CheckoutAbstractSubFormType implements SubFormInterface
 {
 
     const FIELD_ID_SHIPMENT_METHOD = 'idShipmentMethod';
@@ -83,6 +83,14 @@ class ShipmentSubForm extends AbstractType implements SubFormInterface
     public function getPropertyPath()
     {
         return 'method';
+    }
+
+    /**
+     * @return string
+     */
+    public function getTemplatePath()
+    {
+        return 'shipment/method';
     }
 
     /**
@@ -217,5 +225,4 @@ class ShipmentSubForm extends AbstractType implements SubFormInterface
     {
         return $this->glossaryClient->translate($translationKey, $this->store->getCurrentLocale());
     }
-
 }

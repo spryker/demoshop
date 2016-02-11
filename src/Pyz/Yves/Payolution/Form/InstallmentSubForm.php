@@ -8,13 +8,13 @@ use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Client\Payolution\PayolutionClientInterface;
 use Spryker\Shared\Library\Currency\CurrencyManager;
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Pyz\Yves\Checkout\Dependency\CheckoutAbstractSubFormType;
 
-class InstallmentSubForm extends AbstractType implements SubFormInterface
+class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormInterface
 {
 
     const PAYMENT_PROVIDER = PayolutionConstants::PAYOLUTION;
@@ -59,6 +59,14 @@ class InstallmentSubForm extends AbstractType implements SubFormInterface
     public function getPropertyPath()
     {
         return self::PAYMENT_PROVIDER;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTemplatePath()
+    {
+        return PayolutionConstants::PAYOLUTION . '/' . self::PAYMENT_METHOD;
     }
 
     /**
@@ -241,7 +249,11 @@ class InstallmentSubForm extends AbstractType implements SubFormInterface
      */
     protected function isInstallmentPaymentsStillValid(QuoteTransfer $quoteTransfer, PayolutionCalculationResponseTransfer $calculationResponseTransfer)
     {
-        return $quoteTransfer->getTotals()->getHash() === $calculationResponseTransfer->getTotalsAmountHash();
+         if ($quoteTransfer->getTotals() === null) {
+             return false;
+         }
+
+         return $quoteTransfer->getTotals()->getHash() === $calculationResponseTransfer->getTotalsAmountHash();
     }
 
     /**
@@ -272,7 +284,6 @@ class InstallmentSubForm extends AbstractType implements SubFormInterface
             $paymentDetail->getCurrency() .
             $this->convertCentToDecimal($paymentDetail->getInstallments()[0]->getAmount()) .
             $paymentDetail->getDuration();
-            // . '<a href="installment/id/' . $calculationResponseTransfer->getIdentificationUniqueid() . '/duration/' . $paymentDetail->getDuration() . '"">Show Details</a>';
 
         return $choice;
     }
@@ -286,5 +297,4 @@ class InstallmentSubForm extends AbstractType implements SubFormInterface
     {
         return CurrencyManager::getInstance()->convertCentToDecimal($amount);
     }
-
 }

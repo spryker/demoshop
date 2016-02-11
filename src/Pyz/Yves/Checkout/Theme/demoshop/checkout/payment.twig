@@ -1,4 +1,5 @@
 {% extends "@application/layout/layout.twig" %}
+{% import "@checkout/checkout/_macros.twig" as checkout %}
 
 {% block content %}
     <br /><br /><br /><br />
@@ -6,11 +7,11 @@
     <h1>Payment</h1>
 
     {{ form_start(paymentForm) }}
+
         {{ form_widget(paymentForm.paymentSelection) }}
 
-        {% for paymentMethodSubForm in paymentMethodsSubForms %}
-            {% include "@" ~ paymentMethodSubForm ~ ".twig" with {'form': paymentForm} %}
-        {% endfor %}
+        {{ checkout.include_subforms(paymentForm) }}
+
     {{ form_end(paymentForm) }}
 
     <a href="{{ previousStepUrl }}">Back</a>

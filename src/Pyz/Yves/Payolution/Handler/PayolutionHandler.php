@@ -2,7 +2,6 @@
 
 namespace Pyz\Yves\Payolution\Handler;
 
-use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Client\Payolution\PayolutionClientInterface;
@@ -14,6 +13,7 @@ class PayolutionHandler
 {
 
     const PAYMENT_PROVIDER = 'payolution';
+    const NON_MAPPED_DATE_OF_BIRTH = 'date_of_birth';
 
     /**
      * @var array
@@ -70,7 +70,7 @@ class PayolutionHandler
 
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param $paymentSelection
+     * @param string $paymentSelection
      *
      * @return void
      */
@@ -91,6 +91,8 @@ class PayolutionHandler
     protected function setPayolutionPayment(Request $request, QuoteTransfer $quoteTransfer, $paymentSelection)
     {
         $payolutionPaymentTransfer = $quoteTransfer->getPayment()->getPayolution();
+        $payolutionPaymentTransfer->setDateOfBirth($this->getDateOfBirth($request));
+
         $billingAddress = $quoteTransfer->getBillingAddress();
 
         $payolutionPaymentTransfer
@@ -108,23 +110,45 @@ class PayolutionHandler
     }
 
     /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return string
+     */
+    protected function getDateOfBirth(Request $request)
+    {
+        $paymentForm = $request->get('paymentForm');
+        foreach (static::$paymentMethods as $paymentMethod => $paymentName) {
+            if (array_key_exists($paymentMethod, $paymentForm) !== false) {
+                if (!empty($paymentForm[$paymentMethod][self::NON_MAPPED_DATE_OF_BIRTH])) {
+                    $dateOfBirth = new \DateTime($paymentForm[$paymentMethod][self::NON_MAPPED_DATE_OF_BIRTH]);
+                    return $dateOfBirth->format('Y-m-d');
+                }
+            }
+        }
+
+        return '';
+    }
+
+    /**
      * @param \Generated\Shared\Transfer\PayolutionPaymentTransfer $payolutionPaymentTransfer
      *
      * @return void
      */
     protected function setPayolutionInstallmentPayment(PayolutionPaymentTransfer $payolutionPaymentTransfer)
     {
-        if ($this->payolutionClient->hasInstallmentPaymentsInSession() === true) {
-            $payolutionCalculationResponseTransfer = $this->payolutionClient->getInstallmentPaymentsFromSession();
-
-            $installmentPaymentDetail = $payolutionCalculationResponseTransfer
-                ->getPaymentDetails()[$payolutionPaymentTransfer->getInstallmentPaymentDetailIndex()];
-
-            $payolutionPaymentTransfer
-                ->setInstallmentCalculationId($payolutionCalculationResponseTransfer->getIdentificationUniqueid())
-                ->setInstallmentAmount($installmentPaymentDetail->getInstallments()[0]->getAmount())
-                ->setInstallmentDuration($installmentPaymentDetail->getDuration());
+        if ($this->payolutionClient->hasInstallmentPaymentsInSession() === false) {
+            return;
         }
+
+        $payolutionCalculationResponseTransfer = $this->payolutionClient->getInstallmentPaymentsFromSession();
+
+        $installmentPaymentDetail = $payolutionCalculationResponseTransfer
+            ->getPaymentDetails()[$payolutionPaymentTransfer->getInstallmentPaymentDetailIndex()];
+
+        $payolutionPaymentTransfer
+            ->setInstallmentCalculationId($payolutionCalculationResponseTransfer->getIdentificationUniqueid())
+            ->setInstallmentAmount($installmentPaymentDetail->getInstallments()[0]->getAmount())
+            ->setInstallmentDuration($installmentPaymentDetail->getDuration());
     }
 
     /**
@@ -134,5 +158,4 @@ class PayolutionHandler
     {
         return CurrencyManager::getInstance()->getDefaultCurrency()->getIsoCode();
     }
-
 }

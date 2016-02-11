@@ -10,6 +10,7 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Symfony\Component\HttpFoundation\Request;
+use Pyz\Client\Customer\CustomerClientInterface;
 
 class SuccessStepTest extends \PHPUnit_Framework_TestCase
 {
@@ -19,7 +20,10 @@ class SuccessStepTest extends \PHPUnit_Framework_TestCase
      */
     public function testExecuteShouldReturnEmptyQuoteTransfer()
     {
-        $successStep = $this->createSuccessStep();
+        $customerClientMock = $this->createCustomerClientMock();
+        $customerClientMock->expects($this->once())->method('markCustomerAsDirty');
+
+        $successStep = $this->createSuccessStep($customerClientMock);
 
         $quoteTransfer = new QuoteTransfer();
         $quoteTransfer->addItem(new ItemTransfer());
@@ -34,6 +38,7 @@ class SuccessStepTest extends \PHPUnit_Framework_TestCase
      */
     public function testPostConditionsWhenOrderReferenceIsSetShouldReturnTrue()
     {
+
         $successStep = $this->createSuccessStep();
 
         $quoteTransfer = new QuoteTransfer();
@@ -57,12 +62,17 @@ class SuccessStepTest extends \PHPUnit_Framework_TestCase
      * @return \Pyz\Yves\Checkout\Process\Steps\SuccessStep
      *
      */
-    protected function createSuccessStep()
+    protected function createSuccessStep($customerClientMock = null)
     {
+        if ($customerClientMock === null) {
+            $customerClientMock = $this->createCustomerClientMock();
+        }
+
         return new SuccessStep(
             $this->createFlashMessengerMock(),
             'success_route',
-            'escape_route'
+            'escape_route',
+            $customerClientMock
         );
     }
 
@@ -80,5 +90,13 @@ class SuccessStepTest extends \PHPUnit_Framework_TestCase
     protected function createFlashMessengerMock()
     {
         return $this->getMock(FlashMessengerInterface::class);
+    }
+
+    /**
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Client\Customer\CustomerClientInterface
+     */
+    protected function createCustomerClientMock()
+    {
+        return $this->getMock(CustomerClientInterface::class);
     }
 }

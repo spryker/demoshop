@@ -5,12 +5,12 @@ namespace Pyz\Yves\Payolution\Form;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Shared\Payolution\PayolutionConstants;
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Pyz\Yves\Checkout\Dependency\CheckoutAbstractSubFormType;
 
-class InvoiceSubForm extends AbstractType implements SubFormInterface
+class InvoiceSubForm extends CheckoutAbstractSubFormType implements SubFormInterface
 {
 
     const PAYMENT_PROVIDER = PayolutionConstants::PAYOLUTION;
@@ -61,6 +61,14 @@ class InvoiceSubForm extends AbstractType implements SubFormInterface
     }
 
     /**
+     * @return string
+     */
+    public function getTemplatePath()
+    {
+        return PayolutionConstants::PAYOLUTION . '/' . self::PAYMENT_METHOD;
+    }
+
+    /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      */
@@ -93,5 +101,4 @@ class InvoiceSubForm extends AbstractType implements SubFormInterface
 
         return $this;
     }
-
 }

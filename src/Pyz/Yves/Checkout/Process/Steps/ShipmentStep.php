@@ -108,17 +108,4 @@ class ShipmentStep extends BaseStep
 
         return false;
     }
-
-    /**
-     * @return array
-     */
-    public function getTemplateVariables()
-    {
-        $templateVariables = parent::getTemplateVariables();
-
-        $templateVariables['shipmentMethodsSubForms'] = ['shipment/method'];
-
-        return $templateVariables;
-    }
-
 }

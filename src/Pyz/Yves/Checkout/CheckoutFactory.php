@@ -6,10 +6,7 @@ use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Checkout\Form\FormFactory;
 use Pyz\Yves\Checkout\Process\StepFactory;
 use Pyz\Yves\Checkout\Process\StepProcess;
-use Spryker\Yves\Application\Application;
 use Spryker\Yves\Kernel\AbstractFactory;
-use Spryker\Client\Cart\CartClientInterface;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class CheckoutFactory extends AbstractFactory
 {

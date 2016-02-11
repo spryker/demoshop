@@ -78,9 +78,9 @@ class CustomerUserProvider extends AbstractPlugin implements UserProviderInterfa
     }
 
     /**
-     * @param UserInterface $user
+     * @param \Symfony\Component\Security\Core\User\UserInterface $user
      *
-     * @return CustomerTransfer
+     * @return \Generated\Shared\Transfer\CustomerTransfer
      */
     protected function updateUser(UserInterface $user)
     {

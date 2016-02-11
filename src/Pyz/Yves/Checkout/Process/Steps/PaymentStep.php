@@ -83,17 +83,4 @@ class PaymentStep extends BaseStep
 
         return true;
     }
-
-    /**
-     * @return array
-     */
-    public function getTemplateVariables()
-    {
-        $templateVariables = parent::getTemplateVariables();
-
-        $templateVariables['paymentMethodsSubForms'] = ['payolution/invoice', 'payolution/installment'];
-
-        return $templateVariables;
-    }
-
 }

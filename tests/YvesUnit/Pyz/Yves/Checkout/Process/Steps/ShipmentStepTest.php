@@ -52,16 +52,6 @@ class ShipmentStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return void
-     */
-    public function testShipmentTemplateVariablesShouldIncludeSubForms()
-    {
-        $shipmentStep = $this->createShipmentStep([]);
-        $templateVariables = $shipmentStep->getTemplateVariables();
-        $this->assertArrayHasKey('shipmentMethodsSubForms', $templateVariables);
-    }
-
-    /**
      * @return bool
      */
     public function testShipmentRequireInputShouldReturnTrue()
@@ -71,7 +61,7 @@ class ShipmentStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return ShipmentStep
+     * @return \Pyz\Yves\Checkout\Process\Steps\ShipmentStep
      */
     protected function createShipmentStep(array $shipmentPlugins)
     {
@@ -86,7 +76,7 @@ class ShipmentStepTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * @return Request
+     * @return \Symfony\Component\HttpFoundation\Request
      */
     protected function createRequest()
     {
@@ -94,7 +84,7 @@ class ShipmentStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|FlashMessengerInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Application\Business\Model\FlashMessengerInterface
      */
     protected function createFlashMessengerMock()
     {
@@ -102,7 +92,7 @@ class ShipmentStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|CalculationClientInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Calculation\CalculationClientInterface
      */
     protected function createCalculationClientMock()
     {
@@ -110,7 +100,7 @@ class ShipmentStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|CheckoutStepHandlerPluginInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface
      */
     protected function createShipmentMock()
     {
