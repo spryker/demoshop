@@ -17,7 +17,7 @@ use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Symfony\Component\HttpFoundation\Request;
 
-class PaymenStepTest extends \PHPUnit_Framework_TestCase
+class PaymentStepTest extends \PHPUnit_Framework_TestCase
 {
 
     /**

@@ -55,6 +55,11 @@ class AddressStep extends BaseStep
     }
 
     /**
+     * Guest customer takes data from form directly mapped by symfony forms.
+     * Logged in customer takes data by id from current CustomerTransfer stored in session.
+     * If it's new address it's saved when order is created in CustomerOrderSaverPlugin.
+     *
+     *
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @param \Generated\Shared\Transfer\QuoteTransfer$quoteTransfer
      *
@@ -64,9 +69,12 @@ class AddressStep extends BaseStep
     {
         $customerTransfer = $this->customerClient->getCustomer();
 
-        if ($quoteTransfer->getShippingAddress()->getIdCustomerAddress() !== null) {
+        $shippingAddressTransfer = $quoteTransfer->getShippingAddress();
+        $billingAddressTransfer = $quoteTransfer->getBillingAddress();
+
+        if ($shippingAddressTransfer !== null && $shippingAddressTransfer->getIdCustomerAddress() !== null) {
             $shippingAddressTransfer = $this->hydrateCustomerAddress(
-                $quoteTransfer->getShippingAddress(),
+                $shippingAddressTransfer,
                 $customerTransfer
             );
 
@@ -75,9 +83,9 @@ class AddressStep extends BaseStep
 
         if ($quoteTransfer->getBillingSameAsShipping() === true) {
             $quoteTransfer->setBillingAddress(clone $quoteTransfer->getShippingAddress());
-        } elseif ($quoteTransfer->getBillingAddress()->getIdCustomerAddress() !== null) {
+        } elseif ($billingAddressTransfer !== null && $billingAddressTransfer->getIdCustomerAddress() !== null) {
             $billingAddressTransfer = $this->hydrateCustomerAddress(
-                $quoteTransfer->getBillingAddress(),
+                $billingAddressTransfer,
                 $customerTransfer
             );
 
@@ -118,6 +126,10 @@ class AddressStep extends BaseStep
      */
     protected function hydrateCustomerAddress(AddressTransfer $addressTransfer, CustomerTransfer $customerTransfer)
     {
+        if ($customerTransfer->getAddresses() === null) {
+            return $addressTransfer;
+        }
+
         foreach ($customerTransfer->getAddresses()->getAddresses() as $customerAddressTransfer) {
             if ($addressTransfer->getIdCustomerAddress() === $customerAddressTransfer->getIdCustomerAddress()) {
                 $addressTransfer->fromArray($customerAddressTransfer->toArray());
