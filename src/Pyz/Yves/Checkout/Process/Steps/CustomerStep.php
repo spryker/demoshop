@@ -14,7 +14,7 @@ class CustomerStep extends BaseStep
     /**
      * @var \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface
      */
-    protected $authHandler;
+    protected $customerStepHandler;
 
     /**
      * @var \Pyz\Client\Customer\CustomerClientInterface
@@ -25,19 +25,19 @@ class CustomerStep extends BaseStep
      * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      * @param string $stepRoute
      * @param string $escapeRoute
-     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface $authHandler
+     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface $customerStepHandler
      * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
      */
     public function __construct(
         FlashMessengerInterface $flashMessenger,
         $stepRoute,
         $escapeRoute,
-        CheckoutStepHandlerPluginInterface $authHandler,
+        CheckoutStepHandlerPluginInterface $customerStepHandler,
         CustomerClientInterface $customerClient
     ) {
         parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
 
-        $this->authHandler = $authHandler;
+        $this->customerStepHandler = $customerStepHandler;
         $this->customerClient = $customerClient;
     }
 
@@ -52,6 +52,8 @@ class CustomerStep extends BaseStep
     }
 
     /**
+     * Require input for customer authentication if the customer is not logged in already, or haven't authenticated yet.
+     *
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
@@ -70,6 +72,8 @@ class CustomerStep extends BaseStep
     }
 
     /**
+     * Update QuoteTransfer with customer step handler plugin.
+     *
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
@@ -77,10 +81,14 @@ class CustomerStep extends BaseStep
      */
     public function execute(Request $request, QuoteTransfer $quoteTransfer)
     {
-        return $this->authHandler->addToQuote($request, $quoteTransfer);
+        return $this->customerStepHandler->addToQuote($request, $quoteTransfer);
     }
 
     /**
+     * The customer step is considered done (return true) if he QuoteTransfer contains a non empty CustomerTransfer.
+     * If the CustomerTransfer is guest and the customer is logged in, then we override the guest customer with the
+     * logged in customer, e.g. return false and execute() will do the rest.
+     *
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool

@@ -29,6 +29,11 @@ class CustomerStepHandler extends AbstractPlugin implements CheckoutStepHandlerP
     }
 
     /**
+     * Iterate through the authentication handler plugin stack and handle authentication with the first one which can
+     * handle the request. The QuoteTransfer input parameter should contain the request. The handler plugin will update
+     * the quote with the appropriate CustomerTransfer and return it, e.g. the output QuoteTransfer should contain
+     * the response.
+     *
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
