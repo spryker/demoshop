@@ -5,7 +5,7 @@
         {% include "@customer/customer/partials/navigation.twig" with {'active': 'newsletter'} %}
 
         <div style="float:left;width:70%">
-            {{ form_start(form, {'action': url('customer/newsletter/submit')}) }}
+            {{ form_start(form) }}
                 <h1>{{ 'customer.account.newsletter' | trans }}</h1>
                 <h2>{{ 'customer.newsletter.subscription' | trans }}</h2>
                 <div>

@@ -13,12 +13,12 @@ class CategoryResourceCreator extends AbstractResourceCreator
 {
 
     /**
-     * @var LocatorLocatorInterface
+     * @var \Spryker\Shared\Kernel\LocatorLocatorInterface
      */
     protected $locator;
 
     /**
-     * @param LocatorLocatorInterface $locator
+     * @param \Spryker\Shared\Kernel\LocatorLocatorInterface $locator
      */
     public function __construct(LocatorLocatorInterface $locator)
     {
@@ -34,7 +34,7 @@ class CategoryResourceCreator extends AbstractResourceCreator
     }
 
     /**
-     * @param Application $application
+     * @param \Silex\Application $application
      * @param array $data
      *
      * @return array

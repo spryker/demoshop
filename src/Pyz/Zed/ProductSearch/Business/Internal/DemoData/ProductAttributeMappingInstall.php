@@ -10,30 +10,29 @@ use Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
 use Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToLocaleInterface;
 use Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToTouchInterface;
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
-use Propel\Runtime\Exception\PropelException;
 
 class ProductAttributeMappingInstall extends AbstractInstaller
 {
 
     /**
-     * @var OperationManagerInterface
+     * @var \Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface
      */
     protected $operationManager;
 
     /**
-     * @var ProductSearchToLocaleInterface
+     * @var \Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToLocaleInterface
      */
     protected $localeFacade;
 
     /**
-     * @var ProductSearchToTouchInterface
+     * @var \Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToTouchInterface
      */
     protected $touchFacade;
 
     /**
-     * @param OperationManagerInterface $operationManager
-     * @param ProductSearchToLocaleInterface $localeFacade
-     * @param ProductSearchToTouchInterface $touchFacade
+     * @param \Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface $operationManager
+     * @param \Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToLocaleInterface $localeFacade
+     * @param \Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToTouchInterface $touchFacade
      */
     public function __construct(
         OperationManagerInterface $operationManager,
@@ -128,7 +127,7 @@ class ProductAttributeMappingInstall extends AbstractInstaller
      * @param int $weight
      *
      * @throws \Exception
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     protected function addOperation($idAttribute, $copyTarget, $operation, $weight)
     {

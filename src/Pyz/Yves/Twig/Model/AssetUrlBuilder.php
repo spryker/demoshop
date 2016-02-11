@@ -6,13 +6,13 @@ class AssetUrlBuilder extends AbstractUrlBuilder implements AssetUrlBuilderInter
 {
 
     /**
-     * @var CacheBusterInterface
+     * @var \Pyz\Yves\Twig\Model\CacheBusterInterface
      */
     private $cacheBuster;
 
     /**
      * @param string $staticHost
-     * @param CacheBusterInterface $cacheBuster
+     * @param \Pyz\Yves\Twig\Model\CacheBusterInterface $cacheBuster
      */
     public function __construct($staticHost, CacheBusterInterface $cacheBuster)
     {
@@ -33,7 +33,7 @@ class AssetUrlBuilder extends AbstractUrlBuilder implements AssetUrlBuilderInter
     }
 
     /**
-     * @return CacheBusterInterface
+     * @return \Pyz\Yves\Twig\Model\CacheBusterInterface
      */
     protected function getCacheBuster()
     {

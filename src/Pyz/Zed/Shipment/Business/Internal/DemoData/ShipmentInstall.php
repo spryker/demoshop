@@ -13,24 +13,24 @@ class ShipmentInstall extends AbstractInstaller
 {
 
     /**
-     * @var ShipmentQueryContainerInterface
+     * @var \Spryker\Zed\Shipment\Persistence\ShipmentQueryContainerInterface
      */
     protected $queryContainer;
 
     /**
-     * @var Method
+     * @var \Spryker\Zed\Shipment\Business\Model\Method
      */
     protected $method;
 
     /**
-     * @var Carrier
+     * @var \Spryker\Zed\Shipment\Business\Model\Carrier
      */
     protected $carrier;
 
     /**
-     * @param ShipmentQueryContainerInterface $queryContainer
-     * @param Carrier $carrier
-     * @param Method $method
+     * @param \Spryker\Zed\Shipment\Persistence\ShipmentQueryContainerInterface $queryContainer
+     * @param \Spryker\Zed\Shipment\Business\Model\Carrier $carrier
+     * @param \Spryker\Zed\Shipment\Business\Model\Method $method
      */
     public function __construct(
         ShipmentQueryContainerInterface $queryContainer,
@@ -70,7 +70,7 @@ class ShipmentInstall extends AbstractInstaller
     }
 
     /**
-     * @param $idCarrier
+     * @param int $idCarrier
      */
     protected function addShipmentMethodToCarrie($idCarrier)
     {

@@ -9,18 +9,18 @@ class YvesExtension extends \Twig_Extension
 {
 
     /**
-     * @var Application
+     * @var \Spryker\Yves\Application\Application
      */
     protected $application;
 
     /**
-     * @var TwigSettings
+     * @var \Pyz\Yves\Twig\TwigSettings
      */
     protected $settings;
 
     /**
-     * @param Application $application
-     * @param TwigSettings $twigSettings
+     * @param \Spryker\Yves\Application\Application $application
+     * @param \Pyz\Yves\Twig\TwigSettings $twigSettings
      */
     public function __construct(Application $application, TwigSettings $twigSettings)
     {

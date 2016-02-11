@@ -1,4 +1,5 @@
 <?php
+
 namespace Pyz\Zed\Wishlist;
 
 use Spryker\Zed\ProductOptionWishlistConnector\Communication\Plugin\PreSaveGroupKeyProductOptionPlugin;
@@ -15,7 +16,7 @@ class WishlistDependencyProvider extends SprykerWishlistDependencyProvider
 {
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
      * @return array
      */

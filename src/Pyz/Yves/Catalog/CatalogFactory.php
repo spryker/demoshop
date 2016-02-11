@@ -4,17 +4,13 @@ namespace Pyz\Yves\Catalog;
 
 use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Collector\Plugin\UrlMapper;
-use Pyz\Yves\Collector\Mapper\UrlMapperInterface;
-use Silex\Application;
 use Spryker\Yves\Kernel\AbstractFactory;
-use Spryker\Client\Catalog\CatalogClient;
-use Spryker\Client\CategoryExporter\CategoryExporterClient;
 
 class CatalogFactory extends AbstractFactory
 {
 
     /**
-     * @return UrlMapperInterface
+     * @return \Pyz\Yves\Collector\Mapper\UrlMapperInterface
      */
     public function createUrlMapper()
     {
@@ -24,7 +20,7 @@ class CatalogFactory extends AbstractFactory
     }
 
     /**
-     * @return Application
+     * @return \Silex\Application
      */
     public function createApplication()
     {
@@ -34,7 +30,7 @@ class CatalogFactory extends AbstractFactory
     }
 
     /**
-     * @return CatalogClient
+     * @return \Spryker\Client\Catalog\CatalogClient
      */
     public function createCatalogClient()
     {
@@ -42,7 +38,7 @@ class CatalogFactory extends AbstractFactory
     }
 
     /**
-     * @return CategoryExporterClient
+     * @return \Spryker\Client\CategoryExporter\CategoryExporterClient
      */
     public function createCategoryExporterClient()
     {

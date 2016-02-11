@@ -2,13 +2,14 @@
 
 namespace Pyz\Yves\Customer\Form;
 
-use Generated\Shared\Transfer\CustomerTransfer;
-use Spryker\Shared\Gui\Form\AbstractForm;
-use Spryker\Shared\Transfer\TransferInterface;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
-class ProfileForm extends AbstractForm
+class ProfileForm extends AbstractType
 {
+
     const FIELD_EMAIL = 'email';
     const FIELD_LAST_NAME = 'last_name';
     const FIELD_FIRST_NAME = 'first_name';
@@ -23,49 +24,94 @@ class ProfileForm extends AbstractForm
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add(self::FIELD_SALUTATION, 'choice', [
-                'choices' => [
-                    'Mr' => 'customer.salutation.mr',
-                    'Mrs' => 'customer.salutation.mrs',
-                    'Dr' => 'customer.salutation.dr',
-                ],
-                'label' => 'profile.form.salutation',
-                'required' => false,
-            ])
-            ->add(self::FIELD_FIRST_NAME, 'text', [
-                'label' => 'customer.profile.first_name',
-                'required' => true,
-            ])
-            ->add(self::FIELD_LAST_NAME, 'text', [
-                'label' => 'customer.profile.last_name',
-                'required' => true,
-            ])
-            ->add(self::FIELD_EMAIL, self::FIELD_EMAIL, [
-                'label' => 'customer.profile.email',
-                'required' => true,
-            ]);
+        $this
+            ->addSalutationField($builder)
+            ->addFirstNameField($builder)
+            ->addLastNameField($builder)
+            ->addEmailField($builder);
     }
 
     /**
-     * @return TransferInterface|array
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     *
+     * @return $this
      */
-    public function populateFormFields()
+    public function addEmailField(FormBuilderInterface $builder)
     {
-        return null;
+        $builder->add(self::FIELD_EMAIL, self::FIELD_EMAIL, [
+            'label' => 'customer.profile.email',
+            'required' => true,
+            'constraints' => [
+                new NotBlank(),
+                new Email(),
+            ],
+        ]);
+
+        return $this;
     }
 
     /**
-     * @return TransferInterface|null
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     *
+     * @return $this
      */
-    protected function getDataClass()
+    public function addLastNameField(FormBuilderInterface $builder)
     {
-        return null;
+        $builder->add(self::FIELD_LAST_NAME, 'text', [
+            'label' => 'customer.profile.last_name',
+            'required' => true,
+            'constraints' => [
+                new NotBlank(),
+            ],
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     *
+     * @return $this
+     */
+    public function addFirstNameField(FormBuilderInterface $builder)
+    {
+        $builder->add(self::FIELD_FIRST_NAME, 'text', [
+            'label' => 'customer.profile.first_name',
+            'required' => true,
+            'constraints' => [
+                new NotBlank(),
+            ],
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     *
+     * @return $this
+     */
+    public function addSalutationField(FormBuilderInterface $builder)
+    {
+        $builder->add(self::FIELD_SALUTATION, 'choice', [
+            'choices' => [
+                'Mr' => 'customer.salutation.mr',
+                'Mrs' => 'customer.salutation.mrs',
+                'Dr' => 'customer.salutation.dr',
+            ],
+            'label' => 'profile.form.salutation',
+            'required' => false,
+            'constraints' => [
+                new NotBlank(),
+            ],
+        ]);
+
+        return $this;
     }
 
 }

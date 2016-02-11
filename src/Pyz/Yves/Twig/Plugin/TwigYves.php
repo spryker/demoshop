@@ -4,16 +4,15 @@ namespace Pyz\Yves\Twig\Plugin;
 
 use Silex\Application;
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Pyz\Yves\Twig\TwigFactory;
 
 /**
- * @method TwigFactory getFactory()
+ * @method \Pyz\Yves\Twig\TwigFactory getFactory()
  */
 class TwigYves extends AbstractPlugin
 {
 
     /**
-     * @param Application $application
+     * @param \Silex\Application $application
      *
      * @return \Twig_Extension
      */

@@ -9,7 +9,7 @@ class ProductController extends AbstractController
 {
 
     /**
-     * @param ProductAbstractInterface $product
+     * @param \Spryker\Shared\Product\Model\ProductAbstractInterface $product
      *
      * @return array
      */

@@ -26,7 +26,6 @@ use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole;
 use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole;
 use Spryker\Zed\ProductSearch\Communication\Console\ProductSearchConsole;
 use Spryker\Zed\Search\Communication\Console\SearchConsole;
-use Symfony\Component\Console\Command\Command;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Console\ConsoleDependencyProvider as SprykerConsoleDependencyProvider;
 
@@ -34,9 +33,9 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
 {
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return Command[]
+     * @return \Symfony\Component\Console\Command\Command[]
      */
     public function getConsoleCommands(Container $container)
     {

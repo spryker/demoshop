@@ -3,7 +3,6 @@
 namespace Pyz\Zed\Category\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\CategoryTransfer;
-use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Zed\Category\Business\Model\CategoryWriter;
@@ -25,36 +24,36 @@ class CategoryTreeInstall extends AbstractInstaller
     const NODE_ORDER = 'order';
 
     /**
-     * @var CategoryWriter
+     * @var \Spryker\Zed\Category\Business\Model\CategoryWriter
      */
     protected $categoryWriter;
 
     /**
-     * @var CategoryTreeWriter
+     * @var \Spryker\Zed\Category\Business\Tree\CategoryTreeWriter
      */
     protected $categoryTreeWriter;
 
     /**
-     * @var CategoryQueryContainer
+     * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainer
      */
     protected $queryContainer;
 
     /**
-     * @var LocaleTransfer
+     * @var \Generated\Shared\Transfer\LocaleTransfer
      */
     protected $locale;
 
     /**
-     * @var CategoryToLocaleInterface
+     * @var \Spryker\Zed\Category\Dependency\Facade\CategoryToLocaleInterface
      */
     protected $localeFacade;
 
     /**
-     * @param CategoryWriterInterface $categoryWriter
-     * @param CategoryTreeWriter $categoryTreeWriter
-     * @param CategoryQueryContainer $categoryQueryContainer
-     * @param CategoryToLocaleInterface $localeFacade
-     * @param CategoryToTouchInterface $touchFacade
+     * @param \Spryker\Zed\Category\Business\Model\CategoryWriterInterface $categoryWriter
+     * @param \Spryker\Zed\Category\Business\Tree\CategoryTreeWriter $categoryTreeWriter
+     * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainer $categoryQueryContainer
+     * @param \Spryker\Zed\Category\Dependency\Facade\CategoryToLocaleInterface $localeFacade
+     * @param \Spryker\Zed\Category\Dependency\Facade\CategoryToTouchInterface $touchFacade
      */
     public function __construct(
         CategoryWriterInterface $categoryWriter,
@@ -200,7 +199,7 @@ class CategoryTreeInstall extends AbstractInstaller
     }
 
     /**
-     * @param NodeTransfer $rootNodeTransfer
+     * @param \Generated\Shared\Transfer\NodeTransfer $rootNodeTransfer
      *
      * @return void
      */

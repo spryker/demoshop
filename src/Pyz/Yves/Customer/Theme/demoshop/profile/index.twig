@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-6 custom-form">
                 <h2>{{ "customer.profile.update" | trans }}</h2>
-                {{ form_start(profileForm, {'action': url('customer/profile/submit_profile')}) }}
+                {{ form_start(profileForm) }}
                     {{ form_widget(profileForm) }}
 
                     <div class="frame buttons cfx">
@@ -17,7 +17,7 @@
             </div>
             <div class="col-xs-12 col-sm-6 custom-form">
                 <h2>{{ "customer.password.update" | trans }}</h2>
-                {{ form_start(passwordForm, {'action': url('customer/profile/submit_password')}) }}
+                {{ form_start(passwordForm) }}
                 {{ form_widget(passwordForm) }}
 
                 <div class="frame buttons cfx">

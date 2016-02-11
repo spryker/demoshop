@@ -4,13 +4,11 @@ namespace Pyz\Yves\Cart\Controller;
 
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
 use Spryker\Yves\Application\Controller\AbstractController;
-use Spryker\Client\Cart\CartClientInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
 
 /**
- * @method CartClientInterface getClient()
+ * @method \Spryker\Client\Cart\CartClientInterface getClient()
  */
 class AjaxController extends AbstractController
 {
@@ -38,7 +36,7 @@ class AjaxController extends AbstractController
      * @param int $quantity
      * @param array $optionValueUsageIds
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function addAction($sku, $quantity, $optionValueUsageIds = [])
     {
@@ -65,7 +63,7 @@ class AjaxController extends AbstractController
      * @param string $sku
      * @param string $groupKey
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function removeAction($sku, $groupKey = null)
     {
@@ -82,7 +80,7 @@ class AjaxController extends AbstractController
      * @param string $sku
      * @param string $groupKey
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function increaseAction($sku, $groupKey = null)
     {
@@ -101,7 +99,7 @@ class AjaxController extends AbstractController
      * @param string $sku
      * @param string $groupKey
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function decreaseAction($sku, $groupKey = null)
     {

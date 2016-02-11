@@ -8,12 +8,12 @@ class FrontendProductBuilder implements FrontendProductBuilderInterface
 {
 
     /**
-     * @var ProductAbstract
+     * @var \Pyz\Yves\Product\Model\ProductAbstract
      */
     protected $productAbstract;
 
     /**
-     * @param ProductAbstract $productAbstract
+     * @param \Pyz\Yves\Product\Model\ProductAbstract $productAbstract
      */
     public function __construct(ProductAbstract $productAbstract)
     {
@@ -23,7 +23,7 @@ class FrontendProductBuilder implements FrontendProductBuilderInterface
     /**
      * @param array $productData
      *
-     * @return ProductAbstract
+     * @return \Pyz\Yves\Product\Model\ProductAbstract
      */
     public function buildProduct(array $productData)
     {
@@ -47,7 +47,7 @@ class FrontendProductBuilder implements FrontendProductBuilderInterface
     }
 
     /**
-     * @return ProductAbstract
+     * @return \Pyz\Yves\Product\Model\ProductAbstract
      */
     protected function createProductAbstractClone()
     {

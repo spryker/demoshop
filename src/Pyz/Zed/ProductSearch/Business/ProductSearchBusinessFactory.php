@@ -2,33 +2,26 @@
 
 namespace Pyz\Zed\ProductSearch\Business;
 
-use Pyz\Zed\Collector\Business\CollectorFacade;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
-use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderInterface;
 use Spryker\Shared\Library\Storage\StorageInstanceBuilder;
-use Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException;
 use Spryker\Zed\ProductSearch\Business\Builder\ProductResourceKeyBuilder;
-use Spryker\Zed\ProductSearch\Business\Operation\OperationInterface;
 use Spryker\Zed\ProductSearch\Business\Operation\OperationManager;
 use Spryker\Zed\ProductSearch\Business\Operation\DefaultOperation;
 use Spryker\Zed\ProductSearch\Business\Internal\InstallProductSearch;
-use Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
 use Spryker\Zed\ProductSearch\Business\Processor\ProductSearchProcessor;
-use Spryker\Zed\ProductSearch\Business\Processor\ProductSearchProcessorInterface;
 use Spryker\Zed\ProductSearch\Business\Transformer\ProductAttributesTransformer;
 use Spryker\Zed\ProductSearch\Business\ProductSearchBusinessFactory as SprykerProductSearchBusinessFactory;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductSearch\Business\Internal\DemoData\ProductAttributeMappingInstall;
-use Spryker\Zed\ProductSearch\Business\Transformer\ProductAttributesTransformerInterface;
 use Spryker\Zed\ProductSearch\ProductSearchDependencyProvider;
 
 class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
 {
 
     /**
-     * @param LoggerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      *
-     * @return ProductAttributeMappingInstall
+     * @return \Pyz\Zed\ProductSearch\Business\Internal\DemoData\ProductAttributeMappingInstall
      */
     public function createDemoDataInstaller(LoggerInterface $messenger)
     {
@@ -43,19 +36,19 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     }
 
     /**
-     * @return ProductAttributesTransformerInterface
+     * @return \Spryker\Zed\ProductSearch\Business\Transformer\ProductAttributesTransformerInterface
      */
     public function createProductAttributesTransformer()
     {
         return new ProductAttributesTransformer(
-                    $this->getProductSearchQueryContainer(),
+                    $this->getQueryContainer(),
                     $this->createOperationLocator(),
                     $this->createDefaultOperation()
                 );
     }
 
     /**
-     * @return ProductSearchProcessorInterface
+     * @return \Spryker\Zed\ProductSearch\Business\Processor\ProductSearchProcessorInterface
      */
     public function createProductSearchProcessor()
     {
@@ -66,9 +59,9 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     }
 
     /**
-     * @param MessengerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
-     * @return InstallProductSearch
+     * @return \Spryker\Zed\ProductSearch\Business\Internal\InstallProductSearch
      */
     public function createInstaller(MessengerInterface $messenger)
     {
@@ -85,9 +78,9 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     }
 
     /**
-     * @throws ContainerKeyNotFoundException
+     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return CollectorFacade
+     * @return \Pyz\Zed\Collector\Business\CollectorFacade
      */
     protected function getCollectorFacade()
     {
@@ -95,7 +88,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     }
 
     /**
-     * @return OperationInterface
+     * @return \Spryker\Zed\ProductSearch\Business\Operation\OperationInterface
      */
     protected function createDefaultOperation()
     {
@@ -103,17 +96,17 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     }
 
     /**
-     * @return OperationManagerInterface
+     * @return \Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface
      */
     protected function createOperationManager()
     {
         return new OperationManager(
-            $this->getProductSearchQueryContainer()
+            $this->getQueryContainer()
         );
     }
 
     /**
-     * @return KeyBuilderInterface
+     * @return \Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderInterface
      */
     public function createKeyBuilder()
     {

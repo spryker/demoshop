@@ -3,22 +3,20 @@
 namespace Pyz\Yves\NewRelic\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
-use Pyz\Yves\NewRelic\NewRelicFactory;
 use Silex\Application;
 use Spryker\Shared\Library\System;
-use Spryker\Shared\NewRelic\ApiInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
- * @method NewRelicFactory getFactory()
+ * @method \Pyz\Yves\NewRelic\NewRelicFactory getFactory()
  */
 class NewRelicServiceProvider extends AbstractServiceProvider
 {
 
     /**
-     * @var ApiInterface
+     * @var \Spryker\Shared\NewRelic\ApiInterface
      */
     protected $newRelicApi;
 
@@ -28,7 +26,7 @@ class NewRelicServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      *
      * @return void
      */
@@ -37,7 +35,7 @@ class NewRelicServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      *
      * @return void
      */
@@ -47,7 +45,7 @@ class NewRelicServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @param FilterControllerEvent $event
+     * @param \Symfony\Component\HttpKernel\Event\FilterControllerEvent $event
      *
      * @return void
      */
@@ -57,7 +55,7 @@ class NewRelicServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return void
      */
@@ -75,4 +73,5 @@ class NewRelicServiceProvider extends AbstractServiceProvider
             $this->newRelicApi->markIgnoreTransaction();
         }
     }
+
 }

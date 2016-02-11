@@ -11,7 +11,7 @@ class YvesSecurityServiceProvider extends AbstractServiceProvider
     const BCRYPT_FACTOR = 12;
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      */
     public function register(Application $app)
     {
@@ -21,7 +21,7 @@ class YvesSecurityServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      */
     public function boot(Application $app)
     {

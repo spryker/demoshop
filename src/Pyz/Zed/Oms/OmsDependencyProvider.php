@@ -13,8 +13,6 @@ use Spryker\Zed\Payolution\Communication\Plugin\Oms\Condition\IsReAuthorizationA
 use Spryker\Zed\Payolution\Communication\Plugin\Oms\Condition\IsRefundApprovedPlugin;
 use Spryker\Zed\Payolution\Communication\Plugin\Oms\Condition\IsReversalApprovedPlugin;
 use Spryker\Zed\Kernel\Container;
-use Spryker\Zed\Oms\Communication\Plugin\Oms\Command\CommandInterface;
-use Spryker\Zed\Oms\Communication\Plugin\Oms\Condition\ConditionInterface;
 use Spryker\Zed\Oms\OmsDependencyProvider as SprykerOmsDependencyProvider;
 
 class OmsDependencyProvider extends SprykerOmsDependencyProvider
@@ -23,9 +21,9 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
     /**
      * Overwrite in project
      *
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return ConditionInterface[]
+     * @return \Spryker\Zed\Oms\Communication\Plugin\Oms\Condition\ConditionInterface[]
      */
     protected function getConditionPlugins(Container $container)
     {
@@ -39,9 +37,9 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return CommandInterface[]
+     * @return \Spryker\Zed\Oms\Communication\Plugin\Oms\Command\CommandInterface[]
      */
     protected function getCommandPlugins(Container $container)
     {

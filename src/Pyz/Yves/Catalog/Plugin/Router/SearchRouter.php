@@ -2,18 +2,15 @@
 
 namespace Pyz\Yves\Catalog\Plugin\Router;
 
-use Pyz\Yves\Collector\Mapper\UrlMapperInterface;
-use Silex\Application;
 use Spryker\Yves\Application\Routing\AbstractRouter;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\RouteNameResolver;
-use Pyz\Yves\Catalog\CatalogFactory;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 /**
- * @method CatalogFactory getFactory()
+ * @method \Pyz\Yves\Catalog\CatalogFactory getFactory()
  */
 class SearchRouter extends AbstractRouter
 {
@@ -65,7 +62,7 @@ class SearchRouter extends AbstractRouter
     }
 
     /**
-     * @return UrlMapperInterface
+     * @return \Pyz\Yves\Collector\Mapper\UrlMapperInterface
      */
     private function getUrlMapper()
     {
@@ -73,7 +70,7 @@ class SearchRouter extends AbstractRouter
     }
 
     /**
-     * @return Request
+     * @return \Symfony\Component\HttpFoundation\Request
      */
     private function getRequest()
     {
@@ -84,7 +81,7 @@ class SearchRouter extends AbstractRouter
     }
 
     /**
-     * @return Application
+     * @return \Silex\Application
      */
     private function getApplication()
     {

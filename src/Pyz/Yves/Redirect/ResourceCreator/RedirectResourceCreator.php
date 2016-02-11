@@ -19,7 +19,7 @@ class RedirectResourceCreator extends AbstractResourceCreator
     }
 
     /**
-     * @param Application $application
+     * @param \Silex\Application $application
      * @param array $data
      *
      * @return array

@@ -19,7 +19,7 @@ class ProductOptionType implements VisitableProductInterface
     private $key;
 
     /**
-     * @var ProductOptionValue[]
+     * @var \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValue[]
      */
     private $productOptionValues = [];
 
@@ -34,7 +34,7 @@ class ProductOptionType implements VisitableProductInterface
     private $sequence;
 
     /**
-     * @param ProductVisitorInterface $visitor
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface $visitor
      */
     public function accept(ProductVisitorInterface $visitor)
     {
@@ -51,7 +51,7 @@ class ProductOptionType implements VisitableProductInterface
 
     /**
      * @param string $key
-     * @param ProductOptionValue[] $productOptionValues
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValue[] $productOptionValues
      * @param bool $isOptional
      * @param int $sequence
      */
@@ -68,7 +68,7 @@ class ProductOptionType implements VisitableProductInterface
     }
 
     /**
-     * @param ProductOptionValue $value
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValue $value
      */
     private function addProductOptionValue(ProductOptionValue $value)
     {
@@ -100,7 +100,7 @@ class ProductOptionType implements VisitableProductInterface
     }
 
     /**
-     * @return ProductOptionValue[]
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValue[]
      */
     public function getProductOptionValues()
     {

@@ -12,8 +12,8 @@ class SalesConfig extends SprykerSalesConfig
 {
 
     /**
-     * @param ItemTransfer $transferItem
-     * @param OrderTransfer $transferOrder
+     * @param \Generated\Shared\Transfer\ItemTransfer $transferItem
+     * @param \Generated\Shared\Transfer\OrderTransfer $transferOrder
      *
      * @return string
      */

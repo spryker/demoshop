@@ -3,9 +3,8 @@
 namespace Pyz\Yves\Customer;
 
 use Generated\Shared\Transfer\CustomerTransfer;
-use Pyz\Client\Customer\CustomerClientInterface;
-use Pyz\Client\Newsletter\NewsletterClientInterface;
 use Pyz\Yves\Application\Plugin\Pimple;
+use Pyz\Yves\Customer\Form\DataProvider\AddressFormDataProvider;
 use Pyz\Yves\Customer\Form\LoginForm;
 use Pyz\Yves\Customer\Form\NewsletterSubscriptionForm;
 use Pyz\Yves\Customer\Form\PasswordForm;
@@ -19,77 +18,96 @@ use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerUserProvider;
 use Pyz\Yves\Customer\Plugin\AuthenticationHandler;
 use Pyz\Yves\Customer\Security\Customer;
-use Spryker\Client\Sales\SalesClientInterface;
-use Spryker\Shared\Application\Communication\Application;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Kernel\AbstractFactory;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 class CustomerFactory extends AbstractFactory
 {
 
     /**
-     * @return AddressForm
+     * @param array $formOptions
+     *
+     * @return \Symfony\Component\Form\FormInterface
      */
-    public function createFormAddress()
+    public function createAddressForm(array $formOptions = [])
     {
-        return new AddressForm($this->createStore());
+        $addressFormType = new AddressForm();
+
+        return $this->getFormFactory()->create($addressFormType, null, $formOptions);
     }
 
     /**
-     * @return RegisterForm
+     * @return \Pyz\Yves\Customer\Form\DataProvider\AddressFormDataProvider
      */
-    public function createFormRegister()
+    public function createAddressFormDataProvider()
     {
-        return new RegisterForm();
+        return new AddressFormDataProvider($this->createCustomerClient(), $this->createStore());
     }
 
     /**
-     * @return LoginForm
+     * @return \Symfony\Component\Form\FormInterface
      */
-    public function createFormLogin()
+    public function createRegisterForm()
     {
-        return new LoginForm();
+        $registerFormType = new RegisterForm();
+
+        return $this->getFormFactory()->create($registerFormType);
     }
 
     /**
-     * @return ForgottenPasswordForm
+     * @return \Symfony\Component\Form\FormInterface
      */
-    public function createFormForgottenPassword()
+    public function createLoginForm()
     {
-        return new ForgottenPasswordForm();
+        $loginFormType = new LoginForm();
+
+        return $this->getFormFactory()->create($loginFormType);
     }
 
     /**
-     * @return ProfileForm
+     * @return \Symfony\Component\Form\FormInterface
      */
-    public function createFormProfile()
+    public function createForgottenPasswordForm()
     {
-        return new ProfileForm();
+        $forgottenPasswordFormType = new ForgottenPasswordForm();
+
+        return $this->getFormFactory()->create($forgottenPasswordFormType);
     }
 
     /**
-     * @return RestorePasswordForm
+     * @return \Symfony\Component\Form\FormInterface
+     */
+    public function createProfileForm()
+    {
+        $profileFormType = new ProfileForm();
+
+        return $this->getFormFactory()->create($profileFormType);
+    }
+
+    /**
+     * @return \Symfony\Component\Form\FormInterface
      */
     public function createFormRestorePassword()
     {
-        return new RestorePasswordForm();
+        $restorePasswordFormType = new RestorePasswordForm();
+
+        return $this->getFormFactory()->create($restorePasswordFormType);
     }
 
     /**
-     * @return PasswordForm
+     * @return \Symfony\Component\Form\FormInterface
      */
-    public function createFormPassword()
+    public function createPasswordForm()
     {
-        return new PasswordForm();
+        $passwordFormType = new PasswordForm();
+
+        return $this->getFormFactory()->create($passwordFormType);
     }
 
     /**
-     * @return CustomerAuthenticationSuccessHandler
+     * @return \Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationSuccessHandler
      */
     public function createCustomerAuthenticationSuccessHandler()
     {
@@ -97,7 +115,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return UserProviderInterface
+     * @return \Symfony\Component\Security\Core\User\UserProviderInterface
      */
     public function createCustomerUserProvider()
     {
@@ -105,9 +123,9 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
-     * @return UserInterface
+     * @return \Symfony\Component\Security\Core\User\UserInterface
      */
     public function createSecurityUser(CustomerTransfer $customerTransfer)
     {
@@ -120,9 +138,9 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
-     * @return TokenInterface
+     * @return \Symfony\Component\Security\Core\Authentication\Token\TokenInterface
      */
     public function createUsernamePasswordToken(CustomerTransfer $customerTransfer)
     {
@@ -139,7 +157,7 @@ class CustomerFactory extends AbstractFactory
     /**
      * @param string $targetUrl
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function createRedirectResponse($targetUrl)
     {
@@ -147,7 +165,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return Store
+     * @return \Spryker\Shared\Kernel\Store
      */
     public function createStore()
     {
@@ -155,15 +173,17 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return NewsletterSubscriptionForm
+     * @return \Symfony\Component\Form\FormInterface
      */
-    public function createFormNewsletterSubscription()
+    public function createNewsletterSubscriptionForm()
     {
-        return new NewsletterSubscriptionForm();
+        $newsletterSubscriptionFormType = new NewsletterSubscriptionForm();
+
+        return $this->getFormFactory()->create($newsletterSubscriptionFormType);
     }
 
     /**
-     * @return NewsletterClientInterface
+     * @return \Pyz\Client\Newsletter\NewsletterClientInterface
      */
     public function createNewsletterClient()
     {
@@ -171,7 +191,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return SalesClientInterface
+     * @return \Spryker\Client\Sales\SalesClientInterface
      */
     public function createSalesClient()
     {
@@ -179,7 +199,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return AuthenticationHandler
+     * @return \Pyz\Yves\Customer\Plugin\AuthenticationHandler
      */
     public function createAuthenticationHandler()
     {
@@ -187,7 +207,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return CustomerClientInterface
+     * @return \Pyz\Client\Customer\CustomerClientInterface
      */
     public function createCustomerClient()
     {
@@ -195,7 +215,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return Application
+     * @return \Spryker\Shared\Application\Communication\Application
      */
     public function createApplication()
     {

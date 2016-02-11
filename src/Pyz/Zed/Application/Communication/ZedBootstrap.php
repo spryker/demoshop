@@ -3,13 +3,12 @@
 namespace Pyz\Zed\Application\Communication;
 
 use Spryker\Zed\Application\Communication\ZedBootstrap as SprykerZedBootstrap;
-use Spryker\Shared\Application\Communication\Application;
 
 class ZedBootstrap
 {
 
     /**
-     * @var SprykerZedBootstrap
+     * @var \Spryker\Zed\Application\Communication\ZedBootstrap
      */
     private $sprykerBootstrap;
 
@@ -20,7 +19,7 @@ class ZedBootstrap
     }
 
     /**
-     * @return Application
+     * @return \Spryker\Shared\Application\Communication\Application
      */
     public function boot()
     {

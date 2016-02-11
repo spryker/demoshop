@@ -17,7 +17,7 @@ class WishlistControllerProvider extends AbstractYvesControllerProvider
     const ROUTE_ADD_TO_GROUP = 'wishlist/add-to-cart';
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      */
     protected function defineControllers(Application $app)
     {
@@ -59,7 +59,7 @@ class WishlistControllerProvider extends AbstractYvesControllerProvider
 
     /**
      * @param mixed $parameter
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return int
      */

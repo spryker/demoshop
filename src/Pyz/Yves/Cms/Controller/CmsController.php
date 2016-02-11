@@ -4,16 +4,15 @@ namespace Pyz\Yves\Cms\Controller;
 
 use Spryker\Yves\Application\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class CmsController extends AbstractController
 {
 
     /**
      * @param array $meta
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return Response
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function pageAction($meta, Request $request)
     {

@@ -11,22 +11,22 @@ class ProductOptionImporterVisitor implements OptionVisitorInterface
 {
 
     /**
-     * @var ProductOptionFacade
+     * @var \Pyz\Zed\ProductOption\Business\ProductOptionFacade
      */
     private $productOptionsFacade;
 
     /**
-     * @var QueueableCommand[]
+     * @var \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Command\QueueableCommand[]
      */
     private $commandQueue = [];
 
     /**
-     * @var OptionType
+     * @var \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionType
      */
     private $context = null;
 
     /**
-     * @param ProductOptionFacade $productOptionsFacade
+     * @param \Pyz\Zed\ProductOption\Business\ProductOptionFacade $productOptionsFacade
      */
     public function __construct(ProductOptionFacade $productOptionsFacade)
     {
@@ -40,7 +40,7 @@ class ProductOptionImporterVisitor implements OptionVisitorInterface
     }
 
     /**
-     * @param QueueableCommand $queueableCommand
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Command\QueueableCommand $queueableCommand
      */
     private function addToCommandQueue(QueueableCommand $queueableCommand)
     {
@@ -48,7 +48,7 @@ class ProductOptionImporterVisitor implements OptionVisitorInterface
     }
 
     /**
-     * @return QueueableCommand[]
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Command\QueueableCommand[]
      */
     public function getCommandQueue()
     {
@@ -56,7 +56,7 @@ class ProductOptionImporterVisitor implements OptionVisitorInterface
     }
 
     /**
-     * @param OptionType $context
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionType $context
      */
     public function setContext($context)
     {
@@ -69,7 +69,7 @@ class ProductOptionImporterVisitor implements OptionVisitorInterface
     }
 
     /**
-     * @param OptionType $visitee
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionType $visitee
      */
     public function visitOptionType(OptionType $visitee)
     {
@@ -81,7 +81,7 @@ class ProductOptionImporterVisitor implements OptionVisitorInterface
     }
 
     /**
-     * @param OptionValue $visitee
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionValue $visitee
      */
     public function visitOptionValue(OptionValue $visitee)
     {

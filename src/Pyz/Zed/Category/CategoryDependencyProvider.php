@@ -15,9 +15,9 @@ class CategoryDependencyProvider extends SprykerDependencyProvider
     const QUERY_CONTAINER_LOCALE = 'locale query container';
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return Container
+     * @return \Spryker\Zed\Kernel\Container
      */
     public function provideBusinessLayerDependencies(Container $container)
     {

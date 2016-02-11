@@ -8,15 +8,14 @@ use Psr\Log\LoggerInterface;
 use Pyz\Zed\Glossary\Business\Internal\DemoData\GlossaryInstall;
 use Pyz\Zed\Glossary\GlossaryDependencyProvider;
 use Spryker\Zed\Glossary\Business\GlossaryBusinessFactory as SprykerGlossaryBusinessFactory;
-use Spryker\Zed\Glossary\Business\Translation\TranslationManagerInterface;
 
 class GlossaryBusinessFactory extends SprykerGlossaryBusinessFactory
 {
 
     /**
-     * @param LoggerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      *
-     * @return GlossaryInstall
+     * @return \Pyz\Zed\Glossary\Business\Internal\DemoData\GlossaryInstall
      */
     public function createDemoDataInstaller(LoggerInterface $messenger)
     {
@@ -30,7 +29,7 @@ class GlossaryBusinessFactory extends SprykerGlossaryBusinessFactory
     }
 
     /**
-     * @return TranslationManagerInterface
+     * @return \Spryker\Zed\Glossary\Business\Translation\TranslationManagerInterface
      */
     public function createTranslationManager()
     {
@@ -44,7 +43,7 @@ class GlossaryBusinessFactory extends SprykerGlossaryBusinessFactory
     }
 
     /**
-     * @return KeyManagerInterface
+     * @return \Spryker\Zed\Glossary\Business\Key\KeyManagerInterface
      */
     public function createKeyManager()
     {

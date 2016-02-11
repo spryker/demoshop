@@ -19,7 +19,7 @@ class PageResourceCreator extends AbstractResourceCreator
     }
 
     /**
-     * @param Application $application
+     * @param \Silex\Application $application
      * @param array $data
      *
      * @return array

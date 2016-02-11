@@ -2,30 +2,25 @@
 
 namespace Pyz\Zed\ProductCategory\Business;
 
-use Spryker\Zed\ProductCategory\Business\ProductCategoryManagerInterface;
 use Spryker\Zed\ProductCategory\Business\TransferGenerator;
 use Spryker\Zed\ProductCategory\Business\ProductCategoryManager;
-use Pyz\Zed\ProductCategory\ProductCategoryConfig;
 use Spryker\Zed\Library\Import\Reader\CsvFileReader;
-use Spryker\Zed\Library\Import\ReaderInterface;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductCategory\Business\Internal\DemoData\ProductCategoryMappingInstall;
 use Spryker\Zed\ProductCategory\Business\ProductCategoryBusinessFactory as SprykerBusinessFactory;
-use Spryker\Zed\ProductCategory\Business\TransferGeneratorInterface;
-use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainer;
 use Spryker\Zed\ProductCategory\ProductCategoryDependencyProvider;
 
 /**
- * @method ProductCategoryConfig getConfig()
- * @method ProductCategoryQueryContainer getQueryContainer()
+ * @method \Pyz\Zed\ProductCategory\ProductCategoryConfig getConfig()
+ * @method \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainer getQueryContainer()
  */
 class ProductCategoryBusinessFactory extends SprykerBusinessFactory
 {
 
     /**
-     * @param LoggerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      *
-     * @return ProductCategoryMappingInstall
+     * @return \Pyz\Zed\ProductCategory\Business\Internal\DemoData\ProductCategoryMappingInstall
      */
     public function createDemoDataInstaller(LoggerInterface $messenger)
     {
@@ -43,7 +38,7 @@ class ProductCategoryBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return ReaderInterface
+     * @return \Spryker\Zed\Library\Import\ReaderInterface
      */
     protected function createCSVReader()
     {
@@ -51,7 +46,7 @@ class ProductCategoryBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return ProductCategoryManagerInterface
+     * @return \Spryker\Zed\ProductCategory\Business\ProductCategoryManagerInterface
      */
     public function createProductCategoryManager()
     {
@@ -67,7 +62,7 @@ class ProductCategoryBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return TransferGeneratorInterface
+     * @return \Spryker\Zed\ProductCategory\Business\TransferGeneratorInterface
      */
     public function createProductCategoryTransferGenerator()
     {

@@ -17,12 +17,12 @@ class UrlMapper implements UrlMapperInterface
     const KEY_ACTIVE = 'active';
 
     /**
-     * @var FacetConfig
+     * @var \Spryker\Client\Catalog\Model\FacetConfig
      */
     protected $facetConfig;
 
     /**
-     * @param FacetConfig $facetConfig
+     * @param \Spryker\Client\Catalog\Model\FacetConfig $facetConfig
      */
     public function __construct(FacetConfig $facetConfig)
     {
@@ -117,8 +117,7 @@ class UrlMapper implements UrlMapperInterface
                         $value,
                         $value[$i],
                         $active,
-                        isset($active[$i]) ? $active[$i] : $defaultActive,
-                        $this->facetConfig
+                        isset($active[$i]) ? $active[$i] : $defaultActive
                     );
                 }
             } else {
@@ -128,8 +127,7 @@ class UrlMapper implements UrlMapperInterface
                     $value,
                     $value,
                     $active,
-                    $active ?: $defaultActive,
-                    $this->facetConfig
+                    $active ?: $defaultActive
                 );
             }
         }
@@ -140,10 +138,10 @@ class UrlMapper implements UrlMapperInterface
     /**
      * @param array $mergedParameters
      * @param string $generationParameterName
-     * @param $value
-     * @param $inValue
-     * @param $active
-     * @param $inActive
+     * @param string $value
+     * @param string $inValue
+     * @param bool|array $active
+     * @param bool $inActive
      *
      * @return mixed
      */
@@ -205,7 +203,7 @@ class UrlMapper implements UrlMapperInterface
 
     /**
      * @param string $pathInfo
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      */
     public function injectParametersFromUrlIntoRequest($pathInfo, Request $request)
     {

@@ -2,13 +2,12 @@
 
 namespace Pyz\Yves\Catalog\Controller;
 
-use Pyz\Yves\Catalog\CatalogFactory;
 use Spryker\Yves\Application\Controller\AbstractController;
 use Spryker\Shared\Library\Currency\CurrencyManager;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @method CatalogFactory getFactory()
+ * @method \Pyz\Yves\Catalog\CatalogFactory getFactory()
  */
 class CatalogController extends AbstractController
 {
@@ -17,7 +16,7 @@ class CatalogController extends AbstractController
 
     /**
      * @param array $categoryNode
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return array
      */
@@ -46,7 +45,7 @@ class CatalogController extends AbstractController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return array
      */
@@ -80,7 +79,7 @@ class CatalogController extends AbstractController
     }
 
     /**
-     * @param CurrencyManager $currencyManager
+     * @param \Spryker\Shared\Library\Currency\CurrencyManager $currencyManager
      * @param array $products
      *
      * @return array

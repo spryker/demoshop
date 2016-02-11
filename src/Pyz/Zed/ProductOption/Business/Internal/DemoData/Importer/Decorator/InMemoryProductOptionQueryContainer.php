@@ -2,16 +2,6 @@
 
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Decorator;
 
-use Orm\Zed\ProductOption\Persistence\SpyProductOptionTypeUsageExclusionQuery;
-use Orm\Zed\ProductOption\Persistence\SpyProductOptionValueUsageConstraintQuery;
-use Orm\Zed\ProductOption\Persistence\SpyProductOptionTypeQuery;
-use Orm\Zed\ProductOption\Persistence\SpyProductOptionValueQuery;
-use Orm\Zed\ProductOption\Persistence\SpyProductOptionTypeTranslationQuery;
-use Orm\Zed\ProductOption\Persistence\SpyProductOptionValueTranslationQuery;
-use Orm\Zed\ProductOption\Persistence\SpyProductOptionTypeUsageQuery;
-use Orm\Zed\ProductOption\Persistence\SpyProductOptionValueUsageQuery;
-use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
-use Orm\Zed\Tax\Persistence\Base\SpyTaxSetQuery;
 use Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface;
 
 class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainerInterface
@@ -36,12 +26,12 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     }
 
     /**
-     * @var ProductOptionQueryContainerInterface
+     * @var \Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface
      */
     private $queryContainer;
 
     /**
-     * @param ProductOptionQueryContainerInterface $queryContainer
+     * @param \Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface $queryContainer
      */
     public function __construct(ProductOptionQueryContainerInterface $queryContainer)
     {
@@ -56,7 +46,7 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     /**
      * @param string $importKeyProductOptionType
      *
-     * @return SpyProductOptionTypeQuery
+     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionTypeQuery
      */
     public function queryProductOptionTypeByImportKey($importKeyProductOptionType)
     {
@@ -84,7 +74,7 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
      * @param int $fkProductOptionType
      * @param int $fkLocale
      *
-     * @return SpyProductOptionTypeTranslationQuery
+     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionTypeTranslationQuery
      */
     public function queryProductOptionTypeTranslationByFks($fkProductOptionType, $fkLocale)
     {
@@ -101,7 +91,7 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
      * @param string $importKeyProductOptionValue
      * @param int $fkProductOptionType
      *
-     * @return SpyProductOptionValueQuery
+     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionValueQuery
      */
     public function queryProductOptionValueByImportKeyAndFkProductOptionType($importKeyProductOptionValue, $fkProductOptionType)
     {
@@ -117,7 +107,7 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     /**
      * @param string $importKeyProductOptionValue
      *
-     * @return SpyProductOptionValueQuery
+     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionValueQuery
      */
     public function queryProductOptionValueByImportKey($importKeyProductOptionValue)
     {
@@ -145,7 +135,7 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
      * @param int $fkProductOptionValue
      * @param int $fkLocale
      *
-     * @return SpyProductOptionValueTranslationQuery
+     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionValueTranslationQuery
      */
     public function queryProductOptionValueTranslationByFks($fkProductOptionValue, $fkLocale)
     {
@@ -161,7 +151,7 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     /**
      * @param int $idProductOptionTypeUsage
      *
-     * @return SpyProductOptionTypeUsageQuery
+     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionTypeUsageQuery
      */
     public function queryProductOptionTypeUsageById($idProductOptionTypeUsage)
     {
@@ -178,7 +168,7 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
      * @param int $fkProduct
      * @param int $fkProductOptionType
      *
-     * @return SpyProductOptionTypeUsageQuery
+     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionTypeUsageQuery
      */
     public function queryProductOptionTypeUsageByFKs($fkProduct, $fkProductOptionType)
     {
@@ -194,7 +184,7 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     /**
      * @param int $idProductOptionValueUsage
      *
-     * @return SpyProductOptionValueUsageQuery
+     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionValueUsageQuery
      */
     public function queryProductOptionValueUsageById($idProductOptionValueUsage)
     {
@@ -211,7 +201,7 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
      * @param int $fkProductOptionTypeUsage
      * @param int $fkProductOptionType
      *
-     * @return SpyProductOptionValueUsageQuery
+     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionValueUsageQuery
      */
     public function queryProductOptionValueUsageByFKs($fkProductOptionTypeUsage, $fkProductOptionType)
     {
@@ -228,7 +218,7 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
      * @param int $fkProductOptionTypeUsage
      * @param int $fkProductOptionType
      *
-     * @return SpyProductOptionValueUsageQuery
+     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionValueUsageQuery
      */
     public function queryProductOptionValueUsageIdByFKs($fkProductOptionTypeUsage, $fkProductOptionType)
     {
@@ -245,7 +235,7 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
      * @param int $fkProductOptionTypeUsageA
      * @param int $fkProductOptionTypeUsageB
      *
-     * @return SpyProductOptionTypeUsageExclusionQuery
+     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionTypeUsageExclusionQuery
      */
     public function queryProductOptionTypeUsageExclusionByFks($fkProductOptionTypeUsageA, $fkProductOptionTypeUsageB)
     {
@@ -262,7 +252,7 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
      * @param int $fkProductOptionValueUsageA
      * @param int $fkProductOptionValueUsageB
      *
-     * @return SpyProductOptionValueUsageConstraintQuery
+     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionValueUsageConstraintQuery
      */
     public function queryProductOptionValueUsageConstraintsByFks($fkProductOptionValueUsageA, $fkProductOptionValueUsageB)
     {
@@ -278,7 +268,7 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     /**
      * @param int $idProductOptionType
      *
-     * @return SpyProductAbstractQuery
+     * @return \Orm\Zed\Product\Persistence\SpyProductAbstractQuery
      */
     public function queryAssociatedProductAbstractIdsForProductOptionType($idProductOptionType)
     {
@@ -288,7 +278,7 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     /**
      * @param int $idProductOptionValue
      *
-     * @return SpyProductAbstractQuery
+     * @return \Orm\Zed\Product\Persistence\SpyProductAbstractQuery
      */
     public function queryAssociatedProductAbstractIdsForProductOptionValue($idProductOptionValue)
     {
@@ -298,7 +288,7 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     /**
      * @param int $idProductOptionTypeUsage
      *
-     * @return SpyProductAbstractQuery
+     * @return \Orm\Zed\Product\Persistence\SpyProductAbstractQuery
      */
     public function queryProductAbstractIdForProductOptionTypeUsage($idProductOptionTypeUsage)
     {
@@ -406,7 +396,7 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     /**
      * @param int $idProductOptionValue
      *
-     * @return SpyProductOptionValueQuery
+     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionValueQuery
      */
     public function queryOptionValueById($idProductOptionValue)
     {
@@ -416,7 +406,7 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
     /**
      * @param int $idProductOptionValueUsage
      *
-     * @return SpyTaxSetQuery
+     * @return \Orm\Zed\Tax\Persistence\Base\SpyTaxSetQuery
      */
     public function queryTaxSetForProductOptionValueUsage($idProductOptionValueUsage)
     {
@@ -427,7 +417,7 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
      * @param int $idProductOptionValueUsage
      * @param int $idLocale
      *
-     * @return SpyProductOptionValueUsageQuery
+     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionValueUsageQuery
      */
     public function queryProductOptionValueUsageWithAssociatedAttributes($idProductOptionValueUsage, $idLocale)
     {

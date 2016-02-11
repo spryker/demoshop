@@ -9,18 +9,18 @@ class UrlMatcher implements UrlMatcherInterface
 {
 
     /**
-     * @var KeyBuilderInterface
+     * @var \Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderInterface
      */
     private $urlKeyBuilder;
 
     /**
-     * @var ReadInterface
+     * @var \Spryker\Shared\Library\Storage\Adapter\KeyValue\ReadInterface
      */
     private $keyValueReader;
 
     /**
-     * @param KeyBuilderInterface $urlKeyBuilder
-     * @param ReadInterface $keyValueReader
+     * @param \Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderInterface $urlKeyBuilder
+     * @param \Spryker\Shared\Library\Storage\Adapter\KeyValue\ReadInterface $keyValueReader
      */
     public function __construct(KeyBuilderInterface $urlKeyBuilder, ReadInterface $keyValueReader)
     {

@@ -3,7 +3,6 @@
 namespace Pyz\Zed\ProductCategory\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Propel\Runtime\Exception\PropelException;
 use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 use Spryker\Zed\Library\Import\ReaderInterface;
 use Spryker\Zed\ProductCategory\Business\ProductCategoryManagerInterface;
@@ -18,12 +17,12 @@ class ProductCategoryMappingInstall extends AbstractInstaller
     const CATEGORY_KEY = 'category_key';
 
     /**
-     * @var ProductCategoryToLocaleInterface
+     * @var \Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToLocaleInterface
      */
     protected $localeFacade;
 
     /**
-     * @var ReaderInterface
+     * @var \Spryker\Zed\Library\Import\ReaderInterface
      */
     protected $reader;
 
@@ -33,26 +32,26 @@ class ProductCategoryMappingInstall extends AbstractInstaller
     protected $csvPath;
 
     /**
-     * @var ProductCategoryManagerInterface
+     * @var \Spryker\Zed\ProductCategory\Business\ProductCategoryManagerInterface
      */
     protected $productCategoryManager;
 
     /**
-     * @var ProductCategoryToProductInterface
+     * @var \Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface
      */
     protected $productFacade;
 
     /**
-     * @var ProductCategoryToCategoryInterface
+     * @var \Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToCategoryInterface
      */
     protected $categoryFacade;
 
     /**
-     * @param ProductCategoryManagerInterface $productCategoryManager
-     * @param ProductCategoryToCategoryInterface $categoryFacade
-     * @param ProductCategoryToProductInterface $productFacade
-     * @param ProductCategoryToLocaleInterface $localeFacade
-     * @param ReaderInterface $reader
+     * @param \Spryker\Zed\ProductCategory\Business\ProductCategoryManagerInterface $productCategoryManager
+     * @param \Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToCategoryInterface $categoryFacade
+     * @param \Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface $productFacade
+     * @param \Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToLocaleInterface $localeFacade
+     * @param \Spryker\Zed\Library\Import\ReaderInterface $reader
      * @param string $csvPath
      */
     public function __construct(
@@ -78,9 +77,9 @@ class ProductCategoryMappingInstall extends AbstractInstaller
     }
 
     /**
-     * @param LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     protected function installProductCategories(LocaleTransfer $locale)
     {

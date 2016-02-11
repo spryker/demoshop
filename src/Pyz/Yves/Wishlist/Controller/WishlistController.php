@@ -1,15 +1,14 @@
 <?php
+
 namespace Pyz\Yves\Wishlist\Controller;
 
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
 use Pyz\Yves\Wishlist\Plugin\Provider\WishlistControllerProvider;
 use Spryker\Yves\Application\Controller\AbstractController;
-use Spryker\Client\Wishlist\WishlistClientInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
- * @method WishlistClientInterface getClient()
+ * @method \Spryker\Client\Wishlist\WishlistClientInterface getClient()
  */
 class WishlistController extends AbstractController
 {
@@ -31,7 +30,7 @@ class WishlistController extends AbstractController
      * @param int $quantity
      * @param array $optionValueUsageIds
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function addAction($sku, $quantity = 1, $optionValueUsageIds = [])
     {
@@ -56,7 +55,7 @@ class WishlistController extends AbstractController
      * @param string $sku
      * @param string $groupKey
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function removeAction($sku, $groupKey)
     {
@@ -74,7 +73,7 @@ class WishlistController extends AbstractController
      * @param string $sku
      * @param string $groupKey
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function increaseAction($sku, $groupKey)
     {
@@ -92,7 +91,7 @@ class WishlistController extends AbstractController
      * @param string $sku
      * @param string $groupKey
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function decreaseAction($sku, $groupKey)
     {
@@ -109,7 +108,7 @@ class WishlistController extends AbstractController
     /**
      * @param string $groupKey
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function addToCartAction($groupKey)
     {

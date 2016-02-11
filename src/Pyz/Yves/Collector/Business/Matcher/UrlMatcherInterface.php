@@ -2,8 +2,6 @@
 
 namespace Pyz\Yves\Collector\Business\Matcher;
 
-use Pyz\Yves\Collector\Business\Model\UrlResource;
-
 interface UrlMatcherInterface
 {
 
@@ -11,7 +9,7 @@ interface UrlMatcherInterface
      * @param string $url
      * @param string $localeName
      *
-     * @return UrlResource
+     * @return \Pyz\Yves\Collector\Business\Model\UrlResource
      */
     public function matchUrl($url, $localeName);
 

@@ -2,23 +2,20 @@
 
 namespace Pyz\Yves\Customer\Controller;
 
-use Pyz\Yves\Customer\CustomerFactory;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
-use Spryker\Client\Customer\CustomerClientInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
- * @method CustomerFactory getFactory()
- * @method CustomerClientInterface getClient()
+ * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
+ * @method \Spryker\Client\Customer\CustomerClientInterface getClient()
  */
 class AuthController extends AbstractCustomerController
 {
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function loginAction(Request $request)
     {
@@ -26,12 +23,8 @@ class AuthController extends AbstractCustomerController
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_OVERVIEW);
         }
 
-        $loginForm = $this->buildForm(
-            $this->getFactory()->createFormLogin()
-        );
-        $registerForm = $this->buildForm(
-            $this->getFactory()->createFormRegister()
-        );
+        $loginForm = $this->getFactory()->createLoginForm();
+        $registerForm = $this->getFactory()->createRegisterForm();
 
         return [
             'loginForm' => $loginForm->createView(),
@@ -41,7 +34,7 @@ class AuthController extends AbstractCustomerController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return bool
      */

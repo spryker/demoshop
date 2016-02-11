@@ -7,10 +7,7 @@ use Pyz\Zed\Collector\Communication\Plugin\RedirectCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\BlockCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\PageCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\TranslationCollectorStoragePlugin;
-use Pyz\Zed\Collector\Communication\Plugin\NavigationCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\CategoryNodeCollectorStoragePlugin;
-use Pyz\Zed\Collector\Communication\Plugin\ProductCollectorStoragePlugin;
-use Pyz\Zed\Collector\Communication\Plugin\ProductCollectorSearchPlugin;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Collector\CollectorDependencyProvider as SprykerCollectorDependencyProvider;
 
@@ -26,9 +23,9 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
     const QUERY_CONTAINER_PRODUCT_CATEGORY = 'product category query container';
 
     /**
-     * @var Container
+     * @var \Spryker\Zed\Kernel\Container
      *
-     * @return Container
+     * @return \Spryker\Zed\Kernel\Container
      */
     public function provideBusinessLayerDependencies(Container $container)
     {

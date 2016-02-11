@@ -3,19 +3,17 @@
 namespace Pyz\Yves\Glossary\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
-use Pyz\Yves\Glossary\GlossaryFactory;
 use Silex\Application;
-use Spryker\Client\Glossary\GlossaryClientInterface;
 
 /**
- * @method GlossaryFactory getFactory()
- * @method GlossaryClientInterface getClient()
+ * @method \Pyz\Yves\Glossary\GlossaryFactory getFactory()
+ * @method \Spryker\Client\Glossary\GlossaryClientInterface getClient()
  */
 class TranslationServiceProvider extends AbstractServiceProvider
 {
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      */
     public function register(Application $app)
     {
@@ -29,7 +27,7 @@ class TranslationServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      */
     public function boot(Application $app)
     {

@@ -3,12 +3,9 @@
 namespace Pyz\Yves\Product\ResourceCreator;
 
 use Pyz\Yves\Collector\Creator\AbstractResourceCreator;
-use Pyz\Yves\Collector\Creator\ResourceCreatorInterface;
 use Silex\Application;
 use Spryker\Shared\Kernel\LocatorLocatorInterface;
-use Spryker\Shared\Application\Communication\ControllerServiceBuilder;
 use Spryker\Yves\Kernel\BundleControllerAction;
-use Spryker\Yves\Kernel\ClassResolver\Controller\ControllerResolver;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
 use Pyz\Yves\Product\Builder\FrontendProductBuilderInterface;
 
@@ -16,18 +13,18 @@ class ProductResourceCreator extends AbstractResourceCreator
 {
 
     /**
-     * @var FrontendProductBuilderInterface
+     * @var \Pyz\Yves\Product\Builder\FrontendProductBuilderInterface
      */
     protected $productBuilder;
 
     /**
-     * @var LocatorLocatorInterface
+     * @var \Spryker\Shared\Kernel\LocatorLocatorInterface
      */
     protected $locator;
 
     /**
-     * @param FrontendProductBuilderInterface $productBuilder
-     * @param LocatorLocatorInterface $locator
+     * @param \Pyz\Yves\Product\Builder\FrontendProductBuilderInterface $productBuilder
+     * @param \Spryker\Shared\Kernel\LocatorLocatorInterface $locator
      */
     public function __construct(
         FrontendProductBuilderInterface $productBuilder,
@@ -46,7 +43,7 @@ class ProductResourceCreator extends AbstractResourceCreator
     }
 
     /**
-     * @param Application $application
+     * @param \Silex\Application $application
      * @param array $data
      *
      * @return array

@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor;
 
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Command\QueueableCommand;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionType;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionValue;
 
@@ -10,24 +9,24 @@ interface OptionVisitorInterface
 {
 
     /**
-     * @return QueueableCommand[]
+     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Command\QueueableCommand[]
      */
     public function getCommandQueue();
 
     /**
-     * @param OptionType $context
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionType $context
      */
     public function setContext($context);
 
     public function leaveContext();
 
     /**
-     * @param OptionType $optionTypeVisitee
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionType $optionTypeVisitee
      */
     public function visitOptionType(OptionType $visitee);
 
     /**
-     * @param OptionValue $optionValueeVisitee
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionValue $optionValueeVisitee
      */
     public function visitOptionValue(OptionValue $visitee);
 

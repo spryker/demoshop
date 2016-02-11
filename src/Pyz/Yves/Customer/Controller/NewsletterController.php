@@ -3,14 +3,12 @@
 namespace Pyz\Yves\Customer\Controller;
 
 use Generated\Shared\Transfer\CustomerTransfer;
-use Pyz\Yves\Customer\CustomerFactory;
 use Pyz\Yves\Customer\Form\NewsletterSubscriptionForm;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @method CustomerFactory getFactory()
+ * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
  */
 class NewsletterController extends AbstractCustomerController
 {
@@ -22,20 +20,29 @@ class NewsletterController extends AbstractCustomerController
     const MESSAGE_SUBSCRIPTION_SUCCESS = 'newsletter.subscription.success';
 
     /**
-     * @return array|RedirectResponse
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $customerTransfer = $this->getLoggedInCustomerTransfer();
 
-        $newsletterFormType = $this
-            ->getFactory()
-            ->createFormNewsletterSubscription();
-
         $newsletterForm = $this
-            ->buildForm($newsletterFormType);
+            ->getFactory()
+            ->createNewsletterSubscriptionForm()
+            ->handleRequest($request);
 
-        $newsletterForm->setData($this->getFormData($customerTransfer));
+        if ($newsletterForm->isSubmitted() === false) {
+            $newsletterForm->setData($this->getFormData($customerTransfer));
+        }
+
+        if ($newsletterForm->isValid()) {
+            $subscribe = (bool) $newsletterForm->get(NewsletterSubscriptionForm::FIELD_SUBSCRIBE)->getData();
+            $this->processSubscriptionForm($subscribe, $customerTransfer);
+
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_NEWSLETTER);
+        }
 
         return $this->viewResponse([
             'customer' => $customerTransfer,
@@ -44,33 +51,8 @@ class NewsletterController extends AbstractCustomerController
     }
 
     /**
-     * @param Request $request
-     *
-     * @return RedirectResponse
-     */
-    public function submitFormAction(Request $request)
-    {
-        $customerTransfer = $this->getLoggedInCustomerTransfer();
-
-        $newsletterFormType = $this
-            ->getFactory()
-            ->createFormNewsletterSubscription();
-
-        $newsletterForm = $this
-            ->buildForm($newsletterFormType)
-            ->handleRequest($request);
-
-        if ($newsletterForm->isValid()) {
-            $subscribe = (bool) $newsletterForm->get(NewsletterSubscriptionForm::FIELD_SUBSCRIBE)->getData();
-            $this->processSubscriptionForm($subscribe, $customerTransfer);
-        }
-
-        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_NEWSLETTER);
-    }
-
-    /**
      * @param bool $subscribe
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
      * @return void
      */
@@ -84,7 +66,7 @@ class NewsletterController extends AbstractCustomerController
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
      * @return void
      */
@@ -102,7 +84,7 @@ class NewsletterController extends AbstractCustomerController
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
      * @return void
      */
@@ -116,7 +98,7 @@ class NewsletterController extends AbstractCustomerController
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
      * @return array
      */

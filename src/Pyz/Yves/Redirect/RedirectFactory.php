@@ -9,7 +9,7 @@ class RedirectFactory extends AbstractFactory
 {
 
     /**
-     * @return RedirectResourceCreator
+     * @return \Pyz\Yves\Redirect\ResourceCreator\RedirectResourceCreator
      */
     public function createRedirectResourceCreator()
     {

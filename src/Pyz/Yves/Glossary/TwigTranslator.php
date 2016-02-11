@@ -12,7 +12,7 @@ class TwigTranslator implements TranslatorInterface
 {
 
     /**
-     * @var GlossaryClientInterface
+     * @var \Spryker\Client\Glossary\GlossaryClientInterface
      */
     private $client;
 
@@ -22,7 +22,7 @@ class TwigTranslator implements TranslatorInterface
     private $localeName;
 
     /**
-     * @param GlossaryClientInterface $client
+     * @param \Spryker\Client\Glossary\GlossaryClientInterface $client
      * @param null|string $localeName
      */
     public function __construct(GlossaryClientInterface $client, $localeName = null)
@@ -77,7 +77,7 @@ class TwigTranslator implements TranslatorInterface
     /**
      * @param string $localeName
      *
-     * @return self
+     * @return $this
      */
     public function setLocale($localeName)
     {

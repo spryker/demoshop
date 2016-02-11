@@ -6,14 +6,13 @@ use Spryker\Zed\Heartbeat\Communication\Plugin\SearchHealthIndicatorPlugin;
 use Spryker\Zed\Heartbeat\Communication\Plugin\StorageHealthIndicatorPlugin;
 use Spryker\Zed\Heartbeat\Communication\Plugin\SessionHealthIndicatorPlugin;
 use Spryker\Zed\Heartbeat\Communication\Plugin\PropelHealthIndicatorPlugin;
-use Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface;
 use Spryker\Zed\Heartbeat\HeartbeatConfig as SprykerHeartbeatConfig;
 
 class HeartbeatConfig extends SprykerHeartbeatConfig
 {
 
     /**
-     * @return HealthIndicatorInterface[]
+     * @return \Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface[]
      */
     public function getHealthIndicator()
     {

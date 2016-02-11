@@ -6,7 +6,7 @@ use Spryker\Zed\Product\Business\ProductFacade as SprykerProductFacade;
 use Psr\Log\LoggerInterface;
 
 /**
- * @method ProductBusinessFactory getFactory()
+ * @method \Pyz\Zed\Product\Business\ProductBusinessFactory getFactory()
  */
 class ProductFacade extends SprykerProductFacade
 {
@@ -32,7 +32,7 @@ class ProductFacade extends SprykerProductFacade
     }
 
     /**
-     * @param LoggerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      */
     public function installDemoData(LoggerInterface $messenger)
     {

@@ -6,16 +6,14 @@ use Generated\Shared\Transfer\CustomerOverviewRequestTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\FilterTransfer;
 use Generated\Shared\Transfer\OrderListTransfer;
-use Pyz\Client\Customer\CustomerClientInterface;
-use Pyz\Yves\Customer\CustomerFactory;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
- * @method CustomerFactory getFactory()
- * @method CustomerClientInterface getClient()
+ * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
+ * @method \Pyz\Client\Customer\CustomerClientInterface getClient()
  */
 class CustomerController extends AbstractCustomerController
 {
+
     const ORDER_LIST_LIMIT = 5;
     const ORDER_LIST_SORT_FIELD = 'created_at';
     const ORDER_LIST_SORT_DIRECTION = 'DESC';
@@ -24,7 +22,7 @@ class CustomerController extends AbstractCustomerController
     const KEY_SHIPPING = 'shipping';
 
     /**
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function indexAction()
     {
@@ -44,9 +42,9 @@ class CustomerController extends AbstractCustomerController
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
-     * @return CustomerOverviewRequestTransfer
+     * @return \Generated\Shared\Transfer\CustomerOverviewRequestTransfer
      */
     protected function createOverviewRequest(CustomerTransfer $customerTransfer)
     {
@@ -60,9 +58,9 @@ class CustomerController extends AbstractCustomerController
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
-     * @return OrderListTransfer
+     * @return \Generated\Shared\Transfer\OrderListTransfer
      */
     protected function createOrderListTransfer(CustomerTransfer $customerTransfer)
     {
@@ -76,7 +74,7 @@ class CustomerController extends AbstractCustomerController
     }
 
     /**
-     * @return FilterTransfer
+     * @return \Generated\Shared\Transfer\FilterTransfer
      */
     protected function createFilterTransfer()
     {
@@ -91,7 +89,7 @@ class CustomerController extends AbstractCustomerController
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
      * @return array
      */
@@ -112,6 +110,7 @@ class CustomerController extends AbstractCustomerController
                 $addresses[self::KEY_SHIPPING] = $address;
             }
         }
+
         return $addresses;
     }
 

@@ -15,9 +15,9 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
 {
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return Container
+     * @return \Spryker\Zed\Kernel\Container
      */
     public function provideCommunicationLayerDependencies(Container $container)
     {
@@ -36,9 +36,9 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return Container
+     * @return \Spryker\Zed\Kernel\Container
      */
     public function provideBusinessLayerDependencies(Container $container)
     {
@@ -57,7 +57,7 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
      * @return array
      */
@@ -72,7 +72,7 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
      * @return array
      */
@@ -87,7 +87,7 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
      * @return array
      */
@@ -102,7 +102,7 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
      * @return array
      */

@@ -3,16 +3,15 @@
 namespace Pyz\Client\Customer\Zed;
 
 use Generated\Shared\Transfer\CustomerOverviewRequestTransfer;
-use Generated\Shared\Transfer\CustomerOverviewResponseTransfer;
 use Spryker\Client\Customer\Zed\CustomerStubInterface as SprykerCustomerStubInterface;
 
 interface CustomerStubInterface extends SprykerCustomerStubInterface
 {
 
     /**
-     * @param CustomerOverviewRequestTransfer $overviewRequest
+     * @param \Generated\Shared\Transfer\CustomerOverviewRequestTransfer $overviewRequest
      *
-     * @return CustomerOverviewResponseTransfer
+     * @return \Generated\Shared\Transfer\CustomerOverviewResponseTransfer
      */
     public function getCustomerOverview(CustomerOverviewRequestTransfer $overviewRequest);
 

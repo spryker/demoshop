@@ -3,7 +3,6 @@
 namespace Pyz\Zed\Cms\Persistence;
 
 use Pyz\Zed\Cms\CmsDependencyProvider;
-use Orm\Zed\Url\Persistence\SpyUrlQuery;
 use Spryker\Zed\Cms\Persistence\CmsQueryContainer as SprykerCmsQueryContainer;
 
 class CmsQueryContainer extends SprykerCmsQueryContainer
@@ -12,7 +11,7 @@ class CmsQueryContainer extends SprykerCmsQueryContainer
     /**
      * @param string $url
      *
-     * @return SpyUrlQuery
+     * @return \Orm\Zed\Url\Persistence\SpyUrlQuery
      */
     public function queryUrlByPath($url)
     {

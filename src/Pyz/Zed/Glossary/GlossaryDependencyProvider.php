@@ -16,9 +16,9 @@ class GlossaryDependencyProvider extends SprykerGlossaryDependencyProvider
     const PLUGIN_YML_INSTALLER = 'yml installer';
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return Container
+     * @return \Spryker\Zed\Kernel\Container
      */
     public function provideBusinessLayerDependencies(Container $container)
     {

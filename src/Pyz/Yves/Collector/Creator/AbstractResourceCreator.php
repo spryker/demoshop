@@ -12,9 +12,9 @@ abstract class AbstractResourceCreator implements ResourceCreatorInterface
 {
 
     /**
-     * @param Application $application
-     * @param BundleControllerActionInterface $bundleControllerAction
-     * @param BundleControllerActionRouteNameResolver $routeNameResolver
+     * @param \Silex\Application $application
+     * @param \Spryker\Shared\Kernel\Communication\BundleControllerActionInterface $bundleControllerAction
+     * @param \Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver $routeNameResolver
      *
      * @return string
      */

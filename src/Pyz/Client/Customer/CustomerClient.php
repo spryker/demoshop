@@ -4,20 +4,18 @@ namespace Pyz\Client\Customer;
 
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CustomerOverviewRequestTransfer;
-use Generated\Shared\Transfer\CustomerOverviewResponseTransfer;
-use Generated\Shared\Transfer\CustomerTransfer;
 use Spryker\Client\Customer\CustomerClient as SprykerCustomerClient;
 
 /**
- * @method CustomerFactory getFactory()
+ * @method \Pyz\Client\Customer\CustomerFactory getFactory()
  */
 class CustomerClient extends SprykerCustomerClient implements CustomerClientInterface
 {
 
     /**
-     * @param CustomerOverviewRequestTransfer $overviewRequest
+     * @param \Generated\Shared\Transfer\CustomerOverviewRequestTransfer $overviewRequest
      *
-     * @return CustomerOverviewResponseTransfer
+     * @return \Generated\Shared\Transfer\CustomerOverviewResponseTransfer
      */
     public function getCustomerOverview(CustomerOverviewRequestTransfer $overviewRequest)
     {
@@ -27,9 +25,9 @@ class CustomerClient extends SprykerCustomerClient implements CustomerClientInte
     }
 
     /**
-     * @param AddressTransfer $addressTransfer
+     * @param \Generated\Shared\Transfer\AddressTransfer $addressTransfer
      *
-     * @return CustomerTransfer
+     * @return \Generated\Shared\Transfer\CustomerTransfer
      */
     public function createAddressAndUpdateCustomerDefaultAddresses(AddressTransfer $addressTransfer)
     {
@@ -41,9 +39,9 @@ class CustomerClient extends SprykerCustomerClient implements CustomerClientInte
     }
 
     /**
-     * @param AddressTransfer $addressTransfer
+     * @param \Generated\Shared\Transfer\AddressTransfer $addressTransfer
      *
-     * @return CustomerTransfer
+     * @return \Generated\Shared\Transfer\CustomerTransfer
      */
     public function updateAddressAndCustomerDefaultAddresses(AddressTransfer $addressTransfer)
     {

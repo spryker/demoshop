@@ -19,24 +19,24 @@ class StockInstall extends AbstractInstaller
     const STOCK_TYPE = 'stock_type';
 
     /**
-     * @var ReaderInterface
+     * @var \Spryker\Zed\Stock\Business\Model\ReaderInterface
      */
     protected $reader;
 
     /**
-     * @var WriterInterface
+     * @var \Spryker\Zed\Stock\Business\Model\WriterInterface
      */
     protected $writer;
 
     /**
-     * @var StockQueryContainer
+     * @var \Spryker\Zed\Stock\Persistence\StockQueryContainer
      */
     protected $queryContainer;
 
     /**
-     * @param ReaderInterface $reader
-     * @param WriterInterface $writer
-     * @param StockQueryContainer $queryContainer
+     * @param \Spryker\Zed\Stock\Business\Model\ReaderInterface $reader
+     * @param \Spryker\Zed\Stock\Business\Model\WriterInterface $writer
+     * @param \Spryker\Zed\Stock\Persistence\StockQueryContainer $queryContainer
      */
     public function __construct(
         ReaderInterface $reader,
@@ -112,7 +112,7 @@ class StockInstall extends AbstractInstaller
     /**
      * @param array $row
      *
-     * @return TypeTransfer
+     * @return \Generated\Shared\Transfer\TypeTransfer
      */
     protected function createStockTypeTransfer(array $row)
     {
@@ -124,9 +124,9 @@ class StockInstall extends AbstractInstaller
 
     /**
      * @param array $row
-     * @param TypeTransfer $stockType
+     * @param \Generated\Shared\Transfer\TypeTransfer $stockType
      *
-     * @return StockProductTransfer
+     * @return \Generated\Shared\Transfer\StockProductTransfer
      */
     protected function createStockProductTransfer(array $row, TypeTransfer $stockType)
     {
@@ -140,7 +140,7 @@ class StockInstall extends AbstractInstaller
     }
 
     /**
-     * @param TypeTransfer $stockType
+     * @param \Generated\Shared\Transfer\TypeTransfer $stockType
      *
      * @return bool
      */

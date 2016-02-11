@@ -4,24 +4,23 @@ namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer;
 
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\ProductReaderInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\VisitableProductInterface;
 
 class ProductOptionWriter implements WriterInterface
 {
 
     /**
-     * @var ProductReaderInterface
+     * @var \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\ProductReaderInterface
      */
     private $reader;
 
     /**
-     * @var ProductVisitorInterface[]
+     * @var \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface[]
      */
     private $visitors = [];
 
     /**
-     * @param ProductReaderInterface $reader
-     * @param ProductVisitorInterface[] $visitors
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\ProductReaderInterface $reader
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface[] $visitors
      */
     public function __construct(
         ProductReaderInterface $reader,
@@ -34,7 +33,7 @@ class ProductOptionWriter implements WriterInterface
     }
 
     /**
-     * @param ProductVisitorInterface $visitor
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface $visitor
      */
     private function addVisitor(ProductVisitorInterface $visitor)
     {
@@ -53,7 +52,7 @@ class ProductOptionWriter implements WriterInterface
     }
 
     /**
-     * @param VisitableProductInterface $visitee
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\VisitableProductInterface $visitee
      */
     private function visit($visitee)
     {
@@ -63,7 +62,7 @@ class ProductOptionWriter implements WriterInterface
     }
 
     /**
-     * @param ProductVisitorInterface $visitor
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface $visitor
      */
     public function executeQueuedCommands($visitor)
     {

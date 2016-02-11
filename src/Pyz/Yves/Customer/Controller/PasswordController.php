@@ -2,32 +2,29 @@
 
 namespace Pyz\Yves\Customer\Controller;
 
-use Generated\Shared\Transfer\CustomerResponseTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
-use Pyz\Client\Customer\CustomerClient;
-use Pyz\Yves\Customer\CustomerFactory;
 use Pyz\Yves\Customer\Form\RestorePasswordForm;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use Spryker\Shared\Customer\Code\Messages;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @method CustomerFactory getFactory()
- * @method CustomerClient getClient()
+ * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
+ * @method \Pyz\Client\Customer\CustomerClient getClient()
  */
 class PasswordController extends AbstractCustomerController
 {
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function forgottenPasswordAction(Request $request)
     {
         $form = $this
-            ->buildForm($this->getFactory()->createFormForgottenPassword())
+            ->getFactory()
+            ->createForgottenPasswordForm()
             ->handleRequest($request);
 
         if ($form->isValid()) {
@@ -49,14 +46,15 @@ class PasswordController extends AbstractCustomerController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function restorePasswordAction(Request $request)
     {
         $form = $this
-            ->buildForm($this->getFactory()->createFormRestorePassword())
+            ->getFactory()
+            ->createFormRestorePassword()
             ->setData([
                 RestorePasswordForm::FIELD_RESTORE_PASSWORD_KEY => $request->query->get('token'),
             ])
@@ -85,9 +83,9 @@ class PasswordController extends AbstractCustomerController
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
-     * @return CustomerResponseTransfer
+     * @return \Generated\Shared\Transfer\CustomerResponseTransfer
      */
     protected function sendPasswordRestoreMail(CustomerTransfer $customerTransfer)
     {

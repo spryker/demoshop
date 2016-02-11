@@ -3,7 +3,6 @@
 namespace Pyz\Client\Customer;
 
 use Pyz\Client\Customer\Zed\CustomerStub;
-use Pyz\Client\Customer\Zed\CustomerStubInterface;
 use Spryker\Client\Customer\CustomerDependencyProvider;
 use Spryker\Client\Customer\CustomerFactory as SprykerCustomerFactory;
 
@@ -11,7 +10,7 @@ class CustomerFactory extends SprykerCustomerFactory
 {
 
     /**
-     * @return CustomerStubInterface
+     * @return \Pyz\Client\Customer\Zed\CustomerStubInterface
      */
     public function createZedCustomerStub()
     {

@@ -7,13 +7,12 @@
 namespace Pyz\Zed\Glossary\Business\Internal\DemoData;
 
 use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
-use Spryker\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
 
 class GlossaryInstall extends AbstractInstaller
 {
 
     /**
-     * @var GlossaryInstallerPluginInterface[]
+     * @var \Spryker\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface[]
      */
     protected $installers;
 

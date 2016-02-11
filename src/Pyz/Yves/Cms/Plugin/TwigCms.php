@@ -5,13 +5,12 @@ namespace Pyz\Yves\Cms\Plugin;
 use Silex\Application;
 use Spryker\Yves\Kernel\AbstractPlugin;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
-use Symfony\Component\Translation\TranslatorInterface;
 
 class TwigCms extends AbstractPlugin implements TwigFunctionPluginInterface
 {
 
     /**
-     * @param Application $application
+     * @param \Silex\Application $application
      *
      * @return \Twig_SimpleFunction[]
      */
@@ -54,9 +53,9 @@ class TwigCms extends AbstractPlugin implements TwigFunctionPluginInterface
     }
 
     /**
-     * @param Application $application
+     * @param \Silex\Application $application
      *
-     * @return TranslatorInterface
+     * @return \Symfony\Component\Translation\TranslatorInterface
      */
     protected function getTranslator(Application $application)
     {

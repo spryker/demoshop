@@ -5,11 +5,8 @@ namespace Pyz\Zed\Price\Business;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\Price\Business\Internal\Install;
 use Spryker\Zed\Price\Business\Model\BulkWriter;
-use Spryker\Zed\Price\Business\Model\BulkWriterInterface;
-use Spryker\Zed\Price\Business\Model\ReaderInterface;
 use Spryker\Zed\Price\Business\Model\Writer;
 use Spryker\Zed\Price\Business\Model\Reader;
-use Spryker\Zed\Price\Business\Model\WriterInterface;
 use Spryker\Zed\Price\Business\PriceBusinessFactory as SprykerPriceBusinessFactory;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\Price\Business\Internal\DemoData\PriceInstall;
@@ -18,9 +15,9 @@ class PriceBusinessFactory extends SprykerPriceBusinessFactory
 {
 
     /**
-     * @param LoggerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      *
-     * @return PriceInstall
+     * @return \Pyz\Zed\Price\Business\Internal\DemoData\PriceInstall
      */
     public function createDemoDataInstaller(LoggerInterface $messenger)
     {
@@ -34,7 +31,7 @@ class PriceBusinessFactory extends SprykerPriceBusinessFactory
     }
 
     /**
-     * @return ReaderInterface
+     * @return \Spryker\Zed\Price\Business\Model\ReaderInterface
      */
     public function createReaderModel()
     {
@@ -46,7 +43,7 @@ class PriceBusinessFactory extends SprykerPriceBusinessFactory
     }
 
     /**
-     * @return WriterInterface
+     * @return \Spryker\Zed\Price\Business\Model\WriterInterface
      */
     public function createWriterModel()
     {
@@ -59,7 +56,7 @@ class PriceBusinessFactory extends SprykerPriceBusinessFactory
     }
 
     /**
-     * @return BulkWriterInterface
+     * @return \Spryker\Zed\Price\Business\Model\BulkWriterInterface
      */
     public function createBulkWriterModel()
     {
@@ -72,9 +69,9 @@ class PriceBusinessFactory extends SprykerPriceBusinessFactory
     }
 
     /**
-     * @param MessengerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
-     * @return Install
+     * @return \Spryker\Zed\Price\Business\Internal\Install
      */
     public function createInstaller(MessengerInterface $messenger)
     {

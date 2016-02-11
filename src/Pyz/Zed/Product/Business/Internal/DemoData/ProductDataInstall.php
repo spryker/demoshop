@@ -11,7 +11,6 @@ use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
 use Spryker\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface;
 use Spryker\Zed\Product\Business\Product\ProductManagerInterface;
 use Spryker\Zed\Product\Dependency\Facade\ProductToLocaleInterface;
-use Spryker\Zed\Product\Dependency\Facade\ProductToTouchInterface;
 
 class ProductDataInstall extends AbstractInstaller
 {
@@ -20,27 +19,27 @@ class ProductDataInstall extends AbstractInstaller
     const PRODUCT_CONCRETE_COLLECTION = 'product_concrete_collection';
 
     /**
-     * @var AttributeManagerInterface
+     * @var \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface
      */
     protected $attributeManager;
 
     /**
-     * @var ProductManagerInterface
+     * @var \Spryker\Zed\Product\Business\Product\ProductManagerInterface
      */
     protected $productManager;
 
     /**
-     * @var ProductToLocaleInterface
+     * @var \Spryker\Zed\Product\Dependency\Facade\ProductToLocaleInterface
      */
     protected $localeFacade;
 
     /**
-     * @var ProductToTouchInterface
+     * @var \Spryker\Zed\Product\Dependency\Facade\ProductToTouchInterface
      */
     protected $touchFacade;
 
     /**
-     * @var IteratorReaderInterface
+     * @var \Spryker\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface
      */
     protected $fileReader;
 
@@ -62,10 +61,10 @@ class ProductDataInstall extends AbstractInstaller
     ];
 
     /**
-     * @param AttributeManagerInterface $attributeManager
-     * @param ProductManagerInterface $productManager
-     * @param ProductToLocaleInterface $localeFacade
-     * @param IteratorReaderInterface $fileReader
+     * @param \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface $attributeManager
+     * @param \Spryker\Zed\Product\Business\Product\ProductManagerInterface $productManager
+     * @param \Spryker\Zed\Product\Dependency\Facade\ProductToLocaleInterface $localeFacade
+     * @param \Spryker\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface $fileReader
      * @param string $filePath
      */
     public function __construct(
@@ -114,7 +113,7 @@ class ProductDataInstall extends AbstractInstaller
 
     /**
      * @param array $productConcreteCollection
-     * @param $idProductAbstract
+     * @param int $idProductAbstract
      */
     protected function createProductConcreteCollection(array $productConcreteCollection, $idProductAbstract)
     {
@@ -152,7 +151,7 @@ class ProductDataInstall extends AbstractInstaller
     }
 
     /**
-     * @param LocaleTransfer $currentLocale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $currentLocale
      *
      * @return array
      */
@@ -171,7 +170,7 @@ class ProductDataInstall extends AbstractInstaller
 
     /**
      * @param \SimpleXMLElement $product
-     * @param LocaleTransfer $currentLocale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $currentLocale
      *
      * @return array
      */
@@ -255,7 +254,7 @@ class ProductDataInstall extends AbstractInstaller
     }
 
     /**
-     * @param LocalizedAttributesTransfer $localizedAttributes
+     * @param \Generated\Shared\Transfer\LocalizedAttributesTransfer $localizedAttributes
      *
      * @return string
      */
@@ -287,9 +286,9 @@ class ProductDataInstall extends AbstractInstaller
     }
 
     /**
-     * @param ProductAbstractTransfer $productAbstract
-     * @param $idProductAbstract
-     * @param LocaleTransfer $currentLocale
+     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstract
+     * @param int $idProductAbstract
+     * @param \Generated\Shared\Transfer\LocaleTransfer $currentLocale
      */
     protected function createAndTouchProductUrls(
         ProductAbstractTransfer $productAbstract,

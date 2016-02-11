@@ -7,18 +7,14 @@ use Pyz\Yves\Cms\Plugin\PageResourceCreator;
 use Pyz\Yves\Redirect\Plugin\RedirectResourceCreator;
 use Pyz\Yves\Category\Plugin\CategoryResourceCreator;
 use Pyz\Yves\Product\Plugin\ProductResourceCreator;
-use Pyz\Yves\Collector\Creator\ResourceCreatorInterface;
 use Pyz\Yves\Collector\Mapper\UrlMapper;
-use Spryker\Client\Catalog\Model\FacetConfig;
-use Spryker\Client\Collector\Matcher\UrlMatcher;
 use Spryker\Yves\Kernel\AbstractFactory;
-use Silex\Application;
 
 class CollectorFactory extends AbstractFactory
 {
 
     /**
-     * @return ResourceCreatorInterface[]
+     * @return \Pyz\Yves\Collector\Creator\ResourceCreatorInterface[]
      */
     public function createResourceCreators()
     {
@@ -31,7 +27,7 @@ class CollectorFactory extends AbstractFactory
     }
 
     /**
-     * @return UrlMapper
+     * @return \Pyz\Yves\Collector\Mapper\UrlMapper
      */
     public function createUrlMapper()
     {
@@ -41,7 +37,7 @@ class CollectorFactory extends AbstractFactory
     }
 
     /**
-     * @return UrlMatcher
+     * @return \Spryker\Client\Collector\Matcher\UrlMatcher
      */
     public function createUrlMatcher()
     {
@@ -51,7 +47,7 @@ class CollectorFactory extends AbstractFactory
     }
 
     /**
-     * @return FacetConfig
+     * @return \Spryker\Client\Catalog\Model\FacetConfig
      */
     protected function createFacetConfig()
     {
@@ -59,7 +55,7 @@ class CollectorFactory extends AbstractFactory
     }
 
     /**
-     * @return Application
+     * @return \Silex\Application
      */
     public function createApplication()
     {
@@ -67,7 +63,7 @@ class CollectorFactory extends AbstractFactory
     }
 
     /**
-     * @return ProductResourceCreator
+     * @return \Pyz\Yves\Product\Plugin\ProductResourceCreator
      */
     protected function createProductResourceCreator()
     {
@@ -75,7 +71,7 @@ class CollectorFactory extends AbstractFactory
     }
 
     /**
-     * @return CategoryResourceCreator
+     * @return \Pyz\Yves\Category\Plugin\CategoryResourceCreator
      */
     protected function createCategoryResourceCreator()
     {
@@ -83,7 +79,7 @@ class CollectorFactory extends AbstractFactory
     }
 
     /**
-     * @return RedirectResourceCreator
+     * @return \Pyz\Yves\Redirect\Plugin\RedirectResourceCreator
      */
     protected function createRedirectResourceCreator()
     {
@@ -91,7 +87,7 @@ class CollectorFactory extends AbstractFactory
     }
 
     /**
-     * @return PageResourceCreator
+     * @return \Pyz\Yves\Cms\Plugin\PageResourceCreator
      */
     protected function createPageResourceCreator()
     {

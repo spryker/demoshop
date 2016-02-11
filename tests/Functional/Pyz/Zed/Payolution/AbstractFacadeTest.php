@@ -55,52 +55,52 @@ abstract class AbstractFacadeTest extends Test
     const INSTALLMENT_DURATION = 3;
 
     /**
-     * @var OrderTransfer
+     * @var \Generated\Shared\Transfer\OrderTransfer
      */
     private $orderTransfer;
 
     /**
-     * @var SpyPaymentPayolution
+     * @var \Orm\Zed\Payolution\Persistence\SpyPaymentPayolution
      */
     private $paymentEntity;
 
     /**
-     * @var CheckoutRequestTransfer
+     * @var \Generated\Shared\Transfer\CheckoutRequestTransfer
      */
     private $checkoutRequestTransfer;
 
     /**
-     * @var SpySalesOrder
+     * @var \Orm\Zed\Sales\Persistence\SpySalesOrder
      */
     private $orderEntity;
 
     /**
-     * @var PayolutionPaymentTransfer
+     * @var \Generated\Shared\Transfer\PayolutionPaymentTransfer
      */
     private $payolutionPaymentTransfer;
 
     /**
-     * @var CustomerTransfer
+     * @var \Generated\Shared\Transfer\CustomerTransfer
      */
     private $customerTransfer;
 
     /**
-     * @var AddressTransfer
+     * @var \Generated\Shared\Transfer\AddressTransfer
      */
     private $addressTransfer;
 
     /**
-     * @var TotalsTransfer
+     * @var \Generated\Shared\Transfer\TotalsTransfer
      */
     private $totalsTransfer;
 
     /**
-     * @var ItemTransfer
+     * @var \Generated\Shared\Transfer\ItemTransfer
      */
     private $itemTransfer;
 
     /**
-     * @var CartTransfer
+     * @var \Generated\Shared\Transfer\CartTransfer
      */
     private $cartTransfer;
 
@@ -160,7 +160,7 @@ abstract class AbstractFacadeTest extends Test
     }
 
     /**
-     * @return OrderTransfer
+     * @return \Generated\Shared\Transfer\OrderTransfer
      */
     protected function getOrderTransfer()
     {
@@ -168,7 +168,7 @@ abstract class AbstractFacadeTest extends Test
     }
 
     /**
-     * @return SpyPaymentPayolution
+     * @return \Orm\Zed\Payolution\Persistence\SpyPaymentPayolution
      */
     protected function getPaymentEntity()
     {
@@ -176,7 +176,7 @@ abstract class AbstractFacadeTest extends Test
     }
 
     /**
-     * @return CheckoutRequestTransfer
+     * @return \Generated\Shared\Transfer\CheckoutRequestTransfer
      */
     protected function getCheckoutRequestTransfer()
     {

@@ -3,8 +3,6 @@
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Db;
 
 use Propel\Runtime\Propel;
-use Propel\Runtime\Connection\ConnectionInterface;
-use Propel\Runtime\Connection\StatementInterface;
 
 class MysqlBatchStorageProvider implements BatchStorageProviderInterface
 {
@@ -54,7 +52,7 @@ class MysqlBatchStorageProvider implements BatchStorageProviderInterface
     }
 
     /**
-     * @param StatementInterface $stmt
+     * @param \Propel\Runtime\Connection\StatementInterface $stmt
      * @param array $values
      */
     private function bindValues(&$stmt, array $values)
@@ -68,7 +66,7 @@ class MysqlBatchStorageProvider implements BatchStorageProviderInterface
     }
 
     /**
-     * @return ConnectionInterface
+     * @return \Propel\Runtime\Connection\ConnectionInterface
      */
     private function getConnection()
     {

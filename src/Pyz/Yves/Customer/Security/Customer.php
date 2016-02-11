@@ -3,14 +3,13 @@
 namespace Pyz\Yves\Customer\Security;
 
 use Generated\Shared\Transfer\CustomerTransfer;
-use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class Customer implements UserInterface
 {
 
     /**
-     * @var CustomerTransfer
+     * @var \Generated\Shared\Transfer\CustomerTransfer
      */
     protected $customerTransfer;
 
@@ -30,7 +29,7 @@ class Customer implements UserInterface
     protected $roles = [];
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      * @param string $username
      * @param string $password
      * @param array $roles
@@ -44,7 +43,7 @@ class Customer implements UserInterface
     }
 
     /**
-     * @return Role[]
+     * @return \Symfony\Component\Security\Core\Role\Role[]
      */
     public function getRoles()
     {
@@ -85,10 +84,11 @@ class Customer implements UserInterface
     }
 
     /**
-     * @return CustomerTransfer
+     * @return \Generated\Shared\Transfer\CustomerTransfer
      */
     public function getCustomerTransfer()
     {
         return $this->customerTransfer;
     }
+
 }

@@ -23,14 +23,13 @@ use Spryker\Zed\Locale\Communication\Plugin\Installer as LocaleInstaller;
 use Spryker\Zed\Price\Communication\Plugin\Installer as PriceInstaller;
 use Spryker\Zed\Product\Communication\Plugin\Installer as ProductInstaller;
 use Spryker\Zed\Collector\Communication\Plugin\Installer as CollectorInstaller;
-use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 use Spryker\Zed\Installer\InstallerDependencyProvider as SprykerInstallerDependencyProvider;
 
 class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
 {
 
     /**
-     * @return AbstractInstaller[]
+     * @return \Spryker\Zed\Installer\Business\Model\AbstractInstaller[]
      */
     public function getInstallers()
     {
@@ -47,7 +46,7 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
     }
 
     /**
-     * @return AbstractInstaller[]
+     * @return \Spryker\Zed\Installer\Business\Model\AbstractInstaller[]
      */
     public function getDemoDataInstallers()
     {

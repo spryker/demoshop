@@ -3,17 +3,16 @@
 namespace Pyz\Yves\Category\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
-use Pyz\Yves\Category\CategoryFactory;
 use Silex\Application;
 
 /**
- * @method CategoryFactory getFactory()
+ * @method \Pyz\Yves\Category\CategoryFactory getFactory()
  */
 class CategoryServiceProvider extends AbstractServiceProvider
 {
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      *
      * @return void
      */
@@ -25,7 +24,7 @@ class CategoryServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      *
      * @return void
      */

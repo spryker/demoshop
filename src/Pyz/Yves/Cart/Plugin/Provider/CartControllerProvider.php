@@ -26,7 +26,7 @@ class CartControllerProvider extends AbstractYvesControllerProvider
     const ROUTE_CART_COUPON_CLEAR = 'cart/coupon/clear';
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      */
     protected function defineControllers(Application $app)
     {
@@ -95,7 +95,7 @@ class CartControllerProvider extends AbstractYvesControllerProvider
 
     /**
      * @param mixed $unusedParameter
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return int
      */

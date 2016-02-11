@@ -2,13 +2,12 @@
 
 namespace Pyz\Yves\Customer\Form;
 
-use Generated\Shared\Transfer\CustomerTransfer;
-use Spryker\Shared\Gui\Form\AbstractForm;
-use Spryker\Shared\Transfer\TransferInterface;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class RestorePasswordForm extends AbstractForm
+class RestorePasswordForm extends AbstractType
 {
+
     const FIELD_RESTORE_PASSWORD_KEY = 'restore_password_key';
     const FIELD_PASSWORD = 'password';
 
@@ -21,42 +20,50 @@ class RestorePasswordForm extends AbstractForm
     }
 
     /**
-     * @param FormBuilderInterface $builder
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add(self::FIELD_RESTORE_PASSWORD_KEY, 'hidden')
-            ->add(self::FIELD_PASSWORD, 'repeated', [
-                'first_name' => 'pass',
-                'second_name' => 'confirm',
-                'type' => 'password',
-                'invalid_message' => 'validator.constraints.password.do_not_match',
-                'required' => true,
-                'first_options' => [
-                    'label' => 'forms.password',
-                ],
-                'second_options' => [
-                    'label' => 'forms.confirm-password',
-                ],
-            ]);
+        $this
+            ->addRestorePasswordKeyField($builder)
+            ->addPasswordField($builder);
     }
 
     /**
-     * @return TransferInterface|array
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     *
+     * @return $this
      */
-    public function populateFormFields()
+    protected function addRestorePasswordKeyField(FormBuilderInterface $builder)
     {
-        return null;
+        $builder->add(self::FIELD_RESTORE_PASSWORD_KEY, 'hidden');
+
+        return $this;
     }
 
     /**
-     * @return CustomerTransfer
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     *
+     * @return $this
      */
-    protected function getDataClass()
+    protected function addPasswordField(FormBuilderInterface $builder)
     {
-        return null;
+        $builder->add(self::FIELD_PASSWORD, 'repeated', [
+            'first_name' => 'pass',
+            'second_name' => 'confirm',
+            'type' => 'password',
+            'invalid_message' => 'validator.constraints.password.do_not_match',
+            'required' => true,
+            'first_options' => [
+                'label' => 'forms.password',
+            ],
+            'second_options' => [
+                'label' => 'forms.confirm-password',
+            ],
+        ]);
+
+        return $this;
     }
 
 }

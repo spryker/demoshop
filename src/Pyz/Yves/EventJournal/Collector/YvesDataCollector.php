@@ -24,7 +24,7 @@ class YvesDataCollector extends AbstractDataCollector implements DataCollectorIn
         return [
             'session_id' => session_id(),
             'device_id' => $this->getDeviceId(),
-            'visitor_id' => $this->getVisitorId()
+            'visitor_id' => $this->getVisitorId(),
         ];
     }
 
@@ -34,6 +34,7 @@ class YvesDataCollector extends AbstractDataCollector implements DataCollectorIn
     protected function getDeviceId()
     {
         $key = Config::get(ApplicationConstants::YVES_COOKIE_DEVICE_ID_NAME);
+
         return $_COOKIE[$key] ?: null;
     }
 
@@ -43,6 +44,7 @@ class YvesDataCollector extends AbstractDataCollector implements DataCollectorIn
     protected function getVisitorId()
     {
         $key = Config::get(ApplicationConstants::YVES_COOKIE_VISITOR_ID_NAME);
+
         return $_COOKIE[$key] ?: null;
     }
 

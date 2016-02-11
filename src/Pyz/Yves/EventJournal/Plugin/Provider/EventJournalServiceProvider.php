@@ -3,10 +3,8 @@
 namespace Pyz\Yves\EventJournal\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
-use Pyz\Yves\EventJournal\EventJournalFactory;
 use Silex\Application;
 use Spryker\Client\EventJournal\Event;
-use Spryker\Client\EventJournal\EventJournalClientInterface;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config;
 use Symfony\Component\HttpFoundation\Cookie;
@@ -15,13 +13,13 @@ use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
- * @method EventJournalFactory getFactory()
+ * @method \Pyz\Yves\EventJournal\EventJournalFactory getFactory()
  */
 class EventJournalServiceProvider extends AbstractServiceProvider
 {
 
     /**
-     * @var EventJournalClientInterface
+     * @var \Spryker\Client\EventJournal\EventJournalClientInterface
      */
     protected $eventJournal;
 
@@ -31,7 +29,7 @@ class EventJournalServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      */
     public function register(Application $app)
     {
@@ -44,7 +42,7 @@ class EventJournalServiceProvider extends AbstractServiceProvider
      * and should be used for "dynamic" configuration (whenever
      * a service must be requested).
      *
-     * @param Application $app
+     * @param \Silex\Application $app
      *
      * @return void
      */
@@ -58,7 +56,7 @@ class EventJournalServiceProvider extends AbstractServiceProvider
     /**
      * Handles controller requests
      *
-     * @param FilterControllerEvent $event The event to handle
+     * @param \Symfony\Component\HttpKernel\Event\FilterControllerEvent $event The event to handle
      *
      * @return void
      */
@@ -69,7 +67,7 @@ class EventJournalServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return void
      */
@@ -85,7 +83,7 @@ class EventJournalServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return void
      */
@@ -97,7 +95,7 @@ class EventJournalServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      *
      * @return void
      */
@@ -111,7 +109,7 @@ class EventJournalServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      *
      * @return void
      */
@@ -125,13 +123,14 @@ class EventJournalServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @param Application $app
-     * @param $cookieName
-     * @param $validFor
+     * @param \Silex\Application $app
+     * @param string $cookieName
+     * @param string $validFor
      *
      * @return void
      */
-    private function setTrackingCookie(Application $app, $cookieName, $validFor) {
+    private function setTrackingCookie(Application $app, $cookieName, $validFor)
+    {
         if (empty($_COOKIE[$cookieName])) {
             $_COOKIE[$cookieName] = sha1(uniqid('', true));
         }
@@ -146,7 +145,7 @@ class EventJournalServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      */
     protected function setStaticRequestInformation(Request $request)
     {

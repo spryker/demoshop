@@ -13,12 +13,12 @@ class CatalogResourceCreator extends AbstractResourceCreator
 {
 
     /**
-     * @var FacetConfig
+     * @var \Pyz\Client\Catalog\Model\FacetConfig
      */
     protected $facetConfig;
 
     /**
-     * @param FacetConfig $facetConfig
+     * @param \Pyz\Client\Catalog\Model\FacetConfig $facetConfig
      */
     public function __construct(FacetConfig $facetConfig)
     {
@@ -34,7 +34,7 @@ class CatalogResourceCreator extends AbstractResourceCreator
     }
 
     /**
-     * @param Application $application
+     * @param \Silex\Application $application
      * @param array $data
      *
      * @return array

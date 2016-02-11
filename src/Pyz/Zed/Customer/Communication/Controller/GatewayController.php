@@ -7,23 +7,20 @@ use Generated\Shared\Transfer\CustomerOverviewResponseTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\NewsletterSubscriberTransfer;
 use Generated\Shared\Transfer\NewsletterSubscriptionRequestTransfer;
-use Generated\Shared\Transfer\NewsletterSubscriptionResponseTransfer;
 use Generated\Shared\Transfer\NewsletterTypeTransfer;
-use Generated\Shared\Transfer\OrderListTransfer;
 use Pyz\Shared\Newsletter\NewsletterConstants;
-use Pyz\Zed\Customer\Communication\CustomerCommunicationFactory;
 use Spryker\Zed\Customer\Communication\Controller\GatewayController as SprykerGatewayController;
 
 /**
- * @method CustomerCommunicationFactory getFactory()
+ * @method \Pyz\Zed\Customer\Communication\CustomerCommunicationFactory getFactory()
  */
 class GatewayController extends SprykerGatewayController
 {
 
     /**
-     * @param CustomerOverviewRequestTransfer $overviewRequest
+     * @param \Generated\Shared\Transfer\CustomerOverviewRequestTransfer $overviewRequest
      *
-     * @return CustomerOverviewResponseTransfer
+     * @return \Generated\Shared\Transfer\CustomerOverviewResponseTransfer
      */
     public function getCustomerOverviewAction(CustomerOverviewRequestTransfer $overviewRequest)
     {
@@ -39,9 +36,9 @@ class GatewayController extends SprykerGatewayController
     }
 
     /**
-     * @param CustomerOverviewRequestTransfer $overviewRequestTransfer
+     * @param \Generated\Shared\Transfer\CustomerOverviewRequestTransfer $overviewRequestTransfer
      *
-     * @return OrderListTransfer
+     * @return \Generated\Shared\Transfer\OrderListTransfer
      */
     protected function getOrderList(CustomerOverviewRequestTransfer $overviewRequestTransfer)
     {
@@ -53,9 +50,9 @@ class GatewayController extends SprykerGatewayController
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
-     * @return NewsletterSubscriptionResponseTransfer
+     * @return \Generated\Shared\Transfer\NewsletterSubscriptionResponseTransfer
      */
     protected function getIsSubscribed(CustomerTransfer $customerTransfer)
     {

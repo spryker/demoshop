@@ -10,10 +10,11 @@ use Pyz\Shared\Newsletter\NewsletterConstants;
 
 class SubscriptionRequestLogic
 {
+
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
-     * @return NewsletterSubscriptionRequestTransfer
+     * @return \Generated\Shared\Transfer\NewsletterSubscriptionRequestTransfer
      */
     public function subscribeForEditorialNewsletter(CustomerTransfer $customerTransfer)
     {
@@ -25,10 +26,10 @@ class SubscriptionRequestLogic
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
-     * @param string|null      $subscriberKey
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
+     * @param string|null $subscriberKey
      *
-     * @return NewsletterSubscriptionRequestTransfer
+     * @return \Generated\Shared\Transfer\NewsletterSubscriptionRequestTransfer
      */
     public function unsubscribeFromAllNewsletters(CustomerTransfer $customerTransfer, $subscriberKey = null)
     {
@@ -40,9 +41,9 @@ class SubscriptionRequestLogic
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
-     * @return NewsletterSubscriptionRequestTransfer
+     * @return \Generated\Shared\Transfer\NewsletterSubscriptionRequestTransfer
      */
     public function checkEditorialNewsletterSubscription(CustomerTransfer $customerTransfer)
     {
@@ -54,10 +55,10 @@ class SubscriptionRequestLogic
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
-     * @param string|null      $subscriberKey
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
+     * @param string|null $subscriberKey
      *
-     * @return NewsletterSubscriptionRequestTransfer
+     * @return \Generated\Shared\Transfer\NewsletterSubscriptionRequestTransfer
      */
     protected function createNewsletterSubscriptionRequest(CustomerTransfer $customerTransfer, $subscriberKey = null)
     {
@@ -74,7 +75,7 @@ class SubscriptionRequestLogic
     }
 
     /**
-     * @param NewsletterSubscriptionRequestTransfer $subscriptionRequest
+     * @param \Generated\Shared\Transfer\NewsletterSubscriptionRequestTransfer $subscriptionRequest
      *
      * @return void
      */

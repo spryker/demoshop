@@ -7,7 +7,6 @@
 namespace YvesUnit\Spryker\Yves\Assets\Communication;
 
 use Spryker\Yves\Assets\Communication\Model\AssetUrlBuilder;
-use Spryker\Yves\Assets\Communication\Model\CacheBusterInterface;
 
 class AssetUrlBuilderTest extends \PHPUnit_Framework_TestCase
 {
@@ -47,7 +46,7 @@ class AssetUrlBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|CacheBusterInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Yves\Assets\Communication\Model\CacheBusterInterface
      */
     private function getCacheBusterMock()
     {

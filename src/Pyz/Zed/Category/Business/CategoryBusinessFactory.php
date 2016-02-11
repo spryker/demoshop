@@ -2,16 +2,7 @@
 
 namespace Pyz\Zed\Category\Business;
 
-use Spryker\Zed\Category\Business\Generator\UrlPathGeneratorInterface;
-use Spryker\Zed\Category\Business\Model\CategoryWriterInterface;
-use Spryker\Zed\Category\Business\TransferGenerator;
-use Spryker\Zed\Category\Business\Generator\UrlPathGenerator;
-use Spryker\Zed\Category\Business\TransferGeneratorInterface;
 use Spryker\Zed\Category\Business\Tree\ClosureTableWriter;
-use Spryker\Zed\Category\Business\Tree\ClosureTableWriterInterface;
-use Spryker\Zed\Category\Business\Tree\NodeWriter;
-use Spryker\Zed\Category\Business\Model\CategoryWriter;
-use Spryker\Zed\Category\Business\Renderer\CategoryTreeRenderer;
 use Spryker\Zed\Category\Business\Tree\CategoryTreeReader;
 use Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter;
 use Spryker\Zed\Category\Business\Tree\CategoryTreeWriter;
@@ -20,19 +11,17 @@ use Pyz\Zed\Category\CategoryDependencyProvider;
 use Spryker\Zed\Category\Business\CategoryBusinessFactory as SprykerCategoryBusinessFactory;
 use Pyz\Zed\Category\Business\Internal\DemoData\CategoryTreeInstall;
 use Psr\Log\LoggerInterface;
-use Spryker\Zed\Category\Business\Tree\NodeWriterInterface;
-use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
 
 /**
- * @method CategoryQueryContainer getQueryContainer()
+ * @method \Spryker\Zed\Category\Persistence\CategoryQueryContainer getQueryContainer()
  */
 class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
 {
 
     /**
-     * @param LoggerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      *
-     * @return CategoryTreeInstall
+     * @return \Pyz\Zed\Category\Business\Internal\DemoData\CategoryTreeInstall
      */
     public function createDemoDataInstaller(LoggerInterface $messenger)
     {
@@ -49,7 +38,7 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
     }
 
     /**
-     * @return NodeUrlManager
+     * @return \Pyz\Zed\Category\Business\Manager\NodeUrlManager
      */
     protected function createNodeUrlManager()
     {
@@ -63,7 +52,7 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
     }
 
     /**
-     * @return CategoryTreeWriter
+     * @return \Spryker\Zed\Category\Business\Tree\CategoryTreeWriter
      */
     public function createCategoryTreeWriter()
     {
@@ -73,14 +62,14 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
             $this->createCategoryTreeReader(),
             $this->createNodeUrlManager(),
             $this->getTouchFacade(),
-            $this->getProvidedDependency(CategoryDependencyProvider::PLUGIN_PROPEL_CONNECTION)
+            $this->getQueryContainer()->getConnection()
         );
     }
 
     /**
      * @param array $category
      *
-     * @return CategoryTreeFormatter
+     * @return \Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter
      */
     public function createCategoryTreeStructure(array $category)
     {
@@ -88,7 +77,7 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
     }
 
     /**
-     * @return CategoryTreeReader
+     * @return \Spryker\Zed\Category\Business\Tree\CategoryTreeReader
      */
     public function createCategoryTreeReader()
     {
@@ -99,70 +88,13 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
     }
 
     /**
-     * @return CategoryTreeRenderer
-     */
-    public function createCategoryTreeRenderer()
-    {
-        $locale = $this->getLocaleFacade()->getCurrentLocale();
-
-        return new CategoryTreeRenderer(
-            $this->getQueryContainer(),
-            $locale
-        );
-    }
-
-    /**
-     * @return CategoryWriterInterface
-     */
-    public function createCategoryWriter()
-    {
-        return new CategoryWriter(
-            $this->getQueryContainer()
-        );
-    }
-
-    /**
-     * @return NodeWriterInterface
-     */
-    public function createNodeWriter()
-    {
-        return new NodeWriter(
-            $this->getQueryContainer()
-        );
-    }
-
-    /**
-     * @return ClosureTableWriterInterface
+     * @return \Spryker\Zed\Category\Business\Tree\ClosureTableWriterInterface
      */
     protected function createClosureTableWriter()
     {
         return new ClosureTableWriter(
             $this->getQueryContainer()
         );
-    }
-
-    /**
-     * @return UrlPathGeneratorInterface
-     */
-    public function createUrlPathGenerator()
-    {
-        return new UrlPathGenerator();
-    }
-
-    /**
-     * @return CategoryTreeFormatter
-     */
-    protected function createCategoryTreeFormatter()
-    {
-        return new CategoryTreeFormatter();
-    }
-
-    /**
-     * @return TransferGeneratorInterface
-     */
-    public function createCategoryTransferGenerator()
-    {
-        return new TransferGenerator();
     }
 
 }

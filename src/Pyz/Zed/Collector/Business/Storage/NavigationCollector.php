@@ -13,8 +13,8 @@ class NavigationCollector extends AbstractKeyValuePdoCollector
 
     /**
      * @param array $collectedSet
-     * @param LocaleTransfer $locale
-     * @param TouchUpdaterSet $touchUpdaterSet
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet $touchUpdaterSet
      *
      * @return array
      */

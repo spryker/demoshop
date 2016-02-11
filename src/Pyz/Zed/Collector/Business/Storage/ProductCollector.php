@@ -19,17 +19,17 @@ class ProductCollector extends AbstractKeyValuePdoCollector
 {
 
     /**
-     * @var CategoryQueryContainerInterface
+     * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
      */
     protected $categoryQueryContainer;
 
     /**
-     * @var ProductCategoryQueryContainerInterface
+     * @var \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface
      */
     protected $productCategoryQueryContainer;
 
     /**
-     * @var PriceFacade
+     * @var \Pyz\Zed\Price\Business\PriceFacade
      */
     protected $priceFacade;
 
@@ -39,9 +39,9 @@ class ProductCollector extends AbstractKeyValuePdoCollector
     protected $categoryCache = [];
 
     /**
-     * @param CategoryQueryContainerInterface $categoryQueryContainer
-     * @param ProductCategoryQueryContainerInterface $productCategoryQueryContainer
-     * @param PriceFacade $priceFacade
+     * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
+     * @param \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface $productCategoryQueryContainer
+     * @param \Pyz\Zed\Price\Business\PriceFacade $priceFacade
      */
     public function __construct(
         CategoryQueryContainerInterface $categoryQueryContainer,
@@ -209,7 +209,7 @@ class ProductCollector extends AbstractKeyValuePdoCollector
     }
 
     /**
-     * @param SpyCategoryNode $node
+     * @param \Orm\Zed\Category\Persistence\SpyCategoryNode $node
      *
      * @return string
      */
@@ -228,7 +228,7 @@ class ProductCollector extends AbstractKeyValuePdoCollector
     }
 
     /**
-     * @return CategoryQueryContainerInterface
+     * @return \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
      */
     public function getCategoryQueryContainer()
     {
@@ -236,7 +236,7 @@ class ProductCollector extends AbstractKeyValuePdoCollector
     }
 
     /**
-     * @param CategoryQueryContainerInterface $categoryQueryContainer
+     * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
      */
     public function setCategoryQueryContainer(CategoryQueryContainerInterface $categoryQueryContainer)
     {
@@ -244,7 +244,7 @@ class ProductCollector extends AbstractKeyValuePdoCollector
     }
 
     /**
-     * @return ProductCategoryQueryContainerInterface
+     * @return \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface
      */
     public function getProductCategoryQueryContainer()
     {
@@ -252,7 +252,7 @@ class ProductCollector extends AbstractKeyValuePdoCollector
     }
 
     /**
-     * @param ProductCategoryQueryContainerInterface $productCategoryQueryContainer
+     * @param \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface $productCategoryQueryContainer
      */
     public function setProductCategoryQueryContainer(ProductCategoryQueryContainerInterface $productCategoryQueryContainer)
     {

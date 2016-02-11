@@ -8,13 +8,12 @@ use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemProductO
 use Spryker\Zed\PriceCartConnector\Communication\Plugin\CartItemPricePlugin;
 use Spryker\Zed\ProductCartConnector\Communication\Plugin\ProductCartPlugin;
 use Spryker\Zed\Cart\CartConfig as SprykerCartConfig;
-use Spryker\Zed\Cart\Dependency\ItemExpanderPluginInterface;
 
 class CartConfig extends SprykerCartConfig
 {
 
     /**
-     * @return array|ItemExpanderPluginInterface[]
+     * @return array|\Spryker\Zed\Cart\Dependency\ItemExpanderPluginInterface[]
      */
     public function getCartItemPlugins()
     {

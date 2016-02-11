@@ -4,11 +4,9 @@ namespace Pyz\Yves\Cart\Controller;
 
 use Spryker\Yves\Application\Controller\AbstractController;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
-use Spryker\Client\Cart\CartClientInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
- * @method CartClientInterface getClient()
+ * @method \Spryker\Client\Cart\CartClientInterface getClient()
  */
 class CouponController extends AbstractController
 {
@@ -16,7 +14,7 @@ class CouponController extends AbstractController
     /**
      * @param string $couponCode
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function addAction($couponCode)
     {
@@ -29,7 +27,7 @@ class CouponController extends AbstractController
     /**
      * @param string $couponCode
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function removeAction($couponCode)
     {
@@ -40,7 +38,7 @@ class CouponController extends AbstractController
     }
 
     /**
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function clearAction()
     {

@@ -15,24 +15,24 @@ class ProductCollector extends AbstractSearchPdoCollector
 {
 
     /**
-     * @var PriceQueryContainer
+     * @var \Spryker\Zed\Price\Persistence\PriceQueryContainer
      */
     protected $priceQueryContainer;
 
     /**
-     * @var CategoryQueryContainer
+     * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainer
      */
     protected $categoryQueryContainer;
 
     /**
-     * @var ProductSearchFacade
+     * @var \Pyz\Zed\ProductSearch\Business\ProductSearchFacade
      */
     protected $productSearchFacade;
 
     /**
-     * @param PriceQueryContainer $priceQueryContainer
-     * @param CategoryQueryContainer $categoryQueryContainer
-     * @param ProductSearchFacade $productSearchFacade
+     * @param \Spryker\Zed\Price\Persistence\PriceQueryContainer $priceQueryContainer
+     * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainer $categoryQueryContainer
+     * @param \Pyz\Zed\ProductSearch\Business\ProductSearchFacade $productSearchFacade
      */
     public function __construct(PriceQueryContainer $priceQueryContainer, CategoryQueryContainer $categoryQueryContainer, ProductSearchFacade $productSearchFacade)
     {
@@ -62,7 +62,7 @@ class ProductCollector extends AbstractSearchPdoCollector
 
     /**
      * @param array $collectedSet
-     * @param LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      * @param TouchUpdaterSet $touchUpdaterSet
      *
      * @return array
@@ -76,7 +76,7 @@ class ProductCollector extends AbstractSearchPdoCollector
 
     /**
      * @param array $resultSet
-     * @param LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      *
      * @return array
      */
@@ -117,7 +117,7 @@ class ProductCollector extends AbstractSearchPdoCollector
 
     /**
      * @param array $resultSet
-     * @param LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      *
      * @return array
      */

@@ -3,19 +3,18 @@
 namespace Pyz\Client\Newsletter;
 
 use Generated\Shared\Transfer\CustomerTransfer;
-use Generated\Shared\Transfer\NewsletterSubscriptionResultTransfer;
 use Spryker\Client\Newsletter\NewsletterClient as SprykerNewsletterClient;
 
 /**
- * @method NewsletterFactory getFactory()
+ * @method \Pyz\Client\Newsletter\NewsletterFactory getFactory()
  */
 class NewsletterClient extends SprykerNewsletterClient implements NewsletterClientInterface
 {
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
-     * @return NewsletterSubscriptionResultTransfer
+     * @return \Generated\Shared\Transfer\NewsletterSubscriptionResultTransfer
      */
     public function subscribeForEditorialNewsletter(CustomerTransfer $customerTransfer)
     {
@@ -29,10 +28,10 @@ class NewsletterClient extends SprykerNewsletterClient implements NewsletterClie
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      * @param string|null $subscriberKey
      *
-     * @return NewsletterSubscriptionResultTransfer
+     * @return \Generated\Shared\Transfer\NewsletterSubscriptionResultTransfer
      */
     public function unsubscribeFromAllNewsletters(CustomerTransfer $customerTransfer, $subscriberKey = null)
     {
@@ -44,9 +43,9 @@ class NewsletterClient extends SprykerNewsletterClient implements NewsletterClie
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
-     * @return NewsletterSubscriptionResultTransfer
+     * @return \Generated\Shared\Transfer\NewsletterSubscriptionResultTransfer
      */
     public function checkEditorialNewsletterSubscription(CustomerTransfer $customerTransfer)
     {
