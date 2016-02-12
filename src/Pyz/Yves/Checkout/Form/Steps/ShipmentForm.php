@@ -2,11 +2,10 @@
 
 namespace Pyz\Yves\Checkout\Form\Steps;
 
-use Generated\Shared\Transfer\QuoteTransfer;
-use Generated\Shared\Transfer\ShipmentTransfer;
 use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class ShipmentForm extends AbstractType
 {
@@ -16,25 +15,16 @@ class ShipmentForm extends AbstractType
     const SHIPMENT_SELECTION_PROPERTY_PATH = self::SHIPMENT_PROPERTY_PATH . '.' . self::SHIPMENT_SELECTION;
 
     /**
-     * @var \Generated\Shared\Transfer\QuoteTransfer
-     */
-    protected $quoteTransfer;
-
-    /**
      * @var \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[]
      */
     protected $shipmentMethodsSubFormPlugins;
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[] $shipmentMethodsSubFormPlugins
      */
-    public function __construct(QuoteTransfer $quoteTransfer, array $shipmentMethodsSubFormPlugins = [])
+    public function __construct(array $shipmentMethodsSubFormPlugins)
     {
-        $this->quoteTransfer = $quoteTransfer;
         $this->shipmentMethodsSubFormPlugins = $shipmentMethodsSubFormPlugins;
-
-        $this->setShipmentForDataClass();
     }
 
     /**
@@ -53,8 +43,7 @@ class ShipmentForm extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $this
-            ->addShipmentMethods($builder)
+        $this->addShipmentMethods($builder, $options)
             ->addSubmit($builder);
     }
 
@@ -63,13 +52,13 @@ class ShipmentForm extends AbstractType
      *
      * @return self
      */
-    protected function addShipmentMethods(FormBuilderInterface $builder)
+    protected function addShipmentMethods(FormBuilderInterface $builder, array $options)
     {
         $shipmentMethodSubForms = $this->getShipmentMethodSubForms();
         $shipmentMethodChoices = $this->getShipmentMethodsChoices($shipmentMethodSubForms);
 
         $this->addShipmentMethodChoices($builder, $shipmentMethodChoices)
-            ->addShipmentMethodSubForms($builder, $shipmentMethodSubForms);
+            ->addShipmentMethodSubForms($builder, $shipmentMethodSubForms, $options);
 
         return $this;
     }
@@ -105,7 +94,7 @@ class ShipmentForm extends AbstractType
      *
      * @return self
      */
-    protected function addShipmentMethodSubForms(FormBuilderInterface $builder, array $shipmentMethodSubForms)
+    protected function addShipmentMethodSubForms(FormBuilderInterface $builder, array $shipmentMethodSubForms, array $options)
     {
         foreach ($shipmentMethodSubForms as $shipmentMethodSubForm) {
             $builder->add(
@@ -114,6 +103,7 @@ class ShipmentForm extends AbstractType
                 [
                     'property_path' => self::SHIPMENT_PROPERTY_PATH .  '.' . $shipmentMethodSubForm->getPropertyPath(),
                     'error_bubbling' => true,
+                    'select_options' => $options['select_options']
                 ]
             );
         }
@@ -171,17 +161,19 @@ class ShipmentForm extends AbstractType
      */
     protected function createSubForm(CheckoutSubFormPluginInterface $shipmentMethodSubForm)
     {
-        return $shipmentMethodSubForm->createSubFrom($this->quoteTransfer);
+        return $shipmentMethodSubForm->createSubFrom();
     }
+
 
     /**
+     * @param \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
+     *
      * @return void
      */
-    protected function setShipmentForDataClass()
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        if ($this->quoteTransfer->getShipment() === null) {
-            $this->quoteTransfer->setShipment(new ShipmentTransfer());
-        }
-    }
+        parent::setDefaultOptions($resolver);
 
+        $resolver->setRequired('select_options');
+    }
 }

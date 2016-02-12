@@ -18,13 +18,14 @@ use Generated\Shared\Transfer\SaveOrderTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Pyz\Yves\Checkout\CheckoutFactory;
 use Pyz\Yves\Checkout\Controller\CheckoutController;
+use Pyz\Yves\Checkout\Dependency\SubFormInterface;
+use Pyz\Yves\Checkout\Form\DataProvider\SubformDataProviders;
 use Pyz\Yves\Checkout\Form\FormFactory;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
 use Pyz\Yves\Checkout\Form\Steps\ShipmentForm;
 use Spryker\Client\Calculation\CalculationClient;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
-use Spryker\Client\Kernel\Locator;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -106,7 +107,6 @@ class CheckoutControllerTest extends Test
         $response = $checkoutController->shipmentAction($request);
 
         $this->assertArrayHasKey('shipmentForm', $response);
-        $this->assertArrayHasKey('shipmentMethodsSubForms', $response);
         $this->assertArrayHasKey('quoteTransfer', $response);
         $this->assertArrayHasKey('previousStepUrl', $response);
 
@@ -132,7 +132,6 @@ class CheckoutControllerTest extends Test
 
         $response = $checkoutController->paymentAction($request);
 
-        $this->assertArrayHasKey('paymentMethodsSubForms', $response);
         $this->assertArrayHasKey('paymentForm', $response);
         $this->assertArrayHasKey('quoteTransfer', $response);
         $this->assertArrayHasKey('previousStepUrl', $response);
@@ -302,11 +301,15 @@ class CheckoutControllerTest extends Test
             FormFactory::class,
             [
                 'getCustomerClient',
-                'createShipmentMethodsSubForms',
                 'createShipmentForm',
-                'createPaymentForm'
+                'createPaymentForm',
+                'createSubFormDataProvider'
             ]
         );
+
+
+        $subFormDataProviderMock = $this->createSubFormDataProvider($quoteTransfer);
+        $formFactoryMock->method('createSubFormDataProvider')->willReturn($subFormDataProviderMock);
 
         $customerClientMock = $this->getCustomerClientMock();
         $formFactoryMock->method('getCustomerClient')->willReturn($customerClientMock);
@@ -336,7 +339,7 @@ class CheckoutControllerTest extends Test
      */
     protected function createShipmentForm(QuoteTransfer $quoteTransfer)
     {
-        return new ShipmentForm($quoteTransfer, []);
+        return new ShipmentForm([]);
     }
 
     /**
@@ -344,9 +347,9 @@ class CheckoutControllerTest extends Test
      */
     protected function createPaymentForm(QuoteTransfer $quoteTransfer)
     {
-         return new PaymentForm($quoteTransfer, []);
+         return new PaymentForm([]);
     }
-
+    
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Process\StepFactory
@@ -365,7 +368,9 @@ class CheckoutControllerTest extends Test
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Checkout\CheckoutClientInterface
      */
     protected function createCheckoutClientMock(QuoteTransfer $quoteTransfer)
     {
@@ -382,7 +387,7 @@ class CheckoutControllerTest extends Test
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Calculation\CalculationClient
      */
     protected function createCalculationClientMock(QuoteTransfer $quoteTransfer)
     {
@@ -492,6 +497,26 @@ class CheckoutControllerTest extends Test
         $paymentTransfer = new PaymentTransfer();
         $paymentTransfer->setPaymentProvider('test');
         $quoteTransfer->setPayment($paymentTransfer);
+    }
+
+    /**
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Form\DataProvider\SubformDataProviders
+     */
+    protected function createSubFormDataProvider(QuoteTransfer $quoteTransfer)
+    {
+        if (empty($quoteTransfer->getPayment())) {
+            $quoteTransfer->setPayment(new PaymentTransfer());
+        }
+
+        if (empty($quoteTransfer->getShipment())) {
+            $quoteTransfer->setShipment(new ShipmentTransfer());
+        }
+
+        $subFormDataProviderMock = $this->getMockBuilder(SubformDataProviders::class)->disableOriginalConstructor()->getMock();
+        $subFormDataProviderMock->method('getData')->willReturn($quoteTransfer);
+        $subFormDataProviderMock->method('getOptions')->willReturn(['select_options' =>[]]);
+
+        return $subFormDataProviderMock;
     }
 
 }

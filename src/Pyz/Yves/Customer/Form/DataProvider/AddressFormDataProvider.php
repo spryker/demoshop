@@ -4,9 +4,7 @@ namespace Pyz\Yves\Customer\Form\DataProvider;
 
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
-use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Customer\Form\AddressForm;
-use Spryker\Shared\Kernel\Store;
 
 class AddressFormDataProvider extends AbstractAddressFormDataProvider
 {

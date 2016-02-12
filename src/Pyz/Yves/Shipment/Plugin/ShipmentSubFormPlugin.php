@@ -2,7 +2,6 @@
 
 namespace Pyz\Yves\Shipment\Plugin;
 
-use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
 use Spryker\Yves\Kernel\AbstractPlugin;
 
@@ -13,13 +12,18 @@ class ShipmentSubFormPlugin extends AbstractPlugin implements CheckoutSubFormPlu
 {
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return \Pyz\Yves\Checkout\Dependency\SubFormInterface
      */
-    public function createSubFrom(QuoteTransfer $quoteTransfer)
+    public function createSubFrom()
     {
-        return $this->getFactory()->createShipmentForm($quoteTransfer);
+        return $this->getFactory()->createShipmentForm();
     }
 
+    /**
+     * @return \Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface
+     */
+    public function createSubFormDataProvider()
+    {
+        return $this->getFactory()->createShipmentDataProvider();
+    }
 }

@@ -5,6 +5,7 @@ namespace Pyz\Yves\Checkout\Form;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface;
+use Pyz\Yves\Checkout\Form\DataProvider\SubformDataProviders;
 use Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
 use Pyz\Yves\Checkout\Form\Steps\ShipmentForm;
@@ -50,7 +51,10 @@ class FormFactory extends AbstractFactory
      */
     public function createShipmentFormCollection(QuoteTransfer $quoteTransfer)
     {
-        return $this->createFormCollection($quoteTransfer, $this->createShipmentFormTypes($quoteTransfer));
+        $shipmentSubForms = $this->createShipmentMethodsSubForms();
+        $shipmentFormType = $this->createShipmentForm($shipmentSubForms);
+        $subFormDataProvider = $this->createSubFormDataProvider($shipmentSubForms);
+        return $this->createSubFormCollection($quoteTransfer, $shipmentFormType, $subFormDataProvider);
     }
 
     /**
@@ -60,7 +64,20 @@ class FormFactory extends AbstractFactory
      */
     public function createPaymentFormCollection(QuoteTransfer $quoteTransfer)
     {
-        return $this->createFormCollection($quoteTransfer, $this->createPaymentFormTypes($quoteTransfer));
+        $createPaymentSubForms = $this->createPaymentMethodsSubForms();
+        $paymentFormType = $this->createPaymentForm($createPaymentSubForms);
+        $subFormDataProvider = $this->createSubFormDataProvider($createPaymentSubForms);
+        return $this->createSubFormCollection($quoteTransfer, $paymentFormType, $subFormDataProvider);
+    }
+
+    /**
+     * @param array|\Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[]
+     *
+     * @return \Pyz\Yves\Checkout\Form\DataProvider\SubformDataProviders
+     */
+    protected function createSubFormDataProvider(array $subForms)
+    {
+        return new SubformDataProviders($subForms);
     }
 
     /**
@@ -104,18 +121,6 @@ class FormFactory extends AbstractFactory
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer
-     *
-     * @return \Symfony\Component\Form\FormTypeInterface[]
-     */
-    protected function createShipmentFormTypes(QuoteTransfer $quoteTransfer)
-    {
-        return [
-            $this->createShipmentForm($quoteTransfer)
-        ];
-    }
-
-    /**
      * @return \Symfony\Component\Form\FormTypeInterface[]
      */
     protected function createSummaryFormTypes()
@@ -126,16 +131,13 @@ class FormFactory extends AbstractFactory
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer
+     * @param array|\Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[] $subForms
      *
-     * @return \Pyz\Yves\Checkout\Form\Steps\ShipmentForm::__construct
+     * @return \Pyz\Yves\Checkout\Form\Steps\ShipmentForm
      */
-    protected function createShipmentForm(QuoteTransfer $quoteTransfer)
+    protected function createShipmentForm(array $subForms)
     {
-        return new ShipmentForm(
-            $quoteTransfer,
-            $this->createShipmentMethodsSubForms()
-        );
+        return new ShipmentForm($subForms);
     }
 
     /**
@@ -149,28 +151,13 @@ class FormFactory extends AbstractFactory
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer
+     * @param array|\Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[] $subForms
      *
-     * @return \Symfony\Component\Form\FormTypeInterface[]
+     * @return \Pyz\Yves\Checkout\Form\Steps\PaymentForm
      */
-    protected function createPaymentFormTypes(QuoteTransfer $quoteTransfer)
+    protected function createPaymentForm(array $subForms)
     {
-        return [
-            $this->createPaymentForm($quoteTransfer),
-        ];
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer
-     *
-     * @return \Symfony\Component\Form\FormTypeInterface
-     */
-    protected function createPaymentForm(QuoteTransfer $quoteTransfer)
-    {
-        return new PaymentForm(
-            $quoteTransfer,
-            $this->createPaymentMethodsSubForms()
-        );
+        return new PaymentForm($subForms);
     }
 
     /**
@@ -205,6 +192,18 @@ class FormFactory extends AbstractFactory
     }
 
     /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer
+     * @param \Symfony\Component\Form\FormTypeInterface $formType
+     * @param \Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface|null $dataProvider
+     *
+     * @return \Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface
+     */
+    protected function createSubFormCollection(QuoteTransfer $quoteTransfer, $formType, DataProviderInterface $dataProvider)
+    {
+        return new FormCollectionHandler($this->getFormFactory(), $quoteTransfer, [$formType], $dataProvider);
+    }
+
+    /**
      * @return \Symfony\Component\Form\FormFactoryInterface
      */
     protected function getFormFactory()
@@ -235,5 +234,4 @@ class FormFactory extends AbstractFactory
     {
         return $this->getLocator()->customer()->client();
     }
-
 }

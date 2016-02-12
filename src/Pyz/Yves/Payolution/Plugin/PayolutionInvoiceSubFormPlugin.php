@@ -2,10 +2,7 @@
 
 namespace Pyz\Yves\Payolution\Plugin;
 
-use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
-use Pyz\Yves\Payolution\Form\InvoiceSubForm;
-use Pyz\Yves\Payolution\PayolutionFactory;
 use Spryker\Yves\Kernel\AbstractPlugin;
 
 /**
@@ -15,13 +12,18 @@ class PayolutionInvoiceSubFormPlugin extends AbstractPlugin implements CheckoutS
 {
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return \Pyz\Yves\Payolution\Form\InvoiceSubForm
      */
-    public function createSubFrom(QuoteTransfer $quoteTransfer)
+    public function createSubFrom()
     {
-        return $this->getFactory()->createInvoiceForm($quoteTransfer);
+        return $this->getFactory()->createInvoiceForm();
     }
 
+    /**
+     * @return \Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface
+     */
+    public function createSubFormDataProvider()
+    {
+        return $this->getFactory()->createInvoiceFormDataProvider();
+    }
 }

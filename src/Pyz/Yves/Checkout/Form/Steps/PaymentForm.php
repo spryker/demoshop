@@ -2,11 +2,12 @@
 
 namespace Pyz\Yves\Checkout\Form\Steps;
 
-use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
+use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class PaymentForm extends AbstractType
@@ -17,22 +18,15 @@ class PaymentForm extends AbstractType
     const PAYMENT_SELECTION_PROPERTY_PATH = self::PAYMENT_PROPERTY_PATH . '.' . self::PAYMENT_SELECTION;
 
     /**
-     * @var \Generated\Shared\Transfer\QuoteTransfer
-     */
-    protected $quoteTransfer;
-
-    /**
      * @var \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[]
      */
     protected $paymentMethodSubFormPlugins;
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[] $paymentMethodSubFormPlugins
      */
-    public function __construct(QuoteTransfer $quoteTransfer, array $paymentMethodSubFormPlugins)
+    public function __construct(array $paymentMethodSubFormPlugins)
     {
-        $this->quoteTransfer = $quoteTransfer;
         $this->paymentMethodSubFormPlugins = $paymentMethodSubFormPlugins;
     }
 
@@ -52,7 +46,7 @@ class PaymentForm extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $this->addPaymentMethods($builder)
+        $this->addPaymentMethods($builder, $options)
              ->addSubmit($builder);
     }
 
@@ -61,15 +55,13 @@ class PaymentForm extends AbstractType
      *
      * @return self
      */
-    protected function addPaymentMethods(FormBuilderInterface $builder)
+    protected function addPaymentMethods(FormBuilderInterface $builder, array $options)
     {
-        $this->setPaymentForDataClass();
-
         $paymentMethodSubForms = $this->getPaymentMethodSubForms();
         $paymentMethodChoices = $this->getPaymentMethodChoices($paymentMethodSubForms);
 
         $this->addPaymentMethodChoices($builder, $paymentMethodChoices)
-             ->addPaymentMethodSubForms($builder, $paymentMethodSubForms);
+             ->addPaymentMethodSubForms($builder, $paymentMethodSubForms, $options);
 
         return $this;
     }
@@ -102,10 +94,11 @@ class PaymentForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param \Pyz\Yves\Checkout\Dependency\SubFormInterface[] $paymentMethodSubForms
+     * @param array $options
      *
-     * @return self
+     * @return \Pyz\Yves\Checkout\Form\Steps\PaymentForm
      */
-    protected function addPaymentMethodSubForms(FormBuilderInterface $builder, $paymentMethodSubForms)
+    protected function addPaymentMethodSubForms(FormBuilderInterface $builder, $paymentMethodSubForms, array $options)
     {
         foreach ($paymentMethodSubForms as $paymentMethodSubForm) {
             $builder->add(
@@ -114,6 +107,7 @@ class PaymentForm extends AbstractType
                 [
                     'property_path' => self::PAYMENT_PROPERTY_PATH . '.' . $paymentMethodSubForm->getPropertyPath(),
                     'error_bubbling' => true,
+                    'select_options' => $options['select_options']
                 ]
             );
         }
@@ -171,17 +165,19 @@ class PaymentForm extends AbstractType
      */
     protected function createSubForm(CheckoutSubFormPluginInterface $paymentMethodSubForm)
     {
-        return $paymentMethodSubForm->createSubFrom($this->quoteTransfer);
+        return $paymentMethodSubForm->createSubFrom();
     }
 
     /**
+     * @param \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
+     *
      * @return void
      */
-    protected function setPaymentForDataClass()
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        if ($this->quoteTransfer->getPayment() === null) {
-            $this->quoteTransfer->setPayment(new PaymentTransfer());
-        }
+        parent::setDefaultOptions($resolver);
+
+        $resolver->setRequired(SubFormInterface::OPTIONS_FIELD_NAME);
     }
 
 }

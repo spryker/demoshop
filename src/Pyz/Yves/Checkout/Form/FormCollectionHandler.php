@@ -33,6 +33,12 @@ class FormCollectionHandler implements FormCollectionHandlerInterface
     protected $forms = [];
 
     /**
+     * @var array|\Symfony\Component\Form\FormTypeInterface[]
+     */
+    protected $formTypes;
+
+
+    /**
      * @param \Symfony\Component\Form\FormFactoryInterface $formFactory
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @param \Symfony\Component\Form\FormTypeInterface[] $formTypes
@@ -45,10 +51,9 @@ class FormCollectionHandler implements FormCollectionHandlerInterface
         DataProviderInterface $dataProvider = null
     ) {
         $this->formFactory = $formFactory;
-        $this->quoteTransfer = $quoteTransfer;
+        $this->quoteTransfer = clone $quoteTransfer;
         $this->dataProvider = $dataProvider;
-
-        $this->createForms($formTypes, $quoteTransfer);
+        $this->formTypes = $formTypes;
     }
 
     /**
@@ -56,6 +61,10 @@ class FormCollectionHandler implements FormCollectionHandlerInterface
      */
     public function getForms()
     {
+        if (empty($this->forms)) {
+            $this->createForms($this->formTypes, $this->quoteTransfer);
+        }
+
         return $this->forms;
     }
 
@@ -86,7 +95,7 @@ class FormCollectionHandler implements FormCollectionHandlerInterface
     {
         foreach ($this->getForms() as $form) {
             if ($request->request->has($form->getName())) {
-                $form->setData(clone $this->quoteTransfer);
+                $form->setData($this->quoteTransfer);
                 return $form->handleRequest($request);
             }
         }
@@ -101,11 +110,7 @@ class FormCollectionHandler implements FormCollectionHandlerInterface
      */
     public function provideDefaultFormData(QuoteTransfer $quoteTransfer)
     {
-        if ($this->dataProvider === null) {
-            $formData = clone $quoteTransfer;
-        } else {
-            $formData = $this->dataProvider->getData(clone $quoteTransfer);
-        }
+        $formData = $this->getFormData($quoteTransfer);
 
         foreach ($this->getForms() as $form) {
             $form->setData($formData);
@@ -133,15 +138,28 @@ class FormCollectionHandler implements FormCollectionHandlerInterface
      */
     protected function createForm(FormTypeInterface $formType, QuoteTransfer $quoteTransfer)
     {
-        $options = [
+        $formOptions = [
             'data_class' => QuoteTransfer::class
         ];
 
         if ($this->dataProvider !== null) {
-            $options = array_merge($options, $this->dataProvider->getOptions(clone $quoteTransfer));
+            $formOptions = array_merge($formOptions, $this->dataProvider->getOptions($quoteTransfer));
         }
 
-        return $this->formFactory->create($formType, null, $options);
+        return $this->formFactory->create($formType, null, $formOptions);
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return \Generated\Shared\Transfer\QuoteTransfer
+     */
+    protected function getFormData(QuoteTransfer $quoteTransfer)
+    {
+        if ($this->dataProvider !== null) {
+            return $this->dataProvider->getData($quoteTransfer);
+        }
+        return $quoteTransfer;
     }
 
 }

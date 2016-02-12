@@ -2,37 +2,46 @@
 
 namespace Pyz\Yves\Payolution;
 
-use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Yves\Payolution\Form\DataProvider\InstallmentDataProvider;
+use Pyz\Yves\Payolution\Form\DataProvider\InvoiceDataProvider;
 use Pyz\Yves\Payolution\Handler\PayolutionHandler;
 use Pyz\Yves\Payolution\Form\InstallmentSubForm;
 use Pyz\Yves\Payolution\Form\InvoiceSubForm;
-use Spryker\Client\Payolution\PayolutionClientInterface;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class PayolutionFactory extends AbstractFactory
 {
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return \Pyz\Yves\Payolution\Form\InvoiceSubForm
      */
-    public function createInvoiceForm(QuoteTransfer $quoteTransfer)
+    public function createInvoiceForm()
     {
-        return new InvoiceSubForm($quoteTransfer);
+        return new InvoiceSubForm();
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return \Pyz\Yves\Payolution\Form\InstallmentSubForm
      */
-    public function createInstallmentForm(QuoteTransfer $quoteTransfer)
+    public function createInstallmentForm()
     {
-        return new InstallmentSubForm(
-            $quoteTransfer,
-            $this->getPayolutionClient()
-        );
+        return new InstallmentSubForm();
+    }
+
+    /**
+     * @return \Pyz\Yves\Payolution\Form\DataProvider\InstallmentDataProvider
+     */
+    public function createInstalmentFormDataProvider()
+    {
+        return new InstallmentDataProvider($this->getPayolutionClient());
+    }
+
+    /**
+     * @return \Pyz\Yves\Payolution\Form\DataProvider\InvoiceDataProvider
+     */
+    public function createInvoiceFormDataProvider()
+    {
+        return new InvoiceDataProvider();
     }
 
     /**

@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Shipment;
 
-use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Yves\Shipment\Form\DataProvider\ShipmentDataProvider;
 use Pyz\Yves\Shipment\Form\ShipmentSubForm;
 use Pyz\Yves\Shipment\Handler\ShipmentHandler;
 use Spryker\Shared\Kernel\Store;
@@ -13,14 +13,19 @@ class ShipmentFactory extends AbstractFactory
 {
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return \Pyz\Yves\Checkout\Dependency\SubFormInterface
      */
-    public function createShipmentForm(QuoteTransfer $quoteTransfer)
+    public function createShipmentForm()
     {
-        return new ShipmentSubForm(
-            $quoteTransfer,
+        return new ShipmentSubForm();
+    }
+
+    /**
+     * @return \Pyz\Yves\Shipment\Form\DataProvider\ShipmentDataProvider
+     */
+    public function createShipmentDataProvider()
+    {
+        return new ShipmentDataProvider(
             $this->getShipmentClient(),
             $this->getGlossaryClient(),
             $this->getStore(),

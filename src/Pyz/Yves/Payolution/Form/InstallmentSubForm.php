@@ -2,12 +2,7 @@
 
 namespace Pyz\Yves\Payolution\Form;
 
-use Generated\Shared\Transfer\PayolutionCalculationPaymentDetailTransfer;
-use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
-use Generated\Shared\Transfer\QuoteTransfer;
-use Spryker\Client\Payolution\PayolutionClientInterface;
-use Spryker\Shared\Library\Currency\CurrencyManager;
 use Symfony\Component\Form\FormBuilderInterface;
 use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 use Spryker\Shared\Payolution\PayolutionConstants;
@@ -25,25 +20,7 @@ class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormI
     const FIELD_BANK_ACCOUNT_IBAN = 'bank_account_iban';
     const FIELD_BANK_ACCOUNT_BIC = 'bank_account_bic';
 
-    /**
-     * @var \Generated\Shared\Transfer\QuoteTransfer
-     */
-    protected $quoteTransfer;
-
-    /**
-     * @var \Spryker\Client\Payolution\PayolutionClientInterface
-     */
-    protected $payolutionClient;
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Spryker\Client\Payolution\PayolutionClientInterface $payolutionClient
-     */
-    public function __construct(QuoteTransfer $quoteTransfer, PayolutionClientInterface $payolutionClient)
-    {
-        $this->quoteTransfer = $quoteTransfer;
-        $this->payolutionClient = $payolutionClient;
-    }
+    const OPTION_INSTALLMENT_PAYMENT_DETAIL = 'installment_payment_detail';
 
     /**
      * @return string
@@ -79,8 +56,8 @@ class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormI
         parent::setDefaultOptions($resolver);
 
         $resolver->setDefaults([
-            'data_class' => PayolutionPaymentTransfer::class
-        ]);
+            'data_class' => PayolutionPaymentTransfer::class,
+        ])->setRequired(SubFormInterface::OPTIONS_FIELD_NAME);
     }
 
     /**
@@ -89,7 +66,7 @@ class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormI
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $this->addInstallmentPaymentDetails($builder, $this->quoteTransfer)
+        $this->addInstallmentPaymentDetails($builder, $options)
              ->addDateOfBirth($builder)
              ->addBankAccountHolder($builder)
              ->addBankAccountIban($builder)
@@ -98,17 +75,16 @@ class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormI
 
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return $this
      */
-    public function addInstallmentPaymentDetails(FormBuilderInterface $builder, QuoteTransfer $quoteTransfer)
+    public function addInstallmentPaymentDetails(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
             self::FIELD_INSTALLMENT_PAYMENT_DETAIL_INDEX,
             'choice',
             [
-                'choices' => $this->getInstallmentPaymentChoices($quoteTransfer),
+                'choices' => $options['select_options'][self::OPTION_INSTALLMENT_PAYMENT_DETAIL],
                 'label' => false,
                 'required' => false,
                 'expanded' => false,
@@ -209,92 +185,5 @@ class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormI
         );
 
         return $this;
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return array
-     */
-    protected function getInstallmentPaymentChoices(QuoteTransfer $quoteTransfer)
-    {
-        $calculationResponseTransfer = $this->getInstallmentPayments($quoteTransfer);
-        return $this->buildChoices($calculationResponseTransfer->getPaymentDetails());
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer
-     */
-    protected function getInstallmentPayments(QuoteTransfer $quoteTransfer)
-    {
-        if ($this->payolutionClient->hasInstallmentPaymentsInSession()) {
-            $calculationResponseTransfer = $this->payolutionClient->getInstallmentPaymentsFromSession();
-
-            if ($this->isInstallmentPaymentsStillValid($quoteTransfer, $calculationResponseTransfer)) {
-                return $calculationResponseTransfer;
-            }
-        }
-
-        $calculationResponseTransfer = $this->payolutionClient->calculateInstallmentPayments($quoteTransfer);
-        return $this->payolutionClient->storeInstallmentPaymentsInSession($calculationResponseTransfer);
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer $calculationResponseTransfer
-     *
-     * @return bool
-     */
-    protected function isInstallmentPaymentsStillValid(QuoteTransfer $quoteTransfer, PayolutionCalculationResponseTransfer $calculationResponseTransfer)
-    {
-         if ($quoteTransfer->getTotals() === null) {
-             return false;
-         }
-
-         return $quoteTransfer->getTotals()->getHash() === $calculationResponseTransfer->getTotalsAmountHash();
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\PayolutionCalculationPaymentDetailTransfer[] $installmentPaymentDetails
-     *
-     * @return array
-     */
-    protected function buildChoices($installmentPaymentDetails)
-    {
-        $choices = [];
-        foreach ($installmentPaymentDetails as $paymentDetail) {
-            $choices[] = $this->buildChoice($paymentDetail);
-        }
-
-        return $choices;
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\PayolutionCalculationPaymentDetailTransfer $paymentDetail
-     *
-     * @return string
-     *
-     * @todo: optimize format choices and add a Type for an installment choice
-     */
-    protected function buildChoice(PayolutionCalculationPaymentDetailTransfer $paymentDetail)
-    {
-        $choice =
-            $paymentDetail->getCurrency() .
-            $this->convertCentToDecimal($paymentDetail->getInstallments()[0]->getAmount()) .
-            $paymentDetail->getDuration();
-
-        return $choice;
-    }
-
-    /**
-     * @param int $amount
-     *
-     * @return float
-     */
-    protected function convertCentToDecimal($amount)
-    {
-        return CurrencyManager::getInstance()->convertCentToDecimal($amount);
     }
 }

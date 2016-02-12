@@ -3,7 +3,6 @@
 namespace Pyz\Yves\Payolution\Form;
 
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
-use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Symfony\Component\Form\FormBuilderInterface;
 use Pyz\Yves\Checkout\Dependency\SubFormInterface;
@@ -16,33 +15,6 @@ class InvoiceSubForm extends CheckoutAbstractSubFormType implements SubFormInter
     const PAYMENT_PROVIDER = PayolutionConstants::PAYOLUTION;
     const PAYMENT_METHOD = 'invoice';
     const FIELD_DATE_OF_BIRTH = 'date_of_birth';
-
-    /**
-     * @var \Generated\Shared\Transfer\QuoteTransfer
-     */
-    protected $quoteTransfer;
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     */
-    public function __construct(QuoteTransfer $quoteTransfer)
-    {
-        $this->quoteTransfer = $quoteTransfer;
-    }
-
-    /**
-     * @param \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
-     *
-     * @return void
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        parent::setDefaultOptions($resolver);
-
-        $resolver->setDefaults([
-            'data_class' => PayolutionPaymentTransfer::class
-        ]);
-    }
 
     /**
      * @return string
@@ -66,6 +38,21 @@ class InvoiceSubForm extends CheckoutAbstractSubFormType implements SubFormInter
     public function getTemplatePath()
     {
         return PayolutionConstants::PAYOLUTION . '/' . self::PAYMENT_METHOD;
+    }
+
+    /**
+     * @param \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
+     *
+     * @return void
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        parent::setDefaultOptions($resolver);
+
+        $resolver->setDefaults([
+            'data_class' => PayolutionPaymentTransfer::class,
+            SubFormInterface::OPTIONS_FIELD_NAME => [],
+        ]);
     }
 
     /**
