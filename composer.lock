@@ -4,8 +4,13 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "hash": "97257ac95a8de04f00d7b95bc80309d9",
     "content-hash": "06fac11922fa45eaa8d6ab8fb74a93bd",
+=======
+    "hash": "5f9dce0aca0ae1c42395750ecbdb4a1a",
+    "content-hash": "6230af5c1ab745a7826d3ae3c99ca14c",
+>>>>>>> #1196 update spryker/spryker
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -775,11 +780,15 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-feature/1196-EventJournal-Blacklist-does-not-work-for-Transfers",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "511e24f2230cf02fdf105ec07a80db75db9d9bb3"
+=======
+                "reference": "5386093eab908834f90b2636481aa90451b263a7"
+>>>>>>> #1196 update spryker/spryker
             },
             "require": {
                 "phpdocumentor/graphviz": "dev-master#a906a90"
@@ -799,7 +808,11 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
+<<<<<<< HEAD
             "time": "2016-02-16 17:00:14"
+=======
+            "time": "2016-02-12 08:22:21"
+>>>>>>> #1196 update spryker/spryker
         },
         {
             "name": "symfony-cmf/routing",
@@ -4689,7 +4702,11 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/9e1f7a52ab2c2b52859b45ffd243da2f4cea612e",
+=======
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/6dfa4f9ab8a79a885e4cc61429a681ebb7c49e82",
+>>>>>>> #1196 update spryker/spryker
                 "reference": "4961a325750ee95316d0f1c07854a4690f9559fa",
                 "shasum": ""
             },
