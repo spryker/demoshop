@@ -2,12 +2,7 @@
 
 namespace Pyz\Yves\Collector\Plugin\Router;
 
-use Pyz\Yves\Collector\CollectorFactory;
-use Pyz\Yves\Collector\Creator\ResourceCreatorInterface;
-use Pyz\Yves\Collector\Mapper\UrlMapperInterface;
-use Silex\Application;
 use Spryker\Yves\Application\Routing\AbstractRouter;
-use Spryker\Client\Collector\Matcher\UrlMatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;

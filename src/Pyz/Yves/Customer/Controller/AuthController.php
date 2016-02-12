@@ -2,11 +2,8 @@
 
 namespace Pyz\Yves\Customer\Controller;
 
-use Pyz\Yves\Customer\CustomerFactory;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
-use Spryker\Client\Customer\CustomerClientInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * @method \Pyz\Yves\Customer\CustomerFactory getFactory()

@@ -3,7 +3,6 @@
 namespace Pyz\Zed\Application\Communication;
 
 use Spryker\Zed\Application\Communication\ZedBootstrap as SprykerZedBootstrap;
-use Spryker\Shared\Application\Communication\Application;
 
 class ZedBootstrap
 {

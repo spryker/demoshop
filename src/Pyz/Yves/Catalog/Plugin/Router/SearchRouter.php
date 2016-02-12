@@ -2,12 +2,9 @@
 
 namespace Pyz\Yves\Catalog\Plugin\Router;
 
-use Pyz\Yves\Collector\Mapper\UrlMapperInterface;
-use Silex\Application;
 use Spryker\Yves\Application\Routing\AbstractRouter;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\RouteNameResolver;
-use Pyz\Yves\Catalog\CatalogFactory;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;

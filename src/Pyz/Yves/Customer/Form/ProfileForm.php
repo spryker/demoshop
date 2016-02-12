@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ProfileForm extends AbstractType
 {
+
     const FIELD_EMAIL = 'email';
     const FIELD_LAST_NAME = 'last_name';
     const FIELD_FIRST_NAME = 'first_name';
@@ -38,7 +39,7 @@ class ProfileForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     public function addEmailField(FormBuilderInterface $builder)
     {
@@ -57,7 +58,7 @@ class ProfileForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     public function addLastNameField(FormBuilderInterface $builder)
     {
@@ -75,7 +76,7 @@ class ProfileForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     public function addFirstNameField(FormBuilderInterface $builder)
     {
@@ -93,7 +94,7 @@ class ProfileForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     public function addSalutationField(FormBuilderInterface $builder)
     {

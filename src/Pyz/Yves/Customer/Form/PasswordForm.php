@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class PasswordForm extends AbstractType
 {
+
     const FIELD_NEW_PASSWORD = 'new_password';
     const FIELD_PASSWORD = 'password';
 
@@ -32,7 +33,7 @@ class PasswordForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     protected function addNewPasswordField(FormBuilderInterface $builder)
     {
@@ -56,7 +57,7 @@ class PasswordForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     protected function addPasswordField(FormBuilderInterface $builder)
     {

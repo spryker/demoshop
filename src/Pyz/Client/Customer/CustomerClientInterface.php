@@ -3,7 +3,6 @@
 namespace Pyz\Client\Customer;
 
 use Generated\Shared\Transfer\CustomerOverviewRequestTransfer;
-use Generated\Shared\Transfer\CustomerOverviewResponseTransfer;
 use Spryker\Client\Customer\CustomerClientInterface as SprykerCustomerClientInterface;
 
 interface CustomerClientInterface extends SprykerCustomerClientInterface

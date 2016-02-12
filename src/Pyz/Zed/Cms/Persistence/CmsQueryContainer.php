@@ -5,7 +5,7 @@ namespace Pyz\Zed\Cms\Persistence;
 use Pyz\Zed\Cms\CmsDependencyProvider;
 use Spryker\Zed\Cms\Persistence\CmsQueryContainer as SprykerCmsQueryContainer;
 
-class CmsQueryContainer extends SprykerCmsQueryContainer
+class CmsQueryContainer extends SprykerCmsQueryContainer implements CmsQueryContainerInterface
 {
 
     /**

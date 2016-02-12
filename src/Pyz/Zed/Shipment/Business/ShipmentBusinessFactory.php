@@ -8,8 +8,6 @@ use Spryker\Zed\Shipment\Business\Model\Carrier;
 use Pyz\Zed\Shipment\Business\Internal\DemoData\ShipmentInstall;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\Shipment\Business\ShipmentBusinessFactory as SprykerShipmentBusinessFactory;
-use Spryker\Zed\Shipment\Persistence\ShipmentQueryContainer;
-use Pyz\Zed\Shipment\ShipmentConfig;
 
 /**
  * @method \Spryker\Zed\Shipment\Persistence\ShipmentQueryContainer getQueryContainer()

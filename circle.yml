@@ -17,7 +17,7 @@ dependencies:
     - mkdir -p shared/data/common/jenkins/jobs
     - echo "memory_limit = 512M" > ~/.phpenv/versions/$(phpenv global)/etc/conf.d/memory.ini
     - mysql -u ubuntu circle_test --execute="SET GLOBAL group_concat_max_len=1048576"
-    - wget https://phar.phpunit.de/phpcpd.phar
+#    - wget https://phar.phpunit.de/phpcpd.phar
 test:
   pre:
     - >
@@ -30,3 +30,4 @@ test:
 #   - phpcpd vendor/spryker/spryker/Bundles -n
     - vendor/bin/codecept build
     - vendor/bin/console application:integration-check
+    - vendor/bin/console code:sniff

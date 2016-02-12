@@ -4,8 +4,6 @@ namespace Pyz\Yves\Cart\Controller;
 
 use Spryker\Yves\Application\Controller\AbstractController;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
-use Spryker\Client\Cart\CartClientInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * @method \Spryker\Client\Cart\CartClientInterface getClient()

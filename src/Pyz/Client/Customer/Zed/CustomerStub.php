@@ -3,7 +3,6 @@
 namespace Pyz\Client\Customer\Zed;
 
 use Generated\Shared\Transfer\CustomerOverviewRequestTransfer;
-use Generated\Shared\Transfer\CustomerOverviewResponseTransfer;
 use Spryker\Client\Customer\Zed\CustomerStub as SprykerCustomerStub;
 
 class CustomerStub extends SprykerCustomerStub implements CustomerStubInterface

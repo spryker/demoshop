@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\Shipment\Communication\Plugin;
 
-use Pyz\Zed\Shipment\Business\ShipmentFacade;
 use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 
 /**

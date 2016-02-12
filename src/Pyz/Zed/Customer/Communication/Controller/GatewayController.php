@@ -7,11 +7,8 @@ use Generated\Shared\Transfer\CustomerOverviewResponseTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\NewsletterSubscriberTransfer;
 use Generated\Shared\Transfer\NewsletterSubscriptionRequestTransfer;
-use Generated\Shared\Transfer\NewsletterSubscriptionResponseTransfer;
 use Generated\Shared\Transfer\NewsletterTypeTransfer;
-use Generated\Shared\Transfer\OrderListTransfer;
 use Pyz\Shared\Newsletter\NewsletterConstants;
-use Pyz\Zed\Customer\Communication\CustomerCommunicationFactory;
 use Spryker\Zed\Customer\Communication\Controller\GatewayController as SprykerGatewayController;
 
 /**

@@ -4,11 +4,7 @@ namespace Pyz\Yves\Catalog;
 
 use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Collector\Plugin\UrlMapper;
-use Pyz\Yves\Collector\Mapper\UrlMapperInterface;
-use Silex\Application;
 use Spryker\Yves\Kernel\AbstractFactory;
-use Spryker\Client\Catalog\CatalogClient;
-use Spryker\Client\CategoryExporter\CategoryExporterClient;
 
 class CatalogFactory extends AbstractFactory
 {

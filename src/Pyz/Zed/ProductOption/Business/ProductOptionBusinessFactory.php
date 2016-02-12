@@ -15,19 +15,11 @@ use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLPro
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLOptionsTransformer;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\XMLProductReader;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\XMLOptionsReader;
-use Spryker\Zed\ProductOption\Business\Model\ProductOptionReaderInterface;
 use Spryker\Zed\ProductOption\Business\ProductOptionBusinessFactory as SprykerBusinessFactory;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductOption\ProductOptionConfig;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\ProductOptionDataInstall;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\OptionVisitorInterface;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\OptionReaderInterface;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\ProductReaderInterface;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLTransformerInterface;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\WriterInterface;
 use Pyz\Zed\ProductOption\ProductOptionDependencyProvider;
-use Spryker\Zed\ProductOption\Business\Model\DataImportWriterInterface;
 
 /**
  * @method \Pyz\Zed\ProductOption\ProductOptionConfig getConfig()

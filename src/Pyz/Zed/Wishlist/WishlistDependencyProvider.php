@@ -1,4 +1,5 @@
 <?php
+
 namespace Pyz\Zed\Wishlist;
 
 use Spryker\Zed\ProductOptionWishlistConnector\Communication\Plugin\PreSaveGroupKeyProductOptionPlugin;

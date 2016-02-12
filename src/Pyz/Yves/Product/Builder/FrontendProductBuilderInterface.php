@@ -2,8 +2,6 @@
 
 namespace Pyz\Yves\Product\Builder;
 
-use Pyz\Yves\Product\Model\ProductAbstract;
-
 /**
  * Interface FrontendProductBuilderInterface
  */

@@ -2,16 +2,6 @@
 
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Decorator;
 
-use Orm\Zed\ProductOption\Persistence\SpyProductOptionTypeUsageExclusionQuery;
-use Orm\Zed\ProductOption\Persistence\SpyProductOptionValueUsageConstraintQuery;
-use Orm\Zed\ProductOption\Persistence\SpyProductOptionTypeQuery;
-use Orm\Zed\ProductOption\Persistence\SpyProductOptionValueQuery;
-use Orm\Zed\ProductOption\Persistence\SpyProductOptionTypeTranslationQuery;
-use Orm\Zed\ProductOption\Persistence\SpyProductOptionValueTranslationQuery;
-use Orm\Zed\ProductOption\Persistence\SpyProductOptionTypeUsageQuery;
-use Orm\Zed\ProductOption\Persistence\SpyProductOptionValueUsageQuery;
-use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
-use Orm\Zed\Tax\Persistence\Base\SpyTaxSetQuery;
 use Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface;
 
 class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainerInterface

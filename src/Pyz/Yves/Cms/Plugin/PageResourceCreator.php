@@ -3,7 +3,6 @@
 namespace Pyz\Yves\Cms\Plugin;
 
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Pyz\Yves\Cms\CmsFactory;
 
 /**
  * @method \Pyz\Yves\Cms\CmsFactory getFactory()

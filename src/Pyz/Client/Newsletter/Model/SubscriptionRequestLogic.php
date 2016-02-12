@@ -10,6 +10,7 @@ use Pyz\Shared\Newsletter\NewsletterConstants;
 
 class SubscriptionRequestLogic
 {
+
     /**
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
@@ -26,7 +27,7 @@ class SubscriptionRequestLogic
 
     /**
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
-     * @param string|null      $subscriberKey
+     * @param string|null $subscriberKey
      *
      * @return \Generated\Shared\Transfer\NewsletterSubscriptionRequestTransfer
      */
@@ -55,7 +56,7 @@ class SubscriptionRequestLogic
 
     /**
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
-     * @param string|null      $subscriberKey
+     * @param string|null $subscriberKey
      *
      * @return \Generated\Shared\Transfer\NewsletterSubscriptionRequestTransfer
      */
