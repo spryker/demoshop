@@ -217,7 +217,7 @@ keys:
       en_US: 'Forgotten?'
   auth.email:
     translations:
-      de_DE: 'E-mail Adresse'
+      de_DE: 'E-Mail Adresse'
       en_US: 'Email address'
   auth.register:
     translations:
@@ -513,7 +513,7 @@ keys:
       en_US: 'Date of birth (DD.MM.YYYY)'
   customer.email:
     translations:
-      de_DE: 'E-Mail Adresse'
+      de_DE: 'E-Mail-Adresse'
       en_US: 'Email Address'
   customer.phone:
     translations:
@@ -722,7 +722,7 @@ keys:
   customer.forgotten_password.email:
     translations:
       en_US: 'Email Address'
-      de_DE: 'E-Mail Adresse'
+      de_DE: 'E-Mail-Adresse'
   customer.forgotten-password.title:
     translations:
       en_US: 'Recover my password'
@@ -746,7 +746,7 @@ keys:
   customer.order.view_order:
     translations:
       en_US: 'View Order'
-      de_DE: Ansehen
+      de_DE: 'Bestellung ansehen'
   customer.order.date:
     translations:
       en_US: 'Order Date'
@@ -766,7 +766,7 @@ keys:
   customer.profile.update:
     translations:
       en_US: 'Update Profile'
-      de_DE: 'Update Profile'
+      de_DE: 'Profil Bearbeiten'
   customer.profile.first_name:
     translations:
       en_US: 'First Name'
@@ -883,3 +883,11 @@ keys:
     translations:
       en_US: Ms.
       de_DE: Fr.
+  customer.login.failed:
+    translations:
+      en_US: 'Login failed'
+      de_DE: 'Login fehlgeschlagen'
+  customer.email.already.used:
+    translations:
+      en_US: 'Email already used'
+      de_DE: 'E-Mail bereits vergeben'
