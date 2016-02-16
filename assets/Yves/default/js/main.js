@@ -7,6 +7,12 @@
 
 'use strict';
 
+require('jquery');
+require('jquery-ui');
+require('holderjs');
+require('bootstrap-sass');
+require('../sass/main.scss');
+
 var imagesRequire = require.context('../img', true);
 imagesRequire.keys().forEach(function(key) {
     imagesRequire(key);
