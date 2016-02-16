@@ -53,8 +53,7 @@ class IcecatInstaller extends SprykerAbstractInstaller
             $locales = Store::getInstance()->getLocales();
 
             foreach ($locales as $localeName) {
-                $localeTransfer = $this->localeFacade->getLocale($localeName);
-                $icecatLocaleId = $this->getLocaleImporter()->getIcecatLocaleId($localeName);
+
                 $this->getCategoryImporter()->import($localeTransfer, $icecatLocaleId);
                 //$this->getProductImporter()->import($localeName, $icecatLocaleId);
             }

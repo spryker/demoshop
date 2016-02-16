@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Installer\Business\Model\Icecat;
 
-use Pyz\Zed\Installer\Business\Exception\XmlFileNotFoundException;
+use Pyz\Zed\Installer\Business\Exception\DataFileNotFoundException;
 
 class IcecatReader implements IcecatReaderInterface
 {
@@ -33,7 +33,7 @@ class IcecatReader implements IcecatReaderInterface
     /**
      * @param $filename
      *
-     * @throws XmlFileNotFoundException
+     * @throws DataFileNotFoundException
      *
      * @return \SimpleXMLElement
      */
@@ -42,7 +42,7 @@ class IcecatReader implements IcecatReaderInterface
         $filename = $this->dataDirectory . '/' . $filename;
 
         if (!is_file($filename)) {
-            throw new XmlFileNotFoundException('Xml file for ' . get_class($this) . ' not found under ' . $filename);
+            throw new DataFileNotFoundException('Xml file for ' . get_class($this) . ' not found under ' . $filename);
         }
 
         return simplexml_load_file($filename);

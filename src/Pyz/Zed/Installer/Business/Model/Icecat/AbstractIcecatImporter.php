@@ -2,55 +2,43 @@
 
 namespace Pyz\Zed\Installer\Business\Model\Icecat;
 
-use Generated\Shared\Transfer\LocaleTransfer;
+use Pyz\Zed\Installer\Business\Exception\DataFileNotFoundException;
 use Symfony\Component\Console\Output\OutputInterface;
+use \SplFileObject;
 
 abstract class AbstractIcecatImporter
 {
 
     /**
-     * @var IcecatReaderInterface
+     * @var string
      */
-    protected $xmlReader;
+    protected $dataDirectory;
 
     /**
-     * @param LocaleTransfer $localeTransfer
-     * @param int $icecatLangId
-     *
-     * @return void
+     * @param $dataDirectory
      */
-    abstract public function import(LocaleTransfer $localeTransfer, $icecatLangId);
-
-    /**
-     * IcecatInstaller constructor.
-     */
-    public function __construct(IcecatReaderInterface $xmlReader)
+    public function __construct($dataDirectory)
     {
-        $this->xmlReader = $xmlReader;
+        $this->dataDirectory = $dataDirectory;
     }
 
     /**
-     * @param \SimpleXMLElement $xmlElement
-     * @param string $path
-     * @param string $attributeName
+     * @param string $filename
      *
-     * @return null|string
+     * @throws DataFileNotFoundException
+     * @return SplFileObject
      */
-    protected function getXmlAttributeValue(\SimpleXMLElement $xmlElement, $path, $attributeName='Value')
+    public function getCsvIterator($filename)
     {
-        $data = $xmlElement->xpath($path);
-        if (!$data) {
-            return null;
+        $filename = $this->dataDirectory . '/ ' . $filename;
+        if (!is_file($filename)) {
+            throw new DataFileNotFoundException($filename);
         }
+        $iterator = new SplFileObject($filename);
+        $iterator->setCsvControl(',', '"', '\\');
+        $iterator->setFlags(SplFileObject::READ_CSV | SplFileObject::READ_AHEAD | SplFileObject::SKIP_EMPTY);
 
-        $data = current($data);
-        if (!$data) {
-            return null;
-        }
-
-        $attributes = $data->attributes();
-
-        return (string) $attributes->{$attributeName};
+        return $iterator;
     }
 
 }

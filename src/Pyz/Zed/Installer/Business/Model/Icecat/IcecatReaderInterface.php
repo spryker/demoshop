@@ -4,7 +4,7 @@
  */
 namespace Pyz\Zed\Installer\Business\Model\Icecat;
 
-use Pyz\Zed\Installer\Business\Exception\XmlFileNotFoundException;
+use Pyz\Zed\Installer\Business\Exception\DataFileNotFoundException;
 
 interface IcecatReaderInterface
 {
@@ -12,7 +12,7 @@ interface IcecatReaderInterface
     /**
      * @param $filename
      *
-     * @throws XmlFileNotFoundException
+     * @throws DataFileNotFoundException
      *
      * @return \SimpleXMLElement
      */

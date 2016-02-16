@@ -3,7 +3,7 @@
 namespace Pyz\Zed\Installer\Business\Exception;
 
 
-class XmlFileNotFoundException extends \Exception
+class DataFileNotFoundException extends \Exception
 {
 
 }
