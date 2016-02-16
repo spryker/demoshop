@@ -112,7 +112,7 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
      * @param null $authHandlerMock
      * @param null $customerClientMock
      *
-     * @return CustomerStep
+     * @return \Pyz\Yves\Checkout\Process\Steps\CustomerStep
      */
     protected function createCustomerStep($customerClientMock = null, $authHandlerMock = null)
     {
@@ -134,7 +134,7 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|CheckoutStepHandlerPluginInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface
      */
     protected function createAuthHandlerMock()
     {
@@ -142,7 +142,7 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @return Request
+     * @return \Symfony\Component\HttpFoundation\Request
      */
     protected function createRequest()
     {
@@ -150,7 +150,7 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|FlashMessengerInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Application\Business\Model\FlashMessengerInterface
      */
     protected function createFlashMessengerMock()
     {
@@ -158,7 +158,7 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|CustomerClientInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Client\Customer\CustomerClientInterface
      */
     protected function createCustomerClientMock()
     {

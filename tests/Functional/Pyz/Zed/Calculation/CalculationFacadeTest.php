@@ -11,14 +11,31 @@ use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use Orm\Zed\Discount\Persistence\Base\SpyDiscountDecisionRuleQuery;
+use Orm\Zed\Discount\Persistence\Base\SpyDiscountQuery;
 use Orm\Zed\Discount\Persistence\SpyDiscount;
 use Orm\Zed\Discount\Persistence\SpyDiscountCollector;
+use Orm\Zed\Discount\Persistence\SpyDiscountDecisionRule;
 use Orm\Zed\Discount\Persistence\SpyDiscountVoucher;
 use Orm\Zed\Discount\Persistence\SpyDiscountVoucherPool;
 use Spryker\Zed\Calculation\Business\CalculationFacade;
 
 class CalculationFacadeTest extends Test
 {
+
+    /**
+     * @throws \Propel\Runtime\Exception\PropelException
+     */
+    protected function setUp()
+    {
+        parent::setUp();
+
+        $discounts = SpyDiscountQuery::create()->find();
+        foreach ($discounts as $discountEntity) {
+            $discountEntity->setIsActive(false);
+            $discountEntity->save();
+        }
+    }
 
     /**
      * @return void
@@ -43,6 +60,12 @@ class CalculationFacadeTest extends Test
 
         $this->assertEquals(125, $itemTransfer->getUnitGrossPriceWithProductOptionAndDiscountAmounts());
         $this->assertEquals(250, $itemTransfer->getSumGrossPriceWithProductOptionAndDiscountAmounts());
+
+        $this->assertEquals(0, $itemTransfer->getUnitTotalDiscountAmount());
+        $this->assertEquals(0, $itemTransfer->getSumTotalDiscountAmount());
+
+        $this->assertEquals(0, $itemTransfer->getUnitTotalDiscountAmountWithProductOption());
+        $this->assertEquals(0, $itemTransfer->getSumTotalDiscountAmountWithProductOption());
 
         $totalsTransfer = $recalculatedQuoteTransfer->getTotals();
         $this->assertEquals(250, $totalsTransfer->getSubtotal());
@@ -86,6 +109,13 @@ class CalculationFacadeTest extends Test
         $expenseTransfer = $quoteTransfer->getExpenses()[0];
 
         $this->assertEquals(94.28, $expenseTransfer->getSumGrossPriceWithDiscounts());
+        $this->assertEquals(5.72, $expenseTransfer->getSumTotalDiscountAmount());
+
+        $this->assertEquals(5.71, $itemTransfer->getUnitTotalDiscountAmount());
+        $this->assertEquals(11.42, $itemTransfer->getSumTotalDiscountAmount());
+
+        $this->assertEquals(7.14, $itemTransfer->getUnitTotalDiscountAmountWithProductOption());
+        $this->assertEquals(14.28, $itemTransfer->getSumTotalDiscountAmountWithProductOption());
 
         $totalsTransfer = $recalculatedQuoteTransfer->getTotals();
         $this->assertEquals(250, $totalsTransfer->getSubtotal());
@@ -98,7 +128,7 @@ class CalculationFacadeTest extends Test
     }
 
     /**
-     * @return QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     protected function createFixtureDataForCalculation()
     {
@@ -128,7 +158,7 @@ class CalculationFacadeTest extends Test
     }
 
     /**
-     * @return SpyDiscountVoucher
+     * @return \Orm\Zed\Discount\Persistence\SpyDiscountVoucher
      */
     protected function createDiscounts()
     {
@@ -159,16 +189,18 @@ class CalculationFacadeTest extends Test
         $collectorEntity->setFkDiscount($discountEntity->getIdDiscount());
         $collectorEntity->save();
 
+
+
         $discountEntity->reload(true);
         $pool = $discountEntity->getVoucherPool();
-        $dv = $pool->getDiscountVouchers();
+        $pool->getDiscountVouchers();
 
         return $discountVoucherEntity;
 
     }
 
     /**
-     * @return CalculationFacade
+     * @return \Spryker\Zed\Calculation\Business\CalculationFacade
      */
     protected function createCalculationFacade()
     {

@@ -42,7 +42,7 @@ class EntryStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return EntryStep
+     * @return \Pyz\Yves\Checkout\Process\Steps\EntryStep
      */
     protected function createEntryStep()
     {
@@ -55,7 +55,7 @@ class EntryStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return Request
+     * @return \Symfony\Component\HttpFoundation\Request
      */
     protected function createRequest()
     {
@@ -63,7 +63,7 @@ class EntryStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|FlashMessengerInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Application\Business\Model\FlashMessengerInterface
      */
     protected function createFlashMessengerMock()
     {

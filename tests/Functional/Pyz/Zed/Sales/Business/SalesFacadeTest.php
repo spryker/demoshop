@@ -53,6 +53,18 @@ class SalesFacadeTest extends Test
         $this->assertEquals(80, $itemTransfer1->getUnitTaxAmount());
         $this->assertEquals(128, $itemTransfer2->getUnitTaxAmount());
 
+        $this->assertEquals(100, $itemTransfer1->getUnitTotalDiscountAmount());
+        $this->assertEquals(100, $itemTransfer2->getUnitTotalDiscountAmount());
+
+        $this->assertEquals(200, $itemTransfer1->getSumTotalDiscountAmount());
+        $this->assertEquals(100, $itemTransfer2->getSumTotalDiscountAmount());
+
+        $this->assertEquals(110, $itemTransfer1->getUnitTotalDiscountAmountWithProductOption());
+        $this->assertEquals(110, $itemTransfer2->getUnitTotalDiscountAmountWithProductOption());
+
+        $this->assertEquals(220, $itemTransfer1->getSumTotalDiscountAmountWithProductOption());
+        $this->assertEquals(110, $itemTransfer2->getSumTotalDiscountAmountWithProductOption());
+
         $this->assertEquals(160, $itemTransfer1->getSumTaxAmount());
         $this->assertEquals(128, $itemTransfer2->getSumTaxAmount());
 
@@ -68,6 +80,9 @@ class SalesFacadeTest extends Test
 
         $this->assertEquals(14, $expenseTransfer->getUnitTaxAmountWithDiscounts());
         $this->assertEquals(14, $expenseTransfer->getSumTaxAmountWithDiscounts());
+
+        $this->assertEquals(10, $expenseTransfer->getUnitTotalDiscountAmount());
+        $this->assertEquals(10, $expenseTransfer->getSumTotalDiscountAmount());
 
         $this->assertEquals(90, $expenseTransfer->getRefundableAmount());
 
@@ -218,7 +233,7 @@ class SalesFacadeTest extends Test
 
 
     /**
-     * @return SpySalesOrder
+     * @return \Orm\Zed\Sales\Persistence\SpySalesOrder
      */
     protected function createTestOrder($createDiscounts = true)
     {
@@ -343,7 +358,7 @@ class SalesFacadeTest extends Test
     
     
     /**
-     * @return SalesFacade
+     * @return \Spryker\Zed\Sales\Business\SalesFacade
      */
     protected function createSalesFacade()
     {
@@ -351,8 +366,8 @@ class SalesFacadeTest extends Test
     }
 
     /**
-     * @param SpyOmsOrderItemState $omsState
-     * @param SpySalesOrder $salesOrder
+     * @param \Orm\Zed\Oms\Persistence\SpyOmsOrderItemState $omsState
+     * @param \Orm\Zed\Sales\Persistence\SpySalesOrder $salesOrder
      * @param $quantity
      * @param $grossPrice
      * @param $taxRate
@@ -361,7 +376,7 @@ class SalesFacadeTest extends Test
      * @param array $options
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return SpySalesOrderItem
+     * @return \Orm\Zed\Sales\Persistence\SpySalesOrderItem
      */
     protected function createOrderItem(
         SpyOmsOrderItemState $omsState,
