@@ -20,11 +20,6 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
     protected $columns;
 
     /**
-     * @var string
-     */
-    protected $columnHeader;
-
-    /**
      * @var \Pyz\Zed\Installer\Business\Model\Icecat\IcecatLocaleManager
      */
     protected $localeManager;
@@ -36,6 +31,11 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
      * @return void
      */
     abstract protected function importData(LocaleTransfer $localeTransfer, IcecatLocale $icecatLocale);
+
+    /**
+     * @return string
+     */
+    abstract protected function getColumnHeader();
 
     /**
      * @param \Pyz\Zed\Installer\Business\Model\Reader\CsvReaderInterface $csvReader
@@ -52,18 +52,18 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
      *
      * @return SplFileObject
      */
-    public function getCsvIterator($filename)
+    protected function getCsvFile($filename)
     {
-        return $this->csvReader->getCsvIterator($filename);
+        return $this->csvReader->getCsvFile($filename);
     }
 
     /**
      * @return array
      */
-    public function getColumns()
+    protected function getColumns()
     {
         if ($this->columns === null) {
-            $this->columns = explode(",\n", trim((string) $this->columnHeader));
+            $this->columns = explode(",\n", trim((string) $this->getColumnHeader()));
         }
 
         return $this->columns;

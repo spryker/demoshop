@@ -23,17 +23,40 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
      */
     public function getIcecatDataImporters()
     {
+        return [
+            InstallerConfig::RESOURCE_CATEGORY => $this->getCategoryImporter(),
+            InstallerConfig::RESOURCE_PRODUCT => $this->getProductImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Model\Icecat\Importer\CategoryImporter
+     */
+    protected function getCategoryImporter()
+    {
         $csvReader = $this->getCsvReader();
         $localeManager = $this->getIcecatLocaleManager();
+        $categoryFacade = $this->getProvidedDependency(InstallerDependencyProvider::FACADE_CATEGORY);
 
-        return [
-            InstallerConfig::CATEGORY_RESOURCE => new CategoryImporter(
-                $csvReader,
-                $localeManager,
-                $this->getProvidedDependency(InstallerDependencyProvider::FACADE_CATEGORY)
-            ),
-            InstallerConfig::PRODUCT_RESOURCE => new ProductImporter($csvReader, $localeManager),
-        ];
+        $categoryImporter = new CategoryImporter($csvReader, $localeManager);
+        $categoryImporter->setCategoryFacade($categoryFacade);
+
+        return $categoryImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductImporter
+     */
+    protected function getProductImporter()
+    {
+        $csvReader = $this->getCsvReader();
+        $localeManager = $this->getIcecatLocaleManager();
+        $productFacade = $this->getProvidedDependency(InstallerDependencyProvider::FACADE_PRODUCT);
+
+        $productImporter = new ProductImporter($csvReader, $localeManager);
+        $productImporter->setProductFacade($productFacade);
+
+        return $productImporter;
     }
 
     /**

@@ -7,15 +7,15 @@ use Spryker\Zed\Installer\InstallerConfig as SprykerInstallerConfig;
 class InstallerConfig extends SprykerInstallerConfig
 {
 
-    const CATEGORY_RESOURCE = 'category';
-    const PRODUCT_RESOURCE = 'product';
+    const RESOURCE_CATEGORY = 'category';
+    const RESOURCE_PRODUCT = 'product';
 
     /**
      * @return string
      */
     public function getIcecatDataPath()
     {
-        return __DIR__ . '/Business/Internal/DemoData/Icecat/';
+        return __DIR__ . '/Business/Internal/DemoData/icecat/';
     }
 
 }

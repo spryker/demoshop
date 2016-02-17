@@ -28,8 +28,11 @@ use Spryker\Zed\Installer\InstallerDependencyProvider as SprykerInstallerDepende
 
 class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
 {
+
     const FACADE_CATEGORY = 'facade category';
     const FACADE_LOCALE = 'facade locale';
+    const FACADE_PRODUCT = 'facade product';
+    const FACADE_PRODUCT_CATEGORY = 'facade product category';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -46,6 +49,14 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
 
         $container[self::FACADE_LOCALE] = function (Container $container) {
             return $container->getLocator()->locale()->facade();
+        };
+
+        $container[self::FACADE_PRODUCT] = function (Container $container) {
+            return $container->getLocator()->product()->facade();
+        };
+
+        $container[self::FACADE_PRODUCT_CATEGORY] = function (Container $container) {
+            return $container->getLocator()->productCategory()->facade();
         };
 
         return $container;

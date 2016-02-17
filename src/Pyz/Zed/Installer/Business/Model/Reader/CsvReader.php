@@ -24,33 +24,23 @@ class CsvReader implements CsvReaderInterface
     /**
      * @param string $filename
      *
-     * @return SplFileObject
-     */
-    public function getCsvIterator($filename)
-    {
-        $filename = $this->dataDirectory . '/ ' . $filename;
-
-        $iterator = $this->generateIteratorFile($filename);
-        $iterator->setCsvControl(',', '"', '\\');
-        $iterator->setFlags(SplFileObject::READ_CSV | SplFileObject::READ_AHEAD | SplFileObject::SKIP_EMPTY);
-
-        return $iterator;
-    }
-
-    /**
-     * @param string $filename
-     *
      * @throws \Pyz\Zed\Installer\Business\Exception\DataFileNotFoundException
      *
-     * @return SplFileObject
+     * @return \SplFileObject
      */
-    protected function generateIteratorFile($filename)
+    public function getCsvFile($filename)
     {
+        $filename = $this->dataDirectory . DIRECTORY_SEPARATOR . $filename;
+
         if (!is_file($filename)) {
             throw new DataFileNotFoundException($filename);
         }
 
-        return new SplFileObject($filename);
+        $csvFile = new SplFileObject($filename);
+        $csvFile->setCsvControl(',', '"', '\\');
+        $csvFile->setFlags(SplFileObject::READ_CSV | SplFileObject::READ_AHEAD | SplFileObject::SKIP_EMPTY);
+
+        return $csvFile;
     }
 
 }

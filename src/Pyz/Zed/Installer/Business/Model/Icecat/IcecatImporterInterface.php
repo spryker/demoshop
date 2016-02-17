@@ -8,18 +8,6 @@ interface IcecatImporterInterface
 {
 
     /**
-     * @param string $filename
-     *
-     * @return \SplFileObject
-     */
-    public function getCsvIterator($filename);
-
-    /**
-     * @return array
-     */
-    public function getColumns();
-
-    /**
      * @return void
      */
     public function import();

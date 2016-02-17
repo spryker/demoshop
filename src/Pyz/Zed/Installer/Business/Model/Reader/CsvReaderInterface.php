@@ -14,6 +14,6 @@ interface CsvReaderInterface
      *
      * @return SplFileObject
      */
-    public function getCsvIterator($filename);
+    public function getCsvFile($filename);
 
 }

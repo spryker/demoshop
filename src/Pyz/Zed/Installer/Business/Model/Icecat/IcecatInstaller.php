@@ -57,7 +57,7 @@ class IcecatInstaller extends SprykerAbstractInstaller
      */
     protected function getCategoryImporter()
     {
-        return $this->importerCollection[InstallerConfig::CATEGORY_RESOURCE];
+        return $this->importerCollection[InstallerConfig::RESOURCE_CATEGORY];
     }
 
     /**
@@ -65,7 +65,7 @@ class IcecatInstaller extends SprykerAbstractInstaller
      */
     protected function getProductImporter()
     {
-        return $this->importerCollection[InstallerConfig::PRODUCT_RESOURCE];
+        return $this->importerCollection[InstallerConfig::RESOURCE_PRODUCT];
     }
 
 }
