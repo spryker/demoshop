@@ -324,8 +324,9 @@ $config[EventJournalConstants::FILTER_OPTIONS] = [
             ['registerForm', 'password', 'first'],
             ['registerForm', 'password', 'second'],
             ['_password'],
-            ['transfer', 'login', 'password'],
+            ['transfer_data', 'login', 'password'],
         ],
+        'filtered_string' => '***'
     ],
 ];
 
