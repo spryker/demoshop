@@ -2,43 +2,84 @@
 
 namespace Pyz\Zed\Installer\Business\Model\Icecat;
 
-use Pyz\Zed\Installer\Business\Exception\DataFileNotFoundException;
-use Symfony\Component\Console\Output\OutputInterface;
-use \SplFileObject;
+use Generated\Shared\Transfer\LocaleTransfer;
+use Pyz\Zed\Installer\Business\Model\Reader\CsvReaderInterface;
+use SplFileObject;
 
-abstract class AbstractIcecatImporter
+abstract class AbstractIcecatImporter implements IcecatImporterInterface
 {
+
+    /**
+     * @var \Pyz\Zed\Installer\Business\Model\Reader\CsvReaderInterface
+     */
+    protected $csvReader;
+
+    /**
+     * @var array
+     */
+    protected $columns;
 
     /**
      * @var string
      */
-    protected $dataDirectory;
+    protected $columnHeader;
 
     /**
-     * @param $dataDirectory
+     * @var \Pyz\Zed\Installer\Business\Model\Icecat\IcecatLocaleManager
      */
-    public function __construct($dataDirectory)
+    protected $localeManager;
+
+    /**
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
+     * @param \Pyz\Zed\Installer\Business\Model\Icecat\IcecatLocale $icecatLocale
+     *
+     * @return void
+     */
+    abstract protected function importData(LocaleTransfer $localeTransfer, IcecatLocale $icecatLocale);
+
+    /**
+     * @param \Pyz\Zed\Installer\Business\Model\Reader\CsvReaderInterface $csvReader
+     * @param \Pyz\Zed\Installer\Business\Model\Icecat\IcecatLocaleManager $localeManager
+     */
+    public function __construct(CsvReaderInterface $csvReader, IcecatLocaleManager $localeManager)
     {
-        $this->dataDirectory = $dataDirectory;
+        $this->csvReader = $csvReader;
+        $this->localeManager = $localeManager;
     }
 
     /**
      * @param string $filename
      *
-     * @throws DataFileNotFoundException
      * @return SplFileObject
      */
     public function getCsvIterator($filename)
     {
-        $filename = $this->dataDirectory . '/ ' . $filename;
-        if (!is_file($filename)) {
-            throw new DataFileNotFoundException($filename);
-        }
-        $iterator = new SplFileObject($filename);
-        $iterator->setCsvControl(',', '"', '\\');
-        $iterator->setFlags(SplFileObject::READ_CSV | SplFileObject::READ_AHEAD | SplFileObject::SKIP_EMPTY);
+        return $this->csvReader->getCsvIterator($filename);
+    }
 
-        return $iterator;
+    /**
+     * @return array
+     */
+    public function getColumns()
+    {
+        if ($this->columns === null) {
+            $this->columns = explode(",\n", trim((string) $this->columnHeader));
+        }
+
+        return $this->columns;
+    }
+
+    /**
+     * @return void
+     */
+    public function import()
+    {
+        $locales = $this->localeManager->getLocaleTransferCollection();
+
+        foreach ($locales as $localeCode => $localeTransfer) {
+            $icecatLocale = $this->localeManager->getLocaleByCode($localeCode);
+            $this->importData($localeTransfer, $icecatLocale);
+        }
     }
 
 }

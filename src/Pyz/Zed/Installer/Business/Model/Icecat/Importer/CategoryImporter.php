@@ -2,13 +2,12 @@
 
 namespace Pyz\Zed\Installer\Business\Model\Icecat\Importer;
 
-use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
-use Generated\Shared\Transfer\NodeTransfer;
 use Pyz\Zed\Category\Business\CategoryFacade;
 use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatImporter;
-use Pyz\Zed\Installer\Business\Model\Icecat\IcecatReaderInterface;
-use Symfony\Component\Config\Definition\Exception\Exception;
+use Pyz\Zed\Installer\Business\Model\Icecat\IcecatLocale;
+use Pyz\Zed\Installer\Business\Model\Icecat\IcecatLocaleManager;
+use Pyz\Zed\Installer\Business\Model\Reader\CsvReaderInterface;
 
 class CategoryImporter extends AbstractIcecatImporter
 {
@@ -19,12 +18,24 @@ class CategoryImporter extends AbstractIcecatImporter
     protected $categoryFacade;
 
     /**
-     * IcecatInstaller constructor.
+     * @param \Pyz\Zed\Installer\Business\Model\Reader\CsvReaderInterface $csvReader
+     * @param \Pyz\Zed\Installer\Business\Model\Icecat\IcecatLocaleManager $localeManager
+     * @param CategoryFacade $categoryFacade
      */
-    public function __construct(IcecatReaderInterface $xmlReader, CategoryFacade $categoryFacade)
+    public function __construct(CsvReaderInterface $csvReader, IcecatLocaleManager $localeManager, CategoryFacade $categoryFacade)
     {
-        parent::__construct($xmlReader);
+        parent::__construct($csvReader, $localeManager);
         $this->categoryFacade = $categoryFacade;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
+     * @param \Pyz\Zed\Installer\Business\Model\Icecat\IcecatLocale $icecatLocale
+     *
+     * @return void
+     */
+    protected function importData(LocaleTransfer $localeTransfer, IcecatLocale $icecatLocale)
+    {
     }
 
 }

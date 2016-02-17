@@ -8,7 +8,6 @@ class InstallerConfig extends SprykerInstallerConfig
 {
 
     const CATEGORY_RESOURCE = 'category';
-    const LOCALE_RESOURCE = 'locale';
     const PRODUCT_RESOURCE = 'product';
 
     /**

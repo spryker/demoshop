@@ -3,10 +3,10 @@
 namespace Pyz\Zed\Installer\Business;
 
 use Pyz\Zed\Installer\Business\Model\Icecat\IcecatInstaller;
-use Pyz\Zed\Installer\Business\Model\Icecat\IcecatReader;
 use Pyz\Zed\Installer\Business\Model\Icecat\Importer\CategoryImporter;
-use Pyz\Zed\Installer\Business\Model\Icecat\Importer\LocaleImporter;
 use Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductImporter;
+use Pyz\Zed\Installer\Business\Model\Icecat\IcecatLocaleManager;
+use Pyz\Zed\Installer\Business\Model\Reader\CsvReader;
 use Pyz\Zed\Installer\InstallerConfig;
 use Pyz\Zed\Installer\InstallerDependencyProvider;
 use Spryker\Zed\Installer\Business\InstallerBusinessFactory as SprykerInstallerBusinessFactory;
@@ -23,14 +23,16 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
      */
     public function getIcecatDataImporters()
     {
-        $reader = $this->getIcecatReader();
+        $csvReader = $this->getCsvReader();
+        $localeManager = $this->getIcecatLocaleManager();
 
         return [
             InstallerConfig::CATEGORY_RESOURCE => new CategoryImporter(
-                $reader, $this->getProvidedDependency(InstallerDependencyProvider::FACADE_CATEGORY)
+                $csvReader,
+                $localeManager,
+                $this->getProvidedDependency(InstallerDependencyProvider::FACADE_CATEGORY)
             ),
-            InstallerConfig::LOCALE_RESOURCE => new LocaleImporter($reader),
-            InstallerConfig::PRODUCT_RESOURCE => new ProductImporter($reader),
+            InstallerConfig::PRODUCT_RESOURCE => new ProductImporter($csvReader, $localeManager),
         ];
     }
 
@@ -43,21 +45,29 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     {
         $importerCollection = $this->getIcecatDataImporters();
 
-        return new IcecatInstaller(
-            $output,
-            $this->getProvidedDependency(InstallerDependencyProvider::FACADE_LOCALE),
-            $importerCollection
-        );
+        return new IcecatInstaller($output, $importerCollection);
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Model\Icecat\IcecatReader
+     * @return \Pyz\Zed\Installer\Business\Model\Reader\CsvReaderInterface
      */
-    public function getIcecatReader()
+    public function getCsvReader()
     {
         $path = $this->getConfig()->getIcecatDataPath();
 
-        return new IcecatReader($path);
+        return new CsvReader($path);
+    }
+
+    /**
+     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
+     * @return IcecatLocaleManager
+     */
+    public function getIcecatLocaleManager()
+    {
+        return new IcecatLocaleManager(
+            $this->getProvidedDependency(InstallerDependencyProvider::FACADE_LOCALE)
+        );
     }
 
 }
