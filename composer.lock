@@ -4,13 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "hash": "97257ac95a8de04f00d7b95bc80309d9",
-    "content-hash": "06fac11922fa45eaa8d6ab8fb74a93bd",
-=======
-    "hash": "5f9dce0aca0ae1c42395750ecbdb4a1a",
+    "hash": "b8e3915febfd7a935ad038b73a4a2623",
     "content-hash": "6230af5c1ab745a7826d3ae3c99ca14c",
->>>>>>> #1196 update spryker/spryker
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -784,11 +779,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-                "reference": "511e24f2230cf02fdf105ec07a80db75db9d9bb3"
-=======
-                "reference": "5386093eab908834f90b2636481aa90451b263a7"
->>>>>>> #1196 update spryker/spryker
+                "reference": "37f16b690e032badba78d534b9b96904a9ea53ab"
             },
             "require": {
                 "phpdocumentor/graphviz": "dev-master#a906a90"
@@ -808,11 +799,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-<<<<<<< HEAD
-            "time": "2016-02-16 17:00:14"
-=======
-            "time": "2016-02-12 08:22:21"
->>>>>>> #1196 update spryker/spryker
+            "time": "2016-02-12 08:33:47"
         },
         {
             "name": "symfony-cmf/routing",
@@ -3568,22 +3555,24 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "v1.5.0",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "4745ded9307786b730d7a60df5cb5a6c43cf95f7"
+                "reference": "3c91bdf81797d725b14cb62906f9a4ce44235972"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/4745ded9307786b730d7a60df5cb5a6c43cf95f7",
-                "reference": "4745ded9307786b730d7a60df5cb5a6c43cf95f7",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/3c91bdf81797d725b14cb62906f9a4ce44235972",
+                "reference": "3c91bdf81797d725b14cb62906f9a4ce44235972",
                 "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.0.2",
+                "php": "^5.3|^7.0",
                 "phpdocumentor/reflection-docblock": "~2.0",
-                "sebastian/comparator": "~1.1"
+                "sebastian/comparator": "~1.1",
+                "sebastian/recursion-context": "~1.0"
             },
             "require-dev": {
                 "phpspec/phpspec": "~2.0"
@@ -3591,7 +3580,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4.x-dev"
+                    "dev-master": "1.5.x-dev"
                 }
             },
             "autoload": {
@@ -3624,7 +3613,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2015-08-13 10:07:40"
+            "time": "2016-02-15 07:46:21"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -3868,16 +3857,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.22",
+            "version": "4.8.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "dfb11aa5236376b4fc63853cf746af39fe780e72"
+                "reference": "6e351261f9cd33daf205a131a1ba61c6d33bd483"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/dfb11aa5236376b4fc63853cf746af39fe780e72",
-                "reference": "dfb11aa5236376b4fc63853cf746af39fe780e72",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6e351261f9cd33daf205a131a1ba61c6d33bd483",
+                "reference": "6e351261f9cd33daf205a131a1ba61c6d33bd483",
                 "shasum": ""
             },
             "require": {
@@ -3936,7 +3925,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-02-02 09:01:21"
+            "time": "2016-02-11 14:56:33"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -4698,16 +4687,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "4961a325750ee95316d0f1c07854a4690f9559fa"
+                "reference": "d3d98664910ae331cc6cdbaeb94690461c95953b"
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/9e1f7a52ab2c2b52859b45ffd243da2f4cea612e",
-=======
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/6dfa4f9ab8a79a885e4cc61429a681ebb7c49e82",
->>>>>>> #1196 update spryker/spryker
-                "reference": "4961a325750ee95316d0f1c07854a4690f9559fa",
+                "reference": "d3d98664910ae331cc6cdbaeb94690461c95953b",
                 "shasum": ""
             },
             "require": {
@@ -4736,7 +4721,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-02-10 10:59:25"
+            "time": "2016-02-16 13:28:56"
         },
         {
             "name": "squizlabs/php_codesniffer",
