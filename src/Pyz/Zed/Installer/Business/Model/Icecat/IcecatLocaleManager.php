@@ -3,7 +3,6 @@
 namespace Pyz\Zed\Installer\Business\Model\Icecat;
 
 use Pyz\Zed\Installer\Business\Exception\LocaleNotFoundException;
-use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 
 class IcecatLocaleManager
@@ -12,7 +11,7 @@ class IcecatLocaleManager
     /**
      * @var array
      */
-    protected $localeData = [
+    protected $icecatLocaleData = [
         'de_DE' => [
             'id' => 4,
             'sid' => 4795,
@@ -58,7 +57,7 @@ class IcecatLocaleManager
      */
     protected function validateLocaleCode($code)
     {
-        if (!array_key_exists($code, $this->localeData)) {
+        if (!array_key_exists($code, $this->icecatLocaleData)) {
             throw new LocaleNotFoundException($code);
         }
     }
@@ -74,11 +73,11 @@ class IcecatLocaleManager
     {
         $this->validateLocaleCode($code);
 
-        return new IcecatLocale($this->localeData[$code]);
+        return new IcecatLocale($this->icecatLocaleData[$code]);
     }
 
     /**
-     * @param string $idIcecat
+     * @param int $idIcecat
      *
      * @throws LocaleNotFoundException
      *
@@ -86,7 +85,7 @@ class IcecatLocaleManager
      */
     public function getLocaleByIcecatId($idIcecat)
     {
-        $locale = array_filter($this->localeData, function ($localeData) use ($idIcecat) {
+        $locale = array_filter($this->icecatLocaleData, function ($localeData) use ($idIcecat) {
             return (int) $localeData['id'] === (int) $idIcecat;
         });
 
@@ -106,7 +105,7 @@ class IcecatLocaleManager
      */
     public function getLocaleTransferCollection()
     {
-        $locales = Store::getInstance()->getLocales();
+        $locales = $this->localeFacade->getAvailableLocales();
 
         $transferCollection = [];
         foreach ($locales as $localeCode) {

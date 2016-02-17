@@ -64,6 +64,10 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
     {
         if ($this->columns === null) {
             $this->columns = explode(",\n", trim((string) $this->getColumnHeader()));
+
+            array_walk($this->columns, function (&$item) {
+                $item = trim($item);
+            });
         }
 
         return $this->columns;
