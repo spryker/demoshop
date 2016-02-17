@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b8e3915febfd7a935ad038b73a4a2623",
-    "content-hash": "6230af5c1ab745a7826d3ae3c99ca14c",
+    "hash": "97257ac95a8de04f00d7b95bc80309d9",
+    "content-hash": "06fac11922fa45eaa8d6ab8fb74a93bd",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -775,11 +775,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/1196-EventJournal-Blacklist-does-not-work-for-Transfers",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "37f16b690e032badba78d534b9b96904a9ea53ab"
+                "reference": "af62681196110cd5830f81d27eb3ea822ed096f5"
             },
             "require": {
                 "phpdocumentor/graphviz": "dev-master#a906a90"
@@ -799,7 +799,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2016-02-12 08:33:47"
+            "time": "2016-02-17 10:11:37"
         },
         {
             "name": "symfony-cmf/routing",
