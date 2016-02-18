@@ -56,7 +56,7 @@ class NodeUrlManager extends SprykerNodeUrlManager
 
         $locale = mb_substr($localeEntity->getLocaleName(), 0, 2);
 
-        if (strpos('/' . $locale . '/', $url) !== 0) {
+        if ($url === '/' || strpos('/' . $locale . '/', $url) !== 0) {
             $url = '/' . $locale . $url;
         }
 
