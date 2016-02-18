@@ -73,7 +73,8 @@
   "minimum-stability": "stable",
   "prefer-stable": true,
   "config": {
-    "use-include-path": true
+    "use-include-path": true,
+    "process-timeout": 600
   },
   "repositories": [
     {
