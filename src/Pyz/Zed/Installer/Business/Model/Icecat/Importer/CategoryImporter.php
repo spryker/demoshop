@@ -11,7 +11,6 @@ use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\Installer\InstallerConfig;
 use Spryker\Zed\Touch\Business\TouchFacadeInterface;
 use Spryker\Zed\Url\Business\UrlFacadeInterface;
-use Symfony\Component\Validator\Constraints\Locale;
 
 class CategoryImporter extends AbstractIcecatImporter
 {
@@ -120,13 +119,14 @@ class CategoryImporter extends AbstractIcecatImporter
      */
     protected function addRootNodes(array $data)
     {
-        foreach ($this->localeManager->getLocaleTransferCollection() as $localeCode => $localeTransfer) {
-            $categoryTransfer = $this->createCategory($data[$localeCode], $localeTransfer);
+        //$categoryTransfer = $this->createCategory($data);
+        $idCategory = $this->createCategory($data);
 
+        foreach ($this->localeManager->getLocaleTransferCollection() as $localeCode => $localeTransfer) {
             $rootNodeTransfer = new NodeTransfer();
             $rootNodeTransfer->setIsRoot(true);
             $rootNodeTransfer->setIsMain(true);
-            $rootNodeTransfer->setFkCategory($categoryTransfer->getIdCategory());
+            $rootNodeTransfer->setFkCategory($idCategory);
 
             $this->categoryFacade->createCategoryNode($rootNodeTransfer, new LocaleTransfer(), false);
             $this->nodeUrlManager->createUrl($rootNodeTransfer, $localeTransfer);
@@ -140,7 +140,7 @@ class CategoryImporter extends AbstractIcecatImporter
      *
      * @return CategoryTransfer
      */
-    protected function createCategory(array $data, LocaleTransfer $localeTransfer)
+    protected function createCategory2(array $data, LocaleTransfer $localeTransfer)
     {
         $categoryTransfer = new CategoryTransfer();
         $categoryTransfer->fromArray($data);
@@ -156,10 +156,10 @@ class CategoryImporter extends AbstractIcecatImporter
      *
      * @return int|null
      */
-    protected function createCategory2(array $data)
+    protected function createCategory(array $data)
     {
-        $locales = $this->localeManager->getLocaleTransferCollection();
         $idCategory = null;
+        $locales = $this->localeManager->getLocaleTransferCollection();
 
         foreach ($locales as $code => $localeTransfer) {
             $categoryTransfer = new CategoryTransfer();
@@ -201,7 +201,7 @@ class CategoryImporter extends AbstractIcecatImporter
         foreach ($this->localeManager->getLocaleTransferCollection() as $code => $localeTransfer) {
             $rootData[$code] = [
                 CategoryTransfer::NAME => 'Root ' . $code,
-                CategoryTransfer::CATEGORY_KEY => 'root_' . $code,
+                CategoryTransfer::CATEGORY_KEY => 'demoshop_root',
                 CategoryTransfer::CATEGORY_IMAGE_NAME => '',
                 CategoryTransfer::IS_ACTIVE => true,
                 CategoryTransfer::IS_CLICKABLE => false,
