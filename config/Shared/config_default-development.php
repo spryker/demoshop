@@ -7,8 +7,8 @@
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Session\SessionConstants;
-use Spryker\Shared\Log\Config\DefaultLoggerConfig;
 use Spryker\Shared\Payone\PayoneConstants;
+use Spryker\Shared\Log\LogConstants;
 
 $config[ApplicationConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
 $config[ApplicationConstants::ZED_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_FILE;
@@ -61,4 +61,4 @@ $config[ApplicationConstants::STORE_PREFIX] = 'DEV';
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = true;
 $config[ApplicationConstants::SHOW_SYMFONY_TOOLBAR] = true;
 
-$config[DefaultLoggerConfig::DEFAULT_LOG_LEVEL] = Monolog\Logger::INFO;
+$config[LogConstants::LOG_LEVEL] = \Monolog\Logger::INFO;

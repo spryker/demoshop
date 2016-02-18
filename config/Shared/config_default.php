@@ -9,14 +9,14 @@ use Spryker\Shared\User\UserConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\NewRelic\NewRelicConstants;
 use Spryker\Shared\Session\SessionConstants;
-use Spryker\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumberConfig;
-use Spryker\Shared\Log\Config\DefaultLoggerConfig;
+use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\CustomerMailConnector\CustomerMailConnectorConstants;
 use Spryker\Shared\Newsletter\NewsletterConstants;
 use Spryker\Shared\Price\PriceConstants;
 use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
 use Spryker\Shared\Sales\SalesConstants;
+use Spryker\Shared\Log\LogConstants;
 
 $config[ApplicationConstants::PROJECT_NAMESPACES] = [
     'Pyz',
@@ -338,7 +338,7 @@ $config[EventJournalConstants::WRITER_OPTIONS] = [
 
 $config[ApplicationConstants::PROPEL_DEBUG] = false;
 $config[ApplicationConstants::SHOW_SYMFONY_TOOLBAR] = false;
-$config[SequenceNumberConfig::ENVIRONMENT_PREFIX]
+$config[SequenceNumberConstants::ENVIRONMENT_PREFIX]
     = $config[SalesConstants::ENVIRONMENT_PREFIX]
     = '';
 
@@ -364,7 +364,6 @@ $config[PayolutionConstants::PAYOLUTION_BCC_EMAIL] = 'invoices@payolution.com';
 
 $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 
-$config[DefaultLoggerConfig::DEFAULT_LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application.log';
-$config[DefaultLoggerConfig::DEFAULT_LOG_LEVEL] = Monolog\Logger::ERROR;
+$config[LogConstants::LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application.log';
 
 $config[ApplicationConstants::ERROR_LEVEL] = E_ALL;
