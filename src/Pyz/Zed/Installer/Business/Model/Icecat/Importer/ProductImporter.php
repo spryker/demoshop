@@ -145,7 +145,7 @@ class ProductImporter extends AbstractIcecatImporter
         $productAbstract = new ProductAbstractTransfer();
         $productConcrete = new ProductConcreteTransfer();
 
-        $locales = $this->localeManager->getLocaleTransferCollection();
+        $locales = $this->localeManager->getLocaleCollection();
 
         foreach ($locales as $localeCode => $localeTransfer) {
             $localizedAttributes = new LocalizedAttributesTransfer();

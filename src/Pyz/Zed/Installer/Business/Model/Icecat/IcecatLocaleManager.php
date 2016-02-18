@@ -103,7 +103,7 @@ class IcecatLocaleManager
     /**
      * @return \Generated\Shared\Transfer\LocaleTransfer[]
      */
-    public function getLocaleTransferCollection()
+    public function getLocaleCollection()
     {
         $locales = $this->localeFacade->getAvailableLocales();
 

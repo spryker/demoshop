@@ -14,6 +14,12 @@ interface CsvReaderInterface
      *
      * @return SplFileObject
      */
-    public function getCsvFile($filename);
+    public function readCsvFile($filename);
+
+
+    /**
+     * @return array
+     */
+    public function getColumns();
 
 }

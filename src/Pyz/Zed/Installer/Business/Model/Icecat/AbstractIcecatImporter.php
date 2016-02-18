@@ -24,14 +24,14 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
     protected $localeManager;
 
     /**
+     * @var string
+     */
+    protected $columnsHeader;
+
+    /**
      * @return void
      */
     abstract protected function importData();
-
-    /**
-     * @return string
-     */
-    abstract protected function getColumnHeader();
 
     /**
      * @return bool
@@ -49,50 +49,15 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
     }
 
     /**
-     * @param string $filename
+     * TODO move it to csvReader
      *
-     * @return SplFileObject
-     */
-    protected function getCsvFile($filename)
-    {
-        $csvFile = $this->csvReader->getCsvFile($filename);
-
-        //advance past columns
-        while (!$csvFile->eof()) {
-            $csvFile->fgetcsv();
-            break;
-        }
-
-        return $csvFile;
-    }
-
-    /**
-     * @return array
-     */
-    protected function getColumns()
-    {
-        if ($this->columns === null) {
-            $this->columns = explode(',', trim((string) $this->getColumnHeader()));
-
-            array_walk($this->columns, function (&$item) {
-                $item = trim($item);
-            });
-        }
-
-        return $this->columns;
-    }
-
-    /**
+     * @param array $columns
      * @param array $data
      *
      * @return array
      */
-    protected function generateCsvItem(array $data)
+    protected function generateCsvItem(array $columns, array $data)
     {
-        $columns = $this->getColumns();
-
-        dump(array_values($columns), array_values($data));
-
         return array_combine(array_values($columns), array_values($data));
     }
 

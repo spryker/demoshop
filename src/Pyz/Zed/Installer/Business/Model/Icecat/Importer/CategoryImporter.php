@@ -78,26 +78,19 @@ class CategoryImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @return string
-     */
-    protected function getColumnHeader()
-    {
-        return 'catid,ucatid,pcatid,low_pic,category_name.en_EN,category_description.en_EN,category_name.de_DE,category_description.de_DE,category_name.fr_FR,category_description.fr_FR';
-    }
-
-    /**
      * @return void
      */
     protected function importData()
     {
-        $this->installRootNodes();
+        //$this->installRootNodes();
 
-        $csvFile = $this->getCsvFile('__categories_done.csv');
+        $csvFile = $this->csvReader->readCsvFile('__categories_done.csv');
+        $columns = $this->csvReader->getColumns();
 
         while (!$csvFile->eof()) {
-            $rootCategoryData = $this->format($csvFile->fgetcsv());
-
-            dump($rootCategoryData);
+            $csvData = $this->generateCsvItem($columns, $csvFile->fgetcsv());
+            $rootCategoryData = $this->format($csvData);
+            $this->createCategoryWithLocalizedAttributes($rootCategoryData);
             break;
         }
     }
@@ -109,7 +102,22 @@ class CategoryImporter extends AbstractIcecatImporter
      */
     protected function format(array $data)
     {
-        $categoryData = $this->generateCsvItem($data);
+        $categoryData = [];
+        foreach ($this->localeManager->getLocaleCollection() as $code => $localeTransfer) {
+            $nameKey = 'category_name.'.$code;
+            $descriptionKey = 'category_description.'.$code;
+
+            $categoryData[$code] = [
+                CategoryTransfer::NAME => $data[$nameKey],
+                CategoryTransfer::CATEGORY_KEY => $data['ucatid'],
+                CategoryTransfer::CATEGORY_IMAGE_NAME => $data['low_pic'],
+                CategoryTransfer::IS_ACTIVE => true,
+                CategoryTransfer::IS_CLICKABLE => true,
+                CategoryTransfer::IS_IN_MENU => false,
+                CategoryTransfer::META_DESCRIPTION => $data[$descriptionKey],
+                CategoryTransfer::META_TITLE => $data[$nameKey],
+            ];
+        }
 
         return $categoryData;
     }
@@ -117,38 +125,19 @@ class CategoryImporter extends AbstractIcecatImporter
     /**
      * @param array $data
      */
-    protected function addRootNodes(array $data)
+    protected function addRootNodesWithLocalizedAttributes(array $data)
     {
-        //$categoryTransfer = $this->createCategory($data);
-        $idCategory = $this->createCategory($data);
+        $idCategory = $this->createCategoryWithLocalizedAttributes($data);
 
-        foreach ($this->localeManager->getLocaleTransferCollection() as $localeCode => $localeTransfer) {
+        foreach ($this->localeManager->getLocaleCollection() as $localeCode => $localeTransfer) {
             $rootNodeTransfer = new NodeTransfer();
             $rootNodeTransfer->setIsRoot(true);
             $rootNodeTransfer->setIsMain(true);
             $rootNodeTransfer->setFkCategory($idCategory);
 
-            $this->categoryFacade->createCategoryNode($rootNodeTransfer, new LocaleTransfer(), false);
-            $this->nodeUrlManager->createUrl($rootNodeTransfer, $localeTransfer);
+            $this->categoryFacade->createCategoryNode($rootNodeTransfer, $localeTransfer);
             $this->createRootNavigation($rootNodeTransfer);
         }
-    }
-
-    /**
-     * @param array $data
-     * @param LocaleTransfer $localeTransfer
-     *
-     * @return CategoryTransfer
-     */
-    protected function createCategory2(array $data, LocaleTransfer $localeTransfer)
-    {
-        $categoryTransfer = new CategoryTransfer();
-        $categoryTransfer->fromArray($data);
-
-        $idCategory = $this->categoryFacade->createCategory($categoryTransfer, $localeTransfer);
-        $categoryTransfer->setIdCategory($idCategory);
-
-        return $categoryTransfer;
     }
 
     /**
@@ -156,10 +145,10 @@ class CategoryImporter extends AbstractIcecatImporter
      *
      * @return int|null
      */
-    protected function createCategory(array $data)
+    protected function createCategoryWithLocalizedAttributes(array $data)
     {
         $idCategory = null;
-        $locales = $this->localeManager->getLocaleTransferCollection();
+        $locales = $this->localeManager->getLocaleCollection();
 
         foreach ($locales as $code => $localeTransfer) {
             $categoryTransfer = new CategoryTransfer();
@@ -198,7 +187,7 @@ class CategoryImporter extends AbstractIcecatImporter
     protected function installRootNodes()
     {
         $rootData = [];
-        foreach ($this->localeManager->getLocaleTransferCollection() as $code => $localeTransfer) {
+        foreach ($this->localeManager->getLocaleCollection() as $code => $localeTransfer) {
             $rootData[$code] = [
                 CategoryTransfer::NAME => 'Root ' . $code,
                 CategoryTransfer::CATEGORY_KEY => 'demoshop_root',
@@ -209,7 +198,7 @@ class CategoryImporter extends AbstractIcecatImporter
             ];
         }
 
-        $this->addRootNodes($rootData);
+        $this->addRootNodesWithLocalizedAttributes($rootData);
     }
 
 }

@@ -14,6 +14,11 @@ class CsvReader implements CsvReaderInterface
     protected $dataDirectory;
 
     /**
+     * @var array
+     */
+    protected $columns = [];
+
+    /**
      * @param string $dataDirectory
      */
     public function __construct($dataDirectory)
@@ -28,7 +33,7 @@ class CsvReader implements CsvReaderInterface
      *
      * @return \SplFileObject
      */
-    public function getCsvFile($filename)
+    public function readCsvFile($filename)
     {
         $filename = $this->dataDirectory . DIRECTORY_SEPARATOR . $filename;
 
@@ -40,7 +45,30 @@ class CsvReader implements CsvReaderInterface
         $csvFile->setCsvControl(',', '"');
         $csvFile->setFlags(SplFileObject::READ_CSV | SplFileObject::READ_AHEAD | SplFileObject::SKIP_EMPTY | SplFileObject::DROP_NEW_LINE);
 
+        $this->setupColumns($csvFile);
+
         return $csvFile;
+    }
+
+    /**
+     * @param \SplFileObject $csvFile
+     *
+     * @return array
+     */
+    protected function setupColumns(\SplFileObject $csvFile)
+    {
+        while (!$csvFile->eof()) {
+            $this->columns = $csvFile->fgetcsv();
+            break;
+        }
+    }
+
+    /**
+     * @return array
+     */
+    public function getColumns()
+    {
+        return $this->columns;
     }
 
 }
