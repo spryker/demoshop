@@ -365,6 +365,5 @@ $config[PayolutionConstants::PAYOLUTION_BCC_EMAIL] = 'invoices@payolution.com';
 $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 
 $config[LogConstants::LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application.log';
-$config[LogConstants::LOG_LEVEL] = \Monolog\Logger::ERROR;
 
 $config[ApplicationConstants::ERROR_LEVEL] = E_ALL;
