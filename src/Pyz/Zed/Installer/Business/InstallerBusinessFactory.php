@@ -259,7 +259,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     /**
      * @return \Spryker\Zed\Category\Business\TransferGeneratorInterface
      */
-    public function createCategoryTransferGenerator()
+    protected function createCategoryTransferGenerator()
     {
         return new TransferGenerator();
     }

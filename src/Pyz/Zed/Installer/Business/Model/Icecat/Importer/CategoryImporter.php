@@ -96,6 +96,12 @@ class CategoryImporter extends AbstractIcecatImporter
      */
     protected function importData()
     {
+        $this->addRootNode([
+            self::CATEGORY_NAME => 'Root',
+            self::CATEGORY_KEY => 'root',
+            self::IMAGE_NAME => '',
+        ]);
+
         $csvFile = $this->getCsvFile('__categories_done.csv');
 
         while (!$csvFile->eof()) {
@@ -132,10 +138,8 @@ class CategoryImporter extends AbstractIcecatImporter
         $this->categoryFacade->createCategoryNode($rootNodeTransfer, new LocaleTransfer(), false);
 
         foreach ($this->localeManager->getLocaleTransferCollection() as $localeCode => $localeTransfer) {
-            $this->nodeUrlManager->createUrl($categoryNode, $locale);
+            $this->nodeUrlManager->createUrl($rootNodeTransfer, $localeTransfer);
         }
-
-        //add fucking urls manually
 
         $this->createRootNavigation($rootNodeTransfer);
     }
