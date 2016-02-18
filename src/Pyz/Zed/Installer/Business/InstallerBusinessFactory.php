@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Installer\Business;
 
+use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
 use Pyz\Zed\Installer\Business\Model\Icecat\IcecatInstaller;
 use Pyz\Zed\Installer\Business\Model\Icecat\Importer\CategoryImporter;
 use Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductImporter;
@@ -9,6 +10,13 @@ use Pyz\Zed\Installer\Business\Model\Icecat\IcecatLocaleManager;
 use Pyz\Zed\Installer\Business\Model\Reader\CsvReader;
 use Pyz\Zed\Installer\InstallerConfig;
 use Pyz\Zed\Installer\InstallerDependencyProvider;
+use Spryker\Zed\Category\Business\Generator\UrlPathGenerator;
+use Spryker\Zed\Category\Business\TransferGenerator;
+use Spryker\Zed\Category\Business\Tree\CategoryTreeReader;
+use Spryker\Zed\Category\Business\Tree\CategoryTreeWriter;
+use Spryker\Zed\Category\Business\Tree\ClosureTableWriter;
+use Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter;
+use Spryker\Zed\Category\Business\Tree\NodeWriter;
 use Spryker\Zed\Installer\Business\InstallerBusinessFactory as SprykerInstallerBusinessFactory;
 use Spryker\Zed\Product\Business\Attribute\AttributeManager;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -35,12 +43,14 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
      */
     protected function getCategoryImporter()
     {
-        $csvReader = $this->getCsvReader();
-        $localeManager = $this->getIcecatLocaleManager();
-        $categoryFacade = $this->getProvidedDependency(InstallerDependencyProvider::FACADE_CATEGORY);
+        $categoryImporter = new CategoryImporter(
+            $this->getCsvReader(), $this->getIcecatLocaleManager()
+        );
 
-        $categoryImporter = new CategoryImporter($csvReader, $localeManager);
-        $categoryImporter->setCategoryFacade($categoryFacade);
+        $categoryImporter->setCategoryFacade($this->getCategoryFacade());
+        $categoryImporter->setTouchFacade($this->getTouchFacade());
+        $categoryImporter->setUrlFacade($this->getUrlFacade());
+        $categoryImporter->setNodeUrlManager($this->createNodeUrlManager());
 
         return $categoryImporter;
     }
@@ -50,14 +60,12 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
      */
     protected function getProductImporter()
     {
-        $csvReader = $this->getCsvReader();
-        $localeManager = $this->getIcecatLocaleManager();
-        $attributeManager = $this->createAttributeManager();
-        $productFacade = $this->getProductFacade();
+        $productImporter = new ProductImporter(
+            $this->getCsvReader(), $this->getIcecatLocaleManager()
+        );
 
-        $productImporter = new ProductImporter($csvReader, $localeManager);
-        $productImporter->setProductFacade($productFacade);
-        $productImporter->setAttributeManager($attributeManager);
+        $productImporter->setProductFacade($this->getProductFacade());
+        $productImporter->setAttributeManager($this->createAttributeManager());
 
         return $productImporter;
     }
@@ -69,9 +77,9 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
      */
     public function getIcecatDataInstaller(OutputInterface $output)
     {
-        $importerCollection = $this->getIcecatDataImporters();
-
-        return new IcecatInstaller($output, $importerCollection);
+        return new IcecatInstaller(
+            $output, $this->getIcecatDataImporters()
+        );
     }
 
     /**
@@ -79,9 +87,9 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
      */
     public function getCsvReader()
     {
-        $path = $this->getConfig()->getIcecatDataPath();
-
-        return new CsvReader($path);
+        return new CsvReader(
+            $this->getConfig()->getIcecatDataPath()
+        );
     }
 
     /**
@@ -92,7 +100,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     public function getIcecatLocaleManager()
     {
         return new IcecatLocaleManager(
-            $this->getProvidedDependency(InstallerDependencyProvider::FACADE_LOCALE)
+            $this->getLocaleFacade()
         );
     }
 
@@ -115,11 +123,169 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
+     * @return \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
+     */
+    protected function getCategoryQueryContainer()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::QUERY_CONTAINER_CATEGORY);
+    }
+
+    /**
+     * @return \Pyz\Zed\Category\Business\CategoryFacade
+     */
+    protected function getCategoryFacade()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::FACADE_CATEGORY);
+    }
+
+    /**
      * @return \Pyz\Zed\Product\Business\ProductFacade
      */
     protected function getProductFacade()
     {
         return $this->getProvidedDependency(InstallerDependencyProvider::FACADE_PRODUCT);
+    }
+
+    /**
+     * @return \Spryker\Zed\Touch\Business\TouchFacadeInterface
+     */
+    protected function getTouchFacade()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::FACADE_TOUCH);
+    }
+
+    /**
+     * @return \Spryker\Zed\Locale\Business\LocaleFacadeInterface
+     */
+    protected function getLocaleFacade()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::FACADE_LOCALE);
+    }
+
+    /**
+     * @return \Spryker\Zed\Url\Business\UrlFacadeInterface
+     */
+    protected function getUrlFacade()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::FACADE_URL);
+    }
+
+    /**
+     * @return \Pyz\Zed\Category\Business\Manager\NodeUrlManager
+     */
+    protected function createNodeUrlManager()
+    {
+        return new NodeUrlManager(
+            $this->createCategoryTreeReader(),
+            $this->createUrlPathGenerator(),
+            $this->getCategoryToUrlBridge(),
+            $this->getCategoryQueryContainer(),
+            $this->getProvidedDependency(InstallerDependencyProvider::QUERY_CONTAINER_LOCALE)
+        );
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Business\Tree\CategoryTreeWriter
+     */
+    public function createCategoryTreeWriter()
+    {
+        return new CategoryTreeWriter(
+            $this->createNodeWriter(),
+            $this->createClosureTableWriter(),
+            $this->createCategoryTreeReader(),
+            $this->createNodeUrlManager(),
+            $this->getCategoryToTouchBridge(),
+            $this->getQueryContainer()->getConnection()
+        );
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Business\Tree\CategoryTreeReader
+     */
+    public function createCategoryTreeReader()
+    {
+        return new CategoryTreeReader(
+            $this->getCategoryQueryContainer(),
+            $this->createCategoryTreeFormatter()
+        );
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Business\Tree\NodeWriterInterface
+     */
+    public function createNodeWriter()
+    {
+        return new NodeWriter(
+            $this->getCategoryQueryContainer()
+        );
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Business\Generator\UrlPathGeneratorInterface
+     */
+    public function createUrlPathGenerator()
+    {
+        return new UrlPathGenerator();
+    }
+
+    /**
+     * @param array $category
+     *
+     * @return \Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter
+     */
+    public function createCategoryTreeStructure(array $category)
+    {
+        return new CategoryTreeFormatter($category);
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Business\Tree\ClosureTableWriterInterface
+     */
+    protected function createClosureTableWriter()
+    {
+        return new ClosureTableWriter(
+            $this->getCategoryQueryContainer()
+        );
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter
+     */
+    protected function createCategoryTreeFormatter()
+    {
+        return new CategoryTreeFormatter();
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Business\TransferGeneratorInterface
+     */
+    public function createCategoryTransferGenerator()
+    {
+        return new TransferGenerator();
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Dependency\Facade\CategoryToTouchInterface
+     */
+    protected function getCategoryToTouchBridge()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::BRIDGE_CATEGORY_TO_TOUCH);
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Dependency\Facade\CategoryToUrlInterface
+     */
+    protected function getCategoryToUrlBridge()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::BRIDGE_CATEGORY_TO_URL);
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Dependency\Facade\CategoryToLocaleInterface
+     */
+    protected function getCategoryToLocaleBridge()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::BRIDGE_CATEGORY_TO_LOCALE);
     }
 
 }

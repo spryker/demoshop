@@ -9,6 +9,7 @@ class InstallerConfig extends SprykerInstallerConfig
 
     const RESOURCE_CATEGORY = 'category';
     const RESOURCE_PRODUCT = 'product';
+    const RESOURCE_NAVIGATION = 'navigation';
 
     /**
      * @return string

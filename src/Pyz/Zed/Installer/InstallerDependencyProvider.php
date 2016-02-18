@@ -17,6 +17,9 @@ use Pyz\Zed\Cms\Communication\Plugin\DemoDataInstaller as CmsDemoDataInstaller;
 use Pyz\Zed\Glossary\Communication\Plugin\DemoDataInstaller as GlossaryDemoDataInstaller;
 use Pyz\Zed\Category\Communication\Plugin\DemoDataInstaller as CategoryDemoInstaller;
 use Spryker\Zed\Acl\Communication\Plugin\Installer as AclInstaller;
+use Spryker\Zed\Category\Dependency\Facade\CategoryToLocaleBridge;
+use Spryker\Zed\Category\Dependency\Facade\CategoryToTouchBridge;
+use Spryker\Zed\Category\Dependency\Facade\CategoryToUrlBridge;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\User\Communication\Plugin\Installer as UserInstaller;
 use Spryker\Zed\Country\Communication\Plugin\Installer as CountryCountryCountryInstaller;
@@ -35,7 +38,14 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
     const FACADE_PRODUCT_CATEGORY = 'facade product category';
     const FACADE_TOUCH = 'facade touch';
     const FACADE_URL = 'facade url';
+
+    const QUERY_CONTAINER_CATEGORY = 'query container category';
+    const QUERY_CONTAINER_LOCALE = 'query container locale';
     const QUERY_CONTAINER_PRODUCT = 'query container product';
+
+    const BRIDGE_CATEGORY_TO_URL = 'BRIDGE_CATEGORY_TO_URL';
+    const BRIDGE_CATEGORY_TO_TOUCH = 'BRIDGE_CATEGORY_TO_TOUCH';
+    const BRIDGE_CATEGORY_TO_LOCALE = 'BRIDGE_CATEGORY_TO_LOCALE';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -72,6 +82,26 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
 
         $container[self::QUERY_CONTAINER_PRODUCT] = function (Container $container) {
             return $container->getLocator()->product()->queryContainer();
+        };
+
+        $container[self::QUERY_CONTAINER_CATEGORY] = function (Container $container) {
+            return $container->getLocator()->category()->queryContainer();
+        };
+
+        $container[self::QUERY_CONTAINER_LOCALE] = function (Container $container) {
+            return $container->getLocator()->locale()->queryContainer();
+        };
+
+        $container[self::BRIDGE_CATEGORY_TO_URL] = function (Container $container) {
+            return new CategoryToUrlBridge($container->getLocator()->url()->facade());
+        };
+
+        $container[self::BRIDGE_CATEGORY_TO_TOUCH] = function (Container $container) {
+            return new CategoryToTouchBridge($container->getLocator()->touch()->facade());
+        };
+
+        $container[self::BRIDGE_CATEGORY_TO_LOCALE] = function (Container $container) {
+            return new CategoryToLocaleBridge($container->getLocator()->locale()->facade());
         };
 
         return $container;

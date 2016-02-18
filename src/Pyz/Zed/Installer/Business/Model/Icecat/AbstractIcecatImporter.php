@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\Installer\Business\Model\Icecat;
 
-use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Zed\Installer\Business\Model\Reader\CsvReaderInterface;
 use SplFileObject;
 
@@ -25,12 +24,9 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
     protected $localeManager;
 
     /**
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     * @param \Pyz\Zed\Installer\Business\Model\Icecat\IcecatLocale $icecatLocale
-     *
      * @return void
      */
-    abstract protected function importData(LocaleTransfer $localeTransfer, IcecatLocale $icecatLocale);
+    abstract protected function importData();
 
     /**
      * @return string
@@ -109,12 +105,7 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
             return;
         }
 
-        $locales = $this->localeManager->getLocaleTransferCollection();
-
-        foreach ($locales as $localeCode => $localeTransfer) {
-            $icecatLocale = $this->localeManager->getLocaleByCode($localeCode);
-            $this->importData($localeTransfer, $icecatLocale);
-        }
+        $this->importData();
     }
 
 }

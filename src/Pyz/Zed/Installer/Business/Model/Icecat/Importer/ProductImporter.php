@@ -2,12 +2,10 @@
 
 namespace Pyz\Zed\Installer\Business\Model\Icecat\Importer;
 
-use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatImporter;
-use Pyz\Zed\Installer\Business\Model\Icecat\IcecatLocale;
 use Pyz\Zed\Product\Business\ProductFacade;
 use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
 
@@ -69,12 +67,9 @@ class ProductImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     * @param \Pyz\Zed\Installer\Business\Model\Icecat\IcecatLocale $icecatLocale
-     *
      * @return void
      */
-    protected function importData(LocaleTransfer $localeTransfer, IcecatLocale $icecatLocale)
+    protected function importData()
     {
         $csvFile = $this->getCsvFile('products.csv');
         $currentLine = 0;
