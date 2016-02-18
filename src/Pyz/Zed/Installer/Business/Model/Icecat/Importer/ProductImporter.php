@@ -9,14 +9,48 @@ use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\Installer\Business\Model\Icecat\IcecatLocale;
 use Pyz\Zed\Product\Business\ProductFacade;
+use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
 
 class ProductImporter extends AbstractIcecatImporter
 {
+
+    const PRODUCT_ABSTRACT = 'product_abstract';
+    const PRODUCT_CONCRETE_COLLECTION = 'product_concrete_collection';
+
+    /**
+     * @var array
+     */
+    protected $urlReplacements = [
+        ' ' => '-',
+        ',' => '',
+        'ä' => 'ae',
+        'ö' => 'oe',
+        'ü' => 'ue',
+        'ß' => 'ss',
+    ];
+
+    /**
+     * @var \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface
+     */
+    protected $attributeManager;
 
     /**
      * @var \Pyz\Zed\Product\Business\ProductFacade
      */
     protected $productFacade;
+
+    protected function getColumnHeader()
+    {
+        return 'slug,variantId,sku,productType,name.en,manufacturer_name,manufacturer_icecat_id,manufacturer_icecat_original_id,manufacturer_product_id,manufacturer_product_id_normal,ean_upc_set,images,image_url_small,image_url_thumb,category_name.en,category_icecat_id,category_uncat_it,categories,tax,icecat_data_quality,icecat_factsheet_url,icecat_xml_data_url,on_market,on_market_countries_set,icecat_last_updated';
+    }
+
+    /**
+     * @param \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface $attributeManager
+     */
+    public function setAttributeManager(AttributeManagerInterface $attributeManager)
+    {
+        $this->attributeManager = $attributeManager;
+    }
 
     /**
      * @param \Pyz\Zed\Product\Business\ProductFacade $productFacade
@@ -26,35 +60,12 @@ class ProductImporter extends AbstractIcecatImporter
         $this->productFacade = $productFacade;
     }
 
-    protected function getColumnHeader()
+    /**
+     * @return bool
+     */
+    public function canImport()
     {
-        return '
-            slug,
-            variantId,
-            sku,
-            productType,
-            name.en,
-            manufacturer_name,
-            manufacturer_icecat_id,
-            manufacturer_icecat_original_id,
-            manufacturer_product_id,
-            manufacturer_product_id_normal,
-            ean_upc_set,
-            images,
-            image_url_small,
-            image_url_thumb,
-            category_name.en,
-            category_icecat_id,
-            category_uncat_it,
-            categories,
-            tax,
-            icecat_data_quality,
-            icecat_factsheet_url,
-            icecat_xml_data_url,
-            on_market,
-            on_market_countries_set,
-            icecat_last_updated
-        ';
+        return false;
     }
 
     /**
@@ -66,12 +77,28 @@ class ProductImporter extends AbstractIcecatImporter
     protected function importData(LocaleTransfer $localeTransfer, IcecatLocale $icecatLocale)
     {
         $csvFile = $this->getCsvFile('products.csv');
-        $columns = $this->getColumns();
         $currentLine = 0;
         $max = 2;
 
         while (!$csvFile->eof()) {
-            echo $csvFile->fgets();
+            $data = explode(',', $csvFile->fgets());
+            $product = $this->format($data);
+
+            /* @var ProductAbstractTransfer $productAbstract */
+            $productAbstract = $product[self::PRODUCT_ABSTRACT];
+            $productConcreteCollection = $product[self::PRODUCT_CONCRETE_COLLECTION];
+
+            $sku = $productAbstract->getSku();
+
+            if ($this->productFacade->hasProductAbstract($sku)) {
+                continue;
+            }
+
+            $idProductAbstract = $this->productFacade->createProductAbstract($productAbstract);
+            $productAbstract->setIdProductAbstract($idProductAbstract);
+            $this->createProductConcreteCollection($productConcreteCollection, $idProductAbstract);
+            $this->productFacade->touchProductActive($idProductAbstract);
+            $this->createAndTouchProductUrls($productAbstract, $idProductAbstract);
 
             if ($currentLine > $max) {
                 break;
@@ -79,8 +106,6 @@ class ProductImporter extends AbstractIcecatImporter
 
             $currentLine++;
         }
-
-        dump($columns);
     }
 
     protected function extractAttributes()
@@ -92,20 +117,34 @@ class ProductImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param array $product
+     * @param array $productConcreteCollection
+     * @param int $idProductAbstract
+     */
+    protected function createProductConcreteCollection(array $productConcreteCollection, $idProductAbstract)
+    {
+        foreach ($productConcreteCollection as $productConcrete) {
+            $this->productFacade->createProductConcrete($productConcrete, $idProductAbstract);
+        }
+    }
+
+    /**
+     * @param array $data
      *
      * @return array
      */
-    protected function formatProduct(array $product)
+    protected function format(array $data)
     {
+        $columns = $this->getColumns();
+        $product = array_combine(array_values($columns), array_values($data));
+
         $productImageUrl = $product['images'];
         $thumbImageUrl = $product['image_url_thumb'];
 
         $attributes = [
             'price' => (float) rand(0.01, 1999.99),
-            'width' => (float) $product->{'width'},
-            'height' => (float) $product->{'height'},
-            'depth' => (float) $product->{'depth'},
+            'width' => (float) rand(1.0, 10.0),
+            'height' => (float) rand(1.0, 10.0),
+            'depth' => (float) rand(1.0, 10.0),
         ];
 
         $productAbstract = new ProductAbstractTransfer();
@@ -113,7 +152,7 @@ class ProductImporter extends AbstractIcecatImporter
 
         $locales = $this->localeManager->getLocaleTransferCollection();
 
-        foreach ($locales as $localeCode) {
+        foreach ($locales as $localeCode => $localeTransfer) {
             $localizedAttributes = new LocalizedAttributesTransfer();
             $localizedAttributes->setAttributes([
                 'image_url' => '/images/product/' . $productImageUrl,
@@ -125,7 +164,7 @@ class ProductImporter extends AbstractIcecatImporter
                 'fun_fact' => 'fun fact',
                 'scientific_name' => 'scientific name',
             ]);
-            $localizedAttributes->setLocale($this->localeManager->getLocaleByCode(($localeCode)));
+            $localizedAttributes->setLocale($localeTransfer);
             $localizedAttributes->setName($product['name.en']);
 
             $productAbstract->addLocalizedAttributes($localizedAttributes);
@@ -141,11 +180,47 @@ class ProductImporter extends AbstractIcecatImporter
         $productConcrete->setIsActive(true);
 
         return [
-            'abstract' => $productAbstract,
-            'concrete' => [
+            self::PRODUCT_ABSTRACT => $productAbstract,
+            self::PRODUCT_CONCRETE_COLLECTION => [
                 $productConcrete,
             ],
         ];
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstract
+     * @param int $idProductAbstract
+     * @param \Generated\Shared\Transfer\LocaleTransfer $currentLocale
+     */
+    protected function createAndTouchProductUrls(
+        ProductAbstractTransfer $productAbstract,
+        $idProductAbstract
+    ) {
+        foreach ($productAbstract->getLocalizedAttributes() as $localizedAttributes) {
+            $productAbstractUrl = $this->buildProductUrl($localizedAttributes);
+            $this->productFacade->createAndTouchProductUrlByIdProduct(
+                $idProductAbstract,
+                $productAbstractUrl,
+                $localizedAttributes->getLocale()
+            );
+        }
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\LocalizedAttributesTransfer $localizedAttributes
+     *
+     * @return string
+     */
+    protected function buildProductUrl(LocalizedAttributesTransfer $localizedAttributes)
+    {
+        $searchStrings = array_keys($this->urlReplacements);
+        $replaceStrings = array_values($this->urlReplacements);
+
+        $productUrl = strtolower($localizedAttributes->getName());
+        $productUrl = trim($productUrl);
+        $productUrl = str_replace($searchStrings, $replaceStrings, $productUrl);
+
+        return '/' . mb_substr($localizedAttributes->getLocale()->getLocaleName(), 0, 2) . '/' . $productUrl;
     }
 
 }

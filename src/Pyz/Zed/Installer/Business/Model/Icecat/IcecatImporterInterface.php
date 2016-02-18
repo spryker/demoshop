@@ -12,4 +12,9 @@ interface IcecatImporterInterface
      */
     public function import();
 
+    /**
+     * @return bool
+     */
+    public function canImport();
+
 }

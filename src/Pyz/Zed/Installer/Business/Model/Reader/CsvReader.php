@@ -37,8 +37,8 @@ class CsvReader implements CsvReaderInterface
         }
 
         $csvFile = new SplFileObject($filename);
-        $csvFile->setCsvControl(',', '"', '\\');
-        $csvFile->setFlags(SplFileObject::READ_CSV | SplFileObject::READ_AHEAD | SplFileObject::SKIP_EMPTY);
+        $csvFile->setCsvControl(',', '"');
+        $csvFile->setFlags(SplFileObject::READ_CSV | SplFileObject::READ_AHEAD | SplFileObject::SKIP_EMPTY | SplFileObject::DROP_NEW_LINE);
 
         return $csvFile;
     }

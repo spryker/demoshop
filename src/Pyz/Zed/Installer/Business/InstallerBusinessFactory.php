@@ -10,6 +10,7 @@ use Pyz\Zed\Installer\Business\Model\Reader\CsvReader;
 use Pyz\Zed\Installer\InstallerConfig;
 use Pyz\Zed\Installer\InstallerDependencyProvider;
 use Spryker\Zed\Installer\Business\InstallerBusinessFactory as SprykerInstallerBusinessFactory;
+use Spryker\Zed\Product\Business\Attribute\AttributeManager;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
@@ -51,10 +52,12 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     {
         $csvReader = $this->getCsvReader();
         $localeManager = $this->getIcecatLocaleManager();
-        $productFacade = $this->getProvidedDependency(InstallerDependencyProvider::FACADE_PRODUCT);
+        $attributeManager = $this->createAttributeManager();
+        $productFacade = $this->getProductFacade();
 
         $productImporter = new ProductImporter($csvReader, $localeManager);
         $productImporter->setProductFacade($productFacade);
+        $productImporter->setAttributeManager($attributeManager);
 
         return $productImporter;
     }
@@ -91,6 +94,32 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
         return new IcecatLocaleManager(
             $this->getProvidedDependency(InstallerDependencyProvider::FACADE_LOCALE)
         );
+    }
+
+    /**
+     * @return \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface
+     */
+    protected function createAttributeManager()
+    {
+        return new AttributeManager(
+            $this->getProductQueryContainer()
+        );
+    }
+
+    /**
+     * @return \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface
+     */
+    protected function getProductQueryContainer()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::QUERY_CONTAINER_PRODUCT);
+    }
+
+    /**
+     * @return \Pyz\Zed\Product\Business\ProductFacade
+     */
+    protected function getProductFacade()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::FACADE_PRODUCT);
     }
 
 }

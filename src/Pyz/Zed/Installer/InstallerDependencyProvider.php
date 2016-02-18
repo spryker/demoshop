@@ -33,6 +33,9 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
     const FACADE_LOCALE = 'facade locale';
     const FACADE_PRODUCT = 'facade product';
     const FACADE_PRODUCT_CATEGORY = 'facade product category';
+    const FACADE_TOUCH = 'facade touch';
+    const FACADE_URL = 'facade url';
+    const QUERY_CONTAINER_PRODUCT = 'query container product';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -57,6 +60,18 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
 
         $container[self::FACADE_PRODUCT_CATEGORY] = function (Container $container) {
             return $container->getLocator()->productCategory()->facade();
+        };
+
+        $container[self::FACADE_TOUCH] = function (Container $container) {
+            return $container->getLocator()->touch()->facade();
+        };
+
+        $container[self::FACADE_URL] = function (Container $container) {
+            return $container->getLocator()->url()->facade();
+        };
+
+        $container[self::QUERY_CONTAINER_PRODUCT] = function (Container $container) {
+            return $container->getLocator()->product()->queryContainer();
         };
 
         return $container;

@@ -42,7 +42,12 @@ class IcecatInstaller extends SprykerAbstractInstaller
 
         try {
             foreach ($this->importerCollection as $name => $importer) {
-                $importer->import();
+                if ($importer->canImport()) {
+                    $this->output->writeln('Installing: ' . $name);
+                    $importer->import();
+                } else {
+                    $this->warning('Skipping: ' . $name);
+                }
             }
 
             $connection->commit();

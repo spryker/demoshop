@@ -38,6 +38,11 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
     abstract protected function getColumnHeader();
 
     /**
+     * @return bool
+     */
+    abstract public function canImport();
+
+    /**
      * @param \Pyz\Zed\Installer\Business\Model\Reader\CsvReaderInterface $csvReader
      * @param \Pyz\Zed\Installer\Business\Model\Icecat\IcecatLocaleManager $localeManager
      */
@@ -54,7 +59,15 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
      */
     protected function getCsvFile($filename)
     {
-        return $this->csvReader->getCsvFile($filename);
+        $csvFile = $this->csvReader->getCsvFile($filename);
+
+        //advance past columns
+        while (!$csvFile->eof()) {
+            $csvFile->fgetcsv();
+            break;
+        }
+
+        return $csvFile;
     }
 
     /**
@@ -63,7 +76,7 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
     protected function getColumns()
     {
         if ($this->columns === null) {
-            $this->columns = explode(",\n", trim((string) $this->getColumnHeader()));
+            $this->columns = explode(',', trim((string) $this->getColumnHeader()));
 
             array_walk($this->columns, function (&$item) {
                 $item = trim($item);
@@ -74,10 +87,28 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
     }
 
     /**
+     * @param array $data
+     *
+     * @return array
+     */
+    protected function generateCsvItem(array $data)
+    {
+        $columns = $this->getColumns();
+
+        dump(array_values($columns), array_values($data));
+
+        return array_combine(array_values($columns), array_values($data));
+    }
+
+    /**
      * @return void
      */
     public function import()
     {
+        if (!$this->canImport()) {
+            return;
+        }
+
         $locales = $this->localeManager->getLocaleTransferCollection();
 
         foreach ($locales as $localeCode => $localeTransfer) {
