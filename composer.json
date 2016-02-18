@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "0.19.4",
+    "spryker/spryker": "dev-bugfix/1303-Transfer_collection_setter_fix_for_release",
 
     "psr/log": "~1.0",
     "propel/propel": "~2.0@dev",

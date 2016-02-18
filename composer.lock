@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b7b790479bc991f644dea012ee899b73",
-    "content-hash": "186103ae774273d3598b1f1f727c8d0d",
+    "hash": "56327d62b0ee097f5ef17f9a2c2fdb74",
+    "content-hash": "c3144d2c7dda1fc09fe6eab416a1b0f6",
     "packages": [
         {
             "name": "guzzle/guzzle",
@@ -748,11 +748,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "v0.19.4",
+            "version": "dev-bugfix/1303-Transfer_collection_setter_fix_for_release",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "6e684a6b84633a73b741a2bbb03f7935443c2bdb"
+                "reference": "16bcc6ce52ef3bc0504c5a3c2e6ed16a916f17be"
             },
             "require": {
                 "phpdocumentor/graphviz": "~1.0.0"
@@ -778,7 +778,7 @@
                     "Spryker\\Shared\\Library": "Bundles/Library/src/"
                 }
             },
-            "time": "2016-02-03 14:04:57"
+            "time": "2016-02-18 13:16:13"
         },
         {
             "name": "symfony-cmf/routing",
@@ -5108,6 +5108,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "spryker/spryker": 20,
         "propel/propel": 20
     },
     "prefer-stable": true,
