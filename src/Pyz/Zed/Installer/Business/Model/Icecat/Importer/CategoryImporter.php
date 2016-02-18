@@ -11,6 +11,7 @@ use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\Installer\InstallerConfig;
 use Spryker\Zed\Touch\Business\TouchFacadeInterface;
 use Spryker\Zed\Url\Business\UrlFacadeInterface;
+use Symfony\Component\Validator\Constraints\Locale;
 
 class CategoryImporter extends AbstractIcecatImporter
 {
@@ -90,16 +91,7 @@ class CategoryImporter extends AbstractIcecatImporter
      */
     protected function importData()
     {
-        $rootData = [];
-        foreach ($this->localeManager->getLocaleTransferCollection() as $code => $localeTransfer) {
-            $rootData[$code] = [
-                CategoryTransfer::NAME => 'Root',
-                CategoryTransfer::CATEGORY_KEY => 'root',
-                CategoryTransfer::CATEGORY_IMAGE_NAME => '',
-            ];
-        }
-
-        $this->addRootNodes($rootData);
+        $this->installRootNodes();
 
         $csvFile = $this->getCsvFile('__categories_done.csv');
 
@@ -128,12 +120,13 @@ class CategoryImporter extends AbstractIcecatImporter
      */
     protected function addRootNodes(array $data)
     {
-        $idCategory = $this->createCategory($data);
-
         foreach ($this->localeManager->getLocaleTransferCollection() as $localeCode => $localeTransfer) {
+            $categoryTransfer = $this->createCategory($data[$localeCode], $localeTransfer);
+
             $rootNodeTransfer = new NodeTransfer();
             $rootNodeTransfer->setIsRoot(true);
-            $rootNodeTransfer->setFkCategory($idCategory);
+            $rootNodeTransfer->setIsMain(true);
+            $rootNodeTransfer->setFkCategory($categoryTransfer->getIdCategory());
 
             $this->categoryFacade->createCategoryNode($rootNodeTransfer, new LocaleTransfer(), false);
             $this->nodeUrlManager->createUrl($rootNodeTransfer, $localeTransfer);
@@ -145,9 +138,25 @@ class CategoryImporter extends AbstractIcecatImporter
      * @param array $data
      * @param LocaleTransfer $localeTransfer
      *
-     * @return int
+     * @return CategoryTransfer
      */
-    protected function createCategory(array $data)
+    protected function createCategory(array $data, LocaleTransfer $localeTransfer)
+    {
+        $categoryTransfer = new CategoryTransfer();
+        $categoryTransfer->fromArray($data);
+
+        $idCategory = $this->categoryFacade->createCategory($categoryTransfer, $localeTransfer);
+        $categoryTransfer->setIdCategory($idCategory);
+
+        return $categoryTransfer;
+    }
+
+    /**
+     * @param array $data
+     *
+     * @return int|null
+     */
+    protected function createCategory2(array $data)
     {
         $locales = $this->localeManager->getLocaleTransferCollection();
         $idCategory = null;
@@ -179,6 +188,28 @@ class CategoryImporter extends AbstractIcecatImporter
         }
 
         $this->touchFacade->touchActive(InstallerConfig::RESOURCE_NAVIGATION, $rootNodeTransfer->getIdCategoryNode());
+    }
+
+    /**
+     * TODO move root node logic into RootCategoryImporter
+     *
+     * @return void
+     */
+    protected function installRootNodes()
+    {
+        $rootData = [];
+        foreach ($this->localeManager->getLocaleTransferCollection() as $code => $localeTransfer) {
+            $rootData[$code] = [
+                CategoryTransfer::NAME => 'Root ' . $code,
+                CategoryTransfer::CATEGORY_KEY => 'root_' . $code,
+                CategoryTransfer::CATEGORY_IMAGE_NAME => '',
+                CategoryTransfer::IS_ACTIVE => true,
+                CategoryTransfer::IS_CLICKABLE => false,
+                CategoryTransfer::IS_IN_MENU => false,
+            ];
+        }
+
+        $this->addRootNodes($rootData);
     }
 
 }
