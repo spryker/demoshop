@@ -15,12 +15,6 @@ use Spryker\Zed\Url\Business\UrlFacadeInterface;
 class CategoryImporter extends AbstractIcecatImporter
 {
 
-    const IS_ROOT = 'is_root';
-    const CATEGORY_NAME = 'name';
-    const CATEGORY_KEY = 'key';
-    const PARENT_KEY = 'parent_key';
-    const IMAGE_NAME = 'image_name';
-
     /**
      * @var \Pyz\Zed\Category\Business\CategoryFacade
      */
@@ -96,18 +90,23 @@ class CategoryImporter extends AbstractIcecatImporter
      */
     protected function importData()
     {
-        $this->addRootNode([
-            self::CATEGORY_NAME => 'Root',
-            self::CATEGORY_KEY => 'root',
-            self::IMAGE_NAME => '',
-        ]);
+        $rootData = [];
+        foreach ($this->localeManager->getLocaleTransferCollection() as $code => $localeTransfer) {
+            $rootData[$code] = [
+                CategoryTransfer::NAME => 'Root',
+                CategoryTransfer::CATEGORY_KEY => 'root',
+                CategoryTransfer::CATEGORY_IMAGE_NAME => '',
+            ];
+        }
+
+        $this->addRootNodes($rootData);
 
         $csvFile = $this->getCsvFile('__categories_done.csv');
 
         while (!$csvFile->eof()) {
-            $category = $this->format($csvFile->fgetcsv());
+            $rootCategoryData = $this->format($csvFile->fgetcsv());
 
-            dump($category);
+            dump($rootCategoryData);
             break;
         }
     }
@@ -127,38 +126,35 @@ class CategoryImporter extends AbstractIcecatImporter
     /**
      * @param array $data
      */
-    protected function addRootNode(array $data)
+    protected function addRootNodes(array $data)
     {
         $idCategory = $this->createCategory($data);
 
-        $rootNodeTransfer = new NodeTransfer();
-        $rootNodeTransfer->setIsRoot(true);
-        $rootNodeTransfer->setFkCategory($idCategory);
-
-        $this->categoryFacade->createCategoryNode($rootNodeTransfer, new LocaleTransfer(), false);
-
         foreach ($this->localeManager->getLocaleTransferCollection() as $localeCode => $localeTransfer) {
-            $this->nodeUrlManager->createUrl($rootNodeTransfer, $localeTransfer);
-        }
+            $rootNodeTransfer = new NodeTransfer();
+            $rootNodeTransfer->setIsRoot(true);
+            $rootNodeTransfer->setFkCategory($idCategory);
 
-        $this->createRootNavigation($rootNodeTransfer);
+            $this->categoryFacade->createCategoryNode($rootNodeTransfer, new LocaleTransfer(), false);
+            $this->nodeUrlManager->createUrl($rootNodeTransfer, $localeTransfer);
+            $this->createRootNavigation($rootNodeTransfer);
+        }
     }
 
     /**
      * @param array $data
+     * @param LocaleTransfer $localeTransfer
      *
-     * @return int|null
+     * @return int
      */
     protected function createCategory(array $data)
     {
-        $idCategory = null;
-        $categoryTransfer = new CategoryTransfer();
-        $categoryTransfer->setCategoryKey($data[self::CATEGORY_KEY]);
         $locales = $this->localeManager->getLocaleTransferCollection();
+        $idCategory = null;
 
-        foreach ($locales as $localeCode => $localeTransfer) {
-            $categoryTransfer->setName($data[self::CATEGORY_NAME]);
-            $categoryTransfer->setCategoryImageName($data[self::IMAGE_NAME]);
+        foreach ($locales as $code => $localeTransfer) {
+            $categoryTransfer = new CategoryTransfer();
+            $categoryTransfer->fromArray($data[$code]);
 
             if ($idCategory === null) {
                 $idCategory = $this->categoryFacade->createCategory($categoryTransfer, $localeTransfer);

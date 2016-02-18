@@ -185,7 +185,6 @@ class ProductImporter extends AbstractIcecatImporter
     /**
      * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstract
      * @param int $idProductAbstract
-     * @param \Generated\Shared\Transfer\LocaleTransfer $currentLocale
      */
     protected function createAndTouchProductUrls(
         ProductAbstractTransfer $productAbstract,
