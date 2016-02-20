@@ -8,6 +8,7 @@ use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\Product\Business\ProductFacade;
 use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class ProductImporter extends AbstractIcecatImporter
 {
@@ -67,9 +68,11 @@ class ProductImporter extends AbstractIcecatImporter
     }
 
     /**
+     * @param OutputInterface $output
+     *
      * @return void
      */
-    protected function importData()
+    protected function importData(OutputInterface $output)
     {
         $csvFile = $this->getCsvFile('products.csv');
         $currentLine = 0;

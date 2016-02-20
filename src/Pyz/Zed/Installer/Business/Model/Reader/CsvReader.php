@@ -33,7 +33,7 @@ class CsvReader implements CsvReaderInterface
      *
      * @return \SplFileObject
      */
-    public function readCsvFile($filename)
+    public function read($filename)
     {
         $filename = $this->dataDirectory . DIRECTORY_SEPARATOR . $filename;
 
@@ -43,7 +43,7 @@ class CsvReader implements CsvReaderInterface
 
         $csvFile = new SplFileObject($filename);
         $csvFile->setCsvControl(',', '"');
-        $csvFile->setFlags(SplFileObject::READ_CSV | SplFileObject::READ_AHEAD | SplFileObject::SKIP_EMPTY | SplFileObject::DROP_NEW_LINE);
+        $csvFile->setFlags(SplFileObject::READ_CSV | SplFileObject::READ_AHEAD | SplFileObject::SKIP_EMPTY);
 
         $this->setupColumns($csvFile);
 
@@ -57,6 +57,8 @@ class CsvReader implements CsvReaderInterface
      */
     protected function setupColumns(\SplFileObject $csvFile)
     {
+        $csvFile->fseek(0);
+
         while (!$csvFile->eof()) {
             $this->columns = $csvFile->fgetcsv();
             break;
@@ -69,6 +71,23 @@ class CsvReader implements CsvReaderInterface
     public function getColumns()
     {
         return $this->columns;
+    }
+
+    /**
+     * @param SplFileObject $csvFile
+     *
+     * @return int
+     */
+    public function getTotal(\SplFileObject $csvFile)
+    {
+        $csvFile->rewind();
+
+        $lines = 1;
+        while (!$csvFile->eof()) {
+            $lines += substr_count($csvFile->fread(8192), "\n");
+        }
+
+        return $lines;
     }
 
 }

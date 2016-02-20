@@ -51,6 +51,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
         $categoryImporter->setTouchFacade($this->getTouchFacade());
         $categoryImporter->setUrlFacade($this->getUrlFacade());
         $categoryImporter->setNodeUrlManager($this->createNodeUrlManager());
+        $categoryImporter->setCategoryQueryContainer($this->getCategoryQueryContainer());
 
         return $categoryImporter;
     }

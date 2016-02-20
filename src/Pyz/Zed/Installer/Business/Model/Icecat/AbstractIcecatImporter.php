@@ -3,7 +3,7 @@
 namespace Pyz\Zed\Installer\Business\Model\Icecat;
 
 use Pyz\Zed\Installer\Business\Model\Reader\CsvReaderInterface;
-use SplFileObject;
+use Symfony\Component\Console\Output\OutputInterface;
 
 abstract class AbstractIcecatImporter implements IcecatImporterInterface
 {
@@ -29,9 +29,11 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
     protected $columnsHeader;
 
     /**
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     *
      * @return void
      */
-    abstract protected function importData();
+    abstract protected function importData(OutputInterface $output);
 
     /**
      * @return bool
@@ -62,15 +64,17 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
     }
 
     /**
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     *
      * @return void
      */
-    public function import()
+    public function import(OutputInterface $output)
     {
         if (!$this->canImport()) {
             return;
         }
 
-        $this->importData();
+        $this->importData($output);
     }
 
 }

@@ -14,12 +14,18 @@ interface CsvReaderInterface
      *
      * @return SplFileObject
      */
-    public function readCsvFile($filename);
-
+    public function read($filename);
 
     /**
      * @return array
      */
     public function getColumns();
+
+    /**
+     * @param SplFileObject $csvFile
+     *
+     * @return int
+     */
+    public function getTotal(\SplFileObject $csvFile);
 
 }
