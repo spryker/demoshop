@@ -110,7 +110,7 @@ class CategoryImporter extends AbstractIcecatImporter
     {
         $this->installRootNodes();
 
-        $csvFile = $this->csvReader->read('__categories_done.csv');
+        $csvFile = $this->csvReader->read('categories.csv');
         $columns = $this->csvReader->getColumns();
         $total = intval($this->csvReader->getTotal($csvFile));
         $counter = 0;
