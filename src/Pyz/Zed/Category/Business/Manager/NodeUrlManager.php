@@ -60,7 +60,31 @@ class NodeUrlManager extends SprykerNodeUrlManager
             $url = '/' . $locale . $url;
         }
 
+        $url = $this->generateUniqueUrl($url);
+
         parent::updateTransferUrl($urlTransfer, $url, $idResource, $idLocale);
+    }
+
+    /**
+     * @param string $url
+     *
+     * @return string
+     */
+    protected function generateUniqueUrl($url)
+    {
+        $max = 10;
+        $step = 1;
+
+        $originalUrl = $url;
+        while ($this->urlFacade->hasUrl($url)) {
+            $url = $originalUrl . ' - '.$step;
+            if ($step >  $max) {
+                break;
+            }
+            $step++;
+        }
+
+        return $url;
     }
 
 }
