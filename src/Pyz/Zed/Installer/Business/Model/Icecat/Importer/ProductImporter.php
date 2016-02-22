@@ -13,8 +13,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 class ProductImporter extends AbstractIcecatImporter
 {
 
-    const NAME = 'model_name';
-    const SKU = 'prod_id';
+    const NAME = 'name.en';
+    const SKU = 'sku';
+    const PRODUCT_ID = 'product_id';
+    const VARIANT_ID = 'variantId';
+    const IMAGE_BIG = 'image_big';
+    const IMAGE_SMALL = 'image_small';
+    const CATEGORY_KEY = 'category_key';
+    const MANUFACTURER_NAME = 'manufacturer_name';
 
     const PRODUCT_ABSTRACT = 'product_abstract';
     const PRODUCT_CONCRETE_COLLECTION = 'product_concrete_collection';
@@ -77,7 +83,6 @@ class ProductImporter extends AbstractIcecatImporter
         $columns = $this->csvReader->getColumns();
         $total = intval($this->csvReader->getTotal($csvFile));
         $step = 0;
-        $max = 10;
 
         $csvFile->rewind();
 
@@ -88,6 +93,10 @@ class ProductImporter extends AbstractIcecatImporter
             $output->write(str_repeat("\x08", strlen($info)));
 
             $csvData = $this->generateCsvItem($columns, $csvFile->fgetcsv());
+            if ((int) $csvData[self::VARIANT_ID] > 1) {
+                continue;
+            }
+
             $product = $this->format($csvData);
 
             /* @var ProductAbstractTransfer $productAbstract */
@@ -105,10 +114,6 @@ class ProductImporter extends AbstractIcecatImporter
             $this->createProductConcreteCollection($productConcreteCollection, $idProductAbstract);
             $this->productFacade->touchProductActive($idProductAbstract);
             $this->createAndTouchProductUrls($productAbstract, $idProductAbstract);
-
-            if ($step > $max) {
-                break;
-            }
         }
     }
 
@@ -138,9 +143,8 @@ class ProductImporter extends AbstractIcecatImporter
      */
     protected function format(array $data)
     {
-        dump($data);
-        $productImageUrl = $data['High_res_img'];
-        $thumbImageUrl = $data['Low_res_img'];
+        $productImageUrl = $data[self::IMAGE_BIG];
+        $thumbImageUrl = $data[self::IMAGE_SMALL];
 
         $attributes = [
             'price' => (float) rand(0.01, 1999.99),
