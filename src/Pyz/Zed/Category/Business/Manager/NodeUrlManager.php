@@ -77,7 +77,7 @@ class NodeUrlManager extends SprykerNodeUrlManager
 
         $originalUrl = $url;
         while ($this->urlFacade->hasUrl($url)) {
-            $url = $originalUrl . ' - '.$step;
+            $url = $originalUrl . '-'. $step;
             if ($step >  $max) {
                 break;
             }
