@@ -22,16 +22,6 @@ class CategoryImporter extends AbstractIcecatImporter
     const UCATID = 'ucatid';
     const LOW_PIC = 'low_pic';
 
-    protected $badApples = [
-        '50192703',
-        '53111603',
-        '53111604',
-        '52151676',
-        '60144095',
-        '55121701',
-        '10121800'
-    ];
-
     /**
      * @var \Pyz\Zed\Category\Business\CategoryFacade
      */
@@ -141,10 +131,6 @@ class CategoryImporter extends AbstractIcecatImporter
         while (!$csvFile->eof()) {
             $step++;
             $csvData = $this->generateCsvItem($columns, $csvFile->fgetcsv());
-
-            if (in_array($csvData[self::UCATID], $this->badApples)) {
-                continue;
-            }
 
             $rootCategoryData = $this->format($csvData);
             $this->importCategory($rootCategoryData);
@@ -324,7 +310,6 @@ class CategoryImporter extends AbstractIcecatImporter
 
             $name = trim($categoryTransfer->getName());
             if ($name === '') {
-                dump($data);
                 throw new InvalidDataException(
                     sprintf('Category name is empty for category with key "%"', $categoryTransfer->getCategoryKey())
                 );
