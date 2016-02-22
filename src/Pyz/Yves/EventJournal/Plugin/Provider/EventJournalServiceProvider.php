@@ -30,6 +30,8 @@ class EventJournalServiceProvider extends AbstractServiceProvider
 
     /**
      * @param \Silex\Application $app
+     *
+     * @return void
      */
     public function register(Application $app)
     {
@@ -146,6 +148,8 @@ class EventJournalServiceProvider extends AbstractServiceProvider
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return void
      */
     protected function setStaticRequestInformation(Request $request)
     {

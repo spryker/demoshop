@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\ProductOption\Business;
 
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\ProductOption\Business\Model\ProductOptionReader;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Db\MysqlBatchStorageProvider;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\BatchProcessor\InMemoryBatchProcessor;
@@ -28,11 +29,11 @@ class ProductOptionBusinessFactory extends SprykerBusinessFactory
 {
 
     /**
-     * @param \Psr\Log\LoggerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
      * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\ProductOptionDataInstall
      */
-    public function createDemoDataInstaller(LoggerInterface $messenger)
+    public function createDemoDataInstaller(MessengerInterface $messenger)
     {
         $installer = new ProductOptionDataInstall(
             $this->createOptionsWriter(),

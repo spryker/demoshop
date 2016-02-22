@@ -31,7 +31,7 @@ class TwigPrice extends AbstractPlugin implements TwigFilterPluginInterface, Twi
     {
         return [
             new \Twig_SimpleFunction('getItemTotalPrice', function ($grossPrice, $quantity = 1) {
-               return $grossPrice * $quantity;
+                return $grossPrice * $quantity;
             }),
         ];
     }

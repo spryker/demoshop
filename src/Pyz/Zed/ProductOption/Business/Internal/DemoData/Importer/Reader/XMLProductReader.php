@@ -3,6 +3,7 @@
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader;
 
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLProductTransformer;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLTransformerInterface;
 
 class XMLProductReader extends XMLReader implements ProductReaderInterface
 {
@@ -16,7 +17,7 @@ class XMLProductReader extends XMLReader implements ProductReaderInterface
 
     /**
      * @param string $filePath
-     * @param XMLProductTransformer $transformer
+     * @param XMLTransformerInterface $transformer
      */
     public function __construct(
         $filePath,

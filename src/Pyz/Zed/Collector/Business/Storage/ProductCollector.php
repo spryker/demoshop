@@ -427,7 +427,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                         $effectiveRate += $taxRateRate;
                         $taxRates[] = [
                             'name' => $taxRateNames[$key],
-                            'rate' => (float) $taxRateRate,
+                            'rate' => (float)$taxRateRate,
                         ];
                     }
 

@@ -8,18 +8,17 @@ use Spryker\Zed\Price\Business\Model\BulkWriter;
 use Spryker\Zed\Price\Business\Model\Writer;
 use Spryker\Zed\Price\Business\Model\Reader;
 use Spryker\Zed\Price\Business\PriceBusinessFactory as SprykerPriceBusinessFactory;
-use Psr\Log\LoggerInterface;
 use Pyz\Zed\Price\Business\Internal\DemoData\PriceInstall;
 
 class PriceBusinessFactory extends SprykerPriceBusinessFactory
 {
 
     /**
-     * @param \Psr\Log\LoggerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
      * @return \Pyz\Zed\Price\Business\Internal\DemoData\PriceInstall
      */
-    public function createDemoDataInstaller(LoggerInterface $messenger)
+    public function createDemoDataInstaller(MessengerInterface $messenger)
     {
         $installer = new PriceInstall(
             $this->createWriterModel(),

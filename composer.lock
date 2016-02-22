@@ -779,7 +779,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "7356a8363503330e680c77dcf6b664298710e156"
+                "reference": "fdabc4c80175c8108b0c7275718c9fe260844fb9"
             },
             "require": {
                 "phpdocumentor/graphviz": "dev-master#a906a90"
@@ -1245,7 +1245,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-02-22 12:09:56"
+            "time": "2016-02-22 16:26:30"
         },
         {
             "name": "symfony-cmf/routing",
@@ -5138,12 +5138,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "8f397eaf5dc29473d8674636aaecc8791c40b7a3"
+                "reference": "2b79351d6a6d4165e2b60fcb830498492c54ce2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/8f397eaf5dc29473d8674636aaecc8791c40b7a3",
-                "reference": "8f397eaf5dc29473d8674636aaecc8791c40b7a3",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/2b79351d6a6d4165e2b60fcb830498492c54ce2f",
+                "reference": "2b79351d6a6d4165e2b60fcb830498492c54ce2f",
                 "shasum": ""
             },
             "require": {
@@ -5172,7 +5172,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-02-22 10:32:43"
+            "time": "2016-02-22 16:27:52"
         },
         {
             "name": "squizlabs/php_codesniffer",

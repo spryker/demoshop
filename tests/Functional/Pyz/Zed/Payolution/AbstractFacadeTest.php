@@ -114,12 +114,15 @@ abstract class AbstractFacadeTest extends Test
      */
     private $paymentMethod;
 
+    /**
+     * @return void
+     */
     protected function _before()
     {
         parent::_before();
     }
 
-    /*
+    /**
      * @return void
      */
     protected function setPaymentInvoice()
@@ -139,7 +142,7 @@ abstract class AbstractFacadeTest extends Test
         $this->setOrderTransferTestData();
     }
 
-    /*
+    /**
      * @return void
      */
     protected function setPaymentInstallment()
@@ -229,6 +232,9 @@ abstract class AbstractFacadeTest extends Test
         $this->paymentEntity->save();
     }
 
+    /**
+     * @return void
+     */
     protected function setCheckoutRequestTransfer()
     {
         $this->checkoutRequestTransfer = (new CheckoutRequestTransfer())

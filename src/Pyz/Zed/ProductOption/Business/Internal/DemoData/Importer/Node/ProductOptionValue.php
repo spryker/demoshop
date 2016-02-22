@@ -30,6 +30,8 @@ class ProductOptionValue implements VisitableProductInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface $visitor
+     *
+     * @return void
      */
     public function accept(ProductVisitorInterface $visitor)
     {
@@ -61,6 +63,8 @@ class ProductOptionValue implements VisitableProductInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValueConstraint $constraint
+     *
+     * @return void
      */
     private function addConstraint(ProductOptionValueConstraint $constraint)
     {
@@ -77,6 +81,8 @@ class ProductOptionValue implements VisitableProductInterface
 
     /**
      * @param int|null $id
+     *
+     * @return void
      */
     public function setId($id)
     {

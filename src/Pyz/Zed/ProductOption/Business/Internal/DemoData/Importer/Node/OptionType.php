@@ -30,6 +30,8 @@ class OptionType implements VisitableOptionInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\OptionVisitorInterface $visitor
+     *
+     * @return void
      */
     public function accept(OptionVisitorInterface $visitor)
     {
@@ -60,6 +62,8 @@ class OptionType implements VisitableOptionInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionValue $optionValue
+     *
+     * @return void
      */
     private function addOptionValue(OptionValue $optionValue)
     {

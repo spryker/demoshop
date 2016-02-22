@@ -15,18 +15,27 @@ interface OptionVisitorInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionType $context
+     *
+     * @return void
      */
     public function setContext($context);
 
+    /**
+     * @return mixed
+     */
     public function leaveContext();
 
     /**
-     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionType $optionTypeVisitee
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionType $visitee
+     *
+     * @return void
      */
     public function visitOptionType(OptionType $visitee);
 
     /**
-     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionValue $optionValueeVisitee
+     * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionValue $visitee
+     *
+     * @return void
      */
     public function visitOptionValue(OptionValue $visitee);
 

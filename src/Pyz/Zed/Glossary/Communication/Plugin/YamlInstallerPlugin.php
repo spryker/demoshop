@@ -19,6 +19,9 @@ use Symfony\Component\Yaml\Yaml;
 class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPluginInterface
 {
 
+    /**
+     * @return void
+     */
     public function installGlossaryData()
     {
         $filePath = __DIR__ . '/../../File/initial_translation.yml';
@@ -40,6 +43,8 @@ class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPlu
 
     /**
      * @param array $translations
+     *
+     * @return void
      */
     protected function installKeysAndTranslations(array $translations)
     {

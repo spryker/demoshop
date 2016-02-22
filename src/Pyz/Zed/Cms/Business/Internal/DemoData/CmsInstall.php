@@ -133,12 +133,18 @@ class CmsInstall extends AbstractInstaller
         $this->dataFileNames = $config->getDemoDataFileNames();
     }
 
+    /**
+     * @return void
+     */
     public function install()
     {
         $this->info('This will install a standard set of cms pages, blocks and redirects in the demo shop');
         $this->installCmsData();
     }
 
+    /**
+     * @return void
+     */
     public function installCmsData()
     {
         foreach ($this->localeFacade->getAvailableLocales() as $locale) {
@@ -158,12 +164,12 @@ class CmsInstall extends AbstractInstaller
      */
     private function installPage(\SimpleXMLElement $pageItem)
     {
-        $templateTransfer = $this->getOrCreateTemplate((string) $pageItem->{self::TEMPLATE});
+        $templateTransfer = $this->getOrCreateTemplate((string)$pageItem->{self::TEMPLATE});
         $pageTransfer = null;
 
         foreach ($pageItem->{self::LOCALES}->children() as $locale) {
             $localeTransfer = $this->getLocale($locale);
-            $url = (string) $locale->{self::URL};
+            $url = (string)$locale->{self::URL};
             if ($this->urlFacade->hasUrl($url)) {
                 $this->warning(sprintf('Page with URL %s already exists. Skipping.', $url));
 
@@ -183,6 +189,8 @@ class CmsInstall extends AbstractInstaller
      * @param string $fromUrl
      * @param string $toUrl
      * @param int $status
+     *
+     * @return void
      */
     private function installRedirect($fromUrl, $toUrl, $status)
     {
@@ -209,14 +217,14 @@ class CmsInstall extends AbstractInstaller
      */
     protected function installBlock(\SimpleXMLElement $blockItem)
     {
-        $blockName = (string) $blockItem->{self::BLOCK_NAME};
+        $blockName = (string)$blockItem->{self::BLOCK_NAME};
         if ($this->cmsQueryContainer->queryBlockByNameAndTypeValue($blockName, $this->blockDemoType, $this->blockDemoValue)->count() > 0) {
             $this->warning(sprintf('Block with Name %s already exists. Skipping.', $blockName));
 
             return;
         }
 
-        $templateTransfer = $this->getOrCreateTemplate((string) $blockItem->{self::TEMPLATE});
+        $templateTransfer = $this->getOrCreateTemplate((string)$blockItem->{self::TEMPLATE});
         $pageTransfer = $this->createPage($templateTransfer);
 
         foreach ($blockItem->{self::LOCALES}->children() as $locale) {
@@ -245,6 +253,8 @@ class CmsInstall extends AbstractInstaller
 
     /**
      * @param string $filePath
+     *
+     * @return void
      */
     private function installPageFromDemoDataFile($filePath)
     {
@@ -256,6 +266,8 @@ class CmsInstall extends AbstractInstaller
 
     /**
      * @param string $filePath
+     *
+     * @return void
      */
     private function installRedirectFromDemoDataFile($filePath)
     {
@@ -269,6 +281,8 @@ class CmsInstall extends AbstractInstaller
 
     /**
      * @param string $filePath
+     *
+     * @return void
      */
     private function installBlockFromDemoDataFile($filePath)
     {
@@ -326,9 +340,9 @@ class CmsInstall extends AbstractInstaller
 
         foreach ($xmlElement as $item) {
             $elementList[] = [
-                self::FROM_URL => (string) $item->{self::FROM_URL},
-                self::TO_URL => (string) $item->{self::TO_URL},
-                self::STATUS => (string) $item->{self::STATUS},
+                self::FROM_URL => (string)$item->{self::FROM_URL},
+                self::TO_URL => (string)$item->{self::TO_URL},
+                self::STATUS => (string)$item->{self::STATUS},
             ];
         }
 
@@ -370,7 +384,7 @@ class CmsInstall extends AbstractInstaller
      */
     protected function getLocale($locale)
     {
-        $localeName = (string) $locale[self::NAME];
+        $localeName = (string)$locale[self::NAME];
         $localeTransfer = $this->localeFacade->getLocale($localeName);
 
         return $localeTransfer;
@@ -386,7 +400,7 @@ class CmsInstall extends AbstractInstaller
     protected function createPlaceholder($locale, PageTransfer $pageTransfer, LocaleTransfer $localeTransfer)
     {
         foreach ($locale->{self::PLACEHOLDERS}->children() as $placeholder) {
-            $this->keyMappingManager->addPlaceholderText($pageTransfer, (string) $placeholder->{self::NAME}, (string) $placeholder->{self::TRANSLATION}, $localeTransfer, false);
+            $this->keyMappingManager->addPlaceholderText($pageTransfer, (string)$placeholder->{self::NAME}, (string)$placeholder->{self::TRANSLATION}, $localeTransfer, false);
         }
     }
 

@@ -39,6 +39,9 @@ class BatchedDataImportWriter extends DataImportWriter
         $this->batchProcessor = $batchProcessor;
     }
 
+    /**
+     * @return void
+     */
     public function flushBuffer()
     {
         $this->batchProcessor->flush();
@@ -47,6 +50,8 @@ class BatchedDataImportWriter extends DataImportWriter
     /**
      * @param \Orm\Zed\ProductOption\Persistence\SpyProductOptionType $productOptionTypeEntity
      * @param array $localizedNames
+     *
+     * @return void
      */
     protected function createOrUpdateOptionTypeTranslations(SpyProductOptionType $productOptionTypeEntity, array $localizedNames)
     {
@@ -72,6 +77,8 @@ class BatchedDataImportWriter extends DataImportWriter
     /**
      * @param \Orm\Zed\ProductOption\Persistence\SpyProductOptionValue $productOptionValueEntity
      * @param array $localizedNames
+     *
+     * @return void
      */
     protected function createOrUpdateOptionValueTranslations(SpyProductOptionValue $productOptionValueEntity, array $localizedNames)
     {
@@ -96,6 +103,8 @@ class BatchedDataImportWriter extends DataImportWriter
 
     /**
      * @param int $idProductAbstract
+     *
+     * @return void
      */
     protected function touchProductAbstractById($idProductAbstract)
     {
@@ -117,6 +126,8 @@ class BatchedDataImportWriter extends DataImportWriter
 
     /**
      * @param string $concreteSku
+     *
+     * @return void
      */
     protected function touchProductAbstractByConcreteSku($concreteSku)
     {

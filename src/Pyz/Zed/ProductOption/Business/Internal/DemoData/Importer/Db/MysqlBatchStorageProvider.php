@@ -11,6 +11,8 @@ class MysqlBatchStorageProvider implements BatchStorageProviderInterface
      * @param string $tableName
      * @param array $columns
      * @param array $values
+     *
+     * @return void
      */
     public function save($tableName, array $columns, array $values)
     {
@@ -54,6 +56,8 @@ class MysqlBatchStorageProvider implements BatchStorageProviderInterface
     /**
      * @param \Propel\Runtime\Connection\StatementInterface $stmt
      * @param array $values
+     *
+     * @return void
      */
     private function bindValues(&$stmt, array $values)
     {

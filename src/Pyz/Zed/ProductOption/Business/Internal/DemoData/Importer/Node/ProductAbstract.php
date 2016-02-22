@@ -20,6 +20,8 @@ class ProductAbstract implements VisitableProductInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface $visitor
+     *
+     * @return void
      */
     public function accept(ProductVisitorInterface $visitor)
     {
@@ -50,6 +52,8 @@ class ProductAbstract implements VisitableProductInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConcrete $variant
+     *
+     * @return void
      */
     private function addVariant(ProductConcrete $variant)
     {

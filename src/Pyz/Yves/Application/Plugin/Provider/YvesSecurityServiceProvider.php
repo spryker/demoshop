@@ -12,6 +12,8 @@ class YvesSecurityServiceProvider extends AbstractServiceProvider
 
     /**
      * @param \Silex\Application $app
+     *
+     * @return void
      */
     public function register(Application $app)
     {
@@ -22,6 +24,8 @@ class YvesSecurityServiceProvider extends AbstractServiceProvider
 
     /**
      * @param \Silex\Application $app
+     *
+     * @return void
      */
     public function boot(Application $app)
     {

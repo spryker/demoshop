@@ -16,7 +16,7 @@ class CmsController extends AbstractController
      */
     public function pageAction($meta, Request $request)
     {
-        $edit = $request->get('edit') ? (bool) $request->get('edit') : false;
+        $edit = $request->get('edit') ? (bool)$request->get('edit') : false;
 
         return $this->renderView($meta['template'], ['placeholders' => $meta['placeholders'], 'edit' => $edit]);
     }

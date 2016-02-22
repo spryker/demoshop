@@ -20,6 +20,8 @@ class HealthChecker
 
     /**
      * @param array $healthIndicator
+     *
+     * @return void
      */
     public function setHealthIndicator(array $healthIndicator)
     {
@@ -42,6 +44,8 @@ class HealthChecker
 
     /**
      * @param \Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface $healthIndicator
+     *
+     * @return void
      */
     private function check(HealthIndicatorInterface $healthIndicator)
     {

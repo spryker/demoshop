@@ -9,6 +9,8 @@ interface BatchStorageProviderInterface
      * @param string $tableName
      * @param array $columns
      * @param array $values
+     *
+     * @return void
      */
     public function save($tableName, array $columns, array $values);
 

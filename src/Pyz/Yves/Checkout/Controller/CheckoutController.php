@@ -108,6 +108,8 @@ class CheckoutController extends AbstractController
      * @param \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
      * @param \Symfony\Component\Form\FormInterface $checkoutForm
      * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return void
      */
     protected function setCheckoutSubmittedData(
         CartTransfer $cartTransfer,

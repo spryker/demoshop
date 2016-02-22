@@ -46,6 +46,8 @@ class ProductOptionDataInstallTest extends Test
 
     /**
      * @param array $skuCollection
+     *
+     * @return void
      */
     private function loadProductsIfNotInDb(array $skuCollection)
     {

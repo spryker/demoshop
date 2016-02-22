@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\ProductCategory\Business;
 
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\ProductCategory\Business\TransferGenerator;
 use Spryker\Zed\ProductCategory\Business\ProductCategoryManager;
 use Spryker\Zed\Library\Import\Reader\CsvFileReader;
@@ -18,11 +19,11 @@ class ProductCategoryBusinessFactory extends SprykerBusinessFactory
 {
 
     /**
-     * @param \Psr\Log\LoggerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
      * @return \Pyz\Zed\ProductCategory\Business\Internal\DemoData\ProductCategoryMappingInstall
      */
-    public function createDemoDataInstaller(LoggerInterface $messenger)
+    public function createDemoDataInstaller(MessengerInterface $messenger)
     {
         $installer = new ProductCategoryMappingInstall(
             $this->createProductCategoryManager(),
