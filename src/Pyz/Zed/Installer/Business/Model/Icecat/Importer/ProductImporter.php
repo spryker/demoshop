@@ -6,8 +6,10 @@ use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatImporter;
-use Pyz\Zed\Product\Business\ProductFacade;
+use Pyz\Zed\Product\Business\ProductFacadeInterface;
+use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
+use Pyz\Zed\ProductCategory\Business\ProductCategoryFacadeInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class ProductImporter extends AbstractIcecatImporter
@@ -28,14 +30,7 @@ class ProductImporter extends AbstractIcecatImporter
     /**
      * @var array
      */
-    protected $urlReplacements = [
-        ' ' => '-',
-        ',' => '',
-        'ä' => 'ae',
-        'ö' => 'oe',
-        'ü' => 'ue',
-        'ß' => 'ss',
-    ];
+    protected $cacheParents = [];
 
     /**
      * @var \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface
@@ -43,10 +38,19 @@ class ProductImporter extends AbstractIcecatImporter
     protected $attributeManager;
 
     /**
-     * @var \Pyz\Zed\Product\Business\ProductFacade
+     * @var \Pyz\Zed\Product\Business\ProductFacadeInterface
      */
     protected $productFacade;
 
+    /**
+     * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
+     */
+    protected $categoryQueryContainer;
+
+    /**
+     * @var \Pyz\Zed\ProductCategory\Business\ProductCategoryFacadeInterface
+     */
+    protected $productCategoryFacade;
 
     /**
      * @param \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface $attributeManager
@@ -57,11 +61,29 @@ class ProductImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param \Pyz\Zed\Product\Business\ProductFacade $productFacade
+     * @param \Pyz\Zed\Product\Business\ProductFacadeInterface $productFacade
      */
-    public function setProductFacade(ProductFacade $productFacade)
+    public function setProductFacade(ProductFacadeInterface $productFacade)
     {
         $this->productFacade = $productFacade;
+    }
+
+    /**
+     * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
+     *
+     * @return void
+     */
+    public function setCategoryQueryContainer(CategoryQueryContainerInterface $categoryQueryContainer)
+    {
+        $this->categoryQueryContainer = $categoryQueryContainer;
+    }
+
+    /**
+     * @param \Pyz\Zed\ProductCategory\Business\ProductCategoryFacadeInterface $productCategoryFacade
+     */
+    public function setProductCategoryFacade(ProductCategoryFacadeInterface $productCategoryFacade)
+    {
+        $this->productCategoryFacade = $productCategoryFacade;
     }
 
     /**
@@ -114,11 +136,31 @@ class ProductImporter extends AbstractIcecatImporter
             $this->createProductConcreteCollection($productConcreteCollection, $idProductAbstract);
             $this->productFacade->touchProductActive($idProductAbstract);
             $this->createAndTouchProductUrls($productAbstract, $idProductAbstract);
+            $this->installProductCategory($idProductAbstract, $product[self::CATEGORY_KEY]);
         }
     }
 
-    protected function extractAttributes()
+    protected function installProductCategory($sku, $categoryKey)
     {
+        /*if (!array_key_exists($categoryKey, $this->cacheParents)) {
+
+        }*/
+
+        $categoryQuery = $this->categoryQueryContainer->queryCategoryByKey($categoryKey);
+        $category = $categoryQuery->findOne();
+
+        if (!$category) {
+            return;
+        }
+
+/*        if (!$this->productFacade->hasProductAbstract($sku)) {
+            return;
+        }*/
+
+        if (!$this->productCategoryFacade->hasProductCategoryMapping($sku, $categoryName, $locale)) {
+            $categoryNodeIds[] = $this->productCategoryFacade
+                ->createProductCategoryMapping($sku, $categoryName, $locale);
+        }
     }
 
     /**
@@ -167,7 +209,7 @@ class ProductImporter extends AbstractIcecatImporter
         foreach ($locales as $localeCode => $localeTransfer) {
             $localizedAttributes = new LocalizedAttributesTransfer();
             $localizedAttributes->setAttributes([
-                'image_url' =>  $productImageUrl,
+                'image_url' => $productImageUrl,
                 'thumbnail_url' => $thumbImageUrl,
                 'main_color' => 'color',
                 'other_colors' => 'other colors',
@@ -240,7 +282,7 @@ class ProductImporter extends AbstractIcecatImporter
         $value = trim($value);
         $value = \transliterator_transliterate("Any-Latin; Latin-ASCII; NFD; [\u0080-\u7fff] remove; [:Nonspacing Mark:] remove; NFC; [:Punctuation:] remove; Lower();", $value);
         $value = str_replace(' ', '-', $value);
+
         return $value;
     }
-
 }

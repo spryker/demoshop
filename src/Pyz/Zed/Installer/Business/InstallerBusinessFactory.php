@@ -67,6 +67,8 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
 
         $productImporter->setProductFacade($this->getProductFacade());
         $productImporter->setAttributeManager($this->createAttributeManager());
+        $productImporter->setCategoryQueryContainer($this->getCategoryQueryContainer());
+        $productImporter->setProductCategoryFacade($this->getProductCategoryFacade());
 
         return $productImporter;
     }
@@ -132,7 +134,15 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Category\Business\CategoryFacade
+     * @return \Pyz\Zed\ProductCategory\Business\ProductCategoryFacadeInterface
+     */
+    protected function getProductCategoryFacade()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::FACADE_PRODUCT_CATEGORY);
+    }
+
+    /**
+     * @return \Pyz\Zed\Category\Business\CategoryFacadeInterface
      */
     protected function getCategoryFacade()
     {
@@ -140,7 +150,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Product\Business\ProductFacade
+     * @return \Pyz\Zed\Product\Business\ProductFacadeInterface
      */
     protected function getProductFacade()
     {

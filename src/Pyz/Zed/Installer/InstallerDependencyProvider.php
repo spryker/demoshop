@@ -21,6 +21,7 @@ use Spryker\Zed\Category\Dependency\Facade\CategoryToLocaleBridge;
 use Spryker\Zed\Category\Dependency\Facade\CategoryToTouchBridge;
 use Spryker\Zed\Category\Dependency\Facade\CategoryToUrlBridge;
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Propel\Communication\Plugin\Connection;
 use Spryker\Zed\User\Communication\Plugin\Installer as UserInstaller;
 use Spryker\Zed\Country\Communication\Plugin\Installer as CountryCountryCountryInstaller;
 use Spryker\Zed\Locale\Communication\Plugin\Installer as LocaleInstaller;
@@ -42,10 +43,13 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
     const QUERY_CONTAINER_CATEGORY = 'query container category';
     const QUERY_CONTAINER_LOCALE = 'query container locale';
     const QUERY_CONTAINER_PRODUCT = 'query container product';
+    const QUERY_CONTAINER_PRODUCT_CATEGORY = 'query container product category';
 
     const BRIDGE_CATEGORY_TO_URL = 'BRIDGE_CATEGORY_TO_URL';
     const BRIDGE_CATEGORY_TO_TOUCH = 'BRIDGE_CATEGORY_TO_TOUCH';
     const BRIDGE_CATEGORY_TO_LOCALE = 'BRIDGE_CATEGORY_TO_LOCALE';
+
+    const PLUGIN_PROPEL_CONNECTION = 'propel connection plugin';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -84,6 +88,10 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
             return $container->getLocator()->product()->queryContainer();
         };
 
+        $container[self::QUERY_CONTAINER_PRODUCT_CATEGORY] = function (Container $container) {
+            return $container->getLocator()->productCategory()->queryContainer();
+        };
+
         $container[self::QUERY_CONTAINER_CATEGORY] = function (Container $container) {
             return $container->getLocator()->category()->queryContainer();
         };
@@ -102,6 +110,10 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
 
         $container[self::BRIDGE_CATEGORY_TO_LOCALE] = function (Container $container) {
             return new CategoryToLocaleBridge($container->getLocator()->locale()->facade());
+        };
+
+        $container[self::PLUGIN_PROPEL_CONNECTION] = function () {
+            return (new Connection())->get();
         };
 
         return $container;

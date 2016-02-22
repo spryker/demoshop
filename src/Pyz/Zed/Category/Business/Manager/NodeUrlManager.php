@@ -3,32 +3,39 @@
 namespace Pyz\Zed\Category\Business\Manager;
 
 use Generated\Shared\Transfer\UrlTransfer;
-use Spryker\Zed\Locale\Persistence\LocaleQueryContainer;
+use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
+use Spryker\Zed\Locale\Persistence\LocaleQueryContainerInterface;
 use Spryker\Zed\Category\Business\Generator\UrlPathGeneratorInterface;
 use Spryker\Zed\Category\Business\Manager\NodeUrlManager as SprykerNodeUrlManager;
 use Spryker\Zed\Category\Business\Tree\CategoryTreeReaderInterface;
 use Spryker\Zed\Category\Dependency\Facade\CategoryToUrlInterface;
-use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
 
 class NodeUrlManager extends SprykerNodeUrlManager
 {
 
     /**
-     * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainer
+     * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
      */
     protected $categoryQueryContainer;
 
     /**
-     * @var \Spryker\Zed\Locale\Persistence\LocaleQueryContainer
+     * @var \Spryker\Zed\Locale\Persistence\LocaleQueryContainerInterface
      */
     protected $localeQueryContainer;
 
+    /**
+     * @param \Spryker\Zed\Category\Business\Tree\CategoryTreeReaderInterface $categoryTreeReader
+     * @param \Spryker\Zed\Category\Business\Generator\UrlPathGeneratorInterface $urlPathGenerator
+     * @param \Spryker\Zed\Category\Dependency\Facade\CategoryToUrlInterface $urlFacade
+     * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
+     * @param \Spryker\Zed\Locale\Persistence\LocaleQueryContainerInterface $localeQueryContainer
+     */
     public function __construct(
         CategoryTreeReaderInterface $categoryTreeReader,
         UrlPathGeneratorInterface $urlPathGenerator,
         CategoryToUrlInterface $urlFacade,
-        CategoryQueryContainer $categoryQueryContainer,
-        LocaleQueryContainer $localeQueryContainer
+        CategoryQueryContainerInterface $categoryQueryContainer,
+        LocaleQueryContainerInterface $localeQueryContainer
     ) {
         parent::__construct($categoryTreeReader, $urlPathGenerator, $urlFacade);
         $this->categoryQueryContainer = $categoryQueryContainer;
