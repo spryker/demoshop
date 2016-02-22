@@ -122,6 +122,10 @@ class ProductCategoryImporter extends AbstractIcecatImporter
         $total = intval($this->csvReader->getTotal($csvFile));
         $step = 0;
 
+        $queryRoot = $this->categoryQueryContainer->queryRootNode();
+        $queryRoot->joinCategory();
+        $root = $queryRoot->findOne();
+
         $csvFile->rewind();
 
         while (!$csvFile->eof()) {
@@ -146,7 +150,12 @@ class ProductCategoryImporter extends AbstractIcecatImporter
             if (!array_key_exists($product[self::CATEGORY_KEY], $this->cacheCategories)) {
                 $categoryQuery = $this->categoryQueryContainer->queryCategoryByKey($product[self::CATEGORY_KEY]);
                 $category = $categoryQuery->findOne();
-                $idCategory = $category->getIdCategory();
+                if ($category) {
+                    $idCategory = $category->getIdCategory();
+                }
+                else {
+                    $idCategory = $root->getCategory()->getIdCategory();
+                }
                 $this->cacheCategories[self::CATEGORY_KEY] = $idCategory;
             }
             else {
@@ -197,7 +206,7 @@ class ProductCategoryImporter extends AbstractIcecatImporter
      */
     protected function format(array $data)
     {
-
+        return $data;
     }
 
 }

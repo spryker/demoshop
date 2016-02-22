@@ -36,7 +36,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
         return [
             InstallerConfig::RESOURCE_PRODUCT => $this->getProductImporter(),
             InstallerConfig::RESOURCE_CATEGORY => $this->getCategoryImporter(),
-            InstallerConfig::RESOURCE_PRODUCT_CATEGORY => $this->getProductImporter(),
+            InstallerConfig::RESOURCE_PRODUCT_CATEGORY => $this->getProductCategoryImporter(),
         ];
     }
 
