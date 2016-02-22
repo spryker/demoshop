@@ -161,8 +161,8 @@ class ProductImporter extends AbstractIcecatImporter
         foreach ($locales as $localeCode => $localeTransfer) {
             $localizedAttributes = new LocalizedAttributesTransfer();
             $localizedAttributes->setAttributes([
-                'image_url' => '/images/product/' . $productImageUrl,
-                'thumbnail_url' => '/images/product/' . $thumbImageUrl,
+                'image_url' =>  $productImageUrl,
+                'thumbnail_url' => $thumbImageUrl,
                 'main_color' => 'color',
                 'other_colors' => 'other colors',
                 'description' => $data[self::NAME],
@@ -202,7 +202,7 @@ class ProductImporter extends AbstractIcecatImporter
         $idProductAbstract
     ) {
         foreach ($productAbstract->getLocalizedAttributes() as $localizedAttributes) {
-            $productAbstractUrl = $this->buildProductUrl($localizedAttributes);
+            $productAbstractUrl = $this->buildProductUrl($localizedAttributes) . '-'.$idProductAbstract; //TODO urls should be unique
             $this->productFacade->createAndTouchProductUrlByIdProduct(
                 $idProductAbstract,
                 $productAbstractUrl,
