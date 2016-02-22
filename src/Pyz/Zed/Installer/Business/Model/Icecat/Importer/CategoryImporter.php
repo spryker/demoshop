@@ -7,6 +7,7 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
 use Pyz\Zed\Category\Business\CategoryFacade;
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
+use Pyz\Zed\Installer\Business\Exception\InvalidDataException;
 use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\Installer\InstallerConfig;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
@@ -20,6 +21,16 @@ class CategoryImporter extends AbstractIcecatImporter
     const PARENT_KEY = 'parentKey';
     const UCATID = 'ucatid';
     const LOW_PIC = 'low_pic';
+
+    protected $badApples = [
+        '50192703',
+        '53111603',
+        '53111604',
+        '52151676',
+        '60144095',
+        '55121701',
+        '10121800'
+    ];
 
     /**
      * @var \Pyz\Zed\Category\Business\CategoryFacade
@@ -112,7 +123,7 @@ class CategoryImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param OutputInterface $output
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
      * @return void
      */
@@ -130,8 +141,13 @@ class CategoryImporter extends AbstractIcecatImporter
         while (!$csvFile->eof()) {
             $step++;
             $csvData = $this->generateCsvItem($columns, $csvFile->fgetcsv());
+
+            if (in_array($csvData[self::UCATID], $this->badApples)) {
+                continue;
+            }
+
             $rootCategoryData = $this->format($csvData);
-            $this->addCategoryNodes($rootCategoryData);
+            $this->importCategory($rootCategoryData);
 
             $info = 'Importing... ' . $step . '/' . $total;
             $output->write($info);
@@ -145,14 +161,14 @@ class CategoryImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param OutputInterface $output
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
      * @param \SplFileObject $csvFile
-     * @param $columns
-     * @param $total
+     * @param array $columns
+     * @param int $total
      *
      * @return void
      */
-    protected function updateParentsAndUrls(OutputInterface $output, \SplFileObject $csvFile, $columns, $total)
+    protected function updateParentsAndUrls(OutputInterface $output, \SplFileObject $csvFile, array $columns, $total)
     {
         $step = 1;
 
@@ -203,13 +219,6 @@ class CategoryImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @return void
-     */
-    protected function getNodeByCategoryKey($categoryKey, $localeTransfer)
-    {
-    }
-
-    /**
      * @param array $data
      *
      * @return array
@@ -241,9 +250,9 @@ class CategoryImporter extends AbstractIcecatImporter
      *
      * @return void
      */
-    protected function addCategoryNodes(array $data)
+    protected function importCategory(array $data)
     {
-        $idCategory = $this->createCategoryWithLocalizedAttributes($data);
+        $idCategory = $this->createCategory($data);
 
         $nodeTransfer = new NodeTransfer();
         $nodeTransfer->setIsRoot(false);
@@ -259,20 +268,20 @@ class CategoryImporter extends AbstractIcecatImporter
      *
      * @return void
      */
-    protected function addRootNodesWithLocalizedAttributes(array $data)
+    protected function importRootCategory(array $data)
     {
-        $idCategory = $this->createCategoryWithLocalizedAttributes($data);
+        $idCategory = $this->createCategory($data);
 
         $rootNodeTransfer = new NodeTransfer();
         $rootNodeTransfer->setIsRoot(true);
         $rootNodeTransfer->setIsMain(true);
         $rootNodeTransfer->setFkCategory($idCategory);
 
-        $this->createCategoryNodeWithLocalizedUrls($rootNodeTransfer);
+        $this->createCategoryNodeWithUrls($rootNodeTransfer);
     }
 
     /**
-     * @param NodeTransfer $nodeTransfer
+     * @param \Generated\Shared\Transfer\NodeTransfer $nodeTransfer
      *
      * @return void
      */
@@ -285,11 +294,11 @@ class CategoryImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param NodeTransfer $nodeTransfer
+     * @param \Generated\Shared\Transfer\NodeTransfer $nodeTransfer
      *
      * @return void
      */
-    protected function createCategoryNodeWithLocalizedUrls(NodeTransfer $nodeTransfer)
+    protected function createCategoryNodeWithUrls(NodeTransfer $nodeTransfer)
     {
         $this->createCategoryNode($nodeTransfer);
 
@@ -301,9 +310,10 @@ class CategoryImporter extends AbstractIcecatImporter
     /**
      * @param array $data
      *
+     * @throws \Pyz\Zed\Installer\Business\Exception\InvalidDataException
      * @return int|null
      */
-    protected function createCategoryWithLocalizedAttributes(array $data)
+    protected function createCategory(array $data)
     {
         $idCategory = null;
         $locales = $this->localeManager->getLocaleCollection();
@@ -311,6 +321,14 @@ class CategoryImporter extends AbstractIcecatImporter
         foreach ($locales as $code => $localeTransfer) {
             $categoryTransfer = new CategoryTransfer();
             $categoryTransfer->fromArray($data[$code]);
+
+            $name = trim($categoryTransfer->getName());
+            if ($name === '') {
+                dump($data);
+                throw new InvalidDataException(
+                    sprintf('Category name is empty for category with key "%"', $categoryTransfer->getCategoryKey())
+                );
+            }
 
             if ($idCategory === null) {
                 $idCategory = $this->categoryFacade->createCategory($categoryTransfer, $localeTransfer);
@@ -358,7 +376,7 @@ class CategoryImporter extends AbstractIcecatImporter
             ];
         }
 
-        $this->addRootNodesWithLocalizedAttributes($rootData);
+        $this->importRootCategory($rootData);
     }
 
 }

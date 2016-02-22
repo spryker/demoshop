@@ -25,7 +25,6 @@ $stores['DE'] = [
     'locales' => [
         'de' => 'de_DE',
         'en' => 'en_US',
-        'fr' => 'fr_FR',
     ],   // first entry is default
     'countries' => ['DE'],   // first entry is default
     'currencyIsoCode' => 'EUR', // internal and shop

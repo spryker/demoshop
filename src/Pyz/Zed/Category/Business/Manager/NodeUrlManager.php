@@ -72,7 +72,7 @@ class NodeUrlManager extends SprykerNodeUrlManager
      */
     protected function generateUniqueUrl($url)
     {
-        $max = 10;
+        $max = 20;
         $step = 1;
 
         $originalUrl = $url;
