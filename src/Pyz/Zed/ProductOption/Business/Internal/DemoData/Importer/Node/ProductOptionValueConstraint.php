@@ -20,6 +20,8 @@ class ProductOptionValueConstraint implements VisitableProductInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface $visitor
+     *
+     * @return void
      */
     public function accept(ProductVisitorInterface $visitor)
     {

@@ -13,6 +13,9 @@ class ProductOptionDataInstall extends AbstractInstaller
      */
     protected $optionWriter;
 
+    /**
+     * @var \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\WriterInterface
+     */
     protected $productOptionWriter;
 
     /**
@@ -27,6 +30,9 @@ class ProductOptionDataInstall extends AbstractInstaller
         $this->productOptionWriter = $ProductOptionWriter;
     }
 
+    /**
+     * @return void
+     */
     public function install()
     {
         $this->info('This will install some demo product options and product option assignments');

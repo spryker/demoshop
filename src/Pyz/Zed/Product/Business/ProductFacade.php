@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Product\Business;
 
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\Product\Business\ProductFacade as SprykerProductFacade;
 use Psr\Log\LoggerInterface;
 
@@ -32,9 +33,11 @@ class ProductFacade extends SprykerProductFacade implements ProductFacadeInterfa
     }
 
     /**
-     * @param \Psr\Log\LoggerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
+     *
+     * @return void
      */
-    public function installDemoData(LoggerInterface $messenger)
+    public function installDemoData(MessengerInterface $messenger)
     {
         $this->getFactory()->createDemoDataInstaller($messenger)->install();
     }

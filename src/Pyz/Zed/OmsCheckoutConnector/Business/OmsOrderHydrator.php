@@ -10,6 +10,9 @@ use Spryker\Zed\OmsCheckoutConnector\Business\OmsOrderHydrator as BaseOmsOrderHy
 class OmsOrderHydrator extends BaseOmsOrderHydrator
 {
 
+    /**
+     * @var array
+     */
     protected static $paymentMethodStateMachineMapper = [
         'invoice' => OmsConfig::ORDER_PROCESS_INVOICE_01,
         'payolution_invoice' => OmsConfig::ORDER_PROCESS_PAYOLUTION_PAYMENT_01,
@@ -21,6 +24,8 @@ class OmsOrderHydrator extends BaseOmsOrderHydrator
      * @param \Generated\Shared\Transfer\CheckoutRequestTransfer $request
      *
      * @throws \Spryker\Zed\OmsCheckoutConnector\Business\Exception\NoStatemachineProcessException
+     *
+     * @return void
      */
     public function hydrateOrderTransfer(OrderTransfer $order, CheckoutRequestTransfer $request)
     {

@@ -19,11 +19,11 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
 {
 
     /**
-     * @param \Psr\Log\LoggerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
      * @return \Pyz\Zed\ProductSearch\Business\Internal\DemoData\ProductAttributeMappingInstall
      */
-    public function createDemoDataInstaller(LoggerInterface $messenger)
+    public function createDemoDataInstaller(MessengerInterface $messenger)
     {
         $installer = new ProductAttributeMappingInstall(
             $this->createOperationManager(),
@@ -41,10 +41,10 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     public function createProductAttributesTransformer()
     {
         return new ProductAttributesTransformer(
-                    $this->getQueryContainer(),
-                    $this->createOperationLocator(),
-                    $this->createDefaultOperation()
-                );
+            $this->getQueryContainer(),
+            $this->createOperationLocator(),
+            $this->createDefaultOperation()
+        );
     }
 
     /**
@@ -53,9 +53,9 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     public function createProductSearchProcessor()
     {
         return new ProductSearchProcessor(
-                    $this->createKeyBuilder(),
-                    $this->getStoreName()
-                );
+            $this->createKeyBuilder(),
+            $this->getStoreName()
+        );
     }
 
     /**

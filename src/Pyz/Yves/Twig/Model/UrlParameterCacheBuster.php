@@ -15,7 +15,7 @@ class UrlParameterCacheBuster implements CacheBusterInterface
      */
     public function __construct($cacheBust)
     {
-        $this->cacheBust = (string) $cacheBust;
+        $this->cacheBust = (string)$cacheBust;
     }
 
     public function addCacheBust($url)

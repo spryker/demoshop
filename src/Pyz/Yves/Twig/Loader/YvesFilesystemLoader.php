@@ -48,6 +48,8 @@ class YvesFilesystemLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
      * Sets the paths where templates are stored.
      *
      * @param array $paths A path or an array of paths where to look for templates
+     *
+     * @return void
      */
     public function setPaths(array $paths)
     {
@@ -63,6 +65,8 @@ class YvesFilesystemLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
      * @param string $path A path where to look for templates
      *
      * @throws \Twig_Error_Loader
+     *
+     * @return void
      */
     public function addPath($path)
     {
@@ -77,6 +81,8 @@ class YvesFilesystemLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
      * @param string $path A path where to look for templates
      *
      * @throws \Twig_Error_Loader
+     *
+     * @return void
      */
     public function prependPath($path)
     {
@@ -113,7 +119,7 @@ class YvesFilesystemLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
      */
     public function exists($name)
     {
-        $name = (string) $name;
+        $name = (string)$name;
         if (isset($this->cache[$name])) {
             return $this->cache[$name] !== false;
         }
@@ -167,7 +173,7 @@ class YvesFilesystemLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
      */
     protected function findTemplate($name)
     {
-        $name = (string) $name;
+        $name = (string)$name;
 
         // normalize name
         $name = str_replace(['///', '//', '\\'], '/', $name);
@@ -210,6 +216,8 @@ class YvesFilesystemLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
      * @param string $name
      *
      * @throws \Twig_Error_Loader
+     *
+     * @return void
      */
     protected function validateName($name)
     {

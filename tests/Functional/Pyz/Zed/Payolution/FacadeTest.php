@@ -16,6 +16,9 @@ use Spryker\Zed\Payolution\Business\PayolutionFacade;
 class FacadeTest extends AbstractFacadeTest
 {
 
+    /**
+     * @return void
+     */
     public function testSaveOrderPayment()
     {
         $this->markTestSkipped();
@@ -28,6 +31,9 @@ class FacadeTest extends AbstractFacadeTest
         $PayolutionFacade->saveOrderPayment($orderTransfer);
     }
 
+    /**
+     * @return void
+     */
     public function testPreCheckPaymentInvoice()
     {
         $this->markTestSkipped();
@@ -41,6 +47,9 @@ class FacadeTest extends AbstractFacadeTest
         $this->assertEquals('ACK', $response->getProcessingResult(), $response->getProcessingReason());
     }
 
+    /**
+     * @return void
+     */
     public function testPreAuthorizePaymentInvoice()
     {
         $this->markTestSkipped();
@@ -59,6 +68,9 @@ class FacadeTest extends AbstractFacadeTest
         $this->assertTrue($isPreAuthorized);
     }
 
+    /**
+     * @return void
+     */
     public function testReAuthorizePaymentInvoice()
     {
         $this->markTestSkipped();
@@ -78,6 +90,9 @@ class FacadeTest extends AbstractFacadeTest
         $this->assertTrue($isReAuthorized);
     }
 
+    /**
+     * @return void
+     */
     public function testRevertPaymentInvoice()
     {
         $this->markTestSkipped();
@@ -97,6 +112,9 @@ class FacadeTest extends AbstractFacadeTest
         $this->assertTrue($isReverted);
     }
 
+    /**
+     * @return void
+     */
     public function testCapturePaymentInvoice()
     {
         $this->markTestSkipped();
@@ -116,6 +134,9 @@ class FacadeTest extends AbstractFacadeTest
         $this->assertTrue($isCaptured);
     }
 
+    /**
+     * @return void
+     */
     public function testRefundPaymentInvoice()
     {
         $this->markTestSkipped();
@@ -136,6 +157,9 @@ class FacadeTest extends AbstractFacadeTest
         $this->assertTrue($isRefunded);
     }
 
+    /**
+     * @return void
+     */
     public function testCalculateInstallmentPayment()
     {
         $this->markTestSkipped();
@@ -150,6 +174,9 @@ class FacadeTest extends AbstractFacadeTest
         $this->assertEquals('OK', $response->getStatus());
     }
 
+    /**
+     * @return void
+     */
     public function testPreCheckPaymentInstallment()
     {
         $this->markTestSkipped();
@@ -163,6 +190,9 @@ class FacadeTest extends AbstractFacadeTest
         $this->assertEquals('ACK', $response->getProcessingResult(), $response->getProcessingReason());
     }
 
+    /**
+     * @return void
+     */
     public function testPreAuthorizePaymentInstallment()
     {
         $this->markTestSkipped();
@@ -181,6 +211,9 @@ class FacadeTest extends AbstractFacadeTest
         $this->assertTrue($isPreAuthorized);
     }
 
+    /**
+     * @return void
+     */
     public function testReAuthorizePaymentInstallment()
     {
         $this->markTestSkipped();
@@ -200,6 +233,9 @@ class FacadeTest extends AbstractFacadeTest
         $this->assertTrue($isReAuthorized);
     }
 
+    /**
+     * @return void
+     */
     public function testRevertPaymentInstallment()
     {
         $this->markTestSkipped();
@@ -219,6 +255,9 @@ class FacadeTest extends AbstractFacadeTest
         $this->assertTrue($isReverted);
     }
 
+    /**
+     * @return void
+     */
     public function testCapturePaymentInstallment()
     {
         $this->markTestSkipped();
@@ -238,6 +277,9 @@ class FacadeTest extends AbstractFacadeTest
         $this->assertTrue($isCaptured);
     }
 
+    /**
+     * @return void
+     */
     public function testRefundPaymentInstallment()
     {
         $this->markTestSkipped();

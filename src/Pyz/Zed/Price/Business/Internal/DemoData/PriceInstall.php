@@ -36,6 +36,9 @@ class PriceInstall extends AbstractInstaller
         $this->priceReader = $priceReader;
     }
 
+    /**
+     * @return void
+     */
     public function install()
     {
         $this->info(
@@ -48,6 +51,8 @@ class PriceInstall extends AbstractInstaller
 
     /**
      * @param array $demoPrices
+     *
+     * @return void
      */
     protected function writePrices(array $demoPrices)
     {
@@ -68,6 +73,8 @@ class PriceInstall extends AbstractInstaller
 
     /**
      * @param array $row
+     *
+     * @return void
      */
     protected function addEntry(array $row)
     {

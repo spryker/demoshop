@@ -6,14 +6,14 @@
 
 namespace Pyz\Zed\Stock\Business;
 
-use Psr\Log\LoggerInterface;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 
 interface StockFacadeInterface
 {
 
     /**
-     * @param \Psr\Log\LoggerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      */
-    public function installDemoData(LoggerInterface $messenger);
+    public function installDemoData(MessengerInterface $messenger);
 
 }

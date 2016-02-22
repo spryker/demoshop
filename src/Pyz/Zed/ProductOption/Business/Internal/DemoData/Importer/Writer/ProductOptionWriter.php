@@ -34,12 +34,17 @@ class ProductOptionWriter implements WriterInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface $visitor
+     *
+     * @return void
      */
     private function addVisitor(ProductVisitorInterface $visitor)
     {
         $this->visitors[] = $visitor;
     }
 
+    /**
+     * @return void
+     */
     public function write()
     {
         foreach ($this->reader->getProducts() as $product) {
@@ -53,6 +58,8 @@ class ProductOptionWriter implements WriterInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\VisitableProductInterface $visitee
+     *
+     * @return void
      */
     private function visit($visitee)
     {
@@ -63,6 +70,8 @@ class ProductOptionWriter implements WriterInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface $visitor
+     *
+     * @return void
      */
     public function executeQueuedCommands($visitor)
     {

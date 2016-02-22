@@ -69,6 +69,9 @@ class CategoryTreeInstall extends AbstractInstaller
         $this->touchFacade = $touchFacade;
     }
 
+    /**
+     * @return void
+     */
     public function install()
     {
         $this->info('This will install a Dummy CategoryTree in the demo shop');
@@ -98,11 +101,13 @@ class CategoryTreeInstall extends AbstractInstaller
 
     /**
      * @param \SimpleXMLElement $demoTree
+     *
+     * @return void
      */
     protected function write(\SimpleXMLElement $demoTree)
     {
         foreach ($demoTree->children() as $row) {
-            if ((int) $row->{'root'} === 1) {
+            if ((int)$row->{'root'} === 1) {
                 $this->addRootNode($row);
             } else {
                 $this->addChild($row);
@@ -112,6 +117,8 @@ class CategoryTreeInstall extends AbstractInstaller
 
     /**
      * @param \SimpleXMLElement $rawNode
+     *
+     * @return void
      */
     protected function addRootNode(\SimpleXMLElement $rawNode)
     {
@@ -128,6 +135,8 @@ class CategoryTreeInstall extends AbstractInstaller
 
     /**
      * @param \SimpleXMLElement $rawNode
+     *
+     * @return void
      */
     protected function addChild(\SimpleXMLElement $rawNode)
     {
@@ -148,7 +157,7 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function getParentId(\SimpleXMLElement $rawNode)
     {
-        $nodeQuery = $this->queryContainer->queryNodeByCategoryKey((string) $rawNode->{self::PARENT_KEY});
+        $nodeQuery = $this->queryContainer->queryNodeByCategoryKey((string)$rawNode->{self::PARENT_KEY});
         $nodeEntity = $nodeQuery->findOne();
 
         if ($nodeEntity) {
@@ -166,7 +175,7 @@ class CategoryTreeInstall extends AbstractInstaller
     protected function createCategory(\SimpleXMLElement $rawNode)
     {
         $categoryTransfer = new CategoryTransfer();
-        $categoryTransfer->setCategoryKey((string) $rawNode->{self::CATEGORY_KEY});
+        $categoryTransfer->setCategoryKey((string)$rawNode->{self::CATEGORY_KEY});
 
         $locales = $this->localeFacade->getAvailableLocales();
         $idCategory = null;
@@ -179,8 +188,8 @@ class CategoryTreeInstall extends AbstractInstaller
                 continue;
             }
 
-            $categoryTransfer->setName((string) $localeAttributes->{self::CATEGORY_NAME});
-            $categoryTransfer->setCategoryImageName((string) $localeAttributes->{self::IMAGE_NAME});
+            $categoryTransfer->setName((string)$localeAttributes->{self::CATEGORY_NAME});
+            $categoryTransfer->setCategoryImageName((string)$localeAttributes->{self::IMAGE_NAME});
 
             if ($idCategory === null) {
                 $idCategory = $this->categoryWriter->create($categoryTransfer, $this->localeFacade->getLocale($locale));

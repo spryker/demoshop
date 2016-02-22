@@ -17,6 +17,8 @@ abstract class AbstractHealthIndicator implements HealthIndicatorInterface
 
     /**
      * @param \Generated\Shared\Transfer\HealthReportTransfer $healthReport
+     *
+     * @return void
      */
     public function writeHealthReport(HealthReportTransfer $healthReport)
     {
@@ -25,6 +27,8 @@ abstract class AbstractHealthIndicator implements HealthIndicatorInterface
 
     /**
      * @param string $message
+     *
+     * @return void
      */
     protected function addFailure($message)
     {

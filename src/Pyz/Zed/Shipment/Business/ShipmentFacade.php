@@ -13,6 +13,8 @@ class ShipmentFacade extends SprykerShipmentFacade implements ShipmentFacadeInte
 
     /**
      * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
+     *
+     * @return void
      */
     public function installDemoData(MessengerInterface $messenger)
     {

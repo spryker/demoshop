@@ -13,6 +13,8 @@ interface CmsFacadeInterface
 
     /**
      * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
+     *
+     * @return void
      */
     public function installDemoData(MessengerInterface $messenger);
 

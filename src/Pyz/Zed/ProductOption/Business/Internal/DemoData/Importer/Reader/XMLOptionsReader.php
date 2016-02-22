@@ -3,6 +3,7 @@
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader;
 
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLOptionsTransformer;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLTransformerInterface;
 
 class XMLOptionsReader extends XMLReader implements OptionReaderInterface
 {
@@ -16,11 +17,11 @@ class XMLOptionsReader extends XMLReader implements OptionReaderInterface
 
     /**
      * @param string $filePath
-     * @param XMLOptionsTransformer $transformer
+     * @param XMLTransformerInterface $transformer
      */
     public function __construct(
         $filePath,
-        XMLOptionsTransformer $transformer
+        XMLTransformerInterface $transformer
     ) {
         $this->transformer = $transformer;
         parent::__construct($filePath);

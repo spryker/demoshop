@@ -42,8 +42,9 @@ class PayolutionType extends AbstractType
     public function __construct(
         Request $request,
         PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer,
-        $tabIndexOffset = 0)
-    {
+        $tabIndexOffset = 0
+    ) {
+
         $this->request = $request;
         $this->tabIndexOffset = $tabIndexOffset;
         $this->payolutionCalculationResponseTransfer = $payolutionCalculationResponseTransfer;
@@ -60,6 +61,8 @@ class PayolutionType extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
+     *
+     * @return void
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -129,6 +132,8 @@ class PayolutionType extends AbstractType
 
     /**
      * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
+     *
+     * @return void
      */
     public function configureOptions(OptionsResolver $resolver)
     {

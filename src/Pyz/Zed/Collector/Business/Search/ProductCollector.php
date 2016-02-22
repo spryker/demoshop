@@ -282,7 +282,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
             if (isset($processedResultSet[$index])) {
                 // Product availability
                 $processedResultSet[$index]['available'] = $productRawData['quantity'] > 0;
-                $isAvailable = (bool) (
+                $isAvailable = (bool)(
                     $productRawData['is_never_out_of_stock'] ||
                     $productRawData['quantity'] > 0
                 );

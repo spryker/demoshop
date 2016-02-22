@@ -2,11 +2,11 @@
 
 namespace Pyz\Zed\Stock\Business;
 
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\Stock\Business\Model\Writer;
 use Spryker\Zed\Stock\Business\Model\Reader;
 use Spryker\Zed\Stock\Business\Model\Calculator;
 use Spryker\Zed\Stock\Business\StockBusinessFactory as SprykerStockBusinessFactory;
-use Psr\Log\LoggerInterface;
 use Pyz\Zed\Stock\Business\Internal\DemoData\StockInstall;
 
 /**
@@ -16,11 +16,11 @@ class StockBusinessFactory extends SprykerStockBusinessFactory
 {
 
     /**
-     * @param \Psr\Log\LoggerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
      * @return \Pyz\Zed\Stock\Business\Internal\DemoData\StockInstall
      */
-    public function createDemoDataInstaller(LoggerInterface $messenger)
+    public function createDemoDataInstaller(MessengerInterface $messenger)
     {
         $installer = new StockInstall(
             $this->createReaderModel(),

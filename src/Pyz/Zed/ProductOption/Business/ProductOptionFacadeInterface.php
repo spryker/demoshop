@@ -7,15 +7,16 @@
 namespace Pyz\Zed\ProductOption\Business;
 
 use Psr\Log\LoggerInterface;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 
 interface ProductOptionFacadeInterface
 {
 
     /**
-     * @param \Psr\Log\LoggerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
-     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\ProductOptionDataInstall
+     * @return void
      */
-    public function installDemoData(LoggerInterface $messenger);
+    public function installDemoData(MessengerInterface $messenger);
 
 }

@@ -38,6 +38,9 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
         $this->queryContainer = $queryContainer;
     }
 
+    /**
+     * @return void
+     */
     public static function disable()
     {
         static::$disableCache = true;

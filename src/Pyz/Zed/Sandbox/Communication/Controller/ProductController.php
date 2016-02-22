@@ -7,6 +7,9 @@ use Spryker\Zed\Application\Communication\Controller\AbstractController;
 class ProductController extends AbstractController
 {
 
+    /**
+     * @return void
+     */
     public function indexAction()
     {
     }

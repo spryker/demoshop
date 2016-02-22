@@ -67,6 +67,9 @@ class ProductCategoryMappingInstall extends AbstractInstaller
         $this->categoryFacade = $categoryFacade;
     }
 
+    /**
+     * @return void
+     */
     public function install()
     {
         $currentLocale = $this->localeFacade->getCurrentLocale();
@@ -77,6 +80,8 @@ class ProductCategoryMappingInstall extends AbstractInstaller
      * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      *
      * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return void
      */
     protected function installProductCategories(LocaleTransfer $locale)
     {

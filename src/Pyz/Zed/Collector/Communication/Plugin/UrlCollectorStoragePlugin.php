@@ -22,6 +22,8 @@ class UrlCollectorStoragePlugin extends AbstractCollectorPlugin
      * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
      * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
      * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
+     *
+     * @return void
      */
     public function run(
         SpyTouchQuery $baseQuery,

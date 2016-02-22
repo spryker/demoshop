@@ -23,7 +23,7 @@ class TwigProductImagePlugin extends AbstractPlugin implements TwigFunctionPlugi
 
                 $fullImagePaths = [];
                 foreach ($imageFilenames as $filename) {
-                    $fullImagePaths[] = \Spryker\Shared\Library\Image::getAbsoluteProductImageUrl($filename);
+                    $fullImagePaths[] = Image::getAbsoluteProductImageUrl($filename);
                 }
 
                 return $fullImagePaths;
