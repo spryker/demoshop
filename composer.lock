@@ -4,8 +4,13 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "hash": "711a2c248573c5440e3f9765b70b10fc",
     "content-hash": "eddf3e6ffdedb88ea71a845db58de19e",
+=======
+    "hash": "b67e15d82ef6c6eca07ecd54f6ed5284",
+    "content-hash": "da8d898e4483ce1b461da5bd31298845",
+>>>>>>> #1371 update spryker/spryker
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -775,11 +780,23 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-feature/1371-Prepare-Facade-tests",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "4f331d5e200346f010d28d3a48ff712d0a203671"
+=======
+<<<<<<< HEAD
+                "reference": "fdabc4c80175c8108b0c7275718c9fe260844fb9"
+=======
+<<<<<<< HEAD
+                "reference": "7356a8363503330e680c77dcf6b664298710e156"
+=======
+                "reference": "c4fb23acc7ce48664aa6dd12313eef46d7457266"
+>>>>>>> #1371 update spryker/spryker
+>>>>>>> #1371 update spryker/spryker
+>>>>>>> #1371 update spryker/spryker
             },
             "require": {
                 "phpdocumentor/graphviz": "dev-master#a906a90"
@@ -1245,7 +1262,19 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2016-02-25 09:44:19"
+=======
+<<<<<<< HEAD
+            "time": "2016-02-22 16:26:30"
+=======
+<<<<<<< HEAD
+            "time": "2016-02-22 12:09:56"
+=======
+            "time": "2016-02-22 11:42:01"
+>>>>>>> #1371 update spryker/spryker
+>>>>>>> #1371 update spryker/spryker
+>>>>>>> #1371 update spryker/spryker
         },
         {
             "name": "symfony-cmf/routing",
@@ -5142,8 +5171,22 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/55db8ddd50675f5019e3c22cd86953fb5b388956",
                 "reference": "55db8ddd50675f5019e3c22cd86953fb5b388956",
+=======
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/2b79351d6a6d4165e2b60fcb830498492c54ce2f",
+                "reference": "2b79351d6a6d4165e2b60fcb830498492c54ce2f",
+=======
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/8f397eaf5dc29473d8674636aaecc8791c40b7a3",
+<<<<<<< HEAD
+                "reference": "8f397eaf5dc29473d8674636aaecc8791c40b7a3",
+=======
+                "reference": "d3d98664910ae331cc6cdbaeb94690461c95953b",
+>>>>>>> #1371 update spryker/spryker
+>>>>>>> #1371 update spryker/spryker
+>>>>>>> #1371 update spryker/spryker
                 "shasum": ""
             },
             "require": {
