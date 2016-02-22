@@ -6,9 +6,10 @@
 
 namespace Pyz\Zed\ProductCategory\Business;
 
+use Spryker\Zed\ProductCategory\Business\ProductCategoryFacadeInterface as SprykerProductCategoryFacadeInterface;
 use Psr\Log\LoggerInterface;
 
-interface ProductCategoryFacadeInterface
+interface ProductCategoryFacadeInterface extends SprykerProductCategoryFacadeInterface
 {
 
     /**

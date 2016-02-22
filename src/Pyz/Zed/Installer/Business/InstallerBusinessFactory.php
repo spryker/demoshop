@@ -5,6 +5,7 @@ namespace Pyz\Zed\Installer\Business;
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
 use Pyz\Zed\Installer\Business\Model\Icecat\IcecatInstaller;
 use Pyz\Zed\Installer\Business\Model\Icecat\Importer\CategoryImporter;
+use Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductCategoryImporter;
 use Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductImporter;
 use Pyz\Zed\Installer\Business\Model\Icecat\IcecatLocaleManager;
 use Pyz\Zed\Installer\Business\Model\Reader\CsvReader;
@@ -33,8 +34,9 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     public function getIcecatDataImporters()
     {
         return [
-            InstallerConfig::RESOURCE_CATEGORY => $this->getCategoryImporter(),
             InstallerConfig::RESOURCE_PRODUCT => $this->getProductImporter(),
+            InstallerConfig::RESOURCE_CATEGORY => $this->getCategoryImporter(),
+            InstallerConfig::RESOURCE_PRODUCT_CATEGORY => $this->getProductImporter(),
         ];
     }
 
@@ -48,10 +50,30 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
         );
 
         $categoryImporter->setCategoryFacade($this->getCategoryFacade());
+        $categoryImporter->setCategoryQueryContainer($this->getCategoryQueryContainer());
         $categoryImporter->setTouchFacade($this->getTouchFacade());
         $categoryImporter->setUrlFacade($this->getUrlFacade());
         $categoryImporter->setNodeUrlManager($this->createNodeUrlManager());
         $categoryImporter->setCategoryQueryContainer($this->getCategoryQueryContainer());
+
+        return $categoryImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Model\Icecat\Importer\CategoryImporter
+     */
+    protected function getProductCategoryImporter()
+    {
+        $categoryImporter = new ProductCategoryImporter(
+            $this->getCsvReader(), $this->getIcecatLocaleManager()
+        );
+
+        $categoryImporter->setCategoryFacade($this->getCategoryFacade());
+        $categoryImporter->setCategoryQueryContainer($this->getCategoryQueryContainer());
+        $categoryImporter->setProductFacade($this->getProductFacade());
+        $categoryImporter->setProductQueryContainer($this->getProductQueryContainer());
+        $categoryImporter->setProductCategoryFacade($this->getProductCategoryFacade());
+        $categoryImporter->setProductCategoryQueryContainer($this->getProductCategoryQueryContainer());
 
         return $categoryImporter;
     }
@@ -65,10 +87,8 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
             $this->getCsvReader(), $this->getIcecatLocaleManager()
         );
 
-        $productImporter->setProductFacade($this->getProductFacade());
         $productImporter->setAttributeManager($this->createAttributeManager());
-        $productImporter->setCategoryQueryContainer($this->getCategoryQueryContainer());
-        $productImporter->setProductCategoryFacade($this->getProductCategoryFacade());
+        $productImporter->setProductFacade($this->getProductFacade());
 
         return $productImporter;
     }
@@ -118,6 +138,14 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
+     * @return \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
+     */
+    protected function getCategoryQueryContainer()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::QUERY_CONTAINER_CATEGORY);
+    }
+
+    /**
      * @return \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface
      */
     protected function getProductQueryContainer()
@@ -126,11 +154,11 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
+     * @return \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface
      */
-    protected function getCategoryQueryContainer()
+    protected function getProductCategoryQueryContainer()
     {
-        return $this->getProvidedDependency(InstallerDependencyProvider::QUERY_CONTAINER_CATEGORY);
+        return $this->getProvidedDependency(InstallerDependencyProvider::QUERY_CONTAINER_PRODUCT_CATEGORY);
     }
 
     /**

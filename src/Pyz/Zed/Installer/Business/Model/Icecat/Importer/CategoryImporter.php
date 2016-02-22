@@ -6,6 +6,7 @@ use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
 use Pyz\Zed\Category\Business\CategoryFacade;
+use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
 use Pyz\Zed\Installer\Business\Exception\InvalidDataException;
 use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatImporter;
@@ -23,7 +24,7 @@ class CategoryImporter extends AbstractIcecatImporter
     const LOW_PIC = 'low_pic';
 
     /**
-     * @var \Pyz\Zed\Category\Business\CategoryFacade
+     * @var \Pyz\Zed\Category\Business\CategoryFacadeInterface
      */
     protected $categoryFacade;
 
@@ -53,11 +54,11 @@ class CategoryImporter extends AbstractIcecatImporter
     protected $cacheParents = [];
 
     /**
-     * @param \Pyz\Zed\Category\Business\CategoryFacade $categoryFacade
+     * @param \Pyz\Zed\Category\Business\CategoryFacadeInterface $categoryFacade
      *
      * @return void
      */
-    public function setCategoryFacade(CategoryFacade $categoryFacade)
+    public function setCategoryFacade(CategoryFacadeInterface $categoryFacade)
     {
         $this->categoryFacade = $categoryFacade;
     }
@@ -107,6 +108,7 @@ class CategoryImporter extends AbstractIcecatImporter
      */
     public function canImport()
     {
+        return false;
         return count($this->categoryFacade->getRootNodes()) === 0;
     }
 

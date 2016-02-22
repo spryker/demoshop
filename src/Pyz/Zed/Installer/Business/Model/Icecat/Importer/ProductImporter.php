@@ -28,11 +28,6 @@ class ProductImporter extends AbstractIcecatImporter
     const PRODUCT_CONCRETE_COLLECTION = 'product_concrete_collection';
 
     /**
-     * @var array
-     */
-    protected $cacheParents = [];
-
-    /**
      * @var \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface
      */
     protected $attributeManager;
@@ -43,14 +38,9 @@ class ProductImporter extends AbstractIcecatImporter
     protected $productFacade;
 
     /**
-     * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
+     * @var array
      */
-    protected $categoryQueryContainer;
-
-    /**
-     * @var \Pyz\Zed\ProductCategory\Business\ProductCategoryFacadeInterface
-     */
-    protected $productCategoryFacade;
+    protected $cacheParents = [];
 
     /**
      * @param \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface $attributeManager
@@ -69,29 +59,11 @@ class ProductImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
-     *
-     * @return void
-     */
-    public function setCategoryQueryContainer(CategoryQueryContainerInterface $categoryQueryContainer)
-    {
-        $this->categoryQueryContainer = $categoryQueryContainer;
-    }
-
-    /**
-     * @param \Pyz\Zed\ProductCategory\Business\ProductCategoryFacadeInterface $productCategoryFacade
-     */
-    public function setProductCategoryFacade(ProductCategoryFacadeInterface $productCategoryFacade)
-    {
-        $this->productCategoryFacade = $productCategoryFacade;
-    }
-
-    /**
      * @return bool
      */
     public function canImport()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -136,31 +108,10 @@ class ProductImporter extends AbstractIcecatImporter
             $this->createProductConcreteCollection($productConcreteCollection, $idProductAbstract);
             $this->productFacade->touchProductActive($idProductAbstract);
             $this->createAndTouchProductUrls($productAbstract, $idProductAbstract);
-            $this->installProductCategory($idProductAbstract, $product[self::CATEGORY_KEY]);
-        }
-    }
-
-    protected function installProductCategory($sku, $categoryKey)
-    {
-        /*if (!array_key_exists($categoryKey, $this->cacheParents)) {
-
-        }*/
-
-        $categoryQuery = $this->categoryQueryContainer->queryCategoryByKey($categoryKey);
-        $category = $categoryQuery->findOne();
-
-        if (!$category) {
-            return;
         }
 
-/*        if (!$this->productFacade->hasProductAbstract($sku)) {
-            return;
-        }*/
-
-        if (!$this->productCategoryFacade->hasProductCategoryMapping($sku, $categoryName, $locale)) {
-            $categoryNodeIds[] = $this->productCategoryFacade
-                ->createProductCategoryMapping($sku, $categoryName, $locale);
-        }
+        $output->writeln('');
+        $output->writeln('Installed: ' . $step);
     }
 
     /**
