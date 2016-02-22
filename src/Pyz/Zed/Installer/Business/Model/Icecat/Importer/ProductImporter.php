@@ -93,7 +93,7 @@ class ProductImporter extends AbstractIcecatImporter
             $output->write(str_repeat("\x08", strlen($info)));
 
             $csvData = $this->generateCsvItem($columns, $csvFile->fgetcsv());
-            if ((int) $csvData[self::VARIANT_ID] > 1) {
+            if ($this->hasVariants($csvData[self::VARIANT_ID])) {
                 continue;
             }
 
@@ -121,8 +121,14 @@ class ProductImporter extends AbstractIcecatImporter
     {
     }
 
-    protected function hasVariants()
+    /**
+     * @param string|int $variant
+     *
+     * @return bool
+     */
+    protected function hasVariants($variant)
     {
+        return intval($variant) > 1;
     }
 
     /**
@@ -202,7 +208,7 @@ class ProductImporter extends AbstractIcecatImporter
         $idProductAbstract
     ) {
         foreach ($productAbstract->getLocalizedAttributes() as $localizedAttributes) {
-            $productAbstractUrl = $this->buildProductUrl($localizedAttributes) . '-'.$idProductAbstract; //TODO urls should be unique
+            $productAbstractUrl = $this->generateProductUrl($localizedAttributes, $idProductAbstract);
             $this->productFacade->createAndTouchProductUrlByIdProduct(
                 $idProductAbstract,
                 $productAbstractUrl,
@@ -213,19 +219,28 @@ class ProductImporter extends AbstractIcecatImporter
 
     /**
      * @param \Generated\Shared\Transfer\LocalizedAttributesTransfer $localizedAttributes
+     * @param int $idProductAbstract
      *
      * @return string
      */
-    protected function buildProductUrl(LocalizedAttributesTransfer $localizedAttributes)
+    protected function generateProductUrl(LocalizedAttributesTransfer $localizedAttributes, $idProductAbstract)
     {
-        $searchStrings = array_keys($this->urlReplacements);
-        $replaceStrings = array_values($this->urlReplacements);
+        $productName = $this->slugify($localizedAttributes->getName());
 
-        $productUrl = strtolower($localizedAttributes->getName());
-        $productUrl = trim($productUrl);
-        $productUrl = str_replace($searchStrings, $replaceStrings, $productUrl);
+        return '/' . mb_substr($localizedAttributes->getLocale()->getLocaleName(), 0, 2) . '/' . $productName . '-' . $idProductAbstract; //TODO urls should be unique
+    }
 
-        return '/' . mb_substr($localizedAttributes->getLocale()->getLocaleName(), 0, 2) . '/' . $productUrl;
+    /**
+     * @param string $value
+     *
+     * @return string
+     */
+    public function slugify($value)
+    {
+        $value = trim($value);
+        $value = \transliterator_transliterate("Any-Latin; Latin-ASCII; NFD; [\u0080-\u7fff] remove; [:Nonspacing Mark:] remove; NFC; [:Punctuation:] remove; Lower();", $value);
+        $value = str_replace(' ', '-', $value);
+        return $value;
     }
 
 }
