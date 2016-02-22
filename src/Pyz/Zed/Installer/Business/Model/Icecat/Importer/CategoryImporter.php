@@ -107,8 +107,6 @@ class CategoryImporter extends AbstractIcecatImporter
      */
     public function canImport()
     {
-        return true;
-
         return count($this->categoryFacade->getRootNodes()) === 0;
     }
 
