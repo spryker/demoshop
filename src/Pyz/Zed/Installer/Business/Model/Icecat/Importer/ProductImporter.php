@@ -13,6 +13,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 class ProductImporter extends AbstractIcecatImporter
 {
 
+    const NAME = 'model_name';
+    const SKU = 'prod_id';
+
     const PRODUCT_ABSTRACT = 'product_abstract';
     const PRODUCT_CONCRETE_COLLECTION = 'product_concrete_collection';
 
@@ -38,10 +41,6 @@ class ProductImporter extends AbstractIcecatImporter
      */
     protected $productFacade;
 
-    protected function getColumnHeader()
-    {
-        return 'slug,variantId,sku,productType,name.en,manufacturer_name,manufacturer_icecat_id,manufacturer_icecat_original_id,manufacturer_product_id,manufacturer_product_id_normal,ean_upc_set,images,image_url_small,image_url_thumb,category_name.en,category_icecat_id,category_uncat_it,categories,tax,icecat_data_quality,icecat_factsheet_url,icecat_xml_data_url,on_market,on_market_countries_set,icecat_last_updated';
-    }
 
     /**
      * @param \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface $attributeManager
@@ -64,23 +63,32 @@ class ProductImporter extends AbstractIcecatImporter
      */
     public function canImport()
     {
-        return false;
+        return true;
     }
 
     /**
-     * @param OutputInterface $output
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
      * @return void
      */
     protected function importData(OutputInterface $output)
     {
-        $csvFile = $this->getCsvFile('products.csv');
-        $currentLine = 0;
-        $max = 2;
+        $csvFile = $this->csvReader->read('products.csv');
+        $columns = $this->csvReader->getColumns();
+        $total = intval($this->csvReader->getTotal($csvFile));
+        $step = 0;
+        $max = 10;
+
+        $csvFile->rewind();
 
         while (!$csvFile->eof()) {
-            $data = explode(',', $csvFile->fgets());
-            $product = $this->format($data);
+            $step++;
+            $info = 'Importing... ' . $step . '/' . $total;
+            $output->write($info);
+            $output->write(str_repeat("\x08", strlen($info)));
+
+            $csvData = $this->generateCsvItem($columns, $csvFile->fgetcsv());
+            $product = $this->format($csvData);
 
             /* @var ProductAbstractTransfer $productAbstract */
             $productAbstract = $product[self::PRODUCT_ABSTRACT];
@@ -98,11 +106,9 @@ class ProductImporter extends AbstractIcecatImporter
             $this->productFacade->touchProductActive($idProductAbstract);
             $this->createAndTouchProductUrls($productAbstract, $idProductAbstract);
 
-            if ($currentLine > $max) {
+            if ($step > $max) {
                 break;
             }
-
-            $currentLine++;
         }
     }
 
@@ -132,11 +138,9 @@ class ProductImporter extends AbstractIcecatImporter
      */
     protected function format(array $data)
     {
-        $columns = $this->getColumns();
-        $product = array_combine(array_values($columns), array_values($data));
-
-        $productImageUrl = $product['images'];
-        $thumbImageUrl = $product['image_url_thumb'];
+        dump($data);
+        $productImageUrl = $data['High_res_img'];
+        $thumbImageUrl = $data['Low_res_img'];
 
         $attributes = [
             'price' => (float) rand(0.01, 1999.99),
@@ -157,22 +161,22 @@ class ProductImporter extends AbstractIcecatImporter
                 'thumbnail_url' => '/images/product/' . $thumbImageUrl,
                 'main_color' => 'color',
                 'other_colors' => 'other colors',
-                'description' => $product['name.en'],
+                'description' => $data[self::NAME],
                 'description_long' => '',
                 'fun_fact' => 'fun fact',
                 'scientific_name' => 'scientific name',
             ]);
             $localizedAttributes->setLocale($localeTransfer);
-            $localizedAttributes->setName($product['name.en']);
+            $localizedAttributes->setName($data[self::NAME]);
 
             $productAbstract->addLocalizedAttributes($localizedAttributes);
             $productConcrete->addLocalizedAttributes($localizedAttributes);
         }
 
-        $productAbstract->setSku($product['sku']);
+        $productAbstract->setSku($data[self::SKU]);
         $productAbstract->setAttributes($attributes);
 
-        $productConcrete->setSku($product['sku']);
+        $productConcrete->setSku($data[self::SKU]);
         $productConcrete->setAttributes($attributes);
         $productConcrete->setProductImageUrl($productImageUrl);
         $productConcrete->setIsActive(true);

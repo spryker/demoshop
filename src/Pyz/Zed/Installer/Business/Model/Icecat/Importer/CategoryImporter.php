@@ -128,14 +128,14 @@ class CategoryImporter extends AbstractIcecatImporter
 
         while (!$csvFile->eof()) {
             $step++;
-            $csvData = $this->generateCsvItem($columns, $csvFile->fgetcsv());
-
-            $rootCategoryData = $this->format($csvData);
-            $this->importCategory($rootCategoryData);
 
             $info = 'Importing... ' . $step . '/' . $total;
             $output->write($info);
             $output->write(str_repeat("\x08", strlen($info)));
+
+            $csvData = $this->generateCsvItem($columns, $csvFile->fgetcsv());
+            $rootCategoryData = $this->format($csvData);
+            $this->importCategory($rootCategoryData);
         }
 
         $this->updateParentsAndUrls($output, $csvFile, $columns, $total);
