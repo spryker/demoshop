@@ -5,12 +5,12 @@ namespace Pyz\Zed\Installer\Business\Model\Icecat\Importer;
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
-use Pyz\Zed\Category\Business\CategoryFacade;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
 use Pyz\Zed\Installer\Business\Exception\InvalidDataException;
 use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\Installer\InstallerConfig;
+use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Touch\Business\TouchFacadeInterface;
 use Spryker\Zed\Url\Business\UrlFacadeInterface;
@@ -108,7 +108,6 @@ class CategoryImporter extends AbstractIcecatImporter
      */
     public function canImport()
     {
-        return false;
         return count($this->categoryFacade->getRootNodes()) === 0;
     }
 
@@ -276,7 +275,7 @@ class CategoryImporter extends AbstractIcecatImporter
         $idNode = $this->categoryFacade->createCategoryNode($nodeTransfer, new LocaleTransfer(), false);
         $nodeTransfer->setIdCategoryNode($idNode);
 
-        $this->touchFacade->touchActive(InstallerConfig::RESOURCE_CATEGORY, $nodeTransfer->getIdCategoryNode());
+        $this->touchFacade->touchActive(CategoryConstants::RESOURCE_TYPE_CATEGORY_NODE, $idNode);
     }
 
     /**

@@ -63,7 +63,8 @@ class ProductImporter extends AbstractIcecatImporter
      */
     public function canImport()
     {
-        return false;
+        return true;
+        //return $this->productFacade->getAbstractProductCount() > 0;
     }
 
     /**
@@ -97,15 +98,11 @@ class ProductImporter extends AbstractIcecatImporter
             $productAbstract = $product[self::PRODUCT_ABSTRACT];
             $productConcreteCollection = $product[self::PRODUCT_CONCRETE_COLLECTION];
 
-            $sku = $productAbstract->getSku();
-
-            if ($this->productFacade->hasProductAbstract($sku)) {
-                continue;
-            }
-
             $idProductAbstract = $this->productFacade->createProductAbstract($productAbstract);
             $productAbstract->setIdProductAbstract($idProductAbstract);
+
             $this->createProductConcreteCollection($productConcreteCollection, $idProductAbstract);
+
             $this->productFacade->touchProductActive($idProductAbstract);
             $this->createAndTouchProductUrls($productAbstract, $idProductAbstract);
         }

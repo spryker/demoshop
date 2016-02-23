@@ -64,18 +64,19 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
      */
     protected function getProductCategoryImporter()
     {
-        $categoryImporter = new ProductCategoryImporter(
+        $productCategoryImporter = new ProductCategoryImporter(
             $this->getCsvReader(), $this->getIcecatLocaleManager()
         );
 
-        $categoryImporter->setCategoryFacade($this->getCategoryFacade());
-        $categoryImporter->setCategoryQueryContainer($this->getCategoryQueryContainer());
-        $categoryImporter->setProductFacade($this->getProductFacade());
-        $categoryImporter->setProductQueryContainer($this->getProductQueryContainer());
-        $categoryImporter->setProductCategoryFacade($this->getProductCategoryFacade());
-        $categoryImporter->setProductCategoryQueryContainer($this->getProductCategoryQueryContainer());
+        $productCategoryImporter->setCategoryFacade($this->getCategoryFacade());
+        $productCategoryImporter->setCategoryQueryContainer($this->getCategoryQueryContainer());
+        $productCategoryImporter->setProductFacade($this->getProductFacade());
+        $productCategoryImporter->setProductQueryContainer($this->getProductQueryContainer());
+        $productCategoryImporter->setProductCategoryFacade($this->getProductCategoryFacade());
+        $productCategoryImporter->setProductCategoryQueryContainer($this->getProductCategoryQueryContainer());
+        $productCategoryImporter->setTouchFacade($this->getTouchFacade());
 
-        return $categoryImporter;
+        return $productCategoryImporter;
     }
 
     /**

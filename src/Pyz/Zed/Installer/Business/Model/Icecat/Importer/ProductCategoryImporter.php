@@ -7,9 +7,12 @@ use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Pyz\Zed\Product\Business\ProductFacadeInterface;
 use Pyz\Zed\ProductCategory\Business\ProductCategoryFacadeInterface;
+use Spryker\Shared\Category\CategoryConstants;
+use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
 use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface;
+use Spryker\Zed\Touch\Business\TouchFacadeInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class ProductCategoryImporter extends AbstractIcecatImporter
@@ -50,9 +53,19 @@ class ProductCategoryImporter extends AbstractIcecatImporter
     protected $productCategoryQueryContainer;
 
     /**
+     * @var \Spryker\Zed\Touch\Business\TouchFacadeInterface
+     */
+    protected $touchFacade;
+
+    /**
      * @var array
      */
     protected $cacheCategories = [];
+
+    /**
+     * @var array
+     */
+    protected $cacheNodes = [];
 
     /**
      * @param \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface $productCategoryQueryContainer
@@ -103,6 +116,16 @@ class ProductCategoryImporter extends AbstractIcecatImporter
     }
 
     /**
+     * @param \Spryker\Zed\Touch\Business\TouchFacadeInterface $touchFacade
+     *
+     * @return void
+     */
+    public function setTouchFacade(TouchFacadeInterface $touchFacade)
+    {
+        $this->touchFacade = $touchFacade;
+    }
+
+    /**
      * @return bool
      */
     public function canImport()
@@ -141,37 +164,54 @@ class ProductCategoryImporter extends AbstractIcecatImporter
 
             $product = $this->format($csvData);
 
-            $idProductAbstract = $this->productFacade->getProductAbstractIdBySku($product[self::SKU]);
-            if (!$idProductAbstract) {
+            $productAbstract = $this->productQueryContainer
+                ->queryProductAbstractBySku($product[self::SKU])
+                ->findOne();
+
+            if (!$productAbstract) {
                 continue;
             }
 
             $idCategory = null;
+            $idNode = null;
             if (!array_key_exists($product[self::CATEGORY_KEY], $this->cacheCategories)) {
-                $categoryQuery = $this->categoryQueryContainer->queryCategoryByKey($product[self::CATEGORY_KEY]);
+                $categoryQuery = $this->categoryQueryContainer
+                    ->queryCategoryByKey($product[self::CATEGORY_KEY])
+                    ->useNodeQuery()
+                        ->filterByIsMain(true)
+                    ->endUse()
+                ;
                 $category = $categoryQuery->findOne();
                 if ($category) {
                     $idCategory = $category->getIdCategory();
+                    $idNode = $category->getNodes()->getFirst()->getIdCategoryNode();
                 }
                 else {
                     $idCategory = $root->getCategory()->getIdCategory();
+                    $idNode = $root->getIdCategoryNode();
                 }
+
                 $this->cacheCategories[self::CATEGORY_KEY] = $idCategory;
+                $this->cacheNodes[self::CATEGORY_KEY] = $idNode;
             }
             else {
                 $idCategory = $this->cacheCategories[self::CATEGORY_KEY];
+                $idNode = $this->cacheNodes[self::CATEGORY_KEY];
             }
 
-            if (!$idCategory) {
+            if (!$idCategory || !$idNode) {
                 continue;
             }
 
             $mappingEntity = new SpyProductCategory();
             $mappingEntity
-                ->setFkProductAbstract($idProductAbstract)
+                ->setFkProductAbstract($productAbstract->getIdProductAbstract())
                 ->setFkCategory($idCategory);
 
             $mappingEntity->save();
+
+            $this->touchFacade->touchActive(ProductConstants::RESOURCE_TYPE_PRODUCT_ABSTRACT, $productAbstract->getIdProductAbstract());
+            $this->touchFacade->touchActive(CategoryConstants::RESOURCE_TYPE_CATEGORY_NODE, $idNode);
         }
 
         $output->writeln('');
