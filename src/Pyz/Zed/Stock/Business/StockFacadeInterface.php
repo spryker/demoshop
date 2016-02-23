@@ -6,9 +6,10 @@
 
 namespace Pyz\Zed\Stock\Business;
 
+use Spryker\Zed\Stock\Business\StockFacadeInterface as SprykerStockFacadeInterface;
 use Psr\Log\LoggerInterface;
 
-interface StockFacadeInterface
+interface StockFacadeInterface extends SprykerStockFacadeInterface
 {
 
     /**

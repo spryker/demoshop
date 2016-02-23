@@ -39,6 +39,7 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
     const FACADE_PRODUCT_CATEGORY = 'facade product category';
     const FACADE_TOUCH = 'facade touch';
     const FACADE_URL = 'facade url';
+    const FACADE_STOCK = 'facade stock';
 
     const QUERY_CONTAINER_CATEGORY = 'query container category';
     const QUERY_CONTAINER_LOCALE = 'query container locale';
@@ -82,6 +83,10 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
 
         $container[self::FACADE_URL] = function (Container $container) {
             return $container->getLocator()->url()->facade();
+        };
+
+        $container[self::FACADE_STOCK] = function (Container $container) {
+            return $container->getLocator()->stock()->facade();
         };
 
         $container[self::QUERY_CONTAINER_PRODUCT] = function (Container $container) {

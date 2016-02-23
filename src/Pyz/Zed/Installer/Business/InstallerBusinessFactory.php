@@ -8,6 +8,7 @@ use Pyz\Zed\Installer\Business\Model\Icecat\Importer\CategoryImporter;
 use Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductCategoryImporter;
 use Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductImporter;
 use Pyz\Zed\Installer\Business\Model\Icecat\IcecatLocaleManager;
+use Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductStockImporter;
 use Pyz\Zed\Installer\Business\Model\Reader\CsvReader;
 use Pyz\Zed\Installer\InstallerConfig;
 use Pyz\Zed\Installer\InstallerDependencyProvider;
@@ -35,6 +36,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     {
         return [
             InstallerConfig::RESOURCE_PRODUCT => $this->getProductImporter(),
+            InstallerConfig::RESOURCE_PRODUCT_STOCK => $this->getProductStockImporter(),
             InstallerConfig::RESOURCE_CATEGORY => $this->getCategoryImporter(),
             InstallerConfig::RESOURCE_PRODUCT_CATEGORY => $this->getProductCategoryImporter(),
         ];
@@ -77,6 +79,21 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
         $productCategoryImporter->setTouchFacade($this->getTouchFacade());
 
         return $productCategoryImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductStockImporter
+     */
+    protected function getProductStockImporter()
+    {
+        $productStockImporter = new ProductStockImporter(
+            $this->getCsvReader(), $this->getIcecatLocaleManager()
+        );
+
+        $productStockImporter->setProductQueryContainer($this->getProductQueryContainer());
+        $productStockImporter->setStockFacade($this->getStockFacade());
+
+        return $productStockImporter;
     }
 
     /**
@@ -160,6 +177,14 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductCategoryQueryContainer()
     {
         return $this->getProvidedDependency(InstallerDependencyProvider::QUERY_CONTAINER_PRODUCT_CATEGORY);
+    }
+
+    /**
+     * @return \Pyz\Zed\Stock\Business\StockFacadeInterface
+     */
+    protected function getStockFacade()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::FACADE_STOCK);
     }
 
     /**
