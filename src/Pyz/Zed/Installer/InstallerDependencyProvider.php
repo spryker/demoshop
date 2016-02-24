@@ -37,6 +37,7 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
     const FACADE_LOCALE = 'facade locale';
     const FACADE_PRODUCT = 'facade product';
     const FACADE_PRODUCT_CATEGORY = 'facade product category';
+    const FACADE_PRODUCT_SEARCH = 'facade product search';
     const FACADE_TOUCH = 'facade touch';
     const FACADE_URL = 'facade url';
     const FACADE_STOCK = 'facade stock';
@@ -45,6 +46,7 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
     const QUERY_CONTAINER_LOCALE = 'query container locale';
     const QUERY_CONTAINER_PRODUCT = 'query container product';
     const QUERY_CONTAINER_PRODUCT_CATEGORY = 'query container product category';
+    const QUERY_CONTAINER_PRODUCT_SEARCH = 'query container product search';
     const QUERY_CONTAINER_PRICE = 'query container price';
 
     const BRIDGE_CATEGORY_TO_URL = 'BRIDGE_CATEGORY_TO_URL';
@@ -90,12 +92,20 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
             return $container->getLocator()->stock()->facade();
         };
 
+        $container[self::FACADE_PRODUCT_SEARCH] = function (Container $container) {
+            return $container->getLocator()->productSearch()->facade();
+        };
+
         $container[self::QUERY_CONTAINER_PRODUCT] = function (Container $container) {
             return $container->getLocator()->product()->queryContainer();
         };
 
         $container[self::QUERY_CONTAINER_PRODUCT_CATEGORY] = function (Container $container) {
             return $container->getLocator()->productCategory()->queryContainer();
+        };
+
+        $container[self::QUERY_CONTAINER_PRODUCT_SEARCH] = function (Container $container) {
+            return $container->getLocator()->productSearch()->queryContainer();
         };
 
         $container[self::QUERY_CONTAINER_PRICE] = function (Container $container) {

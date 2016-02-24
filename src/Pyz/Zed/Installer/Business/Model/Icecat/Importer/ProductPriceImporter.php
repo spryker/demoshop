@@ -117,6 +117,8 @@ class ProductPriceImporter extends AbstractIcecatImporter
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
+     * @throws \Pyz\Zed\Installer\Business\Exception\PriceTypeNotFoundException
+     *
      * @return void
      */
     protected function importData(OutputInterface $output)
@@ -169,7 +171,7 @@ class ProductPriceImporter extends AbstractIcecatImporter
             $entity
                 ->setPrice($price[self::PRICE])
                 ->setPriceType($priceType)
-                //->setFkProductAbstract($productAbstract->getIdProductAbstract())
+                ->setFkProductAbstract($productAbstract->getIdProductAbstract())
                 ->setFkProduct($productAbstract->getIdProductAbstract()) //collectors won't export without it
             ;
 

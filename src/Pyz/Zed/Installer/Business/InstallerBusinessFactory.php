@@ -9,6 +9,7 @@ use Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductCategoryImporter;
 use Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductImporter;
 use Pyz\Zed\Installer\Business\Model\Icecat\IcecatLocaleManager;
 use Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductPriceImporter;
+use Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductSearchImporter;
 use Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductStockImporter;
 use Pyz\Zed\Installer\Business\Model\Reader\CsvReader;
 use Pyz\Zed\Installer\InstallerConfig;
@@ -22,6 +23,7 @@ use Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter;
 use Spryker\Zed\Category\Business\Tree\NodeWriter;
 use Spryker\Zed\Installer\Business\InstallerBusinessFactory as SprykerInstallerBusinessFactory;
 use Spryker\Zed\Product\Business\Attribute\AttributeManager;
+use Spryker\Zed\ProductSearch\Business\Operation\OperationManager;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
@@ -29,7 +31,6 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
 {
-
     /**
      * @return \Spryker\Zed\Installer\Business\Model\AbstractInstaller[]
      */
@@ -41,6 +42,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
             InstallerConfig::RESOURCE_PRODUCT_CATEGORY => $this->getProductCategoryImporter(),
             InstallerConfig::RESOURCE_PRODUCT_STOCK => $this->getProductStockImporter(),
             InstallerConfig::RESOURCE_PRODUCT_PRICE => $this->getProductPriceImporter(),
+            InstallerConfig::RESOURCE_PRODUCT_SEARCH => $this->getProductSearchImporter(),
         ];
     }
 
@@ -64,6 +66,21 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
+     * @return \Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductImporter
+     */
+    protected function getProductImporter()
+    {
+        $productImporter = new ProductImporter(
+            $this->getCsvReader(), $this->getIcecatLocaleManager()
+        );
+
+        $productImporter->setAttributeManager($this->createAttributeManager());
+        $productImporter->setProductFacade($this->getProductFacade());
+
+        return $productImporter;
+    }
+
+    /**
      * @return \Pyz\Zed\Installer\Business\Model\Icecat\Importer\CategoryImporter
      */
     protected function getProductCategoryImporter()
@@ -84,21 +101,6 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductStockImporter
-     */
-    protected function getProductStockImporter()
-    {
-        $productStockImporter = new ProductStockImporter(
-            $this->getCsvReader(), $this->getIcecatLocaleManager()
-        );
-
-        $productStockImporter->setProductQueryContainer($this->getProductQueryContainer());
-        $productStockImporter->setStockFacade($this->getStockFacade());
-
-        return $productStockImporter;
-    }
-
-    /**
      * @return \Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductPriceImporter
      */
     protected function getProductPriceImporter()
@@ -115,18 +117,33 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductImporter
+     * @return \Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductStockImporter
      */
-    protected function getProductImporter()
+    protected function getProductStockImporter()
     {
-        $productImporter = new ProductImporter(
+        $productStockImporter = new ProductStockImporter(
             $this->getCsvReader(), $this->getIcecatLocaleManager()
         );
 
-        $productImporter->setAttributeManager($this->createAttributeManager());
-        $productImporter->setProductFacade($this->getProductFacade());
+        $productStockImporter->setProductQueryContainer($this->getProductQueryContainer());
+        $productStockImporter->setStockFacade($this->getStockFacade());
 
-        return $productImporter;
+        return $productStockImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Model\Icecat\Importer\ProductStockImporter
+     */
+    protected function getProductSearchImporter()
+    {
+        $productStockImporter = new ProductSearchImporter(
+            $this->getCsvReader(), $this->getIcecatLocaleManager()
+        );
+
+        $productStockImporter->setProductSearchFacade($this->getProductSearchFacade());
+        $productStockImporter->setOperationManager($this->createOperationManager());
+
+        return $productStockImporter;
     }
 
     /**
@@ -187,6 +204,14 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductQueryContainer()
     {
         return $this->getProvidedDependency(InstallerDependencyProvider::QUERY_CONTAINER_PRODUCT);
+    }
+
+    /**
+     * @return \Spryker\Zed\ProductSearch\Persistence\ProductSearchQueryContainerInterface
+     */
+    protected function getProductSearchQueryContainer()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::QUERY_CONTAINER_PRODUCT_SEARCH);
     }
 
     /**
@@ -259,6 +284,38 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getUrlFacade()
     {
         return $this->getProvidedDependency(InstallerDependencyProvider::FACADE_URL);
+    }
+
+    /**
+     * @return \Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface
+     */
+    protected function getProductSearchFacade()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::FACADE_PRODUCT_SEARCH);
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Dependency\Facade\CategoryToTouchInterface
+     */
+    protected function getCategoryToTouchBridge()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::BRIDGE_CATEGORY_TO_TOUCH);
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Dependency\Facade\CategoryToUrlInterface
+     */
+    protected function getCategoryToUrlBridge()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::BRIDGE_CATEGORY_TO_URL);
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Dependency\Facade\CategoryToLocaleInterface
+     */
+    protected function getCategoryToLocaleBridge()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::BRIDGE_CATEGORY_TO_LOCALE);
     }
 
     /**
@@ -356,27 +413,13 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\Category\Dependency\Facade\CategoryToTouchInterface
+     * @return \Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface
      */
-    protected function getCategoryToTouchBridge()
+    protected function createOperationManager()
     {
-        return $this->getProvidedDependency(InstallerDependencyProvider::BRIDGE_CATEGORY_TO_TOUCH);
-    }
-
-    /**
-     * @return \Spryker\Zed\Category\Dependency\Facade\CategoryToUrlInterface
-     */
-    protected function getCategoryToUrlBridge()
-    {
-        return $this->getProvidedDependency(InstallerDependencyProvider::BRIDGE_CATEGORY_TO_URL);
-    }
-
-    /**
-     * @return \Spryker\Zed\Category\Dependency\Facade\CategoryToLocaleInterface
-     */
-    protected function getCategoryToLocaleBridge()
-    {
-        return $this->getProvidedDependency(InstallerDependencyProvider::BRIDGE_CATEGORY_TO_LOCALE);
+        return new OperationManager(
+            $this->getProductSearchQueryContainer()
+        );
     }
 
 }

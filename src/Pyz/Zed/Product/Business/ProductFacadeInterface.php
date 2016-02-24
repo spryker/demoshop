@@ -1,19 +1,16 @@
 <?php
 
 /**
- * (c) Spryker Systems GmbH copyright protected
+ * (c) Spryker Systems GmbH copyright protected.
  */
-
 namespace Pyz\Zed\Product\Business;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Spryker\Zed\Product\Business\ProductFacadeInterface as SprykerProductFacadeInterface;
-use Psr\Log\LoggerInterface;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 
 interface ProductFacadeInterface extends SprykerProductFacadeInterface
 {
-
     /**
      * @param array $productsData
      *
@@ -30,14 +27,12 @@ interface ProductFacadeInterface extends SprykerProductFacadeInterface
 
     /**
      * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
-     *
-     * @return void
      */
     public function installDemoData(MessengerInterface $messenger);
 
     /**
-     * @param int $idProductAbstract
-     * @param string $url
+     * @param int                                       $idProductAbstract
+     * @param string                                    $url
      * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      *
      * @throws \Propel\Runtime\Exception\PropelException
@@ -47,5 +42,4 @@ interface ProductFacadeInterface extends SprykerProductFacadeInterface
      * @return \Generated\Shared\Transfer\UrlTransfer
      */
     public function createAndTouchProductUrlByIdProduct($idProductAbstract, $url, LocaleTransfer $locale);
-
 }

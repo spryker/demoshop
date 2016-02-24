@@ -12,6 +12,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 class ProductStockImporter extends AbstractIcecatImporter
 {
     const SKU = 'sku';
+    const QUANTITY = 'quantity';
+    const NEVER_OUT_OF_STOCK = 'is_never_out_of_stock';
+    const STOCK_TYPE = 'stock_type';
     const PRODUCT_ID = 'product_id';
     const VARIANT_ID = 'variantId';
     const CATEGORY_KEY = 'category_key';
@@ -25,6 +28,11 @@ class ProductStockImporter extends AbstractIcecatImporter
      * @var \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface
      */
     protected $productQueryContainer;
+
+    /**
+     * @var array
+     */
+    protected $stockTypeCache = [];
 
     /**
      * @param \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface $productQueryContainer
@@ -53,55 +61,40 @@ class ProductStockImporter extends AbstractIcecatImporter
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
-     *
-     * @return void
      */
     protected function importData(OutputInterface $output)
     {
-        $csvFile = $this->csvReader->read('products.csv');
+        $csvFile = $this->csvReader->read('stocks.csv');
         $columns = $this->csvReader->getColumns();
         $total = intval($this->csvReader->getTotal($csvFile));
         $step = 0;
 
-        $stockType = new TypeTransfer();
-        $stockType->setName('Warehouse1');
-        $idStockType = $this->stockFacade->createStockType($stockType);
-        $stockType->setIdStock($idStockType);
-
         $csvFile->rewind();
 
         while (!$csvFile->eof()) {
-            $step++;
-            $info = 'Importing... ' . $step . '/' . $total;
+            ++$step;
+            $info = 'Importing... '.$step.'/'.$total;
             $output->write($info);
             $output->write(str_repeat("\x08", strlen($info)));
 
             $csvData = $this->generateCsvItem($columns, $csvFile->fgetcsv());
-            if ($this->hasVariants($csvData[self::VARIANT_ID])) {
-                continue;
-            }
-
-            $product = $this->format($csvData);
+            $stock = $this->format($csvData);
 
             $productAbstract = $this->productQueryContainer
-                ->queryProductAbstractBySku($product[self::SKU])
+                ->queryProductAbstractBySku($stock[self::SKU])
                 ->findOne();
 
             if (!$productAbstract) {
                 continue;
             }
 
-            $transferStockProduct = new StockProductTransfer();
-            $transferStockProduct->setSku($product[self::SKU])
-                ->setIsNeverOutOfStock(false)
-                ->setQuantity(5)
-                ->setStockType($stockType->getIdStock());
-
-            $this->stockFacade->createStockProduct($transferStockProduct);
+            $stockType = $this->createStockTypeOnce($stock);
+            $stockProductTransfer = $this->createStockProductTransfer($stock, $stockType);
+            $this->stockFacade->createStockProduct($stockProductTransfer);
         }
 
         $output->writeln('');
-        $output->writeln('Installed: ' . $step);
+        $output->writeln('Installed: '.$step);
     }
 
     /**
@@ -122,5 +115,54 @@ class ProductStockImporter extends AbstractIcecatImporter
     protected function format(array $data)
     {
         return $data;
+    }
+
+    /**
+     * @param array $stockData
+     *
+     * @return \Generated\Shared\Transfer\TypeTransfer
+     */
+    protected function createStockTypeOnce(array $stockData)
+    {
+        $stockTypeTransfer = $this->createTypeTransfer($stockData);
+        if (!array_key_exists($stockData[self::STOCK_TYPE], $this->stockTypeCache)) {
+            $idStockType = $this->stockFacade->createStockType($stockTypeTransfer);
+            $stockTypeTransfer->setIdStock($idStockType);
+            $this->stockTypeCache[$stockData[self::STOCK_TYPE]] = $stockTypeTransfer;
+        } else {
+            $stockTypeTransfer = $this->stockTypeCache[$stockData[self::STOCK_TYPE]];
+        }
+
+        return $stockTypeTransfer;
+    }
+
+    /**
+     * @param array $stockTypeData
+     *
+     * @return \Generated\Shared\Transfer\TypeTransfer
+     */
+    protected function createTypeTransfer(array $stockTypeData)
+    {
+        $stockType = new TypeTransfer();
+        $stockType->setName($stockTypeData[self::STOCK_TYPE]);
+
+        return $stockType;
+    }
+
+    /**
+     * @param array $stockData
+     * @param \Generated\Shared\Transfer\TypeTransfer $stockType
+     *
+     * @return \Generated\Shared\Transfer\StockProductTransfer
+     */
+    protected function createStockProductTransfer(array $stockData, TypeTransfer $stockType)
+    {
+        $transferStockProduct = new StockProductTransfer();
+        $transferStockProduct->setSku($stockData[self::SKU])
+            ->setIsNeverOutOfStock($stockData[self::NEVER_OUT_OF_STOCK])
+            ->setQuantity($stockData[self::QUANTITY])
+            ->setStockType($stockType->getName());
+
+        return $transferStockProduct;
     }
 }
