@@ -2,9 +2,9 @@
 
 namespace Pyz\Zed\ProductOption\Business;
 
+use Psr\Log\LoggerInterface;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\ProductOption\Business\ProductOptionFacade as SprykerProductOptionFacade;
-use Psr\Log\LoggerInterface;
 
 /**
  * @method \Pyz\Zed\ProductOption\Business\ProductOptionBusinessFactory getFactory()

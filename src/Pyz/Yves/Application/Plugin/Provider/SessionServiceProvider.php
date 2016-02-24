@@ -4,9 +4,9 @@ namespace Pyz\Yves\Application\Plugin\Provider;
 
 use Pyz\Yves\Application\Business\Model\SessionFactory;
 use Silex\Application;
+use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config;
 use Spryker\Shared\Session\SessionConstants;
-use Spryker\Shared\Application\ApplicationConstants;
 
 /**
  * @method \Pyz\Yves\Application\ApplicationFactory getFactory()

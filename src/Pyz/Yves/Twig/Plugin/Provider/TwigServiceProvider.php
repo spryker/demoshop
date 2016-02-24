@@ -2,13 +2,13 @@
 
 namespace Pyz\Yves\Twig\Plugin\Provider;
 
+use Pyz\Yves\Twig\Loader\YvesFilesystemLoader;
+use Silex\Application;
+use Silex\Provider\TwigServiceProvider as SilexTwigServiceProvider;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Application\Routing\Helper;
-use Silex\Application;
-use Silex\Provider\TwigServiceProvider as SilexTwigServiceProvider;
-use Pyz\Yves\Twig\Loader\YvesFilesystemLoader;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
 use Symfony\Component\HttpKernel\KernelEvents;

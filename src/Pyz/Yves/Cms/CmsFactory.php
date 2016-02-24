@@ -2,8 +2,8 @@
 
 namespace Pyz\Yves\Cms;
 
-use Spryker\Yves\Kernel\AbstractFactory;
 use Pyz\Yves\Cms\ResourceCreator\PageResourceCreator;
+use Spryker\Yves\Kernel\AbstractFactory;
 
 class CmsFactory extends AbstractFactory
 {

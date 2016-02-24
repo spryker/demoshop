@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node;
 
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\VisitableProductInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\VisitableProductInterface;
 
 class ProductOptionValue implements VisitableProductInterface
 {

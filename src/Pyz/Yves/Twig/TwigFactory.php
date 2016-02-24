@@ -2,14 +2,14 @@
 
 namespace Pyz\Yves\Twig;
 
+use Pyz\Yves\Twig\Model\AssetUrlBuilder;
+use Pyz\Yves\Twig\Model\MediaUrlBuilder;
+use Pyz\Yves\Twig\Model\UrlParameterCacheBuster;
+use Pyz\Yves\Twig\Model\YvesExtension;
 use Silex\Application;
+use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config;
 use Spryker\Yves\Kernel\AbstractFactory;
-use Pyz\Yves\Twig\Model\YvesExtension;
-use Pyz\Yves\Twig\Model\UrlParameterCacheBuster;
-use Pyz\Yves\Twig\Model\MediaUrlBuilder;
-use Pyz\Yves\Twig\Model\AssetUrlBuilder;
-use Spryker\Shared\Application\ApplicationConstants;
 
 class TwigFactory extends AbstractFactory
 {

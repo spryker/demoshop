@@ -2,10 +2,10 @@
 
 namespace Pyz\Zed\Oms\Communication\Plugin\Oms;
 
+use Orm\Zed\Sales\Persistence\SpySalesOrder;
 use Spryker\Zed\Oms\Business\Util\ReadOnlyArrayObject;
 use Spryker\Zed\Oms\Communication\Plugin\Oms\Command\AbstractCommand;
 use Spryker\Zed\Oms\Communication\Plugin\Oms\Command\CommandByOrderInterface;
-use Orm\Zed\Sales\Persistence\SpySalesOrder;
 
 class FakeAuthPayment extends AbstractCommand implements CommandByOrderInterface
 {

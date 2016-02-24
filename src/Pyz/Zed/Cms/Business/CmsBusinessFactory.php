@@ -2,11 +2,11 @@
 
 namespace Pyz\Zed\Cms\Business;
 
-use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManager;
 use Pyz\Zed\Cms\Business\Internal\DemoData\CmsInstall;
 use Pyz\Zed\Cms\CmsDependencyProvider;
-use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\Cms\Business\CmsBusinessFactory as SprykerCmsBusinessFactory;
+use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManager;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 
 /**
  * @method \Pyz\Zed\Cms\CmsConfig getConfig()

@@ -2,15 +2,15 @@
 
 namespace Pyz\Zed\Category\Business;
 
-use Spryker\Zed\Category\Business\Tree\ClosureTableWriter;
-use Spryker\Zed\Category\Business\Tree\CategoryTreeReader;
-use Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter;
-use Spryker\Zed\Category\Business\Tree\CategoryTreeWriter;
+use Psr\Log\LoggerInterface;
+use Pyz\Zed\Category\Business\Internal\DemoData\CategoryTreeInstall;
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
 use Pyz\Zed\Category\CategoryDependencyProvider;
 use Spryker\Zed\Category\Business\CategoryBusinessFactory as SprykerCategoryBusinessFactory;
-use Pyz\Zed\Category\Business\Internal\DemoData\CategoryTreeInstall;
-use Psr\Log\LoggerInterface;
+use Spryker\Zed\Category\Business\Tree\CategoryTreeReader;
+use Spryker\Zed\Category\Business\Tree\CategoryTreeWriter;
+use Spryker\Zed\Category\Business\Tree\ClosureTableWriter;
+use Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 
 /**

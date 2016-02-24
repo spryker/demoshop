@@ -2,8 +2,8 @@
 
 namespace Pyz\Yves\Glossary;
 
-use Spryker\Yves\Kernel\AbstractFactory;
 use Spryker\Client\Glossary\GlossaryClientInterface;
+use Spryker\Yves\Kernel\AbstractFactory;
 
 class GlossaryFactory extends AbstractFactory
 {

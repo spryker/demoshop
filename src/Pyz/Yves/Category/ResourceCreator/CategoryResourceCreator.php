@@ -4,10 +4,10 @@ namespace Pyz\Yves\Category\ResourceCreator;
 
 use Pyz\Yves\Collector\Creator\AbstractResourceCreator;
 use Silex\Application;
+use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Shared\Kernel\LocatorLocatorInterface;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
-use Spryker\Shared\Category\CategoryConstants;
 
 class CategoryResourceCreator extends AbstractResourceCreator
 {

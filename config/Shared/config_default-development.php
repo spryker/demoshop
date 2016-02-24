@@ -4,11 +4,11 @@
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a development environment.
  */
 
-use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Acl\AclConstants;
-use Spryker\Shared\Session\SessionConstants;
-use Spryker\Shared\Payone\PayoneConstants;
+use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Log\LogConstants;
+use Spryker\Shared\Payone\PayoneConstants;
+use Spryker\Shared\Session\SessionConstants;
 
 $config[ApplicationConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
 $config[ApplicationConstants::ZED_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_FILE;
