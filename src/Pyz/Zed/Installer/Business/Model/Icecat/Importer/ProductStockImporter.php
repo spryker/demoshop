@@ -52,34 +52,34 @@ class ProductStockImporter extends AbstractIcecatImporter
     }
 
     /**
-         * @param \Symfony\Component\Console\Output\OutputInterface $output
-         *
-         * @return void
-         */
-        protected function importData(OutputInterface $output)
-        {
-            $csvFile = $this->csvReader->read('products.csv');
-            $columns = $this->csvReader->getColumns();
-            $total = intval($this->csvReader->getTotal($csvFile));
-            $step = 0;
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     *
+     * @return void
+     */
+    protected function importData(OutputInterface $output)
+    {
+        $csvFile = $this->csvReader->read('products.csv');
+        $columns = $this->csvReader->getColumns();
+        $total = intval($this->csvReader->getTotal($csvFile));
+        $step = 0;
 
-            $stockType = new TypeTransfer();
-            $stockType->setName('Warehouse1');
-            $idStockType = $this->stockFacade->createStockType($stockType);
-            $stockType->setIdStock($idStockType);
+        $stockType = new TypeTransfer();
+        $stockType->setName('Warehouse1');
+        $idStockType = $this->stockFacade->createStockType($stockType);
+        $stockType->setIdStock($idStockType);
 
-            $csvFile->rewind();
+        $csvFile->rewind();
 
-            while (!$csvFile->eof()) {
-                $step++;
-                $info = 'Importing... ' . $step . '/' . $total;
-                $output->write($info);
-                $output->write(str_repeat("\x08", strlen($info)));
+        while (!$csvFile->eof()) {
+            $step++;
+            $info = 'Importing... ' . $step . '/' . $total;
+            $output->write($info);
+            $output->write(str_repeat("\x08", strlen($info)));
 
-                $csvData = $this->generateCsvItem($columns, $csvFile->fgetcsv());
-                if ($this->hasVariants($csvData[self::VARIANT_ID])) {
-                    continue;
-                }
+            $csvData = $this->generateCsvItem($columns, $csvFile->fgetcsv());
+            if ($this->hasVariants($csvData[self::VARIANT_ID])) {
+                continue;
+            }
 
             $product = $this->format($csvData);
 
@@ -123,5 +123,4 @@ class ProductStockImporter extends AbstractIcecatImporter
     {
         return $data;
     }
-
 }

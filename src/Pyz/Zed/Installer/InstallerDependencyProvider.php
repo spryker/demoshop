@@ -45,6 +45,7 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
     const QUERY_CONTAINER_LOCALE = 'query container locale';
     const QUERY_CONTAINER_PRODUCT = 'query container product';
     const QUERY_CONTAINER_PRODUCT_CATEGORY = 'query container product category';
+    const QUERY_CONTAINER_PRICE = 'query container price';
 
     const BRIDGE_CATEGORY_TO_URL = 'BRIDGE_CATEGORY_TO_URL';
     const BRIDGE_CATEGORY_TO_TOUCH = 'BRIDGE_CATEGORY_TO_TOUCH';
@@ -95,6 +96,10 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
 
         $container[self::QUERY_CONTAINER_PRODUCT_CATEGORY] = function (Container $container) {
             return $container->getLocator()->productCategory()->queryContainer();
+        };
+
+        $container[self::QUERY_CONTAINER_PRICE] = function (Container $container) {
+            return $container->getLocator()->price()->queryContainer();
         };
 
         $container[self::QUERY_CONTAINER_CATEGORY] = function (Container $container) {
