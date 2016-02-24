@@ -1,8 +1,5 @@
 <?php
-/**
- * (c) Spryker Systems GmbH copyright protected
- */
-namespace Pyz\Zed\Installer\Business\Model\Reader;
+namespace Pyz\Zed\Installer\Business\Reader;
 
 use SplFileObject;
 

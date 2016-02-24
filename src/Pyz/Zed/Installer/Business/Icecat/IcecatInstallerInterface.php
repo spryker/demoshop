@@ -2,11 +2,11 @@
 /**
  * (c) Spryker Systems GmbH copyright protected
  */
-namespace Pyz\Zed\Installer\Business\Model\Icecat;
+namespace Pyz\Zed\Installer\Business\Icecat;
 
 use Symfony\Component\Console\Output\OutputInterface;
 
-interface IcecatImporterInterface
+interface IcecatInstallerInterface
 {
 
     /**
@@ -14,11 +14,6 @@ interface IcecatImporterInterface
      *
      * @return void
      */
-    public function import(OutputInterface $output);
-
-    /**
-     * @return bool
-     */
-    public function canImport();
+    public function install(OutputInterface $output);
 
 }

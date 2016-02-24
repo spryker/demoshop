@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\Installer\Business\Model\Icecat;
+namespace Pyz\Zed\Installer\Business\Icecat;
 
 use Pyz\Zed\Installer\Business\Exception\LocaleNotFoundException;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
@@ -67,7 +67,7 @@ class IcecatLocaleManager
      *
      * @throws LocaleNotFoundException
      *
-     * @return \Pyz\Zed\Installer\Business\Model\Icecat\IcecatLocale
+     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatLocale
      */
     public function getLocaleByCode($code)
     {
@@ -81,7 +81,7 @@ class IcecatLocaleManager
      *
      * @throws LocaleNotFoundException
      *
-     * @return \Pyz\Zed\Installer\Business\Model\Icecat\IcecatLocale
+     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatLocale
      */
     public function getLocaleByIcecatId($idIcecat)
     {

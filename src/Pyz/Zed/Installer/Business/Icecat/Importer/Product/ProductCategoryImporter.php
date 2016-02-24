@@ -1,9 +1,10 @@
 <?php
 
-namespace Pyz\Zed\Installer\Business\Model\Icecat\Importer;
+namespace Pyz\Zed\Installer\Business\Icecat\Importer\Product;
 
+use Orm\Zed\Category\Persistence\SpyCategoryNode;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
-use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatImporter;
+use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Pyz\Zed\Product\Business\ProductFacadeInterface;
 use Pyz\Zed\ProductCategory\Business\ProductCategoryFacadeInterface;
@@ -66,6 +67,11 @@ class ProductCategoryImporter extends AbstractIcecatImporter
      * @var array
      */
     protected $cacheNodes = [];
+
+    /**
+     * @var SpyCategoryNode
+     */
+    protected $defaultRootNode;
 
     /**
      * @param \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface $productCategoryQueryContainer
@@ -134,88 +140,80 @@ class ProductCategoryImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     *
-     * @return void
+     * @return SpyCategoryNode
      */
-    protected function importData(OutputInterface $output)
+    protected function getRootNode()
     {
-        $csvFile = $this->csvReader->read('products.csv');
-        $columns = $this->csvReader->getColumns();
-        $total = intval($this->csvReader->getTotal($csvFile));
-        $step = 0;
-
-        $queryRoot = $this->categoryQueryContainer->queryRootNode();
-        $queryRoot->joinCategory();
-        $root = $queryRoot->findOne();
-
-        $csvFile->rewind();
-
-        while (!$csvFile->eof()) {
-            $step++;
-            $info = 'Importing... ' . $step . '/' . $total;
-            $output->write($info);
-            $output->write(str_repeat("\x08", strlen($info)));
-
-            $csvData = $this->generateCsvItem($columns, $csvFile->fgetcsv());
-            if ($this->hasVariants($csvData[self::VARIANT_ID])) {
-                continue;
-            }
-
-            $product = $this->format($csvData);
-
-            $productAbstract = $this->productQueryContainer
-                ->queryProductAbstractBySku($product[self::SKU])
-                ->findOne();
-
-            if (!$productAbstract) {
-                continue;
-            }
-
-            $idCategory = null;
-            $idNode = null;
-            if (!array_key_exists($product[self::CATEGORY_KEY], $this->cacheCategories)) {
-                $categoryQuery = $this->categoryQueryContainer
-                    ->queryCategoryByKey($product[self::CATEGORY_KEY])
-                    ->useNodeQuery()
-                        ->filterByIsMain(true)
-                    ->endUse()
-                ;
-                $category = $categoryQuery->findOne();
-                if ($category) {
-                    $idCategory = $category->getIdCategory();
-                    $idNode = $category->getNodes()->getFirst()->getIdCategoryNode();
-                }
-                else {
-                    $idCategory = $root->getCategory()->getIdCategory();
-                    $idNode = $root->getIdCategoryNode();
-                }
-
-                $this->cacheCategories[self::CATEGORY_KEY] = $idCategory;
-                $this->cacheNodes[self::CATEGORY_KEY] = $idNode;
-            }
-            else {
-                $idCategory = $this->cacheCategories[self::CATEGORY_KEY];
-                $idNode = $this->cacheNodes[self::CATEGORY_KEY];
-            }
-
-            if (!$idCategory || !$idNode) {
-                continue;
-            }
-
-            $mappingEntity = new SpyProductCategory();
-            $mappingEntity
-                ->setFkProductAbstract($productAbstract->getIdProductAbstract())
-                ->setFkCategory($idCategory);
-
-            $mappingEntity->save();
-
-            $this->touchFacade->touchActive(ProductConstants::RESOURCE_TYPE_PRODUCT_ABSTRACT, $productAbstract->getIdProductAbstract());
-            $this->touchFacade->touchActive(CategoryConstants::RESOURCE_TYPE_CATEGORY_NODE, $idNode);
+        if ($this->defaultRootNode === null) {
+            $queryRoot = $this->categoryQueryContainer->queryRootNode();
+            $this->defaultRootNode = $queryRoot->findOne();
         }
 
-        $output->writeln('');
-        $output->writeln('Installed: ' . $step);
+        return $this->defaultRootNode;
+    }
+
+    /**
+     * @param array $columns
+     * @param array $data
+     * @throws \Propel\Runtime\Exception\PropelException
+     */
+    public function importOne(array $columns, array $data)
+    {
+        $csvData = $this->generateCsvItem($columns, $data);
+        if ($this->hasVariants($csvData[self::VARIANT_ID])) {
+            return;
+        }
+
+        $product = $this->format($csvData);
+
+        $productAbstract = $this->productQueryContainer
+            ->queryProductAbstractBySku($product[self::SKU])
+            ->findOne();
+
+        if (!$productAbstract) {
+            return;
+        }
+
+        $idCategory = null;
+        $idNode = null;
+        if (!array_key_exists($product[self::CATEGORY_KEY], $this->cacheCategories)) {
+            $categoryQuery = $this->categoryQueryContainer
+                ->queryCategoryByKey($product[self::CATEGORY_KEY])
+                ->useNodeQuery()
+                    ->filterByIsMain(true)
+                ->endUse()
+            ;
+            $category = $categoryQuery->findOne();
+            if ($category) {
+                $idCategory = $category->getIdCategory();
+                $idNode = $category->getNodes()->getFirst()->getIdCategoryNode();
+            }
+            else {
+                $idCategory = $this->getRootNode()->getCategory()->getIdCategory();
+                $idNode = $this->getRootNode()->getIdCategoryNode();
+            }
+
+            $this->cacheCategories[self::CATEGORY_KEY] = $idCategory;
+            $this->cacheNodes[self::CATEGORY_KEY] = $idNode;
+        }
+        else {
+            $idCategory = $this->cacheCategories[self::CATEGORY_KEY];
+            $idNode = $this->cacheNodes[self::CATEGORY_KEY];
+        }
+
+        if (!$idCategory || !$idNode) {
+            return;
+        }
+
+        $mappingEntity = new SpyProductCategory();
+        $mappingEntity
+            ->setFkProductAbstract($productAbstract->getIdProductAbstract())
+            ->setFkCategory($idCategory);
+
+        $mappingEntity->save();
+
+        $this->touchFacade->touchActive(ProductConstants::RESOURCE_TYPE_PRODUCT_ABSTRACT, $productAbstract->getIdProductAbstract());
+        $this->touchFacade->touchActive(CategoryConstants::RESOURCE_TYPE_CATEGORY_NODE, $idNode);
     }
 
     /**

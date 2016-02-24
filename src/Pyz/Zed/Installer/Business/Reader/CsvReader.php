@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\Installer\Business\Model\Reader;
+namespace Pyz\Zed\Installer\Business\Reader;
 
 use Pyz\Zed\Installer\Business\Exception\DataFileNotFoundException;
 use SplFileObject;

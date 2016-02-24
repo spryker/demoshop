@@ -1,18 +1,16 @@
 <?php
 
-namespace Pyz\Zed\Installer\Business\Model\Icecat\Importer;
+namespace Pyz\Zed\Installer\Business\Icecat\Importer\Product;
 
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
-use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatImporter;
+use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\Product\Business\ProductFacadeInterface;
-use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
-use Pyz\Zed\ProductCategory\Business\ProductCategoryFacadeInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ProductImporter extends AbstractIcecatImporter
+class ProductAbstractImporter extends AbstractIcecatImporter
 {
 
     const NAME = 'name.en';
@@ -68,47 +66,29 @@ class ProductImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     *
-     * @return void
+     * @param array $columns
+     * @param array $data
      */
-    protected function importData(OutputInterface $output)
+    public function importOne(array $columns, array $data)
     {
-        $csvFile = $this->csvReader->read('products.csv');
-        $columns = $this->csvReader->getColumns();
-        $total = intval($this->csvReader->getTotal($csvFile));
-        $step = 0;
-
-        $csvFile->rewind();
-
-        while (!$csvFile->eof()) {
-            $step++;
-            $info = 'Importing... ' . $step . '/' . $total;
-            $output->write($info);
-            $output->write(str_repeat("\x08", strlen($info)));
-
-            $csvData = $this->generateCsvItem($columns, $csvFile->fgetcsv());
-            if ($this->hasVariants($csvData[self::VARIANT_ID])) {
-                continue;
-            }
-
-            $product = $this->format($csvData);
-
-            /* @var ProductAbstractTransfer $productAbstract */
-            $productAbstract = $product[self::PRODUCT_ABSTRACT];
-            $productConcreteCollection = $product[self::PRODUCT_CONCRETE_COLLECTION];
-
-            $idProductAbstract = $this->productFacade->createProductAbstract($productAbstract);
-            $productAbstract->setIdProductAbstract($idProductAbstract);
-
-            $this->createProductConcreteCollection($productConcreteCollection, $idProductAbstract);
-
-            $this->productFacade->touchProductActive($idProductAbstract);
-            $this->createAndTouchProductUrls($productAbstract, $idProductAbstract);
+        $csvData = $this->generateCsvItem($columns, $data);
+        if ($this->hasVariants($csvData[self::VARIANT_ID])) {
+            return;
         }
 
-        $output->writeln('');
-        $output->writeln('Installed: ' . $step);
+        $product = $this->format($csvData);
+
+        /* @var ProductAbstractTransfer $productAbstract */
+        $productAbstract = $product[self::PRODUCT_ABSTRACT];
+        $productConcreteCollection = $product[self::PRODUCT_CONCRETE_COLLECTION];
+
+        $idProductAbstract = $this->productFacade->createProductAbstract($productAbstract);
+        $productAbstract->setIdProductAbstract($idProductAbstract);
+
+        $this->createProductConcreteCollection($productConcreteCollection, $idProductAbstract);
+
+        $this->productFacade->touchProductActive($idProductAbstract);
+        $this->createAndTouchProductUrls($productAbstract, $idProductAbstract);
     }
 
     /**

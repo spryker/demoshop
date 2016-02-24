@@ -1,12 +1,10 @@
 <?php
 
-namespace Pyz\Zed\Installer\Business\Model\Icecat\Importer;
+namespace Pyz\Zed\Installer\Business\Icecat\Importer\Product;
 
-use Generated\Shared\Transfer\PriceProductTransfer;
-use Generated\Shared\Transfer\StockProductTransfer;
 use Orm\Zed\Price\Persistence\SpyPriceProduct;
 use Pyz\Zed\Installer\Business\Exception\PriceTypeNotFoundException;
-use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatImporter;
+use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\Stock\Business\StockFacadeInterface;
 use Spryker\Zed\Price\Persistence\PriceQueryContainerInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
@@ -115,13 +113,12 @@ class ProductPriceImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     *
-     * @throws \Pyz\Zed\Installer\Business\Exception\PriceTypeNotFoundException
-     *
-     * @return void
+     * @param array $columns
+     * @param array $data
+     * @throws PriceTypeNotFoundException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    protected function importData(OutputInterface $output)
+    public function importOne(array $columns, array $data)
     {
         $csvFile = $this->csvReader->read('prices.csv');
         $columns = $this->csvReader->getColumns();
@@ -135,8 +132,8 @@ class ProductPriceImporter extends AbstractIcecatImporter
         while (!$csvFile->eof()) {
             $step++;
             $info = 'Importing... ' . $step . '/' . $total;
-            $output->write($info);
-            $output->write(str_repeat("\x08", strlen($info)));
+            $data->write($info);
+            $data->write(str_repeat("\x08", strlen($info)));
 
             $csvData = $this->generateCsvItem($columns, $csvFile->fgetcsv());
             if ($this->hasVariants($csvData[self::VARIANT_ID])) {
@@ -178,8 +175,8 @@ class ProductPriceImporter extends AbstractIcecatImporter
             $entity->save();
         }
 
-        $output->writeln('');
-        $output->writeln('Installed: ' . $step);
+        $data->writeln('');
+        $data->writeln('Installed: ' . $step);
     }
 
     /**

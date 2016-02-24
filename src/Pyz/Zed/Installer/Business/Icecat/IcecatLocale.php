@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\Installer\Business\Model\Icecat;
+namespace Pyz\Zed\Installer\Business\Icecat;
 
 class IcecatLocale
 {

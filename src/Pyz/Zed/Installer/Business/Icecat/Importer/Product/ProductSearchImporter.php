@@ -1,16 +1,12 @@
 <?php
 
-namespace Pyz\Zed\Installer\Business\Model\Icecat\Importer;
+namespace Pyz\Zed\Installer\Business\Icecat\Importer\Product;
 
-use Orm\Zed\Product\Persistence\SpyProduct;
 use Orm\Zed\Product\Persistence\SpyProductAttributesMetadataQuery;
 use Orm\Zed\Product\Persistence\SpyProductQuery;
-use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatImporter;
+use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
-use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
-use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
 use Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
-use Spryker\Zed\Touch\Business\TouchFacadeInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class ProductSearchImporter extends AbstractIcecatImporter
@@ -53,11 +49,12 @@ class ProductSearchImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @param array $columns
+     * @param array $data
      */
-    protected function importData(OutputInterface $output)
+    public function importOne(array $columns, array $data)
     {
-        $this->installMetadata($output);
+        $this->installMetadata($data);
 
         $step = 0;
         $productCollection = SpyProductQuery::create()->find();
@@ -66,15 +63,15 @@ class ProductSearchImporter extends AbstractIcecatImporter
         foreach ($productCollection as $product) {
             $step++;
             $info = 'Importing... '.$step.'/'.$total;
-            $output->write($info);
-            $output->write(str_repeat("\x08", strlen($info)));
+            $data->write($info);
+            $data->write(str_repeat("\x08", strlen($info)));
 
             $this->productSearchFacade
                 ->activateProductSearch($product->getIdProduct(), $this->localeManager->getLocaleCollection());
         }
 
-        $output->writeln('');
-        $output->writeln('Installed: '.$step);
+        $data->writeln('');
+        $data->writeln('Installed: '.$step);
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\Installer\Business\Model\Icecat\Importer;
+namespace Pyz\Zed\Installer\Business\Icecat\Importer\Category;
 
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
@@ -8,7 +8,7 @@ use Generated\Shared\Transfer\NodeTransfer;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
 use Pyz\Zed\Installer\Business\Exception\InvalidDataException;
-use Pyz\Zed\Installer\Business\Model\Icecat\AbstractIcecatImporter;
+use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\Installer\InstallerConfig;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
@@ -112,95 +112,14 @@ class CategoryImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     *
-     * @return void
-     */
-    protected function importData(OutputInterface $output)
-    {
-        $this->installRootNodes();
-
-        $csvFile = $this->csvReader->read('categories.csv');
-        $columns = $this->csvReader->getColumns();
-        $total = intval($this->csvReader->getTotal($csvFile));
-        $step = 0;
-
-        $csvFile->rewind();
-
-        while (!$csvFile->eof()) {
-            $step++;
-
-            $info = 'Importing... ' . $step . '/' . $total;
-            $output->write($info);
-            $output->write(str_repeat("\x08", strlen($info)));
-
-            $csvData = $this->generateCsvItem($columns, $csvFile->fgetcsv());
-            $rootCategoryData = $this->format($csvData);
-            $this->importCategory($rootCategoryData);
-        }
-
-        $this->updateParentsAndUrls($output, $csvFile, $columns, $total);
-
-        $output->writeln('');
-        $output->writeln('Installed: ' . $step);
-    }
-
-    /**
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @param \SplFileObject $csvFile
      * @param array $columns
-     * @param int $total
-     *
-     * @return void
+     * @param array $data
      */
-    protected function updateParentsAndUrls(OutputInterface $output, \SplFileObject $csvFile, array $columns, $total)
+    public function importOne(array $columns, array $data)
     {
-        $step = 1;
-
-        $csvFile->rewind();
-        $output->writeln('');
-
-        $idParentNode = null;
-        $queryRoot = $this->categoryQueryContainer->queryRootNode();
-        $root = $queryRoot->findOne();
-
-        while (!$csvFile->eof()) {
-            $data = $csvFile->fgetcsv();
-            $csvData = $this->generateCsvItem($columns, $data);
-            $idParentNode = $root->getIdCategoryNode();
-
-            if (!array_key_exists($csvData[self::PARENT_KEY], $this->cacheParents)) {
-                $queryParent = $this->categoryQueryContainer->queryMainCategoryNodeByCategoryKey($csvData[self::PARENT_KEY]);
-                $queryRoot->filterByIsRoot(false);
-                $parent = $queryParent->findOne();
-
-                if ($parent) {
-                    $idParentNode = $parent->getIdCategoryNode();
-                    $this->cacheParents[$csvData[self::PARENT_KEY]] = $idParentNode;
-                }
-            } else {
-                $idParentNode = $this->cacheParents[$csvData[self::PARENT_KEY]];
-            }
-
-            $nodesQuery = $this->categoryQueryContainer->queryNodeByCategoryKey($csvData[self::UCATID]);
-            $nodesQuery->filterByIsMain(true);
-            $nodes = $nodesQuery->find();
-            foreach ($nodes as $nodeEntity) {
-                $nodeTransfer = new NodeTransfer();
-                $nodeTransfer->fromArray($nodeEntity->toArray());
-                $nodeTransfer->setFkParentCategoryNode($idParentNode);
-
-                foreach ($this->localeManager->getLocaleCollection() as $code => $localeTransfer) {
-                    $this->categoryFacade->updateCategoryNode($nodeTransfer, $localeTransfer);
-                }
-            }
-
-            $info = 'Updating parents and generating urls... ' . $step . '/' . $total;
-            $output->write($info);
-            $output->write(str_repeat("\x08", strlen($info)));
-
-            $step++;
-        }
+        $csvData = $this->generateCsvItem($columns, $data);
+        $category = $this->format($csvData);
+        $this->importCategory($category);
     }
 
     /**
@@ -361,6 +280,14 @@ class CategoryImporter extends AbstractIcecatImporter
         }
 
         $this->importRootCategory($rootData);
+    }
+
+    /**
+     * @return void
+     */
+    protected function before()
+    {
+        $this->installRootNodes();
     }
 
 }
