@@ -4,9 +4,9 @@ namespace Pyz\Yves\Application\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Pimple;
 use Silex\Application;
+use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config;
 use Spryker\Shared\Kernel\Store;
-use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Library\Application\Environment as ApplicationEnvironment;
 use Spryker\Shared\Library\DataDirectory;
 use Spryker\Shared\Library\Environment;

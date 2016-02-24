@@ -5,8 +5,8 @@
  */
 
 use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Payone\PayoneConstants;
+use Spryker\Shared\Session\SessionConstants;
 
 $config[ApplicationConstants::ZED_DB_USERNAME] = 'development';
 $config[ApplicationConstants::ZED_DB_PASSWORD] = 'mate20mg';

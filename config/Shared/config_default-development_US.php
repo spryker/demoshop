@@ -1,7 +1,7 @@
 <?php
 
-use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Mail\MailConstants;
 
 $yvesHost = 'www.com.spryker.dev';
 $config[ApplicationConstants::HOST_YVES] = 'http://' . $yvesHost;

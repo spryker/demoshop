@@ -1,7 +1,7 @@
 <?php
 
-use Spryker\Shared\Library\Application\Environment;
 use Pyz\Zed\Application\Communication\ZedBootstrap;
+use Spryker\Shared\Library\Application\Environment;
 
 define('ZED_START', microtime(true));
 

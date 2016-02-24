@@ -2,11 +2,11 @@
 
 namespace Pyz\Zed\Glossary\Business;
 
-use Spryker\Zed\Glossary\Business\Key\KeyManager;
-use Spryker\Zed\Glossary\Business\Translation\TranslationManager;
 use Pyz\Zed\Glossary\Business\Internal\DemoData\GlossaryInstall;
 use Pyz\Zed\Glossary\GlossaryDependencyProvider;
 use Spryker\Zed\Glossary\Business\GlossaryBusinessFactory as SprykerGlossaryBusinessFactory;
+use Spryker\Zed\Glossary\Business\Key\KeyManager;
+use Spryker\Zed\Glossary\Business\Translation\TranslationManager;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 
 class GlossaryBusinessFactory extends SprykerGlossaryBusinessFactory

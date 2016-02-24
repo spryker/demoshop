@@ -9,8 +9,8 @@ use Spryker\Client\Glossary\GlossaryClientInterface;
 use Spryker\Shared\Library\Currency\CurrencyManager;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CheckoutType extends AbstractType
 {

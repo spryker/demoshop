@@ -7,8 +7,8 @@
 namespace Pyz\Zed\Glossary\Communication\Plugin;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
+use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Symfony\Component\Yaml\Yaml;
 
 /**

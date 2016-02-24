@@ -2,8 +2,8 @@
 
 namespace Pyz\Yves\Redirect;
 
-use Spryker\Yves\Kernel\AbstractFactory;
 use Pyz\Yves\Redirect\ResourceCreator\RedirectResourceCreator;
+use Spryker\Yves\Kernel\AbstractFactory;
 
 class RedirectFactory extends AbstractFactory
 {

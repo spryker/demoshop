@@ -2,8 +2,8 @@
 
 namespace Pyz\Yves\Category;
 
-use Spryker\Yves\Kernel\AbstractFactory;
 use Pyz\Yves\Category\ResourceCreator\CategoryResourceCreator;
+use Spryker\Yves\Kernel\AbstractFactory;
 
 class CategoryFactory extends AbstractFactory
 {

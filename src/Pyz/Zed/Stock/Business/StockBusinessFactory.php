@@ -2,12 +2,12 @@
 
 namespace Pyz\Zed\Stock\Business;
 
-use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
-use Spryker\Zed\Stock\Business\Model\Writer;
-use Spryker\Zed\Stock\Business\Model\Reader;
-use Spryker\Zed\Stock\Business\Model\Calculator;
-use Spryker\Zed\Stock\Business\StockBusinessFactory as SprykerStockBusinessFactory;
 use Pyz\Zed\Stock\Business\Internal\DemoData\StockInstall;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
+use Spryker\Zed\Stock\Business\Model\Calculator;
+use Spryker\Zed\Stock\Business\Model\Reader;
+use Spryker\Zed\Stock\Business\Model\Writer;
+use Spryker\Zed\Stock\Business\StockBusinessFactory as SprykerStockBusinessFactory;
 
 /**
  * @method \Spryker\Zed\Stock\Persistence\StockQueryContainer getQueryContainer()

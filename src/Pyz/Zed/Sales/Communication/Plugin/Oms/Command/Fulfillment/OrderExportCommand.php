@@ -2,10 +2,10 @@
 
 namespace Pyz\Zed\Sales\Communication\Plugin\Oms\Command\Fulfillment;
 
+use Orm\Zed\Sales\Persistence\SpySalesOrder;
 use Spryker\Zed\Oms\Business\Util\ReadOnlyArrayObject;
 use Spryker\Zed\Oms\Communication\Plugin\Oms\Command\AbstractCommand;
 use Spryker\Zed\Oms\Communication\Plugin\Oms\Command\CommandByOrderInterface;
-use Orm\Zed\Sales\Persistence\SpySalesOrder;
 
 class OrderExportCommand extends AbstractCommand implements CommandByOrderInterface
 {

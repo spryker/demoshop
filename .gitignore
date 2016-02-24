@@ -71,8 +71,5 @@ npm-debug.log
 /src/Orm/Propel/*/Schema
 /src/Orm/Propel/*/Sql
 
-# PHP CS Fixer
-.php_cs.cache
-
-#tools
+# tools
 composer.phar

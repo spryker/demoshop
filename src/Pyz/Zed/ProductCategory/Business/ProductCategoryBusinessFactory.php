@@ -2,13 +2,13 @@
 
 namespace Pyz\Zed\ProductCategory\Business;
 
-use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
-use Spryker\Zed\ProductCategory\Business\TransferGenerator;
-use Spryker\Zed\ProductCategory\Business\ProductCategoryManager;
-use Spryker\Zed\Library\Import\Reader\CsvFileReader;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductCategory\Business\Internal\DemoData\ProductCategoryMappingInstall;
+use Spryker\Zed\Library\Import\Reader\CsvFileReader;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\ProductCategory\Business\ProductCategoryBusinessFactory as SprykerBusinessFactory;
+use Spryker\Zed\ProductCategory\Business\ProductCategoryManager;
+use Spryker\Zed\ProductCategory\Business\TransferGenerator;
 use Spryker\Zed\ProductCategory\ProductCategoryDependencyProvider;
 
 /**

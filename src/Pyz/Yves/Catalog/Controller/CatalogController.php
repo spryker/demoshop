@@ -2,8 +2,8 @@
 
 namespace Pyz\Yves\Catalog\Controller;
 
-use Spryker\Yves\Application\Controller\AbstractController;
 use Spryker\Shared\Library\Currency\CurrencyManager;
+use Spryker\Yves\Application\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
 /**

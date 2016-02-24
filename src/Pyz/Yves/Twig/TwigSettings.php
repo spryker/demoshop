@@ -2,11 +2,11 @@
 
 namespace Pyz\Yves\Twig;
 
-use Pyz\Yves\Twig\Plugin\TwigAsset;
 use Pyz\Yves\Cms\Plugin\TwigCms;
 use Pyz\Yves\Cms\Plugin\TwigCmsBlock;
 use Pyz\Yves\Customer\Plugin\TwigCustomer;
 use Pyz\Yves\Product\Plugin\TwigPrice;
+use Pyz\Yves\Twig\Plugin\TwigAsset;
 use Pyz\Yves\Twig\Plugin\TwigNative;
 use Spryker\Shared\Kernel\LocatorLocatorInterface;
 
