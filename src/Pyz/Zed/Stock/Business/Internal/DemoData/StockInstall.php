@@ -12,7 +12,6 @@ use Spryker\Zed\Stock\Persistence\StockQueryContainer;
 
 class StockInstall extends AbstractInstaller
 {
-
     const SKU = 'sku';
     const QUANTITY = 'quantity';
     const NEVER_OUT_OF_STOCK = 'is_never_out_of_stock';
@@ -34,6 +33,11 @@ class StockInstall extends AbstractInstaller
     protected $queryContainer;
 
     /**
+     * @var array
+     */
+    protected $stockTypeCache = [];
+
+    /**
      * @param \Spryker\Zed\Stock\Business\Model\ReaderInterface $reader
      * @param \Spryker\Zed\Stock\Business\Model\WriterInterface $writer
      * @param \Spryker\Zed\Stock\Persistence\StockQueryContainer $queryContainer
@@ -49,7 +53,6 @@ class StockInstall extends AbstractInstaller
     }
 
     /**
-     * @return void
      */
     public function install()
     {
@@ -67,8 +70,6 @@ class StockInstall extends AbstractInstaller
 
     /**
      * @param array $demoStock
-     *
-     * @return void
      */
     protected function writeStockProduct(array $demoStock)
     {
@@ -84,21 +85,17 @@ class StockInstall extends AbstractInstaller
     {
         $reader = new CsvFileReader();
 
-        return $reader->read(__DIR__ . '/demo-stock.csv')->getData();
+        return $reader->read(__DIR__.'/demo-stock.csv')->getData();
     }
 
     /**
      * @param array $row
-     *
-     * @return void
      */
     protected function addEntry(array $row)
     {
-        $stockType = $this->createStockTypeTransfer($row);
-        if (!$this->doesStockExist($stockType)) {
-            $this->writer->createStockType($stockType);
-        }
-        $stockProductTransfer = $this->createStockProductTransfer($row, $stockType);
+        $typeTransfer = $this->createStockTypeOnce($row);
+
+        $stockProductTransfer = $this->createStockProductTransfer($row, $typeTransfer);
         $hasProduct = $this->reader->hasStockProduct(
             $stockProductTransfer->getSku(),
             $stockProductTransfer->getStockType()
@@ -121,7 +118,7 @@ class StockInstall extends AbstractInstaller
      *
      * @return \Generated\Shared\Transfer\TypeTransfer
      */
-    protected function createStockTypeTransfer(array $row)
+    protected function createTypeTransfer(array $row)
     {
         $stockType = new TypeTransfer();
         $stockType->setName($row[self::STOCK_TYPE]);
@@ -147,17 +144,21 @@ class StockInstall extends AbstractInstaller
     }
 
     /**
-     * @param \Generated\Shared\Transfer\TypeTransfer $stockType
+     * @param array $row
      *
-     * @return bool
+     * @return \Generated\Shared\Transfer\TypeTransfer
      */
-    protected function doesStockExist(TypeTransfer $stockType)
+    protected function createStockTypeOnce(array $row)
     {
-        $stockCount = $this->queryContainer
-            ->queryStockByName($stockType->getName())
-            ->count();
+        $stockTypeTransfer = $this->createTypeTransfer($row);
+        if (!array_key_exists($row[self::STOCK_TYPE], $this->stockTypeCache)) {
+            $idStock = $this->writer->createStockType($stockTypeTransfer);
+            $stockTypeTransfer->setIdStock($idStock);
+            $this->stockTypeCache[$row[self::STOCK_TYPE]] = $stockTypeTransfer;
+        } else {
+            $stockTypeTransfer = $this->stockTypeCache[$row[self::STOCK_TYPE]];
+        }
 
-        return $stockCount > 0;
+        return $stockTypeTransfer;
     }
-
 }
