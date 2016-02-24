@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\ProductSearch\Business;
 
-use Psr\Log\LoggerInterface;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\ProductSearch\Business\ProductSearchFacade as SprykerProductSearchFacade;
 

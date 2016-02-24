@@ -6,10 +6,10 @@
 
 namespace Pyz\Zed\ProductOption\Business;
 
-use Psr\Log\LoggerInterface;
+use Spryker\Zed\ProductOption\Business\ProductOptionFacadeInterface as SprykerProductOptionFacadeInterface;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 
-interface ProductOptionFacadeInterface
+interface ProductOptionFacadeInterface extends SprykerProductOptionFacadeInterface
 {
 
     /**

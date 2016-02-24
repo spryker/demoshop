@@ -6,9 +6,10 @@
 
 namespace Pyz\Zed\Shipment\Business;
 
+use \Spryker\Zed\Shipment\Business\ShipmentFacadeInterface as SprykerShipmentFacadeInterface;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 
-interface ShipmentFacadeInterface
+interface ShipmentFacadeInterface extends SprykerShipmentFacadeInterface
 {
 
     /**
