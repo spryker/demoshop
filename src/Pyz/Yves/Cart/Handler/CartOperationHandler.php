@@ -9,7 +9,6 @@ use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Client\Cart\CartClientInterface;
-use Spryker\Client\Kernel\AbstractClient;
 
 class CartOperationHandler extends BaseHandler
 {
@@ -51,7 +50,9 @@ class CartOperationHandler extends BaseHandler
 
         $this->addProductOptions($optionValueUsageIds, $itemTransfer);
 
-        $this->cartClient->addItem($itemTransfer);
+        $quoteTransfer = $this->cartClient->addItem($itemTransfer);
+        $this->cartClient->storeQuote($quoteTransfer);
+
         $this->setFlashMessagesFromLastZedRequest($this->cartClient);
     }
 
@@ -63,10 +64,9 @@ class CartOperationHandler extends BaseHandler
      */
     public function remove($sku, $groupKey = null)
     {
-        $itemTransfer = new ItemTransfer();
-        $itemTransfer->setSku($sku)->setGroupKey($groupKey);
+        $quoteTransfer = $this->cartClient->removeItem($sku, $groupKey);
+        $this->cartClient->storeQuote($quoteTransfer);
 
-        $this->cartClient->removeItem($itemTransfer);
         $this->setFlashMessagesFromLastZedRequest($this->cartClient);
     }
 
@@ -78,11 +78,9 @@ class CartOperationHandler extends BaseHandler
      */
     public function increase($sku, $groupKey = null)
     {
-        $itemTransfer = new ItemTransfer();
-        $itemTransfer->setSku($sku);
-        $itemTransfer->setGroupKey($groupKey);
+        $quoteTransfer = $this->cartClient->increaseItemQuantity($sku, $groupKey);
+        $this->cartClient->storeQuote($quoteTransfer);
 
-        $this->cartClient->increaseItemQuantity($itemTransfer);
         $this->setFlashMessagesFromLastZedRequest($this->cartClient);
     }
 
@@ -94,11 +92,9 @@ class CartOperationHandler extends BaseHandler
      */
     public function decrease($sku, $groupKey = null)
     {
-        $itemTransfer = new ItemTransfer();
-        $itemTransfer->setSku($sku);
-        $itemTransfer->setGroupKey($groupKey);
+        $quoteTransfer = $this->cartClient->decreaseItemQuantity($sku, $groupKey);
+        $this->cartClient->storeQuote($quoteTransfer);
 
-        $this->cartClient->decreaseItemQuantity($itemTransfer);
         $this->setFlashMessagesFromLastZedRequest($this->cartClient);
     }
 
@@ -111,11 +107,9 @@ class CartOperationHandler extends BaseHandler
      */
     public function changeQuantity($sku, $quantity, $groupKey = null)
     {
-        $itemTransfer = new ItemTransfer();
-        $itemTransfer->setSku($sku);
-        $itemTransfer->setGroupKey($groupKey);
+        $quoteTransfer = $this->cartClient->changeItemQuantity($sku, $groupKey, $quantity);
+        $this->cartClient->storeQuote($quoteTransfer);
 
-        $this->cartClient->changeItemQuantity($itemTransfer, $quantity);
         $this->setFlashMessagesFromLastZedRequest($this->cartClient);
     }
 

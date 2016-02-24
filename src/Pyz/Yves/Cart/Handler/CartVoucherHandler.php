@@ -55,7 +55,7 @@ class CartVoucherHandler extends BaseHandler
         $quoteTransfer = $this->calculationClient->recalculate($quoteTransfer);
 
         $this->setFlashMessagesFromLastZedRequest($this->calculationClient);
-        $this->cartClient->storeQuoteToSession($quoteTransfer);
+        $this->cartClient->storeQuote($quoteTransfer);
     }
 
     /**
@@ -73,7 +73,7 @@ class CartVoucherHandler extends BaseHandler
         $quoteTransfer = $this->calculationClient->recalculate($quoteTransfer);
 
         $this->setFlashMessagesFromLastZedRequest($this->calculationClient);
-        $this->cartClient->storeQuoteToSession($quoteTransfer);
+        $this->cartClient->storeQuote($quoteTransfer);
 
     }
 
@@ -88,7 +88,7 @@ class CartVoucherHandler extends BaseHandler
         $quoteTransfer = $this->calculationClient->recalculate($quoteTransfer);
 
         $this->setFlashMessagesFromLastZedRequest($this->calculationClient);
-        $this->cartClient->storeQuoteToSession($quoteTransfer);
+        $this->cartClient->storeQuote($quoteTransfer);
     }
 
 

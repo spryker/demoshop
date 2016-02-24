@@ -297,7 +297,7 @@ class StepProcess
     protected function executeWithoutInput(StepInterface $currentStep, Request $request)
     {
         $quoteTransfer = $currentStep->execute($request, $this->getQuoteTransfer());
-        $this->cartClient->storeQuoteToSession($quoteTransfer);
+        $this->cartClient->storeQuote($quoteTransfer);
     }
 
     /**
@@ -315,7 +315,7 @@ class StepProcess
         $quoteTransfer = $this->getQuoteTransfer();
         $quoteTransfer->fromArray($formQuoteTransfer->modifiedToArray());
         $quoteTransfer = $currentStep->execute($request, $quoteTransfer);
-        $this->cartClient->storeQuoteToSession($quoteTransfer);
+        $this->cartClient->storeQuote($quoteTransfer);
     }
 
     /**
