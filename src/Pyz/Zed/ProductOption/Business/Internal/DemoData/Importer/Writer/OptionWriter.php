@@ -24,8 +24,9 @@ class OptionWriter implements WriterInterface
      */
     public function __construct(
         OptionReaderInterface $reader,
-        array $visitors)
-    {
+        array $visitors
+    ) {
+
         $this->reader = $reader;
         foreach ($visitors as $visitor) {
             $this->addVisitor($visitor);
@@ -34,12 +35,17 @@ class OptionWriter implements WriterInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\OptionVisitorInterface $visitor
+     *
+     * @return void
      */
     private function addVisitor(OptionVisitorInterface $visitor)
     {
         $this->visitors[] = $visitor;
     }
 
+    /**
+     * @return void
+     */
     public function write()
     {
         foreach ($this->reader->getOptions() as $option) {
@@ -53,6 +59,8 @@ class OptionWriter implements WriterInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\VisitableOptionInterface $visitee
+     *
+     * @return void
      */
     private function visit($visitee)
     {
@@ -63,6 +71,8 @@ class OptionWriter implements WriterInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\OptionVisitorInterface $visitor
+     *
+     * @return void
      */
     public function executeQueuedCommands($visitor)
     {

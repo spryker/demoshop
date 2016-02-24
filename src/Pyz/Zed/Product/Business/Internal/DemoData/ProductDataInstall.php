@@ -2,10 +2,10 @@
 
 namespace Pyz\Zed\Product\Business\Internal\DemoData;
 
-use Generated\Shared\Transfer\ProductAbstractTransfer;
-use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
+use Generated\Shared\Transfer\ProductAbstractTransfer;
+use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
 use Spryker\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface;
@@ -81,6 +81,9 @@ class ProductDataInstall extends AbstractInstaller
         $this->filePath = $filePath;
     }
 
+    /**
+     * @return void
+     */
     public function install()
     {
         $this->info('This will install some demo products and related attributes');
@@ -89,6 +92,9 @@ class ProductDataInstall extends AbstractInstaller
         $this->createAttributes();
     }
 
+    /**
+     * @return void
+     */
     protected function createProducts()
     {
         $currentLocale = $this->localeFacade->getCurrentLocale();
@@ -114,6 +120,8 @@ class ProductDataInstall extends AbstractInstaller
     /**
      * @param array $productConcreteCollection
      * @param int $idProductAbstract
+     *
+     * @return void
      */
     protected function createProductConcreteCollection(array $productConcreteCollection, $idProductAbstract)
     {
@@ -122,6 +130,9 @@ class ProductDataInstall extends AbstractInstaller
         }
     }
 
+    /**
+     * @return void
+     */
     protected function createAttributes()
     {
         $attributes = [
@@ -179,10 +190,10 @@ class ProductDataInstall extends AbstractInstaller
         $productImageUrl = $this->buildProductImageUrl($product);
 
         $attributes = [
-            'price' => (float) $product->{'price'},
-            'width' => (float) $product->{'width'},
-            'height' => (float) $product->{'height'},
-            'depth' => (float) $product->{'depth'},
+            'price' => (float)$product->{'price'},
+            'width' => (float)$product->{'width'},
+            'height' => (float)$product->{'height'},
+            'depth' => (float)$product->{'depth'},
         ];
 
         $productAbstract = new ProductAbstractTransfer();
@@ -201,18 +212,18 @@ class ProductDataInstall extends AbstractInstaller
             $localizedAttributes = new LocalizedAttributesTransfer();
             $localizedAttributes->setAttributes(
                 [
-                    'image_url' => '/images/product/' . (string) $localeAttributes->{'image'},
+                    'image_url' => '/images/product/' . (string)$localeAttributes->{'image'},
                     'thumbnail_url' => '/images/product/default.png',
-                    'main_color' => (string) $localeAttributes->{'main_color'},
-                    'other_colors' => (string) $localeAttributes->{'other_colors'},
-                    'description' => (string) $localeAttributes->{'description'},
-                    'description_long' => (string) $localeAttributes->{'description_long'},
-                    'fun_fact' => (string) $localeAttributes->{'fun_fact'},
-                    'scientific_name' => (string) $localeAttributes->{'scientific_name'},
+                    'main_color' => (string)$localeAttributes->{'main_color'},
+                    'other_colors' => (string)$localeAttributes->{'other_colors'},
+                    'description' => (string)$localeAttributes->{'description'},
+                    'description_long' => (string)$localeAttributes->{'description_long'},
+                    'fun_fact' => (string)$localeAttributes->{'fun_fact'},
+                    'scientific_name' => (string)$localeAttributes->{'scientific_name'},
                 ]
             );
             $localizedAttributes->setLocale($this->localeFacade->getLocale($locale));
-            $localizedAttributes->setName((string) $localeAttributes->{'name'});
+            $localizedAttributes->setName((string)$localeAttributes->{'name'});
 
             $productAbstract->addLocalizedAttributes($localizedAttributes);
             $productConcrete->addLocalizedAttributes($localizedAttributes);
@@ -258,7 +269,7 @@ class ProductDataInstall extends AbstractInstaller
      */
     protected function buildProductImageUrl(\SimpleXMLElement $product)
     {
-        $productImageUrl = trim((string) $product->{'name'});
+        $productImageUrl = trim((string)$product->{'name'});
         $productImageUrl = str_replace(' ', '-', $productImageUrl);
         $productImageUrl = str_replace(',', '', $productImageUrl);
         $productImageUrl = strtolower($productImageUrl);
@@ -270,6 +281,8 @@ class ProductDataInstall extends AbstractInstaller
      * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstract
      * @param int $idProductAbstract
      * @param \Generated\Shared\Transfer\LocaleTransfer $currentLocale
+     *
+     * @return void
      */
     protected function createAndTouchProductUrls(
         ProductAbstractTransfer $productAbstract,

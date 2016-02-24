@@ -2,11 +2,11 @@
 
 namespace Pyz\Yves\Product\Plugin;
 
-use Spryker\Shared\Library\Currency\CurrencyManager;
-use Silex\Application;
-use Spryker\Yves\Kernel\AbstractPlugin;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFilterPluginInterface;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
+use Silex\Application;
+use Spryker\Shared\Library\Currency\CurrencyManager;
+use Spryker\Yves\Kernel\AbstractPlugin;
 
 class TwigPrice extends AbstractPlugin implements TwigFilterPluginInterface, TwigFunctionPluginInterface
 {
@@ -31,7 +31,7 @@ class TwigPrice extends AbstractPlugin implements TwigFilterPluginInterface, Twi
     {
         return [
             new \Twig_SimpleFunction('getItemTotalPrice', function ($grossPrice, $quantity = 1) {
-               return $grossPrice * $quantity;
+                return $grossPrice * $quantity;
             }),
         ];
     }

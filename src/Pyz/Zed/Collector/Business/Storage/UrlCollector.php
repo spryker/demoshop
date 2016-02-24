@@ -4,14 +4,14 @@ namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
-use Propel\Runtime\ActiveQuery\Criteria;
-use Spryker\Shared\Kernel\Store;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
+use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
+use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
+use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
 use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
-use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 
 class UrlCollector extends AbstractPropelCollectorPlugin
 {

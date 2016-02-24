@@ -1,7 +1,7 @@
 <?php
 
-use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Session\SessionConstants;
 

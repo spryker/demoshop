@@ -5,11 +5,11 @@ namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Command\QueueableCommand;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductAbstract;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConcrete;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConfiguration;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionType;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionTypeExclusion;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValue;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValueConstraint;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConfiguration;
 use Pyz\Zed\ProductOption\Business\ProductOptionFacade;
 
 class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
@@ -54,12 +54,17 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductAbstract|\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConcrete|\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionType|\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValue $context
+     *
+     * @return void
      */
     public function setContext($context)
     {
         array_unshift($this->context, $context);
     }
 
+    /**
+     * @return void
+     */
     public function leaveContext()
     {
         array_splice($this->context, 0, 1);
@@ -67,6 +72,8 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Command\QueueableCommand $queueableCommand
+     *
+     * @return void
      */
     private function addToCommandQueue(QueueableCommand $queueableCommand)
     {
@@ -75,6 +82,8 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductAbstract $visitee
+     *
+     * @return void
      */
     public function visitProductAbstract(ProductAbstract $visitee)
     {
@@ -82,6 +91,8 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConcrete $visitee
+     *
+     * @return void
      */
     public function visitProductConcrete(ProductConcrete $visitee)
     {
@@ -89,6 +100,8 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionType $visitee
+     *
+     * @return void
      */
     public function visitProductOptionType(ProductOptionType $visitee)
     {
@@ -104,6 +117,8 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValue $visitee
+     *
+     * @return void
      */
     public function visitProductOptionValue(ProductOptionValue $visitee)
     {
@@ -118,6 +133,8 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValueConstraint $visitee
+     *
+     * @return void
      */
     public function visitProductOptionValueConstraint(ProductOptionValueConstraint $visitee)
     {
@@ -138,18 +155,22 @@ class ProductOptionUsageImporterVisitor implements ProductVisitorInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionTypeExclusion $visitee
+     *
+     * @return void
      */
     public function visitProductOptionTypeExclusion(ProductOptionTypeExclusion $visitee)
     {
         $this->productOptionsFacade->importProductOptionTypeUsageExclusion(
-           $this->context[0]->getSku(),
-           $visitee->getKeyValueA(),
-           $visitee->getKeyValueB()
-       );
+            $this->context[0]->getSku(),
+            $visitee->getKeyValueA(),
+            $visitee->getKeyValueB()
+        );
     }
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConfiguration $visitee
+     *
+     * @return void
      */
     public function visitProductConfiguration(ProductConfiguration $visitee)
     {

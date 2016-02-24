@@ -9,8 +9,8 @@ use Spryker\Client\Glossary\GlossaryClientInterface;
 use Spryker\Shared\Library\Currency\CurrencyManager;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CheckoutType extends AbstractType
 {
@@ -75,6 +75,8 @@ class CheckoutType extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
+     *
+     * @return void
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -129,7 +131,8 @@ class CheckoutType extends AbstractType
                 'attr' => [
                     'class' => 'js-payolution-payment',
                  ],
-            ])
+                ]
+            )
             ->add(self::FIELD_ID_SHIPMENT_METHOD, 'choice', [
                 'choices' => $this->prepareShipmentMethods(),
                 'expanded' => true,
@@ -175,6 +178,8 @@ class CheckoutType extends AbstractType
 
     /**
      * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
+     *
+     * @return void
      */
     public function configureOptions(OptionsResolver $resolver)
     {

@@ -48,6 +48,9 @@ class StockInstall extends AbstractInstaller
         $this->queryContainer = $queryContainer;
     }
 
+    /**
+     * @return void
+     */
     public function install()
     {
         $query = $this->queryContainer->queryAllStockTypes();
@@ -64,6 +67,8 @@ class StockInstall extends AbstractInstaller
 
     /**
      * @param array $demoStock
+     *
+     * @return void
      */
     protected function writeStockProduct(array $demoStock)
     {
@@ -84,6 +89,8 @@ class StockInstall extends AbstractInstaller
 
     /**
      * @param array $row
+     *
+     * @return void
      */
     protected function addEntry(array $row)
     {

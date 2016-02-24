@@ -2,14 +2,14 @@
 
 namespace Pyz\Zed\ProductSearch\Business\Internal\DemoData;
 
-use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
+use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
 use Orm\Zed\Product\Persistence\SpyProduct;
 use Orm\Zed\Product\Persistence\SpyProductAttributesMetadataQuery;
 use Orm\Zed\Product\Persistence\SpyProductQuery;
+use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 use Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
 use Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToLocaleInterface;
 use Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToTouchInterface;
-use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
 
 class ProductAttributeMappingInstall extends AbstractInstaller
 {
@@ -44,6 +44,9 @@ class ProductAttributeMappingInstall extends AbstractInstaller
         $this->touchFacade = $touchFacade;
     }
 
+    /**
+     * @return void
+     */
     public function install()
     {
         $this->info(
@@ -54,6 +57,9 @@ class ProductAttributeMappingInstall extends AbstractInstaller
         $this->makeProductsSearchable();
     }
 
+    /**
+     * @return void
+     */
     protected function installAttributeOperations()
     {
         foreach ($this->getMappings() as $sourceField => $operations) {
@@ -72,6 +78,9 @@ class ProductAttributeMappingInstall extends AbstractInstaller
         }
     }
 
+    /**
+     * @return array
+     */
     protected function getMappings()
     {
         return [
@@ -128,6 +137,8 @@ class ProductAttributeMappingInstall extends AbstractInstaller
      *
      * @throws \Exception
      * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return void
      */
     protected function addOperation($idAttribute, $copyTarget, $operation, $weight)
     {
@@ -136,6 +147,10 @@ class ProductAttributeMappingInstall extends AbstractInstaller
         }
     }
 
+    /**
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
+     */
     protected function makeProductsSearchable()
     {
         $idLocale = $this->localeFacade->getCurrentLocale()->getIdLocale();

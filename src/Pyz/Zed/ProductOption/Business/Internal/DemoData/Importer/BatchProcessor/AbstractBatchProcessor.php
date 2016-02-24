@@ -14,9 +14,14 @@ abstract class AbstractBatchProcessor
     /**
      * @param string $keyName
      * @param array $values
+     *
+     * @return void
      */
     abstract public function addValues($keyName, array $values);
 
+    /**
+     * @return void
+     */
     abstract public function flush();
 
 }

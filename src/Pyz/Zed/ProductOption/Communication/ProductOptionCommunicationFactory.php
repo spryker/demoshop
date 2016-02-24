@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\ProductOption\Communication;
 
-use Spryker\Zed\ProductOption\Communication\ProductOptionCommunicationFactory as SprykerProductOptionCommunicationFactory;
 use Pyz\Zed\ProductOption\ProductOptionDependencyProvider;
+use Spryker\Zed\ProductOption\Communication\ProductOptionCommunicationFactory as SprykerProductOptionCommunicationFactory;
 
 /**
  * @method \Pyz\Zed\ProductOption\ProductOptionConfig getConfig()

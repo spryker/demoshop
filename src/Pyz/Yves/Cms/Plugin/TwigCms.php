@@ -2,9 +2,9 @@
 
 namespace Pyz\Yves\Cms\Plugin;
 
+use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
 use Silex\Application;
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
 
 class TwigCms extends AbstractPlugin implements TwigFunctionPluginInterface
 {

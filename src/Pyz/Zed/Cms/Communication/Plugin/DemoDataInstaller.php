@@ -11,6 +11,9 @@ use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 class DemoDataInstaller extends AbstractInstallerPlugin
 {
 
+    /**
+     * @return void
+     */
     public function install()
     {
         $this->getFacade()->installDemoData($this->messenger);

@@ -24,6 +24,9 @@ class GlossaryInstall extends AbstractInstaller
         $this->installers = $installers;
     }
 
+    /**
+     * @return void
+     */
     public function install()
     {
         $this->info('This will install a standard set of translations in the demo shop');

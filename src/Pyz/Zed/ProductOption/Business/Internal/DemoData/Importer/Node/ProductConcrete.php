@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node;
 
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\VisitableProductInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\VisitableProductInterface;
 
 class ProductConcrete implements VisitableProductInterface
 {
@@ -30,6 +30,8 @@ class ProductConcrete implements VisitableProductInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface $visitor
+     *
+     * @return void
      */
     public function accept(ProductVisitorInterface $visitor)
     {
@@ -81,6 +83,8 @@ class ProductConcrete implements VisitableProductInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionType $option
+     *
+     * @return void
      */
     private function addOption(ProductOptionType $option)
     {
@@ -89,6 +93,8 @@ class ProductConcrete implements VisitableProductInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionTypeExclusion $exclusion
+     *
+     * @return void
      */
     private function addExclusion(ProductOptionTypeExclusion $exclusion)
     {
@@ -97,6 +103,8 @@ class ProductConcrete implements VisitableProductInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConfiguration $configuration
+     *
+     * @return void
      */
     private function addConfiguration(ProductConfiguration $configuration)
     {

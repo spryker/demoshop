@@ -3,32 +3,32 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Orm\Zed\Product\Persistence\Map\SpyProductAbstractLocalizedAttributesTableMap;
-use Propel\Runtime\ActiveQuery\Criteria;
-use Propel\Runtime\ActiveQuery\Join;
-use Pyz\Zed\Price\Business\PriceFacade;
-use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
-use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
-use Orm\Zed\Touch\Persistence\SpyTouchQuery;
-use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
-use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryAttributeTableMap;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryNodeTableMap;
-use Spryker\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
-use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
-use Spryker\Zed\Price\Persistence\PriceQueryContainer;
+use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
 use Orm\Zed\Price\Persistence\Map\SpyPriceProductTableMap;
 use Orm\Zed\Price\Persistence\Map\SpyPriceTypeTableMap;
+use Orm\Zed\ProductCategory\Persistence\Map\SpyProductCategoryTableMap;
+use Orm\Zed\Product\Persistence\Map\SpyProductAbstractLocalizedAttributesTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductAbstractTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductLocalizedAttributesTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
-use Orm\Zed\ProductCategory\Persistence\Map\SpyProductCategoryTableMap;
-use Spryker\Zed\ProductOptionExporter\Business\ProductOptionExporterFacade;
 use Orm\Zed\Stock\Persistence\Map\SpyStockProductTableMap;
 use Orm\Zed\Tax\Persistence\Map\SpyTaxRateTableMap;
 use Orm\Zed\Tax\Persistence\Map\SpyTaxSetTableMap;
 use Orm\Zed\Tax\Persistence\Map\SpyTaxSetTaxTableMap;
+use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
+use Orm\Zed\Touch\Persistence\SpyTouchQuery;
 use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
+use Propel\Runtime\ActiveQuery\Criteria;
+use Propel\Runtime\ActiveQuery\Join;
+use Pyz\Zed\Price\Business\PriceFacade;
+use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
+use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
+use Spryker\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
+use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
+use Spryker\Zed\Price\Persistence\PriceQueryContainer;
+use Spryker\Zed\ProductOptionExporter\Business\ProductOptionExporterFacade;
 
 class ProductCollector extends AbstractPropelCollectorPlugin
 {
@@ -427,7 +427,7 @@ class ProductCollector extends AbstractPropelCollectorPlugin
                         $effectiveRate += $taxRateRate;
                         $taxRates[] = [
                             'name' => $taxRateNames[$key],
-                            'rate' => (float) $taxRateRate,
+                            'rate' => (float)$taxRateRate,
                         ];
                     }
 

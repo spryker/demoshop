@@ -2,24 +2,25 @@
 
 namespace Pyz\Zed\ProductOption\Business;
 
-use Spryker\Zed\ProductOption\Business\Model\ProductOptionReader;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Db\MysqlBatchStorageProvider;
+use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\BatchProcessor\InMemoryBatchProcessor;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Db\MysqlBatchStorageProvider;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Decorator\InMemoryProductOptionQueryContainer;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Model\BatchedDataImportWriter;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\ProductOptionWriter;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\OptionWriter;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductOptionUsageImporterVisitor;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductOptionImporterVisitor;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLProductTransformer;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLOptionsTransformer;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\XMLProductReader;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\XMLOptionsReader;
-use Spryker\Zed\ProductOption\Business\ProductOptionBusinessFactory as SprykerBusinessFactory;
-use Psr\Log\LoggerInterface;
-use Pyz\Zed\ProductOption\ProductOptionConfig;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\XMLProductReader;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLOptionsTransformer;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Transformer\XMLProductTransformer;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductOptionImporterVisitor;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductOptionUsageImporterVisitor;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\OptionWriter;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\ProductOptionWriter;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\ProductOptionDataInstall;
+use Pyz\Zed\ProductOption\ProductOptionConfig;
 use Pyz\Zed\ProductOption\ProductOptionDependencyProvider;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
+use Spryker\Zed\ProductOption\Business\Model\ProductOptionReader;
+use Spryker\Zed\ProductOption\Business\ProductOptionBusinessFactory as SprykerBusinessFactory;
 
 /**
  * @method \Pyz\Zed\ProductOption\ProductOptionConfig getConfig()
@@ -28,11 +29,11 @@ class ProductOptionBusinessFactory extends SprykerBusinessFactory
 {
 
     /**
-     * @param \Psr\Log\LoggerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
      * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\ProductOptionDataInstall
      */
-    public function createDemoDataInstaller(LoggerInterface $messenger)
+    public function createDemoDataInstaller(MessengerInterface $messenger)
     {
         $installer = new ProductOptionDataInstall(
             $this->createOptionsWriter(),

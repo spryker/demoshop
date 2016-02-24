@@ -2,22 +2,22 @@
 
 namespace Pyz\Zed\Glossary\Business;
 
-use Spryker\Zed\Glossary\Business\Key\KeyManager;
-use Spryker\Zed\Glossary\Business\Translation\TranslationManager;
-use Psr\Log\LoggerInterface;
 use Pyz\Zed\Glossary\Business\Internal\DemoData\GlossaryInstall;
 use Pyz\Zed\Glossary\GlossaryDependencyProvider;
 use Spryker\Zed\Glossary\Business\GlossaryBusinessFactory as SprykerGlossaryBusinessFactory;
+use Spryker\Zed\Glossary\Business\Key\KeyManager;
+use Spryker\Zed\Glossary\Business\Translation\TranslationManager;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 
 class GlossaryBusinessFactory extends SprykerGlossaryBusinessFactory
 {
 
     /**
-     * @param \Psr\Log\LoggerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
      * @return \Pyz\Zed\Glossary\Business\Internal\DemoData\GlossaryInstall
      */
-    public function createDemoDataInstaller(LoggerInterface $messenger)
+    public function createDemoDataInstaller(MessengerInterface $messenger)
     {
         $installers = [
             $this->getProvidedDependency(GlossaryDependencyProvider::PLUGIN_YML_INSTALLER),

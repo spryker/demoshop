@@ -3,11 +3,11 @@
 namespace Pyz\Yves\Product\ResourceCreator;
 
 use Pyz\Yves\Collector\Creator\AbstractResourceCreator;
+use Pyz\Yves\Product\Builder\FrontendProductBuilderInterface;
 use Silex\Application;
 use Spryker\Shared\Kernel\LocatorLocatorInterface;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
-use Pyz\Yves\Product\Builder\FrontendProductBuilderInterface;
 
 class ProductResourceCreator extends AbstractResourceCreator
 {

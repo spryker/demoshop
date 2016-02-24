@@ -2,28 +2,28 @@
 
 namespace Pyz\Zed\ProductSearch\Business;
 
-use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
-use Spryker\Shared\Library\Storage\StorageInstanceBuilder;
-use Spryker\Zed\ProductSearch\Business\Builder\ProductResourceKeyBuilder;
-use Spryker\Zed\ProductSearch\Business\Operation\OperationManager;
-use Spryker\Zed\ProductSearch\Business\Operation\DefaultOperation;
-use Spryker\Zed\ProductSearch\Business\Internal\InstallProductSearch;
-use Spryker\Zed\ProductSearch\Business\Processor\ProductSearchProcessor;
-use Spryker\Zed\ProductSearch\Business\Transformer\ProductAttributesTransformer;
-use Spryker\Zed\ProductSearch\Business\ProductSearchBusinessFactory as SprykerProductSearchBusinessFactory;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductSearch\Business\Internal\DemoData\ProductAttributeMappingInstall;
+use Spryker\Shared\Library\Storage\StorageInstanceBuilder;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
+use Spryker\Zed\ProductSearch\Business\Builder\ProductResourceKeyBuilder;
+use Spryker\Zed\ProductSearch\Business\Internal\InstallProductSearch;
+use Spryker\Zed\ProductSearch\Business\Operation\DefaultOperation;
+use Spryker\Zed\ProductSearch\Business\Operation\OperationManager;
+use Spryker\Zed\ProductSearch\Business\Processor\ProductSearchProcessor;
+use Spryker\Zed\ProductSearch\Business\ProductSearchBusinessFactory as SprykerProductSearchBusinessFactory;
+use Spryker\Zed\ProductSearch\Business\Transformer\ProductAttributesTransformer;
 use Spryker\Zed\ProductSearch\ProductSearchDependencyProvider;
 
 class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
 {
 
     /**
-     * @param \Psr\Log\LoggerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
      * @return \Pyz\Zed\ProductSearch\Business\Internal\DemoData\ProductAttributeMappingInstall
      */
-    public function createDemoDataInstaller(LoggerInterface $messenger)
+    public function createDemoDataInstaller(MessengerInterface $messenger)
     {
         $installer = new ProductAttributeMappingInstall(
             $this->createOperationManager(),
@@ -41,10 +41,10 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     public function createProductAttributesTransformer()
     {
         return new ProductAttributesTransformer(
-                    $this->getQueryContainer(),
-                    $this->createOperationLocator(),
-                    $this->createDefaultOperation()
-                );
+            $this->getQueryContainer(),
+            $this->createOperationLocator(),
+            $this->createDefaultOperation()
+        );
     }
 
     /**
@@ -53,9 +53,9 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     public function createProductSearchProcessor()
     {
         return new ProductSearchProcessor(
-                    $this->createKeyBuilder(),
-                    $this->getStoreName()
-                );
+            $this->createKeyBuilder(),
+            $this->getStoreName()
+        );
     }
 
     /**

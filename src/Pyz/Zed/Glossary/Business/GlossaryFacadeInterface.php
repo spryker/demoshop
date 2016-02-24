@@ -6,14 +6,16 @@
 
 namespace Pyz\Zed\Glossary\Business;
 
-use Psr\Log\LoggerInterface;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 
 interface GlossaryFacadeInterface
 {
 
     /**
-     * @param \Psr\Log\LoggerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
+     *
+     * @return void
      */
-    public function installDemoData(LoggerInterface $messenger);
+    public function installDemoData(MessengerInterface $messenger);
 
 }

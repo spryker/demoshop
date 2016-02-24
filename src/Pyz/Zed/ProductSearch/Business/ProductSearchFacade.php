@@ -2,8 +2,9 @@
 
 namespace Pyz\Zed\ProductSearch\Business;
 
-use Spryker\Zed\ProductSearch\Business\ProductSearchFacade as SprykerProductSearchFacade;
 use Psr\Log\LoggerInterface;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
+use Spryker\Zed\ProductSearch\Business\ProductSearchFacade as SprykerProductSearchFacade;
 
 /**
  * @method \Pyz\Zed\ProductSearch\Business\ProductSearchBusinessFactory getFactory()
@@ -25,9 +26,11 @@ class ProductSearchFacade extends SprykerProductSearchFacade implements ProductS
     }
 
     /**
-     * @param \Psr\Log\LoggerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
+     *
+     * @return void
      */
-    public function installDemoData(LoggerInterface $messenger)
+    public function installDemoData(MessengerInterface $messenger)
     {
         $this->getFactory()->createDemoDataInstaller($messenger)->install();
     }

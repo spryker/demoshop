@@ -15,6 +15,8 @@ class Pimple extends AbstractPlugin
 
     /**
      * @param \Spryker\Shared\Application\Communication\Application $application
+     *
+     * @return void
      */
     public static function setApplication(Application $application)
     {

@@ -18,6 +18,8 @@ class WishlistControllerProvider extends AbstractYvesControllerProvider
 
     /**
      * @param \Silex\Application $app
+     *
+     * @return void
      */
     protected function defineControllers(Application $app)
     {
@@ -66,10 +68,10 @@ class WishlistControllerProvider extends AbstractYvesControllerProvider
     public function getQuantityFromRequest($parameter, Request $request)
     {
         if ($request->isMethod('POST')) {
-            return (int) $request->request->get('quantity', 1);
+            return (int)$request->request->get('quantity', 1);
         }
 
-        return (int) $request->query->get('quantity', 1);
+        return (int)$request->query->get('quantity', 1);
     }
 
 }

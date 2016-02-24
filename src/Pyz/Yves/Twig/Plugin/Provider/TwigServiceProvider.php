@@ -2,13 +2,13 @@
 
 namespace Pyz\Yves\Twig\Plugin\Provider;
 
+use Pyz\Yves\Twig\Loader\YvesFilesystemLoader;
+use Silex\Application;
+use Silex\Provider\TwigServiceProvider as SilexTwigServiceProvider;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Application\Routing\Helper;
-use Silex\Application;
-use Silex\Provider\TwigServiceProvider as SilexTwigServiceProvider;
-use Pyz\Yves\Twig\Loader\YvesFilesystemLoader;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
@@ -36,6 +36,8 @@ class TwigServiceProvider extends SilexTwigServiceProvider
 
     /**
      * @param \Silex\Application $app
+     *
+     * @return void
      */
     public function register(Application $app)
     {
@@ -53,13 +55,15 @@ class TwigServiceProvider extends SilexTwigServiceProvider
      * Handles string responses.
      *
      * @param \Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent $event The event to handle
+     *
+     * @return void
      */
     public function onKernelView(GetResponseForControllerResultEvent $event)
     {
         $response = $event->getControllerResult();
 
         if (empty($response) || is_array($response)) {
-            $response = $this->render((array) $response);
+            $response = $this->render((array)$response);
             if ($response instanceof Response) {
                 $event->setResponse($response);
             }
@@ -68,6 +72,8 @@ class TwigServiceProvider extends SilexTwigServiceProvider
 
     /**
      * @param \Silex\Application $app
+     *
+     * @return void
      */
     public function boot(Application $app)
     {
@@ -79,7 +85,7 @@ class TwigServiceProvider extends SilexTwigServiceProvider
      *
      * @param array $parameters
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return \Symfony\Component\HttpFoundation\Response|null
      */
     protected function render(array $parameters = [])
     {
@@ -88,11 +94,11 @@ class TwigServiceProvider extends SilexTwigServiceProvider
         $controller = $request->attributes->get('_controller');
 
         if (!is_string($controller) || empty($controller)) {
-            return;
+            return null;
         }
 
         if (isset($parameters['alternativeRoute'])) {
-            $route = (string) $parameters['alternativeRoute'];
+            $route = (string)$parameters['alternativeRoute'];
         } else {
             $route = $helper->getRouteFromDestination($controller);
         }
@@ -102,6 +108,8 @@ class TwigServiceProvider extends SilexTwigServiceProvider
 
     /**
      * @param \Silex\Application $app
+     *
+     * @return void
      */
     protected function registerYvesLoader(Application $app)
     {
@@ -122,6 +130,8 @@ class TwigServiceProvider extends SilexTwigServiceProvider
 
     /**
      * @param \Silex\Application $app
+     *
+     * @return void
      */
     protected function registerTwigLoaderChain(Application $app)
     {
@@ -137,6 +147,8 @@ class TwigServiceProvider extends SilexTwigServiceProvider
 
     /**
      * @param \Silex\Application $app
+     *
+     * @return void
      */
     protected function registerTwigCache(Application $app)
     {
@@ -145,6 +157,8 @@ class TwigServiceProvider extends SilexTwigServiceProvider
 
     /**
      * @param \Silex\Application $app
+     *
+     * @return void
      */
     protected function registerTwig(Application $app)
     {

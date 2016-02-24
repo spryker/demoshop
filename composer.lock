@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cd0853465500284f2b411a5280028029",
-    "content-hash": "e86bcef842ff7fe9ac4ae605fd070896",
+    "hash": "711a2c248573c5440e3f9765b70b10fc",
+    "content-hash": "eddf3e6ffdedb88ea71a845db58de19e",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -775,11 +775,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/448-icecat-demo",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c2965c360a77742b7947da0b666f1b8f05766c00"
+                "reference": "4b1f6c69ae7f9d6e8cdbb6d96eb12a0c8a08af9f"
             },
             "require": {
                 "phpdocumentor/graphviz": "dev-master#a906a90"
@@ -1245,7 +1245,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-02-22 13:14:14"
+            "time": "2016-02-23 13:09:43"
         },
         {
             "name": "symfony-cmf/routing",
@@ -5138,12 +5138,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "8f397eaf5dc29473d8674636aaecc8791c40b7a3"
+                "reference": "55db8ddd50675f5019e3c22cd86953fb5b388956"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/8f397eaf5dc29473d8674636aaecc8791c40b7a3",
-                "reference": "8f397eaf5dc29473d8674636aaecc8791c40b7a3",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/55db8ddd50675f5019e3c22cd86953fb5b388956",
+                "reference": "55db8ddd50675f5019e3c22cd86953fb5b388956",
                 "shasum": ""
             },
             "require": {
@@ -5172,7 +5172,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-02-22 10:32:43"
+            "time": "2016-02-24 09:51:42"
         },
         {
             "name": "squizlabs/php_codesniffer",

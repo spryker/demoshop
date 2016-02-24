@@ -2,8 +2,8 @@
 
 /* YVES Front Controller */
 
-use Spryker\Shared\Library\Application\Environment;
 use Pyz\Yves\Application\YvesBootstrap;
+use Spryker\Shared\Library\Application\Environment;
 
 define('YVES_START', microtime(true));
 

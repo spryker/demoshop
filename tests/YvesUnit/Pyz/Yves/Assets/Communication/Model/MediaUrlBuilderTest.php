@@ -16,6 +16,9 @@ class MediaUrlBuilderTest extends \PHPUnit_Framework_TestCase
      */
     private $host;
 
+    /**
+     * @return void
+     */
     protected function setUp()
     {
         parent::setUp();
@@ -24,6 +27,8 @@ class MediaUrlBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @group Asset
+     *
+     * @return void
      */
     public function testMediaUrl()
     {
@@ -34,6 +39,8 @@ class MediaUrlBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @group Asset
+     *
+     * @return void
      */
     public function testMediaUrlWithTrailingSlashes()
     {

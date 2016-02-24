@@ -41,6 +41,9 @@ class QueueableCommand
         $this->type = $type;
     }
 
+    /**
+     * @return void
+     */
     public function execute()
     {
         $callable = $this->callable;

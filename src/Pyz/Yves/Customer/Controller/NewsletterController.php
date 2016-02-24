@@ -38,7 +38,7 @@ class NewsletterController extends AbstractCustomerController
         }
 
         if ($newsletterForm->isValid()) {
-            $subscribe = (bool) $newsletterForm->get(NewsletterSubscriptionForm::FIELD_SUBSCRIBE)->getData();
+            $subscribe = (bool)$newsletterForm->get(NewsletterSubscriptionForm::FIELD_SUBSCRIBE)->getData();
             $this->processSubscriptionForm($subscribe, $customerTransfer);
 
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_NEWSLETTER);

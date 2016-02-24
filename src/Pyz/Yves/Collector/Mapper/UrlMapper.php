@@ -158,9 +158,9 @@ class UrlMapper implements UrlMapperInterface
         $currentValue = $inValue;
         $currentActive = true;
         if ($active && !is_array($active)) {
-            $currentActive = (bool) $active;
+            $currentActive = (bool)$active;
         } elseif ($active && is_array($active)) {
-            $currentActive = (bool) $inActive;
+            $currentActive = (bool)$inActive;
         }
         if (!isset($mergedParameters[$generationParameterName]) && $currentActive === true) {
             $mergedParameters[$generationParameterName] = $currentValue;
@@ -204,6 +204,8 @@ class UrlMapper implements UrlMapperInterface
     /**
      * @param string $pathInfo
      * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return void
      */
     public function injectParametersFromUrlIntoRequest($pathInfo, Request $request)
     {
