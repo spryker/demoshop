@@ -7,12 +7,15 @@ use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryHierarchyImporte
 use Pyz\Zed\Installer\Business\Icecat\IcecatDataInstaller;
 use Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryImporter;
+use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryRootImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductAbstractImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductCategoryImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductPriceImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductSearchImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductStockImporter;
+use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryHierarchyInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryInstaller;
+use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryRootInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\ProductInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\ProductSearchInstaller;
 use Pyz\Zed\Installer\Business\Reader\CsvReader;
@@ -39,11 +42,44 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     /**
      * @return \Pyz\Zed\Installer\Business\Icecat\IcecatInstallerInterface[]
      */
+    public function getIcecatDataInstallerCollection()
+    {
+        return [
+            InstallerConfig::RESOURCE_CATEGORY_ROOT => $this->getCategoryRootInstaller(),
+            InstallerConfig::RESOURCE_CATEGORY => $this->getCategoryInstaller(),
+            InstallerConfig::RESOURCE_CATEGORY_HIERARCHY => $this->getCategoryHierarchyInstaller(),
+            InstallerConfig::RESOURCE_PRODUCT => $this->getProductInstaller(),
+            InstallerConfig::RESOURCE_PRODUCT_SEARCH => $this->getProductSearchInstaller(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatInstallerInterface[]
+     */
     public function getIcecatImporterCategoryCollection()
     {
         return [
             InstallerConfig::RESOURCE_CATEGORY => $this->getCategoryImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatInstallerInterface[]
+     */
+    public function getIcecatImporterCategoryHierarchyCollection()
+    {
+        return [
             InstallerConfig::RESOURCE_CATEGORY_HIERARCHY => $this->getCategoryHierarchyImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatInstallerInterface[]
+     */
+    public function getIcecatImporterCategoryRootCollection()
+    {
+        return [
+            InstallerConfig::RESOURCE_CATEGORY_ROOT => $this->getCategoryRootImporter(),
         ];
     }
 
@@ -54,9 +90,9 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     {
         return [
             InstallerConfig::RESOURCE_PRODUCT => $this->getProductAbstractImporter(),
+            InstallerConfig::RESOURCE_PRODUCT_CATEGORY => $this->getProductCategoryImporter(),
             InstallerConfig::RESOURCE_PRODUCT_STOCK => $this->getProductStockImporter(),
             //InstallerConfig::RESOURCE_PRODUCT_PRICE => $this->getProductPriceImporter(),
-            InstallerConfig::RESOURCE_PRODUCT_CATEGORY => $this->getProductCategoryImporter(),
         ];
     }
 
@@ -67,18 +103,6 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     {
         return [
             InstallerConfig::RESOURCE_PRODUCT_SEARCH => $this->getProductSearchImporter(),
-        ];
-    }
-
-    /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatInstallerInterface[]
-     */
-    public function getIcecatDataInstallerCollection()
-    {
-        return [
-            InstallerConfig::RESOURCE_CATEGORY => $this->getCategoryInstaller(),
-            InstallerConfig::RESOURCE_PRODUCT => $this->getProductInstaller(),
-            InstallerConfig::RESOURCE_PRODUCT_SEARCH => $this->getProductSearchInstaller(),
         ];
     }
 
@@ -106,15 +130,34 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
      */
     protected function getCategoryHierarchyImporter()
     {
-        $categoryImporter = new CategoryHierarchyImporter(
+        $categoryHierarchyImporter = new CategoryHierarchyImporter(
             $this->getCsvReader(), $this->getIcecatLocaleManager()
         );
 
-        $categoryImporter->setCategoryFacade($this->getCategoryFacade());
-        $categoryImporter->setCategoryQueryContainer($this->getCategoryQueryContainer());
-        $categoryImporter->setCategoryQueryContainer($this->getCategoryQueryContainer());
+        $categoryHierarchyImporter->setCategoryFacade($this->getCategoryFacade());
+        $categoryHierarchyImporter->setCategoryQueryContainer($this->getCategoryQueryContainer());
+        $categoryHierarchyImporter->setCategoryQueryContainer($this->getCategoryQueryContainer());
 
-        return $categoryImporter;
+        return $categoryHierarchyImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryRootImporter
+     */
+    protected function getCategoryRootImporter()
+    {
+        $categoryRootImporter = new CategoryRootImporter(
+            $this->getCsvReader(), $this->getIcecatLocaleManager()
+        );
+
+        $categoryRootImporter->setCategoryFacade($this->getCategoryFacade());
+        $categoryRootImporter->setCategoryQueryContainer($this->getCategoryQueryContainer());
+        $categoryRootImporter->setTouchFacade($this->getTouchFacade());
+        $categoryRootImporter->setUrlFacade($this->getUrlFacade());
+        $categoryRootImporter->setNodeUrlManager($this->createNodeUrlManager());
+        $categoryRootImporter->setCategoryQueryContainer($this->getCategoryQueryContainer());
+
+        return $categoryRootImporter;
     }
 
     /**
@@ -142,14 +185,14 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
      */
     protected function getProductAbstractImporter()
     {
-        $productImporter = new ProductAbstractImporter(
+        $productAbstractImporter = new ProductAbstractImporter(
             $this->getCsvReader(), $this->getIcecatLocaleManager()
         );
 
-        $productImporter->setAttributeManager($this->createAttributeManager());
-        $productImporter->setProductFacade($this->getProductFacade());
+        $productAbstractImporter->setAttributeManager($this->createAttributeManager());
+        $productAbstractImporter->setProductFacade($this->getProductFacade());
 
-        return $productImporter;
+        return $productAbstractImporter;
     }
 
     /**
@@ -188,14 +231,14 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
      */
     protected function getProductSearchImporter()
     {
-        $productStockImporter = new ProductSearchImporter(
+        $productSearchImporter = new ProductSearchImporter(
             $this->getCsvReader(), $this->getIcecatLocaleManager()
         );
 
-        $productStockImporter->setProductSearchFacade($this->getProductSearchFacade());
-        $productStockImporter->setOperationManager($this->createOperationManager());
+        $productSearchImporter->setProductSearchFacade($this->getProductSearchFacade());
+        $productSearchImporter->setOperationManager($this->createOperationManager());
 
-        return $productStockImporter;
+        return $productSearchImporter;
     }
 
     /**
@@ -215,11 +258,36 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
      */
     protected function getCategoryInstaller()
     {
-        $productInstaller = new CategoryInstaller(
+        $categoryInstaller = new CategoryInstaller(
             $this->getCsvReader(), $this->getIcecatImporterCategoryCollection()
         );
 
-        return $productInstaller;
+        return $categoryInstaller;
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\CategoryHierarchyInstaller
+     */
+    protected function getCategoryHierarchyInstaller()
+    {
+        $categoryHierarchyInstaller = new CategoryHierarchyInstaller(
+            $this->getCsvReader(), $this->getIcecatImporterCategoryHierarchyCollection()
+        );
+
+        return $categoryHierarchyInstaller;
+    }
+
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\CategoryRootInstaller
+     */
+    protected function getCategoryRootInstaller()
+    {
+        $categoryRootInstaller = new CategoryRootInstaller(
+            $this->getCsvReader(), $this->getIcecatImporterCategoryRootCollection()
+        );
+
+        return $categoryRootInstaller;
     }
 
     /**

@@ -57,7 +57,7 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
         $progressBar->start();
         $progressBar->advance(0);
 
-        //TODO convert this into iterator and abstract away how data gets here, so ProductSearchInstaller's install() can be removed
+        //TODO convert this into iterator and abstract away how data gets here, so Category and ProductSearchInstaller's install() can be removed
         while (!$csvFile->eof()) {
             $data = $csvFile->fgetcsv();
 

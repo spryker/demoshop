@@ -8,6 +8,7 @@ class InstallerConfig extends SprykerInstallerConfig
 {
 
     const RESOURCE_CATEGORY = 'category';
+    const RESOURCE_CATEGORY_ROOT = 'category root';
     const RESOURCE_CATEGORY_HIERARCHY = 'category hierarchy';
 
     const RESOURCE_NAVIGATION = 'navigation';

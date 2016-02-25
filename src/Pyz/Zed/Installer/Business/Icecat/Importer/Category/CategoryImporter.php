@@ -5,12 +5,11 @@ namespace Pyz\Zed\Installer\Business\Icecat\Importer\Category;
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
-use Orm\Zed\Category\Persistence\SpyCategoryQuery;
+use Orm\Zed\Category\Persistence\SpyCategoryNodeQuery;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
 use Pyz\Zed\Installer\Business\Exception\InvalidDataException;
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
-use Pyz\Zed\Installer\InstallerConfig;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Touch\Business\TouchFacadeInterface;
@@ -117,7 +116,10 @@ class CategoryImporter extends AbstractIcecatImporter
      */
     public function isImported()
     {
-        $query = SpyCategoryQuery::create();
+        $query = SpyCategoryNodeQuery::create();
+        $query->filterByIsRoot(false);
+        $query->filterByIsMain(true);
+
         return $query->count() > 0;
     }
 
@@ -161,6 +163,11 @@ class CategoryImporter extends AbstractIcecatImporter
     }
 
     /**
+     * Do not set FkParentCategoryNode here, it will be done by CategoryHierarchy importer
+     * otherwise it's hard to tell if the hierarchy importer has run or not.
+     *
+     * @see \Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryHierarchyImporter::isImported()
+     *
      * @param array $data
      *
      * @return void
@@ -173,26 +180,10 @@ class CategoryImporter extends AbstractIcecatImporter
         $nodeTransfer->setIsRoot(false);
         $nodeTransfer->setIsMain(true);
         $nodeTransfer->setFkCategory($idCategory);
-        $nodeTransfer->setFkParentCategoryNode(1);
+
+        $nodeTransfer->setFkParentCategoryNode(null);
 
         $this->createCategoryNode($nodeTransfer);
-    }
-
-    /**
-     * @param array $data
-     *
-     * @return void
-     */
-    protected function importRootCategory(array $data)
-    {
-        $idCategory = $this->createCategory($data);
-
-        $rootNodeTransfer = new NodeTransfer();
-        $rootNodeTransfer->setIsRoot(true);
-        $rootNodeTransfer->setIsMain(true);
-        $rootNodeTransfer->setFkCategory($idCategory);
-
-        $this->createCategoryNodeWithUrls($rootNodeTransfer);
     }
 
     /**
@@ -253,52 +244,6 @@ class CategoryImporter extends AbstractIcecatImporter
         }
 
         return $idCategory;
-    }
-
-    /**
-     * TODO move root node logic into RootCategoryImporter
-     *
-     * @param \Generated\Shared\Transfer\NodeTransfer $rootNodeTransfer
-     *
-     * @return void
-     */
-    protected function touchRootNavigation(NodeTransfer $rootNodeTransfer)
-    {
-        if (!$rootNodeTransfer->getIsRoot()) {
-            return;
-        }
-
-        $this->touchFacade->touchActive(InstallerConfig::RESOURCE_NAVIGATION, $rootNodeTransfer->getIdCategoryNode());
-    }
-
-    /**
-     * TODO move root node logic into RootCategoryImporter
-     *
-     * @return void
-     */
-    protected function installRootNodes()
-    {
-        $rootData = [];
-        foreach ($this->localeManager->getLocaleCollection() as $code => $localeTransfer) {
-            $rootData[$code] = [
-                CategoryTransfer::NAME => 'Demoshop ' . $code,
-                CategoryTransfer::CATEGORY_KEY => 'demoshop_root',
-                CategoryTransfer::CATEGORY_IMAGE_NAME => '',
-                CategoryTransfer::IS_ACTIVE => true,
-                CategoryTransfer::IS_CLICKABLE => false,
-                CategoryTransfer::IS_IN_MENU => false,
-            ];
-        }
-
-        $this->importRootCategory($rootData);
-    }
-
-    /**
-     * @return void
-     */
-    protected function before()
-    {
-        $this->installRootNodes();
     }
 
 }

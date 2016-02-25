@@ -3,8 +3,12 @@
 namespace Pyz\Zed\Installer\Business\Icecat\Importer\Category;
 
 use Generated\Shared\Transfer\NodeTransfer;
+use Orm\Zed\Category\Persistence\Base\SpyCategoryNodeQuery;
+use Orm\Zed\Category\Persistence\Map\SpyCategoryNodeTableMap;
+use Orm\Zed\Category\Persistence\SpyCategoryClosureTableQuery;
 use Orm\Zed\Category\Persistence\SpyCategoryNode;
 use Orm\Zed\Category\Persistence\SpyCategoryQuery;
+use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
@@ -70,8 +74,11 @@ class CategoryHierarchyImporter extends AbstractIcecatImporter
      */
     public function isImported()
     {
-        $query = SpyCategoryQuery::create();
-        return $query->count() > 0;
+        $query = SpyCategoryNodeQuery::create();
+        $query->filterByIsRoot(false)
+            ->filterByFkParentCategoryNode(null, Criteria::ISNULL);
+
+        return $query->count() === 0;
     }
 
     /**
@@ -97,10 +104,9 @@ class CategoryHierarchyImporter extends AbstractIcecatImporter
         $csvData = $this->generateCsvItem($columns, $data);
         $category = $this->format($csvData);
 
-        $idParentNode = null;
+        $idParentNode = $this->getRootNode()->getIdCategoryNode();
         if (!array_key_exists($category[self::PARENT_KEY], $this->cacheParents)) {
             $queryParent = $this->categoryQueryContainer->queryMainCategoryNodeByCategoryKey($category[self::PARENT_KEY]);
-            $queryParent->filterByIsRoot(false);
             $parent = $queryParent->findOne();
 
             if ($parent) {

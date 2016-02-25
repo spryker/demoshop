@@ -5,7 +5,7 @@ namespace Pyz\Zed\Installer\Business\Icecat\Installer;
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatInstaller;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class CategoryInstaller extends AbstractIcecatInstaller
+class CategoryHierarchyInstaller extends AbstractIcecatInstaller
 {
     protected function getCsvDataFilename()
     {
@@ -17,7 +17,7 @@ class CategoryInstaller extends AbstractIcecatInstaller
      */
     public function getTitle()
     {
-        return 'Category Attributes';
+        return 'Category Tree';
     }
 
 }
