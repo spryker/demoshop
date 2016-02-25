@@ -4,6 +4,7 @@ namespace Pyz\Zed\Installer\Business\Icecat\Importer\Product;
 
 use Orm\Zed\Product\Persistence\SpyProductAttributesMetadataQuery;
 use Orm\Zed\Product\Persistence\SpyProductQuery;
+use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 use Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
@@ -12,6 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 class ProductSearchImporter extends AbstractIcecatImporter
 {
     const SKU = 'sku';
+    const PRODUCT_ID = 'id_product';
 
     /**
      * @var \Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface
@@ -42,36 +44,20 @@ class ProductSearchImporter extends AbstractIcecatImporter
     /**
      * @return bool
      */
-    public function canImport()
+    public function isImported()
     {
-        return true;
-        //return $this->productFacade->getAbstractProductCount() > 0;
+        $query = SpyProductSearchQuery::create();
+        return $query->count() > 0;
     }
 
     /**
      * @param array $columns
      * @param array $data
+     * @internal param array $extraData
      */
     public function importOne(array $columns, array $data)
     {
-        $this->installMetadata($data);
-
-        $step = 0;
-        $productCollection = SpyProductQuery::create()->find();
-        $total = SpyProductQuery::create()->count();
-
-        foreach ($productCollection as $product) {
-            $step++;
-            $info = 'Importing... '.$step.'/'.$total;
-            $data->write($info);
-            $data->write(str_repeat("\x08", strlen($info)));
-
-            $this->productSearchFacade
-                ->activateProductSearch($product->getIdProduct(), $this->localeManager->getLocaleCollection());
-        }
-
-        $data->writeln('');
-        $data->writeln('Installed: '.$step);
+        $this->productSearchFacade->activateProductSearch($data[self::PRODUCT_ID], $this->localeManager->getLocaleCollection());
     }
 
     /**
@@ -162,10 +148,9 @@ class ProductSearchImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
      * @return void
      */
-    protected function installMetadata(OutputInterface $output)
+    protected function before()
     {
         foreach ($this->getMappings() as $sourceField => $operations) {
             $weight = 0;

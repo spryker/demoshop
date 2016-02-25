@@ -12,9 +12,12 @@ class CategoryInstaller extends AbstractIcecatInstaller
         return 'categories.csv';
     }
 
-    protected function getHeaderText()
+    /**
+     * @return string
+     */
+    public function getTitle()
     {
-        return 'Installing categories';
+        return 'Categories';
     }
 
 }

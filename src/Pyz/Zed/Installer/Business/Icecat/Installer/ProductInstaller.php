@@ -12,10 +12,12 @@ class ProductInstaller extends AbstractIcecatInstaller
         return 'products.csv';
     }
 
-    protected function getHeaderText()
+    /**
+     * @return string
+     */
+    public function getTitle()
     {
-        return 'Installing products';
+        return 'Products';
     }
-
 
 }

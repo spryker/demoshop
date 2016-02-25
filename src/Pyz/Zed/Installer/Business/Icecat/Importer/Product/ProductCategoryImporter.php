@@ -2,8 +2,10 @@
 
 namespace Pyz\Zed\Installer\Business\Icecat\Importer\Product;
 
+use Orm\Zed\Category\Persistence\Base\SpyCategoryQuery;
 use Orm\Zed\Category\Persistence\SpyCategoryNode;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
+use Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery;
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Pyz\Zed\Product\Business\ProductFacadeInterface;
@@ -134,9 +136,10 @@ class ProductCategoryImporter extends AbstractIcecatImporter
     /**
      * @return bool
      */
-    public function canImport()
+    public function isImported()
     {
-        return true;
+        $query = SpyProductCategoryQuery::create();
+        return $query->count() > 0;
     }
 
     /**
@@ -156,6 +159,8 @@ class ProductCategoryImporter extends AbstractIcecatImporter
      * @param array $columns
      * @param array $data
      * @throws \Propel\Runtime\Exception\PropelException
+     * @internal param array $extraData
+     *
      */
     public function importOne(array $columns, array $data)
     {

@@ -5,6 +5,7 @@ namespace Pyz\Zed\Installer\Business\Icecat\Importer\Category;
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
+use Orm\Zed\Category\Persistence\SpyCategoryQuery;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
 use Pyz\Zed\Installer\Business\Exception\InvalidDataException;
@@ -106,14 +107,16 @@ class CategoryImporter extends AbstractIcecatImporter
     /**
      * @return bool
      */
-    public function canImport()
+    public function isImported()
     {
-        return count($this->categoryFacade->getRootNodes()) === 0;
+        $query = SpyCategoryQuery::create();
+        return $query->count() > 0;
     }
 
     /**
      * @param array $columns
      * @param array $data
+     * @internal param array $extraData
      */
     public function importOne(array $columns, array $data)
     {

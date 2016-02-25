@@ -17,7 +17,7 @@ interface IcecatImporterInterface
     /**
      * @return bool
      */
-    public function canImport();
+    public function isImported();
 
     /**
      * @return void

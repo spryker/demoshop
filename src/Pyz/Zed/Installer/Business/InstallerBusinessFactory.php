@@ -14,6 +14,7 @@ use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductSearchImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductStockImporter;
 use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\ProductInstaller;
+use Pyz\Zed\Installer\Business\Icecat\Installer\ProductSearchInstaller;
 use Pyz\Zed\Installer\Business\Reader\CsvReader;
 use Pyz\Zed\Installer\InstallerConfig;
 use Pyz\Zed\Installer\InstallerDependencyProvider;
@@ -53,21 +54,31 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     {
         return [
             InstallerConfig::RESOURCE_PRODUCT => $this->getProductAbstractImporter(),
-            InstallerConfig::RESOURCE_PRODUCT_CATEGORY => $this->getProductCategoryImporter(),
-            //InstallerConfig::RESOURCE_PRODUCT_STOCK => $this->getProductStockImporter(),
+            InstallerConfig::RESOURCE_PRODUCT_STOCK => $this->getProductStockImporter(),
             //InstallerConfig::RESOURCE_PRODUCT_PRICE => $this->getProductPriceImporter(),
-            //InstallerConfig::RESOURCE_PRODUCT_SEARCH => $this->getProductSearchImporter(),
+            InstallerConfig::RESOURCE_PRODUCT_CATEGORY => $this->getProductCategoryImporter(),
         ];
     }
 
     /**
      * @return \Pyz\Zed\Installer\Business\Icecat\IcecatInstallerInterface[]
      */
-    public function getIcecatInstallerCollection()
+    public function getIcecatImporterProductSearchCollection()
+    {
+        return [
+            InstallerConfig::RESOURCE_PRODUCT_SEARCH => $this->getProductSearchImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatInstallerInterface[]
+     */
+    public function getIcecatDataInstallerCollection()
     {
         return [
             InstallerConfig::RESOURCE_CATEGORY => $this->getCategoryInstaller(),
             InstallerConfig::RESOURCE_PRODUCT => $this->getProductInstaller(),
+            InstallerConfig::RESOURCE_PRODUCT_SEARCH => $this->getProductSearchInstaller(),
         ];
     }
 
@@ -173,7 +184,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductStockImporter
+     * @return \Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductSearchImporter
      */
     protected function getProductSearchImporter()
     {
@@ -195,12 +206,12 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     public function getIcecatDataInstaller(OutputInterface $output)
     {
         return new IcecatDataInstaller(
-            $output, $this->getIcecatInstallerCollection()
+            $output, $this->getIcecatDataInstallerCollection()
         );
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductAbstractImporter
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\CategoryInstaller
      */
     protected function getCategoryInstaller()
     {
@@ -212,7 +223,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductAbstractImporter
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\ProductInstaller
      */
     protected function getProductInstaller()
     {
@@ -221,6 +232,18 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
         );
 
         return $productInstaller;
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\ProductSearchInstaller
+     */
+    protected function getProductSearchInstaller()
+    {
+        $productSearchInstaller = new ProductSearchInstaller(
+            $this->getCsvReader(), $this->getIcecatImporterProductSearchCollection()
+        );
+
+        return $productSearchInstaller;
     }
 
     /**

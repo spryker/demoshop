@@ -4,6 +4,8 @@ namespace Pyz\Zed\Installer\Business\Icecat\Importer\Product;
 
 use Generated\Shared\Transfer\StockProductTransfer;
 use Generated\Shared\Transfer\TypeTransfer;
+use Orm\Zed\Stock\Persistence\Base\SpyStockQuery;
+use Pyz\Zed\Installer\Business\Exception\InvalidDataException;
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\Stock\Business\StockFacadeInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
@@ -15,6 +17,7 @@ class ProductStockImporter extends AbstractIcecatImporter
     const QUANTITY = 'quantity';
     const NEVER_OUT_OF_STOCK = 'is_never_out_of_stock';
     const STOCK_TYPE = 'stock_type';
+
     const PRODUCT_ID = 'product_id';
     const VARIANT_ID = 'variantId';
     const CATEGORY_KEY = 'category_key';
@@ -35,6 +38,21 @@ class ProductStockImporter extends AbstractIcecatImporter
     protected $stockTypeCache = [];
 
     /**
+     * @var \SplFileObject
+     */
+    protected $stockCsvFile;
+
+    /**
+     * @var array
+     */
+    protected $stockColumns;
+
+    /**
+     * @var int
+     */
+    protected $stockTotal;
+
+    /**
      * @param \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface $productQueryContainer
      */
     public function setProductQueryContainer(ProductQueryContainerInterface $productQueryContainer)
@@ -53,49 +71,74 @@ class ProductStockImporter extends AbstractIcecatImporter
     /**
      * @return bool
      */
-    public function canImport()
+    public function isImported()
     {
-        return true;
-        //return $this->productFacade->getAbstractProductCount() > 0;
+        $query = SpyStockQuery::create();
+        return $query->count() > 0;
     }
 
     /**
      * @param array $columns
      * @param array $data
+     *
+     * @throws InvalidDataException
+     * @return void
      */
     public function importOne(array $columns, array $data)
     {
-        $csvFile = $this->csvReader->read('stocks.csv');
-        $columns = $this->csvReader->getColumns();
-        $total = intval($this->csvReader->getTotal($csvFile));
-        $step = 0;
+        $csvData = $this->generateCsvItem($columns, $data);
+        $product = $this->format($csvData);
+        $stock = $this->getStockValue();
 
-        $csvFile->rewind();
+        $productAbstract = $this->productQueryContainer
+            ->queryProductAbstractBySku($product[self::SKU])
+            ->findOne();
 
-        while (!$csvFile->eof()) {
-            ++$step;
-            $info = 'Importing... '.$step.'/'.$total;
-            $data->write($info);
-            $data->write(str_repeat("\x08", strlen($info)));
-
-            $csvData = $this->generateCsvItem($columns, $csvFile->fgetcsv());
-            $stock = $this->format($csvData);
-
-            $productAbstract = $this->productQueryContainer
-                ->queryProductAbstractBySku($stock[self::SKU])
-                ->findOne();
-
-            if (!$productAbstract) {
-                continue;
-            }
-
-            $stockType = $this->createStockTypeOnce($stock);
-            $stockProductTransfer = $this->createStockProductTransfer($stock, $stockType);
-            $this->stockFacade->createStockProduct($stockProductTransfer);
+        if (!$productAbstract) {
+            return;
         }
 
-        $data->writeln('');
-        $data->writeln('Installed: '.$step);
+        if ($productAbstract->getSku() !== $stock[self::SKU]) {
+            throw new InvalidDataException('Abstract SKU mismatch for ' . $stock[self::SKU]);
+        }
+
+        $stockType = $this->createStockTypeOnce($stock);
+        $stockProductTransfer = $this->createStockProductTransfer($stock, $stockType);
+        $this->stockFacade->createStockProduct($stockProductTransfer);
+    }
+
+    /**
+     * @return void
+     */
+    protected function before()
+    {
+        $this->stockCsvFile = $this->csvReader->read('stocks.csv');
+        $this->stockColumns = $this->csvReader->getColumns();
+        $this->stockTotal = $this->csvReader->getTotal($this->stockCsvFile);
+
+        $this->stockCsvFile->rewind();
+    }
+
+    /**
+     * @return array
+     */
+    protected function getStockValue()
+    {
+        $default = [
+            self::SKU => null,
+            self::VARIANT_ID => 1,
+            self::QUANTITY => 0,
+            self::NEVER_OUT_OF_STOCK => true,
+            self::STOCK_TYPE => null
+        ];
+
+        if ($this->stockCsvFile->eof()) {
+            return $default;
+        }
+
+        $data = $this->stockCsvFile->fgetcsv();
+
+        return array_combine(array_keys($default), array_values($data));
     }
 
     /**

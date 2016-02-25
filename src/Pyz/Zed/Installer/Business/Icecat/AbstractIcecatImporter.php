@@ -34,7 +34,7 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
     protected $afterExecuted = false;
 
     /**
-     * @param array $columns
+     * @param array $columnsw
      * @param array $data
      *
      * @return void
@@ -44,7 +44,7 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
     /**
      * @return bool
      */
-    abstract public function canImport();
+    abstract public function isImported();
 
     /**
      * @param \Pyz\Zed\Installer\Business\Reader\CsvReaderInterface $csvReader

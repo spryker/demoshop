@@ -15,7 +15,7 @@ class IcecatDataInstaller extends SprykerAbstractInstaller
     protected $output;
 
     /**
-     * @var \Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter[]
+     * @var \Pyz\Zed\Installer\Business\Icecat\IcecatInstallerInterface[]
      */
     protected $installerCollection;
 
@@ -40,15 +40,36 @@ class IcecatDataInstaller extends SprykerAbstractInstaller
         $connection->beginTransaction();
 
         try {
+            $this->output->writeln('Installing Icecat data...');
+
             foreach ($this->installerCollection as $name => $installer) {
-                $installer->install($this->output);
+                if (!$installer->isInstalled()) {
+                    $installer->install($this->output);
+                }
+                else {
+                    $this->output->writeln($installer->getTitle(). ' already installed.');
+                }
             }
+
+            $this->output->writeln('All done.');
 
             $connection->commit();
         } catch (\Exception $exception) {
             $connection->rollBack();
             throw $exception;
         }
+    }
+
+    /**
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @param string $message
+     *
+     * @return void
+     */
+    protected function updateProgress(OutputInterface $output, $message)
+    {
+        $output->write($message);
+        $output->write(str_repeat("\x08", strlen($message)));
     }
 
 }

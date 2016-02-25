@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\Installer\Business\Icecat;
 
-use Pyz\Zed\Installer\Business\Icecat\IcecatInstallerInterface;
 use Pyz\Zed\Installer\Business\Reader\CsvReaderInterface;
+use Pyz\Zed\Installer\Business\ProgressBar\ProgressBarBuilder;
 use Symfony\Component\Console\Output\OutputInterface;
 
 abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
@@ -26,7 +26,7 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     /**
      * @return string
      */
-    abstract protected function getHeaderText();
+    abstract public function getTitle();
 
     /**
      * @param \Pyz\Zed\Installer\Business\Reader\CsvReaderInterface $csvReader
@@ -53,36 +53,80 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
 
         $csvFile->rewind();
 
-        $output->writeln($this->getHeaderText());
+        $progressBar = $this->generateProgressBar($output, $total);
+        $progressBar->start();
+        $progressBar->advance(0);
 
         while (!$csvFile->eof()) {
             $step++;
-            $this->updateProgress($output, $step, $total);
-
             $data = $csvFile->fgetcsv();
 
-            foreach ($this->importerCollection as $importer) {
+            $progressBar->advance(1);
+
+            foreach ($this->importerCollection as $name => $importer) {
                 $importer->beforeImport();
                 $importer->importOne($columns, $data);
                 $importer->afterImport();
             }
         }
 
+        $progressBar->finish();
         $output->writeln('');
-        $output->writeln('Installed: ' . $step);
     }
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @param int $step
-     * @param int $total
+     * @param string $message
      *
      * @return void
      */
-    protected function updateProgress(OutputInterface $output, $step, $total)
+    protected function updateProgress(OutputInterface $output, $message)
     {
-        $info = 'Importing... ' . $step . '/' . $total;
-        $output->write($info);
-        $output->write(str_repeat("\x08", strlen($info)));
+        $output->write($message);
+        $output->write(str_repeat("\x08", strlen($message)));
     }
+
+    /**
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @param int $count
+     *
+     * @return \Symfony\Component\Console\Helper\ProgressBar
+     */
+    protected function generateProgressBar(OutputInterface $output, $count)
+    {
+        $builder = new ProgressBarBuilder($output, $count, $this->getTitle());
+        return $builder->build();
+    }
+
+    /**
+     * Display progress while counting data for real progress bar
+     *
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     *
+     * @return void
+     */
+    protected function displayProgressWhileCountingBatchCollectionSize(OutputInterface $output)
+    {
+        $builder = new ProgressBarBuilder($output, 1, $this->getTitle());
+        $progressBar = $builder->build();
+        $progressBar->setFormat(" * %collectorType%\x0D ");
+        $progressBar->start();
+        $progressBar->advance();
+        $progressBar->finish();
+    }
+
+    /**
+     * @return bool
+     */
+    public function isInstalled()
+    {
+        foreach ($this->importerCollection as $importer) {
+            if ($importer->isImported()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }

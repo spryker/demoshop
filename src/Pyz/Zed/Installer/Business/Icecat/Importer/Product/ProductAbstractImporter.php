@@ -5,6 +5,7 @@ namespace Pyz\Zed\Installer\Business\Icecat\Importer\Product;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
+use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\Product\Business\ProductFacadeInterface;
 use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
@@ -59,15 +60,16 @@ class ProductAbstractImporter extends AbstractIcecatImporter
     /**
      * @return bool
      */
-    public function canImport()
+    public function isImported()
     {
-        return true;
-        //return $this->productFacade->getAbstractProductCount() > 0;
+        $query = SpyProductAbstractQuery::create();
+        return $query->count() > 0;
     }
 
     /**
      * @param array $columns
      * @param array $data
+     * @internal param array $extraData
      */
     public function importOne(array $columns, array $data)
     {

@@ -4,6 +4,7 @@ namespace Pyz\Zed\Installer\Business\Icecat\Importer\Category;
 
 use Generated\Shared\Transfer\NodeTransfer;
 use Orm\Zed\Category\Persistence\SpyCategoryNode;
+use Orm\Zed\Category\Persistence\SpyCategoryQuery;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
@@ -59,9 +60,10 @@ class CategoryHierarchyImporter extends AbstractIcecatImporter
     /**
      * @return bool
      */
-    public function canImport()
+    public function isImported()
     {
-        return count($this->categoryFacade->getRootNodes()) === 0;
+        $query = SpyCategoryQuery::create();
+        return $query->count() > 0;
     }
 
     /**
@@ -80,6 +82,7 @@ class CategoryHierarchyImporter extends AbstractIcecatImporter
     /**
      * @param array $columns
      * @param array $data
+     * @internal param array $extraData
      */
     public function importOne(array $columns, array $data)
     {
@@ -111,64 +114,6 @@ class CategoryHierarchyImporter extends AbstractIcecatImporter
             foreach ($this->localeManager->getLocaleCollection() as $code => $localeTransfer) {
                 $this->categoryFacade->updateCategoryNode($nodeTransfer, $localeTransfer);
             }
-        }
-    }
-
-    /**
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @param \SplFileObject $csvFile
-     * @param array $columns
-     * @param int $total
-     *
-     * @return void
-     */
-    protected function updateParentsAndUrls(OutputInterface $output, \SplFileObject $csvFile, array $columns, $total)
-    {
-        $step = 1;
-
-        $csvFile->rewind();
-        $output->writeln('');
-
-        $idParentNode = null;
-        $queryRoot = $this->categoryQueryContainer->queryRootNode();
-        $root = $queryRoot->findOne();
-
-        while (!$csvFile->eof()) {
-            $data = $csvFile->fgetcsv();
-            $csvData = $this->generateCsvItem($columns, $data);
-            $idParentNode = $root->getIdCategoryNode();
-
-            if (!array_key_exists($csvData[self::PARENT_KEY], $this->cacheParents)) {
-                $queryParent = $this->categoryQueryContainer->queryMainCategoryNodeByCategoryKey($csvData[self::PARENT_KEY]);
-                $queryRoot->filterByIsRoot(false);
-                $parent = $queryParent->findOne();
-
-                if ($parent) {
-                    $idParentNode = $parent->getIdCategoryNode();
-                    $this->cacheParents[$csvData[self::PARENT_KEY]] = $idParentNode;
-                }
-            } else {
-                $idParentNode = $this->cacheParents[$csvData[self::PARENT_KEY]];
-            }
-
-            $nodesQuery = $this->categoryQueryContainer->queryNodeByCategoryKey($csvData[self::UCATID]);
-            $nodesQuery->filterByIsMain(true);
-            $nodes = $nodesQuery->find();
-            foreach ($nodes as $nodeEntity) {
-                $nodeTransfer = new NodeTransfer();
-                $nodeTransfer->fromArray($nodeEntity->toArray());
-                $nodeTransfer->setFkParentCategoryNode($idParentNode);
-
-                foreach ($this->localeManager->getLocaleCollection() as $code => $localeTransfer) {
-                    $this->categoryFacade->updateCategoryNode($nodeTransfer, $localeTransfer);
-                }
-            }
-
-            $info = 'Updating parents and generating urls... ' . $step . '/' . $total;
-            $output->write($info);
-            $output->write(str_repeat("\x08", strlen($info)));
-
-            $step++;
         }
     }
 

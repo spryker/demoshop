@@ -16,4 +16,14 @@ interface IcecatInstallerInterface
      */
     public function install(OutputInterface $output);
 
+    /**
+     * @return bool
+     */
+    public function isInstalled();
+
+    /**
+     * @return string
+     */
+    public function getTitle();
+
 }

@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Installer\Business\Icecat\Importer\Product;
 
 use Orm\Zed\Price\Persistence\SpyPriceProduct;
+use Orm\Zed\Price\Persistence\SpyPriceProductQuery;
 use Pyz\Zed\Installer\Business\Exception\PriceTypeNotFoundException;
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\Stock\Business\StockFacadeInterface;
@@ -60,10 +61,10 @@ class ProductPriceImporter extends AbstractIcecatImporter
     /**
      * @return bool
      */
-    public function canImport()
+    public function isImported()
     {
-        return true;
-        //return $this->productFacade->getAbstractProductCount() > 0;
+        $query = SpyPriceProductQuery::create();
+        return $query->count() > 0;
     }
 
     /**
@@ -117,6 +118,8 @@ class ProductPriceImporter extends AbstractIcecatImporter
      * @param array $data
      * @throws PriceTypeNotFoundException
      * @throws \Propel\Runtime\Exception\PropelException
+     * @internal param array $extraData
+     *
      */
     public function importOne(array $columns, array $data)
     {
