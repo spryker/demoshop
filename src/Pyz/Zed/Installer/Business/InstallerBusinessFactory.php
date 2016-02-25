@@ -4,7 +4,7 @@ namespace Pyz\Zed\Installer\Business;
 
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryHierarchyImporter;
-use Pyz\Zed\Installer\Business\Icecat\IcecatDataInstaller;
+use Pyz\Zed\Installer\Business\Icecat\IcecatDataInstallerConsole;
 use Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryRootImporter;
@@ -244,11 +244,11 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
-     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatDataInstaller
+     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatDataInstallerConsole
      */
     public function getIcecatDataInstaller(OutputInterface $output)
     {
-        return new IcecatDataInstaller(
+        return new IcecatDataInstallerConsole(
             $output, $this->getIcecatDataInstallerCollection()
         );
     }
