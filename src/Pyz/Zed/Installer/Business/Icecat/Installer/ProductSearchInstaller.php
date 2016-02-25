@@ -28,6 +28,7 @@ class ProductSearchInstaller extends AbstractIcecatInstaller
      */
     public function install(OutputInterface $output)
     {
+        //TODO do it in batches
         $productCollection = SpyProductQuery::create()->find();
         $total = SpyProductQuery::create()->count();
 
