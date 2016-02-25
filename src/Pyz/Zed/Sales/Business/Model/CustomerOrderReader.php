@@ -3,12 +3,10 @@
 namespace Pyz\Zed\Sales\Business\Model;
 
 use Generated\Shared\Transfer\OrderListTransfer;
-use Orm\Zed\Sales\Persistence\SpySalesOrder;
 use Orm\Zed\Sales\Persistence\SpySalesOrderQuery;
-use Propel\Runtime\Collection\ObjectCollection;
-use Spryker\Zed\Sales\Business\Model\OrderManager as SprykerOrderManager;
+use Spryker\Zed\Sales\Business\Model\CustomerOrderReader as SprykerCustomerOrderReader;
 
-class OrderManager extends SprykerOrderManager
+class CustomerOrderReader extends SprykerCustomerOrderReader
 {
 
     /**
@@ -18,7 +16,10 @@ class OrderManager extends SprykerOrderManager
      */
     protected function getOrderCollection(OrderListTransfer $orderListTransfer)
     {
-        $ordersQuery = $this->createOrderListQuery($orderListTransfer);
+        $ordersQuery = $this->queryContainer->queryCustomerOrders(
+            $orderListTransfer->getIdCustomer(),
+            $orderListTransfer->getFilter()
+        );
 
         if ($orderListTransfer->getPagination() !== null) {
             return $this->paginateOrderCollection($orderListTransfer, $ordersQuery);
