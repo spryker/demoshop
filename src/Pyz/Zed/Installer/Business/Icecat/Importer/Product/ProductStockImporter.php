@@ -69,6 +69,14 @@ class ProductStockImporter extends AbstractIcecatImporter
     }
 
     /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'Product Stock';
+    }
+
+    /**
      * @return bool
      */
     public function isImported()

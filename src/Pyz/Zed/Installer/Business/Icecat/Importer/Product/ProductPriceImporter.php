@@ -59,6 +59,14 @@ class ProductPriceImporter extends AbstractIcecatImporter
     }
 
     /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'Product Price';
+    }
+
+    /**
      * @return bool
      */
     public function isImported()

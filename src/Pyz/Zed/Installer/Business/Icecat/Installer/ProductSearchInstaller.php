@@ -28,7 +28,6 @@ class ProductSearchInstaller extends AbstractIcecatInstaller
      */
     public function install(OutputInterface $output)
     {
-        $step = 0;
         $productCollection = SpyProductQuery::create()->find();
         $total = SpyProductQuery::create()->count();
 
@@ -36,13 +35,13 @@ class ProductSearchInstaller extends AbstractIcecatInstaller
         $progressBar->start();
         $progressBar->advance(0);
 
-        foreach ($productCollection as $product) {
-            $step++;
-            $data = $product->toArray();
+        foreach ($productCollection as $productEntity) {
+            $data = $productEntity->toArray();
 
             $progressBar->advance(1);
 
-            foreach ($this->importerCollection as $name => $importer) {
+            foreach ($this->importerCollection as $type => $importer) {
+                $this->updateProgressBarTitle($output, $progressBar, $importer->getTitle());
 
                 $importer->beforeImport();
                 $importer->importOne(array_keys($data), $data);
@@ -50,7 +49,9 @@ class ProductSearchInstaller extends AbstractIcecatInstaller
             }
         }
 
+        $progressBar->setMessage($this->getTitle(), 'barTitle');
         $progressBar->finish();
+
         $output->writeln('');
     }
 }

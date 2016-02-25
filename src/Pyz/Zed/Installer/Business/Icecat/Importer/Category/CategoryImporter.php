@@ -105,6 +105,14 @@ class CategoryImporter extends AbstractIcecatImporter
     }
 
     /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'Category Attributes';
+    }
+
+    /**
      * @return bool
      */
     public function isImported()

@@ -47,6 +47,11 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
     abstract public function isImported();
 
     /**
+     * @return string
+     */
+    abstract public function getTitle();
+
+    /**
      * @param \Pyz\Zed\Installer\Business\Reader\CsvReaderInterface $csvReader
      * @param \Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager $localeManager
      */

@@ -58,6 +58,14 @@ class ProductAbstractImporter extends AbstractIcecatImporter
     }
 
     /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'Product Abstract';
+    }
+
+    /**
      * @return bool
      */
     public function isImported()

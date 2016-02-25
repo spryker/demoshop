@@ -58,6 +58,14 @@ class CategoryHierarchyImporter extends AbstractIcecatImporter
     }
 
     /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'Category Hierarchy';
+    }
+
+    /**
      * @return bool
      */
     public function isImported()

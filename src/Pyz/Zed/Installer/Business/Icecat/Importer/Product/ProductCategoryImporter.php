@@ -134,6 +134,14 @@ class ProductCategoryImporter extends AbstractIcecatImporter
     }
 
     /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'Product Category';
+    }
+
+    /**
      * @return bool
      */
     public function isImported()

@@ -7,6 +7,16 @@ interface IcecatImporterInterface
 {
 
     /**
+     * @return void
+     */
+    public function afterImport();
+
+    /**
+     * @return void
+     */
+    public function beforeImport();
+
+    /**
      * @param array $columns
      * @param array $data
      *
@@ -20,13 +30,8 @@ interface IcecatImporterInterface
     public function isImported();
 
     /**
-     * @return void
+     * @return string
      */
-    public function beforeImport();
-
-    /**
-     * @return void
-     */
-    public function afterImport();
+    public function getTitle();
 
 }

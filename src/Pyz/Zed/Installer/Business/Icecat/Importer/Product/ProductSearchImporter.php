@@ -42,6 +42,14 @@ class ProductSearchImporter extends AbstractIcecatImporter
     }
 
     /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'Product Search';
+    }
+
+    /**
      * @return bool
      */
     public function isImported()
