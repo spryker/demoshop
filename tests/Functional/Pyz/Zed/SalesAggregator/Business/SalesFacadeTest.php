@@ -3,7 +3,7 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace Functional\Pyz\Zed\Sales\Business;
+namespace Functional\Pyz\Zed\SalesAggregator\Business;
 
 use Codeception\TestCase\Test;
 use Orm\Zed\Oms\Persistence\SpyOmsOrderItemState;
@@ -14,7 +14,7 @@ use Orm\Zed\Sales\Persistence\SpySalesOrderAddress;
 use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 use Orm\Zed\Sales\Persistence\SpySalesOrderItemOption;
 use Orm\Zed\Shipment\Persistence\SpyShipmentMethodQuery;
-use Spryker\Zed\Sales\Business\SalesFacade;
+use Spryker\Zed\SalesAggregator\Business\SalesAggregatorFacade;
 
 class SalesFacadeTest extends Test
 {
@@ -23,7 +23,7 @@ class SalesFacadeTest extends Test
      */
     public function testSalesOrderAggregatorWithDiscountsStack()
     {
-        $salesFacade = $this->createSalesFacade();
+        $salesFacade = $this->createSalesAggregatorFacade();
 
         $salesOrderEntity = $this->createTestOrder();
 
@@ -105,7 +105,7 @@ class SalesFacadeTest extends Test
      */
     public function testSalesOrderAggregatorWithoutDiscounts()
     {
-        $salesFacade = $this->createSalesFacade();
+        $salesFacade = $this->createSalesAggregatorFacade();
 
         $salesOrderEntity = $this->createTestOrder($useDiscounts = false);
 
@@ -170,7 +170,7 @@ class SalesFacadeTest extends Test
      */
     public function testSalesOrderItemWithDiscounts()
     {
-        $salesFacade = $this->createSalesFacade();
+        $salesFacade = $this->createSalesAggregatorFacade();
 
         $salesOrderEntity = $this->createTestOrder();
 
@@ -203,7 +203,7 @@ class SalesFacadeTest extends Test
      */
     public function testSalesOrderItemWithoutDiscounts()
     {
-        $salesFacade = $this->createSalesFacade();
+        $salesFacade = $this->createSalesAggregatorFacade();
 
         $salesOrderEntity = $this->createTestOrder(false);
 
@@ -358,11 +358,11 @@ class SalesFacadeTest extends Test
     
     
     /**
-     * @return \Spryker\Zed\Sales\Business\SalesFacade
+     * @return \Spryker\Zed\SalesAggregator\Business\SalesAggregatorFacade
      */
-    protected function createSalesFacade()
+    protected function createSalesAggregatorFacade()
     {
-        return new SalesFacade();
+        return new SalesAggregatorFacade();
     }
 
     /**
