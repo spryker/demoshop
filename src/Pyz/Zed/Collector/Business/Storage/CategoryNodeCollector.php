@@ -33,6 +33,9 @@ class CategoryNodeCollector extends AbstractPropelCollectorPlugin
         $this->categoryQueryContainer = $categoryQueryContainer;
     }
 
+    /**
+     * @return string
+     */
     protected function getTouchItemType()
     {
         return 'categorynode';

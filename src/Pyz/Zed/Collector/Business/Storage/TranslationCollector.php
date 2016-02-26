@@ -18,6 +18,9 @@ class TranslationCollector extends AbstractPropelCollectorPlugin
 
     use GlossaryKeyBuilder;
 
+    /**
+     * @return string
+     */
     protected function getTouchItemType()
     {
         return 'translation';

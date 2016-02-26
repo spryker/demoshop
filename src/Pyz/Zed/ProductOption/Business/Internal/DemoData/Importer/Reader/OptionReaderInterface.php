@@ -6,7 +6,7 @@ interface OptionReaderInterface
 {
 
     /**
-     * @yreturn OptionType[]
+     * @return \Generator
      */
     public function getOptions();
 

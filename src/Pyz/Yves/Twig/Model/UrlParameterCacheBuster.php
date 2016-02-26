@@ -18,6 +18,11 @@ class UrlParameterCacheBuster implements CacheBusterInterface
         $this->cacheBust = (string)$cacheBust;
     }
 
+    /**
+     * @param string $url
+     *
+     * @return string
+     */
     public function addCacheBust($url)
     {
         return $url . '?v=' . $this->getCacheBust();

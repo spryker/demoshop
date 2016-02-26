@@ -196,6 +196,12 @@ class UrlMapper implements UrlMapperInterface
         return $mergedParameters;
     }
 
+    /**
+     * @param array $next
+     * @param array $current
+     *
+     * @return bool
+     */
     protected function sortByUrlPosition($next, $current)
     {
         return $current[FacetConfig::KEY_URL_POSITION] < $next[FacetConfig::KEY_URL_POSITION];

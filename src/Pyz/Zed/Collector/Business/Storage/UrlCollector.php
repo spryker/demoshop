@@ -18,6 +18,9 @@ class UrlCollector extends AbstractPropelCollectorPlugin
 
     use KeyBuilderTrait;
 
+    /**
+     * @return string
+     */
     protected function getTouchItemType()
     {
         return 'url';
