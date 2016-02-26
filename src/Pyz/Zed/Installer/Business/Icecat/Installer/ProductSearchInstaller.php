@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Installer\Business\Icecat\Installer;
 
 use Orm\Zed\Product\Persistence\SpyProductQuery;
+use Propel\Runtime\Formatter\ArrayFormatter;
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatInstaller;
 use Spryker\Zed\Propel\Business\Model\PropelBatchIterator;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -28,43 +29,9 @@ class ProductSearchInstaller extends AbstractIcecatInstaller
      */
     protected function getBatchIterator()
     {
-        return new PropelBatchIterator(SpyProductQuery::create(), 100);
+        $query = SpyProductQuery::create();
+        $query->setFormatter(new ArrayFormatter());
+        return new PropelBatchIterator($query, 100);
     }
-
-    /**
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     *
-     * @return void
-     */
-    public function install(OutputInterface $output)
-    {
-        //TODO do it in batches
-        $productCollection = SpyProductQuery::create()->find();
-        $total = SpyProductQuery::create()->count();
-
-        $progressBar = $this->generateProgressBar($output, $total);
-        $progressBar->start();
-        $progressBar->advance(0);
-
-        foreach ($productCollection as $productEntity) {
-            $data = $productEntity->toArray();
-
-            $progressBar->advance(1);
-
-            foreach ($this->importerCollection as $type => $importer) {
-                $this->updateProgressBarTitle($output, $progressBar, $importer->getTitle());
-
-                $importer->beforeImport();
-                $importer->importOne($data);
-                $importer->afterImport();
-            }
-        }
-
-        $progressBar->setMessage($this->getTitle(), 'barTitle');
-        $progressBar->finish();
-
-        $output->writeln('');
-    }
-
 
 }
