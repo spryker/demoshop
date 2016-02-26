@@ -61,7 +61,7 @@ class ProductStockImporter extends AbstractIcecatImporter
     protected $stockTotal;
 
     /**
-     * @param \Spryker\Zed\Library\Reader\CsvReaderInterface $csvReader
+     * @param \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface $csvReader
      * @param \Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager $localeManager
      */
     public function __construct(CsvReaderInterface $csvReader, IcecatLocaleManager $localeManager, $dataDirectory)

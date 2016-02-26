@@ -2,14 +2,14 @@
 
 namespace Pyz\Zed\Installer\Business\Icecat;
 
-use Spryker\Zed\Library\Reader\CsvReaderInterface;
+use Spryker\Shared\Library\Reader\Csv\CsvReaderInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 abstract class AbstractIcecatImporter implements IcecatImporterInterface
 {
 
     /**
-     * @var \Spryker\Zed\Library\Reader\CsvReaderInterface
+     * @var \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface
      */
     protected $csvReader;
 
@@ -49,7 +49,7 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
     abstract public function getTitle();
 
     /**
-     * @param \Spryker\Zed\Library\Reader\CsvReaderInterface $csvReader
+     * @param \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface $csvReader
      * @param \Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager $localeManager
      */
     public function __construct(CsvReaderInterface $csvReader, IcecatLocaleManager $localeManager)

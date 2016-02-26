@@ -2,16 +2,15 @@
 
 namespace Pyz\Zed\Installer\Business\Icecat;
 
-use Spryker\Zed\Library\Reader\CsvReaderInterface;
+use Spryker\Shared\Library\Reader\Csv\CsvReaderInterface as CsvReaderInterface;
 use Pyz\Zed\Installer\Business\ProgressBar\ProgressBarBuilder;
-use Spryker\Zed\Propel\Business\Model\CountableIteratorInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\OutputInterface;
 
 abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
 {
     /**
-     * @var \Spryker\Zed\Library\Reader\CsvReaderInterface
+     * @var \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface
      */
     protected $csvReader;
 
@@ -41,7 +40,7 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     //abstract protected function getBatchIterator();
 
     /**
-     * @param \Spryker\Zed\Library\Reader\CsvReaderInterface $csvReader
+     * @param \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface $csvReader
      * @param array|\Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[] $importerCollection
      * @param string $dataDirectory
      */

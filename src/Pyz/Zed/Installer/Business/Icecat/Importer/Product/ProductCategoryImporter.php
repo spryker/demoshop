@@ -2,8 +2,6 @@
 
 namespace Pyz\Zed\Installer\Business\Icecat\Importer\Product;
 
-use Orm\Zed\Category\Persistence\Base\SpyCategoryQuery;
-use Orm\Zed\Category\Persistence\SpyCategoryNode;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;

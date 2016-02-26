@@ -3,9 +3,9 @@
 namespace Pyz\Zed\Installer\Business;
 
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
-use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryHierarchyImporter;
 use Pyz\Zed\Installer\Business\Icecat\IcecatDataInstallerConsole;
 use Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager;
+use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryHierarchyImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryRootImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductAbstractImporter;
@@ -20,6 +20,7 @@ use Pyz\Zed\Installer\Business\Icecat\Installer\ProductInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\ProductSearchInstaller;
 use Pyz\Zed\Installer\InstallerConfig;
 use Pyz\Zed\Installer\InstallerDependencyProvider;
+use Spryker\Shared\Library\Reader\Csv\CsvReader as CsvReader;
 use Spryker\Zed\Category\Business\Generator\UrlPathGenerator;
 use Spryker\Zed\Category\Business\TransferGenerator;
 use Spryker\Zed\Category\Business\Tree\CategoryTreeReader;
@@ -28,9 +29,8 @@ use Spryker\Zed\Category\Business\Tree\ClosureTableWriter;
 use Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter;
 use Spryker\Zed\Category\Business\Tree\NodeWriter;
 use Spryker\Zed\Installer\Business\InstallerBusinessFactory as SprykerInstallerBusinessFactory;
-use Spryker\Zed\Library\Reader\CsvReader;
-use Spryker\Zed\Product\Business\Attribute\AttributeManager;
 use Spryker\Zed\ProductSearch\Business\Operation\OperationManager;
+use Spryker\Zed\Product\Business\Attribute\AttributeManager;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
@@ -112,7 +112,8 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getCategoryImporter()
     {
         $categoryImporter = new CategoryImporter(
-            $this->getCsvReader(), $this->getIcecatLocaleManager()
+            $this->getCsvReader(),
+            $this->getIcecatLocaleManager()
         );
 
         $categoryImporter->setCategoryFacade($this->getCategoryFacade());
@@ -131,7 +132,8 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getCategoryHierarchyImporter()
     {
         $categoryHierarchyImporter = new CategoryHierarchyImporter(
-            $this->getCsvReader(), $this->getIcecatLocaleManager()
+            $this->getCsvReader(),
+            $this->getIcecatLocaleManager()
         );
 
         $categoryHierarchyImporter->setCategoryFacade($this->getCategoryFacade());
@@ -147,7 +149,8 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getCategoryRootImporter()
     {
         $categoryRootImporter = new CategoryRootImporter(
-            $this->getCsvReader(), $this->getIcecatLocaleManager()
+            $this->getCsvReader(),
+            $this->getIcecatLocaleManager()
         );
 
         $categoryRootImporter->setCategoryFacade($this->getCategoryFacade());
@@ -166,7 +169,8 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductCategoryImporter()
     {
         $productCategoryImporter = new ProductCategoryImporter(
-            $this->getCsvReader(), $this->getIcecatLocaleManager()
+            $this->getCsvReader(),
+            $this->getIcecatLocaleManager()
         );
 
         $productCategoryImporter->setCategoryFacade($this->getCategoryFacade());
@@ -186,7 +190,8 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductAbstractImporter()
     {
         $productAbstractImporter = new ProductAbstractImporter(
-            $this->getCsvReader(), $this->getIcecatLocaleManager()
+            $this->getCsvReader(),
+            $this->getIcecatLocaleManager()
         );
 
         $productAbstractImporter->setAttributeManager($this->createAttributeManager());
@@ -201,7 +206,8 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductPriceImporter()
     {
         $productPriceImporter = new ProductPriceImporter(
-            $this->getCsvReader(), $this->getIcecatLocaleManager()
+            $this->getCsvReader(),
+            $this->getIcecatLocaleManager()
         );
 
         $productPriceImporter->setProductQueryContainer($this->getProductQueryContainer());
@@ -217,7 +223,9 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductStockImporter()
     {
         $productStockImporter = new ProductStockImporter(
-            $this->getCsvReader(), $this->getIcecatLocaleManager(), $this->getConfig()->getIcecatDataPath()
+            $this->getCsvReader(),
+            $this->getIcecatLocaleManager(),
+            $this->getConfig()->getIcecatDataPath()
         );
 
         $productStockImporter->setProductQueryContainer($this->getProductQueryContainer());
@@ -232,7 +240,8 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductSearchImporter()
     {
         $productSearchImporter = new ProductSearchImporter(
-            $this->getCsvReader(), $this->getIcecatLocaleManager()
+            $this->getCsvReader(),
+            $this->getIcecatLocaleManager()
         );
 
         $productSearchImporter->setProductSearchFacade($this->getProductSearchFacade());
@@ -249,7 +258,8 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     public function getIcecatDataInstaller(OutputInterface $output)
     {
         return new IcecatDataInstallerConsole(
-            $output, $this->getIcecatDataInstallerCollection()
+            $output,
+            $this->getIcecatDataInstallerCollection()
         );
     }
 
@@ -259,7 +269,9 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getCategoryInstaller()
     {
         $categoryInstaller = new CategoryInstaller(
-            $this->getCsvReader(), $this->getIcecatImporterCategoryCollection(), $this->getConfig()->getIcecatDataPath()
+            $this->getCsvReader(),
+            $this->getIcecatImporterCategoryCollection(),
+            $this->getConfig()->getIcecatDataPath()
         );
 
         return $categoryInstaller;
@@ -271,7 +283,9 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getCategoryHierarchyInstaller()
     {
         $categoryHierarchyInstaller = new CategoryHierarchyInstaller(
-            $this->getCsvReader(), $this->getIcecatImporterCategoryHierarchyCollection(), $this->getConfig()->getIcecatDataPath()
+            $this->getCsvReader(),
+            $this->getIcecatImporterCategoryHierarchyCollection(),
+            $this->getConfig()->getIcecatDataPath()
         );
 
         return $categoryHierarchyInstaller;
@@ -284,7 +298,9 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getCategoryRootInstaller()
     {
         $categoryRootInstaller = new CategoryRootInstaller(
-            $this->getCsvReader(), $this->getIcecatImporterCategoryRootCollection(), $this->getConfig()->getIcecatDataPath()
+            $this->getCsvReader(),
+            $this->getIcecatImporterCategoryRootCollection(),
+            $this->getConfig()->getIcecatDataPath()
         );
 
         return $categoryRootInstaller;
@@ -296,7 +312,9 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductInstaller()
     {
         $productInstaller = new ProductInstaller(
-            $this->getCsvReader(), $this->getIcecatImporterProductCollection(), $this->getConfig()->getIcecatDataPath()
+            $this->getCsvReader(),
+            $this->getIcecatImporterProductCollection(),
+            $this->getConfig()->getIcecatDataPath()
         );
 
         return $productInstaller;
@@ -308,14 +326,16 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductSearchInstaller()
     {
         $productSearchInstaller = new ProductSearchInstaller(
-            $this->getCsvReader(), $this->getIcecatImporterProductSearchCollection(), $this->getConfig()->getIcecatDataPath()
+            $this->getCsvReader(),
+            $this->getIcecatImporterProductSearchCollection(),
+            $this->getConfig()->getIcecatDataPath()
         );
 
         return $productSearchInstaller;
     }
 
     /**
-     * @return \Spryker\Zed\Library\Reader\CsvReaderInterface
+     * @return \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface
      */
     public function getCsvReader()
     {
@@ -325,7 +345,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     /**
      * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return IcecatLocaleManager
+     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager
      */
     public function getIcecatLocaleManager()
     {
