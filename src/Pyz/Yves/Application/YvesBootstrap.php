@@ -31,7 +31,7 @@ use Silex\Provider\WebProfilerServiceProvider;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
-use Spryker\Shared\Config;
+use Spryker\Shared\Config\Config;
 use Spryker\Yves\Application\Application;
 use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
