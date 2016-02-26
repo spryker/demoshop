@@ -16,7 +16,6 @@ use Spryker\Zed\Calculation\Communication\Plugin\SubtotalWithoutItemExpensesTota
 use Spryker\Zed\Calculation\Communication\Plugin\TaxTotalsCalculatorPlugin;
 use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\DiscountCalculatorPlugin;
 use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\DiscountTotalsCalculatorPlugin;
-use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\GrandTotalWithDiscountsTotalsCalculatorPlugin;
 use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\RemoveAllCalculatedDiscountsCalculatorPlugin;
 
 class CalculationConfig extends SprykerCalculationConfig
@@ -39,7 +38,6 @@ class CalculationConfig extends SprykerCalculationConfig
             new ExpensePriceToPayCalculatorPlugin(),
             new ProductOptionPriceToPayCalculatorPlugin(),
             new DiscountTotalsCalculatorPlugin(),
-            new GrandTotalWithDiscountsTotalsCalculatorPlugin(),
             new TaxTotalsCalculatorPlugin(),
             new ItemPriceToPayCalculatorPlugin(),
             new ItemTotalPriceCalculatorPlugin(),

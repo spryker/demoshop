@@ -80,6 +80,7 @@ class CheckoutController extends AbstractController
         $payolutionInstallmentPayments = $this->getPayolutionInstallmentPayments($checkoutRequestTransfer, $cartTransfer);
 
         $checkoutForm = $this->buildCheckoutForm($checkoutRequestTransfer, $shipmentTransfer, $payolutionInstallmentPayments, $request);
+        $checkoutForm->handleRequest($request);
 
         if ($checkoutForm->isValid()) {
             $this->setCheckoutSubmittedData($cartTransfer, $shipmentTransfer, $payolutionInstallmentPayments, $checkoutForm, $request);
