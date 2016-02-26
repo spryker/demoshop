@@ -9,6 +9,17 @@ use Symfony\Component\Console\Output\OutputInterface;
 class ProductInstaller extends AbstractIcecatInstaller
 {
 
+    /**
+     * @return \Spryker\Zed\Propel\Business\Model\CountableIteratorInterface
+     */
+    protected function getBatchIterator()
+    {
+        return new CsvBatchIterator($this->getCsvDataFilename());
+    }
+
+    /**
+     * @return string
+     */
     protected function getCsvDataFilename()
     {
         return $this->dataDirectory . '/products.csv';
@@ -20,14 +31,6 @@ class ProductInstaller extends AbstractIcecatInstaller
     public function getTitle()
     {
         return 'Products';
-    }
-
-    /**
-     * @return \Spryker\Zed\Propel\Business\Model\CountableIteratorInterface
-     */
-    protected function getBatchIterator()
-    {
-        return new CsvBatchIterator($this->getCsvDataFilename());
     }
 
 }

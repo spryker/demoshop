@@ -9,6 +9,17 @@ use Symfony\Component\Console\Output\OutputInterface;
 class CategoryInstaller extends AbstractIcecatInstaller
 {
 
+    /**
+     * @return \Spryker\Zed\Propel\Business\Model\CountableIteratorInterface
+     */
+    protected function getBatchIterator()
+    {
+        return new CsvBatchIterator($this->getCsvDataFilename());
+    }
+
+    /**
+     * @return string
+     */
     protected function getCsvDataFilename()
     {
         return $this->dataDirectory . '/categories.csv';
@@ -20,14 +31,6 @@ class CategoryInstaller extends AbstractIcecatInstaller
     public function getTitle()
     {
         return 'Category Attributes';
-    }
-
-    /**
-     * @return \Spryker\Zed\Propel\Business\Model\CountableIteratorInterface
-     */
-    protected function getBatchIterator()
-    {
-        return new CsvBatchIterator($this->getCsvDataFilename());
     }
 
 }

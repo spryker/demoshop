@@ -8,6 +8,15 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class CategoryRootInstaller extends AbstractIcecatInstaller
 {
+
+    /**
+     * @return \Spryker\Zed\Propel\Business\Model\CountableIteratorInterface
+     */
+    protected function getBatchIterator()
+    {
+        return new CsvBatchIterator($this->getCsvDataFilename());
+    }
+
     /**
      * @return string
      */
@@ -23,14 +32,5 @@ class CategoryRootInstaller extends AbstractIcecatInstaller
     {
         return 'Category Roots';
     }
-
-    /**
-     * @return \Spryker\Zed\Propel\Business\Model\CountableIteratorInterface
-     */
-    protected function getBatchIterator()
-    {
-        return new CsvBatchIterator($this->getCsvDataFilename());
-    }
-
 
 }

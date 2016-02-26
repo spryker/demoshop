@@ -12,6 +12,16 @@ class ProductSearchInstaller extends AbstractIcecatInstaller
 {
 
     /**
+     * @return \Spryker\Zed\Propel\Business\Model\CountableIteratorInterface
+     */
+    protected function getBatchIterator()
+    {
+        $query = SpyProductQuery::create();
+        $query->setFormatter(new ArrayFormatter());
+        return new PropelBatchIterator($query, 100);
+    }
+
+    /**
      * @return string
      */
     protected function getCsvDataFilename()
@@ -25,16 +35,6 @@ class ProductSearchInstaller extends AbstractIcecatInstaller
     public function getTitle()
     {
         return 'Product Search';
-    }
-
-    /**
-     * @return \Spryker\Zed\Propel\Business\Model\CountableIteratorInterface
-     */
-    protected function getBatchIterator()
-    {
-        $query = SpyProductQuery::create();
-        $query->setFormatter(new ArrayFormatter());
-        return new PropelBatchIterator($query, 100);
     }
 
 }

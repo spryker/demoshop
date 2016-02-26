@@ -26,6 +26,11 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     protected $importerCollection = [];
 
     /**
+     * @return \Spryker\Zed\Propel\Business\Model\CountableIteratorInterface
+     */
+    abstract protected function getBatchIterator();
+
+    /**
      * @return string
      */
     abstract protected function getCsvDataFilename();
@@ -34,11 +39,6 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
      * @return string
      */
     abstract public function getTitle();
-
-    /**
-     * @return \Spryker\Zed\Propel\Business\Model\CountableIteratorInterface
-     */
-    abstract protected function getBatchIterator();
 
     /**
      * @param \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface $csvReader

@@ -10,6 +10,14 @@ class CategoryHierarchyInstaller extends AbstractIcecatInstaller
 {
 
     /**
+     * @return \Spryker\Zed\Propel\Business\Model\CountableIteratorInterface
+     */
+    protected function getBatchIterator()
+    {
+        return new CsvBatchIterator($this->getCsvDataFilename());
+    }
+
+    /**
      * @return string
      */
     protected function getCsvDataFilename()
@@ -24,14 +32,5 @@ class CategoryHierarchyInstaller extends AbstractIcecatInstaller
     {
         return 'Category Catalog';
     }
-
-    /**
-     * @return \Spryker\Zed\Propel\Business\Model\CountableIteratorInterface
-     */
-    protected function getBatchIterator()
-    {
-        return new CsvBatchIterator($this->getCsvDataFilename());
-    }
-
 
 }
