@@ -8,7 +8,7 @@ use Pyz\Yves\Twig\Model\UrlParameterCacheBuster;
 use Pyz\Yves\Twig\Model\YvesExtension;
 use Silex\Application;
 use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Shared\Config;
+use Spryker\Shared\Config\Config;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class TwigFactory extends AbstractFactory

@@ -7,7 +7,7 @@
 namespace Pyz\Yves\EventJournal\Collector;
 
 use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Shared\Config;
+use Spryker\Shared\Config\Config;
 use Spryker\Shared\EventJournal\Model\Collector\AbstractDataCollector;
 use Spryker\Shared\EventJournal\Model\Collector\DataCollectorInterface;
 
