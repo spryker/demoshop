@@ -8,8 +8,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 class ProgressBarBuilder
 {
     /**
-     * @var \Symfony\Component\Console\Output\OutputInterface
-     */
+      * @var \Symfony\Component\Console\Output\OutputInterface
+      */
     protected $output;
 
     /**
@@ -41,11 +41,11 @@ class ProgressBarBuilder
     {
         ProgressBar::setFormatDefinition('normal', ' <fg=yellow>*</fg=yellow> <fg=green>%barTitle%</fg=green> <fg=yellow>%percent%% (%current%/%max%) %elapsed:6s%</fg=yellow>');
         ProgressBar::setFormatDefinition('normal_nomax', ' <fg=yellow>*</fg=yellow> <fg=green>%barTitle%</fg=green> <fg=yellow>(%max%)</fg=yellow>');
-        ProgressBar::setFormatDefinition('verbose', " <fg=yellow>*</fg=yellow> <fg=green>%barTitle%</fg=green> <fg=yellow>[%bar%] %percent%% (%current%/%max%) %elapsed:6s% %memory:6s%</fg=yellow>\x0D");
+        ProgressBar::setFormatDefinition('verbose', " <fg=yellow>*</fg=yellow> <fg=green>%barTitle:-25s%</fg=green> <fg=yellow>[%bar%] %percent%% (%current%/%max%) %elapsed:6s% %memory:6s%</fg=yellow>\x0D");
         ProgressBar::setFormatDefinition('verbose_nomax', ' <fg=yellow>*</fg=yellow> <fg=green>%barTitle%</fg=green> <fg=yellow>(%max%)</fg=yellow>');
-        ProgressBar::setFormatDefinition('very_verbose', " <fg=yellow>*</fg=yellow> <fg=green>%barTitle:-20s%</fg=green> %bar% <fg=yellow>%percent%% (%current%/%max%) %memory% (%elapsed%/%remaining%)</fg=yellow>\x0D");
+        ProgressBar::setFormatDefinition('very_verbose', " <fg=yellow>*</fg=yellow> <fg=green>%barTitle:-25s%</fg=green> %bar% <fg=yellow>%percent%% (%current%/%max%) %memory% (%elapsed%/%remaining%)</fg=yellow>\x0D");
         ProgressBar::setFormatDefinition('very_verbose_nomax', ' <fg=yellow>*</fg=yellow> <fg=green>%barTitle%</fg=green> <fg=yellow>(%max%)</fg=yellow>');
-        ProgressBar::setFormatDefinition('debug', " <fg=yellow>*</fg=yellow> <fg=green>%barTitle:-20s%</fg=green> %bar% <fg=yellow>%percent:20s%% [%current%/%max%] Memory: %memory%, Elapsed: %elapsed%, Remaining: %remaining%</fg=yellow>\x0D");
+        ProgressBar::setFormatDefinition('debug', " <fg=yellow>*</fg=yellow> <fg=green>%barTitle:-25s%</fg=green> %bar% <fg=yellow>%percent:20s%% [%current%/%max%] Memory: %memory%, Elapsed: %elapsed%, Remaining: %remaining%</fg=yellow>\x0D");
         ProgressBar::setFormatDefinition('debug_nomax', ' <fg=yellow>*</fg=yellow> <fg=green>%barTitle%</fg=green> <fg=yellow>(%max%)</fg=yellow>');
     }
 
@@ -68,4 +68,5 @@ class ProgressBarBuilder
 
         return $progressBar;
     }
+
 }
