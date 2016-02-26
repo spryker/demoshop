@@ -68,10 +68,10 @@ class WishlistControllerProvider extends AbstractYvesControllerProvider
     public function getQuantityFromRequest($parameter, Request $request)
     {
         if ($request->isMethod('POST')) {
-            return (int)$request->request->get('quantity', 1);
+            return $request->request->getInt('quantity', 1);
         }
 
-        return (int)$request->query->get('quantity', 1);
+        return $request->query->getInt('quantity', 1);
     }
 
 }
