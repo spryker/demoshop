@@ -31,14 +31,11 @@ class CategoryRootImporter extends CategoryImporter
     }
 
     /**
-     * @param array $columns
      * @param array $data
-     * @internal param array $extraData
      */
-    public function importOne(array $columns, array $data)
+    public function importOne(array $data)
     {
-        $csvData = $this->generateCsvItem($columns, $data);
-        $category = $this->format($csvData);
+        $category = $this->format($data);
         $this->importRootCategory($category);
     }
 

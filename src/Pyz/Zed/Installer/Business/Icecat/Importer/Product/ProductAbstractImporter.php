@@ -75,18 +75,15 @@ class ProductAbstractImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param array $columns
      * @param array $data
-     * @internal param array $extraData
      */
-    public function importOne(array $columns, array $data)
+    public function importOne(array $data)
     {
-        $csvData = $this->generateCsvItem($columns, $data);
-        if ($this->hasVariants($csvData[self::VARIANT_ID])) {
+        if ($this->hasVariants($data[self::VARIANT_ID])) {
             return;
         }
 
-        $product = $this->format($csvData);
+        $product = $this->format($data);
 
         /* @var ProductAbstractTransfer $productAbstract */
         $productAbstract = $product[self::PRODUCT_ABSTRACT];
@@ -108,7 +105,7 @@ class ProductAbstractImporter extends AbstractIcecatImporter
      */
     protected function hasVariants($variant)
     {
-        return intval($variant) > 1;
+        return (int)$variant > 1;
     }
 
     /**
@@ -133,10 +130,10 @@ class ProductAbstractImporter extends AbstractIcecatImporter
         $thumbImageUrl = $data[self::IMAGE_SMALL];
 
         $attributes = [
-            'price' => (float) rand(0.01, 1999.99),
-            'width' => (float) rand(1.0, 10.0),
-            'height' => (float) rand(1.0, 10.0),
-            'depth' => (float) rand(1.0, 10.0),
+            'price' => (float)rand(0.01, 1999.99),
+            'width' => (float)rand(1.0, 10.0),
+            'height' => (float)rand(1.0, 10.0),
+            'depth' => (float)rand(1.0, 10.0),
         ];
 
         $productAbstract = new ProductAbstractTransfer();
@@ -223,4 +220,6 @@ class ProductAbstractImporter extends AbstractIcecatImporter
 
         return $value;
     }
+
+
 }

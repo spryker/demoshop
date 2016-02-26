@@ -34,12 +34,9 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
     protected $afterExecuted = false;
 
     /**
-     * @param array $columnsw
      * @param array $data
-     *
-     * @return void
      */
-    abstract public function importOne(array $columns, array $data);
+    abstract public function importOne(array $data);
 
     /**
      * @return bool
@@ -89,6 +86,7 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
     {
 
     }
+
     /**
      * @return void
      */

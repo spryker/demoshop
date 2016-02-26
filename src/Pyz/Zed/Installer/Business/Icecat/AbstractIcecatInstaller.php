@@ -60,8 +60,7 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
      */
     public function install(OutputInterface $output)
     {
-        $csvFile = $this->csvReader->read($this->getCsvDataFilename())->getFile();
-        $columns = $this->csvReader->getColumns();
+        $csvFile = $this->csvReader->load($this->getCsvDataFilename())->getFile();
         $total = $this->csvReader->getTotal();
 
         $csvFile->rewind();
@@ -72,7 +71,7 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
 
         //TODO convert this into iterator and abstract away how data gets here, so Category and ProductSearchInstaller's install() can be removed
         while (!$csvFile->eof()) {
-            $data = $csvFile->fgetcsv();
+            $data = $this->csvReader->read();
 
             $progressBar->setMessage($this->getTitle(), 'barTitle');
             $progressBar->advance(1);
@@ -81,7 +80,7 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
                 $this->updateProgressBarTitle($output, $progressBar, $importer->getTitle());
 
                 $importer->beforeImport();
-                $importer->importOne($columns, $data);
+                $importer->importOne($data);
                 $importer->afterImport();
             }
         }

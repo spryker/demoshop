@@ -13,6 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ProductPriceImporter extends AbstractIcecatImporter
 {
+
     const SKU = 'sku';
     const PRODUCT_ID = 'product_id';
     const VARIANT_ID = 'variantId';
@@ -92,9 +93,9 @@ class ProductPriceImporter extends AbstractIcecatImporter
             self::PRICE_TYPE
         ]);
 
-        $csvFile = $this->csvReader->read('products.csv')->getFile();
+        $csvFile = $this->csvReader->load('products.csv')->getFile();
         $columns = $this->csvReader->getColumns();
-        $total = intval($this->csvReader->getTotal());
+        $total = (int)$this->csvReader->getTotal();
         $step = 0;
 
         $csvFile->rewind();
@@ -122,18 +123,16 @@ class ProductPriceImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param array $columns
      * @param array $data
-     * @throws PriceTypeNotFoundException
-     * @throws \Propel\Runtime\Exception\PropelException
-     * @internal param array $extraData
      *
+     * @throws \Pyz\Zed\Installer\Business\Exception\PriceTypeNotFoundException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function importOne(array $columns, array $data)
+    public function importOne(array $data)
     {
-        $csvFile = $this->csvReader->read('prices.csv')->getFile();
+        $csvFile = $this->csvReader->load('prices.csv')->getFile();
         $columns = $this->csvReader->getColumns();
-        $total = intval($this->csvReader->getTotal());
+        $total = (int)$this->csvReader->getTotal();
         $step = 0;
 
         $priceTypesCache = [];
@@ -180,8 +179,7 @@ class ProductPriceImporter extends AbstractIcecatImporter
                 ->setPrice($price[self::PRICE])
                 ->setPriceType($priceType)
                 ->setFkProductAbstract($productAbstract->getIdProductAbstract())
-                ->setFkProduct($productAbstract->getIdProductAbstract()) //collectors won't export without it
-            ;
+                ->setFkProduct($productAbstract->getIdProductAbstract());
 
             $entity->save();
         }
@@ -197,7 +195,7 @@ class ProductPriceImporter extends AbstractIcecatImporter
      */
     protected function hasVariants($variant)
     {
-        return intval($variant) > 1;
+        return (int)$variant > 1;
     }
 
     /**
@@ -209,4 +207,6 @@ class ProductPriceImporter extends AbstractIcecatImporter
     {
         return $data;
     }
+
+
 }

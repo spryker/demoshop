@@ -55,7 +55,7 @@ class ProductSearchInstaller extends AbstractIcecatInstaller
                 $this->updateProgressBarTitle($output, $progressBar, $importer->getTitle());
 
                 $importer->beforeImport();
-                $importer->importOne(array_keys($data), $data);
+                $importer->importOne($data);
                 $importer->afterImport();
             }
         }
@@ -65,4 +65,6 @@ class ProductSearchInstaller extends AbstractIcecatInstaller
 
         $output->writeln('');
     }
+
+
 }

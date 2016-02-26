@@ -6,20 +6,21 @@ use Orm\Zed\Category\Persistence\Base\SpyCategoryQuery;
 use Orm\Zed\Category\Persistence\SpyCategoryNode;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery;
-use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
-use Pyz\Zed\Product\Business\ProductFacadeInterface;
+use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\ProductCategory\Business\ProductCategoryFacadeInterface;
+use Pyz\Zed\Product\Business\ProductFacadeInterface;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
-use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
 use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface;
+use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
 use Spryker\Zed\Touch\Business\TouchFacadeInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class ProductCategoryImporter extends AbstractIcecatImporter
 {
+
     const SKU = 'sku';
     const PRODUCT_ID = 'product_id';
     const VARIANT_ID = 'variantId';
@@ -71,7 +72,7 @@ class ProductCategoryImporter extends AbstractIcecatImporter
     protected $cacheNodes = [];
 
     /**
-     * @var SpyCategoryNode
+     * @var \Orm\Zed\Category\Persistence\SpyCategoryNode
      */
     protected $defaultRootNode;
 
@@ -92,7 +93,7 @@ class ProductCategoryImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param CategoryQueryContainerInterface $categoryQueryContainer
+     * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
      */
     public function setCategoryQueryContainer(CategoryQueryContainerInterface $categoryQueryContainer)
     {
@@ -100,7 +101,7 @@ class ProductCategoryImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param ProductFacadeInterface $productFacade
+     * @param \Pyz\Zed\Product\Business\ProductFacadeInterface $productFacade
      */
     public function setProductFacade(ProductFacadeInterface $productFacade)
     {
@@ -116,7 +117,7 @@ class ProductCategoryImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param ProductCategoryFacadeInterface $productCategoryFacade
+     * @param \Pyz\Zed\ProductCategory\Business\ProductCategoryFacadeInterface $productCategoryFacade
      */
     public function setProductCategoryFacade(ProductCategoryFacadeInterface $productCategoryFacade)
     {
@@ -151,7 +152,7 @@ class ProductCategoryImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @return SpyCategoryNode
+     * @return \Orm\Zed\Category\Persistence\SpyCategoryNode
      */
     protected function getRootNode()
     {
@@ -164,20 +165,17 @@ class ProductCategoryImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param array $columns
      * @param array $data
-     * @throws \Propel\Runtime\Exception\PropelException
-     * @internal param array $extraData
      *
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function importOne(array $columns, array $data)
+    public function importOne(array $data)
     {
-        $csvData = $this->generateCsvItem($columns, $data);
-        if ($this->hasVariants($csvData[self::VARIANT_ID])) {
+        if ($this->hasVariants($data[self::VARIANT_ID])) {
             return;
         }
 
-        $product = $this->format($csvData);
+        $product = $this->format($data);
 
         $productAbstract = $this->productQueryContainer
             ->queryProductAbstractBySku($product[self::SKU])
@@ -194,8 +192,7 @@ class ProductCategoryImporter extends AbstractIcecatImporter
                 ->queryCategoryByKey($product[self::CATEGORY_KEY])
                 ->useNodeQuery()
                     ->filterByIsMain(true)
-                ->endUse()
-            ;
+                ->endUse();
             $category = $categoryQuery->findOne();
             if ($category) {
                 $idCategory = $category->getIdCategory();
@@ -236,7 +233,7 @@ class ProductCategoryImporter extends AbstractIcecatImporter
      */
     protected function hasVariants($variant)
     {
-        return intval($variant) > 1;
+        return (int)$variant > 1;
     }
 
     /**

@@ -15,6 +15,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ProductStockImporter extends AbstractIcecatImporter
 {
+
     const SKU = 'sku';
     const QUANTITY = 'quantity';
     const NEVER_OUT_OF_STOCK = 'is_never_out_of_stock';
@@ -103,16 +104,13 @@ class ProductStockImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param array $columns
      * @param array $data
      *
-     * @throws InvalidDataException
-     * @return void
+     * @throws \Pyz\Zed\Installer\Business\Exception\InvalidDataException
      */
-    public function importOne(array $columns, array $data)
+    public function importOne(array $data)
     {
-        $csvData = $this->generateCsvItem($columns, $data);
-        $product = $this->format($csvData);
+        $product = $this->format($data);
         $stock = $this->getStockValue();
 
         $productAbstract = $this->productQueryContainer
@@ -137,7 +135,7 @@ class ProductStockImporter extends AbstractIcecatImporter
      */
     protected function before()
     {
-        $this->stockCsvFile = $this->csvReader->read($this->dataDirectory . '/stocks.csv')->getFile();
+        $this->stockCsvFile = $this->csvReader->load($this->dataDirectory . '/stocks.csv')->getFile();
         $this->stockColumns = $this->csvReader->getColumns();
         $this->stockTotal = $this->csvReader->getTotal();
 
@@ -161,9 +159,7 @@ class ProductStockImporter extends AbstractIcecatImporter
             return $default;
         }
 
-        $data = $this->stockCsvFile->fgetcsv();
-
-        return array_combine(array_keys($default), array_values($data));
+        return $this->csvReader->read();
     }
 
     /**
@@ -173,7 +169,7 @@ class ProductStockImporter extends AbstractIcecatImporter
      */
     protected function hasVariants($variant)
     {
-        return intval($variant) > 1;
+        return (int)$variant > 1;
     }
 
     /**
@@ -234,4 +230,5 @@ class ProductStockImporter extends AbstractIcecatImporter
 
         return $transferStockProduct;
     }
+
 }

@@ -2,9 +2,8 @@
 
 namespace Pyz\Zed\Installer\Business\Icecat\Importer\Product;
 
-use Orm\Zed\Product\Persistence\SpyProductAttributesMetadataQuery;
-use Orm\Zed\Product\Persistence\SpyProductQuery;
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
+use Orm\Zed\Product\Persistence\SpyProductAttributesMetadataQuery;
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 use Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
@@ -12,6 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ProductSearchImporter extends AbstractIcecatImporter
 {
+
     const SKU = 'sku';
     const PRODUCT_ID = 'id_product';
 
@@ -59,13 +59,12 @@ class ProductSearchImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param array $columns
      * @param array $data
-     * @internal param array $extraData
      */
-    public function importOne(array $columns, array $data)
+    public function importOne(array $data)
     {
-        $this->productSearchFacade->activateProductSearch($data[self::PRODUCT_ID], $this->localeManager->getLocaleCollection());
+        $this->productSearchFacade
+            ->activateProductSearch($data[self::PRODUCT_ID], $this->localeManager->getLocaleCollection());
     }
 
     /**
@@ -75,7 +74,7 @@ class ProductSearchImporter extends AbstractIcecatImporter
      */
     protected function hasVariants($variant)
     {
-        return intval($variant) > 1;
+        return (int)$variant > 1;
     }
 
     /**
@@ -176,4 +175,6 @@ class ProductSearchImporter extends AbstractIcecatImporter
             }
         }
     }
+
+
 }

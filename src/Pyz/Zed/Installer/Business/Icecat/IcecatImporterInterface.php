@@ -17,12 +17,11 @@ interface IcecatImporterInterface
     public function beforeImport();
 
     /**
-     * @param array $columns
      * @param array $data
      *
      * @return void
      */
-    public function importOne(array $columns, array $data);
+    public function importOne(array $data);
 
     /**
      * @return bool
