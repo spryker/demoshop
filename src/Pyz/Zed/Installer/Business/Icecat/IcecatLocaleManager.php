@@ -41,7 +41,7 @@ class IcecatLocaleManager
     protected $localeFacade;
 
     /**
-     * @param LocaleFacadeInterface $localeFacade
+     * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      */
     public function __construct(LocaleFacadeInterface $localeFacade)
     {
@@ -51,7 +51,7 @@ class IcecatLocaleManager
     /**
      * @param string $code
      *
-     * @throws LocaleNotFoundException
+     * @throws \Pyz\Zed\Installer\Business\Exception\LocaleNotFoundException
      *
      * @return void
      */
@@ -65,7 +65,7 @@ class IcecatLocaleManager
     /**
      * @param string $code
      *
-     * @throws LocaleNotFoundException
+     * @throws \Pyz\Zed\Installer\Business\Exception\LocaleNotFoundException
      *
      * @return \Pyz\Zed\Installer\Business\Icecat\IcecatLocale
      */
@@ -79,14 +79,14 @@ class IcecatLocaleManager
     /**
      * @param int $idIcecat
      *
-     * @throws LocaleNotFoundException
+     * @throws \Pyz\Zed\Installer\Business\Exception\LocaleNotFoundException
      *
      * @return \Pyz\Zed\Installer\Business\Icecat\IcecatLocale
      */
     public function getLocaleByIcecatId($idIcecat)
     {
         $locale = array_filter($this->icecatLocaleData, function ($localeData) use ($idIcecat) {
-            return (int) $localeData['id'] === (int) $idIcecat;
+            return (int)$localeData['id'] === (int)$idIcecat;
         });
 
         if (empty($locale)) {

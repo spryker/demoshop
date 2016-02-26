@@ -20,4 +20,6 @@ class InstallerFacade extends SprykerInstallerFacade
     {
         return $this->getFactory()->getIcecatDataInstaller($output);
     }
+
+
 }

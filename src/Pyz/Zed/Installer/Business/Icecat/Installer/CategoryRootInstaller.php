@@ -7,6 +7,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class CategoryRootInstaller extends AbstractIcecatInstaller
 {
+
     protected function getCsvDataFilename()
     {
         return $this->dataDirectory . '/roots.csv';
