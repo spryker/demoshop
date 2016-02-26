@@ -2,10 +2,12 @@
 
 namespace Pyz\Zed\Installer\Business\Icecat;
 
+use Spryker\Shared\Library\Reader\Csv\CsvBatchIterator;
 use Spryker\Shared\Library\Reader\Csv\CsvReaderInterface as CsvReaderInterface;
 use Pyz\Zed\Installer\Business\ProgressBar\ProgressBarBuilder;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\OutputInterface;
+use \SplFileObject;
 
 abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
 {
@@ -53,34 +55,32 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     }
 
     /**
+     * @return \Spryker\Zed\Propel\Business\Model\CountableIteratorInterface
+     */
+    protected function getBatchIterator()
+    {
+        return new CsvBatchIterator($this->getCsvDataFilename());
+    }
+
+    /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
      * @return void
      */
     public function install(OutputInterface $output)
     {
-        $csvFile = $this->csvReader->load($this->getCsvDataFilename())->getFile();
-        $total = $this->csvReader->getTotal();
+        $batchIterator = $this->getBatchIterator();
 
-        $csvFile->rewind();
-
-        $progressBar = $this->generateProgressBar($output, $total);
+        $progressBar = $this->generateProgressBar($output, $batchIterator->count());
         $progressBar->start();
         $progressBar->advance(0);
 
-        //TODO convert this into iterator and abstract away how data gets here, so Category and ProductSearchInstaller's install() can be removed
-        while (!$csvFile->eof()) {
-            $data = $this->csvReader->read();
-
+        foreach ($batchIterator as $batchCollection) {
             $progressBar->setMessage($this->getTitle(), 'barTitle');
-            $progressBar->advance(1);
 
-            foreach ($this->importerCollection as $type => $importer) {
-                $this->updateProgressBarTitle($output, $progressBar, $importer->getTitle());
-
-                $importer->beforeImport();
-                $importer->importOne($data);
-                $importer->afterImport();
+            foreach ($batchCollection as $itemToImport) {
+                $this->runImporters($output, $progressBar, $itemToImport);
+                $progressBar->advance(1);
             }
         }
 
@@ -88,6 +88,24 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
         $progressBar->finish();
 
         $output->writeln('');
+    }
+
+    /**
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @param \Symfony\Component\Console\Helper\ProgressBar $progressBar
+     * @param array $itemToImport
+     *
+     * @return void
+     */
+    protected function runImporters(OutputInterface $output, ProgressBar $progressBar, array $itemToImport)
+    {
+        foreach ($this->importerCollection as $type => $importer) {
+            $this->updateProgressBarTitle($output, $progressBar, $importer->getTitle());
+
+            $importer->beforeImport();
+            $importer->importOne($itemToImport);
+            $importer->afterImport();
+        }
     }
 
     /**
