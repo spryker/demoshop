@@ -86,6 +86,9 @@ class ProductCollector extends AbstractPropelCollectorPlugin
         $this->productOptionExporterFacade = $productOptionExporterFacade;
     }
 
+    /**
+     * @return string
+     */
     protected function getTouchItemType()
     {
         return 'product_abstract';

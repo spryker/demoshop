@@ -21,6 +21,9 @@ class PageCollector extends AbstractPropelCollectorPlugin
 
     use KeyBuilderTrait;
 
+    /**
+     * @return string
+     */
     protected function getTouchItemType()
     {
         return 'page';

@@ -15,6 +15,8 @@ interface ProductVisitorInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductAbstract|\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConcrete|\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionType|\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValue $context
+     *
+     * @return void
      */
     public function setContext($context);
 

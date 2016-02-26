@@ -34,6 +34,9 @@ class NavigationCollector extends AbstractPropelCollectorPlugin
         $this->categoryQueryContainer = $categoryQueryContainer;
     }
 
+    /**
+     * @return string
+     */
     protected function getTouchItemType()
     {
         return 'navigation';

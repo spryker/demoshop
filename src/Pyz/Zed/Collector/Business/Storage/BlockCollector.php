@@ -21,6 +21,9 @@ class BlockCollector extends AbstractPropelCollectorPlugin
 
     use KeyBuilderTrait;
 
+    /**
+     * @return string
+     */
     protected function getTouchItemType()
     {
         return 'block';

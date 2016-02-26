@@ -107,6 +107,11 @@ class RedirectCollector extends AbstractPropelCollectorPlugin
         return $this->escapeKey(implode($this->keySeparator, $keyParts));
     }
 
+    /**
+     * @param mixed $data
+     *
+     * @return mixed
+     */
     protected function buildKey($data)
     {
         return $data;
