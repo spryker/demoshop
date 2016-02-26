@@ -13,6 +13,7 @@ use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\RemoveAllCalcu
 
 class CalculationBusinessFactory extends SprykerCalculationBusinessFactory
 {
+
     /**
      * @return \Spryker\Zed\Calculation\Dependency\Plugin\CalculatorPluginInterface[]|\Spryker\Zed\Calculation\Dependency\Plugin\TotalsCalculatorPluginInterface[]
      */
@@ -68,4 +69,6 @@ class CalculationBusinessFactory extends SprykerCalculationBusinessFactory
     {
         return new DiscountTotalsCalculatorPlugin();
     }
+
+
 }
