@@ -227,9 +227,10 @@ class CategoryImporter extends AbstractIcecatImporter
 
             $name = trim($categoryTransfer->getName());
             if ($name === '') {
-                throw new InvalidDataException(
-                    sprintf('Category name is empty for category with key "%"', $categoryTransfer->getCategoryKey())
-                );
+                throw new InvalidDataException(sprintf(
+                    'Category name is empty for category with key "%"',
+                    $categoryTransfer->getCategoryKey()
+                ));
             }
 
             if ($idCategory === null) {

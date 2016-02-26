@@ -180,10 +180,7 @@ class ProductAbstractImporter extends AbstractIcecatImporter
      * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstract
      * @param int $idProductAbstract
      */
-    protected function createAndTouchProductUrls(
-        ProductAbstractTransfer $productAbstract,
-        $idProductAbstract
-    ) {
+    protected function createAndTouchProductUrls(ProductAbstractTransfer $productAbstract, $idProductAbstract) {
         foreach ($productAbstract->getLocalizedAttributes() as $localizedAttributes) {
             $productAbstractUrl = $this->generateProductUrl($localizedAttributes, $idProductAbstract);
             $this->productFacade->createAndTouchProductUrlByIdProduct(
