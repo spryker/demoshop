@@ -70,5 +70,4 @@ class CalculationBusinessFactory extends SprykerCalculationBusinessFactory
         return new DiscountTotalsCalculatorPlugin();
     }
 
-
 }
