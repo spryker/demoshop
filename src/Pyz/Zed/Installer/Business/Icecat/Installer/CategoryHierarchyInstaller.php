@@ -3,10 +3,12 @@
 namespace Pyz\Zed\Installer\Business\Icecat\Installer;
 
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatInstaller;
+use Spryker\Zed\Propel\Business\Model\PropelBatchIterator;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class CategoryHierarchyInstaller extends AbstractIcecatInstaller
 {
+
     protected function getCsvDataFilename()
     {
         return $this->dataDirectory . '/categories.csv';
@@ -17,7 +19,7 @@ class CategoryHierarchyInstaller extends AbstractIcecatInstaller
      */
     public function getTitle()
     {
-        return 'Category Tree';
+        return 'Category Catalog';
     }
 
 }
