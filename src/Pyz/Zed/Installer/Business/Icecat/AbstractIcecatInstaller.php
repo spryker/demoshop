@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\Installer\Business\Icecat;
 
-use Spryker\Shared\Library\Reader\Csv\CsvBatchIterator;
 use Spryker\Shared\Library\Reader\Csv\CsvReaderInterface as CsvReaderInterface;
 use Pyz\Zed\Installer\Business\ProgressBar\ProgressBarBuilder;
 use Symfony\Component\Console\Helper\ProgressBar;
@@ -39,7 +38,7 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     /**
      * @return \Spryker\Zed\Propel\Business\Model\CountableIteratorInterface
      */
-    //abstract protected function getBatchIterator();
+    abstract protected function getBatchIterator();
 
     /**
      * @param \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface $csvReader
@@ -52,14 +51,6 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
         $this->csvReader = $csvReader;
         $this->importerCollection = $importerCollection;
         $this->dataDirectory = $dataDirectory;
-    }
-
-    /**
-     * @return \Spryker\Zed\Propel\Business\Model\CountableIteratorInterface
-     */
-    protected function getBatchIterator()
-    {
-        return new CsvBatchIterator($this->getCsvDataFilename());
     }
 
     /**
@@ -80,7 +71,6 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
 
             foreach ($batchCollection as $itemToImport) {
                 $this->runImporters($output, $progressBar, $itemToImport);
-                $progressBar->advance(1);
             }
         }
 
@@ -106,6 +96,8 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
             $importer->importOne($itemToImport);
             $importer->afterImport();
         }
+
+        $progressBar->advance(1);
     }
 
     /**

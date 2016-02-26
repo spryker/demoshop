@@ -3,11 +3,15 @@
 namespace Pyz\Zed\Installer\Business\Icecat\Installer;
 
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatInstaller;
+use Spryker\Shared\Library\Reader\Csv\CsvBatchIterator;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class CategoryHierarchyInstaller extends AbstractIcecatInstaller
 {
 
+    /**
+     * @return string
+     */
     protected function getCsvDataFilename()
     {
         return $this->dataDirectory . '/categories.csv';
@@ -20,5 +24,14 @@ class CategoryHierarchyInstaller extends AbstractIcecatInstaller
     {
         return 'Category Catalog';
     }
+
+    /**
+     * @return \Spryker\Zed\Propel\Business\Model\CountableIteratorInterface
+     */
+    protected function getBatchIterator()
+    {
+        return new CsvBatchIterator($this->getCsvDataFilename());
+    }
+
 
 }

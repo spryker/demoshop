@@ -11,6 +11,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 class ProductSearchInstaller extends AbstractIcecatInstaller
 {
 
+    /**
+     * @return string
+     */
     protected function getCsvDataFilename()
     {
         return $this->dataDirectory . '/products.csv';

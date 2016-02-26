@@ -71,8 +71,7 @@ class CategoryHierarchyImporter extends AbstractIcecatImporter
     public function isImported()
     {
         $query = SpyCategoryNodeQuery::create();
-        $query->filterByIsRoot(false)
-            ->filterByFkParentCategoryNode(null, Criteria::ISNULL);
+        $query->filterByIsRoot(false)->filterByFkParentCategoryNode(null, Criteria::ISNULL);
 
         return $query->count() === 0;
     }
@@ -106,13 +105,15 @@ class CategoryHierarchyImporter extends AbstractIcecatImporter
                 $idParentNode = $parent->getIdCategoryNode();
                 $this->cacheParents[$category[self::PARENT_KEY]] = $idParentNode;
             }
-        } else {
+        }
+        else {
             $idParentNode = $this->cacheParents[$category[self::PARENT_KEY]];
         }
 
         $nodesQuery = $this->categoryQueryContainer->queryNodeByCategoryKey($category[self::UCATID]);
         $nodesQuery->filterByIsMain(true);
         $nodes = $nodesQuery->find();
+
         foreach ($nodes as $nodeEntity) {
             $nodeTransfer = new NodeTransfer();
             $nodeTransfer->fromArray($nodeEntity->toArray());
