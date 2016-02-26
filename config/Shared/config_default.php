@@ -67,6 +67,8 @@ $config[ApplicationConstants::TRANSFER_SSL] = false;
 $config[ApplicationConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = false;
 $config[ApplicationConstants::TRANSFER_DEBUG_SESSION_NAME] = 'XDEBUG_SESSION';
 
+$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker';
+
 //$config[ApplicationConstants::ZED_LIBRARY_PASSWORD_ALGORITHM] = PASSWORD_BCRYPT;
 //$config[ApplicationConstants::ZED_LIBRARY_PASSWORD_OPTIONS] = [];
 
