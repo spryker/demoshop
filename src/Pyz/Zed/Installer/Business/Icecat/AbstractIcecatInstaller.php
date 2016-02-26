@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\Installer\Business\Icecat;
 
-use Pyz\Zed\Installer\Business\Reader\CsvReaderInterface;
+use Spryker\Zed\Library\Reader\CsvReaderInterface;
 use Pyz\Zed\Installer\Business\ProgressBar\ProgressBarBuilder;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -10,9 +10,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
 {
     /**
-     * @var \Pyz\Zed\Installer\Business\Reader\CsvReaderInterface
+     * @var \Spryker\Zed\Library\Reader\CsvReaderInterface
      */
     protected $csvReader;
+
+    /**
+     * @var string
+     */
+    protected $dataDirectory;
 
     /**
      * @var array|\Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[]
@@ -30,14 +35,16 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     abstract public function getTitle();
 
     /**
-     * @param \Pyz\Zed\Installer\Business\Reader\CsvReaderInterface $csvReader
+     * @param \Spryker\Zed\Library\Reader\CsvReaderInterface $csvReader
      * @param array|\Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[] $importerCollection
+     * @param string $dataDirectory
      */
     public function __construct(
-        CsvReaderInterface $csvReader, $importerCollection
+        CsvReaderInterface $csvReader, array $importerCollection, $dataDirectory
     ) {
         $this->csvReader = $csvReader;
         $this->importerCollection = $importerCollection;
+        $this->dataDirectory = $dataDirectory;
     }
 
     /**
@@ -47,9 +54,9 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
      */
     public function install(OutputInterface $output)
     {
-        $csvFile = $this->csvReader->read($this->getCsvDataFilename());
+        $csvFile = $this->csvReader->read($this->getCsvDataFilename())->getFile();
         $columns = $this->csvReader->getColumns();
-        $total = $this->csvReader->getTotal($csvFile);
+        $total = $this->csvReader->getTotal();
 
         $csvFile->rewind();
 

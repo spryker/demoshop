@@ -9,7 +9,7 @@ class CategoryRootInstaller extends AbstractIcecatInstaller
 {
     protected function getCsvDataFilename()
     {
-        return 'roots.csv';
+        return $this->dataDirectory . '/roots.csv';
     }
 
     /**

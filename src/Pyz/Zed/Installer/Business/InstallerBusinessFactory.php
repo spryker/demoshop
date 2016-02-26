@@ -18,7 +18,6 @@ use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryRootInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\ProductInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\ProductSearchInstaller;
-use Pyz\Zed\Installer\Business\Reader\CsvReader;
 use Pyz\Zed\Installer\InstallerConfig;
 use Pyz\Zed\Installer\InstallerDependencyProvider;
 use Spryker\Zed\Category\Business\Generator\UrlPathGenerator;
@@ -29,6 +28,7 @@ use Spryker\Zed\Category\Business\Tree\ClosureTableWriter;
 use Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter;
 use Spryker\Zed\Category\Business\Tree\NodeWriter;
 use Spryker\Zed\Installer\Business\InstallerBusinessFactory as SprykerInstallerBusinessFactory;
+use Spryker\Zed\Library\Reader\CsvReader;
 use Spryker\Zed\Product\Business\Attribute\AttributeManager;
 use Spryker\Zed\ProductSearch\Business\Operation\OperationManager;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -97,7 +97,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatInstallerInterface[]
+     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[]
      */
     public function getIcecatImporterProductSearchCollection()
     {
@@ -217,7 +217,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductStockImporter()
     {
         $productStockImporter = new ProductStockImporter(
-            $this->getCsvReader(), $this->getIcecatLocaleManager()
+            $this->getCsvReader(), $this->getIcecatLocaleManager(), $this->getConfig()->getIcecatDataPath()
         );
 
         $productStockImporter->setProductQueryContainer($this->getProductQueryContainer());
@@ -259,7 +259,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getCategoryInstaller()
     {
         $categoryInstaller = new CategoryInstaller(
-            $this->getCsvReader(), $this->getIcecatImporterCategoryCollection()
+            $this->getCsvReader(), $this->getIcecatImporterCategoryCollection(), $this->getConfig()->getIcecatDataPath()
         );
 
         return $categoryInstaller;
@@ -271,7 +271,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getCategoryHierarchyInstaller()
     {
         $categoryHierarchyInstaller = new CategoryHierarchyInstaller(
-            $this->getCsvReader(), $this->getIcecatImporterCategoryHierarchyCollection()
+            $this->getCsvReader(), $this->getIcecatImporterCategoryHierarchyCollection(), $this->getConfig()->getIcecatDataPath()
         );
 
         return $categoryHierarchyInstaller;
@@ -284,7 +284,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getCategoryRootInstaller()
     {
         $categoryRootInstaller = new CategoryRootInstaller(
-            $this->getCsvReader(), $this->getIcecatImporterCategoryRootCollection()
+            $this->getCsvReader(), $this->getIcecatImporterCategoryRootCollection(), $this->getConfig()->getIcecatDataPath()
         );
 
         return $categoryRootInstaller;
@@ -296,7 +296,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductInstaller()
     {
         $productInstaller = new ProductInstaller(
-            $this->getCsvReader(), $this->getIcecatImporterProductCollection()
+            $this->getCsvReader(), $this->getIcecatImporterProductCollection(), $this->getConfig()->getIcecatDataPath()
         );
 
         return $productInstaller;
@@ -308,20 +308,18 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductSearchInstaller()
     {
         $productSearchInstaller = new ProductSearchInstaller(
-            $this->getCsvReader(), $this->getIcecatImporterProductSearchCollection()
+            $this->getCsvReader(), $this->getIcecatImporterProductSearchCollection(), $this->getConfig()->getIcecatDataPath()
         );
 
         return $productSearchInstaller;
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Reader\CsvReaderInterface
+     * @return \Spryker\Zed\Library\Reader\CsvReaderInterface
      */
     public function getCsvReader()
     {
-        return new CsvReader(
-            $this->getConfig()->getIcecatDataPath()
-        );
+        return new CsvReader();
     }
 
     /**

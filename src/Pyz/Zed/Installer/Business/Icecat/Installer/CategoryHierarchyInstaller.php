@@ -9,7 +9,7 @@ class CategoryHierarchyInstaller extends AbstractIcecatInstaller
 {
     protected function getCsvDataFilename()
     {
-        return 'categories.csv';
+        return $this->dataDirectory . '/categories.csv';
     }
 
     /**

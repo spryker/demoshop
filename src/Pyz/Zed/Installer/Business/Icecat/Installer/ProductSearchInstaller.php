@@ -10,7 +10,7 @@ class ProductSearchInstaller extends AbstractIcecatInstaller
 {
     protected function getCsvDataFilename()
     {
-        return 'products.csv';
+        return $this->dataDirectory . '/products.csv';
     }
 
     /**

@@ -7,7 +7,9 @@ use Generated\Shared\Transfer\TypeTransfer;
 use Orm\Zed\Stock\Persistence\Base\SpyStockQuery;
 use Pyz\Zed\Installer\Business\Exception\InvalidDataException;
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
+use Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager;
 use Pyz\Zed\Stock\Business\StockFacadeInterface;
+use Spryker\Zed\Library\Reader\CsvReaderInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -21,6 +23,11 @@ class ProductStockImporter extends AbstractIcecatImporter
     const PRODUCT_ID = 'product_id';
     const VARIANT_ID = 'variantId';
     const CATEGORY_KEY = 'category_key';
+
+    /**
+     * @var string
+     */
+    protected $dataDirectory;
 
     /**
      * @var \Pyz\Zed\Stock\Business\StockFacadeInterface
@@ -51,6 +58,16 @@ class ProductStockImporter extends AbstractIcecatImporter
      * @var int
      */
     protected $stockTotal;
+
+    /**
+     * @param \Spryker\Zed\Library\Reader\CsvReaderInterface $csvReader
+     * @param \Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager $localeManager
+     */
+    public function __construct(CsvReaderInterface $csvReader, IcecatLocaleManager $localeManager, $dataDirectory)
+    {
+        parent::__construct($csvReader, $localeManager);
+        $this->dataDirectory = $dataDirectory;
+    }
 
     /**
      * @param \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface $productQueryContainer
@@ -120,9 +137,9 @@ class ProductStockImporter extends AbstractIcecatImporter
      */
     protected function before()
     {
-        $this->stockCsvFile = $this->csvReader->read('stocks.csv');
+        $this->stockCsvFile = $this->csvReader->read($this->dataDirectory . '/stocks.csv')->getFile();
         $this->stockColumns = $this->csvReader->getColumns();
-        $this->stockTotal = $this->csvReader->getTotal($this->stockCsvFile);
+        $this->stockTotal = $this->csvReader->getTotal();
 
         $this->stockCsvFile->rewind();
     }

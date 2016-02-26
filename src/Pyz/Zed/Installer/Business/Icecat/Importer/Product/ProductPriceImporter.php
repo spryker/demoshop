@@ -92,9 +92,9 @@ class ProductPriceImporter extends AbstractIcecatImporter
             self::PRICE_TYPE
         ]);
 
-        $csvFile = $this->csvReader->read('products.csv');
+        $csvFile = $this->csvReader->read('products.csv')->getFile();
         $columns = $this->csvReader->getColumns();
-        $total = intval($this->csvReader->getTotal($csvFile));
+        $total = intval($this->csvReader->getTotal());
         $step = 0;
 
         $csvFile->rewind();
@@ -131,9 +131,9 @@ class ProductPriceImporter extends AbstractIcecatImporter
      */
     public function importOne(array $columns, array $data)
     {
-        $csvFile = $this->csvReader->read('prices.csv');
+        $csvFile = $this->csvReader->read('prices.csv')->getFile();
         $columns = $this->csvReader->getColumns();
-        $total = intval($this->csvReader->getTotal($csvFile));
+        $total = intval($this->csvReader->getTotal());
         $step = 0;
 
         $priceTypesCache = [];
