@@ -2,11 +2,10 @@
 
 namespace Pyz\Zed\Installer\Business\Icecat;
 
-use Spryker\Shared\Library\Reader\Csv\CsvReaderInterface as CsvReaderInterface;
+use Spryker\Shared\Library\Reader\Csv\CsvReaderInterface;
 use Pyz\Zed\Installer\Business\ProgressBar\ProgressBarBuilder;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\OutputInterface;
-use \SplFileObject;
 
 abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
 {
