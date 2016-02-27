@@ -60,40 +60,38 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     public function install(OutputInterface $output)
     {
         $batchIterator = $this->getBatchIterator();
+        $importersToRun = $this->excludeInstalled();
 
         $progressBar = $this->generateProgressBar($output, $batchIterator->count());
+        $progressBar->setMessage($this->getTitle(), 'barTitle');
         $progressBar->start();
         $progressBar->advance(0);
 
-        $progressBar->setMessage($this->getTitle(), 'barTitle');
-
-        $importersToRun = $this->excludeInstalled();
-
         foreach ($batchIterator as $batchCollection) {
-            //$progressBar->setMessage($this->getTitle(), 'barTitle');
-
             foreach ($batchCollection as $itemToImport) {
-                $this->runImporters($importersToRun, $output, $progressBar, $itemToImport);
+                $this->runImporters($itemToImport, $importersToRun, $progressBar);
             }
         }
 
+        $progressBar->setMessage($this->getTitle(), 'barTitle');
         $progressBar->finish();
 
         $output->writeln('');
     }
 
     /**
-     * @param array|\Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[] $importerCollection
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @param \Symfony\Component\Console\Helper\ProgressBar $progressBar
      * @param array $itemToImport
+     * @param array|\Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[] $importerCollection
+     * @param \Symfony\Component\Console\Helper\ProgressBar $progressBar
      *
      * @return void
      */
-    protected function runImporters(array $importerCollection, OutputInterface $output, ProgressBar $progressBar, array $itemToImport)
+    protected function runImporters(array $itemToImport, array $importerCollection, ProgressBar $progressBar)
     {
         foreach ($importerCollection as $type => $importer) {
-            $this->updateProgressBarTitle($output, $progressBar, $importer->getTitle());
+            $progressBar->setMessage($importer->getTitle(), 'barTitle');
+            $progressBar->display();
+
             $importer->beforeImport();
             $importer->importOne($itemToImport);
             $importer->afterImport();
@@ -137,21 +135,6 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     {
         $builder = new ProgressBarBuilder($output, $count, $this->getTitle());
         return $builder->build();
-    }
-
-    /**
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @param \Symfony\Component\Console\Helper\ProgressBar $progressBar
-     * @param string $title
-     *
-     * @return void
-     */
-    protected function updateProgressBarTitle(OutputInterface $output, ProgressBar $progressBar, $title)
-    {
-        if ($output->getVerbosity() > OutputInterface::VERBOSITY_VERY_VERBOSE) {
-            $progressBar->setMessage($title, 'barTitle');
-            $progressBar->display();
-        }
     }
 
     /**
