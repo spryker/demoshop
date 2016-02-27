@@ -5,10 +5,10 @@ namespace Pyz\Zed\Installer\Business\Icecat\Importer\Product;
 use Generated\Shared\Transfer\StockProductTransfer;
 use Generated\Shared\Transfer\TypeTransfer;
 use Orm\Zed\Stock\Persistence\Base\SpyStockQuery;
-use Pyz\Zed\Installer\Business\Exception\InvalidDataException;
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager;
 use Pyz\Zed\Stock\Business\StockFacadeInterface;
+use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Shared\Library\Reader\Csv\CsvReaderInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -17,13 +17,19 @@ class ProductStockImporter extends AbstractIcecatImporter
 {
 
     const SKU = 'sku';
+
     const QUANTITY = 'quantity';
     const NEVER_OUT_OF_STOCK = 'is_never_out_of_stock';
     const STOCK_TYPE = 'stock_type';
-
     const PRODUCT_ID = 'product_id';
+
     const VARIANT_ID = 'variantId';
     const CATEGORY_KEY = 'category_key';
+
+    /**
+     * @var \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface
+     */
+    protected $csvReader;
 
     /**
      * @var string
@@ -31,14 +37,14 @@ class ProductStockImporter extends AbstractIcecatImporter
     protected $dataDirectory;
 
     /**
-     * @var \Pyz\Zed\Stock\Business\StockFacadeInterface
-     */
-    protected $stockFacade;
-
-    /**
      * @var \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface
      */
     protected $productQueryContainer;
+
+    /**
+     * @var \Pyz\Zed\Stock\Business\StockFacadeInterface
+     */
+    protected $stockFacade;
 
     /**
      * @var array
@@ -46,27 +52,12 @@ class ProductStockImporter extends AbstractIcecatImporter
     protected $stockTypeCache = [];
 
     /**
-     * @var \SplFileObject
-     */
-    protected $stockCsvFile;
-
-    /**
-     * @var array
-     */
-    protected $stockColumns;
-
-    /**
-     * @var int
-     */
-    protected $stockTotal;
-
-    /**
-     * @param \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface $csvReader
      * @param \Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager $localeManager
+     * @param string $dataDirectory
      */
-    public function __construct(CsvReaderInterface $csvReader, IcecatLocaleManager $localeManager, $dataDirectory)
+    public function __construct(IcecatLocaleManager $localeManager, $dataDirectory)
     {
-        parent::__construct($csvReader, $localeManager);
+        parent::__construct($localeManager);
         $this->dataDirectory = $dataDirectory;
     }
 
@@ -106,7 +97,7 @@ class ProductStockImporter extends AbstractIcecatImporter
     /**
      * @param array $data
      *
-     * @throws \Pyz\Zed\Installer\Business\Exception\InvalidDataException
+     * @throws \UnexpectedValueException
      */
     public function importOne(array $data)
     {
@@ -122,7 +113,7 @@ class ProductStockImporter extends AbstractIcecatImporter
         }
 
         if ($productAbstract->getSku() !== $stock[self::SKU]) {
-            throw new InvalidDataException('Abstract SKU mismatch for ' . $stock[self::SKU]);
+            throw new \UnexpectedValueException('Abstract SKU mismatch for ' . $stock[self::SKU]);
         }
 
         $stockType = $this->createStockTypeOnce($stock);
@@ -135,11 +126,8 @@ class ProductStockImporter extends AbstractIcecatImporter
      */
     protected function before()
     {
-        $this->stockCsvFile = $this->csvReader->load($this->dataDirectory . '/stocks.csv')->getFile();
-        $this->stockColumns = $this->csvReader->getColumns();
-        $this->stockTotal = $this->csvReader->getTotal();
-
-        $this->stockCsvFile->rewind();
+        $this->csvReader = new CsvReader();
+        $this->csvReader->load($this->dataDirectory . '/stocks.csv');
     }
 
     /**
@@ -155,7 +143,7 @@ class ProductStockImporter extends AbstractIcecatImporter
             self::STOCK_TYPE => null
         ];
 
-        if ($this->stockCsvFile->eof()) {
+        if ($this->csvReader->eof()) {
             return $default;
         }
 

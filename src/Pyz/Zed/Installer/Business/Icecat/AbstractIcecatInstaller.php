@@ -2,18 +2,12 @@
 
 namespace Pyz\Zed\Installer\Business\Icecat;
 
-use Spryker\Shared\Library\Reader\Csv\CsvReaderInterface;
 use Pyz\Zed\Installer\Business\ProgressBar\ProgressBarBuilder;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\OutputInterface;
 
 abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
 {
-    /**
-     * @var \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface
-     */
-    protected $csvReader;
-
     /**
      * @var string
      */
@@ -35,14 +29,10 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     abstract public function getTitle();
 
     /**
-     * @param \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface $csvReader
      * @param array|\Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[] $importerCollection
      * @param string $dataDirectory
      */
-    public function __construct(
-        CsvReaderInterface $csvReader, array $importerCollection, $dataDirectory
-    ) {
-        $this->csvReader = $csvReader;
+    public function __construct(array $importerCollection, $dataDirectory) {
         $this->importerCollection = $importerCollection;
         $this->dataDirectory = $dataDirectory;
     }
@@ -58,34 +48,31 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
 
         $batchIterator = $this->getBatchIterator();
         $importersToRun = $this->excludeInstalled();
-        $progressBar = $this->createProgressBar($output, $batchIterator->count());
+        $progressBar = $this->generateProgressBar($output, $batchIterator->count());
+
+        $this->beforeInstall($output, $progressBar);
 
         foreach ($batchIterator as $batchCollection) {
             foreach ($batchCollection as $itemToImport) {
                 $this->runImporters($itemToImport, $importersToRun, $progressBar);
-                //$progressBar->advance(count($batchCollection));
                 $progressBar->advance(1);
             }
-
         }
 
-        $this->finalizeInstall($output, $progressBar);
+        $this->afterInstall($output, $progressBar);
     }
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @param int $total
+     * @param \Symfony\Component\Console\Helper\ProgressBar $progressBar
      *
      * @return \Symfony\Component\Console\Helper\ProgressBar
      */
-    protected function createProgressBar(OutputInterface $output, $total)
+    protected function beforeInstall(OutputInterface $output, ProgressBar $progressBar)
     {
-        $progressBar = $this->generateProgressBar($output, $total);
         $progressBar->setMessage($this->getTitle(), 'barTitle');
         $progressBar->start();
         $progressBar->advance(0);
-
-        return $progressBar;
     }
 
     /**
@@ -94,7 +81,7 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
      *
      * @return void
      */
-    protected function finalizeInstall(OutputInterface $output, ProgressBar $progressBar)
+    protected function afterInstall(OutputInterface $output, ProgressBar $progressBar)
     {
         $progressBar->setMessage($this->getTitle(), 'barTitle');
         $progressBar->finish();
@@ -131,20 +118,6 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
             return !$importer->isImported();
         });
     }
-
-    /**
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @param string $message
-     *
-     * @return void
-     */
-    protected function updateProgress(OutputInterface $output, $message)
-    {
-        $output->write($message);
-        $output->write(str_repeat("\x08", strlen($message)));
-    }
-
-    //TODO move progress bar logic into separate like helper class
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output

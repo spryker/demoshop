@@ -8,7 +8,6 @@ use Generated\Shared\Transfer\NodeTransfer;
 use Orm\Zed\Category\Persistence\SpyCategoryNodeQuery;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
-use Pyz\Zed\Installer\Business\Exception\InvalidDataException;
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
@@ -213,7 +212,7 @@ class CategoryImporter extends AbstractIcecatImporter
     /**
      * @param array $data
      *
-     * @throws \Pyz\Zed\Installer\Business\Exception\InvalidDataException
+     * @throws \InvalidArgumentException
      * @return int|null
      */
     protected function createCategory(array $data)
@@ -227,7 +226,7 @@ class CategoryImporter extends AbstractIcecatImporter
 
             $name = trim($categoryTransfer->getName());
             if ($name === '') {
-                throw new InvalidDataException(sprintf(
+                throw new \UnexpectedValueException(sprintf(
                     'Category name is empty for category with key "%"',
                     $categoryTransfer->getCategoryKey()
                 ));

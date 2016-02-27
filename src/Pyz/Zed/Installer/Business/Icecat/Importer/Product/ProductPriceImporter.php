@@ -8,7 +8,7 @@ use Pyz\Zed\Installer\Business\Exception\PriceTypeNotFoundException;
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager;
 use Pyz\Zed\Stock\Business\StockFacadeInterface;
-use Spryker\Shared\Library\Reader\Csv\CsvReaderInterface;
+use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Price\Persistence\PriceQueryContainerInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -22,20 +22,15 @@ class ProductPriceImporter extends AbstractIcecatImporter
     const PRICE = 'price';
     const PRICE_TYPE = 'price_type';
 
+
+    /**
+     * @var \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface
+     */
+    protected $cvsPriceReader;
     /**
      * @var string
      */
     protected $dataDirectory;
-
-    /**
-     * @var \Pyz\Zed\Stock\Business\StockFacadeInterface
-     */
-    protected $stockFacade;
-
-    /**
-     * @var \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface
-     */
-    protected $productQueryContainer;
 
     /**
      * @var \Spryker\Zed\Price\Persistence\PriceQueryContainerInterface
@@ -43,19 +38,14 @@ class ProductPriceImporter extends AbstractIcecatImporter
     protected $priceQueryContainer;
 
     /**
-     * @var \SplFileObject
+     * @var \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface
      */
-    protected $priceCsvFile;
+    protected $productQueryContainer;
 
     /**
-     * @var array
+     * @var \Pyz\Zed\Stock\Business\StockFacadeInterface
      */
-    protected $priceColumns;
-
-    /**
-     * @var
-     */
-    protected $priceTotal;
+    protected $stockFacade;
 
     /**
      * @var array
@@ -63,12 +53,12 @@ class ProductPriceImporter extends AbstractIcecatImporter
     protected $priceTypesCache = [];
 
     /**
-     * @param \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface $csvReader
      * @param \Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager $localeManager
+     * @param string $dataDirectory
      */
-    public function __construct(CsvReaderInterface $csvReader, IcecatLocaleManager $localeManager, $dataDirectory)
+    public function __construct(IcecatLocaleManager $localeManager, $dataDirectory)
     {
-        parent::__construct($csvReader, $localeManager);
+        parent::__construct($localeManager);
         $this->dataDirectory = $dataDirectory;
     }
 
@@ -162,11 +152,11 @@ class ProductPriceImporter extends AbstractIcecatImporter
             self::PRICE_TYPE => 'DEFAULT',
         ];
 
-        if ($this->priceCsvFile->eof()) { //TODO add this to csvReader
+        if ($this->cvsPriceReader->eof()) {
             return $default;
         }
 
-        return $this->csvReader->read();
+        return $this->cvsPriceReader->read();
     }
 
     /**
@@ -174,11 +164,8 @@ class ProductPriceImporter extends AbstractIcecatImporter
      */
     protected function before()
     {
-        $this->priceCsvFile = $this->csvReader->load($this->dataDirectory . '/prices.csv')->getFile();
-        $this->priceColumns = $this->csvReader->getColumns();
-        $this->priceTotal = $this->csvReader->getTotal();
-
-        $this->priceCsvFile->rewind();
+        $this->cvsPriceReader = new CsvReader();
+        $this->cvsPriceReader->load($this->dataDirectory . '/prices.csv');
     }
 
     /**

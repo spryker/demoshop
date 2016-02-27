@@ -112,7 +112,6 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getCategoryImporter()
     {
         $categoryImporter = new CategoryImporter(
-            $this->getCsvReader(),
             $this->getIcecatLocaleManager()
         );
 
@@ -132,7 +131,6 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getCategoryHierarchyImporter()
     {
         $categoryHierarchyImporter = new CategoryHierarchyImporter(
-            $this->getCsvReader(),
             $this->getIcecatLocaleManager()
         );
 
@@ -149,7 +147,6 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getCategoryRootImporter()
     {
         $categoryRootImporter = new CategoryRootImporter(
-            $this->getCsvReader(),
             $this->getIcecatLocaleManager()
         );
 
@@ -169,7 +166,6 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductCategoryImporter()
     {
         $productCategoryImporter = new ProductCategoryImporter(
-            $this->getCsvReader(),
             $this->getIcecatLocaleManager()
         );
 
@@ -190,7 +186,6 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductAbstractImporter()
     {
         $productAbstractImporter = new ProductAbstractImporter(
-            $this->getCsvReader(),
             $this->getIcecatLocaleManager()
         );
 
@@ -206,7 +201,6 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductPriceImporter()
     {
         $productPriceImporter = new ProductPriceImporter(
-            $this->getCsvReader(),
             $this->getIcecatLocaleManager(),
             $this->getConfig()->getIcecatDataPath()
         );
@@ -224,7 +218,6 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductStockImporter()
     {
         $productStockImporter = new ProductStockImporter(
-            $this->getCsvReader(),
             $this->getIcecatLocaleManager(),
             $this->getConfig()->getIcecatDataPath()
         );
@@ -241,7 +234,6 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductSearchImporter()
     {
         $productSearchImporter = new ProductSearchImporter(
-            $this->getCsvReader(),
             $this->getIcecatLocaleManager()
         );
 
@@ -270,7 +262,6 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getCategoryInstaller()
     {
         $categoryInstaller = new CategoryInstaller(
-            $this->getCsvReader(),
             $this->getIcecatImporterCategoryCollection(),
             $this->getConfig()->getIcecatDataPath()
         );
@@ -284,7 +275,6 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getCategoryHierarchyInstaller()
     {
         $categoryHierarchyInstaller = new CategoryHierarchyInstaller(
-            $this->getCsvReader(),
             $this->getIcecatImporterCategoryHierarchyCollection(),
             $this->getConfig()->getIcecatDataPath()
         );
@@ -299,7 +289,6 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getCategoryRootInstaller()
     {
         $categoryRootInstaller = new CategoryRootInstaller(
-            $this->getCsvReader(),
             $this->getIcecatImporterCategoryRootCollection(),
             $this->getConfig()->getIcecatDataPath()
         );
@@ -313,7 +302,6 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductInstaller()
     {
         $productInstaller = new ProductInstaller(
-            $this->getCsvReader(),
             $this->getIcecatImporterProductCollection(),
             $this->getConfig()->getIcecatDataPath()
         );
@@ -327,7 +315,6 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductSearchInstaller()
     {
         $productSearchInstaller = new ProductSearchInstaller(
-            $this->getCsvReader(),
             $this->getIcecatImporterProductSearchCollection(),
             $this->getConfig()->getIcecatDataPath()
         );
