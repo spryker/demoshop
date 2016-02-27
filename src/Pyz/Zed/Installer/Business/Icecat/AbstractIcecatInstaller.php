@@ -32,11 +32,6 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     /**
      * @return string
      */
-    abstract protected function getCsvDataFilename();
-
-    /**
-     * @return string
-     */
     abstract public function getTitle();
 
     /**
@@ -59,20 +54,48 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
      */
     public function install(OutputInterface $output)
     {
+        $this->displayProgressWhileCountingBatchCollectionSize($output);
+
         $batchIterator = $this->getBatchIterator();
         $importersToRun = $this->excludeInstalled();
-
-        $progressBar = $this->generateProgressBar($output, $batchIterator->count());
-        $progressBar->setMessage($this->getTitle(), 'barTitle');
-        $progressBar->start();
-        $progressBar->advance(0);
+        $progressBar = $this->createProgressBar($output, $batchIterator->count());
 
         foreach ($batchIterator as $batchCollection) {
             foreach ($batchCollection as $itemToImport) {
                 $this->runImporters($itemToImport, $importersToRun, $progressBar);
+                //$progressBar->advance(count($batchCollection));
+                $progressBar->advance(1);
             }
+
         }
 
+        $this->finalizeInstall($output, $progressBar);
+    }
+
+    /**
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @param int $total
+     *
+     * @return \Symfony\Component\Console\Helper\ProgressBar
+     */
+    protected function createProgressBar(OutputInterface $output, $total)
+    {
+        $progressBar = $this->generateProgressBar($output, $total);
+        $progressBar->setMessage($this->getTitle(), 'barTitle');
+        $progressBar->start();
+        $progressBar->advance(0);
+
+        return $progressBar;
+    }
+
+    /**
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @param \Symfony\Component\Console\Helper\ProgressBar $progressBar
+     *
+     * @return void
+     */
+    protected function finalizeInstall(OutputInterface $output, ProgressBar $progressBar)
+    {
         $progressBar->setMessage($this->getTitle(), 'barTitle');
         $progressBar->finish();
 
@@ -96,8 +119,6 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
             $importer->importOne($itemToImport);
             $importer->afterImport();
         }
-
-        $progressBar->advance(1);
     }
 
     /**
@@ -148,7 +169,7 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     {
         $builder = new ProgressBarBuilder($output, 1, $this->getTitle());
         $progressBar = $builder->build();
-        $progressBar->setFormat(" * %collectorType%\x0D ");
+        $progressBar->setFormat(" * %barTitle%\x0D ");
         $progressBar->start();
         $progressBar->advance();
         $progressBar->finish();
