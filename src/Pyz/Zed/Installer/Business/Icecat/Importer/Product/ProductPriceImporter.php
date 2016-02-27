@@ -6,7 +6,9 @@ use Orm\Zed\Price\Persistence\SpyPriceProduct;
 use Orm\Zed\Price\Persistence\SpyPriceProductQuery;
 use Pyz\Zed\Installer\Business\Exception\PriceTypeNotFoundException;
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
+use Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager;
 use Pyz\Zed\Stock\Business\StockFacadeInterface;
+use Spryker\Shared\Library\Reader\Csv\CsvReaderInterface;
 use Spryker\Zed\Price\Persistence\PriceQueryContainerInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -19,6 +21,11 @@ class ProductPriceImporter extends AbstractIcecatImporter
     const VARIANT_ID = 'variantId';
     const PRICE = 'price';
     const PRICE_TYPE = 'price_type';
+
+    /**
+     * @var string
+     */
+    protected $dataDirectory;
 
     /**
      * @var \Pyz\Zed\Stock\Business\StockFacadeInterface
@@ -34,6 +41,36 @@ class ProductPriceImporter extends AbstractIcecatImporter
      * @var \Spryker\Zed\Price\Persistence\PriceQueryContainerInterface
      */
     protected $priceQueryContainer;
+
+    /**
+     * @var \SplFileObject
+     */
+    protected $priceCsvFile;
+
+    /**
+     * @var array
+     */
+    protected $priceColumns;
+
+    /**
+     * @var
+     */
+    protected $priceTotal;
+
+    /**
+     * @var array
+     */
+    protected $priceTypesCache = [];
+
+    /**
+     * @param \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface $csvReader
+     * @param \Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager $localeManager
+     */
+    public function __construct(CsvReaderInterface $csvReader, IcecatLocaleManager $localeManager, $dataDirectory)
+    {
+        parent::__construct($csvReader, $localeManager);
+        $this->dataDirectory = $dataDirectory;
+    }
 
     /**
      * @param \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface $productQueryContainer
@@ -76,70 +113,72 @@ class ProductPriceImporter extends AbstractIcecatImporter
         return $query->count() > 0;
     }
 
-    /**
-     * @param array $data
-     *
-     * @throws \Pyz\Zed\Installer\Business\Exception\PriceTypeNotFoundException
-     * @throws \Propel\Runtime\Exception\PropelException
-     */
     public function importOne(array $data)
     {
-        $csvFile = $this->csvReader->load('prices.csv')->getFile();
-        $columns = $this->csvReader->getColumns();
-        $total = (int)$this->csvReader->getTotal();
-        $step = 0;
+        $price = $this->getPriceValue();
 
-        $priceTypesCache = [];
+        $productAbstract = $this->productQueryContainer
+            ->queryProductAbstractBySku($price[self::SKU])
+            ->findOne();
 
-        $csvFile->rewind();
-
-        while (!$csvFile->eof()) {
-            $step++;
-            $info = 'Importing... ' . $step . '/' . $total;
-            $data->write($info);
-            $data->write(str_repeat("\x08", strlen($info)));
-
-            $csvData = $this->generateCsvItem($columns, $csvFile->fgetcsv());
-            if ($this->hasVariants($csvData[self::VARIANT_ID])) {
-                continue;
-            }
-
-            $price = $this->format($csvData);
-
-            $productAbstract = $this->productQueryContainer
-                ->queryProductAbstractBySku($price[self::SKU])
-                ->findOne();
-
-            if (!$productAbstract) {
-                continue;
-            }
-
-            if (!array_key_exists($price[self::PRICE_TYPE], $priceTypesCache)) {
-                $priceTypeQuery = $this->priceQueryContainer->queryPriceType($price[self::PRICE_TYPE]);
-                $priceType = $priceTypeQuery->findOne();
-                if (!$priceType) {
-                    throw new PriceTypeNotFoundException($price[self::PRICE_TYPE]);
-                }
-
-                $priceTypesCache[$price[self::PRICE_TYPE]] = $priceType;
-            }
-            else {
-                $priceType = $priceTypesCache[$price[self::PRICE_TYPE]];
-            }
-
-            $entity = new SpyPriceProduct();
-
-            $entity
-                ->setPrice($price[self::PRICE])
-                ->setPriceType($priceType)
-                ->setFkProductAbstract($productAbstract->getIdProductAbstract())
-                ->setFkProduct($productAbstract->getIdProductAbstract());
-
-            $entity->save();
+        if (!$productAbstract) {
+            return;
         }
 
-        $data->writeln('');
-        $data->writeln('Installed: ' . $step);
+        if (!array_key_exists($price[self::PRICE_TYPE], $this->priceTypesCache)) {
+            $priceTypeQuery = $this->priceQueryContainer->queryPriceType($price[self::PRICE_TYPE]);
+            $priceType = $priceTypeQuery->findOne();
+            if (!$priceType) {
+                throw new PriceTypeNotFoundException($price[self::PRICE_TYPE]);
+            }
+
+            $priceTypesCache[$price[self::PRICE_TYPE]] = $priceType;
+        }
+        else {
+            $priceType = $this->priceTypesCache[$price[self::PRICE_TYPE]];
+        }
+
+        $entity = new SpyPriceProduct();
+
+        $entity
+            ->setPrice($price[self::PRICE])
+            ->setPriceType($priceType)
+            ->setFkProductAbstract($productAbstract->getIdProductAbstract())
+            ->setFkProduct($productAbstract->getIdProductAbstract());
+
+        $entity->save();
+
+    }
+
+    /**
+     * @return array
+     */
+    protected function getPriceValue()
+    {
+        $default = [
+            self::SKU => null,
+            self::VARIANT_ID => 1,
+            self::PRICE => 0,
+            self::PRICE_TYPE => 'DEFAULT',
+        ];
+
+        if ($this->priceCsvFile->eof()) { //TODO add this to csvReader
+            return $default;
+        }
+
+        return $this->csvReader->read();
+    }
+
+    /**
+     * @return void
+     */
+    protected function before()
+    {
+        $this->priceCsvFile = $this->csvReader->load($this->dataDirectory . '/prices.csv')->getFile();
+        $this->priceColumns = $this->csvReader->getColumns();
+        $this->priceTotal = $this->csvReader->getTotal();
+
+        $this->priceCsvFile->rewind();
     }
 
     /**

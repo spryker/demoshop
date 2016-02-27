@@ -92,7 +92,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
             InstallerConfig::RESOURCE_PRODUCT => $this->getProductAbstractImporter(),
             InstallerConfig::RESOURCE_PRODUCT_CATEGORY => $this->getProductCategoryImporter(),
             InstallerConfig::RESOURCE_PRODUCT_STOCK => $this->getProductStockImporter(),
-            //InstallerConfig::RESOURCE_PRODUCT_PRICE => $this->getProductPriceImporter(),
+            InstallerConfig::RESOURCE_PRODUCT_PRICE => $this->getProductPriceImporter(),
         ];
     }
 
@@ -207,7 +207,8 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     {
         $productPriceImporter = new ProductPriceImporter(
             $this->getCsvReader(),
-            $this->getIcecatLocaleManager()
+            $this->getIcecatLocaleManager(),
+            $this->getConfig()->getIcecatDataPath()
         );
 
         $productPriceImporter->setProductQueryContainer($this->getProductQueryContainer());

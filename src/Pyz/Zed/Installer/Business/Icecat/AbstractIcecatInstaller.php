@@ -65,38 +65,52 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
         $progressBar->start();
         $progressBar->advance(0);
 
+        $progressBar->setMessage($this->getTitle(), 'barTitle');
+
+        $importersToRun = $this->excludeInstalled();
+
         foreach ($batchIterator as $batchCollection) {
-            $progressBar->setMessage($this->getTitle(), 'barTitle');
+            //$progressBar->setMessage($this->getTitle(), 'barTitle');
 
             foreach ($batchCollection as $itemToImport) {
-                $this->runImporters($output, $progressBar, $itemToImport);
+                $this->runImporters($importersToRun, $output, $progressBar, $itemToImport);
             }
         }
 
-        $progressBar->setMessage($this->getTitle(), 'barTitle');
         $progressBar->finish();
 
         $output->writeln('');
     }
 
     /**
+     * @param array|\Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[] $importerCollection
      * @param \Symfony\Component\Console\Output\OutputInterface $output
      * @param \Symfony\Component\Console\Helper\ProgressBar $progressBar
      * @param array $itemToImport
      *
      * @return void
      */
-    protected function runImporters(OutputInterface $output, ProgressBar $progressBar, array $itemToImport)
+    protected function runImporters(array $importerCollection, OutputInterface $output, ProgressBar $progressBar, array $itemToImport)
     {
-        foreach ($this->importerCollection as $type => $importer) {
+        foreach ($importerCollection as $type => $importer) {
             $this->updateProgressBarTitle($output, $progressBar, $importer->getTitle());
-
             $importer->beforeImport();
             $importer->importOne($itemToImport);
             $importer->afterImport();
         }
 
         $progressBar->advance(1);
+    }
+
+    /**
+     * @return array|\Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[]
+     */
+    protected function excludeInstalled()
+    {
+        return array_filter($this->importerCollection, function($importer){
+            /* @var \Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface $importer */
+            return !$importer->isImported();
+        });
     }
 
     /**
@@ -163,12 +177,12 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     public function isInstalled()
     {
         foreach ($this->importerCollection as $importer) {
-            if ($importer->isImported()) {
-                return true;
+            if (!$importer->isImported()) {
+                return false;
             }
         }
 
-        return false;
+        return true;
     }
 
 }
