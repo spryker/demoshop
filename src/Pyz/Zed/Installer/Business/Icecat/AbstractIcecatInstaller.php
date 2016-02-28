@@ -3,7 +3,7 @@
 namespace Pyz\Zed\Installer\Business\Icecat;
 
 use Pyz\Zed\Installer\Business\ProgressBar\ProgressBarBuilder;
-use Spryker\Shared\Library\Reader\CountableIteratorInterface;
+use Spryker\Shared\Library\BatchIterator\CountableIteratorInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -20,7 +20,7 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     protected $importerCollection = [];
 
     /**
-     * @return \Spryker\Shared\Library\Reader\CountableIteratorInterface
+     * @return \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface
      */
     abstract protected function getBatchIterator();
 
@@ -71,7 +71,7 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     }
 
     /**
-     * @param \Spryker\Shared\Library\Reader\CountableIteratorInterface $batchIterator
+     * @param \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface $batchIterator
      * @param array|\Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[] $importersToExecute
      * @param \Symfony\Component\Console\Helper\ProgressBar $progressBar
      *

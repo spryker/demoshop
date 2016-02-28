@@ -3,14 +3,14 @@
 namespace Pyz\Zed\Installer\Business\Icecat\Installer;
 
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatInstaller;
-use Spryker\Shared\Library\Reader\Csv\CsvBatchIterator;
+use Spryker\Shared\Library\BatchIterator\CsvBatchIterator;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class CategoryRootInstaller extends AbstractIcecatInstaller
 {
 
     /**
-     * @return \Spryker\Shared\Library\Reader\CountableIteratorInterface
+     * @return \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface
      */
     protected function getBatchIterator()
     {
