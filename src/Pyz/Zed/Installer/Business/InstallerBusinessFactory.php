@@ -298,6 +298,16 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
             $this->getIcecatLocaleManager()
         );
 
+        $cmsBlockImporter->setBlockManager($this->createCmsBlockManager());
+        $cmsBlockImporter->setPageManager($this->createCmsPageManager());
+        $cmsBlockImporter->setKeyMappingManager($this->createCmsGlossaryKeyMappingManager());
+        $cmsBlockImporter->setTemplateManager($this->createCmsTemplateManager());
+
+        $cmsBlockImporter->setGlossaryFacade($this->getCmsToGlossaryBridge());
+        $cmsBlockImporter->setCmsQueryContainer($this->getCmsQueryContainer());
+        $cmsBlockImporter->setLocaleFacade($this->getLocaleFacade());
+        $cmsBlockImporter->setUrlFacade($this->getCmsToUrlBridge());
+
         return $cmsBlockImporter;
     }
 
@@ -477,7 +487,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\Cms\Persistence\CmsQueryContainerInterface
+     * @return \Pyz\Zed\Cms\Persistence\CmsQueryContainerInterface
      */
     protected function getCmsQueryContainer()
     {

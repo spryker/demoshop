@@ -4,7 +4,7 @@
         <template>quote_block</template>
         <blockName>quotes_1</blockName>
         <locales>
-            <locale name="de_DE">
+            <de_DE>
                 <placeholders>
                     <placeholder>
                         <name>quote</name>
@@ -15,8 +15,8 @@
                         <translation>Luciano De Crescenzo</translation>
                     </placeholder>
                 </placeholders>
-            </locale>
-            <locale name="en_US">
+            </de_DE>
+            <en_US>
                 <placeholders>
                     <placeholder>
                         <name>quote</name>
@@ -27,14 +27,14 @@
                         <translation>Luciano De Crescenzo</translation>
                     </placeholder>
                 </placeholders>
-            </locale>
+            </en_US>
         </locales>
     </block>
     <block>
         <template>quote_block</template>
         <blockName>quotes_2</blockName>
         <locales>
-            <locale name="de_DE">
+            <de_DE>
                 <placeholders>
                     <placeholder>
                         <name>quote</name>
@@ -45,8 +45,8 @@
                         <translation>Unbekannter Autor</translation>
                     </placeholder>
                 </placeholders>
-            </locale>
-            <locale name="en_US">
+            </de_DE>
+            <en_US>
                 <placeholders>
                     <placeholder>
                         <name>quote</name>
@@ -57,14 +57,14 @@
                         <translation>##ENGLISH## Unbekannter Autor</translation>
                     </placeholder>
                 </placeholders>
-            </locale>
+            </en_US>
         </locales>
     </block>
     <block>
         <template>quote_block</template>
         <blockName>quotes_3</blockName>
         <locales>
-            <locale name="de_DE">
+            <de_DE>
                 <placeholders>
                     <placeholder>
                         <name>quote</name>
@@ -75,8 +75,8 @@
                         <translation>Khalil Gibran</translation>
                     </placeholder>
                 </placeholders>
-            </locale>
-            <locale name="en_US">
+            </de_DE>
+            <en_US>
                 <placeholders>
                     <placeholder>
                         <name>quote</name>
@@ -87,7 +87,7 @@
                         <translation>##ENGLISH## Khalil Gibran</translation>
                     </placeholder>
                 </placeholders>
-            </locale>
+            </en_US>
         </locales>
     </block>
 </blocks>
