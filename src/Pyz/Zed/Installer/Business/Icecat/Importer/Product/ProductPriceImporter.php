@@ -152,7 +152,7 @@ class ProductPriceImporter extends AbstractIcecatImporter
             self::PRICE_TYPE => 'DEFAULT',
         ];
 
-        if ($this->cvsPriceReader->eof()) {
+        if (!$this->cvsPriceReader->valid()) {
             return $default;
         }
 

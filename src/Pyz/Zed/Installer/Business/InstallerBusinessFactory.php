@@ -14,7 +14,7 @@ use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductCategoryImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductPriceImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductSearchImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductStockImporter;
-use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryHierarchyInstaller;
+use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryCatalogInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryRootInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\GlossaryInstaller;
@@ -49,7 +49,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
         return [
             InstallerConfig::RESOURCE_CATEGORY_ROOT => $this->getCategoryRootInstaller(),
             InstallerConfig::RESOURCE_CATEGORY => $this->getCategoryInstaller(),
-            InstallerConfig::RESOURCE_CATEGORY_HIERARCHY => $this->getCategoryHierarchyInstaller(),
+            InstallerConfig::RESOURCE_CATEGORY_CATALOG => $this->getCategoryCatalogInstaller(),
             InstallerConfig::RESOURCE_PRODUCT => $this->getProductInstaller(),
             InstallerConfig::RESOURCE_PRODUCT_SEARCH => $this->getProductSearchInstaller(),
             InstallerConfig::RESOURCE_GLOSSARY => $this->getGlossaryInstaller(),
@@ -69,10 +69,10 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     /**
      * @return \Pyz\Zed\Installer\Business\Icecat\IcecatInstallerInterface[]
      */
-    public function getIcecatImporterCategoryHierarchyCollection()
+    public function getIcecatImporterCategoryCatalogCollection()
     {
         return [
-            InstallerConfig::RESOURCE_CATEGORY_HIERARCHY => $this->getCategoryHierarchyImporter(),
+            InstallerConfig::RESOURCE_CATEGORY_CATALOG => $this->getCategoryHierarchyImporter(),
         ];
     }
 
@@ -297,12 +297,12 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\CategoryHierarchyInstaller
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\CategoryCatalogInstaller
      */
-    protected function getCategoryHierarchyInstaller()
+    protected function getCategoryCatalogInstaller()
     {
-        $categoryHierarchyInstaller = new CategoryHierarchyInstaller(
-            $this->getIcecatImporterCategoryHierarchyCollection(),
+        $categoryHierarchyInstaller = new CategoryCatalogInstaller(
+            $this->getIcecatImporterCategoryCatalogCollection(),
             $this->getConfig()->getIcecatDataPath()
         );
 

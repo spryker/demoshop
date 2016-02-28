@@ -143,7 +143,7 @@ class ProductStockImporter extends AbstractIcecatImporter
             self::STOCK_TYPE => null
         ];
 
-        if ($this->csvReader->eof()) {
+        if (!$this->csvReader->valid()) {
             return $default;
         }
 

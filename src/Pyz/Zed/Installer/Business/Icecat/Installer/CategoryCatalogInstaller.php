@@ -6,7 +6,7 @@ use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatInstaller;
 use Spryker\Shared\Library\Reader\Csv\CsvBatchIterator;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class CategoryHierarchyInstaller extends AbstractIcecatInstaller
+class CategoryCatalogInstaller extends AbstractIcecatInstaller
 {
 
     /**

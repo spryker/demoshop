@@ -37,7 +37,7 @@ class GlossaryInstaller extends AbstractIcecatInstaller
 
     /**
      * @param \Spryker\Shared\Library\Reader\CountableIteratorInterface $batchIterator
-     * @param array $importersToExecute
+     * @param array|\Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[] $importersToExecute
      * @param \Symfony\Component\Console\Helper\ProgressBar $progressBar
      *
      * @return void
