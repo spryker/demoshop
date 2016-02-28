@@ -6,6 +6,7 @@ use Generated\Shared\Transfer\CmsBlockTransfer;
 use Generated\Shared\Transfer\CmsTemplateTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageTransfer;
+use Orm\Zed\Cms\Persistence\SpyCmsBlockQuery;
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
 use Pyz\Zed\Cms\Persistence\CmsQueryContainerInterface;
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
@@ -179,8 +180,7 @@ class CmsBlockImporter extends AbstractIcecatImporter
      */
     public function isImported()
     {
-        return false;
-        $query = SpyProductSearchQuery::create();
+        $query = SpyCmsBlockQuery::create();
         return $query->count() > 0;
     }
 

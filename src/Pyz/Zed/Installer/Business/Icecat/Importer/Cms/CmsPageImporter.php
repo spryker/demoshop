@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Installer\Business\Icecat\Importer\Cms;
 
+use Orm\Zed\Cms\Persistence\SpyCmsPageQuery;
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -21,8 +22,7 @@ class CmsPageImporter extends CmsBlockImporter
      */
     public function isImported()
     {
-        return false;
-        $query = SpyProductSearchQuery::create();
+        $query = SpyCmsPageQuery::create();
         return $query->count() > 0;
     }
 

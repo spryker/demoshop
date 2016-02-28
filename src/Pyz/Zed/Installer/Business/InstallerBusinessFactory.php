@@ -137,7 +137,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     public function getIcecatImporterCmsBlockCollection()
     {
         return [
-            //InstallerConfig::RESOURCE_CMS_BLOCK => $this->getCmsBlockImporter(),
+            InstallerConfig::RESOURCE_CMS_BLOCK => $this->getCmsBlockImporter(),
         ];
     }
 
