@@ -20,6 +20,9 @@ use Spryker\Zed\Acl\Communication\Plugin\Installer as AclInstaller;
 use Spryker\Zed\Category\Dependency\Facade\CategoryToLocaleBridge;
 use Spryker\Zed\Category\Dependency\Facade\CategoryToTouchBridge;
 use Spryker\Zed\Category\Dependency\Facade\CategoryToUrlBridge;
+use Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryBridge;
+use Spryker\Zed\Cms\Dependency\Facade\CmsToTouchBridge;
+use Spryker\Zed\Cms\Dependency\Facade\CmsToUrlBridge;
 use Spryker\Zed\Collector\Communication\Plugin\Installer as CollectorInstaller;
 use Spryker\Zed\Country\Communication\Plugin\Installer as CountryCountryCountryInstaller;
 use Spryker\Zed\Installer\InstallerDependencyProvider as SprykerInstallerDependencyProvider;
@@ -33,28 +36,33 @@ use Spryker\Zed\User\Communication\Plugin\Installer as UserInstaller;
 class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
 {
 
-    const FACADE_CATEGORY = 'facade category';
-    const FACADE_LOCALE = 'facade locale';
-    const FACADE_GLOSSARY = 'facade glossary';
-    const FACADE_PRODUCT = 'facade product';
-    const FACADE_PRODUCT_CATEGORY = 'facade product category';
-    const FACADE_PRODUCT_SEARCH = 'facade product search';
-    const FACADE_TOUCH = 'facade touch';
-    const FACADE_URL = 'facade url';
-    const FACADE_STOCK = 'facade stock';
+    const FACADE_CATEGORY = 'FACADE_CATEGORY';
+    const FACADE_LOCALE = 'FACADE_LOCALE';
+    const FACADE_GLOSSARY = 'FACADE_GLOSSARY';
+    const FACADE_PRODUCT = 'FACADE_PRODUCT';
+    const FACADE_PRODUCT_CATEGORY = 'FACADE_PRODUCT_CATEGORY';
+    const FACADE_PRODUCT_SEARCH = 'FACADE_PRODUCT_SEARCH';
+    const FACADE_TOUCH = 'FACADE_TOUCH';
+    const FACADE_URL = 'FACADE_URL';
+    const FACADE_STOCK = 'FACADE_STOCK';
 
-    const QUERY_CONTAINER_CATEGORY = 'query container category';
-    const QUERY_CONTAINER_LOCALE = 'query container locale';
-    const QUERY_CONTAINER_PRODUCT = 'query container product';
-    const QUERY_CONTAINER_PRODUCT_CATEGORY = 'query container product category';
-    const QUERY_CONTAINER_PRODUCT_SEARCH = 'query container product search';
-    const QUERY_CONTAINER_PRICE = 'query container price';
+    const QUERY_CONTAINER_CMS = 'QUERY_CONTAINER_CMS';
+    const QUERY_CONTAINER_CATEGORY = 'QUERY_CONTAINER_CATEGORY';
+    const QUERY_CONTAINER_LOCALE = 'QUERY_CONTAINER_LOCALE';
+    const QUERY_CONTAINER_PRODUCT = 'QUERY_CONTAINER_PRODUCT';
+    const QUERY_CONTAINER_PRODUCT_CATEGORY = 'QUERY_CONTAINER_PRODUCT_CATEGORY';
+    const QUERY_CONTAINER_PRODUCT_SEARCH = 'QUERY_CONTAINER_PRODUCT_SEARCH';
+    const QUERY_CONTAINER_PRICE = 'QUERY_CONTAINER_PRICE';
 
     const BRIDGE_CATEGORY_TO_URL = 'BRIDGE_CATEGORY_TO_URL';
     const BRIDGE_CATEGORY_TO_TOUCH = 'BRIDGE_CATEGORY_TO_TOUCH';
     const BRIDGE_CATEGORY_TO_LOCALE = 'BRIDGE_CATEGORY_TO_LOCALE';
 
-    const PLUGIN_PROPEL_CONNECTION = 'propel connection plugin';
+    const BRIDGE_CMS_TO_GLOSSARY = 'BRIDGE_CMS_TO_GLOSSARY';
+    const BRIDGE_CMS_TO_TOUCH = 'BRIDGE_CMS_TO_TOUCH';
+    const BRIDGE_CMS_TO_URL = 'BRIDGE_CMS_TO_URL';
+
+    const PLUGIN_PROPEL_CONNECTION = 'PLUGIN_PROPEL_CONNECTION';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -101,6 +109,10 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
             return $container->getLocator()->productSearch()->facade();
         };
 
+        $container[self::QUERY_CONTAINER_CMS] = function (Container $container) {
+            return $container->getLocator()->cms()->queryContainer();
+        };
+
         $container[self::QUERY_CONTAINER_PRODUCT] = function (Container $container) {
             return $container->getLocator()->product()->queryContainer();
         };
@@ -135,6 +147,18 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
 
         $container[self::BRIDGE_CATEGORY_TO_LOCALE] = function (Container $container) {
             return new CategoryToLocaleBridge($container->getLocator()->locale()->facade());
+        };
+
+        $container[self::BRIDGE_CMS_TO_GLOSSARY] = function (Container $container) {
+            return new CmsToGlossaryBridge($container->getLocator()->glossary()->facade());
+        };
+
+        $container[self::BRIDGE_CMS_TO_TOUCH] = function (Container $container) {
+            return new CmsToTouchBridge($container->getLocator()->touch()->facade());
+        };
+
+        $container[self::BRIDGE_CMS_TO_URL] = function (Container $container) {
+            return new CmsToUrlBridge($container->getLocator()->url()->facade());
         };
 
         $container[self::PLUGIN_PROPEL_CONNECTION] = function () {

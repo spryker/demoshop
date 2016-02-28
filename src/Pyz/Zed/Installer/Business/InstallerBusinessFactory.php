@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Installer\Business;
 
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
+use Pyz\Zed\Cms\CmsConfig;
 use Pyz\Zed\Installer\Business\Icecat\IcecatDataInstallerConsole;
 use Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryHierarchyImporter;
@@ -30,10 +31,15 @@ use Spryker\Zed\Category\Business\Tree\CategoryTreeWriter;
 use Spryker\Zed\Category\Business\Tree\ClosureTableWriter;
 use Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter;
 use Spryker\Zed\Category\Business\Tree\NodeWriter;
+use Spryker\Zed\Cms\Business\Block\BlockManager;
+use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManager;
+use Spryker\Zed\Cms\Business\Page\PageManager;
+use Spryker\Zed\Cms\Business\Template\TemplateManager;
 use Spryker\Zed\Installer\Business\InstallerBusinessFactory as SprykerInstallerBusinessFactory;
 use Spryker\Zed\ProductSearch\Business\Operation\OperationManager;
 use Spryker\Zed\Product\Business\Attribute\AttributeManager;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Finder\Finder;
 
 /**
  * @method \Pyz\Zed\Installer\InstallerConfig getConfig()
@@ -251,7 +257,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
         );
 
         $productSearchImporter->setProductSearchFacade($this->getProductSearchFacade());
-        $productSearchImporter->setOperationManager($this->createOperationManager());
+        $productSearchImporter->setOperationManager($this->createProductSearchOperationManager());
 
         return $productSearchImporter;
     }
@@ -433,6 +439,14 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
+     * @return \Spryker\Zed\Cms\Persistence\CmsQueryContainerInterface
+     */
+    protected function getCmsQueryContainer()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::QUERY_CONTAINER_CMS);
+    }
+
+    /**
      * @return \Pyz\Zed\Stock\Business\StockFacadeInterface
      */
     protected function getStockFacade()
@@ -526,6 +540,30 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getCategoryToLocaleBridge()
     {
         return $this->getProvidedDependency(InstallerDependencyProvider::BRIDGE_CATEGORY_TO_LOCALE);
+    }
+
+    /**
+     * @return \Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface
+     */
+    protected function getCmsToGlossaryBridge()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::BRIDGE_CMS_TO_GLOSSARY);
+    }
+
+    /**
+     * @return \Spryker\Zed\Cms\Dependency\Facade\CmsToTouchInterface
+     */
+    protected function getCmsToTouchBridge()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::BRIDGE_CMS_TO_TOUCH);
+    }
+
+    /**
+     * @return \Spryker\Zed\Cms\Dependency\Facade\CmsToUrlInterface
+     */
+    protected function getCmsToUrlBridge()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::BRIDGE_CMS_TO_URL);
     }
 
     /**
@@ -625,11 +663,73 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     /**
      * @return \Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface
      */
-    protected function createOperationManager()
+    protected function createProductSearchOperationManager()
     {
         return new OperationManager(
             $this->getProductSearchQueryContainer()
         );
     }
+
+    /**
+     * @return \Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface
+     */
+    protected function createCmsGlossaryKeyMappingManager()
+    {
+        return new GlossaryKeyMappingManager(
+            $this->getCmsToGlossaryBridge(),
+            $this->getCmsQueryContainer(),
+            $this->createCmsTemplateManager(),
+            $this->createCmsPageManager(),
+            $this->getProvidedDependency(InstallerDependencyProvider::PLUGIN_PROPEL_CONNECTION)
+        );
+    }
+
+    /**
+     * @return \Spryker\Zed\Cms\Business\Template\TemplateManagerInterface
+     */
+    protected function createCmsTemplateManager()
+    {
+        return new TemplateManager(
+            $this->getCmsQueryContainer(),
+            new CmsConfig(),
+            $this->createFinder()
+        );
+    }
+
+    /**
+     * @return \Symfony\Component\Finder\Finder
+     */
+    protected function createFinder()
+    {
+        return new Finder();
+    }
+
+    /**
+     * @return \Spryker\Zed\Cms\Business\Page\PageManagerInterface
+     */
+    protected function createCmsPageManager()
+    {
+        return new PageManager(
+            $this->getCmsQueryContainer(),
+            $this->createCmsTemplateManager(),
+            $this->createCmsBlockManager(),
+            $this->getCmsToGlossaryBridge(),
+            $this->getCmsToTouchBridge(),
+            $this->getCmsToUrlBridge()
+        );
+    }
+
+    /**
+     * @return \Spryker\Zed\Cms\Business\Block\BlockManagerInterface
+     */
+    protected function createCmsBlockManager()
+    {
+        return new BlockManager(
+            $this->getCmsQueryContainer(),
+            $this->getCmsToTouchBridge(),
+            $this->getProvidedDependency(InstallerDependencyProvider::PLUGIN_PROPEL_CONNECTION)
+        );
+    }
+
 
 }
