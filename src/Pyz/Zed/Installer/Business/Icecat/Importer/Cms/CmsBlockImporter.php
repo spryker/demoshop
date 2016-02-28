@@ -7,10 +7,8 @@ use Generated\Shared\Transfer\CmsTemplateTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageTransfer;
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
-use Orm\Zed\Product\Persistence\SpyProductAttributesMetadataQuery;
 use Pyz\Zed\Cms\Persistence\CmsQueryContainerInterface;
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
-use Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 use Spryker\Zed\Cms\Business\Block\BlockManagerInterface;
 use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface;
 use Spryker\Zed\Cms\Business\Page\PageManagerInterface;
@@ -18,7 +16,6 @@ use Spryker\Zed\Cms\Business\Template\TemplateManagerInterface;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToUrlInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
-use Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class CmsBlockImporter extends AbstractIcecatImporter
@@ -193,7 +190,6 @@ class CmsBlockImporter extends AbstractIcecatImporter
     public function importOne(array $data)
     {
         $block = $this->format($data);
-        dump($block);
 
         $blockName = $block[self::BLOCK_NAME];
         $blockExists = $this->cmsQueryContainer->queryBlockByNameAndTypeValue($blockName, self::BLOCK_DEMO_TYPE, self::BLOCK_DEMO_VALUE)
@@ -220,7 +216,7 @@ class CmsBlockImporter extends AbstractIcecatImporter
      *
      * @return \Generated\Shared\Transfer\CmsTemplateTransfer
      */
-    private function getOrCreateTemplate($template)
+    protected function getOrCreateTemplate($template)
     {
         if ($this->templateManager->hasTemplatePath($this->templates[$template])) {
             return $this->templateManager->getTemplateByPath($this->templates[$template]);
@@ -234,7 +230,7 @@ class CmsBlockImporter extends AbstractIcecatImporter
      *
      * @return \Generated\Shared\Transfer\PageTransfer
      */
-    private function createPage(CmsTemplateTransfer $templateTransfer)
+    protected function createPage(CmsTemplateTransfer $templateTransfer)
     {
         $pageTransfer = new PageTransfer();
         $pageTransfer->setFkTemplate($templateTransfer->getIdCmsTemplate());
@@ -284,7 +280,7 @@ class CmsBlockImporter extends AbstractIcecatImporter
      *
      * @return \Generated\Shared\Transfer\CmsBlockTransfer
      */
-    private function createCmsBlockTransfer($blockName, PageTransfer $pageTransfer)
+    protected function createCmsBlockTransfer($blockName, PageTransfer $pageTransfer)
     {
         $cmsBlockTransfer = new CmsBlockTransfer();
         $cmsBlockTransfer->setName($blockName);

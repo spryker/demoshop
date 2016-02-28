@@ -12,6 +12,7 @@ class InstallerConfig extends SprykerInstallerConfig
     const RESOURCE_CATEGORY_CATALOG = 'RESOURCE_CATEGORY_CATALOG';
 
     const RESOURCE_CMS_BLOCK = 'RESOURCE_CMS_BLOCK';
+    const RESOURCE_CMS_PAGE = 'RESOURCE_CMS_PAGE';
 
     const RESOURCE_NAVIGATION = 'RESOURCE_NAVIGATION';
 
@@ -29,7 +30,7 @@ class InstallerConfig extends SprykerInstallerConfig
      */
     public function getIcecatDataPath()
     {
-        return __DIR__ . '/Business/Internal/DemoDataDev/';
+        return __DIR__ . '/Business/Internal/DemoData/';
     }
 
 }

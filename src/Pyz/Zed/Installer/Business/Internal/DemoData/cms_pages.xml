@@ -3,7 +3,7 @@
     <page>
         <template>static</template>
         <locales>
-            <locale name="de_DE">
+            <de_DE>
                 <url>/de/impressum</url>
                 <placeholders>
                     <placeholder>
@@ -70,20 +70,20 @@
         ]]></translation>
                     </placeholder>
                 </placeholders>
-            </locale>
-            <locale name="en_US">
-                <url>/de/impressum</url>
+            </de_DE>
+            <en_US>
+                <url>/en/about</url>
                 <placeholders>
                     <placeholder>
                         <name>title</name>
                         <translation><![CDATA[
-                        <h2>##ENGLISH## Impressum</h2>
+                        <h2>--ENGLISH-- Impressum</h2>
                  ]]></translation>
                     </placeholder>
                     <placeholder>
                         <name>content</name>
                         <translation><![CDATA[
-        ##ENGLISH##
+        --ENGLISH--
         <p>Demoshop<br/>
             Julie-Wolfthornstraße 1<br/>10555 Berlin</p>
 
@@ -139,13 +139,13 @@
         ]]></translation>
                     </placeholder>
                 </placeholders>
-            </locale>
+            </en_US>
         </locales>
     </page>
     <page>
         <template>static</template>
         <locales>
-            <locale name="de_DE">
+            <de_DE>
                 <url>/de/agb</url>
                 <placeholders>
                     <placeholder>
@@ -291,21 +291,21 @@
             </div>]]></translation>
                     </placeholder>
                 </placeholders>
-            </locale>
-            <locale name="en_US">
-                <url>/de/agb</url>
+            </de_DE>
+            <en_US>
+                <url>/en/contact</url>
                 <placeholders>
                     <placeholder>
                         <name>title</name>
                         <translation>
                             <![CDATA[
-            ##ENGLISH## <h2>Allgemeine Geschäftsbedingungen (AGB)</h2>
+            --ENGLISH-- <h2>Allgemeine Geschäftsbedingungen (AGB)</h2>
                  ]]></translation>
                     </placeholder>
                     <placeholder>
                         <name>content</name>
                         <translation><![CDATA[
-            ##ENGLISH##
+            --ENGLISH--
             <br/>
             <br/><br/>
             <b>§ 1 Geltungsbereich & Abwehrklausel</b>
@@ -439,13 +439,13 @@
             </div>]]></translation>
                     </placeholder>
                 </placeholders>
-            </locale>
+            </en_US>
         </locales>
     </page>
     <page>
         <template>static</template>
         <locales>
-            <locale name="de_DE">
+            <de_DE>
                 <url>/de/datenschutz</url>
                 <placeholders>
                     <placeholder>
@@ -491,22 +491,22 @@
             ]]></translation>
                     </placeholder>
                 </placeholders>
-            </locale>
-            <locale name="en_US">
-                <url>/de/datenschutz</url>
+            </de_DE>
+            <en_US>
+                <url>/en/privacy</url>
                 <placeholders>
                     <placeholder>
                         <name>title</name>
                         <translation>
                             <![CDATA[
-                        ##ENGLISH## <h2>Datenschutzerklärung</h2>
+                        --ENGLISH-- <h2>Datenschutzerklärung</h2>
                  ]]></translation>
                     </placeholder>
                     <placeholder>
                         <name>content</name>
                         <translation><![CDATA[
 
-        ##ENGLISH##
+        --ENGLISH--
         <p>Die Nutzung unserer Seite ist ohne eine Angabe von personenbezogenen Daten möglich. Für die Nutzung einzelner
             Services unserer Seite können sich hierfür abweichende Regelungen ergeben, die in diesem Falle nachstehend gesondert
             erläutert werden. Ihre personenbezogenen Daten (z.B. Name, Anschrift, E-Mail, Telefonnummer, u.ä.) werden von uns
@@ -539,7 +539,7 @@
             ]]></translation>
                     </placeholder>
                 </placeholders>
-            </locale>
+            </en_US>
         </locales>
     </page>
 </pages>

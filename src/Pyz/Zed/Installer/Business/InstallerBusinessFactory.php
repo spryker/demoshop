@@ -10,6 +10,7 @@ use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryHierarchyImporte
 use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryRootImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Cms\CmsBlockImporter;
+use Pyz\Zed\Installer\Business\Icecat\Importer\Cms\CmsPageImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Glossary\TranslationImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductAbstractImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductCategoryImporter;
@@ -20,6 +21,7 @@ use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryCatalogInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryRootInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\CmsBlockInstaller;
+use Pyz\Zed\Installer\Business\Icecat\Installer\CmsPageInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\GlossaryInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\ProductInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\ProductSearchInstaller;
@@ -62,6 +64,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
             InstallerConfig::RESOURCE_PRODUCT_SEARCH => $this->getProductSearchInstaller(),
             InstallerConfig::RESOURCE_GLOSSARY => $this->getGlossaryInstaller(),
             InstallerConfig::RESOURCE_CMS_BLOCK => $this->getCmsBlockInstaller(),
+            InstallerConfig::RESOURCE_CMS_PAGE => $this->getCmsPageInstaller(),
         ];
     }
 
@@ -134,7 +137,17 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     public function getIcecatImporterCmsBlockCollection()
     {
         return [
-            InstallerConfig::RESOURCE_CMS_BLOCK => $this->getCmsBlockImporter(),
+            //InstallerConfig::RESOURCE_CMS_BLOCK => $this->getCmsBlockImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[]
+     */
+    public function getIcecatImporterCmsPageCollection()
+    {
+        return [
+            InstallerConfig::RESOURCE_CMS_PAGE => $this->getCmsPageImporter(),
         ];
     }
 
@@ -312,6 +325,28 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
+     * @return \Pyz\Zed\Installer\Business\Icecat\Importer\Cms\CmsPageImporter
+     */
+    protected function getCmsPageImporter()
+    {
+        $cmsPageImporter = new CmsPageImporter(
+            $this->getIcecatLocaleManager()
+        );
+
+        $cmsPageImporter->setBlockManager($this->createCmsBlockManager());
+        $cmsPageImporter->setPageManager($this->createCmsPageManager());
+        $cmsPageImporter->setKeyMappingManager($this->createCmsGlossaryKeyMappingManager());
+        $cmsPageImporter->setTemplateManager($this->createCmsTemplateManager());
+
+        $cmsPageImporter->setGlossaryFacade($this->getCmsToGlossaryBridge());
+        $cmsPageImporter->setCmsQueryContainer($this->getCmsQueryContainer());
+        $cmsPageImporter->setLocaleFacade($this->getLocaleFacade());
+        $cmsPageImporter->setUrlFacade($this->getCmsToUrlBridge());
+
+        return $cmsPageImporter;
+    }
+
+    /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
      * @return \Pyz\Zed\Installer\Business\Icecat\IcecatDataInstallerConsole
@@ -410,6 +445,19 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     {
         $cmsBlockInstaller = new CmsBlockInstaller(
             $this->getIcecatImporterCmsBlockCollection(),
+            $this->getConfig()->getIcecatDataPath()
+        );
+
+        return $cmsBlockInstaller;
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\CmsPageInstaller
+     */
+    protected function getCmsPageInstaller()
+    {
+        $cmsBlockInstaller = new CmsPageInstaller(
+            $this->getIcecatImporterCmsPageCollection(),
             $this->getConfig()->getIcecatDataPath()
         );
 

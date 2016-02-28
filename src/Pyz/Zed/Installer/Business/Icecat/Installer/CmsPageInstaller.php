@@ -7,7 +7,7 @@ use Spryker\Shared\Library\BatchIterator\XmlBatchIterator;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class CmsBlockInstaller extends AbstractIcecatInstaller
+class CmsPageInstaller extends AbstractIcecatInstaller
 {
 
     /**
@@ -15,7 +15,7 @@ class CmsBlockInstaller extends AbstractIcecatInstaller
      */
     protected function getBatchIterator()
     {
-        return new XmlBatchIterator($this->getXmlDataFilename(), 'block');
+        return new XmlBatchIterator($this->getXmlDataFilename(), 'page');
     }
 
     /**
@@ -23,7 +23,7 @@ class CmsBlockInstaller extends AbstractIcecatInstaller
      */
     protected function getXmlDataFilename()
     {
-        return $this->dataDirectory . '/cms_blocks.xml';
+        return $this->dataDirectory . '/cms_pages.xml';
     }
 
     /**
@@ -31,7 +31,7 @@ class CmsBlockInstaller extends AbstractIcecatInstaller
      */
     public function getTitle()
     {
-        return 'CMS Blocks';
+        return 'CMS Pages';
     }
 
 }
