@@ -15,7 +15,7 @@ class CmsBlockInstaller extends AbstractIcecatInstaller
      */
     protected function getBatchIterator()
     {
-        return new XmlBatchIterator($this->getXmlDataFilename());
+        return new XmlBatchIterator($this->getXmlDataFilename(), 'blocks');
     }
 
     /**
