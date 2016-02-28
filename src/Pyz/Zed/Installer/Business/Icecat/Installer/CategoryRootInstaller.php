@@ -10,7 +10,7 @@ class CategoryRootInstaller extends AbstractIcecatInstaller
 {
 
     /**
-     * @return \Spryker\Zed\Propel\Business\Model\CountableIteratorInterface
+     * @return \Spryker\Shared\Library\Reader\CountableIteratorInterface
      */
     protected function getBatchIterator()
     {

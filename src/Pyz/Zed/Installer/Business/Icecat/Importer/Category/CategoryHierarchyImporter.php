@@ -84,6 +84,10 @@ class CategoryHierarchyImporter extends AbstractIcecatImporter
         if ($this->defaultRootNode === null) {
             $queryRoot = $this->categoryQueryContainer->queryRootNode();
             $this->defaultRootNode = $queryRoot->findOne();
+
+            if ($this->defaultRootNode === null) {
+                throw new \LogicException('Could not find any root node');
+            }
         }
 
         return $this->defaultRootNode;

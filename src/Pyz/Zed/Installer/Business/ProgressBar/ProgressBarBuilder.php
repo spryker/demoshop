@@ -60,9 +60,9 @@ class ProgressBarBuilder
         $progressBar->setBarWidth(20);
 
         if ($this->output->getVerbosity() > OutputInterface::VERBOSITY_VERBOSE) {
-            $progressBar->setBarCharacter($done = "\033[32m●\033[0m");
-            $progressBar->setEmptyBarCharacter($empty = "\033[31m●\033[0m");
-            $progressBar->setProgressCharacter($progress = "\033[32m►\033[0m");
+            $progressBar->setBarCharacter($done = "\033[32m◼\033[0m");
+            $progressBar->setEmptyBarCharacter($empty = "\033[31m◼\033[0m");
+            $progressBar->setProgressCharacter($progress = "\033[32m▶\033[0m");
             $progressBar->setBarWidth(50);
         }
 

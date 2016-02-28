@@ -13,6 +13,9 @@ class InstallerConfig extends SprykerInstallerConfig
 
     const RESOURCE_NAVIGATION = 'navigation';
 
+    const RESOURCE_GLOSSARY = 'glossary';
+    const RESOURCE_GLOSSARY_TRANSLATION = 'glossary translation';
+
     const RESOURCE_PRODUCT = 'product';
     const RESOURCE_PRODUCT_CATEGORY = 'product category';
     const RESOURCE_PRODUCT_PRICE = 'product price';

@@ -8,6 +8,7 @@ use Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryHierarchyImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryRootImporter;
+use Pyz\Zed\Installer\Business\Icecat\Importer\Glossary\TranslationImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductAbstractImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductCategoryImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductPriceImporter;
@@ -16,6 +17,7 @@ use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductStockImporter;
 use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryHierarchyInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryRootInstaller;
+use Pyz\Zed\Installer\Business\Icecat\Installer\GlossaryInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\ProductInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\ProductSearchInstaller;
 use Pyz\Zed\Installer\InstallerConfig;
@@ -50,6 +52,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
             InstallerConfig::RESOURCE_CATEGORY_HIERARCHY => $this->getCategoryHierarchyInstaller(),
             InstallerConfig::RESOURCE_PRODUCT => $this->getProductInstaller(),
             InstallerConfig::RESOURCE_PRODUCT_SEARCH => $this->getProductSearchInstaller(),
+            InstallerConfig::RESOURCE_GLOSSARY => $this->getGlossaryInstaller(),
         ];
     }
 
@@ -103,6 +106,16 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     {
         return [
             InstallerConfig::RESOURCE_PRODUCT_SEARCH => $this->getProductSearchImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[]
+     */
+    public function getIcecatImporterGlossaryCollection()
+    {
+        return [
+            InstallerConfig::RESOURCE_GLOSSARY_TRANSLATION => $this->getGlossaryImporter(),
         ];
     }
 
@@ -244,6 +257,20 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
+     * @return \Pyz\Zed\Installer\Business\Icecat\Importer\Glossary\TranslationImporter
+     */
+    protected function getGlossaryImporter()
+    {
+        $translationImporter = new TranslationImporter(
+            $this->getIcecatLocaleManager()
+        );
+
+        $translationImporter->setGlossaryFacade($this->getGlossaryFacade());
+
+        return $translationImporter;
+    }
+
+    /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
      * @return \Pyz\Zed\Installer\Business\Icecat\IcecatDataInstallerConsole
@@ -316,6 +343,19 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     {
         $productSearchInstaller = new ProductSearchInstaller(
             $this->getIcecatImporterProductSearchCollection(),
+            $this->getConfig()->getIcecatDataPath()
+        );
+
+        return $productSearchInstaller;
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\GlossaryInstaller
+     */
+    protected function getGlossaryInstaller()
+    {
+        $productSearchInstaller = new GlossaryInstaller(
+            $this->getIcecatImporterGlossaryCollection(),
             $this->getConfig()->getIcecatDataPath()
         );
 
@@ -438,6 +478,14 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getLocaleFacade()
     {
         return $this->getProvidedDependency(InstallerDependencyProvider::FACADE_LOCALE);
+    }
+
+    /**
+     * @return \Pyz\Zed\Glossary\Business\GlossaryFacadeInterface
+     */
+    protected function getGlossaryFacade()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::FACADE_GLOSSARY);
     }
 
     /**
