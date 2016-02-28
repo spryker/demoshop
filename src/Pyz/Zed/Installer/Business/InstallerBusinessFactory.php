@@ -9,6 +9,7 @@ use Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryHierarchyImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryRootImporter;
+use Pyz\Zed\Installer\Business\Icecat\Importer\Cms\CmsBlockImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Glossary\TranslationImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductAbstractImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductCategoryImporter;
@@ -18,6 +19,7 @@ use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductStockImporter;
 use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryCatalogInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryRootInstaller;
+use Pyz\Zed\Installer\Business\Icecat\Installer\CmsBlockInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\GlossaryInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\ProductInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\ProductSearchInstaller;
@@ -59,6 +61,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
             InstallerConfig::RESOURCE_PRODUCT => $this->getProductInstaller(),
             InstallerConfig::RESOURCE_PRODUCT_SEARCH => $this->getProductSearchInstaller(),
             InstallerConfig::RESOURCE_GLOSSARY => $this->getGlossaryInstaller(),
+            InstallerConfig::RESOURCE_CMS_BLOCK => $this->getCmsBlockInstaller(),
         ];
     }
 
@@ -122,6 +125,16 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     {
         return [
             InstallerConfig::RESOURCE_GLOSSARY_TRANSLATION => $this->getGlossaryImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[]
+     */
+    public function getIcecatImporterCmsBlockCollection()
+    {
+        return [
+            InstallerConfig::RESOURCE_CMS_BLOCK => $this->getCmsBlockImporter(),
         ];
     }
 
@@ -277,6 +290,18 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
+     * @return \Pyz\Zed\Installer\Business\Icecat\Importer\Cms\CmsBlockImporter
+     */
+    protected function getCmsBlockImporter()
+    {
+        $cmsBlockImporter = new CmsBlockImporter(
+            $this->getIcecatLocaleManager()
+        );
+
+        return $cmsBlockImporter;
+    }
+
+    /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
      * @return \Pyz\Zed\Installer\Business\Icecat\IcecatDataInstallerConsole
@@ -360,12 +385,25 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
      */
     protected function getGlossaryInstaller()
     {
-        $productSearchInstaller = new GlossaryInstaller(
+        $glossaryInstaller = new GlossaryInstaller(
             $this->getIcecatImporterGlossaryCollection(),
             $this->getConfig()->getIcecatDataPath()
         );
 
-        return $productSearchInstaller;
+        return $glossaryInstaller;
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\CmsBlockInstaller
+     */
+    protected function getCmsBlockInstaller()
+    {
+        $cmsBlockInstaller = new CmsBlockInstaller(
+            $this->getIcecatImporterCmsBlockCollection(),
+            $this->getConfig()->getIcecatDataPath()
+        );
+
+        return $cmsBlockInstaller;
     }
 
     /**
