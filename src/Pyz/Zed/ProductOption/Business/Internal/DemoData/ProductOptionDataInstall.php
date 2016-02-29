@@ -2,10 +2,10 @@
 
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData;
 
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataPluginInstaller;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\WriterInterface;
-use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 
-class ProductOptionDataInstall extends AbstractInstaller
+class ProductOptionDataInstall extends AbstractDemoDataPluginInstaller
 {
 
     /**

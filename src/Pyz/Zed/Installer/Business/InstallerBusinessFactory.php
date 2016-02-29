@@ -829,9 +829,9 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     /**
      * @return \Spryker\Zed\Installer\Business\Model\AbstractInstaller[]
      */
-    public function getDemoDataInstallers()
+    public function getDemoDataInstallerPlugins()
     {
-        return $this->getProvidedDependency(InstallerDependencyProvider::INSTALLERS_DEMO_DATA);
+        return $this->getProvidedDependency(InstallerDependencyProvider::INSTALLERS_DEMO_DATA_PLUGINS);
     }
 
 }

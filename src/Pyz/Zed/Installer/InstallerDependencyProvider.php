@@ -62,7 +62,7 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
     const BRIDGE_CMS_TO_TOUCH = 'BRIDGE_CMS_TO_TOUCH';
     const BRIDGE_CMS_TO_URL = 'BRIDGE_CMS_TO_URL';
 
-    const INSTALLERS_DEMO_DATA = 'INSTALLERS_DEMO_DATA';
+    const INSTALLERS_DEMO_DATA_PLUGINS = 'INSTALLERS_DEMO_DATA';
     const PLUGIN_PROPEL_CONNECTION = 'PLUGIN_PROPEL_CONNECTION';
 
     /**
@@ -162,7 +162,7 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
             return new CmsToUrlBridge($container->getLocator()->url()->facade());
         };
 
-        $container[self::INSTALLERS_DEMO_DATA] = function (Container $container) {
+        $container[self::INSTALLERS_DEMO_DATA_PLUGINS] = function (Container $container) {
             return $this->getDemoDataInstallers();
         };
 

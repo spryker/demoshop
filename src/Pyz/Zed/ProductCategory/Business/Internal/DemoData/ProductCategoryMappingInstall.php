@@ -3,14 +3,14 @@
 namespace Pyz\Zed\ProductCategory\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataPluginInstaller;
 use Spryker\Zed\Library\Import\ReaderInterface;
 use Spryker\Zed\ProductCategory\Business\ProductCategoryManagerInterface;
 use Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToCategoryInterface;
 use Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToLocaleInterface;
 use Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface;
 
-class ProductCategoryMappingInstall extends AbstractInstaller
+class ProductCategoryMappingInstall extends AbstractDemoDataPluginInstaller
 {
 
     /**

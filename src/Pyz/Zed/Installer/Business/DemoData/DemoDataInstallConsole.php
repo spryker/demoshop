@@ -32,15 +32,15 @@ class DemoDataInstallConsole extends Console
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $installerPlugins = $this->getFacade()->getDemoDataInstallers();
+        $installerPlugins = $this->getFacade()->getDemoDataInstallerPlugins();
 
         $messenger = $this->getMessenger();
 
         foreach ($installerPlugins as $installer) {
             $installer->setMessenger($messenger);
-            $output->writeln(date('c') . ' Next importer ' . get_class($installer));
+            $output->writeln('Importing... ' . get_class($installer));
             $installer->install();
-            $output->writeln('Done ' . get_class($installer));
+            $output->writeln('Done.');
         }
     }
 

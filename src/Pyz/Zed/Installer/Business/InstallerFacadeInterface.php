@@ -10,7 +10,7 @@ interface InstallerFacadeInterface extends \Spryker\Zed\Installer\Business\Insta
     /**
      * @return \Spryker\Zed\Installer\Business\Model\AbstractInstaller[]
      */
-    public function getDemoDataInstallers();
+    public function getDemoDataInstallerPlugins();
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output

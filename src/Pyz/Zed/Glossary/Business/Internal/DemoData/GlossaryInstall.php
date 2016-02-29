@@ -6,9 +6,9 @@
 
 namespace Pyz\Zed\Glossary\Business\Internal\DemoData;
 
-use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataPluginInstaller;
 
-class GlossaryInstall extends AbstractInstaller
+class GlossaryInstall extends AbstractDemoDataPluginInstaller
 {
 
     /**

@@ -6,13 +6,13 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
-use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataPluginInstaller;
 use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
 use Spryker\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface;
 use Spryker\Zed\Product\Business\Product\ProductManagerInterface;
 use Spryker\Zed\Product\Dependency\Facade\ProductToLocaleInterface;
 
-class ProductDataInstall extends AbstractInstaller
+class ProductDataInstall extends AbstractDemoDataPluginInstaller
 {
 
     const PRODUCT_ABSTRACT = 'product_abstract';

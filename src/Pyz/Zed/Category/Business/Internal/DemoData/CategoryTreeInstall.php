@@ -4,6 +4,7 @@ namespace Pyz\Zed\Category\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataPluginInstaller;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Zed\Category\Business\Model\CategoryWriter;
 use Spryker\Zed\Category\Business\Model\CategoryWriterInterface;
@@ -11,9 +12,8 @@ use Spryker\Zed\Category\Business\Tree\CategoryTreeWriter;
 use Spryker\Zed\Category\Dependency\Facade\CategoryToLocaleInterface;
 use Spryker\Zed\Category\Dependency\Facade\CategoryToTouchInterface;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
-use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 
-class CategoryTreeInstall extends AbstractInstaller
+class CategoryTreeInstall extends AbstractDemoDataPluginInstaller
 {
 
     const IS_ROOT = 'is_root';

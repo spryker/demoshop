@@ -3,12 +3,12 @@
 namespace Pyz\Zed\Price\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\PriceProductTransfer;
-use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataPluginInstaller;
 use Spryker\Zed\Library\Import\Reader\CsvFileReader;
 use Spryker\Zed\Price\Business\Model\ReaderInterface;
 use Spryker\Zed\Price\Business\Model\WriterInterface;
 
-class PriceInstall extends AbstractInstaller
+class PriceInstall extends AbstractDemoDataPluginInstaller
 {
 
     const SKU = 'sku';

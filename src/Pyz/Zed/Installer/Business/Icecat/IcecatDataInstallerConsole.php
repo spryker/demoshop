@@ -6,7 +6,7 @@ use Propel\Runtime\Propel;
 use Spryker\Zed\Installer\Business\Model\AbstractInstaller as SprykerAbstractInstaller;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class IcecatDataInstallerConsole extends SprykerAbstractInstaller
+class IcecatDataInstallerConsole
 {
 
     /**

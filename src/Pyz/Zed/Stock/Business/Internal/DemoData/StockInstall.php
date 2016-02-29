@@ -4,14 +4,15 @@ namespace Pyz\Zed\Stock\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\StockProductTransfer;
 use Generated\Shared\Transfer\TypeTransfer;
-use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataPluginInstaller;
 use Spryker\Zed\Library\Import\Reader\CsvFileReader;
 use Spryker\Zed\Stock\Business\Model\ReaderInterface;
 use Spryker\Zed\Stock\Business\Model\WriterInterface;
 use Spryker\Zed\Stock\Persistence\StockQueryContainer;
 
-class StockInstall extends AbstractInstaller
+class StockInstall extends AbstractDemoDataPluginInstaller
 {
+
     const SKU = 'sku';
     const QUANTITY = 'quantity';
     const NEVER_OUT_OF_STOCK = 'is_never_out_of_stock';
@@ -161,4 +162,6 @@ class StockInstall extends AbstractInstaller
 
         return $stockTypeTransfer;
     }
+
+
 }

@@ -14,9 +14,9 @@ class InstallerFacade extends SprykerInstallerFacade implements InstallerFacadeI
     /**
      * @return \Spryker\Zed\Installer\Business\Model\AbstractInstaller[]
      */
-    public function getDemoDataInstallers()
+    public function getDemoDataInstallerPlugins()
     {
-        return $this->getFactory()->getDemoDataInstallers();
+        return $this->getFactory()->getDemoDataInstallerPlugins();
     }
 
     /**

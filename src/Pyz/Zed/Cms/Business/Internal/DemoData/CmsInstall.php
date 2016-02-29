@@ -7,6 +7,7 @@ use Generated\Shared\Transfer\CmsTemplateTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageTransfer;
 use Pyz\Zed\Cms\CmsConfig;
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataPluginInstaller;
 use Spryker\Zed\Cms\Business\Block\BlockManagerInterface;
 use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface;
 use Spryker\Zed\Cms\Business\Page\PageManagerInterface;
@@ -14,10 +15,9 @@ use Spryker\Zed\Cms\Business\Template\TemplateManagerInterface;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToUrlInterface;
 use Spryker\Zed\Cms\Persistence\CmsQueryContainerInterface;
-use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 use Spryker\Zed\Locale\Business\LocaleFacade;
 
-class CmsInstall extends AbstractInstaller
+class CmsInstall extends AbstractDemoDataPluginInstaller
 {
 
     const URL = 'url';
