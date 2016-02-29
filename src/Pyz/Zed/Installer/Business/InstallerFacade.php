@@ -8,8 +8,16 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * @method \Pyz\Zed\Installer\Business\InstallerBusinessFactory getFactory()
  */
-class InstallerFacade extends SprykerInstallerFacade
+class InstallerFacade extends SprykerInstallerFacade implements InstallerFacadeInterface
 {
+
+    /**
+     * @return \Spryker\Zed\Installer\Business\Model\AbstractInstaller[]
+     */
+    public function getDemoDataInstallers()
+    {
+        return $this->getFactory()->getDemoDataInstallers();
+    }
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
@@ -20,6 +28,5 @@ class InstallerFacade extends SprykerInstallerFacade
     {
         return $this->getFactory()->getIcecatDataInstaller($output);
     }
-
 
 }

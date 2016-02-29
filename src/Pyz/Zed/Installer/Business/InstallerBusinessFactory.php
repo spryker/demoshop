@@ -826,5 +826,12 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
         );
     }
 
+    /**
+     * @return \Spryker\Zed\Installer\Business\Model\AbstractInstaller[]
+     */
+    public function getDemoDataInstallers()
+    {
+        return $this->getProvidedDependency(InstallerDependencyProvider::INSTALLERS_DEMO_DATA);
+    }
 
 }
