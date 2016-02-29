@@ -13,7 +13,7 @@
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
-{% include "@application/layout/partials/header.twig" %}
+{% include "@application/layout/partials/header.twig" with {'hideUserMenu': hideUserMenu|default(false)} %}
 
 {% include "@application/layout/partials/flash-messages.twig" %}
 
