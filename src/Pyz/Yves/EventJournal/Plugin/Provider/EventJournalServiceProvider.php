@@ -11,7 +11,7 @@ use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
 use Silex\Application;
 use Spryker\Client\EventJournal\Event;
 use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Shared\Config;
+use Spryker\Shared\Config\Config;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;

@@ -10,7 +10,7 @@ namespace Pyz\Yves\Application\Plugin\Provider;
 use Pyz\Yves\Application\Business\Model\SessionFactory;
 use Silex\Application;
 use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Shared\Config;
+use Spryker\Shared\Config\Config;
 use Spryker\Shared\Session\SessionConstants;
 
 /**

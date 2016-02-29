@@ -11,7 +11,7 @@ use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Pyz\Yves\Checkout\Form\CheckoutType;
-use Spryker\Shared\Config;
+use Spryker\Shared\Config\Config;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Yves\Kernel\AbstractFactory;
 use Symfony\Component\HttpFoundation\Request;
