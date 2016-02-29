@@ -1,11 +1,16 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Application\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Pimple;
 use Silex\Application;
 use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Shared\Config;
+use Spryker\Shared\Config\Config;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Library\Application\Environment as ApplicationEnvironment;
 use Spryker\Shared\Library\DataDirectory;

@@ -63,3 +63,5 @@ $config[PayoneConstants::PAYONE] = [
 ];
 
 $config[SessionConstants::SESSION_IS_TEST] = true;
+
+$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';

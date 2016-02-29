@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
@@ -18,6 +23,9 @@ class UrlCollector extends AbstractPropelCollectorPlugin
 
     use KeyBuilderTrait;
 
+    /**
+     * @return string
+     */
     protected function getTouchItemType()
     {
         return 'url';

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor;
 
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductAbstract;
@@ -15,6 +20,8 @@ interface ProductVisitorInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductAbstract|\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConcrete|\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionType|\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValue $context
+     *
+     * @return void
      */
     public function setContext($context);
 

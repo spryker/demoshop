@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
@@ -107,6 +112,11 @@ class RedirectCollector extends AbstractPropelCollectorPlugin
         return $this->escapeKey(implode($this->keySeparator, $keyParts));
     }
 
+    /**
+     * @param mixed $data
+     *
+     * @return mixed
+     */
     protected function buildKey($data)
     {
         return $data;
