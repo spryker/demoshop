@@ -31,4 +31,25 @@ class SalesConfig extends SprykerSalesConfig
         }
     }
 
+    /**
+     * This method provides list of actions for zed order details external blocks
+     *
+     * @return array
+     */
+    public function getSalesDetailExternalBlocksUrls()
+    {
+        $projectExternalBlocks = [
+//            'totals' => '',   TODO
+//            'payments' => '', TODO
+//            'shipment' => '', TODO
+            'discount' => '/discount/sales/list',
+//            'address' => '',  TODO
+//            'refunds' => '',  TODO
+        ];
+
+        $externalBlocks = parent::getSalesDetailExternalBlocksUrls();
+
+        return array_merge($externalBlocks, $projectExternalBlocks);
+    }
+
 }
