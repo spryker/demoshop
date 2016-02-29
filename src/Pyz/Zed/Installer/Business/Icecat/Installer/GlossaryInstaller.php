@@ -38,17 +38,16 @@ class GlossaryInstaller extends AbstractIcecatInstaller
     /**
      * @param \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface $batchIterator
      * @param array|\Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[] $importersToExecute
-     * @param \Symfony\Component\Console\Helper\ProgressBar $progressBar
      *
      * @return void
      */
-    protected function batchInstall(CountableIteratorInterface $batchIterator, array $importersToExecute, ProgressBar $progressBar)
+    protected function batchInstall(CountableIteratorInterface $batchIterator, array $importersToExecute)
     {
         foreach ($batchIterator as $batchCollection) {
             foreach ($batchCollection as $translationKey => $translationData) {
                 $this->runImporters([
                     $translationKey => $translationData
-                ], $importersToExecute, $progressBar);
+                ], $importersToExecute);
             }
         }
     }

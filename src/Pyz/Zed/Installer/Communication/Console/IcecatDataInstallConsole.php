@@ -35,9 +35,7 @@ class IcecatDataInstallConsole extends SprykerConsole
     {
         $messenger = $this->getMessenger();
 
-        $installer = $this->getFacade()->getIcecatDataInstaller($output);
-        //$installer->setMessenger($messenger);
-        //$installer->setOutput($output);
+        $installer = $this->getFacade()->getIcecatDataConsoleInstaller($output, $messenger);
         $installer->install();
     }
 

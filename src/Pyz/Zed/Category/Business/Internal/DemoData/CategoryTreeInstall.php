@@ -82,7 +82,7 @@ class CategoryTreeInstall extends AbstractDemoDataInstaller
      */
     public function install()
     {
-        $this->info('This will install a Dummy CategoryTree in the demo shop');
+        $this->notice('This will install a Dummy CategoryTree in the demo shop');
 
         $demoTree = $this->getDemoTree();
 

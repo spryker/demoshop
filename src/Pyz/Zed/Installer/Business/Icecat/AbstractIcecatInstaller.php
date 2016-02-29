@@ -4,6 +4,7 @@ namespace Pyz\Zed\Installer\Business\Icecat;
 
 use Pyz\Zed\Installer\Business\ProgressBar\ProgressBarBuilder;
 use Spryker\Shared\Library\BatchIterator\CountableIteratorInterface;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -11,6 +12,26 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
 {
 
     const BAR_TITLE = 'barTitle';
+
+    /**
+     * @var \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface
+     */
+    protected $batchIterator;
+
+    /**
+     * @var \Symfony\Component\Console\Helper\ProgressBar
+     */
+    protected $progressBar;
+
+    /**
+     * @var \Symfony\Component\Console\Output\OutputInterface
+     */
+    protected $output;
+
+    /**
+     * @var \Spryker\Zed\Messenger\Business\Model\MessengerInterface
+     */
+    protected $messenger;
 
     /**
      * @var string
@@ -44,47 +65,58 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
      * @return void
      */
-    public function install(OutputInterface $output)
+    public function install(OutputInterface $output, MessengerInterface $messenger)
     {
-        $this->displayProgressWhileCountingBatchCollectionSize($output);
-
-        $batchIterator = $this->buildBatchIterator();
         $importersToExecute = $this->excludeInstalled();
-        $progressBar = $this->generateProgressBar($output, $batchIterator->count());
 
-        $this->beforeInstall($output, $progressBar);
-        $this->batchInstall($batchIterator, $importersToExecute, $progressBar);
-        $this->afterInstall($output, $progressBar);
+        $this->displayProgressWhileCountingBatchCollectionSize($output);
+        $this->setupScope($output, $messenger);
+
+        $this->beforeInstall();
+        $this->batchInstall($this->batchIterator, $importersToExecute);
+        $this->afterInstall();
     }
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @param \Symfony\Component\Console\Helper\ProgressBar $progressBar
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
-     * @return \Symfony\Component\Console\Helper\ProgressBar
+     * @return void
      */
-    protected function beforeInstall(OutputInterface $output, ProgressBar $progressBar)
+    protected function setupScope(OutputInterface $output, MessengerInterface $messenger)
     {
-        $progressBar->setMessage($this->getTitle(), 'barTitle');
-        $progressBar->start();
-        $progressBar->advance(0);
+        $this->output = $output;
+        $this->messenger = $messenger;
+
+        $this->batchIterator = $this->buildBatchIterator();
+        $this->progressBar = $this->generateProgressBar($output, $this->batchIterator->count());
+    }
+
+    /**
+     * @return void
+     */
+    protected function beforeInstall()
+    {
+        $this->progressBar->setMessage($this->getTitle(), 'barTitle');
+        $this->progressBar->start();
+        $this->progressBar->advance(0);
     }
 
     /**
      * @param \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface $batchIterator
      * @param array|\Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[] $importersToExecute
-     * @param \Symfony\Component\Console\Helper\ProgressBar $progressBar
      *
      * @return void
      */
-    protected function batchInstall(CountableIteratorInterface $batchIterator, array $importersToExecute, ProgressBar $progressBar)
+    protected function batchInstall(CountableIteratorInterface $batchIterator, array $importersToExecute)
     {
         foreach ($batchIterator as $batchCollection) {
             foreach ($batchCollection as $itemToImport) {
-                $this->runImporters($itemToImport, $importersToExecute, $progressBar);
+                $this->runImporters($itemToImport, $importersToExecute);
             }
         }
     }
@@ -92,36 +124,32 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     /**
      * @param array $itemToImport
      * @param array|\Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[] $importerCollection
-     * @param \Symfony\Component\Console\Helper\ProgressBar $progressBar
      *
      * @return void
      */
-    protected function runImporters(array $itemToImport, array $importerCollection, ProgressBar $progressBar)
+    protected function runImporters(array $itemToImport, array $importerCollection)
     {
         foreach ($importerCollection as $type => $importer) {
-            $progressBar->setMessage($importer->getTitle(), self::BAR_TITLE);
-            $progressBar->display();
+            $this->progressBar->setMessage($importer->getTitle(), self::BAR_TITLE);
+            $this->progressBar->display();
 
             $importer->beforeImport();
             $importer->importOne($itemToImport);
             $importer->afterImport();
         }
 
-        $progressBar->advance(1);
+        $this->progressBar->advance(1);
     }
 
     /**
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @param \Symfony\Component\Console\Helper\ProgressBar $progressBar
-     *
      * @return void
      */
-    protected function afterInstall(OutputInterface $output, ProgressBar $progressBar)
+    protected function afterInstall()
     {
-        $progressBar->setMessage($this->getTitle(), self::BAR_TITLE);
-        $progressBar->finish();
+        $this->progressBar->setMessage($this->getTitle(), self::BAR_TITLE);
+        $this->progressBar->finish();
 
-        $output->writeln('');
+        $this->output->writeln('');
     }
 
     /**

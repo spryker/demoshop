@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Installer\Business;
 
 use Spryker\Zed\Installer\Business\InstallerFacade as SprykerInstallerFacade;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
@@ -21,12 +22,13 @@ class InstallerFacade extends SprykerInstallerFacade implements InstallerFacadeI
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
      * @return \Pyz\Zed\Installer\Business\Icecat\IcecatDataInstallerConsole
      */
-    public function getIcecatDataInstaller(OutputInterface $output)
+    public function getIcecatDataConsoleInstaller(OutputInterface $output, MessengerInterface $messenger)
     {
-        return $this->getFactory()->getIcecatDataInstaller($output);
+        return $this->getFactory()->getIcecatDataInstaller($output, $messenger);
     }
 
 }

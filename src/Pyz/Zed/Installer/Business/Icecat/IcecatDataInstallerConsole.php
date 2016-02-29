@@ -3,7 +3,7 @@
 namespace Pyz\Zed\Installer\Business\Icecat;
 
 use Propel\Runtime\Propel;
-use Spryker\Zed\Installer\Business\Model\AbstractInstaller as SprykerAbstractInstaller;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class IcecatDataInstallerConsole
@@ -15,17 +15,24 @@ class IcecatDataInstallerConsole
     protected $output;
 
     /**
+     * @var \Spryker\Zed\Messenger\Business\Model\MessengerInterface
+     */
+    protected $messenger;
+
+    /**
      * @var \Pyz\Zed\Installer\Business\Icecat\IcecatInstallerInterface[]
      */
     protected $installerCollection;
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      * @param \Pyz\Zed\Installer\Business\Icecat\IcecatInstallerInterface[] $installerCollection
      */
-    public function __construct(OutputInterface $output, array $installerCollection)
+    public function __construct(OutputInterface $output, MessengerInterface $messenger, array $installerCollection)
     {
         $this->output = $output;
+        $this->messenger = $messenger;
         $this->installerCollection = $installerCollection;
     }
 
@@ -44,7 +51,7 @@ class IcecatDataInstallerConsole
 
             foreach ($this->installerCollection as $name => $installer) {
                 if (!$installer->isInstalled()) {
-                    $installer->install($this->output);
+                    $installer->install($this->output, $this->messenger);
                 }
                 else {
                     $this->output->writeln($installer->getTitle(). ' already installed.');

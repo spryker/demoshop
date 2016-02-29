@@ -40,6 +40,7 @@ use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManager;
 use Spryker\Zed\Cms\Business\Page\PageManager;
 use Spryker\Zed\Cms\Business\Template\TemplateManager;
 use Spryker\Zed\Installer\Business\InstallerBusinessFactory as SprykerInstallerBusinessFactory;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\ProductSearch\Business\Operation\OperationManager;
 use Spryker\Zed\Product\Business\Attribute\AttributeManager;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -348,13 +349,15 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
      * @return \Pyz\Zed\Installer\Business\Icecat\IcecatDataInstallerConsole
      */
-    public function getIcecatDataInstaller(OutputInterface $output)
+    public function getIcecatDataInstaller(OutputInterface $output, MessengerInterface $messenger)
     {
         return new IcecatDataInstallerConsole(
             $output,
+            $messenger,
             $this->getIcecatDataInstallerCollection()
         );
     }
