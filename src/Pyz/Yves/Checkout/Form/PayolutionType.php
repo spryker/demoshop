@@ -1,13 +1,18 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Checkout\Form;
 
 use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Spryker\Shared\Library\Currency\CurrencyManager;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PayolutionType extends AbstractType
 {

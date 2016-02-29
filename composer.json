@@ -58,7 +58,6 @@
     "phpmd/phpmd": "~2.3.2",
     "sebastian/phpcpd": "~2.0.2",
     "codeception/codeception": "~2.1.5",
-    "fabpot/php-cs-fixer": "~1.11.1",
     "sensiolabs/security-checker": "~3.0.2",
     "sllh/composer-versions-check": "~1.0.2"
   },

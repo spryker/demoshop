@@ -1,14 +1,15 @@
 <?php
 
-/*
- * (c) Copyright Spryker Systems GmbH 2015
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\Glossary\Communication\Plugin;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
+use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Symfony\Component\Yaml\Yaml;
 
 /**

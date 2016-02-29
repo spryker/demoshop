@@ -1,15 +1,20 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Shipment;
 
-use Pyz\Zed\Shipment\Communication\Plugin\DeliveryTime\DHLPaketPlugin as DeliveryTimeDHLPaketPlugin;
-use Pyz\Zed\Shipment\Communication\Plugin\DeliveryTime\DHLExpressPlugin as DeliveryTimeDHLExpressPlugin;
-use Pyz\Zed\Shipment\Communication\Plugin\PriceCalculation\DHLPaketPlugin as PriceCalculationDHLPaketPlugin;
-use Pyz\Zed\Shipment\Communication\Plugin\PriceCalculation\DHLExpressPlugin as PriceCalculationDHLExpressPlugin;
-use Pyz\Zed\Shipment\Communication\Plugin\Availability\DHLPaketPlugin;
 use Pyz\Zed\Shipment\Communication\Plugin\Availability\DHLExpressPlugin;
-use Spryker\Zed\Shipment\ShipmentDependencyProvider as SprykerShipmentDependencyProvider;
+use Pyz\Zed\Shipment\Communication\Plugin\Availability\DHLPaketPlugin;
+use Pyz\Zed\Shipment\Communication\Plugin\DeliveryTime\DHLExpressPlugin as DeliveryTimeDHLExpressPlugin;
+use Pyz\Zed\Shipment\Communication\Plugin\DeliveryTime\DHLPaketPlugin as DeliveryTimeDHLPaketPlugin;
+use Pyz\Zed\Shipment\Communication\Plugin\PriceCalculation\DHLExpressPlugin as PriceCalculationDHLExpressPlugin;
+use Pyz\Zed\Shipment\Communication\Plugin\PriceCalculation\DHLPaketPlugin as PriceCalculationDHLPaketPlugin;
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Shipment\ShipmentDependencyProvider as SprykerShipmentDependencyProvider;
 
 class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
 {

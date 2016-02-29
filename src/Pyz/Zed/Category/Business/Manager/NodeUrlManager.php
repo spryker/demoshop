@@ -1,14 +1,19 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Category\Business\Manager;
 
 use Generated\Shared\Transfer\UrlTransfer;
-use Spryker\Zed\Locale\Persistence\LocaleQueryContainer;
 use Spryker\Zed\Category\Business\Generator\UrlPathGeneratorInterface;
 use Spryker\Zed\Category\Business\Manager\NodeUrlManager as SprykerNodeUrlManager;
 use Spryker\Zed\Category\Business\Tree\CategoryTreeReaderInterface;
 use Spryker\Zed\Category\Dependency\Facade\CategoryToUrlInterface;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
+use Spryker\Zed\Locale\Persistence\LocaleQueryContainer;
 
 class NodeUrlManager extends SprykerNodeUrlManager
 {

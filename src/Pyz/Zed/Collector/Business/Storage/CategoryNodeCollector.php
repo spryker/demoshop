@@ -1,17 +1,22 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Propel\Runtime\ActiveQuery\Criteria;
+use Orm\Zed\Category\Persistence\Map\SpyCategoryAttributeTableMap;
+use Orm\Zed\Category\Persistence\Map\SpyCategoryNodeTableMap;
 use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
+use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
-use Orm\Zed\Category\Persistence\Map\SpyCategoryAttributeTableMap;
-use Orm\Zed\Category\Persistence\Map\SpyCategoryNodeTableMap;
 use Spryker\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
 use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
 
@@ -33,6 +38,9 @@ class CategoryNodeCollector extends AbstractPropelCollectorPlugin
         $this->categoryQueryContainer = $categoryQueryContainer;
     }
 
+    /**
+     * @return string
+     */
     protected function getTouchItemType()
     {
         return 'categorynode';

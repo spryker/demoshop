@@ -1,8 +1,8 @@
 <?php
 
-use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
+use Spryker\Shared\Mail\MailConstants;
 
 $config[ApplicationConstants::ZED_DB_USERNAME] = 'development';
 $config[ApplicationConstants::ZED_DB_PASSWORD] = 'mate20mg';

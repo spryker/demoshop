@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Collector\Mapper;
 
 use Spryker\Client\Catalog\Model\FacetConfig;
@@ -196,6 +201,12 @@ class UrlMapper implements UrlMapperInterface
         return $mergedParameters;
     }
 
+    /**
+     * @param array $next
+     * @param array $current
+     *
+     * @return bool
+     */
     protected function sortByUrlPosition($next, $current)
     {
         return $current[FacetConfig::KEY_URL_POSITION] < $next[FacetConfig::KEY_URL_POSITION];

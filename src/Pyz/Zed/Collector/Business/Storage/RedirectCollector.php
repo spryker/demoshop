@@ -1,17 +1,22 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Propel\Runtime\ActiveQuery\Criteria;
-use Spryker\Shared\Kernel\Store;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
-use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
-use Spryker\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
-use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
 use Orm\Zed\Url\Persistence\Map\SpyUrlRedirectTableMap;
 use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
+use Propel\Runtime\ActiveQuery\Criteria;
+use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
+use Spryker\Shared\Kernel\Store;
+use Spryker\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
+use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
 
 class RedirectCollector extends AbstractPropelCollectorPlugin
 {
@@ -107,6 +112,11 @@ class RedirectCollector extends AbstractPropelCollectorPlugin
         return $this->escapeKey(implode($this->keySeparator, $keyParts));
     }
 
+    /**
+     * @param mixed $data
+     *
+     * @return mixed
+     */
     protected function buildKey($data)
     {
         return $data;

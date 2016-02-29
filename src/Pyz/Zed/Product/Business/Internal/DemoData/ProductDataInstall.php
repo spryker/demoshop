@@ -1,11 +1,16 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Product\Business\Internal\DemoData;
 
-use Generated\Shared\Transfer\ProductAbstractTransfer;
-use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
+use Generated\Shared\Transfer\ProductAbstractTransfer;
+use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
 use Spryker\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface;

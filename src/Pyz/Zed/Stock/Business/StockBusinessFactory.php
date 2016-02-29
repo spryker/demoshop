@@ -1,13 +1,18 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Stock\Business;
 
-use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
-use Spryker\Zed\Stock\Business\Model\Writer;
-use Spryker\Zed\Stock\Business\Model\Reader;
-use Spryker\Zed\Stock\Business\Model\Calculator;
-use Spryker\Zed\Stock\Business\StockBusinessFactory as SprykerStockBusinessFactory;
 use Pyz\Zed\Stock\Business\Internal\DemoData\StockInstall;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
+use Spryker\Zed\Stock\Business\Model\Calculator;
+use Spryker\Zed\Stock\Business\Model\Reader;
+use Spryker\Zed\Stock\Business\Model\Writer;
+use Spryker\Zed\Stock\Business\StockBusinessFactory as SprykerStockBusinessFactory;
 
 /**
  * @method \Spryker\Zed\Stock\Persistence\StockQueryContainer getQueryContainer()

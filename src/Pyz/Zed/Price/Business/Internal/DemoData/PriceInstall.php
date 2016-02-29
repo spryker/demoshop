@@ -1,12 +1,17 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Price\Business\Internal\DemoData;
 
+use Generated\Shared\Transfer\PriceProductTransfer;
 use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 use Spryker\Zed\Library\Import\Reader\CsvFileReader;
 use Spryker\Zed\Price\Business\Model\ReaderInterface;
 use Spryker\Zed\Price\Business\Model\WriterInterface;
-use Generated\Shared\Transfer\PriceProductTransfer;
 
 class PriceInstall extends AbstractInstaller
 {

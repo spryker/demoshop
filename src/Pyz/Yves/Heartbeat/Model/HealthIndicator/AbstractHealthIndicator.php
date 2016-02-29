@@ -1,10 +1,15 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Heartbeat\Model\HealthIndicator;
 
-use Generated\Shared\Transfer\HealthReportTransfer;
 use Generated\Shared\Transfer\HealthDetailTransfer;
 use Generated\Shared\Transfer\HealthIndicatorReportTransfer;
+use Generated\Shared\Transfer\HealthReportTransfer;
 use Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface;
 
 abstract class AbstractHealthIndicator implements HealthIndicatorInterface

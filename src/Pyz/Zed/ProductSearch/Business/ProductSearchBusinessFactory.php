@@ -1,18 +1,23 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\ProductSearch\Business;
 
-use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
-use Spryker\Shared\Library\Storage\StorageInstanceBuilder;
-use Spryker\Zed\ProductSearch\Business\Builder\ProductResourceKeyBuilder;
-use Spryker\Zed\ProductSearch\Business\Operation\OperationManager;
-use Spryker\Zed\ProductSearch\Business\Operation\DefaultOperation;
-use Spryker\Zed\ProductSearch\Business\Internal\InstallProductSearch;
-use Spryker\Zed\ProductSearch\Business\Processor\ProductSearchProcessor;
-use Spryker\Zed\ProductSearch\Business\Transformer\ProductAttributesTransformer;
-use Spryker\Zed\ProductSearch\Business\ProductSearchBusinessFactory as SprykerProductSearchBusinessFactory;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductSearch\Business\Internal\DemoData\ProductAttributeMappingInstall;
+use Spryker\Shared\Library\Storage\StorageInstanceBuilder;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
+use Spryker\Zed\ProductSearch\Business\Builder\ProductResourceKeyBuilder;
+use Spryker\Zed\ProductSearch\Business\Internal\InstallProductSearch;
+use Spryker\Zed\ProductSearch\Business\Operation\DefaultOperation;
+use Spryker\Zed\ProductSearch\Business\Operation\OperationManager;
+use Spryker\Zed\ProductSearch\Business\Processor\ProductSearchProcessor;
+use Spryker\Zed\ProductSearch\Business\ProductSearchBusinessFactory as SprykerProductSearchBusinessFactory;
+use Spryker\Zed\ProductSearch\Business\Transformer\ProductAttributesTransformer;
 use Spryker\Zed\ProductSearch\ProductSearchDependencyProvider;
 
 class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory

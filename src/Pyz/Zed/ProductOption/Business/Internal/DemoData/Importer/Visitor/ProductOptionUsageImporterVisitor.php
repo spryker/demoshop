@@ -1,15 +1,20 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor;
 
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Command\QueueableCommand;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductAbstract;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConcrete;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConfiguration;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionType;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionTypeExclusion;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValue;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValueConstraint;
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductConfiguration;
 use Pyz\Zed\ProductOption\Business\ProductOptionFacade;
 
 class ProductOptionUsageImporterVisitor implements ProductVisitorInterface

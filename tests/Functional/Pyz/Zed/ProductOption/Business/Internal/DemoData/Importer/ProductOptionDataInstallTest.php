@@ -3,10 +3,10 @@
 namespace Functional\Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer;
 
 use Codeception\TestCase\Test;
+use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
+use Orm\Zed\Product\Persistence\SpyProductQuery;
 use Pyz\Zed\ProductOption\Business\ProductOptionFacade;
 use Spryker\Zed\Console\Business\Model\ConsoleMessenger;
-use Orm\Zed\Product\Persistence\SpyProductQuery;
-use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 
 /**
  * @group Pyz

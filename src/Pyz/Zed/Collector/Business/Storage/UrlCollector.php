@@ -1,23 +1,31 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
-use Propel\Runtime\ActiveQuery\Criteria;
-use Spryker\Shared\Kernel\Store;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
+use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
+use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
+use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
 use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
-use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 
 class UrlCollector extends AbstractPropelCollectorPlugin
 {
 
     use KeyBuilderTrait;
 
+    /**
+     * @return string
+     */
     protected function getTouchItemType()
     {
         return 'url';

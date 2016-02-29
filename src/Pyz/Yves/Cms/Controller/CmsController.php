@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Cms\Controller;
 
 use Spryker\Yves\Application\Controller\AbstractController;
@@ -16,7 +21,7 @@ class CmsController extends AbstractController
      */
     public function pageAction($meta, Request $request)
     {
-        $edit = $request->get('edit') ? (bool)$request->get('edit') : false;
+        $edit = (bool)$request->get('edit', false);
 
         return $this->renderView($meta['template'], ['placeholders' => $meta['placeholders'], 'edit' => $edit]);
     }

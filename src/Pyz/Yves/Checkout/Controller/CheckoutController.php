@@ -1,27 +1,32 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Checkout\Controller;
 
 use Generated\Shared\Transfer\AddressTransfer;
-use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
-use Generated\Shared\Transfer\PayolutionPaymentTransfer;
-use Generated\Shared\Transfer\ShipmentTransfer;
 use Generated\Shared\Transfer\CartTransfer;
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\ExpenseTransfer;
+use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
+use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer;
+use Generated\Shared\Transfer\ShipmentTransfer;
+use Guzzle\Http\Client as GuzzleClient;
 use Orm\Zed\Payolution\Persistence\Map\SpyPaymentPayolutionTableMap;
 use Pyz\Yves\Checkout\Form\CheckoutType;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
-use Spryker\Shared\Payolution\PayolutionConstants;
-use Spryker\Yves\Application\Controller\AbstractController;
 use Spryker\Shared\Library\Currency\CurrencyManager;
+use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\Shipment\ShipmentConstants;
+use Spryker\Yves\Application\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Guzzle\Http\Client as GuzzleClient;
 
 /**
  * @method \Pyz\Yves\Checkout\CheckoutFactory getFactory()
@@ -80,6 +85,7 @@ class CheckoutController extends AbstractController
         $payolutionInstallmentPayments = $this->getPayolutionInstallmentPayments($checkoutRequestTransfer, $cartTransfer);
 
         $checkoutForm = $this->buildCheckoutForm($checkoutRequestTransfer, $shipmentTransfer, $payolutionInstallmentPayments, $request);
+        $checkoutForm->handleRequest($request);
 
         if ($checkoutForm->isValid()) {
             $this->setCheckoutSubmittedData($cartTransfer, $shipmentTransfer, $payolutionInstallmentPayments, $checkoutForm, $request);

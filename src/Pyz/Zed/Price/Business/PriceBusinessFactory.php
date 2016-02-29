@@ -1,14 +1,19 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Price\Business;
 
+use Pyz\Zed\Price\Business\Internal\DemoData\PriceInstall;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\Price\Business\Internal\Install;
 use Spryker\Zed\Price\Business\Model\BulkWriter;
-use Spryker\Zed\Price\Business\Model\Writer;
 use Spryker\Zed\Price\Business\Model\Reader;
+use Spryker\Zed\Price\Business\Model\Writer;
 use Spryker\Zed\Price\Business\PriceBusinessFactory as SprykerPriceBusinessFactory;
-use Pyz\Zed\Price\Business\Internal\DemoData\PriceInstall;
 
 class PriceBusinessFactory extends SprykerPriceBusinessFactory
 {

@@ -4,19 +4,19 @@ use Pyz\Shared\Mail\MailConstants;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Auth\AuthConstants;
-use Spryker\Shared\Customer\CustomerConstants;
-use Spryker\Shared\User\UserConstants;
-use Spryker\Shared\EventJournal\EventJournalConstants;
-use Spryker\Shared\NewRelic\NewRelicConstants;
-use Spryker\Shared\Session\SessionConstants;
-use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
-use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\CustomerMailConnector\CustomerMailConnectorConstants;
-use Spryker\Shared\Newsletter\NewsletterConstants;
-use Spryker\Shared\Price\PriceConstants;
-use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
-use Spryker\Shared\Sales\SalesConstants;
+use Spryker\Shared\Customer\CustomerConstants;
+use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Log\LogConstants;
+use Spryker\Shared\NewRelic\NewRelicConstants;
+use Spryker\Shared\Newsletter\NewsletterConstants;
+use Spryker\Shared\Payolution\PayolutionConstants;
+use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
+use Spryker\Shared\Price\PriceConstants;
+use Spryker\Shared\Sales\SalesConstants;
+use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
+use Spryker\Shared\Session\SessionConstants;
+use Spryker\Shared\User\UserConstants;
 
 $config[ApplicationConstants::PROJECT_NAMESPACES] = [
     'Pyz',
@@ -66,6 +66,8 @@ $config[ApplicationConstants::TRANSFER_PASSWORD] = 'o7&bg=Fz;nSslHBC';
 $config[ApplicationConstants::TRANSFER_SSL] = false;
 $config[ApplicationConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = false;
 $config[ApplicationConstants::TRANSFER_DEBUG_SESSION_NAME] = 'XDEBUG_SESSION';
+
+$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker';
 
 //$config[ApplicationConstants::ZED_LIBRARY_PASSWORD_ALGORITHM] = PASSWORD_BCRYPT;
 //$config[ApplicationConstants::ZED_LIBRARY_PASSWORD_OPTIONS] = [];

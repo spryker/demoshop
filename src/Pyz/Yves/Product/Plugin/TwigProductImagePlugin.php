@@ -1,11 +1,16 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Product\Plugin;
 
-use Spryker\Shared\Library\Image;
-use Silex\Application;
-use Spryker\Yves\Kernel\AbstractPlugin;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
+use Silex\Application;
+use Spryker\Shared\Library\Image;
+use Spryker\Yves\Kernel\AbstractPlugin;
 
 class TwigProductImagePlugin extends AbstractPlugin implements TwigFunctionPluginInterface
 {

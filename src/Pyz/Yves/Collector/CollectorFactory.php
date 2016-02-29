@@ -1,13 +1,18 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Collector;
 
 use Pyz\Yves\Application\Plugin\Pimple;
-use Pyz\Yves\Cms\Plugin\PageResourceCreator;
-use Pyz\Yves\Redirect\Plugin\RedirectResourceCreator;
 use Pyz\Yves\Category\Plugin\CategoryResourceCreator;
-use Pyz\Yves\Product\Plugin\ProductResourceCreator;
+use Pyz\Yves\Cms\Plugin\PageResourceCreator;
 use Pyz\Yves\Collector\Mapper\UrlMapper;
+use Pyz\Yves\Product\Plugin\ProductResourceCreator;
+use Pyz\Yves\Redirect\Plugin\RedirectResourceCreator;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class CollectorFactory extends AbstractFactory

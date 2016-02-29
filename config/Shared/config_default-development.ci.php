@@ -1,7 +1,7 @@
 <?php
 
-use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Session\SessionConstants;
 
@@ -63,3 +63,5 @@ $config[PayoneConstants::PAYONE] = [
 ];
 
 $config[SessionConstants::SESSION_IS_TEST] = true;
+
+$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';

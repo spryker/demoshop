@@ -1,9 +1,14 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData;
 
-use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\WriterInterface;
+use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 
 class ProductOptionDataInstall extends AbstractInstaller
 {

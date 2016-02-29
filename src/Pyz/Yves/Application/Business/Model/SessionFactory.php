@@ -1,10 +1,15 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Application\Business\Model;
 
-use Spryker\Shared\Config;
-use Spryker\Shared\Session\Business\Model\SessionFactory as SharedSessionFactory;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Config\Config;
+use Spryker\Shared\Session\Business\Model\SessionFactory as SharedSessionFactory;
 
 class SessionFactory extends SharedSessionFactory
 {

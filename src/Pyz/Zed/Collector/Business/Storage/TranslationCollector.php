@@ -1,23 +1,31 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Propel\Runtime\ActiveQuery\Criteria;
+use Orm\Zed\Glossary\Persistence\Map\SpyGlossaryKeyTableMap;
+use Orm\Zed\Glossary\Persistence\Map\SpyGlossaryTranslationTableMap;
 use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
+use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Shared\Glossary\Code\KeyBuilder\GlossaryKeyBuilder;
 use Spryker\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
 use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
-use Orm\Zed\Glossary\Persistence\Map\SpyGlossaryKeyTableMap;
-use Orm\Zed\Glossary\Persistence\Map\SpyGlossaryTranslationTableMap;
 
 class TranslationCollector extends AbstractPropelCollectorPlugin
 {
 
     use GlossaryKeyBuilder;
 
+    /**
+     * @return string
+     */
     protected function getTouchItemType()
     {
         return 'translation';

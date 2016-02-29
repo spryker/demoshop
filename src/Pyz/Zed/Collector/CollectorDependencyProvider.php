@@ -1,18 +1,23 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Collector;
 
-use Pyz\Zed\Collector\Communication\Plugin\UrlCollectorStoragePlugin;
-use Pyz\Zed\Collector\Communication\Plugin\RedirectCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\BlockCollectorStoragePlugin;
-use Pyz\Zed\Collector\Communication\Plugin\PageCollectorStoragePlugin;
-use Pyz\Zed\Collector\Communication\Plugin\TranslationCollectorStoragePlugin;
-use Pyz\Zed\Collector\Communication\Plugin\NavigationCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\CategoryNodeCollectorStoragePlugin;
-use Pyz\Zed\Collector\Communication\Plugin\ProductCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\NavigationCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\PageCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\ProductCollectorSearchPlugin;
-use Spryker\Zed\Kernel\Container;
+use Pyz\Zed\Collector\Communication\Plugin\ProductCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\RedirectCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\TranslationCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\UrlCollectorStoragePlugin;
 use Spryker\Zed\Collector\CollectorDependencyProvider as SprykerCollectorDependencyProvider;
+use Spryker\Zed\Kernel\Container;
 
 class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 {
