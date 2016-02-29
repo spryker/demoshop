@@ -87,7 +87,7 @@ class CategoryTreeInstall extends AbstractDemoDataInstaller
         $demoTree = $this->getDemoTree();
 
         if ($this->queryContainer->queryRootNode()->count() > 0) {
-            $this->warning('Dummy CategoryTree already installed. Skipping.');
+            $this->notice('Dummy CategoryTree already installed. Skipping.');
 
             return;
         }

@@ -179,7 +179,7 @@ class CmsInstall extends AbstractDemoDataInstaller
             $localeTransfer = $this->getLocale($locale);
             $url = (string)$locale->{self::URL};
             if ($this->urlFacade->hasUrl($url)) {
-                $this->warning(sprintf('Page with URL %s already exists. Skipping.', $url));
+                $this->notice(sprintf('Page with URL %s already exists. Skipping.', $url));
 
                 continue;
             }
@@ -203,7 +203,7 @@ class CmsInstall extends AbstractDemoDataInstaller
     private function installRedirect($fromUrl, $toUrl, $status)
     {
         if ($this->urlFacade->hasUrl($fromUrl)) {
-            $this->warning(sprintf('Redirect with URL %s already exists. Skipping.', $fromUrl));
+            $this->notice(sprintf('Redirect with URL %s already exists. Skipping.', $fromUrl));
 
             return;
         }
@@ -227,7 +227,7 @@ class CmsInstall extends AbstractDemoDataInstaller
     {
         $blockName = (string)$blockItem->{self::BLOCK_NAME};
         if ($this->cmsQueryContainer->queryBlockByNameAndTypeValue($blockName, $this->blockDemoType, $this->blockDemoValue)->count() > 0) {
-            $this->warning(sprintf('Block with Name %s already exists. Skipping.', $blockName));
+            $this->notice(sprintf('Block with Name %s already exists. Skipping.', $blockName));
 
             return;
         }

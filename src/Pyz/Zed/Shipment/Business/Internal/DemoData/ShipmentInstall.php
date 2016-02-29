@@ -58,7 +58,7 @@ class ShipmentInstall extends AbstractDemoDataInstaller
         $this->info('This will install a Carrier Company and Shipment Method in the demo shop');
 
         if ($this->queryContainer->queryMethods()->count() > 0) {
-            $this->warning('Dummy Shipment data is already installed. Skipping.');
+            $this->notice('Dummy Shipment data is already installed. Skipping.');
 
             return;
         }

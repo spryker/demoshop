@@ -67,7 +67,7 @@ class StockInstall extends AbstractDemoDataInstaller
     {
         $query = $this->queryContainer->queryAllStockTypes();
         if ($query->count() > 0) {
-            $this->warning('Stock-Data is already installed. Skipping');
+            $this->notice('Stock-Data is already installed. Skipping');
 
             return;
         }

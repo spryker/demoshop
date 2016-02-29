@@ -28,20 +28,50 @@ class DemoDataInstallConsole extends Console
      * @param \Symfony\Component\Console\Input\InputInterface $input
      * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
-     * @return void
+     * @return null|int null
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $installerPlugins = $this->getFacade()->getDemoDataInstallerPlugins();
+        $installerPlugins = $this->getInstallerPlugins();
 
         $messenger = $this->getMessenger();
 
-        foreach ($installerPlugins as $plugin) {
-            $plugin->setMessenger($messenger);
-            $output->writeln('Importing... ' . $plugin->getTitle());
-            $plugin->install();
-            $output->writeln('Done.');
+        try {
+            foreach ($installerPlugins as $plugin) {
+                $name = $this->getPluginNameFromClass(get_class($plugin));
+
+                $output->writeln('Installing DEMO data for ' . $name);
+
+                $plugin->setMessenger($messenger);
+                $plugin->debug('Running ' . get_class($plugin));
+                $plugin->install();
+            }
+        } catch (\Exception $e) {
+            $this->error($e->getMessage());
+
+            return self::CODE_ERROR;
         }
+
+        return self::CODE_SUCCESS;
+    }
+
+    /**
+     * @return \Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin[]
+     */
+    protected function getInstallerPlugins()
+    {
+        return $this->getFacade()->getDemoDataInstallerPlugins();
+    }
+
+    /**
+     * @param string $className
+     *
+     * @return mixed
+     */
+    protected function getPluginNameFromClass($className)
+    {
+        $pattern = '#^(.+)\\\(.+)\\\(.+)\\\(.+)\\\(.*)$#i';
+        return preg_replace($pattern, '${2}', $className);
     }
 
 }
