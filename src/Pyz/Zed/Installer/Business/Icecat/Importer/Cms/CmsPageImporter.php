@@ -3,7 +3,6 @@
 namespace Pyz\Zed\Installer\Business\Icecat\Importer\Cms;
 
 use Orm\Zed\Cms\Persistence\SpyCmsPageQuery;
-use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class CmsPageImporter extends CmsBlockImporter
@@ -32,7 +31,7 @@ class CmsPageImporter extends CmsBlockImporter
     public function importOne(array $data)
     {
         $page = $this->format($data);
-        $templateTransfer = $this->getOrCreateTemplate($page[self::TEMPLATE]);
+        $templateTransfer = $this->findOrCreateTemplate($page[self::TEMPLATE]);
         $pageTransfer = null;
 
         foreach ($this->localeManager->getLocaleCollection() as $locale => $localeTransfer) {
@@ -50,7 +49,6 @@ class CmsPageImporter extends CmsBlockImporter
             $this->createPageUrl($pageTransfer, $url, $localeTransfer);
             $this->createPlaceholder($placeholders, $pageTransfer, $localeTransfer);
         }
-
     }
 
 }

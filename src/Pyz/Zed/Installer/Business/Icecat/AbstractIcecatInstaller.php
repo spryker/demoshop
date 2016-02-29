@@ -9,6 +9,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
 {
+
+    const BAR_TITLE = 'barTitle';
+
     /**
      * @var string
      */
@@ -22,7 +25,7 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     /**
      * @return \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface
      */
-    abstract protected function getBatchIterator();
+    abstract protected function buildBatchIterator();
 
     /**
      * @return string
@@ -48,7 +51,7 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     {
         $this->displayProgressWhileCountingBatchCollectionSize($output);
 
-        $batchIterator = $this->getBatchIterator();
+        $batchIterator = $this->buildBatchIterator();
         $importersToExecute = $this->excludeInstalled();
         $progressBar = $this->generateProgressBar($output, $batchIterator->count());
 
@@ -96,7 +99,7 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     protected function runImporters(array $itemToImport, array $importerCollection, ProgressBar $progressBar)
     {
         foreach ($importerCollection as $type => $importer) {
-            $progressBar->setMessage($importer->getTitle(), 'barTitle');
+            $progressBar->setMessage($importer->getTitle(), self::BAR_TITLE);
             $progressBar->display();
 
             $importer->beforeImport();
@@ -115,7 +118,7 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
      */
     protected function afterInstall(OutputInterface $output, ProgressBar $progressBar)
     {
-        $progressBar->setMessage($this->getTitle(), 'barTitle');
+        $progressBar->setMessage($this->getTitle(), self::BAR_TITLE);
         $progressBar->finish();
 
         $output->writeln('');
@@ -126,11 +129,12 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
      */
     protected function excludeInstalled()
     {
-        return array_filter($this->importerCollection, function($importer){
-            /* @var \Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface $importer */
+        return array_filter($this->importerCollection, function (IcecatImporterInterface $importer) {
             return !$importer->isImported();
         });
     }
+
+    //TODO Move ProgressBar logic into separate class
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output

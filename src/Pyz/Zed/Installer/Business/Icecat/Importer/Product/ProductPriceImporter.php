@@ -22,11 +22,11 @@ class ProductPriceImporter extends AbstractIcecatImporter
     const PRICE = 'price';
     const PRICE_TYPE = 'price_type';
 
-
     /**
      * @var \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface
      */
     protected $cvsPriceReader;
+
     /**
      * @var string
      */
@@ -103,6 +103,13 @@ class ProductPriceImporter extends AbstractIcecatImporter
         return $query->count() > 0;
     }
 
+    /**
+     * @param array $data
+     *
+     * @throws \Pyz\Zed\Installer\Business\Exception\PriceTypeNotFoundException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
+     */
     public function importOne(array $data)
     {
         $price = $this->getPriceValue();
@@ -115,6 +122,7 @@ class ProductPriceImporter extends AbstractIcecatImporter
             return;
         }
 
+        //TODO move caching to another method
         if (!array_key_exists($price[self::PRICE_TYPE], $this->priceTypesCache)) {
             $priceTypeQuery = $this->priceQueryContainer->queryPriceType($price[self::PRICE_TYPE]);
             $priceType = $priceTypeQuery->findOne();
@@ -129,7 +137,6 @@ class ProductPriceImporter extends AbstractIcecatImporter
         }
 
         $entity = new SpyPriceProduct();
-
         $entity
             ->setPrice($price[self::PRICE])
             ->setPriceType($priceType)
@@ -137,7 +144,6 @@ class ProductPriceImporter extends AbstractIcecatImporter
             ->setFkProduct($productAbstract->getIdProductAbstract());
 
         $entity->save();
-
     }
 
     /**
@@ -177,16 +183,5 @@ class ProductPriceImporter extends AbstractIcecatImporter
     {
         return (int)$variant > 1;
     }
-
-    /**
-     * @param array $data
-     *
-     * @return array
-     */
-    protected function format(array $data)
-    {
-        return $data;
-    }
-
 
 }

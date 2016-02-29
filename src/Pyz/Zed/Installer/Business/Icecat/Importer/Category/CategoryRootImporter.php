@@ -5,6 +5,7 @@ namespace Pyz\Zed\Installer\Business\Icecat\Importer\Category;
 use Generated\Shared\Transfer\NodeTransfer;
 use Orm\Zed\Category\Persistence\SpyCategoryNodeQuery;
 use Pyz\Zed\Installer\InstallerConfig;
+use Spryker\Shared\Category\CategoryConstants;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class CategoryRootImporter extends CategoryImporter
@@ -35,8 +36,8 @@ class CategoryRootImporter extends CategoryImporter
      */
     public function importOne(array $data)
     {
-        $category = $this->format($data);
-        $this->importRootCategory($category);
+        $root = $this->format($data);
+        $this->importRootCategory($root);
     }
 
     /**
@@ -69,7 +70,7 @@ class CategoryRootImporter extends CategoryImporter
             return;
         }
 
-        $this->touchFacade->touchActive(InstallerConfig::RESOURCE_NAVIGATION, $rootNodeTransfer->getIdCategoryNode());
+        $this->touchFacade->touchActive(CategoryConstants::RESOURCE_TYPE_NAVIGATION, $rootNodeTransfer->getIdCategoryNode());
     }
 
 }

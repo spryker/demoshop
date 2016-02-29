@@ -14,7 +14,7 @@ class ProductSearchInstaller extends AbstractIcecatInstaller
     /**
      * @return \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface
      */
-    protected function getBatchIterator()
+    protected function buildBatchIterator()
     {
         $query = SpyProductQuery::create();
         $query->setFormatter(new ArrayFormatter());

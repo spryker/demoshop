@@ -63,8 +63,8 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
             InstallerConfig::RESOURCE_PRODUCT => $this->getProductInstaller(),
             InstallerConfig::RESOURCE_PRODUCT_SEARCH => $this->getProductSearchInstaller(),
             InstallerConfig::RESOURCE_GLOSSARY => $this->getGlossaryInstaller(),
-            InstallerConfig::RESOURCE_CMS_BLOCK => $this->getCmsBlockInstaller(),
             InstallerConfig::RESOURCE_CMS_PAGE => $this->getCmsPageInstaller(),
+            InstallerConfig::RESOURCE_CMS_BLOCK => $this->getCmsBlockInstaller(),
         ];
     }
 
@@ -384,7 +384,6 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
 
         return $categoryHierarchyInstaller;
     }
-
 
     /**
      * @return \Pyz\Zed\Installer\Business\Icecat\Installer\CategoryRootInstaller

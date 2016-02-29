@@ -9,7 +9,6 @@ use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
 use Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager;
 use Pyz\Zed\Stock\Business\StockFacadeInterface;
 use Spryker\Shared\Library\Reader\Csv\CsvReader;
-use Spryker\Shared\Library\Reader\Csv\CsvReaderInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -117,7 +116,7 @@ class ProductStockImporter extends AbstractIcecatImporter
         }
 
         $stockType = $this->createStockTypeOnce($stock);
-        $stockProductTransfer = $this->createStockProductTransfer($stock, $stockType);
+        $stockProductTransfer = $this->buildStockProductTransfer($stock, $stockType);
         $this->stockFacade->createStockProduct($stockProductTransfer);
     }
 
@@ -161,16 +160,6 @@ class ProductStockImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param array $data
-     *
-     * @return array
-     */
-    protected function format(array $data)
-    {
-        return $data;
-    }
-
-    /**
      * @param array $stockData
      *
      * @return \Generated\Shared\Transfer\TypeTransfer
@@ -208,7 +197,7 @@ class ProductStockImporter extends AbstractIcecatImporter
      *
      * @return \Generated\Shared\Transfer\StockProductTransfer
      */
-    protected function createStockProductTransfer(array $stockData, TypeTransfer $stockType)
+    protected function buildStockProductTransfer(array $stockData, TypeTransfer $stockType)
     {
         $transferStockProduct = new StockProductTransfer();
         $transferStockProduct->setSku($stockData[self::SKU])

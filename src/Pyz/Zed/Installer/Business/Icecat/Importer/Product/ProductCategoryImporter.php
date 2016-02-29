@@ -150,6 +150,10 @@ class ProductCategoryImporter extends AbstractIcecatImporter
     }
 
     /**
+     * @DRY
+     *
+     * @see \Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryHierarchyImporter::getRootNode
+     *
      * @return \Orm\Zed\Category\Persistence\SpyCategoryNode
      */
     protected function getRootNode()
@@ -157,6 +161,10 @@ class ProductCategoryImporter extends AbstractIcecatImporter
         if ($this->defaultRootNode === null) {
             $queryRoot = $this->categoryQueryContainer->queryRootNode();
             $this->defaultRootNode = $queryRoot->findOne();
+
+            if ($this->defaultRootNode === null) {
+                throw new \LogicException('Could not find any root nodes');
+            }
         }
 
         return $this->defaultRootNode;
@@ -185,6 +193,7 @@ class ProductCategoryImporter extends AbstractIcecatImporter
 
         $idCategory = null;
         $idNode = null;
+        //TODO extract caching into method
         if (!array_key_exists($product[self::CATEGORY_KEY], $this->cacheCategories)) {
             $categoryQuery = $this->categoryQueryContainer
                 ->queryCategoryByKey($product[self::CATEGORY_KEY])
@@ -243,16 +252,6 @@ class ProductCategoryImporter extends AbstractIcecatImporter
         foreach ($productConcreteCollection as $productConcrete) {
             $this->productFacade->createProductConcrete($productConcrete, $idProductAbstract);
         }
-    }
-
-    /**
-     * @param array $data
-     *
-     * @return array
-     */
-    protected function format(array $data)
-    {
-        return $data;
     }
 
 }

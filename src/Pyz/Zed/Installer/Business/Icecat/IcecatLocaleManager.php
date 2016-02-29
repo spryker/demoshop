@@ -101,6 +101,8 @@ class IcecatLocaleManager
     }
 
     /**
+     * TODO move it to LocaleFacade
+     *
      * @return \Generated\Shared\Transfer\LocaleTransfer[]
      */
     public function getLocaleCollection()

@@ -71,12 +71,17 @@ class CategoryHierarchyImporter extends AbstractIcecatImporter
     public function isImported()
     {
         $query = SpyCategoryNodeQuery::create();
-        $query->filterByIsRoot(false)->filterByFkParentCategoryNode(null, Criteria::ISNULL);
+        $query->filterByIsRoot(false)
+            ->filterByFkParentCategoryNode(null, Criteria::ISNULL);
 
         return $query->count() === 0;
     }
 
     /**
+     * @DRY
+     *
+     * @see \Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductCategoryImporter::getRootNode
+     *
      * @return \Orm\Zed\Category\Persistence\SpyCategoryNode
      */
     protected function getRootNode()
@@ -86,7 +91,7 @@ class CategoryHierarchyImporter extends AbstractIcecatImporter
             $this->defaultRootNode = $queryRoot->findOne();
 
             if ($this->defaultRootNode === null) {
-                throw new \LogicException('Could not find any root node');
+                throw new \LogicException('Could not find any root nodes');
             }
         }
 
@@ -101,6 +106,7 @@ class CategoryHierarchyImporter extends AbstractIcecatImporter
         $category = $this->format($data);
 
         $idParentNode = $this->getRootNode()->getIdCategoryNode();
+        //TODO move caching into separate method
         if (!array_key_exists($category[self::PARENT_KEY], $this->cacheParents)) {
             $queryParent = $this->categoryQueryContainer->queryMainCategoryNodeByCategoryKey($category[self::PARENT_KEY]);
             $parent = $queryParent->findOne();
@@ -114,10 +120,11 @@ class CategoryHierarchyImporter extends AbstractIcecatImporter
             $idParentNode = $this->cacheParents[$category[self::PARENT_KEY]];
         }
 
-        $nodesQuery = $this->categoryQueryContainer->queryNodeByCategoryKey($category[self::UCATID]);
-        $nodesQuery->filterByIsMain(true);
-        $nodes = $nodesQuery->find();
+        $nodesQuery = $this->categoryQueryContainer
+            ->queryNodeByCategoryKey($category[self::UCATID])
+            ->filterByIsMain(true);
 
+        $nodes = $nodesQuery->find();
         foreach ($nodes as $nodeEntity) {
             $nodeTransfer = new NodeTransfer();
             $nodeTransfer->fromArray($nodeEntity->toArray());

@@ -12,7 +12,7 @@ class CategoryCatalogInstaller extends AbstractIcecatInstaller
     /**
      * @return \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface
      */
-    protected function getBatchIterator()
+    protected function buildBatchIterator()
     {
         return new CsvBatchIterator($this->getCsvDataFilename());
     }

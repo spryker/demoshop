@@ -13,7 +13,7 @@ class CmsPageInstaller extends AbstractIcecatInstaller
     /**
      * @return \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface
      */
-    protected function getBatchIterator()
+    protected function buildBatchIterator()
     {
         return new XmlBatchIterator($this->getXmlDataFilename(), 'page');
     }

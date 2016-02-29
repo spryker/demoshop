@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Console;
 
+use Pyz\Zed\Installer\Business\DemoData\DemoDataInstallConsole;
 use Pyz\Zed\Installer\Communication\Console\IcecatDataInstallConsole;
 use Spryker\Shared\Library\Environment;
 use Spryker\Zed\Application\Communication\Console\ApplicationIntegrationCheckConsole;
@@ -16,7 +17,6 @@ use Spryker\Zed\Development\Communication\Console\CodePhpMessDetectorConsole;
 use Spryker\Zed\Development\Communication\Console\CodeStyleFixerConsole;
 use Spryker\Zed\Development\Communication\Console\CodeStyleSnifferConsole;
 use Spryker\Zed\Development\Communication\Console\CodeTestConsole;
-use Spryker\Zed\Installer\Communication\Console\DemoDataInstallConsole;
 use Spryker\Zed\Installer\Communication\Console\InitializeDatabaseConsole;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Maintenance\Communication\Console\ComposerJsonUpdaterConsole;

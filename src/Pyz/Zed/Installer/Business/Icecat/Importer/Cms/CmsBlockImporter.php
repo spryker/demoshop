@@ -7,7 +7,6 @@ use Generated\Shared\Transfer\CmsTemplateTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageTransfer;
 use Orm\Zed\Cms\Persistence\SpyCmsBlockQuery;
-use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
 use Pyz\Zed\Cms\Persistence\CmsQueryContainerInterface;
 use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
 use Spryker\Zed\Cms\Business\Block\BlockManagerInterface;
@@ -192,21 +191,22 @@ class CmsBlockImporter extends AbstractIcecatImporter
         $block = $this->format($data);
 
         $blockName = $block[self::BLOCK_NAME];
-        $blockExists = $this->cmsQueryContainer->queryBlockByNameAndTypeValue($blockName, self::BLOCK_DEMO_TYPE, self::BLOCK_DEMO_VALUE)
+        $blockExists = $this->cmsQueryContainer
+                ->queryBlockByNameAndTypeValue($blockName, self::BLOCK_DEMO_TYPE, self::BLOCK_DEMO_VALUE)
                 ->count() > 0;
 
         if ($blockExists) {
             return;
         }
 
-        $templateTransfer = $this->getOrCreateTemplate($block[self::TEMPLATE]);
+        $templateTransfer = $this->findOrCreateTemplate($block[self::TEMPLATE]);
         $pageTransfer = $this->createPage($templateTransfer);
 
         foreach ($this->localeManager->getLocaleCollection() as $locale => $localeTransfer) {
             $this->createPlaceholder($block[self::LOCALES][$locale][self::PLACEHOLDERS], $pageTransfer, $localeTransfer);
         }
 
-        $cmsBlockTransfer = $this->createCmsBlockTransfer($blockName, $pageTransfer);
+        $cmsBlockTransfer = $this->buildCmsBlockTransfer($blockName, $pageTransfer);
         $this->blockManager->saveBlockAndTouch($cmsBlockTransfer);
         $this->pageManager->touchPageActive($pageTransfer);
     }
@@ -216,7 +216,7 @@ class CmsBlockImporter extends AbstractIcecatImporter
      *
      * @return \Generated\Shared\Transfer\CmsTemplateTransfer
      */
-    protected function getOrCreateTemplate($template)
+    protected function findOrCreateTemplate($template)
     {
         if ($this->templateManager->hasTemplatePath($this->templates[$template])) {
             return $this->templateManager->getTemplateByPath($this->templates[$template]);
@@ -249,14 +249,13 @@ class CmsBlockImporter extends AbstractIcecatImporter
     protected function createPlaceholder(array $placeholders, PageTransfer $pageTransfer, LocaleTransfer $localeTransfer)
     {
         foreach ($placeholders['placeholder'] as $index => $placeholder) {
-            $this->keyMappingManager
-                ->addPlaceholderText(
-                    $pageTransfer,
-                    $placeholder[self::NAME],
-                    $placeholder[self::TRANSLATION],
-                    $localeTransfer,
-                    false
-                );
+            $this->keyMappingManager->addPlaceholderText(
+                $pageTransfer,
+                $placeholder[self::NAME],
+                $placeholder[self::TRANSLATION],
+                $localeTransfer,
+                false
+            );
         }
     }
 
@@ -280,7 +279,7 @@ class CmsBlockImporter extends AbstractIcecatImporter
      *
      * @return \Generated\Shared\Transfer\CmsBlockTransfer
      */
-    protected function createCmsBlockTransfer($blockName, PageTransfer $pageTransfer)
+    protected function buildCmsBlockTransfer($blockName, PageTransfer $pageTransfer)
     {
         $cmsBlockTransfer = new CmsBlockTransfer();
         $cmsBlockTransfer->setName($blockName);
@@ -289,24 +288,6 @@ class CmsBlockImporter extends AbstractIcecatImporter
         $cmsBlockTransfer->setFkPage($pageTransfer->getIdCmsPage());
 
         return $cmsBlockTransfer;
-    }
-
-    /**
-     * @param array $data
-     *
-     * @return array
-     */
-    protected function format(array $data)
-    {
-        return $data;
-    }
-
-    /**
-     * @return void
-     */
-    protected function before()
-    {
-
     }
 
 

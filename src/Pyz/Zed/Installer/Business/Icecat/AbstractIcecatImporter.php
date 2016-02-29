@@ -19,12 +19,12 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
     /**
      * @var bool
      */
-    protected $beforeExecuted = false;
+    protected $isBeforeExecuted = false;
 
     /**
      * @var bool
      */
-    protected $afterExecuted = false;
+    protected $isAfterExecuted = false;
 
     /**
      * @param array $data
@@ -42,22 +42,13 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
     abstract public function getTitle();
 
     /**
+     * TODO Replace it with LocaleFacade
+     *
      * @param \Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager $localeManager
      */
     public function __construct(IcecatLocaleManager $localeManager)
     {
         $this->localeManager = $localeManager;
-    }
-
-    /**
-     * @param array $columns
-     * @param array $data
-     *
-     * @return array
-     */
-    protected function generateCsvItem(array $columns, array $data)
-    {
-        return array_combine(array_values($columns), array_values($data));
     }
 
     /**
@@ -91,9 +82,9 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
      */
     public function beforeImport()
     {
-        if (!$this->beforeExecuted) {
+        if (!$this->isBeforeExecuted) {
             $this->before();
-            $this->beforeExecuted = true;
+            $this->isBeforeExecuted = true;
         }
     }
 
@@ -102,9 +93,9 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
      */
     public function afterImport()
     {
-        if (!$this->afterExecuted) {
+        if (!$this->isAfterExecuted) {
             $this->after();
-            $this->afterExecuted = true;
+            $this->isAfterExecuted = true;
         }
     }
 
