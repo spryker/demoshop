@@ -7,7 +7,7 @@ use Generated\Shared\Transfer\CmsTemplateTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageTransfer;
 use Pyz\Zed\Cms\CmsConfig;
-use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataPluginInstaller;
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller;
 use Spryker\Zed\Cms\Business\Block\BlockManagerInterface;
 use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface;
 use Spryker\Zed\Cms\Business\Page\PageManagerInterface;
@@ -17,7 +17,7 @@ use Spryker\Zed\Cms\Dependency\Facade\CmsToUrlInterface;
 use Spryker\Zed\Cms\Persistence\CmsQueryContainerInterface;
 use Spryker\Zed\Locale\Business\LocaleFacade;
 
-class CmsInstall extends AbstractDemoDataPluginInstaller
+class CmsInstall extends AbstractDemoDataInstaller
 {
 
     const URL = 'url';
@@ -131,6 +131,14 @@ class CmsInstall extends AbstractDemoDataPluginInstaller
         $this->templates = $config->getDemoDataTemplates();
         $this->templateNames = $config->getDemoDataTemplateNames();
         $this->dataFileNames = $config->getDemoDataFileNames();
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'CMS';
     }
 
     /**
@@ -259,6 +267,7 @@ class CmsInstall extends AbstractDemoDataPluginInstaller
     private function installPageFromDemoDataFile($filePath)
     {
         $pageXmlElements = $this->getDataFromFileAsArray($filePath, self::PAGE);
+        $this->log(\Psr\Log\LogLevel::INFO, 'Installing Pages');
         foreach ($pageXmlElements as $pageElement) {
             $this->installPage($pageElement);
         }

@@ -3,14 +3,14 @@
 namespace Pyz\Zed\ProductCategory\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataPluginInstaller;
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller;
 use Spryker\Zed\Library\Import\ReaderInterface;
 use Spryker\Zed\ProductCategory\Business\ProductCategoryManagerInterface;
 use Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToCategoryInterface;
 use Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToLocaleInterface;
 use Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface;
 
-class ProductCategoryMappingInstall extends AbstractDemoDataPluginInstaller
+class ProductCategoryMappingInstall extends AbstractDemoDataInstaller
 {
 
     /**
@@ -65,6 +65,14 @@ class ProductCategoryMappingInstall extends AbstractDemoDataPluginInstaller
         $this->productCategoryManager = $productCategoryManager;
         $this->productFacade = $productFacade;
         $this->categoryFacade = $categoryFacade;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'Product Category';
     }
 
     /**

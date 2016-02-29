@@ -2,10 +2,10 @@
 
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData;
 
-use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataPluginInstaller;
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\WriterInterface;
 
-class ProductOptionDataInstall extends AbstractDemoDataPluginInstaller
+class ProductOptionDataInstall extends AbstractDemoDataInstaller
 {
 
     /**
@@ -28,6 +28,14 @@ class ProductOptionDataInstall extends AbstractDemoDataPluginInstaller
     ) {
         $this->optionWriter = $optionWriter;
         $this->productOptionWriter = $ProductOptionWriter;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'Products Options';
     }
 
     /**

@@ -6,12 +6,12 @@ use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
 use Orm\Zed\Product\Persistence\SpyProduct;
 use Orm\Zed\Product\Persistence\SpyProductAttributesMetadataQuery;
 use Orm\Zed\Product\Persistence\SpyProductQuery;
-use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataPluginInstaller;
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller;
 use Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
 use Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToLocaleInterface;
 use Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToTouchInterface;
 
-class ProductAttributeMappingInstall extends AbstractDemoDataPluginInstaller
+class ProductAttributeMappingInstall extends AbstractDemoDataInstaller
 {
 
     /**
@@ -42,6 +42,14 @@ class ProductAttributeMappingInstall extends AbstractDemoDataPluginInstaller
         $this->operationManager = $operationManager;
         $this->localeFacade = $localeFacade;
         $this->touchFacade = $touchFacade;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'Products Attributes and MetaData';
     }
 
     /**

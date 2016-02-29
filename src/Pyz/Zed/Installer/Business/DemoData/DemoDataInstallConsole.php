@@ -36,10 +36,10 @@ class DemoDataInstallConsole extends Console
 
         $messenger = $this->getMessenger();
 
-        foreach ($installerPlugins as $installer) {
-            $installer->setMessenger($messenger);
-            $output->writeln('Importing... ' . get_class($installer));
-            $installer->install();
+        foreach ($installerPlugins as $plugin) {
+            $plugin->setMessenger($messenger);
+            $output->writeln('Importing... ' . $plugin->getTitle());
+            $plugin->install();
             $output->writeln('Done.');
         }
     }

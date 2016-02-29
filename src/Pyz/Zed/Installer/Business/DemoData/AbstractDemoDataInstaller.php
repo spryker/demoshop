@@ -6,13 +6,23 @@ use Psr\Log\AbstractLogger;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-abstract class AbstractDemoDataPluginInstaller extends AbstractLogger implements MessengerInterface
+abstract class AbstractDemoDataInstaller extends AbstractLogger implements MessengerInterface
 {
 
     /**
      * @var \Spryker\Zed\Messenger\Business\Model\MessengerInterface
      */
     protected $messenger;
+
+    /**
+     * @return void
+     */
+    abstract public function install();
+
+    /**
+     * @return string
+     */
+    abstract public function getTitle();
 
     /**
      * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
@@ -25,11 +35,6 @@ abstract class AbstractDemoDataPluginInstaller extends AbstractLogger implements
 
         return $this;
     }
-
-    /**
-     * @return void
-     */
-    abstract public function install();
 
     /**
      * Logs with an arbitrary level.

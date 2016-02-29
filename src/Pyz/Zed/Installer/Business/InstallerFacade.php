@@ -12,7 +12,7 @@ class InstallerFacade extends SprykerInstallerFacade implements InstallerFacadeI
 {
 
     /**
-     * @return \Spryker\Zed\Installer\Business\Model\AbstractInstaller[]
+     * @return \Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller[]
      */
     public function getDemoDataInstallerPlugins()
     {

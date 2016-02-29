@@ -827,7 +827,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\Installer\Business\Model\AbstractInstaller[]
+     * @return \Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller[]
      */
     public function getDemoDataInstallerPlugins()
     {

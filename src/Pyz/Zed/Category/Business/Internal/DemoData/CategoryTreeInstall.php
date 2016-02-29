@@ -4,7 +4,7 @@ namespace Pyz\Zed\Category\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
-use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataPluginInstaller;
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Zed\Category\Business\Model\CategoryWriter;
 use Spryker\Zed\Category\Business\Model\CategoryWriterInterface;
@@ -13,7 +13,7 @@ use Spryker\Zed\Category\Dependency\Facade\CategoryToLocaleInterface;
 use Spryker\Zed\Category\Dependency\Facade\CategoryToTouchInterface;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
 
-class CategoryTreeInstall extends AbstractDemoDataPluginInstaller
+class CategoryTreeInstall extends AbstractDemoDataInstaller
 {
 
     const IS_ROOT = 'is_root';
@@ -67,6 +67,14 @@ class CategoryTreeInstall extends AbstractDemoDataPluginInstaller
         $this->localeFacade = $localeFacade;
         $this->locale = $localeFacade->getCurrentLocale();
         $this->touchFacade = $touchFacade;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'Category Tree';
     }
 
     /**

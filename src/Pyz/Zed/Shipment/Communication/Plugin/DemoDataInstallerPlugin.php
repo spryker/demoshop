@@ -1,14 +1,13 @@
 <?php
 
-namespace Pyz\Zed\Cms\Communication\Plugin;
+namespace Pyz\Zed\Shipment\Communication\Plugin;
 
 use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 
 /**
- * @method \Pyz\Zed\Cms\Communication\CmsCommunicationFactory getFactory()
- * @method \Pyz\Zed\Cms\Business\CmsFacade getFacade()
+ * @method \Pyz\Zed\Shipment\Business\ShipmentFacade getFacade()
  */
-class DemoDataInstaller extends AbstractInstallerPlugin
+class DemoDataInstallerPlugin extends AbstractInstallerPlugin
 {
 
     /**

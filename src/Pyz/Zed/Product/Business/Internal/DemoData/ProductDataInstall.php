@@ -6,13 +6,13 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
-use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataPluginInstaller;
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller;
 use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
 use Spryker\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface;
 use Spryker\Zed\Product\Business\Product\ProductManagerInterface;
 use Spryker\Zed\Product\Dependency\Facade\ProductToLocaleInterface;
 
-class ProductDataInstall extends AbstractDemoDataPluginInstaller
+class ProductDataInstall extends AbstractDemoDataInstaller
 {
 
     const PRODUCT_ABSTRACT = 'product_abstract';
@@ -79,6 +79,14 @@ class ProductDataInstall extends AbstractDemoDataPluginInstaller
         $this->localeFacade = $localeFacade;
         $this->fileReader = $fileReader;
         $this->filePath = $filePath;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'Products';
     }
 
     /**

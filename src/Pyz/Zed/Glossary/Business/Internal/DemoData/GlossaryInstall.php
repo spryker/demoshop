@@ -6,9 +6,9 @@
 
 namespace Pyz\Zed\Glossary\Business\Internal\DemoData;
 
-use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataPluginInstaller;
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller;
 
-class GlossaryInstall extends AbstractDemoDataPluginInstaller
+class GlossaryInstall extends AbstractDemoDataInstaller
 {
 
     /**
@@ -22,6 +22,14 @@ class GlossaryInstall extends AbstractDemoDataPluginInstaller
     public function __construct(array $installers)
     {
         $this->installers = $installers;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'Glossary';
     }
 
     /**

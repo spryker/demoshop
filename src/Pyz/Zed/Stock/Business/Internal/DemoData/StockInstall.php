@@ -4,13 +4,13 @@ namespace Pyz\Zed\Stock\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\StockProductTransfer;
 use Generated\Shared\Transfer\TypeTransfer;
-use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataPluginInstaller;
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller;
 use Spryker\Zed\Library\Import\Reader\CsvFileReader;
 use Spryker\Zed\Stock\Business\Model\ReaderInterface;
 use Spryker\Zed\Stock\Business\Model\WriterInterface;
 use Spryker\Zed\Stock\Persistence\StockQueryContainer;
 
-class StockInstall extends AbstractDemoDataPluginInstaller
+class StockInstall extends AbstractDemoDataInstaller
 {
 
     const SKU = 'sku';
@@ -51,6 +51,14 @@ class StockInstall extends AbstractDemoDataPluginInstaller
         $this->reader = $reader;
         $this->writer = $writer;
         $this->queryContainer = $queryContainer;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'Stock';
     }
 
     /**

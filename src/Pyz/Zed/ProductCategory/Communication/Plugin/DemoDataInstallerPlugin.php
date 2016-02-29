@@ -8,7 +8,7 @@ use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
  * @method \Spryker\Zed\ProductCategory\Communication\ProductCategoryCommunicationFactory getFactory()
  * @method \Pyz\Zed\ProductCategory\Business\ProductCategoryFacade getFacade()
  */
-class DemoDataInstaller extends AbstractInstallerPlugin
+class DemoDataInstallerPlugin extends AbstractInstallerPlugin
 {
 
     /**
