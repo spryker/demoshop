@@ -17,7 +17,7 @@
                 <div class="col-sm-12 col-md-6">
                     <div class="panel">
                         <div class="panel-heading">
-                            <a class="pull-right" href="{{ url('customer/profile') }}">{{ 'edit' | trans }}</a>
+                            <a class="pull-right" href="{{ url('customer/profile') }}">{{ 'customer.profile.address.edit' | trans }}</a>
                             <h3>{{ 'customer.account.profile_data' | trans }}</h3>
                         </div>
                         <div class="panel-body">
@@ -31,7 +31,7 @@
                 <div class="col-sm-12 col-md-6">
                     <div class="panel">
                         <div class="panel-heading">
-                            <a class="pull-right" href="{{ url('customer/newsletter') }}">{{ 'edit' | trans }}</a>
+                            <a class="pull-right" href="{{ url('customer/newsletter') }}">{{ 'customer.profile.address.edit' | trans }}</a>
                             <h3>{{ 'customer.account.newsletter' | trans }}</h3>
                         </div>
                         <div class="panel-body">
@@ -54,7 +54,7 @@
                     <div class="panel">
                         <div class="panel-heading">
                             {% if addresses.billing is defined %}
-                            <a class="pull-right" href="{{ url('customer/address/update', {'id': addresses.billing.idCustomerAddress}) }}">{{ 'edit' | trans }}</a>
+                            <a class="pull-right" href="{{ url('customer/address/update', {'id': addresses.billing.idCustomerAddress}) }}">{{ 'page.checkout.address.edit' | trans }}</a>
                             {% endif %}
                             <h3>{{ 'customer.account.default_billing_address' | trans }}</h3>
                         </div>
@@ -75,7 +75,7 @@
                     <div class="panel">
                         <div class="panel-heading">
                             {% if addresses.shipping is defined %}
-                            <a class="pull-right" href="{{ url('customer/address/update', {'id': addresses.shipping.idCustomerAddress}) }}">{{ 'edit' | trans }}</a>
+                            <a class="pull-right" href="{{ url('customer/address/update', {'id': addresses.shipping.idCustomerAddress}) }}">{{ 'page.checkout.address.edit' | trans }}</a>
                             {% endif %}
                             <h3>{{ 'customer.account.default_shipping_address' | trans }}</h3>
                         </div>
