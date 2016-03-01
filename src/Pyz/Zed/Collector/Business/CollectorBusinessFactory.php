@@ -285,10 +285,10 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     protected function createCriteriaBuilder()
     {
-        $Container = new \Everon\Component\Factory\Dependency\Container();
-        $Factory = new \Everon\Component\Factory\Factory($Container);
+        $container = new \Everon\Component\Factory\Dependency\Container();
+        $factory = new \Everon\Component\Factory\Factory($container);
 
-        return $Factory
+        return $factory
             ->getWorkerByName('CriteriaBuilder', 'Everon\Component\CriteriaBuilder')
             ->buildCriteriaBuilder();
     }

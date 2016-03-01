@@ -127,7 +127,6 @@ class ProductCollector extends AbstractKeyValuePdoCollector
 
         $result = [];
         $query = SpyPriceProductQuery::create()
-            //->leftJoinSpyProductAbstract()
             ->joinProduct('productConcreteJoin')
             ->joinPriceType()
             ->withColumn(SpyPriceTypeTableMap::COL_NAME, 'price_name')
@@ -168,15 +167,7 @@ class ProductCollector extends AbstractKeyValuePdoCollector
      */
     protected function getCategories($idProductAbstract)
     {
-        $categoryMappings = $this->productCategoryQueryContainer
-            ->queryLocalizedProductCategoryMappingByIdProduct($idProductAbstract)
-            ->innerJoinSpyCategory()
-            ->addAnd(
-                SpyCategoryTableMap::COL_IS_ACTIVE,
-                true,
-                Criteria::EQUAL
-            )
-            ->find();
+        $categoryMappings = $this->getCategoryMappings($idProductAbstract);
 
         $nodeIds = [];
         $categories = [];
@@ -189,16 +180,12 @@ class ProductCollector extends AbstractKeyValuePdoCollector
                 $pathTokens = $queryPath->find();
 
                 foreach ($pathTokens as $pathItem) {
-                    $nodeId = $pathItem['id_category_node'];
-                    $name = $pathItem['name'];
+                    $idNode = (int) $pathItem['id_category_node'];
+                    $url = $this->generateUrl($idNode);
 
-                    $urlQuery = $this->categoryQueryContainer->queryUrlByIdCategoryNode($nodeId);
-                    $url = $urlQuery->findOne();
-                    $url = ($url) ? $url->getUrl() : null;
-
-                    $categories[$nodeId] = [
-                        'node_id' => $nodeId,
-                        'name' => $name,
+                    $categories[$idNode] = [
+                        'node_id' => $idNode,
+                        'name' => $pathItem['name'],
                         'url' => $url,
                     ];
                 }
@@ -206,6 +193,36 @@ class ProductCollector extends AbstractKeyValuePdoCollector
         }
 
         return $categories;
+    }
+
+    /**
+     * @param int $idProductAbstract
+     *
+     * @return \Orm\Zed\ProductCategory\Persistence\SpyProductCategory[]|\Propel\Runtime\Collection\ObjectCollection
+     */
+    protected function getCategoryMappings($idProductAbstract)
+    {
+        return $this->productCategoryQueryContainer
+            ->queryLocalizedProductCategoryMappingByIdProduct($idProductAbstract)
+            ->innerJoinSpyCategory()
+            ->addAnd(
+                SpyCategoryTableMap::COL_IS_ACTIVE,
+                true,
+                Criteria::EQUAL
+            )
+            ->find();
+    }
+
+    /**
+     * @param int $idNode
+     *
+     * @return null|string
+     */
+    protected function generateUrl($idNode)
+    {
+        $urlQuery = $this->categoryQueryContainer->queryUrlByIdCategoryNode($idNode);
+        $url = $urlQuery->findOne();
+        return ($url) ? $url->getUrl() : null;
     }
 
     /**

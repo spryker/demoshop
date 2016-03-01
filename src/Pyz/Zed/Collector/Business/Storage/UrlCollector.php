@@ -9,6 +9,10 @@ use Spryker\Zed\Url\UrlConfig;
 class UrlCollector extends AbstractKeyValuePdoCollector
 {
 
+    const FK_RESOURCE_ = 'fk_resource_';
+    const RESOURCE_TYPE = 'resourceType';
+    const VALUE = 'value';
+
     /**
      * @var int
      */
@@ -27,7 +31,7 @@ class UrlCollector extends AbstractKeyValuePdoCollector
 
         return [
             'reference_key' => $referenceKey,
-            'type' => $resourceArguments['resourceType'],
+            'type' => $resourceArguments[self::RESOURCE_TYPE],
         ];
     }
 
@@ -59,19 +63,30 @@ class UrlCollector extends AbstractKeyValuePdoCollector
     protected function findResourceArguments(array &$url)
     {
         foreach ($url as $columnName => $value) {
-            if ($value === null || strpos($columnName, 'fk_resource_') !== 0) {
+            if ($this->isFkResourceUrl($columnName, $value)) {
                 continue;
             }
 
-            $resourceType = str_replace('fk_resource_', '', $columnName);
+            $resourceType = str_replace(self::FK_RESOURCE_, '', $columnName);
 
             return [
-                'resourceType' => $resourceType,
-                'value' => $value,
+                self::RESOURCE_TYPE => $resourceType,
+                self::VALUE => $value,
             ];
         }
 
         return false;
+    }
+
+    /**
+     * @param string $columnName
+     * @param string $value
+     *
+     * @return bool
+     */
+    protected function isFkResourceUrl($columnName, $value)
+    {
+        return $value === null || strpos($columnName, self::FK_RESOURCE_) !== 0;
     }
 
     /**
@@ -86,7 +101,7 @@ class UrlCollector extends AbstractKeyValuePdoCollector
             Store::getInstance()->getStoreName(),
             $localeName,
             'resource',
-            $data['resourceType'] . '.' . $data['value'],
+            $data[self::RESOURCE_TYPE] . '.' . $data[self::VALUE],
         ];
 
         return $this->escapeKey(implode($this->keySeparator, $keyParts));
