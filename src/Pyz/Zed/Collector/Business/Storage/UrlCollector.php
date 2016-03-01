@@ -12,6 +12,8 @@ class UrlCollector extends AbstractKeyValuePdoCollector
     const FK_RESOURCE_ = 'fk_resource_';
     const RESOURCE_TYPE = 'resourceType';
     const VALUE = 'value';
+    const TYPE = 'type';
+    const REFERENCE_KEY = 'reference_key';
 
     /**
      * @var int
@@ -30,8 +32,8 @@ class UrlCollector extends AbstractKeyValuePdoCollector
         $referenceKey = $this->generateResourceKey($resourceArguments, $this->locale->getLocaleName());
 
         return [
-            'reference_key' => $referenceKey,
-            'type' => $resourceArguments[self::RESOURCE_TYPE],
+            self::REFERENCE_KEY => $referenceKey,
+            self::TYPE => $resourceArguments[self::RESOURCE_TYPE],
         ];
     }
 
@@ -63,7 +65,7 @@ class UrlCollector extends AbstractKeyValuePdoCollector
     protected function findResourceArguments(array &$url)
     {
         foreach ($url as $columnName => $value) {
-            if ($this->isFkResourceUrl($columnName, $value)) {
+            if (!$this->isFkResourceUrl($columnName, $value)) {
                 continue;
             }
 

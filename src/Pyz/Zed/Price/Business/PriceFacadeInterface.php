@@ -7,8 +7,9 @@
 namespace Pyz\Zed\Price\Business;
 
 use Psr\Log\LoggerInterface;
+use Spryker\Zed\Price\Business\PriceFacadeInterface as SprykerPriceFacadeInterface;
 
-interface PriceFacadeInterface
+interface PriceFacadeInterface extends SprykerPriceFacadeInterface
 {
 
     /**

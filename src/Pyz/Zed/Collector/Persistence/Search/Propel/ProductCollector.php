@@ -16,27 +16,27 @@ use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\Join;
-use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
+use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Collector\Persistence\Exporter\AbstractPropelCollectorQuery;
 
 class ProductCollector extends AbstractPropelCollectorQuery
 {
 
     /**
-     * @var CategoryQueryContainer
+     * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
      */
     protected $categoryQueryContainer;
 
     /**
-     * @param CategoryQueryContainer $categoryQueryContainer
+     * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
      */
-    public function __construct(CategoryQueryContainer $categoryQueryContainer)
+    public function __construct(CategoryQueryContainerInterface $categoryQueryContainer)
     {
         $this->categoryQueryContainer = $categoryQueryContainer;
     }
 
     /**
-     * @return CategoryQueryContainer
+     * @return \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
      */
     public function getCategoryQueryContainer()
     {
@@ -44,9 +44,9 @@ class ProductCollector extends AbstractPropelCollectorQuery
     }
 
     /**
-     * @param CategoryQueryContainer $categoryQueryContainer
+     * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
      */
-    public function setCategoryQueryContainer($categoryQueryContainer)
+    public function setCategoryQueryContainer(CategoryQueryContainerInterface $categoryQueryContainer)
     {
         $this->categoryQueryContainer = $categoryQueryContainer;
     }
@@ -224,6 +224,7 @@ class ProductCollector extends AbstractPropelCollectorQuery
         $baseQuery = $this->categoryQueryContainer->joinCategoryQueryWithParentCategories($baseQuery, $excludeDirectParent, $excludeRoot);
         $baseQuery = $this->categoryQueryContainer->joinLocalizedRelatedCategoryQueryWithAttributes($baseQuery, 'categoryParents', 'parent');
         $baseQuery = $this->categoryQueryContainer->joinRelatedCategoryQueryWithUrls($baseQuery, 'categoryParents', 'parent');
+
         $baseQuery->withColumn(
             'GROUP_CONCAT(DISTINCT spy_category_node.id_category_node)',
             'node_id'

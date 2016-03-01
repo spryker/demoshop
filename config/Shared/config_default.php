@@ -40,7 +40,7 @@ $config[ApplicationConstants::ZED_DB_ENGINE_MYSQL] = 'mysql';
 $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL] = 'pgsql';
 $config[ApplicationConstants::ZED_DB_SUPPORTED_ENGINES] = [
     $config[ApplicationConstants::ZED_DB_ENGINE_MYSQL] => 'MySql',
-    $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL] => 'PostgreSql',
+    $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL] => 'PostgreSql'
 ];
 
 $config[ApplicationConstants::PROPEL] = [

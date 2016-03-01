@@ -5,37 +5,43 @@ namespace Pyz\Zed\Collector\Business\Search;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Zed\Collector\CollectorConfig;
 use Pyz\Zed\ProductSearch\Business\ProductSearchFacade;
+use Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
+use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPdoCollector;
 use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
 use Spryker\Zed\Price\Persistence\PriceQueryContainer;
+use Spryker\Zed\Price\Persistence\PriceQueryContainerInterface;
 
 class ProductCollector extends AbstractSearchPdoCollector
 {
 
     /**
-     * @var \Spryker\Zed\Price\Persistence\PriceQueryContainer
+     * @var \Spryker\Zed\Price\Persistence\PriceQueryContainerInterface
      */
     protected $priceQueryContainer;
 
     /**
-     * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainer
+     * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
      */
     protected $categoryQueryContainer;
 
     /**
-     * @var \Pyz\Zed\ProductSearch\Business\ProductSearchFacade
+     * @var \Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface
      */
     protected $productSearchFacade;
 
     /**
-     * @param \Spryker\Zed\Price\Persistence\PriceQueryContainer $priceQueryContainer
-     * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainer $categoryQueryContainer
-     * @param \Pyz\Zed\ProductSearch\Business\ProductSearchFacade $productSearchFacade
+     * @param \Spryker\Zed\Price\Persistence\PriceQueryContainerInterface $priceQueryContainer
+     * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
+     * @param \Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface $productSearchFacade
      */
-    public function __construct(PriceQueryContainer $priceQueryContainer, CategoryQueryContainer $categoryQueryContainer, ProductSearchFacade $productSearchFacade)
-    {
+    public function __construct(
+        PriceQueryContainerInterface $priceQueryContainer,
+        CategoryQueryContainerInterface $categoryQueryContainer,
+        ProductSearchFacadeInterface $productSearchFacade
+    ) {
         $this->priceQueryContainer = $priceQueryContainer;
         $this->categoryQueryContainer = $categoryQueryContainer;
         $this->productSearchFacade = $productSearchFacade;
@@ -63,7 +69,7 @@ class ProductCollector extends AbstractSearchPdoCollector
     /**
      * @param array $collectedSet
      * @param \Generated\Shared\Transfer\LocaleTransfer $locale
-     * @param TouchUpdaterSet $touchUpdaterSet
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet $touchUpdaterSet
      *
      * @return array
      */
