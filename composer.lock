@@ -779,7 +779,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "05c7ee862d925b8ff0ce6a4ec01c1369b21e6270"
+                "reference": "e0e077530555e0becd6b1343e824d2f5a4ad39a2"
             },
             "require": {
                 "phpdocumentor/graphviz": "dev-master#a906a90"
@@ -803,6 +803,8 @@
                     "Unit\\Spryker\\Yves\\Application\\": "Bundles/Application/tests",
                     "Spryker\\Zed\\Application\\": "Bundles/Application/src",
                     "Unit\\Spryker\\Zed\\Application\\": "Bundles/Application/tests",
+                    "Spryker\\Zed\\Assertion\\": "Bundles/Assertion/src",
+                    "Unit\\Spryker\\Zed\\Assertion\\": "Bundles/Assertion/tests",
                     "Spryker\\Client\\Auth\\": "Bundles/Auth/src",
                     "Unit\\Spryker\\Client\\Auth\\": "Bundles/Auth/tests",
                     "Functional\\Spryker\\Client\\Auth\\": "Bundles/Auth/tests",
@@ -1235,7 +1237,8 @@
                     "Testify\\Module\\": "Bundles/Testify/tests/_support/Module",
                     "Propel\\Module\\": "Bundles/Propel/tests/_support/Module",
                     "Config\\Module\\": "Bundles/Config/tests/_support/Module",
-                    "Transfer\\Module\\": "Bundles/Transfer/tests/_support/Module"
+                    "Transfer\\Module\\": "Bundles/Transfer/tests/_support/Module",
+                    "Application\\Module\\": "Bundles/Application/tests/_support/Module"
                 },
                 "files": [
                     "Bundles/Config/src/Spryker/Shared/Config.php"
@@ -1245,7 +1248,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-02-29 06:31:39"
+            "time": "2016-03-01 11:57:32"
         },
         {
             "name": "symfony-cmf/routing",

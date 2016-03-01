@@ -23,6 +23,7 @@ class Error404Controller extends AbstractController
     {
         return $this->viewResponse([
             'error' => $this->getErrorMessage($request),
+            'hideUserMenu' => true,
         ]);
     }
 
