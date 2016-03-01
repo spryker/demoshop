@@ -111,6 +111,7 @@ class SessionServiceProvider extends AbstractServiceProvider
         $sessionStorageOptions = [
             'cookie_httponly' => true,
             'cookie_lifetime' => Config::get(ApplicationConstants::YVES_STORAGE_SESSION_TIME_TO_LIVE),
+            'cookie_secure' => Config::get(ApplicationConstants::YVES_COOKIE_SECURE, true),
         ];
 
         $name = Config::get(ApplicationConstants::YVES_SESSION_NAME);
