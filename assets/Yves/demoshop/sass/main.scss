@@ -23,6 +23,13 @@
 @import 'components/catalog-filters';
 @import 'components/main-nav';
 
+@import 'spryker/common';
+@import 'spryker/labels';
+@import 'spryker/grid';
+@import 'spryker/forms';
+@import 'spryker/panels';
+@import 'spryker/tables';
+
 @import 'layout/header';
 @import 'layout/footer';
 @import 'layout/homepage';
