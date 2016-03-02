@@ -10,7 +10,7 @@ namespace Pyz\Zed\Collector\Business\Storage;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
-use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
+use Spryker\Zed\Collector\Business\Exporter\Writer\Storage\TouchUpdaterSet;
 use Spryker\Zed\Collector\CollectorConfig;
 
 class NavigationCollector extends AbstractStoragePdoCollector
@@ -19,7 +19,7 @@ class NavigationCollector extends AbstractStoragePdoCollector
     /**
      * @param array $collectedSet
      * @param \Generated\Shared\Transfer\LocaleTransfer $locale
-     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet $touchUpdaterSet
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\Storage\TouchUpdaterSet $touchUpdaterSet
      *
      * @return array
      */

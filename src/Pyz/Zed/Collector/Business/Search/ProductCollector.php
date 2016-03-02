@@ -13,7 +13,7 @@ use Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPdoCollector;
-use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
+use Spryker\Zed\Collector\Business\Exporter\Writer\Storage\TouchUpdaterSet;
 use Spryker\Zed\Price\Persistence\PriceQueryContainerInterface;
 
 class ProductCollector extends AbstractSearchPdoCollector
@@ -71,7 +71,7 @@ class ProductCollector extends AbstractSearchPdoCollector
     /**
      * @param array $collectedSet
      * @param \Generated\Shared\Transfer\LocaleTransfer $locale
-     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet $touchUpdaterSet
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\Storage\TouchUpdaterSet $touchUpdaterSet
      *
      * @return array
      */
