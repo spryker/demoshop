@@ -1,8 +1,5 @@
 /**
- * 
  * Demoshop theme comfiguration
- * @copyright: Spryker Systems GmbH
- *
  */
 
 'use strict';

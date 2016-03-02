@@ -1,8 +1,5 @@
 /**
- * 
  * Default theme comfiguration
- * @copyright: Spryker Systems GmbH
- *
  */
 
 'use strict';

@@ -1,8 +1,5 @@
 /**
- * 
- * description_here
- * @copyright: Spryker Systems GmbH
- *
+ * Default theme entry point
  */
 
 'use strict';
