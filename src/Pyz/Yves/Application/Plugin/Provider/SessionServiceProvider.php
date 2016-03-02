@@ -137,7 +137,6 @@ class SessionServiceProvider extends AbstractServiceProvider
     {
         $sessionHelper = new SessionFactory();
 
-        // We manually register our own couchbase session handler, for all other handlers we use the generic one
         switch ($saveHandler) {
             case SessionConstants::SESSION_HANDLER_COUCHBASE:
                 $couchbaseSessionHandler = $sessionHelper->registerCouchbaseSessionHandler($this->getSavePath($saveHandler));
