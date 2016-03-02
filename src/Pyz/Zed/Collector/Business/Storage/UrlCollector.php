@@ -63,13 +63,13 @@ class UrlCollector extends AbstractKeyValuePdoCollector
     }
 
     /**
-     * @param array $url
+     * @param array $data
      *
      * @return array
      */
-    protected function findResourceArguments(array &$url)
+    protected function findResourceArguments(array $data)
     {
-        foreach ($url as $columnName => $value) {
+        foreach ($data as $columnName => $value) {
             if (!$this->isFkResourceUrl($columnName, $value)) {
                 continue;
             }
@@ -93,7 +93,7 @@ class UrlCollector extends AbstractKeyValuePdoCollector
      */
     protected function isFkResourceUrl($columnName, $value)
     {
-        return $value === null || strpos($columnName, self::FK_RESOURCE_) !== 0;
+        return $value !== null && strpos($columnName, self::FK_RESOURCE_) === 0;
     }
 
     /**
