@@ -8,9 +8,9 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Spryker\Shared\Cms\CmsConstants;
-use Spryker\Zed\Collector\Business\Collector\KeyValue\AbstractKeyValuePropelCollector;
+use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollector;
 
-class PageCollector extends AbstractKeyValuePropelCollector
+class PageCollector extends AbstractStoragePropelCollector
 {
 
     /**

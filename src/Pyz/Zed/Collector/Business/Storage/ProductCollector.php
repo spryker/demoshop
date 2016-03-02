@@ -17,10 +17,10 @@ use Pyz\Zed\Collector\CollectorConfig;
 use Pyz\Zed\Price\Business\PriceFacadeInterface;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
-use Spryker\Zed\Collector\Business\Collector\KeyValue\AbstractKeyValuePdoCollector;
+use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
 use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface;
 
-class ProductCollector extends AbstractKeyValuePdoCollector
+class ProductCollector extends AbstractStoragePdoCollector
 {
 
     /**

@@ -7,9 +7,9 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
-use Spryker\Zed\Collector\Business\Collector\KeyValue\AbstractKeyValuePropelCollector;
+use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollector;
 
-class TranslationCollector extends AbstractKeyValuePropelCollector
+class TranslationCollector extends AbstractStoragePropelCollector
 {
 
     /**

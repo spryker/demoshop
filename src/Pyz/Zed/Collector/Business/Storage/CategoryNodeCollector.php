@@ -8,10 +8,10 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Spryker\Shared\Category\CategoryConstants;
-use Spryker\Zed\Collector\Business\Collector\KeyValue\AbstractKeyValuePdoCollector;
+use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
 use Spryker\Zed\Collector\CollectorConfig;
 
-class CategoryNodeCollector extends AbstractKeyValuePdoCollector
+class CategoryNodeCollector extends AbstractStoragePdoCollector
 {
 
     /**

@@ -8,10 +8,10 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Spryker\Shared\Kernel\Store;
-use Spryker\Zed\Collector\Business\Collector\KeyValue\AbstractKeyValuePdoCollector;
+use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
 use Spryker\Zed\Url\UrlConfig;
 
-class UrlCollector extends AbstractKeyValuePdoCollector
+class UrlCollector extends AbstractStoragePdoCollector
 {
 
     const FK_RESOURCE_ = 'fk_resource_';

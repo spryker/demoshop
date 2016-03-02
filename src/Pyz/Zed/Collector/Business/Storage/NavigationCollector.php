@@ -9,11 +9,11 @@ namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Spryker\Shared\Category\CategoryConstants;
-use Spryker\Zed\Collector\Business\Collector\KeyValue\AbstractKeyValuePdoCollector;
+use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
 use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
 use Spryker\Zed\Collector\CollectorConfig;
 
-class NavigationCollector extends AbstractKeyValuePdoCollector
+class NavigationCollector extends AbstractStoragePdoCollector
 {
 
     /**
