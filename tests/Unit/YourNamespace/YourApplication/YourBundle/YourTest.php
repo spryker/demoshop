@@ -16,6 +16,3 @@ class YourTest extends Test
     }
 
 }
-
-
-
