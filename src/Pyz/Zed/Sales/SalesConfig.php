@@ -40,11 +40,10 @@ class SalesConfig extends SprykerSalesConfig
     {
         $projectExternalBlocks = [
 //            'totals' => '',   TODO
-//            'payments' => '', TODO
-//            'shipment' => '', TODO
+            'payments' => '/payment/sales/list',
+            'shipment' => '/shipment/sales/list',
             'discount' => '/discount/sales/list',
-//            'address' => '',  TODO
-//            'refunds' => '',  TODO
+            'refunds' => '/refund/sales/list',
         ];
 
         $externalBlocks = parent::getSalesDetailExternalBlocksUrls();
