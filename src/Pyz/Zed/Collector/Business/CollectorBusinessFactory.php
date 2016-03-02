@@ -215,7 +215,9 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStoragePdoQueryAdapterByName($name)
     {
-        $classList = $this->getConfig()->getStoragePdoQueryAdapterClassNames();
+        $classList = $this->getConfig()->getStoragePdoQueryAdapterClassNames(
+            $this->getCurrentDatabaseEngineName()
+        );
         if (!array_key_exists($name, $classList)) {
             throw new \Exception('Invalid StoragePdoQueryAdapter name: '.$name);
         }
@@ -233,7 +235,9 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createSearchPdoQueryAdapterByName($name)
     {
-        $classList = $this->getConfig()->getSearchPdoQueryAdapterClassNames();
+        $classList = $this->getConfig()->getSearchPdoQueryAdapterClassNames(
+            $this->getCurrentDatabaseEngineName()
+        );
         if (!array_key_exists($name, $classList)) {
             throw new \Exception('Invalid SearchPdoQueryAdapter name: '.$name);
         }
@@ -341,6 +345,22 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     protected function getPriceFacade()
     {
         return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRICE);
+    }
+
+    /**
+     * @return \Spryker\Zed\Propel\Business\PropelFacadeInterface
+     */
+    protected function getPropelFacade()
+    {
+        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PROPEL);
+    }
+
+    /**
+     * @return string
+     */
+    protected function getCurrentDatabaseEngineName()
+    {
+        return $this->getPropelFacade()->getCurrentDatabaseEngineName();
     }
 
 }

@@ -7,36 +7,16 @@
 
 namespace Pyz\Zed\Collector;
 
-use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Zed\Collector\CollectorConfig as SprykerCollectorConfig;
 
 class CollectorConfig extends SprykerCollectorConfig
 {
 
     /**
-     * @throws \UnexpectedValueException
-     *
-     * @return string
-     */
-    public function getCurrentDatabaseEngineName()
-    {
-        $dbEngine = $this->get(ApplicationConstants::ZED_DB_ENGINE);
-        $supportedEngines = $this->get(ApplicationConstants::ZED_DB_SUPPORTED_ENGINES);
-
-        if (!array_key_exists($dbEngine, $supportedEngines)) {
-            throw new \UnexpectedValueException('Unsupported database engine: ' . $dbEngine);
-        }
-
-        return $supportedEngines[$dbEngine];
-    }
-
-    /**
      * @return array
      */
-    public function getStoragePdoQueryAdapterClassNames()
+    public function getStoragePdoQueryAdapterClassNames($dbEngineName)
     {
-        $engine = $this->getCurrentDatabaseEngineName();
-
         $data = [
             'MySql' => [
 
@@ -49,16 +29,14 @@ class CollectorConfig extends SprykerCollectorConfig
             ]
         ];
 
-        return $data[$engine];
+        return $data[$dbEngineName];
     }
 
     /**
      * @return array
      */
-    public function getSearchPdoQueryAdapterClassNames()
+    public function getSearchPdoQueryAdapterClassNames($dbEngineName)
     {
-        $engine = $this->get(ApplicationConstants::ZED_DB_ENGINE);
-
         $data = [
             'MySql' => [
 
@@ -68,7 +46,7 @@ class CollectorConfig extends SprykerCollectorConfig
             ]
         ];
 
-        return $data[$engine];
+        return $data[$dbEngineName];
     }
 
 }

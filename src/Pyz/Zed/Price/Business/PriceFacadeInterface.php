@@ -7,15 +7,17 @@
 
 namespace Pyz\Zed\Price\Business;
 
-use Psr\Log\LoggerInterface;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\Price\Business\PriceFacadeInterface as SprykerPriceFacadeInterface;
 
 interface PriceFacadeInterface extends SprykerPriceFacadeInterface
 {
 
     /**
-     * @param \Psr\Log\LoggerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
+     *
+     * @return void
      */
-    public function installDemoData(LoggerInterface $messenger);
+    public function installDemoData(MessengerInterface $messenger);
 
 }

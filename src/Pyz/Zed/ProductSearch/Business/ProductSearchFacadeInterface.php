@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\ProductSearch\Business;
 
-use Psr\Log\LoggerInterface;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface as SprykerProductSearchFacadeInterface;
 
 interface ProductSearchFacadeInterface extends SprykerProductSearchFacadeInterface
@@ -22,8 +22,10 @@ interface ProductSearchFacadeInterface extends SprykerProductSearchFacadeInterfa
     public function buildProductKey($data, $locale);
 
     /**
-     * @param \Psr\Log\LoggerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
+     *
+     * @return void
      */
-    public function installDemoData(LoggerInterface $messenger);
+    public function installDemoData(MessengerInterface $messenger);
 
 }
