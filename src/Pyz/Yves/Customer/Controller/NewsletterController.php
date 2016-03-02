@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Customer\Controller;
 
 use Generated\Shared\Transfer\CustomerTransfer;
@@ -38,7 +43,7 @@ class NewsletterController extends AbstractCustomerController
         }
 
         if ($newsletterForm->isValid()) {
-            $subscribe = (bool) $newsletterForm->get(NewsletterSubscriptionForm::FIELD_SUBSCRIBE)->getData();
+            $subscribe = (bool)$newsletterForm->get(NewsletterSubscriptionForm::FIELD_SUBSCRIBE)->getData();
             $this->processSubscriptionForm($subscribe, $customerTransfer);
 
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_NEWSLETTER);

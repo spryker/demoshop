@@ -1,9 +1,15 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\ProductOption\Business;
 
-use Spryker\Zed\ProductOption\Business\ProductOptionFacade as SprykerProductOptionFacade;
 use Psr\Log\LoggerInterface;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
+use Spryker\Zed\ProductOption\Business\ProductOptionFacade as SprykerProductOptionFacade;
 
 /**
  * @method \Pyz\Zed\ProductOption\Business\ProductOptionBusinessFactory getFactory()
@@ -12,11 +18,11 @@ class ProductOptionFacade extends SprykerProductOptionFacade implements ProductO
 {
 
     /**
-     * @param \Psr\Log\LoggerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
-     * @return \Pyz\Zed\ProductOption\Business\Internal\DemoData\ProductOptionDataInstall
+     * @return void
      */
-    public function installDemoData(LoggerInterface $messenger)
+    public function installDemoData(MessengerInterface $messenger)
     {
         $this->getFactory()->createDemoDataInstaller($messenger)->install();
     }

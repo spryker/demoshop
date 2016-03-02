@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer;
 
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader\ProductReaderInterface;
@@ -34,12 +39,17 @@ class ProductOptionWriter implements WriterInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface $visitor
+     *
+     * @return void
      */
     private function addVisitor(ProductVisitorInterface $visitor)
     {
         $this->visitors[] = $visitor;
     }
 
+    /**
+     * @return void
+     */
     public function write()
     {
         foreach ($this->reader->getProducts() as $product) {
@@ -53,6 +63,8 @@ class ProductOptionWriter implements WriterInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\VisitableProductInterface $visitee
+     *
+     * @return void
      */
     private function visit($visitee)
     {
@@ -63,6 +75,8 @@ class ProductOptionWriter implements WriterInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface $visitor
+     *
+     * @return void
      */
     public function executeQueuedCommands($visitor)
     {

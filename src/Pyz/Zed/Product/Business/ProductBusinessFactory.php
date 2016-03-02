@@ -1,22 +1,27 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Product\Business;
 
+use Pyz\Zed\Product\Business\Internal\DemoData\ProductDataInstall;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
-use Spryker\Zed\Product\Business\Product\ProductManager;
 use Spryker\Zed\Product\Business\Attribute\AttributeManager;
-use Spryker\Zed\Product\Business\Internal\Install;
-use Spryker\Zed\Product\Business\Model\ProductBatchResult;
-use Spryker\Zed\Product\Business\Importer\Writer\Db\ProductConcreteWriter;
-use Spryker\Zed\Product\Business\Importer\Writer\Db\ProductAbstractWriter;
-use Spryker\Zed\Product\Business\Importer\Writer\ProductWriter;
+use Spryker\Zed\Product\Business\Builder\SimpleAttributeMergeBuilder;
 use Spryker\Zed\Product\Business\Importer\Builder\ProductBuilder;
+use Spryker\Zed\Product\Business\Importer\FileImporter;
 use Spryker\Zed\Product\Business\Importer\Reader\File\CsvReader;
 use Spryker\Zed\Product\Business\Importer\Validator\ImportProductValidator;
-use Spryker\Zed\Product\Business\Importer\FileImporter;
-use Spryker\Zed\Product\Business\Builder\SimpleAttributeMergeBuilder;
+use Spryker\Zed\Product\Business\Importer\Writer\Db\ProductAbstractWriter;
+use Spryker\Zed\Product\Business\Importer\Writer\Db\ProductConcreteWriter;
+use Spryker\Zed\Product\Business\Importer\Writer\ProductWriter;
+use Spryker\Zed\Product\Business\Internal\Install;
+use Spryker\Zed\Product\Business\Model\ProductBatchResult;
 use Spryker\Zed\Product\Business\ProductBusinessFactory as SprykerBusinessFactory;
-use Pyz\Zed\Product\Business\Internal\DemoData\ProductDataInstall;
+use Spryker\Zed\Product\Business\Product\ProductManager;
 
 /**
  * @method \Pyz\Zed\Product\ProductConfig getConfig()

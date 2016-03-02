@@ -5,8 +5,8 @@
  */
 
 use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Payone\PayoneConstants;
+use Spryker\Shared\Session\SessionConstants;
 
 $config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
 $config[ApplicationConstants::ZED_DB_USERNAME] = 'development';
@@ -34,3 +34,5 @@ $config[PayoneConstants::PAYONE] = [
 
 $config[ApplicationConstants::JENKINS_BASE_URL] = 'http://' . $config[ApplicationConstants::HOST_ZED_GUI] . ':10007/jenkins';
 $config[ApplicationConstants::JENKINS_DIRECTORY] = '/data/shop/development/shared/data/common/jenkins';
+
+$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';

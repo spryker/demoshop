@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\OmsCheckoutConnector\Business;
 
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
@@ -10,6 +15,9 @@ use Spryker\Zed\OmsCheckoutConnector\Business\OmsOrderHydrator as BaseOmsOrderHy
 class OmsOrderHydrator extends BaseOmsOrderHydrator
 {
 
+    /**
+     * @var array
+     */
     protected static $paymentMethodStateMachineMapper = [
         'invoice' => OmsConfig::ORDER_PROCESS_INVOICE_01,
         'payolution_invoice' => OmsConfig::ORDER_PROCESS_PAYOLUTION_PAYMENT_01,
@@ -21,6 +29,8 @@ class OmsOrderHydrator extends BaseOmsOrderHydrator
      * @param \Generated\Shared\Transfer\CheckoutRequestTransfer $request
      *
      * @throws \Spryker\Zed\OmsCheckoutConnector\Business\Exception\NoStatemachineProcessException
+     *
+     * @return void
      */
     public function hydrateOrderTransfer(OrderTransfer $order, CheckoutRequestTransfer $request)
     {

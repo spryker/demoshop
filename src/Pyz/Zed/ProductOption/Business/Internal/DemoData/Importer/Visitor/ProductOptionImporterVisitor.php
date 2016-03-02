@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor;
 
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Command\QueueableCommand;
@@ -41,6 +46,8 @@ class ProductOptionImporterVisitor implements OptionVisitorInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Command\QueueableCommand $queueableCommand
+     *
+     * @return void
      */
     private function addToCommandQueue(QueueableCommand $queueableCommand)
     {
@@ -57,12 +64,17 @@ class ProductOptionImporterVisitor implements OptionVisitorInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionType $context
+     *
+     * @return void
      */
     public function setContext($context)
     {
         $this->context = $context;
     }
 
+    /**
+     * @return void
+     */
     public function leaveContext()
     {
         $this->context = null;
@@ -70,6 +82,8 @@ class ProductOptionImporterVisitor implements OptionVisitorInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionType $visitee
+     *
+     * @return void
      */
     public function visitOptionType(OptionType $visitee)
     {
@@ -82,6 +96,8 @@ class ProductOptionImporterVisitor implements OptionVisitorInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\OptionValue $visitee
+     *
+     * @return void
      */
     public function visitOptionValue(OptionValue $visitee)
     {

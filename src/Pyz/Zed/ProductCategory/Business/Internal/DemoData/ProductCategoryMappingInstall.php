@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\ProductCategory\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\LocaleTransfer;
@@ -70,6 +75,9 @@ class ProductCategoryMappingInstall extends AbstractInstaller
         $this->categoryFacade = $categoryFacade;
     }
 
+    /**
+     * @return void
+     */
     public function install()
     {
         $currentLocale = $this->localeFacade->getCurrentLocale();
@@ -80,6 +88,8 @@ class ProductCategoryMappingInstall extends AbstractInstaller
      * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      *
      * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return void
      */
     protected function installProductCategories(LocaleTransfer $locale)
     {

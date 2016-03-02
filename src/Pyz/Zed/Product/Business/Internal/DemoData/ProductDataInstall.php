@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Product\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\ProductAbstractTransfer;
@@ -203,8 +208,8 @@ class ProductDataInstall extends AbstractInstaller
             }
         }
 
-/*        $productConcreteClone = clone $productConcrete;
-        $productConcreteClone->setSku($productConcreteClone->getSku().'-AA');*/
+        /*        $productConcreteClone = clone $productConcrete;
+                $productConcreteClone->setSku($productConcreteClone->getSku().'-AA');*/
 
         return [
             self::PRODUCT_ABSTRACT => $productAbstract,

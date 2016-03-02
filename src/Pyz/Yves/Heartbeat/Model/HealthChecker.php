@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Heartbeat\Model;
 
 use Generated\Shared\Transfer\HealthReportTransfer;
@@ -20,6 +25,8 @@ class HealthChecker
 
     /**
      * @param array $healthIndicator
+     *
+     * @return void
      */
     public function setHealthIndicator(array $healthIndicator)
     {
@@ -42,6 +49,8 @@ class HealthChecker
 
     /**
      * @param \Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface $healthIndicator
+     *
+     * @return void
      */
     private function check(HealthIndicatorInterface $healthIndicator)
     {

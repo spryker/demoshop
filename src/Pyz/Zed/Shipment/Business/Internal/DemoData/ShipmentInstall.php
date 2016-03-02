@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Shipment\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\ShipmentCarrierTransfer;
@@ -42,6 +47,9 @@ class ShipmentInstall extends AbstractInstaller
         $this->method = $method;
     }
 
+    /**
+     * @return void
+     */
     public function install()
     {
         $this->info('This will install a Carrier Company and Shipment Method in the demo shop');
@@ -71,6 +79,8 @@ class ShipmentInstall extends AbstractInstaller
 
     /**
      * @param int $idCarrier
+     *
+     * @return void
      */
     protected function addShipmentMethodToCarrie($idCarrier)
     {

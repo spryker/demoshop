@@ -1,22 +1,27 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Customer;
 
 use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Yves\Application\Plugin\Pimple;
+use Pyz\Yves\Customer\Form\AddressForm;
 use Pyz\Yves\Customer\Form\DataProvider\AddressFormDataProvider;
+use Pyz\Yves\Customer\Form\ForgottenPasswordForm;
 use Pyz\Yves\Customer\Form\LoginForm;
 use Pyz\Yves\Customer\Form\NewsletterSubscriptionForm;
 use Pyz\Yves\Customer\Form\PasswordForm;
-use Pyz\Yves\Customer\Form\RestorePasswordForm;
 use Pyz\Yves\Customer\Form\ProfileForm;
-use Pyz\Yves\Customer\Form\ForgottenPasswordForm;
-use Pyz\Yves\Customer\Form\AddressForm;
 use Pyz\Yves\Customer\Form\RegisterForm;
+use Pyz\Yves\Customer\Form\RestorePasswordForm;
+use Pyz\Yves\Customer\Plugin\AuthenticationHandler;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationSuccessHandler;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerUserProvider;
-use Pyz\Yves\Customer\Plugin\AuthenticationHandler;
 use Pyz\Yves\Customer\Security\Customer;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Kernel\AbstractFactory;

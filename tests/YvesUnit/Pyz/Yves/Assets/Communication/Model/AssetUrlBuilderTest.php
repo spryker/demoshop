@@ -6,13 +6,19 @@
 
 namespace YvesUnit\Spryker\Yves\Assets\Communication;
 
-use Spryker\Yves\Assets\Communication\Model\AssetUrlBuilder;
+use Pyz\Yves\Twig\Model\AssetUrlBuilder;
 
 class AssetUrlBuilderTest extends \PHPUnit_Framework_TestCase
 {
 
+    /**
+     * @var string
+     */
     private $host;
 
+    /**
+     * @return void
+     */
     protected function setUp()
     {
         parent::setUp();
@@ -21,6 +27,8 @@ class AssetUrlBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @group Asset
+     *
+     * @return void
      */
     public function testAssetUrl()
     {
@@ -34,6 +42,8 @@ class AssetUrlBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @group Asset
+     *
+     * @return void
      */
     public function testMediaUrlWithTrailingSlashes()
     {
@@ -46,11 +56,11 @@ class AssetUrlBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Yves\Assets\Communication\Model\CacheBusterInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Twig\Model\CacheBusterInterface
      */
     private function getCacheBusterMock()
     {
-        $mock = $this->getMock('\Spryker\Yves\Assets\Communication\Model\CacheBusterInterface');
+        $mock = $this->getMock('Pyz\Yves\Twig\Model\CacheBusterInterface');
         $mock->expects($this->any())
             ->method('addCacheBust')
             ->will($this->returnArgument(0));

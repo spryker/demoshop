@@ -1,9 +1,14 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node;
 
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\VisitableProductInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface;
+use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\VisitableProductInterface;
 
 class ProductOptionType implements VisitableProductInterface
 {
@@ -35,6 +40,8 @@ class ProductOptionType implements VisitableProductInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Visitor\ProductVisitorInterface $visitor
+     *
+     * @return void
      */
     public function accept(ProductVisitorInterface $visitor)
     {
@@ -69,6 +76,8 @@ class ProductOptionType implements VisitableProductInterface
 
     /**
      * @param \Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductOptionValue $value
+     *
+     * @return void
      */
     private function addProductOptionValue(ProductOptionValue $value)
     {
@@ -85,6 +94,8 @@ class ProductOptionType implements VisitableProductInterface
 
     /**
      * @param int|null $id
+     *
+     * @return void
      */
     public function setId($id)
     {

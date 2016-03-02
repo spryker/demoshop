@@ -9,13 +9,15 @@
             <input name="q" type="text" class="search__box js-search-box">
         </form>
     </div>
-    <div class="header__user">
-        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <a href="{{ url('customer/profile') }}" class="user__login">{{ 'customer.profile'|trans }}</a>
-        {% else %}
-            <a href="{{ url('login') }}" class="user__login">{{ 'customer.login'|trans }}</a>
-        {% endif %}
-    </div>
+    {% if hideUserMenu is not defined or hideUserMenu != true %}
+        <div class="header__user">
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <a href="{{ url('customer/profile') }}" class="user__login">{{ 'customer.profile'|trans }}</a>
+            {% else %}
+                <a href="{{ url('login') }}" class="user__login">{{ 'customer.login'|trans }}</a>
+            {% endif %}
+        </div>
+    {% endif %}
     {% include "@cart/ajax/overlay.twig" %}
 </header>
 {% include "@application/layout/partials/main-nav.twig" %}

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Collector\Mapper;
 
 use Spryker\Client\Catalog\Model\FacetConfig;
@@ -158,9 +163,9 @@ class UrlMapper implements UrlMapperInterface
         $currentValue = $inValue;
         $currentActive = true;
         if ($active && !is_array($active)) {
-            $currentActive = (bool) $active;
+            $currentActive = (bool)$active;
         } elseif ($active && is_array($active)) {
-            $currentActive = (bool) $inActive;
+            $currentActive = (bool)$inActive;
         }
         if (!isset($mergedParameters[$generationParameterName]) && $currentActive === true) {
             $mergedParameters[$generationParameterName] = $currentValue;
@@ -196,6 +201,12 @@ class UrlMapper implements UrlMapperInterface
         return $mergedParameters;
     }
 
+    /**
+     * @param array $next
+     * @param array $current
+     *
+     * @return bool
+     */
     protected function sortByUrlPosition($next, $current)
     {
         return $current[FacetConfig::KEY_URL_POSITION] < $next[FacetConfig::KEY_URL_POSITION];
@@ -204,6 +215,8 @@ class UrlMapper implements UrlMapperInterface
     /**
      * @param string $pathInfo
      * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return void
      */
     public function injectParametersFromUrlIntoRequest($pathInfo, Request $request)
     {

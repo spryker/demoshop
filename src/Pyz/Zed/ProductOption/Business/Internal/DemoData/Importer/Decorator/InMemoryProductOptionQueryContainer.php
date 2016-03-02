@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Decorator;
 
 use Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface;
@@ -38,6 +43,9 @@ class InMemoryProductOptionQueryContainer implements ProductOptionQueryContainer
         $this->queryContainer = $queryContainer;
     }
 
+    /**
+     * @return void
+     */
     public static function disable()
     {
         static::$disableCache = true;

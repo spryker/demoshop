@@ -1,12 +1,17 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Shipment\Business;
 
-use Pyz\Zed\Shipment\ShipmentDependencyProvider;
-use Spryker\Zed\Shipment\Business\Model\Method;
-use Spryker\Zed\Shipment\Business\Model\Carrier;
 use Pyz\Zed\Shipment\Business\Internal\DemoData\ShipmentInstall;
+use Pyz\Zed\Shipment\ShipmentDependencyProvider;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
+use Spryker\Zed\Shipment\Business\Model\Carrier;
+use Spryker\Zed\Shipment\Business\Model\Method;
 use Spryker\Zed\Shipment\Business\ShipmentBusinessFactory as SprykerShipmentBusinessFactory;
 
 /**

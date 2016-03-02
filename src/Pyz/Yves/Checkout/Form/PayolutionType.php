@@ -1,13 +1,18 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Checkout\Form;
 
 use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Spryker\Shared\Library\Currency\CurrencyManager;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PayolutionType extends AbstractType
 {
@@ -42,8 +47,9 @@ class PayolutionType extends AbstractType
     public function __construct(
         Request $request,
         PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer,
-        $tabIndexOffset = 0)
-    {
+        $tabIndexOffset = 0
+    ) {
+
         $this->request = $request;
         $this->tabIndexOffset = $tabIndexOffset;
         $this->payolutionCalculationResponseTransfer = $payolutionCalculationResponseTransfer;
@@ -60,6 +66,8 @@ class PayolutionType extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
+     *
+     * @return void
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -129,6 +137,8 @@ class PayolutionType extends AbstractType
 
     /**
      * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
+     *
+     * @return void
      */
     public function configureOptions(OptionsResolver $resolver)
     {

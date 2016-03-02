@@ -4,19 +4,19 @@ use Pyz\Shared\Mail\MailConstants;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Auth\AuthConstants;
-use Spryker\Shared\Customer\CustomerConstants;
-use Spryker\Shared\User\UserConstants;
-use Spryker\Shared\EventJournal\EventJournalConstants;
-use Spryker\Shared\NewRelic\NewRelicConstants;
-use Spryker\Shared\Session\SessionConstants;
-use Spryker\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumberConfig;
-use Spryker\Shared\Log\Config\DefaultLoggerConfig;
-use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\CustomerMailConnector\CustomerMailConnectorConstants;
+use Spryker\Shared\Customer\CustomerConstants;
+use Spryker\Shared\EventJournal\EventJournalConstants;
+use Spryker\Shared\Log\LogConstants;
+use Spryker\Shared\NewRelic\NewRelicConstants;
 use Spryker\Shared\Newsletter\NewsletterConstants;
-use Spryker\Shared\Price\PriceConstants;
+use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
+use Spryker\Shared\Price\PriceConstants;
 use Spryker\Shared\Sales\SalesConstants;
+use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
+use Spryker\Shared\Session\SessionConstants;
+use Spryker\Shared\User\UserConstants;
 
 $config[ApplicationConstants::PROJECT_NAMESPACES] = [
     'Pyz',
@@ -101,6 +101,8 @@ $config[ApplicationConstants::TRANSFER_PASSWORD] = 'o7&bg=Fz;nSslHBC';
 $config[ApplicationConstants::TRANSFER_SSL] = false;
 $config[ApplicationConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = false;
 $config[ApplicationConstants::TRANSFER_DEBUG_SESSION_NAME] = 'XDEBUG_SESSION';
+
+$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker';
 
 //$config[ApplicationConstants::ZED_LIBRARY_PASSWORD_ALGORITHM] = PASSWORD_BCRYPT;
 //$config[ApplicationConstants::ZED_LIBRARY_PASSWORD_OPTIONS] = [];
@@ -316,8 +318,9 @@ $config[EventJournalConstants::FILTER_OPTIONS] = [
             ['registerForm', 'password', 'first'],
             ['registerForm', 'password', 'second'],
             ['_password'],
-            ['transfer', 'login', 'password'],
+            ['transfer_data', 'login', 'password'],
         ],
+        'filtered_string' => '***'
     ],
 ];
 
@@ -329,7 +332,7 @@ $config[EventJournalConstants::WRITER_OPTIONS] = [
 
 $config[ApplicationConstants::PROPEL_DEBUG] = false;
 $config[ApplicationConstants::SHOW_SYMFONY_TOOLBAR] = false;
-$config[SequenceNumberConfig::ENVIRONMENT_PREFIX]
+$config[SequenceNumberConstants::ENVIRONMENT_PREFIX]
     = $config[SalesConstants::ENVIRONMENT_PREFIX]
     = '';
 
@@ -355,7 +358,6 @@ $config[PayolutionConstants::PAYOLUTION_BCC_EMAIL] = 'invoices@payolution.com';
 
 $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 
-$config[DefaultLoggerConfig::DEFAULT_LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application.log';
-$config[DefaultLoggerConfig::DEFAULT_LOG_LEVEL] = Monolog\Logger::ERROR;
+$config[LogConstants::LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application.log';
 
 $config[ApplicationConstants::ERROR_LEVEL] = E_ALL;

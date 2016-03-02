@@ -1,15 +1,20 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Checkout;
 
 use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
-use Spryker\Yves\Kernel\AbstractFactory;
 use Pyz\Yves\Checkout\Form\CheckoutType;
-use Symfony\Component\HttpFoundation\Request;
-use Spryker\Shared\Config;
+use Spryker\Shared\Config\Config;
 use Spryker\Shared\Payolution\PayolutionConstants;
+use Spryker\Yves\Kernel\AbstractFactory;
+use Symfony\Component\HttpFoundation\Request;
 
 class CheckoutFactory extends AbstractFactory
 {

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Product\Model;
 
 use Spryker\Shared\Product\Model\ProductAbstractInterface;
@@ -47,6 +52,8 @@ class ProductAbstract implements ProductAbstractInterface
 
     /**
      * @param array $attributes
+     *
+     * @return void
      */
     public function setAbstractAttributes(array $attributes)
     {
@@ -110,6 +117,8 @@ class ProductAbstract implements ProductAbstractInterface
 
     /**
      * @param string $name
+     *
+     * @return void
      */
     public function setName($name)
     {
@@ -151,6 +160,8 @@ class ProductAbstract implements ProductAbstractInterface
 
     /**
      * @param array $products
+     *
+     * @return void
      */
     public function setProductConcreteCollection(array $products)
     {
@@ -167,6 +178,8 @@ class ProductAbstract implements ProductAbstractInterface
 
     /**
      * @param array $category
+     *
+     * @return void
      */
     public function setCategory($category)
     {
