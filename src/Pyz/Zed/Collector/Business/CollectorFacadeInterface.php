@@ -26,8 +26,14 @@ interface CollectorFacadeInterface
      *
      * @return void
      */
-    public function runSearchProductCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
-        BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output);
+    public function runSearchProductCollector(
+        SpyTouchQuery $baseQuery,
+        LocaleTransfer $locale,
+        BatchResultInterface $result,
+        WriterInterface $dataWriter,
+        TouchUpdaterInterface $touchUpdater,
+        OutputInterface $output
+    );
 
     /**
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
@@ -38,8 +44,14 @@ interface CollectorFacadeInterface
      *
      * @return void
      */
-    public function runStorageCategoryNodeCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
-        BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output);
+    public function runStorageCategoryNodeCollector(
+        SpyTouchQuery $baseQuery,
+        LocaleTransfer $locale,
+        BatchResultInterface $result,
+        WriterInterface $dataWriter,
+        TouchUpdaterInterface $touchUpdater,
+        OutputInterface $output
+    );
 
     /**
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
@@ -50,8 +62,14 @@ interface CollectorFacadeInterface
      *
      * @return void
      */
-    public function runStorageNavigationCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
-        BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output);
+    public function runStorageNavigationCollector(
+        SpyTouchQuery $baseQuery,
+        LocaleTransfer $locale,
+        BatchResultInterface $result,
+        WriterInterface $dataWriter,
+        TouchUpdaterInterface $touchUpdater,
+        OutputInterface $output
+    );
 
     /**
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
@@ -62,8 +80,14 @@ interface CollectorFacadeInterface
      *
      * @return void
      */
-    public function runStoragePageCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
-        BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output);
+    public function runStoragePageCollector(
+        SpyTouchQuery $baseQuery,
+        LocaleTransfer $locale,
+        BatchResultInterface $result,
+        WriterInterface $dataWriter,
+        TouchUpdaterInterface $touchUpdater,
+        OutputInterface $output
+    );
 
     /**
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
@@ -74,8 +98,14 @@ interface CollectorFacadeInterface
      *
      * @return void
      */
-    public function runStorageProductCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
-        BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output);
+    public function runStorageProductCollector(
+        SpyTouchQuery $baseQuery,
+        LocaleTransfer $locale,
+        BatchResultInterface $result,
+        WriterInterface $dataWriter,
+        TouchUpdaterInterface $touchUpdater,
+        OutputInterface $output
+    );
 
     /**
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
@@ -86,8 +116,14 @@ interface CollectorFacadeInterface
      *
      * @return void
      */
-    public function runStorageRedirectCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
-        BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output);
+    public function runStorageRedirectCollector(
+        SpyTouchQuery $baseQuery,
+        LocaleTransfer $locale,
+        BatchResultInterface $result,
+        WriterInterface $dataWriter,
+        TouchUpdaterInterface $touchUpdater,
+        OutputInterface $output
+    );
 
     /**
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
@@ -98,8 +134,14 @@ interface CollectorFacadeInterface
      *
      * @return void
      */
-    public function runStorageTranslationCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
-        BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output);
+    public function runStorageTranslationCollector(
+        SpyTouchQuery $baseQuery,
+        LocaleTransfer $locale,
+        BatchResultInterface $result,
+        WriterInterface $dataWriter,
+        TouchUpdaterInterface $touchUpdater,
+        OutputInterface $output
+    );
 
     /**
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
@@ -110,8 +152,14 @@ interface CollectorFacadeInterface
      *
      * @return void
      */
-    public function runStorageUrlCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
-        BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output);
+    public function runStorageUrlCollector(
+        SpyTouchQuery $baseQuery,
+        LocaleTransfer $locale,
+        BatchResultInterface $result,
+        WriterInterface $dataWriter,
+        TouchUpdaterInterface $touchUpdater,
+        OutputInterface $output
+    );
 
     /**
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
@@ -122,6 +170,13 @@ interface CollectorFacadeInterface
      *
      * @return void
      */
-    public function runStorageBlockCollector(SpyTouchQuery $baseQuery, LocaleTransfer $locale,
-        BatchResultInterface $result, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output);
+    public function runStorageBlockCollector(
+        SpyTouchQuery $baseQuery,
+        LocaleTransfer $locale,
+        BatchResultInterface $result,
+        WriterInterface $dataWriter,
+        TouchUpdaterInterface $touchUpdater,
+        OutputInterface $output
+    );
+
 }

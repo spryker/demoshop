@@ -17,7 +17,7 @@ use Spryker\Shared\Sales\SalesConstants;
 use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\User\UserConstants;
-use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Zed\Propel\PropelConfig;
 
 $config[ApplicationConstants::PROJECT_NAMESPACES] = [
     'Pyz',
@@ -37,11 +37,11 @@ $config[ApplicationConstants::YVES_TWIG_OPTIONS] = [
     'cache' => \Spryker\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Yves/twig'),
 ];
 
-$config[ApplicationConstants::ZED_DB_ENGINE_MYSQL] = PropelConstants::ZED_DB_ENGINE_MYSQL_VALUE;
-$config[ApplicationConstants::ZED_DB_ENGINE_PGSQL] = PropelConstants::ZED_DB_ENGINE_PGSQL_VALUE;
+$config[ApplicationConstants::ZED_DB_ENGINE_MYSQL] = PropelConfig::DB_ENGINE_MYSQL;
+$config[ApplicationConstants::ZED_DB_ENGINE_PGSQL] = PropelConfig::DB_ENGINE_PGSQL;
 $config[ApplicationConstants::ZED_DB_SUPPORTED_ENGINES] = [
-    PropelConstants::ZED_DB_ENGINE_MYSQL_VALUE => 'MySql',
-    PropelConstants::ZED_DB_ENGINE_PGSQL_VALUE => 'PostgreSql'
+    PropelConfig::DB_ENGINE_MYSQL => 'MySql',
+    PropelConfig::DB_ENGINE_PGSQL => 'PostgreSql'
 ];
 
 $config[ApplicationConstants::STORAGE_KV_SOURCE] = 'redis';

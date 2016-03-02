@@ -37,13 +37,14 @@ FROM spy_url u
             ->setParameter('fk_locale_2', $this->locale->getIdLocale());
     }
 
-    protected function getColumns($alias='u')
+    protected function getColumns($alias = 'u')
     {
         $columnsSql = '';
         foreach ($this->getResourceColumnNames() as $constantName => $value) {
             $columnAlias = strstr($value, 'fk_resource');
             $column = str_replace(SpyUrlTableMap::TABLE_NAME . '.', '', $value);
-            $columnsSql .= sprintf('%s.%s AS %s, ',
+            $columnsSql .= sprintf(
+                '%s.%s AS %s, ',
                 $alias,
                 $column,
                 $columnAlias

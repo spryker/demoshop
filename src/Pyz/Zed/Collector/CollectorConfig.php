@@ -7,6 +7,11 @@
 
 namespace Pyz\Zed\Collector;
 
+use Pyz\Zed\Collector\Persistence\Search\Pdo\PostgreSql\ProductCollector as SearchProductCollector;
+use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\CategoryNodeCollector;
+use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\NavigationCollector;
+use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductCollector;
+use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\UrlCollector;
 use Spryker\Zed\Collector\CollectorConfig as SprykerCollectorConfig;
 
 class CollectorConfig extends SprykerCollectorConfig
@@ -22,10 +27,10 @@ class CollectorConfig extends SprykerCollectorConfig
 
             ],
             'PostgreSql' => [
-                'CategoryNodeCollector' => \Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\CategoryNodeCollector::class,
-                'NavigationCollector' => \Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\NavigationCollector::class,
-                'ProductCollector' => \Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductCollector::class,
-                'UrlCollector' => \Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\UrlCollector::class,
+                'CategoryNodeCollector' => CategoryNodeCollector::class,
+                'NavigationCollector' => NavigationCollector::class,
+                'ProductCollector' => ProductCollector::class,
+                'UrlCollector' => UrlCollector::class,
             ]
         ];
 
@@ -42,7 +47,7 @@ class CollectorConfig extends SprykerCollectorConfig
 
             ],
             'PostgreSql' => [
-                'ProductCollector' => \Pyz\Zed\Collector\Persistence\Search\Pdo\PostgreSql\ProductCollector::class,
+                'ProductCollector' => SearchProductCollector::class,
             ]
         ];
 

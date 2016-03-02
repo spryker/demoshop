@@ -17,12 +17,12 @@ use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
 use Pyz\Zed\Collector\Business\Storage\TranslationCollector;
 use Pyz\Zed\Collector\Business\Storage\UrlCollector;
 use Pyz\Zed\Collector\CollectorDependencyProvider;
-use Spryker\Zed\Collector\Business\CollectorBusinessFactory as SprykerCollectorBusinessFactory;
 use Pyz\Zed\Collector\Persistence\Search\Propel\ProductCollector as SearchProductCollectorPropelQueryAdapter;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\BlockCollector as StorageBlockCollectorPropelQueryAdapter;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\PageCollector as StoragePageCollectorPropelQueryAdapter;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\RedirectCollector as StorageRedirectCollectorPropelQueryAdapter;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\TranslationCollector as StorageTranslationCollectorPropelQueryAdapter;
+use Spryker\Zed\Collector\Business\CollectorBusinessFactory as SprykerCollectorBusinessFactory;
 
 /**
  * @method \Pyz\Zed\Collector\CollectorConfig getConfig()
@@ -293,12 +293,21 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     protected function createCriteriaBuilder()
     {
-        $container = new \Everon\Component\Factory\Dependency\Container();
-        $factory = new \Everon\Component\Factory\Factory($container);
+        $factory = new \Everon\Component\Factory\Factory(
+            $this->createCriteriaBuilderContainer()
+        );
 
         return $factory
             ->getWorkerByName('CriteriaBuilder', 'Everon\Component\CriteriaBuilder')
             ->buildCriteriaBuilder();
+    }
+
+    /**
+     * @return \Everon\Component\Factory\Dependency\Container
+     */
+    protected function createCriteriaBuilderContainer()
+    {
+        return new \Everon\Component\Factory\Dependency\Container();
     }
 
     /**

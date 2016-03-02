@@ -23,6 +23,8 @@ class UrlCollectorStoragePlugin extends AbstractCollectorPlugin
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
      * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
+     *
+     * @return void
      */
     public function run(
         SpyTouchQuery $baseQuery,

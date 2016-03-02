@@ -1,11 +1,12 @@
 <?php
 
 use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Zed\Propel\PropelConfig;
 
 $currentStore = \Spryker\Shared\Kernel\Store::getInstance()->getStoreName();
 
-$dsn = sprintf('%s:host=%s;port=%d;dbname=%s',
+$dsn = sprintf(
+    '%s:host=%s;port=%d;dbname=%s',
     $config[ApplicationConstants::ZED_DB_ENGINE],
     $config[ApplicationConstants::ZED_DB_HOST],
     $config[ApplicationConstants::ZED_DB_PORT],
@@ -14,14 +15,14 @@ $dsn = sprintf('%s:host=%s;port=%d;dbname=%s',
 
 $connections = [
     'pgsql' => [
-        'adapter' => PropelConstants::ZED_DB_ENGINE_PGSQL_VALUE,
+        'adapter' => PropelConfig::DB_ENGINE_PGSQL,
         'dsn' => $dsn,
         'user' => $config[ApplicationConstants::ZED_DB_USERNAME],
         'password' => $config[ApplicationConstants::ZED_DB_PASSWORD],
         'settings' => [],
     ],
     'mysql' => [
-        'adapter' => PropelConstants::ZED_DB_ENGINE_MYSQL_VALUE,
+        'adapter' => PropelConfig::DB_ENGINE_MYSQL,
         'dsn' => $dsn,
         'user' => $config[ApplicationConstants::ZED_DB_USERNAME],
         'password' => $config[ApplicationConstants::ZED_DB_PASSWORD],

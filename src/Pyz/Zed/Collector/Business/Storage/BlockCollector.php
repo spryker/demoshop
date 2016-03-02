@@ -42,7 +42,7 @@ class BlockCollector extends AbstractKeyValuePropelCollector
 
     /**
      * @param mixed $data
-     * @param $localeName
+     * @param string $localeName
      * @param array $collectedItemData
      *
      * @return string

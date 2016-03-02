@@ -185,7 +185,7 @@ class ProductCollector extends AbstractKeyValuePdoCollector
                 $pathTokens = $queryPath->find();
 
                 foreach ($pathTokens as $pathItem) {
-                    $idNode = (int) $pathItem['id_category_node'];
+                    $idNode = (int)$pathItem['id_category_node'];
                     $url = $this->generateUrl($idNode);
 
                     $categories[$idNode] = [
@@ -259,6 +259,8 @@ class ProductCollector extends AbstractKeyValuePdoCollector
 
     /**
      * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
+     *
+     * @return void
      */
     public function setCategoryQueryContainer(CategoryQueryContainerInterface $categoryQueryContainer)
     {
@@ -275,6 +277,8 @@ class ProductCollector extends AbstractKeyValuePdoCollector
 
     /**
      * @param \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface $productCategoryQueryContainer
+     *
+     * @return void
      */
     public function setProductCategoryQueryContainer(ProductCategoryQueryContainerInterface $productCategoryQueryContainer)
     {

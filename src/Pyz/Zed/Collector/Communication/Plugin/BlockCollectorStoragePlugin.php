@@ -26,10 +26,10 @@ class BlockCollectorStoragePlugin extends AbstractCollectorPlugin
          *
          * @return void
          */
-        public function run(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result)
-        {
-                $this->getFacade()
-                    ->runStorageBlockCollector($baseQuery, $locale, $result, $this->dataWriter, $this->touchUpdater, $this->output);
-        }
+    public function run(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result)
+    {
+            $this->getFacade()
+                ->runStorageBlockCollector($baseQuery, $locale, $result, $this->dataWriter, $this->touchUpdater, $this->output);
+    }
 
 }

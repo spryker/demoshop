@@ -132,7 +132,7 @@ class CategoryTreeInstall extends AbstractInstaller
 
         $rootNodeTransfer = new NodeTransfer();
         $rootNodeTransfer->setFkCategory($idCategory);
-        $rootNodeTransfer->setNodeOrder((int) $rawNode->{self::NODE_ORDER});
+        $rootNodeTransfer->setNodeOrder((int)$rawNode->{self::NODE_ORDER});
         $rootNodeTransfer->setIsRoot(true);
         $rootNodeTransfer->setIsMain(true);
 
@@ -153,7 +153,7 @@ class CategoryTreeInstall extends AbstractInstaller
         $childNodeTransfer = new NodeTransfer();
         $childNodeTransfer->setFkCategory($idCategory);
         $childNodeTransfer->setFkParentCategoryNode($this->getParentId($rawNode));
-        $childNodeTransfer->setNodeOrder((int) $rawNode->{self::NODE_ORDER});
+        $childNodeTransfer->setNodeOrder((int)$rawNode->{self::NODE_ORDER});
         $childNodeTransfer->setIsMain(true);
         $childNodeTransfer->setIsRoot(false);
 

@@ -9,14 +9,11 @@ namespace Pyz\Zed\Collector\Business\Search;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Zed\Collector\CollectorConfig;
-use Pyz\Zed\ProductSearch\Business\ProductSearchFacade;
 use Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 use Spryker\Shared\Product\ProductConstants;
-use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPdoCollector;
 use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
-use Spryker\Zed\Price\Persistence\PriceQueryContainer;
 use Spryker\Zed\Price\Persistence\PriceQueryContainerInterface;
 
 class ProductCollector extends AbstractSearchPdoCollector
@@ -104,7 +101,7 @@ class ProductCollector extends AbstractSearchPdoCollector
             if (isset($processedResultSet[$index])) {
                 // Product availability
                 $processedResultSet[$index]['available'] = $productRawData['quantity'] > 0;
-                $isAvailable = (bool) (
+                $isAvailable = (bool)(
                     $productRawData['is_never_out_of_stock'] ||
                     $productRawData['quantity'] > 0
                 );
