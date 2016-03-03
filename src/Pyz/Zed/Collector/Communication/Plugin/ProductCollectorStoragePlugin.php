@@ -43,4 +43,5 @@ class ProductCollectorStoragePlugin extends AbstractCollectorPlugin
         $this->getFacade()
             ->runStorageProductCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater, $output);
     }
+
 }
