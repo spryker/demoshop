@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\Installer\Business\Icecat\Installer;
 
-use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatInstaller;
 use Spryker\Shared\Library\BatchIterator\XmlBatchIterator;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\OutputInterface;

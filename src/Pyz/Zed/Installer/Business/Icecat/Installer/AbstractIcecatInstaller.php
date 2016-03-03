@@ -1,7 +1,8 @@
 <?php
 
-namespace Pyz\Zed\Installer\Business\Icecat;
+namespace Pyz\Zed\Installer\Business\Icecat\Installer;
 
+use Pyz\Zed\Installer\Business\Icecat\Importer\IcecatImporterInterface;
 use Pyz\Zed\Installer\Business\ProgressBar\ProgressBarBuilder;
 use Spryker\Shared\Library\BatchIterator\CountableIteratorInterface;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
@@ -39,7 +40,7 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     protected $dataDirectory;
 
     /**
-     * @var array|\Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[]
+     * @var array|\Pyz\Zed\Installer\Business\Icecat\Importer\IcecatImporterInterface[]
      */
     protected $importerCollection = [];
 
@@ -54,7 +55,7 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     abstract public function getTitle();
 
     /**
-     * @param array|\Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[] $importerCollection
+     * @param array|\Pyz\Zed\Installer\Business\Icecat\Importer\IcecatImporterInterface[] $importerCollection
      * @param string $dataDirectory
      */
     public function __construct(array $importerCollection, $dataDirectory)
@@ -108,7 +109,7 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
 
     /**
      * @param \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface $batchIterator
-     * @param array|\Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[] $importersToExecute
+     * @param array|\Pyz\Zed\Installer\Business\Icecat\Importer\IcecatImporterInterface[] $importersToExecute
      *
      * @return void
      */
@@ -123,7 +124,7 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
 
     /**
      * @param array $itemToImport
-     * @param array|\Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[] $importerCollection
+     * @param array|\Pyz\Zed\Installer\Business\Icecat\Importer\IcecatImporterInterface[] $importerCollection
      *
      * @return void
      */
@@ -153,7 +154,7 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     }
 
     /**
-     * @return array|\Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[]
+     * @return array|\Pyz\Zed\Installer\Business\Icecat\Importer\IcecatImporterInterface[]
      */
     protected function excludeInstalled()
     {

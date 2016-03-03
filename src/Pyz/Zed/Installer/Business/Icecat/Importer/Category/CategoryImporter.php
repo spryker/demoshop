@@ -8,7 +8,7 @@ use Generated\Shared\Transfer\NodeTransfer;
 use Orm\Zed\Category\Persistence\SpyCategoryNodeQuery;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
-use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
+use Pyz\Zed\Installer\Business\Icecat\Importer\AbstractIcecatImporter;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Touch\Business\TouchFacadeInterface;

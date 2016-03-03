@@ -1,7 +1,8 @@
 <?php
 
-namespace Pyz\Zed\Installer\Business\Icecat;
+namespace Pyz\Zed\Installer\Business\Icecat\Importer;
 
+use Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager;
 use Symfony\Component\Console\Output\OutputInterface;
 
 abstract class AbstractIcecatImporter implements IcecatImporterInterface

@@ -20,14 +20,14 @@ class IcecatDataInstallerConsole
     protected $messenger;
 
     /**
-     * @var \Pyz\Zed\Installer\Business\Icecat\IcecatInstallerInterface[]
+     * @var \Pyz\Zed\Installer\Business\Icecat\Installer\IcecatInstallerInterface[]
      */
     protected $installerCollection;
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
      * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
-     * @param \Pyz\Zed\Installer\Business\Icecat\IcecatInstallerInterface[] $installerCollection
+     * @param \Pyz\Zed\Installer\Business\Icecat\Installer\IcecatInstallerInterface[] $installerCollection
      */
     public function __construct(OutputInterface $output, MessengerInterface $messenger, array $installerCollection)
     {

@@ -35,7 +35,7 @@ class InstallerConfig extends SprykerInstallerConfig
      */
     public function getIcecatDataPath()
     {
-        return __DIR__ . '/Business/Internal/DemoDataDev/';
+        return __DIR__ . '/Business/Internal/Icecat/';
     }
 
 }

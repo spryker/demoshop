@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\Installer\Business\Icecat\Installer;
 
-use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatInstaller;
 use Spryker\Shared\Library\BatchIterator\CountableIteratorInterface;
 use Spryker\Shared\Library\BatchIterator\YamlBatchIterator;
 use Symfony\Component\Console\Helper\ProgressBar;
@@ -37,7 +36,7 @@ class GlossaryInstaller extends AbstractIcecatInstaller
 
     /**
      * @param \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface $batchIterator
-     * @param array|\Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[] $importersToExecute
+     * @param array|\Pyz\Zed\Installer\Business\Icecat\Importer\IcecatImporterInterface[] $importersToExecute
      *
      * @return void
      */

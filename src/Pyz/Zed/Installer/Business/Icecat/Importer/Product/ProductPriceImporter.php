@@ -5,7 +5,7 @@ namespace Pyz\Zed\Installer\Business\Icecat\Importer\Product;
 use Orm\Zed\Price\Persistence\SpyPriceProduct;
 use Orm\Zed\Price\Persistence\SpyPriceProductQuery;
 use Pyz\Zed\Installer\Business\Exception\PriceTypeNotFoundException;
-use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
+use Pyz\Zed\Installer\Business\Icecat\Importer\AbstractIcecatImporter;
 use Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager;
 use Pyz\Zed\Stock\Business\StockFacadeInterface;
 use Spryker\Shared\Library\Reader\Csv\CsvReader;

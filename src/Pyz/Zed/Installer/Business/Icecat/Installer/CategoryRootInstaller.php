@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\Installer\Business\Icecat\Installer;
 
-use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatInstaller;
 use Spryker\Shared\Library\BatchIterator\CsvBatchIterator;
 use Symfony\Component\Console\Output\OutputInterface;
 

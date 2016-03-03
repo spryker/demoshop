@@ -5,7 +5,7 @@ namespace Pyz\Zed\Installer\Business\Icecat\Importer\Product;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
-use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
+use Pyz\Zed\Installer\Business\Icecat\Importer\AbstractIcecatImporter;
 use Pyz\Zed\ProductCategory\Business\ProductCategoryFacadeInterface;
 use Pyz\Zed\Product\Business\ProductFacadeInterface;
 use Spryker\Shared\Category\CategoryConstants;

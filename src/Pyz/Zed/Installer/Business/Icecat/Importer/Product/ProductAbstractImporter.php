@@ -6,7 +6,7 @@ use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
-use Pyz\Zed\Installer\Business\Icecat\AbstractIcecatImporter;
+use Pyz\Zed\Installer\Business\Icecat\Importer\AbstractIcecatImporter;
 use Pyz\Zed\Product\Business\ProductFacadeInterface;
 use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
 use Symfony\Component\Console\Output\OutputInterface;

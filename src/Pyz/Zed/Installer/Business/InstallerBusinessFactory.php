@@ -58,7 +58,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
 {
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatInstallerInterface[]
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\IcecatInstallerInterface[]
      */
     public function getIcecatDataInstallerCollection()
     {
@@ -75,7 +75,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatInstallerInterface[]
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\IcecatInstallerInterface[]
      */
     public function getIcecatImporterCategoryCollection()
     {
@@ -85,7 +85,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatInstallerInterface[]
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\IcecatInstallerInterface[]
      */
     public function getIcecatImporterCategoryCatalogCollection()
     {
@@ -95,7 +95,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatInstallerInterface[]
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\IcecatInstallerInterface[]
      */
     public function getIcecatImporterCategoryRootCollection()
     {
@@ -105,7 +105,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatInstallerInterface[]
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\IcecatInstallerInterface[]
      */
     public function getIcecatImporterProductCollection()
     {
@@ -118,7 +118,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[]
+     * @return \Pyz\Zed\Installer\Business\Icecat\Importer\IcecatImporterInterface[]
      */
     public function getIcecatImporterProductSearchCollection()
     {
@@ -128,7 +128,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[]
+     * @return \Pyz\Zed\Installer\Business\Icecat\Importer\IcecatImporterInterface[]
      */
     public function getIcecatImporterGlossaryCollection()
     {
@@ -138,7 +138,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[]
+     * @return \Pyz\Zed\Installer\Business\Icecat\Importer\IcecatImporterInterface[]
      */
     public function getIcecatImporterCmsBlockCollection()
     {
@@ -148,7 +148,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatImporterInterface[]
+     * @return \Pyz\Zed\Installer\Business\Icecat\Importer\IcecatImporterInterface[]
      */
     public function getIcecatImporterCmsPageCollection()
     {
