@@ -114,7 +114,7 @@ class SessionServiceProvider extends AbstractServiceProvider
             'cookie_secure' => Config::get(ApplicationConstants::YVES_COOKIE_SECURE, true),
         ];
 
-        $name = Config::get(ApplicationConstants::YVES_SESSION_NAME);
+        $name = str_replace('.', '-', Config::get(ApplicationConstants::YVES_SESSION_NAME));
         if ($name) {
             $sessionStorageOptions['name'] = $name;
         }
