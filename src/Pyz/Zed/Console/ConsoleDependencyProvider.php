@@ -8,7 +8,6 @@
 namespace Pyz\Zed\Console;
 
 use Pyz\Zed\Installer\Business\DemoData\DemoDataInstallConsole;
-use Pyz\Zed\Installer\Communication\Console\IcecatDataInstallConsole;
 use Spryker\Shared\Library\Environment;
 use Spryker\Zed\Application\Communication\Console\ApplicationIntegrationCheckConsole;
 use Spryker\Zed\Application\Communication\Console\BuildNavigationConsole;
@@ -24,7 +23,6 @@ use Spryker\Zed\Development\Communication\Console\CodeTestConsole;
 use Spryker\Zed\Development\Communication\Console\ComposerJsonUpdaterConsole;
 use Spryker\Zed\Development\Communication\Console\DependencyTreeBuilderConsole;
 use Spryker\Zed\Development\Communication\Console\DependencyTreeDependencyViolationConsole;
-use Spryker\Zed\Installer\Communication\Console\DemoDataInstallConsole;
 use Spryker\Zed\Installer\Communication\Console\InitializeDatabaseConsole;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\NewRelic\Communication\Console\RecordDeploymentConsole;
@@ -54,7 +52,6 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new CollectorSearchUpdateConsole(),
             new DeleteAllCachesConsole(),
             new DemoDataInstallConsole(),
-            new IcecatDataInstallConsole(),
             new DependencyTreeBuilderConsole(),
             new DependencyTreeDependencyViolationConsole(),
             new GeneratorConsole(),
