@@ -109,26 +109,8 @@ $PHP composer.phar install
 labelText "Build Codeception dependency files"
 vendor/bin/codecept build
 
-if [[ `node -v | grep -E '^v[0-4]'` ]]; then
-    labelText "Upgrade node js"
-    sudo $NPM cache clean -f
-    sudo $NPM install -g n
-    sudo n stable
-
-    successText "NodeJS updated to version `node -v`"
-    successText "NPM updated to version `$NPM -v`"
-
-    labelText "Install Gulp Globally"
-    sudo $NPM install -g gulp
-
-    if [[ -d "./node_modules" ]]; then
-        labelText "Remove node_modules directory"
-        rm -rf "./node_modules"
-    fi
-fi
-
-labelText "Install npm modules"
-$NPM install
+labelText "Frontend assets management setup"
+./setup-frontend.sh
 
 labelText "Restart ElasticSearch"
 sudo /etc/init.d/elasticsearch restart
