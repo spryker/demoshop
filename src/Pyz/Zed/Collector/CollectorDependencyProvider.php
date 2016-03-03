@@ -22,12 +22,14 @@ use Spryker\Zed\Kernel\Container;
 class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 {
 
+    const FACADE_PROPEL = 'propel facade';
     const FACADE_PRICE = 'price facade';
     const FACADE_PRODUCT_SEARCH = 'product search facade';
     const FACADE_PRODUCT_OPTION_EXPORTER = 'product option exporter facade';
 
     const QUERY_CONTAINER_PRICE = 'price query container';
     const QUERY_CONTAINER_CATEGORY = 'category query container';
+    const QUERY_CONTAINER_PRODUCT_CATEGORY = 'product category query container';
 
     /**
      * @var \Spryker\Zed\Kernel\Container
@@ -37,6 +39,10 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
     public function provideBusinessLayerDependencies(Container $container)
     {
         $container = parent::provideBusinessLayerDependencies($container);
+
+        $container[self::FACADE_PROPEL] = function (Container $container) {
+            return $container->getLocator()->propel()->facade();
+        };
 
         $container[self::FACADE_PRICE] = function (Container $container) {
             return $container->getLocator()->price()->facade();
@@ -48,6 +54,10 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[self::QUERY_CONTAINER_CATEGORY] = function (Container $container) {
             return $container->getLocator()->category()->queryContainer();
+        };
+
+        $container[self::QUERY_CONTAINER_PRODUCT_CATEGORY] = function (Container $container) {
+            return $container->getLocator()->productCategory()->queryContainer();
         };
 
         $container[self::FACADE_PRODUCT_SEARCH] = function (Container $container) {

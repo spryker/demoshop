@@ -18,6 +18,9 @@ use Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterf
 class ProductCategoryMappingInstall extends AbstractInstaller
 {
 
+    const SKU = 'sku';
+    const CATEGORY_KEY = 'category_key';
+
     /**
      * @var \Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToLocaleInterface
      */
@@ -91,19 +94,19 @@ class ProductCategoryMappingInstall extends AbstractInstaller
     protected function installProductCategories(LocaleTransfer $locale)
     {
         foreach ($this->getDemoProductCategories() as $demoProductCategory) {
-            $sku = $demoProductCategory['sku'];
+            $sku = $demoProductCategory[self::SKU];
             if (!$this->productFacade->hasProductAbstract($sku)) {
                 continue;
             }
 
-            $categoryName = $demoProductCategory['category'];
-            if (!$this->categoryFacade->hasCategoryNode($categoryName, $locale)) {
+            $category = $this->categoryFacade->getCategoryByKey($demoProductCategory[self::CATEGORY_KEY], $locale->getIdLocale());
+            if (!$category) {
                 continue;
             }
 
-            if (!$this->productCategoryManager->hasProductCategoryMapping($sku, $categoryName, $locale)) {
+            if (!$this->productCategoryManager->hasProductCategoryMapping($sku, $category->getName(), $locale)) {
                 $categoryNodeIds[] = $this->productCategoryManager
-                    ->createProductCategoryMapping($sku, $categoryName, $locale);
+                    ->createProductCategoryMapping($sku, $category->getName(), $locale);
             }
         }
     }

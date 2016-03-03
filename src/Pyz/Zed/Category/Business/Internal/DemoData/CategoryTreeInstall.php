@@ -26,6 +26,7 @@ class CategoryTreeInstall extends AbstractInstaller
     const CATEGORY_KEY = 'key';
     const PARENT_KEY = 'parent_key';
     const IMAGE_NAME = 'image_name';
+    const NODE_ORDER = 'order';
 
     /**
      * @var \Spryker\Zed\Category\Business\Model\CategoryWriter
@@ -130,8 +131,10 @@ class CategoryTreeInstall extends AbstractInstaller
         $idCategory = $this->createCategory($rawNode);
 
         $rootNodeTransfer = new NodeTransfer();
-        $rootNodeTransfer->setIsRoot(true);
         $rootNodeTransfer->setFkCategory($idCategory);
+        $rootNodeTransfer->setNodeOrder((int)$rawNode->{self::NODE_ORDER});
+        $rootNodeTransfer->setIsRoot(true);
+        $rootNodeTransfer->setIsMain(true);
 
         $this->categoryTreeWriter->createCategoryNode($rootNodeTransfer, $this->locale);
 
@@ -148,9 +151,11 @@ class CategoryTreeInstall extends AbstractInstaller
         $idCategory = $this->createCategory($rawNode);
 
         $childNodeTransfer = new NodeTransfer();
-        $childNodeTransfer->setIsRoot(false);
         $childNodeTransfer->setFkCategory($idCategory);
         $childNodeTransfer->setFkParentCategoryNode($this->getParentId($rawNode));
+        $childNodeTransfer->setNodeOrder((int)$rawNode->{self::NODE_ORDER});
+        $childNodeTransfer->setIsMain(true);
+        $childNodeTransfer->setIsRoot(false);
 
         $this->categoryTreeWriter->createCategoryNode($childNodeTransfer, $this->locale);
     }
@@ -186,7 +191,7 @@ class CategoryTreeInstall extends AbstractInstaller
         $idCategory = null;
 
         foreach ($locales as $locale) {
-            $localeAttributes = $rawNode->xpath('locales/locale[@id="' . $locale . '"]');
+            $localeAttributes = $rawNode->xpath('attributes/attribute[@locale_id="' . $locale . '"]');
             $localeAttributes = current($localeAttributes);
 
             if ($localeAttributes === false) {

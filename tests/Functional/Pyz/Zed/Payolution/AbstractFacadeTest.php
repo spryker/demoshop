@@ -39,7 +39,7 @@ abstract class AbstractFacadeTest extends Test
     const STREET = 'Julie-Wolfthorn-Straße 1';
     const ZIP_CODE = '10115';
     const CITY = 'Berlin';
-    const COUNTRY_CODE = 'de';
+    const COUNTRY_CODE = 'DE';
 
     const BIC = 'DABAIE2';
     const IBAN = 'DE89370400440532013000';
