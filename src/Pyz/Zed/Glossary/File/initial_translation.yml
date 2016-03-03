@@ -11,20 +11,20 @@ keys:
       en_US: '2'
   page.home.featured.top-left.left.name:
     translations:
-      de_DE: 'Gorilla Männchen'
-      en_US: 'Gorilla male'
+      de_DE: 'Smartwatches'
+      en_US: 'Smartwatches'
   page.home.featured.top-left.left.category:
     translations:
-      de_DE: 'Wilde Tiere'
-      en_US: 'Wild animals'
+      de_DE: 'Tragbare Technologie'
+      en_US: 'Wearables'
   page.home.featured.top-left.left.img:
     translations:
-      de_DE: '/images/homepage/gorilla.jpg'
-      en_US: '/images/homepage/gorilla.jpg'
+      de_DE: '/images/homepage/smartwatch.jpg'
+      en_US: '/images/homepage/smartwatch.jpg'
   page.home.featured.top-left.left.url:
     translations:
-      de_DE: '/de/gorilla-maennchen'
-      en_US: '/en/gorilla-male'
+      de_DE: '/de/smartwatch'
+      en_US: '/en/smartwatch'
 
   page.home.featured.top-left.right.width:
     translations:
@@ -36,20 +36,20 @@ keys:
       en_US: '2'
   page.home.featured.top-left.right.name:
     translations:
-      de_DE: 'Brillenpinguin'
-      en_US: 'Penguin'
+      de_DE: 'Smartwatches'
+      en_US: 'Smartwatches'
   page.home.featured.top-left.right.category:
     translations:
-      de_DE: 'Meere'
-      en_US: 'Sees'
+      de_DE: 'Kameras & Camcorders'
+      en_US: 'Cameras & Camcorders'
   page.home.featured.top-left.right.img:
     translations:
-      de_DE: '/images/homepage/penguin.jpg'
-      en_US: '/images/homepage/penguin.jpg'
+      de_DE: /images/homepage/smartwatch.jpg
+      en_US: /images/homepage/smartwatch.jpg
   page.home.featured.top-left.right.url:
     translations:
-      de_DE: '/de/brillenpinguin'
-      en_US: '/en/penguin'
+      de_DE: '/de/smartwatche'
+      en_US: '/en/smartwatche'
 
   page.home.featured.top-right.first.width:
     translations:
@@ -61,12 +61,12 @@ keys:
       en_US: '2'
   page.home.featured.top-right.first.img:
     translations:
-      de_DE: '/images/homepage/wildlife.jpg'
-      en_US: '/images/homepage/wildlife.jpg'
+      de_DE: '/images/homepage/computer.jpg'
+      en_US: '/images/homepage/computer.jpg'
   page.home.featured.top-right.first.url:
     translations:
-      de_DE: '/de/wilde-tiere'
-      en_US: '/en/wild-animals'
+      de_DE: '/de/computer'
+      en_US: '/en/computer'
 
   page.home.featured.top-right.second.width:
     translations:
@@ -78,12 +78,12 @@ keys:
       en_US: '2'
   page.home.featured.top-right.second.img:
     translations:
-      de_DE: '/images/homepage/dragon.jpg'
-      en_US: '/images/homepage/dragon.jpg'
+      de_DE: /images/homepage/computer_product.jpg
+      en_US: /images/homepage/computer_product.jpg
   page.home.featured.top-right.second.url:
     translations:
-      de_DE: '/de/wilde-tiere'
-      en_US: '/en/wild-animals'
+      de_DE: '/de/computer_product'
+      en_US: '/en/computer_product'
 
   page.home.featured.bottom-left.top.width:
     translations:
@@ -95,20 +95,20 @@ keys:
       en_US: '1'
   page.home.featured.bottom-left.top.name:
     translations:
-      de_DE: 'Wald und Wiese'
-      en_US: 'Forest and Meadow'
+      de_DE: 'Kameras'
+      en_US: 'Cameras'
   page.home.featured.bottom-left.top.category:
     translations:
-      de_DE: '/de/wald-und-wiese'
-      en_US: '/en/forest-and-meadow'
+      de_DE: '/de/Kameras & Camcorders'
+      en_US: '/en/Cameras & Camcorders'
   page.home.featured.bottom-left.top.img:
     translations:
-      de_DE: '/images/homepage/teaser-waldwiese.jpg'
-      en_US: '/images/homepage/teaser-waldwiese.jpg'
+      de_DE: /images/homepage/camera.jpg
+      en_US: /images/homepage/camera.jpg
   page.home.featured.bottom-left.top.url:
     translations:
-      de_DE: '/de/wald-und-wiese'
-      en_US: '/en/forest-and-meadow'
+      de_DE: '/de/kamera'
+      en_US: '/en/camera'
 
   page.home.featured.bottom-left.bottom.width:
     translations:
@@ -124,16 +124,16 @@ keys:
       en_US: 'Seas'
   page.home.featured.bottom-left.bottom.category:
     translations:
-      de_DE: '/de/meere'
-      en_US: '/en/seas'
+      de_DE: 'Kameras & Camcorders'
+      en_US: 'Cameras & Camcorders'
   page.home.featured.bottom-left.bottom.img:
     translations:
-      de_DE: '/images/homepage/sea.jpg'
-      en_US: '/images/homepage/sea.jpg'
+      de_DE: '/images/homepage/camera_product.jpg'
+      en_US: '/images/homepage/camera_product.jpg'
   page.home.featured.bottom-left.bottom.url:
     translations:
-      de_DE: '/de/meere'
-      en_US: '/en/seas'
+      de_DE: '/de/Kameras & Camcorders'
+      en_US: '/en/Camera & Camcorders'
 
   page.home.featured.bottom-right.left.width:
     translations:
@@ -145,20 +145,20 @@ keys:
       en_US: '2'
   page.home.featured.bottom-right.left.name:
     translations:
-      de_DE: 'Ferkel'
-      en_US: 'pig'
+      de_DE: 'Smartphones'
+      en_US: 'Smartphones'
   page.home.featured.bottom-right.left.category:
     translations:
-      de_DE: 'Wald und Wiese'
-      en_US: 'Forest and Meadow'
+      de_DE: 'Telekommunikation'
+      en_US: 'Telecommunication'
   page.home.featured.bottom-right.left.img:
     translations:
-      de_DE: '/images/homepage/ferkel.jpg'
-      en_US: '/images/homepage/ferkel.jpg'
+      de_DE: /images/homepage/smartphone.jpg
+      en_US: /images/homepage/smartphone.jpg
   page.home.featured.bottom-right.left.url:
     translations:
-      de_DE: '/de/ferkel-stehend'
-      en_US: '/en/pig-standing'
+      de_DE: '/de/smartphones'
+      en_US: '/en/smartphones'
 
   page.home.featured.bottom-right.right.width:
     translations:
@@ -170,20 +170,20 @@ keys:
       en_US: '2'
   page.home.featured.bottom-right.right.name:
     translations:
-      de_DE: 'Flusspferd'
-      en_US: 'Hippo'
+      de_DE: 'Smartphones'
+      en_US: 'Smartphones'
   page.home.featured.bottom-right.right.category:
     translations:
-      de_DE: 'Wilde Tiere'
-      en_US: 'Wild animals'
+      de_DE: 'Telekommunikation'
+      en_US: 'Telecommunication'
   page.home.featured.bottom-right.right.img:
     translations:
-      de_DE: '/images/homepage/flusspferd.jpg'
-      en_US: '/images/homepage/flusspferd.jpg'
+      de_DE: '/images/homepage/smartphone_product.jpg'
+      en_US: '/images/homepage/smartphone_product.jpg'
   page.home.featured.bottom-right.right.url:
     translations:
-      de_DE: '/de/flusspferd'
-      en_US: '/en/hippo'
+      de_DE: '/de/smartphone'
+      en_US: '/en/smartphone'
 
   cart.your-order:
     translations:
