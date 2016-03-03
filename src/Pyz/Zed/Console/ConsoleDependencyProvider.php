@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Console;
 
 use Pyz\Zed\Installer\Business\DemoData\DemoDataInstallConsole;
+use Pyz\Zed\Installer\Communication\Console\IcecatDataInstallConsole;
 use Spryker\Shared\Library\Environment;
 use Spryker\Zed\Application\Communication\Console\ApplicationIntegrationCheckConsole;
 use Spryker\Zed\Application\Communication\Console\BuildNavigationConsole;
@@ -52,6 +53,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new CollectorSearchUpdateConsole(),
             new DeleteAllCachesConsole(),
             new DemoDataInstallConsole(),
+            new IcecatDataInstallConsole(),
             new DependencyTreeBuilderConsole(),
             new DependencyTreeDependencyViolationConsole(),
             new GeneratorConsole(),
