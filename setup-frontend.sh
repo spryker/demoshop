@@ -40,7 +40,7 @@ if [[ `node -v | grep -E '^v[0-4]'` ]]; then
 fi
 
 labelText "Install webpack globally"
-sudo $NPM install -g webpack
+sudo $NPM install -g webpack@"^1.12.14"
 
 labelText "Install SPY tool globally"
 $GIT clone --branch master git@github.com:spryker/spy.git /tmp/spy

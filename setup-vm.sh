@@ -110,7 +110,7 @@ labelText "Build Codeception dependency files"
 vendor/bin/codecept build
 
 labelText "Frontend assets management setup"
-./setup-spy.sh
+./setup-frontend.sh
 
 labelText "Restart ElasticSearch"
 sudo /etc/init.d/elasticsearch restart
