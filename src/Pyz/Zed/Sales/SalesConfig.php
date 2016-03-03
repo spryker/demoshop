@@ -18,6 +18,8 @@ class SalesConfig extends SprykerSalesConfig
     ];
 
     /**
+     * This method determines state machine process from the given quote transfer and order item.
+     *
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
      *
@@ -32,7 +34,14 @@ class SalesConfig extends SprykerSalesConfig
     }
 
     /**
-     * This method provides list of actions for zed order details external blocks
+     * This method provides list of urls to render blocks inside order detail page.
+     * Url defines path to external bundle controller.  For example: /discount/sales/list would call discount bundle, sales controller, list action.
+     * Action should return return array or redirect response.
+     *
+     * example:
+     * [
+     *    'discount' => '/discount/sales/index',
+     * ]
      *
      * @return array
      */
