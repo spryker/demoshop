@@ -19,15 +19,14 @@ use Spryker\Zed\Collector\Communication\Console\CollectorStorageExportConsole;
 use Spryker\Zed\Console\ConsoleDependencyProvider as SprykerConsoleDependencyProvider;
 use Spryker\Zed\Development\Communication\Console\CodeCreateConsole;
 use Spryker\Zed\Development\Communication\Console\CodePhpMessDetectorConsole;
-use Spryker\Zed\Development\Communication\Console\CodeStyleFixerConsole;
 use Spryker\Zed\Development\Communication\Console\CodeStyleSnifferConsole;
 use Spryker\Zed\Development\Communication\Console\CodeTestConsole;
+use Spryker\Zed\Development\Communication\Console\ComposerJsonUpdaterConsole;
+use Spryker\Zed\Development\Communication\Console\DependencyTreeBuilderConsole;
+use Spryker\Zed\Development\Communication\Console\DependencyTreeDependencyViolationConsole;
+use Spryker\Zed\Installer\Communication\Console\DemoDataInstallConsole;
 use Spryker\Zed\Installer\Communication\Console\InitializeDatabaseConsole;
 use Spryker\Zed\Kernel\Container;
-use Spryker\Zed\Maintenance\Communication\Console\ComposerJsonUpdaterConsole;
-use Spryker\Zed\Maintenance\Communication\Console\DependencyTreeBuilderConsole;
-use Spryker\Zed\Maintenance\Communication\Console\DependencyTreeDependencyViolationConsole;
-use Spryker\Zed\Maintenance\Communication\Console\FossMarkDownGeneratorConsole;
 use Spryker\Zed\NewRelic\Communication\Console\RecordDeploymentConsole;
 use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole;
 use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole;
@@ -58,7 +57,6 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new IcecatDataInstallConsole(),
             new DependencyTreeBuilderConsole(),
             new DependencyTreeDependencyViolationConsole(),
-            new FossMarkDownGeneratorConsole(),
             new GeneratorConsole(),
             new InitializeDatabaseConsole(),
             new ProductSearchConsole(),

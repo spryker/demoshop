@@ -8,122 +8,58 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Orm\Zed\Category\Persistence\Map\SpyCategoryAttributeTableMap;
-use Orm\Zed\Category\Persistence\Map\SpyCategoryNodeTableMap;
-use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
-use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
-use Orm\Zed\Touch\Persistence\SpyTouchQuery;
-use Propel\Runtime\ActiveQuery\Criteria;
-use Propel\Runtime\ActiveQuery\Criterion\BasicCriterion;
-use Propel\Runtime\ActiveQuery\Join;
-use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
-use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
-use Spryker\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
-use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
+use Spryker\Shared\Category\CategoryConstants;
+use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
+use Spryker\Zed\Collector\Business\Exporter\Writer\Storage\TouchUpdaterSet;
+use Spryker\Zed\Collector\CollectorConfig;
 
-class NavigationCollector extends AbstractPropelCollectorPlugin
+class NavigationCollector extends AbstractStoragePdoCollector
 {
 
-    use KeyBuilderTrait;
-
     /**
-     * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainer
+     * @param array $collectedSet
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\Storage\TouchUpdaterSet $touchUpdaterSet
+     *
+     * @return array
      */
-    private $categoryQueryContainer;
-
-    /**
-     * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainer $categoryQueryContainer
-     */
-    public function __construct(CategoryQueryContainer $categoryQueryContainer)
+    protected function collectData(array $collectedSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
     {
-        $this->categoryQueryContainer = $categoryQueryContainer;
+        $setToExport = [];
+        $formattedCategoryNodes = [];
+        $touchKey = $this->collectKey('', $locale->getLocaleName(), []);
+        $touchKey = rtrim($touchKey, '.');
+
+        foreach ($collectedSet as $index => $collectedItemData) {
+            $formattedCategoryNodes[] = $this->formatCategoryNode($collectedItemData);
+            $touchUpdaterSet->add($touchKey, $collectedItemData[CollectorConfig::COLLECTOR_TOUCH_ID], [
+                CollectorConfig::COLLECTOR_STORAGE_KEY => $this->getCollectorStorageKeyId($collectedItemData),
+                CollectorConfig::COLLECTOR_SEARCH_KEY => $this->getCollectorSearchKeyId($collectedItemData),
+            ]);
+        }
+
+        $setToExport[$touchKey] = $formattedCategoryNodes;
+
+        return $setToExport;
+    }
+
+    /**
+     * @param string $touchKey
+     * @param array $collectItemData
+     *
+     * @return array
+     */
+    protected function collectItem($touchKey, array $collectItemData)
+    {
+        return $this->formatCategoryNode($collectItemData);
     }
 
     /**
      * @return string
      */
-    protected function getTouchItemType()
+    protected function collectResourceType()
     {
-        return 'navigation';
-    }
-
-    /**
-     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
-     *
-     * @return \Orm\Zed\Touch\Persistence\SpyTouchQuery
-     */
-    protected function createQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
-    {
-        $baseQuery->clearSelectColumns();
-
-        $join = new Join();
-        $join
-            ->setLeftTableName(SpyTouchTableMap::TABLE_NAME)
-            ->setRightTableName(SpyCategoryNodeTableMap::TABLE_NAME)
-            ->setJoinCondition(new BasicCriterion(new Criteria(), 'is_root', '1'));
-        $baseQuery->addJoinObject($join);
-
-        $baseQuery->addJoin(
-            SpyCategoryNodeTableMap::COL_FK_CATEGORY,
-            SpyCategoryAttributeTableMap::COL_FK_CATEGORY,
-            Criteria::LEFT_JOIN
-        );
-
-        $baseQuery
-            ->addJoin(
-                SpyCategoryAttributeTableMap::COL_FK_LOCALE,
-                SpyLocaleTableMap::COL_ID_LOCALE,
-                Criteria::INNER_JOIN
-            );
-
-        $baseQuery->addAnd(
-            SpyLocaleTableMap::COL_ID_LOCALE,
-            $locale->getIdLocale(),
-            Criteria::EQUAL
-        );
-
-        $baseQuery = $this->categoryQueryContainer->joinCategoryQueryWithChildrenCategories($baseQuery, 'rootChildren', 'rootChild');
-        $baseQuery = $this->categoryQueryContainer->joinLocalizedRelatedCategoryQueryWithAttributes($baseQuery, 'rootChildren', 'rootChild');
-        $baseQuery = $this->categoryQueryContainer->joinCategoryQueryWithChildrenCategories($baseQuery, 'categoryChildren', 'child', 'rootChildren');
-        $baseQuery = $this->categoryQueryContainer->joinLocalizedRelatedCategoryQueryWithAttributes($baseQuery, 'categoryChildren', 'child');
-        $baseQuery = $this->categoryQueryContainer->joinCategoryQueryWithParentCategories($baseQuery, true, false, 'rootChildren');
-        $baseQuery = $this->categoryQueryContainer->joinLocalizedRelatedCategoryQueryWithAttributes($baseQuery, 'categoryParents', 'parent');
-        $baseQuery = $this->categoryQueryContainer->joinRelatedCategoryQueryWithUrls($baseQuery, 'categoryChildren', 'child');
-        $baseQuery = $this->categoryQueryContainer->joinRelatedCategoryQueryWithUrls($baseQuery, 'categoryParents', 'parent');
-        $baseQuery = $this->categoryQueryContainer->joinCategoryQueryWithUrls($baseQuery, 'rootChildren');
-        $baseQuery = $this->categoryQueryContainer->selectCategoryAttributeColumns($baseQuery, 'rootChildrenAttributes');
-
-        $baseQuery->withColumn(
-            'rootChildren.id_category_node',
-            'node_id'
-        );
-
-        $baseQuery->orderBy('depth', Criteria::DESC);
-        $baseQuery->orderBy('descendant_id', Criteria::DESC);
-        $baseQuery->groupBy('node_id');
-
-        return $baseQuery;
-    }
-
-    /**
-     * @param array $resultSet
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
-     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet $touchUpdaterSet
-     *
-     * @return array
-     */
-    protected function processData($resultSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
-    {
-        $navigationKey = $this->generateKey('', $locale->getLocaleName());
-
-        $formattedCategoryNodes = [];
-
-        foreach ($resultSet as $categoryNode) {
-            $formattedCategoryNodes[] = $this->formatCategoryNode($categoryNode);
-        }
-
-        return [$navigationKey => $formattedCategoryNodes];
+        return CategoryConstants::RESOURCE_TYPE_NAVIGATION;
     }
 
     /**
@@ -131,7 +67,7 @@ class NavigationCollector extends AbstractPropelCollectorPlugin
      *
      * @return array
      */
-    private function formatCategoryNode(array $categoryNode)
+    protected function formatCategoryNode(array $categoryNode)
     {
         $categoryUrls = explode(',', $categoryNode['category_urls']);
 
@@ -156,24 +92,6 @@ class NavigationCollector extends AbstractPropelCollectorPlugin
     }
 
     /**
-     * @param string $data
-     *
-     * @return string
-     */
-    protected function buildKey($data)
-    {
-        return 'navigation';
-    }
-
-    /**
-     * @return string
-     */
-    public function getBundleName()
-    {
-        return 'category';
-    }
-
-    /**
      * @param array $data
      * @param string $idsField
      * @param string $namesField
@@ -186,11 +104,11 @@ class NavigationCollector extends AbstractPropelCollectorPlugin
         if (!$data[$idsField]) {
             return [];
         }
-
         $ids = explode(',', $data[$idsField]);
         $names = explode(',', $data[$namesField]);
         $urls = explode(',', $data[$urlsField]);
         $nodes = [];
+
         foreach ($ids as $key => $id) {
             $nodes[$id]['node_id'] = $id;
             $nodes[$id]['name'] = $names[$key];
@@ -198,6 +116,14 @@ class NavigationCollector extends AbstractPropelCollectorPlugin
         }
 
         return $nodes;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBundleName()
+    {
+        return 'category';
     }
 
 }

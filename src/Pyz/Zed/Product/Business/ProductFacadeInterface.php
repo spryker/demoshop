@@ -36,8 +36,8 @@ interface ProductFacadeInterface extends SprykerProductFacadeInterface
     public function installDemoData(MessengerInterface $messenger);
 
     /**
-     * @param int                                       $idProductAbstract
-     * @param string                                    $url
+     * @param int $idProductAbstract
+     * @param string $url
      * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      *
      * @throws \Propel\Runtime\Exception\PropelException
