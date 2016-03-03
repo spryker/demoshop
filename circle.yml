@@ -31,3 +31,4 @@ test:
     - vendor/bin/codecept build
     - vendor/bin/console application:integration-check
     - vendor/bin/console code:sniff
+#    - vendor/bin/console code:phpmd

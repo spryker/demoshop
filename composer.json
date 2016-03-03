@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-feature/architecture-sniffer",
 
     "psr/log": "~1.0.0",
     "propel/propel": "~2.0@dev",
@@ -52,6 +52,7 @@
   },
   "require-dev": {
     "spryker/code-sniffer": "dev-master",
+    "spryker/architecture-sniffer": "dev-master",
     "silex/web-profiler": "~1.0.8",
     "pdepend/pdepend": "~2.2.2",
     "phploc/phploc": "~2.1.5",
@@ -79,6 +80,10 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/spryker.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/architecture-sniffer.git"
     }
   ]
 }
