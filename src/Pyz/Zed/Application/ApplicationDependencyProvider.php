@@ -48,7 +48,6 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
 {
 
     const SERVICE_PROVIDER = 'SERVICE_PROVIDER';
-    const URL_BUILDER = 'URL_BUILDER';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
