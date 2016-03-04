@@ -54,10 +54,8 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
      *
      * @return \Spryker\Zed\Kernel\Container
      */
-    public function provideBusinessLayerDependencies(Container $container)
+    public function provideCommunicationLayerDependencies(Container $container)
     {
-        parent::provideBusinessLayerDependencies($container);
-
         $container[self::SERVICE_PROVIDER] = function (Container $container) {
             return $this->getServiceProvider($container);
         };
