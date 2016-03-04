@@ -1,7 +1,9 @@
 <?php
+
 /**
  * (c) Spryker Systems GmbH copyright protected
  */
+
 namespace Pyz\Zed\Installer\Business\Icecat\Installer;
 
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;

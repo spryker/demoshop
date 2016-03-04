@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Installer\Business\Icecat\Importer\Product;
 
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
@@ -175,7 +180,7 @@ class ProductCategoryImporter extends AbstractIcecatImporter
      *
      * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function importOne(array $data)
+    protected function importOne(array $data)
     {
         if ($this->hasVariants($data[self::VARIANT_ID])) {
             return;

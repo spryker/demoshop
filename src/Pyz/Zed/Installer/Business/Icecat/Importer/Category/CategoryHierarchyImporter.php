@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Installer\Business\Icecat\Importer\Category;
 
 use Generated\Shared\Transfer\NodeTransfer;
@@ -101,7 +106,7 @@ class CategoryHierarchyImporter extends AbstractIcecatImporter
     /**
      * @param array $data
      */
-    public function importOne(array $data)
+    protected function importOne(array $data)
     {
         $category = $this->format($data);
 

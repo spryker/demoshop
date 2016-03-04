@@ -19,17 +19,19 @@ use Pyz\Zed\Installer\Business\Icecat\Importer\Cms\CmsPageImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Glossary\TranslationImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductAbstractImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductCategoryImporter;
+use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductConcreteImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductPriceImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductSearchImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductStockImporter;
-use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryCatalogInstaller;
-use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryInstaller;
-use Pyz\Zed\Installer\Business\Icecat\Installer\CategoryRootInstaller;
-use Pyz\Zed\Installer\Business\Icecat\Installer\CmsBlockInstaller;
-use Pyz\Zed\Installer\Business\Icecat\Installer\CmsPageInstaller;
-use Pyz\Zed\Installer\Business\Icecat\Installer\GlossaryInstaller;
-use Pyz\Zed\Installer\Business\Icecat\Installer\ProductInstaller;
-use Pyz\Zed\Installer\Business\Icecat\Installer\ProductSearchInstaller;
+use Pyz\Zed\Installer\Business\Icecat\Installer\Category\CategoryCatalogInstaller;
+use Pyz\Zed\Installer\Business\Icecat\Installer\Category\CategoryInstaller;
+use Pyz\Zed\Installer\Business\Icecat\Installer\Category\CategoryRootInstaller;
+use Pyz\Zed\Installer\Business\Icecat\Installer\Cms\CmsBlockInstaller;
+use Pyz\Zed\Installer\Business\Icecat\Installer\Cms\CmsPageInstaller;
+use Pyz\Zed\Installer\Business\Icecat\Installer\Glossary\GlossaryInstaller;
+use Pyz\Zed\Installer\Business\Icecat\Installer\Product\ProductInstaller;
+use Pyz\Zed\Installer\Business\Icecat\Installer\Product\ProductSearchInstaller;
+use Pyz\Zed\Installer\Business\Icecat\Processor\Product\DigitalCameraProcessor;
 use Pyz\Zed\Installer\InstallerConfig;
 use Pyz\Zed\Installer\InstallerDependencyProvider;
 use Spryker\Shared\Library\Reader\Csv\CsvReader as CsvReader;
@@ -63,14 +65,14 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     public function getIcecatDataInstallerCollection()
     {
         return [
-            InstallerConfig::RESOURCE_CATEGORY_ROOT => $this->getCategoryRootInstaller(),
-            InstallerConfig::RESOURCE_CATEGORY => $this->getCategoryInstaller(),
-            InstallerConfig::RESOURCE_CATEGORY_CATALOG => $this->getCategoryCatalogInstaller(),
+            //InstallerConfig::RESOURCE_CATEGORY_ROOT => $this->getCategoryRootInstaller(),
+            //InstallerConfig::RESOURCE_CATEGORY => $this->getCategoryInstaller(),
+            //InstallerConfig::RESOURCE_CATEGORY_CATALOG => $this->getCategoryCatalogInstaller(),
             InstallerConfig::RESOURCE_PRODUCT => $this->getProductInstaller(),
-            InstallerConfig::RESOURCE_PRODUCT_SEARCH => $this->getProductSearchInstaller(),
-            InstallerConfig::RESOURCE_GLOSSARY => $this->getGlossaryInstaller(),
-            InstallerConfig::RESOURCE_CMS_PAGE => $this->getCmsPageInstaller(),
-            InstallerConfig::RESOURCE_CMS_BLOCK => $this->getCmsBlockInstaller(),
+            //InstallerConfig::RESOURCE_PRODUCT_SEARCH => $this->getProductSearchInstaller(),
+            //InstallerConfig::RESOURCE_GLOSSARY => $this->getGlossaryInstaller(),
+            //InstallerConfig::RESOURCE_CMS_PAGE => $this->getCmsPageInstaller(),
+            //InstallerConfig::RESOURCE_CMS_BLOCK => $this->getCmsBlockInstaller(),
         ];
     }
 
@@ -111,6 +113,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     {
         return [
             InstallerConfig::RESOURCE_PRODUCT => $this->getProductAbstractImporter(),
+            InstallerConfig::RESOURCE_PRODUCT_CONCRETE => $this->getProductConcreteImporter(),
             InstallerConfig::RESOURCE_PRODUCT_CATEGORY => $this->getProductCategoryImporter(),
             InstallerConfig::RESOURCE_PRODUCT_STOCK => $this->getProductStockImporter(),
             InstallerConfig::RESOURCE_PRODUCT_PRICE => $this->getProductPriceImporter(),
@@ -155,6 +158,29 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
         return [
             InstallerConfig::RESOURCE_CMS_PAGE => $this->getCmsPageImporter(),
         ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Icecat\Processor\IcecatProcessorInterface[]
+     */
+    public function getProductProcessorCollection()
+    {
+        return [
+            'Digital Cameras' => $this->getDigitalCameraProcessor(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Icecat\Processor\Product\DigitalCameraProcessor
+     */
+    protected function getDigitalCameraProcessor()
+    {
+        $digitalCameraProcessor = new DigitalCameraProcessor(
+            $this->getIcecatLocaleManager(),
+            $this->getConfig()->getIcecatDataPath()
+        );
+
+        return $digitalCameraProcessor;
     }
 
     /**
@@ -237,6 +263,22 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductAbstractImporter()
     {
         $productAbstractImporter = new ProductAbstractImporter(
+            $this->getIcecatLocaleManager(),
+            $this->getProductProcessorCollection()
+        );
+
+        $productAbstractImporter->setAttributeManager($this->createAttributeManager());
+        $productAbstractImporter->setProductFacade($this->getProductFacade());
+
+        return $productAbstractImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductConcreteImporter
+     */
+    protected function getProductConcreteImporter()
+    {
+        $productAbstractImporter = new ProductConcreteImporter(
             $this->getIcecatLocaleManager()
         );
 
@@ -368,7 +410,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\CategoryInstaller
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\Category\CategoryInstaller
      */
     protected function getCategoryInstaller()
     {
@@ -381,7 +423,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\CategoryCatalogInstaller
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\Category\CategoryCatalogInstaller
      */
     protected function getCategoryCatalogInstaller()
     {
@@ -394,7 +436,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\CategoryRootInstaller
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\Category\CategoryRootInstaller
      */
     protected function getCategoryRootInstaller()
     {
@@ -407,7 +449,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\ProductInstaller
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\Product\ProductInstaller
      */
     protected function getProductInstaller()
     {
@@ -420,7 +462,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\ProductSearchInstaller
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\Product\ProductSearchInstaller
      */
     protected function getProductSearchInstaller()
     {
@@ -433,7 +475,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\GlossaryInstaller
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\Glossary\GlossaryInstaller
      */
     protected function getGlossaryInstaller()
     {
@@ -446,7 +488,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\CmsBlockInstaller
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\Cms\CmsBlockInstaller
      */
     protected function getCmsBlockInstaller()
     {
@@ -459,7 +501,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\CmsPageInstaller
+     * @return \Pyz\Zed\Installer\Business\Icecat\Installer\Cms\CmsPageInstaller
      */
     protected function getCmsPageInstaller()
     {

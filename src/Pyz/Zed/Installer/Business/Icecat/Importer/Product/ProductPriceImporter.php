@@ -1,12 +1,17 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Installer\Business\Icecat\Importer\Product;
 
 use Orm\Zed\Price\Persistence\SpyPriceProduct;
 use Orm\Zed\Price\Persistence\SpyPriceProductQuery;
 use Pyz\Zed\Installer\Business\Exception\PriceTypeNotFoundException;
-use Pyz\Zed\Installer\Business\Icecat\Importer\AbstractIcecatImporter;
 use Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager;
+use Pyz\Zed\Installer\Business\Icecat\Importer\AbstractIcecatImporter;
 use Pyz\Zed\Stock\Business\StockFacadeInterface;
 use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Price\Persistence\PriceQueryContainerInterface;
@@ -107,10 +112,10 @@ class ProductPriceImporter extends AbstractIcecatImporter
      * @param array $data
      *
      * @throws \Pyz\Zed\Installer\Business\Exception\PriceTypeNotFoundException
-     * @throws \Propel\Runtime\Exception\PropelException
+     *
      * @return void
      */
-    public function importOne(array $data)
+    protected function importOne(array $data)
     {
         $price = $this->getPriceValue();
 

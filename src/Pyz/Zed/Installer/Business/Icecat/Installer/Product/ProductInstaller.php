@@ -1,11 +1,17 @@
 <?php
 
-namespace Pyz\Zed\Installer\Business\Icecat\Installer;
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
 
+namespace Pyz\Zed\Installer\Business\Icecat\Installer\Product;
+
+use Pyz\Zed\Installer\Business\Icecat\Installer\AbstractIcecatInstaller;
 use Spryker\Shared\Library\BatchIterator\CsvBatchIterator;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class CategoryRootInstaller extends AbstractIcecatInstaller
+class ProductInstaller extends AbstractIcecatInstaller
 {
 
     /**
@@ -21,7 +27,7 @@ class CategoryRootInstaller extends AbstractIcecatInstaller
      */
     protected function getCsvDataFilename()
     {
-        return $this->dataDirectory . '/roots.csv';
+        return $this->dataDirectory . '/products.csv';
     }
 
     /**
@@ -29,7 +35,7 @@ class CategoryRootInstaller extends AbstractIcecatInstaller
      */
     public function getTitle()
     {
-        return 'Category Roots';
+        return 'Products';
     }
 
 }

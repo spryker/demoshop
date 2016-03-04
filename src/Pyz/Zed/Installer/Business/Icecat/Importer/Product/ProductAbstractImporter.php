@@ -1,10 +1,14 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Installer\Business\Icecat\Importer\Product;
 
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
-use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 use Pyz\Zed\Installer\Business\Icecat\Importer\AbstractIcecatImporter;
 use Pyz\Zed\Product\Business\ProductFacadeInterface;
@@ -85,9 +89,8 @@ class ProductAbstractImporter extends AbstractIcecatImporter
 
         $product = $this->format($data);
 
-        /* @var ProductAbstractTransfer $productAbstract */
-        $productAbstract = $product[self::PRODUCT_ABSTRACT];
-        $productConcreteCollection = $product[self::PRODUCT_CONCRETE_COLLECTION];
+        dump($product);
+        die;
 
         $idProductAbstract = $this->productFacade->createProductAbstract($productAbstract);
         $productAbstract->setIdProductAbstract($idProductAbstract);
@@ -126,61 +129,15 @@ class ProductAbstractImporter extends AbstractIcecatImporter
      */
     protected function format(array $data)
     {
-        $productImageUrl = $data[self::IMAGE_BIG];
-        $thumbImageUrl = $data[self::IMAGE_SMALL];
-
-        $attributes = [
-            'price' => (float)rand(0.01, 1999.99),
-            'width' => (float)rand(1.0, 10.0),
-            'height' => (float)rand(1.0, 10.0),
-            'depth' => (float)rand(1.0, 10.0),
-        ];
-
-        $productAbstract = new ProductAbstractTransfer();
-        $productConcrete = new ProductConcreteTransfer();
-
-        $locales = $this->localeManager->getLocaleCollection();
-
-        foreach ($locales as $localeCode => $localeTransfer) {
-            $localizedAttributes = new LocalizedAttributesTransfer();
-            $localizedAttributes->setAttributes([
-                'image_url' => $productImageUrl,
-                'thumbnail_url' => $thumbImageUrl,
-                'main_color' => 'color',
-                'other_colors' => 'other colors',
-                'description' => $data[self::NAME],
-                'description_long' => '',
-                'fun_fact' => 'fun fact',
-                'scientific_name' => 'scientific name',
-            ]);
-            $localizedAttributes->setLocale($localeTransfer);
-            $localizedAttributes->setName($data[self::NAME]);
-
-            $productAbstract->addLocalizedAttributes($localizedAttributes);
-            $productConcrete->addLocalizedAttributes($localizedAttributes);
-        }
-
-        $productAbstract->setSku($data[self::SKU]);
-        $productAbstract->setAttributes($attributes);
-
-        $productConcrete->setSku($data[self::SKU]);
-        $productConcrete->setAttributes($attributes);
-        $productConcrete->setProductImageUrl($productImageUrl);
-        $productConcrete->setIsActive(true);
-
-        return [
-            self::PRODUCT_ABSTRACT => $productAbstract,
-            self::PRODUCT_CONCRETE_COLLECTION => [
-                $productConcrete,
-            ],
-        ];
+        return $data;
     }
 
     /**
      * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstract
      * @param int $idProductAbstract
      */
-    protected function createAndTouchProductUrls(ProductAbstractTransfer $productAbstract, $idProductAbstract) {
+    protected function createAndTouchProductUrls(ProductAbstractTransfer $productAbstract, $idProductAbstract)
+    {
         foreach ($productAbstract->getLocalizedAttributes() as $localizedAttributes) {
             $productAbstractUrl = $this->generateProductUrl($localizedAttributes, $idProductAbstract);
             $this->productFacade->createAndTouchProductUrlByIdProduct(
