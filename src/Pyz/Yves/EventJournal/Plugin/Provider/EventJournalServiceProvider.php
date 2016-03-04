@@ -1,14 +1,17 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\EventJournal\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
-use Pyz\Yves\EventJournal\EventJournalFactory;
 use Silex\Application;
 use Spryker\Client\EventJournal\Event;
-use Spryker\Client\EventJournal\EventJournalClientInterface;
 use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Shared\Config;
+use Spryker\Shared\Config\Config;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
@@ -32,6 +35,8 @@ class EventJournalServiceProvider extends AbstractServiceProvider
 
     /**
      * @param \Silex\Application $app
+     *
+     * @return void
      */
     public function register(Application $app)
     {
@@ -126,12 +131,13 @@ class EventJournalServiceProvider extends AbstractServiceProvider
 
     /**
      * @param \Silex\Application $app
-     * @param $cookieName
-     * @param $validFor
+     * @param string $cookieName
+     * @param string $validFor
      *
      * @return void
      */
-    private function setTrackingCookie(Application $app, $cookieName, $validFor) {
+    private function setTrackingCookie(Application $app, $cookieName, $validFor)
+    {
         if (empty($_COOKIE[$cookieName])) {
             $_COOKIE[$cookieName] = sha1(uniqid('', true));
         }
@@ -147,6 +153,8 @@ class EventJournalServiceProvider extends AbstractServiceProvider
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return void
      */
     protected function setStaticRequestInformation(Request $request)
     {

@@ -1,17 +1,21 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Product\Business\Internal\DemoData;
 
-use Generated\Shared\Transfer\ProductAbstractTransfer;
-use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
+use Generated\Shared\Transfer\ProductAbstractTransfer;
+use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
 use Spryker\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface;
 use Spryker\Zed\Product\Business\Product\ProductManagerInterface;
 use Spryker\Zed\Product\Dependency\Facade\ProductToLocaleInterface;
-use Spryker\Zed\Product\Dependency\Facade\ProductToTouchInterface;
 
 class ProductDataInstall extends AbstractInstaller
 {
@@ -82,6 +86,9 @@ class ProductDataInstall extends AbstractInstaller
         $this->filePath = $filePath;
     }
 
+    /**
+     * @return void
+     */
     public function install()
     {
         $this->info('This will install some demo products and related attributes');
@@ -90,6 +97,9 @@ class ProductDataInstall extends AbstractInstaller
         $this->createAttributes();
     }
 
+    /**
+     * @return void
+     */
     protected function createProducts()
     {
         $currentLocale = $this->localeFacade->getCurrentLocale();
@@ -115,6 +125,8 @@ class ProductDataInstall extends AbstractInstaller
     /**
      * @param array $productConcreteCollection
      * @param int $idProductAbstract
+     *
+     * @return void
      */
     protected function createProductConcreteCollection(array $productConcreteCollection, $idProductAbstract)
     {
@@ -123,6 +135,9 @@ class ProductDataInstall extends AbstractInstaller
         }
     }
 
+    /**
+     * @return void
+     */
     protected function createAttributes()
     {
         $attributes = [
@@ -179,17 +194,50 @@ class ProductDataInstall extends AbstractInstaller
     {
         $productImageUrl = $this->buildProductImageUrl($product);
 
-        $attributes = [
-            'price' => (float) $product->{'price'},
-            'width' => (float) $product->{'width'},
-            'height' => (float) $product->{'height'},
-            'depth' => (float) $product->{'depth'},
+        $defaultAttributes = [
+            'price' => (float)$product->{'price'},
+            'width' => (float)$product->{'width'},
+            'height' => (float)$product->{'height'},
+            'depth' => (float)$product->{'depth'},
         ];
 
         $productAbstract = new ProductAbstractTransfer();
-        $productConcrete = new ProductConcreteTransfer();
+        $productAbstract->setSku($product->{'sku'});
+        $productAbstract->setAttributes($defaultAttributes);
 
+        $productConcrete = new ProductConcreteTransfer();
+        $productConcrete->setSku($product->{'sku'});
+        $productConcrete->setAttributes($defaultAttributes);
+        $productConcrete->setProductImageUrl($productImageUrl);
+        $productConcrete->setIsActive(true);
+
+        $localisedAttributes = $this->getLocalisedAttributes($product, $currentLocale);
+        foreach ($localisedAttributes as $locale => $data) {
+            foreach ($data as $sku => $attributes) {
+                $productAbstract->addLocalizedAttributes($attributes);
+                $productConcrete->addLocalizedAttributes($attributes);
+            }
+        }
+
+        /*        $productConcreteClone = clone $productConcrete;
+                $productConcreteClone->setSku($productConcreteClone->getSku().'-AA');*/
+
+        return [
+            self::PRODUCT_ABSTRACT => $productAbstract,
+            self::PRODUCT_CONCRETE_COLLECTION => [$productConcrete],
+        ];
+    }
+
+    /**
+     * @param \SimpleXMLElement $product
+     * @param \Generated\Shared\Transfer\LocaleTransfer $currentLocale
+     *
+     * @return array
+     */
+    protected function getLocalisedAttributes(\SimpleXMLElement $product, LocaleTransfer $currentLocale)
+    {
         $locales = $this->localeFacade->getAvailableLocales();
+        $attributes = [];
 
         foreach ($locales as $locale) {
             $localeAttributes = $product->xpath('locales/locale[@id="' . $locale . '"]');
@@ -199,40 +247,26 @@ class ProductDataInstall extends AbstractInstaller
                 continue;
             }
 
-            $localizedAttributes = new LocalizedAttributesTransfer();
-            $localizedAttributes->setAttributes(
-                [
-                    'image_url' => '/images/product/' . (string) $localeAttributes->{'image'},
-                    'thumbnail_url' => '/images/product/default.png',
-                    'main_color' => (string) $localeAttributes->{'main_color'},
-                    'other_colors' => (string) $localeAttributes->{'other_colors'},
-                    'description' => (string) $localeAttributes->{'description'},
-                    'description_long' => (string) $localeAttributes->{'description_long'},
-                    'fun_fact' => (string) $localeAttributes->{'fun_fact'},
-                    'scientific_name' => (string) $localeAttributes->{'scientific_name'},
-                ]
-            );
-            $localizedAttributes->setLocale($this->localeFacade->getLocale($locale));
-            $localizedAttributes->setName((string) $localeAttributes->{'name'});
+            $sku = (string)$product->{'sku'};
 
-            $productAbstract->addLocalizedAttributes($localizedAttributes);
-            $productConcrete->addLocalizedAttributes($localizedAttributes);
+            $localizedAttributes = new LocalizedAttributesTransfer();
+            $localizedAttributes->setLocale($this->localeFacade->getLocale($locale));
+            $localizedAttributes->setName((string)$localeAttributes->{'name'});
+            $localizedAttributes->setAttributes([
+                'image_url' => (string)$localeAttributes->{'image'},
+                'thumbnail_url' => 'default.png',
+                'main_color' => (string)$localeAttributes->{'main_color'},
+                'other_colors' => (string)$localeAttributes->{'other_colors'},
+                'description' => (string)$localeAttributes->{'description'},
+                'description_long' => (string)$localeAttributes->{'description_long'},
+                'fun_fact' => (string)$localeAttributes->{'fun_fact'},
+                'scientific_name' => (string)$localeAttributes->{'scientific_name'},
+            ]);
+
+            $attributes[$locale][$sku] = $localizedAttributes;
         }
 
-        $productAbstract->setSku($product->{'sku'});
-        $productAbstract->setAttributes($attributes);
-
-        $productConcrete->setSku($product->{'sku'});
-        $productConcrete->setAttributes($attributes);
-        $productConcrete->setProductImageUrl($productImageUrl);
-        $productConcrete->setIsActive(true);
-
-        return [
-            self::PRODUCT_ABSTRACT => $productAbstract,
-            self::PRODUCT_CONCRETE_COLLECTION => [
-                $productConcrete,
-            ],
-        ];
+        return $attributes;
     }
 
     /**
@@ -259,7 +293,7 @@ class ProductDataInstall extends AbstractInstaller
      */
     protected function buildProductImageUrl(\SimpleXMLElement $product)
     {
-        $productImageUrl = trim((string) $product->{'name'});
+        $productImageUrl = trim((string)$product->{'name'});
         $productImageUrl = str_replace(' ', '-', $productImageUrl);
         $productImageUrl = str_replace(',', '', $productImageUrl);
         $productImageUrl = strtolower($productImageUrl);
@@ -271,6 +305,8 @@ class ProductDataInstall extends AbstractInstaller
      * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstract
      * @param int $idProductAbstract
      * @param \Generated\Shared\Transfer\LocaleTransfer $currentLocale
+     *
+     * @return void
      */
     protected function createAndTouchProductUrls(
         ProductAbstractTransfer $productAbstract,

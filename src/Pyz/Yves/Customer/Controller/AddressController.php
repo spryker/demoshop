@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Customer\Controller;
 
 use Generated\Shared\Transfer\AddressesTransfer;
@@ -151,12 +156,12 @@ class AddressController extends AbstractCustomerController
 
         foreach ($addressesTransfer->getAddresses() as $addressTransfer) {
             $other = true;
-            if ((int) $addressTransfer->getIdCustomerAddress() === (int) $customerTransfer->getDefaultBillingAddress()) {
+            if ((int)$addressTransfer->getIdCustomerAddress() === (int)$customerTransfer->getDefaultBillingAddress()) {
                 $responseData[self::KEY_DEFAULT_BILLING_ADDRESS] = $addressTransfer;
                 $other = false;
             }
 
-            if ((int) $addressTransfer->getIdCustomerAddress() === (int) $customerTransfer->getDefaultShippingAddress()) {
+            if ((int)$addressTransfer->getIdCustomerAddress() === (int)$customerTransfer->getDefaultShippingAddress()) {
                 $responseData[self::KEY_DEFAULT_SHIPPING_ADDRESS] = $addressTransfer;
                 $other = false;
             }

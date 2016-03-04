@@ -1,13 +1,12 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Console;
 
-use Spryker\Zed\Development\Communication\Console\CodeCreateConsole;
-use Spryker\Zed\Development\Communication\Console\CodePhpMessDetectorConsole;
-use Spryker\Zed\Maintenance\Communication\Console\ComposerJsonUpdaterConsole;
-use Spryker\Zed\Maintenance\Communication\Console\DependencyTreeBuilderConsole;
-use Spryker\Zed\Maintenance\Communication\Console\DependencyTreeDependencyViolationConsole;
-use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
 use Spryker\Shared\Library\Environment;
 use Spryker\Zed\Application\Communication\Console\ApplicationIntegrationCheckConsole;
 use Spryker\Zed\Application\Communication\Console\BuildNavigationConsole;
@@ -15,20 +14,23 @@ use Spryker\Zed\Cache\Communication\Console\DeleteAllCachesConsole;
 use Spryker\Zed\Collector\Communication\Console\CollectorSearchExportConsole;
 use Spryker\Zed\Collector\Communication\Console\CollectorSearchUpdateConsole;
 use Spryker\Zed\Collector\Communication\Console\CollectorStorageExportConsole;
-use Spryker\Zed\Development\Communication\Console\CodeStyleFixerConsole;
+use Spryker\Zed\Console\ConsoleDependencyProvider as SprykerConsoleDependencyProvider;
+use Spryker\Zed\Development\Communication\Console\CodeCreateConsole;
+use Spryker\Zed\Development\Communication\Console\CodePhpMessDetectorConsole;
 use Spryker\Zed\Development\Communication\Console\CodeStyleSnifferConsole;
 use Spryker\Zed\Development\Communication\Console\CodeTestConsole;
+use Spryker\Zed\Development\Communication\Console\ComposerJsonUpdaterConsole;
+use Spryker\Zed\Development\Communication\Console\DependencyTreeBuilderConsole;
+use Spryker\Zed\Development\Communication\Console\DependencyTreeDependencyViolationConsole;
 use Spryker\Zed\Installer\Communication\Console\DemoDataInstallConsole;
 use Spryker\Zed\Installer\Communication\Console\InitializeDatabaseConsole;
-use Spryker\Zed\Maintenance\Communication\Console\FossMarkDownGeneratorConsole;
+use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\NewRelic\Communication\Console\RecordDeploymentConsole;
 use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole;
 use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole;
 use Spryker\Zed\ProductSearch\Communication\Console\ProductSearchConsole;
 use Spryker\Zed\Search\Communication\Console\SearchConsole;
-use Symfony\Component\Console\Command\Command;
-use Spryker\Zed\Kernel\Container;
-use Spryker\Zed\Console\ConsoleDependencyProvider as SprykerConsoleDependencyProvider;
+use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
 
 class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
 {
@@ -52,7 +54,6 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new DemoDataInstallConsole(),
             new DependencyTreeBuilderConsole(),
             new DependencyTreeDependencyViolationConsole(),
-            new FossMarkDownGeneratorConsole(),
             new GeneratorConsole(),
             new InitializeDatabaseConsole(),
             new ProductSearchConsole(),
@@ -72,7 +73,6 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
 
         if (Environment::isDevelopment()) {
             $commands[] = new CodeTestConsole();
-            $commands[] = new CodeStyleFixerConsole();
             $commands[] = new CodeStyleSnifferConsole();
             $commands[] = new CodeCreateConsole();
             $commands[] = new CodePhpMessDetectorConsole();

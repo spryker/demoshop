@@ -1,18 +1,19 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\ProductCategory\Business;
 
-use Spryker\Zed\ProductCategory\Business\ProductCategoryManagerInterface;
-use Spryker\Zed\ProductCategory\Business\TransferGenerator;
-use Spryker\Zed\ProductCategory\Business\ProductCategoryManager;
-use Pyz\Zed\ProductCategory\ProductCategoryConfig;
-use Spryker\Zed\Library\Import\Reader\CsvFileReader;
-use Spryker\Zed\Library\Import\ReaderInterface;
 use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductCategory\Business\Internal\DemoData\ProductCategoryMappingInstall;
+use Spryker\Zed\Library\Import\Reader\CsvFileReader;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\ProductCategory\Business\ProductCategoryBusinessFactory as SprykerBusinessFactory;
-use Spryker\Zed\ProductCategory\Business\TransferGeneratorInterface;
-use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainer;
+use Spryker\Zed\ProductCategory\Business\ProductCategoryManager;
+use Spryker\Zed\ProductCategory\Business\TransferGenerator;
 use Spryker\Zed\ProductCategory\ProductCategoryDependencyProvider;
 
 /**
@@ -23,11 +24,11 @@ class ProductCategoryBusinessFactory extends SprykerBusinessFactory
 {
 
     /**
-     * @param \Psr\Log\LoggerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
      * @return \Pyz\Zed\ProductCategory\Business\Internal\DemoData\ProductCategoryMappingInstall
      */
-    public function createDemoDataInstaller(LoggerInterface $messenger)
+    public function createDemoDataInstaller(MessengerInterface $messenger)
     {
         $installer = new ProductCategoryMappingInstall(
             $this->createProductCategoryManager(),

@@ -1,11 +1,15 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Shipment\Communication\Plugin\PriceCalculation;
 
 use Generated\Shared\Transfer\ShipmentMethodAvailabilityTransfer;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\Shipment\Communication\Plugin\ShipmentMethodPriceCalculationPluginInterface;
-use Pyz\Zed\Shipment\Business\ShipmentFacade;
 
 /**
  * @method \Pyz\Zed\Shipment\Business\ShipmentFacade getFacade()

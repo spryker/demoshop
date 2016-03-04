@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Customer\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
@@ -14,6 +19,7 @@ use Spryker\Shared\Customer\CustomerConstants;
  */
 class CustomerSecurityServiceProvider extends AbstractServiceProvider
 {
+
     const FIREWALL_SECURED = 'secured';
     const ROLE_USER = 'ROLE_USER';
     const IS_AUTHENTICATED_ANONYMOUSLY = 'IS_AUTHENTICATED_ANONYMOUSLY';

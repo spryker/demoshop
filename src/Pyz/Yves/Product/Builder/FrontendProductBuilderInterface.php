@@ -1,8 +1,11 @@
 <?php
 
-namespace Pyz\Yves\Product\Builder;
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
 
-use Pyz\Yves\Product\Model\ProductAbstract;
+namespace Pyz\Yves\Product\Builder;
 
 /**
  * Interface FrontendProductBuilderInterface

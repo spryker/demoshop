@@ -1,21 +1,24 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Oms;
 
-use Spryker\Zed\Payolution\Communication\Plugin\Oms\Command\RefundPlugin;
+use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Oms\OmsDependencyProvider as SprykerOmsDependencyProvider;
 use Spryker\Zed\Payolution\Communication\Plugin\Oms\Command\CapturePlugin;
-use Spryker\Zed\Payolution\Communication\Plugin\Oms\Command\RevertPlugin;
-use Spryker\Zed\Payolution\Communication\Plugin\Oms\Command\ReAuthorizePlugin;
 use Spryker\Zed\Payolution\Communication\Plugin\Oms\Command\PreAuthorizePlugin;
+use Spryker\Zed\Payolution\Communication\Plugin\Oms\Command\ReAuthorizePlugin;
+use Spryker\Zed\Payolution\Communication\Plugin\Oms\Command\RefundPlugin;
+use Spryker\Zed\Payolution\Communication\Plugin\Oms\Command\RevertPlugin;
 use Spryker\Zed\Payolution\Communication\Plugin\Oms\Condition\IsCaptureApprovedPlugin;
 use Spryker\Zed\Payolution\Communication\Plugin\Oms\Condition\IsPreAuthorizationApprovedPlugin;
 use Spryker\Zed\Payolution\Communication\Plugin\Oms\Condition\IsReAuthorizationApprovedPlugin;
 use Spryker\Zed\Payolution\Communication\Plugin\Oms\Condition\IsRefundApprovedPlugin;
 use Spryker\Zed\Payolution\Communication\Plugin\Oms\Condition\IsReversalApprovedPlugin;
-use Spryker\Zed\Kernel\Container;
-use Spryker\Zed\Oms\Communication\Plugin\Oms\Command\CommandInterface;
-use Spryker\Zed\Oms\Communication\Plugin\Oms\Condition\ConditionInterface;
-use Spryker\Zed\Oms\OmsDependencyProvider as SprykerOmsDependencyProvider;
 
 class OmsDependencyProvider extends SprykerOmsDependencyProvider
 {

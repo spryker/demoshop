@@ -1,9 +1,14 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Twig\Model;
 
-use Spryker\Yves\Application\Application;
 use Pyz\Yves\Twig\TwigSettings;
+use Spryker\Yves\Application\Application;
 
 class YvesExtension extends \Twig_Extension
 {

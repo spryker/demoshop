@@ -1,14 +1,16 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Customer\Controller;
 
 use Generated\Shared\Transfer\CustomerOverviewRequestTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\FilterTransfer;
 use Generated\Shared\Transfer\OrderListTransfer;
-use Pyz\Client\Customer\CustomerClientInterface;
-use Pyz\Yves\Customer\CustomerFactory;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
@@ -16,6 +18,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  */
 class CustomerController extends AbstractCustomerController
 {
+
     const ORDER_LIST_LIMIT = 5;
     const ORDER_LIST_SORT_FIELD = 'created_at';
     const ORDER_LIST_SORT_DIRECTION = 'DESC';
@@ -112,6 +115,7 @@ class CustomerController extends AbstractCustomerController
                 $addresses[self::KEY_SHIPPING] = $address;
             }
         }
+
         return $addresses;
     }
 

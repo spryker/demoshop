@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Stock\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\StockProductTransfer;
@@ -48,6 +53,9 @@ class StockInstall extends AbstractInstaller
         $this->queryContainer = $queryContainer;
     }
 
+    /**
+     * @return void
+     */
     public function install()
     {
         $query = $this->queryContainer->queryAllStockTypes();
@@ -64,6 +72,8 @@ class StockInstall extends AbstractInstaller
 
     /**
      * @param array $demoStock
+     *
+     * @return void
      */
     protected function writeStockProduct(array $demoStock)
     {
@@ -84,6 +94,8 @@ class StockInstall extends AbstractInstaller
 
     /**
      * @param array $row
+     *
+     * @return void
      */
     protected function addEntry(array $row)
     {

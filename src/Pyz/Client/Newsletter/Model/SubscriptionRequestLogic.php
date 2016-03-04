@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Client\Newsletter\Model;
 
 use Generated\Shared\Transfer\CustomerTransfer;
@@ -10,6 +15,7 @@ use Pyz\Shared\Newsletter\NewsletterConstants;
 
 class SubscriptionRequestLogic
 {
+
     /**
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
@@ -26,7 +32,7 @@ class SubscriptionRequestLogic
 
     /**
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
-     * @param string|null      $subscriberKey
+     * @param string|null $subscriberKey
      *
      * @return \Generated\Shared\Transfer\NewsletterSubscriptionRequestTransfer
      */
@@ -55,7 +61,7 @@ class SubscriptionRequestLogic
 
     /**
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
-     * @param string|null      $subscriberKey
+     * @param string|null $subscriberKey
      *
      * @return \Generated\Shared\Transfer\NewsletterSubscriptionRequestTransfer
      */

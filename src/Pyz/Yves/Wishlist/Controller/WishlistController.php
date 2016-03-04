@@ -1,12 +1,16 @@
 <?php
+
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Wishlist\Controller;
 
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
 use Pyz\Yves\Wishlist\Plugin\Provider\WishlistControllerProvider;
 use Spryker\Yves\Application\Controller\AbstractController;
-use Spryker\Client\Wishlist\WishlistClientInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * @method \Spryker\Client\Wishlist\WishlistClientInterface getClient()

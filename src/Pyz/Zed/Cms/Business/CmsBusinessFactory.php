@@ -1,16 +1,17 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Cms\Business;
 
-use Pyz\Zed\Cms\CmsConfig;
-use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManager;
-use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface;
 use Pyz\Zed\Cms\Business\Internal\DemoData\CmsInstall;
 use Pyz\Zed\Cms\CmsDependencyProvider;
-use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\Cms\Business\CmsBusinessFactory as SprykerCmsBusinessFactory;
-use Pyz\Zed\Cms\Persistence\CmsQueryContainer;
-use Spryker\Zed\Locale\Business\LocaleFacade;
+use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManager;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 
 /**
  * @method \Pyz\Zed\Cms\CmsConfig getConfig()

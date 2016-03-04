@@ -1,15 +1,19 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Collector\Communication\Plugin;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Pyz\Zed\Collector\Business\CollectorFacade;
-use Pyz\Zed\Collector\Communication\CollectorCommunicationFactory;
 use Orm\Zed\Touch\Persistence\SpyTouchQuery;
 use Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface;
 use Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface;
 use Spryker\Zed\Collector\Business\Model\BatchResultInterface;
 use Spryker\Zed\Collector\Communication\Plugin\AbstractCollectorPlugin;
+use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * @method \Pyz\Zed\Collector\Communication\CollectorCommunicationFactory getFactory()
@@ -24,15 +28,20 @@ class RedirectCollectorStoragePlugin extends AbstractCollectorPlugin
      * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
      * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
      * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     *
+     * @return void
      */
     public function run(
         SpyTouchQuery $baseQuery,
         LocaleTransfer $locale,
         BatchResultInterface $result,
         WriterInterface $dataWriter,
-        TouchUpdaterInterface $touchUpdater
+        TouchUpdaterInterface $touchUpdater,
+        OutputInterface $output
     ) {
-        $this->getFacade()->runStorageRedirectCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getFacade()
+            ->runStorageRedirectCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater, $output);
     }
 
 }

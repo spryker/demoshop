@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Customer\Form;
 
 use Symfony\Component\Form\AbstractType;
@@ -9,6 +14,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ProfileForm extends AbstractType
 {
+
     const FIELD_EMAIL = 'email';
     const FIELD_LAST_NAME = 'last_name';
     const FIELD_FIRST_NAME = 'first_name';
@@ -25,6 +31,8 @@ class ProfileForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
+     *
+     * @return void
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -38,7 +46,7 @@ class ProfileForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     public function addEmailField(FormBuilderInterface $builder)
     {
@@ -57,7 +65,7 @@ class ProfileForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     public function addLastNameField(FormBuilderInterface $builder)
     {
@@ -75,7 +83,7 @@ class ProfileForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     public function addFirstNameField(FormBuilderInterface $builder)
     {
@@ -93,7 +101,7 @@ class ProfileForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     public function addSalutationField(FormBuilderInterface $builder)
     {

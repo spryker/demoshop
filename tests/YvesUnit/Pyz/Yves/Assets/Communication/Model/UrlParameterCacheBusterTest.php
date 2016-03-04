@@ -13,6 +13,8 @@ class UrlParameterCacheBusterTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @group Asset
+     *
+     * @return void
      */
     public function testStringCacheAdded()
     {
@@ -24,13 +26,15 @@ class UrlParameterCacheBusterTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @group Asset
+     *
+     * @return void
      */
     public function testTimeCacheAdded()
     {
         $cacheBust = microtime();
         $provider = new UrlParameterCacheBuster($cacheBust);
 
-        $this->assertEquals('bar.css?v=' . (string) $cacheBust, $provider->addCacheBust('bar.css'));
+        $this->assertEquals('bar.css?v=' . (string)$cacheBust, $provider->addCacheBust('bar.css'));
     }
 
 }

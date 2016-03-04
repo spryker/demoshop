@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Cart\Controller;
 
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
@@ -32,7 +37,9 @@ class AjaxController extends AbstractController
     {
         $this->getFactory()->createCartOperationHandler()->add($sku, $quantity, $optionValueUsageIds);
 
-        return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART_OVERLAY);
+        return $this->jsonResponse([
+            'success' => true,
+        ]);
     }
 
     /**

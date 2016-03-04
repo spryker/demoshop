@@ -11,6 +11,9 @@ use Pyz\WebGuy;
 class PayolutionTest extends Test
 {
 
+    /**
+     * @return void
+     */
     public function testCheckout()
     {
         $this->markTestSkipped('Skipped this test as it requires PhantomJS to be installed. This could be un-skipped when PhantomJS is added to the VM so everyone can run the integration check.');

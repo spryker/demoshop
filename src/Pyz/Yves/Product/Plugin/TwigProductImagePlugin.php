@@ -1,10 +1,16 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Product\Plugin;
 
-use Silex\Application;
-use Spryker\Yves\Kernel\AbstractPlugin;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
+use Silex\Application;
+use Spryker\Shared\Library\Image;
+use Spryker\Yves\Kernel\AbstractPlugin;
 
 class TwigProductImagePlugin extends AbstractPlugin implements TwigFunctionPluginInterface
 {
@@ -18,18 +24,18 @@ class TwigProductImagePlugin extends AbstractPlugin implements TwigFunctionPlugi
     {
         return [
             new \Twig_SimpleFunction('getAllProductImagesBySize', function (array $images, $size = null) {
-                $imageFilenames = \Spryker\Shared\Library\Image::getAllProductImagesBySize($images, $size);
+                $imageFilenames = Image::getAllProductImagesBySize($images, $size);
 
                 $fullImagePaths = [];
                 foreach ($imageFilenames as $filename) {
-                    $fullImagePaths[] = \Spryker\Shared\Library\Image::getAbsoluteProductImageUrl($filename);
+                    $fullImagePaths[] = Image::getAbsoluteProductImageUrl($filename);
                 }
 
                 return $fullImagePaths;
             }),
             new \Twig_SimpleFunction('getFirstProductImagesBySize', function (array $images, $size = null) {
-                return \Spryker\Shared\Library\Image::getAbsoluteProductImageUrl(
-                    \Spryker\Shared\Library\Image::getFirstProductImageFilenameBySize($images, $size)
+                return Image::getAbsoluteProductImageUrl(
+                    Image::getFirstProductImageFilenameBySize($images, $size)
                 );
             }),
         ];

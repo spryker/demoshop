@@ -1,30 +1,24 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Application\Communication;
 
+use Pyz\Zed\Application\ApplicationDependencyProvider;
 use Spryker\Zed\Application\Communication\ZedBootstrap as SprykerZedBootstrap;
-use Spryker\Shared\Application\Communication\Application;
 
-class ZedBootstrap
+class ZedBootstrap extends SprykerZedBootstrap
 {
 
     /**
-     * @var \Spryker\Zed\Application\Communication\ZedBootstrap
+     * @return \Silex\ServiceProviderInterface[]
      */
-    private $sprykerBootstrap;
-
-    public function __construct()
+    protected function getServiceProvider()
     {
-        $sprykerBootstrap = new SprykerZedBootstrap();
-        $this->sprykerBootstrap = $sprykerBootstrap;
-    }
-
-    /**
-     * @return \Spryker\Shared\Application\Communication\Application
-     */
-    public function boot()
-    {
-        return $this->sprykerBootstrap->boot();
+        return $this->getProvidedDependency(ApplicationDependencyProvider::SERVICE_PROVIDER);
     }
 
 }

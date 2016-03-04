@@ -1,11 +1,16 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Cms\Persistence;
 
 use Pyz\Zed\Cms\CmsDependencyProvider;
 use Spryker\Zed\Cms\Persistence\CmsQueryContainer as SprykerCmsQueryContainer;
 
-class CmsQueryContainer extends SprykerCmsQueryContainer
+class CmsQueryContainer extends SprykerCmsQueryContainer implements CmsQueryContainerInterface
 {
 
     /**

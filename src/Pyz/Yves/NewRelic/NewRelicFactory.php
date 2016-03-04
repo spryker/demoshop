@@ -1,9 +1,13 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\NewRelic;
 
 use Spryker\Shared\NewRelic\Api;
-use Spryker\Shared\NewRelic\ApiInterface;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class NewRelicFactory extends AbstractFactory
@@ -16,4 +20,5 @@ class NewRelicFactory extends AbstractFactory
     {
         return new Api();
     }
+
 }

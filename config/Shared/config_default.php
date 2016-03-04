@@ -4,19 +4,20 @@ use Pyz\Shared\Mail\MailConstants;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Auth\AuthConstants;
-use Spryker\Shared\Customer\CustomerConstants;
-use Spryker\Shared\User\UserConstants;
-use Spryker\Shared\EventJournal\EventJournalConstants;
-use Spryker\Shared\NewRelic\NewRelicConstants;
-use Spryker\Shared\Session\SessionConstants;
-use Spryker\Shared\SequenceNumber\SequenceNumberConstants as SequenceNumberConfig;
-use Spryker\Shared\Log\Config\DefaultLoggerConfig;
-use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\CustomerMailConnector\CustomerMailConnectorConstants;
+use Spryker\Shared\Customer\CustomerConstants;
+use Spryker\Shared\EventJournal\EventJournalConstants;
+use Spryker\Shared\Log\LogConstants;
+use Spryker\Shared\NewRelic\NewRelicConstants;
 use Spryker\Shared\Newsletter\NewsletterConstants;
-use Spryker\Shared\Price\PriceConstants;
+use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
+use Spryker\Shared\Price\PriceConstants;
 use Spryker\Shared\Sales\SalesConstants;
+use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
+use Spryker\Shared\Session\SessionConstants;
+use Spryker\Shared\User\UserConstants;
+use Spryker\Zed\Propel\PropelConfig;
 
 $config[ApplicationConstants::PROJECT_NAMESPACES] = [
     'Pyz',
@@ -36,7 +37,12 @@ $config[ApplicationConstants::YVES_TWIG_OPTIONS] = [
     'cache' => \Spryker\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Yves/twig'),
 ];
 
-$config[ApplicationConstants::ZED_DB_ENGINE] = 'mysql';
+$config[ApplicationConstants::ZED_DB_ENGINE_MYSQL] = PropelConfig::DB_ENGINE_MYSQL;
+$config[ApplicationConstants::ZED_DB_ENGINE_PGSQL] = PropelConfig::DB_ENGINE_PGSQL;
+$config[ApplicationConstants::ZED_DB_SUPPORTED_ENGINES] = [
+    PropelConfig::DB_ENGINE_MYSQL => 'MySql',
+    PropelConfig::DB_ENGINE_PGSQL => 'PostgreSql'
+];
 
 $config[ApplicationConstants::STORAGE_KV_SOURCE] = 'redis';
 
@@ -66,6 +72,8 @@ $config[ApplicationConstants::TRANSFER_PASSWORD] = 'o7&bg=Fz;nSslHBC';
 $config[ApplicationConstants::TRANSFER_SSL] = false;
 $config[ApplicationConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = false;
 $config[ApplicationConstants::TRANSFER_DEBUG_SESSION_NAME] = 'XDEBUG_SESSION';
+
+$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker';
 
 //$config[ApplicationConstants::ZED_LIBRARY_PASSWORD_ALGORITHM] = PASSWORD_BCRYPT;
 //$config[ApplicationConstants::ZED_LIBRARY_PASSWORD_OPTIONS] = [];
@@ -107,45 +115,7 @@ $config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^/custom
 $config[CustomerConstants::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
 
 $currentStore = \Spryker\Shared\Kernel\Store::getInstance()->getStoreName();
-$config[ApplicationConstants::PROPEL] = [
-    'database' => [
-        'connections' => [
-            'default' => [
-                'adapter' => 'mysql',
-                'dsn' => 'mysql:host=127.0.0.1;dbname=DE_development_zed',
-                'user' => 'development',
-                'password' => '',
-                'settings' => [
-                    'charset' => 'utf8',
-                    'queries' => [
-                        'utf8' => 'SET NAMES utf8 COLLATE utf8_unicode_ci, COLLATION_CONNECTION = utf8_unicode_ci, COLLATION_DATABASE = utf8_unicode_ci, COLLATION_SERVER = utf8_unicode_ci',
-                    ],
-                ],
-            ],
-        ],
-    ],
-    'runtime' => [
-        'defaultConnection' => 'default',
-        'connections' => ['default', 'zed'],
-    ],
-    'generator' => [
-        'defaultConnection' => 'default',
-        'connections' => ['default', 'zed'],
-        'objectModel' => [
-            'defaultKeyType' => 'fieldName',
-            'builders' => [
-                'object' => '\Spryker\Zed\Propel\Business\Builder\ObjectBuilder',
-            ],
-         ],
-    ],
-    'paths' => [
-        'phpDir' => APPLICATION_ROOT_DIR,
-        'sqlDir' => APPLICATION_ROOT_DIR . '/src/Orm/Propel/' . $currentStore . '/Sql',
-        'migrationDir' => APPLICATION_ROOT_DIR . '/src/Orm/Propel/' . $currentStore . '/Migration',
-        'schemaDir' => APPLICATION_ROOT_DIR . '/src/Orm/Propel/' . $currentStore . '/Schema',
-        'phpConfDir' => APPLICATION_ROOT_DIR . '/src/Orm/Propel/' . $currentStore . '/Config',
-    ],
-];
+$config[ApplicationConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = false;
 
 $config[ApplicationConstants::CLOUD_ENABLED] = false;
 $config[ApplicationConstants::CLOUD_OBJECT_STORAGE_ENABLED] = false;
@@ -322,8 +292,9 @@ $config[EventJournalConstants::FILTER_OPTIONS] = [
             ['registerForm', 'password', 'first'],
             ['registerForm', 'password', 'second'],
             ['_password'],
-            ['transfer', 'login', 'password'],
+            ['transfer_data', 'login', 'password'],
         ],
+        'filtered_string' => '***'
     ],
 ];
 
@@ -335,7 +306,7 @@ $config[EventJournalConstants::WRITER_OPTIONS] = [
 
 $config[ApplicationConstants::PROPEL_DEBUG] = false;
 $config[ApplicationConstants::SHOW_SYMFONY_TOOLBAR] = false;
-$config[SequenceNumberConfig::ENVIRONMENT_PREFIX]
+$config[SequenceNumberConstants::ENVIRONMENT_PREFIX]
     = $config[SalesConstants::ENVIRONMENT_PREFIX]
     = '';
 
@@ -361,7 +332,6 @@ $config[PayolutionConstants::PAYOLUTION_BCC_EMAIL] = 'invoices@payolution.com';
 
 $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 
-$config[DefaultLoggerConfig::DEFAULT_LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application.log';
-$config[DefaultLoggerConfig::DEFAULT_LOG_LEVEL] = Monolog\Logger::ERROR;
+$config[LogConstants::LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application.log';
 
 $config[ApplicationConstants::ERROR_LEVEL] = E_ALL;

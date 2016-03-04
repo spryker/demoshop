@@ -1,9 +1,13 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\ProductOption\Communication\Plugin;
 
 use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
-use Pyz\Zed\ProductOption\Communication\ProductOptionCommunicationFactory;
 
 /**
  * @method \Pyz\Zed\ProductOption\Communication\ProductOptionCommunicationFactory getFactory()
@@ -11,6 +15,9 @@ use Pyz\Zed\ProductOption\Communication\ProductOptionCommunicationFactory;
 class DemoDataInstaller extends AbstractInstallerPlugin
 {
 
+    /**
+     * @return void
+     */
     public function install()
     {
         $this->getFactory()->getInstallerFacade()->installDemoData($this->messenger);

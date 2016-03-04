@@ -1,17 +1,19 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Twig;
 
-use Pyz\Yves\Twig\Plugin\TwigAsset;
 use Pyz\Yves\Cms\Plugin\TwigCms;
 use Pyz\Yves\Cms\Plugin\TwigCmsBlock;
 use Pyz\Yves\Customer\Plugin\TwigCustomer;
 use Pyz\Yves\Product\Plugin\TwigPrice;
+use Pyz\Yves\Twig\Plugin\TwigAsset;
 use Pyz\Yves\Twig\Plugin\TwigNative;
-use Generated\Client\Ide\AutoCompletion;
 use Spryker\Shared\Kernel\LocatorLocatorInterface;
-use Pyz\Yves\Twig\Dependency\Plugin\TwigFilterPluginInterface;
-use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
 
 class TwigSettings
 {

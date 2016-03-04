@@ -1,10 +1,14 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Twig\Plugin;
 
 use Silex\Application;
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Pyz\Yves\Twig\TwigFactory;
 
 /**
  * @method \Pyz\Yves\Twig\TwigFactory getFactory()

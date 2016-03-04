@@ -1,15 +1,16 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Customer\Plugin\Provider;
 
 use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
-use Pyz\Yves\Customer\CustomerFactory;
-use Spryker\Client\Customer\CustomerClientInterface;
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
 

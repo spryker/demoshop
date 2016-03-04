@@ -1,9 +1,13 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Category\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\CategoryTransfer;
-use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Zed\Category\Business\Model\CategoryWriter;
@@ -22,6 +26,7 @@ class CategoryTreeInstall extends AbstractInstaller
     const CATEGORY_KEY = 'key';
     const PARENT_KEY = 'parent_key';
     const IMAGE_NAME = 'image_name';
+    const NODE_ORDER = 'order';
 
     /**
      * @var \Spryker\Zed\Category\Business\Model\CategoryWriter
@@ -70,6 +75,9 @@ class CategoryTreeInstall extends AbstractInstaller
         $this->touchFacade = $touchFacade;
     }
 
+    /**
+     * @return void
+     */
     public function install()
     {
         $this->info('This will install a Dummy CategoryTree in the demo shop');
@@ -99,11 +107,13 @@ class CategoryTreeInstall extends AbstractInstaller
 
     /**
      * @param \SimpleXMLElement $demoTree
+     *
+     * @return void
      */
     protected function write(\SimpleXMLElement $demoTree)
     {
         foreach ($demoTree->children() as $row) {
-            if ((int) $row->{'root'} === 1) {
+            if ((int)$row->{'root'} === 1) {
                 $this->addRootNode($row);
             } else {
                 $this->addChild($row);
@@ -113,14 +123,18 @@ class CategoryTreeInstall extends AbstractInstaller
 
     /**
      * @param \SimpleXMLElement $rawNode
+     *
+     * @return void
      */
     protected function addRootNode(\SimpleXMLElement $rawNode)
     {
         $idCategory = $this->createCategory($rawNode);
 
         $rootNodeTransfer = new NodeTransfer();
-        $rootNodeTransfer->setIsRoot(true);
         $rootNodeTransfer->setFkCategory($idCategory);
+        $rootNodeTransfer->setNodeOrder((int)$rawNode->{self::NODE_ORDER});
+        $rootNodeTransfer->setIsRoot(true);
+        $rootNodeTransfer->setIsMain(true);
 
         $this->categoryTreeWriter->createCategoryNode($rootNodeTransfer, $this->locale);
 
@@ -129,15 +143,19 @@ class CategoryTreeInstall extends AbstractInstaller
 
     /**
      * @param \SimpleXMLElement $rawNode
+     *
+     * @return void
      */
     protected function addChild(\SimpleXMLElement $rawNode)
     {
         $idCategory = $this->createCategory($rawNode);
 
         $childNodeTransfer = new NodeTransfer();
-        $childNodeTransfer->setIsRoot(false);
         $childNodeTransfer->setFkCategory($idCategory);
         $childNodeTransfer->setFkParentCategoryNode($this->getParentId($rawNode));
+        $childNodeTransfer->setNodeOrder((int)$rawNode->{self::NODE_ORDER});
+        $childNodeTransfer->setIsMain(true);
+        $childNodeTransfer->setIsRoot(false);
 
         $this->categoryTreeWriter->createCategoryNode($childNodeTransfer, $this->locale);
     }
@@ -149,7 +167,7 @@ class CategoryTreeInstall extends AbstractInstaller
      */
     protected function getParentId(\SimpleXMLElement $rawNode)
     {
-        $nodeQuery = $this->queryContainer->queryNodeByCategoryKey((string) $rawNode->{self::PARENT_KEY});
+        $nodeQuery = $this->queryContainer->queryNodeByCategoryKey((string)$rawNode->{self::PARENT_KEY});
         $nodeEntity = $nodeQuery->findOne();
 
         if ($nodeEntity) {
@@ -167,21 +185,21 @@ class CategoryTreeInstall extends AbstractInstaller
     protected function createCategory(\SimpleXMLElement $rawNode)
     {
         $categoryTransfer = new CategoryTransfer();
-        $categoryTransfer->setCategoryKey((string) $rawNode->{self::CATEGORY_KEY});
+        $categoryTransfer->setCategoryKey((string)$rawNode->{self::CATEGORY_KEY});
 
         $locales = $this->localeFacade->getAvailableLocales();
         $idCategory = null;
 
         foreach ($locales as $locale) {
-            $localeAttributes = $rawNode->xpath('locales/locale[@id="' . $locale . '"]');
+            $localeAttributes = $rawNode->xpath('attributes/attribute[@locale_id="' . $locale . '"]');
             $localeAttributes = current($localeAttributes);
 
             if ($localeAttributes === false) {
                 continue;
             }
 
-            $categoryTransfer->setName((string) $localeAttributes->{self::CATEGORY_NAME});
-            $categoryTransfer->setCategoryImageName((string) $localeAttributes->{self::IMAGE_NAME});
+            $categoryTransfer->setName((string)$localeAttributes->{self::CATEGORY_NAME});
+            $categoryTransfer->setCategoryImageName((string)$localeAttributes->{self::IMAGE_NAME});
 
             if ($idCategory === null) {
                 $idCategory = $this->categoryWriter->create($categoryTransfer, $this->localeFacade->getLocale($locale));
