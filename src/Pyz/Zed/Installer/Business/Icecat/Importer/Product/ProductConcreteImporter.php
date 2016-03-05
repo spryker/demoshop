@@ -125,16 +125,21 @@ class ProductConcreteImporter extends ProductAbstractImporter
      */
     protected function getProductAttributesData()
     {
-        $data = [];
+        $attributes = [];
         foreach ($this->getCsvReaderCollection() as $name => $csvReader) {
             if (!$csvReader->valid()) {
-                $data[$name] = [];
+                $attributes[$name] = [];
             }
 
-            $data[$name] = $csvReader->read();
+            $data = $csvReader->read();
+            if (!$this->hasData($data)) {
+                $data = [];
+            }
+
+            $attributes[$name] = $data;
         }
 
-        return $data;
+        return $attributes;
     }
 
     /**
@@ -144,9 +149,24 @@ class ProductConcreteImporter extends ProductAbstractImporter
      */
     protected function hasData(array $data)
     {
-        dump($data);
-        die;
-        return trim($data[self::IMAGE_QUALITY]) !== '';
+        /*
+         * $values
+         * 0 => "153_acer_m2610"
+         * 1 => "1"
+         * 2 => "26427900"
+         * 3 => ""
+         * 4 => ""
+         * 5 => ""
+         * 6 => ""
+         * 7 => ""
+         * 8 => ""
+         * 9 => ""
+         * 10 => ""
+         * 11 => ""
+        */
+
+        $values = array_values($data);
+        return trim($values[3]) !== '';
     }
 
 }
