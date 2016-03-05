@@ -89,6 +89,7 @@ class ProductAbstractImporter extends AbstractIcecatImporter
 
         $product = $this->format($data);
 
+        /*
         dump($product);
         die;
 
@@ -99,6 +100,7 @@ class ProductAbstractImporter extends AbstractIcecatImporter
 
         $this->productFacade->touchProductActive($idProductAbstract);
         $this->createAndTouchProductUrls($productAbstract, $idProductAbstract);
+        */
     }
 
     /**

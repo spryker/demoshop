@@ -31,7 +31,6 @@ use Pyz\Zed\Installer\Business\Icecat\Installer\Cms\CmsPageInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\Glossary\GlossaryInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\Product\ProductInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\Product\ProductSearchInstaller;
-use Pyz\Zed\Installer\Business\Icecat\Processor\Product\DigitalCameraProcessor;
 use Pyz\Zed\Installer\InstallerConfig;
 use Pyz\Zed\Installer\InstallerDependencyProvider;
 use Spryker\Shared\Library\Reader\Csv\CsvReader as CsvReader;
@@ -161,29 +160,6 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\Processor\IcecatProcessorInterface[]
-     */
-    public function getProductProcessorCollection()
-    {
-        return [
-            'Digital Cameras' => $this->getDigitalCameraProcessor(),
-        ];
-    }
-
-    /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\Processor\Product\DigitalCameraProcessor
-     */
-    protected function getDigitalCameraProcessor()
-    {
-        $digitalCameraProcessor = new DigitalCameraProcessor(
-            $this->getIcecatLocaleManager(),
-            $this->getConfig()->getIcecatDataPath()
-        );
-
-        return $digitalCameraProcessor;
-    }
-
-    /**
      * @return \Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryImporter
      */
     protected function getCategoryImporter()
@@ -263,8 +239,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductAbstractImporter()
     {
         $productAbstractImporter = new ProductAbstractImporter(
-            $this->getIcecatLocaleManager(),
-            $this->getProductProcessorCollection()
+            $this->getIcecatLocaleManager()
         );
 
         $productAbstractImporter->setAttributeManager($this->createAttributeManager());
@@ -278,14 +253,15 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
      */
     protected function getProductConcreteImporter()
     {
-        $productAbstractImporter = new ProductConcreteImporter(
-            $this->getIcecatLocaleManager()
+        $productConcreteImporter = new ProductConcreteImporter(
+            $this->getIcecatLocaleManager(),
+            $this->getConfig()->getIcecatDataPath()
         );
 
-        $productAbstractImporter->setAttributeManager($this->createAttributeManager());
-        $productAbstractImporter->setProductFacade($this->getProductFacade());
+        $productConcreteImporter->setAttributeManager($this->createAttributeManager());
+        $productConcreteImporter->setProductFacade($this->getProductFacade());
 
-        return $productAbstractImporter;
+        return $productConcreteImporter;
     }
 
     /**

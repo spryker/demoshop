@@ -33,11 +33,6 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
     protected $isAfterExecuted = false;
 
     /**
-     * @var \Pyz\Zed\Installer\Business\Icecat\Processor\IcecatProcessorInterface[]
-     */
-    protected $processorCollection = [];
-
-    /**
      * @param array $data
      */
     abstract protected function importOne(array $data);
@@ -56,12 +51,10 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
      * TODO Replace it with LocaleFacade
      *
      * @param \Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager $localeManager
-     * @param array $processorCollection
      */
-    public function __construct(IcecatLocaleManager $localeManager, array $processorCollection = [])
+    public function __construct(IcecatLocaleManager $localeManager)
     {
         $this->localeManager = $localeManager;
-        $this->processorCollection = $processorCollection;
     }
 
     /**
@@ -88,20 +81,6 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
     protected function after()
     {
 
-    }
-
-    /**
-     * @param array $data
-     *
-     * @return array
-     */
-    protected function process(array $data)
-    {
-        foreach ($this->processorCollection as $processor) {
-            $data = $processor->process($data);
-        }
-
-        return $data;
     }
 
     /**
@@ -133,7 +112,6 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
      */
     public function import(array $data)
     {
-        $data = $this->process($data);
         $this->importOne($data);
     }
 
