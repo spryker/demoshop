@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<indexes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="../../vendor/spryker/spryker/Bundles/Search/src/Spryker/Shared/Search/File/elasticsearch_index_definition.xsd">
+
+    <index name="de_development_catalog2">
+        <settings>
+            <number_of_shards>4</number_of_shards>
+            <number_of_replicas>1</number_of_replicas>
+            <!--<analysis>-->
+            <!--<analyzers>-->
+            <!--<analyzer name="asdf">-->
+            <!--<thing name="thing" />-->
+            <!--<thing name="thing" />-->
+            <!--<thing name="thing" />-->
+            <!--</analyzer>-->
+            <!--</analyzers>-->
+            <!--<char_filters>-->
+            <!--<char_filter name="adsf">-->
+
+            <!--</char_filter>-->
+            <!--</char_filters>-->
+            <!--<tokenizers>-->
+            <!--<tokenizer name="adsf">-->
+
+            <!--</tokenizer>-->
+            <!--</tokenizers>-->
+            <!--<filters>-->
+            <!--<filter name="asdf">-->
+
+            <!--</filter>-->
+            <!--</filters>-->
+            <!--</analysis>-->
+        </settings>
+        <mapping_types>
+            <mapping_type name="page">
+                <mapping>
+                    <property name="store" type="string" include_in_all="false"/>
+                    <property name="locale" type="string" include_in_all="false"/>
+                    <property name="full-text" type="string" include_in_all="false"/>
+                    <property name="full-text-boosted" type="string" include_in_all="false"/>
+                    <property name="search-result-data" type="object" include_in_all="false">
+                        <properties>
+                            <property name="sku" type="string" index="not_analyzed"/>
+                            <property name="name" type="string"/>
+                            <property name="url" type="string" index="not_analyzed"/>
+                        </properties>
+                    </property>
+                    <property name="string-facet" type="nested" include_in_all="false">
+                        <properties>
+                            <property name="facet-name" type="string" index="not_analyzed"/>
+                            <property name="facet-value" type="string" index="not_analyzed"/>
+                        </properties>
+                    </property>
+                    <property name="integer-facet" type="nested" include_in_all="false">
+                        <properties>
+                            <property name="facet-name" type="string" index="not_analyzed"/>
+                            <property name="facet-value" type="integer"/>
+                        </properties>
+                    </property>
+                    <property name="float-facet" type="nested" include_in_all="false">
+                        <properties>
+                            <property name="facet-name" type="string" index="not_analyzed"/>
+                            <property name="facet-value" type="float"/>
+                        </properties>
+                    </property>
+                    <property name="completion-terms" type="string" include_in_all="false"/>
+                    <property name="suggestion-terms" type="string" include_in_all="false"/>
+                    <property name="string-sort" type="object" include_in_all="false">
+                        <properties>
+                            <property name="name" type="string" index="not_analyzed"/>
+                        </properties>
+                    </property>
+                    <property name="integer-sort" type="object" include_in_all="false">
+                        <properties>
+                            <property name="name" type="integer"/>
+                        </properties>
+                    </property>
+                    <property name="float-sort" type="object" include_in_all="false">
+                        <properties>
+                            <property name="name" type="float"/>
+                        </properties>
+                    </property>
+                    <property name="bool-sort" type="object" include_in_all="false">
+                        <properties>
+                            <property name="name" type="boolean"/>
+                        </properties>
+                    </property>
+                    <property name="category" type="object" include_in_all="false">
+                        <properties>
+                            <property name="direct_parents" type="integer"/>
+                            <property name="all_parents" type="integer"/>
+                        </properties>
+                    </property>
+                </mapping>
+            </mapping_type>
+        </mapping_types>
+    </index>
+</indexes>
