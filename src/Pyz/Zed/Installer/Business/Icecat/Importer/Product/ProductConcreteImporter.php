@@ -14,6 +14,7 @@ use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
+use Symfony\Component\Yaml\Yaml;
 
 class ProductConcreteImporter extends ProductAbstractImporter
 {
@@ -32,6 +33,11 @@ class ProductConcreteImporter extends ProductAbstractImporter
      * @var array
      */
     protected $installedAttributeCollection = [];
+
+    /**
+     * @var array
+     */
+    protected $metadata;
 
 
     /**
@@ -110,7 +116,10 @@ class ProductConcreteImporter extends ProductAbstractImporter
         }
 
         $finder = new Finder();
-        $finder->files()->in($this->dataDirectory . 'products/');
+        $finder
+            ->files()
+            ->name('*.csv')
+            ->in($this->dataDirectory . 'products/');
 
         /* @var SplFileInfo $file */
         foreach ($finder as $file) {
@@ -187,8 +196,16 @@ class ProductConcreteImporter extends ProductAbstractImporter
      */
     protected function createAttributes(array $attributes)
     {
-        dump($attributes);
+        foreach ($attributes as $type => $data) {
+            if (empty($data)) {
+                continue;
+            }
 
+            $localizedData = $this->generateLocalizedData($data);
+            $metadata = $this->generateMappedAttributes($data);
+            dump($metadata, $localizedData);
+
+        }
         die;
 
         if (isset($this->installedAttributeCollection[$type])) {
@@ -206,6 +223,121 @@ class ProductConcreteImporter extends ProductAbstractImporter
         }
 
         $this->installedAttributeCollection[$type] = true;
+    }
+
+
+    /**
+     * @param string $key
+     *
+     * @return bool
+     */
+    protected function hasLocales($key)
+    {
+        return strpos($key, '.') !== false;
+    }
+
+    /**
+     * @param string $key
+     *
+     * @return null|string
+     */
+    protected function getLocaleFromKey($key)
+    {
+        $pos = strpos($key, '.');
+        if ($pos === false) {
+            return null;
+        }
+
+        $locale = substr($key, $pos + 1);
+
+        return $locale;
+    }
+
+    /**
+     * @param string $key
+     * @param string $localeCode
+     *
+     * @return mixed
+     */
+    protected function stripLocaleCode($key, $localeCode)
+    {
+        return str_replace('.' . $localeCode, '', $key);
+    }
+
+    /**
+     * @param array $data
+     *
+     * @return array
+     */
+    protected function generateLocalizedData(array $data)
+    {
+        $defaults = [];
+        $localizedData = [];
+
+        foreach ($data as $key => $value) {
+            if (!$this->hasLocales($key)) {
+                $defaults[$key] = $value;
+                continue;
+            }
+
+            $localeCode = $this->getLocaleFromKey($key);
+            $simpleKey = $this->stripLocaleCode($key, $localeCode);
+            $localizedData[$localeCode][$simpleKey] = $value;
+        }
+
+        foreach ($localizedData as $localeCode => $data) {
+            $localizedData[$localeCode] = array_merge($defaults, $data);
+        }
+
+        return $localizedData;
+    }
+
+    /**
+     * @param array $data
+     *
+     * @return array
+     */
+    protected function generateAttributeNameCollection(array $data)
+    {
+        $attributeNameCollection = [];
+        foreach ($data as $key => $value) {
+            if (!$this->hasLocales($key)) {
+                $attributeNameCollection[$key] = $key;
+                continue;
+            }
+
+            $localeCode = $this->getLocaleFromKey($key);
+            $simpleKey = $this->stripLocaleCode($key, $localeCode);
+            $attributeNameCollection[$simpleKey] = $simpleKey;
+        }
+
+        return $attributeNameCollection;
+    }
+
+    /**
+     * @param array $data
+     *
+     * @return array
+     */
+    protected function generateMappedAttributes(array $data)
+    {
+        $attributeNameCollection = $this->generateAttributeNameCollection($data);
+        return array_intersect_key($this->getMetadata(), $attributeNameCollection);
+    }
+
+    /**
+     * @return array
+     */
+    protected function getMetadata()
+    {
+        if ($this->metadata === null) {
+            $yaml = new Yaml();
+            $this->metadata = $yaml->parse(file_get_contents(
+                $this->dataDirectory . '/products/metadata.yml'
+            ));
+        }
+
+        return $this->metadata;
     }
 
 }

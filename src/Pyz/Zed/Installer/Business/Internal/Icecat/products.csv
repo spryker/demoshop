@@ -1,4 +1,4 @@
-slug,variantId,sku,name.en,manufacturer_name,product_id,image_big,image_small,category_id,category_key,xml_url,on_market,on_market_countries_set,icecat_last_updated
+slug,variant_id,sku,name.en,manufacturer_name,product_id,image_big,image_small,category_id,category_key,xml_url,on_market,on_market_countries_set,icecat_last_updated
 153_acer_m2610,1,26427900,M2610,Acer,DT.X0CEG.003,http://images.icecat.biz/img/norm/high/26427900-4898.jpg,http://images.icecat.biz/img/norm/low/26427900-4898.jpg,153,43171803,http://data.icecat.biz/export/freexml/INT/26427900.xml,1,BE;IT;GB;AT;FR;NL;DE,2016-02-27T16:29:39.000Z
 153_acer_m6640g,1,29885591,M6640G,Acer,DT.VN1EH.002,http://images.icecat.biz/img/gallery/29885591_7502.jpg,http://images.icecat.biz/img/gallery_lows/29885591_7502.jpg,153,43171803,http://data.icecat.biz/export/freexml/INT/29885591.xml,1,DE;BE;NL,2016-02-29T09:20:13.000Z
 153_asus_m32ad-be009t,1,29911080,M32AD-BE009T,ASUS,90PD00U3-M13160,http://images.icecat.biz/img/gallery/29911080_4527.jpg,http://images.icecat.biz/img/gallery_lows/29911080_4527.jpg,153,43171803,http://data.icecat.biz/export/freexml/INT/29911080.xml,1,NL;BE;DE,2016-02-28T01:06:31.000Z

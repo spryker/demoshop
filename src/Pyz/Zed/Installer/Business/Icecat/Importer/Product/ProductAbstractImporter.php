@@ -160,7 +160,7 @@ class ProductAbstractImporter extends AbstractIcecatImporter
     {
         $productName = $this->slugify($localizedAttributes->getName());
 
-        return '/' . mb_substr($localizedAttributes->getLocale()->getLocaleName(), 0, 2) . '/' . $productName . '-' . $idProductAbstract; //TODO urls should be unique
+        return '/' . mb_substr($localizedAttributes->getLocale()->getLocaleName(), 0, 2) . '/' . $productName . '-' . $idProductAbstract;
     }
 
     /**

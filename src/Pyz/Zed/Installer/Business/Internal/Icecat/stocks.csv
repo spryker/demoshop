@@ -1,4 +1,4 @@
-sku,variantId,quantity,is_never_out_of_stock,stock_type
+sku,variant_id,quantity,is_never_out_of_stock,stock_type
 26427900,1,96,0,Warehouse2
 29885591,1,156,0,Warehouse2
 29911080,1,142,0,Warehouse2
