@@ -1,0 +1,2 @@
+slug,variantid,sku,image_quality,lens_system,focus,shutter,video,short_description.en_US,long_description.en_US,short_description.de_DE,long_description.de_DE
+string, integer, string, string, string, string, string, string, boolean, string, string, string, string
