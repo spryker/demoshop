@@ -1,4 +1,4 @@
-slug,variantid,sku,processor,memory,display,storage,battery,short_description.en_US,long_description.en_US,short_description.de_DE,long_description.de_DE
+slug,variant_id,sku,processor,memory,display,storage,battery,short_description.en_US,long_description.en_US,short_description.de_DE,long_description.de_DE
 153_acer_m2610,1,26427900,,,,,,,,,
 153_acer_m6640g,1,29885591,,,,,,,,,
 153_asus_m32ad-be009t,1,29911080,,,,,,,,,

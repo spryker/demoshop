@@ -21,7 +21,7 @@ class ProductAbstractImporter extends AbstractIcecatImporter
     const NAME = 'name.en';
     const SKU = 'sku';
     const PRODUCT_ID = 'product_id';
-    const VARIANT_ID = 'variantId';
+    const VARIANT_ID = 'variant_id';
     const IMAGE_BIG = 'image_big';
     const IMAGE_SMALL = 'image_small';
     const CATEGORY_KEY = 'category_key';

@@ -23,7 +23,7 @@ class ProductPriceImporter extends AbstractIcecatImporter
 
     const SKU = 'sku';
     const PRODUCT_ID = 'product_id';
-    const VARIANT_ID = 'variantId';
+    const VARIANT_ID = 'variant_id';
     const PRICE = 'price';
     const PRICE_TYPE = 'price_type';
 

@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Installer\Business\Icecat\Importer\Product;
 
+use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Orm\Zed\Product\Persistence\SpyProductQuery;
 use Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager;
 use Spryker\Shared\Library\Reader\Csv\CsvReader;
@@ -26,6 +27,11 @@ class ProductConcreteImporter extends ProductAbstractImporter
      * @var string
      */
     protected $dataDirectory;
+
+    /**
+     * @var array
+     */
+    protected $installedAttributeCollection = [];
 
 
     /**
@@ -68,11 +74,12 @@ class ProductConcreteImporter extends ProductAbstractImporter
 
         $product = $this->format($data);
         $attributes = $this->getProductAttributesData();
+        $this->createAttributes($attributes);
         dump($attributes);
 
-        /*
-        dump($product);
-        die;
+        $productAbstract = new ProductAbstractTransfer();
+        $productAbstract->setSku($product[self::SKU]);
+        $productAbstract->setAttributes($productAbstractAttributes);
 
         $idProductAbstract = $this->productFacade->createProductAbstract($productAbstract);
         $productAbstract->setIdProductAbstract($idProductAbstract);
@@ -81,7 +88,6 @@ class ProductConcreteImporter extends ProductAbstractImporter
 
         $this->productFacade->touchProductActive($idProductAbstract);
         $this->createAndTouchProductUrls($productAbstract, $idProductAbstract);
-        */
     }
 
     /**
@@ -149,8 +155,13 @@ class ProductConcreteImporter extends ProductAbstractImporter
      */
     protected function hasData(array $data)
     {
+        if (empty($data)) {
+            return false;
+        }
+
         /*
-         * $values
+         * Format of $values array
+         *
          * 0 => "153_acer_m2610"
          * 1 => "1"
          * 2 => "26427900"
@@ -167,6 +178,34 @@ class ProductConcreteImporter extends ProductAbstractImporter
 
         $values = array_values($data);
         return trim($values[3]) !== '';
+    }
+
+    /**
+     * @param array $attributes
+     *
+     * @return void
+     */
+    protected function createAttributes(array $attributes)
+    {
+        dump($attributes);
+
+        die;
+
+        if (isset($this->installedAttributeCollection[$type])) {
+            return;
+        }
+
+        foreach ($attributes as $attributeName => $attributeType) {
+            if (!$this->attributeManager->hasAttributeType($attributeType)) {
+                continue;
+            }
+
+            if (!$this->attributeManager->hasAttribute($attributeName)) {
+                $this->attributeManager->createAttribute($attributeName, $attributeType, true);
+            }
+        }
+
+        $this->installedAttributeCollection[$type] = true;
     }
 
 }

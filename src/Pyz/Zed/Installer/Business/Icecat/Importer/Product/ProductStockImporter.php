@@ -21,14 +21,12 @@ class ProductStockImporter extends AbstractIcecatImporter
 {
 
     const SKU = 'sku';
-
+    const VARIANT_ID = 'variant_id';
+    const CATEGORY_KEY = 'category_key';
     const QUANTITY = 'quantity';
     const NEVER_OUT_OF_STOCK = 'is_never_out_of_stock';
     const STOCK_TYPE = 'stock_type';
     const PRODUCT_ID = 'product_id';
-
-    const VARIANT_ID = 'variantId';
-    const CATEGORY_KEY = 'category_key';
 
     /**
      * @var \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface
