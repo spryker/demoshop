@@ -19,7 +19,6 @@ use Pyz\Zed\Installer\Business\Icecat\Importer\Cms\CmsPageImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Glossary\TranslationImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductAbstractImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductCategoryImporter;
-use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductConcreteImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductPriceImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductSearchImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductStockImporter;
@@ -64,14 +63,14 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     public function getIcecatDataInstallerCollection()
     {
         return [
-            //InstallerConfig::RESOURCE_CATEGORY_ROOT => $this->getCategoryRootInstaller(),
-            //InstallerConfig::RESOURCE_CATEGORY => $this->getCategoryInstaller(),
-            //InstallerConfig::RESOURCE_CATEGORY_CATALOG => $this->getCategoryCatalogInstaller(),
+            InstallerConfig::RESOURCE_CATEGORY_ROOT => $this->getCategoryRootInstaller(),
+            InstallerConfig::RESOURCE_CATEGORY => $this->getCategoryInstaller(),
+            InstallerConfig::RESOURCE_CATEGORY_CATALOG => $this->getCategoryCatalogInstaller(),
             InstallerConfig::RESOURCE_PRODUCT => $this->getProductInstaller(),
-            //InstallerConfig::RESOURCE_PRODUCT_SEARCH => $this->getProductSearchInstaller(),
-            //InstallerConfig::RESOURCE_GLOSSARY => $this->getGlossaryInstaller(),
-            //InstallerConfig::RESOURCE_CMS_PAGE => $this->getCmsPageInstaller(),
-            //InstallerConfig::RESOURCE_CMS_BLOCK => $this->getCmsBlockInstaller(),
+            InstallerConfig::RESOURCE_PRODUCT_SEARCH => $this->getProductSearchInstaller(),
+            InstallerConfig::RESOURCE_GLOSSARY => $this->getGlossaryInstaller(),
+            InstallerConfig::RESOURCE_CMS_PAGE => $this->getCmsPageInstaller(),
+            InstallerConfig::RESOURCE_CMS_BLOCK => $this->getCmsBlockInstaller(),
         ];
     }
 
@@ -112,10 +111,9 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     {
         return [
             InstallerConfig::RESOURCE_PRODUCT => $this->getProductAbstractImporter(),
-            InstallerConfig::RESOURCE_PRODUCT_CONCRETE => $this->getProductConcreteImporter(),
-            InstallerConfig::RESOURCE_PRODUCT_CATEGORY => $this->getProductCategoryImporter(),
-            InstallerConfig::RESOURCE_PRODUCT_STOCK => $this->getProductStockImporter(),
-            InstallerConfig::RESOURCE_PRODUCT_PRICE => $this->getProductPriceImporter(),
+            //InstallerConfig::RESOURCE_PRODUCT_CATEGORY => $this->getProductCategoryImporter(),
+            //InstallerConfig::RESOURCE_PRODUCT_STOCK => $this->getProductStockImporter(),
+            //InstallerConfig::RESOURCE_PRODUCT_PRICE => $this->getProductPriceImporter(),
         ];
     }
 
@@ -239,29 +237,14 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductAbstractImporter()
     {
         $productAbstractImporter = new ProductAbstractImporter(
-            $this->getIcecatLocaleManager()
+            $this->getIcecatLocaleManager(),
+            $this->getConfig()->getIcecatDataPath()
         );
 
         $productAbstractImporter->setAttributeManager($this->createAttributeManager());
         $productAbstractImporter->setProductFacade($this->getProductFacade());
 
         return $productAbstractImporter;
-    }
-
-    /**
-     * @return \Pyz\Zed\Installer\Business\Icecat\Importer\Product\ProductConcreteImporter
-     */
-    protected function getProductConcreteImporter()
-    {
-        $productConcreteImporter = new ProductConcreteImporter(
-            $this->getIcecatLocaleManager(),
-            $this->getConfig()->getIcecatDataPath()
-        );
-
-        $productConcreteImporter->setAttributeManager($this->createAttributeManager());
-        $productConcreteImporter->setProductFacade($this->getProductFacade());
-
-        return $productConcreteImporter;
     }
 
     /**

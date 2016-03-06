@@ -9,21 +9,28 @@ namespace Pyz\Zed\Installer\Business\Icecat\Importer\Product;
 
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
+use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
+use Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager;
 use Pyz\Zed\Installer\Business\Icecat\Importer\AbstractIcecatImporter;
 use Pyz\Zed\Product\Business\ProductFacadeInterface;
+use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Finder\Finder;
+use Symfony\Component\Finder\SplFileInfo;
+use Symfony\Component\Yaml\Yaml;
 
 class ProductAbstractImporter extends AbstractIcecatImporter
 {
 
-    const NAME = 'name.en';
+    const NAME = 'name';
     const SKU = 'sku';
     const PRODUCT_ID = 'product_id';
     const VARIANT_ID = 'variant_id';
     const IMAGE_BIG = 'image_big';
     const IMAGE_SMALL = 'image_small';
+    const CATEGORY_ID = 'category_id';
     const CATEGORY_KEY = 'category_key';
     const MANUFACTURER_NAME = 'manufacturer_name';
 
@@ -41,9 +48,42 @@ class ProductAbstractImporter extends AbstractIcecatImporter
     protected $productFacade;
 
     /**
+     * @var \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface[]
+     */
+    protected $csvReaderCollection;
+
+    /**
+     * @var array
+     */
+    protected $installedAttributeCollection = [];
+
+    /**
      * @var array
      */
     protected $cacheParents = [];
+
+    /**
+     * @var array
+     */
+    protected $metadata;
+
+    /**
+     * @var string
+     */
+    protected $dataDirectory;
+
+
+    /**
+     * TODO Replace it with LocaleFacade
+     *
+     * @param \Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager $localeManager
+     * @param string $dataDirectory
+     */
+    public function __construct(IcecatLocaleManager $localeManager, $dataDirectory)
+    {
+        parent::__construct($localeManager);
+        $this->dataDirectory = $dataDirectory;
+    }
 
     /**
      * @param \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface $attributeManager
@@ -89,6 +129,28 @@ class ProductAbstractImporter extends AbstractIcecatImporter
 
         $product = $this->format($data);
 
+        $concreteProductData = $this->getConcreteProductsData();
+        $this->createAttributes($concreteProductData);
+        foreach ($concreteProductData as $type => $productAttributes) {
+            if (empty($productAttributes)) {
+                continue;
+            }
+
+            $attributes = $this->generateAttributes($productAttributes);
+            $productAbstractTransfer = $this->buildProductAbstractTransfer($product, $attributes);
+
+            dump($product, $productAbstractTransfer->toArray());
+        }
+        return;
+
+        $idProductAbstract = $this->productFacade->createProductAbstract($productAbstract);
+        $productAbstract->setIdProductAbstract($idProductAbstract);
+
+        $this->createProductConcreteCollection($productConcreteCollection, $idProductAbstract);
+
+        $this->productFacade->touchProductActive($idProductAbstract);
+        $this->createAndTouchProductUrls($productAbstract, $idProductAbstract);
+
         /*
         dump($product);
         die;
@@ -101,6 +163,143 @@ class ProductAbstractImporter extends AbstractIcecatImporter
         $this->productFacade->touchProductActive($idProductAbstract);
         $this->createAndTouchProductUrls($productAbstract, $idProductAbstract);
         */
+    }
+
+    protected function buildProductAbstractTransfer(array $product, array $attributeData)
+    {
+        $abstractAttributeNames = [
+            self::MANUFACTURER_NAME,
+            self::VARIANT_ID,
+            self::IMAGE_BIG,
+            self::IMAGE_SMALL,
+            self::PRODUCT_ID,
+        ];
+
+        $abstractAttributes = array_intersect_key($product, array_flip($abstractAttributeNames));
+        $abstractAttributes = array_merge($abstractAttributes, $attributeData[self::PRODUCT_ABSTRACT]);
+
+        unset($attributeData[self::PRODUCT_ABSTRACT]);
+
+        $productAbstractTransfer = new ProductAbstractTransfer();
+        $productAbstractTransfer->setAttributes($abstractAttributes);
+
+        foreach ($attributeData as $localeCode => $localizedAttributesData) {
+            $localizedKeyName = $this->getLocalizedKeyName(self::NAME, $localeCode);
+            $localizedAttributes = new LocalizedAttributesTransfer();
+            $localizedAttributes->setLocale($this->localeManager->getLocaleTransferByCode($localeCode));
+            $localizedAttributes->setName($product[$localizedKeyName]);
+            $localizedAttributes->setAttributes($localizedAttributesData);
+
+            $productAbstractTransfer->addLocalizedAttributes($localizedAttributes);
+        }
+
+        return $productAbstractTransfer;
+    }
+
+    /**
+     * @param string $localeCode
+     *
+     * @return string
+     */
+    protected function getLocalizedKeyName($key, $localeCode)
+    {
+        return $key . '.' . $localeCode;
+    }
+
+    protected function buildProductConcreteTransfer(array $data)
+    {
+        $productAbstractTransfer = new ProductConcreteTransfer();
+        $productAbstractTransfer->setAttributes($data[self::PRODUCT_ABSTRACT]);
+        unset($data[self::PRODUCT_ABSTRACT]);
+
+        foreach ($data as $localeCode => $localizedAttributes) {
+            $productAbstractTransfer->addLocalizedAttributes($localizedAttributes);
+        }
+
+        return $productAbstractTransfer;
+    }
+
+    /**
+     * @return \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface[]
+     */
+    protected function getCsvReaderCollection()
+    {
+        if ($this->csvReaderCollection !== null) {
+            return $this->csvReaderCollection;
+        }
+
+        $finder = new Finder();
+        $finder
+            ->files()
+            ->name('*.csv')
+            ->in($this->dataDirectory . 'products/');
+
+        /* @var SplFileInfo $file */
+        foreach ($finder as $file) {
+            $name = $file->getBasename('.csv');
+
+            $csvReader = new CsvReader();
+            $csvReader->load($file->getRealpath());
+
+            $this->csvReaderCollection[$name] = $csvReader;
+        }
+
+        return $this->csvReaderCollection;
+    }
+
+
+    /**
+     * @return array
+     */
+    protected function getConcreteProductsData()
+    {
+        $attributes = [];
+        foreach ($this->getCsvReaderCollection() as $name => $csvReader) {
+            if (!$csvReader->valid()) {
+                $attributes[$name] = [];
+            }
+
+            $data = $csvReader->read();
+            if (!$this->hasData($data)) {
+                $data = [];
+            }
+
+            $attributes[$name] = $data;
+        }
+
+        return $attributes;
+    }
+
+    /**
+     * @param array $data
+     *
+     * @return bool
+     */
+    protected function hasData(array $data)
+    {
+        if (empty($data)) {
+            return false;
+        }
+
+        /*
+         * Format of $values array
+         *
+         * 0 => "153_acer_m2610"
+         * 1 => "1"
+         * 2 => "26427900"
+         * 3 => ""
+         * 4 => ""
+         * 5 => ""
+         * 6 => ""
+         * 7 => ""
+         * 8 => ""
+         * 9 => ""
+         * 10 => ""
+         * 11 => ""
+        */
+
+        $values = array_values($data);
+        return trim($values[3]) !== '';
     }
 
     /**
@@ -132,6 +331,23 @@ class ProductAbstractImporter extends AbstractIcecatImporter
     protected function format(array $data)
     {
         return $data;
+        $product = [
+            self::MANUFACTURER_NAME => $data[self::MANUFACTURER_NAME],
+            self::VARIANT_ID => $data[self::VARIANT_ID],
+            self::SKU => $data[self::SKU],
+            self::IMAGE_BIG => $data[self::IMAGE_BIG],
+            self::IMAGE_SMALL => $data[self::IMAGE_SMALL],
+            self::CATEGORY_KEY => $data[self::CATEGORY_KEY],
+            self::PRODUCT_ID => $data[self::PRODUCT_ID],
+        ];
+
+        foreach ($this->localeManager->getLocaleCollection() as $localeCode => $localeTransfer) {
+            $localizedKeyName = $this->getLocalizedKeyName(self::NAME, $localeCode);
+            $product[$localizedKeyName] = $data[self::MANUFACTURER_NAME] . ' ' . $data[$localizedKeyName];
+        }
+
+        return $product;
+
     }
 
     /**
@@ -175,6 +391,152 @@ class ProductAbstractImporter extends AbstractIcecatImporter
         $value = str_replace(' ', '-', $value);
 
         return $value;
+    }
+
+
+    /**
+     * @param array $attributes
+     *
+     * @return array
+     */
+    protected function createAttributes(array $attributes)
+    {
+        foreach ($attributes as $type => $data) {
+            if (empty($data)) {
+                continue;
+            }
+
+            if (isset($this->installedAttributeCollection[$type])) {
+                continue;
+            }
+
+            $attributes = $this->generateMappedAttributes($data);
+
+            foreach ($attributes as $attributeName => $attributeType) {
+                if (!$this->attributeManager->hasAttributeType($attributeType)) {
+                    continue;
+                }
+
+                if (!$this->attributeManager->hasAttribute($attributeName)) {
+                    $this->attributeManager->createAttribute($attributeName, $attributeType, true);
+                }
+            }
+
+            $this->installedAttributeCollection[$type] = true;
+        }
+    }
+
+
+    /**
+     * @param string $key
+     *
+     * @return bool
+     */
+    protected function hasLocales($key)
+    {
+        return strpos($key, '.') !== false;
+    }
+
+    /**
+     * @param string $key
+     *
+     * @return null|string
+     */
+    protected function getLocaleFromKey($key)
+    {
+        $pos = strpos($key, '.');
+        if ($pos === false) {
+            return null;
+        }
+
+        $locale = substr($key, $pos + 1);
+
+        return $locale;
+    }
+
+    /**
+     * @param string $key
+     * @param string $localeCode
+     *
+     * @return mixed
+     */
+    protected function stripLocaleCode($key, $localeCode)
+    {
+        return str_replace('.' . $localeCode, '', $key);
+    }
+
+    /**
+     * @param array $data
+     *
+     * @return array
+     */
+    protected function generateAttributes(array $data)
+    {
+        $abstractAttributes = [];
+        $attributes = [];
+
+        foreach ($data as $key => $value) {
+            if (!$this->hasLocales($key)) {
+                $abstractAttributes[$key] = $value;
+                continue;
+            }
+
+            $localeCode = $this->getLocaleFromKey($key);
+            $simpleKey = $this->stripLocaleCode($key, $localeCode);
+            $attributes[$localeCode][$simpleKey] = $value;
+        }
+
+        $attributes[self::PRODUCT_ABSTRACT] = $abstractAttributes;
+
+        return $attributes;
+    }
+
+    /**
+     * @param array $data
+     *
+     * @return array
+     */
+    protected function generateAttributeNameCollection(array $data)
+    {
+        $attributeNameCollection = [];
+        foreach ($data as $key => $value) {
+            if (!$this->hasLocales($key)) {
+                $attributeNameCollection[$key] = $key;
+                continue;
+            }
+
+            $localeCode = $this->getLocaleFromKey($key);
+            $simpleKey = $this->stripLocaleCode($key, $localeCode);
+            $attributeNameCollection[$simpleKey] = $simpleKey;
+        }
+
+        return $attributeNameCollection;
+    }
+
+    /**
+     * @param array $data
+     *
+     * @return array
+     */
+    protected function generateMappedAttributes(array $data)
+    {
+        $attributeNameCollection = $this->generateAttributeNameCollection($data);
+        return array_intersect_key($this->getMetadata(), $attributeNameCollection);
+    }
+
+    /**
+     * @return array
+     */
+    protected function getMetadata()
+    {
+        if ($this->metadata === null) {
+            $yaml = new Yaml();
+            $this->metadata = $yaml->parse(file_get_contents(
+                $this->dataDirectory . '/products/metadata.yml'
+            ));
+        }
+
+        return $this->metadata;
     }
 
 

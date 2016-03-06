@@ -46,6 +46,11 @@ class IcecatLocaleManager
     protected $localeFacade;
 
     /**
+     * @var array
+     */
+    protected $localeTransferCollection;
+
+    /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      */
     public function __construct(LocaleFacadeInterface $localeFacade)
@@ -82,6 +87,20 @@ class IcecatLocaleManager
     }
 
     /**
+     * @param string $code
+     *
+     * @throws \Pyz\Zed\Installer\Business\Exception\LocaleNotFoundException
+     *
+     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatLocale
+     */
+    public function getLocaleTransferByCode($code)
+    {
+        $this->validateLocaleCode($code);
+
+        return $this->getLocaleCollection()[$code];
+    }
+
+    /**
      * @param int $idIcecat
      *
      * @throws \Pyz\Zed\Installer\Business\Exception\LocaleNotFoundException
@@ -112,14 +131,18 @@ class IcecatLocaleManager
      */
     public function getLocaleCollection()
     {
-        $locales = $this->localeFacade->getAvailableLocales();
+        if ($this->localeTransferCollection === null) {
+            $locales = $this->localeFacade->getAvailableLocales();
 
-        $transferCollection = [];
-        foreach ($locales as $localeCode) {
-            $transferCollection[$localeCode] = $this->localeFacade->getLocale($localeCode);
+            $transferCollection = [];
+            foreach ($locales as $localeCode) {
+                $transferCollection[$localeCode] = $this->localeFacade->getLocale($localeCode);
+            }
+
+            $this->localeTransferCollection = $transferCollection;
         }
 
-        return $transferCollection;
+        return $this->localeTransferCollection;
     }
 
 }

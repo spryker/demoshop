@@ -29,7 +29,6 @@ class InstallerConfig extends SprykerInstallerConfig
     const RESOURCE_PRODUCT_PRICE = 'RESOURCE_PRODUCT_PRICE';
     const RESOURCE_PRODUCT_SEARCH = 'RESOURCE_PRODUCT_SEARCH';
     const RESOURCE_PRODUCT_STOCK = 'RESOURCE_PRODUCT_STOCK';
-    const RESOURCE_PRODUCT_CONCRETE = 'RESOURCE_PRODUCT_CONCRETE';
 
     /**
      * @return string
