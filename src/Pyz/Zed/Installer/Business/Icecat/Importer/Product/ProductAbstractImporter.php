@@ -137,32 +137,18 @@ class ProductAbstractImporter extends AbstractIcecatImporter
             }
 
             $attributes = $this->generateAttributes($productAttributes);
+
             $productAbstractTransfer = $this->buildProductAbstractTransfer($product, $attributes);
+            $idProductAbstract = $this->productFacade->createProductAbstract($productAbstractTransfer);
+            $productAbstractTransfer->setIdProductAbstract($idProductAbstract);
 
-            dump($product, $productAbstractTransfer->toArray());
+            $productConcreteCollection = $this->buildProductConcreteTransfer($idProductAbstract, $product, $attributes);
+            //TODO handle variants
+            //$this->createProductConcreteCollection([$productConcreteCollection], $idProductAbstract);
+
+            $this->productFacade->touchProductActive($idProductAbstract);
+            $this->createAndTouchProductUrls($productAbstractTransfer, $idProductAbstract);
         }
-        return;
-
-        $idProductAbstract = $this->productFacade->createProductAbstract($productAbstract);
-        $productAbstract->setIdProductAbstract($idProductAbstract);
-
-        $this->createProductConcreteCollection($productConcreteCollection, $idProductAbstract);
-
-        $this->productFacade->touchProductActive($idProductAbstract);
-        $this->createAndTouchProductUrls($productAbstract, $idProductAbstract);
-
-        /*
-        dump($product);
-        die;
-
-        $idProductAbstract = $this->productFacade->createProductAbstract($productAbstract);
-        $productAbstract->setIdProductAbstract($idProductAbstract);
-
-        $this->createProductConcreteCollection($productConcreteCollection, $idProductAbstract);
-
-        $this->productFacade->touchProductActive($idProductAbstract);
-        $this->createAndTouchProductUrls($productAbstract, $idProductAbstract);
-        */
     }
 
     protected function buildProductAbstractTransfer(array $product, array $attributeData)
@@ -181,6 +167,7 @@ class ProductAbstractImporter extends AbstractIcecatImporter
         unset($attributeData[self::PRODUCT_ABSTRACT]);
 
         $productAbstractTransfer = new ProductAbstractTransfer();
+        $productAbstractTransfer->setSku($product[self::SKU]);
         $productAbstractTransfer->setAttributes($abstractAttributes);
 
         foreach ($attributeData as $localeCode => $localizedAttributesData) {
@@ -197,6 +184,38 @@ class ProductAbstractImporter extends AbstractIcecatImporter
     }
 
     /**
+     * @param int $idProductAbstract
+     * @param array $product
+     * @param array $attributeData
+     *
+     * @return \Generated\Shared\Transfer\ProductConcreteTransfer
+     */
+    protected function buildProductConcreteTransfer($idProductAbstract, array $product, array $attributeData)
+    {
+        $productAbstractData = $attributeData[self::PRODUCT_ABSTRACT];
+        $concreteSku = $product[self::SKU] . '-' . $productAbstractData[self::SKU];
+
+        $productConcreteTransfer = new ProductConcreteTransfer();
+        $productConcreteTransfer->setAttributes($attributeData[self::PRODUCT_ABSTRACT]);
+        $productConcreteTransfer->setSku($concreteSku);
+        $productConcreteTransfer->setIsActive(true);
+        $productConcreteTransfer->setIdProductAbstract($idProductAbstract);
+
+        unset($attributeData[self::PRODUCT_ABSTRACT]);
+        foreach ($attributeData as $localeCode => $localizedAttributesData) {
+            $localizedKeyName = $this->getLocalizedKeyName(self::NAME, $localeCode);
+            $localizedAttributesTransfer = new LocalizedAttributesTransfer();
+            $localizedAttributesTransfer->setLocale($this->localeManager->getLocaleTransferByCode($localeCode));
+            $localizedAttributesTransfer->setName($product[$localizedKeyName]);
+            $localizedAttributesTransfer->setAttributes($localizedAttributesData);
+
+            $productConcreteTransfer->addLocalizedAttributes($localizedAttributesTransfer);
+        }
+
+        return $productConcreteTransfer;
+    }
+
+    /**
      * @param string $localeCode
      *
      * @return string
@@ -204,19 +223,6 @@ class ProductAbstractImporter extends AbstractIcecatImporter
     protected function getLocalizedKeyName($key, $localeCode)
     {
         return $key . '.' . $localeCode;
-    }
-
-    protected function buildProductConcreteTransfer(array $data)
-    {
-        $productAbstractTransfer = new ProductConcreteTransfer();
-        $productAbstractTransfer->setAttributes($data[self::PRODUCT_ABSTRACT]);
-        unset($data[self::PRODUCT_ABSTRACT]);
-
-        foreach ($data as $localeCode => $localizedAttributes) {
-            $productAbstractTransfer->addLocalizedAttributes($localizedAttributes);
-        }
-
-        return $productAbstractTransfer;
     }
 
     /**
@@ -324,33 +330,6 @@ class ProductAbstractImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param array $data
-     *
-     * @return array
-     */
-    protected function format(array $data)
-    {
-        return $data;
-        $product = [
-            self::MANUFACTURER_NAME => $data[self::MANUFACTURER_NAME],
-            self::VARIANT_ID => $data[self::VARIANT_ID],
-            self::SKU => $data[self::SKU],
-            self::IMAGE_BIG => $data[self::IMAGE_BIG],
-            self::IMAGE_SMALL => $data[self::IMAGE_SMALL],
-            self::CATEGORY_KEY => $data[self::CATEGORY_KEY],
-            self::PRODUCT_ID => $data[self::PRODUCT_ID],
-        ];
-
-        foreach ($this->localeManager->getLocaleCollection() as $localeCode => $localeTransfer) {
-            $localizedKeyName = $this->getLocalizedKeyName(self::NAME, $localeCode);
-            $product[$localizedKeyName] = $data[self::MANUFACTURER_NAME] . ' ' . $data[$localizedKeyName];
-        }
-
-        return $product;
-
-    }
-
-    /**
      * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstract
      * @param int $idProductAbstract
      */
@@ -411,7 +390,6 @@ class ProductAbstractImporter extends AbstractIcecatImporter
             }
 
             $attributes = $this->generateMappedAttributes($data);
-
             foreach ($attributes as $attributeName => $attributeType) {
                 if (!$this->attributeManager->hasAttributeType($attributeType)) {
                     continue;
