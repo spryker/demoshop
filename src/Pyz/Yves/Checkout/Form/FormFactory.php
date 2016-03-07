@@ -6,13 +6,13 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface;
 use Pyz\Yves\Checkout\Form\DataProvider\SubformDataProviders;
-use Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
 use Pyz\Yves\Checkout\Form\Steps\ShipmentForm;
 use Pyz\Yves\Checkout\Form\Steps\SummaryForm;
+use Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm;
+use Pyz\Yves\Customer\Form\CustomerCheckoutForm;
 use Pyz\Yves\Customer\Form\DataProvider\CheckoutAddressFormDataProvider;
 use Pyz\Yves\Customer\Form\GuestForm;
-use Pyz\Yves\Customer\Form\CustomerCheckoutForm;
 use Pyz\Yves\Customer\Form\LoginForm;
 use Pyz\Yves\Customer\Form\RegisterForm;
 use Pyz\Yves\Payolution\Plugin\PayolutionInstallmentSubFormPlugin;
@@ -234,4 +234,5 @@ class FormFactory extends AbstractFactory
     {
         return $this->getLocator()->customer()->client();
     }
+
 }

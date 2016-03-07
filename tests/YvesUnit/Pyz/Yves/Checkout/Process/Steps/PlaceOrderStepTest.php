@@ -7,15 +7,15 @@ namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\CheckoutErrorTransfer;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
-use Generated\Shared\Transfer\SaveOrderTransfer;
-use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
-
 use Generated\Shared\Transfer\QuoteTransfer;
+use Generated\Shared\Transfer\SaveOrderTransfer;
+
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
+use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
 use Spryker\Client\Calculation\CalculationClientInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Spryker\Client\Checkout\CheckoutClientInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
 {
@@ -103,7 +103,7 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return PlaceOrderStep
+     * @return \Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep
      */
     protected function createPlaceOrderStep($checkoutClientMock, $flashMessengerMock = null)
     {
@@ -121,7 +121,7 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * @return Request
+     * @return \Symfony\Component\HttpFoundation\Request
      */
     protected function createRequest()
     {
@@ -129,7 +129,7 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|FlashMessengerInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Application\Business\Model\FlashMessengerInterface
      */
     protected function createFlashMessengerMock()
     {
@@ -137,7 +137,7 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|CalculationClientInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Calculation\CalculationClientInterface
      */
     protected function createCheckoutClientMock()
     {
@@ -145,10 +145,11 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|CheckoutStepHandlerPluginInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface
      */
     protected function createShipmentMock()
     {
         return $this->getMock(CheckoutStepHandlerPluginInterface::class);
     }
+
 }

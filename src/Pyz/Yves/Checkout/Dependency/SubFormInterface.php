@@ -7,6 +7,7 @@ namespace Pyz\Yves\Checkout\Dependency;
 
 interface SubFormInterface
 {
+
     const OPTIONS_FIELD_NAME = 'select_options';
 
     /**

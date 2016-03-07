@@ -26,4 +26,5 @@ class ShipmentSubFormPlugin extends AbstractPlugin implements CheckoutSubFormPlu
     {
         return $this->getFactory()->createShipmentDataProvider();
     }
+
 }

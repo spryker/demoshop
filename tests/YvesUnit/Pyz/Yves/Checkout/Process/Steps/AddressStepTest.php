@@ -10,12 +10,13 @@ use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
-use Pyz\Yves\Checkout\Process\Steps\AddressStep;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
+use Pyz\Yves\Checkout\Process\Steps\AddressStep;
 use Symfony\Component\HttpFoundation\Request;
 
 class AddressStepTest extends \PHPUnit_Framework_TestCase
 {
+
     /**
      * @return void
      */
@@ -160,10 +161,10 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($addressStep->requireInput(new QuoteTransfer()));
 
     }
-    
+
     /**
      * @param $customerClientMock
-     * @return AddressStep
+     * @return \Pyz\Yves\Checkout\Process\Steps\AddressStep
      */
     protected function createAddressStep($customerClientMock = null)
     {
@@ -180,7 +181,7 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return Request
+     * @return \Symfony\Component\HttpFoundation\Request
      */
     protected function createRequest()
     {
@@ -188,7 +189,7 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|FlashMessengerInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Application\Business\Model\FlashMessengerInterface
      */
     protected function createFlashMessengerMock()
     {
@@ -196,10 +197,11 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|CustomerClientInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Client\Customer\CustomerClientInterface
      */
     protected function createCustomerClientMock()
     {
         return $this->getMock(CustomerClientInterface::class);
     }
+
 }

@@ -66,4 +66,5 @@ class CustomerClient extends SprykerCustomerClient implements CustomerClientInte
             $this->getCustomer()->setIsDirty(true);
         }
     }
+
 }

@@ -18,6 +18,7 @@ use Spryker\Zed\SalesAggregator\Business\SalesAggregatorFacade;
 
 class SalesFacadeTest extends Test
 {
+
     /**
      * @return void
      */
@@ -166,7 +167,7 @@ class SalesFacadeTest extends Test
     }
 
     /**
-     * @return  void
+     * @return void
      */
     public function testSalesOrderItemWithDiscounts()
     {
@@ -199,7 +200,7 @@ class SalesFacadeTest extends Test
     }
 
     /**
-     * @return  void
+     * @return void
      */
     public function testSalesOrderItemWithoutDiscounts()
     {
@@ -355,8 +356,8 @@ class SalesFacadeTest extends Test
 
         return $salesOrderEntity;
     }
-    
-    
+
+
     /**
      * @return \Spryker\Zed\SalesAggregator\Business\SalesAggregatorFacade
      */
@@ -457,4 +458,5 @@ class SalesFacadeTest extends Test
         $spySalesDiscount->setAmount($amount);
         $spySalesDiscount->save();
     }
+
 }

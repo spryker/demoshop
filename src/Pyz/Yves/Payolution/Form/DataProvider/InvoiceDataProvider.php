@@ -37,4 +37,5 @@ class InvoiceDataProvider implements DataProviderInterface
     {
         return [];
     }
+
 }

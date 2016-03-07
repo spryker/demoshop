@@ -16,27 +16,27 @@ use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\SaveOrderTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
+use Pyz\Client\Customer\CustomerClient;
 use Pyz\Yves\Checkout\CheckoutFactory;
 use Pyz\Yves\Checkout\Controller\CheckoutController;
 use Pyz\Yves\Checkout\Form\DataProvider\SubformDataProviders;
 use Pyz\Yves\Checkout\Form\FormFactory;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
 use Pyz\Yves\Checkout\Form\Steps\ShipmentForm;
+use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
+use Pyz\Yves\Checkout\Process\StepFactory;
 use Spryker\Client\Calculation\CalculationClient;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
-use Pyz\Yves\Checkout\Process\StepFactory;
-use Pyz\Client\Customer\CustomerClient;
 
 class CheckoutControllerTest extends Test
 {
 
     /**
-     * @var QuoteTransfer
+     * @var \Generated\Shared\Transfer\QuoteTransfer
      */
     protected $persistedQuoteTransfer;
 
@@ -311,7 +311,6 @@ class CheckoutControllerTest extends Test
             ]
         );
 
-
         $subFormDataProviderMock = $this->createSubFormDataProvider($quoteTransfer);
         $formFactoryMock->method('createSubFormDataProvider')->willReturn($subFormDataProviderMock);
 
@@ -328,14 +327,14 @@ class CheckoutControllerTest extends Test
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
-     * @return \PHPUnit_Framework_MockObject_MockObject|CartClientInterface
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Cart\CartClientInterface
      */
     protected function getCartClientMock(QuoteTransfer $quoteTransfer)
     {
         $cartClientMock = $this->getMock(CartClientInterface::class);
         $cartClientMock->method('storeQuote')->willReturnCallback(
-            function (QuoteTransfer $newQuoteTransfer) use ($quoteTransfer){
+            function (QuoteTransfer $newQuoteTransfer) use ($quoteTransfer) {
                 $this->persistedQuoteTransfer = $newQuoteTransfer;
             }
         );
@@ -345,7 +344,7 @@ class CheckoutControllerTest extends Test
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @return array
      */
     protected function createShipmentForm(QuoteTransfer $quoteTransfer)
@@ -354,8 +353,8 @@ class CheckoutControllerTest extends Test
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
-     * @return PaymentForm
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @return \Pyz\Yves\Checkout\Form\Steps\PaymentForm
      */
     protected function createPaymentForm(QuoteTransfer $quoteTransfer)
     {

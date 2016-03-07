@@ -7,9 +7,9 @@
 
 namespace Pyz\Zed\Sales;
 
+use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Zed\Sales\SalesConfig as SprykerSalesConfig;
-use Generated\Shared\Transfer\ItemTransfer;
 
 class SalesConfig extends SprykerSalesConfig
 {
@@ -39,7 +39,7 @@ class SalesConfig extends SprykerSalesConfig
 
     /**
      * This method provides list of urls to render blocks inside order detail page.
-     * Url defines path to external bundle controller.  For example: /discount/sales/list would call discount bundle, sales controller, list action.
+     * Url defines path to external bundle controller. For example: /discount/sales/list would call discount bundle, sales controller, list action.
      * Action should return return array or redirect response.
      *
      * example:

@@ -50,7 +50,7 @@ class ShipmentForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     protected function addShipmentMethods(FormBuilderInterface $builder, array $options)
     {
@@ -67,7 +67,7 @@ class ShipmentForm extends AbstractType
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $shipmentMethodChoices
      *
-     * @return self
+     * @return $this
      */
     protected function addShipmentMethodChoices(FormBuilderInterface $builder, array $shipmentMethodChoices)
     {
@@ -92,7 +92,7 @@ class ShipmentForm extends AbstractType
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param \Pyz\Yves\Checkout\Dependency\SubFormInterface[] $shipmentMethodSubForms
      *
-     * @return self
+     * @return $this
      */
     protected function addShipmentMethodSubForms(FormBuilderInterface $builder, array $shipmentMethodSubForms, array $options)
     {
@@ -114,7 +114,7 @@ class ShipmentForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     protected function addSubmit(FormBuilderInterface $builder)
     {
@@ -176,4 +176,5 @@ class ShipmentForm extends AbstractType
 
         $resolver->setRequired('select_options');
     }
+
 }

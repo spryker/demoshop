@@ -4,9 +4,9 @@ namespace Pyz\Yves\Payolution;
 
 use Pyz\Yves\Payolution\Form\DataProvider\InstallmentDataProvider;
 use Pyz\Yves\Payolution\Form\DataProvider\InvoiceDataProvider;
-use Pyz\Yves\Payolution\Handler\PayolutionHandler;
 use Pyz\Yves\Payolution\Form\InstallmentSubForm;
 use Pyz\Yves\Payolution\Form\InvoiceSubForm;
+use Pyz\Yves\Payolution\Handler\PayolutionHandler;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class PayolutionFactory extends AbstractFactory

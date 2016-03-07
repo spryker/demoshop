@@ -8,6 +8,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class CheckoutAddressForm extends AddressForm
 {
+
     const OPTION_VALIDATION_GROUP = 'validation_group';
     const OPTION_ADDRESS_CHOICES = 'addresses_choices';
 
@@ -56,7 +57,7 @@ class CheckoutAddressForm extends AddressForm
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      *
-     * @return self
+     * @return $this
      */
     protected function addAddressSelectField(FormBuilderInterface $builder, array $options)
     {

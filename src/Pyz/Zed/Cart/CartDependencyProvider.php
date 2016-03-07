@@ -7,8 +7,8 @@ namespace Pyz\Zed\Cart;
 
 use Spryker\Zed\Cart\CartDependencyProvider as SprykerCartDependencyProvider;
 use Spryker\Zed\Cart\Communication\Plugin\SkuGroupKeyPlugin;
-use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Cart\Dependency\ItemExpanderPluginInterface;
+use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\PriceCartConnector\Communication\Plugin\CartItemPricePlugin;
 use Spryker\Zed\ProductCartConnector\Communication\Plugin\ProductCartPlugin;
 use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemGroupKeyOptionPlugin;
@@ -16,6 +16,7 @@ use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemProductO
 
 class CartDependencyProvider extends SprykerCartDependencyProvider
 {
+
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
@@ -31,4 +32,5 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
             new CartItemGroupKeyOptionPlugin(),
         ];
     }
+
 }

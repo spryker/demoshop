@@ -106,4 +106,5 @@ class ShipmentStepTest extends \PHPUnit_Framework_TestCase
     {
         return $this->getMock(CheckoutStepHandlerPluginInterface::class);
     }
+
 }

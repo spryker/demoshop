@@ -13,6 +13,7 @@ use Symfony\Component\Form\FormTypeInterface;
 
 class CustomerCheckoutForm extends AbstractType
 {
+
     const SUB_FORM_CUSTOMER = 'customer';
 
     /**

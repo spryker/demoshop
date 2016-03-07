@@ -10,6 +10,7 @@ namespace Pyz\Yves\Application;
 use Pyz\Shared\Application\Business\Routing\SilexRouter;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
+use Pyz\Yves\Application\Plugin\Provider\FlashMessengerServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\SessionServiceProvider as ProviderSessionServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\YvesSecurityServiceProvider;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
@@ -41,8 +42,6 @@ use Spryker\Yves\Application\Application;
 use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\MonologServiceProvider;
-use Pyz\Yves\Application\Plugin\Provider\FlashMessengerServiceProvider;
-
 
 class YvesBootstrap
 {

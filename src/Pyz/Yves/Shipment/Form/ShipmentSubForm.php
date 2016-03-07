@@ -4,13 +4,14 @@ namespace Pyz\Yves\Shipment\Form;
 
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
 use Pyz\Yves\Checkout\Dependency\CheckoutAbstractSubFormType;
+use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
-use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 
 class ShipmentSubForm extends CheckoutAbstractSubFormType implements SubFormInterface
 {
+
     const FIELD_ID_SHIPMENT_METHOD = 'idShipmentMethod';
     const OPTION_SHIPMENT_METHODS = 'shipmentMethods';
 
@@ -88,4 +89,5 @@ class ShipmentSubForm extends CheckoutAbstractSubFormType implements SubFormInte
 
         return $this;
     }
+
 }

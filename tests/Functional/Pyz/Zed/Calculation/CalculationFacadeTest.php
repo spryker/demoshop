@@ -187,8 +187,6 @@ class CalculationFacadeTest extends Test
         $collectorEntity->setFkDiscount($discountEntity->getIdDiscount());
         $collectorEntity->save();
 
-
-
         $discountEntity->reload(true);
         $pool = $discountEntity->getVoucherPool();
         $pool->getDiscountVouchers();
@@ -204,4 +202,5 @@ class CalculationFacadeTest extends Test
     {
         return new CalculationFacade();
     }
+
 }

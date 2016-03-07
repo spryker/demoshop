@@ -53,7 +53,7 @@ class PaymentForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     protected function addPaymentMethods(FormBuilderInterface $builder, array $options)
     {
@@ -118,7 +118,7 @@ class PaymentForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     protected function addSubmit(FormBuilderInterface $builder)
     {

@@ -5,22 +5,23 @@
 
 namespace Pyz\Yves\Cart;
 
+use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Cart\Handler\CartOperationHandler;
+use Pyz\Yves\Cart\Handler\CartVoucherHandler;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Client\Cart\CartClientInterface;
-use Spryker\Yves\Kernel\AbstractFactory;
-use Pyz\Yves\Cart\Handler\CartVoucherHandler;
 use Spryker\Yves\Application\Application;
-use Pyz\Yves\Application\Plugin\Pimple;
+use Spryker\Yves\Kernel\AbstractFactory;
 
 class CartFactory extends AbstractFactory
 {
+
     /**
      * @return \Spryker\Client\Calculation\CalculationClientInterface
      */
     public function getCalculationClient()
     {
-       return $this->getLocator()->calculation()->client();
+        return $this->getLocator()->calculation()->client();
     }
 
     /**
@@ -70,4 +71,5 @@ class CartFactory extends AbstractFactory
     {
         return $this->createApplication()['locale'];
     }
+
 }

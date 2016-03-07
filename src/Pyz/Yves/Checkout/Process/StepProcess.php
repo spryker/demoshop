@@ -4,12 +4,12 @@ namespace Pyz\Yves\Checkout\Process;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface;
+use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Pyz\Yves\Checkout\Process\Steps\StepInterface;
 use Spryker\Client\Cart\CartClientInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 
 class StepProcess
 {

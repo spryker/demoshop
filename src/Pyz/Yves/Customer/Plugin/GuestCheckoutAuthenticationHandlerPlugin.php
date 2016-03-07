@@ -30,7 +30,7 @@ class GuestCheckoutAuthenticationHandlerPlugin extends AbstractPlugin implements
      */
     public function canHandle(QuoteTransfer $quoteTransfer)
     {
-        return ((bool) $quoteTransfer->getCustomer()->getIsGuest() === true);
+        return ((bool)$quoteTransfer->getCustomer()->getIsGuest() === true);
     }
 
 }

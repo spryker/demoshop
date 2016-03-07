@@ -6,9 +6,9 @@
 namespace Pyz\Yves\Shipment\Form\DataProvider;
 
 use Generated\Shared\Transfer\QuoteTransfer;
+use Generated\Shared\Transfer\ShipmentMethodTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface;
-use Generated\Shared\Transfer\ShipmentMethodTransfer;
 use Pyz\Yves\Shipment\Form\ShipmentSubForm;
 use Spryker\Client\Glossary\GlossaryClientInterface;
 use Spryker\Client\Shipment\ShipmentClientInterface;
@@ -118,7 +118,7 @@ class ShipmentDataProvider implements DataProviderInterface
 
     /**
      * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
-     *9
+     * 9
      * @return string
      */
     protected function getShipmentDescription(ShipmentMethodTransfer $shipmentMethodTransfer)
@@ -173,4 +173,5 @@ class ShipmentDataProvider implements DataProviderInterface
     {
         return $this->glossaryClient->translate($translationKey, $this->store->getCurrentLocale());
     }
+
 }

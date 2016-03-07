@@ -10,6 +10,7 @@ use Spryker\Yves\Kernel\AbstractPlugin;
  */
 class PayolutionInstallmentSubFormPlugin extends AbstractPlugin implements CheckoutSubFormPluginInterface
 {
+
     /**
      * @return \Pyz\Yves\Payolution\Form\InstallmentSubForm
      */
@@ -25,4 +26,5 @@ class PayolutionInstallmentSubFormPlugin extends AbstractPlugin implements Check
     {
         return $this->getFactory()->createInstalmentFormDataProvider();
     }
+
 }

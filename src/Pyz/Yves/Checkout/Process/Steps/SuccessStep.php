@@ -76,4 +76,5 @@ class SuccessStep extends BaseStep
 
         return true;
     }
+
 }

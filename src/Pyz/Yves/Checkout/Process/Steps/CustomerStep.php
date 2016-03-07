@@ -4,8 +4,8 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
+use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class CustomerStep extends BaseStep

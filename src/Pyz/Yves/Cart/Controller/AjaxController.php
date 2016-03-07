@@ -16,6 +16,7 @@ use Spryker\Yves\Application\Controller\AbstractController;
  */
 class AjaxController extends AbstractController
 {
+
     /**
      * @return array
      */

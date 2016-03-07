@@ -3,20 +3,20 @@
 namespace Pyz\Yves\Checkout\Process;
 
 use Pyz\Yves\Application\Plugin\Pimple;
-use Pyz\Yves\Checkout\Process\Steps\EntryStep;
-use Pyz\Yves\Customer\Plugin\CustomerStepHandler;
-use Pyz\Yves\Payolution\Plugin\PayolutionHandlerPlugin;
-use Pyz\Yves\Shipment\Plugin\ShipmentHandlerPlugin;
-use Spryker\Yves\Kernel\AbstractFactory;
+use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
+use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Pyz\Yves\Checkout\Process\Steps\AddressStep;
 use Pyz\Yves\Checkout\Process\Steps\CustomerStep;
+use Pyz\Yves\Checkout\Process\Steps\EntryStep;
 use Pyz\Yves\Checkout\Process\Steps\PaymentStep;
 use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
-use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
-use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
+use Pyz\Yves\Customer\Plugin\CustomerStepHandler;
+use Pyz\Yves\Payolution\Plugin\PayolutionHandlerPlugin;
+use Pyz\Yves\Shipment\Plugin\ShipmentHandlerPlugin;
+use Spryker\Yves\Kernel\AbstractFactory;
 
 class StepFactory extends AbstractFactory
 {

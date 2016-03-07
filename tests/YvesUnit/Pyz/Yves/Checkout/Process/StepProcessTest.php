@@ -7,15 +7,14 @@ namespace YvesUnit\Pyz\Yves\Checkout\Process;
 
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface;
 use Pyz\Yves\Checkout\Process\StepProcess;
 use Pyz\Yves\Checkout\Process\Steps\StepInterface;
 use Spryker\Client\Cart\CartClientInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface;
 use Symfony\Component\Form\FormInterface;
-
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class StepProcessTest extends \PHPUnit_Framework_TestCase
 {
@@ -174,9 +173,9 @@ class StepProcessTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @param array $steps
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return StepProcess
+     * @return \Pyz\Yves\Checkout\Process\StepProcess
      */
     protected function createStepProcess(array $steps, QuoteTransfer $quoteTransfer)
     {
@@ -188,7 +187,7 @@ class StepProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|StepInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Process\Steps\StepInterface
      */
     protected function createStepMock()
     {
@@ -199,7 +198,7 @@ class StepProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|UrlGeneratorInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Symfony\Component\Routing\Generator\UrlGeneratorInterface
      */
     protected function createUrlGeneratorMock()
     {
@@ -207,7 +206,7 @@ class StepProcessTest extends \PHPUnit_Framework_TestCase
 
         $urlGeneratorMock->method('generate')->willReturnCallback(
             function ($escapeRoute) {
-               return $escapeRoute;
+                return $escapeRoute;
             }
         );
 
@@ -215,7 +214,7 @@ class StepProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|CartClientInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Cart\CartClientInterface
      */
     protected function createCartClientMock(QuoteTransfer $quoteTransfer)
     {
@@ -226,7 +225,7 @@ class StepProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return Request
+     * @return \Symfony\Component\HttpFoundation\Request
      */
     protected function createRequest()
     {
@@ -234,7 +233,7 @@ class StepProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|FormInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Symfony\Component\Form\FormInterface
      */
     protected function createFormMock()
     {
@@ -242,10 +241,11 @@ class StepProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|FormCollectionHandlerInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface
      */
     protected function getFormCollectionHandlerMock()
     {
-        return  $this->getMock(FormCollectionHandlerInterface::class);
+        return $this->getMock(FormCollectionHandlerInterface::class);
     }
+
 }

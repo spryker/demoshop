@@ -26,4 +26,5 @@ class PayolutionInvoiceSubFormPlugin extends AbstractPlugin implements CheckoutS
     {
         return $this->getFactory()->createInvoiceFormDataProvider();
     }
+
 }

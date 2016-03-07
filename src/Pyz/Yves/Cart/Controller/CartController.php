@@ -7,8 +7,8 @@
 
 namespace Pyz\Yves\Cart\Controller;
 
-use Spryker\Yves\Application\Controller\AbstractController;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
+use Spryker\Yves\Application\Controller\AbstractController;
 
 /**
  * @method \Spryker\Client\Cart\CartClientInterface getClient()

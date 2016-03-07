@@ -7,10 +7,10 @@ namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Symfony\Component\HttpFoundation\Request;
-use Pyz\Client\Customer\CustomerClientInterface;
 
 class SuccessStepTest extends \PHPUnit_Framework_TestCase
 {
@@ -56,8 +56,8 @@ class SuccessStepTest extends \PHPUnit_Framework_TestCase
         $quoteTransfer = new QuoteTransfer();
         $this->assertFalse($successStep->postCondition($quoteTransfer));
     }
-    
-    
+
+
     /**
      * @return \Pyz\Yves\Checkout\Process\Steps\SuccessStep
      *
@@ -99,4 +99,5 @@ class SuccessStepTest extends \PHPUnit_Framework_TestCase
     {
         return $this->getMock(CustomerClientInterface::class);
     }
+
 }

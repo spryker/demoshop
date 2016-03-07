@@ -7,8 +7,8 @@
 
 namespace Pyz\Zed\OmsCheckoutConnector\Business;
 
-use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
+use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Zed\Oms\OmsConfig;
 use Spryker\Zed\OmsCheckoutConnector\Business\OmsOrderHydrator as BaseOmsOrderHydrator;
 

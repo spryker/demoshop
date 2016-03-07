@@ -12,6 +12,7 @@ use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
+use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\TaxSetTransfer;
 use Generated\Shared\Transfer\TotalsTransfer;
 use Orm\Zed\Country\Persistence\SpyCountryQuery;
@@ -22,7 +23,6 @@ use Orm\Zed\Payolution\Persistence\SpyPaymentPayolution;
 use Orm\Zed\Sales\Persistence\SpySalesOrder;
 use Orm\Zed\Sales\Persistence\SpySalesOrderAddress;
 use Spryker\Shared\Payolution\PayolutionConstants;
-use Generated\Shared\Transfer\QuoteTransfer;
 
 abstract class AbstractFacadeTest extends Test
 {

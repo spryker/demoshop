@@ -5,10 +5,10 @@
 
 namespace Pyz\Yves\Application\Plugin\Provider;
 
+use Pyz\Yves\Application\Business\Model\FlashMessenger;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Pyz\Yves\Application\Business\Model\FlashMessenger;
 
 class FlashMessengerServiceProvider extends AbstractPlugin implements ServiceProviderInterface
 {
@@ -46,4 +46,5 @@ class FlashMessengerServiceProvider extends AbstractPlugin implements ServicePro
     {
         return new FlashMessenger($app['session']->getFlashBag());
     }
+
 }

@@ -69,4 +69,5 @@ class EntryStepTest extends \PHPUnit_Framework_TestCase
     {
         return $this->getMock(FlashMessengerInterface::class);
     }
+
 }

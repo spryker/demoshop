@@ -5,13 +5,13 @@
 
 namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
 
-use Generated\Shared\Transfer\PaymentTransfer;
-use Pyz\Yves\Checkout\Process\Steps\PaymentStep;
 use Generated\Shared\Transfer\ExpenseTransfer;
+use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
+use Pyz\Yves\Checkout\Process\Steps\PaymentStep;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Shared\Shipment\ShipmentConstants;
@@ -62,7 +62,7 @@ class PaymentStepTest extends \PHPUnit_Framework_TestCase
         $paymentStep = $this->createPaymentStep([]);
         $this->assertTrue($paymentStep->requireInput(new QuoteTransfer()));
     }
-    
+
     /**
      * @return \Pyz\Yves\Checkout\Process\Steps\PaymentStep
      */
@@ -100,4 +100,5 @@ class PaymentStepTest extends \PHPUnit_Framework_TestCase
     {
         return $this->getMock(CheckoutStepHandlerPluginInterface::class);
     }
+
 }

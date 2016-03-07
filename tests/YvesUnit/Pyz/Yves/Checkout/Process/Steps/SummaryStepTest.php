@@ -17,7 +17,6 @@ use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-
 class SummaryStepTest extends \PHPUnit_Framework_TestCase
 {
 
@@ -63,9 +62,9 @@ class SummaryStepTest extends \PHPUnit_Framework_TestCase
 
         $this->assertTrue($summaryStep->requireInput(new QuoteTransfer()));
     }
-    
+
     /**
-     * @return ShipmentStep
+     * @return \Pyz\Yves\Checkout\Process\Steps\ShipmentStep
      */
     protected function createSummaryStep($calculationClientMock)
     {
@@ -79,7 +78,7 @@ class SummaryStepTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * @return Request
+     * @return \Symfony\Component\HttpFoundation\Request
      */
     protected function createRequest()
     {
@@ -87,7 +86,7 @@ class SummaryStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|FlashMessengerInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Application\Business\Model\FlashMessengerInterface
      */
     protected function createFlashMessengerMock()
     {
@@ -95,7 +94,7 @@ class SummaryStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|CalculationClientInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Calculation\CalculationClientInterface
      */
     protected function createCalculationClientMock()
     {
@@ -103,10 +102,11 @@ class SummaryStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|CheckoutStepHandlerPluginInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface
      */
     protected function createShipmentMock()
     {
         return $this->getMock(CheckoutStepHandlerPluginInterface::class);
     }
+
 }

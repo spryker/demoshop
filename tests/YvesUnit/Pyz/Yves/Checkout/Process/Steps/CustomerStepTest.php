@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CustomerStepTest extends \PHPUnit_Framework_TestCase
 {
+
     /**
      * @return void
      */
@@ -44,7 +45,7 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
         $customerStep = $this->createCustomerStep();
         $this->assertFalse($customerStep->postCondition(new QuoteTransfer()));
     }
-    
+
     /**
      * @return void
      */
@@ -140,7 +141,7 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
     {
         return $this->getMock(CheckoutStepHandlerPluginInterface::class);
     }
-    
+
     /**
      * @return \Symfony\Component\HttpFoundation\Request
      */
@@ -164,4 +165,5 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
     {
         return $this->getMock(CustomerClientInterface::class);
     }
+
 }

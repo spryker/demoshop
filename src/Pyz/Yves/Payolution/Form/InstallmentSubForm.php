@@ -3,11 +3,11 @@
 namespace Pyz\Yves\Payolution\Form;
 
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
-use Symfony\Component\Form\FormBuilderInterface;
+use Pyz\Yves\Checkout\Dependency\CheckoutAbstractSubFormType;
 use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 use Spryker\Shared\Payolution\PayolutionConstants;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Pyz\Yves\Checkout\Dependency\CheckoutAbstractSubFormType;
 
 class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormInterface
 {
@@ -186,4 +186,5 @@ class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormI
 
         return $this;
     }
+
 }

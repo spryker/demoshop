@@ -35,7 +35,7 @@ class EntryStep extends BaseStep implements StepInterface
      */
     public function requireInput(QuoteTransfer $quoteTransfer)
     {
-       return false;
+        return false;
     }
 
     /**
@@ -64,4 +64,5 @@ class EntryStep extends BaseStep implements StepInterface
     {
         return true;
     }
+
 }

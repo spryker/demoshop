@@ -9,6 +9,4 @@ use Spryker\Zed\Sales\SalesDependencyProvider as SprykerSalesDependencyProvider;
 
 class SalesDependencyProvider extends SprykerSalesDependencyProvider
 {
-
-
 }

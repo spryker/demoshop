@@ -32,7 +32,7 @@ class SummaryForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     protected function addSubmit(FormBuilderInterface $builder)
     {
@@ -50,4 +50,5 @@ class SummaryForm extends AbstractType
     {
         return 'summaryForm';
     }
+
 }

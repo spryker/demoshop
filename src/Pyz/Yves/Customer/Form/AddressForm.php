@@ -107,7 +107,7 @@ class AddressForm extends AbstractType
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      *
-     * @return self
+     * @return $this
      */
     protected function addFirstNameField(FormBuilderInterface $builder, array $options)
     {

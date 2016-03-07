@@ -2,9 +2,9 @@
 
 namespace Pyz\Yves\Customer\Form;
 
+use Generated\Shared\Transfer\AddressTransfer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Generated\Shared\Transfer\AddressTransfer;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraint;
@@ -39,7 +39,7 @@ class CheckoutAddressCollectionForm extends AbstractType
     {
         /** @var \Symfony\Component\OptionsResolver\OptionsResolver $resolver */
         $resolver->setDefaults([
-            'validation_groups' => function(FormInterface $form) {
+            'validation_groups' => function (FormInterface $form) {
                 $validationGroups = [Constraint::DEFAULT_GROUP, self::GROUP_SHIPPING_ADDRESS];
 
                 if (!$form->get(self::FIELD_BILLING_SAME_AS_SHIPPING)->getData()) {
@@ -81,7 +81,7 @@ class CheckoutAddressCollectionForm extends AbstractType
         $options = [
             'data_class' => AddressTransfer::class,
             'required' => false,
-            'validation_groups' => function(FormInterface $form) {
+            'validation_groups' => function (FormInterface $form) {
                 if (!$form->has(CheckoutAddressForm::FIELD_ID_CUSTOMER_ADDRESS) || !$form->get(CheckoutAddressForm::FIELD_ID_CUSTOMER_ADDRESS)->getData()) {
                     return [self::GROUP_SHIPPING_ADDRESS];
                 }
@@ -107,7 +107,8 @@ class CheckoutAddressCollectionForm extends AbstractType
     {
         $builder->add(
             self::FIELD_BILLING_SAME_AS_SHIPPING,
-            'checkbox', [
+            'checkbox',
+            [
                 'required' => false,
             ]
         );
@@ -125,7 +126,7 @@ class CheckoutAddressCollectionForm extends AbstractType
     {
         $options = [
             'data_class' => AddressTransfer::class,
-            'validation_groups' => function(FormInterface $form) {
+            'validation_groups' => function (FormInterface $form) {
                 if ($form->getParent()->get(self::FIELD_BILLING_SAME_AS_SHIPPING)->getData()) {
                     return false;
                 }

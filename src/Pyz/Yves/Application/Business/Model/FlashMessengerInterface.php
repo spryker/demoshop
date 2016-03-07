@@ -6,6 +6,7 @@ namespace Pyz\Yves\Application\Business\Model;
 
 interface FlashMessengerInterface
 {
+
     const FLASH_MESSAGES_SUCCESS = 'flash.messages.success';
     const FLASH_MESSAGES_ERROR= 'flash.messages.error';
     const FLASH_MESSAGES_INFO = 'flash.messages.info';
@@ -15,7 +16,7 @@ interface FlashMessengerInterface
      *
      * @throws \ErrorException
      *
-     * @return self
+     * @return $this
      */
     public function addSuccessMessage($message);
 
@@ -24,7 +25,7 @@ interface FlashMessengerInterface
      *
      * @throws \ErrorException
      *
-     * @return self
+     * @return $this
      */
     public function addInfoMessage($message);
 
@@ -33,7 +34,8 @@ interface FlashMessengerInterface
      *
      * @throws \ErrorException
      *
-     * @return self
+     * @return $this
      */
     public function addErrorMessage($message);
+
 }

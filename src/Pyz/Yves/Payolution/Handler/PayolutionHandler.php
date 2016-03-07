@@ -158,4 +158,5 @@ class PayolutionHandler
     {
         return CurrencyManager::getInstance()->getDefaultCurrency()->getIsoCode();
     }
+
 }

@@ -5,14 +5,15 @@
 
 namespace Pyz\Zed\Payment;
 
+use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Payment\PaymentDependencyProvider as SprykerPaymentDependencyProvider;
 use Spryker\Zed\Payolution\Communication\Plugin\Checkout\PayolutionPreCheckPlugin;
 use Spryker\Zed\Payolution\Communication\Plugin\Checkout\PayolutionSaveOrderPlugin;
-use Spryker\Shared\Payolution\PayolutionConstants;
 
 class PaymentDependencyProvider extends SprykerPaymentDependencyProvider
 {
+
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      * @return array
@@ -29,4 +30,5 @@ class PaymentDependencyProvider extends SprykerPaymentDependencyProvider
             self::CHECKOUT_POST_SAVE_PLUGINS => [],
         ];
     }
+
 }

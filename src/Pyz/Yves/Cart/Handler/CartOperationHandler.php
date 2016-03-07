@@ -130,4 +130,5 @@ class CartOperationHandler extends BaseHandler
             $itemTransfer->addProductOption($productOptionTransfer);
         }
     }
+
 }
