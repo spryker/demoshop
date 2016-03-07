@@ -115,9 +115,6 @@ labelText "Frontend assets management setup"
 labelText "Restart ElasticSearch"
 sudo /etc/init.d/elasticsearch restart
 
-labelText "Build-class-map"
-vendor/bin/build-class-map
-
 labelText "setup:install"
 vendor/bin/console setup:install -vvv
 
