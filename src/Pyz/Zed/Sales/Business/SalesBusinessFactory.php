@@ -16,7 +16,11 @@ class SalesBusinessFactory extends SprykerSalesBusinessFactory
      */
     public function createCustomerOrderReader()
     {
-        return new CustomerOrderReader($this->getQueryContainer());
+        return new CustomerOrderReader(
+            $this->getQueryContainer(),
+            $this->getSalesAggregator(),
+            $this->createOrderHydrator()
+        );
     }
 
 }

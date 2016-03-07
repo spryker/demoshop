@@ -4,7 +4,7 @@ namespace Pyz\Zed\Sales\Business\Model;
 
 use Generated\Shared\Transfer\OrderListTransfer;
 use Orm\Zed\Sales\Persistence\SpySalesOrderQuery;
-use Spryker\Zed\Sales\Business\Model\CustomerOrderReader as SprykerCustomerOrderReader;
+use Spryker\Zed\Sales\Business\Model\Customer\CustomerOrderReader as SprykerCustomerOrderReader;
 
 class CustomerOrderReader extends SprykerCustomerOrderReader
 {
