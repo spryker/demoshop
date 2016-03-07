@@ -7,8 +7,8 @@
 
 namespace Pyz\Zed\Price\Business;
 
-use Spryker\Zed\Price\Business\PriceFacadeInterface as SprykerPriceFacadeInterface;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
+use Spryker\Zed\Price\Business\PriceFacadeInterface as SprykerPriceFacadeInterface;
 
 interface PriceFacadeInterface extends SprykerPriceFacadeInterface
 {

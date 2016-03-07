@@ -8,8 +8,8 @@
 namespace Pyz\Zed\Product\Business;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Spryker\Zed\Product\Business\ProductFacadeInterface as SprykerProductFacadeInterface;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
+use Spryker\Zed\Product\Business\ProductFacadeInterface as SprykerProductFacadeInterface;
 
 interface ProductFacadeInterface extends SprykerProductFacadeInterface
 {

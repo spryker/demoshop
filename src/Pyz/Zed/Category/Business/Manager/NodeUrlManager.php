@@ -8,12 +8,12 @@
 namespace Pyz\Zed\Category\Business\Manager;
 
 use Generated\Shared\Transfer\UrlTransfer;
-use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
-use Spryker\Zed\Locale\Persistence\LocaleQueryContainerInterface;
 use Spryker\Zed\Category\Business\Generator\UrlPathGeneratorInterface;
 use Spryker\Zed\Category\Business\Manager\NodeUrlManager as SprykerNodeUrlManager;
 use Spryker\Zed\Category\Business\Tree\CategoryTreeReaderInterface;
 use Spryker\Zed\Category\Dependency\Facade\CategoryToUrlInterface;
+use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
+use Spryker\Zed\Locale\Persistence\LocaleQueryContainerInterface;
 
 class NodeUrlManager extends SprykerNodeUrlManager
 {

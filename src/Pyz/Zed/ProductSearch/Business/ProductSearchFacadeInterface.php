@@ -7,8 +7,8 @@
 
 namespace Pyz\Zed\ProductSearch\Business;
 
-use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface as SprykerProductSearchFacadeInterface;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
+use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface as SprykerProductSearchFacadeInterface;
 
 interface ProductSearchFacadeInterface extends SprykerProductSearchFacadeInterface
 {
