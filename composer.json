@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-feature/690-quote-transfer-merged2",
+    "spryker/spryker": "dev-feature/690-quote-transfer",
 
     "psr/log": "~1.0.0",
     "propel/propel": "~2.0@dev",
