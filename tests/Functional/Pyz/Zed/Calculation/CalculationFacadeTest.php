@@ -23,6 +23,8 @@ class CalculationFacadeTest extends Test
 
     /**
      * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return void
      */
     protected function setUp()
     {

@@ -18,8 +18,8 @@ class SummaryStep extends BaseStep
     /**
      * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
-     * @param $stepRoute
-     * @param $escapeRoute
+     * @param string $stepRoute
+     * @param string $escapeRoute
      */
     public function __construct(
         FlashMessengerInterface $flashMessenger,

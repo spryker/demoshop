@@ -23,6 +23,8 @@ abstract class CheckoutAbstractSubFormType extends AbstractType
      * @param \Symfony\Component\Form\FormView $view The view
      * @param \Symfony\Component\Form\FormInterface $form The form
      * @param array $options The options
+     *
+     * @return void
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {

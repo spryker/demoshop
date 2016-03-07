@@ -369,11 +369,11 @@ class SalesFacadeTest extends Test
     /**
      * @param \Orm\Zed\Oms\Persistence\SpyOmsOrderItemState $omsState
      * @param \Orm\Zed\Sales\Persistence\SpySalesOrder $salesOrder
-     * @param $quantity
-     * @param $grossPrice
-     * @param $taxRate
-     * @param $discountAmount
-     * @param $discountName
+     * @param int $quantity
+     * @param int $grossPrice
+     * @param int $taxRate
+     * @param int $discountAmount
+     * @param int $discountName
      * @param array $options
      *
      * @throws \Propel\Runtime\Exception\PropelException
@@ -439,6 +439,13 @@ class SalesFacadeTest extends Test
     /**
      * @param int $amount
      * @param int $name
+     * @param int $idOrder
+     * @param int $idOrderItem
+     * @param int $idExpense
+     * @param int $idOrderItemOption
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return void
      */
     protected function createSalesDiscount(
         $amount,

@@ -12,7 +12,7 @@ interface FlashMessengerInterface
     const FLASH_MESSAGES_INFO = 'flash.messages.info';
 
     /**
-     * @param $message
+     * @param string $message
      *
      * @throws \ErrorException
      *

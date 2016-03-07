@@ -20,6 +20,7 @@ use Pyz\Yves\Payolution\Plugin\PayolutionInvoiceSubFormPlugin;
 use Pyz\Yves\Shipment\Plugin\ShipmentSubFormPlugin;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Kernel\AbstractFactory;
+use Symfony\Component\Form\FormTypeInterface;
 
 class FormFactory extends AbstractFactory
 {
@@ -96,10 +97,20 @@ class FormFactory extends AbstractFactory
     protected function createCustomerFormTypes()
     {
         return [
-            new LoginForm(),
-            new CustomerCheckoutForm(new RegisterForm()),
-            new CustomerCheckoutForm(new GuestForm()),
+            $this->createLoginForm(),
+            $this->createCustomerCheckoutForm($this->createRegisterForm()),
+            $this->createCustomerCheckoutForm($this->createGuestForm()),
         ];
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormTypeInterface $subForm
+     *
+     * @return \Pyz\Yves\Customer\Form\CustomerCheckoutForm
+     */
+    protected function createCustomerCheckoutForm(FormTypeInterface $subForm)
+    {
+        return new CustomerCheckoutForm($subForm);
     }
 
     /**
@@ -146,7 +157,7 @@ class FormFactory extends AbstractFactory
     protected function createShipmentMethodsSubForms()
     {
         return [
-            new ShipmentSubFormPlugin(),
+            $this->createShipmentFormPlugin(),
         ];
     }
 
@@ -166,8 +177,8 @@ class FormFactory extends AbstractFactory
     public function createPaymentMethodsSubForms()
     {
         return [
-            new PayolutionInvoiceSubFormPlugin(),
-            new PayolutionInstallmentSubFormPlugin(),
+            $this->createPayolutionInvoiceSubFormPlugin(),
+            $this->createPayolutionInstallmentSubFormPlugin(),
         ];
     }
 
@@ -233,6 +244,54 @@ class FormFactory extends AbstractFactory
     protected function getCustomerClient()
     {
         return $this->getLocator()->customer()->client();
+    }
+
+    /**
+     * @return \Pyz\Yves\Customer\Form\LoginForm
+     */
+    protected function createLoginForm()
+    {
+        return new LoginForm();
+    }
+
+    /**
+     * @return \Pyz\Yves\Payolution\Plugin\PayolutionInvoiceSubFormPlugin
+     */
+    protected function createPayolutionInvoiceSubFormPlugin()
+    {
+        return new PayolutionInvoiceSubFormPlugin();
+    }
+
+    /**
+     * @return \Pyz\Yves\Payolution\Plugin\PayolutionInstallmentSubFormPlugin
+     */
+    protected function createPayolutionInstallmentSubFormPlugin()
+    {
+        return new PayolutionInstallmentSubFormPlugin();
+    }
+
+    /**
+     * @return \Pyz\Yves\Shipment\Plugin\ShipmentSubFormPlugin
+     */
+    protected function createShipmentFormPlugin()
+    {
+        return new ShipmentSubFormPlugin();
+    }
+
+    /**
+     * @return \Pyz\Yves\Customer\Form\RegisterForm
+     */
+    protected function createRegisterForm()
+    {
+        return new RegisterForm();
+    }
+
+    /**
+     * @return \Pyz\Yves\Customer\Form\GuestForm
+     */
+    protected function createGuestForm()
+    {
+        return new GuestForm();
     }
 
 }

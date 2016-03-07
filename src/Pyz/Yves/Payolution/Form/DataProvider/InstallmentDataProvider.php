@@ -11,12 +11,13 @@ use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface;
-use Spryker\Client\Payolution\PayolutionClientInterface;
 use Pyz\Yves\Payolution\Form\InstallmentSubForm;
+use Spryker\Client\Payolution\PayolutionClientInterface;
 use Spryker\Shared\Library\Currency\CurrencyManager;
 
 class InstallmentDataProvider implements DataProviderInterface
 {
+
     /**
      * @var \Spryker\Client\Payolution\PayolutionClientInterface
      */
@@ -148,4 +149,5 @@ class InstallmentDataProvider implements DataProviderInterface
     {
         return CurrencyManager::getInstance()->convertCentToDecimal($amount);
     }
+
 }

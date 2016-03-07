@@ -10,6 +10,7 @@ use Spryker\Client\Kernel\AbstractClient;
 
 class BaseHandler
 {
+
     /**
      * @var \Pyz\Yves\Application\Business\Model\FlashMessengerInterface
      */
@@ -42,4 +43,5 @@ class BaseHandler
             $this->flashMessenger->addInfoMessage($infoMessage->getMessage());
         }
     }
+
 }

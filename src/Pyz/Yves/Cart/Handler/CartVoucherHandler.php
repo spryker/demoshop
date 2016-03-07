@@ -9,10 +9,10 @@ use Generated\Shared\Transfer\DiscountTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Client\Cart\CartClientInterface;
-use Spryker\Client\Kernel\AbstractClient;
 
 class CartVoucherHandler extends BaseHandler
 {
+
     /**
      * @var \Spryker\Client\Calculation\CalculationClientInterface|\Spryker\Client\Kernel\AbstractClient
      */
@@ -42,7 +42,7 @@ class CartVoucherHandler extends BaseHandler
     /**
      * @param string $voucherCode
      *
-     * @retun void
+     * @return void
      */
     public function add($voucherCode)
     {
@@ -59,7 +59,7 @@ class CartVoucherHandler extends BaseHandler
     }
 
     /**
-     * @param $voucherCode
+     * @param string $voucherCode
      *
      * @return void
      */
@@ -94,16 +94,16 @@ class CartVoucherHandler extends BaseHandler
 
 
     /**
-     * @param string $couponCode
+     * @param string $voucherCode
      * @param \ArrayObject|\Generated\Shared\Transfer\DiscountTransfer[] $voucherDiscounts
      *
      * @return void
      */
-    protected function unsetVoucherCode($couponCode, \ArrayObject $voucherDiscounts)
+    protected function unsetVoucherCode($voucherCode, \ArrayObject $voucherDiscounts)
     {
-        $discountIterator = $voucherDiscounts->getIterator() ;
+        $discountIterator = $voucherDiscounts->getIterator();
         foreach ($discountIterator as $key => $voucherDiscountTransfer) {
-            if ($voucherDiscountTransfer->getVoucherCode() === $couponCode) {
+            if ($voucherDiscountTransfer->getVoucherCode() === $voucherCode) {
                 $discountIterator->offsetUnset($key);
             }
 

@@ -74,7 +74,7 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($customerStep->postCondition($quoteTransfer));
     }
 
-    /*
+    /**
      * @return void
      */
     public function testRequireInputWhenCustomerIsSetShouldReturnFalse()

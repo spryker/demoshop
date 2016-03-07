@@ -163,7 +163,7 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param $customerClientMock
+     * @param \PHPUnit_Framework_MockObject_MockObject|\Pyz\Client\Customer\CustomerClientInterface $customerClientMock
      * @return \Pyz\Yves\Checkout\Process\Steps\AddressStep
      */
     protected function createAddressStep($customerClientMock = null)

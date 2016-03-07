@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 
 class FlashMessenger implements FlashMessengerInterface
 {
+
     /**
      * @var \Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface
      */
@@ -21,12 +22,13 @@ class FlashMessenger implements FlashMessengerInterface
     {
         $this->flashBag = $flashBag;
     }
+
     /**
-     * @param $message
+     * @param string $message
      *
      * @throws \ErrorException
      *
-     * @return self
+     * @return $this
      */
     public function addSuccessMessage($message)
     {
@@ -40,7 +42,7 @@ class FlashMessenger implements FlashMessengerInterface
      *
      * @throws \ErrorException
      *
-     * @return self
+     * @return $this
      */
     public function addInfoMessage($message)
     {
@@ -54,7 +56,7 @@ class FlashMessenger implements FlashMessengerInterface
      *
      * @throws \ErrorException
      *
-     * @return self
+     * @return $this
      */
     public function addErrorMessage($message)
     {
@@ -73,4 +75,5 @@ class FlashMessenger implements FlashMessengerInterface
     {
         $this->flashBag->add($key, $value);
     }
+
 }

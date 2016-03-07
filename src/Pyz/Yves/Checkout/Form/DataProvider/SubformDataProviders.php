@@ -10,6 +10,7 @@ use Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface;
 
 class SubformDataProviders implements DataProviderInterface
 {
+
     /**
      * @var array|\Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[]
      */
@@ -52,6 +53,9 @@ class SubformDataProviders implements DataProviderInterface
             );
         }
 
-        return ['select_options' => $productOptions];
+        return [
+            'select_options' => $productOptions
+        ];
     }
+
 }

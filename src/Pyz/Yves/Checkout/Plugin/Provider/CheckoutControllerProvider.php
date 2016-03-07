@@ -40,7 +40,7 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
         $this->createController('/checkout/address', self::CHECKOUT_ADDRESS, 'Checkout', 'Checkout', 'address')
             ->method('GET|POST');
 
-        $this->createController('/checkout/shipment', self::CHECKOUT_SHIPMENT,'Checkout', 'Checkout', 'shipment')
+        $this->createController('/checkout/shipment', self::CHECKOUT_SHIPMENT, 'Checkout', 'Checkout', 'shipment')
             ->method('GET|POST');
 
         $this->createController('/checkout/payment', self::CHECKOUT_PAYMENT, 'Checkout', 'Checkout', 'payment')

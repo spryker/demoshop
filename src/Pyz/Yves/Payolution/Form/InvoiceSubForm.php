@@ -58,6 +58,8 @@ class InvoiceSubForm extends CheckoutAbstractSubFormType implements SubFormInter
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
+     *
+     * @return void
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {

@@ -18,6 +18,8 @@ class FlashMessengerServiceProvider extends AbstractPlugin implements ServicePro
      *
      * This method should only be used to configure services and parameters.
      * It should not get services.
+     *
+     * @return void
      */
     public function register(Application $app)
     {
@@ -32,6 +34,8 @@ class FlashMessengerServiceProvider extends AbstractPlugin implements ServicePro
      * This method is called after all services are registered
      * and should be used for "dynamic" configuration (whenever
      * a service must be requested).
+     *
+     * @return void
      */
     public function boot(Application $app)
     {

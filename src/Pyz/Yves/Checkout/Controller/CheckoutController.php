@@ -123,9 +123,11 @@ class CheckoutController extends AbstractController
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return array
      */
     public function errorAction(Request $request)
     {
+        return [];
     }
 
     /**

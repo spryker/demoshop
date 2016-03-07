@@ -252,10 +252,34 @@ class CustomerFactory extends AbstractFactory
     public function createCustomerAuthenticationHandlerPlugins()
     {
         return [
-            new LoginCheckoutAuthenticationHandlerPlugin(),
-            new GuestCheckoutAuthenticationHandlerPlugin(),
-            new RegistrationCheckoutAuthenticationHandlerPlugin($this->getFlashMessenger()),
+            $this->createLoginCheckoutAuthenticationHandlerPlugin(),
+            $this->createGuestCheckoutAuthenticationHandlerPlugin(),
+            $this->createRegistrationAuthenticationHandlerPlugin(),
         ];
+    }
+
+    /**
+     * @return \Pyz\Yves\Customer\Plugin\LoginCheckoutAuthenticationHandlerPlugin
+     */
+    public function createLoginCheckoutAuthenticationHandlerPlugin()
+    {
+        return new LoginCheckoutAuthenticationHandlerPlugin();
+    }
+
+    /**
+     * @return \Pyz\Yves\Customer\Plugin\GuestCheckoutAuthenticationHandlerPlugin
+     */
+    public function createGuestCheckoutAuthenticationHandlerPlugin()
+    {
+        return new GuestCheckoutAuthenticationHandlerPlugin();
+    }
+
+    /**
+     * @return \Pyz\Yves\Customer\Plugin\RegistrationCheckoutAuthenticationHandlerPlugin
+     */
+    public function createRegistrationAuthenticationHandlerPlugin()
+    {
+        return new RegistrationCheckoutAuthenticationHandlerPlugin($this->getFlashMessenger());
     }
 
 }

@@ -120,8 +120,8 @@ class StepFactory extends AbstractFactory
     public function createPaymentPlugins()
     {
         return [
-            'payolution_invoice' => new PayolutionHandlerPlugin(),
-            'payolution_installment' => new PayolutionHandlerPlugin(),
+            'payolution_invoice' => $this->createPayolutionHandlerPlugin(),
+            'payolution_installment' => $this->createPayolutionHandlerPlugin(),
         ];
     }
 
@@ -178,6 +178,14 @@ class StepFactory extends AbstractFactory
     protected function getFlashMessenger()
     {
         return $this->getApplication()['flash_messenger'];
+    }
+
+    /**
+     * @return \Pyz\Yves\Payolution\Plugin\PayolutionHandlerPlugin
+     */
+    public function createPayolutionHandlerPlugin()
+    {
+        return new PayolutionHandlerPlugin();
     }
 
     /**
