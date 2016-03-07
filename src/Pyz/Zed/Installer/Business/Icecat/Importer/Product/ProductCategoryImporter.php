@@ -81,6 +81,8 @@ class ProductCategoryImporter extends AbstractIcecatImporter
 
     /**
      * @param \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface $productCategoryQueryContainer
+     *
+     * @return void
      */
     public function setProductCategoryQueryContainer(ProductCategoryQueryContainerInterface $productCategoryQueryContainer)
     {
@@ -89,6 +91,8 @@ class ProductCategoryImporter extends AbstractIcecatImporter
 
     /**
      * @param \Pyz\Zed\Category\Business\CategoryFacadeInterface $categoryFacade
+     *
+     * @return void
      */
     public function setCategoryFacade(CategoryFacadeInterface $categoryFacade)
     {
@@ -97,6 +101,8 @@ class ProductCategoryImporter extends AbstractIcecatImporter
 
     /**
      * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
+     *
+     * @return void
      */
     public function setCategoryQueryContainer(CategoryQueryContainerInterface $categoryQueryContainer)
     {
@@ -105,6 +111,8 @@ class ProductCategoryImporter extends AbstractIcecatImporter
 
     /**
      * @param \Pyz\Zed\Product\Business\ProductFacadeInterface $productFacade
+     *
+     * @return void
      */
     public function setProductFacade(ProductFacadeInterface $productFacade)
     {
@@ -113,6 +121,8 @@ class ProductCategoryImporter extends AbstractIcecatImporter
 
     /**
      * @param \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface $productQueryContainer
+     *
+     * @return void
      */
     public function setProductQueryContainer(ProductQueryContainerInterface $productQueryContainer)
     {
@@ -121,6 +131,8 @@ class ProductCategoryImporter extends AbstractIcecatImporter
 
     /**
      * @param \Pyz\Zed\ProductCategory\Business\ProductCategoryFacadeInterface $productCategoryFacade
+     *
+     * @return void
      */
     public function setProductCategoryFacade(ProductCategoryFacadeInterface $productCategoryFacade)
     {
@@ -179,6 +191,8 @@ class ProductCategoryImporter extends AbstractIcecatImporter
      * @param array $data
      *
      * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return void
      */
     protected function importOne(array $data)
     {
@@ -209,16 +223,14 @@ class ProductCategoryImporter extends AbstractIcecatImporter
             if ($category) {
                 $idCategory = $category->getIdCategory();
                 $idNode = $category->getNodes()->getFirst()->getIdCategoryNode();
-            }
-            else {
+            } else {
                 $idCategory = $this->getRootNode()->getCategory()->getIdCategory();
                 $idNode = $this->getRootNode()->getIdCategoryNode();
             }
 
             $this->cacheCategories[self::CATEGORY_KEY] = $idCategory;
             $this->cacheNodes[self::CATEGORY_KEY] = $idNode;
-        }
-        else {
+        } else {
             $idCategory = $this->cacheCategories[self::CATEGORY_KEY];
             $idNode = $this->cacheNodes[self::CATEGORY_KEY];
         }
@@ -251,6 +263,8 @@ class ProductCategoryImporter extends AbstractIcecatImporter
     /**
      * @param array $productConcreteCollection
      * @param int $idProductAbstract
+     *
+     * @return void
      */
     protected function createProductConcreteCollection(array $productConcreteCollection, $idProductAbstract)
     {

@@ -87,6 +87,8 @@ class ProductAbstractImporter extends AbstractIcecatImporter
 
     /**
      * @param \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface $attributeManager
+     *
+     * @return void
      */
     public function setAttributeManager(AttributeManagerInterface $attributeManager)
     {
@@ -95,6 +97,8 @@ class ProductAbstractImporter extends AbstractIcecatImporter
 
     /**
      * @param \Pyz\Zed\Product\Business\ProductFacadeInterface $productFacade
+     *
+     * @return void
      */
     public function setProductFacade(ProductFacadeInterface $productFacade)
     {
@@ -120,6 +124,8 @@ class ProductAbstractImporter extends AbstractIcecatImporter
 
     /**
      * @param array $data
+     *
+     * @return void
      */
     public function importOne(array $data)
     {
@@ -150,6 +156,12 @@ class ProductAbstractImporter extends AbstractIcecatImporter
         }
     }
 
+    /**
+     * @param array $product
+     * @param array $attributeData
+     *
+     * @return \Generated\Shared\Transfer\ProductAbstractTransfer
+     */
     protected function buildProductAbstractTransfer(array $product, array $attributeData)
     {
         $abstractAttributeNames = [
@@ -201,6 +213,7 @@ class ProductAbstractImporter extends AbstractIcecatImporter
         $productConcreteTransfer->setIdProductAbstract($idProductAbstract);
 
         unset($attributeData[self::PRODUCT_ABSTRACT]);
+
         foreach ($attributeData as $localeCode => $localizedAttributesData) {
             $localizedKeyName = $this->getLocalizedKeyName(self::NAME, $localeCode);
             $localizedAttributesTransfer = new LocalizedAttributesTransfer();
@@ -320,6 +333,8 @@ class ProductAbstractImporter extends AbstractIcecatImporter
     /**
      * @param array $productConcreteCollection
      * @param int $idProductAbstract
+     *
+     * @return void
      */
     protected function createProductConcreteCollection(array $productConcreteCollection, $idProductAbstract)
     {
@@ -331,6 +346,8 @@ class ProductAbstractImporter extends AbstractIcecatImporter
     /**
      * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstract
      * @param int $idProductAbstract
+     *
+     * @return void
      */
     protected function createAndTouchProductUrls(ProductAbstractTransfer $productAbstract, $idProductAbstract)
     {
@@ -435,7 +452,7 @@ class ProductAbstractImporter extends AbstractIcecatImporter
      * @param string $key
      * @param string $localeCode
      *
-     * @return mixed
+     * @return string
      */
     protected function stripLocaleCode($key, $localeCode)
     {
@@ -515,6 +532,5 @@ class ProductAbstractImporter extends AbstractIcecatImporter
 
         return $this->metadata;
     }
-
 
 }

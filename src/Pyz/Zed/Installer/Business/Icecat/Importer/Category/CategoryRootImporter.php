@@ -38,6 +38,8 @@ class CategoryRootImporter extends CategoryImporter
 
     /**
      * @param array $data
+     *
+     * @return void
      */
     protected function importOne(array $data)
     {

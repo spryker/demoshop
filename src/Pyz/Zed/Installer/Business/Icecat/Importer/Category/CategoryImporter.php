@@ -129,6 +129,8 @@ class CategoryImporter extends AbstractIcecatImporter
 
     /**
      * @param array $data
+     *
+     * @return void
      */
     protected function importOne(array $data)
     {

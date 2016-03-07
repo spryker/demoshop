@@ -32,6 +32,8 @@ class CmsPageImporter extends CmsBlockImporter
 
     /**
      * @param array $data
+     *
+     * @return void
      */
     protected function importOne(array $data)
     {

@@ -67,6 +67,7 @@ class StockInstall extends AbstractDemoDataInstaller
     }
 
     /**
+     * @return void
      */
     public function install()
     {
@@ -84,6 +85,8 @@ class StockInstall extends AbstractDemoDataInstaller
 
     /**
      * @param array $demoStock
+     *
+     * @return void
      */
     protected function writeStockProduct(array $demoStock)
     {
@@ -104,6 +107,8 @@ class StockInstall extends AbstractDemoDataInstaller
 
     /**
      * @param array $row
+     *
+     * @return void
      */
     protected function addEntry(array $row)
     {
@@ -175,6 +180,5 @@ class StockInstall extends AbstractDemoDataInstaller
 
         return $stockTypeTransfer;
     }
-
 
 }

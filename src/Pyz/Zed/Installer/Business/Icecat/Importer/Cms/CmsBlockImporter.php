@@ -25,6 +25,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class CmsBlockImporter extends AbstractIcecatImporter
 {
+
     const URL = 'url';
     const FROM_URL = 'fromUrl';
     const TO_URL = 'toUrl';
@@ -109,6 +110,8 @@ class CmsBlockImporter extends AbstractIcecatImporter
 
     /**
      * @param \Pyz\Zed\Cms\Persistence\CmsQueryContainerInterface $cmsQueryContainer
+     *
+     * @return void
      */
     public function setCmsQueryContainer(CmsQueryContainerInterface $cmsQueryContainer)
     {
@@ -117,6 +120,8 @@ class CmsBlockImporter extends AbstractIcecatImporter
 
     /**
      * @param \Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface $glossaryFacade
+     *
+     * @return void
      */
     public function setGlossaryFacade(CmsToGlossaryInterface $glossaryFacade)
     {
@@ -125,6 +130,8 @@ class CmsBlockImporter extends AbstractIcecatImporter
 
     /**
      * @param \Spryker\Zed\Cms\Dependency\Facade\CmsToUrlInterface $urlFacade
+     *
+     * @return void
      */
     public function setUrlFacade(CmsToUrlInterface $urlFacade)
     {
@@ -133,6 +140,8 @@ class CmsBlockImporter extends AbstractIcecatImporter
 
     /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
+     *
+     * @return void
      */
     public function setLocaleFacade(LocaleFacadeInterface $localeFacade)
     {
@@ -141,6 +150,8 @@ class CmsBlockImporter extends AbstractIcecatImporter
 
     /**
      * @param \Spryker\Zed\Cms\Business\Block\BlockManagerInterface $blockManager
+     *
+     * @return void
      */
     public function setBlockManager(BlockManagerInterface $blockManager)
     {
@@ -149,6 +160,8 @@ class CmsBlockImporter extends AbstractIcecatImporter
 
     /**
      * @param \Spryker\Zed\Cms\Business\Page\PageManagerInterface $pageManager
+     *
+     * @return void
      */
     public function setPageManager(PageManagerInterface $pageManager)
     {
@@ -157,6 +170,8 @@ class CmsBlockImporter extends AbstractIcecatImporter
 
     /**
      * @param \Spryker\Zed\Cms\Business\Template\TemplateManagerInterface $templateManager
+     *
+     * @return void
      */
     public function setTemplateManager(TemplateManagerInterface $templateManager)
     {
@@ -165,6 +180,8 @@ class CmsBlockImporter extends AbstractIcecatImporter
 
     /**
      * @param \Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface $keyMappingManager
+     *
+     * @return void
      */
     public function setKeyMappingManager(GlossaryKeyMappingManagerInterface $keyMappingManager)
     {
@@ -190,6 +207,8 @@ class CmsBlockImporter extends AbstractIcecatImporter
 
     /**
      * @param array $data
+     *
+     * @return void
      */
     protected function importOne(array $data)
     {
@@ -197,8 +216,8 @@ class CmsBlockImporter extends AbstractIcecatImporter
 
         $blockName = $block[self::BLOCK_NAME];
         $blockExists = $this->cmsQueryContainer
-                ->queryBlockByNameAndTypeValue($blockName, self::BLOCK_DEMO_TYPE, self::BLOCK_DEMO_VALUE)
-                ->count() > 0;
+            ->queryBlockByNameAndTypeValue($blockName, self::BLOCK_DEMO_TYPE, self::BLOCK_DEMO_VALUE)
+            ->count() > 0;
 
         if ($blockExists) {
             return;
@@ -294,6 +313,5 @@ class CmsBlockImporter extends AbstractIcecatImporter
 
         return $cmsBlockTransfer;
     }
-
 
 }

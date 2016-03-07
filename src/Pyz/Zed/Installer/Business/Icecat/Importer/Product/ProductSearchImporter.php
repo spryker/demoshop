@@ -32,6 +32,8 @@ class ProductSearchImporter extends AbstractIcecatImporter
 
     /**
      * @param \Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface $operationManager
+     *
+     * @return void
      */
     public function setOperationManager(OperationManagerInterface $operationManager)
     {
@@ -40,6 +42,8 @@ class ProductSearchImporter extends AbstractIcecatImporter
 
     /**
      * @param \Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface $productSearchFacade
+     *
+     * @return void
      */
     public function setProductSearchFacade(ProductSearchFacadeInterface $productSearchFacade)
     {
@@ -65,6 +69,8 @@ class ProductSearchImporter extends AbstractIcecatImporter
 
     /**
      * @param array $data
+     *
+     * @return void
      */
     protected function importOne(array $data)
     {
@@ -151,6 +157,8 @@ class ProductSearchImporter extends AbstractIcecatImporter
      *
      * @throws \Exception
      * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return void
      */
     protected function addOperation($idAttribute, $copyTarget, $operation, $weight)
     {
@@ -180,6 +188,5 @@ class ProductSearchImporter extends AbstractIcecatImporter
             }
         }
     }
-
 
 }

@@ -105,6 +105,8 @@ class CategoryHierarchyImporter extends AbstractIcecatImporter
 
     /**
      * @param array $data
+     *
+     * @return void
      */
     protected function importOne(array $data)
     {
@@ -120,8 +122,7 @@ class CategoryHierarchyImporter extends AbstractIcecatImporter
                 $idParentNode = $parent->getIdCategoryNode();
                 $this->cacheParents[$category[self::PARENT_KEY]] = $idParentNode;
             }
-        }
-        else {
+        } else {
             $idParentNode = $this->cacheParents[$category[self::PARENT_KEY]];
         }
 

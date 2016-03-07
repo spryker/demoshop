@@ -23,6 +23,8 @@ class TranslationImporter extends AbstractIcecatImporter
 
     /**
      * @param \Pyz\Zed\Glossary\Business\GlossaryFacadeInterface $glossaryFacade
+     *
+     * @return void
      */
     public function setGlossaryFacade(GlossaryFacadeInterface $glossaryFacade)
     {
@@ -48,6 +50,8 @@ class TranslationImporter extends AbstractIcecatImporter
 
     /**
      * @param array $data
+     *
+     * @return void
      */
     protected function importOne(array $data)
     {

@@ -57,8 +57,7 @@ class IcecatDataInstallerConsole
             foreach ($this->installerCollection as $name => $installer) {
                 if (!$installer->isInstalled()) {
                     $installer->install($this->output, $this->messenger);
-                }
-                else {
+                } else {
                     $this->output->writeln($installer->getTitle(). ' already installed.');
                 }
             }

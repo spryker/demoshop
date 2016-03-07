@@ -69,6 +69,8 @@ class ProductPriceImporter extends AbstractIcecatImporter
 
     /**
      * @param \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface $productQueryContainer
+     *
+     * @return void
      */
     public function setProductQueryContainer(ProductQueryContainerInterface $productQueryContainer)
     {
@@ -77,6 +79,8 @@ class ProductPriceImporter extends AbstractIcecatImporter
 
     /**
      * @param \Pyz\Zed\Stock\Business\StockFacadeInterface $stockFacade
+     *
+     * @return void
      */
     public function setStockFacade(StockFacadeInterface $stockFacade)
     {
@@ -85,6 +89,8 @@ class ProductPriceImporter extends AbstractIcecatImporter
 
     /**
      * @param \Spryker\Zed\Price\Persistence\PriceQueryContainerInterface $priceQueryContainer
+     *
+     * @return void
      */
     public function setPriceQueryContainer(PriceQueryContainerInterface $priceQueryContainer)
     {
@@ -136,8 +142,7 @@ class ProductPriceImporter extends AbstractIcecatImporter
             }
 
             $priceTypesCache[$price[self::PRICE_TYPE]] = $priceType;
-        }
-        else {
+        } else {
             $priceType = $this->priceTypesCache[$price[self::PRICE_TYPE]];
         }
 

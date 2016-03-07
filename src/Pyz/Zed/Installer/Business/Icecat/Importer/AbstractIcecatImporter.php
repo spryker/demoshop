@@ -12,6 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 abstract class AbstractIcecatImporter implements IcecatImporterInterface
 {
+
     /**
      * @var \Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager
      */
@@ -34,6 +35,8 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
 
     /**
      * @param array $data
+     *
+     * @return void
      */
     abstract protected function importOne(array $data);
 

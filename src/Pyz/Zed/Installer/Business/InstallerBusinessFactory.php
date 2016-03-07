@@ -795,9 +795,17 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     {
         return new TemplateManager(
             $this->getCmsQueryContainer(),
-            new CmsConfig(),
+            $this->createCmsConfig(),
             $this->createFinder()
         );
+    }
+
+    /**
+     * @return \Pyz\Zed\Cms\CmsConfig
+     */
+    protected function createCmsConfig()
+    {
+        return new CmsConfig();
     }
 
     /**

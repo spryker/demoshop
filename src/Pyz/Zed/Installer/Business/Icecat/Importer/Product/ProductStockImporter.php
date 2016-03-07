@@ -65,6 +65,8 @@ class ProductStockImporter extends AbstractIcecatImporter
 
     /**
      * @param \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface $productQueryContainer
+     *
+     * @return void
      */
     public function setProductQueryContainer(ProductQueryContainerInterface $productQueryContainer)
     {
@@ -73,6 +75,8 @@ class ProductStockImporter extends AbstractIcecatImporter
 
     /**
      * @param \Pyz\Zed\Stock\Business\StockFacadeInterface $stockFacade
+     *
+     * @return void
      */
     public function setStockFacade(StockFacadeInterface $stockFacade)
     {
@@ -100,6 +104,8 @@ class ProductStockImporter extends AbstractIcecatImporter
      * @param array $data
      *
      * @throws \UnexpectedValueException
+     *
+     * @return void
      */
     protected function importOne(array $data)
     {
