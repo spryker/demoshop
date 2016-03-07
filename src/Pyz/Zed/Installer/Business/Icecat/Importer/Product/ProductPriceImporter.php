@@ -145,8 +145,7 @@ class ProductPriceImporter extends AbstractIcecatImporter
         $entity
             ->setPrice($price[self::PRICE])
             ->setPriceType($priceType)
-            ->setFkProductAbstract($productAbstract->getIdProductAbstract())
-            ->setFkProduct($productAbstract->getIdProductAbstract());
+            ->setFkProductAbstract($productAbstract->getIdProductAbstract());
 
         $entity->save();
     }

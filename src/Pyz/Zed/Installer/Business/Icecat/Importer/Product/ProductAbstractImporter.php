@@ -143,8 +143,7 @@ class ProductAbstractImporter extends AbstractIcecatImporter
             $productAbstractTransfer->setIdProductAbstract($idProductAbstract);
 
             $productConcreteCollection = $this->buildProductConcreteTransfer($idProductAbstract, $product, $attributes);
-            //TODO handle variants
-            //$this->createProductConcreteCollection([$productConcreteCollection], $idProductAbstract);
+            $this->createProductConcreteCollection([$productConcreteCollection], $idProductAbstract);
 
             $this->productFacade->touchProductActive($idProductAbstract);
             $this->createAndTouchProductUrls($productAbstractTransfer, $idProductAbstract);
@@ -193,7 +192,7 @@ class ProductAbstractImporter extends AbstractIcecatImporter
     protected function buildProductConcreteTransfer($idProductAbstract, array $product, array $attributeData)
     {
         $productAbstractData = $attributeData[self::PRODUCT_ABSTRACT];
-        $concreteSku = $product[self::SKU] . '-' . $productAbstractData[self::SKU];
+        $concreteSku = $product[self::SKU] . '-' . $productAbstractData[self::VARIANT_ID];
 
         $productConcreteTransfer = new ProductConcreteTransfer();
         $productConcreteTransfer->setAttributes($attributeData[self::PRODUCT_ABSTRACT]);

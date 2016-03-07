@@ -106,16 +106,16 @@ class ProductStockImporter extends AbstractIcecatImporter
         $product = $this->format($data);
         $stock = $this->getStockValue();
 
-        $productAbstract = $this->productQueryContainer
-            ->queryProductAbstractBySku($product[self::SKU])
+        $productConcrete = $this->productQueryContainer
+            ->queryProductConcreteBySku($stock[self::SKU])
             ->findOne();
 
-        if (!$productAbstract) {
+        if (!$productConcrete) {
             return;
         }
 
-        if ($productAbstract->getSku() !== $stock[self::SKU]) {
-            throw new \UnexpectedValueException('Abstract SKU mismatch for ' . $stock[self::SKU]);
+        if ($productConcrete->getSku() !== $stock[self::SKU]) {
+            throw new \UnexpectedValueException('Concrete SKU mismatch for ' . $stock[self::SKU]);
         }
 
         $stockType = $this->createStockTypeOnce($stock);
