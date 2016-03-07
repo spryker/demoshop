@@ -46,16 +46,16 @@ function createDb {
     # mysql -u root -e "CREATE DATABASE DE_development_zed;"
 }
 
+if [[ ! -f "composer.phar" ]]; then
+    labelText "Download composer.phar"
+    $CURL -sS https://getcomposer.org/installer | $PHP
+fi
+
 COMPOSER_TIMESTAMP=$(stat -c %Y "composer.phar")
 CURRENT_TIMESTAMP=$(date +"%s")
 
 COMPOSER_FILE_AGE=$(($CURRENT_TIMESTAMP-$COMPOSER_TIMESTAMP))
 THIRTY_DAYS_AGE=$((60*60*24*30))
-
-if [[ ! -f "composer.phar" ]]; then
-    labelText "Download composer.phar"
-    $CURL -sS https://getcomposer.org/installer | $PHP
-fi
 
 if [[ `echo "$@" | grep '\-\-reset'` ]] || [[ `echo "$@" | grep '\-r'` ]]; then
     RESET=1
