@@ -37,9 +37,7 @@ class AjaxController extends AbstractController
     {
         $this->getFactory()->createCartOperationHandler()->add($sku, $quantity, $optionValueUsageIds);
 
-        return $this->jsonResponse([
-            'success' => true,
-        ]);
+        return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART_OVERLAY);
     }
 
     /**
