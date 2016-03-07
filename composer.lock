@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c2c688cbc1993772ef4929f82109c6a8",
-    "content-hash": "da3446f96360fbf45cc3f72659e081b5",
+    "hash": "dea8247f847acca2ed397f7ba21512a0",
+    "content-hash": "607b617e03dd415b20f2b9dc14fbf01b",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -945,11 +945,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-feature/690-quote-transfer",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c067c2d6761e726fe891c1091d61b6c88a0a3c7e"
+                "reference": "b84e2a081676aed1e54dc0fa88cf0ac261dc55af"
             },
             "require": {
                 "phpdocumentor/graphviz": "dev-master#a906a90"
@@ -995,6 +995,8 @@
                     "Spryker\\Zed\\Cache\\": "Bundles/Cache/src",
                     "Spryker\\Shared\\Calculation\\": "Bundles/Calculation/src",
                     "Unit\\Spryker\\Shared\\Calculation\\": "Bundles/Calculation/tests",
+                    "Spryker\\Client\\Calculation\\": "Bundles/Calculation/src",
+                    "Unit\\Spryker\\Client\\Calculation\\": "Bundles/Calculation/tests",
                     "Spryker\\Zed\\Calculation\\": "Bundles/Calculation/src",
                     "Unit\\Spryker\\Zed\\Calculation\\": "Bundles/Calculation/tests",
                     "Spryker\\Zed\\CalculationCheckoutConnector\\": "Bundles/CalculationCheckoutConnector/src",
@@ -1202,6 +1204,15 @@
                     "Functional\\Spryker\\Zed\\OmsCheckoutConnector\\": "Bundles/OmsCheckoutConnector/tests",
                     "Spryker\\Zed\\OmsDiscountConnector\\": "Bundles/OmsDiscountConnector/src",
                     "Unit\\Spryker\\Zed\\OmsDiscountConnector\\": "Bundles/OmsDiscountConnector/tests",
+                    "Spryker\\Client\\Payment\\": "Bundles/Payment/src",
+                    "Unit\\Spryker\\Client\\Payment\\": "Bundles/Payment/tests",
+                    "Functional\\Spryker\\Client\\Payment\\": "Bundles/Payment/tests",
+                    "Spryker\\Shared\\Payment\\": "Bundles/Payment/src",
+                    "Unit\\Spryker\\Shared\\Payment\\": "Bundles/Payment/tests",
+                    "Functional\\Spryker\\Shared\\Payment\\": "Bundles/Payment/tests",
+                    "Spryker\\Zed\\Payment\\": "Bundles/Payment/src",
+                    "Unit\\Spryker\\Zed\\Payment\\": "Bundles/Payment/tests",
+                    "Functional\\Spryker\\Zed\\Payment\\": "Bundles/Payment/tests",
                     "Spryker\\Client\\Payolution\\": "Bundles/Payolution/src",
                     "Unit\\Spryker\\Client\\Payolution\\": "Bundles/Payolution/tests",
                     "Functional\\Spryker\\Client\\Payolution\\": "Bundles/Payolution/tests",
@@ -1271,6 +1282,9 @@
                     "Spryker\\Zed\\ProductOptionCheckoutConnector\\": "Bundles/ProductOptionCheckoutConnector/src",
                     "Unit\\Spryker\\Zed\\ProductOptionCheckoutConnector\\": "Bundles/ProductOptionCheckoutConnector/tests",
                     "Functional\\Spryker\\Zed\\ProductOptionCheckoutConnector\\": "Bundles/ProductOptionCheckoutConnector/tests",
+                    "Spryker\\Zed\\ProductOptionDiscountConnector\\": "Bundles/ProductOptionDiscountConnector/src",
+                    "Unit\\Spryker\\Zed\\ProductOptionDiscountConnector\\": "Bundles/ProductOptionDiscountConnector/tests",
+                    "Functional\\Spryker\\Zed\\ProductOptionDiscountConnector\\": "Bundles/ProductOptionDiscountConnector/tests",
                     "Spryker\\Zed\\ProductOptionExporter\\": "Bundles/ProductOptionExporter/src",
                     "Unit\\Spryker\\Zed\\ProductOptionExporter\\": "Bundles/ProductOptionExporter/tests",
                     "Functional\\Spryker\\Zed\\ProductOptionExporter\\": "Bundles/ProductOptionExporter/tests",
@@ -1301,6 +1315,15 @@
                     "Spryker\\Zed\\Sales\\": "Bundles/Sales/src",
                     "Unit\\Spryker\\Zed\\Sales\\": "Bundles/Sales/tests",
                     "Functional\\Spryker\\Zed\\Sales\\": "Bundles/Sales/tests",
+                    "Spryker\\Shared\\SalesSplit\\": "Bundles/SalesSplit/src",
+                    "Unit\\Spryker\\Shared\\SalesSplit\\": "Bundles/SalesSplit/tests",
+                    "Functional\\Spryker\\Shared\\SalesSplit\\": "Bundles/SalesSplit/tests",
+                    "Spryker\\Zed\\SalesSplit\\": "Bundles/SalesSplit/src",
+                    "Unit\\Spryker\\Zed\\SalesSplit\\": "Bundles/SalesSplit/tests",
+                    "Functional\\Spryker\\Zed\\SalesSplit\\": "Bundles/SalesSplit/tests",
+                    "Spryker\\Zed\\SalesAggregator\\": "Bundles/SalesAggregator/src",
+                    "Unit\\Spryker\\Zed\\SalesAggregator\\": "Bundles/SalesAggregator/tests",
+                    "Functional\\Spryker\\Zed\\SalesAggregator\\": "Bundles/SalesAggregator/tests",
                     "Spryker\\Zed\\SalesCheckoutConnector\\": "Bundles/SalesCheckoutConnector/src",
                     "Unit\\Spryker\\Zed\\SalesCheckoutConnector\\": "Bundles/SalesCheckoutConnector/tests",
                     "Spryker\\Client\\Search\\": "Bundles/Search/src",
@@ -1418,7 +1441,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-03-04 10:54:01"
+            "time": "2016-03-07 09:02:55"
         },
         {
             "name": "symfony-cmf/routing",
@@ -4098,7 +4121,7 @@
                     "name": "Manuel Pichler",
                     "email": "github@manuel-pichler.de",
                     "homepage": "https://github.com/manuelpichler",
-                    "role": "Project Founder"
+                    "role": "Project founder"
                 },
                 {
                     "name": "Other contributors",
@@ -5257,12 +5280,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "55db8ddd50675f5019e3c22cd86953fb5b388956"
+                "reference": "b981ea33104da0f979a597297359b161a0d91a4c"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/b981ea33104da0f979a597297359b161a0d91a4c",
-                "reference": "8f397eaf5dc29473d8674636aaecc8791c40b7a3",
+                "reference": "b981ea33104da0f979a597297359b161a0d91a4c",
                 "shasum": ""
             },
             "require": {
@@ -5291,7 +5314,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-02-24 09:51:42"
+            "time": "2016-02-26 15:41:35"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -5482,16 +5505,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.8.2",
+            "version": "v2.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "ba94a914e244e0d05f0aaef460d5558d5541d2b1"
+                "reference": "62251761a7615435b22ccf562384c588b431be44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/ba94a914e244e0d05f0aaef460d5558d5541d2b1",
-                "reference": "ba94a914e244e0d05f0aaef460d5558d5541d2b1",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/62251761a7615435b22ccf562384c588b431be44",
+                "reference": "62251761a7615435b22ccf562384c588b431be44",
                 "shasum": ""
             },
             "require": {
@@ -5540,7 +5563,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2016-01-12 17:46:01"
+            "time": "2016-02-28 16:34:46"
         },
         {
             "name": "symfony/dom-crawler",
@@ -5659,7 +5682,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v2.8.2",
+            "version": "v2.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
