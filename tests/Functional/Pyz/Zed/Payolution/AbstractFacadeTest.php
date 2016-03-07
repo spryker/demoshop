@@ -7,22 +7,22 @@
 namespace Functional\Pyz\Zed\Payolution;
 
 use Codeception\TestCase\Test;
+use Generated\Shared\Transfer\AddressTransfer;
+use Generated\Shared\Transfer\CustomerTransfer;
+use Generated\Shared\Transfer\ItemTransfer;
+use Generated\Shared\Transfer\OrderTransfer;
+use Generated\Shared\Transfer\PayolutionPaymentTransfer;
+use Generated\Shared\Transfer\TaxSetTransfer;
+use Generated\Shared\Transfer\TotalsTransfer;
 use Orm\Zed\Country\Persistence\SpyCountryQuery;
-use Orm\Zed\Customer\Persistence\SpyCustomer;
 use Orm\Zed\Customer\Persistence\Map\SpyCustomerTableMap;
+use Orm\Zed\Customer\Persistence\SpyCustomer;
 use Orm\Zed\Payolution\Persistence\Map\SpyPaymentPayolutionTableMap;
 use Orm\Zed\Payolution\Persistence\SpyPaymentPayolution;
 use Orm\Zed\Sales\Persistence\SpySalesOrder;
 use Orm\Zed\Sales\Persistence\SpySalesOrderAddress;
 use Spryker\Shared\Payolution\PayolutionConstants;
-use Generated\Shared\Transfer\OrderTransfer;
-use Generated\Shared\Transfer\PayolutionPaymentTransfer;
-use Generated\Shared\Transfer\AddressTransfer;
-use Generated\Shared\Transfer\CustomerTransfer;
-use Generated\Shared\Transfer\TotalsTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Generated\Shared\Transfer\TaxSetTransfer;
-use Generated\Shared\Transfer\ItemTransfer;
 
 abstract class AbstractFacadeTest extends Test
 {
@@ -38,7 +38,7 @@ abstract class AbstractFacadeTest extends Test
     const STREET = 'Julie-Wolfthorn-Straße 1';
     const ZIP_CODE = '10115';
     const CITY = 'Berlin';
-    const COUNTRY_CODE = 'de';
+    const COUNTRY_CODE = 'DE';
 
     const BIC = 'DABAIE2';
     const IBAN = 'DE89370400440532013000';
@@ -113,12 +113,15 @@ abstract class AbstractFacadeTest extends Test
      */
     private $paymentMethod;
 
+    /**
+     * @return void
+     */
     protected function _before()
     {
         parent::_before();
     }
 
-    /*
+    /**
      * @return void
      */
     protected function setPaymentInvoice()
@@ -138,7 +141,7 @@ abstract class AbstractFacadeTest extends Test
         $this->setOrderTransferTestData();
     }
 
-    /*
+    /**
      * @return void
      */
     protected function setPaymentInstallment()
@@ -228,6 +231,9 @@ abstract class AbstractFacadeTest extends Test
         $this->paymentEntity->save();
     }
 
+    /**
+     * @return void
+     */
     protected function setCheckoutRequestTransfer()
     {
         $this->checkoutRequestTransfer = (new QuoteTransfer())

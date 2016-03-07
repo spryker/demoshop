@@ -1,14 +1,20 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\ProductSearch\Business;
 
-use Spryker\Zed\ProductSearch\Business\ProductSearchFacade as SprykerProductSearchFacade;
 use Psr\Log\LoggerInterface;
+use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
+use Spryker\Zed\ProductSearch\Business\ProductSearchFacade as SprykerProductSearchFacade;
 
 /**
  * @method \Pyz\Zed\ProductSearch\Business\ProductSearchBusinessFactory getFactory()
  */
-class ProductSearchFacade extends SprykerProductSearchFacade
+class ProductSearchFacade extends SprykerProductSearchFacade implements ProductSearchFacadeInterface
 {
 
     /**
@@ -25,9 +31,11 @@ class ProductSearchFacade extends SprykerProductSearchFacade
     }
 
     /**
-     * @param \Psr\Log\LoggerInterface $messenger
+     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
+     *
+     * @return void
      */
-    public function installDemoData(LoggerInterface $messenger)
+    public function installDemoData(MessengerInterface $messenger)
     {
         $this->getFactory()->createDemoDataInstaller($messenger)->install();
     }

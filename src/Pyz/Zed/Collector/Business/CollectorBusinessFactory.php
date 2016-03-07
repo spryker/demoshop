@@ -1,16 +1,12 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Collector\Business;
 
-use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
-use Spryker\Zed\Collector\Business\Exporter\MarkerInterface;
-use Spryker\Zed\Collector\Business\Internal\InstallElasticsearch;
-use Spryker\Zed\Collector\Business\Exporter\KeyBuilder\SearchMarkerKeyBuilder;
-use Spryker\Zed\Collector\Business\Exporter\Reader\Search\ElasticsearchMarkerReader;
-use Spryker\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchMarkerWriter;
-use Spryker\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchUpdateWriter;
-use Spryker\Zed\Collector\Business\Exporter\Writer\Search\ElasticsearchWriter;
-use Spryker\Zed\Collector\Business\Exporter\ExportMarker;
 use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector;
 use Pyz\Zed\Collector\Business\Storage\BlockCollector;
 use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector;
@@ -21,13 +17,15 @@ use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
 use Pyz\Zed\Collector\Business\Storage\TranslationCollector;
 use Pyz\Zed\Collector\Business\Storage\UrlCollector;
 use Pyz\Zed\Collector\CollectorDependencyProvider;
-use Spryker\Shared\Library\Storage\StorageInstanceBuilder;
+use Pyz\Zed\Collector\Persistence\Search\Propel\ProductCollector as SearchProductCollectorPropelQueryAdapter;
+use Pyz\Zed\Collector\Persistence\Storage\Propel\BlockCollector as StorageBlockCollectorPropelQueryAdapter;
+use Pyz\Zed\Collector\Persistence\Storage\Propel\PageCollector as StoragePageCollectorPropelQueryAdapter;
+use Pyz\Zed\Collector\Persistence\Storage\Propel\RedirectCollector as StorageRedirectCollectorPropelQueryAdapter;
+use Pyz\Zed\Collector\Persistence\Storage\Propel\TranslationCollector as StorageTranslationCollectorPropelQueryAdapter;
 use Spryker\Zed\Collector\Business\CollectorBusinessFactory as SprykerCollectorBusinessFactory;
-use Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface;
-use Spryker\Zed\Collector\CollectorConfig;
 
 /**
- * @method \Spryker\Zed\Collector\CollectorConfig getConfig()
+ * @method \Pyz\Zed\Collector\CollectorConfig getConfig()
  */
 class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
 {
@@ -38,12 +36,19 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createSearchProductCollector()
     {
         $searchProductCollector = new SearchProductCollector(
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRICE),
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY),
-            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_SEARCH)
+            $this->getPriceQueryContainer(),
+            $this->getCategoryQueryContainer(),
+            $this->getProductSearchFacade()
         );
+
         $searchProductCollector->setTouchQueryContainer(
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
+            $this->getTouchQueryContainer()
+        );
+        $searchProductCollector->setCriteriaBuilder(
+            $this->createCriteriaBuilder()
+        );
+        $searchProductCollector->setQueryBuilder(
+            $this->createSearchPdoQueryAdapterByName('ProductCollector')
         );
 
         return $searchProductCollector;
@@ -54,11 +59,16 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStorageCategoryNodeCollector()
     {
-        $storageCategoryNodeCollector = new CategoryNodeCollector(
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY)
-        );
+        $storageCategoryNodeCollector = new CategoryNodeCollector();
+
         $storageCategoryNodeCollector->setTouchQueryContainer(
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
+            $this->getTouchQueryContainer()
+        );
+        $storageCategoryNodeCollector->setCriteriaBuilder(
+            $this->createCriteriaBuilder()
+        );
+        $storageCategoryNodeCollector->setQueryBuilder(
+            $this->createStoragePdoQueryAdapterByName('CategoryNodeCollector')
         );
 
         return $storageCategoryNodeCollector;
@@ -69,11 +79,16 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStorageNavigationCollector()
     {
-        $storageNavigationCollector = new NavigationCollector(
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY)
-        );
+        $storageNavigationCollector = new NavigationCollector();
+
         $storageNavigationCollector->setTouchQueryContainer(
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
+            $this->getTouchQueryContainer()
+        );
+        $storageNavigationCollector->setCriteriaBuilder(
+            $this->createCriteriaBuilder()
+        );
+        $storageNavigationCollector->setQueryBuilder(
+            $this->createStoragePdoQueryAdapterByName('NavigationCollector')
         );
 
         return $storageNavigationCollector;
@@ -87,7 +102,10 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storagePageCollector = new PageCollector();
 
         $storagePageCollector->setTouchQueryContainer(
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
+            $this->getTouchQueryContainer()
+        );
+        $storagePageCollector->setQueryBuilder(
+            $this->createStoragePageCollectorPropelQueryAdapter()
         );
 
         return $storagePageCollector;
@@ -99,13 +117,19 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createStorageProductCollector()
     {
         $storageProductCollector = new ProductCollector(
-            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRICE),
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRICE),
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY),
-            $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_OPTION_EXPORTER)
+            $this->getCategoryQueryContainer(),
+            $this->getProductCategoryQueryContainer(),
+            $this->getPriceFacade()
         );
+
         $storageProductCollector->setTouchQueryContainer(
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
+            $this->getTouchQueryContainer()
+        );
+        $storageProductCollector->setCriteriaBuilder(
+            $this->createCriteriaBuilder()
+        );
+        $storageProductCollector->setQueryBuilder(
+            $this->createStoragePdoQueryAdapterByName('ProductCollector')
         );
 
         return $storageProductCollector;
@@ -119,7 +143,10 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storageRedirectCollector = new RedirectCollector();
 
         $storageRedirectCollector->setTouchQueryContainer(
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
+            $this->getTouchQueryContainer()
+        );
+        $storageRedirectCollector->setQueryBuilder(
+            $this->createStorageRedirectCollectorPropelQueryAdapter()
         );
 
         return $storageRedirectCollector;
@@ -133,7 +160,10 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storageTranslationCollector = new TranslationCollector();
 
         $storageTranslationCollector->setTouchQueryContainer(
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
+            $this->getTouchQueryContainer()
+        );
+        $storageTranslationCollector->setQueryBuilder(
+            $this->createStorageTranslationCollectorPropelQueryAdapter()
         );
 
         return $storageTranslationCollector;
@@ -147,7 +177,13 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storageUrlCollector = new UrlCollector();
 
         $storageUrlCollector->setTouchQueryContainer(
-            $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH)
+            $this->getTouchQueryContainer()
+        );
+        $storageUrlCollector->setCriteriaBuilder(
+            $this->createCriteriaBuilder()
+        );
+        $storageUrlCollector->setQueryBuilder(
+            $this->createStoragePdoQueryAdapterByName('UrlCollector')
         );
 
         return $storageUrlCollector;
@@ -158,10 +194,182 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStorageBlockCollector()
     {
-        $collector = new BlockCollector();
-        $collector->setTouchQueryContainer($this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_TOUCH));
+        $storageBlockCollector = new BlockCollector();
 
-        return $collector;
+        $storageBlockCollector->setTouchQueryContainer(
+            $this->getTouchQueryContainer()
+        );
+        $storageBlockCollector->setQueryBuilder(
+            $this->createStorageBlockCollectorPropelQueryAdapter()
+        );
+
+        return $storageBlockCollector;
+    }
+
+    /**
+     * @param string $name
+     *
+     * @throws \Exception
+     *
+     * @return \Spryker\Zed\Collector\Persistence\Exporter\AbstractCollectorQuery
+     */
+    public function createStoragePdoQueryAdapterByName($name)
+    {
+        $classList = $this->getConfig()->getStoragePdoQueryAdapterClassNames(
+            $this->getCurrentDatabaseEngineName()
+        );
+        if (!array_key_exists($name, $classList)) {
+            throw new \Exception('Invalid StoragePdoQueryAdapter name: '.$name);
+        }
+
+        $queryBuilderClassName = $classList[$name];
+        return new $queryBuilderClassName();
+    }
+
+    /**
+     * @param string $name
+     *
+     * @throws \Exception
+     *
+     * @return \Spryker\Zed\Collector\Persistence\Exporter\AbstractCollectorQuery
+     */
+    public function createSearchPdoQueryAdapterByName($name)
+    {
+        $classList = $this->getConfig()->getSearchPdoQueryAdapterClassNames(
+            $this->getCurrentDatabaseEngineName()
+        );
+        if (!array_key_exists($name, $classList)) {
+            throw new \Exception('Invalid SearchPdoQueryAdapter name: '.$name);
+        }
+
+        $queryBuilderClassName = $classList[$name];
+        return new $queryBuilderClassName();
+    }
+
+    /**
+     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\BlockCollector
+     */
+    public function createStorageBlockCollectorPropelQueryAdapter()
+    {
+        return new StorageBlockCollectorPropelQueryAdapter();
+    }
+
+    /**
+     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\PageCollector
+     */
+    public function createStoragePageCollectorPropelQueryAdapter()
+    {
+        return new StoragePageCollectorPropelQueryAdapter();
+    }
+
+    /**
+     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\RedirectCollector
+     */
+    public function createStorageRedirectCollectorPropelQueryAdapter()
+    {
+        return new StorageRedirectCollectorPropelQueryAdapter();
+    }
+
+    /**
+     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\TranslationCollector
+     */
+    public function createStorageTranslationCollectorPropelQueryAdapter()
+    {
+        return new StorageTranslationCollectorPropelQueryAdapter();
+    }
+
+    /**
+     * @return \Pyz\Zed\Collector\Persistence\Search\Propel\ProductCollector
+     */
+    public function createSearchProductCollectorPropelQueryAdapter()
+    {
+        return new SearchProductCollectorPropelQueryAdapter(
+            $this->getCategoryQueryContainer()
+        );
+    }
+
+    /**
+     * @return \Everon\Component\CriteriaBuilder\CriteriaBuilderInterface
+     */
+    protected function createCriteriaBuilder()
+    {
+        $factory = new \Everon\Component\Factory\Factory(
+            $this->createCriteriaBuilderContainer()
+        );
+
+        return $factory
+            ->getWorkerByName('CriteriaBuilder', 'Everon\Component\CriteriaBuilder')
+            ->buildCriteriaBuilder();
+    }
+
+    /**
+     * @return \Everon\Component\Factory\Dependency\Container
+     */
+    protected function createCriteriaBuilderContainer()
+    {
+        return new \Everon\Component\Factory\Dependency\Container();
+    }
+
+    /**
+     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
+     * @return \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
+     */
+    protected function getCategoryQueryContainer()
+    {
+        return $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_CATEGORY);
+    }
+
+    /**
+     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
+     * @return \Spryker\Zed\Price\Persistence\PriceQueryContainerInterface
+     */
+    protected function getPriceQueryContainer()
+    {
+        return $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRICE);
+    }
+
+    /**
+     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
+     * @return \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface
+     */
+    protected function getProductCategoryQueryContainer()
+    {
+        return $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRODUCT_CATEGORY);
+    }
+
+    /**
+     * @return \Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface
+     */
+    protected function getProductSearchFacade()
+    {
+        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_SEARCH);
+    }
+
+    /**
+     * @return \Pyz\Zed\Price\Business\PriceFacadeInterface
+     */
+    protected function getPriceFacade()
+    {
+        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRICE);
+    }
+
+    /**
+     * @return \Spryker\Zed\Propel\Business\PropelFacadeInterface
+     */
+    protected function getPropelFacade()
+    {
+        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PROPEL);
+    }
+
+    /**
+     * @return string
+     */
+    protected function getCurrentDatabaseEngineName()
+    {
+        return $this->getPropelFacade()->getCurrentDatabaseEngineName();
     }
 
 }

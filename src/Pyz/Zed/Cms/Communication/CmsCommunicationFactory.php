@@ -1,10 +1,13 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Cms\Communication;
 
 use Spryker\Zed\Cms\Communication\CmsCommunicationFactory as SprykerCmsCommunicationFactory;
-use Pyz\Zed\Cms\CmsConfig;
-use Pyz\Zed\Cms\Persistence\CmsQueryContainer;
 
 /**
  * @method \Pyz\Zed\Cms\CmsConfig getConfig()

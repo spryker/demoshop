@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-feature/690-quote-transfer",
+    "spryker/spryker": "dev-feature/690-quote-transfer-merged2",
 
     "psr/log": "~1.0.0",
     "propel/propel": "~2.0@dev",
@@ -48,7 +48,12 @@
     "zendframework/zend-eventmanager": "~2.6.2",
 
     "phpdocumentor/graphviz": "dev-master#a906a90",
-    "nesbot/carbon": "~1.13.0"
+    "nesbot/carbon": "~1.13.0",
+
+    "everon/collection": "~1.0",
+    "everon/criteria-builder": "~1.0",
+    "everon/factory": "~1.0",
+    "everon/utils": "~1.0"
   },
   "require-dev": {
     "spryker/code-sniffer": "dev-master",
@@ -58,7 +63,6 @@
     "phpmd/phpmd": "~2.3.2",
     "sebastian/phpcpd": "~2.0.2",
     "codeception/codeception": "~2.1.5",
-    "fabpot/php-cs-fixer": "~1.11.1",
     "sensiolabs/security-checker": "~3.0.2",
     "sllh/composer-versions-check": "~1.0.2"
   },
@@ -73,16 +77,13 @@
   "minimum-stability": "stable",
   "prefer-stable": true,
   "config": {
-    "use-include-path": true
+    "use-include-path": true,
+    "process-timeout": 600
   },
   "repositories": [
     {
       "type": "git",
       "url": "git@github.com:spryker/spryker.git"
-    },
-    {
-      "type": "git",
-      "url": "git@github.com:spryker/code-sniffer.git"
     }
   ]
 }

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Wishlist\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Provider\AbstractYvesControllerProvider;
@@ -18,6 +23,8 @@ class WishlistControllerProvider extends AbstractYvesControllerProvider
 
     /**
      * @param \Silex\Application $app
+     *
+     * @return void
      */
     protected function defineControllers(Application $app)
     {
@@ -66,10 +73,10 @@ class WishlistControllerProvider extends AbstractYvesControllerProvider
     public function getQuantityFromRequest($parameter, Request $request)
     {
         if ($request->isMethod('POST')) {
-            return (int) $request->request->get('quantity', 1);
+            return $request->request->getInt('quantity', 1);
         }
 
-        return (int) $request->query->get('quantity', 1);
+        return $request->query->getInt('quantity', 1);
     }
 
 }

@@ -1,9 +1,13 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\ProductCategory\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Propel\Runtime\Exception\PropelException;
 use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 use Spryker\Zed\Library\Import\ReaderInterface;
 use Spryker\Zed\ProductCategory\Business\ProductCategoryManagerInterface;
@@ -13,6 +17,9 @@ use Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterf
 
 class ProductCategoryMappingInstall extends AbstractInstaller
 {
+
+    const SKU = 'sku';
+    const CATEGORY_KEY = 'category_key';
 
     /**
      * @var \Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToLocaleInterface
@@ -68,6 +75,9 @@ class ProductCategoryMappingInstall extends AbstractInstaller
         $this->categoryFacade = $categoryFacade;
     }
 
+    /**
+     * @return void
+     */
     public function install()
     {
         $currentLocale = $this->localeFacade->getCurrentLocale();
@@ -78,23 +88,25 @@ class ProductCategoryMappingInstall extends AbstractInstaller
      * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      *
      * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return void
      */
     protected function installProductCategories(LocaleTransfer $locale)
     {
         foreach ($this->getDemoProductCategories() as $demoProductCategory) {
-            $sku = $demoProductCategory['sku'];
+            $sku = $demoProductCategory[self::SKU];
             if (!$this->productFacade->hasProductAbstract($sku)) {
                 continue;
             }
 
-            $categoryName = $demoProductCategory['category'];
-            if (!$this->categoryFacade->hasCategoryNode($categoryName, $locale)) {
+            $category = $this->categoryFacade->getCategoryByKey($demoProductCategory[self::CATEGORY_KEY], $locale->getIdLocale());
+            if (!$category) {
                 continue;
             }
 
-            if (!$this->productCategoryManager->hasProductCategoryMapping($sku, $categoryName, $locale)) {
+            if (!$this->productCategoryManager->hasProductCategoryMapping($sku, $category->getName(), $locale)) {
                 $categoryNodeIds[] = $this->productCategoryManager
-                    ->createProductCategoryMapping($sku, $categoryName, $locale);
+                    ->createProductCategoryMapping($sku, $category->getName(), $locale);
             }
         }
     }

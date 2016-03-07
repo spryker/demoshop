@@ -14,6 +14,9 @@ use Orm\Zed\Touch\Persistence\SpyTouchQuery;
 class TouchTest extends Test
 {
 
+    /**
+     * @return void
+     */
     public function testDatabaseAccessWorks()
     {
         $query = SpyTouchQuery::create();

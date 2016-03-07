@@ -1,8 +1,11 @@
 <?php
 
-namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader;
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
 
-use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Node\ProductAbstract;
+namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Reader;
 
 interface ProductReaderInterface
 {

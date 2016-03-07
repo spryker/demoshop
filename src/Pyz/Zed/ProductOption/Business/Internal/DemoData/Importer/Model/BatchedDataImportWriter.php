@@ -1,14 +1,19 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Model;
 
-use Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface;
 use Orm\Zed\ProductOption\Persistence\SpyProductOptionType;
 use Orm\Zed\ProductOption\Persistence\SpyProductOptionValue;
-use Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToProductInterface;
-use Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToLocaleInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\BatchProcessor\AbstractBatchProcessor;
 use Spryker\Zed\ProductOption\Business\Model\DataImportWriter;
+use Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToLocaleInterface;
+use Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToProductInterface;
+use Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface;
 
 class BatchedDataImportWriter extends DataImportWriter
 {
@@ -39,6 +44,9 @@ class BatchedDataImportWriter extends DataImportWriter
         $this->batchProcessor = $batchProcessor;
     }
 
+    /**
+     * @return void
+     */
     public function flushBuffer()
     {
         $this->batchProcessor->flush();
@@ -47,6 +55,8 @@ class BatchedDataImportWriter extends DataImportWriter
     /**
      * @param \Orm\Zed\ProductOption\Persistence\SpyProductOptionType $productOptionTypeEntity
      * @param array $localizedNames
+     *
+     * @return void
      */
     protected function createOrUpdateOptionTypeTranslations(SpyProductOptionType $productOptionTypeEntity, array $localizedNames)
     {
@@ -72,6 +82,8 @@ class BatchedDataImportWriter extends DataImportWriter
     /**
      * @param \Orm\Zed\ProductOption\Persistence\SpyProductOptionValue $productOptionValueEntity
      * @param array $localizedNames
+     *
+     * @return void
      */
     protected function createOrUpdateOptionValueTranslations(SpyProductOptionValue $productOptionValueEntity, array $localizedNames)
     {
@@ -96,6 +108,8 @@ class BatchedDataImportWriter extends DataImportWriter
 
     /**
      * @param int $idProductAbstract
+     *
+     * @return void
      */
     protected function touchProductAbstractById($idProductAbstract)
     {
@@ -117,6 +131,8 @@ class BatchedDataImportWriter extends DataImportWriter
 
     /**
      * @param string $concreteSku
+     *
+     * @return void
      */
     protected function touchProductAbstractByConcreteSku($concreteSku)
     {

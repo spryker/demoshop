@@ -1,17 +1,15 @@
 <?php
 
-/*
- * (c) Copyright Spryker Systems GmbH 2015
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\Glossary\Communication\Plugin;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Pyz\Zed\Glossary\Business\GlossaryFacade;
-use Spryker\Zed\Kernel\Communication\AbstractPlugin;
-use Spryker\Zed\Glossary\Communication\GlossaryCommunicationFactory;
 use Spryker\Zed\Glossary\Dependency\Plugin\GlossaryInstallerPluginInterface;
-use Spryker\Zed\Glossary\Persistence\GlossaryQueryContainer;
+use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -22,6 +20,9 @@ use Symfony\Component\Yaml\Yaml;
 class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPluginInterface
 {
 
+    /**
+     * @return void
+     */
     public function installGlossaryData()
     {
         $filePath = __DIR__ . '/../../File/initial_translation.yml';
@@ -43,6 +44,8 @@ class YamlInstallerPlugin extends AbstractPlugin implements GlossaryInstallerPlu
 
     /**
      * @param array $translations
+     *
+     * @return void
      */
     protected function installKeysAndTranslations(array $translations)
     {

@@ -1,8 +1,11 @@
 <?php
 
-namespace Pyz\Yves\Collector\Business\Matcher;
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
 
-use Pyz\Yves\Collector\Business\Model\UrlResource;
+namespace Pyz\Yves\Collector\Business\Matcher;
 
 interface UrlMatcherInterface
 {

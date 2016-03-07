@@ -41,7 +41,8 @@ config/Yves/cache_bust.php
 /node_modules/
 
 # public stuff
-/static/public/
+public/Yves/assets/
+public/Zed/assets/
 
 # vagrant stuff
 .vagrant
@@ -71,8 +72,5 @@ npm-debug.log
 /src/Orm/Propel/*/Schema
 /src/Orm/Propel/*/Sql
 
-# PHP CS Fixer
-.php_cs.cache
-
-#tools
+# tools
 composer.phar

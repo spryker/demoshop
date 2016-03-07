@@ -28,6 +28,24 @@ function writeErrorMessage {
     fi
 }
 
+function dropdb {
+    # postgres
+    #export PGPASSWORD=mate20mg
+    sudo pg_ctlcluster 9.4 main restart --force
+    sudo dropdb DE_development_zed
+
+    # mysql
+    # mysql -u root -e "DROP DATABASE DE_development_zed;"
+}
+
+function createDb {
+    # postgres
+    sudo createdb DE_development_zed
+
+    # mysql
+    # mysql -u root -e "CREATE DATABASE DE_development_zed;"
+}
+
 COMPOSER_TIMESTAMP=$(stat -c %Y "composer.phar")
 CURRENT_TIMESTAMP=$(date +"%s")
 
@@ -53,11 +71,11 @@ if [[ $RESET == 1 ]]; then
     curl -XDELETE 'http://localhost:9200/_all' &> /dev/null
 
     labelText "Drop Database"
-    mysql -u root -e "DROP DATABASE DE_development_zed;"
+    dropdb
     writeErrorMessage "Could not delete Database"
 
     labelText "Recreate Database"
-    mysql -u root -e "CREATE DATABASE DE_development_zed;"
+    createDb
     writeErrorMessage "Could not create Database"
 
     if [[ -d "./node_modules" ]]; then
@@ -91,26 +109,8 @@ $PHP composer.phar install
 labelText "Build Codeception dependency files"
 vendor/bin/codecept build
 
-if [[ `node -v | grep -E '^v[0-4]'` ]]; then
-    labelText "Upgrade node js"
-    sudo $NPM cache clean -f
-    sudo $NPM install -g n
-    sudo n stable
-
-    successText "NodeJS updated to version `node -v`"
-    successText "NPM updated to version `$NPM -v`"
-
-    labelText "Install Gulp Globally"
-    sudo $NPM install -g gulp
-
-    if [[ -d "./node_modules" ]]; then
-        labelText "Remove node_modules directory"
-        rm -rf "./node_modules"
-    fi
-fi
-
-labelText "Install npm modules"
-$NPM install
+labelText "Frontend assets management setup"
+./setup-frontend.sh
 
 labelText "Restart ElasticSearch"
 sudo /etc/init.d/elasticsearch restart

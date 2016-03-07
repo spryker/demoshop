@@ -12,8 +12,14 @@ use Pyz\Yves\Twig\Model\CacheBusterInterface;
 class AssetUrlBuilderTest extends \PHPUnit_Framework_TestCase
 {
 
+    /**
+     * @var string
+     */
     private $host;
 
+    /**
+     * @return void
+     */
     protected function setUp()
     {
         parent::setUp();
@@ -22,6 +28,8 @@ class AssetUrlBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @group Asset
+     *
+     * @return void
      */
     public function testAssetUrl()
     {
@@ -35,6 +43,8 @@ class AssetUrlBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @group Asset
+     *
+     * @return void
      */
     public function testMediaUrlWithTrailingSlashes()
     {

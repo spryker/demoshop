@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\BatchProcessor;
 
 use Orm\Zed\ProductOption\Persistence\Map\SpyProductOptionTypeTranslationTableMap;
@@ -42,6 +47,9 @@ class InMemoryBatchProcessor extends AbstractBatchProcessor
         $this->init();
     }
 
+    /**
+     * @return void
+     */
     private function init()
     {
         if (self::$isInitiated === true) {
@@ -86,6 +94,8 @@ class InMemoryBatchProcessor extends AbstractBatchProcessor
      * @param string $keyName
      * @param string $table
      * @param array $columns
+     *
+     * @return void
      */
     private function createCacheKey($keyName, $table, array $columns)
     {
@@ -99,12 +109,17 @@ class InMemoryBatchProcessor extends AbstractBatchProcessor
     /**
      * @param string $keyName
      * @param array $values
+     *
+     * @return void
      */
     public function addValues($keyName, array $values)
     {
         self::$cache[$keyName][self::INTERNAL_KEY_VALUES][] = $values;
     }
 
+    /**
+     * @return void
+     */
     public function flush()
     {
         $optionTypeTranslationValues = $this->getValues(parent::CACHE_KEY_OPTION_TYPE_TRANSLATION);

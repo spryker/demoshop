@@ -1,13 +1,14 @@
 <?php
 
 /**
- * (c) Copyright Spryker Systems GmbH 2015
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Yves\EventJournal\Collector;
 
 use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Shared\Config;
+use Spryker\Shared\Config\Config;
 use Spryker\Shared\EventJournal\Model\Collector\AbstractDataCollector;
 use Spryker\Shared\EventJournal\Model\Collector\DataCollectorInterface;
 
@@ -24,7 +25,7 @@ class YvesDataCollector extends AbstractDataCollector implements DataCollectorIn
         return [
             'session_id' => session_id(),
             'device_id' => $this->getDeviceId(),
-            'visitor_id' => $this->getVisitorId()
+            'visitor_id' => $this->getVisitorId(),
         ];
     }
 
@@ -34,7 +35,8 @@ class YvesDataCollector extends AbstractDataCollector implements DataCollectorIn
     protected function getDeviceId()
     {
         $key = Config::get(ApplicationConstants::YVES_COOKIE_DEVICE_ID_NAME);
-        return isset($_COOKIE[$key]) ?: null;
+
+        return isset($_COOKIE[$key]) ? $_COOKIE[$key] : null;
     }
 
     /**
@@ -43,7 +45,8 @@ class YvesDataCollector extends AbstractDataCollector implements DataCollectorIn
     protected function getVisitorId()
     {
         $key = Config::get(ApplicationConstants::YVES_COOKIE_VISITOR_ID_NAME);
-        return isset($_COOKIE[$key]) ?: null;
+
+        return isset($_COOKIE[$key]) ? $_COOKIE[$key] : null;
     }
 
 }

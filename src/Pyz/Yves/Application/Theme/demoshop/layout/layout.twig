@@ -9,11 +9,11 @@
     {% block page_meta %}{% endblock %}
 
     <link href='http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/assets/demoshop/css/yves-demoshop-main.css" />
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
-{% include "@application/layout/partials/header.twig" %}
+{% include "@application/layout/partials/header.twig" with {'hideUserMenu': hideUserMenu|default(false)} %}
 
 {% include "@application/layout/partials/flash-messages.twig" %}
 
@@ -22,7 +22,7 @@
 {% include "@application/layout/partials/footer.twig" %}
 {% include "@application/layout/partials/overlay.twig" %}
 
-<script src="/js/main.js"></script>
+<script src="/assets/demoshop/js/yves-demoshop-main.js"></script>
 {% block javascripts %}{% endblock %}
 </body>
 </html>

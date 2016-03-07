@@ -1,18 +1,20 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Twig;
 
-use Silex\Application;
-use Spryker\Shared\Config;
-use Spryker\Yves\Kernel\AbstractFactory;
-use Pyz\Yves\Twig\Model\YvesExtension;
-use Pyz\Yves\Twig\Model\UrlParameterCacheBuster;
-use Pyz\Yves\Twig\Model\MediaUrlBuilder;
 use Pyz\Yves\Twig\Model\AssetUrlBuilder;
+use Pyz\Yves\Twig\Model\MediaUrlBuilder;
+use Pyz\Yves\Twig\Model\UrlParameterCacheBuster;
+use Pyz\Yves\Twig\Model\YvesExtension;
+use Silex\Application;
 use Spryker\Shared\Application\ApplicationConstants;
-use Pyz\Yves\Twig\Model\AssetUrlBuilderInterface;
-use Pyz\Yves\Twig\Model\CacheBusterInterface;
-use Pyz\Yves\Twig\Model\MediaUrlBuilderInterface;
+use Spryker\Shared\Config\Config;
+use Spryker\Yves\Kernel\AbstractFactory;
 
 class TwigFactory extends AbstractFactory
 {

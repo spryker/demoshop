@@ -1,11 +1,15 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Cms\Plugin;
 
+use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
 use Silex\Application;
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
-use Symfony\Component\Translation\TranslatorInterface;
 
 class TwigCms extends AbstractPlugin implements TwigFunctionPluginInterface
 {

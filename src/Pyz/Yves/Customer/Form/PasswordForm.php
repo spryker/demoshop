@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Customer\Form;
 
 use Symfony\Component\Form\AbstractType;
@@ -7,6 +12,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class PasswordForm extends AbstractType
 {
+
     const FIELD_NEW_PASSWORD = 'new_password';
     const FIELD_PASSWORD = 'password';
 
@@ -21,6 +27,8 @@ class PasswordForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
+     *
+     * @return void
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -32,7 +40,7 @@ class PasswordForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     protected function addNewPasswordField(FormBuilderInterface $builder)
     {
@@ -56,7 +64,7 @@ class PasswordForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return self
+     * @return $this
      */
     protected function addPasswordField(FormBuilderInterface $builder)
     {

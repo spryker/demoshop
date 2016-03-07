@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\BatchProcessor;
 
 abstract class AbstractBatchProcessor
@@ -14,9 +19,14 @@ abstract class AbstractBatchProcessor
     /**
      * @param string $keyName
      * @param array $values
+     *
+     * @return void
      */
     abstract public function addValues($keyName, array $values);
 
+    /**
+     * @return void
+     */
     abstract public function flush();
 
 }

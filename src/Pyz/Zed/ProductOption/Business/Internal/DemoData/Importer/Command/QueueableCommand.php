@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Command;
 
 class QueueableCommand
@@ -41,6 +46,9 @@ class QueueableCommand
         $this->type = $type;
     }
 
+    /**
+     * @return void
+     */
     public function execute()
     {
         $callable = $this->callable;

@@ -1,6 +1,8 @@
 <?php
+
 /**
- * (c) Spryker Systems GmbH copyright protected
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Yves\Glossary;
@@ -77,7 +79,7 @@ class TwigTranslator implements TranslatorInterface
     /**
      * @param string $localeName
      *
-     * @return self
+     * @return $this
      */
     public function setLocale($localeName)
     {

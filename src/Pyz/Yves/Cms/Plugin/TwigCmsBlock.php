@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\Cms\Plugin;
 
 use Generated\Shared\Transfer\CmsBlockTransfer;
@@ -7,7 +12,6 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
 use Silex\Application;
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Spryker\Client\Cms\CmsClientInterface;
 
 /**
  * @method \Spryker\Client\Cms\CmsClientInterface getClient()

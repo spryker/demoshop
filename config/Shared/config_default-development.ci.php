@@ -1,19 +1,16 @@
 <?php
 
-use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Session\SessionConstants;
 
+$config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
 $config[ApplicationConstants::ZED_DB_USERNAME] = 'ubuntu';
 $config[ApplicationConstants::ZED_DB_PASSWORD] = '';
 $config[ApplicationConstants::ZED_DB_DATABASE] = 'circle_test';
 $config[ApplicationConstants::ZED_DB_HOST] = '127.0.0.1';
-$config[ApplicationConstants::ZED_DB_PORT] = '3306';
-
-$config[ApplicationConstants::PROPEL]['database']['connections']['default']['dsn'] = 'mysql:host=127.0.0.1;dbname=circle_test';
-$config[ApplicationConstants::PROPEL]['database']['connections']['default']['user'] = 'ubuntu';
-$config[ApplicationConstants::PROPEL]['database']['connections']['default']['password'] = '';
+$config[ApplicationConstants::ZED_DB_PORT] = 5432;
 
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_development_catalog';
 $config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
@@ -63,3 +60,5 @@ $config[PayoneConstants::PAYONE] = [
 ];
 
 $config[SessionConstants::SESSION_IS_TEST] = true;
+
+$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';

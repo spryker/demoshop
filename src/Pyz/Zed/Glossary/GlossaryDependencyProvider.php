@@ -1,14 +1,15 @@
 <?php
 
-/*
- * (c) Copyright Spryker Systems GmbH 2015
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\Glossary;
 
 use Pyz\Zed\Glossary\Communication\Plugin\YamlInstallerPlugin;
-use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Glossary\GlossaryDependencyProvider as SprykerGlossaryDependencyProvider;
+use Spryker\Zed\Kernel\Container;
 
 class GlossaryDependencyProvider extends SprykerGlossaryDependencyProvider
 {

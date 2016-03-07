@@ -1,137 +1,99 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Collector\Business\Storage;
 
-use Generated\Shared\Transfer\LocaleTransfer;
-use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
-use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Shared\Kernel\Store;
-use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
-use Orm\Zed\Touch\Persistence\SpyTouchQuery;
-use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
-use Spryker\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
-use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
-use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
+use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
+use Spryker\Zed\Url\UrlConfig;
 
-class UrlCollector extends AbstractPropelCollectorPlugin
+class UrlCollector extends AbstractStoragePdoCollector
 {
 
-    use KeyBuilderTrait;
-
-    protected function getTouchItemType()
-    {
-        return 'url';
-    }
+    const FK_RESOURCE_ = 'fk_resource_';
+    const RESOURCE_TYPE = 'resourceType';
+    const VALUE = 'value';
+    const TYPE = 'type';
+    const REFERENCE_KEY = 'reference_key';
 
     /**
-     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
-     *
-     * @return \Orm\Zed\Touch\Persistence\SpyTouchQuery
+     * @var int
      */
-    protected function createQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
-    {
-        $baseQuery->addJoin(
-            SpyTouchTableMap::COL_ITEM_ID,
-            SpyUrlTableMap::COL_ID_URL,
-            Criteria::INNER_JOIN
-        );
-
-        $baseQuery->addJoin(
-            SpyUrlTableMap::COL_FK_LOCALE,
-            SpyLocaleTableMap::COL_ID_LOCALE,
-            Criteria::INNER_JOIN
-        );
-
-        $baseQuery->addAnd(SpyLocaleTableMap::COL_LOCALE_NAME, $locale->getLocaleName(), Criteria::EQUAL);
-
-        foreach ($this->getResourceColumnNames() as $constantName => $value) {
-            $alias = strstr($value, 'fk_resource');
-            $baseQuery->withColumn($this->getConstantValue($constantName), $alias);
-        }
-
-        $baseQuery->withColumn(SpyUrlTableMap::COL_URL, 'url');
-
-        $baseQuery->withColumn(
-            SpyTouchTableMap::COL_ID_TOUCH,
-            self::TOUCH_EXPORTER_ID
-        );
-
-        return $baseQuery;
-    }
+    protected $chunkSize = 2000;
 
     /**
-     * @return array
-     */
-    public function getResourceColumnNames()
-    {
-        $reflection = new \ReflectionClass('Orm\Zed\Url\Persistence\Map\SpyUrlTableMap');
-        $constants = $reflection->getConstants();
-
-        return array_filter($constants, function ($constant) {
-            return strpos($constant, 'fk_resource');
-        });
-    }
-
-    /**
-     * @param string $constantName
-     *
-     * @return mixed
-     */
-    public function getConstantValue($constantName)
-    {
-        $reflection = new \ReflectionClass('Orm\Zed\Url\Persistence\Map\SpyUrlTableMap');
-
-        return $reflection->getConstant($constantName);
-    }
-
-    /**
-     * @param array $resultSet
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
-     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet $touchUpdaterSet
+     * @param string $touchKey
+     * @param array $collectItemData
      *
      * @return array
      */
-    protected function processData($resultSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
+    protected function collectItem($touchKey, array $collectItemData)
     {
-        $processedResultSet = [];
-        foreach ($resultSet as $index => $url) {
-            $resourceArguments = $this->findResourceArguments($url);
+        $resourceArguments = $this->findResourceArguments($collectItemData);
+        $referenceKey = $this->generateResourceKey($resourceArguments, $this->locale->getLocaleName());
 
-            if (!$resourceArguments) {
+        return [
+            self::REFERENCE_KEY => $referenceKey,
+            self::TYPE => $resourceArguments[self::RESOURCE_TYPE],
+        ];
+    }
+
+    /**
+     * @param mixed $data
+     * @param string $localeName
+     * @param array $collectedItemData
+     *
+     * @return string
+     */
+    protected function collectKey($data, $localeName, array $collectedItemData)
+    {
+        return $this->generateKey($collectedItemData['url'], $localeName);
+    }
+
+    /**
+     * @return string
+     */
+    protected function collectResourceType()
+    {
+        return UrlConfig::RESOURCE_TYPE_URL;
+    }
+
+    /**
+     * @param array $data
+     *
+     * @return array
+     */
+    protected function findResourceArguments(array $data)
+    {
+        foreach ($data as $columnName => $value) {
+            if (!$this->isFkResourceUrl($columnName, $value)) {
                 continue;
-                // @TODO log a warning about a faulty url
             }
 
-            $indexKey = $this->generateKey($url['url'], $locale->getLocaleName());
-            $referenceKey = $this->generateResourceKey($resourceArguments, $locale->getLocaleName());
-            $processedResultSet[$indexKey] = [
-                'reference_key' => $referenceKey,
-                'type' => $resourceArguments['resourceType'],
-            ];
+            $resourceType = str_replace(self::FK_RESOURCE_, '', $columnName);
 
-            $touchUpdaterSet->add($indexKey, $url[self::TOUCH_EXPORTER_ID]);
+            return [
+                self::RESOURCE_TYPE => $resourceType,
+                self::VALUE => $value,
+            ];
         }
 
-        return $processedResultSet;
+        return false;
     }
 
     /**
-     * @param string $data
+     * @param string $columnName
+     * @param string $value
      *
-     * @return string
+     * @return bool
      */
-    protected function buildKey($data)
+    protected function isFkResourceUrl($columnName, $value)
     {
-        return $data;
-    }
-
-    /**
-     * @return string
-     */
-    public function getBundleName()
-    {
-        return 'url';
+        return $value !== null && strpos($columnName, self::FK_RESOURCE_) === 0;
     }
 
     /**
@@ -140,41 +102,39 @@ class UrlCollector extends AbstractPropelCollectorPlugin
      *
      * @return string
      */
-    public function generateResourceKey($data, $localeName)
+    protected function generateResourceKey($data, $localeName)
     {
         $keyParts = [
             Store::getInstance()->getStoreName(),
             $localeName,
             'resource',
-            $data['resourceType'] . '.' . $data['value'],
+            $data[self::RESOURCE_TYPE] . '.' . $data[self::VALUE],
         ];
 
         return $this->escapeKey(implode($this->keySeparator, $keyParts));
     }
 
     /**
-     * @param array $url
+     * @param mixed $data
+     * @param string $localeName
      *
      * @return array
      */
-    protected function findResourceArguments(array $url)
+    protected function getKeyParts($data, $localeName)
     {
-        foreach ($url as $columnName => $value) {
-            if (strpos($columnName, 'fk_resource_') !== 0) {
-                continue;
-            }
-            if ($value !== null) {
-                $resourceType = str_replace('fk_resource_', '', $columnName);
-                $resourceType = str_replace('_id', '', $resourceType);
+        return [
+            Store::getInstance()->getStoreName(),
+            $localeName,
+            $this->buildKey($data),
+        ];
+    }
 
-                return [
-                    'resourceType' => $resourceType,
-                    'value' => $value,
-                ];
-            }
-        }
-
-        return false;
+    /**
+     * @return string
+     */
+    public function getBundleName()
+    {
+        return 'url';
     }
 
 }
