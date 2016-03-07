@@ -4,7 +4,7 @@
         <template>static</template>
         <locales>
             <locale name="de_DE">
-                <url>/de/contact</url>
+                <url>/de/impressum</url>
                 <placeholders>
                     <placeholder>
                         <name>title</name>
