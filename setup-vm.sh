@@ -121,6 +121,11 @@ vendor/bin/console setup:install -vvv
 labelText "setup:install-demo-data"
 vendor/bin/console setup:install-demo-data -vvv
 
+if [[ ! -f './data/DE/dependencyTree.json' ]]; then
+    labelText "Generate Dependency tree"
+    vendor/bin/console code:dependency-tree
+fi
+
 labelText "collector:search:export"
 vendor/bin/console collector:search:export -vvv
 
