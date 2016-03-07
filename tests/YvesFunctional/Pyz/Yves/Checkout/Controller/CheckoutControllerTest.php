@@ -18,7 +18,6 @@ use Generated\Shared\Transfer\SaveOrderTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Pyz\Yves\Checkout\CheckoutFactory;
 use Pyz\Yves\Checkout\Controller\CheckoutController;
-use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 use Pyz\Yves\Checkout\Form\DataProvider\SubformDataProviders;
 use Pyz\Yves\Checkout\Form\FormFactory;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
@@ -35,6 +34,11 @@ use Pyz\Client\Customer\CustomerClient;
 
 class CheckoutControllerTest extends Test
 {
+
+    /**
+     * @var QuoteTransfer
+     */
+    protected $persistedQuoteTransfer;
 
     /**
      * @return void
@@ -211,7 +215,7 @@ class CheckoutControllerTest extends Test
 
         $response = $checkoutController->successAction($request);
 
-        $this->assertEmpty($quoteTransfer);
+        $this->assertCount(0, $this->persistedQuoteTransfer->getItems());
 
         $this->assertArrayHasKey('quoteTransfer', $response);
         $this->assertArrayHasKey('previousStepUrl', $response);
@@ -291,7 +295,7 @@ class CheckoutControllerTest extends Test
 
         return $checkoutFactoryMock;
     }
-    
+
     /**
      * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Form\FormFactory
      */
@@ -324,17 +328,24 @@ class CheckoutControllerTest extends Test
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Cart\CartClientInterface
+     * @param QuoteTransfer $quoteTransfer
+     * @return \PHPUnit_Framework_MockObject_MockObject|CartClientInterface
      */
     protected function getCartClientMock(QuoteTransfer $quoteTransfer)
     {
         $cartClientMock = $this->getMock(CartClientInterface::class);
+        $cartClientMock->method('storeQuote')->willReturnCallback(
+            function (QuoteTransfer $newQuoteTransfer) use ($quoteTransfer){
+                $this->persistedQuoteTransfer = $newQuoteTransfer;
+            }
+        );
         $cartClientMock->method('getQuote')->willReturn($quoteTransfer);
 
         return $cartClientMock;
     }
 
     /**
+     * @param QuoteTransfer $quoteTransfer
      * @return array
      */
     protected function createShipmentForm(QuoteTransfer $quoteTransfer)
@@ -343,13 +354,14 @@ class CheckoutControllerTest extends Test
     }
 
     /**
-     * @return \Pyz\Yves\Checkout\Form\Steps\PaymentForm
+     * @param QuoteTransfer $quoteTransfer
+     * @return PaymentForm
      */
     protected function createPaymentForm(QuoteTransfer $quoteTransfer)
     {
          return new PaymentForm([]);
     }
-    
+
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Process\StepFactory
@@ -376,6 +388,7 @@ class CheckoutControllerTest extends Test
     {
         $checkoutResponseTransfer = new CheckoutResponseTransfer();
         $checkoutResponseTransfer->setIsSuccess(true);
+
         $saverOrderTransfer = new SaveOrderTransfer();
         $saverOrderTransfer->setOrderReference('#1');
         $checkoutResponseTransfer->setSaveOrder($saverOrderTransfer);
