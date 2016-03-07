@@ -10,7 +10,6 @@ namespace Pyz\Zed\Installer\Business;
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
 use Pyz\Zed\Cms\CmsConfig;
 use Pyz\Zed\Installer\Business\Icecat\IcecatDataInstallerConsole;
-use Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryHierarchyImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryImporter;
 use Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryRootImporter;
@@ -163,7 +162,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getCategoryImporter()
     {
         $categoryImporter = new CategoryImporter(
-            $this->getIcecatLocaleManager()
+            $this->getLocaleFacade()
         );
 
         $categoryImporter->setCategoryFacade($this->getCategoryFacade());
@@ -182,7 +181,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getCategoryHierarchyImporter()
     {
         $categoryHierarchyImporter = new CategoryHierarchyImporter(
-            $this->getIcecatLocaleManager()
+            $this->getLocaleFacade()
         );
 
         $categoryHierarchyImporter->setCategoryFacade($this->getCategoryFacade());
@@ -198,7 +197,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getCategoryRootImporter()
     {
         $categoryRootImporter = new CategoryRootImporter(
-            $this->getIcecatLocaleManager()
+            $this->getLocaleFacade()
         );
 
         $categoryRootImporter->setCategoryFacade($this->getCategoryFacade());
@@ -217,7 +216,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductCategoryImporter()
     {
         $productCategoryImporter = new ProductCategoryImporter(
-            $this->getIcecatLocaleManager()
+            $this->getLocaleFacade()
         );
 
         $productCategoryImporter->setCategoryFacade($this->getCategoryFacade());
@@ -237,7 +236,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductAbstractImporter()
     {
         $productAbstractImporter = new ProductAbstractImporter(
-            $this->getIcecatLocaleManager(),
+            $this->getLocaleFacade(),
             $this->getConfig()->getIcecatDataPath()
         );
 
@@ -253,7 +252,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductPriceImporter()
     {
         $productPriceImporter = new ProductPriceImporter(
-            $this->getIcecatLocaleManager(),
+            $this->getLocaleFacade(),
             $this->getConfig()->getIcecatDataPath()
         );
 
@@ -270,7 +269,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductStockImporter()
     {
         $productStockImporter = new ProductStockImporter(
-            $this->getIcecatLocaleManager(),
+            $this->getLocaleFacade(),
             $this->getConfig()->getIcecatDataPath()
         );
 
@@ -286,7 +285,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getProductSearchImporter()
     {
         $productSearchImporter = new ProductSearchImporter(
-            $this->getIcecatLocaleManager()
+            $this->getLocaleFacade()
         );
 
         $productSearchImporter->setProductSearchFacade($this->getProductSearchFacade());
@@ -301,7 +300,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getGlossaryImporter()
     {
         $translationImporter = new TranslationImporter(
-            $this->getIcecatLocaleManager()
+            $this->getLocaleFacade()
         );
 
         $translationImporter->setGlossaryFacade($this->getGlossaryFacade());
@@ -315,7 +314,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getCmsBlockImporter()
     {
         $cmsBlockImporter = new CmsBlockImporter(
-            $this->getIcecatLocaleManager()
+            $this->getLocaleFacade()
         );
 
         $cmsBlockImporter->setBlockManager($this->createCmsBlockManager());
@@ -337,7 +336,7 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getCmsPageImporter()
     {
         $cmsPageImporter = new CmsPageImporter(
-            $this->getIcecatLocaleManager()
+            $this->getLocaleFacade()
         );
 
         $cmsPageImporter->setBlockManager($this->createCmsBlockManager());
@@ -478,18 +477,6 @@ class InstallerBusinessFactory extends SprykerInstallerBusinessFactory
     public function getCsvReader()
     {
         return new CsvReader();
-    }
-
-    /**
-     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
-     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager
-     */
-    public function getIcecatLocaleManager()
-    {
-        return new IcecatLocaleManager(
-            $this->getLocaleFacade()
-        );
     }
 
     /**

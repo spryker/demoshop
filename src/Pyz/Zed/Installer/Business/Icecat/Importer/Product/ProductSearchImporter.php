@@ -75,7 +75,7 @@ class ProductSearchImporter extends AbstractIcecatImporter
     protected function importOne(array $data)
     {
         $this->productSearchFacade
-            ->activateProductSearch($data[self::PRODUCT_ID], $this->localeManager->getLocaleCollection());
+            ->activateProductSearch($data[self::PRODUCT_ID], $this->localeFacade->getLocaleCollection());
     }
 
     /**

@@ -7,16 +7,16 @@
 
 namespace Pyz\Zed\Installer\Business\Icecat\Importer;
 
-use Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager;
+use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 abstract class AbstractIcecatImporter implements IcecatImporterInterface
 {
 
     /**
-     * @var \Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager
+     * @var \Spryker\Zed\Locale\Business\LocaleFacadeInterface
      */
-    protected $localeManager;
+    protected $localeFacade;
 
     /**
      * @var string
@@ -51,13 +51,11 @@ abstract class AbstractIcecatImporter implements IcecatImporterInterface
     abstract public function getTitle();
 
     /**
-     * TODO Replace it with LocaleFacade
-     *
-     * @param \Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager $localeManager
+     * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      */
-    public function __construct(IcecatLocaleManager $localeManager)
+    public function __construct(LocaleFacadeInterface $localeFacade)
     {
-        $this->localeManager = $localeManager;
+        $this->localeFacade = $localeFacade;
     }
 
     /**

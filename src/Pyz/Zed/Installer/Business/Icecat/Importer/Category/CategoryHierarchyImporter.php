@@ -136,7 +136,7 @@ class CategoryHierarchyImporter extends AbstractIcecatImporter
             $nodeTransfer->fromArray($nodeEntity->toArray());
             $nodeTransfer->setFkParentCategoryNode($idParentNode);
 
-            foreach ($this->localeManager->getLocaleCollection() as $code => $localeTransfer) {
+            foreach ($this->localeFacade->getLocaleCollection() as $code => $localeTransfer) {
                 $this->categoryFacade->updateCategoryNode($nodeTransfer, $localeTransfer);
             }
         }

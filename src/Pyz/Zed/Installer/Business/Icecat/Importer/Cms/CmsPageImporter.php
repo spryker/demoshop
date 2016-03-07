@@ -41,7 +41,7 @@ class CmsPageImporter extends CmsBlockImporter
         $templateTransfer = $this->findOrCreateTemplate($page[self::TEMPLATE]);
         $pageTransfer = null;
 
-        foreach ($this->localeManager->getLocaleCollection() as $locale => $localeTransfer) {
+        foreach ($this->localeFacade->getLocaleCollection() as $locale => $localeTransfer) {
             $url = $page[self::LOCALES][$locale][self::URL];
             if ($this->urlFacade->hasUrl($url)) {
                 return;

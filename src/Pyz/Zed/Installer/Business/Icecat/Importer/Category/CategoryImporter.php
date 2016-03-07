@@ -146,7 +146,7 @@ class CategoryImporter extends AbstractIcecatImporter
     protected function format(array $data)
     {
         $categoryData = [];
-        foreach ($this->localeManager->getLocaleCollection() as $code => $localeTransfer) {
+        foreach ($this->localeFacade->getLocaleCollection() as $code => $localeTransfer) {
             $nameKey = 'category_name.' . $code;
             $descriptionKey = 'category_description.' . $code;
 
@@ -211,7 +211,7 @@ class CategoryImporter extends AbstractIcecatImporter
     {
         $this->createCategoryNode($nodeTransfer);
 
-        foreach ($this->localeManager->getLocaleCollection() as $localeCode => $localeTransfer) {
+        foreach ($this->localeFacade->getLocaleCollection() as $localeCode => $localeTransfer) {
             $this->nodeUrlManager->createUrl($nodeTransfer, $localeTransfer);
         }
     }
@@ -225,7 +225,7 @@ class CategoryImporter extends AbstractIcecatImporter
     protected function createCategory(array $data)
     {
         $idCategory = null;
-        $locales = $this->localeManager->getLocaleCollection();
+        $locales = $this->localeFacade->getLocaleCollection();
 
         foreach ($locales as $code => $localeTransfer) {
             $categoryTransfer = new CategoryTransfer();

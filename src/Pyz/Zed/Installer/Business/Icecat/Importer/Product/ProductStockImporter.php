@@ -10,10 +10,10 @@ namespace Pyz\Zed\Installer\Business\Icecat\Importer\Product;
 use Generated\Shared\Transfer\StockProductTransfer;
 use Generated\Shared\Transfer\TypeTransfer;
 use Orm\Zed\Stock\Persistence\Base\SpyStockQuery;
-use Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager;
 use Pyz\Zed\Installer\Business\Icecat\Importer\AbstractIcecatImporter;
 use Pyz\Zed\Stock\Business\StockFacadeInterface;
 use Spryker\Shared\Library\Reader\Csv\CsvReader;
+use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -54,12 +54,12 @@ class ProductStockImporter extends AbstractIcecatImporter
     protected $stockTypeCache = [];
 
     /**
-     * @param \Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager $localeManager
+     * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param string $dataDirectory
      */
-    public function __construct(IcecatLocaleManager $localeManager, $dataDirectory)
+    public function __construct(LocaleFacadeInterface $localeFacade, $dataDirectory)
     {
-        parent::__construct($localeManager);
+        parent::__construct($localeFacade);
         $this->dataDirectory = $dataDirectory;
     }
 

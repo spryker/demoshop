@@ -11,10 +11,10 @@ use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
-use Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager;
 use Pyz\Zed\Installer\Business\Icecat\Importer\AbstractIcecatImporter;
 use Pyz\Zed\Product\Business\ProductFacadeInterface;
 use Spryker\Shared\Library\Reader\Csv\CsvReader;
+use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Finder\Finder;
@@ -74,14 +74,12 @@ class ProductAbstractImporter extends AbstractIcecatImporter
 
 
     /**
-     * TODO Replace it with LocaleFacade
-     *
-     * @param \Pyz\Zed\Installer\Business\Icecat\IcecatLocaleManager $localeManager
+     * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param string $dataDirectory
      */
-    public function __construct(IcecatLocaleManager $localeManager, $dataDirectory)
+    public function __construct(LocaleFacadeInterface $localeFacade, $dataDirectory)
     {
-        parent::__construct($localeManager);
+        parent::__construct($localeFacade);
         $this->dataDirectory = $dataDirectory;
     }
 
@@ -184,7 +182,7 @@ class ProductAbstractImporter extends AbstractIcecatImporter
         foreach ($attributeData as $localeCode => $localizedAttributesData) {
             $localizedKeyName = $this->getLocalizedKeyName(self::NAME, $localeCode);
             $localizedAttributes = new LocalizedAttributesTransfer();
-            $localizedAttributes->setLocale($this->localeManager->getLocaleTransferByCode($localeCode));
+            $localizedAttributes->setLocale($this->localeFacade->getLocaleByCode($localeCode));
             $localizedAttributes->setName($product[$localizedKeyName]);
             $localizedAttributes->setAttributes($localizedAttributesData);
 
@@ -217,7 +215,7 @@ class ProductAbstractImporter extends AbstractIcecatImporter
         foreach ($attributeData as $localeCode => $localizedAttributesData) {
             $localizedKeyName = $this->getLocalizedKeyName(self::NAME, $localeCode);
             $localizedAttributesTransfer = new LocalizedAttributesTransfer();
-            $localizedAttributesTransfer->setLocale($this->localeManager->getLocaleTransferByCode($localeCode));
+            $localizedAttributesTransfer->setLocale($this->localeFacade->getLocaleByCode($localeCode));
             $localizedAttributesTransfer->setName($product[$localizedKeyName]);
             $localizedAttributesTransfer->setAttributes($localizedAttributesData);
 

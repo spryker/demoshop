@@ -59,48 +59,6 @@ class IcecatLocaleManager
     }
 
     /**
-     * @param string $code
-     *
-     * @throws \Pyz\Zed\Installer\Business\Exception\LocaleNotFoundException
-     *
-     * @return void
-     */
-    protected function validateLocaleCode($code)
-    {
-        if (!array_key_exists($code, $this->icecatLocaleData)) {
-            throw new LocaleNotFoundException($code);
-        }
-    }
-
-    /**
-     * @param string $code
-     *
-     * @throws \Pyz\Zed\Installer\Business\Exception\LocaleNotFoundException
-     *
-     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatLocale
-     */
-    public function getLocaleByCode($code)
-    {
-        $this->validateLocaleCode($code);
-
-        return new IcecatLocale($this->icecatLocaleData[$code]);
-    }
-
-    /**
-     * @param string $code
-     *
-     * @throws \Pyz\Zed\Installer\Business\Exception\LocaleNotFoundException
-     *
-     * @return \Pyz\Zed\Installer\Business\Icecat\IcecatLocale
-     */
-    public function getLocaleTransferByCode($code)
-    {
-        $this->validateLocaleCode($code);
-
-        return $this->getLocaleCollection()[$code];
-    }
-
-    /**
      * @param int $idIcecat
      *
      * @throws \Pyz\Zed\Installer\Business\Exception\LocaleNotFoundException
@@ -122,27 +80,6 @@ class IcecatLocaleManager
         $data = current($locale);
 
         return new IcecatLocale($data);
-    }
-
-    /**
-     * TODO move it to LocaleFacade
-     *
-     * @return \Generated\Shared\Transfer\LocaleTransfer[]
-     */
-    public function getLocaleCollection()
-    {
-        if ($this->localeTransferCollection === null) {
-            $locales = $this->localeFacade->getAvailableLocales();
-
-            $transferCollection = [];
-            foreach ($locales as $localeCode) {
-                $transferCollection[$localeCode] = $this->localeFacade->getLocale($localeCode);
-            }
-
-            $this->localeTransferCollection = $transferCollection;
-        }
-
-        return $this->localeTransferCollection;
     }
 
 }

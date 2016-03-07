@@ -226,7 +226,7 @@ class CmsBlockImporter extends AbstractIcecatImporter
         $templateTransfer = $this->findOrCreateTemplate($block[self::TEMPLATE]);
         $pageTransfer = $this->createPage($templateTransfer);
 
-        foreach ($this->localeManager->getLocaleCollection() as $locale => $localeTransfer) {
+        foreach ($this->localeFacade->getLocaleCollection() as $locale => $localeTransfer) {
             $this->createPlaceholder($block[self::LOCALES][$locale][self::PLACEHOLDERS], $pageTransfer, $localeTransfer);
         }
 
