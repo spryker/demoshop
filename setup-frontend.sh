@@ -7,6 +7,8 @@ if [[ -z "$SETUP" ]]; then
     exit 0
 fi
 
+SPY_TOOL=`which spy`
+
 if [[ `node -v | grep -E '^v[0-4]'` ]]; then
     labelText "Upgrade Node.js"
     sudo $NPM cache clean -f
@@ -17,24 +19,16 @@ if [[ `node -v | grep -E '^v[0-4]'` ]]; then
     successText "NPM updated to version `$NPM -v`"
 fi
 
-#labelText "Install webpack globally"
-#sudo $NPM install -g webpack@"^1.12.14"
-
-labelText "Install SPY tool globally"
-$GIT clone --branch master git@github.com:spryker/spy.git /tmp/spy
-cd /tmp/spy
-sudo $NPM install -g ./
-cd $CWD
-rm -rf /tmp/spy
-
-labelText "Install npm project dependecies"
-if [[ -d "./node_modules" ]]; then
-    echo "Project old 'node_modules' directory removed"
-    rm -rf "./node_modules"
+if [[ $RESET == 1 ]] || [[ ! -f $SPY_TOOL ]]; then
+    labelText "Install SPY tool globally"
+    $GIT clone --branch master git@github.com:spryker/spy.git /tmp/spy
+    cd /tmp/spy
+    sudo $NPM install -g ./
+    cd $CWD
+    rm -rf /tmp/spy
 fi
-$NPM install
 
-SPY_TOOL=`which spy`
+$NPM install
 
 if [[ -f $SPY_TOOL ]]; then
     labelText "SPY: test the project"

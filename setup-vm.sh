@@ -15,10 +15,9 @@ CURRENT_TIMESTAMP=$(date +"%s")
 COMPOSER_FILE_AGE=$(($CURRENT_TIMESTAMP-$COMPOSER_TIMESTAMP))
 THIRTY_DAYS_AGE=$((60*60*24*30))
 
-if [[ `echo "$@" | grep '\-\-reset'` ]] || [[ `echo "$@" | grep '\-r'` ]]; then
-    RESET=1
-else
-    RESET=0
+if [[ $COMPOSER_FILE_AGE > $THIRTY_DAYS_AGE ]]; then
+    labelText "Install Composer Dependencies"
+    $PHP composer.phar selfupdate
 fi
 
 if [[ $RESET == 1 ]]; then
@@ -29,7 +28,7 @@ if [[ $RESET == 1 ]]; then
     curl -XDELETE 'http://localhost:9200/_all' &> /dev/null
 
     labelText "Drop Database"
-    dropdb
+    dropDatabase
     writeErrorMessage "Could not delete Database"
 
     labelText "Recreate Database"
@@ -56,11 +55,6 @@ if [[ $RESET == 1 ]]; then
     fi
 fi
 
-if [[ $COMPOSER_FILE_AGE > $THIRTY_DAYS_AGE ]]; then
-    labelText "Install Composer Dependencies"
-    $PHP composer.phar selfupdate
-fi
-
 labelText "Run composer install"
 $PHP composer.phar install
 
@@ -79,7 +73,7 @@ vendor/bin/console setup:install -vvv
 labelText "setup:install-demo-data"
 vendor/bin/console setup:install-demo-data -vvv
 
-if [[ ! -f './data/DE/dependencyTree.json' ]]; then
+if [[ ! -f "./data/dependencyTree.json" ]]; then
     labelText "Generate Dependency tree"
     vendor/bin/console code:dependency-tree
 fi

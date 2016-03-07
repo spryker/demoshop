@@ -20,6 +20,12 @@ BACKGROUND=`tput setab 4`
 COLOR=`tput setaf 7`
 NC=`tput sgr0`
 
+if [[ `echo "$@" | grep '\-\-reset'` ]] || [[ `echo "$@" | grep '\-r'` ]]; then
+    RESET=1
+else
+    RESET=0
+fi
+
 function labelText {
     echo -e "\n${BACKGROUND}${COLOR}-> ${1} ${NC}\n"
 }
@@ -38,13 +44,14 @@ function writeErrorMessage {
     fi
 }
 
-function dropdb {
+function dropDatabase {
     # postgres
-    #export PGPASSWORD=mate20mg
+    labelText "Drop PostgreSQL database"
     sudo pg_ctlcluster 9.4 main restart --force
     sudo dropdb DE_development_zed
 
     # mysql
+    # labelText "Drop MySQL database"
     # mysql -u root -e "DROP DATABASE DE_development_zed;"
 }
 
