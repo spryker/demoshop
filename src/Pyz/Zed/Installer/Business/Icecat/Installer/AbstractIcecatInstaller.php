@@ -8,7 +8,7 @@
 namespace Pyz\Zed\Installer\Business\Icecat\Installer;
 
 use Pyz\Zed\Installer\Business\Icecat\Importer\IcecatImporterInterface;
-use Pyz\Zed\Installer\Business\ProgressBar\ProgressBarBuilder;
+use Spryker\Shared\Gui\ProgressBar\ProgressBarBuilder;
 use Spryker\Shared\Library\BatchIterator\CountableIteratorInterface;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
