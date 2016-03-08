@@ -1,0 +1,62 @@
+.js-main-nav-hidden .flash-messages {
+  z-index: 1000;
+  position: fixed;
+  left: 0;
+  top: 70px;
+}
+
+.flash-messages {
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
+  top: 260px;
+  left: 0;
+  font-size: 15px;
+  font-family: Fira Sans,sans-serif;
+
+  .close-alert {
+    border: 0;
+    float: right;
+    margin-top: -5px;
+    height: 35px;
+    color: #7F0055;
+    text-align: center;
+
+    &:hover {
+      background: transparent;
+      color: #333;
+    }
+
+    span {
+      font-size: 30px;
+      line-height: 20px;
+    }
+  }
+
+  .alert {
+    margin: 0 3%;
+    padding: 15px;
+    border-radius: 6px;
+    border-width: 1px;
+    border-style: solid;
+    width: auto;
+  }
+}
+
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #3c763d;
+}
+
+.alert-info {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f;
+}
+
+.alert-danger {
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442;
+}

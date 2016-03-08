@@ -29,6 +29,10 @@ module.exports = {
     });
 
     $(window).resize(utils.debounce(setNavHeight, 250));
+
+    $('.close-alert').click(function(){
+      $(this).parent('.alert').fadeOut('slow');
+    });
   }
 
 };
