@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c2c688cbc1993772ef4929f82109c6a8",
-    "content-hash": "da3446f96360fbf45cc3f72659e081b5",
+    "hash": "f2f72ead44798dca0069c1f6a68baaa3",
+    "content-hash": "092f89fca384c641611a112bb75e90c3",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -945,11 +945,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-feature/1488-icecat-finish",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "7bc7cf6d9fe1674cff5b6485d7f04727dd9a00f2"
+                "reference": "7b65ae55d3c3605841d86aa37b786d0f794aea62"
             },
             "require": {
                 "phpdocumentor/graphviz": "dev-master#a906a90"
@@ -1418,7 +1418,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-03-08 13:26:26"
+            "time": "2016-03-08 20:57:10"
         },
         {
             "name": "symfony-cmf/routing",
