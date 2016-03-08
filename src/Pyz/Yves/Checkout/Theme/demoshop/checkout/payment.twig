@@ -2,17 +2,19 @@
 {% import "@checkout/checkout/_macros.twig" as checkout %}
 
 {% block content %}
-    <br /><br /><br /><br />
+<div class="container">
+    <div class="row cms-page">
+        <div class="col-xs-12 col-md-12">
+            <h1>Payment</h1>
+        </div>
 
-    <h1>Payment</h1>
-
-    {{ form_start(paymentForm) }}
-
-        {{ form_widget(paymentForm.paymentSelection) }}
-
-        {{ checkout.include_subforms(paymentForm) }}
-
-    {{ form_end(paymentForm) }}
-
-    <a href="{{ previousStepUrl }}">Back</a>
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            {{ form_start(paymentForm, { 'attr': { 'class': 'form-horizontal checkout-form checkout-payment' }}) }}
+		        {{ form_widget(paymentForm.paymentSelection) }}
+		        {{ checkout.include_subforms(paymentForm) }}
+		    {{ form_end(paymentForm) }}
+            <a href="{{ previousStepUrl }}">Back</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

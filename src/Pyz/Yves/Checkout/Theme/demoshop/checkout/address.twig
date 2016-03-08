@@ -1,7 +1,150 @@
 {% extends "@application/layout/layout.twig" %}
 
 {% block content %}
-    <br /><br /><br /><br />
-    <h1>Address</h1>
-    {{ form(addressesForm) }}
+<div class="container">
+	<div class="row cms-page">
+		<h1>Address</h1>
+
+		<div class="col-xs-12">
+			{{ form_start(addressesForm, { 'attr': { 'class': 'form-horizontal checkout-form' }}) }}
+
+		    <div class="row">
+		        <div class="col-xs-12 col-md-6">
+		            <label>{{ addressesForm.shippingAddress.salutation.vars.label | trans }}</label>
+					<div class="field">
+					    {{ form_widget(addressesForm.shippingAddress.salutation, { 'attr': {'placeholder': addressesForm.shippingAddress.salutation.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.shippingAddress.salutation) }}
+					</div>
+
+					<label>{{ addressesForm.shippingAddress.first_name.vars.label | trans }}</label>
+					<div class="field">
+					    {{ form_widget(addressesForm.shippingAddress.first_name, { 'attr': {'placeholder': addressesForm.shippingAddress.first_name.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.shippingAddress.first_name) }}
+					</div>
+
+					<label>{{ addressesForm.shippingAddress.last_name.vars.label | trans }}</label>
+					<div class="field">
+					    {{ form_widget(addressesForm.shippingAddress.last_name, { 'attr': {'placeholder': addressesForm.shippingAddress.last_name.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.shippingAddress.last_name) }}
+					</div>
+
+					<label>{{ addressesForm.shippingAddress.company.vars.label | trans }}</label>
+					<div class="field">
+					    {{ form_widget(addressesForm.shippingAddress.company, { 'attr': {'placeholder': addressesForm.shippingAddress.company.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.shippingAddress.company) }}
+					</div>
+
+					<label>{{ addressesForm.shippingAddress.address1.vars.label | trans }}</label>
+					<div class="field">
+					    {{ form_widget(addressesForm.shippingAddress.address1, { 'attr': {'placeholder': addressesForm.shippingAddress.address1.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.shippingAddress.address1) }}
+					    {{ form_widget(addressesForm.shippingAddress.address2, { 'attr': {'placeholder': addressesForm.shippingAddress.address1.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.shippingAddress.address2) }}
+					    {{ form_widget(addressesForm.shippingAddress.address3, { 'attr': {'placeholder': addressesForm.shippingAddress.address1.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.shippingAddress.address3) }}
+					</div>
+		        </div>
+
+		        <div class="col-xs-12 col-md-6">
+					<label>{{ addressesForm.shippingAddress.zip_code.vars.label | trans }}</label>
+					<div class="field">
+					    {{ form_widget(addressesForm.shippingAddress.zip_code, { 'attr': {'placeholder': addressesForm.shippingAddress.zip_code.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.shippingAddress.zip_code) }}
+					</div>
+
+					<label>{{ addressesForm.shippingAddress.city.vars.label | trans }}</label>
+					<div class="field">
+					    {{ form_widget(addressesForm.shippingAddress.city, { 'attr': {'placeholder': addressesForm.shippingAddress.city.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.shippingAddress.city) }}
+					</div>
+
+					<label>{{ addressesForm.shippingAddress.iso2_code.vars.label | trans }}</label>
+					<div class="field">
+					    {{ form_widget(addressesForm.shippingAddress.iso2_code, { 'attr': {'placeholder': addressesForm.shippingAddress.iso2_code.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.shippingAddress.iso2_code) }}
+					</div>
+
+					<label>{{ addressesForm.shippingAddress.phone.vars.label | trans }}</label>
+					<div class="field">
+					    {{ form_widget(addressesForm.shippingAddress.phone, { 'attr': {'placeholder': addressesForm.shippingAddress.phone.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.shippingAddress.phone) }}
+					</div>
+		        </div>
+		    </div>
+
+		    <div class="row address-option">
+		    	<div class="col-xs-12">
+		    		{{ form_widget(addressesForm.billingSameAsShipping) }}
+			    	<label for="addressesForm_billingSameAsShipping">{{ 'customer.billingSameAsShipping' | trans }}</label>
+				</div>
+			</div>
+
+			<div class="row address-selection address-selection-billing">
+				<div class="col-xs-12 col-md-6">
+		            <label>{{ addressesForm.billingAddress.salutation.vars.label | trans }}</label>
+					<div class="field">
+					    {{ form_widget(addressesForm.billingAddress.salutation, { 'attr': {'placeholder': addressesForm.billingAddress.salutation.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.billingAddress.salutation) }}
+					</div>
+
+					<label>{{ addressesForm.billingAddress.first_name.vars.label | trans }}</label>
+					<div class="field">
+					    {{ form_widget(addressesForm.billingAddress.first_name, { 'attr': {'placeholder': addressesForm.billingAddress.first_name.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.billingAddress.first_name) }}
+					</div>
+
+					<label>{{ addressesForm.billingAddress.last_name.vars.label | trans }}</label>
+					<div class="field">
+					    {{ form_widget(addressesForm.billingAddress.last_name, { 'attr': {'placeholder': addressesForm.billingAddress.last_name.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.billingAddress.last_name) }}
+					</div>
+
+					<label>{{ addressesForm.billingAddress.company.vars.label | trans }}</label>
+					<div class="field">
+					    {{ form_widget(addressesForm.billingAddress.company, { 'attr': {'placeholder': addressesForm.billingAddress.company.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.billingAddress.company) }}
+					</div>
+
+					<label>{{ addressesForm.billingAddress.address1.vars.label | trans }}</label>
+					<div class="field">
+					    {{ form_widget(addressesForm.billingAddress.address1, { 'attr': {'placeholder': addressesForm.billingAddress.address1.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.billingAddress.address1) }}
+					    {{ form_widget(addressesForm.billingAddress.address2, { 'attr': {'placeholder': addressesForm.billingAddress.address1.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.billingAddress.address2) }}
+					    {{ form_widget(addressesForm.billingAddress.address3, { 'attr': {'placeholder': addressesForm.billingAddress.address1.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.billingAddress.address3) }}
+					</div>
+		        </div>
+
+		        <div class="col-xs-12 col-md-6">
+					<label>{{ addressesForm.billingAddress.zip_code.vars.label | trans }}</label>
+					<div class="field">
+					    {{ form_widget(addressesForm.billingAddress.zip_code, { 'attr': {'placeholder': addressesForm.billingAddress.zip_code.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.billingAddress.zip_code) }}
+					</div>
+
+					<label>{{ addressesForm.billingAddress.city.vars.label | trans }}</label>
+					<div class="field">
+					    {{ form_widget(addressesForm.billingAddress.city, { 'attr': {'placeholder': addressesForm.billingAddress.city.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.billingAddress.city) }}
+					</div>
+
+					<label>{{ addressesForm.billingAddress.iso2_code.vars.label | trans }}</label>
+					<div class="field">
+					    {{ form_widget(addressesForm.billingAddress.iso2_code, { 'attr': {'placeholder': addressesForm.billingAddress.iso2_code.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.billingAddress.iso2_code) }}
+					</div>
+
+					<label>{{ addressesForm.billingAddress.phone.vars.label | trans }}</label>
+					<div class="field">
+					    {{ form_widget(addressesForm.billingAddress.phone, { 'attr': {'placeholder': addressesForm.billingAddress.phone.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.billingAddress.phone) }}
+					</div>
+		        </div>
+		    </div>
+
+    		{{ form_end(addressesForm) }}
+    	</div>
+    </div>
+</div>
 {% endblock %}

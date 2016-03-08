@@ -15,7 +15,7 @@ var $nameInput,
     $createAccountCheckbox,
     $addressValidationResult;
 
-var initValidation = function () {
+var initValidation = function() {
     $nameInput = $('.js-checkout-name');
     $emailInput = $('.js-checkout-email');
     $addressInput = $('.js-invoice-address');
@@ -30,7 +30,7 @@ var initValidation = function () {
     $addressCheckbox.click(validateAddressBlock);
 };
 
-var validateAddressBlock = function () {
+var validateAddressBlock = function() {
     $addressElements = $('#checkout_billing_address').children();
 
     if ($($addressCheckbox).is(':checked')) {
@@ -38,10 +38,9 @@ var validateAddressBlock = function () {
     }
 
     $addressValidationResult = 1;
-    $addressElements.each(function ($id, $element) {
-            $addressValidationResult = $addressValidationResult && $($element).val().length;
-        }
-    );
+    $addressElements.each(function($id, $element) {
+        $addressValidationResult = $addressValidationResult && $($element).val().length;
+    });
 
     if ($addressValidationResult) {
         $addressButton.attr('disabled', false);
@@ -50,33 +49,33 @@ var validateAddressBlock = function () {
     }
 };
 
-var generalError = function () {
+var generalError = function() {
     $('#backend-errors').empty();
 
     $('#backend-errors').append('<div>Es ist ein Fehler aufgetreten! Leider konnte Ihre Bestelung nicht aufgebeben werden!</div>');
 
     $('#backend-errors-section').show();
-    $("html, body").animate({scrollTop: 0}, "slow");
+    $("html, body").animate({ scrollTop: 0 }, "slow");
 };
 
 function postForm($form, callback) {
     var values = {};
-    $.each($form.serializeArray(), function (i, field) {
+    $.each($form.serializeArray(), function(i, field) {
         values[field.name] = field.value;
     });
 
     $.post($form.attr('action'), values)
-        .done(function (data) {
+        .done(function(data) {
             callback(data);
         })
-        .fail(function () {
+        .fail(function() {
             generalError;
         });
 }
 
 module.exports = {
 
-    init: function () {
+    init: function() {
         initValidation();
 
         var billingInputs = [
@@ -98,7 +97,7 @@ module.exports = {
             'checkout_shipping_address_zip_code',
         ];
 
-        $('input[name="checkout[payment_method]"]').on('change', function (event) {
+        $('input[name="checkout[payment_method]"]').on('change', function(event) {
             $paymentButton.attr('disabled', $('input[name="checkout[payment_method]"]:checked').length != 1);
 
             var $payolutionInstallmentForm = $('.js-payolution-installment');
@@ -109,11 +108,11 @@ module.exports = {
             }
         });
 
-        $('input[name="checkout[id_shipment_method]"]').on('change', function () {
+        $('input[name="checkout[id_shipment_method]"]').on('change', function() {
             $shipmentButton.attr('disabled', $('input[name="checkout[id_shipment_method]"]:checked').length != 1);
         });
 
-        $addressCheckbox.on('change', function (e) {
+        $addressCheckbox.on('change', function(e) {
             if ($addressCheckbox.is(':checked')) {
                 $('.js-delivery-address').show();
             } else {
@@ -121,7 +120,7 @@ module.exports = {
             }
         });
 
-        $createAccountCheckbox.on('change', function (e) {
+        $createAccountCheckbox.on('change', function(e) {
             if ($createAccountCheckbox.is(':checked')) {
                 $('#create_account').show();
             } else {
@@ -130,7 +129,7 @@ module.exports = {
         });
 
 
-        $('.login__skip').click(function () {
+        $('.login__skip').click(function() {
             $('.js-checkout-address').removeClass('js-checkout-collapsed');
             $('.js-checkout-login').addClass('js-checkout-collapsed');
 
@@ -141,7 +140,7 @@ module.exports = {
             $('.js-checkout-email').focus();
         });
 
-        $('.js-address-button').click(function (event) {
+        $('.js-address-button').click(function(event) {
             event.preventDefault();
 
             $('.js-checkout-address').addClass('js-checkout-collapsed js-checkout-completed');
@@ -150,7 +149,7 @@ module.exports = {
             if (checkoutAddress.length > 0) {
                 var summaryBilling = '';
                 var summaryShipping = '';
-                $('.js-checkout-address input').each(function (i, el) {
+                $('.js-checkout-address input').each(function(i, el) {
                     if (!el.value) {
                         return;
                     }
@@ -180,21 +179,21 @@ module.exports = {
 
         });
 
-        $('.js-shipment-button').click(function (event) {
+        $('.js-shipment-button').click(function(event) {
             event.preventDefault();
             $('.js-checkout-shipment').addClass('js-checkout-collapsed js-checkout-completed');
             $('.js-checkout-payment').removeClass('js-checkout-collapsed');
             $('.js-payolution-installment').hide();
         });
 
-        $('.js-payment-button').click(function (event) {
+        $('.js-payment-button').click(function(event) {
             event.preventDefault();
             $('.js-checkout-payment').addClass('js-checkout-collapsed js-checkout-completed');
             $('.js-checkout-confirm').removeClass('js-checkout-collapsed');
             $('.js-checkout-cart').hide();
         });
 
-        $('.js-edit-formblock').click(function (event) {
+        $('.js-edit-formblock').click(function(event) {
             event.preventDefault();
             if ($(event.currentTarget).parents('.js-checkout-address').length > 0) {
                 $('#address-fields').show();
@@ -206,7 +205,7 @@ module.exports = {
             $('.js-checkout-cart').show();
         });
 
-        $('.js-confirm-agb').click(function (event) {
+        $('.js-confirm-agb').click(function(event) {
             if ($(event.currentTarget).is(':checked')) {
                 $('.js-checkout-submit').attr('disabled', false)
             } else {
@@ -214,21 +213,21 @@ module.exports = {
             }
         });
 
-        $('[name="checkout"]').submit(function (e) {
+        $('[name="checkout"]').submit(function(e) {
             e.preventDefault();
 
-            postForm($(this), function (response) {
+            postForm($(this), function(response) {
                 if (response.success) {
                     window.location = response.url;
                 } else if (response.errors) {
                     $('#backend-errors').empty();
 
-                    $.each(response.errors, function (index, value) {
+                    $.each(response.errors, function(index, value) {
                         $('#backend-errors').append('<div>Fehler ' + value.errorCode + ': ' + value.message + '</div>');
                     });
 
                     $('#backend-errors-section').show();
-                    $("html, body").animate({scrollTop: 0}, "slow");
+                    $("html, body").animate({ scrollTop: 0 }, "slow");
                 } else {
                     generalError;
                 }
@@ -240,5 +239,45 @@ module.exports = {
         if (window.location.pathname.match(/^\/checkout/)) {
             $('.js-shopping-cart').hide();
         }
+
+        /**
+         *
+         * Checkout graphics
+         *
+         */
+
+        function selectCustomer() {
+            var value = $(this).val();
+            $('.customer-selection').removeClass('show');
+            $('.customer-selection-' + value).addClass('show');
+        }
+
+        function selectAddress() {
+            $('.address-selection').toggleClass('show', !$(this).prop('checked'));
+        }
+
+        function selectShipment() {
+            var index = $('.checkout-shipment input').index(this);
+            $('.shipement-method').removeClass('show');
+            if (index > -1) $('.shipment-method').eq(index).addClass('show');
+        }
+
+        function selectPayment() {
+            var index = $('.checkout-payment input').index(this);
+            $('.payolution-form').removeClass('show');
+            if (index > -1) $('.payolution-form').eq(index).addClass('show');
+        }
+
+        selectCustomer.apply($('.customer-option:checked'));
+        $('.customer-option').on('change', selectCustomer);
+
+        selectAddress.apply($('.address-option input'));
+        $('.address-option input').on('change', selectAddress);
+
+        selectShipment.apply($('.checkout-shipment input:checked'));
+        $('.checkout-shipment input').on('change', selectShipment);
+
+        selectPayment.apply($('.checkout-payment input:checked'));
+        $('.checkout-payment input').on('change', selectPayment);
     }
 };
