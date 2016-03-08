@@ -37,9 +37,9 @@ class ProductBusinessFactory extends SprykerBusinessFactory
             $this->createAttributeManager(),
             $this->createProductManager(),
             $this->getLocaleFacade(),
-            $this->createCSVReader(),
             $this->getConfig()->getDemoDataPath()
         );
+
         $installer->setMessenger($messenger);
 
         return $installer;

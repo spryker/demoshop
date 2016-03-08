@@ -13,7 +13,6 @@ use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller;
 use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
-use Spryker\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface;
 use Spryker\Zed\Product\Business\Product\ProductManagerInterface;
 use Spryker\Zed\Product\Dependency\Facade\ProductToLocaleInterface;
 
@@ -44,11 +43,6 @@ class ProductDataInstall extends AbstractDemoDataInstaller
     protected $touchFacade;
 
     /**
-     * @var \Spryker\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface
-     */
-    protected $fileReader;
-
-    /**
      * @var string
      */
     protected $filePath;
@@ -69,20 +63,17 @@ class ProductDataInstall extends AbstractDemoDataInstaller
      * @param \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface $attributeManager
      * @param \Spryker\Zed\Product\Business\Product\ProductManagerInterface $productManager
      * @param \Spryker\Zed\Product\Dependency\Facade\ProductToLocaleInterface $localeFacade
-     * @param \Spryker\Zed\Product\Business\Importer\Reader\File\IteratorReaderInterface $fileReader
      * @param string $filePath
      */
     public function __construct(
         AttributeManagerInterface $attributeManager,
         ProductManagerInterface $productManager,
         ProductToLocaleInterface $localeFacade,
-        IteratorReaderInterface $fileReader,
         $filePath
     ) {
         $this->attributeManager = $attributeManager;
         $this->productManager = $productManager;
         $this->localeFacade = $localeFacade;
-        $this->fileReader = $fileReader;
         $this->filePath = $filePath;
     }
 
