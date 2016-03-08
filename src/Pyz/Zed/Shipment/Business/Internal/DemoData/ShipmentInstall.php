@@ -9,12 +9,12 @@ namespace Pyz\Zed\Shipment\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\ShipmentCarrierTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
-use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller;
 use Spryker\Zed\Shipment\Business\Model\Carrier;
 use Spryker\Zed\Shipment\Business\Model\Method;
 use Spryker\Zed\Shipment\Persistence\ShipmentQueryContainerInterface;
 
-class ShipmentInstall extends AbstractInstaller
+class ShipmentInstall extends AbstractDemoDataInstaller
 {
 
     /**
@@ -48,6 +48,14 @@ class ShipmentInstall extends AbstractInstaller
     }
 
     /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'Shipment';
+    }
+
+    /**
      * @return void
      */
     public function install()
@@ -55,7 +63,7 @@ class ShipmentInstall extends AbstractInstaller
         $this->info('This will install a Carrier Company and Shipment Method in the demo shop');
 
         if ($this->queryContainer->queryMethods()->count() > 0) {
-            $this->warning('Dummy Shipment data is already installed. Skipping.');
+            $this->notice('Dummy Shipment data is already installed. Skipping.');
 
             return;
         }

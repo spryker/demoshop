@@ -12,6 +12,7 @@ use Generated\Shared\Transfer\CmsTemplateTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageTransfer;
 use Pyz\Zed\Cms\CmsConfig;
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller;
 use Spryker\Zed\Cms\Business\Block\BlockManagerInterface;
 use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface;
 use Spryker\Zed\Cms\Business\Page\PageManagerInterface;
@@ -19,10 +20,9 @@ use Spryker\Zed\Cms\Business\Template\TemplateManagerInterface;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToUrlInterface;
 use Spryker\Zed\Cms\Persistence\CmsQueryContainerInterface;
-use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 use Spryker\Zed\Locale\Business\LocaleFacade;
 
-class CmsInstall extends AbstractInstaller
+class CmsInstall extends AbstractDemoDataInstaller
 {
 
     const URL = 'url';
@@ -139,6 +139,14 @@ class CmsInstall extends AbstractInstaller
     }
 
     /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'CMS';
+    }
+
+    /**
      * @return void
      */
     public function install()
@@ -176,7 +184,7 @@ class CmsInstall extends AbstractInstaller
             $localeTransfer = $this->getLocale($locale);
             $url = (string)$locale->{self::URL};
             if ($this->urlFacade->hasUrl($url)) {
-                $this->warning(sprintf('Page with URL %s already exists. Skipping.', $url));
+                $this->notice(sprintf('Page with URL %s already exists. Skipping.', $url));
 
                 continue;
             }
@@ -200,7 +208,7 @@ class CmsInstall extends AbstractInstaller
     private function installRedirect($fromUrl, $toUrl, $status)
     {
         if ($this->urlFacade->hasUrl($fromUrl)) {
-            $this->warning(sprintf('Redirect with URL %s already exists. Skipping.', $fromUrl));
+            $this->notice(sprintf('Redirect with URL %s already exists. Skipping.', $fromUrl));
 
             return;
         }
@@ -224,7 +232,7 @@ class CmsInstall extends AbstractInstaller
     {
         $blockName = (string)$blockItem->{self::BLOCK_NAME};
         if ($this->cmsQueryContainer->queryBlockByNameAndTypeValue($blockName, $this->blockDemoType, $this->blockDemoValue)->count() > 0) {
-            $this->warning(sprintf('Block with Name %s already exists. Skipping.', $blockName));
+            $this->notice(sprintf('Block with Name %s already exists. Skipping.', $blockName));
 
             return;
         }
@@ -264,6 +272,7 @@ class CmsInstall extends AbstractInstaller
     private function installPageFromDemoDataFile($filePath)
     {
         $pageXmlElements = $this->getDataFromFileAsArray($filePath, self::PAGE);
+        $this->log(\Psr\Log\LogLevel::INFO, 'Installing Pages');
         foreach ($pageXmlElements as $pageElement) {
             $this->installPage($pageElement);
         }

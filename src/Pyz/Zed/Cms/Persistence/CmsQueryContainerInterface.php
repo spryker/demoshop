@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\Cms\Persistence;
 
-interface CmsQueryContainerInterface
+interface CmsQueryContainerInterface extends \Spryker\Zed\Cms\Persistence\CmsQueryContainerInterface
 {
 
     /**

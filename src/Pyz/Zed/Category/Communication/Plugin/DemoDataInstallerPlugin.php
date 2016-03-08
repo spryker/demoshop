@@ -12,7 +12,7 @@ use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 /**
  * @method \Pyz\Zed\Category\Business\CategoryFacade getFacade()
  */
-class DemoDataInstaller extends AbstractInstallerPlugin
+class DemoDataInstallerPlugin extends AbstractInstallerPlugin
 {
 
     /**

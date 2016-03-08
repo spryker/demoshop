@@ -12,28 +12,35 @@ use Spryker\Zed\Category\Business\Generator\UrlPathGeneratorInterface;
 use Spryker\Zed\Category\Business\Manager\NodeUrlManager as SprykerNodeUrlManager;
 use Spryker\Zed\Category\Business\Tree\CategoryTreeReaderInterface;
 use Spryker\Zed\Category\Dependency\Facade\CategoryToUrlInterface;
-use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
-use Spryker\Zed\Locale\Persistence\LocaleQueryContainer;
+use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
+use Spryker\Zed\Locale\Persistence\LocaleQueryContainerInterface;
 
 class NodeUrlManager extends SprykerNodeUrlManager
 {
 
     /**
-     * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainer
+     * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
      */
     protected $categoryQueryContainer;
 
     /**
-     * @var \Spryker\Zed\Locale\Persistence\LocaleQueryContainer
+     * @var \Spryker\Zed\Locale\Persistence\LocaleQueryContainerInterface
      */
     protected $localeQueryContainer;
 
+    /**
+     * @param \Spryker\Zed\Category\Business\Tree\CategoryTreeReaderInterface $categoryTreeReader
+     * @param \Spryker\Zed\Category\Business\Generator\UrlPathGeneratorInterface $urlPathGenerator
+     * @param \Spryker\Zed\Category\Dependency\Facade\CategoryToUrlInterface $urlFacade
+     * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
+     * @param \Spryker\Zed\Locale\Persistence\LocaleQueryContainerInterface $localeQueryContainer
+     */
     public function __construct(
         CategoryTreeReaderInterface $categoryTreeReader,
         UrlPathGeneratorInterface $urlPathGenerator,
         CategoryToUrlInterface $urlFacade,
-        CategoryQueryContainer $categoryQueryContainer,
-        LocaleQueryContainer $localeQueryContainer
+        CategoryQueryContainerInterface $categoryQueryContainer,
+        LocaleQueryContainerInterface $localeQueryContainer
     ) {
         parent::__construct($categoryTreeReader, $urlPathGenerator, $urlFacade);
         $this->categoryQueryContainer = $categoryQueryContainer;
@@ -61,11 +68,35 @@ class NodeUrlManager extends SprykerNodeUrlManager
 
         $locale = mb_substr($localeEntity->getLocaleName(), 0, 2);
 
-        if (strpos('/' . $locale . '/', $url) !== 0) {
+        if ($url === '/' || strpos('/' . $locale . '/', $url) !== 0) {
             $url = '/' . $locale . $url;
         }
 
+        $url = $this->generateUniqueUrl($url);
+
         parent::updateTransferUrl($urlTransfer, $url, $idResource, $idLocale);
+    }
+
+    /**
+     * @param string $url
+     *
+     * @return string
+     */
+    protected function generateUniqueUrl($url)
+    {
+        $max = 20;
+        $step = 1;
+
+        $originalUrl = $url;
+        while ($this->urlFacade->hasUrl($url)) {
+            $url = $originalUrl . '-'. $step;
+            if ($step >  $max) {
+                break;
+            }
+            $step++;
+        }
+
+        return $url;
     }
 
 }
