@@ -26,6 +26,7 @@ if [[ $RESET == 1 ]] || [[ ! -f $SPY_TOOL ]]; then
     sudo $NPM install -g ./
     cd $CWD
     rm -rf /tmp/spy
+    SPY_TOOL=`which spy`
 fi
 
 $NPM install
