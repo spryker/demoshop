@@ -2,7 +2,7 @@
 <indexes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="../../../vendor/spryker/spryker/Bundles/Search/src/Spryker/Shared/Search/File/elasticsearch_index_definition.xsd">
 
-    <index name="de_development_catalog">
+    <index name="catalog">
         <settings>
             <number_of_shards>4</number_of_shards>
             <number_of_replicas>1</number_of_replicas>
