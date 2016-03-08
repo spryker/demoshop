@@ -79,12 +79,6 @@
         <uri>/salesrule</uri>
         <visible>0</visible>
     </marketing>
-    <lumberjack>
-        <label>Lumberjack</label>
-        <title>Lumberjack</title>
-        <uri>/lumberjack</uri>
-        <visible>0</visible>
-    </lumberjack>
     <system>
         <label>System</label>
         <title>Setup</title>

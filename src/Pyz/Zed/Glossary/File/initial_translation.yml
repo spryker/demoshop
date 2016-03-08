@@ -19,8 +19,8 @@ keys:
       en_US: 'Wild animals'
   page.home.featured.top-left.left.img:
     translations:
-      de_DE: '/images/homepage/gorilla.jpg'
-      en_US: '/images/homepage/gorilla.jpg'
+      de_DE: 'gorilla.jpg'
+      en_US: 'gorilla.jpg'
   page.home.featured.top-left.left.url:
     translations:
       de_DE: '/de/gorilla-maennchen'
@@ -44,8 +44,8 @@ keys:
       en_US: 'Sees'
   page.home.featured.top-left.right.img:
     translations:
-      de_DE: '/images/homepage/penguin.jpg'
-      en_US: '/images/homepage/penguin.jpg'
+      de_DE: 'penguin.jpg'
+      en_US: 'penguin.jpg'
   page.home.featured.top-left.right.url:
     translations:
       de_DE: '/de/brillenpinguin'
@@ -61,8 +61,8 @@ keys:
       en_US: '2'
   page.home.featured.top-right.first.img:
     translations:
-      de_DE: '/images/homepage/wildlife.jpg'
-      en_US: '/images/homepage/wildlife.jpg'
+      de_DE: 'wildlife.jpg'
+      en_US: 'wildlife.jpg'
   page.home.featured.top-right.first.url:
     translations:
       de_DE: '/de/wilde-tiere'
@@ -78,8 +78,8 @@ keys:
       en_US: '2'
   page.home.featured.top-right.second.img:
     translations:
-      de_DE: '/images/homepage/dragon.jpg'
-      en_US: '/images/homepage/dragon.jpg'
+      de_DE: 'dragon.jpg'
+      en_US: 'dragon.jpg'
   page.home.featured.top-right.second.url:
     translations:
       de_DE: '/de/wilde-tiere'
@@ -103,8 +103,8 @@ keys:
       en_US: '/en/forest-and-meadow'
   page.home.featured.bottom-left.top.img:
     translations:
-      de_DE: '/images/homepage/teaser-waldwiese.jpg'
-      en_US: '/images/homepage/teaser-waldwiese.jpg'
+      de_DE: 'teaser-waldwiese.jpg'
+      en_US: 'teaser-waldwiese.jpg'
   page.home.featured.bottom-left.top.url:
     translations:
       de_DE: '/de/wald-und-wiese'
@@ -128,8 +128,8 @@ keys:
       en_US: '/en/seas'
   page.home.featured.bottom-left.bottom.img:
     translations:
-      de_DE: '/images/homepage/sea.jpg'
-      en_US: '/images/homepage/sea.jpg'
+      de_DE: 'sea.jpg'
+      en_US: 'sea.jpg'
   page.home.featured.bottom-left.bottom.url:
     translations:
       de_DE: '/de/meere'
@@ -153,8 +153,8 @@ keys:
       en_US: 'Forest and Meadow'
   page.home.featured.bottom-right.left.img:
     translations:
-      de_DE: '/images/homepage/ferkel.jpg'
-      en_US: '/images/homepage/ferkel.jpg'
+      de_DE: 'ferkel.jpg'
+      en_US: 'ferkel.jpg'
   page.home.featured.bottom-right.left.url:
     translations:
       de_DE: '/de/ferkel-stehend'
@@ -178,8 +178,8 @@ keys:
       en_US: 'Wild animals'
   page.home.featured.bottom-right.right.img:
     translations:
-      de_DE: '/images/homepage/flusspferd.jpg'
-      en_US: '/images/homepage/flusspferd.jpg'
+      de_DE: 'flusspferd.jpg'
+      en_US: 'flusspferd.jpg'
   page.home.featured.bottom-right.right.url:
     translations:
       de_DE: '/de/flusspferd'
@@ -215,6 +215,11 @@ keys:
     translations:
       de_DE: 'Der Warenkorb ist zur Zeit leer!'
       en_US: 'Your shopping cart is empty!'
+  cart.cart:
+    translations:
+      de_DE: 'Warenkorb'
+      en_US: 'Cart'
+
 
   auth.login:
     translations:
@@ -591,3 +596,78 @@ keys:
     translations:
       de_DE: 'Kundenaccout erstellen'
       en_US: 'Create customer account'
+
+  whishlist.whishlist:
+    translations:
+      en_US: 'Whishlist'
+  whishlist.remove:
+    translations:
+      en_US: 'Remove'
+  whishlist.reduce:
+    translations:
+      en_US: 'Reduce'
+  whishlist.increase:
+    translations:
+      en_US: 'Increase'
+  whishlist.move.to.cart:
+    translations:
+      en_US: 'Move to cart'
+
+  checkout.thank.you:
+    translations:
+      en_US: 'Thank you'
+  checkout.this.is.demoshop:
+    translations:
+      en_US: 'This is a demoshop'
+  checkout.nothing.will.be.sent:
+    translations:
+      en_US: "Therefore, of course, nothing will be sent!"
+
+  global.order.ascendent:
+    translations:
+        en_US: 'A-Z'
+  global.order.descendent:
+    translations:
+        en_US: 'Z-A'
+
+  global.close:
+    translations:
+        en_US: 'Close'
+  global.search:
+    translations:
+        en_US: 'Search'
+  global.spryker.shop:
+    translations:
+        en_US: 'Spryker Shop'
+  global.email.address:
+    translations:
+        en_US: 'Email Address'
+  global.password:
+    translations:
+        en_US: 'Password'
+  global.recover.password:
+    translations:
+        en_US: 'Recover Password'
+  global.accept.terms.and.conditions:
+    translations:
+        en_US: 'Accept Terms and Conditions'
+  global.login:
+    translations:
+        en_US: 'Login'
+  global.create.account:
+    translations:
+        en_US: 'Create Account'
+  global.cart:
+    translations:
+        en_US: 'Cart'
+
+  error.404:
+    translations:
+        en_US: 'Error 404'
+
+  homepage.carousel.previous:
+    translations:
+      en_US: 'Previous'
+  homepage.carousel.next:
+    translations:
+      en_US: 'Next'

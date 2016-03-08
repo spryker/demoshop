@@ -41,7 +41,8 @@ config/Yves/cache_bust.php
 /node_modules/
 
 # public stuff
-/static/public/
+public/Yves/assets/
+public/Zed/assets/
 
 # vagrant stuff
 .vagrant
