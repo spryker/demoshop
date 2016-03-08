@@ -37,6 +37,11 @@ FROM spy_url u
             ->setParameter('fk_locale_2', $this->locale->getIdLocale());
     }
 
+    /**
+     * @param string $alias
+     *
+     * @return string
+     */
     protected function getColumns($alias = 'u')
     {
         $columnsSql = '';
