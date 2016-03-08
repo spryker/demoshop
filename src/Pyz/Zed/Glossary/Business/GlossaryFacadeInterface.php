@@ -7,9 +7,10 @@
 
 namespace Pyz\Zed\Glossary\Business;
 
+use Spryker\Zed\Glossary\Business\GlossaryFacadeInterface as SprykerGlossaryFacadeInterface;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 
-interface GlossaryFacadeInterface
+interface GlossaryFacadeInterface extends SprykerGlossaryFacadeInterface
 {
 
     /**

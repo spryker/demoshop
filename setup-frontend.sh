@@ -1,33 +1,13 @@
 #!/bin/bash
 
-CURL=`which curl`
-NPM=`which npm`
-GIT=`which git`
+if [[ -z "$SETUP" ]]; then
+    tput setab 1
+    echo "Please do not run this script individually"
+    tput sgr0
+    exit 0
+fi
 
-CWD=`pwd`
-ERROR=`tput setab 1`
-GREEN=`tput setab 2`
-BACKGROUND=`tput setab 4`
-COLOR=`tput setaf 7`
-NC=`tput sgr0`
-
-function labelText {
-    echo -e "\n${BACKGROUND}${COLOR}-> ${1} ${NC}\n"
-}
-
-function errorText {
-    echo -e "\n${ERROR}${COLOR}=> ${1} <=${NC}\n"
-}
-
-function successText {
-    echo -e "\n${GREEN}${COLOR}=> ${1} <=${NC}\n"
-}
-
-function writeErrorMessage {
-    if [[ $? != 0 ]]; then
-        errorText "${1}"
-    fi
-}
+SPY_TOOL=`which spy`
 
 if [[ `node -v | grep -E '^v[0-4]'` ]]; then
     labelText "Upgrade Node.js"
@@ -39,24 +19,17 @@ if [[ `node -v | grep -E '^v[0-4]'` ]]; then
     successText "NPM updated to version `$NPM -v`"
 fi
 
-labelText "Install webpack globally"
-sudo $NPM install -g webpack@"^1.12.14"
-
-labelText "Install SPY tool globally"
-$GIT clone --branch master git@github.com:spryker/spy.git /tmp/spy
-cd /tmp/spy
-sudo $NPM install -g ./
-cd $CWD
-rm -rf /tmp/spy
-
-labelText "Install npm project dependecies"
-if [[ -d "./node_modules" ]]; then
-    echo "Project old 'node_modules' directory removed"
-    rm -rf "./node_modules"
+if [[ $RESET == 1 ]] || [[ ! -f $SPY_TOOL ]]; then
+    labelText "Install SPY tool globally"
+    $GIT clone --branch master git@github.com:spryker/spy.git /tmp/spy
+    cd /tmp/spy
+    sudo $NPM install -g ./
+    cd $CWD
+    rm -rf /tmp/spy
+    SPY_TOOL=`which spy`
 fi
-$NPM install
 
-SPY_TOOL=`which spy`
+$NPM install
 
 if [[ -f $SPY_TOOL ]]; then
     labelText "SPY: test the project"
@@ -69,6 +42,4 @@ if [[ -f $SPY_TOOL ]]; then
     $SPY_TOOL build
 fi
 
-successText "Setup completed succesfully"
-
-exit 0
+successText "Setup Frontend completed succesfully"

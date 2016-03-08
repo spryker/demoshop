@@ -9,6 +9,7 @@ namespace Pyz\Zed\Category\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Zed\Category\Business\Model\CategoryWriter;
 use Spryker\Zed\Category\Business\Model\CategoryWriterInterface;
@@ -16,9 +17,8 @@ use Spryker\Zed\Category\Business\Tree\CategoryTreeWriter;
 use Spryker\Zed\Category\Dependency\Facade\CategoryToLocaleInterface;
 use Spryker\Zed\Category\Dependency\Facade\CategoryToTouchInterface;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
-use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 
-class CategoryTreeInstall extends AbstractInstaller
+class CategoryTreeInstall extends AbstractDemoDataInstaller
 {
 
     const IS_ROOT = 'is_root';
@@ -76,16 +76,24 @@ class CategoryTreeInstall extends AbstractInstaller
     }
 
     /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'Category Tree';
+    }
+
+    /**
      * @return void
      */
     public function install()
     {
-        $this->info('This will install a Dummy CategoryTree in the demo shop');
+        $this->notice('This will install a Dummy CategoryTree in the demo shop');
 
         $demoTree = $this->getDemoTree();
 
         if ($this->queryContainer->queryRootNode()->count() > 0) {
-            $this->warning('Dummy CategoryTree already installed. Skipping.');
+            $this->notice('Dummy CategoryTree already installed. Skipping.');
 
             return;
         }

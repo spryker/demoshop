@@ -13,7 +13,7 @@ use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
  * @method \Pyz\Zed\Cms\Communication\CmsCommunicationFactory getFactory()
  * @method \Pyz\Zed\Cms\Business\CmsFacade getFacade()
  */
-class DemoDataInstaller extends AbstractInstallerPlugin
+class DemoDataInstallerPlugin extends AbstractInstallerPlugin
 {
 
     /**

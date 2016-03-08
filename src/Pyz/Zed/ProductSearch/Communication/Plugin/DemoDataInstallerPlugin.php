@@ -5,15 +5,14 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Zed\Price\Communication\Plugin;
+namespace Pyz\Zed\ProductSearch\Communication\Plugin;
 
 use Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin;
 
 /**
- * @method \Spryker\Zed\Price\Communication\PriceCommunicationFactory getFactory()
- * @method \Pyz\Zed\Price\Business\PriceFacade getFacade()
+ * @method \Pyz\Zed\ProductSearch\Business\ProductSearchFacade getFacade()
  */
-class DemoDataInstaller extends AbstractInstallerPlugin
+class DemoDataInstallerPlugin extends AbstractInstallerPlugin
 {
 
     /**

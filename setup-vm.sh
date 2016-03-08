@@ -1,50 +1,13 @@
 #!/bin/bash
 
-PHP=`which php`
-CURL=`which curl`
-NPM=`which npm`
+SETUP='spryker'
 
-ERROR=`tput setab 1`
-GREEN=`tput setab 2`
-BACKGROUND=`tput setab 4`
-COLOR=`tput setaf 7`
-NC=`tput sgr0`
+. ./setup-functions.sh
 
-function labelText {
-    echo -e "\n${BACKGROUND}${COLOR}-> ${1} ${NC}\n"
-}
-
-function errorText {
-    echo -e "\n${ERROR}${COLOR}=> ${1} <=${NC}\n"
-}
-
-function successText {
-    echo -e "\n${GREEN}${COLOR}=> ${1} <=${NC}\n"
-}
-
-function writeErrorMessage {
-    if [[ $? != 0 ]]; then
-        errorText "${1}"
-    fi
-}
-
-function dropdb {
-    # postgres
-    #export PGPASSWORD=mate20mg
-    sudo pg_ctlcluster 9.4 main restart --force
-    sudo dropdb DE_development_zed
-
-    # mysql
-    # mysql -u root -e "DROP DATABASE DE_development_zed;"
-}
-
-function createDb {
-    # postgres
-    sudo createdb DE_development_zed
-
-    # mysql
-    # mysql -u root -e "CREATE DATABASE DE_development_zed;"
-}
+if [[ ! -f "./composer.phar" ]]; then
+    labelText "Download composer.phar"
+    $CURL -sS https://getcomposer.org/installer | $PHP
+fi
 
 COMPOSER_TIMESTAMP=$(stat -c %Y "composer.phar")
 CURRENT_TIMESTAMP=$(date +"%s")
@@ -52,15 +15,9 @@ CURRENT_TIMESTAMP=$(date +"%s")
 COMPOSER_FILE_AGE=$(($CURRENT_TIMESTAMP-$COMPOSER_TIMESTAMP))
 THIRTY_DAYS_AGE=$((60*60*24*30))
 
-if [[ ! -f "composer.phar" ]]; then
-    labelText "Download composer.phar"
-    $CURL -sS https://getcomposer.org/installer | $PHP
-fi
-
-if [[ `echo "$@" | grep '\-\-reset'` ]] || [[ `echo "$@" | grep '\-r'` ]]; then
-    RESET=1
-else
-    RESET=0
+if [[ $COMPOSER_FILE_AGE > $THIRTY_DAYS_AGE ]]; then
+    labelText "Install Composer Dependencies"
+    $PHP composer.phar selfupdate
 fi
 
 if [[ $RESET == 1 ]]; then
@@ -71,7 +28,7 @@ if [[ $RESET == 1 ]]; then
     curl -XDELETE 'http://localhost:9200/_all' &> /dev/null
 
     labelText "Drop Database"
-    dropdb
+    dropDatabase
     writeErrorMessage "Could not delete Database"
 
     labelText "Recreate Database"
@@ -98,11 +55,6 @@ if [[ $RESET == 1 ]]; then
     fi
 fi
 
-if [[ $COMPOSER_FILE_AGE > $THIRTY_DAYS_AGE ]]; then
-    labelText "Install Composer Dependencies"
-    $PHP composer.phar selfupdate
-fi
-
 labelText "Run composer install"
 $PHP composer.phar install
 
@@ -110,13 +62,10 @@ labelText "Build Codeception dependency files"
 vendor/bin/codecept build
 
 labelText "Frontend assets management setup"
-./setup-frontend.sh
+. ./setup-frontend.sh
 
 labelText "Restart ElasticSearch"
 sudo /etc/init.d/elasticsearch restart
-
-labelText "Build-class-map"
-vendor/bin/build-class-map
 
 labelText "setup:install"
 vendor/bin/console setup:install -vvv
@@ -136,4 +85,3 @@ vendor/bin/console setup:jenkins:generate -vvv
 successText "Installation finished"
 
 exit 0
-

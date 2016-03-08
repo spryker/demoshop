@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\Product\Business;
 
-use Psr\Log\LoggerInterface;
+use Generated\Shared\Transfer\LocaleTransfer;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\Product\Business\ProductFacade as SprykerProductFacade;
 
@@ -45,6 +45,24 @@ class ProductFacade extends SprykerProductFacade implements ProductFacadeInterfa
     public function installDemoData(MessengerInterface $messenger)
     {
         $this->getFactory()->createDemoDataInstaller($messenger)->install();
+    }
+
+    /**
+     * @param int $idProductAbstract
+     * @param string $url
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @throws \Spryker\Zed\Url\Business\Exception\UrlExistsException
+     * @throws \Spryker\Zed\Product\Business\Exception\MissingProductException
+     *
+     * @return \Generated\Shared\Transfer\UrlTransfer
+     */
+    public function createAndTouchProductUrlByIdProduct($idProductAbstract, $url, LocaleTransfer $locale)
+    {
+        return $this->getFactory()
+            ->createProductManager()
+            ->createAndTouchProductUrlByIdProduct($idProductAbstract, $url, $locale);
     }
 
 }

@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\Category\Business;
 
-use Psr\Log\LoggerInterface;
 use Spryker\Zed\Category\Business\CategoryFacade as SprykerCategoryFacade;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 

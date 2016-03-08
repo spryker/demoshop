@@ -8,8 +8,9 @@
 namespace Pyz\Zed\ProductCategory\Business;
 
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
+use Spryker\Zed\ProductCategory\Business\ProductCategoryFacadeInterface as SprykerProductCategoryFacadeInterface;
 
-interface ProductCategoryFacadeInterface
+interface ProductCategoryFacadeInterface extends SprykerProductCategoryFacadeInterface
 {
 
     /**

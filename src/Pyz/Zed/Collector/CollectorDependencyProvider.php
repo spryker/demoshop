@@ -32,7 +32,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
     const QUERY_CONTAINER_PRODUCT_CATEGORY = 'product category query container';
 
     /**
-     * @var \Spryker\Zed\Kernel\Container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
      * @return \Spryker\Zed\Kernel\Container
      */

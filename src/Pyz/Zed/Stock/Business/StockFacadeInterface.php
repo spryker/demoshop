@@ -8,8 +8,9 @@
 namespace Pyz\Zed\Stock\Business;
 
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
+use Spryker\Zed\Stock\Business\StockFacadeInterface as SprykerStockFacadeInterface;
 
-interface StockFacadeInterface
+interface StockFacadeInterface extends SprykerStockFacadeInterface
 {
 
     /**

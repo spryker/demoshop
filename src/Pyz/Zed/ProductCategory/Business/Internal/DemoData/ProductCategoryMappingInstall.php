@@ -8,14 +8,14 @@
 namespace Pyz\Zed\ProductCategory\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller;
 use Spryker\Zed\Library\Import\ReaderInterface;
 use Spryker\Zed\ProductCategory\Business\ProductCategoryManagerInterface;
 use Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToCategoryInterface;
 use Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToLocaleInterface;
 use Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface;
 
-class ProductCategoryMappingInstall extends AbstractInstaller
+class ProductCategoryMappingInstall extends AbstractDemoDataInstaller
 {
 
     const SKU = 'sku';
@@ -73,6 +73,14 @@ class ProductCategoryMappingInstall extends AbstractInstaller
         $this->productCategoryManager = $productCategoryManager;
         $this->productFacade = $productFacade;
         $this->categoryFacade = $categoryFacade;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'Product Category';
     }
 
     /**
