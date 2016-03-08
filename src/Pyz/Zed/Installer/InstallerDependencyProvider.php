@@ -28,6 +28,7 @@ use Spryker\Zed\Collector\Communication\Plugin\Installer as CollectorInstallerPl
 use Spryker\Zed\Country\Communication\Plugin\Installer as CountryCountryCountryInstallerPlugin;
 use Spryker\Zed\Installer\InstallerDependencyProvider as SprykerInstallerDependencyProvider;
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Glossary\Communication\Plugin\Installer as GlossaryInstallerPlugin;
 use Spryker\Zed\Locale\Communication\Plugin\Installer as LocaleInstallerPlugin;
 use Spryker\Zed\Price\Communication\Plugin\Installer as PriceInstallerPlugin;
 use Spryker\Zed\Product\Communication\Plugin\Installer as ProductInstallerPlugin;
@@ -188,6 +189,7 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
             new UserInstallerPlugin(),
             new AclInstallerPlugin(),
             new NewsletterInstallerPlugin(),
+            new GlossaryInstallerPlugin(),
         ];
     }
 
