@@ -1,0 +1,27 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block content %}
+<div class="container">
+    <div class="row cms-page">
+        <div class="col-xs-12 col-md-6">
+            <h2>{{ 'checkout.customer.login' | trans }}</h2>
+            {% include "@Customer/auth/partials/login-form.twig" with {'form': loginForm} %}
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+            <div>
+                <h2>{{ 'checkout.customer.register' | trans }}</h2>
+                {{ form_start(registerForm, {'attr': {'class': 'form-horizontal'}}) }}
+                    {% include '@Customer/register/partials/register-form-body.twig' with {'form': registerForm.customer} %}
+                {{ form_end(registerForm) }}
+            </div>
+            <div>
+                <h2>{{ 'checkout.customer.order_as_guest' | trans }}</h2>
+                {{ form_start(guestForm, {'attr': {'class': 'form-horizontal'}}) }}
+                    {% include '@Customer/guest/partials/guest-form-body.twig' with {'form': guestForm.customer} %}
+                {{ form_end(guestForm) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

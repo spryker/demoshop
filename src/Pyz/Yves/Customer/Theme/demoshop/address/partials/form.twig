@@ -1,5 +1,13 @@
 {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
     <div class="field">
+        <label>{{ form.salutation.vars.label | trans }}</label>
+        <div>
+            {{ form_widget(form.salutation) }}
+            {{ form_errors(form.salutation) }}
+        </div>
+    </div>
+
+    <div class="field">
         <label>{{ form.first_name.vars.label | trans }}</label>
         <div>
             {{ form_widget(form.first_name, { 'attr': {'placeholder': (form.first_name.vars.label | trans)} }) }}

@@ -1,0 +1,180 @@
+<?php
+
+namespace Pyz\Yves\Checkout\Form\Steps;
+
+use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+
+class ShipmentForm extends AbstractType
+{
+
+    const SHIPMENT_PROPERTY_PATH = 'shipment';
+    const SHIPMENT_SELECTION = 'shipmentSelection';
+    const SHIPMENT_SELECTION_PROPERTY_PATH = self::SHIPMENT_PROPERTY_PATH . '.' . self::SHIPMENT_SELECTION;
+
+    /**
+     * @var \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[]
+     */
+    protected $shipmentMethodsSubFormPlugins;
+
+    /**
+     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[] $shipmentMethodsSubFormPlugins
+     */
+    public function __construct(array $shipmentMethodsSubFormPlugins)
+    {
+        $this->shipmentMethodsSubFormPlugins = $shipmentMethodsSubFormPlugins;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return 'shipmentForm';
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     * @param array $options
+     *
+     * @return void
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $this->addShipmentMethods($builder, $options)
+            ->addSubmit($builder);
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     *
+     * @return $this
+     */
+    protected function addShipmentMethods(FormBuilderInterface $builder, array $options)
+    {
+        $shipmentMethodSubForms = $this->getShipmentMethodSubForms();
+        $shipmentMethodChoices = $this->getShipmentMethodsChoices($shipmentMethodSubForms);
+
+        $this->addShipmentMethodChoices($builder, $shipmentMethodChoices)
+            ->addShipmentMethodSubForms($builder, $shipmentMethodSubForms, $options);
+
+        return $this;
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     * @param array $shipmentMethodChoices
+     *
+     * @return $this
+     */
+    protected function addShipmentMethodChoices(FormBuilderInterface $builder, array $shipmentMethodChoices)
+    {
+        $builder->add(
+            self::SHIPMENT_SELECTION,
+            'choice',
+            [
+                'choices' => $shipmentMethodChoices,
+                'label' => false,
+                'required' => true,
+                'expanded' => true,
+                'multiple' => false,
+                'empty_value' => false,
+                'property_path' => self::SHIPMENT_SELECTION_PROPERTY_PATH,
+            ]
+        );
+
+        return $this;
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     * @param \Pyz\Yves\Checkout\Dependency\SubFormInterface[] $shipmentMethodSubForms
+     *
+     * @return $this
+     */
+    protected function addShipmentMethodSubForms(FormBuilderInterface $builder, array $shipmentMethodSubForms, array $options)
+    {
+        foreach ($shipmentMethodSubForms as $shipmentMethodSubForm) {
+            $builder->add(
+                $shipmentMethodSubForm->getName(),
+                $shipmentMethodSubForm,
+                [
+                    'property_path' => self::SHIPMENT_PROPERTY_PATH .  '.' . $shipmentMethodSubForm->getPropertyPath(),
+                    'error_bubbling' => true,
+                    'select_options' => $options['select_options']
+                ]
+            );
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     *
+     * @return $this
+     */
+    protected function addSubmit(FormBuilderInterface $builder)
+    {
+        $builder->add('checkout.step.payment', 'submit');
+
+        return $this;
+    }
+
+    /**
+     * @return \Pyz\Yves\Checkout\Dependency\SubFormInterface[]
+     */
+    protected function getShipmentMethodSubForms()
+    {
+        $shipmentMethodSubForms = [];
+
+        foreach ($this->shipmentMethodsSubFormPlugins as $shipmentMethodSubForm) {
+            $shipmentMethodSubForms[] = $this->createSubForm($shipmentMethodSubForm);
+        }
+
+        return $shipmentMethodSubForms;
+    }
+
+    /**
+     * @param \Pyz\Yves\Checkout\Dependency\SubFormInterface[] $shipmentMethodSubForms
+     *
+     * @return array
+     */
+    protected function getShipmentMethodsChoices(array $shipmentMethodSubForms)
+    {
+        $choices = [];
+
+        foreach ($shipmentMethodSubForms as $shipmentMethodSubForm) {
+            $subFormName = $shipmentMethodSubForm->getName();
+            $choices[$subFormName] = str_replace('_', ' ', $subFormName);
+        }
+
+        return $choices;
+    }
+
+    /**
+     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface $shipmentMethodSubForm
+     *
+     * @return \Pyz\Yves\Checkout\Dependency\SubFormInterface
+     */
+    protected function createSubForm(CheckoutSubFormPluginInterface $shipmentMethodSubForm)
+    {
+        return $shipmentMethodSubForm->createSubFrom();
+    }
+
+
+    /**
+     * @param \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
+     *
+     * @return void
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        parent::setDefaultOptions($resolver);
+
+        $resolver->setRequired('select_options');
+    }
+
+}

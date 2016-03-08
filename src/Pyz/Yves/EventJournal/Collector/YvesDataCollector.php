@@ -36,7 +36,7 @@ class YvesDataCollector extends AbstractDataCollector implements DataCollectorIn
     {
         $key = Config::get(ApplicationConstants::YVES_COOKIE_DEVICE_ID_NAME);
 
-        return $_COOKIE[$key] ?: null;
+        return isset($_COOKIE[$key]) ? $_COOKIE[$key] : null;
     }
 
     /**
@@ -46,7 +46,7 @@ class YvesDataCollector extends AbstractDataCollector implements DataCollectorIn
     {
         $key = Config::get(ApplicationConstants::YVES_COOKIE_VISITOR_ID_NAME);
 
-        return $_COOKIE[$key] ?: null;
+        return isset($_COOKIE[$key]) ? $_COOKIE[$key] : null;
     }
 
 }

@@ -1,0 +1,18 @@
+{% extends "@application/layout/layout.twig" %}
+{% import "@checkout/checkout/_macros.twig" as checkout %}
+
+{% block content %}
+    <br /><br /><br /><br />
+
+    <h1>Shipment</h1>
+
+    {{ form_start(shipmentForm) }}
+
+        {{ form_widget(shipmentForm.shipmentSelection) }}
+
+        {{ checkout.include_subforms(shipmentForm) }}
+
+    {{ form_end(shipmentForm) }}
+
+    <a href="{{ previousStepUrl }}">Back</a>
+{% endblock %}

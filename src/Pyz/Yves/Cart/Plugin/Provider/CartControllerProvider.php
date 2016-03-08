@@ -26,9 +26,9 @@ class CartControllerProvider extends AbstractYvesControllerProvider
     const ROUTE_CART_INCREASE_AJAX = 'POST_cart/increase';
     const ROUTE_CART_DECREASE_AJAX = 'POST_cart/decrease';
 
-    const ROUTE_CART_COUPON_ADD = 'cart/coupon/add';
-    const ROUTE_CART_COUPON_REMOVE = 'cart/coupon/remove';
-    const ROUTE_CART_COUPON_CLEAR = 'cart/coupon/clear';
+    const ROUTE_CART_VOUCHER_ADD = 'cart/voucher/add';
+    const ROUTE_CART_VOUCHER_REMOVE = 'cart/voucher/remove';
+    const ROUTE_CART_VOUCHER_CLEAR = 'cart/voucher/clear';
 
     /**
      * @param \Silex\Application $app
@@ -82,19 +82,25 @@ class CartControllerProvider extends AbstractYvesControllerProvider
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->value('groupKey', '');
 
-        $this->createGetController('/{cart}/coupon/add', self::ROUTE_CART_COUPON_ADD, 'Cart', 'Coupon', 'add')
+        $this->createGetController('/{cart}/voucher/add', self::ROUTE_CART_VOUCHER_ADD, 'Cart', 'Voucher', 'add')
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')
             ->convert(
-                'couponCode',
+                'voucherCode',
                 function ($unused, Request $request) {
                     return $request->query->get('code');
                 }
             );
 
-        $this->createGetController('/{cart}/coupon/remove/{couponCode}', self::ROUTE_CART_COUPON_REMOVE, 'Cart', 'Coupon', 'remove')
-            ->assert('cart', $allowedLocalesPattern . 'cart|cart');
+        $this->createGetController('/{cart}/voucher/remove', self::ROUTE_CART_VOUCHER_REMOVE, 'Cart', 'Voucher', 'remove')
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart')
+            ->convert(
+                'voucherCode',
+                function ($unused, Request $request) {
+                    return $request->query->get('code');
+                }
+            );
 
-        $this->createGetController('/{cart}/coupon/clear', self::ROUTE_CART_COUPON_CLEAR, 'Cart', 'Coupon', 'clear')
+        $this->createGetController('/{cart}/voucher/clear', self::ROUTE_CART_VOUCHER_CLEAR, 'Cart', 'Voucher', 'clear')
             ->assert('cart', $allowedLocalesPattern . 'cart|cart');
     }
 

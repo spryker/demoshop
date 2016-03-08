@@ -10,6 +10,7 @@ namespace Pyz\Yves\Application;
 use Pyz\Shared\Application\Business\Routing\SilexRouter;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
+use Pyz\Yves\Application\Plugin\Provider\FlashMessengerServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\SessionServiceProvider as ProviderSessionServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\YvesSecurityServiceProvider;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
@@ -95,6 +96,7 @@ class YvesBootstrap
         $this->application->register(new FormServiceProvider());
         $this->application->register(new HttpFragmentServiceProvider());
         $this->application->register(new CategoryServiceProvider());
+        $this->application->register(new FlashMessengerServiceProvider());
 
         if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER, false)) {
             $this->application->register(new WebProfilerServiceProvider());

@@ -8,40 +8,58 @@
 namespace Pyz\Zed\Sales;
 
 use Generated\Shared\Transfer\ItemTransfer;
-use Generated\Shared\Transfer\OrderTransfer;
-use Pyz\Zed\Sales\Business\ConstantsInterface\Orderprocess;
-use Spryker\Shared\Payone\PayoneApiConstants;
+use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Zed\Sales\SalesConfig as SprykerSalesConfig;
 
 class SalesConfig extends SprykerSalesConfig
 {
 
     /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $transferItem
-     * @param \Generated\Shared\Transfer\OrderTransfer $transferOrder
+     * @var array
+     */
+    protected static $stateMachineMapper = [
+        'payolution_invoice' => 'PayolutionPayment01',
+        'payolution_installment' => 'PayolutionPayment01',
+    ];
+
+    /**
+     * This method determines state machine process from the given quote transfer and order item.
+     *
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
      *
      * @return string
      */
-    public function getProcessNameForNewOrderItem(ItemTransfer $transferItem, OrderTransfer $transferOrder)
+    public function determineProcessForOrderItem(QuoteTransfer $quoteTransfer, ItemTransfer $itemTransfer)
     {
-        $method = $transferOrder->getPayment()->getMethod();
-        switch ($method) {
-            case PayoneApiConstants::PAYMENT_METHOD_CREDITCARD:
-            case PayoneApiConstants::PAYMENT_METHOD_CREDITCARD_PSEUDO:
-                return Orderprocess::ORDER_PROCESS_PAYONE_CREDIT_CARD_PSEUDO_01;
-            case PayoneApiConstants::PAYMENT_METHOD_PAYPAL:
-                return Orderprocess::ORDER_PROCESS_PAYONE_PAYPAL_01;
-            case PayoneApiConstants::PAYMENT_METHOD_DIRECT_DEBIT:
-                return Orderprocess::ORDER_PROCESS_PAYONE_DIRECT_DEBIT_01;
-            case PayoneApiConstants::PAYMENT_METHOD_PREPAYMENT:
-                return Orderprocess::ORDER_PROCESS_PAYONE_PRE_PAYMENT_01;
-            case PayoneApiConstants::PAYMENT_METHOD_INVOICE:
-                return Orderprocess::ORDER_PROCESS_PAYONE_INVOICE_01;
-            case PayoneApiConstants::PAYMENT_METHOD_SOFORT_UEBERWEISUNG:
-                return Orderprocess::ORDER_PROCESS_PAYONE_SOFORT_UEBERWEISUNG_01;
-            default:
-                throw new \RuntimeException('Could not find any statemachine process for new order');
+        if (array_key_exists($quoteTransfer->getPayment()->getPaymentSelection(), self::$stateMachineMapper) === true) {
+            return self::$stateMachineMapper[$quoteTransfer->getPayment()->getPaymentSelection()];
         }
+    }
+
+    /**
+     * This method provides list of urls to render blocks inside order detail page.
+     * Url defines path to external bundle controller. For example: /discount/sales/list would call discount bundle, sales controller, list action.
+     * Action should return return array or redirect response.
+     *
+     * example:
+     * [
+     *    'discount' => '/discount/sales/index',
+     * ]
+     *
+     * @return array
+     */
+    public function getSalesDetailExternalBlocksUrls()
+    {
+        $projectExternalBlocks = [
+            'totals' => '/sales-aggregator/sales/list',
+            'shipment' => '/shipment/sales/list',
+            'discount' => '/discount/sales/list',
+        ];
+
+        $externalBlocks = parent::getSalesDetailExternalBlocksUrls();
+
+        return array_merge($externalBlocks, $projectExternalBlocks);
     }
 
 }
