@@ -110,8 +110,6 @@ class AddressStep extends BaseStep
         $billingIsEmpty = $quoteTransfer->getBillingSameAsShipping() === false && $this->isAddressEmpty($quoteTransfer->getBillingAddress());
 
         if ($shippingIsEmpty || $billingIsEmpty) {
-            $this->flashMessenger->addErrorMessage('checkout.step.address.address_missing');
-
             return false;
         }
 
