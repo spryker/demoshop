@@ -10,12 +10,19 @@
 
         <div class="col-xs-12 col-md-6">
             <div>
+                <input id="register" class="customer-option" type="radio" name="customer" value="register" checked>
+                <label for="register">Proceed as a registered user (sign up)</label>
+                <br>
+                <input id="guest" class="customer-option" type="radio" name="customer" value="guest">
+                <label for="guest">Proceed as a guest user</label>
+            </div>
+            <div class="customer-selection customer-selection-register show">
                 <h2>{{ 'checkout.customer.register' | trans }}</h2>
-                {{ form_start(registerForm, {'attr': {'class': 'form-horizontal'}}) }}
+                {{ form_start(registerForm, { 'attr': { 'class': 'form-horizontal checkout-form' }}) }}
                     {% include '@Customer/register/partials/register-form-body.twig' with {'form': registerForm.customer} %}
                 {{ form_end(registerForm) }}
             </div>
-            <div>
+            <div class="customer-selection customer-selection-guest">
                 <h2>{{ 'checkout.customer.order_as_guest' | trans }}</h2>
                 {{ form_start(guestForm, {'attr': {'class': 'form-horizontal'}}) }}
                     {% include '@Customer/guest/partials/guest-form-body.twig' with {'form': guestForm.customer} %}
