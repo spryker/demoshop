@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="{{ locale | default('en') }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta name="description" content="{{ page_description | default('') }}">
+    <meta name="keywords" content="{{ page_keywords | default('') }}">
+    <meta name="author" content="Spryker System GmbH">
+    <link rel="icon" href="/images/favicon.ico">
+
+    <title>{{ page_title | default('Spryker Demoshop') | trans }}</title>
+
+    <meta name="description" content="{{ page_description | default('') | trans }}" />
+{% block page_meta %}{% endblock %}
+
+{% block css %}
+    {# <link rel="stylesheet" href="/bower/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/bower/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/bower/jquery-ui/themes/blitzer/jquery-ui.min.css">
+    <link rel="stylesheet" href="/bower/jquery-ui/themes/blitzer/theme.css"> #}
+    <link rel="stylesheet" href="/assets/default/css/yves-default-main.css" />
+{% endblock css %}
+
+</head>
+<body>
+
+{% block body %}
+
+    {% include '@Application/layout/partials/header.twig' %}
+    {% include '@Application/layout/partials/header-navigation.twig' %}
+
+    {% block content %}{% endblock %}
+
+    {% include "@application/layout/partials/footer.twig" %}
+    {#{% include "@application/layout/partials/overlay.twig" %}#}
+
+    {% block footer_js %}
+    {# <script src="/bower/jquery/dist/jquery.min.js"></script>
+    <script src="/bower/jquery-ui/jquery-ui.min.js"></script>
+    <script src="/bower/bootstrap/dist/js/bootstrap.min.js"></script> #}
+    <script src="/assets/default/js/yves-default-main.js"></script>
+    {% endblock footer_js %}
+
+{% endblock body %}
+
+</body>
+</html>

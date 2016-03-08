@@ -9,6 +9,7 @@ namespace Pyz\Zed\Category\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Zed\Category\Business\Model\CategoryWriter;
 use Spryker\Zed\Category\Business\Model\CategoryWriterInterface;
@@ -16,9 +17,8 @@ use Spryker\Zed\Category\Business\Tree\CategoryTreeWriter;
 use Spryker\Zed\Category\Dependency\Facade\CategoryToLocaleInterface;
 use Spryker\Zed\Category\Dependency\Facade\CategoryToTouchInterface;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
-use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 
-class CategoryTreeInstall extends AbstractInstaller
+class CategoryTreeInstall extends AbstractDemoDataInstaller
 {
 
     const IS_ROOT = 'is_root';
@@ -26,6 +26,7 @@ class CategoryTreeInstall extends AbstractInstaller
     const CATEGORY_KEY = 'key';
     const PARENT_KEY = 'parent_key';
     const IMAGE_NAME = 'image_name';
+    const NODE_ORDER = 'order';
 
     /**
      * @var \Spryker\Zed\Category\Business\Model\CategoryWriter
@@ -75,16 +76,24 @@ class CategoryTreeInstall extends AbstractInstaller
     }
 
     /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'Category Tree';
+    }
+
+    /**
      * @return void
      */
     public function install()
     {
-        $this->info('This will install a Dummy CategoryTree in the demo shop');
+        $this->notice('This will install a Dummy CategoryTree in the demo shop');
 
         $demoTree = $this->getDemoTree();
 
         if ($this->queryContainer->queryRootNode()->count() > 0) {
-            $this->warning('Dummy CategoryTree already installed. Skipping.');
+            $this->notice('Dummy CategoryTree already installed. Skipping.');
 
             return;
         }
@@ -130,8 +139,10 @@ class CategoryTreeInstall extends AbstractInstaller
         $idCategory = $this->createCategory($rawNode);
 
         $rootNodeTransfer = new NodeTransfer();
-        $rootNodeTransfer->setIsRoot(true);
         $rootNodeTransfer->setFkCategory($idCategory);
+        $rootNodeTransfer->setNodeOrder((int)$rawNode->{self::NODE_ORDER});
+        $rootNodeTransfer->setIsRoot(true);
+        $rootNodeTransfer->setIsMain(true);
 
         $this->categoryTreeWriter->createCategoryNode($rootNodeTransfer, $this->locale);
 
@@ -148,9 +159,11 @@ class CategoryTreeInstall extends AbstractInstaller
         $idCategory = $this->createCategory($rawNode);
 
         $childNodeTransfer = new NodeTransfer();
-        $childNodeTransfer->setIsRoot(false);
         $childNodeTransfer->setFkCategory($idCategory);
         $childNodeTransfer->setFkParentCategoryNode($this->getParentId($rawNode));
+        $childNodeTransfer->setNodeOrder((int)$rawNode->{self::NODE_ORDER});
+        $childNodeTransfer->setIsMain(true);
+        $childNodeTransfer->setIsRoot(false);
 
         $this->categoryTreeWriter->createCategoryNode($childNodeTransfer, $this->locale);
     }
@@ -186,7 +199,7 @@ class CategoryTreeInstall extends AbstractInstaller
         $idCategory = null;
 
         foreach ($locales as $locale) {
-            $localeAttributes = $rawNode->xpath('locales/locale[@id="' . $locale . '"]');
+            $localeAttributes = $rawNode->xpath('attributes/attribute[@locale_id="' . $locale . '"]');
             $localeAttributes = current($localeAttributes);
 
             if ($localeAttributes === false) {

@@ -7,9 +7,9 @@
         <states>
             <state name="ready for authorization"/>
             <state name="pre-authorization succeeded"/>
-            <state name="pre-authorization failed"/>
             <state name="authorization succeeded"/>
-            <state name="authorization invalid"/>
+            <state name="invalid"/>
+            <state name="authorization timed-out"/>
             <state name="re-authorization succeeded"/>
             <state name="re-authorization failed"/>
             <state name="revert succeeded"/>
@@ -25,7 +25,7 @@
 
             <transition>
                 <source>ready for authorization</source>
-                <target>pre-authorization failed</target>
+                <target>invalid</target>
                 <event>pre-authorize payment</event>
             </transition>
 
@@ -63,20 +63,14 @@
             <!-- authorization timeout -->
             <transition>
                 <source>authorization succeeded</source>
-                <target>authorization invalid</target>
+                <target>authorization timed-out</target>
                 <event>timeout authorized payment</event>
             </transition>
 
             <transition happy="true" condition="Payolution/IsPreAuthorizationApproved">
-                <source>authorization invalid</source>
+                <source>authorization timed-out</source>
                 <target>pre-authorization succeeded</target>
-                <event>pre-authorize invalid payment</event>
-            </transition>
-
-            <transition>
-                <source>authorization invalid</source>
-                <target>pre-authorization failed</target>
-                <event>pre-authorize invalid payment</event>
+                <event>pre-authorize timed-out payment</event>
             </transition>
 
             <!-- reversal -->
@@ -91,9 +85,9 @@
             <event name="pre-authorize payment" onEnter="true" command="Payolution/PreAuthorize"/>
             <event name="re-authorize payment" manual="true" command="Payolution/ReAuthorize"/>
             <event name="authorize payment" onEnter="true"/>
-            <event name="timeout authorized payment" timeout="21days"/>
-            <event name="pre-authorize invalid payment" manual="true" command="Payolution/PreAuthorize"/>
             <event name="use previous pre-authorization" manual="true"/>
+            <event name="timeout authorized payment" timeout="21days"/>
+            <event name="pre-authorize timed-out payment" manual="true" command="Payolution/PreAuthorize"/>
             <event name="revert payment" manual="true" command="Payolution/Revert"/>
         </events>
     </process>

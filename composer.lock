@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3f87f218dcdaab57e51964d3b4721efa",
-    "content-hash": "832ae5602dc5e675abeeeb2f037ed3a1",
+    "hash": "c2c688cbc1993772ef4929f82109c6a8",
+    "content-hash": "da3446f96360fbf45cc3f72659e081b5",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -33,6 +33,176 @@
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "time": "2014-12-30 15:22:37"
+        },
+        {
+            "name": "everon/collection",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oliwierptak/everon-collection.git",
+                "reference": "ac6cb9dfbf886d93ad2a951382264f8f54765d4b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oliwierptak/everon-collection/zipball/ac6cb9dfbf886d93ad2a951382264f8f54765d4b",
+                "reference": "ac6cb9dfbf886d93ad2a951382264f8f54765d4b",
+                "shasum": ""
+            },
+            "require": {
+                "everon/utils": "~1.0",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Everon\\Component\\Collection\\": "src/",
+                    "Everon\\Component\\Collection\\Tests\\Unit\\": "tests/unit/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliwier Ptak",
+                    "email": "everonphp@gmail.com"
+                }
+            ],
+            "description": "Everon Collection Component",
+            "time": "2016-01-28 11:28:46"
+        },
+        {
+            "name": "everon/criteria-builder",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oliwierptak/everon-criteria-builder.git",
+                "reference": "c3864a1d22270092ad3eef2e02f10f1dcc8e8d17"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oliwierptak/everon-criteria-builder/zipball/c3864a1d22270092ad3eef2e02f10f1dcc8e8d17",
+                "reference": "c3864a1d22270092ad3eef2e02f10f1dcc8e8d17",
+                "shasum": ""
+            },
+            "require": {
+                "everon/collection": "~1.0",
+                "everon/factory": "~1.0",
+                "everon/utils": "~1.0",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Everon\\Component\\CriteriaBuilder\\": "src/",
+                    "Everon\\Component\\CriteriaBuilder\\Tests\\Unit\\": "tests/unit/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliwier Ptak",
+                    "email": "everonphp@gmail.com"
+                }
+            ],
+            "description": "Everon Criteria Builder Component",
+            "time": "2016-01-28 20:04:01"
+        },
+        {
+            "name": "everon/factory",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oliwierptak/everon-factory.git",
+                "reference": "4daf6836fc2fb66612e613c189124cfff35b6ea0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oliwierptak/everon-factory/zipball/4daf6836fc2fb66612e613c189124cfff35b6ea0",
+                "reference": "4daf6836fc2fb66612e613c189124cfff35b6ea0",
+                "shasum": ""
+            },
+            "require": {
+                "everon/collection": "~1.0",
+                "everon/utils": "~1.0",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Everon\\Component\\Factory\\": "src/",
+                    "Everon\\Component\\Factory\\Tests\\Unit\\": "tests/unit/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliwier Ptak",
+                    "email": "everonphp@gmail.com"
+                }
+            ],
+            "description": "Everon Factory Component",
+            "time": "2016-01-28 20:15:45"
+        },
+        {
+            "name": "everon/utils",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oliwierptak/everon-utils.git",
+                "reference": "4c4dcf4f07007c7d7dab14383b2b15cf52a7de59"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oliwierptak/everon-utils/zipball/4c4dcf4f07007c7d7dab14383b2b15cf52a7de59",
+                "reference": "4c4dcf4f07007c7d7dab14383b2b15cf52a7de59",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Everon\\Component\\Utils\\": "src/",
+                    "Everon\\Component\\Utils\\Tests\\Unit\\": "tests/unit/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliwier Ptak",
+                    "email": "everonphp@gmail.com"
+                }
+            ],
+            "description": "Everon Utils Component",
+            "time": "2016-01-28 20:27:17"
         },
         {
             "name": "guzzle/guzzle",
@@ -775,11 +945,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "4d6b1884f0a09eabbcbccebb719724a7a06c2603"
+                "reference": "e07e6e62d56960dca92cb4ebce5113caa1d20f6d"
             },
             "require": {
                 "phpdocumentor/graphviz": "dev-master#a906a90"
@@ -825,6 +995,8 @@
                     "Spryker\\Zed\\Cache\\": "Bundles/Cache/src",
                     "Spryker\\Shared\\Calculation\\": "Bundles/Calculation/src",
                     "Unit\\Spryker\\Shared\\Calculation\\": "Bundles/Calculation/tests",
+                    "Spryker\\Client\\Calculation\\": "Bundles/Calculation/src",
+                    "Unit\\Spryker\\Client\\Calculation\\": "Bundles/Calculation/tests",
                     "Spryker\\Zed\\Calculation\\": "Bundles/Calculation/src",
                     "Unit\\Spryker\\Zed\\Calculation\\": "Bundles/Calculation/tests",
                     "Spryker\\Zed\\CalculationCheckoutConnector\\": "Bundles/CalculationCheckoutConnector/src",
@@ -1032,6 +1204,15 @@
                     "Functional\\Spryker\\Zed\\OmsCheckoutConnector\\": "Bundles/OmsCheckoutConnector/tests",
                     "Spryker\\Zed\\OmsDiscountConnector\\": "Bundles/OmsDiscountConnector/src",
                     "Unit\\Spryker\\Zed\\OmsDiscountConnector\\": "Bundles/OmsDiscountConnector/tests",
+                    "Spryker\\Client\\Payment\\": "Bundles/Payment/src",
+                    "Unit\\Spryker\\Client\\Payment\\": "Bundles/Payment/tests",
+                    "Functional\\Spryker\\Client\\Payment\\": "Bundles/Payment/tests",
+                    "Spryker\\Shared\\Payment\\": "Bundles/Payment/src",
+                    "Unit\\Spryker\\Shared\\Payment\\": "Bundles/Payment/tests",
+                    "Functional\\Spryker\\Shared\\Payment\\": "Bundles/Payment/tests",
+                    "Spryker\\Zed\\Payment\\": "Bundles/Payment/src",
+                    "Unit\\Spryker\\Zed\\Payment\\": "Bundles/Payment/tests",
+                    "Functional\\Spryker\\Zed\\Payment\\": "Bundles/Payment/tests",
                     "Spryker\\Client\\Payolution\\": "Bundles/Payolution/src",
                     "Unit\\Spryker\\Client\\Payolution\\": "Bundles/Payolution/tests",
                     "Functional\\Spryker\\Client\\Payolution\\": "Bundles/Payolution/tests",
@@ -1101,6 +1282,9 @@
                     "Spryker\\Zed\\ProductOptionCheckoutConnector\\": "Bundles/ProductOptionCheckoutConnector/src",
                     "Unit\\Spryker\\Zed\\ProductOptionCheckoutConnector\\": "Bundles/ProductOptionCheckoutConnector/tests",
                     "Functional\\Spryker\\Zed\\ProductOptionCheckoutConnector\\": "Bundles/ProductOptionCheckoutConnector/tests",
+                    "Spryker\\Zed\\ProductOptionDiscountConnector\\": "Bundles/ProductOptionDiscountConnector/src",
+                    "Unit\\Spryker\\Zed\\ProductOptionDiscountConnector\\": "Bundles/ProductOptionDiscountConnector/tests",
+                    "Functional\\Spryker\\Zed\\ProductOptionDiscountConnector\\": "Bundles/ProductOptionDiscountConnector/tests",
                     "Spryker\\Zed\\ProductOptionExporter\\": "Bundles/ProductOptionExporter/src",
                     "Unit\\Spryker\\Zed\\ProductOptionExporter\\": "Bundles/ProductOptionExporter/tests",
                     "Functional\\Spryker\\Zed\\ProductOptionExporter\\": "Bundles/ProductOptionExporter/tests",
@@ -1131,6 +1315,15 @@
                     "Spryker\\Zed\\Sales\\": "Bundles/Sales/src",
                     "Unit\\Spryker\\Zed\\Sales\\": "Bundles/Sales/tests",
                     "Functional\\Spryker\\Zed\\Sales\\": "Bundles/Sales/tests",
+                    "Spryker\\Shared\\SalesSplit\\": "Bundles/SalesSplit/src",
+                    "Unit\\Spryker\\Shared\\SalesSplit\\": "Bundles/SalesSplit/tests",
+                    "Functional\\Spryker\\Shared\\SalesSplit\\": "Bundles/SalesSplit/tests",
+                    "Spryker\\Zed\\SalesSplit\\": "Bundles/SalesSplit/src",
+                    "Unit\\Spryker\\Zed\\SalesSplit\\": "Bundles/SalesSplit/tests",
+                    "Functional\\Spryker\\Zed\\SalesSplit\\": "Bundles/SalesSplit/tests",
+                    "Spryker\\Zed\\SalesAggregator\\": "Bundles/SalesAggregator/src",
+                    "Unit\\Spryker\\Zed\\SalesAggregator\\": "Bundles/SalesAggregator/tests",
+                    "Functional\\Spryker\\Zed\\SalesAggregator\\": "Bundles/SalesAggregator/tests",
                     "Spryker\\Zed\\SalesCheckoutConnector\\": "Bundles/SalesCheckoutConnector/src",
                     "Unit\\Spryker\\Zed\\SalesCheckoutConnector\\": "Bundles/SalesCheckoutConnector/tests",
                     "Spryker\\Client\\Search\\": "Bundles/Search/src",
@@ -1248,7 +1441,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-03-01 17:04:56"
+            "time": "2016-03-08 16:33:40"
         },
         {
             "name": "symfony-cmf/routing",
@@ -3533,60 +3726,6 @@
             "time": "2015-06-14 21:17:01"
         },
         {
-            "name": "fabpot/php-cs-fixer",
-            "version": "v1.11.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "2c9f8298181f059c5077abda78019b9a0c9a7cc0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/2c9f8298181f059c5077abda78019b9a0c9a7cc0",
-                "reference": "2c9f8298181f059c5077abda78019b9a0c9a7cc0",
-                "shasum": ""
-            },
-            "require": {
-                "ext-tokenizer": "*",
-                "php": ">=5.3.6",
-                "sebastian/diff": "~1.1",
-                "symfony/console": "~2.3|~3.0",
-                "symfony/event-dispatcher": "~2.1|~3.0",
-                "symfony/filesystem": "~2.1|~3.0",
-                "symfony/finder": "~2.1|~3.0",
-                "symfony/process": "~2.3|~3.0",
-                "symfony/stopwatch": "~2.5|~3.0"
-            },
-            "require-dev": {
-                "satooshi/php-coveralls": "0.7.*@dev"
-            },
-            "bin": [
-                "php-cs-fixer"
-            ],
-            "type": "application",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\CS\\": "Symfony/CS/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Dariusz Rumiński",
-                    "email": "dariusz.ruminski@gmail.com"
-                },
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "A tool to automatically fix PHP code style",
-            "time": "2016-01-20 19:00:28"
-        },
-        {
             "name": "facebook/webdriver",
             "version": "1.1.1",
             "source": {
@@ -3982,7 +4121,7 @@
                     "name": "Manuel Pichler",
                     "email": "github@manuel-pichler.de",
                     "homepage": "https://github.com/manuelpichler",
-                    "role": "Project Founder"
+                    "role": "Project founder"
                 },
                 {
                     "name": "Other contributors",
@@ -5141,12 +5280,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "55db8ddd50675f5019e3c22cd86953fb5b388956"
+                "reference": "b981ea33104da0f979a597297359b161a0d91a4c"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/b981ea33104da0f979a597297359b161a0d91a4c",
-                "reference": "8f397eaf5dc29473d8674636aaecc8791c40b7a3",
+                "reference": "b981ea33104da0f979a597297359b161a0d91a4c",
                 "shasum": ""
             },
             "require": {
@@ -5175,7 +5314,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-02-24 09:51:42"
+            "time": "2016-02-26 15:41:35"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -5366,16 +5505,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.8.2",
+            "version": "v2.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "ba94a914e244e0d05f0aaef460d5558d5541d2b1"
+                "reference": "62251761a7615435b22ccf562384c588b431be44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/ba94a914e244e0d05f0aaef460d5558d5541d2b1",
-                "reference": "ba94a914e244e0d05f0aaef460d5558d5541d2b1",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/62251761a7615435b22ccf562384c588b431be44",
+                "reference": "62251761a7615435b22ccf562384c588b431be44",
                 "shasum": ""
             },
             "require": {
@@ -5424,7 +5563,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2016-01-12 17:46:01"
+            "time": "2016-02-28 16:34:46"
         },
         {
             "name": "symfony/dom-crawler",
@@ -5543,7 +5682,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v2.8.2",
+            "version": "v2.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",

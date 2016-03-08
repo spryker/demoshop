@@ -7,133 +7,35 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
-use Generated\Shared\Transfer\LocaleTransfer;
-use Orm\Zed\Cms\Persistence\Map\SpyCmsGlossaryKeyMappingTableMap;
-use Orm\Zed\Cms\Persistence\Map\SpyCmsPageTableMap;
-use Orm\Zed\Cms\Persistence\Map\SpyCmsTemplateTableMap;
-use Orm\Zed\Glossary\Persistence\Map\SpyGlossaryKeyTableMap;
-use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
-use Orm\Zed\Touch\Persistence\SpyTouchQuery;
-use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
-use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Shared\Cms\CmsConstants;
-use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderTrait;
-use Spryker\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
-use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
+use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollector;
 
-class PageCollector extends AbstractPropelCollectorPlugin
+class PageCollector extends AbstractStoragePropelCollector
 {
 
-    use KeyBuilderTrait;
-
     /**
-     * @return string
-     */
-    protected function getTouchItemType()
-    {
-        return 'page';
-    }
-
-    /**
-     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
-     *
-     * @return \Orm\Zed\Touch\Persistence\SpyTouchQuery
-     */
-    protected function createQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
-    {
-        $baseQuery->addJoin(
-            SpyTouchTableMap::COL_ITEM_ID,
-            SpyCmsPageTableMap::COL_ID_CMS_PAGE,
-            Criteria::INNER_JOIN
-        );
-
-        $baseQuery->addJoin(
-            SpyCmsPageTableMap::COL_ID_CMS_PAGE,
-            SpyUrlTableMap::COL_FK_RESOURCE_PAGE,
-            Criteria::LEFT_JOIN
-        );
-
-        $baseQuery->addJoin(
-            SpyCmsPageTableMap::COL_ID_CMS_PAGE,
-            SpyCmsGlossaryKeyMappingTableMap::COL_FK_PAGE,
-            Criteria::INNER_JOIN
-        );
-
-        $baseQuery->addJoin(
-            SpyCmsPageTableMap::COL_FK_TEMPLATE,
-            SpyCmsTemplateTableMap::COL_ID_CMS_TEMPLATE,
-            Criteria::INNER_JOIN
-        );
-
-        $baseQuery->addJoin(
-            SpyCmsGlossaryKeyMappingTableMap::COL_FK_GLOSSARY_KEY,
-            SpyGlossaryKeyTableMap::COL_ID_GLOSSARY_KEY,
-            Criteria::INNER_JOIN
-        );
-
-        $baseQuery->clearSelectColumns();
-        $baseQuery->withColumn(SpyCmsPageTableMap::COL_ID_CMS_PAGE, 'page_id');
-        $baseQuery->withColumn(SpyUrlTableMap::COL_URL, 'page_url');
-        $baseQuery->withColumn(SpyCmsGlossaryKeyMappingTableMap::COL_PLACEHOLDER, 'placeholder');
-        $baseQuery->withColumn(SpyCmsTemplateTableMap::COL_TEMPLATE_PATH, 'template_path');
-        $baseQuery->withColumn(SpyGlossaryKeyTableMap::COL_KEY, 'translation_key');
-        $baseQuery->withColumn(
-            SpyTouchTableMap::COL_ID_TOUCH,
-            self::TOUCH_EXPORTER_ID
-        );
-
-        return $baseQuery;
-    }
-
-    /**
-     * @param array $resultSet
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
-     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet $touchUpdaterSet
+     * @param string $touchKey
+     * @param array $collectItemData
      *
      * @return array
      */
-    protected function processData($resultSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
+    protected function collectItem($touchKey, array $collectItemData)
     {
-        $processedResultSet = [];
+        $placeholders = isset($collectItemData[$touchKey]['placeholders']) ? $collectItemData[$touchKey]['placeholders'] : [];
+        $placeholders[$collectItemData['placeholder']] = $collectItemData['translation_key'];
 
-        foreach ($resultSet as $index => $page) {
-            $pageKey = $this->generateKey($page['page_id'], $locale->getLocaleName());
-
-            $processedResultSet[$pageKey] = isset($processedResultSet[$pageKey]) ? $processedResultSet[$pageKey] : [];
-            $processedResultSet[$pageKey]['url'] = $page['page_url'];
-            $processedResultSet[$pageKey]['id'] = $page['page_id'];
-            $processedResultSet[$pageKey]['template'] = $page['template_path'];
-            $processedResultSet[$pageKey]['placeholders'] = isset($processedResultSet[$pageKey]['placeholders']) ? $processedResultSet[$pageKey]['placeholders'] : [];
-            $processedResultSet[$pageKey]['placeholders'][$page['placeholder']] = $page['translation_key'];
-            $touchUpdaterSet->add($pageKey, $page[self::TOUCH_EXPORTER_ID]);
-        }
-
-        return $processedResultSet;
-    }
-
-    /**
-     * @param string $identifier
-     *
-     * @return string
-     */
-    protected function buildKey($identifier)
-    {
-        return $this->getResourceType() . '.' . $identifier;
+        return [
+            'url' => $collectItemData['page_url'],
+            'id' => $collectItemData['page_id'],
+            'template' => $collectItemData['template_path'],
+            'placeholders' => $placeholders,
+        ];
     }
 
     /**
      * @return string
      */
-    public function getBundleName()
-    {
-        return 'resource';
-    }
-
-    /**
-     * @return string
-     */
-    protected function getResourceType()
+    protected function collectResourceType()
     {
         return CmsConstants::RESOURCE_TYPE_PAGE;
     }

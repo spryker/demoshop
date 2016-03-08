@@ -9,12 +9,12 @@ namespace Pyz\Zed\Shipment\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\ShipmentCarrierTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
-use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller;
 use Spryker\Zed\Shipment\Business\Model\Carrier;
 use Spryker\Zed\Shipment\Business\Model\Method;
 use Spryker\Zed\Shipment\Persistence\ShipmentQueryContainerInterface;
 
-class ShipmentInstall extends AbstractInstaller
+class ShipmentInstall extends AbstractDemoDataInstaller
 {
 
     /**
@@ -48,6 +48,14 @@ class ShipmentInstall extends AbstractInstaller
     }
 
     /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'Shipment';
+    }
+
+    /**
      * @return void
      */
     public function install()
@@ -55,7 +63,7 @@ class ShipmentInstall extends AbstractInstaller
         $this->info('This will install a Carrier Company and Shipment Method in the demo shop');
 
         if ($this->queryContainer->queryMethods()->count() > 0) {
-            $this->warning('Dummy Shipment data is already installed. Skipping.');
+            $this->notice('Dummy Shipment data is already installed. Skipping.');
 
             return;
         }
@@ -70,8 +78,7 @@ class ShipmentInstall extends AbstractInstaller
     protected function createCarrier()
     {
         $shipmentCarrierTransfer = new ShipmentCarrierTransfer();
-        $shipmentCarrierTransfer->setName('International Parcel Service (IPS)');
-        $shipmentCarrierTransfer->setGlossaryKeyName('shipment.international.parcel.service');
+        $shipmentCarrierTransfer->setName('Spryker Dummy Shipment');
         $shipmentCarrierTransfer->setIsActive(true);
 
         return $this->carrier->create($shipmentCarrierTransfer);
@@ -86,10 +93,8 @@ class ShipmentInstall extends AbstractInstaller
     {
         $shipmentMethodTransfer = new ShipmentMethodTransfer();
         $shipmentMethodTransfer->setFkShipmentCarrier($idCarrier);
-        $shipmentMethodTransfer->setName('Standart');
-        $shipmentMethodTransfer->setGlossaryKeyName('shipment.standart.name');
-        $shipmentMethodTransfer->setGlossaryKeyDescription('shipment.standart.description');
-        $shipmentMethodTransfer->setPrice(490);
+        $shipmentMethodTransfer->setName('Standard');
+        $shipmentMethodTransfer->setDefaultPrice(490);
         $shipmentMethodTransfer->setIsActive(true);
 
         $this->method->create($shipmentMethodTransfer);
@@ -97,9 +102,7 @@ class ShipmentInstall extends AbstractInstaller
         $shipmentMethodTransfer = new ShipmentMethodTransfer();
         $shipmentMethodTransfer->setFkShipmentCarrier($idCarrier);
         $shipmentMethodTransfer->setName('Express');
-        $shipmentMethodTransfer->setGlossaryKeyName('shipment.express.name');
-        $shipmentMethodTransfer->setGlossaryKeyDescription('shipment.express.description');
-        $shipmentMethodTransfer->setPrice(590);
+        $shipmentMethodTransfer->setDefaultPrice(590);
         $shipmentMethodTransfer->setIsActive(true);
 
         $this->method->create($shipmentMethodTransfer);

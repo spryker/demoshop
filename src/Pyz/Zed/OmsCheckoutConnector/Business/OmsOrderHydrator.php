@@ -7,8 +7,8 @@
 
 namespace Pyz\Zed\OmsCheckoutConnector\Business;
 
-use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
+use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Zed\Oms\OmsConfig;
 use Spryker\Zed\OmsCheckoutConnector\Business\OmsOrderHydrator as BaseOmsOrderHydrator;
 
@@ -26,13 +26,13 @@ class OmsOrderHydrator extends BaseOmsOrderHydrator
 
     /**
      * @param \Generated\Shared\Transfer\OrderTransfer $order
-     * @param \Generated\Shared\Transfer\CheckoutRequestTransfer $request
+     * @param \Generated\Shared\Transfer\QuoteTransfer $request
      *
      * @throws \Spryker\Zed\OmsCheckoutConnector\Business\Exception\NoStatemachineProcessException
      *
      * @return void
      */
-    public function hydrateOrderTransfer(OrderTransfer $order, CheckoutRequestTransfer $request)
+    public function hydrateOrderTransfer(OrderTransfer $order, QuoteTransfer $request)
     {
         $paymentMethod = $request->getPaymentMethod();
 

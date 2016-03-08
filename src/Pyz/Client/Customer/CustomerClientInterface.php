@@ -20,4 +20,9 @@ interface CustomerClientInterface extends SprykerCustomerClientInterface
      */
     public function getCustomerOverview(CustomerOverviewRequestTransfer $overviewRequest);
 
+    /**
+     * @return void
+     */
+    public function markCustomerAsDirty();
+
 }

@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\ProductCategory\Business;
 
-use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductCategory\Business\Internal\DemoData\ProductCategoryMappingInstall;
 use Spryker\Zed\Library\Import\Reader\CsvFileReader;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;

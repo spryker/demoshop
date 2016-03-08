@@ -8,12 +8,11 @@ namespace Functional\Pyz\Zed\Payolution;
 
 use Codeception\TestCase\Test;
 use Generated\Shared\Transfer\AddressTransfer;
-use Generated\Shared\Transfer\CartTransfer;
-use Generated\Shared\Transfer\CheckoutRequestTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
+use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\TaxSetTransfer;
 use Generated\Shared\Transfer\TotalsTransfer;
 use Orm\Zed\Country\Persistence\SpyCountryQuery;
@@ -39,7 +38,7 @@ abstract class AbstractFacadeTest extends Test
     const STREET = 'Julie-Wolfthorn-Straße 1';
     const ZIP_CODE = '10115';
     const CITY = 'Berlin';
-    const COUNTRY_CODE = 'de';
+    const COUNTRY_CODE = 'DE';
 
     const BIC = 'DABAIE2';
     const IBAN = 'DE89370400440532013000';
@@ -65,7 +64,7 @@ abstract class AbstractFacadeTest extends Test
     private $paymentEntity;
 
     /**
-     * @var \Generated\Shared\Transfer\CheckoutRequestTransfer
+     * @var \Generated\Shared\Transfer\QuoteTransfer
      */
     private $checkoutRequestTransfer;
 
@@ -100,7 +99,7 @@ abstract class AbstractFacadeTest extends Test
     private $itemTransfer;
 
     /**
-     * @var \Generated\Shared\Transfer\CartTransfer
+     * @var \Generated\Shared\Transfer\QuoteTransfer
      */
     private $cartTransfer;
 
@@ -179,7 +178,7 @@ abstract class AbstractFacadeTest extends Test
     }
 
     /**
-     * @return \Generated\Shared\Transfer\CheckoutRequestTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     protected function getCheckoutRequestTransfer()
     {
@@ -237,7 +236,7 @@ abstract class AbstractFacadeTest extends Test
      */
     protected function setCheckoutRequestTransfer()
     {
-        $this->checkoutRequestTransfer = (new CheckoutRequestTransfer())
+        $this->checkoutRequestTransfer = (new QuoteTransfer())
             ->setIdUser(null)
             ->setShippingAddress($this->addressTransfer)
             ->setBillingAddress($this->addressTransfer)
@@ -351,7 +350,7 @@ abstract class AbstractFacadeTest extends Test
      */
     protected function setCartTransferTestData()
     {
-        $this->cartTransfer = (new CartTransfer())
+        $this->cartTransfer = (new QuoteTransfer())
             ->addItem($this->itemTransfer)
             ->setTotals($this->totalsTransfer);
     }

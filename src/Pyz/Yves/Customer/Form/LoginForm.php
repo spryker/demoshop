@@ -55,7 +55,8 @@ class LoginForm extends AbstractType
             'constraints' => [
                 new NotBlank(),
                 new Email(),
-            ]
+            ],
+            'mapped' => false,
         ]);
 
         return $this;
@@ -71,6 +72,7 @@ class LoginForm extends AbstractType
         $builder->add(self::FIELD_PASSWORD, self::FIELD_PASSWORD, [
             'label' => 'customer.login.password',
             'constraints' => new NotBlank(),
+            'mapped' => false,
         ]);
 
         return $this;

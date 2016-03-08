@@ -21,7 +21,7 @@
                             <input type="button" value="x" class="spinner__increment cart-remove">
                         </div>
                     </div>
-                    <div class="cart__item-price">{{ (item.totalPrice)|price }}</div>
+                    <div class="cart__item-price">{{ (item.sumGrossPrice)|price }}</div>
                 </div>
             {% endfor %}
         </div>
@@ -30,12 +30,23 @@
               <div class="cart__shipping-label" colspan="2">{{ 'cart.shipping'|trans }}</div>
               <div class="cart__shipping-price js-cart-shipping">{{ 250|price }}</div>
             </div>#}
+
+            {% for voucherDiscount in cart.voucherDiscounts %}
+                <div>{{ voucherDiscount.displayName }} ({{ voucherDiscount.amount|price }})</div>
+            {% endfor %}
+
+            {% for ruleDiscount in cart.cartRuleDiscounts %}
+                <div>{{ ruleDiscount.displayName }} - ({{ ruleDiscount.amount|price }})</div>
+            {% endfor %}
+
             <div class="cart__total">
-              <div class="cart__total-label" colspan="2">{{ 'cart.total'|trans }}</div>
-              <div class="cart__total-price js-cart-total">{{ cart.totals.grandTotal|price }}</div>
+                <div class="cart__total-label" colspan="2">{{ 'cart.total.discount'|trans }}</div>
+                <div class="cart__total-price js-cart-total">-{{ cart.totals.discountTotal|price }}</div>
+                <div class="cart__total-label" colspan="2">{{ 'cart.total'|trans }}</div>
+                <div class="cart__total-price js-cart-total">{{ cart.totals.grandTotal|price }}</div>
             </div>
         {% endif %}
-        <a href="{{ url('checkout') }}" class="cart__to-checkout cta">{{ 'cart.checkout'|trans }}</a>
+        <a href="{{ path('checkout-index') }}" class="cart__to-checkout cta">{{ 'cart.checkout'|trans }}</a>
     {% endspaceless %}
 {% else %}
     <div style="text-align: center; font-weight: bold; font-size: 1.2em">

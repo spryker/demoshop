@@ -7,89 +7,48 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
-use Generated\Shared\Transfer\LocaleTransfer;
-use Orm\Zed\Glossary\Persistence\Map\SpyGlossaryKeyTableMap;
-use Orm\Zed\Glossary\Persistence\Map\SpyGlossaryTranslationTableMap;
-use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
-use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
-use Orm\Zed\Touch\Persistence\SpyTouchQuery;
-use Propel\Runtime\ActiveQuery\Criteria;
-use Spryker\Shared\Glossary\Code\KeyBuilder\GlossaryKeyBuilder;
-use Spryker\Zed\Collector\Business\Exporter\AbstractPropelCollectorPlugin;
-use Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet;
+use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollector;
 
-class TranslationCollector extends AbstractPropelCollectorPlugin
+class TranslationCollector extends AbstractStoragePropelCollector
 {
 
-    use GlossaryKeyBuilder;
+    /**
+     * @param string $touchKey
+     * @param array $collectItemData
+     *
+     * @return array
+     */
+    protected function collectItem($touchKey, array $collectItemData)
+    {
+        return $collectItemData['translation_value'];
+    }
 
     /**
      * @return string
      */
-    protected function getTouchItemType()
+    protected function collectResourceType()
     {
         return 'translation';
     }
 
     /**
-     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param mixed $data
+     * @param string $localeName
+     * @param array $collectedItemData
      *
-     * @return \Orm\Zed\Touch\Persistence\SpyTouchQuery
+     * @return string
      */
-    protected function createQuery(SpyTouchQuery $baseQuery, LocaleTransfer $locale)
+    protected function collectKey($data, $localeName, array $collectedItemData)
     {
-        $baseQuery->addJoin(
-            SpyTouchTableMap::COL_ITEM_ID,
-            SpyGlossaryTranslationTableMap::COL_ID_GLOSSARY_TRANSLATION,
-            Criteria::INNER_JOIN
-        );
-        $baseQuery->addJoin(
-            SpyGlossaryTranslationTableMap::COL_FK_GLOSSARY_KEY,
-            SpyGlossaryKeyTableMap::COL_ID_GLOSSARY_KEY,
-            Criteria::INNER_JOIN
-        );
-        $baseQuery->addJoin(
-            SpyGlossaryTranslationTableMap::COL_FK_LOCALE,
-            SpyLocaleTableMap::COL_ID_LOCALE,
-            Criteria::INNER_JOIN
-        );
-
-        $baseQuery->addAnd(SpyLocaleTableMap::COL_LOCALE_NAME, $locale->getLocaleName(), Criteria::EQUAL);
-        $baseQuery->addAnd(SpyLocaleTableMap::COL_IS_ACTIVE, true, Criteria::EQUAL);
-        $baseQuery->addAnd(SpyGlossaryKeyTableMap::COL_IS_ACTIVE, true, Criteria::EQUAL);
-        $baseQuery->addAnd(SpyGlossaryTranslationTableMap::COL_IS_ACTIVE, true, Criteria::EQUAL);
-
-        $baseQuery->clearSelectColumns();
-
-        $baseQuery->withColumn(SpyGlossaryTranslationTableMap::COL_VALUE, 'translation_value');
-        $baseQuery->withColumn(SpyGlossaryKeyTableMap::COL_KEY, 'translation_key');
-        $baseQuery->withColumn(
-            SpyTouchTableMap::COL_ID_TOUCH,
-            self::TOUCH_EXPORTER_ID
-        );
-
-        return $baseQuery;
+        return $this->generateKey($collectedItemData['translation_key'], $localeName);
     }
 
     /**
-     * @param array $resultSet
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
-     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\KeyValue\TouchUpdaterSet $touchUpdaterSet
-     *
-     * @return array
+     * @return string
      */
-    protected function processData($resultSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
+    public function getBundleName()
     {
-        $processedResultSet = [];
-
-        foreach ($resultSet as $index => $translation) {
-            $key = $this->generateKey($translation['translation_key'], $locale->getLocaleName());
-            $processedResultSet[$key] = $translation['translation_value'];
-            $touchUpdaterSet->add($key, $translation[self::TOUCH_EXPORTER_ID]);
-        }
-
-        return $processedResultSet;
+        return 'glossary';
     }
 
 }

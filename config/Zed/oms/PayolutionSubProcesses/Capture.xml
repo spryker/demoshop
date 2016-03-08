@@ -18,7 +18,7 @@
         </transitions>
 
         <events>
-            <event name="capture payment" onEnter="true" command="Payolution/Capture"/>
+            <event name="capture payment" onEnter="true" manual="true" command="Payolution/Capture"/>
         </events>
     </process>
 </statemachine>

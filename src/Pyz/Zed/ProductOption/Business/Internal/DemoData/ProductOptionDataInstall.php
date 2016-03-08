@@ -7,10 +7,10 @@
 
 namespace Pyz\Zed\ProductOption\Business\Internal\DemoData;
 
+use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Writer\WriterInterface;
-use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 
-class ProductOptionDataInstall extends AbstractInstaller
+class ProductOptionDataInstall extends AbstractDemoDataInstaller
 {
 
     /**
@@ -33,6 +33,14 @@ class ProductOptionDataInstall extends AbstractInstaller
     ) {
         $this->optionWriter = $optionWriter;
         $this->productOptionWriter = $ProductOptionWriter;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return 'Products Options';
     }
 
     /**

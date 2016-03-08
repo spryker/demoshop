@@ -1,0 +1,65 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block title %}{{ product.pageTitle }}{% endblock %}
+
+{% block content %}
+
+    <article class="row product-details-page background-gray">
+        <div class="col-md-6 text-center product-details">
+            {% if category is not null %}
+                <h2 class="product-category">{{ category.name }}</h2>
+            {% endif %}
+
+            <h1 class="product-name">{{ product.abstract_name }}</h1>
+
+            <p>{{ product.description }}</p>
+
+            <p class="product-price">{{ product.price | price }}</p>
+
+            <div class="manage-quantity">
+                <div class="quantity-container">
+                    <div class="quantity-modifier left"><a href="#" class="quantity-minus"><i class="fa fa-minus"></i></a></div>
+                    <div class="quantity-input">
+                        <input type="text" name="quantity" id="product-quantity" class="form-control" value="1" />
+                    </div>
+                    <div class="quantity-modifier right"><a href="#" class="quantity-plus"><i class="fa fa-plus"></i></a></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <button class="btn btn-orange btn-add-to-cart btn-lg cta" data-action="addToCart" data-sku="{{ product.abstractSku }}">{{ "page.detail.add-to-cart" | trans }}</button>
+
+        </div>
+        <div class="col-md-6">
+
+            <img src="/assets/default/img/{{ product.image_url }}" class="product-main-image" alt="" />
+
+            <div class="background-dark product-padding-details">
+                <section class="product-description">
+                    <p>{{ product.fun_fact }}</p>
+
+                    <p>{{ product.description_long }}</p>
+                    <dl class="product-specifications">
+                        <dt>{{ "page.detail.dimensions" | trans }}</dt>
+                        <dd>{{ product.width }}x{{ product.height }}x{{ product.depth }} cm</dd>
+                        {% if product.material is not null %}
+                            <dt>{{ "page.detail.material" | trans }}</dt>
+                            <dd>{{ product.material }}</dd>
+                        {% endif %}
+                    </dl>
+                </section>
+                <section class="product-gallery">
+                    {% for image in product.images_detail %}
+                        <img src="/assets/default/img/{{ image }}" alt="">
+                    {% endfor %}
+                </section>
+            </div>
+
+            <section class="product-warnings">
+                <p class="warning-under-3">{{ "page.detail.small-parts-warning" | trans }}</p>
+            </section>
+
+        </div>
+    </article>
+
+{% endblock %}

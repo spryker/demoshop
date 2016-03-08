@@ -13,6 +13,7 @@ use Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface;
 use Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface;
 use Spryker\Zed\Collector\Business\Model\BatchResultInterface;
 use Spryker\Zed\Collector\Communication\Plugin\AbstractCollectorPlugin;
+use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * @method \Pyz\Zed\Collector\Communication\CollectorCommunicationFactory getFactory()
@@ -27,6 +28,7 @@ class NavigationCollectorStoragePlugin extends AbstractCollectorPlugin
      * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
      * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
      * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
      * @return void
      */
@@ -35,9 +37,11 @@ class NavigationCollectorStoragePlugin extends AbstractCollectorPlugin
         LocaleTransfer $locale,
         BatchResultInterface $result,
         WriterInterface $dataWriter,
-        TouchUpdaterInterface $touchUpdater
+        TouchUpdaterInterface $touchUpdater,
+        OutputInterface $output
     ) {
-        $this->getFacade()->runStorageNavigationCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater);
+        $this->getFacade()
+            ->runStorageNavigationCollector($baseQuery, $locale, $result, $dataWriter, $touchUpdater, $output);
     }
 
 }

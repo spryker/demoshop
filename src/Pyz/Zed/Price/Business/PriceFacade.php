@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\Price\Business;
 
-use Psr\Log\LoggerInterface;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\Price\Business\PriceFacade as SprykerPriceFacade;
 
