@@ -25,7 +25,7 @@ if [[ $RESET == 1 ]]; then
     redis-cli -p 10009 flushdb &> /dev/null
 
     labelText "Delete all indices on elasticsearch"
-    curl -XDELETE 'http://localhost:9200/_all' &> /dev/null
+    curl -XDELETE 'http://localhost:10005/_all' &> /dev/null
 
     labelText "Drop Database"
     dropDatabase
