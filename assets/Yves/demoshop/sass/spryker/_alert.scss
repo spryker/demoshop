@@ -14,6 +14,25 @@
   font-size: 15px;
   font-family: Fira Sans,sans-serif;
 
+  .close-alert {
+    border: 0;
+    float: right;
+    margin-top: -5px;
+    height: 35px;
+    color: #7F0055;
+    text-align: center;
+
+    &:hover {
+      background: transparent;
+      color: #333;
+    }
+
+    span {
+      font-size: 30px;
+      line-height: 20px;
+    }
+  }
+
   .alert {
     margin: 0 3%;
     padding: 15px;
