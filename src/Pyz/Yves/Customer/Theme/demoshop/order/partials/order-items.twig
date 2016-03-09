@@ -16,13 +16,13 @@
                     {{ orderItem.name }}
                 </td>
                 <td align="right">
-                    {{ orderItem.sumGrossPriceWithProductOptionAndDiscountAmounts | price }}
+                    {{ orderItem.unitGrossPriceWithProductOptionAndDiscountAmounts | price }}
                 </td>
                 <td align="right">
                     {{ orderItem.quantity }}
                 </td>
                 <td align="right">
-                    {{ (orderItem.sumGrossPriceWithProductOptionAndDiscountAmounts * orderItem.quantity) | price }}
+                    {{ orderItem.sumGrossPriceWithProductOptionAndDiscountAmounts | price }}
                 </td>
             </tr>
         {% endfor %}
