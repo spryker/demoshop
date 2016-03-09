@@ -44,7 +44,7 @@ class DemoDataInstallConsole extends Console
                 $messenger->debug('Running ' . get_class($plugin));
 
                 $plugin->setMessenger($messenger);
-                $plugin->install();
+                $plugin->run();
             }
         } catch (\Exception $e) {
             $this->error($e->getMessage());
