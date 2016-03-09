@@ -52,8 +52,6 @@ class CartOperationHandler extends BaseHandler
 
         $quoteTransfer = $this->cartClient->addItem($itemTransfer);
         $this->cartClient->storeQuote($quoteTransfer);
-
-        $this->setFlashMessagesFromLastZedRequest($this->cartClient);
     }
 
     /**
@@ -66,8 +64,6 @@ class CartOperationHandler extends BaseHandler
     {
         $quoteTransfer = $this->cartClient->removeItem($sku, $groupKey);
         $this->cartClient->storeQuote($quoteTransfer);
-
-        $this->setFlashMessagesFromLastZedRequest($this->cartClient);
     }
 
     /**
@@ -80,8 +76,6 @@ class CartOperationHandler extends BaseHandler
     {
         $quoteTransfer = $this->cartClient->increaseItemQuantity($sku, $groupKey);
         $this->cartClient->storeQuote($quoteTransfer);
-
-        $this->setFlashMessagesFromLastZedRequest($this->cartClient);
     }
 
     /**
@@ -94,8 +88,6 @@ class CartOperationHandler extends BaseHandler
     {
         $quoteTransfer = $this->cartClient->decreaseItemQuantity($sku, $groupKey);
         $this->cartClient->storeQuote($quoteTransfer);
-
-        $this->setFlashMessagesFromLastZedRequest($this->cartClient);
     }
 
     /**
@@ -109,8 +101,6 @@ class CartOperationHandler extends BaseHandler
     {
         $quoteTransfer = $this->cartClient->changeItemQuantity($sku, $groupKey, $quantity);
         $this->cartClient->storeQuote($quoteTransfer);
-
-        $this->setFlashMessagesFromLastZedRequest($this->cartClient);
     }
 
     /**
