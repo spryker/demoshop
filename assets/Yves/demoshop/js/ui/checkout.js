@@ -257,13 +257,13 @@ module.exports = {
         }
 
         function selectShipment() {
-            var index = $('.checkout-shipment input').index(this);
+            var index = $('.checkout-shipment input[type="radio"]').index(this);
             $('.shipement-method').removeClass('show');
             if (index > -1) $('.shipment-method').eq(index).addClass('show');
         }
 
         function selectPayment() {
-            var index = $('.checkout-payment input').index(this);
+            var index = $('.checkout-payment input[type="radio"]').index(this);
             $('.payolution-form').removeClass('show');
             if (index > -1) $('.payolution-form').eq(index).addClass('show');
         }
@@ -274,10 +274,10 @@ module.exports = {
         selectAddress.apply($('.address-option input'));
         $('.address-option input').on('change', selectAddress);
 
-        selectShipment.apply($('.checkout-shipment input:checked'));
-        $('.checkout-shipment input').on('change', selectShipment);
+        selectShipment.apply($('.checkout-shipment input[type="radio"]:checked'));
+        $('.checkout-shipment input[type="radio"]').on('change', selectShipment);
 
-        selectPayment.apply($('.checkout-payment input:checked'));
-        $('.checkout-payment input').on('change', selectPayment);
+        selectPayment.apply($('.checkout-payment input[type="radio"]:checked'));
+        $('.checkout-payment input[type="radio"]').on('change', selectPayment);
     }
 };
