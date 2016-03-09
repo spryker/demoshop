@@ -28,6 +28,7 @@ use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\RequestServiceP
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\SilexRoutingServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\SslServiceProvider;
+use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\SubRequestServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
@@ -102,6 +103,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new DateFormatterServiceProvider(),
             new ZedExtensionServiceProvider(),
             new TranslationServiceProvider(),
+            new SubRequestServiceProvider(),
         ];
 
         if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER, false)) {

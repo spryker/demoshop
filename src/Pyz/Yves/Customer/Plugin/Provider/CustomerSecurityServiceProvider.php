@@ -10,7 +10,7 @@ namespace Pyz\Yves\Customer\Plugin\Provider;
 use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
 use Pyz\Yves\Customer\Form\LoginForm;
 use Silex\Application;
-use Spryker\Shared\Config\Config;
+use Spryker\Shared\Config;
 use Spryker\Shared\Customer\CustomerConstants;
 
 /**
@@ -34,6 +34,7 @@ class CustomerSecurityServiceProvider extends AbstractServiceProvider
         $this->setSecurityFirewalls($app);
         $this->setSecurityAccessRules($app);
         $this->setAuthenticationSuccessHandler($app);
+        $this->setAuthenticationFailureHandler($app);
     }
 
     /**
@@ -101,6 +102,20 @@ class CustomerSecurityServiceProvider extends AbstractServiceProvider
         $app['security.authentication.success_handler._proto'] = $app->protect(function ($name, $options) use ($app) {
             return $app->share(function () use ($name, $options, $app) {
                 return $this->getFactory()->createCustomerAuthenticationSuccessHandler();
+            });
+        });
+    }
+
+    /**
+     * @param \Silex\Application $app
+     *
+     * @return void
+     */
+    protected function setAuthenticationFailureHandler(Application &$app)
+    {
+        $app['security.authentication.failure_handler._proto'] = $app->protect(function ($name, $options) use ($app) {
+            return $app->share(function () use ($name, $options, $app) {
+                return $this->getFactory()->createCustomerAuthenticationFailureHandler();
             });
         });
     }

@@ -6,6 +6,7 @@ use Codeception\TestCase;
 use Codeception\Module;
 use Propel\Runtime\Propel;
 use Silex\Application;
+use Spryker\Shared\Library\Environment;
 use Spryker\Zed\Propel\Communication\Plugin\ServiceProvider\PropelServiceProvider;
 
 /**
@@ -20,9 +21,6 @@ class Functional extends Module
     public function __construct($config = null)
     {
         parent::__construct($config);
-
-        $propelServiceProvider = new PropelServiceProvider();
-        $propelServiceProvider->boot(new Application());
     }
 
     /**
@@ -31,6 +29,9 @@ class Functional extends Module
     public function _before(TestCase $test)
     {
         parent::_before($test);
+
+        $propelServiceProvider = new PropelServiceProvider();
+        $propelServiceProvider->boot(new Application());
 
         Propel::getWriteConnection('zed')->beginTransaction();
     }

@@ -96,11 +96,6 @@ input[type="radio"].padded + label::before {
   border-radius: $step;
 }
 
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
 a, a:visited {
   color: $brand-color;
   text-decoration: none;

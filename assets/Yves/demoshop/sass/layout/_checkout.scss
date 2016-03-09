@@ -342,3 +342,87 @@
   }
 }
 
+/**
+ *
+ * Checkout graphics
+ *
+ */
+
+.payolution-form,
+.shipment-method  {
+  display: none;
+
+  &.show {
+    display: block;
+  }
+}
+
+.customer-selection,
+.address-selection {
+  display: none;
+
+  &.show {
+    display: block;
+  }
+}
+
+.address-option {
+  padding: 0 10px;
+}
+
+.checkout-form {
+  h3 {
+    margin: 35px 0 0 0;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    padding: 0;
+    margin: 10px 3px;
+
+    + label:after {
+      content: '';
+      display: block;
+    }
+  }
+
+  button {
+    float: right;
+  }
+}
+
+#shipmentForm_dummy_shipment,
+#shipmentForm_shipmentSelection,
+#paymentForm_paymentSelection {
+  padding: 0 0 30px 0;
+}
+
+.checkout-summary {
+  .col-xs-12 {
+    padding: 0 10px;
+  }
+
+  table {
+    width: 100%;
+    padding: 10px;
+    margin: 0 0 20px 0;
+
+    tr {
+      &:nth-child(even) {
+        background: #eee;
+      }
+
+      > td {
+        padding: 5px 15px;
+
+        &:last-child {
+          text-align: right;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+
+

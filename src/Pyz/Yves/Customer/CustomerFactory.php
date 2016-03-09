@@ -17,11 +17,14 @@ use Pyz\Yves\Customer\Form\NewsletterSubscriptionForm;
 use Pyz\Yves\Customer\Form\PasswordForm;
 use Pyz\Yves\Customer\Form\ProfileForm;
 use Pyz\Yves\Customer\Form\RegisterForm;
-use Pyz\Yves\Customer\Form\RestorePasswordForm;
 use Pyz\Yves\Customer\Plugin\AuthenticationHandler;
+use Pyz\Yves\Customer\Plugin\GuestCheckoutAuthenticationHandlerPlugin;
+use Pyz\Yves\Customer\Plugin\LoginCheckoutAuthenticationHandlerPlugin;
+use Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationFailureHandler;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationSuccessHandler;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerUserProvider;
+use Pyz\Yves\Customer\Plugin\RegistrationCheckoutAuthenticationHandlerPlugin;
 use Pyz\Yves\Customer\Security\Customer;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Kernel\AbstractFactory;
@@ -117,6 +120,14 @@ class CustomerFactory extends AbstractFactory
     public function createCustomerAuthenticationSuccessHandler()
     {
         return new CustomerAuthenticationSuccessHandler();
+    }
+
+    /**
+     * @return \Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationSuccessHandler
+     */
+    public function createCustomerAuthenticationFailureHandler()
+    {
+        return new CustomerAuthenticationFailureHandler($this->getFlashMessenger());
     }
 
     /**
@@ -225,6 +236,50 @@ class CustomerFactory extends AbstractFactory
     public function createApplication()
     {
         return (new Pimple())->getApplication();
+    }
+
+    /**
+     * @return \Pyz\Yves\Application\Business\Model\FlashMessengerInterface
+     */
+    protected function getFlashMessenger()
+    {
+        return $this->createApplication()['flash_messenger'];
+    }
+
+    /**
+     * @return \Pyz\Yves\Customer\Plugin\CheckoutAuthenticationHandlerPluginInterface[]
+     */
+    public function createCustomerAuthenticationHandlerPlugins()
+    {
+        return [
+            $this->createLoginCheckoutAuthenticationHandlerPlugin(),
+            $this->createGuestCheckoutAuthenticationHandlerPlugin(),
+            $this->createRegistrationAuthenticationHandlerPlugin(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Yves\Customer\Plugin\LoginCheckoutAuthenticationHandlerPlugin
+     */
+    public function createLoginCheckoutAuthenticationHandlerPlugin()
+    {
+        return new LoginCheckoutAuthenticationHandlerPlugin();
+    }
+
+    /**
+     * @return \Pyz\Yves\Customer\Plugin\GuestCheckoutAuthenticationHandlerPlugin
+     */
+    public function createGuestCheckoutAuthenticationHandlerPlugin()
+    {
+        return new GuestCheckoutAuthenticationHandlerPlugin();
+    }
+
+    /**
+     * @return \Pyz\Yves\Customer\Plugin\RegistrationCheckoutAuthenticationHandlerPlugin
+     */
+    public function createRegistrationAuthenticationHandlerPlugin()
+    {
+        return new RegistrationCheckoutAuthenticationHandlerPlugin($this->getFlashMessenger());
     }
 
 }

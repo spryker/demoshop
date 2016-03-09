@@ -44,10 +44,14 @@ class CustomerUserProvider extends AbstractPlugin implements UserProviderInterfa
             throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', get_class($user)));
         }
 
-        if (!$this->getClient()->isLoggedIn()) {
+        if ($this->getClient()->isLoggedIn() === false) {
             $customerTransfer = $this->loadCustomerByEmail($user->getUsername());
         } else {
             $customerTransfer = $this->getClient()->getCustomer();
+
+            if ($customerTransfer->getIsDirty() === true) {
+                $customerTransfer = $this->updateUser($user);
+            }
         }
 
         return $this->getFactory()->createSecurityUser($customerTransfer);
@@ -74,6 +78,19 @@ class CustomerUserProvider extends AbstractPlugin implements UserProviderInterfa
         $customerTransfer->setEmail($email);
 
         $customerTransfer = $this->getClient()->getCustomerByEmail($customerTransfer);
+
+        return $customerTransfer;
+    }
+
+    /**
+     * @param \Symfony\Component\Security\Core\User\UserInterface $user
+     *
+     * @return \Generated\Shared\Transfer\CustomerTransfer
+     */
+    protected function updateUser(UserInterface $user)
+    {
+        $customerTransfer = $this->loadCustomerByEmail($user->getUsername());
+        $this->getClient()->setCustomer($customerTransfer);
 
         return $customerTransfer;
     }

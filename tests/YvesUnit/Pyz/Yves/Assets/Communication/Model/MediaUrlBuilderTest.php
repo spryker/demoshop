@@ -6,7 +6,7 @@
 
 namespace YvesUnit\Spryker\Yves\Assets\Communication;
 
-use Spryker\Yves\Assets\Communication\Model\MediaUrlBuilder;
+use Pyz\Yves\Twig\Model\MediaUrlBuilder;
 
 class MediaUrlBuilderTest extends \PHPUnit_Framework_TestCase
 {

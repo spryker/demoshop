@@ -7,24 +7,41 @@
 
 namespace Pyz\Yves\Checkout;
 
-use Generated\Shared\Transfer\CheckoutRequestTransfer;
-use Generated\Shared\Transfer\PayolutionCalculationResponseTransfer;
-use Generated\Shared\Transfer\ShipmentTransfer;
-use Pyz\Yves\Checkout\Form\CheckoutType;
-use Spryker\Shared\Config\Config;
-use Spryker\Shared\Payolution\PayolutionConstants;
+use Pyz\Yves\Application\Plugin\Pimple;
+use Pyz\Yves\Checkout\Form\FormFactory;
+use Pyz\Yves\Checkout\Process\StepFactory;
+use Pyz\Yves\Checkout\Process\StepProcess;
 use Spryker\Yves\Kernel\AbstractFactory;
-use Symfony\Component\HttpFoundation\Request;
 
 class CheckoutFactory extends AbstractFactory
 {
 
     /**
-     * @return \Spryker\Client\Checkout\CheckoutClient
+     * @return \Pyz\Yves\Checkout\Process\StepProcess
      */
-    public function getCheckoutClient()
+    public function createCheckoutProcess()
     {
-        return $this->getLocator()->checkout()->client();
+        return new StepProcess(
+            $this->createStepFactory()->createSteps(),
+            $this->getUrlGenerator(),
+            $this->getCartClient()
+        );
+    }
+
+    /**
+     * @return \Pyz\Yves\Checkout\Process\StepFactory
+     */
+    public function createStepFactory()
+    {
+        return new StepFactory();
+    }
+
+    /**
+     * @return \Pyz\Yves\Checkout\Form\FormFactory
+     */
+    public function createCheckoutFormFactory()
+    {
+        return new FormFactory();
     }
 
     /**
@@ -36,62 +53,19 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @return \Spryker\Client\Shipment\ShipmentClientInterface
+     * @return \Symfony\Component\Routing\Generator\UrlGeneratorInterface
      */
-    public function getShipmentClient()
+    protected function getUrlGenerator()
     {
-        return $this->getLocator()->shipment()->client();
+        return $this->getApplication()['url_generator'];
     }
 
     /**
-     * @return \Spryker\Client\Glossary\GlossaryClientInterface
+     * @return \Spryker\Yves\Application\Application
      */
-    public function getGlossaryClient()
+    protected function getApplication()
     {
-        return $this->getLocator()->glossary()->client();
-    }
-
-    /**
-     * @return \Spryker\Client\Payolution\PayolutionClientInterface
-     */
-    public function getPayolutionClient()
-    {
-        return $this->getLocator()->payolution()->client();
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getPayolutionCalculationCredentials()
-    {
-        return [
-            PayolutionConstants::CALCULATION_USER_LOGIN => Config::get(PayolutionConstants::CALCULATION_USER_LOGIN),
-            PayolutionConstants::CALCULATION_USER_PASSWORD => Config::get(PayolutionConstants::CALCULATION_USER_PASSWORD),
-        ];
-    }
-
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\ShipmentTransfer $shipmentTransfer
-     * @param \Generated\Shared\Transfer\PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer
-     * @param \Generated\Shared\Transfer\CheckoutRequestTransfer $checkoutRequestTransfer
-     *
-     * @return \Pyz\Yves\Checkout\Form\CheckoutType
-     */
-    public function createCheckoutForm(
-        Request $request,
-        ShipmentTransfer $shipmentTransfer,
-        PayolutionCalculationResponseTransfer $payolutionCalculationResponseTransfer,
-        CheckoutRequestTransfer $checkoutRequestTransfer
-    ) {
-        $formType = new CheckoutType(
-            $request,
-            $shipmentTransfer,
-            $this->getGlossaryClient(),
-            $payolutionCalculationResponseTransfer
-        );
-
-        return $this->getFormFactory()->create($formType, $checkoutRequestTransfer);
+        return (new Pimple())->getApplication();
     }
 
 }

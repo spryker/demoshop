@@ -1,9 +1,4 @@
-{{ form_start(form, {'action': '/login_check', 'attr': {'class': 'form-horizontal'}}) }}
-
-    {% if hasAuthError is defined and hasAuthError == true %}
-        <div style="color:red">{{ 'customer.login.failed' | trans }}</div>
-    {% endif %}
-
+{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
     <label>{{ form.email.vars.label | trans }}</label>
     <div class="field">
         {{ form_widget(form.email, { 'attr': {'placeholder': form.email.vars.label | trans } }) }}

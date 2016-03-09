@@ -1,0 +1,33 @@
+<div class="payolution-form payolution-installment-form">
+	<h3>Payolution Installment</h3>
+
+	<label>{{ 'payolution_installment.date_of_birth' | trans }}</label>
+	<div class="field">
+	    {{ form_widget(form.payolution_installment.date_of_birth, { 'attr': {'placeholder': 'payolution_installment.date_of_birth' | trans } }) }}
+	    {{ form_errors(form.payolution_installment.date_of_birth) }}
+	</div>
+
+	<label>{{ 'payolution_installment.bank_account_holder' | trans }}</label>
+	<div class="field">
+	    {{ form_widget(form.payolution_installment.bank_account_holder, { 'attr': {'placeholder': 'payolution_installment.bank_account_holder' | trans } }) }}
+	    {{ form_errors(form.payolution_installment.bank_account_holder) }}
+	</div>
+
+	<label>{{ 'payolution_installment.bank_account_iban' | trans }}</label>
+	<div class="field">
+	    {{ form_widget(form.payolution_installment.bank_account_iban, { 'attr': {'placeholder': 'payolution_installment.bank_account_iban' | trans } }) }}
+	    {{ form_errors(form.payolution_installment.bank_account_iban) }}
+	</div>
+
+	<label>{{ 'payolution_installment.bank_account_bic' | trans }}</label>
+	<div class="field">
+	    {{ form_widget(form.payolution_installment.bank_account_bic, { 'attr': {'placeholder': 'payolution_installment.bank_account_bic' | trans } }) }}
+	    {{ form_errors(form.payolution_installment.bank_account_bic) }}
+	</div>
+
+	<label>{{ 'payolution_installment.installment_payment_detail_index' | trans }}</label>
+	<div class="field">
+	    {{ form_widget(form.payolution_installment.installment_payment_detail_index, { 'attr': {'placeholder': 'payolution_installment.installment_payment_detail_index' | trans } }) }}
+	    {{ form_errors(form.payolution_installment.installment_payment_detail_index) }}
+	</div>
+</div>

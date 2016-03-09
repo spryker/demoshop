@@ -57,4 +57,14 @@ class CustomerClient extends SprykerCustomerClient implements CustomerClientInte
         return $customerTransfer;
     }
 
+    /**
+     * @return void
+     */
+    public function markCustomerAsDirty()
+    {
+        if ($this->isLoggedIn() !== false) {
+            $this->getCustomer()->setIsDirty(true);
+        }
+    }
+
 }
