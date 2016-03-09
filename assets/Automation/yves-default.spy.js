@@ -51,7 +51,8 @@ module.exports = {
             sourceMap: isDebug,
             compress: isProduction,
             mangle: isProduction
-        })
+        }),
+        new webpack.NewWatchingPlugin()
     ],
     sassLoader: {
         outputStyle: isProduction ? 'compact' : 'expanded',
