@@ -8,7 +8,7 @@
 		<div class="col-xs-12">
 			{{ form_start(addressesForm, { 'attr': { 'class': 'form-horizontal checkout-form' }}) }}
 
-			{% if addressesForm.shippingAddress.id_customer_address is defined %}
+			{% if addressForm.shippingAddress is defined and addressesForm.shippingAddress.id_customer_address is defined %}
 			<div class="row">
 		    	<div class="col-xs-12 col-md-6 address-user-shipping">
 		    		<label>{{ 'customer.shippingAddress.id_customer_address' | trans }}</label>
@@ -92,7 +92,7 @@
 				</div>
 			</div>
 
-			{% if addressesForm.billingAddress.id_customer_address is defined %}
+			{% if addressForm.billingAddress is defined and addressesForm.billingAddress.id_customer_address is defined %}
 			<div class="row address-user-billing">
 				<div class="col-xs-12 col-md-6">
 			    	<label>{{ 'customer.billingAddress.id_customer_address' | trans }}</label>
