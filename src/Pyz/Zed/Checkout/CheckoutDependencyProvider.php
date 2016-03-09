@@ -48,8 +48,8 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             new OrderCustomerSavePlugin(),
             new SalesOrderSaverPlugin(),
             new ProductOptionOrderSaverPlugin(),
-            new DiscountOrderSavePlugin(),
             new OrderShipmentSavePlugin(),
+            new DiscountOrderSavePlugin(),
             new PaymentSaverPlugin(),
         ];
     }
