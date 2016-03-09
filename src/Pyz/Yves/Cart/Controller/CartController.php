@@ -40,7 +40,9 @@ class CartController extends AbstractController
      */
     public function addAction($sku, $quantity, $optionValueUsageIds = [])
     {
-        $this->getFactory()->createCartOperationHandler()->add($sku, $quantity, $optionValueUsageIds);
+        $cartOperationHandler = $this->getCartOperationHandler();
+        $cartOperationHandler->add($sku, $quantity, $optionValueUsageIds);
+        $cartOperationHandler->setFlashMessagesFromLastZedRequest($this->getClient());
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
     }
@@ -53,7 +55,9 @@ class CartController extends AbstractController
      */
     public function removeAction($sku, $groupKey = null)
     {
-        $this->getFactory()->createCartOperationHandler()->remove($sku, $groupKey);
+        $cartOperationHandler = $this->getCartOperationHandler();
+        $cartOperationHandler->remove($sku, $groupKey);
+        $cartOperationHandler->setFlashMessagesFromLastZedRequest($this->getClient());
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
     }
@@ -67,9 +71,19 @@ class CartController extends AbstractController
      */
     public function changeAction($sku, $quantity, $groupKey = null)
     {
-        $this->getFactory()->createCartOperationHandler()->changeQuantity($sku, $quantity, $groupKey);
+        $cartOperationHandler = $this->getCartOperationHandler();
+        $cartOperationHandler->changeQuantity($sku, $quantity, $groupKey);
+        $cartOperationHandler->setFlashMessagesFromLastZedRequest($this->getClient());
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART_OVERLAY);
+    }
+
+    /**
+     * @return \Pyz\Yves\Cart\Handler\CartOperationHandler
+     */
+    protected function getCartOperationHandler()
+    {
+        return $this->getFactory()->createCartOperationHandler();
     }
 
 }

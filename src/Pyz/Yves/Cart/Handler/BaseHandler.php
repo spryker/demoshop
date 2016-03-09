@@ -25,21 +25,21 @@ class BaseHandler
     }
 
     /**
-     * @param \Spryker\Client\Kernel\AbstractClient $calculationClient
+     * @param \Spryker\Client\Kernel\AbstractClient $client
      *
      * @return void
      */
-    protected function setFlashMessagesFromLastZedRequest(AbstractClient $calculationClient)
+    public function setFlashMessagesFromLastZedRequest(AbstractClient $client)
     {
-        foreach ($calculationClient->getZedErrorMessages() as $errorMessage) {
+        foreach ($client->getZedErrorMessages() as $errorMessage) {
             $this->flashMessenger->addErrorMessage($errorMessage->getMessage());
         }
 
-        foreach ($calculationClient->getZedSuccessMessages() as $successMessage) {
+        foreach ($client->getZedSuccessMessages() as $successMessage) {
             $this->flashMessenger->addSuccessMessage($successMessage->getMessage());
         }
 
-        foreach ($calculationClient->getZedInfoMessages() as $infoMessage) {
+        foreach ($client->getZedInfoMessages() as $infoMessage) {
             $this->flashMessenger->addInfoMessage($infoMessage->getMessage());
         }
     }
