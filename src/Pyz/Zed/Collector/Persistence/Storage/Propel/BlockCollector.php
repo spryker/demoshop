@@ -7,7 +7,6 @@ use Orm\Zed\Cms\Persistence\Map\SpyCmsGlossaryKeyMappingTableMap;
 use Orm\Zed\Cms\Persistence\Map\SpyCmsPageTableMap;
 use Orm\Zed\Cms\Persistence\Map\SpyCmsTemplateTableMap;
 use Orm\Zed\Glossary\Persistence\Map\SpyGlossaryKeyTableMap;
-use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
@@ -29,16 +28,6 @@ class BlockCollector extends AbstractPropelCollectorQuery
         $this->touchQuery->addJoin(
             SpyCmsBlockTableMap::COL_FK_PAGE,
             SpyCmsPageTableMap::COL_ID_CMS_PAGE,
-            Criteria::INNER_JOIN
-        );
-        $this->touchQuery->addJoin(
-            SpyCmsPageTableMap::COL_ID_CMS_PAGE,
-            SpyUrlTableMap::COL_FK_RESOURCE_PAGE,
-            Criteria::INNER_JOIN
-        );
-        $this->touchQuery->addJoin(
-            SpyUrlTableMap::COL_FK_LOCALE,
-            SpyLocaleTableMap::COL_ID_LOCALE,
             Criteria::INNER_JOIN
         );
         $this->touchQuery->addJoin(

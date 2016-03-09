@@ -293,7 +293,7 @@
                 </placeholders>
             </locale>
             <locale name="en_US">
-                <url>/en/about</url>
+                <url>/en/company</url>
                 <placeholders>
                     <placeholder>
                         <name>title</name>
