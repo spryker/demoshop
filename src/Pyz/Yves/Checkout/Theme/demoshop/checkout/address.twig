@@ -8,7 +8,8 @@
 		<div class="col-xs-12">
 			{{ form_start(addressesForm, { 'attr': { 'class': 'form-horizontal checkout-form' }}) }}
 
-			<div class="row address-user">
+			{% if addressesForm.shippingAddress.id_customer_address is defined %}
+			<div class="row">
 		    	<div class="col-xs-12 col-md-6 address-user-shipping">
 		    		<label>{{ 'customer.shippingAddress.id_customer_address' | trans }}</label>
 					<div class="field">
@@ -16,17 +17,11 @@
 					    {{ form_errors(addressesForm.shippingAddress.id_customer_address) }}
 					</div>
 				</div>
-
-				<div class="col-xs-12  col-md-6 address-user-billing">
-		    		<label>{{ 'customer.billingAddress.id_customer_address' | trans }}</label>
-					<div class="field">
-					    {{ form_widget(addressesForm.billingAddress.id_customer_address, { 'attr': {'placeholder': addressesForm.billingAddress.id_customer_address.vars.label | trans } }) }}
-					    {{ form_errors(addressesForm.billingAddress.id_customer_address) }}
-					</div>
-				</div>
 			</div>
-
-		    <div class="row">
+			<div class="row address-user-shipping-custom">
+			{% else %}
+			<div class="row">
+			{% endif %}
 		        <div class="col-xs-12 col-md-6">
 		            <label>{{ addressesForm.shippingAddress.salutation.vars.label | trans }}</label>
 					<div class="field">
@@ -56,9 +51,9 @@
 					<div class="field">
 					    {{ form_widget(addressesForm.shippingAddress.address1, { 'attr': {'placeholder': addressesForm.shippingAddress.address1.vars.label | trans } }) }}
 					    {{ form_errors(addressesForm.shippingAddress.address1) }}
-					    {{ form_widget(addressesForm.shippingAddress.address2, { 'attr': {'placeholder': addressesForm.shippingAddress.address1.vars.label | trans } }) }}
+					    {{ form_widget(addressesForm.shippingAddress.address2, { 'attr': {'placeholder': addressesForm.shippingAddress.address2.vars.label | trans } }) }}
 					    {{ form_errors(addressesForm.shippingAddress.address2) }}
-					    {{ form_widget(addressesForm.shippingAddress.address3, { 'attr': {'placeholder': addressesForm.shippingAddress.address1.vars.label | trans } }) }}
+					    {{ form_widget(addressesForm.shippingAddress.address3, { 'attr': {'placeholder': addressesForm.shippingAddress.address3.vars.label | trans } }) }}
 					    {{ form_errors(addressesForm.shippingAddress.address3) }}
 					</div>
 		        </div>
@@ -97,7 +92,20 @@
 				</div>
 			</div>
 
+			{% if addressesForm.billingAddress.id_customer_address is defined %}
+			<div class="row address-user-billing">
+				<div class="col-xs-12 col-md-6">
+			    	<label>{{ 'customer.billingAddress.id_customer_address' | trans }}</label>
+					<div class="field">
+					    {{ form_widget(addressesForm.billingAddress.id_customer_address, { 'attr': {'placeholder': addressesForm.billingAddress.id_customer_address.vars.label | trans } }) }}
+					    {{ form_errors(addressesForm.billingAddress.id_customer_address) }}
+					</div>
+				</div>
+			</div>
+			<div class="row address-selection address-selection-billing address-user-billing-custom">
+			{% else %}
 			<div class="row address-selection address-selection-billing">
+			{% endif %}
 				<div class="col-xs-12 col-md-6">
 		            <label>{{ addressesForm.billingAddress.salutation.vars.label | trans }}</label>
 					<div class="field">
@@ -127,9 +135,9 @@
 					<div class="field">
 					    {{ form_widget(addressesForm.billingAddress.address1, { 'attr': {'placeholder': addressesForm.billingAddress.address1.vars.label | trans } }) }}
 					    {{ form_errors(addressesForm.billingAddress.address1) }}
-					    {{ form_widget(addressesForm.billingAddress.address2, { 'attr': {'placeholder': addressesForm.billingAddress.address1.vars.label | trans } }) }}
+					    {{ form_widget(addressesForm.billingAddress.address2, { 'attr': {'placeholder': addressesForm.billingAddress.address2.vars.label | trans } }) }}
 					    {{ form_errors(addressesForm.billingAddress.address2) }}
-					    {{ form_widget(addressesForm.billingAddress.address3, { 'attr': {'placeholder': addressesForm.billingAddress.address1.vars.label | trans } }) }}
+					    {{ form_widget(addressesForm.billingAddress.address3, { 'attr': {'placeholder': addressesForm.billingAddress.address3.vars.label | trans } }) }}
 					    {{ form_errors(addressesForm.billingAddress.address3) }}
 					</div>
 		        </div>

@@ -252,10 +252,6 @@ module.exports = {
             $('.customer-selection-' + value).addClass('show');
         }
 
-        function selectAddress() {
-            $('.address-selection').toggleClass('show', !$(this).prop('checked'));
-        }
-
         function selectShipment() {
             var index = $('.checkout-shipment input[type="radio"]').index(this);
             $('.shipement-method').removeClass('show');
@@ -271,8 +267,44 @@ module.exports = {
         selectCustomer.apply($('.customer-option:checked'));
         $('.customer-option').on('change', selectCustomer);
 
-        selectAddress.apply($('.address-option input'));
-        $('.address-option input').on('change', selectAddress);
+        if ($('.address-user-shipping, .address-user-billing').length > 0) {
+            function selectShippingCustomAddress() {
+                $('.address-user-shipping-custom').toggleClass('show', !$(this).val());
+            }
+
+            function selectBillingAddress() {
+                $('.address-user-billing').toggleClass('show', !$(this).prop('checked'));
+
+                if ($(this).prop('checked')) {
+                    $('.address-user-billing-custom').removeClass('show');
+                } else {
+                    $('.address-user-billing select').trigger('change');
+                }
+            }
+
+            function selectBillingCustomAddress() {
+                $('.address-user-billing-custom').toggleClass('show', !$(this).val());
+            }
+
+            selectShippingCustomAddress.apply($('.address-user-shipping select'));
+            $('.address-user-shipping select').on('change', selectShippingCustomAddress);
+
+            selectBillingAddress.apply($('.address-option input'));
+            $('.address-option input').on('change', selectBillingAddress);
+
+            if (!$('.address-option input').prop('checked')) {
+                selectBillingCustomAddress.apply($('.address-user-billing select'));
+            }
+
+            $('.address-user-billing select').on('change', selectBillingCustomAddress);
+        } else {
+            function selectAddress() {
+                $('.address-selection').toggleClass('show', !$(this).prop('checked'));
+            }
+
+            selectAddress.apply($('.address-option input'));
+            $('.address-option input').on('change', selectAddress);
+        }
 
         selectShipment.apply($('.checkout-shipment input[type="radio"]:checked'));
         $('.checkout-shipment input[type="radio"]').on('change', selectShipment);
