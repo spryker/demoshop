@@ -49,7 +49,10 @@ class GatewayController extends SprykerGatewayController
     {
         $orderListTransfer = $this->getFactory()
             ->getSalesFacade()
-            ->getOrders($overviewRequestTransfer->getOrderList());
+            ->getCustomerOrders(
+                $overviewRequestTransfer->getOrderList(),
+                $overviewRequestTransfer->getCustomer()->getIdCustomer()
+            );
 
         return $orderListTransfer;
     }
