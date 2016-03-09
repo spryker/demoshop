@@ -33,16 +33,6 @@ class BlockCollector extends AbstractPropelCollectorQuery
         );
         $this->touchQuery->addJoin(
             SpyCmsPageTableMap::COL_ID_CMS_PAGE,
-            SpyUrlTableMap::COL_FK_RESOURCE_PAGE,
-            Criteria::INNER_JOIN
-        );
-        $this->touchQuery->addJoin(
-            SpyUrlTableMap::COL_FK_LOCALE,
-            SpyLocaleTableMap::COL_ID_LOCALE,
-            Criteria::INNER_JOIN
-        );
-        $this->touchQuery->addJoin(
-            SpyCmsPageTableMap::COL_ID_CMS_PAGE,
             SpyCmsGlossaryKeyMappingTableMap::COL_FK_PAGE,
             Criteria::INNER_JOIN
         );
