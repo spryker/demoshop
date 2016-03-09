@@ -21,14 +21,21 @@ class PageCollector extends AbstractStoragePropelCollector
      */
     protected function collectItem($touchKey, array $collectItemData)
     {
-        $placeholders = isset($collectItemData[$touchKey]['placeholders']) ? $collectItemData[$touchKey]['placeholders'] : [];
-        $placeholders[$collectItemData['placeholder']] = $collectItemData['translation_key'];
+        $placeholderNames = explode(',', $collectItemData['placeholder']);
+        $keys = explode(',', $collectItemData['key']);
+
+        $step = 0;
+        $placeholderCollection = [];
+        foreach ($placeholderNames as $name) {
+            $placeholderCollection[$name] = $keys[$step];
+            $step++;
+        }
 
         return [
             'url' => $collectItemData['page_url'],
             'id' => $collectItemData['page_id'],
             'template' => $collectItemData['template_path'],
-            'placeholders' => $placeholders,
+            'placeholders' => $placeholderCollection,
         ];
     }
 
