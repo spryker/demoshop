@@ -72,22 +72,22 @@ function cleanupDatabaseMemorySearch {
     redis-cli -p 10009 FLUSHALL
     writeErrorMessage "Flushing Redis failed"
 
+    cleanupDatabase $DATABASE_NAME
+}
+
+function cleanupDatabase {
     PG_CTL_CLUSTER=`which pg_ctlcluster`
     DROP_DB=`which dropdb`
     if [[ -f $PG_CTL_CLUSTER ]] && [[ -f $DROP_DB ]]; then
-        labelText "Deleting Postgres Database: $DATABASE_NAME "
-        sudo pg_ctlcluster 9.4 main restart --force && sudo dropdb $DATABASE_NAME
+        labelText "Deleting Postgres Database: ${1} "
+        sudo pg_ctlcluster 9.4 main restart --force && sudo dropdb $1 2> /dev/null
         writeErrorMessage "Deleting DB command failed"
-    else
-        infoText "No PostgreSQL support found"
     fi
 
     MYSQL=`which mysql`
     if [[ -f $MYSQL ]]; then
-        labelText "Drop MySQL database: $DATABASE_NAME"
-        mysql -u root -e "DROP DATABASE IF EXISTS $DATABASE_NAME;"
-    else
-        infoText "No MySQL support found"
+        labelText "Drop MySQL database: ${1}"
+        mysql -u root -e "DROP DATABASE IF EXISTS ${1};"
     fi
 }
 
