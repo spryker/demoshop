@@ -51,17 +51,6 @@ function writeErrorMessage {
     fi
 }
 
-function dropDatabase {
-    # postgres
-    labelText "Drop PostgreSQL database"
-    sudo pg_ctlcluster 9.4 main restart --force
-    sudo dropdb DE_development_zed
-
-    # mysql
-    # labelText "Drop MySQL database"
-    # mysql -u root -e "DROP DATABASE DE_development_zed;"
-}
-
 function createDb {
     # postgres
     sudo createdb DE_development_zed
