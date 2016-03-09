@@ -7,6 +7,8 @@ if [[ -z "$SETUP" ]]; then
     exit 0
 fi
 
+DATABASE_NAME='DE_development_zed'
+
 CURL=`which curl`
 NPM=`which npm`
 GIT=`which git`
@@ -68,22 +70,36 @@ function createDb {
     # mysql -u root -e "CREATE DATABASE DE_development_zed;"
 }
 
-function cleanupDBRES {
+function cleanupDatabaseMemorySearch {
     labelText "Flushing Elastic Search"
-    #curl -XDELETE 'http://localhost:10005/de_development_catalog/'
-    #curl -XPUT 'http://localhost:10005/de_development_catalog/'
+    curl -XDELETE 'http://localhost:10005/de_development_catalog/'
+    curl -XPUT 'http://localhost:10005/de_development_catalog/'
     writeErrorMessage "Flushing ES failed"
 
     labelText "Run setup:search command"
-    #vendor/bin/console setup:search
+    vendor/bin/console setup:search
 
     labelText "Flushing Redis"
-    #redis-cli -p 10009 FLUSHALL
+    redis-cli -p 10009 FLUSHALL
     writeErrorMessage "Flushing Redis failed"
 
-    labelText "Deleting DB"
-    #sudo pg_ctlcluster 9.4 main restart --force && sudo dropdb DE_development_zed
-    #writeErrorMessage "Deleting DB command failed"
+    PG_CTL_CLUSTER=`which pg_ctlcluster`
+    DROP_DB=`which dropdb`
+    if [[ -f $PG_CTL_CLUSTER ]] && [[ -f $DROP_DB ]]; then
+        labelText "Deleting Postgres Database: $DATABASE_NAME "
+        sudo pg_ctlcluster 9.4 main restart --force && sudo dropdb $DATABASE_NAME
+        writeErrorMessage "Deleting DB command failed"
+    else
+        infoText "No PostgreSQL support found"
+    fi
+
+    MYSQL=`which mysql`
+    if [[ -f $MYSQL ]]; then
+        labelText "Drop MySQL database: $DATABASE_NAME"
+        mysql -u root -e "DROP DATABASE IF EXISTS $DATABASE_NAME;"
+    else
+        infoText "No MySQL support found"
+    fi
 }
 
 function displayHelp {

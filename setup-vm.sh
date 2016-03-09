@@ -11,7 +11,7 @@ if [[ `echo "$@" | grep '\-\-help'` ]] || [[ `echo "$@" | grep '\-h'` ]]; then
 fi
 
 if [[ `echo "$@" | grep '\-\-delete'` ]] || [[ `echo "$@" | grep '\-d'` ]]; then
-    cleanupDBRES
+    cleanupDatabaseMemorySearch
 
     exit 0
 fi
@@ -34,7 +34,7 @@ fi
 
 if [[ $RESET == 1 ]]; then
 
-    cleanupDBRES
+    cleanupDatabaseMemorySearch
 
     if [[ -d "./node_modules" ]]; then
         labelText "Remove node_modules directory"
