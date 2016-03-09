@@ -31,7 +31,7 @@ use Pyz\Zed\Installer\Business\Icecat\Installer\Product\ProductInstaller;
 use Pyz\Zed\Installer\Business\Icecat\Installer\Product\ProductSearchInstaller;
 use Pyz\Zed\Installer\InstallerConfig;
 use Pyz\Zed\Installer\InstallerDependencyProvider;
-use Spryker\Shared\Library\Reader\Csv\CsvReader as CsvReader;
+use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Category\Business\Generator\UrlPathGenerator;
 use Spryker\Zed\Category\Business\TransferGenerator;
 use Spryker\Zed\Category\Business\Tree\CategoryTreeReader;

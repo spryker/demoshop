@@ -14,8 +14,4 @@ interface NewsletterConstants extends SprykerNewsletterConstants
 
     const EDITORIAL_NEWSLETTER = 'EDITORIAL_NEWSLETTER';
 
-    const NEWSLETTER_TYPES = [
-        self::EDITORIAL_NEWSLETTER,
-    ];
-
 }

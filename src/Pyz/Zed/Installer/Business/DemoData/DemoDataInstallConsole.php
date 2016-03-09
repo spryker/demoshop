@@ -43,8 +43,7 @@ class DemoDataInstallConsole extends Console
                 $output->writeln('Installing DEMO data for ' . $name);
 
                 $plugin->setMessenger($messenger);
-                $plugin->debug('Running ' . get_class($plugin));
-                $plugin->install();
+                $plugin->run();
             }
         } catch (\Exception $e) {
             $this->error($e->getMessage());

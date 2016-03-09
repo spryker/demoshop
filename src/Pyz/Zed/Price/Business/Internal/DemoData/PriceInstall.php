@@ -9,7 +9,7 @@ namespace Pyz\Zed\Price\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\PriceProductTransfer;
 use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller;
-use Spryker\Zed\Library\Import\Reader\CsvFileReader;
+use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Price\Business\Model\ReaderInterface;
 use Spryker\Zed\Price\Business\Model\WriterInterface;
 
@@ -79,9 +79,9 @@ class PriceInstall extends AbstractDemoDataInstaller
      */
     protected function getDemoPrices()
     {
-        $reader = new CsvFileReader();
+        $reader = new CsvReader();
 
-        return $reader->read(__DIR__ . '/demo-price.csv')->getData();
+        return $reader->load(__DIR__ . '/demo-price.csv')->toArray();
     }
 
     /**

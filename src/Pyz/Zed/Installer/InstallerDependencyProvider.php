@@ -10,7 +10,6 @@ namespace Pyz\Zed\Installer;
 use Pyz\Zed\Category\Communication\Plugin\DemoDataInstallerPlugin as CategoryDemoInstallerPlugin;
 use Pyz\Zed\Cms\Communication\Plugin\DemoDataInstallerPlugin as CmsDemoDataInstallerPlugin;
 use Pyz\Zed\Glossary\Communication\Plugin\DemoDataInstallerPlugin as GlossaryDemoDataInstallerPlugin;
-use Pyz\Zed\Newsletter\Communication\Plugin\Installer as NewsletterInstallerPlugin;
 use Pyz\Zed\Price\Communication\Plugin\DemoDataInstallerPlugin as PriceDemoDataInstallerPlugin;
 use Pyz\Zed\ProductCategory\Communication\Plugin\DemoDataInstallerPlugin as ProductCategoryDemoDataInstallerPlugin;
 use Pyz\Zed\ProductSearch\Communication\Plugin\DemoDataInstallerPlugin as ProductSearchDemoDataInstaller;
@@ -26,9 +25,11 @@ use Spryker\Zed\Cms\Dependency\Facade\CmsToTouchBridge;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToUrlBridge;
 use Spryker\Zed\Collector\Communication\Plugin\Installer as CollectorInstallerPlugin;
 use Spryker\Zed\Country\Communication\Plugin\Installer as CountryCountryCountryInstallerPlugin;
+use Spryker\Zed\Glossary\Communication\Plugin\Installer as GlossaryInstallerPlugin;
 use Spryker\Zed\Installer\InstallerDependencyProvider as SprykerInstallerDependencyProvider;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Locale\Communication\Plugin\Installer as LocaleInstallerPlugin;
+use Spryker\Zed\Newsletter\Communication\Plugin\Installer as NewsletterInstallerPlugin;
 use Spryker\Zed\Price\Communication\Plugin\Installer as PriceInstallerPlugin;
 use Spryker\Zed\Product\Communication\Plugin\Installer as ProductInstallerPlugin;
 use Spryker\Zed\Propel\Communication\Plugin\Connection;
@@ -188,6 +189,7 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
             new UserInstallerPlugin(),
             new AclInstallerPlugin(),
             new NewsletterInstallerPlugin(),
+            new GlossaryInstallerPlugin(),
         ];
     }
 

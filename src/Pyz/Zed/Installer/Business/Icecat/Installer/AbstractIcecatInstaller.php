@@ -168,8 +168,6 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
         });
     }
 
-    //TODO Move ProgressBar logic into separate class
-
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
      * @param int $count
