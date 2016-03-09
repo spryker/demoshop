@@ -4,6 +4,12 @@ SETUP='spryker'
 
 . ./setup-functions.sh
 
+if [[ `echo "$@" | grep '\-\-help'` ]] || [[ `echo "$@" | grep '\-h'` ]]; then
+    displayHelp
+
+    exit 0
+fi
+
 if [[ `echo "$@" | grep '\-\-delete'` ]] || [[ `echo "$@" | grep '\-d'` ]]; then
     cleanupDBRES
 

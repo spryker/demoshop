@@ -14,11 +14,12 @@ PHP=`which php`
 
 CWD=`pwd`
 
-ERROR=`tput setab 1`
-GREEN=`tput setab 2`
-BACKGROUND=`tput setab 4`
-COLOR=`tput setaf 7`
-NC=`tput sgr0`
+ERROR=`tput setab 1` # background red
+GREEN=`tput setab 2` # background green
+BACKGROUND=`tput setab 4` # background blue
+INFO=`tput setaf 3` # yellow text
+COLOR=`tput setaf 7` # text white
+NC=`tput sgr0` # reset
 
 if [[ `echo "$@" | grep '\-\-reset'` ]] || [[ `echo "$@" | grep '\-r'` ]]; then
     RESET=1
@@ -32,6 +33,10 @@ function labelText {
 
 function errorText {
     echo -e "\n${ERROR}${COLOR}=> ${1} <=${NC}\n"
+}
+
+function infoText {
+    echo -e "\n${INFO}=> ${1} <=${NC}\n"
 }
 
 function successText {
@@ -65,18 +70,39 @@ function createDb {
 
 function cleanupDBRES {
     labelText "Flushing Elastic Search"
-    curl -XDELETE 'http://localhost:10005/de_development_catalog/'
-    curl -XPUT 'http://localhost:10005/de_development_catalog/'
+    #curl -XDELETE 'http://localhost:10005/de_development_catalog/'
+    #curl -XPUT 'http://localhost:10005/de_development_catalog/'
     writeErrorMessage "Flushing ES failed"
 
     labelText "Run setup:search command"
-    vendor/bin/console setup:search
+    #vendor/bin/console setup:search
 
     labelText "Flushing Redis"
-    redis-cli -p 10009 FLUSHALL
+    #redis-cli -p 10009 FLUSHALL
     writeErrorMessage "Flushing Redis failed"
 
     labelText "Deleting DB"
-    sudo pg_ctlcluster 9.4 main restart --force && sudo dropdb DE_development_zed
-    writeErrorMessage "Deleting DB command failed"
+    #sudo pg_ctlcluster 9.4 main restart --force && sudo dropdb DE_development_zed
+    #writeErrorMessage "Deleting DB command failed"
+}
+
+function displayHelp {
+    labelText "Usage:"
+    echo "  ./$(basename $0) [-h|--help] [-r|--reset] [-d|--delete]"
+    echo " "
+    echo "  Running script without any parameters will run normal setup process"
+    echo " "
+    echo "  -d|--delete"
+    echo "      clear Redis, ElasticSearch, Drop database and stop script"
+    echo " "
+    echo "  -r|--reset"
+    echo "      runs setup script with delete option"
+    echo "      remove node_modules directory"
+    echo "      delete cache directories from application"
+    echo " "
+    echo "  -h|--help"
+    echo "      displays this message"
+    echo " "
+
+
 }
