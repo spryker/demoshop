@@ -62,3 +62,21 @@ function createDb {
     # mysql
     # mysql -u root -e "CREATE DATABASE DE_development_zed;"
 }
+
+function cleanupDBRES {
+    labelText "Flushing Elastic Search"
+    curl -XDELETE 'http://localhost:10005/de_development_catalog/'
+    curl -XPUT 'http://localhost:10005/de_development_catalog/'
+    writeErrorMessage "Flushing ES failed"
+
+    labelText "Run setup:search command"
+    vendor/bin/console setup:search
+
+    labelText "Flushing Redis"
+    redis-cli -p 10009 FLUSHALL
+    writeErrorMessage "Flushing Redis failed"
+
+    labelText "Deleting DB"
+    sudo pg_ctlcluster 9.4 main restart --force && sudo dropdb DE_development_zed
+    writeErrorMessage "Deleting DB command failed"
+}

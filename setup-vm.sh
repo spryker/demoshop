@@ -4,6 +4,12 @@ SETUP='spryker'
 
 . ./setup-functions.sh
 
+if [[ `echo "$@" | grep '\-\-delete'` ]] || [[ `echo "$@" | grep '\-d'` ]]; then
+    cleanupDBRES
+
+    exit 0
+fi
+
 if [[ ! -f "./composer.phar" ]]; then
     labelText "Download composer.phar"
     $CURL -sS https://getcomposer.org/installer | $PHP
@@ -21,19 +27,8 @@ if [[ $COMPOSER_FILE_AGE > $THIRTY_DAYS_AGE ]]; then
 fi
 
 if [[ $RESET == 1 ]]; then
-    labelText "Clearing Redis"
-    redis-cli -p 10009 flushdb &> /dev/null
 
-    labelText "Delete all indices on elasticsearch"
-    curl -XDELETE 'http://localhost:10005/_all' &> /dev/null
-
-    labelText "Drop Database"
-    dropDatabase
-    writeErrorMessage "Could not delete Database"
-
-    labelText "Recreate Database"
-    createDb
-    writeErrorMessage "Could not create Database"
+    cleanupDBRES
 
     if [[ -d "./node_modules" ]]; then
         labelText "Remove node_modules directory"
