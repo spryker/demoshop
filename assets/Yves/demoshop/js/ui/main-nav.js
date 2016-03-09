@@ -33,6 +33,13 @@ module.exports = {
     $('.close-alert').click(function(){
       $(this).parent('.alert').fadeOut('slow');
     });
+
+    $('.flash-messages .alert').each(function(){
+      var element = $(this);
+      setTimeout(function(){
+        element.fadeOut('slow');
+      }, 3000);
+    });
   }
 
 };
