@@ -7,7 +7,6 @@ use Orm\Zed\Cms\Persistence\Map\SpyCmsGlossaryKeyMappingTableMap;
 use Orm\Zed\Cms\Persistence\Map\SpyCmsPageTableMap;
 use Orm\Zed\Cms\Persistence\Map\SpyCmsTemplateTableMap;
 use Orm\Zed\Glossary\Persistence\Map\SpyGlossaryKeyTableMap;
-use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
