@@ -9,7 +9,7 @@ namespace Pyz\Zed\ProductCategory\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller;
-use Spryker\Zed\Library\Import\ReaderInterface;
+use Spryker\Shared\Library\Reader\Csv\CsvReaderInterface;
 use Spryker\Zed\ProductCategory\Business\ProductCategoryManagerInterface;
 use Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToCategoryInterface;
 use Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToLocaleInterface;
@@ -27,7 +27,7 @@ class ProductCategoryMappingInstall extends AbstractDemoDataInstaller
     protected $localeFacade;
 
     /**
-     * @var \Spryker\Zed\Library\Import\ReaderInterface
+     * @var \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface
      */
     protected $reader;
 
@@ -56,7 +56,7 @@ class ProductCategoryMappingInstall extends AbstractDemoDataInstaller
      * @param \Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToCategoryInterface $categoryFacade
      * @param \Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface $productFacade
      * @param \Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToLocaleInterface $localeFacade
-     * @param \Spryker\Zed\Library\Import\ReaderInterface $reader
+     * @param \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface $reader
      * @param string $csvPath
      */
     public function __construct(
@@ -64,7 +64,7 @@ class ProductCategoryMappingInstall extends AbstractDemoDataInstaller
         ProductCategoryToCategoryInterface $categoryFacade,
         ProductCategoryToProductInterface $productFacade,
         ProductCategoryToLocaleInterface $localeFacade,
-        ReaderInterface $reader,
+        CsvReaderInterface $reader,
         $csvPath
     ) {
         $this->localeFacade = $localeFacade;
@@ -124,7 +124,9 @@ class ProductCategoryMappingInstall extends AbstractDemoDataInstaller
      */
     protected function getDemoProductCategories()
     {
-        return $this->reader->read($this->csvPath)->getData();
+        return $this->reader
+            ->load($this->csvPath)
+            ->toArray();
     }
 
 }

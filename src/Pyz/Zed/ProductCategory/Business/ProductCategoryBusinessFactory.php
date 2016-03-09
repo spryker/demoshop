@@ -8,7 +8,7 @@
 namespace Pyz\Zed\ProductCategory\Business;
 
 use Pyz\Zed\ProductCategory\Business\Internal\DemoData\ProductCategoryMappingInstall;
-use Spryker\Zed\Library\Import\Reader\CsvFileReader;
+use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\ProductCategory\Business\ProductCategoryBusinessFactory as SprykerBusinessFactory;
 use Spryker\Zed\ProductCategory\Business\ProductCategoryManager;
@@ -43,11 +43,11 @@ class ProductCategoryBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\Library\Import\ReaderInterface
+     * @return \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface
      */
     protected function createCSVReader()
     {
-        return new CsvFileReader();
+        return new CsvReader();
     }
 
     /**

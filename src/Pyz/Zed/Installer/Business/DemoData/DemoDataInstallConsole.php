@@ -41,7 +41,6 @@ class DemoDataInstallConsole extends Console
                 $name = $this->getPluginNameFromClass(get_class($plugin));
 
                 $output->writeln('Installing DEMO data for ' . $name);
-                $messenger->debug('Running ' . get_class($plugin));
 
                 $plugin->setMessenger($messenger);
                 $plugin->run();
