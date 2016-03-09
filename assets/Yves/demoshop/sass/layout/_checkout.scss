@@ -358,7 +358,10 @@
 }
 
 .customer-selection,
-.address-selection {
+.address-selection,
+.address-user-shipping-custom,
+.address-user-billing,
+.address-user-billing-custom {
   display: none;
 
   &.show {

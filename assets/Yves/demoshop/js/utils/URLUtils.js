@@ -1,7 +1,5 @@
 "use strict";
 
-// from https://gist.github.com/Yaffle/1088850
-
 var URLUtils = function(url, baseURL) {
   var url = url || window.location.href;
   var m = String(url).replace(/^\s+|\s+$/g, "").match(/^([^:\/?#]+:)?(?:\/\/(?:([^:@\/?#]*)(?::([^:@\/?#]*))?@)?(([^:\/?#]*)(?::(\d*))?))?([^?#]*)(\?[^#]*)?(#[\s\S]*)?/);
