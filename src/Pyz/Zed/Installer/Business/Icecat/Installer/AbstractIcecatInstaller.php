@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Installer\Business\Icecat\Installer;
 
+use Propel\Runtime\Propel;
 use Pyz\Zed\Installer\Business\Icecat\Importer\IcecatImporterInterface;
 use Spryker\Shared\Gui\ProgressBar\ProgressBarBuilder;
 use Spryker\Shared\Library\BatchIterator\CountableIteratorInterface;
@@ -73,18 +74,31 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
      * @param \Symfony\Component\Console\Output\OutputInterface $output
      * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
+     * @throws \Exception
+     *
      * @return void
      */
     public function install(OutputInterface $output, MessengerInterface $messenger)
     {
-        $importersToExecute = $this->excludeInstalled();
+        $connection = Propel::getConnection();
+        $connection->beginTransaction();
 
-        $this->displayProgressWhileCountingBatchCollectionSize($output);
-        $this->setupScope($output, $messenger);
+        try {
+            $importersToExecute = $this->excludeInstalled();
 
-        $this->beforeInstall();
-        $this->batchInstall($this->batchIterator, $importersToExecute);
-        $this->afterInstall();
+            $this->displayProgressWhileCountingBatchCollectionSize($output);
+            $this->setupScope($output, $messenger);
+
+            $this->beforeInstall();
+            $this->batchInstall($this->batchIterator, $importersToExecute);
+            $this->afterInstall();
+
+            $connection->commit();
+        }
+        catch (\Exception $exception) {
+            $connection->rollBack();
+            throw $exception;
+        }
     }
 
     /**
