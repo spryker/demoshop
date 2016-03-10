@@ -1,10 +1,8 @@
 keys:
-
   page.home.featured.top-left.left.width:
     translations:
       de_DE: '1'
       en_US: '1'
-
   page.home.featured.top-left.left.height:
     translations:
       de_DE: '2'
@@ -25,7 +23,6 @@ keys:
     translations:
       de_DE: '/de/gorilla-maennchen'
       en_US: '/en/gorilla-male'
-
   page.home.featured.top-left.right.width:
     translations:
       de_DE: '1'
@@ -50,7 +47,6 @@ keys:
     translations:
       de_DE: '/de/brillenpinguin'
       en_US: '/en/penguin'
-
   page.home.featured.top-right.first.width:
     translations:
       de_DE: '2'
@@ -67,7 +63,6 @@ keys:
     translations:
       de_DE: '/de/wilde-tiere'
       en_US: '/en/wild-animals'
-
   page.home.featured.top-right.second.width:
     translations:
       de_DE: '2'
@@ -84,7 +79,6 @@ keys:
     translations:
       de_DE: '/de/wilde-tiere'
       en_US: '/en/wild-animals'
-
   page.home.featured.bottom-left.top.width:
     translations:
       de_DE: '2'
@@ -109,7 +103,6 @@ keys:
     translations:
       de_DE: '/de/wald-und-wiese'
       en_US: '/en/forest-and-meadow'
-
   page.home.featured.bottom-left.bottom.width:
     translations:
       de_DE: '2'
@@ -134,7 +127,6 @@ keys:
     translations:
       de_DE: '/de/meere'
       en_US: '/en/seas'
-
   page.home.featured.bottom-right.left.width:
     translations:
       de_DE: '1'
@@ -159,7 +151,6 @@ keys:
     translations:
       de_DE: '/de/ferkel-stehend'
       en_US: '/en/pig-standing'
-
   page.home.featured.bottom-right.right.width:
     translations:
       de_DE: '1'
@@ -184,7 +175,6 @@ keys:
     translations:
       de_DE: '/de/flusspferd'
       en_US: '/en/hippo'
-
   cart.your-order:
     translations:
       de_DE: 'Deine Bestellung'
@@ -193,12 +183,10 @@ keys:
     translations:
       de_DE: 'Preis'
       en_US: 'Prize'
-
   cart.shipping.order-item:
     translations:
       de_DE: '+ Versand'
       en_US: '+ Shipping'
-
   cart.shipping:
     translations:
       de_DE: 'Versand'
@@ -350,7 +338,6 @@ keys:
     translations:
       de_DE: 'Weiter - Zahlungsart wählen'
       en_US: 'Continue to Payment Method'
-
   page.checkout.payment.heading:
     translations:
       de_DE: '3. Zahlungsart wählen'
@@ -363,7 +350,6 @@ keys:
     translations:
       de_DE: 'Weiter - Prüfen und Kauf abschließen'
       en_US: 'Continue to finalise order'
-
   page.checkout.summary.billing:
     translations:
       de_DE: 'Rechnungsadresse'
@@ -396,7 +382,6 @@ keys:
     translations:
       de_DE: 'Jetzt kaufen'
       en_US: 'Buy now'
-
   page.detail.add-to-cart:
     translations:
       de_DE: 'In den Warenkorb'
@@ -409,17 +394,14 @@ keys:
     translations:
       de_DE: 'Abmessungen'
       en_US: 'Measurements'
-
   page.imprint.url:
     translations:
       de_DE: '/de/impressum'
       en_US: '/en/imprint'
-
   page.imprint.title:
     translations:
       de_DE: 'Impressum'
       en_US: 'Imprint'
-
   page.terms.url:
     translations:
       de_DE: '/de/agb'
@@ -428,7 +410,6 @@ keys:
     translations:
       de_DE: 'AGB'
       en_US: 'GTC'
-
   page.privacy.url:
     translations:
       de_DE: '/de/datenschutz'
@@ -493,7 +474,6 @@ keys:
     translations:
       de_DE: 'Sortierung'
       en_US: 'Sorting'
-
   shipment.dhl:
     translations:
       de_DE: 'DHL'
@@ -550,7 +530,6 @@ keys:
     translations:
       de_DE: 'Telefonnummer'
       en_US: 'Telephone number'
-
   payment.prepay:
     translations:
       de_DE: 'Vorkasse'
@@ -575,7 +554,6 @@ keys:
     translations:
       de_DE: 'Payolution Ratenkauf'
       en_US: 'Payolution Installment'
-
   address.street:
     translations:
       de_DE: 'Straße'
@@ -596,78 +574,427 @@ keys:
     translations:
       de_DE: 'Kundenaccout erstellen'
       en_US: 'Create customer account'
-
   whishlist.whishlist:
     translations:
-      en_US: 'Whishlist'
+      de_DE: Wunschliste
+      en_US: Whishlist
   whishlist.remove:
     translations:
-      en_US: 'Remove'
+      de_DE: Löschen
+      en_US: Remove
   whishlist.reduce:
     translations:
-      en_US: 'Reduce'
+      de_DE: Reduzieren
+      en_US: Reduce
   whishlist.increase:
     translations:
-      en_US: 'Increase'
+      de_DE: Erhöhen
+      en_US: Increase
   whishlist.move.to.cart:
     translations:
+      de_DE: 'Warenkorb hinzufügen'
       en_US: 'Move to cart'
-
   checkout.thank.you:
     translations:
+      de_DE: 'Vielen Dank'
       en_US: 'Thank you'
   checkout.this.is.demoshop:
     translations:
+      de_DE: 'Das ist ein Demoshop'
       en_US: 'This is a demoshop'
   checkout.nothing.will.be.sent:
     translations:
-      en_US: "Therefore, of course, nothing will be sent!"
-
+      de_DE: 'Selbstverständlich wird Ihnen nichts zugesendet!'
+      en_US: 'Therefore, of course, nothing will be sent!'
   global.order.ascendent:
     translations:
-        en_US: 'A-Z'
+      de_DE: A-Z
+      en_US: A-Z
   global.order.descendent:
     translations:
-        en_US: 'Z-A'
-
+      de_DE: Z_A
+      en_US: Z-A
   global.close:
     translations:
-        en_US: 'Close'
+      de_DE: Schließen
+      en_US: Close
   global.search:
     translations:
-        en_US: 'Search'
+      de_DE: Suche
+      en_US: Search
   global.spryker.shop:
     translations:
-        en_US: 'Spryker Shop'
+      de_DE: 'Spryker Shop'
+      en_US: 'Spryker Shop'
   global.email.address:
     translations:
-        en_US: 'Email Address'
+      de_DE: 'E-Mail Adresse'
+      en_US: 'Email Address'
   global.password:
     translations:
-        en_US: 'Password'
+      de_DE: 'Passwort'
+      en_US: Password
   global.recover.password:
     translations:
-        en_US: 'Recover Password'
+      de_DE: 'Passwort vergessen'
+      en_US: 'Recover Password'
   global.accept.terms.and.conditions:
     translations:
-        en_US: 'Accept Terms and Conditions'
+      de_DE: 'Ich bestätige die AGB'
+      en_US: 'Accept Terms and Conditions'
   global.login:
     translations:
-        en_US: 'Login'
+      de_DE: Anmelden
+      en_US: Login
   global.create.account:
     translations:
-        en_US: 'Create Account'
+      de_DE: 'Account erstellen'
+      en_US: 'Create Account'
   global.cart:
     translations:
-        en_US: 'Cart'
-
+      de_DE: Warenkorb
+      en_US: Cart
   error.404:
     translations:
-        en_US: 'Error 404'
-
+      de_DE: 'Error 404'
+      en_US: 'Error 404'
   homepage.carousel.previous:
     translations:
-      en_US: 'Previous'
+      de_DE: Vorherige
+      en_US: Previous
   homepage.carousel.next:
     translations:
-      en_US: 'Next'
+      de_DE: Nächste
+      en_US: Next
+  customer.logout:
+    translations:
+      en_US: Logout
+      de_DE: Abmelden
+  customer.login:
+    translations:
+      en_US: Login
+      de_DE: Anmelden
+  customer.login.email:
+    translations:
+      en_US: Email
+      de_DE: E-Mail
+  customer.login.password:
+    translations:
+      en_US: Password
+      de_DE: Passwort
+  customer.login.title:
+    translations:
+      en_US: 'Access your account'
+      de_DE: 'Ich bin bereits Kunde'
+  customer.registration.title:
+    translations:
+      en_US: 'Create account'
+      de_DE: 'Ich bin Neukunde'
+  customer.account.no_order:
+    translations:
+      en_US: 'No orders at the moment'
+      de_DE: 'Keine Bestellungen'
+  customer.account:
+    translations:
+      en_US: 'Customer Account'
+      de_DE: 'Mein Konto'
+  customer.account.contact:
+    translations:
+      en_US: Contact
+      de_DE: Kontakt
+  customer.account.overview:
+    translations:
+      en_US: Overview
+      de_DE: Übersicht
+  customer.account.profile_data:
+    translations:
+      en_US: Profile
+      de_DE: Benutzerdaten
+  customer.account.address:
+    translations:
+      en_US: Addresses
+      de_DE: Adressen
+  customer.account.order_history:
+    translations:
+      en_US: 'Orders History'
+      de_DE: Bestellungen
+  customer.account.newsletter:
+    translations:
+      en_US: Newsletter
+      de_DE: Newsletter
+  customer.account.last_orders:
+    translations:
+      en_US: 'Last Orders'
+      de_DE: 'Letzte Bestellungen'
+  customer.account.default_billing_address:
+    translations:
+      en_US: 'Default Billing Address'
+      de_DE: 'Standard Rechnungsadresse'
+  customer.account.please_specify_billing_address:
+    translations:
+      en_US: 'Please Specify Billing Address'
+      de_DE: 'Bitte tragen Sie Ihre Rechnungsadresse ein.'
+  customer.account.default_shipping_address:
+    translations:
+      en_US: 'Default Shipping Address'
+      de_DE: 'Standard Lieferadresse'
+  customer.account.please_specify_shipping_address:
+    translations:
+      en_US: 'Please Specify Shipping Address'
+      de_DE: 'Bitten tragen Sie Ihre Lieferadresse ein.'
+  customer.account.edit_address_information:
+    translations:
+      en_US: 'Edit Address Information'
+      de_DE: Ändern
+  customer.account.additional_addresses:
+    translations:
+      en_US: 'Additional Addresses'
+      de_DE: 'Zusätzliche Adressen'
+  customer.account.add_new_address:
+    translations:
+      en_US: 'Add Address'
+      de_DE: 'Neue Adresse hinzufügen'
+  customer.newsletter.not_subscribed:
+    translations:
+      en_US: 'No newsletter subscription'
+      de_DE: 'Newsletter nicht abonniert.'
+  customer.profile.order_history:
+    translations:
+      en_US: 'Last Orders'
+      de_DE: Bestellungen
+  customer.account.no_orders:
+    translations:
+      en_US: 'No orders at the moment'
+      de_DE: 'Keine Bestellungen'
+  customer.address.first_name:
+    translations:
+      en_US: 'First Name'
+      de_DE: Vorname
+  customer.address.last_name:
+    translations:
+      en_US: 'Last Name'
+      de_DE: Nachname
+  customer.address.company:
+    translations:
+      en_US: Company
+      de_DE: Firma
+  customer.address.address1:
+    translations:
+      en_US: Street
+      de_DE: Straße
+  customer.address.address2:
+    translations:
+      en_US: Number
+      de_DE: Hausnummer
+  customer.address.address3:
+    translations:
+      en_US: 'Addition to address'
+      de_DE: Adresszusatz
+  customer.address.zip_code:
+    translations:
+      en_US: 'Zip Code'
+      de_DE: PLZ
+  customer.address.city:
+    translations:
+      en_US: City
+      de_DE: Stadt
+  customer.address.country:
+    translations:
+      en_US: Country
+      de_DE: Land
+  customer.address.phone:
+    translations:
+      en_US: Phone
+      de_DE: Telefon
+  customer.address.is_default_billing:
+    translations:
+      en_US: 'Is default billing address'
+      de_DE: 'Standard Rechnungsadresse'
+  customer.address.is_default_shipping:
+    translations:
+      en_US: 'Is default shipping address'
+      de_DE: 'Standard Lieferadresse'
+  customer.forgotten-password.send-new-password:
+    translations:
+      en_US: 'Recover my password'
+      de_DE: 'Neues Passwort verschickt.'
+  customer.forgotten-password.description:
+    translations:
+      en_US: 'Describe situation'
+      de_DE: 'Passwort vergessen?'
+  customer.forgotten_password.email:
+    translations:
+      en_US: 'Email Address'
+      de_DE: 'E-Mail Adresse'
+  customer.forgotten-password.title:
+    translations:
+      en_US: 'Recover my password'
+      de_DE: 'Passwort vergessen'
+  customer.order.order_id:
+    translations:
+      en_US: 'Order Id'
+      de_DE: Bestellnummer
+  customer.order.view_all:
+    translations:
+      en_US: 'View All'
+      de_DE: 'Alle anzeigen'
+  customer.order.all_orders:
+    translations:
+      en_US: 'View orders'
+      de_DE: 'Alle Bestellungen anzeigen'
+  customer.order.total:
+    translations:
+      en_US: Total
+      de_DE: Summe
+  customer.order.view_order:
+    translations:
+      en_US: 'View Order'
+      de_DE: 'Bestellung ansehen'
+  customer.order.date:
+    translations:
+      en_US: 'Order Date'
+      de_DE: Datum
+  customer.newsletter.subscription:
+    translations:
+      en_US: 'Newsletter settings'
+      de_DE: 'Meine Newsletter Einstellungen'
+  customer.newsletter.subscription_agreement:
+    translations:
+      en_US: 'I agree to newsletter subscription'
+      de_DE: 'Ja, ich möchte per E-Mail informiert werden.'
+  customer.profile:
+    translations:
+      en_US: 'Sign in'
+      de_DE: Anmelden
+  customer.profile.update:
+    translations:
+      en_US: 'Update Profile'
+      de_DE: 'Profil Bearbeiten'
+  customer.profile.first_name:
+    translations:
+      en_US: 'First Name'
+      de_DE: Vorname
+  customer.profile.last_name:
+    translations:
+      en_US: 'Last Name'
+      de_DE: Nachname
+  customer.profile.email:
+    translations:
+      en_US: Email
+      de_DE: E-Mail
+  customer.profile.phone:
+    translations:
+      en_US: Phone
+      de_DE: Telefon
+  customer.profile.old_password:
+    translations:
+      en_US: 'Old Password'
+      de_DE: 'Altes Passwort'
+  customer.profile.request.new_password:
+    translations:
+      en_US: 'New Password'
+      de_DE: 'Neues Passwort'
+  customer.profile.confirm.new_password:
+    translations:
+      en_US: 'Confirm New Password'
+      de_DE: 'Passwort bestätigen'
+  customer.profile.address.edit:
+    translations:
+      en_US: Edit
+      de_DE: Ändern
+  customer.profile.address.delete:
+    translations:
+      en_US: Delete
+      de_DE: Löschen
+  customer.password.update:
+    translations:
+      en_US: 'Change Password'
+      de_DE: 'Passwort ändern'
+  customer.password.old_password:
+    translations:
+      en_US: 'Old Password'
+      de_DE: 'Altes Passwort'
+  customer.password.request.new_password:
+    translations:
+      en_US: 'New Password'
+      de_DE: 'Neues Passwort'
+  customer.password.confirm.new_password:
+    translations:
+      en_US: 'Confirm Password'
+      de_DE: 'Passwort bestätigen'
+  customer.table.actions:
+    translations:
+      en_US: Actions
+      de_DE: Aktion
+  profile.form.salutation:
+    translations:
+      en_US: Salutation
+      de_DE: Anrede
+  customer.salutation.dr:
+    translations:
+      en_US: Dr.
+      de_DE: Dr.
+  forms.submit-btn:
+    translations:
+      en_US: Submit
+      de_DE: Speichern
+  forms.submit.login:
+    translations:
+      en_US: Login
+      de_DE: Einloggen
+  forms.submit.register:
+    translations:
+      en_US: Register
+      de_DE: Registrieren
+  forms.forgot-password:
+    translations:
+      en_US: 'Forgot Password'
+      de_DE: 'Passwort vergessen'
+  forms.first-name:
+    translations:
+      en_US: 'First Name'
+      de_DE: Vorname
+  forms.last-name:
+    translations:
+      en_US: 'Last Name'
+      de_DE: Nachname
+  forms.email:
+    translations:
+      en_US: Email
+      de_DE: E-Mail
+  forms.password:
+    translations:
+      en_US: Password
+      de_DE: Passwort
+  forms.confirm-password:
+    translations:
+      en_US: 'Confirm Password'
+      de_DE: 'Passwort bestätigen'
+  forms.accept_terms:
+    translations:
+      en_US: 'Accept Terms'
+      de_DE: 'Ich stimme AGB und Datenschutz zu.'
+  address.salutation:
+    translations:
+      en_US: Salutation
+      de_DE: Anrede
+  email.orderEmail.salutationMale:
+    translations:
+      en_US: Mr.
+      de_DE: Hr.
+  email.orderEmail.salutationFemale:
+    translations:
+      en_US: Ms.
+      de_DE: Fr.
+  customer.login.failed:
+    translations:
+      en_US: 'Login failed'
+      de_DE: 'Login fehlgeschlagen'
+  customer.email.already.used:
+    translations:
+      en_US: 'Email already used'
+      de_DE: 'E-Mail bereits vergeben'
+  general.back.button:
+    translations:
+      en_US: back
+      de_DE: zurück
