@@ -591,7 +591,7 @@ keys:
       en_US: Increase
   whishlist.move.to.cart:
     translations:
-      de_DE: 'Warenkorb hinzufügen'
+      de_DE: 'Zum Warenkorb hinzufügen'
       en_US: 'Move to cart'
   checkout.thank.you:
     translations:
@@ -760,7 +760,7 @@ keys:
   customer.profile.order_history:
     translations:
       en_US: 'Last Orders'
-      de_DE: Bestellungen
+      de_DE: 'Letzte Bestellungen'
   customer.account.no_orders:
     translations:
       en_US: 'No orders at the moment'
@@ -835,8 +835,8 @@ keys:
       de_DE: 'Aktuelles Passwort ist falsch'
   customer.forgotten-password.description:
     translations:
-      en_US: 'Describe situation'
-      de_DE: 'Passwort vergessen?'
+      en_US: 'Enter the e-mail address associated with your account.'
+      de_DE: 'Geben Sie die E-Mail-Adresse an, welche mit Ihrem Konto verknüpft ist.'
   customer.forgotten_password.email:
     translations:
       en_US: 'Email Address'
@@ -1015,11 +1015,11 @@ keys:
       de_DE: zurück
   newsletter.subscription.success:
     translations:
-      en_US: 'You successfully subscribed to newsletter'
+      en_US: 'You successfully subscribed to the newsletter'
       de_DE: 'Sie wurden erfolgreich für den Newsletter angemeldet'
   newsletter.unsubscription.success:
     translations:
-      en_US: 'You successfully unsubscribed to newsletter'
+      en_US: 'You successfully unsubscribed from the newsletter'
       de_DE: 'Sie wurden erfolgreich für den Newsletter abgemeldet'
   customer.authentication.failed:
     translations:
