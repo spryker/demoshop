@@ -16,46 +16,6 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return \Spryker\Zed\Kernel\Container
-     */
-    public function provideCommunicationLayerDependencies(Container $container)
-    {
-        parent::provideCommunicationLayerDependencies($container);
-
-        $container[self::PLUGINS] = function (Container $container) {
-            return [
-                self::AVAILABILITY_PLUGINS => $this->getAvailabilityPlugins($container),
-                self::PRICE_PLUGINS => $this->getPriceCalculationPlugins($container),
-                self::DELIVERY_TIME_PLUGINS => $this->getDeliveryTimePlugins($container),
-            ];
-        };
-
-        return $container;
-    }
-
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
-    public function provideBusinessLayerDependencies(Container $container)
-    {
-        parent::provideBusinessLayerDependencies($container);
-
-        $container[self::PLUGINS] = function (Container $container) {
-            return [
-                self::AVAILABILITY_PLUGINS => $this->getAvailabilityPlugins($container),
-                self::PRICE_PLUGINS => $this->getPriceCalculationPlugins($container),
-                self::DELIVERY_TIME_PLUGINS => $this->getDeliveryTimePlugins($container),
-            ];
-        };
-
-        return $container;
-    }
-
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
      * @return array
      */
     protected function getAvailabilityPlugins(Container $container)
@@ -68,7 +28,7 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
      *
      * @return array
      */
-    protected function getPriceCalculationPlugins(Container $container)
+    protected function getPricePlugins(Container $container)
     {
         return [];
     }
