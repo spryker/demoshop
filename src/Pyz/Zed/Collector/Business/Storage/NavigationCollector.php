@@ -31,14 +31,29 @@ class NavigationCollector extends AbstractStoragePdoCollector
         $touchKey = rtrim($touchKey, '.');
 
         foreach ($collectedSet as $index => $collectedItemData) {
-            $formattedCategoryNodes[] = $this->formatCategoryNode($collectedItemData);
+            $collectedSet[$index]['children'] = [];
+            $collectedSet[$index]['parents'] = [];
+        }
+
+        foreach ($collectedSet as $index => $collectedItemData) {
+            $parentId = $collectedItemData['fk_parent_category_node'];
+
+            if ($parentId !== null) {
+                continue;
+            }
+
+            $collectedItemData['children'] = $this->getChildren($collectedItemData, $collectedSet);
+            $collectedItemData['parents'] = $this->getParents($collectedItemData, $collectedSet);
+
+            $formattedCategoryNodes[] = $this->collectItem($touchKey, $collectedItemData);
+
             $touchUpdaterSet->add($touchKey, $collectedItemData[CollectorConfig::COLLECTOR_TOUCH_ID], [
                 CollectorConfig::COLLECTOR_STORAGE_KEY => $this->getCollectorStorageKeyId($collectedItemData),
                 CollectorConfig::COLLECTOR_SEARCH_KEY => $this->getCollectorSearchKeyId($collectedItemData),
             ]);
         }
 
-        $setToExport[$touchKey] = $formattedCategoryNodes;
+        $setToExport[$touchKey] = current($formattedCategoryNodes)['children'];
 
         return $setToExport;
     }
@@ -55,67 +70,75 @@ class NavigationCollector extends AbstractStoragePdoCollector
     }
 
     /**
+     * @param array $collectItemData
+     *
+     * @return array
+     */
+    protected function formatCategoryNode(array $collectItemData)
+    {
+        return [
+            'node_id' => $collectItemData['id_category_node'],
+            'name' => $collectItemData['name'],
+            'url' => $collectItemData['url'],
+            'image' => $collectItemData['category_image_name'],
+            'children' => $collectItemData['children'],
+            'parents' => $collectItemData['parents'],
+        ];
+    }
+
+    /**
+     * @param array $node
+     * @param array $data
+     * @param bool $nested
+     *
+     * @return array
+     */
+    protected function getChildren(array $node, array $data, $nested = true)
+    {
+        $children = array_filter($data, function($item) use ($node) {
+            return ((int) (int) $item['fk_parent_category_node'] === $node['id_category_node']);
+        });
+
+        foreach ($children as $index => $child) {
+            if ($nested) {
+                $children[$index]['children'] = $this->getChildren($children[$index], $data);
+            }
+
+            $children[$index] = $this->formatCategoryNode($children[$index]);
+        }
+
+        return $children;
+    }
+
+    /**
+     * @param array $node
+     * @param array $data
+     * @param bool $nested
+     *
+     * @return array
+     */
+    protected function getParents(array $node, array $data, $nested = true)
+    {
+        $parents = array_filter($data, function($item) use ($node) {
+            return ((int) (int) $item['id_category_node'] === $node['fk_parent_category_node']);
+        });
+
+        foreach ($parents as $index => $parent) {
+            if ($nested) {
+                $parents[$index]['parents'] = $this->getParents($parents[$index], $data);
+            }
+            $parents[$index] = $this->formatCategoryNode($parents[$index]);
+        }
+
+        return $parents;
+    }
+
+    /**
      * @return string
      */
     protected function collectResourceType()
     {
         return CategoryConstants::RESOURCE_TYPE_NAVIGATION;
-    }
-
-    /**
-     * @param array $categoryNode
-     *
-     * @return array
-     */
-    protected function formatCategoryNode(array $categoryNode)
-    {
-        $categoryUrls = explode(',', $categoryNode['category_urls']);
-
-        return [
-            'node_id' => $categoryNode['node_id'],
-            'name' => $categoryNode['category_name'],
-            'url' => $categoryUrls[0],
-            'image' => $categoryNode['category_image_name'],
-            'children' => $this->explodeGroupedNodes(
-                $categoryNode,
-                'category_child_ids',
-                'category_child_names',
-                'category_child_urls'
-            ),
-            'parents' => $this->explodeGroupedNodes(
-                $categoryNode,
-                'category_parent_ids',
-                'category_parent_names',
-                'category_parent_urls'
-            ),
-        ];
-    }
-
-    /**
-     * @param array $data
-     * @param string $idsField
-     * @param string $namesField
-     * @param string $urlsField
-     *
-     * @return array
-     */
-    public function explodeGroupedNodes(array $data, $idsField, $namesField, $urlsField)
-    {
-        if (!$data[$idsField]) {
-            return [];
-        }
-        $ids = explode(',', $data[$idsField]);
-        $names = explode(',', $data[$namesField]);
-        $urls = explode(',', $data[$urlsField]);
-        $nodes = [];
-
-        foreach ($ids as $key => $id) {
-            $nodes[$id]['node_id'] = $id;
-            $nodes[$id]['name'] = $names[$key];
-            $nodes[$id]['url'] = $urls[$key];
-        }
-
-        return $nodes;
     }
 
     /**
