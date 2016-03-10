@@ -21,25 +21,24 @@ fi
 
 if [[ $RESET == 1 ]] || [[ ! -f $SPY_TOOL ]]; then
     labelText "Install SPY tool globally"
-    $GIT clone --branch master git@github.com:spryker/spy.git /tmp/spy
-    cd /tmp/spy
-    sudo $NPM install -g ./
-    cd $CWD
-    rm -rf /tmp/spy
+    sudo $NPM install -g github:spryker/spy
     SPY_TOOL=`which spy`
+
+    labelText "Test SPY tool"
+    $SPY_TOOL test
 fi
 
+if [[ -f $SPY_TOOL ]]; then
+    labelText "Install frontend core dependencies"
+    $SPY_TOOL install
+fi
+
+labelText "Install frontend project dependencies"
 $NPM install
 
 if [[ -f $SPY_TOOL ]]; then
-    labelText "SPY: test the project"
-    $SPY_TOOL test
-
-    labelText "SPY: install core dependencies"
-    $SPY_TOOL install
-
-    labelText "SPY: build the assets"
+    labelText "Build and optimize assets"
     $SPY_TOOL build
 fi
 
-successText "Setup Frontend completed succesfully"
+successText "Frontend setup completed successfully"
