@@ -301,7 +301,6 @@ keys:
     translations:
       de_DE: 'Adresse bearbeiten'
       en_US: 'edit Address Data'
-
   page.checkout.shipment.heading:
     translations:
       de_DE: '2. Lieferart wählen'
@@ -766,6 +765,10 @@ keys:
     translations:
       en_US: 'No orders at the moment'
       de_DE: 'Keine Bestellungen'
+  customer.address.added:
+    translations:
+      en_US: 'Address was successfully added'
+      de_DE: 'Adresse wurde erfolgreich hinzugefügt'
   customer.address.first_name:
     translations:
       en_US: 'First Name'
@@ -814,10 +817,22 @@ keys:
     translations:
       en_US: 'Is default shipping address'
       de_DE: 'Standard Lieferadresse'
+  customer.authorization.success:
+    translations:
+      en_US: 'Registration Successfull'
+      de_DE: 'Registrierung erfolgreich'
   customer.forgotten-password.send-new-password:
     translations:
       en_US: 'Recover my password'
       de_DE: 'Neues Passwort verschickt.'
+  customer.profile.change.success:
+    translations:
+      en_US: 'Profile was successfully saved'
+      de_DE: 'Profil wurde erfolgreich gespeichert'
+  customer.password.invalid_password:
+    translations:
+      en_US: 'Current password is wrong'
+      de_DE: 'Aktuelles Passwort ist falsch'
   customer.forgotten-password.description:
     translations:
       en_US: 'Describe situation'
@@ -998,3 +1013,15 @@ keys:
     translations:
       en_US: back
       de_DE: zurück
+  newsletter.subscription.success:
+    translations:
+      en_US: 'You successfully subscribed to newsletter'
+      de_DE: 'Sie wurden erfolgreich für den Newsletter angemeldet'
+  newsletter.unsubscription.success
+    translations:
+      en_US: 'You successfully unsubscribed to newsletter'
+      de_DE: 'Sie wurden erfolgreich für den Newsletter abgemeldet'
+  customer.authentication.failed:
+    translations:
+      en_US: 'Authentication failed'
+      de_DE: 'Authentifizierung fehlgeschlagen'
