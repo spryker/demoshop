@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-bugfix/order_oms_graph_display_fix",
 
     "psr/log": "~1.0.0",
     "propel/propel": "~2.0@dev",
