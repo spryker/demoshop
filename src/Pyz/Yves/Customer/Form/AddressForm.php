@@ -384,7 +384,7 @@ class AddressForm extends AbstractType
     {
         return new Regex([
             'pattern' => '/^\d{5}$/',
-            'message' => 'This value should contain exactly 5 numbers.',
+            'message' => 'This field should contain exactly 5 digits.',
             'groups' => $options['validation_group']
         ]);
     }
@@ -398,7 +398,7 @@ class AddressForm extends AbstractType
     {
         return new Regex([
             'pattern' => '/^\d+$/',
-            'message' => 'This value should contain numbers only.',
+            'message' => 'This field should contain numeric values only.',
             'groups' => $options['validation_group']
         ]);
     }
