@@ -95,8 +95,8 @@ class NavigationCollector extends AbstractStoragePdoCollector
      */
     protected function getChildren(array $node, array $data, $nested = true)
     {
-        $children = array_filter($data, function($item) use ($node) {
-            return ((int) (int) $item['fk_parent_category_node'] === $node['id_category_node']);
+        $children = array_filter($data, function ($item) use ($node) {
+            return ((int)$item['fk_parent_category_node'] === (int)$node['id_category_node']);
         });
 
         foreach ($children as $index => $child) {
@@ -119,8 +119,8 @@ class NavigationCollector extends AbstractStoragePdoCollector
      */
     protected function getParents(array $node, array $data, $nested = true)
     {
-        $parents = array_filter($data, function($item) use ($node) {
-            return ((int) (int) $item['id_category_node'] === $node['fk_parent_category_node']);
+        $parents = array_filter($data, function ($item) use ($node) {
+            return ((int)$item['id_category_node'] === (int)$node['fk_parent_category_node']);
         });
 
         foreach ($parents as $index => $parent) {
