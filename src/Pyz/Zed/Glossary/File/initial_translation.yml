@@ -1017,7 +1017,7 @@ keys:
     translations:
       en_US: 'You successfully subscribed to newsletter'
       de_DE: 'Sie wurden erfolgreich für den Newsletter angemeldet'
-  newsletter.unsubscription.success
+  newsletter.unsubscription.success:
     translations:
       en_US: 'You successfully unsubscribed to newsletter'
       de_DE: 'Sie wurden erfolgreich für den Newsletter abgemeldet'
