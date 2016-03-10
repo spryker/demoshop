@@ -30,24 +30,6 @@ class OmsConfig extends SprykerOmsConfig
     }
 
     /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     *
-     * @throws \RuntimeException
-     *
-     * @return string|null
-     */
-    public function selectProcess(OrderTransfer $orderTransfer)
-    {
-        $selectedProcessName = $orderTransfer->getProcess();
-
-        if (in_array($selectedProcessName, $this->getActiveProcesses()) === false) {
-            throw new \RuntimeException("Process $selectedProcessName is not actived in " . get_class($this));
-        }
-
-        return $selectedProcessName;
-    }
-
-    /**
      * @return array
      */
     public function getActiveProcesses()
