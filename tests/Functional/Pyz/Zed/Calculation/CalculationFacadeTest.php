@@ -165,7 +165,7 @@ class CalculationFacadeTest extends Test
     }
 
     /**
-     * @param string $discountAmount
+     * @param int $discountAmount
      * @param string $calculatorType
      * @return \Orm\Zed\Discount\Persistence\SpyDiscountVoucher
      * @throws \Propel\Runtime\Exception\PropelException
