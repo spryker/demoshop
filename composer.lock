@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "064ddec5dc934f78d47e86e8b5e56edf",
-    "content-hash": "1bc99988a9fa1f448d43fc28f9f8773a",
+    "hash": "c2c688cbc1993772ef4929f82109c6a8",
+    "content-hash": "da3446f96360fbf45cc3f72659e081b5",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -945,11 +945,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/1518-category-fixes",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "152e8aa0c4efc7b3ff9774a3430a6bc848d7de5e"
+                "reference": "02e7492e49cc4e10f799019fb994d60a040d7bb6"
             },
             "require": {
                 "phpdocumentor/graphviz": "dev-master#a906a90"
@@ -1441,7 +1441,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-03-11 09:42:35"
+            "time": "2016-03-10 14:38:32"
         },
         {
             "name": "symfony-cmf/routing",
@@ -4121,7 +4121,7 @@
                     "name": "Manuel Pichler",
                     "email": "github@manuel-pichler.de",
                     "homepage": "https://github.com/manuelpichler",
-                    "role": "Project Founder"
+                    "role": "Project founder"
                 },
                 {
                     "name": "Other contributors",
