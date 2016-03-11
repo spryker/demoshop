@@ -13,6 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraint;
 
 class AddressForm extends AbstractType
 {
@@ -416,7 +417,7 @@ class AddressForm extends AbstractType
      */
     protected function getValidationGroup(array $options)
     {
-        $validationGroup = 'Default';
+        $validationGroup = Constraint::DEFAULT_GROUP;
         if (!empty($options['validation_group'])) {
             $validationGroup = $options['validation_group'];
         }
