@@ -1027,21 +1027,61 @@ keys:
       de_DE: 'Authentifizierung fehlgeschlagen'
   payolution_invoice.date_of_birth:
     translations:
-      en_US: 'Birth date (Eg: 01-11-1990)'
+      en_US: 'Date of birth (Eg: DD-MM-YYYY)'
       de_DE: 'Geburtsdatum (TT-MM-JJJJ)'
-
-  customer.email.invalid
-  customer.password.recovery.mail.sent
-  customer.address.number
-  countries.iso.DE
-  customer.billingSameAsShipping
-  checkout.step.shipment -> go to shipment page
-  checkout.step.payment -> go to payment page
-  checkout.step.summary -> go to summary page
-  checkout.step.place.order
-  payolution_invoice.date_of_birth
-  customer.billingSameAsShipping
-  payolution_installment.bank_account_holder
-  payolution_installment.bank_account_iban
-  payolution_installment.bank_account_bic
-  payolution_installment.installment_payment_detail_index
+  customer.email.invalid:
+    translations:
+      en_US: 'Email address is invalid'
+      de_DE: ''
+  customer.password.recovery.mail.sent:
+    translations:
+      en_US: 'An email with recover instructions was sent to your email address'
+      de_DE: ''
+  customer.address.number:
+    translations:
+      en_US: 'Number'
+      de_DE: ''
+  countries.iso.DE:
+    translations:
+      en_US: 'Germany'
+      de_DE: 'Deutschland'
+  customer.billingSameAsShipping:
+    translations:
+      en_US: 'Billing address same as shipping address'
+      de_DE: ''
+  checkout.step.shipment:
+    translations:
+      en_US: 'Shipment'
+      de_DE: ''
+  checkout.step.payment:
+    translations:
+      en_US: 'Payment'
+      de_DE: ''
+  checkout.step.summary:
+    translations:
+      en_US: 'Summary'
+      de_DE: ''
+  checkout.step.place.order:
+    translations:
+      en_US: 'Place order'
+      de_DE: ''
+  payolution_invoice.date_of_birth:
+    translations:
+      en_US: 'Date of birth (Eg: DD-MM-YYYY)'
+      de_DE: 'Geburtsdatum (TT-MM-JJJJ)'
+  payolution_installment.bank_account_holder:
+    translations:
+      en_US: 'Bank name'
+      de_DE: ''
+  payolution_installment.bank_account_iban:
+    translations:
+      en_US: 'Account IBAN'
+      de_DE: ''
+  payolution_installment.bank_account_bic:
+    translations:
+      en_US: 'Account BIC'
+      de_DE: ''
+  payolution_installment.installment_payment_detail_index:
+    translations:
+      en_US: ''
+      de_DE: ''
