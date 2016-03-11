@@ -12,12 +12,12 @@ class SubformDataProviders implements DataProviderInterface
 {
 
     /**
-     * @var array|\Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[]
+     * @var \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[]
      */
     protected $subFormPlugins;
 
     /**
-     * @param array|\Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[] $subformPlugins
+     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[] $subformPlugins
      */
     public function __construct(array $subformPlugins)
     {

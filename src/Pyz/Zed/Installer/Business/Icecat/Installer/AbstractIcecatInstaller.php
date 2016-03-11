@@ -46,7 +46,7 @@ abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
     protected $dataDirectory;
 
     /**
-     * @var array|\Pyz\Zed\Installer\Business\Icecat\Importer\IcecatImporterInterface[]
+     * @var \Pyz\Zed\Installer\Business\Icecat\Importer\IcecatImporterInterface[]
      */
     protected $importerCollection = [];
 
