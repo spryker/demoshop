@@ -368,9 +368,11 @@ class AddressForm extends AbstractType
      */
     protected function createMinLengthConstraint(array $options)
     {
+        $validationGroup = $this->getValidationGroup($options);
+
         return new Length([
             'min' => 3,
-            'groups' => $options['validation_group'],
+            'groups' => $validationGroup,
             'minMessage' => 'This field must be at least {{ limit }} characters long.',
         ]);
     }
@@ -382,10 +384,12 @@ class AddressForm extends AbstractType
      */
     protected function createZipCodeContraint(array $options)
     {
+        $validationGroup = $this->getValidationGroup($options);
+
         return new Regex([
             'pattern' => '/^\d{5}$/',
             'message' => 'This field should contain exactly 5 digits.',
-            'groups' => $options['validation_group']
+            'groups' => $validationGroup
         ]);
     }
 
@@ -396,11 +400,27 @@ class AddressForm extends AbstractType
      */
     protected function createNumberConstraint(array $options)
     {
+        $validationGroup = $this->getValidationGroup($options);
+
         return new Regex([
             'pattern' => '/^\d+$/',
             'message' => 'This field should contain numeric values only.',
-            'groups' => $options['validation_group']
+            'groups' => $validationGroup
         ]);
+    }
+
+    /**
+     * @param array $options
+     *
+     * @return string
+     */
+    protected function getValidationGroup(array $options)
+    {
+        $validationGroup = 'Default';
+        if (!empty($options['validation_group'])) {
+            $validationGroup = $options['validation_group'];
+        }
+        return $validationGroup;
     }
 
 }
