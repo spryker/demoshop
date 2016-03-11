@@ -230,7 +230,7 @@ class AddressForm extends AbstractType
             'required' => true,
             'constraints' => [
                 $this->createNotBlankConstraint($options),
-                $this->createZipCodeContraint($options)
+                $this->createZipCodeConstraint($options)
             ],
         ]);
 
@@ -382,7 +382,7 @@ class AddressForm extends AbstractType
      *
      * @return \Symfony\Component\Validator\Constraints\Regex
      */
-    protected function createZipCodeContraint(array $options)
+    protected function createZipCodeConstraint(array $options)
     {
         $validationGroup = $this->getValidationGroup($options);
 
