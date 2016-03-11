@@ -22,7 +22,7 @@ class StepProcessTest extends \PHPUnit_Framework_TestCase
     /**
      * @return void
      */
-    public function testStepProcessPreCheckShouldReturnRedirectResponseWhenPreconditionReturnsFalse()
+    public function testStepProcessPreCheckShouldReturnRedirectResponseWhenPreConditionReturnsFalse()
     {
         $escapeRoute = 'escape_route';
         $stepMock = $this->createStepMock();
