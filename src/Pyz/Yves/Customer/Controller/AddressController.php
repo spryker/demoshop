@@ -155,20 +155,15 @@ class AddressController extends AbstractCustomerController
         }
 
         foreach ($addressesTransfer->getAddresses() as $addressTransfer) {
-            $other = true;
             if ((int)$addressTransfer->getIdCustomerAddress() === (int)$customerTransfer->getDefaultBillingAddress()) {
-                $responseData[self::KEY_DEFAULT_BILLING_ADDRESS] = $addressTransfer;
-                $other = false;
+                $addressTransfer->setIsDefaultBilling(true);
             }
 
             if ((int)$addressTransfer->getIdCustomerAddress() === (int)$customerTransfer->getDefaultShippingAddress()) {
-                $responseData[self::KEY_DEFAULT_SHIPPING_ADDRESS] = $addressTransfer;
-                $other = false;
+                $addressTransfer->setIsDefaultShipping(true);
             }
 
-            if ($other) {
-                $responseData[self::KEY_ADDRESSES][] = $addressTransfer;
-            }
+            $responseData[self::KEY_ADDRESSES][] = $addressTransfer;
         }
 
         return $responseData;

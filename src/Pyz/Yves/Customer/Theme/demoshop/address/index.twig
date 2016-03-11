@@ -1,6 +1,6 @@
 {% extends "@application/layout/layout.twig" %}
 
-{% macro row(address, type) %}
+{% macro row(address) %}
     <tr>
         <td>{{ address.getFirstName() }} {{ address.getLastName() }}</td>
         <td>
@@ -12,7 +12,10 @@
             {% endspaceless %}
         </td>
         <td class="text-right">
-            {% if type is not empty %}<span class="label label-info">{{ type }}</span>{% endif %}
+
+            {% if address.getIsDefaultShipping %}<span class="label label-info">shipping</span>{% endif %}
+            {% if address.getIsDefaultBilling %}<span class="label label-info">billing</span>{% endif %}
+
             <a href="{{ url('customer/address/update', {'id': address.getIdCustomerAddress()}) }}" class="edit-data">
                 {{ "customer.profile.address.edit" | trans }}
             </a>
@@ -38,13 +41,6 @@
                     </div>
                     <div class="panel-body">
                         <table class="table border-bottom">
-                            {% if default_billing_address is not null %}
-                                {{ table.row(default_billing_address, 'billing') }}
-                            {% endif %}
-                            {% if default_shipping_address is not null %}
-                                {{ table.row(default_shipping_address, 'shipping') }}
-                            {% endif %}
-
                             {% for address in addresses %}
                                 {{ table.row(address) }}
                             {% endfor %}
