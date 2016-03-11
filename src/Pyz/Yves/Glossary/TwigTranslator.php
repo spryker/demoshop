@@ -73,6 +73,7 @@ class TwigTranslator implements TranslatorInterface
      */
     public function transChoice($id, $number, array $parameters = [], $domain = null, $locale = null)
     {
+        return strtr($id, $parameters); //At least use default value until we have implementation from glossary.
         // TODO: Implement transChoice() method.
     }
 
