@@ -15,7 +15,7 @@ use Spryker\Zed\Category\Dependency\Facade\CategoryToUrlInterface;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Locale\Persistence\LocaleQueryContainerInterface;
 
-class NodeUrlManager extends SprykerNodeUrlManager
+class NodeUrlManager extends SprykerNodeUrlManager implements NodeUrlManagerInterface
 {
 
     /**

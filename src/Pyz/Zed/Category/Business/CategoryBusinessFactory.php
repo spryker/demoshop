@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\Category\Business;
 
-use Psr\Log\LoggerInterface;
 use Pyz\Zed\Category\Business\Internal\DemoData\CategoryTreeInstall;
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
 use Pyz\Zed\Category\CategoryDependencyProvider;
@@ -36,7 +35,8 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
             $this->createCategoryTreeWriter(),
             $this->getQueryContainer(),
             $this->getProvidedDependency(CategoryDependencyProvider::FACADE_LOCALE),
-            $this->getProvidedDependency(CategoryDependencyProvider::FACADE_TOUCH)
+            $this->getProvidedDependency(CategoryDependencyProvider::FACADE_TOUCH),
+            $this->createNodeUrlManager()
         );
         $installer->setMessenger($messenger);
 
@@ -44,7 +44,7 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Category\Business\Manager\NodeUrlManager
+     * @return \Pyz\Zed\Category\Business\Manager\NodeUrlManagerInterface
      */
     protected function createNodeUrlManager()
     {
