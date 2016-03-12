@@ -17,11 +17,11 @@ use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
 use Pyz\Zed\Collector\Business\Storage\TranslationCollector;
 use Pyz\Zed\Collector\Business\Storage\UrlCollector;
 use Pyz\Zed\Collector\CollectorDependencyProvider;
-use Pyz\Zed\Collector\Persistence\Search\Propel\ProductCollector as SearchProductCollectorPropelQueryAdapter;
-use Pyz\Zed\Collector\Persistence\Storage\Propel\BlockCollector as StorageBlockCollectorPropelQueryAdapter;
-use Pyz\Zed\Collector\Persistence\Storage\Propel\PageCollector as StoragePageCollectorPropelQueryAdapter;
-use Pyz\Zed\Collector\Persistence\Storage\Propel\RedirectCollector as StorageRedirectCollectorPropelQueryAdapter;
-use Pyz\Zed\Collector\Persistence\Storage\Propel\TranslationCollector as StorageTranslationCollectorPropelQueryAdapter;
+use Pyz\Zed\Collector\Persistence\Search\Propel\ProductCollectorQuery as SearchProductCollectorPropelQuery;
+use Pyz\Zed\Collector\Persistence\Storage\Propel\BlockCollectorQuery as StorageBlockCollectorPropelQuery;
+use Pyz\Zed\Collector\Persistence\Storage\Propel\PageCollectorQuery as StoragePageCollectorPropelQuery;
+use Pyz\Zed\Collector\Persistence\Storage\Propel\RedirectCollectorQuery as StorageRedirectCollectorPropelQuery;
+use Pyz\Zed\Collector\Persistence\Storage\Propel\TranslationCollectorQuery as StorageTranslationCollectorPropelQuery;
 use Spryker\Zed\Collector\Business\CollectorBusinessFactory as SprykerCollectorBusinessFactory;
 
 /**
@@ -48,7 +48,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->createCriteriaBuilder()
         );
         $searchProductCollector->setQueryBuilder(
-            $this->createSearchPdoQueryAdapterByName('ProductCollector')
+            $this->createSearchPdoQueryAdapterByName('ProductCollectorQuery')
         );
 
         return $searchProductCollector;
@@ -68,7 +68,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->createCriteriaBuilder()
         );
         $storageCategoryNodeCollector->setQueryBuilder(
-            $this->createStoragePdoQueryAdapterByName('CategoryNodeCollector')
+            $this->createStoragePdoQueryAdapterByName('CategoryNodeCollectorQuery')
         );
 
         return $storageCategoryNodeCollector;
@@ -88,7 +88,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->createCriteriaBuilder()
         );
         $storageNavigationCollector->setQueryBuilder(
-            $this->createStoragePdoQueryAdapterByName('NavigationCollector')
+            $this->createStoragePdoQueryAdapterByName('NavigationCollectorQuery')
         );
 
         return $storageNavigationCollector;
@@ -105,7 +105,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->getTouchQueryContainer()
         );
         $storagePageCollector->setQueryBuilder(
-            $this->createStoragePageCollectorPropelQueryAdapter()
+            $this->createStoragePageCollectorPropelQuery()
         );
 
         return $storagePageCollector;
@@ -129,7 +129,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->createCriteriaBuilder()
         );
         $storageProductCollector->setQueryBuilder(
-            $this->createStoragePdoQueryAdapterByName('ProductCollector')
+            $this->createStoragePdoQueryAdapterByName('ProductCollectorQuery')
         );
 
         return $storageProductCollector;
@@ -146,7 +146,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->getTouchQueryContainer()
         );
         $storageRedirectCollector->setQueryBuilder(
-            $this->createStorageRedirectCollectorPropelQueryAdapter()
+            $this->createStorageRedirectCollectorPropelQuery()
         );
 
         return $storageRedirectCollector;
@@ -163,7 +163,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->getTouchQueryContainer()
         );
         $storageTranslationCollector->setQueryBuilder(
-            $this->createStorageTranslationCollectorPropelQueryAdapter()
+            $this->createStorageTranslationCollectorPropelQuery()
         );
 
         return $storageTranslationCollector;
@@ -183,7 +183,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->createCriteriaBuilder()
         );
         $storageUrlCollector->setQueryBuilder(
-            $this->createStoragePdoQueryAdapterByName('UrlCollector')
+            $this->createStoragePdoQueryAdapterByName('UrlCollectorQuery')
         );
 
         return $storageUrlCollector;
@@ -200,7 +200,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->getTouchQueryContainer()
         );
         $storageBlockCollector->setQueryBuilder(
-            $this->createStorageBlockCollectorPropelQueryAdapter()
+            $this->createStorageBlockCollectorPropelQuery()
         );
 
         return $storageBlockCollector;
@@ -247,43 +247,43 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\BlockCollector
+     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\BlockCollectorQuery
      */
-    public function createStorageBlockCollectorPropelQueryAdapter()
+    public function createStorageBlockCollectorPropelQuery()
     {
-        return new StorageBlockCollectorPropelQueryAdapter();
+        return new StorageBlockCollectorPropelQuery();
     }
 
     /**
-     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\PageCollector
+     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\PageCollectorQuery
      */
-    public function createStoragePageCollectorPropelQueryAdapter()
+    public function createStoragePageCollectorPropelQuery()
     {
-        return new StoragePageCollectorPropelQueryAdapter();
+        return new StoragePageCollectorPropelQuery();
     }
 
     /**
-     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\RedirectCollector
+     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\RedirectCollectorQuery
      */
-    public function createStorageRedirectCollectorPropelQueryAdapter()
+    public function createStorageRedirectCollectorPropelQuery()
     {
-        return new StorageRedirectCollectorPropelQueryAdapter();
+        return new StorageRedirectCollectorPropelQuery();
     }
 
     /**
-     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\TranslationCollector
+     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\TranslationCollectorQuery
      */
-    public function createStorageTranslationCollectorPropelQueryAdapter()
+    public function createStorageTranslationCollectorPropelQuery()
     {
-        return new StorageTranslationCollectorPropelQueryAdapter();
+        return new StorageTranslationCollectorPropelQuery();
     }
 
     /**
-     * @return \Pyz\Zed\Collector\Persistence\Search\Propel\ProductCollector
+     * @return \Pyz\Zed\Collector\Persistence\Search\Propel\ProductCollectorQuery
      */
-    public function createSearchProductCollectorPropelQueryAdapter()
+    public function createSearchProductCollectorPropelQuery()
     {
-        return new SearchProductCollectorPropelQueryAdapter(
+        return new SearchProductCollectorPropelQuery(
             $this->getCategoryQueryContainer()
         );
     }

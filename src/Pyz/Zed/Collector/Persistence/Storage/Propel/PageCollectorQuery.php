@@ -18,7 +18,7 @@ use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Zed\Collector\Persistence\Exporter\AbstractPropelCollectorQuery;
 
-class PageCollector extends AbstractPropelCollectorQuery
+class PageCollectorQuery extends AbstractPropelCollectorQuery
 {
 
     /**

@@ -24,7 +24,7 @@ use Propel\Runtime\ActiveQuery\Join;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Collector\Persistence\Exporter\AbstractPropelCollectorQuery;
 
-class ProductCollector extends AbstractPropelCollectorQuery
+class ProductCollectorQuery extends AbstractPropelCollectorQuery
 {
 
     /**

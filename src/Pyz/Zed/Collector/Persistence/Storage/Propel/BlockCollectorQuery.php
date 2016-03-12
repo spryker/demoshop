@@ -17,8 +17,17 @@ use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Zed\Collector\Persistence\Exporter\AbstractPropelCollectorQuery;
 
-class BlockCollector extends AbstractPropelCollectorQuery
+class BlockCollectorQuery extends AbstractPropelCollectorQuery
 {
+
+    const BLOCK_ID = 'block_id';
+    const BLOCK_NAME = 'block_name';
+    const BLOCK_TYPE = 'block_type';
+    const BLOCK_VALUE = 'block_value';
+    const PLACEHOLDER = 'placeholder';
+    const TEMPLATE_PATH = 'template_path';
+    const IS_ACTIVE = 'isActive';
+    const TRANSLATION_KEY = 'translation_key';
 
     /**
      * @return void
@@ -57,14 +66,14 @@ class BlockCollector extends AbstractPropelCollectorQuery
             Criteria::EQUAL
         );
 
-        $this->touchQuery->withColumn(SpyCmsBlockTableMap::COL_ID_CMS_BLOCK, 'block_id');
-        $this->touchQuery->withColumn(SpyCmsBlockTableMap::COL_NAME, 'block_name');
-        $this->touchQuery->withColumn(SpyCmsBlockTableMap::COL_TYPE, 'block_type');
-        $this->touchQuery->withColumn(SpyCmsBlockTableMap::COL_VALUE, 'block_value');
-        $this->touchQuery->withColumn(SpyCmsGlossaryKeyMappingTableMap::COL_PLACEHOLDER, 'placeholder');
-        $this->touchQuery->withColumn(SpyCmsTemplateTableMap::COL_TEMPLATE_PATH, 'template_path');
-        $this->touchQuery->withColumn(SpyCmsPageTableMap::COL_IS_ACTIVE, 'isActive');
-        $this->touchQuery->withColumn(SpyGlossaryKeyTableMap::COL_KEY, 'translation_key');
+        $this->touchQuery->withColumn(SpyCmsBlockTableMap::COL_ID_CMS_BLOCK, self::BLOCK_ID);
+        $this->touchQuery->withColumn(SpyCmsBlockTableMap::COL_NAME, self::BLOCK_NAME);
+        $this->touchQuery->withColumn(SpyCmsBlockTableMap::COL_TYPE, self::BLOCK_TYPE);
+        $this->touchQuery->withColumn(SpyCmsBlockTableMap::COL_VALUE, self::BLOCK_VALUE);
+        $this->touchQuery->withColumn(SpyCmsGlossaryKeyMappingTableMap::COL_PLACEHOLDER, self::PLACEHOLDER);
+        $this->touchQuery->withColumn(SpyCmsTemplateTableMap::COL_TEMPLATE_PATH, self::TEMPLATE_PATH);
+        $this->touchQuery->withColumn(SpyCmsPageTableMap::COL_IS_ACTIVE, self::IS_ACTIVE);
+        $this->touchQuery->withColumn(SpyGlossaryKeyTableMap::COL_KEY, self::TRANSLATION_KEY);
     }
 
 }

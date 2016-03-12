@@ -14,7 +14,7 @@ use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Zed\Collector\Persistence\Exporter\AbstractPropelCollectorQuery;
 
-class TranslationCollector extends AbstractPropelCollectorQuery
+class TranslationCollectorQuery extends AbstractPropelCollectorQuery
 {
 
     /**

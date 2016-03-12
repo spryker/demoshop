@@ -10,7 +10,7 @@ namespace Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql;
 use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 use Spryker\Zed\Collector\Persistence\Exporter\AbstractPdoCollectorQuery;
 
-class UrlCollector extends AbstractPdoCollectorQuery
+class UrlCollectorQuery extends AbstractPdoCollectorQuery
 {
 
     /**

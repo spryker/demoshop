@@ -13,7 +13,7 @@ use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Zed\Collector\Persistence\Exporter\AbstractPropelCollectorQuery;
 
-class RedirectCollector extends AbstractPropelCollectorQuery
+class RedirectCollectorQuery extends AbstractPropelCollectorQuery
 {
 
     /**

@@ -9,7 +9,7 @@ namespace Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql;
 
 use Spryker\Zed\Collector\Persistence\Exporter\AbstractPdoCollectorQuery;
 
-class ProductCollector extends AbstractPdoCollectorQuery
+class ProductCollectorQuery extends AbstractPdoCollectorQuery
 {
 
     /**
