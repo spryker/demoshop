@@ -13,7 +13,7 @@ use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller;
 use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Stock\Business\Model\ReaderInterface;
 use Spryker\Zed\Stock\Business\Model\WriterInterface;
-use Spryker\Zed\Stock\Persistence\StockQueryContainer;
+use Spryker\Zed\Stock\Persistence\StockQueryContainerInterface;
 
 class StockInstall extends AbstractDemoDataInstaller
 {
@@ -34,7 +34,7 @@ class StockInstall extends AbstractDemoDataInstaller
     protected $writer;
 
     /**
-     * @var \Spryker\Zed\Stock\Persistence\StockQueryContainer
+     * @var \Spryker\Zed\Stock\Persistence\StockQueryContainerInterface
      */
     protected $queryContainer;
 
@@ -46,12 +46,12 @@ class StockInstall extends AbstractDemoDataInstaller
     /**
      * @param \Spryker\Zed\Stock\Business\Model\ReaderInterface $reader
      * @param \Spryker\Zed\Stock\Business\Model\WriterInterface $writer
-     * @param \Spryker\Zed\Stock\Persistence\StockQueryContainer $queryContainer
+     * @param \Spryker\Zed\Stock\Persistence\StockQueryContainerInterface $queryContainer
      */
     public function __construct(
         ReaderInterface $reader,
         WriterInterface $writer,
-        StockQueryContainer $queryContainer
+        StockQueryContainerInterface $queryContainer
     ) {
         $this->reader = $reader;
         $this->writer = $writer;

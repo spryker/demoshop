@@ -37,7 +37,7 @@ class UrlMatcher implements UrlMatcherInterface
      * @param string $url
      * @param string $localeName
      *
-     * @return string
+     * @return mixed
      */
     public function matchUrl($url, $localeName)
     {
