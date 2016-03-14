@@ -1032,15 +1032,15 @@ keys:
   customer.email.invalid:
     translations:
       en_US: 'Email address is invalid'
-      de_DE: ''
+      de_DE: 'E-Mail Adresse ist ungültig'
   customer.password.recovery.mail.sent:
     translations:
       en_US: 'An email with recover instructions was sent to your email address'
-      de_DE: ''
+      de_DE: 'Ihnen wurde soebene eine E-Mail gesendet mit dem Aktivierungscode'
   customer.address.number:
     translations:
       en_US: 'Number'
-      de_DE: ''
+      de_DE: 'Nummer'
   countries.iso.DE:
     translations:
       en_US: 'Germany'
@@ -1048,23 +1048,23 @@ keys:
   customer.billingSameAsShipping:
     translations:
       en_US: 'Billing address same as shipping address'
-      de_DE: ''
+      de_DE: 'Liefer- und Rechnungsadresse sind gleich'
   checkout.step.shipment:
     translations:
-      en_US: 'Shipment'
-      de_DE: ''
+      en_US: 'Go to Shipment'
+      de_DE: 'Weiter zur Lieferung'
   checkout.step.payment:
     translations:
-      en_US: 'Payment'
-      de_DE: ''
+      en_US: 'Go to Payment'
+      de_DE: 'Weiter zur Zahlung'
   checkout.step.summary:
     translations:
-      en_US: 'Summary'
-      de_DE: ''
+      en_US: 'Go to Summary'
+      de_DE: 'Weiter zur Übersicht'
   checkout.step.place.order:
     translations:
       en_US: 'Place order'
-      de_DE: ''
+      de_DE: 'Bestellung'sour
   payolution_invoice.date_of_birth:
     translations:
       en_US: 'Date of birth (Eg: DD-MM-YYYY)'
