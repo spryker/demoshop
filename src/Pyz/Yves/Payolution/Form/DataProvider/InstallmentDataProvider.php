@@ -24,7 +24,7 @@ class InstallmentDataProvider implements DataProviderInterface
     protected $payolutionClient;
 
     /**
-     * @param PayolutionClientInterface $payolutionClient
+     * @param \Spryker\Client\Payolution\PayolutionClientInterface $payolutionClient
      */
     public function __construct(PayolutionClientInterface $payolutionClient)
     {
