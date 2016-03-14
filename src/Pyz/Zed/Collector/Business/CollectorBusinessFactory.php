@@ -293,13 +293,18 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     protected function createCriteriaBuilder()
     {
+        /* @var \Everon\Component\CriteriaBuilder\CriteriaBuilderFactoryWorkerInterface $factoryWorker */
         $factory = new \Everon\Component\Factory\Factory(
             $this->createCriteriaBuilderContainer()
         );
 
-        return $factory
-            ->getWorkerByName('CriteriaBuilder', 'Everon\Component\CriteriaBuilder')
-            ->buildCriteriaBuilder();
+        $factory->registerWorkerCallback('CriteriaBuilderFactoryWorker', function () use ($factory) {
+            return $factory->buildWorker(\Everon\Component\CriteriaBuilder\CriteriaBuilderFactoryWorker::class);
+        });
+
+        $factoryWorker = $factory->getWorkerByName('CriteriaBuilderFactoryWorker');
+
+        return $factoryWorker->buildCriteriaBuilder();
     }
 
     /**
