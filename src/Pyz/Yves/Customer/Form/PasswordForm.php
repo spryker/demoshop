@@ -52,9 +52,15 @@ class PasswordForm extends AbstractType
             'required' => true,
             'first_options' => [
                 'label' => 'customer.password.request.new_password',
+                'attr' => [
+                    'autocomplete' => 'off',
+                ],
             ],
             'second_options' => [
                 'label' => 'customer.password.confirm.new_password',
+                'attr' => [
+                    'autocomplete' => 'off',
+                ],
             ],
         ]);
 
@@ -71,6 +77,9 @@ class PasswordForm extends AbstractType
         $builder->add(self::FIELD_PASSWORD, self::FIELD_PASSWORD, [
             'label' => 'customer.password.old_password',
             'required' => true,
+            'attr' => [
+                'autocomplete' => 'off',
+            ],
         ]);
 
         return $this;
