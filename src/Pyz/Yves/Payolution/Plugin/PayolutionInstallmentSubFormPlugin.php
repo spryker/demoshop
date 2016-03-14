@@ -14,7 +14,7 @@ class PayolutionInstallmentSubFormPlugin extends AbstractPlugin implements Check
     /**
      * @return \Pyz\Yves\Payolution\Form\InstallmentSubForm
      */
-    public function createSubFrom()
+    public function createSubForm()
     {
         return $this->getFactory()->createInstallmentForm();
     }

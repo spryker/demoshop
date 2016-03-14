@@ -165,7 +165,7 @@ class PaymentForm extends AbstractType
      */
     protected function createSubForm(CheckoutSubFormPluginInterface $paymentMethodSubForm)
     {
-        return $paymentMethodSubForm->createSubFrom();
+        return $paymentMethodSubForm->createSubForm();
     }
 
     /**
