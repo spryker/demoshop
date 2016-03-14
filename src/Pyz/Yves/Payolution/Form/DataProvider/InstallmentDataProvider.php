@@ -24,7 +24,7 @@ class InstallmentDataProvider implements DataProviderInterface
     protected $payolutionClient;
 
     /**
-     * InstallmentDataProvider constructor.
+     * @param PayolutionClientInterface $payolutionClient
      */
     public function __construct(PayolutionClientInterface $payolutionClient)
     {
