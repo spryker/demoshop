@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Collector\Business;
 
+use Everon\Component\CriteriaBuilder\CriteriaBuilderFactoryWorker;
 use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector;
 use Pyz\Zed\Collector\Business\Storage\BlockCollector;
 use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector;
@@ -293,15 +294,15 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     protected function createCriteriaBuilder()
     {
-        /* @var \Everon\Component\CriteriaBuilder\CriteriaBuilderFactoryWorkerInterface $factoryWorker */
         $factory = new \Everon\Component\Factory\Factory(
             $this->createCriteriaBuilderContainer()
         );
 
         $factory->registerWorkerCallback('CriteriaBuilderFactoryWorker', function () use ($factory) {
-            return $factory->buildWorker(\Everon\Component\CriteriaBuilder\CriteriaBuilderFactoryWorker::class);
+            return $factory->buildWorker(CriteriaBuilderFactoryWorker::class);
         });
 
+        /* @var \Everon\Component\CriteriaBuilder\CriteriaBuilderFactoryWorkerInterface $factoryWorker */
         $factoryWorker = $factory->getWorkerByName('CriteriaBuilderFactoryWorker');
 
         return $factoryWorker->buildCriteriaBuilder();
