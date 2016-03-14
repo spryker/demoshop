@@ -17,7 +17,7 @@
             </div>
             <div class="col-xs-12 col-sm-6 custom-form">
                 <h2>{{ "customer.password.update" | trans }}</h2>
-                {{ form_start(passwordForm) }}
+                {{ form_start(passwordForm, {'attr': {'autocomplete': 'off'}}) }}
                 {{ form_widget(passwordForm) }}
 
                 <div class="frame buttons cfx">
