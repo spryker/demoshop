@@ -1510,7 +1510,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/41ee6c70758f40fa1dbf90d019ae0a66c4a09e74",
+                "url": "https://api.github.com/repos/symfony/config/zipball/ee4cdda66aff834c8125e8f2c15932461667c521",
                 "reference": "41ee6c70758f40fa1dbf90d019ae0a66c4a09e74",
                 "shasum": ""
             },
@@ -1840,7 +1840,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
+                "url": "https://api.github.com/repos/symfony/form/zipball/23394a60d49d2aa904dacda6e5eb29d88251f9da",
                 "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
                 "shasum": ""
             },
@@ -5280,12 +5280,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "b981ea33104da0f979a597297359b161a0d91a4c"
+                "reference": "d54eebac0e5ad86bc8e6d36b7399cc845eef0961"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/d54eebac0e5ad86bc8e6d36b7399cc845eef0961",
-                "reference": "b981ea33104da0f979a597297359b161a0d91a4c",
+                "reference": "d54eebac0e5ad86bc8e6d36b7399cc845eef0961",
                 "shasum": ""
             },
             "require": {
@@ -5314,7 +5314,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-02-26 15:41:35"
+            "time": "2016-03-10 09:21:45"
         },
         {
             "name": "squizlabs/php_codesniffer",
