@@ -14,7 +14,7 @@ class ShipmentSubFormPlugin extends AbstractPlugin implements CheckoutSubFormPlu
     /**
      * @return \Pyz\Yves\Checkout\Dependency\SubFormInterface
      */
-    public function createSubFrom()
+    public function createSubForm()
     {
         return $this->getFactory()->createShipmentForm();
     }

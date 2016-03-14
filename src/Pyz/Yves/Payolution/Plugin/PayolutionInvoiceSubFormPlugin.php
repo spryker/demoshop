@@ -14,7 +14,7 @@ class PayolutionInvoiceSubFormPlugin extends AbstractPlugin implements CheckoutS
     /**
      * @return \Pyz\Yves\Payolution\Form\InvoiceSubForm
      */
-    public function createSubFrom()
+    public function createSubForm()
     {
         return $this->getFactory()->createInvoiceForm();
     }

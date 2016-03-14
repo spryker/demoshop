@@ -9,7 +9,7 @@ interface CheckoutSubFormPluginInterface
      *
      * @return \Pyz\Yves\Checkout\Dependency\SubFormInterface
      */
-    public function createSubFrom();
+    public function createSubForm();
 
     /**
      * @return \Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface
