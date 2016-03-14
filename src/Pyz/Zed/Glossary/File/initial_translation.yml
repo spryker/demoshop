@@ -207,8 +207,10 @@ keys:
     translations:
       de_DE: 'Warenkorb'
       en_US: 'Cart'
-
-
+  cart.total.discount:
+    translations:
+      de_DE: 'Rabatt'
+      en_EN: 'Discount'
   auth.login:
     translations:
       de_DE: 'Anmelden'
@@ -1055,7 +1057,7 @@ keys:
       de_DE: 'Weiter zur Lieferung'
   checkout.step.payment:
     translations:
-      en_US: 'Go to Payment'
+      en_US: 'Payment'
       de_DE: 'Weiter zur Zahlung'
   checkout.step.summary:
     translations:
@@ -1063,25 +1065,30 @@ keys:
       de_DE: 'Weiter zur Übersicht'
   checkout.step.place.order:
     translations:
-      en_US: 'Place order'
-      de_DE: 'Bestellung'sour
+      en_US: 'Submit your order'
+      de_DE: 'Jetzt kaufen'
   payolution_invoice.date_of_birth:
     translations:
-      en_US: 'Date of birth (Eg: DD-MM-YYYY)'
+      en_US: 'Date of birth (DD-MM-YYYY)'
       de_DE: 'Geburtsdatum (TT-MM-JJJJ)'
   payolution_installment.bank_account_holder:
     translations:
       en_US: 'Bank name'
-      de_DE: ''
+      de_DE: 'Bank'
   payolution_installment.bank_account_iban:
     translations:
       en_US: 'Account IBAN'
-      de_DE: ''
+      de_DE: 'IBAN'
   payolution_installment.bank_account_bic:
     translations:
       en_US: 'Account BIC'
-      de_DE: ''
+      de_DE: 'BIC'
   payolution_installment.installment_payment_detail_index:
     translations:
-      en_US: ''
-      de_DE: ''
+      en_US: 'Installment details'
+      de_DE: 'Details zur Ratenzahlung'
+  payolution_installment.date_of_birth:
+    translations:
+      en_US: 'Date of birth (DD-MM-YYYY)'
+      de_DE: 'Geburtsdatum (TT-MM-JJJJ)'
+
