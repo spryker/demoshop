@@ -1117,12 +1117,12 @@ keys:
       de_DE: 'Liefer- und Rechnungsadresse sind gleich'
   checkout.customer.proceed_as_user:
     translations:
-      en_US: 'Procees as a user (sign up)'
-      de_DE: '---'
+      en_US: 'Proceed as a registered user (sign up)'
+      de_DE: 'Melden Sie sich mit Ihrem bereits vorhandenem Account an'
   checkout.customer.proceed_as_guest:
     translations:
-      en_US: 'Procees as a guest'
-      de_DE: '---'
+      en_US: 'Proceed as a guest'
+      de_DE: 'Als Gast weiterverfahren'
   checkout.step.address.title:
     translations:
       en_US: 'Address'
@@ -1130,15 +1130,15 @@ keys:
   checkout.step.shipment.title:
     translations:
       en_US: 'Shipment'
-      de_DE: '---'
+      de_DE: 'Versand'
   checkout.step.payment.title:
     translations:
       en_US: 'Payment'
-      de_DE: '---'
+      de_DE: 'Zahlung'
   checkout.step.summary.title:
     translations:
       en_US: 'Summary'
-      de_DE: '---'
+      de_DE: 'Übersicht Bestellung'
   checkout.step.shipment:
     translations:
       en_US: 'Go to Shipment'
