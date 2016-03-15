@@ -881,8 +881,8 @@ keys:
       de_DE: 'Ja, ich möchte per E-Mail informiert werden.'
   customer.profile:
     translations:
-      en_US: 'Sign in'
-      de_DE: Anmelden
+      en_US: 'My Account'
+      de_DE: 'Mein Account'
   customer.profile.update:
     translations:
       en_US: 'Update Profile'
