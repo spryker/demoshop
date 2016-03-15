@@ -19,6 +19,7 @@ var homepage = require('./ui/homepage');
 var catalog = require('./ui/catalog');
 var checkout = require('./ui/checkout');
 var mainNav = require('./ui/main-nav');
+var footer = require('./ui/footer');
 
 var imagesRequire = require.context('../img', true);
 imagesRequire.keys().forEach(function(key) {
@@ -32,6 +33,7 @@ $(function() {
 
     mainNav.init();
     spinner.init();
+    footer.init();
     search.init();
     cart.init();
     catalog.init();

@@ -6,6 +6,13 @@
   color: $light-color;
   text-align: center;
 
+  &.fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
   a {
     color: $light-color;
     text-transform: uppercase;
