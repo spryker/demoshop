@@ -210,7 +210,7 @@ keys:
   cart.total.discount:
     translations:
       de_DE: 'Rabatt'
-      en_EN: 'Discount'
+      en_US: 'Discount'
   auth.login:
     translations:
       de_DE: 'Anmelden'
@@ -671,6 +671,10 @@ keys:
     translations:
       en_US: Logout
       de_DE: Abmelden
+  customer.register:
+    translations:
+      en_US: 'Register'
+      de_DE: 'Registrieren'
   customer.login:
     translations:
       en_US: Login
@@ -753,7 +757,7 @@ keys:
       de_DE: 'Zusätzliche Adressen'
   customer.account.add_new_address:
     translations:
-      en_US: 'Add Address'
+      en_US: 'Add New Address'
       de_DE: 'Neue Adresse hinzufügen'
   customer.newsletter.not_subscribed:
     translations:
@@ -871,6 +875,58 @@ keys:
     translations:
       en_US: 'Order Date'
       de_DE: Datum
+  customer.order.item_sku:
+    translations:
+      de_DE: 'SKU'
+      en_US: 'SKU'
+  customer.order.product_name:
+    translations:
+      de_DE: 'Produkt Name'
+      en_US: 'Product name'
+  customer.order.item_price:
+    translations:
+      de_DE: 'Preis'
+      en_US: 'Price'
+  customer.order.item_quantity:
+    translations:
+      de_DE: 'Anzahl'
+      en_US: 'Quantity'
+  customer.order.item_sum:
+    translations:
+      de_DE: 'Summe'
+      en_US: 'Grand Total'
+  customer.order.subTotal:
+    translations:
+      de_DE: 'Zwischensumme'
+      en_US: 'Subtotal'
+  customer.order.shipment:
+    translations:
+      de_DE: 'Versand'
+      en_US: 'Shipment'
+  customer.order.discount.total:
+    translations:
+      de_DE: 'Rabatt'
+      en_US: 'Discount'
+  customer.order.grandTotal:
+    translations:
+      de_DE: 'Summe'
+      en_US: 'Grand Total'
+  customer.order.shipping_address:
+    translations:
+      de_DE: 'Lieferadresse'
+      en_US: 'Shipping address'
+  customer.order.billing_address:
+    translations:
+      de_DE: 'Rechnungsadresse'
+      en_US: 'Billing address'
+  customer.order.shipment_method:
+    translations:
+      de_DE: 'Versand'
+      en_US: 'Shipment'
+  customer.order.payment_method:
+    translations:
+      de_DE: 'Zahlungsmethode'
+      en_US: 'Payment method'
   customer.newsletter.subscription:
     translations:
       en_US: 'Newsletter settings'
@@ -923,6 +979,10 @@ keys:
     translations:
       en_US: Delete
       de_DE: Löschen
+  customer.profile.order_details:
+    translations:
+      de_DE: 'Bestellungs Details'
+      en_US: 'Order Details'
   customer.password.update:
     translations:
       en_US: 'Change Password'
@@ -951,6 +1011,10 @@ keys:
     translations:
       en_US: Dr.
       de_DE: Dr.
+  customer.customer_id:
+      translations:
+        en_US: 'ID'
+        de_DE: 'ID'
   forms.submit-btn:
     translations:
       en_US: Submit
@@ -1051,10 +1115,42 @@ keys:
     translations:
       en_US: 'Billing address same as shipping address'
       de_DE: 'Liefer- und Rechnungsadresse sind gleich'
+  checkout.customer.proceed_as_user:
+    translations:
+      en_US: 'Procees as a user (sign up)'
+      de_DE: '---'
+  checkout.customer.proceed_as_guest:
+    translations:
+      en_US: 'Procees as a guest'
+      de_DE: '---'
+  checkout.step.address.title:
+    translations:
+      en_US: 'Address'
+      de_DE: 'Adresse'
+  checkout.step.shipment.title:
+    translations:
+      en_US: 'Shipment'
+      de_DE: '---'
+  checkout.step.payment.title:
+    translations:
+      en_US: 'Payment'
+      de_DE: '---'
+  checkout.step.summary.title:
+    translations:
+      en_US: 'Summary'
+      de_DE: '---'
   checkout.step.shipment:
     translations:
       en_US: 'Go to Shipment'
       de_DE: 'Weiter zur Lieferung'
+  checkout.step.address.select_shipping:
+    translations:
+      en_US: 'Select a shipping address'
+      de_DE: 'Wählen Sie Ihre Lieferadresse aus'
+  checkout.step.address.select_billing:
+    translations:
+      en_US: 'Select a billing address'
+      de_DE: 'Wählen Sie Ihre Rechnungsadresse aus'
   checkout.step.payment:
     translations:
       en_US: 'Payment'
@@ -1091,4 +1187,3 @@ keys:
     translations:
       en_US: 'Date of birth (DD-MM-YYYY)'
       de_DE: 'Geburtsdatum (TT-MM-JJJJ)'
-
