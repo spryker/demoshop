@@ -4,7 +4,7 @@
             {% include "@catalog/catalog/partials/filter-category-tree-value.twig" with {displayValue:category.name, value:category.url, default:(selectedCategory is not null ? (category.node_id == selectedCategory.node_id) : false) } %}
 
             {% if category.children is defined and category.children is not empty %}
-                {% set children = (category.node_id == categoryTree.node_id ? categoryTree.children : category.children) %}
+                {% set children = (categoryTree.node_id is defined and category.node_id == categoryTree.node_id ? categoryTree.children : category.children) %}
                 {% include "@catalog/catalog/partials/filter-category-tree-level.twig" with {categories:children} %}
             {% endif %}
         </li>
