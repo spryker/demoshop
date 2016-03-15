@@ -106,7 +106,7 @@ WHERE
                 abstract_sku,
                 spy_touch.id_touch,
                 spy_stock_product.quantity,
-                spy_stock_product.is_never_out_of_stockc,
+                spy_stock_product.is_never_out_of_stock,
                 spy_touch_search.id_touch_search
             ')->setParameter('fk_locale_1', $this->locale->getIdLocale());
     }
