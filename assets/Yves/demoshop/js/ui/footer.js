@@ -18,7 +18,7 @@ module.exports = {
         $(document).ready(setFooterPosition);
         $window.on('resize', setFooterPosition);
 
-        // this is a performance killer
+        // high impact on performance
         $('html *').on('click', setFooterPosition);
     }
 };
