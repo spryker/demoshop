@@ -44,7 +44,7 @@ class CategoryNodeCollector extends AbstractStoragePdoCollector
     }
 
     /**
-     * @param LocaleTransfer $localeTransfer
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      * @param array $collectedItemData
      *
      * @return string
