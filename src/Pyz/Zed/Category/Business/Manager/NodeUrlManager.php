@@ -78,7 +78,7 @@ class NodeUrlManager extends SprykerNodeUrlManager implements NodeUrlManagerInte
     }
 
     /**
-     * @param UrlTransfer $urlTransfer
+     * @param \Generated\Shared\Transfer\UrlTransfer $urlTransfer
      * @param string $urlBase
      *
      * @return string
