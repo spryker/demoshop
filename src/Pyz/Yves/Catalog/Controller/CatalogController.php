@@ -37,7 +37,16 @@ class CatalogController extends AbstractController
             ->createCategoryExporterClient()
             ->getTreeFromCategoryNode($categoryNode, $this->getLocale());
 
-        $searchResults = array_merge($search->getResult(), ['category' => $categoryNode, 'categoryTree' => $categoryTree]);
+        $searchResults = array_merge(
+            $search->getResult(),
+            [
+                'category' => $categoryNode,
+                'categoryTree' => $categoryTree,
+                'page_title' => $categoryNode['meta_title'],
+                'page_description' => $categoryNode['meta_description'],
+                'page_keywords' => $categoryNode['meta_keywords'],
+            ]
+        );
 
         if ($request->isXmlHttpRequest()) {
             $currencyManager = CurrencyManager::getInstance();
