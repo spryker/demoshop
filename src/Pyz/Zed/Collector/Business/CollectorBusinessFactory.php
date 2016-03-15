@@ -214,7 +214,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      *
      * @throws \Exception
      *
-     * @return \Spryker\Zed\Collector\Persistence\Exporter\AbstractCollectorQuery
+     * @return \Spryker\Zed\Collector\Persistence\Collector\AbstractCollectorQuery
      */
     public function createStoragePdoQueryAdapterByName($name)
     {
@@ -234,7 +234,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      *
      * @throws \Exception
      *
-     * @return \Spryker\Zed\Collector\Persistence\Exporter\AbstractCollectorQuery
+     * @return \Spryker\Zed\Collector\Persistence\Collector\AbstractCollectorQuery
      */
     public function createSearchPdoQueryAdapterByName($name)
     {
