@@ -57,7 +57,9 @@ SELECT
   ca.meta_title,
   ca.meta_description,
   ca.meta_keywords,
-  ca.category_image_name
+  ca.category_image_name,
+  \'\' AS "children",
+  \'\' AS "parents"
 FROM tree
   INNER JOIN spy_url u ON (u.fk_resource_categorynode = tree.id_category_node AND u.fk_locale = :fk_locale_1)
   INNER JOIN spy_category_attribute ca ON (ca.fk_category = tree.fk_category AND ca.fk_locale = :fk_locale_2)

@@ -9,11 +9,10 @@ namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Spryker\Shared\Category\CategoryConstants;
-use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
 use Spryker\Zed\Collector\Business\Exporter\Writer\Storage\TouchUpdaterSet;
 use Spryker\Zed\Collector\CollectorConfig;
 
-class NavigationCollector extends AbstractStoragePdoCollector
+class NavigationCollector extends CategoryNodeCollector
 {
 
     /**
@@ -27,13 +26,7 @@ class NavigationCollector extends AbstractStoragePdoCollector
     {
         $setToExport = [];
         $formattedCategoryNodes = [];
-        $touchKey = $this->collectKey('', $locale->getLocaleName(), []);
-        $touchKey = rtrim($touchKey, '.');
-
-        foreach ($collectedSet as $index => $collectedItemData) {
-            $collectedSet[$index]['children'] = [];
-            $collectedSet[$index]['parents'] = [];
-        }
+        $touchKey = $this->generateTouchKey($locale, []);
 
         foreach ($collectedSet as $index => $collectedItemData) {
             $parentId = $collectedItemData['fk_parent_category_node'];
@@ -56,6 +49,20 @@ class NavigationCollector extends AbstractStoragePdoCollector
         $setToExport[$touchKey] = current($formattedCategoryNodes)['children'];
 
         return $setToExport;
+    }
+
+    /**
+     * @param LocaleTransfer $localeTransfer
+     * @param array $collectedItemData
+     *
+     * @return string
+     */
+    protected function generateTouchKey(LocaleTransfer $localeTransfer, array $collectedItemData)
+    {
+        $touchKey = $this->collectKey('', $localeTransfer->getLocaleName(), []);
+        $touchKey = rtrim($touchKey, '.');
+
+        return $touchKey;
     }
 
     /**
@@ -84,53 +91,6 @@ class NavigationCollector extends AbstractStoragePdoCollector
             'children' => $collectItemData['children'],
             'parents' => $collectItemData['parents'],
         ];
-    }
-
-    /**
-     * @param array $node
-     * @param array $data
-     * @param bool $nested
-     *
-     * @return array
-     */
-    protected function getChildren(array $node, array $data, $nested = true)
-    {
-        $children = array_filter($data, function ($item) use ($node) {
-            return ((int)$item['fk_parent_category_node'] === (int)$node['id_category_node']);
-        });
-
-        foreach ($children as $index => $child) {
-            if ($nested) {
-                $children[$index]['children'] = $this->getChildren($children[$index], $data);
-            }
-
-            $children[$index] = $this->formatCategoryNode($children[$index]);
-        }
-
-        return $children;
-    }
-
-    /**
-     * @param array $node
-     * @param array $data
-     * @param bool $nested
-     *
-     * @return array
-     */
-    protected function getParents(array $node, array $data, $nested = true)
-    {
-        $parents = array_filter($data, function ($item) use ($node) {
-            return ((int)$item['id_category_node'] === (int)$node['fk_parent_category_node']);
-        });
-
-        foreach ($parents as $index => $parent) {
-            if ($nested) {
-                $parents[$index]['parents'] = $this->getParents($parents[$index], $data);
-            }
-            $parents[$index] = $this->formatCategoryNode($parents[$index]);
-        }
-
-        return $parents;
     }
 
     /**
