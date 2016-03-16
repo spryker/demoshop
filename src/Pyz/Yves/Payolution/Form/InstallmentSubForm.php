@@ -116,6 +116,8 @@ class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormI
                 'input' => 'string',
                 'attr' => [
                     'placeholder' => 'customer.birth_date',
+                    'pattern' => '[0-9]{2}\.[0-9]{2}\.[0-9]{4}',
+                    'title' => 'Birthday format (dd.MM.yyyy)'
                 ],
             ]
         );
