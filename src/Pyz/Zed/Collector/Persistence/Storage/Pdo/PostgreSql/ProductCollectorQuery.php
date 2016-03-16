@@ -1,10 +1,15 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql;
 
-use Spryker\Zed\Collector\Persistence\Exporter\AbstractPdoCollectorQuery;
+use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
-class ProductCollector extends AbstractPdoCollectorQuery
+class ProductCollectorQuery extends AbstractPdoCollectorQuery
 {
 
     /**

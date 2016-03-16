@@ -23,6 +23,17 @@
         input[type=radio]:checked + label, input[type=checkbox]:checked + label {
           font-weight: 600;
         }
+
+        >ul {
+          list-style: none;
+          margin: 0 0 0 $step;
+          padding: 0;
+
+          li {
+            margin: 0;
+            padding: 0;
+          }
+        }
       }
     }
     label {

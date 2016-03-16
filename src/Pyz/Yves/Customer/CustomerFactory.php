@@ -17,6 +17,7 @@ use Pyz\Yves\Customer\Form\NewsletterSubscriptionForm;
 use Pyz\Yves\Customer\Form\PasswordForm;
 use Pyz\Yves\Customer\Form\ProfileForm;
 use Pyz\Yves\Customer\Form\RegisterForm;
+use Pyz\Yves\Customer\Form\RestorePasswordForm;
 use Pyz\Yves\Customer\Plugin\AuthenticationHandler;
 use Pyz\Yves\Customer\Plugin\GuestCheckoutAuthenticationHandlerPlugin;
 use Pyz\Yves\Customer\Plugin\LoginCheckoutAuthenticationHandlerPlugin;

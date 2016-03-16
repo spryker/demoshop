@@ -1,11 +1,16 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql;
 
 use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
-use Spryker\Zed\Collector\Persistence\Exporter\AbstractPdoCollectorQuery;
+use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
-class UrlCollector extends AbstractPdoCollectorQuery
+class UrlCollectorQuery extends AbstractPdoCollectorQuery
 {
 
     /**

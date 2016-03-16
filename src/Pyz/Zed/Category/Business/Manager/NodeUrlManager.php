@@ -15,7 +15,7 @@ use Spryker\Zed\Category\Dependency\Facade\CategoryToUrlInterface;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Locale\Persistence\LocaleQueryContainerInterface;
 
-class NodeUrlManager extends SprykerNodeUrlManager
+class NodeUrlManager extends SprykerNodeUrlManager implements NodeUrlManagerInterface
 {
 
     /**
@@ -72,31 +72,43 @@ class NodeUrlManager extends SprykerNodeUrlManager
             $url = '/' . $locale . $url;
         }
 
-        $url = $this->generateUniqueUrl($url);
+        $url = $this->generateUniqueUrl($urlTransfer, $url);
 
         parent::updateTransferUrl($urlTransfer, $url, $idResource, $idLocale);
     }
 
     /**
-     * @param string $url
+     * @param \Generated\Shared\Transfer\UrlTransfer $urlTransfer
+     * @param string $urlBase
      *
      * @return string
      */
-    protected function generateUniqueUrl($url)
+    protected function generateUniqueUrl(UrlTransfer $urlTransfer, $urlBase)
     {
         $max = 20;
         $step = 1;
 
-        $originalUrl = $url;
-        while ($this->urlFacade->hasUrl($url)) {
-            $url = $originalUrl . '-'. $step;
-            if ($step >  $max) {
-                break;
-            }
-            $step++;
+        try {
+            $urlBaseTransfer = $this->urlFacade->getUrlByPath($urlBase);
+        }
+        catch (\Exception $e) {
+            $urlBaseTransfer = null;
         }
 
-        return $url;
+        if ($urlBaseTransfer) {
+            if ($urlBaseTransfer->getIdUrl() !== $urlTransfer->getIdUrl()) {
+                $originalUrl = $urlBase;
+                while ($this->urlFacade->hasUrl($urlBase)) {
+                    $urlBase = $originalUrl . '-'. $step;
+                    if ($step >  $max) {
+                        break;
+                    }
+                    $step++;
+                }
+            }
+        }
+
+        return $urlBase;
     }
 
 }

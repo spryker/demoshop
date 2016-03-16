@@ -33,7 +33,7 @@ class FormCollectionHandler implements FormCollectionHandlerInterface
     protected $forms = [];
 
     /**
-     * @var array|\Symfony\Component\Form\FormTypeInterface[]
+     * @var \Symfony\Component\Form\FormTypeInterface[]
      */
     protected $formTypes;
 

@@ -1,10 +1,15 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql;
 
-use Spryker\Zed\Collector\Persistence\Exporter\AbstractPdoCollectorQuery;
+use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
-class CategoryNodeCollector extends AbstractPdoCollectorQuery
+class CategoryNodeCollectorQuery extends AbstractPdoCollectorQuery
 {
 
     /**
@@ -46,7 +51,9 @@ class CategoryNodeCollector extends AbstractPdoCollectorQuery
     ca.meta_title,
     ca.meta_description,
     ca.meta_keywords,
-    ca.category_image_name
+    ca.category_image_name,
+    \'\' AS "children",
+    \'\' AS "parents"
   FROM tree
     INNER JOIN spy_url u ON (u.fk_resource_categorynode = tree.id_category_node AND u.fk_locale = :fk_locale_1)
     INNER JOIN spy_category_attribute ca ON (ca.fk_category = tree.fk_category AND ca.fk_locale = :fk_locale_2)

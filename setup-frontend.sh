@@ -7,7 +7,7 @@ if [[ -z "$SETUP" ]]; then
     exit 0
 fi
 
-SPY_TOOL=`which spy`
+ANTELOPE_TOOL=`which antelope`
 
 if [[ `node -v | grep -E '^v[0-4]'` ]]; then
     labelText "Upgrade Node.js"
@@ -19,27 +19,26 @@ if [[ `node -v | grep -E '^v[0-4]'` ]]; then
     successText "NPM updated to version `$NPM -v`"
 fi
 
-if [[ $RESET == 1 ]] || [[ ! -f $SPY_TOOL ]]; then
-    labelText "Install SPY tool globally"
-    $GIT clone --branch master git@github.com:spryker/spy.git /tmp/spy
-    cd /tmp/spy
-    sudo $NPM install -g ./
-    cd $CWD
-    rm -rf /tmp/spy
-    SPY_TOOL=`which spy`
+if [[ $RESET == 1 ]] || [[ ! -f $ANTELOPE_TOOL ]]; then
+    labelText "Install Antelope tool globally"
+    sudo $NPM install -g github:spryker/antelope
+    ANTELOPE_TOOL=`which antelope`
+
+    labelText "Test Antelope tool"
+    $ANTELOPE_TOOL test
 fi
 
+if [[ -f $ANTELOPE_TOOL ]]; then
+    labelText "Install frontend core dependencies"
+    $ANTELOPE_TOOL install
+fi
+
+labelText "Install frontend project dependencies"
 $NPM install
 
-if [[ -f $SPY_TOOL ]]; then
-    labelText "SPY: test the project"
-    $SPY_TOOL test
-
-    labelText "SPY: install core dependencies"
-    $SPY_TOOL install
-
-    labelText "SPY: build the assets"
-    $SPY_TOOL build
+if [[ -f $ANTELOPE_TOOL ]]; then
+    labelText "Build and optimize assets"
+    $ANTELOPE_TOOL build
 fi
 
-successText "Setup Frontend completed succesfully"
+successText "Frontend setup completed successfully"

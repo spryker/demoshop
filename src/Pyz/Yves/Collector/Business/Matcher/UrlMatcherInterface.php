@@ -14,7 +14,7 @@ interface UrlMatcherInterface
      * @param string $url
      * @param string $localeName
      *
-     * @return \Pyz\Yves\Collector\Business\Model\UrlResource
+     * @return mixed
      */
     public function matchUrl($url, $localeName);
 

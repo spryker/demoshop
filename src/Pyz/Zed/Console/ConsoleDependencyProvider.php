@@ -54,14 +54,11 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new DeleteAllCachesConsole(),
             new DemoDataInstallConsole(),
             new IcecatDataInstallConsole(),
-            new DependencyTreeBuilderConsole(),
-            new DependencyTreeDependencyViolationConsole(),
             new GeneratorConsole(),
             new InitializeDatabaseConsole(),
             new ProductSearchConsole(),
             new RecordDeploymentConsole(),
             new SearchConsole(),
-            new ComposerJsonUpdaterConsole(),
         ];
 
         $propelCommands = $container->getLocator()->propel()->facade()->getConsoleCommands();
@@ -70,14 +67,14 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
         $setupCommands = $container->getLocator()->setup()->facade()->getConsoleCommands();
         $commands = array_merge($commands, $setupCommands);
 
-        $gitCommands = $container->getLocator()->git()->facade()->getConsoleCommands();
-        $commands = array_merge($commands, $gitCommands);
-
         if (Environment::isDevelopment()) {
             $commands[] = new CodeTestConsole();
             $commands[] = new CodeStyleSnifferConsole();
             $commands[] = new CodeCreateConsole();
             $commands[] = new CodePhpMessDetectorConsole();
+            $commands[] = new DependencyTreeBuilderConsole();
+            $commands[] = new DependencyTreeDependencyViolationConsole();
+            $commands[] = new ComposerJsonUpdaterConsole();
         }
 
         return $commands;

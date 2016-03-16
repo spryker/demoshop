@@ -16,6 +16,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 class TranslationImporter extends AbstractIcecatImporter
 {
 
+    const TRANSLATIONS = 'translations';
+
     /**
      * @var \Pyz\Zed\Glossary\Business\GlossaryFacadeInterface
      */
@@ -60,7 +62,7 @@ class TranslationImporter extends AbstractIcecatImporter
                 $this->glossaryFacade->createKey($translationKey);
             }
 
-            foreach ($translationData as $localeName => $translationText) {
+            foreach ($translationData[self::TRANSLATIONS] as $localeName => $translationText) {
                 $localeTransfer = new LocaleTransfer();
                 $localeTransfer->setLocaleName($localeName);
 

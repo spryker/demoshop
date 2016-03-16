@@ -36,7 +36,7 @@
 
 <div class="input-row check-row">
     {{ form_widget(form.accept_terms) }}
-    <label for="registerForm_accept_terms">{{ form.accept_terms.vars.label | trans }}</label>
+    {{ form_label(form.accept_terms) }}
     {{ form_errors(form.accept_terms) }}
 </div>
 

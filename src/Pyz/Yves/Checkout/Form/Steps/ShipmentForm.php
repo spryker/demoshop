@@ -161,7 +161,7 @@ class ShipmentForm extends AbstractType
      */
     protected function createSubForm(CheckoutSubFormPluginInterface $shipmentMethodSubForm)
     {
-        return $shipmentMethodSubForm->createSubFrom();
+        return $shipmentMethodSubForm->createSubForm();
     }
 
 

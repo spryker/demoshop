@@ -48,27 +48,17 @@ class IcecatDataInstallerConsole
      */
     public function install()
     {
-        $connection = Propel::getConnection();
-        $connection->beginTransaction();
+        $this->output->writeln('Installing Icecat data...');
 
-        try {
-            $this->output->writeln('Installing Icecat data...');
-
-            foreach ($this->installerCollection as $name => $installer) {
-                if (!$installer->isInstalled()) {
-                    $installer->install($this->output, $this->messenger);
-                } else {
-                    $this->output->writeln($installer->getTitle(). ' already installed.');
-                }
+        foreach ($this->installerCollection as $name => $installer) {
+            if (!$installer->isInstalled()) {
+                $installer->install($this->output, $this->messenger);
+            } else {
+                $this->output->writeln($installer->getTitle(). ' already installed.');
             }
-
-            $this->output->writeln('All done.');
-
-            $connection->commit();
-        } catch (\Exception $exception) {
-            $connection->rollBack();
-            throw $exception;
         }
+
+        $this->output->writeln('All done.');
     }
 
 }

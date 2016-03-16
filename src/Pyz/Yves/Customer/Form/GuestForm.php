@@ -3,6 +3,7 @@
 namespace Pyz\Yves\Customer\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
@@ -124,6 +125,8 @@ class GuestForm extends AbstractType
             'data' => true,
         ]);
 
+        $this->addIsGuestTransformer($builder);
+
         return $this;
     }
 
@@ -143,6 +146,23 @@ class GuestForm extends AbstractType
         ]);
 
         return $this;
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     *
+     * @return void
+     */
+    protected function addIsGuestTransformer(FormBuilderInterface $builder)
+    {
+        $builder->get(self::IS_GUEST)->addModelTransformer(new CallbackTransformer(
+            function ($isGuest) {
+                return $isGuest;
+            },
+            function ($isGuestSubmittedValue) {
+                return (bool)$isGuestSubmittedValue;
+            }
+        ));
     }
 
 }

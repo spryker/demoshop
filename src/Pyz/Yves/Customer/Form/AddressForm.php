@@ -10,7 +10,10 @@ namespace Pyz\Yves\Customer\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Validator\Constraint;
+use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class AddressForm extends AbstractType
 {
@@ -116,6 +119,7 @@ class AddressForm extends AbstractType
             'required' => true,
             'constraints' => [
                 $this->createNotBlankConstraint($options),
+                $this->createMinLengthConstraint($options)
             ],
         ]);
 
@@ -135,6 +139,7 @@ class AddressForm extends AbstractType
             'required' => true,
             'constraints' => [
                 $this->createNotBlankConstraint($options),
+                $this->createMinLengthConstraint($options)
             ],
         ]);
 
@@ -170,6 +175,7 @@ class AddressForm extends AbstractType
             'required' => true,
             'constraints' => [
                 $this->createNotBlankConstraint($options),
+                $this->createMinLengthConstraint($options)
             ],
         ]);
 
@@ -185,10 +191,11 @@ class AddressForm extends AbstractType
     protected function addAddress2Field(FormBuilderInterface $builder, array $options)
     {
         $builder->add(self::FIELD_ADDRESS_2, 'text', [
-            'label' => 'customer.address.address2',
+            'label' => 'customer.address.number',
             'required' => true,
             'constraints' => [
                 $this->createNotBlankConstraint($options),
+                $this->createNumberConstraint($options)
             ],
         ]);
 
@@ -224,6 +231,7 @@ class AddressForm extends AbstractType
             'required' => true,
             'constraints' => [
                 $this->createNotBlankConstraint($options),
+                $this->createZipCodeConstraint($options)
             ],
         ]);
 
@@ -243,6 +251,7 @@ class AddressForm extends AbstractType
             'required' => true,
             'constraints' => [
                 $this->createNotBlankConstraint($options),
+                $this->createMinLengthConstraint($options)
             ],
         ]);
 
@@ -351,6 +360,68 @@ class AddressForm extends AbstractType
     protected function createNotBlankConstraint(array $options)
     {
         return new NotBlank();
+    }
+
+    /**
+     * @param array $options
+     *
+     * @return \Symfony\Component\Validator\Constraints\Length
+     */
+    protected function createMinLengthConstraint(array $options)
+    {
+        $validationGroup = $this->getValidationGroup($options);
+
+        return new Length([
+            'min' => 3,
+            'groups' => $validationGroup,
+            'minMessage' => 'This field must be at least {{ limit }} characters long.',
+        ]);
+    }
+
+    /**
+     * @param array $options
+     *
+     * @return \Symfony\Component\Validator\Constraints\Regex
+     */
+    protected function createZipCodeConstraint(array $options)
+    {
+        $validationGroup = $this->getValidationGroup($options);
+
+        return new Regex([
+            'pattern' => '/^\d{5}$/',
+            'message' => 'This field should contain exactly 5 digits.',
+            'groups' => $validationGroup
+        ]);
+    }
+
+    /**
+     * @param array $options
+     *
+     * @return \Symfony\Component\Validator\Constraints\Regex
+     */
+    protected function createNumberConstraint(array $options)
+    {
+        $validationGroup = $this->getValidationGroup($options);
+
+        return new Regex([
+            'pattern' => '/^\d+$/',
+            'message' => 'This field should contain numeric values only.',
+            'groups' => $validationGroup
+        ]);
+    }
+
+    /**
+     * @param array $options
+     *
+     * @return string
+     */
+    protected function getValidationGroup(array $options)
+    {
+        $validationGroup = Constraint::DEFAULT_GROUP;
+        if (!empty($options['validation_group'])) {
+            $validationGroup = $options['validation_group'];
+        }
+        return $validationGroup;
     }
 
 }
