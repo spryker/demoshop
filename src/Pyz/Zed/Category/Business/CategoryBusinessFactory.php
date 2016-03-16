@@ -15,33 +15,12 @@ use Spryker\Zed\Category\Business\Tree\CategoryTreeReader;
 use Spryker\Zed\Category\Business\Tree\CategoryTreeWriter;
 use Spryker\Zed\Category\Business\Tree\ClosureTableWriter;
 use Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter;
-use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 
 /**
  * @method \Spryker\Zed\Category\Persistence\CategoryQueryContainer getQueryContainer()
  */
 class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
 {
-
-    /**
-     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
-     *
-     * @return \Pyz\Zed\Category\Business\Internal\DemoData\CategoryTreeInstall
-     */
-    public function createDemoDataInstaller(MessengerInterface $messenger)
-    {
-        $installer = new CategoryTreeInstall(
-            $this->createCategoryWriter(),
-            $this->createCategoryTreeWriter(),
-            $this->getQueryContainer(),
-            $this->getProvidedDependency(CategoryDependencyProvider::FACADE_LOCALE),
-            $this->getProvidedDependency(CategoryDependencyProvider::FACADE_TOUCH),
-            $this->createNodeUrlManager()
-        );
-        $installer->setMessenger($messenger);
-
-        return $installer;
-    }
 
     /**
      * @return \Pyz\Zed\Category\Business\Manager\NodeUrlManagerInterface

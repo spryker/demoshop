@@ -9,12 +9,12 @@ namespace Pyz\Zed\Shipment\Business\Internal\DemoData;
 
 use Generated\Shared\Transfer\ShipmentCarrierTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
-use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller;
+use Spryker\Zed\Installer\Business\Model\AbstractInstaller;
 use Spryker\Zed\Shipment\Business\Model\Carrier;
 use Spryker\Zed\Shipment\Business\Model\Method;
 use Spryker\Zed\Shipment\Persistence\ShipmentQueryContainerInterface;
 
-class ShipmentInstall extends AbstractDemoDataInstaller
+class ShipmentInstall extends AbstractInstaller
 {
 
     /**
