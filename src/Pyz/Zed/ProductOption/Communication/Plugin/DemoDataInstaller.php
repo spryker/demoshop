@@ -20,7 +20,7 @@ class DemoDataInstaller extends AbstractInstallerPlugin
      */
     protected function install()
     {
-        $this->getFactory()->getProductFacade()->installDemoData($this->messenger);
+        $this->getFactory()->getProductOptionFacade()->installDemoData($this->messenger);
     }
 
 }
