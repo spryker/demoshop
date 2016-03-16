@@ -9,7 +9,7 @@ namespace Pyz\Zed\Collector\Business\Search;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Zed\Collector\CollectorConfig;
-use Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
+use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPdoCollector;
@@ -30,14 +30,14 @@ class ProductCollector extends AbstractSearchPdoCollector
     protected $categoryQueryContainer;
 
     /**
-     * @var \Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface
+     * @var \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface
      */
     protected $productSearchFacade;
 
     /**
      * @param \Spryker\Zed\Price\Persistence\PriceQueryContainerInterface $priceQueryContainer
      * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
-     * @param \Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface $productSearchFacade
+     * @param \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface $productSearchFacade
      */
     public function __construct(
         PriceQueryContainerInterface $priceQueryContainer,

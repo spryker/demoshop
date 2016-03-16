@@ -14,7 +14,7 @@ use Orm\Zed\Price\Persistence\SpyPriceProductQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\Formatter\ArrayFormatter;
 use Pyz\Zed\Collector\CollectorConfig;
-use Pyz\Zed\Price\Business\PriceFacadeInterface;
+use Spryker\Zed\Price\Business\PriceFacadeInterface;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
@@ -34,7 +34,7 @@ class ProductCollector extends AbstractStoragePdoCollector
     protected $productCategoryQueryContainer;
 
     /**
-     * @var \Pyz\Zed\Price\Business\PriceFacadeInterface
+     * @var \Spryker\Zed\Price\Business\PriceFacadeInterface
      */
     protected $priceFacade;
 
@@ -46,7 +46,7 @@ class ProductCollector extends AbstractStoragePdoCollector
     /**
      * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
      * @param \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface $productCategoryQueryContainer
-     * @param \Pyz\Zed\Price\Business\PriceFacadeInterface $priceFacade
+     * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
      */
     public function __construct(
         CategoryQueryContainerInterface $categoryQueryContainer,

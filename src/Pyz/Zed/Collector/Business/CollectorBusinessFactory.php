@@ -349,7 +349,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface
+     * @return \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface
      */
     protected function getProductSearchFacade()
     {
@@ -357,7 +357,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Price\Business\PriceFacadeInterface
+     * @return \Spryker\Zed\Price\Business\PriceFacadeInterface
      */
     protected function getPriceFacade()
     {
