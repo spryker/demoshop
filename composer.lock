@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b09d68e12ccd2cbb5f50f35a70215ae7",
-    "content-hash": "a70a580cb8e1ff079802b91b33ebd9b7",
+    "hash": "7f9668ac1c3ba95e7eb68de06d983612",
+    "content-hash": "5cc37b44fd2c1166fe66fc353ec41b2c",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -945,7 +945,7 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
