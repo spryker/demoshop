@@ -8,18 +8,18 @@
 namespace Pyz\Yves\Catalog;
 
 use Pyz\Yves\Application\Plugin\Pimple;
-use Pyz\Yves\Collector\Plugin\UrlMapper;
+use Pyz\Yves\Collector\Plugin\UrlMapperPlugin;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class CatalogFactory extends AbstractFactory
 {
 
     /**
-     * @return \Pyz\Yves\Collector\Mapper\UrlMapperInterface
+     * @return \Pyz\Yves\Collector\Plugin\UrlMapperPlugin
      */
-    public function createUrlMapper()
+    public function createUrlMapperPlugin()
     {
-        $urlMapper = (new UrlMapper())->createUrlMapper();
+        $urlMapper = new UrlMapperPlugin();
 
         return $urlMapper;
     }
