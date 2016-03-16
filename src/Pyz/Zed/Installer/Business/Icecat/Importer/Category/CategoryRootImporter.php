@@ -9,9 +9,7 @@ namespace Pyz\Zed\Installer\Business\Icecat\Importer\Category;
 
 use Generated\Shared\Transfer\NodeTransfer;
 use Orm\Zed\Category\Persistence\SpyCategoryNodeQuery;
-use Pyz\Zed\Installer\InstallerConfig;
 use Spryker\Shared\Category\CategoryConstants;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class CategoryRootImporter extends CategoryImporter
 {

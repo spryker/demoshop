@@ -8,7 +8,6 @@
 namespace Pyz\Zed\ProductSearch\Business\Internal\DemoData;
 
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
-use Orm\Zed\Product\Persistence\SpyProduct;
 use Orm\Zed\Product\Persistence\SpyProductAttributesMetadataQuery;
 use Orm\Zed\Product\Persistence\SpyProductQuery;
 use Pyz\Zed\Installer\Business\DemoData\AbstractDemoDataInstaller;

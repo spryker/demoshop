@@ -13,7 +13,6 @@ use Generated\Shared\Transfer\SaveOrderTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
-use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 use Symfony\Component\HttpFoundation\Request;
 

@@ -16,7 +16,6 @@ use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Price\Persistence\PriceQueryContainerInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class ProductPriceImporter extends AbstractIcecatImporter
 {

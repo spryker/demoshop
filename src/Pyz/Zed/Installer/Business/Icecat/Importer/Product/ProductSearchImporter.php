@@ -12,7 +12,6 @@ use Orm\Zed\Product\Persistence\SpyProductAttributesMetadataQuery;
 use Pyz\Zed\Installer\Business\Icecat\Importer\AbstractIcecatImporter;
 use Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 use Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class ProductSearchImporter extends AbstractIcecatImporter
 {

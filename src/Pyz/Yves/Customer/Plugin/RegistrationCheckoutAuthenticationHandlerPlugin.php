@@ -8,7 +8,6 @@ namespace Pyz\Yves\Customer\Plugin;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
-use Pyz\Yves\Customer\CustomerFactory;
 use Pyz\Yves\Customer\Plugin\CheckoutAuthenticationHandlerPluginInterface;
 use Spryker\Yves\Kernel\AbstractPlugin;
 

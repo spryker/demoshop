@@ -12,7 +12,6 @@ use Pyz\Zed\Installer\Business\Icecat\Importer\IcecatImporterInterface;
 use Spryker\Shared\Gui\ProgressBar\ProgressBarBuilder;
 use Spryker\Shared\Library\BatchIterator\CountableIteratorInterface;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
-use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\OutputInterface;
 
 abstract class AbstractIcecatInstaller implements IcecatInstallerInterface
