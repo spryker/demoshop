@@ -19,7 +19,7 @@ class ProductOptionCommunicationFactory extends SprykerProductOptionCommunicatio
     /**
      * @return \Pyz\Zed\ProductOption\Business\ProductOptionFacade
      */
-    public function getInstallerFacade()
+    public function getProductFacade()
     {
         return $this->getProvidedDependency(ProductOptionDependencyProvider::FACADE_PRODUCT_OPTION);
     }
