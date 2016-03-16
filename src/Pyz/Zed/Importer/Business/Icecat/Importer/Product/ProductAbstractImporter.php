@@ -12,10 +12,10 @@ use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 use Pyz\Zed\Importer\Business\Icecat\Importer\AbstractIcecatImporter;
-use Pyz\Zed\Product\Business\ProductFacadeInterface;
 use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
+use Spryker\Zed\Product\Business\ProductFacadeInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
@@ -43,7 +43,7 @@ class ProductAbstractImporter extends AbstractIcecatImporter
     protected $attributeManager;
 
     /**
-     * @var \Pyz\Zed\Product\Business\ProductFacadeInterface
+     * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
      */
     protected $productFacade;
 
@@ -94,7 +94,7 @@ class ProductAbstractImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param \Pyz\Zed\Product\Business\ProductFacadeInterface $productFacade
+     * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
      *
      * @return void
      */

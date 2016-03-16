@@ -17,8 +17,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 class IcecatDataImportConsole extends SprykerConsole
 {
 
-    const COMMAND_NAME = 'setup:import-icecat-data';
-    const DESCRIPTION = 'Install Icecat demo data http://icecat.biz';
+    const COMMAND_NAME = 'import:icecat-data';
+    const DESCRIPTION = 'Imports Icecat demo data http://icecat.biz';
 
     /**
      * @return void

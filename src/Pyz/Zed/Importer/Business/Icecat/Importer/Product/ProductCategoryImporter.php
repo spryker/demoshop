@@ -11,12 +11,12 @@ use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Pyz\Zed\Importer\Business\Icecat\Importer\AbstractIcecatImporter;
-use Pyz\Zed\ProductCategory\Business\ProductCategoryFacadeInterface;
-use Pyz\Zed\Product\Business\ProductFacadeInterface;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
+use Spryker\Zed\ProductCategory\Business\ProductCategoryFacadeInterface;
 use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface;
+use Spryker\Zed\Product\Business\ProductFacadeInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
 use Spryker\Zed\Touch\Business\TouchFacadeInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -40,7 +40,7 @@ class ProductCategoryImporter extends AbstractIcecatImporter
     protected $categoryQueryContainer;
 
     /**
-     * @var \Pyz\Zed\Product\Business\ProductFacadeInterface
+     * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
      */
     protected $productFacade;
 
@@ -50,7 +50,7 @@ class ProductCategoryImporter extends AbstractIcecatImporter
     protected $productQueryContainer;
 
     /**
-     * @var \Pyz\Zed\ProductCategory\Business\ProductCategoryFacadeInterface
+     * @var \Spryker\Zed\ProductCategory\Business\ProductCategoryFacadeInterface
      */
     protected $productCategoryFacade;
 
@@ -110,7 +110,7 @@ class ProductCategoryImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param \Pyz\Zed\Product\Business\ProductFacadeInterface $productFacade
+     * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
      *
      * @return void
      */
@@ -130,7 +130,7 @@ class ProductCategoryImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param \Pyz\Zed\ProductCategory\Business\ProductCategoryFacadeInterface $productCategoryFacade
+     * @param \Spryker\Zed\ProductCategory\Business\ProductCategoryFacadeInterface $productCategoryFacade
      *
      * @return void
      */

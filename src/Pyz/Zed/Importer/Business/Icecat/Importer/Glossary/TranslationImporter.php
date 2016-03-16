@@ -9,8 +9,8 @@ namespace Pyz\Zed\Importer\Business\Icecat\Importer\Glossary;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Orm\Zed\Glossary\Persistence\SpyGlossaryKeyQuery;
-use Pyz\Zed\Glossary\Business\GlossaryFacadeInterface;
 use Pyz\Zed\Importer\Business\Icecat\Importer\AbstractIcecatImporter;
+use Spryker\Zed\Glossary\Business\GlossaryFacadeInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class TranslationImporter extends AbstractIcecatImporter
@@ -19,12 +19,12 @@ class TranslationImporter extends AbstractIcecatImporter
     const TRANSLATIONS = 'translations';
 
     /**
-     * @var \Pyz\Zed\Glossary\Business\GlossaryFacadeInterface
+     * @var \Spryker\Zed\Glossary\Business\GlossaryFacadeInterface
      */
     protected $glossaryFacade;
 
     /**
-     * @param \Pyz\Zed\Glossary\Business\GlossaryFacadeInterface $glossaryFacade
+     * @param \Spryker\Zed\Glossary\Business\GlossaryFacadeInterface $glossaryFacade
      *
      * @return void
      */

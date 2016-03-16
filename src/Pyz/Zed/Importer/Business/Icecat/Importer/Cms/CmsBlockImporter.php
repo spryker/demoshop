@@ -12,7 +12,6 @@ use Generated\Shared\Transfer\CmsTemplateTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageTransfer;
 use Orm\Zed\Cms\Persistence\SpyCmsBlockQuery;
-use Pyz\Zed\Cms\Persistence\CmsQueryContainerInterface;
 use Pyz\Zed\Importer\Business\Icecat\Importer\AbstractIcecatImporter;
 use Spryker\Zed\Cms\Business\Block\BlockManagerInterface;
 use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface;
@@ -20,6 +19,7 @@ use Spryker\Zed\Cms\Business\Page\PageManagerInterface;
 use Spryker\Zed\Cms\Business\Template\TemplateManagerInterface;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToUrlInterface;
+use Spryker\Zed\Cms\Persistence\CmsQueryContainerInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -51,7 +51,7 @@ class CmsBlockImporter extends AbstractIcecatImporter
     const BLOCK_DEMO_VALUE = 0;
 
     /**
-     * @var \Pyz\Zed\Cms\Persistence\CmsQueryContainerInterface
+     * @var \Spryker\Zed\Cms\Persistence\CmsQueryContainerInterface
      */
     protected $cmsQueryContainer;
 
@@ -109,7 +109,7 @@ class CmsBlockImporter extends AbstractIcecatImporter
     ];
 
     /**
-     * @param \Pyz\Zed\Cms\Persistence\CmsQueryContainerInterface $cmsQueryContainer
+     * @param \Spryker\Zed\Cms\Persistence\CmsQueryContainerInterface $cmsQueryContainer
      *
      * @return void
      */

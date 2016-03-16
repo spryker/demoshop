@@ -7,32 +7,15 @@
 
 namespace Pyz\Zed\Importer;
 
-use Pyz\Zed\Cms\Communication\Plugin\DemoDataInstallerPlugin as CmsDemoDataInstallerPlugin;
-use Pyz\Zed\Glossary\Communication\Plugin\DemoDataInstallerPlugin as GlossaryDemoDataInstallerPlugin;
-use Pyz\Zed\Price\Communication\Plugin\DemoDataInstallerPlugin as PriceDemoDataInstallerPlugin;
-use Pyz\Zed\ProductCategory\Communication\Plugin\DemoDataInstallerPlugin as ProductCategoryDemoDataInstallerPlugin;
-use Pyz\Zed\ProductSearch\Communication\Plugin\DemoDataInstallerPlugin as ProductSearchDemoDataInstaller;
-use Pyz\Zed\Product\Communication\Plugin\DemoDataInstallerPlugin as ProductDemoDataInstallerPlugin;
-use Pyz\Zed\Shipment\Communication\Plugin\DemoDataInstallerPlugin as ShipmentDemoDataInstallerPlugin;
-use Pyz\Zed\Stock\Communication\Plugin\DemoDataInstaller as StockDemoDataInstallerPlugin;
-use Spryker\Zed\Acl\Communication\Plugin\Installer as AclInstallerPlugin;
 use Spryker\Zed\Category\Dependency\Facade\CategoryToLocaleBridge;
 use Spryker\Zed\Category\Dependency\Facade\CategoryToTouchBridge;
 use Spryker\Zed\Category\Dependency\Facade\CategoryToUrlBridge;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryBridge;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToTouchBridge;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToUrlBridge;
-use Spryker\Zed\Collector\Communication\Plugin\Installer as CollectorInstallerPlugin;
-use Spryker\Zed\Country\Communication\Plugin\Installer as CountryCountryCountryInstallerPlugin;
-use Spryker\Zed\Glossary\Communication\Plugin\Installer as GlossaryInstallerPlugin;
 use Spryker\Zed\Installer\InstallerDependencyProvider as SprykerInstallerDependencyProvider;
 use Spryker\Zed\Kernel\Container;
-use Spryker\Zed\Locale\Communication\Plugin\Installer as LocaleInstallerPlugin;
-use Spryker\Zed\Newsletter\Communication\Plugin\Installer as NewsletterInstallerPlugin;
-use Spryker\Zed\Price\Communication\Plugin\Installer as PriceInstallerPlugin;
-use Spryker\Zed\Product\Communication\Plugin\Installer as ProductInstallerPlugin;
 use Spryker\Zed\Propel\Communication\Plugin\Connection;
-use Spryker\Zed\User\Communication\Plugin\Installer as UserInstallerPlugin;
 
 class ImporterDependencyProvider extends SprykerInstallerDependencyProvider
 {
@@ -167,42 +150,6 @@ class ImporterDependencyProvider extends SprykerInstallerDependencyProvider
         };
 
         return $container;
-    }
-
-    /**
-     * @return \Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin[]
-     */
-    public function getInstallerPlugins()
-    {
-        return [
-            new CollectorInstallerPlugin(),
-            new ProductInstallerPlugin(),
-            new PriceInstallerPlugin(),
-            new LocaleInstallerPlugin(),
-            new CountryCountryCountryInstallerPlugin(),
-            new UserInstallerPlugin(),
-            new AclInstallerPlugin(),
-            new NewsletterInstallerPlugin(),
-            new GlossaryInstallerPlugin(),
-        ];
-    }
-
-    /**
-     * @return \Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin[]
-     */
-    public function getDemoDataInstallerPlugins()
-    {
-        return [
-            new CategoryDemoInstallerPlugin(),
-            new GlossaryDemoDataInstallerPlugin(),
-            new CmsDemoDataInstallerPlugin(),
-            new ProductDemoDataInstallerPlugin(),
-            new ProductCategoryDemoDataInstallerPlugin(),
-            new PriceDemoDataInstallerPlugin(),
-            new ProductSearchDemoDataInstaller(),
-            new StockDemoDataInstallerPlugin(),
-            new ShipmentDemoDataInstallerPlugin(),
-        ];
     }
 
 }

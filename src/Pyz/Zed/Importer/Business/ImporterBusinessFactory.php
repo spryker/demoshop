@@ -8,7 +8,6 @@
 namespace Pyz\Zed\Importer\Business;
 
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
-use Pyz\Zed\Cms\CmsConfig;
 use Pyz\Zed\Importer\Business\Icecat\IcecatDataImporterConsole;
 use Pyz\Zed\Importer\Business\Icecat\Importer\Category\CategoryHierarchyImporter;
 use Pyz\Zed\Importer\Business\Icecat\Importer\Category\CategoryImporter;
@@ -43,6 +42,7 @@ use Spryker\Zed\Cms\Business\Block\BlockManager;
 use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManager;
 use Spryker\Zed\Cms\Business\Page\PageManager;
 use Spryker\Zed\Cms\Business\Template\TemplateManager;
+use Spryker\Zed\Cms\CmsConfig;
 use Spryker\Zed\Installer\Business\InstallerBusinessFactory as SprykerInstallerBusinessFactory;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Spryker\Zed\ProductSearch\Business\Operation\OperationManager;
@@ -530,7 +530,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Cms\Persistence\CmsQueryContainerInterface
+     * @return \Spryker\Zed\Cms\Persistence\CmsQueryContainerInterface
      */
     protected function getCmsQueryContainer()
     {
@@ -538,7 +538,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Stock\Business\StockFacadeInterface
+     * @return \Spryker\Zed\Stock\Business\StockFacadeInterface
      */
     protected function getStockFacade()
     {
@@ -546,7 +546,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\ProductCategory\Business\ProductCategoryFacadeInterface
+     * @return \Spryker\Zed\ProductCategory\Business\ProductCategoryFacadeInterface
      */
     protected function getProductCategoryFacade()
     {
@@ -562,7 +562,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Product\Business\ProductFacadeInterface
+     * @return \Spryker\Zed\Product\Business\ProductFacadeInterface
      */
     protected function getProductFacade()
     {
@@ -586,7 +586,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Glossary\Business\GlossaryFacadeInterface
+     * @return \Spryker\Zed\Glossary\Business\GlossaryFacadeInterface
      */
     protected function getGlossaryFacade()
     {
@@ -602,7 +602,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface
+     * @return \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface
      */
     protected function getProductSearchFacade()
     {
@@ -788,7 +788,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Cms\CmsConfig
+     * @return \Spryker\Zed\Cms\CmsConfig
      */
     protected function createCmsConfig()
     {

@@ -11,11 +11,11 @@ use Orm\Zed\Price\Persistence\SpyPriceProduct;
 use Orm\Zed\Price\Persistence\SpyPriceProductQuery;
 use Pyz\Zed\Importer\Business\Exception\PriceTypeNotFoundException;
 use Pyz\Zed\Importer\Business\Icecat\Importer\AbstractIcecatImporter;
-use Pyz\Zed\Stock\Business\StockFacadeInterface;
 use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Price\Persistence\PriceQueryContainerInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
+use Spryker\Zed\Stock\Business\StockFacadeInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class ProductPriceImporter extends AbstractIcecatImporter
@@ -48,7 +48,7 @@ class ProductPriceImporter extends AbstractIcecatImporter
     protected $productQueryContainer;
 
     /**
-     * @var \Pyz\Zed\Stock\Business\StockFacadeInterface
+     * @var \Spryker\Zed\Stock\Business\StockFacadeInterface
      */
     protected $stockFacade;
 
@@ -78,7 +78,7 @@ class ProductPriceImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param \Pyz\Zed\Stock\Business\StockFacadeInterface $stockFacade
+     * @param \Spryker\Zed\Stock\Business\StockFacadeInterface $stockFacade
      *
      * @return void
      */

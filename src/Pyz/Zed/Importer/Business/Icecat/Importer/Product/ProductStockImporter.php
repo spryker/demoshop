@@ -11,10 +11,10 @@ use Generated\Shared\Transfer\StockProductTransfer;
 use Generated\Shared\Transfer\TypeTransfer;
 use Orm\Zed\Stock\Persistence\Base\SpyStockQuery;
 use Pyz\Zed\Importer\Business\Icecat\Importer\AbstractIcecatImporter;
-use Pyz\Zed\Stock\Business\StockFacadeInterface;
 use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
+use Spryker\Zed\Stock\Business\StockFacadeInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class ProductStockImporter extends AbstractIcecatImporter
@@ -44,7 +44,7 @@ class ProductStockImporter extends AbstractIcecatImporter
     protected $productQueryContainer;
 
     /**
-     * @var \Pyz\Zed\Stock\Business\StockFacadeInterface
+     * @var \Spryker\Zed\Stock\Business\StockFacadeInterface
      */
     protected $stockFacade;
 
@@ -74,7 +74,7 @@ class ProductStockImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param \Pyz\Zed\Stock\Business\StockFacadeInterface $stockFacade
+     * @param \Spryker\Zed\Stock\Business\StockFacadeInterface $stockFacade
      *
      * @return void
      */

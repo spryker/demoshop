@@ -10,8 +10,8 @@ namespace Pyz\Zed\Importer\Business\Icecat\Importer\Product;
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
 use Orm\Zed\Product\Persistence\SpyProductAttributesMetadataQuery;
 use Pyz\Zed\Importer\Business\Icecat\Importer\AbstractIcecatImporter;
-use Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 use Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
+use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class ProductSearchImporter extends AbstractIcecatImporter
@@ -26,7 +26,7 @@ class ProductSearchImporter extends AbstractIcecatImporter
     protected $operationManager;
 
     /**
-     * @var \Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface
+     * @var \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface
      */
     protected $productSearchFacade;
 
@@ -41,7 +41,7 @@ class ProductSearchImporter extends AbstractIcecatImporter
     }
 
     /**
-     * @param \Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface $productSearchFacade
+     * @param \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface $productSearchFacade
      *
      * @return void
      */

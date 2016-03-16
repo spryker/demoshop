@@ -14,5 +14,4 @@ use Spryker\Zed\Category\Business\CategoryFacade as SprykerCategoryFacade;
  */
 class CategoryFacade extends SprykerCategoryFacade implements CategoryFacadeInterface
 {
-
 }
