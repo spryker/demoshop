@@ -130,7 +130,7 @@ class ParameterMerger implements ParameterMergerInterface
     protected function getCurrentActive($active, $inActive)
     {
         if ($active && !is_array($active)) {
-            return (bool) $active;
+            return (bool)$active;
         }
 
         if ($active && is_array($active)) {

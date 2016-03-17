@@ -108,7 +108,7 @@ class UrlMapper implements UrlMapperInterface
      */
     protected function sortByUrlPosition(array $activeInUrlFacets)
     {
-        usort($activeInUrlFacets, function($next, $current) {
+        usort($activeInUrlFacets, function ($next, $current) {
             return $current[FacetConfig::KEY_URL_POSITION] < $next[FacetConfig::KEY_URL_POSITION];
         });
 
