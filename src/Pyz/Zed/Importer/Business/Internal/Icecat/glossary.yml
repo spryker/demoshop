@@ -2,27 +2,26 @@ page.home.featured.top-left.left.width:
   translations:
     de_DE: '1'
     en_US: '1'
-
 page.home.featured.top-left.left.height:
   translations:
     de_DE: '2'
     en_US: '2'
 page.home.featured.top-left.left.name:
   translations:
-    de_DE: 'Smartwatches'
-    en_US: 'Smartwatches'
+    de_DE: 'Smartphones'
+    en_US: 'Smartphones'
 page.home.featured.top-left.left.category:
   translations:
-    de_DE: 'Tragbare Technologie'
-    en_US: 'Wearables'
+    de_DE: 'Smartphones'
+    en_US: 'Smartphones'
 page.home.featured.top-left.left.img:
   translations:
-    de_DE: '/images/homepage/smartwatch.jpg'
-    en_US: '/images/homepage/smartwatch.jpg'
+    de_DE: 'smartphone.jpg'
+    en_US: 'smartphone.jpg'
 page.home.featured.top-left.left.url:
   translations:
-    de_DE: '/de/smartwatch'
-    en_US: '/en/smartwatch'
+    de_DE: '/de/smartphones'
+    en_US: '/en/smartphones'
 
 page.home.featured.top-left.right.width:
   translations:
@@ -38,16 +37,16 @@ page.home.featured.top-left.right.name:
     en_US: 'Smartwatches'
 page.home.featured.top-left.right.category:
   translations:
-    de_DE: 'Kameras & Camcorders'
-    en_US: 'Cameras & Camcorders'
+    de_DE: 'Smartwatches'
+    en_US: 'Smartwatches'
 page.home.featured.top-left.right.img:
   translations:
-    de_DE: /images/homepage/smartwatch.jpg
-    en_US: /images/homepage/smartwatch.jpg
+    de_DE: 'smartwatch.jpg'
+    en_US: 'smartwatch.jpg'
 page.home.featured.top-left.right.url:
   translations:
-    de_DE: '/de/smartwatche'
-    en_US: '/en/smartwatche'
+    de_DE: '/de/smartwatches'
+    en_US: '/en/smartwatches'
 
 page.home.featured.top-right.first.width:
   translations:
@@ -59,12 +58,12 @@ page.home.featured.top-right.first.height:
     en_US: '2'
 page.home.featured.top-right.first.img:
   translations:
-    de_DE: '/images/homepage/computer.jpg'
-    en_US: '/images/homepage/computer.jpg'
+    de_DE: 'computer.jpg'
+    en_US: 'computer.jpg'
 page.home.featured.top-right.first.url:
   translations:
-    de_DE: '/de/computer'
-    en_US: '/en/computer'
+    de_DE: '/de/computers'
+    en_US: '/en/computers'
 
 page.home.featured.top-right.second.width:
   translations:
@@ -76,12 +75,12 @@ page.home.featured.top-right.second.height:
     en_US: '2'
 page.home.featured.top-right.second.img:
   translations:
-    de_DE: /images/homepage/computer_product.jpg
-    en_US: /images/homepage/computer_product.jpg
+    de_DE: 'computer_product.jpg'
+    en_US: 'computer_product.jpg'
 page.home.featured.top-right.second.url:
   translations:
-    de_DE: '/de/computer_product'
-    en_US: '/en/computer_product'
+    de_DE: '/de/computers'
+    en_US: '/en/computers'
 
 page.home.featured.bottom-left.top.width:
   translations:
@@ -97,16 +96,16 @@ page.home.featured.bottom-left.top.name:
     en_US: 'Cameras'
 page.home.featured.bottom-left.top.category:
   translations:
-    de_DE: '/de/Kameras & Camcorders'
-    en_US: '/en/Cameras & Camcorders'
+    de_DE: 'Kameras & Camcorders'
+    en_US: 'Cameras & Camcorders'
 page.home.featured.bottom-left.top.img:
   translations:
-    de_DE: /images/homepage/camera.jpg
-    en_US: /images/homepage/camera.jpg
+    de_DE: 'camera.jpg'
+    en_US: 'camera.jpg'
 page.home.featured.bottom-left.top.url:
   translations:
-    de_DE: '/de/kamera'
-    en_US: '/en/camera'
+    de_DE: '/de/kameras-&-camcorders/digitale-kameras'
+    en_US: '/en/cameras-&-camcorders/digital-cameras'
 
 page.home.featured.bottom-left.bottom.width:
   translations:
@@ -118,20 +117,20 @@ page.home.featured.bottom-left.bottom.height:
     en_US: '1'
 page.home.featured.bottom-left.bottom.name:
   translations:
-    de_DE: 'Meere'
-    en_US: 'Seas'
+    de_DE: 'Digitale Kameras'
+    en_US: 'Digitale Kameras'
 page.home.featured.bottom-left.bottom.category:
   translations:
     de_DE: 'Kameras & Camcorders'
     en_US: 'Cameras & Camcorders'
 page.home.featured.bottom-left.bottom.img:
   translations:
-    de_DE: '/images/homepage/camera_product.jpg'
-    en_US: '/images/homepage/camera_product.jpg'
+    de_DE: 'camera_product.jpg'
+    en_US: 'camera_product.jpg'
 page.home.featured.bottom-left.bottom.url:
   translations:
-    de_DE: '/de/Kameras & Camcorders'
-    en_US: '/en/Camera & Camcorders'
+    de_DE: '/de/kameras-&-camcorders'
+    en_US: '/en/cameras-&-camcorders'
 
 page.home.featured.bottom-right.left.width:
   translations:
@@ -143,20 +142,20 @@ page.home.featured.bottom-right.left.height:
     en_US: '2'
 page.home.featured.bottom-right.left.name:
   translations:
-    de_DE: 'Smartphones'
-    en_US: 'Smartphones'
+    de_DE: 'Tablets'
+    en_US: 'Tablets'
 page.home.featured.bottom-right.left.category:
   translations:
-    de_DE: 'Telekommunikation'
-    en_US: 'Telecommunication'
+    de_DE: 'Computers'
+    en_US: 'Computers'
 page.home.featured.bottom-right.left.img:
   translations:
-    de_DE: /images/homepage/smartphone.jpg
-    en_US: /images/homepage/smartphone.jpg
+    de_DE: 'tablet.jpg'
+    en_US: 'tablet.jpg'
 page.home.featured.bottom-right.left.url:
   translations:
-    de_DE: '/de/smartphones'
-    en_US: '/en/smartphones'
+    de_DE: '/de/computers/tablets'
+    en_US: '/en/computers/tablets'
 
 page.home.featured.bottom-right.right.width:
   translations:
@@ -168,20 +167,20 @@ page.home.featured.bottom-right.right.height:
     en_US: '2'
 page.home.featured.bottom-right.right.name:
   translations:
-    de_DE: 'Smartphones'
-    en_US: 'Smartphones'
+    de_DE: 'Notebooks'
+    en_US: 'Notebooks'
 page.home.featured.bottom-right.right.category:
   translations:
-    de_DE: 'Telekommunikation'
-    en_US: 'Telecommunication'
+    de_DE: 'Computers'
+    en_US: 'Computers'
 page.home.featured.bottom-right.right.img:
   translations:
-    de_DE: '/images/homepage/smartphone_product.jpg'
-    en_US: '/images/homepage/smartphone_product.jpg'
+    de_DE: 'notebook_product.jpg'
+    en_US: 'notebook_product.jpg'
 page.home.featured.bottom-right.right.url:
   translations:
-    de_DE: '/de/smartphone'
-    en_US: '/en/smartphone'
+    de_DE: '/de/computers/notebooks'
+    en_US: '/en/computers/notebooks'
 
 cart.your-order:
   translations:
