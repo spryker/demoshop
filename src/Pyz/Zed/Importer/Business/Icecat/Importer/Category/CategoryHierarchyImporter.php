@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Importer\Business\Icecat\Importer\Category;
 
+use Everon\Component\Collection\Collection;
 use Generated\Shared\Transfer\NodeTransfer;
 use Orm\Zed\Category\Persistence\Base\SpyCategoryNodeQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
@@ -33,9 +34,9 @@ class CategoryHierarchyImporter extends AbstractIcecatImporter
     protected $categoryQueryContainer;
 
     /**
-     * @var array
+     * @var \Everon\Component\Collection\CollectionInterface
      */
-    protected $cacheParents = [];
+    protected $nodeToKeyMapperCollection;
 
     /**
      * @var \Orm\Zed\Category\Persistence\SpyCategoryNode
@@ -113,17 +114,17 @@ class CategoryHierarchyImporter extends AbstractIcecatImporter
         $category = $this->format($data);
 
         $idParentNode = $this->getRootNode()->getIdCategoryNode();
-        //TODO move caching into separate method
-        if (!array_key_exists($category[self::PARENT_KEY], $this->cacheParents)) {
+
+        if (!$this->getNodeToKeyMapper()->has($category[self::PARENT_KEY])) {
             $queryParent = $this->categoryQueryContainer->queryMainCategoryNodeByCategoryKey($category[self::PARENT_KEY]);
             $parent = $queryParent->findOne();
 
             if ($parent) {
                 $idParentNode = $parent->getIdCategoryNode();
-                $this->cacheParents[$category[self::PARENT_KEY]] = $idParentNode;
+                $this->getNodeToKeyMapper()->set($category[self::PARENT_KEY], $idParentNode);
             }
         } else {
-            $idParentNode = $this->cacheParents[$category[self::PARENT_KEY]];
+            $idParentNode = $this->getNodeToKeyMapper()->get($category[self::PARENT_KEY]);
         }
 
         $nodesQuery = $this->categoryQueryContainer
@@ -140,6 +141,18 @@ class CategoryHierarchyImporter extends AbstractIcecatImporter
                 $this->categoryFacade->updateCategoryNode($nodeTransfer, $localeTransfer);
             }
         }
+    }
+
+    /**
+     * @return \Everon\Component\Collection\CollectionInterface
+     */
+    protected function getNodeToKeyMapper()
+    {
+        if ($this->nodeToKeyMapperCollection === null) {
+            $this->nodeToKeyMapperCollection = new Collection([]);
+        }
+
+        return $this->nodeToKeyMapperCollection;
     }
 
 }

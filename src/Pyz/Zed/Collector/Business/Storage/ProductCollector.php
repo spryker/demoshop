@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
+use Everon\Component\Collection\Collection;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryTableMap;
 use Orm\Zed\Category\Persistence\SpyCategoryNode;
 use Orm\Zed\Price\Persistence\Map\SpyPriceTypeTableMap;
@@ -14,10 +15,10 @@ use Orm\Zed\Price\Persistence\SpyPriceProductQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\Formatter\ArrayFormatter;
 use Pyz\Zed\Collector\CollectorConfig;
-use Spryker\Zed\Price\Business\PriceFacadeInterface;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
+use Spryker\Zed\Price\Business\PriceFacadeInterface;
 use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface;
 
 class ProductCollector extends AbstractStoragePdoCollector
@@ -39,9 +40,9 @@ class ProductCollector extends AbstractStoragePdoCollector
     protected $priceFacade;
 
     /**
-     * @var array
+     * @var \Everon\Component\Collection\CollectionInterface
      */
-    protected $categoryCache = [];
+    protected $categoryCacheCollection;
 
     /**
      * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
@@ -56,6 +57,7 @@ class ProductCollector extends AbstractStoragePdoCollector
         $this->categoryQueryContainer = $categoryQueryContainer;
         $this->productCategoryQueryContainer = $productCategoryQueryContainer;
         $this->priceFacade = $priceFacade;
+        $this->categoryCacheCollection = new Collection([]);
     }
 
     /**
@@ -73,8 +75,8 @@ class ProductCollector extends AbstractStoragePdoCollector
             'abstract_sku' => $collectItemData['abstract_sku'],
             'url' => $collectItemData['abstract_url'],
             'available' => true,
-            'valid_price' => $this->getValidPriceBySku($collectItemData['abstract_sku']),
-            'prices' => $this->getPrices($collectItemData),
+            'price' => $this->getValidPriceBySku($collectItemData['abstract_sku']),
+            //'prices' => $this->getPrices($collectItemData),
             'category' => $this->getCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
         ];
     }
@@ -172,6 +174,10 @@ class ProductCollector extends AbstractStoragePdoCollector
      */
     protected function getCategories($idProductAbstract)
     {
+        if ($this->categoryCacheCollection->has($idProductAbstract)) {
+            return $this->categoryCacheCollection->get($idProductAbstract);
+        }
+
         $categoryMappings = $this->getCategoryMappings($idProductAbstract);
 
         $nodeIds = [];
@@ -196,6 +202,8 @@ class ProductCollector extends AbstractStoragePdoCollector
                 }
             }
         }
+
+        $this->categoryCacheCollection->set($idProductAbstract, $categories);
 
         return $categories;
     }

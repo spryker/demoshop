@@ -78,6 +78,7 @@ class CategoryNodeCollector extends AbstractStoragePdoCollector
      */
     protected function formatCategoryNode(array $collectItemData)
     {
+
         return [
             'node_id' => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
             'name' => $collectItemData['name'],
@@ -85,6 +86,7 @@ class CategoryNodeCollector extends AbstractStoragePdoCollector
             'image' => $collectItemData['category_image_name'],
             'children' => $collectItemData['children'],
             'parents' => $collectItemData['parents'],
+            'order' => $collectItemData['node_order'],
         ];
     }
 

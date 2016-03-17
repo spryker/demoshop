@@ -26,6 +26,7 @@ class CategoryImporter extends AbstractIcecatImporter
     const PARENT_KEY = 'parentKey';
     const UCATID = 'ucatid';
     const LOW_PIC = 'low_pic';
+    const ORDER = 'order';
 
     /**
      * @var \Pyz\Zed\Category\Business\CategoryFacadeInterface
@@ -135,7 +136,7 @@ class CategoryImporter extends AbstractIcecatImporter
     protected function importOne(array $data)
     {
         $category = $this->format($data);
-        $this->importCategory($category);
+        $this->importCategory($category, $data[self::ORDER]);
     }
 
     /**
@@ -172,10 +173,11 @@ class CategoryImporter extends AbstractIcecatImporter
      * @see \Pyz\Zed\Installer\Business\Icecat\Importer\Category\CategoryHierarchyImporter::isImported()
      *
      * @param array $data
+     * @param int $order
      *
      * @return void
      */
-    protected function importCategory(array $data)
+    protected function importCategory(array $data, $order)
     {
         $idCategory = $this->createCategory($data);
 
@@ -183,6 +185,7 @@ class CategoryImporter extends AbstractIcecatImporter
         $nodeTransfer->setIsRoot(false);
         $nodeTransfer->setIsMain(true);
         $nodeTransfer->setFkCategory($idCategory);
+        $nodeTransfer->setNodeOrder($order);
 
         $nodeTransfer->setFkParentCategoryNode(null);
 
