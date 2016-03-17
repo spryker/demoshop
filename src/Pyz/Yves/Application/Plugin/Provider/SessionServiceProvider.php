@@ -58,14 +58,13 @@ class SessionServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @param $saveHandler
+     * @param string $saveHandler
      *
      * @return void
      */
     protected function setSessionSaveHandler($saveHandler)
     {
-        if (
-            !in_array($saveHandler, $this->getSaveHandler()) &&
+        if (!in_array($saveHandler, $this->getSaveHandler()) &&
             Config::get(ApplicationConstants::YVES_SESSION_SAVE_HANDLER) &&
             $this->getSavePath($saveHandler)
         ) {
