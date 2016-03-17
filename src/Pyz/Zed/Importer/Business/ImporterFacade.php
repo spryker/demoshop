@@ -23,10 +23,10 @@ class ImporterFacade extends AbstractFacade implements ImporterFacadeInterface
      *
      * @return void
      */
-    public function installIcecatData(OutputInterface $output, MessengerInterface $messenger)
+    public function import(OutputInterface $output, MessengerInterface $messenger)
     {
         $this->getFactory()
-            ->createIcecatDataImporterConsole($output, $messenger)
+            ->createIcecatImporter($output, $messenger)
             ->import();
     }
 

@@ -17,8 +17,8 @@ interface ImporterFacadeInterface
      * @param \Symfony\Component\Console\Output\OutputInterface $output
      * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
-     * @return \Pyz\Zed\Importer\Business\Icecat\IcecatDataImporterConsole
+     * @return \Pyz\Zed\Importer\Business\ImporterManager
      */
-    public function installIcecatData(OutputInterface $output, MessengerInterface $messenger);
+    public function import(OutputInterface $output, MessengerInterface $messenger);
 
 }

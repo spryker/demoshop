@@ -33,7 +33,7 @@ class ImporterConfig extends AbstractBundleConfig
     /**
      * @return string
      */
-    public function getIcecatDataPath()
+    public function getImportDataPath()
     {
         return __DIR__ . '/Business/Internal/Icecat/';
     }
