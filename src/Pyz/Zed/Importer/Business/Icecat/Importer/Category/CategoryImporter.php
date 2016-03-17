@@ -156,7 +156,7 @@ class CategoryImporter extends AbstractIcecatImporter
                 CategoryTransfer::CATEGORY_IMAGE_NAME => $data[self::LOW_PIC],
                 CategoryTransfer::IS_ACTIVE => true,
                 CategoryTransfer::IS_CLICKABLE => true,
-                CategoryTransfer::IS_IN_MENU => false,
+                CategoryTransfer::IS_IN_MENU => true,
                 CategoryTransfer::META_DESCRIPTION => $data[$descriptionKey],
                 CategoryTransfer::META_TITLE => $data[$nameKey],
             ];
