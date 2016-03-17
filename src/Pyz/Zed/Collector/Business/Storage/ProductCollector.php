@@ -92,7 +92,7 @@ class ProductCollector extends AbstractStoragePdoCollector
             'quantity' =>  (int)$collectItemData[self::QUANTITY],
             'available' => (int)$collectItemData[self::QUANTITY] > 0,
             'prices' => $this->getPrices($collectItemData),
-            'categories' => $this->generateCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
+            'category' => $this->generateCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
         ];
     }
 
