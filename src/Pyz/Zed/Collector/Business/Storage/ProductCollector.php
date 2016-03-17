@@ -12,6 +12,7 @@ use Orm\Zed\Category\Persistence\Map\SpyCategoryTableMap;
 use Orm\Zed\Category\Persistence\SpyCategoryNode;
 use Orm\Zed\Price\Persistence\Map\SpyPriceTypeTableMap;
 use Orm\Zed\Price\Persistence\SpyPriceProductQuery;
+use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\Formatter\ArrayFormatter;
 use Pyz\Zed\Collector\CollectorConfig;
@@ -23,6 +24,20 @@ use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterfa
 
 class ProductCollector extends AbstractStoragePdoCollector
 {
+
+    const ID_PRODUCT = 'id_product';
+    const ID_CATEGORY_NODE = 'id_category_node';
+    const SKU = 'sku';
+    const ABSTRACT_SKU = 'abstract_sku';
+    const ABSTRACT_NAME = 'abstract_name';
+    const ABSTRACT_URL = 'abstract_url';
+    const QUANTITY = 'quantity';
+    const ABSTRACT_LOCALIZED_ATTRIBUTES = 'abstract_localized_attributes';
+    const CONCRETE_LOCALIZED_ATTRIBUTES = 'concrete_localized_attributes';
+    const CONCRETE_ATTRIBUTES = 'concrete_attributes';
+    const NAME = 'name';
+    const PRICE = 'price';
+    const PRICE_NAME = 'price_name';
 
     /**
      * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
@@ -71,13 +86,13 @@ class ProductCollector extends AbstractStoragePdoCollector
         return [
             'abstract_product_id' => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
             'abstract_attributes' => $this->getAbstractAttributes($collectItemData),
-            'abstract_name' => $collectItemData['abstract_name'],
-            'abstract_sku' => $collectItemData['abstract_sku'],
-            'url' => $collectItemData['abstract_url'],
-            'available' => true,
-            'price' => $this->getValidPriceBySku($collectItemData['abstract_sku']),
-            //'prices' => $this->getPrices($collectItemData),
-            'category' => $this->getCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
+            'abstract_name' => $collectItemData[self::ABSTRACT_NAME],
+            'abstract_sku' => $collectItemData[self::ABSTRACT_SKU],
+            'url' => $collectItemData[self::ABSTRACT_URL],
+            'quantity' =>  (int)$collectItemData[self::QUANTITY],
+            'available' => (int)$collectItemData[self::QUANTITY] > 0,
+            'prices' => $this->getPrices($collectItemData),
+            'categories' => $this->generateCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
         ];
     }
 
@@ -96,9 +111,9 @@ class ProductCollector extends AbstractStoragePdoCollector
      */
     protected function getAbstractAttributes(array $collectItemData)
     {
-        $abstractLocalizedAttributesData = json_decode($collectItemData['abstract_localized_attributes'], true);
-        $concreteLocalizedAttributesData = json_decode($collectItemData['concrete_localized_attributes'], true);
-        $concreteAttributesData = json_decode($collectItemData['concrete_attributes'], true);
+        $abstractLocalizedAttributesData = json_decode($collectItemData[self::ABSTRACT_LOCALIZED_ATTRIBUTES], true);
+        $concreteLocalizedAttributesData = json_decode($collectItemData[self::CONCRETE_LOCALIZED_ATTRIBUTES], true);
+        $concreteAttributesData = json_decode($collectItemData[self::CONCRETE_ATTRIBUTES], true);
 
         $attributes = array_merge($abstractLocalizedAttributesData, $concreteLocalizedAttributesData, $concreteAttributesData);
 
@@ -129,42 +144,61 @@ class ProductCollector extends AbstractStoragePdoCollector
      */
     protected function getPrices($collectItemData)
     {
-        $idProductAbstract = $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID];
-        $idProduct = $collectItemData['id_product'];
-
         $result = [];
         $query = SpyPriceProductQuery::create()
+            ->setFormatter(new ArrayFormatter())
             ->joinProduct('productConcreteJoin')
             ->joinPriceType()
-            ->withColumn(SpyPriceTypeTableMap::COL_NAME, 'price_name')
-            ->setFormatter(new ArrayFormatter());
-
-        $query->addJoinCondition(
-            'productConcreteJoin',
-            'productConcreteJoin.is_active = ?',
-            true,
-            Criteria::EQUAL
-        );
-
-        $query->addJoinCondition(
-            'productConcreteJoin',
-            'productConcreteJoin.fk_product_abstract = ?',
-            $idProductAbstract
-        );
-
-        $query->where(
-            'productConcreteJoin.id_product = ?',
-            $idProduct
-        );
+            ->withColumn(SpyPriceTypeTableMap::COL_NAME, self::PRICE_NAME)
+            ->addJoinCondition(
+                'productConcreteJoin',
+                'productConcreteJoin.is_active = ?',
+                true,
+                Criteria::EQUAL
+            )
+            ->addJoinCondition(
+                'productConcreteJoin',
+                'productConcreteJoin.fk_product_abstract = ?',
+                (int)$collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]
+            )
+            ->where(
+                'productConcreteJoin.id_product = ?',
+                (int)$collectItemData[self::ID_PRODUCT]
+            );
 
         $prices = $query->find();
         $data = $prices->toArray();
 
+        if (empty($data)) {
+            return $this->getDefaultPrice($collectItemData[self::ABSTRACT_SKU]);
+        }
+
         foreach ($data as $priceItem) {
-            $result[$priceItem['price_name']] = ['price' => $priceItem['price']];
+            $result[$priceItem[self::PRICE_NAME]] = [self::PRICE => $priceItem[self::PRICE]];
         }
 
         return $result;
+    }
+
+    /**
+     * "DEFAULT": {
+     *    "price": "599"
+     * }
+     *
+     * @param $abstractSku
+     *
+     * @return array
+     */
+    protected function getDefaultPrice($abstractSku)
+    {
+        $defaultPriceType = $this->priceFacade->getDefaultPriceTypeName();
+        $abstractPrice = $this->getValidPriceBySku($abstractSku);
+
+        return [
+            $defaultPriceType => [
+                self::PRICE => $abstractPrice
+            ]
+        ];
     }
 
     /**
@@ -172,35 +206,17 @@ class ProductCollector extends AbstractStoragePdoCollector
      *
      * @return array
      */
-    protected function getCategories($idProductAbstract)
+    protected function generateCategories($idProductAbstract)
     {
         if ($this->categoryCacheCollection->has($idProductAbstract)) {
             return $this->categoryCacheCollection->get($idProductAbstract);
         }
 
-        $categoryMappings = $this->getCategoryMappings($idProductAbstract);
+        $productCategoryMappings = $this->getProductCategoryMappings($idProductAbstract);
 
-        $nodeIds = [];
         $categories = [];
-        foreach ($categoryMappings as $mapping) {
-            $idCategory = $mapping->getFkCategory();
-            $nodeIds[$idCategory] = $mapping->getSpyCategory()->getNodes()->toArray();
-
-            foreach ($mapping->getSpyCategory()->getNodes() as $node) {
-                $queryPath = $this->categoryQueryContainer->queryPath($node->getIdCategoryNode(), $this->locale->getIdLocale());
-                $pathTokens = $queryPath->find();
-
-                foreach ($pathTokens as $pathItem) {
-                    $idNode = (int)$pathItem['id_category_node'];
-                    $url = $this->generateUrl($idNode);
-
-                    $categories[$idNode] = [
-                        'node_id' => $idNode,
-                        'name' => $pathItem['name'],
-                        'url' => $url,
-                    ];
-                }
-            }
+        foreach ($productCategoryMappings as $mapping) {
+            $categories = $this->generateProductCategoryData($mapping, $categories);
         }
 
         $this->categoryCacheCollection->set($idProductAbstract, $categories);
@@ -209,11 +225,51 @@ class ProductCollector extends AbstractStoragePdoCollector
     }
 
     /**
+     * @param \Orm\Zed\ProductCategory\Persistence\SpyProductCategory $productCategory
+     * @param array $productCategoryCollection
+     *
+     * @return array
+     */
+    protected function generateProductCategoryData(SpyProductCategory $productCategory, array $productCategoryCollection)
+    {
+        foreach ($productCategory->getSpyCategory()->getNodes() as $node) {
+            $queryPath = $this->categoryQueryContainer->queryPath($node->getIdCategoryNode(), $this->locale->getIdLocale());
+            $pathTokens = $queryPath->find();
+
+            $productCategoryCollection = $this->generateCategoryData($pathTokens, $productCategoryCollection);
+        }
+
+        return $productCategoryCollection;
+    }
+
+    /**
+     * @param array $pathTokens
+     * @param array $productCategoryCollection
+     *
+     * @return array
+     */
+    protected function generateCategoryData(array $pathTokens, array $productCategoryCollection)
+    {
+        foreach ($pathTokens as $pathItem) {
+            $idNode = (int)$pathItem[self::ID_CATEGORY_NODE];
+            $url = $this->generateUrl($idNode);
+
+            $productCategoryCollection[$idNode] = [
+                'node_id' => $idNode,
+                'name' => $pathItem[self::NAME],
+                'url' => $url,
+            ];
+        }
+
+        return $productCategoryCollection;
+    }
+
+    /**
      * @param int $idProductAbstract
      *
      * @return \Orm\Zed\ProductCategory\Persistence\SpyProductCategory[]|\Propel\Runtime\Collection\ObjectCollection
      */
-    protected function getCategoryMappings($idProductAbstract)
+    protected function getProductCategoryMappings($idProductAbstract)
     {
         return $this->productCategoryQueryContainer
             ->queryLocalizedProductCategoryMappingByIdProduct($idProductAbstract)
@@ -223,6 +279,7 @@ class ProductCollector extends AbstractStoragePdoCollector
                 true,
                 Criteria::EQUAL
             )
+            ->orderByProductOrder()
             ->find();
     }
 
@@ -251,7 +308,7 @@ class ProductCollector extends AbstractStoragePdoCollector
 
         $formattedPath = [];
         foreach ($pathTokens as $path) {
-            $formattedPath[] = $path['name'];
+            $formattedPath[] = $path[self::NAME];
         }
 
         return '/' . implode('/', $formattedPath);

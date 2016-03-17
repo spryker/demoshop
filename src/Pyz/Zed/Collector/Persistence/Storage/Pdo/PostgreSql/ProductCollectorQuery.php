@@ -28,6 +28,9 @@ SELECT
   spy_product.attributes AS concrete_attributes,
   spy_product_localized_attributes.attributes AS concrete_localized_attributes,
   spy_product.sku AS sku,
+  (SELECT SUM(spy_stock_product.quantity)
+    FROM spy_stock_product
+    WHERE spy_stock_product.fk_product = spy_product.id_product) AS quantity,
   t.id_touch AS %s,
   t.item_id AS %s,
   spy_touch_storage.id_touch_storage AS %s
