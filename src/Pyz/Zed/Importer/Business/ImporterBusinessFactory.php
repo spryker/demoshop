@@ -358,7 +358,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
      *
      * @return \Pyz\Zed\Importer\Business\Icecat\IcecatDataImporterConsole
      */
-    public function getIcecatDataImporterConsole(OutputInterface $output, MessengerInterface $messenger)
+    public function createIcecatDataImporterConsole(OutputInterface $output, MessengerInterface $messenger)
     {
         return new IcecatDataImporterConsole(
             $output,
