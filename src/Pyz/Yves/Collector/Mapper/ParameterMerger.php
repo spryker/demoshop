@@ -92,14 +92,16 @@ class ParameterMerger implements ParameterMergerInterface
             return $this->assignGenerationParameter($mergedParameters, $generationParameterName, $currentValue, $currentActive);
         }
 
-        if (!in_array($currentValue, $mergedParameters[$generationParameterName]) && $currentActive === true) {
+        $currentValueExists = in_array($currentValue, $mergedParameters[$generationParameterName]);
+
+        if (!$currentValueExists && $currentActive === true) {
             $mergedParameters[$generationParameterName][] = $currentValue;
 
             return $mergedParameters;
         }
 
-        if (in_array($currentValue, $mergedParameters[$generationParameterName]) && $currentActive === false) {
-            $mergedParameters = $this->assignNotActiveArrayGenerationParameter($mergedParameters, $generationParameterName, $currentValue);
+        if ($currentValueExists && $currentActive === false) {
+            return $this->assignNotActiveArrayGenerationParameter($mergedParameters, $generationParameterName, $currentValue);
         }
 
         return $mergedParameters;
