@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b09d68e12ccd2cbb5f50f35a70215ae7",
-    "content-hash": "a70a580cb8e1ff079802b91b33ebd9b7",
+    "hash": "cec1c57345c6d7717c59b6bc3f45645d",
+    "content-hash": "dbbc214418f0be9b1e8fe95641ef04b9",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -945,11 +945,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-develop",
+            "version": "dev-feature/1600-icecat-importer-finish",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "68868d0ce095b0870a3e9899b241d342705228ca"
+                "reference": "26d3f63e4769a4bbae2bb05293f3b543493f0300"
             },
             "require": {
                 "phpdocumentor/graphviz": "dev-master#a906a90"
@@ -1441,7 +1441,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-03-16 09:11:32"
+            "time": "2016-03-17 10:44:47"
         },
         {
             "name": "symfony-cmf/routing",
@@ -5423,7 +5423,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/f604b6ec1ff772043328e52d5fd574c295eb1c8d",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/1a0897d521112105634deec1cc1567e629cc29cf",
                 "reference": "f604b6ec1ff772043328e52d5fd574c295eb1c8d",
                 "shasum": ""
             },
