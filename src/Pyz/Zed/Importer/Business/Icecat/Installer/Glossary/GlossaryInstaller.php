@@ -10,8 +10,6 @@ namespace Pyz\Zed\Importer\Business\Icecat\Installer\Glossary;
 use Pyz\Zed\Importer\Business\Icecat\Installer\AbstractIcecatInstaller;
 use Spryker\Shared\Library\BatchIterator\CountableIteratorInterface;
 use Spryker\Shared\Library\BatchIterator\YamlBatchIterator;
-use Symfony\Component\Console\Helper\ProgressBar;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class GlossaryInstaller extends AbstractIcecatInstaller
 {

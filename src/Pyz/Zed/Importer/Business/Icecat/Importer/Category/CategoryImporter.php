@@ -18,7 +18,6 @@ use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Touch\Business\TouchFacadeInterface;
 use Spryker\Zed\Url\Business\UrlFacadeInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class CategoryImporter extends AbstractIcecatImporter
 {

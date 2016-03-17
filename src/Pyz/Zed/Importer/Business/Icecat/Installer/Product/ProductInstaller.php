@@ -9,7 +9,6 @@ namespace Pyz\Zed\Importer\Business\Icecat\Installer\Product;
 
 use Pyz\Zed\Importer\Business\Icecat\Installer\AbstractIcecatInstaller;
 use Spryker\Shared\Library\BatchIterator\CsvBatchIterator;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class ProductInstaller extends AbstractIcecatInstaller
 {

@@ -10,6 +10,8 @@ namespace Pyz\Yves\Collector;
 use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Category\Plugin\CategoryResourceCreator;
 use Pyz\Yves\Cms\Plugin\PageResourceCreator;
+use Pyz\Yves\Collector\Mapper\ParameterMerger;
+use Pyz\Yves\Collector\Mapper\RequestParameterInjector;
 use Pyz\Yves\Collector\Mapper\UrlMapper;
 use Pyz\Yves\Product\Plugin\ProductResourceCreator;
 use Pyz\Yves\Redirect\Plugin\RedirectResourceCreator;
@@ -32,13 +34,27 @@ class CollectorFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Yves\Collector\Mapper\UrlMapper
+     * @return \Pyz\Yves\Collector\Mapper\UrlMapperInterface
      */
     public function createUrlMapper()
     {
-        return new UrlMapper(
-            $this->createFacetConfig()
-        );
+        return new UrlMapper($this->createFacetConfig());
+    }
+
+    /**
+     * @return \Pyz\Yves\Collector\Mapper\ParameterMergerInterface
+     */
+    public function createParameterMerger()
+    {
+        return new ParameterMerger($this->createFacetConfig());
+    }
+
+    /**
+     * @return \Pyz\Yves\Collector\Mapper\RequestParameterInjectorInterface
+     */
+    public function createRequestParameterInjector()
+    {
+        return new RequestParameterInjector($this->createFacetConfig());
     }
 
     /**

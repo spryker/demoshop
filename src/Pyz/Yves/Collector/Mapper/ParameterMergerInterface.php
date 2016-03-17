@@ -7,15 +7,15 @@
 
 namespace Pyz\Yves\Collector\Mapper;
 
-interface UrlMapperInterface
+interface ParameterMergerInterface
 {
 
     /**
-     * @param array $mergedParameters
-     * @param bool $addTrailingSlash
+     * @param array $requestParameters
+     * @param array $generationParameters
      *
-     * @return string
+     * @return array
      */
-    public function generateUrlFromParameters(array $mergedParameters, $addTrailingSlash = false);
+    public function mergeParameters(array $requestParameters, array $generationParameters);
 
 }

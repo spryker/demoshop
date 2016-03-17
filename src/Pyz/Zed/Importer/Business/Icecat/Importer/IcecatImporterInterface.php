@@ -7,8 +7,6 @@
 
 namespace Pyz\Zed\Importer\Business\Icecat\Importer;
 
-use Symfony\Component\Console\Output\OutputInterface;
-
 interface IcecatImporterInterface
 {
 

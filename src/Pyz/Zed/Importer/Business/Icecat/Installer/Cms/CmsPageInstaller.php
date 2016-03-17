@@ -9,8 +9,6 @@ namespace Pyz\Zed\Importer\Business\Icecat\Installer\Cms;
 
 use Pyz\Zed\Importer\Business\Icecat\Installer\AbstractIcecatInstaller;
 use Spryker\Shared\Library\BatchIterator\XmlBatchIterator;
-use Symfony\Component\Console\Helper\ProgressBar;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class CmsPageInstaller extends AbstractIcecatInstaller
 {

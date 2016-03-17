@@ -33,12 +33,11 @@ class SalesAggregatorDependencyProvider extends SprykerSalesAggregatorDependency
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return array|\Spryker\Zed\SalesAggregator\Dependency\Plugin\OrderTotalsAggregatePluginInterface[]
+     * @return \Spryker\Zed\SalesAggregator\Dependency\Plugin\OrderTotalsAggregatePluginInterface
      */
     protected function getItemAmountAggregationPlugins(Container $container)
     {
         return [
-
             //aggregate sum* fields, so that amount with quantity is available.
             new ItemGrossPriceAggregatorPlugin(),
             new ProductOptionsGrossPriceAggregatorPlugin(),
@@ -57,7 +56,7 @@ class SalesAggregatorDependencyProvider extends SprykerSalesAggregatorDependency
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return array|\Spryker\Zed\SalesAggregator\Dependency\Plugin\OrderTotalsAggregatePluginInterface[]
+     * @return \Spryker\Zed\SalesAggregator\Dependency\Plugin\OrderTotalsAggregatePluginInterface[]
      */
     protected function getOrderAmountAggregationPlugins(Container $container)
     {

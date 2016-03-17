@@ -11,7 +11,6 @@ use Generated\Shared\Transfer\NodeTransfer;
 use Orm\Zed\Category\Persistence\SpyCategoryNodeQuery;
 use Pyz\Zed\Importer\ImporterConfig;
 use Spryker\Shared\Category\CategoryConstants;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class CategoryRootImporter extends CategoryImporter
 {

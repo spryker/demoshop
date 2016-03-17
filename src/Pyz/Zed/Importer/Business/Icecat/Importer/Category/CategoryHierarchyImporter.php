@@ -14,7 +14,6 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Pyz\Zed\Importer\Business\Icecat\Importer\AbstractIcecatImporter;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class CategoryHierarchyImporter extends AbstractIcecatImporter
 {

@@ -952,6 +952,7 @@
                 "reference": "26d3f63e4769a4bbae2bb05293f3b543493f0300"
             },
             "require": {
+                "paragonie/random_compat": "~1.2.1",
                 "phpdocumentor/graphviz": "dev-master#a906a90"
             },
             "require-dev": {
@@ -5419,7 +5420,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "f604b6ec1ff772043328e52d5fd574c295eb1c8d"
+                "reference": "1a0897d521112105634deec1cc1567e629cc29cf"
             },
             "dist": {
                 "type": "zip",
@@ -5437,7 +5438,7 @@
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
@@ -5453,7 +5454,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-03-14 10:08:04"
+            "time": "2016-03-16 16:53:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
