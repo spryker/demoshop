@@ -91,7 +91,7 @@ class RequestParameterInjector implements RequestParameterInjectorInterface
         $value = implode(' ', $sliced);
         $parameterNameForShortParameter = $this->facetConfig->getParameterNameForShortParameter(self::CATEGORY_SHORT_PARAMETER);
 
-        if ($parameterNameForShortParameter) {
+        if ($parameterNameForShortParameter !== null) {
             $parameters[$parameterNameForShortParameter] = $value;
         }
 
