@@ -19,9 +19,7 @@ class CatalogFactory extends AbstractFactory
      */
     public function createUrlMapperPlugin()
     {
-        $urlMapper = new UrlMapperPlugin();
-
-        return $urlMapper;
+        return new UrlMapperPlugin();
     }
 
     /**

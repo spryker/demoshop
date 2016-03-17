@@ -30,7 +30,7 @@ class SearchRouter extends AbstractRouter
             $request = $this->getRequest();
             $requestParameters = $request->query->all();
             //if no page is provided we generate a url to change the filter and therefore want to reset the page
-            if (!isset($parameters[self::PARAMETER_PAGE]) && isset($requestParameters['' . self::PARAMETER_PAGE])) {
+            if (!isset($parameters[self::PARAMETER_PAGE]) && isset($requestParameters[self::PARAMETER_PAGE])) {
                 unset($requestParameters[self::PARAMETER_PAGE]);
             }
             $mergedParameters = $this->getUrlMapperPlugin()->mergeParameters($requestParameters, $parameters);
