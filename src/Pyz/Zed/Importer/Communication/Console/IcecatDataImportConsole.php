@@ -37,10 +37,7 @@ class IcecatDataImportConsole extends SprykerConsole
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $messenger = $this->getMessenger();
-
-        $importer = $this->getFacade()->getIcecatDataConsoleImporter($output, $messenger);
-        $importer->import();
+        $this->getFacade()->installIcecatData($output, $this->getMessenger());
     }
 
 }

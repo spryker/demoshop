@@ -21,11 +21,13 @@ class ImporterFacade extends AbstractFacade implements ImporterFacadeInterface
      * @param \Symfony\Component\Console\Output\OutputInterface $output
      * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
      *
-     * @return \Pyz\Zed\Importer\Business\Icecat\IcecatDataImporterConsole
+     * @return void
      */
-    public function getIcecatDataConsoleImporter(OutputInterface $output, MessengerInterface $messenger)
+    public function installIcecatData(OutputInterface $output, MessengerInterface $messenger)
     {
-        return $this->getFactory()->getIcecatDataImporterConsole($output, $messenger);
+        $this->getFactory()
+            ->createIcecatDataImporterConsole($output, $messenger)
+            ->import();
     }
 
 }

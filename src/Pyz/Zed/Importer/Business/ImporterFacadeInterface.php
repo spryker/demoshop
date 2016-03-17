@@ -19,6 +19,6 @@ interface ImporterFacadeInterface
      *
      * @return \Pyz\Zed\Importer\Business\Icecat\IcecatDataImporterConsole
      */
-    public function getIcecatDataConsoleImporter(OutputInterface $output, MessengerInterface $messenger);
+    public function installIcecatData(OutputInterface $output, MessengerInterface $messenger);
 
 }
