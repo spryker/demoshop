@@ -16,7 +16,6 @@ class UrlMapper implements UrlMapperInterface
     const URL_VALUE_DIVIDER = '-';
     const KEY_VALUE = 'value';
     const KEY_ACTIVE = 'active';
-    const CATEGORY_SHORT_PARAMETER = 'c';
 
     /**
      * @var \Spryker\Client\Catalog\Model\FacetConfig
@@ -40,22 +39,8 @@ class UrlMapper implements UrlMapperInterface
     public function generateUrlFromParameters(array $mergedParameters, $addTrailingSlash = false)
     {
         $urlSegments = $this->prepareUrlSegments($mergedParameters);
-
         $url = $this->convertUrlSegmentsToUrl($urlSegments);
-
-        //build query string with rest of parameters
-        foreach ($mergedParameters as &$mergedParameter) {
-            if (is_array($mergedParameter)) {
-                $mergedParameter = implode(self::URL_VALUE_DIVIDER, $mergedParameter);
-            }
-        }
-        $urlParameters = http_build_query($mergedParameters);
-
-        if ($addTrailingSlash) {
-            $url .= ($urlParameters !== '' ? '/?' . $urlParameters : '/');
-        } else {
-            $url .= ($urlParameters !== '' ? '?' . $urlParameters : '');
-        }
+        $url = $this->buildQueryStringWithParameters($mergedParameters, $addTrailingSlash, $url);
 
         return $url;
     }
@@ -68,7 +53,7 @@ class UrlMapper implements UrlMapperInterface
     protected function prepareUrlSegments(array &$mergedParameters)
     {
         $activeInUrlFacets = $this->facetConfig->getActiveInUrlFacets();
-        usort($activeInUrlFacets, [__CLASS__, 'sortByUrlPosition']);
+        $activeInUrlFacets = $this->sortByUrlPosition($activeInUrlFacets);
 
         $segments = [];
         $segmentsOffsetHash = '';
@@ -88,6 +73,7 @@ class UrlMapper implements UrlMapperInterface
                 $segmentsOffsetHash .= $activeInUrlFacet[FacetConfig::KEY_SHORT_PARAM] . count($segments);
                 $segments[] = $paramValue;
             }
+
             unset($mergedParameters[$paramName]);
         }
 
@@ -116,14 +102,40 @@ class UrlMapper implements UrlMapperInterface
     }
 
     /**
-     * @param array $next
-     * @param array $current
+     * @param array $activeInUrlFacets
      *
-     * @return bool
+     * @return array
      */
-    protected function sortByUrlPosition($next, $current)
+    protected function sortByUrlPosition(array $activeInUrlFacets)
     {
-        return $current[FacetConfig::KEY_URL_POSITION] < $next[FacetConfig::KEY_URL_POSITION];
+        usort($activeInUrlFacets, function($next, $current) {
+            return $current[FacetConfig::KEY_URL_POSITION] < $next[FacetConfig::KEY_URL_POSITION];
+        });
+
+        return $activeInUrlFacets;
+    }
+
+    /**
+     * @param array $mergedParameters
+     * @param bool $addTrailingSlash
+     * @param string $baseUrl
+     *
+     * @return array
+     */
+    protected function buildQueryStringWithParameters(array $mergedParameters, $addTrailingSlash, $baseUrl = '')
+    {
+        foreach ($mergedParameters as &$mergedParameter) {
+            if (is_array($mergedParameter)) {
+                $mergedParameter = implode(self::URL_VALUE_DIVIDER, $mergedParameter);
+            }
+        }
+        $urlParameters = http_build_query($mergedParameters);
+
+        if ($addTrailingSlash) {
+            return $baseUrl . ($urlParameters !== '' ? '/?' . $urlParameters : '/');
+        }
+
+        return $baseUrl . ($urlParameters !== '' ? '?' . $urlParameters : '');
     }
 
 }

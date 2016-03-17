@@ -68,21 +68,46 @@ class RequestParameterInjector implements RequestParameterInjectorInterface
      */
     protected function preparePathSegments($pathInfo)
     {
-        $parameters = [];
         $pathInfo = trim($pathInfo, '/');
         $split = explode(self::OFFSET_RECOGNITION_VALUE_DIVIDER, $pathInfo);
-        $offset = 0;
-        $shortParameter = self::CATEGORY_SHORT_PARAMETER; // first element is always category with shortParam = c
 
         if (count($split) <= 1) {
-            //everything is only category
-            $sliced = explode(self::URL_VALUE_DIVIDER, $split[0]);
-            $value = implode(' ', $sliced);
-            $parameterNameForShortParameter = $this->facetConfig->getParameterNameForShortParameter($shortParameter);
-            $parameters[$parameterNameForShortParameter] = $value;
-
-            return $parameters;
+            return $this->getCategoryParameters($split[0]);
         }
+
+        return $this->getParameters($split);
+    }
+
+    /**
+     * @param string $path
+     *
+     * @return array
+     */
+    protected function getCategoryParameters($path)
+    {
+        $parameters = [];
+
+        $sliced = explode(self::URL_VALUE_DIVIDER, $path);
+        $value = implode(' ', $sliced);
+        $parameterNameForShortParameter = $this->facetConfig->getParameterNameForShortParameter(self::CATEGORY_SHORT_PARAMETER);
+
+        if ($parameterNameForShortParameter) {
+            $parameters[$parameterNameForShortParameter] = $value;
+        }
+
+        return $parameters;
+    }
+
+    /**
+     * @param array $split
+     *
+     * @return array
+     */
+    protected function getParameters(array $split)
+    {
+        $parameters = [];
+        $offset = 0;
+        $shortParameter = self::CATEGORY_SHORT_PARAMETER; // first element is always category with shortParam = c
 
         $urlParts = explode(self::URL_VALUE_DIVIDER, $split[0]);
         preg_match_all('/[a-z]\d/', $split[1], $matches);
@@ -91,18 +116,11 @@ class RequestParameterInjector implements RequestParameterInjectorInterface
         while ($element = array_shift($offsets)) {
             $length = $element[1] - $offset;
             $sliced = array_slice($urlParts, $offset, $length);
-            $parameterNameForShortParameter = $this->facetConfig->getParameterNameForShortParameter($shortParameter);
             $value = implode(' ', $sliced);
-            if (isset($parameters[$parameterNameForShortParameter]) && is_array($parameters[$parameterNameForShortParameter])) {
-                $parameters[$parameterNameForShortParameter][] = $value;
-            } elseif (isset($parameters[$parameterNameForShortParameter])) {
-                $parameters[$parameterNameForShortParameter] = [
-                    $parameters[$parameterNameForShortParameter],
-                    $value,
-                ];
-            } else {
-                $parameters[$parameterNameForShortParameter] = $value;
-            }
+            $parameterNameForShortParameter = $this->facetConfig->getParameterNameForShortParameter($shortParameter);
+
+            $parameters = $this->formatParameters($parameters, $parameterNameForShortParameter, $value);
+
             $shortParameter = $element[0];
             $offset = $element[1];
         }
@@ -112,16 +130,37 @@ class RequestParameterInjector implements RequestParameterInjectorInterface
         $sliced = array_slice($urlParts, $offset, $length);
         $value = implode(' ', $sliced);
         $parameterNameForShortParameter = $this->facetConfig->getParameterNameForShortParameter($shortParameter);
+
+        $parameters = $this->formatParameters($parameters, $parameterNameForShortParameter, $value);
+
+        return $parameters;
+    }
+
+    /**
+     * @param array $parameters
+     * @param string $parameterNameForShortParameter
+     * @param mixed $value
+     *
+     * @return array
+     */
+    protected function formatParameters(array $parameters, $parameterNameForShortParameter, $value)
+    {
         if (isset($parameters[$parameterNameForShortParameter]) && is_array($parameters[$parameterNameForShortParameter])) {
             $parameters[$parameterNameForShortParameter][] = $value;
-        } elseif (isset($parameters[$parameterNameForShortParameter])) {
+
+            return $parameters;
+        }
+
+        if (isset($parameters[$parameterNameForShortParameter])) {
             $parameters[$parameterNameForShortParameter] = [
                 $parameters[$parameterNameForShortParameter],
                 $value,
             ];
-        } else {
-            $parameters[$parameterNameForShortParameter] = $value;
+
+            return $parameters;
         }
+
+        $parameters[$parameterNameForShortParameter] = $value;
 
         return $parameters;
     }

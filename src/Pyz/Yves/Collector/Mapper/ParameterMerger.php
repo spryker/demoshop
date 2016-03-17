@@ -38,36 +38,30 @@ class ParameterMerger implements ParameterMergerInterface
     {
         $mergedParameters = $requestParameters;
         $defaultActive = true;
+
         foreach ($generationParameters as $generationParameterName => $generationParameterValues) {
-            $value = $active = null;
-            if (isset($generationParameterValues[self::KEY_VALUE])) {
-                $value = $generationParameterValues[self::KEY_VALUE];
-            }
-            if (isset($generationParameterValues[self::KEY_ACTIVE])) {
-                $active = $generationParameterValues[self::KEY_ACTIVE];
-            }
+            $value = $this->getParam($generationParameterValues, self::KEY_VALUE);
+            $active = $this->getParam($generationParameterValues, self::KEY_ACTIVE);
 
             if (is_array($value)) {
                 for ($i = 0, $max = count($value); $i < $max; $i++) {
                     $mergedParameters = $this->checkAndAssignParameters(
                         $mergedParameters,
                         $generationParameterName,
-                        $value,
                         $value[$i],
-                        $active,
-                        isset($active[$i]) ? $active[$i] : $defaultActive
+                        $this->getCurrentActive($active, isset($active[$i]) ? $active[$i] : $defaultActive)
                     );
                 }
-            } else {
-                $mergedParameters = $this->checkAndAssignParameters(
-                    $mergedParameters,
-                    $generationParameterName,
-                    $value,
-                    $value,
-                    $active,
-                    $active ?: $defaultActive
-                );
+
+                continue;
             }
+
+            $mergedParameters = $this->checkAndAssignParameters(
+                $mergedParameters,
+                $generationParameterName,
+                $value,
+                $this->getCurrentActive($active, $active ?: $defaultActive)
+            );
         }
 
         return $mergedParameters;
@@ -76,59 +70,148 @@ class ParameterMerger implements ParameterMergerInterface
     /**
      * @param array $mergedParameters
      * @param string $generationParameterName
-     * @param string $value
-     * @param string $inValue
-     * @param bool|array $active
-     * @param bool $inActive
+     * @param string $currentValue
+     * @param bool $currentActive
      *
      * @return mixed
      */
     protected function checkAndAssignParameters(
         $mergedParameters,
         $generationParameterName,
-        $value,
-        $inValue,
-        $active,
-        $inActive
+        $currentValue,
+        $currentActive
     ) {
+        if (!isset($mergedParameters[$generationParameterName])) {
+            $mergedParameters = $this->addGenerationParameter($mergedParameters, $generationParameterName, $currentValue, $currentActive);
+
+            return $mergedParameters;
+        }
+
+        if (!is_array($mergedParameters[$generationParameterName])) {
+            $mergedParameters = $this->assignGenerationParameter($mergedParameters, $generationParameterName, $currentValue, $currentActive);
+
+            return $mergedParameters;
+        }
+
+        if (!in_array($currentValue, $mergedParameters[$generationParameterName]) && $currentActive === true) {
+            $mergedParameters[$generationParameterName][] = $currentValue;
+
+            return $mergedParameters;
+        }
+
+        if (in_array($currentValue, $mergedParameters[$generationParameterName]) && $currentActive === false) {
+            $mergedParameters = $this->assignNotActiveArrayGenerationParameter($mergedParameters, $generationParameterName, $currentValue);
+        }
+
+        return $mergedParameters;
+    }
+
+    /**
+     * @param array $generationParameterValues
+     * @param string $paramName
+     *
+     * @return mixed
+     */
+    protected function getParam(array $generationParameterValues, $paramName)
+    {
+        if (isset($generationParameterValues[$paramName])) {
+            return $generationParameterValues[$paramName];
+        }
+
+        return null;
+    }
+
+    /**
+     * @param mixed $active
+     * @param bool $inActive
+     *
+     * @return bool
+     */
+    protected function getCurrentActive($active, $inActive)
+    {
+        if ($active && !is_array($active)) {
+            return (bool) $active;
+        }
+
+        if ($active && is_array($active)) {
+            return (bool)$inActive;
+        }
+
+        return true;
+    }
+
+    /**
+     * @param array $mergedParameters
+     * @param string $generationParameterName
+     * @param mixed $currentValue
+     * @param bool $currentActive
+     *
+     * @return array
+     */
+    protected function addGenerationParameter(array $mergedParameters, $generationParameterName, $currentValue, $currentActive)
+    {
+        if ($currentActive === true) {
+            $mergedParameters[$generationParameterName] = $currentValue;
+        }
+
+        return $mergedParameters;
+    }
+
+    /**
+     * @param array $mergedParameters
+     * @param string $generationParameterName
+     * @param mixed $currentValue
+     * @param bool $currentActive
+     *
+     * @return array
+     */
+    protected function assignGenerationParameter(array $mergedParameters, $generationParameterName, $currentValue, $currentActive)
+    {
         $currentFacetConfig = $this->facetConfig->getFacetSetupFromParameter($generationParameterName);
 
-        $currentValue = $inValue;
-        $currentActive = true;
-        if ($active && !is_array($active)) {
-            $currentActive = (bool)$active;
-        } elseif ($active && is_array($active)) {
-            $currentActive = (bool)$inActive;
+        if ($mergedParameters[$generationParameterName] === $currentValue && $currentActive === false) {
+            unset($mergedParameters[$generationParameterName]);
         }
-        if (!isset($mergedParameters[$generationParameterName]) && $currentActive === true) {
-            $mergedParameters[$generationParameterName] = $currentValue;
-        } else {
-            if (isset($mergedParameters[$generationParameterName]) && !is_array($mergedParameters[$generationParameterName]) && $mergedParameters[$generationParameterName] === $currentValue && $currentActive === false) {
-                unset($mergedParameters[$generationParameterName]);
-            } elseif (isset($mergedParameters[$generationParameterName]) && !is_array($mergedParameters[$generationParameterName]) && $currentActive === true) {
-                if (isset($currentFacetConfig[FacetConfig::KEY_MULTI_VALUED]) && $currentFacetConfig[FacetConfig::KEY_MULTI_VALUED] === true) {
-                    $oldSingleValue = $mergedParameters[$generationParameterName];
-                    $mergedParameters[$generationParameterName] = [];
-                    $mergedParameters[$generationParameterName][] = $oldSingleValue;
-                    $mergedParameters[$generationParameterName][] = $currentValue;
-                } else {
-                    $mergedParameters[$generationParameterName] = $currentValue;
-                }
-            } elseif (isset($mergedParameters[$generationParameterName]) && is_array($mergedParameters[$generationParameterName])) {
-                if (!in_array($currentValue, $mergedParameters[$generationParameterName]) && $currentActive === true) {
-                    $mergedParameters[$generationParameterName][] = $currentValue;
-                } elseif (in_array($currentValue, $mergedParameters[$generationParameterName]) && $currentActive === false) {
-                    $key = array_search($currentValue, $mergedParameters[$generationParameterName]);
-                    if ($key !== false) {
-                        unset($mergedParameters[$generationParameterName][$key]);
-                        if (empty($mergedParameters[$generationParameterName])) {
-                            unset($mergedParameters[$generationParameterName]);
-                        } elseif (count($mergedParameters[$generationParameterName]) === 1) {
-                            $mergedParameters[$generationParameterName] = array_pop($mergedParameters[$generationParameterName]);
-                        }
-                    }
-                }
-            }
+
+        if ($currentActive !== true) {
+            return $mergedParameters;
+        }
+
+        if (isset($currentFacetConfig[FacetConfig::KEY_MULTI_VALUED]) && $currentFacetConfig[FacetConfig::KEY_MULTI_VALUED] === true) {
+            $oldSingleValue = $mergedParameters[$generationParameterName];
+            $mergedParameters[$generationParameterName] = [];
+            $mergedParameters[$generationParameterName][] = $oldSingleValue;
+            $mergedParameters[$generationParameterName][] = $currentValue;
+
+            return $mergedParameters;
+        }
+
+        $mergedParameters[$generationParameterName] = $currentValue;
+
+        return $mergedParameters;
+    }
+
+    /**
+     * @param array $mergedParameters
+     * @param string $generationParameterName
+     * @param mixed $currentValue
+     *
+     * @return array
+     */
+    protected function assignNotActiveArrayGenerationParameter(array $mergedParameters, $generationParameterName, $currentValue)
+    {
+        $key = array_search($currentValue, $mergedParameters[$generationParameterName]);
+
+        if ($key === false) {
+            return $mergedParameters;
+        }
+
+        unset($mergedParameters[$generationParameterName][$key]);
+
+        if (!$mergedParameters[$generationParameterName]) {
+            unset($mergedParameters[$generationParameterName]);
+        } elseif (count($mergedParameters[$generationParameterName]) === 1) {
+            $mergedParameters[$generationParameterName] = array_pop($mergedParameters[$generationParameterName]);
         }
 
         return $mergedParameters;
