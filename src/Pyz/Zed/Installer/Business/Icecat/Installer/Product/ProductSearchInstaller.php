@@ -11,7 +11,6 @@ use Orm\Zed\Product\Persistence\SpyProductQuery;
 use Propel\Runtime\Formatter\ArrayFormatter;
 use Pyz\Zed\Installer\Business\Icecat\Installer\AbstractIcecatInstaller;
 use Spryker\Shared\Library\BatchIterator\PropelBatchIterator;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class ProductSearchInstaller extends AbstractIcecatInstaller
 {

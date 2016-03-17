@@ -8,7 +8,6 @@
 namespace Pyz\Zed\Installer\Business\Icecat\Importer;
 
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
 abstract class AbstractIcecatImporter implements IcecatImporterInterface
 {

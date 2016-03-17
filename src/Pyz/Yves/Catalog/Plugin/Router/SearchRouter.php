@@ -10,7 +10,6 @@ namespace Pyz\Yves\Catalog\Plugin\Router;
 use Spryker\Yves\Application\Routing\AbstractRouter;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\RouteNameResolver;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 

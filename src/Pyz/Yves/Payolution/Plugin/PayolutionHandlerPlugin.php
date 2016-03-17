@@ -4,7 +4,6 @@ namespace Pyz\Yves\Payolution\Plugin;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
-use Pyz\Yves\Payolution\PayolutionFactory;
 use Spryker\Yves\Kernel\AbstractPlugin;
 use Symfony\Component\HttpFoundation\Request;
 

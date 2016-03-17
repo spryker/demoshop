@@ -4,7 +4,6 @@ namespace Pyz\Yves\Shipment\Handler;
 
 use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Generated\Shared\Transfer\ShipmentMethodsTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
 use Spryker\Client\Shipment\ShipmentClientInterface;
 use Spryker\Shared\Shipment\ShipmentConstants;

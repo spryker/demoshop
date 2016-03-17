@@ -11,7 +11,6 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Orm\Zed\Glossary\Persistence\SpyGlossaryKeyQuery;
 use Pyz\Zed\Glossary\Business\GlossaryFacadeInterface;
 use Pyz\Zed\Installer\Business\Icecat\Importer\AbstractIcecatImporter;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class TranslationImporter extends AbstractIcecatImporter
 {

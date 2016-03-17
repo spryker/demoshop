@@ -8,7 +8,6 @@ use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Validator\Constraints as Assert;
 
 class PaymentForm extends AbstractType
 {

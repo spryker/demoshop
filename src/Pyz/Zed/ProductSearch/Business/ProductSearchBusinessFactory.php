@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\ProductSearch\Business;
 
-use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductSearch\Business\Internal\DemoData\ProductAttributeMappingInstall;
 use Spryker\Shared\Library\Storage\StorageInstanceBuilder;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;

@@ -35,7 +35,7 @@ class TwigFactory extends AbstractFactory
     }
 
     /**
-     * @retrun TwigSettings
+     * @return \Pyz\Yves\Twig\TwigSettings
      */
     protected function getSettings()
     {
