@@ -179,16 +179,28 @@ class ProductAbstractImporter extends AbstractImporter
         $productAbstractTransfer->setAttributes($abstractAttributes);
 
         foreach ($attributeData as $localeCode => $localizedAttributesData) {
-            $localizedKeyName = $this->getLocalizedKeyName(self::NAME, $localeCode);
             $localizedAttributes = new LocalizedAttributesTransfer();
             $localizedAttributes->setLocale($this->localeFacade->getLocaleByCode($localeCode));
-            $localizedAttributes->setName($product[$localizedKeyName]);
+            $localizedAttributes->setName($this->getProductName($product, $localeCode));
             $localizedAttributes->setAttributes($localizedAttributesData);
 
             $productAbstractTransfer->addLocalizedAttributes($localizedAttributes);
         }
 
         return $productAbstractTransfer;
+    }
+
+    /**
+     * @param array $product
+     * @param string $localeCode
+     *
+     * @return string
+     */
+    protected function getProductName(array $product, $localeCode)
+    {
+        $localizedKeyName = $this->getLocalizedKeyName(self::NAME, $localeCode);
+
+        return $product[self::MANUFACTURER_NAME] . ' ' . $product[$localizedKeyName];
     }
 
     /**
@@ -249,7 +261,7 @@ class ProductAbstractImporter extends AbstractImporter
             ->name('*.csv')
             ->in($this->dataDirectory . 'products/');
 
-        /* @var SplFileInfo $file */
+        /* @var \SplFileInfo $file */
         foreach ($finder as $file) {
             $name = $file->getBasename('.csv');
 
