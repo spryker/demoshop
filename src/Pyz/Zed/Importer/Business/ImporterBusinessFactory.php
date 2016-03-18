@@ -237,7 +237,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
     {
         $productAbstractImporter = new ProductAbstractImporter(
             $this->getLocaleFacade(),
-            $this->getConfig()->getImportDataPath()
+            $this->getConfig()->getIcecatImportDataDirectory()
         );
 
         $productAbstractImporter->setAttributeManager($this->createAttributeManager());
@@ -253,7 +253,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
     {
         $productPriceImporter = new ProductPriceImporter(
             $this->getLocaleFacade(),
-            $this->getConfig()->getImportDataPath()
+            $this->getConfig()->getImportDataDirectory()
         );
 
         $productPriceImporter->setProductQueryContainer($this->getProductQueryContainer());
@@ -270,7 +270,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
     {
         $productStockImporter = new ProductStockImporter(
             $this->getLocaleFacade(),
-            $this->getConfig()->getImportDataPath()
+            $this->getConfig()->getImportDataDirectory()
         );
 
         $productStockImporter->setProductQueryContainer($this->getProductQueryContainer());
@@ -374,7 +374,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
     {
         $categoryInstaller = new CategoryInstaller(
             $this->getImporterCategoryCollection(),
-            $this->getConfig()->getImportDataPath()
+            $this->getConfig()->getIcecatImportDataDirectory()
         );
 
         return $categoryInstaller;
@@ -387,7 +387,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
     {
         $categoryHierarchyInstaller = new CategoryCatalogInstaller(
             $this->getImporterCategoryCatalogCollection(),
-            $this->getConfig()->getImportDataPath()
+            $this->getConfig()->getIcecatImportDataDirectory()
         );
 
         return $categoryHierarchyInstaller;
@@ -400,7 +400,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
     {
         $categoryRootInstaller = new CategoryRootInstaller(
             $this->getImporterCategoryRootCollection(),
-            $this->getConfig()->getImportDataPath()
+            $this->getConfig()->getImportDataDirectory()
         );
 
         return $categoryRootInstaller;
@@ -413,7 +413,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
     {
         $productInstaller = new ProductInstaller(
             $this->getImporterProductCollection(),
-            $this->getConfig()->getImportDataPath()
+            $this->getConfig()->getIcecatImportDataDirectory()
         );
 
         return $productInstaller;
@@ -426,7 +426,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
     {
         $productSearchInstaller = new ProductSearchInstaller(
             $this->getImporterProductSearchCollection(),
-            $this->getConfig()->getImportDataPath()
+            $this->getConfig()->getImportDataDirectory()
         );
 
         return $productSearchInstaller;
@@ -439,7 +439,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
     {
         $glossaryInstaller = new GlossaryInstaller(
             $this->getImporterGlossaryCollection(),
-            $this->getConfig()->getImportDataPath()
+            $this->getConfig()->getImportDataDirectory()
         );
 
         return $glossaryInstaller;
@@ -452,7 +452,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
     {
         $cmsBlockInstaller = new CmsBlockInstaller(
             $this->getImporterCmsBlockCollection(),
-            $this->getConfig()->getImportDataPath()
+            $this->getConfig()->getImportDataDirectory()
         );
 
         return $cmsBlockInstaller;
@@ -465,7 +465,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
     {
         $cmsBlockInstaller = new CmsPageInstaller(
             $this->getImporterCmsPageCollection(),
-            $this->getConfig()->getImportDataPath()
+            $this->getConfig()->getImportDataDirectory()
         );
 
         return $cmsBlockInstaller;

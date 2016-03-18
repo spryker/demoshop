@@ -28,7 +28,7 @@ class InstallerFactory extends AbstractFactory
     {
         $categoryRootInstaller = new CategoryRootInstaller(
             $this->getImporterCategoryRootCollection(),
-            $this->getConfig()->getImportDataPath()
+            $this->getConfig()->getImportDataDirectory()
         );
 
         return $categoryRootInstaller;

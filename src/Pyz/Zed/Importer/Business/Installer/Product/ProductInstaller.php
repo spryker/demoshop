@@ -26,7 +26,7 @@ class ProductInstaller extends AbstractInstaller
      */
     protected function getCsvDataFilename()
     {
-        return $this->dataDirectory . '/products.csv';
+        return $this->dataDirectory . '/icecat_products.csv';
     }
 
     /**
