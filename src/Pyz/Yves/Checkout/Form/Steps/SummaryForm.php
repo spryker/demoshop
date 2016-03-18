@@ -36,7 +36,7 @@ class SummaryForm extends AbstractType
      */
     protected function addSubmit(FormBuilderInterface $builder)
     {
-        $builder->add('checkout.step.place_order', 'submit');
+        $builder->add('checkout.step.place.order', 'submit');
 
         return $this;
     }

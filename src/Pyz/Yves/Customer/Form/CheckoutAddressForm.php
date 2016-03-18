@@ -71,7 +71,7 @@ class CheckoutAddressForm extends AddressForm
             'required' => false,
             'expanded' => false,
             'multiple' => false,
-            'empty_value' => 'checkout.address.new_address',
+            'empty_value' => 'customer.account.add_new_address',
         ]);
 
         return $this;

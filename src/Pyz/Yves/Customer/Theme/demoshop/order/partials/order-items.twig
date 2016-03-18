@@ -1,11 +1,11 @@
 <div>
     <table width="100%">
         <tr>
-            <th align="left">{{ 'order.item_sku' | trans }}</th>
-            <th align="left">{{ 'order.product_name' | trans }}</th>
-            <th align="right">{{ 'order.item_price' | trans }}</th>
-            <th align="right">{{ 'order.item_quantity' | trans }}</th>
-            <th align="right">{{ 'order.item_sum' | trans }}</th>
+            <th align="left">{{ 'customer.order.item_sku' | trans }}</th>
+            <th align="left">{{ 'customer.order.product_name' | trans }}</th>
+            <th align="right">{{ 'customer.order.item_price' | trans }}</th>
+            <th align="right">{{ 'customer.order.item_quantity' | trans }}</th>
+            <th align="right">{{ 'customer.order.item_sum' | trans }}</th>
         </tr>
         {% for orderItem in order.items %}
             <tr>
