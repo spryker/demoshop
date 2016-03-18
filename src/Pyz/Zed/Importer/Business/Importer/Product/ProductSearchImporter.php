@@ -104,7 +104,7 @@ class ProductSearchImporter extends AbstractImporter
     protected function getMappings()
     {
         return [
-            'description' => [
+            'sku' => [
                 'CopyToField' => [
                     'full-text-boosted',
                     'full-text',
@@ -112,38 +112,19 @@ class ProductSearchImporter extends AbstractImporter
                     'completion-terms',
                 ],
             ],
-            'price' => [
-                'CopyToFacet' => [
-                    'integer-facet',
-                ],
-                'CopyToMultiField' => [
-                    'integer-sort',
-                ],
-            ],
-            'depth' => [
-                'CopyToFacet' => [
-                    'float-facet',
+            'short_description' => [
+                'CopyToField' => [
+                    'full-text-boosted',
+                    'full-text',
+                    'suggestion-term',
+                    'completion-terms',
                 ],
             ],
-            'width' => [
-                'CopyToFacet' => [
-                    'float-facet',
-                ],
-            ],
-            'height' => [
-                'CopyToFacet' => [
-                    'float-facet',
-                ],
-            ],
-            'main_color' => [
+            'long_description' => [
                 'CopyToField' => [
                     'full-text',
-                    'full-text-boosted',
-                    'completion-terms',
                     'suggestion-term',
-                ],
-                'CopyToFacet' => [
-                    'string-facet',
+                    'completion-terms',
                 ],
             ],
         ];

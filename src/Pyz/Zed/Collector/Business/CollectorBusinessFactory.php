@@ -39,9 +39,8 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createSearchProductCollector()
     {
         $searchProductCollector = new SearchProductCollector(
-            $this->getPriceQueryContainer(),
-            $this->getCategoryQueryContainer(),
-            $this->getProductSearchFacade()
+            $this->getProductSearchFacade(),
+            $this->getPriceFacade()
         );
 
         $searchProductCollector->setTouchQueryContainer(

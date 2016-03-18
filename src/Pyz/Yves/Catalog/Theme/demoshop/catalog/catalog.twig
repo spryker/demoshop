@@ -1,10 +1,3 @@
-{% macro load(product) %}
-    {% set type = product.type | default('computer') %}
-    {% include "@catalog/catalog/partials/product-" ~ type ~ ".twig" %}
-{% endmacro %}
-
-{% import _self as row %}
-
 {% block content %}
     <div class="catalog">
         <h1 class="catalog__section-title">
@@ -64,7 +57,11 @@
         <div class="catalog__products-holder js-products-holder">
             <section class="catalog__products js-products-current">
                 {% for product in products %}
-                    {{ row.load(product) }}
+                    {% include "@catalog/catalog/partials/product.twig" with {
+                        detailsUrl: product.url,
+                        name: product.abstract_name,
+                        priceValue: product.price
+                    } %}
                 {% endfor %}
             </section>
             <div class="catalog__loading-text">{{ "catalog.loading"|trans }}</div>

@@ -10,11 +10,8 @@ namespace Pyz\Zed\Collector\Business\Storage;
 use Everon\Component\Collection\Collection;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryTableMap;
 use Orm\Zed\Category\Persistence\SpyCategoryNode;
-use Orm\Zed\Price\Persistence\Map\SpyPriceTypeTableMap;
-use Orm\Zed\Price\Persistence\SpyPriceProductQuery;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
 use Propel\Runtime\ActiveQuery\Criteria;
-use Propel\Runtime\Formatter\ArrayFormatter;
 use Pyz\Zed\Collector\CollectorConfig;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
@@ -91,7 +88,7 @@ class ProductCollector extends AbstractStoragePdoCollector
             'url' => $collectItemData[self::ABSTRACT_URL],
             'quantity' =>  (int)$collectItemData[self::QUANTITY],
             'available' => (int)$collectItemData[self::QUANTITY] > 0,
-            'prices' => $this->getPrices($collectItemData),
+            'price' => $this->getPriceBySku($collectItemData[self::ABSTRACT_SKU]),
             'category' => $this->generateCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
         ];
     }
@@ -125,80 +122,9 @@ class ProductCollector extends AbstractStoragePdoCollector
      *
      * @return int
      */
-    protected function getValidPriceBySku($sku)
+    protected function getPriceBySku($sku)
     {
         return $this->priceFacade->getPriceBySku($sku);
-    }
-
-    /**
-     *   "prices": {
-     *       "DEFAULT": {
-     *          "price": "599"
-     *       }
-     *   },
-     *   },
-     *
-     * @param array $collectItemData
-     *
-     * @return array
-     */
-    protected function getPrices($collectItemData)
-    {
-        $result = [];
-        $query = SpyPriceProductQuery::create()
-            ->setFormatter(new ArrayFormatter())
-            ->joinProduct('productConcreteJoin')
-            ->joinPriceType()
-            ->withColumn(SpyPriceTypeTableMap::COL_NAME, self::PRICE_NAME)
-            ->addJoinCondition(
-                'productConcreteJoin',
-                'productConcreteJoin.is_active = ?',
-                true,
-                Criteria::EQUAL
-            )
-            ->addJoinCondition(
-                'productConcreteJoin',
-                'productConcreteJoin.fk_product_abstract = ?',
-                (int)$collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]
-            )
-            ->where(
-                'productConcreteJoin.id_product = ?',
-                (int)$collectItemData[self::ID_PRODUCT]
-            );
-
-        $prices = $query->find();
-        $data = $prices->toArray();
-
-        if (empty($data)) {
-            return $this->getDefaultPrice($collectItemData[self::ABSTRACT_SKU]);
-        }
-
-        foreach ($data as $priceItem) {
-            $result[$priceItem[self::PRICE_NAME]] = [self::PRICE => $priceItem[self::PRICE]];
-        }
-
-        return $result;
-    }
-
-    /**
-     * "DEFAULT": {
-     *    "price": "599"
-     * }
-     *
-     * @param $abstractSku
-     *
-     * @return array
-     */
-    protected function getDefaultPrice($abstractSku)
-    {
-        $defaultPriceType = $this->priceFacade->getDefaultPriceTypeName();
-        $abstractPrice = $this->getValidPriceBySku($abstractSku);
-
-        return [
-            $defaultPriceType => [
-                self::PRICE => $abstractPrice
-            ]
-        ];
     }
 
     /**

@@ -14,7 +14,7 @@
 
             <p>{{ product.description }}</p>
 
-            <p class="product__price">{{ product.prices.DEFAULT.price | price }}</p>
+            <p class="product__price">{{ product.price | price }}</p>
 
             {% include "@application/layout/partials/spinner.twig" with {class:"product__quantity", style:"caplet", name:"quantity", value:"1"} %}
             <button class="product__add-button cta" data-sku="{{ product.abstractSku }}">{{ "page.detail.add-to-cart"|trans }}</button> <br />

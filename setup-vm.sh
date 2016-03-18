@@ -71,7 +71,7 @@ sudo /etc/init.d/elasticsearch restart
 labelText "setup:install"
 vendor/bin/console setup:install -vvv
 
-labelText "setup:install-demo-data"
+labelText "import:icecat-data"
 vendor/bin/console import:icecat-data -vvv
 
 labelText "collector:search:export"
