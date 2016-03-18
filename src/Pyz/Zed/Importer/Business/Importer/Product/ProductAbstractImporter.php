@@ -71,7 +71,6 @@ class ProductAbstractImporter extends AbstractImporter
      */
     protected $dataDirectory;
 
-
     /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param string $dataDirectory

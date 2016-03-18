@@ -20,17 +20,17 @@
             {#<a href="{{ path('wishlist/add', { sku: product.abstractSku }) }}">Add to Wishlist</a>#}
         </section>
         <section class="product__main-image">
-            <img src="/assets/demoshop/img/{{ product.image_url }}" alt="" style="width: 100%;"/>
+            <img src="{{ product.image_big }}" alt="" style="width: 100%;"/>
         </section>
         <section class="product__details">
             <p>{{ product.abstractAttributes.short_description }}</p>
 
             <p>{{ product.abstractAttributes.long_description }}</p>
             <dl class="product__specifications">
-                {% for k,v in product.abstractAttributes %}
-                    {% if k not in ['short_description', 'long_description', 'url', 'slug', 'variant_id', 'abstract_name', 'quantity', 'available', 'price'] %}
-                        <dt>{{ k | trans }}</dt>
-                        <dd>{{ v }}</dd>
+                {% for attributeName, attributeValue in product.abstractAttributes %}
+                    {% if attributeName not in ['short_description', 'long_description', 'url', 'slug', 'variant_id', 'abstract_name', 'quantity', 'available', 'price', 'manufacturer_name', 'image_big', 'image_small'] %}
+                        <dt>{{ 'product.attribute.' ~ attributeName | trans }}</dt>
+                        <dd>{{ attributeValue }}</dd>
                     {% endif %}
                 {% endfor %}
             </dl>
