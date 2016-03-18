@@ -1094,7 +1094,7 @@ keys:
   payolution_invoice.date_of_birth:
     translations:
       en_US: 'Date of birth (Eg: DD-MM-YYYY)'
-      de_DE: 'Geburtsdatum (TT-MM-JJJJ)'
+      de_DE: 'Geburtsdatum (TT.MM.JJJJ)'
   customer.email.invalid:
     translations:
       en_US: 'Email address is invalid'
@@ -1166,7 +1166,7 @@ keys:
   payolution_invoice.date_of_birth:
     translations:
       en_US: 'Date of birth (DD-MM-YYYY)'
-      de_DE: 'Geburtsdatum (TT-MM-JJJJ)'
+      de_DE: 'Geburtsdatum (TT.MM.JJJJ)'
   payolution_installment.bank_account_holder:
     translations:
       en_US: 'Bank name'
@@ -1186,4 +1186,4 @@ keys:
   payolution_installment.date_of_birth:
     translations:
       en_US: 'Date of birth (DD-MM-YYYY)'
-      de_DE: 'Geburtsdatum (TT-MM-JJJJ)'
+      de_DE: 'Geburtsdatum (TT.MM.JJJJ)'
