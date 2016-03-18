@@ -80,7 +80,7 @@ function installDemoshop {
     writeErrorMessage "Failed"
 
     labelText "Importing DemoData"
-    vendor/bin/console import:icecat-data $VERBOSITY
+    vendor/bin/console import:demo-data $VERBOSITY
     writeErrorMessage "Failed"
 
     labelText "Setting up Data Stores"

@@ -14,11 +14,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * @method \Pyz\Zed\Importer\Business\ImporterFacade getFacade()
  */
-class IcecatDataImportConsole extends SprykerConsole
+class DemoDataImportConsole extends SprykerConsole
 {
 
-    const COMMAND_NAME = 'import:icecat-data';
-    const DESCRIPTION = 'Imports Icecat demo data http://icecat.biz';
+    const COMMAND_NAME = 'import:demo-data';
+    const DESCRIPTION = 'Imports demo data';
 
     /**
      * @return void

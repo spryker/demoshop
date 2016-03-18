@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\Console;
 
-use Pyz\Zed\Importer\Communication\Console\IcecatDataImportConsole;
+use Pyz\Zed\Importer\Communication\Console\DemoDataImportConsole;
 use Spryker\Shared\Library\Environment;
 use Spryker\Zed\Application\Communication\Console\ApplicationIntegrationCheckConsole;
 use Spryker\Zed\Application\Communication\Console\BuildNavigationConsole;
@@ -51,7 +51,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new CollectorSearchExportConsole(),
             new CollectorSearchUpdateConsole(),
             new DeleteAllCachesConsole(),
-            new IcecatDataImportConsole(),
+            new DemoDataImportConsole(),
             new GeneratorConsole(),
             new InitializeDatabaseConsole(),
             new ProductSearchConsole(),
