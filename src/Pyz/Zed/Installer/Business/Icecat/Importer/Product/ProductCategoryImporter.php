@@ -19,7 +19,6 @@ use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
 use Spryker\Zed\Touch\Business\TouchFacadeInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class ProductCategoryImporter extends AbstractIcecatImporter
 {

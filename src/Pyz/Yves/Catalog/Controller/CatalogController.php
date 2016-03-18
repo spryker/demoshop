@@ -49,13 +49,10 @@ class CatalogController extends AbstractController
         );
 
         if ($request->isXmlHttpRequest()) {
-            $currencyManager = CurrencyManager::getInstance();
-            $searchResults['products'] = $this->formatValidProductPrices($currencyManager, $searchResults['products']);
-
-            return $this->jsonResponse($searchResults);
+            return $this->formatJsonResponse($searchResults);
         }
 
-        return $searchResults;
+        return $this->viewResponse($searchResults);
     }
 
     /**
@@ -74,10 +71,10 @@ class CatalogController extends AbstractController
         $searchResults = array_merge($search->getResult(), ['searchString' => $request->query->get('q')]);
 
         if ($request->isXmlHttpRequest()) {
-            return $this->jsonResponse($searchResults);
+            return $this->formatJsonResponse($searchResults);
         }
 
-        return $searchResults;
+        return $this->viewResponse($searchResults);
     }
 
     /**
@@ -107,6 +104,19 @@ class CatalogController extends AbstractController
         }
 
         return $products;
+    }
+
+    /**
+     * @param array $searchResults
+     *
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
+    protected function formatJsonResponse(array $searchResults)
+    {
+        $currencyManager = CurrencyManager::getInstance();
+        $searchResults['products'] = $this->formatValidProductPrices($currencyManager, $searchResults['products']);
+
+        return $this->jsonResponse($searchResults);
     }
 
 }

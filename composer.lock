@@ -949,9 +949,10 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "0ed2b0b66b8f34859f84c9054d434c04e255b0f8"
+                "reference": "2c4fd93f91cf7605dfb88ed65ae5bbec32c74167"
             },
             "require": {
+                "paragonie/random_compat": "~1.2.1",
                 "phpdocumentor/graphviz": "dev-master#a906a90"
             },
             "require-dev": {
@@ -1441,7 +1442,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-03-14 15:59:43"
+            "time": "2016-03-17 16:15:42"
         },
         {
             "name": "symfony-cmf/routing",
@@ -5419,12 +5420,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "f604b6ec1ff772043328e52d5fd574c295eb1c8d"
+                "reference": "1a0897d521112105634deec1cc1567e629cc29cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/f604b6ec1ff772043328e52d5fd574c295eb1c8d",
-                "reference": "f604b6ec1ff772043328e52d5fd574c295eb1c8d",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/1a0897d521112105634deec1cc1567e629cc29cf",
+                "reference": "1a0897d521112105634deec1cc1567e629cc29cf",
                 "shasum": ""
             },
             "require": {
@@ -5437,7 +5438,7 @@
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
@@ -5453,7 +5454,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-03-14 10:08:04"
+            "time": "2016-03-16 16:53:00"
         },
         {
             "name": "squizlabs/php_codesniffer",

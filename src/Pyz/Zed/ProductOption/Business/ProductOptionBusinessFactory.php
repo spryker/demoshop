@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\ProductOption\Business;
 
-use Psr\Log\LoggerInterface;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\BatchProcessor\InMemoryBatchProcessor;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Db\MysqlBatchStorageProvider;
 use Pyz\Zed\ProductOption\Business\Internal\DemoData\Importer\Decorator\InMemoryProductOptionQueryContainer;

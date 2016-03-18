@@ -8,7 +8,6 @@
 namespace Pyz\Zed\Installer\Business\Icecat\Importer\Cms;
 
 use Orm\Zed\Cms\Persistence\SpyCmsPageQuery;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class CmsPageImporter extends CmsBlockImporter
 {

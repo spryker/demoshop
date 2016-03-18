@@ -16,7 +16,7 @@ use Orm\Zed\Touch\Persistence\Map\SpyTouchStorageTableMap;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
-use Spryker\Zed\Collector\Persistence\Exporter\AbstractPropelCollectorQuery;
+use Spryker\Zed\Collector\Persistence\Collector\AbstractPropelCollectorQuery;
 
 class PageCollectorQuery extends AbstractPropelCollectorQuery
 {

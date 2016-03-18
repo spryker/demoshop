@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\Installer\Business\Icecat;
 
-use Propel\Runtime\Propel;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 

@@ -21,7 +21,6 @@ use Spryker\Zed\Cms\Business\Template\TemplateManagerInterface;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToUrlInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class CmsBlockImporter extends AbstractIcecatImporter
 {

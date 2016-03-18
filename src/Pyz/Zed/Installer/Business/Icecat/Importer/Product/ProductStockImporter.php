@@ -15,7 +15,6 @@ use Pyz\Zed\Stock\Business\StockFacadeInterface;
 use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class ProductStockImporter extends AbstractIcecatImporter
 {

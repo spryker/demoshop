@@ -8,9 +8,6 @@ namespace Pyz\Yves\Cart;
 use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Cart\Handler\CartOperationHandler;
 use Pyz\Yves\Cart\Handler\CartVoucherHandler;
-use Spryker\Client\Calculation\CalculationClientInterface;
-use Spryker\Client\Cart\CartClientInterface;
-use Spryker\Yves\Application\Application;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class CartFactory extends AbstractFactory
