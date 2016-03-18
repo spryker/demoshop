@@ -1,0 +1,123 @@
+<?php
+
+/**
+ * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
+namespace Pyz\Yves\Customer\Form;
+
+use Pyz\Yves\Customer\Form\DataProvider\AddressFormDataProvider;
+use Spryker\Shared\Kernel\Store;
+use Spryker\Yves\Kernel\AbstractFactory;
+
+class FormFactory extends AbstractFactory
+{
+
+    /**
+     * @param array $formOptions
+     *
+     * @return \Symfony\Component\Form\FormInterface
+     */
+    public function createAddressForm(array $formOptions = [])
+    {
+        $addressFormType = new AddressForm();
+
+        return $this->getFormFactory()->create($addressFormType, null, $formOptions);
+    }
+
+    /**
+     * @return \Pyz\Yves\Customer\Form\DataProvider\AddressFormDataProvider
+     */
+    public function createAddressFormDataProvider()
+    {
+        return new AddressFormDataProvider($this->getCustomerClient(), $this->createStore());
+    }
+
+    /**
+     * @return \Symfony\Component\Form\FormInterface
+     */
+    public function createRegisterForm()
+    {
+        $registerFormType = new RegisterForm();
+
+        return $this->getFormFactory()->create($registerFormType);
+    }
+
+    /**
+     * @return \Symfony\Component\Form\FormInterface
+     */
+    public function createLoginForm()
+    {
+        $loginFormType = new LoginForm();
+
+        return $this->getFormFactory()->create($loginFormType);
+    }
+
+    /**
+     * @return \Symfony\Component\Form\FormInterface
+     */
+    public function createForgottenPasswordForm()
+    {
+        $forgottenPasswordFormType = new ForgottenPasswordForm();
+
+        return $this->getFormFactory()->create($forgottenPasswordFormType);
+    }
+
+    /**
+     * @return \Symfony\Component\Form\FormInterface
+     */
+    public function createProfileForm()
+    {
+        $profileFormType = new ProfileForm();
+
+        return $this->getFormFactory()->create($profileFormType);
+    }
+
+    /**
+     * @return \Symfony\Component\Form\FormInterface
+     */
+    public function createFormRestorePassword()
+    {
+        $restorePasswordFormType = new RestorePasswordForm();
+
+        return $this->getFormFactory()->create($restorePasswordFormType);
+    }
+
+    /**
+     * @return \Symfony\Component\Form\FormInterface
+     */
+    public function createPasswordForm()
+    {
+        $passwordFormType = new PasswordForm();
+
+        return $this->getFormFactory()->create($passwordFormType);
+    }
+
+    /**
+     * @return \Symfony\Component\Form\FormInterface
+     */
+    public function createNewsletterSubscriptionForm()
+    {
+        $newsletterSubscriptionFormType = new NewsletterSubscriptionForm();
+
+        return $this->getFormFactory()->create($newsletterSubscriptionFormType);
+    }
+
+    /**
+     * @return \Pyz\Client\Customer\CustomerClientInterface
+     */
+    protected function getCustomerClient()
+    {
+        return $this->getLocator()->customer()->client();
+    }
+
+    /**
+     * @return \Spryker\Shared\Kernel\Store
+     */
+    protected function createStore()
+    {
+        return Store::getInstance();
+    }
+
+}

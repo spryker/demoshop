@@ -35,6 +35,7 @@ class NewsletterController extends AbstractCustomerController
 
         $newsletterForm = $this
             ->getFactory()
+            ->getCustomerFormFactory()
             ->createNewsletterSubscriptionForm()
             ->handleRequest($request);
 

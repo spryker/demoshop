@@ -46,9 +46,13 @@ class AddressController extends AbstractCustomerController
     {
         $customerTransfer = $this->getLoggedInCustomerTransfer();
 
-        $dataProvider = $this->getFactory()->createAddressFormDataProvider();
+        $dataProvider = $this
+            ->getFactory()
+            ->getCustomerFormFactory()
+            ->createAddressFormDataProvider();
         $addressForm = $this
             ->getFactory()
+            ->getCustomerFormFactory()
             ->createAddressForm($dataProvider->getOptions())
             ->handleRequest($request);
 
@@ -82,9 +86,13 @@ class AddressController extends AbstractCustomerController
      */
     public function updateAction(Request $request)
     {
-        $dataProvider = $this->getFactory()->createAddressFormDataProvider();
+        $dataProvider = $this
+            ->getFactory()
+            ->getCustomerFormFactory()
+            ->createAddressFormDataProvider();
         $addressForm = $this
             ->getFactory()
+            ->getCustomerFormFactory()
             ->createAddressForm($dataProvider->getOptions())
             ->handleRequest($request);
 
