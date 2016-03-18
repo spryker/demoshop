@@ -29,6 +29,7 @@ class ProductCollector extends AbstractStoragePdoCollector
     const ABSTRACT_NAME = 'abstract_name';
     const ABSTRACT_URL = 'abstract_url';
     const QUANTITY = 'quantity';
+    const ABSTRACT_ATTRIBUTES = 'abstract_attributes';
     const ABSTRACT_LOCALIZED_ATTRIBUTES = 'abstract_localized_attributes';
     const CONCRETE_LOCALIZED_ATTRIBUTES = 'concrete_localized_attributes';
     const CONCRETE_ATTRIBUTES = 'concrete_attributes';
@@ -108,11 +109,12 @@ class ProductCollector extends AbstractStoragePdoCollector
      */
     protected function getAbstractAttributes(array $collectItemData)
     {
+        $abstractAttributesData = json_decode($collectItemData[self::ABSTRACT_ATTRIBUTES], true);
         $abstractLocalizedAttributesData = json_decode($collectItemData[self::ABSTRACT_LOCALIZED_ATTRIBUTES], true);
         $concreteLocalizedAttributesData = json_decode($collectItemData[self::CONCRETE_LOCALIZED_ATTRIBUTES], true);
         $concreteAttributesData = json_decode($collectItemData[self::CONCRETE_ATTRIBUTES], true);
 
-        $attributes = array_merge($abstractLocalizedAttributesData, $concreteLocalizedAttributesData, $concreteAttributesData);
+        $attributes = array_merge($abstractAttributesData, $abstractLocalizedAttributesData, $concreteLocalizedAttributesData, $concreteAttributesData);
 
         return $attributes;
     }

@@ -22,6 +22,7 @@ SELECT
   spy_product.id_product AS id_product,
   spy_product_abstract.sku AS abstract_sku,
   spy_product_abstract_localized_attributes.name AS abstract_name,
+  spy_product_abstract_localized_attributes.attributes AS abstract_attributes,
   spy_url.url AS abstract_url,
   spy_product_abstract_localized_attributes.attributes AS abstract_localized_attributes,
   abstract_price.price AS abstract_price,

@@ -266,7 +266,7 @@ class ProductAbstractImporter extends AbstractImporter
             $name = $file->getBasename('.csv');
 
             $csvReader = new CsvReader();
-            $csvReader->load($file->getRealpath());
+            $csvReader->load($file->getRealPath());
 
             $this->csvReaderCollection[$name] = $csvReader;
         }
