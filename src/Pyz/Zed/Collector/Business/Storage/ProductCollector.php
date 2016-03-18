@@ -121,8 +121,8 @@ class ProductCollector extends AbstractStoragePdoCollector
 
         $attributes = array_filter($attributes, function($value, $key) {
             return !empty($key);
-        }, ARRAY_FILTER_USE_BOTH);
-        
+        }, ARRAY_FILTER_USE_KEY);
+
         return $attributes;
     }
 
