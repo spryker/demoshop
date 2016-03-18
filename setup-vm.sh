@@ -72,7 +72,7 @@ labelText "setup:install"
 vendor/bin/console setup:install -vvv
 
 labelText "setup:install-demo-data"
-vendor/bin/console setup:install-demo-data -vvv
+vendor/bin/console import:icecat-data -vvv
 
 labelText "collector:search:export"
 vendor/bin/console collector:search:export -vvv
