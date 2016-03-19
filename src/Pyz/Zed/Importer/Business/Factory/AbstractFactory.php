@@ -5,18 +5,111 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Zed\Importer\Business\Installer\Factory;
+namespace Pyz\Zed\Importer\Business\Factory;
 
-use Pyz\Zed\Importer\ImporterConfig;
+use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
 use Pyz\Zed\Importer\ImporterDependencyProvider;
+use Spryker\Zed\Category\Business\Generator\UrlPathGenerator;
+use Spryker\Zed\Category\Business\Tree\CategoryTreeReader;
+use Spryker\Zed\Category\Business\Tree\CategoryTreeWriter;
+use Spryker\Zed\Category\Business\Tree\ClosureTableWriter;
+use Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter;
+use Spryker\Zed\Category\Business\Tree\NodeWriter;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
-
+use Spryker\Zed\Product\Business\Attribute\AttributeManager;
 
 /**
  * @method \Pyz\Zed\Importer\ImporterConfig getConfig()
  */
 abstract class AbstractFactory extends AbstractBusinessFactory
 {
+
+    /**
+     * @return \Pyz\Zed\Category\Business\Manager\NodeUrlManager
+     */
+    protected function createNodeUrlManager()
+    {
+        return new NodeUrlManager(
+            $this->createCategoryTreeReader(),
+            $this->createUrlPathGenerator(),
+            $this->getCategoryToUrlBridge(),
+            $this->getCategoryQueryContainer(),
+            $this->getProvidedDependency(ImporterDependencyProvider::QUERY_CONTAINER_LOCALE)
+        );
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Business\Tree\CategoryTreeWriter
+     */
+    public function createCategoryTreeWriter()
+    {
+        return new CategoryTreeWriter(
+            $this->createNodeWriter(),
+            $this->createClosureTableWriter(),
+            $this->createCategoryTreeReader(),
+            $this->createNodeUrlManager(),
+            $this->getCategoryToTouchBridge(),
+            $this->getQueryContainer()->getConnection()
+        );
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Business\Tree\CategoryTreeReader
+     */
+    protected function createCategoryTreeReader()
+    {
+        return new CategoryTreeReader(
+            $this->getCategoryQueryContainer(),
+            $this->createCategoryTreeFormatter()
+        );
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter
+     */
+    protected function createCategoryTreeFormatter()
+    {
+        return new CategoryTreeFormatter();
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Business\Generator\UrlPathGeneratorInterface
+     */
+    protected function createUrlPathGenerator()
+    {
+        return new UrlPathGenerator();
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Business\Tree\NodeWriterInterface
+     */
+    protected function createNodeWriter()
+    {
+        return new NodeWriter(
+            $this->getCategoryQueryContainer()
+        );
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Business\Tree\ClosureTableWriterInterface
+     */
+    protected function createClosureTableWriter()
+    {
+        return new ClosureTableWriter(
+            $this->getCategoryQueryContainer()
+        );
+    }
+
+    /**
+     * @return \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface
+     */
+    protected function createAttributeManager()
+    {
+        return new AttributeManager(
+            $this->getProductQueryContainer()
+        );
+    }
+
     /**
      * @return \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
      */
@@ -184,4 +277,5 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     {
         return $this->getProvidedDependency(ImporterDependencyProvider::BRIDGE_CMS_TO_URL);
     }
+
 }
