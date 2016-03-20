@@ -29,6 +29,7 @@ class ImporterDependencyProvider extends SprykerInstallerDependencyProvider
     const FACADE_TOUCH = 'FACADE_TOUCH';
     const FACADE_URL = 'FACADE_URL';
     const FACADE_STOCK = 'FACADE_STOCK';
+    const FACADE_TAX = 'FACADE_TAX';
 
     const QUERY_CONTAINER_CMS = 'QUERY_CONTAINER_CMS';
     const QUERY_CONTAINER_CATEGORY = 'QUERY_CONTAINER_CATEGORY';
@@ -87,6 +88,10 @@ class ImporterDependencyProvider extends SprykerInstallerDependencyProvider
 
         $container[self::FACADE_STOCK] = function (Container $container) {
             return $container->getLocator()->stock()->facade();
+        };
+
+        $container[self::FACADE_TAX] = function (Container $container) {
+            return $container->getLocator()->tax()->facade();
         };
 
         $container[self::FACADE_PRODUCT_SEARCH] = function (Container $container) {

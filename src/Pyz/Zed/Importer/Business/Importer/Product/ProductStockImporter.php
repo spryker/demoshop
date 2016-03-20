@@ -11,6 +11,8 @@ use Generated\Shared\Transfer\StockProductTransfer;
 use Generated\Shared\Transfer\TypeTransfer;
 use Orm\Zed\Stock\Persistence\Base\SpyStockQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
+use Spryker\Shared\Library\Collection\Collection;
+use Spryker\Shared\Library\Collection\CollectionInterface;
 use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
@@ -48,9 +50,9 @@ class ProductStockImporter extends AbstractImporter
     protected $stockFacade;
 
     /**
-     * @var array
+     * @var CollectionInterface
      */
-    protected $stockTypeCache = [];
+    protected $stockTypeCache;
 
     /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
@@ -69,6 +71,8 @@ class ProductStockImporter extends AbstractImporter
         $this->stockFacade = $stockFacade;
         $this->productQueryContainer = $productQueryContainer;
         $this->dataDirectory = $dataDirectory;
+
+        $this->stockTypeCache = new Collection([]);
     }
 
     /**
@@ -109,7 +113,14 @@ class ProductStockImporter extends AbstractImporter
         }
 
         if ($productConcrete->getSku() !== $stock[self::SKU]) {
-            throw new \UnexpectedValueException('Concrete SKU mismatch for ' . $stock[self::SKU]);
+            throw new \UnexpectedValueException(
+                sprintf(
+                    'Concrete SKU mismatch for product concrete: "%d". Product sku: "%s" and stock sku "%s"',
+                    $productConcrete->getIdProduct(),
+                    $product[self::SKU],
+                    $stock[self::SKU]
+                )
+            );
         }
 
         $stockType = $this->createStockTypeOnce($stock);
@@ -164,12 +175,12 @@ class ProductStockImporter extends AbstractImporter
     protected function createStockTypeOnce(array $stockData)
     {
         $stockTypeTransfer = $this->createTypeTransfer($stockData);
-        if (!array_key_exists($stockData[self::STOCK_TYPE], $this->stockTypeCache)) {
+        if (!$this->stockTypeCache->has($stockData[self::STOCK_TYPE])) {
             $idStockType = $this->stockFacade->createStockType($stockTypeTransfer);
             $stockTypeTransfer->setIdStock($idStockType);
-            $this->stockTypeCache[$stockData[self::STOCK_TYPE]] = $stockTypeTransfer;
+            $this->stockTypeCache->set($stockData[self::STOCK_TYPE], $stockTypeTransfer);
         } else {
-            $stockTypeTransfer = $this->stockTypeCache[$stockData[self::STOCK_TYPE]];
+            $stockTypeTransfer = $this->stockTypeCache->get($stockData[self::STOCK_TYPE]);
         }
 
         return $stockTypeTransfer;

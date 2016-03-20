@@ -231,6 +231,14 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     }
 
     /**
+     * @return \Spryker\Zed\Tax\Business\TaxFacadeInterface
+     */
+    protected function getTaxFacade()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_TAX);
+    }
+
+    /**
      * @return \Spryker\Zed\Category\Dependency\Facade\CategoryToTouchInterface
      */
     protected function getCategoryToTouchBridge()

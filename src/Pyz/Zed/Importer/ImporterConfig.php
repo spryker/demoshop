@@ -29,6 +29,7 @@ class ImporterConfig extends AbstractBundleConfig
     const RESOURCE_PRODUCT_PRICE = 'RESOURCE_PRODUCT_PRICE';
     const RESOURCE_PRODUCT_SEARCH = 'RESOURCE_PRODUCT_SEARCH';
     const RESOURCE_PRODUCT_STOCK = 'RESOURCE_PRODUCT_STOCK';
+    const RESOURCE_PRODUCT_TAX = 'RESOURCE_PRODUCT_TAX';
 
     /**
      * @return string

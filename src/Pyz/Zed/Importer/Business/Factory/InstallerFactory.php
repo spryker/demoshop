@@ -175,6 +175,7 @@ class InstallerFactory extends AbstractFactory
             ImporterConfig::RESOURCE_PRODUCT_CATEGORY => $this->createImporterFactory()->createProductCategoryImporter(),
             ImporterConfig::RESOURCE_PRODUCT_STOCK => $this->createImporterFactory()->createProductStockImporter(),
             ImporterConfig::RESOURCE_PRODUCT_PRICE => $this->createImporterFactory()->createProductPriceImporter(),
+            ImporterConfig::RESOURCE_PRODUCT_TAX => $this->createImporterFactory()->createProductTaxImporter(),
         ];
     }
 
