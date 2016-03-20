@@ -21,9 +21,9 @@ class ApplicationBusinessFactory extends SprykerApplicationBusinessFactory
      *
      * @return \Spryker\Zed\Application\Business\Model\ApplicationCheckStep\AbstractApplicationCheckStep[]
      */
-    public function createCheckSteps(LoggerInterface $logger = null)
+    public function getCheckSteps(LoggerInterface $logger = null)
     {
-        return parent::createCheckSteps($logger);
+        return parent::getCheckSteps($logger);
     }
 
 }
