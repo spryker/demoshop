@@ -295,20 +295,20 @@ class ProductAbstractImporter extends AbstractImporter
         }
 
         /*
-         * Format of $values array
-         *
-         * 0 => "153_acer_m2610"
-         * 1 => "1"
-         * 2 => "26427900"
-         * 3 => ""
-         * 4 => ""
-         * 5 => ""
-         * 6 => ""
-         * 7 => ""
-         * 8 => ""
-         * 9 => ""
-         * 10 => ""
-         * 11 => ""
+         Format of $values array
+
+         0 => "153_acer_m2610"
+         1 => "1"
+         2 => "26427900"
+         3 => ""
+         4 => ""
+         5 => ""
+         6 => ""
+         7 => ""
+         8 => ""
+         9 => ""
+         10 => ""
+         11 => ""
         */
 
         $values = array_values($data);
