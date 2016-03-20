@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "061ab6e8b064a0bafc733c83ad267376",
-    "content-hash": "7e5d8da0fd0cebe5f38e76fa78283ae2",
+    "hash": "cec1c57345c6d7717c59b6bc3f45645d",
+    "content-hash": "dbbc214418f0be9b1e8fe95641ef04b9",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -33,6 +33,176 @@
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "time": "2014-12-30 15:22:37"
+        },
+        {
+            "name": "everon/collection",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oliwierptak/everon-collection.git",
+                "reference": "aea807d7bdf592b85e75658d03519267ac2a95cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oliwierptak/everon-collection/zipball/aea807d7bdf592b85e75658d03519267ac2a95cf",
+                "reference": "aea807d7bdf592b85e75658d03519267ac2a95cf",
+                "shasum": ""
+            },
+            "require": {
+                "everon/utils": "~1.0",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Everon\\Component\\Collection\\": "src/",
+                    "Everon\\Component\\Collection\\Tests\\Unit\\": "tests/unit/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliwier Ptak",
+                    "email": "everonphp@gmail.com"
+                }
+            ],
+            "description": "Everon Collection Component",
+            "time": "2016-03-13 23:30:28"
+        },
+        {
+            "name": "everon/criteria-builder",
+            "version": "v1.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oliwierptak/everon-criteria-builder.git",
+                "reference": "b841624421ab0fadbf7a9d36ae9f9d5ebbbe7112"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oliwierptak/everon-criteria-builder/zipball/b841624421ab0fadbf7a9d36ae9f9d5ebbbe7112",
+                "reference": "b841624421ab0fadbf7a9d36ae9f9d5ebbbe7112",
+                "shasum": ""
+            },
+            "require": {
+                "everon/collection": "^1.0.0",
+                "everon/factory": "^1.1.0",
+                "everon/utils": "^1.0.0",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Everon\\Component\\CriteriaBuilder\\": "src/",
+                    "Everon\\Component\\CriteriaBuilder\\Tests\\Unit\\": "tests/unit/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliwier Ptak",
+                    "email": "everonphp@gmail.com"
+                }
+            ],
+            "description": "Everon Criteria Builder Component",
+            "time": "2016-03-20 14:50:11"
+        },
+        {
+            "name": "everon/factory",
+            "version": "v1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oliwierptak/everon-factory.git",
+                "reference": "443313f5b3a7ecfcdaee849288c1ae299cf2a99b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oliwierptak/everon-factory/zipball/443313f5b3a7ecfcdaee849288c1ae299cf2a99b",
+                "reference": "443313f5b3a7ecfcdaee849288c1ae299cf2a99b",
+                "shasum": ""
+            },
+            "require": {
+                "everon/collection": "^1.0.0",
+                "everon/utils": "^1.0.0",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Everon\\Component\\Factory\\": "src/",
+                    "Everon\\Component\\Factory\\Tests\\Unit\\": "tests/unit/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliwier Ptak",
+                    "email": "everonphp@gmail.com"
+                }
+            ],
+            "description": "Everon Factory Component",
+            "time": "2016-03-20 14:52:02"
+        },
+        {
+            "name": "everon/utils",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oliwierptak/everon-utils.git",
+                "reference": "fbdc50b6cc069229f778b720ae304e70c9e5dab5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oliwierptak/everon-utils/zipball/fbdc50b6cc069229f778b720ae304e70c9e5dab5",
+                "reference": "fbdc50b6cc069229f778b720ae304e70c9e5dab5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Everon\\Component\\Utils\\": "src/",
+                    "Everon\\Component\\Utils\\Tests\\Unit\\": "tests/unit/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliwier Ptak",
+                    "email": "everonphp@gmail.com"
+                }
+            ],
+            "description": "Everon Utils Component",
+            "time": "2016-03-20 14:52:54"
         },
         {
             "name": "guzzle/guzzle",
