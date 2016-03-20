@@ -7,12 +7,12 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\Category;
 
-use Everon\Component\Collection\Collection;
 use Generated\Shared\Transfer\NodeTransfer;
 use Orm\Zed\Category\Persistence\Base\SpyCategoryNodeQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
+use Spryker\Shared\Library\Collection\Collection;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 
@@ -34,7 +34,7 @@ class CategoryHierarchyImporter extends AbstractImporter
     protected $categoryQueryContainer;
 
     /**
-     * @var \Everon\Component\Collection\CollectionInterface
+     * @var \Spryker\Shared\Library\Collection\CollectionInterface
      */
     protected $nodeToKeyMapperCollection;
 
@@ -140,7 +140,7 @@ class CategoryHierarchyImporter extends AbstractImporter
     }
 
     /**
-     * @return \Everon\Component\Collection\CollectionInterface
+     * @return \Spryker\Shared\Library\Collection\CollectionInterface
      */
     protected function getNodeToKeyMapper()
     {

@@ -53,7 +53,7 @@ class ProductCollector extends AbstractStoragePdoCollector
     protected $priceFacade;
 
     /**
-     * @var \Everon\Component\Collection\CollectionInterface
+     * @var \Spryker\Shared\Library\Collection\CollectionInterface
      */
     protected $categoryCacheCollection;
 
