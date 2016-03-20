@@ -11,6 +11,7 @@ use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Shared\Category\CategoryConstants;
+use Spryker\Shared\Library\Collection\Collection;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
@@ -24,6 +25,8 @@ class ProductCategoryImporter extends AbstractImporter
     const PRODUCT_ID = 'product_id';
     const VARIANT_ID = 'variant_id';
     const CATEGORY_KEY = 'category_key';
+    const RESULT_CATEGORY_ID = 'result_category_id';
+    const RESULT_NODE_ID = 'result_node_id';
 
     /**
      * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
@@ -46,14 +49,14 @@ class ProductCategoryImporter extends AbstractImporter
     protected $touchFacade;
 
     /**
-     * @var array
+     * @var \Spryker\Shared\Library\Collection\CollectionInterface
      */
-    protected $cacheCategories = [];
+    protected $cacheCategories;
 
     /**
-     * @var array
+     * @var \Spryker\Shared\Library\Collection\CollectionInterface
      */
-    protected $cacheNodes = [];
+    protected $cacheNodes;
 
     /**
      * @var \Orm\Zed\Category\Persistence\SpyCategoryNode
@@ -76,6 +79,9 @@ class ProductCategoryImporter extends AbstractImporter
         $this->touchFacade = $touchFacade;
         $this->categoryQueryContainer = $categoryQueryContainer;
         $this->productQueryContainer = $productQueryContainer;
+
+        $this->cacheCategories = new Collection([]);
+        $this->cacheNodes = new Collection([]);
     }
 
     /**
@@ -139,34 +145,13 @@ class ProductCategoryImporter extends AbstractImporter
             return;
         }
 
-        $idCategory = null;
-        $idNode = null;
-        //TODO extract caching into method
-        if (!array_key_exists($product[self::CATEGORY_KEY], $this->cacheCategories)) {
-            $categoryQuery = $this->categoryQueryContainer
-                ->queryCategoryByKey($product[self::CATEGORY_KEY])
-                ->useNodeQuery()
-                    ->filterByIsMain(true)
-                ->endUse();
-            $category = $categoryQuery->findOne();
-            if ($category) {
-                $idCategory = $category->getIdCategory();
-                $idNode = $category->getNodes()->getFirst()->getIdCategoryNode();
-            } else {
-                $idCategory = $this->getRootNode()->getCategory()->getIdCategory();
-                $idNode = $this->getRootNode()->getIdCategoryNode();
-            }
-
-            $this->cacheCategories[self::CATEGORY_KEY] = $idCategory;
-            $this->cacheNodes[self::CATEGORY_KEY] = $idNode;
-        } else {
-            $idCategory = $this->cacheCategories[self::CATEGORY_KEY];
-            $idNode = $this->cacheNodes[self::CATEGORY_KEY];
-        }
-
-        if (!$idCategory || !$idNode) {
+        $idNodeAndCategory = $this->getIdNodeAndCategory($product[self::CATEGORY_KEY]);
+        if (empty($idNodeAndCategory)) {
             return;
         }
+
+        $idCategory = $idNodeAndCategory[self::RESULT_CATEGORY_ID];
+        $idNode = $idNodeAndCategory[self::RESULT_NODE_ID];
 
         $mappingEntity = new SpyProductCategory();
         $mappingEntity
@@ -177,6 +162,48 @@ class ProductCategoryImporter extends AbstractImporter
 
         $this->touchFacade->touchActive(ProductConstants::RESOURCE_TYPE_PRODUCT_ABSTRACT, $productAbstract->getIdProductAbstract());
         $this->touchFacade->touchActive(CategoryConstants::RESOURCE_TYPE_CATEGORY_NODE, $idNode);
+    }
+
+    /**
+     * @param string $categoryKey
+     *
+     * @return array
+     */
+    protected function getIdNodeAndCategory($categoryKey)
+    {
+        $idCategory = null;
+        $idNode = null;
+
+        if (!$this->cacheCategories->has($categoryKey)) {
+            $categoryQuery = $this->categoryQueryContainer
+                ->queryCategoryByKey($categoryKey)
+                ->useNodeQuery()
+                ->filterByIsMain(true)
+                ->endUse();
+            $category = $categoryQuery->findOne();
+            if ($category) {
+                $idCategory = $category->getIdCategory();
+                $idNode = $category->getNodes()->getFirst()->getIdCategoryNode();
+            } else {
+                $idCategory = $this->getRootNode()->getCategory()->getIdCategory();
+                $idNode = $this->getRootNode()->getIdCategoryNode();
+            }
+
+            $this->cacheCategories->set(self::CATEGORY_KEY, $idCategory);
+            $this->cacheNodes->set(self::CATEGORY_KEY, $idNode);
+        } else {
+            $idCategory = $this->cacheCategories->get(self::CATEGORY_KEY);
+            $idNode = $this->cacheNodes->get(self::CATEGORY_KEY);
+        }
+
+        if (!$idCategory || !$idNode) {
+            return [];
+        }
+
+        return [
+            self::RESULT_CATEGORY_ID => $idCategory,
+            self::RESULT_NODE_ID => $idNode
+        ];
     }
 
     /**
