@@ -9,11 +9,11 @@ namespace Pyz\Zed\Collector\Business\Search;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Zed\Collector\CollectorConfig;
-use Spryker\Zed\Price\Business\PriceFacadeInterface;
-use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPdoCollector;
 use Spryker\Zed\Collector\Business\Exporter\Writer\Storage\TouchUpdaterSet;
+use Spryker\Zed\Price\Business\PriceFacadeInterface;
+use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 
 class ProductCollector extends AbstractSearchPdoCollector
 {
@@ -137,7 +137,7 @@ class ProductCollector extends AbstractSearchPdoCollector
     /**
      * @param array $productRawData
      * @param array $processedResultSet
-     * @param $index
+     * @param string $index
      *
      * @return array
      */
@@ -157,7 +157,7 @@ class ProductCollector extends AbstractSearchPdoCollector
     /**
      * @param array $productRawData
      * @param array $processedResultSet
-     * @param $index
+     * @param string $index
      *
      * @return array
      */

@@ -119,7 +119,7 @@ class ProductCollector extends AbstractStoragePdoCollector
 
         $attributes = array_merge($attributesBasic, $attributesLocalized);
 
-        $attributes = array_filter($attributes, function($key) {
+        $attributes = array_filter($attributes, function ($key) {
             return !empty($key);
         }, ARRAY_FILTER_USE_KEY);
 

@@ -15,7 +15,6 @@ use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
 use Spryker\Zed\Stock\Business\StockFacadeInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class ProductStockImporter extends AbstractImporter
 {

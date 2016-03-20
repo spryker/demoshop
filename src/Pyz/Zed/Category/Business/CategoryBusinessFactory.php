@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\Category\Business;
 
-use Pyz\Zed\Category\Business\Internal\DemoData\CategoryTreeInstall;
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
 use Pyz\Zed\Category\CategoryDependencyProvider;
 use Spryker\Zed\Category\Business\CategoryBusinessFactory as SprykerCategoryBusinessFactory;
