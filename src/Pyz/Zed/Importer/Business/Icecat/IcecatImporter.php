@@ -26,7 +26,7 @@ class IcecatImporter
     /**
      * @var \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
      */
-    protected $importerCollection;
+    protected $installerCollection;
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
@@ -37,7 +37,7 @@ class IcecatImporter
     {
         $this->output = $output;
         $this->messenger = $messenger;
-        $this->importerCollection = $installerCollection;
+        $this->installerCollection = $installerCollection;
     }
 
     /**
@@ -49,7 +49,7 @@ class IcecatImporter
     {
         $this->output->writeln('Importing Icecat data...');
 
-        foreach ($this->importerCollection as $name => $importer) {
+        foreach ($this->installerCollection as $name => $importer) {
             if (!$importer->isInstalled()) {
                 $importer->install($this->output, $this->messenger);
             } else {
