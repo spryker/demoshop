@@ -48,9 +48,7 @@
     "zendframework/zend-eventmanager": "~2.6.2",
 
     "phpdocumentor/graphviz": "dev-master#a906a90",
-    "nesbot/carbon": "~1.13.0",
-
-    "everon/criteria-builder": "^1.1.0"
+    "nesbot/carbon": "~1.13.0"
   },
   "require-dev": {
     "spryker/code-sniffer": "dev-master",
