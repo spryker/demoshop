@@ -54,9 +54,12 @@ class CategoryHierarchyImporter extends AbstractImporter
         CategoryQueryContainerInterface $categoryQueryContainer
     ) {
         parent::__construct($localeFacade);
+
         $this->localeFacade = $localeFacade;
         $this->categoryFacade = $categoryFacade;
         $this->categoryQueryContainer = $categoryQueryContainer;
+
+        $this->nodeToKeyMapperCollection = new Collection([]);
     }
 
     /**
@@ -82,7 +85,7 @@ class CategoryHierarchyImporter extends AbstractImporter
     /**
      * @DRY
      *
-     * @see \Pyz\Zed\Installer\Business\Importer\Product\ProductCategoryImporter::getRootNode
+     * @see \Pyz\Zed\Importer\Business\Importer\Product\ProductCategoryImporter::getRootNode()
      *
      * @return \Orm\Zed\Category\Persistence\SpyCategoryNode
      */
@@ -109,25 +112,13 @@ class CategoryHierarchyImporter extends AbstractImporter
     {
         $category = $this->format($data);
 
-        $idParentNode = $this->getRootNode()->getIdCategoryNode();
+        $idParentNode = $this->getParentNodeId($category[self::PARENT_KEY]);
 
-        if (!$this->getNodeToKeyMapper()->has($category[self::PARENT_KEY])) {
-            $queryParent = $this->categoryQueryContainer->queryMainCategoryNodeByCategoryKey($category[self::PARENT_KEY]);
-            $parent = $queryParent->findOne();
-
-            if ($parent) {
-                $idParentNode = $parent->getIdCategoryNode();
-                $this->getNodeToKeyMapper()->set($category[self::PARENT_KEY], $idParentNode);
-            }
-        } else {
-            $idParentNode = $this->getNodeToKeyMapper()->get($category[self::PARENT_KEY]);
-        }
-
-        $nodesQuery = $this->categoryQueryContainer
+        $nodes = $this->categoryQueryContainer
             ->queryNodeByCategoryKey($category[self::UCATID])
-            ->filterByIsMain(true);
+            ->filterByIsMain(true)
+            ->find();
 
-        $nodes = $nodesQuery->find();
         foreach ($nodes as $nodeEntity) {
             $nodeTransfer = new NodeTransfer();
             $nodeTransfer->fromArray($nodeEntity->toArray());
@@ -140,15 +131,28 @@ class CategoryHierarchyImporter extends AbstractImporter
     }
 
     /**
-     * @return \Spryker\Shared\Library\Collection\CollectionInterface
+     * @param string $parentKey
+     *
+     * @return int
      */
-    protected function getNodeToKeyMapper()
+    protected function getParentNodeId($parentKey)
     {
-        if ($this->nodeToKeyMapperCollection === null) {
-            $this->nodeToKeyMapperCollection = new Collection([]);
+        $idParentNode = $this->getRootNode()->getIdCategoryNode();
+
+        if (!$this->nodeToKeyMapperCollection->has($parentKey)) {
+            $parent = $this->categoryQueryContainer
+                ->queryMainCategoryNodeByCategoryKey($parentKey)
+                ->findOne();
+
+            if ($parent) {
+                $idParentNode = $parent->getIdCategoryNode();
+                $this->nodeToKeyMapperCollection->set($parentKey, $idParentNode);
+            }
+        } else {
+            $idParentNode = $this->nodeToKeyMapperCollection->get($parentKey);
         }
 
-        return $this->nodeToKeyMapperCollection;
+        return $idParentNode;
     }
 
 }

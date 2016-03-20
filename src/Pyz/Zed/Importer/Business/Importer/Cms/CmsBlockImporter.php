@@ -128,6 +128,7 @@ class CmsBlockImporter extends AbstractImporter
         CmsQueryContainerInterface $cmsQueryContainer
     ) {
         parent::__construct($localeFacade);
+
         $this->blockManager = $blockManager;
         $this->pageManager = $pageManager;
         $this->keyMappingManager = $keyMappingManager;

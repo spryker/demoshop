@@ -7,11 +7,13 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\Product;
 
+use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
+use Spryker\Shared\Library\Collection\Collection;
 use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
@@ -51,14 +53,9 @@ class ProductAbstractImporter extends AbstractImporter
     protected $csvReaderCollection;
 
     /**
-     * @var array
+     * @var \Spryker\Shared\Library\Collection\CollectionInterface
      */
-    protected $installedAttributeCollection = [];
-
-    /**
-     * @var array
-     */
-    protected $cacheParents = [];
+    protected $cacheInstalledAttributes;
 
     /**
      * @var array
@@ -83,9 +80,12 @@ class ProductAbstractImporter extends AbstractImporter
         $dataDirectory
     ) {
         parent::__construct($localeFacade);
+
         $this->productFacade = $productFacade;
         $this->attributeManager = $attributeManager;
         $this->dataDirectory = $dataDirectory;
+
+        $this->cacheInstalledAttributes = new Collection([]);
     }
 
     /**
@@ -165,12 +165,13 @@ class ProductAbstractImporter extends AbstractImporter
         $productAbstractTransfer->setAttributes($abstractAttributes);
 
         foreach ($attributeData as $localeCode => $localizedAttributesData) {
-            $localizedAttributes = new LocalizedAttributesTransfer();
-            $localizedAttributes->setLocale($this->localeFacade->getLocaleByCode($localeCode));
-            $localizedAttributes->setName($this->getProductName($product, $localeCode));
-            $localizedAttributes->setAttributes($localizedAttributesData);
+            $localizedAttributesTransfer = $this->buildLocalizedAttributesTransfer(
+                $this->getProductName($product, $localeCode),
+                $localizedAttributesData,
+                $this->localeFacade->getLocaleByCode($localeCode)
+            );
 
-            $productAbstractTransfer->addLocalizedAttributes($localizedAttributes);
+            $productAbstractTransfer->addLocalizedAttributes($localizedAttributesTransfer);
         }
 
         return $productAbstractTransfer;
@@ -211,15 +212,34 @@ class ProductAbstractImporter extends AbstractImporter
 
         foreach ($attributeData as $localeCode => $localizedAttributesData) {
             $localizedKeyName = $this->getLocalizedKeyName(self::NAME, $localeCode);
-            $localizedAttributesTransfer = new LocalizedAttributesTransfer();
-            $localizedAttributesTransfer->setLocale($this->localeFacade->getLocaleByCode($localeCode));
-            $localizedAttributesTransfer->setName($product[$localizedKeyName]);
-            $localizedAttributesTransfer->setAttributes($localizedAttributesData);
+
+            $localizedAttributesTransfer = $this->buildLocalizedAttributesTransfer(
+                $product[$localizedKeyName],
+                $localizedAttributesData,
+                $this->localeFacade->getLocaleByCode($localeCode)
+            );
 
             $productConcreteTransfer->addLocalizedAttributes($localizedAttributesTransfer);
         }
 
         return $productConcreteTransfer;
+    }
+
+    /**
+     * @param string $name
+     * @param array $localizedAttributesData
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
+     *
+     * @return \Generated\Shared\Transfer\LocalizedAttributesTransfer
+     */
+    protected function buildLocalizedAttributesTransfer($name, array $localizedAttributesData, LocaleTransfer $localeTransfer)
+    {
+        $localizedAttributesTransfer = new LocalizedAttributesTransfer();
+        $localizedAttributesTransfer->setLocale($localeTransfer);
+        $localizedAttributesTransfer->setName($name);
+        $localizedAttributesTransfer->setAttributes($localizedAttributesData);
+
+        return $localizedAttributesTransfer;
     }
 
     /**
@@ -383,7 +403,6 @@ class ProductAbstractImporter extends AbstractImporter
         return $value;
     }
 
-
     /**
      * @param array $attributes
      *
@@ -396,7 +415,7 @@ class ProductAbstractImporter extends AbstractImporter
                 continue;
             }
 
-            if (isset($this->installedAttributeCollection[$type])) {
+            if ($this->cacheInstalledAttributes->has($type)) {
                 continue;
             }
 
@@ -411,7 +430,7 @@ class ProductAbstractImporter extends AbstractImporter
                 }
             }
 
-            $this->installedAttributeCollection[$type] = true;
+            $this->cacheInstalledAttributes->set($type, true);
         }
     }
 

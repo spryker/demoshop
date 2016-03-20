@@ -41,6 +41,7 @@ class ProductSearchImporter extends AbstractImporter
         OperationManagerInterface $operationManager
     ) {
         parent::__construct($localeFacade);
+
         $this->productSearchFacade = $productSearchFacade;
         $this->operationManager = $operationManager;
     }

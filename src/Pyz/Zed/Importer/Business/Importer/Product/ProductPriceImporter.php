@@ -11,6 +11,7 @@ use Orm\Zed\Price\Persistence\SpyPriceProduct;
 use Orm\Zed\Price\Persistence\SpyPriceProductQuery;
 use Pyz\Zed\Importer\Business\Exception\PriceTypeNotFoundException;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
+use Spryker\Shared\Library\Collection\Collection;
 use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Price\Persistence\PriceQueryContainerInterface;
@@ -52,9 +53,9 @@ class ProductPriceImporter extends AbstractImporter
     protected $stockFacade;
 
     /**
-     * @var array
+     * @var \Spryker\Shared\Library\Collection\CollectionInterface
      */
-    protected $priceTypesCache = [];
+    protected $cachePriceType;
 
     /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
@@ -71,10 +72,13 @@ class ProductPriceImporter extends AbstractImporter
         $dataDirectory
     ) {
         parent::__construct($localeFacade);
+
         $this->stockFacade = $stockFacade;
         $this->productQueryContainer = $productQueryContainer;
         $this->priceQueryContainer = $priceQueryContainer;
         $this->dataDirectory = $dataDirectory;
+
+        $this->cachePriceType = new Collection([]);
     }
 
     /**
@@ -113,18 +117,7 @@ class ProductPriceImporter extends AbstractImporter
             return;
         }
 
-        //TODO move caching to another method
-        if (!array_key_exists($price[self::PRICE_TYPE], $this->priceTypesCache)) {
-            $priceTypeQuery = $this->priceQueryContainer->queryPriceType($price[self::PRICE_TYPE]);
-            $priceType = $priceTypeQuery->findOne();
-            if (!$priceType) {
-                throw new PriceTypeNotFoundException($price[self::PRICE_TYPE]);
-            }
-
-            $priceTypesCache[$price[self::PRICE_TYPE]] = $priceType;
-        } else {
-            $priceType = $this->priceTypesCache[$price[self::PRICE_TYPE]];
-        }
+        $priceType = $this->getPriceTypeEntity($price[self::PRICE_TYPE]);
 
         $entity = new SpyPriceProduct();
         $entity
@@ -133,6 +126,33 @@ class ProductPriceImporter extends AbstractImporter
             ->setFkProductAbstract($productAbstract->getIdProductAbstract());
 
         $entity->save();
+    }
+
+    /**
+     * @param string $priceType
+     *
+     * @throws \Pyz\Zed\Importer\Business\Exception\PriceTypeNotFoundException
+     * @return string
+     */
+    protected function getPriceTypeEntity($priceType)
+    {
+        $priceTypeEntity = null;
+        
+        if (!$this->cachePriceType->has($priceType)) {
+            $priceTypeEntity = $this->priceQueryContainer
+                ->queryPriceType($priceType)
+                ->findOne();
+
+            if (!$priceTypeEntity) {
+                throw new PriceTypeNotFoundException($priceType);
+            }
+
+            $this->cachePriceType->set($priceType, $priceTypeEntity);
+        } else {
+            $priceTypeEntity = $this->cachePriceType->get($priceType);
+        }
+
+        return $priceTypeEntity;
     }
 
     /**

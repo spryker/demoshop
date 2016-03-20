@@ -32,6 +32,7 @@ class TranslationImporter extends AbstractImporter
         GlossaryFacadeInterface $glossaryFacade
     ) {
         parent::__construct($localeFacade);
+
         $this->glossaryFacade = $glossaryFacade;
     }
 

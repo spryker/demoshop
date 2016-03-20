@@ -53,10 +53,6 @@ class CategoryImporter extends AbstractImporter
      */
     protected $nodeUrlManager;
 
-    /**
-     * @var array
-     */
-    protected $cacheParents = [];
 
     /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
@@ -205,10 +201,9 @@ class CategoryImporter extends AbstractImporter
         $locales = $this->localeFacade->getLocaleCollection();
 
         foreach ($locales as $code => $localeTransfer) {
-            $categoryTransfer = new CategoryTransfer();
-            $categoryTransfer->fromArray($data[$code]);
-
+            $categoryTransfer = $this->buildCategoryTransfer($data[$code]);
             $name = trim($categoryTransfer->getName());
+
             if ($name === '') {
                 throw new \UnexpectedValueException(sprintf(
                     'Category name is empty for category with key "%"',
@@ -225,6 +220,19 @@ class CategoryImporter extends AbstractImporter
         }
 
         return $idCategory;
+    }
+
+    /**
+     * @param array $data
+     *
+     * @return \Generated\Shared\Transfer\CategoryTransfer
+     */
+    protected function buildCategoryTransfer(array $data)
+    {
+        $categoryTransfer = new CategoryTransfer();
+        $categoryTransfer->fromArray($data);
+
+        return $categoryTransfer;
     }
 
 }

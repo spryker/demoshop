@@ -75,6 +75,7 @@ class ProductCategoryImporter extends AbstractImporter
         ProductQueryContainerInterface $productQueryContainer
     ) {
         parent::__construct($localeFacade);
+
         $this->localeFacade = $localeFacade;
         $this->touchFacade = $touchFacade;
         $this->categoryQueryContainer = $categoryQueryContainer;
@@ -150,18 +151,13 @@ class ProductCategoryImporter extends AbstractImporter
             return;
         }
 
-        $idCategory = $idNodeAndCategory[self::RESULT_CATEGORY_ID];
-        $idNode = $idNodeAndCategory[self::RESULT_NODE_ID];
+        $this->createProductCategoryMapping(
+            $productAbstract->getIdProductAbstract(),
+            $idNodeAndCategory[self::RESULT_CATEGORY_ID]
+        );
 
-        $mappingEntity = new SpyProductCategory();
-        $mappingEntity
-            ->setFkProductAbstract($productAbstract->getIdProductAbstract())
-            ->setFkCategory($idCategory);
-
-        $mappingEntity->save();
-
-        $this->touchFacade->touchActive(ProductConstants::RESOURCE_TYPE_PRODUCT_ABSTRACT, $productAbstract->getIdProductAbstract());
-        $this->touchFacade->touchActive(CategoryConstants::RESOURCE_TYPE_CATEGORY_NODE, $idNode);
+        $this->touchCategoryNodeActive($idNodeAndCategory[self::RESULT_NODE_ID]);
+        $this->touchProductActive($productAbstract->getIdProductAbstract());
     }
 
     /**
@@ -175,12 +171,8 @@ class ProductCategoryImporter extends AbstractImporter
         $idNode = null;
 
         if (!$this->cacheCategories->has($categoryKey)) {
-            $categoryQuery = $this->categoryQueryContainer
-                ->queryCategoryByKey($categoryKey)
-                ->useNodeQuery()
-                ->filterByIsMain(true)
-                ->endUse();
-            $category = $categoryQuery->findOne();
+            $category = $this->getCategoryEntityByKey($categoryKey);
+
             if ($category) {
                 $idCategory = $category->getIdCategory();
                 $idNode = $category->getNodes()->getFirst()->getIdCategoryNode();
@@ -204,6 +196,64 @@ class ProductCategoryImporter extends AbstractImporter
             self::RESULT_CATEGORY_ID => $idCategory,
             self::RESULT_NODE_ID => $idNode
         ];
+    }
+
+    /**
+     * @param string $categoryKey
+     *
+     * @return \Orm\Zed\Category\Persistence\SpyCategory
+     */
+    protected function getCategoryEntityByKey($categoryKey)
+    {
+        return $this->categoryQueryContainer
+            ->queryCategoryByKey($categoryKey)
+            ->useNodeQuery()
+                ->filterByIsMain(true)
+            ->endUse()
+            ->findOne();
+    }
+
+    /**
+     * @param int $idProductAbstract
+     * @param int $idCategory
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
+     */
+    protected function createProductCategoryMapping($idProductAbstract, $idCategory)
+    {
+        $mappingEntity = new SpyProductCategory();
+        $mappingEntity
+            ->setFkProductAbstract($idProductAbstract)
+            ->setFkCategory($idCategory);
+
+        $mappingEntity->save();
+    }
+
+    /**
+     * @param int $idCategoryNode
+     *
+     * @return void
+     */
+    protected function touchCategoryNodeActive($idCategoryNode)
+    {
+        $this->touchFacade->touchActive(
+            CategoryConstants::RESOURCE_TYPE_CATEGORY_NODE,
+            $idCategoryNode
+        );
+    }
+
+    /**
+     * @param int $idProductAbstract
+     *
+     * @return void
+     */
+    protected function touchProductActive($idProductAbstract)
+    {
+        $this->touchFacade->touchActive(
+            ProductConstants::RESOURCE_TYPE_PRODUCT_ABSTRACT,
+            $idProductAbstract
+        );
     }
 
     /**

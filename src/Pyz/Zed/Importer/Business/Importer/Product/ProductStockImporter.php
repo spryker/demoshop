@@ -56,7 +56,6 @@ class ProductStockImporter extends AbstractImporter
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Spryker\Zed\Stock\Business\StockFacadeInterface $stockFacade
      * @param \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface $productQueryContainer
-     * @param \Spryker\Zed\Price\Persistence\PriceQueryContainerInterface $priceQueryContainer
      * @param string $dataDirectory
      */
     public function __construct(
@@ -66,6 +65,7 @@ class ProductStockImporter extends AbstractImporter
         $dataDirectory
     ) {
         parent::__construct($localeFacade);
+
         $this->stockFacade = $stockFacade;
         $this->productQueryContainer = $productQueryContainer;
         $this->dataDirectory = $dataDirectory;
