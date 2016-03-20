@@ -504,32 +504,25 @@ class ProductAbstractImporter extends AbstractImporter
      *
      * @return array
      */
-    protected function generateAttributeNameCollection(array $data)
-    {
-        $attributeNameCollection = [];
-        foreach ($data as $key => $value) {
-            if (!$this->hasLocales($key)) {
-                $attributeNameCollection[$key] = $key;
-                continue;
-            }
-
-            $localeCode = $this->getLocaleFromKey($key);
-            $simpleKey = $this->stripLocaleCode($key, $localeCode);
-            $attributeNameCollection[$simpleKey] = $simpleKey;
-        }
-
-        return $attributeNameCollection;
-    }
-
-    /**
-     * @param array $data
-     *
-     * @return array
-     */
     protected function generateMappedAttributes(array $data)
     {
-        $attributeNameCollection = $this->generateAttributeNameCollection($data);
-        return array_intersect_key($this->getMetadata(), $attributeNameCollection);
+        $attributeNameCollection = $this->generateAttributes($data);
+
+        $localizedKeys = array_flip(array_keys(
+            current($attributeNameCollection)
+        ));
+
+        $attributesMetaData = array_merge(
+            $attributeNameCollection[self::PRODUCT_ABSTRACT],
+            $localizedKeys
+        );
+
+        $attributesMetaData = array_combine(
+            array_keys($attributesMetaData),
+            array_keys($attributesMetaData)
+        );
+
+        return array_intersect_key($this->getMetadata(), $attributesMetaData);
     }
 
     /**
