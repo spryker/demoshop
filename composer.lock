@@ -949,7 +949,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "7493a6a4f53a6b4407d4b04505dbffd23e69f489"
+                "reference": "d591fc16a2704d5ee37f8ef122ea3946e4f95b0c"
             },
             "require": {
                 "paragonie/random_compat": "~1.2.1",
@@ -1356,6 +1356,7 @@
                     "Unit\\Spryker\\Shared\\ShipmentCheckoutConnector\\": "Bundles/ShipmentCheckoutConnector/tests",
                     "Spryker\\Zed\\ShipmentCheckoutConnector\\": "Bundles/ShipmentCheckoutConnector/src",
                     "Unit\\Spryker\\Zed\\ShipmentCheckoutConnector\\": "Bundles/ShipmentCheckoutConnector/tests",
+                    "Spryker\\Shared\\SqlCriteriaBuilder\\": "Bundles/SqlCriteriaBuilder/src",
                     "Spryker\\Shared\\Stock\\": "Bundles/Stock/src",
                     "Unit\\Spryker\\Shared\\Stock\\": "Bundles/Stock/tests",
                     "Functional\\Spryker\\Shared\\Stock\\": "Bundles/Stock/tests",
@@ -1442,7 +1443,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-03-20 01:12:11"
+            "time": "2016-03-20 01:55:46"
         },
         {
             "name": "symfony-cmf/routing",
