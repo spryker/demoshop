@@ -78,16 +78,16 @@
         },
         {
             "name": "everon/criteria-builder",
-            "version": "v1.1.4",
+            "version": "v1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oliwierptak/everon-criteria-builder.git",
-                "reference": "d93720ba3c65aeecb9a18cb12b69a99f34db067e"
+                "reference": "b841624421ab0fadbf7a9d36ae9f9d5ebbbe7112"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oliwierptak/everon-criteria-builder/zipball/d93720ba3c65aeecb9a18cb12b69a99f34db067e",
-                "reference": "d93720ba3c65aeecb9a18cb12b69a99f34db067e",
+                "url": "https://api.github.com/repos/oliwierptak/everon-criteria-builder/zipball/b841624421ab0fadbf7a9d36ae9f9d5ebbbe7112",
+                "reference": "b841624421ab0fadbf7a9d36ae9f9d5ebbbe7112",
                 "shasum": ""
             },
             "require": {
@@ -118,20 +118,20 @@
                 }
             ],
             "description": "Everon Criteria Builder Component",
-            "time": "2016-03-14 10:00:46"
+            "time": "2016-03-20 14:50:11"
         },
         {
             "name": "everon/factory",
-            "version": "v1.1.3",
+            "version": "v1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oliwierptak/everon-factory.git",
-                "reference": "9c49cfc9d82fab4611401dd62f47989c60c7dcc6"
+                "reference": "443313f5b3a7ecfcdaee849288c1ae299cf2a99b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oliwierptak/everon-factory/zipball/9c49cfc9d82fab4611401dd62f47989c60c7dcc6",
-                "reference": "9c49cfc9d82fab4611401dd62f47989c60c7dcc6",
+                "url": "https://api.github.com/repos/oliwierptak/everon-factory/zipball/443313f5b3a7ecfcdaee849288c1ae299cf2a99b",
+                "reference": "443313f5b3a7ecfcdaee849288c1ae299cf2a99b",
                 "shasum": ""
             },
             "require": {
@@ -161,20 +161,20 @@
                 }
             ],
             "description": "Everon Factory Component",
-            "time": "2016-03-14 11:51:49"
+            "time": "2016-03-20 14:52:02"
         },
         {
             "name": "everon/utils",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oliwierptak/everon-utils.git",
-                "reference": "0b2640b31ae1cd4600dc7c63295ff5fe88f7d18f"
+                "reference": "fbdc50b6cc069229f778b720ae304e70c9e5dab5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oliwierptak/everon-utils/zipball/0b2640b31ae1cd4600dc7c63295ff5fe88f7d18f",
-                "reference": "0b2640b31ae1cd4600dc7c63295ff5fe88f7d18f",
+                "url": "https://api.github.com/repos/oliwierptak/everon-utils/zipball/fbdc50b6cc069229f778b720ae304e70c9e5dab5",
+                "reference": "fbdc50b6cc069229f778b720ae304e70c9e5dab5",
                 "shasum": ""
             },
             "require": {
@@ -202,7 +202,7 @@
                 }
             ],
             "description": "Everon Utils Component",
-            "time": "2016-03-13 23:32:24"
+            "time": "2016-03-20 14:52:54"
         },
         {
             "name": "guzzle/guzzle",
