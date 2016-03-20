@@ -11,7 +11,7 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Orm\Zed\Glossary\Persistence\SpyGlossaryKeyQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Glossary\Business\GlossaryFacadeInterface;
-use Symfony\Component\Console\Output\OutputInterface;
+use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 
 class TranslationImporter extends AbstractImporter
 {
@@ -24,12 +24,14 @@ class TranslationImporter extends AbstractImporter
     protected $glossaryFacade;
 
     /**
+     * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Spryker\Zed\Glossary\Business\GlossaryFacadeInterface $glossaryFacade
-     *
-     * @return void
      */
-    public function setGlossaryFacade(GlossaryFacadeInterface $glossaryFacade)
-    {
+    public function __construct(
+        LocaleFacadeInterface $localeFacade,
+        GlossaryFacadeInterface $glossaryFacade
+    ) {
+        parent::__construct($localeFacade);
         $this->glossaryFacade = $glossaryFacade;
     }
 

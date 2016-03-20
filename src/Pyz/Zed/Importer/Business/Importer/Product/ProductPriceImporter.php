@@ -16,7 +16,6 @@ use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Price\Persistence\PriceQueryContainerInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
 use Spryker\Zed\Stock\Business\StockFacadeInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class ProductPriceImporter extends AbstractImporter
 {
@@ -59,42 +58,23 @@ class ProductPriceImporter extends AbstractImporter
 
     /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
+     * @param \Spryker\Zed\Stock\Business\StockFacadeInterface $stockFacade
+     * @param \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface $productQueryContainer
+     * @param \Spryker\Zed\Price\Persistence\PriceQueryContainerInterface $priceQueryContainer
      * @param string $dataDirectory
      */
-    public function __construct(LocaleFacadeInterface $localeFacade, $dataDirectory)
-    {
+    public function __construct(
+        LocaleFacadeInterface $localeFacade,
+        StockFacadeInterface $stockFacade,
+        ProductQueryContainerInterface $productQueryContainer,
+        PriceQueryContainerInterface $priceQueryContainer,
+        $dataDirectory
+    ) {
         parent::__construct($localeFacade);
-        $this->dataDirectory = $dataDirectory;
-    }
-
-    /**
-     * @param \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface $productQueryContainer
-     *
-     * @return void
-     */
-    public function setProductQueryContainer(ProductQueryContainerInterface $productQueryContainer)
-    {
-        $this->productQueryContainer = $productQueryContainer;
-    }
-
-    /**
-     * @param \Spryker\Zed\Stock\Business\StockFacadeInterface $stockFacade
-     *
-     * @return void
-     */
-    public function setStockFacade(StockFacadeInterface $stockFacade)
-    {
         $this->stockFacade = $stockFacade;
-    }
-
-    /**
-     * @param \Spryker\Zed\Price\Persistence\PriceQueryContainerInterface $priceQueryContainer
-     *
-     * @return void
-     */
-    public function setPriceQueryContainer(PriceQueryContainerInterface $priceQueryContainer)
-    {
+        $this->productQueryContainer = $productQueryContainer;
         $this->priceQueryContainer = $priceQueryContainer;
+        $this->dataDirectory = $dataDirectory;
     }
 
     /**

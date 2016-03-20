@@ -55,32 +55,21 @@ class ProductStockImporter extends AbstractImporter
 
     /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
+     * @param \Spryker\Zed\Stock\Business\StockFacadeInterface $stockFacade
+     * @param \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface $productQueryContainer
+     * @param \Spryker\Zed\Price\Persistence\PriceQueryContainerInterface $priceQueryContainer
      * @param string $dataDirectory
      */
-    public function __construct(LocaleFacadeInterface $localeFacade, $dataDirectory)
-    {
+    public function __construct(
+        LocaleFacadeInterface $localeFacade,
+        StockFacadeInterface $stockFacade,
+        ProductQueryContainerInterface $productQueryContainer,
+        $dataDirectory
+    ) {
         parent::__construct($localeFacade);
-        $this->dataDirectory = $dataDirectory;
-    }
-
-    /**
-     * @param \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface $productQueryContainer
-     *
-     * @return void
-     */
-    public function setProductQueryContainer(ProductQueryContainerInterface $productQueryContainer)
-    {
-        $this->productQueryContainer = $productQueryContainer;
-    }
-
-    /**
-     * @param \Spryker\Zed\Stock\Business\StockFacadeInterface $stockFacade
-     *
-     * @return void
-     */
-    public function setStockFacade(StockFacadeInterface $stockFacade)
-    {
         $this->stockFacade = $stockFacade;
+        $this->productQueryContainer = $productQueryContainer;
+        $this->dataDirectory = $dataDirectory;
     }
 
     /**

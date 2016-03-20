@@ -39,33 +39,15 @@ class ImporterFactory extends AbstractFactory
     public function createCategoryImporter()
     {
         $categoryImporter = new CategoryImporter(
-            $this->getLocaleFacade()
+            $this->getLocaleFacade(),
+            $this->getCategoryFacade(),
+            $this->getTouchFacade(),
+            $this->getUrlFacade(),
+            $this->getCategoryQueryContainer(),
+            $this->createNodeUrlManager()
         );
-
-        $categoryImporter->setCategoryFacade($this->getCategoryFacade());
-        $categoryImporter->setCategoryQueryContainer($this->getCategoryQueryContainer());
-        $categoryImporter->setTouchFacade($this->getTouchFacade());
-        $categoryImporter->setUrlFacade($this->getUrlFacade());
-        $categoryImporter->setNodeUrlManager($this->createNodeUrlManager());
-        $categoryImporter->setCategoryQueryContainer($this->getCategoryQueryContainer());
 
         return $categoryImporter;
-    }
-
-    /**
-     * @return \Pyz\Zed\Importer\Business\Importer\Category\CategoryImporter
-     */
-    public function createCategoryHierarchyImporter()
-    {
-        $categoryHierarchyImporter = new CategoryHierarchyImporter(
-            $this->getLocaleFacade()
-        );
-
-        $categoryHierarchyImporter->setCategoryFacade($this->getCategoryFacade());
-        $categoryHierarchyImporter->setCategoryQueryContainer($this->getCategoryQueryContainer());
-        $categoryHierarchyImporter->setCategoryQueryContainer($this->getCategoryQueryContainer());
-
-        return $categoryHierarchyImporter;
     }
 
     /**
@@ -74,15 +56,13 @@ class ImporterFactory extends AbstractFactory
     public function createCategoryRootImporter()
     {
         $categoryRootImporter = new CategoryRootImporter(
-            $this->getLocaleFacade()
+            $this->getLocaleFacade(),
+            $this->getCategoryFacade(),
+            $this->getTouchFacade(),
+            $this->getUrlFacade(),
+            $this->getCategoryQueryContainer(),
+            $this->createNodeUrlManager()
         );
-
-        $categoryRootImporter->setCategoryFacade($this->getCategoryFacade());
-        $categoryRootImporter->setCategoryQueryContainer($this->getCategoryQueryContainer());
-        $categoryRootImporter->setTouchFacade($this->getTouchFacade());
-        $categoryRootImporter->setUrlFacade($this->getUrlFacade());
-        $categoryRootImporter->setNodeUrlManager($this->createNodeUrlManager());
-        $categoryRootImporter->setCategoryQueryContainer($this->getCategoryQueryContainer());
 
         return $categoryRootImporter;
     }
@@ -93,18 +73,27 @@ class ImporterFactory extends AbstractFactory
     public function createProductCategoryImporter()
     {
         $productCategoryImporter = new ProductCategoryImporter(
-            $this->getLocaleFacade()
+            $this->getLocaleFacade(),
+            $this->getTouchFacade(),
+            $this->getCategoryQueryContainer(),
+            $this->getProductQueryContainer()
         );
 
-        $productCategoryImporter->setCategoryFacade($this->getCategoryFacade());
-        $productCategoryImporter->setCategoryQueryContainer($this->getCategoryQueryContainer());
-        $productCategoryImporter->setProductFacade($this->getProductFacade());
-        $productCategoryImporter->setProductQueryContainer($this->getProductQueryContainer());
-        $productCategoryImporter->setProductCategoryFacade($this->getProductCategoryFacade());
-        $productCategoryImporter->setProductCategoryQueryContainer($this->getProductCategoryQueryContainer());
-        $productCategoryImporter->setTouchFacade($this->getTouchFacade());
-
         return $productCategoryImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\Category\CategoryImporter
+     */
+    public function createCategoryHierarchyImporter()
+    {
+        $categoryHierarchyImporter = new CategoryHierarchyImporter(
+            $this->getLocaleFacade(),
+            $this->getCategoryFacade(),
+            $this->getCategoryQueryContainer()
+        );
+
+        return $categoryHierarchyImporter;
     }
 
     /**
@@ -114,11 +103,10 @@ class ImporterFactory extends AbstractFactory
     {
         $productAbstractImporter = new ProductAbstractImporter(
             $this->getLocaleFacade(),
+            $this->getProductFacade(),
+            $this->createAttributeManager(),
             $this->getConfig()->getIcecatImportDataDirectory()
         );
-
-        $productAbstractImporter->setAttributeManager($this->createAttributeManager());
-        $productAbstractImporter->setProductFacade($this->getProductFacade());
 
         return $productAbstractImporter;
     }
@@ -130,12 +118,11 @@ class ImporterFactory extends AbstractFactory
     {
         $productPriceImporter = new ProductPriceImporter(
             $this->getLocaleFacade(),
+            $this->getStockFacade(),
+            $this->getProductQueryContainer(),
+            $this->getPriceQueryContainer(),
             $this->getConfig()->getImportDataDirectory()
         );
-
-        $productPriceImporter->setProductQueryContainer($this->getProductQueryContainer());
-        $productPriceImporter->setStockFacade($this->getStockFacade());
-        $productPriceImporter->setPriceQueryContainer($this->getPriceQueryContainer());
 
         return $productPriceImporter;
     }
@@ -147,11 +134,10 @@ class ImporterFactory extends AbstractFactory
     {
         $productStockImporter = new ProductStockImporter(
             $this->getLocaleFacade(),
+            $this->getStockFacade(),
+            $this->getProductQueryContainer(),
             $this->getConfig()->getImportDataDirectory()
         );
-
-        $productStockImporter->setProductQueryContainer($this->getProductQueryContainer());
-        $productStockImporter->setStockFacade($this->getStockFacade());
 
         return $productStockImporter;
     }
@@ -162,11 +148,10 @@ class ImporterFactory extends AbstractFactory
     public function createProductSearchImporter()
     {
         $productSearchImporter = new ProductSearchImporter(
-            $this->getLocaleFacade()
+            $this->getLocaleFacade(),
+            $this->getProductSearchFacade(),
+            $this->createProductSearchOperationManager()
         );
-
-        $productSearchImporter->setProductSearchFacade($this->getProductSearchFacade());
-        $productSearchImporter->setOperationManager($this->createProductSearchOperationManager());
 
         return $productSearchImporter;
     }
@@ -177,10 +162,9 @@ class ImporterFactory extends AbstractFactory
     public function createGlossaryImporter()
     {
         $translationImporter = new TranslationImporter(
-            $this->getLocaleFacade()
+            $this->getLocaleFacade(),
+            $this->getGlossaryFacade()
         );
-
-        $translationImporter->setGlossaryFacade($this->getGlossaryFacade());
 
         return $translationImporter;
     }
@@ -191,18 +175,15 @@ class ImporterFactory extends AbstractFactory
     public function createCmsBlockImporter()
     {
         $cmsBlockImporter = new CmsBlockImporter(
-            $this->getLocaleFacade()
+            $this->getLocaleFacade(),
+            $this->createCmsBlockManager(),
+            $this->createCmsPageManager(),
+            $this->createCmsGlossaryKeyMappingManager(),
+            $this->createCmsTemplateManager(),
+            $this->getCmsToGlossaryBridge(),
+            $this->getCmsToUrlBridge(),
+            $this->getCmsQueryContainer()
         );
-
-        $cmsBlockImporter->setBlockManager($this->createCmsBlockManager());
-        $cmsBlockImporter->setPageManager($this->createCmsPageManager());
-        $cmsBlockImporter->setKeyMappingManager($this->createCmsGlossaryKeyMappingManager());
-        $cmsBlockImporter->setTemplateManager($this->createCmsTemplateManager());
-
-        $cmsBlockImporter->setGlossaryFacade($this->getCmsToGlossaryBridge());
-        $cmsBlockImporter->setCmsQueryContainer($this->getCmsQueryContainer());
-        $cmsBlockImporter->setLocaleFacade($this->getLocaleFacade());
-        $cmsBlockImporter->setUrlFacade($this->getCmsToUrlBridge());
 
         return $cmsBlockImporter;
     }
@@ -213,18 +194,15 @@ class ImporterFactory extends AbstractFactory
     public function createCmsPageImporter()
     {
         $cmsPageImporter = new CmsPageImporter(
-            $this->getLocaleFacade()
+            $this->getLocaleFacade(),
+            $this->createCmsBlockManager(),
+            $this->createCmsPageManager(),
+            $this->createCmsGlossaryKeyMappingManager(),
+            $this->createCmsTemplateManager(),
+            $this->getCmsToGlossaryBridge(),
+            $this->getCmsToUrlBridge(),
+            $this->getCmsQueryContainer()
         );
-
-        $cmsPageImporter->setBlockManager($this->createCmsBlockManager());
-        $cmsPageImporter->setPageManager($this->createCmsPageManager());
-        $cmsPageImporter->setKeyMappingManager($this->createCmsGlossaryKeyMappingManager());
-        $cmsPageImporter->setTemplateManager($this->createCmsTemplateManager());
-
-        $cmsPageImporter->setGlossaryFacade($this->getCmsToGlossaryBridge());
-        $cmsPageImporter->setCmsQueryContainer($this->getCmsQueryContainer());
-        $cmsPageImporter->setLocaleFacade($this->getLocaleFacade());
-        $cmsPageImporter->setUrlFacade($this->getCmsToUrlBridge());
 
         return $cmsPageImporter;
     }

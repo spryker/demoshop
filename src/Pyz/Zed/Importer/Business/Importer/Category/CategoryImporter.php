@@ -12,10 +12,11 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
 use Orm\Zed\Category\Persistence\SpyCategoryNodeQuery;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
-use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
+use Pyz\Zed\Category\Business\Manager\NodeUrlManagerInterface;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
+use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Touch\Business\TouchFacadeInterface;
 use Spryker\Zed\Url\Business\UrlFacadeInterface;
 
@@ -48,7 +49,7 @@ class CategoryImporter extends AbstractImporter
     protected $urlFacade;
 
     /**
-     * @var \Pyz\Zed\Category\Business\Manager\NodeUrlManager
+     * @var \Pyz\Zed\Category\Business\Manager\NodeUrlManagerInterface
      */
     protected $nodeUrlManager;
 
@@ -58,53 +59,27 @@ class CategoryImporter extends AbstractImporter
     protected $cacheParents = [];
 
     /**
+     * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Pyz\Zed\Category\Business\CategoryFacadeInterface $categoryFacade
-     *
-     * @return void
-     */
-    public function setCategoryFacade(CategoryFacadeInterface $categoryFacade)
-    {
-        $this->categoryFacade = $categoryFacade;
-    }
-
-    /**
      * @param \Spryker\Zed\Touch\Business\TouchFacadeInterface $touchFacade
-     *
-     * @return void
-     */
-    public function setTouchFacade(TouchFacadeInterface $touchFacade)
-    {
-        $this->touchFacade = $touchFacade;
-    }
-
-    /**
      * @param \Spryker\Zed\Url\Business\UrlFacadeInterface $urlFacade
-     *
-     * @return void
-     */
-    public function setUrlFacade(UrlFacadeInterface $urlFacade)
-    {
-        $this->urlFacade = $urlFacade;
-    }
-
-    /**
-     * @param \Pyz\Zed\Category\Business\Manager\NodeUrlManager $nodeUrlManager
-     *
-     * @return void
-     */
-    public function setNodeUrlManager(NodeUrlManager $nodeUrlManager)
-    {
-        $this->nodeUrlManager = $nodeUrlManager;
-    }
-
-    /**
      * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
-     *
-     * @return void
      */
-    public function setCategoryQueryContainer(CategoryQueryContainerInterface $categoryQueryContainer)
-    {
+    public function __construct(
+        LocaleFacadeInterface $localeFacade,
+        CategoryFacadeInterface $categoryFacade,
+        TouchFacadeInterface $touchFacade,
+        UrlFacadeInterface $urlFacade,
+        CategoryQueryContainerInterface $categoryQueryContainer,
+        NodeUrlManagerInterface $nodeUrlManager
+    ) {
+        parent::__construct($localeFacade);
+        $this->localeFacade = $localeFacade;
+        $this->categoryFacade = $categoryFacade;
+        $this->touchFacade = $touchFacade;
+        $this->urlFacade = $urlFacade;
         $this->categoryQueryContainer = $categoryQueryContainer;
+        $this->nodeUrlManager = $nodeUrlManager;
     }
 
     /**

@@ -14,6 +14,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
+use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 
 class CategoryHierarchyImporter extends AbstractImporter
 {
@@ -43,22 +44,18 @@ class CategoryHierarchyImporter extends AbstractImporter
     protected $defaultRootNode;
 
     /**
+     * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Pyz\Zed\Category\Business\CategoryFacadeInterface $categoryFacade
-     *
-     * @return void
-     */
-    public function setCategoryFacade(CategoryFacadeInterface $categoryFacade)
-    {
-        $this->categoryFacade = $categoryFacade;
-    }
-
-    /**
      * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
-     *
-     * @return void
      */
-    public function setCategoryQueryContainer(CategoryQueryContainerInterface $categoryQueryContainer)
-    {
+    public function __construct(
+        LocaleFacadeInterface $localeFacade,
+        CategoryFacadeInterface $categoryFacade,
+        CategoryQueryContainerInterface $categoryQueryContainer
+    ) {
+        parent::__construct($localeFacade);
+        $this->localeFacade = $localeFacade;
+        $this->categoryFacade = $categoryFacade;
         $this->categoryQueryContainer = $categoryQueryContainer;
     }
 

@@ -108,83 +108,33 @@ class CmsBlockImporter extends AbstractImporter
     ];
 
     /**
-     * @param \Spryker\Zed\Cms\Persistence\CmsQueryContainerInterface $cmsQueryContainer
-     *
-     * @return void
-     */
-    public function setCmsQueryContainer(CmsQueryContainerInterface $cmsQueryContainer)
-    {
-        $this->cmsQueryContainer = $cmsQueryContainer;
-    }
-
-    /**
-     * @param \Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface $glossaryFacade
-     *
-     * @return void
-     */
-    public function setGlossaryFacade(CmsToGlossaryInterface $glossaryFacade)
-    {
-        $this->glossaryFacade = $glossaryFacade;
-    }
-
-    /**
-     * @param \Spryker\Zed\Cms\Dependency\Facade\CmsToUrlInterface $urlFacade
-     *
-     * @return void
-     */
-    public function setUrlFacade(CmsToUrlInterface $urlFacade)
-    {
-        $this->urlFacade = $urlFacade;
-    }
-
-    /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
-     *
-     * @return void
-     */
-    public function setLocaleFacade(LocaleFacadeInterface $localeFacade)
-    {
-        $this->localeFacade = $localeFacade;
-    }
-
-    /**
      * @param \Spryker\Zed\Cms\Business\Block\BlockManagerInterface $blockManager
-     *
-     * @return void
-     */
-    public function setBlockManager(BlockManagerInterface $blockManager)
-    {
-        $this->blockManager = $blockManager;
-    }
-
-    /**
      * @param \Spryker\Zed\Cms\Business\Page\PageManagerInterface $pageManager
-     *
-     * @return void
-     */
-    public function setPageManager(PageManagerInterface $pageManager)
-    {
-        $this->pageManager = $pageManager;
-    }
-
-    /**
-     * @param \Spryker\Zed\Cms\Business\Template\TemplateManagerInterface $templateManager
-     *
-     * @return void
-     */
-    public function setTemplateManager(TemplateManagerInterface $templateManager)
-    {
-        $this->templateManager = $templateManager;
-    }
-
-    /**
      * @param \Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface $keyMappingManager
-     *
-     * @return void
+     * @param \Spryker\Zed\Cms\Business\Template\TemplateManagerInterface $templateManager
+     * @param \Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface $glossaryFacade
+     * @param \Spryker\Zed\Cms\Dependency\Facade\CmsToUrlInterface $urlFacade
+     * @param \Spryker\Zed\Cms\Persistence\CmsQueryContainerInterface $cmsQueryContainer
      */
-    public function setKeyMappingManager(GlossaryKeyMappingManagerInterface $keyMappingManager)
-    {
+    public function __construct(
+        LocaleFacadeInterface $localeFacade,
+        BlockManagerInterface $blockManager,
+        PageManagerInterface $pageManager,
+        GlossaryKeyMappingManagerInterface $keyMappingManager,
+        TemplateManagerInterface $templateManager,
+        CmsToGlossaryInterface $glossaryFacade,
+        CmsToUrlInterface $urlFacade,
+        CmsQueryContainerInterface $cmsQueryContainer
+    ) {
+        parent::__construct($localeFacade);
+        $this->blockManager = $blockManager;
+        $this->pageManager = $pageManager;
         $this->keyMappingManager = $keyMappingManager;
+        $this->templateManager = $templateManager;
+        $this->glossaryFacade = $glossaryFacade;
+        $this->urlFacade = $urlFacade;
+        $this->cmsQueryContainer =  $cmsQueryContainer;
     }
 
     /**

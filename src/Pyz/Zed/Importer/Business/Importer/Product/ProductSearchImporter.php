@@ -10,9 +10,9 @@ namespace Pyz\Zed\Importer\Business\Importer\Product;
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
 use Orm\Zed\Product\Persistence\SpyProductAttributesMetadataQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
+use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
 use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class ProductSearchImporter extends AbstractImporter
 {
@@ -31,23 +31,18 @@ class ProductSearchImporter extends AbstractImporter
     protected $productSearchFacade;
 
     /**
-     * @param \Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface $operationManager
-     *
-     * @return void
-     */
-    public function setOperationManager(OperationManagerInterface $operationManager)
-    {
-        $this->operationManager = $operationManager;
-    }
-
-    /**
+     * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface $productSearchFacade
-     *
-     * @return void
+     * @param \Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface $operationManager
      */
-    public function setProductSearchFacade(ProductSearchFacadeInterface $productSearchFacade)
-    {
+    public function __construct(
+        LocaleFacadeInterface $localeFacade,
+        ProductSearchFacadeInterface $productSearchFacade,
+        OperationManagerInterface $operationManager
+    ) {
+        parent::__construct($localeFacade);
         $this->productSearchFacade = $productSearchFacade;
+        $this->operationManager = $operationManager;
     }
 
     /**

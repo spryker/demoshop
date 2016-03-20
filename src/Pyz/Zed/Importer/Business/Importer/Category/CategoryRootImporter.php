@@ -9,7 +9,6 @@ namespace Pyz\Zed\Importer\Business\Importer\Category;
 
 use Generated\Shared\Transfer\NodeTransfer;
 use Orm\Zed\Category\Persistence\SpyCategoryNodeQuery;
-use Pyz\Zed\Importer\ImporterConfig;
 use Spryker\Shared\Category\CategoryConstants;
 
 class CategoryRootImporter extends CategoryImporter

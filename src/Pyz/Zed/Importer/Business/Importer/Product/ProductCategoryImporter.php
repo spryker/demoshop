@@ -9,14 +9,11 @@ namespace Pyz\Zed\Importer\Business\Importer\Product;
 
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery;
-use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
-use Spryker\Zed\ProductCategory\Business\ProductCategoryFacadeInterface;
-use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface;
-use Spryker\Zed\Product\Business\ProductFacadeInterface;
+use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
 use Spryker\Zed\Touch\Business\TouchFacadeInterface;
 
@@ -27,11 +24,6 @@ class ProductCategoryImporter extends AbstractImporter
     const PRODUCT_ID = 'product_id';
     const VARIANT_ID = 'variant_id';
     const CATEGORY_KEY = 'category_key';
-
-    /**
-     * @var \Pyz\Zed\Category\Business\CategoryFacadeInterface
-     */
-    protected $categoryFacade;
 
     /**
      * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
@@ -47,16 +39,6 @@ class ProductCategoryImporter extends AbstractImporter
      * @var \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface
      */
     protected $productQueryContainer;
-
-    /**
-     * @var \Spryker\Zed\ProductCategory\Business\ProductCategoryFacadeInterface
-     */
-    protected $productCategoryFacade;
-
-    /**
-     * @var \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface
-     */
-    protected $productCategoryQueryContainer;
 
     /**
      * @var \Spryker\Zed\Touch\Business\TouchFacadeInterface
@@ -79,73 +61,21 @@ class ProductCategoryImporter extends AbstractImporter
     protected $defaultRootNode;
 
     /**
-     * @param \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface $productCategoryQueryContainer
-     *
-     * @return void
-     */
-    public function setProductCategoryQueryContainer(ProductCategoryQueryContainerInterface $productCategoryQueryContainer)
-    {
-        $this->productCategoryQueryContainer = $productCategoryQueryContainer;
-    }
-
-    /**
-     * @param \Pyz\Zed\Category\Business\CategoryFacadeInterface $categoryFacade
-     *
-     * @return void
-     */
-    public function setCategoryFacade(CategoryFacadeInterface $categoryFacade)
-    {
-        $this->categoryFacade = $categoryFacade;
-    }
-
-    /**
-     * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
-     *
-     * @return void
-     */
-    public function setCategoryQueryContainer(CategoryQueryContainerInterface $categoryQueryContainer)
-    {
-        $this->categoryQueryContainer = $categoryQueryContainer;
-    }
-
-    /**
-     * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
-     *
-     * @return void
-     */
-    public function setProductFacade(ProductFacadeInterface $productFacade)
-    {
-        $this->productFacade = $productFacade;
-    }
-
-    /**
-     * @param \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface $productQueryContainer
-     *
-     * @return void
-     */
-    public function setProductQueryContainer(ProductQueryContainerInterface $productQueryContainer)
-    {
-        $this->productQueryContainer = $productQueryContainer;
-    }
-
-    /**
-     * @param \Spryker\Zed\ProductCategory\Business\ProductCategoryFacadeInterface $productCategoryFacade
-     *
-     * @return void
-     */
-    public function setProductCategoryFacade(ProductCategoryFacadeInterface $productCategoryFacade)
-    {
-        $this->productCategoryFacade = $productCategoryFacade;
-    }
-
-    /**
+     * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Spryker\Zed\Touch\Business\TouchFacadeInterface $touchFacade
-     *
-     * @return void
+     * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
      */
-    public function setTouchFacade(TouchFacadeInterface $touchFacade)
-    {
+    public function __construct(
+        LocaleFacadeInterface $localeFacade,
+        TouchFacadeInterface $touchFacade,
+        CategoryQueryContainerInterface $categoryQueryContainer,
+        ProductQueryContainerInterface $productQueryContainer
+    ) {
+        parent::__construct($localeFacade);
+        $this->localeFacade = $localeFacade;
         $this->touchFacade = $touchFacade;
+        $this->categoryQueryContainer = $categoryQueryContainer;
+        $this->productQueryContainer = $productQueryContainer;
     }
 
     /**

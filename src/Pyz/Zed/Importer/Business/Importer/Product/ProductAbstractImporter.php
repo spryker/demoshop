@@ -16,7 +16,6 @@ use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Yaml\Yaml;
 
@@ -73,32 +72,20 @@ class ProductAbstractImporter extends AbstractImporter
 
     /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
+     * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
+     * @param \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface $attributeManager
      * @param string $dataDirectory
      */
-    public function __construct(LocaleFacadeInterface $localeFacade, $dataDirectory)
-    {
+    public function __construct(
+        LocaleFacadeInterface $localeFacade,
+        ProductFacadeInterface $productFacade,
+        AttributeManagerInterface $attributeManager,
+        $dataDirectory
+    ) {
         parent::__construct($localeFacade);
-        $this->dataDirectory = $dataDirectory;
-    }
-
-    /**
-     * @param \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface $attributeManager
-     *
-     * @return void
-     */
-    public function setAttributeManager(AttributeManagerInterface $attributeManager)
-    {
-        $this->attributeManager = $attributeManager;
-    }
-
-    /**
-     * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
-     *
-     * @return void
-     */
-    public function setProductFacade(ProductFacadeInterface $productFacade)
-    {
         $this->productFacade = $productFacade;
+        $this->attributeManager = $attributeManager;
+        $this->dataDirectory = $dataDirectory;
     }
 
     /**
