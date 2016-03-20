@@ -7,12 +7,12 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
-use Everon\Component\Collection\Collection;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryTableMap;
 use Orm\Zed\Category\Persistence\SpyCategoryNode;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\Collector\CollectorConfig;
+use Spryker\Shared\Library\Collection\Collection;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;

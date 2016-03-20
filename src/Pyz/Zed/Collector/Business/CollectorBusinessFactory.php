@@ -7,9 +7,6 @@
 
 namespace Pyz\Zed\Collector\Business;
 
-use Everon\Component\CriteriaBuilder\CriteriaBuilderFactoryWorker;
-use Everon\Component\Factory\Dependency\Container as CriteriaBuilderDependencyContainer;
-use Everon\Component\Factory\Factory as CriteriaBuilderFactory;
 use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector;
 use Pyz\Zed\Collector\Business\Storage\BlockCollector;
 use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector;
@@ -20,11 +17,13 @@ use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
 use Pyz\Zed\Collector\Business\Storage\TranslationCollector;
 use Pyz\Zed\Collector\Business\Storage\UrlCollector;
 use Pyz\Zed\Collector\CollectorDependencyProvider;
-use Pyz\Zed\Collector\Persistence\Search\Propel\ProductCollectorQuery as SearchProductCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\BlockCollectorQuery as StorageBlockCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\PageCollectorQuery as StoragePageCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\RedirectCollectorQuery as StorageRedirectCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\TranslationCollectorQuery as StorageTranslationCollectorPropelQuery;
+use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderDependencyContainer;
+use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderFactory;
+use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderFactoryWorker;
 use Spryker\Zed\Collector\Business\CollectorBusinessFactory as SprykerCollectorBusinessFactory;
 
 /**
@@ -281,17 +280,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Collector\Persistence\Search\Propel\ProductCollectorQuery
-     */
-    public function createSearchProductCollectorPropelQuery()
-    {
-        return new SearchProductCollectorPropelQuery(
-            $this->getCategoryQueryContainer()
-        );
-    }
-
-    /**
-     * @return \Everon\Component\CriteriaBuilder\CriteriaBuilderInterface
+     * @return \Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderInterface
      */
     protected function createCriteriaBuilder()
     {
@@ -303,14 +292,14 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             return $factory->buildWorker(CriteriaBuilderFactoryWorker::class);
         });
 
-        /* @var \Everon\Component\CriteriaBuilder\CriteriaBuilderFactoryWorkerInterface $factoryWorker */
+        /* @var \Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderFactoryWorkerInterface $factoryWorker */
         $factoryWorker = $factory->getWorkerByName('CriteriaBuilderFactoryWorker');
 
         return $factoryWorker->buildCriteriaBuilder();
     }
 
     /**
-     * @return \Everon\Component\Factory\Dependency\Container
+     * @return \Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderDependencyContainer
      */
     protected function createCriteriaBuilderContainer()
     {
