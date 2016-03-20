@@ -137,7 +137,7 @@ class ProductPriceImporter extends AbstractImporter
     protected function getPriceTypeEntity($priceType)
     {
         $priceTypeEntity = null;
-        
+
         if (!$this->cachePriceType->has($priceType)) {
             $priceTypeEntity = $this->priceQueryContainer
                 ->queryPriceType($priceType)

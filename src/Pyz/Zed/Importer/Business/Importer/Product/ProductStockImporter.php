@@ -12,7 +12,6 @@ use Generated\Shared\Transfer\TypeTransfer;
 use Orm\Zed\Stock\Persistence\Base\SpyStockQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Shared\Library\Collection\Collection;
-use Spryker\Shared\Library\Collection\CollectionInterface;
 use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
@@ -50,7 +49,7 @@ class ProductStockImporter extends AbstractImporter
     protected $stockFacade;
 
     /**
-     * @var CollectionInterface
+     * @var \Spryker\Shared\Library\Collection\CollectionInterface
      */
     protected $stockTypeCache;
 
@@ -103,24 +102,22 @@ class ProductStockImporter extends AbstractImporter
     {
         $product = $this->format($data);
         $stock = $this->getStockValue();
+        $stock[self::SKU] .=  '-1';
 
-        $productConcrete = $this->productQueryContainer
-            ->queryProductConcreteBySku($stock[self::SKU])
-            ->findOne();
-
-        if (!$productConcrete) {
+        if ($this->hasVariants($data[self::VARIANT_ID])) {
             return;
         }
 
-        if ($productConcrete->getSku() !== $stock[self::SKU]) {
-            throw new \UnexpectedValueException(
-                sprintf(
-                    'Concrete SKU mismatch for product concrete: "%d". Product sku: "%s" and stock sku "%s"',
-                    $productConcrete->getIdProduct(),
-                    $product[self::SKU],
-                    $stock[self::SKU]
-                )
-            );
+        try {
+            $productConcrete = $this->productQueryContainer
+                ->queryProductConcreteBySku($stock[self::SKU])
+                ->findOne();
+        } catch (\Exception $e) {
+            $productConcrete = null;
+        }
+
+        if (!$productConcrete) {
+            return;
         }
 
         $stockType = $this->createStockTypeOnce($stock);

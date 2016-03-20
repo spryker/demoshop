@@ -107,7 +107,6 @@ class ProductTaxImporter extends AbstractImporter
             ->findOne();
 
         if (!$productAbstract) {
-            dump('product abstract not found: ' . $tax[self::SKU]);
             return;
         }
 
