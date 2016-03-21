@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="utf-8" />
-    <title>{{ page_title | default('Spryker Demoshop') | trans }}</title>
+    <title>{% block page_title %}{{ page_title | default('Spryker Demoshop') | trans }}{% endblock %}</title>
     <meta name="description" content="{{ page_description | default('') | trans }}" />
     <meta name="keywords" content="{{ page_keywords | default('') | trans }}" />
     <meta name="viewport" content="width=device-width, user-scalable=no" />

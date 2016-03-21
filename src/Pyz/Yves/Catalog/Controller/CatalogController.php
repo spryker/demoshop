@@ -90,23 +90,6 @@ class CatalogController extends AbstractController
     }
 
     /**
-     * @param \Spryker\Shared\Library\Currency\CurrencyManager $currencyManager
-     * @param array $products
-     *
-     * @return array
-     */
-    private function formatValidProductPrices(CurrencyManager $currencyManager, array $products)
-    {
-        foreach ($products as &$product) {
-            $product['formatted_valid_price'] = $currencyManager->format(
-                $currencyManager->convertCentToDecimal($product['valid_price'])
-            );
-        }
-
-        return $products;
-    }
-
-    /**
      * @param array $searchResults
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
@@ -117,6 +100,23 @@ class CatalogController extends AbstractController
         $searchResults['products'] = $this->formatValidProductPrices($currencyManager, $searchResults['products']);
 
         return $this->jsonResponse($searchResults);
+    }
+
+    /**
+     * @param \Spryker\Shared\Library\Currency\CurrencyManager $currencyManager
+     * @param array $products
+     *
+     * @return array
+     */
+    protected function formatValidProductPrices(CurrencyManager $currencyManager, array $products)
+    {
+        foreach ($products as &$product) {
+            $product['formatted_price'] = $currencyManager->format(
+                $currencyManager->convertCentToDecimal($product['price'])
+            );
+        }
+
+        return $products;
     }
 
 }

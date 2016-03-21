@@ -66,34 +66,6 @@ class NavigationCollector extends CategoryNodeCollector
     }
 
     /**
-     * @param string $touchKey
-     * @param array $collectItemData
-     *
-     * @return array
-     */
-    protected function collectItem($touchKey, array $collectItemData)
-    {
-        return $this->formatCategoryNode($collectItemData);
-    }
-
-    /**
-     * @param array $collectItemData
-     *
-     * @return array
-     */
-    protected function formatCategoryNode(array $collectItemData)
-    {
-        return [
-            'node_id' => $collectItemData['id_category_node'],
-            'name' => $collectItemData['name'],
-            'url' => $collectItemData['url'],
-            'image' => $collectItemData['category_image_name'],
-            'children' => $collectItemData['children'],
-            'parents' => $collectItemData['parents'],
-        ];
-    }
-
-    /**
      * @return string
      */
     protected function collectResourceType()

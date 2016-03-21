@@ -32,7 +32,10 @@
         </section>
 
         <header class="catalog__summary">
-            <div class="summary__total-count"><span class="amount">{{ numFound }}</span> {{ "catalog.itemsFound"|trans }}</div>
+            <div class="summary__total-count">
+                <span class="amount">{{ numFound }}</span>
+                {{ "catalog.itemsFound"|trans }}
+            </div>
             <div class="ui-helper-hidden pagination-max-page">{{ maxPage }}</div>
             <div class="summary__sorting">
                 {{ "catalog.sort"|trans }}
@@ -54,7 +57,12 @@
         <div class="catalog__products-holder js-products-holder">
             <section class="catalog__products js-products-current">
                 {% for product in products %}
-                    {% include "@catalog/catalog/partials/product.twig" with {detailsUrl: product.url, imageUrl: product.abstract_attributes.image_url, name: product.abstract_name, priceValue: product.valid_price} %}
+                    {% include "@catalog/catalog/partials/product.twig" with {
+                        detailsUrl: product.url,
+                        name: product.abstract_name,
+                        priceValue: product.price,
+                        imageUrl: product.abstract_attributes.image_small
+                    } %}
                 {% endfor %}
             </section>
             <div class="catalog__loading-text">{{ "catalog.loading"|trans }}</div>
