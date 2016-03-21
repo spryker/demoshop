@@ -71,6 +71,8 @@ function installDemoshop {
 
     updateComposer
 
+    $PHP composer.phar install
+
     resetDataStores
 
     dropDevelopmentDatabase $DATABASE_NAME
