@@ -25,11 +25,16 @@ class ProductSearchProcessor extends CoreProductSearchProcessor
 
         $attributes = $this->getProductAttributes($productData);
 
-        $baseProduct['search-result-data']['image_url'] = $attributes['image_url'];
-        $baseProduct['search-result-data']['thumbnail_url'] = $attributes['thumbnail_url'];
+        $baseProduct['search-result-data']['image_url'] = $attributes['image_big'];
+        $baseProduct['search-result-data']['thumbnail_url'] = $attributes['image_small'];
 
-        $baseProduct['search-result-data']['price'] = $attributes['price'];
-        $baseProduct['integer-sort']['price'] = $attributes['price'];
+        $baseProduct['search-result-data']['price'] = $productData['price'];
+        $baseProduct['integer-sort']['price'] = $productData['price'];
+
+        $baseProduct['integer-facet'][] = [
+            'facet-name' => 'price',
+            'facet-value' => $productData['price'],
+        ];
 
         return $baseProduct;
     }

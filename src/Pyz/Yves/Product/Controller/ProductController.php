@@ -20,10 +20,14 @@ class ProductController extends AbstractController
      */
     public function detailAction(ProductAbstractInterface $product)
     {
-        return [
+        $categories = $product->getCategory();
+
+        $productData = [
             'product' => $product,
-            'category' => count($product->getCategory()) ? current($product->getCategory()) : null,
+            'category' => count($categories) ? end($categories) : null,
         ];
+
+        return $productData;
     }
 
 }

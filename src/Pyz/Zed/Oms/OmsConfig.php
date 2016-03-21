@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\Oms;
 
-use Generated\Shared\Transfer\OrderTransfer;
 use Spryker\Zed\Oms\OmsConfig as SprykerOmsConfig;
 
 class OmsConfig extends SprykerOmsConfig

@@ -26,6 +26,7 @@ class ProfileController extends AbstractCustomerController
     {
         $profileForm = $this
             ->getFactory()
+            ->getCustomerFormFactory()
             ->createProfileForm()
             ->handleRequest($request);
 
@@ -39,6 +40,7 @@ class ProfileController extends AbstractCustomerController
 
         $passwordForm = $this
             ->getFactory()
+            ->getCustomerFormFactory()
             ->createPasswordForm()
             ->handleRequest($request);
 

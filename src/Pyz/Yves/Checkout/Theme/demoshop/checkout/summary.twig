@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row cms-page checkout-summary">
         <div class="col-xs-12 col-md-12">
-            <h1>Summary</h1>
+            <h1>{{ 'checkout.step.summary.title' | trans }}</h1>
         </div>
 
         <div class="col-xs-12 col-md-12 col-lg-12">
@@ -65,7 +65,7 @@
         </div>
 
         {{ form(summaryForm, { 'attr': { 'class': 'form-horizontal checkout-form' }}) }}
-        <a href="{{ previousStepUrl }}">Back</a>
+        <a href="{{ previousStepUrl }}">{{ 'general.back.button' | trans }}</a>
     </div>
 </div>
 {% endblock %}

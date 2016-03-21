@@ -4,20 +4,20 @@
 <div class="container">
     <div class="row cms-page">
         <div class="col-xs-12 col-md-6">
-            <h2>{{ 'checkout.customer.login' | trans }}</h2>
+            <h2>{{ 'customer.login' | trans }}</h2>
             {% include "@Customer/auth/partials/login-form.twig" with {'form': loginForm} %}
         </div>
 
         <div class="col-xs-12 col-md-6">
             <div>
                 <input id="register" class="customer-option" type="radio" name="customer" value="register" checked>
-                <label for="register">Proceed as a registered user (sign up)</label>
+                <label for="register">{{ 'checkout.customer.proceed_as_user' | trans }}</label>
                 <br>
                 <input id="guest" class="customer-option" type="radio" name="customer" value="guest">
-                <label for="guest">Proceed as a guest user</label>
+                <label for="guest">{{ 'checkout.customer.proceed_as_guest' | trans }}</label>
             </div>
             <div class="customer-selection customer-selection-register show">
-                <h2>{{ 'checkout.customer.register' | trans }}</h2>
+                <h2>{{ 'customer.register' | trans }}</h2>
                 {{ form_start(registerForm, { 'attr': { 'class': 'form-horizontal checkout-form' }}) }}
                     {% include '@Customer/register/partials/register-form-body.twig' with {'form': registerForm.customer} %}
                 {{ form_end(registerForm) }}

@@ -10,7 +10,6 @@ namespace Pyz\Yves\Catalog\Plugin\Router;
 use Spryker\Yves\Application\Routing\AbstractRouter;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\RouteNameResolver;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
@@ -19,6 +18,8 @@ use Symfony\Component\Routing\Exception\RouteNotFoundException;
  */
 class SearchRouter extends AbstractRouter
 {
+
+    const PARAMETER_PAGE = 'page';
 
     /**
      * {@inheritdoc}
@@ -29,14 +30,11 @@ class SearchRouter extends AbstractRouter
             $request = $this->getRequest();
             $requestParameters = $request->query->all();
             //if no page is provided we generate a url to change the filter and therefore want to reset the page
-            //TODO @see Spryker\Yves\Catalog\Business\Model\AbstractSearch Line 77
-            //     same todo to put parameter name into constant
-            if (!isset($parameters['page']) && isset($requestParameters['page'])) {
-                unset($requestParameters['page']);
+            if (!isset($parameters[self::PARAMETER_PAGE]) && isset($requestParameters[self::PARAMETER_PAGE])) {
+                unset($requestParameters[self::PARAMETER_PAGE]);
             }
-            $pathInfo = $this->getUrlMapper()->generateUrlFromParameters(
-                $this->getUrlMapper()->mergeParameters($requestParameters, $parameters)
-            );
+            $mergedParameters = $this->getUrlMapperPlugin()->mergeParameters($requestParameters, $parameters);
+            $pathInfo = $this->getUrlMapperPlugin()->generateUrlFromParameters($mergedParameters);
             $pathInfo = $name . $pathInfo;
 
             return $this->getUrlOrPathForType($pathInfo, $referenceType);
@@ -51,7 +49,7 @@ class SearchRouter extends AbstractRouter
     {
         if ($pathinfo === '/search') {
             $request = $this->getRequest();
-            $this->getUrlMapper()->injectParametersFromUrlIntoRequest($pathinfo, $request);
+            $this->getUrlMapperPlugin()->injectParametersFromUrlIntoRequest($pathinfo, $request);
 
             $bundleControllerAction = new BundleControllerAction('Catalog', 'Catalog', 'fulltextSearch');
             $routeResolver = new RouteNameResolver('catalog');
@@ -67,11 +65,11 @@ class SearchRouter extends AbstractRouter
     }
 
     /**
-     * @return \Pyz\Yves\Collector\Mapper\UrlMapperInterface
+     * @return \Pyz\Yves\Collector\Plugin\UrlMapperPlugin
      */
-    private function getUrlMapper()
+    private function getUrlMapperPlugin()
     {
-        return $this->getFactory()->createUrlMapper();
+        return $this->getFactory()->createUrlMapperPlugin();
     }
 
     /**

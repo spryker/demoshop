@@ -85,6 +85,10 @@ class CategoryNodeCollector extends AbstractStoragePdoCollector
             'image' => $collectItemData['category_image_name'],
             'children' => $collectItemData['children'],
             'parents' => $collectItemData['parents'],
+            'order' => $collectItemData['node_order'],
+            'meta_title' => $collectItemData['meta_title'],
+            'meta_description' => $collectItemData['meta_description'],
+            'meta_keywords' => $collectItemData['meta_keywords'],
         ];
     }
 

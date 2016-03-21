@@ -22,12 +22,16 @@ SELECT
   spy_product.id_product AS id_product,
   spy_product_abstract.sku AS abstract_sku,
   spy_product_abstract_localized_attributes.name AS abstract_name,
+  spy_product_abstract.attributes AS abstract_attributes,
   spy_url.url AS abstract_url,
   spy_product_abstract_localized_attributes.attributes AS abstract_localized_attributes,
   abstract_price.price AS abstract_price,
   spy_product.attributes AS concrete_attributes,
   spy_product_localized_attributes.attributes AS concrete_localized_attributes,
   spy_product.sku AS sku,
+  (SELECT SUM(spy_stock_product.quantity)
+    FROM spy_stock_product
+    WHERE spy_stock_product.fk_product = spy_product.id_product) AS quantity,
   t.id_touch AS %s,
   t.item_id AS %s,
   spy_touch_storage.id_touch_storage AS %s

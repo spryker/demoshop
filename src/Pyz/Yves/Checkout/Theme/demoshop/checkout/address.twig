@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container">
 	<div class="row cms-page">
-		<h1>Address</h1>
+		<h1>{{ 'checkout.step.address.title' | trans }}</h1>
 
 		<div class="col-xs-12">
 			{{ form_start(addressesForm, { 'attr': { 'class': 'form-horizontal checkout-form' }}) }}
@@ -11,9 +11,9 @@
 			{% if addressesForm.shippingAddress.id_customer_address is defined %}
 			<div class="row">
 		    	<div class="col-xs-12 col-md-6 address-user-shipping">
-		    		<label>{{ 'customer.shippingAddress.id_customer_address' | trans }}</label>
+		    		<label>{{ 'checkout.step.address.select_shipping' | trans }}</label>
 					<div class="field">
-					    {{ form_widget(addressesForm.shippingAddress.id_customer_address, { 'attr': {'placeholder': addressesForm.shippingAddress.id_customer_address.vars.label | trans } }) }}
+					    {{ form_widget(addressesForm.shippingAddress.id_customer_address) }}
 					    {{ form_errors(addressesForm.shippingAddress.id_customer_address) }}
 					</div>
 				</div>
@@ -95,7 +95,7 @@
 			{% if addressesForm.billingAddress.id_customer_address is defined %}
 			<div class="row address-user-billing">
 				<div class="col-xs-12 col-md-6">
-			    	<label>{{ 'customer.billingAddress.id_customer_address' | trans }}</label>
+			    	<label>{{ 'checkout.step.address.select_billing' | trans }}</label>
 					<div class="field">
 					    {{ form_widget(addressesForm.billingAddress.id_customer_address, { 'attr': {'placeholder': addressesForm.billingAddress.id_customer_address.vars.label | trans } }) }}
 					    {{ form_errors(addressesForm.billingAddress.id_customer_address) }}

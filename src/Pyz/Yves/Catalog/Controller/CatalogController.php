@@ -37,16 +37,22 @@ class CatalogController extends AbstractController
             ->createCategoryExporterClient()
             ->getTreeFromCategoryNode($categoryNode, $this->getLocale());
 
-        $searchResults = array_merge($search->getResult(), ['category' => $categoryNode, 'categoryTree' => $categoryTree]);
+        $searchResults = array_merge(
+            $search->getResult(),
+            [
+                'category' => $categoryNode,
+                'categoryTree' => $categoryTree,
+                'page_title' => $categoryNode['meta_title'],
+                'page_description' => $categoryNode['meta_description'],
+                'page_keywords' => $categoryNode['meta_keywords'],
+            ]
+        );
 
         if ($request->isXmlHttpRequest()) {
-            $currencyManager = CurrencyManager::getInstance();
-            $searchResults['products'] = $this->formatValidProductPrices($currencyManager, $searchResults['products']);
-
-            return $this->jsonResponse($searchResults);
+            return $this->formatJsonResponse($searchResults);
         }
 
-        return $searchResults;
+        return $this->viewResponse($searchResults);
     }
 
     /**
@@ -65,10 +71,10 @@ class CatalogController extends AbstractController
         $searchResults = array_merge($search->getResult(), ['searchString' => $request->query->get('q')]);
 
         if ($request->isXmlHttpRequest()) {
-            return $this->jsonResponse($searchResults);
+            return $this->formatJsonResponse($searchResults);
         }
 
-        return $searchResults;
+        return $this->viewResponse($searchResults);
     }
 
     /**
@@ -84,16 +90,29 @@ class CatalogController extends AbstractController
     }
 
     /**
+     * @param array $searchResults
+     *
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
+    protected function formatJsonResponse(array $searchResults)
+    {
+        $currencyManager = CurrencyManager::getInstance();
+        $searchResults['products'] = $this->formatValidProductPrices($currencyManager, $searchResults['products']);
+
+        return $this->jsonResponse($searchResults);
+    }
+
+    /**
      * @param \Spryker\Shared\Library\Currency\CurrencyManager $currencyManager
      * @param array $products
      *
      * @return array
      */
-    private function formatValidProductPrices(CurrencyManager $currencyManager, array $products)
+    protected function formatValidProductPrices(CurrencyManager $currencyManager, array $products)
     {
         foreach ($products as &$product) {
-            $product['formatted_valid_price'] = $currencyManager->format(
-                $currencyManager->convertCentToDecimal($product['valid_price'])
+            $product['formatted_price'] = $currencyManager->format(
+                $currencyManager->convertCentToDecimal($product['price'])
             );
         }
 

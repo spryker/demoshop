@@ -9,44 +9,35 @@ namespace Pyz\Zed\Collector\Business\Search;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Zed\Collector\CollectorConfig;
-use Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 use Spryker\Shared\Product\ProductConstants;
-use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPdoCollector;
 use Spryker\Zed\Collector\Business\Exporter\Writer\Storage\TouchUpdaterSet;
-use Spryker\Zed\Price\Persistence\PriceQueryContainerInterface;
+use Spryker\Zed\Price\Business\PriceFacadeInterface;
+use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 
 class ProductCollector extends AbstractSearchPdoCollector
 {
 
     /**
-     * @var \Spryker\Zed\Price\Persistence\PriceQueryContainerInterface
-     */
-    protected $priceQueryContainer;
-
-    /**
-     * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
-     */
-    protected $categoryQueryContainer;
-
-    /**
-     * @var \Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface
+     * @var \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface
      */
     protected $productSearchFacade;
 
     /**
-     * @param \Spryker\Zed\Price\Persistence\PriceQueryContainerInterface $priceQueryContainer
-     * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
-     * @param \Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface $productSearchFacade
+     * @var \Spryker\Zed\Price\Business\PriceFacadeInterface
+     */
+    protected $priceFacade;
+
+    /**
+     * @param \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface $productSearchFacade
+     * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
      */
     public function __construct(
-        PriceQueryContainerInterface $priceQueryContainer,
-        CategoryQueryContainerInterface $categoryQueryContainer,
-        ProductSearchFacadeInterface $productSearchFacade
+        ProductSearchFacadeInterface $productSearchFacade,
+        PriceFacadeInterface $priceFacade
     ) {
-        $this->priceQueryContainer = $priceQueryContainer;
-        $this->categoryQueryContainer = $categoryQueryContainer;
         $this->productSearchFacade = $productSearchFacade;
+        $this->priceFacade = $priceFacade;
     }
 
     /**
@@ -57,7 +48,19 @@ class ProductCollector extends AbstractSearchPdoCollector
      */
     protected function collectItem($touchKey, array $collectItemData)
     {
+        $collectItemData['price'] = $this->getPriceBySku($collectItemData['abstract_sku']);
+
         return $collectItemData;
+    }
+
+    /**
+     * @param string $sku
+     *
+     * @return int
+     */
+    protected function getPriceBySku($sku)
+    {
+        return $this->priceFacade->getPriceBySku($sku);
     }
 
     /**
@@ -77,9 +80,9 @@ class ProductCollector extends AbstractSearchPdoCollector
      */
     protected function collectData(array $collectedSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
     {
-        $collectedSet = $this->processData($collectedSet, $locale);
+        $collectedSet = parent::collectData($collectedSet, $locale, $touchUpdaterSet);
 
-        return parent::collectData($collectedSet, $locale, $touchUpdaterSet);
+        return $this->processData($collectedSet, $locale);
     }
 
     /**
@@ -98,26 +101,16 @@ class ProductCollector extends AbstractSearchPdoCollector
         );
 
         foreach ($resultSet as $index => $productRawData) {
-            if (isset($processedResultSet[$index])) {
-                // Product availability
-                $processedResultSet[$index]['available'] = $productRawData['quantity'] > 0;
-                $isAvailable = (bool)(
-                    $productRawData['is_never_out_of_stock'] ||
-                    $productRawData['quantity'] > 0
-                );
-                $processedResultSet[$index]['search-result-data']['available'] = $isAvailable;
-                $processedResultSet[$index]['bool-facet']['available'] = $isAvailable;
-
-                // Category
-                $processedResultSet[$index]['category'] = [
-                    'direct-parents' => explode(',', $productRawData['node_id']),
-                    'all-parents' => explode(',', $productRawData['category_parent_ids']),
-                ];
-
-                $processedResultSet[$index][CollectorConfig::COLLECTOR_TOUCH_ID] = $productRawData[CollectorConfig::COLLECTOR_TOUCH_ID];
-                $processedResultSet[$index][CollectorConfig::COLLECTOR_RESOURCE_ID] = $productRawData[CollectorConfig::COLLECTOR_RESOURCE_ID];
-                $processedResultSet[$index][CollectorConfig::COLLECTOR_SEARCH_KEY] = $productRawData[CollectorConfig::COLLECTOR_SEARCH_KEY];
+            if (!isset($processedResultSet[$index])) {
+                continue;
             }
+
+            $processedResultSet = $this->processAvailability($productRawData, $processedResultSet, $index);
+            $processedResultSet = $this->processCategory($productRawData, $processedResultSet, $index);
+
+            $processedResultSet[$index][CollectorConfig::COLLECTOR_TOUCH_ID] = $productRawData[CollectorConfig::COLLECTOR_TOUCH_ID];
+            $processedResultSet[$index][CollectorConfig::COLLECTOR_RESOURCE_ID] = $productRawData[CollectorConfig::COLLECTOR_RESOURCE_ID];
+            $processedResultSet[$index][CollectorConfig::COLLECTOR_SEARCH_KEY] = $productRawData[CollectorConfig::COLLECTOR_SEARCH_KEY];
         }
 
         return $processedResultSet;
@@ -137,6 +130,43 @@ class ProductCollector extends AbstractSearchPdoCollector
 
         $keys = array_keys($processedResultSet);
         $resultSet = array_combine($keys, $resultSet);
+
+        return $processedResultSet;
+    }
+
+    /**
+     * @param array $productRawData
+     * @param array $processedResultSet
+     * @param string $index
+     *
+     * @return array
+     */
+    protected function processAvailability(array $productRawData, array $processedResultSet, $index)
+    {
+        $processedResultSet[$index]['available'] = $productRawData['quantity'] > 0;
+        $isAvailable = (bool)(
+            $productRawData['is_never_out_of_stock'] ||
+            $productRawData['quantity'] > 0
+        );
+        $processedResultSet[$index]['search-result-data']['available'] = $isAvailable;
+        $processedResultSet[$index]['bool-facet']['available'] = $isAvailable;
+
+        return $processedResultSet;
+    }
+
+    /**
+     * @param array $productRawData
+     * @param array $processedResultSet
+     * @param string $index
+     *
+     * @return array
+     */
+    protected function processCategory(array $productRawData, array $processedResultSet, $index)
+    {
+        $processedResultSet[$index]['category'] = [
+            'direct-parents' => explode(',', $productRawData['node_id']),
+            'all-parents' => explode(',', $productRawData['category_parent_ids']),
+        ];
 
         return $processedResultSet;
     }

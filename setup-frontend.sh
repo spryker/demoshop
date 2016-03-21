@@ -15,8 +15,8 @@ if [[ `node -v | grep -E '^v[0-4]'` ]]; then
     sudo $NPM install -g n
     sudo n stable
 
-    successText "Node.js updated to version `node -v`"
-    successText "NPM updated to version `$NPM -v`"
+    successText "Node.js updated to version `node $VERBOSITY`"
+    successText "NPM updated to version `$NPM $VERBOSITY`"
 fi
 
 if [[ $RESET == 1 ]] || [[ ! -f $ANTELOPE_TOOL ]]; then
@@ -41,4 +41,3 @@ if [[ -f $ANTELOPE_TOOL ]]; then
     $ANTELOPE_TOOL build
 fi
 
-successText "Frontend setup completed successfully"
