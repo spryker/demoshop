@@ -1103,6 +1103,10 @@ newsletter.unsubscription.success:
   translations:
     en_US: 'You successfully unsubscribed from the newsletter'
     de_DE: 'Sie wurden erfolgreich für den Newsletter abgemeldet'
+newsletter.subscription.already_subscribed:
+  translations:
+    en_US: 'You are already subscribed for the newsletter'
+    de_DE: 'Sie sind bereits für den Newsleter angemeldet'
 customer.authentication.failed:
   translations:
     en_US: 'Authentication failed'
@@ -1207,3 +1211,15 @@ checkout.step.payment.no.birthdate.provided.error.message:
   translations:
     en_US: 'Please add your birthday. You must be at least 18 years old.'
     de_DE: 'Bitte geben Sie ihr Geburtsdatum ein. Sie müssen mindestens 18 Jahre alt sein.'
+validator.constraints.password.do_not_match:
+  translations:
+    en_US: "Passwords don't match"
+    de_DE: 'Passwörter stimmen nicht überein'
+discount.successfully.applied:
+  translations:
+    en_US: "The discount has been successfully applied"
+    de_DE: 'Der Rabatt wurde erfolgreich angewendet'
+customer.password.change.success:
+  translations:
+    en_US: "The password has been successfully changed"
+    de_DE: 'Das Kennwort wurde erfolgreich geändert'
