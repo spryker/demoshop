@@ -199,7 +199,7 @@ function resetYves {
 
 function displayHelp {
     labelText "Spryker VM Setup"
-    echo "./$(basename $0) [-h|--help] [-r|--reinstall] [-d|--delete]"
+    echo "./$(basename $0) [-h|--help] [-i|--install] [-r|--reset]"
     echo ""
     echo " "
     echo "  -r|--reset"
