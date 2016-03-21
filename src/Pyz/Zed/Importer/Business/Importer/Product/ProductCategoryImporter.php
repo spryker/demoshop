@@ -167,9 +167,6 @@ class ProductCategoryImporter extends AbstractImporter
      */
     protected function getIdNodeAndCategory($categoryKey)
     {
-        $idCategory = null;
-        $idNode = null;
-
         if (!$this->cacheCategories->has($categoryKey)) {
             $category = $this->getCategoryEntityByKey($categoryKey);
 
