@@ -120,11 +120,12 @@ class CategoryImporter extends AbstractImporter
         foreach ($this->localeFacade->getLocaleCollection() as $code => $localeTransfer) {
             $nameKey = 'category_name.' . $code;
             $descriptionKey = 'category_description.' . $code;
+            $imageKey = self::LOW_PIC . '.' . $code;
 
             $categoryData[$code] = [
                 CategoryTransfer::NAME => $data[$nameKey],
                 CategoryTransfer::CATEGORY_KEY => $data[self::UCATID],
-                CategoryTransfer::CATEGORY_IMAGE_NAME => $data[self::LOW_PIC],
+                CategoryTransfer::CATEGORY_IMAGE_NAME => $data[$imageKey],
                 CategoryTransfer::IS_ACTIVE => true,
                 CategoryTransfer::IS_CLICKABLE => true,
                 CategoryTransfer::IS_IN_MENU => true,

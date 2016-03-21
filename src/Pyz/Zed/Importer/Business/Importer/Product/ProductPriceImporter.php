@@ -123,6 +123,7 @@ class ProductPriceImporter extends AbstractImporter
         $entity
             ->setPrice($price[self::PRICE])
             ->setPriceType($priceType)
+            ->setFkProduct($productAbstract->getIdProductAbstract()) // FIXME: this shouldn't be necessary (price should come from abstract product if concrete doesn't has any
             ->setFkProductAbstract($productAbstract->getIdProductAbstract());
 
         $entity->save();

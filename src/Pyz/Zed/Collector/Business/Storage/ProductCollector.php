@@ -85,7 +85,7 @@ class ProductCollector extends AbstractStoragePdoCollector
             'abstract_product_id' => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
             'abstract_attributes' => $this->getAbstractAttributes($collectItemData),
             'abstract_name' => $collectItemData[self::ABSTRACT_NAME],
-            'abstract_sku' => $collectItemData[self::ABSTRACT_SKU],
+            'abstract_sku' => $collectItemData[self::SKU], // FIXME
             'url' => $collectItemData[self::ABSTRACT_URL],
             'quantity' =>  (int)$collectItemData[self::QUANTITY],
             'available' => (int)$collectItemData[self::QUANTITY] > 0,

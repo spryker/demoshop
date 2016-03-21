@@ -8,20 +8,20 @@ page.home.featured.top-left.left.height:
     en_US: '2'
 page.home.featured.top-left.left.name:
   translations:
-    de_DE: 'Smartphones'
-    en_US: 'Smartphones'
+    de_DE: 'Smartwatch'
+    en_US: 'Smartwatch'
 page.home.featured.top-left.left.category:
   translations:
-    de_DE: 'Smartphones'
-    en_US: 'Smartphones'
+    de_DE: 'Smartwatch'
+    en_US: 'Smartwatch'
 page.home.featured.top-left.left.img:
   translations:
-    de_DE: 'smartphone.jpg'
-    en_US: 'smartphone.jpg'
+    de_DE: 'smartwatch.jpg'
+    en_US: 'smartwatch.jpg'
 page.home.featured.top-left.left.url:
   translations:
-    de_DE: '/de/smartphones'
-    en_US: '/en/smartphones'
+    de_DE: '/de/smartwatches'
+    en_US: '/en/smartwatches'
 
 page.home.featured.top-left.right.width:
   translations:
@@ -33,20 +33,20 @@ page.home.featured.top-left.right.height:
     en_US: '2'
 page.home.featured.top-left.right.name:
   translations:
-    de_DE: 'Smartwatches'
-    en_US: 'Smartwatches'
+    de_DE: 'SAMSUNG S2 GEAR'
+    en_US: 'SAMSUNG S2 GEAR'
 page.home.featured.top-left.right.category:
   translations:
-    de_DE: 'Smartwatches'
-    en_US: 'Smartwatches'
+    de_DE: 'Smartwatch'
+    en_US: 'Smartwatch'
 page.home.featured.top-left.right.img:
   translations:
-    de_DE: 'smartwatch.jpg'
-    en_US: 'smartwatch.jpg'
+    de_DE: 'smartwatch_product.jpg'
+    en_US: 'smartwatch_product.jpg'
 page.home.featured.top-left.right.url:
   translations:
-    de_DE: '/de/smartwatches'
-    en_US: '/en/smartwatches'
+    de_DE: '/de/samsung-gear-s2-79'
+    en_US: '/en/samsung-gear-s2-79'
 
 page.home.featured.top-right.first.width:
   translations:
@@ -79,8 +79,8 @@ page.home.featured.top-right.second.img:
     en_US: 'computer_product.jpg'
 page.home.featured.top-right.second.url:
   translations:
-    de_DE: '/de/computers'
-    en_US: '/en/computers'
+    de_DE: '/de/toshiba-c55dtb5153-21'
+    en_US: '/en/toshiba-c55dtb5153-21'
 
 page.home.featured.bottom-left.top.width:
   translations:
@@ -92,20 +92,20 @@ page.home.featured.bottom-left.top.height:
     en_US: '1'
 page.home.featured.bottom-left.top.name:
   translations:
-    de_DE: 'Kameras'
-    en_US: 'Cameras'
+    de_DE: 'Kamera'
+    en_US: 'Camera'
 page.home.featured.bottom-left.top.category:
   translations:
-    de_DE: 'Kameras & Camcorders'
-    en_US: 'Cameras & Camcorders'
+    de_DE: 'Kamera'
+    en_US: 'Camera'
 page.home.featured.bottom-left.top.img:
   translations:
     de_DE: 'camera.jpg'
     en_US: 'camera.jpg'
 page.home.featured.bottom-left.top.url:
   translations:
-    de_DE: '/de/kameras-&-camcorders/digitale-kameras'
-    en_US: '/en/cameras-&-camcorders/digital-cameras'
+    de_DE: '/de/kameras-&-camcorders'
+    en_US: '/en/cameras-&-camcorders'
 
 page.home.featured.bottom-left.bottom.width:
   translations:
@@ -117,20 +117,20 @@ page.home.featured.bottom-left.bottom.height:
     en_US: '1'
 page.home.featured.bottom-left.bottom.name:
   translations:
-    de_DE: 'Digitale Kameras'
-    en_US: 'Digitale Kameras'
+    de_DE: 'CANON 1200D'
+    en_US: 'CANON 1200D'
 page.home.featured.bottom-left.bottom.category:
   translations:
-    de_DE: 'Kameras & Camcorders'
-    en_US: 'Cameras & Camcorders'
+    de_DE: 'Kamera'
+    en_US: 'Camera'
 page.home.featured.bottom-left.bottom.img:
   translations:
     de_DE: 'camera_product.jpg'
     en_US: 'camera_product.jpg'
 page.home.featured.bottom-left.bottom.url:
   translations:
-    de_DE: '/de/kameras-&-camcorders'
-    en_US: '/en/cameras-&-camcorders'
+    de_DE: '/de/canon-1200d-+-efs-1855mm-89'
+    en_US: '/en/canon-1200d-+-efs-1855mm-89'
 
 page.home.featured.bottom-right.left.width:
   translations:
@@ -142,20 +142,20 @@ page.home.featured.bottom-right.left.height:
     en_US: '2'
 page.home.featured.bottom-right.left.name:
   translations:
-    de_DE: 'Tablets'
-    en_US: 'Tablets'
+    de_DE: 'Smartphone'
+    en_US: 'Smartphone'
 page.home.featured.bottom-right.left.category:
   translations:
-    de_DE: 'Computers'
-    en_US: 'Computers'
+    de_DE: 'Smartphone'
+    en_US: 'Smartphone'
 page.home.featured.bottom-right.left.img:
   translations:
-    de_DE: 'tablet.jpg'
-    en_US: 'tablet.jpg'
+    de_DE: 'smartphone.jpg'
+    en_US: 'smartphone.jpg'
 page.home.featured.bottom-right.left.url:
   translations:
-    de_DE: '/de/computers/tablets'
-    en_US: '/en/computers/tablets'
+    de_DE: '/de/smartphones'
+    en_US: '/en/smartphones'
 
 page.home.featured.bottom-right.right.width:
   translations:
@@ -167,20 +167,20 @@ page.home.featured.bottom-right.right.height:
     en_US: '2'
 page.home.featured.bottom-right.right.name:
   translations:
-    de_DE: 'Notebooks'
-    en_US: 'Notebooks'
+    de_DE: 'SAMSUNG SM-N910F'
+    en_US: 'SAMSUNG SM-N910F'
 page.home.featured.bottom-right.right.category:
   translations:
-    de_DE: 'Computers'
-    en_US: 'Computers'
+    de_DE: 'Smartphone'
+    en_US: 'Smartphone'
 page.home.featured.bottom-right.right.img:
   translations:
-    de_DE: 'notebook_product.jpg'
-    en_US: 'notebook_product.jpg'
+    de_DE: 'smartphone_product.jpg'
+    en_US: 'smartphone_product.jpg'
 page.home.featured.bottom-right.right.url:
   translations:
-    de_DE: '/de/computers/notebooks'
-    en_US: '/en/computers/notebooks'
+    de_DE: '/de/samsung-smn910f-69'
+    en_US: '/en/samsung-smn910f-69'
 
 cart.your-order:
   translations:
