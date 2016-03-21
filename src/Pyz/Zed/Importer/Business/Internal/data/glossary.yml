@@ -400,10 +400,6 @@ page.detail.add-to-cart:
   translations:
     de_DE: 'In den Warenkorb'
     en_US: 'Add to Cart'
-page.detail.small-parts-warning:
-  translations:
-    de_DE: 'Achtung! Verschluckbare Kleinteile. Erstickungsgefahr. Für Kinder unter 3 Jahre nicht geeignet.'
-    en_US: 'Wacht out! Swallowing small parts. Suffocation risk. Not suitable for children under 3 years of age. '
 page.detail.dimensions:
   translations:
     de_DE: 'Abmessungen'
