@@ -51,6 +51,10 @@ $config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT] = 'http';
 $config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = '10005';
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'page';
 
+/**
+ * Hostname(s) for Yves - Shop frontend
+ * In production you probably use a CDN for static content
+ */
 $config[ApplicationConstants::HOST_YVES]
     = $config[ApplicationConstants::HOST_STATIC_ASSETS]
     = $config[ApplicationConstants::HOST_STATIC_MEDIA]
@@ -59,6 +63,10 @@ $config[ApplicationConstants::HOST_YVES]
     = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA]
     = 'www.spryker.dev';
 
+/**
+ * Hostname(s) for Zed - Shop frontend
+ * In production you probably use HTTPS for Zed
+ */
 $config[ApplicationConstants::HOST_ZED_GUI]
     = $config[ApplicationConstants::HOST_ZED_API]
     = $config[ApplicationConstants::HOST_SSL_ZED_GUI]
@@ -126,12 +134,12 @@ $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = '';
 $config[ApplicationConstants::CLOUD_CDN_PRODUCT_IMAGES_PATH_NAME] = '/images/products/';
 
 $config[MailConstants::MAIL_PROVIDER_MANDRILL] = [
-    'api-key' => '5hGEFy0SpJXIft1GSULiVw',
+    'api-key' => '',
     'host' => 'smtp.mandrillapp.com',
     'port' => '587',
-    'username' => 'fabian.wesner@spryker.com',
-    'from_mail' => 'service@demoshop.de',
-    'from_name' => 'Demoshop',
+    'username' => '',
+    'from_mail' => 'john.doe@spryker.com',
+    'from_name' => 'John Doe',
 ];
 
 $config[PriceConstants::DEFAULT_PRICE_TYPE] =
@@ -146,7 +154,7 @@ $config[CustomerConstants::SHOP_MAIL_FROM_EMAIL_NAME] =
     $config[CustomerMailConnectorConstants::SHOP_MAIL_FROM_EMAIL_NAME] = '';
 
 $config[CustomerConstants::SHOP_MAIL_FROM_EMAIL_ADDRESS] =
-    $config[CustomerMailConnectorConstants::SHOP_MAIL_FROM_EMAIL_ADDRESS] = 'service@demoshop.de';
+    $config[CustomerMailConnectorConstants::SHOP_MAIL_FROM_EMAIL_ADDRESS] = 'john.doe@spryker.com';
 
 $config[CustomerConstants::SHOP_MAIL_REGISTRATION_TOKEN] =
     $config[CustomerMailConnectorConstants::SHOP_MAIL_REGISTRATION_TOKEN] = 'registration.token';
@@ -179,10 +187,13 @@ $config[AuthConstants::AUTH_DEFAULT_CREDENTIALS] = [
                 'action' => '*',
             ],
         ],
-        'token' => 'JDJ5JDEwJFE0cXBwYnVVTTV6YVZXSnVmM2l1UWVhRE94WkQ4UjBUeHBEWTNHZlFRTEd4U2F6QVBqejQ2',
+        'token' => 'JDJ5JDEwJFE0cXBwYnVVTTV6YVZXSnVmM2l1UWVhRE94WkQ4UjBUeHBEWTNHZlFRTEd4U2F6QVBqejQ2', // Please replace this token for your project
     ],
 ];
 
+/**
+ * ACL: Allow or disallow of urls for Zed Admin GUI for ALL users
+ */
 $config[AclConstants::ACL_DEFAULT_RULES] = [
     [
         'bundle' => 'auth',
@@ -222,6 +233,9 @@ $config[AclConstants::ACL_DEFAULT_RULES] = [
     ],
 ];
 
+/**
+ * ACL: Allow or disallow of urls for Zed Admin GUI
+ */
 $config[AclConstants::ACL_USER_RULE_WHITELIST] = [
     [
         'bundle' => 'application',
@@ -243,6 +257,9 @@ $config[AclConstants::ACL_USER_RULE_WHITELIST] = [
     ],
 ];
 
+/**
+ * ACL: Special rules for specific users
+ */
 $config[AclConstants::ACL_DEFAULT_CREDENTIALS] = [
     'yves_system' => [
         'rules' => [
@@ -256,6 +273,11 @@ $config[AclConstants::ACL_DEFAULT_CREDENTIALS] = [
     ],
 ];
 
+/**
+ * Zed Navigation Cache
+ * The cache should always be activated. Refresh/build with CLI command:
+ * vendor/bin/console application:build-navigation-cache
+ */
 $config[ApplicationConstants::NAVIGATION_CACHE_ENABLED] = true;
 
 $config[EventJournalConstants::COLLECTORS]['YVES'] = [
@@ -310,6 +332,9 @@ $config[SequenceNumberConstants::ENVIRONMENT_PREFIX]
     = $config[SalesConstants::ENVIRONMENT_PREFIX]
     = '';
 
+/**
+ * Payolution Testdata - You can use this until you have an own account.
+ */
 $config[PayolutionConstants::TRANSACTION_GATEWAY_URL] = 'https://test.ctpe.net/frontend/payment.prc';
 $config[PayolutionConstants::CALCULATION_GATEWAY_URL] = 'https://test-payment.payolution.com/payolution-payment/rest/request/v2';
 $config[PayolutionConstants::TRANSACTION_SECURITY_SENDER] = '8a82941850cd6ba60150cdba275b0201';

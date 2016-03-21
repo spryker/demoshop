@@ -29,10 +29,10 @@ $config[ApplicationConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = true;
 
 $config[PayoneConstants::PAYONE] = [
     PayoneConstants::PAYONE_CREDENTIALS_ENCODING => 'UTF-8',
-    PayoneConstants::PAYONE_CREDENTIALS_KEY => 'oZZfMY6L224Q51jq',
-    PayoneConstants::PAYONE_CREDENTIALS_MID => '29250',
-    PayoneConstants::PAYONE_CREDENTIALS_AID => '29499',
-    PayoneConstants::PAYONE_CREDENTIALS_PORTAL_ID => '2020679',
+    PayoneConstants::PAYONE_CREDENTIALS_KEY => '',
+    PayoneConstants::PAYONE_CREDENTIALS_MID => '',
+    PayoneConstants::PAYONE_CREDENTIALS_AID => '',
+    PayoneConstants::PAYONE_CREDENTIALS_PORTAL_ID => '',
     PayoneConstants::PAYONE_PAYMENT_GATEWAY_URL => 'https://api.pay1.de/post-gateway/',
     PayoneConstants::PAYONE_REDIRECT_SUCCESS_URL => $config[ApplicationConstants::HOST_YVES] . '/checkout/success/',
     PayoneConstants::PAYONE_REDIRECT_ERROR_URL => $config[ApplicationConstants::HOST_YVES] . '/checkout/index/',
