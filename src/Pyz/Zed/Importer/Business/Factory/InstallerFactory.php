@@ -15,6 +15,7 @@ use Pyz\Zed\Importer\Business\Installer\Cms\CmsPageInstaller;
 use Pyz\Zed\Importer\Business\Installer\Glossary\GlossaryInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductSearchInstaller;
+use Pyz\Zed\Importer\Business\Installer\Shipment\ShipmentInstaller;
 use Pyz\Zed\Importer\ImporterConfig;
 
 /**
@@ -136,6 +137,19 @@ class InstallerFactory extends AbstractFactory
     }
 
     /**
+     * @return \Pyz\Zed\Importer\Business\Installer\Shipment\ShipmentInstaller
+     */
+    public function createShipmentInstaller()
+    {
+        $cmsBlockInstaller = new ShipmentInstaller(
+            $this->getImporterShipmentCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+
+        return $cmsBlockInstaller;
+    }
+
+    /**
      * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
      */
     public function getImporterCategoryCollection()
@@ -216,6 +230,16 @@ class InstallerFactory extends AbstractFactory
     {
         return [
             ImporterConfig::RESOURCE_CMS_PAGE => $this->createImporterFactory()->createCmsPageImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ImporterInterface[]
+     */
+    public function getImporterShipmentCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_SHIPMENT => $this->createImporterFactory()->createShipmentImporter(),
         ];
     }
 

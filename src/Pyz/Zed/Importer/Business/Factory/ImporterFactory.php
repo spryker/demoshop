@@ -19,6 +19,7 @@ use Pyz\Zed\Importer\Business\Importer\Product\ProductPriceImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductSearchImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductStockImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductTaxImporter;
+use Pyz\Zed\Importer\Business\Importer\Shipment\ShipmentImporter;
 use Pyz\Zed\Importer\ImporterDependencyProvider;
 use Spryker\Zed\Cms\Business\Block\BlockManager;
 use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManager;
@@ -26,6 +27,8 @@ use Spryker\Zed\Cms\Business\Page\PageManager;
 use Spryker\Zed\Cms\Business\Template\TemplateManager;
 use Spryker\Zed\Cms\CmsConfig;
 use Spryker\Zed\ProductSearch\Business\Operation\OperationManager;
+use Spryker\Zed\Shipment\Business\Model\Carrier;
+use Spryker\Zed\Shipment\Business\Model\Method;
 use Symfony\Component\Finder\Finder;
 
 /**
@@ -224,6 +227,22 @@ class ImporterFactory extends AbstractFactory
     }
 
     /**
+     * @return \Pyz\Zed\Importer\Business\Importer\Shipment\ShipmentImporter
+     */
+    public function createShipmentImporter()
+    {
+        $cmsPageImporter = new ShipmentImporter(
+            $this->getLocaleFacade(),
+            $this->getShipmentQueryContainer(),
+            $this->createShipmentMethod(),
+            $this->createShipmentCarrier(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+
+        return $cmsPageImporter;
+    }
+
+    /**
      * @return \Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface
      */
     protected function createProductSearchOperationManager()
@@ -299,6 +318,25 @@ class ImporterFactory extends AbstractFactory
             $this->createCmsTemplateManager(),
             $this->createCmsPageManager(),
             $this->getProvidedDependency(ImporterDependencyProvider::PLUGIN_PROPEL_CONNECTION)
+        );
+    }
+
+    /**
+     * @return \Spryker\Zed\Shipment\Business\Model\Carrier
+     */
+    public function createShipmentCarrier()
+    {
+        return new Carrier();
+    }
+
+    /**
+     * @return \Spryker\Zed\Shipment\Business\Model\Method
+     */
+    public function createShipmentMethod()
+    {
+        return new Method(
+            $this->getShipmentQueryContainer(),
+            []
         );
     }
 

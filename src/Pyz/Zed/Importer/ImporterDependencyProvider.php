@@ -38,6 +38,7 @@ class ImporterDependencyProvider extends SprykerInstallerDependencyProvider
     const QUERY_CONTAINER_PRODUCT_CATEGORY = 'QUERY_CONTAINER_PRODUCT_CATEGORY';
     const QUERY_CONTAINER_PRODUCT_SEARCH = 'QUERY_CONTAINER_PRODUCT_SEARCH';
     const QUERY_CONTAINER_PRICE = 'QUERY_CONTAINER_PRICE';
+    const QUERY_CONTAINER_SHIPMENT = 'QUERY_CONTAINER_SHIPMENT';
 
     const BRIDGE_CATEGORY_TO_URL = 'BRIDGE_CATEGORY_TO_URL';
     const BRIDGE_CATEGORY_TO_TOUCH = 'BRIDGE_CATEGORY_TO_TOUCH';
@@ -124,6 +125,10 @@ class ImporterDependencyProvider extends SprykerInstallerDependencyProvider
 
         $container[self::QUERY_CONTAINER_LOCALE] = function (Container $container) {
             return $container->getLocator()->locale()->queryContainer();
+        };
+
+        $container[self::QUERY_CONTAINER_SHIPMENT] = function (Container $container) {
+            return $container->getLocator()->shipment()->queryContainer();
         };
 
         $container[self::BRIDGE_CATEGORY_TO_URL] = function (Container $container) {

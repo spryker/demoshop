@@ -159,6 +159,14 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     }
 
     /**
+     * @return \Spryker\Zed\Shipment\Persistence\ShipmentQueryContainerInterface
+     */
+    protected function getShipmentQueryContainer()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::QUERY_CONTAINER_SHIPMENT);
+    }
+
+    /**
      * @return \Spryker\Zed\Stock\Business\StockFacadeInterface
      */
     protected function getStockFacade()
