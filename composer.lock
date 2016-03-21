@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cec1c57345c6d7717c59b6bc3f45645d",
-    "content-hash": "dbbc214418f0be9b1e8fe95641ef04b9",
+    "hash": "b09d68e12ccd2cbb5f50f35a70215ae7",
+    "content-hash": "a70a580cb8e1ff079802b91b33ebd9b7",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -945,7 +945,7 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/1600-icecat-importer-finish",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
