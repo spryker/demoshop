@@ -69,9 +69,9 @@ function installDemoshop {
     labelText "Preparing new Demoshop instalation..."
     sleep 2
 
-    updateComposer
+    updateComposerBinary
 
-    $PHP composer.phar install
+    composerInstall
 
     resetDataStores
 
@@ -159,7 +159,7 @@ function dropDevelopmentDatabase {
     # fi
 }
 
-function updateComposer {
+function updateComposerBinary {
     if [[ ! -f "./composer.phar" ]]; then
         labelText "Download composer.phar"
         $CURL -sS https://getcomposer.org/installer | $PHP
@@ -175,6 +175,10 @@ function updateComposer {
         labelText "Install Composer Dependencies"
         $PHP composer.phar selfupdate
     fi
+}
+
+function composerInstall {
+    $PHP composer.phar install --prefer-dist
 }
 
 function resetYves {
