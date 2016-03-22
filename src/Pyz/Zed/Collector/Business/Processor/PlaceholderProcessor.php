@@ -42,8 +42,8 @@ class PlaceholderProcessor
      */
     public function toArray()
     {
-        $placeholderNames = explode(',', $this->placeholder);
-        $keys = explode($this->dataSeparator, $this->key);
+        $placeholderNames = explode(',', trim($this->placeholder));
+        $keys = explode($this->dataSeparator, trim($this->key));
 
         $step = 0;
         $placeholderCollection = [];
