@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -o pipefail
+
 SETUP='spryker'
 
 . ./setup-functions.sh
