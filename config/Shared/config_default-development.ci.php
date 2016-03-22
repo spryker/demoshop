@@ -1,9 +1,9 @@
 <?php
 
 use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Session\SessionConstants;
+use Pyz\Shared\Mail\MailConstants;
 
 $config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
 $config[ApplicationConstants::ZED_DB_USERNAME] = 'ubuntu';
@@ -62,3 +62,25 @@ $config[PayoneConstants::PAYONE] = [
 $config[SessionConstants::SESSION_IS_TEST] = true;
 
 $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
+
+$config[MailConstants::MAIL_PROVIDER_MANDRILL] = [
+    'api-key' => getenv('MAIL_PROVIDER_MANDRILL_API_KEY'),
+    'host' => 'smtp.mandrillapp.com',
+    'port' => '587',
+    'username' => 'John Doe',
+    'from_mail' => 'john.doe@spryker.com',
+    'from_name' => 'Spryker Demoshop',
+];
+
+$config[PayoneConstants::PAYONE] = [
+    PayoneConstants::PAYONE_CREDENTIALS_ENCODING => 'UTF-8',
+    PayoneConstants::PAYONE_CREDENTIALS_KEY => getenv('PAYONE_CREDENTIALS_KEY'),
+    PayoneConstants::PAYONE_CREDENTIALS_MID => getenv('PAYONE_CREDENTIALS_MID'),
+    PayoneConstants::PAYONE_CREDENTIALS_AID => getenv('PAYONE_CREDENTIALS_AID'),
+    PayoneConstants::PAYONE_CREDENTIALS_PORTAL_ID => getenv('PAYONE_CREDENTIALS_PORTAL_ID'),
+    PayoneConstants::PAYONE_PAYMENT_GATEWAY_URL => 'https://api.pay1.de/post-gateway/',
+    PayoneConstants::PAYONE_REDIRECT_SUCCESS_URL => $config[ApplicationConstants::HOST_YVES] . '/checkout/success/',
+    PayoneConstants::PAYONE_REDIRECT_ERROR_URL => $config[ApplicationConstants::HOST_YVES] . '/checkout/index/',
+    PayoneConstants::PAYONE_REDIRECT_BACK_URL => $config[ApplicationConstants::HOST_YVES] . '/checkout/regular-redirect-payment-cancellation/',
+    PayoneConstants::PAYONE_MODE => '',
+];
