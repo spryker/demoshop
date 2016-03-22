@@ -27,7 +27,7 @@ class PayolutionInstallmentSubFormPlugin extends AbstractPlugin implements Check
      */
     public function createSubFormDataProvider()
     {
-        return $this->getFactory()->createInstalmentFormDataProvider();
+        return $this->getFactory()->createInstallmentFormDataProvider();
     }
 
 }

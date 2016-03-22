@@ -147,7 +147,7 @@ abstract class AbstractFacadeTest extends Test
     protected function setPaymentInstallment()
     {
         $this->accountBrand = PayolutionConstants::BRAND_INSTALLMENT;
-        $this->paymentMethod = 'instalment';
+        $this->paymentMethod = 'installment';
 
         $this->setCustomerTransferTestData();
         $this->setAddressTransferTestData();
