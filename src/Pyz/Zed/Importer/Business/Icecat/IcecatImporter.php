@@ -47,13 +47,13 @@ class IcecatImporter
      */
     public function import()
     {
-        $this->output->writeln('Importing Icecat data...');
+        $this->output->writeln('Importing Demo data...');
 
-        foreach ($this->installerCollection as $name => $importer) {
-            if (!$importer->isInstalled()) {
-                $importer->install($this->output, $this->messenger);
+        foreach ($this->installerCollection as $name => $installer) {
+            if (!$installer->isInstalled()) {
+                $installer->install($this->output, $this->messenger);
             } else {
-                $this->output->writeln($importer->getTitle(). ' already imported.');
+                $this->output->writeln($installer->getTitle(). ' already imported.');
             }
         }
 
