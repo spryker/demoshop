@@ -520,11 +520,11 @@ shipment.hermes:
 customer.first_name:
   translations:
     de_DE: 'Vorname'
-    en_US: 'first name'
+    en_US: 'First Name'
 customer.last_name:
   translations:
     de_DE: 'Name'
-    en_US: 'name'
+    en_US: 'Name'
 customer.salutation.mr:
   translations:
     de_DE: 'Herr'
