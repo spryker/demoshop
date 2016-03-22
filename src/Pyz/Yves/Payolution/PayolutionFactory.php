@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
 namespace Pyz\Yves\Payolution;
 
 use Pyz\Yves\Payolution\Form\DataProvider\InstallmentDataProvider;
@@ -31,7 +34,7 @@ class PayolutionFactory extends AbstractFactory
     /**
      * @return \Pyz\Yves\Payolution\Form\DataProvider\InstallmentDataProvider
      */
-    public function createInstalmentFormDataProvider()
+    public function createInstallmentFormDataProvider()
     {
         return new InstallmentDataProvider($this->getPayolutionClient());
     }
