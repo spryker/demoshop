@@ -46,7 +46,7 @@ class CheckoutControllerTest extends Test
     public function testIndexActionShouldReturnRedirectResponse()
     {
         $checkoutController = $this->createCheckoutControllerMock($this->createQuoteTransfer());
-        $result = $checkoutController->indexAction(Request::createfromGlobals());
+        $result = $checkoutController->indexAction(Request::createFromGlobals());
         $this->assertInstanceOf(RedirectResponse::class, $result);
     }
 
@@ -57,7 +57,7 @@ class CheckoutControllerTest extends Test
     {
         $quoteTransfer = $this->createQuoteTransfer();
 
-        $request = Request::createfromGlobals();
+        $request = Request::createFromGlobals();
         $request->attributes->set('_route', CheckoutControllerProvider::CHECKOUT_CUSTOMER);
 
         $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
@@ -81,7 +81,7 @@ class CheckoutControllerTest extends Test
 
         $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
 
-        $request = Request::createfromGlobals();
+        $request = Request::createFromGlobals();
         $request->attributes->set('_route', CheckoutControllerProvider::CHECKOUT_ADDRESS);
 
         $response = $checkoutController->addressAction($request);
@@ -105,7 +105,7 @@ class CheckoutControllerTest extends Test
 
         $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
 
-        $request = Request::createfromGlobals();
+        $request = Request::createFromGlobals();
         $request->attributes->set('_route', CheckoutControllerProvider::CHECKOUT_SHIPMENT);
 
         $response = $checkoutController->shipmentAction($request);
@@ -131,7 +131,7 @@ class CheckoutControllerTest extends Test
 
         $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
 
-        $request = Request::createfromGlobals();
+        $request = Request::createFromGlobals();
         $request->attributes->set('_route', CheckoutControllerProvider::CHECKOUT_PAYMENT);
 
         $response = $checkoutController->paymentAction($request);
@@ -157,7 +157,7 @@ class CheckoutControllerTest extends Test
 
         $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
 
-        $request = Request::createfromGlobals();
+        $request = Request::createFromGlobals();
         $request->attributes->set('_route', CheckoutControllerProvider::CHECKOUT_SUMMARY);
 
         $response = $checkoutController->summaryAction($request);
@@ -183,7 +183,7 @@ class CheckoutControllerTest extends Test
 
         $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
 
-        $request = Request::createfromGlobals();
+        $request = Request::createFromGlobals();
         $request->attributes->set('_route', CheckoutControllerProvider::CHECKOUT_PLACE_ORDER);
 
         $response = $checkoutController->placeOrderAction($request);
@@ -210,7 +210,7 @@ class CheckoutControllerTest extends Test
 
         $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
 
-        $request = Request::createfromGlobals();
+        $request = Request::createFromGlobals();
         $request->attributes->set('_route', CheckoutControllerProvider::CHECKOUT_SUCCESS);
 
         $response = $checkoutController->successAction($request);
@@ -233,7 +233,7 @@ class CheckoutControllerTest extends Test
 
         $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
 
-        $request = Request::createfromGlobals();
+        $request = Request::createFromGlobals();
         $request->attributes->set('_route', CheckoutControllerProvider::CHECKOUT_SHIPMENT);
 
         $response = $checkoutController->shipmentAction($request);
@@ -250,7 +250,7 @@ class CheckoutControllerTest extends Test
     {
         $checkoutController = $this->createCheckoutControllerMock(new QuoteTransfer());
 
-        $request = Request::createfromGlobals();
+        $request = Request::createFromGlobals();
         $request->attributes->set('_route', CheckoutControllerProvider::CHECKOUT_SUMMARY);
 
         $response = $checkoutController->summaryAction($request);
@@ -260,6 +260,8 @@ class CheckoutControllerTest extends Test
     }
 
     /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Controller\CheckoutController
      */
     protected function createCheckoutControllerMock(QuoteTransfer $quoteTransfer)
@@ -272,6 +274,8 @@ class CheckoutControllerTest extends Test
     }
 
     /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\CheckoutFactory
      */
     protected function createCheckoutFactoryMock(QuoteTransfer $quoteTransfer)
@@ -286,10 +290,10 @@ class CheckoutControllerTest extends Test
         );
 
         $formFactoryMock = $this->createFormFactoryMock($quoteTransfer);
-        $stepFactorymock = $this->createStepFactoryMock($quoteTransfer);
+        $stepFactoryMock = $this->createStepFactoryMock($quoteTransfer);
         $cartClientMock = $this->getCartClientMock($quoteTransfer);
 
-        $checkoutFactoryMock->method('createStepFactory')->willReturn($stepFactorymock);
+        $checkoutFactoryMock->method('createStepFactory')->willReturn($stepFactoryMock);
         $checkoutFactoryMock->method('createCheckoutFormFactory')->willReturn($formFactoryMock);
         $checkoutFactoryMock->method('getCartClient')->willReturn($cartClientMock);
 
@@ -297,6 +301,8 @@ class CheckoutControllerTest extends Test
     }
 
     /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Form\FormFactory
      */
     protected function createFormFactoryMock(QuoteTransfer $quoteTransfer)
@@ -317,10 +323,10 @@ class CheckoutControllerTest extends Test
         $customerClientMock = $this->getCustomerClientMock();
         $formFactoryMock->method('getCustomerClient')->willReturn($customerClientMock);
 
-        $shipmentForm = $this->createShipmentForm($quoteTransfer);
+        $shipmentForm = $this->createShipmentForm();
         $formFactoryMock->method('createShipmentForm')->willReturn($shipmentForm);
 
-        $paymentForm = $this->createPaymentForm($quoteTransfer);
+        $paymentForm = $this->createPaymentForm();
         $formFactoryMock->method('createPaymentForm')->willReturn($paymentForm);
 
         return $formFactoryMock;
@@ -328,6 +334,7 @@ class CheckoutControllerTest extends Test
 
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Cart\CartClientInterface
      */
     protected function getCartClientMock(QuoteTransfer $quoteTransfer)
@@ -344,19 +351,17 @@ class CheckoutControllerTest extends Test
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @return array
      */
-    protected function createShipmentForm(QuoteTransfer $quoteTransfer)
+    protected function createShipmentForm()
     {
         return new ShipmentForm([]);
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @return \Pyz\Yves\Checkout\Form\Steps\PaymentForm
      */
-    protected function createPaymentForm(QuoteTransfer $quoteTransfer)
+    protected function createPaymentForm()
     {
          return new PaymentForm([]);
     }
@@ -369,7 +374,7 @@ class CheckoutControllerTest extends Test
     {
         $stepFactoryMock = $this->getMock(StepFactory::class, ['getCheckoutClient', 'getCalculationClient']);
 
-        $checkoutClientMock = $this->createCheckoutClientMock($quoteTransfer);
+        $checkoutClientMock = $this->createCheckoutClientMock();
         $stepFactoryMock->method('getCheckoutClient')->willReturn($checkoutClientMock);
 
         $cartClientMock = $this->createCalculationClientMock($quoteTransfer);
@@ -379,11 +384,9 @@ class CheckoutControllerTest extends Test
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Checkout\CheckoutClientInterface
      */
-    protected function createCheckoutClientMock(QuoteTransfer $quoteTransfer)
+    protected function createCheckoutClientMock()
     {
         $checkoutResponseTransfer = new CheckoutResponseTransfer();
         $checkoutResponseTransfer->setIsSuccess(true);
@@ -399,6 +402,8 @@ class CheckoutControllerTest extends Test
     }
 
     /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Calculation\CalculationClient
      */
     protected function createCalculationClientMock(QuoteTransfer $quoteTransfer)
@@ -512,6 +517,8 @@ class CheckoutControllerTest extends Test
     }
 
     /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Form\DataProvider\SubformDataProviders
      */
     protected function createSubFormDataProvider(QuoteTransfer $quoteTransfer)
