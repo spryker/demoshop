@@ -368,6 +368,7 @@ class CheckoutControllerTest extends Test
 
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * 
      * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Process\StepFactory
      */
     protected function createStepFactoryMock(QuoteTransfer $quoteTransfer)
@@ -408,10 +409,10 @@ class CheckoutControllerTest extends Test
      */
     protected function createCalculationClientMock(QuoteTransfer $quoteTransfer)
     {
-        $calculatationClientMock = $this->getMock(CalculationClient::class, ['recalculate']);
-        $calculatationClientMock->method('recalculate')->willReturn($quoteTransfer);
+        $calculationClientMock = $this->getMock(CalculationClient::class, ['recalculate']);
+        $calculationClientMock->method('recalculate')->willReturn($quoteTransfer);
 
-        return $calculatationClientMock;
+        return $calculationClientMock;
     }
 
     /**
