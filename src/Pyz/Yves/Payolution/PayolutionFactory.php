@@ -34,7 +34,7 @@ class PayolutionFactory extends AbstractFactory
     /**
      * @return \Pyz\Yves\Payolution\Form\DataProvider\InstallmentDataProvider
      */
-    public function createInstalmentFormDataProvider()
+    public function createInstallmentFormDataProvider()
     {
         return new InstallmentDataProvider($this->getPayolutionClient());
     }
