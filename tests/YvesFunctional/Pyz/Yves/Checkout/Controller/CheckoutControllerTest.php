@@ -368,7 +368,7 @@ class CheckoutControllerTest extends Test
 
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * 
+     *
      * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Process\StepFactory
      */
     protected function createStepFactoryMock(QuoteTransfer $quoteTransfer)
