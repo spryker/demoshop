@@ -3,17 +3,18 @@
 
 {% block content %}
 <div class="container">
+    <script id="errorMessage" type="text/template"><div class="flash-messages wrapper"><div class="alert alert-danger">{{ 'checkout.step.payment.no.birthdate.provided.error.message' | trans }}</div></div></script>
     <div class="row cms-page">
         <div class="col-xs-12 col-md-12">
             <h1>{{ 'checkout.step.payment.title' | trans }}</h1>
         </div>
 
         <div class="col-xs-12 col-md-12 col-lg-12">
-            {{ form_start(paymentForm, { 'attr': { 'class': 'form-horizontal checkout-form checkout-payment' }}) }}
-		        {{ form_widget(paymentForm.paymentSelection) }}
-		        {{ checkout.include_subforms(paymentForm) }}
-		    {{ form_end(paymentForm) }}
-            <a href="{{ previousStepUrl }}">Back</a>
+            {{ form_start(paymentForm, { attr: { class: 'form-horizontal checkout-form checkout-payment', id: 'paymentFormCheckout' }}) }}
+                {{ form_widget(paymentForm.paymentSelection) }}
+                {{ checkout.include_subforms(paymentForm) }}
+            {{ form_end(paymentForm) }}
+            <a href="{{ previousStepUrl }}">{{ 'general.back.button' | trans }}</a>
         </div>
     </div>
 </div>
