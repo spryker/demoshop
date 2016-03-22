@@ -13,7 +13,7 @@ class PlaceholderProcessor
     /**
      * @var string
      */
-    protected $placeholders;
+    protected $placeholder;
 
     /**
      * @var string
@@ -33,7 +33,7 @@ class PlaceholderProcessor
     public function __construct($key, $placeholder, $dataSeparator = ',')
     {
         $this->key = $key;
-        $this->placeholders = $placeholder;
+        $this->placeholder = $placeholder;
         $this->dataSeparator = $dataSeparator;
     }
 
@@ -42,7 +42,7 @@ class PlaceholderProcessor
      */
     public function toArray()
     {
-        $placeholderNames = explode(',', $this->placeholders);
+        $placeholderNames = explode(',', $this->placeholder);
         $keys = explode($this->dataSeparator, $this->key);
 
         $step = 0;
