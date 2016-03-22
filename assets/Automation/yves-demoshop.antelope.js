@@ -28,7 +28,18 @@ module.exports = {
             loader: 'file?name=/assets/demoshop/fonts/[name].[ext]'
         }, {
             test: /\.(jpe?g|png|gif|svg)\??(\d*\w*=?\.?)+$/i,
-            loader: 'file?name=/assets/demoshop/img/[name].[ext]',
+            loader: 'organizer?rules=images',
+        }]
+    },
+    organizerRules: {
+        images: [{
+            container: /fonts\//,
+            name: '/assets/demoshop/fonts/[name].[ext]'
+        }, {
+            container: /node_modules\//,
+            name: '/assets/demoshop/img/modules/[bundle]/[name].[ext]'
+        }, {
+            name: '/assets/demoshop/img/[name].[ext]'
         }]
     },
     output: {
@@ -41,19 +52,13 @@ module.exports = {
         }),
         new webpack.ProvidePlugin({
             $: 'jquery',
-            jQuery: 'jquery'
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery'
         }),
         new webpack.DefinePlugin({
             PRODUCTION: isProduction,
             WATCH: isDebug
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            comments: isDebug,
-            sourceMap: isDebug,
-            compress: isProduction,
-            mangle: isProduction
-        }),
-        new webpack.NewWatchingPlugin()
+        })
     ],
     watchOptions: {
         poll: true

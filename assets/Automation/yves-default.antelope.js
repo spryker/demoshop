@@ -27,7 +27,18 @@ module.exports = {
             loader: 'file?name=/assets/default/fonts/[name].[ext]'
         }, {
             test: /\.(jpe?g|png|gif|svg)\??(\d*\w*=?\.?)+$/i,
-            loader: 'file?name=/assets/default/img/[name].[ext]',
+            loader: 'organizer?rules=images',
+        }]
+    },
+    organizerRules: {
+        images: [{
+            search: /node_modules\//,
+            name: '/assets/default/img/modules/[bundle]/[name].[ext]'
+        }, {
+            search: /fonts\//,
+            name: '/assets/default/fonts/[name].[ext]'
+        }, {
+            name: '/assets/default/img/[name].[ext]'
         }]
     },
     output: {
