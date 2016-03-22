@@ -20,6 +20,7 @@ ERROR=`tput setab 1` # background red
 GREEN=`tput setab 2` # background green
 BACKGROUND=`tput setab 4` # background blue
 INFO=`tput setaf 3` # yellow text
+TEAL=`tput setab 5` # background magenta
 COLOR=`tput setaf 7` # text white
 NC=`tput sgr0` # reset
 
@@ -51,9 +52,15 @@ function successText {
     echo -e "\n${GREEN}${COLOR}=> ${1} <=${NC}\n"
 }
 
+function setupText {
+    echo -e "\n${TEAL}${COLOR}=> ${1} <=${NC}\n"
+}
+
 function writeErrorMessage {
     if [[ $? != 0 ]]; then
         errorText "${1}"
+        errorText "Setup unsuccessful"
+        exit 1
     fi
 }
 
@@ -66,37 +73,38 @@ function createDevelopmentDatabase {
 }
 
 function installDemoshop {
-    labelText "Preparing new Demoshop instalation..."
-    sleep 2
+    labelText "Preparing new Demoshop installation..."
+    sleep 1
 
-    updateComposer
+    updateComposerBinary
 
-    $PHP composer.phar install
+    composerInstall
 
     resetDataStores
 
     dropDevelopmentDatabase $DATABASE_NAME
 
-    labelText "Zed setup"
+    setupText "Zed setup"
+
     vendor/bin/console setup:install $VERBOSITY
-    writeErrorMessage "Failed"
+    writeErrorMessage "Setup install failed"
 
-    labelText "Importing DemoData"
+    labelText "Importing demo data"
     vendor/bin/console import:demo-data $VERBOSITY
-    writeErrorMessage "Failed"
+    writeErrorMessage "DemoData import failed"
 
-    labelText "Setting up Data Stores"
+    labelText "Setting up data stores"
     vendor/bin/console collector:search:export $VERBOSITY
     vendor/bin/console collector:storage:export $VERBOSITY
-    writeErrorMessage "Failed"
+    writeErrorMessage "DataStore setup failed"
 
-    labelText "Setting up Cronjobs"
-    #vendor/bin/console setup:jenkins:generate $VERBOSITY
-    writeErrorMessage "Failed"
+    labelText "Setting up cronjobs"
+    vendor/bin/console setup:jenkins:generate $VERBOSITY
+    writeErrorMessage "Cronjob setup failed"
 
     labelText "Zed setup successful"
 
-    labelText "Yves setup"
+    setupText "Yves setup"
 
     resetYves
 
@@ -104,8 +112,9 @@ function installDemoshop {
 
     labelText "Yves setup successful"
 
-    labelText "Configuring Test environment"
+    labelText "Configuring test environment"
     vendor/bin/codecept build -q $VERBOSITY
+    writeErrorMessage "Test configuration failed"
 
     successText "Setup successful"
 
@@ -118,29 +127,34 @@ function resetDataStores {
     curl -XDELETE 'http://localhost:10005/de_development_catalog/'
     curl -XPUT 'http://localhost:10005/de_development_catalog/'
     vendor/bin/console setup:search
-    writeErrorMessage "Failed"
+    writeErrorMessage "Elasticsearch reset failed"
 
     labelText "Flushing Redis"
     redis-cli -p 10009 FLUSHALL
-    writeErrorMessage "Failed"
+    writeErrorMessage "Redis reset failed"
 }
 
 function resetDevelopmentState {
+    labelText "Preparing to reset data..."
+    sleep 1
+
     resetDataStores
 
     dropDevelopmentDatabase $DATABASE_NAME
 
     labelText "Generating Transfer Objects"
     vendor/bin/console transfer:generate
-    writeErrorMessage "Failed"
+    writeErrorMessage "Generating Transfer Objects failed"
 
     labelText "Installing Propel"
     vendor/bin/console propel:install $VERBOSITY
     vendor/bin/console propel:diff $VERBOSITY
     vendor/bin/console propel:migrate $VERBOSITY
+    writeErrorMessage "Propel setup failed"
 
     labelText "Initializing DB"
     vendor/bin/console setup:init-db $VERBOSITY
+    writeErrorMessage "DB setup failed"
 }
 
 function dropDevelopmentDatabase {
@@ -159,7 +173,9 @@ function dropDevelopmentDatabase {
     # fi
 }
 
-function updateComposer {
+function updateComposerBinary {
+    labelText "Setting up composer"
+
     if [[ ! -f "./composer.phar" ]]; then
         labelText "Download composer.phar"
         $CURL -sS https://getcomposer.org/installer | $PHP
@@ -175,6 +191,11 @@ function updateComposer {
         labelText "Install Composer Dependencies"
         $PHP composer.phar selfupdate
     fi
+}
+
+function composerInstall {
+    labelText "Installing composer packages"
+    $PHP composer.phar install --prefer-dist
 }
 
 function resetYves {
@@ -200,19 +221,20 @@ function resetYves {
 
 
 function displayHelp {
-    labelText "Spryker VM Setup"
-    echo "./$(basename $0) [-h|--help] [-i|--install] [-r|--reset]"
+    labelText "Spryker Platform Setup"
+    echo "./$(basename $0) [OPTION] [VERBOSITY]"
     echo ""
+    echo "  -i, --install-demo-shop"
+    echo "      Install and setup new instance of Spryker Platform and populate it with demo data"
     echo " "
-    echo "  -r|--reset"
-    echo "      Reset Demoshop state. Delete Redis, Elasticsearch and Database data."
-    echo " "
-    echo "  -i|--install"
-    echo "      Install Demoshop from scratch."
-    echo " "
-    echo "  -h|--help"
+    echo "  -r, --reset"
+    echo "      Reset state. Delete Redis, Elasticsearch and Database data"
+    echo ""
+    echo "  -h, --help"
     echo "      Show this help"
+    echo ""
+    echo "  -v, -vv, -vvv"
+    echo "      Set verbosity level"
     echo " "
-
 
 }

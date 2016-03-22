@@ -72,7 +72,7 @@
                 </placeholders>
             </de_DE>
             <en_US>
-                <url>/en/about</url>
+                <url>/en/imprint</url>
                 <placeholders>
                     <placeholder>
                         <name>title</name>
@@ -392,12 +392,6 @@
             insoweit über die Art, den Umfang und Zweck der Erhebung, die Nutzung und die Verarbeitung von personenbezogenen
             Daten durch den Anbieter</p>
 
-        <p><strong>[Name und Anschrift des Betreibers]</strong></p>
-
-        <p><strong>[Telefonnummer des Betreibers]</strong></p>
-
-        <p><strong>[E-Mail des Betreibers]</strong></p>
-
         <p>Wir weisen darauf hin, dass die internetbasierte Datenübertragung Sicherheitslücken aufweist, ein lückenloser Schutz
             vor Zugriffen durch Dritte somit unmöglich ist.</p>
 
@@ -423,43 +417,32 @@
                         <name>title</name>
                         <translation>
                             <![CDATA[
-                        --ENGLISH-- <h2>Datenschutzerklärung</h2>
+                         <h2>Data Privacy Policy</h2>
                  ]]></translation>
                     </placeholder>
                     <placeholder>
                         <name>content</name>
                         <translation><![CDATA[
+        <p>Our website may be used without entering personal information. Different rules may apply to certain services on our site,
+         however, and are explained separately below. We collect personal information from you (e.g. name, address, email address,
+         telephone number, etc.) in accordance with the provisions of German data protection statutes. Information is considered
+         personal if it can be associated exclusively to a specific natural person. The legal framework for data protection may be found
+         in the German Federal Data Protection Act (BDSG) and the Telemedia Act (TMG). The provisions below serve to provide information
+         as to the manner, extent and purpose for collecting, using and processing personal information by the provider.</p>
 
-        --ENGLISH--
-        <p>Die Nutzung unserer Seite ist ohne eine Angabe von personenbezogenen Daten möglich. Für die Nutzung einzelner
-            Services unserer Seite können sich hierfür abweichende Regelungen ergeben, die in diesem Falle nachstehend gesondert
-            erläutert werden. Ihre personenbezogenen Daten (z.B. Name, Anschrift, E-Mail, Telefonnummer, u.ä.) werden von uns
-            nur gemäß den Bestimmungen des deutschen Datenschutzrechts verarbeitet. Daten sind dann personenbezogen, wenn sie
-            eindeutig einer bestimmten natürlichen Person zugeordnet werden können. Die rechtlichen Grundlagen des Datenschutzes
-            finden Sie im Bundesdatenschutzgesetz (BDSG) und dem Telemediengesetz (TMG). Nachstehende Regelungen informieren Sie
-            insoweit über die Art, den Umfang und Zweck der Erhebung, die Nutzung und die Verarbeitung von personenbezogenen
-            Daten durch den Anbieter</p>
+        <p>Please be aware that data transfer via the internet is subject to security risks and, therefore, complete protection
+        against third-party access to transferred data cannot be ensured.</p>
 
-        <p><strong>[Name und Anschrift des Betreibers]</strong></p>
+        <h3>Information/Cancellation/Deletion</h3>
 
-        <p><strong>[Telefonnummer des Betreibers]</strong></p>
-
-        <p><strong>[E-Mail des Betreibers]</strong></p>
-
-        <p>Wir weisen darauf hin, dass die internetbasierte Datenübertragung Sicherheitslücken aufweist, ein lückenloser Schutz
-            vor Zugriffen durch Dritte somit unmöglich ist.</p>
-
-        <h3>Auskunft/Widerruf/Löschung</h3>
-
-        <p>Sie können sich aufgrund des Bundesdatenschutzgesetzes bei Fragen zur Erhebung, Verarbeitung oder Nutzung Ihrer
-            personenbezogenen Daten und deren Berichtigung, Sperrung, Löschung oder einem Widerruf einer erteilten Einwilligung
-            unentgeltlich an uns wenden. Wir weisen darauf hin, dass Ihnen ein Recht auf Berichtigung falscher Daten oder
-            Löschung personenbezogener Daten zusteht, sollte diesem Anspruch keine gesetzliche Aufbewahrungspflicht
-            entgegenstehen.</p>
+        <p>On the basis of the Federal Data Protection Act, you may contact us at no cost if you have questions relating to the
+        collection, processing or use of your personal information, if you wish to request the correction, blocking or deletion of the
+        same, or if you wish to cancel explicitly granted consent. Please note that you have the right to have incorrect data corrected or
+        to have personal data deleted, where such claim is not barred by any legal obligation to retain this data.</p>
 
         <p>
-            <a target="_blank" href="https://www.ratgeberrecht.eu/leistungen/muster-datenschutzerklaerung.html">Muster-Datenschutzerklärung</a>
-            der Anwaltskanzlei Weiß &amp; Partner</p>
+            <a target="_blank" href="https://www.ratgeberrecht.eu/leistungen/muster-datenschutzerklaerung.html">Sample Data Privacy Policy Statement</a>
+            provided by the Law Offices of Weiß & Partner</p>
             ]]></translation>
                     </placeholder>
                 </placeholders>
