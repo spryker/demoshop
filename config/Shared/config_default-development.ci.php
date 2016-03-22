@@ -1,9 +1,9 @@
 <?php
 
+use Pyz\Shared\Mail\MailConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Session\SessionConstants;
-use Pyz\Shared\Mail\MailConstants;
 
 $config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
 $config[ApplicationConstants::ZED_DB_USERNAME] = 'ubuntu';
