@@ -108,13 +108,9 @@ class ProductStockImporter extends AbstractImporter
             return;
         }
 
-        try {
-            $productConcrete = $this->productQueryContainer
-                ->queryProductConcreteBySku($stock[self::SKU])
-                ->findOne();
-        } catch (\Exception $e) {
-            $productConcrete = null;
-        }
+        $productConcrete = $this->productQueryContainer
+            ->queryProductConcreteBySku($stock[self::SKU])
+            ->findOne();
 
         if (!$productConcrete) {
             return;

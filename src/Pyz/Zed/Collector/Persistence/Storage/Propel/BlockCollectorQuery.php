@@ -66,14 +66,26 @@ class BlockCollectorQuery extends AbstractPropelCollectorQuery
             Criteria::EQUAL
         );
 
+        $this->touchQuery->withColumn(
+            'GROUP_CONCAT('.SpyCmsGlossaryKeyMappingTableMap::COL_PLACEHOLDER.')',
+            'placeholder'
+        );
+        $this->touchQuery->withColumn(
+            SpyCmsTemplateTableMap::COL_TEMPLATE_PATH,
+            'template_path'
+        );
+
+        $this->touchQuery->withColumn(
+            'GROUP_CONCAT('.SpyGlossaryKeyTableMap::COL_KEY.')',
+            'key'
+        );
+
         $this->touchQuery->withColumn(SpyCmsBlockTableMap::COL_ID_CMS_BLOCK, self::BLOCK_ID);
         $this->touchQuery->withColumn(SpyCmsBlockTableMap::COL_NAME, self::BLOCK_NAME);
         $this->touchQuery->withColumn(SpyCmsBlockTableMap::COL_TYPE, self::BLOCK_TYPE);
         $this->touchQuery->withColumn(SpyCmsBlockTableMap::COL_VALUE, self::BLOCK_VALUE);
-        $this->touchQuery->withColumn(SpyCmsGlossaryKeyMappingTableMap::COL_PLACEHOLDER, self::PLACEHOLDER);
-        $this->touchQuery->withColumn(SpyCmsTemplateTableMap::COL_TEMPLATE_PATH, self::TEMPLATE_PATH);
+        $this->touchQuery->addGroupByColumn(SpyCmsTemplateTableMap::COL_TEMPLATE_PATH);
         $this->touchQuery->withColumn(SpyCmsPageTableMap::COL_IS_ACTIVE, self::IS_ACTIVE);
-        $this->touchQuery->withColumn(SpyGlossaryKeyTableMap::COL_KEY, self::TRANSLATION_KEY);
     }
 
 }
