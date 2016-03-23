@@ -87,6 +87,7 @@ class ShipmentSubForm extends CheckoutAbstractSubFormType implements SubFormInte
                 'constraints' => [
                     new NotBlank(),
                 ],
+                'label' => false,
             ]
         );
 
