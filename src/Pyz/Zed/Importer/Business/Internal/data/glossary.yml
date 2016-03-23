@@ -1207,3 +1207,112 @@ checkout.step.payment.no.birthdate.provided.error.message:
   translations:
     en_US: 'Please add your birthday. You must be at least 18 years old.'
     de_DE: 'Bitte geben Sie ihr Geburtsdatum ein. Sie müssen mindestens 18 Jahre alt sein.'
+
+product.attribute.slug:
+  translations:
+     en_US: 'slug'
+     de_DE: 'slug'
+product.attribute.variant_id:
+  translations:
+     en_US: 'ID'
+     de_DE: 'ID'
+product.attribute.sku:
+  translations:
+     en_US: 'SKU'
+     de_DE: 'SKU'
+product.attribute.image_quality:
+  translations:
+     en_US: 'Image Quality'
+     de_DE: 'Bildqualitaet'
+product.attribute.lens_system:
+  translations:
+     en_US: 'Lens System'
+     de_DE: 'Linsensystem'
+product.attribute.focus:
+  translations:
+     en_US: 'Focus'
+     de_DE: 'Fokus'
+product.attribute.shutter:
+  translations:
+     en_US: 'Shutter'
+     de_DE: 'Blendenverschluss'
+product.attribute.video:
+  translations:
+     en_US: 'Video'
+     de_DE: 'Video'
+product.attribute.screen:
+  translations:
+     en_US: 'Screen'
+     de_DE: 'Screen'
+product.attribute.processor:
+  translations:
+     en_US: 'Processor'
+     de_DE: 'Prozessor'
+product.attribute.memory:
+  translations:
+     en_US: 'Memory'
+     de_DE: 'Memory'
+product.attribute.display:
+  translations:
+     en_US: 'Display'
+     de_DE: 'Bildschirm'
+product.attribute.storage:
+  translations:
+     en_US: 'Storage'
+     de_DE: 'Speicher'
+product.attribute.color:
+  translations:
+     en_US: 'Color'
+     de_DE: 'Farbe'
+product.attribute.design:
+  translations:
+     en_US: 'Design'
+     de_DE: 'Design'
+product.attribute.graphics:
+  translations:
+     en_US: 'Graphics'
+     de_DE: 'Graphik'
+product.attribute.camera:
+  translations:
+     en_US: 'Camera'
+     de_DE: 'Camera'
+product.attribute.gps:
+  translations:
+     en_US: 'GPS'
+     de_DE: 'GPS'
+product.attribute.weight:
+  translations:
+     en_US: 'Weight'
+     de_DE: 'Gewicht'
+product.attribute.waterproof:
+  translations:
+     en_US: 'Waterproof'
+     de_DE: 'Wasserdicht'
+product.attribute.battery:
+  translations:
+     en_US: 'Battery'
+     de_DE: 'Batterie'
+product.attribute.short_description:
+  translations:
+     en_US: 'Short Description'
+     de_DE: 'Kurzbeschreibung'
+product.attribute.long_description:
+  translations:
+     en_US: 'Long Description'
+     de_DE: 'Langbeschreibung'
+product.attribute.manufacturer_name:
+  translations:
+     en_US: 'Brand'
+     de_DE: 'Marke'
+product.attribute.product_id:
+  translations:
+     en_US: 'Product ID'
+     de_DE: 'Produkt ID'
+product.attribute.image_big:
+  translations:
+     en_US: 'Image big'
+     de_DE: 'Bild groß'
+product.attribute.image_small:
+  translations:
+     en_US: 'Image small'
+     de_DE: 'Bild klein'
