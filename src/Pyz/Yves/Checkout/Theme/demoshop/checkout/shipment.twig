@@ -13,7 +13,7 @@
 		        {{ form_widget(shipmentForm.shipmentSelection) }}
 		        {{ checkout.include_subforms(shipmentForm) }}
 		    {{ form_end(shipmentForm) }}
-            <a href="{{ previousStepUrl }}">Back</a>
+            <a href="{{ previousStepUrl }}">{{ 'general.back.button' | trans }}</a>
         </div>
     </div>
 </div>
