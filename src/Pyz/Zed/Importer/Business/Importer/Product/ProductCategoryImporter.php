@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\Product;
 
-use LogicException;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
@@ -117,7 +116,7 @@ class ProductCategoryImporter extends AbstractImporter
             $this->defaultRootNode = $queryRoot->findOne();
 
             if ($this->defaultRootNode === null) {
-                throw new LogicException('Could not find any root nodes');
+                throw new \LogicException('Could not find any root nodes');
             }
         }
 
@@ -146,7 +145,7 @@ class ProductCategoryImporter extends AbstractImporter
 
         $idNodeAndCategory = $this->getIdNodeAndCategory($product[self::CATEGORY_KEY]);
         if (empty($idNodeAndCategory)) {
-            throw new LogicException(sprintf(
+            throw new \LogicException(sprintf(
                 'Category with key "%s" for product with sku "%" does not exist',
                 $product[self::CATEGORY_KEY],
                 $product[self::SKU]
@@ -165,7 +164,7 @@ class ProductCategoryImporter extends AbstractImporter
     /**
      * @param int $sku
      *
-     * @return int
+     * @return int|null
      */
     protected function getProductAbstractId($sku)
     {
@@ -185,7 +184,7 @@ class ProductCategoryImporter extends AbstractImporter
             return $productConcrete->getFkProductAbstract();
         }
 
-        return 0;
+        return null;
     }
 
     /**
