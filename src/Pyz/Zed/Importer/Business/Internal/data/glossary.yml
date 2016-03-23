@@ -1210,19 +1210,19 @@ checkout.step.payment.no.birthdate.provided.error.message:
 checkout.step.success.title:
   translations:
     en_US: 'Your order has been placed successfully!'
-    de_DE: '---'
+    de_DE: 'Ihre Bestellung wurde erfolgreich durchgeführt!'
 checkout.step.success.text:
   translations:
     en_US: 'Thank you.'
-    de_DE: '---'
+    de_DE: 'Vielen Dank.'
 checkout.step.error.title:
   translations:
     en_US: 'Your order has not been placed.'
-    de_DE: '---'
+    de_DE: 'Ihre Bestellung konnte leider nicht durchgeführt werden.'
 checkout.step.error.text:
   translations:
     en_US: 'Something went wrong. Sorry.'
-    de_DE: '---'
+    de_DE: 'Leider ging etwas schief. Tut uns leid.'
 customer.password.change.success:
   translations:
     en_US: 'Password change successful'
