@@ -81,7 +81,7 @@ class InvoiceSubForm extends CheckoutAbstractSubFormType implements SubFormInter
             'birthday',
             [
                 'label' => false,
-                'required' => false,
+                'required' => true,
                 'widget' => 'single_text',
                 'format' => 'dd.MM.yyyy',
                 'input' => 'string',

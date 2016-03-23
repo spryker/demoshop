@@ -80,6 +80,7 @@ class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormI
 
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     * @param array $options
      *
      * @return $this
      */
@@ -91,7 +92,7 @@ class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormI
             [
                 'choices' => $options['select_options'][self::OPTION_INSTALLMENT_PAYMENT_DETAIL],
                 'label' => false,
-                'required' => false,
+                'required' => true,
                 'expanded' => false,
                 'multiple' => false,
                 'empty_value' => false,
@@ -113,7 +114,7 @@ class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormI
             'birthday',
             [
                 'label' => false,
-                'required' => false,
+                'required' => true,
                 'widget' => 'single_text',
                 'format' => 'dd.MM.yyyy',
                 'input' => 'string',
@@ -138,7 +139,7 @@ class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormI
             'text',
             [
                 'label' => false,
-                'required' => false,
+                'required' => true,
                 'attr' => [
                     'placeholder' => 'Bank account holder',
                 ],
@@ -160,7 +161,7 @@ class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormI
             'text',
             [
                 'label' => false,
-                'required' => false,
+                'required' => true,
                 'attr' => [
                     'placeholder' => 'Bank account IBAN',
                 ],
@@ -182,7 +183,7 @@ class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormI
             'text',
             [
                 'label' => false,
-                'required' => false,
+                'required' => true,
                 'attr' => [
                     'placeholder' => 'Bank account BIC',
                 ],
