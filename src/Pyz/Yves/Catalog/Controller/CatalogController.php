@@ -33,15 +33,10 @@ class CatalogController extends AbstractController
 
         $search->setItemsPerPage(self::ITEMS_PER_PAGE);
 
-        $categoryTree = $this->getFactory()
-            ->createCategoryExporterClient()
-            ->getTreeFromCategoryNode($categoryNode, $this->getLocale());
-
         $searchResults = array_merge(
             $search->getResult(),
             [
                 'category' => $categoryNode,
-                'categoryTree' => $categoryTree,
                 'page_title' => $categoryNode['meta_title'],
                 'page_description' => $categoryNode['meta_description'],
                 'page_keywords' => $categoryNode['meta_keywords'],
