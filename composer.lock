@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7f9668ac1c3ba95e7eb68de06d983612",
-    "content-hash": "5cc37b44fd2c1166fe66fc353ec41b2c",
+    "hash": "ca60d00d0cfde696d848908f6ee6d4b5",
+    "content-hash": "4fbb913957ab90b16d9f68a1c80d576c",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -521,16 +521,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v1.2.2",
+            "version": "v1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "b3313b618f4edd76523572531d5d7e22fe747430"
+                "reference": "0b441c047be7a1e829fb106687284b0f8cf77db7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/b3313b618f4edd76523572531d5d7e22fe747430",
-                "reference": "b3313b618f4edd76523572531d5d7e22fe747430",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/0b441c047be7a1e829fb106687284b0f8cf77db7",
+                "reference": "0b441c047be7a1e829fb106687284b0f8cf77db7",
                 "shasum": ""
             },
             "require": {
@@ -565,20 +565,20 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-03-11 19:54:08"
+            "time": "2016-03-18 15:55:46"
         },
         {
             "name": "phpdocumentor/graphviz",
-            "version": "dev-master",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/GraphViz.git",
-                "reference": "a906a90"
+                "reference": "a906a90a9f230535f25ea31caf81b2323956283f"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/phpDocumentor/GraphViz/zipball/a906a90a9f230535f25ea31caf81b2323956283f",
-                "reference": "a906a90",
+                "reference": "a906a90a9f230535f25ea31caf81b2323956283f",
                 "shasum": ""
             },
             "require": {
@@ -945,18 +945,19 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "dff2ac07f6d072178a263eb6760fb14dc4d09650"
+                "reference": "fded2b1b440d976ef2668d2d72461bb4ee43680d"
             },
             "require": {
+                "everon/criteria-builder": "^1.1.0",
                 "paragonie/random_compat": "~1.2.1",
-                "phpdocumentor/graphviz": "dev-master#a906a90"
+                "phpdocumentor/graphviz": "~1.0.4"
             },
             "require-dev": {
-                "spryker/code-sniffer": "dev-master"
+                "spryker/code-sniffer": "*"
             },
             "bin": [
                 "Bundles/Console/bin/console"
@@ -991,8 +992,6 @@
                     "Functional\\Spryker\\Zed\\Availability\\": "Bundles/Availability/tests",
                     "Spryker\\Zed\\AvailabilityCartConnector\\": "Bundles/AvailabilityCartConnector/src",
                     "Unit\\Spryker\\Zed\\AvailabilityCartConnector\\": "Bundles/AvailabilityCartConnector/tests",
-                    "Spryker\\Zed\\AvailabilityCheckoutConnector\\": "Bundles/AvailabilityCheckoutConnector/src",
-                    "Unit\\Spryker\\Zed\\AvailabilityCheckoutConnector\\": "Bundles/AvailabilityCheckoutConnector/tests",
                     "Spryker\\Zed\\Cache\\": "Bundles/Cache/src",
                     "Spryker\\Shared\\Calculation\\": "Bundles/Calculation/src",
                     "Unit\\Spryker\\Shared\\Calculation\\": "Bundles/Calculation/tests",
@@ -1000,8 +999,6 @@
                     "Unit\\Spryker\\Client\\Calculation\\": "Bundles/Calculation/tests",
                     "Spryker\\Zed\\Calculation\\": "Bundles/Calculation/src",
                     "Unit\\Spryker\\Zed\\Calculation\\": "Bundles/Calculation/tests",
-                    "Spryker\\Zed\\CalculationCheckoutConnector\\": "Bundles/CalculationCheckoutConnector/src",
-                    "Unit\\Spryker\\Zed\\CalculationCheckoutConnector\\": "Bundles/CalculationCheckoutConnector/tests",
                     "Spryker\\Client\\Cart\\": "Bundles/Cart/src",
                     "Unit\\Spryker\\Client\\Cart\\": "Bundles/Cart/tests",
                     "Functional\\Spryker\\Client\\Cart\\": "Bundles/Cart/tests",
@@ -1011,10 +1008,6 @@
                     "Spryker\\Zed\\Cart\\": "Bundles/Cart/src",
                     "Unit\\Spryker\\Zed\\Cart\\": "Bundles/Cart/tests",
                     "Functional\\Spryker\\Zed\\Cart\\": "Bundles/Cart/tests",
-                    "Spryker\\Shared\\CartCheckoutConnector\\": "Bundles/CartCheckoutConnector/src",
-                    "Unit\\Spryker\\Shared\\CartCheckoutConnector\\": "Bundles/CartCheckoutConnector/tests",
-                    "Spryker\\Zed\\CartCheckoutConnector\\": "Bundles/CartCheckoutConnector/src",
-                    "Unit\\Spryker\\Zed\\CartCheckoutConnector\\": "Bundles/CartCheckoutConnector/tests",
                     "Spryker\\Client\\Catalog\\": "Bundles/Catalog/src",
                     "Unit\\Spryker\\Client\\Catalog\\": "Bundles/Catalog/tests",
                     "Spryker\\Shared\\Catalog\\": "Bundles/Catalog/src",
@@ -1066,10 +1059,6 @@
                     "Spryker\\Zed\\Customer\\": "Bundles/Customer/src",
                     "Unit\\Spryker\\Zed\\Customer\\": "Bundles/Customer/tests",
                     "Functional\\Spryker\\Zed\\Customer\\": "Bundles/Customer/tests",
-                    "Spryker\\Shared\\CustomerCheckoutConnector\\": "Bundles/CustomerCheckoutConnector/src",
-                    "Functional\\Spryker\\Shared\\CustomerCheckoutConnector\\": "Bundles/CustomerCheckoutConnector/tests",
-                    "Spryker\\Zed\\CustomerCheckoutConnector\\": "Bundles/CustomerCheckoutConnector/src",
-                    "Functional\\Spryker\\Zed\\CustomerCheckoutConnector\\": "Bundles/CustomerCheckoutConnector/tests",
                     "Spryker\\Shared\\CustomerMailConnector\\": "Bundles/CustomerMailConnector/src",
                     "Unit\\Spryker\\Shared\\CustomerMailConnector\\": "Bundles/CustomerMailConnector/tests",
                     "Functional\\Spryker\\Shared\\CustomerMailConnector\\": "Bundles/CustomerMailConnector/tests",
@@ -1090,10 +1079,6 @@
                     "Spryker\\Zed\\DiscountCalculationConnector\\": "Bundles/DiscountCalculationConnector/src",
                     "Unit\\Spryker\\Zed\\DiscountCalculationConnector\\": "Bundles/DiscountCalculationConnector/tests",
                     "Functional\\Spryker\\Zed\\DiscountCalculationConnector\\": "Bundles/DiscountCalculationConnector/tests",
-                    "Spryker\\Shared\\DiscountCheckoutConnector\\": "Bundles/DiscountCheckoutConnector/src",
-                    "Unit\\Spryker\\Shared\\DiscountCheckoutConnector\\": "Bundles/DiscountCheckoutConnector/tests",
-                    "Spryker\\Zed\\DiscountCheckoutConnector\\": "Bundles/DiscountCheckoutConnector/src",
-                    "Unit\\Spryker\\Zed\\DiscountCheckoutConnector\\": "Bundles/DiscountCheckoutConnector/tests",
                     "Spryker\\Client\\EventJournal\\": "Bundles/EventJournal/src",
                     "Unit\\Spryker\\Client\\EventJournal\\": "Bundles/EventJournal/tests",
                     "Functional\\Spryker\\Client\\EventJournal\\": "Bundles/EventJournal/tests",
@@ -1103,7 +1088,6 @@
                     "Spryker\\Zed\\EventJournal\\": "Bundles/EventJournal/src",
                     "Unit\\Spryker\\Zed\\EventJournal\\": "Bundles/EventJournal/tests",
                     "Functional\\Spryker\\Zed\\EventJournal\\": "Bundles/EventJournal/tests",
-                    "Spryker\\Zed\\Git\\": "Bundles/Git/src",
                     "Spryker\\Client\\Glossary\\": "Bundles/Glossary/src",
                     "Unit\\Spryker\\Client\\Glossary\\": "Bundles/Glossary/tests",
                     "Functional\\Spryker\\Client\\Glossary\\": "Bundles/Glossary/tests",
@@ -1133,7 +1117,6 @@
                     "Spryker\\Zed\\ItemGrouper\\": "Bundles/ItemGrouper/src",
                     "Unit\\Spryker\\Zed\\ItemGrouper\\": "Bundles/ItemGrouper/tests",
                     "Functional\\Spryker\\Zed\\ItemGrouper\\": "Bundles/ItemGrouper/tests",
-                    "Spryker\\Zed\\ItemGrouperCheckoutConnector\\": "Bundles/ItemGrouperCheckoutConnector/src",
                     "Spryker\\Zed\\ItemGrouperWishlistConnector\\": "Bundles/ItemGrouperWishlistConnector/src",
                     "Spryker\\Client\\Kernel\\": "Bundles/Kernel/src",
                     "Unit\\Spryker\\Client\\Kernel\\": "Bundles/Kernel/tests",
@@ -1191,18 +1174,12 @@
                     "Functional\\Spryker\\Shared\\Newsletter\\": "Bundles/Newsletter/tests",
                     "Spryker\\Zed\\Newsletter\\": "Bundles/Newsletter/src",
                     "Functional\\Spryker\\Zed\\Newsletter\\": "Bundles/Newsletter/tests",
-                    "Spryker\\Zed\\Nopayment\\": "Bundles/Nopayment/src",
-                    "Unit\\Spryker\\Zed\\Nopayment\\": "Bundles/Nopayment/tests",
                     "Spryker\\Shared\\Oms\\": "Bundles/Oms/src",
                     "Unit\\Spryker\\Shared\\Oms\\": "Bundles/Oms/tests",
                     "Functional\\Spryker\\Shared\\Oms\\": "Bundles/Oms/tests",
                     "Spryker\\Zed\\Oms\\": "Bundles/Oms/src",
                     "Unit\\Spryker\\Zed\\Oms\\": "Bundles/Oms/tests",
                     "Functional\\Spryker\\Zed\\Oms\\": "Bundles/Oms/tests",
-                    "Spryker\\Shared\\OmsCheckoutConnector\\": "Bundles/OmsCheckoutConnector/src",
-                    "Functional\\Spryker\\Shared\\OmsCheckoutConnector\\": "Bundles/OmsCheckoutConnector/tests",
-                    "Spryker\\Zed\\OmsCheckoutConnector\\": "Bundles/OmsCheckoutConnector/src",
-                    "Functional\\Spryker\\Zed\\OmsCheckoutConnector\\": "Bundles/OmsCheckoutConnector/tests",
                     "Spryker\\Zed\\OmsDiscountConnector\\": "Bundles/OmsDiscountConnector/src",
                     "Unit\\Spryker\\Zed\\OmsDiscountConnector\\": "Bundles/OmsDiscountConnector/tests",
                     "Spryker\\Client\\Payment\\": "Bundles/Payment/src",
@@ -1277,12 +1254,6 @@
                     "Spryker\\Zed\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/src",
                     "Unit\\Spryker\\Zed\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/tests",
                     "Functional\\Spryker\\Zed\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/tests",
-                    "Spryker\\Shared\\ProductOptionCheckoutConnector\\": "Bundles/ProductOptionCheckoutConnector/src",
-                    "Unit\\Spryker\\Shared\\ProductOptionCheckoutConnector\\": "Bundles/ProductOptionCheckoutConnector/tests",
-                    "Functional\\Spryker\\Shared\\ProductOptionCheckoutConnector\\": "Bundles/ProductOptionCheckoutConnector/tests",
-                    "Spryker\\Zed\\ProductOptionCheckoutConnector\\": "Bundles/ProductOptionCheckoutConnector/src",
-                    "Unit\\Spryker\\Zed\\ProductOptionCheckoutConnector\\": "Bundles/ProductOptionCheckoutConnector/tests",
-                    "Functional\\Spryker\\Zed\\ProductOptionCheckoutConnector\\": "Bundles/ProductOptionCheckoutConnector/tests",
                     "Spryker\\Zed\\ProductOptionDiscountConnector\\": "Bundles/ProductOptionDiscountConnector/src",
                     "Unit\\Spryker\\Zed\\ProductOptionDiscountConnector\\": "Bundles/ProductOptionDiscountConnector/tests",
                     "Functional\\Spryker\\Zed\\ProductOptionDiscountConnector\\": "Bundles/ProductOptionDiscountConnector/tests",
@@ -1325,8 +1296,6 @@
                     "Spryker\\Zed\\SalesAggregator\\": "Bundles/SalesAggregator/src",
                     "Unit\\Spryker\\Zed\\SalesAggregator\\": "Bundles/SalesAggregator/tests",
                     "Functional\\Spryker\\Zed\\SalesAggregator\\": "Bundles/SalesAggregator/tests",
-                    "Spryker\\Zed\\SalesCheckoutConnector\\": "Bundles/SalesCheckoutConnector/src",
-                    "Unit\\Spryker\\Zed\\SalesCheckoutConnector\\": "Bundles/SalesCheckoutConnector/tests",
                     "Spryker\\Client\\Search\\": "Bundles/Search/src",
                     "Unit\\Spryker\\Client\\Search\\": "Bundles/Search/tests",
                     "Spryker\\Shared\\Search\\": "Bundles/Search/src",
@@ -1352,10 +1321,6 @@
                     "Unit\\Spryker\\Shared\\Shipment\\": "Bundles/Shipment/tests",
                     "Spryker\\Zed\\Shipment\\": "Bundles/Shipment/src",
                     "Unit\\Spryker\\Zed\\Shipment\\": "Bundles/Shipment/tests",
-                    "Spryker\\Shared\\ShipmentCheckoutConnector\\": "Bundles/ShipmentCheckoutConnector/src",
-                    "Unit\\Spryker\\Shared\\ShipmentCheckoutConnector\\": "Bundles/ShipmentCheckoutConnector/tests",
-                    "Spryker\\Zed\\ShipmentCheckoutConnector\\": "Bundles/ShipmentCheckoutConnector/src",
-                    "Unit\\Spryker\\Zed\\ShipmentCheckoutConnector\\": "Bundles/ShipmentCheckoutConnector/tests",
                     "Spryker\\Shared\\SqlCriteriaBuilder\\": "Bundles/SqlCriteriaBuilder/src",
                     "Spryker\\Shared\\Stock\\": "Bundles/Stock/src",
                     "Unit\\Spryker\\Shared\\Stock\\": "Bundles/Stock/tests",
@@ -1443,7 +1408,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-03-21 16:06:41"
+            "time": "2016-03-23 11:02:56"
         },
         {
             "name": "symfony-cmf/routing",
@@ -3779,16 +3744,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.1.1",
+            "version": "6.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "c6851d6e48f63b69357cbfa55bca116448140e0c"
+                "reference": "d094e337976dff9d8e2424e8485872194e768662"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/c6851d6e48f63b69357cbfa55bca116448140e0c",
-                "reference": "c6851d6e48f63b69357cbfa55bca116448140e0c",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/d094e337976dff9d8e2424e8485872194e768662",
+                "reference": "d094e337976dff9d8e2424e8485872194e768662",
                 "shasum": ""
             },
             "require": {
@@ -3804,7 +3769,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.1-dev"
+                    "dev-master": "6.2-dev"
                 }
             },
             "autoload": {
@@ -3837,7 +3802,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2015-11-23 00:47:50"
+            "time": "2016-03-21 20:02:09"
         },
         {
             "name": "guzzlehttp/promises",
@@ -4502,16 +4467,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.2.11",
+            "version": "5.2.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "94b953a53d92cc6024bcbaab39a73370fd2f267c"
+                "reference": "6f0948bab32270352f97d1913d82a49338dcb0da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/94b953a53d92cc6024bcbaab39a73370fd2f267c",
-                "reference": "94b953a53d92cc6024bcbaab39a73370fd2f267c",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6f0948bab32270352f97d1913d82a49338dcb0da",
+                "reference": "6f0948bab32270352f97d1913d82a49338dcb0da",
                 "shasum": ""
             },
             "require": {
@@ -4572,7 +4537,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-03-14 06:24:28"
+            "time": "2016-03-15 05:59:58"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -5970,7 +5935,6 @@
     "stability-flags": {
         "spryker/spryker": 20,
         "propel/propel": 20,
-        "phpdocumentor/graphviz": 20,
         "spryker/code-sniffer": 20
     },
     "prefer-stable": true,
