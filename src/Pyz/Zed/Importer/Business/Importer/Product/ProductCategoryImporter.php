@@ -197,12 +197,12 @@ class ProductCategoryImporter extends AbstractImporter
         if (!$this->cacheCategories->has($categoryKey)) {
             $category = $this->getCategoryEntityByKey($categoryKey);
 
-            if ($category) {
-                $idCategory = $category->getIdCategory();
-                $idNode = $category->getNodes()->getFirst()->getIdCategoryNode();
-            } else {
+            if (!$category) {
                 return [];
             }
+
+            $idCategory = $category->getIdCategory();
+            $idNode = $category->getNodes()->getFirst()->getIdCategoryNode();
 
             $this->cacheCategories->set(self::CATEGORY_KEY, $idCategory);
             $this->cacheNodes->set(self::CATEGORY_KEY, $idNode);
