@@ -1247,7 +1247,7 @@ product.attribute.sku:
 product.attribute.image_quality:
   translations:
      en_US: 'Image Quality'
-     de_DE: 'Bildqualitaet'
+     de_DE: 'Bildqualität'
 product.attribute.lens_system:
   translations:
      en_US: 'Lens System'
