@@ -2,24 +2,22 @@
 
 {% macro row(address) %}
     <tr>
-        <td>{{ address.getFirstName() }} {{ address.getLastName() }}</td>
+        <td>{{ address.firstName }} {{ address.lastName }}</td>
         <td>
             {% spaceless %}
-            {{ address.getAddress1() }} {{ address.getAddress2() }},
-            {{ address.getZipcode() }},
-            {{ address.getCity() }},
-            {{ address.getPhone() }}
+            {{ address.address1 }} {{ address.address2 }},
+            {{ address.zipcode }} {{ address.city }}{% if address.phone is defined %}, {{ address.phone }}{% endif %}
             {% endspaceless %}
         </td>
         <td class="text-right">
 
-            {% if address.getIsDefaultShipping %}<span class="label label-info">shipping</span>{% endif %}
-            {% if address.getIsDefaultBilling %}<span class="label label-info">billing</span>{% endif %}
+            {% if address.isDefaultShipping %}<span class="label label-info">shipping</span>{% endif %}
+            {% if address.isDefaultBilling %}<span class="label label-info">billing</span>{% endif %}
 
-            <a href="{{ url('customer/address/update', {'id': address.getIdCustomerAddress()}) }}" class="edit-data">
+            <a href="{{ url('customer/address/update', {'id': address.idCustomerAddress }) }}" class="edit-data">
                 {{ "customer.profile.address.edit" | trans }}
             </a>
-            <a href="{{ url('customer/address/delete', {'id': address.getIdCustomerAddress()}) }}" class="delete-btn confirm-popup">
+            <a href="{{ url('customer/address/delete', {'id': address.idCustomerAddress }) }}" class="delete-btn confirm-popup">
                 {{ "customer.profile.address.delete" | trans }}
             </a>
         </td>
