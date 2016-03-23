@@ -154,7 +154,8 @@ class PaymentForm extends AbstractType
 
         foreach ($paymentMethodSubForms as $paymentMethodSubForm) {
             $subFormName = $paymentMethodSubForm->getName();
-            $choices[$subFormName] = str_replace('_', ' ', $subFormName);
+            $methodName = str_replace('payolution_', '', $subFormName);
+            $choices[$subFormName] = ucfirst($methodName);
         }
 
         return $choices;
