@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\Product;
 
+use LogicException;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
@@ -116,7 +117,7 @@ class ProductCategoryImporter extends AbstractImporter
             $this->defaultRootNode = $queryRoot->findOne();
 
             if ($this->defaultRootNode === null) {
-                throw new \LogicException('Could not find any root nodes');
+                throw new LogicException('Could not find any root nodes');
             }
         }
 
@@ -126,7 +127,7 @@ class ProductCategoryImporter extends AbstractImporter
     /**
      * @param array $data
      *
-     * @throws \Propel\Runtime\Exception\PropelException
+     * @throws \LogicException
      *
      * @return void
      */
@@ -138,26 +139,53 @@ class ProductCategoryImporter extends AbstractImporter
 
         $product = $this->format($data);
 
-        $productAbstract = $this->productQueryContainer
-            ->queryProductAbstractBySku($product[self::SKU])
-            ->findOne();
-
-        if (!$productAbstract) {
+        $idProductAbstract = $this->getProductAbstractId($product[self::SKU]);
+        if (!$idProductAbstract) {
             return;
         }
 
         $idNodeAndCategory = $this->getIdNodeAndCategory($product[self::CATEGORY_KEY]);
         if (empty($idNodeAndCategory)) {
-            return;
+            throw new LogicException(sprintf(
+                'Category with key "%s" for product with sku "%" does not exist',
+                $product[self::CATEGORY_KEY],
+                $product[self::SKU]
+            ));
         }
 
         $this->createProductCategoryMapping(
-            $productAbstract->getIdProductAbstract(),
+            $idProductAbstract,
             $idNodeAndCategory[self::RESULT_CATEGORY_ID]
         );
 
         $this->touchCategoryNodeActive($idNodeAndCategory[self::RESULT_NODE_ID]);
-        $this->touchProductActive($productAbstract->getIdProductAbstract());
+        $this->touchProductActive($idProductAbstract);
+    }
+
+    /**
+     * @param int $sku
+     *
+     * @return int
+     */
+    protected function getProductAbstractId($sku)
+    {
+        $productAbstract = $this->productQueryContainer
+            ->queryProductAbstractBySku($sku)
+            ->findOne();
+
+        if ($productAbstract) {
+            return $productAbstract->getIdProductAbstract();
+        }
+
+        $productConcrete = $this->productQueryContainer
+            ->queryProductConcreteBySku($sku)
+            ->findOne();
+
+        if ($productConcrete) {
+            return $productConcrete->getFkProductAbstract();
+        }
+
+        return 0;
     }
 
     /**
@@ -174,8 +202,7 @@ class ProductCategoryImporter extends AbstractImporter
                 $idCategory = $category->getIdCategory();
                 $idNode = $category->getNodes()->getFirst()->getIdCategoryNode();
             } else {
-                $idCategory = $this->getRootNode()->getCategory()->getIdCategory();
-                $idNode = $this->getRootNode()->getIdCategoryNode();
+                return [];
             }
 
             $this->cacheCategories->set(self::CATEGORY_KEY, $idCategory);

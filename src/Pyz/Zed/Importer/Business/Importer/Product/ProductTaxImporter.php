@@ -113,7 +113,7 @@ class ProductTaxImporter extends AbstractImporter
         if ($productAbstract->getSku() !== $product[self::SKU]) {
             throw new \UnexpectedValueException(
                 sprintf(
-                    'Abstract SKU mismatch for product abstract: "%d". Product abstract sku: "%s" and tax sku "%s"',
+                    'Abstract SKU mismatch for product abstract with id: "%d". Product abstract sku: "%s" - tax sku: "%s"',
                     $productAbstract->getIdProductAbstract(),
                     $product[self::SKU],
                     $tax[self::SKU]
