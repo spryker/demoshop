@@ -11,8 +11,8 @@
         </td>
         <td class="text-right">
 
-            {% if address.isDefaultShipping %}<span class="label label-info">shipping</span>{% endif %}
-            {% if address.isDefaultBilling %}<span class="label label-info">billing</span>{% endif %}
+            {% if address.isDefaultShipping %}<span class="label label-info">{{ 'customer.order.shipping_address' | trans }}</span>{% endif %}
+            {% if address.isDefaultBilling %}<span class="label label-info">{{ 'customer.order.billing_address' | trans }}</span>{% endif %}
 
             <a href="{{ url('customer/address/update', {'id': address.idCustomerAddress }) }}" class="edit-data">
                 {{ "customer.profile.address.edit" | trans }}
