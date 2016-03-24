@@ -58,6 +58,7 @@ class FormFactory extends AbstractFactory
         $shipmentSubForms = $this->createShipmentMethodsSubForms();
         $shipmentFormType = $this->createShipmentForm($shipmentSubForms);
         $subFormDataProvider = $this->createSubFormDataProvider($shipmentSubForms);
+
         return $this->createSubFormCollection($quoteTransfer, $shipmentFormType, $subFormDataProvider);
     }
 
@@ -71,6 +72,7 @@ class FormFactory extends AbstractFactory
         $createPaymentSubForms = $this->createPaymentMethodsSubForms();
         $paymentFormType = $this->createPaymentForm($createPaymentSubForms);
         $subFormDataProvider = $this->createSubFormDataProvider($createPaymentSubForms);
+
         return $this->createSubFormCollection($quoteTransfer, $paymentFormType, $subFormDataProvider);
     }
 

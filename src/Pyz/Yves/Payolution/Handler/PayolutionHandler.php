@@ -5,6 +5,7 @@
  */
 namespace Pyz\Yves\Payolution\Handler;
 
+use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Client\Payolution\PayolutionClientInterface;
@@ -16,22 +17,21 @@ class PayolutionHandler
 {
 
     const PAYMENT_PROVIDER = 'payolution';
-    const NON_MAPPED_DATE_OF_BIRTH = 'date_of_birth';
 
     /**
      * @var array
      */
     protected static $paymentMethods = [
-        'payolution_invoice' => 'invoice',
-        'payolution_installment' => 'installment',
+        PaymentTransfer::PAYOLUTION_INVOICE => 'invoice',
+        PaymentTransfer::PAYOLUTION_INSTALLMENT => 'installment',
     ];
 
     /**
      * @var array
      */
     protected static $payolutionPaymentMethodMapper = [
-        'payolution_invoice' => PayolutionConstants::BRAND_INVOICE,
-        'payolution_installment' => PayolutionConstants::BRAND_INSTALLMENT,
+        PaymentTransfer::PAYOLUTION_INVOICE => PayolutionConstants::BRAND_INVOICE,
+        PaymentTransfer::PAYOLUTION_INSTALLMENT => PayolutionConstants::BRAND_INSTALLMENT,
     ];
 
     /**
@@ -93,8 +93,7 @@ class PayolutionHandler
      */
     protected function setPayolutionPayment(Request $request, QuoteTransfer $quoteTransfer, $paymentSelection)
     {
-        $payolutionPaymentTransfer = $quoteTransfer->getPayment()->getPayolution();
-        $payolutionPaymentTransfer->setDateOfBirth($this->getDateOfBirth($request));
+        $payolutionPaymentTransfer = $this->getPayolutionPaymentTransfer($quoteTransfer, $paymentSelection);
 
         $billingAddress = $quoteTransfer->getBillingAddress();
 
@@ -110,26 +109,8 @@ class PayolutionHandler
         if ($payolutionPaymentTransfer->getAccountBrand() === PayolutionConstants::BRAND_INSTALLMENT) {
             $this->setPayolutionInstallmentPayment($payolutionPaymentTransfer);
         }
-    }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return string
-     */
-    protected function getDateOfBirth(Request $request)
-    {
-        $paymentForm = $request->get('paymentForm');
-        foreach (static::$paymentMethods as $paymentMethod => $paymentName) {
-            if (array_key_exists($paymentMethod, $paymentForm) !== false) {
-                if (!empty($paymentForm[$paymentMethod][self::NON_MAPPED_DATE_OF_BIRTH])) {
-                    $dateOfBirth = new \DateTime($paymentForm[$paymentMethod][self::NON_MAPPED_DATE_OF_BIRTH]);
-                    return $dateOfBirth->format('Y-m-d');
-                }
-            }
-        }
-
-        return '';
+        $quoteTransfer->getPayment()->setPayolution(clone $payolutionPaymentTransfer);
     }
 
     /**
@@ -160,6 +141,20 @@ class PayolutionHandler
     protected function getCurrency()
     {
         return CurrencyManager::getInstance()->getDefaultCurrency()->getIsoCode();
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param string $paymentSelection
+     *
+     * @return \Generated\Shared\Transfer\PayolutionPaymentTransfer
+     */
+    protected function getPayolutionPaymentTransfer(QuoteTransfer $quoteTransfer, $paymentSelection)
+    {
+        $method = 'get' . ucfirst($paymentSelection);
+        $payolutionPaymentTransfer = $quoteTransfer->getPayment()->$method();
+
+        return $payolutionPaymentTransfer;
     }
 
 }

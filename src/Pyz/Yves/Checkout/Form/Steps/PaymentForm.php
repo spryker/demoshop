@@ -5,18 +5,22 @@
  */
 namespace Pyz\Yves\Checkout\Form\Steps;
 
+use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
 use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Validator\Constraint;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class PaymentForm extends AbstractType
 {
 
     const PAYMENT_PROPERTY_PATH = QuoteTransfer::PAYMENT;
-    const PAYMENT_SELECTION = 'paymentSelection';
+    const PAYMENT_SELECTION = PaymentTransfer::PAYMENT_SELECTION;
     const PAYMENT_SELECTION_PROPERTY_PATH = self::PAYMENT_PROPERTY_PATH . '.' . self::PAYMENT_SELECTION;
 
     /**
@@ -54,6 +58,7 @@ class PaymentForm extends AbstractType
 
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     * @param array $options
      *
      * @return $this
      */
@@ -87,6 +92,9 @@ class PaymentForm extends AbstractType
                 'multiple' => false,
                 'empty_value' => false,
                 'property_path' => self::PAYMENT_SELECTION_PROPERTY_PATH,
+                'constraints' => [
+                    new NotBlank(),
+                ],
             ]
         );
 
@@ -155,7 +163,7 @@ class PaymentForm extends AbstractType
         foreach ($paymentMethodSubForms as $paymentMethodSubForm) {
             $subFormName = $paymentMethodSubForm->getName();
             $methodName = str_replace('payolution_', '', $subFormName);
-            $choices[$subFormName] = ucfirst($methodName);
+            $choices[$paymentMethodSubForm->getPropertyPath()] = ucfirst($methodName);
         }
 
         return $choices;
@@ -179,6 +187,18 @@ class PaymentForm extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         parent::setDefaultOptions($resolver);
+
+        $resolver->setDefaults([
+            'validation_groups' => function (FormInterface $form) {
+                return [
+                    Constraint::DEFAULT_GROUP,
+                    $form->get(self::PAYMENT_SELECTION)->getData(),
+                ];
+            },
+            'attr' => [
+                'novalidate' => 'novalidate',
+            ],
+        ]);
 
         $resolver->setRequired(SubFormInterface::OPTIONS_FIELD_NAME);
     }

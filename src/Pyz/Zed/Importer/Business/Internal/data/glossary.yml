@@ -1207,10 +1207,10 @@ payolution_installment.date_of_birth:
   translations:
     en_US: 'Date of birth (DD-MM-YYYY)'
     de_DE: 'Geburtsdatum (TT.MM.JJJJ)'
-checkout.step.payment.no.birthdate.provided.error.message:
+checkout.step.payment.must_be_older_than_18_years:
   translations:
-    en_US: 'Please add your birthday. You must be at least 18 years old.'
-    de_DE: 'Bitte geben Sie ihr Geburtsdatum ein. Sie müssen mindestens 18 Jahre alt sein.'
+    en_US: 'You must be at least 18 years old.'
+    de_DE: 'Sie müssen mindestens 18 Jahre alt sein.'
 checkout.step.success.title:
   translations:
     en_US: 'Your order has been placed successfully!'

@@ -5,6 +5,7 @@
  */
 namespace Pyz\Yves\Checkout\Process;
 
+use Generated\Shared\Transfer\PaymentTransfer;
 use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
@@ -123,8 +124,8 @@ class StepFactory extends AbstractFactory
     public function createPaymentPlugins()
     {
         return [
-            'payolution_invoice' => $this->createPayolutionHandlerPlugin(),
-            'payolution_installment' => $this->createPayolutionHandlerPlugin(),
+            PaymentTransfer::PAYOLUTION_INVOICE => $this->createPayolutionHandlerPlugin(),
+            PaymentTransfer::PAYOLUTION_INSTALLMENT => $this->createPayolutionHandlerPlugin(),
         ];
     }
 
