@@ -1105,7 +1105,7 @@ newsletter.unsubscription.success:
     de_DE: 'Sie wurden erfolgreich für den Newsletter abgemeldet'
 newsletter.subscription.already_subscribed:
   translations:
-    en_US: 'You are already subscribed for the newsletter'
+    en_US: 'You are already subscribed to the newsletter'
     de_DE: 'Sie sind bereits für den Newsletter angemeldet'
 customer.authentication.failed:
   translations:
