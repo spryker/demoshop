@@ -25,12 +25,15 @@ class TwigCms extends AbstractPlugin implements TwigFunctionPluginInterface
             new \Twig_SimpleFunction('spyCms', function (array $context, $identifier) use ($application) {
                 $translator = $this->getTranslator($application);
                 $placeholders = $context['placeholders'];
-                $translation = $translator->trans($placeholders[$identifier]);
 
-                if ($this->isEdit($context)) {
-                    $translation = $this->getEditableOutput($placeholders[$identifier], $translation);
+                $translation = '';
+                if (isset($placeholders[$identifier])) {
+                    $translation = $translator->trans($placeholders[$identifier]);
+
+                    if ($this->isEdit($context)) {
+                        $translation = $this->getEditableOutput($placeholders[$identifier], $translation);
+                    }
                 }
-
                 return $translation;
             }, ['needs_context' => true]),
         ];
