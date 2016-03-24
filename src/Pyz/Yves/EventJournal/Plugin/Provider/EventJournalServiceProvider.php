@@ -147,7 +147,8 @@ class EventJournalServiceProvider extends AbstractServiceProvider
             $_COOKIE[$cookieName],
             $dt->modify($validFor),
             '/',
-            Config::get(ApplicationConstants::YVES_COOKIE_DOMAIN)
+            Config::get(ApplicationConstants::YVES_COOKIE_DOMAIN),
+            Config::get(ApplicationConstants::YVES_COOKIE_SECURE, true)
         );
     }
 

@@ -8,7 +8,7 @@ if [[ -z "$SETUP" ]]; then
 fi
 
 DATABASE_NAME='DE_development_zed'
-VERBOSITY=''
+VERBOSITY='-v'
 
 CURL=`which curl`
 NPM=`which npm`
@@ -82,7 +82,7 @@ function installDemoshop {
 
     resetDataStores
 
-    dropDevelopmentDatabase $DATABASE_NAME
+    dropDevelopmentDatabase
 
     setupText "Zed setup"
 
@@ -134,13 +134,22 @@ function resetDataStores {
     writeErrorMessage "Redis reset failed"
 }
 
+function installAntelope {
+    labelText "Install Antelope tool globally"
+    sudo $NPM install -g github:spryker/antelope
+    ANTELOPE_TOOL=`which antelope`
+
+    labelText "Test Antelope tool"
+    $ANTELOPE_TOOL test
+}
+
 function resetDevelopmentState {
     labelText "Preparing to reset data..."
     sleep 1
 
     resetDataStores
 
-    dropDevelopmentDatabase $DATABASE_NAME
+    dropDevelopmentDatabase
 
     labelText "Generating Transfer Objects"
     vendor/bin/console transfer:generate
@@ -158,12 +167,16 @@ function resetDevelopmentState {
 }
 
 function dropDevelopmentDatabase {
-    PG_CTL_CLUSTER=`which pg_ctlcluster`
-    DROP_DB=`which dropdb`
-    if [[ -f $PG_CTL_CLUSTER ]] && [[ -f $DROP_DB ]]; then
-        labelText "Deleting PostgreSql Database: ${1} "
-        sudo pg_ctlcluster 9.4 main restart --force && sudo dropdb $1 2> /dev/null
-        writeErrorMessage "Deleting DB command failed"
+    if [ `sudo psql -l | grep ${DATABASE_NAME} | wc -l` -ne 0 ]; then
+
+        PG_CTL_CLUSTER=`which pg_ctlcluster`
+        DROP_DB=`which dropdb`
+
+        if [[ -f $PG_CTL_CLUSTER ]] && [[ -f $DROP_DB ]]; then
+            labelText "Deleting PostgreSql Database: ${DATABASE_NAME} "
+            sudo pg_ctlcluster 9.4 main restart --force && sudo dropdb $DATABASE_NAME 1>/dev/null
+            writeErrorMessage "Deleting DB command failed"
+        fi
     fi
 
     # MYSQL=`which mysql`
@@ -232,9 +245,9 @@ function displayHelp {
     echo ""
     echo "  -h, --help"
     echo "      Show this help"
+    echo "      This message will be displayed if any unrecognized option will be provided"
     echo ""
     echo "  -v, -vv, -vvv"
     echo "      Set verbosity level"
     echo " "
-
 }

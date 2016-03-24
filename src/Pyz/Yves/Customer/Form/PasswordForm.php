@@ -48,7 +48,7 @@ class PasswordForm extends AbstractType
             'first_name' => self::FIELD_PASSWORD,
             'second_name' => 'confirm',
             'type' => self::FIELD_PASSWORD,
-            'invalid_message' => 'customer.password.invalid_password',
+            'invalid_message' => 'validator.constraints.password.do_not_match',
             'required' => true,
             'first_options' => [
                 'label' => 'customer.password.request.new_password',

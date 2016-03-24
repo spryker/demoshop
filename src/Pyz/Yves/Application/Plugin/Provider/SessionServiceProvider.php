@@ -111,9 +111,10 @@ class SessionServiceProvider extends AbstractServiceProvider
         $sessionStorageOptions = [
             'cookie_httponly' => true,
             'cookie_lifetime' => Config::get(ApplicationConstants::YVES_STORAGE_SESSION_TIME_TO_LIVE),
+            'cookie_secure' => Config::get(ApplicationConstants::YVES_COOKIE_SECURE, true),
         ];
 
-        $name = Config::get(ApplicationConstants::YVES_SESSION_NAME);
+        $name = str_replace('.', '-', Config::get(ApplicationConstants::YVES_SESSION_NAME));
         if ($name) {
             $sessionStorageOptions['name'] = $name;
         }
@@ -136,7 +137,6 @@ class SessionServiceProvider extends AbstractServiceProvider
     {
         $sessionHelper = new SessionFactory();
 
-        // We manually register our own couchbase session handler, for all other handlers we use the generic one
         switch ($saveHandler) {
             case SessionConstants::SESSION_HANDLER_COUCHBASE:
                 $couchbaseSessionHandler = $sessionHelper->registerCouchbaseSessionHandler($this->getSavePath($saveHandler));
