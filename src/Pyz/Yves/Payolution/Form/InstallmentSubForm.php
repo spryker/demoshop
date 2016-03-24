@@ -5,19 +5,18 @@
  */
 namespace Pyz\Yves\Payolution\Form;
 
+use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
-use Pyz\Yves\Checkout\Dependency\CheckoutAbstractSubFormType;
 use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormInterface
+class InstallmentSubForm extends AbstractPayolutionSubForm
 {
 
     const PAYMENT_PROVIDER = PayolutionConstants::PAYOLUTION;
     const PAYMENT_METHOD = 'installment';
-    const FIELD_DATE_OF_BIRTH = 'date_of_birth';
     const FIELD_INSTALLMENT_PAYMENT_DETAIL_INDEX = 'installment_payment_detail_index';
     const FIELD_BANK_ACCOUNT_HOLDER = 'bank_account_holder';
     const FIELD_BANK_ACCOUNT_IBAN = 'bank_account_iban';
@@ -38,7 +37,7 @@ class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormI
      */
     public function getPropertyPath()
     {
-        return self::PAYMENT_PROVIDER;
+        return PaymentTransfer::PAYOLUTION_INSTALLMENT;
     }
 
     /**
@@ -96,30 +95,8 @@ class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormI
                 'expanded' => false,
                 'multiple' => false,
                 'empty_value' => false,
-            ]
-        );
-
-        return $this;
-    }
-
-    /**
-     * @param \Symfony\Component\Form\FormBuilderInterface $builder
-     *
-     * @return \Pyz\Yves\Payolution\Form\InstallmentSubForm
-     */
-    protected function addDateOfBirth(FormBuilderInterface $builder)
-    {
-        $builder->add(
-            self::FIELD_DATE_OF_BIRTH,
-            'birthday',
-            [
-                'label' => false,
-                'required' => true,
-                'widget' => 'single_text',
-                'format' => 'dd.MM.yyyy',
-                'input' => 'string',
-                'attr' => [
-                    'placeholder' => 'customer.birth_date',
+                'constraints' => [
+                    $this->createNotBlankConstraint(),
                 ],
             ]
         );
@@ -143,6 +120,9 @@ class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormI
                 'attr' => [
                     'placeholder' => 'Bank account holder',
                 ],
+                'constraints' => [
+                    $this->createNotBlankConstraint(),
+                ],
             ]
         );
 
@@ -152,7 +132,7 @@ class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormI
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return \Pyz\Yves\Payolution\Form\InstallmentSubForm
+     * @return $this
      */
     protected function addBankAccountIban(FormBuilderInterface $builder)
     {
@@ -165,6 +145,9 @@ class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormI
                 'attr' => [
                     'placeholder' => 'Bank account IBAN',
                 ],
+                'constraints' => [
+                    $this->createNotBlankConstraint(),
+                ],
             ]
         );
 
@@ -174,7 +157,7 @@ class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormI
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return \Pyz\Yves\Payolution\Form\InstallmentSubForm
+     * @return $this
      */
     protected function addBankAccountBic(FormBuilderInterface $builder)
     {
@@ -186,6 +169,9 @@ class InstallmentSubForm extends CheckoutAbstractSubFormType implements SubFormI
                 'required' => true,
                 'attr' => [
                     'placeholder' => 'Bank account BIC',
+                ],
+                'constraints' => [
+                    $this->createNotBlankConstraint(),
                 ],
             ]
         );

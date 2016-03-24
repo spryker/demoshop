@@ -73,58 +73,6 @@ function postForm($form, callback) {
         });
 }
 
-function selectCustomer() {
-    var value = $(this).val();
-    $('.customer-selection').removeClass('show');
-    $('.customer-selection-' + value).addClass('show');
-}
-
-function selectShippingCustomAddress() {
-    $('.address-user-shipping-custom').toggleClass('show', !$(this).val());
-}
-
-function selectBillingAddress() {
-    $('.address-user-billing').toggleClass('show', !$(this).prop('checked'));
-
-    if ($(this).prop('checked')) {
-        $('.address-user-billing-custom').removeClass('show');
-    } else {
-        $('.address-user-billing select').trigger('change');
-    }
-}
-
-function selectBillingCustomAddress() {
-    $('.address-user-billing-custom').toggleClass('show', !$(this).val());
-}
-
-function selectAddress() {
-    $('.address-selection').toggleClass('show', !$(this).prop('checked'));
-}
-
-function selectShipment() {
-    var index = $('.checkout-shipment input[type="radio"]').index(this);
-    $('.shipement-method').removeClass('show');
-    if (index > -1) {
-        $('.shipment-method').eq(index).addClass('show');
-    }
-}
-
-function selectPayment() {
-    var index = $('.checkout-payment input[type="radio"]').index(this);
-    $('.payolution-form').removeClass('show');
-    if (index > -1) {
-        $('.payolution-form').eq(index).addClass('show');
-    }
-}
-
-function clearPaymentFormErrorMessage() {
-    setTimeout(function(){
-        $('.payolution-form').find('.flash-messages').each(function(){
-            $(this).remove();
-        });
-    }, 3000);
-}
-
 module.exports = {
 
     init: function() {
@@ -275,7 +223,7 @@ module.exports = {
                     $('#backend-errors').empty();
 
                     $.each(response.errors, function(index, value) {
-                        $('#backend-errors').append('<div>Error ' + value.errorCode + ': ' + value.message + '</div>');
+                        $('#backend-errors').append('<div>Fehler ' + value.errorCode + ': ' + value.message + '</div>');
                     });
 
                     $('#backend-errors-section').show();
@@ -298,23 +246,45 @@ module.exports = {
          *
          */
 
-        $('#paymentFormCheckout').on('submit', function(e){
-            if ($('.payolution-invoice-form').hasClass('show') && $('#paymentForm_payolution_invoice_date_of_birth').val() === '') {
-                var errorMessage = $('#errorMessage').html();
-                $('#paymentForm_payolution_invoice_date_of_birth').parent().append(errorMessage);
-                clearPaymentFormErrorMessage();
-                return false;
-            }
+        function selectCustomer() {
+            var value = $(this).val();
+            $('.customer-selection').removeClass('show');
+            $('.customer-selection-' + value).addClass('show');
+        }
 
-            if ($('.payolution-installment-form').hasClass('show') && $('#paymentForm_payolution_installment_date_of_birth').val() === '') {
-                var errorMessage = $('#errorMessage').html();
-                $('#paymentForm_payolution_installment_date_of_birth').parent().append(errorMessage);
-                clearPaymentFormErrorMessage();
-                return false;
-            }
+        function selectShippingCustomAddress() {
+            $('.address-user-shipping-custom').toggleClass('show', !$(this).val());
+        }
 
-            return true;
-        });
+        function selectBillingAddress() {
+            $('.address-user-billing').toggleClass('show', !$(this).prop('checked'));
+
+            if ($(this).prop('checked')) {
+                $('.address-user-billing-custom').removeClass('show');
+            } else {
+                $('.address-user-billing select').trigger('change');
+            }
+        }
+
+        function selectBillingCustomAddress() {
+            $('.address-user-billing-custom').toggleClass('show', !$(this).val());
+        }
+
+        function selectAddress() {
+            $('.address-selection').toggleClass('show', !$(this).prop('checked'));
+        }
+
+        function selectShipment() {
+            var index = $('.checkout-shipment input[type="radio"]').index(this);
+            $('.shipement-method').removeClass('show');
+            if (index > -1) $('.shipment-method').eq(index).addClass('show');
+        }
+
+        function selectPayment() {
+            var index = $('.checkout-payment input[type="radio"]').index(this);
+            $('.payolution-form').removeClass('show');
+            if (index > -1) $('.payolution-form').eq(index).addClass('show');
+        }
 
         selectCustomer.apply($('.customer-option:checked'));
         $('.customer-option').on('change', selectCustomer);
