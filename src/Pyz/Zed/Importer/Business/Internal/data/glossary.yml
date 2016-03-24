@@ -1340,3 +1340,7 @@ product.attribute.image_small:
   translations:
      en_US: 'Image small'
      de_DE: 'Bild klein'
+product.attribute.license:
+  translations:
+     en_US: 'License'
+     de_DE: 'Lizenz'
