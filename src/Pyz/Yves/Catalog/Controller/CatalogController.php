@@ -41,16 +41,16 @@ class CatalogController extends AbstractController
             'page_keywords' => $categoryNode['meta_keywords'],
         ];
 
-        $searchResults = array_merge(
+        $response = array_merge(
             $search->getResult(),
             $metaAttributes
         );
 
         if ($request->isXmlHttpRequest()) {
-            return $this->formatJsonResponse($searchResults);
+            return $this->formatJsonResponse($response);
         }
 
-        return $this->viewResponse($searchResults);
+        return $this->viewResponse($response);
     }
 
     /**
