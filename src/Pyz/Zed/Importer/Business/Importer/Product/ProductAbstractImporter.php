@@ -68,6 +68,11 @@ class ProductAbstractImporter extends AbstractImporter
     protected $dataDirectory;
 
     /**
+     * @var array
+     */
+    protected $blackListAttributes = ['slug'];
+
+    /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
      * @param \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface $attributeManager
@@ -484,6 +489,9 @@ class ProductAbstractImporter extends AbstractImporter
         $attributes = [];
 
         foreach ($data as $key => $value) {
+            if (in_array($key, $this->blackListAttributes)) {
+                continue;
+            }
             if (!$this->hasLocales($key)) {
                 $abstractAttributes[$key] = $value;
                 continue;
