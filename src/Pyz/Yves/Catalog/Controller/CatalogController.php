@@ -33,14 +33,17 @@ class CatalogController extends AbstractController
 
         $search->setItemsPerPage(self::ITEMS_PER_PAGE);
 
+        $pageTitle = ($categoryNode['meta_title']) ?: $categoryNode['name'];
+        $metaAttributes = [
+            'category' => $categoryNode,
+            'page_title' => $pageTitle,
+            'page_description' => $categoryNode['meta_description'],
+            'page_keywords' => $categoryNode['meta_keywords'],
+        ];
+
         $searchResults = array_merge(
             $search->getResult(),
-            [
-                'category' => $categoryNode,
-                'page_title' => $categoryNode['meta_title'],
-                'page_description' => $categoryNode['meta_description'],
-                'page_keywords' => $categoryNode['meta_keywords'],
-            ]
+            $metaAttributes
         );
 
         if ($request->isXmlHttpRequest()) {
