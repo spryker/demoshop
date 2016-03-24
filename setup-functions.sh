@@ -73,7 +73,7 @@ function createDevelopmentDatabase {
 }
 
 function installDemoshop {
-    labelText "Preparing new Demoshop installation..."
+    labelText "Preparing to install Spryker Platform..."
     sleep 1
 
     updateComposerBinary
@@ -116,10 +116,19 @@ function installDemoshop {
     vendor/bin/codecept build -q $VERBOSITY
     writeErrorMessage "Test configuration failed"
 
+    optimizeRepo
+
     successText "Setup successful"
 
     infoText "Yves url: http://www.de.spryker.dev/"
     infoText "Zed url: http://zed.de.spryker.dev/"
+}
+
+function optimizeRepo {
+    labelText "Optimizing repository"
+    git gc              # garbage collector
+    git prune           # kills loose garbage
+    writeErrorMessage "Repository optimization failed"
 }
 
 function resetDataStores {
@@ -164,12 +173,6 @@ function resetDevelopmentState {
     labelText "Initializing DB"
     vendor/bin/console setup:init-db $VERBOSITY
     writeErrorMessage "DB setup failed"
-
-    labelText "Optimizing repository"
-    git gc              # garbage collector
-    git repack -Ad      # kills in-pack garbage
-    git prune           # kills loose garbage
-    writeErrorMessage "Repository optimization failed"
 }
 
 function dropDevelopmentDatabase {
