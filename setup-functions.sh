@@ -82,7 +82,7 @@ function installDemoshop {
 
     resetDataStores
 
-    dropDevelopmentDatabase $DATABASE_NAME
+    dropDevelopmentDatabase
 
     setupText "Zed setup"
 
@@ -149,7 +149,7 @@ function resetDevelopmentState {
 
     resetDataStores
 
-    dropDevelopmentDatabase $DATABASE_NAME
+    dropDevelopmentDatabase
 
     labelText "Generating Transfer Objects"
     vendor/bin/console transfer:generate
@@ -167,12 +167,16 @@ function resetDevelopmentState {
 }
 
 function dropDevelopmentDatabase {
-    PG_CTL_CLUSTER=`which pg_ctlcluster`
-    DROP_DB=`which dropdb`
-    if [[ -f $PG_CTL_CLUSTER ]] && [[ -f $DROP_DB ]]; then
-        labelText "Deleting PostgreSql Database: ${1} "
-        sudo pg_ctlcluster 9.4 main restart --force && sudo dropdb $1 2> /dev/null
-        writeErrorMessage "Deleting DB command failed"
+    if [ `sudo psql -l | grep ${DATABASE_NAME} | wc -l` -ne 0 ]; then
+
+        PG_CTL_CLUSTER=`which pg_ctlcluster`
+        DROP_DB=`which dropdb`
+
+        if [[ -f $PG_CTL_CLUSTER ]] && [[ -f $DROP_DB ]]; then
+            labelText "Deleting PostgreSql Database: ${DATABASE_NAME} "
+            sudo pg_ctlcluster 9.4 main restart --force && sudo dropdb $DATABASE_NAME 1>/dev/null
+            writeErrorMessage "Deleting DB command failed"
+        fi
     fi
 
     # MYSQL=`which mysql`
