@@ -8,7 +8,6 @@ SETUP='spryker'
 
 if [[ `echo "$@" | grep '\-\-reset'` ]] || [[ `echo "$@" | grep '\-r'` ]]; then
     resetDevelopmentState
-    installAntelope
 
     exit 0
 fi

@@ -89,7 +89,7 @@ function installDemoshop {
     vendor/bin/console setup:install $VERBOSITY
     writeErrorMessage "Setup install failed"
 
-    labelText "Importing demo data"
+    labelText "Importing Demo data"
     vendor/bin/console import:demo-data $VERBOSITY
     writeErrorMessage "DemoData import failed"
 
@@ -164,6 +164,12 @@ function resetDevelopmentState {
     labelText "Initializing DB"
     vendor/bin/console setup:init-db $VERBOSITY
     writeErrorMessage "DB setup failed"
+
+    labelText "Optimizing repository"
+    git gc              # garbage collector
+    git repack -Ad      # kills in-pack garbage
+    git prune           # kills loose garbage
+    writeErrorMessage "Repository optimization failed"
 }
 
 function dropDevelopmentDatabase {
@@ -238,7 +244,7 @@ function displayHelp {
     echo "./$(basename $0) [OPTION] [VERBOSITY]"
     echo ""
     echo "  -i, --install-demo-shop"
-    echo "      Install and setup new instance of Spryker Platform and populate it with demo data"
+    echo "      Install and setup new instance of Spryker Platform and populate it with Demo data"
     echo " "
     echo "  -r, --reset"
     echo "      Reset state. Delete Redis, Elasticsearch and Database data"
