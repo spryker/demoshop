@@ -8,7 +8,7 @@ if [[ -z "$SETUP" ]]; then
 fi
 
 DATABASE_NAME='DE_development_zed'
-VERBOSITY=''
+VERBOSITY='-v'
 
 CURL=`which curl`
 NPM=`which npm`
