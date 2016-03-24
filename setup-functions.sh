@@ -134,6 +134,15 @@ function resetDataStores {
     writeErrorMessage "Redis reset failed"
 }
 
+function installAntelope {
+    labelText "Install Antelope tool globally"
+    sudo $NPM install -g github:spryker/antelope
+    ANTELOPE_TOOL=`which antelope`
+
+    labelText "Test Antelope tool"
+    $ANTELOPE_TOOL test
+}
+
 function resetDevelopmentState {
     labelText "Preparing to reset data..."
     sleep 1
@@ -232,9 +241,9 @@ function displayHelp {
     echo ""
     echo "  -h, --help"
     echo "      Show this help"
+    echo "      This message will be displayed if any unrecognized option will be provided"
     echo ""
     echo "  -v, -vv, -vvv"
     echo "      Set verbosity level"
     echo " "
-
 }

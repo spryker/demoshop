@@ -19,13 +19,8 @@ if [[ `node -v | grep -E '^v[0-4]'` ]]; then
     successText "NPM updated to version `$NPM $VERBOSITY`"
 fi
 
-if [[ $RESET == 1 ]] || [[ ! -f $ANTELOPE_TOOL ]]; then
-    labelText "Install Antelope tool globally"
-    sudo $NPM install -g github:spryker/antelope
-    ANTELOPE_TOOL=`which antelope`
-
-    labelText "Test Antelope tool"
-    $ANTELOPE_TOOL test
+if [[ ! -f $ANTELOPE_TOOL ]]; then
+    installAntelope
 fi
 
 if [[ -f $ANTELOPE_TOOL ]]; then
