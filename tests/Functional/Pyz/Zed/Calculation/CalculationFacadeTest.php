@@ -96,26 +96,26 @@ class CalculationFacadeTest extends Test
         $this->assertEquals(100, $itemTransfer->getUnitGrossPrice());
         $this->assertEquals(200, $itemTransfer->getSumGrossPrice());
 
-        $this->assertEquals(94.29, $itemTransfer->getUnitGrossPriceWithDiscounts());
-        $this->assertEquals(188.58, $itemTransfer->getSumGrossPriceWithDiscounts());
+        $this->assertEquals(90, $itemTransfer->getUnitGrossPriceWithDiscounts());
+        $this->assertEquals(180, $itemTransfer->getSumGrossPriceWithDiscounts());
 
         $this->assertEquals(125, $itemTransfer->getUnitGrossPriceWithProductOptions());
         $this->assertEquals(250, $itemTransfer->getSumGrossPriceWithProductOptions());
 
-        $this->assertEquals(117.86, $itemTransfer->getUnitGrossPriceWithProductOptionAndDiscountAmounts());
-        $this->assertEquals(235.72, $itemTransfer->getSumGrossPriceWithProductOptionAndDiscountAmounts());
+        $this->assertEquals(115, $itemTransfer->getUnitGrossPriceWithProductOptionAndDiscountAmounts());
+        $this->assertEquals(230, $itemTransfer->getSumGrossPriceWithProductOptionAndDiscountAmounts());
 
-        $this->assertEquals(5.71, $itemTransfer->getUnitTotalDiscountAmount());
-        $this->assertEquals(11.42, $itemTransfer->getSumTotalDiscountAmount());
+        $this->assertEquals(10, $itemTransfer->getUnitTotalDiscountAmount());
+        $this->assertEquals(20, $itemTransfer->getSumTotalDiscountAmount());
 
-        $this->assertEquals(7.14, $itemTransfer->getUnitTotalDiscountAmountWithProductOption());
-        $this->assertEquals(14.28, $itemTransfer->getSumTotalDiscountAmountWithProductOption());
+        $this->assertEquals(10, $itemTransfer->getUnitTotalDiscountAmountWithProductOption());
+        $this->assertEquals(20, $itemTransfer->getSumTotalDiscountAmountWithProductOption());
 
         //expenses
         $expenseTransfer = $quoteTransfer->getExpenses()[0];
 
-        $this->assertEquals(94.28, $expenseTransfer->getSumGrossPriceWithDiscounts());
-        $this->assertEquals(5.72, $expenseTransfer->getSumTotalDiscountAmount());
+        $this->assertEquals(100, $expenseTransfer->getSumGrossPriceWithDiscounts());
+        $this->assertEquals(0, $expenseTransfer->getSumTotalDiscountAmount());
 
         $this->assertEquals(
             $discountAmount,
@@ -195,7 +195,7 @@ class CalculationFacadeTest extends Test
         $discountEntity->save();
 
         $collectorEntity = new SpyDiscountCollector();
-        $collectorEntity->setCollectorPlugin(DiscountDependencyProvider::PLUGIN_COLLECTOR_AGGREGATE);
+        $collectorEntity->setCollectorPlugin(DiscountDependencyProvider::PLUGIN_COLLECTOR_ITEM);
         $collectorEntity->setFkDiscount($discountEntity->getIdDiscount());
         $collectorEntity->save();
 
