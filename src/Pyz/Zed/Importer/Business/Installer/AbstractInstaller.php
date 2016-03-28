@@ -149,9 +149,6 @@ abstract class AbstractInstaller implements InstallerInterface
     protected function runImporters(array $itemToImport, array $importerCollection)
     {
         foreach ($importerCollection as $type => $importer) {
-            $this->progressBar->setMessage($importer->getTitle(), self::BAR_TITLE);
-            $this->progressBar->display();
-
             $importer->beforeImport();
             $importer->import($itemToImport);
             $importer->afterImport();
@@ -165,7 +162,6 @@ abstract class AbstractInstaller implements InstallerInterface
      */
     protected function afterInstall()
     {
-        $this->progressBar->setMessage($this->getTitle(), self::BAR_TITLE);
         $this->progressBar->finish();
 
         $this->output->writeln('');

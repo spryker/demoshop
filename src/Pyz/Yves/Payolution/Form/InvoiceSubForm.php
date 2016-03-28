@@ -5,19 +5,18 @@
  */
 namespace Pyz\Yves\Payolution\Form;
 
+use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\PayolutionPaymentTransfer;
-use Pyz\Yves\Checkout\Dependency\CheckoutAbstractSubFormType;
 use Pyz\Yves\Checkout\Dependency\SubFormInterface;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class InvoiceSubForm extends CheckoutAbstractSubFormType implements SubFormInterface
+class InvoiceSubForm extends AbstractPayolutionSubForm
 {
 
     const PAYMENT_PROVIDER = PayolutionConstants::PAYOLUTION;
     const PAYMENT_METHOD = 'invoice';
-    const FIELD_DATE_OF_BIRTH = 'date_of_birth';
 
     /**
      * @return string
@@ -32,7 +31,7 @@ class InvoiceSubForm extends CheckoutAbstractSubFormType implements SubFormInter
      */
     public function getPropertyPath()
     {
-        return self::PAYMENT_PROVIDER;
+        return PaymentTransfer::PAYOLUTION_INVOICE;
     }
 
     /**
@@ -67,33 +66,6 @@ class InvoiceSubForm extends CheckoutAbstractSubFormType implements SubFormInter
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $this->addDateOfBirth($builder);
-    }
-
-    /**
-     * @param \Symfony\Component\Form\FormBuilderInterface $builder
-     *
-     * @return \Pyz\Yves\Payolution\Form\InvoiceSubForm
-     */
-    protected function addDateOfBirth(FormBuilderInterface $builder)
-    {
-        $builder->add(
-            self::FIELD_DATE_OF_BIRTH,
-            'birthday',
-            [
-                'label' => false,
-                'required' => true,
-                'widget' => 'single_text',
-                'format' => 'dd.MM.yyyy',
-                'input' => 'string',
-                'attr' => [
-                    'placeholder' => 'customer.birth_date',
-                    'pattern' => '[0-9]{2}\.[0-9]{2}\.[0-9]{4}',
-                    'title' => 'Birthday format (dd.MM.yyyy)'
-                ],
-            ]
-        );
-
-        return $this;
     }
 
 }

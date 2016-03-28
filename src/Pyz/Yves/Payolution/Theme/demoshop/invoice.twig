@@ -1,9 +1,9 @@
 <div class="payolution-form payolution-invoice-form">
-	<h3>Payolution Invoice</h3>
+    <h3>{{ 'payment.payolution.invoice' | trans }}</h3>
 
-	<label>{{ 'payolution_invoice.date_of_birth' | trans }}</label>
-	<div class="field">
-	    {{ form_widget(form.payolution_invoice.date_of_birth, { 'attr': {'placeholder': 'payolution_invoice.date_of_birth' | trans } }) }}
-	    {{ form_errors(form.payolution_invoice.date_of_birth) }}
-	</div>
+    <label>{{ 'payolution_invoice.date_of_birth' | trans }}</label>
+    <div class="field">
+        {{ form_widget(form.payolution_invoice.date_of_birth, { 'attr': {'placeholder': 'payolution_invoice.date_of_birth' | trans } }) }}
+        {{ form_errors(form.payolution_invoice.date_of_birth) }}
+    </div>
 </div>

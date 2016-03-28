@@ -33,26 +33,24 @@ class CatalogController extends AbstractController
 
         $search->setItemsPerPage(self::ITEMS_PER_PAGE);
 
-        $categoryTree = $this->getFactory()
-            ->createCategoryExporterClient()
-            ->getTreeFromCategoryNode($categoryNode, $this->getLocale());
+        $pageTitle = ($categoryNode['meta_title']) ?: $categoryNode['name'];
+        $metaAttributes = [
+            'category' => $categoryNode,
+            'page_title' => $pageTitle,
+            'page_description' => $categoryNode['meta_description'],
+            'page_keywords' => $categoryNode['meta_keywords'],
+        ];
 
-        $searchResults = array_merge(
+        $response = array_merge(
             $search->getResult(),
-            [
-                'category' => $categoryNode,
-                'categoryTree' => $categoryTree,
-                'page_title' => $categoryNode['meta_title'],
-                'page_description' => $categoryNode['meta_description'],
-                'page_keywords' => $categoryNode['meta_keywords'],
-            ]
+            $metaAttributes
         );
 
         if ($request->isXmlHttpRequest()) {
-            return $this->formatJsonResponse($searchResults);
+            return $this->formatJsonResponse($response);
         }
 
-        return $this->viewResponse($searchResults);
+        return $this->viewResponse($response);
     }
 
     /**

@@ -1103,6 +1103,10 @@ newsletter.unsubscription.success:
   translations:
     en_US: 'You successfully unsubscribed from the newsletter'
     de_DE: 'Sie wurden erfolgreich für den Newsletter abgemeldet'
+newsletter.subscription.already_subscribed:
+  translations:
+    en_US: 'You are already subscribed to the newsletter'
+    de_DE: 'Sie sind bereits für den Newsletter angemeldet'
 customer.authentication.failed:
   translations:
     en_US: 'Authentication failed'
@@ -1169,7 +1173,7 @@ checkout.step.address.select_billing:
     de_DE: 'Wählen Sie Ihre Rechnungsadresse aus'
 checkout.step.payment:
   translations:
-    en_US: 'Payment'
+    en_US: 'Go to Payment'
     de_DE: 'Weiter zur Zahlung'
 checkout.step.summary:
   translations:
@@ -1203,7 +1207,157 @@ payolution_installment.date_of_birth:
   translations:
     en_US: 'Date of birth (DD-MM-YYYY)'
     de_DE: 'Geburtsdatum (TT.MM.JJJJ)'
-checkout.step.payment.no.birthdate.provided.error.message:
+checkout.step.payment.must_be_older_than_18_years:
   translations:
-    en_US: 'Please add your birthday. You must be at least 18 years old.'
-    de_DE: 'Bitte geben Sie ihr Geburtsdatum ein. Sie müssen mindestens 18 Jahre alt sein.'
+    en_US: 'You must be at least 18 years old.'
+    de_DE: 'Sie müssen mindestens 18 Jahre alt sein.'
+checkout.step.success.title:
+  translations:
+    en_US: 'Your order has been placed successfully!'
+    de_DE: 'Ihre Bestellung wurde erfolgreich durchgeführt!'
+checkout.step.success.text:
+  translations:
+    en_US: 'Thank you.'
+    de_DE: 'Vielen Dank.'
+checkout.step.error.title:
+  translations:
+    en_US: 'Your order has not been placed.'
+    de_DE: 'Ihre Bestellung konnte leider nicht durchgeführt werden.'
+checkout.step.error.text:
+  translations:
+    en_US: 'Something went wrong. Sorry.'
+    de_DE: 'Leider ging etwas schief. Tut uns leid.'
+customer.password.change.success:
+  translations:
+    en_US: 'Password change successful'
+    de_DE: 'Passwort erfolgreich geändert'
+customer.newsletter.subscribed:
+  translations:
+    en_US: 'Newsletter subscribed'
+    de_DE: 'Newsletter abonniert'
+validator.constraints.password.do_not_match:
+  translations:
+    en_US: "Passwords don't match"
+    de_DE: 'Passwörter stimmen nicht überein'
+discount.successfully.applied:
+  translations:
+    en_US: "The discount has been successfully applied"
+    de_DE: 'Der Rabatt wurde erfolgreich angewendet'
+customer.password.change.success:
+  translations:
+    en_US: "The password has been successfully changed"
+    de_DE: 'Das Kennwort wurde erfolgreich geändert'
+
+
+product.attribute.slug:
+  translations:
+     en_US: 'slug'
+     de_DE: 'slug'
+product.attribute.variant_id:
+  translations:
+     en_US: 'ID'
+     de_DE: 'ID'
+product.attribute.sku:
+  translations:
+     en_US: 'SKU'
+     de_DE: 'SKU'
+product.attribute.image_quality:
+  translations:
+     en_US: 'Image Quality'
+     de_DE: 'Bildqualität'
+product.attribute.lens_system:
+  translations:
+     en_US: 'Lens System'
+     de_DE: 'Linsensystem'
+product.attribute.focus:
+  translations:
+     en_US: 'Focus'
+     de_DE: 'Fokus'
+product.attribute.shutter:
+  translations:
+     en_US: 'Shutter'
+     de_DE: 'Blendenverschluss'
+product.attribute.video:
+  translations:
+     en_US: 'Video'
+     de_DE: 'Video'
+product.attribute.screen:
+  translations:
+     en_US: 'Screen'
+     de_DE: 'Screen'
+product.attribute.processor:
+  translations:
+     en_US: 'Processor'
+     de_DE: 'Prozessor'
+product.attribute.memory:
+  translations:
+     en_US: 'Memory'
+     de_DE: 'Memory'
+product.attribute.display:
+  translations:
+     en_US: 'Display'
+     de_DE: 'Bildschirm'
+product.attribute.storage:
+  translations:
+     en_US: 'Storage'
+     de_DE: 'Speicher'
+product.attribute.color:
+  translations:
+     en_US: 'Color'
+     de_DE: 'Farbe'
+product.attribute.design:
+  translations:
+     en_US: 'Design'
+     de_DE: 'Design'
+product.attribute.graphics:
+  translations:
+     en_US: 'Graphics'
+     de_DE: 'Graphik'
+product.attribute.camera:
+  translations:
+     en_US: 'Camera'
+     de_DE: 'Camera'
+product.attribute.gps:
+  translations:
+     en_US: 'GPS'
+     de_DE: 'GPS'
+product.attribute.weight:
+  translations:
+     en_US: 'Weight'
+     de_DE: 'Gewicht'
+product.attribute.waterproof:
+  translations:
+     en_US: 'Waterproof'
+     de_DE: 'Wasserdicht'
+product.attribute.battery:
+  translations:
+     en_US: 'Battery'
+     de_DE: 'Batterie'
+product.attribute.short_description:
+  translations:
+     en_US: 'Short Description'
+     de_DE: 'Kurzbeschreibung'
+product.attribute.long_description:
+  translations:
+     en_US: 'Long Description'
+     de_DE: 'Langbeschreibung'
+product.attribute.manufacturer_name:
+  translations:
+     en_US: 'Brand'
+     de_DE: 'Marke'
+product.attribute.product_id:
+  translations:
+     en_US: 'Product ID'
+     de_DE: 'Produkt ID'
+product.attribute.image_big:
+  translations:
+     en_US: 'Image big'
+     de_DE: 'Bild groß'
+product.attribute.image_small:
+  translations:
+     en_US: 'Image small'
+     de_DE: 'Bild klein'
+product.attribute.license:
+  translations:
+     en_US: 'License'
+     de_DE: 'Lizenz'

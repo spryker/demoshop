@@ -18,12 +18,6 @@ if [[ `echo "$@" | grep '\-\-install'` ]] || [[ `echo "$@" | grep '\-i'` ]]; the
     exit 0
 fi
 
-if [[ `echo "$@" | grep '\-\-help'` ]] || [[ `echo "$@" | grep '\-h'` ]]; then
-    displayHelp
-
-    exit 0
-fi
-
 displayHelp
 
 exit 0

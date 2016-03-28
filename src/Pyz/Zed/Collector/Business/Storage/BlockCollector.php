@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
+use Pyz\Zed\Collector\Business\Processor\PlaceholderProcessor;
 use Spryker\Shared\Cms\CmsConstants;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollector;
 
@@ -29,14 +30,14 @@ class BlockCollector extends AbstractStoragePropelCollector
      */
     protected function collectItem($touchKey, array $collectItemData)
     {
-        $placeholders = isset($collectItemData[$touchKey]['placeholders']) ? $collectItemData[$touchKey]['placeholders'] : [];
-        $placeholders[$collectItemData['placeholder']] = $collectItemData['translation_key'];
+        $placeholderProcessor = new PlaceholderProcessor($collectItemData['key'], $collectItemData['placeholder']);
+        $placeholderCollection = $placeholderProcessor->toArray();
 
         return [
             'name' => $collectItemData['block_name'],
             'template' => $collectItemData['template_path'],
             'isActive' => $collectItemData['isActive'],
-            'placeholders' => $placeholders,
+            'placeholders' => $placeholderCollection,
         ];
     }
 

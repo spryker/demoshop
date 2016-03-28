@@ -128,10 +128,10 @@ class ShipmentDataProvider implements DataProviderInterface
         $shipmentPrice = $this->getFormattedShipmentPrice($shipmentMethodTransfer);
 
         $shipmentDescription = $this->translate($shipmentMethodTransfer->getName())
-            . ' | ' . $this->translate('page.checkout.shipping.price') . ': ' . $shipmentPrice;
+            . ' | ' . $this->translate('page.checkout.shipping.price') . ' ' . $shipmentPrice;
 
         if ($deliveryTime !== 0) {
-            $shipmentDescription .= ' | ' . $this->translate('page.checkout.shipping.delivery_time') . ': ' . $deliveryTime;
+            $shipmentDescription .= ' | ' . $this->translate('page.checkout.shipping.delivery_time') . ' ' . $deliveryTime;
         }
 
         return $shipmentDescription;

@@ -126,7 +126,7 @@ class ProductCategoryImporter extends AbstractImporter
     /**
      * @param array $data
      *
-     * @throws \Propel\Runtime\Exception\PropelException
+     * @throws \LogicException
      *
      * @return void
      */
@@ -138,26 +138,53 @@ class ProductCategoryImporter extends AbstractImporter
 
         $product = $this->format($data);
 
-        $productAbstract = $this->productQueryContainer
-            ->queryProductAbstractBySku($product[self::SKU])
-            ->findOne();
-
-        if (!$productAbstract) {
+        $idProductAbstract = $this->getProductAbstractId($product[self::SKU]);
+        if (!$idProductAbstract) {
             return;
         }
 
         $idNodeAndCategory = $this->getIdNodeAndCategory($product[self::CATEGORY_KEY]);
         if (empty($idNodeAndCategory)) {
-            return;
+            throw new \LogicException(sprintf(
+                'Category with key "%s" for product with sku "%" does not exist',
+                $product[self::CATEGORY_KEY],
+                $product[self::SKU]
+            ));
         }
 
         $this->createProductCategoryMapping(
-            $productAbstract->getIdProductAbstract(),
+            $idProductAbstract,
             $idNodeAndCategory[self::RESULT_CATEGORY_ID]
         );
 
         $this->touchCategoryNodeActive($idNodeAndCategory[self::RESULT_NODE_ID]);
-        $this->touchProductActive($productAbstract->getIdProductAbstract());
+        $this->touchProductActive($idProductAbstract);
+    }
+
+    /**
+     * @param int $sku
+     *
+     * @return int|null
+     */
+    protected function getProductAbstractId($sku)
+    {
+        $productAbstract = $this->productQueryContainer
+            ->queryProductAbstractBySku($sku)
+            ->findOne();
+
+        if ($productAbstract) {
+            return $productAbstract->getIdProductAbstract();
+        }
+
+        $productConcrete = $this->productQueryContainer
+            ->queryProductConcreteBySku($sku)
+            ->findOne();
+
+        if ($productConcrete) {
+            return $productConcrete->getFkProductAbstract();
+        }
+
+        return null;
     }
 
     /**
@@ -170,13 +197,12 @@ class ProductCategoryImporter extends AbstractImporter
         if (!$this->cacheCategories->has($categoryKey)) {
             $category = $this->getCategoryEntityByKey($categoryKey);
 
-            if ($category) {
-                $idCategory = $category->getIdCategory();
-                $idNode = $category->getNodes()->getFirst()->getIdCategoryNode();
-            } else {
-                $idCategory = $this->getRootNode()->getCategory()->getIdCategory();
-                $idNode = $this->getRootNode()->getIdCategoryNode();
+            if (!$category) {
+                return [];
             }
+
+            $idCategory = $category->getIdCategory();
+            $idNode = $category->getNodes()->getFirst()->getIdCategoryNode();
 
             $this->cacheCategories->set(self::CATEGORY_KEY, $idCategory);
             $this->cacheNodes->set(self::CATEGORY_KEY, $idNode);

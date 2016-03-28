@@ -109,7 +109,6 @@ class ProfileForm extends AbstractType
             'choices' => [
                 'Mr' => 'customer.salutation.mr',
                 'Mrs' => 'customer.salutation.mrs',
-                'Dr' => 'customer.salutation.dr',
             ],
             'label' => 'profile.form.salutation',
             'required' => false,

@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Sales;
 
 use Generated\Shared\Transfer\ItemTransfer;
+use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Zed\Sales\SalesConfig as SprykerSalesConfig;
 
@@ -18,8 +19,8 @@ class SalesConfig extends SprykerSalesConfig
      * @var array
      */
     protected static $stateMachineMapper = [
-        'payolution_invoice' => 'PayolutionPayment01',
-        'payolution_installment' => 'PayolutionPayment01',
+        PaymentTransfer::PAYOLUTION_INVOICE => 'PayolutionPayment01',
+        PaymentTransfer::PAYOLUTION_INSTALLMENT => 'PayolutionPayment01',
     ];
 
     /**

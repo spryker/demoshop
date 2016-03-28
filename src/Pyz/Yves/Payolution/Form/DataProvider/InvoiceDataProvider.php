@@ -24,6 +24,7 @@ class InvoiceDataProvider implements DataProviderInterface
         if (empty($quoteTransfer->getPayment())) {
             $paymentTransfer = new PaymentTransfer();
             $paymentTransfer->setPayolution(new PayolutionPaymentTransfer());
+            $paymentTransfer->setPayolutionInvoice(new PayolutionPaymentTransfer());
             $quoteTransfer->setPayment($paymentTransfer);
         }
         return $quoteTransfer;
