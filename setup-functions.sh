@@ -254,7 +254,6 @@ function displayHelp {
     echo ""
     echo "  -h, --help"
     echo "      Show this help"
-    echo "      This message will be displayed if any unrecognized option will be provided"
     echo ""
     echo "  -v, -vv, -vvv"
     echo "      Set verbosity level"
