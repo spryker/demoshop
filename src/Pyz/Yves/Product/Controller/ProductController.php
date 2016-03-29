@@ -22,32 +22,12 @@ class ProductController extends AbstractController
     {
         $categories = $product->getCategory();
 
-        $abstractAttributes = $this->useLocalIcecatImages(
-            $product->getAbstractAttributes()
-        );
-
-        $product->setAbstractAttributes($abstractAttributes);
-
         $productData = [
             'product' => $product,
             'category' => count($categories) ? end($categories) : null,
         ];
 
         return $productData;
-    }
-
-    /**
-     * TODO this won't be needed when https://github.com/spryker/spryker/issues/1634 is finished
-     *
-     * @param array $attributes
-     *
-     * @return array
-     */
-    protected function useLocalIcecatImages(array $attributes)
-    {
-        $attributes['image_big'] = 'big_'. basename($attributes['image_big']);
-        $attributes['image_small'] = 'small_'. basename($attributes['image_small']);
-        return $attributes;
     }
 
 }
