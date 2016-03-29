@@ -108,10 +108,13 @@ class SessionServiceProvider extends AbstractServiceProvider
      */
     protected function setSessionStorageOptions(Application $app)
     {
+        $dateTime = new \DateTime();
+        $dateTime->modify('+5 years');
+
         $sessionStorageOptions = [
             'cookie_httponly' => true,
-            'cookie_lifetime' => Config::get(ApplicationConstants::YVES_STORAGE_SESSION_TIME_TO_LIVE),
-            'cookie_secure' => Config::get(ApplicationConstants::YVES_COOKIE_SECURE, true),
+            'cookie_lifetime' => $dateTime->getTimestamp(),
+            'cookie_secure' => $this->secureCookie(),
         ];
 
         $name = str_replace('.', '-', Config::get(ApplicationConstants::YVES_SESSION_NAME));
@@ -171,6 +174,16 @@ class SessionServiceProvider extends AbstractServiceProvider
                     return new \SessionHandler();
                 });
         }
+    }
+
+    /**
+     * @throws \Exception
+     *
+     * @return bool
+     */
+    protected function secureCookie()
+    {
+        return (Config::get(ApplicationConstants::YVES_COOKIE_SECURE, true) && Config::get(ApplicationConstants::YVES_SSL_ENABLED, true));
     }
 
 }
