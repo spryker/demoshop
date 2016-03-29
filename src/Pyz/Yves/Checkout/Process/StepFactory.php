@@ -201,4 +201,13 @@ class StepFactory extends SprykerStepFactory
         return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CHECKOUT);
     }
 
+    /**
+     * @return \Pyz\Yves\Braintree\Plugin\BraintreeHandlerPlugin
+     */
+    protected function createBraintreeHandlerPlugin()
+    {
+        // 'braintree_pay_pal' PaymentMethodName?
+        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_BRAINTREE_HANDLER);
+    }
+
 }

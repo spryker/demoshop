@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="process.xsd"
+>
+    <process name="BraintreePayment01" main="true">
+        <subprocesses>
+            <process>Authorization</process>
+            <process>Shipment</process>
+            <process>Capture</process>
+            <process>Refund</process>
+            <process>Closing</process>
+        </subprocesses>
+
+        <states>
+            <state name="new" reserved="true"/>
+        </states>
+
+        <transitions>
+            <transition>
+                <source>new</source>
+                <target>ready for authorization</target>
+                <event>start authorization process</event>
+            </transition>
+
+            <transition>
+                <source>authorization succeeded</source>
+                <target>ready for shipment</target>
+                <event>start shipment process</event>
+            </transition>
+
+            <transition>
+                <source>shipped</source>
+                <target>ready for capture</target>
+                <event>start capture process</event>
+            </transition>
+
+            <transition>
+                <source>capture succeeded</source>
+                <target>ready for refund</target>
+                <event>start refund process</event>
+            </transition>
+
+            <transition>
+                <source>capture succeeded</source>
+                <target>ready for closing</target>
+                <event>start closing process with timeout</event>
+            </transition>
+
+            <transition>
+                <source>refund succeeded</source>
+                <target>ready for closing</target>
+                <event>start closing process</event>
+            </transition>
+        </transitions>
+
+        <events>
+            <event name="start authorization process" onEnter="true"/>
+            <event name="start shipment process" manual="true"/>
+            <event name="start capture process" onEnter="true"/>
+            <event name="start refund process" manual="true"/>
+            <event name="start closing process with timeout" timeout="183days"/>
+            <event name="start closing process" onEnter="true"/>
+        </events>
+    </process>
+
+    <process name="Authorization" file="BraintreeSubProcesses/Authorization.xml"/>
+    <process name="Shipment" file="SubProcesses/Shipment.xml"/>
+    <process name="Capture" file="BraintreeSubProcesses/Capture.xml"/>
+    <process name="Refund" file="BraintreeSubProcesses/Refund.xml"/>
+    <process name="Closing" file="BraintreeSubProcesses/Closing.xml"/>
+</statemachine>

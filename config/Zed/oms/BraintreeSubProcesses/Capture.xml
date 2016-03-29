@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../process.xsd"
+>
+    <process name="Capture">
+        <states>
+            <state name="ready for capture"/>
+            <state name="capture succeeded"/>
+        </states>
+
+        <transitions>
+            <transition happy="true" condition="Braintree/IsCaptureApproved">
+                <source>ready for capture</source>
+                <target>capture succeeded</target>
+                <event>capture payment</event>
+            </transition>
+        </transitions>
+
+        <events>
+            <event name="capture payment" onEnter="true" manual="true" command="Braintree/Capture"/>
+        </events>
+    </process>
+</statemachine>

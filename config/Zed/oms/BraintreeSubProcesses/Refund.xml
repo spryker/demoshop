@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../process.xsd"
+>
+    <process name="Refund">
+        <states>
+            <state name="ready for refund"/>
+            <state name="refund succeeded"/>
+        </states>
+
+        <transitions>
+            <transition happy="true" condition="Braintree/IsRefundApproved">
+                <source>ready for refund</source>
+                <target>refund succeeded</target>
+                <event>refund payment</event>
+            </transition>
+        </transitions>
+
+        <events>
+            <event name="refund payment" manual="true" command="Braintree/Refund"/>
+        </events>
+    </process>
+</statemachine>

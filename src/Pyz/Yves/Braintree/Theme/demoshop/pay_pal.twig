@@ -1,0 +1,14 @@
+<div class="braintree-form braintree-paypal-form">
+	<h3>Braintree PayPal</h3>
+
+	<div id="paypal-form"></div>
+
+	<script src="https://js.braintreegateway.com/js/braintree-2.21.0.min.js"></script>
+	<script>
+		var clientToken = "{{ child.vars.clientToken }}";
+
+		braintree.setup(clientToken, "dropin", {
+			container: "paypal-form"
+		});
+	</script>
+</div>

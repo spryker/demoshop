@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../process.xsd"
+>
+    <process name="Closing">
+        <states>
+            <state name="ready for closing"/>
+            <state name="closed"/>
+        </states>
+
+        <transitions>
+            <transition>
+                <source>ready for closing</source>
+                <target>closed</target>
+                <event>close</event>
+            </transition>
+        </transitions>
+
+        <events>
+            <event name="close" onEnter="true"/>
+        </events>
+    </process>
+</statemachine>
