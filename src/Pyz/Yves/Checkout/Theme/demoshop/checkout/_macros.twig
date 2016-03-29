@@ -1,7 +1,7 @@
 {% macro include_subforms(form) %}
-    {% for children in form.children %}
-        {% if children.vars.template_path is defined %}
-            {% include "@" ~ children.vars.template_path ~ ".twig" with {'form': form} %}
+    {% for child in form.children %}
+        {% if child.vars.template_path is defined %}
+            {% include "@" ~ child.vars.template_path ~ ".twig" with {'form': form, 'child': child} %}
         {% endif %}
     {% endfor %}
 {% endmacro %}

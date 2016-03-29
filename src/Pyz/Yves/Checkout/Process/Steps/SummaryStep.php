@@ -73,9 +73,11 @@ class SummaryStep extends BaseStep
      */
     public function postCondition(QuoteTransfer $quoteTransfer)
     {
-        if ($quoteTransfer->getBillingAddress() === null ||
-            $quoteTransfer->getShipment() === null ||
-            (empty($quoteTransfer->getPayment()) && $quoteTransfer->getPayment()->getPaymentProvider() === null)) {
+        if ($quoteTransfer->getBillingAddress() === null
+            || $quoteTransfer->getShipment() === null
+            || $quoteTransfer->getPayment() === null
+            || $quoteTransfer->getPayment()->getPaymentProvider() === null
+        ) {
             return false;
         }
 

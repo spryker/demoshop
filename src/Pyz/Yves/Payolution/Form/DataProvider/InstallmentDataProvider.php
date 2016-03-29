@@ -40,7 +40,7 @@ class InstallmentDataProvider implements DataProviderInterface
      */
     public function getData(QuoteTransfer $quoteTransfer)
     {
-        if (empty($quoteTransfer->getPayment())) {
+        if ($quoteTransfer->getPayment() === null) {
             $paymentTransfer = new PaymentTransfer();
             $paymentTransfer->setPayolution(new PayolutionPaymentTransfer());
             $paymentTransfer->setPayolutionInstallment(new PayolutionPaymentTransfer());

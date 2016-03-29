@@ -49,15 +49,19 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>Payment method:</td>
+                    <td>{{ quoteTransfer.payment.paymentMethod }}</td>
+                </tr>
+                <tr>
                     <td>Shipment:</td>
                     <td>{{ quoteTransfer.shipment.method.defaultPrice|price }} - {{ quoteTransfer.shipment.method.name }}</td>
                 </tr>
                 <tr>
-                    <td>GrandTotal:</td>
+                    <td>Grand total:</td>
                     <td>{{ quoteTransfer.totals.grandtotal|price }}</td>
                 </tr>
                 <tr>
-                    <td>TaxAmount:</td>
+                    <td>Tax amount:</td>
                     <td>{{ quoteTransfer.totals.taxtotal.amount|price }} ({{ quoteTransfer.totals.taxtotal.taxRate }} %)</td>
                 </tr>
             </table>

@@ -108,7 +108,7 @@ class PaymentForm extends AbstractType
      *
      * @return \Pyz\Yves\Checkout\Form\Steps\PaymentForm
      */
-    protected function addPaymentMethodSubForms(FormBuilderInterface $builder, $paymentMethodSubForms, array $options)
+    protected function addPaymentMethodSubForms(FormBuilderInterface $builder, array $paymentMethodSubForms, array $options)
     {
         foreach ($paymentMethodSubForms as $paymentMethodSubForm) {
             $builder->add(
