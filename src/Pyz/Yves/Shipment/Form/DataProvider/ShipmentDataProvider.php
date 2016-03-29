@@ -68,7 +68,7 @@ class ShipmentDataProvider implements DataProviderInterface
      */
     public function getData(QuoteTransfer $quoteTransfer)
     {
-        if (empty($quoteTransfer->getShipment())) {
+        if ($quoteTransfer->getShipment() === null) {
             $shipmentTransfer = new ShipmentTransfer();
             $quoteTransfer->setShipment($shipmentTransfer);
         }
