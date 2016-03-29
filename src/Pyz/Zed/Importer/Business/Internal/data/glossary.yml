@@ -1247,8 +1247,10 @@ customer.password.change.success:
   translations:
     en_US: "The password has been successfully changed"
     de_DE: 'Das Kennwort wurde erfolgreich geändert'
-
-
+product.unavailable:
+  translations:
+    en_US: 'The amount of your chosen products are not available right now'
+    de_DE: 'Ihre ausgewählte Produktanzahl ist momentan nicht verfügbar'
 product.attribute.slug:
   translations:
      en_US: 'slug'
