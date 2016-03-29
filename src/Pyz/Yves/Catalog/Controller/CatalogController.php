@@ -50,6 +50,13 @@ class CatalogController extends AbstractController
             return $this->formatJsonResponse($response);
         }
 
+        //TODO this won't be needed when https://github.com/spryker/spryker/issues/1634 is finished
+        foreach ($response['products'] as $key => $product) {
+            $product['abstract_attributes']['image_big'] = 'big_'. basename($product['abstract_attributes']['image_big']);
+            $product['abstract_attributes']['image_small'] = 'small_'. basename($product['abstract_attributes']['image_small']);
+            $response['products'][$key] = $product;
+        }
+
         return $this->viewResponse($response);
     }
 

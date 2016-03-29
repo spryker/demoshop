@@ -20,7 +20,8 @@
             {#<a href="{{ path('wishlist/add', { sku: product.abstractSku }) }}">Add to Wishlist</a>#}
         </section>
         <section class="product__main-image">
-            <img src="{{ product.image_big }}" alt="" style="width: 100%;"/>
+            {# //TODO this won't be needed when https://github.com/spryker/spryker/issues/1634 is finished #}
+            <img src="/assets/demoshop/img/{{ product.image_big }}" alt="" style="width: 100%;"/>
         </section>
         <section class="product__details">
             <p>{{ product.abstractAttributes.short_description }}</p>
