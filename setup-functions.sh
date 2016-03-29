@@ -73,8 +73,8 @@ function createDevelopmentDatabase {
 }
 
 function installDemoshop {
-    CHANGES=`git status | grep "nothing to commit, working directory clean"`
-    if [ "x$CHANGES" == "x" ]; then
+    CHANGES=`git status | grep "nothing to commit, working directory clean" || git status | grep "no changes added to commit"`
+    if [ "x$CHANGES" != "x" ]; then
         errorText "Uncommitted changes detected. Stash or commit your changes first"
         exit 1
     fi
