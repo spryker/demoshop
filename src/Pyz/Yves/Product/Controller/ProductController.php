@@ -37,6 +37,8 @@ class ProductController extends AbstractController
     }
 
     /**
+     * TODO this won't be needed when https://github.com/spryker/spryker/issues/1634 is finished
+     *
      * @param array $attributes
      *
      * @return array
