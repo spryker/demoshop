@@ -1,7 +1,6 @@
 <article class="catalog__product">
     <a href="{{ detailsUrl }}" class="product__link">
-        {# //TODO this won't be needed when https://github.com/spryker/spryker/issues/1634 is finished #}
-        <img src="/assets/demoshop/img/{{ imageUrl }}" alt="" class="product__image">
+        <img src="{{ imageUrl }}" alt="" class="product__image">
         <h1 class="product__name">{{name}}</h1>
         <h2 class="product__price">{{ priceValue | price }}</h2>
     </a>
