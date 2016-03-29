@@ -29,13 +29,17 @@ class SalesConfig extends SprykerSalesConfig
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
      *
+     * @throws \BadMethodCallException
+     *
      * @return string
      */
     public function determineProcessForOrderItem(QuoteTransfer $quoteTransfer, ItemTransfer $itemTransfer)
     {
-        if (array_key_exists($quoteTransfer->getPayment()->getPaymentSelection(), self::$stateMachineMapper) === true) {
-            return self::$stateMachineMapper[$quoteTransfer->getPayment()->getPaymentSelection()];
+        if (!array_key_exists($quoteTransfer->getPayment()->getPaymentSelection(), self::$stateMachineMapper)) {
+            return parent::determineProcessForOrderItem($quoteTransfer, $itemTransfer);
         }
+
+        return self::$stateMachineMapper[$quoteTransfer->getPayment()->getPaymentSelection()];
     }
 
     /**
