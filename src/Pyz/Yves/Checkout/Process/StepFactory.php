@@ -117,6 +117,18 @@ class StepFactory extends SprykerStepFactory
     }
 
     /**
+     * Move Braintree
+     *
+     * @return \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface[]
+     */
+    public function createPaymentPlugins()
+    {
+        return [
+            PaymentTransfer::BRAINTREE => $this->createBraintreeHandlerPlugin(),
+        ];
+    }
+
+    /**
      * @return \Pyz\Yves\Checkout\Process\Steps\SummaryStep
      */
     protected function createSummaryStep()

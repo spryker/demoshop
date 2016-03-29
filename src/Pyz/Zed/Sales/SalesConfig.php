@@ -15,6 +15,13 @@ class SalesConfig extends SprykerSalesConfig
 {
 
     /**
+     * @var array
+     */
+    protected static $stateMachineMapper = [
+        PaymentTransfer::BRAINTREE => 'BraintreePayment01',
+    ];
+
+    /**
      * This method determines state machine process from the given quote transfer and order item.
      *
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer

@@ -2,7 +2,7 @@
 
 namespace Pyz\Yves\Braintree\Handler;
 
-use Generated\Shared\Transfer\BraintreePaymentTransfer;
+use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Client\Braintree\BraintreeClientInterface;
 use Spryker\Shared\Library\Currency\CurrencyManager;
@@ -18,14 +18,14 @@ class BraintreeHandler
      * @var array
      */
     protected static $paymentMethods = [
-        'braintree_pay_pal' => 'paypal',
+        PaymentTransfer::BRAINTREE => 'paypal',
     ];
 
     /**
      * @var array
      */
     protected static $braintreePaymentMethodMapper = [
-        'braintree_pay_pal' => BraintreeConstants::METHOD_PAY_PAL,
+        PaymentTransfer::BRAINTREE => BraintreeConstants::METHOD_PAY_PAL,
     ];
 
     /**
