@@ -80,11 +80,26 @@ function installDemoshop {
 
     composerInstall
 
+    installZed
+
+    installYves
+
+    configureCodeception
+
+    optimizeRepo
+
+    successText "Setup successful"
+
+    infoText "Yves url: http://www.de.spryker.dev/"
+    infoText "Zed url: http://zed.de.spryker.dev/"
+}
+
+function installZed {
+    setupText "Zed setup"
+
     resetDataStores
 
     dropDevelopmentDatabase
-
-    setupText "Zed setup"
 
     vendor/bin/console setup:install $VERBOSITY
     writeErrorMessage "Setup install failed"
@@ -103,7 +118,9 @@ function installDemoshop {
     writeErrorMessage "Cronjob setup failed"
 
     labelText "Zed setup successful"
+}
 
+function installYves {
     setupText "Yves setup"
 
     resetYves
@@ -111,17 +128,12 @@ function installDemoshop {
     . ./setup-frontend.sh
 
     labelText "Yves setup successful"
+}
 
+function configureCodeception {
     labelText "Configuring test environment"
     vendor/bin/codecept build -q $VERBOSITY
     writeErrorMessage "Test configuration failed"
-
-    optimizeRepo
-
-    successText "Setup successful"
-
-    infoText "Yves url: http://www.de.spryker.dev/"
-    infoText "Zed url: http://zed.de.spryker.dev/"
 }
 
 function optimizeRepo {
@@ -241,20 +253,30 @@ function resetYves {
     fi
 }
 
-
-function displayHelp {
+function displayHeader {
     labelText "Spryker Platform Setup"
     echo "./$(basename $0) [OPTION] [VERBOSITY]"
+}
+
+function displayHelp {
+
+    displayHeader
+
     echo ""
     echo "  -i, --install-demo-shop"
     echo "      Install and setup new instance of Spryker Platform and populate it with Demo data"
+    echo " "
+    echo "  -iy, --install-yves"
+    echo "      (re)Install Yves only"
+    echo " "
+    echo "  -iz, --install-zed"
+    echo "      (re)Install Zed only"
     echo " "
     echo "  -r, --reset"
     echo "      Reset state. Delete Redis, Elasticsearch and Database data"
     echo ""
     echo "  -h, --help"
     echo "      Show this help"
-    echo "      This message will be displayed if any unrecognized option will be provided"
     echo ""
     echo "  -v, -vv, -vvv"
     echo "      Set verbosity level"
