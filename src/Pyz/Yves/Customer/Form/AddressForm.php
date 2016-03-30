@@ -96,7 +96,7 @@ class AddressForm extends AbstractType
                 'Mrs' => 'customer.salutation.mrs',
             ],
             'label' => 'profile.form.salutation',
-            'required' => false,
+            'required' => true,
             'constraints' => [
                 $this->createNotBlankConstraint($options),
             ],
@@ -194,7 +194,7 @@ class AddressForm extends AbstractType
             'required' => true,
             'constraints' => [
                 $this->createNotBlankConstraint($options),
-                $this->createNumberConstraint($options)
+                $this->createAddressNumberConstraint($options)
             ],
         ]);
 
@@ -389,7 +389,7 @@ class AddressForm extends AbstractType
         return new Regex([
             'pattern' => '/^\d{5}$/',
             'message' => 'This field should contain exactly 5 digits.',
-            'groups' => $validationGroup
+            'groups' => $validationGroup,
         ]);
     }
 
@@ -398,14 +398,14 @@ class AddressForm extends AbstractType
      *
      * @return \Symfony\Component\Validator\Constraints\Regex
      */
-    protected function createNumberConstraint(array $options)
+    protected function createAddressNumberConstraint(array $options)
     {
         $validationGroup = $this->getValidationGroup($options);
 
         return new Regex([
-            'pattern' => '/^\d+$/',
-            'message' => 'This field should contain numeric values only.',
-            'groups' => $validationGroup
+            'pattern' => '/^\d+[a-zA-Z]*$/',
+            'message' => 'This value is not valid (accepted format e.g.: 12c).',
+            'groups' => $validationGroup,
         ]);
     }
 

@@ -122,6 +122,7 @@ class ProductAbstractImporter extends AbstractImporter
         }
 
         $product = $this->format($data);
+        $product = $this->useLocalIcecatImages($product);
 
         $concreteProductData = $this->getConcreteProductsData();
         $this->createAttributes($concreteProductData);
@@ -546,6 +547,18 @@ class ProductAbstractImporter extends AbstractImporter
         }
 
         return $this->metadata;
+    }
+
+    /**
+     * @param array $attributes
+     *
+     * @return array
+     */
+    protected function useLocalIcecatImages(array $attributes)
+    {
+        $attributes['image_big'] = '/assets/demoshop/img/icecat/big_'. basename($attributes['image_big']);
+        $attributes['image_small'] = '/assets/demoshop/img/icecat/small_'. basename($attributes['image_small']);
+        return $attributes;
     }
 
 }

@@ -28,7 +28,28 @@ module.exports = {
             loader: 'file?name=/assets/demoshop/fonts/[name].[ext]'
         }, {
             test: /\.(jpe?g|png|gif|svg)\??(\d*\w*=?\.?)+$/i,
-            loader: 'file?name=/assets/demoshop/img/[name].[ext]',
+            loader: 'organizer?rules=images',
+        }, {
+            test: /(DISCLAIMER|LICENSE|README)/i,
+            loader: 'organizer?rules=legal',
+        }]
+    },
+    organizerRules: {
+        images: [{
+            container: /fonts\//,
+            name: '/assets/demoshop/fonts/[name].[ext]'
+        }, {
+            container: /node_modules\//,
+            name: '/assets/demoshop/img/modules/[bundle]/[name].[ext]'
+        }, {
+            container: /icecat\//,
+            name: '/assets/demoshop/img/icecat/[name].[ext]'
+        }, {
+            name: '/assets/demoshop/img/[name].[ext]'
+        }],
+        legal: [{
+            container: /icecat\//,
+            name: '/assets/demoshop/img/icecat/[name]'
         }]
     },
     output: {
@@ -41,19 +62,13 @@ module.exports = {
         }),
         new webpack.ProvidePlugin({
             $: 'jquery',
-            jQuery: 'jquery'
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery'
         }),
         new webpack.DefinePlugin({
             PRODUCTION: isProduction,
             WATCH: isDebug
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            comments: isDebug,
-            sourceMap: isDebug,
-            compress: isProduction,
-            mangle: isProduction
-        }),
-        new webpack.NewWatchingPlugin()
+        })
     ],
     watchOptions: {
         poll: true

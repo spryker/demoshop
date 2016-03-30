@@ -58,6 +58,7 @@ class RegisterForm extends AbstractType
                 'Mr' => 'email.orderEmail.salutationMale',
                 'Mrs' => 'email.orderEmail.salutationFemale',
             ],
+            'required' => true,
             'label' => 'address.salutation',
             'constraints' => [
                 new NotBlank(),
@@ -76,6 +77,7 @@ class RegisterForm extends AbstractType
     {
         $builder->add(self::FIELD_FIRST_NAME, 'text', [
             'label' => 'customer.first_name',
+            'required' => true,
             'constraints' => [
                 new NotBlank(),
             ],
@@ -93,6 +95,7 @@ class RegisterForm extends AbstractType
     {
         $builder->add(self::FIELD_LAST_NAME, 'text', [
             'label' => 'customer.last_name',
+            'required' => true,
             'constraints' => [
                 new NotBlank(),
             ],
@@ -110,6 +113,7 @@ class RegisterForm extends AbstractType
     {
         $builder->add(self::FIELD_EMAIL, self::FIELD_EMAIL, [
             'label' => 'auth.email',
+            'required' => true,
             'constraints' => [
                 new NotBlank(),
             ],
@@ -155,6 +159,7 @@ class RegisterForm extends AbstractType
         $builder->add(self::FIELD_ACCEPT_TERMS, 'checkbox', [
             'label' => 'forms.accept_terms',
             'mapped' => false,
+            'required' => true,
             'constraints' => [
                 new NotBlank(),
             ],
