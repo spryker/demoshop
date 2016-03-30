@@ -3,10 +3,10 @@
   <article class="featured featured--width-{{width}} featured--height-{{height}}" 
   	style="background-image: url('/assets/demoshop/img/{{img}}')">
     {% if name is defined %}
-        <h1 class="featured__name">{{name}}</h1>
+        <h1 class="featured__name">{{name | raw}}</h1>
     {% endif %}
     {% if category is defined %}
-        <h2 class="featured__category">{{category}}</h2>
+        <h2 class="featured__category">{{category | raw}}</h2>
     {% endif %}
   </article>
 </a>
