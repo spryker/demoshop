@@ -161,15 +161,6 @@ function resetDataStores {
     writeErrorMessage "Redis reset failed"
 }
 
-function installAntelope {
-    labelText "Install Antelope tool globally"
-    sudo $NPM install -g github:spryker/antelope
-    ANTELOPE_TOOL=`which antelope`
-
-    labelText "Test Antelope tool"
-    $ANTELOPE_TOOL test
-}
-
 function resetDevelopmentState {
     labelText "Preparing to reset data..."
     sleep 1
