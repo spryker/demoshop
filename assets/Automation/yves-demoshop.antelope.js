@@ -30,7 +30,7 @@ module.exports = {
             test: /\.(jpe?g|png|gif|svg)\??(\d*\w*=?\.?)+$/i,
             loader: 'organizer?rules=images',
         }, {
-            test: /(DISCLAIMER|LICENSE)/i,
+            test: /(DISCLAIMER|LICENSE|README)/i,
             loader: 'organizer?rules=legal',
         }]
     },
