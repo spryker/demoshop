@@ -29,6 +29,9 @@ module.exports = {
         }, {
             test: /\.(jpe?g|png|gif|svg)\??(\d*\w*=?\.?)+$/i,
             loader: 'organizer?rules=images',
+        }, {
+            test: /(DISCLAIMER|LICENSE)/i,
+            loader: 'organizer?rules=legal',
         }]
     },
     organizerRules: {
@@ -39,7 +42,14 @@ module.exports = {
             container: /node_modules\//,
             name: '/assets/demoshop/img/modules/[bundle]/[name].[ext]'
         }, {
+            container: /icecat\//,
+            name: '/assets/demoshop/img/icecat/[name].[ext]'
+        }, {
             name: '/assets/demoshop/img/[name].[ext]'
+        }],
+        legal: [{
+            container: /icecat\//,
+            name: '/assets/demoshop/img/icecat/[name]'
         }]
     },
     output: {
