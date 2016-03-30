@@ -7,7 +7,6 @@
 
 namespace Pyz\Yves\Cms\Controller;
 
-use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Spryker\Yves\Application\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
