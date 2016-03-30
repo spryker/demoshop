@@ -7,8 +7,10 @@
 
 namespace Pyz\Yves\Cms\Controller;
 
+use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Spryker\Yves\Application\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class CmsController extends AbstractController
 {
@@ -22,6 +24,10 @@ class CmsController extends AbstractController
     public function pageAction($meta, Request $request)
     {
         $edit = (bool)$request->get('edit', false);
+
+        if (!$meta['is_active']) {
+            throw new NotFoundHttpException();
+        }
 
         return $this->renderView($meta['template'], ['placeholders' => $meta['placeholders'], 'edit' => $edit]);
     }

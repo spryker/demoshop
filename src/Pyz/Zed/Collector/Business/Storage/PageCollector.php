@@ -27,6 +27,7 @@ class PageCollector extends AbstractStoragePropelCollector
 
         return [
             'url' => $collectItemData['page_url'],
+            'is_active' => $collectItemData['is_active'],
             'id' => $collectItemData['page_id'],
             'template' => $collectItemData['template_path'],
             'placeholders' => $placeholderCollection,

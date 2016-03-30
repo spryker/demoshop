@@ -44,7 +44,7 @@ class SalesConfig extends SprykerSalesConfig
 
     /**
      * This method provides list of urls to render blocks inside order detail page.
-     * Url defines path to external bundle controller. For example: /discount/sales/list would call discount bundle, sales controller, list action.
+     * URL defines path to external bundle controller. For example: /discount/sales/list would call discount bundle, sales controller, list action.
      * Action should return return array or redirect response.
      *
      * example:
