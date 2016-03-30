@@ -64,7 +64,7 @@ class PageCollectorQuery extends AbstractPropelCollectorQuery
         );
 
         $this->touchQuery->withColumn(
-            'GROUP_CONCAT('.SpyCmsGlossaryKeyMappingTableMap::COL_PLACEHOLDER.')',
+            'GROUP_CONCAT(' . SpyCmsGlossaryKeyMappingTableMap::COL_PLACEHOLDER . ')',
             'placeholder'
         );
 
@@ -74,11 +74,12 @@ class PageCollectorQuery extends AbstractPropelCollectorQuery
         );
 
         $this->touchQuery->withColumn(
-            'GROUP_CONCAT('.SpyGlossaryKeyTableMap::COL_KEY.')',
+            'GROUP_CONCAT(' . SpyGlossaryKeyTableMap::COL_KEY . ')',
             'key'
         );
 
         $this->touchQuery->withColumn(SpyCmsPageTableMap::COL_ID_CMS_PAGE, 'page_id');
+        $this->touchQuery->withColumn(SpyCmsPageTableMap::COL_IS_ACTIVE, 'is_active');
         $this->touchQuery->withColumn(SpyUrlTableMap::COL_URL, 'page_url');
 
         $this->touchQuery->addGroupByColumn(SpyTouchTableMap::COL_ID_TOUCH);
