@@ -15,6 +15,7 @@ let isDebug = process.argv.indexOf('--debug') > -1;
 let isProduction = process.argv.indexOf('--production') > -1;
 
 module.exports = {
+    skip: true,
     module: {
         loaders: [{
             test: /\.css\??(\d*\w*=?\.?)+$/i,
