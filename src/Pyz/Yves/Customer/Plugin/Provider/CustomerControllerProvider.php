@@ -24,6 +24,7 @@ class CustomerControllerProvider extends AbstractYvesControllerProvider
     const ROUTE_CUSTOMER_NEW_ADDRESS = 'customer/address/new';
     const ROUTE_CUSTOMER_UPDATE_ADDRESS = 'customer/address/update';
     const ROUTE_CUSTOMER_DELETE_ADDRESS = 'customer/address/delete';
+    const ROUTE_CUSTOMER_REFRESH_ADDRESS = 'customer/address/refresh';
     const ROUTE_CUSTOMER_ORDER = 'customer/order';
     const ROUTE_CUSTOMER_ORDER_DETAILS = 'customer/order/details';
     const ROUTE_CUSTOMER_NEWSLETTER = 'customer/newsletter';
@@ -71,6 +72,9 @@ class CustomerControllerProvider extends AbstractYvesControllerProvider
             ->assert('customer', $allowedLocalesPattern . 'customer|customer')
             ->value('customer', 'customer');
         $this->createController('/{customer}/address/delete', self::ROUTE_CUSTOMER_DELETE_ADDRESS, 'Customer', 'Address', 'delete')
+            ->assert('customer', $allowedLocalesPattern . 'customer|customer')
+            ->value('customer', 'customer');
+        $this->createController('/{customer}/address/refresh', self::ROUTE_CUSTOMER_REFRESH_ADDRESS, 'Customer', 'Address', 'refresh')
             ->assert('customer', $allowedLocalesPattern . 'customer|customer')
             ->value('customer', 'customer');
 
