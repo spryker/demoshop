@@ -10,7 +10,7 @@
         </states>
 
         <transitions>
-            <transition>
+            <transition happy="true" >
                 <source>ready for closing</source>
                 <target>closed</target>
                 <event>close</event>

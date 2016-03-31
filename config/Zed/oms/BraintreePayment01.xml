@@ -5,7 +5,6 @@
 >
     <process name="BraintreePayment01" main="true">
         <subprocesses>
-            <process>Authorization</process>
             <process>Shipment</process>
             <process>Capture</process>
             <process>Refund</process>
@@ -14,22 +13,30 @@
 
         <states>
             <state name="new" reserved="true"/>
+            <state name="authorized" reserved="true"/>
+            <state name="revert succeeded"/>
         </states>
 
         <transitions>
-            <transition>
+            <transition happy="true">
                 <source>new</source>
-                <target>ready for authorization</target>
-                <event>start authorization process</event>
+                <target>authorized</target>
+                <event>finalize authorization process</event>
             </transition>
 
-            <transition>
-                <source>authorization succeeded</source>
+            <transition condition="Payolution/IsReversalApproved">
+                <source>authorized</source>
+                <target>revert succeeded</target>
+                <event>revert payment</event>
+            </transition>
+
+            <transition happy="true" >
+                <source>authorized</source>
                 <target>ready for shipment</target>
                 <event>start shipment process</event>
             </transition>
 
-            <transition>
+            <transition happy="true" >
                 <source>shipped</source>
                 <target>ready for capture</target>
                 <event>start capture process</event>
@@ -41,7 +48,7 @@
                 <event>start refund process</event>
             </transition>
 
-            <transition>
+            <transition happy="true" >
                 <source>capture succeeded</source>
                 <target>ready for closing</target>
                 <event>start closing process with timeout</event>
@@ -55,16 +62,16 @@
         </transitions>
 
         <events>
-            <event name="start authorization process" onEnter="true"/>
+            <event name="finalize authorization process" onEnter="true"/>
+            <event name="revert payment" manual="true" command="Braintree/Revert"/>
             <event name="start shipment process" manual="true"/>
             <event name="start capture process" onEnter="true"/>
             <event name="start refund process" manual="true"/>
-            <event name="start closing process with timeout" timeout="183days"/>
+            <event name="start closing process with timeout" timeout="14days"/>
             <event name="start closing process" onEnter="true"/>
         </events>
     </process>
 
-    <process name="Authorization" file="BraintreeSubProcesses/Authorization.xml"/>
     <process name="Shipment" file="SubProcesses/Shipment.xml"/>
     <process name="Capture" file="BraintreeSubProcesses/Capture.xml"/>
     <process name="Refund" file="BraintreeSubProcesses/Refund.xml"/>

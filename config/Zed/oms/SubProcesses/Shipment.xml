@@ -11,7 +11,7 @@
         </states>
 
         <transitions>
-            <transition>
+            <transition happy="true">
                 <source>ready for shipment</source>
                 <target>shipped</target>
                 <event>ship</event>
