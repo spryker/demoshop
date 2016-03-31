@@ -1,0 +1,14 @@
+@mixin columnHeight($multiplier) {
+  @media (max-width: $screen-xs-max) {
+    height: $multiplier * 100px;
+  }
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    height: $multiplier * 200px;
+  }
+  @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    height: $multiplier * 180px;
+  }
+  @media (min-width: $screen-lg-min) {
+    height: $multiplier * 260px;
+  }
+}
