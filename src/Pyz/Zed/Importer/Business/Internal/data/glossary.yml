@@ -1273,7 +1273,7 @@ customer.password.change.success:
 product.unavailable:
   translations:
     en_US: "Product is out of stock"
-    de_DE: "Keine Produkte mehr im Lager"
+    de_DE: "Keine Produkte mehr auf Lager"
 product.attribute.slug:
   translations:
      en_US: 'slug'
