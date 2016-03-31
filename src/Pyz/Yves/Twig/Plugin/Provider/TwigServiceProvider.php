@@ -120,16 +120,17 @@ class TwigServiceProvider extends SilexTwigServiceProvider
     {
         $app['twig.loader.yves'] = $app->share(function () {
             $themeName = Config::get(ApplicationConstants::YVES_THEME);
-            $namespace = Config::get(ApplicationConstants::PROJECT_NAMESPACE);
+            $namespaces = Config::get(ApplicationConstants::PROJECT_NAMESPACES);
             $store = Store::getInstance()->getStoreName();
 
-            return new YvesFilesystemLoader(
-                [
-                    APPLICATION_SOURCE_DIR . '/' . $namespace . '/Yves/%s' . $store . '/Theme/' . $themeName,
-                    APPLICATION_SOURCE_DIR . '/' . $namespace . '/Yves/%s/Theme/' . $themeName,
-                    APPLICATION_VENDOR_DIR . '/spryker/spryker/Bundles/%1$s/Yves/%1$s/Theme/' . $themeName,
-                ]
-            );
+            $paths = [];
+            foreach ($namespaces as $namespace) {
+                $paths[] = APPLICATION_SOURCE_DIR . '/' . $namespace . '/Yves/%s' . $store . '/Theme/' . $themeName;
+                $paths[] = APPLICATION_SOURCE_DIR . '/' . $namespace . '/Yves/%s/Theme/' . $themeName;
+            }
+            $paths[] = APPLICATION_VENDOR_DIR . '/spryker/spryker/Bundles/%1$s/Yves/%1$s/Theme/' . $themeName;
+
+            return new YvesFilesystemLoader($paths);
         });
     }
 
