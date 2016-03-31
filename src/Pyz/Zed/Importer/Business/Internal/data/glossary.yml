@@ -181,6 +181,10 @@ page.home.featured.bottom-right.right.url:
   translations:
     de_DE: '/de/samsung-smn910f-69'
     en_US: '/en/samsung-smn910f-69'
+cart.remove.items.success:
+  translations:
+    de_DE: 'Produkte wurden erfolgreich aus dem Warenkorb entfernt'
+    en_EN: 'Products were removed successfully'
 cart.add.items.success:
   translations:
     de_DE: 'Produkte erfolgreich im Warenkorb'
@@ -852,7 +856,7 @@ customer.address.is_default_shipping:
     de_DE: 'Standard Lieferadresse'
 customer.authorization.success:
   translations:
-    en_US: 'Registration Successfull'
+    en_US: 'Registration Successful'
     de_DE: 'Registrierung erfolgreich'
 customer.forgotten-password.send-new-password:
   translations:
