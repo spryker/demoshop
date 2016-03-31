@@ -181,7 +181,10 @@ page.home.featured.bottom-right.right.url:
   translations:
     de_DE: '/de/samsung-smn910f-69'
     en_US: '/en/samsung-smn910f-69'
-
+cart.add.items.success:
+  translations:
+    de_DE: 'Produkte erfolgreich im Warenkorb'
+    en_US: 'Items added successfully'
 cart.your-order:
   translations:
     de_DE: 'Deine Bestellung'
@@ -787,6 +790,14 @@ customer.account.no_orders:
   translations:
     en_US: 'No orders at the moment'
     de_DE: 'Keine Bestellungen'
+customer.address.updated:
+  translations:
+    en_US: 'New Address updated'
+    de_DE: 'Neue Adresse hinzugefügt'
+customer.address.delete.success:
+  translations:
+    en_US: 'Address deleted successfully'
+    de_DE: 'Adresse erfolgreich gelöscht'
 customer.address.added:
   translations:
     en_US: 'Address was successfully added'
