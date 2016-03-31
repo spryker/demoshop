@@ -136,11 +136,23 @@ class AddressController extends AbstractCustomerController
             ->deleteAddress($addressTransfer);
 
         if ($addressTransfer !== null) {
+            $this->getClient()->markCustomerAsDirty();
+
             $this->addSuccessMessage(Messages::CUSTOMER_ADDRESS_DELETE_SUCCESS);
-        } else {
-            $this->addErrorMessage(Messages::CUSTOMER_ADDRESS_DELETE_FAILED);
+
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_REFRESH_ADDRESS);
         }
 
+        $this->addErrorMessage(Messages::CUSTOMER_ADDRESS_DELETE_FAILED);
+
+        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_ADDRESS);
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function refreshAction()
+    {
         return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_ADDRESS);
     }
 
