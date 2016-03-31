@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-feature/antelope-2.0.0-migration",
 
     "psr/log": "~1.0.0",
     "propel/propel": "~2.0@dev",
