@@ -184,7 +184,7 @@ page.home.featured.bottom-right.right.url:
 cart.remove.items.success:
   translations:
     de_DE: 'Produkte wurden erfolgreich aus dem Warenkorb entfernt'
-    en_EN: 'Products were removed successfully'
+    en_US: 'Products were removed successfully'
 cart.add.items.success:
   translations:
     de_DE: 'Produkte erfolgreich im Warenkorb'
