@@ -855,6 +855,10 @@ customer.password.invalid_password:
   translations:
     en_US: 'Current password is wrong'
     de_DE: 'Aktuelles Passwort ist falsch'
+customer.password.invalid:
+  translations:
+    en_US: 'Password is invalid'
+    de_DE: 'Passwort ist ungültig'
 customer.forgotten-password.description:
   translations:
     en_US: 'Enter the e-mail address associated with your account.'
@@ -1143,6 +1147,10 @@ checkout.customer.proceed_as_guest:
   translations:
     en_US: 'Proceed as a guest'
     de_DE: 'Als Gast weiterverfahren'
+checkout.customer.order_as_guest:
+  translations:
+    en_US: 'Order as guest'
+    de_DE: 'Als Gast bestellen'
 checkout.step.address.title:
   translations:
     en_US: 'Address'
@@ -1361,3 +1369,4 @@ product.attribute.license:
   translations:
      en_US: 'License'
      de_DE: 'Lizenz'
+
