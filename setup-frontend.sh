@@ -24,7 +24,7 @@ fi
 
 if [[ -f $ANTELOPE_TOOL ]]; then
     labelText "Install Antelope tool globally"
-    sudo $NPM install -g github:spryker/antelope#2.0.0-beta2
+    sudo $NPM install -g github:spryker/antelope
     writeErrorMessage "Antelope setup failed"
 
     labelText "Installing project dependencies"

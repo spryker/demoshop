@@ -73,20 +73,20 @@ function createDevelopmentDatabase {
 }
 
 function installDemoshop {
-    CHANGES=`git status | grep "# Changes not staged for commit"`
-    if [ "x$CHANGES" != "x" ]; then
-        errorText "Uncommitted changes detected. Stash or commit your changes first"
-        exit 1
-    fi
+    # CHANGES=`git status | grep "# Changes not staged for commit"`
+    # if [ "x$CHANGES" != "x" ]; then
+    #     errorText "Uncommitted changes detected. Stash or commit your changes first"
+    #     exit 1
+    # fi
 
-    labelText "Preparing to install Spryker Platform..."
-    sleep 1
+    # labelText "Preparing to install Spryker Platform..."
+    # sleep 1
 
-    updateComposerBinary
+    # updateComposerBinary
 
-    composerInstall
+    # composerInstall
 
-    installZed
+    # installZed
 
     installYves
 
