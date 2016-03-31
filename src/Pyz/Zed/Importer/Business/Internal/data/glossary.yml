@@ -796,7 +796,7 @@ customer.account.no_orders:
     de_DE: 'Keine Bestellungen'
 customer.address.updated:
   translations:
-    en_US: 'New Address updated'
+    en_US: 'New address updated'
     de_DE: 'Neue Adresse hinzugefügt'
 customer.address.delete.success:
   translations:
