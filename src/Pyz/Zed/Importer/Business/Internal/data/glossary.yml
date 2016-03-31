@@ -181,7 +181,14 @@ page.home.featured.bottom-right.right.url:
   translations:
     de_DE: '/de/samsung-smn910f-69'
     en_US: '/en/samsung-smn910f-69'
-
+cart.remove.items.success:
+  translations:
+    de_DE: 'Produkte wurden erfolgreich aus dem Warenkorb entfernt'
+    en_US: 'Products were removed successfully'
+cart.add.items.success:
+  translations:
+    de_DE: 'Produkte erfolgreich im Warenkorb'
+    en_US: 'Items added successfully'
 cart.your-order:
   translations:
     de_DE: 'Deine Bestellung'
@@ -787,6 +794,14 @@ customer.account.no_orders:
   translations:
     en_US: 'No orders at the moment'
     de_DE: 'Keine Bestellungen'
+customer.address.updated:
+  translations:
+    en_US: 'New address updated'
+    de_DE: 'Neue Adresse hinzugefügt'
+customer.address.delete.success:
+  translations:
+    en_US: 'Address deleted successfully'
+    de_DE: 'Adresse erfolgreich gelöscht'
 customer.address.added:
   translations:
     en_US: 'Address was successfully added'
@@ -841,7 +856,7 @@ customer.address.is_default_shipping:
     de_DE: 'Standard Lieferadresse'
 customer.authorization.success:
   translations:
-    en_US: 'Registration Successfull'
+    en_US: 'Registration Successful'
     de_DE: 'Registrierung erfolgreich'
 customer.forgotten-password.send-new-password:
   translations:
@@ -1255,8 +1270,10 @@ customer.password.change.success:
   translations:
     en_US: "The password has been successfully changed"
     de_DE: 'Das Kennwort wurde erfolgreich geändert'
-
-
+product.unavailable:
+  translations:
+    en_US: "Product is out of stock"
+    de_DE: "Keine Produkte mehr auf Lager"
 product.attribute.slug:
   translations:
      en_US: 'slug'
