@@ -24,7 +24,7 @@ outfile=`mktemp /tmp/deploy-XXXXXX`
 ### Generate propel files
 cd $destination_release_dir
 
-#vendor/bin/console setup:deploy:prepare_propel &> $outfile
+#vendor/bin/console setup:deploy:prepare-propel &> $outfile
 #return=$?
 #
 #if [ $return -ne 0 ]; then
