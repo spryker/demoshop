@@ -1,8 +1,0 @@
-<div class="header__cart js-shopping-cart">
-    <a href="#" class="cart__toggle js-cart-toggle">{{ cart.cart | trans }}</a>
-    <a href="#" class="cart__close js-cart-close">{{ global.close | trans }}</a>
-    <div class="cart__contents">
-        {% include "@application/layout/partials/cart/cart-list.twig" %}
-        <a href="/checkout.html" class="cart__to-checkout cta">{{ 'cart.checkout' | trans }}</a>
-    </div>
-</div>
