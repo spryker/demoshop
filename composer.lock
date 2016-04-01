@@ -949,7 +949,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b03ac2e08a25168b0f33c06b4982cfaa5397cdf3"
+                "reference": "edc6988f64a3c30b50429b3da8e1e68ab5939124"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1404,19 +1404,11 @@
                     "Bundles/Config/src/Spryker/Shared/Config.php"
                 ]
             },
-            "scripts": {
-                "post-update-cmd": [
-                    "SprykerInstaller::postUpdate"
-                ],
-                "post-install-cmd": [
-                    "SprykerInstaller::postInstall"
-                ]
-            },
             "license": [
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-03-31 12:36:17"
+            "time": "2016-03-31 18:11:10"
         },
         {
             "name": "symfony-cmf/routing",
