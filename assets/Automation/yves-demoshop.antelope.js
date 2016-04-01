@@ -4,18 +4,25 @@
 
 'use strict';
 
-let path = require('path');
-let R = require('ramda');
-let cwd = process.cwd();
+const path = require('path');
+const cwd = process.cwd();
 
-// webpack
-let webpack = require('webpack');
-let ExtractTextPlugin = require('extract-text-webpack-plugin');
+const R = antelope.remote('ramda');
+const webpack = antelope.remote('webpack');
+const ExtractTextPlugin = antelope.remote('extract-text-webpack-plugin');
 
-let isDebug = process.argv.indexOf('--debug') > -1;
-let isProduction = process.argv.indexOf('--production') > -1;
-
-module.exports = {
+let config = {
+    entry: antelope.entryPoints,
+    resolve: {
+        root: antelope.paths.root,
+    },
+    resolveLoader: {
+        root: antelope.paths.loaders
+    },
+    output: {
+        path: path.join(cwd, './public/Yves'),
+        filename: '/assets/demoshop/js/[name].js'
+    },
     module: {
         loaders: [{
             test: /\.css\??(\d*\w*=?\.?)+$/i,
@@ -33,6 +40,9 @@ module.exports = {
             test: /(DISCLAIMER|LICENSE|README)/i,
             loader: 'organizer?rules=legal',
         }]
+    },
+    sassLoader: {
+        includePaths: antelope.paths.loaders
     },
     organizerRules: {
         images: [{
@@ -52,10 +62,6 @@ module.exports = {
             name: '/assets/demoshop/img/icecat/[name]'
         }]
     },
-    output: {
-        path: path.join(cwd, './public/Yves'),
-        filename: '/assets/demoshop/js/[name].js'
-    },
     plugins: [
         new ExtractTextPlugin('assets/demoshop/css/[name].css', {
             allChunks: true
@@ -66,12 +72,34 @@ module.exports = {
             'window.jQuery': 'jquery'
         }),
         new webpack.DefinePlugin({
-            PRODUCTION: isProduction,
-            WATCH: isDebug
+            PRODUCTION: antelope.options.production,
+            WATCH: antelope.options.watch
         })
     ],
     watchOptions: {
-        poll: true
+        aggregateTimeout: 300,
+        poll: 1000
     },
-    devtool: 'sourceMap'
+    progress: true,
+    failOnError: false,
+    devtool: 'sourceMap',
+    debug: antelope.options.debug,
+    watch: antelope.options.watch
 };
+
+if (antelope.options.production) {
+    config.plugins = config.plugins.concat([
+        new webpack.optimize.UglifyJsPlugin({
+            comments: false,
+            sourceMap: false,
+            compress: {
+                warnings: false
+            },
+            mangle: {
+                except: ['$', 'exports', 'require']
+            }
+        })
+    ]);
+}
+
+module.exports = config;
