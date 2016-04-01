@@ -8,9 +8,6 @@
     "email": "info@spryker.com",
     "url": "http://spryker.com/"
   },
-  "scripts": {
-    "test": "spy test"
-  },
   "dependencies": {
     "bootstrap-sass": "^3.3.6",
     "font-awesome": "^4.5.0",
