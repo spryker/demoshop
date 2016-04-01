@@ -7,8 +7,6 @@ if [[ -z "$SETUP" ]]; then
     exit 0
 fi
 
-ANTELOPE_TOOL=`which antelope`
-
 if [[ `node -v | grep -E '^v[0-4]'` ]]; then
     labelText "Upgrade Node.js"
     sudo $NPM cache clean -f
@@ -22,11 +20,13 @@ if [[ `node -v | grep -E '^v[0-4]'` ]]; then
     successText "NPM updated to version `$NPM -v`"
 fi
 
-if [[ -f $ANTELOPE_TOOL ]]; then
-    labelText "Install Antelope tool globally"
-    sudo $NPM install -g github:spryker/antelope
-    writeErrorMessage "Antelope setup failed"
+labelText "Install Antelope tool globally"
+sudo $NPM install -g github:spryker/antelope
+writeErrorMessage "Antelope setup failed"
 
+ANTELOPE_TOOL=`which antelope`
+
+if [[ -f $ANTELOPE_TOOL ]]; then
     labelText "Installing project dependencies"
     $ANTELOPE_TOOL install
 
