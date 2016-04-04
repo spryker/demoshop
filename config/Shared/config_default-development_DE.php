@@ -11,7 +11,10 @@ $config[ApplicationConstants::ZED_DB_HOST] = '127.0.0.1';
 $config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
 $config[ApplicationConstants::ZED_DB_PORT] = 5432;
 
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_development_catalog';
+$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'catalog';
+$config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
+
+$config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = '10005';
 
 $yvesHost = 'www.de.spryker.dev';
 $config[ApplicationConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
