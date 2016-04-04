@@ -10,7 +10,7 @@
         </states>
 
         <transitions>
-            <transition happy="true" condition="Braintree/IsRefundApproved">
+            <transition condition="Braintree/IsRefundApproved">
                 <source>ready for refund</source>
                 <target>refund succeeded</target>
                 <event>refund payment</event>
@@ -18,7 +18,7 @@
         </transitions>
 
         <events>
-            <event name="refund payment" manual="true" command="Braintree/Refund"/>
+            <event name="refund payment" manual="true" onEnter="true" command="Braintree/Refund"/>
         </events>
     </process>
 </statemachine>

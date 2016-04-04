@@ -14,17 +14,24 @@
         <states>
             <state name="new" reserved="true"/>
             <state name="authorized" reserved="true"/>
+            <state name="invalid"/>
             <state name="revert succeeded"/>
         </states>
 
         <transitions>
-            <transition happy="true">
+            <transition happy="true" condition="Braintree/IsAuthorizationApproved">
                 <source>new</source>
                 <target>authorized</target>
                 <event>finalize authorization process</event>
             </transition>
 
-            <transition condition="Payolution/IsReversalApproved">
+            <transition>
+                <source>new</source>
+                <target>invalid</target>
+                <event>finalize authorization process</event>
+            </transition>
+
+            <transition condition="Braintree/IsReversalApproved">
                 <source>authorized</source>
                 <target>revert succeeded</target>
                 <event>revert payment</event>
@@ -62,7 +69,7 @@
         </transitions>
 
         <events>
-            <event name="finalize authorization process" onEnter="true"/>
+            <event name="finalize authorization process" onEnter="true" command="Braintree/Authorize"/>
             <event name="revert payment" manual="true" command="Braintree/Revert"/>
             <event name="start shipment process" manual="true"/>
             <event name="start capture process" onEnter="true"/>

@@ -20,6 +20,7 @@
 
         <events>
             <event name="ship" manual="true"/>
+            <event name="refund payment" manual="true" onEnter="true" command="Payolution/Refund"/>
         </events>
     </process>
 </statemachine>

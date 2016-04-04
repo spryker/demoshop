@@ -1,4 +1,4 @@
-<div class="braintree-form braintree-paypal-form">
+<div class="payment-subform braintree-form braintree-paypal-form">
 	<h3>Braintree PayPal</h3>
 
 	<div id="paypal-form"></div>
@@ -11,4 +11,6 @@
 			container: "paypal-form"
 		});
 	</script>
+	{{ form_errors(form.braintree_pay_pal) }}
+	{{ form_widget(form.braintree_pay_pal) }}
 </div>
