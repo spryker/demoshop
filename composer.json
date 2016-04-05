@@ -51,10 +51,11 @@
   },
   "require-dev": {
     "spryker/code-sniffer": "dev-master",
+    "spryker/architecture-sniffer": "dev-master",
     "silex/web-profiler": "~1.0.8",
     "pdepend/pdepend": "~2.2.2",
     "phploc/phploc": "~2.1.5",
-    "phpmd/phpmd": "~2.3.2",
+    "phpmd/phpmd": "~2.4.2",
     "sebastian/phpcpd": "~2.0.2",
     "codeception/codeception": "~2.1.5",
     "sensiolabs/security-checker": "~3.0.2",
