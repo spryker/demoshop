@@ -3,7 +3,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="process.xsd"
 >
-    <process name="BraintreePayment01" main="true">
+    <process name="BraintreeCreditCard01" main="true">
         <subprocesses>
             <process>Shipment</process>
             <process>Capture</process>
@@ -79,7 +79,7 @@
         </events>
     </process>
 
-    <process name="Shipment" file="SubProcesses/Shipment.xml"/>
+    <process name="Shipment" file="BraintreeSubProcesses/Shipment.xml"/>
     <process name="Capture" file="BraintreeSubProcesses/Capture.xml"/>
     <process name="Refund" file="BraintreeSubProcesses/Refund.xml"/>
     <process name="Closing" file="BraintreeSubProcesses/Closing.xml"/>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../process.xsd"
+>
+    <process name="Shipment">
+        <states>
+            <state name="ready for shipment"/>
+            <state name="shipped"/>
+        </states>
+
+        <transitions>
+            <transition happy="true">
+                <source>ready for shipment</source>
+                <target>shipped</target>
+                <event>ship</event>
+            </transition>
+        </transitions>
+
+        <events>
+            <event name="ship" manual="true"/>
+        </events>
+    </process>
+</statemachine>
