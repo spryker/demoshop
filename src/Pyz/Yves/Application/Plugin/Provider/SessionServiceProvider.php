@@ -85,9 +85,13 @@ class SessionServiceProvider extends AbstractServiceProvider
         $path = null;
         switch ($saveHandler) {
             case SessionConstants::SESSION_HANDLER_REDIS:
-                $path = Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL)
-                    . '://' . Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST)
-                    . ':' . Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT);
+                $path = sprintf(
+                    '%s://h:%s@%s:%s',
+                    Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL),
+                    Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PASSWORD),
+                    Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST),
+                    Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT)
+                );
                 break;
 
             case SessionConstants::SESSION_HANDLER_FILE:
@@ -95,7 +99,7 @@ class SessionServiceProvider extends AbstractServiceProvider
                 break;
 
             default:
-                throw new \Exception('Needs implementation for mysql and couchbase!');
+                throw new \Exception('Undefined session handler: ' . $saveHandler);
         }
 
         return $path;
