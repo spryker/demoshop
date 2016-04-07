@@ -57,6 +57,8 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new ProductSearchConsole(),
             new RecordDeploymentConsole(),
             new SearchConsole(),
+            new \Spryker\Zed\StateMachine\Communication\Console\CheckTimeoutConsole(),
+            new \Spryker\Zed\StateMachine\Communication\Console\CheckConditionConsole(),
         ];
 
         $propelCommands = $container->getLocator()->propel()->facade()->getConsoleCommands();
