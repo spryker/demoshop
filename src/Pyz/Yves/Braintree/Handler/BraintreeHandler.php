@@ -86,13 +86,16 @@ class BraintreeHandler
             return;
         }
 
+        $billingAddress = $quoteTransfer->getBillingAddress();
+
         $braintreePaymentTransfer
             ->setAccountBrand(self::$braintreePaymentMethodMapper[$paymentSelection])
-            //->setAddress($billingAddress)
-            //->setEmail($quoteTransfer->getCustomer()->getEmail())
-            //->setCurrencyIso3Code($this->getCurrency())
-            //->setLanguageIso2Code($billingAddress->getIso2Code())
-            //->setClientIp($request->getClientIp());
+            ->setBillingAddress($billingAddress)
+            ->setShippingAddress($quoteTransfer->getShippingAddress())
+            ->setEmail($quoteTransfer->getCustomer()->getEmail())
+            ->setCurrencyIso3Code($this->getCurrency())
+            ->setLanguageIso2Code($billingAddress->getIso2Code())
+            ->setClientIp($request->getClientIp())
             ->setNonce($nonce);
     }
 
