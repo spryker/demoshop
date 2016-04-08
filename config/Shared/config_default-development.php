@@ -62,6 +62,6 @@ $config[ApplicationConstants::STORE_PREFIX] = 'DEV';
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = true;
 $config[ApplicationConstants::SHOW_SYMFONY_TOOLBAR] = true;
 
-$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker';
+$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
 
 $config[LogConstants::LOG_LEVEL] = \Monolog\Logger::INFO;

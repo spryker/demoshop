@@ -81,7 +81,7 @@ $config[ApplicationConstants::TRANSFER_SSL] = false;
 $config[ApplicationConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = false;
 $config[ApplicationConstants::TRANSFER_DEBUG_SESSION_NAME] = 'XDEBUG_SESSION';
 
-$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker';
+$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
 
 $config[ApplicationConstants::YVES_STORAGE_SESSION_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_1_HOUR;
 $config[ApplicationConstants::YVES_STORAGE_SESSION_FILE_PATH] = session_save_path();
