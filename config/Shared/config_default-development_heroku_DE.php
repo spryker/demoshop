@@ -4,12 +4,20 @@ use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Mail\MailConstants;
 
-$config[ApplicationConstants::ZED_DB_USERNAME] = 'development';
+/*$config[ApplicationConstants::ZED_DB_USERNAME] = 'development';
 $config[ApplicationConstants::ZED_DB_PASSWORD] = 'mate20mg';
 $config[ApplicationConstants::ZED_DB_DATABASE] = 'DE_development_zed';
 $config[ApplicationConstants::ZED_DB_HOST] = '127.0.0.1';
 $config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
-$config[ApplicationConstants::ZED_DB_PORT] = 5432;
+$config[ApplicationConstants::ZED_DB_PORT] = 5432;*/
+
+$dbopts = parse_url(getenv(getenv('DATABASE_URL_NAME') ?: 'DATABASE_URL'));
+$config[ApplicationConstants::ZED_DB_ENGINE] = $dbopts['scheme'];
+$config[ApplicationConstants::ZED_DB_USERNAME] = $dbopts['user'];
+$config[ApplicationConstants::ZED_DB_PASSWORD] = $dbopts['pass'];
+$config[ApplicationConstants::ZED_DB_DATABASE] = ltrim($dbopts['path'],'/');
+$config[ApplicationConstants::ZED_DB_HOST] = $dbopts['host'];
+$config[ApplicationConstants::ZED_DB_PORT] = isset($dbopts['port']) ? $dbopts['port'] : 5432;
 
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_development_catalog';
 

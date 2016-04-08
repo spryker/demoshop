@@ -47,7 +47,8 @@
     "zendframework/zend-servicemanager": "~2.7.4",
     "zendframework/zend-eventmanager": "~2.6.2",
 
-    "nesbot/carbon": "~1.13.0"
+    "nesbot/carbon": "~1.13.0",
+    "vlucas/phpdotenv": "^2.2"
   },
   "require-dev": {
     "spryker/code-sniffer": "dev-master",
@@ -79,5 +80,13 @@
       "type": "git",
       "url": "git@github.com:spryker/spryker.git"
     }
-  ]
+  ],
+  "scripts": {
+    "compile": [
+      "mkdir -p ./data/DE/logs",
+      "echo '<?php return \"development_heroku\";' > config/Shared/console_env_local.php",
+      "vendor/bin/console transfer:generate",
+      "vendor/bin/console propel:install"
+    ]
+  }
 }
