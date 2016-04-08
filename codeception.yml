@@ -1,7 +1,7 @@
 actor: Tester
 
 include:
-- vendor/spryker/*
+- vendor/spryker/spryker/Bundles/*
 
 paths:
     tests: tests
