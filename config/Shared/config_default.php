@@ -49,6 +49,7 @@ $config[ApplicationConstants::STORAGE_KV_SOURCE] = 'redis';
 $config[ApplicationConstants::ELASTICA_PARAMETER__HOST] = 'localhost';
 $config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT] = 'http';
 $config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = '10005';
+$config[ApplicationConstants::ELASTICA_PARAMETER__AUTH_HEADER] = null;
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'index_page';
 $config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
 
