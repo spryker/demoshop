@@ -26,8 +26,6 @@ $config[ApplicationConstants::ZED_DB_DATABASE] = ltrim($dbopts['path'],'/');
 $config[ApplicationConstants::ZED_DB_HOST] = $dbopts['host'];
 $config[ApplicationConstants::ZED_DB_PORT] = isset($dbopts['port']) ? $dbopts['port'] : 5432;
 
-dump($config, $dbopts, $schema);
-
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_development_catalog';
 
 $yvesHost = 'www.de.spryker.dev';

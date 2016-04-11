@@ -84,9 +84,7 @@
   "scripts": {
     "compile": [
       "mkdir -p ./data/DE/logs",
-      "echo '<?php return \"development_heroku\";' > config/Shared/console_env_local.php",
-      "vendor/bin/console transfer:generate",
-      "vendor/bin/console propel:install"
+      "echo '<?php return \"development_heroku\";' > config/Shared/console_env_local.php"
     ]
   }
 }
