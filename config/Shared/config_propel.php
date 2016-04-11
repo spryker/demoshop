@@ -64,3 +64,6 @@ $config[ApplicationConstants::PROPEL] = [
 
 $engine = $config[ApplicationConstants::ZED_DB_ENGINE];
 $config[ApplicationConstants::PROPEL]['database']['connections']['default'] = $connections[$engine];
+
+
+dump($config, $dbopts, $schema);
