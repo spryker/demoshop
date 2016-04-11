@@ -11,9 +11,8 @@ $config[ApplicationConstants::ZED_DB_HOST] = '127.0.0.1';
 $config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
 $config[ApplicationConstants::ZED_DB_PORT] = 5432;*/
 
+$schema = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
 $dbopts = parse_url(getenv(getenv('DATABASE_URL_NAME') ?: 'DATABASE_URL'));
-$schema = null;
-
 switch ($dbopts['scheme']) {
     case 'postgres':
         $schema = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
@@ -29,7 +28,6 @@ $config[ApplicationConstants::ZED_DB_HOST] = $dbopts['host'];
 $config[ApplicationConstants::ZED_DB_PORT] = isset($dbopts['port']) ? $dbopts['port'] : 5432;
 
 dump($config);
-die;
 
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_development_catalog';
 
