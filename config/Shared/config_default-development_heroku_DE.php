@@ -19,7 +19,6 @@ switch ($dbopts['scheme']) {
         break;
 }
 
-//$config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
 $config[ApplicationConstants::ZED_DB_ENGINE] = $schema;
 $config[ApplicationConstants::ZED_DB_USERNAME] = $dbopts['user'];
 $config[ApplicationConstants::ZED_DB_PASSWORD] = $dbopts['pass'];
@@ -27,7 +26,7 @@ $config[ApplicationConstants::ZED_DB_DATABASE] = ltrim($dbopts['path'],'/');
 $config[ApplicationConstants::ZED_DB_HOST] = $dbopts['host'];
 $config[ApplicationConstants::ZED_DB_PORT] = isset($dbopts['port']) ? $dbopts['port'] : 5432;
 
-dump($config);
+dump($config, $dbopts);
 
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_development_catalog';
 
