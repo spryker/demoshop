@@ -61,7 +61,7 @@ $config[AclConstants::ACL_USER_RULE_WHITELIST][] = [
 ];
 
 $config[ApplicationConstants::PROPEL_DEBUG] = false;
-$config[ApplicationConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = true;
+$config[ApplicationConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = false;
 
 $config[ApplicationConstants::ALLOW_INTEGRATION_CHECKS] = true;
 $config[ApplicationConstants::DISPLAY_ERRORS] = true;
@@ -69,8 +69,8 @@ $config[ApplicationConstants::ENABLE_APPLICATION_DEBUG] = false;
 $config[ApplicationConstants::SET_REPEAT_DATA] = true;
 $config[ApplicationConstants::STORE_PREFIX] = 'DEV';
 
-$config[ApplicationConstants::ENABLE_WEB_PROFILER] = true;
-$config[ApplicationConstants::SHOW_SYMFONY_TOOLBAR] = true;
+$config[ApplicationConstants::ENABLE_WEB_PROFILER] = false;
+$config[ApplicationConstants::SHOW_SYMFONY_TOOLBAR] = false;
 
 $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
 
