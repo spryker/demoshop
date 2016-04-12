@@ -402,8 +402,12 @@ class ProductAbstractImporter extends AbstractImporter
      */
     public function slugify($value)
     {
-        $value = trim($value);
-        $value = \transliterator_transliterate("Any-Latin; Latin-ASCII; NFD; [\u0080-\u7fff] remove; [:Nonspacing Mark:] remove; NFC; [:Punctuation:] remove; Lower();", $value);
+        if (function_exists('iconv')) {
+            $value = @iconv('UTF-8', 'ASCII//TRANSLIT', $value);
+        }
+
+        $value = preg_replace("/[^a-zA-Z0-9 -]/", "", $value);
+        $value = strtolower($value);
         $value = str_replace(' ', '-', $value);
 
         return $value;
