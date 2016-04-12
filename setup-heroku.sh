@@ -63,8 +63,6 @@ for arg in "$@"
 do
     case $arg in
         "-i" )
-        installAntelope
-        exit 1
             installElasticsearch
 
             vendor/bin/console setup:install $VERBOSITY
