@@ -1,1 +1,1 @@
-web: vendor/bin/heroku-php-nginx static/public/Yves/
+web: vendor/bin/heroku-php-nginx public/Yves/
