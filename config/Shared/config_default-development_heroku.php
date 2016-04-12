@@ -36,7 +36,7 @@ $config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = $elastica['scheme'] ==
 
 $config[ApplicationConstants::JENKINS_BASE_URL] = 'http://' . $config[ApplicationConstants::HOST_ZED_GUI] . ':10007/jenkins';
 $config[ApplicationConstants::JENKINS_DIRECTORY] = '/data/shop/development/shared/data/common/jenkins';
-$config[ApplicationConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = true;
+$config[ApplicationConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = false;
 
 $config[PayoneConstants::PAYONE] = [
     PayoneConstants::PAYONE_CREDENTIALS_ENCODING => 'UTF-8',
@@ -60,12 +60,12 @@ $config[AclConstants::ACL_USER_RULE_WHITELIST][] = [
     'type' => 'allow',
 ];
 
-$config[ApplicationConstants::PROPEL_DEBUG] = true;
+$config[ApplicationConstants::PROPEL_DEBUG] = false;
 $config[ApplicationConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = true;
 
 $config[ApplicationConstants::ALLOW_INTEGRATION_CHECKS] = true;
 $config[ApplicationConstants::DISPLAY_ERRORS] = true;
-$config[ApplicationConstants::ENABLE_APPLICATION_DEBUG] = true;
+$config[ApplicationConstants::ENABLE_APPLICATION_DEBUG] = false;
 $config[ApplicationConstants::SET_REPEAT_DATA] = true;
 $config[ApplicationConstants::STORE_PREFIX] = 'DEV';
 
