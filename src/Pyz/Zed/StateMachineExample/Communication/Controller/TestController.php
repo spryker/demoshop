@@ -32,7 +32,7 @@ class TestController extends AbstractController
         $stateMachineItems = $this->getStateMachineItems($stateMachineExampleItems);
 
         $stateMachineItems = $this->getStateMachineFacade()
-            ->getStateMachineItemsFromPersistence(self::STATE_MACHINE_NAME, $stateMachineItems);
+            ->getProcessedStateMachineItems(self::STATE_MACHINE_NAME, $stateMachineItems);
 
         $manualEvents = $this->getStateMachineFacade()
             ->getManualEventsForStateMachineItems(self::STATE_MACHINE_NAME, $stateMachineItems);
@@ -40,8 +40,23 @@ class TestController extends AbstractController
         return [
             'stateMachineExampleItems' => $stateMachineExampleItems,
             'manualEvents' => $manualEvents,
-            'stateMachineItems' => $stateMachineItems
+            'stateMachineItems' => $this->createStateMachineLookupIndexTable($stateMachineItems)
         ];
+    }
+
+    /**
+     * @param array|StateMachineItemTransfer[] $stateMachineItems
+     *
+     * @return array|StateMachineItemTransfer[]
+     */
+    public function createStateMachineLookupIndexTable(array $stateMachineItems)
+    {
+        $lookupIndex = [];
+        foreach ($stateMachineItems as $stateMachineItemTransfer) {
+            $lookupIndex[$stateMachineItemTransfer->getIdentifier()] = $stateMachineItemTransfer;
+        }
+
+        return $lookupIndex;
     }
 
     /**
@@ -80,7 +95,7 @@ class TestController extends AbstractController
     }
 
     /**
-     * @param ObjectCollection $stateMachineExampleItems
+     * @param ObjectCollection|SpyStateMachineExampleItem $stateMachineExampleItems
      * @return array
      */
     protected function getStateMachineItems(ObjectCollection $stateMachineExampleItems)
@@ -94,6 +109,7 @@ class TestController extends AbstractController
             $stateMachineItemTransfer = new StateMachineItemTransfer();
             $stateMachineItemTransfer->setIdItemState($itemEntity->getFkStateMachineItemState());
             $stateMachineItemTransfer->setIdentifier($itemEntity->getIdStateMachineExampleItem());
+            $stateMachineItemTransfer->setIdStateMachineProcess($itemEntity->getFkStateMachineProcess());
             $stateMachineItems[] = $stateMachineItemTransfer;
         }
 

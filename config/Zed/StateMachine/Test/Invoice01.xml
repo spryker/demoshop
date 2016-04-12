@@ -5,8 +5,11 @@
 
     <process name="Invoice01" main="true">
         <states>
-            <state name="new" reserved="true"/>
-            <state name="invoice created"/>
+            <state name="new"/>
+            <state name="invoice created">
+                <flag>Flag1</flag>
+                <flag>Flag2</flag>
+            </state>
             <state name="invoice sent" />
             <state name="order exported" />
             <state name="order shipped" />
@@ -36,13 +39,13 @@
             <transition happy="true" condition="Test/Condition">
                 <source>invoice sent</source>
                 <target>order exported</target>
-               <!-- <event>export order</event>-->
+                <event>export order</event>
             </transition>
 
             <transition>
                 <source>invoice sent</source>
                 <target>order export failed</target>
-                <!--<event>export order</event>-->
+                <event>export order</event>
             </transition>
 
             <transition>

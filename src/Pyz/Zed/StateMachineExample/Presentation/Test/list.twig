@@ -36,7 +36,7 @@
                 {% if manualEvents | length > 0 and manualEvents[exampleItem.IdStateMachineExampleItem] is defined %}
                     {% for event in manualEvents[exampleItem.IdStateMachineExampleItem] %}
                         <a class="btn btn-primary btn-sm trigger-order-single-event"
-                           href="/state-machine/trigger/triggerEvent?event={{ event }}&identifier={{ stateMachineItems[exampleItem.IdStateMachineExampleItem].getIdentifier  }}&id-state={{ stateMachineItems[exampleItem.IdStateMachineExampleItem].getIdItemState  }}&state-machine-name=Test&redirect=/state-machine-example/test/list"
+                           href="/state-machine/trigger/triggerEvent?event={{ event }}&id-process={{ stateMachineItems[exampleItem.IdStateMachineExampleItem].getIdStateMachineProcess }}&identifier={{ stateMachineItems[exampleItem.IdStateMachineExampleItem].getIdentifier  }}&id-state={{ stateMachineItems[exampleItem.IdStateMachineExampleItem].getIdItemState  }}&state-machine-name=Test&redirect=/state-machine-example/test/list"
                         >
                             {{ event }}
                         </a>

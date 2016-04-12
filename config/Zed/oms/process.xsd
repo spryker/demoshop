@@ -35,12 +35,7 @@
         <xs:sequence>
             <xs:element name="flag" maxOccurs="unbounded" minOccurs="0">
                 <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:enumeration value="exclude from customer"/>
-                        <xs:enumeration value="exclude from invoice"/>
-                        <xs:enumeration value="ready for invoice"/>
-                        <xs:enumeration value="waiting for export"/>
-                    </xs:restriction>
+                    <xs:list itemType="xs:string"/>
                 </xs:simpleType>
             </xs:element>
         </xs:sequence>
@@ -77,22 +72,7 @@
         <xs:sequence>
             <xs:element name="process" maxOccurs="unbounded" minOccurs="0">
                 <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:enumeration value="invoice creation"/>
-                        <xs:enumeration value="fulfillment"/>
-                        <xs:enumeration value="completion"/>
-                        <xs:enumeration value="cancellation"/>
-                        <xs:enumeration value="return shipment"/>
-                        <xs:enumeration value="find merchant"/>
-                        <xs:enumeration value="return debit note"/>
-                        <xs:enumeration value="dunning process"/>
-                        <xs:enumeration value="payone capture"/>
-                        <xs:enumeration value="payone capture after fulfillment"/>
-                        <xs:enumeration value="postal invoice delivery"/>
-                        <xs:enumeration value="payone waiting for invoice payment"/>
-                        <xs:enumeration value="manual trustability check"/>
-                        <xs:enumeration value="delivery slip creation"/>
-                    </xs:restriction>
+                    <xs:list itemType="xs:string"/>
                 </xs:simpleType>
             </xs:element>
         </xs:sequence>
