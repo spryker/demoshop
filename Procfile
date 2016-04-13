@@ -1,1 +1,1 @@
-web: vendor/bin/heroku-php-nginx -C nginx_app.conf -l data/DE/logs/application.log public/Yves/
+web: vendor/bin/heroku-php-nginx -l data/$APPLICATION_STORE/logs/application.log -C nginx-$APPLICATION_NAME.conf public/$APPLICATION_NAME/
