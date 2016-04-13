@@ -10,8 +10,6 @@ require_once APPLICATION_ROOT_DIR . '/vendor/autoload.php';
 
 Environment::initialize();
 
-dump($_SERVER);
-
 $bootstrap = new YvesBootstrap();
 $bootstrap
     ->boot()
