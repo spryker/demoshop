@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\Product;
 
+use Generated\Shared\Search\Catalog\PageIndexMap;
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
 use Orm\Zed\Product\Persistence\SpyProductAttributesMetadataQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
@@ -102,25 +103,25 @@ class ProductSearchImporter extends AbstractImporter
         return [
             'sku' => [
                 'CopyToField' => [
-                    'full-text-boosted',
-                    'full-text',
-                    'suggestion-term',
-                    'completion-terms',
+                    PageIndexMap::FULL_TEXT_BOOSTED,
+                    PageIndexMap::FULL_TEXT,
+                    PageIndexMap::SUGGESTION_TERMS,
+                    PageIndexMap::COMPLETION_TERMS,
                 ],
             ],
             'short_description' => [
                 'CopyToField' => [
-                    'full-text-boosted',
-                    'full-text',
-                    'suggestion-term',
-                    'completion-terms',
+                    PageIndexMap::FULL_TEXT_BOOSTED,
+                    PageIndexMap::FULL_TEXT,
+                    PageIndexMap::SUGGESTION_TERMS,
+                    PageIndexMap::COMPLETION_TERMS,
                 ],
             ],
             'long_description' => [
                 'CopyToField' => [
-                    'full-text',
-                    'suggestion-term',
-                    'completion-terms',
+                    PageIndexMap::FULL_TEXT,
+                    PageIndexMap::SUGGESTION_TERMS,
+                    PageIndexMap::COMPLETION_TERMS,
                 ],
             ],
         ];

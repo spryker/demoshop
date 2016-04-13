@@ -7,10 +7,11 @@
 
 namespace Pyz\Zed\ProductSearch\Business\Processor;
 
+use Generated\Shared\Search\Catalog\PageIndexMap;
 use Generated\Shared\Transfer\LocaleTransfer;
-use Spryker\Zed\ProductSearch\Business\Processor\ProductSearchProcessor as CoreProductSearchProcessor;
+use Spryker\Zed\ProductSearch\Business\Processor\ProductSearchProcessor as SprykerProductSearchProcessor;
 
-class ProductSearchProcessor extends CoreProductSearchProcessor
+class ProductSearchProcessor extends SprykerProductSearchProcessor
 {
 
     /**
@@ -25,13 +26,13 @@ class ProductSearchProcessor extends CoreProductSearchProcessor
 
         $attributes = $this->getProductAttributes($productData);
 
-        $baseProduct['search-result-data']['image_url'] = $attributes['image_big'];
-        $baseProduct['search-result-data']['thumbnail_url'] = $attributes['image_small'];
+        $baseProduct[PageIndexMap::SEARCH_RESULT_DATA]['image_url'] = $attributes['image_big'];
+        $baseProduct[PageIndexMap::SEARCH_RESULT_DATA]['thumbnail_url'] = $attributes['image_small'];
 
-        $baseProduct['search-result-data']['price'] = $productData['price'];
-        $baseProduct['integer-sort']['price'] = $productData['price'];
+        $baseProduct[PageIndexMap::SEARCH_RESULT_DATA]['price'] = $productData['price'];
+        $baseProduct[PageIndexMap::INTEGER_SORT]['price'] = $productData['price'];
 
-        $baseProduct['integer-facet'][] = [
+        $baseProduct[PageIndexMap::INTEGER_FACET][] = [
             'facet-name' => 'price',
             'facet-value' => $productData['price'],
         ];

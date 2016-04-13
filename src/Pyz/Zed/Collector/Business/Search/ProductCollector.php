@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Collector\Business\Search;
 
+use Generated\Shared\Search\Catalog\PageIndexMap;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Zed\Collector\CollectorConfig;
 use Spryker\Shared\Product\ProductConstants;
@@ -143,13 +144,11 @@ class ProductCollector extends AbstractSearchPdoCollector
      */
     protected function processAvailability(array $productRawData, array $processedResultSet, $index)
     {
-        $processedResultSet[$index]['available'] = $productRawData['quantity'] > 0;
         $isAvailable = (bool)(
             $productRawData['is_never_out_of_stock'] ||
             $productRawData['quantity'] > 0
         );
-        $processedResultSet[$index]['search-result-data']['available'] = $isAvailable;
-        $processedResultSet[$index]['bool-facet']['available'] = $isAvailable;
+        $processedResultSet[$index][PageIndexMap::SEARCH_RESULT_DATA]['available'] = $isAvailable;
 
         return $processedResultSet;
     }
@@ -163,7 +162,7 @@ class ProductCollector extends AbstractSearchPdoCollector
      */
     protected function processCategory(array $productRawData, array $processedResultSet, $index)
     {
-        $processedResultSet[$index]['category'] = [
+        $processedResultSet[$index][PageIndexMap::CATEGORY] = [
             'direct-parents' => explode(',', $productRawData['node_id']),
             'all-parents' => explode(',', $productRawData['category_parent_ids']),
         ];

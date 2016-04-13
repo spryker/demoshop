@@ -7,7 +7,7 @@
 
 namespace Pyz\Yves\Collector\Mapper;
 
-use Spryker\Client\Catalog\Model\FacetConfig;
+use Spryker\Client\Search\Plugin\Config\SearchConfigInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class RequestParameterInjector implements RequestParameterInjectorInterface
@@ -15,19 +15,19 @@ class RequestParameterInjector implements RequestParameterInjectorInterface
 
     const OFFSET_RECOGNITION_VALUE_DIVIDER = '+';
     const URL_VALUE_DIVIDER = '-';
-    const CATEGORY_SHORT_PARAMETER = 'c';
+    const CATEGORY_SHORT_PARAMETER = 'category'; // FIXME: facets may have short names?
 
     /**
-     * @var \Spryker\Client\Catalog\Model\FacetConfig
+     * @var \Spryker\Client\Search\Plugin\Config\SearchConfigInterface
      */
-    protected $facetConfig;
+    protected $searchConfig;
 
     /**
-     * @param \Spryker\Client\Catalog\Model\FacetConfig $facetConfig
+     * @param \Spryker\Client\Search\Plugin\Config\SearchConfigInterface $searchConfig
      */
-    public function __construct(FacetConfig $facetConfig)
+    public function __construct(SearchConfigInterface $searchConfig)
     {
-        $this->facetConfig = $facetConfig;
+        $this->searchConfig = $searchConfig;
     }
 
     /**
@@ -54,8 +54,8 @@ class RequestParameterInjector implements RequestParameterInjectorInterface
     protected function prepareUrlParameters(Request $request)
     {
         foreach ($request->query as $requestParamKey => $requestParamValue) {
-            $currentFacetSetup = $this->facetConfig->getFacetSetupFromParameter($requestParamKey);
-            if (isset($currentFacetSetup[FacetConfig::KEY_MULTI_VALUED]) && $currentFacetSetup[FacetConfig::KEY_MULTI_VALUED] === true) {
+            $currentFacetSetupTransfer = $this->searchConfig->getFacetConfigBuilder()->get($requestParamKey);
+            if ($currentFacetSetupTransfer && $currentFacetSetupTransfer->getIsMultiValued() === true) {
                 $request->query->set($requestParamKey, explode(self::URL_VALUE_DIVIDER, $requestParamValue));
             }
         }
@@ -89,10 +89,10 @@ class RequestParameterInjector implements RequestParameterInjectorInterface
 
         $sliced = explode(self::URL_VALUE_DIVIDER, $path);
         $value = implode(' ', $sliced);
-        $parameterNameForShortParameter = $this->facetConfig->getParameterNameForShortParameter(self::CATEGORY_SHORT_PARAMETER);
+        $parameterNameForShortParameter = $this->searchConfig->getFacetConfigBuilder()->get(self::CATEGORY_SHORT_PARAMETER); // FIXME: facets may have short names?
 
         if ($parameterNameForShortParameter !== null) {
-            $parameters[$parameterNameForShortParameter] = $value;
+            $parameters[$parameterNameForShortParameter->getParameterName()] = $value;
         }
 
         return $parameters;
@@ -117,7 +117,8 @@ class RequestParameterInjector implements RequestParameterInjectorInterface
             $length = $element[1] - $offset;
             $sliced = array_slice($urlParts, $offset, $length);
             $value = implode(' ', $sliced);
-            $parameterNameForShortParameter = $this->facetConfig->getParameterNameForShortParameter($shortParameter);
+            $facetConfigTransfer = $this->searchConfig->getFacetConfigBuilder()->get($shortParameter); // FIXME: facets may have short names?
+            $parameterNameForShortParameter = $facetConfigTransfer ? $facetConfigTransfer->getParameterName() : null;
 
             $parameters = $this->formatParameters($parameters, $parameterNameForShortParameter, $value);
 
@@ -129,7 +130,8 @@ class RequestParameterInjector implements RequestParameterInjectorInterface
         $length = count($urlParts) - $offset;
         $sliced = array_slice($urlParts, $offset, $length);
         $value = implode(' ', $sliced);
-        $parameterNameForShortParameter = $this->facetConfig->getParameterNameForShortParameter($shortParameter);
+        $facetConfigTransfer = $this->searchConfig->getFacetConfigBuilder()->get($shortParameter); // FIXME: facets may have short names?
+        $parameterNameForShortParameter = $facetConfigTransfer ? $facetConfigTransfer->getParameterName() : null;
 
         $parameters = $this->formatParameters($parameters, $parameterNameForShortParameter, $value);
 

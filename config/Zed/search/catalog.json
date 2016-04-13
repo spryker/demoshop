@@ -22,7 +22,8 @@
         },
         "full-text-boosted": {
           "type": "string",
-          "include_in_all": false
+          "include_in_all": false,
+          "boost": 2.0
         },
         "search-result-data": {
           "type": "object",
@@ -130,10 +131,10 @@
           "type": "object",
           "include_in_all": false,
           "properties": {
-            "direct_parents": {
+            "direct-parents": {
               "type": "integer"
             },
-            "all_parents": {
+            "all-parents": {
               "type": "integer"
             }
           }

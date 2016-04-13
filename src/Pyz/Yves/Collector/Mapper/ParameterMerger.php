@@ -7,7 +7,7 @@
 
 namespace Pyz\Yves\Collector\Mapper;
 
-use Spryker\Client\Catalog\Model\FacetConfig;
+use Spryker\Client\Search\Plugin\Config\SearchConfigInterface;
 
 class ParameterMerger implements ParameterMergerInterface
 {
@@ -16,16 +16,16 @@ class ParameterMerger implements ParameterMergerInterface
     const KEY_ACTIVE = 'active';
 
     /**
-     * @var \Spryker\Client\Catalog\Model\FacetConfig
+     * @var \Spryker\Client\Search\Plugin\Config\SearchConfigInterface
      */
-    protected $facetConfig;
+    protected $searchConfig;
 
     /**
-     * @param \Spryker\Client\Catalog\Model\FacetConfig $facetConfig
+     * @param \Spryker\Client\Search\Plugin\Config\SearchConfigInterface $searchConfig
      */
-    public function __construct(FacetConfig $facetConfig)
+    public function __construct(SearchConfigInterface $searchConfig)
     {
-        $this->facetConfig = $facetConfig;
+        $this->searchConfig = $searchConfig;
     }
 
     /**
@@ -168,7 +168,7 @@ class ParameterMerger implements ParameterMergerInterface
      */
     protected function assignGenerationParameter(array $mergedParameters, $generationParameterName, $currentValue, $currentActive)
     {
-        $currentFacetConfig = $this->facetConfig->getFacetSetupFromParameter($generationParameterName);
+        $currentFacetConfigTransfer = $this->searchConfig->getFacetConfigBuilder()->get($generationParameterName);
 
         if ($mergedParameters[$generationParameterName] === $currentValue && $currentActive === false) {
             unset($mergedParameters[$generationParameterName]);
@@ -178,7 +178,7 @@ class ParameterMerger implements ParameterMergerInterface
             return $mergedParameters;
         }
 
-        if (isset($currentFacetConfig[FacetConfig::KEY_MULTI_VALUED]) && $currentFacetConfig[FacetConfig::KEY_MULTI_VALUED] === true) {
+        if ($currentFacetConfigTransfer->getIsMultiValued() === true) {
             $oldSingleValue = $mergedParameters[$generationParameterName];
             $mergedParameters[$generationParameterName] = [];
             $mergedParameters[$generationParameterName][] = $oldSingleValue;

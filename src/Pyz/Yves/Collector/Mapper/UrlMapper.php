@@ -7,7 +7,7 @@
 
 namespace Pyz\Yves\Collector\Mapper;
 
-use Spryker\Client\Catalog\Model\FacetConfig;
+use Spryker\Client\Search\Plugin\Config\SearchConfigInterface;
 
 class UrlMapper implements UrlMapperInterface
 {
@@ -18,16 +18,16 @@ class UrlMapper implements UrlMapperInterface
     const KEY_ACTIVE = 'active';
 
     /**
-     * @var \Spryker\Client\Catalog\Model\FacetConfig
+     * @var \Spryker\Client\Search\Plugin\Config\SearchConfigInterface
      */
-    protected $facetConfig;
+    protected $searchConfig;
 
     /**
-     * @param \Spryker\Client\Catalog\Model\FacetConfig $facetConfig
+     * @param \Spryker\Client\Search\Plugin\Config\SearchConfigInterface $searchConfig
      */
-    public function __construct(FacetConfig $facetConfig)
+    public function __construct(SearchConfigInterface $searchConfig)
     {
-        $this->facetConfig = $facetConfig;
+        $this->searchConfig = $searchConfig;
     }
 
     /**
@@ -52,13 +52,12 @@ class UrlMapper implements UrlMapperInterface
      */
     protected function prepareUrlSegments(array &$mergedParameters)
     {
-        $activeInUrlFacets = $this->facetConfig->getActiveInUrlFacets();
-        $activeInUrlFacets = $this->sortByUrlPosition($activeInUrlFacets);
+        $activeInUrlFacets = $this->searchConfig->getFacetConfigBuilder()->getAll();
 
         $segments = [];
         $segmentsOffsetHash = '';
         foreach ($activeInUrlFacets as $activeInUrlFacet) {
-            $paramName = $activeInUrlFacet[FacetConfig::KEY_PARAM];
+            $paramName = $activeInUrlFacet->getParameterName();
             if (!isset($mergedParameters[$paramName])) {
                 continue;
             }
@@ -66,11 +65,11 @@ class UrlMapper implements UrlMapperInterface
             $paramValue = $mergedParameters[$paramName];
             if (is_array($paramValue)) {
                 foreach ($paramValue as $currentValue) {
-                    $segmentsOffsetHash .= $activeInUrlFacet[FacetConfig::KEY_SHORT_PARAM] . count($segments);
+                    $segmentsOffsetHash .= $activeInUrlFacet->getParameterName() . count($segments); // TODO: use short name?
                     $segments[] = $currentValue;
                 }
             } else {
-                $segmentsOffsetHash .= $activeInUrlFacet[FacetConfig::KEY_SHORT_PARAM] . count($segments);
+                $segmentsOffsetHash .= $activeInUrlFacet->getParameterName() . count($segments); // TODO: use short name?
                 $segments[] = $paramValue;
             }
 
@@ -99,20 +98,6 @@ class UrlMapper implements UrlMapperInterface
         }
 
         return '';
-    }
-
-    /**
-     * @param array $activeInUrlFacets
-     *
-     * @return array
-     */
-    protected function sortByUrlPosition(array $activeInUrlFacets)
-    {
-        usort($activeInUrlFacets, function ($next, $current) {
-            return $current[FacetConfig::KEY_URL_POSITION] < $next[FacetConfig::KEY_URL_POSITION];
-        });
-
-        return $activeInUrlFacets;
     }
 
     /**
