@@ -11,6 +11,8 @@ SETUP='spryker'
 . deploy/setup/functions.sh
 
 
+CONSOLE=vendor/bin/console
+
 function installAntelope {
     if [[ `node -v | grep -E '^v[0-4]'` ]]; then
         labelText "Upgrade Node.js"
@@ -45,6 +47,11 @@ for arg in "$@"
 do
     case $arg in
         "-i" )
+            $CONSOLE transfer:generate
+            $CONSOLE setup:generate-client-ide-auto-completion
+            $CONSOLE setup:generate-ide-auto-completion
+            $CONSOLE setup:generate-zed-ide-auto-completion
+
             installAntelope
             ;;
             *)

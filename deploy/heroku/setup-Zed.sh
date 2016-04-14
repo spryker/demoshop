@@ -14,7 +14,7 @@ fi
 
 ELASTIC_SEARCH_URL=$BONSAI_URL
 
-function installElasticsearch {
+function resetElasticsearch {
     labelText "Flushing Elasticsearch"
     curl -XDELETE "$ELASTIC_SEARCH_URL/de_development_catalog/"
     curl -XPUT "$ELASTIC_SEARCH_URL/de_development_catalog/"
@@ -26,7 +26,7 @@ for arg in "$@"
 do
     case $arg in
         "-i" )
-            installElasticsearch
+            resetElasticsearch
 
             $CONSOLE setup:install $VERBOSITY
             writeErrorMessage "Setup install failed"
