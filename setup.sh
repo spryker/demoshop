@@ -3,8 +3,9 @@
 set -o pipefail
 
 SETUP='spryker'
+CONSOLE=vendor/bin/console
 
-. ./setup-functions.sh
+. ./setup/functions.sh
 
 if [ $# -eq 0 ]; then
     displayHelp

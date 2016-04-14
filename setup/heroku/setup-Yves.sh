@@ -4,23 +4,13 @@ set -o pipefail
 
 SETUP='spryker'
 
-. ./setup-functions.sh
+. ../functions.sh
 
 
 if [ $# -eq 0 ]; then
     echo "Use -i to install"
     exit 0
 fi
-
-ELASTIC_SEARCH_URL=$BONSAI_URL
-
-function installElasticsearch {
-    labelText "Flushing Elasticsearch"
-    curl -XDELETE "$ELASTIC_SEARCH_URL/de_development_catalog/"
-    curl -XPUT "$ELASTIC_SEARCH_URL/de_development_catalog/"
-    vendor/bin/console setup:search
-    writeErrorMessage "Elasticsearch reset failed"
-}
 
 function installAntelope {
     if [[ -z "$SETUP" ]]; then
@@ -63,25 +53,7 @@ for arg in "$@"
 do
     case $arg in
         "-i" )
-            installElasticsearch
-
-            vendor/bin/console setup:install $VERBOSITY
-            writeErrorMessage "Setup install failed"
-
-            labelText "Importing Demo data"
-            vendor/bin/console import:demo-data $VERBOSITY
-            writeErrorMessage "DemoData import failed"
-
-            labelText "Setting up data stores"
-            vendor/bin/console collector:search:export $VERBOSITY
-            vendor/bin/console collector:storage:export $VERBOSITY
-            writeErrorMessage "DataStore setup failed"
-
             installAntelope
-
-            #labelText "Setting up cronjobs"
-            #vendor/bin/console setup:jenkins:generate $VERBOSITY
-            #writeErrorMessage "Cronjob setup failed"
             ;;
             *)
             echo "Use -i to install"
