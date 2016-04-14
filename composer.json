@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-heroku/configs",
+    "spryker/spryker": "dev-beta/heroku-configs",
 
     "psr/log": "~1.0.0",
     "propel/propel": "~2.0@dev",
