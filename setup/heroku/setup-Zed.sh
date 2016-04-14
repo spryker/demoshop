@@ -41,7 +41,7 @@ do
             $CONSOLE collector:storage:export $VERBOSITY
             writeErrorMessage "DataStore setup failed"
 
-            ./setup-Yves.sh -i
+            ./setup/heroku/setup-Yves.sh -i
 
             #labelText "Setting up cronjobs"
             #vendor/bin/console setup:jenkins:generate $VERBOSITY
