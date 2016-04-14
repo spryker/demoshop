@@ -1,3 +1,3 @@
 <?php
 
-return 'development_heroku';
+return 'development';
