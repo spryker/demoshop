@@ -85,7 +85,7 @@
     "compile": [
       "mkdir -p ./data/DE/logs",
       "echo '<?php return \"development_heroku\";' > config/Shared/console_env_local.php",
-      "./setup/heroku/run.sh"
+      "./deploy/heroku/run.sh"
     ]
   }
 }
