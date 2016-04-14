@@ -4,7 +4,7 @@ set -o pipefail
 
 SETUP='spryker'
 
-. ../functions.sh
+. setup/functions.sh
 
 
 if [ $# -eq 0 ]; then

@@ -4,7 +4,7 @@ set -o pipefail
 
 SETUP='spryker'
 
-. ../functions.sh
+. setup/functions.sh
 
 CONSOLE=../../vendor/bin/console
 
