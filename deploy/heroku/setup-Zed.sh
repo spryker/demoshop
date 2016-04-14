@@ -2,6 +2,9 @@
 
 set -o pipefail
 
+SETUP='spryker'
+. deploy/setup/functions.sh
+
 CONSOLE=vendor/bin/console
 
 if [ $# -eq 0 ]; then
@@ -37,7 +40,7 @@ do
             $CONSOLE collector:storage:export $VERBOSITY
             writeErrorMessage "DataStore setup failed"
 
-            ./setup/heroku/setup-Yves.sh -i
+            ./deploy/heroku/setup-Yves.sh -i
 
             #labelText "Setting up cronjobs"
             #vendor/bin/console setup:jenkins:generate $VERBOSITY

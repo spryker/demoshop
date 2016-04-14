@@ -7,14 +7,11 @@ if [ $# -eq 0 ]; then
     exit 0
 fi
 
-function installAntelope {
-    if [[ -z "$SETUP" ]]; then
-        tput setab 1
-        echo "Please do not run this script individually"
-        tput sgr0
-        exit 0
-    fi
+SETUP='spryker'
+. deploy/setup/functions.sh
 
+
+function installAntelope {
     if [[ `node -v | grep -E '^v[0-4]'` ]]; then
         labelText "Upgrade Node.js"
         $NPM cache clean -f
