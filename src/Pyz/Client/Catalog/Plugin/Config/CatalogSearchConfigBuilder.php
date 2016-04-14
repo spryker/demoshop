@@ -9,8 +9,10 @@ namespace Pyz\Client\Catalog\Plugin\Config;
 
 use Generated\Shared\Search\Catalog\PageIndexMap;
 use Generated\Shared\Transfer\FacetConfigTransfer;
+use Generated\Shared\Transfer\PaginationConfigTransfer;
 use Generated\Shared\Transfer\SortConfigTransfer;
 use Spryker\Client\Kernel\AbstractPlugin;
+use Spryker\Client\Search\Plugin\Config\PaginationConfigBuilderInterface;
 use Spryker\Client\Search\Plugin\Config\SearchConfigBuilderInterface;
 use Spryker\Client\Search\Plugin\Config\FacetConfigBuilder;
 use Spryker\Client\Search\Plugin\Config\FacetConfigBuilderInterface;
@@ -23,7 +25,7 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
 {
 
     /**
-     * @param \Spryker\Client\Search\Plugin\Config\FacetConfigBuilderInterface
+     * @param \Spryker\Client\Search\Plugin\Config\FacetConfigBuilderInterface $facetConfigBuilder
      *
      * @return void
      */
@@ -34,7 +36,7 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
     }
 
     /**
-     * @param \Spryker\Client\Search\Plugin\Config\SortConfigBuilderInterface
+     * @param \Spryker\Client\Search\Plugin\Config\SortConfigBuilderInterface $sortConfigBuilder
      *
      * @return void
      */
@@ -43,6 +45,20 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
         $this
             ->addNameSort($sortConfigBuilder)
             ->addPriceSort($sortConfigBuilder);
+    }
+
+    /**
+     * @param \Spryker\Client\Search\Plugin\Config\PaginationConfigBuilderInterface $paginationConfigBuilder
+     *
+     * @return void
+     */
+    public function buildPaginationConfig(PaginationConfigBuilderInterface $paginationConfigBuilder)
+    {
+        $paginationConfigTransfer = (new PaginationConfigTransfer())
+            ->setParameterName('page')
+            ->setItemsPerPage(6);
+
+        $paginationConfigBuilder->setPagination($paginationConfigTransfer);
     }
 
     /**
@@ -56,7 +72,7 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
             ->setName('price')
             ->setParameterName('price')
             ->setFieldName(PageIndexMap::INTEGER_FACET)
-            ->setType(FacetConfigBuilder::TYPE_RANGE);
+            ->setType(FacetConfigBuilder::TYPE_PRICE_RANGE);
 
         $facetConfigBuilder->addFacet($priceFacet);
 
