@@ -2,11 +2,6 @@
 
 set -o pipefail
 
-SETUP='spryker'
-
-. /deploy/setup/functions.sh
-
-
 if [ $# -eq 0 ]; then
     echo "Use -i to install"
     exit 0

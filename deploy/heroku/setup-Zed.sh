@@ -2,10 +2,6 @@
 
 set -o pipefail
 
-SETUP='spryker'
-
-. /deploy/setup/functions.sh
-
 CONSOLE=vendor/bin/console
 
 if [ $# -eq 0 ]; then
