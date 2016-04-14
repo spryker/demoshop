@@ -7,7 +7,6 @@
 namespace Pyz\Zed\StateMachineExample\Communication\Plugin;
 
 use Generated\Shared\Transfer\StateMachineItemTransfer;
-use Orm\Zed\StateMachineExample\Persistence\SpyStateMachineExampleItemQuery;
 use Pyz\Zed\StateMachineExample\Communication\Plugin\Command\TestCommandPlugin;
 use Pyz\Zed\StateMachineExample\Communication\Plugin\Condition\TestConditionPlugin;
 use Spryker\Zed\StateMachine\Dependency\Plugin\CommandPluginInterface;
@@ -104,7 +103,7 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
      *
      * @return StateMachineItemTransfer[]
      */
-    public function getStateMachineItemsByStateIds($stateIds = [])
+    public function getStateMachineItemsByStateIds(array $stateIds = [])
     {
          return $this->getFacade()->getStateMachineExampleItemsByStateIds($stateIds);
     }
