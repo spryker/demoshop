@@ -403,7 +403,7 @@ class ProductAbstractImporter extends AbstractImporter
     public function slugify($value)
     {
         if (function_exists('iconv')) {
-            $value = @iconv('UTF-8', 'ASCII//TRANSLIT', $value);
+            $value = iconv('UTF-8', 'ASCII//TRANSLIT', $value);
         }
 
         $value = preg_replace("/[^a-zA-Z0-9 -]/", "", $value);
