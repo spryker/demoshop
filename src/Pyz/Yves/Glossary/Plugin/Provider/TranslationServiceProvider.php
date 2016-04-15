@@ -8,6 +8,7 @@
 namespace Pyz\Yves\Glossary\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
+use Pyz\Yves\Glossary\Plugin\Middleware\TranslationCacheMiddleware;
 use Silex\Application;
 
 /**
@@ -26,8 +27,7 @@ class TranslationServiceProvider extends AbstractServiceProvider
     {
         $app['translator'] = $app->share(function ($app) {
             $twigTranslator = $this->getFactory()->createTwigTranslator(
-                $this->getClient(),
-                $app['locale']
+                $this->getClient(), $app['request_stack'], $app['locale']
             );
 
             return $twigTranslator;
@@ -41,6 +41,7 @@ class TranslationServiceProvider extends AbstractServiceProvider
      */
     public function boot(Application $app)
     {
+        $app->after(array(new TranslationCacheMiddleware(), 'after'));
     }
 
 }

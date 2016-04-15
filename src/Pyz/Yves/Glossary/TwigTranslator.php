@@ -8,6 +8,7 @@
 namespace Pyz\Yves\Glossary;
 
 use Spryker\Client\Glossary\GlossaryClientInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Translation\TranslatorInterface;
 
 class TwigTranslator implements TranslatorInterface
@@ -16,20 +17,27 @@ class TwigTranslator implements TranslatorInterface
     /**
      * @var \Spryker\Client\Glossary\GlossaryClientInterface
      */
-    private $client;
+    protected $client;
 
     /**
      * @var string
      */
-    private $localeName;
+    protected $localeName;
+
+    /*
+     * @var \Symfony\Component\HttpFoundation\RequestStack
+     */
+    protected $requestStack;
 
     /**
      * @param \Spryker\Client\Glossary\GlossaryClientInterface $client
+     * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack
      * @param null|string $localeName
      */
-    public function __construct(GlossaryClientInterface $client, $localeName = null)
+    public function __construct(GlossaryClientInterface $client, RequestStack $requestStack, $localeName = null)
     {
         $this->client = $client;
+        $this->requestStack = $requestStack;
         $this->localeName = $localeName;
     }
 
@@ -53,7 +61,9 @@ class TwigTranslator implements TranslatorInterface
             $locale = $this->localeName;
         }
 
-        return $this->client->translate($id, $locale, $parameters);
+        $requestUri = $this->requestStack->getCurrentRequest()->getRequestUri();
+
+        return $this->client->cachedTranslate($id, $locale, $requestUri, $parameters);
     }
 
     /**
