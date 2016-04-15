@@ -47,8 +47,7 @@
     "zendframework/zend-servicemanager": "~2.7.4",
     "zendframework/zend-eventmanager": "~2.6.2",
 
-    "nesbot/carbon": "~1.13.0",
-    "vlucas/phpdotenv": "^2.2"
+    "nesbot/carbon": "~1.13.0"
   },
   "require-dev": {
     "spryker/code-sniffer": "dev-master",
