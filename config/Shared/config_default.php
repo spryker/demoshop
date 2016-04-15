@@ -1,5 +1,6 @@
 <?php
 
+use Pyz\Shared\Glossary\GlossaryConstants;
 use Pyz\Shared\Mail\MailConstants;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
@@ -359,3 +360,5 @@ $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 $config[LogConstants::LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application.log';
 
 $config[ApplicationConstants::ERROR_LEVEL] = E_ALL;
+
+$config[GlossaryConstants::GLOSSARY_CACHE_TTL_IN_SECONDS] = 86400; // 1 day
