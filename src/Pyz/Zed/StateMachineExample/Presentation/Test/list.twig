@@ -6,7 +6,7 @@
 {% block section_title widget_title %}
 
 {% block content %}
-    <a href="/state-machine-example/test/addItem">Add item</a>  <br />
+    <a href="/state-machine-example/test/add-item">Add item</a>  <br />
     <table class="table table-striped table-bordered table-hover gui-table-data dataTable">
         <tr>
             <th>Id</th>
@@ -21,12 +21,28 @@
             <td>{{ exampleItem.name }}</td>
             <td>
                 {% if exampleItem.FkStateMachineItemState is empty %}
-                    <a class="btn btn-primary btn-sm trigger-order-single-event" href="/state-machine/trigger/triggerEventForNewItem?identifier={{ exampleItem.IdStateMachineExampleItem  }}&state-machine-name=Test&process-name=Invoice01&redirect=/state-machine-example/test/list">
+                    <a class="btn btn-primary btn-sm trigger-order-single-event"
+                       href="{{ url(
+                          '/state-machine/trigger/trigger-event-for-new-item',
+                           {
+                               identifier: exampleItem.IdStateMachineExampleItem,
+                               'state-machine-name': 'Test',
+                               'process-name' : 'Invoice01',
+                               redirect: '/state-machine-example/test/list'
+                           }) }}"
+                    >
                         Initialise state machine
                     </a>
                 {% else %}
                     {% if stateMachineItems | length > 0 and stateMachineItems[exampleItem.IdStateMachineExampleItem] is defined %}
-                        <a target="_blank" href="/state-machine/graph/draw?process={{ stateMachineItems[exampleItem.IdStateMachineExampleItem].getProcessName }}&state-machine=Test&state={{ stateMachineItems[exampleItem.IdStateMachineExampleItem].getStateName }}">
+                        <a href="{{ url(
+                          '/state-machine/graph/draw',
+                          {
+                              process: stateMachineItems[exampleItem.IdStateMachineExampleItem].getProcessName,
+                              'state-machine': 'Test',
+                              state : stateMachineItems[exampleItem.IdStateMachineExampleItem].getStateName
+                          }) }}"
+                        >
                             {{ stateMachineItems[exampleItem.IdStateMachineExampleItem].getStateName }}
                         </a>
                     {%- endif %}
@@ -35,9 +51,17 @@
             <td>
                 {% if manualEvents | length > 0 and manualEvents[exampleItem.IdStateMachineExampleItem] is defined %}
                     {% for event in manualEvents[exampleItem.IdStateMachineExampleItem] %}
-                        <a class="btn btn-primary btn-sm trigger-order-single-event"
-                           href="/state-machine/trigger/triggerEvent?event={{ event }}&id-process={{ stateMachineItems[exampleItem.IdStateMachineExampleItem].getIdStateMachineProcess }}&identifier={{ stateMachineItems[exampleItem.IdStateMachineExampleItem].getIdentifier  }}&id-state={{ stateMachineItems[exampleItem.IdStateMachineExampleItem].getIdItemState  }}&state-machine-name=Test&redirect=/state-machine-example/test/list"
-                        >
+                    <a class="btn btn-primary btn-sm trigger-order-single-event"
+                       href="{{ url('/state-machine/trigger/trigger-event',
+                       {
+                           'event' : event,
+                           'id-process': stateMachineItems[exampleItem.IdStateMachineExampleItem].getIdStateMachineProcess,
+                           'identifier': stateMachineItems[exampleItem.IdStateMachineExampleItem].getIdentifier,
+                           'id-state' : stateMachineItems[exampleItem.IdStateMachineExampleItem].getIdItemState,
+                           'state-machine-name' : 'Test',
+                           redirect : '/state-machine-example/test/list'
+                       }) }}"
+                    >
                             {{ event }}
                         </a>
                     {% endfor %}
@@ -45,7 +69,11 @@
                     No manual events
                 {%- endif %}
             </td>
-            <td><a href="/state-machine-example/test/deleteItem?id={{ exampleItem.IdStateMachineExampleItem  }}">Delete</a></td>
+            <td>
+                <a href="{{ url('/state-machine-example/test/delete-item', { id : exampleItem.IdStateMachineExampleItem }) }}">
+                    Delete
+                </a>
+            </td>
         </tr>
     {% endfor %}
     </table>
