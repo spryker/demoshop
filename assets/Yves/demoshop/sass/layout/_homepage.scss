@@ -135,7 +135,7 @@
 
 .slick-dots {
   position: absolute;
-  bottom: $step;
+  top: $step;
   left: 50%;
   transform: translateX(-50%);
   list-style: none;
@@ -158,12 +158,12 @@
     width: $step;
     padding: 0;
     color: $light-color;
-    border: 3px solid $light-color;
-    background-color: rgba(255,255,255,0.4);
+    border: 2px solid $light-color;
+    background-color: rgba(0,0,0,0.3);
   }
 
   .slick-active button {
-    background-color: $light-color;
+    background-color: $brand-color;
   }
 
 }

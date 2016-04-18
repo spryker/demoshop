@@ -4,12 +4,14 @@
 <div class="container">
     <div class="row cms-page">
         <div class="col-xs-12 col-md-6">
-            <h2>{{ 'customer.login' | trans }}</h2>
+            <h1>{{ 'customer.already' | trans }}</h3>
+            <h3>{{ 'customer.login' | trans }}</h3>
             {% include "@Customer/auth/partials/login-form.twig" with {'form': loginForm} %}
         </div>
 
         <div class="col-xs-12 col-md-6">
             <div>
+                <h1>{{ 'customer.new' | trans }}</h3>
                 <input id="register" class="customer-option" type="radio" name="customer" value="register" checked>
                 <label for="register">{{ 'checkout.customer.proceed_as_user' | trans }}</label>
                 <br>
@@ -17,13 +19,13 @@
                 <label for="guest">{{ 'checkout.customer.proceed_as_guest' | trans }}</label>
             </div>
             <div class="customer-selection customer-selection-register show">
-                <h2>{{ 'customer.register' | trans }}</h2>
+                <h3>{{ 'customer.register' | trans }}</h3>
                 {{ form_start(registerForm, { 'attr': { 'class': 'form-horizontal checkout-form' }}) }}
                     {% include '@Customer/register/partials/register-form-body.twig' with {'form': registerForm.customer} %}
                 {{ form_end(registerForm) }}
             </div>
             <div class="customer-selection customer-selection-guest">
-                <h2>{{ 'checkout.customer.order_as_guest' | trans }}</h2>
+                <h3>{{ 'checkout.customer.order_as_guest' | trans }}</h3>
                 {{ form_start(guestForm, {'attr': {'class': 'form-horizontal'}}) }}
                     {% include '@Customer/guest/partials/guest-form-body.twig' with {'form': guestForm.customer} %}
                 {{ form_end(guestForm) }}

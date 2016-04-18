@@ -50,8 +50,8 @@ page.home.featured.top-left.right.url:
 
 page.home.featured.top-right.first.name:
   translations:
-    de_DE: 'Computer katalog'
-    en_US: 'Computer catalog'
+    de_DE: 'Computer'
+    en_US: 'Computer'
 page.home.featured.top-right.first.category:
   translations:
     de_DE: 'Computer'
