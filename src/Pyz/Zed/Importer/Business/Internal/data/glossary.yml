@@ -48,6 +48,14 @@ page.home.featured.top-left.right.url:
     de_DE: '/de/samsung-gear-s2-79'
     en_US: '/en/samsung-gear-s2-79'
 
+page.home.featured.top-right.first.name:
+  translations:
+    de_DE: 'Computer katalog'
+    en_US: 'Computer catalog'
+page.home.featured.top-right.first.category:
+  translations:
+    de_DE: 'Computer'
+    en_US: 'Computer'
 page.home.featured.top-right.first.width:
   translations:
     de_DE: '2'
@@ -65,6 +73,14 @@ page.home.featured.top-right.first.url:
     de_DE: '/de/computers'
     en_US: '/en/computers'
 
+page.home.featured.top-right.second.name:
+  translations:
+    de_DE: 'Toshiba Satellite'
+    en_US: 'Toshiba Satellite'
+page.home.featured.top-right.second.category:
+  translations:
+    de_DE: 'Computer'
+    en_US: 'Computer'
 page.home.featured.top-right.second.width:
   translations:
     de_DE: '2'
