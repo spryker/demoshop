@@ -13,7 +13,7 @@ $config[ApplicationConstants::ZED_DB_DATABASE] = 'circle_test';
 $config[ApplicationConstants::ZED_DB_HOST] = '127.0.0.1';
 $config[ApplicationConstants::ZED_DB_PORT] = 5432;
 
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'catalog';
+$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_search';
 $config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
 
 $config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = '9200';

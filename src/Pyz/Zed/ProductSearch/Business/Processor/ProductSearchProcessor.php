@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\ProductSearch\Business\Processor;
 
-use Generated\Shared\Search\Catalog\PageIndexMap;
+use Generated\Shared\Search\PageIndexMap;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Spryker\Zed\ProductSearch\Business\Processor\ProductSearchProcessor as SprykerProductSearchProcessor;
 

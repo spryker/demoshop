@@ -54,7 +54,7 @@ $config[ApplicationConstants::ELASTICA_PARAMETER__HOST] = 'localhost';
 $config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT] = 'http';
 $config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = '10005';
 $config[ApplicationConstants::ELASTICA_PARAMETER__AUTH_HEADER] = '';
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'index_page';
+$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = null; // Store related config
 $config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
 
 /**

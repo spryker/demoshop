@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\Collector\Business\Search;
 
-use Generated\Shared\Search\Catalog\PageIndexMap;
+use Generated\Shared\Search\PageIndexMap;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Zed\Collector\CollectorConfig;
 use Spryker\Shared\Product\ProductConstants;

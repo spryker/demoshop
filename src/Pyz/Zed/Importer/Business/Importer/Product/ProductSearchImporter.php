@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\Product;
 
-use Generated\Shared\Search\Catalog\PageIndexMap;
+use Generated\Shared\Search\PageIndexMap;
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
 use Orm\Zed\Product\Persistence\SpyProductAttributesMetadataQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
