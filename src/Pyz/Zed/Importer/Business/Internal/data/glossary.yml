@@ -712,8 +712,8 @@ customer.signup:
     de_DE: 'New customer?'
 customer.signin:
   translations:
-    en_US: 'Sign in'
-    de_DE: 'Sign in'
+    en_US: 'Signin'
+    de_DE: 'Signin'
 customer.logout:
   translations:
     en_US: Logout
