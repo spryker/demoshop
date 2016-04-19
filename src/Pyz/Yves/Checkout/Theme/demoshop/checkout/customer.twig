@@ -4,14 +4,14 @@
 <div class="container">
     <div class="row cms-page">
         <div class="col-xs-12 col-md-6">
-            <h1>{{ 'customer.already' | trans }}</h3>
+            <h1>{{ 'customer.signin' | trans }}</h3>
             <h3>{{ 'customer.login' | trans }}</h3>
             {% include "@Customer/auth/partials/login-form.twig" with {'form': loginForm} %}
         </div>
 
         <div class="col-xs-12 col-md-6">
             <div>
-                <h1>{{ 'customer.new' | trans }}</h3>
+                <h1>{{ 'customer.signup' | trans }}</h3>
                 <input id="register" class="customer-option" type="radio" name="customer" value="register" checked>
                 <label for="register">{{ 'checkout.customer.proceed_as_user' | trans }}</label>
                 <br>

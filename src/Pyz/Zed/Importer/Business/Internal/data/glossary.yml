@@ -706,6 +706,14 @@ homepage.carousel.next:
   translations:
     de_DE: Nächste
     en_US: Next
+customer.signup:
+  translations:
+    en_US: 'New customer?'
+    de_DE: 'New customer?'
+customer.signin:
+  translations:
+    en_US: 'Sign in'
+    de_DE: 'Sign in'
 customer.logout:
   translations:
     en_US: Logout
