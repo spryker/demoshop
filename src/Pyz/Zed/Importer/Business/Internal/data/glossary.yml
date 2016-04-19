@@ -709,11 +709,11 @@ homepage.carousel.next:
 customer.signup:
   translations:
     en_US: 'New customer?'
-    de_DE: 'New customer?'
+    de_DE: 'Neuer Kunde?'
 customer.signin:
   translations:
-    en_US: 'Signin'
-    de_DE: 'Signin'
+    en_US: Signin
+    de_DE: Einloggen
 customer.logout:
   translations:
     en_US: Logout
