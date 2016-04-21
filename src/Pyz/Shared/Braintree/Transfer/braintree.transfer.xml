@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<transfer
+        xmlns="http://xsd.spryker.com"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xsd.spryker.com ../../src/Spryker/TransferObjectDefinitionSchema.xsd"
+>
+    <transfer name="Payment">
+        <property name="braintreePayPal" type="BraintreePayment"/>
+        <property name="braintreeCreditCard" type="BraintreePayment"/>
+    </transfer>
+</transfer>
