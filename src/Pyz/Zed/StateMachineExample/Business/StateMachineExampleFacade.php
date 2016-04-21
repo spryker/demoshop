@@ -17,6 +17,7 @@ class StateMachineExampleFacade extends AbstractFacade
 {
     /**
      * @param StateMachineItemTransfer $stateMachineItemTransfer
+     *
      * @return bool
      */
     public function itemStateUpdate(StateMachineItemTransfer $stateMachineItemTransfer)
@@ -25,11 +26,28 @@ class StateMachineExampleFacade extends AbstractFacade
     }
 
     /**
-     * @param array $stateIds
+     * @param int[] $stateIds
+     *
      * @return StateMachineItemTransfer[]
      */
     public function getStateMachineExampleItemsByStateIds(array $stateIds = [])
     {
         return $this->getFactory()->createStateMachineExampleItemReader()->getStateMachineItemTransferByItemStateIds($stateIds);
+    }
+
+    /**
+     * @return StateMachineItemTransfer[]
+     */
+    public function getStateMachineItems()
+    {
+        return $this->getFactory()->createStateMachineExampleItemReader()->getStateMachineItems();
+    }
+
+    /**
+     * @return bool
+     */
+    public function createExampleItem()
+    {
+        return $this->getFactory()->createStateMachineSaver()->createExampleItem();
     }
 }

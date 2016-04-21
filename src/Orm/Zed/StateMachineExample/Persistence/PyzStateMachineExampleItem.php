@@ -2,10 +2,10 @@
 
 namespace Orm\Zed\StateMachineExample\Persistence;
 
-use Orm\Zed\StateMachineExample\Persistence\Base\SpyStateMachineExampleItem as BaseSpyStateMachineExampleItem;
+use Orm\Zed\StateMachineExample\Persistence\Base\PyzStateMachineExampleItem as BasePyzStateMachineExampleItem;
 
 /**
- * Skeleton subclass for representing a row from the 'spy_state_machine_example_item' table.
+ * Skeleton subclass for representing a row from the 'pyz_state_machine_example_item' table.
  *
  *
  *
@@ -14,7 +14,7 @@ use Orm\Zed\StateMachineExample\Persistence\Base\SpyStateMachineExampleItem as B
  * long as it does not already exist in the output directory.
  *
  */
-class SpyStateMachineExampleItem extends BaseSpyStateMachineExampleItem
+class PyzStateMachineExampleItem extends BasePyzStateMachineExampleItem
 {
 
 }

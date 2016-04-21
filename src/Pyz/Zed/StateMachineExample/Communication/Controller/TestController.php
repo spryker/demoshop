@@ -8,9 +8,6 @@
 namespace Pyz\Zed\StateMachineExample\Communication\Controller;
 
 use Generated\Shared\Transfer\StateMachineItemTransfer;
-use Orm\Zed\StateMachineExample\Persistence\Base\SpyStateMachineExampleItemQuery;
-use Orm\Zed\StateMachineExample\Persistence\SpyStateMachineExampleItem;
-use Propel\Runtime\Collection\ObjectCollection;
 use Spryker\Zed\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,6 +15,8 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * @method \Pyz\Zed\StateMachineExample\Communication\StateMachineExampleCommunicationFactory getFactory()
  * @method \Pyz\Zed\StateMachineExample\Business\StateMachineExampleFacade getFacade()
+ * @method \Pyz\Zed\StateMachineExample\Persistence\StateMachineExampleQueryContainerInterface getQueryContainer()
+ *
  */
 class TestController extends AbstractController
 {
@@ -28,8 +27,8 @@ class TestController extends AbstractController
      */
     public function listAction()
     {
-        $stateMachineExampleItems = $this->getStateMachineExampleItems();
-        $stateMachineItems = $this->getStateMachineItems($stateMachineExampleItems);
+        $stateMachineItems = $this->getFacade()
+            ->getStateMachineItems();
 
         $stateMachineItems = $this->getStateMachineFacade()
             ->getProcessedStateMachineItems(self::STATE_MACHINE_NAME, $stateMachineItems);
@@ -37,10 +36,13 @@ class TestController extends AbstractController
         $manualEvents = $this->getStateMachineFacade()
             ->getManualEventsForStateMachineItems(self::STATE_MACHINE_NAME, $stateMachineItems);
 
+        $stateMachineExampleItems = $this->getQueryContainer()
+            ->queryAllStateMachineItems();
+
         return [
             'stateMachineExampleItems' => $stateMachineExampleItems,
             'manualEvents' => $manualEvents,
-            'stateMachineItems' => $this->createStateMachineLookupIndexTable($stateMachineItems)
+            'stateMachineItems' => $this->createStateMachineLookupTable($stateMachineItems)
         ];
     }
 
@@ -49,7 +51,7 @@ class TestController extends AbstractController
      *
      * @return array|StateMachineItemTransfer[]
      */
-    public function createStateMachineLookupIndexTable(array $stateMachineItems)
+    public function createStateMachineLookupTable(array $stateMachineItems)
     {
         $lookupIndex = [];
         foreach ($stateMachineItems as $stateMachineItemTransfer) {
@@ -65,23 +67,24 @@ class TestController extends AbstractController
      */
     public function addItemAction()
     {
-        $stateMachineExampleItemEntity = new SpyStateMachineExampleItem();
-        $stateMachineExampleItemEntity->setName('Test item' . rand(123, 321));
-        $stateMachineExampleItemEntity->save();
+        $this->getFacade()->createExampleItem();
 
         return new RedirectResponse('/state-machine-example/test/list');
     }
 
     /**
-     * @throws \Propel\Runtime\Exception\PropelException
+     * @param Request $request
+     *
      * @return RedirectResponse
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function deleteItemAction(Request $request)
     {
-        $stateMachineExampleItemEntity = SpyStateMachineExampleItemQuery::create()
-            ->findOneByIdStateMachineExampleItem($request->query->get('id'));
+        $idStateMachineItem = $this->castId($request->query->get('id'));
 
-        $stateMachineExampleItemEntity->delete();
+        $this->getQueryContainer()
+            ->queryStateMachineExampleItemByIdStateMachineItem($idStateMachineItem)
+            ->delete();
 
         return new RedirectResponse('/state-machine-example/test/list');
     }
@@ -93,37 +96,4 @@ class TestController extends AbstractController
     {
         return $this->getFactory()->getStateMachineFacade();
     }
-
-    /**
-     * @param ObjectCollection|SpyStateMachineExampleItem $stateMachineExampleItems
-     * @return array
-     */
-    protected function getStateMachineItems(ObjectCollection $stateMachineExampleItems)
-    {
-        $stateMachineItems = [];
-        foreach ($stateMachineExampleItems as $itemEntity) {
-            if ($itemEntity->getFkStateMachineItemState() === null) {
-                continue;
-            }
-
-            $stateMachineItemTransfer = new StateMachineItemTransfer();
-            $stateMachineItemTransfer->setIdItemState($itemEntity->getFkStateMachineItemState());
-            $stateMachineItemTransfer->setIdentifier($itemEntity->getIdStateMachineExampleItem());
-            $stateMachineItemTransfer->setIdStateMachineProcess($itemEntity->getFkStateMachineProcess());
-            $stateMachineItems[] = $stateMachineItemTransfer;
-        }
-
-        return $stateMachineItems;
-    }
-
-    /**
-     * @return \Orm\Zed\StateMachineExample\Persistence\SpyStateMachineExampleItem[]|\Propel\Runtime\Collection\ObjectCollection
-     */
-    protected function getStateMachineExampleItems()
-    {
-        return SpyStateMachineExampleItemQuery::create()
-            ->orderByIdStateMachineExampleItem()
-            ->find();
-    }
-
 }

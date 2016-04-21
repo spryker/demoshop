@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed" xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd" namespace="Orm\Zed\StateMachineExample\Persistence" package="src.Orm.Zed.StateMachineExample.Persistence">
 
-    <table name="spy_state_machine_example_item" phpName="SpyStateMachineExampleItem" identifierQuoting="true">
+    <table name="pyz_state_machine_example_item" phpName="PyzStateMachineExampleItem" identifierQuoting="true">
         <column name="id_state_machine_example_item" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
-        <column name="fk_state_machine_item_state" type="INTEGER" required="false"/>
-        <column name="fk_state_machine_process" type="INTEGER" required="false"/>
+        <column name="id_state_machine_item_state" type="INTEGER" required="false"/>
+        <column name="id_state_machine_process" type="INTEGER" required="false"/>
         <column name="name" type="VARCHAR" required="false"/>
 
-        <id-method-parameter value="spy_state_machine_example_item_pk_seq"/>
+        <id-method-parameter value="pyz_state_machine_example_item_pk_seq"/>
     </table>
 
 </database>

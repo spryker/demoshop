@@ -20,7 +20,7 @@
             <td>{{ exampleItem.IdStateMachineExampleItem }}</td>
             <td>{{ exampleItem.name }}</td>
             <td>
-                {% if exampleItem.FkStateMachineItemState is empty %}
+                {% if exampleItem.IdStateMachineItemState is empty %}
                     <a class="btn btn-primary btn-sm trigger-order-single-event"
                        href="{{ url(
                           '/state-machine/trigger/trigger-event-for-new-item',

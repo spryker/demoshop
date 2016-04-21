@@ -133,17 +133,6 @@ CREATE TABLE "spy_state_machine_event_timeout"
 
 CREATE INDEX "spy_state_machine_event_timeout-timeout" ON "spy_state_machine_event_timeout" ("timeout");
 
-CREATE SEQUENCE "spy_state_machine_example_item_pk_seq";
-
-CREATE TABLE "spy_state_machine_example_item"
-(
-    "id_state_machine_example_item" INTEGER NOT NULL,
-    "fk_state_machine_item_state" INTEGER,
-    "fk_state_machine_process" INTEGER,
-    "name" VARCHAR,
-    PRIMARY KEY ("id_state_machine_example_item")
-);
-
 ALTER TABLE "spy_state_machine_transition_log" ADD CONSTRAINT "spy_state_machine_transition_log-fk_state_machine_process"
     FOREIGN KEY ("fk_state_machine_process")
     REFERENCES "spy_state_machine_process" ("id_state_machine_process");
@@ -200,10 +189,6 @@ DROP SEQUENCE "spy_state_machine_item_state_history_pk_seq";
 DROP TABLE IF EXISTS "spy_state_machine_event_timeout" CASCADE;
 
 DROP SEQUENCE "spy_state_machine_event_timeout_pk_seq";
-
-DROP TABLE IF EXISTS "spy_state_machine_example_item" CASCADE;
-
-DROP SEQUENCE "spy_state_machine_example_item_pk_seq";
 ',
 );
     }

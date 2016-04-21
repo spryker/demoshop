@@ -6,9 +6,16 @@
 
 namespace Pyz\Zed\StateMachineExample\Persistence;
 
+use Orm\Zed\StateMachineExample\Persistence\PyzStateMachineExampleItemQuery;
 use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
 
-class StateMachinePersistenceFactory extends AbstractPersistenceFactory
+class StateMachineExamplePersistenceFactory extends AbstractPersistenceFactory
 {
-
+    /**
+     * @return PyzStateMachineExampleItemQuery
+     */
+    public function createStateMachineExampleQuery()
+    {
+        return PyzStateMachineExampleItemQuery::create();
+    }
 }

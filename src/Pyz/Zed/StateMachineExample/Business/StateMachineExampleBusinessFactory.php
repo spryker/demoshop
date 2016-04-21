@@ -11,7 +11,8 @@ use Pyz\Zed\StateMachineExample\Business\Model\StateMachineExampleItemSaver;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 
 /**
- * @method \Pyz\Zed\StateMachineExample\Persistence\StateMachineQueryContainerInterface getQueryContainer()
+ * @method \Pyz\Zed\StateMachineExample\Persistence\StateMachineExampleQueryContainerInterface getQueryContainer()
+ * @method
  */
 class StateMachineExampleBusinessFactory extends AbstractBusinessFactory
 {
@@ -20,7 +21,7 @@ class StateMachineExampleBusinessFactory extends AbstractBusinessFactory
      */
     public function createStateMachineSaver()
     {
-        return new StateMachineExampleItemSaver();
+        return new StateMachineExampleItemSaver($this->getQueryContainer());
     }
 
     /**
@@ -28,6 +29,6 @@ class StateMachineExampleBusinessFactory extends AbstractBusinessFactory
      */
     public function createStateMachineExampleItemReader()
     {
-        return new StateMachineExampleItemReader();
+        return new StateMachineExampleItemReader($this->getQueryContainer());
     }
 }

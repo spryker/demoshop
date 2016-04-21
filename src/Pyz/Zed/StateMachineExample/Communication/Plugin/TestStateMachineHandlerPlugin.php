@@ -97,7 +97,7 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
     }
 
     /**
-     * This method should return all list of StateMachineItemTransfer with identifier idStateMachine process and current IdItemState set
+     * This method should return all list of StateMachineItemTransfer, with (identifier, IdStateMachineProcess, IdItemState)
      *
      * @param array $stateIds
      *
