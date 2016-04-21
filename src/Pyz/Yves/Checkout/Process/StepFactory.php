@@ -125,6 +125,8 @@ class StepFactory extends SprykerStepFactory
     {
         return [
             PaymentTransfer::BRAINTREE => $this->createBraintreeHandlerPlugin(),
+            PaymentTransfer::BRAINTREE_PAY_PAL => $this->createBraintreeHandlerPlugin(),
+            PaymentTransfer::BRAINTREE_CREDIT_CARD => $this->createBraintreeHandlerPlugin(),
         ];
     }
 

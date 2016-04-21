@@ -3,7 +3,9 @@
 
 	<div id="paypal-form"></div>
 
-	<script src="https://js.braintreegateway.com/js/braintree-2.21.0.min.js"></script>
+	<script src="https://js.braintreegateway.com/js/braintree-2.22.2.min.js"></script>
+
+
 	<script>
 		var clientToken = "{{ child.vars.clientToken }}";
 
@@ -11,6 +13,31 @@
 			container: "paypal-form"
 		});
 	</script>
+
+
+
+	<script>
+		var client = new braintree.api.Client({
+			clientToken: "{{ child.vars.clientToken }}"
+		});
+
+        client.verify3DS({
+            amount: 500,
+            creditCard: {
+                number: "4010000000000018",
+                expirationMonth: "12",
+                expirationYear: "2020"
+            }
+        }, function (error, response) {
+            var liabilityShifted = response.verificationDetails.liabilityShifted;
+            var liabilityShiftPossible =  response.verificationDetails.liabilityShiftPossible;
+
+            console.log(liabilityShifted);
+            console.log(liabilityShiftPossible);
+        });
+
+	</script>
+
 	{{ form_errors(form.braintree_pay_pal) }}
 	{{ form_widget(form.braintree_pay_pal) }}
 </div>

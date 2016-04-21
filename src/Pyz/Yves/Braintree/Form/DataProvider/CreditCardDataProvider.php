@@ -10,7 +10,7 @@ use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface;
 
-class BraintreeDataProvider implements DataProviderInterface
+class CreditCardDataProvider implements DataProviderInterface
 {
 
     /**

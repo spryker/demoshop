@@ -18,14 +18,16 @@ class BraintreeHandler
      * @var array
      */
     protected static $paymentMethods = [
-        PaymentTransfer::BRAINTREE => 'paypal',
+        PaymentTransfer::BRAINTREE_PAY_PAL => 'pay_pal',
+        PaymentTransfer::BRAINTREE_CREDIT_CARD => 'credit_card',
     ];
 
     /**
      * @var array
      */
     protected static $braintreePaymentMethodMapper = [
-        PaymentTransfer::BRAINTREE => BraintreeConstants::METHOD_PAY_PAL,
+        PaymentTransfer::BRAINTREE_PAY_PAL => 'pay_pal',
+        PaymentTransfer::BRAINTREE_CREDIT_CARD => 'credit_card',
     ];
 
     /**
@@ -79,15 +81,13 @@ class BraintreeHandler
      */
     protected function setBraintreePayment(Request $request, QuoteTransfer $quoteTransfer, $paymentSelection)
     {
-        $braintreePaymentTransfer = $quoteTransfer->getPayment()->getBraintree();
-
+        $braintreePaymentTransfer = $this->getBraintreePaymentTransfer($quoteTransfer, $paymentSelection);
         $nonce = $request->request->get('payment_method_nonce');
         if ($nonce === null) {
             return;
         }
 
         $billingAddress = $quoteTransfer->getBillingAddress();
-
         $braintreePaymentTransfer
             ->setAccountBrand(self::$braintreePaymentMethodMapper[$paymentSelection])
             ->setBillingAddress($billingAddress)
@@ -97,6 +97,8 @@ class BraintreeHandler
             ->setLanguageIso2Code($billingAddress->getIso2Code())
             ->setClientIp($request->getClientIp())
             ->setNonce($nonce);
+
+        $quoteTransfer->getPayment()->setBraintree(clone $braintreePaymentTransfer);
     }
 
     /**
@@ -105,6 +107,20 @@ class BraintreeHandler
     protected function getCurrency()
     {
         return CurrencyManager::getInstance()->getDefaultCurrency()->getIsoCode();
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param string $paymentSelection
+     *
+     * @return \Generated\Shared\Transfer\BraintreePaymentTransfer
+     */
+    protected function getBraintreePaymentTransfer(QuoteTransfer $quoteTransfer, $paymentSelection)
+    {
+        $method = 'get' . ucfirst($paymentSelection);
+        $braintreePaymentTransfer = $quoteTransfer->getPayment()->$method();
+
+        return $braintreePaymentTransfer;
     }
 
 }

@@ -2,9 +2,9 @@
 
 namespace Pyz\Yves\Braintree;
 
-use Pyz\Yves\Braintree\Form\DataProvider\InstallmentDataProvider;
-use Pyz\Yves\Braintree\Form\DataProvider\BraintreeDataProvider;
-use Pyz\Yves\Braintree\Form\InstallmentSubForm;
+use Pyz\Yves\Braintree\Form\CreditCardSubForm;
+use Pyz\Yves\Braintree\Form\DataProvider\CreditCardDataProvider;
+use Pyz\Yves\Braintree\Form\DataProvider\PayPalDataProvider;
 use Pyz\Yves\Braintree\Form\PayPalSubForm;
 use Pyz\Yves\Braintree\Handler\BraintreeHandler;
 use Spryker\Yves\Kernel\AbstractFactory;
@@ -21,11 +21,27 @@ class BraintreeFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Yves\Braintree\Form\DataProvider\BraintreeDataProvider
+     * @return \Pyz\Yves\Braintree\Form\CreditCardSubForm
+     */
+    public function createCreditCardForm()
+    {
+        return new CreditCardSubForm();
+    }
+
+    /**
+     * @return \Pyz\Yves\Braintree\Form\DataProvider\PayPalDataProvider
      */
     public function createPayPalFormDataProvider()
     {
-        return new BraintreeDataProvider();
+        return new PayPalDataProvider();
+    }
+
+    /**
+     * @return \Pyz\Yves\Braintree\Form\DataProvider\CreditCardDataProvider
+     */
+    public function createCreditCardFormDataProvider()
+    {
+        return new CreditCardDataProvider();
     }
 
     /**

@@ -13,10 +13,10 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class PayPalSubForm extends AbstractSubForm
+class CreditCardSubForm extends AbstractSubForm
 {
 
-    const PAYMENT_METHOD = 'pay_pal';
+    const PAYMENT_METHOD = 'credit_card';
 
     /**
      * @return string
@@ -31,7 +31,7 @@ class PayPalSubForm extends AbstractSubForm
      */
     public function getPropertyPath()
     {
-        return PaymentTransfer::BRAINTREE_PAY_PAL;
+        return PaymentTransfer::BRAINTREE_CREDIT_CARD;
     }
 
     /**
