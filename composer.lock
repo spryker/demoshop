@@ -3958,16 +3958,16 @@
         },
         {
             "name": "spryker/gui",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Gui.git",
-                "reference": "e1ea7462d96c73df50bebbcf6224a86bad06d315"
+                "reference": "98aafbfba751f5825f00affc0540d89b721625f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Gui/zipball/e1ea7462d96c73df50bebbcf6224a86bad06d315",
-                "reference": "e1ea7462d96c73df50bebbcf6224a86bad06d315",
+                "url": "https://api.github.com/repos/spryker/Gui/zipball/98aafbfba751f5825f00affc0540d89b721625f0",
+                "reference": "98aafbfba751f5825f00affc0540d89b721625f0",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4011,7 +4011,7 @@
             "support": {
                 "source": "https://github.com/spryker/Gui/tree/master"
             },
-            "time": "2016-04-04 15:58:21"
+            "time": "2016-04-06 16:26:05"
         },
         {
             "name": "spryker/guzzle",
