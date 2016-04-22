@@ -1,9 +1,9 @@
-<div class="payment-subform braintree-form braintree-paypal-form">
+<div class="payment-method payment-subform braintree-form braintree-paypal-form">
 	<h3>Braintree PayPal</h3>
 
-	<div id="pay-pal-container"></div>
-
-
+	<div class="paypal" data-braintree-paypal-method data-braintree-client-token="{{ child.vars.clientToken }}">
+		<div id="paypal-container"></div>
+	</div>
 
 	{{ form_errors(form.braintree_pay_pal) }}
 	{{ form_widget(form.braintree_pay_pal) }}

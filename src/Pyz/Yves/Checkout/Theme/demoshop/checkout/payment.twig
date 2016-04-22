@@ -9,7 +9,7 @@
         </div>
 
         <div class="col-xs-12 col-md-12 col-lg-12">
-            {{ form_start(paymentForm, { attr: {id: 'test-id', class: 'form-horizontal checkout-form checkout-payment' }}) }}
+            {{ form_start(paymentForm, { attr: { id: 'payment-form', class: 'form-horizontal checkout-form checkout-payment' }}) }}
                 {{ form_widget(paymentForm.paymentSelection) }}
                 {{ checkout.include_subforms(paymentForm) }}
             {{ form_end(paymentForm) }}
@@ -17,4 +17,9 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="/assets/demoshop/js/yves-demoshop-braintree.js"></script>
 {% endblock %}

@@ -1,39 +1,16 @@
-<div class="payment-subform braintree-form braintree-credit-card-form">
+<div class="payment-method payment-subform braintree-form braintree-credit-card-form">
 	<h3>Braintree CreditCard</h3>
 
+	<div class="credit-card" data-braintree-credit-card-method data-braintree-client-token="{{ child.vars.clientToken }}">
+		<label for="card-number">Card Number</label>
+		<div id="card-number"></div>
 
+		<label for="cvv">CVV</label>
+		<div id="cvv"></div>
 
-	<label for="card-number">Card Number</label>
-	<div id="card-number"></div>
-
-	<label for="cvv">CVV</label>
-	<div id="cvv"></div>
-
-	<label for="expiration-date">Expiration Date</label>
-	<div id="expiration-date"></div>
-
-	<script src="https://js.braintreegateway.com/js/braintree-2.23.0.min.js"></script>
-	<script>
-		var clientToken = "{{ child.vars.clientToken }}";
-
-		braintree.setup(clientToken, "custom", {
-			id: "test-id",
-			hostedFields: {
-				number: {
-					selector: "#card-number"
-				},
-				cvv: {
-					selector: "#cvv"
-				},
-				expirationDate: {
-					selector: "#expiration-date"
-				}
-			},
-			paypal: {
-				container: "pay-pal-container"
-			}
-		});
-	</script>
+		<label for="expiration-date">Expiration Date</label>
+		<div id="expiration-date"></div>
+	</div>
 
 	{{ form_errors(form.braintree_credit_card) }}
 	{{ form_widget(form.braintree_credit_card) }}
