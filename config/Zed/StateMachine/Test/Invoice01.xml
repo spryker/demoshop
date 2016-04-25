@@ -23,6 +23,18 @@
             <state name="completed" />
         </states>
 
+        <events>
+            <event name="create invoice" onEnter="true" command="Test/Command" />
+            <event name="send invoice" onEnter="true" />
+            <event name="export order" onEnter="true" />
+            <event name="ship order" manual="true" />
+            <event name="waiting for payment" onEnter="true" />
+            <event name="payment not received" timeout="1hour" />
+            <event name="payment received" manual="true" />
+            <event name="ready for return"  onEnter="true" />
+            <event name="item not returned" timeout="14days" />
+        </events>
+
         <transitions>
             <transition >
                 <source>new</source>
@@ -113,20 +125,7 @@
                 <target>completed</target>
                 <event>item not returned</event>
             </transition>
-
         </transitions>
-
-        <events>
-            <event name="create invoice" onEnter="true" command="Test/Command" />
-            <event name="send invoice" onEnter="true" />
-            <event name="export order" onEnter="true" />
-            <event name="ship order" manual="true" />
-            <event name="waiting for payment" onEnter="true" />
-            <event name="payment not received" timeout="1hour" />
-            <event name="payment received" manual="true" />
-            <event name="ready for return"  onEnter="true" />
-            <event name="item not returned" timeout="14days" />
-        </events>
     </process>
 
 </statemachine>
