@@ -49,6 +49,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
 {
 
     const SERVICE_PROVIDER = 'SERVICE_PROVIDER';
+    const SIMPLE_SERVICE_PROVIDER = 'SIMPLE_SERVICE_PROVIDER';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -59,6 +60,10 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
     {
         $container[self::SERVICE_PROVIDER] = function (Container $container) {
             return $this->getServiceProvider($container);
+        };
+
+        $container[self::SIMPLE_SERVICE_PROVIDER] = function (Container $container) {
+            return $this->getSimpleServiceProvider($container);
         };
 
         return $container;
@@ -111,6 +116,29 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
         }
 
         return $providers;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return array
+     */
+    protected function getSimpleServiceProvider(Container $container)
+    {
+        return [
+            new LogServiceProvider(),
+            new PropelServiceProvider(),
+            new RequestServiceProvider(),
+            new SslServiceProvider(),
+            new ServiceControllerServiceProvider(),
+            new RoutingServiceProvider(),
+            new MvcRoutingServiceProvider(),
+            new SilexRoutingServiceProvider(),
+            $this->getGatewayServiceProvider(),
+            new NewRelicServiceProvider(),
+            new HttpFragmentServiceProvider(),
+            new SubRequestServiceProvider(),
+        ];
     }
 
     /**

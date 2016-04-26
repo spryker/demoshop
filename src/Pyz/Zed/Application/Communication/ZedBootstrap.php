@@ -21,4 +21,11 @@ class ZedBootstrap extends SprykerZedBootstrap
         return $this->getProvidedDependency(ApplicationDependencyProvider::SERVICE_PROVIDER);
     }
 
+    /**
+     * @return \Silex\ServiceProviderInterface[]
+     */
+    protected function getSimpleServiceProvider()
+    {
+        return $this->getProvidedDependency(ApplicationDependencyProvider::SIMPLE_SERVICE_PROVIDER);
+    }
 }
