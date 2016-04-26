@@ -131,7 +131,7 @@ function installYves {
 
     resetYves
 
-    . deploy/setup/setup-frontend.sh
+    . deploy/setup/frontend.sh
 
     labelText "Yves setup successful"
 }
