@@ -1,14 +1,6 @@
 #!/bin/bash
 
-vendor/bin/console transfer:generate
-
-vendor/bin/console setup:generate-client-ide-auto-completion
-vendor/bin/console setup:generate-ide-auto-completion
-vendor/bin/console setup:generate-zed-ide-auto-completion
-
-vendor/bin/console propel:install
-
-vendor/bin/console application:build-navigation-cache
+vendor/bin/console setup:install
 
 ./deploy/heroku/setup-Yves.sh -i
 
