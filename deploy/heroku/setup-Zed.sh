@@ -1,5 +1,7 @@
 #!/bin/bash
 
+vendor/bin/console application:build-navigation-cache
+
 exit 0
 
 # heroku is too slow
