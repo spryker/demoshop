@@ -8,18 +8,24 @@
 namespace Pyz\Zed\StateMachineExample\Communication\Plugin\Condition;
 
 use Generated\Shared\Transfer\StateMachineItemTransfer;
-use Spryker\Zed\StateMachine\Dependency\Plugin\ConditionPluginInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
+use Spryker\Zed\StateMachine\Dependency\Plugin\ConditionPluginInterface;
 
+/**
+ * @method \Pyz\Zed\StateMachineExample\Business\StateMachineExampleFacade getFacade()
+ * @method \Pyz\Zed\StateMachineExample\Communication\StateMachineExampleCommunicationFactory getFactory()
+ */
 class TestConditionPlugin extends AbstractPlugin implements ConditionPluginInterface
 {
+
     /**
-     * @param StateMachineItemTransfer $stateMachineItemTransfer
+     * @param \Generated\Shared\Transfer\StateMachineItemTransfer $stateMachineItemTransfer
      *
      * @return bool
      */
     public function check(StateMachineItemTransfer $stateMachineItemTransfer)
     {
-        return (bool) ($stateMachineItemTransfer->getIdentifier() % 2);
+        return (bool)($stateMachineItemTransfer->getIdentifier() % 2);
     }
+
 }

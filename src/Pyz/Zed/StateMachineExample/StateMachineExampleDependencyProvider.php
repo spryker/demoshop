@@ -12,6 +12,7 @@ use Spryker\Zed\Kernel\Container;
 
 class StateMachineExampleDependencyProvider extends AbstractBundleDependencyProvider
 {
+
     const FACADE_STATE_MACHINE = 'FACADE_STATE_MACHINE';
 
     /**
@@ -37,4 +38,5 @@ class StateMachineExampleDependencyProvider extends AbstractBundleDependencyProv
             return $container->getLocator()->stateMachine()->facade();
         };
     }
+
 }

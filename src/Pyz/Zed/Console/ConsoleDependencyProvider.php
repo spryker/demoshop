@@ -26,14 +26,14 @@ use Spryker\Zed\Development\Communication\Console\DependencyTreeDependencyViolat
 use Spryker\Zed\Installer\Communication\Console\InitializeDatabaseConsole;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\NewRelic\Communication\Console\RecordDeploymentConsole;
-use Spryker\Zed\ProductSearch\Communication\Console\ProductSearchConsole;
-use Spryker\Zed\Search\Communication\Console\SearchConsole;
-use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
 use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole as OmsCheckConditionConsole;
 use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole as OmsCheckTimeoutConsole;
-use Spryker\Zed\StateMachine\Communication\Console\CheckTimeoutConsole as StateMachineCheckTimeoutConsole;
+use Spryker\Zed\ProductSearch\Communication\Console\ProductSearchConsole;
+use Spryker\Zed\Search\Communication\Console\SearchConsole;
 use Spryker\Zed\StateMachine\Communication\Console\CheckConditionConsole as StateMachineCheckConditionConsole;
+use Spryker\Zed\StateMachine\Communication\Console\CheckTimeoutConsole as StateMachineCheckTimeoutConsole;
 use Spryker\Zed\StateMachine\Communication\Console\ClearLocks;
+use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
 
 class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
 {

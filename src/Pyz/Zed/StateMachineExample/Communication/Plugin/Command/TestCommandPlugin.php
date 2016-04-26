@@ -8,14 +8,18 @@
 namespace Pyz\Zed\StateMachineExample\Communication\Plugin\Command;
 
 use Generated\Shared\Transfer\StateMachineItemTransfer;
-use Spryker\Zed\StateMachine\Dependency\Plugin\CommandPluginInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
+use Spryker\Zed\StateMachine\Dependency\Plugin\CommandPluginInterface;
 
+/**
+ * @method \Pyz\Zed\StateMachineExample\Business\StateMachineExampleFacade getFacade()
+ * @method \Pyz\Zed\StateMachineExample\Communication\StateMachineExampleCommunicationFactory getFactory()
+ */
 class TestCommandPlugin extends AbstractPlugin implements CommandPluginInterface
 {
 
     /**
-     * @param StateMachineItemTransfer $stateMachineItemTransfer
+     * @param \Generated\Shared\Transfer\StateMachineItemTransfer $stateMachineItemTransfer
      *
      * @return bool
      */
@@ -23,4 +27,5 @@ class TestCommandPlugin extends AbstractPlugin implements CommandPluginInterface
     {
         return true;
     }
+
 }

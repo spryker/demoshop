@@ -15,8 +15,9 @@ use Spryker\Zed\Kernel\Business\AbstractFacade;
  */
 class StateMachineExampleFacade extends AbstractFacade
 {
+
     /**
-     * @param StateMachineItemTransfer $stateMachineItemTransfer
+     * @param \Generated\Shared\Transfer\StateMachineItemTransfer $stateMachineItemTransfer
      *
      * @return bool
      */
@@ -28,7 +29,7 @@ class StateMachineExampleFacade extends AbstractFacade
     /**
      * @param int[] $stateIds
      *
-     * @return StateMachineItemTransfer[]
+     * @return \Generated\Shared\Transfer\StateMachineItemTransfer[]
      */
     public function getStateMachineExampleItemsByStateIds(array $stateIds = [])
     {
@@ -36,7 +37,7 @@ class StateMachineExampleFacade extends AbstractFacade
     }
 
     /**
-     * @return StateMachineItemTransfer[]
+     * @return \Generated\Shared\Transfer\StateMachineItemTransfer[]
      */
     public function getStateMachineItems()
     {
@@ -50,4 +51,5 @@ class StateMachineExampleFacade extends AbstractFacade
     {
         return $this->getFactory()->createStateMachineSaver()->createExampleItem();
     }
+
 }

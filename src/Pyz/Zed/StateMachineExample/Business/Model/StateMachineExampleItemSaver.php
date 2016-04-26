@@ -13,13 +13,14 @@ use Pyz\Zed\StateMachineExample\Persistence\StateMachineExampleQueryContainerInt
 
 class StateMachineExampleItemSaver
 {
+
     /**
-     * @var StateMachineExampleQueryContainerInterface
+     * @var \Pyz\Zed\StateMachineExample\Persistence\StateMachineExampleQueryContainerInterface
      */
     protected $stateMachineExampleQueryContainer;
 
     /**
-     * @param StateMachineExampleQueryContainerInterface $stateMachineExampleQueryContainer
+     * @param \Pyz\Zed\StateMachineExample\Persistence\StateMachineExampleQueryContainerInterface $stateMachineExampleQueryContainer
      */
     public function __construct(StateMachineExampleQueryContainerInterface $stateMachineExampleQueryContainer)
     {
@@ -27,7 +28,7 @@ class StateMachineExampleItemSaver
     }
 
     /**
-     * @param StateMachineItemTransfer $stateMachineItemTransfer
+     * @param \Generated\Shared\Transfer\StateMachineItemTransfer $stateMachineItemTransfer
      *
      * @return bool
      */
@@ -59,4 +60,5 @@ class StateMachineExampleItemSaver
 
         return $affectedRowCount > 0;
     }
+
 }

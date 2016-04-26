@@ -7,19 +7,18 @@
 namespace Pyz\Zed\StateMachineExample\Business\Model;
 
 use Generated\Shared\Transfer\StateMachineItemTransfer;
-use Orm\Zed\StateMachineExample\Persistence\PyzStateMachineExampleItem;
-use Propel\Runtime\Collection\ObjectCollection;
 use Pyz\Zed\StateMachineExample\Persistence\StateMachineExampleQueryContainerInterface;
 
 class StateMachineExampleItemReader
 {
+
     /**
-     * @var StateMachineExampleQueryContainerInterface
+     * @var \Pyz\Zed\StateMachineExample\Persistence\StateMachineExampleQueryContainerInterface
      */
     protected $stateMachineExampleQueryContainer;
 
     /**
-     * @param StateMachineExampleQueryContainerInterface $stateMachineExampleQueryContainer
+     * @param \Pyz\Zed\StateMachineExample\Persistence\StateMachineExampleQueryContainerInterface $stateMachineExampleQueryContainer
      */
     public function __construct(StateMachineExampleQueryContainerInterface $stateMachineExampleQueryContainer)
     {
@@ -29,7 +28,7 @@ class StateMachineExampleItemReader
     /**
      * @param int[] $stateIds
      *
-     * @return StateMachineItemTransfer[]
+     * @return \Generated\Shared\Transfer\StateMachineItemTransfer[]
      */
     public function getStateMachineItemTransferByItemStateIds(array $stateIds = [])
     {
@@ -41,7 +40,7 @@ class StateMachineExampleItemReader
     }
 
     /**
-     * @return StateMachineItemTransfer[]
+     * @return \Generated\Shared\Transfer\StateMachineItemTransfer[]
      */
     public function getStateMachineItems()
     {
@@ -52,9 +51,9 @@ class StateMachineExampleItemReader
     }
 
     /**
-     * @param ObjectCollection[]|PyzStateMachineExampleItem[]  $stateMachineExampleItems
+     * @param \Propel\Runtime\Collection\ObjectCollection[]|\Orm\Zed\StateMachineExample\Persistence\PyzStateMachineExampleItem[] $stateMachineExampleItems
      *
-     * @return StateMachineItemTransfer[]
+     * @return \Generated\Shared\Transfer\StateMachineItemTransfer[]
      */
     protected function hydrateTransferFromPersistence($stateMachineExampleItems)
     {
@@ -74,4 +73,5 @@ class StateMachineExampleItemReader
 
         return $stateMachineItems;
     }
+
 }

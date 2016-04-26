@@ -9,13 +9,12 @@ namespace Pyz\Zed\StateMachineExample\Communication\Plugin;
 use Generated\Shared\Transfer\StateMachineItemTransfer;
 use Pyz\Zed\StateMachineExample\Communication\Plugin\Command\TestCommandPlugin;
 use Pyz\Zed\StateMachineExample\Communication\Plugin\Condition\TestConditionPlugin;
-use Spryker\Zed\StateMachine\Dependency\Plugin\CommandPluginInterface;
-use Spryker\Zed\StateMachine\Dependency\Plugin\ConditionPluginInterface;
-use Spryker\Zed\StateMachine\Dependency\Plugin\StateMachineHandlerInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
+use Spryker\Zed\StateMachine\Dependency\Plugin\StateMachineHandlerInterface;
 
 /**
  * @method \Pyz\Zed\StateMachineExample\Business\StateMachineExampleFacade getFacade()
+ * @method \Pyz\Zed\StateMachineExample\Communication\StateMachineExampleCommunicationFactory getFactory()
  */
 class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachineHandlerInterface
 {
@@ -23,7 +22,7 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
     /**
      * List of command plugins for this state machine for all processes.
      *
-     * @return array|CommandPluginInterface[]
+     * @return array|\Spryker\Zed\StateMachine\Dependency\Plugin\CommandPluginInterface[]
      */
     public function getCommandPlugins()
     {
@@ -35,7 +34,7 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
     /**
      * List of condition plugins for this state machine for all processes.
      *
-     * @return array|ConditionPluginInterface[]
+     * @return array|\Spryker\Zed\StateMachine\Dependency\Plugin\ConditionPluginInterface[]
      */
     public function getConditionPlugins()
     {
@@ -51,7 +50,7 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
      */
     public function getStateMachineName()
     {
-       return 'Test';
+        return 'Test';
     }
 
     /**
@@ -79,15 +78,21 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
         switch ($processName) {
             case 'Invoice01':
                 return 'new';
-                break;
         }
+
+        throw new \InvalidArgumentException(
+            sprintf(
+                'Initial state not found for process "s%".',
+                $processName
+            )
+        );
     }
 
     /**
      * This method is called when state of item was changed, client can create custom logic for example update it's related table with new state id/name.
      * StateMachineItemTransfer:identifier is id of entity from implementor.
      *
-     * @param StateMachineItemTransfer $stateMachineItemTransfer
+     * @param \Generated\Shared\Transfer\StateMachineItemTransfer $stateMachineItemTransfer
      *
      * @return bool
      */
@@ -101,10 +106,11 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
      *
      * @param array $stateIds
      *
-     * @return StateMachineItemTransfer[]
+     * @return \Generated\Shared\Transfer\StateMachineItemTransfer[]
      */
     public function getStateMachineItemsByStateIds(array $stateIds = [])
     {
          return $this->getFacade()->getStateMachineExampleItemsByStateIds($stateIds);
     }
+
 }

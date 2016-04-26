@@ -7,6 +7,7 @@ namespace Pyz\Zed\StateMachineExample\Persistence;
 
 interface StateMachineExampleQueryContainerInterface
 {
+
     /**
      * @param int[] $stateIds
      *
@@ -25,4 +26,5 @@ interface StateMachineExampleQueryContainerInterface
      * @return \Orm\Zed\StateMachineExample\Persistence\PyzStateMachineExampleItem[]|\Orm\Zed\StateMachineExample\Persistence\PyzStateMachineExampleItemQuery|\Propel\Runtime\Collection\ObjectCollection
      */
     public function queryStateMachineExampleItemByIdStateMachineItem($idStateMachineItem);
+
 }

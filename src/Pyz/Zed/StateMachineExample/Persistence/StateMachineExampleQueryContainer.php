@@ -14,6 +14,7 @@ use Spryker\Zed\Kernel\Persistence\AbstractQueryContainer;
  */
 class StateMachineExampleQueryContainer extends AbstractQueryContainer implements StateMachineExampleQueryContainerInterface
 {
+
     /**
      * @param int[] $stateIds
      *
@@ -44,4 +45,5 @@ class StateMachineExampleQueryContainer extends AbstractQueryContainer implement
         return $this->getFactory()->createStateMachineExampleQuery()
             ->filterByIdStateMachineExampleItem($idStateMachineItem);
     }
+
 }

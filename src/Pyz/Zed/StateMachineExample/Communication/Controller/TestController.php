@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\StateMachineExample\Communication\Controller;
 
-use Generated\Shared\Transfer\StateMachineItemTransfer;
 use Spryker\Zed\Application\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,6 +19,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class TestController extends AbstractController
 {
+
     const STATE_MACHINE_NAME = 'Test';
 
     /**
@@ -47,9 +47,9 @@ class TestController extends AbstractController
     }
 
     /**
-     * @param array|StateMachineItemTransfer[] $stateMachineItems
+     * @param array|\Generated\Shared\Transfer\StateMachineItemTransfer[] $stateMachineItems
      *
-     * @return array|StateMachineItemTransfer[]
+     * @return array|\Generated\Shared\Transfer\StateMachineItemTransfer[]
      */
     public function createStateMachineLookupTable(array $stateMachineItems)
     {
@@ -63,7 +63,7 @@ class TestController extends AbstractController
 
     /**
      * @throws \Propel\Runtime\Exception\PropelException
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function addItemAction()
     {
@@ -73,9 +73,9 @@ class TestController extends AbstractController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @throws \Propel\Runtime\Exception\PropelException
      */
     public function deleteItemAction(Request $request)
@@ -96,4 +96,5 @@ class TestController extends AbstractController
     {
         return $this->getFactory()->getStateMachineFacade();
     }
+
 }
