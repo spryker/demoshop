@@ -1,5 +1,9 @@
 #!/bin/bash
 
+exit 0
+
+# heroku is too slow
+
 set -o pipefail
 
 SETUP='spryker'
