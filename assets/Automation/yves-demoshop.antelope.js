@@ -11,6 +11,12 @@ const R = antelope.remote('ramda');
 const webpack = antelope.remote('webpack');
 const ExtractTextPlugin = antelope.remote('extract-text-webpack-plugin');
 
+let style = new ExtractTextPlugin('assets/demoshop/css/[name].css', {
+    allChunks: true
+});
+
+let cssOptions = !!antelope.options.production ? '?sourceMap' : '';
+
 let config = {
     entry: antelope.entryPoints,
     resolve: {
@@ -26,10 +32,15 @@ let config = {
     module: {
         loaders: [{
             test: /\.css\??(\d*\w*=?\.?)+$/i,
-            loader: ExtractTextPlugin.extract('style', 'css')
+            loader: style.extract([
+                'css' + cssOptions
+            ])
         }, {
             test: /\.scss$/i,
-            loader: ExtractTextPlugin.extract('style', 'css!resolve-url!sass?sourceMap')
+            loader: style.extract([
+                'css' + cssOptions,
+                'sass'
+            ])
         }, {
             test: /\.(ttf|woff2?|eot)\??(\d*\w*=?\.?)+$/i,
             loader: 'file?name=/assets/demoshop/fonts/[name].[ext]'
@@ -42,7 +53,10 @@ let config = {
         }]
     },
     sassLoader: {
-        includePaths: antelope.paths.loaders
+        includePaths: antelope.paths.loaders,
+        sourceMap: !!antelope.options.production,
+        sourceComments: false,
+        outputStyle: antelope.options.production ? 'compressed' : 'expanded'
     },
     organizerRules: {
         images: [{
@@ -63,9 +77,7 @@ let config = {
         }]
     },
     plugins: [
-        new ExtractTextPlugin('assets/demoshop/css/[name].css', {
-            allChunks: true
-        }),
+        style,
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
@@ -77,12 +89,12 @@ let config = {
         })
     ],
     watchOptions: {
-        aggregateTimeout: 300,
-        poll: 1000
+        aggregateTimeout: 10,
+        poll: 100
     },
     progress: true,
     failOnError: false,
-    devtool: 'sourceMap',
+    devtool: antelope.options.production ? 'source-map' : false,
     debug: antelope.options.debug,
     watch: antelope.options.watch
 };
@@ -91,7 +103,7 @@ if (antelope.options.production) {
     config.plugins = config.plugins.concat([
         new webpack.optimize.UglifyJsPlugin({
             comments: false,
-            sourceMap: false,
+            sourceMap: true,
             compress: {
                 warnings: false
             },
