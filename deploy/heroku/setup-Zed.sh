@@ -10,6 +10,8 @@ vendor/bin/console propel:install
 
 vendor/bin/console application:build-navigation-cache
 
+./deploy/heroku/setup-Yves.sh -i
+
 exit 0
 
 # heroku is too slow
