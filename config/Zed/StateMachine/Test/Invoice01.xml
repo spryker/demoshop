@@ -36,13 +36,13 @@
         </events>
 
         <transitions>
-            <transition >
+            <transition happy="true">
                 <source>new</source>
                 <target>invoice created</target>
                 <event>create invoice</event>
             </transition>
 
-            <transition>
+            <transition happy="true">
                 <source>invoice created</source>
                 <target>invoice sent</target>
                 <event>send invoice</event>
@@ -60,13 +60,13 @@
                 <event>export order</event>
             </transition>
 
-            <transition>
+            <transition happy="true">
                 <source>order exported</source>
                 <target>order shipped</target>
                 <event>ship order</event>
             </transition>
 
-            <transition>
+            <transition happy="true">
                 <source>order shipped</source>
                 <target>waiting for payment</target>
                 <event>waiting for payment</event>
@@ -78,7 +78,7 @@
                 <event>payment not received</event>
             </transition>
 
-            <transition>
+            <transition happy="true">
                 <source>waiting for payment</source>
                 <target>payment received</target>
                 <event>payment received</event>
@@ -114,13 +114,13 @@
                 <event>payment received</event>
             </transition>
 
-            <transition>
+            <transition happy="true">
                 <source>payment received</source>
                 <target>ready for return</target>
                 <event>ready for return</event>
             </transition>
 
-            <transition>
+            <transition happy="true">
                 <source>ready for return</source>
                 <target>completed</target>
                 <event>item not returned</event>
