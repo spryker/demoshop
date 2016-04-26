@@ -7,7 +7,7 @@
 
 namespace Pyz\Yves\Heartbeat\Model\HealthIndicator;
 
-use Spryker\Client\Search\SearchClient;
+use Spryker\Client\Search\SearchClientInterface;
 use Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface;
 
 class SearchHealthIndicator extends AbstractHealthIndicator implements HealthIndicatorInterface
@@ -16,14 +16,14 @@ class SearchHealthIndicator extends AbstractHealthIndicator implements HealthInd
     const FAILURE_MESSAGE_UNABLE_TO_CONNECT_TO_SEARCH = 'Unable to connect to search';
 
     /**
-     * @var \Spryker\Client\Search\SearchClient
+     * @var \Spryker\Client\Search\SearchClientInterface
      */
     protected $searchClient;
 
     /**
-     * @param \Spryker\Client\Search\SearchClient $searchClient
+     * @param \Spryker\Client\Search\SearchClientInterface $searchClient
      */
-    public function __construct(SearchClient $searchClient)
+    public function __construct(SearchClientInterface $searchClient)
     {
         $this->searchClient = $searchClient;
     }

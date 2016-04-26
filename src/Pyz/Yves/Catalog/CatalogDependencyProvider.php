@@ -8,7 +8,30 @@
 namespace Pyz\Yves\Catalog;
 
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
+use Spryker\Yves\Kernel\Container;
 
 class CatalogDependencyProvider extends AbstractBundleDependencyProvider
 {
+
+    const CLIENT_CATALOG = 'catalog client';
+    const CLIENT_CATEGORY_EXPORTER = 'category exporter client';
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    public function provideDependencies(Container $container)
+    {
+        $container[self::CLIENT_CATALOG] = function (Container $container) {
+            return $container->getLocator()->catalog()->client();
+        };
+
+        $container[self::CLIENT_CATEGORY_EXPORTER] = function (Container $container) {
+            return $container->getLocator()->categoryExporter()->client();
+        };
+
+        return $container;
+    }
+
 }

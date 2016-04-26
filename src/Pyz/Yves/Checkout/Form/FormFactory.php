@@ -7,6 +7,7 @@ namespace Pyz\Yves\Checkout\Form;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Plugin\Pimple;
+use Pyz\Yves\Checkout\CheckoutDependencyProvider;
 use Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface;
 use Pyz\Yves\Checkout\Form\DataProvider\SubformDataProviders;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
@@ -248,7 +249,7 @@ class FormFactory extends AbstractFactory
      */
     protected function getCustomerClient()
     {
-        return $this->getLocator()->customer()->client();
+        return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER);
     }
 
     /**

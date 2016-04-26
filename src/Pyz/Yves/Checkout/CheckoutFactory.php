@@ -49,7 +49,7 @@ class CheckoutFactory extends AbstractFactory
      */
     public function getCartClient()
     {
-        return $this->getLocator()->cart()->client();
+        return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CART);
     }
 
     /**

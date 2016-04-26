@@ -19,7 +19,7 @@ class CartFactory extends AbstractFactory
      */
     public function getCalculationClient()
     {
-        return $this->getLocator()->calculation()->client();
+        return $this->getProvidedDependency(CartDependencyProvider::CLIENT_CALCULATION);
     }
 
     /**
@@ -27,7 +27,7 @@ class CartFactory extends AbstractFactory
      */
     public function getCartClient()
     {
-        return $this->getLocator()->cart()->client();
+        return $this->getProvidedDependency(CartDependencyProvider::CLIENT_CART);
     }
 
     /**

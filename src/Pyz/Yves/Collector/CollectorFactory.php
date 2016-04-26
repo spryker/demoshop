@@ -62,7 +62,7 @@ class CollectorFactory extends AbstractFactory
      */
     public function createUrlMatcher()
     {
-        $urlMatcher = $this->getLocator()->collector()->client();
+        $urlMatcher = $this->getProvidedDependency(CollectorDependencyProvider::CLIENT_COLLECTOR);
 
         return $urlMatcher;
     }
@@ -72,7 +72,9 @@ class CollectorFactory extends AbstractFactory
      */
     protected function createFacetConfig()
     {
-        return $this->getLocator()->catalog()->client()->createFacetConfig();
+        $catalogClient = $this->getProvidedDependency(CollectorDependencyProvider::CLIENT_CATALOG);
+        
+        return $catalogClient->createFacetConfig();
     }
 
     /**

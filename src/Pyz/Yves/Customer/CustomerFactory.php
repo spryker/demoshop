@@ -105,7 +105,7 @@ class CustomerFactory extends AbstractFactory
      */
     public function createNewsletterClient()
     {
-        return $this->getLocator()->newsletter()->client();
+        return $this->getProvidedDependency(CustomerDependencyProvider::CLIENT_NEWSLETTER);
     }
 
     /**
@@ -113,7 +113,7 @@ class CustomerFactory extends AbstractFactory
      */
     public function createSalesClient()
     {
-        return $this->getLocator()->sales()->client();
+        return $this->getProvidedDependency(CustomerDependencyProvider::CLIENT_SALES);
     }
 
     /**

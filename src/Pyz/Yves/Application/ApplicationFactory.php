@@ -58,8 +58,8 @@ class ApplicationFactory extends SprykerApplicationFactory
      * @return \Spryker\Client\Session\SessionClientInterface
      */
     public function getSessionClient()
-    {
-        return $this->getLocator()->session()->client();
+    { 
+        return $this->getProvidedDependency(ApplicationDependencyProvider::CLIENT_SESSION);
     }
 
     /**

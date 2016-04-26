@@ -37,7 +37,7 @@ class CatalogFactory extends AbstractFactory
      */
     public function createCatalogClient()
     {
-        return $this->getLocator()->catalog()->client();
+        return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_CATALOG);
     }
 
     /**
@@ -45,7 +45,7 @@ class CatalogFactory extends AbstractFactory
      */
     public function createCategoryExporterClient()
     {
-        return $this->getLocator()->categoryExporter()->client();
+        return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_CATEGORY_EXPORTER);
     }
 
 }
