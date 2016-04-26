@@ -49,7 +49,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
 {
 
     const SERVICE_PROVIDER = 'SERVICE_PROVIDER';
-    const SIMPLE_SERVICE_PROVIDER = 'SIMPLE_SERVICE_PROVIDER';
+    const INTERNAL_CALL_SERVICE_PROVIDER = 'INTERNAL_SERVICE_PROVIDER';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -62,8 +62,8 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             return $this->getServiceProvider($container);
         };
 
-        $container[self::SIMPLE_SERVICE_PROVIDER] = function (Container $container) {
-            return $this->getSimpleServiceProvider($container);
+        $container[self::INTERNAL_CALL_SERVICE_PROVIDER] = function (Container $container) {
+            return $this->getInternalCallServiceProvider($container);
         };
 
         return $container;
@@ -123,7 +123,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
      *
      * @return array
      */
-    protected function getSimpleServiceProvider(Container $container)
+    protected function getInternalCallServiceProvider(Container $container)
     {
         return [
             new LogServiceProvider(),
