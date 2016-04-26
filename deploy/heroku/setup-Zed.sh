@@ -1,13 +1,5 @@
 #!/bin/bash
 
-vendor/bin/console setup:install
-
-./deploy/heroku/setup-Yves.sh -i
-
-exit 0
-
-# heroku is too slow
-
 set -o pipefail
 
 SETUP='spryker'
