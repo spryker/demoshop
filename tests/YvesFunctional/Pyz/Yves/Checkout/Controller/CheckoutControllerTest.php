@@ -553,6 +553,7 @@ class CheckoutControllerTest extends Test
         $checkoutDependencyProvider = new CheckoutDependencyProvider();
         $container = new Container();
         $checkoutDependencyProvider->provideDependencies($container);
+        
         return $container;
     }
 

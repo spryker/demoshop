@@ -33,6 +33,19 @@ class CollectorDependencyProvider extends AbstractBundleDependencyProvider
      */
     public function provideDependencies(Container $container)
     {
+        $container = $this->provideClients($container);
+        $container = $this->providePlugins($container);
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function provideClients(Container $container)
+    {
         $container[self::CLIENT_COLLECTOR] = function (Container $container) {
             return $container->getLocator()->collector()->client();
         };
@@ -41,6 +54,16 @@ class CollectorDependencyProvider extends AbstractBundleDependencyProvider
             return $container->getLocator()->catalog()->client();
         };
 
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function providePlugins(Container $container)
+    {
         $container[self::PLUGIN_APPLICATION] = function () {
             $pimplePlugin = new Pimple();
 

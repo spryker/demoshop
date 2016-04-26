@@ -39,6 +39,19 @@ class CheckoutDependencyProvider extends AbstractBundleDependencyProvider
      */
     public function provideDependencies(Container $container)
     {
+        $container = $this->provideClients($container);
+        $container = $this->providePlugins($container);
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function provideClients(Container $container)
+    {
         $container[self::CLIENT_CART] = function (Container $container) {
             return $container->getLocator()->cart()->client();
         };
@@ -55,6 +68,16 @@ class CheckoutDependencyProvider extends AbstractBundleDependencyProvider
             return $container->getLocator()->customer()->client();
         };
 
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function providePlugins(Container $container)
+    {
         $container[self::PLUGIN_INVOICE_SUB_FORM] = function () {
             return new PayolutionInstallmentSubFormPlugin();
         };
