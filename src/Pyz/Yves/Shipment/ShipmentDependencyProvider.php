@@ -33,4 +33,5 @@ class ShipmentDependencyProvider extends AbstractBundleDependencyProvider
 
         return $container;
     }
+
 }

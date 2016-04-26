@@ -220,10 +220,11 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->getCurrentDatabaseEngineName()
         );
         if (!array_key_exists($name, $classList)) {
-            throw new \Exception('Invalid StoragePdoQueryAdapter name: '.$name);
+            throw new \Exception('Invalid StoragePdoQueryAdapter name: ' . $name);
         }
 
         $queryBuilderClassName = $classList[$name];
+
         return new $queryBuilderClassName();
     }
 
@@ -244,6 +245,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         }
 
         $queryBuilderClassName = $classList[$name];
+
         return new $queryBuilderClassName();
     }
 
