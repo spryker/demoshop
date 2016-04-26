@@ -17,6 +17,7 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\SaveOrderTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Pyz\Client\Customer\CustomerClient;
+use Pyz\Yves\Checkout\CheckoutDependencyProvider;
 use Pyz\Yves\Checkout\CheckoutFactory;
 use Pyz\Yves\Checkout\Controller\CheckoutController;
 use Pyz\Yves\Checkout\Form\DataProvider\SubformDataProviders;
@@ -29,6 +30,7 @@ use Spryker\Client\Calculation\CalculationClient;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 use Spryker\Shared\Shipment\ShipmentConstants;
+use Spryker\Yves\Kernel\Container;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -268,6 +270,7 @@ class CheckoutControllerTest extends Test
     {
         $checkoutControllerMock = $this->getMock(CheckoutController::class, ['getFactory']);
         $checkoutFactoryMock = $this->createCheckoutFactoryMock($quoteTransfer);
+        $checkoutFactoryMock->setContainer($this->getContainer());
         $checkoutControllerMock->method('getFactory')->willReturn($checkoutFactoryMock);
 
         return $checkoutControllerMock;
@@ -288,9 +291,12 @@ class CheckoutControllerTest extends Test
                 'getCartClient'
             ]
         );
-
         $formFactoryMock = $this->createFormFactoryMock($quoteTransfer);
+        $formFactoryMock->setContainer($this->getContainer());
+
         $stepFactoryMock = $this->createStepFactoryMock($quoteTransfer);
+        $stepFactoryMock->setContainer($this->getContainer());
+
         $cartClientMock = $this->getCartClientMock($quoteTransfer);
 
         $checkoutFactoryMock->method('createStepFactory')->willReturn($stepFactoryMock);
@@ -537,6 +543,17 @@ class CheckoutControllerTest extends Test
         $subFormDataProviderMock->method('getOptions')->willReturn(['select_options' =>[]]);
 
         return $subFormDataProviderMock;
+    }
+
+    /**
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function getContainer()
+    {
+        $checkoutDependencyProvider = new CheckoutDependencyProvider();
+        $container = new Container();
+        $checkoutDependencyProvider->provideDependencies($container);
+        return $container;
     }
 
 }
