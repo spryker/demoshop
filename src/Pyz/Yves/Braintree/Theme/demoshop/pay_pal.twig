@@ -1,10 +1,15 @@
 <div class="payment-method payment-subform braintree-form braintree-paypal-form">
 	<h3>Braintree PayPal</h3>
 
-	<div class="paypal" data-braintree-paypal-method data-braintree-client-token="{{ child.vars.clientToken }}">
-		<div id="paypal-container"></div>
-	</div>
+	<div class="braintree">
+		<div class="braintree-loader show">Loading PayPal...</div>
 
-	{{ form_errors(form.braintree_pay_pal) }}
-	{{ form_widget(form.braintree_pay_pal) }}
+		<div class="braintree-method braintree-paypal-method" data-braintree-client-token="{{ child.vars.clientToken }}">
+			<div id="braintree-paypal-container"></div>
+			<div class="braintree-paypal-error field"></div>
+		</div>
+
+		{{ form_errors(form.braintree_pay_pal) }}
+		{{ form_widget(form.braintree_pay_pal) }}
+	</div>
 </div>

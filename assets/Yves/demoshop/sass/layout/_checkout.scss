@@ -348,15 +348,10 @@
  *
  */
 
+.shipment-method,
 .payment-method,
-.shipment-method  {
-  display: none;
-
-  &.show {
-    display: block;
-  }
-}
-
+.braintree-method,
+.braintree-loader,
 .customer-selection,
 .address-selection,
 .address-user-shipping-custom,
@@ -427,5 +422,11 @@
   }
 }
 
+.braintree {
+  min-height: $step * 2;
+}
 
+#braintree-paypal-container {
+  padding: $step 0;
+}
 

@@ -1,17 +1,29 @@
 <div class="payment-method payment-subform braintree-form braintree-credit-card-form">
 	<h3>Braintree CreditCard</h3>
 
-	<div class="credit-card" data-braintree-credit-card-method data-braintree-client-token="{{ child.vars.clientToken }}">
-		<label for="card-number">Card Number</label>
-		<div id="card-number"></div>
+	<div class="braintree">
+		<div class="braintree-loader show">Loading credit card...</div>
 
-		<label for="cvv">CVV</label>
-		<div id="cvv"></div>
+		<div class="braintree-method braintree-credit-card-method" data-braintree-client-token="{{ child.vars.clientToken }}">
+			<label for="braintree-credit-card-number">Card Number</label>
+			<div class="field">
+				<div id="braintree-credit-card-number" class="input"></div>
+			</div>
 
-		<label for="expiration-date">Expiration Date</label>
-		<div id="expiration-date"></div>
+			<label for="braintree-credit-card-cvv">CVV</label>
+			<div class="field">
+				<div id="braintree-credit-card-cvv" class="input"></div>
+			</div>
+
+			<label for="braintree-credit-card-expiration-date">Expiration Date</label>
+			<div class="field">
+				<div id="braintree-credit-card-expiration-date" class="input"></div>
+			</div>
+
+			<div class="braintree-credit-card-error field"></div>
+		</div>
+
+		{{ form_errors(form.braintree_credit_card) }}
+		{{ form_widget(form.braintree_credit_card) }}
 	</div>
-
-	{{ form_errors(form.braintree_credit_card) }}
-	{{ form_widget(form.braintree_credit_card) }}
 </div>
