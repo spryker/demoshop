@@ -2,10 +2,10 @@
 
 /**
  * Data object containing the SQL and PHP code to migrate the database
- * up to version 1460626177.
- * Generated on 2016-04-14 09:29:37 by vagrant
+ * up to version 1461656487.
+ * Generated on 2016-04-26 07:41:27 by vagrant
  */
-class PropelMigration_1460626177
+class PropelMigration_1461656487
 {
     public $comment = '';
 
@@ -133,6 +133,17 @@ CREATE TABLE "spy_state_machine_event_timeout"
 
 CREATE INDEX "spy_state_machine_event_timeout-timeout" ON "spy_state_machine_event_timeout" ("timeout");
 
+CREATE SEQUENCE "pyz_state_machine_example_item_pk_seq";
+
+CREATE TABLE "pyz_state_machine_example_item"
+(
+    "id_state_machine_example_item" INTEGER NOT NULL,
+    "id_state_machine_item_state" INTEGER,
+    "id_state_machine_process" INTEGER,
+    "name" VARCHAR,
+    PRIMARY KEY ("id_state_machine_example_item")
+);
+
 ALTER TABLE "spy_state_machine_transition_log" ADD CONSTRAINT "spy_state_machine_transition_log-fk_state_machine_process"
     FOREIGN KEY ("fk_state_machine_process")
     REFERENCES "spy_state_machine_process" ("id_state_machine_process");
@@ -140,10 +151,10 @@ ALTER TABLE "spy_state_machine_transition_log" ADD CONSTRAINT "spy_state_machine
 ALTER TABLE "spy_state_machine_item_state" ADD CONSTRAINT "spy_state_machine_item_state-fk_state_machine_process"
     FOREIGN KEY ("fk_state_machine_process")
     REFERENCES "spy_state_machine_process" ("id_state_machine_process");
-    
+
 ALTER TABLE "spy_state_machine_item_state_history" ADD CONSTRAINT "spy_state_machine_item_state_h-fk_state_machine_item_state"
     FOREIGN KEY ("fk_state_machine_item_state")
-    REFERENCES "spy_state_machine_item_state" ("id_state_machine_item_state");    
+    REFERENCES "spy_state_machine_item_state" ("id_state_machine_item_state");
 
 ALTER TABLE "spy_state_machine_event_timeout" ADD CONSTRAINT "spy_state_machine_event_timeout-fk_state_machine_item_state"
     FOREIGN KEY ("fk_state_machine_item_state")
@@ -189,6 +200,10 @@ DROP SEQUENCE "spy_state_machine_item_state_history_pk_seq";
 DROP TABLE IF EXISTS "spy_state_machine_event_timeout" CASCADE;
 
 DROP SEQUENCE "spy_state_machine_event_timeout_pk_seq";
+
+DROP TABLE IF EXISTS "pyz_state_machine_example_item" CASCADE;
+
+DROP SEQUENCE "pyz_state_machine_example_item_pk_seq";
 ',
 );
     }
