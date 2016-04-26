@@ -7,6 +7,8 @@
 
 namespace Pyz\Yves\Application;
 
+use Pyz\Yves\Application\Plugin\Pimple;
+use Pyz\Yves\Twig\Plugin\TwigYves;
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Yves\Kernel\Container;
 
@@ -14,6 +16,8 @@ class ApplicationDependencyProvider extends AbstractBundleDependencyProvider
 {
 
     const CLIENT_SESSION = 'session client';
+    const PLUGIN_APPLICATION = 'application plugin';
+    const PLUGIN_TWIG = 'twig plugin';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -24,6 +28,18 @@ class ApplicationDependencyProvider extends AbstractBundleDependencyProvider
     {
         $container[self::CLIENT_SESSION] = function (Container $container) {
             return $container->getLocator()->session()->client();
+        };
+
+        $container[self::PLUGIN_APPLICATION] = function () {
+            $pimplePlugin = new Pimple();
+
+            return $pimplePlugin->getApplication();
+        };
+
+        $container[self::PLUGIN_TWIG] = function (Container $container) {
+            $twigPlugin = new TwigYves();
+
+            return $twigPlugin->getTwigYvesExtension($container[self::PLUGIN_APPLICATION]);
         };
 
         return $container;

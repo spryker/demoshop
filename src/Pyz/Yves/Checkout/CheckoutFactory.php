@@ -7,7 +7,6 @@
 
 namespace Pyz\Yves\Checkout;
 
-use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Checkout\Form\FormFactory;
 use Pyz\Yves\Checkout\Process\StepFactory;
 use Pyz\Yves\Checkout\Process\StepProcess;
@@ -45,6 +44,8 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
+     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return \Spryker\Client\Cart\CartClientInterface
      */
     public function getCartClient()
@@ -61,11 +62,13 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
+     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return \Spryker\Yves\Application\Application
      */
     protected function getApplication()
     {
-        return (new Pimple())->getApplication();
+        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_APPLICATION);
     }
 
 }

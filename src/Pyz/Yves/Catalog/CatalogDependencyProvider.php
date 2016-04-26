@@ -7,6 +7,8 @@
 
 namespace Pyz\Yves\Catalog;
 
+use Pyz\Yves\Application\Plugin\Pimple;
+use Pyz\Yves\Collector\Plugin\UrlMapperPlugin;
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Yves\Kernel\Container;
 
@@ -15,6 +17,8 @@ class CatalogDependencyProvider extends AbstractBundleDependencyProvider
 
     const CLIENT_CATALOG = 'catalog client';
     const CLIENT_CATEGORY_EXPORTER = 'category exporter client';
+    const PLUGIN_APPLICATION = 'application plugin';
+    const PLUGIN_URL_MAPPER = 'url mapper plugin';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -29,6 +33,16 @@ class CatalogDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[self::CLIENT_CATEGORY_EXPORTER] = function (Container $container) {
             return $container->getLocator()->categoryExporter()->client();
+        };
+
+        $container[self::PLUGIN_URL_MAPPER] = function () {
+            return new UrlMapperPlugin();
+        };
+
+        $container[self::PLUGIN_APPLICATION] = function () {
+            $pimplePlugin = new Pimple();
+
+            return $pimplePlugin->getApplication();
         };
 
         return $container;

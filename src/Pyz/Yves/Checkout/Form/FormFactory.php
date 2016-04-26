@@ -6,7 +6,6 @@
 namespace Pyz\Yves\Checkout\Form;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Checkout\CheckoutDependencyProvider;
 use Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface;
 use Pyz\Yves\Checkout\Form\DataProvider\SubformDataProviders;
@@ -19,9 +18,6 @@ use Pyz\Yves\Customer\Form\DataProvider\CheckoutAddressFormDataProvider;
 use Pyz\Yves\Customer\Form\GuestForm;
 use Pyz\Yves\Customer\Form\LoginForm;
 use Pyz\Yves\Customer\Form\RegisterForm;
-use Pyz\Yves\Payolution\Plugin\PayolutionInstallmentSubFormPlugin;
-use Pyz\Yves\Payolution\Plugin\PayolutionInvoiceSubFormPlugin;
-use Pyz\Yves\Shipment\Plugin\ShipmentSubFormPlugin;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Kernel\AbstractFactory;
 use Symfony\Component\Form\FormTypeInterface;
@@ -229,11 +225,13 @@ class FormFactory extends AbstractFactory
     }
 
     /**
+     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return \Spryker\Yves\Application\Application
      */
     protected function getApplication()
     {
-        return (new Pimple())->getApplication();
+        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_APPLICATION);
     }
 
     /**
@@ -245,6 +243,8 @@ class FormFactory extends AbstractFactory
     }
 
     /**
+     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return \Pyz\Client\Customer\CustomerClient
      */
     protected function getCustomerClient()
@@ -261,27 +261,33 @@ class FormFactory extends AbstractFactory
     }
 
     /**
+     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return \Pyz\Yves\Payolution\Plugin\PayolutionInvoiceSubFormPlugin
      */
     protected function createPayolutionInvoiceSubFormPlugin()
     {
-        return new PayolutionInvoiceSubFormPlugin();
+        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_INVOICE_SUB_FORM);
     }
 
     /**
+     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return \Pyz\Yves\Payolution\Plugin\PayolutionInstallmentSubFormPlugin
      */
     protected function createPayolutionInstallmentSubFormPlugin()
     {
-        return new PayolutionInstallmentSubFormPlugin();
+        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_INSTALLMENT_SUB_FORM);
     }
 
     /**
+     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return \Pyz\Yves\Shipment\Plugin\ShipmentSubFormPlugin
      */
     protected function createShipmentFormPlugin()
     {
-        return new ShipmentSubFormPlugin();
+        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_SHIPMENT_SUB_FORM);
     }
 
     /**

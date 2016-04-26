@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Cart;
 
+use Pyz\Yves\Application\Plugin\Pimple;
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Yves\Kernel\Container;
 
@@ -15,6 +16,7 @@ class CartDependencyProvider extends AbstractBundleDependencyProvider
 
     const CLIENT_CALCULATION = 'calculation client';
     const CLIENT_CART = 'cart client';
+    const PLUGIN_APPLICATION = 'application plugin';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -29,6 +31,12 @@ class CartDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[self::CLIENT_CART] = function (Container $container) {
             return $container->getLocator()->cart()->client();
+        };
+
+        $container[self::PLUGIN_APPLICATION] = function () {
+            $pimplePlugin = new Pimple();
+
+            return $pimplePlugin->getApplication();
         };
 
         return $container;

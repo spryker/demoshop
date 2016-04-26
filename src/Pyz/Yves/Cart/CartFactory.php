@@ -6,7 +6,6 @@
 
 namespace Pyz\Yves\Cart;
 
-use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Cart\Handler\CartOperationHandler;
 use Pyz\Yves\Cart\Handler\CartVoucherHandler;
 use Spryker\Yves\Kernel\AbstractFactory;
@@ -15,6 +14,8 @@ class CartFactory extends AbstractFactory
 {
 
     /**
+     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return \Spryker\Client\Calculation\CalculationClientInterface
      */
     public function getCalculationClient()
@@ -23,6 +24,8 @@ class CartFactory extends AbstractFactory
     }
 
     /**
+     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return \Spryker\Client\Cart\CartClientInterface
      */
     public function getCartClient()
@@ -47,11 +50,13 @@ class CartFactory extends AbstractFactory
     }
 
     /**
+     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return \Spryker\Yves\Application\Application
      */
     protected function createApplication()
     {
-        return (new Pimple())->getApplication();
+        return $this->getProvidedDependency(CartDependencyProvider::PLUGIN_APPLICATION);
     }
 
     /**

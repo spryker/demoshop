@@ -7,9 +7,6 @@
 
 namespace Pyz\Yves\Application;
 
-use Pyz\Yves\Application\Plugin\Pimple;
-use Pyz\Yves\Twig\Plugin\TwigYves;
-use Silex\Application as SilexApplication;
 use Spryker\Shared\Library\Context;
 use Spryker\Shared\Library\DateFormatter;
 use Spryker\Shared\Library\Twig\DateFormatterTwigExtension;
@@ -47,29 +44,33 @@ class ApplicationFactory extends SprykerApplicationFactory
     }
 
     /**
+     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return \Spryker\Yves\Application\Application
      */
     protected function createApplication()
     {
-        return (new Pimple())->getApplication();
+        return $this->getProvidedDependency(ApplicationDependencyProvider::PLUGIN_APPLICATION);
     }
 
     /**
+     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return \Spryker\Client\Session\SessionClientInterface
      */
     public function getSessionClient()
-    { 
+    {
         return $this->getProvidedDependency(ApplicationDependencyProvider::CLIENT_SESSION);
     }
 
     /**
-     * @param \Silex\Application $application
+     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
      * @return \Twig_Extension
      */
-    public function createTwigYvesExtension(SilexApplication $application)
+    public function createTwigYvesExtension()
     {
-        return (new TwigYves())->getTwigYvesExtension($application);
+        return $this->getProvidedDependency(ApplicationDependencyProvider::PLUGIN_TWIG);
     }
 
     /**

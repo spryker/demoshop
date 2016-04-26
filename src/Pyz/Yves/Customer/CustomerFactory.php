@@ -8,16 +8,11 @@
 namespace Pyz\Yves\Customer;
 
 use Generated\Shared\Transfer\CustomerTransfer;
-use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Customer\Form\FormFactory;
-use Pyz\Yves\Customer\Plugin\AuthenticationHandler;
-use Pyz\Yves\Customer\Plugin\GuestCheckoutAuthenticationHandlerPlugin;
-use Pyz\Yves\Customer\Plugin\LoginCheckoutAuthenticationHandlerPlugin;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationFailureHandler;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationSuccessHandler;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerUserProvider;
-use Pyz\Yves\Customer\Plugin\RegistrationCheckoutAuthenticationHandlerPlugin;
 use Pyz\Yves\Customer\Security\Customer;
 use Spryker\Yves\Kernel\AbstractFactory;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -101,6 +96,8 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
+     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return \Pyz\Client\Newsletter\NewsletterClientInterface
      */
     public function createNewsletterClient()
@@ -109,6 +106,8 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
+     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return \Spryker\Client\Sales\SalesClientInterface
      */
     public function createSalesClient()
@@ -117,19 +116,23 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
+     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return \Pyz\Yves\Customer\Plugin\AuthenticationHandler
      */
     public function createAuthenticationHandler()
     {
-        return new AuthenticationHandler();
+        return $this->getProvidedDependency(CustomerDependencyProvider::PLUGIN_AUTHENTICATION_HANDLER);
     }
 
     /**
+     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return \Spryker\Shared\Application\Communication\Application
      */
     public function createApplication()
     {
-        return (new Pimple())->getApplication();
+        return $this->getProvidedDependency(CustomerDependencyProvider::PLUGIN_APPLICATION);
     }
 
     /**
@@ -153,27 +156,33 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
+     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return \Pyz\Yves\Customer\Plugin\LoginCheckoutAuthenticationHandlerPlugin
      */
     public function createLoginCheckoutAuthenticationHandlerPlugin()
     {
-        return new LoginCheckoutAuthenticationHandlerPlugin();
+        return $this->getProvidedDependency(CustomerDependencyProvider::PLUGIN_LOGIN_AUTHENTICATION_HANDLER);
     }
 
     /**
+     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return \Pyz\Yves\Customer\Plugin\GuestCheckoutAuthenticationHandlerPlugin
      */
     public function createGuestCheckoutAuthenticationHandlerPlugin()
     {
-        return new GuestCheckoutAuthenticationHandlerPlugin();
+        return $this->getProvidedDependency(CustomerDependencyProvider::PLUGIN_GUEST_AUTHENTICATION_HANDLER);
     }
 
     /**
+     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return \Pyz\Yves\Customer\Plugin\RegistrationCheckoutAuthenticationHandlerPlugin
      */
     public function createRegistrationAuthenticationHandlerPlugin()
     {
-        return new RegistrationCheckoutAuthenticationHandlerPlugin($this->getFlashMessenger());
+        return $this->getProvidedDependency(CustomerDependencyProvider::PLUGIN_REGISTRATION_AUTHENTICATION_HANDLER);
     }
 
 }
