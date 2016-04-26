@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-develop",
+    "spryker/spryker": "dev-master",
 
     "psr/log": "~1.0.0",
     "propel/propel": "~2.0@dev",
@@ -68,7 +68,7 @@
       "Functional": "tests"
     }
   },
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
     "use-include-path": true,
