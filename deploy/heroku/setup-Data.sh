@@ -1,5 +1,7 @@
 #!/bin/bash
 
+exit 0
+
 set -o pipefail
 
 SETUP='spryker'
