@@ -11,8 +11,6 @@ SETUP='spryker'
 . deploy/setup/functions.sh
 
 
-CONSOLE=vendor/bin/console
-
 function installAntelope {
     if [[ `node -v | grep -E '^v[0-4]'` ]]; then
         labelText "Upgrade Node.js"
