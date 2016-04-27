@@ -9,6 +9,7 @@ var braintree = require('braintree-web');
 
 $(document).ready(function() {
     var $form = $('#payment-form');
+    var $errorContainers = $('.braintree-error');
     var $braintreeContanier = $('.braintree-method:first');
     var braintreeClientToken = !!$braintreeContanier.length ? ($braintreeContanier.data('braintree-client-token') || null) : null;
 
@@ -20,33 +21,52 @@ $(document).ready(function() {
         return '<ul class="form-errors"><li>' + message + '</li></ul>'
     }
 
+    function submitForm(nonce){
+        $form.find('input[name="payment_method_nonce"]').val(nonce || '');
+        // $form.submit();
+    }
+
     function errorHandler(error) {
         var paymentMethod = getPaymentMethod();
+        var isPayPal = (paymentMethod === 'braintreePayPal');
+        var isCreditCard = (paymentMethod === 'braintreeCreditCard');
 
-        if (paymentMethod === 'braintreePayPal') {
+        $errorContainers.empty();
+
+        if (isPayPal) {
             return $('.braintree-paypal-error').html(getErrorTemplate(error.message));
         }
 
-        if (paymentMethod === 'braintreeCreditCard') {
+        if (isCreditCard) {
             return $('.braintree-credit-card-error').html(getErrorTemplate(error.message));
         }
 
-        return $form.submit();
+        return submitForm();
     }
 
     function paymentMethodHandler(response) {
         var paymentMethod = getPaymentMethod();
+        var isWrongMethodSelected = (paymentMethod === 'braintreePayPal' && response.type !== 'PayPalAccount') || (paymentMethod === 'braintreeCreditCard' && response.type !== 'CreditCard');
 
-        if ((paymentMethod === 'braintreePayPal' && response.type !== 'PayPalAccount') || (paymentMethod === 'braintreeCreditCard' && response.type !== 'CreditCard')) {
+        $errorContainers.empty();
+
+        if (isWrongMethodSelected) {
             return errorHandler({
                 message: 'User did not enter a payment method'
             });
         }
 
-        return $form.submit();
+        return submitForm(response.nonce);
     }
 
     function readyHandler() {
+        $form.append('<input type="hidden" name="payment_method_nonce">');
+
+        $('.checkout-payment input[type="radio"]').on('change', function() {
+            $form.find('input[name="payment_method_nonce"]').val('');
+            $errorContainers.empty();
+        });
+
         $('.braintree-loader').removeClass('show');
         $('.braintree-method').addClass('show');
     }
