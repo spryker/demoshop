@@ -31,16 +31,16 @@
                 <event>finalize authorization process</event>
             </transition>
 
-            <transition condition="Braintree/IsReversalApproved">
-                <source>authorized</source>
-                <target>revert succeeded</target>
-                <event>revert payment</event>
-            </transition>
-
             <transition happy="true" >
                 <source>authorized</source>
                 <target>ready for shipment</target>
                 <event>start shipment process</event>
+            </transition>
+
+            <transition condition="Braintree/IsReversalApproved">
+                <source>authorized</source>
+                <target>revert succeeded</target>
+                <event>revert payment</event>
             </transition>
 
             <transition happy="true" >

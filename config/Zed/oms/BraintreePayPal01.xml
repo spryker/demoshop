@@ -31,12 +31,6 @@
                 <event>finalize authorization process</event>
             </transition>
 
-            <transition condition="Braintree/IsReversalApproved">
-                <source>authorized</source>
-                <target>revert succeeded</target>
-                <event>revert payment</event>
-            </transition>
-
             <transition happy="true">
                 <source>authorized</source>
                 <target>ready for capture</target>
@@ -49,16 +43,22 @@
                 <event>start shipment process</event>
             </transition>
 
-            <transition>
+            <transition condition="Braintree/IsReversalApproved">
                 <source>capture succeeded</source>
-                <target>ready for refund</target>
-                <event>start refund process</event>
+                <target>revert succeeded</target>
+                <event>revert payment</event>
             </transition>
 
             <transition happy="true">
                 <source>shipped</source>
                 <target>ready for closing</target>
                 <event>start closing process with timeout</event>
+            </transition>
+
+            <transition>
+                <source>shipped</source>
+                <target>ready for refund</target>
+                <event>start refund process</event>
             </transition>
 
             <transition>

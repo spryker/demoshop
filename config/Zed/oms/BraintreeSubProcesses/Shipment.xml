@@ -19,8 +19,7 @@
         </transitions>
 
         <events>
-            <event name="ship" manual="true"/>
-            <event name="refund payment" manual="true" onEnter="true" command="Payolution/Refund"/>
+            <event name="ship" onEnter="true"/>
         </events>
     </process>
 </statemachine>
