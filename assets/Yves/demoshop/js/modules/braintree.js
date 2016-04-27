@@ -23,7 +23,7 @@ $(document).ready(function() {
 
     function submitForm(nonce){
         $form.find('input[name="payment_method_nonce"]').val(nonce || '');
-        // $form.submit();
+        $form.submit();
     }
 
     function errorHandler(error) {
