@@ -174,7 +174,7 @@ class ProductAbstractImporter extends AbstractImporter
             $localizedAttributesTransfer = $this->buildLocalizedAttributesTransfer(
                 $this->getProductName($product, $localeCode),
                 $localizedAttributesData,
-                $this->localeFacade->getLocaleByCode($localeCode)
+                $this->localeFacade->getLocale($localeCode)
             );
 
             $productAbstractTransfer->addLocalizedAttributes($localizedAttributesTransfer);
@@ -222,7 +222,7 @@ class ProductAbstractImporter extends AbstractImporter
             $localizedAttributesTransfer = $this->buildLocalizedAttributesTransfer(
                 $product[$localizedKeyName],
                 $localizedAttributesData,
-                $this->localeFacade->getLocaleByCode($localeCode)
+                $this->localeFacade->getLocale($localeCode)
             );
 
             $productConcreteTransfer->addLocalizedAttributes($localizedAttributesTransfer);
