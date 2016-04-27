@@ -9,6 +9,7 @@ fi
 
 DATABASE_NAME='DE_development_zed'
 VERBOSITY='-v'
+CONSOLE=vendor/bin/console
 
 CURL=`which curl`
 NPM=`which npm`
