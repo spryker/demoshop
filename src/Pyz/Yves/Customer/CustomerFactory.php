@@ -96,8 +96,6 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Pyz\Client\Newsletter\NewsletterClientInterface
      */
     public function createNewsletterClient()
@@ -106,8 +104,6 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Spryker\Client\Sales\SalesClientInterface
      */
     public function createSalesClient()
@@ -116,8 +112,6 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Pyz\Yves\Customer\Plugin\AuthenticationHandler
      */
     public function createAuthenticationHandler()
@@ -126,8 +120,6 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Spryker\Shared\Application\Communication\Application
      */
     public function createApplication()
@@ -156,8 +148,6 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Pyz\Yves\Customer\Plugin\LoginCheckoutAuthenticationHandlerPlugin
      */
     public function createLoginCheckoutAuthenticationHandlerPlugin()
@@ -166,8 +156,6 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Pyz\Yves\Customer\Plugin\GuestCheckoutAuthenticationHandlerPlugin
      */
     public function createGuestCheckoutAuthenticationHandlerPlugin()
@@ -176,13 +164,19 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Pyz\Yves\Customer\Plugin\RegistrationCheckoutAuthenticationHandlerPlugin
      */
     public function createRegistrationAuthenticationHandlerPlugin()
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::PLUGIN_REGISTRATION_AUTHENTICATION_HANDLER);
+    }
+
+    /**
+     * @return \Pyz\Yves\Application\Business\Model\FlashMessengerInterface
+     */
+    public function createMessenger()
+    {
+        return $this->getProvidedDependency(CustomerDependencyProvider::FLASH_MESSENGER);
     }
 
 }

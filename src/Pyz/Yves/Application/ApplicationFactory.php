@@ -44,8 +44,6 @@ class ApplicationFactory extends SprykerApplicationFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Spryker\Yves\Application\Application
      */
     protected function createApplication()
@@ -54,8 +52,6 @@ class ApplicationFactory extends SprykerApplicationFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Spryker\Client\Session\SessionClientInterface
      */
     public function getSessionClient()
@@ -64,8 +60,6 @@ class ApplicationFactory extends SprykerApplicationFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Twig_Extension
      */
     public function createTwigYvesExtension()

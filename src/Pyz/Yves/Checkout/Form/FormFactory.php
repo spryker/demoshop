@@ -225,8 +225,6 @@ class FormFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Spryker\Yves\Application\Application
      */
     protected function getApplication()
@@ -243,8 +241,6 @@ class FormFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Pyz\Client\Customer\CustomerClient
      */
     protected function getCustomerClient()
@@ -261,8 +257,6 @@ class FormFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Pyz\Yves\Payolution\Plugin\PayolutionInvoiceSubFormPlugin
      */
     protected function createPayolutionInvoiceSubFormPlugin()
@@ -271,8 +265,6 @@ class FormFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Pyz\Yves\Payolution\Plugin\PayolutionInstallmentSubFormPlugin
      */
     protected function createPayolutionInstallmentSubFormPlugin()
@@ -281,8 +273,6 @@ class FormFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Pyz\Yves\Shipment\Plugin\ShipmentSubFormPlugin
      */
     protected function createShipmentFormPlugin()

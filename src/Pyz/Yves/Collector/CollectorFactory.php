@@ -53,8 +53,6 @@ class CollectorFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Spryker\Client\Collector\Matcher\UrlMatcher
      */
     public function createUrlMatcher()
@@ -65,8 +63,6 @@ class CollectorFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Spryker\Client\Catalog\Model\FacetConfig
      */
     protected function createFacetConfig()
@@ -77,8 +73,6 @@ class CollectorFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Silex\Application
      */
     public function createApplication()
@@ -87,8 +81,6 @@ class CollectorFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Pyz\Yves\Product\Plugin\ProductResourceCreator
      */
     protected function createProductResourceCreator()
@@ -97,8 +89,6 @@ class CollectorFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Pyz\Yves\Category\Plugin\CategoryResourceCreator
      */
     protected function createCategoryResourceCreator()
@@ -107,8 +97,6 @@ class CollectorFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Pyz\Yves\Redirect\Plugin\RedirectResourceCreator
      */
     protected function createRedirectResourceCreator()
@@ -117,8 +105,6 @@ class CollectorFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Pyz\Yves\Cms\Plugin\PageResourceCreator
      */
     protected function createPageResourceCreator()

@@ -44,8 +44,6 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Spryker\Client\Cart\CartClientInterface
      */
     public function getCartClient()
@@ -62,8 +60,6 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Spryker\Yves\Application\Application
      */
     protected function getApplication()

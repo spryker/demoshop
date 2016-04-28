@@ -14,8 +14,6 @@ class CartFactory extends AbstractFactory
 {
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Spryker\Client\Calculation\CalculationClientInterface
      */
     public function getCalculationClient()
@@ -24,8 +22,6 @@ class CartFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Spryker\Client\Cart\CartClientInterface
      */
     public function getCartClient()
@@ -50,8 +46,6 @@ class CartFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Spryker\Yves\Application\Application
      */
     protected function createApplication()

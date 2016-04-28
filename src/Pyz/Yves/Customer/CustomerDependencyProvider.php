@@ -26,6 +26,7 @@ class CustomerDependencyProvider extends AbstractBundleDependencyProvider
     const PLUGIN_LOGIN_AUTHENTICATION_HANDLER = 'login authentication plugin';
     const PLUGIN_GUEST_AUTHENTICATION_HANDLER = 'guest authentication plugin';
     const PLUGIN_REGISTRATION_AUTHENTICATION_HANDLER = 'registration authentication plugin';
+    const FLASH_MESSENGER = 'flash messenger';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -87,10 +88,12 @@ class CustomerDependencyProvider extends AbstractBundleDependencyProvider
             return new GuestCheckoutAuthenticationHandlerPlugin();
         };
 
-        $container[self::PLUGIN_REGISTRATION_AUTHENTICATION_HANDLER] = function (Container $container) {
-            $flashMessenger = $container[self::PLUGIN_APPLICATION]['flash_messenger'];
+        $container[self::PLUGIN_REGISTRATION_AUTHENTICATION_HANDLER] = function () {
+            return new RegistrationCheckoutAuthenticationHandlerPlugin();
+        };
 
-            return new RegistrationCheckoutAuthenticationHandlerPlugin($flashMessenger);
+        $container[self::FLASH_MESSENGER] = function (Container $container) {
+            return $container[self::PLUGIN_APPLICATION]['flash_messenger'];
         };
 
         return $container;

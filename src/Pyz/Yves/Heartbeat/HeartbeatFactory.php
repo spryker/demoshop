@@ -40,8 +40,6 @@ class HeartbeatFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Spryker\Client\Search\SearchClientInterface
      */
     protected function getSearchClient()
@@ -58,8 +56,6 @@ class HeartbeatFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Spryker\Client\Session\SessionClientInterface
      */
     protected function getSessionClient()
@@ -76,8 +72,6 @@ class HeartbeatFactory extends AbstractFactory
     }
 
     /**
-     * @throws \Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Spryker\Client\Storage\StorageClientInterface
      */
     protected function getStorageClient()
