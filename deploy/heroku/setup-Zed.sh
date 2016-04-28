@@ -18,6 +18,8 @@ do
             $CONSOLE setup:install $VERBOSITY
             writeErrorMessage "Setup install failed"
 
+            dumpAutoload
+
             ./deploy/heroku/setup-Yves.sh -i
             ;;
             *)
