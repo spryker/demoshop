@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-feature/1977-Add-DependencyProvider-to-Yves",
+    "spryker/spryker": "dev-master",
 
     "psr/log": "~1.0.0",
     "propel/propel": "~2.0@dev",
