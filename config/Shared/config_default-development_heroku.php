@@ -6,6 +6,7 @@
 
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Session\SessionConstants;
@@ -75,3 +76,5 @@ $config[ApplicationConstants::SHOW_SYMFONY_TOOLBAR] = false;
 $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
 
 $config[LogConstants::LOG_LEVEL] = 0;
+$config[EventJournalConstants::WRITERS]['YVES'] = [];
+$config[EventJournalConstants::WRITERS]['ZED'] = [];
