@@ -230,6 +230,10 @@ function composerInstall {
     $PHP composer.phar install --prefer-dist
 }
 
+function dumpAutoload {
+    $PHP composer.phar dump-autoload
+}
+
 function resetYves {
     if [[ -d "./node_modules" ]]; then
         labelText "Remove node_modules directory"
