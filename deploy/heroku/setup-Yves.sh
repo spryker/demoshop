@@ -50,6 +50,8 @@ do
             $CONSOLE setup:generate-ide-auto-completion
             $CONSOLE setup:generate-zed-ide-auto-completion
 
+            updateComposerBinary
+
             dumpAutoload
 
             installAntelope
