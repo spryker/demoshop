@@ -180,6 +180,21 @@ $config[UserConstants::USER_SYSTEM_USERS] = [
     'yves_system',
 ];
 
+/**
+ * Internal Yvse/Zed call authentication type
+ *
+ * DEFAULT: AUTHENTICATE_NONE
+ * IMPORTANT: AUTHENTICATE_STATIC and AUTHENTICATE_DYNAMIC add some overheads (50 ~ 100 ms) into yves/zed requests
+ *
+ */
+
+$config[AuthConstants::AUTH_TYPE] = AuthConstants::AUTHENTICATE_NONE;
+
+$config[AuthConstants::AUTH_STATIC_CREDENTIAL] = [
+    'username' => 'yves_system',
+    'password' => '7a905edef9eec12762019b1821e0fc0cabc1fa8fc1c30db22448ff43651b4bc06e9265cb38465861070c40d354b679cf'
+];
+
 $config[AuthConstants::AUTH_DEFAULT_CREDENTIALS] = [
     'yves_system' => [
         'rules' => [

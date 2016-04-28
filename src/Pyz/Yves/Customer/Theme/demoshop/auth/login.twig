@@ -5,11 +5,11 @@
     <div class="container">
         <div class="row cms-page">
             <div class="col-xs-12 col-md-6">
-                <h2>{{ 'customer.login.title' | trans }}</h2>
+                <h3>{{ 'customer.login.title' | trans }}</h3>
                 {% include "@customer/auth/partials/login-form.twig" with {'form': loginForm} %}
             </div>
             <div class="col-xs-12 col-md-6">
-                <h2>{{ 'customer.registration.title' | trans }}</h2>
+                <h3>{{ 'customer.registration.title' | trans }}</h3>
                 {% include "@customer/register/partials/register-form.twig" with {'form': registerForm} %}
             </div>
         </div>
