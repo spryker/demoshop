@@ -19,6 +19,7 @@ use Symfony\Component\Routing\Exception\RouteNotFoundException;
 class SearchRouter extends AbstractRouter
 {
 
+    const SEARCH_PATH = '/search';
     const PARAMETER_PAGE = 'page';
 
     /**
@@ -26,7 +27,7 @@ class SearchRouter extends AbstractRouter
      */
     public function generate($name, $parameters = [], $referenceType = self::ABSOLUTE_PATH)
     {
-        if ($name === '/search') {
+        if ($name === self::SEARCH_PATH) {
             $request = $this->getRequest();
             $requestParameters = $request->query->all();
             //if no page is provided we generate a url to change the filter and therefore want to reset the page
@@ -47,9 +48,13 @@ class SearchRouter extends AbstractRouter
      */
     public function match($pathinfo)
     {
-        if ($pathinfo === '/search') {
-            $request = $this->getRequest();
-            $this->getUrlMapperPlugin()->injectParametersFromUrlIntoRequest($pathinfo, $request);
+        if ($pathinfo === self::SEARCH_PATH) {
+            /**
+             * TODO: "category => search" get injected to the request. Originally it was something like c-1 that matched the category id 1.
+             * If we don't need this, that the whole ParameterInjector class could be deleted.
+             */
+            // $request = $this->getRequest();
+            // $this->getUrlMapperPlugin()->injectParametersFromUrlIntoRequest($pathinfo, $request);
 
             $bundleControllerAction = new BundleControllerAction('Catalog', 'Catalog', 'fulltextSearch');
             $routeResolver = new RouteNameResolver('catalog');

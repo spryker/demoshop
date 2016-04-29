@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Importer\Business\Importer\Product;
 
 use Generated\Shared\Search\PageIndexMap;
+use Orm\Zed\ProductSearch\Persistence\Base\SpyProductSearchAttributeMappingQuery;
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
 use Orm\Zed\Product\Persistence\SpyProductAttributesMetadataQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
@@ -100,29 +101,25 @@ class ProductSearchImporter extends AbstractImporter
      */
     protected function getMappings()
     {
+        /*
+         * This is the default configuration for product search attributes (spy_product_search_attribute_mapping table).
+         * You can add addition attributes here with the format of: [attribute_name => [target_field_name1, ...], ...].
+         */
         return [
             'sku' => [
-                'CopyToField' => [
-                    PageIndexMap::FULL_TEXT_BOOSTED,
-                    PageIndexMap::FULL_TEXT,
-                    PageIndexMap::SUGGESTION_TERMS,
-                    PageIndexMap::COMPLETION_TERMS,
-                ],
+                PageIndexMap::FULL_TEXT_BOOSTED,
+                PageIndexMap::SUGGESTION_TERMS,
+                PageIndexMap::COMPLETION_TERMS,
             ],
             'short_description' => [
-                'CopyToField' => [
-                    PageIndexMap::FULL_TEXT_BOOSTED,
-                    PageIndexMap::FULL_TEXT,
-                    PageIndexMap::SUGGESTION_TERMS,
-                    PageIndexMap::COMPLETION_TERMS,
-                ],
+                PageIndexMap::FULL_TEXT_BOOSTED,
+                PageIndexMap::SUGGESTION_TERMS,
+                PageIndexMap::COMPLETION_TERMS,
             ],
             'long_description' => [
-                'CopyToField' => [
-                    PageIndexMap::FULL_TEXT,
-                    PageIndexMap::SUGGESTION_TERMS,
-                    PageIndexMap::COMPLETION_TERMS,
-                ],
+                PageIndexMap::FULL_TEXT,
+                PageIndexMap::SUGGESTION_TERMS,
+                PageIndexMap::COMPLETION_TERMS,
             ],
         ];
     }
@@ -130,19 +127,20 @@ class ProductSearchImporter extends AbstractImporter
     /**
      * @param int $idAttribute
      * @param string $copyTarget
-     * @param string $operation
-     * @param int $weight
      *
      * @throws \Exception
      * @throws \Propel\Runtime\Exception\PropelException
      *
      * @return void
      */
-    protected function addOperation($idAttribute, $copyTarget, $operation, $weight)
+    protected function addOperation($idAttribute, $copyTarget)
     {
-        if (!$this->operationManager->hasAttributeOperation($idAttribute, $copyTarget)) {
-            $this->operationManager->createAttributeOperation($idAttribute, $copyTarget, $operation, $weight);
-        }
+        $spyProductSearchAttributeMapping = SpyProductSearchAttributeMappingQuery::create()
+            ->filterByFkProductAttributesMetadata($idAttribute)
+            ->filterByTargetField($copyTarget)
+            ->findOneOrCreate();
+
+        $spyProductSearchAttributeMapping->save();
     }
 
     /**
@@ -150,18 +148,14 @@ class ProductSearchImporter extends AbstractImporter
      */
     protected function before()
     {
-        foreach ($this->getMappings() as $sourceField => $operations) {
-            $weight = 0;
-            foreach ($operations as $operation => $targetFields) {
-                foreach ($targetFields as $targetField) {
-                    $attribute = SpyProductAttributesMetadataQuery::create()
-                        ->findOneByKey($sourceField);
+        foreach ($this->getMappings() as $sourceField => $targetFields) {
+            foreach ($targetFields as $targetField) {
+                $attribute = SpyProductAttributesMetadataQuery::create()
+                    ->findOneByKey($sourceField);
 
-                    if ($attribute) {
-                        ++$weight;
-                        $idAttribute = $attribute->getIdProductAttributesMetadata();
-                        $this->addOperation($idAttribute, $targetField, $operation, $weight);
-                    }
+                if ($attribute) {
+                    $idAttribute = $attribute->getIdProductAttributesMetadata();
+                    $this->addOperation($idAttribute, $targetField);
                 }
             }
         }

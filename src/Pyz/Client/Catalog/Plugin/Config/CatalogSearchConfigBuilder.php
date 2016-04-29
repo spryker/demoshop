@@ -24,6 +24,8 @@ use Spryker\Client\Search\Plugin\Config\SortConfigBuilderInterface;
 class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigBuilderInterface
 {
 
+    const ITEMS_PER_PAGE = 6;
+
     /**
      * @param \Spryker\Client\Search\Plugin\Config\FacetConfigBuilderInterface $facetConfigBuilder
      *
@@ -32,6 +34,7 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
     public function buildFacetConfig(FacetConfigBuilderInterface $facetConfigBuilder)
     {
         $this
+            ->addCategoryFacet($facetConfigBuilder)
             ->addPriceFacet($facetConfigBuilder);
     }
 
@@ -56,9 +59,27 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
     {
         $paginationConfigTransfer = (new PaginationConfigTransfer())
             ->setParameterName('page')
-            ->setItemsPerPage(6);
+            ->setItemsPerPage(self::ITEMS_PER_PAGE);
 
         $paginationConfigBuilder->setPagination($paginationConfigTransfer);
+    }
+
+    /**
+     * @param \Spryker\Client\Search\Plugin\Config\FacetConfigBuilderInterface $facetConfigBuilder
+     *
+     * @return $this
+     */
+    protected function addCategoryFacet(FacetConfigBuilderInterface $facetConfigBuilder)
+    {
+        $categoryFacet = (new FacetConfigTransfer())
+            ->setName('category')
+            ->setParameterName('category')
+            ->setFieldName(PageIndexMap::CATEGORY_ALL_PARENTS)
+            ->setType(FacetConfigBuilder::TYPE_CATEGORY);
+
+        $facetConfigBuilder->addFacet($categoryFacet);
+
+        return $this;
     }
 
     /**

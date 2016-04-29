@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Catalog\Controller;
 
+use Generated\Shared\Search\PageIndexMap;
 use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Yves\Application\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,8 +19,6 @@ use Symfony\Component\HttpFoundation\Request;
 class CatalogController extends AbstractController
 {
 
-    const ITEMS_PER_PAGE = 6;
-
     /**
      * @param array $categoryNode
      * @param \Symfony\Component\HttpFoundation\Request $request
@@ -28,10 +27,14 @@ class CatalogController extends AbstractController
      */
     public function indexAction(array $categoryNode, Request $request)
     {
-        //TODO: set "items per page" to 6
+        $searchString = $request->query->get('q', '');
+
+        $parameters = $request->query->all();
+        $parameters[PageIndexMap::CATEGORY] = $categoryNode['node_id'];
+
         $searchResults = $this
             ->getClient()
-            ->categorySearch($categoryNode['node_id'], $request->query->all());
+            ->fulltextSearch($searchString, $parameters);
 
         $pageTitle = ($categoryNode['meta_title']) ?: $categoryNode['name'];
         $metaAttributes = [
@@ -39,6 +42,7 @@ class CatalogController extends AbstractController
             'page_title' => $pageTitle,
             'page_description' => $categoryNode['meta_description'],
             'page_keywords' => $categoryNode['meta_keywords'],
+            'searchString' => $searchString,
         ];
 
         $searchResults = array_merge($searchResults, $metaAttributes);
@@ -57,12 +61,13 @@ class CatalogController extends AbstractController
      */
     public function fulltextSearchAction(Request $request)
     {
-        //TODO: set "items per page" to 6
+        $searchString = $request->query->get('q');
+
         $searchResults = $this
             ->getClient()
-            ->fulltextSearch($request->query->get('q'), $request->query->all());
+            ->fulltextSearch($searchString, $request->query->all());
 
-        $searchResults = array_merge($searchResults, ['searchString' => $request->query->get('q')]);
+        $searchResults = array_merge($searchResults, ['searchString' => $searchString]);
 
         if ($request->isXmlHttpRequest()) {
             return $this->formatJsonResponse($searchResults);

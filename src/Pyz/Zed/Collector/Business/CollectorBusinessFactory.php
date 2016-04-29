@@ -21,6 +21,8 @@ use Pyz\Zed\Collector\Persistence\Storage\Propel\BlockCollectorQuery as StorageB
 use Pyz\Zed\Collector\Persistence\Storage\Propel\PageCollectorQuery as StoragePageCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\RedirectCollectorQuery as StorageRedirectCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\TranslationCollectorQuery as StorageTranslationCollectorPropelQuery;
+use Pyz\Zed\Collector\Business\Search\DataMapper\ProductDataPageMap;
+use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderDependencyContainer;
 use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderFactory;
 use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderFactoryWorker;
@@ -38,8 +40,8 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createSearchProductCollector()
     {
         $searchProductCollector = new SearchProductCollector(
-            $this->getProductSearchFacade(),
-            $this->getPriceFacade()
+            $this->createProductDataPageMapBuilder(),
+            $this->getSearchFacade()
         );
 
         $searchProductCollector->setTouchQueryContainer(
@@ -339,6 +341,14 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
+     * @return \Spryker\Zed\Search\Business\SearchFacadeInterface
+     */
+    protected function getSearchFacade()
+    {
+        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_SEARCH);
+    }
+
+    /**
      * @return \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface
      */
     protected function getProductSearchFacade()
@@ -368,6 +378,26 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     protected function getCurrentDatabaseEngineName()
     {
         return $this->getPropelFacade()->getCurrentDatabaseEngineName();
+    }
+
+    /**
+     * @return \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapInterface
+     */
+    protected function createProductDataPageMapBuilder()
+    {
+        return new ProductDataPageMap(
+            $this->getPriceFacade(),
+            $this->getProductSearchFacade(),
+            $this->getStoreName()
+        );
+    }
+
+    /**
+     * @return string
+     */
+    protected function getStoreName()
+    {
+        return Store::getInstance()->getStoreName();
     }
 
 }
