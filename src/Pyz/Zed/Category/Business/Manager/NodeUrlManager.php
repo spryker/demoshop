@@ -99,7 +99,7 @@ class NodeUrlManager extends SprykerNodeUrlManager implements NodeUrlManagerInte
             if ($urlBaseTransfer->getIdUrl() !== $urlTransfer->getIdUrl()) {
                 $originalUrl = $urlBase;
                 while ($this->urlFacade->hasUrl($urlBase)) {
-                    $urlBase = $originalUrl . '-'. $step;
+                    $urlBase = $originalUrl . '-' . $step;
                     if ($step > $max) {
                         break;
                     }
