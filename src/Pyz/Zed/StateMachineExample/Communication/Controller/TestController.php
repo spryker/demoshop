@@ -31,10 +31,10 @@ class TestController extends AbstractController
             ->getStateMachineItems();
 
         $stateMachineItems = $this->getStateMachineFacade()
-            ->getProcessedStateMachineItems(self::STATE_MACHINE_NAME, $stateMachineItems);
+            ->getProcessedStateMachineItems($stateMachineItems);
 
         $manualEvents = $this->getStateMachineFacade()
-            ->getManualEventsForStateMachineItems(self::STATE_MACHINE_NAME, $stateMachineItems);
+            ->getManualEventsForStateMachineItems($stateMachineItems);
 
         $stateMachineExampleItems = $this->getQueryContainer()
             ->queryAllStateMachineItems();

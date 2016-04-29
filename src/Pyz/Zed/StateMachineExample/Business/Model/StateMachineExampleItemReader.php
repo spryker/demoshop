@@ -59,14 +59,13 @@ class StateMachineExampleItemReader
     {
         $stateMachineItems = [];
         foreach ($stateMachineExampleItems as $stateMachineExampleItemEntity) {
-            if (!$stateMachineExampleItemEntity->getIdStateMachineItemState()) {
+            if (!$stateMachineExampleItemEntity->getFkStateMachineItemState()) {
                 continue;
             }
 
             $stateMachineItemIdentifier = new StateMachineItemTransfer();
             $stateMachineItemIdentifier->setIdentifier($stateMachineExampleItemEntity->getIdStateMachineExampleItem());
-            $stateMachineItemIdentifier->setIdStateMachineProcess($stateMachineExampleItemEntity->getIdStateMachineProcess());
-            $stateMachineItemIdentifier->setIdItemState($stateMachineExampleItemEntity->getIdStateMachineItemState());
+            $stateMachineItemIdentifier->setIdItemState($stateMachineExampleItemEntity->getFkStateMachineItemState());
 
             $stateMachineItems[] = $stateMachineItemIdentifier;
         }

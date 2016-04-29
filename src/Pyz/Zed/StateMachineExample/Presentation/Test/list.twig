@@ -20,7 +20,7 @@
             <td>{{ exampleItem.IdStateMachineExampleItem }}</td>
             <td>{{ exampleItem.name }}</td>
             <td>
-                {% if exampleItem.IdStateMachineItemState is empty %}
+                {% if exampleItem.FkStateMachineItemState is empty %}
                     <a class="btn btn-primary btn-sm trigger-order-single-event"
                        href="{{ url(
                           '/state-machine/trigger/trigger-event-for-new-item',
@@ -56,10 +56,8 @@
                        href="{{ url('/state-machine/trigger/trigger-event',
                        {
                            'event' : event,
-                           'id-process': stateMachineItems[exampleItem.IdStateMachineExampleItem].getIdStateMachineProcess,
-                           'identifier': stateMachineItems[exampleItem.IdStateMachineExampleItem].getIdentifier,
-                           'id-state' : stateMachineItems[exampleItem.IdStateMachineExampleItem].getIdItemState,
-                           'state-machine-name' : 'Test',
+                           'identifier': exampleItem.IdStateMachineExampleItem,
+                           'id-state' : exampleItem.FkStateMachineItemState,
                            redirect : '/state-machine-example/test/list'
                        }) }}"
                     >

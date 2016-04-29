@@ -3,9 +3,12 @@
 
     <table name="pyz_state_machine_example_item" phpName="PyzStateMachineExampleItem" identifierQuoting="true">
         <column name="id_state_machine_example_item" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
-        <column name="id_state_machine_item_state" type="INTEGER" required="false"/>
-        <column name="id_state_machine_process" type="INTEGER" required="false"/>
+        <column name="fk_state_machine_item_state" type="INTEGER" required="false"/>
         <column name="name" type="VARCHAR" required="false"/>
+
+        <foreign-key name="pyz_state_machine_example_item-fk_state_machine_item_state" foreignTable="spy_state_machine_item_state" phpName="State" refPhpName="StateMachineItemState">
+            <reference local="fk_state_machine_item_state" foreign="id_state_machine_item_state"/>
+        </foreign-key>
 
         <id-method-parameter value="pyz_state_machine_example_item_pk_seq"/>
     </table>

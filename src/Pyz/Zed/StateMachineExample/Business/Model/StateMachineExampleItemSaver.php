@@ -38,8 +38,7 @@ class StateMachineExampleItemSaver
             ->queryStateMachineExampleItemByIdStateMachineItem($stateMachineItemTransfer->getIdentifier())
             ->findOne();
 
-        $stateMachineExampleItemEntity->setIdStateMachineItemState($stateMachineItemTransfer->getIdItemState());
-        $stateMachineExampleItemEntity->setIdStateMachineProcess($stateMachineItemTransfer->getIdStateMachineProcess());
+        $stateMachineExampleItemEntity->setFkStateMachineItemState($stateMachineItemTransfer->getIdItemState());
         $affectedRowCount = $stateMachineExampleItemEntity->save();
 
         return $affectedRowCount > 0;

@@ -2,10 +2,10 @@
 
 /**
  * Data object containing the SQL and PHP code to migrate the database
- * up to version 1461656487.
- * Generated on 2016-04-26 07:41:27 by vagrant
+ * up to version 1461942725.
+ * Generated on 2016-04-29 15:12:05 by vagrant
  */
-class PropelMigration_1461656487
+class PropelMigration_1461942725
 {
     public $comment = '';
 
@@ -138,8 +138,7 @@ CREATE SEQUENCE "pyz_state_machine_example_item_pk_seq";
 CREATE TABLE "pyz_state_machine_example_item"
 (
     "id_state_machine_example_item" INTEGER NOT NULL,
-    "id_state_machine_item_state" INTEGER,
-    "id_state_machine_process" INTEGER,
+    "fk_state_machine_item_state" INTEGER,
     "name" VARCHAR,
     PRIMARY KEY ("id_state_machine_example_item")
 );
@@ -163,6 +162,10 @@ ALTER TABLE "spy_state_machine_event_timeout" ADD CONSTRAINT "spy_state_machine_
 ALTER TABLE "spy_state_machine_event_timeout" ADD CONSTRAINT "spy_state_machine_event_timeout-fk_state_machine_process"
     FOREIGN KEY ("fk_state_machine_process")
     REFERENCES "spy_state_machine_process" ("id_state_machine_process");
+
+ALTER TABLE "pyz_state_machine_example_item" ADD CONSTRAINT "pyz_state_machine_example_item-fk_state_machine_item_state"
+    FOREIGN KEY ("fk_state_machine_item_state")
+    REFERENCES "spy_state_machine_item_state" ("id_state_machine_item_state");
 ',
 );
     }

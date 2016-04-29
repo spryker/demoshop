@@ -24,7 +24,7 @@ class StateMachineExampleQueryContainer extends AbstractQueryContainer implement
     {
           return $this->getFactory()
               ->createStateMachineExampleQuery()
-              ->filterByIdStateMachineItemState($stateIds);
+              ->filterByFkStateMachineItemState($stateIds);
     }
 
     /**
@@ -32,7 +32,9 @@ class StateMachineExampleQueryContainer extends AbstractQueryContainer implement
      */
     public function queryAllStateMachineItems()
     {
-         return $this->getFactory()->createStateMachineExampleQuery()->find();
+         return $this->getFactory()
+             ->createStateMachineExampleQuery()
+             ->find();
     }
 
     /**
@@ -42,7 +44,8 @@ class StateMachineExampleQueryContainer extends AbstractQueryContainer implement
      */
     public function queryStateMachineExampleItemByIdStateMachineItem($idStateMachineItem)
     {
-        return $this->getFactory()->createStateMachineExampleQuery()
+        return $this->getFactory()
+            ->createStateMachineExampleQuery()
             ->filterByIdStateMachineExampleItem($idStateMachineItem);
     }
 
