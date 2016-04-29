@@ -14,7 +14,7 @@ use Spryker\Shared\Session\SessionConstants;
 $config[ApplicationConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
 $config[ApplicationConstants::ZED_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
 
-$redis = parse_url(getenv('REDIS_URL'));
+$redis = parse_url(getenv(getenv('REDIS_URL_NAME') ?: 'REDIS_URL'));
 $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL] = $redis['scheme'];
 $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST] = $redis['host'];
 $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT] = $redis['port'];
