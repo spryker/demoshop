@@ -9,9 +9,6 @@ namespace Pyz\Yves\Checkout;
 
 use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Customer\Plugin\CustomerStepHandler;
-use Pyz\Yves\Payolution\Plugin\PayolutionHandlerPlugin;
-use Pyz\Yves\Payolution\Plugin\PayolutionInstallmentSubFormPlugin;
-use Pyz\Yves\Payolution\Plugin\PayolutionInvoiceSubFormPlugin;
 use Pyz\Yves\Shipment\Plugin\ShipmentHandlerPlugin;
 use Pyz\Yves\Shipment\Plugin\ShipmentSubFormPlugin;
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
@@ -25,11 +22,13 @@ class CheckoutDependencyProvider extends AbstractBundleDependencyProvider
     const CLIENT_CHECKOUT = 'checkout client';
     const CLIENT_CUSTOMER = 'customer client';
     const PLUGIN_APPLICATION = 'application plugin';
-    const PLUGIN_INSTALLMENT_SUB_FORM = 'installment sub form plugin';
-    const PLUGIN_INVOICE_SUB_FORM = 'invoice sub form plugin';
+
     const PLUGIN_SHIPMENT_SUB_FORM = 'shipment sub form plugin';
     const PLUGIN_CUSTOMER_STEP_HANDLER = 'step handler plugin';
-    const PLUGIN_PAYOLUTION_HANDLER = 'payolution handler plugin';
+
+    const PAYMENT_METHOD_HANDLER = 'payment method handler';
+    const PAYMENT_SUB_FORMS = 'PAYMENT_SUB_FORMS';
+
     const PLUGIN_SHIPMENT_HANDLER = 'shipment handler plugin';
 
     /**
@@ -78,12 +77,12 @@ class CheckoutDependencyProvider extends AbstractBundleDependencyProvider
      */
     protected function providePlugins(Container $container)
     {
-        $container[self::PLUGIN_INVOICE_SUB_FORM] = function () {
-            return new PayolutionInstallmentSubFormPlugin();
+        $container[self::PAYMENT_SUB_FORMS] = function () {
+            return [];
         };
-
-        $container[self::PLUGIN_INSTALLMENT_SUB_FORM] = function () {
-            return new PayolutionInvoiceSubFormPlugin();
+        
+        $container[self::PAYMENT_METHOD_HANDLER] = function () {
+            return [];
         };
 
         $container[self::PLUGIN_SHIPMENT_SUB_FORM] = function () {
@@ -92,10 +91,6 @@ class CheckoutDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[self::PLUGIN_CUSTOMER_STEP_HANDLER] = function () {
             return new CustomerStepHandler();
-        };
-
-        $container[self::PLUGIN_PAYOLUTION_HANDLER] = function () {
-            return new PayolutionHandlerPlugin();
         };
 
         $container[self::PLUGIN_SHIPMENT_HANDLER] = function () {

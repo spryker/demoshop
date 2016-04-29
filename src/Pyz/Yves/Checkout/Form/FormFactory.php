@@ -178,10 +178,7 @@ class FormFactory extends AbstractFactory
      */
     public function createPaymentMethodsSubForms()
     {
-        return [
-            $this->createPayolutionInvoiceSubFormPlugin(),
-            $this->createPayolutionInstallmentSubFormPlugin(),
-        ];
+        return $this->getProvidedDependency(CheckoutDependencyProvider::PAYMENT_SUB_FORMS);
     }
 
     /**
@@ -254,22 +251,6 @@ class FormFactory extends AbstractFactory
     protected function createLoginForm()
     {
         return new LoginForm();
-    }
-
-    /**
-     * @return \Pyz\Yves\Payolution\Plugin\PayolutionInvoiceSubFormPlugin
-     */
-    protected function createPayolutionInvoiceSubFormPlugin()
-    {
-        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_INVOICE_SUB_FORM);
-    }
-
-    /**
-     * @return \Pyz\Yves\Payolution\Plugin\PayolutionInstallmentSubFormPlugin
-     */
-    protected function createPayolutionInstallmentSubFormPlugin()
-    {
-        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_INSTALLMENT_SUB_FORM);
     }
 
     /**

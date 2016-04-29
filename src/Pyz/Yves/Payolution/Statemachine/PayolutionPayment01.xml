@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<statemachine
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="process.xsd">
+
+    <process name="PayolutionPayment01" main="true">
+        <states>
+            <state name="new" reserved="true"/>
+        </states>
+    </process>
+
+</statemachine>

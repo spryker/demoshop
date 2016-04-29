@@ -5,7 +5,7 @@
  */
 namespace Pyz\Yves\Checkout\Process;
 
-use Generated\Shared\Transfer\PaymentTransfer;
+//use Generated\Shared\Transfer\PaymentTransfer;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Pyz\Yves\Checkout\CheckoutDependencyProvider;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
@@ -120,10 +120,7 @@ class StepFactory extends AbstractFactory
      */
     public function createPaymentPlugins()
     {
-        return [
-            PaymentTransfer::PAYOLUTION_INVOICE => $this->createPayolutionHandlerPlugin(),
-            PaymentTransfer::PAYOLUTION_INSTALLMENT => $this->createPayolutionHandlerPlugin(),
-        ];
+        return $this->getProvidedDependency(CheckoutDependencyProvider::PAYMENT_METHOD_HANDLER);
     }
 
     /**
@@ -179,14 +176,6 @@ class StepFactory extends AbstractFactory
     protected function getFlashMessenger()
     {
         return $this->getApplication()['flash_messenger'];
-    }
-
-    /**
-     * @return \Pyz\Yves\Payolution\Plugin\PayolutionHandlerPlugin
-     */
-    public function createPayolutionHandlerPlugin()
-    {
-        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_PAYOLUTION_HANDLER);
     }
 
     /**
