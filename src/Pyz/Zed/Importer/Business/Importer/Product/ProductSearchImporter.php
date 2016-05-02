@@ -8,12 +8,11 @@
 namespace Pyz\Zed\Importer\Business\Importer\Product;
 
 use Generated\Shared\Search\PageIndexMap;
-use Orm\Zed\ProductSearch\Persistence\Base\SpyProductSearchAttributeMappingQuery;
+use Orm\Zed\ProductSearch\Persistence\Base\SpyProductSearchAttributeMapQuery;
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
 use Orm\Zed\Product\Persistence\SpyProductAttributesMetadataQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
-use Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface;
 use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 
 class ProductSearchImporter extends AbstractImporter
@@ -23,11 +22,6 @@ class ProductSearchImporter extends AbstractImporter
     const PRODUCT_ID = 'id_product';
 
     /**
-     * @var \Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface
-     */
-    protected $operationManager;
-
-    /**
      * @var \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface
      */
     protected $productSearchFacade;
@@ -35,17 +29,14 @@ class ProductSearchImporter extends AbstractImporter
     /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface $productSearchFacade
-     * @param \Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface $operationManager
      */
     public function __construct(
         LocaleFacadeInterface $localeFacade,
-        ProductSearchFacadeInterface $productSearchFacade,
-        OperationManagerInterface $operationManager
+        ProductSearchFacadeInterface $productSearchFacade
     ) {
         parent::__construct($localeFacade);
 
         $this->productSearchFacade = $productSearchFacade;
-        $this->operationManager = $operationManager;
     }
 
     /**
@@ -135,7 +126,7 @@ class ProductSearchImporter extends AbstractImporter
      */
     protected function addOperation($idAttribute, $copyTarget)
     {
-        $spyProductSearchAttributeMapping = SpyProductSearchAttributeMappingQuery::create()
+        $spyProductSearchAttributeMapping = SpyProductSearchAttributeMapQuery::create()
             ->filterByFkProductAttributesMetadata($idAttribute)
             ->filterByTargetField($copyTarget)
             ->findOneOrCreate();

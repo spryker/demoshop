@@ -2,10 +2,10 @@
 
 /**
  * Data object containing the SQL and PHP code to migrate the database
- * up to version 1461932317.
- * Generated on 2016-04-29 12:18:37 by vagrant
+ * up to version 1462193610.
+ * Generated on 2016-05-02 12:53:30 by vagrant
  */
-class PropelMigration_1461932317
+class PropelMigration_1462193610
 {
     public $comment = '';
 
@@ -39,16 +39,18 @@ class PropelMigration_1461932317
     {
         return array (
   'zed' => '
-CREATE TABLE "spy_product_search_attribute_mapping"
+DROP TABLE IF EXISTS "spy_product_search_attributes_operation" CASCADE;
+
+CREATE TABLE "spy_product_search_attribute_map"
 (
     "fk_product_attributes_metadata" INTEGER NOT NULL,
     "target_field" VARCHAR NOT NULL,
     PRIMARY KEY ("fk_product_attributes_metadata","target_field")
 );
 
-CREATE INDEX "spy_product_search_attribute_mapping-k_product_attributes_metad" ON "spy_product_search_attribute_mapping" ("fk_product_attributes_metadata");
+CREATE INDEX "spy_product_search_attribute_map-k_product_attributes_metadata" ON "spy_product_search_attribute_map" ("fk_product_attributes_metadata");
 
-ALTER TABLE "spy_product_search_attribute_mapping" ADD CONSTRAINT "spy_product_search_attribute_mapping-source_attribute_id"
+ALTER TABLE "spy_product_search_attribute_map" ADD CONSTRAINT "spy_product_search_attribute_map-source_attribute_id"
     FOREIGN KEY ("fk_product_attributes_metadata")
     REFERENCES "spy_product_attributes_metadata" ("id_product_attributes_metadata")
     ON DELETE CASCADE;
@@ -66,7 +68,23 @@ ALTER TABLE "spy_product_search_attribute_mapping" ADD CONSTRAINT "spy_product_s
     {
         return array (
   'zed' => '
-DROP TABLE IF EXISTS "spy_product_search_attribute_mapping" CASCADE;
+DROP TABLE IF EXISTS "spy_product_search_attribute_map" CASCADE;
+
+CREATE TABLE "spy_product_search_attributes_operation"
+(
+    "source_attribute_id" INTEGER NOT NULL,
+    "operation" VARCHAR NOT NULL,
+    "target_field" VARCHAR NOT NULL,
+    "weighting" INTEGER DEFAULT 0 NOT NULL,
+    PRIMARY KEY ("source_attribute_id","operation","target_field")
+);
+
+CREATE INDEX "spy_product_search_attributes_operation-source_attribute_id" ON "spy_product_search_attributes_operation" ("source_attribute_id","weighting");
+
+ALTER TABLE "spy_product_search_attributes_operation" ADD CONSTRAINT "spy_product_search_attributes_operation-source_attribute_id"
+    FOREIGN KEY ("source_attribute_id")
+    REFERENCES "spy_product_attributes_metadata" ("id_product_attributes_metadata")
+    ON DELETE CASCADE;
 ',
 );
     }

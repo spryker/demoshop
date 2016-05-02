@@ -1,4 +1,4 @@
-{#{% if quantity is not defined or quantity > 0 %}#}
+{% if quantity is not defined or quantity > 0 %}
     {% set isDefault = (default is defined and default == true) %}
     <input type="radio"
         id="filter-{{ filterName }}-{{ value }}"
@@ -14,4 +14,4 @@
             <span class="filter__quantity">{{ quantity }}</span>
         {% endif %}
     </label>
-{#{% endif %}#}
+{% endif %}

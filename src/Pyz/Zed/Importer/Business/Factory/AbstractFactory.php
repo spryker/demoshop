@@ -127,14 +127,6 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\ProductSearch\Persistence\ProductSearchQueryContainerInterface
-     */
-    protected function getProductSearchQueryContainer()
-    {
-        return $this->getProvidedDependency(ImporterDependencyProvider::QUERY_CONTAINER_PRODUCT_SEARCH);
-    }
-
-    /**
      * @return \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface
      */
     protected function getProductCategoryQueryContainer()
