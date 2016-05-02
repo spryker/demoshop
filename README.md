@@ -1,7 +1,6 @@
-Spryker Demoshop
-=======
+# Spryker Demoshop
 
-In order to install Spryker Demoshop on your machine, you can follow the instructions described in the link below :
+In order to install Spryker Demoshop on your machine, you can follow the instructions described in the link below:
 
 * [Installation - http://spryker.github.io/getting-started/installation/guide/](http://spryker.github.io/getting-started/installation/guide/)
 
