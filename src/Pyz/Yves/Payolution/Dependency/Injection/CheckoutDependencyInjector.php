@@ -13,13 +13,13 @@ use Pyz\Yves\Payolution\Plugin\PayolutionHandlerPlugin;
 use Pyz\Yves\Payolution\Plugin\PayolutionInstallmentSubFormPlugin;
 use Pyz\Yves\Payolution\Plugin\PayolutionInvoiceSubFormPlugin;
 use Spryker\Shared\Kernel\ContainerInterface;
-use Spryker\Shared\Kernel\Dependency\Injection\DependencyInjectionProviderInterface;
-use Spryker\Yves\Kernel\Dependency\Injection\AbstractDependencyInjectionProvider;
+use Spryker\Shared\Kernel\Dependency\Injection\DependencyInjectionInterface;
+use Spryker\Yves\Kernel\Dependency\Injection\AbstractDependencyInjector;
 
 /**
  * @method \Pyz\Yves\Payolution\PayolutionFactory getFactory()
  */
-class CheckoutDependencyInjector extends AbstractDependencyInjectionProvider implements DependencyInjectionProviderInterface
+class CheckoutDependencyInjector extends AbstractDependencyInjector implements DependencyInjectionInterface
 {
 
     /**
