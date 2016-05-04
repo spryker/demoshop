@@ -1,8 +1,10 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
+
 namespace Pyz\Yves\Checkout\Form;
 
 use Generated\Shared\Transfer\QuoteTransfer;
@@ -19,10 +21,11 @@ use Pyz\Yves\Customer\Form\GuestForm;
 use Pyz\Yves\Customer\Form\LoginForm;
 use Pyz\Yves\Customer\Form\RegisterForm;
 use Spryker\Shared\Kernel\Store;
-use Spryker\Yves\Kernel\AbstractFactory;
+use Spryker\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginCollection;
+use Spryker\Yves\Checkout\Form\FormFactory as SprykerFormFactory;
 use Symfony\Component\Form\FormTypeInterface;
 
-class FormFactory extends AbstractFactory
+class FormFactory extends SprykerFormFactory
 {
 
     /**
@@ -74,11 +77,11 @@ class FormFactory extends AbstractFactory
     }
 
     /**
-     * @param array|\Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[]
+     * @param \Spryker\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginCollection $subForms
      *
      * @return \Pyz\Yves\Checkout\Form\DataProvider\SubformDataProviders
      */
-    protected function createSubFormDataProvider(array $subForms)
+    protected function createSubFormDataProvider(CheckoutSubFormPluginCollection $subForms)
     {
         return new SubformDataProviders($subForms);
     }
@@ -144,41 +147,31 @@ class FormFactory extends AbstractFactory
     }
 
     /**
-     * @param array|\Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[] $subForms
+     * @param CheckoutSubFormPluginCollection $subForms
      *
      * @return \Pyz\Yves\Checkout\Form\Steps\ShipmentForm
      */
-    protected function createShipmentForm(array $subForms)
+    protected function createShipmentForm(CheckoutSubFormPluginCollection $subForms)
     {
         return new ShipmentForm($subForms);
     }
 
     /**
-     * @return \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[]
+     * @return \Spryker\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginCollection
      */
     protected function createShipmentMethodsSubForms()
     {
-        return [
-            $this->createShipmentFormPlugin(),
-        ];
+        return $this->createShipmentFormPlugin();
     }
 
     /**
-     * @param array|\Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[] $subForms
+     * @param \Spryker\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginCollection $subForms
      *
      * @return \Pyz\Yves\Checkout\Form\Steps\PaymentForm
      */
-    protected function createPaymentForm(array $subForms)
+    protected function createPaymentForm(CheckoutSubFormPluginCollection $subForms)
     {
         return new PaymentForm($subForms);
-    }
-
-    /**
-     * @return \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[]
-     */
-    public function createPaymentMethodsSubForms()
-    {
-        return $this->getProvidedDependency(CheckoutDependencyProvider::PAYMENT_SUB_FORMS);
     }
 
     /**
@@ -254,7 +247,7 @@ class FormFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Yves\Shipment\Plugin\ShipmentSubFormPlugin
+     * @return \Spryker\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginCollection
      */
     protected function createShipmentFormPlugin()
     {

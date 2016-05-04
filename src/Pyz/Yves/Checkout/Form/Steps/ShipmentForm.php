@@ -5,7 +5,8 @@
  */
 namespace Pyz\Yves\Checkout\Form\Steps;
 
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
+use Spryker\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginCollection;
+use Spryker\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -23,9 +24,9 @@ class ShipmentForm extends AbstractType
     protected $shipmentMethodsSubFormPlugins;
 
     /**
-     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[] $shipmentMethodsSubFormPlugins
+     * @param \Spryker\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginCollection $shipmentMethodsSubFormPlugins
      */
-    public function __construct(array $shipmentMethodsSubFormPlugins)
+    public function __construct(CheckoutSubFormPluginCollection $shipmentMethodsSubFormPlugins)
     {
         $this->shipmentMethodsSubFormPlugins = $shipmentMethodsSubFormPlugins;
     }
@@ -158,7 +159,7 @@ class ShipmentForm extends AbstractType
     }
 
     /**
-     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface $shipmentMethodSubForm
+     * @param \Spryker\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface $shipmentMethodSubForm
      *
      * @return \Pyz\Yves\Checkout\Dependency\SubFormInterface
      */

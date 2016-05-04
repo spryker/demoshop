@@ -31,6 +31,7 @@ use Spryker\Client\Calculation\CalculationClient;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 use Spryker\Shared\Shipment\ShipmentConstants;
+use Spryker\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginCollection;
 use Spryker\Yves\Kernel\Container;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -362,7 +363,7 @@ class CheckoutControllerTest extends Test
      */
     protected function createShipmentForm()
     {
-        return new ShipmentForm([]);
+        return new ShipmentForm(new CheckoutSubFormPluginCollection());
     }
 
     /**
@@ -370,7 +371,7 @@ class CheckoutControllerTest extends Test
      */
     protected function createPaymentForm()
     {
-         return new PaymentForm([]);
+         return new PaymentForm(new CheckoutSubFormPluginCollection());
     }
 
     /**

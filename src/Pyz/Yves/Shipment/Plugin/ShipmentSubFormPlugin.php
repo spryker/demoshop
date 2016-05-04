@@ -5,7 +5,7 @@
  */
 namespace Pyz\Yves\Shipment\Plugin;
 
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
+use Spryker\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
 use Spryker\Yves\Kernel\AbstractPlugin;
 
 /**
@@ -15,7 +15,7 @@ class ShipmentSubFormPlugin extends AbstractPlugin implements CheckoutSubFormPlu
 {
 
     /**
-     * @return \Pyz\Yves\Checkout\Dependency\SubFormInterface
+     * @return \Spryker\Yves\Checkout\Dependency\Form\SubFormInterface
      */
     public function createSubForm()
     {
@@ -23,7 +23,7 @@ class ShipmentSubFormPlugin extends AbstractPlugin implements CheckoutSubFormPlu
     }
 
     /**
-     * @return \Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface
+     * @return \Spryker\Yves\Checkout\Dependency\DataProvider\DataProviderInterface
      */
     public function createSubFormDataProvider()
     {

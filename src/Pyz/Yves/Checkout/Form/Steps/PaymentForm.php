@@ -7,8 +7,9 @@ namespace Pyz\Yves\Checkout\Form\Steps;
 
 use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
+use Spryker\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
 use Pyz\Yves\Checkout\Dependency\SubFormInterface;
+use Spryker\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginCollection;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
@@ -29,9 +30,9 @@ class PaymentForm extends AbstractType
     protected $paymentMethodSubFormPlugins;
 
     /**
-     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[] $paymentMethodSubFormPlugins
+     * @param \Spryker\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginCollection $paymentMethodSubFormPlugins
      */
-    public function __construct(array $paymentMethodSubFormPlugins)
+    public function __construct(CheckoutSubFormPluginCollection $paymentMethodSubFormPlugins)
     {
         $this->paymentMethodSubFormPlugins = $paymentMethodSubFormPlugins;
     }
@@ -169,7 +170,7 @@ class PaymentForm extends AbstractType
     }
 
     /**
-     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface $paymentMethodSubForm
+     * @param \Spryker\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface $paymentMethodSubForm
      *
      * @return \Pyz\Yves\Checkout\Dependency\SubFormInterface
      */

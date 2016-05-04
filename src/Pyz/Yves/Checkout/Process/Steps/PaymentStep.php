@@ -21,7 +21,7 @@ class PaymentStep extends BaseStep
      * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      * @param string $stepRoute
      * @param string $escapeRoute
-     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface[] $paymentPlugins
+     * @param \Spryker\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerCollection $paymentPlugins
      */
     public function __construct(
         FlashMessengerInterface $flashMessenger,

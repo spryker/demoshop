@@ -1,11 +1,12 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
+
 namespace Pyz\Yves\Checkout\Process;
 
-//use Generated\Shared\Transfer\PaymentTransfer;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Pyz\Yves\Checkout\CheckoutDependencyProvider;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
@@ -17,9 +18,9 @@ use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
-use Spryker\Yves\Kernel\AbstractFactory;
+use Spryker\Yves\Checkout\Process\StepFactory as SprykerStepFactory;
 
-class StepFactory extends AbstractFactory
+class StepFactory extends SprykerStepFactory
 {
 
     /**
@@ -113,14 +114,6 @@ class StepFactory extends AbstractFactory
             ApplicationControllerProvider::ROUTE_HOME,
             $this->createPaymentPlugins()
         );
-    }
-
-    /**
-     * @return \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface[]
-     */
-    public function createPaymentPlugins()
-    {
-        return $this->getProvidedDependency(CheckoutDependencyProvider::PAYMENT_METHOD_HANDLER);
     }
 
     /**
