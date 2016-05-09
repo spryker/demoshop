@@ -49,7 +49,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
 {
 
     const SERVICE_PROVIDER = 'SERVICE_PROVIDER';
-    const INTERNAL_CALL_SERVICE_PROVIDER = 'INTERNAL_SERVICE_PROVIDER';
+    const INTERNAL_CALL_SERVICE_PROVIDER = 'INTERNAL_CALL_SERVICE_PROVIDER';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
