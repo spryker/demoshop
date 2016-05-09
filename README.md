@@ -1,4 +1,5 @@
 # Spryker Demoshop
+[![License](https://img.shields.io/github/license/spryker/demoshop.svg)](https://github.com/spryker/demoshop/)
 
 In order to install Spryker Demoshop on your machine, you can follow the instructions described in the link below:
 
