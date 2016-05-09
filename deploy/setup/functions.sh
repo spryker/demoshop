@@ -9,6 +9,7 @@ fi
 
 DATABASE_NAME='DE_development_zed'
 VERBOSITY='-v'
+CONSOLE=vendor/bin/console
 
 CURL=`which curl`
 NPM=`which npm`
@@ -107,20 +108,20 @@ function installZed {
 
     dropDevelopmentDatabase
 
-    vendor/bin/console setup:install $VERBOSITY
+    $CONSOLE setup:install $VERBOSITY
     writeErrorMessage "Setup install failed"
 
     labelText "Importing Demo data"
-    vendor/bin/console import:demo-data $VERBOSITY
+    $CONSOLE import:demo-data $VERBOSITY
     writeErrorMessage "DemoData import failed"
 
     labelText "Setting up data stores"
-    vendor/bin/console collector:search:export $VERBOSITY
-    vendor/bin/console collector:storage:export $VERBOSITY
+    $CONSOLE collector:search:export $VERBOSITY
+    $CONSOLE collector:storage:export $VERBOSITY
     writeErrorMessage "DataStore setup failed"
 
     labelText "Setting up cronjobs"
-    vendor/bin/console setup:jenkins:generate $VERBOSITY
+    $CONSOLE setup:jenkins:generate $VERBOSITY
     writeErrorMessage "Cronjob setup failed"
 
     labelText "Zed setup successful"
@@ -131,7 +132,7 @@ function installYves {
 
     resetYves
 
-    . ./setup-frontend.sh
+    . deploy/setup/frontend.sh
 
     labelText "Yves setup successful"
 }
@@ -153,7 +154,7 @@ function resetDataStores {
     labelText "Flushing Elasticsearch"
     curl -XDELETE 'http://localhost:10005/de_development_catalog/'
     curl -XPUT 'http://localhost:10005/de_development_catalog/'
-    vendor/bin/console setup:search
+    $CONSOLE setup:search
     writeErrorMessage "Elasticsearch reset failed"
 
     labelText "Flushing Redis"
@@ -170,17 +171,17 @@ function resetDevelopmentState {
     dropDevelopmentDatabase
 
     labelText "Generating Transfer Objects"
-    vendor/bin/console transfer:generate
+    $CONSOLE transfer:generate
     writeErrorMessage "Generating Transfer Objects failed"
 
     labelText "Installing Propel"
-    vendor/bin/console propel:install $VERBOSITY
-    vendor/bin/console propel:diff $VERBOSITY
-    vendor/bin/console propel:migrate $VERBOSITY
+    $CONSOLE propel:install $VERBOSITY
+    $CONSOLE propel:diff $VERBOSITY
+    $CONSOLE propel:migrate $VERBOSITY
     writeErrorMessage "Propel setup failed"
 
     labelText "Initializing DB"
-    vendor/bin/console setup:init-db $VERBOSITY
+    $CONSOLE setup:init-db $VERBOSITY
     writeErrorMessage "DB setup failed"
 }
 
@@ -227,6 +228,10 @@ function updateComposerBinary {
 function composerInstall {
     labelText "Installing composer packages"
     $PHP composer.phar install --prefer-dist
+}
+
+function dumpAutoload {
+    $PHP composer.phar dump-autoload
 }
 
 function resetYves {

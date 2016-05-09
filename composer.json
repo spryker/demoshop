@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-master",
+    "spryker/spryker": "dev-heroku/main",
 
     "psr/log": "~1.0.0",
     "propel/propel": "~2.0@dev",
@@ -14,7 +14,7 @@
 
     "monolog/monolog": "~1.17.2",
 
-    "php": ">=5.6.0",
+    "php": "~5.6.0",
     "ruflin/elastica": "~1.3.4.0",
 
     "symfony/console": "~2.6.13",
@@ -68,7 +68,7 @@
       "Functional": "tests"
     }
   },
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "prefer-stable": true,
   "config": {
     "use-include-path": true,
@@ -79,5 +79,12 @@
       "type": "git",
       "url": "git@github.com:spryker/spryker.git"
     }
-  ]
+  ],
+  "scripts": {
+    "compile": [
+      "mkdir -p ./data/DE/logs",
+      "echo '<?php return \"development_heroku\";' > config/Shared/console_env_local.php",
+      "./deploy/heroku/run.sh"
+    ]
+  }
 }

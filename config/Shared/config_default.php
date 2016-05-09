@@ -1,5 +1,6 @@
 <?php
 
+use Pyz\Shared\Glossary\GlossaryConstants;
 use Pyz\Shared\Mail\MailConstants;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
@@ -49,7 +50,9 @@ $config[ApplicationConstants::STORAGE_KV_SOURCE] = 'redis';
 $config[ApplicationConstants::ELASTICA_PARAMETER__HOST] = 'localhost';
 $config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT] = 'http';
 $config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = '10005';
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'page';
+$config[ApplicationConstants::ELASTICA_PARAMETER__AUTH_HEADER] = '';
+$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'index_page';
+$config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
 
 /**
  * Hostname(s) for Yves - Shop frontend
@@ -85,11 +88,13 @@ $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR .
 
 $config[ApplicationConstants::YVES_STORAGE_SESSION_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_1_HOUR;
 $config[ApplicationConstants::YVES_STORAGE_SESSION_FILE_PATH] = session_save_path();
+$config[ApplicationConstants::YVES_STORAGE_SESSION_PERSISTENT_CONNECTION] = true;
 
 $config[ApplicationConstants::ZED_STORAGE_SESSION_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_30_DAYS;
 $config[ApplicationConstants::ZED_STORAGE_SESSION_COOKIE_NAME] = $config[ApplicationConstants::HOST_ZED_GUI];
 $config[ApplicationConstants::ZED_STORAGE_SESSION_FILE_PATH] = session_save_path();
 $config[ApplicationConstants::ZED_SESSION_SAVE_HANDLER] = null;
+$config[ApplicationConstants::ZED_STORAGE_SESSION_PERSISTENT_CONNECTION] = true;
 
 $config[ApplicationConstants::ZED_SSL_ENABLED] = false;
 $config[ApplicationConstants::ZED_API_SSL_ENABLED] = false;
@@ -173,6 +178,21 @@ $config[CustomerConstants::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_SUBJECT] =
 
 $config[UserConstants::USER_SYSTEM_USERS] = [
     'yves_system',
+];
+
+/**
+ * Internal Yvse/Zed call authentication type
+ *
+ * DEFAULT: AUTHENTICATE_NONE
+ * IMPORTANT: AUTHENTICATE_STATIC and AUTHENTICATE_DYNAMIC add some overheads (50 ~ 100 ms) into yves/zed requests
+ *
+ */
+
+$config[AuthConstants::AUTH_TYPE] = AuthConstants::AUTHENTICATE_NONE;
+
+$config[AuthConstants::AUTH_STATIC_CREDENTIAL] = [
+    'username' => 'yves_system',
+    'password' => '7a905edef9eec12762019b1821e0fc0cabc1fa8fc1c30db22448ff43651b4bc06e9265cb38465861070c40d354b679cf'
 ];
 
 $config[AuthConstants::AUTH_DEFAULT_CREDENTIALS] = [
@@ -357,3 +377,5 @@ $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 $config[LogConstants::LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application.log';
 
 $config[ApplicationConstants::ERROR_LEVEL] = E_ALL;
+
+$config[GlossaryConstants::GLOSSARY_CACHE_TTL_IN_SECONDS] = 86400; // 1 day

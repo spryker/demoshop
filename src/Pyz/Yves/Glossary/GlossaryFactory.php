@@ -9,19 +9,21 @@ namespace Pyz\Yves\Glossary;
 
 use Spryker\Client\Glossary\GlossaryClientInterface;
 use Spryker\Yves\Kernel\AbstractFactory;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class GlossaryFactory extends AbstractFactory
 {
 
     /**
      * @param \Spryker\Client\Glossary\GlossaryClientInterface $glossaryClient
+     * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack
      * @param string $localeName
      *
      * @return \Pyz\Yves\Glossary\TwigTranslator
      */
-    public function createTwigTranslator(GlossaryClientInterface $glossaryClient, $localeName)
+    public function createTwigTranslator(GlossaryClientInterface $glossaryClient, RequestStack $requestStack, $localeName)
     {
-        return new TwigTranslator($glossaryClient, $localeName);
+        return new TwigTranslator($glossaryClient, $requestStack, $localeName);
     }
 
 }

@@ -4,27 +4,46 @@ use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Mail\MailConstants;
 
-$config[ApplicationConstants::ZED_DB_USERNAME] = 'development';
+/*$config[ApplicationConstants::ZED_DB_USERNAME] = 'development';
 $config[ApplicationConstants::ZED_DB_PASSWORD] = 'mate20mg';
 $config[ApplicationConstants::ZED_DB_DATABASE] = 'DE_development_zed';
 $config[ApplicationConstants::ZED_DB_HOST] = '127.0.0.1';
 $config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
-$config[ApplicationConstants::ZED_DB_PORT] = 5432;
+$config[ApplicationConstants::ZED_DB_PORT] = 5432;*/
+
+$schema = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
+$dbopts = parse_url(getenv(getenv('DATABASE_URL_NAME') ?: 'DATABASE_URL'));
+switch ($dbopts['scheme']) {
+    case 'postgres':
+        $schema = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
+        break;
+}
+
+$config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
+$config[ApplicationConstants::ZED_DB_USERNAME] = $dbopts['user'];
+$config[ApplicationConstants::ZED_DB_PASSWORD] = $dbopts['pass'];
+$config[ApplicationConstants::ZED_DB_DATABASE] = ltrim($dbopts['path'],'/');
+$config[ApplicationConstants::ZED_DB_HOST] = $dbopts['host'];
+$config[ApplicationConstants::ZED_DB_PORT] = isset($dbopts['port']) ? $dbopts['port'] : 5432;
 
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_development_catalog';
 
-$yvesHost = 'www.de.spryker.dev';
+$yvesHost = getenv('YVES_HOST');
+$yvesProtocol = getenv('YVES_HOST_PROTOCOL'); //'http://'
+
 $config[ApplicationConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
-$config[ApplicationConstants::HOST_YVES] = 'http://' . $yvesHost;
+$config[ApplicationConstants::HOST_YVES] = $yvesProtocol . $yvesHost;
 $config[ApplicationConstants::HOST_STATIC_ASSETS] = $config[ApplicationConstants::HOST_STATIC_MEDIA] = $yvesHost;
 $config[ApplicationConstants::YVES_COOKIE_DOMAIN] = $yvesHost;
 
 $config[ApplicationConstants::HOST_SSL_YVES] = 'https://' . $yvesHost;
 $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS] = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA] = $yvesHost;
 
-$zedHost = 'zed.de.spryker.dev';
+$zedHost = getenv('ZED_HOST');
+$zedProtocol = getenv('ZED_HOST_PROTOCOL'); //'http://'
+
 $config[ApplicationConstants::HOST_ZED_GUI]
-    = 'http://' . $zedHost;
+    = $zedProtocol . $zedHost;
 $config[ApplicationConstants::HOST_ZED_API] = $zedHost;
 $config[ApplicationConstants::HOST_SSL_ZED_GUI]
     = $config[ApplicationConstants::HOST_SSL_ZED_API]
