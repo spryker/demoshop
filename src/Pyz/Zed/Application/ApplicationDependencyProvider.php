@@ -32,10 +32,10 @@ use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\SubRequestServi
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
-use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\ZedExtensionServiceProvider;
 use Spryker\Zed\Assertion\Communication\Plugin\ServiceProvider\AssertionServiceProvider;
 use Spryker\Zed\Auth\Communication\Plugin\Bootstrap\AuthBootstrapProvider;
 use Spryker\Zed\Auth\Communication\Plugin\ServiceProvider\RedirectAfterLoginProvider;
+use Spryker\Zed\Gui\Communication\Plugin\ServiceProvider\TwigExtensionsServiceProvider;
 use Spryker\Zed\Kernel\Communication\Plugin\GatewayControllerListenerPlugin;
 use Spryker\Zed\Kernel\Communication\Plugin\GatewayServiceProviderPlugin;
 use Spryker\Zed\Kernel\Container;
@@ -106,7 +106,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new NavigationServiceProvider(),
             new PriceServiceProvider(),
             new DateFormatterServiceProvider(),
-//            new ZedExtensionServiceProvider(),
+            new TwigExtensionsServiceProvider(),
             new TranslationServiceProvider(),
             new SubRequestServiceProvider(),
         ];
