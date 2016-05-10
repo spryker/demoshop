@@ -106,7 +106,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new NavigationServiceProvider(),
             new PriceServiceProvider(),
             new DateFormatterServiceProvider(),
-            new ZedExtensionServiceProvider(),
+//            new ZedExtensionServiceProvider(),
             new TranslationServiceProvider(),
             new SubRequestServiceProvider(),
         ];
