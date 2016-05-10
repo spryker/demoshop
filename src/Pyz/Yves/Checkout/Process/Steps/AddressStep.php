@@ -1,15 +1,17 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
+
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
+use Spryker\Yves\CheckoutStepEngine\Process\Steps\BaseStep;
 use Symfony\Component\HttpFoundation\Request;
 
 class AddressStep extends BaseStep
@@ -21,18 +23,16 @@ class AddressStep extends BaseStep
     protected $customerClient;
 
     /**
-     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
      * @param string $stepRoute
      * @param string $escapeRoute
      */
     public function __construct(
-        FlashMessengerInterface $flashMessenger,
         CustomerClientInterface $customerClient,
         $stepRoute,
         $escapeRoute
     ) {
-        parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
+        parent::__construct($stepRoute, $escapeRoute);
 
         $this->customerClient = $customerClient;
     }

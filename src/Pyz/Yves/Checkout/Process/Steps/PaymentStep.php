@@ -1,35 +1,36 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
+
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
+use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginCollection;
+use Spryker\Yves\CheckoutStepEngine\Process\Steps\BaseStep;
 use Symfony\Component\HttpFoundation\Request;
 
 class PaymentStep extends BaseStep
 {
 
     /**
-     * @var \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface[]
+     * @var \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginCollection
      */
     protected $paymentPlugins;
 
     /**
-     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      * @param string $stepRoute
      * @param string $escapeRoute
-     * @param \Spryker\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerCollection $paymentPlugins
+     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginCollection $paymentPlugins
      */
     public function __construct(
-        FlashMessengerInterface $flashMessenger,
         $stepRoute,
         $escapeRoute,
-        $paymentPlugins
+        CheckoutStepHandlerPluginCollection $paymentPlugins
     ) {
-        parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
+        parent::__construct($stepRoute, $escapeRoute);
 
         $this->paymentPlugins = $paymentPlugins;
     }
@@ -64,8 +65,8 @@ class PaymentStep extends BaseStep
     {
         $paymentSelection = $quoteTransfer->getPayment()->getPaymentSelection();
 
-        if (isset($this->paymentPlugins[$paymentSelection])) {
-            $paymentHandler = $this->paymentPlugins[$paymentSelection];
+        if ($this->paymentPlugins->has($paymentSelection)) {
+            $paymentHandler = $this->paymentPlugins->get($paymentSelection);
             $paymentHandler->addToQuote($request, $quoteTransfer);
         }
 

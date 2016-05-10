@@ -18,13 +18,13 @@ use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
-use Spryker\Yves\Checkout\Process\StepFactory as SprykerStepFactory;
+use Spryker\Yves\CheckoutStepEngine\Process\StepFactory as SprykerStepFactory;
 
 class StepFactory extends SprykerStepFactory
 {
 
     /**
-     * @return \Pyz\Yves\Checkout\Process\Steps\StepInterface[]
+     * @return \Spryker\Yves\CheckoutStepEngine\Process\Steps\StepInterface[]
      */
     public function createSteps()
     {
@@ -46,7 +46,6 @@ class StepFactory extends SprykerStepFactory
     protected function createEntryStep()
     {
         return new EntryStep(
-            $this->getFlashMessenger(),
             CheckoutControllerProvider::CHECKOUT_INDEX,
             ApplicationControllerProvider::ROUTE_HOME
         );
@@ -58,7 +57,6 @@ class StepFactory extends SprykerStepFactory
     protected function createCustomerStep()
     {
         return new CustomerStep(
-            $this->getFlashMessenger(),
             CheckoutControllerProvider::CHECKOUT_CUSTOMER,
             ApplicationControllerProvider::ROUTE_HOME,
             $this->createCustomerStepHandler(),
@@ -72,7 +70,6 @@ class StepFactory extends SprykerStepFactory
     protected function createAddressStep()
     {
         return new AddressStep(
-            $this->getFlashMessenger(),
             $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER),
             CheckoutControllerProvider::CHECKOUT_ADDRESS,
             ApplicationControllerProvider::ROUTE_HOME
@@ -85,7 +82,6 @@ class StepFactory extends SprykerStepFactory
     protected function createShipmentStep()
     {
         return new ShipmentStep(
-            $this->getFlashMessenger(),
             $this->getCalculationClient(),
             CheckoutControllerProvider::CHECKOUT_SHIPMENT,
             ApplicationControllerProvider::ROUTE_HOME,
@@ -94,13 +90,11 @@ class StepFactory extends SprykerStepFactory
     }
 
     /**
-     * @return \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface[]
+     * @return \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginCollection
      */
     public function createShipmentPlugins()
     {
-        return [
-            'dummy_shipment' => $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_SHIPMENT_HANDLER),
-        ];
+        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_SHIPMENT_HANDLER);
     }
 
     /**
@@ -109,10 +103,9 @@ class StepFactory extends SprykerStepFactory
     protected function createPaymentStep()
     {
         return new PaymentStep(
-            $this->getFlashMessenger(),
             CheckoutControllerProvider::CHECKOUT_PAYMENT,
             ApplicationControllerProvider::ROUTE_HOME,
-            $this->createPaymentPlugins()
+            $this->createPaymentMethodHandler()
         );
     }
 
@@ -122,7 +115,6 @@ class StepFactory extends SprykerStepFactory
     protected function createSummaryStep()
     {
         return new SummaryStep(
-            $this->getFlashMessenger(),
             $this->getCalculationClient(),
             CheckoutControllerProvider::CHECKOUT_SUMMARY,
             ApplicationControllerProvider::ROUTE_HOME
@@ -148,7 +140,6 @@ class StepFactory extends SprykerStepFactory
     protected function createSuccessStep()
     {
         return new SuccessStep(
-            $this->getFlashMessenger(),
             CheckoutControllerProvider::CHECKOUT_SUCCESS,
             ApplicationControllerProvider::ROUTE_HOME,
             $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER)
@@ -156,7 +147,7 @@ class StepFactory extends SprykerStepFactory
     }
 
     /**
-     * @return \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface
+     * @return \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginInterface
      */
     protected function createCustomerStepHandler()
     {

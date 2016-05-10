@@ -6,13 +6,13 @@
 namespace Pyz\Yves\Shipment\Form;
 
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
-use Pyz\Yves\Checkout\Dependency\CheckoutAbstractSubFormType;
-use Pyz\Yves\Checkout\Dependency\SubFormInterface;
+use Spryker\Yves\CheckoutStepEngine\Dependency\Form\AbstractSubFormType;
+use Spryker\Yves\CheckoutStepEngine\Dependency\Form\SubFormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class ShipmentSubForm extends CheckoutAbstractSubFormType implements SubFormInterface
+class ShipmentSubForm extends AbstractSubFormType implements SubFormInterface
 {
 
     const FIELD_ID_SHIPMENT_METHOD = 'idShipmentMethod';

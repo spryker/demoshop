@@ -9,8 +9,8 @@ use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface;
 use Pyz\Yves\Checkout\Process\StepProcess;
-use Pyz\Yves\Checkout\Process\Steps\StepInterface;
 use Spryker\Client\Cart\CartClientInterface;
+use Spryker\Yves\CheckoutStepEngine\Process\Steps\StepInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -187,7 +187,7 @@ class StepProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Process\Steps\StepInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Yves\CheckoutStepEngine\Process\Steps\StepInterface
      */
     protected function createStepMock()
     {
@@ -214,6 +214,8 @@ class StepProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Cart\CartClientInterface
      */
     protected function createCartClientMock(QuoteTransfer $quoteTransfer)

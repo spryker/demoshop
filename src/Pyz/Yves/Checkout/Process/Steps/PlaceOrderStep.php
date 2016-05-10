@@ -1,23 +1,37 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
+
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
+use Spryker\Yves\CheckoutStepEngine\Process\Steps\BaseStep;
+use Spryker\Yves\CheckoutStepEngine\Process\Steps\StepWithExternalRedirectInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class PlaceOrderStep extends BaseStep
+class PlaceOrderStep extends BaseStep implements StepWithExternalRedirectInterface
 {
 
     /**
      * @var \Spryker\Client\Checkout\CheckoutClientInterface
      */
     protected $checkoutClient;
+
+    /**
+     * @var string
+     */
+    protected $externalRedirectUrl;
+
+    /**
+     * @var \Pyz\Yves\Application\Business\Model\FlashMessengerInterface
+     */
+    protected $flashMessenger;
 
     /**
      * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
@@ -31,8 +45,9 @@ class PlaceOrderStep extends BaseStep
         $stepRoute,
         $escapeRoute
     ) {
-        parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
+        parent::__construct($stepRoute, $escapeRoute);
 
+        $this->flashMessenger = $flashMessenger;
         $this->checkoutClient = $checkoutClient;
     }
 
@@ -97,6 +112,14 @@ class PlaceOrderStep extends BaseStep
         foreach ($checkoutResponseTransfer->getErrors() as $checkoutErrorTransfer) {
             $this->flashMessenger->addErrorMessage($checkoutErrorTransfer->getMessage());
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function getExternalRedirectUrl()
+    {
+        return $this->externalRedirectUrl;
     }
 
 }

@@ -1,13 +1,15 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
+
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Client\Calculation\CalculationClientInterface;
+use Spryker\Yves\CheckoutStepEngine\Process\Steps\BaseStep;
 use Symfony\Component\HttpFoundation\Request;
 
 class SummaryStep extends BaseStep
@@ -19,18 +21,16 @@ class SummaryStep extends BaseStep
     protected $calculationClient;
 
     /**
-     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
      * @param string $stepRoute
      * @param string $escapeRoute
      */
     public function __construct(
-        FlashMessengerInterface $flashMessenger,
         CalculationClientInterface $calculationClient,
         $stepRoute,
         $escapeRoute
     ) {
-        parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
+        parent::__construct($stepRoute, $escapeRoute);
 
         $this->calculationClient = $calculationClient;
     }

@@ -10,7 +10,7 @@ use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
+use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -62,12 +62,13 @@ class SummaryStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \Pyz\Yves\Checkout\Process\Steps\ShipmentStep
+     * @param $calculationClientMock
+     *
+     * @return \Pyz\Yves\Checkout\Process\Steps\SummaryStep
      */
     protected function createSummaryStep($calculationClientMock)
     {
         return new SummaryStep(
-            $this->createFlashMessengerMock(),
             $calculationClientMock,
             'shipment',
             'escape_route'
@@ -84,14 +85,6 @@ class SummaryStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Application\Business\Model\FlashMessengerInterface
-     */
-    protected function createFlashMessengerMock()
-    {
-        return $this->getMock(FlashMessengerInterface::class);
-    }
-
-    /**
      * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Calculation\CalculationClientInterface
      */
     protected function createCalculationClientMock()
@@ -100,7 +93,7 @@ class SummaryStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginInterface
      */
     protected function createShipmentMock()
     {

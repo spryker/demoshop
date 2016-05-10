@@ -9,8 +9,7 @@ namespace Pyz\Yves\Checkout\Form;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\CheckoutDependencyProvider;
-use Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface;
-use Pyz\Yves\Checkout\Form\DataProvider\SubformDataProviders;
+use Pyz\Yves\Checkout\Form\DataProvider\SubFormDataProviders;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
 use Pyz\Yves\Checkout\Form\Steps\ShipmentForm;
 use Pyz\Yves\Checkout\Form\Steps\SummaryForm;
@@ -21,8 +20,9 @@ use Pyz\Yves\Customer\Form\GuestForm;
 use Pyz\Yves\Customer\Form\LoginForm;
 use Pyz\Yves\Customer\Form\RegisterForm;
 use Spryker\Shared\Kernel\Store;
-use Spryker\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginCollection;
-use Spryker\Yves\Checkout\Form\FormFactory as SprykerFormFactory;
+use Spryker\Yves\CheckoutStepEngine\Dependency\DataProvider\DataProviderInterface;
+use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutSubFormPluginCollection;
+use Spryker\Yves\CheckoutStepEngine\Form\FormFactory as SprykerFormFactory;
 use Symfony\Component\Form\FormTypeInterface;
 
 class FormFactory extends SprykerFormFactory
@@ -69,7 +69,7 @@ class FormFactory extends SprykerFormFactory
      */
     public function createPaymentFormCollection(QuoteTransfer $quoteTransfer)
     {
-        $createPaymentSubForms = $this->createPaymentMethodsSubForms();
+        $createPaymentSubForms = $this->createPaymentMethodSubForms();
         $paymentFormType = $this->createPaymentForm($createPaymentSubForms);
         $subFormDataProvider = $this->createSubFormDataProvider($createPaymentSubForms);
 
@@ -77,13 +77,13 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @param \Spryker\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginCollection $subForms
+     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutSubFormPluginCollection $subForms
      *
-     * @return \Pyz\Yves\Checkout\Form\DataProvider\SubformDataProviders
+     * @return \Pyz\Yves\Checkout\Form\DataProvider\SubFormDataProviders
      */
     protected function createSubFormDataProvider(CheckoutSubFormPluginCollection $subForms)
     {
-        return new SubformDataProviders($subForms);
+        return new SubFormDataProviders($subForms);
     }
 
     /**
@@ -147,7 +147,7 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @param CheckoutSubFormPluginCollection $subForms
+     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutSubFormPluginCollection $subForms
      *
      * @return \Pyz\Yves\Checkout\Form\Steps\ShipmentForm
      */
@@ -157,7 +157,7 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @return \Spryker\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginCollection
+     * @return \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutSubFormPluginCollection
      */
     protected function createShipmentMethodsSubForms()
     {
@@ -165,7 +165,7 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @param \Spryker\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginCollection $subForms
+     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutSubFormPluginCollection $subForms
      *
      * @return \Pyz\Yves\Checkout\Form\Steps\PaymentForm
      */
@@ -185,7 +185,7 @@ class FormFactory extends SprykerFormFactory
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer
      * @param \Symfony\Component\Form\FormTypeInterface[] $formTypes
-     * @param \Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface|null $dataProvider
+     * @param \Spryker\Yves\Checkout\Dependency\DataProvider\DataProviderInterface|null $dataProvider
      *
      * @return \Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface
      */
@@ -197,7 +197,7 @@ class FormFactory extends SprykerFormFactory
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer
      * @param \Symfony\Component\Form\FormTypeInterface $formType
-     * @param \Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface|null $dataProvider
+     * @param \Spryker\Yves\Checkout\Dependency\DataProvider\DataProviderInterface|null $dataProvider
      *
      * @return \Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface
      */

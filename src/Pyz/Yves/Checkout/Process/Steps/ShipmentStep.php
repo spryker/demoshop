@@ -9,6 +9,8 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Shared\Shipment\ShipmentConstants;
+use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginCollection;
+use Spryker\Yves\CheckoutStepEngine\Process\Steps\BaseStep;
 use Symfony\Component\HttpFoundation\Request;
 
 class ShipmentStep extends BaseStep
@@ -20,25 +22,23 @@ class ShipmentStep extends BaseStep
     protected $calculationClient;
 
     /**
-     * @var \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface[]
+     * @var \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginCollection
      */
     protected $shipmentPlugins;
 
     /**
-     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
      * @param string $stepRoute
      * @param string $escapeRoute
-     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface[] $shipmentPlugins
+     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginCollection $shipmentPlugins
      */
     public function __construct(
-        FlashMessengerInterface $flashMessenger,
         CalculationClientInterface $calculationClient,
         $stepRoute,
         $escapeRoute,
-        array $shipmentPlugins
+        CheckoutStepHandlerPluginCollection $shipmentPlugins
     ) {
-        parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
+        parent::__construct($stepRoute, $escapeRoute);
 
         $this->calculationClient = $calculationClient;
         $this->shipmentPlugins = $shipmentPlugins;
@@ -74,8 +74,8 @@ class ShipmentStep extends BaseStep
     {
         $shipmentSelection = $quoteTransfer->getShipment()->getShipmentSelection();
 
-        if (isset($this->shipmentPlugins[$shipmentSelection])) {
-            $shipmentHandler = $this->shipmentPlugins[$shipmentSelection];
+        if ($this->shipmentPlugins->has($shipmentSelection)) {
+            $shipmentHandler = $this->shipmentPlugins->get($shipmentSelection);
             $shipmentHandler->addToQuote($request, $quoteTransfer);
         }
 

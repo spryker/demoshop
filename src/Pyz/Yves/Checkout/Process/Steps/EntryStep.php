@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
@@ -7,12 +8,13 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
+use Spryker\Yves\CheckoutStepEngine\Process\Steps\BaseStep;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Entry step executed first, it's needed to redirect customer to next required step.
  */
-class EntryStep extends BaseStep implements StepInterface
+class EntryStep extends BaseStep
 {
 
     /**

@@ -1,12 +1,14 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
+
 namespace Pyz\Yves\Checkout\Form;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface;
+use Spryker\Yves\CheckoutStepEngine\Dependency\DataProvider\DataProviderInterface;
 use Pyz\Yves\Checkout\Form\Exception\InvalidFormHandleRequest;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormTypeInterface;
@@ -26,7 +28,7 @@ class FormCollectionHandler implements FormCollectionHandlerInterface
     protected $quoteTransfer;
 
     /**
-     * @var \Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface
+     * @var \Spryker\Yves\CheckoutStepEngine\Dependency\DataProvider\DataProviderInterface
      */
     protected $dataProvider;
 
@@ -40,12 +42,11 @@ class FormCollectionHandler implements FormCollectionHandlerInterface
      */
     protected $formTypes;
 
-
     /**
      * @param \Symfony\Component\Form\FormFactoryInterface $formFactory
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Symfony\Component\Form\FormTypeInterface[] $formTypes
-     * @param \Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface|null $dataProvider
+     * @param array $formTypes
+     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\DataProvider\DataProviderInterface|null $dataProvider
      */
     public function __construct(
         FormFactoryInterface $formFactory,
@@ -55,8 +56,8 @@ class FormCollectionHandler implements FormCollectionHandlerInterface
     ) {
         $this->formFactory = $formFactory;
         $this->quoteTransfer = clone $quoteTransfer;
-        $this->dataProvider = $dataProvider;
         $this->formTypes = $formTypes;
+        $this->dataProvider = $dataProvider;
     }
 
     /**
@@ -99,11 +100,12 @@ class FormCollectionHandler implements FormCollectionHandlerInterface
         foreach ($this->getForms() as $form) {
             if ($request->request->has($form->getName())) {
                 $form->setData($this->quoteTransfer);
+
                 return $form->handleRequest($request);
             }
         }
 
-        throw new InvalidFormHandleRequest('Form not found in Request to handle.');
+        throw new InvalidFormHandleRequest('Form to handle not found in Request.');
     }
 
     /**
@@ -162,6 +164,7 @@ class FormCollectionHandler implements FormCollectionHandlerInterface
         if ($this->dataProvider !== null) {
             return $this->dataProvider->getData($quoteTransfer);
         }
+
         return $quoteTransfer;
     }
 

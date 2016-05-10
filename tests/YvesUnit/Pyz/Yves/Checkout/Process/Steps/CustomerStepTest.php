@@ -8,9 +8,8 @@ namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Pyz\Yves\Checkout\Process\Steps\CustomerStep;
+use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class CustomerStepTest extends \PHPUnit_Framework_TestCase
@@ -103,7 +102,7 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
     /**
      * @return void
      */
-    public function testRequireInputWhenNotLogedInAndNotYetSetInQuoteShouldReturnTrue()
+    public function testRequireInputWhenNotLoggedInAndNotYetSetInQuoteShouldReturnTrue()
     {
         $customerStep = $this->createCustomerStep();
         $this->assertTrue($customerStep->requireInput(new QuoteTransfer()));
@@ -126,7 +125,6 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
         }
 
         return new CustomerStep(
-            $this->createFlashMessengerMock(),
             'customer_step',
             'escape_route',
             $authHandlerMock,
@@ -135,7 +133,7 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginInterface
      */
     protected function createAuthHandlerMock()
     {
@@ -148,14 +146,6 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
     protected function createRequest()
     {
         return Request::createFromGlobals();
-    }
-
-    /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Application\Business\Model\FlashMessengerInterface
-     */
-    protected function createFlashMessengerMock()
-    {
-        return $this->getMock(FlashMessengerInterface::class);
     }
 
     /**

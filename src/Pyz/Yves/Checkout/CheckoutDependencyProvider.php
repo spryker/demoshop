@@ -11,13 +11,15 @@ use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Customer\Plugin\CustomerStepHandler;
 use Pyz\Yves\Shipment\Plugin\ShipmentHandlerPlugin;
 use Pyz\Yves\Shipment\Plugin\ShipmentSubFormPlugin;
-use Spryker\Yves\Checkout\CheckoutDependencyProvider as SprykerCheckoutDependencyProvider;
-use Spryker\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginCollection;
+use Spryker\Yves\CheckoutStepEngine\CheckoutDependencyProvider as SprykerCheckoutDependencyProvider;
+use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginCollection;
+use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutSubFormPluginCollection;
 use Spryker\Yves\Kernel\Container;
 
 class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
 {
 
+    const DUMMY_SHIPMENT = 'dummy_shipment';
     const CLIENT_CART = 'cart client';
     const CLIENT_CALCULATION = 'calculation client';
     const CLIENT_CHECKOUT = 'checkout client';
@@ -89,7 +91,10 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
         };
 
         $container[self::PLUGIN_SHIPMENT_HANDLER] = function () {
-            return new ShipmentHandlerPlugin();
+            $shipmentHandlerPlugins = new CheckoutStepHandlerPluginCollection();
+            $shipmentHandlerPlugins->add(new ShipmentHandlerPlugin(), self::DUMMY_SHIPMENT);
+
+            return $shipmentHandlerPlugins;
         };
 
         $container[self::PLUGIN_APPLICATION] = function () {

@@ -11,7 +11,7 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\SaveOrderTransfer;
 
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
+use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,7 +22,7 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
     /**
      * @return void
      */
-    public function testPlaceOrderExecuteWhenEternalRedirectProvidedShouldSetIt()
+    public function testPlaceOrderExecuteWhenExternalRedirectProvidedShouldSetIt()
     {
         $checkoutClientMock = $this->createCheckoutClientMock();
         $redirectUrl = 'http://www.ten-kur-toli.lt';
@@ -102,6 +102,9 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @param $checkoutClientMock
+     * @param null $flashMessengerMock
+     *
      * @return \Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep
      */
     protected function createPlaceOrderStep($checkoutClientMock, $flashMessengerMock = null)
@@ -144,7 +147,7 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginInterface
      */
     protected function createShipmentMock()
     {

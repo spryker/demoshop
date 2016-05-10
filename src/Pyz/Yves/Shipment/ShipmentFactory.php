@@ -16,7 +16,7 @@ class ShipmentFactory extends AbstractFactory
 {
 
     /**
-     * @return \Pyz\Yves\Checkout\Dependency\SubFormInterface
+     * @return \Spryker\Yves\Checkout\Dependency\Form\SubFormInterface
      */
     public function createShipmentForm()
     {

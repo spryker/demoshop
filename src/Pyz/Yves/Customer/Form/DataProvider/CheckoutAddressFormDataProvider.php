@@ -1,16 +1,18 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
+
 namespace Pyz\Yves\Customer\Form\DataProvider;
 
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
-use Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface;
 use Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm;
 use Spryker\Shared\Kernel\Store;
+use Spryker\Yves\CheckoutStepEngine\Dependency\DataProvider\DataProviderInterface;
 
 class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider implements DataProviderInterface
 {

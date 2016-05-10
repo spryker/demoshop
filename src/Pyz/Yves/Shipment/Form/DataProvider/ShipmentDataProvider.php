@@ -9,7 +9,7 @@ namespace Pyz\Yves\Shipment\Form\DataProvider;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
-use Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface;
+use Spryker\Yves\CheckoutStepEngine\Dependency\DataProvider\DataProviderInterface;
 use Pyz\Yves\Shipment\Form\ShipmentSubForm;
 use Spryker\Client\Glossary\GlossaryClientInterface;
 use Spryker\Client\Shipment\ShipmentClientInterface;

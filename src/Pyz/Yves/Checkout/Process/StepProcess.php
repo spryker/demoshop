@@ -8,8 +8,9 @@ namespace Pyz\Yves\Checkout\Process;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
-use Pyz\Yves\Checkout\Process\Steps\StepInterface;
 use Spryker\Client\Cart\CartClientInterface;
+use Spryker\Yves\CheckoutStepEngine\Process\Steps\StepInterface;
+use Spryker\Yves\CheckoutStepEngine\Process\Steps\StepWithExternalRedirectInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -18,12 +19,12 @@ class StepProcess
 {
 
     /**
-     * @var \Pyz\Yves\Checkout\Process\Steps\StepInterface[]
+     * @var \Spryker\Yves\CheckoutStepEngine\Process\Steps\StepInterface[]
      */
     protected $steps = [];
 
     /**
-     * @var \Pyz\Yves\Checkout\Process\Steps\StepInterface[]
+     * @var \Spryker\Yves\CheckoutStepEngine\Process\Steps\StepInterface[]
      */
     protected $completedSteps = [];
 
@@ -43,7 +44,7 @@ class StepProcess
     protected $urlGenerator;
 
     /**
-     * @param \Pyz\Yves\Checkout\Process\Steps\StepInterface[] $steps
+     * @param \Spryker\Yves\CheckoutStepEngine\Process\Steps\StepInterface[] $steps
      * @param \Symfony\Component\Routing\Generator\UrlGeneratorInterface $urlGenerator
      * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      */
@@ -102,7 +103,7 @@ class StepProcess
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return \Pyz\Yves\Checkout\Process\Steps\StepInterface
+     * @return \Spryker\Yves\CheckoutStepEngine\Process\Steps\StepInterface
      */
     protected function getCurrentStep(Request $request)
     {
@@ -128,9 +129,9 @@ class StepProcess
     }
 
     /**
-     * @param \Pyz\Yves\Checkout\Process\Steps\StepInterface $currentStep
+     * @param \Spryker\Yves\CheckoutStepEngine\Process\Steps\StepInterface $currentStep
      *
-     * @return null|\Pyz\Yves\Checkout\Process\Steps\StepInterface
+     * @return null|\Spryker\Yves\CheckoutStepEngine\Process\Steps\StepInterface
      */
     protected function getNextStep(StepInterface $currentStep)
     {
@@ -148,7 +149,7 @@ class StepProcess
     }
 
     /**
-     * @return \Pyz\Yves\Checkout\Process\Steps\StepInterface
+     * @return \Spryker\Yves\CheckoutStepEngine\Process\Steps\StepInterface
      */
     public function getPreviousStep()
     {
@@ -160,7 +161,7 @@ class StepProcess
     }
 
     /**
-     * @return \Pyz\Yves\Checkout\Process\Steps\StepInterface
+     * @return \Spryker\Yves\CheckoutStepEngine\Process\Steps\StepInterface
      */
     protected function getFirstStep()
     {
@@ -171,7 +172,7 @@ class StepProcess
     }
 
     /**
-     * @return \Pyz\Yves\Checkout\Process\Steps\StepInterface
+     * @return \Spryker\Yves\CheckoutStepEngine\Process\Steps\StepInterface
      */
     protected function getLastStep()
     {
@@ -192,7 +193,7 @@ class StepProcess
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Pyz\Yves\Checkout\Process\Steps\StepInterface $currentStep
+     * @param \Spryker\Yves\CheckoutStepEngine\Process\Steps\StepInterface $currentStep
      *
      * @return bool
      */
@@ -212,13 +213,13 @@ class StepProcess
     }
 
     /**
-     * @param \Pyz\Yves\Checkout\Process\Steps\StepInterface $currentStep
+     * @param \Spryker\Yves\CheckoutStepEngine\Process\Steps\StepInterface $currentStep
      *
      * @return string
      */
     protected function getNextRedirectUrl(StepInterface $currentStep)
     {
-        if (!empty($currentStep->getExternalRedirectUrl())) {
+        if (($currentStep instanceof StepWithExternalRedirectInterface) && !empty($currentStep->getExternalRedirectUrl())) {
             return $currentStep->getExternalRedirectUrl();
         }
 
@@ -228,7 +229,7 @@ class StepProcess
     }
 
     /**
-     * @param \Pyz\Yves\Checkout\Process\Steps\StepInterface $currentStep
+     * @param \Spryker\Yves\CheckoutStepEngine\Process\Steps\StepInterface $currentStep
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return string
@@ -263,7 +264,7 @@ class StepProcess
     }
 
     /**
-     * @param \Pyz\Yves\Checkout\Process\Steps\StepInterface $currentStep
+     * @param \Spryker\Yves\CheckoutStepEngine\Process\Steps\StepInterface $currentStep
      *
      * @return string
      */
@@ -292,7 +293,7 @@ class StepProcess
     }
 
     /**
-     * @param \Pyz\Yves\Checkout\Process\Steps\StepInterface $currentStep
+     * @param \Spryker\Yves\CheckoutStepEngine\Process\Steps\StepInterface $currentStep
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return void
@@ -304,7 +305,7 @@ class StepProcess
     }
 
     /**
-     * @param \Pyz\Yves\Checkout\Process\Steps\StepInterface $currentStep
+     * @param \Spryker\Yves\CheckoutStepEngine\Process\Steps\StepInterface $currentStep
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @param \Generated\Shared\Transfer\QuoteTransfer $formQuoteTransfer
      *
@@ -340,7 +341,7 @@ class StepProcess
     }
 
     /**
-     * @param \Pyz\Yves\Checkout\Process\Steps\StepInterface $currentStep
+     * @param \Spryker\Yves\CheckoutStepEngine\Process\Steps\StepInterface $currentStep
      * @param \Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface|null $formCollection
      *
      * @return array
