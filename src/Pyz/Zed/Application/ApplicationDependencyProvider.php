@@ -35,7 +35,14 @@ use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\UrlGeneratorSer
 use Spryker\Zed\Assertion\Communication\Plugin\ServiceProvider\AssertionServiceProvider;
 use Spryker\Zed\Auth\Communication\Plugin\Bootstrap\AuthBootstrapProvider;
 use Spryker\Zed\Auth\Communication\Plugin\ServiceProvider\RedirectAfterLoginProvider;
-use Spryker\Zed\Gui\Communication\Plugin\ServiceProvider\TwigExtensionsServiceProvider;
+use Spryker\Zed\Gui\Communication\Plugin\ServiceProvider\GuiTwigExtensionServiceProvider;
+use Spryker\Zed\Gui\Communication\Plugin\Twig\ActionButtons\BackActionButtonFunction;
+use Spryker\Zed\Gui\Communication\Plugin\Twig\ActionButtons\CreateActionButtonFunction;
+use Spryker\Zed\Gui\Communication\Plugin\Twig\ActionButtons\EditActionButtonFunction;
+use Spryker\Zed\Gui\Communication\Plugin\Twig\ActionButtons\ViewActionButtonFunction;
+use Spryker\Zed\Gui\Communication\Plugin\Twig\AssetsPathFunction;
+use Spryker\Zed\Gui\Communication\Plugin\Twig\FormatPriceFunction;
+use Spryker\Zed\Gui\Communication\Plugin\Twig\UrlFunction;
 use Spryker\Zed\Kernel\Communication\Plugin\GatewayControllerListenerPlugin;
 use Spryker\Zed\Kernel\Communication\Plugin\GatewayServiceProviderPlugin;
 use Spryker\Zed\Kernel\Container;
@@ -106,7 +113,10 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new NavigationServiceProvider(),
             new PriceServiceProvider(),
             new DateFormatterServiceProvider(),
-            new TwigExtensionsServiceProvider(),
+            new GuiTwigExtensionServiceProvider(
+                $this->getTwigGuiFunctions(),
+                $this->getTwigGuiFilters()
+            ),
             new TranslationServiceProvider(),
             new SubRequestServiceProvider(),
         ];
@@ -116,6 +126,30 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
         }
 
         return $providers;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getTwigGuiFunctions()
+    {
+        return [
+            new FormatPriceFunction(),
+            new AssetsPathFunction(),
+            new BackActionButtonFunction(),
+            new CreateActionButtonFunction(),
+            new ViewActionButtonFunction(),
+            new EditActionButtonFunction(),
+            new UrlFunction(),
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    protected function getTwigGuiFilters()
+    {
+        return [];
     }
 
     /**
