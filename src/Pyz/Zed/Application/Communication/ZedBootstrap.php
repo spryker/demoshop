@@ -28,4 +28,5 @@ class ZedBootstrap extends SprykerZedBootstrap
     {
         return $this->getProvidedDependency(ApplicationDependencyProvider::INTERNAL_CALL_SERVICE_PROVIDER);
     }
+
 }
