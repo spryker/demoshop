@@ -4,13 +4,6 @@ use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Mail\MailConstants;
 
-/*$config[ApplicationConstants::ZED_DB_USERNAME] = 'development';
-$config[ApplicationConstants::ZED_DB_PASSWORD] = 'mate20mg';
-$config[ApplicationConstants::ZED_DB_DATABASE] = 'DE_development_zed';
-$config[ApplicationConstants::ZED_DB_HOST] = '127.0.0.1';
-$config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
-$config[ApplicationConstants::ZED_DB_PORT] = 5432;*/
-
 $schema = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
 $dbopts = parse_url(getenv(getenv('DATABASE_URL_NAME') ?: 'DATABASE_URL'));
 switch ($dbopts['scheme']) {
