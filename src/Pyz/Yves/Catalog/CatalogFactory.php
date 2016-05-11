@@ -7,8 +7,6 @@
 
 namespace Pyz\Yves\Catalog;
 
-use Pyz\Yves\Application\Plugin\Pimple;
-use Pyz\Yves\Collector\Plugin\UrlMapperPlugin;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class CatalogFactory extends AbstractFactory
@@ -19,7 +17,7 @@ class CatalogFactory extends AbstractFactory
      */
     public function createUrlMapperPlugin()
     {
-        return new UrlMapperPlugin();
+        return $this->getProvidedDependency(CatalogDependencyProvider::PLUGIN_URL_MAPPER);
     }
 
     /**
@@ -27,9 +25,7 @@ class CatalogFactory extends AbstractFactory
      */
     public function createApplication()
     {
-        $application = (new Pimple())->getApplication();
-
-        return $application;
+        return $this->getProvidedDependency(CatalogDependencyProvider::PLUGIN_APPLICATION);
     }
 
     /**
@@ -37,7 +33,7 @@ class CatalogFactory extends AbstractFactory
      */
     public function createCatalogClient()
     {
-        return $this->getLocator()->catalog()->client();
+        return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_CATALOG);
     }
 
     /**
@@ -45,7 +41,7 @@ class CatalogFactory extends AbstractFactory
      */
     public function createCategoryExporterClient()
     {
-        return $this->getLocator()->categoryExporter()->client();
+        return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_CATEGORY_EXPORTER);
     }
 
 }

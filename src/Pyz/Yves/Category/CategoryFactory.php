@@ -26,7 +26,7 @@ class CategoryFactory extends AbstractFactory
      */
     public function getCategoryExporterClient()
     {
-        return $this->getLocator()->categoryExporter()->client();
+        return $this->getProvidedDependency(CategoryDependencyProvider::CLIENT_CATEGORY_EXPORTER);
     }
 
 }

@@ -560,8 +560,9 @@ class ProductAbstractImporter extends AbstractImporter
      */
     protected function useLocalIcecatImages(array $attributes)
     {
-        $attributes['image_big'] = '/assets/demoshop/img/icecat/big_'. basename($attributes['image_big']);
-        $attributes['image_small'] = '/assets/demoshop/img/icecat/small_'. basename($attributes['image_small']);
+        $attributes['image_big'] = '/assets/demoshop/img/icecat/big_' . basename($attributes['image_big']);
+        $attributes['image_small'] = '/assets/demoshop/img/icecat/small_' . basename($attributes['image_small']);
+
         return $attributes;
     }
 

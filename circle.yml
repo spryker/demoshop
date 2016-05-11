@@ -19,7 +19,7 @@ dependencies:
     - mysql -u ubuntu circle_test --execute="SET GLOBAL group_concat_max_len=1048576"
 test:
   override:
-#    - vendor/bin/console propel:install
+    - vendor/bin/console propel:install
     - vendor/bin/codecept build
     - vendor/bin/console application:integration-check -vvv
     - vendor/bin/console code:sniff

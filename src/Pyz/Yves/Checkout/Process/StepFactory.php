@@ -6,8 +6,8 @@
 namespace Pyz\Yves\Checkout\Process;
 
 use Generated\Shared\Transfer\PaymentTransfer;
-use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
+use Pyz\Yves\Checkout\CheckoutDependencyProvider;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Pyz\Yves\Checkout\Process\Steps\AddressStep;
 use Pyz\Yves\Checkout\Process\Steps\CustomerStep;
@@ -17,9 +17,6 @@ use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
-use Pyz\Yves\Customer\Plugin\CustomerStepHandler;
-use Pyz\Yves\Payolution\Plugin\PayolutionHandlerPlugin;
-use Pyz\Yves\Shipment\Plugin\ShipmentHandlerPlugin;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class StepFactory extends AbstractFactory
@@ -64,7 +61,7 @@ class StepFactory extends AbstractFactory
             CheckoutControllerProvider::CHECKOUT_CUSTOMER,
             ApplicationControllerProvider::ROUTE_HOME,
             $this->createCustomerStepHandler(),
-            $this->getLocator()->customer()->client()
+            $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER)
         );
     }
 
@@ -75,7 +72,7 @@ class StepFactory extends AbstractFactory
     {
         return new AddressStep(
             $this->getFlashMessenger(),
-            $this->getLocator()->customer()->client(),
+            $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER),
             CheckoutControllerProvider::CHECKOUT_ADDRESS,
             ApplicationControllerProvider::ROUTE_HOME
         );
@@ -101,7 +98,7 @@ class StepFactory extends AbstractFactory
     public function createShipmentPlugins()
     {
         return [
-            'dummy_shipment' => new ShipmentHandlerPlugin(),
+            'dummy_shipment' => $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_SHIPMENT_HANDLER),
         ];
     }
 
@@ -164,7 +161,7 @@ class StepFactory extends AbstractFactory
             $this->getFlashMessenger(),
             CheckoutControllerProvider::CHECKOUT_SUCCESS,
             ApplicationControllerProvider::ROUTE_HOME,
-            $this->getLocator()->customer()->client()
+            $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER)
         );
     }
 
@@ -173,7 +170,7 @@ class StepFactory extends AbstractFactory
      */
     protected function createCustomerStepHandler()
     {
-        return new CustomerStepHandler();
+        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_CUSTOMER_STEP_HANDLER);
     }
 
     /**
@@ -189,15 +186,7 @@ class StepFactory extends AbstractFactory
      */
     public function createPayolutionHandlerPlugin()
     {
-        return new PayolutionHandlerPlugin();
-    }
-
-    /**
-     * @return \Symfony\Component\Form\FormFactoryInterface
-     */
-    protected function getFormFactory()
-    {
-        return $this->getApplication()['form.factory'];
+        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_PAYOLUTION_HANDLER);
     }
 
     /**
@@ -213,7 +202,7 @@ class StepFactory extends AbstractFactory
      */
     protected function getApplication()
     {
-        return (new Pimple())->getApplication();
+        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_APPLICATION);
     }
 
     /**
@@ -221,7 +210,7 @@ class StepFactory extends AbstractFactory
      */
     public function getCalculationClient()
     {
-        return $this->getLocator()->calculation()->client();
+        $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CALCULATION);
     }
 
     /**
@@ -229,7 +218,7 @@ class StepFactory extends AbstractFactory
      */
     public function getCheckoutClient()
     {
-        return $this->getLocator()->checkout()->client();
+        $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CHECKOUT);
     }
 
 }

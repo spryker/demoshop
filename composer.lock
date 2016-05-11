@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c9a97733b79b926225cc9e8dc0fc8838",
-    "content-hash": "eae82303ca854946650f36e64df5df2c",
+    "hash": "8fc38ce2a521f8391e9d358ac6cdc35e",
+    "content-hash": "98784f2e31ea84a8c0a6aace189bc14d",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -945,11 +945,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-heroku/release-redis",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "73327127af89420eaba2d7e13e9729198fce62f4"
+                "reference": "98e08c676250a7d62e09f69cd91ad794b032dfec"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1408,7 +1408,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-05-11 14:09:29"
+            "time": "2016-05-03 12:22:30"
         },
         {
             "name": "symfony-cmf/routing",
@@ -5437,12 +5437,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "940915a9b69fe27ff9a0abfae395576d66dbdb2f"
+                "reference": "1252fc3fda34df208b1a96d1be18c75e022d2e07"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/940915a9b69fe27ff9a0abfae395576d66dbdb2f",
-                "reference": "940915a9b69fe27ff9a0abfae395576d66dbdb2f",
+                "reference": "1252fc3fda34df208b1a96d1be18c75e022d2e07",
                 "shasum": ""
             },
             "require": {
@@ -5471,7 +5471,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-04-13 14:03:59"
+            "time": "2016-04-08 09:48:42"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -5983,7 +5983,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "spryker/spryker": 20,
         "propel/propel": 20,
@@ -5992,7 +5992,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "~5.6.0"
+        "php": ">=5.6.0"
     },
     "platform-dev": []
 }
