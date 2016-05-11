@@ -20,7 +20,6 @@ use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\User\UserConstants;
 use Spryker\Zed\Propel\PropelConfig;
-use Spryker\Shared\Kernel\KernelConstants;
 
 $config[ApplicationConstants::PROJECT_NAMESPACES] = [
     'Pyz',

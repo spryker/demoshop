@@ -11,9 +11,9 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\SaveOrderTransfer;
 
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
-use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
 use Spryker\Client\Checkout\CheckoutClientInterface;
+use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase

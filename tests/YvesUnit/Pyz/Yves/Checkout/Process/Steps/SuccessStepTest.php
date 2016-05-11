@@ -8,7 +8,6 @@ namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -57,7 +56,7 @@ class SuccessStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param CustomerClientInterface|null $customerClientMock
+     * @param \Pyz\Client\Customer\CustomerClientInterface|null $customerClientMock
      *
      * @return \Pyz\Yves\Checkout\Process\Steps\SuccessStep
      */

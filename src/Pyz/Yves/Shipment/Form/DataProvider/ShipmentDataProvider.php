@@ -9,12 +9,12 @@ namespace Pyz\Yves\Shipment\Form\DataProvider;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
-use Spryker\Yves\CheckoutStepEngine\Dependency\DataProvider\DataProviderInterface;
 use Pyz\Yves\Shipment\Form\ShipmentSubForm;
 use Spryker\Client\Glossary\GlossaryClientInterface;
 use Spryker\Client\Shipment\ShipmentClientInterface;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Library\Currency\CurrencyManager;
+use Spryker\Yves\CheckoutStepEngine\Dependency\DataProvider\DataProviderInterface;
 
 class ShipmentDataProvider implements DataProviderInterface
 {

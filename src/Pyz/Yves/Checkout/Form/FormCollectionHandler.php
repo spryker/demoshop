@@ -8,8 +8,8 @@
 namespace Pyz\Yves\Checkout\Form;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Spryker\Yves\CheckoutStepEngine\Dependency\DataProvider\DataProviderInterface;
 use Pyz\Yves\Checkout\Form\Exception\InvalidFormHandleRequest;
+use Spryker\Yves\CheckoutStepEngine\Dependency\DataProvider\DataProviderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpFoundation\Request;

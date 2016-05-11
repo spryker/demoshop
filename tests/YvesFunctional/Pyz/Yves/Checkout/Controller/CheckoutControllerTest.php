@@ -21,7 +21,6 @@ use Pyz\Client\Customer\CustomerClient;
 use Pyz\Yves\Checkout\CheckoutDependencyProvider;
 use Pyz\Yves\Checkout\CheckoutFactory;
 use Pyz\Yves\Checkout\Controller\CheckoutController;
-use Pyz\Yves\Checkout\Form\DataProvider\SubFormDataProviders;
 use Pyz\Yves\Checkout\Form\FormFactory;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
 use Pyz\Yves\Checkout\Form\Steps\ShipmentForm;
