@@ -61,11 +61,11 @@ class SummaryStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param $calculationClientMock
+     * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClientMock
      *
      * @return \Pyz\Yves\Checkout\Process\Steps\SummaryStep
      */
-    protected function createSummaryStep($calculationClientMock)
+    protected function createSummaryStep(CalculationClientInterface $calculationClientMock)
     {
         return new SummaryStep(
             $calculationClientMock,
