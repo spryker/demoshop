@@ -92,7 +92,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
      */
     protected function getTwigFunctions()
     {
-        // here you can add or replace servide providers
+        // here you can add or replace service providers
         return parent::getTwigFunctions();
     }
 
@@ -101,7 +101,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
      */
     protected function getTwigFilters()
     {
-        // here you can add or replace servide providers
+        // here you can add or replace service providers
         return parent::getTwigFilters();
     }
 
@@ -148,7 +148,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
      */
     protected function getGatewayServiceProvider()
     {
-        // here you can add or replace servide providers
+        // here you can add or replace service providers
         return parent::getGatewayServiceProvider();
     }
 
