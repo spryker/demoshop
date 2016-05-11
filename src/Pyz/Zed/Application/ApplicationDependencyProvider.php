@@ -7,48 +7,25 @@
 
 namespace Pyz\Zed\Application;
 
-use Silex\Provider\FormServiceProvider;
-use Silex\Provider\HttpFragmentServiceProvider;
-use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\TwigServiceProvider;
-use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
+use Silex\ServiceProviderInterface;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\Config;
 use Spryker\Zed\Acl\Communication\Plugin\Bootstrap\AclBootstrapProvider;
 use Spryker\Zed\Application\ApplicationDependencyProvider as SprykerApplicationDependencyProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\DateFormatterServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\EnvironmentInformationServiceProvider;
-use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\HeaderServiceProvider;
-use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\MvcRoutingServiceProvider;
-use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\NavigationServiceProvider;
-use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\NewRelicServiceProvider;
-use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\RequestServiceProvider;
-use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
-use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\SilexRoutingServiceProvider;
-use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\SslServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\SubRequestServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigServiceProvider;
-use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use Spryker\Zed\Assertion\Communication\Plugin\ServiceProvider\AssertionServiceProvider;
-use Spryker\Zed\Auth\Communication\Plugin\Bootstrap\AuthBootstrapProvider;
-use Spryker\Zed\Auth\Communication\Plugin\ServiceProvider\RedirectAfterLoginProvider;
-use Spryker\Zed\Gui\Communication\Plugin\ServiceProvider\GuiTwigExtensionServiceProvider;
-use Spryker\Zed\Gui\Communication\Plugin\Twig\ActionButtons\BackActionButtonFunction;
-use Spryker\Zed\Gui\Communication\Plugin\Twig\ActionButtons\CreateActionButtonFunction;
-use Spryker\Zed\Gui\Communication\Plugin\Twig\ActionButtons\EditActionButtonFunction;
-use Spryker\Zed\Gui\Communication\Plugin\Twig\ActionButtons\ViewActionButtonFunction;
-use Spryker\Zed\Gui\Communication\Plugin\Twig\AssetsPathFunction;
-use Spryker\Zed\Gui\Communication\Plugin\Twig\FormatPriceFunction;
-use Spryker\Zed\Gui\Communication\Plugin\Twig\UrlFunction;
-use Spryker\Zed\Kernel\Communication\Plugin\GatewayControllerListenerPlugin;
-use Spryker\Zed\Kernel\Communication\Plugin\GatewayServiceProviderPlugin;
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Library\Twig\TwigFilterInterface;
+use Spryker\Zed\Library\Twig\TwigFunctionInterface;
 use Spryker\Zed\Log\Communication\Plugin\ServiceProvider\LogServiceProvider;
 use Spryker\Zed\Price\Communication\Plugin\ServiceProvider\PriceServiceProvider;
-use Spryker\Zed\Propel\Communication\Plugin\ServiceProvider\PropelServiceProvider;
 use Spryker\Zed\Session\Communication\Plugin\ServiceProvider\SessionServiceProvider as SprykerSessionServiceProvider;
 use Spryker\Zed\User\Communication\Plugin\ServiceProvider\UserServiceProvider;
 
@@ -80,43 +57,25 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
      * @param \Spryker\Zed\Kernel\Container $container
      *
      * @throws \Exception
-     * @return array
+     * @return ServiceProviderInterface[]
      */
     protected function getServiceProvider(Container $container)
     {
+        $coreProviders = parent::getServiceProvider($container);
+
         $providers = [
             new LogServiceProvider(),
             new SessionServiceProvider(),
             $this->getSessionServiceProvider($container),
-            new PropelServiceProvider(),
-            new RedirectAfterLoginProvider(),
-            new AuthBootstrapProvider(),
-            new RequestServiceProvider(),
-            new SslServiceProvider(),
-            new ServiceControllerServiceProvider(),
-            new RoutingServiceProvider(),
-            new MvcRoutingServiceProvider(),
-            new SilexRoutingServiceProvider(),
             new AclBootstrapProvider(),
-            new ValidatorServiceProvider(),
-            new FormServiceProvider(),
             new TwigServiceProvider(),
             new SprykerTwigServiceProvider(),
             new EnvironmentInformationServiceProvider(),
             $this->getGatewayServiceProvider(),
-            new UrlGeneratorServiceProvider(),
-            new NewRelicServiceProvider(),
-            new HttpFragmentServiceProvider(),
-            new HeaderServiceProvider(),
             new AssertionServiceProvider(),
             new UserServiceProvider($container),
-            new NavigationServiceProvider(),
             new PriceServiceProvider(),
             new DateFormatterServiceProvider(),
-            new GuiTwigExtensionServiceProvider(
-                $this->getTwigGuiFunctions(),
-                $this->getTwigGuiFilters()
-            ),
             new TranslationServiceProvider(),
             new SubRequestServiceProvider(),
         ];
@@ -125,31 +84,25 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             $providers[] = new WebProfilerServiceProvider();
         }
 
-        return $providers;
+        return array_merge($providers, $coreProviders);
     }
 
     /**
-     * @return array
+     * @return TwigFunctionInterface[]
      */
-    protected function getTwigGuiFunctions()
+    protected function getTwigFunctions()
     {
-        return [
-            new FormatPriceFunction(),
-            new AssetsPathFunction(),
-            new BackActionButtonFunction(),
-            new CreateActionButtonFunction(),
-            new ViewActionButtonFunction(),
-            new EditActionButtonFunction(),
-            new UrlFunction(),
-        ];
+        // here you can add or replace servide providers
+        return parent::getTwigFunctions();
     }
 
     /**
-     * @return array
+     * @return TwigFilterInterface[]
      */
-    protected function getTwigGuiFilters()
+    protected function getTwigFilters()
     {
-        return [];
+        // here you can add or replace servide providers
+        return parent::getTwigFilters();
     }
 
     /**
@@ -195,11 +148,8 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
      */
     protected function getGatewayServiceProvider()
     {
-        $controllerListener = new GatewayControllerListenerPlugin();
-        $serviceProvider = new GatewayServiceProviderPlugin();
-        $serviceProvider->setControllerListener($controllerListener);
-
-        return $serviceProvider;
+        // here you can add or replace servide providers
+        return parent::getGatewayServiceProvider();
     }
 
 }
