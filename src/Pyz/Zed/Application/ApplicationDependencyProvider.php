@@ -10,7 +10,6 @@ namespace Pyz\Zed\Application;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
-use Silex\ServiceProviderInterface;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\Config;
 use Spryker\Zed\Acl\Communication\Plugin\Bootstrap\AclBootstrapProvider;
@@ -22,8 +21,6 @@ use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\TranslationServ
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigServiceProvider;
 use Spryker\Zed\Assertion\Communication\Plugin\ServiceProvider\AssertionServiceProvider;
 use Spryker\Zed\Kernel\Container;
-use Spryker\Zed\Library\Twig\TwigFilterInterface;
-use Spryker\Zed\Library\Twig\TwigFunctionInterface;
 use Spryker\Zed\Log\Communication\Plugin\ServiceProvider\LogServiceProvider;
 use Spryker\Zed\Price\Communication\Plugin\ServiceProvider\PriceServiceProvider;
 use Spryker\Zed\Session\Communication\Plugin\ServiceProvider\SessionServiceProvider as SprykerSessionServiceProvider;
@@ -57,7 +54,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
      * @param \Spryker\Zed\Kernel\Container $container
      *
      * @throws \Exception
-     * @return ServiceProviderInterface[]
+     * @return \Silex\ServiceProviderInterface[]
      */
     protected function getServiceProvider(Container $container)
     {
@@ -88,7 +85,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
     }
 
     /**
-     * @return TwigFunctionInterface[]
+     * @return \Spryker\Zed\Library\Twig\TwigFunctionInterface[]
      */
     protected function getTwigFunctions()
     {
@@ -97,7 +94,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
     }
 
     /**
-     * @return TwigFilterInterface[]
+     * @return \Spryker\Zed\Library\Twig\TwigFilterInterface[]
      */
     protected function getTwigFilters()
     {
