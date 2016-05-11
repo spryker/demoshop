@@ -180,6 +180,8 @@ $config[UserConstants::USER_SYSTEM_USERS] = [
     'yves_system',
 ];
 
+/** For a better performance you can turn off Zed authentication */
+$config[AuthConstants::AUTH_ZED_ENABLED] = true;
 
 $config[AuthConstants::AUTH_DEFAULT_CREDENTIALS] = [
     'yves_system' => [
