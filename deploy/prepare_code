@@ -142,7 +142,7 @@ if is_default_store; then
 #  # ??? popd
 #  APPLICATION_STORE=${APPLICATION_STORE} APPLICATION_ENV=${environment} gulp dist -gulpfile config/Yves/Gulpfile.js >> $outfile
 #  APPLICATION_STORE=${APPLICATION_STORE} APPLICATION_ENV=${environment} gulp dist -gulpfile config/Zed/Gulpfile.js >> $outfile
-#  APPLICATION_STORE=${APPLICATION_STORE} APPLICATION_ENV=${environment} gulp dist -gulpfile vendor/spryker/spryker/Bundles/Ui >> $outfile
+#  APPLICATION_STORE=${APPLICATION_STORE} APPLICATION_ENV=${environment} gulp dist -gulpfile vendor/spryker/Ui >> $outfile
 fi
 
 
