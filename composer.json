@@ -71,6 +71,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
+    "preferred-install": "dist",
     "use-include-path": true,
     "process-timeout": 600
   },
