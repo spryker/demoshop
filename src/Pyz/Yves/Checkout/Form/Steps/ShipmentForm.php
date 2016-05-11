@@ -104,7 +104,7 @@ class ShipmentForm extends AbstractType
                 $shipmentMethodSubForm->getName(),
                 $shipmentMethodSubForm,
                 [
-                    'property_path' => self::SHIPMENT_PROPERTY_PATH .  '.' . $shipmentMethodSubForm->getPropertyPath(),
+                    'property_path' => self::SHIPMENT_PROPERTY_PATH . '.' . $shipmentMethodSubForm->getPropertyPath(),
                     'error_bubbling' => true,
                     'select_options' => $options['select_options']
                 ]

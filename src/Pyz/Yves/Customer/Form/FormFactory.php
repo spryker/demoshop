@@ -6,6 +6,7 @@
  */
 namespace Pyz\Yves\Customer\Form;
 
+use Pyz\Yves\Customer\CustomerDependencyProvider;
 use Pyz\Yves\Customer\Form\DataProvider\AddressFormDataProvider;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Kernel\AbstractFactory;
@@ -108,7 +109,7 @@ class FormFactory extends AbstractFactory
      */
     protected function getCustomerClient()
     {
-        return $this->getLocator()->customer()->client();
+        return $this->getProvidedDependency(CustomerDependencyProvider::CLIENT_CUSTOMER);
     }
 
     /**

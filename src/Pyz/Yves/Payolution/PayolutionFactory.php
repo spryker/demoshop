@@ -60,7 +60,7 @@ class PayolutionFactory extends AbstractFactory
      */
     public function getPayolutionClient()
     {
-        return $this->getLocator()->payolution()->client();
+        return $this->getProvidedDependency(PayolutionDependencyProvider::CLIENT_PAYOLUTION);
     }
 
 }

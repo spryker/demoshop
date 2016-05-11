@@ -7,7 +7,6 @@
 
 namespace Pyz\Yves\Checkout;
 
-use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Checkout\Form\FormFactory;
 use Pyz\Yves\Checkout\Process\StepFactory;
 use Pyz\Yves\Checkout\Process\StepProcess;
@@ -49,7 +48,7 @@ class CheckoutFactory extends AbstractFactory
      */
     public function getCartClient()
     {
-        return $this->getLocator()->cart()->client();
+        return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CART);
     }
 
     /**
@@ -65,7 +64,7 @@ class CheckoutFactory extends AbstractFactory
      */
     protected function getApplication()
     {
-        return (new Pimple())->getApplication();
+        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_APPLICATION);
     }
 
 }

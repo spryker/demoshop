@@ -36,7 +36,15 @@ class HeartbeatFactory extends AbstractFactory
      */
     protected function createSearchHealthIndicator()
     {
-        return new SearchHealthIndicator($this->getLocator()->search()->client());
+        return new SearchHealthIndicator($this->getSearchClient());
+    }
+
+    /**
+     * @return \Spryker\Client\Search\SearchClientInterface
+     */
+    protected function getSearchClient()
+    {
+        return $this->getProvidedDependency(HeartbeatDependencyProvider::CLIENT_SEARCH);
     }
 
     /**
@@ -44,7 +52,15 @@ class HeartbeatFactory extends AbstractFactory
      */
     protected function createSessionHealthIndicator()
     {
-        return new SessionHealthIndicator($this->getLocator()->session()->client());
+        return new SessionHealthIndicator($this->getSessionClient());
+    }
+
+    /**
+     * @return \Spryker\Client\Session\SessionClientInterface
+     */
+    protected function getSessionClient()
+    {
+        return $this->getProvidedDependency(HeartbeatDependencyProvider::CLIENT_SESSION);
     }
 
     /**
@@ -52,7 +68,15 @@ class HeartbeatFactory extends AbstractFactory
      */
     protected function createStorageHealthIndicator()
     {
-        return new StorageHealthIndicator($this->getLocator()->storage()->client());
+        return new StorageHealthIndicator($this->getStorageClient());
+    }
+
+    /**
+     * @return \Spryker\Client\Storage\StorageClientInterface
+     */
+    protected function getStorageClient()
+    {
+        return $this->getProvidedDependency(HeartbeatDependencyProvider::CLIENT_STORAGE);
     }
 
 }
