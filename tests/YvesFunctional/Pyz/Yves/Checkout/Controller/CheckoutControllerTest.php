@@ -21,6 +21,7 @@ use Pyz\Client\Customer\CustomerClient;
 use Pyz\Yves\Checkout\CheckoutDependencyProvider;
 use Pyz\Yves\Checkout\CheckoutFactory;
 use Pyz\Yves\Checkout\Controller\CheckoutController;
+use Pyz\Yves\Checkout\Form\DataProvider\SubFormDataProviders;
 use Pyz\Yves\Checkout\Form\FormFactory;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
 use Pyz\Yves\Checkout\Form\Steps\ShipmentForm;
@@ -35,6 +36,11 @@ use Spryker\Yves\Kernel\Container;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @group Pyz
+ * @group Yves
+ * @group Checkout
+ */
 class CheckoutControllerTest extends Test
 {
 
@@ -527,7 +533,7 @@ class CheckoutControllerTest extends Test
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Form\DataProvider\SubformDataProviders
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Form\DataProvider\SubFormDataProviders
      */
     protected function createSubFormDataProvider(QuoteTransfer $quoteTransfer)
     {
@@ -539,7 +545,7 @@ class CheckoutControllerTest extends Test
             $quoteTransfer->setShipment(new ShipmentTransfer());
         }
 
-        $subFormDataProviderMock = $this->getMockBuilder(SubformDataProviders::class)->disableOriginalConstructor()->getMock();
+        $subFormDataProviderMock = $this->getMockBuilder(SubFormDataProviders::class)->disableOriginalConstructor()->getMock();
         $subFormDataProviderMock->method('getData')->willReturn($quoteTransfer);
         $subFormDataProviderMock->method('getOptions')->willReturn(['select_options' =>[]]);
 
