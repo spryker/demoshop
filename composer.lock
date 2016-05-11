@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8fc38ce2a521f8391e9d358ac6cdc35e",
-    "content-hash": "98784f2e31ea84a8c0a6aace189bc14d",
+    "hash": "5bfd2bce0183ee7a5510229e672d1b4d",
+    "content-hash": "844cf2d72a035289a198345de36e819f",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -945,11 +945,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-heroku/yves-stateless-call",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "98e08c676250a7d62e09f69cd91ad794b032dfec"
+                "reference": "024978c139adce0e16484e5fda264690a2b81eee"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1408,7 +1408,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-05-03 12:22:30"
+            "time": "2016-05-11 13:48:17"
         },
         {
             "name": "symfony-cmf/routing",
@@ -1806,12 +1806,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9"
+                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/form/zipball/23394a60d49d2aa904dacda6e5eb29d88251f9da",
-                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
+                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da",
                 "shasum": ""
             },
             "require": {
@@ -5437,12 +5437,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "1252fc3fda34df208b1a96d1be18c75e022d2e07"
+                "reference": "940915a9b69fe27ff9a0abfae395576d66dbdb2f"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/940915a9b69fe27ff9a0abfae395576d66dbdb2f",
-                "reference": "1252fc3fda34df208b1a96d1be18c75e022d2e07",
+                "reference": "940915a9b69fe27ff9a0abfae395576d66dbdb2f",
                 "shasum": ""
             },
             "require": {
@@ -5471,7 +5471,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-04-08 09:48:42"
+            "time": "2016-04-13 14:03:59"
         },
         {
             "name": "squizlabs/php_codesniffer",
