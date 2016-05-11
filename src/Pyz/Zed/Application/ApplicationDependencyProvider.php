@@ -56,9 +56,9 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
      * @throws \Exception
      * @return \Silex\ServiceProviderInterface[]
      */
-    protected function getServiceProvider(Container $container)
+    protected function getServiceProvider(Container $container = null)
     {
-        $coreProviders = parent::getServiceProvider($container);
+        $coreProviders = parent::getServiceProvider();
 
         $providers = [
             new LogServiceProvider(),
