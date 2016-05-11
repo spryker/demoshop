@@ -27,7 +27,9 @@ class TranslationServiceProvider extends AbstractServiceProvider
     {
         $app['translator'] = $app->share(function ($app) {
             $twigTranslator = $this->getFactory()->createTwigTranslator(
-                $this->getClient(), $app['request_stack'], $app['locale']
+                $this->getClient(),
+                $app['request_stack'],
+                $app['locale']
             );
 
             return $twigTranslator;
@@ -41,7 +43,7 @@ class TranslationServiceProvider extends AbstractServiceProvider
      */
     public function boot(Application $app)
     {
-        $app->after(array(new TranslationCacheMiddleware(), 'after'));
+        $app->after([new TranslationCacheMiddleware(), 'after']);
     }
 
 }
