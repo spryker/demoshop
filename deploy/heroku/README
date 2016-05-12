@@ -11,7 +11,7 @@ the add-ons between them and you are free to set it up to your needs.
   Frontend application, uses Redis and Elasticsearch as data stores.
   nginx config: nginx_Yves.conf
   setup script: setup-Yves.sh
-  Procfile: web: vendor/bin/heroku-php-nginx -l data/DE/logs/application.log -C nginx_Yves.conf -F fpm_custom.conf public/Yves/
+  Procfile: web: vendor/bin/heroku-php-nginx -l data/DE/logs/application.log -C deploy/heroku/conf/nginx_Yves.conf -F deploy/heroku/conf/fpm_custom.conf public/Yves/
   Add-ons:
   - Redis
   - Elastic Search
@@ -20,7 +20,7 @@ the add-ons between them and you are free to set it up to your needs.
   Backend application, uses Database, Redis and Elasticsearch as data stores.
   nginx config: nginx_Zed.conf
   setup script: setup-Zed.sh
-  Procfile: web: vendor/bin/heroku-php-nginx -l data/DE/logs/application.log -C nginx_Zed.conf -F fpm_custom.conf public/Zed/
+  Procfile: web: vendor/bin/heroku-php-nginx -l data/DE/logs/application.log -C deploy/heroku/conf/nginx_Zed.conf -F deploy/heroku/conf/fpm_custom.conf public/Zed/
   Add-ons:
   - Redis (the same instance as Yves)
   - Elastic Search (the same instance as Yves)
@@ -31,7 +31,7 @@ the add-ons between them and you are free to set it up to your needs.
   Application that populates Database, Redis and Elasticsearch services with demoshop data.
   nginx config: nginx_Data.conf
   setup script: setup-Data.sh
-  Procfile: web: vendor/bin/heroku-php-nginx -l data/DE/logs/application.log -C nginx_Data.conf -F fpm_custom.conf public/Data/
+  Procfile: irrelevant as this is a console application only
     - Redis (the same instance as Yves)
     - Elastic Search (the same instance as Yves)
     - Database (the same instance as Zed)
@@ -98,7 +98,7 @@ as your hosting environment.
 
 HEROKU NGINX CONFIGURATION AND PROCFILE
 ------------------------------------------------------------------------------------------------------------------------
-Copy all files from `deploy/heroku/conf` to root folder in your project. You may customize them to your needs.
+Copy `deploy/heroku/conf/Procfile` to root folder in your project. You may customize it to your needs.
 
 
 SPRYKER CONFIGURATION
@@ -111,8 +111,8 @@ BUILD & COMPOSER
 ------------------------------------------------------------------------------------------------------------------------
 The build process on Heroku must trigger setup script for each of the applications.
 
-Add this to composer.json to trigger build process during Heroku deployment (assuming your configuration is stored under
-development_heroku configuration file).
+Add this to composer.json to trigger setup process during Heroku deployment (assuming your configuration is stored under
+development_heroku* configuration files).
 
   "scripts": {
     "compile": [
