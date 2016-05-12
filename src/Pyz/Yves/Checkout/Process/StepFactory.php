@@ -210,7 +210,7 @@ class StepFactory extends AbstractFactory
      */
     public function getCalculationClient()
     {
-        $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CALCULATION);
+        return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CALCULATION);
     }
 
     /**
@@ -218,7 +218,7 @@ class StepFactory extends AbstractFactory
      */
     public function getCheckoutClient()
     {
-        $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CHECKOUT);
+        return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CHECKOUT);
     }
 
 }
