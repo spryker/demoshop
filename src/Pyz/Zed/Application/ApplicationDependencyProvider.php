@@ -85,24 +85,6 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
     }
 
     /**
-     * @return \Spryker\Zed\Library\Twig\TwigFunctionInterface[]
-     */
-    protected function getTwigFunctions()
-    {
-        // here you can add or replace service providers
-        return parent::getTwigFunctions();
-    }
-
-    /**
-     * @return \Spryker\Zed\Library\Twig\TwigFilterInterface[]
-     */
-    protected function getTwigFilters()
-    {
-        // here you can add or replace service providers
-        return parent::getTwigFilters();
-    }
-
-    /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
      * @return array
