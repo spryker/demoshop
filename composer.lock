@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5bfd2bce0183ee7a5510229e672d1b4d",
-    "content-hash": "844cf2d72a035289a198345de36e819f",
+    "hash": "8fc38ce2a521f8391e9d358ac6cdc35e",
+    "content-hash": "98784f2e31ea84a8c0a6aace189bc14d",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -945,11 +945,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-heroku/yves-stateless-call",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "024978c139adce0e16484e5fda264690a2b81eee"
+                "reference": "df22ee927955d79e47d768adec5b345ca9f6467c"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1408,7 +1408,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-05-11 13:48:17"
+            "time": "2016-05-11 14:19:54"
         },
         {
             "name": "symfony-cmf/routing",
@@ -1806,12 +1806,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da"
+                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/form/zipball/23394a60d49d2aa904dacda6e5eb29d88251f9da",
-                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da",
+                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
                 "shasum": ""
             },
             "require": {
