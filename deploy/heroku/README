@@ -125,3 +125,11 @@ development_heroku* configuration files).
 You might need to change `minimum-stability` from `dev` to `stable`, depending on your Heroku setup.
 
 
+HEROKU BUILD PACKS
+------------------------------------------------------------------------------------------------------------------------
+
+1. heroku/nodejs
+2. heroku/php
+3. https://github.com/weibeld/heroku-buildpack-graphviz.git
+
+
