@@ -1,5 +1,5 @@
 This is an example of Heroku integration.
-There are  3 example applications, which share Redis, Elastic Search and Database add-ons between them.
+There are 3 example applications, which share Redis, Elastic Search and Database add-ons between them.
 
 APPLICATIONS
 ------------------------------------------------------------------------------------------------------------------------
