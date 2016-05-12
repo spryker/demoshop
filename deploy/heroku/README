@@ -3,6 +3,9 @@ There are 3 example applications, which share Redis, Elastic Search and Database
 
 APPLICATIONS
 ------------------------------------------------------------------------------------------------------------------------
+In this example scenario, Redis and Elastic Search add-ons are attached to Yves application,
+while the Database add-on is attached to Zed application. It really does not matter as all applications share
+the add-ons between them and you are free to set it up to your needs.
 
 - Yves
   Frontend application, uses Redis and Elasticsearch as data stores.
@@ -12,7 +15,6 @@ APPLICATIONS
   Add-ons:
   - Redis
   - Elastic Search
-  - Database (the same instance as Zed) (required only by deployment script, it is not used during runtime by Yves)
 
 - Zed
   Backend application, uses Database, Redis and Elasticsearch as data stores.
@@ -33,10 +35,6 @@ APPLICATIONS
     - Redis (the same instance as Yves)
     - Elastic Search (the same instance as Yves)
     - Database (the same instance as Zed)
-
-In this example scenario, Redis and Elastic Search add-ons are attached to Yves application,
-while the Database add-on is attached to Zed application. It really does not matter as all applications share
-the add-ons between them and you are free to set it up to your needs.
 
 
 HEROKU CONFIG VARS
