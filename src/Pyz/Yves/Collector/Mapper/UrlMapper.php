@@ -7,7 +7,7 @@
 
 namespace Pyz\Yves\Collector\Mapper;
 
-use Spryker\Client\Search\Plugin\Config\SearchConfigInterface;
+use Spryker\Client\Search\Dependency\Plugin\SearchConfigInterface;
 
 class UrlMapper implements UrlMapperInterface
 {
@@ -18,12 +18,12 @@ class UrlMapper implements UrlMapperInterface
     const KEY_ACTIVE = 'active';
 
     /**
-     * @var \Spryker\Client\Search\Plugin\Config\SearchConfigInterface
+     * @var \Spryker\Client\Search\Dependency\Plugin\SearchConfigInterface
      */
     protected $searchConfig;
 
     /**
-     * @param \Spryker\Client\Search\Plugin\Config\SearchConfigInterface $searchConfig
+     * @param \Spryker\Client\Search\Dependency\Plugin\SearchConfigInterface $searchConfig
      */
     public function __construct(SearchConfigInterface $searchConfig)
     {

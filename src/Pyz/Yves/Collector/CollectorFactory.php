@@ -8,7 +8,6 @@
 namespace Pyz\Yves\Collector;
 
 use Pyz\Yves\Collector\Mapper\ParameterMerger;
-use Pyz\Yves\Collector\Mapper\RequestParameterInjector;
 use Pyz\Yves\Collector\Mapper\UrlMapper;
 use Spryker\Yves\Kernel\AbstractFactory;
 
@@ -42,14 +41,6 @@ class CollectorFactory extends AbstractFactory
     public function createParameterMerger()
     {
         return new ParameterMerger($this->getSearchConfig());
-    }
-
-    /**
-     * @return \Pyz\Yves\Collector\Mapper\RequestParameterInjectorInterface
-     */
-    public function createRequestParameterInjector()
-    {
-        return new RequestParameterInjector($this->getSearchConfig());
     }
 
     /**
@@ -103,7 +94,7 @@ class CollectorFactory extends AbstractFactory
     }
 
     /**
-     * @return \Spryker\Client\Search\Plugin\Config\SearchConfigInterface
+     * @return \Spryker\Client\Search\Dependency\Plugin\SearchConfigInterface
      */
     protected function getSearchConfig()
     {

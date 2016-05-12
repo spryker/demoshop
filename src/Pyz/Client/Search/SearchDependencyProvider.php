@@ -17,7 +17,7 @@ class SearchDependencyProvider extends SprykerSearchDependencyProvider
     /**
      * @param \Spryker\Client\Kernel\Container $container
      *
-     * @return \Spryker\Client\Search\Plugin\Config\SearchConfigBuilderInterface
+     * @return \Spryker\Client\Search\Dependency\Plugin\SearchConfigBuilderInterface
      */
     protected function createSearchConfigPlugin(Container $container)
     {

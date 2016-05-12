@@ -34,8 +34,14 @@ class SearchRouter extends AbstractRouter
             if (!isset($parameters[self::PARAMETER_PAGE]) && isset($requestParameters[self::PARAMETER_PAGE])) {
                 unset($requestParameters[self::PARAMETER_PAGE]);
             }
-            $mergedParameters = $this->getUrlMapperPlugin()->mergeParameters($requestParameters, $parameters);
-            $pathInfo = $this->getUrlMapperPlugin()->generateUrlFromParameters($mergedParameters);
+            $mergedParameters = $this
+                ->getUrlMapperPlugin()
+                ->mergeParameters($requestParameters, $parameters);
+            
+            $pathInfo = $this
+                ->getUrlMapperPlugin()
+                ->generateUrlFromParameters($mergedParameters);
+            
             $pathInfo = $name . $pathInfo;
 
             return $this->getUrlOrPathForType($pathInfo, $referenceType);
@@ -49,13 +55,6 @@ class SearchRouter extends AbstractRouter
     public function match($pathinfo)
     {
         if ($pathinfo === self::SEARCH_PATH) {
-            /**
-             * TODO: "category => search" get injected to the request. Originally it was something like c-1 that matched the category id 1.
-             * If we don't need this, that the whole ParameterInjector class could be deleted.
-             */
-            // $request = $this->getRequest();
-            // $this->getUrlMapperPlugin()->injectParametersFromUrlIntoRequest($pathinfo, $request);
-
             $bundleControllerAction = new BundleControllerAction('Catalog', 'Catalog', 'fulltextSearch');
             $routeResolver = new RouteNameResolver('catalog');
 

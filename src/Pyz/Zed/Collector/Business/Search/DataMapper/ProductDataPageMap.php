@@ -211,8 +211,8 @@ class ProductDataPageMap implements PageMapInterface
     }
 
     /**
-     * @param PageMapBuilderInterface $pageMapBuilder
-     * @param PageMapTransfer $pageMapTransfer
+     * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
+     * @param \Generated\Shared\Transfer\PageMapTransfer $pageMapTransfer
      * @param array $attributes
      *
      * @return \Generated\Shared\Transfer\PageMapTransfer
