@@ -103,6 +103,8 @@ Copy `deploy/heroku/conf/Procfile` to root folder in your project. You may custo
 
 SPRYKER CONFIGURATION
 ------------------------------------------------------------------------------------------------------------------------
+The general idea is that the all the Heroku specific configuration is read from the environment variables, which are
+configured in Heroku Config Vars.
 Check config_default-development_heroku.php and config_default-development_heroku_DE.php under config/Shared, for
 configuration examples and how to use Heroku config vars inside Spryker config.
 
