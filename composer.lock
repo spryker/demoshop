@@ -8,6 +8,53 @@
     "content-hash": "84032c7caf6d1d3109704944b6b7ee5d",
     "packages": [
         {
+            "name": "braintree/braintree_php",
+            "version": "3.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/braintree/braintree_php.git",
+                "reference": "37ecac0b1b848e1c47b5aaea0234501d012ec5bb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/braintree/braintree_php/zipball/37ecac0b1b848e1c47b5aaea0234501d012ec5bb",
+                "reference": "37ecac0b1b848e1c47b5aaea0234501d012ec5bb",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-dom": "*",
+                "ext-hash": "*",
+                "ext-openssl": "*",
+                "ext-xmlwriter": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Braintree": "lib/"
+                },
+                "psr-4": {
+                    "Braintree\\": "lib/Braintree"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Braintree",
+                    "homepage": "http://www.braintreepayments.com"
+                }
+            ],
+            "description": "Braintree PHP Client Library",
+            "time": "2016-03-17 21:52:25"
+        },
+        {
             "name": "container-interop/container-interop",
             "version": "1.1.0",
             "source": {
@@ -943,7 +990,7 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-beta/braintree",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
@@ -990,6 +1037,15 @@
                     "Functional\\Spryker\\Zed\\Availability\\": "Bundles/Availability/tests",
                     "Spryker\\Zed\\AvailabilityCartConnector\\": "Bundles/AvailabilityCartConnector/src",
                     "Unit\\Spryker\\Zed\\AvailabilityCartConnector\\": "Bundles/AvailabilityCartConnector/tests",
+                    "Spryker\\Client\\Braintree\\": "Bundles/Braintree/src",
+                    "Unit\\Spryker\\Client\\Braintree\\": "Bundles/Braintree/tests",
+                    "Functional\\Spryker\\Client\\Braintree\\": "Bundles/Braintree/tests",
+                    "Spryker\\Shared\\Braintree\\": "Bundles/Braintree/src",
+                    "Unit\\Spryker\\Shared\\Braintree\\": "Bundles/Braintree/tests",
+                    "Functional\\Spryker\\Shared\\Braintree\\": "Bundles/Braintree/tests",
+                    "Spryker\\Zed\\Braintree\\": "Bundles/Braintree/src",
+                    "Unit\\Spryker\\Zed\\Braintree\\": "Bundles/Braintree/tests",
+                    "Functional\\Spryker\\Zed\\Braintree\\": "Bundles/Braintree/tests",
                     "Spryker\\Zed\\Cache\\": "Bundles/Cache/src",
                     "Spryker\\Shared\\Calculation\\": "Bundles/Calculation/src",
                     "Unit\\Spryker\\Shared\\Calculation\\": "Bundles/Calculation/tests",
