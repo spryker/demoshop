@@ -7,8 +7,8 @@
 
 namespace Pyz\Yves\Checkout\Form\Steps;
 
-use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutSubFormPluginCollection;
-use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutSubFormPluginInterface;
+use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection;
+use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -21,12 +21,12 @@ class ShipmentForm extends AbstractType
     const SHIPMENT_SELECTION_PROPERTY_PATH = self::SHIPMENT_PROPERTY_PATH . '.' . self::SHIPMENT_SELECTION;
 
     /**
-     * @var \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutSubFormPluginCollection
+     * @var \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection
      */
     protected $shipmentMethodsSubFormPlugins;
 
     /**
-     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutSubFormPluginCollection $shipmentMethodsSubFormPlugins
+     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection $shipmentMethodsSubFormPlugins
      */
     public function __construct(CheckoutSubFormPluginCollection $shipmentMethodsSubFormPlugins)
     {
@@ -131,7 +131,7 @@ class ShipmentForm extends AbstractType
     }
 
     /**
-     * @return \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutSubFormPluginCollection
+     * @return \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection
      */
     protected function getShipmentMethodSubForms()
     {
@@ -162,7 +162,7 @@ class ShipmentForm extends AbstractType
     }
 
     /**
-     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutSubFormPluginInterface $shipmentMethodSubForm
+     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginInterface $shipmentMethodSubForm
      *
      * @return \Spryker\Yves\CheckoutStepEngine\Dependency\Form\SubFormInterface
      */

@@ -21,7 +21,7 @@ use Pyz\Yves\Customer\Form\LoginForm;
 use Pyz\Yves\Customer\Form\RegisterForm;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\CheckoutStepEngine\Dependency\DataProvider\DataProviderInterface;
-use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutSubFormPluginCollection;
+use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection;
 use Spryker\Yves\CheckoutStepEngine\Form\FormFactory as SprykerFormFactory;
 use Symfony\Component\Form\FormTypeInterface;
 
@@ -31,7 +31,7 @@ class FormFactory extends SprykerFormFactory
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer
      *
-     * @return \Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface
+     * @return \Spryker\Yves\CheckoutStepEngine\Form\FormCollectionHandlerInterface
      */
     public function createCustomerFormCollection(QuoteTransfer $quoteTransfer)
     {
@@ -41,7 +41,7 @@ class FormFactory extends SprykerFormFactory
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer
      *
-     * @return \Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface
+     * @return \Spryker\Yves\CheckoutStepEngine\Form\FormCollectionHandlerInterface
      */
     public function createAddressFormCollection(QuoteTransfer $quoteTransfer)
     {
@@ -51,7 +51,7 @@ class FormFactory extends SprykerFormFactory
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer
      *
-     * @return \Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface
+     * @return \Spryker\Yves\CheckoutStepEngine\Form\FormCollectionHandlerInterface
      */
     public function createShipmentFormCollection(QuoteTransfer $quoteTransfer)
     {
@@ -65,7 +65,7 @@ class FormFactory extends SprykerFormFactory
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer
      *
-     * @return \Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface
+     * @return \Spryker\Yves\CheckoutStepEngine\Form\FormCollectionHandlerInterface
      */
     public function createPaymentFormCollection(QuoteTransfer $quoteTransfer)
     {
@@ -77,7 +77,7 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutSubFormPluginCollection $subForms
+     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection $subForms
      *
      * @return \Pyz\Yves\Checkout\Form\DataProvider\SubFormDataProviders
      */
@@ -89,7 +89,7 @@ class FormFactory extends SprykerFormFactory
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer
      *
-     * @return \Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface
+     * @return \Spryker\Yves\CheckoutStepEngine\Form\FormCollectionHandlerInterface
      */
     public function createSummaryFormCollection(QuoteTransfer $quoteTransfer)
     {
@@ -147,7 +147,7 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutSubFormPluginCollection $subForms
+     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection $subForms
      *
      * @return \Pyz\Yves\Checkout\Form\Steps\ShipmentForm
      */
@@ -157,7 +157,7 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @return \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutSubFormPluginCollection
+     * @return \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection
      */
     protected function createShipmentMethodsSubForms()
     {
@@ -165,7 +165,7 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutSubFormPluginCollection $subForms
+     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection $subForms
      *
      * @return \Pyz\Yves\Checkout\Form\Steps\PaymentForm
      */
@@ -185,9 +185,9 @@ class FormFactory extends SprykerFormFactory
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer
      * @param \Symfony\Component\Form\FormTypeInterface[] $formTypes
-     * @param \Spryker\Yves\Checkout\Dependency\DataProvider\DataProviderInterface|null $dataProvider
+     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\DataProvider\DataProviderInterface|null $dataProvider
      *
-     * @return \Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface
+     * @return \Spryker\Yves\CheckoutStepEngine\Form\FormCollectionHandlerInterface
      */
     protected function createFormCollection(QuoteTransfer $quoteTransfer, array $formTypes, DataProviderInterface $dataProvider = null)
     {
@@ -197,9 +197,9 @@ class FormFactory extends SprykerFormFactory
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer
      * @param \Symfony\Component\Form\FormTypeInterface $formType
-     * @param \Spryker\Yves\Checkout\Dependency\DataProvider\DataProviderInterface|null $dataProvider
+     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\DataProvider\DataProviderInterface|null $dataProvider
      *
-     * @return \Pyz\Yves\Checkout\Form\FormCollectionHandlerInterface
+     * @return \Spryker\Yves\CheckoutStepEngine\Form\FormCollectionHandlerInterface
      */
     protected function createSubFormCollection(QuoteTransfer $quoteTransfer, $formType, DataProviderInterface $dataProvider)
     {
@@ -247,7 +247,7 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @return \Spryker\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginCollection
+     * @return \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection
      */
     protected function createShipmentFormPlugin()
     {

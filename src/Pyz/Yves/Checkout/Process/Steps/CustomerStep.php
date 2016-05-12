@@ -9,7 +9,7 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
-use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
+use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface;
 use Spryker\Yves\CheckoutStepEngine\Process\Steps\BaseStep;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -17,7 +17,7 @@ class CustomerStep extends BaseStep
 {
 
     /**
-     * @var \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginInterface
+     * @var \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface
      */
     protected $customerStepHandler;
 
@@ -29,7 +29,7 @@ class CustomerStep extends BaseStep
     /**
      * @param string $stepRoute
      * @param string $escapeRoute
-     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginInterface $customerStepHandler
+     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface $customerStepHandler
      * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
      */
     public function __construct(

@@ -9,18 +9,18 @@ namespace Pyz\Yves\Checkout\Form\DataProvider;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Yves\CheckoutStepEngine\Dependency\DataProvider\DataProviderInterface;
-use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutSubFormPluginCollection;
+use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection;
 
 class SubFormDataProviders implements DataProviderInterface
 {
 
     /**
-     * @var \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutSubFormPluginCollection
+     * @var \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection
      */
     protected $subFormPlugins;
 
     /**
-     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutSubFormPluginCollection $subFormPlugins
+     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection $subFormPlugins
      */
     public function __construct(CheckoutSubFormPluginCollection $subFormPlugins)
     {

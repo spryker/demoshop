@@ -122,16 +122,15 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
      * @return array
      */
-    public function errorAction(Request $request)
+    public function errorAction()
     {
         return [];
     }
 
     /**
-     * @return \Pyz\Yves\Checkout\Process\StepProcess
+     * @return \Spryker\Yves\CheckoutStepEngine\Process\StepProcess
      */
     protected function createStepProcess()
     {

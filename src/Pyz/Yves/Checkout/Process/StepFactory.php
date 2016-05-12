@@ -90,7 +90,7 @@ class StepFactory extends SprykerStepFactory
     }
 
     /**
-     * @return \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginCollection
+     * @return \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginCollection
      */
     public function createShipmentPlugins()
     {
@@ -147,7 +147,7 @@ class StepFactory extends SprykerStepFactory
     }
 
     /**
-     * @return \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\CheckoutStepHandlerPluginInterface
+     * @return \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface
      */
     protected function createCustomerStepHandler()
     {
