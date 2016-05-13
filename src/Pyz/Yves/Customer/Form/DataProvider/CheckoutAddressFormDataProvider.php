@@ -12,7 +12,7 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm;
 use Spryker\Shared\Kernel\Store;
-use Spryker\Yves\CheckoutStepEngine\Dependency\DataProvider\DataProviderInterface;
+use Spryker\Yves\StepEngine\Dependency\DataProvider\DataProviderInterface;
 
 class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider implements DataProviderInterface
 {

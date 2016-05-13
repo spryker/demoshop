@@ -8,7 +8,7 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Spryker\Yves\CheckoutStepEngine\Process\Steps\BaseStep;
+use Spryker\Yves\StepEngine\Process\Steps\BaseStep;
 use Symfony\Component\HttpFoundation\Request;
 
 /**

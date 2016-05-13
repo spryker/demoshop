@@ -8,8 +8,8 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Shared\Shipment\ShipmentConstants;
-use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginCollection;
-use Spryker\Yves\CheckoutStepEngine\Process\Steps\BaseStep;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginCollection;
+use Spryker\Yves\StepEngine\Process\Steps\BaseStep;
 use Symfony\Component\HttpFoundation\Request;
 
 class ShipmentStep extends BaseStep
@@ -21,7 +21,7 @@ class ShipmentStep extends BaseStep
     protected $calculationClient;
 
     /**
-     * @var \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginCollection
+     * @var \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginCollection
      */
     protected $shipmentPlugins;
 
@@ -29,7 +29,7 @@ class ShipmentStep extends BaseStep
      * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
      * @param string $stepRoute
      * @param string $escapeRoute
-     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginCollection $shipmentPlugins
+     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginCollection $shipmentPlugins
      */
     public function __construct(
         CalculationClientInterface $calculationClient,

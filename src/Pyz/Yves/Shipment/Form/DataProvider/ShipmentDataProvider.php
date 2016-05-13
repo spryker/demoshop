@@ -14,7 +14,7 @@ use Spryker\Client\Glossary\GlossaryClientInterface;
 use Spryker\Client\Shipment\ShipmentClientInterface;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Library\Currency\CurrencyManager;
-use Spryker\Yves\CheckoutStepEngine\Dependency\DataProvider\DataProviderInterface;
+use Spryker\Yves\StepEngine\Dependency\DataProvider\DataProviderInterface;
 
 class ShipmentDataProvider implements DataProviderInterface
 {

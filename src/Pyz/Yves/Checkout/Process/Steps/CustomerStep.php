@@ -9,15 +9,15 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
-use Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface;
-use Spryker\Yves\CheckoutStepEngine\Process\Steps\BaseStep;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface;
+use Spryker\Yves\StepEngine\Process\Steps\BaseStep;
 use Symfony\Component\HttpFoundation\Request;
 
 class CustomerStep extends BaseStep
 {
 
     /**
-     * @var \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface
+     * @var \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface
      */
     protected $customerStepHandler;
 
@@ -29,7 +29,7 @@ class CustomerStep extends BaseStep
     /**
      * @param string $stepRoute
      * @param string $escapeRoute
-     * @param \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface $customerStepHandler
+     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface $customerStepHandler
      * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
      */
     public function __construct(
@@ -67,7 +67,7 @@ class CustomerStep extends BaseStep
             return false;
         }
 
-        if ($this->isCustomerLogedIn()) {
+        if ($this->isCustomerLoggedIn()) {
             return false;
         }
 
@@ -102,7 +102,7 @@ class CustomerStep extends BaseStep
             return false;
         }
 
-        if ($this->isGuestCustomerSelected($quoteTransfer) && $this->isCustomerLogedIn()) {
+        if ($this->isGuestCustomerSelected($quoteTransfer) && $this->isCustomerLoggedIn()) {
             // override guest user with logged in user
             return false;
         }
@@ -123,7 +123,7 @@ class CustomerStep extends BaseStep
     /**
      * @return bool
      */
-    protected function isCustomerLogedIn()
+    protected function isCustomerLoggedIn()
     {
         return $this->customerClient->getCustomer() !== null;
     }

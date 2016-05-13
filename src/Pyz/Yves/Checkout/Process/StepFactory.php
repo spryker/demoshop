@@ -18,13 +18,13 @@ use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
-use Spryker\Yves\CheckoutStepEngine\Process\StepFactory as SprykerStepFactory;
+use Spryker\Yves\StepEngine\Process\StepFactory as SprykerStepFactory;
 
 class StepFactory extends SprykerStepFactory
 {
 
     /**
-     * @return \Spryker\Yves\CheckoutStepEngine\Process\Steps\StepInterface[]
+     * @return \Spryker\Yves\StepEngine\Process\Steps\StepInterface[]
      */
     public function createSteps()
     {
@@ -90,7 +90,7 @@ class StepFactory extends SprykerStepFactory
     }
 
     /**
-     * @return \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginCollection
+     * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginCollection
      */
     public function createShipmentPlugins()
     {
@@ -147,7 +147,7 @@ class StepFactory extends SprykerStepFactory
     }
 
     /**
-     * @return \Spryker\Yves\CheckoutStepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface
+     * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface
      */
     protected function createCustomerStepHandler()
     {

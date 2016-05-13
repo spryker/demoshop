@@ -53,7 +53,9 @@ class AuthenticationHandler extends AbstractPlugin
      */
     protected function getSecurityContext()
     {
-        return $this->getFactory()->createApplication()['security'];
+        $application = $this->getFactory()->createApplication();
+        
+        return $application['security'];
     }
 
 }

@@ -10,18 +10,17 @@ namespace Pyz\Yves\Checkout;
 use Pyz\Yves\Checkout\Form\FormFactory;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Pyz\Yves\Checkout\Process\StepFactory;
-use Spryker\Yves\CheckoutStepEngine\Process\StepProcess;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class CheckoutFactory extends AbstractFactory
 {
 
     /**
-     * @return \Spryker\Yves\CheckoutStepEngine\Process\StepProcess
+     * @return \Spryker\Yves\StepEngine\Process\StepProcess
      */
     public function createCheckoutProcess()
     {
-        return new StepProcess(
+        return $this->createStepFactory()->createStepProcess(
             $this->createStepFactory()->createSteps(),
             $this->getUrlGenerator(),
             $this->getCartClient(),

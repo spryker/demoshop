@@ -11,8 +11,8 @@ use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
-use Spryker\Yves\CheckoutStepEngine\Process\Steps\BaseStep;
-use Spryker\Yves\CheckoutStepEngine\Process\Steps\StepWithExternalRedirectInterface;
+use Spryker\Yves\StepEngine\Process\Steps\BaseStep;
+use Spryker\Yves\StepEngine\Process\Steps\StepWithExternalRedirectInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class PlaceOrderStep extends BaseStep implements StepWithExternalRedirectInterface

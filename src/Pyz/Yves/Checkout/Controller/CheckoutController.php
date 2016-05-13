@@ -23,7 +23,9 @@ class CheckoutController extends AbstractController
      */
     public function indexAction(Request $request)
     {
-        return $this->createStepProcess()->process($request);
+        $response = $this->createStepProcess()->process($request);
+
+        return $response;
     }
 
     /**
@@ -33,12 +35,14 @@ class CheckoutController extends AbstractController
      */
     public function customerAction(Request $request)
     {
-        return $this->createStepProcess()->process(
+        $response = $this->createStepProcess()->process(
             $request,
             $this->getFactory()
                 ->createCheckoutFormFactory()
                 ->createCustomerFormCollection($this->getQuoteTransfer())
         );
+
+        return $response;
     }
 
     /**
@@ -48,12 +52,14 @@ class CheckoutController extends AbstractController
      */
     public function addressAction(Request $request)
     {
-        return $this->createStepProcess()->process(
+        $response = $this->createStepProcess()->process(
             $request,
             $this->getFactory()
                 ->createCheckoutFormFactory()
                 ->createAddressFormCollection($this->getQuoteTransfer())
         );
+
+        return $response;
     }
 
     /**
@@ -130,7 +136,7 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @return \Spryker\Yves\CheckoutStepEngine\Process\StepProcess
+     * @return \Spryker\Yves\StepEngine\Process\StepProcess
      */
     protected function createStepProcess()
     {

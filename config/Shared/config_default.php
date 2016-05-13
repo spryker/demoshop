@@ -75,7 +75,7 @@ $config[ApplicationConstants::HOST_ZED_GUI]
     = $config[ApplicationConstants::HOST_ZED_API]
     = $config[ApplicationConstants::HOST_SSL_ZED_GUI]
     = $config[ApplicationConstants::HOST_SSL_ZED_API]
-    = 'zed.spryker.dev';
+    = 'zed.de.spryker.dev';
 
 $config[ApplicationConstants::YVES_TRUSTED_HOSTS] = [];
 

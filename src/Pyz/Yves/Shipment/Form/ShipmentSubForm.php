@@ -6,8 +6,8 @@
 namespace Pyz\Yves\Shipment\Form;
 
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
-use Spryker\Yves\CheckoutStepEngine\Dependency\Form\AbstractSubFormType;
-use Spryker\Yves\CheckoutStepEngine\Dependency\Form\SubFormInterface;
+use Spryker\Yves\StepEngine\Dependency\Form\AbstractSubFormType;
+use Spryker\Yves\StepEngine\Dependency\Form\SubFormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
