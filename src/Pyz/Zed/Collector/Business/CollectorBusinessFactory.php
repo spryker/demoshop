@@ -21,8 +21,6 @@ use Pyz\Zed\Collector\Persistence\Storage\Propel\BlockCollectorQuery as StorageB
 use Pyz\Zed\Collector\Persistence\Storage\Propel\PageCollectorQuery as StoragePageCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\RedirectCollectorQuery as StorageRedirectCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\TranslationCollectorQuery as StorageTranslationCollectorPropelQuery;
-use Pyz\Zed\Collector\Business\Search\DataMapper\ProductDataPageMap;
-use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderDependencyContainer;
 use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderFactory;
 use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderFactoryWorker;
@@ -40,7 +38,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createSearchProductCollector()
     {
         $searchProductCollector = new SearchProductCollector(
-            $this->createProductDataPageMapBuilder(),
+            $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_PAGE_MAP),
             $this->getSearchFacade()
         );
 
@@ -349,14 +347,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface
-     */
-    protected function getProductSearchFacade()
-    {
-        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_SEARCH);
-    }
-
-    /**
      * @return \Spryker\Zed\Price\Business\PriceFacadeInterface
      */
     protected function getPriceFacade()
@@ -378,26 +368,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     protected function getCurrentDatabaseEngineName()
     {
         return $this->getPropelFacade()->getCurrentDatabaseEngineName();
-    }
-
-    /**
-     * @return \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapInterface
-     */
-    protected function createProductDataPageMapBuilder()
-    {
-        return new ProductDataPageMap(
-            $this->getPriceFacade(),
-            $this->getProductSearchFacade(),
-            $this->getStoreName()
-        );
-    }
-
-    /**
-     * @return string
-     */
-    protected function getStoreName()
-    {
-        return Store::getInstance()->getStoreName();
     }
 
 }

@@ -5,17 +5,20 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Pyz\Zed\Collector\Business\Search\DataMapper;
+namespace Pyz\Zed\ProductSearch\Business\Map;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
+use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
+use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Library\Json;
 use Spryker\Zed\Price\Business\PriceFacadeInterface;
-use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
-use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapInterface;
 
-class ProductDataPageMap implements PageMapInterface
+/**
+ * @method \Pyz\Zed\Collector\Communication\CollectorCommunicationFactory getFactory()
+ */
+class ProductDataPageMapBuilder
 {
 
     /**
@@ -29,29 +32,18 @@ class ProductDataPageMap implements PageMapInterface
     protected $productSearchFacade;
 
     /**
-     * @var string
-     */
-    protected $storeName;
-
-    /**
      * @var \Generated\Shared\Transfer\ProductSearchAttributeMapTransfer[]
      */
     protected $attributeMap;
 
     /**
-     * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
      * @param \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface $productSearchFacade
-     * @param string $storeName
+     * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
      */
-    public function __construct(PriceFacadeInterface $priceFacade, ProductSearchFacadeInterface $productSearchFacade, $storeName)
+    public function __construct(ProductSearchFacadeInterface $productSearchFacade, PriceFacadeInterface $priceFacade)
     {
         $this->priceFacade = $priceFacade;
         $this->productSearchFacade = $productSearchFacade;
-        $this->storeName = $storeName;
-        
-        $this->attributeMap = $this
-            ->productSearchFacade
-            ->getProductSearchAttributeMap();
     }
 
     /**
@@ -64,7 +56,7 @@ class ProductDataPageMap implements PageMapInterface
     public function buildPageMap(PageMapBuilderInterface $pageMapBuilder, array $productData, LocaleTransfer $locale)
     {
         $pageMapTransfer = (new PageMapTransfer())
-            ->setStore($this->storeName)
+            ->setStore(Store::getInstance()->getStoreName())
             ->setLocale($locale->getLocaleName());
 
         $attributes = $this->getProductAttributes($productData);
@@ -80,7 +72,7 @@ class ProductDataPageMap implements PageMapInterface
             ->addSearchResultData($pageMapTransfer, 'price', $price)
             ->addSearchResultData($pageMapTransfer, 'url', $this->getProductUrl($productData))
             ->addSearchResultData($pageMapTransfer, 'available', $this->isAvailable($productData))
-            ->addSearchResultData($pageMapTransfer, 'image_url', $attributes['image_big']) // TODO: attributes should come from dynamic attribute (need to make attr. names consistent)
+            ->addSearchResultData($pageMapTransfer, 'image_url', $attributes['image_big']) // TODO: attributes should come from dynamic attribute mapping, e.g. database (image attributes are aliased with different name so we need to keep it)
             ->addSearchResultData($pageMapTransfer, 'thumbnail_url', $attributes['image_small'])
             ->addFullTextBoosted($pageMapTransfer, $productData['abstract_name'])
             ->addSuggestionTerms($pageMapTransfer, $productData['abstract_name'])
@@ -93,7 +85,9 @@ class ProductDataPageMap implements PageMapInterface
         /*
          * We'll then extend this with dynamically configured product attributes from database
          */
-        $pageMapTransfer = $this->mapDynamicProductAttributes($pageMapBuilder, $pageMapTransfer, $attributes);
+        $pageMapTransfer = $this
+            ->productSearchFacade
+            ->mapDynamicProductAttributes($pageMapBuilder, $pageMapTransfer, $attributes);
 
         return $pageMapTransfer;
     }
@@ -105,40 +99,17 @@ class ProductDataPageMap implements PageMapInterface
      */
     protected function getProductAttributes(array $productData)
     {
-        $baseAttributes = $this->getBaseProductAttributes($productData);
-        $localizedAttributes = $this->getLocalizedProductAttributes($productData);
-
-        $attributes = array_merge($baseAttributes, $localizedAttributes);
-
-        return $attributes;
-    }
-
-    /**
-     * @param array $productData
-     *
-     * @return array
-     */
-    protected function getBaseProductAttributes(array $productData)
-    {
-        $productAttributes = $this->getEncodedData($productData['concrete_attributes']);
         $abstractAttributes = $this->getEncodedData($productData['abstract_attributes']);
+        $abstractLocalizedAttributes = $this->getEncodedData($productData['abstract_localized_attributes']);
+        $concreteAttributes = $this->getEncodedData($productData['concrete_attributes']);
+        $concreteLocalizedAttributes = $this->getEncodedData($productData['concrete_localized_attributes']);
 
-        $attributes = array_merge($abstractAttributes, $productAttributes);
-
-        return $attributes;
-    }
-
-    /**
-     * @param array $productData
-     *
-     * @return array
-     */
-    protected function getLocalizedProductAttributes(array $productData)
-    {
-        $productAttributes = $this->getEncodedData($productData['concrete_localized_attributes']);
-        $abstractAttributes = $this->getEncodedData($productData['abstract_localized_attributes']);
-
-        $attributes = array_merge($abstractAttributes, $productAttributes);
+        $attributes = array_merge(
+            $abstractAttributes,
+            $abstractLocalizedAttributes,
+            $concreteAttributes,
+            $concreteLocalizedAttributes
+        );
 
         return $attributes;
     }
@@ -179,6 +150,7 @@ class ProductDataPageMap implements PageMapInterface
      * @param array $productData
      *
      * @return bool
+     * TODO: put this to Stock or Availability facade (there's also a ticket for this: https://github.com/spryker/spryker/issues/1935 )
      */
     protected function isAvailable(array $productData)
     {
@@ -208,30 +180,6 @@ class ProductDataPageMap implements PageMapInterface
     protected function getAllParentCategories(array $productData)
     {
         return explode(',', $productData['category_parent_ids']);
-    }
-
-    /**
-     * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
-     * @param \Generated\Shared\Transfer\PageMapTransfer $pageMapTransfer
-     * @param array $attributes
-     *
-     * @return \Generated\Shared\Transfer\PageMapTransfer
-     */
-    protected function mapDynamicProductAttributes(PageMapBuilderInterface $pageMapBuilder, PageMapTransfer $pageMapTransfer, array $attributes)
-    {
-        foreach ($this->attributeMap as $attributeMapTransfer) {
-            $attributeName = $attributeMapTransfer->getAttributeName();
-
-            if (!isset($attributes[$attributeName])) {
-                continue;
-            }
-
-            foreach ($attributeMapTransfer->getTargetFields() as $fieldName) {
-                $pageMapBuilder->add($pageMapTransfer, $fieldName, $attributeName, $attributes[$attributeName]);
-            }
-        }
-
-        return $pageMapTransfer;
     }
 
 }

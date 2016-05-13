@@ -16,6 +16,7 @@ use Pyz\Zed\Collector\Communication\Plugin\ProductCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\RedirectCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\TranslationCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\UrlCollectorStoragePlugin;
+use Pyz\Zed\ProductSearch\Communication\Plugin\ProductDataPageMapPlugin;
 use Spryker\Zed\Collector\CollectorDependencyProvider as SprykerCollectorDependencyProvider;
 use Spryker\Zed\Kernel\Container;
 
@@ -31,6 +32,8 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
     const QUERY_CONTAINER_PRICE = 'price query container';
     const QUERY_CONTAINER_CATEGORY = 'category query container';
     const QUERY_CONTAINER_PRODUCT_CATEGORY = 'product category query container';
+    
+    const PLUGIN_PAGE_MAP = 'page map plugin';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -65,10 +68,6 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
             return $container->getLocator()->search()->facade();
         };
 
-        $container[self::FACADE_PRODUCT_SEARCH] = function (Container $container) {
-            return $container->getLocator()->productSearch()->facade();
-        };
-
         $container[self::FACADE_PRODUCT_OPTION_EXPORTER] = function (Container $container) {
             return $container->getLocator()->productOptionExporter()->facade();
         };
@@ -90,6 +89,10 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 'redirect' => new RedirectCollectorStoragePlugin(),
                 'url' => new UrlCollectorStoragePlugin(),
             ];
+        };
+
+        $container[self::PLUGIN_PAGE_MAP] = function (Container $container) {
+            return new ProductDataPageMapPlugin();
         };
 
         return $container;

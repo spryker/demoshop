@@ -10,16 +10,16 @@ namespace Pyz\Zed\Collector\Business\Search;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPdoCollector;
 use Spryker\Zed\Collector\CollectorConfig;
-use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapInterface;
+use Spryker\Zed\Search\Dependency\Plugin\PageMapInterface;
 use Spryker\Zed\Search\Business\SearchFacadeInterface;
 
 class ProductCollector extends AbstractSearchPdoCollector
 {
 
     /**
-     * @var \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapInterface
+     * @var \Spryker\Zed\Search\Dependency\Plugin\PageMapInterface
      */
-    protected $pageMap;
+    protected $productDataPageMapPlugin;
 
     /**
      * @var \Spryker\Zed\Search\Business\SearchFacadeInterface
@@ -27,14 +27,12 @@ class ProductCollector extends AbstractSearchPdoCollector
     protected $searchFacade;
 
     /**
-     * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapInterface $pageMap
+     * @param \Spryker\Zed\Search\Dependency\Plugin\PageMapInterface $productDataPageMapPlugin
      * @param \Spryker\Zed\Search\Business\SearchFacadeInterface $searchFacade
      */
-    public function __construct(
-        PageMapInterface $pageMap,
-        SearchFacadeInterface $searchFacade
-    ) {
-        $this->pageMap = $pageMap;
+    public function __construct(PageMapInterface $productDataPageMapPlugin, SearchFacadeInterface $searchFacade)
+    {
+        $this->productDataPageMapPlugin = $productDataPageMapPlugin;
         $this->searchFacade = $searchFacade;
     }
 
@@ -56,7 +54,7 @@ class ProductCollector extends AbstractSearchPdoCollector
     {
         $result = $this
             ->searchFacade
-            ->transformPageMapToDocument($this->pageMap, $collectItemData, $this->locale);
+            ->transformPageMapToDocument($this->productDataPageMapPlugin, $collectItemData, $this->locale);
 
         $result = $this->addExtraCollectorFields($result, $collectItemData);
 
