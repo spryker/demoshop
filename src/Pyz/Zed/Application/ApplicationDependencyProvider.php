@@ -7,6 +7,9 @@
 
 namespace Pyz\Zed\Application;
 
+use Pyz\Yves\NewRelic\Plugin\Provider\NewRelicServiceProvider;
+use Silex\Provider\HttpFragmentServiceProvider;
+use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
@@ -16,13 +19,21 @@ use Spryker\Zed\Acl\Communication\Plugin\Bootstrap\AclBootstrapProvider;
 use Spryker\Zed\Application\ApplicationDependencyProvider as SprykerApplicationDependencyProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\DateFormatterServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\EnvironmentInformationServiceProvider;
+use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\MvcRoutingServiceProvider;
+use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\RequestServiceProvider;
+use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
+use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\SilexRoutingServiceProvider;
+use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\SslServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\SubRequestServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigServiceProvider;
 use Spryker\Zed\Assertion\Communication\Plugin\ServiceProvider\AssertionServiceProvider;
+use Spryker\Zed\Kernel\Communication\Plugin\GatewayControllerListenerPlugin;
+use Spryker\Zed\Kernel\Communication\Plugin\GatewayServiceProviderPlugin;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Log\Communication\Plugin\ServiceProvider\LogServiceProvider;
 use Spryker\Zed\Price\Communication\Plugin\ServiceProvider\PriceServiceProvider;
+use Spryker\Zed\Propel\Communication\Plugin\ServiceProvider\PropelServiceProvider;
 use Spryker\Zed\Session\Communication\Plugin\ServiceProvider\SessionServiceProvider as SprykerSessionServiceProvider;
 use Spryker\Zed\User\Communication\Plugin\ServiceProvider\UserServiceProvider;
 
@@ -127,8 +138,11 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
      */
     protected function getGatewayServiceProvider()
     {
-        // here you can add or replace service providers
-        return parent::getGatewayServiceProvider();
+        $controllerListener = new GatewayControllerListenerPlugin();
+        $serviceProvider = new GatewayServiceProviderPlugin();
+        $serviceProvider->setControllerListener($controllerListener);
+
+        return $serviceProvider;
     }
 
 }
