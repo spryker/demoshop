@@ -11,7 +11,8 @@ use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
-use Spryker\Yves\StepEngine\Process\Steps\BaseStep;
+use Spryker\Client\Cart\CartClientInterface;
+use Spryker\Shared\Transfer\AbstractTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
 class AddressStep extends BaseStep
@@ -24,35 +25,25 @@ class AddressStep extends BaseStep
 
     /**
      * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
+     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $stepRoute
      * @param string $escapeRoute
      */
     public function __construct(
         CustomerClientInterface $customerClient,
+        CartClientInterface $cartClient,
         $stepRoute,
         $escapeRoute
     ) {
-        parent::__construct($stepRoute, $escapeRoute);
+        parent::__construct($cartClient, $stepRoute, $escapeRoute);
 
         $this->customerClient = $customerClient;
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer$quoteTransfer
-     *
      * @return bool
      */
-    public function preCondition(QuoteTransfer $quoteTransfer)
-    {
-        return !$this->isCartEmpty($quoteTransfer);
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer$quoteTransfer
-     *
-     * @return bool
-     */
-    public function requireInput(QuoteTransfer $quoteTransfer)
+    public function requireInput()
     {
         return true;
     }
@@ -65,16 +56,16 @@ class AddressStep extends BaseStep
      *
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer$quoteTransfer
+     * @param QuoteTransfer|AbstractTransfer $updatedQuoteTransfer
      *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer)
+    public function execute(Request $request, AbstractTransfer $updatedQuoteTransfer = null)
     {
         $customerTransfer = $this->customerClient->getCustomer();
 
-        $shippingAddressTransfer = $quoteTransfer->getShippingAddress();
-        $billingAddressTransfer = $quoteTransfer->getBillingAddress();
+        $shippingAddressTransfer = $updatedQuoteTransfer->getShippingAddress();
+        $billingAddressTransfer = $updatedQuoteTransfer->getBillingAddress();
 
         if ($shippingAddressTransfer !== null && $shippingAddressTransfer->getIdCustomerAddress() !== null) {
             $shippingAddressTransfer = $this->hydrateCustomerAddress(
@@ -82,18 +73,18 @@ class AddressStep extends BaseStep
                 $customerTransfer
             );
 
-            $quoteTransfer->setShippingAddress($shippingAddressTransfer);
+            $updatedQuoteTransfer->setShippingAddress($shippingAddressTransfer);
         }
 
-        if ($quoteTransfer->getBillingSameAsShipping() === true) {
-            $quoteTransfer->setBillingAddress(clone $quoteTransfer->getShippingAddress());
+        if ($updatedQuoteTransfer->getBillingSameAsShipping() === true) {
+            $updatedQuoteTransfer->setBillingAddress(clone $updatedQuoteTransfer->getShippingAddress());
         } elseif ($billingAddressTransfer !== null && $billingAddressTransfer->getIdCustomerAddress() !== null) {
             $billingAddressTransfer = $this->hydrateCustomerAddress(
                 $billingAddressTransfer,
                 $customerTransfer
             );
 
-            $quoteTransfer->setBillingAddress($billingAddressTransfer);
+            $updatedQuoteTransfer->setBillingAddress($billingAddressTransfer);
         }
 
         $quoteTransfer->getShippingAddress()->setIsDefaultShipping(true);
@@ -103,12 +94,11 @@ class AddressStep extends BaseStep
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer$quoteTransfer
-     *
      * @return bool
      */
-    public function postCondition(QuoteTransfer $quoteTransfer)
+    public function postCondition()
     {
+        $quoteTransfer = $this->getDataClass();
         if ($quoteTransfer->getShippingAddress() === null || $quoteTransfer->getBillingAddress() === null) {
             return false;
         }

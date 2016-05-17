@@ -39,7 +39,7 @@ class CheckoutController extends AbstractController
             $request,
             $this->getFactory()
                 ->createCheckoutFormFactory()
-                ->createCustomerFormCollection($this->getQuoteTransfer())
+                ->createCustomerFormCollection()
         );
 
         return $response;
@@ -56,7 +56,7 @@ class CheckoutController extends AbstractController
             $request,
             $this->getFactory()
                 ->createCheckoutFormFactory()
-                ->createAddressFormCollection($this->getQuoteTransfer())
+                ->createAddressFormCollection()
         );
 
         return $response;
@@ -73,7 +73,7 @@ class CheckoutController extends AbstractController
             $request,
             $this->getFactory()
                 ->createCheckoutFormFactory()
-                ->createShipmentFormCollection($this->getQuoteTransfer())
+                ->createShipmentFormCollection()
         );
     }
 
@@ -88,7 +88,7 @@ class CheckoutController extends AbstractController
             $request,
             $this->getFactory()
                 ->createCheckoutFormFactory()
-                ->createPaymentFormCollection($this->getQuoteTransfer())
+                ->createPaymentFormCollection()
         );
     }
 
@@ -103,7 +103,7 @@ class CheckoutController extends AbstractController
             $request,
             $this->getFactory()
                 ->createCheckoutFormFactory()
-                ->createSummaryFormCollection($this->getQuoteTransfer())
+                ->createSummaryFormCollection()
         );
     }
 
@@ -141,22 +141,6 @@ class CheckoutController extends AbstractController
     protected function createStepProcess()
     {
         return $this->getFactory()->createCheckoutProcess();
-    }
-
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
-    protected function getQuoteTransfer()
-    {
-        return $this->getCartClient()->getQuote();
-    }
-
-    /**
-     * @return \Spryker\Client\Cart\CartClientInterface
-     */
-    protected function getCartClient()
-    {
-        return $this->getFactory()->getCartClient();
     }
 
 }

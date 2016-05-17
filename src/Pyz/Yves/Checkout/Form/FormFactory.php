@@ -7,7 +7,6 @@
 
 namespace Pyz\Yves\Checkout\Form;
 
-use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\CheckoutDependencyProvider;
 use Pyz\Yves\Checkout\Form\DataProvider\SubFormDataProviders;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
@@ -21,7 +20,7 @@ use Pyz\Yves\Customer\Form\LoginForm;
 use Pyz\Yves\Customer\Form\RegisterForm;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\StepEngine\Dependency\DataProvider\DataProviderInterface;
-use Spryker\Yves\StepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection;
 use Spryker\Yves\StepEngine\Form\FormCollectionHandler;
 use Spryker\Yves\StepEngine\Form\FormFactory as SprykerFormFactory;
 use Symfony\Component\Form\FormTypeInterface;
@@ -30,13 +29,19 @@ class FormFactory extends SprykerFormFactory
 {
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer
-     *
      * @return \Spryker\Yves\StepEngine\Form\FormCollectionHandlerInterface
      */
-    public function createCustomerFormCollection(QuoteTransfer $quoteTransfer)
+    public function createCustomerFormCollection()
     {
-        return $this->createFormCollection($quoteTransfer, $this->createCustomerFormTypes());
+        return $this->createFormCollection($this->createCustomerFormTypes());
+    }
+
+    /**
+     * @return \Spryker\Yves\StepEngine\Form\FormCollectionHandlerInterface
+     */
+    public function createAddressFormCollection()
+    {
+        return $this->createFormCollection($this->createAddressFormTypes(), $this->createAddressFormDataProvider());
     }
 
     /**
@@ -44,45 +49,33 @@ class FormFactory extends SprykerFormFactory
      *
      * @return \Spryker\Yves\StepEngine\Form\FormCollectionHandlerInterface
      */
-    public function createAddressFormCollection(QuoteTransfer $quoteTransfer)
-    {
-        return $this->createFormCollection($quoteTransfer, $this->createAddressFormTypes(), $this->createAddressFormDataProvider());
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer
-     *
-     * @return \Spryker\Yves\StepEngine\Form\FormCollectionHandlerInterface
-     */
-    public function createShipmentFormCollection(QuoteTransfer $quoteTransfer)
+    public function createShipmentFormCollection()
     {
         $shipmentSubForms = $this->createShipmentMethodsSubForms();
         $shipmentFormType = $this->createShipmentForm($shipmentSubForms);
         $subFormDataProvider = $this->createSubFormDataProvider($shipmentSubForms);
 
-        return $this->createSubFormCollection($quoteTransfer, $shipmentFormType, $subFormDataProvider);
+        return $this->createSubFormCollection($shipmentFormType, $subFormDataProvider);
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer
-     *
      * @return \Spryker\Yves\StepEngine\Form\FormCollectionHandlerInterface
      */
-    public function createPaymentFormCollection(QuoteTransfer $quoteTransfer)
+    public function createPaymentFormCollection()
     {
         $createPaymentSubForms = $this->createPaymentMethodSubForms();
         $paymentFormType = $this->createPaymentForm($createPaymentSubForms);
         $subFormDataProvider = $this->createSubFormDataProvider($createPaymentSubForms);
 
-        return $this->createSubFormCollection($quoteTransfer, $paymentFormType, $subFormDataProvider);
+        return $this->createSubFormCollection($paymentFormType, $subFormDataProvider);
     }
 
     /**
-     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection $subForms
+     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection $subForms
      *
      * @return \Pyz\Yves\Checkout\Form\DataProvider\SubFormDataProviders
      */
-    protected function createSubFormDataProvider(CheckoutSubFormPluginCollection $subForms)
+    protected function createSubFormDataProvider(SubFormPluginCollection $subForms)
     {
         return new SubFormDataProviders($subForms);
     }
@@ -92,9 +85,9 @@ class FormFactory extends SprykerFormFactory
      *
      * @return \Spryker\Yves\StepEngine\Form\FormCollectionHandlerInterface
      */
-    public function createSummaryFormCollection(QuoteTransfer $quoteTransfer)
+    public function createSummaryFormCollection()
     {
-        return $this->createFormCollection($quoteTransfer, $this->createSummaryFormTypes());
+        return $this->createFormCollection($this->createSummaryFormTypes());
     }
 
     /**
@@ -148,17 +141,17 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection $subForms
+     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection $subForms
      *
      * @return \Pyz\Yves\Checkout\Form\Steps\ShipmentForm
      */
-    protected function createShipmentForm(CheckoutSubFormPluginCollection $subForms)
+    protected function createShipmentForm(SubFormPluginCollection $subForms)
     {
         return new ShipmentForm($subForms);
     }
 
     /**
-     * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection
+     * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection
      */
     protected function createShipmentMethodsSubForms()
     {
@@ -166,11 +159,11 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection $subForms
+     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection $subForms
      *
      * @return \Pyz\Yves\Checkout\Form\Steps\PaymentForm
      */
-    protected function createPaymentForm(CheckoutSubFormPluginCollection $subForms)
+    protected function createPaymentForm(SubFormPluginCollection $subForms)
     {
         return new PaymentForm($subForms);
     }
@@ -184,27 +177,25 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer
      * @param \Symfony\Component\Form\FormTypeInterface[] $formTypes
      * @param \Spryker\Yves\StepEngine\Dependency\DataProvider\DataProviderInterface|null $dataProvider
      *
      * @return \Spryker\Yves\StepEngine\Form\FormCollectionHandlerInterface
      */
-    protected function createFormCollection(QuoteTransfer $quoteTransfer, array $formTypes, DataProviderInterface $dataProvider = null)
+    protected function createFormCollection(array $formTypes, DataProviderInterface $dataProvider = null)
     {
-        return new FormCollectionHandler($this->getFormFactory(), $quoteTransfer, $formTypes, $dataProvider);
+        return new FormCollectionHandler($formTypes, $this->getFormFactory(), $this->getCartClient(), $dataProvider);
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer
      * @param \Symfony\Component\Form\FormTypeInterface $formType
      * @param \Spryker\Yves\StepEngine\Dependency\DataProvider\DataProviderInterface|null $dataProvider
      *
      * @return \Spryker\Yves\StepEngine\Form\FormCollectionHandlerInterface
      */
-    protected function createSubFormCollection(QuoteTransfer $quoteTransfer, $formType, DataProviderInterface $dataProvider)
+    protected function createSubFormCollection($formType, DataProviderInterface $dataProvider)
     {
-        return new FormCollectionHandler($this->getFormFactory(), $quoteTransfer, [$formType], $dataProvider);
+        return new FormCollectionHandler([$formType], $this->getFormFactory(), $this->getCartClient(), $dataProvider);
     }
 
     /**
@@ -248,7 +239,7 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection
+     * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection
      */
     protected function createShipmentFormPlugin()
     {
@@ -269,6 +260,14 @@ class FormFactory extends SprykerFormFactory
     protected function createGuestForm()
     {
         return new GuestForm();
+    }
+
+    /**
+     * @return \Spryker\Client\Cart\CartClientInterface
+     */
+    public function getCartClient()
+    {
+        return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CART);
     }
 
 }

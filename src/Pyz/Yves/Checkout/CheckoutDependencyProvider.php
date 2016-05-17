@@ -11,8 +11,8 @@ use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Customer\Plugin\CustomerStepHandler;
 use Pyz\Yves\Shipment\Plugin\ShipmentHandlerPlugin;
 use Pyz\Yves\Shipment\Plugin\ShipmentSubFormPlugin;
-use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginCollection;
-use Spryker\Yves\StepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection;
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Yves\Kernel\Container;
 
@@ -81,15 +81,15 @@ class CheckoutDependencyProvider extends AbstractBundleDependencyProvider
     protected function providePlugins(Container $container)
     {
         $container[self::PAYMENT_SUB_FORMS] = function () {
-            return new CheckoutSubFormPluginCollection();
+            return new SubFormPluginCollection();
         };
 
         $container[self::PAYMENT_METHOD_HANDLER] = function () {
-            return new CheckoutStepHandlerPluginCollection();
+            return new StepHandlerPluginCollection();
         };
 
         $container[self::PLUGIN_SHIPMENT_SUB_FORM] = function () {
-            $shipmentSubForms = new CheckoutSubFormPluginCollection();
+            $shipmentSubForms = new SubFormPluginCollection();
             $shipmentSubForms->add(new ShipmentSubFormPlugin());
 
             return $shipmentSubForms;
@@ -100,7 +100,7 @@ class CheckoutDependencyProvider extends AbstractBundleDependencyProvider
         };
 
         $container[self::PLUGIN_SHIPMENT_HANDLER] = function () {
-            $shipmentHandlerPlugins = new CheckoutStepHandlerPluginCollection();
+            $shipmentHandlerPlugins = new StepHandlerPluginCollection();
             $shipmentHandlerPlugins->add(new ShipmentHandlerPlugin(), self::DUMMY_SHIPMENT);
 
             return $shipmentHandlerPlugins;

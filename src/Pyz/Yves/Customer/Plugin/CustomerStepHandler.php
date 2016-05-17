@@ -8,7 +8,7 @@
 namespace Pyz\Yves\Customer\Plugin;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Spryker\Yves\Kernel\AbstractPlugin;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
  * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
  * @method \Pyz\Client\Customer\CustomerClient getClient()
  */
-class CustomerStepHandler extends AbstractPlugin implements CheckoutStepHandlerPluginInterface
+class CustomerStepHandler extends AbstractPlugin implements StepHandlerPluginInterface
 {
 
     /**
@@ -42,7 +42,7 @@ class CustomerStepHandler extends AbstractPlugin implements CheckoutStepHandlerP
      *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    public function addToQuote(Request $request, QuoteTransfer $quoteTransfer)
+    public function addToDataClass(Request $request, QuoteTransfer $quoteTransfer)
     {
         foreach ($this->authenticationHandlerPlugins as $authHandlerPlugin) {
             if ($authHandlerPlugin->canHandle($quoteTransfer)) {

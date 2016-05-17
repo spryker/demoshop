@@ -46,6 +46,7 @@ class StepFactory extends SprykerStepFactory
     protected function createEntryStep()
     {
         return new EntryStep(
+            $this->getCartClient(),
             CheckoutControllerProvider::CHECKOUT_INDEX,
             ApplicationControllerProvider::ROUTE_HOME
         );
@@ -57,10 +58,11 @@ class StepFactory extends SprykerStepFactory
     protected function createCustomerStep()
     {
         return new CustomerStep(
-            CheckoutControllerProvider::CHECKOUT_CUSTOMER,
-            ApplicationControllerProvider::ROUTE_HOME,
+            $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER),
+            $this->getCartClient(),
             $this->createCustomerStepHandler(),
-            $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER)
+            CheckoutControllerProvider::CHECKOUT_CUSTOMER,
+            ApplicationControllerProvider::ROUTE_HOME
         );
     }
 
@@ -71,6 +73,7 @@ class StepFactory extends SprykerStepFactory
     {
         return new AddressStep(
             $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER),
+            $this->getCartClient(),
             CheckoutControllerProvider::CHECKOUT_ADDRESS,
             ApplicationControllerProvider::ROUTE_HOME
         );
@@ -83,14 +86,15 @@ class StepFactory extends SprykerStepFactory
     {
         return new ShipmentStep(
             $this->getCalculationClient(),
+            $this->getCartClient(),
+            $this->createShipmentPlugins(),
             CheckoutControllerProvider::CHECKOUT_SHIPMENT,
-            ApplicationControllerProvider::ROUTE_HOME,
-            $this->createShipmentPlugins()
+            ApplicationControllerProvider::ROUTE_HOME
         );
     }
 
     /**
-     * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginCollection
+     * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection
      */
     public function createShipmentPlugins()
     {
@@ -103,9 +107,10 @@ class StepFactory extends SprykerStepFactory
     protected function createPaymentStep()
     {
         return new PaymentStep(
+            $this->createPaymentMethodHandler(),
+            $this->getCartClient(),
             CheckoutControllerProvider::CHECKOUT_PAYMENT,
-            ApplicationControllerProvider::ROUTE_HOME,
-            $this->createPaymentMethodHandler()
+            ApplicationControllerProvider::ROUTE_HOME
         );
     }
 
@@ -116,6 +121,7 @@ class StepFactory extends SprykerStepFactory
     {
         return new SummaryStep(
             $this->getCalculationClient(),
+            $this->getCartClient(),
             CheckoutControllerProvider::CHECKOUT_SUMMARY,
             ApplicationControllerProvider::ROUTE_HOME
         );
@@ -127,8 +133,9 @@ class StepFactory extends SprykerStepFactory
     protected function createPlaceOrderStep()
     {
         return new PlaceOrderStep(
-            $this->getFlashMessenger(),
             $this->getCheckoutClient(),
+            $this->getCartClient(),
+            $this->getFlashMessenger(),
             CheckoutControllerProvider::CHECKOUT_PLACE_ORDER,
             ApplicationControllerProvider::ROUTE_HOME
         );
@@ -140,14 +147,15 @@ class StepFactory extends SprykerStepFactory
     protected function createSuccessStep()
     {
         return new SuccessStep(
+            $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER),
+            $this->getCartClient(),
             CheckoutControllerProvider::CHECKOUT_SUCCESS,
-            ApplicationControllerProvider::ROUTE_HOME,
-            $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER)
+            ApplicationControllerProvider::ROUTE_HOME
         );
     }
 
     /**
-     * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface
+     * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface
      */
     protected function createCustomerStepHandler()
     {
@@ -176,6 +184,14 @@ class StepFactory extends SprykerStepFactory
     protected function getApplication()
     {
         return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_APPLICATION);
+    }
+
+    /**
+     * @return \Spryker\Client\Cart\CartClient
+     */
+    public function getCartClient()
+    {
+        return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CART);
     }
 
     /**

@@ -9,7 +9,8 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
-use Spryker\Yves\StepEngine\Process\Steps\BaseStep;
+use Spryker\Client\Cart\CartClientInterface;
+use Spryker\Shared\Transfer\AbstractTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
 class SuccessStep extends BaseStep
@@ -21,33 +22,22 @@ class SuccessStep extends BaseStep
     protected $customerClient;
 
     /**
+     * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
+     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $stepRoute
      * @param string $escapeRoute
-     * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
      */
-    public function __construct($stepRoute, $escapeRoute, CustomerClientInterface $customerClient)
+    public function __construct(CustomerClientInterface $customerClient, CartClientInterface $cartClient, $stepRoute, $escapeRoute)
     {
-        parent::__construct($stepRoute, $escapeRoute);
+        parent::__construct($cartClient, $stepRoute, $escapeRoute);
 
         $this->customerClient = $customerClient;
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return bool
      */
-    public function preCondition(QuoteTransfer $quoteTransfer)
-    {
-        return !$this->isCartEmpty($quoteTransfer);
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
-    public function requireInput(QuoteTransfer $quoteTransfer)
+    public function requireInput()
     {
         return true;
     }
@@ -56,25 +46,23 @@ class SuccessStep extends BaseStep
      * Empty quote transfer and mark logged in customer as "dirty" to force update it in the next request.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param QuoteTransfer|AbstractTransfer $updatedQuoteTransfer
      *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
+     * @return void
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer)
+    public function execute(Request $request, AbstractTransfer $updatedQuoteTransfer = null)
     {
         $this->customerClient->markCustomerAsDirty();
 
-        return new QuoteTransfer();
+        $this->setDataClass(new QuoteTransfer());
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return bool
      */
-    public function postCondition(QuoteTransfer $quoteTransfer)
+    public function postCondition()
     {
-        if ($quoteTransfer->getOrderReference() === null) {
+        if ($this->getDataClass()->getOrderReference() === null) {
             return false;
         }
 

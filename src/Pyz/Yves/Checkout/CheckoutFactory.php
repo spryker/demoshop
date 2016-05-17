@@ -47,7 +47,7 @@ class CheckoutFactory extends AbstractFactory
     /**
      * @return \Spryker\Client\Cart\CartClientInterface
      */
-    public function getCartClient()
+    protected function getCartClient()
     {
         return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CART);
     }

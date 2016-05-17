@@ -10,8 +10,8 @@ namespace Pyz\Yves\Checkout\Form\Steps;
 use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Yves\StepEngine\Dependency\Form\SubFormInterface;
-use Spryker\Yves\StepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection;
-use Spryker\Yves\StepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginInterface;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
@@ -27,14 +27,14 @@ class PaymentForm extends AbstractType
     const PAYMENT_SELECTION_PROPERTY_PATH = self::PAYMENT_PROPERTY_PATH . '.' . self::PAYMENT_SELECTION;
 
     /**
-     * @var \Spryker\Yves\StepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection
+     * @var \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection
      */
     protected $paymentMethodSubFormPlugins;
 
     /**
-     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection $paymentMethodSubFormPlugins
+     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection $paymentMethodSubFormPlugins
      */
-    public function __construct(CheckoutSubFormPluginCollection $paymentMethodSubFormPlugins)
+    public function __construct(SubFormPluginCollection $paymentMethodSubFormPlugins)
     {
         $this->paymentMethodSubFormPlugins = $paymentMethodSubFormPlugins;
     }
@@ -141,7 +141,7 @@ class PaymentForm extends AbstractType
     }
 
     /**
-     * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection
+     * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection
      */
     protected function getPaymentMethodSubForms()
     {
@@ -172,11 +172,11 @@ class PaymentForm extends AbstractType
     }
 
     /**
-     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginInterface $paymentMethodSubForm
+     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginInterface $paymentMethodSubForm
      *
      * @return \Spryker\Yves\StepEngine\Dependency\Form\SubFormInterface
      */
-    protected function createSubForm(CheckoutSubFormPluginInterface $paymentMethodSubForm)
+    protected function createSubForm(SubFormPluginInterface $paymentMethodSubForm)
     {
         return $paymentMethodSubForm->createSubForm();
     }

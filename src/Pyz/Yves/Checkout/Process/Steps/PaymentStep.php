@@ -8,78 +8,72 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginCollection;
-use Spryker\Yves\StepEngine\Process\Steps\BaseStep;
+use Spryker\Client\Cart\CartClientInterface;
+use Spryker\Shared\Transfer\AbstractTransfer;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
 use Symfony\Component\HttpFoundation\Request;
 
 class PaymentStep extends BaseStep
 {
 
     /**
-     * @var \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginCollection
+     * @var \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection
      */
     protected $paymentPlugins;
 
     /**
+     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection $paymentPlugins
+     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $stepRoute
      * @param string $escapeRoute
-     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginCollection $paymentPlugins
      */
     public function __construct(
+        StepHandlerPluginCollection $paymentPlugins,
+        CartClientInterface $cartClient,
         $stepRoute,
-        $escapeRoute,
-        CheckoutStepHandlerPluginCollection $paymentPlugins
+        $escapeRoute
     ) {
-        parent::__construct($stepRoute, $escapeRoute);
+        parent::__construct($cartClient, $stepRoute, $escapeRoute);
 
         $this->paymentPlugins = $paymentPlugins;
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return bool
      */
-    public function preCondition(QuoteTransfer $quoteTransfer)
-    {
-        return !$this->isCartEmpty($quoteTransfer);
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
-    public function requireInput(QuoteTransfer $quoteTransfer)
+    public function requireInput()
     {
         return true;
     }
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param QuoteTransfer|AbstractTransfer $updatedQuoteTransfer
      *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
+     * @return void
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer)
+    public function execute(Request $request, AbstractTransfer $updatedQuoteTransfer = null)
     {
+        $quoteTransfer = $this->getDataClass();
+        $quoteTransfer->fromArray($updatedQuoteTransfer->modifiedToArray());
+
         $paymentSelection = $quoteTransfer->getPayment()->getPaymentSelection();
 
         if ($this->paymentPlugins->has($paymentSelection)) {
             $paymentHandler = $this->paymentPlugins->get($paymentSelection);
-            $paymentHandler->addToQuote($request, $quoteTransfer);
+            $paymentHandler->addToDataClass($request, $quoteTransfer);
         }
 
-        return $quoteTransfer;
+        $this->setDataClass($quoteTransfer);
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return bool
      */
-    public function postCondition(QuoteTransfer $quoteTransfer)
+    public function postCondition()
     {
+        $quoteTransfer = $this->getDataClass();
+
         if ($quoteTransfer->getPayment() === null ||
             $quoteTransfer->getPayment()->getPaymentProvider() == null) {
             return false;

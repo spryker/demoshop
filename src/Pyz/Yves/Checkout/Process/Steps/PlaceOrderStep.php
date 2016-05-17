@@ -10,8 +10,9 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
+use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
-use Spryker\Yves\StepEngine\Process\Steps\BaseStep;
+use Spryker\Shared\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Process\Steps\StepWithExternalRedirectInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -34,51 +35,43 @@ class PlaceOrderStep extends BaseStep implements StepWithExternalRedirectInterfa
     protected $flashMessenger;
 
     /**
-     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      * @param \Spryker\Client\Checkout\CheckoutClientInterface $checkoutClient
+     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
+     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      * @param string $stepRoute
      * @param string $escapeRoute
      */
     public function __construct(
-        FlashMessengerInterface $flashMessenger,
         CheckoutClientInterface $checkoutClient,
+        CartClientInterface $cartClient,
+        FlashMessengerInterface $flashMessenger,
         $stepRoute,
         $escapeRoute
     ) {
-        parent::__construct($stepRoute, $escapeRoute);
+        parent::__construct($cartClient, $stepRoute, $escapeRoute);
 
         $this->flashMessenger = $flashMessenger;
         $this->checkoutClient = $checkoutClient;
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return bool
      */
-    public function preCondition(QuoteTransfer $quoteTransfer)
-    {
-        return !$this->isCartEmpty($quoteTransfer);
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
-    public function requireInput(QuoteTransfer $quoteTransfer)
+    public function requireInput()
     {
         return false;
     }
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param QuoteTransfer|AbstractTransfer $updatedQuoteTransfer
      *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
+     * @return void
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer)
+    public function execute(Request $request, AbstractTransfer $updatedQuoteTransfer = null)
     {
+        $quoteTransfer = $this->getDataClass();
+
         $checkoutResponseTransfer = $this->checkoutClient->placeOrder($quoteTransfer);
         if ($checkoutResponseTransfer->getIsExternalRedirect()) {
             $this->externalRedirectUrl = $checkoutResponseTransfer->getRedirectUrl();
@@ -89,17 +82,15 @@ class PlaceOrderStep extends BaseStep implements StepWithExternalRedirectInterfa
 
         $this->setCheckoutErrorMessages($checkoutResponseTransfer);
 
-        return $quoteTransfer;
+        $this->setDataClass($quoteTransfer);
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return bool
      */
-    public function postCondition(QuoteTransfer $quoteTransfer)
+    public function postCondition()
     {
-        return $quoteTransfer->getOrderReference() !== null;
+        return ($this->getDataClass()->getOrderReference() !== null);
     }
 
     /**

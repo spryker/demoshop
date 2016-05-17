@@ -9,7 +9,8 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Client\Calculation\CalculationClientInterface;
-use Spryker\Yves\StepEngine\Process\Steps\BaseStep;
+use Spryker\Client\Cart\CartClientInterface;
+use Spryker\Shared\Transfer\AbstractTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
 class SummaryStep extends BaseStep
@@ -22,57 +23,50 @@ class SummaryStep extends BaseStep
 
     /**
      * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
+     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $stepRoute
      * @param string $escapeRoute
      */
     public function __construct(
         CalculationClientInterface $calculationClient,
+        CartClientInterface $cartClient,
         $stepRoute,
         $escapeRoute
     ) {
-        parent::__construct($stepRoute, $escapeRoute);
+        parent::__construct($cartClient, $stepRoute, $escapeRoute);
 
         $this->calculationClient = $calculationClient;
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return bool
      */
-    public function preCondition(QuoteTransfer $quoteTransfer)
-    {
-        return !$this->isCartEmpty($quoteTransfer);
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
-    public function requireInput(QuoteTransfer $quoteTransfer)
+    public function requireInput()
     {
         return true;
     }
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param QuoteTransfer|AbstractTransfer $updatedQuoteTransfer
      *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
+     * @return void
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer)
+    public function execute(Request $request, AbstractTransfer $updatedQuoteTransfer = null)
     {
-        return $this->calculationClient->recalculate($quoteTransfer);
+        $quoteTransfer = $this->getDataClass();
+        $quoteTransfer->fromArray($updatedQuoteTransfer->modifiedToArray());
+
+        $this->setDataClass($this->calculationClient->recalculate($quoteTransfer));
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return bool
      */
-    public function postCondition(QuoteTransfer $quoteTransfer)
+    public function postCondition()
     {
+        $quoteTransfer = $this->getDataClass();
+
         if ($quoteTransfer->getBillingAddress() === null
             || $quoteTransfer->getShipment() === null
             || $quoteTransfer->getPayment() === null

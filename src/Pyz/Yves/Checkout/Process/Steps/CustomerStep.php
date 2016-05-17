@@ -9,15 +9,16 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
-use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface;
-use Spryker\Yves\StepEngine\Process\Steps\BaseStep;
+use Spryker\Client\Cart\CartClientInterface;
+use Spryker\Shared\Transfer\AbstractTransfer;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class CustomerStep extends BaseStep
 {
 
     /**
-     * @var \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface
+     * @var \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface
      */
     protected $customerStepHandler;
 
@@ -27,43 +28,33 @@ class CustomerStep extends BaseStep
     protected $customerClient;
 
     /**
+     * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
+     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
+     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface $customerStepHandler
      * @param string $stepRoute
      * @param string $escapeRoute
-     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface $customerStepHandler
-     * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
      */
     public function __construct(
+        CustomerClientInterface $customerClient,
+        CartClientInterface $cartClient,
+        StepHandlerPluginInterface $customerStepHandler,
         $stepRoute,
-        $escapeRoute,
-        CheckoutStepHandlerPluginInterface $customerStepHandler,
-        CustomerClientInterface $customerClient
+        $escapeRoute
     ) {
-        parent::__construct($stepRoute, $escapeRoute);
+        parent::__construct($cartClient, $stepRoute, $escapeRoute);
 
-        $this->customerStepHandler = $customerStepHandler;
         $this->customerClient = $customerClient;
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
-    public function preCondition(QuoteTransfer $quoteTransfer)
-    {
-        return !$this->isCartEmpty($quoteTransfer);
+        $this->customerStepHandler = $customerStepHandler;
     }
 
     /**
      * Require input for customer authentication if the customer is not logged in already, or haven't authenticated yet.
      *
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return bool
      */
-    public function requireInput(QuoteTransfer $quoteTransfer)
+    public function requireInput()
     {
-        if ($this->isCustomerInQuote($quoteTransfer)) {
+        if ($this->isCustomerInQuote($this->getDataClass())) {
             return false;
         }
 
@@ -78,13 +69,14 @@ class CustomerStep extends BaseStep
      * Update QuoteTransfer with customer step handler plugin.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
+     * @param QuoteTransfer|AbstractTransfer $updatedQuoteTransfer
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer)
+    public function execute(Request $request, AbstractTransfer $updatedQuoteTransfer = null)
     {
-        return $this->customerStepHandler->addToQuote($request, $quoteTransfer);
+        $quoteTransfer = $this->getDataClass();
+        $quoteTransfer->fromArray($updatedQuoteTransfer->modifiedToArray());
+
+        $this->setDataClass($this->customerStepHandler->addToDataClass($request, $quoteTransfer));
     }
 
     /**
@@ -92,12 +84,11 @@ class CustomerStep extends BaseStep
      * If the CustomerTransfer is guest and the customer is logged in, then we override the guest customer with the
      * logged in customer, e.g. return false and execute() will do the rest.
      *
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return bool
      */
-    public function postCondition(QuoteTransfer $quoteTransfer)
+    public function postCondition()
     {
+        $quoteTransfer = $this->getDataClass();
         if ($this->isCustomerInQuote($quoteTransfer) === false) {
             return false;
         }

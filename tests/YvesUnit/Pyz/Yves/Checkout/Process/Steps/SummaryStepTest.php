@@ -11,7 +11,8 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
 use Spryker\Client\Calculation\CalculationClientInterface;
-use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface;
+use Spryker\Client\Cart\CartClient;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class SummaryStepTest extends \PHPUnit_Framework_TestCase
@@ -23,7 +24,7 @@ class SummaryStepTest extends \PHPUnit_Framework_TestCase
     public function testExecuteShouldTriggerQuoteRecalculation()
     {
         $calculationClientMock = $this->createCalculationClientMock();
-        $calculationClientMock->expects($this->once())->method('recalculate');
+        $calculationClientMock->expects($this->once())->method('recalculate')->willReturnArgument(0);
 
         $summaryStep = $this->createSummaryStep($calculationClientMock);
         $summaryStep->execute($this->createRequest(), new QuoteTransfer());
@@ -46,7 +47,9 @@ class SummaryStepTest extends \PHPUnit_Framework_TestCase
         $quoteTransfer->setPayment($paymentTransfer);
         $quoteTransfer->setShipment(new ShipmentTransfer());
 
-        $this->assertTrue($summaryStep->postCondition($quoteTransfer));
+        $this->getCartClient()->storeQuote($quoteTransfer);
+
+        $this->assertTrue($summaryStep->postCondition());
     }
 
     /**
@@ -57,7 +60,7 @@ class SummaryStepTest extends \PHPUnit_Framework_TestCase
         $calculationClientMock = $this->createCalculationClientMock();
         $summaryStep = $this->createSummaryStep($calculationClientMock);
 
-        $this->assertTrue($summaryStep->requireInput(new QuoteTransfer()));
+        $this->assertTrue($summaryStep->requireInput());
     }
 
     /**
@@ -69,11 +72,19 @@ class SummaryStepTest extends \PHPUnit_Framework_TestCase
     {
         return new SummaryStep(
             $calculationClientMock,
+            $this->getCartClient(),
             'shipment',
             'escape_route'
         );
     }
 
+    /**
+     * @return \Spryker\Client\Cart\CartClient
+     */
+    protected function getCartClient()
+    {
+        return new CartClient();
+    }
 
     /**
      * @return \Symfony\Component\HttpFoundation\Request
@@ -92,11 +103,11 @@ class SummaryStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface
      */
     protected function createShipmentMock()
     {
-        return $this->getMock(CheckoutStepHandlerPluginInterface::class);
+        return $this->getMock(StepHandlerPluginInterface::class);
     }
 
 }

@@ -10,9 +10,10 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Spryker\Client\Calculation\CalculationClientInterface;
+use Spryker\Client\Cart\CartClient;
 use Spryker\Shared\Shipment\ShipmentConstants;
-use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginCollection;
-use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class ShipmentStepTest extends \PHPUnit_Framework_TestCase
@@ -26,7 +27,7 @@ class ShipmentStepTest extends \PHPUnit_Framework_TestCase
         $shipmentPluginMock = $this->createShipmentMock();
         $shipmentPluginMock->expects($this->once())->method('addToQuote');
 
-        $shipmentStepHandler = new CheckoutStepHandlerPluginCollection();
+        $shipmentStepHandler = new StepHandlerPluginCollection();
         $shipmentStepHandler->add($shipmentPluginMock, 'test');
         $shipmentStep = $this->createShipmentStep($shipmentStepHandler);
 
@@ -49,8 +50,11 @@ class ShipmentStepTest extends \PHPUnit_Framework_TestCase
         $expenseTransfer->setType(ShipmentConstants::SHIPMENT_EXPENSE_TYPE);
         $quoteTransfer->addExpense($expenseTransfer);
 
-        $shipmentStep = $this->createShipmentStep(new CheckoutStepHandlerPluginCollection());
-        $this->assertTrue($shipmentStep->postCondition($quoteTransfer));
+        $shipmentStep = $this->createShipmentStep(new StepHandlerPluginCollection());
+
+        $this->getCartClient()->storeQuote($quoteTransfer);
+
+        $this->assertTrue($shipmentStep->postCondition());
     }
 
     /**
@@ -58,23 +62,32 @@ class ShipmentStepTest extends \PHPUnit_Framework_TestCase
      */
     public function testShipmentRequireInputShouldReturnTrue()
     {
-        $shipmentStep = $this->createShipmentStep(new CheckoutStepHandlerPluginCollection());
-        $this->assertTrue($shipmentStep->requireInput(new QuoteTransfer()));
+        $shipmentStep = $this->createShipmentStep(new StepHandlerPluginCollection());
+        $this->assertTrue($shipmentStep->requireInput());
     }
 
     /**
-     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginCollection $shipmentPlugins
+     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection $shipmentPlugins
      *
      * @return \Pyz\Yves\Checkout\Process\Steps\ShipmentStep
      */
-    protected function createShipmentStep(CheckoutStepHandlerPluginCollection $shipmentPlugins)
+    protected function createShipmentStep(StepHandlerPluginCollection $shipmentPlugins)
     {
         return new ShipmentStep(
             $this->createCalculationClientMock(),
+            $this->getCartClient(),
+            $shipmentPlugins,
             'shipment',
-            'escape_route',
-            $shipmentPlugins
+            'escape_route'
         );
+    }
+
+    /**
+     * @return \Spryker\Client\Cart\CartClient
+     */
+    protected function getCartClient()
+    {
+        return new CartClient();
     }
 
     /**
@@ -90,15 +103,18 @@ class ShipmentStepTest extends \PHPUnit_Framework_TestCase
      */
     protected function createCalculationClientMock()
     {
-        return $this->getMock(CalculationClientInterface::class);
+        $calculationMock = $this->getMock(CalculationClientInterface::class);
+        $calculationMock->method('recalculate')->willReturnArgument(0);
+
+        return $calculationMock;
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface
      */
     protected function createShipmentMock()
     {
-        return $this->getMock(CheckoutStepHandlerPluginInterface::class);
+        return $this->getMock(StepHandlerPluginInterface::class);
     }
 
 }

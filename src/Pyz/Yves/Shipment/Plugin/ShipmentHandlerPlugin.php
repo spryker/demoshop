@@ -8,14 +8,14 @@
 namespace Pyz\Yves\Shipment\Plugin;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\CheckoutStepHandlerPluginInterface;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Spryker\Yves\Kernel\AbstractPlugin;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @method \Pyz\Yves\Shipment\ShipmentFactory getFactory()
  */
-class ShipmentHandlerPlugin extends AbstractPlugin implements CheckoutStepHandlerPluginInterface
+class ShipmentHandlerPlugin extends AbstractPlugin implements StepHandlerPluginInterface
 {
 
     /**
@@ -24,7 +24,7 @@ class ShipmentHandlerPlugin extends AbstractPlugin implements CheckoutStepHandle
      *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    public function addToQuote(Request $request, QuoteTransfer $quoteTransfer)
+    public function addToDataClass(Request $request, QuoteTransfer $quoteTransfer)
     {
         $this->getFactory()->createShipmentHandler()->addShipmentToQuote($request, $quoteTransfer);
     }

@@ -1,38 +1,32 @@
 <?php
 
 /**
- * (c) Spryker Systems GmbH copyright protected
+ * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
+
 
 namespace YvesFunctional\Pyz\Yves\Checkout\Controller;
 
-use Codeception\TestCase\Test;
-use Generated\Shared\Transfer\AddressesTransfer;
 use Generated\Shared\Transfer\AddressTransfer;
-use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\PaymentTransfer;
+use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Generated\Shared\Transfer\SaveOrderTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
-use Pyz\Client\Customer\CustomerClient;
-use Pyz\Yves\Checkout\CheckoutDependencyProvider;
-use Pyz\Yves\Checkout\CheckoutFactory;
+use Generated\Shared\Transfer\TotalsTransfer;
 use Pyz\Yves\Checkout\Controller\CheckoutController;
-use Pyz\Yves\Checkout\Form\DataProvider\SubFormDataProviders;
-use Pyz\Yves\Checkout\Form\FormFactory;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
 use Pyz\Yves\Checkout\Form\Steps\ShipmentForm;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
-use Pyz\Yves\Checkout\Process\StepFactory;
-use Spryker\Client\Calculation\CalculationClient;
-use Spryker\Client\Cart\CartClientInterface;
-use Spryker\Client\Checkout\CheckoutClientInterface;
+use Pyz\Yves\Customer\Form\AddressForm;
+use Pyz\Yves\Customer\Form\GuestForm;
+use Spryker\Client\Cart\CartClient;
 use Spryker\Shared\Shipment\ShipmentConstants;
-use Spryker\Yves\StepEngine\Dependency\Plugin\Form\CheckoutSubFormPluginCollection;
-use Spryker\Yves\Kernel\Container;
+use Spryker\Zed\Payolution\Business\Payment\Method\ApiConstants;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -40,528 +34,496 @@ use Symfony\Component\HttpFoundation\Request;
  * @group Pyz
  * @group Yves
  * @group Checkout
+ * @group CheckoutController
  */
-class CheckoutControllerTest extends Test
+class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
 {
 
+    const CUSTOMER_URL = '/checkout/customer';
+    const CUSTOMER_ACTION = 'customerAction';
+    const CUSTOMER_ROUTE = 'checkout-customer';
+    const GUEST_FORM = 'guestForm';
+    const CUSTOMER_EMAIL = 'hans@muster.de';
+
+    const ADDRESS_URL = '/checkout/address';
+    const ADDRESS_ACTION = 'addressAction';
+    const ADDRESS_ROUTE = 'checkout-address';
+    const ADDRESS_FORM = 'addressesForm';
+
+    const SHIPMENT_URL = '/checkout/shipment';
+    const SHIPMENT_ACTION = 'shipmentAction';
+    const SHIPMENT_ROUTE = 'checkout-shipment';
+    const SHIPMENT_FORM = 'shipmentForm';
+
+    const PAYMENT_URL = '/checkout/payment';
+    const PAYMENT_ACTION = 'paymentAction';
+    const PAYMENT_ROUTE = 'checkout-payment';
+    const PAYMENT_FORM = 'paymentForm';
+
+    const SUMMARY_URL = '/checkout/summary';
+    const SUMMARY_ACTION = 'summaryAction';
+    const SUMMARY_ROUTE = 'checkout-summary';
+    const SUMMARY_FORM = 'summaryForm';
+
+    const PLACE_ORDER_URL = '/checkout/place-order';
+    const PLACE_ORDER_ACTION = 'placeOrderAction';
+    const PLACE_ORDER_ROUTE = 'checkout-place-order';
+
+    const SUCCESS_URL = '/checkout/success';
+
     /**
-     * @var \Generated\Shared\Transfer\QuoteTransfer
+     * @var CheckoutController
      */
-    protected $persistedQuoteTransfer;
+    private $controller;
 
     /**
      * @return void
      */
-    public function testIndexActionShouldReturnRedirectResponse()
+    protected function setUp()
     {
-        $checkoutController = $this->createCheckoutControllerMock($this->createQuoteTransfer());
-        $result = $checkoutController->indexAction(Request::createFromGlobals());
-        $this->assertInstanceOf(RedirectResponse::class, $result);
+        $this->controller = new CheckoutController();
     }
 
     /**
      * @return void
      */
-    public function testCustomerStepShouldRenderRegisterAndLoginForms()
+    public function testIndexAction()
     {
-        $quoteTransfer = $this->createQuoteTransfer();
+        $checkoutController = new CheckoutController();
 
+        $this->setQuoteForCustomer();
+
+        $request = new Request();
+        $request->request->set('_route', CheckoutControllerProvider::CHECKOUT_INDEX);
+        $response = $checkoutController->indexAction($request);
+
+        $this->assertInstanceOf(RedirectResponse::class, $response);
+        $this->assertSame($response->getTargetUrl(), self::CUSTOMER_URL);
+    }
+
+    /**
+     * @return void
+     */
+    public function testCustomerActionShouldRenderRegisterAndLoginForms()
+    {
         $request = Request::createFromGlobals();
         $request->attributes->set('_route', CheckoutControllerProvider::CHECKOUT_CUSTOMER);
 
-        $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
-        $response = $checkoutController->customerAction($request);
+        $response = $this->controller->customerAction($request);
 
         $this->assertArrayHasKey('guestForm', $response);
         $this->assertArrayHasKey('loginForm', $response);
         $this->assertArrayHasKey('registerForm', $response);
-
     }
 
     /**
      * @return void
      */
-    public function testAddressStepShouldRenderAddressForms()
+    public function testCustomerAction()
     {
-        $quoteTransfer = $this->createQuoteTransfer();
+        $this->setQuoteForCustomer();
 
-        $customerTransfer = new CustomerTransfer();
-        $quoteTransfer->setCustomer($customerTransfer);
+        $customerData = $this->getFormData(self::CUSTOMER_URL, self::CUSTOMER_ACTION, self::CUSTOMER_ROUTE, self::GUEST_FORM);
+        $customerData['customer'][GuestForm::FIELD_SALUTATION] = 'Mr';
+        $customerData['customer'][GuestForm::FIELD_FIRST_NAME] = 'Hans';
+        $customerData['customer'][GuestForm::FIELD_LAST_NAME] = 'Muster';
+        $customerData['customer'][GuestForm::FIELD_EMAIL] = self::CUSTOMER_EMAIL;
+        $customerData['customer'][GuestForm::FIELD_ACCEPT_TERMS] = true;
+        $customerData['customer']['is_guest'] = true;
+        $data = [
+            'guestForm' => $customerData
+        ];
 
-        $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
+        $request = Request::create(self::CUSTOMER_URL, Request::METHOD_POST, $data);
+        $request->request->set('_route', self::CUSTOMER_ROUTE);
+
+        $response = $this->controller->customerAction($request);
+
+        $this->assertInstanceOf(RedirectResponse::class, $response);
+        $this->assertSame($response->getTargetUrl(), self::ADDRESS_URL);
+    }
+
+    /**
+     * @return void
+     */
+    public function testAddressActionShouldRenderAddressForms()
+    {
+        $this->setQuoteForAddress();
 
         $request = Request::createFromGlobals();
         $request->attributes->set('_route', CheckoutControllerProvider::CHECKOUT_ADDRESS);
 
-        $response = $checkoutController->addressAction($request);
+        $response = $this->controller->addressAction($request);
 
         $this->assertArrayHasKey('addressesForm', $response);
         $this->assertArrayHasKey('previousStepUrl', $response);
     }
 
-
     /**
      * @return void
      */
-    public function testShipmentStepShouldRenderShipmentForms()
+    public function testAddressAction()
     {
-        $quoteTransfer = $this->createQuoteTransfer();
+        $this->setQuoteForAddress();
 
-        $customerTransfer = new CustomerTransfer();
-        $quoteTransfer->setCustomer($customerTransfer);
+        $addressesData = $this->getFormData(self::ADDRESS_URL, self::ADDRESS_ACTION, self::ADDRESS_ROUTE, self::ADDRESS_FORM);
+        $address = [
+            AddressForm::FIELD_SALUTATION => 'Mr',
+            AddressForm::FIELD_FIRST_NAME => 'Hans',
+            AddressForm::FIELD_LAST_NAME => 'Muster',
+            AddressForm::FIELD_ADDRESS_1 => 'Any Street',
+            AddressForm::FIELD_ADDRESS_2 => '23',
+            AddressForm::FIELD_CITY => 'Berlin',
+            AddressForm::FIELD_ZIP_CODE => '12347',
+            AddressForm::FIELD_ISO_2_CODE => 'DE',
+        ];
+        $addressesData['billingAddress'] = $address;
+        $addressesData['shippingAddress'] = $address;
+        $data = [
+            self::ADDRESS_FORM => $addressesData
+        ];
 
-        $this->setAddresses($quoteTransfer);
+        $request = Request::create(self::ADDRESS_URL, Request::METHOD_POST, $data);
+        $request->request->set('_route', self::ADDRESS_ROUTE);
 
-        $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
+        $response = $this->controller->addressAction($request);
 
-        $request = Request::createFromGlobals();
-        $request->attributes->set('_route', CheckoutControllerProvider::CHECKOUT_SHIPMENT);
-
-        $response = $checkoutController->shipmentAction($request);
-
-        $this->assertArrayHasKey('shipmentForm', $response);
-        $this->assertArrayHasKey('quoteTransfer', $response);
-        $this->assertArrayHasKey('previousStepUrl', $response);
-
+        $this->assertInstanceOf(RedirectResponse::class, $response);
+        $this->assertSame($response->getTargetUrl(), self::SHIPMENT_URL);
     }
 
     /**
      * @return void
      */
-    public function testPaymentStepShouldRenderPaymenttForms()
+    public function testShipmentActionShouldRenderShipmentForms()
     {
-        $quoteTransfer = $this->createQuoteTransfer();
+        $this->setQuoteForShipment();
 
-        $customerTransfer = new CustomerTransfer();
-        $quoteTransfer->setCustomer($customerTransfer);
+        $request = Request::createFromGlobals();
+        $request->attributes->set('_route', CheckoutControllerProvider::CHECKOUT_SHIPMENT);
 
-        $this->setAddresses($quoteTransfer);
-        $this->setExpenses($quoteTransfer);
+        $response = $this->controller->shipmentAction($request);
 
-        $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
+        $this->assertArrayHasKey('shipmentForm', $response);
+        $this->assertArrayHasKey('dataClass', $response);
+        $this->assertArrayHasKey('previousStepUrl', $response);
+    }
+
+    /**
+     * @return void
+     */
+    public function testShipmentAction()
+    {
+        $this->setQuoteForShipment();
+
+        $shipmentData = $this->getFormData(self::SHIPMENT_URL, self::SHIPMENT_ACTION, self::SHIPMENT_ROUTE, self::SHIPMENT_FORM);
+        $shipmentData[ShipmentForm::SHIPMENT_SELECTION] = 'dummy_shipment';
+        $shipmentData['dummy_shipment'] = [
+            'idShipmentMethod' => 1
+        ];
+        $data = [
+            self:: SHIPMENT_FORM => $shipmentData
+        ];
+
+        $request = Request::create(self::SHIPMENT_URL, Request::METHOD_POST, $data);
+        $request->request->set('_route', self::SHIPMENT_ROUTE);
+
+        $response = $this->controller->shipmentAction($request);
+
+        $this->assertInstanceOf(RedirectResponse::class, $response);
+        $this->assertSame($response->getTargetUrl(), self::PAYMENT_URL);
+    }
+
+    /**
+     * @return void
+     */
+    public function testPaymentActionShouldRenderPaymentForms()
+    {
+        $this->setQuoteForPayment();
 
         $request = Request::createFromGlobals();
         $request->attributes->set('_route', CheckoutControllerProvider::CHECKOUT_PAYMENT);
 
-        $response = $checkoutController->paymentAction($request);
+        $response = $this->controller->paymentAction($request);
 
         $this->assertArrayHasKey('paymentForm', $response);
-        $this->assertArrayHasKey('quoteTransfer', $response);
+        $this->assertArrayHasKey('dataClass', $response);
         $this->assertArrayHasKey('previousStepUrl', $response);
     }
 
     /**
      * @return void
      */
-    public function testSummaryStepShouldRenderSummaryPage()
+    public function testPaymentAction()
     {
-        $quoteTransfer = $this->createQuoteTransfer();
+        $this->setQuoteForPayment();
 
-        $customerTransfer = new CustomerTransfer();
-        $quoteTransfer->setCustomer($customerTransfer);
+        $paymentData = $this->getFormData(self::PAYMENT_URL, self::PAYMENT_ACTION, self::PAYMENT_ROUTE, self::PAYMENT_FORM);
+        $paymentData[PaymentForm::PAYMENT_SELECTION] = 'payolutionInvoice';
+        $paymentData['payolution_invoice'] = [
+            'date_of_birth' => '06.12.1980'
+        ];
+        $paymentData['payolution_installment'] = [
+            'date_of_birth' => '',
+            'bank_account_holder' => '',
+            'bank_account_iban' => '',
+            'bank_account_bic' => '',
+            'installment_payment_detail_index' => '0',
+        ];
+        $data = [
+            self::PAYMENT_FORM => $paymentData
+        ];
 
-        $this->setAddresses($quoteTransfer);
-        $this->setExpenses($quoteTransfer);
-        $this->setPayment($quoteTransfer);
+        $request = Request::create(self::PAYMENT_URL, Request::METHOD_POST, $data);
+        $request->request->set('_route', self::PAYMENT_ROUTE);
 
-        $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
+        $response = $this->controller->paymentAction($request);
+
+        $this->assertInstanceOf(RedirectResponse::class, $response);
+        $this->assertSame($response->getTargetUrl(), self::SUMMARY_URL);
+    }
+
+    /**
+     * @return void
+     */
+    public function testSummaryActionShouldRenderSummaryPage()
+    {
+        $this->setQuoteForSummary();
 
         $request = Request::createFromGlobals();
         $request->attributes->set('_route', CheckoutControllerProvider::CHECKOUT_SUMMARY);
 
-        $response = $checkoutController->summaryAction($request);
+        $response = $this->controller->summaryAction($request);
 
         $this->assertArrayHasKey('summaryForm', $response);
-        $this->assertArrayHasKey('quoteTransfer', $response);
+        $this->assertArrayHasKey('dataClass', $response);
         $this->assertArrayHasKey('previousStepUrl', $response);
     }
 
     /**
      * @return void
      */
-    public function testPlaceOrderShouldReturnRedirectAndOrderReferenceIndicatingSuccess()
+    public function testSummaryAction()
     {
-        $quoteTransfer = $this->createQuoteTransfer();
+        $this->setQuoteForSummary();
 
-        $customerTransfer = new CustomerTransfer();
-        $quoteTransfer->setCustomer($customerTransfer);
+        $summaryData = $this->getFormData(self::SUMMARY_URL, self::SUMMARY_ACTION, self::SUMMARY_ROUTE, self::SUMMARY_FORM);
+        $data = [
+            self::SUMMARY_FORM => $summaryData
+        ];
 
-        $this->setAddresses($quoteTransfer);
-        $this->setExpenses($quoteTransfer);
-        $this->setPayment($quoteTransfer);
+        $request = Request::create(self::SUMMARY_URL, Request::METHOD_POST, $data);
+        $request->request->set('_route', self::SUMMARY_ROUTE);
 
-        $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
-
-        $request = Request::createFromGlobals();
-        $request->attributes->set('_route', CheckoutControllerProvider::CHECKOUT_PLACE_ORDER);
-
-        $response = $checkoutController->placeOrderAction($request);
+        $response = $this->controller->summaryAction($request);
 
         $this->assertInstanceOf(RedirectResponse::class, $response);
-        $this->assertEquals('#1', $quoteTransfer->getOrderReference());
+        $this->assertSame($response->getTargetUrl(), self::PLACE_ORDER_URL);
+    }
+
+    public function testPlaceOrder()
+    {
+        $this->markTestIncomplete('Payolution request data missing');
+        $this->setQuoteForSummary();
+
+        $request = Request::create(self::PLACE_ORDER_URL, Request::METHOD_POST);
+        $request->request->set('_route', self::PLACE_ORDER_ROUTE);
+        $response = $this->controller->placeOrderAction($request);
+
+        $this->assertInstanceOf(RedirectResponse::class, $response);
+        $this->assertSame($response->getTargetUrl(), self::SUCCESS_URL);
     }
 
     /**
      * @return void
      */
-    public function testSuccessStepShouldClearQuoteIfOrderWasPlaced()
-    {
-        $quoteTransfer = $this->createQuoteTransfer();
-
-        $customerTransfer = new CustomerTransfer();
-        $quoteTransfer->setCustomer($customerTransfer);
-
-        $this->setAddresses($quoteTransfer);
-        $this->setExpenses($quoteTransfer);
-        $this->setPayment($quoteTransfer);
-
-        $quoteTransfer->setOrderReference('#1');
-
-        $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
-
-        $request = Request::createFromGlobals();
-        $request->attributes->set('_route', CheckoutControllerProvider::CHECKOUT_SUCCESS);
-
-        $response = $checkoutController->successAction($request);
-
-        $this->assertCount(0, $this->persistedQuoteTransfer->getItems());
-
-        $this->assertArrayHasKey('quoteTransfer', $response);
-        $this->assertArrayHasKey('previousStepUrl', $response);
-    }
-
-    /**
-     * @return void
-     */
-    public function testWhenTryingAccessUncompletedStepShouldRedirectToLastCompleted()
-    {
-        $quoteTransfer = $this->createQuoteTransfer();
-
-        $customerTransfer = new CustomerTransfer();
-        $quoteTransfer->setCustomer($customerTransfer);
-
-        $checkoutController = $this->createCheckoutControllerMock($quoteTransfer);
-
-        $request = Request::createFromGlobals();
-        $request->attributes->set('_route', CheckoutControllerProvider::CHECKOUT_SHIPMENT);
-
-        $response = $checkoutController->shipmentAction($request);
-
-        $this->assertInstanceOf(RedirectResponse::class, $response);
-        $this->assertContains('address', $response->getTargetUrl());
-    }
-
-
-    /**
-     * @return void
-     */
-    public function testWhenCartEmptyShouldRedirectToEscapeUrl()
-    {
-        $checkoutController = $this->createCheckoutControllerMock(new QuoteTransfer());
-
-        $request = Request::createFromGlobals();
-        $request->attributes->set('_route', CheckoutControllerProvider::CHECKOUT_SUMMARY);
-
-        $response = $checkoutController->summaryAction($request);
-
-        $this->assertInstanceOf(RedirectResponse::class, $response);
-        $this->assertEquals('/', $response->getTargetUrl());
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Controller\CheckoutController
-     */
-    protected function createCheckoutControllerMock(QuoteTransfer $quoteTransfer)
-    {
-        $checkoutControllerMock = $this->getMock(CheckoutController::class, ['getFactory']);
-        $checkoutFactoryMock = $this->createCheckoutFactoryMock($quoteTransfer);
-        $checkoutFactoryMock->setContainer($this->getContainer());
-        $checkoutControllerMock->method('getFactory')->willReturn($checkoutFactoryMock);
-
-        return $checkoutControllerMock;
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\CheckoutFactory
-     */
-    protected function createCheckoutFactoryMock(QuoteTransfer $quoteTransfer)
-    {
-        $checkoutFactoryMock = $this->getMock(
-            CheckoutFactory::class,
-            [
-                'createStepFactory',
-                'createCheckoutFormFactory',
-                'getCartClient'
-            ]
-        );
-        $formFactoryMock = $this->createFormFactoryMock($quoteTransfer);
-        $formFactoryMock->setContainer($this->getContainer());
-
-        $stepFactoryMock = $this->createStepFactoryMock($quoteTransfer);
-        $stepFactoryMock->setContainer($this->getContainer());
-
-        $cartClientMock = $this->getCartClientMock($quoteTransfer);
-
-        $checkoutFactoryMock->method('createStepFactory')->willReturn($stepFactoryMock);
-        $checkoutFactoryMock->method('createCheckoutFormFactory')->willReturn($formFactoryMock);
-        $checkoutFactoryMock->method('getCartClient')->willReturn($cartClientMock);
-
-        return $checkoutFactoryMock;
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Form\FormFactory
-     */
-    protected function createFormFactoryMock(QuoteTransfer $quoteTransfer)
-    {
-        $formFactoryMock = $this->getMock(
-            FormFactory::class,
-            [
-                'getCustomerClient',
-                'createShipmentForm',
-                'createPaymentForm',
-                'createSubFormDataProvider'
-            ]
-        );
-
-        $subFormDataProviderMock = $this->createSubFormDataProvider($quoteTransfer);
-        $formFactoryMock->method('createSubFormDataProvider')->willReturn($subFormDataProviderMock);
-
-        $customerClientMock = $this->getCustomerClientMock();
-        $formFactoryMock->method('getCustomerClient')->willReturn($customerClientMock);
-
-        $shipmentForm = $this->createShipmentForm();
-        $formFactoryMock->method('createShipmentForm')->willReturn($shipmentForm);
-
-        $paymentForm = $this->createPaymentForm();
-        $formFactoryMock->method('createPaymentForm')->willReturn($paymentForm);
-
-        return $formFactoryMock;
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Cart\CartClientInterface
-     */
-    protected function getCartClientMock(QuoteTransfer $quoteTransfer)
-    {
-        $cartClientMock = $this->getMock(CartClientInterface::class);
-        $cartClientMock->method('storeQuote')->willReturnCallback(
-            function (QuoteTransfer $newQuoteTransfer) use ($quoteTransfer) {
-                $this->persistedQuoteTransfer = $newQuoteTransfer;
-            }
-        );
-        $cartClientMock->method('getQuote')->willReturn($quoteTransfer);
-
-        return $cartClientMock;
-    }
-
-    /**
-     * @return array
-     */
-    protected function createShipmentForm()
-    {
-        return new ShipmentForm(new CheckoutSubFormPluginCollection());
-    }
-
-    /**
-     * @return \Pyz\Yves\Checkout\Form\Steps\PaymentForm
-     */
-    protected function createPaymentForm()
-    {
-         return new PaymentForm(new CheckoutSubFormPluginCollection());
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Process\StepFactory
-     */
-    protected function createStepFactoryMock(QuoteTransfer $quoteTransfer)
-    {
-        $stepFactoryMock = $this->getMock(StepFactory::class, ['getCheckoutClient', 'getCalculationClient']);
-
-        $checkoutClientMock = $this->createCheckoutClientMock();
-        $stepFactoryMock->method('getCheckoutClient')->willReturn($checkoutClientMock);
-
-        $cartClientMock = $this->createCalculationClientMock($quoteTransfer);
-        $stepFactoryMock->method('getCalculationClient')->willReturn($cartClientMock);
-
-        return $stepFactoryMock;
-    }
-
-    /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Checkout\CheckoutClientInterface
-     */
-    protected function createCheckoutClientMock()
-    {
-        $checkoutResponseTransfer = new CheckoutResponseTransfer();
-        $checkoutResponseTransfer->setIsSuccess(true);
-
-        $saverOrderTransfer = new SaveOrderTransfer();
-        $saverOrderTransfer->setOrderReference('#1');
-        $checkoutResponseTransfer->setSaveOrder($saverOrderTransfer);
-
-        $checkoutClientMock = $this->getMock(CheckoutClientInterface::class, ['placeOrder']);
-        $checkoutClientMock->method('placeOrder')->willReturn($checkoutResponseTransfer);
-
-        return $checkoutClientMock;
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Calculation\CalculationClient
-     */
-    protected function createCalculationClientMock(QuoteTransfer $quoteTransfer)
-    {
-        $calculationClientMock = $this->getMock(CalculationClient::class, ['recalculate']);
-        $calculationClientMock->method('recalculate')->willReturn($quoteTransfer);
-
-        return $calculationClientMock;
-    }
-
-    /**
-     * @return \PHPUnit_Framework_MockObject_MockObject
-     */
-    protected function getCustomerClientMock()
-    {
-        $customerClientMock = $this->getMock(
-            CustomerClient::class,
-            [
-                'createAddressAndUpdateCustomerDefaultAddresses',
-                'updateAddressAndCustomerDefaultAddresses',
-                'getCustomer',
-                'getAddresses',
-            ]
-        );
-
-        $customerClientMock
-            ->method('createAddressAndUpdateCustomerDefaultAddresses')
-            ->willReturn(new CustomerTransfer());
-
-        $customerClientMock
-            ->method('updateAddressAndCustomerDefaultAddresses')
-            ->willReturn(new CustomerTransfer());
-
-        $customerClientMock
-            ->method('getCustomer')
-            ->willReturn(new CustomerTransfer());
-
-        $customerClientMock
-            ->method('getAddresses')
-            ->willReturn(new AddressesTransfer());
-
-        return $customerClientMock;
-
-    }
-
-    /**
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
-    protected function createItemTransfer()
-    {
-        $itemTransfer = new ItemTransfer();
-        $itemTransfer->setSku(123);
-        $itemTransfer->setName('name');
-        $itemTransfer->setSku('sku');
-
-        return $itemTransfer;
-    }
-
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
-    protected function createQuoteTransfer()
+    private function setQuoteForCustomer()
     {
         $quoteTransfer = new QuoteTransfer();
-        $itemTransfer = $this->createItemTransfer();
+
+        $itemTransfer = new ItemTransfer();
         $quoteTransfer->addItem($itemTransfer);
 
-        return $quoteTransfer;
+        $cartClient = new CartClient();
+        $cartClient->storeQuote($quoteTransfer);
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return void
      */
-    protected function setAddresses(QuoteTransfer $quoteTransfer)
+    private function setQuoteForAddress()
     {
+        $quoteTransfer = new QuoteTransfer();
+
+        $itemTransfer = new ItemTransfer();
+        $quoteTransfer->addItem($itemTransfer);
+
+        $customerTransfer = new CustomerTransfer();
+        $customerTransfer->setIsGuest(false);
+        $quoteTransfer->setCustomer($customerTransfer);
+
+        $cartClient = new CartClient();
+        $cartClient->storeQuote($quoteTransfer);
+    }
+
+    /**
+     * @return void
+     */
+    private function setQuoteForShipment()
+    {
+        $quoteTransfer = new QuoteTransfer();
+
+        $itemTransfer = new ItemTransfer();
+        $quoteTransfer->addItem($itemTransfer);
+
+        $customerTransfer = new CustomerTransfer();
+        $customerTransfer->setIsGuest(false);
+        $quoteTransfer->setCustomer($customerTransfer);
+
         $addressTransfer = new AddressTransfer();
-        $addressTransfer->setFirstName('FIRST');
-        $addressTransfer->setLastName('LAST');
-
+        $address = [
+            AddressForm::FIELD_SALUTATION => 'Mr',
+            AddressForm::FIELD_FIRST_NAME => 'Hans',
+            AddressForm::FIELD_LAST_NAME => 'Muster',
+            AddressForm::FIELD_ADDRESS_1 => 'Any Street',
+            AddressForm::FIELD_ADDRESS_2 => '23',
+            AddressForm::FIELD_CITY => 'Berlin',
+            AddressForm::FIELD_ZIP_CODE => '12347',
+            AddressForm::FIELD_ISO_2_CODE => 'DE',
+        ];
+        $addressTransfer->fromArray($address);
         $quoteTransfer->setBillingAddress($addressTransfer);
-        $quoteTransfer->setShippingAddress(clone $addressTransfer);
+        $quoteTransfer->setShippingAddress($addressTransfer);
+
+        $cartClient = new CartClient();
+        $cartClient->storeQuote($quoteTransfer);
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return void
      */
-    protected function setExpenses(QuoteTransfer $quoteTransfer)
+    private function setQuoteForPayment()
     {
+        $quoteTransfer = new QuoteTransfer();
+
+        $itemTransfer = new ItemTransfer();
+        $quoteTransfer->addItem($itemTransfer);
+
+        $customerTransfer = new CustomerTransfer();
+        $customerTransfer->setIsGuest(false);
+        $quoteTransfer->setCustomer($customerTransfer);
+
+        $addressTransfer = new AddressTransfer();
+        $address = [
+            AddressForm::FIELD_SALUTATION => 'Mr',
+            AddressForm::FIELD_FIRST_NAME => 'Hans',
+            AddressForm::FIELD_LAST_NAME => 'Muster',
+            AddressForm::FIELD_ADDRESS_1 => 'Any Street',
+            AddressForm::FIELD_ADDRESS_2 => '23',
+            AddressForm::FIELD_CITY => 'Berlin',
+            AddressForm::FIELD_ZIP_CODE => '12347',
+            AddressForm::FIELD_ISO_2_CODE => 'DE',
+        ];
+        $addressTransfer->fromArray($address);
+        $quoteTransfer->setBillingAddress($addressTransfer);
+        $quoteTransfer->setShippingAddress($addressTransfer);
+
         $expenseTransfer = new ExpenseTransfer();
         $expenseTransfer->setType(ShipmentConstants::SHIPMENT_EXPENSE_TYPE);
         $quoteTransfer->addExpense($expenseTransfer);
 
-        $shipmentTransfer = new ShipmentTransfer();
-        $quoteTransfer->setShipment($shipmentTransfer);
+        $totalsTransfer = new TotalsTransfer();
+        $totalsTransfer->setGrandTotal(10000);
+        $quoteTransfer->setTotals($totalsTransfer);
+
+        $cartClient = new CartClient();
+        $cartClient->storeQuote($quoteTransfer);
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return void
      */
-    protected function setPayment(QuoteTransfer $quoteTransfer)
+    private function setQuoteForSummary()
     {
+        $quoteTransfer = new QuoteTransfer();
+
+        $itemTransfer = new ItemTransfer();
+        $quoteTransfer->addItem($itemTransfer);
+
+        $customerTransfer = new CustomerTransfer();
+        $customerTransfer->setIsGuest(false);
+        $quoteTransfer->setCustomer($customerTransfer);
+
+        $addressTransfer = new AddressTransfer();
+        $address = [
+            AddressForm::FIELD_SALUTATION => 'Mr',
+            AddressForm::FIELD_FIRST_NAME => 'Hans',
+            AddressForm::FIELD_LAST_NAME => 'Muster',
+            AddressForm::FIELD_ADDRESS_1 => 'Any Street',
+            AddressForm::FIELD_ADDRESS_2 => '23',
+            AddressForm::FIELD_CITY => 'Berlin',
+            AddressForm::FIELD_ZIP_CODE => '12347',
+            AddressForm::FIELD_ISO_2_CODE => 'DE',
+        ];
+        $addressTransfer->fromArray($address);
+        $quoteTransfer->setBillingAddress($addressTransfer);
+        $quoteTransfer->setShippingAddress($addressTransfer);
+
+        $expenseTransfer = new ExpenseTransfer();
+        $expenseTransfer->setType(ShipmentConstants::SHIPMENT_EXPENSE_TYPE);
+        $expenseTransfer->setUnitGrossPrice(1000);
+        $expenseTransfer->setQuantity(1);
+        $quoteTransfer->addExpense($expenseTransfer);
+
+        $totalsTransfer = new TotalsTransfer();
+        $totalsTransfer->setGrandTotal(10000);
+        $quoteTransfer->setTotals($totalsTransfer);
+
+        $shipmentTransfer = new ShipmentTransfer();
+        $quoteTransfer->setShipment($shipmentTransfer);
+
         $paymentTransfer = new PaymentTransfer();
-        $paymentTransfer->setPaymentProvider('test');
+        $paymentTransfer->setPaymentProvider('payolution');
+        $paymentPayolutionTransfer = new PayolutionPaymentTransfer();
+        $paymentPayolutionTransfer->setAccountBrand(ApiConstants::BRAND_INSTALLMENT);
+        $paymentTransfer->setPayolution($paymentPayolutionTransfer);
         $quoteTransfer->setPayment($paymentTransfer);
+
+        $cartClient = new CartClient();
+        $cartClient->storeQuote($quoteTransfer);
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param string $url
+     * @param string $actionName
+     * @param string $routeName
+     * @param string $formName
      *
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Form\DataProvider\SubFormDataProviders
+     * @return array
      */
-    protected function createSubFormDataProvider(QuoteTransfer $quoteTransfer)
+    protected function getFormData($url, $actionName, $routeName, $formName)
     {
-        if (empty($quoteTransfer->getPayment())) {
-            $quoteTransfer->setPayment(new PaymentTransfer());
-        }
+        $request = Request::create($url, 'GET');
+        $request->request->set('_route', $routeName);
 
-        if (empty($quoteTransfer->getShipment())) {
-            $quoteTransfer->setShipment(new ShipmentTransfer());
-        }
+        $result = $this->controller->$actionName($request);
 
-        $subFormDataProviderMock = $this->getMockBuilder(SubFormDataProviders::class)->disableOriginalConstructor()->getMock();
-        $subFormDataProviderMock->method('getData')->willReturn($quoteTransfer);
-        $subFormDataProviderMock->method('getOptions')->willReturn(['select_options' =>[]]);
-
-        return $subFormDataProviderMock;
+        return $this->getFormDataFromResult($result[$formName]);
     }
 
     /**
-     * @return \Spryker\Yves\Kernel\Container
+     * @param \Symfony\Component\Form\FormView $formView
+     *
+     * @return array
      */
-    protected function getContainer()
+    protected function getFormDataFromResult(FormView $formView)
     {
-        $checkoutDependencyProvider = new CheckoutDependencyProvider();
-        $container = new Container();
-        $checkoutDependencyProvider->provideDependencies($container);
+        $customerData = [];
+        foreach ($formView->getIterator() as $item) {
+            $customerData[$item->vars['name']] = $item->vars['value'];
+        }
 
-        return $container;
+        return $customerData;
     }
 
 }

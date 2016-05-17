@@ -11,6 +11,7 @@ use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Checkout\Process\Steps\AddressStep;
+use Spryker\Client\Cart\CartClient;
 use Symfony\Component\HttpFoundation\Request;
 
 class AddressStepTest extends \PHPUnit_Framework_TestCase
@@ -19,7 +20,7 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
     /**
      * @return void
      */
-    public function testExecuteAddressStepWhenGuestIsSubmitedShouldUseDataFromAddressFromForm()
+    public function testExecuteAddressStepWhenGuestIsSubmittedShouldUseDataFromAddressFromForm()
     {
         $customerClientMock = $this->createCustomerClientMock();
         $addressStep = $this->createAddressStep($customerClientMock);
@@ -30,7 +31,7 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
         $quoteTransfer->setShippingAddress($addressTransfer);
         $quoteTransfer->setBillingAddress(clone $addressTransfer);
 
-        $quoteTransfer = $addressStep->execute($this->createRequest(), $quoteTransfer);
+        $addressStep->execute($this->createRequest(), $quoteTransfer);
 
         $this->assertEquals($addressTransfer->getAddress1(), $quoteTransfer->getShippingAddress()->getAddress1());
         $this->assertEquals($addressTransfer->getAddress1(), $quoteTransfer->getBillingAddress()->getAddress1());
@@ -66,11 +67,11 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
         $billingAddressTransfer->setIdCustomerAddress(1);
         $quoteTransfer->setBillingAddress($billingAddressTransfer);
 
-        $shipingAddressTransfer = new AddressTransfer();
-        $shipingAddressTransfer->setIdCustomerAddress(1);
-        $quoteTransfer->setShippingAddress($shipingAddressTransfer);
+        $shippingAddressTransfer = new AddressTransfer();
+        $shippingAddressTransfer->setIdCustomerAddress(1);
+        $quoteTransfer->setShippingAddress($shippingAddressTransfer);
 
-        $quoteTransfer = $addressStep->execute($this->createRequest(), $quoteTransfer);
+        $addressStep->execute($this->createRequest(), $quoteTransfer);
 
         $this->assertEquals($shipmentAddress->getAddress1(), $quoteTransfer->getShippingAddress()->getAddress1());
         $this->assertEquals($addressTransfer->getAddress1(), $quoteTransfer->getBillingAddress()->getAddress1());
@@ -102,7 +103,7 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
         $shippingAddressTransfer->setIdCustomerAddress(1);
         $quoteTransfer->setShippingAddress($shippingAddressTransfer);
 
-        $quoteTransfer = $addressStep->execute($this->createRequest(), $quoteTransfer);
+        $addressStep->execute($this->createRequest(), $quoteTransfer);
 
         $this->assertEquals($addressTransfer->getAddress1(), $quoteTransfer->getShippingAddress()->getAddress1());
         $this->assertEquals($addressTransfer->getAddress1(), $quoteTransfer->getBillingAddress()->getAddress1());
@@ -114,7 +115,7 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
     public function testPostConditionWhenNoAddressesSetShouldReturnFalse()
     {
         $addressStep = $this->createAddressStep();
-        $this->assertFalse($addressStep->postCondition(new QuoteTransfer()));
+        $this->assertFalse($addressStep->postCondition());
     }
 
     /**
@@ -125,7 +126,10 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
         $addressStep = $this->createAddressStep();
         $quoteTransfer = new QuoteTransfer();
         $quoteTransfer->setBillingAddress(new AddressTransfer());
-        $this->assertFalse($addressStep->postCondition($quoteTransfer));
+
+        $this->getCartClient()->storeQuote($quoteTransfer);
+
+        $this->assertFalse($addressStep->postCondition());
     }
 
     /**
@@ -136,7 +140,10 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
         $addressStep = $this->createAddressStep();
         $quoteTransfer = new QuoteTransfer();
         $quoteTransfer->setShippingAddress(new AddressTransfer());
-        $this->assertFalse($addressStep->postCondition($quoteTransfer));
+
+        $this->getCartClient()->storeQuote($quoteTransfer);
+
+        $this->assertFalse($addressStep->postCondition());
     }
 
     /**
@@ -148,7 +155,10 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
         $quoteTransfer = new QuoteTransfer();
         $quoteTransfer->setShippingAddress(new AddressTransfer());
         $quoteTransfer->setBillingAddress(new AddressTransfer());
-        $this->assertFalse($addressStep->postCondition($quoteTransfer));
+
+        $this->getCartClient()->storeQuote($quoteTransfer);
+
+        $this->assertFalse($addressStep->postCondition());
     }
 
     /**
@@ -157,7 +167,7 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
     public function testRequireInputShouldReturnTrue()
     {
         $addressStep = $this->createAddressStep();
-        $this->assertTrue($addressStep->requireInput(new QuoteTransfer()));
+        $this->assertTrue($addressStep->requireInput());
 
     }
 
@@ -171,11 +181,18 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
             $customerClientMock = $this->createCustomerClientMock();
         }
 
-        return new AddressStep(
-            $customerClientMock,
-            'address_step',
-            'escape_route'
-        );
+        $addressStepMock = $this->getMock(AddressStep::class, ['getDataClass'], [$customerClientMock, $this->getCartClient(), 'address_step', 'escape_route']);
+        $addressStepMock->method('getDataClass')->willReturn(new QuoteTransfer());
+
+        return $addressStepMock;
+    }
+
+    /**
+     * @return \Spryker\Client\Cart\CartClient
+     */
+    protected function getCartClient()
+    {
+        return new CartClient();
     }
 
     /**

@@ -7,6 +7,7 @@ namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Process\Steps\EntryStep;
+use Spryker\Client\Cart\CartClient;
 use Symfony\Component\HttpFoundation\Request;
 
 class EntryStepTest extends \PHPUnit_Framework_TestCase
@@ -18,7 +19,7 @@ class EntryStepTest extends \PHPUnit_Framework_TestCase
     public function testRequireInputShouldReturnFalse()
     {
         $entryStep = $this->createEntryStep();
-        $this->assertFalse($entryStep->requireInput(new QuoteTransfer()));
+        $this->assertFalse($entryStep->requireInput());
     }
 
     /**
@@ -28,7 +29,7 @@ class EntryStepTest extends \PHPUnit_Framework_TestCase
     {
         $entryStep = $this->createEntryStep();
 
-        $this->assertTrue($entryStep->postCondition(new QuoteTransfer()));
+        $this->assertTrue($entryStep->postCondition());
     }
 
     /**
@@ -37,7 +38,7 @@ class EntryStepTest extends \PHPUnit_Framework_TestCase
     public function testPreConditionShouldReturnFalseIfCarIsEmpty()
     {
         $entryStep = $this->createEntryStep();
-        $this->assertFalse($entryStep->preCondition(new QuoteTransfer()));
+        $this->assertFalse($entryStep->preCondition());
     }
 
     /**
@@ -46,10 +47,19 @@ class EntryStepTest extends \PHPUnit_Framework_TestCase
     protected function createEntryStep()
     {
         return new EntryStep(
+            $this->getCartClient(),
             'entry_route',
             'escape_route'
         );
 
+    }
+
+    /**
+     * @return \Spryker\Client\Cart\CartClient
+     */
+    protected function getCartClient()
+    {
+        return new CartClient();
     }
 
     /**
