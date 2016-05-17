@@ -18,7 +18,7 @@ use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
-use Spryker\Yves\StepEngine\Process\StepFactory as SprykerStepFactory;
+use Spryker\Yves\Checkout\Process\StepFactory as SprykerStepFactory;
 
 class StepFactory extends SprykerStepFactory
 {
