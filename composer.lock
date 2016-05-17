@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8fc38ce2a521f8391e9d358ac6cdc35e",
-    "content-hash": "98784f2e31ea84a8c0a6aace189bc14d",
+    "hash": "774222b7470815031c8a56873f732366",
+    "content-hash": "5f57799e2defa1f90db7489f264b6700",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -945,11 +945,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/2044-zed-extensions-in-zed",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "df22ee927955d79e47d768adec5b345ca9f6467c"
+                "reference": "848f7e3a1ce51e4d8a33956e0f58b1d1ce9fde16"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1408,7 +1408,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-05-11 14:19:54"
+            "time": "2016-05-17 08:50:24"
         },
         {
             "name": "symfony-cmf/routing",
@@ -1810,7 +1810,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/23394a60d49d2aa904dacda6e5eb29d88251f9da",
+                "url": "https://api.github.com/repos/symfony/form/zipball/22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
                 "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
                 "shasum": ""
             },
@@ -5986,8 +5986,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "spryker/spryker": 20,
-        "propel/propel": 20,
-        "spryker/code-sniffer": 20
+        "propel/propel": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
