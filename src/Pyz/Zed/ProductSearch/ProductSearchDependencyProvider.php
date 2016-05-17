@@ -23,7 +23,7 @@ class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProv
      */
     public function provideBusinessLayerDependencies(Container $container)
     {
-        $container = parent::provideCommunicationLayerDependencies($container);
+        $container = parent::provideBusinessLayerDependencies($container);
 
         $container[self::FACADE_PRICE] = function (Container $container) {
             return $container->getLocator()->price()->facade();
