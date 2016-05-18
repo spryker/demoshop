@@ -16,6 +16,7 @@ use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
 use Spryker\Shared\Price\PriceConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Sales\SalesConstants;
+use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\User\UserConstants;
@@ -50,12 +51,21 @@ $config[ApplicationConstants::ZED_DB_SUPPORTED_ENGINES] = [
 
 $config[ApplicationConstants::STORAGE_KV_SOURCE] = 'redis';
 
+/**
+ * Elasticsearch settings
+ */
 $config[ApplicationConstants::ELASTICA_PARAMETER__HOST] = 'localhost';
 $config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT] = 'http';
 $config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = '10005';
 $config[ApplicationConstants::ELASTICA_PARAMETER__AUTH_HEADER] = '';
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = null; // Store related config
 $config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
+
+/**
+ * Page search settings
+ */
+$config[SearchConstants::SEARCH_CONFIG_CACHE_KEY] = 'search_config_cache';
+$config[SearchConstants::FULL_TEXT_BOOSTED_BOOSTING_VALUE] = 3;
 
 /**
  * Hostname(s) for Yves - Shop frontend
