@@ -23,7 +23,6 @@ class CheckoutFactory extends AbstractFactory
         return $this->createStepFactory()->createStepProcess(
             $this->createStepFactory()->createSteps(),
             $this->getUrlGenerator(),
-            $this->getCartClient(),
             CheckoutControllerProvider::CHECKOUT_ERROR
         );
     }
@@ -42,14 +41,6 @@ class CheckoutFactory extends AbstractFactory
     public function createCheckoutFormFactory()
     {
         return new FormFactory();
-    }
-
-    /**
-     * @return \Spryker\Client\Cart\CartClientInterface
-     */
-    protected function getCartClient()
-    {
-        return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CART);
     }
 
     /**

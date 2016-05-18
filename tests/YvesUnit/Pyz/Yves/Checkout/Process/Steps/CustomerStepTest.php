@@ -34,7 +34,7 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
     public function testPostConditionWhenCustomerTransferNotSetShouldReturnFalse()
     {
         $customerStep = $this->createCustomerStep();
-        $this->assertFalse($customerStep->postCondition());
+        $this->assertFalse($customerStep->postCondition(new QuoteTransfer()));
     }
 
     /**
@@ -51,9 +51,7 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
         $customerTransfer->setIsGuest(true);
         $quoteTransfer->setCustomer($customerTransfer);
 
-        $this->getCartClient()->storeQuote($quoteTransfer);
-
-        $this->assertFalse($customerStep->postCondition());
+        $this->assertFalse($customerStep->postCondition($quoteTransfer));
     }
 
     /**
@@ -65,7 +63,7 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
         $quoteTransfer = new QuoteTransfer();
         $quoteTransfer->setCustomer(new CustomerTransfer());
 
-        $this->assertTrue($customerStep->postCondition());
+        $this->assertTrue($customerStep->postCondition($quoteTransfer));
     }
 
     /**
@@ -77,9 +75,7 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
         $quoteTransfer = new QuoteTransfer();
         $quoteTransfer->setCustomer(new CustomerTransfer());
 
-        $this->getCartClient()->storeQuote($quoteTransfer);
-
-        $this->assertFalse($customerStep->requireInput());
+        $this->assertFalse($customerStep->requireInput($quoteTransfer));
     }
 
     /**
@@ -93,9 +89,7 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
         $customerStep = $this->createCustomerStep($customerClientMock);
         $quoteTransfer = new QuoteTransfer();
 
-        $this->getCartClient()->storeQuote($quoteTransfer);
-
-        $this->assertFalse($customerStep->requireInput());
+        $this->assertFalse($customerStep->requireInput($quoteTransfer));
     }
 
     /**
@@ -104,7 +98,7 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
     public function testRequireInputWhenNotLoggedInAndNotYetSetInQuoteShouldReturnTrue()
     {
         $customerStep = $this->createCustomerStep();
-        $this->assertTrue($customerStep->requireInput());
+        $this->assertTrue($customerStep->requireInput(new QuoteTransfer()));
     }
 
     /**
@@ -125,19 +119,10 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
 
         return new CustomerStep(
             $customerClientMock,
-            $this->getCartClient(),
             $authHandlerMock,
             'customer_step',
             'escape_route'
         );
-    }
-
-    /**
-     * @return \Spryker\Client\Cart\CartClient
-     */
-    protected function getCartClient()
-    {
-        return new CartClient();
     }
 
     /**

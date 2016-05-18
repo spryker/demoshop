@@ -9,7 +9,6 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
-use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,19 +28,17 @@ class CustomerStep extends BaseStep
 
     /**
      * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
-     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface $customerStepHandler
      * @param string $stepRoute
      * @param string $escapeRoute
      */
     public function __construct(
         CustomerClientInterface $customerClient,
-        CartClientInterface $cartClient,
         StepHandlerPluginInterface $customerStepHandler,
         $stepRoute,
         $escapeRoute
     ) {
-        parent::__construct($cartClient, $stepRoute, $escapeRoute);
+        parent::__construct($stepRoute, $escapeRoute);
 
         $this->customerClient = $customerClient;
         $this->customerStepHandler = $customerStepHandler;
@@ -52,9 +49,9 @@ class CustomerStep extends BaseStep
      *
      * @return bool
      */
-    public function requireInput()
+    public function requireInput(AbstractTransfer $quoteTransfer)
     {
-        if ($this->isCustomerInQuote($this->getDataClass())) {
+        if ($this->isCustomerInQuote($quoteTransfer)) {
             return false;
         }
 
@@ -69,16 +66,13 @@ class CustomerStep extends BaseStep
      * Update QuoteTransfer with customer step handler plugin.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param QuoteTransfer|AbstractTransfer $updatedQuoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    public function execute(Request $request, AbstractTransfer $updatedQuoteTransfer = null)
+    public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
-        $quoteTransfer = $this->getDataClass();
-        if ($updatedQuoteTransfer) {
-            $quoteTransfer->fromArray($updatedQuoteTransfer->modifiedToArray());
-        }
-
-        $this->setDataClass($this->customerStepHandler->addToDataClass($request, $quoteTransfer));
+        return $this->customerStepHandler->addToDataClass($request, $quoteTransfer);
     }
 
     /**
@@ -86,11 +80,12 @@ class CustomerStep extends BaseStep
      * If the CustomerTransfer is guest and the customer is logged in, then we override the guest customer with the
      * logged in customer, e.g. return false and execute() will do the rest.
      *
+     * @param AbstractTransfer|QuoteTransfer $quoteTransfer
+     *
      * @return bool
      */
-    public function postCondition()
+    public function postCondition(AbstractTransfer $quoteTransfer)
     {
-        $quoteTransfer = $this->getDataClass();
         if ($this->isCustomerInQuote($quoteTransfer) === false) {
             return false;
         }

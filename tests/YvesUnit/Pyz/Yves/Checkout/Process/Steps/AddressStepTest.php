@@ -115,7 +115,7 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
     public function testPostConditionWhenNoAddressesSetShouldReturnFalse()
     {
         $addressStep = $this->createAddressStep();
-        $this->assertFalse($addressStep->postCondition());
+        $this->assertFalse($addressStep->postCondition(new QuoteTransfer()));
     }
 
     /**
@@ -127,9 +127,7 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
         $quoteTransfer = new QuoteTransfer();
         $quoteTransfer->setBillingAddress(new AddressTransfer());
 
-        $this->getCartClient()->storeQuote($quoteTransfer);
-
-        $this->assertFalse($addressStep->postCondition());
+        $this->assertFalse($addressStep->postCondition($quoteTransfer));
     }
 
     /**
@@ -141,9 +139,7 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
         $quoteTransfer = new QuoteTransfer();
         $quoteTransfer->setShippingAddress(new AddressTransfer());
 
-        $this->getCartClient()->storeQuote($quoteTransfer);
-
-        $this->assertFalse($addressStep->postCondition());
+        $this->assertFalse($addressStep->postCondition($quoteTransfer));
     }
 
     /**
@@ -156,9 +152,7 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
         $quoteTransfer->setShippingAddress(new AddressTransfer());
         $quoteTransfer->setBillingAddress(new AddressTransfer());
 
-        $this->getCartClient()->storeQuote($quoteTransfer);
-
-        $this->assertFalse($addressStep->postCondition());
+        $this->assertFalse($addressStep->postCondition($quoteTransfer));
     }
 
     /**
@@ -167,8 +161,7 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
     public function testRequireInputShouldReturnTrue()
     {
         $addressStep = $this->createAddressStep();
-        $this->assertTrue($addressStep->requireInput());
-
+        $this->assertTrue($addressStep->requireInput(new QuoteTransfer()));
     }
 
     /**
@@ -181,18 +174,10 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
             $customerClientMock = $this->createCustomerClientMock();
         }
 
-        $addressStepMock = $this->getMock(AddressStep::class, ['getDataClass'], [$customerClientMock, $this->getCartClient(), 'address_step', 'escape_route']);
+        $addressStepMock = $this->getMock(AddressStep::class, ['getDataClass'], [$customerClientMock, 'address_step', 'escape_route']);
         $addressStepMock->method('getDataClass')->willReturn(new QuoteTransfer());
 
         return $addressStepMock;
-    }
-
-    /**
-     * @return \Spryker\Client\Cart\CartClient
-     */
-    protected function getCartClient()
-    {
-        return new CartClient();
     }
 
     /**

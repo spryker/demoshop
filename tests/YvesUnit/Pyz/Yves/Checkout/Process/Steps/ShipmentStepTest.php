@@ -52,9 +52,7 @@ class ShipmentStepTest extends \PHPUnit_Framework_TestCase
 
         $shipmentStep = $this->createShipmentStep(new StepHandlerPluginCollection());
 
-        $this->getCartClient()->storeQuote($quoteTransfer);
-
-        $this->assertTrue($shipmentStep->postCondition());
+        $this->assertTrue($shipmentStep->postCondition($quoteTransfer));
     }
 
     /**
@@ -63,7 +61,7 @@ class ShipmentStepTest extends \PHPUnit_Framework_TestCase
     public function testShipmentRequireInputShouldReturnTrue()
     {
         $shipmentStep = $this->createShipmentStep(new StepHandlerPluginCollection());
-        $this->assertTrue($shipmentStep->requireInput());
+        $this->assertTrue($shipmentStep->requireInput(new QuoteTransfer()));
     }
 
     /**
@@ -75,19 +73,10 @@ class ShipmentStepTest extends \PHPUnit_Framework_TestCase
     {
         return new ShipmentStep(
             $this->createCalculationClientMock(),
-            $this->getCartClient(),
             $shipmentPlugins,
             'shipment',
             'escape_route'
         );
-    }
-
-    /**
-     * @return \Spryker\Client\Cart\CartClient
-     */
-    protected function getCartClient()
-    {
-        return new CartClient();
     }
 
     /**

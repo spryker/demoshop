@@ -9,7 +9,6 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
-use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Transfer\AbstractTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -23,21 +22,22 @@ class SuccessStep extends BaseStep
 
     /**
      * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
-     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $stepRoute
      * @param string $escapeRoute
      */
-    public function __construct(CustomerClientInterface $customerClient, CartClientInterface $cartClient, $stepRoute, $escapeRoute)
+    public function __construct(CustomerClientInterface $customerClient, $stepRoute, $escapeRoute)
     {
-        parent::__construct($cartClient, $stepRoute, $escapeRoute);
+        parent::__construct($stepRoute, $escapeRoute);
 
         $this->customerClient = $customerClient;
     }
 
     /**
+     * @param \Spryker\Shared\Transfer\AbstractTransfer $quoteTransfer
+     *
      * @return bool
      */
-    public function requireInput()
+    public function requireInput(AbstractTransfer $quoteTransfer)
     {
         return true;
     }
@@ -46,23 +46,25 @@ class SuccessStep extends BaseStep
      * Empty quote transfer and mark logged in customer as "dirty" to force update it in the next request.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param QuoteTransfer|AbstractTransfer $updatedQuoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return void
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    public function execute(Request $request, AbstractTransfer $updatedQuoteTransfer = null)
+    public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
         $this->customerClient->markCustomerAsDirty();
 
-        $this->setDataClass(new QuoteTransfer());
+        return new QuoteTransfer();
     }
 
     /**
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return bool
      */
-    public function postCondition()
+    public function postCondition(AbstractTransfer $quoteTransfer)
     {
-        if ($this->getDataClass()->getOrderReference() === null) {
+        if ($quoteTransfer->getOrderReference() === null) {
             return false;
         }
 

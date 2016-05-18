@@ -1,19 +1,17 @@
 <?php
-
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
-
 namespace Pyz\Yves\Customer\Form\DataProvider;
 
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm;
-use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Kernel\Store;
-use Spryker\Yves\StepEngine\Dependency\DataProvider\DataProviderInterface;
+use Spryker\Shared\Transfer\AbstractTransfer;
+use Spryker\Yves\StepEngine\Dependency\Form\DataProviderInterface;
 
 class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider implements DataProviderInterface
 {
@@ -25,23 +23,22 @@ class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider im
 
     /**
      * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
-     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param \Spryker\Shared\Kernel\Store $store
      */
-    public function __construct(CustomerClientInterface $customerClient, CartClientInterface $cartClient, Store $store)
+    public function __construct(CustomerClientInterface $customerClient, Store $store)
     {
-        parent::__construct($customerClient, $cartClient, $store);
+        parent::__construct($customerClient, $store);
 
         $this->customerTransfer = $this->customerClient->getCustomer();
     }
 
     /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return \Spryker\Shared\Transfer\AbstractTransfer
      */
-    public function getData()
+    public function getData(AbstractTransfer $quoteTransfer)
     {
-        $quoteTransfer = $this->getDataClass();
-
         $quoteTransfer->setShippingAddress($this->getShippingAddress($quoteTransfer));
         $quoteTransfer->setBillingAddress($this->getBillingAddress($quoteTransfer));
 
@@ -53,9 +50,11 @@ class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider im
     }
 
     /**
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return array
      */
-    public function getOptions()
+    public function getOptions(AbstractTransfer $quoteTransfer)
     {
         return [
             CheckoutAddressCollectionForm::OPTION_ADDRESS_CHOICES => $this->getAddressChoices(),

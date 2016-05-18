@@ -7,8 +7,6 @@
 
 namespace Pyz\Yves\Checkout\Process\Steps;
 
-use Generated\Shared\Transfer\QuoteTransfer;
-use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,40 +21,37 @@ class PaymentStep extends BaseStep
 
     /**
      * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection $paymentPlugins
-     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $stepRoute
      * @param string $escapeRoute
      */
     public function __construct(
         StepHandlerPluginCollection $paymentPlugins,
-        CartClientInterface $cartClient,
         $stepRoute,
         $escapeRoute
     ) {
-        parent::__construct($cartClient, $stepRoute, $escapeRoute);
+        parent::__construct($stepRoute, $escapeRoute);
 
         $this->paymentPlugins = $paymentPlugins;
     }
 
     /**
+     * @param \Spryker\Shared\Transfer\AbstractTransfer $quoteTransfer
+     *
      * @return bool
      */
-    public function requireInput()
+    public function requireInput(AbstractTransfer $quoteTransfer)
     {
         return true;
     }
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param QuoteTransfer|AbstractTransfer $updatedQuoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return void
+     * @return \Spryker\Shared\Transfer\AbstractTransfer
      */
-    public function execute(Request $request, AbstractTransfer $updatedQuoteTransfer = null)
+    public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
-        $quoteTransfer = $this->getDataClass();
-        $quoteTransfer->fromArray($updatedQuoteTransfer->modifiedToArray());
-
         $paymentSelection = $quoteTransfer->getPayment()->getPaymentSelection();
 
         if ($this->paymentPlugins->has($paymentSelection)) {
@@ -64,16 +59,16 @@ class PaymentStep extends BaseStep
             $paymentHandler->addToDataClass($request, $quoteTransfer);
         }
 
-        $this->setDataClass($quoteTransfer);
+        return $quoteTransfer;
     }
 
     /**
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return bool
      */
-    public function postCondition()
+    public function postCondition(AbstractTransfer $quoteTransfer)
     {
-        $quoteTransfer = $this->getDataClass();
-
         if ($quoteTransfer->getPayment() === null ||
             $quoteTransfer->getPayment()->getPaymentProvider() == null) {
             return false;

@@ -57,7 +57,7 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
 
         $placeOrderStep->execute($this->createRequest(), $quoteTransfer);
 
-        $this->assertTrue($placeOrderStep->postCondition());
+        $this->assertTrue($placeOrderStep->postCondition($quoteTransfer));
     }
 
     /**
@@ -91,7 +91,7 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
         $quoteTransfer = new QuoteTransfer();
         $quoteTransfer->setOrderReference('#123');
 
-        $this->assertTrue($placeOrderStep->postCondition());
+        $this->assertTrue($placeOrderStep->postCondition($quoteTransfer));
     }
 
     /**
@@ -102,7 +102,7 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
         $checkoutClientMock = $this->createCheckoutClientMock();
         $placeOrderStep = $this->createPlaceOrderStep($checkoutClientMock);
 
-        $this->assertFalse($placeOrderStep->requireInput());
+        $this->assertFalse($placeOrderStep->requireInput(new QuoteTransfer()));
     }
 
     /**
@@ -119,19 +119,10 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
 
         return new PlaceOrderStep(
             $checkoutClientMock,
-            $this->getCartClient(),
             $flashMessengerMock,
             'place_order',
             'escape_route'
         );
-    }
-
-    /**
-     * @return \Spryker\Client\Cart\CartClient
-     */
-    protected function getCartClient()
-    {
-        return new CartClient();
     }
 
     /**

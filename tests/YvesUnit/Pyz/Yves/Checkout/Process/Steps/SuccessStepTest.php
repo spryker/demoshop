@@ -28,12 +28,10 @@ class SuccessStepTest extends \PHPUnit_Framework_TestCase
         $quoteTransfer = new QuoteTransfer();
         $quoteTransfer->addItem(new ItemTransfer());
 
-        $this->getCartClient()->storeQuote($quoteTransfer);
+        $this->assertTrue($successStep->preCondition($quoteTransfer));
+        $quoteTransfer = $successStep->execute($this->createRequest(), $quoteTransfer);
 
-        $this->assertTrue($successStep->preCondition());
-        $successStep->execute($this->createRequest(), $quoteTransfer);
-        
-        $this->assertFalse($successStep->preCondition());
+        $this->assertFalse($successStep->preCondition($quoteTransfer));
     }
 
     /**
@@ -46,9 +44,7 @@ class SuccessStepTest extends \PHPUnit_Framework_TestCase
         $quoteTransfer = new QuoteTransfer();
         $quoteTransfer->setOrderReference('#12');
 
-        $this->getCartClient()->storeQuote($quoteTransfer);
-
-        $this->assertTrue($successStep->postCondition());
+        $this->assertTrue($successStep->postCondition($quoteTransfer));
     }
 
     /**
@@ -58,9 +54,8 @@ class SuccessStepTest extends \PHPUnit_Framework_TestCase
     {
         $successStep = $this->createSuccessStep();
         $quoteTransfer = new QuoteTransfer();
-        $this->getCartClient()->storeQuote($quoteTransfer);
 
-        $this->assertFalse($successStep->postCondition());
+        $this->assertFalse($successStep->postCondition($quoteTransfer));
     }
 
     /**
@@ -76,18 +71,9 @@ class SuccessStepTest extends \PHPUnit_Framework_TestCase
 
         return new SuccessStep(
             $customerClientMock,
-            $this->getCartClient(),
             'success_route',
             'escape_route'
         );
-    }
-
-    /**
-     * @return \Spryker\Client\Cart\CartClient
-     */
-    protected function getCartClient()
-    {
-        return new CartClient();
     }
 
     /**

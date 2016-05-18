@@ -25,25 +25,25 @@ class AddressStep extends BaseStep
 
     /**
      * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
-     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $stepRoute
      * @param string $escapeRoute
      */
     public function __construct(
         CustomerClientInterface $customerClient,
-        CartClientInterface $cartClient,
         $stepRoute,
         $escapeRoute
     ) {
-        parent::__construct($cartClient, $stepRoute, $escapeRoute);
+        parent::__construct($stepRoute, $escapeRoute);
 
         $this->customerClient = $customerClient;
     }
 
     /**
+     * @param \Spryker\Shared\Transfer\AbstractTransfer $dataTransfer
+     *
      * @return bool
      */
-    public function requireInput()
+    public function requireInput(AbstractTransfer $dataTransfer)
     {
         return true;
     }
@@ -54,18 +54,17 @@ class AddressStep extends BaseStep
      * If it's new address it's saved when order is created in CustomerOrderSaverPlugin.
      * The selected addresses will be updated to default billing and shipping address.
      *
-     *
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param QuoteTransfer|AbstractTransfer $updatedQuoteTransfer
+     * @param AbstractTransfer|QuoteTransfer $quoteTransfer
      *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    public function execute(Request $request, AbstractTransfer $updatedQuoteTransfer = null)
+    public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
         $customerTransfer = $this->customerClient->getCustomer();
 
-        $shippingAddressTransfer = $updatedQuoteTransfer->getShippingAddress();
-        $billingAddressTransfer = $updatedQuoteTransfer->getBillingAddress();
+        $shippingAddressTransfer = $quoteTransfer->getShippingAddress();
+        $billingAddressTransfer = $quoteTransfer->getBillingAddress();
 
         if ($shippingAddressTransfer !== null && $shippingAddressTransfer->getIdCustomerAddress() !== null) {
             $shippingAddressTransfer = $this->hydrateCustomerAddress(
@@ -73,20 +72,19 @@ class AddressStep extends BaseStep
                 $customerTransfer
             );
 
-            $updatedQuoteTransfer->setShippingAddress($shippingAddressTransfer);
+            $quoteTransfer->setShippingAddress($shippingAddressTransfer);
         }
 
-        if ($updatedQuoteTransfer->getBillingSameAsShipping() === true) {
-            $updatedQuoteTransfer->setBillingAddress(clone $updatedQuoteTransfer->getShippingAddress());
+        if ($quoteTransfer->getBillingSameAsShipping() === true) {
+            $quoteTransfer->setBillingAddress(clone $quoteTransfer->getShippingAddress());
         } elseif ($billingAddressTransfer !== null && $billingAddressTransfer->getIdCustomerAddress() !== null) {
             $billingAddressTransfer = $this->hydrateCustomerAddress(
                 $billingAddressTransfer,
                 $customerTransfer
             );
 
-            $updatedQuoteTransfer->setBillingAddress($billingAddressTransfer);
+            $quoteTransfer->setBillingAddress($billingAddressTransfer);
         }
-
         $quoteTransfer->getShippingAddress()->setIsDefaultShipping(true);
         $quoteTransfer->getBillingAddress()->setIsDefaultBilling(true);
 
@@ -94,11 +92,12 @@ class AddressStep extends BaseStep
     }
 
     /**
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|QuoteTransfer $quoteTransfer
+     *
      * @return bool
      */
-    public function postCondition()
+    public function postCondition(AbstractTransfer $quoteTransfer)
     {
-        $quoteTransfer = $this->getDataClass();
         if ($quoteTransfer->getShippingAddress() === null || $quoteTransfer->getBillingAddress() === null) {
             return false;
         }

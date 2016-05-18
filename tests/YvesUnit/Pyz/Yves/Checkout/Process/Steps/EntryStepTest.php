@@ -19,7 +19,7 @@ class EntryStepTest extends \PHPUnit_Framework_TestCase
     public function testRequireInputShouldReturnFalse()
     {
         $entryStep = $this->createEntryStep();
-        $this->assertFalse($entryStep->requireInput());
+        $this->assertFalse($entryStep->requireInput(new QuoteTransfer()));
     }
 
     /**
@@ -29,7 +29,7 @@ class EntryStepTest extends \PHPUnit_Framework_TestCase
     {
         $entryStep = $this->createEntryStep();
 
-        $this->assertTrue($entryStep->postCondition());
+        $this->assertTrue($entryStep->postCondition(new QuoteTransfer()));
     }
 
     /**
@@ -38,7 +38,7 @@ class EntryStepTest extends \PHPUnit_Framework_TestCase
     public function testPreConditionShouldReturnFalseIfCarIsEmpty()
     {
         $entryStep = $this->createEntryStep();
-        $this->assertFalse($entryStep->preCondition());
+        $this->assertFalse($entryStep->preCondition(new QuoteTransfer()));
     }
 
     /**
@@ -47,19 +47,10 @@ class EntryStepTest extends \PHPUnit_Framework_TestCase
     protected function createEntryStep()
     {
         return new EntryStep(
-            $this->getCartClient(),
             'entry_route',
             'escape_route'
         );
 
-    }
-
-    /**
-     * @return \Spryker\Client\Cart\CartClient
-     */
-    protected function getCartClient()
-    {
-        return new CartClient();
     }
 
     /**

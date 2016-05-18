@@ -16,7 +16,7 @@ class ShipmentFactory extends AbstractFactory
 {
 
     /**
-     * @return \Spryker\Yves\Checkout\Dependency\Form\SubFormInterface
+     * @return \Spryker\Yves\StepEngine\Dependency\Form\SubFormInterface
      */
     public function createShipmentForm()
     {
@@ -31,7 +31,6 @@ class ShipmentFactory extends AbstractFactory
         return new ShipmentDataProvider(
             $this->getShipmentClient(),
             $this->getGlossaryClient(),
-            $this->getCartClient(),
             $this->getStore(),
             $this->getCurrencyManager()
         );
@@ -59,14 +58,6 @@ class ShipmentFactory extends AbstractFactory
     public function getGlossaryClient()
     {
         return $this->getProvidedDependency(ShipmentDependencyProvider::CLIENT_GLOSSARY);
-    }
-
-    /**
-     * @return \Spryker\Client\Cart\CartClientInterface
-     */
-    public function getCartClient()
-    {
-        return $this->getProvidedDependency(ShipmentDependencyProvider::CLIENT_CART);
     }
 
     /**

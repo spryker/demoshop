@@ -7,7 +7,6 @@
 
 namespace Pyz\Yves\Checkout\Process\Steps;
 
-use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Transfer\AbstractTransfer;
@@ -23,50 +22,47 @@ class SummaryStep extends BaseStep
 
     /**
      * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
-     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $stepRoute
      * @param string $escapeRoute
      */
     public function __construct(
         CalculationClientInterface $calculationClient,
-        CartClientInterface $cartClient,
         $stepRoute,
         $escapeRoute
     ) {
-        parent::__construct($cartClient, $stepRoute, $escapeRoute);
+        parent::__construct($stepRoute, $escapeRoute);
 
         $this->calculationClient = $calculationClient;
     }
 
     /**
+     * @param \Spryker\Shared\Transfer\AbstractTransfer $quoteTransfer
+     *
      * @return bool
      */
-    public function requireInput()
+    public function requireInput(AbstractTransfer $quoteTransfer)
     {
         return true;
     }
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param QuoteTransfer|AbstractTransfer $updatedQuoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return void
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    public function execute(Request $request, AbstractTransfer $updatedQuoteTransfer = null)
+    public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
-        $quoteTransfer = $this->getDataClass();
-        $quoteTransfer->fromArray($updatedQuoteTransfer->modifiedToArray());
-
-        $this->setDataClass($this->calculationClient->recalculate($quoteTransfer));
+        return $this->calculationClient->recalculate($quoteTransfer);
     }
 
     /**
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return bool
      */
-    public function postCondition()
+    public function postCondition(AbstractTransfer $quoteTransfer)
     {
-        $quoteTransfer = $this->getDataClass();
-
         if ($quoteTransfer->getBillingAddress() === null
             || $quoteTransfer->getShipment() === null
             || $quoteTransfer->getPayment() === null
@@ -79,13 +75,15 @@ class SummaryStep extends BaseStep
     }
 
     /**
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return array
      */
-    public function getTemplateVariables()
+    public function getTemplateVariables(AbstractTransfer $quoteTransfer)
     {
         return [
-            'quoteTransfer' => $this->getDataClass()
+            'quoteTransfer' => $quoteTransfer
         ];
     }
-    
+
 }

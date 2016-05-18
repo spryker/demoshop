@@ -46,7 +46,6 @@ class StepFactory extends SprykerStepFactory
     protected function createEntryStep()
     {
         return new EntryStep(
-            $this->getCartClient(),
             CheckoutControllerProvider::CHECKOUT_INDEX,
             ApplicationControllerProvider::ROUTE_HOME
         );
@@ -59,7 +58,6 @@ class StepFactory extends SprykerStepFactory
     {
         return new CustomerStep(
             $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER),
-            $this->getCartClient(),
             $this->createCustomerStepHandler(),
             CheckoutControllerProvider::CHECKOUT_CUSTOMER,
             ApplicationControllerProvider::ROUTE_HOME
@@ -73,7 +71,6 @@ class StepFactory extends SprykerStepFactory
     {
         return new AddressStep(
             $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER),
-            $this->getCartClient(),
             CheckoutControllerProvider::CHECKOUT_ADDRESS,
             ApplicationControllerProvider::ROUTE_HOME
         );
@@ -86,7 +83,6 @@ class StepFactory extends SprykerStepFactory
     {
         return new ShipmentStep(
             $this->getCalculationClient(),
-            $this->getCartClient(),
             $this->createShipmentPlugins(),
             CheckoutControllerProvider::CHECKOUT_SHIPMENT,
             ApplicationControllerProvider::ROUTE_HOME
@@ -108,7 +104,6 @@ class StepFactory extends SprykerStepFactory
     {
         return new PaymentStep(
             $this->createPaymentMethodHandler(),
-            $this->getCartClient(),
             CheckoutControllerProvider::CHECKOUT_PAYMENT,
             ApplicationControllerProvider::ROUTE_HOME
         );
@@ -121,7 +116,6 @@ class StepFactory extends SprykerStepFactory
     {
         return new SummaryStep(
             $this->getCalculationClient(),
-            $this->getCartClient(),
             CheckoutControllerProvider::CHECKOUT_SUMMARY,
             ApplicationControllerProvider::ROUTE_HOME
         );
@@ -134,7 +128,6 @@ class StepFactory extends SprykerStepFactory
     {
         return new PlaceOrderStep(
             $this->getCheckoutClient(),
-            $this->getCartClient(),
             $this->getFlashMessenger(),
             CheckoutControllerProvider::CHECKOUT_PLACE_ORDER,
             ApplicationControllerProvider::ROUTE_HOME
@@ -148,7 +141,6 @@ class StepFactory extends SprykerStepFactory
     {
         return new SuccessStep(
             $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER),
-            $this->getCartClient(),
             CheckoutControllerProvider::CHECKOUT_SUCCESS,
             ApplicationControllerProvider::ROUTE_HOME
         );
@@ -184,14 +176,6 @@ class StepFactory extends SprykerStepFactory
     protected function getApplication()
     {
         return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_APPLICATION);
-    }
-
-    /**
-     * @return \Spryker\Client\Cart\CartClient
-     */
-    public function getCartClient()
-    {
-        return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CART);
     }
 
     /**

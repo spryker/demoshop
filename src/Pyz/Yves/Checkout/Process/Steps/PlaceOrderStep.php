@@ -8,9 +8,7 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
-use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
-use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 use Spryker\Shared\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Process\Steps\StepWithExternalRedirectInterface;
@@ -43,35 +41,34 @@ class PlaceOrderStep extends BaseStep implements StepWithExternalRedirectInterfa
      */
     public function __construct(
         CheckoutClientInterface $checkoutClient,
-        CartClientInterface $cartClient,
         FlashMessengerInterface $flashMessenger,
         $stepRoute,
         $escapeRoute
     ) {
-        parent::__construct($cartClient, $stepRoute, $escapeRoute);
+        parent::__construct($stepRoute, $escapeRoute);
 
         $this->flashMessenger = $flashMessenger;
         $this->checkoutClient = $checkoutClient;
     }
 
     /**
+     * @param \Spryker\Shared\Transfer\AbstractTransfer $quoteTransfer
+     *
      * @return bool
      */
-    public function requireInput()
+    public function requireInput(AbstractTransfer $quoteTransfer)
     {
         return false;
     }
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param QuoteTransfer|AbstractTransfer $updatedQuoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return void
+     * @return \Spryker\Shared\Transfer\AbstractTransfer
      */
-    public function execute(Request $request, AbstractTransfer $updatedQuoteTransfer = null)
+    public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
-        $quoteTransfer = $this->getDataClass();
-
         $checkoutResponseTransfer = $this->checkoutClient->placeOrder($quoteTransfer);
         if ($checkoutResponseTransfer->getIsExternalRedirect()) {
             $this->externalRedirectUrl = $checkoutResponseTransfer->getRedirectUrl();
@@ -82,15 +79,17 @@ class PlaceOrderStep extends BaseStep implements StepWithExternalRedirectInterfa
 
         $this->setCheckoutErrorMessages($checkoutResponseTransfer);
 
-        $this->setDataClass($quoteTransfer);
+        return $quoteTransfer;
     }
 
     /**
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return bool
      */
-    public function postCondition()
+    public function postCondition(AbstractTransfer $quoteTransfer)
     {
-        return ($this->getDataClass()->getOrderReference() !== null);
+        return ($quoteTransfer->getOrderReference() !== null);
     }
 
     /**

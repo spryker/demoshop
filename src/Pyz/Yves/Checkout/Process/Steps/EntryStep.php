@@ -7,9 +7,7 @@
 
 namespace Pyz\Yves\Checkout\Process\Steps;
 
-use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Shared\Transfer\AbstractTransfer;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Entry step executed first, it's needed to redirect customer to next required step.
@@ -20,31 +18,23 @@ class EntryStep extends BaseStep
     /**
      * Require input, should we render view with form or just skip step after calling execute.
      *
+     * @param \Spryker\Shared\Transfer\AbstractTransfer $quoteTransfer
+     *
      * @return bool
      */
-    public function requireInput()
+    public function requireInput(AbstractTransfer $quoteTransfer)
     {
         return false;
     }
 
     /**
-     * Execute step logic, happens after form submit if provided, gets QuoteTransfer filled by data from form.
-     *
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param QuoteTransfer|AbstractTransfer $updatedQuoteTransfer
-     *
-     * @return void
-     */
-    public function execute(Request $request, AbstractTransfer $updatedQuoteTransfer = null)
-    {
-    }
-
-    /**
      * Conditions that should be met for this step to be marked as completed. returns true when satisfied.
+     *
+     * @param \Spryker\Shared\Transfer\AbstractTransfer $quoteTransfer
      *
      * @return bool
      */
-    public function postCondition()
+    public function postCondition(AbstractTransfer $quoteTransfer)
     {
         return true;
     }

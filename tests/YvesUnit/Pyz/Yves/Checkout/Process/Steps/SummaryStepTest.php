@@ -11,7 +11,6 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
 use Spryker\Client\Calculation\CalculationClientInterface;
-use Spryker\Client\Cart\CartClient;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -47,9 +46,7 @@ class SummaryStepTest extends \PHPUnit_Framework_TestCase
         $quoteTransfer->setPayment($paymentTransfer);
         $quoteTransfer->setShipment(new ShipmentTransfer());
 
-        $this->getCartClient()->storeQuote($quoteTransfer);
-
-        $this->assertTrue($summaryStep->postCondition());
+        $this->assertTrue($summaryStep->postCondition($quoteTransfer));
     }
 
     /**
@@ -60,7 +57,7 @@ class SummaryStepTest extends \PHPUnit_Framework_TestCase
         $calculationClientMock = $this->createCalculationClientMock();
         $summaryStep = $this->createSummaryStep($calculationClientMock);
 
-        $this->assertTrue($summaryStep->requireInput());
+        $this->assertTrue($summaryStep->requireInput(new QuoteTransfer()));
     }
 
     /**
@@ -72,18 +69,9 @@ class SummaryStepTest extends \PHPUnit_Framework_TestCase
     {
         return new SummaryStep(
             $calculationClientMock,
-            $this->getCartClient(),
             'shipment',
             'escape_route'
         );
-    }
-
-    /**
-     * @return \Spryker\Client\Cart\CartClient
-     */
-    protected function getCartClient()
-    {
-        return new CartClient();
     }
 
     /**

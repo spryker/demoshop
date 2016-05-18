@@ -8,54 +8,42 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Process\Steps\BaseStep as SprykerBaseStep;
+use Symfony\Component\HttpFoundation\Request;
 
 abstract class BaseStep extends SprykerBaseStep
 {
 
     /**
-     * @var \Spryker\Client\Cart\CartClientInterface
-     */
-    protected $cartClient;
-
-    /**
-     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
-     * @param string $stepRoute
-     * @param string $escapeRoute
-     */
-    public function __construct(CartClientInterface $cartClient, $stepRoute, $escapeRoute)
-    {
-        parent::__construct($stepRoute, $escapeRoute);
-
-        $this->cartClient = $cartClient;
-    }
-
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
-    public function getDataClass()
-    {
-        return $this->cartClient->getQuote();
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer|AbstractTransfer $quoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $dataTransfer
      *
-     * @return void
-     */
-    public function setDataClass(QuoteTransfer $quoteTransfer)
-    {
-        $this->cartClient->storeQuote($quoteTransfer);
-    }
-
-    /**
      * @return bool
      */
-    public function preCondition()
+    public function preCondition(AbstractTransfer $dataTransfer)
     {
-        return !$this->isCartEmpty($this->getDataClass());
+        return !$this->isCartEmpty($dataTransfer);
+    }
+
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Spryker\Shared\Transfer\AbstractTransfer $quoteTransfer
+     *
+     * @return \Spryker\Shared\Transfer\AbstractTransfer
+     */
+    public function execute(Request $request, AbstractTransfer $quoteTransfer)
+    {
+        return $quoteTransfer;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return bool
+     */
+    protected function isCartEmpty(QuoteTransfer $quoteTransfer)
+    {
+        return count($quoteTransfer->getItems()) === 0;
     }
 
 }

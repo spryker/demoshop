@@ -49,9 +49,7 @@ class PaymentStepTest extends \PHPUnit_Framework_TestCase
 
         $paymentStep = $this->createPaymentStep(new StepHandlerPluginCollection());
 
-        $this->getCartClient()->storeQuote($quoteTransfer);
-
-        $this->assertTrue($paymentStep->postCondition());
+        $this->assertTrue($paymentStep->postCondition($quoteTransfer));
     }
 
 
@@ -61,7 +59,7 @@ class PaymentStepTest extends \PHPUnit_Framework_TestCase
     public function testShipmentRequireInputShouldReturnTrue()
     {
         $paymentStep = $this->createPaymentStep(new StepHandlerPluginCollection());
-        $this->assertTrue($paymentStep->requireInput());
+        $this->assertTrue($paymentStep->requireInput(new QuoteTransfer()));
     }
 
     /**
@@ -73,18 +71,9 @@ class PaymentStepTest extends \PHPUnit_Framework_TestCase
     {
         return new PaymentStep(
             $paymentPlugins,
-            $this->getCartClient(),
             'payment',
             'escape_route'
         );
-    }
-
-    /**
-     * @return \Spryker\Client\Cart\CartClient
-     */
-    protected function getCartClient()
-    {
-        return new CartClient();
     }
 
     /**

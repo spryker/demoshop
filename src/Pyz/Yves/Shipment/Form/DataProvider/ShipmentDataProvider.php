@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
@@ -10,12 +11,12 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Pyz\Yves\Shipment\Form\ShipmentSubForm;
-use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Client\Glossary\GlossaryClientInterface;
 use Spryker\Client\Shipment\ShipmentClientInterface;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Library\Currency\CurrencyManager;
-use Spryker\Yves\StepEngine\Dependency\DataProvider\DataProviderInterface;
+use Spryker\Shared\Transfer\AbstractTransfer;
+use Spryker\Yves\StepEngine\Dependency\Form\DataProviderInterface;
 
 class ShipmentDataProvider implements DataProviderInterface
 {
@@ -33,11 +34,6 @@ class ShipmentDataProvider implements DataProviderInterface
     protected $glossaryClient;
 
     /**
-     * @var \Spryker\Client\Cart\CartClientInterface
-     */
-    protected $cartClient;
-
-    /**
      * @var \Spryker\Shared\Kernel\Store
      */
     protected $store;
@@ -50,32 +46,30 @@ class ShipmentDataProvider implements DataProviderInterface
     /**
      * @param \Spryker\Client\Shipment\ShipmentClientInterface $shipmentClient
      * @param \Spryker\Client\Glossary\GlossaryClientInterface $glossaryClient
-     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param \Spryker\Shared\Kernel\Store $store
      * @param \Spryker\Shared\Library\Currency\CurrencyManager $currencyManager
      */
     public function __construct(
         ShipmentClientInterface $shipmentClient,
         GlossaryClientInterface $glossaryClient,
-        CartClientInterface $cartClient,
         Store $store,
         CurrencyManager $currencyManager
     ) {
 
         $this->shipmentClient = $shipmentClient;
         $this->glossaryClient = $glossaryClient;
-        $this->cartClient = $cartClient;
         $this->store = $store;
         $this->currencyManager = $currencyManager;
     }
 
 
     /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return \Spryker\Shared\Transfer\AbstractTransfer
      */
-    public function getData()
+    public function getData(AbstractTransfer $quoteTransfer)
     {
-        $quoteTransfer = $this->getDataClass();
         if ($quoteTransfer->getShipment() === null) {
             $shipmentTransfer = new ShipmentTransfer();
             $quoteTransfer->setShipment($shipmentTransfer);
@@ -85,23 +79,27 @@ class ShipmentDataProvider implements DataProviderInterface
     }
 
     /**
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return array
      */
-    public function getOptions()
+    public function getOptions(AbstractTransfer $quoteTransfer)
     {
         return [
-            ShipmentSubForm::OPTION_SHIPMENT_METHODS => $this->createAvailableShipmentChoiceList()
+            ShipmentSubForm::OPTION_SHIPMENT_METHODS => $this->createAvailableShipmentChoiceList($quoteTransfer)
         ];
     }
 
     /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return array
      */
-    protected function createAvailableShipmentChoiceList()
+    protected function createAvailableShipmentChoiceList(QuoteTransfer $quoteTransfer)
     {
         $shipmentMethods = [];
 
-        $shipmentMethodsTransfer = $this->getAvailableShipmentMethods();
+        $shipmentMethodsTransfer = $this->getAvailableShipmentMethods($quoteTransfer);
         foreach ($shipmentMethodsTransfer->getMethods() as $shipmentMethodTransfer) {
             $shipmentMethods[$shipmentMethodTransfer->getIdShipmentMethod()] = $this->getShipmentDescription(
                 $shipmentMethodTransfer
@@ -112,11 +110,13 @@ class ShipmentDataProvider implements DataProviderInterface
     }
 
     /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return \Generated\Shared\Transfer\ShipmentMethodsTransfer
      */
-    protected function getAvailableShipmentMethods()
+    protected function getAvailableShipmentMethods(QuoteTransfer $quoteTransfer)
     {
-        return $this->shipmentClient->getAvailableMethods($this->getDataClass());
+        return $this->shipmentClient->getAvailableMethods($quoteTransfer);
     }
 
     /**
@@ -175,14 +175,6 @@ class ShipmentDataProvider implements DataProviderInterface
     protected function translate($translationKey)
     {
         return $this->glossaryClient->translate($translationKey, $this->store->getCurrentLocale());
-    }
-
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
-    protected function getDataClass()
-    {
-        return $this->cartClient->getQuote();
     }
 
 }

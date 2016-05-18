@@ -7,7 +7,6 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Client\Calculation\CalculationClientInterface;
-use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Spryker\Shared\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
@@ -28,43 +27,40 @@ class ShipmentStep extends BaseStep
 
     /**
      * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
-     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection $shipmentPlugins
      * @param string $stepRoute
      * @param string $escapeRoute
      */
     public function __construct(
         CalculationClientInterface $calculationClient,
-        CartClientInterface $cartClient,
         StepHandlerPluginCollection $shipmentPlugins,
         $stepRoute,
         $escapeRoute
     ) {
-        parent::__construct($cartClient, $stepRoute, $escapeRoute);
+        parent::__construct($stepRoute, $escapeRoute);
 
         $this->calculationClient = $calculationClient;
         $this->shipmentPlugins = $shipmentPlugins;
     }
 
     /**
+     * @param \Spryker\Shared\Transfer\AbstractTransfer $quoteTransfer
+     *
      * @return bool
      */
-    public function requireInput()
+    public function requireInput(AbstractTransfer $quoteTransfer)
     {
         return true;
     }
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param QuoteTransfer|AbstractTransfer $updatedQuoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer|\Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    public function execute(Request $request, AbstractTransfer $updatedQuoteTransfer = null)
+    public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
-        $quoteTransfer = $this->getDataClass();
-        $quoteTransfer->fromArray($updatedQuoteTransfer->modifiedToArray());
-
         $shipmentSelection = $quoteTransfer->getShipment()->getShipmentSelection();
 
         if ($this->shipmentPlugins->has($shipmentSelection)) {
@@ -72,15 +68,17 @@ class ShipmentStep extends BaseStep
             $shipmentHandler->addToDataClass($request, $quoteTransfer);
         }
 
-        $this->setDataClass($this->calculationClient->recalculate($quoteTransfer));
+        return $this->calculationClient->recalculate($quoteTransfer);
     }
 
     /**
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return bool
      */
-    public function postCondition()
+    public function postCondition(AbstractTransfer $quoteTransfer)
     {
-        if (!$this->isShipmentSet($this->getDataClass())) {
+        if (!$this->isShipmentSet($quoteTransfer)) {
             return false;
         }
 

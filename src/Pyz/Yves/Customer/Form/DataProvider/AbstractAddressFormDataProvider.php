@@ -8,10 +8,9 @@
 namespace Pyz\Yves\Customer\Form\DataProvider;
 
 use Pyz\Client\Customer\CustomerClientInterface;
-use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Kernel\Store;
 
-abstract class AbstractAddressFormDataProvider extends DataProvider
+abstract class AbstractAddressFormDataProvider
 {
 
     const COUNTRY_GLOSSARY_PREFIX = 'countries.iso.';
@@ -28,15 +27,11 @@ abstract class AbstractAddressFormDataProvider extends DataProvider
 
     /**
      * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
-     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param \Spryker\Shared\Kernel\Store $store
      */
-    public function __construct(CustomerClientInterface $customerClient, CartClientInterface $cartClient, Store $store)
+    public function __construct(CustomerClientInterface $customerClient, Store $store)
     {
-        parent::__construct($cartClient);
-
         $this->customerClient = $customerClient;
-        $this->cartClient = $cartClient;
         $this->store = $store;
     }
 
