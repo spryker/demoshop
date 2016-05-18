@@ -9,6 +9,7 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Client\Cart\CartClientInterface;
+use Spryker\Shared\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Process\Steps\BaseStep as SprykerBaseStep;
 
 abstract class BaseStep extends SprykerBaseStep
@@ -40,7 +41,7 @@ abstract class BaseStep extends SprykerBaseStep
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer|AbstractTransfer $quoteTransfer
      *
      * @return void
      */
@@ -48,7 +49,7 @@ abstract class BaseStep extends SprykerBaseStep
     {
         $this->cartClient->storeQuote($quoteTransfer);
     }
-    
+
     /**
      * @return bool
      */

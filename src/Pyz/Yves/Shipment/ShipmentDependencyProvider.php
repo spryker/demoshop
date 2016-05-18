@@ -15,6 +15,7 @@ class ShipmentDependencyProvider extends AbstractBundleDependencyProvider
 
     const CLIENT_SHIPMENT = 'shipment client';
     const CLIENT_GLOSSARY = 'glossary client';
+    const CLIENT_CART = 'cart client';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -29,6 +30,10 @@ class ShipmentDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[self::CLIENT_GLOSSARY] = function (Container $container) {
             return $container->getLocator()->glossary()->client();
+        };
+
+        $container[self::CLIENT_CART] = function (Container $container) {
+            return $container->getLocator()->cart()->client();
         };
 
         return $container;

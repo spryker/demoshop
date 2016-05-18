@@ -8,6 +8,7 @@
 namespace Pyz\Yves\Checkout\Form\DataProvider;
 
 use Generated\Shared\Transfer\QuoteTransfer;
+use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Yves\StepEngine\Dependency\DataProvider\DataProviderInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection;
 
@@ -20,45 +21,58 @@ class SubFormDataProviders implements DataProviderInterface
     protected $subFormPlugins;
 
     /**
-     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection $subFormPlugins
+     * @var \Spryker\Client\Cart\CartClientInterface
      */
-    public function __construct(SubFormPluginCollection $subFormPlugins)
+    protected $cartClient;
+
+    /**
+     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection $subFormPlugins
+     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
+     */
+    public function __construct(SubFormPluginCollection $subFormPlugins, CartClientInterface $cartClient)
     {
         $this->subFormPlugins = $subFormPlugins;
+        $this->cartClient = $cartClient;
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
+     * @return \Spryker\Shared\Transfer\AbstractTransfer
      */
-    public function getData(QuoteTransfer $quoteTransfer)
+    public function getData()
     {
+        $quoteTransfer = $this->getDataClass();
+        
         foreach ($this->subFormPlugins as $subForm) {
-            $quoteTransfer = $subForm->createSubFormDataProvider()->getData($quoteTransfer);
+            $quoteTransfer = $subForm->createSubFormDataProvider()->getData();
         }
 
         return $quoteTransfer;
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return array
      */
-    public function getOptions(QuoteTransfer $quoteTransfer)
+    public function getOptions()
     {
-        $productOptions = [];
+        $options = [];
         foreach ($this->subFormPlugins as $subForm) {
-            $productOptions = array_merge(
-                $productOptions,
-                $subForm->createSubFormDataProvider()->getOptions($quoteTransfer)
+            $options = array_merge(
+                $options,
+                $subForm->createSubFormDataProvider()->getOptions()
             );
         }
 
         return [
-            'select_options' => $productOptions
+            'select_options' => $options
         ];
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\QuoteTransfer
+     */
+    protected function getDataClass()
+    {
+        return $this->cartClient->getQuote();
     }
 
 }

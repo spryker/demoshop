@@ -25,7 +25,7 @@ class ShipmentStepTest extends \PHPUnit_Framework_TestCase
     public function testShipmentStepExecuteShouldTriggerPlugins()
     {
         $shipmentPluginMock = $this->createShipmentMock();
-        $shipmentPluginMock->expects($this->once())->method('addToQuote');
+        $shipmentPluginMock->expects($this->once())->method('addToDataClass');
 
         $shipmentStepHandler = new StepHandlerPluginCollection();
         $shipmentStepHandler->add($shipmentPluginMock, 'test');

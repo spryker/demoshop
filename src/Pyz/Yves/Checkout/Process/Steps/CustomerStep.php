@@ -74,7 +74,9 @@ class CustomerStep extends BaseStep
     public function execute(Request $request, AbstractTransfer $updatedQuoteTransfer = null)
     {
         $quoteTransfer = $this->getDataClass();
-        $quoteTransfer->fromArray($updatedQuoteTransfer->modifiedToArray());
+        if ($updatedQuoteTransfer) {
+            $quoteTransfer->fromArray($updatedQuoteTransfer->modifiedToArray());
+        }
 
         $this->setDataClass($this->customerStepHandler->addToDataClass($request, $quoteTransfer));
     }

@@ -78,4 +78,14 @@ class SummaryStep extends BaseStep
         return true;
     }
 
+    /**
+     * @return array
+     */
+    public function getTemplateVariables()
+    {
+        return [
+            'quoteTransfer' => $this->getDataClass()
+        ];
+    }
+    
 }

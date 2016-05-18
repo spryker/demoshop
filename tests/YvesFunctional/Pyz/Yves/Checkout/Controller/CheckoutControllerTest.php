@@ -205,7 +205,6 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
         $response = $this->controller->shipmentAction($request);
 
         $this->assertArrayHasKey('shipmentForm', $response);
-        $this->assertArrayHasKey('dataClass', $response);
         $this->assertArrayHasKey('previousStepUrl', $response);
     }
 
@@ -247,7 +246,6 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
         $response = $this->controller->paymentAction($request);
 
         $this->assertArrayHasKey('paymentForm', $response);
-        $this->assertArrayHasKey('dataClass', $response);
         $this->assertArrayHasKey('previousStepUrl', $response);
     }
 
@@ -296,7 +294,7 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
         $response = $this->controller->summaryAction($request);
 
         $this->assertArrayHasKey('summaryForm', $response);
-        $this->assertArrayHasKey('dataClass', $response);
+        $this->assertArrayHasKey('quoteTransfer', $response);
         $this->assertArrayHasKey('previousStepUrl', $response);
     }
 

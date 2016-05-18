@@ -22,7 +22,7 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
     public function testExecuteShouldTriggerAuthHandler()
     {
         $authHandlerMock = $this->createAuthHandlerMock();
-        $authHandlerMock->expects($this->once())->method('addToQuote')->willReturnArgument(1);
+        $authHandlerMock->expects($this->once())->method('addToDataClass')->willReturnArgument(1);
 
         $customerStep = $this->createCustomerStep(null, $authHandlerMock);
         $customerStep->execute($this->createRequest(), new QuoteTransfer());
@@ -32,15 +32,6 @@ class CustomerStepTest extends \PHPUnit_Framework_TestCase
      * @return void
      */
     public function testPostConditionWhenCustomerTransferNotSetShouldReturnFalse()
-    {
-        $customerStep = $this->createCustomerStep();
-        $this->assertFalse($customerStep->postCondition());
-    }
-
-    /**
-     * @return void
-     */
-    public function testPostConditionWhenCustomerTransferIsNotSetShouldReturnFalse()
     {
         $customerStep = $this->createCustomerStep();
         $this->assertFalse($customerStep->postCondition());

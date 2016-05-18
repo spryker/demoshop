@@ -10,6 +10,7 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Pyz\Yves\Shipment\Form\ShipmentSubForm;
+use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Client\Glossary\GlossaryClientInterface;
 use Spryker\Client\Shipment\ShipmentClientInterface;
 use Spryker\Shared\Kernel\Store;
@@ -32,6 +33,11 @@ class ShipmentDataProvider implements DataProviderInterface
     protected $glossaryClient;
 
     /**
+     * @var \Spryker\Client\Cart\CartClientInterface
+     */
+    protected $cartClient;
+
+    /**
      * @var \Spryker\Shared\Kernel\Store
      */
     protected $store;
@@ -44,30 +50,32 @@ class ShipmentDataProvider implements DataProviderInterface
     /**
      * @param \Spryker\Client\Shipment\ShipmentClientInterface $shipmentClient
      * @param \Spryker\Client\Glossary\GlossaryClientInterface $glossaryClient
+     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param \Spryker\Shared\Kernel\Store $store
      * @param \Spryker\Shared\Library\Currency\CurrencyManager $currencyManager
      */
     public function __construct(
         ShipmentClientInterface $shipmentClient,
         GlossaryClientInterface $glossaryClient,
+        CartClientInterface $cartClient,
         Store $store,
         CurrencyManager $currencyManager
     ) {
 
         $this->shipmentClient = $shipmentClient;
         $this->glossaryClient = $glossaryClient;
+        $this->cartClient = $cartClient;
         $this->store = $store;
         $this->currencyManager = $currencyManager;
     }
 
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    public function getData(QuoteTransfer $quoteTransfer)
+    public function getData()
     {
+        $quoteTransfer = $this->getDataClass();
         if ($quoteTransfer->getShipment() === null) {
             $shipmentTransfer = new ShipmentTransfer();
             $quoteTransfer->setShipment($shipmentTransfer);
@@ -77,27 +85,23 @@ class ShipmentDataProvider implements DataProviderInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return array
      */
-    public function getOptions(QuoteTransfer $quoteTransfer)
+    public function getOptions()
     {
         return [
-            ShipmentSubForm::OPTION_SHIPMENT_METHODS => $this->createAvailableShipmentChoiceList($quoteTransfer)
+            ShipmentSubForm::OPTION_SHIPMENT_METHODS => $this->createAvailableShipmentChoiceList()
         ];
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return array
      */
-    protected function createAvailableShipmentChoiceList(QuoteTransfer $quoteTransfer)
+    protected function createAvailableShipmentChoiceList()
     {
         $shipmentMethods = [];
 
-        $shipmentMethodsTransfer = $this->getAvailableShipmentMethods($quoteTransfer);
+        $shipmentMethodsTransfer = $this->getAvailableShipmentMethods();
         foreach ($shipmentMethodsTransfer->getMethods() as $shipmentMethodTransfer) {
             $shipmentMethods[$shipmentMethodTransfer->getIdShipmentMethod()] = $this->getShipmentDescription(
                 $shipmentMethodTransfer
@@ -108,13 +112,11 @@ class ShipmentDataProvider implements DataProviderInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return \Generated\Shared\Transfer\ShipmentMethodsTransfer
      */
-    protected function getAvailableShipmentMethods(QuoteTransfer $quoteTransfer)
+    protected function getAvailableShipmentMethods()
     {
-        return $this->shipmentClient->getAvailableMethods($quoteTransfer);
+        return $this->shipmentClient->getAvailableMethods($this->getDataClass());
     }
 
     /**
@@ -173,6 +175,14 @@ class ShipmentDataProvider implements DataProviderInterface
     protected function translate($translationKey)
     {
         return $this->glossaryClient->translate($translationKey, $this->store->getCurrentLocale());
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\QuoteTransfer
+     */
+    protected function getDataClass()
+    {
+        return $this->cartClient->getQuote();
     }
 
 }

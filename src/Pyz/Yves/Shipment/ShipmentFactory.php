@@ -31,6 +31,7 @@ class ShipmentFactory extends AbstractFactory
         return new ShipmentDataProvider(
             $this->getShipmentClient(),
             $this->getGlossaryClient(),
+            $this->getCartClient(),
             $this->getStore(),
             $this->getCurrencyManager()
         );
@@ -58,6 +59,14 @@ class ShipmentFactory extends AbstractFactory
     public function getGlossaryClient()
     {
         return $this->getProvidedDependency(ShipmentDependencyProvider::CLIENT_GLOSSARY);
+    }
+
+    /**
+     * @return \Spryker\Client\Cart\CartClientInterface
+     */
+    public function getCartClient()
+    {
+        return $this->getProvidedDependency(ShipmentDependencyProvider::CLIENT_CART);
     }
 
     /**

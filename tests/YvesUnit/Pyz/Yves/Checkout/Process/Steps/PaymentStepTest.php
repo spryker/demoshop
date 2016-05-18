@@ -22,7 +22,7 @@ class PaymentStepTest extends \PHPUnit_Framework_TestCase
     public function testExecuteShouldSelectPlugin()
     {
         $paymentPluginMock = $this->createPaymentPluginMock();
-        $paymentPluginMock->expects($this->once())->method('addToQuote');
+        $paymentPluginMock->expects($this->once())->method('addToDataClass');
 
         $paymentStepHandler = new StepHandlerPluginCollection();
         $paymentStepHandler->add($paymentPluginMock, 'test');

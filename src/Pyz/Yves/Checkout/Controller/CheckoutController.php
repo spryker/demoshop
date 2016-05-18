@@ -99,12 +99,14 @@ class CheckoutController extends AbstractController
      */
     public function summaryAction(Request $request)
     {
-        return $this->createStepProcess()->process(
+        $viewData = $this->createStepProcess()->process(
             $request,
             $this->getFactory()
                 ->createCheckoutFormFactory()
                 ->createSummaryFormCollection()
         );
+
+        return $viewData;
     }
 
     /**

@@ -15,6 +15,7 @@ use Pyz\Yves\Checkout\Form\Steps\SummaryForm;
 use Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm;
 use Pyz\Yves\Customer\Form\CustomerCheckoutForm;
 use Pyz\Yves\Customer\Form\DataProvider\CheckoutAddressFormDataProvider;
+use Pyz\Yves\Customer\Form\DataProvider\DataProvider;
 use Pyz\Yves\Customer\Form\GuestForm;
 use Pyz\Yves\Customer\Form\LoginForm;
 use Pyz\Yves\Customer\Form\RegisterForm;
@@ -22,7 +23,7 @@ use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\StepEngine\Dependency\DataProvider\DataProviderInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection;
 use Spryker\Yves\StepEngine\Form\FormCollectionHandler;
-use Spryker\Yves\StepEngine\Form\FormFactory as SprykerFormFactory;
+use Spryker\Yves\Checkout\Form\FormFactory as SprykerFormFactory;
 use Symfony\Component\Form\FormTypeInterface;
 
 class FormFactory extends SprykerFormFactory
@@ -33,7 +34,7 @@ class FormFactory extends SprykerFormFactory
      */
     public function createCustomerFormCollection()
     {
-        return $this->createFormCollection($this->createCustomerFormTypes());
+        return $this->createFormCollection($this->createCustomerFormTypes(), $this->createDataProvider());
     }
 
     /**
@@ -77,7 +78,7 @@ class FormFactory extends SprykerFormFactory
      */
     protected function createSubFormDataProvider(SubFormPluginCollection $subForms)
     {
-        return new SubFormDataProviders($subForms);
+        return new SubFormDataProviders($subForms, $this->getCartClient());
     }
 
     /**
@@ -87,7 +88,7 @@ class FormFactory extends SprykerFormFactory
      */
     public function createSummaryFormCollection()
     {
-        return $this->createFormCollection($this->createSummaryFormTypes());
+        return $this->createFormCollection($this->createSummaryFormTypes(), $this->createDataProvider());
     }
 
     /**
@@ -127,7 +128,7 @@ class FormFactory extends SprykerFormFactory
      */
     protected function createAddressFormDataProvider()
     {
-        return new CheckoutAddressFormDataProvider($this->getCustomerClient(), $this->createStore());
+        return new CheckoutAddressFormDataProvider($this->getCustomerClient(), $this->getCartClient(), $this->createStore());
     }
 
     /**
@@ -178,24 +179,24 @@ class FormFactory extends SprykerFormFactory
 
     /**
      * @param \Symfony\Component\Form\FormTypeInterface[] $formTypes
-     * @param \Spryker\Yves\StepEngine\Dependency\DataProvider\DataProviderInterface|null $dataProvider
+     * @param \Spryker\Yves\StepEngine\Dependency\DataProvider\DataProviderInterface $dataProvider
      *
      * @return \Spryker\Yves\StepEngine\Form\FormCollectionHandlerInterface
      */
-    protected function createFormCollection(array $formTypes, DataProviderInterface $dataProvider = null)
+    protected function createFormCollection(array $formTypes, DataProviderInterface $dataProvider)
     {
-        return new FormCollectionHandler($formTypes, $this->getFormFactory(), $this->getCartClient(), $dataProvider);
+        return new FormCollectionHandler($formTypes, $this->getFormFactory(), $dataProvider);
     }
 
     /**
      * @param \Symfony\Component\Form\FormTypeInterface $formType
-     * @param \Spryker\Yves\StepEngine\Dependency\DataProvider\DataProviderInterface|null $dataProvider
+     * @param \Spryker\Yves\StepEngine\Dependency\DataProvider\DataProviderInterface $dataProvider
      *
      * @return \Spryker\Yves\StepEngine\Form\FormCollectionHandlerInterface
      */
     protected function createSubFormCollection($formType, DataProviderInterface $dataProvider)
     {
-        return new FormCollectionHandler([$formType], $this->getFormFactory(), $this->getCartClient(), $dataProvider);
+        return new FormCollectionHandler([$formType], $this->getFormFactory(), $dataProvider);
     }
 
     /**
@@ -268,6 +269,14 @@ class FormFactory extends SprykerFormFactory
     public function getCartClient()
     {
         return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CART);
+    }
+
+    /**
+     * @return \Pyz\Yves\Customer\Form\DataProvider\DataProvider
+     */
+    private function createDataProvider()
+    {
+        return new DataProvider($this->getCartClient());
     }
 
 }
