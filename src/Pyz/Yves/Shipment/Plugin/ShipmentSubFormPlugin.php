@@ -7,8 +7,8 @@
 
 namespace Pyz\Yves\Shipment\Plugin;
 
-use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginInterface;
 use Spryker\Yves\Kernel\AbstractPlugin;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginInterface;
 
 /**
  * @method \Pyz\Yves\Shipment\ShipmentFactory getFactory()

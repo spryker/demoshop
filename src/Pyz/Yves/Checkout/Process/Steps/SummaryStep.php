@@ -8,7 +8,6 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Spryker\Client\Calculation\CalculationClientInterface;
-use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Transfer\AbstractTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
