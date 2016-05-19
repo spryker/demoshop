@@ -24,7 +24,7 @@ class StepFactory extends SprykerStepFactory
 {
 
     /**
-     * @return \Spryker\Yves\StepEngine\Process\Steps\StepInterface[]
+     * @return \Spryker\Yves\StepEngine\Dependency\Step\StepInterface[]
      */
     public function createSteps()
     {

@@ -16,7 +16,7 @@ class CheckoutFactory extends AbstractFactory
 {
 
     /**
-     * @return \Spryker\Yves\StepEngine\Process\StepProcess
+     * @return \Spryker\Yves\StepEngine\Process\StepEngine
      */
     public function createCheckoutProcess()
     {
