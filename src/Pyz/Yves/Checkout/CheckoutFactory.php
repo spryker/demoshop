@@ -20,7 +20,7 @@ class CheckoutFactory extends AbstractFactory
      */
     public function createCheckoutProcess()
     {
-        return $this->createStepFactory()->createStepProcess(
+        return $this->createStepFactory()->createStepEngine(
             $this->createStepFactory()->createSteps(),
             $this->getUrlGenerator(),
             CheckoutControllerProvider::CHECKOUT_ERROR

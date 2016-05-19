@@ -19,6 +19,7 @@ use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
 use Spryker\Yves\Checkout\Process\StepFactory as SprykerStepFactory;
+use Spryker\Yves\StepEngine\Process\StepCollection;
 
 class StepFactory extends SprykerStepFactory
 {
@@ -28,16 +29,26 @@ class StepFactory extends SprykerStepFactory
      */
     public function createSteps()
     {
-        return [
-            $this->createEntryStep(),
-            $this->createCustomerStep(),
-            $this->createAddressStep(),
-            $this->createShipmentStep(),
-            $this->createPaymentStep(),
-            $this->createSummaryStep(),
-            $this->createPlaceOrderStep(),
-            $this->createSuccessStep(),
-        ];
+        $stepCollection = $this->createStepCollection();
+        $stepCollection
+            ->addStep($this->createEntryStep())
+            ->addStep($this->createCustomerStep())
+            ->addStep($this->createAddressStep())
+            ->addStep($this->createShipmentStep())
+            ->addStep($this->createPaymentStep())
+            ->addStep($this->createSummaryStep())
+            ->addStep($this->createPlaceOrderStep())
+            ->addStep($this->createSuccessStep());
+
+        return $stepCollection;
+    }
+
+    /**
+     * @return \Spryker\Yves\StepEngine\Process\StepCollectionInterface
+     */
+    protected function createStepCollection()
+    {
+        return new StepCollection($this->getUrlGenerator(), CheckoutControllerProvider::CHECKOUT_ERROR);
     }
 
     /**
