@@ -29,8 +29,9 @@ dependencies:
     - mysql -u ubuntu circle_test --execute="SET GLOBAL group_concat_max_len=1048576"
 
   post:
-    - cp ~/project/config/Shared/ci/circle/zed.vhost /etc/apache2/sites-available
-    - a2ensite zed.vhost
+    - cp ~/project/config/Shared/ci/circle/zed.vhost /etc/apache2/sites-available/zed.vhost.conf
+    - sudo a2ensite zed.vhost.conf
+    - sudo a2enmod rewrite
     - sudo service apache2 restart
 
 test:

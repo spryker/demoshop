@@ -12,11 +12,10 @@ Listen 8080
   </FilesMatch>
 
   <Directory /home/ubuntu/project/public/Zed>
-      Options Indexes FollowSymLinks MultiViews
+      Options Indexes FollowSymLinks MultiViews ExecCGI
       AllowOverride All
       Order allow,deny
       allow from all
-      Require all granted
   </Directory>
 
 </VirtualHost>
