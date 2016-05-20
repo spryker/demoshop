@@ -11,22 +11,12 @@ Listen 8080
     SetHandler application/x-httpd-php
   </FilesMatch>
 
-  <Directory />
-      Options Indexes FollowSymLinks MultiViews
-      AllowOverride All
-      Order allow,deny
-      allow from all
-      Require all granted
-      Header set Access-Control-Allow-Origin "*"
-  </Directory>
-
   <Directory /home/ubuntu/zed/public/Zed>
       Options Indexes FollowSymLinks MultiViews
       AllowOverride All
       Order allow,deny
       allow from all
       Require all granted
-      Header set Access-Control-Allow-Origin "*"
   </Directory>
 
 </VirtualHost>
