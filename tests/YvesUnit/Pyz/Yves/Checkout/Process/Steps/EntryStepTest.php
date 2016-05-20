@@ -7,7 +7,6 @@ namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Process\Steps\EntryStep;
-use Spryker\Client\Cart\CartClient;
 use Symfony\Component\HttpFoundation\Request;
 
 class EntryStepTest extends \PHPUnit_Framework_TestCase

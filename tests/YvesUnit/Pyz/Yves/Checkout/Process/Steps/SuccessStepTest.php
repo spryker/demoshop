@@ -9,7 +9,6 @@ use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
-use Spryker\Client\Cart\CartClient;
 use Symfony\Component\HttpFoundation\Request;
 
 class SuccessStepTest extends \PHPUnit_Framework_TestCase

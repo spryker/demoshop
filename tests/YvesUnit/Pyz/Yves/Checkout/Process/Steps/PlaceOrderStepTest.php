@@ -12,7 +12,6 @@ use Generated\Shared\Transfer\SaveOrderTransfer;
 
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
-use Spryker\Client\Cart\CartClient;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;

@@ -71,7 +71,7 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
     const SUCCESS_URL = '/checkout/success';
 
     /**
-     * @var CheckoutController
+     * @var \Pyz\Yves\Checkout\Controller\CheckoutController
      */
     private $controller;
 
