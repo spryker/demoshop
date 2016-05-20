@@ -239,7 +239,7 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
     public function testPaymentActionShouldRenderPaymentForms()
     {
         $this->allowMoreThenOneRequestToZed();
-        
+
         $this->setQuoteForPayment();
 
         $request = Request::createFromGlobals();
@@ -318,7 +318,6 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
 
         $request = Request::create(self::SUMMARY_URL, Request::METHOD_POST, $data);
         $request->request->set('_route', self::SUMMARY_ROUTE);
-
 
         $response = $this->controller->summaryAction($request);
 

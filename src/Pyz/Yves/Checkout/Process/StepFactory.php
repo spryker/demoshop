@@ -27,9 +27,13 @@ class StepFactory extends SprykerStepFactory
     /**
      * @return \Spryker\Yves\StepEngine\Process\StepCollectionInterface
      */
-    public function createSteps()
+    public function createStepCollection()
     {
-        $stepCollection = $this->createStepCollection();
+        $stepCollection = new StepCollection(
+            $this->getUrlGenerator(),
+            CheckoutControllerProvider::CHECKOUT_ERROR
+        );
+
         $stepCollection
             ->addStep($this->createEntryStep())
             ->addStep($this->createCustomerStep())
@@ -41,14 +45,6 @@ class StepFactory extends SprykerStepFactory
             ->addStep($this->createSuccessStep());
 
         return $stepCollection;
-    }
-
-    /**
-     * @return \Spryker\Yves\StepEngine\Process\StepCollectionInterface
-     */
-    protected function createStepCollection()
-    {
-        return new StepCollection($this->getUrlGenerator(), CheckoutControllerProvider::CHECKOUT_ERROR);
     }
 
     /**
@@ -146,7 +142,7 @@ class StepFactory extends SprykerStepFactory
     }
 
     /**
-     * @return \Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep
+     * @return \Pyz\Yves\Checkout\Process\Steps\SuccessStep
      */
     protected function createSuccessStep()
     {
