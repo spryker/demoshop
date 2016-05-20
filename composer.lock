@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8fc38ce2a521f8391e9d358ac6cdc35e",
-    "content-hash": "98784f2e31ea84a8c0a6aace189bc14d",
+    "hash": "acbc5be7b17f8e35af860a6690168496",
+    "content-hash": "836341a9ed429d2b49efb3e17eb2f696",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -945,11 +945,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-beta/state-machine",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "ab8153f4305a71071a669ab71b0200fb852ac649"
+                "reference": "38a71310bd1569bf545af3f8fc16a31608ea1a0d"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1391,7 +1391,11 @@
                     "Functional\\Spryker\\Shared\\ZedRequest\\": "Bundles/ZedRequest/tests",
                     "Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/src",
                     "Unit\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests",
-                    "Functional\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests"
+                    "Functional\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests",
+                    "Spryker\\Shared\\StateMachine\\": "Bundles/StateMachine/src",
+                    "Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/src",
+                    "Unit\\Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/tests",
+                    "Functional\\Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/tests"
                 },
                 "psr-4": {
                     "Testify\\Module\\": "Bundles/Testify/tests/_support/Module",
@@ -1408,7 +1412,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-04-21 10:09:07"
+            "time": "2016-05-02 09:31:56"
         },
         {
             "name": "symfony-cmf/routing",
@@ -1806,12 +1810,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9"
+                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/form/zipball/23394a60d49d2aa904dacda6e5eb29d88251f9da",
-                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
+                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da",
                 "shasum": ""
             },
             "require": {
