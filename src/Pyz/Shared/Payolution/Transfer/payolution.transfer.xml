@@ -8,4 +8,12 @@
         <property name="payolutionInvoice" type="PayolutionPayment"/>
         <property name="payolutionInstallment" type="PayolutionPayment"/>
     </transfer>
+
+    <transfer name="Mail">
+        <property name="templateName" type="string" />
+        <property name="fromEmail" type="string" />
+        <property name="fromName" type="string" />
+        <property name="subject" type="string" />
+    </transfer>
+
 </transfer>

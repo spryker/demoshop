@@ -12,7 +12,7 @@ use Spryker\Shared\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
 use Symfony\Component\HttpFoundation\Request;
 
-class ShipmentStep extends BaseStep
+class ShipmentStep extends AbstractBaseStep
 {
 
     /**

@@ -14,7 +14,7 @@ use Spryker\Shared\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Dependency\Step\StepWithExternalRedirectInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class PlaceOrderStep extends BaseStep implements StepWithExternalRedirectInterface
+class PlaceOrderStep extends AbstractBaseStep implements StepWithExternalRedirectInterface
 {
 
     /**

@@ -11,7 +11,7 @@ use Spryker\Shared\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
 use Symfony\Component\HttpFoundation\Request;
 
-class PaymentStep extends BaseStep
+class PaymentStep extends AbstractBaseStep
 {
 
     /**

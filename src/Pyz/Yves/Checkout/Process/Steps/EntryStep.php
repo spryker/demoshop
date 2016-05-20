@@ -12,7 +12,7 @@ use Spryker\Shared\Transfer\AbstractTransfer;
 /**
  * Entry step executed first, it's needed to redirect customer to next required step.
  */
-class EntryStep extends BaseStep
+class EntryStep extends AbstractBaseStep
 {
 
     /**

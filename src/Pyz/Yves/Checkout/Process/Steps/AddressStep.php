@@ -13,7 +13,7 @@ use Pyz\Client\Customer\CustomerClientInterface;
 use Spryker\Shared\Transfer\AbstractTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
-class AddressStep extends BaseStep
+class AddressStep extends AbstractBaseStep
 {
 
     /**

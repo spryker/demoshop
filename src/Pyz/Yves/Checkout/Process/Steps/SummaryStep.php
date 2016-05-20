@@ -11,7 +11,7 @@ use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Shared\Transfer\AbstractTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
-class SummaryStep extends BaseStep
+class SummaryStep extends AbstractBaseStep
 {
 
     /**

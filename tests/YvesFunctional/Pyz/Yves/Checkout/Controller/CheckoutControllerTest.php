@@ -23,6 +23,7 @@ use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Form\AddressForm;
 use Pyz\Yves\Customer\Form\GuestForm;
 use Spryker\Client\Cart\CartClient;
+use Spryker\Client\ZedRequest\Client\HttpClient;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Spryker\Zed\Payolution\Business\Payment\Method\ApiConstants;
 use Symfony\Component\Form\FormView;
@@ -237,6 +238,8 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
      */
     public function testPaymentActionShouldRenderPaymentForms()
     {
+        $this->allowMoreThenOneRequestToZed();
+        
         $this->setQuoteForPayment();
 
         $request = Request::createFromGlobals();
@@ -253,6 +256,8 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
      */
     public function testPaymentAction()
     {
+        $this->allowMoreThenOneRequestToZed();
+
         $this->setQuoteForPayment();
 
         $paymentData = $this->getFormData(self::PAYMENT_URL, self::PAYMENT_ACTION, self::PAYMENT_ROUTE, self::PAYMENT_FORM);
@@ -302,6 +307,8 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
      */
     public function testSummaryAction()
     {
+        $this->allowMoreThenOneRequestToZed();
+
         $this->setQuoteForSummary();
 
         $summaryData = $this->getFormData(self::SUMMARY_URL, self::SUMMARY_ACTION, self::SUMMARY_ROUTE, self::SUMMARY_FORM);
@@ -312,12 +319,16 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
         $request = Request::create(self::SUMMARY_URL, Request::METHOD_POST, $data);
         $request->request->set('_route', self::SUMMARY_ROUTE);
 
+
         $response = $this->controller->summaryAction($request);
 
         $this->assertInstanceOf(RedirectResponse::class, $response);
         $this->assertSame($response->getTargetUrl(), self::PLACE_ORDER_URL);
     }
 
+    /**
+     * @return void
+     */
     public function testPlaceOrder()
     {
         $this->markTestIncomplete('Payolution request data missing');
@@ -521,6 +532,20 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
         }
 
         return $customerData;
+    }
+
+    /**
+     * @return void
+     */
+    protected function allowMoreThenOneRequestToZed()
+    {
+        $reflectionProperty = new \ReflectionProperty(HttpClient::class, 'alreadyRequested');
+        $reflectionProperty->setAccessible(true);
+        $reflectionProperty->setValue(null, false);
+
+        $reflectionProperty = new \ReflectionProperty(HttpClient::class, 'requestCounter');
+        $reflectionProperty->setAccessible(true);
+        $reflectionProperty->setValue(null, 0);
     }
 
 }

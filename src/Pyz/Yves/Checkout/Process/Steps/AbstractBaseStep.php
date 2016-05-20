@@ -9,10 +9,10 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Shared\Transfer\AbstractTransfer;
-use Spryker\Yves\StepEngine\Dependency\Step\BaseStep as SprykerBaseStep;
+use Spryker\Yves\StepEngine\Dependency\Step\AbstractBaseStep as SprykerBaseStep;
 use Symfony\Component\HttpFoundation\Request;
 
-abstract class BaseStep extends SprykerBaseStep
+abstract class AbstractBaseStep extends SprykerBaseStep
 {
 
     /**
