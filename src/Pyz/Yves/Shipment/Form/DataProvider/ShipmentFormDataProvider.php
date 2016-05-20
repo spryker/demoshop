@@ -18,7 +18,7 @@ use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Shared\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
 
-class ShipmentDataProvider implements StepEngineFormDataProviderInterface
+class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
 {
 
     const FIELD_ID_SHIPMENT_METHOD = 'idShipmentMethod';

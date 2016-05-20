@@ -5,7 +5,7 @@
  */
 namespace Pyz\Yves\Shipment;
 
-use Pyz\Yves\Shipment\Form\DataProvider\ShipmentDataProvider;
+use Pyz\Yves\Shipment\Form\DataProvider\ShipmentFormDataProvider;
 use Pyz\Yves\Shipment\Form\ShipmentSubForm;
 use Pyz\Yves\Shipment\Handler\ShipmentHandler;
 use Spryker\Shared\Kernel\Store;
@@ -24,11 +24,11 @@ class ShipmentFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Yves\Shipment\Form\DataProvider\ShipmentDataProvider
+     * @return \Pyz\Yves\Shipment\Form\DataProvider\ShipmentFormDataProvider
      */
     public function createShipmentDataProvider()
     {
-        return new ShipmentDataProvider(
+        return new ShipmentFormDataProvider(
             $this->getShipmentClient(),
             $this->getGlossaryClient(),
             $this->getStore(),
