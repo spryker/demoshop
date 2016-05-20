@@ -25,7 +25,7 @@ class ShipmentSubFormPlugin extends AbstractPlugin implements SubFormPluginInter
     }
 
     /**
-     * @return \Spryker\Yves\StepEngine\Dependency\Form\DataProviderInterface
+     * @return \Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface
      */
     public function createSubFormDataProvider()
     {

@@ -16,9 +16,9 @@ use Spryker\Client\Shipment\ShipmentClientInterface;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Shared\Transfer\AbstractTransfer;
-use Spryker\Yves\StepEngine\Dependency\Form\DataProviderInterface;
+use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
 
-class ShipmentDataProvider implements DataProviderInterface
+class ShipmentDataProvider implements StepEngineFormDataProviderInterface
 {
 
     const FIELD_ID_SHIPMENT_METHOD = 'idShipmentMethod';

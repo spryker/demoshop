@@ -8,10 +8,10 @@
 namespace Pyz\Yves\Checkout\Form\DataProvider;
 
 use Spryker\Shared\Transfer\AbstractTransfer;
-use Spryker\Yves\StepEngine\Dependency\Form\DataProviderInterface;
+use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection;
 
-class SubFormDataProviders implements DataProviderInterface
+class SubFormDataProviders implements StepEngineFormDataProviderInterface
 {
 
     /**
