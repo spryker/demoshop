@@ -28,6 +28,7 @@ use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\NewRelic\Communication\Console\RecordDeploymentConsole;
 use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole;
 use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole;
+use Spryker\Zed\Oms\Communication\Console\ClearLocks;
 use Spryker\Zed\ProductSearch\Communication\Console\ProductSearchConsole;
 use Spryker\Zed\Search\Communication\Console\SearchConsole;
 use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
@@ -57,6 +58,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new ProductSearchConsole(),
             new RecordDeploymentConsole(),
             new SearchConsole(),
+            new ClearLocks(),
         ];
 
         $propelCommands = $container->getLocator()->propel()->facade()->getConsoleCommands();
