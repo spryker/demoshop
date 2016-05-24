@@ -47,7 +47,7 @@
 =======
     "phpdocumentor/graphviz": "dev-master#a906a90",
     "nesbot/carbon": "~1.13.0",
-    "braintree/braintree_php" : "~3.10.0",
+    "braintree/braintree_php" : "~3.13.0",
     "everon/criteria-builder": "^1.1.0"
 >>>>>>> Add SDK to composer json
   },

@@ -4,21 +4,31 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "hash": "c0da13ff6991e7bd742b3760022a16ee",
     "content-hash": "84032c7caf6d1d3109704944b6b7ee5d",
+=======
+<<<<<<< HEAD
+    "hash": "8c2acebd9b112258cab621b39a0c9209",
+    "content-hash": "f3a1bcb91f38fe14c7777351ebfc81aa",
+=======
+    "hash": "4549cc5bf7554e363a9ca13e13bcbab6",
+    "content-hash": "cea01fea8b158e385eb063cca5038535",
+>>>>>>> Update dependencies.
+>>>>>>> Update dependencies.
     "packages": [
         {
             "name": "braintree/braintree_php",
-            "version": "3.10.0",
+            "version": "3.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/braintree/braintree_php.git",
-                "reference": "37ecac0b1b848e1c47b5aaea0234501d012ec5bb"
+                "reference": "cbee7c8c998aff5d5df682cc0b2cf3f403dbba76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/braintree/braintree_php/zipball/37ecac0b1b848e1c47b5aaea0234501d012ec5bb",
-                "reference": "37ecac0b1b848e1c47b5aaea0234501d012ec5bb",
+                "url": "https://api.github.com/repos/braintree/braintree_php/zipball/cbee7c8c998aff5d5df682cc0b2cf3f403dbba76",
+                "reference": "cbee7c8c998aff5d5df682cc0b2cf3f403dbba76",
                 "shasum": ""
             },
             "require": {
@@ -52,7 +62,7 @@
                 }
             ],
             "description": "Braintree PHP Client Library",
-            "time": "2016-03-17 21:52:25"
+            "time": "2016-05-23 18:22:21"
         },
         {
             "name": "container-interop/container-interop",
@@ -994,7 +1004,19 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "1ec561a738c67126c7ea08083c3f8d230fff56fb"
+=======
+<<<<<<< HEAD
+                "reference": "3d58ba95cc4d99cb5a52a7b6913ec50a79f22689"
+=======
+<<<<<<< HEAD
+                "reference": "27a998709844aacc9fa560d4ffd6120924e961fd"
+=======
+                "reference": "5d6445c78198aecef8d0b71c1753bbc06cbe6acb"
+>>>>>>> Update dependencies.
+>>>>>>> Update dependencies.
+>>>>>>> Update dependencies.
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1480,7 +1502,19 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2016-06-21 15:20:57"
+=======
+<<<<<<< HEAD
+            "time": "2016-06-16 14:48:35"
+=======
+<<<<<<< HEAD
+            "time": "2016-06-10 15:04:19"
+=======
+            "time": "2016-05-19 14:05:17"
+>>>>>>> Update dependencies.
+>>>>>>> Update dependencies.
+>>>>>>> Update dependencies.
         },
         {
             "name": "symfony-cmf/routing",
@@ -1883,7 +1917,11 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/form/zipball/23394a60d49d2aa904dacda6e5eb29d88251f9da",
+<<<<<<< HEAD
                 "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da",
+=======
+                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
+>>>>>>> Update dependencies.
                 "shasum": ""
             },
             "require": {
