@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-bugfix/1978-Customer_order_saver_fix",
+    "spryker/spryker": "dev-master",
 
     "psr/log": "~1.0.0",
     "propel/propel": "~2.0@dev",
