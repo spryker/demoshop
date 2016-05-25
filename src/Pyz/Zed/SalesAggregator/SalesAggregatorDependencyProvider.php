@@ -7,12 +7,12 @@
 
 namespace Pyz\Zed\SalesAggregator;
 
-use Spryker\Zed\Discount\Communication\Plugin\OrderAmountAggregator\DiscountTotalAmountAggregatorPlugin;
-use Spryker\Zed\Discount\Communication\Plugin\OrderAmountAggregator\ItemDiscountsOrderAggregatorPlugin;
-use Spryker\Zed\Discount\Communication\Plugin\OrderAmountAggregator\OrderDiscountsAggregatorPlugin;
-use Spryker\Zed\Discount\Communication\Plugin\OrderAmountAggregator\OrderExpensesWithDiscountsAggregatorPlugin;
-use Spryker\Zed\Discount\Communication\Plugin\OrderAmountAggregator\OrderExpenseTaxWithDiscountsAggregatorPlugin;
-use Spryker\Zed\Discount\Communication\Plugin\OrderAmountAggregator\OrderGrandTotalWithDiscountsAggregatorPlugin;
+use Spryker\Zed\Discount\Communication\Plugin\SalesAggregator\DiscountTotalAmountAggregatorPlugin;
+use Spryker\Zed\Discount\Communication\Plugin\SalesAggregator\ItemDiscountsOrderAggregatorPlugin;
+use Spryker\Zed\Discount\Communication\Plugin\SalesAggregator\OrderDiscountsAggregatorPlugin;
+use Spryker\Zed\Discount\Communication\Plugin\SalesAggregator\OrderExpensesWithDiscountsAggregatorPlugin;
+use Spryker\Zed\Discount\Communication\Plugin\SalesAggregator\OrderExpenseTaxWithDiscountsAggregatorPlugin;
+use Spryker\Zed\Discount\Communication\Plugin\SalesAggregator\OrderGrandTotalWithDiscountsAggregatorPlugin;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\ProductOptionDiscountConnector\Communication\Plugin\OrderAmountAggregator\DiscountTotalAmountWithProductOptionsAggregatorPlugin;
 use Spryker\Zed\ProductOptionDiscountConnector\Communication\Plugin\OrderAmountAggregator\ItemsWithProductOptionsAndDiscountsTaxAggregatorPlugin;
