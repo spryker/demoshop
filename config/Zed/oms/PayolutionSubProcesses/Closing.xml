@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <statemachine
+        xmlns="https://static.spryker.com"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="../process.xsd"
->
+        xsi:schemaLocation="https://static.spryker.com https://static.spryker.com/oms-01.xsd">
+
     <process name="Closing">
         <states>
             <state name="ready for closing"/>

@@ -53,7 +53,7 @@ class IcecatImporter
             if (!$installer->isInstalled()) {
                 $installer->install($this->output, $this->messenger);
             } else {
-                $this->output->writeln($installer->getTitle(). ' already imported.');
+                $this->output->writeln($installer->getTitle() . ' already imported.');
             }
         }
 

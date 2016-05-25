@@ -67,7 +67,7 @@ class BlockCollectorQuery extends AbstractPropelCollectorQuery
         );
 
         $this->touchQuery->withColumn(
-            'GROUP_CONCAT('.SpyCmsGlossaryKeyMappingTableMap::COL_PLACEHOLDER.')',
+            'GROUP_CONCAT(' . SpyCmsGlossaryKeyMappingTableMap::COL_PLACEHOLDER . ')',
             'placeholder'
         );
         $this->touchQuery->withColumn(
@@ -76,7 +76,7 @@ class BlockCollectorQuery extends AbstractPropelCollectorQuery
         );
 
         $this->touchQuery->withColumn(
-            'GROUP_CONCAT('.SpyGlossaryKeyTableMap::COL_KEY.')',
+            'GROUP_CONCAT(' . SpyGlossaryKeyTableMap::COL_KEY . ')',
             'key'
         );
 

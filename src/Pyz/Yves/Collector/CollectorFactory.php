@@ -7,14 +7,9 @@
 
 namespace Pyz\Yves\Collector;
 
-use Pyz\Yves\Application\Plugin\Pimple;
-use Pyz\Yves\Category\Plugin\CategoryResourceCreator;
-use Pyz\Yves\Cms\Plugin\PageResourceCreator;
 use Pyz\Yves\Collector\Mapper\ParameterMerger;
 use Pyz\Yves\Collector\Mapper\RequestParameterInjector;
 use Pyz\Yves\Collector\Mapper\UrlMapper;
-use Pyz\Yves\Product\Plugin\ProductResourceCreator;
-use Pyz\Yves\Redirect\Plugin\RedirectResourceCreator;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class CollectorFactory extends AbstractFactory
@@ -62,7 +57,7 @@ class CollectorFactory extends AbstractFactory
      */
     public function createUrlMatcher()
     {
-        $urlMatcher = $this->getLocator()->collector()->client();
+        $urlMatcher = $this->getProvidedDependency(CollectorDependencyProvider::CLIENT_COLLECTOR);
 
         return $urlMatcher;
     }
@@ -72,7 +67,9 @@ class CollectorFactory extends AbstractFactory
      */
     protected function createFacetConfig()
     {
-        return $this->getLocator()->catalog()->client()->createFacetConfig();
+        $catalogClient = $this->getProvidedDependency(CollectorDependencyProvider::CLIENT_CATALOG);
+
+        return $catalogClient->createFacetConfig();
     }
 
     /**
@@ -80,7 +77,7 @@ class CollectorFactory extends AbstractFactory
      */
     public function createApplication()
     {
-        return (new Pimple())->getApplication();
+        return $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_APPLICATION);
     }
 
     /**
@@ -88,7 +85,7 @@ class CollectorFactory extends AbstractFactory
      */
     protected function createProductResourceCreator()
     {
-        return (new ProductResourceCreator())->createProductResourceCreator();
+        return $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_PRODUCT_RESOURCE_CREATOR);
     }
 
     /**
@@ -96,7 +93,7 @@ class CollectorFactory extends AbstractFactory
      */
     protected function createCategoryResourceCreator()
     {
-        return (new CategoryResourceCreator())->createCategoryResourceCreator();
+        return $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_CATEGORY_RESOURCE_CREATOR);
     }
 
     /**
@@ -104,7 +101,7 @@ class CollectorFactory extends AbstractFactory
      */
     protected function createRedirectResourceCreator()
     {
-        return (new RedirectResourceCreator())->createRedirectResourceCreator();
+        return $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_REDIRECT_RESOURCE_CREATOR);
     }
 
     /**
@@ -112,7 +109,7 @@ class CollectorFactory extends AbstractFactory
      */
     protected function createPageResourceCreator()
     {
-        return (new PageResourceCreator())->createPageResourceCreator();
+        return $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_PAGE_RESOURCE_CREATOR);
     }
 
 }

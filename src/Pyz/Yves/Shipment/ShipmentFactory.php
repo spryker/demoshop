@@ -49,7 +49,7 @@ class ShipmentFactory extends AbstractFactory
      */
     public function getShipmentClient()
     {
-        return $this->getLocator()->shipment()->client();
+        return $this->getProvidedDependency(ShipmentDependencyProvider::CLIENT_SHIPMENT);
     }
 
     /**
@@ -57,7 +57,7 @@ class ShipmentFactory extends AbstractFactory
      */
     public function getGlossaryClient()
     {
-        return $this->getLocator()->glossary()->client();
+        return $this->getProvidedDependency(ShipmentDependencyProvider::CLIENT_GLOSSARY);
     }
 
     /**

@@ -17,7 +17,7 @@ class EventJournalFactory extends AbstractFactory
      */
     public function createEventJournalClient()
     {
-        return $this->getLocator()->eventJournal()->client();
+        return $this->getProvidedDependency(EventJournalDependencyProvider::CLIENT_EVENT_JOURNAL);
     }
 
 }

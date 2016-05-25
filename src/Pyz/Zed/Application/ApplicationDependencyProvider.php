@@ -7,12 +7,11 @@
 
 namespace Pyz\Zed\Application;
 
-use Silex\Provider\FormServiceProvider;
+use Pyz\Yves\NewRelic\Plugin\Provider\NewRelicServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\TwigServiceProvider;
-use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\Config;
@@ -20,10 +19,7 @@ use Spryker\Zed\Acl\Communication\Plugin\Bootstrap\AclBootstrapProvider;
 use Spryker\Zed\Application\ApplicationDependencyProvider as SprykerApplicationDependencyProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\DateFormatterServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\EnvironmentInformationServiceProvider;
-use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\HeaderServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\MvcRoutingServiceProvider;
-use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\NavigationServiceProvider;
-use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\NewRelicServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\RequestServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\SilexRoutingServiceProvider;
@@ -31,11 +27,8 @@ use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\SslServiceProvi
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\SubRequestServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigServiceProvider;
-use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
-use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\ZedExtensionServiceProvider;
 use Spryker\Zed\Assertion\Communication\Plugin\ServiceProvider\AssertionServiceProvider;
 use Spryker\Zed\Auth\Communication\Plugin\Bootstrap\AuthBootstrapProvider;
-use Spryker\Zed\Auth\Communication\Plugin\ServiceProvider\RedirectAfterLoginProvider;
 use Spryker\Zed\Kernel\Communication\Plugin\GatewayControllerListenerPlugin;
 use Spryker\Zed\Kernel\Communication\Plugin\GatewayServiceProviderPlugin;
 use Spryker\Zed\Kernel\Container;
@@ -49,6 +42,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
 {
 
     const SERVICE_PROVIDER = 'SERVICE_PROVIDER';
+    const INTERNAL_CALL_SERVICE_PROVIDER = 'INTERNAL_CALL_SERVICE_PROVIDER';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -61,6 +55,10 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             return $this->getServiceProvider($container);
         };
 
+        $container[self::INTERNAL_CALL_SERVICE_PROVIDER] = function (Container $container) {
+            return $this->getInternalCallServiceProvider($container);
+        };
+
         return $container;
     }
 
@@ -68,40 +66,27 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
      * @param \Spryker\Zed\Kernel\Container $container
      *
      * @throws \Exception
-     * @return array
+     * @return \Silex\ServiceProviderInterface[]
      */
     protected function getServiceProvider(Container $container)
     {
+        $coreProviders = parent::getServiceProvider($container);
+
         $providers = [
             new LogServiceProvider(),
             new SessionServiceProvider(),
             $this->getSessionServiceProvider($container),
-            new PropelServiceProvider(),
-            new RedirectAfterLoginProvider(),
-            new AuthBootstrapProvider(),
-            new RequestServiceProvider(),
             new SslServiceProvider(),
-            new ServiceControllerServiceProvider(),
-            new RoutingServiceProvider(),
-            new MvcRoutingServiceProvider(),
-            new SilexRoutingServiceProvider(),
+            new AuthBootstrapProvider(),
             new AclBootstrapProvider(),
-            new ValidatorServiceProvider(),
-            new FormServiceProvider(),
             new TwigServiceProvider(),
             new SprykerTwigServiceProvider(),
             new EnvironmentInformationServiceProvider(),
             $this->getGatewayServiceProvider(),
-            new UrlGeneratorServiceProvider(),
-            new NewRelicServiceProvider(),
-            new HttpFragmentServiceProvider(),
-            new HeaderServiceProvider(),
             new AssertionServiceProvider(),
             new UserServiceProvider($container),
-            new NavigationServiceProvider(),
             new PriceServiceProvider(),
             new DateFormatterServiceProvider(),
-            new ZedExtensionServiceProvider(),
             new TranslationServiceProvider(),
             new SubRequestServiceProvider(),
         ];
@@ -110,7 +95,30 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             $providers[] = new WebProfilerServiceProvider();
         }
 
-        return $providers;
+        return array_merge($providers, $coreProviders);
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return array
+     */
+    protected function getInternalCallServiceProvider(Container $container)
+    {
+        return [
+            new LogServiceProvider(),
+            new PropelServiceProvider(),
+            new RequestServiceProvider(),
+            new SslServiceProvider(),
+            new ServiceControllerServiceProvider(),
+            new RoutingServiceProvider(),
+            new MvcRoutingServiceProvider(),
+            new SilexRoutingServiceProvider(),
+            $this->getGatewayServiceProvider(),
+            new NewRelicServiceProvider(),
+            new HttpFragmentServiceProvider(),
+            new SubRequestServiceProvider(),
+        ];
     }
 
     /**
