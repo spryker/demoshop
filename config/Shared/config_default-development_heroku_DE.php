@@ -59,5 +59,5 @@ $config[ApplicationConstants::ZED_RABBITMQ_PASSWORD] = 'mate20mg';
 $config[ApplicationConstants::ZED_RABBITMQ_VHOST] = '/DE_development_zed';
 
 $config[EventJournalConstants::WRITER_OPTIONS] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File' => ['log_path' => APPLICATION_ROOT_DIR . '/data/DE/logs/'],
+    \Spryker\Shared\EventJournal\Model\Writer\File::class => ['log_path' => APPLICATION_ROOT_DIR . '/data/DE/logs/'],
 ];
