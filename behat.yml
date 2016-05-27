@@ -1,0 +1,16 @@
+default:
+  suites:
+    Yves:
+      paths: [ %paths.base%/features/Yves ]
+      filters:
+        tags: ~wip
+      contexts:
+       - Yves\Context\SprykerInitContext
+       - Yves\Context\FeatureContext
+    Zed:
+      paths: [ %paths.base%/features/Zed ]
+      filters:
+        tags: ~wip
+      contexts:
+       - Zed\Context\SprykerInitContext
+       - Zed\Context\FeatureContext
