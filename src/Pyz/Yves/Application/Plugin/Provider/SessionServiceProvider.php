@@ -85,13 +85,7 @@ class SessionServiceProvider extends AbstractServiceProvider
         $path = null;
         switch ($saveHandler) {
             case SessionConstants::SESSION_HANDLER_REDIS:
-                $path = sprintf(
-                    '%s://h:%s@%s:%s',
-                    Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL),
-                    Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PASSWORD),
-                    Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST),
-                    Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT)
-                );
+                $path = $this->getConnectionString();
                 break;
 
             case SessionConstants::SESSION_HANDLER_FILE:
@@ -100,6 +94,30 @@ class SessionServiceProvider extends AbstractServiceProvider
 
             default:
                 throw new \Exception('Undefined session handler: ' . $saveHandler);
+        }
+
+        return $path;
+    }
+
+    /**
+     * @deprecated Remove this once BC breaking feature is introduced to Application Bundle
+     *
+     * @return string
+     */
+    protected function getConnectionString()
+    {
+        $path = Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL)
+            . '://' . Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST)
+            . ':' . Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT);
+
+        if (Config::hasKey(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PASSWORD)) {//BC break
+            $path = sprintf(
+                '%s://h:%s@%s:%s',
+                Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL),
+                Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PASSWORD),
+                Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST),
+                Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT)
+            );
         }
 
         return $path;
