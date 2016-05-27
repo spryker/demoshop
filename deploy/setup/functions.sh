@@ -72,7 +72,7 @@ function dumpDevelopmentDatabase {
     export PGPASSWORD=$DATABASE_PASSWORD
     export LC_ALL="en_US.UTF-8"
 
-    pg_dump -i -h 127.0.0.1 -U development  -F c -b -v -f  $DATABASE_NAME.backup $DATABASE_NAME
+    pg_dump -i -h 127.0.0.1 -U $DATABASE_USER  -F c -b -v -f  $DATABASE_NAME.backup $DATABASE_NAME
 }
 
 function restoreDevelopmentDatabase {
@@ -85,7 +85,7 @@ function restoreDevelopmentDatabase {
             sudo pg_ctlcluster 9.4 main restart --force
             sudo dropdb $DATABASE_NAME
             sudo createdb $DATABASE_NAME
-            pg_restore -i -h 127.0.0.1 -p 5432 -U development -d $DATABASE_NAME -v $DATABASE_NAME.backup
+            pg_restore -i -h 127.0.0.1 -p 5432 -U $DATABASE_USER -d $DATABASE_NAME -v $DATABASE_NAME.backup
             ;;
         *)
             echo "Nothing done."
