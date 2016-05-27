@@ -26,6 +26,12 @@ do
         "--reset" | "-r" )
            resetDevelopmentState
            ;;
+        "--dump-db" | "-ddb" )
+           dumpDevelopmentDatabase
+           ;;
+        "--restore-db" | "-rdb" )
+           restoreDevelopmentDatabase
+           ;;
         "--help" | "-h" )
            displayHelp
            ;;
