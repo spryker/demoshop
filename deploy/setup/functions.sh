@@ -7,12 +7,10 @@ if [[ -z "$SETUP" ]]; then
     exit 0
 fi
 
-CONSOLE=vendor/bin/console
 CURL=`which curl`
 NPM=`which npm`
 GIT=`which git`
 PHP=`which php`
-CWD=`pwd`
 
 ERROR=`tput setab 1` # background red
 GREEN=`tput setab 2` # background green
