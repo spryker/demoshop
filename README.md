@@ -1,4 +1,4 @@
-# Spryker Demoshop
+# Spryker Project
 
 This is a fully functional demoshop based on the Spryker framework.
 It contains a few demo products, a basic checkout and a backend to view and process the orders.
