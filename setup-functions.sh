@@ -7,10 +7,6 @@ if [[ -z "$SETUP" ]]; then
     exit 0
 fi
 
-DATABASE_NAME='DE_development_zed'
-DATABASE_PASSWORD='mate20mg'
-VERBOSITY='-v'
-
 CURL=`which curl`
 NPM=`which npm`
 GIT=`which git`
@@ -67,7 +63,7 @@ function writeErrorMessage {
 
 function createDevelopmentDatabase {
     # postgres
-    sudo createdb DE_development_zed
+    sudo createdb ${DATABASE_NAME}
 
     # mysql
     # mysql -u root -e "CREATE DATABASE DE_development_zed;"
@@ -88,8 +84,8 @@ function restoreDevelopmentDatabase {
             export LC_ALL="en_US.UTF-8"
 
             sudo pg_ctlcluster 9.4 main restart --force
-            sudo dropdb DE_development_zed
-            sudo createdb DE_development_zed
+            sudo dropdb $DATABASE_NAME
+            sudo createdb $DATABASE_NAME
             pg_restore -i -h 127.0.0.1 -p 5432 -U development -d $DATABASE_NAME -v $DATABASE_NAME.backup
             ;;
         *)
@@ -299,10 +295,10 @@ function displayHelp {
     echo "      Reset state. Delete Redis, Elasticsearch and Database data"
     echo ""
     echo "  -ddb, --dump-db"
-    echo "      Dump development database into a file"
+    echo "      Dump database into a file"
     echo ""
     echo "  -rdb, --restore-db"
-    echo "      Restore development database from a file"
+    echo "      Restore database from a file"
     echo ""
     echo "  -h, --help"
     echo "      Show this help"

@@ -3,6 +3,9 @@
 set -o pipefail
 
 SETUP='spryker'
+DATABASE_NAME='DE_development_zed'
+DATABASE_PASSWORD='mate20mg'
+VERBOSITY='-v'
 
 . ./setup-functions.sh
 
