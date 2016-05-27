@@ -3,6 +3,9 @@
 set -o pipefail
 
 SETUP='spryker'
+DATABASE_NAME='DE_development_zed'
+DATABASE_PASSWORD='mate20mg'
+VERBOSITY='-v'
 CONSOLE=vendor/bin/console
 
 . deploy/setup/functions.sh
@@ -26,6 +29,12 @@ do
            ;;
         "--reset" | "-r" )
            resetDevelopmentState
+           ;;
+        "--dump-db" | "-ddb" )
+           dumpDevelopmentDatabase
+           ;;
+        "--restore-db" | "-rdb" )
+           restoreDevelopmentDatabase
            ;;
         "--help" | "-h" )
            displayHelp

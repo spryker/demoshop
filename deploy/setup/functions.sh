@@ -7,10 +7,7 @@ if [[ -z "$SETUP" ]]; then
     exit 0
 fi
 
-DATABASE_NAME='DE_development_zed'
-VERBOSITY='-v'
 CONSOLE=vendor/bin/console
-
 CURL=`which curl`
 NPM=`which npm`
 GIT=`which git`
@@ -67,10 +64,35 @@ function writeErrorMessage {
 
 function createDevelopmentDatabase {
     # postgres
-    sudo createdb DE_development_zed
+    sudo createdb ${DATABASE_NAME}
 
     # mysql
     # mysql -u root -e "CREATE DATABASE DE_development_zed;"
+}
+
+function dumpDevelopmentDatabase {
+    export PGPASSWORD=$DATABASE_PASSWORD
+    export LC_ALL="en_US.UTF-8"
+
+    pg_dump -i -h 127.0.0.1 -U development  -F c -b -v -f  $DATABASE_NAME.backup $DATABASE_NAME
+}
+
+function restoreDevelopmentDatabase {
+    read -r -p "Restore database ${DATABASE_NAME} ? [y/N] " response
+    case $response in
+        [yY][eE][sS]|[yY])
+            export PGPASSWORD=$DATABASE_PASSWORD
+            export LC_ALL="en_US.UTF-8"
+
+            sudo pg_ctlcluster 9.4 main restart --force
+            sudo dropdb $DATABASE_NAME
+            sudo createdb $DATABASE_NAME
+            pg_restore -i -h 127.0.0.1 -p 5432 -U development -d $DATABASE_NAME -v $DATABASE_NAME.backup
+            ;;
+        *)
+            echo "Nothing done."
+            ;;
+    esac
 }
 
 function installDemoshop {
@@ -276,6 +298,12 @@ function displayHelp {
     echo " "
     echo "  -r, --reset"
     echo "      Reset state. Delete Redis, Elasticsearch and Database data"
+    echo ""
+    echo "  -ddb, --dump-db"
+    echo "      Dump database into a file"
+    echo ""
+    echo "  -rdb, --restore-db"
+    echo "      Restore database from a file"
     echo ""
     echo "  -h, --help"
     echo "      Show this help"
