@@ -10,6 +10,7 @@ namespace Pyz\Yves\Application;
 use Pyz\Shared\Application\Business\Routing\SilexRouter;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
+use Pyz\Yves\Application\Plugin\Provider\AutoloaderCacheServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\FlashMessengerServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\SessionServiceProvider as ProviderSessionServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\YvesSecurityServiceProvider;
@@ -100,6 +101,10 @@ class YvesBootstrap
 
         if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER, false)) {
             $this->application->register(new WebProfilerServiceProvider());
+        }
+
+        if (Config::get(ApplicationConstants::ENABLE_AUTO_LOADER_CACHE, true)) {
+            $this->application->register(new AutoloaderCacheServiceProvider());
         }
     }
 

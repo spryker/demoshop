@@ -60,6 +60,7 @@ $config[ApplicationConstants::SET_REPEAT_DATA] = true;
 $config[ApplicationConstants::STORE_PREFIX] = 'DEV';
 
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = true;
+$config[ApplicationConstants::ENABLE_AUTO_LOADER_CACHE] = true;
 $config[ApplicationConstants::SHOW_SYMFONY_TOOLBAR] = true;
 
 $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';

@@ -12,3 +12,4 @@ $config[ApplicationConstants::CLOUD_CDN_ENABLED] = true;
 
 $config[ApplicationConstants::YVES_SHOW_EXCEPTION_STACK_TRACE] = false;
 $config[ApplicationConstants::ZED_SHOW_EXCEPTION_STACK_TRACE] = false;
+$config[ApplicationConstants::ENABLE_AUTO_LOADER_CACHE] = true;
