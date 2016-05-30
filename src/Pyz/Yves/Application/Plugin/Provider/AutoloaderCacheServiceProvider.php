@@ -35,21 +35,7 @@ class AutoloaderCacheServiceProvider extends AbstractServiceProvider
      */
     public function boot(Application $app)
     {
-        //(new ClassResolverCacheHandler())->persistCache();
-        
-        register_shutdown_function(function() use ($app) {
-            die('y???');
-            (new ClassResolverCacheHandler())->persistCache();
-            return true;
-        });
 
-        //this is not working
-        /*
-        dump('boot');
-        $app->finish(function (Request $request, Response $response) use ($app) {
-            (new ClassResolverCacheHandler())->persistCache();
-        });
-        */
     }
 
 }
