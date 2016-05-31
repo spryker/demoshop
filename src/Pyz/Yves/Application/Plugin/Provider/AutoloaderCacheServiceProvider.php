@@ -10,7 +10,7 @@ use Silex\Application;
 use Silex\ServiceProviderInterface;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\Config;
-use Spryker\Shared\Kernel\ClassResolver\ClassResolverCacheProvider;
+use Spryker\Shared\Kernel\ClassResolver\Cache\Provider\File as ClassResolverFileCacheProvider;
 use Spryker\Yves\Kernel\AbstractPlugin;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -46,7 +46,9 @@ class AutoloaderCacheServiceProvider extends AbstractPlugin implements ServicePr
     protected function persistClassResolverCache()
     {
         if (Config::get(ApplicationConstants::ENABLE_AUTO_LOADER_CACHE, false)) {
-            (new ClassResolverCacheProvider())->persist();
+            (new ClassResolverFileCacheProvider())
+                ->getCache()
+                ->persist();
         }
     }
 
