@@ -49,4 +49,5 @@ class AutoloaderCacheServiceProvider extends AbstractPlugin implements ServicePr
             (new ClassResolverCacheHandler())->persistCache();
         }
     }
+
 }
