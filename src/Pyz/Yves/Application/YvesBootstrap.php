@@ -39,7 +39,6 @@ use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use Spryker\Shared\Config\Config;
-use Spryker\Shared\Kernel\ClassResolver\ClassResolverCacheHandler;
 use Spryker\Yves\Application\Application;
 use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
@@ -68,8 +67,6 @@ class YvesBootstrap
         $this->registerRouters();
 
         $this->registerControllerProviders();
-
-        $this->registerShutdownFunction();
 
         return $this->application;
     }
@@ -101,10 +98,8 @@ class YvesBootstrap
         $this->application->register(new HttpFragmentServiceProvider());
         $this->application->register(new CategoryServiceProvider());
         $this->application->register(new FlashMessengerServiceProvider());
-
-        if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER, false)) {
-            $this->application->register(new WebProfilerServiceProvider());
-        }
+        $this->application->register(new WebProfilerServiceProvider());
+        $this->application->register(new AutoloaderCacheServiceProvider());
     }
 
     /**
@@ -135,38 +130,6 @@ class YvesBootstrap
 
         foreach ($controllerProviders as $controllerProvider) {
             $this->application->mount($controllerProvider->getUrlPrefix(), $controllerProvider);
-        }
-    }
-
-    /**
-     * @return void
-     */
-    protected function registerShutdownFunction()
-    {
-        $yves = $this;
-
-        register_shutdown_function(
-            function () use ($yves) {
-                $yves->shutdown();
-            }
-        );
-    }
-
-    /**
-     * @return void
-     */
-    public function shutdown()
-    {
-        $this->persistClassResolverCache();
-    }
-
-    /**
-     * @return void
-     */
-    protected function persistClassResolverCache()
-    {
-        if (Config::get(ApplicationConstants::ENABLE_AUTO_LOADER_CACHE)) {
-            (new ClassResolverCacheHandler())->persistCache();
         }
     }
 
