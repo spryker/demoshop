@@ -166,8 +166,15 @@ class UrlCollector extends AbstractStoragePdoCollector
         OutputInterface $output
     ) {
 
-        parent::exportDataToStore($batchCollection, $touchUpdater, $batchResult,
-            $storeReader, $storeWriter, $locale, $output);
+        parent::exportDataToStore(
+            $batchCollection,
+            $touchUpdater,
+            $batchResult,
+            $storeReader,
+            $storeWriter,
+            $locale,
+            $output
+        );
 
         $output->writeln('');
         $output->writeln(sprintf('<fg=yellow>Processing URL Keys:</fg=yellow> <fg=white>%s</fg=white>', $locale->getLocaleName()));
@@ -216,15 +223,18 @@ class UrlCollector extends AbstractStoragePdoCollector
             $storeWriter->delete($keysToDelete);
         }
 
-        return parent::deleteDataFromStore($touchUpdater, $storeWriter,
-            $itemType);
+        return parent::deleteDataFromStore(
+            $touchUpdater,
+            $storeWriter,
+            $itemType
+        );
     }
 
     /**
-     * @param $data
-     * @param ReaderInterface $storeReader
-     * @param WriterInterface $storeWriter
-     * @param $localeName
+     * @param array $data
+     * @param \Spryker\Zed\Collector\Business\Exporter\Reader\ReaderInterface $storeReader
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $storeWriter
+     * @param string $localeName
      *
      * @return void
      */
@@ -246,36 +256,42 @@ class UrlCollector extends AbstractStoragePdoCollector
             $touchId = $collectedItemData[CollectorConfig::COLLECTOR_TOUCH_ID];
             $urlKeyPointer = str_replace($url, $touchId, $urlTouchKey);
 
-            $this->removeKeyUsingPointerFromStore($storeReader, $storeWriter,
-                $urlKeyPointer);
+            $this->removeKeyUsingPointerFromStore(
+                $storeReader,
+                $storeWriter,
+                $urlKeyPointer
+            );
 
-            $this->writeTouchKeyPointerInStore($urlKeyPointer, $urlTouchKey,
-                $storeWriter);
+            $this->writeTouchKeyPointerInStore(
+                $urlKeyPointer,
+                $urlTouchKey,
+                $storeWriter
+            );
         }
     }
 
     /**
-     * @param ReaderInterface $storeReader
-     * @param WriterInterface $storeWriter
-     * @param $urlKeyPointer
+     * @param \Spryker\Zed\Collector\Business\Exporter\Reader\ReaderInterface $storeReader
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $storeWriter
+     * @param string $touchKeyPointer
      *
      * @return void
      */
     protected function removeKeyUsingPointerFromStore(
         ReaderInterface $storeReader,
         WriterInterface $storeWriter,
-        $urlKeyPointer
+        $touchKeyPointer
     ) {
-        $oldUrl = $storeReader->read($urlKeyPointer);
+        $oldUrl = $storeReader->read($touchKeyPointer);
         if (!empty($oldUrl[CollectorConfig::COLLECTOR_STORAGE_KEY])) {
             $storeWriter->delete([$oldUrl[CollectorConfig::COLLECTOR_STORAGE_KEY] => true]);
         }
     }
 
     /**
-     * @param $touchKeyPointer
-     * @param $touchKey
-     * @param WriterInterface $storeWriter
+     * @param string $touchKeyPointer
+     * @param string $touchKey
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $storeWriter
      *
      * @return void
      */

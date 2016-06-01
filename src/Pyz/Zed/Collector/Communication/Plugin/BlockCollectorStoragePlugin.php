@@ -44,8 +44,15 @@ class BlockCollectorStoragePlugin extends AbstractCollectorPlugin
         OutputInterface $output
     ) {
         $this->getFacade()
-            ->runStorageBlockCollector($baseQuery, $locale, $result,
-                $dataReader, $dataWriter, $touchUpdater, $output);
+            ->runStorageBlockCollector(
+                $baseQuery,
+                $locale,
+                $result,
+                $dataReader,
+                $dataWriter,
+                $touchUpdater,
+                $output
+            );
     }
 
 }

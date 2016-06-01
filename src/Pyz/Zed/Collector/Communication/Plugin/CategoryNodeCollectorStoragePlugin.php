@@ -44,8 +44,15 @@ class CategoryNodeCollectorStoragePlugin extends AbstractCollectorPlugin
         OutputInterface $output
     ) {
         $this->getFacade()
-            ->runStorageCategoryNodeCollector($baseQuery, $locale, $result,
-                $dataReader, $dataWriter, $touchUpdater, $output);
+            ->runStorageCategoryNodeCollector(
+                $baseQuery,
+                $locale,
+                $result,
+                $dataReader,
+                $dataWriter,
+                $touchUpdater,
+                $output
+            );
     }
 
 }
