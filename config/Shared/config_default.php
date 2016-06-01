@@ -360,3 +360,6 @@ $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 $config[LogConstants::LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application.log';
 
 $config[ApplicationConstants::ERROR_LEVEL] = E_ALL;
+
+$config[ApplicationConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
+$config[ApplicationConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_PROVIDER] = \Spryker\Shared\Kernel\ClassResolver\Cache\Provider\File::class;

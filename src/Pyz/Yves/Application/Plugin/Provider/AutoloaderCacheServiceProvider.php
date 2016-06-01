@@ -8,9 +8,7 @@ namespace Pyz\Yves\Application\Plugin\Provider;
 
 use Silex\Application;
 use Silex\ServiceProviderInterface;
-use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Shared\Config\Config;
-use Spryker\Shared\Kernel\ClassResolver\Cache\Provider\File as ClassResolverFileCacheProvider;
+use Spryker\Shared\Kernel\ClassResolver\ResolverCacheManager;
 use Spryker\Yves\Kernel\AbstractPlugin;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,9 +23,8 @@ class AutoloaderCacheServiceProvider extends AbstractPlugin implements ServicePr
      */
     public function register(Application $app)
     {
-        $provider = $this;
-        $app->finish(function (Request $request, Response $response) use ($provider) {
-            $provider->persistClassResolverCache();
+        $app->finish(function (Request $request, Response $response) {
+            $this->persistClassResolverCache();
         });
     }
 
@@ -45,11 +42,14 @@ class AutoloaderCacheServiceProvider extends AbstractPlugin implements ServicePr
      */
     protected function persistClassResolverCache()
     {
-        if (Config::get(ApplicationConstants::ENABLE_AUTO_LOADER_CACHE, false)) {
-            (new ClassResolverFileCacheProvider())
-                ->getCache()
-                ->persist();
+        $resolverCacheManager = new ResolverCacheManager();
+
+        if (!$resolverCacheManager->useCache()) {
+            return;
         }
+
+        $cacheProvider = $resolverCacheManager->createClassResolverCacheProvider();
+        $cacheProvider->getCache()->persist();
     }
 
 }
