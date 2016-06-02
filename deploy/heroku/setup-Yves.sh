@@ -8,6 +8,8 @@ if [ $# -eq 0 ]; then
 fi
 
 SETUP='spryker'
+CONSOLE=vendor/bin/console
+
 . deploy/setup/functions.sh
 
 
