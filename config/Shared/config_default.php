@@ -1,6 +1,5 @@
 <?php
 
-use Pyz\Shared\Glossary\GlossaryConstants;
 use Pyz\Shared\Mail\MailConstants;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
