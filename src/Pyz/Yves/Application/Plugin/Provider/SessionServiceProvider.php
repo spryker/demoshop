@@ -100,8 +100,6 @@ class SessionServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @deprecated Remove this once BC breaking feature is introduced to Application Bundle
-     *
      * @return string
      */
     protected function getConnectionString()
@@ -110,7 +108,7 @@ class SessionServiceProvider extends AbstractServiceProvider
             . '://' . Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST)
             . ':' . Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT);
 
-        if (Config::hasKey(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PASSWORD)) {//BC break
+        if (Config::hasKey(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PASSWORD)) {
             $path = sprintf(
                 '%s://h:%s@%s:%s',
                 Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL),
