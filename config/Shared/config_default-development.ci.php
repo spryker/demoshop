@@ -39,8 +39,6 @@ $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = 'https://static.de
 $config[ApplicationConstants::JENKINS_BASE_URL] = 'http://localhost:10007/';
 $config[MailConstants::MAILCATCHER_GUI] = 'http://' . $config[ApplicationConstants::HOST_ZED_GUI] . ':1080';
 
-$config[ApplicationConstants::YVES_TRUSTED_HOSTS] = [$yvesHost, $zedHost];
-
 /* RabbitMQ */
 $config[ApplicationConstants::ZED_RABBITMQ_HOST] = 'localhost';
 $config[ApplicationConstants::ZED_RABBITMQ_PORT] = '5672';

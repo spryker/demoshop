@@ -77,6 +77,8 @@ $config[ApplicationConstants::HOST_ZED_GUI]
     = $config[ApplicationConstants::HOST_SSL_ZED_API]
     = 'zed.spryker.dev';
 
+$config[ApplicationConstants::YVES_TRUSTED_HOSTS] = [];
+
 $config[ApplicationConstants::LOG_LEVEL] = Monolog\Logger::INFO;
 
 $config[ApplicationConstants::TRANSFER_USERNAME] = 'yves';
