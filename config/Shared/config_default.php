@@ -363,3 +363,4 @@ $config[ApplicationConstants::ERROR_LEVEL] = E_ALL;
 
 $config[ApplicationConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
 $config[ApplicationConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_PROVIDER] = \Spryker\Shared\Kernel\ClassResolver\Cache\Provider\File::class;
+$config[ApplicationConstants::ENABLE_WEB_PROFILER] = false;
