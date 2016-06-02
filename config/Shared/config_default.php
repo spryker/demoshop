@@ -361,6 +361,7 @@ $config[LogConstants::LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/app
 
 $config[ApplicationConstants::ERROR_LEVEL] = E_ALL;
 
+$config[KernelConstants::AUTO_LOADER_CACHE_FILE_NO_LOCK] = false;
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_PROVIDER] = \Spryker\Shared\Kernel\ClassResolver\Cache\Provider\File::class;
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = false;
