@@ -35,6 +35,7 @@ use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\HeadersSecurityServiceProvider;
 use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use Spryker\Shared\Config\Config;
@@ -97,6 +98,7 @@ class YvesBootstrap
         $this->application->register(new HttpFragmentServiceProvider());
         $this->application->register(new CategoryServiceProvider());
         $this->application->register(new FlashMessengerServiceProvider());
+        $this->application->register(new HeadersSecurityServiceProvider());
 
         if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER, false)) {
             $this->application->register(new WebProfilerServiceProvider());
