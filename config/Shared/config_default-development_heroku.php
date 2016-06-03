@@ -9,6 +9,7 @@ use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\Payone\PayoneConstants;
+use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Session\SessionConstants;
 
 $config[ApplicationConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
@@ -29,8 +30,8 @@ $config[ApplicationConstants::YVES_SESSION_COOKIE_DOMAIN] = $config[ApplicationC
 $config[ApplicationConstants::YVES_COOKIE_SECURE] = false;
 
 $elastica = parse_url(getenv(getenv('ELASTIC_SEARCH_URL_NAME') ?: 'ELASTIC_SEARCH_URL'));
-$b64 = base64_encode($elastica['user'].":".$elastica['pass']);
-$config[ApplicationConstants::ELASTICA_PARAMETER__AUTH_HEADER] = str_pad($b64, strlen($b64) + strlen($b64) % 4, "=", STR_PAD_RIGHT);
+$b64 = base64_encode($elastica['user'] . ':' . $elastica['pass']);
+$config[ApplicationConstants::ELASTICA_PARAMETER__AUTH_HEADER] = str_pad($b64, strlen($b64) + strlen($b64) % 4, '=', STR_PAD_RIGHT);
 $config[ApplicationConstants::ELASTICA_PARAMETER__HOST] = $elastica['host'];
 $config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT] = $elastica['scheme'];
 $config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = $elastica['scheme'] == 'https' ? 443 : 80;
@@ -78,3 +79,4 @@ $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR .
 $config[LogConstants::LOG_LEVEL] = 0;
 $config[EventJournalConstants::WRITERS]['YVES'] = [];
 $config[EventJournalConstants::WRITERS]['ZED'] = [];
+$config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = false;
