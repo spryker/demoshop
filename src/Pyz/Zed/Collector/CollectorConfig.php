@@ -54,4 +54,20 @@ class CollectorConfig extends SprykerCollectorConfig
         return $data[$dbEngineName];
     }
 
+    /**
+     * @return int
+     */
+    public function getNumberOfShards()
+    {
+        return 1;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumberOfReplicas()
+    {
+        return 1;
+    }
+
 }
