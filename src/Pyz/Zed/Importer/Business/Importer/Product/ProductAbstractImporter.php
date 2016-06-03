@@ -174,7 +174,7 @@ class ProductAbstractImporter extends AbstractImporter
             $localizedAttributesTransfer = $this->buildLocalizedAttributesTransfer(
                 $this->getProductName($product, $localeCode),
                 $localizedAttributesData,
-                $this->localeFacade->getLocaleByCode($localeCode)
+                $this->localeFacade->getLocale($localeCode)
             );
 
             $productAbstractTransfer->addLocalizedAttributes($localizedAttributesTransfer);
@@ -222,7 +222,7 @@ class ProductAbstractImporter extends AbstractImporter
             $localizedAttributesTransfer = $this->buildLocalizedAttributesTransfer(
                 $product[$localizedKeyName],
                 $localizedAttributesData,
-                $this->localeFacade->getLocaleByCode($localeCode)
+                $this->localeFacade->getLocale($localeCode)
             );
 
             $productConcreteTransfer->addLocalizedAttributes($localizedAttributesTransfer);
@@ -402,8 +402,12 @@ class ProductAbstractImporter extends AbstractImporter
      */
     public function slugify($value)
     {
-        $value = trim($value);
-        $value = \transliterator_transliterate("Any-Latin; Latin-ASCII; NFD; [\u0080-\u7fff] remove; [:Nonspacing Mark:] remove; NFC; [:Punctuation:] remove; Lower();", $value);
+        if (function_exists('iconv')) {
+            $value = iconv('UTF-8', 'ASCII//TRANSLIT', $value);
+        }
+
+        $value = preg_replace("/[^a-zA-Z0-9 -]/", "", $value);
+        $value = strtolower($value);
         $value = str_replace(' ', '-', $value);
 
         return $value;

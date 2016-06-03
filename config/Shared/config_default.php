@@ -7,6 +7,7 @@ use Spryker\Shared\Auth\AuthConstants;
 use Spryker\Shared\CustomerMailConnector\CustomerMailConnectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
+use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\NewRelic\NewRelicConstants;
 use Spryker\Shared\Newsletter\NewsletterConstants;
@@ -49,7 +50,9 @@ $config[ApplicationConstants::STORAGE_KV_SOURCE] = 'redis';
 $config[ApplicationConstants::ELASTICA_PARAMETER__HOST] = 'localhost';
 $config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT] = 'http';
 $config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = '10005';
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'page';
+$config[ApplicationConstants::ELASTICA_PARAMETER__AUTH_HEADER] = '';
+$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'index_page';
+$config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
 
 /**
  * Hostname(s) for Yves - Shop frontend
@@ -85,11 +88,13 @@ $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR .
 
 $config[ApplicationConstants::YVES_STORAGE_SESSION_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_1_HOUR;
 $config[ApplicationConstants::YVES_STORAGE_SESSION_FILE_PATH] = session_save_path();
+$config[ApplicationConstants::YVES_STORAGE_SESSION_PERSISTENT_CONNECTION] = true;
 
 $config[ApplicationConstants::ZED_STORAGE_SESSION_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_1_HOUR;
 $config[ApplicationConstants::ZED_STORAGE_SESSION_COOKIE_NAME] = $config[ApplicationConstants::HOST_ZED_GUI];
 $config[ApplicationConstants::ZED_STORAGE_SESSION_FILE_PATH] = session_save_path();
 $config[ApplicationConstants::ZED_SESSION_SAVE_HANDLER] = null;
+$config[ApplicationConstants::ZED_STORAGE_SESSION_PERSISTENT_CONNECTION] = true;
 
 $config[ApplicationConstants::ZED_SSL_ENABLED] = false;
 $config[ApplicationConstants::ZED_API_SSL_ENABLED] = false;
@@ -327,7 +332,6 @@ $config[EventJournalConstants::WRITER_OPTIONS] = [
 ];
 
 $config[ApplicationConstants::PROPEL_DEBUG] = false;
-$config[ApplicationConstants::SHOW_SYMFONY_TOOLBAR] = false;
 $config[SequenceNumberConstants::ENVIRONMENT_PREFIX]
     = $config[SalesConstants::ENVIRONMENT_PREFIX]
     = '';
@@ -360,3 +364,8 @@ $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 $config[LogConstants::LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application.log';
 
 $config[ApplicationConstants::ERROR_LEVEL] = E_ALL;
+
+$config[KernelConstants::AUTO_LOADER_CACHE_FILE_NO_LOCK] = false;
+$config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
+$config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_PROVIDER] = \Spryker\Shared\Kernel\ClassResolver\Cache\Provider\File::class;
+$config[ApplicationConstants::ENABLE_WEB_PROFILER] = false;
