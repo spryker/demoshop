@@ -3324,11 +3324,11 @@
         },
         {
             "name": "spryker/config",
-            "version": "2.1.2",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Config.git",
-                "reference": "4b6b09b038100edb559e0f18196affdb08a14a0c",
+                "reference": "8af746428d1f36b4b41e22695a0c0e1fa5ac1dcb",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3338,8 +3338,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Config/zipball/4b6b09b038100edb559e0f18196affdb08a14a0c",
-                "reference": "4b6b09b038100edb559e0f18196affdb08a14a0c",
+                "url": "https://api.github.com/repos/spryker/Config/zipball/8af746428d1f36b4b41e22695a0c0e1fa5ac1dcb",
+                "reference": "8af746428d1f36b4b41e22695a0c0e1fa5ac1dcb",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3382,7 +3382,7 @@
             "support": {
                 "source": "https://github.com/spryker/Config/tree/master"
             },
-            "time": "2016-04-29 09:36:05"
+            "time": "2016-06-03 08:39:24"
         },
         {
             "name": "spryker/console",
