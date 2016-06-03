@@ -1,11 +1,12 @@
 # Spryker Project
 
-This is a fully functional demoshop based on the Spryker framework.
-It contains a few demo products, a basic checkout and a backend to view and process the orders.
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/spryker/project/badges/quality-score.png?b=master&s=7f0c1247303c81b5047867595714ff5d7db02a5a)](https://scrutinizer-ci.com/g/spryker/project/?branch=master)
 
-## Setup
+In order to install Spryker Demoshop on your machine, you can follow the instructions described in the link below :
 
-To install the demoshop on your machine, please follow the steps described [here](http://spryker.github.io/getting-started/installation/guide/).
+* [Installation - http://spryker.github.io/getting-started/installation/guide/](http://spryker.github.io/getting-started/installation/guide/)
 
-If you're encountering issues during or after installation, you can consult the [troubleshooting](http://spryker.github.io/help/troubleshooting/) section from our documentation. 
 
+If you encounter any issues during or after installation, you can first check our Troubleshooting article:
+
+* [Troubleshooting - http://spryker.github.io/help/troubleshooting/](http://spryker.github.io/help/troubleshooting/)
