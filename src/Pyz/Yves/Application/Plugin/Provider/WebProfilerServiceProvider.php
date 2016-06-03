@@ -8,11 +8,11 @@ namespace Pyz\Yves\Application\Plugin\Provider;
 
 use Silex\Application;
 use Silex\ControllerProviderInterface;
+use Silex\Provider\WebProfilerServiceProvider as SilexWebProfilerServiceProvider;
 use Silex\ServiceProviderInterface;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\Config;
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Silex\Provider\WebProfilerServiceProvider as SilexWebProfilerServiceProvider;
 
 class WebProfilerServiceProvider extends AbstractPlugin implements ServiceProviderInterface, ControllerProviderInterface
 {
@@ -47,7 +47,7 @@ class WebProfilerServiceProvider extends AbstractPlugin implements ServiceProvid
     }
 
     /**
-     * @param Application $app
+     * @param \Silex\Application $app
      *
      * @return void
      */
@@ -59,7 +59,7 @@ class WebProfilerServiceProvider extends AbstractPlugin implements ServiceProvid
     }
 
     /**
-     * @return SilexWebProfilerServiceProvider
+     * @return \Silex\Provider\WebProfilerServiceProvider
      */
     protected function getSilexWebProfiler()
     {
