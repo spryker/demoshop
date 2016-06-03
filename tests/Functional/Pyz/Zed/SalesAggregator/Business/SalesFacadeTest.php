@@ -342,7 +342,7 @@ class SalesFacadeTest extends Test
         );
 
         $salesExpenseEntity = new SpySalesExpense();
-        $salesExpenseEntity->setName('shiping test');
+        $salesExpenseEntity->setName('shipping test');
         $salesExpenseEntity->setTaxRate(19);
         $salesExpenseEntity->setGrossPrice(100);
         $salesExpenseEntity->setFkSalesOrder($salesOrderEntity->getIdSalesOrder());

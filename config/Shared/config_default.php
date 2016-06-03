@@ -50,7 +50,9 @@ $config[ApplicationConstants::STORAGE_KV_SOURCE] = 'redis';
 $config[ApplicationConstants::ELASTICA_PARAMETER__HOST] = 'localhost';
 $config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT] = 'http';
 $config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = '10005';
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'page';
+$config[ApplicationConstants::ELASTICA_PARAMETER__AUTH_HEADER] = '';
+$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'index_page';
+$config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
 
 /**
  * Hostname(s) for Yves - Shop frontend
@@ -86,11 +88,13 @@ $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR .
 
 $config[ApplicationConstants::YVES_STORAGE_SESSION_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_1_HOUR;
 $config[ApplicationConstants::YVES_STORAGE_SESSION_FILE_PATH] = session_save_path();
+$config[ApplicationConstants::YVES_STORAGE_SESSION_PERSISTENT_CONNECTION] = true;
 
 $config[ApplicationConstants::ZED_STORAGE_SESSION_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_1_HOUR;
 $config[ApplicationConstants::ZED_STORAGE_SESSION_COOKIE_NAME] = $config[ApplicationConstants::HOST_ZED_GUI];
 $config[ApplicationConstants::ZED_STORAGE_SESSION_FILE_PATH] = session_save_path();
 $config[ApplicationConstants::ZED_SESSION_SAVE_HANDLER] = null;
+$config[ApplicationConstants::ZED_STORAGE_SESSION_PERSISTENT_CONNECTION] = true;
 
 $config[ApplicationConstants::ZED_SSL_ENABLED] = false;
 $config[ApplicationConstants::ZED_API_SSL_ENABLED] = false;
