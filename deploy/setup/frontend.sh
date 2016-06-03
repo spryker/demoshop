@@ -21,7 +21,7 @@ if [[ `node -v | grep -E '^v[0-4]'` ]]; then
 fi
 
 labelText "Install Antelope tool globally"
-sudo $NPM install -g github:spryker/antelope
+sudo $NPM install -g antelope
 writeErrorMessage "Antelope setup failed"
 
 ANTELOPE_TOOL=`which antelope`
