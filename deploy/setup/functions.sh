@@ -7,14 +7,10 @@ if [[ -z "$SETUP" ]]; then
     exit 0
 fi
 
-DATABASE_NAME='DE_development_zed'
-VERBOSITY='-v'
-
 CURL=`which curl`
 NPM=`which npm`
 GIT=`which git`
 PHP=`which php`
-CWD=`pwd`
 
 ERROR=`tput setab 1` # background red
 GREEN=`tput setab 2` # background green
@@ -66,10 +62,35 @@ function writeErrorMessage {
 
 function createDevelopmentDatabase {
     # postgres
-    sudo createdb DE_development_zed
+    sudo createdb ${DATABASE_NAME}
 
     # mysql
     # mysql -u root -e "CREATE DATABASE DE_development_zed;"
+}
+
+function dumpDevelopmentDatabase {
+    export PGPASSWORD=$DATABASE_PASSWORD
+    export LC_ALL="en_US.UTF-8"
+
+    pg_dump -i -h 127.0.0.1 -U $DATABASE_USER  -F c -b -v -f  $DATABASE_NAME.backup $DATABASE_NAME
+}
+
+function restoreDevelopmentDatabase {
+    read -r -p "Restore database ${DATABASE_NAME} ? [y/N] " response
+    case $response in
+        [yY][eE][sS]|[yY])
+            export PGPASSWORD=$DATABASE_PASSWORD
+            export LC_ALL="en_US.UTF-8"
+
+            sudo pg_ctlcluster 9.4 main restart --force
+            sudo dropdb $DATABASE_NAME
+            sudo createdb $DATABASE_NAME
+            pg_restore -i -h 127.0.0.1 -p 5432 -U $DATABASE_USER -d $DATABASE_NAME -v $DATABASE_NAME.backup
+            ;;
+        *)
+            echo "Nothing done."
+            ;;
+    esac
 }
 
 function installDemoshop {
@@ -107,20 +128,20 @@ function installZed {
 
     dropDevelopmentDatabase
 
-    vendor/bin/console setup:install $VERBOSITY
+    $CONSOLE setup:install $VERBOSITY
     writeErrorMessage "Setup install failed"
 
     labelText "Importing Demo data"
-    vendor/bin/console import:demo-data $VERBOSITY
+    $CONSOLE import:demo-data $VERBOSITY
     writeErrorMessage "DemoData import failed"
 
     labelText "Setting up data stores"
-    vendor/bin/console collector:search:export $VERBOSITY
-    vendor/bin/console collector:storage:export $VERBOSITY
+    $CONSOLE collector:search:export $VERBOSITY
+    $CONSOLE collector:storage:export $VERBOSITY
     writeErrorMessage "DataStore setup failed"
 
     labelText "Setting up cronjobs"
-    vendor/bin/console setup:jenkins:generate $VERBOSITY
+    $CONSOLE setup:jenkins:generate $VERBOSITY
     writeErrorMessage "Cronjob setup failed"
 
     labelText "Zed setup successful"
@@ -131,7 +152,7 @@ function installYves {
 
     resetYves
 
-    . ./setup-frontend.sh
+    . deploy/setup/frontend.sh
 
     labelText "Yves setup successful"
 }
@@ -153,7 +174,7 @@ function resetDataStores {
     labelText "Flushing Elasticsearch"
     curl -XDELETE 'http://localhost:10005/de_development_catalog/'
     curl -XPUT 'http://localhost:10005/de_development_catalog/'
-    vendor/bin/console setup:search
+    $CONSOLE setup:search
     writeErrorMessage "Elasticsearch reset failed"
 
     labelText "Flushing Redis"
@@ -170,17 +191,17 @@ function resetDevelopmentState {
     dropDevelopmentDatabase
 
     labelText "Generating Transfer Objects"
-    vendor/bin/console transfer:generate
+    $CONSOLE transfer:generate
     writeErrorMessage "Generating Transfer Objects failed"
 
     labelText "Installing Propel"
-    vendor/bin/console propel:install $VERBOSITY
-    vendor/bin/console propel:diff $VERBOSITY
-    vendor/bin/console propel:migrate $VERBOSITY
+    $CONSOLE propel:install $VERBOSITY
+    $CONSOLE propel:diff $VERBOSITY
+    $CONSOLE propel:migrate $VERBOSITY
     writeErrorMessage "Propel setup failed"
 
     labelText "Initializing DB"
-    vendor/bin/console setup:init-db $VERBOSITY
+    $CONSOLE setup:init-db $VERBOSITY
     writeErrorMessage "DB setup failed"
 }
 
@@ -229,6 +250,10 @@ function composerInstall {
     $PHP composer.phar install --prefer-dist
 }
 
+function dumpAutoload {
+    $PHP composer.phar dump-autoload
+}
+
 function resetYves {
     if [[ -d "./node_modules" ]]; then
         labelText "Remove node_modules directory"
@@ -271,6 +296,12 @@ function displayHelp {
     echo " "
     echo "  -r, --reset"
     echo "      Reset state. Delete Redis, Elasticsearch and Database data"
+    echo ""
+    echo "  -ddb, --dump-db"
+    echo "      Dump database into a file"
+    echo ""
+    echo "  -rdb, --restore-db"
+    echo "      Restore database from a file"
     echo ""
     echo "  -h, --help"
     echo "      Show this help"
