@@ -14,7 +14,7 @@ if [[ `node -v | grep -E '^v[0-4]'` ]]; then
     sudo $NPM install -g n
     writeErrorMessage "NPM build failed"
 
-    sudo n stable
+    sudo n 5.11.0
 
     successText "Node.js updated to version `node -v`"
     successText "NPM updated to version `$NPM -v`"
