@@ -108,7 +108,7 @@ class SalesFacadeTest extends Test
     {
         $salesFacade = $this->createSalesAggregatorFacade();
 
-        $salesOrderEntity = $this->createTestOrder($useDiscounts = false);
+        $salesOrderEntity = $this->createTestOrder(false);
 
         $orderTransfer = $salesFacade->getOrderTotalsByIdSalesOrder($salesOrderEntity->getIdSalesOrder());
 
@@ -234,6 +234,10 @@ class SalesFacadeTest extends Test
 
 
     /**
+     * @param bool $createDiscounts
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
      * @return \Orm\Zed\Sales\Persistence\SpySalesOrder
      */
     protected function createTestOrder($createDiscounts = true)
@@ -274,11 +278,11 @@ class SalesFacadeTest extends Test
             $omsStateEntity,
             $salesOrderEntity,
             $createDiscounts,
-            $quantity = 2,
-            $unitGrosPrice = 500,
-            $taxRate = 19,
-            $unitDiscountAmount = 100,
-            $discountDisplayName = 'discount1',
+            2,
+            500,
+            19,
+            100,
+            'discount1',
             [
                 [
                     'gross_price' => 10,
@@ -307,11 +311,11 @@ class SalesFacadeTest extends Test
             $omsStateEntity,
             $salesOrderEntity,
             $createDiscounts,
-            $quantity = 1,
-            $unitGrosPrice = 800,
-            $taxRate = 19,
-            $unitDiscountAmount = 100,
-            $discountDisplayName = 'discount1',
+            1,
+            800,
+            19,
+            100,
+            'discount1',
             [
                 [
                     'gross_price' => 20,
@@ -338,7 +342,7 @@ class SalesFacadeTest extends Test
         );
 
         $salesExpenseEntity = new SpySalesExpense();
-        $salesExpenseEntity->setName('shiping test');
+        $salesExpenseEntity->setName('shipping test');
         $salesExpenseEntity->setTaxRate(19);
         $salesExpenseEntity->setGrossPrice(100);
         $salesExpenseEntity->setFkSalesOrder($salesOrderEntity->getIdSalesOrder());
@@ -346,10 +350,10 @@ class SalesFacadeTest extends Test
 
         if ($createDiscounts === true) {
             $this->createSalesDiscount(
-                $discountAmount = 10,
-                $discountDisplayName = 'discount1',
+                10,
+                'discount1',
                 $salesOrderEntity->getIdSalesOrder(),
-                $idExpense = null,
+                null,
                 $salesExpenseEntity->getIdSalesExpense()
             );
         }
@@ -370,6 +374,7 @@ class SalesFacadeTest extends Test
      * @param \Orm\Zed\Oms\Persistence\SpyOmsOrderItemState $omsState
      * @param \Orm\Zed\Sales\Persistence\SpySalesOrder $salesOrder
      * @param int $quantity
+     * @param bool $createDiscounts
      * @param int $grossPrice
      * @param int $taxRate
      * @param int $discountAmount

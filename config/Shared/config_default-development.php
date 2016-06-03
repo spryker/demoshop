@@ -6,6 +6,7 @@
 
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Session\SessionConstants;
@@ -62,7 +63,7 @@ $config[ApplicationConstants::SET_REPEAT_DATA] = true;
 $config[ApplicationConstants::STORE_PREFIX] = 'DEV';
 
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = true;
-$config[ApplicationConstants::SHOW_SYMFONY_TOOLBAR] = true;
+$config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
 
 $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
 
