@@ -50,7 +50,7 @@
     "nesbot/carbon": "~1.13.0"
   },
   "require-dev": {
-    "spryker/code-sniffer": "*",
+    "spryker/code-sniffer": "dev-bugfix/extract-class-name-broken-for-test-files as 0.4.1",
     "silex/web-profiler": "~1.0.8",
     "pdepend/pdepend": "~2.2.2",
     "phploc/phploc": "~2.1.5",
