@@ -65,6 +65,4 @@ $config[ApplicationConstants::STORE_PREFIX] = 'DEV';
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = true;
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
 
-$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker';
-
 $config[LogConstants::LOG_LEVEL] = \Monolog\Logger::INFO;
