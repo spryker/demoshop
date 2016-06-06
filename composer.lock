@@ -945,7 +945,7 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/2103-implement-trusted-hosts-check",
+            "version": "dev-bugfix/2027-prevent-order-multiple-submit",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
