@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <transfers xmlns="http://xsd.spryker.com"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:schemaLocation="http://xsd.spryker.com ../../src/Spryker/TransferObjectDefinitionSchema.xsd">
+           xsi:schemaLocation="https://static.spryker.com/transfer-01.xsd">
   
     <transfer name="Customer">
         <property name="phone" type="string" />
@@ -19,4 +19,3 @@
     </transfer>
 
 </transfers>
-
