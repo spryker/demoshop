@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3c9134ac1eb874c0e8e9f4d2f2f87c0d",
-    "content-hash": "acc38c61be29eba8e913c8f9f5103d30",
+    "hash": "cb220e10a472288581893c22e3407596",
+    "content-hash": "0718377da637a8cc05c2d795715adc88",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -945,11 +945,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/2130-LIVE07-Password-field-with-autocomplete",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "35f899eb7133ee92c16b1f8153838504de8961b5"
+                "reference": "b6c990331f6017fb49a443a83c0b84d8d5cc93fb"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1021,6 +1021,9 @@
                     "Spryker\\Client\\CategoryExporter\\": "Bundles/CategoryExporter/src",
                     "Spryker\\Shared\\CategoryExporter\\": "Bundles/CategoryExporter/src",
                     "Spryker\\Client\\Checkout\\": "Bundles/Checkout/src",
+                    "Spryker\\Yves\\Checkout\\": "Bundles/Checkout/src",
+                    "Spryker\\Yves\\StepEngine\\": "Bundles/StepEngine/src",
+                    "Unit\\Spryker\\Yves\\StepEngine\\": "Bundles/StepEngine/tests",
                     "Unit\\Spryker\\Client\\Checkout\\": "Bundles/Checkout/tests",
                     "Functional\\Spryker\\Client\\Checkout\\": "Bundles/Checkout/tests",
                     "Spryker\\Shared\\Checkout\\": "Bundles/Checkout/src",
@@ -1192,6 +1195,7 @@
                     "Unit\\Spryker\\Zed\\Payment\\": "Bundles/Payment/tests",
                     "Functional\\Spryker\\Zed\\Payment\\": "Bundles/Payment/tests",
                     "Spryker\\Client\\Payolution\\": "Bundles/Payolution/src",
+                    "Spryker\\Yves\\Payolution\\": "Bundles/Payolution/src",
                     "Unit\\Spryker\\Client\\Payolution\\": "Bundles/Payolution/tests",
                     "Functional\\Spryker\\Client\\Payolution\\": "Bundles/Payolution/tests",
                     "Spryker\\Shared\\Payolution\\": "Bundles/Payolution/src",
@@ -1408,7 +1412,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-06-03 12:10:38"
+            "time": "2016-06-06 13:20:36"
         },
         {
             "name": "symfony-cmf/routing",
