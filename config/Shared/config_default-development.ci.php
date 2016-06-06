@@ -61,8 +61,6 @@ $config[PayoneConstants::PAYONE] = [
 
 $config[SessionConstants::SESSION_IS_TEST] = true;
 
-$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker';
-
 $config[MailConstants::MAIL_PROVIDER_MANDRILL] = [
     'api-key' => getenv('MAIL_PROVIDER_MANDRILL_API_KEY'),
     'host' => 'smtp.mandrillapp.com',
