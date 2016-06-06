@@ -13,6 +13,13 @@ use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\TwigServiceProvider;
+<<<<<<< HEAD
+=======
+use Silex\Provider\WebProfilerServiceProvider;
+use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Config\Config;
+use Spryker\Shared\Symfony\Plugin\ServiceProvider\DoubleSubmitProtectionServiceProvider;
+>>>>>>> a909647... Updated composer.lock
 use Spryker\Zed\Acl\Communication\Plugin\Bootstrap\AclBootstrapProvider;
 use Spryker\Zed\Application\ApplicationDependencyProvider as SprykerApplicationDependencyProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\DateFormatterServiceProvider;
@@ -87,7 +94,11 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new DateFormatterServiceProvider(),
             new TranslationServiceProvider(),
             new SubRequestServiceProvider(),
+<<<<<<< HEAD
             new WebProfilerServiceProvider()
+=======
+            new DoubleSubmitProtectionServiceProvider()
+>>>>>>> a909647... Updated composer.lock
         ];
 
         return array_merge($providers, $coreProviders);
