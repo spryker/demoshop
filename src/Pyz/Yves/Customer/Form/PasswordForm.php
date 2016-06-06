@@ -52,15 +52,11 @@ class PasswordForm extends AbstractType
             'required' => true,
             'first_options' => [
                 'label' => 'customer.password.request.new_password',
-                'attr' => [
-                    'autocomplete' => 'off',
-                ],
+                'attr' => ['autocomplete' => 'off'],
             ],
             'second_options' => [
                 'label' => 'customer.password.confirm.new_password',
-                'attr' => [
-                    'autocomplete' => 'off',
-                ],
+                'attr' => ['autocomplete' => 'off'],
             ],
         ]);
 
