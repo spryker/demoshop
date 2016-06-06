@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cb220e10a472288581893c22e3407596",
-    "content-hash": "0718377da637a8cc05c2d795715adc88",
+    "hash": "8e55a8a8e3def2e9dc67ecb0e9de215d",
+    "content-hash": "87e99ecf8daf684fd21d3a9f7deb34f0",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -945,11 +945,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/2130-LIVE07-Password-field-with-autocomplete",
+            "version": "dev-bugfix/2133-LIVE09-Bruteforcing-user-names-in-Zed",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b6c990331f6017fb49a443a83c0b84d8d5cc93fb"
+                "reference": "24e52c4c9c55008417aa8c1f0066978a670ec514"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1412,7 +1412,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-06-06 13:20:36"
+            "time": "2016-06-06 15:27:46"
         },
         {
             "name": "symfony-cmf/routing",
