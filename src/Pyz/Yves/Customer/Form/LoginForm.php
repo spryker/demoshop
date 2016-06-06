@@ -73,6 +73,7 @@ class LoginForm extends AbstractType
             'label' => 'customer.login.password',
             'constraints' => new NotBlank(),
             'mapped' => false,
+            'attr' => ['autocomplete' => 'off',]
         ]);
 
         return $this;
