@@ -3122,11 +3122,11 @@
         },
         {
             "name": "spryker/checkout",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Checkout.git",
-                "reference": "be38777cda8c735a1acbdd54f57557e797bb5b44",
+                "reference": "58971b70923a2dcc0149de076e74587653f11d72",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3136,8 +3136,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Checkout/zipball/be38777cda8c735a1acbdd54f57557e797bb5b44",
-                "reference": "be38777cda8c735a1acbdd54f57557e797bb5b44",
+                "url": "https://api.github.com/repos/spryker/Checkout/zipball/58971b70923a2dcc0149de076e74587653f11d72",
+                "reference": "58971b70923a2dcc0149de076e74587653f11d72",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3170,11 +3170,8 @@
             "autoload": {
                 "psr-0": {
                     "Spryker": "src/",
-                    "Acceptance": "tests/",
                     "Functional": "tests/",
-                    "Integration": "tests/",
-                    "Unit": "tests/",
-                    "YvesUnit": "tests/"
+                    "Unit": "tests/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -3185,7 +3182,7 @@
             "support": {
                 "source": "https://github.com/spryker/Checkout/tree/master"
             },
-            "time": "2016-04-04 15:24:01"
+            "time": "2016-06-06 06:29:03"
         },
         {
             "name": "spryker/cms",
@@ -5423,11 +5420,11 @@
         },
         {
             "name": "spryker/payolution",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Payolution.git",
-                "reference": "48fcdf6a551547d808058d117779eba1d5ba87bb",
+                "reference": "8eade7dcf8905feb47801eb05e0cdd595f8f5d1c",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5437,8 +5434,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Payolution/zipball/48fcdf6a551547d808058d117779eba1d5ba87bb",
-                "reference": "48fcdf6a551547d808058d117779eba1d5ba87bb",
+                "url": "https://api.github.com/repos/spryker/Payolution/zipball/8eade7dcf8905feb47801eb05e0cdd595f8f5d1c",
+                "reference": "8eade7dcf8905feb47801eb05e0cdd595f8f5d1c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5461,6 +5458,7 @@
                 "spryker/propel": "^2.0.0",
                 "spryker/sales": "^2.0.0",
                 "spryker/sql-criteria-builder": "^1.0.0",
+                "spryker/step-engine": "^1.0.0",
                 "spryker/symfony": "^2.0.0",
                 "spryker/url": "^2.0.0",
                 "spryker/zed-request": "^2.0.0"
@@ -5489,7 +5487,7 @@
             "support": {
                 "source": "https://github.com/spryker/Payolution/tree/master"
             },
-            "time": "2016-04-04 15:24:01"
+            "time": "2016-06-06 11:56:32"
         },
         {
             "name": "spryker/payone",
@@ -6582,11 +6580,11 @@
         },
         {
             "name": "spryker/sales-split",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/SalesSplit.git",
-                "reference": "8385b97687bbcf7a41e8b5fd976cdd2a4248b19f",
+                "reference": "a9079df2361c2abcef9467fbf2e84fa302c9083c",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6596,8 +6594,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/SalesSplit/zipball/8385b97687bbcf7a41e8b5fd976cdd2a4248b19f",
-                "reference": "8385b97687bbcf7a41e8b5fd976cdd2a4248b19f",
+                "url": "https://api.github.com/repos/spryker/SalesSplit/zipball/a9079df2361c2abcef9467fbf2e84fa302c9083c",
+                "reference": "a9079df2361c2abcef9467fbf2e84fa302c9083c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6607,16 +6605,16 @@
                 ]
             },
             "require": {
-                "spryker/application": "^2.0.0-RC1",
-                "spryker/kernel": "^2.0.0-RC1",
-                "spryker/propel": "^2.0.0-RC1",
-                "spryker/sales": "^2.0.0-RC1",
-                "spryker/symfony": "^2.0.0-RC1"
+                "spryker/application": "^2.0.0",
+                "spryker/kernel": "^2.0.0",
+                "spryker/propel": "^2.0.0",
+                "spryker/sales": "^2.0.0",
+                "spryker/symfony": "^2.0.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "1.0.x-dev"
                 }
             },
             "autoload": {
@@ -6637,7 +6635,7 @@
             "support": {
                 "source": "https://github.com/spryker/SalesSplit/tree/master"
             },
-            "time": "2016-04-01 13:06:05"
+            "time": "2016-06-06 10:50:18"
         },
         {
             "name": "spryker/search",
@@ -7047,6 +7045,64 @@
                 "source": "https://github.com/spryker/SqlCriteriaBuilder/tree/master"
             },
             "time": "2016-04-01 13:06:05"
+        },
+        {
+            "name": "spryker/step-engine",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/StepEngine.git",
+                "reference": "e5b05791e0974907e45c42165a4b43d3f7e13d24",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/StepEngine/zipball/e5b05791e0974907e45c42165a4b43d3f7e13d24",
+                "reference": "e5b05791e0974907e45c42165a4b43d3f7e13d24",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/symfony": "^2.0.0",
+                "spryker/transfer": "^2.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "0.3.1",
+                "spryker/config": "^2.0.0",
+                "spryker/console": "^2.0.1",
+                "spryker/testify": "^2.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/",
+                    "Unit": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "step engine bundle",
+            "support": {
+                "source": "https://github.com/spryker/StepEngine/tree/master"
+            },
+            "time": "2016-06-06 06:39:57"
         },
         {
             "name": "spryker/stock",
@@ -10749,12 +10805,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "1e0d5e096dd8f5260db0d86e0ca85962884638d9"
+                "reference": "bd64bbf65217b2a6994e193445f116adf665fdf3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/1e0d5e096dd8f5260db0d86e0ca85962884638d9",
-                "reference": "1e0d5e096dd8f5260db0d86e0ca85962884638d9",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/bd64bbf65217b2a6994e193445f116adf665fdf3",
+                "reference": "bd64bbf65217b2a6994e193445f116adf665fdf3",
                 "shasum": ""
             },
             "require": {
@@ -10783,7 +10839,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-06-01 10:11:10"
+            "time": "2016-06-06 11:37:32"
         },
         {
             "name": "squizlabs/php_codesniffer",
