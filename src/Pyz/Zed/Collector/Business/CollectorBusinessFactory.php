@@ -12,7 +12,7 @@ use Pyz\Zed\Collector\Business\Storage\BlockCollector;
 use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector;
 use Pyz\Zed\Collector\Business\Storage\NavigationCollector;
 use Pyz\Zed\Collector\Business\Storage\PageCollector;
-use Pyz\Zed\Collector\Business\Storage\ProductCollector;
+use Pyz\Zed\Collector\Business\Storage\ProductCollector as StorageProductCollector;
 use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
 use Pyz\Zed\Collector\Business\Storage\TranslationCollector;
 use Pyz\Zed\Collector\Business\Storage\UrlCollector;
@@ -25,6 +25,7 @@ use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderDependencyC
 use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderFactory;
 use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderFactoryWorker;
 use Spryker\Zed\Collector\Business\CollectorBusinessFactory as SprykerCollectorBusinessFactory;
+use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainer;
 
 /**
  * @method \Pyz\Zed\Collector\CollectorConfig getConfig()
@@ -117,9 +118,10 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStorageProductCollector()
     {
-        $storageProductCollector = new ProductCollector(
+        $storageProductCollector = new StorageProductCollector(
             $this->getCategoryQueryContainer(),
             $this->getProductCategoryQueryContainer(),
+            $this->getProductImageQueryContainer(),
             $this->getPriceFacade()
         );
 
@@ -336,6 +338,16 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     protected function getProductCategoryQueryContainer()
     {
         return $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRODUCT_CATEGORY);
+    }
+
+    /**
+     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
+     * @return \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface
+     */
+    protected function getProductImageQueryContainer()
+    {
+        return new ProductImageQueryContainer();
+        return $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRODUCT_IMAGE);
     }
 
     /**

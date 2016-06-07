@@ -32,6 +32,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
     const QUERY_CONTAINER_PRICE = 'price query container';
     const QUERY_CONTAINER_CATEGORY = 'category query container';
     const QUERY_CONTAINER_PRODUCT_CATEGORY = 'product category query container';
+    const QUERY_CONTAINER_PRODUCT_IMAGE = 'product image query container';
 
     const PLUGIN_PAGE_MAP = 'page map plugin';
 
@@ -66,6 +67,10 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[self::FACADE_SEARCH] = function (Container $container) {
             return $container->getLocator()->search()->facade();
+        };
+
+        $container[self::QUERY_CONTAINER_PRODUCT_IMAGE] = function (Container $container) {
+            return $container->getLocator()->productImage()->queryContainer();
         };
 
         $container[self::FACADE_PRODUCT_OPTION_EXPORTER] = function (Container $container) {
