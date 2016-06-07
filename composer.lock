@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cd5fd857d7857df6eb4704663e282c44",
-    "content-hash": "d9033832f20db6853e18bdf56a119dc9",
+    "hash": "0d0560fbc9a081422d54d5cd16a4d4fe",
+    "content-hash": "3dc4780e74cf23ecfe49188839d5aaed",
     "packages": [
         {
             "name": "codeception/codeception",
@@ -2391,11 +2391,11 @@
         },
         {
             "name": "spryker/application",
-            "version": "2.3.0",
+            "version": "2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Application.git",
-                "reference": "1f0fb3d04422d89701070d27d38b0c947ddd18f7",
+                "reference": "04c5f1aeb07dd086497debf4ac476ab37509a560",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -2405,8 +2405,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Application/zipball/1f0fb3d04422d89701070d27d38b0c947ddd18f7",
-                "reference": "1f0fb3d04422d89701070d27d38b0c947ddd18f7",
+                "url": "https://api.github.com/repos/spryker/Application/zipball/04c5f1aeb07dd086497debf4ac476ab37509a560",
+                "reference": "04c5f1aeb07dd086497debf4ac476ab37509a560",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2462,7 +2462,7 @@
             "support": {
                 "source": "https://github.com/spryker/Application/tree/master"
             },
-            "time": "2016-06-03 08:39:24"
+            "time": "2016-06-06 15:06:48"
         },
         {
             "name": "spryker/assertion",
@@ -2518,11 +2518,11 @@
         },
         {
             "name": "spryker/auth",
-            "version": "2.0.5",
+            "version": "2.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Auth.git",
-                "reference": "d8b65e65702f2db75aa848ccdae4e39c245c5e29",
+                "reference": "992398212203b88895590150ba825c2de2330551",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -2532,8 +2532,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Auth/zipball/d8b65e65702f2db75aa848ccdae4e39c245c5e29",
-                "reference": "d8b65e65702f2db75aa848ccdae4e39c245c5e29",
+                "url": "https://api.github.com/repos/spryker/Auth/zipball/992398212203b88895590150ba825c2de2330551",
+                "reference": "992398212203b88895590150ba825c2de2330551",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2578,7 +2578,7 @@
             "support": {
                 "source": "https://github.com/spryker/Auth/tree/master"
             },
-            "time": "2016-06-02 13:52:21"
+            "time": "2016-06-06 15:30:05"
         },
         {
             "name": "spryker/auth-mail-connector",
@@ -2999,11 +2999,11 @@
         },
         {
             "name": "spryker/category",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Category.git",
-                "reference": "9773a5041e2ffa4e1a3b445fc4e4d38aca1450ff",
+                "reference": "787dbdcb5178ee9135615776b436e410917bb270",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3013,8 +3013,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Category/zipball/9773a5041e2ffa4e1a3b445fc4e4d38aca1450ff",
-                "reference": "9773a5041e2ffa4e1a3b445fc4e4d38aca1450ff",
+                "url": "https://api.github.com/repos/spryker/Category/zipball/787dbdcb5178ee9135615776b436e410917bb270",
+                "reference": "787dbdcb5178ee9135615776b436e410917bb270",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3059,7 +3059,7 @@
             "support": {
                 "source": "https://github.com/spryker/Category/tree/master"
             },
-            "time": "2016-05-13 11:25:36"
+            "time": "2016-06-06 16:23:09"
         },
         {
             "name": "spryker/category-exporter",
@@ -3186,11 +3186,11 @@
         },
         {
             "name": "spryker/cms",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Cms.git",
-                "reference": "5167eac55a46a23ed13949b3aaf981f8a7826152",
+                "reference": "9e021b9c33411d7938baef2483493cce1c68e5f0",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3200,8 +3200,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Cms/zipball/5167eac55a46a23ed13949b3aaf981f8a7826152",
-                "reference": "5167eac55a46a23ed13949b3aaf981f8a7826152",
+                "url": "https://api.github.com/repos/spryker/Cms/zipball/9e021b9c33411d7938baef2483493cce1c68e5f0",
+                "reference": "9e021b9c33411d7938baef2483493cce1c68e5f0",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3248,7 +3248,7 @@
             "support": {
                 "source": "https://github.com/spryker/Cms/tree/master"
             },
-            "time": "2016-04-06 16:26:05"
+            "time": "2016-06-06 16:23:09"
         },
         {
             "name": "spryker/collector",
@@ -6448,11 +6448,11 @@
         },
         {
             "name": "spryker/sales",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Sales.git",
-                "reference": "49998941f7ac9a3807b2b7deb411a505260a4957",
+                "reference": "55af375ef7cf46ade906a80b2611c6f8a36b7f2b",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6462,8 +6462,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Sales/zipball/49998941f7ac9a3807b2b7deb411a505260a4957",
-                "reference": "49998941f7ac9a3807b2b7deb411a505260a4957",
+                "url": "https://api.github.com/repos/spryker/Sales/zipball/55af375ef7cf46ade906a80b2611c6f8a36b7f2b",
+                "reference": "55af375ef7cf46ade906a80b2611c6f8a36b7f2b",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6516,7 +6516,7 @@
             "support": {
                 "source": "https://github.com/spryker/Sales/tree/master"
             },
-            "time": "2016-04-28 09:26:48"
+            "time": "2016-06-06 16:23:09"
         },
         {
             "name": "spryker/sales-aggregator",
@@ -7752,11 +7752,11 @@
         },
         {
             "name": "spryker/user",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/User.git",
-                "reference": "a12715eec438ad9cfb7a775d126a35f597d609ca",
+                "reference": "90a1c9163945412a83e75c7a7761af19be08b6f7",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7766,8 +7766,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/User/zipball/a12715eec438ad9cfb7a775d126a35f597d609ca",
-                "reference": "a12715eec438ad9cfb7a775d126a35f597d609ca",
+                "url": "https://api.github.com/repos/spryker/User/zipball/90a1c9163945412a83e75c7a7761af19be08b6f7",
+                "reference": "90a1c9163945412a83e75c7a7761af19be08b6f7",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7813,7 +7813,7 @@
             "support": {
                 "source": "https://github.com/spryker/User/tree/master"
             },
-            "time": "2016-05-24 11:33:12"
+            "time": "2016-06-06 13:41:39"
         },
         {
             "name": "spryker/wishlist",
