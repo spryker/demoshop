@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3c9134ac1eb874c0e8e9f4d2f2f87c0d",
-    "content-hash": "acc38c61be29eba8e913c8f9f5103d30",
+    "hash": "bc66db36bcd93a7db5ea63dc08f81e20",
+    "content-hash": "499a08de8e40a1eda3cb010596a7d3b3",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -5441,12 +5441,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "1e0d5e096dd8f5260db0d86e0ca85962884638d9"
+                "reference": "bd64bbf65217b2a6994e193445f116adf665fdf3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/1e0d5e096dd8f5260db0d86e0ca85962884638d9",
-                "reference": "1e0d5e096dd8f5260db0d86e0ca85962884638d9",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/bd64bbf65217b2a6994e193445f116adf665fdf3",
+                "reference": "bd64bbf65217b2a6994e193445f116adf665fdf3",
                 "shasum": ""
             },
             "require": {
@@ -5475,7 +5475,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-06-01 10:11:10"
+            "time": "2016-06-06 11:37:32"
         },
         {
             "name": "squizlabs/php_codesniffer",
