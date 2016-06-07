@@ -2,9 +2,9 @@
 
 use Pyz\Shared\Mail\MailConstants;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Session\SessionConstants;
-use Spryker\Shared\Payolution\PayolutionConstants;
 
 $config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
 $config[ApplicationConstants::ZED_DB_USERNAME] = 'ubuntu';

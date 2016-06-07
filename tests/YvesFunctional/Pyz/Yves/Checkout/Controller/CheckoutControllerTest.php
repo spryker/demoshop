@@ -9,7 +9,6 @@ namespace YvesFunctional\Pyz\Yves\Checkout\Controller;
 
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
-use Generated\Shared\Transfer\DummyPaymentTransfer;
 use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\PaymentTransfer;
@@ -26,7 +25,6 @@ use Spryker\Client\Cart\CartClient;
 use Spryker\Client\ZedRequest\Client\HttpClient;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Spryker\Yves\DummyPayment\Form\AbstractSubForm;
-use Spryker\Yves\DummyPayment\Form\CreditCardSubForm;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
