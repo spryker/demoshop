@@ -40,6 +40,7 @@ use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\HeadersSecur
 use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use Spryker\Shared\Config\Config;
+use Spryker\Shared\Symfony\Plugin\ServiceProvider\DoubleSubmitProtectionServiceProvider;
 use Spryker\Yves\Application\Application;
 use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
@@ -102,6 +103,11 @@ class YvesBootstrap
         $this->application->register(new HeadersSecurityServiceProvider());
         $this->application->register(new WebProfilerServiceProvider());
         $this->application->register(new AutoloaderCacheServiceProvider());
+        $this->application->register(new DoubleSubmitProtectionServiceProvider());
+
+        if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER, false)) {
+            $this->application->register(new WebProfilerServiceProvider());
+        }
     }
 
     /**
