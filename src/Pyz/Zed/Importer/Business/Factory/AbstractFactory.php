@@ -215,6 +215,14 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     }
 
     /**
+     * @return \Spryker\Zed\Discount\Business\DiscountFacade
+     */
+    protected function getDiscountFacade()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_DISCOUNT);
+    }
+
+    /**
      * @return \Spryker\Zed\Glossary\Business\GlossaryFacadeInterface
      */
     protected function getGlossaryFacade()

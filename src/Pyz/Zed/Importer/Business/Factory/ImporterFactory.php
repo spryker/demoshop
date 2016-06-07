@@ -12,6 +12,7 @@ use Pyz\Zed\Importer\Business\Importer\Category\CategoryImporter;
 use Pyz\Zed\Importer\Business\Importer\Category\CategoryRootImporter;
 use Pyz\Zed\Importer\Business\Importer\Cms\CmsBlockImporter;
 use Pyz\Zed\Importer\Business\Importer\Cms\CmsPageImporter;
+use Pyz\Zed\Importer\Business\Importer\Discount\DiscountImporter;
 use Pyz\Zed\Importer\Business\Importer\Glossary\TranslationImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductAbstractImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductCategoryImporter;
@@ -186,6 +187,19 @@ class ImporterFactory extends AbstractFactory
         );
 
         return $translationImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\Discount\DiscountImporter
+     */
+    public function createDiscountImporter()
+    {
+        $discountImporter = new DiscountImporter(
+            $this->getLocaleFacade(),
+            $this->getDiscountFacade()
+        );
+
+        return $discountImporter;
     }
 
     /**

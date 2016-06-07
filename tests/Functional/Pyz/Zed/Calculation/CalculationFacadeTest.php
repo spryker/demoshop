@@ -189,15 +189,10 @@ class CalculationFacadeTest extends Test
         $discountEntity->setIsActive(1);
         $discountEntity->setValidFrom(new \DateTime('1985-07-01'));
         $discountEntity->setValidTo(new \DateTime('2050-07-01'));
-        $discountEntity->setCollectorLogicalOperator('AND');
         $discountEntity->setCalculatorPlugin($calculatorType);
+        $discountEntity->setCollectorQueryString('sku = "*"');
         $discountEntity->setFkDiscountVoucherPool($discountVoucherPoolEntity->getIdDiscountVoucherPool());
         $discountEntity->save();
-
-        $collectorEntity = new SpyDiscountCollector();
-        $collectorEntity->setCollectorPlugin(DiscountDependencyProvider::PLUGIN_COLLECTOR_ITEM);
-        $collectorEntity->setFkDiscount($discountEntity->getIdDiscount());
-        $collectorEntity->save();
 
         $discountEntity->reload(true);
         $pool = $discountEntity->getVoucherPool();
