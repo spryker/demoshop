@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-feature/2067-Extract-Step-Process-from-Checkout-Bundle",
+    "spryker/spryker": "dev-feature/2132-DummyPayment",
 
     "psr/log": "~1.0.0",
     "propel/propel": "~2.0@dev",

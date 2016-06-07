@@ -9,10 +9,10 @@ namespace YvesFunctional\Pyz\Yves\Checkout\Controller;
 
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
+use Generated\Shared\Transfer\DummyPaymentTransfer;
 use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\PaymentTransfer;
-use Generated\Shared\Transfer\PayolutionPaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Generated\Shared\Transfer\TotalsTransfer;
@@ -25,7 +25,8 @@ use Pyz\Yves\Customer\Form\GuestForm;
 use Spryker\Client\Cart\CartClient;
 use Spryker\Client\ZedRequest\Client\HttpClient;
 use Spryker\Shared\Shipment\ShipmentConstants;
-use Spryker\Zed\Payolution\Business\Payment\Method\ApiConstants;
+use Spryker\Yves\DummyPayment\Form\AbstractSubForm;
+use Spryker\Yves\DummyPayment\Form\CreditCardSubForm;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -272,17 +273,12 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
         $this->setQuoteForPayment();
 
         $paymentData = $this->getFormData(self::PAYMENT_URL, self::PAYMENT_ACTION, self::PAYMENT_ROUTE, self::PAYMENT_FORM);
-        $paymentData[PaymentForm::PAYMENT_SELECTION] = 'payolutionInvoice';
-        $paymentData['payolution_invoice'] = [
-            'date_of_birth' => '06.12.1980'
+        $paymentData[PaymentForm::PAYMENT_SELECTION] = PaymentTransfer::DUMMY_PAYMENT_INVOICE;
+
+        $paymentData['DummyPayment_invoice'] = [
+            AbstractSubForm::FIELD_DATE_OF_BIRTH => '06.12.1980'
         ];
-        $paymentData['payolution_installment'] = [
-            'date_of_birth' => '',
-            'bank_account_holder' => '',
-            'bank_account_iban' => '',
-            'bank_account_bic' => '',
-            'installment_payment_detail_index' => '0',
-        ];
+
         $data = [
             self::PAYMENT_FORM => $paymentData
         ];
@@ -341,7 +337,7 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
      */
     public function testPlaceOrder()
     {
-        $this->markTestIncomplete('Payolution request data missing');
+        $this->markTestIncomplete('Request data missing');
         $this->setQuoteForSummary();
 
         $request = Request::create(self::PLACE_ORDER_URL, Request::METHOD_POST);
@@ -454,6 +450,11 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
         $totalsTransfer->setGrandTotal(10000);
         $quoteTransfer->setTotals($totalsTransfer);
 
+        $paymentTransfer = new PaymentTransfer();
+        $paymentTransfer->setPaymentProvider('paymentProvider');
+        $paymentTransfer->setPaymentProvider('paymentProvider');
+        $quoteTransfer->setPayment($paymentTransfer);
+
         $cartClient = new CartClient();
         $cartClient->storeQuote($quoteTransfer);
     }
@@ -501,10 +502,7 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
         $quoteTransfer->setShipment($shipmentTransfer);
 
         $paymentTransfer = new PaymentTransfer();
-        $paymentTransfer->setPaymentProvider('payolution');
-        $paymentPayolutionTransfer = new PayolutionPaymentTransfer();
-        $paymentPayolutionTransfer->setAccountBrand(ApiConstants::BRAND_INSTALLMENT);
-        $paymentTransfer->setPayolution($paymentPayolutionTransfer);
+        $paymentTransfer->setPaymentProvider('paymentProvider');
         $quoteTransfer->setPayment($paymentTransfer);
 
         $cartClient = new CartClient();

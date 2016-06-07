@@ -70,7 +70,7 @@ class PaymentStep extends AbstractBaseStep
     public function postCondition(AbstractTransfer $quoteTransfer)
     {
         if ($quoteTransfer->getPayment() === null ||
-            $quoteTransfer->getPayment()->getPaymentProvider() == null) {
+            $quoteTransfer->getPayment()->getPaymentProvider() === null) {
             return false;
         }
 

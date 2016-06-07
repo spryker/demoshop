@@ -11,7 +11,7 @@ use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\NewRelic\NewRelicConstants;
 use Spryker\Shared\Newsletter\NewsletterConstants;
-use Spryker\Shared\Payolution\PayolutionConstants;
+use Spryker\Shared\Oms\OmsConstants;
 use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
 use Spryker\Shared\Price\PriceConstants;
 use Spryker\Shared\Propel\PropelConstants;
@@ -20,6 +20,7 @@ use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\User\UserConstants;
 use Spryker\Zed\Propel\PropelConfig;
+use Spryker\Zed\Oms\OmsConfig;
 
 $config[ApplicationConstants::PROJECT_NAMESPACES] = [
     'Pyz',
@@ -339,29 +340,6 @@ $config[SequenceNumberConstants::ENVIRONMENT_PREFIX]
     = $config[SalesConstants::ENVIRONMENT_PREFIX]
     = '';
 
-/**
- * Payolution Testdata - You can use this until you have an own account.
- */
-$config[PayolutionConstants::TRANSACTION_GATEWAY_URL] = 'https://test.ctpe.net/frontend/payment.prc';
-$config[PayolutionConstants::CALCULATION_GATEWAY_URL] = 'https://test-payment.payolution.com/payolution-payment/rest/request/v2';
-$config[PayolutionConstants::TRANSACTION_SECURITY_SENDER] = '8a82941850cd6ba60150cdba275b0201';
-$config[PayolutionConstants::TRANSACTION_USER_LOGIN] = '8a82941850cd6ba60150cdba275c0205';
-$config[PayolutionConstants::TRANSACTION_USER_PASSWORD] = 'EANPb8wg';
-$config[PayolutionConstants::CALCULATION_SENDER] = 'Spyker';
-$config[PayolutionConstants::CALCULATION_USER_LOGIN] = 'spryker-installment';
-$config[PayolutionConstants::CALCULATION_USER_PASSWORD] = '0mQzn5iqhr3idfZZjvsEPOrlDvT97Tg3M5d';
-$config[PayolutionConstants::TRANSACTION_MODE] = 'CONNECTOR_TEST';
-$config[PayolutionConstants::CALCULATION_MODE] = 'TEST';
-$config[PayolutionConstants::TRANSACTION_CHANNEL_PRE_CHECK] = '8a82941850cd6ba60150cdc25e54028f';
-$config[PayolutionConstants::TRANSACTION_CHANNEL_INVOICE] = '8a82941850cd6ba60150cdbf9af40280';
-$config[PayolutionConstants::TRANSACTION_CHANNEL_INSTALLMENT] = '8a82941850cd6ba60150cdbf9af40280';
-$config[PayolutionConstants::CALCULATION_CHANNEL] = 'spryker-installment';
-$config[PayolutionConstants::MIN_ORDER_GRAND_TOTAL_INVOICE] = '500';
-$config[PayolutionConstants::MAX_ORDER_GRAND_TOTAL_INVOICE] = '500000';
-$config[PayolutionConstants::MIN_ORDER_GRAND_TOTAL_INSTALLMENT] = '500';
-$config[PayolutionConstants::MAX_ORDER_GRAND_TOTAL_INSTALLMENT] = '500000';
-$config[PayolutionConstants::PAYOLUTION_BCC_EMAIL] = 'invoices@payolution.com';
-
 $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 
 $config[LogConstants::LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application.log';
@@ -375,6 +353,11 @@ $config[ApplicationConstants::ENABLE_WEB_PROFILER] = false;
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = true;
 $config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [
     'Checkout' => [
-        'Payolution',
+        'DummyPayment',
     ],
+];
+
+$config[OmsConstants::PROCESS_LOCATION] = [
+    OmsConfig::DEFAULT_PROCESS_LOCATION,
+    $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] . '/DummyPayment/config/Zed/Oms'
 ];
