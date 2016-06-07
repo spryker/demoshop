@@ -98,7 +98,6 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
         }
 
         $providers = array_merge($providers, $coreProviders);
-        $providers[] = new DoubleSubmitProtectionServiceProvider();
 
         return $providers;
     }
