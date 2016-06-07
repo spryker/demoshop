@@ -108,6 +108,10 @@ module.exports = {
             }
         });
 
+        $('form.checkout-form').on('submit', function(event) {
+            $('button[name="summaryForm[checkout.step.place.order]"]').attr('disabled', 'disabled');
+        })
+
         $('input[name="checkout[id_shipment_method]"]').on('change', function() {
             $shipmentButton.attr('disabled', $('input[name="checkout[id_shipment_method]"]:checked').length != 1);
         });
