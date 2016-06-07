@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3c9134ac1eb874c0e8e9f4d2f2f87c0d",
-    "content-hash": "acc38c61be29eba8e913c8f9f5103d30",
+    "hash": "729b7a471978dc9ca7d8ad056f9c3f07",
+    "content-hash": "e207d88bcb33eb35eb36032137ae6904",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -945,11 +945,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/1931-AbstractTouchUpdater-and-reserved-keywords-in-mysql",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "2f3fccc177b2d8bbdcd3bcad3776f39f30ad03d3"
+                "reference": "c9272f66cc769a84ae45bda0c5497133bc3723e8"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1344,7 +1344,6 @@
                     "Spryker\\Zed\\Storage\\": "Bundles/Storage/src",
                     "Unit\\Spryker\\Zed\\Storage\\": "Bundles/Storage/tests",
                     "Functional\\Spryker\\Zed\\Storage\\": "Bundles/Storage/tests",
-                    "Spryker\\Shared\\Symfony\\": "Bundles/Symfony/src",
                     "Spryker\\Shared\\Tax\\": "Bundles/Tax/src",
                     "Unit\\Spryker\\Shared\\Tax\\": "Bundles/Tax/tests",
                     "Functional\\Spryker\\Shared\\Tax\\": "Bundles/Tax/tests",
@@ -1413,7 +1412,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-06-07 11:10:22"
+            "time": "2016-06-06 17:06:42"
         },
         {
             "name": "symfony-cmf/routing",
