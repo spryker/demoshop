@@ -3,8 +3,13 @@
 set -o pipefail
 
 SETUP='spryker'
+DATABASE_NAME='DE_development_zed'
+DATABASE_USER='development'
+DATABASE_PASSWORD='mate20mg'
+VERBOSITY='-v'
+CONSOLE=vendor/bin/console
 
-. ./setup-functions.sh
+. deploy/setup/functions.sh
 
 if [ $# -eq 0 ]; then
     displayHelp
@@ -25,6 +30,12 @@ do
            ;;
         "--reset" | "-r" )
            resetDevelopmentState
+           ;;
+        "--dump-db" | "-ddb" )
+           dumpDevelopmentDatabase
+           ;;
+        "--restore-db" | "-rdb" )
+           restoreDevelopmentDatabase
            ;;
         "--help" | "-h" )
            displayHelp

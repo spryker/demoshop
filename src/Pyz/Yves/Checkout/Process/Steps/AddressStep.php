@@ -61,6 +61,7 @@ class AddressStep extends BaseStep
      * Guest customer takes data from form directly mapped by symfony forms.
      * Logged in customer takes data by id from current CustomerTransfer stored in session.
      * If it's new address it's saved when order is created in CustomerOrderSaverPlugin.
+     * The selected addresses will be updated to default billing and shipping address.
      *
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
@@ -94,6 +95,9 @@ class AddressStep extends BaseStep
 
             $quoteTransfer->setBillingAddress($billingAddressTransfer);
         }
+
+        $quoteTransfer->getShippingAddress()->setIsDefaultShipping(true);
+        $quoteTransfer->getBillingAddress()->setIsDefaultBilling(true);
 
         return $quoteTransfer;
     }

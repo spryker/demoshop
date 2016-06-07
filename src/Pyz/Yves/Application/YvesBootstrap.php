@@ -10,8 +10,10 @@ namespace Pyz\Yves\Application;
 use Pyz\Shared\Application\Business\Routing\SilexRouter;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
+use Pyz\Yves\Application\Plugin\Provider\AutoloaderCacheServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\FlashMessengerServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\SessionServiceProvider as ProviderSessionServiceProvider;
+use Pyz\Yves\Application\Plugin\Provider\WebProfilerServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\YvesSecurityServiceProvider;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
 use Pyz\Yves\Catalog\Plugin\Router\SearchRouter;
@@ -33,11 +35,11 @@ use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
-use Silex\Provider\WebProfilerServiceProvider;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
 use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
 use Spryker\Shared\Config\Config;
+use Spryker\Shared\Symfony\Plugin\ServiceProvider\DoubleSubmitProtectionServiceProvider;
 use Spryker\Yves\Application\Application;
 use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
@@ -97,6 +99,9 @@ class YvesBootstrap
         $this->application->register(new HttpFragmentServiceProvider());
         $this->application->register(new CategoryServiceProvider());
         $this->application->register(new FlashMessengerServiceProvider());
+        $this->application->register(new WebProfilerServiceProvider());
+        $this->application->register(new AutoloaderCacheServiceProvider());
+        $this->application->register(new DoubleSubmitProtectionServiceProvider());
 
         if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER, false)) {
             $this->application->register(new WebProfilerServiceProvider());

@@ -2,10 +2,10 @@
 
 /**
  * Data object containing the SQL and PHP code to migrate the database
- * up to version 1465291451.
- * Generated on 2016-06-07 09:24:11 by vagrant
+ * up to version 1465296070.
+ * Generated on 2016-06-07 10:41:10 by vagrant
  */
-class PropelMigration_1465291451
+class PropelMigration_1465296070
 {
     public $comment = '';
 
@@ -56,8 +56,6 @@ ALTER TABLE "spy_discount"
   DROP COLUMN "collector_logical_operator";
 
 CREATE UNIQUE INDEX "spy_discount-unique-display_name" ON "spy_discount" ("display_name");
-
-ALTER TABLE "spy_discount_voucher_pool" DROP CONSTRAINT "spy_discount_voucher_pool-fk_discount_voucher_pool_category";
 
 ALTER TABLE "spy_discount_voucher_pool"
 
