@@ -7,12 +7,14 @@
 
 namespace Pyz\Zed\Application;
 
-use Pyz\Yves\Application\Plugin\Provider\WebProfilerServiceProvider;
 use Pyz\Yves\NewRelic\Plugin\Provider\NewRelicServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\TwigServiceProvider;
+use Silex\Provider\WebProfilerServiceProvider;
+use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Config\Config;
 use Spryker\Zed\Acl\Communication\Plugin\Bootstrap\AclBootstrapProvider;
 use Spryker\Zed\Application\ApplicationDependencyProvider as SprykerApplicationDependencyProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\DateFormatterServiceProvider;
@@ -90,7 +92,13 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new WebProfilerServiceProvider()
         ];
 
-        return array_merge($providers, $coreProviders);
+        if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER, false)) {
+            $providers[] = new WebProfilerServiceProvider();
+        }
+
+        $providers = array_merge($providers, $coreProviders);
+
+        return $providers;
     }
 
     /**

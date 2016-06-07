@@ -44,6 +44,7 @@ class ApplicationServiceProvider extends AbstractServiceProvider
         $this->setControllerResolver();
         $this->setProfilerCacheDirectory();
         $this->setTrustedProxies();
+        $this->setTrustedHosts();
         $this->setLocale();
         $this->setLogLevel();
         $this->setProtocolCheck();
@@ -112,6 +113,15 @@ class ApplicationServiceProvider extends AbstractServiceProvider
     {
         $proxies = Config::get(ApplicationConstants::YVES_TRUSTED_PROXIES);
         Request::setTrustedProxies($proxies);
+    }
+
+    /**
+     * @return void
+     */
+    protected function setTrustedHosts()
+    {
+        $trustedHosts = Config::get(ApplicationConstants::YVES_TRUSTED_HOSTS);
+        Request::setTrustedHosts($trustedHosts);
     }
 
     /**
