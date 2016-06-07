@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-bugfix/2103-implement-trusted-hosts-check",
+    "spryker/spryker": "dev-bugfix/2027-prevent-order-multiple-submit",
 
     "psr/log": "~1.0.0",
     "propel/propel": "~2.0@dev",
