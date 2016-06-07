@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3c9134ac1eb874c0e8e9f4d2f2f87c0d",
-    "content-hash": "acc38c61be29eba8e913c8f9f5103d30",
+    "hash": "fe2cc04e623567ceb03f5a506c7988b6",
+    "content-hash": "4897c784cd8f26a990abdc9b4a0e2c4b",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -945,7 +945,7 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/2108-more-secure-hash-functions",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
@@ -1811,12 +1811,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9"
+                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
-                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
+                "url": "https://api.github.com/repos/symfony/form/zipball/23394a60d49d2aa904dacda6e5eb29d88251f9da",
+                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da",
                 "shasum": ""
             },
             "require": {
