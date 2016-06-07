@@ -25,7 +25,6 @@ use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderDependencyC
 use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderFactory;
 use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderFactoryWorker;
 use Spryker\Zed\Collector\Business\CollectorBusinessFactory as SprykerCollectorBusinessFactory;
-use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainer;
 
 /**
  * @method \Pyz\Zed\Collector\CollectorConfig getConfig()
@@ -342,11 +341,11 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
 
     /**
      * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface
      */
     protected function getProductImageQueryContainer()
     {
-        return new ProductImageQueryContainer();
         return $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRODUCT_IMAGE);
     }
 

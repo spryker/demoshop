@@ -297,7 +297,8 @@ class ProductCollector extends AbstractStoragePdoCollector
     }
 
     /**
-     * @param $idImageSet
+     * @param int $idImageSet
+     *
      * @return array
      */
     protected function generateImages($idImageSet)
@@ -306,12 +307,20 @@ class ProductCollector extends AbstractStoragePdoCollector
             return [];
         }
 
-        $images = $this->productImageQueryContainer
+        $imagesCollection = $this->productImageQueryContainer
             ->queryImagesByIdProductImageSet($idImageSet)
             ->find();
 
+        $result = [];
 
-        dd($images->toArray());
+
+        foreach ($imagesCollection as $image) {
+            $imageArray = $image->getSpyProductImage()->toArray();
+            $imageArray += $image->toArray();
+            $result[] = $imageArray;
+        }
+
+        return $result;
     }
 
 }
