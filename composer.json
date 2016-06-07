@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-bugfix/1931-AbstractTouchUpdater-and-reserved-keywords-in-mysql",
+    "spryker/spryker": "dev-master",
 
     "psr/log": "~1.0.0",
     "propel/propel": "~2.0@dev",
