@@ -949,7 +949,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "9c2301ef2e74d00f79e95903f38ef080d123423d"
+                "reference": "c9b80e003795988ae7770ebbe0aeb2f8cecbfe07"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1021,6 +1021,9 @@
                     "Spryker\\Client\\CategoryExporter\\": "Bundles/CategoryExporter/src",
                     "Spryker\\Shared\\CategoryExporter\\": "Bundles/CategoryExporter/src",
                     "Spryker\\Client\\Checkout\\": "Bundles/Checkout/src",
+                    "Spryker\\Yves\\Checkout\\": "Bundles/Checkout/src",
+                    "Spryker\\Yves\\StepEngine\\": "Bundles/StepEngine/src",
+                    "Unit\\Spryker\\Yves\\StepEngine\\": "Bundles/StepEngine/tests",
                     "Unit\\Spryker\\Client\\Checkout\\": "Bundles/Checkout/tests",
                     "Functional\\Spryker\\Client\\Checkout\\": "Bundles/Checkout/tests",
                     "Spryker\\Shared\\Checkout\\": "Bundles/Checkout/src",
@@ -1192,6 +1195,7 @@
                     "Unit\\Spryker\\Zed\\Payment\\": "Bundles/Payment/tests",
                     "Functional\\Spryker\\Zed\\Payment\\": "Bundles/Payment/tests",
                     "Spryker\\Client\\Payolution\\": "Bundles/Payolution/src",
+                    "Spryker\\Yves\\Payolution\\": "Bundles/Payolution/src",
                     "Unit\\Spryker\\Client\\Payolution\\": "Bundles/Payolution/tests",
                     "Functional\\Spryker\\Client\\Payolution\\": "Bundles/Payolution/tests",
                     "Spryker\\Shared\\Payolution\\": "Bundles/Payolution/src",
@@ -1340,6 +1344,7 @@
                     "Spryker\\Zed\\Storage\\": "Bundles/Storage/src",
                     "Unit\\Spryker\\Zed\\Storage\\": "Bundles/Storage/tests",
                     "Functional\\Spryker\\Zed\\Storage\\": "Bundles/Storage/tests",
+                    "Spryker\\Shared\\Symfony\\": "Bundles/Symfony/src",
                     "Spryker\\Shared\\Tax\\": "Bundles/Tax/src",
                     "Unit\\Spryker\\Shared\\Tax\\": "Bundles/Tax/tests",
                     "Functional\\Spryker\\Shared\\Tax\\": "Bundles/Tax/tests",
@@ -1408,7 +1413,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-06-03 16:24:28"
+            "time": "2016-06-07 09:54:59"
         },
         {
             "name": "symfony-cmf/routing",
