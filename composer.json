@@ -94,7 +94,8 @@
     "spryker/wishlist": "^2.0.0",
     "spryker/zed-request": "^2.0.0",
     "spryker/zend": "^2.0.0",
-    "spryker/step-engine": "^1.0.0"
+    "spryker/step-engine": "^1.0.0",
+    "spryker/dummy-payment": "^1.0.0"
   },
   "require-dev": {
     "spryker/code-sniffer": "dev-master",
