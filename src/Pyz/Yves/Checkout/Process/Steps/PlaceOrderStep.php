@@ -1,17 +1,20 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
+
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
-use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
+use Spryker\Shared\Transfer\AbstractTransfer;
+use Spryker\Yves\StepEngine\Dependency\Step\StepWithExternalRedirectInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class PlaceOrderStep extends BaseStep
+class PlaceOrderStep extends AbstractBaseStep implements StepWithExternalRedirectInterface
 {
 
     /**
@@ -20,49 +23,50 @@ class PlaceOrderStep extends BaseStep
     protected $checkoutClient;
 
     /**
-     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
+     * @var string
+     */
+    protected $externalRedirectUrl;
+
+    /**
+     * @var \Pyz\Yves\Application\Business\Model\FlashMessengerInterface
+     */
+    protected $flashMessenger;
+
+    /**
      * @param \Spryker\Client\Checkout\CheckoutClientInterface $checkoutClient
+     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      * @param string $stepRoute
      * @param string $escapeRoute
      */
     public function __construct(
-        FlashMessengerInterface $flashMessenger,
         CheckoutClientInterface $checkoutClient,
+        FlashMessengerInterface $flashMessenger,
         $stepRoute,
         $escapeRoute
     ) {
-        parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
+        parent::__construct($stepRoute, $escapeRoute);
 
+        $this->flashMessenger = $flashMessenger;
         $this->checkoutClient = $checkoutClient;
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer $quoteTransfer
      *
      * @return bool
      */
-    public function preCondition(QuoteTransfer $quoteTransfer)
-    {
-        return !$this->isCartEmpty($quoteTransfer);
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
-    public function requireInput(QuoteTransfer $quoteTransfer)
+    public function requireInput(AbstractTransfer $quoteTransfer)
     {
         return false;
     }
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
+     * @return \Spryker\Shared\Transfer\AbstractTransfer
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer)
+    public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
         $checkoutResponseTransfer = $this->checkoutClient->placeOrder($quoteTransfer);
         if ($checkoutResponseTransfer->getIsExternalRedirect()) {
@@ -78,13 +82,13 @@ class PlaceOrderStep extends BaseStep
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
-    public function postCondition(QuoteTransfer $quoteTransfer)
+    public function postCondition(AbstractTransfer $quoteTransfer)
     {
-        return $quoteTransfer->getOrderReference() !== null;
+        return ($quoteTransfer->getOrderReference() !== null);
     }
 
     /**
@@ -97,6 +101,14 @@ class PlaceOrderStep extends BaseStep
         foreach ($checkoutResponseTransfer->getErrors() as $checkoutErrorTransfer) {
             $this->flashMessenger->addErrorMessage($checkoutErrorTransfer->getMessage());
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function getExternalRedirectUrl()
+    {
+        return $this->externalRedirectUrl;
     }
 
 }
