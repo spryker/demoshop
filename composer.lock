@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8e55a8a8e3def2e9dc67ecb0e9de215d",
-    "content-hash": "87e99ecf8daf684fd21d3a9f7deb34f0",
+    "hash": "3c9134ac1eb874c0e8e9f4d2f2f87c0d",
+    "content-hash": "acc38c61be29eba8e913c8f9f5103d30",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -945,11 +945,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/2133-LIVE09-Bruteforcing-user-names-in-Zed",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "a4afff0e73ada91a86a126c912506572187cb428"
+                "reference": "73b1c0884dea9ab5eafe7c431f83e56290f8d3d0"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1082,6 +1082,9 @@
                     "Spryker\\Zed\\DiscountCalculationConnector\\": "Bundles/DiscountCalculationConnector/src",
                     "Unit\\Spryker\\Zed\\DiscountCalculationConnector\\": "Bundles/DiscountCalculationConnector/tests",
                     "Functional\\Spryker\\Zed\\DiscountCalculationConnector\\": "Bundles/DiscountCalculationConnector/tests",
+                    "Spryker\\Yves\\DummyPayment\\": "Bundles/DummyPayment/src",
+                    "Spryker\\Shared\\DummyPayment\\": "Bundles/DummyPayment/src",
+                    "Spryker\\Zed\\DummyPayment\\": "Bundles/DummyPayment/src",
                     "Spryker\\Client\\EventJournal\\": "Bundles/EventJournal/src",
                     "Unit\\Spryker\\Client\\EventJournal\\": "Bundles/EventJournal/tests",
                     "Functional\\Spryker\\Client\\EventJournal\\": "Bundles/EventJournal/tests",
@@ -1413,7 +1416,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-06-07 09:51:53"
+            "time": "2016-06-08 16:35:57"
         },
         {
             "name": "symfony-cmf/routing",
