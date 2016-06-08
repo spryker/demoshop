@@ -9,6 +9,7 @@ namespace Pyz\Yves\Checkout\Form\DataProvider;
 
 use Spryker\Shared\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
+use Spryker\Yves\StepEngine\Dependency\Form\SubFormInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection;
 
 class SubFormDataProviders implements StepEngineFormDataProviderInterface
@@ -57,7 +58,7 @@ class SubFormDataProviders implements StepEngineFormDataProviderInterface
         }
 
         return [
-            'select_options' => $options
+            SubFormInterface::OPTIONS_FIELD_NAME => $options
         ];
     }
 

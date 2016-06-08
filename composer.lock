@@ -949,7 +949,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "601ca4a9cbcc86d233a8eeeb099d5c1435205d67"
+                "reference": "98c9fb22e6e395cb06c23edd77943a55ea4f569a"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1347,6 +1347,7 @@
                     "Spryker\\Zed\\Storage\\": "Bundles/Storage/src",
                     "Unit\\Spryker\\Zed\\Storage\\": "Bundles/Storage/tests",
                     "Functional\\Spryker\\Zed\\Storage\\": "Bundles/Storage/tests",
+                    "Spryker\\Shared\\Symfony\\": "Bundles/Symfony/src",
                     "Spryker\\Shared\\Tax\\": "Bundles/Tax/src",
                     "Unit\\Spryker\\Shared\\Tax\\": "Bundles/Tax/tests",
                     "Functional\\Spryker\\Shared\\Tax\\": "Bundles/Tax/tests",
@@ -1415,7 +1416,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-06-08 10:23:44"
+            "time": "2016-06-08 12:09:57"
         },
         {
             "name": "symfony-cmf/routing",
