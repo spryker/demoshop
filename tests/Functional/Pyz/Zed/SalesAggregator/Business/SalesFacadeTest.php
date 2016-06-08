@@ -16,6 +16,12 @@ use Orm\Zed\Sales\Persistence\SpySalesOrderItemOption;
 use Orm\Zed\Shipment\Persistence\SpyShipmentMethodQuery;
 use Spryker\Zed\SalesAggregator\Business\SalesAggregatorFacade;
 
+/**
+ * @group Pyz
+ * @group Zed
+ * @group Sales
+ * @group SalesFacade
+ */
 class SalesFacadeTest extends Test
 {
 
