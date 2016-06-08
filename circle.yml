@@ -6,9 +6,6 @@ machine:
     APPLICATION_ENV: development
     APPLICATION_STORE: DE
 
-  services:
-    - elasticsearch
-
   timezone:
     Europe/Berlin
 
