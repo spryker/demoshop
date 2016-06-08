@@ -24,6 +24,8 @@ use Symfony\Component\HttpKernel\KernelEvents;
 class EventJournalServiceProvider extends AbstractServiceProvider
 {
 
+    const COOKIE_HASH_ALGORITHM = 'sha256';
+
     /**
      * @var \Spryker\Client\EventJournal\EventJournalClientInterface
      */
@@ -142,7 +144,7 @@ class EventJournalServiceProvider extends AbstractServiceProvider
         // An unsafe value might have been set in browser by JS or XSS, it should be replaced with a safe one.
         if (empty($_COOKIE[$cookieName]) || !$this->isTrackingValueSafe($_COOKIE[$cookieName])) {
             // uniqid is based on current timestamp, a server ID should be used to prevent 2 servers generating the same ID for 2 simultaneous requests.
-            $_COOKIE[$cookieName] = sha1(uniqid(System::getHostname(), true));
+            $_COOKIE[$cookieName] = hash(static::COOKIE_HASH_ALGORITHM, uniqid(System::getHostname(), true));
         }
         $dt = new \DateTime();
         $app['cookies'][] = new Cookie(

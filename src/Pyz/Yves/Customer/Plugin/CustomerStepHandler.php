@@ -1,20 +1,22 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
+
 namespace Pyz\Yves\Customer\Plugin;
 
-use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
+use Spryker\Shared\Transfer\AbstractTransfer;
 use Spryker\Yves\Kernel\AbstractPlugin;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
  * @method \Pyz\Client\Customer\CustomerClient getClient()
  */
-class CustomerStepHandler extends AbstractPlugin implements CheckoutStepHandlerPluginInterface
+class CustomerStepHandler extends AbstractPlugin implements StepHandlerPluginInterface
 {
 
     /**
@@ -36,11 +38,11 @@ class CustomerStepHandler extends AbstractPlugin implements CheckoutStepHandlerP
      * the response.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer|\Spryker\Shared\Transfer\AbstractTransfer $quoteTransfer
      *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    public function addToQuote(Request $request, QuoteTransfer $quoteTransfer)
+    public function addToDataClass(Request $request, AbstractTransfer $quoteTransfer)
     {
         foreach ($this->authenticationHandlerPlugins as $authHandlerPlugin) {
             if ($authHandlerPlugin->canHandle($quoteTransfer)) {
