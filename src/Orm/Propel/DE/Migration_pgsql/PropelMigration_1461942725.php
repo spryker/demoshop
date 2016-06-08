@@ -88,7 +88,7 @@ CREATE TABLE "spy_state_machine_lock"
     PRIMARY KEY ("id_state_machine_lock")
 );
 
-CREATE INDEX "spy_state_machine_lock-identifier" ON "spy_state_machine_lock" ("identifier");
+CREATE UNIQUE INDEX "spy_state_machine_lock-identifier" ON "spy_state_machine_lock" ("identifier");
 
 CREATE SEQUENCE "spy_state_machine_item_state_pk_seq";
 
