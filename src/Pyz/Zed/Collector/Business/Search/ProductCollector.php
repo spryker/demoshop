@@ -10,8 +10,8 @@ namespace Pyz\Zed\Collector\Business\Search;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPdoCollector;
 use Spryker\Zed\Collector\CollectorConfig;
-use Spryker\Zed\Search\Dependency\Plugin\PageMapInterface;
 use Spryker\Zed\Search\Business\SearchFacadeInterface;
+use Spryker\Zed\Search\Dependency\Plugin\PageMapInterface;
 
 class ProductCollector extends AbstractSearchPdoCollector
 {

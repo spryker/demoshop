@@ -12,11 +12,11 @@ use Generated\Shared\Transfer\FacetConfigTransfer;
 use Generated\Shared\Transfer\PaginationConfigTransfer;
 use Generated\Shared\Transfer\SortConfigTransfer;
 use Spryker\Client\Kernel\AbstractPlugin;
+use Spryker\Client\Search\Dependency\Plugin\FacetConfigBuilderInterface;
 use Spryker\Client\Search\Dependency\Plugin\PaginationConfigBuilderInterface;
 use Spryker\Client\Search\Dependency\Plugin\SearchConfigBuilderInterface;
-use Spryker\Client\Search\Plugin\Config\FacetConfigBuilder;
-use Spryker\Client\Search\Dependency\Plugin\FacetConfigBuilderInterface;
 use Spryker\Client\Search\Dependency\Plugin\SortConfigBuilderInterface;
+use Spryker\Client\Search\Plugin\Config\FacetConfigBuilder;
 
 /**
  * @method \Spryker\Client\Catalog\CatalogFactory getFactory()
@@ -32,7 +32,7 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
      *
      * @return void
      */
-    public function buildFacetConfig(\Spryker\Client\Search\Dependency\Plugin\FacetConfigBuilderInterface $facetConfigBuilder)
+    public function buildFacetConfig(FacetConfigBuilderInterface $facetConfigBuilder)
     {
         $this
             ->addCategoryFacet($facetConfigBuilder)
@@ -72,7 +72,7 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
      *
      * @return $this
      */
-    protected function addCategoryFacet(\Spryker\Client\Search\Dependency\Plugin\FacetConfigBuilderInterface $facetConfigBuilder)
+    protected function addCategoryFacet(FacetConfigBuilderInterface $facetConfigBuilder)
     {
         $categoryFacet = (new FacetConfigTransfer())
             ->setName('category')
@@ -108,7 +108,7 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
      *
      * @return $this
      */
-    protected function addNameSort(\Spryker\Client\Search\Dependency\Plugin\SortConfigBuilderInterface $sortConfigBuilder)
+    protected function addNameSort(SortConfigBuilderInterface $sortConfigBuilder)
     {
         $nameSortConfig = (new SortConfigTransfer())
             ->setName('name')

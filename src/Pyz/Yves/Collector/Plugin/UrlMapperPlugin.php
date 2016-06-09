@@ -8,7 +8,6 @@
 namespace Pyz\Yves\Collector\Plugin;
 
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @method \Pyz\Yves\Collector\CollectorFactory getFactory()

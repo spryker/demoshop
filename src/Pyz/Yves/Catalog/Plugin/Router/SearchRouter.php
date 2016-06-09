@@ -37,11 +37,11 @@ class SearchRouter extends AbstractRouter
             $mergedParameters = $this
                 ->getUrlMapperPlugin()
                 ->mergeParameters($requestParameters, $parameters);
-            
+
             $pathInfo = $this
                 ->getUrlMapperPlugin()
                 ->generateUrlFromParameters($mergedParameters);
-            
+
             $pathInfo = $name . $pathInfo;
 
             return $this->getUrlOrPathForType($pathInfo, $referenceType);
