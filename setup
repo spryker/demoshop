@@ -40,6 +40,9 @@ do
         "--help" | "-h" )
            displayHelp
            ;;
+        "--clean" | "-c" )
+           optimizeRepo
+           ;;
         *)
             displayHeader
             echo ""

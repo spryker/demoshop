@@ -94,11 +94,6 @@ function restoreDevelopmentDatabase {
 }
 
 function installDemoshop {
-    CHANGES=`git status | grep "# Changes not staged for commit"`
-    if [ "x$CHANGES" != "x" ]; then
-        errorText "Uncommitted changes detected. Stash or commit your changes first"
-        exit 1
-    fi
 
     labelText "Preparing to install Spryker Platform..."
     sleep 1
@@ -112,8 +107,6 @@ function installDemoshop {
     installYves
 
     configureCodeception
-
-    optimizeRepo
 
     successText "Setup successful"
 
@@ -305,6 +298,9 @@ function displayHelp {
     echo ""
     echo "  -h, --help"
     echo "      Show this help"
+    echo ""
+    echo "  -c, --clean"
+    echo "      Cleanup unnecessary files and optimize the local repository"
     echo ""
     echo "  -v, -vv, -vvv"
     echo "      Set verbosity level"
