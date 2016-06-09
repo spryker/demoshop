@@ -1,21 +1,23 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
+
 namespace Pyz\Yves\Shipment\Plugin;
 
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
 use Spryker\Yves\Kernel\AbstractPlugin;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginInterface;
 
 /**
  * @method \Pyz\Yves\Shipment\ShipmentFactory getFactory()
  */
-class ShipmentSubFormPlugin extends AbstractPlugin implements CheckoutSubFormPluginInterface
+class ShipmentSubFormPlugin extends AbstractPlugin implements SubFormPluginInterface
 {
 
     /**
-     * @return \Pyz\Yves\Checkout\Dependency\SubFormInterface
+     * @return \Spryker\Yves\StepEngine\Dependency\Form\SubFormInterface
      */
     public function createSubForm()
     {
@@ -23,7 +25,7 @@ class ShipmentSubFormPlugin extends AbstractPlugin implements CheckoutSubFormPlu
     }
 
     /**
-     * @return \Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface
+     * @return \Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface
      */
     public function createSubFormDataProvider()
     {

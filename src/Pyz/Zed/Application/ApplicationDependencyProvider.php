@@ -15,7 +15,6 @@ use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\Config;
-use Spryker\Shared\Symfony\Plugin\ServiceProvider\DoubleSubmitProtectionServiceProvider;
 use Spryker\Zed\Acl\Communication\Plugin\Bootstrap\AclBootstrapProvider;
 use Spryker\Zed\Application\ApplicationDependencyProvider as SprykerApplicationDependencyProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\DateFormatterServiceProvider;
@@ -98,7 +97,6 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
         }
 
         $providers = array_merge($providers, $coreProviders);
-        //$providers[] = new DoubleSubmitProtectionServiceProvider();
 
         return $providers;
     }

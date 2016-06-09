@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2a84c84154c78c31e107cb7e0d4a663b",
-    "content-hash": "38b0ed0b660e468d5dd998c2f5b16012",
+    "hash": "ac202cc85534fe77e8190ffee8dd1981",
+    "content-hash": "c9e8751a66d7de8550a9617f032270e7",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -945,11 +945,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/763-discount-refactoring",
+            "version": "dev-bugfix/1939-touchFacade-touchDeleted-problem",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "874069497f12e3184a8756ca82a04c56baa559c1"
+                "reference": "38c1f81dc9672ca1cceb56d6dd4d2bafda1829bf"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1082,6 +1082,9 @@
                     "Spryker\\Zed\\DiscountCalculationConnector\\": "Bundles/DiscountCalculationConnector/src",
                     "Unit\\Spryker\\Zed\\DiscountCalculationConnector\\": "Bundles/DiscountCalculationConnector/tests",
                     "Functional\\Spryker\\Zed\\DiscountCalculationConnector\\": "Bundles/DiscountCalculationConnector/tests",
+                    "Spryker\\Yves\\DummyPayment\\": "Bundles/DummyPayment/src",
+                    "Spryker\\Shared\\DummyPayment\\": "Bundles/DummyPayment/src",
+                    "Spryker\\Zed\\DummyPayment\\": "Bundles/DummyPayment/src",
                     "Spryker\\Client\\EventJournal\\": "Bundles/EventJournal/src",
                     "Unit\\Spryker\\Client\\EventJournal\\": "Bundles/EventJournal/tests",
                     "Functional\\Spryker\\Client\\EventJournal\\": "Bundles/EventJournal/tests",
@@ -1396,13 +1399,7 @@
                     "Functional\\Spryker\\Shared\\ZedRequest\\": "Bundles/ZedRequest/tests",
                     "Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/src",
                     "Unit\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests",
-                    "Functional\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests",
-                    "Spryker\\Zed\\ProductDiscountConnector\\": "Bundles/ProductDiscountConnector/src",
-                    "Unit\\Spryker\\Zed\\ProductDiscountConnector\\": "Bundles/ProductDiscountConnector/tests",
-                    "Functional\\Spryker\\Zed\\ProductDiscountConnector\\": "Bundles/ProductDiscountConnector/tests",
-                    "Spryker\\Zed\\ProductCategoryDiscountConnector\\": "Bundles/ProductCategoryDiscountConnector/src",
-                    "Unit\\Spryker\\Zed\\ProductCategoryDiscountConnector\\": "Bundles/ProductCategoryDiscountConnector/tests",
-                    "Functional\\Spryker\\Zed\\ProductCategoryDiscountConnector\\": "Bundles/ProductCategoryDiscountConnector/tests"
+                    "Functional\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests"
                 },
                 "psr-4": {
                     "Testify\\Module\\": "Bundles/Testify/tests/_support/Module",
@@ -1419,7 +1416,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-06-07 15:18:41"
+            "time": "2016-06-09 10:30:48"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2940,27 +2937,27 @@
         },
         {
             "name": "zendframework/zend-code",
-            "version": "2.6.3",
+            "version": "2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-code.git",
-                "reference": "95033f061b083e16cdee60530ec260d7d628b887"
+                "reference": "c4e8f976a772cfb14b47dabd69b5245a423082b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-code/zipball/95033f061b083e16cdee60530ec260d7d628b887",
-                "reference": "95033f061b083e16cdee60530ec260d7d628b887",
+                "url": "https://api.github.com/repos/zendframework/zend-code/zipball/c4e8f976a772cfb14b47dabd69b5245a423082b4",
+                "reference": "c4e8f976a772cfb14b47dabd69b5245a423082b4",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5 || 7.0.0 - 7.0.4 || ^7.0.6",
-                "zendframework/zend-eventmanager": "^2.6 || ^3.0"
+                "php": ">=5.5",
+                "zendframework/zend-eventmanager": "^2.6|^3.0"
             },
             "require-dev": {
                 "doctrine/annotations": "~1.0",
                 "fabpot/php-cs-fixer": "1.7.*",
-                "phpunit/phpunit": "^4.8.21",
-                "zendframework/zend-stdlib": "^2.7 || ^3.0"
+                "phpunit/phpunit": "~4.0",
+                "zendframework/zend-stdlib": "~2.7"
             },
             "suggest": {
                 "doctrine/annotations": "Doctrine\\Common\\Annotations >=1.0 for annotation features",
@@ -2988,7 +2985,7 @@
                 "code",
                 "zf2"
             ],
-            "time": "2016-04-20 17:26:42"
+            "time": "2016-01-05 05:58:37"
         },
         {
             "name": "zendframework/zend-config",
@@ -3350,16 +3347,16 @@
         },
         {
             "name": "zendframework/zend-servicemanager",
-            "version": "2.7.6",
+            "version": "2.7.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-servicemanager.git",
-                "reference": "a6db4d13b9141fccce5dcb553df0295d6ad7d477"
+                "reference": "fb5b54db5ead533b38e311f14e9c01a79218bf2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-servicemanager/zipball/a6db4d13b9141fccce5dcb553df0295d6ad7d477",
-                "reference": "a6db4d13b9141fccce5dcb553df0295d6ad7d477",
+                "url": "https://api.github.com/repos/zendframework/zend-servicemanager/zipball/fb5b54db5ead533b38e311f14e9c01a79218bf2b",
+                "reference": "fb5b54db5ead533b38e311f14e9c01a79218bf2b",
                 "shasum": ""
             },
             "require": {
@@ -3398,7 +3395,7 @@
                 "servicemanager",
                 "zf2"
             ],
-            "time": "2016-04-27 19:07:40"
+            "time": "2016-02-02 14:11:46"
         },
         {
             "name": "zendframework/zend-stdlib",
@@ -3581,16 +3578,16 @@
     "packages-dev": [
         {
             "name": "codeception/codeception",
-            "version": "2.1.8",
+            "version": "2.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "f3daa61f0f11c531b33eb3623ab0daa599d88a79"
+                "reference": "65971b0dee4972710365b6102154cd412a9bf7b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/f3daa61f0f11c531b33eb3623ab0daa599d88a79",
-                "reference": "f3daa61f0f11c531b33eb3623ab0daa599d88a79",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/65971b0dee4972710365b6102154cd412a9bf7b1",
+                "reference": "65971b0dee4972710365b6102154cd412a9bf7b1",
                 "shasum": ""
             },
             "require": {
@@ -3658,7 +3655,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2016-04-15 02:56:43"
+            "time": "2016-03-12 01:15:25"
         },
         {
             "name": "doctrine/instantiator",
@@ -5447,16 +5444,16 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.3.1",
+            "version": "0.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "940915a9b69fe27ff9a0abfae395576d66dbdb2f"
+                "reference": "bd64bbf65217b2a6994e193445f116adf665fdf3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/940915a9b69fe27ff9a0abfae395576d66dbdb2f",
-                "reference": "940915a9b69fe27ff9a0abfae395576d66dbdb2f",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/bd64bbf65217b2a6994e193445f116adf665fdf3",
+                "reference": "bd64bbf65217b2a6994e193445f116adf665fdf3",
                 "shasum": ""
             },
             "require": {
@@ -5485,7 +5482,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-04-13 14:03:59"
+            "time": "2016-06-06 11:37:32"
         },
         {
             "name": "squizlabs/php_codesniffer",

@@ -23,7 +23,9 @@ class CheckoutController extends AbstractController
      */
     public function indexAction(Request $request)
     {
-        return $this->createStepProcess()->process($request);
+        $response = $this->createStepProcess()->process($request);
+
+        return $response;
     }
 
     /**
@@ -33,12 +35,14 @@ class CheckoutController extends AbstractController
      */
     public function customerAction(Request $request)
     {
-        return $this->createStepProcess()->process(
+        $response = $this->createStepProcess()->process(
             $request,
             $this->getFactory()
                 ->createCheckoutFormFactory()
-                ->createCustomerFormCollection($this->getQuoteTransfer())
+                ->createCustomerFormCollection()
         );
+
+        return $response;
     }
 
     /**
@@ -48,12 +52,14 @@ class CheckoutController extends AbstractController
      */
     public function addressAction(Request $request)
     {
-        return $this->createStepProcess()->process(
+        $response = $this->createStepProcess()->process(
             $request,
             $this->getFactory()
                 ->createCheckoutFormFactory()
-                ->createAddressFormCollection($this->getQuoteTransfer())
+                ->createAddressFormCollection()
         );
+
+        return $response;
     }
 
     /**
@@ -67,7 +73,7 @@ class CheckoutController extends AbstractController
             $request,
             $this->getFactory()
                 ->createCheckoutFormFactory()
-                ->createShipmentFormCollection($this->getQuoteTransfer())
+                ->createShipmentFormCollection()
         );
     }
 
@@ -82,7 +88,7 @@ class CheckoutController extends AbstractController
             $request,
             $this->getFactory()
                 ->createCheckoutFormFactory()
-                ->createPaymentFormCollection($this->getQuoteTransfer())
+                ->createPaymentFormCollection()
         );
     }
 
@@ -93,12 +99,14 @@ class CheckoutController extends AbstractController
      */
     public function summaryAction(Request $request)
     {
-        return $this->createStepProcess()->process(
+        $viewData = $this->createStepProcess()->process(
             $request,
             $this->getFactory()
                 ->createCheckoutFormFactory()
-                ->createSummaryFormCollection($this->getQuoteTransfer())
+                ->createSummaryFormCollection()
         );
+
+        return $viewData;
     }
 
     /**
@@ -122,36 +130,19 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
      * @return array
      */
-    public function errorAction(Request $request)
+    public function errorAction()
     {
         return [];
     }
 
     /**
-     * @return \Pyz\Yves\Checkout\Process\StepProcess
+     * @return \Spryker\Yves\StepEngine\Process\StepEngine
      */
     protected function createStepProcess()
     {
         return $this->getFactory()->createCheckoutProcess();
-    }
-
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
-    protected function getQuoteTransfer()
-    {
-        return $this->getCartClient()->getQuote();
-    }
-
-    /**
-     * @return \Spryker\Client\Cart\CartClientInterface
-     */
-    protected function getCartClient()
-    {
-        return $this->getFactory()->getCartClient();
     }
 
 }

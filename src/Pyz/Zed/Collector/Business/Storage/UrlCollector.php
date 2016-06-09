@@ -7,9 +7,17 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
+use Generated\Shared\Transfer\LocaleTransfer;
 use Spryker\Shared\Kernel\Store;
+use Spryker\Shared\Library\BatchIterator\CountableIteratorInterface;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
+use Spryker\Zed\Collector\Business\Exporter\Reader\ReaderInterface;
+use Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface;
+use Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface;
+use Spryker\Zed\Collector\Business\Model\BatchResultInterface;
+use Spryker\Zed\Collector\CollectorConfig;
 use Spryker\Zed\Url\UrlConfig;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class UrlCollector extends AbstractStoragePdoCollector
 {
@@ -111,7 +119,10 @@ class UrlCollector extends AbstractStoragePdoCollector
             $data[self::RESOURCE_TYPE] . '.' . $data[self::VALUE],
         ];
 
-        return $this->escapeKey(implode($this->keySeparator, $keyParts));
+        return $this->escapeKey(implode(
+            $this->keySeparator,
+            $keyParts
+        ));
     }
 
     /**
@@ -135,6 +146,155 @@ class UrlCollector extends AbstractStoragePdoCollector
     public function getBundleName()
     {
         return 'url';
+    }
+
+    /**
+     * @param \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface $batchCollection
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
+     * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $batchResult
+     * @param \Spryker\Zed\Collector\Business\Exporter\Reader\ReaderInterface $storeReader
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $storeWriter
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     *
+     * @return void
+     */
+    public function exportDataToStore(
+        CountableIteratorInterface $batchCollection,
+        TouchUpdaterInterface $touchUpdater,
+        BatchResultInterface $batchResult,
+        ReaderInterface $storeReader,
+        WriterInterface $storeWriter,
+        LocaleTransfer $locale,
+        OutputInterface $output
+    ) {
+
+        parent::exportDataToStore(
+            $batchCollection,
+            $touchUpdater,
+            $batchResult,
+            $storeReader,
+            $storeWriter,
+            $locale,
+            $output
+        );
+
+        $output->writeln('');
+        $output->writeln(sprintf(
+            '<fg=yellow>Processing URL Keys:</fg=yellow> <fg=white>%s</fg=white>',
+            $locale->getLocaleName()
+        ));
+        $output->writeln('<fg=yellow>--------------------------</fg=yellow>');
+
+        $progressBar = $this->startProgressBar($batchCollection, $batchResult, $output);
+
+        foreach ($batchCollection as $batch) {
+            $progressBar->advance(count($batch));
+            $this->processUrlKeys($batch, $storeReader, $storeWriter, $locale->getLocaleName());
+        }
+
+        $progressBar->finish();
+        $output->writeln('');
+    }
+
+    /**
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $storeWriter
+     * @param string $itemType
+     *
+     * @return int
+     */
+    public function deleteDataFromStore(
+        TouchUpdaterInterface $touchUpdater,
+        WriterInterface $storeWriter,
+        $itemType
+    ) {
+        $touchCollection = $this->getTouchCollectionToDelete($itemType);
+        $keysToDelete = [];
+
+        foreach ($touchCollection as $touchEntry) {
+            $touchId = $touchEntry[CollectorConfig::COLLECTOR_TOUCH_ID];
+            $touchKey = $touchEntry[CollectorConfig::COLLECTOR_STORAGE_KEY];
+            $url = strstr($touchKey, "/");
+            $urlKeyPointer = str_replace($url, $touchId, $touchKey);
+            $keysToDelete[$urlKeyPointer] = true;
+        }
+
+        if ($keysToDelete) {
+            $storeWriter->delete($keysToDelete);
+        }
+
+        return parent::deleteDataFromStore($touchUpdater, $storeWriter, $itemType);
+    }
+
+    /**
+     * @param array $data
+     * @param \Spryker\Zed\Collector\Business\Exporter\Reader\ReaderInterface $storeReader
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $storeWriter
+     * @param string $localeName
+     *
+     * @return void
+     */
+    protected function processUrlKeys(
+        array $data,
+        ReaderInterface $storeReader,
+        WriterInterface $storeWriter,
+        $localeName
+    ) {
+        foreach ($data as $collectedItemData) {
+            $urlTouchKey = $this->collectKey(
+                $collectedItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
+                $localeName,
+                $collectedItemData
+            );
+
+            $url = $collectedItemData[CollectorConfig::COLLECTOR_TYPE_URL];
+            $touchId = $collectedItemData[CollectorConfig::COLLECTOR_TOUCH_ID];
+            $urlKeyPointer = str_replace($url, $touchId, $urlTouchKey);
+
+            $this->removeKeyUsingPointerFromStore($storeReader, $storeWriter, $urlKeyPointer);
+
+            $this->writeTouchKeyPointerInStore($urlKeyPointer, $urlTouchKey, $storeWriter);
+        }
+    }
+
+    /**
+     * @param \Spryker\Zed\Collector\Business\Exporter\Reader\ReaderInterface $storeReader
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $storeWriter
+     * @param string $touchKeyPointer
+     *
+     * @return void
+     */
+    protected function removeKeyUsingPointerFromStore(
+        ReaderInterface $storeReader,
+        WriterInterface $storeWriter,
+        $touchKeyPointer
+    ) {
+        $oldUrl = $storeReader->read($touchKeyPointer);
+
+        if (!empty($oldUrl[CollectorConfig::COLLECTOR_STORAGE_KEY])) {
+            $storeWriter->delete([
+                $oldUrl[CollectorConfig::COLLECTOR_STORAGE_KEY] => true
+            ]);
+        }
+    }
+
+    /**
+     * @param string $touchKeyPointer
+     * @param string $touchKey
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $storeWriter
+     *
+     * @return void
+     */
+    protected function writeTouchKeyPointerInStore($touchKeyPointer, $touchKey, WriterInterface $storeWriter)
+    {
+        $dataToWrite = [
+            $touchKeyPointer => [
+                CollectorConfig::COLLECTOR_STORAGE_KEY => $touchKey
+            ]
+        ];
+
+        $storeWriter->write($dataToWrite);
     }
 
 }
