@@ -128,12 +128,9 @@ class SessionServiceProvider extends AbstractServiceProvider
      */
     protected function setSessionStorageOptions(Application $app)
     {
-        $dateTime = new \DateTime();
-        $dateTime->modify('+5 years');
-
         $sessionStorageOptions = [
             'cookie_httponly' => true,
-            'cookie_lifetime' => $dateTime->getTimestamp(),
+            'cookie_lifetime' => Config::get(ApplicationConstants::YVES_STORAGE_SESSION_TIME_TO_LIVE),
             'cookie_secure' => $this->secureCookie(),
         ];
 
