@@ -956,6 +956,7 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "d55d4ae8dfa3db959006cb6a4cdae3240f3aab82"
 =======
 =======
@@ -971,6 +972,9 @@
 =======
                 "reference": "17707a2e14edda2d8bdd13c661fdefc3bda49e2c"
 >>>>>>> 2140 update spryker/spryker
+>>>>>>> 2140 update spryker/spryker
+=======
+                "reference": "23e9b5b27c0a65ad59488b9dc4e21ee19378718a"
 >>>>>>> 2140 update spryker/spryker
             },
             "require": {
@@ -1444,6 +1448,7 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-06-10 10:26:20"
 =======
 =======
@@ -1459,6 +1464,9 @@
 =======
             "time": "2016-06-09 12:57:26"
 >>>>>>> 2140 update spryker/spryker
+>>>>>>> 2140 update spryker/spryker
+=======
+            "time": "2016-06-09 13:07:17"
 >>>>>>> 2140 update spryker/spryker
         },
         {
