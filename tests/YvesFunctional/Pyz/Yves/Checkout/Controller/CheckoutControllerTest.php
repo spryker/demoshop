@@ -263,6 +263,8 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * This test only works with DummyPayment
+     *
      * @return void
      */
     public function testPaymentAction()
@@ -274,7 +276,7 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
         $paymentData = $this->getFormData(self::PAYMENT_URL, self::PAYMENT_ACTION, self::PAYMENT_ROUTE, self::PAYMENT_FORM);
         $paymentData[PaymentForm::PAYMENT_SELECTION] = DummyPaymentConfig::PAYMENT_METHOD_INVOICE;
 
-        $paymentData['DummyPayment_invoice'] = [
+        $paymentData[DummyPaymentConfig::PAYMENT_METHOD_INVOICE] = [
             AbstractSubForm::FIELD_DATE_OF_BIRTH => '06.12.1980'
         ];
 

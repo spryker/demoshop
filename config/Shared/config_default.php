@@ -354,6 +354,7 @@ $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_PROVIDER] = \Spryker\Sha
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = false;
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = true;
 
+
 $config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [
     'Checkout' => [
         'DummyPayment',
@@ -368,11 +369,11 @@ $config[KernelConstants::DEPENDENCY_INJECTOR_ZED] = [
 
 $config[OmsConstants::PROCESS_LOCATION] = [
     OmsConfig::DEFAULT_PROCESS_LOCATION,
-    $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] . '/DummyPayment/config/Zed/Oms'
+    $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] . '/DummyPayment/config/Zed/Oms',
 ];
 
 $config[OmsConstants::ACTIVE_PROCESSES] = [
-    'DummyPayment01'
+    'DummyPayment01',
 ];
 
 $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
