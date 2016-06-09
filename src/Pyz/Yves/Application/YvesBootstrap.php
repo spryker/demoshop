@@ -102,10 +102,6 @@ class YvesBootstrap
         $this->application->register(new HeadersSecurityServiceProvider());
         $this->application->register(new WebProfilerServiceProvider());
         $this->application->register(new AutoloaderCacheServiceProvider());
-
-        if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER, false)) {
-            $this->application->register(new WebProfilerServiceProvider());
-        }
     }
 
     /**
