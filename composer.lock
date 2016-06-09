@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b3c261718f1b805a0ff8285add4e401b",
-    "content-hash": "db4b2e2916150ed259470a67f6a7634d",
+    "hash": "4df9d4510b799228a3cdf28e0a10c92a",
+    "content-hash": "1e9fc50f20452203f7875320a5c96832",
     "packages": [
         {
             "name": "codeception/codeception",
@@ -5292,11 +5292,11 @@
         },
         {
             "name": "spryker/oms",
-            "version": "2.1.3",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Oms.git",
-                "reference": "1e425679a65fe1b4cac6c546095218610227ff89",
+                "reference": "42d5d950c53373a07c78fad52542cf6743352be5",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5306,8 +5306,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Oms/zipball/1e425679a65fe1b4cac6c546095218610227ff89",
-                "reference": "1e425679a65fe1b4cac6c546095218610227ff89",
+                "url": "https://api.github.com/repos/spryker/Oms/zipball/42d5d950c53373a07c78fad52542cf6743352be5",
+                "reference": "42d5d950c53373a07c78fad52542cf6743352be5",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5358,7 +5358,7 @@
             "support": {
                 "source": "https://github.com/spryker/Oms/tree/master"
             },
-            "time": "2016-06-08 11:55:22"
+            "time": "2016-06-08 13:58:45"
         },
         {
             "name": "spryker/oms-discount-connector",

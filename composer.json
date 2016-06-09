@@ -49,7 +49,7 @@
     "spryker/new-relic": "^2.0.0",
     "spryker/newsletter": "^2.0.0",
     "spryker/nopayment": "^2.0.0",
-    "spryker/oms": "^2.0.0",
+    "spryker/oms": "^3.0.0",
     "spryker/oms-discount-connector": "^2.0.0",
     "spryker/payment": "^1.0.0",
     "spryker/payolution": "^2.0.0",
