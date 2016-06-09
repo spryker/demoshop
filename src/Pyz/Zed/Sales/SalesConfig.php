@@ -19,8 +19,8 @@ class SalesConfig extends SprykerSalesConfig
      * @var array
      */
     protected static $stateMachineMapper = [
-        PaymentTransfer::PAYOLUTION_INVOICE => 'PayolutionPayment01',
-        PaymentTransfer::PAYOLUTION_INSTALLMENT => 'PayolutionPayment01',
+        PaymentTransfer::DUMMY_PAYMENT_INVOICE => 'DummyPayment01',
+        PaymentTransfer::DUMMY_PAYMENT_CREDIT_CARD => 'DummyPayment01',
     ];
 
     /**

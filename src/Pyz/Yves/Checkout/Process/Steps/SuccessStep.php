@@ -1,16 +1,18 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
+
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
+use Spryker\Shared\Transfer\AbstractTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
-class SuccessStep extends BaseStep
+class SuccessStep extends AbstractBaseStep
 {
 
     /**
@@ -19,34 +21,23 @@ class SuccessStep extends BaseStep
     protected $customerClient;
 
     /**
-     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
+     * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
      * @param string $stepRoute
      * @param string $escapeRoute
-     * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
      */
-    public function __construct(FlashMessengerInterface $flashMessenger, $stepRoute, $escapeRoute, CustomerClientInterface $customerClient)
+    public function __construct(CustomerClientInterface $customerClient, $stepRoute, $escapeRoute)
     {
-        parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
+        parent::__construct($stepRoute, $escapeRoute);
 
         $this->customerClient = $customerClient;
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer $quoteTransfer
      *
      * @return bool
      */
-    public function preCondition(QuoteTransfer $quoteTransfer)
-    {
-        return !$this->isCartEmpty($quoteTransfer);
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
-    public function requireInput(QuoteTransfer $quoteTransfer)
+    public function requireInput(AbstractTransfer $quoteTransfer)
     {
         return true;
     }
@@ -55,11 +46,11 @@ class SuccessStep extends BaseStep
      * Empty quote transfer and mark logged in customer as "dirty" to force update it in the next request.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer)
+    public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
         $this->customerClient->markCustomerAsDirty();
 
@@ -67,11 +58,11 @@ class SuccessStep extends BaseStep
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
-    public function postCondition(QuoteTransfer $quoteTransfer)
+    public function postCondition(AbstractTransfer $quoteTransfer)
     {
         if ($quoteTransfer->getOrderReference() === null) {
             return false;
