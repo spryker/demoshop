@@ -7,11 +7,11 @@
 
 namespace Pyz\Zed\Payment;
 
-use Spryker\Shared\Payolution\PayolutionConstants;
+use Spryker\Shared\DummyPayment\DummyPaymentConstants;
+use Spryker\Zed\DummyPayment\Communication\Plugin\Checkout\DummyPaymentPreCheckPlugin;
+use Spryker\Zed\DummyPayment\Communication\Plugin\Checkout\DummyPaymentSaveOrderPlugin;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Payment\PaymentDependencyProvider as SprykerPaymentDependencyProvider;
-use Spryker\Zed\Payolution\Communication\Plugin\Checkout\PayolutionPreCheckPlugin;
-use Spryker\Zed\Payolution\Communication\Plugin\Checkout\PayolutionSaveOrderPlugin;
 
 class PaymentDependencyProvider extends SprykerPaymentDependencyProvider
 {
@@ -24,10 +24,10 @@ class PaymentDependencyProvider extends SprykerPaymentDependencyProvider
     {
         return [
             self::CHECKOUT_PRE_CHECK_PLUGINS => [
-                PayolutionConstants::PAYOLUTION => new PayolutionPreCheckPlugin(),
+                DummyPaymentConstants::PROVIDER_NAME => new DummyPaymentPreCheckPlugin(),
             ],
             self::CHECKOUT_ORDER_SAVER_PLUGINS => [
-                PayolutionConstants::PAYOLUTION => new PayolutionSaveOrderPlugin(),
+                DummyPaymentConstants::PROVIDER_NAME => new DummyPaymentSaveOrderPlugin(),
             ],
             self::CHECKOUT_POST_SAVE_PLUGINS => [],
         ];
