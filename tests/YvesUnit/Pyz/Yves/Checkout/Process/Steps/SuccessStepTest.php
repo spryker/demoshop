@@ -8,7 +8,6 @@ namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -18,7 +17,7 @@ class SuccessStepTest extends \PHPUnit_Framework_TestCase
     /**
      * @return void
      */
-    public function testExecuteShouldReturnEmptyQuoteTransfer()
+    public function testExecuteShouldEmptyQuoteTransfer()
     {
         $customerClientMock = $this->createCustomerClientMock();
         $customerClientMock->expects($this->once())->method('markCustomerAsDirty');
@@ -28,9 +27,10 @@ class SuccessStepTest extends \PHPUnit_Framework_TestCase
         $quoteTransfer = new QuoteTransfer();
         $quoteTransfer->addItem(new ItemTransfer());
 
+        $this->assertTrue($successStep->preCondition($quoteTransfer));
         $quoteTransfer = $successStep->execute($this->createRequest(), $quoteTransfer);
 
-        $this->assertCount(0, $quoteTransfer->getItems());
+        $this->assertFalse($successStep->preCondition($quoteTransfer));
     }
 
     /**
@@ -38,7 +38,6 @@ class SuccessStepTest extends \PHPUnit_Framework_TestCase
      */
     public function testPostConditionsWhenOrderReferenceIsSetShouldReturnTrue()
     {
-
         $successStep = $this->createSuccessStep();
 
         $quoteTransfer = new QuoteTransfer();
@@ -54,13 +53,14 @@ class SuccessStepTest extends \PHPUnit_Framework_TestCase
     {
         $successStep = $this->createSuccessStep();
         $quoteTransfer = new QuoteTransfer();
+
         $this->assertFalse($successStep->postCondition($quoteTransfer));
     }
 
-
     /**
-     * @return \Pyz\Yves\Checkout\Process\Steps\SuccessStep
+     * @param \Pyz\Client\Customer\CustomerClientInterface|null $customerClientMock
      *
+     * @return \Pyz\Yves\Checkout\Process\Steps\SuccessStep
      */
     protected function createSuccessStep($customerClientMock = null)
     {
@@ -69,10 +69,9 @@ class SuccessStepTest extends \PHPUnit_Framework_TestCase
         }
 
         return new SuccessStep(
-            $this->createFlashMessengerMock(),
+            $customerClientMock,
             'success_route',
-            'escape_route',
-            $customerClientMock
+            'escape_route'
         );
     }
 
@@ -82,14 +81,6 @@ class SuccessStepTest extends \PHPUnit_Framework_TestCase
     protected function createRequest()
     {
         return Request::createFromGlobals();
-    }
-
-    /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Application\Business\Model\FlashMessengerInterface
-     */
-    protected function createFlashMessengerMock()
-    {
-        return $this->getMock(FlashMessengerInterface::class);
     }
 
     /**

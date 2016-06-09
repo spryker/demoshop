@@ -128,9 +128,10 @@ class TwigServiceProvider extends SilexTwigServiceProvider
                 $paths[] = APPLICATION_SOURCE_DIR . '/' . $namespace . '/Yves/%s' . $store . '/Theme/' . $themeName;
                 $paths[] = APPLICATION_SOURCE_DIR . '/' . $namespace . '/Yves/%s/Theme/' . $themeName;
             }
-            $paths[] = APPLICATION_VENDOR_DIR . '/spryker/spryker/Bundles/%1$s/Yves/%1$s/Theme/' . $themeName;
+            $paths[] = Config::get(ApplicationConstants::APPLICATION_SPRYKER_ROOT) . '/%1$s/src/Spryker/Yves/%1$s/Theme/' . $themeName;
 
             return new YvesFilesystemLoader($paths);
+
         });
     }
 

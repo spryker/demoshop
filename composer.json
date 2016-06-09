@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-feature/2107-LIVE04-05-06-Security-headers",
+    "spryker/spryker": "dev-bugfix/1939-touchFacade-touchDeleted-problem",
 
     "psr/log": "~1.0.0",
     "propel/propel": "~2.0@dev",
