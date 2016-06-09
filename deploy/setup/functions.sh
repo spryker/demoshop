@@ -18,6 +18,7 @@ BACKGROUND=`tput setab 4` # background blue
 INFO=`tput setaf 3` # yellow text
 TEAL=`tput setab 5` # background magenta
 COLOR=`tput setaf 7` # text white
+SUCCESS_COLOR=`tput setaf 0` # text black
 NC=`tput sgr0` # reset
 
 if [[ `echo "$@" | grep '\-v'` ]]; then
@@ -45,7 +46,7 @@ function infoText {
 }
 
 function successText {
-    echo -e "\n${GREEN}${COLOR}=> ${1} <=${NC}\n"
+    echo -e "\n${GREEN}${SUCCESS_COLOR}=> ${1} <=${NC}\n"
 }
 
 function setupText {
@@ -55,7 +56,7 @@ function setupText {
 function writeErrorMessage {
     if [[ $? != 0 ]]; then
         errorText "${1}"
-        errorText "Setup unsuccessful"
+        errorText "Command unsuccessful"
         exit 1
     fi
 }
@@ -96,22 +97,22 @@ function restoreDevelopmentDatabase {
 function installDemoshop {
 
     labelText "Preparing to install Spryker Platform..."
+
+    #updateComposerBinary
+
+    #composerInstall
+
+    #installZed
+
     sleep 1
 
-    updateComposerBinary
+    #installYves
 
-    composerInstall
-
-    installZed
-
-    installYves
-
-    configureCodeception
+    #configureCodeception
 
     successText "Setup successful"
 
-    infoText "Yves url: http://www.de.spryker.dev/"
-    infoText "Zed url: http://zed.de.spryker.dev/"
+    infoText "\nYves url: http://www.de.spryker.dev/\nZed url: http://zed.de.spryker.dev/\n"
 }
 
 function installZed {
@@ -137,6 +138,8 @@ function installZed {
     $CONSOLE setup:jenkins:generate $VERBOSITY
     writeErrorMessage "Cronjob setup failed"
 
+    antelopeInstallZed
+
     labelText "Zed setup successful"
 }
 
@@ -145,7 +148,8 @@ function installYves {
 
     resetYves
 
-    . deploy/setup/frontend.sh
+    #. deploy/setup/frontend.sh
+    antelopeInstallYves
 
     labelText "Yves setup successful"
 }
@@ -239,6 +243,7 @@ function updateComposerBinary {
 }
 
 function composerInstall {
+    echo $@
     labelText "Installing composer packages"
     $PHP composer.phar install --prefer-dist
 }
@@ -265,6 +270,57 @@ function resetYves {
         labelText "Clear cache"
         rm -rf "./data/DE/cache"
         writeErrorMessage "Could not remove cache directory"
+    fi
+}
+
+function checkNodejsVersion {
+    if [[ `node -v | grep -E '^v[0-4]'` ]]; then
+        labelText "Upgrade Node.js"
+        $CURL -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+
+        sudo apt-get install -y nodejs
+
+        #here should check if node executable exists
+
+        #sudo $NPM cache clean -f
+
+        #sudo $NPM install -g n
+        #writeErrorMessage "NPM build failed"
+
+        #sudo n 5.11.0
+
+        successText "Node.js updated to version `node -v`"
+        successText "NPM updated to version `$NPM -v`"
+    fi
+}
+
+function antelopeInstallZed {
+    checkNodejsVersion
+
+    ANTELOPE_TOOL=`which antelope`
+
+    if [[ -f $ANTELOPE_TOOL ]]; then
+        labelText "Installing project dependencies"
+        $ANTELOPE_TOOL install
+
+        labelText "Building and optimizing assets for Zed"
+        $ANTELOPE_TOOL build zed
+        writeErrorMessage "Antelope build failed"
+    fi
+}
+
+function antelopeInstallYves {
+    checkNodejsVersion
+
+    ANTELOPE_TOOL=`which antelope`
+
+    if [[ -f $ANTELOPE_TOOL ]]; then
+        labelText "Installing project dependencies"
+        $ANTELOPE_TOOL install
+
+        labelText "Building and optimizing assets for Yves"
+        $ANTELOPE_TOOL build yves
+        writeErrorMessage "Antelope build failed"
     fi
 }
 

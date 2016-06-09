@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "---- REMOVE THIS FILE ----"
+exit 0
+
 if [[ -z "$SETUP" ]]; then
     tput setab 1
     echo "Please do not run this script individually"
