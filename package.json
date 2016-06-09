@@ -16,12 +16,5 @@
     "jquery-ui": "~1.10.5",
     "slick-carousel": "~1.5.9",
     "underscore": "~1.8.3"
-  },
-  "scripts": {
-    "compile": [
-      "mkdir -p ./data/DE/logs",
-      "echo '<?php return \"development_heroku\";' > config/Shared/console_env_local.php",
-      "./deploy/heroku/run.sh"
-    ]
   }
 }
