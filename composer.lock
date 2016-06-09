@@ -4,8 +4,13 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "hash": "032367144ef39c4ce672d9861c5bd70d",
     "content-hash": "acc38c61be29eba8e913c8f9f5103d30",
+=======
+    "hash": "53d9e76a1f0877913df267843b030f2b",
+    "content-hash": "43f5828af3344edc688a7c1637d0fd99",
+>>>>>>> 2140 fixed test, update spryker/spryker
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -945,11 +950,19 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/2140-Allow-Injection-into-Oms-Sales-and-Payment-bundle",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "d55d4ae8dfa3db959006cb6a4cdae3240f3aab82"
+=======
+<<<<<<< HEAD
+                "reference": "73b1c0884dea9ab5eafe7c431f83e56290f8d3d0"
+=======
+                "reference": "a27bae00eeb5b81bc748edddd607ca8c6fe6e650"
+>>>>>>> 2140 fixed test, update spryker/spryker
+>>>>>>> 2140 fixed test, update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1420,7 +1433,15 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2016-06-10 10:26:20"
+=======
+<<<<<<< HEAD
+            "time": "2016-06-08 16:35:57"
+=======
+            "time": "2016-06-09 12:07:36"
+>>>>>>> 2140 fixed test, update spryker/spryker
+>>>>>>> 2140 fixed test, update spryker/spryker
         },
         {
             "name": "symfony-cmf/routing",

@@ -22,6 +22,7 @@ use Spryker\Shared\User\UserConstants;
 use Spryker\Zed\Oms\OmsConfig;
 use Spryker\Zed\Propel\PropelConfig;
 use Spryker\Zed\DummyPayment\DummyPaymentConfig;
+use Spryker\Zed\Payolution\PayolutionConfig;
 
 $config[ApplicationConstants::PROJECT_NAMESPACES] = [
     'Pyz',
@@ -355,30 +356,26 @@ $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = true;
 
 $config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [
     'Checkout' => [
-//        'DummyPayment',
-        'Payolution',
+        'DummyPayment',
     ],
 ];
+
 $config[KernelConstants::DEPENDENCY_INJECTOR_ZED] = [
     'Payment' => [
-//        'DummyPayment',
-        'Payolution',
+        'DummyPayment',
     ],
 ];
 
 $config[OmsConstants::PROCESS_LOCATION] = [
     OmsConfig::DEFAULT_PROCESS_LOCATION,
-//    $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] . '/DummyPayment/config/Zed/Oms'
-    $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] . '/Payolution/config/Zed/Oms'
+    $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] . '/DummyPayment/config/Zed/Oms'
 ];
 
 $config[OmsConstants::ACTIVE_PROCESSES] = [
-    'PayolutionPayment01'
+    'DummyPayment01'
 ];
 
 $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
-//    DummyPaymentConfig::PAYMENT_METHOD_INVOICE => 'PayolutionPayment01',
-//    DummyPaymentConfig::PAYMENT_METHOD_CREDIT_CARD => 'PayolutionPayment01',
-    \Spryker\Zed\Payolution\PayolutionConfig::PAYMENT_METHOD_INVOICE => 'PayolutionPayment01',
-    \Spryker\Zed\Payolution\PayolutionConfig::PAYMENT_METHOD_INSTALLMENT => 'PayolutionPayment01',
+    DummyPaymentConfig::PAYMENT_METHOD_INVOICE => 'DummyPayment01',
+    DummyPaymentConfig::PAYMENT_METHOD_CREDIT_CARD => 'DummyPayment01',
 ];
