@@ -19,10 +19,9 @@ use Spryker\Shared\Sales\SalesConstants;
 use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\User\UserConstants;
+use Spryker\Zed\DummyPayment\DummyPaymentConfig;
 use Spryker\Zed\Oms\OmsConfig;
 use Spryker\Zed\Propel\PropelConfig;
-use Spryker\Zed\DummyPayment\DummyPaymentConfig;
-use Spryker\Zed\Payolution\PayolutionConfig;
 
 $config[ApplicationConstants::PROJECT_NAMESPACES] = [
     'Pyz',
