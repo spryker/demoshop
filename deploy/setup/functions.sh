@@ -294,8 +294,16 @@ function checkNodejsVersion {
     fi
 }
 
+function installAntelope {
+    labelText "Install Antelope tool globally"
+    sudo $NPM install -g antelope
+    writeErrorMessage "Antelope setup failed"
+}
+
 function antelopeInstallZed {
     checkNodejsVersion
+
+    installAntelope
 
     ANTELOPE_TOOL=`which antelope`
 
@@ -311,6 +319,8 @@ function antelopeInstallZed {
 
 function antelopeInstallYves {
     checkNodejsVersion
+
+    installAntelope
 
     ANTELOPE_TOOL=`which antelope`
 
