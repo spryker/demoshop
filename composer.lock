@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ac202cc85534fe77e8190ffee8dd1981",
-    "content-hash": "c9e8751a66d7de8550a9617f032270e7",
+    "hash": "b3e5ca4be57a26e82728e86c2f070418",
+    "content-hash": "38b0ed0b660e468d5dd998c2f5b16012",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -945,11 +945,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/1939-touchFacade-touchDeleted-problem",
+            "version": "dev-feature/763-discount-refactoring",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "38c1f81dc9672ca1cceb56d6dd4d2bafda1829bf"
+                "reference": "186eb618a829d0aab217110fe9805a2575f4bfd7"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1399,7 +1399,13 @@
                     "Functional\\Spryker\\Shared\\ZedRequest\\": "Bundles/ZedRequest/tests",
                     "Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/src",
                     "Unit\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests",
-                    "Functional\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests"
+                    "Functional\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests",
+                    "Spryker\\Zed\\ProductDiscountConnector\\": "Bundles/ProductDiscountConnector/src",
+                    "Unit\\Spryker\\Zed\\ProductDiscountConnector\\": "Bundles/ProductDiscountConnector/tests",
+                    "Functional\\Spryker\\Zed\\ProductDiscountConnector\\": "Bundles/ProductDiscountConnector/tests",
+                    "Spryker\\Zed\\ProductCategoryDiscountConnector\\": "Bundles/ProductCategoryDiscountConnector/src",
+                    "Unit\\Spryker\\Zed\\ProductCategoryDiscountConnector\\": "Bundles/ProductCategoryDiscountConnector/tests",
+                    "Functional\\Spryker\\Zed\\ProductCategoryDiscountConnector\\": "Bundles/ProductCategoryDiscountConnector/tests"
                 },
                 "psr-4": {
                     "Testify\\Module\\": "Bundles/Testify/tests/_support/Module",
@@ -1416,7 +1422,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-06-09 10:30:48"
+            "time": "2016-06-09 14:57:29"
         },
         {
             "name": "symfony-cmf/routing",
