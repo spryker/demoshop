@@ -119,7 +119,10 @@ class UrlCollector extends AbstractStoragePdoCollector
             $data[self::RESOURCE_TYPE] . '.' . $data[self::VALUE],
         ];
 
-        return $this->escapeKey(implode($this->keySeparator, $keyParts));
+        return $this->escapeKey(implode(
+            $this->keySeparator,
+            $keyParts
+        ));
     }
 
     /**
@@ -177,17 +180,15 @@ class UrlCollector extends AbstractStoragePdoCollector
         );
 
         $output->writeln('');
-        $output->writeln(sprintf('<fg=yellow>Processing URL Keys:</fg=yellow> <fg=white>%s</fg=white>', $locale->getLocaleName()));
+        $output->writeln(sprintf(
+            '<fg=yellow>Processing URL Keys:</fg=yellow> <fg=white>%s</fg=white>',
+            $locale->getLocaleName()
+        ));
         $output->writeln('<fg=yellow>--------------------------</fg=yellow>');
 
-        $progressBar = $this->startProgressBar(
-            $batchCollection,
-            $batchResult,
-            $output
-        );
+        $progressBar = $this->startProgressBar($batchCollection, $batchResult, $output);
 
         foreach ($batchCollection as $batch) {
-
             $progressBar->advance(count($batch));
             $this->processUrlKeys($batch, $storeReader, $storeWriter, $locale->getLocaleName());
         }
@@ -208,7 +209,7 @@ class UrlCollector extends AbstractStoragePdoCollector
         WriterInterface $storeWriter,
         $itemType
     ) {
-        $touchCollection = $this->getTouchCollectionToDelete(0, $itemType);
+        $touchCollection = $this->getTouchCollectionToDelete($itemType);
         $keysToDelete = [];
 
         foreach ($touchCollection as $touchEntry) {
@@ -223,11 +224,7 @@ class UrlCollector extends AbstractStoragePdoCollector
             $storeWriter->delete($keysToDelete);
         }
 
-        return parent::deleteDataFromStore(
-            $touchUpdater,
-            $storeWriter,
-            $itemType
-        );
+        return parent::deleteDataFromStore($touchUpdater, $storeWriter, $itemType);
     }
 
     /**
@@ -239,13 +236,12 @@ class UrlCollector extends AbstractStoragePdoCollector
      * @return void
      */
     protected function processUrlKeys(
-        $data,
+        array $data,
         ReaderInterface $storeReader,
         WriterInterface $storeWriter,
         $localeName
     ) {
         foreach ($data as $collectedItemData) {
-
             $urlTouchKey = $this->collectKey(
                 $collectedItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
                 $localeName,
@@ -256,17 +252,9 @@ class UrlCollector extends AbstractStoragePdoCollector
             $touchId = $collectedItemData[CollectorConfig::COLLECTOR_TOUCH_ID];
             $urlKeyPointer = str_replace($url, $touchId, $urlTouchKey);
 
-            $this->removeKeyUsingPointerFromStore(
-                $storeReader,
-                $storeWriter,
-                $urlKeyPointer
-            );
+            $this->removeKeyUsingPointerFromStore($storeReader, $storeWriter, $urlKeyPointer);
 
-            $this->writeTouchKeyPointerInStore(
-                $urlKeyPointer,
-                $urlTouchKey,
-                $storeWriter
-            );
+            $this->writeTouchKeyPointerInStore($urlKeyPointer, $urlTouchKey, $storeWriter);
         }
     }
 
@@ -283,8 +271,11 @@ class UrlCollector extends AbstractStoragePdoCollector
         $touchKeyPointer
     ) {
         $oldUrl = $storeReader->read($touchKeyPointer);
+
         if (!empty($oldUrl[CollectorConfig::COLLECTOR_STORAGE_KEY])) {
-            $storeWriter->delete([$oldUrl[CollectorConfig::COLLECTOR_STORAGE_KEY] => true]);
+            $storeWriter->delete([
+                $oldUrl[CollectorConfig::COLLECTOR_STORAGE_KEY] => true
+            ]);
         }
     }
 
@@ -295,12 +286,14 @@ class UrlCollector extends AbstractStoragePdoCollector
      *
      * @return void
      */
-    protected function writeTouchKeyPointerInStore(
-        $touchKeyPointer,
-        $touchKey,
-        WriterInterface $storeWriter
-    ) {
-        $dataToWrite = [$touchKeyPointer => [CollectorConfig::COLLECTOR_STORAGE_KEY => $touchKey]];
+    protected function writeTouchKeyPointerInStore($touchKeyPointer, $touchKey, WriterInterface $storeWriter)
+    {
+        $dataToWrite = [
+            $touchKeyPointer => [
+                CollectorConfig::COLLECTOR_STORAGE_KEY => $touchKey
+            ]
+        ];
+
         $storeWriter->write($dataToWrite);
     }
 
