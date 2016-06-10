@@ -26,10 +26,13 @@ use Spryker\Zed\Development\Communication\Console\DependencyTreeDependencyViolat
 use Spryker\Zed\Installer\Communication\Console\InitializeDatabaseConsole;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\NewRelic\Communication\Console\RecordDeploymentConsole;
-use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole;
-use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole;
+use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole as OmsCheckConditionConsole;
+use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole as OmsCheckTimeoutConsole;
 use Spryker\Zed\ProductSearch\Communication\Console\ProductSearchConsole;
 use Spryker\Zed\Search\Communication\Console\SearchConsole;
+use Spryker\Zed\StateMachine\Communication\Console\CheckConditionConsole as StateMachineCheckConditionConsole;
+use Spryker\Zed\StateMachine\Communication\Console\CheckTimeoutConsole as StateMachineCheckTimeoutConsole;
+use Spryker\Zed\StateMachine\Communication\Console\ClearLocks;
 use Spryker\Zed\Touch\Communication\Console\TouchCleanUpConsole;
 use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
 
@@ -46,8 +49,6 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
         $commands = [
             new ApplicationIntegrationCheckConsole(),
             new BuildNavigationConsole(),
-            new CheckConditionConsole(),
-            new CheckTimeoutConsole(),
             new CollectorStorageExportConsole(),
             new CollectorSearchExportConsole(),
             new CollectorSearchUpdateConsole(),
@@ -59,6 +60,11 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new ProductSearchConsole(),
             new RecordDeploymentConsole(),
             new SearchConsole(),
+            new OmsCheckConditionConsole(),
+            new OmsCheckTimeoutConsole(),
+            new StateMachineCheckTimeoutConsole(),
+            new StateMachineCheckConditionConsole(),
+            new ClearLocks()
         ];
 
         $propelCommands = $container->getLocator()->propel()->facade()->getConsoleCommands();

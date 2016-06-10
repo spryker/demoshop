@@ -33,7 +33,6 @@
         </xs:sequence>
         <xs:attribute type="xs:string" name="name" use="required"/>
         <xs:attribute type="xs:string" name="display" use="optional"/>
-        <xs:attribute type="xs:string" name="reserved" use="optional"/>
     </xs:complexType>
     <xs:complexType name="statemachineType" mixed="true">
         <xs:sequence>
@@ -64,7 +63,7 @@
         <xs:sequence>
             <xs:element name="process" maxOccurs="unbounded" minOccurs="0">
                 <xs:simpleType>
-                    <xs:restriction base="xs:string" />
+                    <xs:list itemType="xs:string"/>
                 </xs:simpleType>
             </xs:element>
         </xs:sequence>

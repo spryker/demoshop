@@ -1,0 +1,79 @@
+{% extends '@Cms/Layout/layout.twig' %}
+
+{% set widget_title = 'State machine example' %}
+
+{% block head_title widget_title %}
+{% block section_title widget_title %}
+
+{% block content %}
+    <a href="/state-machine-example/test/add-item">Add item</a>  <br />
+    <table class="table table-striped table-bordered table-hover gui-table-data dataTable">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>State</th>
+            <th>Trigger</th>
+            <td>Action</td>
+        </tr>
+    {% for exampleItem in stateMachineExampleItems %}
+        <tr>
+            <td>{{ exampleItem.IdStateMachineExampleItem }}</td>
+            <td>{{ exampleItem.name }}</td>
+            <td>
+                {% if exampleItem.FkStateMachineItemState is empty %}
+                    <a class="btn btn-primary btn-sm trigger-order-single-event"
+                       href="{{ url(
+                          '/state-machine/trigger/trigger-event-for-new-item',
+                           {
+                               identifier: exampleItem.IdStateMachineExampleItem,
+                               'state-machine-name': 'Test',
+                               'process-name' : 'Invoice01',
+                               redirect: '/state-machine-example/test/list'
+                           }) }}"
+                    >
+                        Initialise state machine
+                    </a>
+                {% else %}
+                    {% if stateMachineItems | length > 0 and stateMachineItems[exampleItem.IdStateMachineExampleItem] is defined %}
+                        <a href="{{ url(
+                          '/state-machine/graph/draw',
+                          {
+                              process: stateMachineItems[exampleItem.IdStateMachineExampleItem].getProcessName,
+                              'state-machine': 'Test',
+                              state : stateMachineItems[exampleItem.IdStateMachineExampleItem].getStateName,
+                              'highlight-state' : stateMachineItems[exampleItem.IdStateMachineExampleItem].getStateName
+                          }) }}"
+                        >
+                            {{ stateMachineItems[exampleItem.IdStateMachineExampleItem].getStateName }}
+                        </a>
+                    {%- endif %}
+                {% endif %}
+            </td>
+            <td>
+                {% if manualEvents | length > 0 and manualEvents[exampleItem.IdStateMachineExampleItem] is defined %}
+                    {% for event in manualEvents[exampleItem.IdStateMachineExampleItem] %}
+                    <a class="btn btn-primary btn-sm trigger-order-single-event"
+                       href="{{ url('/state-machine/trigger/trigger-event',
+                       {
+                           'event' : event,
+                           'identifier': exampleItem.IdStateMachineExampleItem,
+                           'id-state' : exampleItem.FkStateMachineItemState,
+                           redirect : '/state-machine-example/test/list'
+                       }) }}"
+                    >
+                            {{ event }}
+                        </a>
+                    {% endfor %}
+                {% else -%}
+                    No manual events
+                {%- endif %}
+            </td>
+            <td>
+                <a href="{{ url('/state-machine-example/test/delete-item', { id : exampleItem.IdStateMachineExampleItem }) }}">
+                    Delete
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
