@@ -102,7 +102,6 @@ function restoreDevelopmentDatabase {
 }
 
 function installDemoshop {
-
     labelText "Preparing to install Spryker Platform..."
 
     updateComposerBinary
@@ -169,9 +168,7 @@ function optimizeRepo {
 
 function resetDataStores {
     labelText "Flushing Elasticsearch"
-    curl -XDELETE 'http://localhost:10005/de_development_catalog/'
-    curl -XPUT 'http://localhost:10005/de_development_catalog/'
-    $CONSOLE setup:search
+    curl -XDELETE 'http://localhost:10005/de_search/'
     writeErrorMessage "Elasticsearch reset failed"
 
     labelText "Flushing Redis"
