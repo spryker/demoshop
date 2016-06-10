@@ -958,6 +958,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "d55d4ae8dfa3db959006cb6a4cdae3240f3aab82"
 =======
 =======
@@ -979,6 +980,9 @@
 >>>>>>> 2140 update spryker/spryker
 =======
                 "reference": "d8dcadadd5a43c501bf2cb552e4aeb4ac3e117fa"
+>>>>>>> 2140 update spryker/spryker
+=======
+                "reference": "07c408e58996f4bf47ec3eec19eea017ab6ab3d7"
 >>>>>>> 2140 update spryker/spryker
             },
             "require": {
@@ -1454,6 +1458,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-06-10 10:26:20"
 =======
 =======
@@ -1475,6 +1480,9 @@
 >>>>>>> 2140 update spryker/spryker
 =======
             "time": "2016-06-10 04:49:21"
+>>>>>>> 2140 update spryker/spryker
+=======
+            "time": "2016-06-10 08:20:14"
 >>>>>>> 2140 update spryker/spryker
         },
         {
