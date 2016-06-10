@@ -98,17 +98,17 @@ function installDemoshop {
 
     labelText "Preparing to install Spryker Platform..."
 
-    #updateComposerBinary
+    updateComposerBinary
 
-    #composerInstall
+    composerInstall
 
-    #installZed
+    installZed
 
     sleep 1
 
-    #installYves
+    installYves
 
-    #configureCodeception
+    configureCodeception
 
     successText "Setup successful"
 
@@ -280,29 +280,24 @@ function checkNodejsVersion {
 
         sudo apt-get install -y nodejs
 
-        #here should check if node executable exists
-
-        #sudo $NPM cache clean -f
-
-        #sudo $NPM install -g n
-        #writeErrorMessage "NPM build failed"
-
-        #sudo n 5.11.0
-
         successText "Node.js updated to version `node -v`"
         successText "NPM updated to version `$NPM -v`"
     fi
 }
 
 function installAntelope {
-    labelText "Install Antelope tool globally"
-    sudo $NPM install -g antelope
-    writeErrorMessage "Antelope setup failed"
+    checkNodejsVersion
+
+    ANTELOPE_TOOL=`which antelope`
+
+    if [[ ! -f $ANTELOPE_TOOL ]]; then
+        labelText "Install Antelope tool globally"
+        #sudo $NPM install -g antelope
+        writeErrorMessage "Antelope setup failed"
+    fi
 }
 
 function antelopeInstallZed {
-    checkNodejsVersion
-
     installAntelope
 
     ANTELOPE_TOOL=`which antelope`
@@ -318,8 +313,6 @@ function antelopeInstallZed {
 }
 
 function antelopeInstallYves {
-    checkNodejsVersion
-
     installAntelope
 
     ANTELOPE_TOOL=`which antelope`
