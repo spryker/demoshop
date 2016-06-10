@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-feature/763-discount-refactoring",
+    "spryker/spryker": "dev-master",
 
     "psr/log": "~1.0.0",
     "propel/propel": "~2.0@dev",
@@ -79,12 +79,5 @@
       "type": "git",
       "url": "git@github.com:spryker/spryker.git"
     }
-  ],
-  "scripts": {
-    "compile": [
-      "mkdir -p ./data/DE/logs",
-      "echo '<?php return \"development_heroku\";' > config/Shared/console_env_local.php",
-      "./deploy/heroku/run.sh"
-    ]
-  }
+  ]
 }
