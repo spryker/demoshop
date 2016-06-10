@@ -285,7 +285,7 @@ function installAntelope {
 
     if [[ ! -f $ANTELOPE_TOOL ]]; then
         labelText "Install Antelope tool globally"
-        #sudo $NPM install -g antelope
+        sudo $NPM install -g antelope
         writeErrorMessage "Antelope setup failed"
     fi
 }
