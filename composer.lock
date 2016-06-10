@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "065b625427c50025733e2e147629d2d7",
-    "content-hash": "43f5828af3344edc688a7c1637d0fd99",
+    "hash": "cc0c815f7be6c57149b6d6c9d866313c",
+    "content-hash": "acc38c61be29eba8e913c8f9f5103d30",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -945,11 +945,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/2140-Allow-Injection-into-Oms-Sales-and-Payment-bundle",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "88993a7a5673884cccfd6fb16368209b3c683b40"
+                "reference": "91cdbd45dd37a3d57edb4d3cbe5e010cdf936a07"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1420,7 +1420,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-06-10 11:38:04"
+            "time": "2016-06-10 12:33:18"
         },
         {
             "name": "symfony-cmf/routing",
@@ -1818,12 +1818,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da"
+                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/23394a60d49d2aa904dacda6e5eb29d88251f9da",
-                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da",
+                "url": "https://api.github.com/repos/symfony/form/zipball/22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
+                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
                 "shasum": ""
             },
             "require": {
