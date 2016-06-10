@@ -19,13 +19,21 @@ fi
 for arg in "$@"
 do
     case $arg in
+        "-iy" )
+            errorText "This command is deprecated. Please use --install-yves or -yves instead"
+            #installYves
+            ;;
+        "-iz" )
+            errorText "This command is deprecated. Please use --install-zed or -zed instead"
+            #installZed
+            ;;
         "--install-demo-shop" | "-i" )
            installDemoshop
            ;;
-        "--install-yves" | "-iy" )
+        "--install-yves" | "-yves" )
            installYves
            ;;
-        "--install-zed" | "-iz" )
+        "--install-zed" | "-zed" )
            installZed
            ;;
         "--reset" | "-r" )
