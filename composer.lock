@@ -949,7 +949,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "ed6b5c0e6610d4cfa85647548d8f22f8ba9a2688"
+                "reference": "d55d4ae8dfa3db959006cb6a4cdae3240f3aab82"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1420,7 +1420,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-06-10 09:26:33"
+            "time": "2016-06-10 10:26:20"
         },
         {
             "name": "symfony-cmf/routing",
@@ -1818,12 +1818,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9"
+                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
-                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
+                "url": "https://api.github.com/repos/symfony/form/zipball/23394a60d49d2aa904dacda6e5eb29d88251f9da",
+                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da",
                 "shasum": ""
             },
             "require": {
