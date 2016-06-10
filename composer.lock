@@ -949,7 +949,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "dc92a902df173d94bf15a2f45dd01ddb730d8577"
+                "reference": "d55d4ae8dfa3db959006cb6a4cdae3240f3aab82"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1399,7 +1399,11 @@
                     "Functional\\Spryker\\Shared\\ZedRequest\\": "Bundles/ZedRequest/tests",
                     "Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/src",
                     "Unit\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests",
-                    "Functional\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests"
+                    "Functional\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests",
+                    "Spryker\\Shared\\StateMachine\\": "Bundles/StateMachine/src",
+                    "Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/src",
+                    "Unit\\Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/tests",
+                    "Functional\\Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/tests"
                 },
                 "psr-4": {
                     "Testify\\Module\\": "Bundles/Testify/tests/_support/Module",
@@ -1416,7 +1420,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-06-09 15:35:50"
+            "time": "2016-06-10 10:26:20"
         },
         {
             "name": "symfony-cmf/routing",
@@ -1814,12 +1818,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9"
+                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
-                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
+                "url": "https://api.github.com/repos/symfony/form/zipball/23394a60d49d2aa904dacda6e5eb29d88251f9da",
+                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da",
                 "shasum": ""
             },
             "require": {
