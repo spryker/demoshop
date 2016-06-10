@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "032367144ef39c4ce672d9861c5bd70d",
-    "content-hash": "acc38c61be29eba8e913c8f9f5103d30",
+    "hash": "065b625427c50025733e2e147629d2d7",
+    "content-hash": "43f5828af3344edc688a7c1637d0fd99",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -945,11 +945,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/2140-Allow-Injection-into-Oms-Sales-and-Payment-bundle",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d55d4ae8dfa3db959006cb6a4cdae3240f3aab82"
+                "reference": "88993a7a5673884cccfd6fb16368209b3c683b40"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1420,7 +1420,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-06-10 10:26:20"
+            "time": "2016-06-10 11:38:04"
         },
         {
             "name": "symfony-cmf/routing",

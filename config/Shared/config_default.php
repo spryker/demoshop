@@ -19,6 +19,7 @@ use Spryker\Shared\Sales\SalesConstants;
 use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\User\UserConstants;
+use Spryker\Zed\DummyPayment\DummyPaymentConfig;
 use Spryker\Zed\Oms\OmsConfig;
 use Spryker\Zed\Propel\PropelConfig;
 
@@ -351,13 +352,30 @@ $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_PROVIDER] = \Spryker\Shared\Kernel\ClassResolver\Cache\Provider\File::class;
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = false;
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = true;
+
+
 $config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [
     'Checkout' => [
         'DummyPayment',
     ],
 ];
 
+$config[KernelConstants::DEPENDENCY_INJECTOR_ZED] = [
+    'Payment' => [
+        'DummyPayment',
+    ],
+];
+
 $config[OmsConstants::PROCESS_LOCATION] = [
     OmsConfig::DEFAULT_PROCESS_LOCATION,
-    $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] . '/DummyPayment/config/Zed/Oms'
+    $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] . '/DummyPayment/config/Zed/Oms',
+];
+
+$config[OmsConstants::ACTIVE_PROCESSES] = [
+    'DummyPayment01',
+];
+
+$config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
+    DummyPaymentConfig::PAYMENT_METHOD_INVOICE => 'DummyPayment01',
+    DummyPaymentConfig::PAYMENT_METHOD_CREDIT_CARD => 'DummyPayment01',
 ];

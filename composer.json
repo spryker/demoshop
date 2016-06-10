@@ -1,6 +1,7 @@
 {
   "require": {
-    "spryker/spryker": "dev-master",
+    "spryker/spryker": "dev-feature/2140-Allow-Injection-into-Oms-Sales-and-Payment-bundle",
+
     "psr/log": "~1.0.0",
     "propel/propel": "~2.0@dev",
     "silex/silex": "~1.3.5",
