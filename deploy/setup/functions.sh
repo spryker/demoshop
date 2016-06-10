@@ -99,19 +99,15 @@ function installDemoshop {
     labelText "Preparing to install Spryker Platform..."
 
     updateComposerBinary
-
     composerInstall
 
     installZed
-
     sleep 1
-
     installYves
 
     configureCodeception
 
     successText "Setup successful"
-
     infoText "\nYves url: http://www.de.spryker.dev/\nZed url: http://zed.de.spryker.dev/\n"
 }
 
@@ -146,9 +142,6 @@ function installZed {
 function installYves {
     setupText "Yves setup"
 
-    resetYves
-
-    #. deploy/setup/frontend.sh
     antelopeInstallYves
 
     labelText "Yves setup successful"
