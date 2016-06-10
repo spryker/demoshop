@@ -6,12 +6,13 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Shared\Shipment\ShipmentConstants;
+use Spryker\Shared\Transfer\AbstractTransfer;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
 use Symfony\Component\HttpFoundation\Request;
 
-class ShipmentStep extends BaseStep
+class ShipmentStep extends AbstractBaseStep
 {
 
     /**
@@ -20,74 +21,62 @@ class ShipmentStep extends BaseStep
     protected $calculationClient;
 
     /**
-     * @var \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface[]
+     * @var \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection
      */
     protected $shipmentPlugins;
 
     /**
-     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
+     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection $shipmentPlugins
      * @param string $stepRoute
      * @param string $escapeRoute
-     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface[] $shipmentPlugins
      */
     public function __construct(
-        FlashMessengerInterface $flashMessenger,
         CalculationClientInterface $calculationClient,
+        StepHandlerPluginCollection $shipmentPlugins,
         $stepRoute,
-        $escapeRoute,
-        array $shipmentPlugins
+        $escapeRoute
     ) {
-        parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
+        parent::__construct($stepRoute, $escapeRoute);
 
         $this->calculationClient = $calculationClient;
         $this->shipmentPlugins = $shipmentPlugins;
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer $quoteTransfer
      *
      * @return bool
      */
-    public function preCondition(QuoteTransfer $quoteTransfer)
-    {
-        return !$this->isCartEmpty($quoteTransfer);
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
-    public function requireInput(QuoteTransfer $quoteTransfer)
+    public function requireInput(AbstractTransfer $quoteTransfer)
     {
         return true;
     }
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer|\Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer)
+    public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
         $shipmentSelection = $quoteTransfer->getShipment()->getShipmentSelection();
 
-        if (isset($this->shipmentPlugins[$shipmentSelection])) {
-            $shipmentHandler = $this->shipmentPlugins[$shipmentSelection];
-            $shipmentHandler->addToQuote($request, $quoteTransfer);
+        if ($this->shipmentPlugins->has($shipmentSelection)) {
+            $shipmentHandler = $this->shipmentPlugins->get($shipmentSelection);
+            $shipmentHandler->addToDataClass($request, $quoteTransfer);
         }
 
         return $this->calculationClient->recalculate($quoteTransfer);
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
-    public function postCondition(QuoteTransfer $quoteTransfer)
+    public function postCondition(AbstractTransfer $quoteTransfer)
     {
         if (!$this->isShipmentSet($quoteTransfer)) {
             return false;

@@ -8,11 +8,12 @@ namespace Pyz\Yves\Customer\Form\DataProvider;
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
-use Pyz\Yves\Checkout\Dependency\DataProvider\DataProviderInterface;
 use Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm;
 use Spryker\Shared\Kernel\Store;
+use Spryker\Shared\Transfer\AbstractTransfer;
+use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
 
-class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider implements DataProviderInterface
+class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider implements StepEngineFormDataProviderInterface
 {
 
     /**
@@ -32,11 +33,11 @@ class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider im
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
+     * @return \Spryker\Shared\Transfer\AbstractTransfer
      */
-    public function getData(QuoteTransfer $quoteTransfer)
+    public function getData(AbstractTransfer $quoteTransfer)
     {
         $quoteTransfer->setShippingAddress($this->getShippingAddress($quoteTransfer));
         $quoteTransfer->setBillingAddress($this->getBillingAddress($quoteTransfer));
@@ -49,11 +50,11 @@ class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider im
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return array
      */
-    public function getOptions(QuoteTransfer $quoteTransfer)
+    public function getOptions(AbstractTransfer $quoteTransfer)
     {
         return [
             CheckoutAddressCollectionForm::OPTION_ADDRESS_CHOICES => $this->getAddressChoices(),

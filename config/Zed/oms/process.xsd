@@ -5,17 +5,9 @@
     <xs:complexType name="processType" mixed="true">
         <xs:sequence>
             <xs:element type="subprocessesType" name="subprocesses" minOccurs="0"/>
-            <xs:element type="statesType" name="states" minOccurs="0">
-                <xs:annotation>
-                    <xs:documentation>TODO exclude from invoice</xs:documentation>
-                </xs:annotation>
-            </xs:element>
+            <xs:element type="statesType" name="states" minOccurs="0" />
             <xs:element type="transitionsType" name="transitions" minOccurs="0"/>
-            <xs:element type="eventsType" name="events" minOccurs="0">
-                <xs:annotation>
-                    <xs:documentation>TODO find merchant</xs:documentation>
-                </xs:annotation>
-            </xs:element>
+            <xs:element type="eventsType" name="events" minOccurs="0" />
         </xs:sequence>
         <xs:attribute type="xs:string" name="name" use="optional"/>
         <xs:attribute type="xs:string" name="main" use="optional"/>
@@ -72,7 +64,7 @@
         <xs:sequence>
             <xs:element name="process" maxOccurs="unbounded" minOccurs="0">
                 <xs:simpleType>
-                    <xs:list itemType="xs:string"/>
+                    <xs:restriction base="xs:string" />
                 </xs:simpleType>
             </xs:element>
         </xs:sequence>

@@ -33,6 +33,7 @@ use Spryker\Zed\Search\Communication\Console\SearchConsole;
 use Spryker\Zed\StateMachine\Communication\Console\CheckConditionConsole as StateMachineCheckConditionConsole;
 use Spryker\Zed\StateMachine\Communication\Console\CheckTimeoutConsole as StateMachineCheckTimeoutConsole;
 use Spryker\Zed\StateMachine\Communication\Console\ClearLocks;
+use Spryker\Zed\Touch\Communication\Console\TouchCleanUpConsole;
 use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
 
 class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
@@ -51,6 +52,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new CollectorStorageExportConsole(),
             new CollectorSearchExportConsole(),
             new CollectorSearchUpdateConsole(),
+            new TouchCleanUpConsole(),
             new DeleteAllCachesConsole(),
             new DemoDataImportConsole(),
             new GeneratorConsole(),

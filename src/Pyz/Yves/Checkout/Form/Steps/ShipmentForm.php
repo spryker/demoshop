@@ -1,11 +1,14 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
+
 namespace Pyz\Yves\Checkout\Form\Steps;
 
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -18,14 +21,14 @@ class ShipmentForm extends AbstractType
     const SHIPMENT_SELECTION_PROPERTY_PATH = self::SHIPMENT_PROPERTY_PATH . '.' . self::SHIPMENT_SELECTION;
 
     /**
-     * @var \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[]
+     * @var \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection
      */
     protected $shipmentMethodsSubFormPlugins;
 
     /**
-     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[] $shipmentMethodsSubFormPlugins
+     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection $shipmentMethodsSubFormPlugins
      */
-    public function __construct(array $shipmentMethodsSubFormPlugins)
+    public function __construct(SubFormPluginCollection $shipmentMethodsSubFormPlugins)
     {
         $this->shipmentMethodsSubFormPlugins = $shipmentMethodsSubFormPlugins;
     }
@@ -93,7 +96,8 @@ class ShipmentForm extends AbstractType
 
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
-     * @param \Pyz\Yves\Checkout\Dependency\SubFormInterface[] $shipmentMethodSubForms
+     * @param \Spryker\Yves\StepEngine\Dependency\Form\SubFormInterface[] $shipmentMethodSubForms
+     * @param array $options
      *
      * @return $this
      */
@@ -127,7 +131,7 @@ class ShipmentForm extends AbstractType
     }
 
     /**
-     * @return \Pyz\Yves\Checkout\Dependency\SubFormInterface[]
+     * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection
      */
     protected function getShipmentMethodSubForms()
     {
@@ -141,7 +145,7 @@ class ShipmentForm extends AbstractType
     }
 
     /**
-     * @param \Pyz\Yves\Checkout\Dependency\SubFormInterface[] $shipmentMethodSubForms
+     * @param \Spryker\Yves\StepEngine\Dependency\Form\SubFormInterface[] $shipmentMethodSubForms
      *
      * @return array
      */
@@ -158,11 +162,11 @@ class ShipmentForm extends AbstractType
     }
 
     /**
-     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface $shipmentMethodSubForm
+     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginInterface $shipmentMethodSubForm
      *
-     * @return \Pyz\Yves\Checkout\Dependency\SubFormInterface
+     * @return \Spryker\Yves\StepEngine\Dependency\Form\SubFormInterface
      */
-    protected function createSubForm(CheckoutSubFormPluginInterface $shipmentMethodSubForm)
+    protected function createSubForm(SubFormPluginInterface $shipmentMethodSubForm)
     {
         return $shipmentMethodSubForm->createSubForm();
     }

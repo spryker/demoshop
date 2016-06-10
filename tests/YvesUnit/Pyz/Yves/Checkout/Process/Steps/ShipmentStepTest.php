@@ -8,11 +8,11 @@ namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
 use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Shared\Shipment\ShipmentConstants;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class ShipmentStepTest extends \PHPUnit_Framework_TestCase
@@ -23,10 +23,12 @@ class ShipmentStepTest extends \PHPUnit_Framework_TestCase
      */
     public function testShipmentStepExecuteShouldTriggerPlugins()
     {
-        $shipmentPlugiMock = $this->createShipmentMock();
-        $shipmentPlugiMock->expects($this->once())->method('addToQuote');
+        $shipmentPluginMock = $this->createShipmentMock();
+        $shipmentPluginMock->expects($this->once())->method('addToDataClass');
 
-        $shipmentStep = $this->createShipmentStep(['test' => $shipmentPlugiMock]);
+        $shipmentStepHandler = new StepHandlerPluginCollection();
+        $shipmentStepHandler->add($shipmentPluginMock, 'test');
+        $shipmentStep = $this->createShipmentStep($shipmentStepHandler);
 
         $quoteTransfer = new QuoteTransfer();
 
@@ -47,7 +49,8 @@ class ShipmentStepTest extends \PHPUnit_Framework_TestCase
         $expenseTransfer->setType(ShipmentConstants::SHIPMENT_EXPENSE_TYPE);
         $quoteTransfer->addExpense($expenseTransfer);
 
-        $shipmentStep = $this->createShipmentStep([]);
+        $shipmentStep = $this->createShipmentStep(new StepHandlerPluginCollection());
+
         $this->assertTrue($shipmentStep->postCondition($quoteTransfer));
     }
 
@@ -56,24 +59,24 @@ class ShipmentStepTest extends \PHPUnit_Framework_TestCase
      */
     public function testShipmentRequireInputShouldReturnTrue()
     {
-        $shipmentStep = $this->createShipmentStep([]);
+        $shipmentStep = $this->createShipmentStep(new StepHandlerPluginCollection());
         $this->assertTrue($shipmentStep->requireInput(new QuoteTransfer()));
     }
 
     /**
+     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection $shipmentPlugins
+     *
      * @return \Pyz\Yves\Checkout\Process\Steps\ShipmentStep
      */
-    protected function createShipmentStep(array $shipmentPlugins)
+    protected function createShipmentStep(StepHandlerPluginCollection $shipmentPlugins)
     {
         return new ShipmentStep(
-            $this->createFlashMessengerMock(),
             $this->createCalculationClientMock(),
+            $shipmentPlugins,
             'shipment',
-            'escape_route',
-            $shipmentPlugins
+            'escape_route'
         );
     }
-
 
     /**
      * @return \Symfony\Component\HttpFoundation\Request
@@ -84,27 +87,22 @@ class ShipmentStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Application\Business\Model\FlashMessengerInterface
-     */
-    protected function createFlashMessengerMock()
-    {
-        return $this->getMock(FlashMessengerInterface::class);
-    }
-
-    /**
      * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Calculation\CalculationClientInterface
      */
     protected function createCalculationClientMock()
     {
-        return $this->getMock(CalculationClientInterface::class);
+        $calculationMock = $this->getMock(CalculationClientInterface::class);
+        $calculationMock->method('recalculate')->willReturnArgument(0);
+
+        return $calculationMock;
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface
      */
     protected function createShipmentMock()
     {
-        return $this->getMock(CheckoutStepHandlerPluginInterface::class);
+        return $this->getMock(StepHandlerPluginInterface::class);
     }
 
 }

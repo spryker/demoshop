@@ -89,13 +89,16 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new DateFormatterServiceProvider(),
             new TranslationServiceProvider(),
             new SubRequestServiceProvider(),
+            new WebProfilerServiceProvider()
         ];
 
         if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER, false)) {
             $providers[] = new WebProfilerServiceProvider();
         }
 
-        return array_merge($providers, $coreProviders);
+        $providers = array_merge($providers, $coreProviders);
+
+        return $providers;
     }
 
     /**

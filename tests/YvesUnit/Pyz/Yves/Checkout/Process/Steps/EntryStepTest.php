@@ -6,7 +6,6 @@
 namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Checkout\Process\Steps\EntryStep;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -47,7 +46,6 @@ class EntryStepTest extends \PHPUnit_Framework_TestCase
     protected function createEntryStep()
     {
         return new EntryStep(
-            $this->createFlashMessengerMock(),
             'entry_route',
             'escape_route'
         );
@@ -60,14 +58,6 @@ class EntryStepTest extends \PHPUnit_Framework_TestCase
     protected function createRequest()
     {
         return Request::createFromGlobals();
-    }
-
-    /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Application\Business\Model\FlashMessengerInterface
-     */
-    protected function createFlashMessengerMock()
-    {
-        return $this->getMock(FlashMessengerInterface::class);
     }
 
 }

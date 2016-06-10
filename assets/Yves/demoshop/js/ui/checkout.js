@@ -9,7 +9,7 @@ var $nameInput,
     $deliveryAddressInput,
     $addressButton,
     $paymentButton,
-    $paymentPayolutionOption,
+    $paymentSelectedOption,
     $shipmentButton,
     $addressElements,
     $createAccountCheckbox,
@@ -24,7 +24,7 @@ var initValidation = function() {
     $deliveryAddressInput = $('.js-delivery-address');
     $addressButton = $('.js-address-button');
     $paymentButton = $('.js-payment-button');
-    $paymentPayolutionOption = $('[name="checkout[payment_method]"][value="payolution-invoice"]');
+
     $shipmentButton = $('.js-shipment-button');
     $('.js-checkout-address input, .js-checkout-address textarea').keyup(validateAddressBlock);
     $addressCheckbox.click(validateAddressBlock);
@@ -52,7 +52,7 @@ var validateAddressBlock = function() {
 var generalError = function() {
     $('#backend-errors').empty();
 
-    $('#backend-errors').append('<div>Es ist ein Fehler aufgetreten! Leider konnte Ihre Bestelung nicht aufgebeben werden!</div>');
+    $('#backend-errors').append('<div>Es ist ein Fehler aufgetreten! Leider konnte Ihre Bestellung nicht aufgebeben werden!</div>');
 
     $('#backend-errors-section').show();
     $("html, body").animate({ scrollTop: 0 }, "slow");
@@ -97,16 +97,18 @@ module.exports = {
             'checkout_shipping_address_zip_code',
         ];
 
-        $('input[name="checkout[payment_method]"]').on('change', function(event) {
-            $paymentButton.attr('disabled', $('input[name="checkout[payment_method]"]:checked').length != 1);
+        $("#paymentForm_paymentSelection input:first").attr('checked', true);
+        $('.payment-form').hide();
+        $('.payment-form:first').show();
 
-            var $payolutionInstallmentForm = $('.js-payolution-installment');
-            if ('payolution_installment' === event.target.value && !!event.target.checked) {
-                $payolutionInstallmentForm.show();
-            } else {
-                $payolutionInstallmentForm.hide();
-            }
+        $("#paymentForm_paymentSelection input").on('click', function(event){
+            $('.payment-form').hide();
+            $('#' + $(event.currentTarget).attr('value')).show();
         });
+
+        $('form.checkout-form').on('submit', function(event) {
+            $('button[name="summaryForm[checkout.step.place.order]"]').attr('disabled', 'disabled');
+        })
 
         $('input[name="checkout[id_shipment_method]"]').on('change', function() {
             $shipmentButton.attr('disabled', $('input[name="checkout[id_shipment_method]"]:checked').length != 1);
@@ -183,7 +185,6 @@ module.exports = {
             event.preventDefault();
             $('.js-checkout-shipment').addClass('js-checkout-collapsed js-checkout-completed');
             $('.js-checkout-payment').removeClass('js-checkout-collapsed');
-            $('.js-payolution-installment').hide();
         });
 
         $('.js-payment-button').click(function(event) {
@@ -282,8 +283,6 @@ module.exports = {
 
         function selectPayment() {
             var index = $('.checkout-payment input[type="radio"]').index(this);
-            $('.payolution-form').removeClass('show');
-            if (index > -1) $('.payolution-form').eq(index).addClass('show');
         }
 
         selectCustomer.apply($('.customer-option:checked'));
@@ -308,8 +307,5 @@ module.exports = {
 
         selectShipment.apply($('.checkout-shipment input[type="radio"]:checked'));
         $('.checkout-shipment input[type="radio"]').on('change', selectShipment);
-
-        selectPayment.apply($('.checkout-payment input[type="radio"]:checked'));
-        $('.checkout-payment input[type="radio"]').on('change', selectPayment);
     }
 };
