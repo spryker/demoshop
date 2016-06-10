@@ -4,13 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "hash": "032367144ef39c4ce672d9861c5bd70d",
-    "content-hash": "acc38c61be29eba8e913c8f9f5103d30",
-=======
-    "hash": "53d9e76a1f0877913df267843b030f2b",
+    "hash": "065b625427c50025733e2e147629d2d7",
     "content-hash": "43f5828af3344edc688a7c1637d0fd99",
->>>>>>> 2140 fixed test, update spryker/spryker
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -954,36 +949,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "d55d4ae8dfa3db959006cb6a4cdae3240f3aab82"
-=======
-=======
->>>>>>> 2140 update spryker/spryker
-<<<<<<< HEAD
-                "reference": "73b1c0884dea9ab5eafe7c431f83e56290f8d3d0"
-=======
-                "reference": "a27bae00eeb5b81bc748edddd607ca8c6fe6e650"
->>>>>>> 2140 fixed test, update spryker/spryker
-<<<<<<< HEAD
->>>>>>> 2140 fixed test, update spryker/spryker
-=======
-=======
-                "reference": "17707a2e14edda2d8bdd13c661fdefc3bda49e2c"
->>>>>>> 2140 update spryker/spryker
->>>>>>> 2140 update spryker/spryker
-=======
-                "reference": "23e9b5b27c0a65ad59488b9dc4e21ee19378718a"
->>>>>>> 2140 update spryker/spryker
-=======
-                "reference": "d8dcadadd5a43c501bf2cb552e4aeb4ac3e117fa"
->>>>>>> 2140 update spryker/spryker
-=======
-                "reference": "07c408e58996f4bf47ec3eec19eea017ab6ab3d7"
->>>>>>> 2140 update spryker/spryker
+                "reference": "88993a7a5673884cccfd6fb16368209b3c683b40"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1454,36 +1420,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2016-06-10 10:26:20"
-=======
-=======
->>>>>>> 2140 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2016-06-08 16:35:57"
-=======
-            "time": "2016-06-09 12:07:36"
->>>>>>> 2140 fixed test, update spryker/spryker
-<<<<<<< HEAD
->>>>>>> 2140 fixed test, update spryker/spryker
-=======
-=======
-            "time": "2016-06-09 12:57:26"
->>>>>>> 2140 update spryker/spryker
->>>>>>> 2140 update spryker/spryker
-=======
-            "time": "2016-06-09 13:07:17"
->>>>>>> 2140 update spryker/spryker
-=======
-            "time": "2016-06-10 04:49:21"
->>>>>>> 2140 update spryker/spryker
-=======
-            "time": "2016-06-10 08:20:14"
->>>>>>> 2140 update spryker/spryker
+            "time": "2016-06-10 11:38:04"
         },
         {
             "name": "symfony-cmf/routing",
