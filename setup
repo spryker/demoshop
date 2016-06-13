@@ -11,6 +11,8 @@ CONSOLE=vendor/bin/console
 
 . deploy/setup/functions.sh
 
+warningText "This script should be used only in development and NEVER IN PRODUCTION"
+
 if [ $# -eq 0 ]; then
     displayHelp
     exit 0
