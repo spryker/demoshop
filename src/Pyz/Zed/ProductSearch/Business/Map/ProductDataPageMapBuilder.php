@@ -98,10 +98,10 @@ class ProductDataPageMapBuilder
      */
     protected function getProductAttributes(array $productData)
     {
-        $abstractAttributes = $this->getEncodedData($productData['abstract_attributes']);
-        $abstractLocalizedAttributes = $this->getEncodedData($productData['abstract_localized_attributes']);
-        $concreteAttributes = $this->getEncodedData($productData['concrete_attributes']);
-        $concreteLocalizedAttributes = $this->getEncodedData($productData['concrete_localized_attributes']);
+        $abstractAttributes = $this->getEncodedAttributeData($productData['abstract_attributes']);
+        $abstractLocalizedAttributes = $this->getEncodedAttributeData($productData['abstract_localized_attributes']);
+        $concreteAttributes = $this->getEncodedAttributeData($productData['concrete_attributes']);
+        $concreteLocalizedAttributes = $this->getEncodedAttributeData($productData['concrete_localized_attributes']);
 
         $attributes = array_merge(
             $abstractAttributes,
@@ -118,14 +118,17 @@ class ProductDataPageMapBuilder
      *
      * @return array
      */
-    protected function getEncodedData($data)
+    protected function getEncodedAttributeData($data)
     {
-        $data = json_decode($data, true);
-        if (!is_array($data)) {
-            throw new \RuntimeException('Invalid JSON data: ' . json_last_error() . ' - ' . print_r($data, true));
+        $data = '[' . $data . ']';
+
+        $array = json_decode($data, true);
+
+        if (!is_array($array)) {
+            throw new \RuntimeException('Invalid JSON data: ' . json_last_error_msg() . ' - ' . print_r($data, true));
         }
 
-        return $data;
+        return array_shift($array);
     }
 
     /**
