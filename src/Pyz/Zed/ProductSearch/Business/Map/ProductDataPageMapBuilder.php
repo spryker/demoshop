@@ -121,7 +121,12 @@ class ProductDataPageMapBuilder
      */
     protected function getEncodedData($data)
     {
-        return Json::decode($data, true);
+        $data = json_decode($data, true);
+        if (!is_array($data)) {
+            throw new \RuntimeException('Invalid JSON data: ' . json_last_error() . ' - ' . print_r($data, true));
+        }
+
+        return $data;
     }
 
     /**
