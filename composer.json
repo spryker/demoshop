@@ -1,6 +1,6 @@
 {
   "require": {
-    "spryker/spryker": "dev-master",
+    "spryker/spryker": "dev-feature/2152-add-hsts-support",
 
     "psr/log": "~1.0.0",
     "propel/propel": "~2.0@dev",
