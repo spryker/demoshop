@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\StateMachine\Persistence;
 
-use Orm\Zed\StateMachine\Persistence\Base\SpyStateMachineItemStateQuery as BaseSpyStateMachineItemStateQuery;
+use Spryker\Zed\StateMachine\Persistence\Propel\AbstractSpyStateMachineItemStateQuery as BaseSpyStateMachineItemStateQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_state_machine_item_state' table.

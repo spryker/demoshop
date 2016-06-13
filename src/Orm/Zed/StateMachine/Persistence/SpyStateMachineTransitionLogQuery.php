@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\StateMachine\Persistence;
 
-use Orm\Zed\StateMachine\Persistence\Base\SpyStateMachineTransitionLogQuery as BaseSpyStateMachineTransitionLogQuery;
+use Spryker\Zed\StateMachine\Persistence\Propel\AbstractSpyStateMachineTransitionLogQuery as BaseSpyStateMachineTransitionLogQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_state_machine_transition_log' table.

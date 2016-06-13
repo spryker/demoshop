@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\StateMachine\Persistence;
 
-use Orm\Zed\StateMachine\Persistence\Base\SpyStateMachineEventTimeout as BaseSpyStateMachineEventTimeout;
+use Spryker\Zed\StateMachine\Persistence\Propel\AbstractSpyStateMachineEventTimeout as BaseSpyStateMachineEventTimeout;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_state_machine_event_timeout' table.

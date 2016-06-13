@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\StateMachine\Persistence;
 
-use Orm\Zed\StateMachine\Persistence\Base\SpyStateMachineProcess as BaseSpyStateMachineProcess;
+use Spryker\Zed\StateMachine\Persistence\Propel\AbstractSpyStateMachineProcess as BaseSpyStateMachineProcess;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_state_machine_process' table.

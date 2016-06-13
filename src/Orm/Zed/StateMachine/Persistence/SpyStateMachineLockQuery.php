@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\StateMachine\Persistence;
 
-use Orm\Zed\StateMachine\Persistence\Base\SpyStateMachineLockQuery as BaseSpyStateMachineLockQuery;
+use Spryker\Zed\StateMachine\Persistence\Propel\AbstractSpyStateMachineLockQuery as BaseSpyStateMachineLockQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_state_machine_lock' table.
