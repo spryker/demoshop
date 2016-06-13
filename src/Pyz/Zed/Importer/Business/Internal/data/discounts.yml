@@ -7,7 +7,7 @@ discounts:
      is_active: true
      valid_from: '2016-01-01'
      valid_to: '2017-12-31'
-     decision_rule_query_string: 'subtotal >= "100"'
+     decision_rule_query_string: 'sub-total >= "100"'
      collector_query_string: 'sku = "*"'
    - display_name: '€5 every tuesday and wednesday for buying 5 items'
      description: 'Every wednesday discount promotion for 5 items. This discount is exclusive and can only be redeemed on its own.'
