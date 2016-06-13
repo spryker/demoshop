@@ -7,20 +7,27 @@
 
 namespace Pyz\Zed\Product\Business;
 
-use Pyz\Zed\Product\Business\Importer\Writer\Db\ProductConcreteWriter;
+use Pyz\Zed\Product\Business\Product\ProductManager;
 use Spryker\Zed\Product\Business\ProductBusinessFactory as SprykerProductBusinessFactory;
 
 class ProductBusinessFactory extends SprykerProductBusinessFactory
 {
 
     /**
-     * @return \Spryker\Zed\Product\Business\Importer\Writer\ProductConcreteWriterInterface
+     * @return \Spryker\Zed\Product\Business\Product\ProductManagerInterface
      */
-    protected function createProductConcreteWriter()
+    public function createProductManager()
     {
-        return new ProductConcreteWriter(
-            $this->getCurrentLocale()
-        );
+        if ($this->productManager === null) {
+            $this->productManager = new ProductManager(
+                $this->getQueryContainer(),
+                $this->getTouchFacade(),
+                $this->getUrlFacade(),
+                $this->getLocaleFacade()
+            );
+        }
+
+        return $this->productManager;
     }
 
 }
