@@ -20,7 +20,7 @@ interface CollectorFacadeInterface
 
     /**
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
      * @param \Spryker\Zed\Collector\Business\Exporter\Reader\ReaderInterface $dataReader
      * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
@@ -30,7 +30,7 @@ interface CollectorFacadeInterface
      */
     public function runSearchProductCollector(
         SpyTouchQuery $baseQuery,
-        LocaleTransfer $locale,
+        LocaleTransfer $localeTransfer,
         BatchResultInterface $result,
         ReaderInterface $dataReader,
         WriterInterface $dataWriter,
@@ -40,7 +40,7 @@ interface CollectorFacadeInterface
 
     /**
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
      * @param \Spryker\Zed\Collector\Business\Exporter\Reader\ReaderInterface $dataReader
      * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
@@ -51,7 +51,7 @@ interface CollectorFacadeInterface
      */
     public function runStorageCategoryNodeCollector(
         SpyTouchQuery $baseQuery,
-        LocaleTransfer $locale,
+        LocaleTransfer $localeTransfer,
         BatchResultInterface $result,
         ReaderInterface $dataReader,
         WriterInterface $dataWriter,
@@ -61,7 +61,7 @@ interface CollectorFacadeInterface
 
     /**
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
      * @param \Spryker\Zed\Collector\Business\Exporter\Reader\ReaderInterface $dataReader
      * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
@@ -71,7 +71,7 @@ interface CollectorFacadeInterface
      */
     public function runStorageNavigationCollector(
         SpyTouchQuery $baseQuery,
-        LocaleTransfer $locale,
+        LocaleTransfer $localeTransfer,
         BatchResultInterface $result,
         ReaderInterface $dataReader,
         WriterInterface $dataWriter,
@@ -81,7 +81,7 @@ interface CollectorFacadeInterface
 
     /**
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
      * @param \Spryker\Zed\Collector\Business\Exporter\Reader\ReaderInterface $dataReader
      * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
@@ -91,7 +91,7 @@ interface CollectorFacadeInterface
      */
     public function runStoragePageCollector(
         SpyTouchQuery $baseQuery,
-        LocaleTransfer $locale,
+        LocaleTransfer $localeTransfer,
         BatchResultInterface $result,
         ReaderInterface $dataReader,
         WriterInterface $dataWriter,
@@ -101,7 +101,7 @@ interface CollectorFacadeInterface
 
     /**
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
      * @param \Spryker\Zed\Collector\Business\Exporter\Reader\ReaderInterface $dataReader
      * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
@@ -111,7 +111,7 @@ interface CollectorFacadeInterface
      */
     public function runStorageProductCollector(
         SpyTouchQuery $baseQuery,
-        LocaleTransfer $locale,
+        LocaleTransfer $localeTransfer,
         BatchResultInterface $result,
         ReaderInterface $dataReader,
         WriterInterface $dataWriter,
@@ -121,7 +121,7 @@ interface CollectorFacadeInterface
 
     /**
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
      * @param \Spryker\Zed\Collector\Business\Exporter\Reader\ReaderInterface $dataReader
      * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
@@ -131,7 +131,7 @@ interface CollectorFacadeInterface
      */
     public function runStorageRedirectCollector(
         SpyTouchQuery $baseQuery,
-        LocaleTransfer $locale,
+        LocaleTransfer $localeTransfer,
         BatchResultInterface $result,
         ReaderInterface $dataReader,
         WriterInterface $dataWriter,
@@ -141,7 +141,7 @@ interface CollectorFacadeInterface
 
     /**
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
      * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
      * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
@@ -150,7 +150,7 @@ interface CollectorFacadeInterface
      */
     public function runStorageTranslationCollector(
         SpyTouchQuery $baseQuery,
-        LocaleTransfer $locale,
+        LocaleTransfer $localeTransfer,
         BatchResultInterface $result,
         ReaderInterface $dataReader,
         WriterInterface $dataWriter,
@@ -160,7 +160,7 @@ interface CollectorFacadeInterface
 
     /**
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
      * @param \Spryker\Zed\Collector\Business\Exporter\Reader\ReaderInterface $dataReader
      * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
@@ -170,7 +170,7 @@ interface CollectorFacadeInterface
      */
     public function runStorageUrlCollector(
         SpyTouchQuery $baseQuery,
-        LocaleTransfer $locale,
+        LocaleTransfer $localeTransfer,
         BatchResultInterface $result,
         ReaderInterface $dataReader,
         WriterInterface $dataWriter,
@@ -180,7 +180,7 @@ interface CollectorFacadeInterface
 
     /**
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
      * @param \Spryker\Zed\Collector\Business\Exporter\Reader\ReaderInterface $dataReader
      * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
@@ -190,7 +190,7 @@ interface CollectorFacadeInterface
      */
     public function runStorageBlockCollector(
         SpyTouchQuery $baseQuery,
-        LocaleTransfer $locale,
+        LocaleTransfer $localeTransfer,
         BatchResultInterface $result,
         ReaderInterface $dataReader,
         WriterInterface $dataWriter,
