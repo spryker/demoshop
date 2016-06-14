@@ -9,6 +9,7 @@ namespace Pyz\Zed\Payment;
 
 use Spryker\Shared\Braintree\BraintreeConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
+use Spryker\Zed\Braintree\Communication\Plugin\Checkout\BraintreePostSavePlugin;
 use Spryker\Zed\Braintree\Communication\Plugin\Checkout\BraintreePreCheckPlugin;
 use Spryker\Zed\Braintree\Communication\Plugin\Checkout\BraintreeSaveOrderPlugin;
 use Spryker\Zed\Kernel\Container;
@@ -34,7 +35,9 @@ class PaymentDependencyProvider extends SprykerPaymentDependencyProvider
                 PayolutionConstants::PAYOLUTION => new PayolutionSaveOrderPlugin(),
                 BraintreeConstants::BRAINTREE => new BraintreeSaveOrderPlugin(),
             ],
-            self::CHECKOUT_POST_SAVE_PLUGINS => [],
+            self::CHECKOUT_POST_SAVE_PLUGINS => [
+                BraintreeConstants::BRAINTREE => new BraintreePostSavePlugin(),
+            ],
         ];
     }
 
