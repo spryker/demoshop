@@ -12,12 +12,16 @@ NPM=`which npm`
 GIT=`which git`
 PHP=`which php`
 
-ERROR=`tput setab 1` # background red
-GREEN=`tput setab 2` # background green
-BACKGROUND=`tput setab 4` # background blue
-INFO=`tput setaf 3` # yellow text
-TEAL=`tput setab 5` # background magenta
-COLOR=`tput setaf 7` # text white
+ERROR_BKG=`tput setab 1` # background red
+GREEN_BKG=`tput setab 2` # background green
+BLUE_BKG=`tput setab 4` # background blue
+YELLOW_BKG=`tput setab 3` # background yellow
+MAGENTA_BKG=`tput setab 5` # background magenta
+
+INFO_TEXT=`tput setaf 3` # yellow text
+WHITE_TEXT=`tput setaf 7` # text white
+BLACK_TEXT=`tput setaf 0` # text black
+RED_TEXT=`tput setaf 1` # text red
 NC=`tput sgr0` # reset
 
 if [[ `echo "$@" | grep '\-v'` ]]; then
@@ -33,29 +37,33 @@ if [[ `echo "$@" | grep '\-vvv'` ]]; then
 fi
 
 function labelText {
-    echo -e "\n${BACKGROUND}${COLOR}-> ${1} ${NC}\n"
+    echo -e "\n${BLUE_BKG}${WHITE_TEXT}-> ${1} ${NC}\n"
 }
 
 function errorText {
-    echo -e "\n${ERROR}${COLOR}=> ${1} <=${NC}\n"
+    echo -e "\n${ERROR_BKG}${WHITE_TEXT}=> ${1} <=${NC}\n"
 }
 
 function infoText {
-    echo -e "\n${INFO}=> ${1} <=${NC}\n"
+    echo -e "\n${INFO_TEXT}=> ${1} <=${NC}\n"
 }
 
 function successText {
-    echo -e "\n${GREEN}${COLOR}=> ${1} <=${NC}\n"
+    echo -e "\n${GREEN_BKG}${BLACK_TEXT}=> ${1} <=${NC}\n"
+}
+
+function warningText {
+    echo -e "\n${YELLOW_BKG}${RED_TEXT}=> ${1} <=${NC}\n"
 }
 
 function setupText {
-    echo -e "\n${TEAL}${COLOR}=> ${1} <=${NC}\n"
+    echo -e "\n${MAGENTA_BKG}${WHITE_TEXT}=> ${1} <=${NC}\n"
 }
 
 function writeErrorMessage {
     if [[ $? != 0 ]]; then
         errorText "${1}"
-        errorText "Setup unsuccessful"
+        errorText "Command unsuccessful"
         exit 1
     fi
 }
@@ -94,31 +102,20 @@ function restoreDevelopmentDatabase {
 }
 
 function installDemoshop {
-    CHANGES=`git status | grep "# Changes not staged for commit"`
-    if [ "x$CHANGES" != "x" ]; then
-        errorText "Uncommitted changes detected. Stash or commit your changes first"
-        exit 1
-    fi
 
     labelText "Preparing to install Spryker Platform..."
-    sleep 1
 
     updateComposerBinary
-
     composerInstall
 
     installZed
-
+    sleep 1
     installYves
 
     configureCodeception
 
-    optimizeRepo
-
     successText "Setup successful"
-
-    infoText "Yves url: http://www.de.spryker.dev/"
-    infoText "Zed url: http://zed.de.spryker.dev/"
+    infoText "\nYves url: http://www.de.spryker.dev/\nZed url: http://zed.de.spryker.dev/\n"
 }
 
 function installZed {
@@ -144,15 +141,15 @@ function installZed {
     $CONSOLE setup:jenkins:generate $VERBOSITY
     writeErrorMessage "Cronjob setup failed"
 
+    antelopeInstallZed
+
     labelText "Zed setup successful"
 }
 
 function installYves {
     setupText "Yves setup"
 
-    resetYves
-
-    . deploy/setup/frontend.sh
+    antelopeInstallYves
 
     labelText "Yves setup successful"
 }
@@ -246,6 +243,7 @@ function updateComposerBinary {
 }
 
 function composerInstall {
+    echo $@
     labelText "Installing composer packages"
     $PHP composer.phar install --prefer-dist
 }
@@ -275,6 +273,60 @@ function resetYves {
     fi
 }
 
+function checkNodejsVersion {
+    if [[ `node -v | grep -E '^v[0-4]'` ]]; then
+        labelText "Upgrade Node.js"
+        $CURL -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+
+        sudo apt-get install -y nodejs
+
+        successText "Node.js updated to version `node -v`"
+        successText "NPM updated to version `$NPM -v`"
+    fi
+}
+
+function installAntelope {
+    checkNodejsVersion
+
+    ANTELOPE_TOOL=`which antelope`
+
+    if [[ ! -f $ANTELOPE_TOOL ]]; then
+        labelText "Install Antelope tool globally"
+        sudo $NPM install -g antelope
+        writeErrorMessage "Antelope setup failed"
+    fi
+}
+
+function antelopeInstallZed {
+    installAntelope
+
+    ANTELOPE_TOOL=`which antelope`
+
+    if [[ -f $ANTELOPE_TOOL ]]; then
+        labelText "Installing project dependencies"
+        $ANTELOPE_TOOL install
+
+        labelText "Building and optimizing assets for Zed"
+        $ANTELOPE_TOOL build zed
+        writeErrorMessage "Antelope build failed"
+    fi
+}
+
+function antelopeInstallYves {
+    installAntelope
+
+    ANTELOPE_TOOL=`which antelope`
+
+    if [[ -f $ANTELOPE_TOOL ]]; then
+        labelText "Installing project dependencies"
+        $ANTELOPE_TOOL install
+
+        labelText "Building and optimizing assets for Yves"
+        $ANTELOPE_TOOL build yves
+        writeErrorMessage "Antelope build failed"
+    fi
+}
+
 function displayHeader {
     labelText "Spryker Platform Setup"
     echo "./$(basename $0) [OPTION] [VERBOSITY]"
@@ -288,10 +340,10 @@ function displayHelp {
     echo "  -i, --install-demo-shop"
     echo "      Install and setup new instance of Spryker Platform and populate it with Demo data"
     echo " "
-    echo "  -iy, --install-yves"
+    echo "  -yves, --install-yves"
     echo "      (re)Install Yves only"
     echo " "
-    echo "  -iz, --install-zed"
+    echo "  -zed, --install-zed"
     echo "      (re)Install Zed only"
     echo " "
     echo "  -r, --reset"
@@ -305,6 +357,9 @@ function displayHelp {
     echo ""
     echo "  -h, --help"
     echo "      Show this help"
+    echo ""
+    echo "  -c, --clean"
+    echo "      Cleanup unnecessary files and optimize the local repository"
     echo ""
     echo "  -v, -vv, -vvv"
     echo "      Set verbosity level"
