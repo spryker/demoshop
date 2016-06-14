@@ -27,12 +27,7 @@
         <xs:sequence>
             <xs:element name="flag" maxOccurs="unbounded" minOccurs="0">
                 <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:enumeration value="exclude from customer"/>
-                        <xs:enumeration value="exclude from invoice"/>
-                        <xs:enumeration value="ready for invoice"/>
-                        <xs:enumeration value="waiting for export"/>
-                    </xs:restriction>
+                    <xs:list itemType="xs:string"/>
                 </xs:simpleType>
             </xs:element>
         </xs:sequence>

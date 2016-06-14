@@ -25,6 +25,7 @@ use Spryker\Client\Cart\CartClient;
 use Spryker\Client\ZedRequest\Client\HttpClient;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Spryker\Yves\DummyPayment\Form\AbstractSubForm;
+use Spryker\Zed\DummyPayment\DummyPaymentConfig;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -262,6 +263,8 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * This test only works with DummyPayment
+     *
      * @return void
      */
     public function testPaymentAction()
@@ -271,9 +274,9 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
         $this->setQuoteForPayment();
 
         $paymentData = $this->getFormData(self::PAYMENT_URL, self::PAYMENT_ACTION, self::PAYMENT_ROUTE, self::PAYMENT_FORM);
-        $paymentData[PaymentForm::PAYMENT_SELECTION] = PaymentTransfer::DUMMY_PAYMENT_INVOICE;
+        $paymentData[PaymentForm::PAYMENT_SELECTION] = DummyPaymentConfig::PAYMENT_METHOD_INVOICE;
 
-        $paymentData['DummyPayment_invoice'] = [
+        $paymentData[DummyPaymentConfig::PAYMENT_METHOD_INVOICE] = [
             AbstractSubForm::FIELD_DATE_OF_BIRTH => '06.12.1980'
         ];
 
@@ -449,7 +452,6 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
         $quoteTransfer->setTotals($totalsTransfer);
 
         $paymentTransfer = new PaymentTransfer();
-        $paymentTransfer->setPaymentProvider('paymentProvider');
         $paymentTransfer->setPaymentProvider('paymentProvider');
         $quoteTransfer->setPayment($paymentTransfer);
 
