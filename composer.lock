@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8c2acebd9b112258cab621b39a0c9209",
-    "content-hash": "f3a1bcb91f38fe14c7777351ebfc81aa",
+    "hash": "8299d4fe03076aae61a9e449d8d69be4",
+    "content-hash": "935a9a6ca2cca4605caa4478b9051983",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -810,16 +810,16 @@
         },
         {
             "name": "ruflin/elastica",
-            "version": "3.1.1",
+            "version": "3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "571dd533f56057f2afc5f447759b09bbcc012a0d"
+                "reference": "fcf0737837c70d7385d32dcdce3e3d46d67aba23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/571dd533f56057f2afc5f447759b09bbcc012a0d",
-                "reference": "571dd533f56057f2afc5f447759b09bbcc012a0d",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/fcf0737837c70d7385d32dcdce3e3d46d67aba23",
+                "reference": "fcf0737837c70d7385d32dcdce3e3d46d67aba23",
                 "shasum": ""
             },
             "require": {
@@ -863,7 +863,7 @@
                 "client",
                 "search"
             ],
-            "time": "2016-03-18 07:56:36"
+            "time": "2016-05-02 06:33:10"
         },
         {
             "name": "silex/silex",
@@ -944,11 +944,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/1041-Search_refactoring",
+            "version": "dev-feature/1041-Search_refactoring_merged",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "27a998709844aacc9fa560d4ffd6120924e961fd"
+                "reference": "6b17272007365ed664f57ba0b59ad75e2b49d7b3"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1422,7 +1422,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-06-10 15:04:19"
+            "time": "2016-06-14 09:19:57"
         },
         {
             "name": "symfony-cmf/routing",

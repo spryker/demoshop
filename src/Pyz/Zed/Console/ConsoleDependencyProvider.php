@@ -29,9 +29,9 @@ use Spryker\Zed\NewRelic\Communication\Console\RecordDeploymentConsole;
 use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole as OmsCheckConditionConsole;
 use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole as OmsCheckTimeoutConsole;
 use Spryker\Zed\Search\Communication\Console\SearchConsole;
-use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole as StateMachineCheckConditionConsole;
-use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole as StateMachineCheckTimeoutConsole;
-use Spryker\Zed\Oms\Communication\Console\ClearLocks;
+use Spryker\Zed\StateMachine\Communication\Console\CheckConditionConsole as StateMachineCheckConditionConsole;
+use Spryker\Zed\StateMachine\Communication\Console\CheckTimeoutConsole as StateMachineCheckTimeoutConsole;
+use Spryker\Zed\StateMachine\Communication\Console\ClearLocks;
 use Spryker\Zed\Touch\Communication\Console\TouchCleanUpConsole;
 use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
 
