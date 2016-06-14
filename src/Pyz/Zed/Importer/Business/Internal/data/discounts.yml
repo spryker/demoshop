@@ -9,6 +9,7 @@ discounts:
      valid_to: '2017-12-31'
      decision_rule_query_string: 'sub-total >= "100"'
      collector_query_string: 'sku = "*"'
+     discount_type: 'cart_rule'
    - display_name: '€5 every tuesday and wednesday for buying 5 items'
      description: 'Every wednesday discount promotion for 5 items. This discount is exclusive and can only be redeemed on its own.'
      amount: 5
@@ -19,6 +20,7 @@ discounts:
      valid_to: '2017-12-31'
      decision_rule_query_string: ' (day-of-week = "2" OR day-of-week = "3") AND item-quantity >= "5"'
      collector_query_string: 'item-quantity = "5"'
+     discount_type: 'cart_rule'
    - display_name: '5% discount on all white products'
      description: 'Get a 5% discount on all white products. This discount is not exclusive and can be combined with other discounts.'
      amount: 5
@@ -29,6 +31,7 @@ discounts:
      valid_to: '2017-12-31'
      decision_rule_query_string: ''
      collector_query_string: 'attribute.color = "white"'
+     discount_type: 'voucher'
      voucher:
         quantity: 10
         custom_code: 'spryker'
@@ -44,6 +47,7 @@ discounts:
      valid_to: '2017-12-31'
      decision_rule_query_string: ''
      collector_query_string: 'attribute.processor CONTAINS "Intel Core"'
+     discount_type: 'voucher'
      voucher:
         quantity: 100
         custom_code: 'intelcore'
