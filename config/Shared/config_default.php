@@ -99,7 +99,7 @@ $config[ApplicationConstants::ZED_HTTP_STRICT_TRANSPORT_SECURITY_CONFIG] =
     'max_age' => 31536000,
     'include_sub_domains' => true,
     'preload' => true
-];
+    ];
 
 $config[ApplicationConstants::LOG_LEVEL] = Monolog\Logger::INFO;
 
