@@ -2,11 +2,11 @@
     <a href="/" class="shop-logo">Spryker Shop</a>
     <a href="#" class="nav-toggle js-nav-toggle"><span></span></a>
     <nav class="main-nav"></nav>
-    <div class="header__search js-search">
+    <div class="header__search js-search{% if app.request.get('q') != "" %} active{% endif %}">
         {# @TODO create Url dynamic #}
         <form action="/search">
             <button class="search__button js-search-button">Search</button>
-            <input name="q" type="text" class="search__box js-search-box">
+            <input name="q" type="text" class="search__box js-search-box" value="{{ app.request.get('q') }}">
         </form>
     </div>
     {% if hideUserMenu is not defined or hideUserMenu != true %}

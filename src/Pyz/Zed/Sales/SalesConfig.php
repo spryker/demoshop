@@ -8,20 +8,11 @@
 namespace Pyz\Zed\Sales;
 
 use Generated\Shared\Transfer\ItemTransfer;
-use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Zed\Sales\SalesConfig as SprykerSalesConfig;
 
 class SalesConfig extends SprykerSalesConfig
 {
-
-    /**
-     * @var array
-     */
-    protected static $stateMachineMapper = [
-        PaymentTransfer::DUMMY_PAYMENT_INVOICE => 'DummyPayment01',
-        PaymentTransfer::DUMMY_PAYMENT_CREDIT_CARD => 'DummyPayment01',
-    ];
 
     /**
      * This method determines state machine process from the given quote transfer and order item.
@@ -35,11 +26,13 @@ class SalesConfig extends SprykerSalesConfig
      */
     public function determineProcessForOrderItem(QuoteTransfer $quoteTransfer, ItemTransfer $itemTransfer)
     {
-        if (!array_key_exists($quoteTransfer->getPayment()->getPaymentSelection(), self::$stateMachineMapper)) {
+        $paymentMethodStatemachineMapping = $this->getPaymentMethodStatemachineMapping();
+
+        if (!array_key_exists($quoteTransfer->getPayment()->getPaymentSelection(), $paymentMethodStatemachineMapping)) {
             return parent::determineProcessForOrderItem($quoteTransfer, $itemTransfer);
         }
 
-        return self::$stateMachineMapper[$quoteTransfer->getPayment()->getPaymentSelection()];
+        return $paymentMethodStatemachineMapping[$quoteTransfer->getPayment()->getPaymentSelection()];
     }
 
     /**

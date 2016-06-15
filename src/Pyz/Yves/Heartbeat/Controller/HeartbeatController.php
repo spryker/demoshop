@@ -26,9 +26,12 @@ class HeartbeatController extends AbstractController
      */
     public function indexAction()
     {
-        $healthChecker = $this->getFactory()->createHealthChecker();
+        $healthChecker = $this
+            ->getFactory()
+            ->createHealthChecker()
+            ->doHealthCheck();
 
-        if ($healthChecker->doHealthCheck()->isSystemAlive()) {
+        if ($healthChecker->isSystemAlive()) {
             return $this->jsonResponse(
                 [
                     self::SYSTEM_STATUS => self::SYSTEM_UP,
@@ -40,7 +43,7 @@ class HeartbeatController extends AbstractController
         return $this->jsonResponse(
             [
                 self::SYSTEM_STATUS => self::SYSTEM_DOWN,
-                self::STATUS_REPORT => $healthChecker->doHealthCheck()->getReport()->toArray(),
+                self::STATUS_REPORT => $healthChecker->getReport()->toArray(),
             ],
             Response::HTTP_SERVICE_UNAVAILABLE
         );

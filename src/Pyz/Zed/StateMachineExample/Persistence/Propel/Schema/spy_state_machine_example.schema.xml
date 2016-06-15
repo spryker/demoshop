@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed" xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd" namespace="Orm\Zed\StateMachineExample\Persistence" package="src.Orm.Zed.StateMachineExample.Persistence">
+
+    <table name="pyz_state_machine_example_item" phpName="PyzStateMachineExampleItem" identifierQuoting="true">
+        <column name="id_state_machine_example_item" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="fk_state_machine_item_state" type="INTEGER" required="false"/>
+        <column name="name" type="VARCHAR" required="false"/>
+
+        <foreign-key name="pyz_state_machine_example_item-fk_state_machine_item_state" foreignTable="spy_state_machine_item_state" phpName="State" refPhpName="StateMachineItemState">
+            <reference local="fk_state_machine_item_state" foreign="id_state_machine_item_state"/>
+        </foreign-key>
+
+        <id-method-parameter value="pyz_state_machine_example_item_pk_seq"/>
+    </table>
+
+</database>

@@ -11,8 +11,6 @@ $config[ApplicationConstants::ZED_DB_HOST] = '127.0.0.1';
 $config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
 $config[ApplicationConstants::ZED_DB_PORT] = 5432;
 
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_development_catalog';
-
 $yvesHost = 'www.de.spryker.dev';
 $config[ApplicationConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
 $config[ApplicationConstants::HOST_YVES] = 'http://' . $yvesHost;
@@ -39,6 +37,9 @@ $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = 'https://static.de
 $config[ApplicationConstants::JENKINS_BASE_URL] = 'http://localhost:10007/';
 $config[MailConstants::MAILCATCHER_GUI] = 'http://' . $config[ApplicationConstants::HOST_ZED_GUI] . ':1080';
 $config[ApplicationConstants::YVES_TRUSTED_HOSTS] = [$yvesHost, $zedHost];
+
+/* Elasticsearch */
+$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_search';
 
 /* RabbitMQ */
 $config[ApplicationConstants::ZED_RABBITMQ_HOST] = 'localhost';

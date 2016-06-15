@@ -16,9 +16,11 @@ use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
 use Spryker\Shared\Price\PriceConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Sales\SalesConstants;
+use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\User\UserConstants;
+use Spryker\Zed\DummyPayment\DummyPaymentConfig;
 use Spryker\Zed\Oms\OmsConfig;
 use Spryker\Zed\Propel\PropelConfig;
 
@@ -49,12 +51,21 @@ $config[ApplicationConstants::ZED_DB_SUPPORTED_ENGINES] = [
 
 $config[ApplicationConstants::STORAGE_KV_SOURCE] = 'redis';
 
+/**
+ * Elasticsearch settings
+ */
 $config[ApplicationConstants::ELASTICA_PARAMETER__HOST] = 'localhost';
 $config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT] = 'http';
 $config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = '10005';
 $config[ApplicationConstants::ELASTICA_PARAMETER__AUTH_HEADER] = '';
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'index_page';
+$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = null; // Store related config
 $config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
+
+/**
+ * Page search settings
+ */
+$config[SearchConstants::SEARCH_CONFIG_CACHE_KEY] = 'search_config_cache';
+$config[SearchConstants::FULL_TEXT_BOOSTED_BOOSTING_VALUE] = 3;
 
 /**
  * Hostname(s) for Yves - Shop frontend
@@ -351,13 +362,30 @@ $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_PROVIDER] = \Spryker\Shared\Kernel\ClassResolver\Cache\Provider\File::class;
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = false;
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = true;
+
+
 $config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [
     'Checkout' => [
         'DummyPayment',
     ],
 ];
 
+$config[KernelConstants::DEPENDENCY_INJECTOR_ZED] = [
+    'Payment' => [
+        'DummyPayment',
+    ],
+];
+
 $config[OmsConstants::PROCESS_LOCATION] = [
     OmsConfig::DEFAULT_PROCESS_LOCATION,
-    $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] . '/dummy-payment/config/Zed/Oms'
+    $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] . '/dummy-payment/config/Zed/Oms',
+];
+
+$config[OmsConstants::ACTIVE_PROCESSES] = [
+    'DummyPayment01',
+];
+
+$config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
+    DummyPaymentConfig::PAYMENT_METHOD_INVOICE => 'DummyPayment01',
+    DummyPaymentConfig::PAYMENT_METHOD_CREDIT_CARD => 'DummyPayment01',
 ];
