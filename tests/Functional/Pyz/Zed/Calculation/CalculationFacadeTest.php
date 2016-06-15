@@ -167,7 +167,7 @@ class CalculationFacadeTest extends Test
     }
 
     /**
-     * @return @void
+     * @return void
      */
     public function testTaxCalculationWhenDifferentRatesUsed()
     {
@@ -208,7 +208,7 @@ class CalculationFacadeTest extends Test
     }
 
     /**
-     * @return @void
+     * @return void
      */
     public function testTaxCalculationWhenDifferentRatesAndDiscountUsed()
     {
