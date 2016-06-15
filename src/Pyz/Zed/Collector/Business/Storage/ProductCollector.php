@@ -313,7 +313,6 @@ class ProductCollector extends AbstractStoragePdoCollector
 
         $result = [];
 
-
         foreach ($imagesCollection as $image) {
             $imageArray = $image->getSpyProductImage()->toArray();
             $imageArray += $image->toArray();
