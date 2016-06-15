@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a67ac10f60e562d7d2079656078dd9a9",
-    "content-hash": "811512d7917a56863f37be55ae01abfd",
+    "hash": "188e625cd870bdc4d20440540ae0fc8d",
+    "content-hash": "d1fb0a18831e2af2fbb8f3cebbcc0264",
     "packages": [
         {
             "name": "codeception/codeception",
@@ -3970,11 +3970,11 @@
         },
         {
             "name": "spryker/dummy-payment",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/DummyPayment.git",
-                "reference": "d45bdfc6d29fdae63de78a9b57901587e595f74f",
+                "reference": "329787eeae1e55d6b95878c8b06f62def8f8c2a8",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3984,8 +3984,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/DummyPayment/zipball/d45bdfc6d29fdae63de78a9b57901587e595f74f",
-                "reference": "d45bdfc6d29fdae63de78a9b57901587e595f74f",
+                "url": "https://api.github.com/repos/spryker/DummyPayment/zipball/329787eeae1e55d6b95878c8b06f62def8f8c2a8",
+                "reference": "329787eeae1e55d6b95878c8b06f62def8f8c2a8",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3995,8 +3995,10 @@
                 ]
             },
             "require": {
+                "spryker/checkout": "^2.1.0",
                 "spryker/kernel": "^2.0.0",
                 "spryker/library": "^2.0.0",
+                "spryker/payment": "^2.0.0",
                 "spryker/step-engine": "^1.0.0",
                 "spryker/symfony": "^2.0.0"
             },
@@ -4019,7 +4021,7 @@
             "support": {
                 "source": "https://github.com/spryker/DummyPayment/tree/master"
             },
-            "time": "2016-06-08 12:32:31"
+            "time": "2016-06-10 08:54:38"
         },
         {
             "name": "spryker/elastica",
@@ -5514,11 +5516,11 @@
         },
         {
             "name": "spryker/payment",
-            "version": "1.0.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Payment.git",
-                "reference": "b1341010803333d31d625356849cf080f1ff0fdd",
+                "reference": "2cead2db9b7b9bd13522c6d120db5ed498590529",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5528,66 +5530,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Payment/zipball/b1341010803333d31d625356849cf080f1ff0fdd",
-                "reference": "b1341010803333d31d625356849cf080f1ff0fdd",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "spryker/application": "^2.0.0-RC1",
-                "spryker/kernel": "^2.0.0-RC1",
-                "spryker/sales": "^2.0.0-RC1",
-                "spryker/symfony": "^2.0.0-RC1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Spryker": "src/",
-                    "Acceptance": "tests/",
-                    "Functional": "tests/",
-                    "Integration": "tests/",
-                    "Unit": "tests/",
-                    "YvesUnit": "tests/"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "description": "payment bundle",
-            "support": {
-                "source": "https://github.com/spryker/Payment/tree/master"
-            },
-            "time": "2016-04-01 13:06:05"
-        },
-        {
-            "name": "spryker/payolution",
-            "version": "2.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spryker/Payolution.git",
-                "reference": "351abd13610690e540f8854ccd9c1344c3ce58cb",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Payolution/zipball/351abd13610690e540f8854ccd9c1344c3ce58cb",
-                "reference": "351abd13610690e540f8854ccd9c1344c3ce58cb",
+                "url": "https://api.github.com/repos/spryker/Payment/zipball/2cead2db9b7b9bd13522c6d120db5ed498590529",
+                "reference": "2cead2db9b7b9bd13522c6d120db5ed498590529",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5598,6 +5542,62 @@
             },
             "require": {
                 "spryker/application": "^2.0.0",
+                "spryker/kernel": "^2.0.0",
+                "spryker/sales": "^2.0.0",
+                "spryker/symfony": "^2.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/",
+                    "Functional": "tests/",
+                    "Unit": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "payment bundle",
+            "support": {
+                "source": "https://github.com/spryker/Payment/tree/master"
+            },
+            "time": "2016-06-10 04:49:21"
+        },
+        {
+            "name": "spryker/payolution",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/Payolution.git",
+                "reference": "2134ab01048c513001c849dc8bdf6ac419d32f16",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/Payolution/zipball/2134ab01048c513001c849dc8bdf6ac419d32f16",
+                "reference": "2134ab01048c513001c849dc8bdf6ac419d32f16",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/application": "^2.0.0",
+                "spryker/checkout": "^2.1.0",
                 "spryker/country": "^2.0.0",
                 "spryker/customer": "^2.0.0",
                 "spryker/glossary": "^2.0.0",
@@ -5607,6 +5607,7 @@
                 "spryker/library": "^2.0.0",
                 "spryker/mail": "^2.0.0",
                 "spryker/oms": "^2.0.0 || ^3.0.0",
+                "spryker/payment": "^2.0.0",
                 "spryker/propel": "^2.0.0",
                 "spryker/sales": "^2.0.0",
                 "spryker/sql-criteria-builder": "^1.0.0",
@@ -5624,11 +5625,8 @@
             "autoload": {
                 "psr-0": {
                     "Spryker": "src/",
-                    "Acceptance": "tests/",
                     "Function": "tests/",
-                    "Integration": "tests/",
-                    "Unit": "tests/",
-                    "YvesUnit": "tests/"
+                    "Unit": "tests/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -5639,7 +5637,7 @@
             "support": {
                 "source": "https://github.com/spryker/Payolution/tree/master"
             },
-            "time": "2016-06-08 16:07:58"
+            "time": "2016-06-10 08:20:14"
         },
         {
             "name": "spryker/payone",

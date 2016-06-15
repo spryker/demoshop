@@ -25,6 +25,7 @@
     "spryker/development": "^2.0.0",
     "spryker/discount": "^2.0.0",
     "spryker/discount-calculation-connector": "^2.0.0",
+    "spryker/dummy-payment": "^1.1.0",
     "spryker/elastica": "^3.0.0",
     "spryker/event-journal": "^2.0.0",
     "spryker/glossary": "^2.0.0",
@@ -51,7 +52,7 @@
     "spryker/nopayment": "^2.0.0",
     "spryker/oms": "^3.0.0",
     "spryker/oms-discount-connector": "^2.0.0",
-    "spryker/payment": "^1.0.0",
+    "spryker/payment": "^2.0.0",
     "spryker/payolution": "^2.0.0",
     "spryker/payone": "^2.0.0",
     "spryker/pimple": "^2.0.0",
@@ -79,6 +80,7 @@
     "spryker/shipment": "^2.0.0",
     "spryker/silex": "^2.0.0",
     "spryker/sql-criteria-builder": "^1.0.0",
+    "spryker/step-engine": "^1.0.0",
     "spryker/stock": "^2.0.0",
     "spryker/stock-sales-connector": "^2.0.0",
     "spryker/storage": "^2.0.0",
@@ -93,9 +95,7 @@
     "spryker/user": "^2.0.0",
     "spryker/wishlist": "^2.0.0",
     "spryker/zed-request": "^2.0.0",
-    "spryker/zend": "^2.0.0",
-    "spryker/step-engine": "^1.0.0",
-    "spryker/dummy-payment": "^1.0.0"
+    "spryker/zend": "^2.0.0"
   },
   "require-dev": {
     "spryker/code-sniffer": "*",
@@ -121,6 +121,7 @@
   "config": {
     "preferred-install": "dist",
     "use-include-path": true,
+    "sort-packages": true,
     "process-timeout": 600
   },
   "repositories": [
