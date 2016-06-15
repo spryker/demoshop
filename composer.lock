@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
     "hash": "c0da13ff6991e7bd742b3760022a16ee",
     "content-hash": "84032c7caf6d1d3109704944b6b7ee5d",
 =======
@@ -16,6 +17,10 @@
     "content-hash": "cea01fea8b158e385eb063cca5038535",
 >>>>>>> Update dependencies.
 >>>>>>> Update dependencies.
+=======
+    "hash": "833755b2f051383de251c48021549b56",
+    "content-hash": "07cf2748815ceb3beba3a37c2227abe5",
+>>>>>>> Moved files to core
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1000,13 +1005,16 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-beta/braintree",
+            "version": "dev-feature/move-braintree-to-core",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "1ec561a738c67126c7ea08083c3f8d230fff56fb"
 =======
+=======
+>>>>>>> Moved files to core
 <<<<<<< HEAD
                 "reference": "3d58ba95cc4d99cb5a52a7b6913ec50a79f22689"
 =======
@@ -1016,7 +1024,13 @@
                 "reference": "5d6445c78198aecef8d0b71c1753bbc06cbe6acb"
 >>>>>>> Update dependencies.
 >>>>>>> Update dependencies.
+<<<<<<< HEAD
 >>>>>>> Update dependencies.
+=======
+=======
+                "reference": "2823859f599cebac13b898ea7b3868279229d750"
+>>>>>>> Moved files to core
+>>>>>>> Moved files to core
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1503,8 +1517,11 @@
             ],
             "description": "Spryker Framework",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-06-21 15:20:57"
 =======
+=======
+>>>>>>> Moved files to core
 <<<<<<< HEAD
             "time": "2016-06-16 14:48:35"
 =======
@@ -1514,7 +1531,13 @@
             "time": "2016-05-19 14:05:17"
 >>>>>>> Update dependencies.
 >>>>>>> Update dependencies.
+<<<<<<< HEAD
 >>>>>>> Update dependencies.
+=======
+=======
+            "time": "2016-06-15 09:39:51"
+>>>>>>> Moved files to core
+>>>>>>> Moved files to core
         },
         {
             "name": "symfony-cmf/routing",
@@ -1917,11 +1940,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/form/zipball/23394a60d49d2aa904dacda6e5eb29d88251f9da",
-<<<<<<< HEAD
                 "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da",
-=======
-                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
->>>>>>> Update dependencies.
                 "shasum": ""
             },
             "require": {

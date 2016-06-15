@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-beta/braintree",
+    "spryker/spryker": "dev-feature/move-braintree-to-core",
 
     "php": "~5.6.0",
     "guzzle/http": "~3.8.0",
@@ -40,16 +40,10 @@
     "zendframework/zend-code": "~2.6.2",
     "zendframework/zend-config": "~2.5.1",
     "zendframework/zend-eventmanager": "~2.6.2",
-<<<<<<< HEAD
     "zendframework/zend-filter": "~2.5.1",
     "zendframework/zend-http": "~2.5.3",
-    "zendframework/zend-servicemanager": "~2.7.4"
-=======
-    "phpdocumentor/graphviz": "dev-master#a906a90",
-    "nesbot/carbon": "~1.13.0",
-    "braintree/braintree_php" : "~3.13.0",
-    "everon/criteria-builder": "^1.1.0"
->>>>>>> Add SDK to composer json
+    "zendframework/zend-servicemanager": "~2.7.4",
+    "braintree/braintree_php" : "~3.13.0"
   },
   "require-dev": {
     "codeception/codeception": "~2.1.10",

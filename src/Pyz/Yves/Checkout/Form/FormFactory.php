@@ -251,43 +251,7 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-<<<<<<< HEAD
-     * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection
-=======
-     * @return \Pyz\Yves\Payolution\Plugin\PayolutionInvoiceSubFormPlugin
-     */
-    protected function createPayolutionInvoiceSubFormPlugin()
-    {
-        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_INVOICE_SUB_FORM);
-    }
-
-    /**
-     * @return \Pyz\Yves\Payolution\Plugin\PayolutionInstallmentSubFormPlugin
-     */
-    protected function createPayolutionInstallmentSubFormPlugin()
-    {
-        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_INSTALLMENT_SUB_FORM);
-    }
-
-    /**
-     * @return \Pyz\Yves\Braintree\Plugin\BraintreePayPalSubFormPlugin
-     */
-    protected function createBraintreePayPalSubFormPlugin()
-    {
-        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_PAY_PAL_SUB_FORM);
-    }
-
-    /**
-     * @return \Pyz\Yves\Braintree\Plugin\BraintreeCreditCardSubFormPlugin
-     */
-    protected function createBraintreeCreditCardSubFormPlugin()
-    {
-        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_CREDIT_CARD_SUB_FORM);
-    }
-
-    /**
      * @return \Pyz\Yves\Shipment\Plugin\ShipmentSubFormPlugin
->>>>>>> Add frontend part of Braintree.
      */
     protected function createShipmentFormPlugin()
     {

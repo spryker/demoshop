@@ -117,20 +117,6 @@ class StepFactory extends SprykerStepFactory
     }
 
     /**
-     * Move Braintree
-     *
-     * @return \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface[]
-     */
-    public function createPaymentPlugins()
-    {
-        return [
-            PaymentTransfer::BRAINTREE => $this->createBraintreeHandlerPlugin(),
-            PaymentTransfer::BRAINTREE_PAY_PAL => $this->createBraintreeHandlerPlugin(),
-            PaymentTransfer::BRAINTREE_CREDIT_CARD => $this->createBraintreeHandlerPlugin(),
-        ];
-    }
-
-    /**
      * @return \Pyz\Yves\Checkout\Process\Steps\SummaryStep
      */
     protected function createSummaryStep()
@@ -213,15 +199,6 @@ class StepFactory extends SprykerStepFactory
     public function getCheckoutClient()
     {
         return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CHECKOUT);
-    }
-
-    /**
-     * @return \Pyz\Yves\Braintree\Plugin\BraintreeHandlerPlugin
-     */
-    protected function createBraintreeHandlerPlugin()
-    {
-        // 'braintree_pay_pal' PaymentMethodName?
-        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_BRAINTREE_HANDLER);
     }
 
 }

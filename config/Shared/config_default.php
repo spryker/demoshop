@@ -428,6 +428,6 @@ $config[OmsConstants::ACTIVE_PROCESSES] = [
 ];
 
 $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
-    BraintreeConfig::BRAINTREE_CREDIT_CARD => 'BraintreeCreditCard01',
-    BraintreeConfig::BRAINTREE_PAY_PAL => 'BraintreePayPal01',
+    BraintreeConfig::PAYMENT_METHOD_CREDIT_CARD => 'BraintreeCreditCard01',
+    BraintreeConfig::PAYMENT_METHOD_PAY_PAL => 'BraintreePayPal01',
 ];
