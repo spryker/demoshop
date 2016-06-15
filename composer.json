@@ -80,6 +80,7 @@
     "spryker/shipment": "^2.0.0",
     "spryker/silex": "^2.0.0",
     "spryker/sql-criteria-builder": "^1.0.0",
+    "spryker/state-machine": "^1.0.0",
     "spryker/step-engine": "^1.0.0",
     "spryker/stock": "^2.0.0",
     "spryker/stock-sales-connector": "^2.0.0",

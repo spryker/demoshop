@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "188e625cd870bdc4d20440540ae0fc8d",
-    "content-hash": "d1fb0a18831e2af2fbb8f3cebbcc0264",
+    "hash": "cfcebc53a943e9a6edbbb60f81218749",
+    "content-hash": "ed52c93cedb67f993267b14b3932dd18",
     "packages": [
         {
             "name": "codeception/codeception",
@@ -7191,6 +7191,70 @@
                 "source": "https://github.com/spryker/SqlCriteriaBuilder/tree/master"
             },
             "time": "2016-04-01 13:06:05"
+        },
+        {
+            "name": "spryker/state-machine",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/StateMachine.git",
+                "reference": "2a4682261d8935fe832895e833e95898eaee4a4b",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/StateMachine/zipball/2a4682261d8935fe832895e833e95898eaee4a4b",
+                "reference": "2a4682261d8935fe832895e833e95898eaee4a4b",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/application": "^2.0.0",
+                "spryker/console": "^2.0.0",
+                "spryker/graph": "^2.0.0",
+                "spryker/kernel": "^2.0.0",
+                "spryker/library": "^2.0.0",
+                "spryker/propel": "^2.0.0",
+                "spryker/symfony": "^2.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "0.3.1",
+                "spryker/config": "^2.1.2",
+                "spryker/console": "^2.0.1",
+                "spryker/testify": "^2.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/",
+                    "Functional": "tests/",
+                    "Unit": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "state machine bundle",
+            "support": {
+                "source": "https://github.com/spryker/StateMachine/tree/master"
+            },
+            "time": "2016-06-10 10:26:20"
         },
         {
             "name": "spryker/step-engine",
