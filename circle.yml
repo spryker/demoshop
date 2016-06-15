@@ -29,7 +29,7 @@ dependencies:
     - wget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.3/elasticsearch-2.3.3.tar.gz
     - tar -xvf elasticsearch-2.3.3.tar.gz
     - elasticsearch-2.3.3/bin/elasticsearch: {background: true}
-    - cp ~/project/config/Shared/ci/circle/zed.vhost /etc/apache2/sites-available/zed.vhost.conf
+    - cp config/Shared/ci/circle/zed.vhost /etc/apache2/sites-available/zed.vhost.conf
     - sudo a2ensite zed.vhost.conf
     - sudo a2enmod rewrite
     - sudo service apache2 restart
