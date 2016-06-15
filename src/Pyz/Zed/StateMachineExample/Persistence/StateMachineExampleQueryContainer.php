@@ -7,8 +7,8 @@
 
 namespace Pyz\Zed\StateMachineExample\Persistence;
 
-use Spryker\Zed\Kernel\Persistence\AbstractQueryContainer;
 use Propel\Runtime\ActiveQuery\Criteria;
+use Spryker\Zed\Kernel\Persistence\AbstractQueryContainer;
 
 /**
  * @method \Pyz\Zed\StateMachineExample\Persistence\StateMachineExamplePersistenceFactory getFactory()
