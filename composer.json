@@ -99,15 +99,15 @@
     "spryker/zend": "^2.0.0"
   },
   "require-dev": {
-    "spryker/code-sniffer": "*",
-    "silex/web-profiler": "~1.0.8",
+    "codeception/codeception": "~2.1.10",
     "pdepend/pdepend": "~2.2.2",
     "phploc/phploc": "~3.0.1",
     "phpmd/phpmd": "~2.3.2",
     "sebastian/phpcpd": "~2.0.2",
-    "codeception/codeception": "~2.1.10",
     "sensiolabs/security-checker": "~3.0.2",
-    "sllh/composer-versions-check": "~2.0.2"
+    "silex/web-profiler": "~1.0.8",
+    "sllh/composer-versions-check": "~2.0.2",
+    "spryker/code-sniffer": "*"
   },
   "autoload": {
     "psr-0": {
