@@ -1,7 +1,7 @@
 discounts:
    - display_name: '10% Discount for all orders above €100'
      description: 'Get a 10% discount on all orders above €100. This discount is exclusive and can only be redeemed on its own.'
-     amount: 10
+     amount: 1000
      calculator_plugin: 'PLUGIN_CALCULATOR_PERCENTAGE'
      is_exclusive: true
      is_active: true
@@ -12,7 +12,7 @@ discounts:
      discount_type: 'cart_rule'
    - display_name: '€5 every tuesday and wednesday for buying 5 items'
      description: 'Every wednesday discount promotion for 5 items. This discount is exclusive and can only be redeemed on its own.'
-     amount: 5
+     amount: 500
      calculator_plugin: 'PLUGIN_CALCULATOR_FIXED'
      is_exclusive: true
      is_active: true
@@ -23,7 +23,7 @@ discounts:
      discount_type: 'cart_rule'
    - display_name: '5% discount on all white products'
      description: 'Get a 5% discount on all white products. This discount is not exclusive and can be combined with other discounts.'
-     amount: 5
+     amount: 500
      calculator_plugin: 'PLUGIN_CALCULATOR_PERCENTAGE'
      is_exclusive: false
      is_active: true
@@ -39,7 +39,7 @@ discounts:
         max_number_of_uses: 10
    - display_name: '10% on all products with an Intel Core processor'
      description: 'Get a 10% discount on all products with an Intel Core processor with this voucher. This discount is exclusive and can only be redeemed on its own.'
-     amount: 10
+     amount: 1000
      calculator_plugin: 'PLUGIN_CALCULATOR_PERCENTAGE'
      is_exclusive: true
      is_active: true
