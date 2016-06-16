@@ -1,4 +1,7 @@
 {
+  "name": "spryker/demoshop",
+  "description": "Demoshop",
+  "license": "MIT",
   "require": {
     "spryker/acl": "^2.0.0",
     "spryker/application": "^2.0.0",
