@@ -90,7 +90,6 @@ class CalculationFacadeTest extends Test
         $this->assertEquals(0, $totalsTransfer->getDiscountTotal());
         $this->assertEquals(100, $totalsTransfer->getExpenseTotal());
         $this->assertEquals(350, $totalsTransfer->getGrandTotal());
-        //$this->assertEquals(19, $totalsTransfer->getTaxTotal()->getTaxRate());
         $this->assertEquals(56, $totalsTransfer->getTaxTotal()->getAmount());
     }
 
@@ -161,7 +160,6 @@ class CalculationFacadeTest extends Test
         $this->assertEquals($discountAmount, $totalsTransfer->getDiscountTotal());
         $this->assertEquals(100, $totalsTransfer->getExpenseTotal());
         $this->assertEquals(330, $totalsTransfer->getGrandTotal());
-       // $this->assertEquals(19, $totalsTransfer->getTaxTotal()->getTaxRate());
         $this->assertEquals(53, $totalsTransfer->getTaxTotal()->getAmount());
 
     }
