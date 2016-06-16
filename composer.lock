@@ -949,7 +949,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "67caf868c4c737515ee40ba1c35baa35cadfeb15"
+                "reference": "fdd4b0481e0003af73acf83d633da98598ed9ce6"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1409,7 +1409,11 @@
                     "Spryker\\Shared\\StateMachine\\": "Bundles/StateMachine/src",
                     "Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/src",
                     "Unit\\Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/tests",
-                    "Functional\\Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/tests"
+                    "Functional\\Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/tests",
+                    "Spryker\\Shared\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/src",
+                    "Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/src",
+                    "Unit\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests",
+                    "Functional\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests"
                 },
                 "psr-4": {
                     "Testify\\Module\\": "Bundles/Testify/tests/_support/Module",
@@ -1426,7 +1430,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-06-16 12:46:12"
+            "time": "2016-06-16 16:14:23"
         },
         {
             "name": "symfony-cmf/routing",
