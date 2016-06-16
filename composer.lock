@@ -4,8 +4,13 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "hash": "c0da13ff6991e7bd742b3760022a16ee",
     "content-hash": "84032c7caf6d1d3109704944b6b7ee5d",
+=======
+    "hash": "1f17d0d8c6fa933b2ffdde9b83a6c792",
+    "content-hash": "b1b09f87f7516d65a6875a6e0c2411b5",
+>>>>>>> 2173 use AbstractPlaceOrderStep, add some tests
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -943,11 +948,15 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bug/2173-PlaceOrderStep-must-be-able-to-set-escape-route",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "3d58ba95cc4d99cb5a52a7b6913ec50a79f22689"
+=======
+                "reference": "b5c8610a9d3e98247664e92cd54535371f6c73dc"
+>>>>>>> 2173 use AbstractPlaceOrderStep, add some tests
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1422,7 +1431,11 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2016-06-16 14:48:35"
+=======
+            "time": "2016-06-16 14:34:19"
+>>>>>>> 2173 use AbstractPlaceOrderStep, add some tests
         },
         {
             "name": "symfony-cmf/routing",

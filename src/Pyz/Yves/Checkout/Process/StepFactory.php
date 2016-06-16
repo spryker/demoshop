@@ -137,7 +137,10 @@ class StepFactory extends SprykerStepFactory
             $this->getCheckoutClient(),
             $this->getFlashMessenger(),
             CheckoutControllerProvider::CHECKOUT_PLACE_ORDER,
-            ApplicationControllerProvider::ROUTE_HOME
+            ApplicationControllerProvider::ROUTE_HOME,
+            [
+                007 => CheckoutControllerProvider::CHECKOUT_PAYMENT
+            ]
         );
     }
 

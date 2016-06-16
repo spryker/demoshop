@@ -8,24 +8,14 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
+use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 use Spryker\Shared\Transfer\AbstractTransfer;
-use Spryker\Yves\StepEngine\Dependency\Step\StepWithExternalRedirectInterface;
-use Symfony\Component\HttpFoundation\Request;
+use Spryker\Yves\Checkout\Process\Steps\AbstractPlaceOrderStep;
 
-class PlaceOrderStep extends AbstractBaseStep implements StepWithExternalRedirectInterface
+class PlaceOrderStep extends AbstractPlaceOrderStep
 {
-
-    /**
-     * @var \Spryker\Client\Checkout\CheckoutClientInterface
-     */
-    protected $checkoutClient;
-
-    /**
-     * @var string
-     */
-    protected $externalRedirectUrl;
 
     /**
      * @var \Pyz\Yves\Application\Business\Model\FlashMessengerInterface
@@ -37,58 +27,38 @@ class PlaceOrderStep extends AbstractBaseStep implements StepWithExternalRedirec
      * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      * @param string $stepRoute
      * @param string $escapeRoute
+     * @param array $errorCodeToEscapeRouteMatching
      */
     public function __construct(
         CheckoutClientInterface $checkoutClient,
         FlashMessengerInterface $flashMessenger,
         $stepRoute,
-        $escapeRoute
+        $escapeRoute,
+        $errorCodeToEscapeRouteMatching = []
     ) {
-        parent::__construct($stepRoute, $escapeRoute);
+        parent::__construct($checkoutClient, $stepRoute, $escapeRoute, $errorCodeToEscapeRouteMatching);
 
         $this->flashMessenger = $flashMessenger;
-        $this->checkoutClient = $checkoutClient;
     }
 
     /**
-     * @param \Spryker\Shared\Transfer\AbstractTransfer $quoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $dataTransfer
      *
      * @return bool
      */
-    public function requireInput(AbstractTransfer $quoteTransfer)
+    public function preCondition(AbstractTransfer $dataTransfer)
     {
-        return false;
+        return !$this->isCartEmpty($dataTransfer);
     }
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Spryker\Shared\Transfer\AbstractTransfer
-     */
-    public function execute(Request $request, AbstractTransfer $quoteTransfer)
-    {
-        $checkoutResponseTransfer = $this->checkoutClient->placeOrder($quoteTransfer);
-        if ($checkoutResponseTransfer->getIsExternalRedirect()) {
-            $this->externalRedirectUrl = $checkoutResponseTransfer->getRedirectUrl();
-        }
-        if ($checkoutResponseTransfer->getSaveOrder() !== null) {
-            $quoteTransfer->setOrderReference($checkoutResponseTransfer->getSaveOrder()->getOrderReference());
-        }
-
-        $this->setCheckoutErrorMessages($checkoutResponseTransfer);
-
-        return $quoteTransfer;
-    }
-
-    /**
-     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
-    public function postCondition(AbstractTransfer $quoteTransfer)
+    protected function isCartEmpty(QuoteTransfer $quoteTransfer)
     {
-        return ($quoteTransfer->getOrderReference() !== null);
+        return count($quoteTransfer->getItems()) === 0;
     }
 
     /**
@@ -101,14 +71,6 @@ class PlaceOrderStep extends AbstractBaseStep implements StepWithExternalRedirec
         foreach ($checkoutResponseTransfer->getErrors() as $checkoutErrorTransfer) {
             $this->flashMessenger->addErrorMessage($checkoutErrorTransfer->getMessage());
         }
-    }
-
-    /**
-     * @return string
-     */
-    public function getExternalRedirectUrl()
-    {
-        return $this->externalRedirectUrl;
     }
 
 }
