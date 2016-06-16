@@ -374,6 +374,9 @@ $config[KernelConstants::DEPENDENCY_INJECTOR_ZED] = [
     'Payment' => [
         'DummyPayment',
     ],
+    'Oms' => [
+        'DummyPayment',
+    ],
 ];
 
 $config[OmsConstants::PROCESS_LOCATION] = [
