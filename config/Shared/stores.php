@@ -33,7 +33,7 @@ $stores['DE'] = [
          'de' => 'de_DE',
     ],
     // first entry is default
-    'countries' => ['DE'],
+    'countries' => ['DE','AT'],
     // internal and shop
     'currencyIsoCode' => 'EUR',
 ];
