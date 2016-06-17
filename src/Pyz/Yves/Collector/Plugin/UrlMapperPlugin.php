@@ -8,7 +8,6 @@
 namespace Pyz\Yves\Collector\Plugin;
 
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @method \Pyz\Yves\Collector\CollectorFactory getFactory()
@@ -42,20 +41,6 @@ class UrlMapperPlugin extends AbstractPlugin
             ->getFactory()
             ->createParameterMerger()
             ->mergeParameters($requestParameters, $generationParameters);
-    }
-
-    /**
-     * @param string $pathInfo
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return void
-     */
-    public function injectParametersFromUrlIntoRequest($pathInfo, Request $request)
-    {
-        $this
-            ->getFactory()
-            ->createRequestParameterInjector()
-            ->injectParametersFromUrlIntoRequest($pathInfo, $request);
     }
 
 }

@@ -31,3 +31,6 @@ $config[ApplicationConstants::ZED_RABBITMQ_PORT] = '5672';
 $config[ApplicationConstants::ZED_RABBITMQ_USERNAME] = 'DE_development';
 $config[ApplicationConstants::ZED_RABBITMQ_PASSWORD] = 'mate20mg';
 $config[ApplicationConstants::ZED_RABBITMQ_VHOST] = '/DE_development_zed';
+
+/* Elasticsearch */
+$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'us_search';

@@ -27,7 +27,6 @@ use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManager;
 use Spryker\Zed\Cms\Business\Page\PageManager;
 use Spryker\Zed\Cms\Business\Template\TemplateManager;
 use Spryker\Zed\Cms\CmsConfig;
-use Spryker\Zed\ProductSearch\Business\Operation\OperationManager;
 use Spryker\Zed\Shipment\Business\Model\Carrier;
 use Spryker\Zed\Shipment\Business\Model\Method;
 use Symfony\Component\Finder\Finder;
@@ -169,8 +168,7 @@ class ImporterFactory extends AbstractFactory
     {
         $productSearchImporter = new ProductSearchImporter(
             $this->getLocaleFacade(),
-            $this->getProductSearchFacade(),
-            $this->createProductSearchOperationManager()
+            $this->getProductSearchFacade()
         );
 
         return $productSearchImporter;
@@ -254,16 +252,6 @@ class ImporterFactory extends AbstractFactory
         );
 
         return $cmsPageImporter;
-    }
-
-    /**
-     * @return \Spryker\Zed\ProductSearch\Business\Operation\OperationManagerInterface
-     */
-    protected function createProductSearchOperationManager()
-    {
-        return new OperationManager(
-            $this->getProductSearchQueryContainer()
-        );
     }
 
     /**
