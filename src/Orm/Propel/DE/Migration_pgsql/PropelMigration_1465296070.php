@@ -62,6 +62,12 @@ ALTER TABLE "spy_discount_voucher_pool"
   DROP COLUMN "fk_discount_voucher_pool_category",
 
   DROP COLUMN "template";
+  
+ALTER TABLE "spy_discount"
+
+  ADD "discount_type" VARCHAR(255);
+
+CREATE INDEX "spy_discount-index-discount_type" ON "spy_discount" ("discount_type");  
 ',
 );
     }
@@ -137,8 +143,17 @@ ALTER TABLE "spy_discount_collector" ADD CONSTRAINT "spy_discount_collector-fk_d
 ALTER TABLE "spy_discount_decision_rule" ADD CONSTRAINT "spy_discount_decision_rule-fk_discount"
     FOREIGN KEY ("fk_discount")
     REFERENCES "spy_discount" ("id_discount");
+    
+DROP INDEX "spy_discount-index-discount_type";
+
+ALTER TABLE "spy_discount"
+
+  DROP COLUMN "discount_type";    
+    
 ',
 );
+
+
     }
 
 }
