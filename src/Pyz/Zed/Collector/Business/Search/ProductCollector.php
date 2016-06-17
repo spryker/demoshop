@@ -30,7 +30,7 @@ class ProductCollector extends AbstractSearchPdoCollector
     protected $searchFacade;
 
     /**
-     * @var ProductImageQueryContainerInterface
+     * @var \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface
      */
     protected $productImageQueryContainer;
 
@@ -111,7 +111,6 @@ class ProductCollector extends AbstractSearchPdoCollector
         if (!$image) {
             return [];
         }
-
 
         $imageArray = $image->getSpyProductImage()->toArray();
         $imageArray += $image->toArray();
