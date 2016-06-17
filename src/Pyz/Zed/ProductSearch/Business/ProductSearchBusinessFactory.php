@@ -7,21 +7,38 @@
 
 namespace Pyz\Zed\ProductSearch\Business;
 
-use Pyz\Zed\ProductSearch\Business\Processor\ProductSearchProcessor;
+use Pyz\Zed\ProductSearch\Business\Map\ProductDataPageMapBuilder;
+use Pyz\Zed\ProductSearch\ProductSearchDependencyProvider;
 use Spryker\Zed\ProductSearch\Business\ProductSearchBusinessFactory as SprykerProductSearchBusinessFactory;
 
 class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
 {
 
     /**
-     * @return \Spryker\Zed\ProductSearch\Business\Processor\ProductSearchProcessorInterface
+     * @return \Pyz\Zed\ProductSearch\Business\Map\ProductDataPageMapBuilder
      */
-    public function createProductSearchProcessor()
+    public function createProductDataPageMapBuilder()
     {
-        return new ProductSearchProcessor(
-            $this->createKeyBuilder(),
-            $this->getStoreName()
+        return new ProductDataPageMapBuilder(
+            $this->getProductSearchFacade(),
+            $this->getPriceFacade()
         );
+    }
+
+    /**
+     * @return \Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface
+     */
+    public function getProductSearchFacade()
+    {
+        return $this->getProvidedDependency(ProductSearchDependencyProvider::FACADE_PRODUCT_SEARCH);
+    }
+
+    /**
+     * @return \Spryker\Zed\Price\Business\PriceFacadeInterface
+     */
+    public function getPriceFacade()
+    {
+        return $this->getProvidedDependency(ProductSearchDependencyProvider::FACADE_PRICE);
     }
 
 }

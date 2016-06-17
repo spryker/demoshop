@@ -28,7 +28,6 @@ use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\NewRelic\Communication\Console\RecordDeploymentConsole;
 use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole as OmsCheckConditionConsole;
 use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole as OmsCheckTimeoutConsole;
-use Spryker\Zed\ProductSearch\Communication\Console\ProductSearchConsole;
 use Spryker\Zed\Search\Communication\Console\SearchConsole;
 use Spryker\Zed\StateMachine\Communication\Console\CheckConditionConsole as StateMachineCheckConditionConsole;
 use Spryker\Zed\StateMachine\Communication\Console\CheckTimeoutConsole as StateMachineCheckTimeoutConsole;
@@ -57,7 +56,6 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new DemoDataImportConsole(),
             new GeneratorConsole(),
             new InitializeDatabaseConsole(),
-            new ProductSearchConsole(),
             new RecordDeploymentConsole(),
             new SearchConsole(),
             new OmsCheckConditionConsole(),

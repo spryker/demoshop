@@ -42,7 +42,7 @@ class SearchHealthIndicator extends AbstractHealthIndicator implements HealthInd
     private function checkConnectToSearch()
     {
         try {
-            $this->searchClient->getIndexClient()->getStats();
+            $this->searchClient->checkConnection();
         } catch (\Exception $e) {
             $this->addFailure(self::FAILURE_MESSAGE_UNABLE_TO_CONNECT_TO_SEARCH);
             $this->addFailure($e->getMessage());

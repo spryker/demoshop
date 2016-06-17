@@ -19,6 +19,7 @@ use Symfony\Component\Routing\Exception\RouteNotFoundException;
 class SearchRouter extends AbstractRouter
 {
 
+    const SEARCH_PATH = '/search';
     const PARAMETER_PAGE = 'page';
 
     /**
@@ -26,15 +27,21 @@ class SearchRouter extends AbstractRouter
      */
     public function generate($name, $parameters = [], $referenceType = self::ABSOLUTE_PATH)
     {
-        if ($name === '/search') {
+        if ($name === self::SEARCH_PATH) {
             $request = $this->getRequest();
             $requestParameters = $request->query->all();
             //if no page is provided we generate a url to change the filter and therefore want to reset the page
             if (!isset($parameters[self::PARAMETER_PAGE]) && isset($requestParameters[self::PARAMETER_PAGE])) {
                 unset($requestParameters[self::PARAMETER_PAGE]);
             }
-            $mergedParameters = $this->getUrlMapperPlugin()->mergeParameters($requestParameters, $parameters);
-            $pathInfo = $this->getUrlMapperPlugin()->generateUrlFromParameters($mergedParameters);
+            $mergedParameters = $this
+                ->getUrlMapperPlugin()
+                ->mergeParameters($requestParameters, $parameters);
+
+            $pathInfo = $this
+                ->getUrlMapperPlugin()
+                ->generateUrlFromParameters($mergedParameters);
+
             $pathInfo = $name . $pathInfo;
 
             return $this->getUrlOrPathForType($pathInfo, $referenceType);
@@ -47,10 +54,7 @@ class SearchRouter extends AbstractRouter
      */
     public function match($pathinfo)
     {
-        if ($pathinfo === '/search') {
-            $request = $this->getRequest();
-            $this->getUrlMapperPlugin()->injectParametersFromUrlIntoRequest($pathinfo, $request);
-
+        if ($pathinfo === self::SEARCH_PATH) {
             $bundleControllerAction = new BundleControllerAction('Catalog', 'Catalog', 'fulltextSearch');
             $routeResolver = new RouteNameResolver('catalog');
 

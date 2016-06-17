@@ -38,8 +38,8 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createSearchProductCollector()
     {
         $searchProductCollector = new SearchProductCollector(
-            $this->getProductSearchFacade(),
-            $this->getPriceFacade()
+            $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_PAGE_MAP),
+            $this->getSearchFacade()
         );
 
         $searchProductCollector->setTouchQueryContainer(
@@ -339,11 +339,11 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface
+     * @return \Spryker\Zed\Search\Business\SearchFacadeInterface
      */
-    protected function getProductSearchFacade()
+    protected function getSearchFacade()
     {
-        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_SEARCH);
+        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_SEARCH);
     }
 
     /**

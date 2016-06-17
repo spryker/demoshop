@@ -7,60 +7,33 @@
 
 namespace Pyz\Zed\Collector\Business\Search;
 
-use Generated\Shared\Transfer\LocaleTransfer;
-use Pyz\Zed\Collector\CollectorConfig;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPdoCollector;
-use Spryker\Zed\Collector\Business\Exporter\Writer\Storage\TouchUpdaterSet;
-use Spryker\Zed\Price\Business\PriceFacadeInterface;
-use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
+use Spryker\Zed\Collector\CollectorConfig;
+use Spryker\Zed\Search\Business\SearchFacadeInterface;
+use Spryker\Zed\Search\Dependency\Plugin\PageMapInterface;
 
 class ProductCollector extends AbstractSearchPdoCollector
 {
 
     /**
-     * @var \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface
+     * @var \Spryker\Zed\Search\Dependency\Plugin\PageMapInterface
      */
-    protected $productSearchFacade;
+    protected $productDataPageMapPlugin;
 
     /**
-     * @var \Spryker\Zed\Price\Business\PriceFacadeInterface
+     * @var \Spryker\Zed\Search\Business\SearchFacadeInterface
      */
-    protected $priceFacade;
+    protected $searchFacade;
 
     /**
-     * @param \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface $productSearchFacade
-     * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
+     * @param \Spryker\Zed\Search\Dependency\Plugin\PageMapInterface $productDataPageMapPlugin
+     * @param \Spryker\Zed\Search\Business\SearchFacadeInterface $searchFacade
      */
-    public function __construct(
-        ProductSearchFacadeInterface $productSearchFacade,
-        PriceFacadeInterface $priceFacade
-    ) {
-        $this->productSearchFacade = $productSearchFacade;
-        $this->priceFacade = $priceFacade;
-    }
-
-    /**
-     * @param string $touchKey
-     * @param array $collectItemData
-     *
-     * @return array
-     */
-    protected function collectItem($touchKey, array $collectItemData)
+    public function __construct(PageMapInterface $productDataPageMapPlugin, SearchFacadeInterface $searchFacade)
     {
-        $collectItemData['price'] = $this->getPriceBySku($collectItemData['abstract_sku']);
-
-        return $collectItemData;
-    }
-
-    /**
-     * @param string $sku
-     *
-     * @return int
-     */
-    protected function getPriceBySku($sku)
-    {
-        return $this->priceFacade->getPriceBySku($sku);
+        $this->productDataPageMapPlugin = $productDataPageMapPlugin;
+        $this->searchFacade = $searchFacade;
     }
 
     /**
@@ -72,103 +45,35 @@ class ProductCollector extends AbstractSearchPdoCollector
     }
 
     /**
-     * @param array $collectedSet
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
-     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\Storage\TouchUpdaterSet $touchUpdaterSet
+     * @param string $touchKey
+     * @param array $collectItemData
      *
      * @return array
      */
-    protected function collectData(array $collectedSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
+    protected function collectItem($touchKey, array $collectItemData)
     {
-        $collectedSet = parent::collectData($collectedSet, $locale, $touchUpdaterSet);
+        $result = $this
+            ->searchFacade
+            ->transformPageMapToDocument($this->productDataPageMapPlugin, $collectItemData, $this->locale);
 
-        return $this->processData($collectedSet, $locale);
+        $result = $this->addExtraCollectorFields($result, $collectItemData);
+
+        return $result;
     }
 
     /**
-     * @param array $resultSet
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param array $result
+     * @param array $collectItemData
      *
      * @return array
      */
-    protected function processData($resultSet, LocaleTransfer $locale)
+    protected function addExtraCollectorFields(array $result, array $collectItemData)
     {
-        $processedResultSet = $this->buildProducts($resultSet, $locale);
+        $result[CollectorConfig::COLLECTOR_TOUCH_ID] = $collectItemData[CollectorConfig::COLLECTOR_TOUCH_ID];
+        $result[CollectorConfig::COLLECTOR_RESOURCE_ID] = $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID];
+        $result[CollectorConfig::COLLECTOR_SEARCH_KEY] = $collectItemData[CollectorConfig::COLLECTOR_SEARCH_KEY];
 
-        $processedResultSet = $this->productSearchFacade->enrichProductsWithSearchAttributes(
-            $resultSet,
-            $processedResultSet
-        );
-
-        foreach ($resultSet as $index => $productRawData) {
-            if (!isset($processedResultSet[$index])) {
-                continue;
-            }
-
-            $processedResultSet = $this->processAvailability($productRawData, $processedResultSet, $index);
-            $processedResultSet = $this->processCategory($productRawData, $processedResultSet, $index);
-
-            $processedResultSet[$index][CollectorConfig::COLLECTOR_TOUCH_ID] = $productRawData[CollectorConfig::COLLECTOR_TOUCH_ID];
-            $processedResultSet[$index][CollectorConfig::COLLECTOR_RESOURCE_ID] = $productRawData[CollectorConfig::COLLECTOR_RESOURCE_ID];
-            $processedResultSet[$index][CollectorConfig::COLLECTOR_SEARCH_KEY] = $productRawData[CollectorConfig::COLLECTOR_SEARCH_KEY];
-        }
-
-        return $processedResultSet;
-    }
-
-    /**
-     * @param array $resultSet
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
-     *
-     * @return array
-     */
-    protected function buildProducts(array &$resultSet, $locale)
-    {
-        $processedResultSet = [];
-
-        $processedResultSet = $this->productSearchFacade->createSearchProducts($resultSet, $processedResultSet, $locale);
-
-        $keys = array_keys($processedResultSet);
-        $resultSet = array_combine($keys, $resultSet);
-
-        return $processedResultSet;
-    }
-
-    /**
-     * @param array $productRawData
-     * @param array $processedResultSet
-     * @param string $index
-     *
-     * @return array
-     */
-    protected function processAvailability(array $productRawData, array $processedResultSet, $index)
-    {
-        $processedResultSet[$index]['available'] = $productRawData['quantity'] > 0;
-        $isAvailable = (bool)(
-            $productRawData['is_never_out_of_stock'] ||
-            $productRawData['quantity'] > 0
-        );
-        $processedResultSet[$index]['search-result-data']['available'] = $isAvailable;
-        $processedResultSet[$index]['bool-facet']['available'] = $isAvailable;
-
-        return $processedResultSet;
-    }
-
-    /**
-     * @param array $productRawData
-     * @param array $processedResultSet
-     * @param string $index
-     *
-     * @return array
-     */
-    protected function processCategory(array $productRawData, array $processedResultSet, $index)
-    {
-        $processedResultSet[$index]['category'] = [
-            'direct-parents' => explode(',', $productRawData['node_id']),
-            'all-parents' => explode(',', $productRawData['category_parent_ids']),
-        ];
-
-        return $processedResultSet;
+        return $result;
     }
 
 }

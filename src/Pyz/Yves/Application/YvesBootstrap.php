@@ -44,6 +44,7 @@ use Spryker\Yves\Application\Application;
 use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\MonologServiceProvider;
+use Spryker\Yves\Application\Plugin\Provider\YvesHstsServiceProvider;
 
 class YvesBootstrap
 {
@@ -102,6 +103,7 @@ class YvesBootstrap
         $this->application->register(new HeadersSecurityServiceProvider());
         $this->application->register(new WebProfilerServiceProvider());
         $this->application->register(new AutoloaderCacheServiceProvider());
+        $this->application->register(new YvesHstsServiceProvider());
     }
 
     /**
