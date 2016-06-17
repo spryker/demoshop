@@ -28,7 +28,7 @@
             <p>{{ product.abstractAttributes.long_description }}</p>
             <dl class="product__specifications">
                 {% for attributeName, attributeValue in product.abstractAttributes %}
-                    {% if attributeName not in ['short_description', 'long_description', 'url', 'variant_id', 'abstract_name', 'quantity', 'available', 'price', 'manufacturer_name', 'image_big', 'image_small', 'license', 'sku'] %}
+                    {% if attributeName not in ['short_description', 'long_description', 'url', 'variant_id', 'abstract_name', 'quantity', 'available', 'price', 'manufacturer_name', 'license', 'sku', 'images'] %}
                         <dt>{{ ('product.attribute.'~attributeName) | trans }}</dt>
                         <dd>{{ attributeValue }}</dd>
                     {% endif %}
@@ -36,8 +36,8 @@
             </dl>
         </section>
         <section class="product__gallery">
-            {% for image in product.images_detail %}
-                <img src="{{ image }}" alt="">
+            {% for image in product.abstractAttributes.images %}
+                <img src="{{ image.external_url_large }}" alt="">
             {% endfor %}
         </section>
     </article>

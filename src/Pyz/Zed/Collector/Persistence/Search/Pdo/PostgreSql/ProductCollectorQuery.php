@@ -51,7 +51,8 @@ SELECT
   GROUP_CONCAT(spy_product_category.product_order)              AS product_order,
   spy_touch.id_touch                                            AS %s,
   spy_touch.item_id                                             AS %s,
-  spy_touch_search.id_touch_search                              AS %s
+  spy_touch_search.id_touch_search                              AS %s,
+  spy_product_image_set.id_product_image_set                    AS id_image_set
 FROM "spy_touch"
   INNER JOIN spy_product_abstract ON ("spy_touch"."item_id" = spy_product_abstract.id_product_abstract)
   LEFT JOIN spy_product
@@ -92,6 +93,7 @@ FROM "spy_touch"
     ON (categoryParents.id_category_node = categoryParentsUrls.fk_resource_categorynode AND
         categoryParentsUrls.fk_locale = spy_locale.id_locale)
   LEFT JOIN spy_touch_search ON spy_touch_search.fk_touch = spy_touch.id_touch AND spy_touch_search.fk_locale = :fk_locale_1
+  LEFT JOIN spy_product_image_set ON (spy_product_image_set.fk_product_abstract = spy_product_abstract.id_product_abstract OR spy_product_image_set.fk_product = spy_product.id_product) AND spy_product_image_set.fk_locale = spy_locale.id_locale
 WHERE
   spy_touch.item_event = :spy_touch_item_event
   AND spy_touch.touched >= :spy_touch_touched
@@ -107,7 +109,8 @@ WHERE
                 spy_touch.id_touch,
                 spy_stock_product.quantity,
                 spy_stock_product.is_never_out_of_stock,
-                spy_touch_search.id_touch_search
+                spy_touch_search.id_touch_search,
+                spy_product_image_set.id_product_image_set
             ')->setParameter('fk_locale_1', $this->locale->getIdLocale());
     }
 

@@ -185,8 +185,6 @@ class ProductAbstractImporter extends AbstractImporter
 
         $productImage = new ProductImageTransfer();
         $productImage->setSort(0);
-        $productImage->setDisplayInCart(true);
-        $productImage->setDisplayInCatalog(true);
         $productImage->setExternalUrlSmall($product[self::IMAGE_SMALL]);
         $productImage->setExternalUrlLarge($product[self::IMAGE_LARGE]);
 
