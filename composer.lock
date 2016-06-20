@@ -4,23 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "hash": "c0da13ff6991e7bd742b3760022a16ee",
-    "content-hash": "84032c7caf6d1d3109704944b6b7ee5d",
-=======
-<<<<<<< HEAD
-    "hash": "8c2acebd9b112258cab621b39a0c9209",
-    "content-hash": "f3a1bcb91f38fe14c7777351ebfc81aa",
-=======
-    "hash": "4549cc5bf7554e363a9ca13e13bcbab6",
-    "content-hash": "cea01fea8b158e385eb063cca5038535",
->>>>>>> Update dependencies.
->>>>>>> Update dependencies.
-=======
-    "hash": "833755b2f051383de251c48021549b56",
-    "content-hash": "07cf2748815ceb3beba3a37c2227abe5",
->>>>>>> Moved files to core
+    "hash": "801aa76369efcab75e05556666fd500f",
+    "content-hash": "87b1105f6887452c1314bcbfece2c503",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1012,6 +997,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "1ec561a738c67126c7ea08083c3f8d230fff56fb"
 =======
 =======
@@ -1039,6 +1025,9 @@
 =======
                 "reference": "d5b881e1bc60ce44a6417d39257205ab526b8d51"
 >>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+=======
+                "reference": "c9ca1cd7b5e590fdda5e0f662a5b653e9cb97982"
 >>>>>>> update spryker/spryker
             },
             "require": {
@@ -1529,6 +1518,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-06-21 15:20:57"
 =======
 =======
@@ -1556,6 +1546,9 @@
 =======
             "time": "2016-06-15 11:35:48"
 >>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+=======
+            "time": "2016-06-20 10:07:26"
 >>>>>>> update spryker/spryker
         },
         {
