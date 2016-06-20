@@ -79,7 +79,7 @@ class TwigTranslator implements TranslatorInterface
 
         $ids = explode('|', $id);
 
-        if (1 === $number) {
+        if ($number === 1) {
             return $this->client->translate($ids[0], $locale, $parameters);
         }
 
