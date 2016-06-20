@@ -20,6 +20,7 @@ use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\GrandTotalWith
 use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\RemoveAllCalculatedDiscountsCalculatorPlugin;
 use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\SumGrossCalculatedDiscountAmountCalculatorPlugin;
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\ProductOption\Communication\Plugin\ProductOptionTaxRateCalculatorPlugin;
 use Spryker\Zed\Shipment\Communication\Plugin\ShipmentTaxRateCalculatorPlugin;
 use Spryker\Zed\Tax\Communication\Plugin\ProductItemTaxRateCalculatorPlugin;
 use Spryker\Zed\Tax\Communication\Plugin\TaxTotalsCalculatorPlugin;
@@ -42,6 +43,7 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
             new ItemGrossAmountsCalculatorPlugin(),
             new ProductOptionGrossSumCalculatorPlugin(),
             new ProductItemTaxRateCalculatorPlugin(),
+            new ProductOptionTaxRateCalculatorPlugin(),
 
             #SubTotal
             new SubtotalTotalsCalculatorPlugin(),
