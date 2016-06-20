@@ -373,7 +373,6 @@ $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_PROVIDER] = \Spryker\Sha
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = false;
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = true;
 
-
 $config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [
     'Checkout' => [
         'DummyPayment',
@@ -401,33 +400,4 @@ $config[OmsConstants::ACTIVE_PROCESSES] = [
 $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
     DummyPaymentConfig::PAYMENT_METHOD_INVOICE => 'DummyPayment01',
     DummyPaymentConfig::PAYMENT_METHOD_CREDIT_CARD => 'DummyPayment01',
-];
-
-
-use Spryker\Zed\Payolution\PayolutionConfig;
-
-
-$config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [
-    'Checkout' => [
-        'Payolution',
-    ],
-];
-$config[KernelConstants::DEPENDENCY_INJECTOR_ZED] = [
-    'Payment' => [
-        'Payolution',
-    ],
-];
-
-$config[OmsConstants::PROCESS_LOCATION] = [
-    OmsConfig::DEFAULT_PROCESS_LOCATION,
-    $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] . '/Payolution/config/Zed/Oms'
-];
-
-$config[OmsConstants::ACTIVE_PROCESSES] = [
-    'PayolutionPayment01'
-];
-
-$config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
-    PayolutionConfig::PAYMENT_METHOD_INVOICE => 'PayolutionPayment01',
-    PayolutionConfig::PAYMENT_METHOD_INSTALLMENT => 'PayolutionPayment01',
 ];

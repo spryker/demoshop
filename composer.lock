@@ -953,10 +953,14 @@
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "3d58ba95cc4d99cb5a52a7b6913ec50a79f22689"
 =======
                 "reference": "b5c8610a9d3e98247664e92cd54535371f6c73dc"
 >>>>>>> 2173 use AbstractPlaceOrderStep, add some tests
+=======
+                "reference": "2e44f221dc6f3efe63186445f779dffc5edd4c98"
+>>>>>>> 2173 use AbstractPlaceOrderStep with error code to route matching, add checkout post hook
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1432,10 +1436,14 @@
             ],
             "description": "Spryker Framework",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-06-16 14:48:35"
 =======
             "time": "2016-06-16 14:34:19"
 >>>>>>> 2173 use AbstractPlaceOrderStep, add some tests
+=======
+            "time": "2016-06-20 09:10:19"
+>>>>>>> 2173 use AbstractPlaceOrderStep with error code to route matching, add checkout post hook
         },
         {
             "name": "symfony-cmf/routing",

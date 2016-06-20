@@ -139,7 +139,7 @@ class StepFactory extends SprykerStepFactory
             CheckoutControllerProvider::CHECKOUT_PLACE_ORDER,
             ApplicationControllerProvider::ROUTE_HOME,
             [
-                007 => CheckoutControllerProvider::CHECKOUT_PAYMENT
+                'payment failed' => CheckoutControllerProvider::CHECKOUT_PAYMENT
             ]
         );
     }

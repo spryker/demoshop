@@ -27,16 +27,16 @@ class PlaceOrderStep extends AbstractPlaceOrderStep
      * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      * @param string $stepRoute
      * @param string $escapeRoute
-     * @param array $errorCodeToEscapeRouteMatching
+     * @param array $errorCodeToRouteMatching
      */
     public function __construct(
         CheckoutClientInterface $checkoutClient,
         FlashMessengerInterface $flashMessenger,
         $stepRoute,
         $escapeRoute,
-        $errorCodeToEscapeRouteMatching = []
+        $errorCodeToRouteMatching = []
     ) {
-        parent::__construct($checkoutClient, $stepRoute, $escapeRoute, $errorCodeToEscapeRouteMatching);
+        parent::__construct($checkoutClient, $stepRoute, $escapeRoute, $errorCodeToRouteMatching);
 
         $this->flashMessenger = $flashMessenger;
     }
