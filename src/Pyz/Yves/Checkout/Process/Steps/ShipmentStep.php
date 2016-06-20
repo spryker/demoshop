@@ -29,15 +29,15 @@ class ShipmentStep extends AbstractBaseStep
      * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
      * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection $shipmentPlugins
      * @param string $stepRoute
-     * @param string $escapeRoute
+     * @param string $route
      */
     public function __construct(
         CalculationClientInterface $calculationClient,
         StepHandlerPluginCollection $shipmentPlugins,
         $stepRoute,
-        $escapeRoute
+        $route
     ) {
-        parent::__construct($stepRoute, $escapeRoute);
+        parent::__construct($stepRoute, $route);
 
         $this->calculationClient = $calculationClient;
         $this->shipmentPlugins = $shipmentPlugins;
