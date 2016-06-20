@@ -18,6 +18,7 @@ class ProductCollector extends AbstractSearchPdoCollector
 {
 
     const ID_IMAGE_SET = 'id_image_set';
+    const PRODUCT_IMAGE_SET = 'product_image_set';
 
     /**
      * @var \Spryker\Zed\Search\Dependency\Plugin\PageMapInterface
@@ -85,7 +86,7 @@ class ProductCollector extends AbstractSearchPdoCollector
         $result[CollectorConfig::COLLECTOR_TOUCH_ID] = $collectItemData[CollectorConfig::COLLECTOR_TOUCH_ID];
         $result[CollectorConfig::COLLECTOR_RESOURCE_ID] = $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID];
         $result[CollectorConfig::COLLECTOR_SEARCH_KEY] = $collectItemData[CollectorConfig::COLLECTOR_SEARCH_KEY];
-        $result[CollectorConfig::COLLECTOR_IMAGE_KEY] = $this->generateImage($collectItemData[self::ID_IMAGE_SET]);
+        $result[self::PRODUCT_IMAGE_SET] = $this->generateImage($collectItemData[self::ID_IMAGE_SET]);
 
         //->addSearchResultData($pageMapTransfer, 'image_url', $attributes['image_big']) // TODO: attributes should come from dynamic attribute mapping, e.g. database (image attributes are aliased with different name so we need to keep it)
         //->addSearchResultData($pageMapTransfer, 'thumbnail_url', $attributes['image_small'])
