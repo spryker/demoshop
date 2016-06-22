@@ -26,8 +26,6 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     const PLUGIN_APPLICATION = 'application plugin';
 
     const PLUGIN_SHIPMENT_SUB_FORM = 'shipment sub form plugin';
-    const PLUGIN_PAY_PAL_SUB_FORM = 'pay pal sub form plugin';
-    const PLUGIN_CREDIT_CARD_SUB_FORM = 'credit card sub form plugin';
     const PLUGIN_CUSTOMER_STEP_HANDLER = 'step handler plugin';
 
     const PAYMENT_METHOD_HANDLER = 'payment method handler';
