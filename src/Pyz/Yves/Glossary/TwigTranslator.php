@@ -73,8 +73,21 @@ class TwigTranslator implements TranslatorInterface
      */
     public function transChoice($id, $number, array $parameters = [], $domain = null, $locale = null)
     {
-        return strtr($id, $parameters); //At least use default value until we have implementation from glossary.
-        // TODO: Implement transChoice() method.
+        if ($locale === null) {
+            $locale = $this->localeName;
+        }
+
+        $ids = explode('|', $id);
+
+        if ($number === 1) {
+            return $this->client->translate($ids[0], $locale, $parameters);
+        }
+
+        if (!isset($ids[1])) {
+            throw new \InvalidArgumentException(sprintf('The message "%s" cannot be pluralized, because it is missing a plural (e.g. "There is one apple|There are %%count%% apples").', $id));
+        }
+
+        return $this->client->translate($ids[1], $locale, $parameters);
     }
 
     /**
