@@ -71,8 +71,6 @@ class ProductDataPageMapBuilder
             ->addSearchResultData($pageMapTransfer, 'price', $price)
             ->addSearchResultData($pageMapTransfer, 'url', $this->getProductUrl($productData))
             ->addSearchResultData($pageMapTransfer, 'available', $this->isAvailable($productData))
-            ->addSearchResultData($pageMapTransfer, 'image_url', $attributes['image_big']) // TODO: attributes should come from dynamic attribute mapping, e.g. database (image attributes are aliased with different name so we need to keep it)
-            ->addSearchResultData($pageMapTransfer, 'thumbnail_url', $attributes['image_small'])
             ->addFullTextBoosted($pageMapTransfer, $productData['abstract_name'])
             ->addSuggestionTerms($pageMapTransfer, $productData['abstract_name'])
             ->addCompletionTerms($pageMapTransfer, $productData['abstract_name'])
