@@ -586,16 +586,6 @@ payment.invoice:
     de_DE: 'Rechnung'
     en_US: 'Invoice'
 
-payment.braintree.pay_pal:
-  translations:
-    de_DE: 'Braintree PayPal'
-    en_US: 'Braintree PayPal'
-payment.braintree.credit_card:
-  translations:
-    de_DE: 'Braintree Kreditkarte'
-    en_US: 'Braintree Credit Card'
-
-
 address.street:
   translations:
     de_DE: 'Straße'

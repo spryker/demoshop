@@ -994,41 +994,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "1ec561a738c67126c7ea08083c3f8d230fff56fb"
-=======
-=======
->>>>>>> Moved files to core
-=======
->>>>>>> update spryker/spryker
-<<<<<<< HEAD
-                "reference": "3d58ba95cc4d99cb5a52a7b6913ec50a79f22689"
-=======
-<<<<<<< HEAD
-                "reference": "27a998709844aacc9fa560d4ffd6120924e961fd"
-=======
-                "reference": "5d6445c78198aecef8d0b71c1753bbc06cbe6acb"
->>>>>>> Update dependencies.
->>>>>>> Update dependencies.
-<<<<<<< HEAD
->>>>>>> Update dependencies.
-=======
-=======
-                "reference": "2823859f599cebac13b898ea7b3868279229d750"
->>>>>>> Moved files to core
-<<<<<<< HEAD
->>>>>>> Moved files to core
-=======
-=======
-                "reference": "d5b881e1bc60ce44a6417d39257205ab526b8d51"
->>>>>>> update spryker/spryker
->>>>>>> update spryker/spryker
-=======
-                "reference": "c9ca1cd7b5e590fdda5e0f662a5b653e9cb97982"
->>>>>>> update spryker/spryker
+                "reference": "5e45bb16810206da67ddb3463bb9074ec70626ba"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1515,41 +1481,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2016-06-21 15:20:57"
-=======
-=======
->>>>>>> Moved files to core
-=======
->>>>>>> update spryker/spryker
-<<<<<<< HEAD
-            "time": "2016-06-16 14:48:35"
-=======
-<<<<<<< HEAD
-            "time": "2016-06-10 15:04:19"
-=======
-            "time": "2016-05-19 14:05:17"
->>>>>>> Update dependencies.
->>>>>>> Update dependencies.
-<<<<<<< HEAD
->>>>>>> Update dependencies.
-=======
-=======
-            "time": "2016-06-15 09:39:51"
->>>>>>> Moved files to core
-<<<<<<< HEAD
->>>>>>> Moved files to core
-=======
-=======
-            "time": "2016-06-15 11:35:48"
->>>>>>> update spryker/spryker
->>>>>>> update spryker/spryker
-=======
-            "time": "2016-06-20 10:07:26"
->>>>>>> update spryker/spryker
+            "time": "2016-06-22 12:03:11"
         },
         {
             "name": "symfony-cmf/routing",

@@ -23,7 +23,6 @@ use Spryker\Shared\User\UserConstants;
 use Spryker\Zed\DummyPayment\DummyPaymentConfig;
 use Spryker\Zed\Oms\OmsConfig;
 use Spryker\Zed\Propel\PropelConfig;
-use Spryker\Zed\Braintree\BraintreeConfig;
 
 $config[ApplicationConstants::PROJECT_NAMESPACES] = [
     'Pyz',
@@ -402,32 +401,4 @@ $config[OmsConstants::ACTIVE_PROCESSES] = [
 $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
     DummyPaymentConfig::PAYMENT_METHOD_INVOICE => 'DummyPayment01',
     DummyPaymentConfig::PAYMENT_METHOD_CREDIT_CARD => 'DummyPayment01',
-];
-
-
-$config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [
-    'Checkout' => [
-        'Braintree',
-    ],
-];
-
-$config[KernelConstants::DEPENDENCY_INJECTOR_ZED] = [
-    'Payment' => [
-        'Braintree',
-    ],
-];
-
-$config[OmsConstants::PROCESS_LOCATION] = [
-    OmsConfig::DEFAULT_PROCESS_LOCATION,
-    $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] . '/Braintree/config/Zed/Oms'
-];
-
-$config[OmsConstants::ACTIVE_PROCESSES] = [
-    'BraintreePayPal01',
-    'BraintreeCreditCard01',
-];
-
-$config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
-    BraintreeConfig::PAYMENT_METHOD_CREDIT_CARD => 'BraintreeCreditCard01',
-    BraintreeConfig::PAYMENT_METHOD_PAY_PAL => 'BraintreePayPal01',
 ];

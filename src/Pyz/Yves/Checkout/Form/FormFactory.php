@@ -169,18 +169,6 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * Move Braintree
-     * @return \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[]
-     */
-    public function createPaymentMethodsSubForms()
-    {
-        return [
-            $this->createBraintreePayPalSubFormPlugin(),
-            $this->createBraintreeCreditCardSubFormPlugin(),
-        ];
-    }
-
-    /**
      * @return \Pyz\Yves\Checkout\Form\Steps\SummaryForm
      */
     protected function createSummaryForm()
