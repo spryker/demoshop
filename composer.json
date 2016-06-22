@@ -37,7 +37,7 @@
     "spryker/gui": "^2.0.0",
     "spryker/guzzle": "^2.0.0",
     "spryker/heartbeat": "^2.0.0",
-    "spryker/installer": "^2.0.0",
+    "spryker/installer": "^3.0.0",
     "spryker/invoice": "^2.0.0",
     "spryker/item-grouper": "^2.0.0",
     "spryker/item-grouper-wishlist-connector": "^2.0.0",
