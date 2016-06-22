@@ -7,11 +7,16 @@
                 {{ 'search'|trans }}
             {% endif %}
         </h1>
-
         <aside class="catalog__filter js-filters">
-            {% include "@catalog/catalog/partials/filter-category-tree.twig" with {filterName:'category', selectedCategory:(category is defined ? category : null)} %}
-            {% include "@catalog/catalog/partials/filter-range.twig" with {filterName:'price', min:(facets.price.rangeValues.min|default(0))|priceRaw|floor, max:(facets.price.rangeValues.max|default(0))|priceRaw|ceil} %}
-            {% include "@catalog/catalog/partials/filter-color.twig" with {filterName:'main_color', id: 42} %}
+            {% include "@catalog/catalog/partials/filter-category-tree.twig" with {
+                filterName:'category',
+                selectedCategory:(category is defined ? category : null)
+            } %}
+            {% include "@catalog/catalog/partials/filter-range.twig" with {
+                filterName:'price',
+                min:(facets.price.min | default(0)) | priceRaw | floor,
+                max:(facets.price.max | default(0)) | priceRaw | ceil
+            } %}
         </aside>
         <button class="catalog__toggle-filters js-toggle-filters">
             <span class="js-show-filters">{{ "catalog.filter.show"|trans }}</span>
@@ -33,10 +38,10 @@
 
         <header class="catalog__summary">
             <div class="summary__total-count">
-                <span class="amount">{{ numFound }}</span>
+                <span class="amount">{{ pagination.numFound }}</span>
                 {{ "catalog.itemsFound"|trans }}
             </div>
-            <div class="ui-helper-hidden pagination-max-page">{{ maxPage }}</div>
+            <div class="ui-helper-hidden pagination-max-page">{{ pagination.maxPage }}</div>
             <div class="summary__sorting">
                 {{ "catalog.sort"|trans }}
                 <button class="sorting__button--inc name">A-Z</button>
@@ -61,7 +66,7 @@
                         detailsUrl: product.url,
                         name: product.abstract_name,
                         priceValue: product.price,
-                        imageUrl: product.abstract_attributes.image_small
+                        imageUrl: product.images.0.external_url_small
                     } %}
                 {% endfor %}
             </section>

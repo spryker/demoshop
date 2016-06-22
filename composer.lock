@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "38ab751e563580e58f20a0e7617d8140",
-    "content-hash": "0e7d9bb5372bf5a48bc9717ea796513e",
+    "hash": "c0da13ff6991e7bd742b3760022a16ee",
+    "content-hash": "84032c7caf6d1d3109704944b6b7ee5d",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -398,16 +398,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.19.0",
+            "version": "1.17.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "5f56ed5212dc509c8dc8caeba2715732abb32dbf"
+                "reference": "bee7f0dc9c3e0b69a6039697533dca1e845c8c24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/5f56ed5212dc509c8dc8caeba2715732abb32dbf",
-                "reference": "5f56ed5212dc509c8dc8caeba2715732abb32dbf",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/bee7f0dc9c3e0b69a6039697533dca1e845c8c24",
+                "reference": "bee7f0dc9c3e0b69a6039697533dca1e845c8c24",
                 "shasum": ""
             },
             "require": {
@@ -422,13 +422,13 @@
                 "doctrine/couchdb": "~1.0@dev",
                 "graylog2/gelf-php": "~1.0",
                 "jakub-onderka/php-parallel-lint": "0.9",
-                "php-amqplib/php-amqplib": "~2.4",
                 "php-console/php-console": "^3.1.3",
                 "phpunit/phpunit": "~4.5",
                 "phpunit/phpunit-mock-objects": "2.3.0",
                 "raven/raven": "^0.13",
                 "ruflin/elastica": ">=0.90 <3.0",
-                "swiftmailer/swiftmailer": "~5.3"
+                "swiftmailer/swiftmailer": "~5.3",
+                "videlalvaro/php-amqplib": "~2.4"
             },
             "suggest": {
                 "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
@@ -436,17 +436,16 @@
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-mongo": "Allow sending log messages to a MongoDB server",
                 "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
-                "mongodb/mongodb": "Allow sending log messages to a MongoDB server via PHP Driver",
-                "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
                 "php-console/php-console": "Allow sending log messages to Google Chrome",
                 "raven/raven": "Allow sending log messages to a Sentry server",
                 "rollbar/rollbar": "Allow sending log messages to Rollbar",
-                "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
+                "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
+                "videlalvaro/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "1.16.x-dev"
                 }
             },
             "autoload": {
@@ -472,7 +471,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-04-12 18:29:35"
+            "time": "2015-10-14 12:51:02"
         },
         {
             "name": "nesbot/carbon",
@@ -810,43 +809,41 @@
         },
         {
             "name": "ruflin/elastica",
-            "version": "v1.3.4.0",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "ffbfa5dd391bd097434e1c8262d7a1df1d2555f8"
+                "reference": "1f3513a3f347c64296a924b1e559d203a1470b2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/ffbfa5dd391bd097434e1c8262d7a1df1d2555f8",
-                "reference": "ffbfa5dd391bd097434e1c8262d7a1df1d2555f8",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/1f3513a3f347c64296a924b1e559d203a1470b2b",
+                "reference": "1f3513a3f347c64296a924b1e559d203a1470b2b",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": ">=5.4.0",
+                "psr/log": "~1.0"
             },
             "require-dev": {
-                "munkie/elasticsearch-thrift-php": "1.4.*",
-                "phpunit/phpunit": "4.1.*",
-                "psr/log": "~1.0",
-                "satooshi/php-coveralls": "dev-master"
+                "aws/aws-sdk-php": "~3.0",
+                "guzzlehttp/guzzle": "~6.0"
             },
             "suggest": {
-                "guzzlehttp/guzzle": "Allow using guzzle 4.x as the http transport (requires php 5.4)",
-                "monolog/monolog": "Logging request",
-                "munkie/elasticsearch-thrift-php": "Allow using thrift transport",
-                "psr/log": "for logging"
+                "aws/aws-sdk-php": "Allow using IAM authentication with Amazon ElasticSearch Service",
+                "egeloen/http-adapter": "Allow using httpadapter transport",
+                "guzzlehttp/guzzle": "Allow using guzzle 6 as the http transport (Requires php 5.5)",
+                "monolog/monolog": "Logging request"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3.x-dev"
+                    "dev-master": "3.2.x-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Elastica": "lib/",
-                    "Elastica\\Test": "test/lib/"
+                "psr-4": {
+                    "Elastica\\": "lib/Elastica/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -865,7 +862,7 @@
                 "client",
                 "search"
             ],
-            "time": "2014-10-04 20:15:58"
+            "time": "2016-06-15 06:16:11"
         },
         {
             "name": "silex/silex",
@@ -946,11 +943,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/pim",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "12a6eaa6554dd1f9b573e30d0f0fd3d57900cfd5"
+                "reference": "1ec561a738c67126c7ea08083c3f8d230fff56fb"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1070,6 +1067,7 @@
                     "Unit\\Spryker\\Zed\\CustomerMailConnector\\": "Bundles/CustomerMailConnector/tests",
                     "Functional\\Spryker\\Zed\\CustomerMailConnector\\": "Bundles/CustomerMailConnector/tests",
                     "Spryker\\Zed\\Development\\": "Bundles/Development/src",
+                    "Spryker\\Shared\\Development\\": "Bundles/Development/src",
                     "Unit\\Spryker\\Zed\\Development\\": "Bundles/Development/tests",
                     "Spryker\\Shared\\Discount\\": "Bundles/Discount/src",
                     "Unit\\Spryker\\Shared\\Discount\\": "Bundles/Discount/tests",
@@ -1256,6 +1254,8 @@
                     "Spryker\\Zed\\ProductOption\\": "Bundles/ProductOption/src",
                     "Unit\\Spryker\\Zed\\ProductOption\\": "Bundles/ProductOption/tests",
                     "Functional\\Spryker\\Zed\\ProductOption\\": "Bundles/ProductOption/tests",
+                    "Spryker\\Shared\\ProductImage\\": "Bundles/ProductImage/src",
+                    "Spryker\\Zed\\ProductImage\\": "Bundles/ProductImage/src",
                     "Spryker\\Shared\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/src",
                     "Unit\\Spryker\\Shared\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/tests",
                     "Functional\\Spryker\\Shared\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/tests",
@@ -1306,10 +1306,13 @@
                     "Functional\\Spryker\\Zed\\SalesAggregator\\": "Bundles/SalesAggregator/tests",
                     "Spryker\\Client\\Search\\": "Bundles/Search/src",
                     "Unit\\Spryker\\Client\\Search\\": "Bundles/Search/tests",
+                    "Functional\\Spryker\\Client\\Search\\": "Bundles/Search/tests",
                     "Spryker\\Shared\\Search\\": "Bundles/Search/src",
                     "Unit\\Spryker\\Shared\\Search\\": "Bundles/Search/tests",
+                    "Functional\\Spryker\\Shared\\Search\\": "Bundles/Search/tests",
                     "Spryker\\Zed\\Search\\": "Bundles/Search/src",
                     "Unit\\Spryker\\Zed\\Search\\": "Bundles/Search/tests",
+                    "Functional\\Spryker\\Zed\\Search\\": "Bundles/Search/tests",
                     "Spryker\\Shared\\SequenceNumber\\": "Bundles/SequenceNumber/src",
                     "Functional\\Spryker\\Shared\\SequenceNumber\\": "Bundles/SequenceNumber/tests",
                     "Spryker\\Zed\\SequenceNumber\\": "Bundles/SequenceNumber/src",
@@ -1404,11 +1407,7 @@
                     "Spryker\\Shared\\StateMachine\\": "Bundles/StateMachine/src",
                     "Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/src",
                     "Unit\\Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/tests",
-                    "Functional\\Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/tests",
-                    "Spryker\\Shared\\ProductManagement\\": "Bundles/ProductManagement/src",
-                    "Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/src",
-                    "Unit\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests",
-                    "Functional\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests"
+                    "Functional\\Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/tests"
                 },
                 "psr-4": {
                     "Testify\\Module\\": "Bundles/Testify/tests/_support/Module",
@@ -1425,7 +1424,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-06-15 15:59:12"
+            "time": "2016-06-21 15:20:57"
         },
         {
             "name": "symfony-cmf/routing",
@@ -1823,12 +1822,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9"
+                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
-                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
+                "url": "https://api.github.com/repos/symfony/form/zipball/23394a60d49d2aa904dacda6e5eb29d88251f9da",
+                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da",
                 "shasum": ""
             },
             "require": {
@@ -5087,16 +5086,16 @@
         },
         {
             "name": "sebastian/git",
-            "version": "2.1.2",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/git.git",
-                "reference": "607dcc6003502acdd0e6199b60ba954ce00f3004"
+                "reference": "5100bc50cd9e70f424c643618e142214225024f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/git/zipball/607dcc6003502acdd0e6199b60ba954ce00f3004",
-                "reference": "607dcc6003502acdd0e6199b60ba954ce00f3004",
+                "url": "https://api.github.com/repos/sebastianbergmann/git/zipball/5100bc50cd9e70f424c643618e142214225024f3",
+                "reference": "5100bc50cd9e70f424c643618e142214225024f3",
                 "shasum": ""
             },
             "require": {
@@ -5128,7 +5127,7 @@
             "keywords": [
                 "git"
             ],
-            "time": "2016-03-12 23:31:06"
+            "time": "2016-06-15 09:30:19"
         },
         {
             "name": "sebastian/global-state",
@@ -5673,7 +5672,7 @@
         },
         {
             "name": "symfony/browser-kit",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
@@ -5730,16 +5729,16 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "e17f386efef7258ac671c24e727673abd086b0cf"
+                "reference": "c526d7b3cb4fe1673c6a34e13be2ff63f519df99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/e17f386efef7258ac671c24e727673abd086b0cf",
-                "reference": "e17f386efef7258ac671c24e727673abd086b0cf",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/c526d7b3cb4fe1673c6a34e13be2ff63f519df99",
+                "reference": "c526d7b3cb4fe1673c6a34e13be2ff63f519df99",
                 "shasum": ""
             },
             "require": {
@@ -5779,20 +5778,20 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-04 07:56:56"
+            "time": "2016-06-06 11:42:41"
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "383110341e8f47ae972da3a29503b099831549e1"
+                "reference": "4b9645f5870e0b4ab35cc5b528422049946e8bec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/383110341e8f47ae972da3a29503b099831549e1",
-                "reference": "383110341e8f47ae972da3a29503b099831549e1",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/4b9645f5870e0b4ab35cc5b528422049946e8bec",
+                "reference": "4b9645f5870e0b4ab35cc5b528422049946e8bec",
                 "shasum": ""
             },
             "require": {
@@ -5839,11 +5838,11 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2016-05-24 10:06:56"
+            "time": "2016-06-14 11:18:07"
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",

@@ -12,7 +12,7 @@ use Pyz\Zed\Collector\Business\Storage\BlockCollector;
 use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector;
 use Pyz\Zed\Collector\Business\Storage\NavigationCollector;
 use Pyz\Zed\Collector\Business\Storage\PageCollector;
-use Pyz\Zed\Collector\Business\Storage\ProductCollector;
+use Pyz\Zed\Collector\Business\Storage\ProductCollector as StorageProductCollector;
 use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
 use Pyz\Zed\Collector\Business\Storage\TranslationCollector;
 use Pyz\Zed\Collector\Business\Storage\UrlCollector;
@@ -38,8 +38,9 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createSearchProductCollector()
     {
         $searchProductCollector = new SearchProductCollector(
-            $this->getProductSearchFacade(),
-            $this->getPriceFacade()
+            $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_PAGE_MAP),
+            $this->getSearchFacade(),
+            $this->getProductImageQueryContainer()
         );
 
         $searchProductCollector->setTouchQueryContainer(
@@ -117,9 +118,10 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStorageProductCollector()
     {
-        $storageProductCollector = new ProductCollector(
+        $storageProductCollector = new StorageProductCollector(
             $this->getCategoryQueryContainer(),
             $this->getProductCategoryQueryContainer(),
+            $this->getProductImageQueryContainer(),
             $this->getPriceFacade()
         );
 
@@ -339,11 +341,21 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface
+     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
+     * @return \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface
      */
-    protected function getProductSearchFacade()
+    protected function getProductImageQueryContainer()
     {
-        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_SEARCH);
+        return $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRODUCT_IMAGE);
+    }
+
+    /**
+     * @return \Spryker\Zed\Search\Business\SearchFacadeInterface
+     */
+    protected function getSearchFacade()
+    {
+        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_SEARCH);
     }
 
     /**
