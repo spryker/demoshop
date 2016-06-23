@@ -1,0 +1,5 @@
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - PhpBrowser:
+            url: http://www.de.spryker.dev/

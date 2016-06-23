@@ -1,7 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 use Acceptance\Login\Zed\PageObject\LoginPage;
 
+=======
+>>>>>>> add acceptance test example
 
 /**
  * Inherited Methods
@@ -20,7 +23,15 @@ use Acceptance\Login\Zed\PageObject\LoginPage;
 */
 class AcceptanceTester extends \Codeception\Actor
 {
+<<<<<<< HEAD
 
     use _generated\AcceptanceTesterActions;
     
+=======
+    use _generated\AcceptanceTesterActions;
+
+   /**
+    * Define custom actions here
+    */
+>>>>>>> add acceptance test example
 }
