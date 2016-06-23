@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c09d5c0904f05474eb59c5abda33535b",
-    "content-hash": "259ffd89d7efc1c21f2d1e1e8a7c471d",
+    "hash": "d1fe0265aea8c41ec7461ce294ec0ce5",
+    "content-hash": "35bd2e643d3fd73130006d62ad730c72",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -943,11 +943,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/propel-explicit-filter-criteria",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "0027e3d2e6f18dbfacef496ba5f7fbca4a98fc41"
+                "reference": "ce46b28a1ea6f7b6bc1f279ea7971ba1434f38e3"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1424,7 +1424,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-06-22 10:49:51"
+            "time": "2016-06-23 08:28:47"
         },
         {
             "name": "symfony-cmf/routing",
@@ -6154,8 +6154,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "spryker/spryker": 20,
-        "propel/propel": 20
+        "spryker/spryker": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
