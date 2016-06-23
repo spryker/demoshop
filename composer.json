@@ -70,7 +70,7 @@
     "spryker/product-option-exporter": "^2.0.0",
     "spryker/product-option-wishlist-connector": "^2.0.0",
     "spryker/product-search": "^3.0.0",
-    "spryker/propel": "^2.0.0",
+    "spryker/propel": "^2.2.0",
     "spryker/redis": "^2.0.0",
     "spryker/refund": "^2.0.0",
     "spryker/sales": "^2.0.0",
