@@ -1,4 +1,4 @@
-class_name: AcceptanceTester
+class_name: YvesAcceptanceTester
 modules:
     enabled:
         - PhpBrowser:

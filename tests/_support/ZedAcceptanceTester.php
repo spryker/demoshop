@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 use Acceptance\Login\Zed\PageObject\LoginPage;
 use Codeception\Scenario;
 
@@ -16,6 +17,31 @@ class ZedAcceptanceTester extends AcceptanceTester
         $i = $this;
         $i->amZed();
     }
+=======
+
+/**
+ * Inherited Methods
+ * @method void wantToTest($text)
+ * @method void wantTo($text)
+ * @method void execute($callable)
+ * @method void expectTo($prediction)
+ * @method void expect($prediction)
+ * @method void amGoingTo($argumentation)
+ * @method void am($role)
+ * @method void lookForwardTo($achieveValue)
+ * @method void comment($description)
+ * @method \Codeception\Lib\Friend haveFriend($name, $actorClass = NULL)
+ *
+ * @SuppressWarnings(PHPMD)
+*/
+class ZedAcceptanceTester extends \Codeception\Actor
+{
+    use _generated\ZedAcceptanceTesterActions;
+
+   /**
+    * Define custom actions here
+    */
+>>>>>>> allow yves and zed to be tested
 
     /**
      * @param string $username
@@ -23,6 +49,7 @@ class ZedAcceptanceTester extends AcceptanceTester
      *
      * @return void
      */
+<<<<<<< HEAD
     public function amLoggedInUser($username = 'admin@spryker.com', $password = 'change123')
     {
         $i = $this;
@@ -41,4 +68,13 @@ class ZedAcceptanceTester extends AcceptanceTester
         $i->saveSessionSnapshot('LoginZed');
     }
 
+=======
+    public function iAmLoggedIn($username = 'admin@spryker.com', $password = 'change123')
+    {
+        $this->amOnPage('/auth/login');
+        $this->fillField('auth[username]', $username);
+        $this->fillField('auth[password]', $password);
+        $this->click('Login');
+    }
+>>>>>>> allow yves and zed to be tested
 }
