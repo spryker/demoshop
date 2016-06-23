@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d1fe0265aea8c41ec7461ce294ec0ce5",
-    "content-hash": "35bd2e643d3fd73130006d62ad730c72",
+    "hash": "b18631de61f79b0c7b7de90d50891a1f",
+    "content-hash": "79c8d0205d1e5d94a432a9a09d657009",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -943,11 +943,15 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/2178-Move-ratepay-to-core",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "9ab1c2278d5709132bbf88bb46a52678a4d1a5cd"
+=======
+                "reference": "b470c8ecb42a95cfdc21a5f7c7e13a60fef81a05"
+>>>>>>> 2178 WIP
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1282,6 +1286,12 @@
                     "Spryker\\Zed\\Propel\\": "Bundles/Propel/src",
                     "Unit\\Spryker\\Zed\\Propel\\": "Bundles/Propel/tests",
                     "Functional\\Spryker\\Zed\\Propel\\": "Bundles/Propel/tests",
+                    "Spryker\\Client\\Ratepay\\": "Bundles/Ratepay/src",
+                    "Spryker\\Shared\\Ratepay\\": "Bundles/Ratepay/src/",
+                    "Spryker\\Yves\\Ratepay\\": "Bundles/Ratepay/src",
+                    "Spryker\\Zed\\Ratepay\\": "Bundles/Ratepay/src/",
+                    "Unit\\Spryker\\Zed\\Ratepay\\": "Bundles/Ratepay/tests",
+                    "Functional\\Spryker\\Zed\\Ratepay\\": "Bundles/Ratepay/tests",
                     "Spryker\\Shared\\Refund\\": "Bundles/Refund/src",
                     "Unit\\Spryker\\Shared\\Refund\\": "Bundles/Refund/tests",
                     "Spryker\\Zed\\Refund\\": "Bundles/Refund/src",
@@ -1424,7 +1434,11 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2016-06-24 08:43:28"
+=======
+            "time": "2016-06-23 13:31:37"
+>>>>>>> 2178 WIP
         },
         {
             "name": "symfony-cmf/routing",

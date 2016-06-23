@@ -401,3 +401,42 @@ $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
     DummyPaymentConfig::PAYMENT_METHOD_INVOICE => 'DummyPayment01',
     DummyPaymentConfig::PAYMENT_METHOD_CREDIT_CARD => 'DummyPayment01',
 ];
+
+
+
+
+use Spryker\Shared\Ratepay\RatepayConstants;
+
+$config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [
+    'Checkout' => [
+        'Ratepay',
+    ],
+];
+
+$config[KernelConstants::DEPENDENCY_INJECTOR_ZED] = [
+    'Payment' => [
+        'Ratepay',
+    ],
+    'Oms' => [
+        'Ratepay',
+    ],
+];
+
+$config[OmsConstants::PROCESS_LOCATION] = [
+    OmsConfig::DEFAULT_PROCESS_LOCATION,
+    $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] . '/Ratepay/config/Zed/Oms',
+];
+
+$config[OmsConstants::ACTIVE_PROCESSES] = [
+    'RatepayElv01',
+    'RatepayInstallment01',
+    'RatepayInvoice01',
+    'RatepayPrepayment01',
+];
+
+$config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
+    RatepayConstants::PAYMENT_METHOD_ELV => 'RatepayElv01',
+    RatepayConstants::PAYMENT_METHOD_INSTALLMENT => 'RatepayInstallment01',
+    RatepayConstants::PAYMENT_METHOD_INVOICE => 'RatepayInvoice01',
+    RatepayConstants::PAYMENT_METHOD_PREPAYMENT => 'RatepayPrepayment01',
+];
