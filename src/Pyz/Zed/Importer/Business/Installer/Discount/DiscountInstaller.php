@@ -9,7 +9,7 @@
 namespace Pyz\Zed\Importer\Business\Installer\Discount;
 
 use Pyz\Zed\Importer\Business\Installer\AbstractInstaller;
-use Spryker\Shared\Library\BatchIterator\YamlBatchIterator;
+use Spryker\Shared\Library\BatchIterator\XmlBatchIterator;
 
 class DiscountInstaller extends AbstractInstaller
 {
@@ -19,15 +19,15 @@ class DiscountInstaller extends AbstractInstaller
      */
     protected function buildBatchIterator()
     {
-        return new YamlBatchIterator($this->getYamlDataFilename());
+        return new XmlBatchIterator($this->getXmlDataFilename(), 'discount');
     }
-
+    
     /**
      * @return string
      */
-    protected function getYamlDataFilename()
+    protected function getXmlDataFilename()
     {
-        return $this->dataDirectory . '/discounts.yml';
+        return $this->dataDirectory . '/discounts.xml';
     }
 
     /**

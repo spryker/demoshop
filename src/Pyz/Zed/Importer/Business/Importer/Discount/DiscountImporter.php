@@ -36,24 +36,22 @@ class DiscountImporter extends AbstractImporter
 
 
     /**
-     * @param array $data
+     * @param array $discount
      *
      * @return void
      */
-    protected function importOne(array $data)
+    protected function importOne(array $discount)
     {
-        foreach ($data as $discount) {
-            if ($this->haveDiscountWithName($discount['display_name'])) {
-                continue;
-            }
+        if ($this->haveDiscountWithName($discount['display_name'])) {
+            return;
+        }
 
-            $discountConfiguratorTransfer = $this->createDiscountConfiguratorTransfer($discount);
-            $idDiscount = $this->discountFacade->saveDiscount($discountConfiguratorTransfer);
+        $discountConfiguratorTransfer = $this->createDiscountConfiguratorTransfer($discount);
+        $idDiscount = $this->discountFacade->saveDiscount($discountConfiguratorTransfer);
 
-            if (isset($discount['voucher'])) {
-                $discountVoucherTransfer = $this->createDiscountVoucherTransfer($discount, $idDiscount);
-                $this->discountFacade->saveVoucherCodes($discountVoucherTransfer);
-            }
+        if (isset($discount['voucher'])) {
+            $discountVoucherTransfer = $this->createDiscountVoucherTransfer($discount, $idDiscount);
+            $this->discountFacade->saveVoucherCodes($discountVoucherTransfer);
         }
     }
 
