@@ -21,25 +21,6 @@ $jobs[] = [
     'stores' => $allStores,
 ];
 
-/* STATE MACHINE */
-$jobs[] = [
-    'name' => 'check-statemachine-conditions',
-    'command' => '$PHP_BIN vendor/bin/console oms:check-condition',
-    'schedule' => '* * * * *',
-    'enable' => true,
-    'run_on_non_production' => true,
-    'stores' => $allStores,
-];
-
-$jobs[] = [
-    'name' => 'check-statemachine-timeouts',
-    'command' => '$PHP_BIN vendor/bin/console oms:check-timeout',
-    'schedule' => '* * * * *',
-    'enable' => true,
-    'run_on_non_production' => true,
-    'stores' => $allStores,
-];
-
 $jobs[] = [
     'name' => 'export-kv',
     'command' => '$PHP_BIN vendor/bin/console collector:storage:export',
@@ -66,10 +47,20 @@ $jobs[] = [
     'stores' => $allStores,
 ];
 
+/* Oms */
 $jobs[] = [
-    'name' => 'clear-state-machine-locks',
-    'command' => '$PHP_BIN vendor/bin/console state-machine:clear-locks',
-    'schedule' => '0 6 * * *',
+    'name' => 'check-oms-conditions',
+    'command' => '$PHP_BIN vendor/bin/console oms:check-condition',
+    'schedule' => '* * * * *',
+    'enable' => true,
+    'run_on_non_production' => true,
+    'stores' => $allStores,
+];
+
+$jobs[] = [
+    'name' => 'check-oms-timeouts',
+    'command' => '$PHP_BIN vendor/bin/console oms:check-timeout',
+    'schedule' => '* * * * *',
     'enable' => true,
     'run_on_non_production' => true,
     'stores' => $allStores,
@@ -83,3 +74,16 @@ $jobs[] = [
     'run_on_non_production' => true,
     'stores' => $allStores,
 ];
+
+/* StateMachine */
+/*
+$jobs[] = [
+    'name' => 'clear-state-machine-locks',
+    'command' => '$PHP_BIN vendor/bin/console state-machine:clear-locks',
+    'schedule' => '0 6 * * *',
+    'enable' => true,
+    'run_on_non_production' => true,
+    'stores' => $allStores,
+];
+...
+*/
