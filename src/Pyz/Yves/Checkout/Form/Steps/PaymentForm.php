@@ -141,7 +141,7 @@ class PaymentForm extends AbstractType
     }
 
     /**
-     * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection
+     * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection|\Spryker\Yves\StepEngine\Dependency\Form\SubFormInterface[]
      */
     protected function getPaymentMethodSubForms()
     {

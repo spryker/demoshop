@@ -51,6 +51,9 @@
                 <tr>
                     <td>Payment method:</td>
                     <td>{{ quoteTransfer.payment.paymentMethod }}</td>
+                    {% if quoteTransfer.payment.summaryPartialPath is defined %}
+                        {% include '@' ~ quoteTransfer.payment.summaryPartialPath ~ '.twig' with {'quoteTransfer': quoteTransfer} %}
+                    {% endif %}
                 </tr>
                 <tr>
                     <td>Shipment:</td>

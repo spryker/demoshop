@@ -112,7 +112,8 @@ class StepFactory extends SprykerStepFactory
         return new PaymentStep(
             $this->createPaymentMethodHandler(),
             CheckoutControllerProvider::CHECKOUT_PAYMENT,
-            ApplicationControllerProvider::ROUTE_HOME
+            ApplicationControllerProvider::ROUTE_HOME,
+            $this->getFlashMessenger()
         );
     }
 
@@ -165,7 +166,7 @@ class StepFactory extends SprykerStepFactory
     }
 
     /**
-     * @return \Pyz\Yves\Application\Business\Model\FlashMessengerInterface
+     * @return \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface
      */
     protected function getFlashMessenger()
     {
