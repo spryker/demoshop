@@ -2,10 +2,10 @@
 
 /**
  * Data object containing the SQL and PHP code to migrate the database
- * up to version 1465394501.
- * Generated on 2016-06-08 14:01:41 by vagrant
+ * up to version 1463755715.
+ * Generated on 2016-05-20 14:48:35 by vagrant
  */
-class PropelMigration_1465394501
+class PropelMigration_1463755715
 {
     public $comment = '';
 
@@ -48,9 +48,10 @@ CREATE TABLE "spy_oms_state_machine_lock"
     "expires" TIMESTAMP NOT NULL,
     "created_at" TIMESTAMP,
     "updated_at" TIMESTAMP,
-    PRIMARY KEY ("id_oms_state_machine_lock"),
-    CONSTRAINT "spy_oms_state_machine_lock-identifier" UNIQUE ("identifier")
+    PRIMARY KEY ("id_oms_state_machine_lock")
 );
+
+CREATE INDEX "spy_oms_state_machine_lock-identifier" ON "spy_oms_state_machine_lock" ("identifier");
 ',
 );
     }
