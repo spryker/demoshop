@@ -65,8 +65,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new OmsClearLocksConsole(),
             new StateMachineCheckTimeoutConsole(),
             new StateMachineCheckConditionConsole(),
-            new StateMachineClearLocksConsole(),
-            new ProductTouchConsole()
+            new StateMachineClearLocksConsole()
         ];
 
         $propelCommands = $container->getLocator()->propel()->facade()->getConsoleCommands();
@@ -83,6 +82,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new DependencyTreeBuilderConsole();
             $commands[] = new DependencyTreeDependencyViolationConsole();
             $commands[] = new ComposerJsonUpdaterConsole();
+            $commands[] = new ProductTouchConsole();
         }
 
         return $commands;

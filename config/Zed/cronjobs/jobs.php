@@ -78,6 +78,24 @@ $jobs[] = [
 /* StateMachine */
 /*
 $jobs[] = [
+    'name' => 'check-state-machine-conditions',
+    'command' => '$PHP_BIN vendor/bin/console state-machine:check-condition',
+    'schedule' => '* * * * *',
+    'enable' => true,
+    'run_on_non_production' => true,
+    'stores' => $allStores,
+];
+
+$jobs[] = [
+    'name' => 'check-state-machine-timeouts',
+    'command' => '$PHP_BIN vendor/bin/console state-machine:check-timeout',
+    'schedule' => '* * * * *',
+    'enable' => true,
+    'run_on_non_production' => true,
+    'stores' => $allStores,
+];
+
+$jobs[] = [
     'name' => 'clear-state-machine-locks',
     'command' => '$PHP_BIN vendor/bin/console state-machine:clear-locks',
     'schedule' => '0 6 * * *',
@@ -85,5 +103,4 @@ $jobs[] = [
     'run_on_non_production' => true,
     'stores' => $allStores,
 ];
-...
 */
