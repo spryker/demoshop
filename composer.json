@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-bugfix/919-lock-oms-state-machine",
+    "spryker/spryker": "dev-master",
 
     "php": "~5.6.0",
     "guzzle/http": "~3.8.0",
