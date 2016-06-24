@@ -1,14 +1,17 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
+
 namespace Pyz\Yves\Checkout\Form\Steps;
 
 use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface;
-use Pyz\Yves\Checkout\Dependency\SubFormInterface;
+use Spryker\Yves\StepEngine\Dependency\Form\SubFormInterface;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
@@ -24,14 +27,14 @@ class PaymentForm extends AbstractType
     const PAYMENT_SELECTION_PROPERTY_PATH = self::PAYMENT_PROPERTY_PATH . '.' . self::PAYMENT_SELECTION;
 
     /**
-     * @var \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[]
+     * @var \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection
      */
     protected $paymentMethodSubFormPlugins;
 
     /**
-     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface[] $paymentMethodSubFormPlugins
+     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection $paymentMethodSubFormPlugins
      */
-    public function __construct(array $paymentMethodSubFormPlugins)
+    public function __construct(SubFormPluginCollection $paymentMethodSubFormPlugins)
     {
         $this->paymentMethodSubFormPlugins = $paymentMethodSubFormPlugins;
     }
@@ -103,7 +106,7 @@ class PaymentForm extends AbstractType
 
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
-     * @param \Pyz\Yves\Checkout\Dependency\SubFormInterface[] $paymentMethodSubForms
+     * @param \Spryker\Yves\StepEngine\Dependency\Form\SubFormInterface[] $paymentMethodSubForms
      * @param array $options
      *
      * @return \Pyz\Yves\Checkout\Form\Steps\PaymentForm
@@ -138,7 +141,7 @@ class PaymentForm extends AbstractType
     }
 
     /**
-     * @return \Pyz\Yves\Checkout\Dependency\SubFormInterface[]
+     * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection
      */
     protected function getPaymentMethodSubForms()
     {
@@ -152,7 +155,7 @@ class PaymentForm extends AbstractType
     }
 
     /**
-     * @param \Pyz\Yves\Checkout\Dependency\SubFormInterface[] $paymentMethodSubForms
+     * @param \Spryker\Yves\StepEngine\Dependency\Form\SubFormInterface[] $paymentMethodSubForms
      *
      * @return array
      */
@@ -162,19 +165,18 @@ class PaymentForm extends AbstractType
 
         foreach ($paymentMethodSubForms as $paymentMethodSubForm) {
             $subFormName = $paymentMethodSubForm->getName();
-            $methodName = str_replace('payolution_', '', $subFormName);
-            $choices[$paymentMethodSubForm->getPropertyPath()] = ucfirst($methodName);
+            $choices[$paymentMethodSubForm->getPropertyPath()] = ucfirst($subFormName);
         }
 
         return $choices;
     }
 
     /**
-     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutSubFormPluginInterface $paymentMethodSubForm
+     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginInterface $paymentMethodSubForm
      *
-     * @return \Pyz\Yves\Checkout\Dependency\SubFormInterface
+     * @return \Spryker\Yves\StepEngine\Dependency\Form\SubFormInterface
      */
-    protected function createSubForm(CheckoutSubFormPluginInterface $paymentMethodSubForm)
+    protected function createSubForm(SubFormPluginInterface $paymentMethodSubForm)
     {
         return $paymentMethodSubForm->createSubForm();
     }

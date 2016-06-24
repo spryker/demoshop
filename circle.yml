@@ -1,22 +1,39 @@
 machine:
   php:
     version: 5.6.5
+
   environment:
     APPLICATION_ENV: development
     APPLICATION_STORE: DE
-  services:
-    - elasticsearch
+
+  timezone:
+    Europe/Berlin
+
+  hosts:
+    zed.de.spryker.dev: 127.0.0.1
+
 database:
   override:
     - mv config/Zed/propel.ci.yml config/Zed/propel.yml
     - cp config/Shared/config_default-development.ci.php config/Shared/config_default-development_DE.php
     - cp config/Shared/config_default-development.ci.php config/Shared/config_default-test.php
+
 dependencies:
   pre:
     - mkdir -p shared/data/common/jenkins
     - mkdir -p shared/data/common/jenkins/jobs
     - echo "memory_limit = 512M" > ~/.phpenv/versions/$(phpenv global)/etc/conf.d/memory.ini
     - mysql -u ubuntu circle_test --execute="SET GLOBAL group_concat_max_len=1048576"
+
+  post:
+    - wget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.3/elasticsearch-2.3.3.tar.gz
+    - tar -xvf elasticsearch-2.3.3.tar.gz
+    - elasticsearch-2.3.3/bin/elasticsearch: {background: true}
+    - cp ~/project/config/Shared/ci/circle/zed.vhost /etc/apache2/sites-available/zed.vhost.conf
+    - sudo a2ensite zed.vhost.conf
+    - sudo a2enmod rewrite
+    - sudo service apache2 restart
+
 test:
   override:
     - vendor/bin/console propel:install

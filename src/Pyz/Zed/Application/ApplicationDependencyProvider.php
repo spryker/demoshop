@@ -27,6 +27,7 @@ use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\SslServiceProvi
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\SubRequestServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\TranslationServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigServiceProvider;
+use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\ZedHstsServiceProvider;
 use Spryker\Zed\Assertion\Communication\Plugin\ServiceProvider\AssertionServiceProvider;
 use Spryker\Zed\Auth\Communication\Plugin\Bootstrap\AuthBootstrapProvider;
 use Spryker\Zed\Kernel\Communication\Plugin\GatewayControllerListenerPlugin;
@@ -89,13 +90,17 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new DateFormatterServiceProvider(),
             new TranslationServiceProvider(),
             new SubRequestServiceProvider(),
+            new WebProfilerServiceProvider(),
+            new ZedHstsServiceProvider(),
         ];
 
         if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER, false)) {
             $providers[] = new WebProfilerServiceProvider();
         }
 
-        return array_merge($providers, $coreProviders);
+        $providers = array_merge($providers, $coreProviders);
+
+        return $providers;
     }
 
     /**

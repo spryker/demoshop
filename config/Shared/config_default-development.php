@@ -6,6 +6,7 @@
 
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Session\SessionConstants;
@@ -16,10 +17,12 @@ $config[ApplicationConstants::ZED_SESSION_SAVE_HANDLER] = SessionConstants::SESS
 $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL] = 'tcp';
 $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST] = '127.0.0.1';
 $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT] = '10009';
+$config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PASSWORD] = '';
 
 $config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_PROTOCOL] = $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL];
 $config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_HOST] = $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST];
 $config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_PORT] = $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT];
+$config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_PASSWORD] = $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PASSWORD];
 
 $config[ApplicationConstants::YVES_SESSION_COOKIE_DOMAIN] = $config[ApplicationConstants::HOST_YVES];
 $config[ApplicationConstants::YVES_COOKIE_SECURE] = false;
@@ -60,7 +63,7 @@ $config[ApplicationConstants::SET_REPEAT_DATA] = true;
 $config[ApplicationConstants::STORE_PREFIX] = 'DEV';
 
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = true;
-$config[ApplicationConstants::SHOW_SYMFONY_TOOLBAR] = true;
+$config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
 
 $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
 

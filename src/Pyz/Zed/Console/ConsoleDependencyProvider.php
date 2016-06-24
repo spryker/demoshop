@@ -26,11 +26,15 @@ use Spryker\Zed\Development\Communication\Console\DependencyTreeDependencyViolat
 use Spryker\Zed\Installer\Communication\Console\InitializeDatabaseConsole;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\NewRelic\Communication\Console\RecordDeploymentConsole;
-use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole;
-use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole;
-use Spryker\Zed\Oms\Communication\Console\ClearLocks;
-use Spryker\Zed\ProductSearch\Communication\Console\ProductSearchConsole;
+use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole as OmsCheckConditionConsole;
+use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole as OmsCheckTimeoutConsole;
+use Spryker\Zed\Oms\Communication\Console\ClearLocks as OmsClearLocksConsole;
+use Spryker\Zed\Product\Communication\Console\ProductTouchConsole;
 use Spryker\Zed\Search\Communication\Console\SearchConsole;
+use Spryker\Zed\StateMachine\Communication\Console\CheckConditionConsole as StateMachineCheckConditionConsole;
+use Spryker\Zed\StateMachine\Communication\Console\CheckTimeoutConsole as StateMachineCheckTimeoutConsole;
+use Spryker\Zed\StateMachine\Communication\Console\ClearLocks as StateMachineClearLocksConsole;
+use Spryker\Zed\Touch\Communication\Console\TouchCleanUpConsole;
 use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
 
 class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
@@ -46,19 +50,23 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
         $commands = [
             new ApplicationIntegrationCheckConsole(),
             new BuildNavigationConsole(),
-            new CheckConditionConsole(),
-            new CheckTimeoutConsole(),
             new CollectorStorageExportConsole(),
             new CollectorSearchExportConsole(),
             new CollectorSearchUpdateConsole(),
+            new TouchCleanUpConsole(),
             new DeleteAllCachesConsole(),
             new DemoDataImportConsole(),
             new GeneratorConsole(),
             new InitializeDatabaseConsole(),
-            new ProductSearchConsole(),
             new RecordDeploymentConsole(),
             new SearchConsole(),
-            new ClearLocks(),
+            new OmsCheckConditionConsole(),
+            new OmsCheckTimeoutConsole(),
+            new OmsClearLocksConsole(),
+            new StateMachineCheckTimeoutConsole(),
+            new StateMachineCheckConditionConsole(),
+            new StateMachineClearLocksConsole(),
+            new ProductTouchConsole()
         ];
 
         $propelCommands = $container->getLocator()->propel()->facade()->getConsoleCommands();

@@ -1,18 +1,19 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
+
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
-use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
+use Spryker\Shared\Transfer\AbstractTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
-class AddressStep extends BaseStep
+class AddressStep extends AbstractBaseStep
 {
 
     /**
@@ -21,38 +22,26 @@ class AddressStep extends BaseStep
     protected $customerClient;
 
     /**
-     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
      * @param string $stepRoute
      * @param string $escapeRoute
      */
     public function __construct(
-        FlashMessengerInterface $flashMessenger,
         CustomerClientInterface $customerClient,
         $stepRoute,
         $escapeRoute
     ) {
-        parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
+        parent::__construct($stepRoute, $escapeRoute);
 
         $this->customerClient = $customerClient;
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer$quoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer $dataTransfer
      *
      * @return bool
      */
-    public function preCondition(QuoteTransfer $quoteTransfer)
-    {
-        return !$this->isCartEmpty($quoteTransfer);
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer$quoteTransfer
-     *
-     * @return bool
-     */
-    public function requireInput(QuoteTransfer $quoteTransfer)
+    public function requireInput(AbstractTransfer $dataTransfer)
     {
         return true;
     }
@@ -61,14 +50,14 @@ class AddressStep extends BaseStep
      * Guest customer takes data from form directly mapped by symfony forms.
      * Logged in customer takes data by id from current CustomerTransfer stored in session.
      * If it's new address it's saved when order is created in CustomerOrderSaverPlugin.
-     *
+     * The selected addresses will be updated to default billing and shipping address.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer$quoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer)
+    public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
         $customerTransfer = $this->customerClient->getCustomer();
 
@@ -94,16 +83,18 @@ class AddressStep extends BaseStep
 
             $quoteTransfer->setBillingAddress($billingAddressTransfer);
         }
+        $quoteTransfer->getShippingAddress()->setIsDefaultShipping(true);
+        $quoteTransfer->getBillingAddress()->setIsDefaultBilling(true);
 
         return $quoteTransfer;
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer$quoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
-    public function postCondition(QuoteTransfer $quoteTransfer)
+    public function postCondition(AbstractTransfer $quoteTransfer)
     {
         if ($quoteTransfer->getShippingAddress() === null || $quoteTransfer->getBillingAddress() === null) {
             return false;

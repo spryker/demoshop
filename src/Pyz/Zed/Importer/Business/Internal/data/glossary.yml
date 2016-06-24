@@ -585,14 +585,6 @@ payment.invoice:
   translations:
     de_DE: 'Rechnung'
     en_US: 'Invoice'
-payment.payolution.invoice:
-  translations:
-    de_DE: 'Payolution Rechnung'
-    en_US: 'Payolution Invoice'
-payment.payolution.installment:
-  translations:
-    de_DE: 'Payolution Ratenkauf'
-    en_US: 'Payolution Installment'
 
 address.street:
   translations:
@@ -1154,18 +1146,14 @@ customer.authentication.failed:
   translations:
     en_US: 'Authentication failed'
     de_DE: 'Authentifizierung fehlgeschlagen'
-payolution_invoice.date_of_birth:
-  translations:
-    en_US: 'Date of birth (Eg: DD-MM-YYYY)'
-    de_DE: 'Geburtsdatum (TT.MM.JJJJ)'
 customer.email.invalid:
   translations:
     en_US: 'Email address is invalid'
     de_DE: 'E-Mail Adresse ist ungültig'
 customer.password.recovery.mail.sent:
   translations:
-    en_US: 'An email with recover instructions was sent to your email address'
-    de_DE: 'Ihnen wurde soebene eine E-Mail gesendet mit dem Aktivierungscode'
+    en_US: 'If there is an account associated with this email address, you will receive an email with further instructions'
+    de_DE: 'Falls ein Konto für diese Emailaddresse existiert, werden Sie eine Email mit den weiteren Anweisungen bekommen'
 customer.address.number:
   translations:
     en_US: 'Number'
@@ -1230,30 +1218,6 @@ checkout.step.place.order:
   translations:
     en_US: 'Submit your order'
     de_DE: 'Jetzt kaufen'
-payolution_invoice.date_of_birth:
-  translations:
-    en_US: 'Date of birth (DD-MM-YYYY)'
-    de_DE: 'Geburtsdatum (TT.MM.JJJJ)'
-payolution_installment.bank_account_holder:
-  translations:
-    en_US: 'Bank name'
-    de_DE: 'Bank'
-payolution_installment.bank_account_iban:
-  translations:
-    en_US: 'Account IBAN'
-    de_DE: 'IBAN'
-payolution_installment.bank_account_bic:
-  translations:
-    en_US: 'Account BIC'
-    de_DE: 'BIC'
-payolution_installment.installment_payment_detail_index:
-  translations:
-    en_US: 'Installment details'
-    de_DE: 'Details zur Ratenzahlung'
-payolution_installment.date_of_birth:
-  translations:
-    en_US: 'Date of birth (DD-MM-YYYY)'
-    de_DE: 'Geburtsdatum (TT.MM.JJJJ)'
 checkout.step.payment.must_be_older_than_18_years:
   translations:
     en_US: 'You must be at least 18 years old.'

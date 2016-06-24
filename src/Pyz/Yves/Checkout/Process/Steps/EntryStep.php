@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
@@ -6,62 +7,34 @@
 
 namespace Pyz\Yves\Checkout\Process\Steps;
 
-use Generated\Shared\Transfer\QuoteTransfer;
-use Symfony\Component\HttpFoundation\Request;
+use Spryker\Shared\Transfer\AbstractTransfer;
 
 /**
  * Entry step executed first, it's needed to redirect customer to next required step.
  */
-class EntryStep extends BaseStep implements StepInterface
+class EntryStep extends AbstractBaseStep
 {
-
-    /**
-     * Requirements for this step, return true when satisfied.
-     *
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
-    public function preCondition(QuoteTransfer $quoteTransfer)
-    {
-        return !$this->isCartEmpty($quoteTransfer);
-    }
 
     /**
      * Require input, should we render view with form or just skip step after calling execute.
      *
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer $quoteTransfer
      *
      * @return bool
      */
-    public function requireInput(QuoteTransfer $quoteTransfer)
+    public function requireInput(AbstractTransfer $quoteTransfer)
     {
         return false;
     }
 
     /**
-     * Execute step logic, happens after form submit if provided, gets QuoteTransfer filled by data from form.
-     *
-     *
-     *
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer)
-    {
-        return $quoteTransfer;
-    }
-
-    /**
      * Conditions that should be met for this step to be marked as completed. returns true when satisfied.
      *
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer $quoteTransfer
      *
      * @return bool
      */
-    public function postCondition(QuoteTransfer $quoteTransfer)
+    public function postCondition(AbstractTransfer $quoteTransfer)
     {
         return true;
     }

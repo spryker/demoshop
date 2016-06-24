@@ -66,9 +66,17 @@ $jobs[] = [
     'stores' => $allStores,
 ];
 
+$jobs[] = [
+    'name' => 'clear-state-machine-locks',
+    'command' => '$PHP_BIN vendor/bin/console state-machine:clear-locks',
+    'schedule' => '0 6 * * *',
+    'enable' => true,
+    'run_on_non_production' => true,
+    'stores' => $allStores,
+];
 
 $jobs[] = [
-    'name' => 'oms-clear-locks',
+    'name' => 'clear-oms-locks',
     'command' => '$PHP_BIN vendor/bin/console oms:clear-locks',
     'schedule' => '0 6 * * *',
     'enable' => true,

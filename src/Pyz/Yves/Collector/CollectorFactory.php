@@ -8,7 +8,6 @@
 namespace Pyz\Yves\Collector;
 
 use Pyz\Yves\Collector\Mapper\ParameterMerger;
-use Pyz\Yves\Collector\Mapper\RequestParameterInjector;
 use Pyz\Yves\Collector\Mapper\UrlMapper;
 use Spryker\Yves\Kernel\AbstractFactory;
 
@@ -33,7 +32,7 @@ class CollectorFactory extends AbstractFactory
      */
     public function createUrlMapper()
     {
-        return new UrlMapper($this->createFacetConfig());
+        return new UrlMapper($this->getSearchConfig());
     }
 
     /**
@@ -41,15 +40,7 @@ class CollectorFactory extends AbstractFactory
      */
     public function createParameterMerger()
     {
-        return new ParameterMerger($this->createFacetConfig());
-    }
-
-    /**
-     * @return \Pyz\Yves\Collector\Mapper\RequestParameterInjectorInterface
-     */
-    public function createRequestParameterInjector()
-    {
-        return new RequestParameterInjector($this->createFacetConfig());
+        return new ParameterMerger($this->getSearchConfig());
     }
 
     /**
@@ -60,16 +51,6 @@ class CollectorFactory extends AbstractFactory
         $urlMatcher = $this->getProvidedDependency(CollectorDependencyProvider::CLIENT_COLLECTOR);
 
         return $urlMatcher;
-    }
-
-    /**
-     * @return \Spryker\Client\Catalog\Model\FacetConfig
-     */
-    protected function createFacetConfig()
-    {
-        $catalogClient = $this->getProvidedDependency(CollectorDependencyProvider::CLIENT_CATALOG);
-
-        return $catalogClient->createFacetConfig();
     }
 
     /**
@@ -110,6 +91,18 @@ class CollectorFactory extends AbstractFactory
     protected function createPageResourceCreator()
     {
         return $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_PAGE_RESOURCE_CREATOR);
+    }
+
+    /**
+     * @return \Spryker\Client\Search\Dependency\Plugin\SearchConfigInterface
+     */
+    protected function getSearchConfig()
+    {
+        return $this
+            ->getLocator()
+            ->search()
+            ->client()
+            ->getSearchConfig();
     }
 
 }

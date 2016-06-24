@@ -11,6 +11,8 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
+use Generated\Shared\Transfer\ProductImageSetTransfer;
+use Generated\Shared\Transfer\ProductImageTransfer;
 use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Shared\Library\Collection\Collection;
@@ -28,7 +30,7 @@ class ProductAbstractImporter extends AbstractImporter
     const SKU = 'sku';
     const PRODUCT_ID = 'product_id';
     const VARIANT_ID = 'variant_id';
-    const IMAGE_BIG = 'image_big';
+    const IMAGE_LARGE = 'image_big';
     const IMAGE_SMALL = 'image_small';
     const CATEGORY_ID = 'category_id';
     const CATEGORY_KEY = 'category_key';
@@ -122,8 +124,8 @@ class ProductAbstractImporter extends AbstractImporter
         }
 
         $product = $this->format($data);
-        $product = $this->useLocalIcecatImages($product);
 
+        $product = $this->useLocalIcecatImages($product);
         $concreteProductData = $this->getConcreteProductsData();
         $this->createAttributes($concreteProductData);
         foreach ($concreteProductData as $type => $productAttributes) {
@@ -134,6 +136,7 @@ class ProductAbstractImporter extends AbstractImporter
             $attributes = $this->generateAttributes($productAttributes);
 
             $productAbstractTransfer = $this->buildProductAbstractTransfer($product, $attributes);
+
             $idProductAbstract = $this->productFacade->createProductAbstract($productAbstractTransfer);
             $productAbstractTransfer->setIdProductAbstract($idProductAbstract);
 
@@ -156,8 +159,6 @@ class ProductAbstractImporter extends AbstractImporter
         $abstractAttributeNames = [
             self::MANUFACTURER_NAME,
             self::VARIANT_ID,
-            self::IMAGE_BIG,
-            self::IMAGE_SMALL,
             self::PRODUCT_ID,
         ];
 
@@ -174,11 +175,24 @@ class ProductAbstractImporter extends AbstractImporter
             $localizedAttributesTransfer = $this->buildLocalizedAttributesTransfer(
                 $this->getProductName($product, $localeCode),
                 $localizedAttributesData,
-                $this->localeFacade->getLocaleByCode($localeCode)
+                $this->localeFacade->getLocale($localeCode)
             );
 
             $productAbstractTransfer->addLocalizedAttributes($localizedAttributesTransfer);
         }
+
+        $productImageSet = new ProductImageSetTransfer();
+
+        $productImage = new ProductImageTransfer();
+        $productImage->setSort(0);
+        $productImage->setExternalUrlSmall($product[self::IMAGE_SMALL]);
+        $productImage->setExternalUrlLarge($product[self::IMAGE_LARGE]);
+
+        $productImageSet->setName('Default');
+        $productImageSet->setLocale($this->localeFacade->getCurrentLocale());
+        $productImageSet->addProductImage($productImage);
+
+        $productAbstractTransfer->addProductImageSet($productImageSet);
 
         return $productAbstractTransfer;
     }
@@ -222,7 +236,7 @@ class ProductAbstractImporter extends AbstractImporter
             $localizedAttributesTransfer = $this->buildLocalizedAttributesTransfer(
                 $product[$localizedKeyName],
                 $localizedAttributesData,
-                $this->localeFacade->getLocaleByCode($localeCode)
+                $this->localeFacade->getLocale($localeCode)
             );
 
             $productConcreteTransfer->addLocalizedAttributes($localizedAttributesTransfer);
@@ -402,8 +416,12 @@ class ProductAbstractImporter extends AbstractImporter
      */
     public function slugify($value)
     {
-        $value = trim($value);
-        $value = \transliterator_transliterate("Any-Latin; Latin-ASCII; NFD; [\u0080-\u7fff] remove; [:Nonspacing Mark:] remove; NFC; [:Punctuation:] remove; Lower();", $value);
+        if (function_exists('iconv')) {
+            $value = iconv('UTF-8', 'ASCII//TRANSLIT', $value);
+        }
+
+        $value = preg_replace("/[^a-zA-Z0-9 -]/", "", $value);
+        $value = strtolower($value);
         $value = str_replace(' ', '-', $value);
 
         return $value;

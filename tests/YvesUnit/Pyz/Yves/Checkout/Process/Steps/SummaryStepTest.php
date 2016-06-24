@@ -9,10 +9,9 @@ use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
 use Spryker\Client\Calculation\CalculationClientInterface;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class SummaryStepTest extends \PHPUnit_Framework_TestCase
@@ -24,7 +23,7 @@ class SummaryStepTest extends \PHPUnit_Framework_TestCase
     public function testExecuteShouldTriggerQuoteRecalculation()
     {
         $calculationClientMock = $this->createCalculationClientMock();
-        $calculationClientMock->expects($this->once())->method('recalculate');
+        $calculationClientMock->expects($this->once())->method('recalculate')->willReturnArgument(0);
 
         $summaryStep = $this->createSummaryStep($calculationClientMock);
         $summaryStep->execute($this->createRequest(), new QuoteTransfer());
@@ -62,18 +61,18 @@ class SummaryStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \Pyz\Yves\Checkout\Process\Steps\ShipmentStep
+     * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClientMock
+     *
+     * @return \Pyz\Yves\Checkout\Process\Steps\SummaryStep
      */
-    protected function createSummaryStep($calculationClientMock)
+    protected function createSummaryStep(CalculationClientInterface $calculationClientMock)
     {
         return new SummaryStep(
-            $this->createFlashMessengerMock(),
             $calculationClientMock,
             'shipment',
             'escape_route'
         );
     }
-
 
     /**
      * @return \Symfony\Component\HttpFoundation\Request
@@ -81,14 +80,6 @@ class SummaryStepTest extends \PHPUnit_Framework_TestCase
     protected function createRequest()
     {
         return Request::createFromGlobals();
-    }
-
-    /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Application\Business\Model\FlashMessengerInterface
-     */
-    protected function createFlashMessengerMock()
-    {
-        return $this->getMock(FlashMessengerInterface::class);
     }
 
     /**
@@ -100,11 +91,11 @@ class SummaryStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface
      */
     protected function createShipmentMock()
     {
-        return $this->getMock(CheckoutStepHandlerPluginInterface::class);
+        return $this->getMock(StepHandlerPluginInterface::class);
     }
 
 }

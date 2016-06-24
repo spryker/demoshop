@@ -12,6 +12,7 @@ use Silex\Application;
 use Spryker\Client\EventJournal\Event;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\Config;
+use Spryker\Shared\Library\System;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
@@ -22,6 +23,8 @@ use Symfony\Component\HttpKernel\KernelEvents;
  */
 class EventJournalServiceProvider extends AbstractServiceProvider
 {
+
+    const COOKIE_HASH_ALGORITHM = 'sha256';
 
     /**
      * @var \Spryker\Client\EventJournal\EventJournalClientInterface
@@ -138,8 +141,10 @@ class EventJournalServiceProvider extends AbstractServiceProvider
      */
     private function setTrackingCookie(Application $app, $cookieName, $validFor)
     {
-        if (empty($_COOKIE[$cookieName])) {
-            $_COOKIE[$cookieName] = sha1(uniqid('', true));
+        // An unsafe value might have been set in browser by JS or XSS, it should be replaced with a safe one.
+        if (empty($_COOKIE[$cookieName]) || !$this->isTrackingValueSafe($_COOKIE[$cookieName])) {
+            // uniqid is based on current timestamp, a server ID should be used to prevent 2 servers generating the same ID for 2 simultaneous requests.
+            $_COOKIE[$cookieName] = hash(static::COOKIE_HASH_ALGORITHM, uniqid(System::getHostname(), true));
         }
         $dt = new \DateTime();
         $app['cookies'][] = new Cookie(
@@ -150,6 +155,16 @@ class EventJournalServiceProvider extends AbstractServiceProvider
             Config::get(ApplicationConstants::YVES_COOKIE_DOMAIN),
             Config::get(ApplicationConstants::YVES_COOKIE_SECURE, true)
         );
+    }
+
+    /**
+     * @param string $trackingValue
+     *
+     * @return bool
+     */
+    protected function isTrackingValueSafe($trackingValue)
+    {
+        return ctype_xdigit($trackingValue);
     }
 
     /**

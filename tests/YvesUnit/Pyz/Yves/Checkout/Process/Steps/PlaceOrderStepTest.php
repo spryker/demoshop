@@ -1,6 +1,8 @@
 <?php
+
 /**
- * (c) Spryker Systems GmbH copyright protected
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
@@ -11,9 +13,9 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\SaveOrderTransfer;
 
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
 use Spryker\Client\Checkout\CheckoutClientInterface;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
@@ -22,7 +24,7 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
     /**
      * @return void
      */
-    public function testPlaceOrderExecuteWhenEternalRedirectProvidedShouldSetIt()
+    public function testPlaceOrderExecuteWhenExternalRedirectProvidedShouldSetIt()
     {
         $checkoutClientMock = $this->createCheckoutClientMock();
         $redirectUrl = 'http://www.ten-kur-toli.lt';
@@ -45,6 +47,7 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
         $checkoutClientMock = $this->createCheckoutClientMock();
 
         $checkoutResponseTransfer = new CheckoutResponseTransfer();
+        $checkoutResponseTransfer->setIsSuccess(true);
         $saverOrderTransfer = new SaveOrderTransfer();
         $saverOrderTransfer->setOrderReference('#123');
         $checkoutResponseTransfer->setSaveOrder($saverOrderTransfer);
@@ -52,9 +55,11 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
         $checkoutClientMock->expects($this->once())->method('placeOrder')->willReturn($checkoutResponseTransfer);
 
         $placeOrderStep = $this->createPlaceOrderStep($checkoutClientMock);
-        $quoteTransfer = $placeOrderStep->execute($this->createRequest(), new QuoteTransfer());
+        $quoteTransfer = new QuoteTransfer();
 
-        $this->assertEquals($saverOrderTransfer->getOrderReference(), $quoteTransfer->getOrderReference());
+        $placeOrderStep->execute($this->createRequest(), $quoteTransfer);
+
+        $this->assertTrue($placeOrderStep->postCondition($quoteTransfer));
     }
 
     /**
@@ -83,10 +88,15 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
      */
     public function testPostConditionsShouldReturnTrueWhenOrderPlaceIsReady()
     {
+        $checkoutResponseTransfer = new CheckoutResponseTransfer();
+        $checkoutResponseTransfer->setIsSuccess(true);
         $checkoutClientMock = $this->createCheckoutClientMock();
+        $checkoutClientMock->expects($this->once())->method('placeOrder')->willReturn($checkoutResponseTransfer);
         $placeOrderStep = $this->createPlaceOrderStep($checkoutClientMock);
         $quoteTransfer = new QuoteTransfer();
         $quoteTransfer->setOrderReference('#123');
+
+        $placeOrderStep->execute($this->createRequest(), $quoteTransfer);
         $this->assertTrue($placeOrderStep->postCondition($quoteTransfer));
     }
 
@@ -102,22 +112,24 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @param \Spryker\Client\Checkout\CheckoutClientInterface $checkoutClientMock
+     * @param null $flashMessengerMock
+     *
      * @return \Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep
      */
-    protected function createPlaceOrderStep($checkoutClientMock, $flashMessengerMock = null)
+    protected function createPlaceOrderStep(CheckoutClientInterface $checkoutClientMock, $flashMessengerMock = null)
     {
         if ($flashMessengerMock === null) {
             $flashMessengerMock = $this->createFlashMessengerMock();
         }
 
         return new PlaceOrderStep(
-            $flashMessengerMock,
             $checkoutClientMock,
+            $flashMessengerMock,
             'place_order',
             'escape_route'
         );
     }
-
 
     /**
      * @return \Symfony\Component\HttpFoundation\Request
@@ -136,7 +148,7 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Calculation\CalculationClientInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Checkout\CheckoutClientInterface
      */
     protected function createCheckoutClientMock()
     {
@@ -144,11 +156,11 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface
      */
     protected function createShipmentMock()
     {
-        return $this->getMock(CheckoutStepHandlerPluginInterface::class);
+        return $this->getMock(StepHandlerPluginInterface::class);
     }
 
 }

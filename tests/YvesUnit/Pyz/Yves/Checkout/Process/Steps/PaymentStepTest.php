@@ -7,9 +7,9 @@ namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
 use Pyz\Yves\Checkout\Process\Steps\PaymentStep;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class PaymentStepTest extends \PHPUnit_Framework_TestCase
@@ -20,10 +20,12 @@ class PaymentStepTest extends \PHPUnit_Framework_TestCase
      */
     public function testExecuteShouldSelectPlugin()
     {
-        $paymentPlugiMock = $this->createPaymentPluginMock();
-        $paymentPlugiMock->expects($this->once())->method('addToQuote');
+        $paymentPluginMock = $this->createPaymentPluginMock();
+        $paymentPluginMock->expects($this->once())->method('addToDataClass');
 
-        $paymenttStep = $this->createPaymentStep(['test' => $paymentPlugiMock]);
+        $paymentStepHandler = new StepHandlerPluginCollection();
+        $paymentStepHandler->add($paymentPluginMock, 'test');
+        $paymentStep = $this->createPaymentStep($paymentStepHandler);
 
         $quoteTransfer = new QuoteTransfer();
 
@@ -31,20 +33,21 @@ class PaymentStepTest extends \PHPUnit_Framework_TestCase
         $paymentTransfer->setPaymentSelection('test');
         $quoteTransfer->setPayment($paymentTransfer);
 
-        $paymenttStep->execute($this->createRequest(), $quoteTransfer);
+        $paymentStep->execute($this->createRequest(), $quoteTransfer);
     }
 
     /**
      * @return void
      */
-    public function testPostConditionsShouldReturnTrueWhenPaymenSet()
+    public function testPostConditionsShouldReturnTrueWhenPaymentSet()
     {
         $quoteTransfer = new QuoteTransfer();
         $paymentTransfer = new PaymentTransfer();
         $paymentTransfer->setPaymentProvider('test');
         $quoteTransfer->setPayment($paymentTransfer);
 
-        $paymentStep = $this->createPaymentStep([]);
+        $paymentStep = $this->createPaymentStep(new StepHandlerPluginCollection());
+
         $this->assertTrue($paymentStep->postCondition($quoteTransfer));
     }
 
@@ -54,23 +57,23 @@ class PaymentStepTest extends \PHPUnit_Framework_TestCase
      */
     public function testShipmentRequireInputShouldReturnTrue()
     {
-        $paymentStep = $this->createPaymentStep([]);
+        $paymentStep = $this->createPaymentStep(new StepHandlerPluginCollection());
         $this->assertTrue($paymentStep->requireInput(new QuoteTransfer()));
     }
 
     /**
+     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection $paymentPlugins
+     *
      * @return \Pyz\Yves\Checkout\Process\Steps\PaymentStep
      */
-    protected function createPaymentStep(array $paymentPlugins)
+    protected function createPaymentStep(StepHandlerPluginCollection $paymentPlugins)
     {
         return new PaymentStep(
-            $this->createFlashMessengerMock(),
+            $paymentPlugins,
             'payment',
-            'escape_route',
-            $paymentPlugins
+            'escape_route'
         );
     }
-
 
     /**
      * @return \Symfony\Component\HttpFoundation\Request
@@ -81,19 +84,11 @@ class PaymentStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Application\Business\Model\FlashMessengerInterface
-     */
-    protected function createFlashMessengerMock()
-    {
-        return $this->getMock(FlashMessengerInterface::class);
-    }
-
-    /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface
      */
     protected function createPaymentPluginMock()
     {
-        return $this->getMock(CheckoutStepHandlerPluginInterface::class);
+        return $this->getMock(StepHandlerPluginInterface::class);
     }
 
 }

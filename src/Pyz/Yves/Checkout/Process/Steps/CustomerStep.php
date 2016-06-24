@@ -1,21 +1,23 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
+
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
-use Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface;
+use Spryker\Shared\Transfer\AbstractTransfer;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class CustomerStep extends BaseStep
+class CustomerStep extends AbstractBaseStep
 {
 
     /**
-     * @var \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface
+     * @var \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface
      */
     protected $customerStepHandler;
 
@@ -25,49 +27,35 @@ class CustomerStep extends BaseStep
     protected $customerClient;
 
     /**
-     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
-     * @param string $stepRoute
-     * @param string $escapeRoute
-     * @param \Pyz\Yves\Checkout\Dependency\Plugin\CheckoutStepHandlerPluginInterface $customerStepHandler
      * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
+     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface $customerStepHandler
+     * @param string $stepRoute
+     * @param string $route
      */
     public function __construct(
-        FlashMessengerInterface $flashMessenger,
+        CustomerClientInterface $customerClient,
+        StepHandlerPluginInterface $customerStepHandler,
         $stepRoute,
-        $escapeRoute,
-        CheckoutStepHandlerPluginInterface $customerStepHandler,
-        CustomerClientInterface $customerClient
+        $route
     ) {
-        parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
+        parent::__construct($stepRoute, $route);
 
-        $this->customerStepHandler = $customerStepHandler;
         $this->customerClient = $customerClient;
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
-    public function preCondition(QuoteTransfer $quoteTransfer)
-    {
-        return !$this->isCartEmpty($quoteTransfer);
+        $this->customerStepHandler = $customerStepHandler;
     }
 
     /**
      * Require input for customer authentication if the customer is not logged in already, or haven't authenticated yet.
      *
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
      * @return bool
      */
-    public function requireInput(QuoteTransfer $quoteTransfer)
+    public function requireInput(AbstractTransfer $quoteTransfer)
     {
         if ($this->isCustomerInQuote($quoteTransfer)) {
             return false;
         }
 
-        if ($this->isCustomerLogedIn()) {
+        if ($this->isCustomerLoggedIn()) {
             return false;
         }
 
@@ -78,13 +66,13 @@ class CustomerStep extends BaseStep
      * Update QuoteTransfer with customer step handler plugin.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer)
+    public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
-        return $this->customerStepHandler->addToQuote($request, $quoteTransfer);
+        return $this->customerStepHandler->addToDataClass($request, $quoteTransfer);
     }
 
     /**
@@ -92,17 +80,17 @@ class CustomerStep extends BaseStep
      * If the CustomerTransfer is guest and the customer is logged in, then we override the guest customer with the
      * logged in customer, e.g. return false and execute() will do the rest.
      *
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
-    public function postCondition(QuoteTransfer $quoteTransfer)
+    public function postCondition(AbstractTransfer $quoteTransfer)
     {
         if ($this->isCustomerInQuote($quoteTransfer) === false) {
             return false;
         }
 
-        if ($this->isGuestCustomerSelected($quoteTransfer) && $this->isCustomerLogedIn()) {
+        if ($this->isGuestCustomerSelected($quoteTransfer) && $this->isCustomerLoggedIn()) {
             // override guest user with logged in user
             return false;
         }
@@ -123,7 +111,7 @@ class CustomerStep extends BaseStep
     /**
      * @return bool
      */
-    protected function isCustomerLogedIn()
+    protected function isCustomerLoggedIn()
     {
         return $this->customerClient->getCustomer() !== null;
     }

@@ -1,39 +1,54 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
+
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
-use Symfony\Component\HttpFoundation\Request;
+use Spryker\Shared\Transfer\AbstractTransfer;
+use Spryker\Yves\Checkout\Process\Steps\AbstractPlaceOrderStep;
 
-class PlaceOrderStep extends BaseStep
+class PlaceOrderStep extends AbstractPlaceOrderStep
 {
 
     /**
-     * @var \Spryker\Client\Checkout\CheckoutClientInterface
+     * @var \Pyz\Yves\Application\Business\Model\FlashMessengerInterface
      */
-    protected $checkoutClient;
+    protected $flashMessenger;
 
     /**
-     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      * @param \Spryker\Client\Checkout\CheckoutClientInterface $checkoutClient
+     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
      * @param string $stepRoute
-     * @param string $escapeRoute
+     * @param string $route
+     * @param array $errorCodeToRouteMatching
      */
     public function __construct(
-        FlashMessengerInterface $flashMessenger,
         CheckoutClientInterface $checkoutClient,
+        FlashMessengerInterface $flashMessenger,
         $stepRoute,
-        $escapeRoute
+        $route,
+        $errorCodeToRouteMatching = []
     ) {
-        parent::__construct($flashMessenger, $stepRoute, $escapeRoute);
+        parent::__construct($checkoutClient, $stepRoute, $route, $errorCodeToRouteMatching);
 
-        $this->checkoutClient = $checkoutClient;
+        $this->flashMessenger = $flashMessenger;
+    }
+
+    /**
+     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $dataTransfer
+     *
+     * @return bool
+     */
+    public function preCondition(AbstractTransfer $dataTransfer)
+    {
+        return !$this->isCartEmpty($dataTransfer);
     }
 
     /**
@@ -41,50 +56,9 @@ class PlaceOrderStep extends BaseStep
      *
      * @return bool
      */
-    public function preCondition(QuoteTransfer $quoteTransfer)
+    protected function isCartEmpty(QuoteTransfer $quoteTransfer)
     {
-        return !$this->isCartEmpty($quoteTransfer);
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
-    public function requireInput(QuoteTransfer $quoteTransfer)
-    {
-        return false;
-    }
-
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
-    public function execute(Request $request, QuoteTransfer $quoteTransfer)
-    {
-        $checkoutResponseTransfer = $this->checkoutClient->placeOrder($quoteTransfer);
-        if ($checkoutResponseTransfer->getIsExternalRedirect()) {
-            $this->externalRedirectUrl = $checkoutResponseTransfer->getRedirectUrl();
-        }
-        if ($checkoutResponseTransfer->getSaveOrder() !== null) {
-            $quoteTransfer->setOrderReference($checkoutResponseTransfer->getSaveOrder()->getOrderReference());
-        }
-
-        $this->setCheckoutErrorMessages($checkoutResponseTransfer);
-
-        return $quoteTransfer;
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
-    public function postCondition(QuoteTransfer $quoteTransfer)
-    {
-        return $quoteTransfer->getOrderReference() !== null;
+        return count($quoteTransfer->getItems()) === 0;
     }
 
     /**

@@ -10,7 +10,7 @@ namespace Pyz\Yves\Customer\Plugin\Provider;
 use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
 use Pyz\Yves\Customer\Form\LoginForm;
 use Silex\Application;
-use Spryker\Shared\Config;
+use Spryker\Shared\Config\Config;
 use Spryker\Shared\Customer\CustomerConstants;
 
 /**
