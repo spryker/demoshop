@@ -24,6 +24,7 @@ use Orm\Zed\Product\Persistence\SpyProductAbstract;
 use Orm\Zed\Tax\Persistence\SpyTaxRate;
 use Orm\Zed\Tax\Persistence\SpyTaxSet;
 use Orm\Zed\Tax\Persistence\SpyTaxSetTax;
+use Spryker\Shared\Tax\TaxConstants;
 use Spryker\Zed\Calculation\Business\CalculationFacade;
 use Spryker\Zed\Discount\DiscountDependencyProvider;
 use Spryker\Zed\Tax\Business\Model\AccruedTaxCalculator;
@@ -265,6 +266,36 @@ class CalculationFacadeTest extends Test
     }
 
     /**
+     * @return void
+     */
+    public function testCalculationWhenTaxExemptionIsUsedShouldUseEmptyTax()
+    {
+        $calculationFacade = $this->createCalculationFacade();
+
+        $quoteTransfer = $this->createFixtureDataForCalculation();
+
+        $abstractProductEntity = $this->createAbstractProductWithTaxExemption();
+
+        $quoteTransfer->setExpenses(new \ArrayObject());
+
+        $itemTransfer = $quoteTransfer->getItems()[0];
+        $itemTransfer->setIdProductAbstract($abstractProductEntity->getIdProductAbstract());
+        $itemTransfer->setQuantity(1);
+        $itemTransfer->setProductOptions(new \ArrayObject());
+
+        $recalculatedQuoteTransfer = $calculationFacade->recalculate($quoteTransfer);
+
+        //order totals
+        $totalsTransfer = $recalculatedQuoteTransfer->getTotals();
+
+        $this->assertEquals(0, $itemTransfer->getTaxRate());
+        $this->assertEquals(0, $itemTransfer->getUnitTaxAmount());
+        $this->assertEquals(0, $itemTransfer->getSumTaxAmount());
+
+        $this->assertEquals(0, $totalsTransfer->getTaxTotal()->getAmount());
+    }
+
+    /**
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     protected function createFixtureDataForCalculation()
@@ -379,21 +410,77 @@ class CalculationFacadeTest extends Test
         $taxRateEntity->setFkCountry($countryEntity->getIdCountry());
         $taxRateEntity->save();
 
-        $taxSetEntity = new SpyTaxSet();
-        $taxSetEntity->setName('name of tax set');
-        $taxSetEntity->save();
+        $taxSetEntity = $this->createTaxSet();
 
-        $taxSetTaxRateEntity = new SpyTaxSetTax();
-        $taxSetTaxRateEntity->setFkTaxSet($taxSetEntity->getIdTaxSet());
-        $taxSetTaxRateEntity->setFkTaxRate($taxRateEntity->getIdTaxRate());
-        $taxSetTaxRateEntity->save();
+        $this->createTaxSetTax($taxSetEntity, $taxRateEntity);
 
+        $abstractProductEntity = $this->createAbstractProduct($taxSetEntity);
+
+        return $abstractProductEntity;
+    }
+
+    /**
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return \Orm\Zed\Product\Persistence\SpyProductAbstract
+     */
+    protected function createAbstractProductWithTaxExemption()
+    {
+        $taxRateEntity = new SpyTaxRate();
+        $taxRateEntity->setRate(0);
+        $taxRateEntity->setName(TaxConstants::TAX_EXEMPT_PLACEHOLDER);
+        $taxRateEntity->save();
+
+        $taxSetEntity = $this->createTaxSet();
+
+        $this->createTaxSetTax($taxSetEntity, $taxRateEntity);
+
+        $abstractProductEntity = $this->createAbstractProduct($taxSetEntity);
+
+        return $abstractProductEntity;
+    }
+
+    /**
+     * @param SpyTaxSet $taxSetEntity
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return \Orm\Zed\Product\Persistence\SpyProductAbstract
+     */
+    protected function createAbstractProduct(SpyTaxSet $taxSetEntity)
+    {
         $abstractProductEntity = new SpyProductAbstract();
         $abstractProductEntity->setSku('test-abstract-sku');
         $abstractProductEntity->setAttributes('');
         $abstractProductEntity->setFkTaxSet($taxSetEntity->getIdTaxSet());
         $abstractProductEntity->save();
+
         return $abstractProductEntity;
+    }
+
+    /**
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return \Orm\Zed\Tax\Persistence\SpyTaxSet
+     */
+    protected function createTaxSet()
+    {
+        $taxSetEntity = new SpyTaxSet();
+        $taxSetEntity->setName('name of tax set');
+        $taxSetEntity->save();
+        return $taxSetEntity;
+    }
+
+    /**
+     * @param SpyTaxSet $taxSetEntity
+     * @param SpyTaxRate $taxRateEntity
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     */
+    protected function createTaxSetTax(SpyTaxSet $taxSetEntity, SpyTaxRate $taxRateEntity)
+    {
+        $taxSetTaxRateEntity = new SpyTaxSetTax();
+        $taxSetTaxRateEntity->setFkTaxSet($taxSetEntity->getIdTaxSet());
+        $taxSetTaxRateEntity->setFkTaxRate($taxRateEntity->getIdTaxRate());
+        $taxSetTaxRateEntity->save();
     }
 
 }
