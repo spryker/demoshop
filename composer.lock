@@ -7,12 +7,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "hash": "5eb196bdff4615a27d5ffa920a5c7b7c",
 =======
 =======
 >>>>>>> added phantomjs installer, added js test
 =======
 >>>>>>> Discount functionality Overview suite
+=======
+>>>>>>> Acceptance tests changes
 <<<<<<< HEAD
     "hash": "416e0168bc7c69273e7de2db84bb42ac",
 >>>>>>> Add Acceptance tests
@@ -24,11 +27,15 @@
 =======
 =======
 >>>>>>> Discount functionality Overview suite
+=======
+>>>>>>> Acceptance tests changes
     "hash": "e34c822b2c75d69844719a097d265109",
     "content-hash": "2fb46dabe6277817eedf9ba81368e967",
 =======
 =======
 >>>>>>> Discount functionality Overview suite
+=======
+>>>>>>> Acceptance tests changes
 <<<<<<< HEAD
     "hash": "5eb196bdff4615a27d5ffa920a5c7b7c",
     "content-hash": "1ac2a0532656eca6c47d7800d74cf673",
@@ -46,8 +53,18 @@
     "hash": "eebd38893c1eb3c7d23e134f63718158",
     "content-hash": "72a7808da3aa845d3e55306f346a187b",
 >>>>>>> Discount functionality Overview suite
+<<<<<<< HEAD
 >>>>>>> Discount functionality Overview suite
+<<<<<<< HEAD
 >>>>>>> Discount functionality Overview suite
+=======
+=======
+=======
+    "hash": "f6aa76bb6669d85832eb96b132ab8eb4",
+    "content-hash": "f1044e6a8ff8fa15838cd7eb00758ae2",
+>>>>>>> Acceptance tests changes
+>>>>>>> Acceptance tests changes
+>>>>>>> Acceptance tests changes
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -4276,6 +4293,7 @@
         },
         {
             "name": "jakoch/phantomjs-installer",
+<<<<<<< HEAD
             "version": "2.1.1-p05",
             "source": {
                 "type": "git",
@@ -4286,6 +4304,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/jakoch/phantomjs-installer/zipball/1aa2a29da48fee62679f7f7a3d446b0e52df494a",
                 "reference": "1aa2a29da48fee62679f7f7a3d446b0e52df494a",
+=======
+            "version": "2.1.1-p03",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jakoch/phantomjs-installer.git",
+                "reference": "d4e9db3d16d5b6e70d1d4941cb84425f9d9fa801"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jakoch/phantomjs-installer/zipball/d4e9db3d16d5b6e70d1d4941cb84425f9d9fa801",
+                "reference": "d4e9db3d16d5b6e70d1d4941cb84425f9d9fa801",
+>>>>>>> Acceptance tests changes
                 "shasum": ""
             },
             "require": {
@@ -4314,7 +4344,11 @@
                 "headless",
                 "phantomjs"
             ],
+<<<<<<< HEAD
             "time": "2016-07-11 09:07:23"
+=======
+            "time": "2016-05-22 09:49:40"
+>>>>>>> Acceptance tests changes
         },
         {
             "name": "myclabs/deep-copy",
