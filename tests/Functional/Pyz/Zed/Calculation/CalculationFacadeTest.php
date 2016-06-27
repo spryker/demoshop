@@ -8,16 +8,22 @@
 namespace Functional\Pyz\Zed\Calculation;
 
 use Codeception\TestCase\Test;
+use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\DiscountTransfer;
 use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use Orm\Zed\Country\Persistence\SpyCountryQuery;
 use Orm\Zed\Discount\Persistence\Base\SpyDiscountQuery;
 use Orm\Zed\Discount\Persistence\SpyDiscount;
 use Orm\Zed\Discount\Persistence\SpyDiscountCollector;
 use Orm\Zed\Discount\Persistence\SpyDiscountVoucher;
 use Orm\Zed\Discount\Persistence\SpyDiscountVoucherPool;
+use Orm\Zed\Product\Persistence\SpyProductAbstract;
+use Orm\Zed\Tax\Persistence\SpyTaxRate;
+use Orm\Zed\Tax\Persistence\SpyTaxSet;
+use Orm\Zed\Tax\Persistence\SpyTaxSetTax;
 use Spryker\Zed\Calculation\Business\CalculationFacade;
 use Spryker\Zed\Discount\DiscountDependencyProvider;
 use Spryker\Zed\Tax\Business\Model\AccruedTaxCalculator;
@@ -177,9 +183,11 @@ class CalculationFacadeTest extends Test
 
         $quoteTransfer->setExpenses(new \ArrayObject());
 
+        $abstractProductEntity = $this->createAbstractProductWithTaxSet(7);
+
         $itemTransfer = $quoteTransfer->getItems()[0];
         $itemTransfer->setQuantity(1);
-        $itemTransfer->setTaxRate(7);
+        $itemTransfer->setIdProductAbstract($abstractProductEntity->getIdProductAbstract());
 
         $productOptionTransferOriginal = $itemTransfer->getProductOptions()[0];
         $itemTransfer->setProductOptions(new \ArrayObject());
@@ -216,11 +224,13 @@ class CalculationFacadeTest extends Test
 
         $quoteTransfer = $this->createFixtureDataForCalculation();
 
+        $abstractProductEntity = $this->createAbstractProductWithTaxSet(7);
+
         $quoteTransfer->setExpenses(new \ArrayObject());
 
         $itemTransfer = $quoteTransfer->getItems()[0];
+        $itemTransfer->setIdProductAbstract($abstractProductEntity->getIdProductAbstract());
         $itemTransfer->setQuantity(1);
-        $itemTransfer->setTaxRate(7);
 
         $productOptionTransferOriginal = $itemTransfer->getProductOptions()[0];
         $itemTransfer->setProductOptions(new \ArrayObject());
@@ -260,6 +270,10 @@ class CalculationFacadeTest extends Test
     protected function createFixtureDataForCalculation()
     {
         $quoteTransfer = new QuoteTransfer();
+
+        $shippingAddressTransfer = new AddressTransfer();
+        $shippingAddressTransfer->setIso2Code('DE');
+        $quoteTransfer->setShippingAddress($shippingAddressTransfer);
 
         $itemTransfer = new ItemTransfer();
         $itemTransfer->setSku('test1');
@@ -347,6 +361,39 @@ class CalculationFacadeTest extends Test
             $discountEntity->setIsActive(false);
             $discountEntity->save();
         }
+    }
+
+    /**
+     * @param int $taxRate
+     *
+     * @return \Orm\Zed\Product\Persistence\SpyProductAbstract
+     * @throws \Propel\Runtime\Exception\PropelException
+     */
+    protected function createAbstractProductWithTaxSet($taxRate)
+    {
+        $countryEntity = SpyCountryQuery::create()->findOneByIso2Code('DE');
+
+        $taxRateEntity = new SpyTaxRate();
+        $taxRateEntity->setRate($taxRate);
+        $taxRateEntity->setName('test rate');
+        $taxRateEntity->setFkCountry($countryEntity->getIdCountry());
+        $taxRateEntity->save();
+
+        $taxSetEntity = new SpyTaxSet();
+        $taxSetEntity->setName('name of tax set');
+        $taxSetEntity->save();
+
+        $taxSetTaxRateEntity = new SpyTaxSetTax();
+        $taxSetTaxRateEntity->setFkTaxSet($taxSetEntity->getIdTaxSet());
+        $taxSetTaxRateEntity->setFkTaxRate($taxRateEntity->getIdTaxRate());
+        $taxSetTaxRateEntity->save();
+
+        $abstractProductEntity = new SpyProductAbstract();
+        $abstractProductEntity->setSku('test-abstract-sku');
+        $abstractProductEntity->setAttributes('');
+        $abstractProductEntity->setFkTaxSet($taxSetEntity->getIdTaxSet());
+        $abstractProductEntity->save();
+        return $abstractProductEntity;
     }
 
 }
