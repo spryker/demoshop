@@ -1,0 +1,674 @@
+page.home.featured.top-left.left.width,1,de_DE
+page.home.featured.top-left.left.width,1,en_US
+page.home.featured.top-left.left.height,2,de_DE
+page.home.featured.top-left.left.height,2,en_US
+page.home.featured.top-left.left.name,Smartwatch,de_DE
+page.home.featured.top-left.left.name,Smartwatch,en_US
+page.home.featured.top-left.left.category,Smartwatch,de_DE
+page.home.featured.top-left.left.category,Smartwatch,en_US
+page.home.featured.top-left.left.img,smartwatch.jpg,de_DE
+page.home.featured.top-left.left.img,smartwatch.jpg,en_US
+page.home.featured.top-left.left.url,/de/smartwatches,de_DE
+page.home.featured.top-left.left.url,/en/smartwatches,en_US
+page.home.featured.top-left.right.width,1,de_DE
+page.home.featured.top-left.right.width,1,en_US
+page.home.featured.top-left.right.height,2,de_DE
+page.home.featured.top-left.right.height,2,en_US
+page.home.featured.top-left.right.name,"SAMSUNG S2 GEAR",de_DE
+page.home.featured.top-left.right.name,"SAMSUNG S2 GEAR",en_US
+page.home.featured.top-left.right.category,Smartwatch,de_DE
+page.home.featured.top-left.right.category,Smartwatch,en_US
+page.home.featured.top-left.right.img,smartwatch_product.jpg,de_DE
+page.home.featured.top-left.right.img,smartwatch_product.jpg,en_US
+page.home.featured.top-left.right.url,/de/samsung-gear-s2-79,de_DE
+page.home.featured.top-left.right.url,/en/samsung-gear-s2-79,en_US
+page.home.featured.top-right.first.name,Computer,de_DE
+page.home.featured.top-right.first.name,Computer,en_US
+page.home.featured.top-right.first.category,Computer,de_DE
+page.home.featured.top-right.first.category,Computer,en_US
+page.home.featured.top-right.first.width,2,de_DE
+page.home.featured.top-right.first.width,2,en_US
+page.home.featured.top-right.first.height,2,de_DE
+page.home.featured.top-right.first.height,2,en_US
+page.home.featured.top-right.first.img,computer.jpg,de_DE
+page.home.featured.top-right.first.img,computer.jpg,en_US
+page.home.featured.top-right.first.url,/de/computers,de_DE
+page.home.featured.top-right.first.url,/en/computers,en_US
+page.home.featured.top-right.second.name,"Toshiba Satellite",de_DE
+page.home.featured.top-right.second.name,"Toshiba Satellite",en_US
+page.home.featured.top-right.second.category,Computer,de_DE
+page.home.featured.top-right.second.category,Computer,en_US
+page.home.featured.top-right.second.width,2,de_DE
+page.home.featured.top-right.second.width,2,en_US
+page.home.featured.top-right.second.height,2,de_DE
+page.home.featured.top-right.second.height,2,en_US
+page.home.featured.top-right.second.img,computer_product.jpg,de_DE
+page.home.featured.top-right.second.img,computer_product.jpg,en_US
+page.home.featured.top-right.second.url,/de/toshiba-c55dtb5153-21,de_DE
+page.home.featured.top-right.second.url,/en/toshiba-c55dtb5153-21,en_US
+page.home.featured.bottom-left.top.width,2,de_DE
+page.home.featured.bottom-left.top.width,2,en_US
+page.home.featured.bottom-left.top.height,1,de_DE
+page.home.featured.bottom-left.top.height,1,en_US
+page.home.featured.bottom-left.top.name,Kamera,de_DE
+page.home.featured.bottom-left.top.name,Camera,en_US
+page.home.featured.bottom-left.top.category,Kamera,de_DE
+page.home.featured.bottom-left.top.category,Camera,en_US
+page.home.featured.bottom-left.top.img,camera.jpg,de_DE
+page.home.featured.bottom-left.top.img,camera.jpg,en_US
+page.home.featured.bottom-left.top.url,/de/kameras-&-camcorders,de_DE
+page.home.featured.bottom-left.top.url,/en/cameras-&-camcorders,en_US
+page.home.featured.bottom-left.bottom.width,2,de_DE
+page.home.featured.bottom-left.bottom.width,2,en_US
+page.home.featured.bottom-left.bottom.height,1,de_DE
+page.home.featured.bottom-left.bottom.height,1,en_US
+page.home.featured.bottom-left.bottom.name,"CANON 1200D",de_DE
+page.home.featured.bottom-left.bottom.name,"CANON 1200D",en_US
+page.home.featured.bottom-left.bottom.category,Kamera,de_DE
+page.home.featured.bottom-left.bottom.category,Camera,en_US
+page.home.featured.bottom-left.bottom.img,camera_product.jpg,de_DE
+page.home.featured.bottom-left.bottom.img,camera_product.jpg,en_US
+page.home.featured.bottom-left.bottom.url,/de/canon-1200d-+-efs-1855mm-89,de_DE
+page.home.featured.bottom-left.bottom.url,/en/canon-1200d-+-efs-1855mm-89,en_US
+page.home.featured.bottom-right.left.width,1,de_DE
+page.home.featured.bottom-right.left.width,1,en_US
+page.home.featured.bottom-right.left.height,2,de_DE
+page.home.featured.bottom-right.left.height,2,en_US
+page.home.featured.bottom-right.left.name,Smartphone,de_DE
+page.home.featured.bottom-right.left.name,Smartphone,en_US
+page.home.featured.bottom-right.left.category,Smartphone,de_DE
+page.home.featured.bottom-right.left.category,Smartphone,en_US
+page.home.featured.bottom-right.left.img,smartphone.jpg,de_DE
+page.home.featured.bottom-right.left.img,smartphone.jpg,en_US
+page.home.featured.bottom-right.left.url,/de/smartphones,de_DE
+page.home.featured.bottom-right.left.url,/en/smartphones,en_US
+page.home.featured.bottom-right.right.width,1,de_DE
+page.home.featured.bottom-right.right.width,1,en_US
+page.home.featured.bottom-right.right.height,2,de_DE
+page.home.featured.bottom-right.right.height,2,en_US
+page.home.featured.bottom-right.right.name,"SAMSUNG SM-N910F",de_DE
+page.home.featured.bottom-right.right.name,"SAMSUNG SM-N910F",en_US
+page.home.featured.bottom-right.right.category,Smartphone,de_DE
+page.home.featured.bottom-right.right.category,Smartphone,en_US
+page.home.featured.bottom-right.right.img,smartphone_product.jpg,de_DE
+page.home.featured.bottom-right.right.img,smartphone_product.jpg,en_US
+page.home.featured.bottom-right.right.url,/de/samsung-smn910f-69,de_DE
+page.home.featured.bottom-right.right.url,/en/samsung-smn910f-69,en_US
+cart.remove.items.success,"Produkte wurden erfolgreich aus dem Warenkorb entfernt",de_DE
+cart.remove.items.success,"Products were removed successfully",en_US
+cart.add.items.success,"Produkte erfolgreich im Warenkorb",de_DE
+cart.add.items.success,"Items added successfully",en_US
+cart.your-order,"Deine Bestellung",de_DE
+cart.your-order,"Your Order",en_US
+cart.price,Preis,de_DE
+cart.price,Prize,en_US
+cart.shipping.order-item,"+ Versand",de_DE
+cart.shipping.order-item,"+ Shipping",en_US
+cart.shipping,Versand,de_DE
+cart.shipping,Shipping,en_US
+cart.total,Gesamt,de_DE
+cart.total,Total,en_US
+cart.checkout,"Zur Kasse",de_DE
+cart.checkout,Checkout,en_US
+cart.empty,"Der Warenkorb ist zur Zeit leer!",de_DE
+cart.empty,"Your shopping cart is empty!",en_US
+cart.cart,Warenkorb,de_DE
+cart.cart,Cart,en_US
+cart.total.discount,Rabatt,de_DE
+cart.total.discount,Discount,en_US
+auth.login,Anmelden,de_DE
+auth.login,"Sign up",en_US
+auth.password,Passwort,de_DE
+auth.password,Password,en_US
+auth.password-forgot,Vergessen?,de_DE
+auth.password-forgot,Forgotten?,en_US
+auth.email,E-mail-Adresse,de_DE
+auth.email,E-mail,en_US
+auth.register,Registrieren,de_DE
+auth.register,Register,en_US
+auth.im-new-customer,"Ich bin Neukunde",de_DE
+auth.im-new-customer,"New Customer",en_US
+auth.im-already-customer,"Ich habe bereits ein Konto",de_DE
+auth.im-already-customer,"I already have an account",en_US
+navigation.menu.categories,Kategorien,de_DE
+navigation.menu.categories,Categories,en_US
+navigation.menu.have-a-look,"Ein Blick lohnt sich",de_DE
+navigation.menu.have-a-look,"It is worth a look",en_US
+page.checkout.errors,"Bitte überprüfen Sie Ihre Eingabe.",de_DE
+page.checkout.errors,"Please check your entry.",en_US
+page.checkout.client.existing,"Ich bin bereits Kunde",de_DE
+page.checkout.client.existing,"Existing Customer",en_US
+page.checkout.client.new,"Ich bin Neukunde",de_DE
+page.checkout.client.new,"New Customer",en_US
+customer.password,Passwort,de_DE
+customer.password,Password,en_US
+password.confirm,"Passwort bestätigen",de_DE
+password.confirm,"Confirm passwort",en_US
+page.checkout.address.heading,"1. Adressangaben",de_DE
+page.checkout.address.heading,"1. Address Data ",en_US
+page.checkout.address.name,Name,de_DE
+page.checkout.address.name,Name,en_US
+page.checkout.address.billing-address,Rechnungsadresse,de_DE
+page.checkout.address.billing-address,"Billing Address",en_US
+page.checkout.address.billing-isnt-shipping-address,"Abweichende Lieferadresse",de_DE
+page.checkout.address.billing-isnt-shipping-address,"Different Delivery Address",en_US
+page.checkout.address.shipping-address,Lieferadresse,de_DE
+page.checkout.address.shipping-address,"Delivery Address",en_US
+page.checkout.address.address-example,"Beispiel:</br>Wayne Manor 1</br>10292 Gotham City</br>z.H. Alfred Pennyworth",de_DE
+page.checkout.address.address-example,"Example:</br>Wayne Manor 1</br>10292 Gotham City</br>z.H. Alfred Pennyworth",en_US
+page.checkout.address.next-step,"Weiter - Lieferart wählen",de_DE
+page.checkout.address.next-step,"Continue to Shippment Method",en_US
+page.checkout.address.edit,"Adresse bearbeiten",de_DE
+page.checkout.address.edit,"edit Address Data",en_US
+page.checkout.shipment.heading,"2. Lieferart wählen",de_DE
+page.checkout.shipment.heading,"2. Shipping Method",en_US
+shipment.standart.name,Standard,de_DE
+shipment.standart.name,Standard,en_US
+shipment.express.name,Express,de_DE
+shipment.express.name,Express,en_US
+shipment.standart.description,"2-4 Werktage",de_DE
+shipment.standart.description,"2-4 working days",en_US
+page.checkout.shipping.delivery_time,Lieferzeit:,de_DE
+page.checkout.shipping.delivery_time,"Delivery time:",en_US
+page.checkout.shipping.price,Preis:,de_DE
+page.checkout.shipping.price,Price:,en_US
+shipment.express.description,"innerhalb von 24-48 Stunden (Werktage)",de_DE
+shipment.express.description,"24-48 hours (working days)",en_US
+page.checkout.shipment.edit,"Lieferart bearbeiten",de_DE
+page.checkout.shipment.edit,"edit Shipment Method",en_US
+page.checkout.shipment.next-step,"Weiter - Zahlungsart wählen",de_DE
+page.checkout.shipment.next-step,"Continue to Payment Method",en_US
+page.checkout.payment.heading,"3. Zahlungsart wählen",de_DE
+page.checkout.payment.heading,"3. Payment Method",en_US
+page.checkout.payment.edit,"Zahlungsart bearbeiten",de_DE
+page.checkout.payment.edit,"edit Payment Method",en_US
+page.checkout.payment.next-step,"Weiter - Prüfen und Kauf abschließen",de_DE
+page.checkout.payment.next-step,"Continue to finalise order",en_US
+page.checkout.summary.billing,Rechnungsadresse,de_DE
+page.checkout.summary.billing,"Invoice Address",en_US
+page.checkout.summary.shipping,Lieferadresse,de_DE
+page.checkout.summary.shipping,"Shipping Address",en_US
+page.checkout.finalize.heading,"4. Prüfen und Kauf abschließen",de_DE
+page.checkout.finalize.heading,"4. Check and finalise order",en_US
+shipment.international.parcel.service,"International Parcel Services",de_DE
+shipment.international.parcel.service,"International Parcel Services",en_US
+page.checkout.terms,"Ich akzeptiere die AGBs.",de_DE
+page.checkout.terms,"I accept the general terms and conditions.",en_US
+page.checkout.finalize.enter-voucher,"Gutscheincode eingeben",de_DE
+page.checkout.finalize.enter-voucher,"Enter voucher code",en_US
+page.checkout.finalize.tos,"Mit dem Klick auf die Schaltfläche „Jetzt kaufen“ bestätige ich die ABG von Spryker Toys",de_DE
+page.checkout.finalize.tos,"With a click to the button ""Buy now"" I confirm the GTCs.",en_US
+page.checkout.finalize.buy-now,"Jetzt kaufen",de_DE
+page.checkout.finalize.buy-now,"Buy now",en_US
+page.detail.add-to-cart,"In den Warenkorb",de_DE
+page.detail.add-to-cart,"Add to Cart",en_US
+page.detail.dimensions,Abmessungen,de_DE
+page.detail.dimensions,Measurements,en_US
+page.imprint.url,/de/impressum,de_DE
+page.imprint.url,/en/imprint,en_US
+page.imprint.title,Impressum,de_DE
+page.imprint.title,Imprint,en_US
+page.terms.url,/de/agb,de_DE
+page.terms.url,/en/gtc,en_US
+page.terms.title,AGB,de_DE
+page.terms.title,GTC,en_US
+page.privacy.url,/de/datenschutz,de_DE
+page.privacy.url,/en/privacy,en_US
+page.privacy.title,Datenschutz,de_DE
+page.privacy.title,"Data privacy",en_US
+catalog.currency,€,de_DE
+catalog.currency,€,en_US
+catalog.filter.active,"Aktive Filter",de_DE
+catalog.filter.active,"Active Filter",en_US
+catalog.filter.main_color,Farbe,de_DE
+catalog.filter.main_color,Color,en_US
+catalog.filter.extras,"Sonstige Merkmale",de_DE
+catalog.filter.extras,"Other characteristics",en_US
+catalog.filter.price,Preisspanne,de_DE
+catalog.filter.price,"Price range",en_US
+catalog.filter.pricerangeFrom,"Preisspanne von",de_DE
+catalog.filter.pricerangeFrom,"Price range of",en_US
+catalog.filter.pricerangeTo,bis,de_DE
+catalog.filter.pricerangeTo,to,en_US
+catalog.filter.show,"Filter einblenden",de_DE
+catalog.filter.show,"insert filter",en_US
+catalog.filter.hide,"Filter ausblenden",de_DE
+catalog.filter.hide,"hide filter",en_US
+catalog.itemsFound,"Figuren gefunden",de_DE
+catalog.itemsFound,"Figures found",en_US
+catalog.loading,Loading,de_DE
+catalog.loading,Loading,en_US
+catalog.next,weiter,de_DE
+catalog.next,continue,en_US
+catalog.prev,zurück,de_DE
+catalog.prev,back,en_US
+catalog.sort,Sortierung,de_DE
+catalog.sort,Sorting,en_US
+shipment.dhl,DHL,de_DE
+shipment.dhl,DHL,en_US
+shipment.dhl.paket.name,Paket,de_DE
+shipment.dhl.paket.name,Package,en_US
+shipment.dhl.paket.description,"DHL Paket is the easy, affordable, fast and reliable shipping service to over 220 countries around the world.",de_DE
+shipment.dhl.paket.description,"DHL Paket is the easy, affordable, fast and reliable shipping service to over 220 countries around the world.",en_US
+shipment.dhl.express.name,Express,de_DE
+shipment.dhl.express.name,Express,en_US
+shipment.dhl.express.description,"Our force of 100,000 engaged employees is working worldwide. Local know-how and our unique network make us your International Specialists.",de_DE
+shipment.dhl.express.description,"Our force of 100,000 engaged employees is working worldwide. Local know-how and our unique network make us your International Specialists.",en_US
+shipment.dpd,DPD,de_DE
+shipment.dpd,DPD,en_US
+shipment.hermes,Hermes,de_DE
+shipment.hermes,Hermes,en_US
+customer.first_name,Vorname,de_DE
+customer.first_name,"First Name",en_US
+customer.last_name,Name,de_DE
+customer.last_name,Name,en_US
+customer.salutation.mr,Herr,de_DE
+customer.salutation.mr,Mr.,en_US
+customer.salutation.mrs,Frau,de_DE
+customer.salutation.mrs,Mrs.,en_US
+customer.birth_date,"Geburtsdatum (TT.MM.YYYY)",de_DE
+customer.birth_date,"Date of birth (DD.MM.YYYY)",en_US
+customer.email,"E-Mail Adresse",de_DE
+customer.email,E-Mail,en_US
+customer.phone,Telefonnummer,de_DE
+customer.phone,"Telephone number",en_US
+payment.prepay,Vorkasse,de_DE
+payment.prepay,Prepayment,en_US
+payment.paypal,PayPal,de_DE
+payment.paypal,PayPal,en_US
+payment.creditcard,Kreditkarte,de_DE
+payment.creditcard,"Credit card",en_US
+payment.invoice,Rechnung,de_DE
+payment.invoice,Invoice,en_US
+address.street,Straße,de_DE
+address.street,Street,en_US
+address.street_nr,Nummer,de_DE
+address.street_nr,Number,en_US
+address.city,Stadt,de_DE
+address.city,City,en_US
+address.zip_code,PLZ,de_DE
+address.zip_code,"Zip code",en_US
+page.checkout.create_account,"Kundenaccout erstellen",de_DE
+page.checkout.create_account,"Create customer account",en_US
+whishlist.whishlist,Wunschliste,de_DE
+whishlist.whishlist,Whishlist,en_US
+whishlist.remove,Löschen,de_DE
+whishlist.remove,Remove,en_US
+whishlist.reduce,Reduzieren,de_DE
+whishlist.reduce,Reduce,en_US
+whishlist.increase,Erhöhen,de_DE
+whishlist.increase,Increase,en_US
+whishlist.move.to.cart,"Zum Warenkorb hinzufügen",de_DE
+whishlist.move.to.cart,"Move to cart",en_US
+checkout.thank.you,"Vielen Dank",de_DE
+checkout.thank.you,"Thank you",en_US
+checkout.this.is.demoshop,"Das ist ein Demoshop",de_DE
+checkout.this.is.demoshop,"This is a demoshop",en_US
+checkout.nothing.will.be.sent,"Selbstverständlich wird Ihnen nichts zugesendet!",de_DE
+checkout.nothing.will.be.sent,"Therefore, of course, nothing will be sent!",en_US
+global.order.ascendent,A-Z,de_DE
+global.order.ascendent,A-Z,en_US
+global.order.descendent,Z_A,de_DE
+global.order.descendent,Z-A,en_US
+global.close,Schließen,de_DE
+global.close,Close,en_US
+global.search,Suche,de_DE
+global.search,Search,en_US
+global.spryker.shop,"Spryker Shop",de_DE
+global.spryker.shop,"Spryker Shop",en_US
+global.email.address,"E-Mail Adresse",de_DE
+global.email.address,"Email Address",en_US
+global.password,Passwort,de_DE
+global.password,Password,en_US
+global.recover.password,"Passwort vergessen",de_DE
+global.recover.password,"Recover Password",en_US
+global.accept.terms.and.conditions,"Ich bestätige die AGB",de_DE
+global.accept.terms.and.conditions,"Accept Terms and Conditions",en_US
+global.login,Anmelden,de_DE
+global.login,Login,en_US
+global.create.account,"Account erstellen",de_DE
+global.create.account,"Create Account",en_US
+global.cart,Warenkorb,de_DE
+global.cart,Cart,en_US
+error.404,"Error 404",de_DE
+error.404,"Error 404",en_US
+homepage.carousel.previous,Vorherige,de_DE
+homepage.carousel.previous,Previous,en_US
+homepage.carousel.next,Nächste,de_DE
+homepage.carousel.next,Next,en_US
+customer.signup,"New customer?",en_US
+customer.signup,"Neuer Kunde?",de_DE
+customer.signin,Signin,en_US
+customer.signin,Einloggen,de_DE
+customer.logout,Logout,en_US
+customer.logout,Abmelden,de_DE
+customer.register,Register,en_US
+customer.register,Registrieren,de_DE
+customer.login,Login,en_US
+customer.login,Anmelden,de_DE
+customer.login.email,Email,en_US
+customer.login.email,E-Mail,de_DE
+customer.login.password,Password,en_US
+customer.login.password,Passwort,de_DE
+customer.login.title,"Access your account",en_US
+customer.login.title,"Ich bin bereits Kunde",de_DE
+customer.registration.title,"Create account",en_US
+customer.registration.title,"Ich bin Neukunde",de_DE
+customer.account.no_order,"No orders at the moment",en_US
+customer.account.no_order,"Keine Bestellungen",de_DE
+customer.account,"Customer Account",en_US
+customer.account,"Mein Konto",de_DE
+customer.account.contact,Contact,en_US
+customer.account.contact,Kontakt,de_DE
+customer.account.overview,Overview,en_US
+customer.account.overview,Übersicht,de_DE
+customer.account.profile_data,Profile,en_US
+customer.account.profile_data,Benutzerdaten,de_DE
+customer.account.address,Addresses,en_US
+customer.account.address,Adressen,de_DE
+customer.account.order_history,"Orders History",en_US
+customer.account.order_history,Bestellungen,de_DE
+customer.account.newsletter,Newsletter,en_US
+customer.account.newsletter,Newsletter,de_DE
+customer.account.last_orders,"Last Orders",en_US
+customer.account.last_orders,"Letzte Bestellungen",de_DE
+customer.account.default_billing_address,"Default Billing Address",en_US
+customer.account.default_billing_address,"Standard Rechnungsadresse",de_DE
+customer.account.please_specify_billing_address,"Please Specify Billing Address",en_US
+customer.account.please_specify_billing_address,"Bitte tragen Sie Ihre Rechnungsadresse ein.",de_DE
+customer.account.default_shipping_address,"Default Shipping Address",en_US
+customer.account.default_shipping_address,"Standard Lieferadresse",de_DE
+customer.account.please_specify_shipping_address,"Please Specify Shipping Address",en_US
+customer.account.please_specify_shipping_address,"Bitten tragen Sie Ihre Lieferadresse ein.",de_DE
+customer.account.edit_address_information,"Edit Address Information",en_US
+customer.account.edit_address_information,Ändern,de_DE
+customer.account.additional_addresses,"Additional Addresses",en_US
+customer.account.additional_addresses,"Zusätzliche Adressen",de_DE
+customer.account.add_new_address,"Add New Address",en_US
+customer.account.add_new_address,"Neue Adresse hinzufügen",de_DE
+customer.newsletter.not_subscribed,"No newsletter subscription",en_US
+customer.newsletter.not_subscribed,"Newsletter nicht abonniert.",de_DE
+customer.profile.order_history,"Last Orders",en_US
+customer.profile.order_history,"Letzte Bestellungen",de_DE
+customer.account.no_orders,"No orders at the moment",en_US
+customer.account.no_orders,"Keine Bestellungen",de_DE
+customer.address.updated,"New address updated",en_US
+customer.address.updated,"Neue Adresse hinzugefügt",de_DE
+customer.address.delete.success,"Address deleted successfully",en_US
+customer.address.delete.success,"Adresse erfolgreich gelöscht",de_DE
+customer.address.added,"Address was successfully added",en_US
+customer.address.added,"Adresse wurde erfolgreich hinzugefügt",de_DE
+customer.address.first_name,"First Name",en_US
+customer.address.first_name,Vorname,de_DE
+customer.address.last_name,"Last Name",en_US
+customer.address.last_name,Nachname,de_DE
+customer.address.company,Company,en_US
+customer.address.company,Firma,de_DE
+customer.address.address1,Street,en_US
+customer.address.address1,Straße,de_DE
+customer.address.address2,Number,en_US
+customer.address.address2,Hausnummer,de_DE
+customer.address.address3,"Addition to address",en_US
+customer.address.address3,Adresszusatz,de_DE
+customer.address.zip_code,"Zip Code",en_US
+customer.address.zip_code,PLZ,de_DE
+customer.address.city,City,en_US
+customer.address.city,Stadt,de_DE
+customer.address.country,Country,en_US
+customer.address.country,Land,de_DE
+customer.address.phone,Phone,en_US
+customer.address.phone,Telefon,de_DE
+customer.address.is_default_billing,"Is default billing address",en_US
+customer.address.is_default_billing,"Standard Rechnungsadresse",de_DE
+customer.address.is_default_shipping,"Is default shipping address",en_US
+customer.address.is_default_shipping,"Standard Lieferadresse",de_DE
+customer.authorization.success,"Registration Successful",en_US
+customer.authorization.success,"Registrierung erfolgreich",de_DE
+customer.forgotten-password.send-new-password,"Recover my password",en_US
+customer.forgotten-password.send-new-password,"Neues Passwort verschickt.",de_DE
+customer.profile.change.success,"Profile was successfully saved",en_US
+customer.profile.change.success,"Profil wurde erfolgreich gespeichert",de_DE
+customer.password.invalid_password,"Current password is wrong",en_US
+customer.password.invalid_password,"Aktuelles Passwort ist falsch",de_DE
+customer.password.invalid,"Password is invalid",en_US
+customer.password.invalid,"Passwort ist ungültig",de_DE
+customer.forgotten-password.description,"Enter the e-mail address associated with your account.",en_US
+customer.forgotten-password.description,"Geben Sie die E-Mail-Adresse an, welche mit Ihrem Konto verknüpft ist.",de_DE
+customer.forgotten_password.email,"Email Address",en_US
+customer.forgotten_password.email,"E-Mail Adresse",de_DE
+customer.forgotten-password.title,"Recover my password",en_US
+customer.forgotten-password.title,"Passwort vergessen",de_DE
+customer.order.order_id,"Order Id",en_US
+customer.order.order_id,Bestellnummer,de_DE
+customer.order.view_all,"View All",en_US
+customer.order.view_all,"Alle anzeigen",de_DE
+customer.order.all_orders,"View orders",en_US
+customer.order.all_orders,"Alle Bestellungen anzeigen",de_DE
+customer.order.total,Total,en_US
+customer.order.total,Summe,de_DE
+customer.order.view_order,"View Order",en_US
+customer.order.view_order,"Bestellung ansehen",de_DE
+customer.order.date,"Order Date",en_US
+customer.order.date,Datum,de_DE
+customer.order.item_sku,SKU,de_DE
+customer.order.item_sku,SKU,en_US
+customer.order.product_name,"Produkt Name",de_DE
+customer.order.product_name,"Product name",en_US
+customer.order.item_price,Preis,de_DE
+customer.order.item_price,Price,en_US
+customer.order.item_quantity,Anzahl,de_DE
+customer.order.item_quantity,Quantity,en_US
+customer.order.item_sum,Summe,de_DE
+customer.order.item_sum,"Grand Total",en_US
+customer.order.subTotal,Zwischensumme,de_DE
+customer.order.subTotal,Subtotal,en_US
+customer.order.shipment,Versand,de_DE
+customer.order.shipment,Shipment,en_US
+customer.order.discount.total,Rabatt,de_DE
+customer.order.discount.total,Discount,en_US
+customer.order.grandTotal,Summe,de_DE
+customer.order.grandTotal,"Grand Total",en_US
+customer.order.shipping_address,Lieferadresse,de_DE
+customer.order.shipping_address,"Shipping address",en_US
+customer.order.billing_address,Rechnungsadresse,de_DE
+customer.order.billing_address,"Billing address",en_US
+customer.order.shipment_method,Versand,de_DE
+customer.order.shipment_method,Shipment,en_US
+customer.order.payment_method,Zahlungsmethode,de_DE
+customer.order.payment_method,"Payment method",en_US
+customer.newsletter.subscription,"Newsletter settings",en_US
+customer.newsletter.subscription,"Meine Newsletter Einstellungen",de_DE
+customer.newsletter.subscription_agreement,"I agree to newsletter subscription",en_US
+customer.newsletter.subscription_agreement,"Ja, ich möchte per E-Mail informiert werden.",de_DE
+customer.profile,"My Account",en_US
+customer.profile,"Mein Account",de_DE
+customer.profile.update,"Update Profile",en_US
+customer.profile.update,"Profil Bearbeiten",de_DE
+customer.profile.first_name,"First Name",en_US
+customer.profile.first_name,Vorname,de_DE
+customer.profile.last_name,"Last Name",en_US
+customer.profile.last_name,Nachname,de_DE
+customer.profile.email,Email,en_US
+customer.profile.email,E-Mail,de_DE
+customer.profile.phone,Phone,en_US
+customer.profile.phone,Telefon,de_DE
+customer.profile.old_password,"Old Password",en_US
+customer.profile.old_password,"Altes Passwort",de_DE
+customer.profile.request.new_password,"New Password",en_US
+customer.profile.request.new_password,"Neues Passwort",de_DE
+customer.profile.confirm.new_password,"Confirm New Password",en_US
+customer.profile.confirm.new_password,"Passwort bestätigen",de_DE
+customer.profile.address.edit,Edit,en_US
+customer.profile.address.edit,Ändern,de_DE
+customer.profile.address.delete,Delete,en_US
+customer.profile.address.delete,Löschen,de_DE
+customer.profile.order_details,"Bestellungs Details",de_DE
+customer.profile.order_details,"Order Details",en_US
+customer.password.update,"Change Password",en_US
+customer.password.update,"Passwort ändern",de_DE
+customer.password.old_password,"Old Password",en_US
+customer.password.old_password,"Altes Passwort",de_DE
+customer.password.request.new_password,"New Password",en_US
+customer.password.request.new_password,"Neues Passwort",de_DE
+customer.password.confirm.new_password,"Confirm Password",en_US
+customer.password.confirm.new_password,"Passwort bestätigen",de_DE
+customer.table.actions,Actions,en_US
+customer.table.actions,Aktion,de_DE
+profile.form.salutation,Salutation,en_US
+profile.form.salutation,Anrede,de_DE
+customer.salutation.dr,Dr.,en_US
+customer.salutation.dr,Dr.,de_DE
+customer.customer_id,ID,en_US
+customer.customer_id,ID,de_DE
+forms.submit-btn,Submit,en_US
+forms.submit-btn,Speichern,de_DE
+forms.submit.login,Login,en_US
+forms.submit.login,Einloggen,de_DE
+forms.submit.register,Register,en_US
+forms.submit.register,Registrieren,de_DE
+forms.forgot-password,"Forgot Password",en_US
+forms.forgot-password,"Passwort vergessen",de_DE
+forms.first-name,"First Name",en_US
+forms.first-name,Vorname,de_DE
+forms.last-name,"Last Name",en_US
+forms.last-name,Nachname,de_DE
+forms.email,Email,en_US
+forms.email,E-Mail,de_DE
+forms.password,Password,en_US
+forms.password,Passwort,de_DE
+forms.confirm-password,"Confirm Password",en_US
+forms.confirm-password,"Passwort bestätigen",de_DE
+forms.accept_terms,"Accept Terms",en_US
+forms.accept_terms,"Ich stimme AGB und Datenschutz zu.",de_DE
+address.salutation,Salutation,en_US
+address.salutation,Anrede,de_DE
+email.orderEmail.salutationMale,Mr.,en_US
+email.orderEmail.salutationMale,Hr.,de_DE
+email.orderEmail.salutationFemale,Ms.,en_US
+email.orderEmail.salutationFemale,Fr.,de_DE
+customer.login.failed,"Login failed",en_US
+customer.login.failed,"Login fehlgeschlagen",de_DE
+customer.email.already.used,"Email already used",en_US
+customer.email.already.used,"E-Mail bereits vergeben",de_DE
+general.back.button,back,en_US
+general.back.button,zurück,de_DE
+newsletter.subscription.success,"You successfully subscribed to the newsletter",en_US
+newsletter.subscription.success,"Sie wurden erfolgreich für den Newsletter angemeldet",de_DE
+newsletter.unsubscription.success,"You successfully unsubscribed from the newsletter",en_US
+newsletter.unsubscription.success,"Sie wurden erfolgreich für den Newsletter abgemeldet",de_DE
+newsletter.subscription.already_subscribed,"You are already subscribed to the newsletter",en_US
+newsletter.subscription.already_subscribed,"Sie sind bereits für den Newsletter angemeldet",de_DE
+customer.authentication.failed,"Authentication failed",en_US
+customer.authentication.failed,"Authentifizierung fehlgeschlagen",de_DE
+customer.email.invalid,"Email address is invalid",en_US
+customer.email.invalid,"E-Mail Adresse ist ungültig",de_DE
+customer.password.recovery.mail.sent,"If there is an account associated with this email address, you will receive an email with further instructions",en_US
+customer.password.recovery.mail.sent,"Falls ein Konto für diese Emailaddresse existiert, werden Sie eine Email mit den weiteren Anweisungen bekommen",de_DE
+customer.address.number,Number,en_US
+customer.address.number,Nummer,de_DE
+countries.iso.DE,Germany,en_US
+countries.iso.DE,Deutschland,de_DE
+customer.billingSameAsShipping,"Billing address same as shipping address",en_US
+customer.billingSameAsShipping,"Liefer- und Rechnungsadresse sind gleich",de_DE
+checkout.customer.proceed_as_user,"Proceed as a registered user (sign up)",en_US
+checkout.customer.proceed_as_user,"Melden Sie sich mit Ihrem bereits vorhandenem Account an",de_DE
+checkout.customer.proceed_as_guest,"Proceed as a guest",en_US
+checkout.customer.proceed_as_guest,"Als Gast weiterverfahren",de_DE
+checkout.customer.order_as_guest,"Order as guest",en_US
+checkout.customer.order_as_guest,"Als Gast bestellen",de_DE
+checkout.step.address.title,Address,en_US
+checkout.step.address.title,Adresse,de_DE
+checkout.step.shipment.title,Shipment,en_US
+checkout.step.shipment.title,Versand,de_DE
+checkout.step.payment.title,Payment,en_US
+checkout.step.payment.title,Zahlung,de_DE
+checkout.step.summary.title,Summary,en_US
+checkout.step.summary.title,"Übersicht Bestellung",de_DE
+checkout.step.shipment,"Go to Shipment",en_US
+checkout.step.shipment,"Weiter zur Lieferung",de_DE
+checkout.step.address.select_shipping,"Select a shipping address",en_US
+checkout.step.address.select_shipping,"Wählen Sie Ihre Lieferadresse aus",de_DE
+checkout.step.address.select_billing,"Select a billing address",en_US
+checkout.step.address.select_billing,"Wählen Sie Ihre Rechnungsadresse aus",de_DE
+checkout.step.payment,"Go to Payment",en_US
+checkout.step.payment,"Weiter zur Zahlung",de_DE
+checkout.step.summary,"Go to Summary",en_US
+checkout.step.summary,"Weiter zur Übersicht",de_DE
+checkout.step.place.order,"Submit your order",en_US
+checkout.step.place.order,"Jetzt kaufen",de_DE
+checkout.step.payment.must_be_older_than_18_years,"You must be at least 18 years old.",en_US
+checkout.step.payment.must_be_older_than_18_years,"Sie müssen mindestens 18 Jahre alt sein.",de_DE
+checkout.step.success.title,"Your order has been placed successfully!",en_US
+checkout.step.success.title,"Ihre Bestellung wurde erfolgreich durchgeführt!",de_DE
+checkout.step.success.text,"Thank you.",en_US
+checkout.step.success.text,"Vielen Dank.",de_DE
+checkout.step.error.title,"Your order has not been placed.",en_US
+checkout.step.error.title,"Ihre Bestellung konnte leider nicht durchgeführt werden.",de_DE
+checkout.step.error.text,"Something went wrong. Sorry.",en_US
+checkout.step.error.text,"Leider ging etwas schief. Tut uns leid.",de_DE
+customer.password.change.success,"Password change successful",en_US
+customer.password.change.success,"Passwort erfolgreich geändert",de_DE
+customer.newsletter.subscribed,"Newsletter subscribed",en_US
+customer.newsletter.subscribed,"Newsletter abonniert",de_DE
+validator.constraints.password.do_not_match,"Passwords don't match",en_US
+validator.constraints.password.do_not_match,"Passwörter stimmen nicht überein",de_DE
+discount.successfully.applied,"The discount has been successfully applied",en_US
+discount.successfully.applied,"Der Rabatt wurde erfolgreich angewendet",de_DE
+product.unavailable,"Product is out of stock",en_US
+product.unavailable,"Keine Produkte mehr auf Lager",de_DE
+product.attribute.slug,slug,en_US
+product.attribute.slug,slug,de_DE
+product.attribute.variant_id,ID,en_US
+product.attribute.variant_id,ID,de_DE
+product.attribute.sku,SKU,en_US
+product.attribute.sku,SKU,de_DE
+product.attribute.image_quality,"Image Quality",en_US
+product.attribute.image_quality,Bildqualität,de_DE
+product.attribute.lens_system,"Lens System",en_US
+product.attribute.lens_system,Linsensystem,de_DE
+product.attribute.focus,Focus,en_US
+product.attribute.focus,Fokus,de_DE
+product.attribute.shutter,Shutter,en_US
+product.attribute.shutter,Blendenverschluss,de_DE
+product.attribute.video,Video,en_US
+product.attribute.video,Video,de_DE
+product.attribute.screen,Screen,en_US
+product.attribute.screen,Screen,de_DE
+product.attribute.processor,Processor,en_US
+product.attribute.processor,Prozessor,de_DE
+product.attribute.memory,Memory,en_US
+product.attribute.memory,Memory,de_DE
+product.attribute.display,Display,en_US
+product.attribute.display,Bildschirm,de_DE
+product.attribute.storage,Storage,en_US
+product.attribute.storage,Speicher,de_DE
+product.attribute.color,Color,en_US
+product.attribute.color,Farbe,de_DE
+product.attribute.design,Design,en_US
+product.attribute.design,Design,de_DE
+product.attribute.graphics,Graphics,en_US
+product.attribute.graphics,Graphik,de_DE
+product.attribute.camera,Camera,en_US
+product.attribute.camera,Camera,de_DE
+product.attribute.gps,GPS,en_US
+product.attribute.gps,GPS,de_DE
+product.attribute.weight,Weight,en_US
+product.attribute.weight,Gewicht,de_DE
+product.attribute.waterproof,Waterproof,en_US
+product.attribute.waterproof,Wasserdicht,de_DE
+product.attribute.battery,Battery,en_US
+product.attribute.battery,Batterie,de_DE
+product.attribute.short_description,"Short Description",en_US
+product.attribute.short_description,Kurzbeschreibung,de_DE
+product.attribute.long_description,"Long Description",en_US
+product.attribute.long_description,Langbeschreibung,de_DE
+product.attribute.manufacturer_name,Brand,en_US
+product.attribute.manufacturer_name,Marke,de_DE
+product.attribute.product_id,"Product ID",en_US
+product.attribute.product_id,"Produkt ID",de_DE
+product.attribute.image_big,"Image big",en_US
+product.attribute.image_big,"Bild groß",de_DE
+product.attribute.image_small,"Image small",en_US
+product.attribute.image_small,"Bild klein",de_DE
+product.attribute.license,License,en_US
+product.attribute.license,Lizenz,de_DE
