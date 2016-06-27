@@ -92,6 +92,16 @@ $config[ApplicationConstants::HOST_ZED_GUI]
 
 $config[ApplicationConstants::YVES_TRUSTED_HOSTS] = [];
 
+$config[ApplicationConstants::ZED_HTTP_STRICT_TRANSPORT_SECURITY_ENABLED] =
+    $config[ApplicationConstants::YVES_HTTP_STRICT_TRANSPORT_SECURITY_ENABLED] = false;
+
+$config[ApplicationConstants::ZED_HTTP_STRICT_TRANSPORT_SECURITY_CONFIG] =
+    $config[ApplicationConstants::YVES_HTTP_STRICT_TRANSPORT_SECURITY_CONFIG] = [
+    'max_age' => 31536000,
+    'include_sub_domains' => true,
+    'preload' => true
+    ];
+
 $config[ApplicationConstants::LOG_LEVEL] = Monolog\Logger::INFO;
 
 $config[ApplicationConstants::TRANSFER_USERNAME] = 'yves';
@@ -373,6 +383,9 @@ $config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [
 
 $config[KernelConstants::DEPENDENCY_INJECTOR_ZED] = [
     'Payment' => [
+        'DummyPayment',
+    ],
+    'Oms' => [
         'DummyPayment',
     ],
 ];

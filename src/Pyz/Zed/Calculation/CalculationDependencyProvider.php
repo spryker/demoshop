@@ -16,14 +16,21 @@ use Spryker\Zed\Calculation\Communication\Plugin\RemoveTotalsCalculatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\SubtotalTotalsCalculatorPlugin;
 use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\DiscountCalculatorPlugin;
 use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\DiscountTotalsCalculatorPlugin;
+use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\ExpenseTaxWithDiscountsCalculatorPlugin;
 use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\GrandTotalWithDiscountsCalculatorPlugin;
 use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\RemoveAllCalculatedDiscountsCalculatorPlugin;
 use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\SumGrossCalculatedDiscountAmountCalculatorPlugin;
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\ProductOptionDiscountConnector\Communication\Plugin\Calculator\ItemsWithProductOptionsAndDiscountsTaxCalculatorPlugin;
+use Spryker\Zed\ProductOptionDiscountConnector\Communication\Plugin\Calculator\ItemsWithProductOptionsAndDiscountsGrossPriceCalculatorPlugin;
+use Spryker\Zed\ProductOptionDiscountConnector\Communication\Plugin\Calculator\TaxTotalAmountWithProductOptionsAndDiscountsCalculatorPlugin;
+use Spryker\Zed\Tax\Communication\Plugin\ExpenseTaxCalculatorPlugin;
+use Spryker\Zed\Tax\Communication\Plugin\ItemTaxCalculatorPlugin;
 use Spryker\Zed\ProductOption\Communication\Plugin\ProductOptionTaxRateCalculatorPlugin;
 use Spryker\Zed\Shipment\Communication\Plugin\ShipmentTaxRateCalculatorPlugin;
 use Spryker\Zed\Tax\Communication\Plugin\ProductItemTaxRateCalculatorPlugin;
 use Spryker\Zed\Tax\Communication\Plugin\TaxTotalsCalculatorPlugin;
+use Spryker\Zed\ProductOptionDiscountConnector\Communication\Plugin\Calculator\DiscountTotalsWithProductOptionsCalculatorPlugin;
 
 class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
 {
@@ -44,6 +51,7 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
             new ProductOptionGrossSumCalculatorPlugin(),
             new ProductItemTaxRateCalculatorPlugin(),
             new ProductOptionTaxRateCalculatorPlugin(),
+            new ItemTaxCalculatorPlugin(),
 
             #SubTotal
             new SubtotalTotalsCalculatorPlugin(),
@@ -53,12 +61,17 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
 
             #Expenses (e.g. shipping)
             new ExpensesGrossSumAmountCalculatorPlugin(),
+            new ExpenseTaxCalculatorPlugin(),
             new ExpenseTotalsCalculatorPlugin(),
 
             #Discounts
             new DiscountCalculatorPlugin(),
             new SumGrossCalculatedDiscountAmountCalculatorPlugin(),
+            new ItemsWithProductOptionsAndDiscountsGrossPriceCalculatorPlugin(),
+            new ItemsWithProductOptionsAndDiscountsTaxCalculatorPlugin(),
             new DiscountTotalsCalculatorPlugin(),
+            new DiscountTotalsWithProductOptionsCalculatorPlugin(),
+            new ExpenseTaxWithDiscountsCalculatorPlugin(),
 
             #GrandTotal
             new GrandTotalTotalsCalculatorPlugin(),
@@ -66,6 +79,7 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
 
             #TaxTotal
             new TaxTotalsCalculatorPlugin(),
+            new TaxTotalAmountWithProductOptionsAndDiscountsCalculatorPlugin(),
 
         ];
     }
