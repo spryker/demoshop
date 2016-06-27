@@ -56,11 +56,9 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
             #SubTotal
             new SubtotalTotalsCalculatorPlugin(),
 
-            #Shipment
-            new ShipmentTaxRateCalculatorPlugin(),
-
             #Expenses (e.g. shipping)
             new ExpensesGrossSumAmountCalculatorPlugin(),
+            new ShipmentTaxRateCalculatorPlugin(),
             new ExpenseTaxCalculatorPlugin(),
             new ExpenseTotalsCalculatorPlugin(),
 
