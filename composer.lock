@@ -6,10 +6,13 @@
     ],
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "hash": "5eb196bdff4615a27d5ffa920a5c7b7c",
 =======
 =======
 >>>>>>> added phantomjs installer, added js test
+=======
+>>>>>>> Discount functionality Overview suite
 <<<<<<< HEAD
     "hash": "416e0168bc7c69273e7de2db84bb42ac",
 >>>>>>> Add Acceptance tests
@@ -19,9 +22,13 @@
     "content-hash": "2fb46dabe6277817eedf9ba81368e967",
 >>>>>>> Add Acceptance tests
 =======
+=======
+>>>>>>> Discount functionality Overview suite
     "hash": "e34c822b2c75d69844719a097d265109",
     "content-hash": "2fb46dabe6277817eedf9ba81368e967",
 =======
+=======
+>>>>>>> Discount functionality Overview suite
 <<<<<<< HEAD
     "hash": "5eb196bdff4615a27d5ffa920a5c7b7c",
     "content-hash": "1ac2a0532656eca6c47d7800d74cf673",
@@ -29,8 +36,18 @@
     "hash": "64788869ff10834eba73b85d82bf3e05",
     "content-hash": "6bf45919c18ad53481aa5849240db722",
 >>>>>>> added phantomjs installer, added js test
+<<<<<<< HEAD
 >>>>>>> added phantomjs installer, added js test
+<<<<<<< HEAD
 >>>>>>> added phantomjs installer, added js test
+=======
+=======
+=======
+    "hash": "eebd38893c1eb3c7d23e134f63718158",
+    "content-hash": "72a7808da3aa845d3e55306f346a187b",
+>>>>>>> Discount functionality Overview suite
+>>>>>>> Discount functionality Overview suite
+>>>>>>> Discount functionality Overview suite
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1016,43 +1033,82 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/acceptance-tests",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "b78d4a3fa5941ff2d7cc5546ecd6cae0d07b05b4"
 =======
+=======
+>>>>>>> Discount functionality Overview suite
 <<<<<<< HEAD
                 "reference": "50335bf8dd90226981087feb709b3d06d6e21249"
 =======
+=======
+>>>>>>> Discount functionality Overview suite
 <<<<<<< HEAD
                 "reference": "dfdb601f43614ef723a10a3c8f23049e297ddd58"
 =======
+=======
+>>>>>>> Discount functionality Overview suite
 <<<<<<< HEAD
                 "reference": "6039e7307f78ff845e9cbdf1d9114a54c6282088"
 =======
+=======
+>>>>>>> Discount functionality Overview suite
 <<<<<<< HEAD
                 "reference": "9cfa7700abf86da05d524298501fddf9c559204c"
 =======
+=======
+>>>>>>> Discount functionality Overview suite
 <<<<<<< HEAD
                 "reference": "232da98d6959a8f5bed5bbac8183257b403ce264"
 =======
+=======
+>>>>>>> Discount functionality Overview suite
 <<<<<<< HEAD
                 "reference": "02cc3913724ade2ffe7f876d5a6f839ce568f091"
 =======
+=======
+>>>>>>> Discount functionality Overview suite
 <<<<<<< HEAD
                 "reference": "ac93dd5942d9c9557fcc5af95e043559f4a9252a"
 =======
                 "reference": "9ab1c2278d5709132bbf88bb46a52678a4d1a5cd"
 >>>>>>> added phantomjs installer, added js test
+<<<<<<< HEAD
 >>>>>>> added phantomjs installer, added js test
+<<<<<<< HEAD
 >>>>>>> added phantomjs installer, added js test
+<<<<<<< HEAD
 >>>>>>> added phantomjs installer, added js test
+<<<<<<< HEAD
 >>>>>>> added phantomjs installer, added js test
+<<<<<<< HEAD
 >>>>>>> added phantomjs installer, added js test
+<<<<<<< HEAD
 >>>>>>> added phantomjs installer, added js test
+<<<<<<< HEAD
 >>>>>>> added phantomjs installer, added js test
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "15a5d18d57ca1e89001f3fab6c6af325e96fe27c"
+>>>>>>> Discount functionality Overview suite
+>>>>>>> Discount functionality Overview suite
+>>>>>>> Discount functionality Overview suite
+>>>>>>> Discount functionality Overview suite
+>>>>>>> Discount functionality Overview suite
+>>>>>>> Discount functionality Overview suite
+>>>>>>> Discount functionality Overview suite
+>>>>>>> Discount functionality Overview suite
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1548,38 +1604,77 @@
             ],
             "description": "Spryker Framework",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-07-20 09:53:37"
 =======
+=======
+>>>>>>> Discount functionality Overview suite
 <<<<<<< HEAD
             "time": "2016-07-19 11:50:25"
 =======
+=======
+>>>>>>> Discount functionality Overview suite
 <<<<<<< HEAD
             "time": "2016-07-18 14:55:00"
 =======
+=======
+>>>>>>> Discount functionality Overview suite
 <<<<<<< HEAD
             "time": "2016-07-15 12:13:21"
 =======
+=======
+>>>>>>> Discount functionality Overview suite
 <<<<<<< HEAD
             "time": "2016-07-13 09:43:41"
 =======
+=======
+>>>>>>> Discount functionality Overview suite
 <<<<<<< HEAD
             "time": "2016-07-07 13:55:03"
 =======
+=======
+>>>>>>> Discount functionality Overview suite
 <<<<<<< HEAD
             "time": "2016-07-07 12:41:43"
 =======
+=======
+>>>>>>> Discount functionality Overview suite
 <<<<<<< HEAD
             "time": "2016-07-07 09:12:11"
 =======
             "time": "2016-06-24 08:43:28"
 >>>>>>> added phantomjs installer, added js test
+<<<<<<< HEAD
 >>>>>>> added phantomjs installer, added js test
+<<<<<<< HEAD
 >>>>>>> added phantomjs installer, added js test
+<<<<<<< HEAD
 >>>>>>> added phantomjs installer, added js test
+<<<<<<< HEAD
 >>>>>>> added phantomjs installer, added js test
+<<<<<<< HEAD
 >>>>>>> added phantomjs installer, added js test
+<<<<<<< HEAD
 >>>>>>> added phantomjs installer, added js test
+<<<<<<< HEAD
 >>>>>>> added phantomjs installer, added js test
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2016-06-24 08:35:44"
+>>>>>>> Discount functionality Overview suite
+>>>>>>> Discount functionality Overview suite
+>>>>>>> Discount functionality Overview suite
+>>>>>>> Discount functionality Overview suite
+>>>>>>> Discount functionality Overview suite
+>>>>>>> Discount functionality Overview suite
+>>>>>>> Discount functionality Overview suite
+>>>>>>> Discount functionality Overview suite
         },
         {
             "name": "symfony-cmf/routing",
@@ -1977,12 +2072,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da"
+                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/23394a60d49d2aa904dacda6e5eb29d88251f9da",
-                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da",
+                "url": "https://api.github.com/repos/symfony/form/zipball/22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
+                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
                 "shasum": ""
             },
             "require": {
