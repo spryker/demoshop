@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d1fe0265aea8c41ec7461ce294ec0ce5",
-    "content-hash": "35bd2e643d3fd73130006d62ad730c72",
+    "hash": "f068907439be1dc6e718236afacf92e6",
+    "content-hash": "00c23d9d59361a64b971974f4ab04ab5",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -943,11 +943,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/pim",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "9ab1c2278d5709132bbf88bb46a52678a4d1a5cd"
+                "reference": "fe63e32e75a0e44d0c6b0e6a420e7d5ee8fd71d8"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1407,7 +1407,11 @@
                     "Spryker\\Shared\\StateMachine\\": "Bundles/StateMachine/src",
                     "Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/src",
                     "Unit\\Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/tests",
-                    "Functional\\Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/tests"
+                    "Functional\\Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/tests",
+                    "Spryker\\Shared\\ProductManagement\\": "Bundles/ProductManagement/src",
+                    "Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/src",
+                    "Unit\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests",
+                    "Functional\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests"
                 },
                 "psr-4": {
                     "Testify\\Module\\": "Bundles/Testify/tests/_support/Module",
@@ -1424,7 +1428,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-06-24 08:43:28"
+            "time": "2016-06-27 09:31:29"
         },
         {
             "name": "symfony-cmf/routing",
