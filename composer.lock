@@ -5,8 +5,11 @@
         "This file is @generated automatically"
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
     "hash": "5eb196bdff4615a27d5ffa920a5c7b7c",
 =======
+=======
+>>>>>>> added phantomjs installer, added js test
 <<<<<<< HEAD
     "hash": "416e0168bc7c69273e7de2db84bb42ac",
 >>>>>>> Add Acceptance tests
@@ -15,6 +18,19 @@
     "hash": "e34c822b2c75d69844719a097d265109",
     "content-hash": "2fb46dabe6277817eedf9ba81368e967",
 >>>>>>> Add Acceptance tests
+=======
+    "hash": "e34c822b2c75d69844719a097d265109",
+    "content-hash": "2fb46dabe6277817eedf9ba81368e967",
+=======
+<<<<<<< HEAD
+    "hash": "5eb196bdff4615a27d5ffa920a5c7b7c",
+    "content-hash": "1ac2a0532656eca6c47d7800d74cf673",
+=======
+    "hash": "64788869ff10834eba73b85d82bf3e05",
+    "content-hash": "6bf45919c18ad53481aa5849240db722",
+>>>>>>> added phantomjs installer, added js test
+>>>>>>> added phantomjs installer, added js test
+>>>>>>> added phantomjs installer, added js test
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1004,7 +1020,39 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "b78d4a3fa5941ff2d7cc5546ecd6cae0d07b05b4"
+=======
+<<<<<<< HEAD
+                "reference": "50335bf8dd90226981087feb709b3d06d6e21249"
+=======
+<<<<<<< HEAD
+                "reference": "dfdb601f43614ef723a10a3c8f23049e297ddd58"
+=======
+<<<<<<< HEAD
+                "reference": "6039e7307f78ff845e9cbdf1d9114a54c6282088"
+=======
+<<<<<<< HEAD
+                "reference": "9cfa7700abf86da05d524298501fddf9c559204c"
+=======
+<<<<<<< HEAD
+                "reference": "232da98d6959a8f5bed5bbac8183257b403ce264"
+=======
+<<<<<<< HEAD
+                "reference": "02cc3913724ade2ffe7f876d5a6f839ce568f091"
+=======
+<<<<<<< HEAD
+                "reference": "ac93dd5942d9c9557fcc5af95e043559f4a9252a"
+=======
+                "reference": "9ab1c2278d5709132bbf88bb46a52678a4d1a5cd"
+>>>>>>> added phantomjs installer, added js test
+>>>>>>> added phantomjs installer, added js test
+>>>>>>> added phantomjs installer, added js test
+>>>>>>> added phantomjs installer, added js test
+>>>>>>> added phantomjs installer, added js test
+>>>>>>> added phantomjs installer, added js test
+>>>>>>> added phantomjs installer, added js test
+>>>>>>> added phantomjs installer, added js test
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1499,7 +1547,39 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2016-07-20 09:53:37"
+=======
+<<<<<<< HEAD
+            "time": "2016-07-19 11:50:25"
+=======
+<<<<<<< HEAD
+            "time": "2016-07-18 14:55:00"
+=======
+<<<<<<< HEAD
+            "time": "2016-07-15 12:13:21"
+=======
+<<<<<<< HEAD
+            "time": "2016-07-13 09:43:41"
+=======
+<<<<<<< HEAD
+            "time": "2016-07-07 13:55:03"
+=======
+<<<<<<< HEAD
+            "time": "2016-07-07 12:41:43"
+=======
+<<<<<<< HEAD
+            "time": "2016-07-07 09:12:11"
+=======
+            "time": "2016-06-24 08:43:28"
+>>>>>>> added phantomjs installer, added js test
+>>>>>>> added phantomjs installer, added js test
+>>>>>>> added phantomjs installer, added js test
+>>>>>>> added phantomjs installer, added js test
+>>>>>>> added phantomjs installer, added js test
+>>>>>>> added phantomjs installer, added js test
+>>>>>>> added phantomjs installer, added js test
+>>>>>>> added phantomjs installer, added js test
         },
         {
             "name": "symfony-cmf/routing",
@@ -4053,6 +4133,51 @@
                 "uri"
             ],
             "time": "2016-06-24 23:00:38"
+<<<<<<< HEAD
+=======
+        },
+        {
+            "name": "jakoch/phantomjs-installer",
+            "version": "2.1.1-p03",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jakoch/phantomjs-installer.git",
+                "reference": "d4e9db3d16d5b6e70d1d4941cb84425f9d9fa801"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jakoch/phantomjs-installer/zipball/d4e9db3d16d5b6e70d1d4941cb84425f9d9fa801",
+                "reference": "d4e9db3d16d5b6e70d1d4941cb84425f9d9fa801",
+                "shasum": ""
+            },
+            "require": {
+                "ext-bz2": "*",
+                "ext-openssl": "*"
+            },
+            "type": "custom-installer",
+            "autoload": {
+                "psr-0": {
+                    "PhantomInstaller\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jens-André Koch",
+                    "email": "jakoch@web.de"
+                }
+            ],
+            "description": "A Composer package which installs the PhantomJS binary (Linux, Windows, Mac) into `/bin` of your project.",
+            "keywords": [
+                "binaries",
+                "headless",
+                "phantomjs"
+            ],
+            "time": "2016-05-22 09:49:40"
+>>>>>>> added phantomjs installer, added js test
         },
         {
             "name": "jakoch/phantomjs-installer",
@@ -5760,7 +5885,16 @@
         },
         {
             "name": "spryker/code-sniffer",
+<<<<<<< HEAD
             "version": "0.5.1",
+=======
+<<<<<<< HEAD
+            "version": "0.5",
+=======
+<<<<<<< HEAD
+            "version": "0.4.3",
+>>>>>>> added phantomjs installer, added js test
+>>>>>>> added phantomjs installer, added js test
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
@@ -5768,8 +5902,30 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/9056f5109e62cc53a72cb293abae89828090bbb9",
                 "reference": "9056f5109e62cc53a72cb293abae89828090bbb9",
+=======
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/33d5a4ffe8e03d7f9f8792c3759e8af5630186b3",
+                "reference": "33d5a4ffe8e03d7f9f8792c3759e8af5630186b3",
+=======
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/4418bff748ffc4800a93f6ac5807d9aaf96dd16b",
+                "reference": "4418bff748ffc4800a93f6ac5807d9aaf96dd16b",
+=======
+            "version": "0.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/code-sniffer.git",
+                "reference": "4777bbdcba1b950c1919992430b3deef97fd6c61"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/4777bbdcba1b950c1919992430b3deef97fd6c61",
+                "reference": "4777bbdcba1b950c1919992430b3deef97fd6c61",
+>>>>>>> added phantomjs installer, added js test
+>>>>>>> added phantomjs installer, added js test
+>>>>>>> added phantomjs installer, added js test
                 "shasum": ""
             },
             "require": {
@@ -5798,7 +5954,19 @@
                 "phpcs",
                 "standards"
             ],
+<<<<<<< HEAD
             "time": "2016-07-18 12:54:56"
+=======
+<<<<<<< HEAD
+            "time": "2016-07-11 10:19:52"
+=======
+<<<<<<< HEAD
+            "time": "2016-07-05 12:30:28"
+=======
+            "time": "2016-06-17 09:04:47"
+>>>>>>> added phantomjs installer, added js test
+>>>>>>> added phantomjs installer, added js test
+>>>>>>> added phantomjs installer, added js test
         },
         {
             "name": "squizlabs/php_codesniffer",
