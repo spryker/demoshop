@@ -947,19 +947,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "9ab1c2278d5709132bbf88bb46a52678a4d1a5cd"
-=======
-                "reference": "b470c8ecb42a95cfdc21a5f7c7e13a60fef81a05"
->>>>>>> 2178 WIP
-=======
-                "reference": "83c355e76701ff1df81a0a97c4f31cc61f7828b3"
->>>>>>> 2178 update spryker/spryker
-=======
                 "reference": "30e5e7c963fd9624e680f2f3caf4322661a7bb58"
->>>>>>> 2178 removed ratepay config
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1443,19 +1431,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2016-06-24 08:43:28"
-=======
-            "time": "2016-06-23 13:31:37"
->>>>>>> 2178 WIP
-=======
-            "time": "2016-06-27 08:17:17"
->>>>>>> 2178 update spryker/spryker
-=======
             "time": "2016-06-27 08:26:22"
->>>>>>> 2178 removed ratepay config
         },
         {
             "name": "symfony-cmf/routing",
