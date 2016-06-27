@@ -28,10 +28,12 @@ use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\NewRelic\Communication\Console\RecordDeploymentConsole;
 use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole as OmsCheckConditionConsole;
 use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole as OmsCheckTimeoutConsole;
+use Spryker\Zed\Oms\Communication\Console\ClearLocksConsole as OmsClearLocksConsole;
+use Spryker\Zed\Product\Communication\Console\ProductTouchConsole;
 use Spryker\Zed\Search\Communication\Console\SearchConsole;
 use Spryker\Zed\StateMachine\Communication\Console\CheckConditionConsole as StateMachineCheckConditionConsole;
 use Spryker\Zed\StateMachine\Communication\Console\CheckTimeoutConsole as StateMachineCheckTimeoutConsole;
-use Spryker\Zed\StateMachine\Communication\Console\ClearLocks;
+use Spryker\Zed\StateMachine\Communication\Console\ClearLocksConsole as StateMachineClearLocksConsole;
 use Spryker\Zed\Touch\Communication\Console\TouchCleanUpConsole;
 use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
 
@@ -60,9 +62,10 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new SearchConsole(),
             new OmsCheckConditionConsole(),
             new OmsCheckTimeoutConsole(),
+            new OmsClearLocksConsole(),
             new StateMachineCheckTimeoutConsole(),
             new StateMachineCheckConditionConsole(),
-            new ClearLocks()
+            new StateMachineClearLocksConsole()
         ];
 
         $propelCommands = $container->getLocator()->propel()->facade()->getConsoleCommands();
@@ -79,6 +82,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new DependencyTreeBuilderConsole();
             $commands[] = new DependencyTreeDependencyViolationConsole();
             $commands[] = new ComposerJsonUpdaterConsole();
+            $commands[] = new ProductTouchConsole();
         }
 
         return $commands;

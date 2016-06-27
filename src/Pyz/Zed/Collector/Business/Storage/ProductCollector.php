@@ -18,12 +18,14 @@ use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
 use Spryker\Zed\Price\Business\PriceFacadeInterface;
 use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface;
+use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
 
 class ProductCollector extends AbstractStoragePdoCollector
 {
 
     const ID_PRODUCT = 'id_product';
     const ID_CATEGORY_NODE = 'id_category_node';
+    const ID_IMAGE_SET = 'id_image_set';
     const SKU = 'sku';
     const ABSTRACT_SKU = 'abstract_sku';
     const ABSTRACT_NAME = 'abstract_name';
@@ -58,17 +60,25 @@ class ProductCollector extends AbstractStoragePdoCollector
     protected $categoryCacheCollection;
 
     /**
+     * @var \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface
+     */
+    protected $productImageQueryContainer;
+
+    /**
      * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
      * @param \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface $productCategoryQueryContainer
+     * @param \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface $productImageQueryContainer
      * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
      */
     public function __construct(
         CategoryQueryContainerInterface $categoryQueryContainer,
         ProductCategoryQueryContainerInterface $productCategoryQueryContainer,
+        ProductImageQueryContainerInterface $productImageQueryContainer,
         PriceFacadeInterface $priceFacade
     ) {
         $this->categoryQueryContainer = $categoryQueryContainer;
         $this->productCategoryQueryContainer = $productCategoryQueryContainer;
+        $this->productImageQueryContainer = $productImageQueryContainer;
         $this->priceFacade = $priceFacade;
         $this->categoryCacheCollection = new Collection([]);
     }
@@ -91,6 +101,7 @@ class ProductCollector extends AbstractStoragePdoCollector
             'available' => (int)$collectItemData[self::QUANTITY] > 0,
             'price' => $this->getPriceBySku($collectItemData[self::ABSTRACT_SKU]),
             'category' => $this->generateCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
+            'images' => $this->generateImages($collectItemData[self::ID_IMAGE_SET])
         ];
     }
 
@@ -283,6 +294,32 @@ class ProductCollector extends AbstractStoragePdoCollector
     public function setProductCategoryQueryContainer(ProductCategoryQueryContainerInterface $productCategoryQueryContainer)
     {
         $this->productCategoryQueryContainer = $productCategoryQueryContainer;
+    }
+
+    /**
+     * @param int $idImageSet
+     *
+     * @return array
+     */
+    protected function generateImages($idImageSet)
+    {
+        if ($idImageSet === null) {
+            return [];
+        }
+
+        $imagesCollection = $this->productImageQueryContainer
+            ->queryImagesByIdProductImageSet($idImageSet)
+            ->find();
+
+        $result = [];
+
+        foreach ($imagesCollection as $image) {
+            $imageArray = $image->getSpyProductImage()->toArray();
+            $imageArray += $image->toArray();
+            $result[] = $imageArray;
+        }
+
+        return $result;
     }
 
 }

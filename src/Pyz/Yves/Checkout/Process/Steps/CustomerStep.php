@@ -30,15 +30,15 @@ class CustomerStep extends AbstractBaseStep
      * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
      * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface $customerStepHandler
      * @param string $stepRoute
-     * @param string $escapeRoute
+     * @param string $route
      */
     public function __construct(
         CustomerClientInterface $customerClient,
         StepHandlerPluginInterface $customerStepHandler,
         $stepRoute,
-        $escapeRoute
+        $route
     ) {
-        parent::__construct($stepRoute, $escapeRoute);
+        parent::__construct($stepRoute, $route);
 
         $this->customerClient = $customerClient;
         $this->customerStepHandler = $customerStepHandler;

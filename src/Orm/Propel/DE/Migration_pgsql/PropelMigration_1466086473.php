@@ -2,10 +2,10 @@
 
 /**
  * Data object containing the SQL and PHP code to migrate the database
- * up to version 1465394501.
- * Generated on 2016-06-08 14:01:41 by vagrant
+ * up to version 1466086473.
+ * Generated on 2016-06-16 14:14:33 by vagrant
  */
-class PropelMigration_1465394501
+class PropelMigration_1466086473
 {
     public $comment = '';
 
@@ -39,18 +39,13 @@ class PropelMigration_1465394501
     {
         return array (
   'zed' => '
-CREATE SEQUENCE "spy_oms_state_machine_lock_pk_seq";
+ALTER TABLE "spy_cms_page"
 
-CREATE TABLE "spy_oms_state_machine_lock"
-(
-    "id_oms_state_machine_lock" INTEGER NOT NULL,
-    "identifier" VARCHAR(255) NOT NULL,
-    "expires" TIMESTAMP NOT NULL,
-    "created_at" TIMESTAMP,
-    "updated_at" TIMESTAMP,
-    PRIMARY KEY ("id_oms_state_machine_lock"),
-    CONSTRAINT "spy_oms_state_machine_lock-identifier" UNIQUE ("identifier")
-);
+  ALTER COLUMN "is_active" SET DEFAULT \'f\';
+
+ALTER TABLE "spy_state_machine_lock"
+
+  ALTER COLUMN "identifier" TYPE VARCHAR(1024);
 ',
 );
     }
@@ -65,9 +60,13 @@ CREATE TABLE "spy_oms_state_machine_lock"
     {
         return array (
   'zed' => '
-DROP TABLE IF EXISTS "spy_oms_state_machine_lock" CASCADE;
+ALTER TABLE "spy_cms_page"
 
-DROP SEQUENCE "spy_oms_state_machine_lock_pk_seq";
+  ALTER COLUMN "is_active" SET DEFAULT \'t\';
+
+ALTER TABLE "spy_state_machine_lock"
+
+  ALTER COLUMN "identifier" TYPE VARCHAR(255);
 ',
 );
     }

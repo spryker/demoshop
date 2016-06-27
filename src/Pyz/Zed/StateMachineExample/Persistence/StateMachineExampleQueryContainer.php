@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\StateMachineExample\Persistence;
 
+use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Zed\Kernel\Persistence\AbstractQueryContainer;
 
 /**
@@ -24,7 +25,7 @@ class StateMachineExampleQueryContainer extends AbstractQueryContainer implement
     {
           return $this->getFactory()
               ->createStateMachineExampleQuery()
-              ->filterByFkStateMachineItemState($stateIds);
+              ->filterByFkStateMachineItemState($stateIds, Criteria::IN);
     }
 
     /**
