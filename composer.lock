@@ -948,10 +948,14 @@
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "9ab1c2278d5709132bbf88bb46a52678a4d1a5cd"
 =======
                 "reference": "b470c8ecb42a95cfdc21a5f7c7e13a60fef81a05"
 >>>>>>> 2178 WIP
+=======
+                "reference": "83c355e76701ff1df81a0a97c4f31cc61f7828b3"
+>>>>>>> 2178 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1172,6 +1176,7 @@
                     "Spryker\\Zed\\Maintenance\\": "Bundles/Maintenance/src",
                     "Unit\\Spryker\\Zed\\Maintenance\\": "Bundles/Maintenance/tests",
                     "Spryker\\Shared\\Messenger\\": "Bundles/Messenger/src",
+                    "Spryker\\Yves\\Messenger\\": "Bundles/Messenger/src",
                     "Unit\\Spryker\\Shared\\Messenger\\": "Bundles/Messenger/tests",
                     "Spryker\\Zed\\Messenger\\": "Bundles/Messenger/src",
                     "Unit\\Spryker\\Zed\\Messenger\\": "Bundles/Messenger/tests",
@@ -1286,16 +1291,16 @@
                     "Spryker\\Zed\\Propel\\": "Bundles/Propel/src",
                     "Unit\\Spryker\\Zed\\Propel\\": "Bundles/Propel/tests",
                     "Functional\\Spryker\\Zed\\Propel\\": "Bundles/Propel/tests",
-                    "Spryker\\Client\\Ratepay\\": "Bundles/Ratepay/src",
-                    "Spryker\\Shared\\Ratepay\\": "Bundles/Ratepay/src/",
-                    "Spryker\\Yves\\Ratepay\\": "Bundles/Ratepay/src",
-                    "Spryker\\Zed\\Ratepay\\": "Bundles/Ratepay/src/",
-                    "Unit\\Spryker\\Zed\\Ratepay\\": "Bundles/Ratepay/tests",
-                    "Functional\\Spryker\\Zed\\Ratepay\\": "Bundles/Ratepay/tests",
                     "Spryker\\Shared\\Refund\\": "Bundles/Refund/src",
                     "Unit\\Spryker\\Shared\\Refund\\": "Bundles/Refund/tests",
                     "Spryker\\Zed\\Refund\\": "Bundles/Refund/src",
                     "Unit\\Spryker\\Zed\\Refund\\": "Bundles/Refund/tests",
+                    "Spryker\\Zed\\Ratepay\\": "Bundles/Ratepay/src",
+                    "Spryker\\Yves\\Ratepay\\": "Bundles/Ratepay/src",
+                    "Spryker\\Shared\\Ratepay\\": "Bundles/Ratepay/src",
+                    "Spryker\\Client\\Ratepay\\": "Bundles/Ratepay/src",
+                    "Functional\\Spryker\\Zed\\Ratepay\\": "Bundles/Ratepay/tests",
+                    "Unit\\Spryker\\Zed\\Ratepay\\": "Bundles/Ratepay/tests",
                     "Spryker\\Client\\Sales\\": "Bundles/Sales/src",
                     "Unit\\Spryker\\Client\\Sales\\": "Bundles/Sales/tests",
                     "Functional\\Spryker\\Client\\Sales\\": "Bundles/Sales/tests",
@@ -1435,10 +1440,14 @@
             ],
             "description": "Spryker Framework",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-06-24 08:43:28"
 =======
             "time": "2016-06-23 13:31:37"
 >>>>>>> 2178 WIP
+=======
+            "time": "2016-06-27 08:17:17"
+>>>>>>> 2178 update spryker/spryker
         },
         {
             "name": "symfony-cmf/routing",

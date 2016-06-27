@@ -8,6 +8,7 @@ namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
 use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Process\Steps\PaymentStep;
+use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -71,7 +72,8 @@ class PaymentStepTest extends \PHPUnit_Framework_TestCase
         return new PaymentStep(
             $paymentPlugins,
             'payment',
-            'escape_route'
+            'escape_route',
+            $this->getFlashMessengerMock()
         );
     }
 
@@ -89,6 +91,14 @@ class PaymentStepTest extends \PHPUnit_Framework_TestCase
     protected function createPaymentPluginMock()
     {
         return $this->getMock(StepHandlerPluginInterface::class);
+    }
+
+    /**
+     * @return \PHPUnit_Framework_MockObject_MockObject|FlashMessengerInterface
+     */
+    protected function getFlashMessengerMock()
+    {
+        return $this->getMock(FlashMessengerInterface::class);
     }
 
 }
