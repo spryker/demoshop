@@ -1254,6 +1254,8 @@
                     "Spryker\\Zed\\ProductOption\\": "Bundles/ProductOption/src",
                     "Unit\\Spryker\\Zed\\ProductOption\\": "Bundles/ProductOption/tests",
                     "Functional\\Spryker\\Zed\\ProductOption\\": "Bundles/ProductOption/tests",
+                    "Spryker\\Shared\\ProductImage\\": "Bundles/ProductImage/src",
+                    "Spryker\\Zed\\ProductImage\\": "Bundles/ProductImage/src",
                     "Spryker\\Shared\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/src",
                     "Unit\\Spryker\\Shared\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/tests",
                     "Functional\\Spryker\\Shared\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/tests",
@@ -3511,16 +3513,16 @@
         },
         {
             "name": "zendframework/zend-validator",
-            "version": "2.8.0",
+            "version": "2.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-validator.git",
-                "reference": "f956581bc5fa4cf3f2933fe24e77deded8d1937b"
+                "reference": "8ec9f57a717dd37340308aa632f148a2c2be1cfc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/f956581bc5fa4cf3f2933fe24e77deded8d1937b",
-                "reference": "f956581bc5fa4cf3f2933fe24e77deded8d1937b",
+                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/8ec9f57a717dd37340308aa632f148a2c2be1cfc",
+                "reference": "8ec9f57a717dd37340308aa632f148a2c2be1cfc",
                 "shasum": ""
             },
             "require": {
@@ -3578,7 +3580,7 @@
                 "validator",
                 "zf2"
             ],
-            "time": "2016-05-16 13:39:40"
+            "time": "2016-06-23 13:44:31"
         }
     ],
     "packages-dev": [
@@ -4979,16 +4981,16 @@
         },
         {
             "name": "sebastian/exporter",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "7ae5513327cb536431847bcc0c10edba2701064e"
+                "reference": "42c4c2eec485ee3e159ec9884f95b431287edde4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/7ae5513327cb536431847bcc0c10edba2701064e",
-                "reference": "7ae5513327cb536431847bcc0c10edba2701064e",
+                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/42c4c2eec485ee3e159ec9884f95b431287edde4",
+                "reference": "42c4c2eec485ee3e159ec9884f95b431287edde4",
                 "shasum": ""
             },
             "require": {
@@ -4996,12 +4998,13 @@
                 "sebastian/recursion-context": "~1.0"
             },
             "require-dev": {
+                "ext-mbstring": "*",
                 "phpunit/phpunit": "~4.4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2.x-dev"
+                    "dev-master": "1.3.x-dev"
                 }
             },
             "autoload": {
@@ -5041,7 +5044,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2015-06-21 07:55:53"
+            "time": "2016-06-17 09:04:28"
         },
         {
             "name": "sebastian/finder-facade",
@@ -5550,16 +5553,16 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.4.1",
+            "version": "0.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "bd64bbf65217b2a6994e193445f116adf665fdf3"
+                "reference": "4777bbdcba1b950c1919992430b3deef97fd6c61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/bd64bbf65217b2a6994e193445f116adf665fdf3",
-                "reference": "bd64bbf65217b2a6994e193445f116adf665fdf3",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/4777bbdcba1b950c1919992430b3deef97fd6c61",
+                "reference": "4777bbdcba1b950c1919992430b3deef97fd6c61",
                 "shasum": ""
             },
             "require": {
@@ -5588,7 +5591,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-06-06 11:37:32"
+            "time": "2016-06-17 09:04:47"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -6152,8 +6155,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "spryker/spryker": 20,
-        "propel/propel": 20
+        "spryker/spryker": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
