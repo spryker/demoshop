@@ -1,3 +1,4 @@
+key,translation,locale
 page.home.featured.top-left.left.width,1,de_DE
 page.home.featured.top-left.left.width,1,en_US
 page.home.featured.top-left.left.height,2,de_DE
@@ -44,8 +45,8 @@ page.home.featured.top-right.second.height,2,de_DE
 page.home.featured.top-right.second.height,2,en_US
 page.home.featured.top-right.second.img,computer_product.jpg,de_DE
 page.home.featured.top-right.second.img,computer_product.jpg,en_US
-page.home.featured.top-right.second.url,/de/toshiba-c55dtb5153-21,de_DE
-page.home.featured.top-right.second.url,/en/toshiba-c55dtb5153-21,en_US
+page.home.featured.top-right.second.url,/de/toshiba-c55dt-b5153-21,de_DE
+page.home.featured.top-right.second.url,/en/toshiba-c55dt-b5153-21,en_US
 page.home.featured.bottom-left.top.width,2,de_DE
 page.home.featured.bottom-left.top.width,2,en_US
 page.home.featured.bottom-left.top.height,1,de_DE
@@ -68,8 +69,8 @@ page.home.featured.bottom-left.bottom.category,Kamera,de_DE
 page.home.featured.bottom-left.bottom.category,Camera,en_US
 page.home.featured.bottom-left.bottom.img,camera_product.jpg,de_DE
 page.home.featured.bottom-left.bottom.img,camera_product.jpg,en_US
-page.home.featured.bottom-left.bottom.url,/de/canon-1200d-+-efs-1855mm-89,de_DE
-page.home.featured.bottom-left.bottom.url,/en/canon-1200d-+-efs-1855mm-89,en_US
+page.home.featured.bottom-left.bottom.url,/de/canon-1200d--ef-s-18-55mm-89,de_DE
+page.home.featured.bottom-left.bottom.url,/en/canon-1200d--ef-s-18-55mm-89,en_US
 page.home.featured.bottom-right.left.width,1,de_DE
 page.home.featured.bottom-right.left.width,1,en_US
 page.home.featured.bottom-right.left.height,2,de_DE

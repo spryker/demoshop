@@ -16,8 +16,6 @@ use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 class TranslationImporter extends AbstractImporter
 {
 
-    const TRANSLATIONS = 'translations';
-
     /**
      * @var \Spryker\Zed\Glossary\Business\GlossaryFacadeInterface
      */
@@ -50,6 +48,7 @@ class TranslationImporter extends AbstractImporter
     public function isImported()
     {
         $query = SpyGlossaryKeyQuery::create();
+
         return $query->count() > 0;
     }
 
@@ -60,18 +59,17 @@ class TranslationImporter extends AbstractImporter
      */
     protected function importOne(array $data)
     {
-        foreach ($data as $translationKey => $translationData) {
+        foreach ($data as $translationData) {
+            $translationKey = $translationData['key'];
             if (!$this->glossaryFacade->hasKey($translationKey)) {
                 $this->glossaryFacade->createKey($translationKey);
             }
 
-            foreach ($translationData[self::TRANSLATIONS] as $localeName => $translationText) {
-                $localeTransfer = new LocaleTransfer();
-                $localeTransfer->setLocaleName($localeName);
+            $localeTransfer = new LocaleTransfer();
+            $localeTransfer->setLocaleName($translationData['locale']);
 
-                if (!$this->glossaryFacade->hasTranslation($translationKey, $localeTransfer)) {
-                    $this->glossaryFacade->createAndTouchTranslation($translationKey, $localeTransfer, $translationText, true);
-                }
+            if (!$this->glossaryFacade->hasTranslation($translationKey, $localeTransfer)) {
+                $this->glossaryFacade->createAndTouchTranslation($translationKey, $localeTransfer, $translationData['translation'], true);
             }
         }
     }
