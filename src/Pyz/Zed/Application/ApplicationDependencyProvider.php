@@ -12,7 +12,7 @@ use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\TwigServiceProvider;
-use Silex\Provider\WebProfilerServiceProvider;
+use Pyz\Shared\Application\Plugin\Provider\WebProfilerServiceProvider;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\Config;
 use Spryker\Zed\Acl\Communication\Plugin\Bootstrap\AclBootstrapProvider;
