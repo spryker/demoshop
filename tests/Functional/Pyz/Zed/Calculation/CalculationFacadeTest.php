@@ -441,7 +441,7 @@ class CalculationFacadeTest extends Test
     }
 
     /**
-     * @param SpyTaxSet $taxSetEntity
+     * @param \Orm\Zed\Tax\Persistence\SpyTaxSet $taxSetEntity
      *
      * @throws \Propel\Runtime\Exception\PropelException
      * @return \Orm\Zed\Product\Persistence\SpyProductAbstract
@@ -470,10 +470,11 @@ class CalculationFacadeTest extends Test
     }
 
     /**
-     * @param SpyTaxSet $taxSetEntity
-     * @param SpyTaxRate $taxRateEntity
+     * @param \Orm\Zed\Tax\Persistence\SpyTaxSet $taxSetEntity
+     * @param \Orm\Zed\Tax\Persistence\SpyTaxRate $taxRateEntity
      *
      * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
     protected function createTaxSetTax(SpyTaxSet $taxSetEntity, SpyTaxRate $taxRateEntity)
     {
