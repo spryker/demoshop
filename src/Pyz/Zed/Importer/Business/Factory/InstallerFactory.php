@@ -16,6 +16,7 @@ use Pyz\Zed\Importer\Business\Installer\Glossary\GlossaryInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductSearchInstaller;
 use Pyz\Zed\Importer\Business\Installer\Shipment\ShipmentInstaller;
+use Pyz\Zed\Importer\Business\Installer\Tax\TaxInstaller;
 use Pyz\Zed\Importer\ImporterConfig;
 
 /**
@@ -150,6 +151,28 @@ class InstallerFactory extends AbstractFactory
     }
 
     /**
+     * @return \Pyz\Zed\Importer\Business\Installer\Tax\TaxInstaller
+     */
+    public function createTaxInstaller()
+    {
+        return new TaxInstaller(
+            $this->getImporterTaxCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+    }
+
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
+     */
+    public function getImporterTaxCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_TAX => $this->createImporterFactory()->createTaxImporter(),
+        ];
+    }
+
+    /**
      * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
      */
     public function getImporterCategoryCollection()
@@ -189,7 +212,6 @@ class InstallerFactory extends AbstractFactory
             ImporterConfig::RESOURCE_PRODUCT_CATEGORY => $this->createImporterFactory()->createProductCategoryImporter(),
             ImporterConfig::RESOURCE_PRODUCT_STOCK => $this->createImporterFactory()->createProductStockImporter(),
             ImporterConfig::RESOURCE_PRODUCT_PRICE => $this->createImporterFactory()->createProductPriceImporter(),
-            ImporterConfig::RESOURCE_PRODUCT_TAX => $this->createImporterFactory()->createProductTaxImporter(),
         ];
     }
 

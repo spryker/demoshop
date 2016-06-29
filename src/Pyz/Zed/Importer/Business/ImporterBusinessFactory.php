@@ -43,6 +43,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
             ImporterConfig::RESOURCE_CMS_PAGE => $this->createInstallerFactory()->createCmsPageInstaller(),
             ImporterConfig::RESOURCE_CMS_BLOCK => $this->createInstallerFactory()->createCmsBlockInstaller(),
             ImporterConfig::RESOURCE_SHIPMENT => $this->createInstallerFactory()->createShipmentInstaller(),
+            ImporterConfig::RESOURCE_TAX => $this->createInstallerFactory()->createTaxInstaller(),
         ];
     }
 

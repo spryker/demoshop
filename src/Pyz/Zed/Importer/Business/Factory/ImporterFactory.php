@@ -18,8 +18,8 @@ use Pyz\Zed\Importer\Business\Importer\Product\ProductCategoryImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductPriceImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductSearchImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductStockImporter;
-use Pyz\Zed\Importer\Business\Importer\Product\ProductTaxImporter;
 use Pyz\Zed\Importer\Business\Importer\Shipment\ShipmentImporter;
+use Pyz\Zed\Importer\Business\Importer\Tax\TaxImporter;
 use Pyz\Zed\Importer\ImporterDependencyProvider;
 use Spryker\Zed\Cms\Business\Block\BlockManager;
 use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManager;
@@ -146,21 +146,6 @@ class ImporterFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Zed\Importer\Business\Importer\Product\ProductTaxImporter
-     */
-    public function createProductTaxImporter()
-    {
-        $productTaxImporter = new ProductTaxImporter(
-            $this->getLocaleFacade(),
-            $this->getTaxFacade(),
-            $this->getProductQueryContainer(),
-            $this->getConfig()->getImportDataDirectory()
-        );
-
-        return $productTaxImporter;
-    }
-
-    /**
      * @return \Pyz\Zed\Importer\Business\Importer\Product\ProductSearchImporter
      */
     public function createProductSearchImporter()
@@ -238,6 +223,19 @@ class ImporterFactory extends AbstractFactory
         );
 
         return $cmsPageImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\Tax\TaxImporter
+     */
+    public function createTaxImporter()
+    {
+        return new TaxImporter(
+            $this->getLocaleFacade(),
+            $this->getProductQueryContainer(),
+            $this->getCountryFacade(),
+            $this->getTaxQueryContainer()
+        );
     }
 
     /**
