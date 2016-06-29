@@ -102,7 +102,7 @@ cart.add.items.success,"Items added successfully",en_US
 cart.your-order,"Deine Bestellung",de_DE
 cart.your-order,"Your Order",en_US
 cart.price,Preis,de_DE
-cart.price,Prize,en_US
+cart.price,Price,en_US
 cart.shipping.order-item,"+ Versand",de_DE
 cart.shipping.order-item,"+ Shipping",en_US
 cart.shipping,Versand,de_DE
