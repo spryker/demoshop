@@ -15,7 +15,6 @@ use Generated\Shared\Transfer\ProductOptionTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Orm\Zed\Discount\Persistence\Base\SpyDiscountQuery;
 use Orm\Zed\Discount\Persistence\SpyDiscount;
-use Orm\Zed\Discount\Persistence\SpyDiscountCollector;
 use Orm\Zed\Discount\Persistence\SpyDiscountVoucher;
 use Orm\Zed\Discount\Persistence\SpyDiscountVoucherPool;
 use Spryker\Zed\Calculation\Business\CalculationFacade;

@@ -21,7 +21,7 @@ class DiscountInstaller extends AbstractInstaller
     {
         return new XmlBatchIterator($this->getXmlDataFilename(), 'discount');
     }
-    
+
     /**
      * @return string
      */
@@ -37,4 +37,5 @@ class DiscountInstaller extends AbstractInstaller
     {
         return 'Discount';
     }
+
 }

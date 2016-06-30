@@ -19,6 +19,7 @@ use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 
 class DiscountImporter extends AbstractImporter
 {
+
     /**
      * @var \Spryker\Zed\Discount\Business\DiscountFacade
      */
@@ -123,4 +124,5 @@ class DiscountImporter extends AbstractImporter
 
         return $discountVoucherTransfer;
     }
+
 }

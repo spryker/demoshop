@@ -7,16 +7,15 @@
 
 namespace Pyz\Zed\Discount;
 
-use Spryker\Zed\Discount\Dependency\Plugin\CollectorPluginInterface;
-use Spryker\Zed\Discount\Dependency\Plugin\DecisionRulePluginInterface;
-use Spryker\Zed\ProductDiscountConnector\Communication\Plugin\DecisionRule\ProductAttributeDecisionRulePlugin;
 use Spryker\Zed\Discount\DiscountDependencyProvider as SprykerDiscountDependencyProvider;
 use Spryker\Zed\ProductDiscountConnector\Communication\Plugin\Collector\ProductAttributeCollectorPlugin;
+use Spryker\Zed\ProductDiscountConnector\Communication\Plugin\DecisionRule\ProductAttributeDecisionRulePlugin;
 
 class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
 {
+
     /**
-     * @return DecisionRulePluginInterface[]
+     * @return \Spryker\Zed\Discount\Dependency\Plugin\DecisionRulePluginInterface[]
      */
     protected function getDecisionRulePlugins()
     {
@@ -28,7 +27,7 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
     }
 
     /**
-     * @return CollectorPluginInterface[]
+     * @return \Spryker\Zed\Discount\Dependency\Plugin\CollectorPluginInterface[]
      */
     protected function getCollectorPlugins()
     {
@@ -37,4 +36,5 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
 
         return $collectorPlugins;
     }
+
 }
