@@ -3,8 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-feature/763-discount-refactoring",
-
+    "spryker/spryker": "dev-master",
     "php": "~5.6.0",
     "guzzle/http": "~3.8.0",
     "league/csv": "~8.1.0",
@@ -74,12 +73,5 @@
       "type": "git",
       "url": "git@github.com:spryker/spryker.git"
     }
-  ],
-  "scripts": {
-    "compile": [
-      "mkdir -p ./data/DE/logs",
-      "echo '<?php return \"development_heroku\";' > config/Shared/console_env_local.php",
-      "./deploy/heroku/run.sh"
-    ]
-  }
+  ]
 }

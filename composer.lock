@@ -1,11 +1,12 @@
+
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fbc6b853c1608af3ee3f101df6f365b7",
-    "content-hash": "dc69f21fda1095a246cb02ac886ecaab",
+    "hash": "d1fe0265aea8c41ec7461ce294ec0ce5",
+    "content-hash": "35bd2e643d3fd73130006d62ad730c72",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -943,11 +944,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/763-discount-refactoring",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d2fd1063a0928830092b82320f60329bc4da47b3"
+                "reference": "9ab1c2278d5709132bbf88bb46a52678a4d1a5cd"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1404,20 +1405,10 @@
                     "Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/src",
                     "Unit\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests",
                     "Functional\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests",
-                    "Spryker\\Zed\\ProductDiscountConnector\\": "Bundles/ProductDiscountConnector/src",
-                    "Unit\\Spryker\\Zed\\ProductDiscountConnector\\": "Bundles/ProductDiscountConnector/tests",
-                    "Functional\\Spryker\\Zed\\ProductDiscountConnector\\": "Bundles/ProductDiscountConnector/tests",
-                    "Spryker\\Zed\\ProductCategoryDiscountConnector\\": "Bundles/ProductCategoryDiscountConnector/src",
-                    "Unit\\Spryker\\Zed\\ProductCategoryDiscountConnector\\": "Bundles/ProductCategoryDiscountConnector/tests",
-                    "Functional\\Spryker\\Zed\\ProductCategoryDiscountConnector\\": "Bundles/ProductCategoryDiscountConnector/tests",
                     "Spryker\\Shared\\StateMachine\\": "Bundles/StateMachine/src",
                     "Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/src",
                     "Unit\\Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/tests",
-                    "Functional\\Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/tests",
-                    "Spryker\\Shared\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/src",
-                    "Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/src",
-                    "Unit\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests",
-                    "Functional\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests"
+                    "Functional\\Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/tests"
                 },
                 "psr-4": {
                     "Testify\\Module\\": "Bundles/Testify/tests/_support/Module",
@@ -1434,7 +1425,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-06-22 10:01:14"
+            "time": "2016-06-24 08:43:28"
         },
         {
             "name": "symfony-cmf/routing",

@@ -42,7 +42,7 @@ class DiscountImporter extends AbstractImporter
      */
     protected function importOne(array $discount)
     {
-        if ($this->haveDiscountWithName($discount['display_name'])) {
+        if ($this->hasDiscountWithName($discount['display_name'])) {
             return;
         }
 
@@ -99,7 +99,7 @@ class DiscountImporter extends AbstractImporter
      *
      * @return bool
      */
-    protected function haveDiscountWithName($displayName)
+    protected function hasDiscountWithName($displayName)
     {
         $exists = SpyDiscountQuery::create()
             ->findByDisplayName($displayName)
