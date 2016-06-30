@@ -1,6 +1,0 @@
-class_name: ZedAcceptanceTester
-modules:
-    enabled:
-        - WebDriver:
-            url: 'http://zed.de.spryker.dev/'
-            browser: phantomjs
