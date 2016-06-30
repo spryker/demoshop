@@ -20,11 +20,11 @@ use Spryker\Zed\Tax\Persistence\TaxQueryContainerInterface;
 class TaxImporter extends AbstractImporter
 {
 
-    const COL_COUNTRY = 'country';
-    const COL_RATE = 'rate';
-    const COL_RATE_NAME = 'rate_name';
-    const COL_SET_NAME = 'tax_set_name';
-    const COL_TAX_SET = 'tax_set';
+    const COL_COUNTRY = 'Tax Rate Country';
+    const COL_RATE = 'Tax Rate Percentage';
+    const COL_RATE_NAME = 'Tax Rate Name';
+    const COL_SET_NAME = 'Tax Set Name';
+    const COL_TAX_SET = 'Products with this Tax Set';
 
     /**
      * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
@@ -73,6 +73,10 @@ class TaxImporter extends AbstractImporter
      */
     protected function importOne(array $data)
     {
+        if (count($data) === 0) {
+            return;
+        }
+
         $idCountry = $this->getCountryIdByName($data[self::COL_COUNTRY]);
 
         $rate = $this->getTaxRate($data);
