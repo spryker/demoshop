@@ -30,6 +30,7 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     const FACADE_URL = 'FACADE_URL';
     const FACADE_STOCK = 'FACADE_STOCK';
     const FACADE_TAX = 'FACADE_TAX';
+    const FACADE_DISCOUNT = 'FACADE_DISCOUNT';
 
     const QUERY_CONTAINER_CMS = 'QUERY_CONTAINER_CMS';
     const QUERY_CONTAINER_CATEGORY = 'QUERY_CONTAINER_CATEGORY';
@@ -97,6 +98,10 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[static::FACADE_PRODUCT_SEARCH] = function (Container $container) {
             return $container->getLocator()->productSearch()->facade();
+        };
+
+        $container[static::FACADE_DISCOUNT] = function (Container $container) {
+            return $container->getLocator()->discount()->facade();
         };
 
         $container[static::QUERY_CONTAINER_CMS] = function (Container $container) {
