@@ -42,6 +42,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
 
     const SERVICE_PROVIDER = 'SERVICE_PROVIDER';
     const INTERNAL_CALL_SERVICE_PROVIDER = 'INTERNAL_CALL_SERVICE_PROVIDER';
+    const INTERNAL_CALL_SERVICE_PROVIDER_WITH_AUTHENTICATION = 'INTERNAL_CALL_SERVICE_PROVIDER_WITH_AUTHENTICATION';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -56,6 +57,10 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
 
         $container[self::INTERNAL_CALL_SERVICE_PROVIDER] = function (Container $container) {
             return $this->getInternalCallServiceProvider($container);
+        };
+
+        $container[self::INTERNAL_CALL_SERVICE_PROVIDER_WITH_AUTHENTICATION] = function (Container $container) {
+            return $this->getInternalCallServiceProviderWithAuthentication($container);
         };
 
         return $container;
@@ -118,6 +123,40 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new HttpFragmentServiceProvider(),
             new SubRequestServiceProvider(),
         ];
+    }
+
+    protected function getInternalCallServiceProviderWithAuthentication(Container $container)
+    {
+        $coreProviders = parent::getServiceProvider($container);
+
+        $providers = [
+            new LogServiceProvider(),
+            new SessionServiceProvider(),
+            $this->getSessionServiceProvider($container),
+            new SslServiceProvider(),
+            new AuthBootstrapProvider(),
+            new AclBootstrapProvider(),
+            new TwigServiceProvider(),
+            new SprykerTwigServiceProvider(),
+            new EnvironmentInformationServiceProvider(),
+            $this->getGatewayServiceProvider(),
+            new AssertionServiceProvider(),
+            new UserServiceProvider($container),
+            new PriceServiceProvider(),
+            new DateFormatterServiceProvider(),
+            new TranslationServiceProvider(),
+            new SubRequestServiceProvider(),
+            new WebProfilerServiceProvider(),
+            new ZedHstsServiceProvider(),
+        ];
+
+        if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER, false)) {
+            $providers[] = new WebProfilerServiceProvider();
+        }
+
+        $providers = array_merge($providers, $coreProviders);
+
+        return $providers;
     }
 
     /**
