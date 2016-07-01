@@ -15,7 +15,6 @@ use Generated\Shared\Transfer\ProductOptionTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Orm\Zed\Discount\Persistence\Base\SpyDiscountQuery;
 use Orm\Zed\Discount\Persistence\SpyDiscount;
-use Orm\Zed\Discount\Persistence\SpyDiscountCollector;
 use Orm\Zed\Discount\Persistence\SpyDiscountVoucher;
 use Orm\Zed\Discount\Persistence\SpyDiscountVoucherPool;
 use Spryker\Zed\Calculation\Business\CalculationFacade;
@@ -191,15 +190,10 @@ class CalculationFacadeTest extends Test
         $discountEntity->setIsActive(1);
         $discountEntity->setValidFrom(new \DateTime('1985-07-01'));
         $discountEntity->setValidTo(new \DateTime('2050-07-01'));
-        $discountEntity->setCollectorLogicalOperator('AND');
         $discountEntity->setCalculatorPlugin($calculatorType);
+        $discountEntity->setCollectorQueryString('sku = "*"');
         $discountEntity->setFkDiscountVoucherPool($discountVoucherPoolEntity->getIdDiscountVoucherPool());
         $discountEntity->save();
-
-        $collectorEntity = new SpyDiscountCollector();
-        $collectorEntity->setCollectorPlugin(DiscountDependencyProvider::PLUGIN_COLLECTOR_ITEM);
-        $collectorEntity->setFkDiscount($discountEntity->getIdDiscount());
-        $collectorEntity->save();
 
         $discountEntity->reload(true);
         $pool = $discountEntity->getVoucherPool();
