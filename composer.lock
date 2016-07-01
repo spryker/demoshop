@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "db5c100469d5ad3ae68ab5eaab0b560a",
-    "content-hash": "35bd2e643d3fd73130006d62ad730c72",
+    "hash": "f068907439be1dc6e718236afacf92e6",
+    "content-hash": "00c23d9d59361a64b971974f4ab04ab5",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -294,6 +294,7 @@
                 "rest",
                 "web service"
             ],
+            "abandoned": "guzzlehttp/guzzle",
             "time": "2014-01-28 22:29:15"
         },
         {
@@ -943,11 +944,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/pim",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "a8174ee594821bd9c9793efed1191a0597c1bead"
+                "reference": "3bade6d2296ae5ad1e46d4601fa5994f2d62043b"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1417,7 +1418,11 @@
                     "Spryker\\Shared\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/src",
                     "Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/src",
                     "Unit\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests",
-                    "Functional\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests"
+                    "Functional\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests",
+                    "Spryker\\Shared\\ProductManagement\\": "Bundles/ProductManagement/src",
+                    "Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/src",
+                    "Unit\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests",
+                    "Functional\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests"
                 },
                 "psr-4": {
                     "Testify\\Module\\": "Bundles/Testify/tests/_support/Module",
@@ -1434,7 +1439,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-06-30 17:17:38"
+            "time": "2016-07-01 11:25:13"
         },
         {
             "name": "symfony-cmf/routing",
