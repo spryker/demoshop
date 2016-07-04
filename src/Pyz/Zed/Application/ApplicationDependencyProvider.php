@@ -127,36 +127,26 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
 
     protected function getInternalCallServiceProviderWithAuthentication(Container $container)
     {
-        $coreProviders = parent::getServiceProvider($container);
 
-        $providers = [
+        return [
             new LogServiceProvider(),
+            new PropelServiceProvider(),
+            new RequestServiceProvider(),
             new SessionServiceProvider(),
             $this->getSessionServiceProvider($container),
             new SslServiceProvider(),
             new AuthBootstrapProvider(),
             new AclBootstrapProvider(),
-            new TwigServiceProvider(),
-            new SprykerTwigServiceProvider(),
-            new EnvironmentInformationServiceProvider(),
+            new ServiceControllerServiceProvider(),
+            new RoutingServiceProvider(),
+            new MvcRoutingServiceProvider(),
+            new SilexRoutingServiceProvider(),
             $this->getGatewayServiceProvider(),
-            new AssertionServiceProvider(),
-            new UserServiceProvider($container),
-            new PriceServiceProvider(),
-            new DateFormatterServiceProvider(),
-            new TranslationServiceProvider(),
+            new NewRelicServiceProvider(),
+            new HttpFragmentServiceProvider(),
             new SubRequestServiceProvider(),
-            new WebProfilerServiceProvider(),
-            new ZedHstsServiceProvider(),
         ];
 
-        if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER, false)) {
-            $providers[] = new WebProfilerServiceProvider();
-        }
-
-        $providers = array_merge($providers, $coreProviders);
-
-        return $providers;
     }
 
     /**
