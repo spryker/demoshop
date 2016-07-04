@@ -89,8 +89,8 @@ class SalesFacadeTest extends Test
         $this->assertSame(159.67, $itemTransfer1->getSumTaxAmount());
         $this->assertSame(127.73, $itemTransfer2->getSumTaxAmount());
 
-        $this->assertSame(840.0, $itemTransfer1->getRefundableAmount());
-        $this->assertSame(750.0, $itemTransfer2->getRefundableAmount());
+        $this->assertSame(740.0, $itemTransfer1->getRefundableAmount());
+        $this->assertSame(650.0, $itemTransfer2->getRefundableAmount());
 
         $expenseTransfer = $orderTransfer->getExpenses()[0];
         $this->assertSame(90.0, $expenseTransfer->getUnitGrossPriceWithDiscounts());
@@ -214,7 +214,7 @@ class SalesFacadeTest extends Test
         $this->assertSame(67.06, $itemTransfer->getUnitTaxAmountWithProductOptionAndDiscountAmounts());
         $this->assertSame(134.12, $itemTransfer->getSumTaxAmountWithProductOptionAndDiscountAmounts());
 
-        $this->assertSame(840.0, $itemTransfer->getRefundableAmount());
+        $this->assertSame(740.0, $itemTransfer->getRefundableAmount());
     }
 
     /**
