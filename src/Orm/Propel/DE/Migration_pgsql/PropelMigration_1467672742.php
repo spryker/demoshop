@@ -2,10 +2,10 @@
 
 /**
  * Data object containing the SQL and PHP code to migrate the database
- * up to version 1467667967.
- * Generated on 2016-07-04 21:32:47 by vagrant
+ * up to version 1467672742.
+ * Generated on 2016-07-04 22:52:22 by vagrant
  */
-class PropelMigration_1467667967
+class PropelMigration_1467672742
 {
     public $comment = '';
 
@@ -76,7 +76,7 @@ CREATE TABLE "spy_product_management_attribute"
     "id_product_management_attribute" INTEGER NOT NULL,
     "fk_metadata" INTEGER NOT NULL,
     "fk_input" INTEGER NOT NULL,
-    "multi" BOOLEAN DEFAULT \'f\' NOT NULL,
+    "is_multiple" BOOLEAN DEFAULT \'f\' NOT NULL,
     "allow_input" BOOLEAN DEFAULT \'t\' NOT NULL,
     "is_localized" BOOLEAN DEFAULT \'f\' NOT NULL,
     PRIMARY KEY ("id_product_management_attribute")
