@@ -7,8 +7,13 @@
 
 namespace Acceptance\Login;
 
+<<<<<<< HEAD
 use Acceptance\Login\Zed\PageObject\LoginPage;
 use Acceptance\Login\Zed\Tester\LoginTester;
+=======
+use Acceptance\Login\Zed\Tester\LoginTester;
+use Acceptance\Login\Zed\PageObject\LoginPage;
+>>>>>>> Cleaned up architecture
 
 /**
  * @group Zed
@@ -19,7 +24,10 @@ class LoginCest
 
     /**
      * @group positive
+<<<<<<< HEAD
      * @group single
+=======
+>>>>>>> Cleaned up architecture
      *
      * @param \Acceptance\Login\Zed\Tester\LoginTester $i
      *

@@ -6,7 +6,10 @@
  */
 
 namespace Acceptance\Discount\Zed;
+<<<<<<< HEAD
 
+=======
+>>>>>>> Cleaned up architecture
 use Acceptance\Discount\Zed\PageObject\DiscountCreatePage;
 use Acceptance\Discount\Zed\Tester\DiscountTester;
 

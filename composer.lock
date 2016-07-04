@@ -8,6 +8,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "hash": "5eb196bdff4615a27d5ffa920a5c7b7c",
 =======
 =======
@@ -16,6 +17,8 @@
 >>>>>>> Discount functionality Overview suite
 =======
 >>>>>>> Acceptance tests changes
+=======
+>>>>>>> Cleaned up architecture
 <<<<<<< HEAD
     "hash": "416e0168bc7c69273e7de2db84bb42ac",
 >>>>>>> Add Acceptance tests
@@ -29,6 +32,8 @@
 >>>>>>> Discount functionality Overview suite
 =======
 >>>>>>> Acceptance tests changes
+=======
+>>>>>>> Cleaned up architecture
     "hash": "e34c822b2c75d69844719a097d265109",
     "content-hash": "2fb46dabe6277817eedf9ba81368e967",
 =======
@@ -64,7 +69,14 @@
     "content-hash": "f1044e6a8ff8fa15838cd7eb00758ae2",
 >>>>>>> Acceptance tests changes
 >>>>>>> Acceptance tests changes
+<<<<<<< HEAD
 >>>>>>> Acceptance tests changes
+=======
+=======
+    "hash": "9066fd16e993e7e3974c862d00c626da",
+    "content-hash": "79d4d788f546c7abd71b8a481f05dc56",
+>>>>>>> Cleaned up architecture
+>>>>>>> Cleaned up architecture
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1050,10 +1062,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/acceptance-tests",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1063,6 +1076,8 @@
 >>>>>>> Discount functionality Overview suite
 =======
 >>>>>>> Discount tests are added
+=======
+>>>>>>> Cleaned up architecture
 <<<<<<< HEAD
                 "reference": "50335bf8dd90226981087feb709b3d06d6e21249"
 =======
@@ -1070,6 +1085,8 @@
 >>>>>>> Discount functionality Overview suite
 =======
 >>>>>>> Discount tests are added
+=======
+>>>>>>> Cleaned up architecture
 <<<<<<< HEAD
                 "reference": "dfdb601f43614ef723a10a3c8f23049e297ddd58"
 =======
@@ -1077,6 +1094,8 @@
 >>>>>>> Discount functionality Overview suite
 =======
 >>>>>>> Discount tests are added
+=======
+>>>>>>> Cleaned up architecture
 <<<<<<< HEAD
                 "reference": "6039e7307f78ff845e9cbdf1d9114a54c6282088"
 =======
@@ -1084,6 +1103,8 @@
 >>>>>>> Discount functionality Overview suite
 =======
 >>>>>>> Discount tests are added
+=======
+>>>>>>> Cleaned up architecture
 <<<<<<< HEAD
                 "reference": "9cfa7700abf86da05d524298501fddf9c559204c"
 =======
@@ -1091,6 +1112,8 @@
 >>>>>>> Discount functionality Overview suite
 =======
 >>>>>>> Discount tests are added
+=======
+>>>>>>> Cleaned up architecture
 <<<<<<< HEAD
                 "reference": "232da98d6959a8f5bed5bbac8183257b403ce264"
 =======
@@ -1160,11 +1183,29 @@
 >>>>>>> Discount tests are added
 >>>>>>> Discount tests are added
 >>>>>>> Discount tests are added
+<<<<<<< HEAD
 >>>>>>> Discount tests are added
+<<<<<<< HEAD
 >>>>>>> Discount tests are added
+<<<<<<< HEAD
 >>>>>>> Discount tests are added
+<<<<<<< HEAD
 >>>>>>> Discount tests are added
+<<<<<<< HEAD
 >>>>>>> Discount tests are added
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "232da98d6959a8f5bed5bbac8183257b403ce264"
+>>>>>>> Cleaned up architecture
+>>>>>>> Cleaned up architecture
+>>>>>>> Cleaned up architecture
+>>>>>>> Cleaned up architecture
+>>>>>>> Cleaned up architecture
+>>>>>>> Cleaned up architecture
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1662,12 +1703,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-07-20 09:53:37"
 =======
 =======
 >>>>>>> Discount functionality Overview suite
 =======
 >>>>>>> Discount tests are added
+=======
+>>>>>>> Cleaned up architecture
 <<<<<<< HEAD
             "time": "2016-07-19 11:50:25"
 =======
@@ -1675,6 +1719,8 @@
 >>>>>>> Discount functionality Overview suite
 =======
 >>>>>>> Discount tests are added
+=======
+>>>>>>> Cleaned up architecture
 <<<<<<< HEAD
             "time": "2016-07-18 14:55:00"
 =======
@@ -1682,6 +1728,8 @@
 >>>>>>> Discount functionality Overview suite
 =======
 >>>>>>> Discount tests are added
+=======
+>>>>>>> Cleaned up architecture
 <<<<<<< HEAD
             "time": "2016-07-15 12:13:21"
 =======
@@ -1689,6 +1737,8 @@
 >>>>>>> Discount functionality Overview suite
 =======
 >>>>>>> Discount tests are added
+=======
+>>>>>>> Cleaned up architecture
 <<<<<<< HEAD
             "time": "2016-07-13 09:43:41"
 =======
@@ -1696,6 +1746,8 @@
 >>>>>>> Discount functionality Overview suite
 =======
 >>>>>>> Discount tests are added
+=======
+>>>>>>> Cleaned up architecture
 <<<<<<< HEAD
             "time": "2016-07-07 13:55:03"
 =======
@@ -1765,11 +1817,29 @@
 >>>>>>> Discount tests are added
 >>>>>>> Discount tests are added
 >>>>>>> Discount tests are added
+<<<<<<< HEAD
 >>>>>>> Discount tests are added
+<<<<<<< HEAD
 >>>>>>> Discount tests are added
+<<<<<<< HEAD
 >>>>>>> Discount tests are added
+<<<<<<< HEAD
 >>>>>>> Discount tests are added
+<<<<<<< HEAD
 >>>>>>> Discount tests are added
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2016-07-07 13:55:03"
+>>>>>>> Cleaned up architecture
+>>>>>>> Cleaned up architecture
+>>>>>>> Cleaned up architecture
+>>>>>>> Cleaned up architecture
+>>>>>>> Cleaned up architecture
+>>>>>>> Cleaned up architecture
         },
         {
             "name": "symfony-cmf/routing",
@@ -2167,12 +2237,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9"
+                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
-                "reference": "22c55c1bdfb677a3d0678b9ffbfaabcf085a85f9",
+                "url": "https://api.github.com/repos/symfony/form/zipball/23394a60d49d2aa904dacda6e5eb29d88251f9da",
+                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da",
                 "shasum": ""
             },
             "require": {
@@ -4323,54 +4393,10 @@
                 "uri"
             ],
             "time": "2016-06-24 23:00:38"
+        },
+        {
+            "name": "jakoch/phantomjs-installer",
 <<<<<<< HEAD
-=======
-        },
-        {
-            "name": "jakoch/phantomjs-installer",
-            "version": "2.1.1-p03",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jakoch/phantomjs-installer.git",
-                "reference": "d4e9db3d16d5b6e70d1d4941cb84425f9d9fa801"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jakoch/phantomjs-installer/zipball/d4e9db3d16d5b6e70d1d4941cb84425f9d9fa801",
-                "reference": "d4e9db3d16d5b6e70d1d4941cb84425f9d9fa801",
-                "shasum": ""
-            },
-            "require": {
-                "ext-bz2": "*",
-                "ext-openssl": "*"
-            },
-            "type": "custom-installer",
-            "autoload": {
-                "psr-0": {
-                    "PhantomInstaller\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jens-André Koch",
-                    "email": "jakoch@web.de"
-                }
-            ],
-            "description": "A Composer package which installs the PhantomJS binary (Linux, Windows, Mac) into `/bin` of your project.",
-            "keywords": [
-                "binaries",
-                "headless",
-                "phantomjs"
-            ],
-            "time": "2016-05-22 09:49:40"
->>>>>>> added phantomjs installer, added js test
-        },
-        {
-            "name": "jakoch/phantomjs-installer",
 <<<<<<< HEAD
             "version": "2.1.1-p05",
             "source": {
@@ -4384,16 +4410,24 @@
                 "reference": "1aa2a29da48fee62679f7f7a3d446b0e52df494a",
 =======
             "version": "2.1.1-p03",
+=======
+            "version": "2.1.1-p04",
+>>>>>>> Cleaned up architecture
             "source": {
                 "type": "git",
                 "url": "https://github.com/jakoch/phantomjs-installer.git",
-                "reference": "d4e9db3d16d5b6e70d1d4941cb84425f9d9fa801"
+                "reference": "1c10e558b86992c624e358feed4f8936f6cec9b5"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/jakoch/phantomjs-installer/zipball/d4e9db3d16d5b6e70d1d4941cb84425f9d9fa801",
                 "reference": "d4e9db3d16d5b6e70d1d4941cb84425f9d9fa801",
 >>>>>>> Acceptance tests changes
+=======
+                "url": "https://api.github.com/repos/jakoch/phantomjs-installer/zipball/1c10e558b86992c624e358feed4f8936f6cec9b5",
+                "reference": "1c10e558b86992c624e358feed4f8936f6cec9b5",
+>>>>>>> Cleaned up architecture
                 "shasum": ""
             },
             "require": {
@@ -4423,10 +4457,14 @@
                 "phantomjs"
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-07-11 09:07:23"
 =======
             "time": "2016-05-22 09:49:40"
 >>>>>>> Acceptance tests changes
+=======
+            "time": "2016-06-27 14:30:27"
+>>>>>>> Cleaned up architecture
         },
         {
             "name": "myclabs/deep-copy",
@@ -6093,12 +6131,17 @@
         {
             "name": "spryker/code-sniffer",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "0.5.1",
 =======
+=======
+>>>>>>> Cleaned up architecture
 <<<<<<< HEAD
             "version": "0.5",
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> Cleaned up architecture
             "version": "0.4.3",
 >>>>>>> added phantomjs installer, added js test
 >>>>>>> added phantomjs installer, added js test
@@ -6119,6 +6162,7 @@
 =======
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/4418bff748ffc4800a93f6ac5807d9aaf96dd16b",
                 "reference": "4418bff748ffc4800a93f6ac5807d9aaf96dd16b",
+<<<<<<< HEAD
 =======
             "version": "0.4.2",
             "source": {
@@ -6132,7 +6176,12 @@
                 "reference": "4777bbdcba1b950c1919992430b3deef97fd6c61",
 >>>>>>> added phantomjs installer, added js test
 >>>>>>> added phantomjs installer, added js test
+<<<<<<< HEAD
 >>>>>>> added phantomjs installer, added js test
+=======
+=======
+>>>>>>> Cleaned up architecture
+>>>>>>> Cleaned up architecture
                 "shasum": ""
             },
             "require": {
@@ -6162,8 +6211,11 @@
                 "standards"
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-07-18 12:54:56"
 =======
+=======
+>>>>>>> Cleaned up architecture
 <<<<<<< HEAD
             "time": "2016-07-11 10:19:52"
 =======
@@ -6173,7 +6225,13 @@
             "time": "2016-06-17 09:04:47"
 >>>>>>> added phantomjs installer, added js test
 >>>>>>> added phantomjs installer, added js test
+<<<<<<< HEAD
 >>>>>>> added phantomjs installer, added js test
+=======
+=======
+            "time": "2016-07-05 12:30:28"
+>>>>>>> Cleaned up architecture
+>>>>>>> Cleaned up architecture
         },
         {
             "name": "squizlabs/php_codesniffer",

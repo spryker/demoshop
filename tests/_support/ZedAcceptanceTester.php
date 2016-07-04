@@ -1,6 +1,9 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Cleaned up architecture
 use Acceptance\Login\Zed\PageObject\LoginPage;
 use Codeception\Scenario;
 
@@ -17,6 +20,7 @@ class ZedAcceptanceTester extends AcceptanceTester
         $i = $this;
         $i->amZed();
     }
+<<<<<<< HEAD
 =======
 
 /**
@@ -50,6 +54,15 @@ class ZedAcceptanceTester extends \Codeception\Actor
      * @return void
      */
 <<<<<<< HEAD
+=======
+
+    /**
+     * @param $username
+     * @param $password
+     *
+     * @return void
+     */
+>>>>>>> Cleaned up architecture
     public function amLoggedInUser($username = 'admin@spryker.com', $password = 'change123')
     {
         $i = $this;
@@ -68,6 +81,7 @@ class ZedAcceptanceTester extends \Codeception\Actor
         $i->saveSessionSnapshot('LoginZed');
     }
 
+<<<<<<< HEAD
 =======
     public function iAmLoggedIn($username = 'admin@spryker.com', $password = 'change123')
     {
@@ -77,4 +91,6 @@ class ZedAcceptanceTester extends \Codeception\Actor
         $this->click('Login');
     }
 >>>>>>> allow yves and zed to be tested
+=======
+>>>>>>> Cleaned up architecture
 }

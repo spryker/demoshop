@@ -2,5 +2,8 @@ class_name: AcceptanceTester
 modules:
     enabled:
         - WebDriver:
-            url: 'http://zed.de.spryker.dev/'
+            url: ''
             browser: phantomjs
+        - \Module\Yves
+        - \Module\Zed
+        - Cli
