@@ -31,6 +31,7 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     const FACADE_STOCK = 'FACADE_STOCK';
     const FACADE_TAX = 'FACADE_TAX';
     const FACADE_DISCOUNT = 'FACADE_DISCOUNT';
+    const FACADE_PRODUCT_OPTION = 'FACADE_PRODUCT_OPTION';
 
     const QUERY_CONTAINER_CMS = 'QUERY_CONTAINER_CMS';
     const QUERY_CONTAINER_CATEGORY = 'QUERY_CONTAINER_CATEGORY';
@@ -59,6 +60,10 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     public function provideBusinessLayerDependencies(Container $container)
     {
         $container = parent::provideBusinessLayerDependencies($container);
+
+        $container[static::FACADE_PRODUCT_OPTION] = function (Container $container) {
+            return $container->getLocator()->productOption()->facade();
+        };
 
         $container[static::FACADE_CATEGORY] = function (Container $container) {
             return $container->getLocator()->category()->facade();

@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\ProductOption\Persistence;
 
-use Orm\Zed\ProductOption\Persistence\Base\SpyProductOptionGroup as BaseSpyProductOptionGroup;
+use Spryker\Zed\ProductOption\Persistence\Propel\AbstractSpyProductOptionGroup as BaseSpyProductOptionGroup;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_product_option_group' table.

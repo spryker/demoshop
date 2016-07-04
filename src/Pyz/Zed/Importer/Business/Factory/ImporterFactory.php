@@ -20,6 +20,7 @@ use Pyz\Zed\Importer\Business\Importer\Product\ProductPriceImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductSearchImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductStockImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductTaxImporter;
+use Pyz\Zed\Importer\Business\Importer\ProductOption\ProductOptionImporter;
 use Pyz\Zed\Importer\Business\Importer\Shipment\ShipmentImporter;
 use Pyz\Zed\Importer\ImporterDependencyProvider;
 use Spryker\Zed\Cms\Business\Block\BlockManager;
@@ -252,6 +253,18 @@ class ImporterFactory extends AbstractFactory
         );
 
         return $cmsPageImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ProductOption\ProductOptionImporter
+     */
+    public function createProductOptionImporter()
+    {
+        return new ProductOptionImporter(
+            $this->getLocaleFacade(),
+            $this->getGlossaryFacade(),
+            $this->getProductOptionFacade()
+        );
     }
 
     /**

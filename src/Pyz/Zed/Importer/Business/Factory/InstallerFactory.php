@@ -16,6 +16,7 @@ use Pyz\Zed\Importer\Business\Installer\Discount\DiscountInstaller;
 use Pyz\Zed\Importer\Business\Installer\Glossary\GlossaryInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductSearchInstaller;
+use Pyz\Zed\Importer\Business\Installer\ProductOption\ProductOptionInstaller;
 use Pyz\Zed\Importer\Business\Installer\Shipment\ShipmentInstaller;
 use Pyz\Zed\Importer\ImporterConfig;
 
@@ -161,6 +162,27 @@ class InstallerFactory extends AbstractFactory
         );
 
         return $cmsBlockInstaller;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\ProductOption\ProductOptionInstaller
+     */
+    public function createProductOptionsInstaller()
+    {
+        return new ProductOptionInstaller(
+            $this->getImporterProductOptionCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
+     */
+    public function getImporterProductOptionCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_PRODUCT_OPTIONS => $this->createImporterFactory()->createProductOptionImporter(),
+        ];
     }
 
     /**

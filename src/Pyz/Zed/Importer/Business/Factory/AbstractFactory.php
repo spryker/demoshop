@@ -17,6 +17,7 @@ use Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter;
 use Spryker\Zed\Category\Business\Tree\NodeWriter;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 use Spryker\Zed\Product\Business\Attribute\AttributeManager;
+use Spryker\Zed\ProductOption\Business\ProductOptionFacadeInterface;
 
 /**
  * @method \Pyz\Zed\Importer\ImporterConfig getConfig()
@@ -292,6 +293,14 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     protected function getCmsToUrlBridge()
     {
         return $this->getProvidedDependency(ImporterDependencyProvider::BRIDGE_CMS_TO_URL);
+    }
+
+    /**
+     * @return ProductOptionFacadeInterface
+     */
+    protected function getProductOptionFacade()
+    {
+       return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_PRODUCT_OPTION);
     }
 
 }

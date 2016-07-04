@@ -2,10 +2,10 @@
 
 /**
  * Data object containing the SQL and PHP code to migrate the database
- * up to version 1467374939.
- * Generated on 2016-07-01 12:08:59 by vagrant
+ * up to version 1467638246.
+ * Generated on 2016-07-04 13:17:26 by vagrant
  */
-class PropelMigration_1467374939
+class PropelMigration_1467638246
 {
     public $comment = '';
 
@@ -45,6 +45,8 @@ CREATE TABLE "spy_product_option_group"
 (
     "id_product_option_group" INTEGER NOT NULL,
     "fk_tax_set" INTEGER,
+    "name" VARCHAR(255),
+    "active" BOOLEAN,
     PRIMARY KEY ("id_product_option_group")
 );
 
@@ -59,11 +61,12 @@ CREATE SEQUENCE "spy_product_option_value_pk_seq";
 
 CREATE TABLE "spy_product_option_value"
 (
-    "id_product_option_group" INTEGER NOT NULL,
+    "id_product_option_value" INTEGER NOT NULL,
     "price" INTEGER,
     "sku" VARCHAR(255) NOT NULL,
     "value" VARCHAR(255) NOT NULL,
-    PRIMARY KEY ("id_product_option_group")
+    "fk_product_option_group" INTEGER NOT NULL,
+    PRIMARY KEY ("id_product_option_value")
 );
 
 CREATE INDEX "spy_product_option_value-sku" ON "spy_product_option_value" ("sku");
@@ -78,6 +81,10 @@ ALTER TABLE "spy_product_abstract_product_option_group" ADD CONSTRAINT "spy_prod
     REFERENCES "spy_product_abstract" ("id_product_abstract");
 
 ALTER TABLE "spy_product_abstract_product_option_group" ADD CONSTRAINT "spy_product_abstract-fk_product_option_group"
+    FOREIGN KEY ("fk_product_option_group")
+    REFERENCES "spy_product_option_group" ("id_product_option_group");
+
+ALTER TABLE "spy_product_option_value" ADD CONSTRAINT "spy_product_option_value-fk_product_option_group"
     FOREIGN KEY ("fk_product_option_group")
     REFERENCES "spy_product_option_group" ("id_product_option_group");
 ',
