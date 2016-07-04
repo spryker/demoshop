@@ -4,10 +4,3 @@ modules:
         - WebDriver:
             url: 'http://zed.de.spryker.dev/'
             browser: phantomjs
-    config:
-      demoshop:
-        configuration:
-            products:
-                1 :
-                  name: "Iphone 6"
-                  price: 12.44

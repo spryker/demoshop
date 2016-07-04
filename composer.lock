@@ -1056,40 +1056,55 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "b78d4a3fa5941ff2d7cc5546ecd6cae0d07b05b4"
 =======
 =======
 >>>>>>> Discount functionality Overview suite
+=======
+>>>>>>> Discount tests are added
 <<<<<<< HEAD
                 "reference": "50335bf8dd90226981087feb709b3d06d6e21249"
 =======
 =======
 >>>>>>> Discount functionality Overview suite
+=======
+>>>>>>> Discount tests are added
 <<<<<<< HEAD
                 "reference": "dfdb601f43614ef723a10a3c8f23049e297ddd58"
 =======
 =======
 >>>>>>> Discount functionality Overview suite
+=======
+>>>>>>> Discount tests are added
 <<<<<<< HEAD
                 "reference": "6039e7307f78ff845e9cbdf1d9114a54c6282088"
 =======
 =======
 >>>>>>> Discount functionality Overview suite
+=======
+>>>>>>> Discount tests are added
 <<<<<<< HEAD
                 "reference": "9cfa7700abf86da05d524298501fddf9c559204c"
 =======
 =======
 >>>>>>> Discount functionality Overview suite
+=======
+>>>>>>> Discount tests are added
 <<<<<<< HEAD
                 "reference": "232da98d6959a8f5bed5bbac8183257b403ce264"
 =======
 =======
 >>>>>>> Discount functionality Overview suite
+=======
+>>>>>>> Discount tests are added
 <<<<<<< HEAD
                 "reference": "02cc3913724ade2ffe7f876d5a6f839ce568f091"
 =======
 =======
 >>>>>>> Discount functionality Overview suite
+=======
+>>>>>>> Discount tests are added
 <<<<<<< HEAD
                 "reference": "ac93dd5942d9c9557fcc5af95e043559f4a9252a"
 =======
@@ -1119,13 +1134,37 @@
 =======
                 "reference": "15a5d18d57ca1e89001f3fab6c6af325e96fe27c"
 >>>>>>> Discount functionality Overview suite
+<<<<<<< HEAD
 >>>>>>> Discount functionality Overview suite
+<<<<<<< HEAD
 >>>>>>> Discount functionality Overview suite
+<<<<<<< HEAD
 >>>>>>> Discount functionality Overview suite
+<<<<<<< HEAD
 >>>>>>> Discount functionality Overview suite
+<<<<<<< HEAD
 >>>>>>> Discount functionality Overview suite
+<<<<<<< HEAD
 >>>>>>> Discount functionality Overview suite
+<<<<<<< HEAD
 >>>>>>> Discount functionality Overview suite
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "5fc71dc410f71b394ec4010ee2a6a372f325dda1"
+>>>>>>> Discount tests are added
+>>>>>>> Discount tests are added
+>>>>>>> Discount tests are added
+>>>>>>> Discount tests are added
+>>>>>>> Discount tests are added
+>>>>>>> Discount tests are added
+>>>>>>> Discount tests are added
+>>>>>>> Discount tests are added
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1622,40 +1661,55 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-07-20 09:53:37"
 =======
 =======
 >>>>>>> Discount functionality Overview suite
+=======
+>>>>>>> Discount tests are added
 <<<<<<< HEAD
             "time": "2016-07-19 11:50:25"
 =======
 =======
 >>>>>>> Discount functionality Overview suite
+=======
+>>>>>>> Discount tests are added
 <<<<<<< HEAD
             "time": "2016-07-18 14:55:00"
 =======
 =======
 >>>>>>> Discount functionality Overview suite
+=======
+>>>>>>> Discount tests are added
 <<<<<<< HEAD
             "time": "2016-07-15 12:13:21"
 =======
 =======
 >>>>>>> Discount functionality Overview suite
+=======
+>>>>>>> Discount tests are added
 <<<<<<< HEAD
             "time": "2016-07-13 09:43:41"
 =======
 =======
 >>>>>>> Discount functionality Overview suite
+=======
+>>>>>>> Discount tests are added
 <<<<<<< HEAD
             "time": "2016-07-07 13:55:03"
 =======
 =======
 >>>>>>> Discount functionality Overview suite
+=======
+>>>>>>> Discount tests are added
 <<<<<<< HEAD
             "time": "2016-07-07 12:41:43"
 =======
 =======
 >>>>>>> Discount functionality Overview suite
+=======
+>>>>>>> Discount tests are added
 <<<<<<< HEAD
             "time": "2016-07-07 09:12:11"
 =======
@@ -1685,13 +1739,37 @@
 =======
             "time": "2016-06-24 08:35:44"
 >>>>>>> Discount functionality Overview suite
+<<<<<<< HEAD
 >>>>>>> Discount functionality Overview suite
+<<<<<<< HEAD
 >>>>>>> Discount functionality Overview suite
+<<<<<<< HEAD
 >>>>>>> Discount functionality Overview suite
+<<<<<<< HEAD
 >>>>>>> Discount functionality Overview suite
+<<<<<<< HEAD
 >>>>>>> Discount functionality Overview suite
+<<<<<<< HEAD
 >>>>>>> Discount functionality Overview suite
+<<<<<<< HEAD
 >>>>>>> Discount functionality Overview suite
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2016-06-30 15:48:04"
+>>>>>>> Discount tests are added
+>>>>>>> Discount tests are added
+>>>>>>> Discount tests are added
+>>>>>>> Discount tests are added
+>>>>>>> Discount tests are added
+>>>>>>> Discount tests are added
+>>>>>>> Discount tests are added
+>>>>>>> Discount tests are added
         },
         {
             "name": "symfony-cmf/routing",

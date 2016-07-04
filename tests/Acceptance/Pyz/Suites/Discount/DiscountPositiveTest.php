@@ -1,37 +1,31 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: marynaglukhodid
- * Date: 30/06/16
- * Time: 13:51
- */
 
-namespace Acceptance\Pyz\Suits\Customer;
+namespace Acceptance\Pyz\Suites\DiscountPositiveTest;
 
 use Codeception\TestCase\Test;
-use tests\Acceptance\Pyz\Modules\Zed\Customer\LoginPage;
+use tests\Acceptance\Pyz\Modules\Zed\Discount\Discount;
+use tests\Acceptance\Pyz\Data\Zed\Discounts;
 
 /**
- * @group ZedHomepage
+ * @group
  */
-class LoginTest extends Test
+class DiscountPositiveTest extends Test
 {
 
     /**
-     * 1. User can not log in using an invalid Username
-     * 
-    */
-    public function testLoginNegativeName()
+     * 1. User can create exclusive discount
+     *
+     */
+    public function testCreateExclusiveDiscountPositive()
     {
-        LoginPage::of($this->scenario)
-            ->wantTo('Login the system')
-            ->amGoingTo('try to login with an NON valid NAME')
-            ->expect('it is NOT possible')
-            
-            ->doLogin("*", "change123")
-            ->assertMessageBySelector('Authentication failed!', ['class' => 'alert-danger'])
+        Discount::of($this->scenario)
+            ->wantTo('Create valid exclusive discount')
+            ->expect('Exclusive discount is successfully created')
 
-            ->doLogin(rand(10000, 99999).'@spryker.com', "change123")
+            ->doLogin("admin@spryker.com", "change123")
+
+            ->openCreateDiscountPage()
+            ->fillDiscount(Discounts::$discountData[])
             ->assertMessageBySelector('Authentication failed!', ['class' => 'alert-danger'])
 
             ->doLogin('', "change123")
@@ -76,3 +70,7 @@ class LoginTest extends Test
     }
 
 }
+
+
+
+

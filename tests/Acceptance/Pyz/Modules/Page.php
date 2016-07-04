@@ -9,6 +9,7 @@
 namespace tests\Acceptance\Pyz\Modules;
 
 use \AcceptanceTester as AcceptanceTester;
+use tests\Acceptance\Pyz\Data\Discounts;
 
 class Page
 {
@@ -38,7 +39,6 @@ class Page
     public function wantTo($message)
     {
         $this->actor->wantTo($message);
-
         return $this;
     }
 
@@ -60,7 +60,7 @@ class Page
     public function expect($message)
     {
         $this->actor->expect($message);
-        
+
         return $this;
     }
 
@@ -86,4 +86,19 @@ class Page
         return $this;
     }
 
+    /**
+     * @param string $rUsername
+     * @param string $rPassword
+     * @return $this
+     */
+    public function doLogin($rUsername, $rPassword)
+    {
+        $this->actor->amOnPage('/auth/login/');
+        $this->actor->fillField('auth[username]', $rUsername);
+        $this->actor->fillField('auth[password]', $rPassword);
+
+        $this->actor->click('Login');
+
+        return $this;
+    }
 }

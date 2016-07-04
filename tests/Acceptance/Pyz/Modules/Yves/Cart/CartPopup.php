@@ -24,15 +24,4 @@ class CartPopup extends Page
     public static function of($scenario) {
         return new CartPopup($scenario);
     }
-
-
-    /**
-     * @return $this
-     */
-    public function __METHOD___(/*  PARAMS */)
-    {
-        // actions //
-
-        return $this;
-    }
 }
