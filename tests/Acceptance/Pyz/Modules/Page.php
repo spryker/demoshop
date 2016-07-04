@@ -9,7 +9,6 @@
 namespace tests\Acceptance\Pyz\Modules;
 
 use \AcceptanceTester as AcceptanceTester;
-use tests\Acceptance\Pyz\Data\Discounts;
 
 class Page
 {

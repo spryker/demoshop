@@ -6,7 +6,8 @@ use Codeception\TestCase\Test;
 use tests\Acceptance\Pyz\Modules\Zed\Customer\LoginZed;
 
 /**
- * @group
+ * @group overview
+ * 
  */
 class LoginTest extends Test
 {
@@ -14,6 +15,10 @@ class LoginTest extends Test
     /**
      * 1. User can not log in using an invalid Username
      *
+     */
+    
+    /**
+     * @group negative
      */
     public function testLoginNegativeName()
     {
@@ -39,6 +44,10 @@ class LoginTest extends Test
     /**
      * 2. User can not log in using an invalid Surname
      */
+
+    /**
+     * @group negative
+     */
     public function testLoginNegativePassword()
     {
         $username = 'admin@spryker.com';
@@ -58,6 +67,9 @@ class LoginTest extends Test
         ;
     }
 
+    /**
+     * @group positive
+     */
     public function testLoginPositive()
     {
         LoginZed::of($this->scenario)

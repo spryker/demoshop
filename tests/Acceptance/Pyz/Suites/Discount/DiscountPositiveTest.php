@@ -3,74 +3,57 @@
 namespace Acceptance\Pyz\Suites\DiscountPositiveTest;
 
 use Codeception\TestCase\Test;
-use tests\Acceptance\Pyz\Modules\Zed\Discount\Discount;
-use tests\Acceptance\Pyz\Data\Zed\Discounts;
+use tests\Acceptance\Pyz\Modules\Zed\Discount\DiscountZed;
 
 /**
- * @group
+ * @group positive
+ * @group overview
+ * @group smoke
+ * @group discount
+ * 
  */
 class DiscountPositiveTest extends Test
 {
 
     /**
-     * 1. User can create exclusive discount
+     * 1. User can create valid exclusive discount in Zed. Discount is successfully saved.
      *
      */
     public function testCreateExclusiveDiscountPositive()
     {
-        Discount::of($this->scenario)
+        DiscountZed::of($this->scenario)
             ->wantTo('Create valid exclusive discount')
             ->expect('Exclusive discount is successfully created')
-
             ->doLogin("admin@spryker.com", "change123")
-
+            
             ->openCreateDiscountPage()
-            ->fillDiscount(Discounts::$discountData[])
-            ->assertMessageBySelector('Authentication failed!', ['class' => 'alert-danger'])
-
-            ->doLogin('', "change123")
-            ->assertMessageBySelector('Authentication failed!', ['class' => 'alert-danger'])
-
-            ->doLogin('admin%%%', "change123")
-            ->assertMessageBySelector('Authentication failed!', ['class' => 'alert-danger'])
+            ->createDiscount('validExclusiveDiscount')
+            
+            ->verifySuccessfulAlertIsPresent()
+            
+            ->activateDiscountFromEditForm()
+            ->verifyDiscountIsActivated()
         ;
     }
 
     /**
-     * 2. User can not log in using an invalid Surname
+     * 2. User can create valid non-exclusive discount in Zed. Discount is successfully saved.
+     *
      */
-    public function testLoginNegativePassword()
+    public function testCreateNonExclusiveDiscountPositive()
     {
-        $username = 'admin@spryker.com';
-        LoginPage::of($this->scenario)
-            ->wantTo('Login the system')
-            ->amGoingTo('try to log in with an NON valid PASSWORD')
-            ->expect('it is NOT possible')
+        DiscountZed::of($this->scenario)
+            ->wantTo('Create valid non-exclusive discount')
+            ->expect('Non-exclusive discount is successfully created')
+            ->doLogin("admin@spryker.com", "change123")
 
-            ->doLogin($username, "*")
-            ->assertMessageBySelector('Authentication failed!', ['class' => 'alert-danger'])
+            ->openCreateDiscountPage()
+            ->createDiscount('validNonExclusiveDiscount123')
 
-            ->doLogin($username, rand(3, 20))
-            ->assertMessageBySelector('Authentication failed!', ['class' => 'alert-danger'])
+            ->verifySuccessfulAlertIsPresent()
 
-            ->doLogin($username, "ch**ge123")
-            ->assertMessageBySelector('Authentication failed!', ['class' => 'alert-danger'])
+            ->activateDiscountFromEditForm()
+            ->verifyDiscountIsActivated()
         ;
     }
-
-    public function testLoginPositive()
-    {
-        LoginPage::of($this->scenario)
-            ->wantTo('Login the system')
-            ->amGoingTo('try to login with an NON valid NAME')
-            ->expect('it is NOT possible')
-
-            ->doLogin("admin@spryker.com", "change123")
-            ->assertNoMessageBySelector('Authentication failed!', ['class' => 'alert-danger']);
-    }
-
 }
-
-
-
-
