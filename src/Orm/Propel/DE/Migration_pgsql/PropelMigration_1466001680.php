@@ -39,10 +39,6 @@ class PropelMigration_1466001680
     {
         return array (
   'zed' => '
-ALTER TABLE "spy_state_machine_lock"
-
-  ALTER COLUMN "identifier" TYPE VARCHAR(1024);
-
 ALTER TABLE "spy_tax_rate"
 
   ADD "fk_country" INTEGER;
@@ -64,10 +60,6 @@ ALTER TABLE "spy_tax_rate" ADD CONSTRAINT "spy_tax_rate-fk_country"
     {
         return array (
   'zed' => '
-ALTER TABLE "spy_state_machine_lock"
-
-  ALTER COLUMN "identifier" TYPE VARCHAR(255);
-
 ALTER TABLE "spy_tax_rate" DROP CONSTRAINT "spy_tax_rate-fk_country";
 
 ALTER TABLE "spy_tax_rate"
