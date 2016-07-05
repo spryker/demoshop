@@ -12,6 +12,7 @@ use Pyz\Zed\Importer\Business\Installer\Category\CategoryInstaller;
 use Pyz\Zed\Importer\Business\Installer\Category\CategoryRootInstaller;
 use Pyz\Zed\Importer\Business\Installer\Cms\CmsBlockInstaller;
 use Pyz\Zed\Importer\Business\Installer\Cms\CmsPageInstaller;
+use Pyz\Zed\Importer\Business\Installer\Discount\DiscountInstaller;
 use Pyz\Zed\Importer\Business\Installer\Glossary\GlossaryInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductSearchInstaller;
@@ -105,6 +106,19 @@ class InstallerFactory extends AbstractFactory
     {
         $glossaryInstaller = new GlossaryInstaller(
             $this->getImporterGlossaryCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+
+        return $glossaryInstaller;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\Glossary\GlossaryInstaller
+     */
+    public function createDiscountInstaller()
+    {
+        $glossaryInstaller = new DiscountInstaller(
+            $this->getDiscountImporterCollection(),
             $this->getConfig()->getImportDataDirectory()
         );
 
@@ -232,6 +246,16 @@ class InstallerFactory extends AbstractFactory
     {
         return [
             ImporterConfig::RESOURCE_GLOSSARY_TRANSLATION => $this->createImporterFactory()->createGlossaryImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ImporterInterface[]
+     */
+    public function getDiscountImporterCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_DISCOUNT => $this->createImporterFactory()->createDiscountImporter(),
         ];
     }
 
