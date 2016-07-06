@@ -35,6 +35,11 @@ class ProductOptionImporter extends AbstractImporter
     protected $productOptionFacade;
 
     /**
+     * @var int
+     */
+    protected $lastGroupId;
+
+    /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Spryker\Zed\Glossary\Business\GlossaryFacadeInterface $glossaryFacade
      * @param \Spryker\Zed\ProductOption\Business\ProductOptionFacadeInterface $productOptionFacade
@@ -65,9 +70,10 @@ class ProductOptionImporter extends AbstractImporter
 
         $abstractProductSKUs = $this->extractSku($data);
         if (count($abstractProductSKUs) > 0) {
-            $idProductOptionGroup = $this->createOptionGroup($data, $productOptionValueTransfer);
-            $this->addProductAbstractToGroup($abstractProductSKUs, $idProductOptionGroup);
+            $this->lastGroupId = $this->createOptionGroup($data, $productOptionValueTransfer);
+            $this->addProductAbstractToGroup($abstractProductSKUs, $this->lastGroupId);
         } else {
+            $productOptionValueTransfer->setFkProductOptionGroup($this->lastGroupId);
             $this->productOptionFacade->saveProductOptionValue($productOptionValueTransfer);
         }
     }
@@ -97,7 +103,7 @@ class ProductOptionImporter extends AbstractImporter
     protected function createProductOptionValueTransfer(array $data, $glossaryKey)
     {
         $productOptionValueTransfer = new ProductOptionValueTransfer();
-        $productOptionValueTransfer->setPrice($this->formatPrice($data));
+        $productOptionValueTransfer->setPrice($this->formatPrice($data) * 100);
         $productOptionValueTransfer->setValue($glossaryKey);
         $productOptionValueTransfer->setSku($data[self::COL_OPTION_SKU]);
 
@@ -174,6 +180,9 @@ class ProductOptionImporter extends AbstractImporter
      */
     protected function extractSku(array $data)
     {
+        if (!$data[self::COL_ABSTRACT_PRODUCT_SK_US]) {
+            return [];
+        }
         return explode(',', $data[self::COL_ABSTRACT_PRODUCT_SK_US]);
     }
 }

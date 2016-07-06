@@ -13,12 +13,14 @@ use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector;
 use Pyz\Zed\Collector\Business\Storage\NavigationCollector;
 use Pyz\Zed\Collector\Business\Storage\PageCollector;
 use Pyz\Zed\Collector\Business\Storage\ProductCollector as StorageProductCollector;
+use Pyz\Zed\Collector\Business\Storage\ProductOptionCollector;
 use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
 use Pyz\Zed\Collector\Business\Storage\TranslationCollector;
 use Pyz\Zed\Collector\Business\Storage\UrlCollector;
 use Pyz\Zed\Collector\CollectorDependencyProvider;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\BlockCollectorQuery as StorageBlockCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\PageCollectorQuery as StoragePageCollectorPropelQuery;
+use Pyz\Zed\Collector\Persistence\Storage\Propel\ProductOptionCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\RedirectCollectorQuery as StorageRedirectCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\TranslationCollectorQuery as StorageTranslationCollectorPropelQuery;
 use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderDependencyContainer;
@@ -210,6 +212,23 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
+     * @return \Pyz\Zed\Collector\Business\Storage\ProductOptionCollector
+     */
+    public function createStorageProductOptionCollector()
+    {
+        $productOptionCollector = new ProductOptionCollector();
+
+        $productOptionCollector->setTouchQueryContainer(
+            $this->getTouchQueryContainer()
+        );
+        $productOptionCollector->setQueryBuilder(
+            $this->createProductOptionCollectorPropelQuery()
+        );
+
+        return $productOptionCollector;
+    }
+
+    /**
      * @param string $name
      *
      * @throws \Exception
@@ -249,6 +268,14 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $queryBuilderClassName = $classList[$name];
 
         return new $queryBuilderClassName();
+    }
+
+    /**
+     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\BlockCollectorQuery
+     */
+    public function createProductOptionCollectorPropelQuery()
+    {
+        return new ProductOptionCollectorQuery();
     }
 
     /**
