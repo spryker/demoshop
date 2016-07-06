@@ -67,6 +67,7 @@
     "spryker/product-cart-connector": "^2.0.0",
     "spryker/product-category": "^2.0.0",
     "spryker/product-discount-connector": "^1.0.0",
+    "spryker/product-image": "^1.0",
     "spryker/product-option": "^2.0.0",
     "spryker/product-option-cart-connector": "^2.0.0",
     "spryker/product-option-discount-connector": "^2.0.0",
