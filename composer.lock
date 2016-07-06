@@ -4,9 +4,56 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "79c479a76e0e3afabd5ad19afa4e8fc0",
-    "content-hash": "a0e6c5b170db8a64ceb74290428fe073",
+    "hash": "befd78d6e298f6ff588b162c6f641135",
+    "content-hash": "a6c2d6f6053020c7395a7e1e2a321fe4",
     "packages": [
+        {
+            "name": "braintree/braintree_php",
+            "version": "3.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/braintree/braintree_php.git",
+                "reference": "0c13b6235bc99c287d18e8cfc02359e66abaa3fb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/braintree/braintree_php/zipball/0c13b6235bc99c287d18e8cfc02359e66abaa3fb",
+                "reference": "0c13b6235bc99c287d18e8cfc02359e66abaa3fb",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-dom": "*",
+                "ext-hash": "*",
+                "ext-openssl": "*",
+                "ext-xmlwriter": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Braintree": "lib/"
+                },
+                "psr-4": {
+                    "Braintree\\": "lib/Braintree"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Braintree",
+                    "homepage": "http://www.braintreepayments.com"
+                }
+            ],
+            "description": "Braintree PHP Client Library",
+            "time": "2016-06-23 15:36:49"
+        },
         {
             "name": "codeception/codeception",
             "version": "2.1.11",
@@ -2856,6 +2903,76 @@
             "time": "2016-04-04 15:24:01"
         },
         {
+            "name": "spryker/braintree",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/Braintree.git",
+                "reference": "54f4da5aaeccf5d46c10951d5d77e6562a16cf46",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/Braintree/zipball/54f4da5aaeccf5d46c10951d5d77e6562a16cf46",
+                "reference": "54f4da5aaeccf5d46c10951d5d77e6562a16cf46",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "braintree/braintree_php": "~3.14.0",
+                "spryker/application": "^2.0.0",
+                "spryker/checkout": "^2.1.3",
+                "spryker/config": "^2.0.0",
+                "spryker/country": "^2.0.0",
+                "spryker/customer": "^2.0.0",
+                "spryker/gui": "^2.0.0",
+                "spryker/guzzle": "^2.0.0",
+                "spryker/kernel": "^2.0.0",
+                "spryker/library": "^2.0.0",
+                "spryker/mail": "^2.0.0",
+                "spryker/oms": "^2.0.0 || ^3.0.0",
+                "spryker/payment": "^2.0.0",
+                "spryker/propel": "^2.0.0",
+                "spryker/sales": "^2.0.0",
+                "spryker/step-engine": "^1.0.1",
+                "spryker/symfony": "^2.0.0",
+                "spryker/transfer": "^2.0.0",
+                "spryker/url": "^2.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/",
+                    "Functional": "tests/",
+                    "Unit": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "braintree bundle",
+            "support": {
+                "source": "https://github.com/spryker/Braintree/tree/master"
+            },
+            "time": "2016-07-06 13:45:52"
+        },
+        {
             "name": "spryker/cache",
             "version": "2.1.0",
             "source": {
@@ -3968,6 +4085,60 @@
                 "source": "https://github.com/spryker/DiscountCalculationConnector/tree/master"
             },
             "time": "2016-06-30 14:13:47"
+        },
+        {
+            "name": "spryker/discount-sales-aggregator-connector",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/DiscountSalesAggregatorConnector.git",
+                "reference": "667f834d35afbe1c2cf36adb5da6160568e9ac81",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/DiscountSalesAggregatorConnector/zipball/667f834d35afbe1c2cf36adb5da6160568e9ac81",
+                "reference": "667f834d35afbe1c2cf36adb5da6160568e9ac81",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/discount": "^3.0.0",
+                "spryker/kernel": "^2.0.0",
+                "spryker/sales-aggregator": "^1.0.0",
+                "spryker/tax": "^2.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/",
+                    "Unit": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "discount sales aggregator connector bundle",
+            "support": {
+                "source": "https://github.com/spryker/DiscountSalesAggregatorConnector/tree/master"
+            },
+            "time": "2016-07-04 09:16:51"
         },
         {
             "name": "spryker/dummy-payment",
@@ -6047,6 +6218,62 @@
                 "source": "https://github.com/spryker/ProductCategory/tree/master"
             },
             "time": "2016-06-10 07:23:14"
+        },
+        {
+            "name": "spryker/product-discount-connector",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/ProductDiscountConnector.git",
+                "reference": "2c422e1b5e9ebc98c585e5864504ad0ca6ffcdd8",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/ProductDiscountConnector/zipball/2c422e1b5e9ebc98c585e5864504ad0ca6ffcdd8",
+                "reference": "2c422e1b5e9ebc98c585e5864504ad0ca6ffcdd8",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/discount": "^3.0.0",
+                "spryker/product": "^2.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/",
+                    "Acceptance": "tests/",
+                    "Functional": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/",
+                    "YvesUnit": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "product discount connector bundle",
+            "support": {
+                "source": "https://github.com/spryker/ProductDiscountConnector/tree/master"
+            },
+            "time": "2016-06-30 17:17:38"
         },
         {
             "name": "spryker/product-image",
