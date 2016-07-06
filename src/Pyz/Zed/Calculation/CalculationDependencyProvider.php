@@ -32,31 +32,33 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
     protected function getCalculatorStack(Container $container)
     {
         return [
-            #Remove calculated values, start with clean state.
+            //Remove calculated values, start with clean state.
             new RemoveTotalsCalculatorPlugin(),
             new RemoveAllCalculatedDiscountsCalculatorPlugin(),
 
-            #Item calculators
+            //Item calculators
             new ItemGrossAmountsCalculatorPlugin(),
             new ProductOptionGrossSumCalculatorPlugin(),
 
-            #SubTotal
+            //SubTotal
             new SubtotalTotalsCalculatorPlugin(),
 
-            #Expenses (e.g. shipping)
+            //Expenses (e.g. shipping)
             new ExpensesGrossSumAmountCalculatorPlugin(),
             new ExpenseTotalsCalculatorPlugin(),
 
-            #Discounts
+            //Grand total
+            new GrandTotalTotalsCalculatorPlugin(),
+
+            //Discounts
             new DiscountCalculatorPlugin(),
             new SumGrossCalculatedDiscountAmountCalculatorPlugin(),
             new DiscountTotalsCalculatorPlugin(),
 
-            #GrandTotal
-            new GrandTotalTotalsCalculatorPlugin(),
+            //GrandTotal with discounts
             new GrandTotalWithDiscountsCalculatorPlugin(),
 
-            #TaxTotal
+            //TaxTotal
             new TaxTotalsCalculatorPlugin(),
 
         ];

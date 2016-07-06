@@ -21,25 +21,6 @@ $jobs[] = [
     'stores' => $allStores,
 ];
 
-/* STATE MACHINE */
-$jobs[] = [
-    'name' => 'check-statemachine-conditions',
-    'command' => '$PHP_BIN vendor/bin/console oms:check-condition',
-    'schedule' => '* * * * *',
-    'enable' => true,
-    'run_on_non_production' => true,
-    'stores' => $allStores,
-];
-
-$jobs[] = [
-    'name' => 'check-statemachine-timeouts',
-    'command' => '$PHP_BIN vendor/bin/console oms:check-timeout',
-    'schedule' => '* * * * *',
-    'enable' => true,
-    'run_on_non_production' => true,
-    'stores' => $allStores,
-];
-
 $jobs[] = [
     'name' => 'export-kv',
     'command' => '$PHP_BIN vendor/bin/console collector:storage:export',
@@ -66,6 +47,54 @@ $jobs[] = [
     'stores' => $allStores,
 ];
 
+/* Oms */
+$jobs[] = [
+    'name' => 'check-oms-conditions',
+    'command' => '$PHP_BIN vendor/bin/console oms:check-condition',
+    'schedule' => '* * * * *',
+    'enable' => true,
+    'run_on_non_production' => true,
+    'stores' => $allStores,
+];
+
+$jobs[] = [
+    'name' => 'check-oms-timeouts',
+    'command' => '$PHP_BIN vendor/bin/console oms:check-timeout',
+    'schedule' => '* * * * *',
+    'enable' => true,
+    'run_on_non_production' => true,
+    'stores' => $allStores,
+];
+
+$jobs[] = [
+    'name' => 'clear-oms-locks',
+    'command' => '$PHP_BIN vendor/bin/console oms:clear-locks',
+    'schedule' => '0 6 * * *',
+    'enable' => true,
+    'run_on_non_production' => true,
+    'stores' => $allStores,
+];
+
+/* StateMachine */
+/*
+$jobs[] = [
+    'name' => 'check-state-machine-conditions',
+    'command' => '$PHP_BIN vendor/bin/console state-machine:check-condition',
+    'schedule' => '* * * * *',
+    'enable' => true,
+    'run_on_non_production' => true,
+    'stores' => $allStores,
+];
+
+$jobs[] = [
+    'name' => 'check-state-machine-timeouts',
+    'command' => '$PHP_BIN vendor/bin/console state-machine:check-timeout',
+    'schedule' => '* * * * *',
+    'enable' => true,
+    'run_on_non_production' => true,
+    'stores' => $allStores,
+];
+
 $jobs[] = [
     'name' => 'clear-state-machine-locks',
     'command' => '$PHP_BIN vendor/bin/console state-machine:clear-locks',
@@ -74,3 +103,4 @@ $jobs[] = [
     'run_on_non_production' => true,
     'stores' => $allStores,
 ];
+*/

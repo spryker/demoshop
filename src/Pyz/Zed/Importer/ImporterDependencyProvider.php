@@ -13,11 +13,11 @@ use Spryker\Zed\Category\Dependency\Facade\CategoryToUrlBridge;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryBridge;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToTouchBridge;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToUrlBridge;
-use Spryker\Zed\Installer\InstallerDependencyProvider as SprykerInstallerDependencyProvider;
+use Spryker\Zed\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Propel\Communication\Plugin\Connection;
 
-class ImporterDependencyProvider extends SprykerInstallerDependencyProvider
+class ImporterDependencyProvider extends AbstractBundleDependencyProvider
 {
 
     const FACADE_CATEGORY = 'FACADE_CATEGORY';
@@ -30,6 +30,7 @@ class ImporterDependencyProvider extends SprykerInstallerDependencyProvider
     const FACADE_URL = 'FACADE_URL';
     const FACADE_STOCK = 'FACADE_STOCK';
     const FACADE_TAX = 'FACADE_TAX';
+    const FACADE_DISCOUNT = 'FACADE_DISCOUNT';
 
     const QUERY_CONTAINER_CMS = 'QUERY_CONTAINER_CMS';
     const QUERY_CONTAINER_CATEGORY = 'QUERY_CONTAINER_CATEGORY';
@@ -59,103 +60,107 @@ class ImporterDependencyProvider extends SprykerInstallerDependencyProvider
     {
         $container = parent::provideBusinessLayerDependencies($container);
 
-        $container[self::FACADE_CATEGORY] = function (Container $container) {
+        $container[static::FACADE_CATEGORY] = function (Container $container) {
             return $container->getLocator()->category()->facade();
         };
 
-        $container[self::FACADE_LOCALE] = function (Container $container) {
+        $container[static::FACADE_LOCALE] = function (Container $container) {
             return $container->getLocator()->locale()->facade();
         };
 
-        $container[self::FACADE_GLOSSARY] = function (Container $container) {
+        $container[static::FACADE_GLOSSARY] = function (Container $container) {
             return $container->getLocator()->glossary()->facade();
         };
 
-        $container[self::FACADE_PRODUCT] = function (Container $container) {
+        $container[static::FACADE_PRODUCT] = function (Container $container) {
             return $container->getLocator()->product()->facade();
         };
 
-        $container[self::FACADE_PRODUCT_CATEGORY] = function (Container $container) {
+        $container[static::FACADE_PRODUCT_CATEGORY] = function (Container $container) {
             return $container->getLocator()->productCategory()->facade();
         };
 
-        $container[self::FACADE_TOUCH] = function (Container $container) {
+        $container[static::FACADE_TOUCH] = function (Container $container) {
             return $container->getLocator()->touch()->facade();
         };
 
-        $container[self::FACADE_URL] = function (Container $container) {
+        $container[static::FACADE_URL] = function (Container $container) {
             return $container->getLocator()->url()->facade();
         };
 
-        $container[self::FACADE_STOCK] = function (Container $container) {
+        $container[static::FACADE_STOCK] = function (Container $container) {
             return $container->getLocator()->stock()->facade();
         };
 
-        $container[self::FACADE_TAX] = function (Container $container) {
+        $container[static::FACADE_TAX] = function (Container $container) {
             return $container->getLocator()->tax()->facade();
         };
 
-        $container[self::FACADE_PRODUCT_SEARCH] = function (Container $container) {
+        $container[static::FACADE_PRODUCT_SEARCH] = function (Container $container) {
             return $container->getLocator()->productSearch()->facade();
         };
 
-        $container[self::QUERY_CONTAINER_CMS] = function (Container $container) {
+        $container[static::FACADE_DISCOUNT] = function (Container $container) {
+            return $container->getLocator()->discount()->facade();
+        };
+
+        $container[static::QUERY_CONTAINER_CMS] = function (Container $container) {
             return $container->getLocator()->cms()->queryContainer();
         };
 
-        $container[self::QUERY_CONTAINER_PRODUCT] = function (Container $container) {
+        $container[static::QUERY_CONTAINER_PRODUCT] = function (Container $container) {
             return $container->getLocator()->product()->queryContainer();
         };
 
-        $container[self::QUERY_CONTAINER_PRODUCT_CATEGORY] = function (Container $container) {
+        $container[static::QUERY_CONTAINER_PRODUCT_CATEGORY] = function (Container $container) {
             return $container->getLocator()->productCategory()->queryContainer();
         };
 
-        $container[self::QUERY_CONTAINER_PRODUCT_SEARCH] = function (Container $container) {
+        $container[static::QUERY_CONTAINER_PRODUCT_SEARCH] = function (Container $container) {
             return $container->getLocator()->productSearch()->queryContainer();
         };
 
-        $container[self::QUERY_CONTAINER_PRICE] = function (Container $container) {
+        $container[static::QUERY_CONTAINER_PRICE] = function (Container $container) {
             return $container->getLocator()->price()->queryContainer();
         };
 
-        $container[self::QUERY_CONTAINER_CATEGORY] = function (Container $container) {
+        $container[static::QUERY_CONTAINER_CATEGORY] = function (Container $container) {
             return $container->getLocator()->category()->queryContainer();
         };
 
-        $container[self::QUERY_CONTAINER_LOCALE] = function (Container $container) {
+        $container[static::QUERY_CONTAINER_LOCALE] = function (Container $container) {
             return $container->getLocator()->locale()->queryContainer();
         };
 
-        $container[self::QUERY_CONTAINER_SHIPMENT] = function (Container $container) {
+        $container[static::QUERY_CONTAINER_SHIPMENT] = function (Container $container) {
             return $container->getLocator()->shipment()->queryContainer();
         };
 
-        $container[self::BRIDGE_CATEGORY_TO_URL] = function (Container $container) {
+        $container[static::BRIDGE_CATEGORY_TO_URL] = function (Container $container) {
             return new CategoryToUrlBridge($container->getLocator()->url()->facade());
         };
 
-        $container[self::BRIDGE_CATEGORY_TO_TOUCH] = function (Container $container) {
+        $container[static::BRIDGE_CATEGORY_TO_TOUCH] = function (Container $container) {
             return new CategoryToTouchBridge($container->getLocator()->touch()->facade());
         };
 
-        $container[self::BRIDGE_CATEGORY_TO_LOCALE] = function (Container $container) {
+        $container[static::BRIDGE_CATEGORY_TO_LOCALE] = function (Container $container) {
             return new CategoryToLocaleBridge($container->getLocator()->locale()->facade());
         };
 
-        $container[self::BRIDGE_CMS_TO_GLOSSARY] = function (Container $container) {
+        $container[static::BRIDGE_CMS_TO_GLOSSARY] = function (Container $container) {
             return new CmsToGlossaryBridge($container->getLocator()->glossary()->facade());
         };
 
-        $container[self::BRIDGE_CMS_TO_TOUCH] = function (Container $container) {
+        $container[static::BRIDGE_CMS_TO_TOUCH] = function (Container $container) {
             return new CmsToTouchBridge($container->getLocator()->touch()->facade());
         };
 
-        $container[self::BRIDGE_CMS_TO_URL] = function (Container $container) {
+        $container[static::BRIDGE_CMS_TO_URL] = function (Container $container) {
             return new CmsToUrlBridge($container->getLocator()->url()->facade());
         };
 
-        $container[self::PLUGIN_PROPEL_CONNECTION] = function () {
+        $container[static::PLUGIN_PROPEL_CONNECTION] = function () {
             return (new Connection())->get();
         };
 

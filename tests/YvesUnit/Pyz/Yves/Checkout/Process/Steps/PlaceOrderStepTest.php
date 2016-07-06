@@ -1,6 +1,8 @@
 <?php
+
 /**
- * (c) Spryker Systems GmbH copyright protected
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
@@ -45,6 +47,7 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
         $checkoutClientMock = $this->createCheckoutClientMock();
 
         $checkoutResponseTransfer = new CheckoutResponseTransfer();
+        $checkoutResponseTransfer->setIsSuccess(true);
         $saverOrderTransfer = new SaveOrderTransfer();
         $saverOrderTransfer->setOrderReference('#123');
         $checkoutResponseTransfer->setSaveOrder($saverOrderTransfer);
@@ -85,11 +88,15 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
      */
     public function testPostConditionsShouldReturnTrueWhenOrderPlaceIsReady()
     {
+        $checkoutResponseTransfer = new CheckoutResponseTransfer();
+        $checkoutResponseTransfer->setIsSuccess(true);
         $checkoutClientMock = $this->createCheckoutClientMock();
+        $checkoutClientMock->expects($this->once())->method('placeOrder')->willReturn($checkoutResponseTransfer);
         $placeOrderStep = $this->createPlaceOrderStep($checkoutClientMock);
         $quoteTransfer = new QuoteTransfer();
         $quoteTransfer->setOrderReference('#123');
 
+        $placeOrderStep->execute($this->createRequest(), $quoteTransfer);
         $this->assertTrue($placeOrderStep->postCondition($quoteTransfer));
     }
 

@@ -124,7 +124,7 @@ class YvesBootstrap
         $ssl = Config::get(ApplicationConstants::YVES_SSL_ENABLED);
 
         $controllerProviders = [
-            new ApplicationControllerProvider(false),
+            new ApplicationControllerProvider($ssl),
             new CheckoutControllerProvider($ssl),
             new CustomerControllerProvider($ssl),
             new CartControllerProvider($ssl),
