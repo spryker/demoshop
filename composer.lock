@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "713b899f874c659e6d0491a29fe63a2c",
-    "content-hash": "2841ea8505f3b60219ede5b56bb5ca3c",
+    "hash": "5a06e6c050bb1f3427a7aa7a2a603abb",
+    "content-hash": "cf231d0a4e8fde86408be3fababc7f96",
     "packages": [
         {
             "name": "braintree/braintree_php",
-            "version": "3.13.0",
+            "version": "3.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/braintree/braintree_php.git",
-                "reference": "cbee7c8c998aff5d5df682cc0b2cf3f403dbba76"
+                "reference": "0c13b6235bc99c287d18e8cfc02359e66abaa3fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/braintree/braintree_php/zipball/cbee7c8c998aff5d5df682cc0b2cf3f403dbba76",
-                "reference": "cbee7c8c998aff5d5df682cc0b2cf3f403dbba76",
+                "url": "https://api.github.com/repos/braintree/braintree_php/zipball/0c13b6235bc99c287d18e8cfc02359e66abaa3fb",
+                "reference": "0c13b6235bc99c287d18e8cfc02359e66abaa3fb",
                 "shasum": ""
             },
             "require": {
@@ -52,7 +52,7 @@
                 }
             ],
             "description": "Braintree PHP Client Library",
-            "time": "2016-05-23 18:22:21"
+            "time": "2016-06-23 15:36:49"
         },
         {
             "name": "container-interop/container-interop",
@@ -995,7 +995,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "2456039c10c50175640b5d1f081653ffeffe0d0e"
+                "reference": "18f1602e79f26842b4f9563d2271fbe98dade28a"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1492,7 +1492,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-07-06 08:35:30"
+            "time": "2016-07-06 09:58:53"
         },
         {
             "name": "symfony-cmf/routing",
