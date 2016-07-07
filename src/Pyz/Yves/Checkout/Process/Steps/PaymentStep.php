@@ -22,7 +22,7 @@ class PaymentStep extends AbstractBaseStep
     protected $paymentPlugins;
 
     /**
-     * @var FlashMessengerInterface
+     * @var \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface
      */
     protected $flashMessenger;
 
