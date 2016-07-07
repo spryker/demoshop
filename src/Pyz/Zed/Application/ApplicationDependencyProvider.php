@@ -125,6 +125,11 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
         ];
     }
 
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return array
+     */
     protected function getInternalCallServiceProviderWithAuthentication(Container $container)
     {
         return [
