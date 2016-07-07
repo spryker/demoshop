@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
@@ -15,10 +16,7 @@ class FlashMessengerServiceProvider extends AbstractPlugin implements ServicePro
 {
 
     /**
-     * Registers services on the given app.
-     *
-     * This method should only be used to configure services and parameters.
-     * It should not get services.
+     * @param \Silex\Application $app
      *
      * @return void
      */
@@ -30,11 +28,7 @@ class FlashMessengerServiceProvider extends AbstractPlugin implements ServicePro
     }
 
     /**
-     * Bootstraps the application.
-     *
-     * This method is called after all services are registered
-     * and should be used for "dynamic" configuration (whenever
-     * a service must be requested).
+     * @param \Silex\Application $app
      *
      * @return void
      */
@@ -45,7 +39,7 @@ class FlashMessengerServiceProvider extends AbstractPlugin implements ServicePro
     /**
      * @param \Silex\Application $app
      *
-     * @return \Pyz\Yves\Application\Business\Model\FlashMessenger
+     * @return \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface
      */
     protected function createFlashMessenger(Application $app)
     {

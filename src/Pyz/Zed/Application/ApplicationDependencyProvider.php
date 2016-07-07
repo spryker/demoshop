@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\Application;
 
-use Pyz\Yves\Application\Plugin\Provider\WebProfilerServiceProvider;
+use Pyz\Shared\Application\Plugin\Provider\WebProfilerServiceProvider;
 use Pyz\Yves\NewRelic\Plugin\Provider\NewRelicServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
