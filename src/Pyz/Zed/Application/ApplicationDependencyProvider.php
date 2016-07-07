@@ -127,7 +127,6 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
 
     protected function getInternalCallServiceProviderWithAuthentication(Container $container)
     {
-
         return [
             new LogServiceProvider(),
             new PropelServiceProvider(),
@@ -146,7 +145,6 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new HttpFragmentServiceProvider(),
             new SubRequestServiceProvider(),
         ];
-
     }
 
     /**
