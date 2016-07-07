@@ -3092,11 +3092,11 @@
         },
         {
             "name": "spryker/cart",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Cart.git",
-                "reference": "9b1981074b28d9135a6cdbd92fd20c8e1fe5330c",
+                "reference": "112a54df0a9144a527c2ac12972b0258ec530990",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3106,8 +3106,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Cart/zipball/9b1981074b28d9135a6cdbd92fd20c8e1fe5330c",
-                "reference": "9b1981074b28d9135a6cdbd92fd20c8e1fe5330c",
+                "url": "https://api.github.com/repos/spryker/Cart/zipball/112a54df0a9144a527c2ac12972b0258ec530990",
+                "reference": "112a54df0a9144a527c2ac12972b0258ec530990",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3150,11 +3150,11 @@
             "license": [
                 "proprietary"
             ],
-            "description": "cart bundle",
+            "description": "Cart bundle",
             "support": {
                 "source": "https://github.com/spryker/Cart/tree/master"
             },
-            "time": "2016-04-04 15:24:01"
+            "time": "2016-07-04 12:32:21"
         },
         {
             "name": "spryker/catalog",
@@ -4469,11 +4469,11 @@
         },
         {
             "name": "spryker/gui",
-            "version": "2.1.5",
+            "version": "2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Gui.git",
-                "reference": "6f00e9123bd5045f916d676ce2db626a1c830a41",
+                "reference": "8b90b35454ff4def39595ae7053a9d136ef1c4ad",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4483,8 +4483,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Gui/zipball/6f00e9123bd5045f916d676ce2db626a1c830a41",
-                "reference": "6f00e9123bd5045f916d676ce2db626a1c830a41",
+                "url": "https://api.github.com/repos/spryker/Gui/zipball/8b90b35454ff4def39595ae7053a9d136ef1c4ad",
+                "reference": "8b90b35454ff4def39595ae7053a9d136ef1c4ad",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4528,7 +4528,7 @@
             "support": {
                 "source": "https://github.com/spryker/Gui/tree/master"
             },
-            "time": "2016-06-22 14:26:21"
+            "time": "2016-07-06 14:42:19"
         },
         {
             "name": "spryker/guzzle",
@@ -5673,11 +5673,11 @@
         },
         {
             "name": "spryker/payment",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Payment.git",
-                "reference": "2cead2db9b7b9bd13522c6d120db5ed498590529",
+                "reference": "7eac7c1eb94348c0c327abe781c285d6f9e3a6c4",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5687,8 +5687,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Payment/zipball/2cead2db9b7b9bd13522c6d120db5ed498590529",
-                "reference": "2cead2db9b7b9bd13522c6d120db5ed498590529",
+                "url": "https://api.github.com/repos/spryker/Payment/zipball/7eac7c1eb94348c0c327abe781c285d6f9e3a6c4",
+                "reference": "7eac7c1eb94348c0c327abe781c285d6f9e3a6c4",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5720,11 +5720,11 @@
             "license": [
                 "proprietary"
             ],
-            "description": "payment bundle",
+            "description": "Payment bundle",
             "support": {
                 "source": "https://github.com/spryker/Payment/tree/master"
             },
-            "time": "2016-06-10 04:49:21"
+            "time": "2016-06-29 07:33:43"
         },
         {
             "name": "spryker/payolution",
@@ -6327,11 +6327,11 @@
         },
         {
             "name": "spryker/product-option",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ProductOption.git",
-                "reference": "56e757bcfdb8f634837d01e3af8f7bd663dc7fc6",
+                "reference": "8bee2969769eca2e2f583e63890a2fd5af3a6937",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6341,8 +6341,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductOption/zipball/56e757bcfdb8f634837d01e3af8f7bd663dc7fc6",
-                "reference": "56e757bcfdb8f634837d01e3af8f7bd663dc7fc6",
+                "url": "https://api.github.com/repos/spryker/ProductOption/zipball/8bee2969769eca2e2f583e63890a2fd5af3a6937",
+                "reference": "8bee2969769eca2e2f583e63890a2fd5af3a6937",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6388,7 +6388,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductOption/tree/master"
             },
-            "time": "2016-06-23 08:53:14"
+            "time": "2016-07-04 12:32:21"
         },
         {
             "name": "spryker/product-option-cart-connector",
@@ -6448,11 +6448,11 @@
         },
         {
             "name": "spryker/product-option-discount-connector",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ProductOptionDiscountConnector.git",
-                "reference": "06a0ba7c5de13fc313f0e3e255df9ecf045b1083",
+                "reference": "395c7531e74735f4517c5244ece0fa9c711325fb",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6462,8 +6462,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductOptionDiscountConnector/zipball/06a0ba7c5de13fc313f0e3e255df9ecf045b1083",
-                "reference": "06a0ba7c5de13fc313f0e3e255df9ecf045b1083",
+                "url": "https://api.github.com/repos/spryker/ProductOptionDiscountConnector/zipball/395c7531e74735f4517c5244ece0fa9c711325fb",
+                "reference": "395c7531e74735f4517c5244ece0fa9c711325fb",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6503,7 +6503,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductOptionDiscountConnector/tree/master"
             },
-            "time": "2016-06-30 16:41:21"
+            "time": "2016-07-04 12:32:21"
         },
         {
             "name": "spryker/product-option-exporter",

@@ -63,7 +63,9 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
      */
     protected function getCheckoutPostHooks(Container $container)
     {
-        return [];
+        return [
+            new PaymentPostCheckPlugin(),
+        ];
     }
 
 }
