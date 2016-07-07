@@ -115,5 +115,5 @@ $config[RatepayConstants::PROFILE_ID] = '';
 $config[RatepayConstants::SECURITY_CODE] = '';
 $config[RatepayConstants::SNIPPET_ID] = 'ratepay';
 $config[RatepayConstants::SHOP_ID] = '';
-$config[RatepayConstants::SYSTEM_ID] = '';
+$config[RatepayConstants::SYSTEM_ID] = 'Spryker ' . $config[ApplicationConstants::HOST_SSL_YVES];
 $config[RatepayConstants::API_URL] = 'https://gateway-int.ratepay.com/api/xml/1_0';
