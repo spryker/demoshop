@@ -8,12 +8,12 @@
 namespace Pyz\Yves\Application;
 
 use Pyz\Shared\Application\Business\Routing\SilexRouter;
+use Pyz\Shared\Application\Plugin\Provider\WebProfilerServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\AutoloaderCacheServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\FlashMessengerServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\SessionServiceProvider as ProviderSessionServiceProvider;
-use Pyz\Yves\Application\Plugin\Provider\WebProfilerServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\YvesSecurityServiceProvider;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
 use Pyz\Yves\Catalog\Plugin\Router\SearchRouter;
@@ -124,7 +124,7 @@ class YvesBootstrap
         $ssl = Config::get(ApplicationConstants::YVES_SSL_ENABLED);
 
         $controllerProviders = [
-            new ApplicationControllerProvider(false),
+            new ApplicationControllerProvider($ssl),
             new CheckoutControllerProvider($ssl),
             new CustomerControllerProvider($ssl),
             new CartControllerProvider($ssl),
