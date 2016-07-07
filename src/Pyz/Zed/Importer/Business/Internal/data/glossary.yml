@@ -195,8 +195,8 @@ page.home.featured.bottom-right.right.img:
     en_US: 'smartphone_product.jpg'
 page.home.featured.bottom-right.right.url:
   translations:
-    de_DE: '/de/samsung-smn910f-69'
-    en_US: '/en/samsung-smn910f-69'
+    de_DE: '/de/samsung-sm-n910f-69'
+    en_US: '/en/samsung-sm-n910f-69'
 cart.remove.items.success:
   translations:
     de_DE: 'Produkte wurden erfolgreich aus dem Warenkorb entfernt'
