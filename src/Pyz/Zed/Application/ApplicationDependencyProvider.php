@@ -42,6 +42,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
 
     const SERVICE_PROVIDER = 'SERVICE_PROVIDER';
     const INTERNAL_CALL_SERVICE_PROVIDER = 'INTERNAL_CALL_SERVICE_PROVIDER';
+    const INTERNAL_CALL_SERVICE_PROVIDER_WITH_AUTHENTICATION = 'INTERNAL_CALL_SERVICE_PROVIDER_WITH_AUTHENTICATION';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -56,6 +57,10 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
 
         $container[self::INTERNAL_CALL_SERVICE_PROVIDER] = function (Container $container) {
             return $this->getInternalCallServiceProvider($container);
+        };
+
+        $container[self::INTERNAL_CALL_SERVICE_PROVIDER_WITH_AUTHENTICATION] = function (Container $container) {
+            return $this->getInternalCallServiceProviderWithAuthentication($container);
         };
 
         return $container;
@@ -109,6 +114,33 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new PropelServiceProvider(),
             new RequestServiceProvider(),
             new SslServiceProvider(),
+            new ServiceControllerServiceProvider(),
+            new RoutingServiceProvider(),
+            new MvcRoutingServiceProvider(),
+            new SilexRoutingServiceProvider(),
+            $this->getGatewayServiceProvider(),
+            new NewRelicServiceProvider(),
+            new HttpFragmentServiceProvider(),
+            new SubRequestServiceProvider(),
+        ];
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return array
+     */
+    protected function getInternalCallServiceProviderWithAuthentication(Container $container)
+    {
+        return [
+            new LogServiceProvider(),
+            new PropelServiceProvider(),
+            new RequestServiceProvider(),
+            new SessionServiceProvider(),
+            $this->getSessionServiceProvider($container),
+            new SslServiceProvider(),
+            new AuthBootstrapProvider(),
+            new AclBootstrapProvider(),
             new ServiceControllerServiceProvider(),
             new RoutingServiceProvider(),
             new MvcRoutingServiceProvider(),
