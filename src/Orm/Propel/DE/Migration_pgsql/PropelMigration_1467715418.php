@@ -49,6 +49,17 @@ CREATE TABLE "spy_oms_product_reservation"
     PRIMARY KEY ("id_oms_product_reservation"),
     CONSTRAINT "spy_oms_product_reservation-sku" UNIQUE ("sku")
 );
+
+CREATE SEQUENCE "spy_availability_pk_seq";
+
+CREATE TABLE "spy_availability"
+(
+    "id_availability" INTEGER NOT NULL,
+    "sku" VARCHAR(255) NOT NULL,
+    "quantity" INTEGER NOT NULL,
+    PRIMARY KEY ("id_availability"),
+    CONSTRAINT "spy_availability-sku" UNIQUE ("sku")
+);
 ',
 );
     }
@@ -66,6 +77,10 @@ CREATE TABLE "spy_oms_product_reservation"
 DROP TABLE IF EXISTS "spy_oms_product_reservation" CASCADE;
 
 DROP SEQUENCE "spy_oms_product_reservation_pk_seq";
+
+DROP TABLE IF EXISTS "spy_availability" CASCADE;
+
+DROP SEQUENCE "spy_availability_pk_seq";
 ',
 );
     }
