@@ -93,8 +93,8 @@ page.home.featured.bottom-right.right.category,Smartphone,de_DE
 page.home.featured.bottom-right.right.category,Smartphone,en_US
 page.home.featured.bottom-right.right.img,smartphone_product.jpg,de_DE
 page.home.featured.bottom-right.right.img,smartphone_product.jpg,en_US
-page.home.featured.bottom-right.right.url,/de/samsung-smn910f-69,de_DE
-page.home.featured.bottom-right.right.url,/en/samsung-smn910f-69,en_US
+page.home.featured.bottom-right.right.url,/de/samsung-sm-n910f-69,de_DE
+page.home.featured.bottom-right.right.url,/en/samsung-sm-n910f-69,en_US
 cart.remove.items.success,"Produkte wurden erfolgreich aus dem Warenkorb entfernt",de_DE
 cart.remove.items.success,"Products were removed successfully",en_US
 cart.add.items.success,"Produkte erfolgreich im Warenkorb",de_DE
