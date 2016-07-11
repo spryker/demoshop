@@ -948,7 +948,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "a5017b83d3ccaecbd10841da23af32d795790fc2"
+                "reference": "3dff6e543905bbb700c9c59c456708a3485b6a6e"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -991,6 +991,16 @@
                     "Functional\\Spryker\\Zed\\Availability\\": "Bundles/Availability/tests",
                     "Spryker\\Zed\\AvailabilityCartConnector\\": "Bundles/AvailabilityCartConnector/src",
                     "Unit\\Spryker\\Zed\\AvailabilityCartConnector\\": "Bundles/AvailabilityCartConnector/tests",
+                    "Spryker\\Yves\\Braintree\\": "Bundles/Braintree/src",
+                    "Spryker\\Client\\Braintree\\": "Bundles/Braintree/src",
+                    "Unit\\Spryker\\Client\\Braintree\\": "Bundles/Braintree/tests",
+                    "Functional\\Spryker\\Client\\Braintree\\": "Bundles/Braintree/tests",
+                    "Spryker\\Shared\\Braintree\\": "Bundles/Braintree/src",
+                    "Unit\\Spryker\\Shared\\Braintree\\": "Bundles/Braintree/tests",
+                    "Functional\\Spryker\\Shared\\Braintree\\": "Bundles/Braintree/tests",
+                    "Spryker\\Zed\\Braintree\\": "Bundles/Braintree/src",
+                    "Unit\\Spryker\\Zed\\Braintree\\": "Bundles/Braintree/tests",
+                    "Functional\\Spryker\\Zed\\Braintree\\": "Bundles/Braintree/tests",
                     "Spryker\\Zed\\Cache\\": "Bundles/Cache/src",
                     "Spryker\\Shared\\Calculation\\": "Bundles/Calculation/src",
                     "Unit\\Spryker\\Shared\\Calculation\\": "Bundles/Calculation/tests",
@@ -1169,6 +1179,7 @@
                     "Spryker\\Zed\\Maintenance\\": "Bundles/Maintenance/src",
                     "Unit\\Spryker\\Zed\\Maintenance\\": "Bundles/Maintenance/tests",
                     "Spryker\\Shared\\Messenger\\": "Bundles/Messenger/src",
+                    "Spryker\\Yves\\Messenger\\": "Bundles/Messenger/src",
                     "Unit\\Spryker\\Shared\\Messenger\\": "Bundles/Messenger/tests",
                     "Spryker\\Zed\\Messenger\\": "Bundles/Messenger/src",
                     "Unit\\Spryker\\Zed\\Messenger\\": "Bundles/Messenger/tests",
@@ -1287,6 +1298,12 @@
                     "Unit\\Spryker\\Shared\\Refund\\": "Bundles/Refund/tests",
                     "Spryker\\Zed\\Refund\\": "Bundles/Refund/src",
                     "Unit\\Spryker\\Zed\\Refund\\": "Bundles/Refund/tests",
+                    "Spryker\\Zed\\Ratepay\\": "Bundles/Ratepay/src",
+                    "Spryker\\Yves\\Ratepay\\": "Bundles/Ratepay/src",
+                    "Spryker\\Shared\\Ratepay\\": "Bundles/Ratepay/src",
+                    "Spryker\\Client\\Ratepay\\": "Bundles/Ratepay/src",
+                    "Functional\\Spryker\\Zed\\Ratepay\\": "Bundles/Ratepay/tests",
+                    "Unit\\Spryker\\Zed\\Ratepay\\": "Bundles/Ratepay/tests",
                     "Spryker\\Client\\Sales\\": "Bundles/Sales/src",
                     "Unit\\Spryker\\Client\\Sales\\": "Bundles/Sales/tests",
                     "Functional\\Spryker\\Client\\Sales\\": "Bundles/Sales/tests",
@@ -1435,7 +1452,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-07-05 07:51:36"
+            "time": "2016-07-11 07:43:43"
         },
         {
             "name": "symfony-cmf/routing",
