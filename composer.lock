@@ -7001,11 +7001,11 @@
         },
         {
             "name": "spryker/sales-aggregator",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/SalesAggregator.git",
-                "reference": "1774e059e83d8cf34ef6affddae3802bf9c1ae1a",
+                "reference": "fc9a026ad75b2f1181ed3841914c1ae38a201720",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7015,8 +7015,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/SalesAggregator/zipball/1774e059e83d8cf34ef6affddae3802bf9c1ae1a",
-                "reference": "1774e059e83d8cf34ef6affddae3802bf9c1ae1a",
+                "url": "https://api.github.com/repos/spryker/SalesAggregator/zipball/fc9a026ad75b2f1181ed3841914c1ae38a201720",
+                "reference": "fc9a026ad75b2f1181ed3841914c1ae38a201720",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7026,17 +7026,17 @@
                 ]
             },
             "require": {
-                "spryker/application": "^2.0.0-RC1",
-                "spryker/kernel": "^2.0.0-RC1",
-                "spryker/propel": "^2.0.0-RC1",
-                "spryker/sales": "^2.0.0-RC1",
-                "spryker/symfony": "^2.0.0-RC1",
-                "spryker/tax": "^2.0.0-RC1"
+                "spryker/application": "^2.0.0",
+                "spryker/kernel": "^2.0.0",
+                "spryker/propel": "^2.0.0",
+                "spryker/sales": "^2.0.0",
+                "spryker/symfony": "^2.0.0",
+                "spryker/tax": "^2.0.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "1.0.x-dev"
                 }
             },
             "autoload": {
@@ -7053,19 +7053,19 @@
             "license": [
                 "proprietary"
             ],
-            "description": "sales aggregator bundle",
+            "description": "SalesAggregator bundle",
             "support": {
                 "source": "https://github.com/spryker/SalesAggregator/tree/master"
             },
-            "time": "2016-04-01 13:06:05"
+            "time": "2016-07-11 10:29:53"
         },
         {
             "name": "spryker/sales-split",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/SalesSplit.git",
-                "reference": "a9079df2361c2abcef9467fbf2e84fa302c9083c",
+                "reference": "c7c5ed414e9b0d9f8c889b7d6fa2afe6eef77204",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7075,8 +7075,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/SalesSplit/zipball/a9079df2361c2abcef9467fbf2e84fa302c9083c",
-                "reference": "a9079df2361c2abcef9467fbf2e84fa302c9083c",
+                "url": "https://api.github.com/repos/spryker/SalesSplit/zipball/c7c5ed414e9b0d9f8c889b7d6fa2afe6eef77204",
+                "reference": "c7c5ed414e9b0d9f8c889b7d6fa2afe6eef77204",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7112,11 +7112,11 @@
             "license": [
                 "proprietary"
             ],
-            "description": "sales split bundle",
+            "description": "SalesSplit bundle",
             "support": {
                 "source": "https://github.com/spryker/SalesSplit/tree/master"
             },
-            "time": "2016-06-06 10:50:18"
+            "time": "2016-07-11 10:31:20"
         },
         {
             "name": "spryker/search",
