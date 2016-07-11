@@ -43,6 +43,7 @@ dependencies:
 
 test:
   override:
+<<<<<<< HEAD
     - vendor/bin/console propel:install -o
     - vendor/bin/console transfer:generate
     - vendor/bin/console setup:init-db
@@ -52,6 +53,10 @@ test:
     - vendor/bin/console application:build-navigation-cache
 
     - chmod -R 777 data/
+=======
+    - vendor/bin/phantomjs --webdriver=4444
+    - vendor/bin/console propel:install
+>>>>>>> wip
     - vendor/bin/codecept build
     - vendor/bin/phantomjs --webdriver=4444: {background: true}
     - vendor/bin/codecept run --debug

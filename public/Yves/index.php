@@ -1,5 +1,6 @@
 <?php
 
+echo "Hallo Yves";exit;
 use Pyz\Yves\Application\YvesBootstrap;
 use Spryker\Shared\Library\Application\Environment;
 
