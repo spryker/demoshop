@@ -6,6 +6,7 @@
     "spryker/spryker": "dev-feature/core-56-tax-per-country",
 
     "php": "~5.6.0",
+    "braintree/braintree_php": "~3.14.0",
     "guzzle/http": "~3.8.0",
     "league/csv": "~8.1.0",
     "mandrill/mandrill": "~1.0.55",

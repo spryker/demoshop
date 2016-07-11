@@ -86,7 +86,10 @@ let config = {
         new webpack.DefinePlugin({
             PRODUCTION: antelope.options.production,
             WATCH: antelope.options.watch
-        })
+        }),
+        new ExtractTextPlugin('assets/demoshop/css/[name].css', {
+            allChunks: true
+        }),
     ],
     watchOptions: {
         aggregateTimeout: 10,

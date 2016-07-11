@@ -95,8 +95,8 @@ page.home.featured.top-right.second.img:
     en_US: 'computer_product.jpg'
 page.home.featured.top-right.second.url:
   translations:
-    de_DE: '/de/toshiba-c55dtb5153-21'
-    en_US: '/en/toshiba-c55dtb5153-21'
+    de_DE: '/de/toshiba-c55dt-b5153-21'
+    en_US: '/en/toshiba-c55dt-b5153-21'
 
 page.home.featured.bottom-left.top.width:
   translations:
@@ -145,8 +145,8 @@ page.home.featured.bottom-left.bottom.img:
     en_US: 'camera_product.jpg'
 page.home.featured.bottom-left.bottom.url:
   translations:
-    de_DE: '/de/canon-1200d-+-efs-1855mm-89'
-    en_US: '/en/canon-1200d-+-efs-1855mm-89'
+    de_DE: '/de/canon-1200d--ef-s-18-55mm-89'
+    en_US: '/en/canon-1200d--ef-s-18-55mm-89'
 
 page.home.featured.bottom-right.left.width:
   translations:
@@ -195,8 +195,8 @@ page.home.featured.bottom-right.right.img:
     en_US: 'smartphone_product.jpg'
 page.home.featured.bottom-right.right.url:
   translations:
-    de_DE: '/de/samsung-smn910f-69'
-    en_US: '/en/samsung-smn910f-69'
+    de_DE: '/de/samsung-sm-n910f-69'
+    en_US: '/en/samsung-sm-n910f-69'
 cart.remove.items.success:
   translations:
     de_DE: 'Produkte wurden erfolgreich aus dem Warenkorb entfernt'

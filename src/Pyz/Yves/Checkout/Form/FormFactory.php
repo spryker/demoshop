@@ -239,7 +239,7 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection
+     * @return \Pyz\Yves\Shipment\Plugin\ShipmentSubFormPlugin
      */
     protected function createShipmentFormPlugin()
     {
