@@ -57,8 +57,8 @@ class ZedAcceptanceTester extends \Codeception\Actor
 =======
 
     /**
-     * @param $username
-     * @param $password
+     * @param string $username
+     * @param string $password
      *
      * @return void
      */
