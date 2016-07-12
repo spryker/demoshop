@@ -1084,6 +1084,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "b78d4a3fa5941ff2d7cc5546ecd6cae0d07b05b4"
 =======
 =======
@@ -1096,6 +1097,8 @@
 >>>>>>> fixed lock file
 =======
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
+=======
+>>>>>>> core-297 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "50335bf8dd90226981087feb709b3d06d6e21249"
 =======
@@ -1109,6 +1112,8 @@
 >>>>>>> fixed lock file
 =======
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
+=======
+>>>>>>> core-297 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "dfdb601f43614ef723a10a3c8f23049e297ddd58"
 =======
@@ -1122,6 +1127,8 @@
 >>>>>>> fixed lock file
 =======
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
+=======
+>>>>>>> core-297 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "6039e7307f78ff845e9cbdf1d9114a54c6282088"
 =======
@@ -1135,6 +1142,8 @@
 >>>>>>> fixed lock file
 =======
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
+=======
+>>>>>>> core-297 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "9cfa7700abf86da05d524298501fddf9c559204c"
 =======
@@ -1262,10 +1271,25 @@
 =======
                 "reference": "9196c3e7088501687476f2432dabb390717b1060"
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
+<<<<<<< HEAD
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
+<<<<<<< HEAD
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
+<<<<<<< HEAD
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
+<<<<<<< HEAD
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
+=======
+=======
+=======
+=======
+=======
+                "reference": "cd45b986576aad1b3ff7d773f437345b4b68ac24"
+>>>>>>> core-297 update spryker/spryker
+>>>>>>> core-297 update spryker/spryker
+>>>>>>> core-297 update spryker/spryker
+>>>>>>> core-297 update spryker/spryker
+>>>>>>> core-297 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1302,7 +1326,7 @@
                     "Spryker\\Zed\\Auth\\": "Bundles/Auth/src",
                     "Unit\\Spryker\\Zed\\Auth\\": "Bundles/Auth/tests",
                     "Functional\\Spryker\\Zed\\Auth\\": "Bundles/Auth/tests",
-                    "Acceptance\\Auth\\Login\\Zed\\": "Bundles/Auth/tests",
+                    "Acceptance\\Auth\\Login\\": "Bundles/Auth/tests",
                     "Spryker\\Zed\\AuthMailConnector\\": "Bundles/AuthMailConnector/src",
                     "Unit\\Spryker\\Zed\\AuthMailConnector\\": "Bundles/AuthMailConnector/tests",
                     "Spryker\\Zed\\Availability\\": "Bundles/Availability/src",
@@ -1313,6 +1337,7 @@
                     "Spryker\\Client\\Braintree\\": "Bundles/Braintree/src",
                     "Unit\\Spryker\\Client\\Braintree\\": "Bundles/Braintree/tests",
                     "Functional\\Spryker\\Client\\Braintree\\": "Bundles/Braintree/tests",
+                    "Acceptance\\Braintree\\Checkout\\": "Bundles/Braintree/tests",
                     "Spryker\\Shared\\Braintree\\": "Bundles/Braintree/src",
                     "Unit\\Spryker\\Shared\\Braintree\\": "Bundles/Braintree/tests",
                     "Functional\\Spryker\\Shared\\Braintree\\": "Bundles/Braintree/tests",
@@ -1767,6 +1792,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-07-20 09:53:37"
 =======
 =======
@@ -1779,6 +1805,8 @@
 >>>>>>> fixed lock file
 =======
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
+=======
+>>>>>>> core-297 update spryker/spryker
 <<<<<<< HEAD
             "time": "2016-07-19 11:50:25"
 =======
@@ -1792,6 +1820,8 @@
 >>>>>>> fixed lock file
 =======
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
+=======
+>>>>>>> core-297 update spryker/spryker
 <<<<<<< HEAD
             "time": "2016-07-18 14:55:00"
 =======
@@ -1805,6 +1835,8 @@
 >>>>>>> fixed lock file
 =======
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
+=======
+>>>>>>> core-297 update spryker/spryker
 <<<<<<< HEAD
             "time": "2016-07-15 12:13:21"
 =======
@@ -1818,6 +1850,8 @@
 >>>>>>> fixed lock file
 =======
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
+=======
+>>>>>>> core-297 update spryker/spryker
 <<<<<<< HEAD
             "time": "2016-07-13 09:43:41"
 =======
@@ -1945,10 +1979,25 @@
 =======
             "time": "2016-07-12 06:13:52"
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
+<<<<<<< HEAD
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
+<<<<<<< HEAD
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
+<<<<<<< HEAD
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
+<<<<<<< HEAD
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
+=======
+=======
+=======
+=======
+=======
+            "time": "2016-07-12 07:13:07"
+>>>>>>> core-297 update spryker/spryker
+>>>>>>> core-297 update spryker/spryker
+>>>>>>> core-297 update spryker/spryker
+>>>>>>> core-297 update spryker/spryker
+>>>>>>> core-297 update spryker/spryker
         },
         {
             "name": "symfony-cmf/routing",
