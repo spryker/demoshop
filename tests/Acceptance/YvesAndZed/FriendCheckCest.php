@@ -5,10 +5,10 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Acceptance\Pyz\YvesAndZed;
+namespace Acceptance\YvesAndZed;
 
-use Acceptance\Pyz\YvesAndZed\Yves\Tester\HomepageTester as YvesHomepageTester;
-use Acceptance\Pyz\YvesAndZed\Zed\Tester\HomepageTester as ZedHomepageTester;
+use Acceptance\YvesAndZed\Yves\Tester\HomepageTester as YvesHomepageTester;
+use Acceptance\YvesAndZed\Zed\Tester\HomepageTester as ZedHomepageTester;
 
 /**
  * @group FriendCheck
@@ -17,7 +17,7 @@ class FriendCheckCest
 {
 
     /**
-     * @param \Acceptance\Pyz\YvesAndZed\Yves\Tester\HomepageTester $i
+     * @param \Acceptance\YvesAndZed\Yves\Tester\HomepageTester $i
      *
      * @return void
      */
@@ -39,7 +39,7 @@ class FriendCheckCest
     }
 
     /**
-     * @param \Acceptance\Pyz\YvesAndZed\Zed\Tester\HomepageTester $i
+     * @param \Acceptance\YvesAndZed\Zed\Tester\HomepageTester $i
      *
      * @return void
      */

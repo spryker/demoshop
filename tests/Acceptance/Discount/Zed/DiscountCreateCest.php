@@ -20,7 +20,7 @@ class DiscountCreateCest
 {
 
     /**
-     * @param \Acceptance\Pyz\Discount\Zed\Tester\DiscountTester $i
+     * @param \Acceptance\Discount\Zed\Tester\DiscountTester $i
      *
      * @return void
      */
@@ -41,7 +41,7 @@ class DiscountCreateCest
     }
 
     /**
-     * @param \Acceptance\Pyz\Discount\Zed\Tester\DiscountTester $i
+     * @param \Acceptance\Discount\Zed\Tester\DiscountTester $i
      *
      * @return void
      */

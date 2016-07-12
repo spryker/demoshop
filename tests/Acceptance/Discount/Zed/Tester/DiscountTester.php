@@ -10,9 +10,9 @@
 >>>>>>> Cleaned up architecture
  */
 
-namespace Acceptance\Pyz\Discount\Zed\Tester;
+namespace Acceptance\Discount\Zed\Tester;
 
-use Acceptance\Pyz\Discount\Zed\PageObject\DiscountCreatePage;
+use Acceptance\Discount\Zed\PageObject\DiscountCreatePage;
 
 class DiscountTester extends \ZedAcceptanceTester
 {

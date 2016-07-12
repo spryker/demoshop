@@ -9,6 +9,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "hash": "5eb196bdff4615a27d5ffa920a5c7b7c",
 =======
 =======
@@ -19,6 +20,8 @@
 >>>>>>> Acceptance tests changes
 =======
 >>>>>>> Cleaned up architecture
+=======
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
 <<<<<<< HEAD
     "hash": "416e0168bc7c69273e7de2db84bb42ac",
 >>>>>>> Add Acceptance tests
@@ -34,6 +37,8 @@
 >>>>>>> Acceptance tests changes
 =======
 >>>>>>> Cleaned up architecture
+=======
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
     "hash": "e34c822b2c75d69844719a097d265109",
     "content-hash": "2fb46dabe6277817eedf9ba81368e967",
 =======
@@ -76,7 +81,14 @@
     "hash": "9066fd16e993e7e3974c862d00c626da",
     "content-hash": "79d4d788f546c7abd71b8a481f05dc56",
 >>>>>>> Cleaned up architecture
+<<<<<<< HEAD
 >>>>>>> Cleaned up architecture
+=======
+=======
+    "hash": "9dee03d7d28ef290af88669de2829f93",
+    "content-hash": "e5429590504afc271e83e253b1cf185f",
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1062,10 +1074,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-297-add-acceptance-tests-for-braintree",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1081,6 +1094,8 @@
 >>>>>>> Cleaned up architecture
 =======
 >>>>>>> fixed lock file
+=======
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
 <<<<<<< HEAD
                 "reference": "50335bf8dd90226981087feb709b3d06d6e21249"
 =======
@@ -1092,6 +1107,8 @@
 >>>>>>> Cleaned up architecture
 =======
 >>>>>>> fixed lock file
+=======
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
 <<<<<<< HEAD
                 "reference": "dfdb601f43614ef723a10a3c8f23049e297ddd58"
 =======
@@ -1103,6 +1120,8 @@
 >>>>>>> Cleaned up architecture
 =======
 >>>>>>> fixed lock file
+=======
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
 <<<<<<< HEAD
                 "reference": "6039e7307f78ff845e9cbdf1d9114a54c6282088"
 =======
@@ -1114,6 +1133,8 @@
 >>>>>>> Cleaned up architecture
 =======
 >>>>>>> fixed lock file
+=======
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
 <<<<<<< HEAD
                 "reference": "9cfa7700abf86da05d524298501fddf9c559204c"
 =======
@@ -1226,10 +1247,25 @@
 =======
                 "reference": "232da98d6959a8f5bed5bbac8183257b403ce264"
 >>>>>>> fixed lock file
+<<<<<<< HEAD
 >>>>>>> fixed lock file
+<<<<<<< HEAD
 >>>>>>> fixed lock file
+<<<<<<< HEAD
 >>>>>>> fixed lock file
+<<<<<<< HEAD
 >>>>>>> fixed lock file
+=======
+=======
+=======
+=======
+=======
+                "reference": "9196c3e7088501687476f2432dabb390717b1060"
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1266,6 +1302,7 @@
                     "Spryker\\Zed\\Auth\\": "Bundles/Auth/src",
                     "Unit\\Spryker\\Zed\\Auth\\": "Bundles/Auth/tests",
                     "Functional\\Spryker\\Zed\\Auth\\": "Bundles/Auth/tests",
+                    "Acceptance\\Auth\\Login\\Zed\\": "Bundles/Auth/tests",
                     "Spryker\\Zed\\AuthMailConnector\\": "Bundles/AuthMailConnector/src",
                     "Unit\\Spryker\\Zed\\AuthMailConnector\\": "Bundles/AuthMailConnector/tests",
                     "Spryker\\Zed\\Availability\\": "Bundles/Availability/src",
@@ -1729,6 +1766,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-07-20 09:53:37"
 =======
 =======
@@ -1739,6 +1777,8 @@
 >>>>>>> Cleaned up architecture
 =======
 >>>>>>> fixed lock file
+=======
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
 <<<<<<< HEAD
             "time": "2016-07-19 11:50:25"
 =======
@@ -1750,6 +1790,8 @@
 >>>>>>> Cleaned up architecture
 =======
 >>>>>>> fixed lock file
+=======
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
 <<<<<<< HEAD
             "time": "2016-07-18 14:55:00"
 =======
@@ -1761,6 +1803,8 @@
 >>>>>>> Cleaned up architecture
 =======
 >>>>>>> fixed lock file
+=======
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
 <<<<<<< HEAD
             "time": "2016-07-15 12:13:21"
 =======
@@ -1772,6 +1816,8 @@
 >>>>>>> Cleaned up architecture
 =======
 >>>>>>> fixed lock file
+=======
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
 <<<<<<< HEAD
             "time": "2016-07-13 09:43:41"
 =======
@@ -1884,10 +1930,25 @@
 =======
             "time": "2016-07-07 13:55:03"
 >>>>>>> fixed lock file
+<<<<<<< HEAD
 >>>>>>> fixed lock file
+<<<<<<< HEAD
 >>>>>>> fixed lock file
+<<<<<<< HEAD
 >>>>>>> fixed lock file
+<<<<<<< HEAD
 >>>>>>> fixed lock file
+=======
+=======
+=======
+=======
+=======
+            "time": "2016-07-12 06:13:52"
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
+>>>>>>> core-297 removed Pyz directory for Acceptance tests
         },
         {
             "name": "symfony-cmf/routing",
