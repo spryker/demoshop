@@ -6,11 +6,16 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
+use Pyz\Zed\Collector\Persistence\Storage\Propel\AvailabilityCollectorQuery;
 use Spryker\Shared\Availability\AvailabilityConstants;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollector;
 
 class AvailabilityCollector extends AbstractStoragePropelCollector
 {
+
+    const AVAILABLE = 'available';
+    const NONE = 'none';
+    const CONCRETE_PRODUCT = 'concrete_product';
 
     /**
      * @param string $touchKey
@@ -20,7 +25,7 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
      */
     protected function collectItem($touchKey, array $collectItemData)
     {
-        return $collectItemData['quantity'] > 0;
+        return $collectItemData[AvailabilityCollectorQuery::QUANTITY] > 0 ? self::AVAILABLE : self::NONE;
     }
 
     /**
@@ -28,7 +33,7 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
      */
     protected function collectResourceType()
     {
-       return 'availability';
+       return AvailabilityConstants::RESOURCE_TYPE_AVAILABILITY;
     }
 
     /**
@@ -40,7 +45,7 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
      */
     protected function collectKey($data, $localeName, array $collectedItemData)
     {
-        return $this->generateKey($collectedItemData['id_product'], $localeName);
+        return $this->generateKey($collectedItemData[AvailabilityCollectorQuery::ID_PRODUCT], $localeName);
     }
 
     /**
@@ -48,7 +53,7 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
      */
     public function getBundleName()
     {
-        return 'concrete_product';
+        return self::CONCRETE_PRODUCT;
     }
 
 }
