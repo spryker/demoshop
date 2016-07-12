@@ -5,10 +5,10 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Acceptance\Discount\Zed;
+namespace Acceptance\Pyz\Discount\Zed;
 
-use Acceptance\Discount\Zed\PageObject\DiscountListPage;
-use Acceptance\Discount\Zed\Tester\DiscountTester;
+use Acceptance\Pyz\Discount\Zed\PageObject\DiscountListPage;
+use Acceptance\Pyz\Discount\Zed\Tester\DiscountTester;
 
 /**
  * @group positive
@@ -20,7 +20,7 @@ class DiscountListCest
 {
 
     /**
-     * @param \Acceptance\Discount\Zed\Tester\DiscountTester $i
+     * @param \Acceptance\Pyz\Discount\Zed\Tester\DiscountTester $i
      *
      * @return void
      */

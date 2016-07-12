@@ -6,10 +6,7 @@
  */
 
 namespace Acceptance\Discount\Zed;
-<<<<<<< HEAD
 
-=======
->>>>>>> Cleaned up architecture
 use Acceptance\Discount\Zed\PageObject\DiscountCreatePage;
 use Acceptance\Discount\Zed\Tester\DiscountTester;
 
@@ -23,7 +20,7 @@ class DiscountCreateCest
 {
 
     /**
-     * @param \Acceptance\Discount\Zed\Tester\DiscountTester $i
+     * @param \Acceptance\Pyz\Discount\Zed\Tester\DiscountTester $i
      *
      * @return void
      */
@@ -44,7 +41,7 @@ class DiscountCreateCest
     }
 
     /**
-     * @param \Acceptance\Discount\Zed\Tester\DiscountTester $i
+     * @param \Acceptance\Pyz\Discount\Zed\Tester\DiscountTester $i
      *
      * @return void
      */

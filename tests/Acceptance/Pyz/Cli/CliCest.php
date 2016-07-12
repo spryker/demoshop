@@ -5,9 +5,9 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Acceptance\Cli;
+namespace Acceptance\Pyz\Cli;
 
-use Acceptance\Cli\Tester\CliTester;
+use Acceptance\Pyz\Cli\Tester\CliTester;
 
 /**
  * @group Cli
@@ -16,7 +16,7 @@ class CliCest
 {
 
     /**
-     * @param \Acceptance\Cli\Tester\CliTester $i
+     * @param \Acceptance\Pyz\Cli\Tester\CliTester $i
      *
      * @return void
      */

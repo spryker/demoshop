@@ -5,8 +5,13 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Acceptance\Cli\Tester;
+namespace Acceptance\Pyz\Discount\Zed\PageObject;
 
-class CliTester extends \AcceptanceTester
+class DiscountListPage
 {
+
+    const URL = '/discount/index/list';
+
+    const SELECTOR_DATA_TABLE = '.dataTables_wrapper';
+
 }

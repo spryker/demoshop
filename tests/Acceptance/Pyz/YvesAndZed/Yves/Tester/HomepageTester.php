@@ -10,7 +10,7 @@
 >>>>>>> Cleaned up architecture
  */
 
-namespace Acceptance\YvesAndZed\Yves\Tester;
+namespace Acceptance\Pyz\YvesAndZed\Yves\Tester;
 
 class HomepageTester extends \YvesAcceptanceTester
 {
