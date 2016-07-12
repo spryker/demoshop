@@ -7,8 +7,8 @@
     <cms/>
     <glossary/>
     <product/>
-    <tax/>
     <discount/>
+    <tax/>
     <shipment/>
     <acl/>
     <maintenance/>
