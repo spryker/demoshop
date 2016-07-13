@@ -57,6 +57,7 @@ CREATE TABLE "spy_availability"
     "id_availability" INTEGER NOT NULL,
     "sku" VARCHAR(255) NOT NULL,
     "quantity" INTEGER NOT NULL,
+    "is_never_out_of_stock" BOOLEAN DEFAULT \'f\',
     PRIMARY KEY ("id_availability"),
     CONSTRAINT "spy_availability-sku" UNIQUE ("sku")
 );
