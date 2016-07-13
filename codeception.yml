@@ -32,3 +32,7 @@ coverage:
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
+        - Codeception\Extension\Phantoman
+    config:
+        Codeception\Extension\Phantoman:
+            suites: ['Acceptance']

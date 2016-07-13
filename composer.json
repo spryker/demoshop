@@ -46,21 +46,25 @@
   },
   "require-dev": {
     "codeception/codeception": "~2.1.10",
+    "codeception/c3": "2.0.0",
     "pdepend/pdepend": "~2.2.2",
     "phploc/phploc": "~3.0.1",
     "phpmd/phpmd": "~2.3.2",
     "sebastian/phpcpd": "~2.0.2",
     "sensiolabs/security-checker": "~3.0.2",
     "silex/web-profiler": "~1.0.8",
+    "site5/phantoman": "^1.1",
     "sllh/composer-versions-check": "~2.0.2",
-    "spryker/code-sniffer": "*"
+    "spryker/code-sniffer": "*",
+    "jakoch/phantomjs-installer": "^2.1"
   },
   "autoload": {
     "psr-0": {
       "": "src",
       "Unit": "tests",
       "YvesUnit": "tests",
-      "Functional": "tests"
+      "Functional": "tests",
+      "Acceptance": "tests"
     }
   },
   "minimum-stability": "dev",
@@ -74,5 +78,13 @@
       "type": "git",
       "url": "git@github.com:spryker/spryker.git"
     }
-  ]
+  ],
+  "scripts": {
+    "post-install-cmd": [
+      "PhantomInstaller\\Installer::installPhantomJS"
+    ],
+    "post-update-cmd": [
+      "PhantomInstaller\\Installer::installPhantomJS"
+    ]
+  }
 }

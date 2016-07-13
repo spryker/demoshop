@@ -4,8 +4,17 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "hash": "5eb196bdff4615a27d5ffa920a5c7b7c",
+=======
+<<<<<<< HEAD
+    "hash": "416e0168bc7c69273e7de2db84bb42ac",
+>>>>>>> Add Acceptance tests
     "content-hash": "1ac2a0532656eca6c47d7800d74cf673",
+=======
+    "hash": "e34c822b2c75d69844719a097d265109",
+    "content-hash": "2fb46dabe6277817eedf9ba81368e967",
+>>>>>>> Add Acceptance tests
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -3651,6 +3660,48 @@
     ],
     "packages-dev": [
         {
+            "name": "codeception/c3",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Codeception/c3.git",
+                "reference": "fad23c9aec616316e611b7eb80bf118f1a3e3a89"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Codeception/c3/zipball/fad23c9aec616316e611b7eb80bf118f1a3e3a89",
+                "reference": "fad23c9aec616316e611b7eb80bf118f1a3e3a89",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Codeception\\c3\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Bodnarchuk",
+                    "email": "davert.php@resend.cc",
+                    "homepage": "http://codegyre.com"
+                }
+            ],
+            "description": "CodeCoverage collector for Codeception",
+            "homepage": "http://codeception.com/",
+            "keywords": [
+                "code coverage",
+                "codecoverage"
+            ],
+            "time": "2014-10-03 00:25:28"
+        },
+        {
             "name": "codeception/codeception",
             "version": "2.1.11",
             "source": {
@@ -4002,6 +4053,48 @@
                 "uri"
             ],
             "time": "2016-06-24 23:00:38"
+        },
+        {
+            "name": "jakoch/phantomjs-installer",
+            "version": "2.1.1-p05",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jakoch/phantomjs-installer.git",
+                "reference": "1aa2a29da48fee62679f7f7a3d446b0e52df494a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jakoch/phantomjs-installer/zipball/1aa2a29da48fee62679f7f7a3d446b0e52df494a",
+                "reference": "1aa2a29da48fee62679f7f7a3d446b0e52df494a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-bz2": "*",
+                "ext-openssl": "*"
+            },
+            "type": "custom-installer",
+            "autoload": {
+                "psr-0": {
+                    "PhantomInstaller\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jens-André Koch",
+                    "email": "jakoch@web.de"
+                }
+            ],
+            "description": "A Composer package which installs the PhantomJS binary (Linux, Windows, Mac) into `/bin` of your project.",
+            "keywords": [
+                "binaries",
+                "headless",
+                "phantomjs"
+            ],
+            "time": "2016-07-11 09:07:23"
         },
         {
             "name": "myclabs/deep-copy",
@@ -5563,6 +5656,53 @@
             "description": "A WebProfiler for Silex",
             "homepage": "http://silex.sensiolabs.org/",
             "time": "2016-01-10 11:39:13"
+        },
+        {
+            "name": "site5/phantoman",
+            "version": "v1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/site5/phantoman.git",
+                "reference": "f7a373c52816dad25852ea773e08fc7373fc8345"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/site5/phantoman/zipball/f7a373c52816dad25852ea773e08fc7373fc8345",
+                "reference": "f7a373c52816dad25852ea773e08fc7373fc8345",
+                "shasum": ""
+            },
+            "require": {
+                "codeception/codeception": "^2.1",
+                "php": ">=5.4.0"
+            },
+            "suggest": {
+                "jakoch/phantomjs-installer": "Automatically installs PhantomJS locally to your project."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Codeception\\Extension\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grant Lucas",
+                    "email": "grant.lucas@wwwh.com"
+                }
+            ],
+            "description": "The Codeception extension for automatically starting and stopping PhantomJS when running tests.",
+            "homepage": "https://github.com/site5/phantoman",
+            "keywords": [
+                "codeception",
+                "extension",
+                "headless",
+                "phantomjs"
+            ],
+            "time": "2016-06-29 13:39:37"
         },
         {
             "name": "sllh/composer-versions-check",
