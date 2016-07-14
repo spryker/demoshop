@@ -9,7 +9,6 @@ namespace Pyz\Zed\Importer\Business\Importer\Tax;
 
 use Orm\Zed\Tax\Persistence\SpyTaxRate;
 use Orm\Zed\Tax\Persistence\SpyTaxSet;
-use Orm\Zed\Tax\Persistence\SpyTaxSetTax;
 use Orm\Zed\Tax\Persistence\SpyTaxSetTaxQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Country\Business\CountryFacadeInterface;
@@ -143,7 +142,6 @@ class TaxImporter extends AbstractImporter
      * @param \Orm\Zed\Tax\Persistence\SpyTaxSet $taxSetEntity
      *
      * @throws \Propel\Runtime\Exception\PropelException
-     * @throws \Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException
      *
      * @return \Orm\Zed\Tax\Persistence\SpyTaxSetTax
      */
@@ -152,14 +150,9 @@ class TaxImporter extends AbstractImporter
         $taxRateSetEntity = SpyTaxSetTaxQuery::create()
             ->filterByFkTaxRate($taxRateEntity->getIdTaxRate())
             ->filterByFkTaxSet($taxSetEntity->getIdTaxSet())
-            ->findOne();
+            ->findOneOrCreate();
 
-        if (!$taxRateSetEntity) {
-            $taxRateSetEntity = new SpyTaxSetTax();
-            $taxRateSetEntity->setFkTaxSet($taxSetEntity->getIdTaxSet());
-            $taxRateSetEntity->setFkTaxRate($taxRateEntity->getIdTaxRate());
-            $taxRateSetEntity->save();
-        }
+        $taxRateSetEntity->save();
 
         return $taxRateSetEntity;
     }
@@ -200,15 +193,10 @@ class TaxImporter extends AbstractImporter
             ->filterByFkCountry($idCountry)
             ->filterByRate($rate)
             ->filterByName($rateName)
-            ->findOne();
+            ->findOneOrCreate();
 
-        if (!$taxRateEntity) {
-            $taxRateEntity = new SpyTaxRate();
-            $taxRateEntity->setName($rateName);
-            $taxRateEntity->setRate($rate);
-            $taxRateEntity->setFkCountry($idCountry);
-            $taxRateEntity->save();
-        }
+        $taxRateEntity->save();
+
         return $taxRateEntity;
     }
 
@@ -223,13 +211,10 @@ class TaxImporter extends AbstractImporter
     {
         $taxSetEntity = $this->taxQueryContainer
             ->queryAllTaxSets()
-            ->findOneByName($setName);
+            ->filterByName($setName)
+            ->findOneOrCreate();
 
-        if (!$taxSetEntity) {
-            $taxSetEntity = new SpyTaxSet();
-            $taxSetEntity->setName($setName);
-            $taxSetEntity->save();
-        }
+        $taxSetEntity->save();
 
         return $taxSetEntity;
     }
