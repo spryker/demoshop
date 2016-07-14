@@ -10,6 +10,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "hash": "5eb196bdff4615a27d5ffa920a5c7b7c",
 =======
 =======
@@ -22,6 +23,8 @@
 >>>>>>> Cleaned up architecture
 =======
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
+=======
+>>>>>>> core-297 updated tests
 <<<<<<< HEAD
     "hash": "416e0168bc7c69273e7de2db84bb42ac",
 >>>>>>> Add Acceptance tests
@@ -89,6 +92,10 @@
     "content-hash": "e5429590504afc271e83e253b1cf185f",
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
+=======
+    "hash": "19b00d13aaf09381b57f7c5084146539",
+    "content-hash": "4db4ab240d490dd4bff5bf5208a53efa",
+>>>>>>> core-297 updated tests
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1085,6 +1092,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "b78d4a3fa5941ff2d7cc5546ecd6cae0d07b05b4"
 =======
 =======
@@ -1099,6 +1107,8 @@
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
 =======
 >>>>>>> core-297 update spryker/spryker
+=======
+>>>>>>> core-297 updated tests
 <<<<<<< HEAD
                 "reference": "50335bf8dd90226981087feb709b3d06d6e21249"
 =======
@@ -1114,6 +1124,8 @@
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
 =======
 >>>>>>> core-297 update spryker/spryker
+=======
+>>>>>>> core-297 updated tests
 <<<<<<< HEAD
                 "reference": "dfdb601f43614ef723a10a3c8f23049e297ddd58"
 =======
@@ -1129,6 +1141,8 @@
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
 =======
 >>>>>>> core-297 update spryker/spryker
+=======
+>>>>>>> core-297 updated tests
 <<<<<<< HEAD
                 "reference": "6039e7307f78ff845e9cbdf1d9114a54c6282088"
 =======
@@ -1287,9 +1301,21 @@
                 "reference": "cd45b986576aad1b3ff7d773f437345b4b68ac24"
 >>>>>>> core-297 update spryker/spryker
 >>>>>>> core-297 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-297 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-297 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-297 update spryker/spryker
+=======
+=======
+=======
+=======
+                "reference": "b69fc76ded73413b177f34e5f607fb391722b67d"
+>>>>>>> core-297 updated tests
+>>>>>>> core-297 updated tests
+>>>>>>> core-297 updated tests
+>>>>>>> core-297 updated tests
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1793,6 +1819,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-07-20 09:53:37"
 =======
 =======
@@ -1807,6 +1834,8 @@
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
 =======
 >>>>>>> core-297 update spryker/spryker
+=======
+>>>>>>> core-297 updated tests
 <<<<<<< HEAD
             "time": "2016-07-19 11:50:25"
 =======
@@ -1822,6 +1851,8 @@
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
 =======
 >>>>>>> core-297 update spryker/spryker
+=======
+>>>>>>> core-297 updated tests
 <<<<<<< HEAD
             "time": "2016-07-18 14:55:00"
 =======
@@ -1837,6 +1868,8 @@
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
 =======
 >>>>>>> core-297 update spryker/spryker
+=======
+>>>>>>> core-297 updated tests
 <<<<<<< HEAD
             "time": "2016-07-15 12:13:21"
 =======
@@ -1995,9 +2028,21 @@
             "time": "2016-07-12 07:13:07"
 >>>>>>> core-297 update spryker/spryker
 >>>>>>> core-297 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-297 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-297 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-297 update spryker/spryker
+=======
+=======
+=======
+=======
+            "time": "2016-07-14 11:50:59"
+>>>>>>> core-297 updated tests
+>>>>>>> core-297 updated tests
+>>>>>>> core-297 updated tests
+>>>>>>> core-297 updated tests
         },
         {
             "name": "symfony-cmf/routing",
@@ -4554,38 +4599,16 @@
         },
         {
             "name": "jakoch/phantomjs-installer",
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "2.1.1-p05",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jakoch/phantomjs-installer.git",
-                "reference": "1aa2a29da48fee62679f7f7a3d446b0e52df494a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jakoch/phantomjs-installer/zipball/1aa2a29da48fee62679f7f7a3d446b0e52df494a",
-                "reference": "1aa2a29da48fee62679f7f7a3d446b0e52df494a",
-=======
             "version": "2.1.1-p03",
-=======
-            "version": "2.1.1-p04",
->>>>>>> Cleaned up architecture
             "source": {
                 "type": "git",
                 "url": "https://github.com/jakoch/phantomjs-installer.git",
-                "reference": "1c10e558b86992c624e358feed4f8936f6cec9b5"
+                "reference": "d4e9db3d16d5b6e70d1d4941cb84425f9d9fa801"
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
                 "url": "https://api.github.com/repos/jakoch/phantomjs-installer/zipball/d4e9db3d16d5b6e70d1d4941cb84425f9d9fa801",
                 "reference": "d4e9db3d16d5b6e70d1d4941cb84425f9d9fa801",
->>>>>>> Acceptance tests changes
-=======
-                "url": "https://api.github.com/repos/jakoch/phantomjs-installer/zipball/1c10e558b86992c624e358feed4f8936f6cec9b5",
-                "reference": "1c10e558b86992c624e358feed4f8936f6cec9b5",
->>>>>>> Cleaned up architecture
                 "shasum": ""
             },
             "require": {
@@ -4614,15 +4637,7 @@
                 "headless",
                 "phantomjs"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2016-07-11 09:07:23"
-=======
             "time": "2016-05-22 09:49:40"
->>>>>>> Acceptance tests changes
-=======
-            "time": "2016-06-27 14:30:27"
->>>>>>> Cleaned up architecture
         },
         {
             "name": "myclabs/deep-copy",
@@ -6290,6 +6305,7 @@
             "name": "spryker/code-sniffer",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "0.5.1",
 =======
 =======
@@ -6340,6 +6356,18 @@
 =======
 >>>>>>> Cleaned up architecture
 >>>>>>> Cleaned up architecture
+=======
+            "version": "0.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/code-sniffer.git",
+                "reference": "4418bff748ffc4800a93f6ac5807d9aaf96dd16b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/4418bff748ffc4800a93f6ac5807d9aaf96dd16b",
+                "reference": "4418bff748ffc4800a93f6ac5807d9aaf96dd16b",
+>>>>>>> core-297 updated tests
                 "shasum": ""
             },
             "require": {
@@ -6370,6 +6398,7 @@
             ],
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-07-18 12:54:56"
 =======
 =======
@@ -6390,6 +6419,9 @@
             "time": "2016-07-05 12:30:28"
 >>>>>>> Cleaned up architecture
 >>>>>>> Cleaned up architecture
+=======
+            "time": "2016-07-05 12:30:28"
+>>>>>>> core-297 updated tests
         },
         {
             "name": "squizlabs/php_codesniffer",

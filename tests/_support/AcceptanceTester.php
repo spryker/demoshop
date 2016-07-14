@@ -1,8 +1,5 @@
 <?php
 
-use Acceptance\Login\Zed\PageObject\LoginPage;
-
-
 /**
  * Inherited Methods
  * @method void wantToTest($text)
@@ -22,5 +19,5 @@ class AcceptanceTester extends \Codeception\Actor
 {
 
     use _generated\AcceptanceTesterActions;
-    
+
 }
