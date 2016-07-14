@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Console;
 
 use Pyz\Zed\Importer\Communication\Console\DemoDataImportConsole;
+use Pyz\Zed\Updater\Communication\Console\UpdaterConsole;
 use Spryker\Shared\Library\Environment;
 use Spryker\Zed\Application\Communication\Console\ApplicationIntegrationCheckConsole;
 use Spryker\Zed\Application\Communication\Console\BuildNavigationConsole;
@@ -56,6 +57,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new TouchCleanUpConsole(),
             new DeleteAllCachesConsole(),
             new DemoDataImportConsole(),
+            new UpdaterConsole(),
             new GeneratorConsole(),
             new InitializeDatabaseConsole(),
             new RecordDeploymentConsole(),
