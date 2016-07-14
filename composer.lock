@@ -11,6 +11,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "hash": "5eb196bdff4615a27d5ffa920a5c7b7c",
 =======
 =======
@@ -25,6 +26,8 @@
 >>>>>>> core-297 removed Pyz directory for Acceptance tests
 =======
 >>>>>>> core-297 updated tests
+=======
+>>>>>>> core-297 fixed merge things
 <<<<<<< HEAD
     "hash": "416e0168bc7c69273e7de2db84bb42ac",
 >>>>>>> Add Acceptance tests
@@ -96,19 +99,23 @@
     "hash": "19b00d13aaf09381b57f7c5084146539",
     "content-hash": "4db4ab240d490dd4bff5bf5208a53efa",
 >>>>>>> core-297 updated tests
+=======
+    "hash": "dce4ad8bf52bdf27e2392f93fc2daffd",
+    "content-hash": "217c34b07d2ee9249af1c1ae2858ca65",
+>>>>>>> core-297 fixed merge things
     "packages": [
         {
             "name": "braintree/braintree_php",
-            "version": "3.14.0",
+            "version": "3.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/braintree/braintree_php.git",
-                "reference": "0c13b6235bc99c287d18e8cfc02359e66abaa3fb"
+                "reference": "cbee7c8c998aff5d5df682cc0b2cf3f403dbba76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/braintree/braintree_php/zipball/0c13b6235bc99c287d18e8cfc02359e66abaa3fb",
-                "reference": "0c13b6235bc99c287d18e8cfc02359e66abaa3fb",
+                "url": "https://api.github.com/repos/braintree/braintree_php/zipball/cbee7c8c998aff5d5df682cc0b2cf3f403dbba76",
+                "reference": "cbee7c8c998aff5d5df682cc0b2cf3f403dbba76",
                 "shasum": ""
             },
             "require": {
@@ -142,7 +149,7 @@
                 }
             ],
             "description": "Braintree PHP Client Library",
-            "time": "2016-06-23 15:36:49"
+            "time": "2016-05-23 18:22:21"
         },
         {
             "name": "container-interop/container-interop",

@@ -27,11 +27,7 @@ class FriendCheckCest
         $i->seeInTitle('Spryker Demoshop');
 
         $zed = $i->haveFriend('Zed', ZedHomepageTester::class);
-<<<<<<< HEAD
-        $zed->does(function (ZedHomepageTester $i) {
-=======
         $zed->does(function(ZedHomepageTester $i) {
->>>>>>> Cleaned up architecture
             $i->amLoggedInUser();
             $i->amOnPage('/');
             $i->seeInTitle('Pyz | Zed | Development');
@@ -50,11 +46,7 @@ class FriendCheckCest
         $i->seeInTitle('Pyz | Zed | Development');
 
         $yves = $i->haveFriend('Yves', YvesHomepageTester::class);
-<<<<<<< HEAD
-        $yves->does(function (YvesHomepageTester $i) {
-=======
         $yves->does(function(YvesHomepageTester $i) {
->>>>>>> Cleaned up architecture
             $i->amOnPage('/');
             $i->seeInTitle('Spryker Demoshop');
         });
