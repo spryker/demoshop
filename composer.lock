@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5eb196bdff4615a27d5ffa920a5c7b7c",
-    "content-hash": "1ac2a0532656eca6c47d7800d74cf673",
+    "hash": "45b19ba1cb0ce3a4add5a99cb9a00617",
+    "content-hash": "6b8fea3216ed19d15877a4407060c52b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -991,11 +991,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/CORE-280-item-groupper",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "ebea1e0296472db4dead68e64e77bc177b5181bc"
+                "reference": "d44018a54e726536517ad80518c6623ff0015e68"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1174,13 +1174,6 @@
                     "Spryker\\Shared\\Invoice\\": "Bundles/Invoice/src",
                     "Unit\\Spryker\\Shared\\Invoice\\": "Bundles/Invoice/tests",
                     "Functional\\Spryker\\Shared\\Invoice\\": "Bundles/Invoice/tests",
-                    "Spryker\\Shared\\ItemGrouper\\": "Bundles/ItemGrouper/src",
-                    "Unit\\Spryker\\Shared\\ItemGrouper\\": "Bundles/ItemGrouper/tests",
-                    "Functional\\Spryker\\Shared\\ItemGrouper\\": "Bundles/ItemGrouper/tests",
-                    "Spryker\\Zed\\ItemGrouper\\": "Bundles/ItemGrouper/src",
-                    "Unit\\Spryker\\Zed\\ItemGrouper\\": "Bundles/ItemGrouper/tests",
-                    "Functional\\Spryker\\Zed\\ItemGrouper\\": "Bundles/ItemGrouper/tests",
-                    "Spryker\\Zed\\ItemGrouperWishlistConnector\\": "Bundles/ItemGrouperWishlistConnector/src",
                     "Spryker\\Client\\Kernel\\": "Bundles/Kernel/src",
                     "Unit\\Spryker\\Client\\Kernel\\": "Bundles/Kernel/tests",
                     "Functional\\Spryker\\Client\\Kernel\\": "Bundles/Kernel/tests",
@@ -1499,7 +1492,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-07-11 12:55:26"
+            "time": "2016-07-12 07:47:01"
         },
         {
             "name": "symfony-cmf/routing",
