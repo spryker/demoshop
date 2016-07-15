@@ -34,6 +34,16 @@
                     {% endif %}
                 {% endfor %}
             </dl>
+                {% if productOptionGroups is defined %}
+                    {% for productOptionGroup in productOptionGroups.getProductOptionGroups %}
+
+                        {% for productValue in productOptionGroup.productOptionValues %}
+                            <label for="">{{ productValue.value|trans }}</label>
+                            <input type="checkbox" name="product-option" value="{{ productValue.idProductOptionValue }}"> &nbsp; | {{ productValue.sku }} | {{ productValue.price | price }}
+                        {% endfor %}
+
+                    {% endfor %}
+                {% endif %}
         </section>
         <section class="product__gallery">
             {% for image in product.abstractAttributes.images %}

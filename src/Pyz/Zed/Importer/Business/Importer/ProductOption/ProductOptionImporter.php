@@ -112,6 +112,7 @@ class ProductOptionImporter extends AbstractImporter
 
     /**
      * @param ProductOptionValueTransfer $productOptionValueTransfer
+     *
      * @return int
      */
     protected function createOptionGroup(array $data, ProductOptionValueTransfer $productOptionValueTransfer)
@@ -119,7 +120,7 @@ class ProductOptionImporter extends AbstractImporter
         $productOptionGroupTransfer = new ProductOptionGroupTransfer();
         $productOptionGroupTransfer->setActive(true);
         $productOptionGroupTransfer->setName($data[self::COL_OPTION_GROUP_NAME]);
-        $productOptionGroupTransfer->addProductOptionValues($productOptionValueTransfer);
+        $productOptionGroupTransfer->addProductOptionValue($productOptionValueTransfer);
         $idProductOptionGroup = $this->productOptionFacade->saveProductOptionGroup($productOptionGroupTransfer);
 
         return $idProductOptionGroup;

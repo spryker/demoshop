@@ -15,11 +15,12 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPropelCollectorQuery;
 
 class ProductOptionCollectorQuery extends AbstractPropelCollectorQuery
 {
-    const GROUP_NAME = 'group_name';
+    const GROUP_NAME = 'name';
     const ACTIVE = 'active';
     const SKU = 'sku';
     const PRICE = 'price';
     const VALUE = 'value';
+    const ID_PRODUCT_OPTION_VALUE = 'idProductOptionValue';
 
     /**
      * @return void
@@ -49,5 +50,6 @@ class ProductOptionCollectorQuery extends AbstractPropelCollectorQuery
         $this->touchQuery->withColumn(SpyProductOptionValueTableMap::COL_SKU, self::SKU);
         $this->touchQuery->withColumn(SpyProductOptionValueTableMap::COL_PRICE, self::PRICE);
         $this->touchQuery->withColumn(SpyProductOptionValueTableMap::COL_VALUE, self::VALUE);
+        $this->touchQuery->withColumn(SpyProductOptionValueTableMap::COL_ID_PRODUCT_OPTION_VALUE, self::ID_PRODUCT_OPTION_VALUE);
     }
 }

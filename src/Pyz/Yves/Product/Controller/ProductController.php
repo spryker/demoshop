@@ -10,6 +10,9 @@ namespace Pyz\Yves\Product\Controller;
 use Spryker\Shared\Product\Model\ProductAbstractInterface;
 use Spryker\Yves\Application\Controller\AbstractController;
 
+/**
+ * @method \Pyz\Yves\Product\ProductFactory getFactory()
+ */
 class ProductController extends AbstractController
 {
 
@@ -22,9 +25,14 @@ class ProductController extends AbstractController
     {
         $categories = $product->getCategory();
 
+        $productOptionGroupsTransfer = $this->getFactory()
+            ->getProductOptionClient()
+            ->getProductOptions($product->getAbstractProductId(), $this->getLocale());
+
         $productData = [
             'product' => $product,
             'category' => count($categories) ? end($categories) : null,
+            'productOptionGroups' => $productOptionGroupsTransfer
         ];
 
         return $productData;

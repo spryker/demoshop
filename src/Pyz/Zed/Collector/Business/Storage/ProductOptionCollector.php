@@ -55,6 +55,7 @@ class ProductOptionCollector extends AbstractStoragePropelCollector
                ProductOptionCollectorQuery::SKU => $collectItemData[ProductOptionCollectorQuery::SKU],
                ProductOptionCollectorQuery::PRICE => $collectItemData[ProductOptionCollectorQuery::PRICE],
                ProductOptionCollectorQuery::VALUE => $collectItemData[ProductOptionCollectorQuery::VALUE],
+               ProductOptionCollectorQuery::ID_PRODUCT_OPTION_VALUE => $collectItemData[ProductOptionCollectorQuery::ID_PRODUCT_OPTION_VALUE],
            ]
        ];
     }

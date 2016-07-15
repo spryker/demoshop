@@ -30,6 +30,11 @@ class ProductAbstract implements ProductAbstractInterface
     /**
      * @var string
      */
+    protected $abstractProductId = '';
+
+    /**
+     * @var string
+     */
     protected $name = '';
 
     /**
@@ -186,4 +191,19 @@ class ProductAbstract implements ProductAbstractInterface
         $this->category = $category;
     }
 
+    /**
+     * @return string
+     */
+    public function getAbstractProductId()
+    {
+        return $this->abstractProductId;
+    }
+
+    /**
+     * @param string $abstractProductId
+     */
+    public function setAbstractProductId($abstractProductId)
+    {
+        $this->abstractProductId = $abstractProductId;
+    }
 }
