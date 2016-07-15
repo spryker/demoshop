@@ -1100,6 +1100,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "b78d4a3fa5941ff2d7cc5546ecd6cae0d07b05b4"
 =======
 =======
@@ -1116,6 +1117,8 @@
 >>>>>>> core-297 update spryker/spryker
 =======
 >>>>>>> core-297 updated tests
+=======
+>>>>>>> core-297 update cpryker/srpyker
 <<<<<<< HEAD
                 "reference": "50335bf8dd90226981087feb709b3d06d6e21249"
 =======
@@ -1133,6 +1136,8 @@
 >>>>>>> core-297 update spryker/spryker
 =======
 >>>>>>> core-297 updated tests
+=======
+>>>>>>> core-297 update cpryker/srpyker
 <<<<<<< HEAD
                 "reference": "dfdb601f43614ef723a10a3c8f23049e297ddd58"
 =======
@@ -1150,6 +1155,8 @@
 >>>>>>> core-297 update spryker/spryker
 =======
 >>>>>>> core-297 updated tests
+=======
+>>>>>>> core-297 update cpryker/srpyker
 <<<<<<< HEAD
                 "reference": "6039e7307f78ff845e9cbdf1d9114a54c6282088"
 =======
@@ -1320,9 +1327,21 @@
 =======
                 "reference": "b69fc76ded73413b177f34e5f607fb391722b67d"
 >>>>>>> core-297 updated tests
+<<<<<<< HEAD
 >>>>>>> core-297 updated tests
+<<<<<<< HEAD
 >>>>>>> core-297 updated tests
+<<<<<<< HEAD
 >>>>>>> core-297 updated tests
+=======
+=======
+=======
+=======
+                "reference": "c91079b28695142eacacbf76ee1296e86b862343"
+>>>>>>> core-297 update cpryker/srpyker
+>>>>>>> core-297 update cpryker/srpyker
+>>>>>>> core-297 update cpryker/srpyker
+>>>>>>> core-297 update cpryker/srpyker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1370,7 +1389,7 @@
                     "Spryker\\Client\\Braintree\\": "Bundles/Braintree/src",
                     "Unit\\Spryker\\Client\\Braintree\\": "Bundles/Braintree/tests",
                     "Functional\\Spryker\\Client\\Braintree\\": "Bundles/Braintree/tests",
-                    "Acceptance\\Braintree\\Checkout\\": "Bundles/Braintree/tests",
+                    "Acceptance\\Braintree\\": "Bundles/Braintree/tests",
                     "Spryker\\Shared\\Braintree\\": "Bundles/Braintree/src",
                     "Unit\\Spryker\\Shared\\Braintree\\": "Bundles/Braintree/tests",
                     "Functional\\Spryker\\Shared\\Braintree\\": "Bundles/Braintree/tests",
@@ -1805,11 +1824,12 @@
                     "Functional\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests"
                 },
                 "psr-4": {
-                    "Testify\\Module\\": "Bundles/Testify/tests/_support/Module",
-                    "Propel\\Module\\": "Bundles/Propel/tests/_support/Module",
+                    "Application\\Module\\": "Bundles/Application/tests/_support/Module",
                     "Config\\Module\\": "Bundles/Config/tests/_support/Module",
-                    "Transfer\\Module\\": "Bundles/Transfer/tests/_support/Module",
-                    "Application\\Module\\": "Bundles/Application/tests/_support/Module"
+                    "Oms\\Module\\": "Bundles/Application/tests/_support/Module",
+                    "Propel\\Module\\": "Bundles/Propel/tests/_support/Module",
+                    "Testify\\Module\\": "Bundles/Testify/tests/_support/Module",
+                    "Transfer\\Module\\": "Bundles/Transfer/tests/_support/Module"
                 },
                 "files": [
                     "Bundles/Config/src/Spryker/Shared/Config.php"
@@ -1819,6 +1839,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1843,6 +1864,8 @@
 >>>>>>> core-297 update spryker/spryker
 =======
 >>>>>>> core-297 updated tests
+=======
+>>>>>>> core-297 update cpryker/srpyker
 <<<<<<< HEAD
             "time": "2016-07-19 11:50:25"
 =======
@@ -1860,6 +1883,8 @@
 >>>>>>> core-297 update spryker/spryker
 =======
 >>>>>>> core-297 updated tests
+=======
+>>>>>>> core-297 update cpryker/srpyker
 <<<<<<< HEAD
             "time": "2016-07-18 14:55:00"
 =======
@@ -1877,6 +1902,8 @@
 >>>>>>> core-297 update spryker/spryker
 =======
 >>>>>>> core-297 updated tests
+=======
+>>>>>>> core-297 update cpryker/srpyker
 <<<<<<< HEAD
             "time": "2016-07-15 12:13:21"
 =======
@@ -2047,9 +2074,21 @@
 =======
             "time": "2016-07-14 11:50:59"
 >>>>>>> core-297 updated tests
+<<<<<<< HEAD
 >>>>>>> core-297 updated tests
+<<<<<<< HEAD
 >>>>>>> core-297 updated tests
+<<<<<<< HEAD
 >>>>>>> core-297 updated tests
+=======
+=======
+=======
+=======
+            "time": "2016-07-14 15:31:38"
+>>>>>>> core-297 update cpryker/srpyker
+>>>>>>> core-297 update cpryker/srpyker
+>>>>>>> core-297 update cpryker/srpyker
+>>>>>>> core-297 update cpryker/srpyker
         },
         {
             "name": "symfony-cmf/routing",
