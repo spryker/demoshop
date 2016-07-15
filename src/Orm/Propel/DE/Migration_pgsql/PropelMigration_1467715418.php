@@ -55,11 +55,10 @@ CREATE SEQUENCE "spy_availability_abstract_pk_seq";
 CREATE TABLE "spy_availability_abstract"
 (
     "id_availability_abstract" INTEGER NOT NULL,
-    "sku" VARCHAR(255) NOT NULL,
-    "fk_product_abstract" INTEGER NOT NULL,
+    "abstract_sku" VARCHAR(255) NOT NULL,
     "quantity" INTEGER DEFAULT 0 NOT NULL,
     PRIMARY KEY ("id_availability_abstract"),
-    CONSTRAINT "spy_availability_abstract-sku" UNIQUE ("sku")
+    CONSTRAINT "spy_availability_abstract-sku" UNIQUE ("abstract_sku")
 );
 
 CREATE SEQUENCE "spy_availability_pk_seq";
@@ -74,10 +73,6 @@ CREATE TABLE "spy_availability"
     PRIMARY KEY ("id_availability"),
     CONSTRAINT "spy_availability-sku" UNIQUE ("sku")
 );
-
-ALTER TABLE "spy_availability_abstract" ADD CONSTRAINT "spy_availability_abstract-fk_product_abstract"
-    FOREIGN KEY ("fk_product_abstract")
-    REFERENCES "spy_product_abstract" ("id_product_abstract");
 
 ALTER TABLE "spy_availability" ADD CONSTRAINT "spy_availability-fk_spy_availability_abstract"
     FOREIGN KEY ("fk_availability_abstract")
@@ -107,6 +102,7 @@ DROP SEQUENCE "spy_availability_abstract_pk_seq";
 DROP TABLE IF EXISTS "spy_availability" CASCADE;
 
 DROP SEQUENCE "spy_availability_pk_seq";
+
 ',
 );
     }
