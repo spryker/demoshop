@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Updater\Business\Factory;
 
+use Pyz\Zed\Importer\Business\Importer\ImporterInterface;
 use Pyz\Zed\Updater\Business\Installer\Product\ProductStockInstaller;
 use Pyz\Zed\Updater\UpdaterConfig;
 
@@ -31,20 +32,29 @@ class InstallerFactory extends AbstractFactory
     {
         $productStockUpdater = new ProductStockInstaller(
             $this->getUpdaterProductStockCollection(),
-            $this->getConfig()->getImportDataDirectory()
+            $this->getConfig()->getImportDataDirectory(),
+            $this->createProductStockUpdater()
         );
 
         return $productStockUpdater;
     }
 
     /**
-     * @return \Pyz\Zed\Updater\Business\Installer\InstallerInterface[]
+     * @return ImporterInterface[]
      */
     public function getUpdaterProductStockCollection()
     {
         return [
-            UpdaterConfig::RESOURCE_PRODUCT_STOCK => $this->createUpdaterFactory()->createProductStockUpdater(),
+            UpdaterConfig::RESOURCE_PRODUCT_STOCK => $this->createProductStockUpdater(),
         ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Updater\Business\Updater\Product\ProductStockUpdater
+     */
+    protected function createProductStockUpdater()
+    {
+        return $this->createUpdaterFactory()->createProductStockUpdater();
     }
 
 }

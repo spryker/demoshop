@@ -31,6 +31,7 @@ class UpdaterDependencyProvider extends AbstractBundleDependencyProvider
     const FACADE_STOCK = 'FACADE_STOCK';
     const FACADE_TAX = 'FACADE_TAX';
     const FACADE_DISCOUNT = 'FACADE_DISCOUNT';
+    const FACADE_OMS = 'FACADE_OMS';
 
     const QUERY_CONTAINER_CMS = 'QUERY_CONTAINER_CMS';
     const QUERY_CONTAINER_CATEGORY = 'QUERY_CONTAINER_CATEGORY';
@@ -40,6 +41,8 @@ class UpdaterDependencyProvider extends AbstractBundleDependencyProvider
     const QUERY_CONTAINER_PRODUCT_SEARCH = 'QUERY_CONTAINER_PRODUCT_SEARCH';
     const QUERY_CONTAINER_PRICE = 'QUERY_CONTAINER_PRICE';
     const QUERY_CONTAINER_SHIPMENT = 'QUERY_CONTAINER_SHIPMENT';
+    const QUERY_CONTAINER_STOCK = 'QUERY_CONTAINER_STOCK';
+    const QUERY_CONTAINER_SALES = 'QUERY_CONTAINER_SALES';
 
     const BRIDGE_CATEGORY_TO_URL = 'BRIDGE_CATEGORY_TO_URL';
     const BRIDGE_CATEGORY_TO_TOUCH = 'BRIDGE_CATEGORY_TO_TOUCH';
@@ -104,6 +107,10 @@ class UpdaterDependencyProvider extends AbstractBundleDependencyProvider
             return $container->getLocator()->discount()->facade();
         };
 
+        $container[static::FACADE_OMS] = function (Container $container) {
+            return $container->getLocator()->oms()->facade();
+        };
+
         $container[static::QUERY_CONTAINER_CMS] = function (Container $container) {
             return $container->getLocator()->cms()->queryContainer();
         };
@@ -134,6 +141,14 @@ class UpdaterDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[static::QUERY_CONTAINER_SHIPMENT] = function (Container $container) {
             return $container->getLocator()->shipment()->queryContainer();
+        };
+
+        $container[static::QUERY_CONTAINER_STOCK] = function (Container $container) {
+            return $container->getLocator()->stock()->queryContainer();
+        };
+
+        $container[static::QUERY_CONTAINER_SALES] = function (Container $container) {
+            return $container->getLocator()->sales()->queryContainer();
         };
 
         $container[static::BRIDGE_CATEGORY_TO_URL] = function (Container $container) {

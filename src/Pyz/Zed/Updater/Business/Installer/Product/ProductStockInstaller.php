@@ -8,10 +8,32 @@
 namespace Pyz\Zed\Updater\Business\Installer\Product;
 
 use Pyz\Zed\Importer\Business\Installer\AbstractInstaller;
+use Pyz\Zed\Updater\Business\Updater\Product\ProductStockUpdater;
 use Spryker\Shared\Library\BatchIterator\CsvBatchIterator;
 
 class ProductStockInstaller extends AbstractInstaller
 {
+
+    /**
+     * @var ProductStockUpdater
+     */
+    protected $productStockUpdater;
+
+    /**
+     * @param array|\Pyz\Zed\Importer\Business\Importer\ImporterInterface[] $importerCollection
+     * @param string $dataDirectory
+     * @param ProductStockUpdater $productStockUpdater
+     */
+    public function __construct(
+        array $importerCollection,
+        $dataDirectory,
+        ProductStockUpdater $productStockUpdater
+    )
+    {
+        parent::__construct($importerCollection, $dataDirectory);
+
+        $this->productStockUpdater = $productStockUpdater;
+    }
 
     /**
      * @return \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface
@@ -35,6 +57,14 @@ class ProductStockInstaller extends AbstractInstaller
     public function getTitle()
     {
         return 'Product Stock';
+    }
+
+    /**
+     * @return void
+     */
+    protected function afterInstall()
+    {
+        $this->productStockUpdater->triggerStockUpdateEvent();
     }
 
 }

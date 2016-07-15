@@ -23,9 +23,13 @@ class UpdaterFactory extends AbstractFactory
     public function createProductStockUpdater()
     {
         $productStockUpdater = new ProductStockUpdater(
+            $this->createCsvFileReader(),
             $this->getLocaleFacade(),
             $this->getStockFacade(),
+            $this->getOmsFacade(),
             $this->getProductQueryContainer(),
+            $this->getStockQueryContainer(),
+            $this->getSalesQueryContainer(),
             $this->getConfig()->getImportDataDirectory()
         );
 

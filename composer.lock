@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5eb196bdff4615a27d5ffa920a5c7b7c",
-    "content-hash": "1ac2a0532656eca6c47d7800d74cf673",
+    "hash": "43fb7c25b44f90fb9ded2ea0de3b3724",
+    "content-hash": "51609dab4150fb5c5f9eb84be1bb378b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -991,11 +991,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-180-availability-build-calc",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b78d4a3fa5941ff2d7cc5546ecd6cae0d07b05b4"
+                "reference": "72e55ab166e6c091d3a74792a5299c8489e04983"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1034,6 +1034,7 @@
                     "Functional\\Spryker\\Zed\\Auth\\": "Bundles/Auth/tests",
                     "Spryker\\Zed\\AuthMailConnector\\": "Bundles/AuthMailConnector/src",
                     "Unit\\Spryker\\Zed\\AuthMailConnector\\": "Bundles/AuthMailConnector/tests",
+                    "Spryker\\Shared\\Availability\\": "Bundles/Availability/src",
                     "Spryker\\Zed\\Availability\\": "Bundles/Availability/src",
                     "Functional\\Spryker\\Zed\\Availability\\": "Bundles/Availability/tests",
                     "Spryker\\Zed\\AvailabilityCartConnector\\": "Bundles/AvailabilityCartConnector/src",
@@ -1490,7 +1491,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-07-20 09:53:37"
+            "time": "2016-07-20 10:20:41"
         },
         {
             "name": "symfony-cmf/routing",

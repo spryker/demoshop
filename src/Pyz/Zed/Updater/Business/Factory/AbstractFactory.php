@@ -9,6 +9,7 @@ namespace Pyz\Zed\Updater\Business\Factory;
 
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
 use Pyz\Zed\Updater\UpdaterDependencyProvider;
+use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Category\Business\Generator\UrlPathGenerator;
 use Spryker\Zed\Category\Business\Tree\CategoryTreeReader;
 use Spryker\Zed\Category\Business\Tree\CategoryTreeWriter;
@@ -16,7 +17,10 @@ use Spryker\Zed\Category\Business\Tree\ClosureTableWriter;
 use Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter;
 use Spryker\Zed\Category\Business\Tree\NodeWriter;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
+use Spryker\Zed\Oms\Business\OmsFacadeInterface;
 use Spryker\Zed\Product\Business\Attribute\AttributeManager;
+use Spryker\Zed\Sales\Persistence\SalesQueryContainerInterface;
+use Spryker\Zed\Stock\Persistence\StockQueryContainerInterface;
 
 /**
  * @method \Pyz\Zed\Updater\UpdaterConfig getConfig()
@@ -159,11 +163,35 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     }
 
     /**
+     * @return StockQueryContainerInterface
+     */
+    protected function getStockQueryContainer()
+    {
+        return $this->getProvidedDependency(UpdaterDependencyProvider::QUERY_CONTAINER_STOCK);
+    }
+
+    /**
+     * @return SalesQueryContainerInterface
+     */
+    protected function getSalesQueryContainer()
+    {
+        return $this->getProvidedDependency(UpdaterDependencyProvider::QUERY_CONTAINER_SALES);
+    }
+
+    /**
      * @return \Spryker\Zed\Stock\Business\StockFacadeInterface
      */
     protected function getStockFacade()
     {
         return $this->getProvidedDependency(UpdaterDependencyProvider::FACADE_STOCK);
+    }
+
+    /**
+     * @return OmsFacadeInterface
+     */
+    protected function getOmsFacade()
+    {
+        return $this->getProvidedDependency(UpdaterDependencyProvider::FACADE_OMS);
     }
 
     /**
@@ -292,6 +320,14 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     protected function getCmsToUrlBridge()
     {
         return $this->getProvidedDependency(UpdaterDependencyProvider::BRIDGE_CMS_TO_URL);
+    }
+
+    /**
+     * @return CsvReader
+     */
+    public function createCsvFileReader()
+    {
+        return new CsvReader();
     }
 
 }
