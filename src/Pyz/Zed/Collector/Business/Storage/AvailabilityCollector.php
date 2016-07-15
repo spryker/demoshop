@@ -15,7 +15,7 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
 
     const AVAILABLE = 'available';
     const NONE = 'none';
-    const CONCRETE_PRODUCT = 'concrete_product';
+    const ABSTRACT_PRODUCT = 'abstract_product';
 
     /**
      * @param string $touchKey
@@ -33,7 +33,7 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
      */
     protected function collectResourceType()
     {
-       return AvailabilityConstants::RESOURCE_TYPE_AVAILABILITY;
+       return AvailabilityConstants::RESOURCE_TYPE_AVAILABILITY_ABSTRACT;
     }
 
     /**
@@ -45,7 +45,7 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
      */
     protected function collectKey($data, $localeName, array $collectedItemData)
     {
-        return $this->generateKey($collectedItemData[AvailabilityCollectorQuery::ID_PRODUCT], $localeName);
+        return $this->generateKey($collectedItemData[AvailabilityCollectorQuery::ID_PRODUCT_ABSTRACT], $localeName);
     }
 
     /**
@@ -53,7 +53,7 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
      */
     public function getBundleName()
     {
-        return self::CONCRETE_PRODUCT;
+        return self::ABSTRACT_PRODUCT;
     }
 
 }

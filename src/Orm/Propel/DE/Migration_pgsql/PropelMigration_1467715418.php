@@ -50,17 +50,38 @@ CREATE TABLE "spy_oms_product_reservation"
     CONSTRAINT "spy_oms_product_reservation-sku" UNIQUE ("sku")
 );
 
+CREATE SEQUENCE "spy_availability_abstract_pk_seq";
+
+CREATE TABLE "spy_availability_abstract"
+(
+    "id_availability_abstract" INTEGER NOT NULL,
+    "sku" VARCHAR(255) NOT NULL,
+    "fk_product_abstract" INTEGER NOT NULL,
+    "quantity" INTEGER DEFAULT 0 NOT NULL,
+    PRIMARY KEY ("id_availability_abstract"),
+    CONSTRAINT "spy_availability_abstract-sku" UNIQUE ("sku")
+);
+
 CREATE SEQUENCE "spy_availability_pk_seq";
 
 CREATE TABLE "spy_availability"
 (
     "id_availability" INTEGER NOT NULL,
+    "fk_availability_abstract" INTEGER NOT NULL,
     "sku" VARCHAR(255) NOT NULL,
     "quantity" INTEGER NOT NULL,
     "is_never_out_of_stock" BOOLEAN DEFAULT \'f\',
     PRIMARY KEY ("id_availability"),
     CONSTRAINT "spy_availability-sku" UNIQUE ("sku")
 );
+
+ALTER TABLE "spy_availability_abstract" ADD CONSTRAINT "spy_availability_abstract-fk_product_abstract"
+    FOREIGN KEY ("fk_product_abstract")
+    REFERENCES "spy_product_abstract" ("id_product_abstract");
+
+ALTER TABLE "spy_availability" ADD CONSTRAINT "spy_availability-fk_spy_availability_abstract"
+    FOREIGN KEY ("fk_availability_abstract")
+    REFERENCES "spy_availability_abstract" ("id_availability_abstract");
 ',
 );
     }
@@ -78,6 +99,10 @@ CREATE TABLE "spy_availability"
 DROP TABLE IF EXISTS "spy_oms_product_reservation" CASCADE;
 
 DROP SEQUENCE "spy_oms_product_reservation_pk_seq";
+
+DROP TABLE IF EXISTS "spy_availability_abstract" CASCADE;
+
+DROP SEQUENCE "spy_availability_abstract_pk_seq";
 
 DROP TABLE IF EXISTS "spy_availability" CASCADE;
 

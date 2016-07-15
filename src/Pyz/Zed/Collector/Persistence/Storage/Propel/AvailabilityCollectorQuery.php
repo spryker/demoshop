@@ -6,8 +6,7 @@
 
 namespace Pyz\Zed\Collector\Persistence\Storage\Propel;
 
-use Orm\Zed\Availability\Persistence\Map\SpyAvailabilityTableMap;
-use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
+use Orm\Zed\Availability\Persistence\Map\SpyAvailabilityAbstractTableMap;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Zed\Collector\Persistence\Collector\AbstractPropelCollectorQuery;
@@ -15,7 +14,7 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPropelCollectorQuery;
 class AvailabilityCollectorQuery extends AbstractPropelCollectorQuery
 {
 
-    const ID_PRODUCT = 'id_product';
+    const ID_PRODUCT_ABSTRACT = 'id_product_abstract';
     const QUANTITY = 'quantity';
 
     /**
@@ -25,17 +24,11 @@ class AvailabilityCollectorQuery extends AbstractPropelCollectorQuery
     {
         $this->touchQuery->addJoin(
             SpyTouchTableMap::COL_ITEM_ID,
-            SpyAvailabilityTableMap::COL_ID_AVAILABILITY,
+            SpyAvailabilityAbstractTableMap::COL_ID_AVAILABILITY_ABSTRACT,
             Criteria::INNER_JOIN
         );
 
-        $this->touchQuery->addJoin(
-            SpyAvailabilityTableMap::COL_SKU,
-            SpyProductTableMap::COL_SKU,
-            Criteria::INNER_JOIN
-        );
-
-        $this->touchQuery->withColumn(SpyAvailabilityTableMap::COL_QUANTITY, self::QUANTITY);
-        $this->touchQuery->withColumn(SpyProductTableMap::COL_ID_PRODUCT, self::ID_PRODUCT);
+        $this->touchQuery->withColumn(SpyAvailabilityAbstractTableMap::COL_QUANTITY, self::QUANTITY);
+        $this->touchQuery->withColumn(SpyAvailabilityAbstractTableMap::COL_FK_PRODUCT_ABSTRACT, self::ID_PRODUCT_ABSTRACT);
     }
 }
