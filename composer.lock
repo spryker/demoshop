@@ -1101,6 +1101,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "b78d4a3fa5941ff2d7cc5546ecd6cae0d07b05b4"
 =======
 =======
@@ -1119,6 +1120,8 @@
 >>>>>>> core-297 updated tests
 =======
 >>>>>>> core-297 update cpryker/srpyker
+=======
+>>>>>>> core-297 update composer
 <<<<<<< HEAD
                 "reference": "50335bf8dd90226981087feb709b3d06d6e21249"
 =======
@@ -1138,6 +1141,8 @@
 >>>>>>> core-297 updated tests
 =======
 >>>>>>> core-297 update cpryker/srpyker
+=======
+>>>>>>> core-297 update composer
 <<<<<<< HEAD
                 "reference": "dfdb601f43614ef723a10a3c8f23049e297ddd58"
 =======
@@ -1157,6 +1162,8 @@
 >>>>>>> core-297 updated tests
 =======
 >>>>>>> core-297 update cpryker/srpyker
+=======
+>>>>>>> core-297 update composer
 <<<<<<< HEAD
                 "reference": "6039e7307f78ff845e9cbdf1d9114a54c6282088"
 =======
@@ -1339,9 +1346,21 @@
 =======
                 "reference": "c91079b28695142eacacbf76ee1296e86b862343"
 >>>>>>> core-297 update cpryker/srpyker
+<<<<<<< HEAD
 >>>>>>> core-297 update cpryker/srpyker
+<<<<<<< HEAD
 >>>>>>> core-297 update cpryker/srpyker
+<<<<<<< HEAD
 >>>>>>> core-297 update cpryker/srpyker
+=======
+=======
+=======
+=======
+                "reference": "fa3333a938c4ad903356560aa5fbefd9c27df519"
+>>>>>>> core-297 update composer
+>>>>>>> core-297 update composer
+>>>>>>> core-297 update composer
+>>>>>>> core-297 update composer
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1695,6 +1714,7 @@
                     "Spryker\\Client\\Sales\\": "Bundles/Sales/src",
                     "Unit\\Spryker\\Client\\Sales\\": "Bundles/Sales/tests",
                     "Functional\\Spryker\\Client\\Sales\\": "Bundles/Sales/tests",
+                    "Acceptance\\Sales\\": "Bundles/Sales/tests",
                     "Spryker\\Shared\\Sales\\": "Bundles/Sales/src",
                     "Unit\\Spryker\\Shared\\Sales\\": "Bundles/Sales/tests",
                     "Functional\\Spryker\\Shared\\Sales\\": "Bundles/Sales/tests",
@@ -1825,9 +1845,11 @@
                 },
                 "psr-4": {
                     "Application\\Module\\": "Bundles/Application/tests/_support/Module",
+                    "Braintree\\Module\\": "Bundles/Braintree/tests/_support/Module",
                     "Config\\Module\\": "Bundles/Config/tests/_support/Module",
-                    "Oms\\Module\\": "Bundles/Application/tests/_support/Module",
+                    "Oms\\Module\\": "Bundles/Oms/tests/_support/Module",
                     "Propel\\Module\\": "Bundles/Propel/tests/_support/Module",
+                    "Sales\\Module\\": "Bundles/Sales/tests/_support/Module",
                     "Testify\\Module\\": "Bundles/Testify/tests/_support/Module",
                     "Transfer\\Module\\": "Bundles/Transfer/tests/_support/Module"
                 },
@@ -1839,6 +1861,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1866,6 +1889,8 @@
 >>>>>>> core-297 updated tests
 =======
 >>>>>>> core-297 update cpryker/srpyker
+=======
+>>>>>>> core-297 update composer
 <<<<<<< HEAD
             "time": "2016-07-19 11:50:25"
 =======
@@ -1885,6 +1910,8 @@
 >>>>>>> core-297 updated tests
 =======
 >>>>>>> core-297 update cpryker/srpyker
+=======
+>>>>>>> core-297 update composer
 <<<<<<< HEAD
             "time": "2016-07-18 14:55:00"
 =======
@@ -1904,6 +1931,8 @@
 >>>>>>> core-297 updated tests
 =======
 >>>>>>> core-297 update cpryker/srpyker
+=======
+>>>>>>> core-297 update composer
 <<<<<<< HEAD
             "time": "2016-07-15 12:13:21"
 =======
@@ -2086,9 +2115,21 @@
 =======
             "time": "2016-07-14 15:31:38"
 >>>>>>> core-297 update cpryker/srpyker
+<<<<<<< HEAD
 >>>>>>> core-297 update cpryker/srpyker
+<<<<<<< HEAD
 >>>>>>> core-297 update cpryker/srpyker
+<<<<<<< HEAD
 >>>>>>> core-297 update cpryker/srpyker
+=======
+=======
+=======
+=======
+            "time": "2016-07-15 09:32:11"
+>>>>>>> core-297 update composer
+>>>>>>> core-297 update composer
+>>>>>>> core-297 update composer
+>>>>>>> core-297 update composer
         },
         {
             "name": "symfony-cmf/routing",
