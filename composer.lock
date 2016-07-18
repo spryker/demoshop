@@ -1102,6 +1102,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "b78d4a3fa5941ff2d7cc5546ecd6cae0d07b05b4"
 =======
 =======
@@ -1122,6 +1123,8 @@
 >>>>>>> core-297 update cpryker/srpyker
 =======
 >>>>>>> core-297 update composer
+=======
+>>>>>>> core-297 moved tests to core
 <<<<<<< HEAD
                 "reference": "50335bf8dd90226981087feb709b3d06d6e21249"
 =======
@@ -1143,6 +1146,8 @@
 >>>>>>> core-297 update cpryker/srpyker
 =======
 >>>>>>> core-297 update composer
+=======
+>>>>>>> core-297 moved tests to core
 <<<<<<< HEAD
                 "reference": "dfdb601f43614ef723a10a3c8f23049e297ddd58"
 =======
@@ -1359,8 +1364,17 @@
                 "reference": "fa3333a938c4ad903356560aa5fbefd9c27df519"
 >>>>>>> core-297 update composer
 >>>>>>> core-297 update composer
+<<<<<<< HEAD
 >>>>>>> core-297 update composer
+<<<<<<< HEAD
 >>>>>>> core-297 update composer
+=======
+=======
+=======
+                "reference": "e17a9c143598f6d42fac5ab92beb841a02e4422d"
+>>>>>>> core-297 moved tests to core
+>>>>>>> core-297 moved tests to core
+>>>>>>> core-297 moved tests to core
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1871,6 +1885,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-07-20 09:53:37"
 =======
 =======
@@ -1891,6 +1906,8 @@
 >>>>>>> core-297 update cpryker/srpyker
 =======
 >>>>>>> core-297 update composer
+=======
+>>>>>>> core-297 moved tests to core
 <<<<<<< HEAD
             "time": "2016-07-19 11:50:25"
 =======
@@ -1912,6 +1929,8 @@
 >>>>>>> core-297 update cpryker/srpyker
 =======
 >>>>>>> core-297 update composer
+=======
+>>>>>>> core-297 moved tests to core
 <<<<<<< HEAD
             "time": "2016-07-18 14:55:00"
 =======
@@ -2128,8 +2147,17 @@
             "time": "2016-07-15 09:32:11"
 >>>>>>> core-297 update composer
 >>>>>>> core-297 update composer
+<<<<<<< HEAD
 >>>>>>> core-297 update composer
+<<<<<<< HEAD
 >>>>>>> core-297 update composer
+=======
+=======
+=======
+            "time": "2016-07-18 06:44:21"
+>>>>>>> core-297 moved tests to core
+>>>>>>> core-297 moved tests to core
+>>>>>>> core-297 moved tests to core
         },
         {
             "name": "symfony-cmf/routing",
