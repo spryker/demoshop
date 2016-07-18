@@ -107,6 +107,10 @@
         right: $step*.5;
       }
     }
+    .cart__options {
+      font-size: 12px;
+      text-transform: none;
+    }
 
     .cart__contents {
       transition-delay: 0s;
@@ -149,6 +153,7 @@
       font-weight: 500;
       text-transform: uppercase;
       text-align: left;
+      margin-bottom: $step*.5;
     }
 
     .cart__item-quantity, .cart__item-image {
@@ -157,7 +162,6 @@
 
     .cart__item-name, .cart__item-quantity--spinner, .cart__item-price, .cart__shipping-label, .cart__shipping-price {
       display: inline-block;
-      margin-bottom: $step*.5;
     }
 
     .cart__item-name {
