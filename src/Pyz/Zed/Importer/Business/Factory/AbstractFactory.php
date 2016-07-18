@@ -296,6 +296,22 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     }
 
     /**
+     * @return \Spryker\Zed\Country\Business\CountryFacadeInterface
+     */
+    protected function getCountryFacade()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_COUNTRY);
+    }
+
+    /**
+     * @return \Spryker\Zed\Tax\Persistence\TaxQueryContainerInterface
+     */
+    protected function getTaxQueryContainer()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::QUERY_CONTAINER_TAX);
+    }
+
+    /**
      * @return ProductOptionFacadeInterface
      */
     protected function getProductOptionFacade()

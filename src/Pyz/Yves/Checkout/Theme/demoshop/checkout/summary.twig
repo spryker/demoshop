@@ -50,7 +50,11 @@
                 </tr>
                 <tr>
                     <td>Payment method:</td>
+
                     <td>{{ quoteTransfer.payment.paymentMethod }}</td>
+                    {% if quoteTransfer.payment.summaryPartialPath %}
+                        {% include '@' ~ quoteTransfer.payment.summaryPartialPath ~ '.twig' with {'quoteTransfer': quoteTransfer} %}
+                    {% endif %}
                 </tr>
                 <tr>
                     <td>Shipment:</td>
@@ -62,7 +66,7 @@
                 </tr>
                 <tr>
                     <td>Tax amount:</td>
-                    <td>{{ quoteTransfer.totals.taxtotal.amount|price }} ({{ quoteTransfer.totals.taxtotal.taxRate }} %)</td>
+                    <td>{{ quoteTransfer.totals.taxtotal.amount|price }}</td>
                 </tr>
             </table>
             <div style="clear:both;"></div>

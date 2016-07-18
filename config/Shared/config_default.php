@@ -19,6 +19,7 @@ use Spryker\Shared\Sales\SalesConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
 use Spryker\Shared\Session\SessionConstants;
+use Spryker\Shared\Tax\TaxConstants;
 use Spryker\Shared\User\UserConstants;
 use Spryker\Zed\DummyPayment\DummyPaymentConfig;
 use Spryker\Zed\Oms\OmsConfig;
@@ -123,13 +124,15 @@ $config[ApplicationConstants::ZED_STORAGE_SESSION_PERSISTENT_CONNECTION] = true;
 
 $config[ApplicationConstants::ZED_SSL_ENABLED] = false;
 $config[ApplicationConstants::ZED_API_SSL_ENABLED] = false;
-$config[ApplicationConstants::ZED_SSL_EXCLUDED] = ['system/heartbeat'];
+$config[ApplicationConstants::ZED_SSL_EXCLUDED] = ['heartbeat/index'];
 
 $config[ApplicationConstants::YVES_THEME] = 'demoshop';
 $config[ApplicationConstants::YVES_TRUSTED_PROXIES] = [];
 $config[ApplicationConstants::YVES_SSL_ENABLED] = false;
 $config[ApplicationConstants::YVES_COMPLETE_SSL_ENABLED] = false;
-$config[ApplicationConstants::YVES_SSL_EXCLUDED] = ['/monitoring/heartbeat'];
+$config[ApplicationConstants::YVES_SSL_EXCLUDED] = [
+    'heartbeat' => '/heartbeat'
+];
 
 $config[ApplicationConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
 $config[ApplicationConstants::YVES_SESSION_NAME] = $config[ApplicationConstants::HOST_YVES];
@@ -256,8 +259,8 @@ $config[AclConstants::ACL_DEFAULT_RULES] = [
         'type' => 'allow',
     ],
     [
-        'bundle' => 'system',
-        'controller' => 'heartbeat',
+        'bundle' => 'heartbeat',
+        'controller' => 'index',
         'action' => 'index',
         'type' => 'allow',
     ],
@@ -280,7 +283,7 @@ $config[AclConstants::ACL_USER_RULE_WHITELIST] = [
         'type' => 'allow',
     ],
     [
-        'bundle' => 'system',
+        'bundle' => 'heartbeat',
         'controller' => 'heartbeat',
         'action' => 'index',
         'type' => 'allow',
@@ -401,3 +404,5 @@ $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
     DummyPaymentConfig::PAYMENT_METHOD_INVOICE => 'DummyPayment01',
     DummyPaymentConfig::PAYMENT_METHOD_CREDIT_CARD => 'DummyPayment01',
 ];
+
+$config[TaxConstants::DEFAULT_TAX_RATE] = 19;

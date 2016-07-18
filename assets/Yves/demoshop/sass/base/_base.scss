@@ -36,7 +36,7 @@ button, input[type="submit"] {
   }
 }
 
-input, textarea, select {
+input, textarea, select, .input {
   border: none;
   border-radius: 3px;
   padding: 6px;
@@ -48,7 +48,11 @@ input, textarea, select {
   line-height: $step;
 }
 
-input.padded, textarea.padded {
+.input {
+  height: 40px;
+}
+
+input.padded, textarea.padded, .input.padded {
   border-radius: 5px;
   border: 1px solid $paler-color;
   padding: $step*.75 $step*.5;

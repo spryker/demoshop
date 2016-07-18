@@ -84,7 +84,6 @@ class SalesAggregatorDependencyProvider extends SprykerSalesAggregatorDependency
             //Aggregate Grand total amount, subtotal + expenses - discounts
             new GrandTotalAggregatorPlugin(),
             new OrderGrandTotalWithDiscountsAggregatorPlugin(),
-
             new OrderTaxAmountWithProductOptionsAndDiscountsAggregatorPlugin()
         ];
     }

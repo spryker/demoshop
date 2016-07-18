@@ -7,7 +7,7 @@
 
 namespace Pyz\Yves\Twig\Plugin;
 
-use Silex\Application;
+use Spryker\Yves\Application\Application;
 use Spryker\Yves\Kernel\AbstractPlugin;
 
 /**
@@ -17,7 +17,7 @@ class TwigYves extends AbstractPlugin
 {
 
     /**
-     * @param \Silex\Application $application
+     * @param \Spryker\Yves\Application\Application $application
      *
      * @return \Twig_Extension
      */

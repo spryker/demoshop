@@ -9,7 +9,7 @@ namespace Pyz\Zed\Importer\Business\Installer\Glossary;
 
 use Pyz\Zed\Importer\Business\Installer\AbstractInstaller;
 use Spryker\Shared\Library\BatchIterator\CountableIteratorInterface;
-use Spryker\Shared\Library\BatchIterator\YamlBatchIterator;
+use Spryker\Shared\Library\BatchIterator\CsvBatchIterator;
 
 class GlossaryInstaller extends AbstractInstaller
 {
@@ -19,15 +19,15 @@ class GlossaryInstaller extends AbstractInstaller
      */
     protected function buildBatchIterator()
     {
-        return new YamlBatchIterator($this->getYamlDataFilename());
+        return new CsvBatchIterator($this->getFilename());
     }
 
     /**
      * @return string
      */
-    protected function getYamlDataFilename()
+    protected function getFilename()
     {
-        return $this->dataDirectory . '/glossary.yml';
+        return $this->dataDirectory . '/glossary.csv';
     }
 
     /**

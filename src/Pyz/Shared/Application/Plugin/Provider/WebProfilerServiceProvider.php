@@ -4,7 +4,7 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Yves\Application\Plugin\Provider;
+namespace Pyz\Shared\Application\Plugin\Provider;
 
 use Silex\Application;
 use Silex\ControllerProviderInterface;
