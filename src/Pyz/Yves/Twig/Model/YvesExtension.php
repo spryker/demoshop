@@ -9,7 +9,6 @@ namespace Pyz\Yves\Twig\Model;
 
 use Pyz\Yves\Twig\TwigSettings;
 use Spryker\Shared\Twig\TwigExtension;
-use Spryker\Shared\Twig\TwigSimpleFilter;
 use Spryker\Yves\Application\Application;
 
 class YvesExtension extends TwigExtension
@@ -46,7 +45,7 @@ class YvesExtension extends TwigExtension
     }
 
     /**
-     * @return \Spryker\Shared\Twig\TwigSimpleFilter[]
+     * @return \Spryker\Shared\Twig\TwigFilter[]
      */
     public function getFilters()
     {
