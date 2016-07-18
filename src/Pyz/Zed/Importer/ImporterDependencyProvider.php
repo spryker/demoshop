@@ -30,6 +30,9 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     const FACADE_URL = 'FACADE_URL';
     const FACADE_STOCK = 'FACADE_STOCK';
     const FACADE_TAX = 'FACADE_TAX';
+    const FACADE_COUNTRY = 'FACADE_COUNTRY';
+
+
     const FACADE_DISCOUNT = 'FACADE_DISCOUNT';
 
     const QUERY_CONTAINER_CMS = 'QUERY_CONTAINER_CMS';
@@ -40,6 +43,7 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     const QUERY_CONTAINER_PRODUCT_SEARCH = 'QUERY_CONTAINER_PRODUCT_SEARCH';
     const QUERY_CONTAINER_PRICE = 'QUERY_CONTAINER_PRICE';
     const QUERY_CONTAINER_SHIPMENT = 'QUERY_CONTAINER_SHIPMENT';
+    const QUERY_CONTAINER_TAX = 'QUERY_CONTAINER_TAX';
 
     const BRIDGE_CATEGORY_TO_URL = 'BRIDGE_CATEGORY_TO_URL';
     const BRIDGE_CATEGORY_TO_TOUCH = 'BRIDGE_CATEGORY_TO_TOUCH';
@@ -104,6 +108,10 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
             return $container->getLocator()->discount()->facade();
         };
 
+        $container[static::FACADE_COUNTRY] = function (Container $container) {
+            return $container->getLocator()->country()->facade();
+        };
+
         $container[static::QUERY_CONTAINER_CMS] = function (Container $container) {
             return $container->getLocator()->cms()->queryContainer();
         };
@@ -158,6 +166,10 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[static::BRIDGE_CMS_TO_URL] = function (Container $container) {
             return new CmsToUrlBridge($container->getLocator()->url()->facade());
+        };
+
+        $container[static::QUERY_CONTAINER_TAX] = function (Container $container) {
+            return $container->getLocator()->tax()->queryContainer();
         };
 
         $container[static::PLUGIN_PROPEL_CONNECTION] = function () {
