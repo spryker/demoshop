@@ -4,6 +4,6 @@ modules:
         - WebDriver:
             url: ''
             browser: phantomjs
-        - \Module\Yves
-        - \Module\Zed
+        - \Application\Module\Yves
+        - \Application\Module\Zed
         - Cli
