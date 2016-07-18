@@ -114,9 +114,7 @@ class CartOperationHandler extends BaseHandler
     {
         foreach ($optionValueUsageIds as $idOptionValueUsage) {
             $productOptionTransfer = new ProductOptionTransfer();
-            $productOptionTransfer
-                ->setIdOptionValueUsage($idOptionValueUsage)
-                ->setLocaleCode($this->locale);
+            $productOptionTransfer->setIdProductOptionValue($idOptionValueUsage);
 
             $itemTransfer->addProductOption($productOptionTransfer);
         }

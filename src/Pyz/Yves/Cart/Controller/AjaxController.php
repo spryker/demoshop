@@ -30,13 +30,13 @@ class AjaxController extends AbstractController
     /**
      * @param string $sku
      * @param int $quantity
-     * @param array $optionValueUsageIds
+     * @param array $optionValueIds
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function addAction($sku, $quantity, $optionValueUsageIds = [])
+    public function addAction($sku, $quantity, $optionValueIds = [])
     {
-        $this->getFactory()->createCartOperationHandler()->add($sku, $quantity, $optionValueUsageIds);
+        $this->getFactory()->createCartOperationHandler()->add($sku, $quantity, $optionValueIds);
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART_OVERLAY);
     }

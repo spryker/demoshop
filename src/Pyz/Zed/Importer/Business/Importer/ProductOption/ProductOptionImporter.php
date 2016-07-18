@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\ProductOption;
 
-use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\ProductOptionGroupTransfer;
 use Generated\Shared\Transfer\ProductOptionValueTransfer;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
@@ -24,6 +23,8 @@ class ProductOptionImporter extends AbstractImporter
     const COL_OPTION_PRICE = 'Option Price';
     const COL_OPTION_SKU = 'Option SKU';
     const COL_OPTION_GROUP_NAME = 'Option Group Name';
+    const GERMAN_LOCALE = 'de_DE';
+    const ENGLISH_LOCALE = 'en_US';
     /**
      * @var \Spryker\Zed\Glossary\Business\GlossaryFacadeInterface
      */
@@ -139,15 +140,15 @@ class ProductOptionImporter extends AbstractImporter
         }
 
         $nameDE = $data[self::COL_OPTION_NAME_DE];
-        $locale = $this->localeFacade->getLocaleByCode('de_DE');
+        $locale = $this->localeFacade->getLocaleByCode(self::GERMAN_LOCALE);
         if (!$this->glossaryFacade->hasTranslation($glossaryKey, $locale)) {
-            $this->glossaryFacade->createTranslation($glossaryKey, $locale, $nameDE);
+            $this->glossaryFacade->createAndTouchTranslation($glossaryKey, $locale, $nameDE);
         }
 
         $nameEN = $data[self::COL_OPTION_NAME_EN];
-        $locale = $this->localeFacade->getLocaleByCode('en_GB');
+        $locale = $this->localeFacade->getLocaleByCode(self::ENGLISH_LOCALE);
         if (!$this->glossaryFacade->hasTranslation($glossaryKey, $locale)) {
-            $this->glossaryFacade->createTranslation($glossaryKey, $locale, $nameEN);
+            $this->glossaryFacade->createAndTouchTranslation($glossaryKey, $locale, $nameEN);
         }
 
         return $glossaryKey;

@@ -35,14 +35,20 @@
                 {% endfor %}
             </dl>
                 {% if productOptionGroups is defined %}
-                    {% for productOptionGroup in productOptionGroups.getProductOptionGroups %}
-
-                        {% for productValue in productOptionGroup.productOptionValues %}
-                            <label for="">{{ productValue.value|trans }}</label>
-                            <input type="checkbox" name="product-option" value="{{ productValue.idProductOptionValue }}"> &nbsp; | {{ productValue.sku }} | {{ productValue.price | price }}
+                    <p>{{ 'Product Options' | trans }}</p>
+                    <div id="product-options">
+                        {% for productOptionGroup in productOptionGroups.getProductOptionGroups %}
+                          {% if productOptionGroup.productOptionValues | length > 1 %}
+                                {% for productValue in productOptionGroup.productOptionValues %}
+                                    <input type="radio" name="product-option[{{ productOptionGroup.name }}]" value="{{ productValue.idProductOptionValue }}" id="product-option-{{ productValue.idProductOptionValue }}"> &nbsp;
+                                    <label for="product-option-{{ productValue.idProductOptionValue }}">{{ productValue.value|trans }} | {{ productValue.sku }} | {{ productValue.price | price }}</label> <br />
+                                {% endfor %}
+                            {% else %}
+                                <input type="checkbox" name="product-option[{{ productOptionGroup.name }}]" value="{{ productValue.idProductOptionValue }}" id="product-option-{{ productValue.idProductOptionValue }}"> &nbsp;
+                                <label for="product-option-{{ productValue.idProductOptionValue }}">{{ productValue.value|trans }} | {{ productValue.sku }} | {{ productValue.price | price }}</label> <br />
+                            {% endif %}
                         {% endfor %}
-
-                    {% endfor %}
+                    </div>
                 {% endif %}
         </section>
         <section class="product__gallery">

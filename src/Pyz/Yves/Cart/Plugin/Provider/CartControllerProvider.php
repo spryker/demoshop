@@ -47,7 +47,8 @@ class CartControllerProvider extends AbstractYvesControllerProvider
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')
             ->value('cart', 'cart')
             ->assert('sku', '[a-zA-Z0-9-_]+')
-            ->convert('quantity', [$this, 'getQuantityFromRequest']);
+            ->convert('quantity', [$this, 'getQuantityFromRequest'])
+            ->convert('optionValueIds', [$this, 'getProductOptionsFromRequest']);
 
         $this->createGetController('/{cart}/remove/{sku}/{groupKey}', self::ROUTE_CART_REMOVE, 'Cart', 'Cart', 'remove')
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')
@@ -66,7 +67,8 @@ class CartControllerProvider extends AbstractYvesControllerProvider
 
         $this->createPostController('/{cart}/add/{sku}', self::ROUTE_CART_ADD_AJAX, 'Cart', 'Ajax', 'add', true)
             ->assert('sku', '[a-zA-Z0-9-_]+')
-            ->convert('quantity', [$this, 'getQuantityFromRequest']);
+            ->convert('quantity', [$this, 'getQuantityFromRequest'])
+            ->convert('optionValueIds', [$this, 'getProductOptionsFromRequest']);
 
         $this->createPostController('/{cart}/remove/{sku}/{groupKey}', self::ROUTE_CART_REMOVE_AJAX, 'Cart', 'Ajax', 'remove', true)
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')
@@ -119,6 +121,21 @@ class CartControllerProvider extends AbstractYvesControllerProvider
         }
 
         return $request->query->getInt('quantity', 1);
+    }
+
+    /**
+     * @param mixed $unusedParameter
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return int
+     */
+    public function getProductOptionsFromRequest($unusedParameter, Request $request)
+    {
+        if ($request->isMethod('POST')) {
+            return $request->request->get('optionValueIds', []);
+        }
+
+        return $request->query->get('optionValueIds', []);
     }
 
 }

@@ -11,7 +11,9 @@
                         <img class="cart__item-image" src="{{ item.thumbnail }}">
                     {% endif %}
                     <div class="cart__item-quantity">{{ item.quantity }}</div>
-                    <div class="cart__item-name">{{ item.name }}</div>
+                    <div class="cart__item-name">
+                        {{ item.name }}
+                    </div>
                     <div class="cart__item-quantity--spinner">
                         <div class="spinner light">
                             <input type="button" value="-"class="spinner__decrement cart-decrement">
@@ -23,6 +25,15 @@
                     </div>
                     <div class="cart__item-price">{{ (item.sumGrossPrice)|price }}</div>
                 </div>
+
+                <div class="cart__options">
+                    {% if item.productOptions is defined %}
+                        {% for productOption in item.productOptions %}
+                            {{ productOption.value | trans }}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
             {% endfor %}
         </div>
         {% if cart.totals %}

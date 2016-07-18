@@ -65,11 +65,23 @@ var addSku = function (e) {
     var sku = $(e.target).data('sku');
     var qty = $(e.target).parents('section').find('.spinner.product__quantity [name=quantity]').val();
 
-    $.post('/cart/add/' + sku, { quantity: qty })
+    var optionValueIds = getSelectedProductOptionValueIds();
+
+    $.post('/cart/add/' + sku, { quantity: qty, optionValueIds: optionValueIds })
         .done(function (data) {
             renderCart(data);
             showCart();
         });
+};
+
+var getSelectedProductOptionValueIds = function() {
+    var optionValueIds = [];
+    var index = 0;
+    $('#product-options input:checked').each(function(i, el) {
+        optionValueIds[index++] = $(el).val();
+    });
+
+    return optionValueIds;
 };
 
 var changeQty = function (e, changeQty) {
