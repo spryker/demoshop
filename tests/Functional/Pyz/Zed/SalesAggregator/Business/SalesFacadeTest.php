@@ -17,7 +17,6 @@ use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 use Orm\Zed\Sales\Persistence\SpySalesOrderItemOption;
 use Orm\Zed\Shipment\Persistence\SpyShipmentMethodQuery;
 use Spryker\Zed\SalesAggregator\Business\SalesAggregatorFacade;
-use Spryker\Zed\Tax\Business\Model\AccruedTaxCalculator;
 
 /**
  * @group Pyz

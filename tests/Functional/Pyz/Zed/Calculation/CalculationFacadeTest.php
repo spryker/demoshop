@@ -26,7 +26,6 @@ use Orm\Zed\Tax\Persistence\SpyTaxSetTax;
 use Spryker\Shared\Tax\TaxConstants;
 use Spryker\Zed\Calculation\Business\CalculationFacade;
 use Spryker\Zed\Discount\DiscountDependencyProvider;
-use Spryker\Zed\Tax\Business\Model\AccruedTaxCalculator;
 
 class CalculationFacadeTest extends Test
 {
