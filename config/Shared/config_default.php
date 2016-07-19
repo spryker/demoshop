@@ -19,6 +19,7 @@ use Spryker\Shared\Sales\SalesConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
 use Spryker\Shared\Session\SessionConstants;
+use Spryker\Shared\Tax\TaxConstants;
 use Spryker\Shared\User\UserConstants;
 use Spryker\Zed\DummyPayment\DummyPaymentConfig;
 use Spryker\Zed\Oms\OmsConfig;
@@ -403,3 +404,5 @@ $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
     DummyPaymentConfig::PAYMENT_METHOD_INVOICE => 'DummyPayment01',
     DummyPaymentConfig::PAYMENT_METHOD_CREDIT_CARD => 'DummyPayment01',
 ];
+
+$config[TaxConstants::DEFAULT_TAX_RATE] = 19;

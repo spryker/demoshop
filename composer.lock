@@ -995,7 +995,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d44018a54e726536517ad80518c6623ff0015e68"
+                "reference": "155909c82789ea90676ce52bffdbb063d4fb4ac1"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1432,6 +1432,7 @@
                     "Spryker\\Zed\\Transfer\\": "Bundles/Transfer/src",
                     "Unit\\Spryker\\Zed\\Transfer\\": "Bundles/Transfer/tests",
                     "Functional\\Spryker\\Zed\\Transfer\\": "Bundles/Transfer/tests",
+                    "Spryker\\Shared\\Twig\\": "Bundles/Twig/src",
                     "Spryker\\Shared\\Url\\": "Bundles/Url/src",
                     "Unit\\Spryker\\Shared\\Url\\": "Bundles/Url/tests",
                     "Functional\\Spryker\\Shared\\Url\\": "Bundles/Url/tests",
@@ -1465,9 +1466,6 @@
                     "Spryker\\Zed\\ProductDiscountConnector\\": "Bundles/ProductDiscountConnector/src",
                     "Unit\\Spryker\\Zed\\ProductDiscountConnector\\": "Bundles/ProductDiscountConnector/tests",
                     "Functional\\Spryker\\Zed\\ProductDiscountConnector\\": "Bundles/ProductDiscountConnector/tests",
-                    "Spryker\\Zed\\ProductCategoryDiscountConnector\\": "Bundles/ProductCategoryDiscountConnector/src",
-                    "Unit\\Spryker\\Zed\\ProductCategoryDiscountConnector\\": "Bundles/ProductCategoryDiscountConnector/tests",
-                    "Functional\\Spryker\\Zed\\ProductCategoryDiscountConnector\\": "Bundles/ProductCategoryDiscountConnector/tests",
                     "Spryker\\Shared\\StateMachine\\": "Bundles/StateMachine/src",
                     "Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/src",
                     "Unit\\Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/tests",
@@ -1492,7 +1490,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-07-12 07:47:01"
+            "time": "2016-07-19 11:39:14"
         },
         {
             "name": "symfony-cmf/routing",
@@ -3836,27 +3834,27 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.2.0",
+            "version": "6.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "d094e337976dff9d8e2424e8485872194e768662"
+                "reference": "3f808fba627f2c5b69e2501217bf31af349c1427"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/d094e337976dff9d8e2424e8485872194e768662",
-                "reference": "d094e337976dff9d8e2424e8485872194e768662",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/3f808fba627f2c5b69e2501217bf31af349c1427",
+                "reference": "3f808fba627f2c5b69e2501217bf31af349c1427",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/promises": "~1.0",
-                "guzzlehttp/psr7": "~1.1",
-                "php": ">=5.5.0"
+                "guzzlehttp/promises": "^1.0",
+                "guzzlehttp/psr7": "^1.3.1",
+                "php": ">=5.5"
             },
             "require-dev": {
                 "ext-curl": "*",
-                "phpunit/phpunit": "~4.0",
-                "psr/log": "~1.0"
+                "phpunit/phpunit": "^4.0",
+                "psr/log": "^1.0"
             },
             "type": "library",
             "extra": {
@@ -3894,7 +3892,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-03-21 20:02:09"
+            "time": "2016-07-15 17:22:37"
         },
         {
             "name": "guzzlehttp/promises",
@@ -5622,16 +5620,16 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.4.3",
+            "version": "0.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "4418bff748ffc4800a93f6ac5807d9aaf96dd16b"
+                "reference": "9056f5109e62cc53a72cb293abae89828090bbb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/4418bff748ffc4800a93f6ac5807d9aaf96dd16b",
-                "reference": "4418bff748ffc4800a93f6ac5807d9aaf96dd16b",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/9056f5109e62cc53a72cb293abae89828090bbb9",
+                "reference": "9056f5109e62cc53a72cb293abae89828090bbb9",
                 "shasum": ""
             },
             "require": {
@@ -5660,20 +5658,20 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-07-05 12:30:28"
+            "time": "2016-07-18 12:54:56"
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "2.6.1",
+            "version": "2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "fb72ed32f8418db5e7770be1653e62e0d6f5dd3d"
+                "reference": "4edb770cb853def6e60c93abb088ad5ac2010c83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/fb72ed32f8418db5e7770be1653e62e0d6f5dd3d",
-                "reference": "fb72ed32f8418db5e7770be1653e62e0d6f5dd3d",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/4edb770cb853def6e60c93abb088ad5ac2010c83",
+                "reference": "4edb770cb853def6e60c93abb088ad5ac2010c83",
                 "shasum": ""
             },
             "require": {
@@ -5738,7 +5736,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-05-30 22:24:32"
+            "time": "2016-07-13 23:29:13"
         },
         {
             "name": "symfony/browser-kit",
