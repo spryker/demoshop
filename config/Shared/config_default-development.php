@@ -44,6 +44,14 @@ $config[PayoneConstants::PAYONE] = [
     PayoneConstants::PAYONE_MODE => '',
 ];
 
+$config[ApplicationConstants::ZED_TWIG_OPTIONS] = [
+    'cache' => false,
+];
+
+$config[ApplicationConstants::YVES_TWIG_OPTIONS] = [
+    'cache' => false,
+];
+
 $config[ApplicationConstants::NAVIGATION_CACHE_ENABLED] = true;
 
 $config[AclConstants::ACL_USER_RULE_WHITELIST][] = [

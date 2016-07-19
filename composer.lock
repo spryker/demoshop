@@ -1103,6 +1103,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "b78d4a3fa5941ff2d7cc5546ecd6cae0d07b05b4"
 =======
 =======
@@ -1125,6 +1126,8 @@
 >>>>>>> core-297 update composer
 =======
 >>>>>>> core-297 moved tests to core
+=======
+>>>>>>> core-297 update stock to have one never out of stock product
 <<<<<<< HEAD
                 "reference": "50335bf8dd90226981087feb709b3d06d6e21249"
 =======
@@ -1148,6 +1151,8 @@
 >>>>>>> core-297 update composer
 =======
 >>>>>>> core-297 moved tests to core
+=======
+>>>>>>> core-297 update stock to have one never out of stock product
 <<<<<<< HEAD
                 "reference": "dfdb601f43614ef723a10a3c8f23049e297ddd58"
 =======
@@ -1373,8 +1378,17 @@
 =======
                 "reference": "e17a9c143598f6d42fac5ab92beb841a02e4422d"
 >>>>>>> core-297 moved tests to core
+<<<<<<< HEAD
 >>>>>>> core-297 moved tests to core
+<<<<<<< HEAD
 >>>>>>> core-297 moved tests to core
+=======
+=======
+=======
+                "reference": "875d394e7a62e7240e2f36e86d37a6b42ee3619b"
+>>>>>>> core-297 update stock to have one never out of stock product
+>>>>>>> core-297 update stock to have one never out of stock product
+>>>>>>> core-297 update stock to have one never out of stock product
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1496,6 +1510,7 @@
                     "Spryker\\Shared\\Customer\\": "Bundles/Customer/src",
                     "Unit\\Spryker\\Shared\\Customer\\": "Bundles/Customer/tests",
                     "Functional\\Spryker\\Shared\\Customer\\": "Bundles/Customer/tests",
+                    "Acceptance\\Customer\\": "Bundles/Customer/tests",
                     "Spryker\\Zed\\Customer\\": "Bundles/Customer/src",
                     "Unit\\Spryker\\Zed\\Customer\\": "Bundles/Customer/tests",
                     "Functional\\Spryker\\Zed\\Customer\\": "Bundles/Customer/tests",
@@ -1861,6 +1876,7 @@
                     "Application\\Module\\": "Bundles/Application/tests/_support/Module",
                     "Braintree\\Module\\": "Bundles/Braintree/tests/_support/Module",
                     "Config\\Module\\": "Bundles/Config/tests/_support/Module",
+                    "Customer\\Module\\": "Bundles/Customer/tests/_support/Module",
                     "Oms\\Module\\": "Bundles/Oms/tests/_support/Module",
                     "Propel\\Module\\": "Bundles/Propel/tests/_support/Module",
                     "Sales\\Module\\": "Bundles/Sales/tests/_support/Module",
@@ -1875,6 +1891,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1908,6 +1925,8 @@
 >>>>>>> core-297 update composer
 =======
 >>>>>>> core-297 moved tests to core
+=======
+>>>>>>> core-297 update stock to have one never out of stock product
 <<<<<<< HEAD
             "time": "2016-07-19 11:50:25"
 =======
@@ -1931,6 +1950,8 @@
 >>>>>>> core-297 update composer
 =======
 >>>>>>> core-297 moved tests to core
+=======
+>>>>>>> core-297 update stock to have one never out of stock product
 <<<<<<< HEAD
             "time": "2016-07-18 14:55:00"
 =======
@@ -2156,8 +2177,17 @@
 =======
             "time": "2016-07-18 06:44:21"
 >>>>>>> core-297 moved tests to core
+<<<<<<< HEAD
 >>>>>>> core-297 moved tests to core
+<<<<<<< HEAD
 >>>>>>> core-297 moved tests to core
+=======
+=======
+=======
+            "time": "2016-07-18 14:53:44"
+>>>>>>> core-297 update stock to have one never out of stock product
+>>>>>>> core-297 update stock to have one never out of stock product
+>>>>>>> core-297 update stock to have one never out of stock product
         },
         {
             "name": "symfony-cmf/routing",
