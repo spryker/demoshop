@@ -12,6 +12,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "hash": "5eb196bdff4615a27d5ffa920a5c7b7c",
 =======
 =======
@@ -100,9 +101,10 @@
     "content-hash": "4db4ab240d490dd4bff5bf5208a53efa",
 >>>>>>> core-297 updated tests
 =======
+=======
+>>>>>>> core-297 update spryker/spryker
     "hash": "dce4ad8bf52bdf27e2392f93fc2daffd",
     "content-hash": "217c34b07d2ee9249af1c1ae2858ca65",
->>>>>>> core-297 fixed merge things
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1104,6 +1106,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "b78d4a3fa5941ff2d7cc5546ecd6cae0d07b05b4"
 =======
 =======
@@ -1128,6 +1131,8 @@
 >>>>>>> core-297 moved tests to core
 =======
 >>>>>>> core-297 update stock to have one never out of stock product
+=======
+>>>>>>> core-297 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "50335bf8dd90226981087feb709b3d06d6e21249"
 =======
@@ -1388,7 +1393,13 @@
                 "reference": "875d394e7a62e7240e2f36e86d37a6b42ee3619b"
 >>>>>>> core-297 update stock to have one never out of stock product
 >>>>>>> core-297 update stock to have one never out of stock product
+<<<<<<< HEAD
 >>>>>>> core-297 update stock to have one never out of stock product
+=======
+=======
+                "reference": "ffcf927bc58ba48c4ba5c891f388c4d158280d4c"
+>>>>>>> core-297 update spryker/spryker
+>>>>>>> core-297 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1903,6 +1914,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-07-20 09:53:37"
 =======
 =======
@@ -1927,6 +1939,8 @@
 >>>>>>> core-297 moved tests to core
 =======
 >>>>>>> core-297 update stock to have one never out of stock product
+=======
+>>>>>>> core-297 update spryker/spryker
 <<<<<<< HEAD
             "time": "2016-07-19 11:50:25"
 =======
@@ -2187,7 +2201,13 @@
             "time": "2016-07-18 14:53:44"
 >>>>>>> core-297 update stock to have one never out of stock product
 >>>>>>> core-297 update stock to have one never out of stock product
+<<<<<<< HEAD
 >>>>>>> core-297 update stock to have one never out of stock product
+=======
+=======
+            "time": "2016-07-19 06:55:23"
+>>>>>>> core-297 update spryker/spryker
+>>>>>>> core-297 update spryker/spryker
         },
         {
             "name": "symfony-cmf/routing",
