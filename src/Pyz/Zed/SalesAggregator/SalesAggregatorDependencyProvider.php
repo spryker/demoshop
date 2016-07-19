@@ -35,7 +35,7 @@ class SalesAggregatorDependencyProvider extends SprykerSalesAggregatorDependency
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return \Spryker\Zed\SalesAggregator\Dependency\Plugin\OrderTotalsAggregatePluginInterface
+     * @return \Spryker\Zed\SalesAggregator\Dependency\Plugin\OrderTotalsAggregatePluginInterface[]
      */
     protected function getItemAmountAggregationPlugins(Container $container)
     {
