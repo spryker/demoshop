@@ -53,7 +53,7 @@ test:
 
     - chmod -R 777 data/
     - vendor/bin/phantomjs --webdriver=4444: {background: true}
-    - vendor/bin/codecept run --debug
+    - vendor/bin/codecept run --debug -x Acceptance
     - vendor/bin/console code:sniff
 
     - vendor/bin/console collector:storage:export

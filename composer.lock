@@ -4,120 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "hash": "5eb196bdff4615a27d5ffa920a5c7b7c",
-=======
-=======
->>>>>>> added phantomjs installer, added js test
-=======
->>>>>>> Discount functionality Overview suite
-=======
->>>>>>> Acceptance tests changes
-=======
->>>>>>> Cleaned up architecture
-=======
->>>>>>> core-297 removed Pyz directory for Acceptance tests
-=======
->>>>>>> core-297 updated tests
-=======
->>>>>>> core-297 fixed merge things
-<<<<<<< HEAD
-    "hash": "416e0168bc7c69273e7de2db84bb42ac",
->>>>>>> Add Acceptance tests
-    "content-hash": "1ac2a0532656eca6c47d7800d74cf673",
-=======
-    "hash": "e34c822b2c75d69844719a097d265109",
-    "content-hash": "2fb46dabe6277817eedf9ba81368e967",
->>>>>>> Add Acceptance tests
-=======
-=======
->>>>>>> Discount functionality Overview suite
-=======
->>>>>>> Acceptance tests changes
-=======
->>>>>>> Cleaned up architecture
-=======
->>>>>>> core-297 removed Pyz directory for Acceptance tests
-    "hash": "e34c822b2c75d69844719a097d265109",
-    "content-hash": "2fb46dabe6277817eedf9ba81368e967",
-=======
-=======
->>>>>>> Discount functionality Overview suite
-=======
->>>>>>> Acceptance tests changes
-<<<<<<< HEAD
-    "hash": "5eb196bdff4615a27d5ffa920a5c7b7c",
-    "content-hash": "1ac2a0532656eca6c47d7800d74cf673",
-=======
-    "hash": "64788869ff10834eba73b85d82bf3e05",
-    "content-hash": "6bf45919c18ad53481aa5849240db722",
->>>>>>> added phantomjs installer, added js test
-<<<<<<< HEAD
->>>>>>> added phantomjs installer, added js test
-<<<<<<< HEAD
->>>>>>> added phantomjs installer, added js test
-=======
-=======
-=======
-    "hash": "eebd38893c1eb3c7d23e134f63718158",
-    "content-hash": "72a7808da3aa845d3e55306f346a187b",
->>>>>>> Discount functionality Overview suite
-<<<<<<< HEAD
->>>>>>> Discount functionality Overview suite
-<<<<<<< HEAD
->>>>>>> Discount functionality Overview suite
-=======
-=======
-=======
-    "hash": "f6aa76bb6669d85832eb96b132ab8eb4",
-    "content-hash": "f1044e6a8ff8fa15838cd7eb00758ae2",
->>>>>>> Acceptance tests changes
->>>>>>> Acceptance tests changes
-<<<<<<< HEAD
->>>>>>> Acceptance tests changes
-=======
-=======
-    "hash": "9066fd16e993e7e3974c862d00c626da",
-    "content-hash": "79d4d788f546c7abd71b8a481f05dc56",
->>>>>>> Cleaned up architecture
-<<<<<<< HEAD
->>>>>>> Cleaned up architecture
-=======
-=======
-    "hash": "9dee03d7d28ef290af88669de2829f93",
-    "content-hash": "e5429590504afc271e83e253b1cf185f",
->>>>>>> core-297 removed Pyz directory for Acceptance tests
->>>>>>> core-297 removed Pyz directory for Acceptance tests
-=======
-    "hash": "19b00d13aaf09381b57f7c5084146539",
-    "content-hash": "4db4ab240d490dd4bff5bf5208a53efa",
->>>>>>> core-297 updated tests
-=======
-=======
->>>>>>> core-297 update spryker/spryker
-    "hash": "dce4ad8bf52bdf27e2392f93fc2daffd",
-    "content-hash": "217c34b07d2ee9249af1c1ae2858ca65",
+    "hash": "d558af86404813a74abe37dc479e07c4",
+    "content-hash": "9195e8658818af29ee1d9c1a5d305042",
     "packages": [
         {
             "name": "braintree/braintree_php",
-            "version": "3.13.0",
+            "version": "3.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/braintree/braintree_php.git",
-                "reference": "cbee7c8c998aff5d5df682cc0b2cf3f403dbba76"
+                "reference": "1026b6cca5f2dd5dfdd5447843b920cc74d2b8ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/braintree/braintree_php/zipball/cbee7c8c998aff5d5df682cc0b2cf3f403dbba76",
-                "reference": "cbee7c8c998aff5d5df682cc0b2cf3f403dbba76",
+                "url": "https://api.github.com/repos/braintree/braintree_php/zipball/1026b6cca5f2dd5dfdd5447843b920cc74d2b8ca",
+                "reference": "1026b6cca5f2dd5dfdd5447843b920cc74d2b8ca",
                 "shasum": ""
             },
             "require": {
@@ -151,7 +52,7 @@
                 }
             ],
             "description": "Braintree PHP Client Library",
-            "time": "2016-05-23 18:22:21"
+            "time": "2016-07-18 21:55:50"
         },
         {
             "name": "container-interop/container-interop",
@@ -1107,6 +1008,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "b78d4a3fa5941ff2d7cc5546ecd6cae0d07b05b4"
 =======
 =======
@@ -1400,6 +1302,9 @@
                 "reference": "ffcf927bc58ba48c4ba5c891f388c4d158280d4c"
 >>>>>>> core-297 update spryker/spryker
 >>>>>>> core-297 update spryker/spryker
+=======
+                "reference": "d43cce0c2714f253667657b96536355895e0025f"
+>>>>>>> core-297 run codeception tests without Acceptance tests in CircleCi, removed RunFailed extension, add proper @group annotation to project tests
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1915,6 +1820,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-07-20 09:53:37"
 =======
 =======
@@ -2208,6 +2114,9 @@
             "time": "2016-07-19 06:55:23"
 >>>>>>> core-297 update spryker/spryker
 >>>>>>> core-297 update spryker/spryker
+=======
+            "time": "2016-07-20 08:47:34"
+>>>>>>> core-297 run codeception tests without Acceptance tests in CircleCi, removed RunFailed extension, add proper @group annotation to project tests
         },
         {
             "name": "symfony-cmf/routing",
@@ -6468,22 +6377,7 @@
         },
         {
             "name": "spryker/code-sniffer",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "0.5.1",
-=======
-=======
->>>>>>> Cleaned up architecture
-<<<<<<< HEAD
-            "version": "0.5",
-=======
-<<<<<<< HEAD
-=======
->>>>>>> Cleaned up architecture
-            "version": "0.4.3",
->>>>>>> added phantomjs installer, added js test
->>>>>>> added phantomjs installer, added js test
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
@@ -6491,48 +6385,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/9056f5109e62cc53a72cb293abae89828090bbb9",
                 "reference": "9056f5109e62cc53a72cb293abae89828090bbb9",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/33d5a4ffe8e03d7f9f8792c3759e8af5630186b3",
-                "reference": "33d5a4ffe8e03d7f9f8792c3759e8af5630186b3",
-=======
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/4418bff748ffc4800a93f6ac5807d9aaf96dd16b",
-                "reference": "4418bff748ffc4800a93f6ac5807d9aaf96dd16b",
-<<<<<<< HEAD
-=======
-            "version": "0.4.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "4777bbdcba1b950c1919992430b3deef97fd6c61"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/4777bbdcba1b950c1919992430b3deef97fd6c61",
-                "reference": "4777bbdcba1b950c1919992430b3deef97fd6c61",
->>>>>>> added phantomjs installer, added js test
->>>>>>> added phantomjs installer, added js test
-<<<<<<< HEAD
->>>>>>> added phantomjs installer, added js test
-=======
-=======
->>>>>>> Cleaned up architecture
->>>>>>> Cleaned up architecture
-=======
-            "version": "0.4.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "4418bff748ffc4800a93f6ac5807d9aaf96dd16b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/4418bff748ffc4800a93f6ac5807d9aaf96dd16b",
-                "reference": "4418bff748ffc4800a93f6ac5807d9aaf96dd16b",
->>>>>>> core-297 updated tests
                 "shasum": ""
             },
             "require": {
@@ -6561,32 +6415,7 @@
                 "phpcs",
                 "standards"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2016-07-18 12:54:56"
-=======
-=======
->>>>>>> Cleaned up architecture
-<<<<<<< HEAD
-            "time": "2016-07-11 10:19:52"
-=======
-<<<<<<< HEAD
-            "time": "2016-07-05 12:30:28"
-=======
-            "time": "2016-06-17 09:04:47"
->>>>>>> added phantomjs installer, added js test
->>>>>>> added phantomjs installer, added js test
-<<<<<<< HEAD
->>>>>>> added phantomjs installer, added js test
-=======
-=======
-            "time": "2016-07-05 12:30:28"
->>>>>>> Cleaned up architecture
->>>>>>> Cleaned up architecture
-=======
-            "time": "2016-07-05 12:30:28"
->>>>>>> core-297 updated tests
         },
         {
             "name": "squizlabs/php_codesniffer",
