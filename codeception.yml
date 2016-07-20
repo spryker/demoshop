@@ -1,8 +1,5 @@
 actor: Tester
 
-include:
-- vendor/spryker/*
-
 paths:
     tests: tests
     log: tests/_output
