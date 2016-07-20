@@ -995,7 +995,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "50335bf8dd90226981087feb709b3d06d6e21249"
+                "reference": "21ce76095dd328279d466782ea9c85eca7bc2dce"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1490,7 +1490,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-07-19 11:50:25"
+            "time": "2016-07-20 09:20:09"
         },
         {
             "name": "symfony-cmf/routing",
