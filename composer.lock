@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "859e3d136af651e14e99c51d31ff57d5",
-    "content-hash": "4c2ae6e0e905316a482ecd7054b0b710",
+    "hash": "768de5613e154bb1e34fc3827136b50e",
+    "content-hash": "c29d74f4e0775c6d52040297a753eee9",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -3464,11 +3464,11 @@
         },
         {
             "name": "spryker/collector",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Collector.git",
-                "reference": "9c0218ddda18237b05c99d158b148a997cf51b07",
+                "reference": "f97df80a84b34fd69ee43089b9d31769b2de2c60",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3478,8 +3478,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Collector/zipball/9c0218ddda18237b05c99d158b148a997cf51b07",
-                "reference": "9c0218ddda18237b05c99d158b148a997cf51b07",
+                "url": "https://api.github.com/repos/spryker/Collector/zipball/f97df80a84b34fd69ee43089b9d31769b2de2c60",
+                "reference": "f97df80a84b34fd69ee43089b9d31769b2de2c60",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3496,7 +3496,7 @@
                 "spryker/gui": "^2.0.0",
                 "spryker/kernel": "^2.4.0",
                 "spryker/library": "^2.0.0",
-                "spryker/messenger": "^2.0.0",
+                "spryker/locale": "^2.0.0",
                 "spryker/propel": "^2.0.0",
                 "spryker/sql-criteria-builder": "^1.0.0",
                 "spryker/storage": "^2.0.0",
@@ -3527,7 +3527,7 @@
             "support": {
                 "source": "https://github.com/spryker/Collector/tree/master"
             },
-            "time": "2016-06-22 12:57:04"
+            "time": "2016-07-20 09:53:37"
         },
         {
             "name": "spryker/config",
@@ -4077,11 +4077,11 @@
         },
         {
             "name": "spryker/discount-sales-aggregator-connector",
-            "version": "1.1.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/DiscountSalesAggregatorConnector.git",
-                "reference": "f3bfafb65a8d785052845dabf2fd8a40f11a294f",
+                "reference": "2fbfc9389469c17d10c49c2e339ba313b10d8db5",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4091,8 +4091,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/DiscountSalesAggregatorConnector/zipball/f3bfafb65a8d785052845dabf2fd8a40f11a294f",
-                "reference": "f3bfafb65a8d785052845dabf2fd8a40f11a294f",
+                "url": "https://api.github.com/repos/spryker/DiscountSalesAggregatorConnector/zipball/2fbfc9389469c17d10c49c2e339ba313b10d8db5",
+                "reference": "2fbfc9389469c17d10c49c2e339ba313b10d8db5",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4106,7 +4106,7 @@
                 "spryker/kernel": "^2.0.0",
                 "spryker/propel": "^2.0.0",
                 "spryker/sales": "^2.0.0",
-                "spryker/tax": "^2.0.0 || ^3.0.0"
+                "spryker/tax": "^3.0.0"
             },
             "type": "library",
             "extra": {
@@ -4128,7 +4128,7 @@
             "support": {
                 "source": "https://github.com/spryker/DiscountSalesAggregatorConnector/tree/master"
             },
-            "time": "2016-07-19 16:45:57"
+            "time": "2016-07-20 09:20:09"
         },
         {
             "name": "spryker/dummy-payment",
