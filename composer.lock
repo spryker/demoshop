@@ -1009,6 +1009,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "b78d4a3fa5941ff2d7cc5546ecd6cae0d07b05b4"
 =======
 =======
@@ -1305,6 +1306,9 @@
 =======
                 "reference": "d43cce0c2714f253667657b96536355895e0025f"
 >>>>>>> core-297 run codeception tests without Acceptance tests in CircleCi, removed RunFailed extension, add proper @group annotation to project tests
+=======
+                "reference": "9d561720208ed58c35574add8941812680d6eb10"
+>>>>>>> core-297 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1821,6 +1825,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-07-20 09:53:37"
 =======
 =======
@@ -2117,6 +2122,9 @@
 =======
             "time": "2016-07-20 08:47:34"
 >>>>>>> core-297 run codeception tests without Acceptance tests in CircleCi, removed RunFailed extension, add proper @group annotation to project tests
+=======
+            "time": "2016-07-20 09:04:28"
+>>>>>>> core-297 update spryker/spryker
         },
         {
             "name": "symfony-cmf/routing",
