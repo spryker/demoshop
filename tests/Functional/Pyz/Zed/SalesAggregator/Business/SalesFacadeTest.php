@@ -114,8 +114,8 @@ class SalesFacadeTest extends Test
         $totalsTransfer = $orderTransfer->getTotals();
         $this->assertSame(1920, $totalsTransfer->getSubtotal());
         $this->assertSame(100, $totalsTransfer->getExpenseTotal());
-        $this->assertSame(340.0, $totalsTransfer->getDiscountTotal());
-        $this->assertSame(1680.0, $totalsTransfer->getGrandTotal());
+        $this->assertSame(340, $totalsTransfer->getDiscountTotal());
+        $this->assertSame(1680, $totalsTransfer->getGrandTotal());
         $this->assertSame(268.0, $totalsTransfer->getTaxTotal()->getAmount());
     }
 
