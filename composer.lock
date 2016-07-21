@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4f3e9f6c4d52692431cba8cc8effbef3",
-    "content-hash": "534d93feb85025d997c01d8f64d1337c",
+    "hash": "416e0168bc7c69273e7de2db84bb42ac",
+    "content-hash": "1ac2a0532656eca6c47d7800d74cf673",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -991,11 +991,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/CORE-378-discount-calculation",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b46bea23dd6c50d616e8c7044693ad78e3d1eb88"
+                "reference": "e7c4998cf000e9f5d7eb7f99b13870701aee31a4"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1174,13 +1174,6 @@
                     "Spryker\\Shared\\Invoice\\": "Bundles/Invoice/src",
                     "Unit\\Spryker\\Shared\\Invoice\\": "Bundles/Invoice/tests",
                     "Functional\\Spryker\\Shared\\Invoice\\": "Bundles/Invoice/tests",
-                    "Spryker\\Shared\\ItemGrouper\\": "Bundles/ItemGrouper/src",
-                    "Unit\\Spryker\\Shared\\ItemGrouper\\": "Bundles/ItemGrouper/tests",
-                    "Functional\\Spryker\\Shared\\ItemGrouper\\": "Bundles/ItemGrouper/tests",
-                    "Spryker\\Zed\\ItemGrouper\\": "Bundles/ItemGrouper/src",
-                    "Unit\\Spryker\\Zed\\ItemGrouper\\": "Bundles/ItemGrouper/tests",
-                    "Functional\\Spryker\\Zed\\ItemGrouper\\": "Bundles/ItemGrouper/tests",
-                    "Spryker\\Zed\\ItemGrouperWishlistConnector\\": "Bundles/ItemGrouperWishlistConnector/src",
                     "Spryker\\Client\\Kernel\\": "Bundles/Kernel/src",
                     "Unit\\Spryker\\Client\\Kernel\\": "Bundles/Kernel/tests",
                     "Functional\\Spryker\\Client\\Kernel\\": "Bundles/Kernel/tests",
@@ -1497,7 +1490,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-07-21 09:09:26"
+            "time": "2016-07-21 13:15:57"
         },
         {
             "name": "symfony-cmf/routing",
