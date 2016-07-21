@@ -156,7 +156,7 @@ class CalculationFacadeTest extends Test
 
         $this->assertSame(
             $discountAmount,
-            (int) ($expenseTransfer->getSumTotalDiscountAmount() + $itemTransfer->getSumTotalDiscountAmountWithProductOption())
+            (int)($expenseTransfer->getSumTotalDiscountAmount() + $itemTransfer->getSumTotalDiscountAmountWithProductOption())
         );
 
         //order totals
