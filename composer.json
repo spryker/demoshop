@@ -5,7 +5,7 @@
   "require": {
     "spryker/spryker": "dev-feature/core-297-add-acceptance-tests-for-braintree",
     "php": "~5.6.0",
-    "braintree/braintree_php": "3.15.0",
+    "braintree/braintree_php": "~3.15.0",
     "guzzle/http": "~3.8.0",
     "league/csv": "~8.1.0",
     "mandrill/mandrill": "~1.0.55",
