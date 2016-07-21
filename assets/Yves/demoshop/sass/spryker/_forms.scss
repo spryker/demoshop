@@ -1,6 +1,6 @@
 form {
   .field {
-    input, select {
+    input, select, .input {
       border: 1px solid #ccc;
       max-width: 400px;
       width: 100%;
@@ -17,7 +17,7 @@ form {
     width: auto;
   }
 
-  input, select {
+  input, select, .input {
     border: 1px solid #ccc;
     max-width: 400px;
     width: 100%;

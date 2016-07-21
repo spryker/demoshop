@@ -8,7 +8,9 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Spryker\Shared\Transfer\AbstractTransfer;
+use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginWithMessengerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class PaymentStep extends AbstractBaseStep
@@ -20,18 +22,26 @@ class PaymentStep extends AbstractBaseStep
     protected $paymentPlugins;
 
     /**
+     * @var \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface
+     */
+    protected $flashMessenger;
+
+    /**
      * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection $paymentPlugins
      * @param string $stepRoute
      * @param string $escapeRoute
+     * @param \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface $flashMessenger
      */
     public function __construct(
         StepHandlerPluginCollection $paymentPlugins,
         $stepRoute,
-        $escapeRoute
+        $escapeRoute,
+        FlashMessengerInterface $flashMessenger
     ) {
         parent::__construct($stepRoute, $escapeRoute);
 
         $this->paymentPlugins = $paymentPlugins;
+        $this->flashMessenger = $flashMessenger;
     }
 
     /**
@@ -56,6 +66,9 @@ class PaymentStep extends AbstractBaseStep
 
         if ($this->paymentPlugins->has($paymentSelection)) {
             $paymentHandler = $this->paymentPlugins->get($paymentSelection);
+            if ($paymentHandler instanceof StepHandlerPluginWithMessengerInterface) {
+                $paymentHandler->setFlashMessenger($this->flashMessenger);
+            }
             $paymentHandler->addToDataClass($request, $quoteTransfer);
         }
 

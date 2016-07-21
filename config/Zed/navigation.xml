@@ -9,6 +9,7 @@
     <product/>
     <product-management/>
     <discount/>
+    <tax/>
     <shipment/>
     <acl/>
     <maintenance/>

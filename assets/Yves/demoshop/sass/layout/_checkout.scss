@@ -348,14 +348,8 @@
  *
  */
 
-.shipment-method  {
-  display: none;
-
-  &.show {
-    display: block;
-  }
-}
-
+.shipment-method,
+.payment-method,
 .customer-selection,
 .address-selection,
 .address-user-shipping-custom,
@@ -425,6 +419,3 @@
     }
   }
 }
-
-
-
