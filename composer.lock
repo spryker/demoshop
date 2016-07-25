@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0d4a3142d4d731fc50ac19666b9b9665",
-    "content-hash": "fe7dac5b01585852ab38b85a4818dd89",
+    "hash": "a5c66918051c9ca367d184439394270b",
+    "content-hash": "67f76bbfa0dc9b11457fcbfc730759f2",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -991,11 +991,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-297-add-acceptance-tests-for-braintree",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "ebb46a55d168c3330272e6bc861275f9a25630c0"
+                "reference": "67cb505aeb797053cd86268163cb4297b5835f0e"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1498,7 +1498,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-07-21 07:02:25"
+            "time": "2016-07-25 09:24:58"
         },
         {
             "name": "symfony-cmf/routing",
@@ -4055,16 +4055,16 @@
         },
         {
             "name": "jakoch/phantomjs-installer",
-            "version": "2.1.1-p03",
+            "version": "2.1.1-p05",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jakoch/phantomjs-installer.git",
-                "reference": "d4e9db3d16d5b6e70d1d4941cb84425f9d9fa801"
+                "reference": "1aa2a29da48fee62679f7f7a3d446b0e52df494a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jakoch/phantomjs-installer/zipball/d4e9db3d16d5b6e70d1d4941cb84425f9d9fa801",
-                "reference": "d4e9db3d16d5b6e70d1d4941cb84425f9d9fa801",
+                "url": "https://api.github.com/repos/jakoch/phantomjs-installer/zipball/1aa2a29da48fee62679f7f7a3d446b0e52df494a",
+                "reference": "1aa2a29da48fee62679f7f7a3d446b0e52df494a",
                 "shasum": ""
             },
             "require": {
@@ -4093,7 +4093,7 @@
                 "headless",
                 "phantomjs"
             ],
-            "time": "2016-05-22 09:49:40"
+            "time": "2016-07-11 09:07:23"
         },
         {
             "name": "myclabs/deep-copy",

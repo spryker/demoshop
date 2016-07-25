@@ -6,6 +6,7 @@
 
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\Payone\PayoneConstants;
@@ -74,5 +75,7 @@ $config[ApplicationConstants::ENABLE_WEB_PROFILER] = true;
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
 
 $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
+
+$config[EventJournalConstants::LOCK_OPTIONS][EventJournalConstants::NO_LOCK] = true;
 
 $config[LogConstants::LOG_LEVEL] = \Monolog\Logger::INFO;

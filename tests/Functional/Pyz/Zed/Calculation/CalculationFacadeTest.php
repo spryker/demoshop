@@ -106,7 +106,7 @@ class CalculationFacadeTest extends Test
     {
         $calculationFacade = $this->createCalculationFacade();
 
-        $discountAmount = 20.0;
+        $discountAmount = 20;
         $quoteTransfer = $this->createFixtureDataForCalculation();
         $voucherEntity = $this->createDiscounts($discountAmount, DiscountDependencyProvider::PLUGIN_CALCULATOR_FIXED);
 
@@ -156,7 +156,7 @@ class CalculationFacadeTest extends Test
 
         $this->assertSame(
             $discountAmount,
-            ($expenseTransfer->getSumTotalDiscountAmount() + $itemTransfer->getSumTotalDiscountAmountWithProductOption())
+            (int)($expenseTransfer->getSumTotalDiscountAmount() + $itemTransfer->getSumTotalDiscountAmountWithProductOption())
         );
 
         //order totals
@@ -165,7 +165,7 @@ class CalculationFacadeTest extends Test
         $this->assertSame(250, $totalsTransfer->getSubtotal());
         $this->assertSame($discountAmount, $totalsTransfer->getDiscountTotal());
         $this->assertSame(100, $totalsTransfer->getExpenseTotal());
-        $this->assertSame(330.0, $totalsTransfer->getGrandTotal());
+        $this->assertSame(330, $totalsTransfer->getGrandTotal());
         $this->assertSame(53.0, $totalsTransfer->getTaxTotal()->getAmount());
 
     }
