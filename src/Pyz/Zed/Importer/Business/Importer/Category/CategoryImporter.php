@@ -19,6 +19,7 @@ use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Touch\Business\TouchFacadeInterface;
 use Spryker\Zed\Url\Business\UrlFacadeInterface;
+use UnexpectedValueException;
 
 class CategoryImporter extends AbstractImporter
 {
@@ -206,7 +207,7 @@ class CategoryImporter extends AbstractImporter
             $name = trim($categoryTransfer->getName());
 
             if ($name === '') {
-                throw new \UnexpectedValueException(sprintf(
+                throw new UnexpectedValueException(sprintf(
                     'Category name is empty for category with key "%"',
                     $categoryTransfer->getCategoryKey()
                 ));

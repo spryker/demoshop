@@ -12,6 +12,8 @@ use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
 use Silex\Application;
 use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Yves\Kernel\AbstractPlugin;
+use Twig_SimpleFilter;
+use Twig_SimpleFunction;
 
 class TwigPrice extends AbstractPlugin implements TwigFilterPluginInterface, TwigFunctionPluginInterface
 {
@@ -35,7 +37,7 @@ class TwigPrice extends AbstractPlugin implements TwigFilterPluginInterface, Twi
     public function getFunctions(Application $application)
     {
         return [
-            new \Twig_SimpleFunction('getItemTotalPrice', function ($grossPrice, $quantity = 1) {
+            new Twig_SimpleFunction('getItemTotalPrice', function ($grossPrice, $quantity = 1) {
                 return $grossPrice * $quantity;
             }),
         ];
@@ -46,7 +48,7 @@ class TwigPrice extends AbstractPlugin implements TwigFilterPluginInterface, Twi
      */
     private function getPriceFilter()
     {
-        return new \Twig_SimpleFilter('price', function ($priceValue, $withSymbol = true) {
+        return new Twig_SimpleFilter('price', function ($priceValue, $withSymbol = true) {
             $priceValue = CurrencyManager::getInstance()->convertCentToDecimal($priceValue);
 
             return CurrencyManager::getInstance()->format($priceValue, $withSymbol);
@@ -58,7 +60,7 @@ class TwigPrice extends AbstractPlugin implements TwigFilterPluginInterface, Twi
      */
     private function getPriceRawFilter()
     {
-        return new \Twig_SimpleFilter('priceRaw', function ($priceValue) {
+        return new Twig_SimpleFilter('priceRaw', function ($priceValue) {
             $priceValue = CurrencyManager::getInstance()->convertCentToDecimal($priceValue);
 
             return $priceValue;

@@ -8,6 +8,7 @@
 namespace Functional\Pyz\Zed\SalesAggregator\Business;
 
 use Codeception\TestCase\Test;
+use DateTime;
 use Orm\Zed\Oms\Persistence\SpyOmsOrderItemState;
 use Orm\Zed\Sales\Persistence\SpySalesDiscount;
 use Orm\Zed\Sales\Persistence\SpySalesExpense;
@@ -266,8 +267,8 @@ class SalesFacadeTest extends Test
         $salesOrderAddressEntity->setSalutation('Mr');
         $salesOrderAddressEntity->setCellPhone('123456789');
         $salesOrderAddressEntity->setCity('City');
-        $salesOrderAddressEntity->setCreatedAt(new \DateTime());
-        $salesOrderAddressEntity->setUpdatedAt(new \DateTime());
+        $salesOrderAddressEntity->setCreatedAt(new DateTime());
+        $salesOrderAddressEntity->setUpdatedAt(new DateTime());
         $salesOrderAddressEntity->setComment('comment');
         $salesOrderAddressEntity->setDescription('describtion');
         $salesOrderAddressEntity->setCompany('company');

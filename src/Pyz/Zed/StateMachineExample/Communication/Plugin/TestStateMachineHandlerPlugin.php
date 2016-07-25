@@ -7,6 +7,7 @@
 namespace Pyz\Zed\StateMachineExample\Communication\Plugin;
 
 use Generated\Shared\Transfer\StateMachineItemTransfer;
+use InvalidArgumentException;
 use Pyz\Zed\StateMachineExample\Communication\Plugin\Command\TestCommandPlugin;
 use Pyz\Zed\StateMachineExample\Communication\Plugin\Condition\TestConditionPlugin;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
@@ -80,7 +81,7 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
                 return 'new';
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             sprintf(
                 'Initial state not found for process "s%".',
                 $processName

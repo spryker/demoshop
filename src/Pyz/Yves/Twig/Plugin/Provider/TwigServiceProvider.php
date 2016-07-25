@@ -17,6 +17,8 @@ use Spryker\Yves\Application\Routing\Helper;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
+use Twig_Loader_Chain;
+use Twig_Loader_Filesystem;
 
 class TwigServiceProvider extends SilexTwigServiceProvider
 {
@@ -143,7 +145,7 @@ class TwigServiceProvider extends SilexTwigServiceProvider
     protected function registerTwigLoaderChain(Application $app)
     {
         $app['twig.loader'] = $app->share(function ($app) {
-            return new \Twig_Loader_Chain(
+            return new Twig_Loader_Chain(
                 [
                     $app['twig.loader.yves'],
                     $app['twig.loader.filesystem'],
@@ -180,7 +182,7 @@ class TwigServiceProvider extends SilexTwigServiceProvider
                     if (class_exists('Symfony\Bridge\Twig\Extension\RoutingExtension')) {
                         if (isset($app['form.factory'])) {
                             $app['twig.loader']->addLoader(
-                                new \Twig_Loader_Filesystem(__DIR__ . '/../../Resources/views/Form')
+                                new Twig_Loader_Filesystem(__DIR__ . '/../../Resources/views/Form')
                             );
                         }
                     }

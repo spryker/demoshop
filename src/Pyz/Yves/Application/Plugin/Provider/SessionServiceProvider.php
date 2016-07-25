@@ -7,7 +7,9 @@
 
 namespace Pyz\Yves\Application\Plugin\Provider;
 
+use Exception;
 use Pyz\Yves\Application\Business\Model\SessionFactory;
+use SessionHandler;
 use Silex\Application;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\Config;
@@ -93,7 +95,7 @@ class SessionServiceProvider extends AbstractServiceProvider
                 break;
 
             default:
-                throw new \Exception('Undefined session handler: ' . $saveHandler);
+                throw new Exception('Undefined session handler: ' . $saveHandler);
         }
 
         return $path;
@@ -188,7 +190,7 @@ class SessionServiceProvider extends AbstractServiceProvider
 
             default:
                 $app['session.storage.handler'] = $app->share(function () {
-                    return new \SessionHandler();
+                    return new SessionHandler();
                 });
         }
     }

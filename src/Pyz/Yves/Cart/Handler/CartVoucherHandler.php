@@ -6,6 +6,7 @@
 
 namespace Pyz\Yves\Cart\Handler;
 
+use ArrayObject;
 use Generated\Shared\Transfer\DiscountTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Client\Calculation\CalculationClientInterface;
@@ -84,7 +85,7 @@ class CartVoucherHandler extends BaseHandler
     public function clear()
     {
         $quoteTransfer = $this->cartClient->getQuote();
-        $quoteTransfer->setVoucherDiscounts(new \ArrayObject());
+        $quoteTransfer->setVoucherDiscounts(new ArrayObject());
 
         $quoteTransfer = $this->calculationClient->recalculate($quoteTransfer);
 
@@ -100,7 +101,7 @@ class CartVoucherHandler extends BaseHandler
      *
      * @return void
      */
-    protected function unsetVoucherCode($voucherCode, \ArrayObject $voucherDiscounts)
+    protected function unsetVoucherCode($voucherCode, ArrayObject $voucherDiscounts)
     {
         $discountIterator = $voucherDiscounts->getIterator();
         foreach ($discountIterator as $key => $voucherDiscountTransfer) {

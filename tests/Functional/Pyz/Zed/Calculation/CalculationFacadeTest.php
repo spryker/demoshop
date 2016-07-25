@@ -7,7 +7,9 @@
 
 namespace Functional\Pyz\Zed\Calculation;
 
+use ArrayObject;
 use Codeception\TestCase\Test;
+use DateTime;
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\DiscountTransfer;
 use Generated\Shared\Transfer\ExpenseTransfer;
@@ -179,7 +181,7 @@ class CalculationFacadeTest extends Test
 
         $quoteTransfer = $this->createFixtureDataForCalculation();
 
-        $quoteTransfer->setExpenses(new \ArrayObject());
+        $quoteTransfer->setExpenses(new ArrayObject());
 
         $abstractProductEntity = $this->createAbstractProductWithTaxSet(7);
 
@@ -188,7 +190,7 @@ class CalculationFacadeTest extends Test
         $itemTransfer->setIdProductAbstract($abstractProductEntity->getIdProductAbstract());
 
         $productOptionTransferOriginal = $itemTransfer->getProductOptions()[0];
-        $itemTransfer->setProductOptions(new \ArrayObject());
+        $itemTransfer->setProductOptions(new ArrayObject());
         $productOptionTransfer = clone $productOptionTransferOriginal;
         $productOptionTransfer->setUnitGrossPrice(200);
         $productOptionTransfer->setQuantity(1);
@@ -224,14 +226,14 @@ class CalculationFacadeTest extends Test
 
         $abstractProductEntity = $this->createAbstractProductWithTaxSet(7);
 
-        $quoteTransfer->setExpenses(new \ArrayObject());
+        $quoteTransfer->setExpenses(new ArrayObject());
 
         $itemTransfer = $quoteTransfer->getItems()[0];
         $itemTransfer->setIdProductAbstract($abstractProductEntity->getIdProductAbstract());
         $itemTransfer->setQuantity(1);
 
         $productOptionTransferOriginal = $itemTransfer->getProductOptions()[0];
-        $itemTransfer->setProductOptions(new \ArrayObject());
+        $itemTransfer->setProductOptions(new ArrayObject());
         $productOptionTransfer = clone $productOptionTransferOriginal;
         $productOptionTransfer->setUnitGrossPrice(200);
         $productOptionTransfer->setQuantity(1);
@@ -273,12 +275,12 @@ class CalculationFacadeTest extends Test
 
         $abstractProductEntity = $this->createAbstractProductWithTaxExemption();
 
-        $quoteTransfer->setExpenses(new \ArrayObject());
+        $quoteTransfer->setExpenses(new ArrayObject());
 
         $itemTransfer = $quoteTransfer->getItems()[0];
         $itemTransfer->setIdProductAbstract($abstractProductEntity->getIdProductAbstract());
         $itemTransfer->setQuantity(1);
-        $itemTransfer->setProductOptions(new \ArrayObject());
+        $itemTransfer->setProductOptions(new ArrayObject());
 
         $recalculatedQuoteTransfer = $calculationFacade->recalculate($quoteTransfer);
 
@@ -350,8 +352,8 @@ class CalculationFacadeTest extends Test
         $discountEntity->setAmount($discountAmount);
         $discountEntity->setDisplayName('test1');
         $discountEntity->setIsActive(1);
-        $discountEntity->setValidFrom(new \DateTime('1985-07-01'));
-        $discountEntity->setValidTo(new \DateTime('2050-07-01'));
+        $discountEntity->setValidFrom(new DateTime('1985-07-01'));
+        $discountEntity->setValidTo(new DateTime('2050-07-01'));
         $discountEntity->setCalculatorPlugin($calculatorType);
         $discountEntity->setCollectorQueryString('sku = "*"');
         $discountEntity->setFkDiscountVoucherPool($discountVoucherPoolEntity->getIdDiscountVoucherPool());

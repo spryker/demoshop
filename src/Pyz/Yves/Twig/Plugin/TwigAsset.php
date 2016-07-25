@@ -10,6 +10,7 @@ namespace Pyz\Yves\Twig\Plugin;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
 use Silex\Application;
 use Spryker\Yves\Kernel\AbstractPlugin;
+use Twig_SimpleFunction;
 
 /**
  * @method \Pyz\Yves\Twig\TwigFactory getFactory()
@@ -29,10 +30,10 @@ class TwigAsset extends AbstractPlugin implements TwigFunctionPluginInterface
         $mediaUrlBuilder = $this->getFactory()->createMediaUrlBuilder($isDomainSecured);
 
         return [
-            new \Twig_SimpleFunction('asset', function ($value) use ($assetUrlBuilder) {
+            new Twig_SimpleFunction('asset', function ($value) use ($assetUrlBuilder) {
                 return $assetUrlBuilder->buildUrl($value);
             }),
-            new \Twig_SimpleFunction('media', function ($value) use ($mediaUrlBuilder) {
+            new Twig_SimpleFunction('media', function ($value) use ($mediaUrlBuilder) {
                 return $mediaUrlBuilder->buildUrl($value);
             }),
         ];
