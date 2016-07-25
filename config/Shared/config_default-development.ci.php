@@ -52,7 +52,10 @@ $config[ApplicationConstants::JENKINS_DIRECTORY] = APPLICATION_ROOT_DIR . '/shar
 
 $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT] = '6379';
 
+$config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_PROTOCOL] = $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL];
+$config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_HOST] = $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST];
 $config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_PORT] = $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT];
+$config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_PASSWORD] = $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PASSWORD];
 
 $config[PayoneConstants::PAYONE] = [
     PayoneConstants::PAYONE_MODE => '',
