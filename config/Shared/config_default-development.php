@@ -15,10 +15,22 @@ use Spryker\Shared\Session\SessionConstants;
 $config[ApplicationConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
 $config[ApplicationConstants::ZED_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_FILE;
 
-$config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL] = 'tcp';
-$config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST] = '127.0.0.1';
-$config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT] = '10009';
-$config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PASSWORD] = '';
+$config[ApplicationConstants::YVES_STORAGE_REDIS_PROTOCOL] = 'tcp';
+$config[ApplicationConstants::YVES_STORAGE_REDIS_HOST] = '127.0.0.1';
+$config[ApplicationConstants::YVES_STORAGE_REDIS_PORT] = '10009';
+$config[ApplicationConstants::YVES_STORAGE_REDIS_PASSWORD] = '';
+$config[ApplicationConstants::YVES_STORAGE_REDIS_DATABASE] = 0;
+
+$config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL] = $config[ApplicationConstants::YVES_STORAGE_REDIS_PROTOCOL];
+$config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST] = $config[ApplicationConstants::YVES_STORAGE_REDIS_HOST];
+$config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT] = $config[ApplicationConstants::YVES_STORAGE_REDIS_PORT];
+$config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PASSWORD] = $config[ApplicationConstants::YVES_STORAGE_REDIS_PASSWORD];
+$config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_DATABASE] = 1;
+
+$config[ApplicationConstants::ZED_STORAGE_REDIS_PROTOCOL] = $config[ApplicationConstants::YVES_STORAGE_REDIS_PROTOCOL];
+$config[ApplicationConstants::ZED_STORAGE_REDIS_HOST] = $config[ApplicationConstants::YVES_STORAGE_REDIS_HOST];
+$config[ApplicationConstants::ZED_STORAGE_REDIS_PORT] = $config[ApplicationConstants::YVES_STORAGE_REDIS_PORT];
+$config[ApplicationConstants::ZED_STORAGE_REDIS_PASSWORD] = $config[ApplicationConstants::YVES_STORAGE_REDIS_PASSWORD];
 
 $config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_PROTOCOL] = $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL];
 $config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_HOST] = $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST];
