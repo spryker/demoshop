@@ -24,6 +24,7 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     const FACADE_LOCALE = 'FACADE_LOCALE';
     const FACADE_GLOSSARY = 'FACADE_GLOSSARY';
     const FACADE_PRODUCT = 'FACADE_PRODUCT';
+    const FACADE_PRODUCT_MANAGEMENT = 'FACADE_PRODUCT_MANAGEMENT';
     const FACADE_PRODUCT_CATEGORY = 'FACADE_PRODUCT_CATEGORY';
     const FACADE_PRODUCT_SEARCH = 'FACADE_PRODUCT_SEARCH';
     const FACADE_TOUCH = 'FACADE_TOUCH';
@@ -78,6 +79,10 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[static::FACADE_PRODUCT] = function (Container $container) {
             return $container->getLocator()->product()->facade();
+        };
+
+        $container[static::FACADE_PRODUCT_MANAGEMENT] = function (Container $container) {
+            return $container->getLocator()->productManagement()->facade();
         };
 
         $container[static::FACADE_PRODUCT_CATEGORY] = function (Container $container) {

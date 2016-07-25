@@ -14,6 +14,7 @@ use Pyz\Zed\Importer\Business\Installer\Cms\CmsBlockInstaller;
 use Pyz\Zed\Importer\Business\Installer\Cms\CmsPageInstaller;
 use Pyz\Zed\Importer\Business\Installer\Discount\DiscountInstaller;
 use Pyz\Zed\Importer\Business\Installer\Glossary\GlossaryInstaller;
+use Pyz\Zed\Importer\Business\Installer\ProductManagement\ProductManagementAttributeInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductSearchInstaller;
 use Pyz\Zed\Importer\Business\Installer\Shipment\ShipmentInstaller;
@@ -175,6 +176,16 @@ class InstallerFactory extends AbstractFactory
         );
     }
 
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\ProductManagement\ProductManagementAttributeInstaller
+     */
+    public function createProductManagementAttributeInstaller()
+    {
+        return new ProductManagementAttributeInstaller(
+            $this->getImporterProductManagementAttributeCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+    }
 
     /**
      * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
@@ -226,6 +237,16 @@ class InstallerFactory extends AbstractFactory
             ImporterConfig::RESOURCE_PRODUCT_CATEGORY => $this->createImporterFactory()->createProductCategoryImporter(),
             ImporterConfig::RESOURCE_PRODUCT_STOCK => $this->createImporterFactory()->createProductStockImporter(),
             ImporterConfig::RESOURCE_PRODUCT_PRICE => $this->createImporterFactory()->createProductPriceImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
+     */
+    public function getImporterProductManagementAttributeCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_PRODUCT_MANAGEMENT_ATTRIBUTE => $this->createImporterFactory()->createProductManagementAttributeImporter(),
         ];
     }
 

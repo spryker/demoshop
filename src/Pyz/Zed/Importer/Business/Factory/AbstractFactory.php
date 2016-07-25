@@ -191,6 +191,14 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     }
 
     /**
+     * @return \Spryker\Zed\ProductMANAGEMENT\Business\ProductManagementFacadeInterface
+     */
+    protected function getProductManagementFacade()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_PRODUCT_MANAGEMENT);
+    }
+
+    /**
      * @return \Spryker\Zed\Touch\Business\TouchFacadeInterface
      */
     protected function getTouchFacade()
