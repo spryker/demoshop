@@ -1,0 +1,6 @@
+{#{% if user.logged %}#}
+    {#<li><a href="/customer/profile"><i class="fa fa-user"></i>{{user.firstName}}</a></li>#}
+    {#<li><a href="/logout"><i class="fa fa-sign-out"></i>Logout</a></li>#}
+{#{% else %}#}
+    <li><a href="/login"><i class="fa fa-sign-in"></i>Login</a></li>
+{#{% endif %}#}

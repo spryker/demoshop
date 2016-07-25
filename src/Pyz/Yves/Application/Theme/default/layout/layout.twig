@@ -1,0 +1,92 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block page_title %}{{ page_title | default('Spryker Demoshop') | trans }}{% endblock %}</title>
+    <meta name="description" content="{{ page_description | default('') | trans }}" />
+    <meta name="keywords" content="{{ page_keywords | default('') | trans }}" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    {% block page_meta %}{% endblock %}
+
+    <link rel="stylesheet" href="/assets/default/css/externals.css">
+    <link rel="stylesheet" href="/assets/default/css/base.css">
+    <noscript><link rel="stylesheet" href="/assets/default/css/nojs.css"></noscript>
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<body>
+    {% block outside %}{% endblock %}
+
+    {% block aside %}
+        {% include "@application/layout/partials/mobile-navigation.twig" %}
+    {% endblock %}
+
+    <div class="__page" tabindex="-1">
+        <header>
+            <div class="row">
+                <div class="small-12 columns">
+                    <div class="callout">
+                        <div class="row align-middle align-justify">
+                            <div class="small-7 large-6 columns">
+                                <a href="/">
+                                    <img src="http://placehold.it/250x50?text=Logo">
+                                </a>
+                            </div>
+                            {% block header %}
+                                <div class="large-6 columns show-for-large">
+                                    <div class="input-group __no-margin-bottom">
+                                        <input class="input-group-field" type="text" placeholder="Search in the site...">
+                                        <div class="input-group-button">
+                                            <button type="submit" class="button">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <a class="shrink columns text-right align-middle hide-for-large" href="#aside" data-aside-toggle>
+                                    {#{% if cart.length > 0 %}#}
+                                    {#<span class="warning badge">{{cart.length}}</span>#}
+                                    {#{% endif %}#}
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            {% endblock %}
+                        </div>
+                    </div>
+                    {% block navigation %}
+                        {% include "@application/layout/partials/navigation.twig" %}
+                    {% endblock %}
+
+                    {% block breadcrumb %}
+                        <div class="callout">
+                            <nav aria-label="{{ 'You are here:' | trans }}" role="navigation">
+                                <ul class="breadcrumbs __no-margin-bottom">
+                                    {% block breadcrumbItems %}{% endblock %}
+                                </ul>
+                            </nav>
+                            {% block title %}{% endblock %}
+                        </div>
+                    {% endblock %}
+
+                    {% include "@application/layout/partials/flash-messages.twig" %}
+                </div>
+            </div>
+        </header>
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer>
+            {% include "@application/layout/partials/footer.twig" %}
+        </footer>
+    </div>
+
+    <script src="/assets/default/js/externals.js"></script>
+    <script src="/assets/default/js/base.js"></script>
+    {% block javascripts %}{% endblock %}
+</body>
+
+</html>
