@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Glossary;
 
+use InvalidArgumentException;
 use Spryker\Client\Glossary\GlossaryClientInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 
@@ -84,7 +85,7 @@ class TwigTranslator implements TranslatorInterface
         }
 
         if (!isset($ids[1])) {
-            throw new \InvalidArgumentException(sprintf('The message "%s" cannot be pluralized, because it is missing a plural (e.g. "There is one apple|There are %%count%% apples").', $id));
+            throw new InvalidArgumentException(sprintf('The message "%s" cannot be pluralized, because it is missing a plural (e.g. "There is one apple|There are %%count%% apples").', $id));
         }
 
         return $this->client->translate($ids[1], $locale, $parameters);

@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Collector\Business;
 
+use Exception;
 use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector;
 use Pyz\Zed\Collector\Business\Storage\BlockCollector;
 use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector;
@@ -241,7 +242,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->getCurrentDatabaseEngineName()
         );
         if (!array_key_exists($name, $classList)) {
-            throw new \Exception('Invalid StoragePdoQueryAdapter name: ' . $name);
+            throw new Exception('Invalid StoragePdoQueryAdapter name: ' . $name);
         }
 
         $queryBuilderClassName = $classList[$name];
@@ -262,7 +263,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->getCurrentDatabaseEngineName()
         );
         if (!array_key_exists($name, $classList)) {
-            throw new \Exception('Invalid SearchPdoQueryAdapter name: ' . $name);
+            throw new Exception('Invalid SearchPdoQueryAdapter name: ' . $name);
         }
 
         $queryBuilderClassName = $classList[$name];

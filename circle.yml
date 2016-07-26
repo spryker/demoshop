@@ -11,6 +11,7 @@ machine:
 
   hosts:
     zed.de.spryker.dev: 127.0.0.1
+    www.de.spryker.dev: 127.0.0.1
 
 database:
   override:
@@ -22,21 +23,39 @@ dependencies:
   pre:
     - mkdir -p shared/data/common/jenkins
     - mkdir -p shared/data/common/jenkins/jobs
-    - echo "memory_limit = 512M" > ~/.phpenv/versions/$(phpenv global)/etc/conf.d/memory.ini
     - mysql -u ubuntu circle_test --execute="SET GLOBAL group_concat_max_len=1048576"
+    - cp config/Shared/ci/circle/custom.ini ~/.phpenv/versions/$(phpenv global)/etc/conf.d/custom.ini
+    - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
+    - mkdir -p data/DE/cache/Yves/twig -m 0777
+    - mkdir -p data/DE/cache/Zed/twig -m 0777
+    - mkdir -p data/DE/logs -m 0777
 
   post:
     - wget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.3/elasticsearch-2.3.3.tar.gz
     - tar -xvf elasticsearch-2.3.3.tar.gz
     - elasticsearch-2.3.3/bin/elasticsearch: {background: true}
-    - cp ~/project/config/Shared/ci/circle/zed.vhost /etc/apache2/sites-available/zed.vhost.conf
+    - cp config/Shared/ci/circle/zed.vhost /etc/apache2/sites-available/zed.vhost.conf
+    - cp config/Shared/ci/circle/yves.vhost /etc/apache2/sites-available/yves.vhost.conf
     - sudo a2ensite zed.vhost.conf
+    - sudo a2ensite yves.vhost.conf
     - sudo a2enmod rewrite
     - sudo service apache2 restart
 
 test:
   override:
-    - vendor/bin/console propel:install
-    - vendor/bin/codecept build
-    - vendor/bin/console application:integration-check -vvv
+    - vendor/bin/console propel:install -o
+    - vendor/bin/console transfer:generate
+    - vendor/bin/console setup:init-db
+    - vendor/bin/console setup:search
+    - vendor/bin/console import:demo-data
+
+    - vendor/bin/console application:build-navigation-cache
+
+    - chmod -R 777 data/
+    - vendor/bin/phantomjs --webdriver=4444: {background: true}
+    - vendor/bin/codecept run --debug -x Acceptance
+
+    - vendor/bin/console collector:storage:export
+    - vendor/bin/console collector:search:export
+
     - vendor/bin/console code:sniff
