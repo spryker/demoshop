@@ -19,6 +19,7 @@ class TaxRateCreatePage
     const ERROR_MESSAGE_NAME_SHOULD_NOT_BE_BLANK = 'This value should not be blank.';
     const ERROR_MESSAGE_COUNTRY_SHOULD_NOT_BE_BLANK = 'Select country.';
     const ERROR_MESSAGE_PERCENTAGE_SHOULD_BE_VALID_NUMBER = 'This value should be a valid number.';
+    const ERROR_MESSAGE_TAX_RATE_ALREADY_EXISTS = 'Tax rate with provided name, percentage and country already exists.';
 
     const SELECTOR_NAME = '#tax_rate_name';
     const SELECTOR_COUNTRY = '#tax_rate_fkCountry';

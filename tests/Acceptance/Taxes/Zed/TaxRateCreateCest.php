@@ -15,30 +15,29 @@ use Acceptance\Taxes\Zed\Tester\TaxRateTester;
  * @group Acceptance
  * @group Taxes
  * @group Zed
- * @group discount
  */
 class TaxRateCreateCest
 {
+    /**
+     * @group Overview
+     * @group Smoke
+     *
+     */
 
     /**
      * @param \Acceptance\Taxes\Zed\Tester\TaxRateTester $i
      *
      * @return void
      */
-    public function testCreateValidTaxRateSuccessMessage(TaxRateTester $i)
+    public function testCreateValidTaxRateShouldShowSuccessMessage(TaxRateTester $i)
     {
         $i->wantTo('Create valid tax rate');
         $i->expect('Tax rate is successfully created');
 
-        $i->amLoggedInUser();
-
-        $i->amOnPage(TaxRateCreatePage::URL);
         $i->createTaxRate(TaxRateCreatePage::TAX_RATE_VALID);
-
+        
         $i->wait(2);
-
-        $i->makeScreenshot('ttttttt');
-
+        
         $i->see(TaxRateCreatePage::MESSAGE_SUCCESSFUL_ALERT_CREATION);
 
         $i->amOnPage(TaxRateListPage::URL);
@@ -46,18 +45,18 @@ class TaxRateCreateCest
     }
 
     /**
+     * @group Overview
+     *
+     */
+    /**
      * @param \Acceptance\Taxes\Zed\Tester\TaxRateTester $i
      *
      * @return void
      */
-    public function testCreateInvalidTaxRateMessage(TaxRateTester $i)
+    public function testCreateInvalidTaxRateShouldShowErrorMessages(TaxRateTester $i)
     {
         $i->wantTo('Create invalid tax rate');
         $i->expect('Error messages are displayed. Tax rate is not created');
-
-        $i->amLoggedInUser();
-
-        $i->amOnPage(TaxRateCreatePage::URL);
 
         $i->see(TaxRateCreatePage::HEADER, TaxRateCreatePage::SELECTOR_HEADER);
 
@@ -66,36 +65,64 @@ class TaxRateCreateCest
 
         $i->wait(2);
 
-        $i->see(TaxRateCreatePage::ERROR_MESSAGE_NAME_SHOULD_NOT_BE_BLANK);
-        $i->see(TaxRateCreatePage::ERROR_MESSAGE_COUNTRY_SHOULD_NOT_BE_BLANK);
-        $i->see(TaxRateCreatePage::ERROR_MESSAGE_PERCENTAGE_SHOULD_BE_VALID_NUMBER);
+        $i->seeErrorMessages();
     }
+
+    /**
+     * @group Overview
+     *
+     */
 
     /**
      * @param \Acceptance\Taxes\Zed\Tester\TaxRateTester $i
      *
      * @return void
      */
-    public function testBackToListOfTaskRatesWithoutSaving(TaxRateTester $i)
+    public function testBackToListOfTaskRatesShouldOpenTaxRateListPageWithoutSaving(TaxRateTester $i)
     {
         $i->wantTo('Create valid tax rate and back to list of task rates');
         $i->expect('List of task rates is opened, task rate is not created');
 
-        $i->amLoggedInUser();
-        $i->amOnPage(TaxRateCreatePage::URL);
-
         $i->wait(2);
-
+        
         $i->createTaxRateWithoutSaving(TaxRateCreatePage::TAX_RATE_VALID_NOT_CREATED);
         $i->click(TaxRateCreatePage::SELECTOR_LIST_OF_TASK_RATES_BUTTON);
 
         $i->dontSee(TaxRateCreatePage::MESSAGE_SUCCESSFUL_ALERT_CREATION);
-
+        
         $i->searchForTaxRate(TaxRateCreatePage::TAX_RATE_VALID_NOT_CREATED);
-
+      
         $i->wait(2);
 
         $i->see(TaxRateListPage::MESSAGE_EMPTY_TABLE);
     }
 
+    /**
+     * @group Overview
+     *
+     */
+    /**
+     * @param \Acceptance\Taxes\Zed\Tester\TaxRateTester $i
+     *
+     * @return void
+     */
+    public function testCreateTaxRateWhichAlreadyExistsShouldShowErrorMessage(TaxRateTester $i)
+    {
+        $i->wantTo('Create tax rate which already exists');
+        $i->expect('Error message is displayed on attempt to create one and the same Tax Rate');
+
+        $i->createTaxRate(TaxRateCreatePage::TAX_RATE_VALID);
+
+        $i->wait(2);
+
+        $i->amOnPage(TaxRateListPage::URL);
+
+        $i->wait(2);
+        
+        $i->createTaxRate(TaxRateCreatePage::TAX_RATE_VALID);
+        $i->see(TaxRateCreatePage::ERROR_MESSAGE_TAX_RATE_ALREADY_EXISTS);
+
+        $i->amOnPage(TaxRateListPage::URL);
+        $i->deleteTaxRate(TaxRateCreatePage::TAX_RATE_VALID);
+    }
 }
