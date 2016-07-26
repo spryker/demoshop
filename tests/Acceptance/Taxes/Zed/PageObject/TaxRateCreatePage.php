@@ -51,4 +51,5 @@ class TaxRateCreatePage
             'percentage' => '5',
         ]
     ];
+
 }

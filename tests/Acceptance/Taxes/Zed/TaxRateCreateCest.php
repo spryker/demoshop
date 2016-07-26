@@ -34,11 +34,11 @@ class TaxRateCreateCest
 
         $i->amOnPage(TaxRateCreatePage::URL);
         $i->createTaxRate(TaxRateCreatePage::TAX_RATE_VALID);
-        
+
         $i->wait(2);
-        
+
         $i->makeScreenshot('ttttttt');
-        
+
         $i->see(TaxRateCreatePage::MESSAGE_SUCCESSFUL_ALERT_CREATION);
 
         $i->amOnPage(TaxRateListPage::URL);
@@ -85,16 +85,17 @@ class TaxRateCreateCest
         $i->amOnPage(TaxRateCreatePage::URL);
 
         $i->wait(2);
-        
+
         $i->createTaxRateWithoutSaving(TaxRateCreatePage::TAX_RATE_VALID_NOT_CREATED);
         $i->click(TaxRateCreatePage::SELECTOR_LIST_OF_TASK_RATES_BUTTON);
 
         $i->dontSee(TaxRateCreatePage::MESSAGE_SUCCESSFUL_ALERT_CREATION);
-        
+
         $i->searchForTaxRate(TaxRateCreatePage::TAX_RATE_VALID_NOT_CREATED);
-      
+
         $i->wait(2);
 
         $i->see(TaxRateListPage::MESSAGE_EMPTY_TABLE);
     }
+
 }
