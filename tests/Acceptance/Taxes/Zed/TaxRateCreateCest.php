@@ -18,13 +18,11 @@ use Acceptance\Taxes\Zed\Tester\TaxRateTester;
  */
 class TaxRateCreateCest
 {
+
     /**
      * @group Overview
      * @group Smoke
      *
-     */
-
-    /**
      * @param \Acceptance\Taxes\Zed\Tester\TaxRateTester $i
      *
      * @return void
@@ -35,9 +33,9 @@ class TaxRateCreateCest
         $i->expect('Tax rate is successfully created');
 
         $i->createTaxRate(TaxRateCreatePage::TAX_RATE_VALID);
-        
+
         $i->wait(2);
-        
+
         $i->see(TaxRateCreatePage::MESSAGE_SUCCESSFUL_ALERT_CREATION);
 
         $i->amOnPage(TaxRateListPage::URL);
@@ -47,8 +45,6 @@ class TaxRateCreateCest
     /**
      * @group Overview
      *
-     */
-    /**
      * @param \Acceptance\Taxes\Zed\Tester\TaxRateTester $i
      *
      * @return void
@@ -71,9 +67,6 @@ class TaxRateCreateCest
     /**
      * @group Overview
      *
-     */
-
-    /**
      * @param \Acceptance\Taxes\Zed\Tester\TaxRateTester $i
      *
      * @return void
@@ -84,14 +77,14 @@ class TaxRateCreateCest
         $i->expect('List of task rates is opened, task rate is not created');
 
         $i->wait(2);
-        
+
         $i->createTaxRateWithoutSaving(TaxRateCreatePage::TAX_RATE_VALID_NOT_CREATED);
         $i->click(TaxRateCreatePage::SELECTOR_LIST_OF_TASK_RATES_BUTTON);
 
         $i->dontSee(TaxRateCreatePage::MESSAGE_SUCCESSFUL_ALERT_CREATION);
-        
+
         $i->searchForTaxRate(TaxRateCreatePage::TAX_RATE_VALID_NOT_CREATED);
-      
+
         $i->wait(2);
 
         $i->see(TaxRateListPage::MESSAGE_EMPTY_TABLE);
@@ -100,8 +93,6 @@ class TaxRateCreateCest
     /**
      * @group Overview
      *
-     */
-    /**
      * @param \Acceptance\Taxes\Zed\Tester\TaxRateTester $i
      *
      * @return void
@@ -118,11 +109,12 @@ class TaxRateCreateCest
         $i->amOnPage(TaxRateListPage::URL);
 
         $i->wait(2);
-        
+
         $i->createTaxRate(TaxRateCreatePage::TAX_RATE_VALID);
         $i->see(TaxRateCreatePage::ERROR_MESSAGE_TAX_RATE_ALREADY_EXISTS);
 
         $i->amOnPage(TaxRateListPage::URL);
         $i->deleteTaxRate(TaxRateCreatePage::TAX_RATE_VALID);
     }
+
 }

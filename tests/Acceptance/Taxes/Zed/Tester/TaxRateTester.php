@@ -30,7 +30,7 @@ class TaxRateTester extends \ZedAcceptanceTester
         $i->fillField(TaxRateCreatePage::SELECTOR_NAME,  TaxRateCreatePage::$taxRateData[$taxRateName]['name']);
         $i->selectOption(TaxRateCreatePage::SELECTOR_COUNTRY,  TaxRateCreatePage::$taxRateData[$taxRateName]['country']);
         $i->fillField(TaxRateCreatePage::SELECTOR_PERCENTAGE,  TaxRateCreatePage::$taxRateData[$taxRateName]['percentage']);
-      
+
         $i->click(TaxRateCreatePage::SELECTOR_SAVE);
     }
 
@@ -61,7 +61,7 @@ class TaxRateTester extends \ZedAcceptanceTester
     public function searchForTaxRate($taxRateName)
     {
         $i = $this;
-        
+
         $i->fillField(TaxRateListPage::SELECTOR_SEARCH, TaxRateCreatePage::$taxRateData[$taxRateName]['name']);
     }
 
@@ -73,7 +73,7 @@ class TaxRateTester extends \ZedAcceptanceTester
     public function deleteTaxRate($taxRateName)
     {
         $i = $this;
-        
+
         $i->fillField(TaxRateListPage::SELECTOR_SEARCH, TaxRateCreatePage::$taxRateData[$taxRateName]['name']);
         $i->click(TaxRateListPage::SELECTOR_DELETE);
     }
@@ -89,4 +89,5 @@ class TaxRateTester extends \ZedAcceptanceTester
         $i->see(TaxRateCreatePage::ERROR_MESSAGE_COUNTRY_SHOULD_NOT_BE_BLANK);
         $i->see(TaxRateCreatePage::ERROR_MESSAGE_PERCENTAGE_SHOULD_BE_VALID_NUMBER);
     }
- }
+
+}
