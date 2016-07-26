@@ -27,6 +27,7 @@ class TaxRateTester extends \ZedAcceptanceTester
 
         $i->wait(2);
 
+        $i->makeScreenshot('testing');
         $i->fillField(TaxRateCreatePage::SELECTOR_NAME,  TaxRateCreatePage::$taxRateData[$taxRateName]['name']);
         $i->selectOption(TaxRateCreatePage::SELECTOR_COUNTRY,  TaxRateCreatePage::$taxRateData[$taxRateName]['country']);
         $i->fillField(TaxRateCreatePage::SELECTOR_PERCENTAGE,  TaxRateCreatePage::$taxRateData[$taxRateName]['percentage']);
@@ -74,6 +75,7 @@ class TaxRateTester extends \ZedAcceptanceTester
     {
         $i = $this;
 
+        $i->amOnPage(TaxRateListPage::URL);
         $i->fillField(TaxRateListPage::SELECTOR_SEARCH, TaxRateCreatePage::$taxRateData[$taxRateName]['name']);
         $i->click(TaxRateListPage::SELECTOR_DELETE);
     }
@@ -88,6 +90,54 @@ class TaxRateTester extends \ZedAcceptanceTester
         $i->see(TaxRateCreatePage::ERROR_MESSAGE_NAME_SHOULD_NOT_BE_BLANK);
         $i->see(TaxRateCreatePage::ERROR_MESSAGE_COUNTRY_SHOULD_NOT_BE_BLANK);
         $i->see(TaxRateCreatePage::ERROR_MESSAGE_PERCENTAGE_SHOULD_BE_VALID_NUMBER);
+    }
+
+    /**
+     * @param string $taxRateName
+     *
+     * @return $this
+     */
+    public function createOneAndTheSameTaxRate($taxRateName)
+    {
+        $i = $this;
+
+        $i->amLoggedInUser();
+        $i->amOnPage(TaxRateCreatePage::URL);
+
+        $i->wait(2);
+
+        $i->fillField(TaxRateCreatePage::SELECTOR_NAME,  TaxRateCreatePage::$taxRateData[$taxRateName]['name']);
+        $i->selectOption(TaxRateCreatePage::SELECTOR_COUNTRY,  TaxRateCreatePage::$taxRateData[$taxRateName]['country']);
+        $i->fillField(TaxRateCreatePage::SELECTOR_PERCENTAGE,  TaxRateCreatePage::$taxRateData[$taxRateName]['percentage']);
+
+        $i->click(TaxRateCreatePage::SELECTOR_SAVE);
+
+        $i->amOnPage(TaxRateCreatePage::URL);
+
+        $i->wait(2);
+
+        $i->fillField(TaxRateCreatePage::SELECTOR_NAME,  TaxRateCreatePage::$taxRateData[$taxRateName]['name']);
+        $i->selectOption(TaxRateCreatePage::SELECTOR_COUNTRY,  TaxRateCreatePage::$taxRateData[$taxRateName]['country']);
+        $i->fillField(TaxRateCreatePage::SELECTOR_PERCENTAGE,  TaxRateCreatePage::$taxRateData[$taxRateName]['percentage']);
+
+        $i->click(TaxRateCreatePage::SELECTOR_SAVE);
+    }
+
+    /**
+     * @return $this
+     */
+    public function openTaxRateForEdit($taxRateName)
+    {
+        $i = $this;
+
+        $i->fillField(TaxRateListPage::SELECTOR_SEARCH, TaxRateCreatePage::$taxRateData[$taxRateName]['name']);
+    }
+
+    public function haveTaxRateInDb($value)
+    {
+        $taxEntity = new SpyTaxRate();
+        $taxEntity->setName($value);
+        $taxEntity->save();
     }
 
 }

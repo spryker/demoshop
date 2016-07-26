@@ -16,7 +16,7 @@ use Acceptance\Taxes\Zed\Tester\TaxRateTester;
  * @group Taxes
  * @group Zed
  */
-class TaxRateCreateCest
+class TaxRateEditCest
 {
 
     /**
@@ -27,12 +27,12 @@ class TaxRateCreateCest
      *
      * @return void
      */
-    public function testCreateValidTaxRateShouldShowSuccessMessage(TaxRateTester $i)
+    public function testEditTaxRateWithValidDataSuccessMessage(TaxRateTester $i)
     {
-        $i->wantTo('Create valid tax rate');
-        $i->expect('Tax rate is successfully created');
+        $i->wantTo('Edit tax set with valid data');
+        $i->expect('Tax rate is successfully edited and saved');
 
-        $i->createTaxRate(TaxRateCreatePage::TAX_RATE_VALID);
+        $i->openTaxRateForEdit(TaxRateCreatePage::TAX_RATE_VALID);
 
         $i->wait(2);
 
