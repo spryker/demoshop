@@ -21,6 +21,7 @@ use Pyz\Yves\Checkout\Form\Steps\ShipmentForm;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Form\AddressForm;
 use Pyz\Yves\Customer\Form\GuestForm;
+use ReflectionProperty;
 use Spryker\Client\Cart\CartClient;
 use Spryker\Client\ZedRequest\Client\HttpClient;
 use Spryker\Shared\Shipment\ShipmentConstants;
@@ -547,11 +548,11 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
      */
     protected function allowMoreThenOneRequestToZed()
     {
-        $reflectionProperty = new \ReflectionProperty(HttpClient::class, 'alreadyRequested');
+        $reflectionProperty = new ReflectionProperty(HttpClient::class, 'alreadyRequested');
         $reflectionProperty->setAccessible(true);
         $reflectionProperty->setValue(null, false);
 
-        $reflectionProperty = new \ReflectionProperty(HttpClient::class, 'requestCounter');
+        $reflectionProperty = new ReflectionProperty(HttpClient::class, 'requestCounter');
         $reflectionProperty->setAccessible(true);
         $reflectionProperty->setValue(null, 0);
     }

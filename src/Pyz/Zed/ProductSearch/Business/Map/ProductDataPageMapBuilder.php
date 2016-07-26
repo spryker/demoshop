@@ -9,6 +9,7 @@ namespace Pyz\Zed\ProductSearch\Business\Map;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
+use RuntimeException;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\Price\Business\PriceFacadeInterface;
 use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
@@ -123,7 +124,7 @@ class ProductDataPageMapBuilder
         $array = json_decode($data, true);
 
         if (!is_array($array)) {
-            throw new \RuntimeException('Invalid JSON data: ' . json_last_error_msg() . ' - ' . print_r($data, true));
+            throw new RuntimeException('Invalid JSON data: ' . json_last_error_msg() . ' - ' . print_r($data, true));
         }
 
         return array_shift($array);

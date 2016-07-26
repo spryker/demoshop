@@ -6,7 +6,6 @@ use Codeception\TestCase;
 use Codeception\Module;
 use Propel\Runtime\Propel;
 use Silex\Application;
-use Spryker\Shared\Library\Environment;
 use Spryker\Zed\Propel\Communication\Plugin\ServiceProvider\PropelServiceProvider;
 
 /**

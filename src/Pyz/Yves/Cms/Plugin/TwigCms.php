@@ -10,6 +10,7 @@ namespace Pyz\Yves\Cms\Plugin;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
 use Silex\Application;
 use Spryker\Yves\Kernel\AbstractPlugin;
+use Twig_SimpleFunction;
 
 class TwigCms extends AbstractPlugin implements TwigFunctionPluginInterface
 {
@@ -22,7 +23,7 @@ class TwigCms extends AbstractPlugin implements TwigFunctionPluginInterface
     public function getFunctions(Application $application)
     {
         return [
-            new \Twig_SimpleFunction('spyCms', function (array $context, $identifier) use ($application) {
+            new Twig_SimpleFunction('spyCms', function (array $context, $identifier) use ($application) {
                 $translator = $this->getTranslator($application);
                 $placeholders = $context['placeholders'];
 
