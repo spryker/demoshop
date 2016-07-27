@@ -1,0 +1,25 @@
+{% extends "@application/layout/layout.twig" %}
+{% import "@checkout/checkout/_macros.twig" as checkout %}
+
+{% block content %}
+<div class="container">
+    <div class="row cms-page">
+        <div class="col-xs-12 col-md-12">
+            <h1>{{ 'checkout.step.payment.title' | trans }}</h1>
+        </div>
+
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            {{ form_start(paymentForm, { attr: { id: 'payment-form', class: 'form-horizontal checkout-form checkout-payment' }}) }}
+                {{ form_widget(paymentForm.paymentSelection) }}
+                {{ checkout.include_subforms(paymentForm) }}
+            {{ form_end(paymentForm) }}
+            <a href="{{ previousStepUrl }}">{{ 'general.back.button' | trans }}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="/assets/demoshop/js/spryker-yves-braintree-main.js"></script>
+{% endblock %}

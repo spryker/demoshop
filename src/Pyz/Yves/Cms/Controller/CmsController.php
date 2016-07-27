@@ -28,7 +28,10 @@ class CmsController extends AbstractController
             throw new NotFoundHttpException();
         }
 
-        return $this->renderView($meta['template'], ['placeholders' => $meta['placeholders'], 'edit' => $edit]);
+        return $this->renderView($meta['template'], [
+            'placeholders' => $meta['placeholders'],
+            'edit' => $edit,
+        ]);
     }
 
 }

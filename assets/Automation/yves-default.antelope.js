@@ -50,7 +50,7 @@ let config = {
             ])
         }, {
             test: /\.(ttf|woff2?|eot|svg|otf)\??(\d*\w*=?\.?)+$/i,
-            loader: `file?name=./assets/${themeName}/fonts/[name].[ext]`
+            loader: `file?name=/assets/${themeName}/fonts/[name].[ext]`
         }]
     },
     postcss: () => [],

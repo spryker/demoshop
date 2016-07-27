@@ -1,0 +1,31 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block content %}
+    <div style="margin-top: 65px;padding: 30px;overflow:hidden">
+        {% include "@customer/customer/partials/navigation.twig" with {'active': 'profile'} %}
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 custom-form">
+                <h2>{{ "customer.profile.update" | trans }}</h2>
+                {{ form_start(profileForm) }}
+                    {{ form_widget(profileForm) }}
+
+                    <div class="frame buttons cfx">
+                        <input type="submit" value="{{ 'forms.submit-btn' | trans }}" />
+                    </div>
+                {{ form_end(profileForm) }}
+            </div>
+            <div class="col-xs-12 col-sm-6 custom-form">
+                <h2>{{ "customer.password.update" | trans }}</h2>
+                {{ form_start(passwordForm) }}
+                {{ form_widget(passwordForm) }}
+
+                <div class="frame buttons cfx">
+                    <input type="submit" value="{{ 'forms.submit-btn' | trans }}" />
+                </div>
+                {{ form_end(passwordForm) }}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block title %}
+    <h3>{{ 'cart.cart'|trans }}</h3>
+{% endblock %}
+
+{# TODO: replace non glosary key translations to glossary key and add them to glossary installer #}
+
+{% block breadcrumbItems %}
+    <li><a href="/">{{ 'Home' | trans }}</a></li>
+    <li>{{ 'cart.cart'|trans }}</li>
+    <li class="disabled">{{ 'cart.checkout' | trans }}</li>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        {% if cart.items|length > 0 %}
+            <div class="small-12 large-8 columns">
+                {% for cartItem in cart.items %}
+                    <div class="callout">
+                        <a href="/cart/remove/{{cartItem.sku}}" class="close-button float-right">&times;</a>
+                        <div class="row">
+                            <div class="small-12 medium-3 columns text-center">
+                                {#<a class="thumbnail __no-margin-bottom" href="{{cartItem.url}}">#}
+                                    <img src="http://placehold.it/140x140?text=Item+{{cartItem.sku}}">
+                                {#</a>#}
+                            </div>
+                            <div class="small-12 medium-9 columns">
+                                <div class="row align-top">
+                                    <div class="small-12 columns text-center medium-text-left">
+                                        <ul class="no-bullet __no-margin-bottom">
+                                            <li class="lead">
+                                                {{ cartItem.name }}
+                                            </li>
+                                            <li class="float-right show-for-medium __secondary"></li>
+                                            <li><strong>{{ cartItem.unitGrossPrice | price }}</strong></li>
+                                            <li class="hide-for-medium __secondary">{{ 'product.attribute.sku' | trans }} {{cartItem.id}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <form class="row align-right" method="POST" action="{{ path('cart/change/quantity', {'sku': cartItem.sku}) }}">
+                                    <div class="show-for-medium columns">
+                                        <span class="__secondary">{{ 'SKU' | trans }} {{cartItem.sku}}</span>
+                                    </div>
+                                    <div class="small-6 medium-2 columns">
+                                        <label class="__no-margin-bottom">
+                                            {{ 'Quantity' | trans }}:
+                                            <input class="__no-margin-bottom" type="number" value="{{cartItem.quantity}}" name="quantity">
+                                        </label>
+                                    </div>
+                                    <div class="small-6 medium-2 columns align-bottom">
+                                        <button type="submit" class="button expanded __no-margin-bottom">
+                                            <i class="fa fa-refresh"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="small-12 large-4 columns">
+                <div class="callout">
+                    <h5 class="subheader float-right">{{cart.items | length}} {{ 'item' | trans }}</h5>
+                    <h5>{{ 'cart.your-order' | trans }}</h5>
+                    <ul class="no-bullet">
+                        <li>{{ 'cart.price.subtotal' | trans }} <strong class="float-right">{{ cart.totals.subtotal | price }}</strong></li>
+
+                        <li>{{ cart.totals.taxTotal.taxRate }} {{ 'cart.percentage.vat' | trans }} <strong class="float-right">{{ cart.totals.taxTotal.amount | price }}</strong></li>
+
+                        {% for voucherDiscount in cart.voucherDiscounts %}
+                            <li>{{ voucherDiscount.displayName }} <strong class="float-right">({{ voucherDiscount.amount|price }})</strong></li>
+                        {% endfor %}
+
+                        {% for ruleDiscount in cart.cartRuleDiscounts %}
+                            <li>{{ ruleDiscount.displayName }} <strong class="float-right">- ({{ ruleDiscount.amount|price }})</strong></li>
+                        {% endfor %}
+
+                        <li>{{ 'cart.total.discount'|trans }} <strong class="float-right">-{{ cart.totals.discountTotal|price }}</strong></li>
+
+                        <li>{{ 'cart.price.grand.total' | trans }} <strong class="float-right">{{ cart.totals.grandTotal | price }}</strong></li>
+                    </ul>
+                    {% if cart.items|length %}
+                        <p class="__padding-top">
+                                <a class="button expanded success __no-margin-bottom" href="{{ url('checkout-index') }}">
+                                    <i class="fa fa-check"></i>{{ 'cart.checkout'|trans }}
+                                </a>
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+
+        {% else %}
+
+            <div class="small-12 columns">
+                <div class="callout secondary text-center">
+                    {{ 'cart.empty'|trans }}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}

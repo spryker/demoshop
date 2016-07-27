@@ -22,12 +22,10 @@ class CartController extends AbstractController
      */
     public function indexAction()
     {
-        $cartClient = $this->getClient();
-        $quoteTransfer = $cartClient->getQuote();
+        $quoteTransfer = $this->getClient()->getQuote();
 
         return $this->viewResponse([
-            'cartItems' => $quoteTransfer->getItems(),
-            'totals' => $quoteTransfer->getTotals(),
+            'cart' => $quoteTransfer,
         ]);
     }
 
@@ -75,7 +73,7 @@ class CartController extends AbstractController
         $cartOperationHandler->changeQuantity($sku, $quantity, $groupKey);
         $cartOperationHandler->setFlashMessagesFromLastZedRequest($this->getClient());
 
-        return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART_OVERLAY);
+        return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
     }
 
     /**

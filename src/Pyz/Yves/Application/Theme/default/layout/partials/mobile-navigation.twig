@@ -5,8 +5,8 @@
             <li class="row align-middle">
                 <a class="shrink columns" href="/cart"><i class="fa fa-shopping-cart"></i>Cart</a>
                 <span class="columns text-right collapse">
-                    {#{% if cart.length > 0 %}#}
-                        {#<span class="warning badge">{{cart.length}}</span>#}
+                    {#{% if cart.items|length > 0 %}#}
+                        {#<span class="warning badge">{{cart.items|length}}</span>#}
                     {#{% endif %}#}
                 </span>
             </li>

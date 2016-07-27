@@ -1,0 +1,13 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block content %}
+<div class="container">
+    <div class="row cms-page">
+        <div class="col-xs-12 col-md-12">
+            <h1>{{ 'checkout.step.success.title' | trans }}</h1>
+        </div>
+
+        {{ 'checkout.step.success.text' | trans }}
+    </div>
+</div>
+{% endblock %}

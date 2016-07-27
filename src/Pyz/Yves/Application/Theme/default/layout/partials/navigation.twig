@@ -2,29 +2,23 @@
     <div class="row">
         <div class="large-8 columns show-for-large">
             <ul class="menu">
-                <li><a href="/category/1">Category 1</a></li>
-                <li><a href="/category/2">Category 2</a></li>
-                <li><a href="/category/3">Category 3</a></li>
-                <li><a href="/category/4">Category 4</a></li>
+                {% for category in categories %}
+                    <li><a href="{{ category.url }}">{{ category.name }}</a></li>
+                {% endfor %}
             </ul>
         </div>
         <div class="large-4 columns show-for-large">
             <ul class="menu align-right">
-                {#{% if cart.length > 0 %}#}
-                    {#<li><span class="warning badge float-left">{{cart.length}}</span></li>#}
+                {#{% if cart.items|length > 0 %}#}
+                    {#<li><span class="warning badge float-left">{{cart.items|length}}</span></li>#}
                 {#{% endif %}#}
-                <li><a href="/cart"><i class="fa fa-shopping-cart"></i>Cart</a></li>
+                <li><a href="{{ url('cart') }}"><i class="fa fa-shopping-cart"></i>Cart</a></li>
                 {% include '@application/layout/partials/customer-navigation.twig' %}
             </ul>
         </div>
 
         <div class="small-12 columns hide-for-large">
-            <div class="input-group __no-margin-bottom">
-                <input class="input-group-field" type="text" placeholder="Search...">
-                <div class="input-group-button">
-                    <button type="submit" class="button"><i class="fa fa-search"></i></button>
-                </div>
-            </div>
+            {% include '@application/layout/partials/search-form.twig' %}
         </div>
     </div>
 </div>

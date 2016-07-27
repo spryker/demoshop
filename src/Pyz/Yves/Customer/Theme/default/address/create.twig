@@ -1,0 +1,27 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block content %}
+    <div style="margin-top: 65px;padding: 30px;overflow:hidden">
+        {% include "@customer/customer/partials/navigation.twig" with {'active': 'address'} %}
+
+        <div style="float:left;width:70%">
+
+            <h1 class="desktop-view">{{ 'customer.account.address' | trans }}</h1>
+
+            <p>
+                <a href="{{ url('customer/address') }}">{{ 'general.back.button' | trans }}</a>
+            </p>
+
+            <div class="panel">
+                <div class="panel-heading">
+                    <h2>{{ 'customer.account.edit_address_information' | trans }}</h2>
+                </div>
+                <div class="panel-body">
+                    {% include "@customer/address/partials/form.twig" with {'form': form, 'formAction': url('customer/address/new')} %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

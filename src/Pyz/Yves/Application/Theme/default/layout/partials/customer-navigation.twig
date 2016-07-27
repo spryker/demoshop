@@ -1,6 +1,8 @@
-{#{% if user.logged %}#}
-    {#<li><a href="/customer/profile"><i class="fa fa-user"></i>{{user.firstName}}</a></li>#}
-    {#<li><a href="/logout"><i class="fa fa-sign-out"></i>Logout</a></li>#}
-{#{% else %}#}
-    <li><a href="/login"><i class="fa fa-sign-in"></i>Login</a></li>
-{#{% endif %}#}
+{% if hideUserMenu is not defined or hideUserMenu != true %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <li><a href="{{ url('customer/profile') }}"><i class="fa fa-user"></i>{{ 'customer.profile'|trans }}</a></li>
+        <li><a href="{{ url('logout') }}"><i class="fa fa-sign-out"></i>{{ 'customer.logout'|trans }}</a></li>
+    {% else %}
+        <li><a href="{{ url('login') }}"><i class="fa fa-sign-in"></i>{{ 'customer.login'|trans }}</a></li>
+    {% endif %}
+{% endif %}

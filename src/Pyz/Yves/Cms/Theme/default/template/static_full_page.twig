@@ -1,0 +1,29 @@
+{% extends '@Cms/layout/full.twig' %}
+
+{% block breadcrumb %}{% endblock %}
+
+{#{% block breadcrumbItems %}#}
+    {#<li><a href="/">Home</a></li>#}
+{#{% endblock %}#}
+
+{#{% block title %}#}
+    {#{{ spyCms('title') | raw }}#}
+{#{% endblock %}#}
+
+{% block content %}
+    <!-- CMS_PLACEHOLDER : "title" -->
+    <!-- CMS_PLACEHOLDER : "content" -->
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="callout">
+                <div class="row">
+                    <div class="small-12 xlarge-9 xxlarge-8 columns">
+                        {{ spyCms('title') | raw }}
+                        {{ spyCms('content') | raw }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

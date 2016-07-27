@@ -1,0 +1,52 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% macro row(address) %}
+    <tr>
+        <td>{{ address.firstName }} {{ address.lastName }}</td>
+        <td>
+            {% spaceless %}
+            {{ address.address1 }} {{ address.address2 }},
+            {{ address.zipcode }} {{ address.city }}{% if address.phone is defined %}, {{ address.phone }}{% endif %}
+            {% endspaceless %}
+        </td>
+        <td class="text-right">
+
+            {% if address.isDefaultShipping %}<span class="label label-info">{{ 'customer.order.shipping_address' | trans }}</span>{% endif %}
+            {% if address.isDefaultBilling %}<span class="label label-info">{{ 'customer.order.billing_address' | trans }}</span>{% endif %}
+
+            <a href="{{ url('customer/address/update', {'id': address.idCustomerAddress }) }}" class="edit-data">
+                {{ "customer.profile.address.edit" | trans }}
+            </a>
+            <a href="{{ url('customer/address/delete', {'id': address.idCustomerAddress }) }}" class="delete-btn confirm-popup">
+                {{ "customer.profile.address.delete" | trans }}
+            </a>
+        </td>
+    </tr>
+{% endmacro %}
+
+{% import _self as table %}
+
+{% block content %}
+    <div style="margin-top: 65px;padding: 30px;overflow:hidden">
+        {% include "@customer/customer/partials/navigation.twig" with {'active': 'address'} %}
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <a class="pull-right" href="{{ url('customer/address/new') }}">{{ 'customer.account.add_new_address' | trans }}</a>
+                        <h3>{{ 'customer.account.address' | trans }}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table border-bottom">
+                            {% for address in addresses %}
+                                {{ table.row(address) }}
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block content %}
+    <div style="margin-top: 65px;padding: 30px;overflow:hidden">
+        {% include "@customer/customer/partials/navigation.twig" with {'active': 'order'} %}
+
+        <div style="float:left;width:70%">
+            <h1>{{ "customer.profile.order_details" | trans }}</h1>
+
+            <div style="margin-bottom:40px;">
+                <div>
+                    {{ 'customer.order.order_id' | trans }}: {{ order.orderReference }}
+                </div>
+                <div>
+                    {{ 'customer.customer_id' | trans }}: {{ order.fkCustomer }}
+                </div>
+                <div>
+                    {{ 'customer.order.date' | trans }}: {{ order.createdAt|formatDateShort }}
+                </div>
+            </div>
+
+
+            {% block orderItems %}
+                {% include "@customer/order/partials/order-items.twig" %}
+            {% endblock %}
+
+            {% include "@customer/order/partials/details-sum.twig" %}
+
+            {% include "@customer/order/partials/details-personal-data.twig" %}
+            <div>
+                <a href="{{ url('customer/order') }}">{{ 'back' | trans }}</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
