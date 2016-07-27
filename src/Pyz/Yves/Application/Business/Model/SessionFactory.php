@@ -7,9 +7,9 @@
 
 namespace Pyz\Yves\Application\Business\Model;
 
-use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\Config;
 use Spryker\Shared\Session\Business\Model\SessionFactory as SharedSessionFactory;
+use Spryker\Shared\Session\SessionConstants;
 
 class SessionFactory extends SharedSessionFactory
 {
