@@ -997,12 +997,16 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "9833e55abbfa657753f6d9fb03ed5a8c7127980a"
 =======
                 "reference": "6d6359e2da7c84dbc3bdb0366b1bc55603db0951"
 >>>>>>> Update composer lock
 =======
                 "reference": "f702f5921cd553c2603e78b1cd5e85aee0e88934"
+>>>>>>> Update composer lock
+=======
+                "reference": "a9b454a419487b2142d9384fb1f630af9225dccd"
 >>>>>>> Update composer lock
             },
             "require": {
@@ -1508,12 +1512,16 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-07-28 14:33:19"
 =======
             "time": "2016-07-25 14:42:11"
 >>>>>>> Update composer lock
 =======
             "time": "2016-07-25 14:50:53"
+>>>>>>> Update composer lock
+=======
+            "time": "2016-07-27 12:15:52"
 >>>>>>> Update composer lock
         },
         {
