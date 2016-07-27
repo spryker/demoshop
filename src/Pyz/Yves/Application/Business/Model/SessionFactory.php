@@ -19,7 +19,7 @@ class SessionFactory extends SharedSessionFactory
      */
     protected function getSessionLifetime()
     {
-        $lifetime = (int)Config::get(ApplicationConstants::YVES_STORAGE_SESSION_TIME_TO_LIVE);
+        $lifetime = (int)Config::get(SessionConstants::YVES_SESSION_TIME_TO_LIVE);
 
         return $lifetime;
     }

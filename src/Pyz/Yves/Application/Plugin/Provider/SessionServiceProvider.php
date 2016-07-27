@@ -91,7 +91,7 @@ class SessionServiceProvider extends AbstractServiceProvider
                 break;
 
             case SessionConstants::SESSION_HANDLER_FILE:
-                $path = Config::get(ApplicationConstants::YVES_STORAGE_SESSION_FILE_PATH);
+                $path = Config::get(SessionConstants::YVES_SESSION_FILE_PATH);
                 break;
 
             default:
@@ -108,20 +108,20 @@ class SessionServiceProvider extends AbstractServiceProvider
     {
         $path = sprintf(
             '%s://%s:%s?database=%s',
-            Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL),
-            Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST),
-            Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT),
-            Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_DATABASE, 0)
+            Config::get(SessionConstants::YVES_SESSION_REDIS_PROTOCOL),
+            Config::get(SessionConstants::YVES_SESSION_REDIS_HOST),
+            Config::get(SessionConstants::YVES_SESSION_REDIS_PORT),
+            Config::get(SessionConstants::YVES_SESSION_REDIS_DATABASE, 0)
         );
 
-        if (Config::hasKey(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PASSWORD)) {
+        if (Config::hasKey(SessionConstants::YVES_SESSION_REDIS_PASSWORD)) {
             $path = sprintf(
                 '%s://h:%s@%s:%s?database=%s',
-                Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL),
-                Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PASSWORD),
-                Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST),
-                Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT),
-                Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_DATABASE, 0)
+                Config::get(SessionConstants::YVES_SESSION_REDIS_PROTOCOL),
+                Config::get(SessionConstants::YVES_SESSION_REDIS_PASSWORD),
+                Config::get(SessionConstants::YVES_SESSION_REDIS_HOST),
+                Config::get(SessionConstants::YVES_SESSION_REDIS_PORT),
+                Config::get(SessionConstants::YVES_SESSION_REDIS_DATABASE, 0)
             );
         }
 
@@ -137,7 +137,7 @@ class SessionServiceProvider extends AbstractServiceProvider
     {
         $sessionStorageOptions = [
             'cookie_httponly' => true,
-            'cookie_lifetime' => Config::get(ApplicationConstants::YVES_STORAGE_SESSION_TIME_TO_LIVE),
+            'cookie_lifetime' => Config::get(SessionConstants::YVES_SESSION_TIME_TO_LIVE),
             'cookie_secure' => $this->secureCookie(),
         ];
 
