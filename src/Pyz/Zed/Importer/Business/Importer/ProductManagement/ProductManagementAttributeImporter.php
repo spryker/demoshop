@@ -143,7 +143,7 @@ class ProductManagementAttributeImporter extends AbstractImporter
         $values = explode(',', $data['values']);
         foreach ($values as $index => $value) {
             $valueTransfer = (new ProductManagementAttributeValueTransfer())
-                ->setValue($value);
+                ->setValue(trim($value));
 
             foreach ($valueTranslationTransfers as $valueTranslationTransfer) {
                 if (isset($valueTranslationTransfer[$index])) {
