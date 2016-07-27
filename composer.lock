@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a5c66918051c9ca367d184439394270b",
-    "content-hash": "67f76bbfa0dc9b11457fcbfc730759f2",
+    "hash": "52979d7700b8ca0ce9f858d90828e661",
+    "content-hash": "4e0826f73ceb99ffcf2f3082205d8797",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -991,11 +991,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/pim",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "78babee6f6ca0b2219f6f6c49fcaa4f05f5b4748"
+                "reference": "7eb9715fff5cd139008c31607aa9ac4225d89e21"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1477,7 +1477,11 @@
                     "Spryker\\Shared\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/src",
                     "Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/src",
                     "Unit\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests",
-                    "Functional\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests"
+                    "Functional\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests",
+                    "Spryker\\Shared\\ProductManagement\\": "Bundles/ProductManagement/src",
+                    "Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/src",
+                    "Unit\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests",
+                    "Functional\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests"
                 },
                 "psr-4": {
                     "Application\\Module\\": "Bundles/Application/tests/_support/Module",
@@ -1498,7 +1502,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-07-27 10:27:49"
+            "time": "2016-07-27 13:37:02"
         },
         {
             "name": "symfony-cmf/routing",
