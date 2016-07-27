@@ -262,7 +262,8 @@ class ImporterFactory extends AbstractFactory
             $this->getLocaleFacade(),
             $this->getProductQueryContainer(),
             $this->getCountryFacade(),
-            $this->getTaxQueryContainer()
+            $this->getTaxQueryContainer(),
+            $this->getShipmentQueryContainer()
         );
     }
 

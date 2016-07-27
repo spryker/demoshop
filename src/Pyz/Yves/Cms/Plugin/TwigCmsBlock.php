@@ -12,6 +12,8 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
 use Silex\Application;
 use Spryker\Yves\Kernel\AbstractPlugin;
+use Twig_Environment;
+use Twig_SimpleFunction;
 
 /**
  * @method \Spryker\Client\Cms\CmsClientInterface getClient()
@@ -34,7 +36,7 @@ class TwigCmsBlock extends AbstractPlugin implements TwigFunctionPluginInterface
         $this->locale = $application['locale'];
 
         return [
-            new \Twig_SimpleFunction('spyCmsBlock', [
+            new Twig_SimpleFunction('spyCmsBlock', [
                 $this,
                 'renderCmsBlock',
             ], [
@@ -54,7 +56,7 @@ class TwigCmsBlock extends AbstractPlugin implements TwigFunctionPluginInterface
      *
      * @return string
      */
-    public function renderCmsBlock(\Twig_Environment $twig, array $context, $blockName, $blockType = null, $blockValue = null)
+    public function renderCmsBlock(Twig_Environment $twig, array $context, $blockName, $blockType = null, $blockValue = null)
     {
         $cmsBlockTransfer = $this->createBlockTransfer($blockName, $blockType, $blockValue);
         $cmsBlockArray = $this->getClient()->findBlockByName($cmsBlockTransfer);

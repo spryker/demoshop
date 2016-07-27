@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql;
 
 use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
+use ReflectionClass;
 use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
 class UrlCollectorQuery extends AbstractPdoCollectorQuery
@@ -69,7 +70,7 @@ FROM spy_url u
      */
     protected function getResourceColumnNames()
     {
-        $reflection = new \ReflectionClass('Orm\Zed\Url\Persistence\Map\SpyUrlTableMap');
+        $reflection = new ReflectionClass('Orm\Zed\Url\Persistence\Map\SpyUrlTableMap');
         $constants = $reflection->getConstants();
 
         return array_filter($constants, function ($constant) {
@@ -84,7 +85,7 @@ FROM spy_url u
      */
     protected function getConstantValue($constantName)
     {
-        $reflection = new \ReflectionClass('Orm\Zed\Url\Persistence\Map\SpyUrlTableMap');
+        $reflection = new ReflectionClass('Orm\Zed\Url\Persistence\Map\SpyUrlTableMap');
 
         return $reflection->getConstant($constantName);
     }

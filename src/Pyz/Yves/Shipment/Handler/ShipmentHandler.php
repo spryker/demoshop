@@ -5,6 +5,7 @@
  */
 namespace Pyz\Yves\Shipment\Handler;
 
+use ArrayObject;
 use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
@@ -100,7 +101,7 @@ class ShipmentHandler
      */
     protected function replaceShipmentExpenseInQuote(QuoteTransfer $quoteTransfer, ExpenseTransfer $expenseTransfer)
     {
-        $otherExpenseCollection = new \ArrayObject();
+        $otherExpenseCollection = new ArrayObject();
         foreach ($quoteTransfer->getExpenses() as $expense) {
             if ($expense->getType() !== ShipmentConstants::SHIPMENT_EXPENSE_TYPE) {
                 $otherExpenseCollection->append($expense);

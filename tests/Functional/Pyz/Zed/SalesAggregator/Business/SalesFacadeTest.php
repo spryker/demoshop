@@ -8,6 +8,7 @@
 namespace Functional\Pyz\Zed\SalesAggregator\Business;
 
 use Codeception\TestCase\Test;
+use DateTime;
 use Orm\Zed\Oms\Persistence\SpyOmsOrderItemState;
 use Orm\Zed\Sales\Persistence\SpySalesDiscount;
 use Orm\Zed\Sales\Persistence\SpySalesExpense;
@@ -114,8 +115,8 @@ class SalesFacadeTest extends Test
         $totalsTransfer = $orderTransfer->getTotals();
         $this->assertSame(1920, $totalsTransfer->getSubtotal());
         $this->assertSame(100, $totalsTransfer->getExpenseTotal());
-        $this->assertSame(340.0, $totalsTransfer->getDiscountTotal());
-        $this->assertSame(1680.0, $totalsTransfer->getGrandTotal());
+        $this->assertSame(340, $totalsTransfer->getDiscountTotal());
+        $this->assertSame(1680, $totalsTransfer->getGrandTotal());
         $this->assertSame(268.0, $totalsTransfer->getTaxTotal()->getAmount());
     }
 
@@ -266,8 +267,8 @@ class SalesFacadeTest extends Test
         $salesOrderAddressEntity->setSalutation('Mr');
         $salesOrderAddressEntity->setCellPhone('123456789');
         $salesOrderAddressEntity->setCity('City');
-        $salesOrderAddressEntity->setCreatedAt(new \DateTime());
-        $salesOrderAddressEntity->setUpdatedAt(new \DateTime());
+        $salesOrderAddressEntity->setCreatedAt(new DateTime());
+        $salesOrderAddressEntity->setUpdatedAt(new DateTime());
         $salesOrderAddressEntity->setComment('comment');
         $salesOrderAddressEntity->setDescription('describtion');
         $salesOrderAddressEntity->setCompany('company');
