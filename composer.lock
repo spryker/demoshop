@@ -1000,6 +1000,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "9833e55abbfa657753f6d9fb03ed5a8c7127980a"
 =======
                 "reference": "6d6359e2da7c84dbc3bdb0366b1bc55603db0951"
@@ -1015,6 +1016,9 @@
 >>>>>>> Update composer lock
 =======
                 "reference": "9c95d6b921bdc93d524f71377453e6292bf87894"
+>>>>>>> Update composer lock
+=======
+                "reference": "dfa331a94140916ebb68d9631b1f75f6ae76d143"
 >>>>>>> Update composer lock
             },
             "require": {
@@ -1523,6 +1527,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-07-28 14:33:19"
 =======
             "time": "2016-07-25 14:42:11"
@@ -1538,6 +1543,9 @@
 >>>>>>> Update composer lock
 =======
             "time": "2016-07-27 12:54:00"
+>>>>>>> Update composer lock
+=======
+            "time": "2016-07-27 13:11:31"
 >>>>>>> Update composer lock
         },
         {
