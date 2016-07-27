@@ -24,8 +24,13 @@ modules:
 
 coverage:
     enabled: true
-    whitelist: { include: ['src/*'] }
+    remote: true
+    c3_url: 'http://zed.de.spryker.dev'
+    whitelist: { include: ['src/*.php'] }
 
 extensions:
     enabled:
-        - Codeception\Extension\RunFailed
+        - Codeception\Extension\Phantoman
+    config:
+        Codeception\Extension\Phantoman:
+            suites: ['Acceptance']

@@ -14,12 +14,14 @@
  * @method \Codeception\Lib\Friend haveFriend($name, $actorClass = null)
  *
  * @SuppressWarnings(PHPMD)
-*/
+ */
 class NoGuy extends \Codeception\Actor
 {
+
     use _generated\NoGuyActions;
 
    /**
     * Define custom actions here
     */
+
 }
