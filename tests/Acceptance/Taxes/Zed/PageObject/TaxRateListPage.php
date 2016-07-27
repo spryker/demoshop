@@ -16,6 +16,7 @@ class TaxRateListPage
 
     const SELECTOR_SEARCH = 'input.form-control.input-sm';
     const SELECTOR_DELETE = 'Delete';
+    const SELECTOR_EDIT = 'i.fa.fa-pencil-square-o';
 
     const MESSAGE_EMPTY_TABLE = 'No matching records found';
 

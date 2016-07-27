@@ -38,12 +38,11 @@ class TaxRateCreateCest
 
         $i->see(TaxRateCreatePage::MESSAGE_SUCCESSFUL_ALERT_CREATION);
 
-        $i->amOnPage(TaxRateListPage::URL);
-        $i->deleteTaxRate(TaxRateCreatePage::TAX_RATE_VALID);
+        $i->deleteTaxRateFromEditForm();
     }
 
     /**
-     * @group Overview
+     * @group Overview 
      *
      * @param \Acceptance\Taxes\Zed\Tester\TaxRateTester $i
      *
@@ -73,6 +72,8 @@ class TaxRateCreateCest
         $i->wantTo('Create valid tax rate and back to list of task rates');
         $i->expect('List of task rates is opened, task rate is not created');
 
+        $i->wait(2);
+        
         $i->createTaxRateWithoutSaving(TaxRateCreatePage::TAX_RATE_VALID_NOT_CREATED);
         $i->click(TaxRateCreatePage::SELECTOR_LIST_OF_TASK_RATES_BUTTON);
 
@@ -86,7 +87,7 @@ class TaxRateCreateCest
     }
 
     /**
-     * @group Overview
+     * @group Overview1
      *
      * @param \Acceptance\Taxes\Zed\Tester\TaxRateTester $i
      *

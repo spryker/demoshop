@@ -20,10 +20,12 @@ class TaxRateCreatePage
     const ERROR_MESSAGE_COUNTRY_SHOULD_NOT_BE_BLANK = 'Select country.';
     const ERROR_MESSAGE_PERCENTAGE_SHOULD_BE_VALID_NUMBER = 'This value should be a valid number.';
     const ERROR_MESSAGE_TAX_RATE_ALREADY_EXISTS = 'Tax rate with provided name, percentage and country already exists.';
+    const MESSAGE_SUCCESSFUL_ALERT_UPDATE = 'Tax rate succesfully updated.';
 
     const SELECTOR_NAME = '#tax_rate_name';
     const SELECTOR_COUNTRY = '#tax_rate_fkCountry';
     const SELECTOR_PERCENTAGE = '#tax_rate_rate';
+    const SELECTOR_DELETE_FROM_EDIT = 'i.fa.fa-trash';
 
     const SELECTOR_SAVE = "input.btn.btn-primary";
     const  SELECTOR_LIST_OF_TASK_RATES_BUTTON = 'List of task rates';
@@ -31,6 +33,7 @@ class TaxRateCreatePage
     const TAX_RATE_VALID = 'validTaxRate';
     const TAX_RATE_INVALID = 'invalidTaxRate';
     const TAX_RATE_VALID_NOT_CREATED = 'validTaxRateNotCreated';
+    const TAX_RATE_VALID_EDITED = 'validTaxRateEdited';
 
     /**
      * @var array
@@ -50,6 +53,11 @@ class TaxRateCreatePage
             'name' => 'Ukraine Standard Not Created',
             'country' => 'Ukraine',
             'percentage' => '5',
+        ],
+        self::TAX_RATE_VALID_EDITED => [
+            'name' => 'Ukraine Standard Edited',
+            'country' => 'Ukraine',
+            'percentage' => '10',
         ]
     ];
 
