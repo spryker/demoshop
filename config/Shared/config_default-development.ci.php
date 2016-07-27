@@ -55,21 +55,25 @@ $config[StorageConstants::YVES_STORAGE_REDIS_PROTOCOL] = 'tcp';
 $config[StorageConstants::YVES_STORAGE_REDIS_HOST] = '127.0.0.1';
 $config[StorageConstants::YVES_STORAGE_REDIS_PORT] = '6379';
 $config[StorageConstants::YVES_STORAGE_REDIS_PASSWORD] = '';
+$config[StorageConstants::YVES_STORAGE_REDIS_DATABASE] = 0;
 
 $config[StorageConstants::ZED_STORAGE_REDIS_PROTOCOL] = $config[StorageConstants::YVES_STORAGE_REDIS_PROTOCOL];
 $config[StorageConstants::ZED_STORAGE_REDIS_HOST] = $config[StorageConstants::YVES_STORAGE_REDIS_HOST];
 $config[StorageConstants::ZED_STORAGE_REDIS_PORT] = $config[StorageConstants::YVES_STORAGE_REDIS_PORT];
 $config[StorageConstants::ZED_STORAGE_REDIS_PASSWORD] = $config[StorageConstants::YVES_STORAGE_REDIS_PASSWORD];
+$config[StorageConstants::ZED_STORAGE_REDIS_DATABASE] = $config[StorageConstants::YVES_STORAGE_REDIS_DATABASE];
 
 $config[SessionConstants::YVES_SESSION_REDIS_PROTOCOL] = $config[StorageConstants::YVES_STORAGE_REDIS_PROTOCOL];
 $config[SessionConstants::YVES_SESSION_REDIS_HOST] = $config[StorageConstants::YVES_STORAGE_REDIS_HOST];
 $config[SessionConstants::YVES_SESSION_REDIS_PORT] = $config[StorageConstants::YVES_STORAGE_REDIS_PORT];
 $config[SessionConstants::YVES_SESSION_REDIS_PASSWORD] = $config[StorageConstants::YVES_STORAGE_REDIS_PASSWORD];
+$config[SessionConstants::YVES_SESSION_REDIS_DATABASE] = 1;
 
 $config[SessionConstants::ZED_SESSION_REDIS_PROTOCOL] = $config[SessionConstants::YVES_SESSION_REDIS_PROTOCOL];
 $config[SessionConstants::ZED_SESSION_REDIS_HOST] = $config[SessionConstants::YVES_SESSION_REDIS_HOST];
 $config[SessionConstants::ZED_SESSION_REDIS_PORT] = $config[SessionConstants::YVES_SESSION_REDIS_PORT];
 $config[SessionConstants::ZED_SESSION_REDIS_PASSWORD] = $config[SessionConstants::YVES_SESSION_REDIS_PASSWORD];
+$config[SessionConstants::ZED_SESSION_REDIS_DATABASE] = $config[SessionConstants::YVES_SESSION_REDIS_DATABASE];
 
 $config[PayoneConstants::PAYONE] = [
     PayoneConstants::PAYONE_MODE => '',
