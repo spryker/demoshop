@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a5c66918051c9ca367d184439394270b",
-    "content-hash": "67f76bbfa0dc9b11457fcbfc730759f2",
+    "hash": "53a08edd2d51bbe557fb82abcd31ab51",
+    "content-hash": "2d69ec7d0a3053aa8f0fdce58f152c29",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -991,11 +991,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/core-414-oms-lock-issue",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "9772ad9b468e46a5f3671f0e2df83225c29bacad"
+                "reference": "5660987203664576a00730540ad0f1ba8119734f"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1498,7 +1498,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-07-27 08:54:03"
+            "time": "2016-07-27 12:54:58"
         },
         {
             "name": "symfony-cmf/routing",
