@@ -32,7 +32,7 @@ class CollectorFactory extends AbstractFactory
      */
     public function createUrlMapper()
     {
-        return new UrlMapper($this->getSearchConfig());
+        return new UrlMapper();
     }
 
     /**
@@ -40,7 +40,7 @@ class CollectorFactory extends AbstractFactory
      */
     public function createParameterMerger()
     {
-        return new ParameterMerger($this->getSearchConfig());
+        return new ParameterMerger();
     }
 
     /**
@@ -91,18 +91,6 @@ class CollectorFactory extends AbstractFactory
     protected function createPageResourceCreator()
     {
         return $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_PAGE_RESOURCE_CREATOR);
-    }
-
-    /**
-     * @return \Spryker\Client\Search\Dependency\Plugin\SearchConfigInterface
-     */
-    protected function getSearchConfig()
-    {
-        return $this
-            ->getLocator()
-            ->search()
-            ->client()
-            ->getSearchConfig();
     }
 
 }

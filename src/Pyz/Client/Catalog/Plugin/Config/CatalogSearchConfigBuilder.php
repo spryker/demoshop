@@ -24,8 +24,8 @@ use Spryker\Client\Search\Plugin\Config\FacetConfigBuilder;
 class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigBuilderInterface
 {
 
-    const DEFAULT_ITEMS_PER_PAGE = 6;
-    const VALID_ITEMS_PER_PAGE_OPTIONS = [6, 18, 36];
+    const DEFAULT_ITEMS_PER_PAGE = 12;
+    const VALID_ITEMS_PER_PAGE_OPTIONS = [12, 24, 36];
 
     /**
      * @param \Spryker\Client\Search\Dependency\Plugin\FacetConfigBuilderInterface $facetConfigBuilder
@@ -47,8 +47,10 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
     public function buildSortConfig(SortConfigBuilderInterface $sortConfigBuilder)
     {
         $this
-            ->addNameSort($sortConfigBuilder)
-            ->addPriceSort($sortConfigBuilder);
+            ->addAscendingNameSort($sortConfigBuilder)
+            ->addDescendingNameSort($sortConfigBuilder)
+            ->addAscendingPriceSort($sortConfigBuilder)
+            ->addDescendingPriceSort($sortConfigBuilder);
     }
 
     /**
@@ -108,14 +110,14 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
      *
      * @return $this
      */
-    protected function addNameSort(SortConfigBuilderInterface $sortConfigBuilder)
+    protected function addAscendingNameSort(SortConfigBuilderInterface $sortConfigBuilder)
     {
-        $nameSortConfig = (new SortConfigTransfer())
+        $ascendingNameSortConfig = (new SortConfigTransfer())
             ->setName('name')
-            ->setParameterName('name')
+            ->setParameterName('name_asc')
             ->setFieldName(PageIndexMap::STRING_SORT);
 
-        $sortConfigBuilder->addSort($nameSortConfig);
+        $sortConfigBuilder->addSort($ascendingNameSortConfig);
 
         return $this;
     }
@@ -125,12 +127,48 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
      *
      * @return $this
      */
-    protected function addPriceSort(SortConfigBuilderInterface $sortConfigBuilder)
+    protected function addDescendingNameSort(SortConfigBuilderInterface $sortConfigBuilder)
+    {
+        $ascendingNameSortConfig = (new SortConfigTransfer())
+            ->setName('name')
+            ->setParameterName('name_desc')
+            ->setFieldName(PageIndexMap::STRING_SORT)
+            ->setIsDescending(true);
+
+        $sortConfigBuilder->addSort($ascendingNameSortConfig);
+
+        return $this;
+    }
+
+    /**
+     * @param \Spryker\Client\Search\Dependency\Plugin\SortConfigBuilderInterface $sortConfigBuilder
+     *
+     * @return $this
+     */
+    protected function addAscendingPriceSort(SortConfigBuilderInterface $sortConfigBuilder)
     {
         $priceSortConfig = (new SortConfigTransfer())
             ->setName('price')
-            ->setParameterName('price')
+            ->setParameterName('price_asc')
             ->setFieldName(PageIndexMap::INTEGER_SORT);
+
+        $sortConfigBuilder->addSort($priceSortConfig);
+
+        return $this;
+    }
+
+    /**
+     * @param \Spryker\Client\Search\Dependency\Plugin\SortConfigBuilderInterface $sortConfigBuilder
+     *
+     * @return $this
+     */
+    protected function addDescendingPriceSort(SortConfigBuilderInterface $sortConfigBuilder)
+    {
+        $priceSortConfig = (new SortConfigTransfer())
+            ->setName('price')
+            ->setParameterName('price_desc')
+            ->setFieldName(PageIndexMap::INTEGER_SORT)
+            ->setIsDescending(true);
 
         $sortConfigBuilder->addSort($priceSortConfig);
 

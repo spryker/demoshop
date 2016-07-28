@@ -1,5 +1,22 @@
 {% if categories is not empty %}
-    <section class="filter js-filter js-filter-category filter__{{ filterName }}" data-filter-name="{{filterName}}" data-filter-type="category">
-        {% include "@catalog/catalog/partials/filter-category-tree-level.twig" %}
-    </section>
+    <ul class="menu vertical {% if nested is defined %}nested{% endif %}">
+        {% for category in categories %}
+            {% set quantity = ((facets.category[category.node_id] is defined) ? facets.category[category.node_id] : 0) %}
+
+            {% if quantity > 0 %}
+                <li>
+                    <a href="{{ category.url }}">
+                        {{ category.name }}
+                        {% if quantity is defined %}
+                            ({{ quantity }})
+                        {% endif %}
+                    </a>
+
+                    {% if category.children is defined and category.children is not empty %}
+                        {% include "@catalog/catalog/partials/filter-category-tree.twig" with {'categories': category.children, 'nested': true} %}
+                    {% endif %}
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
 {% endif %}

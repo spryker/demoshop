@@ -4,8 +4,10 @@
 
 {% block breadcrumbItems %}
     <li><a href="/">{{ 'Home' | trans }}</a></li>
-    {% if category is not null %}
-        <li><a href="{{ category.url }}">{{ category.name }}</a></li>
+    {% if productCategories|length %}
+        {% for category in productCategories %}
+            <li><a href="{{ category.url }}">{{ category.name }}</a></li>
+        {% endfor %}
     {% endif %}
 {% endblock %}
 
@@ -37,7 +39,9 @@
                         <div class="__image-viewer-inline">
                             {% for image in product.abstractAttributes.images %}
                                 <div data-viewer-id="{{ image.external_url_large }}" {% if loop.first %}data-viewer-default{% endif %}>
-                                    <img class="thumbnail" src="{{ image.external_url_large }}">
+                                    <span class="thumbnail __preview-image __preview-image--large">
+                                        <img src="{{ image.external_url_large }}">
+                                    </span>
                                 </div>
                             {% endfor %}
                         </div>
@@ -48,7 +52,9 @@
                         <div class="row">
                             {% for image in product.abstractAttributes.images %}
                                 <a class="small-6 medium-6 large-6 xlarge-expand columns" href="{{ image.external_url_large }}" target="_blank" data-viewer-show="{{ image.external_url_large }}">
-                                    <img class="thumbnail" src="{{ image.external_url_large }}">
+                                    <span class="thumbnail __preview-image __preview-image--small">
+                                        <img src="{{ image.external_url_large }}">
+                                    </span>
                                 </a>
                             {% endfor %}
                         </div>

@@ -1,5 +1,13 @@
 {% extends "@application/layout/layout.twig" %}
 
+{% block breadcrumbItems %}
+    <li><a href="/">{{ 'Home' | trans }}</a></li>
+{% endblock %}
+
+{% block title %}
+    <h3>{{ 'search.resultsFor'|trans }}: {{ searchString }}</h3>
+{% endblock %}
+
 {% block content %}
     {% include "@catalog/catalog/catalog.twig" %}
 {% endblock %}

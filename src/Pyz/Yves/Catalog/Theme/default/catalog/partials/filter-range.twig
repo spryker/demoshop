@@ -1,5 +1,25 @@
-<section class="filter js-filter filter__{{filterName}}" data-filter-name="{{filterName}}" data-filter-type="range" data-min="{{min}}" data-max="{{max}}">
-    <h1 class="filter__title">{{ ('catalog.filter.' ~ filterName)|trans }}</h1>
-    <div class="filter__{{filterName}}-slider js-slider js-{{filterName}}-slider"></div>
-    <p>{{ "catalog.filter.pricerangeFrom"|trans }} <span class="filter__{{filterName}}-min js-filter-value-min">{{min}}</span> {{ "catalog.filter.pricerangeTo"|trans }} <span class="filter__{{filterName}}-max js-filter-value-max">{{max}}</span></p>
-</section>
+<div class="row">
+    <div class="small-12 columns">
+        <div class="row">
+            <div class="small-6 columns">
+               <label>
+                   {{ "catalog.filter.pricerangeFrom"|trans }}
+                   <input type="number" name="{{ filterName }}[min]" value="{{ min }}" min="{{ min }}" max="{{ max }}" />
+               </label>
+            </div>
+            <div class="small-6 columns">
+                <label>
+                    {{ "catalog.filter.pricerangeTo"|trans }}
+                    <input type="number" name="{{ filterName }}[max]" value="{{ max }}" min="{{ min }}" max="{{ max }}" />
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-12 columns">
+                <button type="submit" class="button expanded __no-margin-bottom">
+                    <i class="fa fa-filter"></i> {{ 'Filter' | trans }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

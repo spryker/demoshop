@@ -1,0 +1,14 @@
+<div class="callout show-for-large">
+    {% include "@catalog/catalog/partials/filter-category-tree.twig" with {
+        filterName:'category',
+        selectedCategory:(category is defined ? category : null)
+    } %}
+</div>
+
+<div class="callout show-for-large">
+    {% include "@catalog/catalog/partials/filter-range.twig" with {
+        filterName:'price',
+        min:(facets.price.min | default(0)) | priceRaw | floor,
+        max:(facets.price.max | default(0)) | priceRaw | ceil
+    } %}
+</div>

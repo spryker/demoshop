@@ -61,6 +61,7 @@
 .__image-viewer-inline {
     display: inline-block;
     position: relative;
+    width: 100%;
 
     & [data-viewer-id] {
         position: absolute;
@@ -92,5 +93,30 @@ input.__toggler.__inverted {
 
     ~ .__toggler-target {
         display: block;
+    }
+}
+
+.__preview-image {
+    position: relative;
+    width: 100%;
+    height: 10rem;
+
+    &--small {
+        height: 5rem;
+    }
+
+    &--large {
+        height: 25rem;
+    }
+
+    img {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        max-width: 95%;
+        max-height: 95%;
     }
 }

@@ -1,7 +1,12 @@
-<article class="catalog__product">
-    <a href="{{ detailsUrl }}" class="product__link">
-        <img src="{{ imageUrl }}" alt="" class="product__image">
-        <h1 class="product__name">{{name}}</h1>
-        <h2 class="product__price">{{ priceValue | price }}</h2>
-    </a>
-</article>
+<div class="small-12 medium-6 large-6 xlarge-4 columns">
+    <div class="callout">
+        <a href="{{ detailsUrl }}" class="thumbnail __preview-image">
+            <img src="{{ imageUrl }}">
+        </a>
+        <p>
+            <strong>{{ name }}</strong><br>
+            {{ priceValue | price }}
+        </p>
+        <a class="button expanded" href="{{ detailsUrl }}">View &raquo;</a>
+    </div>
+</div>
