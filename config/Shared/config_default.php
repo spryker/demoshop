@@ -119,7 +119,7 @@ $config[SessionConstants::YVES_SESSION_PERSISTENT_CONNECTION] = true;
 $config[SessionConstants::ZED_SESSION_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_1_HOUR;
 $config[SessionConstants::ZED_SESSION_COOKIE_NAME] = $config[ApplicationConstants::HOST_ZED_GUI];
 $config[SessionConstants::ZED_SESSION_FILE_PATH] = session_save_path();
-$config[ApplicationConstants::ZED_SESSION_SAVE_HANDLER] = null;
+$config[SessionConstants::ZED_SESSION_SAVE_HANDLER] = null;
 $config[SessionConstants::ZED_SESSION_PERSISTENT_CONNECTION] = true;
 
 $config[ApplicationConstants::ZED_SSL_ENABLED] = false;
