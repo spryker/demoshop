@@ -236,7 +236,9 @@ class ProductCollector extends AbstractStoragePdoCollector
      */
     protected function generateUrl($idNode)
     {
-        $urlQuery = $this->categoryQueryContainer->queryUrlByIdCategoryNode($idNode);
+        $urlQuery = $this->categoryQueryContainer
+            ->queryUrlByIdCategoryNode($idNode)
+            ->filterByFkLocale($this->locale->getIdLocale());
         $url = $urlQuery->findOne();
         return ($url) ? $url->getUrl() : null;
     }
