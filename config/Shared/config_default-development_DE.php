@@ -13,10 +13,9 @@ $config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED
 $config[ApplicationConstants::ZED_DB_PORT] = 5432;
 
 $yvesHost = 'www.de.spryker.dev';
-$config[ApplicationConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
 $config[ApplicationConstants::HOST_YVES] = 'http://' . $yvesHost;
 $config[ApplicationConstants::HOST_STATIC_ASSETS] = $config[ApplicationConstants::HOST_STATIC_MEDIA] = $yvesHost;
-$config[ApplicationConstants::YVES_COOKIE_DOMAIN] = $yvesHost;
+$config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
 
 $config[ApplicationConstants::HOST_SSL_YVES] = 'https://' . $yvesHost;
 $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS] = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA] = $yvesHost;

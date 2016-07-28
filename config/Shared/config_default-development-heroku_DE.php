@@ -25,10 +25,10 @@ $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_development_
 $yvesHost = getenv('YVES_HOST');
 $yvesProtocol = getenv('YVES_HOST_PROTOCOL'); //'http://'
 
-$config[ApplicationConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
+$config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
 $config[ApplicationConstants::HOST_YVES] = $yvesProtocol . $yvesHost;
 $config[ApplicationConstants::HOST_STATIC_ASSETS] = $config[ApplicationConstants::HOST_STATIC_MEDIA] = $yvesHost;
-$config[ApplicationConstants::YVES_COOKIE_DOMAIN] = $yvesHost;
+$config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
 
 $config[ApplicationConstants::HOST_SSL_YVES] = 'https://' . $yvesHost;
 $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS] = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA] = $yvesHost;

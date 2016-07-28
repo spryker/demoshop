@@ -28,7 +28,7 @@ class SessionServiceProvider extends AbstractServiceProvider
      */
     public function register(Application $app)
     {
-        $saveHandler = Config::get(ApplicationConstants::YVES_SESSION_SAVE_HANDLER);
+        $saveHandler = Config::get(SessionConstants::YVES_SESSION_SAVE_HANDLER);
 
         $this->setSessionSaveHandler($saveHandler);
         $this->setSessionStorageOptions($app);
@@ -67,10 +67,10 @@ class SessionServiceProvider extends AbstractServiceProvider
     protected function setSessionSaveHandler($saveHandler)
     {
         if (!in_array($saveHandler, $this->getSaveHandler()) &&
-            Config::get(ApplicationConstants::YVES_SESSION_SAVE_HANDLER) &&
+            Config::get(SessionConstants::YVES_SESSION_SAVE_HANDLER) &&
             $this->getSavePath($saveHandler)
         ) {
-            ini_set('session.save_handler', Config::get(ApplicationConstants::YVES_SESSION_SAVE_HANDLER));
+            ini_set('session.save_handler', Config::get(SessionConstants::YVES_SESSION_SAVE_HANDLER));
             session_save_path($this->getSavePath($saveHandler));
         }
     }
@@ -141,12 +141,12 @@ class SessionServiceProvider extends AbstractServiceProvider
             'cookie_secure' => $this->secureCookie(),
         ];
 
-        $name = str_replace('.', '-', Config::get(ApplicationConstants::YVES_SESSION_NAME));
+        $name = str_replace('.', '-', Config::get(SessionConstants::YVES_SESSION_COOKIE_NAME));
         if ($name) {
             $sessionStorageOptions['name'] = $name;
         }
 
-        $cookieDomain = Config::get(ApplicationConstants::YVES_SESSION_COOKIE_DOMAIN);
+        $cookieDomain = Config::get(SessionConstants::YVES_SESSION_COOKIE_DOMAIN);
         if ($cookieDomain) {
             $sessionStorageOptions['cookie_domain'] = $cookieDomain;
         }
@@ -207,7 +207,7 @@ class SessionServiceProvider extends AbstractServiceProvider
      */
     protected function secureCookie()
     {
-        return (Config::get(ApplicationConstants::YVES_COOKIE_SECURE, true) && Config::get(ApplicationConstants::YVES_SSL_ENABLED, true));
+        return (Config::get(SessionConstants::YVES_SESSION_COOKIE_SECURE, true) && Config::get(ApplicationConstants::YVES_SSL_ENABLED, true));
     }
 
 }

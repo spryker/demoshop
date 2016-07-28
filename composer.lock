@@ -1002,6 +1002,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "9833e55abbfa657753f6d9fb03ed5a8c7127980a"
 =======
                 "reference": "6d6359e2da7c84dbc3bdb0366b1bc55603db0951"
@@ -1024,6 +1025,9 @@
 =======
                 "reference": "b70813f53d5771e799027cc1fab71488f4c945be"
 >>>>>>> Also use Redis for Zed session.
+=======
+                "reference": "f46f9bdf5464da80270461078f63fad88058c8e0"
+>>>>>>> Move cookie constants also to Session bundle.
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1533,6 +1537,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-07-28 14:33:19"
 =======
             "time": "2016-07-25 14:42:11"
@@ -1555,6 +1560,9 @@
 =======
             "time": "2016-07-28 11:03:33"
 >>>>>>> Also use Redis for Zed session.
+=======
+            "time": "2016-07-28 14:06:07"
+>>>>>>> Move cookie constants also to Session bundle.
         },
         {
             "name": "symfony-cmf/routing",
