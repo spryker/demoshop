@@ -39,7 +39,7 @@ class TaxRateTester extends \ZedAcceptanceTester
         $i->amLoggedInUser();
         $i->amOnPage(TaxRateCreatePage::URL);
 
-        $i->wait(2);
+        $i->wait(4);
 
         $i->fillField(TaxRateCreatePage::SELECTOR_NAME,  TaxRateCreatePage::$taxRateData[$taxRateName]['name']);
         $i->selectOption(TaxRateCreatePage::SELECTOR_COUNTRY,  TaxRateCreatePage::$taxRateData[$taxRateName]['country']);
