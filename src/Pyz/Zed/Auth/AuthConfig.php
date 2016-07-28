@@ -19,7 +19,6 @@ class AuthConfig extends SprykerAuthConfig
     {
         $this->addIgnorable('heartbeat', 'index', 'index');
         $this->addIgnorable('_profiler', 'wdt', '*');
-        $this->addIgnorable('product-management', 'matrix', '*');
 
         return parent::getIgnorable();
     }
