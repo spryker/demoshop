@@ -78,7 +78,7 @@ class TaxRateCreateCest
     }
 
     /**
-     * @group Overview1
+     * @group Overview
      *
      * @param \Acceptance\Taxes\Zed\Tester\TaxRateTester $i
      *
