@@ -142,7 +142,6 @@ class TaxRateTester extends \ZedAcceptanceTester
         $i->fillField(TaxRateCreatePage::SELECTOR_PERCENTAGE, TaxRateCreatePage::$taxRateData[$taxRateName]['percentage']);
 
         $i->click(TaxRateCreatePage::SELECTOR_SAVE);
-
     }
 
     /**
