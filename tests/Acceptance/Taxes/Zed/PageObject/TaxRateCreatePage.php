@@ -28,7 +28,9 @@ class TaxRateCreatePage
     const SELECTOR_DELETE_FROM_EDIT = 'i.fa.fa-trash';
 
     const SELECTOR_SAVE = "input.btn.btn-primary";
-    const  SELECTOR_LIST_OF_TASK_RATES_BUTTON = 'List of task rates';
+
+    // The button text is invalid, should be "List of tax rates"
+    const SELECTOR_LIST_OF_TASK_RATES_BUTTON = 'List of task rates';
 
     const TAX_RATE_VALID = 'validTaxRate';
     const TAX_RATE_INVALID = 'invalidTaxRate';
