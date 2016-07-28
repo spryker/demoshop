@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "244f11ec3b9eb8fd566a01cc8e0c0743",
-    "content-hash": "dd65767bcb553be0e27889c888534647",
+    "hash": "f08c97be779ed22dc206780d274da4c0",
+    "content-hash": "c330668b36f7a090c49a1490d7f236fe",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -10975,22 +10975,26 @@
     "packages-dev": [
         {
             "name": "codeception/c3",
-            "version": "2.0.0",
+            "version": "2.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/c3.git",
-                "reference": "fad23c9aec616316e611b7eb80bf118f1a3e3a89"
+                "reference": "51eec2c3a8e093deb621f58004f0393dc0871983"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/c3/zipball/fad23c9aec616316e611b7eb80bf118f1a3e3a89",
-                "reference": "fad23c9aec616316e611b7eb80bf118f1a3e3a89",
+                "url": "https://api.github.com/repos/Codeception/c3/zipball/51eec2c3a8e093deb621f58004f0393dc0871983",
+                "reference": "51eec2c3a8e093deb621f58004f0393dc0871983",
                 "shasum": ""
             },
             "require": {
+                "composer-plugin-api": "^1.0",
                 "php": ">=5.4.0"
             },
-            "type": "library",
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Codeception\\c3\\Installer"
+            },
             "autoload": {
                 "psr-4": {
                     "Codeception\\c3\\": "."
@@ -11002,8 +11006,12 @@
             ],
             "authors": [
                 {
+                    "name": "Tiger Seo",
+                    "email": "tiger.seo@gmail.com"
+                },
+                {
                     "name": "Michael Bodnarchuk",
-                    "email": "davert.php@resend.cc",
+                    "email": "davert.php@codegyre.com",
                     "homepage": "http://codegyre.com"
                 }
             ],
@@ -11013,7 +11021,7 @@
                 "code coverage",
                 "codecoverage"
             ],
-            "time": "2014-10-03 00:25:28"
+            "time": "2016-06-27 16:49:12"
         },
         {
             "name": "jakoch/phantomjs-installer",

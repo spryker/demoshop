@@ -108,7 +108,7 @@
   },
   "require-dev": {
     "codeception/codeception": "~2.1.11",
-    "codeception/c3": "2.0.0",
+    "codeception/c3": "~2.0.0",
     "pdepend/pdepend": "~2.2.4",
     "phploc/phploc": "~3.0.1",
     "phpmd/phpmd": "~2.3.3",
