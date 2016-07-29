@@ -58,6 +58,7 @@ before_script:
   - sudo a2ensite yves
 
   - sudo a2enmod rewrite
+  - sudo a2enmod php5
   - sudo service apache2 restart
 
   - echo 'date.timezone = "Europe/Berlin"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
