@@ -25,8 +25,7 @@ env:
 
 install:
   - composer self-update && composer --version
-  - composer_parameters="-n --prefer-dist"
-  - composer install $composer_parameters
+  - composer install --prefer-source --no-interaction
 
 before_script:
   - mv config/Zed/propel.ci.yml config/Zed/propel.yml
@@ -48,3 +47,6 @@ script:
   - vendor/bin/console collector:search:export
 
   - vendor/bin/console code:sniff
+
+notifications:
+  email: false
