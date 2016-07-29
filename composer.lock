@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6880c4e134a67fd29a7a35f42f34aef3",
-    "content-hash": "5ea26e9279c8132ab31ba0466810cd5f",
+    "hash": "1ec75e6fedba6c771f2883afb8b97a69",
+    "content-hash": "3d314c41e519ab9c4d4be6ca89f815cb",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -4135,11 +4135,11 @@
         },
         {
             "name": "spryker/dummy-payment",
-            "version": "1.1.2",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/DummyPayment.git",
-                "reference": "9f00f27107c16a9b6b37fa6b51d858f35ca20c5d",
+                "reference": "e0f78f8f5b18c3320b87e17bd232b5698c63b538",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4149,8 +4149,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/DummyPayment/zipball/9f00f27107c16a9b6b37fa6b51d858f35ca20c5d",
-                "reference": "9f00f27107c16a9b6b37fa6b51d858f35ca20c5d",
+                "url": "https://api.github.com/repos/spryker/DummyPayment/zipball/e0f78f8f5b18c3320b87e17bd232b5698c63b538",
+                "reference": "e0f78f8f5b18c3320b87e17bd232b5698c63b538",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4163,9 +4163,13 @@
                 "spryker/checkout": "^2.1.0",
                 "spryker/kernel": "^2.4.3",
                 "spryker/library": "^2.0.0",
+                "spryker/oms": "^2.0.0 || ^3.0.0",
                 "spryker/payment": "^2.0.0",
+                "spryker/refund": "^3.0.0",
+                "spryker/sales": "^2.2.5",
                 "spryker/step-engine": "^1.0.0",
-                "spryker/symfony": "^2.0.0"
+                "spryker/symfony": "^2.0.0",
+                "spryker/transfer": "^2.0.0"
             },
             "type": "library",
             "extra": {
@@ -4184,9 +4188,9 @@
             ],
             "description": "DummyPayment bundle",
             "support": {
-                "source": "https://github.com/spryker/DummyPayment/tree/1.1.2"
+                "source": "https://github.com/spryker/DummyPayment/tree/1.2.0"
             },
-            "time": "2016-06-16 12:52:49"
+            "time": "2016-07-29 13:24:41"
         },
         {
             "name": "spryker/elastica",
