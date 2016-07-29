@@ -30,7 +30,7 @@ $config[ApplicationConstants::HOST_STATIC_ASSETS] = $config[ApplicationConstants
 $config[ApplicationConstants::HOST_SSL_YVES] = 'https://' . $yvesHost;
 $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS] = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA] = $yvesHost;
 
-$zedHost = 'zed.de.spryker.dev:8080';
+$zedHost = 'zed.de.spryker.dev:80';
 $config[ApplicationConstants::HOST_ZED_GUI]
     = 'http://' . $zedHost;
 $config[ApplicationConstants::HOST_ZED_API] = $zedHost;
