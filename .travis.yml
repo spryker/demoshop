@@ -5,7 +5,7 @@ php:
 #- '7.0'
 
 addons:
-  postgresql: "9.2"
+  postgresql: "9.4"
 
 cache:
   directories:
@@ -19,8 +19,9 @@ services:
 sudo: false
 
 env:
-  - APPLICATION_ENV =development
-  - APPLICATION_STORE = DE
+  global:
+    - APPLICATION_ENV=development
+    - APPLICATION_STORE=DE
 
 install:
   - composer self-update && composer --version
