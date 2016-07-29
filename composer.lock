@@ -4,8 +4,13 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "hash": "c615a63f218831ecb3a5709df272be67",
     "content-hash": "56bc003e305ea11f333203c58cd8e055",
+=======
+    "hash": "0df165d0f9ff7c7de2106c0d30154bc0",
+    "content-hash": "45f19d46492c4cef4d99780f46ae1ddf",
+>>>>>>> update
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1196,11 +1201,23 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-travis",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "77b7a0c40e7d8d9e326b7cda457b90a362ef2070"
+=======
+<<<<<<< HEAD
+                "reference": "9715eabcc7726dc88e3eeee7de519935b567bd72"
+=======
+<<<<<<< HEAD
+                "reference": "a2f79b1696e526fe81b80b8aa59329106e972452"
+=======
+                "reference": "06b32c0283d27201d61fb1f195b081cc2b67e30c"
+>>>>>>> update
+>>>>>>> update
+>>>>>>> update
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1561,9 +1578,8 @@
                     "Unit\\Spryker\\Zed\\Propel\\": "Bundles/Propel/tests",
                     "Functional\\Spryker\\Zed\\Propel\\": "Bundles/Propel/tests",
                     "Spryker\\Shared\\Refund\\": "Bundles/Refund/src",
-                    "Spryker\\Zed\\Refund\\": "Bundles/Refund/src",
-                    "Acceptance\\Refund\\": "Bundles/Refund/tests",
                     "Unit\\Spryker\\Shared\\Refund\\": "Bundles/Refund/tests",
+                    "Spryker\\Zed\\Refund\\": "Bundles/Refund/src",
                     "Unit\\Spryker\\Zed\\Refund\\": "Bundles/Refund/tests",
                     "Spryker\\Zed\\Ratepay\\": "Bundles/Ratepay/src",
                     "Spryker\\Yves\\Ratepay\\": "Bundles/Ratepay/src",
@@ -1571,7 +1587,6 @@
                     "Spryker\\Client\\Ratepay\\": "Bundles/Ratepay/src",
                     "Functional\\Spryker\\Zed\\Ratepay\\": "Bundles/Ratepay/tests",
                     "Unit\\Spryker\\Zed\\Ratepay\\": "Bundles/Ratepay/tests",
-                    "Functional\\Spryker\\Zed\\Refund\\": "Bundles/Refund/tests",
                     "Spryker\\Client\\Sales\\": "Bundles/Sales/src",
                     "Unit\\Spryker\\Client\\Sales\\": "Bundles/Sales/tests",
                     "Functional\\Spryker\\Client\\Sales\\": "Bundles/Sales/tests",
@@ -1729,7 +1744,19 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2016-09-15 09:30:26"
+=======
+<<<<<<< HEAD
+            "time": "2016-09-14 05:30:52"
+=======
+<<<<<<< HEAD
+            "time": "2016-09-09 06:35:01"
+=======
+            "time": "2016-07-29 11:56:53"
+>>>>>>> update
+>>>>>>> update
+>>>>>>> update
         },
         {
             "name": "symfony-cmf/routing",
@@ -3891,26 +3918,22 @@
     "packages-dev": [
         {
             "name": "codeception/c3",
-            "version": "2.0.7",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/c3.git",
-                "reference": "51eec2c3a8e093deb621f58004f0393dc0871983"
+                "reference": "fad23c9aec616316e611b7eb80bf118f1a3e3a89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/c3/zipball/51eec2c3a8e093deb621f58004f0393dc0871983",
-                "reference": "51eec2c3a8e093deb621f58004f0393dc0871983",
+                "url": "https://api.github.com/repos/Codeception/c3/zipball/fad23c9aec616316e611b7eb80bf118f1a3e3a89",
+                "reference": "fad23c9aec616316e611b7eb80bf118f1a3e3a89",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "^1.0",
                 "php": ">=5.4.0"
             },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "Codeception\\c3\\Installer"
-            },
+            "type": "library",
             "autoload": {
                 "psr-4": {
                     "Codeception\\c3\\": "."
@@ -3922,12 +3945,8 @@
             ],
             "authors": [
                 {
-                    "name": "Tiger Seo",
-                    "email": "tiger.seo@gmail.com"
-                },
-                {
                     "name": "Michael Bodnarchuk",
-                    "email": "davert.php@codegyre.com",
+                    "email": "davert.php@resend.cc",
                     "homepage": "http://codegyre.com"
                 }
             ],
@@ -3937,7 +3956,7 @@
                 "code coverage",
                 "codecoverage"
             ],
-            "time": "2016-06-27 16:49:12"
+            "time": "2014-10-03 00:25:28"
         },
         {
             "name": "codeception/codeception",
