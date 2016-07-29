@@ -9,7 +9,7 @@ use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Storage\StorageConstants;
 
 $config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
-$config[ApplicationConstants::ZED_DB_USERNAME] = 'ubuntu';
+$config[ApplicationConstants::ZED_DB_USERNAME] = 'postgres';
 $config[ApplicationConstants::ZED_DB_PASSWORD] = '';
 $config[ApplicationConstants::ZED_DB_DATABASE] = 'circle_test';
 $config[ApplicationConstants::ZED_DB_HOST] = '127.0.0.1';
