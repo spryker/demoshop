@@ -1,25 +1,32 @@
-{% extends "@application/layout/layout.twig" %}
+{% extends "@customer/layout.twig" %}
 
-{% block content %}
-    <div style="margin-top: 65px;padding: 30px;overflow:hidden">
-        {% include "@customer/customer/partials/navigation.twig" with {'active': 'newsletter'} %}
+{% block title %}
+    <h3>{{ 'customer.account.newsletter' | trans }}</h3>
+{% endblock %}
 
-        <div style="float:left;width:70%">
-            {{ form_start(form) }}
-                <h1>{{ 'customer.account.newsletter' | trans }}</h1>
-                <h2>{{ 'customer.newsletter.subscription' | trans }}</h2>
-                <div>
+{% block customerNavigation %}
+    {% include "@customer/partials/navigation.twig" with {'active': 'newsletter'} %}
+{% endblock %}
+
+{% block customerContent %}
+    <div class="callout">
+        {{ form_start(form) }}
+            <h5>{{ 'customer.newsletter.subscription' | trans }}</h5>
+            <hr>
+
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+            <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
+
+            <div class="row align-middle">
+                <div class="small-12 large-8 columns">
                     {{ form_widget(form.subscribe) }}
                     <label for="{{ form.subscribe.vars.id }}">{{ form.subscribe.vars.label | trans }}</label>
-                    <div>
-                        {{ form_errors(form.subscribe) }}
-                    </div>
+                    {{ form_errors(form.subscribe) }}
                 </div>
-
-                <div>
-                    <input type="submit" value="{{ 'forms.submit-btn' | trans }}" />
+                <div class="small-12 large-4 columns">
+                    <button type="submit" class="button success expanded">{{ 'forms.submit-btn' | trans }}</button>
                 </div>
-            {{ form_end(form) }}
-        </div>
+            </div>
+        {{ form_end(form) }}
     </div>
 {% endblock %}

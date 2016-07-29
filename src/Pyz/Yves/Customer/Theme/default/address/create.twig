@@ -1,27 +1,17 @@
-{% extends "@application/layout/layout.twig" %}
+{% extends "@customer/layout.twig" %}
 
-{% block content %}
-    <div style="margin-top: 65px;padding: 30px;overflow:hidden">
-        {% include "@customer/customer/partials/navigation.twig" with {'active': 'address'} %}
+{% block title %}
+    <h3>{{ 'customer.account.address' | trans }}</h3>
+{% endblock %}
 
-        <div style="float:left;width:70%">
+{% block customerNavigation %}
+    {% include "@customer/partials/navigation.twig" with {'active': 'address'} %}
+{% endblock %}
 
-            <h1 class="desktop-view">{{ 'customer.account.address' | trans }}</h1>
-
-            <p>
-                <a href="{{ url('customer/address') }}">{{ 'general.back.button' | trans }}</a>
-            </p>
-
-            <div class="panel">
-                <div class="panel-heading">
-                    <h2>{{ 'customer.account.edit_address_information' | trans }}</h2>
-                </div>
-                <div class="panel-body">
-                    {% include "@customer/address/partials/form.twig" with {'form': form, 'formAction': url('customer/address/new')} %}
-                </div>
-            </div>
-
-        </div>
+{% block customerContent %}
+    <div class="callout">
+        <h5>{{ 'customer.account.edit_address_information' | trans }}</h5>
+        <hr>
+        {% include "@customer/address/partials/form.twig" with {'form': form, 'formAction': url('customer/address/new')} %}
     </div>
-
 {% endblock %}

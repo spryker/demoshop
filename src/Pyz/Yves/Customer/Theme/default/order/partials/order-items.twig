@@ -1,30 +1,32 @@
-<div>
-    <table width="100%">
+<table class="stack">
+    <thead>
         <tr>
-            <th align="left">{{ 'customer.order.item_sku' | trans }}</th>
-            <th align="left">{{ 'customer.order.product_name' | trans }}</th>
-            <th align="right">{{ 'customer.order.item_price' | trans }}</th>
-            <th align="right">{{ 'customer.order.item_quantity' | trans }}</th>
-            <th align="right">{{ 'customer.order.item_sum' | trans }}</th>
+            <th class="text-left">{{ 'customer.order.item_sku' | trans }}</th>
+            <th class="text-left">{{ 'customer.order.product_name' | trans }}</th>
+            <th class="text-right">{{ 'customer.order.item_price' | trans }}</th>
+            <th class="text-right">{{ 'customer.order.item_quantity' | trans }}</th>
+            <th class="text-right">{{ 'customer.order.item_sum' | trans }}</th>
         </tr>
-        {% for orderItem in order.items %}
-            <tr>
-                <td align="left">
-                    {{ orderItem.sku }}
-                </td>
-                <td align="left">
-                    {{ orderItem.name }}
-                </td>
-                <td align="right">
-                    {{ orderItem.unitGrossPriceWithProductOptions | price }}
-                </td>
-                <td align="right">
-                    {{ orderItem.quantity }}
-                </td>
-                <td align="right">
-                    {{ orderItem.sumGrossPriceWithProductOptions | price }}
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
-</div>
+    </thead>
+    <tbody>
+    {% for orderItem in order.items %}
+        <tr>
+            <td class="text-left">
+                {{ orderItem.sku }}
+            </td>
+            <td class="text-left">
+                {{ orderItem.name }}
+            </td>
+            <td class="text-right">
+                {{ orderItem.unitGrossPriceWithProductOptions | price }}
+            </td>
+            <td class="text-right">
+                {{ orderItem.quantity }}
+            </td>
+            <td class="text-right">
+                {{ orderItem.sumGrossPriceWithProductOptions | price }}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

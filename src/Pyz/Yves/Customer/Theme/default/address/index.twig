@@ -1,52 +1,48 @@
-{% extends "@application/layout/layout.twig" %}
+{% extends "@customer/layout.twig" %}
 
-{% macro row(address) %}
-    <tr>
-        <td>{{ address.firstName }} {{ address.lastName }}</td>
-        <td>
-            {% spaceless %}
-            {{ address.address1 }} {{ address.address2 }},
-            {{ address.zipcode }} {{ address.city }}{% if address.phone is defined %}, {{ address.phone }}{% endif %}
-            {% endspaceless %}
-        </td>
-        <td class="text-right">
+{% block title %}
+    <h3>{{ 'customer.account.address' | trans }}</h3>
+{% endblock %}
 
-            {% if address.isDefaultShipping %}<span class="label label-info">{{ 'customer.order.shipping_address' | trans }}</span>{% endif %}
-            {% if address.isDefaultBilling %}<span class="label label-info">{{ 'customer.order.billing_address' | trans }}</span>{% endif %}
+{% block customerNavigation %}
+    {% include "@customer/partials/navigation.twig" with {'active': 'address'} %}
+{% endblock %}
 
-            <a href="{{ url('customer/address/update', {'id': address.idCustomerAddress }) }}" class="edit-data">
-                {{ "customer.profile.address.edit" | trans }}
-            </a>
-            <a href="{{ url('customer/address/delete', {'id': address.idCustomerAddress }) }}" class="delete-btn confirm-popup">
-                {{ "customer.profile.address.delete" | trans }}
-            </a>
-        </td>
-    </tr>
-{% endmacro %}
+{% block customerContent %}
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="callout">
+                <ul class="no-bullet">
+                    {% for address in addresses %}
+                        <li>
+                            <a href="{{ url('customer/address/update', {'id': address.idCustomerAddress }) }}" class="float-right">
+                                <small><i class="fa fa-map-marker"></i> {{ "customer.profile.address.edit" | trans }}</small>
+                            </a>
+                            <a href="{{ url('customer/address/delete', {'id': address.idCustomerAddress }) }}" class="float-right">
+                                <small><i class="fa fa-remove"></i> {{ "customer.profile.address.delete" | trans }}</small>
+                            </a>
 
-{% import _self as table %}
+                            <strong>{{ address.firstName }} {{ address.lastName }}</strong><br/>
 
-{% block content %}
-    <div style="margin-top: 65px;padding: 30px;overflow:hidden">
-        {% include "@customer/customer/partials/navigation.twig" with {'active': 'address'} %}
+                            {{ address.address1 }} {{ address.address2 }},
+                            {{ address.zipcode }} {{ address.city }}
+                            {% if address.phone is defined and address.phone != '' %}, {{ address.phone }}{% endif %}<br/>
 
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="panel">
-                    <div class="panel-heading">
-                        <a class="pull-right" href="{{ url('customer/address/new') }}">{{ 'customer.account.add_new_address' | trans }}</a>
-                        <h3>{{ 'customer.account.address' | trans }}</h3>
+                            {% if address.isDefaultShipping %}<span class="label success">{{ 'customer.order.shipping_address' | trans }}</span>{% endif %}
+                            {% if address.isDefaultBilling %}<span class="label success">{{ 'customer.order.billing_address' | trans }}</span>{% endif %}
+
+                            <hr>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                <div class="row align-right">
+                    <div class="small-12 medium-6 large-4 columns">
+                        <a class="button expanded __no-margin-bottom" href="{{ url('customer/address/new') }}">{{ 'customer.account.add_new_address' | trans }}</a>
                     </div>
-                    <div class="panel-body">
-                        <table class="table border-bottom">
-                            {% for address in addresses %}
-                                {{ table.row(address) }}
-                            {% endfor %}
-                        </table>
-                    </div>
+
                 </div>
             </div>
         </div>
-
     </div>
 {% endblock %}

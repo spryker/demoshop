@@ -1,31 +1,25 @@
-{% extends "@application/layout/layout.twig" %}
+{% extends "@customer/layout.twig" %}
 
-{% block content %}
-    <div style="margin-top: 65px;padding: 30px;overflow:hidden">
-        {% include "@customer/customer/partials/navigation.twig" with {'active': 'profile'} %}
+{% block title %}
+    <h3>{{ 'customer.account.profile_data' | trans }}</h3>
+{% endblock %}
 
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 custom-form">
-                <h2>{{ "customer.profile.update" | trans }}</h2>
-                {{ form_start(profileForm) }}
-                    {{ form_widget(profileForm) }}
+{% block customerNavigation %}
+    {% include "@customer/partials/navigation.twig" with {'active': 'profile'} %}
+{% endblock %}
 
-                    <div class="frame buttons cfx">
-                        <input type="submit" value="{{ 'forms.submit-btn' | trans }}" />
-                    </div>
-                {{ form_end(profileForm) }}
-            </div>
-            <div class="col-xs-12 col-sm-6 custom-form">
-                <h2>{{ "customer.password.update" | trans }}</h2>
-                {{ form_start(passwordForm) }}
-                {{ form_widget(passwordForm) }}
-
-                <div class="frame buttons cfx">
-                    <input type="submit" value="{{ 'forms.submit-btn' | trans }}" />
-                </div>
-                {{ form_end(passwordForm) }}
+{% block customerContent %}
+    <div class="row xlarge-unstack">
+        <div class="columns">
+            <div class="callout">
+                {% include "@customer/profile/partials/profile-form.twig" %}
             </div>
         </div>
 
+        <div class="columns">
+            <div class="callout">
+                {% include "@customer/profile/partials/password-form.twig" %}
+            </div>
+        </div>
     </div>
 {% endblock %}

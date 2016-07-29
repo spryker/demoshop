@@ -1,0 +1,43 @@
+<h5>{{ "customer.profile.update" | trans }}</h5>
+<hr>
+{{ form_start(profileForm) }}
+    <div class="row">
+        <div class="small-12 medium-3 columns">
+            <label>{{ profileForm.salutation.vars.label | trans }}*
+                {{ form_widget(profileForm.salutation) }}
+                {{ form_errors(profileForm.salutation) }}
+            </label>
+        </div>
+        <div class="small-12 medium-9 columns">
+            <label>{{ profileForm.first_name.vars.label | trans }}*
+                {{ form_widget(profileForm.first_name, {'attr': {'placeholder': profileForm.first_name.vars.label | trans }}) }}
+                {{ form_errors(profileForm.first_name) }}
+            </label>
+        </div>
+        <div class="small-12 medium-offset-3 medium-9 columns">
+            <label>{{ profileForm.last_name.vars.label | trans }}*
+                {{ form_widget(profileForm.last_name, {'attr': {'placeholder': profileForm.last_name.vars.label | trans }}) }}
+                {{ form_errors(profileForm.last_name) }}
+            </label>
+        </div>
+
+        <div class="small-12 columns">
+            <label>
+                {{ profileForm.email.vars.label | trans }}*
+                <div class="input-group">
+                    <span class="input-group-label">
+                        <i class="fa fa-at"></i>
+                    </span>
+                    {{ form_widget(profileForm.email, {'attr': {'class': 'input-group-field', 'placeholder': profileForm.email.vars.label | trans }}) }}
+                </div>
+            </label>
+            {{ form_errors(profileForm.email) }}
+        </div>
+    </div>
+
+    <div class="row align-right">
+        <div class="small-12 medium-6 large-4 columns align-bottom">
+            <button type="submit" class="button success expanded">{{ 'forms.submit-btn' | trans }}</button>
+        </div>
+    </div>
+{{ form_end(profileForm) }}

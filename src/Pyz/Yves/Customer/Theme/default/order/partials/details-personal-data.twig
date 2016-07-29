@@ -1,30 +1,36 @@
-<div style="margin-bottom:40px;overflow: hidden;">
-    <div style="float:left;width:50%">
-        <h3>{{ 'customer.order.shipping_address' | trans }}</h3>
-        <div>{{ order.shippingAddress.firstName }} {{ order.shippingAddress.lastName }}</div>
-        <div>{{ order.shippingAddress.address1 }} {{ order.shippingAddress.address2 }}</div>
-        {% if order.shippingAddress.address3 %}
-            <div>{{ order.shippingAddress.address3 }}</div>
-        {% endif %}
-        <div>{{ order.shippingAddress.zipCode }} {{ order.shippingAddress.city }}</div>
-        <div>{{ ('countries.iso.' ~ order.shippingAddress.iso2Code) | trans }}</div>
+<div class="row">
+    <div class="small-12 large-6 columns">
+        <div class="callout">
+            <h5>{{ 'customer.order.shipping_address' | trans }}</h5>
+            <div>{{ order.shippingAddress.firstName }} {{ order.shippingAddress.lastName }}</div>
+            <div>{{ order.shippingAddress.address1 }} {{ order.shippingAddress.address2 }}</div>
+            {% if order.shippingAddress.address3 %}
+                <div>{{ order.shippingAddress.address3 }}</div>
+            {% endif %}
+            <div>{{ order.shippingAddress.zipCode }} {{ order.shippingAddress.city }}</div>
+            <div>{{ ('countries.iso.' ~ order.shippingAddress.iso2Code) | trans }}</div>
+        </div>
     </div>
 
-    <div style="float:left;width:50%">
-        <h3>{{ 'customer.order.billing_address' | trans }}</h3>
-        <div>{{ order.billingAddress.firstName }} {{ order.billingAddress.lastName }}</div>
-        <div>{{ order.billingAddress.address1 }} {{ order.billingAddress.address2 }}</div>
-        {% if order.billingAddress.address3 %}
-            <div>{{ order.billingAddress.address3 }}</div>
-        {% endif %}
-        <div>{{ order.billingAddress.zipCode }} {{ order.billingAddress.city }}</div>
-        <div>{{ ('countries.iso.' ~ order.billingAddress.iso2Code) | trans }}</div>
+    <div class="small-12 large-6 columns">
+        <div class="callout">
+            <h5>{{ 'customer.order.billing_address' | trans }}</h5>
+            <div>{{ order.billingAddress.firstName }} {{ order.billingAddress.lastName }}</div>
+            <div>{{ order.billingAddress.address1 }} {{ order.billingAddress.address2 }}</div>
+            {% if order.billingAddress.address3 %}
+                <div>{{ order.billingAddress.address3 }}</div>
+            {% endif %}
+            <div>{{ order.billingAddress.zipCode }} {{ order.billingAddress.city }}</div>
+            <div>{{ ('countries.iso.' ~ order.billingAddress.iso2Code) | trans }}</div>
+        </div>
     </div>
-</div>
 
-<div style="overflow: hidden;">
-    <div style="float:left;width:50%">
-        <h3>{{ 'customer.order.shipment_method' | trans }}</h3>
-        <p>{{ order.shipmentMethod.name }}</p>
+    <div class="small-12 large-6 columns">
+        <div class="callout">
+            <div class="small-12 medium-6 columns">
+                <h5>{{ 'customer.order.shipment_method' | trans }}</h5>
+                <p>{{ order.shipmentMethod.name }}</p>
+            </div>
+        </div>
     </div>
 </div>

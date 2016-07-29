@@ -1,34 +1,39 @@
-{% extends "@application/layout/layout.twig" %}
+{% extends "@customer/layout.twig" %}
 
-{% block content %}
-    <div style="margin-top: 65px;padding: 30px;overflow:hidden">
-        {% include "@customer/customer/partials/navigation.twig" with {'active': 'order'} %}
+{% block title %}
+    <h3>{{ 'customer.account.order_history' | trans }}</h3>
+{% endblock %}
 
-        <div style="float:left;width:70%">
-            <h1>{{ "customer.profile.order_details" | trans }}</h1>
+{% block customerNavigation %}
+    {% include "@customer/partials/navigation.twig" with {'active': 'order'} %}
+{% endblock %}
 
-            <div style="margin-bottom:40px;">
-                <div>
-                    {{ 'customer.order.order_id' | trans }}: {{ order.orderReference }}
-                </div>
-                <div>
-                    {{ 'customer.customer_id' | trans }}: {{ order.fkCustomer }}
-                </div>
-                <div>
-                    {{ 'customer.order.date' | trans }}: {{ order.createdAt|formatDateShort }}
-                </div>
-            </div>
+{% block customerContent %}
+    <div class="callout">
+        <h5>{{ 'customer.profile.order_details' | trans }}</h5>
+        <hr>
 
+        <p>
+            <strong>{{ 'customer.order.order_id' | trans }}:</strong> {{ order.orderReference }}<br/>
+            <strong>{{ 'customer.order.date' | trans }}:</strong> {{ order.createdAt|formatDateShort }}
+        </p>
 
-            {% block orderItems %}
-                {% include "@customer/order/partials/order-items.twig" %}
-            {% endblock %}
+        {% block orderItems %}
+            {% include "@customer/order/partials/order-items.twig" %}
+        {% endblock %}
 
+        <div class="row">
             {% include "@customer/order/partials/details-sum.twig" %}
+        </div>
+    </div>
 
-            {% include "@customer/order/partials/details-personal-data.twig" %}
-            <div>
-                <a href="{{ url('customer/order') }}">{{ 'back' | trans }}</a>
+
+    {% include "@customer/order/partials/details-personal-data.twig" %}
+
+    <div class="callout">
+        <div class="row align-right">
+            <div class="small-12 medium-6 large-4 columns align-bottom">
+                <a href="{{ url('customer/order') }}" class="button expanded __no-margin-bottom">{{ 'back' | trans }}</a>
             </div>
         </div>
     </div>
