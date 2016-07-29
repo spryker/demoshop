@@ -4,13 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "hash": "aa3576146a251dc01132c7af494dec05",
-    "content-hash": "fbb923fdeb1fcebf194370d5b434874f",
-=======
-    "hash": "a0653eea3dd7d1eb4eccf3ac56bc4e5f",
-    "content-hash": "716a8011494f6643220814261483abf8",
->>>>>>> CORE-212 update spryker/spryker
+    "hash": "b9de8d5448c2718b267a3df647db5560",
+    "content-hash": "d7e66cdd77d8f87c27d0d59165b81e53",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1000,11 +995,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-                "reference": "f298dbc41f3b42efcc9f3e60960316e65cbbe3aa"
-=======
-                "reference": "9c45cdb706489dfd7384cfe25183326250c3cbb8"
->>>>>>> CORE-212 update spryker/spryker
+                "reference": "6dfeb60de00e9518d1781bbbf5c252540da56d2f"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1509,11 +1500,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-            "time": "2016-07-29 10:02:30"
-=======
-            "time": "2016-07-28 07:19:53"
->>>>>>> CORE-212 update spryker/spryker
+            "time": "2016-07-29 11:44:03"
         },
         {
             "name": "symfony-cmf/routing",
