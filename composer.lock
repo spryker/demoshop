@@ -1206,18 +1206,32 @@
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "77b7a0c40e7d8d9e326b7cda457b90a362ef2070"
 =======
+=======
+>>>>>>> update spryker
 <<<<<<< HEAD
                 "reference": "9715eabcc7726dc88e3eeee7de519935b567bd72"
 =======
+=======
+>>>>>>> update spryker
 <<<<<<< HEAD
                 "reference": "a2f79b1696e526fe81b80b8aa59329106e972452"
 =======
                 "reference": "06b32c0283d27201d61fb1f195b081cc2b67e30c"
 >>>>>>> update
+<<<<<<< HEAD
 >>>>>>> update
+<<<<<<< HEAD
 >>>>>>> update
+=======
+=======
+=======
+                "reference": "5167835b420e6a7faf799ea60ff5dd32128e77e9"
+>>>>>>> update spryker
+>>>>>>> update spryker
+>>>>>>> update spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1745,18 +1759,32 @@
             ],
             "description": "Spryker Framework",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-09-15 09:30:26"
 =======
+=======
+>>>>>>> update spryker
 <<<<<<< HEAD
             "time": "2016-09-14 05:30:52"
 =======
+=======
+>>>>>>> update spryker
 <<<<<<< HEAD
             "time": "2016-09-09 06:35:01"
 =======
             "time": "2016-07-29 11:56:53"
 >>>>>>> update
+<<<<<<< HEAD
 >>>>>>> update
+<<<<<<< HEAD
 >>>>>>> update
+=======
+=======
+=======
+            "time": "2016-07-29 14:43:51"
+>>>>>>> update spryker
+>>>>>>> update spryker
+>>>>>>> update spryker
         },
         {
             "name": "symfony-cmf/routing",
