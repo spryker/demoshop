@@ -10,6 +10,10 @@ addons:
     packages:
       - graphviz
 
+  hosts:
+    - zed.de.spryker.dev
+    - www.de.spryker.dev
+
 cache:
   directories:
     - vendor
