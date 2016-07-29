@@ -14,6 +14,7 @@ cache:
 
 services:
   - postgresql
+  - elasticsearch
   - redis
 
 sudo: false
