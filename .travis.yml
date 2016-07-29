@@ -32,6 +32,8 @@ install:
   - composer install --no-interaction
 
 before_script:
+  - mkdir -p shared/data/common/jenkins
+  - mkdir -p shared/data/common/jenkins/jobs
   - sudo apt-get update
   - sudo apt-get install apache2 libapache2-mod-fastcgi
   # enable php-fpm
