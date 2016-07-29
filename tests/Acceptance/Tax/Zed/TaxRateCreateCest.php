@@ -5,11 +5,11 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Acceptance\Taxes\Zed;
+namespace Acceptance\Tax\Zed;
 
-use Acceptance\Taxes\Zed\PageObject\TaxRateCreatePage;
-use Acceptance\Taxes\Zed\PageObject\TaxRateListPage;
-use Acceptance\Taxes\Zed\Tester\TaxRateTester;
+use Acceptance\Tax\Zed\PageObject\TaxRateCreatePage;
+use Acceptance\Tax\Zed\PageObject\TaxRateListPage;
+use Acceptance\Tax\Zed\Tester\TaxRateTester;
 
 /**
  * @group Acceptance
@@ -24,7 +24,7 @@ class TaxRateCreateCest
      * @group Overview
      * @group Smoke
      *
-     * @param \Acceptance\Taxes\Zed\Tester\TaxRateTester $i
+     * @param \Acceptance\Tax\Zed\Tester\TaxRateTester $i
      *
      * @return void
      */
@@ -42,7 +42,7 @@ class TaxRateCreateCest
     /**
      * @group Overview
      *
-     * @param \Acceptance\Taxes\Zed\Tester\TaxRateTester $i
+     * @param \Acceptance\Tax\Zed\Tester\TaxRateTester $i
      *
      * @return void
      */
@@ -58,14 +58,14 @@ class TaxRateCreateCest
     /**
      * @group Overview
      *
-     * @param \Acceptance\Taxes\Zed\Tester\TaxRateTester $i
+     * @param \Acceptance\Tax\Zed\Tester\TaxRateTester $i
      *
      * @return void
      */
     public function testBackToListOfTaskRatesShouldOpenTaxRateListPageWithoutSaving(TaxRateTester $i)
     {
-        $i->wantTo('Create valid tax rate and back to list of task rates');
-        $i->expect('List of task rates is opened, task rate is not created');
+        $i->wantTo('Create valid tax rate and back to list of tax rates');
+        $i->expect('List of tax rates is opened, tax rate is not created');
 
         $i->createTaxRateWithoutSaving(TaxRateCreatePage::TAX_RATE_VALID_NOT_CREATED);
         $i->click(TaxRateCreatePage::SELECTOR_LIST_OF_TASK_RATES_BUTTON);
@@ -80,7 +80,7 @@ class TaxRateCreateCest
     /**
      * @group Overview
      *
-     * @param \Acceptance\Taxes\Zed\Tester\TaxRateTester $i
+     * @param \Acceptance\Tax\Zed\Tester\TaxRateTester $i
      *
      * @return void
      */
@@ -102,7 +102,7 @@ class TaxRateCreateCest
     /**
      * @group Overview
      *
-     * @param \Acceptance\Taxes\Zed\Tester\TaxRateTester $i
+     * @param \Acceptance\Tax\Zed\Tester\TaxRateTester $i
      *
      * @return void
      */

@@ -3,7 +3,7 @@ modules:
     enabled:
         - WebDriver:
             url: ''
-            browser: phantomjs
+            browser: chrome
         - \Application\Module\Yves
         - \Application\Module\Zed
         - Cli
