@@ -995,39 +995,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "9833e55abbfa657753f6d9fb03ed5a8c7127980a"
-=======
-                "reference": "6d6359e2da7c84dbc3bdb0366b1bc55603db0951"
->>>>>>> Update composer lock
-=======
-                "reference": "f702f5921cd553c2603e78b1cd5e85aee0e88934"
->>>>>>> Update composer lock
-=======
-                "reference": "a9b454a419487b2142d9384fb1f630af9225dccd"
->>>>>>> Update composer lock
-=======
-                "reference": "a202a17924155a1bb8352ba50c4eac80ba1982d9"
->>>>>>> Update composer lock
-=======
-                "reference": "9c95d6b921bdc93d524f71377453e6292bf87894"
->>>>>>> Update composer lock
-=======
-                "reference": "dfa331a94140916ebb68d9631b1f75f6ae76d143"
->>>>>>> Update composer lock
-=======
-                "reference": "b70813f53d5771e799027cc1fab71488f4c945be"
->>>>>>> Also use Redis for Zed session.
-=======
-                "reference": "f46f9bdf5464da80270461078f63fad88058c8e0"
->>>>>>> Move cookie constants also to Session bundle.
+                "reference": "7316486ccdd6f9c0786646ba927b2dac56b98d8f"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1530,39 +1498,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2016-07-28 14:33:19"
-=======
-            "time": "2016-07-25 14:42:11"
->>>>>>> Update composer lock
-=======
-            "time": "2016-07-25 14:50:53"
->>>>>>> Update composer lock
-=======
-            "time": "2016-07-27 12:15:52"
->>>>>>> Update composer lock
-=======
-            "time": "2016-07-27 12:47:38"
->>>>>>> Update composer lock
-=======
-            "time": "2016-07-27 12:54:00"
->>>>>>> Update composer lock
-=======
-            "time": "2016-07-27 13:11:31"
->>>>>>> Update composer lock
-=======
-            "time": "2016-07-28 11:03:33"
->>>>>>> Also use Redis for Zed session.
-=======
-            "time": "2016-07-28 14:06:07"
->>>>>>> Move cookie constants also to Session bundle.
+            "time": "2016-07-29 09:25:03"
         },
         {
             "name": "symfony-cmf/routing",
