@@ -39,9 +39,8 @@ before_script:
   - mkdir -p shared/data/common/jenkins
   - mkdir -p shared/data/common/jenkins/jobs
   - sudo apt-get update
-  - sudo apt-get install apache2 libapache2-mod-fastcgi
-  - sudo apt-get install libapache2-mod-php5
-  
+  - sudo apt-get install apache2 libapache2-mod-fastcgi libapache2-mod-php5
+
   # enable php-fpm
   - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
   - sudo a2enmod rewrite actions fastcgi alias
@@ -67,6 +66,10 @@ before_script:
   - mv config/Zed/propel.ci.yml config/Zed/propel.yml
   - cp config/Shared/config_default-development.ci.php config/Shared/config_default-development_DE.php
   - cp config/Shared/config_default-development.ci.php config/Shared/config_default-test.php
+
+  - mkdir -p data/DE/cache/Yves/twig -m 0777
+  - mkdir -p data/DE/cache/Zed/twig -m 0777
+  - mkdir -p data/DE/logs -m 0777
 
 script:
   - vendor/bin/console propel:install -o
