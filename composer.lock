@@ -2542,11 +2542,11 @@
         },
         {
             "name": "spryker/application",
-            "version": "2.4.5",
+            "version": "2.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Application.git",
-                "reference": "2e1447615c851bd47b9f8d3507e2620767ca38f1",
+                "reference": "c75fd93a85da2bd7639b56b95bd6fd6ec7ca8bb3",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -2556,8 +2556,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Application/zipball/2e1447615c851bd47b9f8d3507e2620767ca38f1",
-                "reference": "2e1447615c851bd47b9f8d3507e2620767ca38f1",
+                "url": "https://api.github.com/repos/spryker/Application/zipball/c75fd93a85da2bd7639b56b95bd6fd6ec7ca8bb3",
+                "reference": "c75fd93a85da2bd7639b56b95bd6fd6ec7ca8bb3",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2578,6 +2578,7 @@
                 "spryker/monolog": "^2.0.0",
                 "spryker/new-relic": "^2.0.0",
                 "spryker/propel": "^2.0.0",
+                "spryker/session": "^2.1.2",
                 "spryker/silex": "^2.0.0",
                 "spryker/symfony": "^2.0.0",
                 "spryker/twig": "^2.1.0",
@@ -2608,7 +2609,7 @@
             "support": {
                 "source": "https://github.com/spryker/Application/tree/master"
             },
-            "time": "2016-07-27 10:22:59"
+            "time": "2016-07-29 09:51:36"
         },
         {
             "name": "spryker/assertion",
@@ -3532,11 +3533,11 @@
         },
         {
             "name": "spryker/config",
-            "version": "2.2.0",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Config.git",
-                "reference": "8af746428d1f36b4b41e22695a0c0e1fa5ac1dcb",
+                "reference": "a22e8b460a8ce8dbf1bd2f6a01a5affa760f5927",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3546,8 +3547,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Config/zipball/8af746428d1f36b4b41e22695a0c0e1fa5ac1dcb",
-                "reference": "8af746428d1f36b4b41e22695a0c0e1fa5ac1dcb",
+                "url": "https://api.github.com/repos/spryker/Config/zipball/a22e8b460a8ce8dbf1bd2f6a01a5affa760f5927",
+                "reference": "a22e8b460a8ce8dbf1bd2f6a01a5affa760f5927",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3561,7 +3562,7 @@
                 "spryker/library": "^2.0.0"
             },
             "require-dev": {
-                "spryker/code-sniffer": "0.3.1",
+                "spryker/code-sniffer": "*",
                 "spryker/testify": "^2.0.0"
             },
             "type": "library",
@@ -3586,11 +3587,11 @@
             "license": [
                 "proprietary"
             ],
-            "description": "config bundle",
+            "description": "Config bundle",
             "support": {
                 "source": "https://github.com/spryker/Config/tree/master"
             },
-            "time": "2016-06-03 08:39:24"
+            "time": "2016-07-29 09:50:51"
         },
         {
             "name": "spryker/console",
@@ -4570,11 +4571,11 @@
         },
         {
             "name": "spryker/heartbeat",
-            "version": "2.1.2",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Heartbeat.git",
-                "reference": "cbf96a4369b8ff1b12e3ea4466486846c6be32b1",
+                "reference": "1a12b7dba837312389f9c6e2349d1259f54a5f0c",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4584,8 +4585,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Heartbeat/zipball/cbf96a4369b8ff1b12e3ea4466486846c6be32b1",
-                "reference": "cbf96a4369b8ff1b12e3ea4466486846c6be32b1",
+                "url": "https://api.github.com/repos/spryker/Heartbeat/zipball/1a12b7dba837312389f9c6e2349d1259f54a5f0c",
+                "reference": "1a12b7dba837312389f9c6e2349d1259f54a5f0c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4601,6 +4602,8 @@
                 "spryker/kernel": "^2.0.0",
                 "spryker/propel": "^2.0.0",
                 "spryker/redis": "^2.0.0",
+                "spryker/session": "^2.1.2",
+                "spryker/storage": "^2.1.4",
                 "spryker/symfony": "^2.0.0"
             },
             "type": "library",
@@ -4619,11 +4622,11 @@
             "license": [
                 "proprietary"
             ],
-            "description": "heartbeat bundle",
+            "description": "Heartbeat bundle",
             "support": {
                 "source": "https://github.com/spryker/Heartbeat/tree/master"
             },
-            "time": "2016-06-14 12:42:19"
+            "time": "2016-07-29 09:51:36"
         },
         {
             "name": "spryker/installer",
@@ -4919,11 +4922,11 @@
         },
         {
             "name": "spryker/library",
-            "version": "2.3.3",
+            "version": "2.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Library.git",
-                "reference": "abcb4d8278a7e03dddec7b158ff0c1035e51686d",
+                "reference": "60cd4d219a47a70deaa4e0740bc12673a32ef7c6",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4933,8 +4936,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Library/zipball/abcb4d8278a7e03dddec7b158ff0c1035e51686d",
-                "reference": "abcb4d8278a7e03dddec7b158ff0c1035e51686d",
+                "url": "https://api.github.com/repos/spryker/Library/zipball/60cd4d219a47a70deaa4e0740bc12673a32ef7c6",
+                "reference": "60cd4d219a47a70deaa4e0740bc12673a32ef7c6",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4946,7 +4949,7 @@
             "require": {
                 "paragonie/random_compat": "~1.2.1",
                 "spryker/application": "^2.3.0",
-                "spryker/config": "^2.2.0",
+                "spryker/config": "^2.2.1",
                 "spryker/elastica": "^2.0.0 || ^3.0.0",
                 "spryker/event-journal": "^2.0.0",
                 "spryker/guzzle": "^2.0.0",
@@ -4957,9 +4960,10 @@
                 "spryker/redis": "^2.0.0",
                 "spryker/silex": "^2.0.0",
                 "spryker/sql-criteria-builder": "^1.0.0",
+                "spryker/storage": "^2.0.0",
                 "spryker/symfony": "^2.0.0",
                 "spryker/transfer": "^2.0.0",
-                "spryker/twig": "^2.0.0",
+                "spryker/twig": "^2.1.0",
                 "spryker/zend": "^2.0.0"
             },
             "type": "library",
@@ -4986,7 +4990,7 @@
             "support": {
                 "source": "https://github.com/spryker/Library/tree/master"
             },
-            "time": "2016-07-14 12:47:46"
+            "time": "2016-07-29 09:51:36"
         },
         {
             "name": "spryker/locale",
@@ -7235,11 +7239,11 @@
         },
         {
             "name": "spryker/session",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Session.git",
-                "reference": "95771abcbe3fd84cc329341747ef321d1c240f8d",
+                "reference": "5f31728925b2245fe92c7cfc570953fd525e93d6",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7249,8 +7253,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Session/zipball/95771abcbe3fd84cc329341747ef321d1c240f8d",
-                "reference": "95771abcbe3fd84cc329341747ef321d1c240f8d",
+                "url": "https://api.github.com/repos/spryker/Session/zipball/5f31728925b2245fe92c7cfc570953fd525e93d6",
+                "reference": "5f31728925b2245fe92c7cfc570953fd525e93d6",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7261,12 +7265,13 @@
             },
             "require": {
                 "spryker/application": "^2.3.0",
-                "spryker/config": "^2.2.0",
+                "spryker/config": "^2.2.1",
                 "spryker/kernel": "^2.0.0",
                 "spryker/library": "^2.0.0",
                 "spryker/new-relic": "^2.0.0",
                 "spryker/redis": "^2.0.0",
                 "spryker/silex": "^2.0.0",
+                "spryker/storage": "^2.0.0",
                 "spryker/symfony": "^2.0.0"
             },
             "type": "library",
@@ -7285,11 +7290,11 @@
             "license": [
                 "proprietary"
             ],
-            "description": "session bundle",
+            "description": "Session bundle",
             "support": {
                 "source": "https://github.com/spryker/Session/tree/master"
             },
-            "time": "2016-06-06 11:50:56"
+            "time": "2016-07-29 09:51:36"
         },
         {
             "name": "spryker/setup",
@@ -7765,11 +7770,11 @@
         },
         {
             "name": "spryker/storage",
-            "version": "2.1.3",
+            "version": "2.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Storage.git",
-                "reference": "a65bf4dcb668e323c444a1dfbfbd8e411ca2501e",
+                "reference": "19e718475e0a613cf2f5ae97c83d28a7ad439136",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7779,8 +7784,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Storage/zipball/a65bf4dcb668e323c444a1dfbfbd8e411ca2501e",
-                "reference": "a65bf4dcb668e323c444a1dfbfbd8e411ca2501e",
+                "url": "https://api.github.com/repos/spryker/Storage/zipball/19e718475e0a613cf2f5ae97c83d28a7ad439136",
+                "reference": "19e718475e0a613cf2f5ae97c83d28a7ad439136",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7792,11 +7797,12 @@
             "require": {
                 "spryker/application": "^2.3.0",
                 "spryker/collector": "^2.0.0 || ^3.0.0",
-                "spryker/config": "^2.2.0",
+                "spryker/config": "^2.2.1",
                 "spryker/gui": "^2.0.0",
                 "spryker/kernel": "^2.0.0",
                 "spryker/library": "^2.0.0",
                 "spryker/redis": "^2.0.0",
+                "spryker/session": "^2.0.0",
                 "spryker/symfony": "^2.0.0",
                 "spryker/url": "^2.0.0"
             },
@@ -7820,11 +7826,11 @@
             "license": [
                 "proprietary"
             ],
-            "description": "storage bundle",
+            "description": "Storage bundle",
             "support": {
                 "source": "https://github.com/spryker/Storage/tree/master"
             },
-            "time": "2016-06-10 13:03:46"
+            "time": "2016-07-29 09:51:36"
         },
         {
             "name": "spryker/symfony",
@@ -7902,11 +7908,11 @@
         },
         {
             "name": "spryker/tax",
-            "version": "3.0.2",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Tax.git",
-                "reference": "04d66d568db12283e63c3619cebf007fe2c53d41",
+                "reference": "da7d8a101c613ebf8e16fbb6425fdceccf37b3cb",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7916,8 +7922,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Tax/zipball/04d66d568db12283e63c3619cebf007fe2c53d41",
-                "reference": "04d66d568db12283e63c3619cebf007fe2c53d41",
+                "url": "https://api.github.com/repos/spryker/Tax/zipball/da7d8a101c613ebf8e16fbb6425fdceccf37b3cb",
+                "reference": "da7d8a101c613ebf8e16fbb6425fdceccf37b3cb",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7961,7 +7967,7 @@
             "support": {
                 "source": "https://github.com/spryker/Tax/tree/master"
             },
-            "time": "2016-07-25 15:22:42"
+            "time": "2016-07-29 08:33:52"
         },
         {
             "name": "spryker/tax-product-connector",

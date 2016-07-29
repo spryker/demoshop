@@ -15,18 +15,18 @@ $config[ApplicationConstants::ZED_DB_DATABASE] = 'DE_development_zed';
 $config[ApplicationConstants::ZED_DB_HOST] = '127.0.0.1';
 $config[ApplicationConstants::ZED_DB_PORT] = 5432;
 
-$config[ApplicationConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
-$config[ApplicationConstants::ZED_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_FILE;
+$config[SessionConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
+$config[SessionConstants::ZED_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_FILE;
 
-$config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL] = 'tcp';
-$config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST] = '127.0.0.1';
-$config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT] = '10009';
-$config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PASSWORD] = '';
+$config[SessionConstants::YVES_SESSION_REDIS_PROTOCOL] = 'tcp';
+$config[SessionConstants::YVES_SESSION_REDIS_HOST] = '127.0.0.1';
+$config[SessionConstants::YVES_SESSION_REDIS_PORT] = '10009';
+$config[SessionConstants::YVES_SESSION_REDIS_PASSWORD] = '';
 
-$config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_PROTOCOL] = $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL];
-$config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_HOST] = $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST];
-$config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_PORT] = $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT];
-$config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_PASSWORD] = $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PASSWORD];
+$config[SessionConstants::ZED_SESSION_REDIS_PROTOCOL] = $config[SessionConstants::YVES_SESSION_REDIS_PROTOCOL];
+$config[SessionConstants::ZED_SESSION_REDIS_HOST] = $config[SessionConstants::YVES_SESSION_REDIS_HOST];
+$config[SessionConstants::ZED_SESSION_REDIS_PORT] = $config[SessionConstants::YVES_SESSION_REDIS_PORT];
+$config[SessionConstants::ZED_SESSION_REDIS_PASSWORD] = $config[SessionConstants::YVES_SESSION_REDIS_PASSWORD];
 
 $config[SessionConstants::SESSION_IS_TEST] = true;
 
