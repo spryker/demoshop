@@ -25,7 +25,7 @@ env:
 
 install:
   - composer self-update && composer --version
-  - composer install --prefer-source --no-interaction
+  - composer install --no-interaction
 
 before_script:
   - mv config/Zed/propel.ci.yml config/Zed/propel.yml
