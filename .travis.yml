@@ -80,6 +80,7 @@ script:
 
   - vendor/bin/console application:build-navigation-cache
 
+  - chmod -R 777 data/
   - vendor/bin/codecept run --debug -x Acceptance
 
   - vendor/bin/console collector:storage:export
