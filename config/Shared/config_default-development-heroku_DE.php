@@ -3,6 +3,7 @@
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Mail\MailConstants;
+use Spryker\Shared\Session\SessionConstants;
 
 $schema = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
 $dbopts = parse_url(getenv(getenv('DATABASE_URL_NAME') ?: 'DATABASE_URL'));
@@ -24,10 +25,10 @@ $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_development_
 $yvesHost = getenv('YVES_HOST');
 $yvesProtocol = getenv('YVES_HOST_PROTOCOL'); //'http://'
 
-$config[ApplicationConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
+$config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
 $config[ApplicationConstants::HOST_YVES] = $yvesProtocol . $yvesHost;
 $config[ApplicationConstants::HOST_STATIC_ASSETS] = $config[ApplicationConstants::HOST_STATIC_MEDIA] = $yvesHost;
-$config[ApplicationConstants::YVES_COOKIE_DOMAIN] = $yvesHost;
+$config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
 
 $config[ApplicationConstants::HOST_SSL_YVES] = 'https://' . $yvesHost;
 $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS] = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA] = $yvesHost;
@@ -42,8 +43,8 @@ $config[ApplicationConstants::HOST_SSL_ZED_GUI]
     = $config[ApplicationConstants::HOST_SSL_ZED_API]
     = 'https://' . $zedHost;
 
-$config[ApplicationConstants::ZED_STORAGE_SESSION_COOKIE_NAME] = $zedHost;
-$config[ApplicationConstants::ZED_STORAGE_SESSION_COOKIE_SECURE] = false;
+$config[SessionConstants::ZED_SESSION_COOKIE_NAME] = $zedHost;
+$config[SessionConstants::ZED_SESSION_COOKIE_SECURE] = false;
 
 $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTP] = 'http://static.de.spryker.dev';
 $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = 'https://static.de.spryker.dev';
