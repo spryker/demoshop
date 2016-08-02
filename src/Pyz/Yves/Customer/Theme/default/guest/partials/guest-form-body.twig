@@ -1,35 +1,44 @@
-<label>{{ form.salutation.vars.label | trans }}</label>
-<div class="field">
+<h4><i class="fa fa-unlock __secondary"></i> {{ 'checkout.customer.order_as_guest' | trans }}</h4>
+
+<label>
+    {{ form.salutation.vars.label | trans }}*
     {{ form_widget(form.salutation, { 'attr': {'placeholder': form.salutation.vars.label | trans } }) }}
-    {{ form_errors(form.salutation) }}
-</div>
+</label>
+{{ form_errors(form.salutation) }}
 
-<label>{{ form.first_name.vars.label | trans }}</label>
-<div class="field">
+<label>
+    {{ form.first_name.vars.label | trans }}*
     {{ form_widget(form.first_name, { 'attr': {'placeholder': form.first_name.vars.label | trans } }) }}
-    {{ form_errors(form.first_name) }}
-</div>
+</label>
+{{ form_errors(form.first_name) }}
 
-<label>{{ form.last_name.vars.label | trans }}</label>
-<div class="field">
+<label>
+    {{ form.last_name.vars.label | trans }}*
     {{ form_widget(form.last_name, { 'attr': {'placeholder': form.last_name.vars.label | trans } }) }}
-    {{ form_errors(form.last_name) }}
-</div>
+</label>
+{{ form_errors(form.last_name) }}
 
-<label>{{ form.email.vars.label | trans }}</label>
-<div class="field">
-    {{ form_widget(form.email, { 'attr': {'placeholder': form.email.vars.label | trans } }) }}
-    {{ form_errors(form.email) }}
-</div>
+<label>
+    {{ form.email.vars.label | trans }}*
+    <span class="input-group">
+        <span class="input-group-label">
+            <i class="fa fa-at"></i>
+        </span>
+        {{ form_widget(form.email, { 'attr': {'class': 'input-group-field', 'placeholder': form.email.vars.label | trans } }) }}
+    </span>
+</label>
+{{ form_errors(form.email) }}
 
-<div class="input-row check-row">
-    {{ form_widget(form.accept_terms) }}
-    {{ form_label(form.accept_terms) }}
-    {{ form_errors(form.accept_terms) }}
-</div>
+{{ form_widget(form.accept_terms) }}
+{{ form_label(form.accept_terms) }}
+{{ form_errors(form.accept_terms) }}
 
 {{ form_widget(form.is_guest) }}
 
-<div class="frame buttons cfx">
-    <input type="submit" value="{{ 'forms.submit.register' | trans }}" />
+<div class="row __padding-top">
+    <div class="small-12 large-offset-6 large-6 columns">
+        <button class="button success expanded __no-margin-bottom">
+            <i class="fa fa-user-secret"></i>{{ 'forms.submit-btn' | trans }}
+        </button>
+    </div>
 </div>

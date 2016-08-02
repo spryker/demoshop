@@ -121,21 +121,45 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
 
     /**
      * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
-     * 9
+     *
      * @return string
      */
     protected function getShipmentDescription(ShipmentMethodTransfer $shipmentMethodTransfer)
     {
+        $shipmentDescription = $this->translate($shipmentMethodTransfer->getName());
+
+        $shipmentDescription = $this->appendDeliveryTime($shipmentMethodTransfer, $shipmentDescription);
+        $shipmentDescription = $this->appendShipmentPrice($shipmentMethodTransfer, $shipmentDescription);
+
+        return $shipmentDescription;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
+     * @param string $shipmentDescription
+     *
+     * @return string
+     */
+    protected function appendDeliveryTime(ShipmentMethodTransfer $shipmentMethodTransfer, $shipmentDescription)
+    {
         $deliveryTime = $this->getDeliveryTime($shipmentMethodTransfer);
-        $shipmentPrice = $this->getFormattedShipmentPrice($shipmentMethodTransfer);
-
-        $shipmentDescription = $this->translate($shipmentMethodTransfer->getName())
-            . ' | ' . $this->translate('page.checkout.shipping.price') . ' ' . $shipmentPrice;
-
         if ($deliveryTime !== 0) {
-            $shipmentDescription .= ' | ' . $this->translate('page.checkout.shipping.delivery_time') . ' ' . $deliveryTime;
+            $shipmentDescription .= ' (' . $this->translate('page.checkout.shipping.delivery_time') . ' ' . $deliveryTime . ')';
+            return $shipmentDescription;
         }
+        return $shipmentDescription;
+    }
 
+    /**
+     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
+     * @param string $shipmentDescription
+     *
+     * @return string
+     */
+    protected function appendShipmentPrice(ShipmentMethodTransfer $shipmentMethodTransfer, $shipmentDescription)
+    {
+        $shipmentPrice = $this->getFormattedShipmentPrice($shipmentMethodTransfer);
+        $shipmentDescription .= ': <strong>' . $shipmentPrice . '</strong>';
         return $shipmentDescription;
     }
 

@@ -68,13 +68,15 @@ class CheckoutAddressForm extends AddressForm
             return $this;
         }
 
+        $choices = $options[self::OPTION_ADDRESS_CHOICES];
+        $choices[] = ['' => 'customer.account.add_new_address'];
+
         $builder->add(self::FIELD_ID_CUSTOMER_ADDRESS, 'choice', [
-            'choices' => $options[self::OPTION_ADDRESS_CHOICES],
-            'label' => false,
-            'required' => false,
-            'expanded' => false,
+            'choices' => $choices,
+            'label' => 'checkout.step.address.select_address',
+            'required' => true,
+            'expanded' => true,
             'multiple' => false,
-            'empty_value' => 'customer.account.add_new_address',
         ]);
 
         return $this;

@@ -385,8 +385,8 @@ customer.account.edit_address_information,"Edit Address Information",en_US
 customer.account.edit_address_information,Ändern,de_DE
 customer.account.additional_addresses,"Additional Addresses",en_US
 customer.account.additional_addresses,"Zusätzliche Adressen",de_DE
-customer.account.add_new_address,"Add New Address",en_US
-customer.account.add_new_address,"Neue Adresse hinzufügen",de_DE
+customer.account.add_new_address,"Add new address",en_US
+customer.account.add_new_address,"Neue adresse hinzufügen",de_DE
 customer.newsletter.not_subscribed,"No newsletter subscription",en_US
 customer.newsletter.not_subscribed,"Newsletter nicht abonniert.",de_DE
 customer.profile.order_history,"Last Orders",en_US
@@ -425,8 +425,6 @@ customer.address.is_default_shipping,"Is default shipping address",en_US
 customer.address.is_default_shipping,"Standard Lieferadresse",de_DE
 customer.authorization.success,"Registration Successful",en_US
 customer.authorization.success,"Registrierung erfolgreich",de_DE
-customer.forgotten-password.send-new-password,"Recover my password",en_US
-customer.forgotten-password.send-new-password,"Neues Passwort verschickt.",de_DE
 customer.profile.change.success,"Profile was successfully saved",en_US
 customer.profile.change.success,"Profil wurde erfolgreich gespeichert",de_DE
 customer.password.invalid_password,"Current password is wrong",en_US
@@ -587,10 +585,8 @@ checkout.step.summary.title,Summary,en_US
 checkout.step.summary.title,"Übersicht Bestellung",de_DE
 checkout.step.shipment,"Go to Shipment",en_US
 checkout.step.shipment,"Weiter zur Lieferung",de_DE
-checkout.step.address.select_shipping,"Select a shipping address",en_US
-checkout.step.address.select_shipping,"Wählen Sie Ihre Lieferadresse aus",de_DE
-checkout.step.address.select_billing,"Select a billing address",en_US
-checkout.step.address.select_billing,"Wählen Sie Ihre Rechnungsadresse aus",de_DE
+checkout.step.address.select_address,"Select an address",en_US
+checkout.step.address.select_address,"Wählen Sie eine Adresse",de_DE
 checkout.step.payment,"Go to Payment",en_US
 checkout.step.payment,"Weiter zur Zahlung",de_DE
 checkout.step.summary,"Go to Summary",en_US

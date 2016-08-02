@@ -1,35 +1,39 @@
 {% extends "@application/layout/layout.twig" %}
 
-{% block content %}
-<div class="container">
-    <div class="row cms-page">
-        <div class="col-xs-12 col-md-6">
-            <h3>{{ 'customer.signin' | trans }}</h3>
-            {% include "@Customer/auth/partials/login-form.twig" with {'form': loginForm} %}
-        </div>
+{% block breadcrumb %}{% endblock %}
 
-        <div class="col-xs-12 col-md-6">
-            <div>
-                <h3>{{ 'customer.signup' | trans }}</h3>
-                <input id="register" class="customer-option" type="radio" name="customer" value="register" checked>
-                <label for="register">{{ 'checkout.customer.proceed_as_user' | trans }}</label>
-                <br>
-                <input id="guest" class="customer-option" type="radio" name="customer" value="guest">
-                <label for="guest">{{ 'checkout.customer.proceed_as_guest' | trans }}</label>
+{% block content %}
+    <div class="row small-unstack">
+        <div class="small-12 large-6 columns">
+            <div class="callout secondary">
+                <fieldset class="__checkout-proceed-as-selector">
+                    <legend>{{ 'customer.signup' | trans }}</legend>
+
+                    <input id="register" type="radio" name="checkoutProceedAs" checked data-viewer-show="user">
+                    <label for="register">{{ 'checkout.customer.proceed_as_user' | trans }}</label>
+
+                    <input id="guest" type="radio" name="checkoutProceedAs" data-viewer-show="guest">
+                    <label for="guest">{{ 'checkout.customer.proceed_as_guest' | trans }}</label>
+                </fieldset>
             </div>
-            <div class="customer-selection customer-selection-register show">
-                <h3>{{ 'customer.register' | trans }}</h3>
-                {{ form_start(registerForm, { 'attr': { 'class': 'form-horizontal checkout-form' }}) }}
-                    {% include '@Customer/register/partials/register-form-body.twig' with {'form': registerForm.customer} %}
-                {{ form_end(registerForm) }}
-            </div>
-            <div class="customer-selection customer-selection-guest">
-                <h3>{{ 'checkout.customer.order_as_guest' | trans }}</h3>
-                {{ form_start(guestForm, {'attr': {'class': 'form-horizontal'}}) }}
+
+            <div class="__checkout-proceed-as-method" data-viewer-id="guest">
+                {{ form_start(guestForm, {'attr': {'class': 'callout'}}) }}
                     {% include '@Customer/guest/partials/guest-form-body.twig' with {'form': guestForm.customer} %}
                 {{ form_end(guestForm) }}
             </div>
+
+            <div class="__checkout-proceed-as-method" data-viewer-id="user" data-viewer-default>
+                {{ form_start(registerForm, { 'attr': { 'class': 'callout' }}) }}
+                    {% include '@Customer/register/partials/register-form-body.twig' with {'form': registerForm.customer} %}
+                {{ form_end(registerForm) }}
+            </div>
+        </div>
+
+        <div class="small-12 large-6 columns __checkout-proceed-as-method">
+            {% include "@Customer/auth/partials/login-form.twig" with {'form': loginForm} %}
         </div>
     </div>
-</div>
 {% endblock %}
+
+{% block footer %}{% endblock %}
