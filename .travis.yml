@@ -83,6 +83,8 @@ script:
   - chmod -R 777 data/
   - vendor/bin/codecept run --debug -x Acceptance
 
+  - cat /tmp/zed-error.log
+
   - vendor/bin/console collector:storage:export
   - vendor/bin/console collector:search:export
 
