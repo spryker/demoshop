@@ -83,4 +83,12 @@ class ApplicationFactory extends SprykerApplicationFactory
         return new DateFormatter(Context::getInstance());
     }
 
+    /**
+     * @return \Pyz\Client\Catalog\CatalogClientInterface
+     */
+    public function getCatalogClient()
+    {
+        return $this->getProvidedDependency(ApplicationDependencyProvider::CLIENT_CATALOG);
+    }
+
 }

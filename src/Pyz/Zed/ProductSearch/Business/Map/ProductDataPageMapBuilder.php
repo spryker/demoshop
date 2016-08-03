@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\ProductSearch\Business\Map;
 
+use Generated\Shared\Search\PageIndexMap;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
 use RuntimeException;
@@ -79,6 +80,8 @@ class ProductDataPageMapBuilder
             ->addIntegerSort($pageMapTransfer, 'price', $price)
             ->addIntegerFacet($pageMapTransfer, 'price', $price)
             ->addCategory($pageMapTransfer, $this->getAllParentCategories($productData), $this->getDirectParentCategories($productData));
+
+        $pageMapTransfer = $this->setIsFeatured($pageMapTransfer, $attributes);
 
         /*
          * We'll then extend this with dynamically configured product attributes from database
@@ -186,6 +189,21 @@ class ProductDataPageMapBuilder
     protected function getAllParentCategories(array $productData)
     {
         return explode(',', $productData['category_parent_ids']);
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\PageMapTransfer $pageMapTransfer
+     * @param array $attributes
+     *
+     * @return \Generated\Shared\Transfer\PageMapTransfer
+     */
+    protected function setIsFeatured(PageMapTransfer $pageMapTransfer, array $attributes)
+    {
+        $isFeatured = array_key_exists(PageIndexMap::IS_FEATURED, $attributes) ? (bool)$attributes[PageIndexMap::IS_FEATURED] : false;
+
+        $pageMapTransfer->setIsFeatured($isFeatured);
+
+        return $pageMapTransfer;
     }
 
 }

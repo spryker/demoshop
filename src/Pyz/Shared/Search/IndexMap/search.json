@@ -1,0 +1,12 @@
+{
+  "mappings": {
+    "page": {
+      "properties": {
+        "is_featured": {
+          "type": "boolean",
+          "include_in_all": false
+        }
+      }
+    }
+  }
+}

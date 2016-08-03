@@ -35,6 +35,7 @@ class ProductAbstractImporter extends AbstractImporter
     const CATEGORY_ID = 'category_id';
     const CATEGORY_KEY = 'category_key';
     const MANUFACTURER_NAME = 'manufacturer_name';
+    const IS_FEATURED = 'is_featured';
 
     const PRODUCT_ABSTRACT = 'product_abstract';
     const PRODUCT_CONCRETE_COLLECTION = 'product_concrete_collection';
@@ -127,7 +128,8 @@ class ProductAbstractImporter extends AbstractImporter
 
         $product = $this->useLocalIcecatImages($product);
         $concreteProductData = $this->getConcreteProductsData();
-        $this->createAttributes($concreteProductData);
+        $this->createAttributes($product);
+        $this->createConcreteAttributes($concreteProductData);
         foreach ($concreteProductData as $type => $productAttributes) {
             if (empty($productAttributes)) {
                 continue;
@@ -160,10 +162,12 @@ class ProductAbstractImporter extends AbstractImporter
             self::MANUFACTURER_NAME,
             self::VARIANT_ID,
             self::PRODUCT_ID,
+            self::IS_FEATURED,
         ];
 
         $abstractAttributes = array_intersect_key($product, array_flip($abstractAttributeNames));
         $abstractAttributes = array_merge($abstractAttributes, $attributeData[self::PRODUCT_ABSTRACT]);
+        $abstractAttributes = array_filter($abstractAttributes);
 
         unset($attributeData[self::PRODUCT_ABSTRACT]);
 
@@ -432,7 +436,7 @@ class ProductAbstractImporter extends AbstractImporter
      *
      * @return array
      */
-    protected function createAttributes(array $attributes)
+    protected function createConcreteAttributes(array $attributes)
     {
         foreach ($attributes as $type => $data) {
             if (empty($data)) {
@@ -443,18 +447,28 @@ class ProductAbstractImporter extends AbstractImporter
                 continue;
             }
 
-            $attributes = $this->generateMappedAttributes($data);
-            foreach ($attributes as $attributeName => $attributeType) {
-                if (!$this->attributeManager->hasAttributeType($attributeType)) {
-                    continue;
-                }
-
-                if (!$this->attributeManager->hasAttribute($attributeName)) {
-                    $this->attributeManager->createAttribute($attributeName, $attributeType, true);
-                }
-            }
+            $this->createAttributes($data);
 
             $this->cacheInstalledAttributes->set($type, true);
+        }
+    }
+
+    /**
+     * @param array $attributes
+     *
+     * @return void
+     */
+    protected function createAttributes(array $attributes)
+    {
+        $attributes = $this->generateMappedAttributes($attributes);
+        foreach ($attributes as $attributeName => $attributeType) {
+            if (!$this->attributeManager->hasAttributeType($attributeType)) {
+                continue;
+            }
+
+            if (!$this->attributeManager->hasAttribute($attributeName)) {
+                $this->attributeManager->createAttribute($attributeName, $attributeType, true);
+            }
         }
     }
 

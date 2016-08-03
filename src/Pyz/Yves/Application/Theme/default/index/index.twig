@@ -4,12 +4,6 @@
 
 {% block content %}
     <div class="row">
-        {#<div class="small-12 columns">#}
-            {#<div class="callout secondary text-center">#}
-                {#<h4>What we do: lorem ipsum sit dolor amet</h4>#}
-            {#</div>#}
-        {#</div>#}
-
         <div class="small-12 columns show-for-medium">
             <div class="callout">
                 <a href="/category/1/product/100" class="thumbnail">
@@ -18,21 +12,18 @@
             </div>
         </div>
 
-        {#{% for item in products %}#}
-            {#{% set url = '/category/' + categoryId + '/product/' + item.id %}#}
-            {#<div class="small-12 medium-6 large-4 columns">#}
-                {#<div class="callout">#}
-                    {#<a href="{{url}}" class="thumbnail">#}
-                        {#<img src="http://placehold.it/600x350?text=Item+{{item.id}}">#}
-                    {#</a>#}
-                    {#<p>#}
-                        {#Lorem ipsum dolor sit amet, consectetuer adipiscing elit.#}
-                        {#Aenean commodo ligula eget dolor. Aenean massa.#}
-                    {#</p>#}
-                    {#<a class="button expanded" href="{{url}}">View &raquo;</a>#}
-                {#</div>#}
-            {#</div>#}
-        {#{% endfor %}#}
+        {% if products is defined %}
+            {% for product in products %}
+                <div class="small-12 medium-6 large-4 columns">
+                    {% include "@catalog/catalog/partials/product.twig" with {
+                        detailsUrl: product.url,
+                        name: product.abstract_name,
+                        priceValue: product.price,
+                        imageUrl: (product.images|length ? product.images.0.external_url_small : '')
+                    } %}
+                </div>
+            {% endfor %}
+        {% endif %}
 
         <div class="small-12 columns">
             <div class="callout text-center">
