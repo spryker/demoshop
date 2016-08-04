@@ -5,12 +5,17 @@
         "This file is @generated automatically"
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
     "hash": "c615a63f218831ecb3a5709df272be67",
     "content-hash": "56bc003e305ea11f333203c58cd8e055",
 =======
     "hash": "0df165d0f9ff7c7de2106c0d30154bc0",
     "content-hash": "45f19d46492c4cef4d99780f46ae1ddf",
 >>>>>>> update
+=======
+    "hash": "d31be8c28860cb7a9abf3446373a6ce7",
+    "content-hash": "fabef9a2ae9052433b3b97befeb7eb5c",
+>>>>>>> removed 5.6 requirement
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1207,15 +1212,20 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "77b7a0c40e7d8d9e326b7cda457b90a362ef2070"
 =======
 =======
 >>>>>>> update spryker
+=======
+>>>>>>> removed 5.6 requirement
 <<<<<<< HEAD
                 "reference": "9715eabcc7726dc88e3eeee7de519935b567bd72"
 =======
 =======
 >>>>>>> update spryker
+=======
+>>>>>>> removed 5.6 requirement
 <<<<<<< HEAD
                 "reference": "a2f79b1696e526fe81b80b8aa59329106e972452"
 =======
@@ -1230,8 +1240,17 @@
 =======
                 "reference": "5167835b420e6a7faf799ea60ff5dd32128e77e9"
 >>>>>>> update spryker
+<<<<<<< HEAD
 >>>>>>> update spryker
+<<<<<<< HEAD
 >>>>>>> update spryker
+=======
+=======
+=======
+                "reference": "8e914d8f42364c81382f97df37bb3ead015a37d6"
+>>>>>>> removed 5.6 requirement
+>>>>>>> removed 5.6 requirement
+>>>>>>> removed 5.6 requirement
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1760,15 +1779,20 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-09-15 09:30:26"
 =======
 =======
 >>>>>>> update spryker
+=======
+>>>>>>> removed 5.6 requirement
 <<<<<<< HEAD
             "time": "2016-09-14 05:30:52"
 =======
 =======
 >>>>>>> update spryker
+=======
+>>>>>>> removed 5.6 requirement
 <<<<<<< HEAD
             "time": "2016-09-09 06:35:01"
 =======
@@ -1783,8 +1807,17 @@
 =======
             "time": "2016-07-29 14:43:51"
 >>>>>>> update spryker
+<<<<<<< HEAD
 >>>>>>> update spryker
+<<<<<<< HEAD
 >>>>>>> update spryker
+=======
+=======
+=======
+            "time": "2016-08-04 14:58:31"
+>>>>>>> removed 5.6 requirement
+>>>>>>> removed 5.6 requirement
+>>>>>>> removed 5.6 requirement
         },
         {
             "name": "symfony-cmf/routing",
@@ -6553,8 +6586,6 @@
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": {
-        "php": "~5.6.0"
-    },
+    "platform": [],
     "platform-dev": []
 }
