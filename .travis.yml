@@ -35,7 +35,7 @@ env:
     - APPLICATION_ENV=development
     - APPLICATION_STORE=DE
   matrix:
-    - TEST_GROUP=other
+    - TEST_GROUP=without-acceptance
     - TEST_GROUP=acceptance
 
 install:
@@ -88,8 +88,8 @@ script:
   - vendor/bin/console application:build-navigation-cache
 
   - chmod -R 777 data/
-  - '[[ "TEST_GROUP" == "other" ]] || vendor/bin/codecept run -x Acceptance'
-  - '[[ "TEST_GROUP" == "acceptance" ]] || vendor/bin/codecept run -g Acceptance'
+  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance ; fi
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance ; fi
 
 # Just in case you wnat to know...
 #  - cat /tmp/zed-error.log
