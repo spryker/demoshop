@@ -1,0 +1,17 @@
+{% if success %}
+    <div class="__message">
+        <div class="callout success">{{ success | trans }}</div>
+    </div>
+{% elseif error %}
+    <div class="__message">
+        <div class="callout alert">{{ error | trans }}</div>
+    </div>
+{% endif %}
+
+{{ form_start(newsletterSubscriptionForm) }}
+    {{ form_widget(newsletterSubscriptionForm.subscribe, {'attr': {'placeholder': newsletterSubscriptionForm.subscribe.vars.label}}) }}
+    {{ form_errors(newsletterSubscriptionForm.subscribe) }}
+
+    <button type="submit" class="button expanded">Subscribe</button>
+{{ form_end(newsletterSubscriptionForm) }}
+
