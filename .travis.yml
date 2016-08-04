@@ -6,6 +6,7 @@ php:
 matrix:
     allow_failures:
         - php: "7.0"
+        - env: TEST_GROUP=acceptance
 
 addons:
   postgresql: "9.4"
@@ -27,18 +28,15 @@ services:
   - elasticsearch
   - redis
 
-sudo: false
+sudo: required
 
 env:
   global:
     - APPLICATION_ENV=development
     - APPLICATION_STORE=DE
   matrix:
-    - TEST_GROUP="without-acceptance-tests"
-    - TEST_GROUP="acceptance-tests"
-
-    allow_failures:
-        - env: TEST_GROUP="acceptance-tests"
+    - TEST_GROUP=other
+    - TEST_GROUP=acceptance
 
 install:
   - composer self-update && composer --version
@@ -90,8 +88,8 @@ script:
   - vendor/bin/console application:build-navigation-cache
 
   - chmod -R 777 data/
-  - '[[ "TEST_GROUP" == "without-acceptance-tests" ]] || vendor/bin/codecept run -x Acceptance'
-  - '[[ "TEST_GROUP" == "acceptance-tests" ]] || vendor/bin/codecept run -g Acceptance'
+  - '[[ "TEST_GROUP" == "other" ]] || vendor/bin/codecept run -x Acceptance'
+  - '[[ "TEST_GROUP" == "acceptance" ]] || vendor/bin/codecept run -g Acceptance'
 
 # Just in case you wnat to know...
 #  - cat /tmp/zed-error.log
@@ -104,4 +102,4 @@ script:
 notifications:
   email: false
 
-sudo: required
+
