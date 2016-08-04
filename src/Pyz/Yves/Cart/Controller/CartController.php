@@ -23,9 +23,11 @@ class CartController extends AbstractController
     public function indexAction()
     {
         $quoteTransfer = $this->getClient()->getQuote();
+        $voucherForm = $this->getFactory()->createVoucherForm();
 
         return $this->viewResponse([
             'cart' => $quoteTransfer,
+            'voucherForm' => $voucherForm->createView(),
         ]);
     }
 

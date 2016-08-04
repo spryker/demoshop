@@ -55,26 +55,17 @@ class CartControllerProvider extends AbstractYvesControllerProvider
             ->convert('quantity', [$this, 'getQuantityFromRequest'])
             ->method('POST');
 
-        $this->createGetController('/{cart}/voucher/add', self::ROUTE_CART_VOUCHER_ADD, 'Cart', 'Voucher', 'add')
+        $this->createController('/{cart}/voucher/add', self::ROUTE_CART_VOUCHER_ADD, 'Cart', 'Voucher', 'add')
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')
-            ->convert(
-                'voucherCode',
-                function ($unused, Request $request) {
-                    return $request->query->get('code');
-                }
-            );
+            ->value('cart', 'cart');
 
-        $this->createGetController('/{cart}/voucher/remove', self::ROUTE_CART_VOUCHER_REMOVE, 'Cart', 'Voucher', 'remove')
+        $this->createController('/{cart}/voucher/remove', self::ROUTE_CART_VOUCHER_REMOVE, 'Cart', 'Voucher', 'remove')
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')
-            ->convert(
-                'voucherCode',
-                function ($unused, Request $request) {
-                    return $request->query->get('code');
-                }
-            );
+            ->value('cart', 'cart');
 
-        $this->createGetController('/{cart}/voucher/clear', self::ROUTE_CART_VOUCHER_CLEAR, 'Cart', 'Voucher', 'clear')
-            ->assert('cart', $allowedLocalesPattern . 'cart|cart');
+        $this->createController('/{cart}/voucher/clear', self::ROUTE_CART_VOUCHER_CLEAR, 'Cart', 'Voucher', 'clear')
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart')
+            ->value('cart', 'cart');
     }
 
     /**

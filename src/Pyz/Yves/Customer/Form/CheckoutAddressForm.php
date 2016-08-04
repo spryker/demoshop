@@ -73,7 +73,6 @@ class CheckoutAddressForm extends AddressForm
 
         $builder->add(self::FIELD_ID_CUSTOMER_ADDRESS, 'choice', [
             'choices' => $choices,
-            'label' => 'checkout.step.address.select_address',
             'required' => true,
             'expanded' => true,
             'multiple' => false,

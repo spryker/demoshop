@@ -1,0 +1,32 @@
+{% if cart.totals.discounttotal %}
+    {% if cart.voucherDiscounts|length %}
+        <li>
+            <strong>{{ 'Vouchers' | trans }}</strong>
+            <small class="float-right"><a href="{{ url('cart/voucher/clear') }}"><span class="fa fa-remove"></span> {{ 'cart.vouchers.clear-all' | trans }}</a></small>
+        </li>
+        {% for voucherDiscount in cart.voucherDiscounts %}
+            <li>
+                <div class="row">
+                    <div class="small-8 columns">
+                        {{ voucherDiscount.displayName }}
+                        <small><a href="{{ url('cart/voucher/remove', {'code': voucherDiscount.voucherCode}) }}"><span class="fa fa-remove"></span> remove</a></small>
+                    </div>
+                    <div class="small-4 columns text-right">- {{ voucherDiscount.amount|price }}</div>
+                </div>
+            </li>
+        {% endfor %}
+    {% endif %}
+
+    {% if cart.cartRuleDiscounts|length %}
+        <li><strong>{{ 'Discounts' | trans }}</strong></li>
+        <li>
+            {% for ruleDiscount in cart.cartRuleDiscounts %}
+                <div class="row">
+                    <div class="small-8 columns">{{ ruleDiscount.displayName }}</div>
+                    <div class="small-4 columns text-right">- {{ ruleDiscount.amount|price }}</div>
+                </div>
+            {% endfor %}
+        </li>
+    {% endif %}
+    <li><hr></li>
+{% endif %}

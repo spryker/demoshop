@@ -21,17 +21,7 @@
                                 </li>
                             {% endif %}
                             <li>
-                                <small>
-                                    <strong>{{ quoteTransfer.billingAddress.salutation }} {{ quoteTransfer.billingAddress.firstName }} {{ quoteTransfer.billingAddress.lastName }}</strong><br/>
-                                    {% if quoteTransfer.billingAddress.company != '' %}
-                                        {{ quoteTransfer.billingAddress.company }}<br />
-                                    {% endif %}
-                                    {{ quoteTransfer.billingAddress.address1 }} {{ quoteTransfer.billingAddress.address2 }},
-                                    {{ quoteTransfer.billingAddress.zipCode }} {{ quoteTransfer.billingAddress.city }}<br/>
-                                    {% if quoteTransfer.billingAddress.phone != '' %}
-                                        {{ quoteTransfer.billingAddress.phone }}<br />
-                                    {% endif %}
-                                </small>
+                                {% include '@checkout/checkout/partials/summary-address.twig' with {'address': quoteTransfer.billingAddress} %}
                             </li>
                         </ul>
                     </div>
@@ -42,17 +32,7 @@
                         <ul class="no-bullet">
                             <li><span class="__secondary">{{ 'With' | trans }}</span> {{ quoteTransfer.shipment.method.name }}</li>
                             <li>
-                                <small>
-                                    <strong>{{ quoteTransfer.shippingAddress.salutation }} {{ quoteTransfer.shippingAddress.firstName }} {{ quoteTransfer.shippingAddress.lastName }}</strong><br/>
-                                    {% if quoteTransfer.shippingAddress.company != '' %}
-                                        {{ quoteTransfer.shippingAddress.company }}<br />
-                                    {% endif %}
-                                    {{ quoteTransfer.shippingAddress.address1 }} {{ quoteTransfer.shippingAddress.address2 }},
-                                    {{ quoteTransfer.shippingAddress.zipCode }} {{ quoteTransfer.shippingAddress.city }}<br/>
-                                    {% if quoteTransfer.shippingAddress.phone != '' %}
-                                        {{ quoteTransfer.shippingAddress.phone }}<br />
-                                    {% endif %}
-                                </small>
+                                {% include '@checkout/checkout/partials/summary-address.twig' with {'address': quoteTransfer.shippingAddress} %}
                             </li>
                         </ul>
                     </div>
@@ -64,19 +44,7 @@
             <div class="callout">
                 <ul class="no-bullet">
                     {% for item in quoteTransfer.items %}
-                        <li>
-                            {{ item.quantity }}
-                            <span class="__secondary">&times;</span>
-                            {{ item.name }}
-                            <br>
-                            <small class="__secondary">{{ 'SKU' | trans }}: {{ item.sku }} - <strong>{{ item.unitGrossPriceWithProductOptions|price }}</strong> </small>
-                            <strong class="float-right">{{ item.sumGrossPriceWithProductOptions|price }}</strong>
-                            {% if not loop.last %}
-                                <hr>
-                            {% else %}
-                                <div class="clearfix"></div>
-                            {% endif %}
-                        </li>
+                        {% include '@checkout/checkout/partials/summary-item.twig' %}
                     {% endfor %}
                 </ul>
             </div>
@@ -92,31 +60,9 @@
                         <span class="float-right">{{ quoteTransfer.totals.subtotal | price }}</span>
                     </li>
                     <li><hr></li>
-                    {% if quoteTransfer.totals.discounttotal %}
-                        <li><strong>{{ 'Discounts' | trans }}</strong></li>
-                        {% if quoteTransfer.voucherDiscounts|length %}
-                            <li>
-                                {{ 'Vouchers' | trans }}
-                                {% for voucherDiscount in quoteTransfer.voucherDiscounts %}
-                                    <div class="row">
-                                        <div class="small-8 columns">{{ voucherDiscount.displayName }}</div>
-                                        <div class="small-4 columns text-right">- {{ voucherDiscount.amount|price }}</div>
-                                    </div>
-                                {% endfor %}
-                            </li>
-                        {% endif %}
-                        {% if quoteTransfer.cartRuleDiscounts|length %}
-                            <li>
-                                {% for ruleDiscount in quoteTransfer.cartRuleDiscounts %}
-                                    <div class="row">
-                                        <div class="small-8 columns">{{ ruleDiscount.displayName }}</div>
-                                        <div class="small-4 columns text-right">- {{ ruleDiscount.amount|price }}</div>
-                                    </div>
-                                {% endfor %}
-                            </li>
-                        {% endif %}
-                        <li><hr></li>
-                    {% endif %}
+
+                    {% include '@checkout/checkout/partials/summary-discounts.twig' %}
+
                     <li><strong>{{ 'Shipping' | trans }}</strong></li>
                     <li>
                         {{ quoteTransfer.shipment.method.name }}
