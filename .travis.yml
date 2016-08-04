@@ -1,8 +1,11 @@
 language: php
 php:
-#- '5.5'
-- '5.6'
-#- '7.0'
+- "5.6"
+- "7.0"
+
+matrix:
+    allow_failures:
+        - php: "7.0"
 
 addons:
   postgresql: "9.4"
@@ -30,6 +33,12 @@ env:
   global:
     - APPLICATION_ENV=development
     - APPLICATION_STORE=DE
+  matrix:
+    - TEST_GROUP="without-acceptance-tests"
+    - TEST_GROUP="acceptance-tests"
+
+    allow_failures:
+        - env: TEST_GROUP="acceptance-tests"
 
 install:
   - composer self-update && composer --version
@@ -81,9 +90,11 @@ script:
   - vendor/bin/console application:build-navigation-cache
 
   - chmod -R 777 data/
-  - vendor/bin/codecept run --debug -x Acceptance
+  - '[[ "TEST_GROUP" == "without-acceptance-tests" ]] || vendor/bin/codecept run -x Acceptance'
+  - '[[ "TEST_GROUP" == "acceptance-tests" ]] || vendor/bin/codecept run -g Acceptance'
 
-  - cat /tmp/zed-error.log
+# Just in case you wnat to know...
+#  - cat /tmp/zed-error.log
 
   - vendor/bin/console collector:storage:export
   - vendor/bin/console collector:search:export
