@@ -19,9 +19,13 @@
 <body>
     {% block outside %}{% endblock %}
 
-    {% block aside %}
+    <aside id="aside" class="hide-for-large __aside" tabindex="-1">
         {% include "@application/layout/partials/mobile-navigation.twig" %}
-    {% endblock %}
+        {% block aside %}{% endblock %}
+    </aside>
+    <div class="__aside-closing-bar">
+        <a class="close-button">&times;</a>
+    </div>
 
     <div class="__page" tabindex="-1">
         <header>
@@ -40,9 +44,9 @@
                                 </div>
 
                                 <a class="shrink columns text-right align-middle hide-for-large" href="#aside" data-aside-toggle>
-                                    {#{% if cart.items|length > 0 %}#}
-                                        {#<span class="warning badge">{{cart.items|length}}</span>#}
-                                    {#{% endif %}#}
+                                    {% if app['cart.quantity'] > 0 %}
+                                        <span class="warning badge">{{ app['cart.quantity'] }}</span>
+                                    {% endif %}
                                     <i class="fa fa-bars"></i>
                                 </a>
                             {% endblock %}

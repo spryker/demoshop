@@ -1,23 +1,18 @@
-<aside id="aside" class="hide-for-large __aside" tabindex="-1">
-    <div class="callout">
-        <h5>Main</h5>
-        <ul class="menu vertical">
-            <li class="row align-middle">
-                <a class="shrink columns" href="/cart"><i class="fa fa-shopping-cart"></i>Cart</a>
-                <span class="columns text-right collapse">
-                    {#{% if cart.items|length > 0 %}#}
-                        {#<span class="warning badge">{{cart.items|length}}</span>#}
-                    {#{% endif %}#}
-                </span>
-            </li>
-            {% include '@application/layout/partials/customer-navigation.twig' %}
-        </ul>
-    </div>
-    <div class="callout">
-        {% include '@application/layout/partials/categories.twig' %}
-    </div>
-</aside>
+<div class="callout">
+    <h5>Main</h5>
+    <ul class="menu vertical">
 
-<div class="__aside-closing-bar">
-    <a class="close-button">&times;</a>
+        {% include '@application/layout/partials/category-items.twig' %}
+
+        <li><hr/></li>
+        <li class="row align-middle">
+            <a class="shrink columns" href="/cart"><i class="fa fa-shopping-cart"></i>Cart</a>
+            <span class="columns text-right collapse">
+                    {% if app['cart.quantity'] > 0 %}
+                        <span class="warning badge">{{ app['cart.quantity'] }}</span>
+                    {% endif %}
+                </span>
+        </li>
+        {% include '@application/layout/partials/customer-navigation.twig' %}
+    </ul>
 </div>

@@ -1,32 +1,23 @@
-<div class="row">
-    <div class="small-12 columns">
-        <div class="callout">
-            <div class="row">
-                <div class="small-6 columns align-middle">
-                    <strong>{{ pagination.numFound }}</strong> {{ "catalog.itemsFound"|trans }}
-                </div>
-                <div class="small-6 columns">
+<div class="callout">
+    <div class="row align-middle">
 
-                    <div class="row">
-                        <div class="small-8 columns">
-                            <label>
-                                <select name="sort" class="__no-margin-bottom">
-                                    <option value=""></option>
-                                    {% for sortParamName in sort.sortParamNames %}
-                                        <option value="{{ sortParamName }}" {% if sortParamName == sort.currentSortParam %}selected{% endif %}>{{ 'catalog.sort.' ~ sortParamName | trans }}</option>
-                                    {% endfor %}
-                                </select>
-                            </label>
-                        </div>
-                        <div class="small-4 columns">
-                            <button type="submit" class="button expanded __no-margin-bottom">
-                                <i class="fa fa-sort"></i> Sort
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+        <div class="small-12 large-4 xlarge-6 columns show-for-large">
+            <strong>{{ pagination.numFound }}</strong> {{ "catalog.itemsFound"|trans }}
+        </div>
+        <div class="small-8 large-5 xlarge-4 columns">
+            <label>
+                <select name="sort" class="__no-margin-bottom">
+                    <option value=""></option>
+                    {% for sortParamName in sort.sortParamNames %}
+                        <option value="{{ sortParamName }}" {% if sortParamName == sort.currentSortParam %}selected{% endif %}>{{ 'catalog.sort.' ~ sortParamName | trans }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+        </div>
+        <div class="small-4 large-3 xlarge-2 columns">
+            <button type="submit" class="button expanded __no-margin-bottom">
+                <i class="fa fa-sort"></i> Sort
+            </button>
         </div>
     </div>
 </div>

@@ -1,7 +1,15 @@
 <form method="GET">
     <div class="row">
         <div class="small-12 medium-12 large-4 xlarge-3 columns">
-            {% include '@Catalog/catalog/partials/filters.twig' %}
+            <input id="catalog-filters" type="checkbox" class="__toggler __no-margin-bottom hide" checked>
+            <div class="callout hide-for-large">
+                <label for="catalog-filters" class="button hollow expanded __no-margin-bottom">
+                    <i class="fa fa-filter"></i> Show/Hide filters
+                </label>
+            </div>
+            <div class="__toggler-target">
+                {% include '@Catalog/catalog/partials/filters.twig' %}
+            </div>
         </div>
 
         <div class="small-12 medium-12 large-8 xlarge-9 columns">

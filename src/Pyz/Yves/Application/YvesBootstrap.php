@@ -16,6 +16,7 @@ use Pyz\Yves\Application\Plugin\Provider\FlashMessengerServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\SessionServiceProvider as ProviderSessionServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\YvesSecurityServiceProvider;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
+use Pyz\Yves\Cart\Plugin\Provider\CartServiceProvider;
 use Pyz\Yves\Catalog\Plugin\Router\SearchRouter;
 use Pyz\Yves\Category\Plugin\Provider\CategoryServiceProvider;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
@@ -105,6 +106,7 @@ class YvesBootstrap
         $this->application->register(new WebProfilerServiceProvider());
         $this->application->register(new AutoloaderCacheServiceProvider());
         $this->application->register(new YvesHstsServiceProvider());
+        $this->application->register(new CartServiceProvider());
     }
 
     /**
