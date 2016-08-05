@@ -51,5 +51,11 @@ class ProductOptionCollectorQuery extends AbstractPropelCollectorQuery
         $this->touchQuery->withColumn(SpyProductOptionValueTableMap::COL_PRICE, self::PRICE);
         $this->touchQuery->withColumn(SpyProductOptionValueTableMap::COL_VALUE, self::VALUE);
         $this->touchQuery->withColumn(SpyProductOptionValueTableMap::COL_ID_PRODUCT_OPTION_VALUE, self::ID_PRODUCT_OPTION_VALUE);
+
+        $this->touchQuery->addAnd(
+            SpyProductOptionGroupTableMap::COL_ACTIVE,
+            true,
+            Criteria::EQUAL
+        );
     }
 }

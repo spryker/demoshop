@@ -38,6 +38,7 @@
                     <p>{{ 'Product Options' | trans }}</p>
                     <div id="product-options">
                         {% for productOptionGroup in productOptionGroups.getProductOptionGroups %}
+                            <p>{{ productOptionGroup.name | trans }}</p>
                             {% if productOptionGroup.productOptionValues | length > 1 %}
                                 {% for productValue in productOptionGroup.productOptionValues %}
                                     <input type="radio" name="product-option[{{ productOptionGroup.name }}]" value="{{ productValue.idProductOptionValue }}" id="product-option-{{ productValue.idProductOptionValue }}"> &nbsp;
