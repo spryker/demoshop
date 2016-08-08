@@ -235,10 +235,8 @@ class ProductAbstractImporter extends AbstractImporter
         unset($attributeData[self::PRODUCT_ABSTRACT]);
 
         foreach ($attributeData as $localeCode => $localizedAttributesData) {
-            $localizedKeyName = $this->getLocalizedKeyName(self::NAME, $localeCode);
-
             $localizedAttributesTransfer = $this->buildLocalizedAttributesTransfer(
-                $product[$localizedKeyName],
+                $this->getProductName($product, $localeCode),
                 $localizedAttributesData,
                 $this->localeFacade->getLocale($localeCode)
             );
