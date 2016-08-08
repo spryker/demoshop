@@ -14,6 +14,8 @@ use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Country\Business\CountryFacadeInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
+use Spryker\Zed\Propel\Business\Runtime\ActiveQuery\Criteria;
+use Spryker\Zed\Shipment\Persistence\ShipmentQueryContainerInterface;
 use Spryker\Zed\Tax\Persistence\TaxQueryContainerInterface;
 
 class TaxImporter extends AbstractImporter
@@ -46,6 +48,19 @@ class TaxImporter extends AbstractImporter
     protected $taxQueryContainer;
 
     /**
+     * @var \Spryker\Zed\Shipment\Persistence\ShipmentQueryContainerInterface
+     */
+    protected $shipmentQueryContainer;
+
+    /**
+     * @var array
+     */
+    protected $shipmentSets = [
+        'Shipment Taxes' => true,
+        'Tax Exempt' => true
+    ];
+
+    /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface $productQueryContainer
      * @param \Spryker\Zed\Country\Business\CountryFacadeInterface $countryFacade
@@ -55,13 +70,16 @@ class TaxImporter extends AbstractImporter
         LocaleFacadeInterface $localeFacade,
         ProductQueryContainerInterface $productQueryContainer,
         CountryFacadeInterface $countryFacade,
-        TaxQueryContainerInterface $taxQueryContainer
+        TaxQueryContainerInterface $taxQueryContainer,
+        ShipmentQueryContainerInterface $shipmentQueryContainer
     ) {
 
         parent::__construct($localeFacade);
         $this->countryFacade = $countryFacade;
         $this->productQueryContainer = $productQueryContainer;
         $this->taxQueryContainer = $taxQueryContainer;
+        $this->localeFacade = $localeFacade;
+        $this->shipmentQueryContainer = $shipmentQueryContainer;
     }
 
 
@@ -92,6 +110,33 @@ class TaxImporter extends AbstractImporter
 
         $this->createTaxRateSetEntity($taxRateEntity, $taxSetEntity);
         $this->updateAbstractProductTaxSets($data, $taxSetEntity);
+        $this->addShipmentTax($taxSetEntity);
+    }
+
+    /**
+     * @param \Orm\Zed\Tax\Persistence\SpyTaxSet $taxSetEntity
+     *
+     * @return void
+     */
+    protected function addShipmentTax(SpyTaxSet $taxSetEntity)
+    {
+        if (!isset($this->shipmentSets[$taxSetEntity->getName()])) {
+            return;
+        }
+
+        $shipmentMethodEntity = $this->shipmentQueryContainer
+            ->queryActiveMethods()
+            ->filterByFkTaxSet(null, Criteria::ISNULL)
+            ->findOne();
+
+        if (!$shipmentMethodEntity) {
+            return;
+        }
+
+        $shipmentMethodEntity->setFkTaxSet($taxSetEntity->getIdTaxSet());
+        $shipmentMethodEntity->save();
+
+        unset($this->shipmentSets[$taxSetEntity->getName()]);
     }
 
     /**

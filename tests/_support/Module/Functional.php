@@ -2,8 +2,8 @@
 
 namespace Module;
 
-use Codeception\TestCase;
 use Codeception\Module;
+use Codeception\TestCase;
 use Propel\Runtime\Propel;
 use Silex\Application;
 use Spryker\Zed\Propel\Communication\Plugin\ServiceProvider\PropelServiceProvider;
@@ -23,7 +23,8 @@ class Functional extends Module
     }
 
     /**
-     * @param TestCase $test
+     * @param \Codeception\TestCase $test
+     * @return void
      */
     public function _before(TestCase $test)
     {
@@ -36,7 +37,8 @@ class Functional extends Module
     }
 
     /**
-     * @param TestCase $test
+     * @param \Codeception\TestCase $test
+     * @return void
      */
     public function _after(TestCase $test)
     {
@@ -50,8 +52,9 @@ class Functional extends Module
     }
 
     /**
-     * @param TestCase $test
+     * @param \Codeception\TestCase $test
      * @apram $fail
+     * @return void
      */
     public function _failed(TestCase $test, $fail)
     {
