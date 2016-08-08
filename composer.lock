@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1f0ba48299c98f31283666138a6b83a6",
-    "content-hash": "eb9f45c65869e7073127164ee95ae9a6",
+    "hash": "b753a55f1355b93e9e0d2c429a4b6fa6",
+    "content-hash": "c7f59d8cd8e6eaa2db5e8d469447e1a4",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -995,7 +995,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "f0d1cf4660ef156494efa29fd40e36512e25e624"
+                "reference": "01887334ef4ff8fe0598875ab4db1301e60433c2"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1321,11 +1321,6 @@
                     "Spryker\\Zed\\ProductOptionDiscountConnector\\": "Bundles/ProductOptionDiscountConnector/src",
                     "Unit\\Spryker\\Zed\\ProductOptionDiscountConnector\\": "Bundles/ProductOptionDiscountConnector/tests",
                     "Functional\\Spryker\\Zed\\ProductOptionDiscountConnector\\": "Bundles/ProductOptionDiscountConnector/tests",
-                    "Spryker\\Zed\\ProductOptionExporter\\": "Bundles/ProductOptionExporter/src",
-                    "Unit\\Spryker\\Zed\\ProductOptionExporter\\": "Bundles/ProductOptionExporter/tests",
-                    "Functional\\Spryker\\Zed\\ProductOptionExporter\\": "Bundles/ProductOptionExporter/tests",
-                    "Spryker\\Zed\\ProductOptionWishlistConnector\\": "Bundles/ProductOptionWishlistConnector/src",
-                    "Unit\\Spryker\\Zed\\ProductOptionWishlistConnector\\": "Bundles/ProductOptionWishlistConnector/tests",
                     "Spryker\\Shared\\ProductSearch\\": "Bundles/ProductSearch/src",
                     "Unit\\Spryker\\Shared\\ProductSearch\\": "Bundles/ProductSearch/tests",
                     "Functional\\Spryker\\Shared\\ProductSearch\\": "Bundles/ProductSearch/tests",
@@ -1339,8 +1334,9 @@
                     "Unit\\Spryker\\Zed\\Propel\\": "Bundles/Propel/tests",
                     "Functional\\Spryker\\Zed\\Propel\\": "Bundles/Propel/tests",
                     "Spryker\\Shared\\Refund\\": "Bundles/Refund/src",
-                    "Unit\\Spryker\\Shared\\Refund\\": "Bundles/Refund/tests",
                     "Spryker\\Zed\\Refund\\": "Bundles/Refund/src",
+                    "Acceptance\\Refund\\": "Bundles/Refund/tests",
+                    "Unit\\Spryker\\Shared\\Refund\\": "Bundles/Refund/tests",
                     "Unit\\Spryker\\Zed\\Refund\\": "Bundles/Refund/tests",
                     "Spryker\\Zed\\Ratepay\\": "Bundles/Ratepay/src",
                     "Spryker\\Yves\\Ratepay\\": "Bundles/Ratepay/src",
@@ -1348,6 +1344,7 @@
                     "Spryker\\Client\\Ratepay\\": "Bundles/Ratepay/src",
                     "Functional\\Spryker\\Zed\\Ratepay\\": "Bundles/Ratepay/tests",
                     "Unit\\Spryker\\Zed\\Ratepay\\": "Bundles/Ratepay/tests",
+                    "Functional\\Spryker\\Zed\\Refund\\": "Bundles/Refund/tests",
                     "Spryker\\Client\\Sales\\": "Bundles/Sales/src",
                     "Unit\\Spryker\\Client\\Sales\\": "Bundles/Sales/tests",
                     "Functional\\Spryker\\Client\\Sales\\": "Bundles/Sales/tests",
@@ -1499,7 +1496,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-08-04 15:58:16"
+            "time": "2016-08-05 14:47:54"
         },
         {
             "name": "symfony-cmf/routing",
