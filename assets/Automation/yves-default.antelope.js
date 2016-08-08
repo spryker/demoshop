@@ -4,6 +4,7 @@ const path = require('path')
 const autoprefixer = antelope.remote('autoprefixer')
 const webpack = antelope.remote('webpack')
 const ExtractTextPlugin = antelope.remote('extract-text-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 const cwd = process.cwd()
 const themeName = 'default'
 
@@ -70,7 +71,13 @@ let config = {
             'process.env': {
                 'NODE_ENV': antelope.options.production ? '"production"' : '"development"'
             }
-        })
+        }),
+        new CopyPlugin([
+            {
+                from: `${cwd}/assets/Yves/${themeName}/img`,
+                to: `assets/${themeName}/img`
+            }
+        ])
     ],
     watchOptions: {
         aggregateTimeout: 10,
