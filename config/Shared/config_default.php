@@ -19,6 +19,7 @@ use Spryker\Shared\Sales\SalesConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
 use Spryker\Shared\Session\SessionConstants;
+use Spryker\Shared\Storage\StorageConstants;
 use Spryker\Shared\Tax\TaxConstants;
 use Spryker\Shared\User\UserConstants;
 use Spryker\Zed\DummyPayment\DummyPaymentConfig;
@@ -50,7 +51,7 @@ $config[ApplicationConstants::ZED_DB_SUPPORTED_ENGINES] = [
     PropelConfig::DB_ENGINE_PGSQL => 'PostgreSql'
 ];
 
-$config[ApplicationConstants::STORAGE_KV_SOURCE] = 'redis';
+$config[StorageConstants::STORAGE_KV_SOURCE] = 'redis';
 
 /**
  * Elasticsearch settings
