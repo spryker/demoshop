@@ -597,8 +597,8 @@ checkout.step.payment.must_be_older_than_18_years,"You must be at least 18 years
 checkout.step.payment.must_be_older_than_18_years,"Sie müssen mindestens 18 Jahre alt sein.",de_DE
 checkout.step.success.title,"Your order has been placed successfully!",en_US
 checkout.step.success.title,"Ihre Bestellung wurde erfolgreich durchgeführt!",de_DE
-checkout.step.success.text,"Thank you.",en_US
-checkout.step.success.text,"Vielen Dank.",de_DE
+checkout.step.success.text,"Thank you for shopping with us!",en_US
+checkout.step.success.text,"Danke für ihren Einkauf!",de_DE
 checkout.step.error.title,"Your order has not been placed.",en_US
 checkout.step.error.title,"Ihre Bestellung konnte leider nicht durchgeführt werden.",de_DE
 checkout.step.error.text,"Something went wrong. Sorry.",en_US
