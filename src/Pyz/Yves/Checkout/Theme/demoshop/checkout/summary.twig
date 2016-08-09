@@ -11,9 +11,19 @@
             <table class="table">
             {% for item in quoteTransfer.items %}
                 <tr>
-                    <td>{{ item.name }} x {{ item.quantity }}</td>
-                    <td>{{ item.sumGrossPriceWithProductOptions|price }}</td>
+                    <td>
+                        <strong>{{ item.name }}</strong> x {{ item.quantity }}
+                    </td>
+                    <td>{{ item.sumGrossPrice|price }}</td>
                 </tr>
+                {% if item.productOptions %}
+                    <tr>
+                        {% for productOption in item.productOptions %}
+                            <td>+{{ productOption.value }}</td>
+                            <td>{{ productOption.sumGrossPrice | price }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endif %}
             {% endfor %}
             </table>
         </div>

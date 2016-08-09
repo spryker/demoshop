@@ -9,10 +9,13 @@ namespace Pyz\Zed\Importer\Business\Importer\ProductOption;
 
 use Generated\Shared\Transfer\ProductOptionGroupTransfer;
 use Generated\Shared\Transfer\ProductOptionValueTransfer;
+use Orm\Zed\ProductOption\Persistence\SpyProductOptionGroupQuery;
+use Orm\Zed\ProductOption\Persistence\SpyProductOptionValueQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Glossary\Business\GlossaryFacadeInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\ProductOption\Business\ProductOptionFacadeInterface;
+use Spryker\Zed\ProductOption\ProductOptionConfig;
 
 class ProductOptionImporter extends AbstractImporter
 {
@@ -23,8 +26,10 @@ class ProductOptionImporter extends AbstractImporter
     const COL_OPTION_PRICE = 'Option Price';
     const COL_OPTION_SKU = 'Option SKU';
     const COL_OPTION_GROUP_NAME = 'Option Group Name';
+
     const GERMAN_LOCALE = 'de_DE';
     const ENGLISH_LOCALE = 'en_US';
+
     /**
      * @var \Spryker\Zed\Glossary\Business\GlossaryFacadeInterface
      */
@@ -66,15 +71,28 @@ class ProductOptionImporter extends AbstractImporter
             return;
         }
 
-        $glossaryKey = $this->createTranslations($data);
-        $productOptionValueTransfer = $this->createProductOptionValueTransfer($data, $glossaryKey);
+        $data[self::COL_GLOSSARY_KEY] = $this->sanitizeTranslationKey($data[self::COL_GLOSSARY_KEY]);
+
+        $this->createTranslations($data);
+        $productOptionValueTransfer = $this->createProductOptionValueTransfer($data, $data[self::COL_GLOSSARY_KEY]);
 
         $abstractProductSKUs = $this->extractSku($data);
         if (count($abstractProductSKUs) > 0) {
+
+            $data[self::COL_OPTION_GROUP_NAME] = $this->sanitizeTranslationKey($data[self::COL_OPTION_GROUP_NAME]);
+            if ($this->isOptionGroupExisting($data[self::COL_OPTION_GROUP_NAME])) {
+                return;
+            }
+
             $this->lastGroupId = $this->createOptionGroup($data, $productOptionValueTransfer);
             $this->addProductAbstractToGroup($abstractProductSKUs, $this->lastGroupId);
         } else {
             $productOptionValueTransfer->setFkProductOptionGroup($this->lastGroupId);
+
+            if ($this->isOptionValueExisting($productOptionValueTransfer->getValue())) {
+                return;
+            }
+
             $this->productOptionFacade->saveProductOptionValue($productOptionValueTransfer);
         }
     }
@@ -93,6 +111,28 @@ class ProductOptionImporter extends AbstractImporter
     public function getTitle()
     {
         return 'Product Option';
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return bool
+     */
+    protected function isOptionValueExisting($value)
+    {
+        return SpyProductOptionValueQuery::create()->findByValue(ProductOptionConfig::PRODUCT_OPTION_TRANSLATION_PREFIX . $value)->count() > 0;
+    }
+
+    /**
+     * @param string $name
+     *
+     * @return bool
+     */
+    protected function isOptionGroupExisting($name)
+    {
+        return SpyProductOptionGroupQuery::create()
+            ->findByName(ProductOptionConfig::PRODUCT_OPTION_GROUP_NAME_TRANSLATION_PREFIX . $name)
+            ->count() > 0;
     }
 
     /**
@@ -122,19 +162,33 @@ class ProductOptionImporter extends AbstractImporter
         $productOptionGroupTransfer->setActive(true);
         $productOptionGroupTransfer->setName($data[self::COL_OPTION_GROUP_NAME]);
         $productOptionGroupTransfer->addProductOptionValue($productOptionValueTransfer);
+
         $idProductOptionGroup = $this->productOptionFacade->saveProductOptionGroup($productOptionGroupTransfer);
 
         return $idProductOptionGroup;
     }
 
     /**
-     * @param array $data
+     * @param string $translationKey
      *
      * @return string
      */
+    protected function sanitizeTranslationKey($translationKey)
+    {
+        $translationKey = trim($translationKey);
+        $translationKey = strtolower($translationKey);
+
+        return preg_replace('/\s+/', '_', $translationKey);
+    }
+
+    /**
+     * @param array $data
+     *
+     * @return void
+     */
     protected function createTranslations(array $data)
     {
-        $glossaryKey = $data[self::COL_GLOSSARY_KEY];
+        $glossaryKey = ProductOptionConfig::PRODUCT_OPTION_TRANSLATION_PREFIX . $data[self::COL_GLOSSARY_KEY];
         if (!$this->glossaryFacade->hasKey($glossaryKey)) {
             $this->glossaryFacade->createKey($glossaryKey);
         }
@@ -150,8 +204,6 @@ class ProductOptionImporter extends AbstractImporter
         if (!$this->glossaryFacade->hasTranslation($glossaryKey, $locale)) {
             $this->glossaryFacade->createAndTouchTranslation($glossaryKey, $locale, $nameEN);
         }
-
-        return $glossaryKey;
     }
 
     /**
@@ -167,6 +219,8 @@ class ProductOptionImporter extends AbstractImporter
     /**
      * @param array $abstractProductSKUs
      * @param int $idProductOptionGroup
+     *
+     * @return void
      */
     protected function addProductAbstractToGroup(array $abstractProductSKUs, $idProductOptionGroup)
     {
