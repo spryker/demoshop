@@ -8,6 +8,7 @@ DATABASE_USER='development'
 DATABASE_PASSWORD='mate20mg'
 VERBOSITY='-v'
 CONSOLE=vendor/bin/console
+PHANTOMJS_CDNURL='https://github.com/Medium/phantomjs/'
 
 . deploy/setup/functions.sh
 
