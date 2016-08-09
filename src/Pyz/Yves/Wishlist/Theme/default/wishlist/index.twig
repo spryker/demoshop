@@ -1,0 +1,32 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block breadcrumbItems %}
+    <li><a href="/">{{ 'Home' | trans }}</a></li>
+{% endblock %}
+
+{% block title %}
+    <h3>{{ 'Wishlist' | trans }}</h3>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="callout">
+                <ul class="no-bullet">
+                    {% if customerWishlist.items|length %}
+                        {% for wishlistItem in customerWishlist.items %}
+                            <li>{{ wishlistItem.getProductConcrete().getName() }} X ({{ wishlistItem.getQuantity() }})
+                                <a href="{{ path('wishlist/remove', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">Remove</a>
+                                <a href="{{ path('wishlist/decrease', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">Reduce</a>
+                                <a href="{{ path('wishlist/increase', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">Increase</a>
+                                <a href="{{ path('wishlist/add-to-cart', {groupKey:  wishlistItem.getGroupKey()  }) }}">Move to cart</a>
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        <li>Your wishlist is empty.</li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
