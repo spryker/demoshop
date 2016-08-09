@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "587081e7eee549bc06fb728537583e2b",
-    "content-hash": "fbb923fdeb1fcebf194370d5b434874f",
+    "hash": "9b0a630245e17bca211ef031b0433e7f",
+    "content-hash": "725767203448d60667043926a15c7f95",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -991,11 +991,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/pim",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "50319cd4902fb35722cd7491ed924d475e3ea37e"
+                "reference": "e9e20a81b02ff6c7f406b33c1aafb50cec50ffa4"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1311,6 +1311,8 @@
                     "Functional\\Spryker\\Zed\\ProductOption\\": "Bundles/ProductOption/tests",
                     "Spryker\\Shared\\ProductImage\\": "Bundles/ProductImage/src",
                     "Spryker\\Zed\\ProductImage\\": "Bundles/ProductImage/src",
+                    "Unit\\Spryker\\Shared\\ProductImage\\": "Bundles/ProductImage/tests",
+                    "Functional\\Spryker\\Shared\\ProductImage\\": "Bundles/ProductImage/tests",
                     "Spryker\\Shared\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/src",
                     "Unit\\Spryker\\Shared\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/tests",
                     "Functional\\Spryker\\Shared\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/tests",
@@ -1479,7 +1481,11 @@
                     "Spryker\\Shared\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/src",
                     "Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/src",
                     "Unit\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests",
-                    "Functional\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests"
+                    "Functional\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests",
+                    "Spryker\\Shared\\ProductManagement\\": "Bundles/ProductManagement/src",
+                    "Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/src",
+                    "Unit\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests",
+                    "Functional\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests"
                 },
                 "psr-4": {
                     "Application\\Module\\": "Bundles/Application/tests/_support/Module",
@@ -1500,7 +1506,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-08-09 08:56:44"
+            "time": "2016-08-09 10:11:38"
         },
         {
             "name": "symfony-cmf/routing",
