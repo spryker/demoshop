@@ -80,7 +80,6 @@ class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
 
         $placeOrderStep = $this->createPlaceOrderStep($checkoutClientMock, $flashMessengerMock);
         $placeOrderStep->execute($this->createRequest(), new QuoteTransfer());
-
     }
 
     /**

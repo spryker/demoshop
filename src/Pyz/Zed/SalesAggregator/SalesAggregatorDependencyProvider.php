@@ -52,7 +52,6 @@ class SalesAggregatorDependencyProvider extends SprykerSalesAggregatorDependency
             new ItemTaxAmountAggregatorPlugin(),
             new ItemsWithProductOptionsAndDiscountsTaxAggregatorPlugin(),
         ];
-
     }
 
     /**
