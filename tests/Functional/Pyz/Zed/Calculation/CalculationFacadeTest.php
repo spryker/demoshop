@@ -169,7 +169,6 @@ class CalculationFacadeTest extends Test
         $this->assertSame(100, $totalsTransfer->getExpenseTotal());
         $this->assertSame(330, $totalsTransfer->getGrandTotal());
         $this->assertSame(53.0, $totalsTransfer->getTaxTotal()->getAmount());
-
     }
 
     /**
@@ -364,7 +363,6 @@ class CalculationFacadeTest extends Test
         $pool->getDiscountVouchers();
 
         return $discountVoucherEntity;
-
     }
 
     /**

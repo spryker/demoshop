@@ -30,7 +30,6 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
      */
     protected function defineControllers(Application $app)
     {
-
         $this->createController('/checkout', self::CHECKOUT_INDEX, 'Checkout', 'Checkout', 'index')
             ->method('GET|POST');
 
@@ -57,7 +56,6 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
 
         $this->createController('/checkout/success', self::CHECKOUT_SUCCESS, 'Checkout', 'Checkout', 'success')
             ->method('GET|POST');
-
     }
 
 }
