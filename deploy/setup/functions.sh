@@ -285,8 +285,8 @@ function checkNodejsVersion {
 function installAntelope {
     checkNodejsVersion
 
-	labelText "Install or Update Antelope tool globally"
-	sudo $NPM install -g antelope
+    labelText "Install or Update Antelope tool globally"
+    sudo $NPM install -g antelope
     writeErrorMessage "Antelope setup failed"
 }
 
