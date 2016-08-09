@@ -43,7 +43,6 @@ class SalesFacadeTest extends Test
      */
     public function testSalesOrderAggregatorWithDiscountsStack()
     {
-
         $salesFacade = $this->createSalesAggregatorFacade();
 
         $salesOrderEntity = $this->createTestOrder();

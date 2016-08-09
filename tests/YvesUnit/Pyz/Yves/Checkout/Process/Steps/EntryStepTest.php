@@ -49,7 +49,6 @@ class EntryStepTest extends \PHPUnit_Framework_TestCase
             'entry_route',
             'escape_route'
         );
-
     }
 
     /**

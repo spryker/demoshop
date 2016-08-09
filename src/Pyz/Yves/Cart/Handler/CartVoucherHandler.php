@@ -76,7 +76,6 @@ class CartVoucherHandler extends BaseHandler
 
         $this->setFlashMessagesFromLastZedRequest($this->calculationClient);
         $this->cartClient->storeQuote($quoteTransfer);
-
     }
 
     /**
