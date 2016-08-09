@@ -53,3 +53,15 @@
     @include slide();
 }
 
+.__home-banner {
+    background:url(/assets/default/img/home-banner.jpg) center no-repeat;
+
+    .row {
+        height: 300px;
+    }
+
+    h1 {
+        color: $white;
+    }
+}
+
