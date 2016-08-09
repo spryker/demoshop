@@ -14,6 +14,7 @@ use Spryker\Yves\Application\Controller\AbstractController;
  */
 class IndexController extends AbstractController
 {
+
     const FEATURED_PRODUCT_LIMIT = 6;
 
     /**

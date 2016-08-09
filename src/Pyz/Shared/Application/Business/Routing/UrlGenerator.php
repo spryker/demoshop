@@ -7,12 +7,12 @@
 
 namespace Pyz\Shared\Application\Business\Routing;
 
+use Psr\Log\LoggerInterface;
 use Symfony\Component\Routing\CompiledRoute;
 use Symfony\Component\Routing\Generator\UrlGenerator as SymfonyUrlGenerator;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
-use Psr\Log\LoggerInterface;
 
 class UrlGenerator extends SymfonyUrlGenerator
 {
