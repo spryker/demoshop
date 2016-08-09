@@ -18,7 +18,7 @@
 {% spaceless %}
     <ul class="pagination __no-margin-bottom" role="navigation">
         {% if currentPage > 1 %}
-            <li class="pagination-previous"><a href="{{ path(paginationPath, parameters|merge({page: currentPage-1})) }}">Previous</a></li>
+            <li class="pagination-previous"><a href="{{ path(paginationPath, parameters|merge({page: currentPage-1})) }}">{{ 'pagination.previous' | trans }}</a></li>
 
             {% for i in range(1, extremePagesLimit) if ( i < currentPage - nearbyPagesLimit ) %}
                 <li><a href="{{ path(paginationPath, parameters|merge({page: i})) }}">{{ i }}</a></li>
@@ -32,7 +32,7 @@
                 <li><a href="{{ path(paginationPath, parameters|merge({page: i})) }}">{{ i }}</a></li>
             {% endfor %}
         {% elseif showAlwaysFirstAndLast %}
-            <li class="pagination-previous disabled">Previous</li>
+            <li class="pagination-previous disabled">{{ 'pagination.previous' | trans }}</li>
         {% endif %}
 
         <li><a href="{{ path(paginationPath, parameters|merge({ page: currentPage })) }}" class="current">{{ currentPage }}</a></li>
@@ -50,9 +50,9 @@
                 <li><a href="{{ path(paginationPath, parameters|merge({page: i})) }}">{{ i }}</a></li>
             {% endfor %}
 
-            <li class="pagination-next"><a href="{{ path(paginationPath, parameters|merge({page: currentPage+1})) }}">Next</a></li>
+            <li class="pagination-next"><a href="{{ path(paginationPath, parameters|merge({page: currentPage+1})) }}">{{ 'pagination.next' | trans }}</a></li>
         {% elseif showAlwaysFirstAndLast %}
-            <li class="pagination-next disabled">Next</li>
+            <li class="pagination-next disabled">{{ 'pagination.next' | trans }}</li>
         {% endif %}
     </ul>
 {% endspaceless %}

@@ -1,7 +1,7 @@
 {% if cart.totals.discounttotal %}
     {% if cart.voucherDiscounts|length %}
         <li>
-            <strong>{{ 'Vouchers' | trans }}</strong>
+            <strong>{{ 'cart.vouchers' | trans }}</strong>
             <small class="float-right"><a href="{{ url('cart/voucher/clear') }}"><span class="fa fa-remove"></span> {{ 'cart.vouchers.clear-all' | trans }}</a></small>
         </li>
         {% for voucherDiscount in cart.voucherDiscounts %}
@@ -18,7 +18,7 @@
     {% endif %}
 
     {% if cart.cartRuleDiscounts|length %}
-        <li><strong>{{ 'Discounts' | trans }}</strong></li>
+        <li><strong>{{ 'cart.discounts' | trans }}</strong></li>
         <li>
             {% for ruleDiscount in cart.cartRuleDiscounts %}
                 <div class="row">

@@ -16,11 +16,11 @@
             </div>
             <form class="row align-right" method="POST" action="{{ path('cart/change/quantity', {'sku': cartItem.sku}) }}">
                 <div class="show-for-medium columns">
-                    <span class="__secondary">{{ 'SKU' | trans }} {{cartItem.sku}}</span>
+                    <span class="__secondary">{{ 'product.attribute.sku' | trans }} {{cartItem.sku}}</span>
                 </div>
                 <div class="small-6 medium-2 columns">
                     <label class="__no-margin-bottom">
-                        {{ 'Quantity' | trans }}:
+                        {{ 'cart.item_quantity' | trans }}:
                         <input class="__no-margin-bottom" type="number" value="{{cartItem.quantity}}" name="quantity">
                     </label>
                 </div>

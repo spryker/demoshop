@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block breadcrumbItems %}
-    <li><a href="/">{{ 'Home' | trans }}</a></li>
+    <li><a href="/">{{ 'global.home' | trans }}</a></li>
     <li>{{ 'cart.cart'|trans }}</li>
     <li class="disabled">{{ 'cart.checkout' | trans }}</li>
 {% endblock %}
@@ -32,7 +32,7 @@
 
                         <li>{{ 'cart.price.grand.total' | trans }} <strong class="float-right">{{ cart.totals.grandTotal | price }}</strong></li>
 
-                        <li>{{ 'cart.percentage.vat' | trans }} <span class="float-right">{{ cart.totals.taxTotal.amount | price }}</span></li>
+                        <li>{{ 'cart.total.tax_total' | trans }} <span class="float-right">{{ cart.totals.taxTotal.amount | price }}</span></li>
                     </ul>
                     {% if cart.items|length %}
                         <p class="__padding-top">

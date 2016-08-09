@@ -13,7 +13,7 @@
                         <h5>Payment</h5>
                         <ul class="no-bullet">
                             <li>
-                                <span class="__secondary">{{ 'With' | trans }}</span> {{ quoteTransfer.payment.paymentMethod }}
+                                <span class="__secondary">{{ 'checkout.step.summary.with_method' | trans }}</span> {{ quoteTransfer.payment.paymentMethod }}
                             </li>
                             {% if quoteTransfer.payment.summaryPartialPath %}
                                 <li>
@@ -30,7 +30,7 @@
                     <div class="callout">
                         <h5>Shipping</h5>
                         <ul class="no-bullet">
-                            <li><span class="__secondary">{{ 'With' | trans }}</span> {{ quoteTransfer.shipment.method.name }}</li>
+                            <li><span class="__secondary">{{ 'checkout.step.summary.with_method' | trans }}</span> {{ quoteTransfer.shipment.method.name }}</li>
                             <li>
                                 {% include '@checkout/checkout/partials/summary-address.twig' with {'address': quoteTransfer.shippingAddress} %}
                             </li>
@@ -52,29 +52,29 @@
 
         <div class="small-12 medium-6 columns">
             <div class="callout">
-                <h5 class="float-right __secondary">{{quoteTransfer.items|length }} {{ 'items' | trans }}</h5>
-                <h5>{{ 'Overview' | trans }}</h5>
+                <h5 class="float-right __secondary">{{quoteTransfer.items|length }} {{ 'checkout.step.summary.items' | trans }}</h5>
+                <h5>{{ 'checkout.step.summary.overview' | trans }}</h5>
                 <ul class="no-bullet">
                     <li>
-                        {{ 'Sub total' | trans }}
+                        {{ 'checkout.step.summary.sub_total' | trans }}
                         <span class="float-right">{{ quoteTransfer.totals.subtotal | price }}</span>
                     </li>
                     <li><hr></li>
 
                     {% include '@checkout/checkout/partials/summary-discounts.twig' %}
 
-                    <li><strong>{{ 'Shipping' | trans }}</strong></li>
+                    <li><strong>{{ 'checkout.step.summary.shipping' | trans }}</strong></li>
                     <li>
                         {{ quoteTransfer.shipment.method.name }}
                         <span class="float-right">{{ quoteTransfer.shipment.method.defaultPrice|price }}</span>
                     </li>
                     <li><hr></li>
                     <li class="clearfix">
-                        <h5 class="float-left">{{ 'Grand total' | trans }}</h5>
+                        <h5 class="float-left">{{ 'checkout.step.summary.grand_total' | trans }}</h5>
                         <h5 class="float-right"><strong>{{ quoteTransfer.totals.grandtotal|price }}</strong></h5>
                     </li>
                     <li>
-                        {{ 'Tax' | trans }}
+                        {{ 'checkout.step.summary.tax' | trans }}
                         <span class="float-right">{{ quoteTransfer.totals.taxtotal.amount|price }}</span>
                     </li>
                 </ul>

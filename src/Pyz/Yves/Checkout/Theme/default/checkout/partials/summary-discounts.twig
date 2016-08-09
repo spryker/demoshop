@@ -1,6 +1,6 @@
 {% if quoteTransfer.totals.discounttotal %}
     {% if quoteTransfer.voucherDiscounts|length %}
-        <li><strong>{{ 'Vouchers' | trans }}</strong></li>
+        <li><strong>{{ 'cart.vouchers' | trans }}</strong></li>
         <li>
             {% for voucherDiscount in quoteTransfer.voucherDiscounts %}
                 <div class="row">
@@ -11,7 +11,7 @@
         </li>
     {% endif %}
     {% if quoteTransfer.cartRuleDiscounts|length %}
-        <li><strong>{{ 'Discounts' | trans }}</strong></li>
+        <li><strong>{{ 'cart.discounts' | trans }}</strong></li>
         <li>
             {% for ruleDiscount in quoteTransfer.cartRuleDiscounts %}
                 <div class="row">
