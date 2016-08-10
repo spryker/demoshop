@@ -12,23 +12,16 @@ class UrlMapper implements UrlMapperInterface
 
     /**
      * @param array $mergedParameters
-     * @param bool $addTrailingSlash
      *
      * @return string
      */
-    public function generateUrlFromParameters(array $mergedParameters, $addTrailingSlash = false)
+    public function generateUrlFromParameters(array $mergedParameters)
     {
         if (!$mergedParameters) {
-            return $addTrailingSlash ? '/' : '';
+            return '';
         }
 
-        $queryString = '?' . http_build_query($mergedParameters);
-
-        if ($addTrailingSlash) {
-            $queryString = '/' . $queryString;
-        }
-
-        return $queryString;
+        return '?' . http_build_query($mergedParameters);
     }
 
 }
