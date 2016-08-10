@@ -18,7 +18,7 @@ class UrlMapper implements UrlMapperInterface
      */
     public function generateUrlFromParameters(array $mergedParameters, $addTrailingSlash = false)
     {
-        if (empty($mergedParameters)) {
+        if (!$mergedParameters) {
             return $addTrailingSlash ? '/' : '';
         }
 

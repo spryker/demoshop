@@ -240,7 +240,7 @@ class ProductCollector extends AbstractStoragePdoCollector
             ->queryUrlByIdCategoryNode($idNode)
             ->filterByFkLocale($this->locale->getIdLocale());
         $url = $urlQuery->findOne();
-        return ($url) ? $url->getUrl() : null;
+        return ($url ? $url->getUrl() : null);
     }
 
     /**
