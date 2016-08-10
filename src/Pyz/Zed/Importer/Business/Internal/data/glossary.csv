@@ -169,6 +169,14 @@ catalog.prev,zurück,de_DE
 catalog.prev,back,en_US
 catalog.sort,Sortierung,de_DE
 catalog.sort,Sorting,en_US
+catalog.sort.name_asc,"Nach Name aufsteigend sortieren",de_DE
+catalog.sort.name_asc,"Sort by name ascending",en_US
+catalog.sort.name_desc,"Nach Name absteigend sortieren",de_DE
+catalog.sort.name_desc,"Sort by name descending",en_US
+catalog.sort.price_asc,"Nach Preis aufsteigend sortieren",de_DE
+catalog.sort.price_asc,"Sort by price ascending",en_US
+catalog.sort.price_desc,"Nach Preis absteigend sortieren",de_DE
+catalog.sort.price_desc,"Sort by price descending",en_US
 shipment.dhl,DHL,de_DE
 shipment.dhl,DHL,en_US
 shipment.dhl.paket.name,Paket,de_DE

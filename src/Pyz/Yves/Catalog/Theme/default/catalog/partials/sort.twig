@@ -9,7 +9,7 @@
                 <select name="sort" class="__no-margin-bottom">
                     <option value=""></option>
                     {% for sortParamName in sort.sortParamNames %}
-                        <option value="{{ sortParamName }}" {% if sortParamName == sort.currentSortParam %}selected{% endif %}>{{ 'catalog.sort.' ~ sortParamName | trans }}</option>
+                        <option value="{{ sortParamName }}" {% if sortParamName == sort.currentSortParam %}selected{% endif %}>{{ ('catalog.sort.' ~ sortParamName) | trans }}</option>
                     {% endfor %}
                 </select>
             </label>
