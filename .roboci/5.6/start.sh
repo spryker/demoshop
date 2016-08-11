@@ -20,6 +20,7 @@ psql -c "CREATE USER postgres WITH PASSWORD ''  ;"
 
 # linking redis service
 socat TCP4-LISTEN:6379,fork,reuseaddr TCP4:redis:6379 &
+
 # before_script section .travis.yml
 mkdir -p shared/data/common/jenkins
 mkdir -p shared/data/common/jenkins/jobs
