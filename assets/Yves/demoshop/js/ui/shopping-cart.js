@@ -78,6 +78,10 @@ var getSelectedProductOptionValueIds = function() {
     var optionValueIds = [];
     var index = 0;
     $('#product-options input:checked').each(function(i, el) {
+        if ($(el).val() == -1) {
+            return;
+        }
+
         optionValueIds[index++] = $(el).val();
     });
 

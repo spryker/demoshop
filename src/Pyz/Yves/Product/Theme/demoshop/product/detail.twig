@@ -48,6 +48,8 @@
                         <input type="radio" name="product-option[{{ productOptionGroup.name }}]" value="{{ productValue.idProductOptionValue }}" id="product-option-{{ productValue.idProductOptionValue }}"> &nbsp;
                         <label for="product-option-{{ productValue.idProductOptionValue }}">{{ productValue.value|trans }} | {{ productValue.sku }} | {{ productValue.price | price }}</label> <br />
                     {% endfor %}
+                    <input type="radio" name="product-option[{{ productOptionGroup.name }}]" value="-1" id="unselect-{{ productOptionGroup.idProductOptionGroup }}"> &nbsp;
+                    <label for="unselect-{{ productOptionGroup.idProductOptionGroup }}">{{ 'None' | trans }}</label> <br />
                 {% else %}
                     {% set productValue = productOptionGroup.productOptionValues[0] %}
                     <input type="checkbox" name="product-option[{{ productOptionGroup.name }}]" value="{{ productValue.idProductOptionValue }}" id="product-option-{{ productValue.idProductOptionValue }}"> &nbsp;
