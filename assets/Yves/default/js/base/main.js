@@ -1,20 +1,12 @@
 /**
- *
- * Demoshop 2.0 prototype
- * @author: Alessandro Bellini <alessandro.bellini@spryker.com>
- *
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 'use strict';
 
 // add your custom common js here
 // and/or change the existing one
-
-if (DEV) {
-    console.warn('Demoshop v2: DEVELOPMENT mode');
-} else {
-    console.info('Demoshop v2: PRODUCTION mode');
-}
 
 var aside = require('js/base/components/aside');
 var viewer = require('js/base/components/viewer');
