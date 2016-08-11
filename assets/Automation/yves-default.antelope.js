@@ -14,10 +14,10 @@ let cssOptions = antelope.options.production ? '' : '?sourceMap';
 
 let config = {
     cwd: cwd,
-    entry: {
+    entry: Object.assign({
         'externals': path.join(cwd, `./assets/Yves/${themeName}/externals.entry.js`),
         'base': path.join(cwd, `./assets/Yves/${themeName}/base.entry.js`)
-    },
+    }, antelope.entryPoints),
     resolve: {
         root: [
             ...antelope.paths.root,
