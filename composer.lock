@@ -1219,6 +1219,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "77b7a0c40e7d8d9e326b7cda457b90a362ef2070"
 =======
 =======
@@ -1227,6 +1228,8 @@
 >>>>>>> removed 5.6 requirement
 =======
 >>>>>>> try locally with robo
+=======
+>>>>>>> add robo stuff
 <<<<<<< HEAD
                 "reference": "9715eabcc7726dc88e3eeee7de519935b567bd72"
 =======
@@ -1236,6 +1239,8 @@
 >>>>>>> removed 5.6 requirement
 =======
 >>>>>>> try locally with robo
+=======
+>>>>>>> add robo stuff
 <<<<<<< HEAD
                 "reference": "a2f79b1696e526fe81b80b8aa59329106e972452"
 =======
@@ -1268,8 +1273,17 @@
 =======
                 "reference": "d180f94f6dddada97d9c83ee7c4bfc7e98c48150"
 >>>>>>> try locally with robo
+<<<<<<< HEAD
 >>>>>>> try locally with robo
+<<<<<<< HEAD
 >>>>>>> try locally with robo
+=======
+=======
+=======
+                "reference": "619e4ef68db6e0b65ad50f86ccd3acf90887c71e"
+>>>>>>> add robo stuff
+>>>>>>> add robo stuff
+>>>>>>> add robo stuff
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1802,6 +1816,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-09-15 09:30:26"
 =======
 =======
@@ -1810,6 +1825,8 @@
 >>>>>>> removed 5.6 requirement
 =======
 >>>>>>> try locally with robo
+=======
+>>>>>>> add robo stuff
 <<<<<<< HEAD
             "time": "2016-09-14 05:30:52"
 =======
@@ -1819,6 +1836,8 @@
 >>>>>>> removed 5.6 requirement
 =======
 >>>>>>> try locally with robo
+=======
+>>>>>>> add robo stuff
 <<<<<<< HEAD
             "time": "2016-09-09 06:35:01"
 =======
@@ -1851,8 +1870,17 @@
 =======
             "time": "2016-08-05 07:35:10"
 >>>>>>> try locally with robo
+<<<<<<< HEAD
 >>>>>>> try locally with robo
+<<<<<<< HEAD
 >>>>>>> try locally with robo
+=======
+=======
+=======
+            "time": "2016-08-10 19:02:12"
+>>>>>>> add robo stuff
+>>>>>>> add robo stuff
+>>>>>>> add robo stuff
         },
         {
             "name": "symfony-cmf/routing",
