@@ -38,26 +38,26 @@
         <br />
 
         <section class="product__details">
-            {% if productOptionGroups is defined %}
-        <p>{{ 'Product Options' | trans }}</p>
-        <div id="product-options">
-            {% for productOptionGroup in productOptionGroups.getProductOptionGroups %}
-                <p>{{ productOptionGroup.name | trans }}</p>
-                {% if productOptionGroup.productOptionValues | length > 1 %}
-                    {% for productValue in productOptionGroup.productOptionValues %}
-                        <input type="radio" name="product-option[{{ productOptionGroup.name }}]" value="{{ productValue.idProductOptionValue }}" id="product-option-{{ productValue.idProductOptionValue }}"> &nbsp;
+        {% if productOptionGroups is defined %}
+            <p>{{ 'Product Options' | trans }}</p>
+            <div id="product-options">
+                {% for productOptionGroup in productOptionGroups.getProductOptionGroups %}
+                    <p>{{ productOptionGroup.name | trans }}</p>
+                    {% if productOptionGroup.productOptionValues | length > 1 %}
+                        {% for productValue in productOptionGroup.productOptionValues %}
+                            <input type="radio" name="product-option[{{ productOptionGroup.name }}]" value="{{ productValue.idProductOptionValue }}" id="product-option-{{ productValue.idProductOptionValue }}"> &nbsp;
+                            <label for="product-option-{{ productValue.idProductOptionValue }}">{{ productValue.value|trans }} | {{ productValue.sku }} | {{ productValue.price | price }}</label> <br />
+                        {% endfor %}
+                        <input type="radio" name="product-option[{{ productOptionGroup.name }}]" value="-1" id="unselect-{{ productOptionGroup.idProductOptionGroup }}"> &nbsp;
+                        <label for="unselect-{{ productOptionGroup.idProductOptionGroup }}">{{ 'None' | trans }}</label> <br />
+                    {% else %}
+                        {% set productValue = productOptionGroup.productOptionValues[0] %}
+                        <input type="checkbox" name="product-option[{{ productOptionGroup.name }}]" value="{{ productValue.idProductOptionValue }}" id="product-option-{{ productValue.idProductOptionValue }}"> &nbsp;
                         <label for="product-option-{{ productValue.idProductOptionValue }}">{{ productValue.value|trans }} | {{ productValue.sku }} | {{ productValue.price | price }}</label> <br />
-                    {% endfor %}
-                    <input type="radio" name="product-option[{{ productOptionGroup.name }}]" value="-1" id="unselect-{{ productOptionGroup.idProductOptionGroup }}"> &nbsp;
-                    <label for="unselect-{{ productOptionGroup.idProductOptionGroup }}">{{ 'None' | trans }}</label> <br />
-                {% else %}
-                    {% set productValue = productOptionGroup.productOptionValues[0] %}
-                    <input type="checkbox" name="product-option[{{ productOptionGroup.name }}]" value="{{ productValue.idProductOptionValue }}" id="product-option-{{ productValue.idProductOptionValue }}"> &nbsp;
-                    <label for="product-option-{{ productValue.idProductOptionValue }}">{{ productValue.value|trans }} | {{ productValue.sku }} | {{ productValue.price | price }}</label> <br />
-                {% endif %}
-                <hr />
-            {% endfor %}
-        </div>
+                    {% endif %}
+                    <hr />
+                {% endfor %}
+            </div>
         {% endif %}
 
         </section>
