@@ -54,7 +54,6 @@ class CategoryImporter extends AbstractImporter
      */
     protected $nodeUrlManager;
 
-
     /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Pyz\Zed\Category\Business\CategoryFacadeInterface $categoryFacade
