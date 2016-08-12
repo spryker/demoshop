@@ -114,7 +114,7 @@ function installDemoshop {
     configureCodeception
 
     successText "Setup successful"
-    infoText "\nYves url: http://www.de.spryker.dev/\nZed url: http://zed.de.spryker.dev/\n"
+    infoText "\nYves URL: http://www.de.spryker.dev/\nZed URL: http://zed.de.spryker.dev/\n"
 }
 
 function installZed {
