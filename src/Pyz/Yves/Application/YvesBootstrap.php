@@ -24,7 +24,6 @@ use Pyz\Yves\Collector\Plugin\Router\StorageRouter;
 use Pyz\Yves\Currency\Plugin\CurrencyControllerProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
-use Pyz\Yves\EventJournal\Plugin\Provider\EventJournalServiceProvider;
 use Pyz\Yves\Glossary\Plugin\Provider\TranslationServiceProvider;
 use Pyz\Yves\Heartbeat\Plugin\Provider\HeartbeatControllerProvider;
 use Pyz\Yves\Newsletter\Plugin\Provider\NewsletterControllerProvider;
@@ -54,6 +53,8 @@ use Spryker\Yves\CmsContentWidget\Plugin\CmsContentWidgetServiceProvider;
 use Spryker\Yves\Currency\Plugin\CurrencySwitcherServiceProvider;
 use Spryker\Yves\Kernel\Application;
 use Spryker\Yves\Messenger\Plugin\Provider\FlashMessengerServiceProvider;
+use Spryker\Yves\Application\Plugin\ServiceProvider\KernelLogServiceProvider;
+use Spryker\Yves\ZedRequest\Plugin\ServiceProvider\ZedRequestHeaderServiceProvider;
 use Spryker\Yves\Money\Plugin\ServiceProvider\TwigMoneyServiceProvider;
 use Spryker\Yves\Navigation\Plugin\Provider\NavigationTwigServiceProvider;
 use Spryker\Yves\NewRelic\Plugin\ServiceProvider\NewRelicRequestTransactionServiceProvider;
@@ -64,6 +65,7 @@ use Spryker\Yves\ProductReview\Plugin\Provider\ProductAbstractReviewTwigServiceP
 use Spryker\Yves\Session\Plugin\ServiceProvider\SessionServiceProvider as SprykerSessionServiceProvider;
 use Spryker\Yves\Storage\Plugin\Provider\StorageCacheServiceProvider;
 use Spryker\Yves\Twig\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigServiceProvider;
+use Spryker\Yves\ZedRequest\Plugin\ServiceProvider\ZedRequestLogServiceProvider;
 
 class YvesBootstrap
 {
@@ -84,9 +86,7 @@ class YvesBootstrap
     public function boot()
     {
         $this->registerServiceProviders();
-
         $this->registerRouters();
-
         $this->registerControllerProviders();
 
         return $this->application;
@@ -99,6 +99,10 @@ class YvesBootstrap
     {
         $this->application->register(new StorageCacheServiceProvider());
         $this->application->register(new SprykerTwigServiceProvider());
+        $this->application->register(new KernelLogServiceProvider());
+        $this->application->register(new ZedRequestHeaderServiceProvider());
+        $this->application->register(new ZedRequestLogServiceProvider());
+
         $this->application->register(new TwigServiceProvider());
         $this->application->register(new ApplicationServiceProvider());
         $this->application->register(new SessionServiceProvider());
@@ -108,7 +112,6 @@ class YvesBootstrap
         $this->application->register(new YvesSecurityServiceProvider());
         $this->application->register(new ExceptionServiceProvider());
         $this->application->register(new NewRelicRequestTransactionServiceProvider());
-        $this->application->register(new EventJournalServiceProvider());
         $this->application->register(new CookieServiceProvider());
         $this->application->register(new UrlGeneratorServiceProvider());
         $this->application->register(new ServiceControllerServiceProvider());
