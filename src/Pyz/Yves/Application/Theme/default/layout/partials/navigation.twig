@@ -10,7 +10,7 @@
                 {% if app['cart.quantity'] > 0 %}
                     <li><span class="warning badge float-left">{{ app['cart.quantity'] }}</span></li>
                 {% endif %}
-                <li><a href="{{ url('cart') }}"><i class="fa fa-shopping-cart"></i>Cart</a></li>
+                <li><a href="{{ url('cart') }}"><i class="fa fa-shopping-cart"></i>{{ 'global.cart' | trans }}</a></li>
                 {% include '@application/layout/partials/customer-navigation.twig' %}
             </ul>
         </div>

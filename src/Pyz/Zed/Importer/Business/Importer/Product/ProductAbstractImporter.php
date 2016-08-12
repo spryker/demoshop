@@ -185,18 +185,32 @@ class ProductAbstractImporter extends AbstractImporter
             $productAbstractTransfer->addLocalizedAttributes($localizedAttributesTransfer);
         }
 
-        $productImageSet = new ProductImageSetTransfer();
+        $productAbstractTransfer = $this->addProductImageSets($product, $productAbstractTransfer);
 
+        return $productAbstractTransfer;
+    }
+
+    /**
+     * @param array $product
+     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
+     *
+     * @return \Generated\Shared\Transfer\ProductAbstractTransfer
+     */
+    protected function addProductImageSets(array $product, ProductAbstractTransfer $productAbstractTransfer)
+    {
         $productImage = new ProductImageTransfer();
         $productImage->setSort(0);
         $productImage->setExternalUrlSmall($product[self::IMAGE_SMALL]);
         $productImage->setExternalUrlLarge($product[self::IMAGE_LARGE]);
 
-        $productImageSet->setName('Default');
-        $productImageSet->setLocale($this->localeFacade->getCurrentLocale());
-        $productImageSet->addProductImage($productImage);
+        foreach ($this->localeFacade->getLocaleCollection() as $localeTransfer) {
+            $productImageSet = new ProductImageSetTransfer();
+            $productImageSet->setName('Default');
+            $productImageSet->setLocale($localeTransfer);
+            $productImageSet->addProductImage($productImage);
 
-        $productAbstractTransfer->addProductImageSet($productImageSet);
+            $productAbstractTransfer->addProductImageSet($productImageSet);
+        }
 
         return $productAbstractTransfer;
     }
