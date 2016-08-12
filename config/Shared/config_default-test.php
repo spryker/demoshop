@@ -7,6 +7,7 @@
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Session\SessionConstants;
+use Spryker\Shared\Storage\StorageConstants;
 
 $config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
 $config[ApplicationConstants::ZED_DB_USERNAME] = 'development';
@@ -18,10 +19,17 @@ $config[ApplicationConstants::ZED_DB_PORT] = 5432;
 $config[SessionConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
 $config[SessionConstants::ZED_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_FILE;
 
-$config[SessionConstants::YVES_SESSION_REDIS_PROTOCOL] = 'tcp';
-$config[SessionConstants::YVES_SESSION_REDIS_HOST] = '127.0.0.1';
-$config[SessionConstants::YVES_SESSION_REDIS_PORT] = '10009';
-$config[SessionConstants::YVES_SESSION_REDIS_PASSWORD] = '';
+$config[StorageConstants::STORAGE_REDIS_PROTOCOL] = 'tcp';
+$config[StorageConstants::STORAGE_REDIS_HOST] = '127.0.0.1';
+$config[StorageConstants::STORAGE_REDIS_PORT] = '10009';
+$config[StorageConstants::STORAGE_REDIS_PASSWORD] = '';
+$config[StorageConstants::STORAGE_REDIS_DATABASE] = 0;
+
+$config[SessionConstants::YVES_SESSION_REDIS_PROTOCOL] = $config[StorageConstants::STORAGE_REDIS_PROTOCOL];
+$config[SessionConstants::YVES_SESSION_REDIS_HOST] = $config[StorageConstants::STORAGE_REDIS_HOST];
+$config[SessionConstants::YVES_SESSION_REDIS_PORT] = $config[StorageConstants::STORAGE_REDIS_PORT];
+$config[SessionConstants::YVES_SESSION_REDIS_PASSWORD] = $config[StorageConstants::STORAGE_REDIS_PASSWORD];
+$config[SessionConstants::YVES_SESSION_REDIS_DATABASE] = 1;
 
 $config[SessionConstants::ZED_SESSION_REDIS_PROTOCOL] = $config[SessionConstants::YVES_SESSION_REDIS_PROTOCOL];
 $config[SessionConstants::ZED_SESSION_REDIS_HOST] = $config[SessionConstants::YVES_SESSION_REDIS_HOST];
