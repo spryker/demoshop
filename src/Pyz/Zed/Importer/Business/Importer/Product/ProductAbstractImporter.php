@@ -10,6 +10,7 @@ namespace Pyz\Zed\Importer\Business\Importer\Product;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
+use Generated\Shared\Transfer\ProductAttributeKeyTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Generated\Shared\Transfer\ProductImageSetTransfer;
 use Generated\Shared\Transfer\ProductImageTransfer;
@@ -18,10 +19,8 @@ use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Shared\Library\Collection\Collection;
 use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
-use Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
 use Symfony\Component\Finder\Finder;
-use Symfony\Component\Yaml\Yaml;
 
 class ProductAbstractImporter extends AbstractImporter
 {
@@ -38,11 +37,6 @@ class ProductAbstractImporter extends AbstractImporter
 
     const PRODUCT_ABSTRACT = 'product_abstract';
     const PRODUCT_CONCRETE_COLLECTION = 'product_concrete_collection';
-
-    /**
-     * @var \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface
-     */
-    protected $attributeManager;
 
     /**
      * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
@@ -62,7 +56,7 @@ class ProductAbstractImporter extends AbstractImporter
     /**
      * @var array
      */
-    protected $metadata;
+    protected $attributeKeys;
 
     /**
      * @var string
@@ -77,19 +71,16 @@ class ProductAbstractImporter extends AbstractImporter
     /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
-     * @param \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface $attributeManager
      * @param string $dataDirectory
      */
     public function __construct(
         LocaleFacadeInterface $localeFacade,
         ProductFacadeInterface $productFacade,
-        AttributeManagerInterface $attributeManager,
         $dataDirectory
     ) {
         parent::__construct($localeFacade);
 
         $this->productFacade = $productFacade;
-        $this->attributeManager = $attributeManager;
         $this->dataDirectory = $dataDirectory;
 
         $this->cacheInstalledAttributes = new Collection([]);
@@ -127,7 +118,8 @@ class ProductAbstractImporter extends AbstractImporter
 
         $product = $this->useLocalIcecatImages($product);
         $concreteProductData = $this->getConcreteProductsData();
-        $this->createAttributes($concreteProductData);
+        $this->createAttributes($product);
+        $this->createConcreteAttributes($concreteProductData);
         foreach ($concreteProductData as $type => $productAttributes) {
             if (empty($productAttributes)) {
                 continue;
@@ -164,6 +156,7 @@ class ProductAbstractImporter extends AbstractImporter
 
         $abstractAttributes = array_intersect_key($product, array_flip($abstractAttributeNames));
         $abstractAttributes = array_merge($abstractAttributes, $attributeData[self::PRODUCT_ABSTRACT]);
+        $abstractAttributes = array_filter($abstractAttributes);
 
         unset($attributeData[self::PRODUCT_ABSTRACT]);
 
@@ -240,10 +233,8 @@ class ProductAbstractImporter extends AbstractImporter
         unset($attributeData[self::PRODUCT_ABSTRACT]);
 
         foreach ($attributeData as $localeCode => $localizedAttributesData) {
-            $localizedKeyName = $this->getLocalizedKeyName(self::NAME, $localeCode);
-
             $localizedAttributesTransfer = $this->buildLocalizedAttributesTransfer(
-                $product[$localizedKeyName],
+                $this->getProductName($product, $localeCode),
                 $localizedAttributesData,
                 $this->localeFacade->getLocale($localeCode)
             );
@@ -293,7 +284,7 @@ class ProductAbstractImporter extends AbstractImporter
         $finder = new Finder();
         $finder
             ->files()
-            ->name('*.csv')
+            ->name('icecat*.csv')
             ->in($this->dataDirectory . 'products/');
 
         /* @var \SplFileInfo $file */
@@ -441,7 +432,7 @@ class ProductAbstractImporter extends AbstractImporter
      *
      * @return array
      */
-    protected function createAttributes(array $attributes)
+    protected function createConcreteAttributes(array $attributes)
     {
         foreach ($attributes as $type => $data) {
             if (empty($data)) {
@@ -452,18 +443,27 @@ class ProductAbstractImporter extends AbstractImporter
                 continue;
             }
 
-            $attributes = $this->generateMappedAttributes($data);
-            foreach ($attributes as $attributeName => $attributeType) {
-                if (!$this->attributeManager->hasAttributeType($attributeType)) {
-                    continue;
-                }
-
-                if (!$this->attributeManager->hasAttribute($attributeName)) {
-                    $this->attributeManager->createAttribute($attributeName, $attributeType, true);
-                }
-            }
+            $this->createAttributes($data);
 
             $this->cacheInstalledAttributes->set($type, true);
+        }
+    }
+
+    /**
+     * @param array $attributes
+     *
+     * @return void
+     */
+    protected function createAttributes(array $attributes)
+    {
+        $attributes = $this->generateMappedAttributes($attributes);
+        foreach ($attributes as $attributeName) {
+            if (!$this->productFacade->hasProductAttributeKey($attributeName)) {
+                $productAttributeKeyTransfer = new ProductAttributeKeyTransfer();
+                $productAttributeKeyTransfer->setKey($attributeName);
+
+                $this->productFacade->createProductAttributeKey($productAttributeKeyTransfer);
+            }
         }
     }
 
@@ -553,27 +553,24 @@ class ProductAbstractImporter extends AbstractImporter
             $localizedKeys
         );
 
-        $attributesMetaData = array_combine(
-            array_keys($attributesMetaData),
-            array_keys($attributesMetaData)
-        );
-
-        return array_intersect_key($this->getMetadata(), $attributesMetaData);
+        return array_intersect($this->getAttributeKeys(), array_keys($attributesMetaData));
     }
 
     /**
      * @return array
      */
-    protected function getMetadata()
+    protected function getAttributeKeys()
     {
-        if ($this->metadata === null) {
-            $yaml = new Yaml();
-            $this->metadata = $yaml->parse(file_get_contents(
-                $this->dataDirectory . '/products/metadata.yml'
-            ));
+        if ($this->attributeKeys === null) {
+            $csvReader = new CsvReader();
+            $csvReader->load($this->dataDirectory . '/products/attribute_keys.csv');
+            while ($csvReader->valid()) {
+                $data = $csvReader->read();
+                $this->attributeKeys[] = $data['attribute_key'];
+            }
         }
 
-        return $this->metadata;
+        return $this->attributeKeys;
     }
 
     /**

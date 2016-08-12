@@ -16,7 +16,6 @@ use Spryker\Zed\Category\Business\Tree\ClosureTableWriter;
 use Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter;
 use Spryker\Zed\Category\Business\Tree\NodeWriter;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
-use Spryker\Zed\Product\Business\Attribute\AttributeManager;
 
 /**
  * @method \Pyz\Zed\Importer\ImporterConfig getConfig()
@@ -97,16 +96,6 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     {
         return new ClosureTableWriter(
             $this->getCategoryQueryContainer()
-        );
-    }
-
-    /**
-     * @return \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface
-     */
-    protected function createAttributeManager()
-    {
-        return new AttributeManager(
-            $this->getProductQueryContainer()
         );
     }
 

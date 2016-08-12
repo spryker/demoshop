@@ -109,7 +109,6 @@ class ImporterFactory extends AbstractFactory
         $productAbstractImporter = new ProductAbstractImporter(
             $this->getLocaleFacade(),
             $this->getProductFacade(),
-            $this->createAttributeManager(),
             $this->getConfig()->getIcecatImportDataDirectory()
         );
 
