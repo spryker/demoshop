@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="small-12 medium-6 xlarge-12 columns">
                     <div class="callout">
-                        <h5>Payment</h5>
+                        <h5>{{ 'checkout.step.summary.payment' | trans }}</h5>
                         <ul class="no-bullet">
                             <li>
                                 <span class="__secondary">{{ 'checkout.step.summary.with_method' | trans }}</span> {{ quoteTransfer.payment.paymentMethod }}
@@ -28,7 +28,7 @@
                 </div>
                 <div class="small-12 medium-6 xlarge-12 columns">
                     <div class="callout">
-                        <h5>Shipping</h5>
+                        <h5>{{ 'checkout.step.summary.shipping' | trans }}</h5>
                         <ul class="no-bullet">
                             <li><span class="__secondary">{{ 'checkout.step.summary.with_method' | trans }}</span> {{ quoteTransfer.shipment.method.name }}</li>
                             <li>

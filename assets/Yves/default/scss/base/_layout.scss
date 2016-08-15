@@ -51,7 +51,7 @@
 }
 
 .__home-banner {
-    background:url(/assets/default/img/home-banner.jpg) center no-repeat;
+    background: linear-gradient(140deg, #4BD3AA 0%, map-get($foundation-palette, primary) 90%);
 
     .row {
         height: 300px;

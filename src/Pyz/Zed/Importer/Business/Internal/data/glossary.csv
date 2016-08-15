@@ -549,6 +549,8 @@ checkout.step.summary.sub_total,Zwischensumme,de_DE
 checkout.step.summary.sub_total,Subtotal,en_US
 checkout.step.summary.grand_total,"Summe",de_DE
 checkout.step.summary.grand_total,"Grand Total",en_US
+checkout.step.summary.payment,"Zahlung",de_DE
+checkout.step.summary.payment,"Payment",en_US
 checkout.step.summary.shipping,"Versand",de_DE
 checkout.step.summary.shipping,"Shipping",en_US
 checkout.step.summary.tax,"Mehrwertsteuer",de_DE
