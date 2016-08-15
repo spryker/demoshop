@@ -204,7 +204,7 @@ class FormFactory extends SprykerFormFactory
      */
     protected function getFormFactory()
     {
-        return $this->getProvidedDependency(ApplicationConstants::APPLICATION_FORM_FACTORY);
+        return $this->getProvidedDependency(ApplicationConstants::FORM_FACTORY);
     }
 
     /**
