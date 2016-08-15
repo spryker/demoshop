@@ -7,8 +7,10 @@
 
 namespace Pyz\Yves\Cart\Controller;
 
+use Pyz\Yves\Cart\Form\VoucherForm;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
 use Spryker\Yves\Application\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @method \Pyz\Yves\Cart\CartFactory getFactory()
@@ -17,25 +19,40 @@ class VoucherController extends AbstractController
 {
 
     /**
-     * @param string $voucherCode
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function addAction($voucherCode)
+    public function addAction(Request $request)
     {
-        $this->getFactory()->createCartVoucherHandler()->add($voucherCode);
+        $form = $this->getFactory()
+            ->createVoucherForm()
+            ->handleRequest($request);
+
+        if ($form->isValid()) {
+            $voucherCode = $form->get(VoucherForm::FIELD_VOUCHER_CODE)->getData();
+
+            $this->getFactory()
+                ->createCartVoucherHandler()
+                ->add($voucherCode);
+        }
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
     }
 
     /**
-     * @param string $voucherCode
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function removeAction($voucherCode)
+    public function removeAction(Request $request)
     {
-        $this->getFactory()->createCartVoucherHandler()->remove($voucherCode);
+        $voucherCode = $request->query->get('code');
+        if (!empty($voucherCode)) {
+            $this->getFactory()
+                ->createCartVoucherHandler()
+                ->remove($voucherCode);
+        }
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
     }

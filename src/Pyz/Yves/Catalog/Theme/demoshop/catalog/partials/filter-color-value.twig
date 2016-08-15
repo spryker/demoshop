@@ -1,9 +1,0 @@
-<input type="radio"
-       class="filter-{{filterName}}-{{id}}"
-       name="filter-{{filterName}}"
-       data-color="{{value}}"
-       value="{{value}}"
-        {% if checked is defined and checked == true %} checked=true{% endif %}>
-<label for="filter-{{filterName}}-{{value}}" class="js-color-name">{{value}}
-    <span class="filter__quantity">{{quantity}}</span>
-</label>

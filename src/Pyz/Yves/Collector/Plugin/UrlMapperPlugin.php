@@ -17,16 +17,15 @@ class UrlMapperPlugin extends AbstractPlugin
 
     /**
      * @param array $mergedParameters
-     * @param bool $addTrailingSlash
      *
      * @return string
      */
-    public function generateUrlFromParameters(array $mergedParameters, $addTrailingSlash = false)
+    public function generateUrlFromParameters(array $mergedParameters)
     {
         return $this
             ->getFactory()
             ->createUrlMapper()
-            ->generateUrlFromParameters($mergedParameters, $addTrailingSlash);
+            ->generateUrlFromParameters($mergedParameters);
     }
 
     /**

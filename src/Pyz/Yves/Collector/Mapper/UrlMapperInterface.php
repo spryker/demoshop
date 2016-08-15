@@ -12,10 +12,9 @@ interface UrlMapperInterface
 
     /**
      * @param array $mergedParameters
-     * @param bool $addTrailingSlash
      *
      * @return string
      */
-    public function generateUrlFromParameters(array $mergedParameters, $addTrailingSlash = false);
+    public function generateUrlFromParameters(array $mergedParameters);
 
 }

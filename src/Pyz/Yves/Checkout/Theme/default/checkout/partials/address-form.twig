@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="small-12 medium-3 columns">
+        <label>
+            {{ addressForm.salutation.vars.label | trans }}*
+            {{ form_widget(addressForm.salutation, { 'attr': {'placeholder': addressForm.salutation.vars.label | trans } }) }}
+        </label>
+        {{ form_errors(addressForm.salutation) }}
+    </div>
+    <div class="small-12 medium-9 columns">
+        <label>
+            {{ addressForm.first_name.vars.label | trans }}*
+            {{ form_widget(addressForm.first_name, { 'attr': {'placeholder': addressForm.first_name.vars.label | trans } }) }}
+        </label>
+        {{ form_errors(addressForm.first_name) }}
+    </div>
+    <div class="small-12 medium-offset-3 medium-9 columns">
+        <label>
+            {{ addressForm.last_name.vars.label | trans }}*
+            {{ form_widget(addressForm.last_name, { 'attr': {'placeholder': addressForm.last_name.vars.label | trans } }) }}
+        </label>
+        {{ form_errors(addressForm.last_name) }}
+    </div>
+
+    <div class="small-12 medium-6 columns">
+        <label>
+            {{ addressForm.company.vars.label | trans }}
+            {{ form_widget(addressForm.company, { 'attr': {'placeholder': addressForm.company.vars.label | trans } }) }}
+        </label>
+        {{ form_errors(addressForm.company) }}
+    </div>
+
+    <div class="small-12 medium-6 columns">
+        <label>
+            {{ addressForm.phone.vars.label | trans }}
+            {{ form_widget(addressForm.phone, { 'attr': {'placeholder': addressForm.phone.vars.label | trans } }) }}
+        </label>
+        {{ form_errors(addressForm.phone) }}
+    </div>
+
+    <div class="small-9 medium-6 columns">
+        <label>
+            {{ addressForm.address1.vars.label | trans }}*
+            {{ form_widget(addressForm.address1, { 'attr': {'placeholder': addressForm.address1.vars.label | trans } }) }}
+        </label>
+        {{ form_errors(addressForm.address1) }}
+    </div>
+    <div class="small-3 medium-2 columns">
+        <label>
+            {{ addressForm.address2.vars.label | trans }}*
+            {{ form_widget(addressForm.address2, { 'attr': {'placeholder': addressForm.address2.vars.label | trans } }) }}
+        </label>
+        {{ form_errors(addressForm.address2) }}
+    </div>
+    <div class="small-12 medium-4 columns">
+        <label>
+            {{ addressForm.address3.vars.label | trans }}
+            {{ form_widget(addressForm.address3, { 'attr': {'placeholder': addressForm.address3.vars.label | trans } }) }}
+        </label>
+        {{ form_errors(addressForm.address3) }}
+    </div>
+
+    <div class="small-12 medium-3 columns">
+        <label>
+            {{ addressForm.zip_code.vars.label | trans }}*
+            {{ form_widget(addressForm.zip_code, { 'attr': {'placeholder': addressForm.zip_code.vars.label | trans } }) }}
+        </label>
+        {{ form_errors(addressForm.zip_code) }}
+    </div>
+
+    <div class="small-12 medium-5 columns">
+        <label>
+            {{ addressForm.city.vars.label | trans }}*
+            {{ form_widget(addressForm.city, { 'attr': {'placeholder': addressForm.city.vars.label | trans } }) }}
+        </label>
+        {{ form_errors(addressForm.city) }}
+    </div>
+
+    <div class="small-12 medium-4 columns">
+        <label>
+            {{ addressForm.iso2_code.vars.label | trans }}*
+            {{ form_widget(addressForm.iso2_code, { 'attr': {'placeholder': addressForm.iso2_code.vars.label | trans } }) }}
+        </label>
+        {{ form_errors(addressForm.iso2_code) }}
+    </div>
+</div>

@@ -1,0 +1,17 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block breadcrumb %}{% endblock %}
+
+{% block content %}
+
+    <div class="row small-unstack">
+        <div class="columns __checkout-proceed-as-method" data-viewer-id="user" data-viewer-default>
+            {% include "@customer/register/partials/register-form.twig" with {'form': registerForm} %}
+        </div>
+
+        <div class="columns __checkout-proceed-as-method" data-viewer-id="user" data-viewer-default>
+            {% include "@customer/auth/partials/login-form.twig" with {'form': loginForm} %}
+        </div>
+    </div>
+
+{% endblock %}

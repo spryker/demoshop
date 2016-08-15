@@ -1,0 +1,52 @@
+{{ render(path('newsletter/subscribe')) }}
+
+<div class="small-12 medium-6 columns text-center medium-text-left">
+    <div class="callout">
+        <h5>{{ 'global.payment_providers' | trans }}</h5>
+        <img class="thumbnail" src="/assets/default/img/provider/foo.png">
+        <img class="thumbnail" src="/assets/default/img/provider/bar.png">
+        <img class="thumbnail" src="/assets/default/img/provider/baz.png">
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+<div class="small-12 medium-6 columns text-center medium-text-left">
+    <div class="callout">
+        <h5>{{ 'global.shipment_providers' | trans }}</h5>
+        <img class="thumbnail" src="/assets/default/img/provider/foo.png">
+        <img class="thumbnail" src="/assets/default/img/provider/bar.png">
+        <img class="thumbnail" src="/assets/default/img/provider/baz.png">
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+<div class="small-12 columns text-center medium-text-left">
+    <div class="callout">
+        <div class="row">
+            <ul class="small-12 medium-8 large-6 columns no-bullet">
+                <li><a href="{{ 'page.imprint.url'|trans }}" class="footer__impressum">{{ 'page.imprint.title'|trans }}</a></li>
+                <li><a href="{{ 'page.terms.url'|trans }}" class="footer__agb">{{ 'page.terms.title'|trans }}</a></li>
+                <li><a href="{{ 'page.privacy.url'|trans }}" class="footer__datenschutz">{{ 'page.privacy.title'|trans }}</a></li>
+            </ul>
+            <ul class="small-12 medium-4 large-3 columns no-bullet">
+                <li><h5>{{ 'global.get_in_touch' | trans }}</h5></li>
+                <li>+49 (0)30 2084983 50</li>
+                <li><a href="mailto:info@spryker.com">info@spryker.com</a></li>
+            </ul>
+            <div class="large-3 columns show-for-large">
+                <h5>{{ 'global.social' | trans }}</h5>
+                {% include '@application/layout/partials/social-links.twig' %}
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="callout hide-for-large">
+        <div class="row">
+            <div class="small-12 columns text-center">
+                <h5>{{ 'global.social' | trans }}</h5>
+                {% include '@application/layout/partials/social-links.twig' %}
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>

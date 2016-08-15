@@ -1,0 +1,11 @@
+{% if products|length %}
+    <div class="callout text-center">
+        {% include '@Application/layout/partials/pagination.twig' with {
+            parameters: app.request.query.all(),
+            currentPage: pagination.currentPage,
+            paginationPath: app.request.getPathInfo(),
+            maxPage: pagination.maxPage,
+            showAlwaysFirstAndLast: true
+        } %}
+    </div>
+{% endif %}

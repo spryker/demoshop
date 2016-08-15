@@ -1,0 +1,12 @@
+{% extends "@checkout/layout.twig" %}
+
+{% block content %}
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="callout success">
+                <h3>{{ 'checkout.step.success.title' | trans }}</h3>
+                {{ 'checkout.step.success.text' | trans }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

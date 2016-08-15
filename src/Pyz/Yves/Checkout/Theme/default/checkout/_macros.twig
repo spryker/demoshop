@@ -1,0 +1,5 @@
+{% macro include_subform(method) %}
+    {% if method.vars.template_path is defined %}
+        {% include "@" ~ method.vars.template_path ~ ".twig" with {'form': method.parent, 'child': method} %}
+    {% endif %}
+{% endmacro %}

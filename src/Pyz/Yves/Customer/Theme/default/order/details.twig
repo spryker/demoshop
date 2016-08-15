@@ -1,0 +1,40 @@
+{% extends "@customer/layout.twig" %}
+
+{% block title %}
+    <h3>{{ 'customer.account.order_history' | trans }}</h3>
+{% endblock %}
+
+{% block customerNavigation %}
+    {% include "@customer/partials/navigation.twig" with {'active': 'order'} %}
+{% endblock %}
+
+{% block customerContent %}
+    <div class="callout">
+        <h5>{{ 'customer.profile.order_details' | trans }}</h5>
+        <hr>
+
+        <p>
+            <strong>{{ 'customer.order.order_id' | trans }}:</strong> {{ order.orderReference }}<br/>
+            <strong>{{ 'customer.order.date' | trans }}:</strong> {{ order.createdAt|formatDateShort }}
+        </p>
+
+        {% block orderItems %}
+            {% include "@customer/order/partials/order-items.twig" %}
+        {% endblock %}
+
+        <div class="row">
+            {% include "@customer/order/partials/details-sum.twig" %}
+        </div>
+    </div>
+
+
+    {% include "@customer/order/partials/details-personal-data.twig" %}
+
+    <div class="callout">
+        <div class="row align-right">
+            <div class="small-12 medium-6 large-4 columns align-bottom">
+                <a href="{{ url('customer/order') }}" class="button expanded __no-margin-bottom">{{ 'general.back.button' | trans }}</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
