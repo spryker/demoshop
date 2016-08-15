@@ -48,6 +48,7 @@ do
     case $arg in
         "-i" )
             $CONSOLE transfer:generate
+            $CONSOLE setup:search
             $CONSOLE setup:generate-client-ide-auto-completion
             $CONSOLE setup:generate-ide-auto-completion
             $CONSOLE setup:generate-zed-ide-auto-completion
