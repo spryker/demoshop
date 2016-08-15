@@ -20,7 +20,7 @@ $config[ApplicationConstants::ZED_DB_DATABASE] = ltrim($dbopts['path'], '/');
 $config[ApplicationConstants::ZED_DB_HOST] = $dbopts['host'];
 $config[ApplicationConstants::ZED_DB_PORT] = isset($dbopts['port']) ? $dbopts['port'] : 5432;
 
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_development_catalog';
+$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_search';
 
 $yvesHost = getenv('YVES_HOST');
 $yvesProtocol = getenv('YVES_HOST_PROTOCOL'); //'http://'
