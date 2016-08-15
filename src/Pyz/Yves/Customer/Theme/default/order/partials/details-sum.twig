@@ -1,0 +1,9 @@
+<div class="columns text-right">
+    {{ 'customer.order.subTotal' | trans }}: {{ order.totals.subtotal | price }}<br/>
+    {% for expense in order.expenses %}
+        {{ 'customer.order.shipment' | trans }} {{ expense.name }}: {{ expense.sumGrossPrice | price }}<br/>
+    {% endfor %}
+
+    {{ 'customer.order.discount.total' | trans }}: -{{ order.totals.discountTotal | price }}<br/>
+    <strong>{{ 'customer.order.grandTotal' | trans }}: {{ order.totals.grandTotal | price }}</strong>
+</div>

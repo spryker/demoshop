@@ -49,8 +49,7 @@ class ShipmentForm extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $this->addShipmentMethods($builder, $options)
-            ->addSubmit($builder);
+        $this->addShipmentMethods($builder, $options);
     }
 
     /**
@@ -114,18 +113,6 @@ class ShipmentForm extends AbstractType
                 ]
             );
         }
-
-        return $this;
-    }
-
-    /**
-     * @param \Symfony\Component\Form\FormBuilderInterface $builder
-     *
-     * @return $this
-     */
-    protected function addSubmit(FormBuilderInterface $builder)
-    {
-        $builder->add('checkout.step.payment', 'submit');
 
         return $this;
     }

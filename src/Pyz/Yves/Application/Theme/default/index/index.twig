@@ -1,0 +1,40 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block breadcrumb %}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="small-12 columns show-for-medium">
+            <div class="callout">
+                <div class="__home-banner">
+                    <div class="row align-middle text-center">
+                        <div class="small-12 columns">
+                            <h1>{{ 'global.spryker.shop' | trans }}<br/>{{ 'global.spryker.motto' | trans }}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if products is defined %}
+            {% for product in products %}
+                <div class="small-12 medium-6 large-4 columns">
+                    {% include "@catalog/catalog/partials/product.twig" with {
+                        detailsUrl: product.url,
+                        name: product.abstract_name,
+                        priceValue: product.price,
+                        imageUrl: (product.images|length ? product.images.0.external_url_small : '')
+                    } %}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="small-12 columns">
+            <div class="callout text-center">
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+                <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
+                <p>Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

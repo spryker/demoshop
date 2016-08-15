@@ -28,19 +28,6 @@ class SummaryForm extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $this->addSubmit($builder);
-    }
-
-    /**
-     * @param \Symfony\Component\Form\FormBuilderInterface $builder
-     *
-     * @return $this
-     */
-    protected function addSubmit(FormBuilderInterface $builder)
-    {
-        $builder->add('checkout.step.place.order', 'submit');
-
-        return $this;
     }
 
     /**

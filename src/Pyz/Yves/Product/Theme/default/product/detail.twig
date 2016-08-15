@@ -1,0 +1,117 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block page_title %}{{ product.abstract_name }}{% endblock %}
+
+{% block breadcrumbItems %}
+    <li><a href="/">{{ 'global.home' | trans }}</a></li>
+    {% if productCategories|length %}
+        {% for category in productCategories %}
+            <li><a href="{{ category.url }}">{{ category.name }}</a></li>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+
+{% block title %}
+    <h3>{{ product.abstract_name }}</h3>
+{% endblock %}
+
+{% block outside %}
+    <div class="row hide-for-xlarge">
+        <div class="small-12 columns">
+            <div class="__image-viewer-block">
+                {% for image in product.abstractAttributes.images %}
+                    <div data-viewer-id="{{ image.external_url_large }}" data-viewer-reset>
+                        <a class="close-button">&times;</a>
+                        <img class="thumbnail" src="{{ image.external_url_large }}">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="small-12 medium-6 xlarge-7 xxlarge-8 columns">
+            <div class="callout text-center">
+                <div class="row show-for-xlarge">
+                    <div class="small-12 columns">
+                        <div class="__image-viewer-inline">
+                            {% for image in product.abstractAttributes.images %}
+                                <div data-viewer-id="{{ image.external_url_large }}" {% if loop.first %}data-viewer-default{% endif %}>
+                                    <span class="thumbnail __preview-image __preview-image--large">
+                                        <img src="{{ image.external_url_large }}">
+                                    </span>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 columns">
+                        <div class="row">
+                            {% for image in product.abstractAttributes.images %}
+                                <a class="small-6 medium-6 large-6 xlarge-expand columns" href="{{ image.external_url_large }}" target="_blank" data-viewer-show="{{ image.external_url_large }}">
+                                    <span class="thumbnail __preview-image __preview-image--small">
+                                        <img src="{{ image.external_url_large }}">
+                                    </span>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="small-12 medium-6 xlarge-5 xxlarge-4 columns">
+            <div class="callout">
+                <h5><small>{{ 'page.product.by' | trans }}</small> {{ product.abstractAttributes.manufacturer_name }}</h5>
+                <p>
+                    <span class="stat">{{ product.price | price }}</span>
+                </p>
+
+                <p>{{ product.abstractAttributes.short_description }}</p>
+
+                <form class="row align-bottom" method="POST" action="/cart/add/{{ product.abstractSku }}">
+                    {#<div class="small-12 columns">#}
+                        {#<label>#}
+                            {#Variants#}
+                            {#<select name="variant">#}
+                                {#<option value="red">Red</option>#}
+                                {#<option value="green">Green</option>#}
+                                {#<option value="blue">Blue</option>#}
+                                {#<option value="yellow">Yellow</option>#}
+                            {#</select>#}
+                        {#</label>#}
+                    {#</div>#}
+                    <div class="small-12 columns">
+                        <button type="submit" class="button expanded success">
+                            <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="callout">
+                <h5>{{ 'product.attribute.long_description' | trans }}</h5>
+                <p>{{ product.abstractAttributes.long_description }}</p>
+
+                <h5>{{ 'page.product.details' | trans }}</h5>
+                <div class="row">
+                    {% for attributeName, attributeValue in product.abstractAttributes %}
+                        {% if attributeName not in ['short_description', 'long_description', 'url', 'variant_id', 'abstract_name', 'quantity', 'available', 'price', 'manufacturer_name', 'license', 'sku', 'images'] %}
+                            <p class="small-12 medium-6 xlarge-4 xxlarge-3 columns">
+                                <strong>{{ ('product.attribute.'~attributeName) | trans }}</strong><br>
+                                {{ attributeValue }}
+                            </p>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

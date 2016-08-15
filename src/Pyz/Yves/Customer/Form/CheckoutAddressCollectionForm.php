@@ -69,8 +69,7 @@ class CheckoutAddressCollectionForm extends AbstractType
         $this
             ->addShippingAddressSubForm($builder, $options)
             ->addSameAsShipmentCheckbox($builder)
-            ->addBillingAddressSubForm($builder, $options)
-            ->addSubmit($builder);
+            ->addBillingAddressSubForm($builder, $options);
     }
 
     /**
@@ -147,18 +146,6 @@ class CheckoutAddressCollectionForm extends AbstractType
         ];
 
         $builder->add(self::FIELD_BILLING_ADDRESS, new CheckoutAddressForm(), $options);
-
-        return $this;
-    }
-
-    /**
-     * @param \Symfony\Component\Form\FormBuilderInterface $builder
-     *
-     * @return \Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm
-     */
-    protected function addSubmit(FormBuilderInterface $builder)
-    {
-        $builder->add('checkout.step.shipment', 'submit');
 
         return $this;
     }

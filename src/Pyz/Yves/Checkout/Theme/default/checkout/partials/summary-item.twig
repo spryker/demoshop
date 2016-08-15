@@ -1,0 +1,13 @@
+<li>
+    {{ item.quantity }}
+    <span class="__secondary">&times;</span>
+    {{ item.name }}
+    <br>
+    <small class="__secondary">{{ 'product.attribute.sku' | trans }}: {{ item.sku }} - <strong>{{ item.unitGrossPriceWithProductOptions|price }}</strong> </small>
+    <strong class="float-right">{{ item.sumGrossPriceWithProductOptions|price }}</strong>
+    {% if not loop.last %}
+        <hr>
+    {% else %}
+        <div class="clearfix"></div>
+    {% endif %}
+</li>

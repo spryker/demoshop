@@ -35,6 +35,7 @@ class ProductAbstractImporter extends AbstractImporter
     const CATEGORY_ID = 'category_id';
     const CATEGORY_KEY = 'category_key';
     const MANUFACTURER_NAME = 'manufacturer_name';
+    const IS_FEATURED = 'is_featured';
 
     const PRODUCT_ABSTRACT = 'product_abstract';
     const PRODUCT_CONCRETE_COLLECTION = 'product_concrete_collection';
@@ -127,7 +128,8 @@ class ProductAbstractImporter extends AbstractImporter
 
         $product = $this->useLocalIcecatImages($product);
         $concreteProductData = $this->getConcreteProductsData();
-        $this->createAttributes($concreteProductData);
+        $this->createAttributes($product);
+        $this->createConcreteAttributes($concreteProductData);
         foreach ($concreteProductData as $type => $productAttributes) {
             if (empty($productAttributes)) {
                 continue;
@@ -160,10 +162,12 @@ class ProductAbstractImporter extends AbstractImporter
             self::MANUFACTURER_NAME,
             self::VARIANT_ID,
             self::PRODUCT_ID,
+            self::IS_FEATURED,
         ];
 
         $abstractAttributes = array_intersect_key($product, array_flip($abstractAttributeNames));
         $abstractAttributes = array_merge($abstractAttributes, $attributeData[self::PRODUCT_ABSTRACT]);
+        $abstractAttributes = array_filter($abstractAttributes);
 
         unset($attributeData[self::PRODUCT_ABSTRACT]);
 
@@ -181,18 +185,32 @@ class ProductAbstractImporter extends AbstractImporter
             $productAbstractTransfer->addLocalizedAttributes($localizedAttributesTransfer);
         }
 
-        $productImageSet = new ProductImageSetTransfer();
+        $productAbstractTransfer = $this->addProductImageSets($product, $productAbstractTransfer);
 
+        return $productAbstractTransfer;
+    }
+
+    /**
+     * @param array $product
+     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
+     *
+     * @return \Generated\Shared\Transfer\ProductAbstractTransfer
+     */
+    protected function addProductImageSets(array $product, ProductAbstractTransfer $productAbstractTransfer)
+    {
         $productImage = new ProductImageTransfer();
         $productImage->setSort(0);
         $productImage->setExternalUrlSmall($product[self::IMAGE_SMALL]);
         $productImage->setExternalUrlLarge($product[self::IMAGE_LARGE]);
 
-        $productImageSet->setName('Default');
-        $productImageSet->setLocale($this->localeFacade->getCurrentLocale());
-        $productImageSet->addProductImage($productImage);
+        foreach ($this->localeFacade->getLocaleCollection() as $localeTransfer) {
+            $productImageSet = new ProductImageSetTransfer();
+            $productImageSet->setName('Default');
+            $productImageSet->setLocale($localeTransfer);
+            $productImageSet->addProductImage($productImage);
 
-        $productAbstractTransfer->addProductImageSet($productImageSet);
+            $productAbstractTransfer->addProductImageSet($productImageSet);
+        }
 
         return $productAbstractTransfer;
     }
@@ -231,10 +249,8 @@ class ProductAbstractImporter extends AbstractImporter
         unset($attributeData[self::PRODUCT_ABSTRACT]);
 
         foreach ($attributeData as $localeCode => $localizedAttributesData) {
-            $localizedKeyName = $this->getLocalizedKeyName(self::NAME, $localeCode);
-
             $localizedAttributesTransfer = $this->buildLocalizedAttributesTransfer(
-                $product[$localizedKeyName],
+                $this->getProductName($product, $localeCode),
                 $localizedAttributesData,
                 $this->localeFacade->getLocale($localeCode)
             );
@@ -432,7 +448,7 @@ class ProductAbstractImporter extends AbstractImporter
      *
      * @return array
      */
-    protected function createAttributes(array $attributes)
+    protected function createConcreteAttributes(array $attributes)
     {
         foreach ($attributes as $type => $data) {
             if (empty($data)) {
@@ -443,18 +459,28 @@ class ProductAbstractImporter extends AbstractImporter
                 continue;
             }
 
-            $attributes = $this->generateMappedAttributes($data);
-            foreach ($attributes as $attributeName => $attributeType) {
-                if (!$this->attributeManager->hasAttributeType($attributeType)) {
-                    continue;
-                }
-
-                if (!$this->attributeManager->hasAttribute($attributeName)) {
-                    $this->attributeManager->createAttribute($attributeName, $attributeType, true);
-                }
-            }
+            $this->createAttributes($data);
 
             $this->cacheInstalledAttributes->set($type, true);
+        }
+    }
+
+    /**
+     * @param array $attributes
+     *
+     * @return void
+     */
+    protected function createAttributes(array $attributes)
+    {
+        $attributes = $this->generateMappedAttributes($attributes);
+        foreach ($attributes as $attributeName => $attributeType) {
+            if (!$this->attributeManager->hasAttributeType($attributeType)) {
+                continue;
+            }
+
+            if (!$this->attributeManager->hasAttribute($attributeName)) {
+                $this->attributeManager->createAttribute($attributeName, $attributeType, true);
+            }
         }
     }
 
@@ -574,8 +600,8 @@ class ProductAbstractImporter extends AbstractImporter
      */
     protected function useLocalIcecatImages(array $attributes)
     {
-        $attributes['image_big'] = '/assets/demoshop/img/icecat/big_' . basename($attributes['image_big']);
-        $attributes['image_small'] = '/assets/demoshop/img/icecat/small_' . basename($attributes['image_small']);
+        $attributes['image_big'] = '/assets/default/img/icecat/big_' . basename($attributes['image_big']);
+        $attributes['image_small'] = '/assets/default/img/icecat/small_' . basename($attributes['image_small']);
 
         return $attributes;
     }

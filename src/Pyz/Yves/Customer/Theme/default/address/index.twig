@@ -1,0 +1,48 @@
+{% extends "@customer/layout.twig" %}
+
+{% block title %}
+    <h3>{{ 'customer.account.address' | trans }}</h3>
+{% endblock %}
+
+{% block customerNavigation %}
+    {% include "@customer/partials/navigation.twig" with {'active': 'address'} %}
+{% endblock %}
+
+{% block customerContent %}
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="callout">
+                <ul class="no-bullet">
+                    {% for address in addresses %}
+                        <li>
+                            <a href="{{ url('customer/address/update', {'id': address.idCustomerAddress }) }}" class="float-right">
+                                <small><i class="fa fa-map-marker"></i> {{ "customer.profile.address.edit" | trans }}</small>
+                            </a>
+                            <a href="{{ url('customer/address/delete', {'id': address.idCustomerAddress }) }}" class="float-right">
+                                <small><i class="fa fa-remove"></i> {{ "customer.profile.address.delete" | trans }}</small>
+                            </a>
+
+                            <strong>{{ address.firstName }} {{ address.lastName }}</strong><br/>
+
+                            {{ address.address1 }} {{ address.address2 }},
+                            {{ address.zipcode }} {{ address.city }}
+                            {% if address.phone is defined and address.phone != '' %}, {{ address.phone }}{% endif %}<br/>
+
+                            {% if address.isDefaultShipping %}<span class="label success">{{ 'customer.order.shipping_address' | trans }}</span>{% endif %}
+                            {% if address.isDefaultBilling %}<span class="label success">{{ 'customer.order.billing_address' | trans }}</span>{% endif %}
+
+                            <hr>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                <div class="row align-right">
+                    <div class="small-12 medium-6 large-4 columns">
+                        <a class="button expanded __no-margin-bottom" href="{{ url('customer/address/new') }}">{{ 'customer.account.add_new_address' | trans }}</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

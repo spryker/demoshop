@@ -30,32 +30,53 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
      */
     protected function defineControllers(Application $app)
     {
-        $this->createController('/checkout', self::CHECKOUT_INDEX, 'Checkout', 'Checkout', 'index')
+        $allowedLocalesPattern = $this->getAllowedLocalesPattern();
+
+        $this->createController('/{checkout}', self::CHECKOUT_INDEX, 'Checkout', 'Checkout', 'index')
+            ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
+            ->value('checkout', 'checkout')
             ->method('GET|POST');
 
-        $this->createController('/checkout/customer', self::CHECKOUT_CUSTOMER, 'Checkout', 'Checkout', 'customer')
+        $this->createController('/{checkout}/customer', self::CHECKOUT_CUSTOMER, 'Checkout', 'Checkout', 'customer')
+            ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
+            ->value('checkout', 'checkout')
             ->method('GET|POST');
 
-        $this->createController('/checkout/address', self::CHECKOUT_ADDRESS, 'Checkout', 'Checkout', 'address')
+        $this->createController('/{checkout}/address', self::CHECKOUT_ADDRESS, 'Checkout', 'Checkout', 'address')
+            ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
+            ->value('checkout', 'checkout')
             ->method('GET|POST');
 
-        $this->createController('/checkout/shipment', self::CHECKOUT_SHIPMENT, 'Checkout', 'Checkout', 'shipment')
+        $this->createController('/{checkout}/shipment', self::CHECKOUT_SHIPMENT, 'Checkout', 'Checkout', 'shipment')
+            ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
+            ->value('checkout', 'checkout')
             ->method('GET|POST');
 
-        $this->createController('/checkout/payment', self::CHECKOUT_PAYMENT, 'Checkout', 'Checkout', 'payment')
+        $this->createController('/{checkout}/payment', self::CHECKOUT_PAYMENT, 'Checkout', 'Checkout', 'payment')
+            ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
+            ->value('checkout', 'checkout')
             ->method('GET|POST');
 
-        $this->createController('/checkout/summary', self::CHECKOUT_SUMMARY, 'Checkout', 'Checkout', 'summary')
+        $this->createController('/{checkout}/summary', self::CHECKOUT_SUMMARY, 'Checkout', 'Checkout', 'summary')
+            ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
+            ->value('checkout', 'checkout')
             ->method('GET|POST');
 
-        $this->createController('/checkout/place-order', self::CHECKOUT_PLACE_ORDER, 'Checkout', 'Checkout', 'placeOrder')
+        $this->createController('/{checkout}/place-order', self::CHECKOUT_PLACE_ORDER, 'Checkout', 'Checkout', 'placeOrder')
+            ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
+            ->value('checkout', 'checkout')
             ->method('GET|POST');
 
-        $this->createController('/checkout/error', self::CHECKOUT_ERROR, 'Checkout', 'Checkout', 'error')
+        $this->createController('/{checkout}/error', self::CHECKOUT_ERROR, 'Checkout', 'Checkout', 'error')
+            ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
+            ->value('checkout', 'checkout')
             ->method('GET|POST');
 
-        $this->createController('/checkout/success', self::CHECKOUT_SUCCESS, 'Checkout', 'Checkout', 'success')
+        $this->createController('/{checkout}/success', self::CHECKOUT_SUCCESS, 'Checkout', 'Checkout', 'success')
+            ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
+            ->value('checkout', 'checkout')
             ->method('GET|POST');
+
     }
 
 }

@@ -1,0 +1,33 @@
+<div class="small-12 columns">
+    <div class="callout">
+        {% if success %}
+            <div class="__message">
+                <div class="callout success">{{ success | trans }}</div>
+            </div>
+        {% elseif error %}
+            <div class="__message">
+                <div class="callout alert">{{ error | trans }}</div>
+            </div>
+        {% endif %}
+
+        <div class="row">
+            <p class="small-12 medium-8 columns text-center medium-text-left">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            </p>
+            <div class="small-12 medium-4 columns">
+                {{ form_start(newsletterSubscriptionForm) }}
+
+                    <div class="input-group">
+                        <span class="input-group-label">
+                            <i class="fa fa-at"></i>
+                        </span>
+                        {{ form_widget(newsletterSubscriptionForm.subscribe, {'attr': {'class': 'input-group-field', 'placeholder': newsletterSubscriptionForm.subscribe.vars.label}}) }}
+                    </div>
+                    {{ form_errors(newsletterSubscriptionForm.subscribe) }}
+
+                    <button type="submit" class="button expanded">Subscribe</button>
+                {{ form_end(newsletterSubscriptionForm) }}
+            </div>
+        </div>
+    </div>
+</div>
