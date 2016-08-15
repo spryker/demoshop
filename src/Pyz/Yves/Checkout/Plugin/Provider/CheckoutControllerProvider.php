@@ -76,7 +76,6 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
             ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
             ->value('checkout', 'checkout')
             ->method('GET|POST');
-
     }
 
 }
