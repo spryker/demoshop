@@ -85,10 +85,6 @@
     ],
     "post-update-cmd": [
       "PhantomInstaller\\Installer::installPhantomJS"
-    ],
-    "compile": [
-      "mkdir -p ./data/DE/logs",
-      "./deploy/heroku/run.sh"
     ]
   }
 }
