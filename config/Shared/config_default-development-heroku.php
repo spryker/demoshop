@@ -11,15 +11,21 @@ use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Session\SessionConstants;
+use Spryker\Shared\Storage\StorageConstants;
+
+$redis = parse_url(getenv(getenv('REDIS_URL_NAME') ?: 'REDIS_URL'));
+$config[StorageConstants::STORAGE_REDIS_PROTOCOL] = $redis['scheme'];
+$config[StorageConstants::STORAGE_REDIS_HOST] = $redis['host'];
+$config[StorageConstants::STORAGE_REDIS_PORT] = $redis['port'];
+$config[StorageConstants::STORAGE_REDIS_PASSWORD] = $redis['pass'];
 
 $config[SessionConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
 $config[SessionConstants::ZED_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
 
-$redis = parse_url(getenv(getenv('REDIS_URL_NAME') ?: 'REDIS_URL'));
-$config[SessionConstants::YVES_SESSION_REDIS_PROTOCOL] = $redis['scheme'];
-$config[SessionConstants::YVES_SESSION_REDIS_HOST] = $redis['host'];
-$config[SessionConstants::YVES_SESSION_REDIS_PORT] = $redis['port'];
-$config[SessionConstants::YVES_SESSION_REDIS_PASSWORD] = $redis['pass'];
+$config[SessionConstants::YVES_SESSION_REDIS_PROTOCOL] = $config[StorageConstants::STORAGE_REDIS_PROTOCOL];
+$config[SessionConstants::YVES_SESSION_REDIS_HOST] = $config[StorageConstants::STORAGE_REDIS_HOST];
+$config[SessionConstants::YVES_SESSION_REDIS_PORT] = $config[StorageConstants::STORAGE_REDIS_PORT];
+$config[SessionConstants::YVES_SESSION_REDIS_PASSWORD] = $config[StorageConstants::STORAGE_REDIS_PASSWORD];
 
 $config[SessionConstants::ZED_SESSION_REDIS_PROTOCOL] = $config[SessionConstants::YVES_SESSION_REDIS_PROTOCOL];
 $config[SessionConstants::ZED_SESSION_REDIS_HOST] = $config[SessionConstants::YVES_SESSION_REDIS_HOST];
