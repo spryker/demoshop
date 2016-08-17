@@ -121,20 +121,46 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
 
     /**
      * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
-     * 9
+     *
      * @return string
      */
     protected function getShipmentDescription(ShipmentMethodTransfer $shipmentMethodTransfer)
     {
-        $deliveryTime = $this->getDeliveryTime($shipmentMethodTransfer);
-        $shipmentPrice = $this->getFormattedShipmentPrice($shipmentMethodTransfer);
+        $shipmentDescription = $this->translate($shipmentMethodTransfer->getName());
 
-        $shipmentDescription = $this->translate($shipmentMethodTransfer->getName())
-            . ' | ' . $this->translate('page.checkout.shipping.price') . ' ' . $shipmentPrice;
+        $shipmentDescription = $this->appendDeliveryTime($shipmentMethodTransfer, $shipmentDescription);
+        $shipmentDescription = $this->appendShipmentPrice($shipmentMethodTransfer, $shipmentDescription);
+
+        return $shipmentDescription;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
+     * @param string $shipmentDescription
+     *
+     * @return string
+     */
+    protected function appendDeliveryTime(ShipmentMethodTransfer $shipmentMethodTransfer, $shipmentDescription)
+    {
+        $deliveryTime = $this->getDeliveryTime($shipmentMethodTransfer);
 
         if ($deliveryTime !== 0) {
-            $shipmentDescription .= ' | ' . $this->translate('page.checkout.shipping.delivery_time') . ' ' . $deliveryTime;
+            $shipmentDescription .= ' (' . $this->translate('page.checkout.shipping.delivery_time') . ' ' . $deliveryTime . ')';
         }
+
+        return $shipmentDescription;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
+     * @param string $shipmentDescription
+     *
+     * @return string
+     */
+    protected function appendShipmentPrice(ShipmentMethodTransfer $shipmentMethodTransfer, $shipmentDescription)
+    {
+        $shipmentPrice = $this->getFormattedShipmentPrice($shipmentMethodTransfer);
+        $shipmentDescription .= ': <strong>' . $shipmentPrice . '</strong>';
 
         return $shipmentDescription;
     }
@@ -148,7 +174,7 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
     {
         $deliveryTime = 0;
 
-        if (!empty($method->getDeliveryTime())) {
+        if ($method->getDeliveryTime()) {
             $deliveryTime = ($method->getDeliveryTime() / 3600);
         }
 

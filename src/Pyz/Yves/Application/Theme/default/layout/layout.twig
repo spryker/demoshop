@@ -1,0 +1,102 @@
+<!doctype html>
+<html class="no-js" lang="{{ app.locale | slice(0, 2) }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block page_title %}{{ page_title | default('global.spryker.shop') | trans }}{% endblock %}</title>
+    <meta name="description" content="{{ page_description | default('') | trans }}" />
+    <meta name="keywords" content="{{ page_keywords | default('') | trans }}" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    {% block page_meta %}{% endblock %}
+
+    <link rel="stylesheet" href="/assets/default/css/externals.css">
+    <link rel="stylesheet" href="/assets/default/css/base.css">
+    <noscript><link rel="stylesheet" href="/assets/default/css/nojs.css"></noscript>
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<body>
+    {% block outside %}{% endblock %}
+
+    <aside id="aside" class="hide-for-large __aside" tabindex="-1">
+        {% include "@application/layout/partials/mobile-navigation.twig" %}
+        {% block aside %}{% endblock %}
+    </aside>
+    <div class="__aside-closing-bar">
+        <a class="close-button">&times;</a>
+    </div>
+
+    <div class="__page" tabindex="-1">
+        <header>
+            <div class="row">
+                <div class="small-12 columns">
+                    <div class="callout">
+                        <div class="row align-middle align-justify">
+                            <div class="small-7 large-6 columns">
+                                <a href="/">
+                                    <img src="/assets/default/img/logo.png" />
+                                </a>
+                            </div>
+                            {% block header %}
+                                <div class="large-6 columns show-for-large">
+                                    {% include '@application/layout/partials/search-form.twig' %}
+                                </div>
+
+                                <a class="shrink columns text-right align-middle hide-for-large" href="#aside" data-aside-toggle>
+                                    {% if app['cart.quantity'] > 0 %}
+                                        <span class="warning badge">{{ app['cart.quantity'] }}</span>
+                                    {% endif %}
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            {% endblock %}
+                        </div>
+                    </div>
+                    {% block navigation %}
+                        {% include "@application/layout/partials/navigation.twig" %}
+                    {% endblock %}
+
+                    {% block breadcrumb %}
+                        <div class="callout">
+                            <nav role="navigation">
+                                <ul class="breadcrumbs __no-margin-bottom">
+                                    {% block breadcrumbItems %}{% endblock %}
+                                </ul>
+                            </nav>
+                            {% block title %}{% endblock %}
+                        </div>
+                    {% endblock %}
+
+                    {% include "@application/layout/partials/flash-messages.twig" %}
+                </div>
+            </div>
+        </header>
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer>
+            <div class="row">
+                {% block footer %}
+                    {% include "@application/layout/partials/footer.twig" %}
+                {% endblock %}
+
+                <div class="small-12 columns text-center">
+                    <p class="callout">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                        <br>Aenean commodo ligula eget dolor. Aenean massa.
+                        <br>&copy; ACME Company
+                    </p>
+                </div>
+            </div>
+
+        </footer>
+    </div>
+
+    <script src="/assets/default/js/externals.js"></script>
+    <script src="/assets/default/js/base.js"></script>
+    {% block javascript %}{% endblock %}
+</body>
+
+</html>

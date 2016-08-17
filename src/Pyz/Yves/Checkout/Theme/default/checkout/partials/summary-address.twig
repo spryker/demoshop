@@ -1,0 +1,11 @@
+<small>
+    <strong>{{ address.salutation }} {{ address.firstName }} {{ address.lastName }}</strong><br/>
+    {% if address.company != '' %}
+        {{ address.company }}<br />
+    {% endif %}
+    {{ address.address1 }} {{ address.address2 }},
+    {{ address.zipCode }} {{ address.city }}<br/>
+    {% if address.phone != '' %}
+        {{ address.phone }}<br />
+    {% endif %}
+</small>

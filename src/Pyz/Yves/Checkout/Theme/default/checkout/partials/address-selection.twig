@@ -1,0 +1,24 @@
+{% if addressForm.id_customer_address is defined %}
+    <ul class="no-bullet">
+        {% for address in addressForm.id_customer_address %}
+            <li>
+                {% if loop.last %}
+                    {{ form_widget(address, {'attr': {'class': '__toggler'}}) }}
+                {% else %}
+                    {{ form_widget(address) }}
+                {% endif %}
+                {{ form_label(address) }}
+
+                {% if loop.last %}
+                    <div class="__toggler-target">
+                        {% include '@checkout/checkout/partials/address-form.twig' with {'addressForm': addressForm} %}
+                    </div>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    {{ form_errors(addressForm.id_customer_address) }}
+{% else %}
+    {% include '@checkout/checkout/partials/address-form.twig' with {'addressForm': addressForm} %}
+{% endif %}

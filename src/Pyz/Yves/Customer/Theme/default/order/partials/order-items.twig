@@ -1,0 +1,32 @@
+<table class="stack">
+    <thead>
+        <tr>
+            <th class="text-left">{{ 'customer.order.item_sku' | trans }}</th>
+            <th class="text-left">{{ 'customer.order.product_name' | trans }}</th>
+            <th class="text-right">{{ 'customer.order.item_price' | trans }}</th>
+            <th class="text-right">{{ 'customer.order.item_quantity' | trans }}</th>
+            <th class="text-right">{{ 'customer.order.item_sum' | trans }}</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for orderItem in order.items %}
+        <tr>
+            <td class="text-left">
+                {{ orderItem.sku }}
+            </td>
+            <td class="text-left">
+                {{ orderItem.name }}
+            </td>
+            <td class="text-right">
+                {{ orderItem.unitGrossPriceWithProductOptions | price }}
+            </td>
+            <td class="text-right">
+                {{ orderItem.quantity }}
+            </td>
+            <td class="text-right">
+                {{ orderItem.sumGrossPriceWithProductOptions | price }}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

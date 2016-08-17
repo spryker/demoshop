@@ -34,6 +34,7 @@ class ProductAbstractImporter extends AbstractImporter
     const CATEGORY_ID = 'category_id';
     const CATEGORY_KEY = 'category_key';
     const MANUFACTURER_NAME = 'manufacturer_name';
+    const IS_FEATURED = 'is_featured';
 
     const PRODUCT_ABSTRACT = 'product_abstract';
     const PRODUCT_CONCRETE_COLLECTION = 'product_concrete_collection';
@@ -152,6 +153,7 @@ class ProductAbstractImporter extends AbstractImporter
             self::MANUFACTURER_NAME,
             self::VARIANT_ID,
             self::PRODUCT_ID,
+            self::IS_FEATURED,
         ];
 
         $abstractAttributes = array_intersect_key($product, array_flip($abstractAttributeNames));
@@ -174,29 +176,34 @@ class ProductAbstractImporter extends AbstractImporter
             $productAbstractTransfer->addLocalizedAttributes($localizedAttributesTransfer);
         }
 
-        $productImageSet = $this->buildImageSetTransfer($product);
-        $productAbstractTransfer->addImageSet($productImageSet);
+        $productAbstractTransfer = $this->addProductImageSets($product, $productAbstractTransfer);
 
         return $productAbstractTransfer;
     }
 
     /**
-     * @return \Generated\Shared\Transfer\ProductImageSetTransfer
+     * @param array $product
+     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
+     *
+     * @return \Generated\Shared\Transfer\ProductAbstractTransfer
      */
-    protected function buildImageSetTransfer(array $product)
+    protected function addProductImageSets(array $product, ProductAbstractTransfer $productAbstractTransfer)
     {
-        $productImageSet = new ProductImageSetTransfer();
-
         $productImage = new ProductImageTransfer();
         $productImage->setSortOrder(0);
         $productImage->setExternalUrlSmall($product[self::IMAGE_SMALL]);
         $productImage->setExternalUrlLarge($product[self::IMAGE_LARGE]);
 
-        $productImageSet->setName('Default');
-        $productImageSet->setLocale($this->localeFacade->getCurrentLocale());
-        $productImageSet->addProductImage($productImage);
+        foreach ($this->localeFacade->getLocaleCollection() as $localeTransfer) {
+            $productImageSet = new ProductImageSetTransfer();
+            $productImageSet->setName('Default');
+            $productImageSet->setLocale($localeTransfer);
+            $productImageSet->addProductImage($productImage);
 
-        return $productImageSet;
+            $productAbstractTransfer->addImageSet($productImageSet);
+        }
+
+        return $productAbstractTransfer;
     }
 
     /**
@@ -580,8 +587,8 @@ class ProductAbstractImporter extends AbstractImporter
      */
     protected function useLocalIcecatImages(array $attributes)
     {
-        $attributes['image_big'] = '/assets/demoshop/img/icecat/big_' . basename($attributes['image_big']);
-        $attributes['image_small'] = '/assets/demoshop/img/icecat/small_' . basename($attributes['image_small']);
+        $attributes['image_big'] = '/assets/default/img/icecat/big_' . basename($attributes['image_big']);
+        $attributes['image_small'] = '/assets/default/img/icecat/small_' . basename($attributes['image_small']);
 
         return $attributes;
     }

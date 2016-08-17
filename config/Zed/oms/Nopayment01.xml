@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <statemachine
-        xmlns="https://static.spryker.com"
+        xmlns="http://static.spryker.com"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="https://static.spryker.com https://static.spryker.com/oms-01.xsd">
+        xsi:schemaLocation="http://static.spryker.com http://static.spryker.com/oms-01.xsd">
 
     <process name="Nopayment01" main="true">
         <states>

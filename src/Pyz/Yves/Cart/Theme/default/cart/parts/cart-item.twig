@@ -1,0 +1,35 @@
+<div class="callout">
+    <a href="/cart/remove/{{cartItem.sku}}" class="close-button float-right">&times;</a>
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="row align-top">
+                <div class="small-12 columns text-center medium-text-left">
+                    <ul class="no-bullet __no-margin-bottom">
+                        <li class="lead">
+                            {{ cartItem.name }}
+                        </li>
+                        <li class="float-right show-for-medium __secondary"></li>
+                        <li><strong>{{ cartItem.unitGrossPriceWithProductOptions | price }}</strong></li>
+                        <li class="hide-for-medium __secondary">{{ 'product.attribute.sku' | trans }} {{cartItem.id}}</li>
+                    </ul>
+                </div>
+            </div>
+            <form class="row align-right" method="POST" action="{{ path('cart/change/quantity', {'sku': cartItem.sku}) }}">
+                <div class="show-for-medium columns">
+                    <span class="__secondary">{{ 'product.attribute.sku' | trans }} {{cartItem.sku}}</span>
+                </div>
+                <div class="small-6 medium-2 columns">
+                    <label class="__no-margin-bottom">
+                        {{ 'cart.item_quantity' | trans }}:
+                        <input class="__no-margin-bottom" type="number" value="{{cartItem.quantity}}" name="quantity">
+                    </label>
+                </div>
+                <div class="small-6 medium-2 columns align-bottom">
+                    <button type="submit" class="button expanded __no-margin-bottom">
+                        <i class="fa fa-refresh"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

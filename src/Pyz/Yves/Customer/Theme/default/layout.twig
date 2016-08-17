@@ -1,0 +1,22 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block breadcrumbItems %}
+    <li><a href="/">{{ 'global.home' | trans }}</a></li>
+    <li>{{ 'customer.account' | trans }}</li>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="small-12 medium-3 columns">
+            <div class="callout">
+                {% block customerNavigation %}{% endblock %}
+            </div>
+        </div>
+
+        <div class="small-12 medium-9 columns">
+            {% block customerContent %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
