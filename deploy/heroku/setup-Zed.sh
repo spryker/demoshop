@@ -24,7 +24,7 @@ do
 
             dumpAutoload
 
-            ./deploy/heroku/setup-Yves.sh -i
+            antelopeInstallZed
             ;;
             *)
             echo "Use -i to install"
