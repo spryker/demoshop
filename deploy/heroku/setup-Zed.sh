@@ -2,15 +2,17 @@
 
 set -o pipefail
 
+if [ $# -eq 0 ]; then
+    echo "Use -i to install"
+    exit 0
+fi
+
 SETUP='spryker'
 CONSOLE=vendor/bin/console
 
 . deploy/setup/functions.sh
 
-if [ $# -eq 0 ]; then
-    echo "Use -i to install"
-    exit 0
-fi
+. deploy/heroku/functions.sh
 
 
 for arg in "$@"
@@ -24,7 +26,7 @@ do
 
             dumpAutoload
 
-            antelopeInstallZed
+            antelopeInstallYves
             ;;
             *)
             echo "Use -i to install"
