@@ -40,8 +40,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     {
         $searchProductCollector = new SearchProductCollector(
             $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_PAGE_MAP),
-            $this->getSearchFacade(),
-            $this->getProductImageQueryContainer()
+            $this->getSearchFacade()
         );
 
         $searchProductCollector->setTouchQueryContainer(

@@ -9,7 +9,7 @@ namespace Pyz\Client\Catalog;
 
 use Pyz\Client\Catalog\Plugin\Elasticsearch\Query\FeaturedProductsQueryPlugin;
 use Spryker\Client\Catalog\CatalogFactory as SprykerCatalogFactory;
-use Spryker\Client\Catalog\Plugin\Elasticsearch\ResultFormatter\CatalogSearchResultFormatterPlugin;
+use Spryker\Client\Catalog\Plugin\Elasticsearch\ResultFormatter\RawCatalogSearchResultFormatterPlugin;
 
 class CatalogFactory extends SprykerCatalogFactory
 {
@@ -30,7 +30,7 @@ class CatalogFactory extends SprykerCatalogFactory
     public function createFeaturedProductsResultFormatters()
     {
         return [
-            new CatalogSearchResultFormatterPlugin()
+            new RawCatalogSearchResultFormatterPlugin(),
         ];
     }
 
