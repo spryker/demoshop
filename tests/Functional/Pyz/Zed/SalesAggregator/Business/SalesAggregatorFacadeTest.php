@@ -22,10 +22,11 @@ use Spryker\Zed\SalesAggregator\Business\SalesAggregatorFacade;
 /**
  * @group Pyz
  * @group Zed
- * @group Sales
- * @group SalesFacade
+ * @group SalesAggregator
+ * @group Business
+ * @group SalesAggregatorFacadeTest
  */
-class SalesFacadeTest extends Test
+class SalesAggregatorFacadeTest extends Test
 {
 
     /**
@@ -43,11 +44,11 @@ class SalesFacadeTest extends Test
      */
     public function testSalesOrderAggregatorWithDiscountsStack()
     {
-        $salesFacade = $this->createSalesAggregatorFacade();
+        $salesAggregatorFacade = $this->createSalesAggregatorFacade();
 
         $salesOrderEntity = $this->createTestOrder();
 
-        $orderTransfer = $salesFacade->getOrderTotalsByIdSalesOrder($salesOrderEntity->getIdSalesOrder());
+        $orderTransfer = $salesAggregatorFacade->getOrderTotalsByIdSalesOrder($salesOrderEntity->getIdSalesOrder());
 
         $itemTransfer1 = $orderTransfer->getItems()[0];
         $itemTransfer2 = $orderTransfer->getItems()[1];
@@ -124,11 +125,11 @@ class SalesFacadeTest extends Test
      */
     public function testSalesOrderAggregatorWithoutDiscounts()
     {
-        $salesFacade = $this->createSalesAggregatorFacade();
+        $salesAggregatorFacade = $this->createSalesAggregatorFacade();
 
         $salesOrderEntity = $this->createTestOrder(false);
 
-        $orderTransfer = $salesFacade->getOrderTotalsByIdSalesOrder($salesOrderEntity->getIdSalesOrder());
+        $orderTransfer = $salesAggregatorFacade->getOrderTotalsByIdSalesOrder($salesOrderEntity->getIdSalesOrder());
 
         $itemTransfer1 = $orderTransfer->getItems()[0];
         $itemTransfer2 = $orderTransfer->getItems()[1];
@@ -188,13 +189,13 @@ class SalesFacadeTest extends Test
      */
     public function testSalesOrderItemWithDiscounts()
     {
-        $salesFacade = $this->createSalesAggregatorFacade();
+        $salesAggregatorFacade = $this->createSalesAggregatorFacade();
 
         $salesOrderEntity = $this->createTestOrder();
 
         $salesOrderItemEntity = $salesOrderEntity->getItems()[0];
 
-        $itemTransfer = $salesFacade->getOrderItemTotalsByIdSalesOrderItem(
+        $itemTransfer = $salesAggregatorFacade->getOrderItemTotalsByIdSalesOrderItem(
             $salesOrderItemEntity->getIdSalesOrderItem()
         );
 
@@ -221,13 +222,13 @@ class SalesFacadeTest extends Test
      */
     public function testSalesOrderItemWithoutDiscounts()
     {
-        $salesFacade = $this->createSalesAggregatorFacade();
+        $salesAggregatorFacade = $this->createSalesAggregatorFacade();
 
         $salesOrderEntity = $this->createTestOrder(false);
 
         $salesOrderItemEntity = $salesOrderEntity->getItems()[0];
 
-        $itemTransfer = $salesFacade->getOrderItemTotalsByIdSalesOrderItem(
+        $itemTransfer = $salesAggregatorFacade->getOrderItemTotalsByIdSalesOrderItem(
             $salesOrderItemEntity->getIdSalesOrderItem()
         );
 
