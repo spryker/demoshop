@@ -58,4 +58,5 @@ test:
     - vendor/bin/console collector:storage:export
     - vendor/bin/console collector:search:export
 
+    - vendor/bin/console transfer:validate
     - vendor/bin/console code:sniff

@@ -2,10 +2,10 @@
 
 /**
  * Data object containing the SQL and PHP code to migrate the database
- * up to version 1457010692.
- * Generated on 2016-03-03 13:11:32 by vagrant
+ * up to version 1471267928.
+ * Generated on 2016-08-15 13:32:08 by vagrant
  */
-class PropelMigration_1457010692
+class PropelMigration_1471267928
 {
     public $comment = '';
 
@@ -106,6 +106,72 @@ CREATE TABLE "spy_auth_reset_password"
     CONSTRAINT "spy_auth_reset_password-code" UNIQUE ("code")
 );
 
+CREATE SEQUENCE "spy_payment_braintree_pk_seq";
+
+CREATE TABLE "spy_payment_braintree"
+(
+    "id_payment_braintree" INTEGER NOT NULL,
+    "fk_sales_order" INTEGER NOT NULL,
+    "payment_type" VARCHAR,
+    "client_ip" VARCHAR NOT NULL,
+    "country_iso2_code" CHAR(2) NOT NULL,
+    "city" VARCHAR(255) NOT NULL,
+    "street" VARCHAR(255) NOT NULL,
+    "zip_code" VARCHAR(15) NOT NULL,
+    "email" VARCHAR(255) NOT NULL,
+    "language_iso2_code" CHAR(2) NOT NULL,
+    "currency_iso3_code" CHAR(3) NOT NULL,
+    "transaction_id" VARCHAR(100),
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_payment_braintree")
+);
+
+CREATE SEQUENCE "spy_payment_braintree_transaction_request_log_pk_seq";
+
+CREATE TABLE "spy_payment_braintree_transaction_request_log"
+(
+    "id_payment_braintree_transaction_request_log" INTEGER NOT NULL,
+    "fk_payment_braintree" INTEGER NOT NULL,
+    "transaction_id" VARCHAR NOT NULL,
+    "transaction_type" VARCHAR,
+    "transaction_code" VARCHAR NOT NULL,
+    "presentation_amount" VARCHAR,
+    "presentation_currency" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_payment_braintree_transaction_request_log")
+);
+
+CREATE SEQUENCE "spy_payment_braintree_transaction_status_log_pk_seq";
+
+CREATE TABLE "spy_payment_braintree_transaction_status_log"
+(
+    "id_payment_braintree_transaction_status_log" INTEGER NOT NULL,
+    "fk_payment_braintree" INTEGER NOT NULL,
+    "is_success" BOOLEAN NOT NULL,
+    "code" INTEGER,
+    "message" VARCHAR,
+    "transaction_id" VARCHAR NOT NULL,
+    "transaction_code" VARCHAR,
+    "transaction_type" VARCHAR,
+    "transaction_status" VARCHAR,
+    "transaction_amount" VARCHAR,
+    "merchant_account" VARCHAR,
+    "processing_timestamp" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_payment_braintree_transaction_status_log")
+);
+
+CREATE TABLE "spy_payment_braintree_order_item"
+(
+    "fk_payment_braintree" INTEGER NOT NULL,
+    "fk_sales_order_item" INTEGER NOT NULL,
+    "created_at" TIMESTAMP,
+    PRIMARY KEY ("fk_payment_braintree","fk_sales_order_item")
+);
+
 CREATE SEQUENCE "spy_category_pk_seq";
 
 CREATE TABLE "spy_category"
@@ -183,7 +249,7 @@ CREATE TABLE "spy_cms_page"
     "fk_template" INTEGER NOT NULL,
     "valid_from" TIMESTAMP,
     "valid_to" TIMESTAMP,
-    "is_active" BOOLEAN DEFAULT \'t\' NOT NULL,
+    "is_active" BOOLEAN DEFAULT \'f\' NOT NULL,
     PRIMARY KEY ("id_cms_page")
 );
 
@@ -308,53 +374,29 @@ CREATE TABLE "spy_discount"
     "display_name" VARCHAR(255) NOT NULL,
     "description" VARCHAR(1024),
     "amount" INTEGER NOT NULL,
-    "calculator_plugin" VARCHAR(255),
-    "is_privileged" BOOLEAN DEFAULT \'f\',
+    "is_exclusive" BOOLEAN DEFAULT \'f\',
     "is_active" BOOLEAN DEFAULT \'f\',
     "valid_from" TIMESTAMP,
     "valid_to" TIMESTAMP,
-    "collector_logical_operator" VARCHAR(16),
+    "calculator_plugin" VARCHAR(255),
+    "discount_type" VARCHAR(255),
+    "decision_rule_query_string" VARCHAR,
+    "collector_query_string" VARCHAR,
     "created_at" TIMESTAMP,
     "updated_at" TIMESTAMP,
     PRIMARY KEY ("id_discount"),
-    CONSTRAINT "spy_discount-unique-fk_discount_voucher_pool" UNIQUE ("fk_discount_voucher_pool")
+    CONSTRAINT "spy_discount-unique-fk_discount_voucher_pool" UNIQUE ("fk_discount_voucher_pool"),
+    CONSTRAINT "spy_discount-unique-display_name" UNIQUE ("display_name")
 );
 
-CREATE SEQUENCE "spy_discount_decision_rule_pk_seq";
-
-CREATE TABLE "spy_discount_decision_rule"
-(
-    "id_discount_decision_rule" INTEGER NOT NULL,
-    "fk_discount" INTEGER,
-    "name" VARCHAR(255) NOT NULL,
-    "decision_rule_plugin" VARCHAR(255) NOT NULL,
-    "value" VARCHAR(255),
-    "created_at" TIMESTAMP,
-    "updated_at" TIMESTAMP,
-    PRIMARY KEY ("id_discount_decision_rule")
-);
-
-CREATE SEQUENCE "spy_discount_collector_pk_seq";
-
-CREATE TABLE "spy_discount_collector"
-(
-    "id_discount_collector" INTEGER NOT NULL,
-    "fk_discount" INTEGER NOT NULL,
-    "collector_plugin" VARCHAR(255),
-    "value" VARCHAR(255),
-    "created_at" TIMESTAMP,
-    "updated_at" TIMESTAMP,
-    PRIMARY KEY ("id_discount_collector")
-);
+CREATE INDEX "spy_discount-index-discount_type" ON "spy_discount" ("discount_type");
 
 CREATE SEQUENCE "spy_discount_voucher_pool_pk_seq";
 
 CREATE TABLE "spy_discount_voucher_pool"
 (
     "id_discount_voucher_pool" INTEGER NOT NULL,
-    "fk_discount_voucher_pool_category" INTEGER,
     "name" VARCHAR(255) NOT NULL,
-    "template" VARCHAR(255),
     "is_active" BOOLEAN DEFAULT \'f\',
     "created_at" TIMESTAMP,
     "updated_at" TIMESTAMP,
@@ -376,17 +418,6 @@ CREATE TABLE "spy_discount_voucher"
     "updated_at" TIMESTAMP,
     PRIMARY KEY ("id_discount_voucher"),
     CONSTRAINT "spy_discount_voucher-code" UNIQUE ("code")
-);
-
-CREATE SEQUENCE "spy_discount_voucher_pool_category_pk_seq";
-
-CREATE TABLE "spy_discount_voucher_pool_category"
-(
-    "id_discount_voucher_pool_category" INTEGER NOT NULL,
-    "name" VARCHAR(255) NOT NULL,
-    "created_at" TIMESTAMP,
-    "updated_at" TIMESTAMP,
-    PRIMARY KEY ("id_discount_voucher_pool_category")
 );
 
 CREATE SEQUENCE "spy_glossary_key_pk_seq";
@@ -522,6 +553,19 @@ CREATE TABLE "spy_oms_order_process"
     "updated_at" TIMESTAMP,
     PRIMARY KEY ("id_oms_order_process"),
     CONSTRAINT "spy_oms_order_process-name" UNIQUE ("name")
+);
+
+CREATE SEQUENCE "spy_oms_state_machine_lock_pk_seq";
+
+CREATE TABLE "spy_oms_state_machine_lock"
+(
+    "id_oms_state_machine_lock" INTEGER NOT NULL,
+    "identifier" VARCHAR(255) NOT NULL,
+    "expires" TIMESTAMP NOT NULL,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_oms_state_machine_lock"),
+    CONSTRAINT "spy_oms_state_machine_lock-identifier" UNIQUE ("identifier")
 );
 
 CREATE SEQUENCE "spy_oms_order_item_state_pk_seq";
@@ -874,6 +918,47 @@ CREATE TABLE "spy_product_category"
     CONSTRAINT "spy_product_category-unique-fk_product_abstract" UNIQUE ("fk_product_abstract","fk_category")
 );
 
+CREATE SEQUENCE "spy_product_image_set_pk_seq";
+
+CREATE TABLE "spy_product_image_set"
+(
+    "id_product_image_set" INTEGER NOT NULL,
+    "name" VARCHAR(255),
+    "fk_locale" INTEGER NOT NULL,
+    "fk_product" INTEGER,
+    "fk_product_abstract" INTEGER,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_image_set"),
+    CONSTRAINT "fk_locale-fk_product-fk_product_abstract" UNIQUE ("fk_locale","fk_product","fk_product_abstract")
+);
+
+CREATE SEQUENCE "spy_product_image_pk_seq";
+
+CREATE TABLE "spy_product_image"
+(
+    "id_product_image" INTEGER NOT NULL,
+    "external_url_small" VARCHAR(1024),
+    "external_url_large" VARCHAR(1024),
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_image")
+);
+
+CREATE SEQUENCE "spy_product_image_set_to_product_image_pk_seq";
+
+CREATE TABLE "spy_product_image_set_to_product_image"
+(
+    "id_product_image_set_to_product_image" INTEGER NOT NULL,
+    "fk_product_image_set" INTEGER NOT NULL,
+    "fk_product_image" INTEGER NOT NULL,
+    "sort" INTEGER NOT NULL,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_image_set_to_product_image"),
+    CONSTRAINT "fk_product_image_set-fk_product_image" UNIQUE ("fk_product_image_set","fk_product_image")
+);
+
 CREATE SEQUENCE "spy_product_option_type_pk_seq";
 
 CREATE TABLE "spy_product_option_type"
@@ -978,17 +1063,6 @@ CREATE TABLE "spy_product_option_configuration_preset_value"
     PRIMARY KEY ("fk_product_option_configuration_preset","fk_product_option_value_usage")
 );
 
-CREATE TABLE "spy_product_search_attributes_operation"
-(
-    "source_attribute_id" INTEGER NOT NULL,
-    "operation" VARCHAR NOT NULL,
-    "target_field" VARCHAR NOT NULL,
-    "weighting" INTEGER DEFAULT 0 NOT NULL,
-    PRIMARY KEY ("source_attribute_id","operation","target_field")
-);
-
-CREATE INDEX "spy_product_search_attributes_operation-source_attribute_id" ON "spy_product_search_attributes_operation" ("source_attribute_id","weighting");
-
 CREATE SEQUENCE "spy_product_search_pk_seq";
 
 CREATE TABLE "spy_product_search"
@@ -1000,10 +1074,84 @@ CREATE TABLE "spy_product_search"
     PRIMARY KEY ("id_product_search")
 );
 
+CREATE TABLE "spy_product_search_attribute_map"
+(
+    "fk_product_attributes_metadata" INTEGER NOT NULL,
+    "target_field" VARCHAR NOT NULL,
+    PRIMARY KEY ("fk_product_attributes_metadata","target_field")
+);
+
+CREATE INDEX "spy_product_search_attribute_map-k_product_attributes_metadata" ON "spy_product_search_attribute_map" ("fk_product_attributes_metadata");
+
 CREATE TABLE "spy_propel_heartbeat"
 (
     "heartbeat_check" VARCHAR NOT NULL,
     PRIMARY KEY ("heartbeat_check")
+);
+
+CREATE SEQUENCE "spy_payment_ratepay_pk_seq";
+
+CREATE TABLE "spy_payment_ratepay"
+(
+    "id_payment_ratepay" INTEGER NOT NULL,
+    "fk_sales_order" INTEGER NOT NULL,
+    "payment_type" INT2 NOT NULL,
+    "transaction_id" VARCHAR(50) NOT NULL,
+    "transaction_short_id" VARCHAR(50) NOT NULL,
+    "result_code" INTEGER NOT NULL,
+    "gender" INT2 NOT NULL,
+    "date_of_birth" DATE NOT NULL,
+    "phone" VARCHAR(32) NOT NULL,
+    "ip_address" VARCHAR(50) NOT NULL,
+    "customer_allow_credit_inquiry" INTEGER NOT NULL,
+    "currency_iso3" VARCHAR(3) NOT NULL,
+    "device_fingerprint" VARCHAR(50),
+    "debit_pay_type" INT2,
+    "installment_total_amount" INTEGER,
+    "installment_interest_amount" INTEGER,
+    "installment_interest_rate" DOUBLE PRECISION,
+    "installment_last_rate" DOUBLE PRECISION,
+    "installment_rate" DOUBLE PRECISION,
+    "installment_payment_first_day" INTEGER,
+    "installment_month" INTEGER,
+    "installment_number_rates" INTEGER,
+    "installment_calculation_start" VARCHAR(50),
+    "installment_service_charge" DOUBLE PRECISION,
+    "installment_annual_percentage_rate" DOUBLE PRECISION,
+    "installment_month_allowed" INTEGER,
+    "bank_account_holder" VARCHAR,
+    "bank_account_bic" VARCHAR(100),
+    "bank_account_iban" VARCHAR(50),
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_payment_ratepay")
+);
+
+CREATE SEQUENCE "spy_payment_ratepay_log_pk_seq";
+
+CREATE TABLE "spy_payment_ratepay_log"
+(
+    "id_payment_ratepay_log" INTEGER NOT NULL,
+    "fk_sales_order" INTEGER,
+    "message" VARCHAR,
+    "payment_method" INT2,
+    "request_type" INT2 NOT NULL,
+    "request_transaction_id" VARCHAR(50),
+    "request_transaction_short_id" VARCHAR(50),
+    "request_body" TEXT,
+    "response_type" VARCHAR,
+    "response_result_code" INTEGER,
+    "response_result_text" VARCHAR,
+    "response_transaction_id" VARCHAR,
+    "response_transaction_short_id" VARCHAR,
+    "response_reason_code" INTEGER,
+    "response_reason_text" VARCHAR,
+    "response_status_code" INTEGER,
+    "response_status_text" VARCHAR,
+    "response_customer_message" TEXT,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_payment_ratepay_log")
 );
 
 CREATE SEQUENCE "spy_refund_pk_seq";
@@ -1013,7 +1161,6 @@ CREATE TABLE "spy_refund"
     "id_refund" INTEGER NOT NULL,
     "fk_sales_order" INTEGER NOT NULL,
     "amount" INTEGER NOT NULL,
-    "adjustment_fee" INTEGER,
     "comment" VARCHAR,
     "created_at" TIMESTAMP,
     PRIMARY KEY ("id_refund")
@@ -1032,8 +1179,6 @@ CREATE TABLE "spy_sales_order"
     "first_name" VARCHAR(100),
     "last_name" VARCHAR(100),
     "order_reference" VARCHAR(45) NOT NULL,
-    "grand_total" INTEGER NOT NULL,
-    "subtotal" INTEGER NOT NULL,
     "is_test" BOOLEAN DEFAULT \'f\' NOT NULL,
     "fk_shipment_method" INTEGER,
     "shipment_delivery_time" INTEGER,
@@ -1043,53 +1188,54 @@ CREATE TABLE "spy_sales_order"
     CONSTRAINT "spy_sales_order-order_reference" UNIQUE ("order_reference")
 );
 
-CREATE SEQUENCE "spy_sales_order_item_pk_seq";
+CREATE SEQUENCE "spy_sales_discount_pk_seq";
 
-CREATE TABLE "spy_sales_order_item"
+CREATE TABLE "spy_sales_discount"
 (
-    "fk_refund" INTEGER,
-    "id_sales_order_item" INTEGER NOT NULL,
-    "fk_sales_order" INTEGER NOT NULL,
-    "fk_oms_order_item_state" INTEGER NOT NULL,
-    "fk_oms_order_process" INTEGER,
-    "fk_sales_order_item_bundle" INTEGER,
-    "last_state_change" TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    "id_sales_discount" INTEGER NOT NULL,
+    "fk_sales_order" INTEGER,
+    "fk_sales_order_item" INTEGER,
+    "fk_sales_expense" INTEGER,
+    "fk_sales_order_item_option" INTEGER,
     "name" VARCHAR(255) NOT NULL,
-    "sku" VARCHAR(255) NOT NULL,
-    "gross_price" INTEGER NOT NULL,
-    "price_to_pay" INTEGER NOT NULL,
-    "tax_percentage" NUMERIC(8,2),
-    "quantity" INTEGER DEFAULT 1 NOT NULL,
-    "group_key" VARCHAR(255),
+    "description" VARCHAR(510),
+    "display_name" VARCHAR(255) NOT NULL,
+    "amount" NUMERIC(8,2) NOT NULL,
     "created_at" TIMESTAMP,
     "updated_at" TIMESTAMP,
-    PRIMARY KEY ("id_sales_order_item")
+    PRIMARY KEY ("id_sales_discount")
 );
 
-COMMENT ON COLUMN "spy_sales_order_item"."gross_price" IS \'/price for one unit including tax, without shipping, coupons/\';
+CREATE SEQUENCE "spy_sales_discount_code_pk_seq";
 
-COMMENT ON COLUMN "spy_sales_order_item"."price_to_pay" IS \'/value that the customer has to pay./\';
-
-COMMENT ON COLUMN "spy_sales_order_item"."quantity" IS \'/Quantity ordered for item/\';
-
-CREATE INDEX "spy_sales_order_item-sku" ON "spy_sales_order_item" ("sku");
-
-CREATE SEQUENCE "spy_sales_expense_pk_seq";
-
-CREATE TABLE "spy_sales_expense"
+CREATE TABLE "spy_sales_discount_code"
 (
-    "fk_refund" INTEGER,
-    "id_sales_expense" INTEGER NOT NULL,
-    "fk_sales_order" INTEGER,
-    "type" VARCHAR(150),
-    "name" VARCHAR(255),
-    "gross_price" INTEGER NOT NULL,
-    "price_to_pay" INTEGER NOT NULL,
-    "tax_percentage" NUMERIC(8,2),
+    "id_sales_discount_code" INTEGER NOT NULL,
+    "fk_sales_discount" INTEGER NOT NULL,
+    "code" VARCHAR(255) NOT NULL,
+    "codepool_name" VARCHAR(255) NOT NULL,
+    "is_reusable" BOOLEAN DEFAULT \'f\',
+    "is_once_per_customer" BOOLEAN DEFAULT \'t\',
+    "is_refundable" BOOLEAN DEFAULT \'f\',
     "created_at" TIMESTAMP,
     "updated_at" TIMESTAMP,
-    PRIMARY KEY ("id_sales_expense"),
-    CONSTRAINT "spy_sales_expense-unique-fk_sales_order" UNIQUE ("fk_sales_order","type")
+    PRIMARY KEY ("id_sales_discount_code")
+);
+
+CREATE SEQUENCE "spy_sales_order_item_option_pk_seq";
+
+CREATE TABLE "spy_sales_order_item_option"
+(
+    "id_sales_order_item_option" INTEGER NOT NULL,
+    "fk_sales_order_item" INTEGER NOT NULL,
+    "label_option_type" VARCHAR NOT NULL,
+    "label_option_value" VARCHAR NOT NULL,
+    "gross_price" INTEGER DEFAULT 0 NOT NULL,
+    "canceled_amount" INTEGER DEFAULT 0,
+    "tax_rate" NUMERIC(8,2) NOT NULL,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_sales_order_item_option")
 );
 
 CREATE SEQUENCE "spy_sales_order_address_pk_seq";
@@ -1150,21 +1296,33 @@ CREATE TABLE "spy_sales_order_address_history"
     PRIMARY KEY ("id_sales_order_address_history")
 );
 
-CREATE SEQUENCE "spy_sales_order_item_option_pk_seq";
+CREATE SEQUENCE "spy_sales_order_item_pk_seq";
 
-CREATE TABLE "spy_sales_order_item_option"
+CREATE TABLE "spy_sales_order_item"
 (
-    "id_sales_order_item_option" INTEGER NOT NULL,
-    "fk_sales_order_item" INTEGER NOT NULL,
-    "label_option_type" VARCHAR NOT NULL,
-    "label_option_value" VARCHAR NOT NULL,
-    "gross_price" INTEGER DEFAULT 0 NOT NULL,
-    "price_to_pay" INTEGER DEFAULT 0 NOT NULL,
-    "tax_percentage" NUMERIC(8,2) NOT NULL,
+    "id_sales_order_item" INTEGER NOT NULL,
+    "fk_sales_order" INTEGER NOT NULL,
+    "fk_oms_order_item_state" INTEGER NOT NULL,
+    "fk_oms_order_process" INTEGER,
+    "fk_sales_order_item_bundle" INTEGER,
+    "last_state_change" TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    "name" VARCHAR(255) NOT NULL,
+    "sku" VARCHAR(255) NOT NULL,
+    "gross_price" INTEGER NOT NULL,
+    "canceled_amount" INTEGER DEFAULT 0,
+    "tax_rate" NUMERIC(8,2),
+    "quantity" INTEGER DEFAULT 1 NOT NULL,
+    "group_key" VARCHAR(255),
     "created_at" TIMESTAMP,
     "updated_at" TIMESTAMP,
-    PRIMARY KEY ("id_sales_order_item_option")
+    PRIMARY KEY ("id_sales_order_item")
 );
+
+COMMENT ON COLUMN "spy_sales_order_item"."gross_price" IS \'/price for one unit including tax, without shipping, coupons/\';
+
+COMMENT ON COLUMN "spy_sales_order_item"."quantity" IS \'/Quantity ordered for item/\';
+
+CREATE INDEX "spy_sales_order_item-sku" ON "spy_sales_order_item" ("sku");
 
 CREATE SEQUENCE "spy_sales_order_note_pk_seq";
 
@@ -1193,38 +1351,21 @@ CREATE TABLE "spy_sales_order_comment"
     PRIMARY KEY ("id_sales_order_comment")
 );
 
-CREATE SEQUENCE "spy_sales_discount_pk_seq";
+CREATE SEQUENCE "spy_sales_expense_pk_seq";
 
-CREATE TABLE "spy_sales_discount"
+CREATE TABLE "spy_sales_expense"
 (
-    "id_sales_discount" INTEGER NOT NULL,
+    "id_sales_expense" INTEGER NOT NULL,
     "fk_sales_order" INTEGER,
-    "fk_sales_order_item" INTEGER,
-    "fk_sales_expense" INTEGER,
-    "fk_sales_order_item_option" INTEGER,
-    "name" VARCHAR(255) NOT NULL,
-    "description" VARCHAR(510),
-    "display_name" VARCHAR(255) NOT NULL,
-    "amount" INTEGER NOT NULL,
+    "type" VARCHAR(150),
+    "name" VARCHAR(255),
+    "gross_price" INTEGER NOT NULL,
+    "tax_rate" NUMERIC(8,2),
+    "canceled_amount" INTEGER DEFAULT 0,
     "created_at" TIMESTAMP,
     "updated_at" TIMESTAMP,
-    PRIMARY KEY ("id_sales_discount")
-);
-
-CREATE SEQUENCE "spy_sales_discount_code_pk_seq";
-
-CREATE TABLE "spy_sales_discount_code"
-(
-    "id_sales_discount_code" INTEGER NOT NULL,
-    "fk_sales_discount" INTEGER NOT NULL,
-    "code" VARCHAR(255) NOT NULL,
-    "codepool_name" VARCHAR(255) NOT NULL,
-    "is_reusable" BOOLEAN DEFAULT \'f\',
-    "is_once_per_customer" BOOLEAN DEFAULT \'t\',
-    "is_refundable" BOOLEAN DEFAULT \'f\',
-    "created_at" TIMESTAMP,
-    "updated_at" TIMESTAMP,
-    PRIMARY KEY ("id_sales_discount_code")
+    PRIMARY KEY ("id_sales_expense"),
+    CONSTRAINT "spy_sales_expense-unique-fk_sales_order" UNIQUE ("fk_sales_order","type")
 );
 
 CREATE SEQUENCE "spy_sales_order_item_bundle_pk_seq";
@@ -1235,8 +1376,7 @@ CREATE TABLE "spy_sales_order_item_bundle"
     "name" VARCHAR(255) NOT NULL,
     "sku" VARCHAR(255) NOT NULL,
     "gross_price" INTEGER NOT NULL,
-    "price_to_pay" INTEGER NOT NULL,
-    "tax_percentage" NUMERIC(8,2),
+    "tax_rate" NUMERIC(8,2),
     "bundle_type" INT2 NOT NULL,
     "created_at" TIMESTAMP,
     "updated_at" TIMESTAMP,
@@ -1244,8 +1384,6 @@ CREATE TABLE "spy_sales_order_item_bundle"
 );
 
 COMMENT ON COLUMN "spy_sales_order_item_bundle"."gross_price" IS \'/price for one unit including tax, without shipping, coupons/\';
-
-COMMENT ON COLUMN "spy_sales_order_item_bundle"."price_to_pay" IS \'/value that the customer has to pay./\';
 
 CREATE SEQUENCE "spy_sales_order_item_bundle_item_pk_seq";
 
@@ -1256,7 +1394,7 @@ CREATE TABLE "spy_sales_order_item_bundle_item"
     "name" VARCHAR(255) NOT NULL,
     "sku" VARCHAR(255) NOT NULL,
     "gross_price" INTEGER NOT NULL,
-    "tax_percentage" NUMERIC(8,2),
+    "tax_rate" NUMERIC(8,2),
     "variety" INT2 NOT NULL,
     "created_at" TIMESTAMP,
     "updated_at" TIMESTAMP,
@@ -1279,7 +1417,6 @@ CREATE SEQUENCE "spy_shipment_carrier_pk_seq";
 CREATE TABLE "spy_shipment_carrier"
 (
     "id_shipment_carrier" INTEGER NOT NULL,
-    "glossary_key_name" VARCHAR(255),
     "name" VARCHAR(255) NOT NULL,
     "is_active" BOOLEAN DEFAULT \'t\' NOT NULL,
     PRIMARY KEY ("id_shipment_carrier")
@@ -1294,19 +1431,119 @@ CREATE TABLE "spy_shipment_method"
     "id_shipment_method" INTEGER NOT NULL,
     "fk_shipment_carrier" INTEGER NOT NULL,
     "fk_tax_set" INTEGER,
-    "glossary_key_name" VARCHAR(255),
-    "glossary_key_description" VARCHAR(255),
     "name" VARCHAR(255) NOT NULL,
     "is_active" BOOLEAN DEFAULT \'t\' NOT NULL,
-    "price" INTEGER,
+    "default_price" INTEGER,
     "availability_plugin" VARCHAR(255),
-    "price_calculation_plugin" VARCHAR(255),
+    "price_plugin" VARCHAR(255),
     "delivery_time_plugin" VARCHAR(255),
-    "tax_calculation_plugin" VARCHAR(255),
     PRIMARY KEY ("id_shipment_method")
 );
 
 CREATE INDEX "spy_shipment_method-is_active" ON "spy_shipment_method" ("is_active");
+
+CREATE SEQUENCE "spy_state_machine_transition_log_pk_seq";
+
+CREATE TABLE "spy_state_machine_transition_log"
+(
+    "id_state_machine_transition_log" INTEGER NOT NULL,
+    "fk_state_machine_process" INTEGER NOT NULL,
+    "identifier" INTEGER NOT NULL,
+    "locked" BOOLEAN,
+    "event" VARCHAR(100),
+    "hostname" VARCHAR(128) NOT NULL,
+    "path" VARCHAR(256),
+    "params" TEXT,
+    "source_state" VARCHAR(128),
+    "target_state" VARCHAR(128),
+    "command" VARCHAR,
+    "condition" VARCHAR,
+    "is_error" BOOLEAN,
+    "error_message" TEXT,
+    "created_at" TIMESTAMP,
+    PRIMARY KEY ("id_state_machine_transition_log")
+);
+
+CREATE SEQUENCE "spy_state_machine_process_pk_seq";
+
+CREATE TABLE "spy_state_machine_process"
+(
+    "id_state_machine_process" INTEGER NOT NULL,
+    "name" VARCHAR(255) NOT NULL,
+    "state_machine_name" VARCHAR(255) NOT NULL,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_state_machine_process"),
+    CONSTRAINT "spy_state_machine_process-name" UNIQUE ("name","state_machine_name")
+);
+
+CREATE INDEX "spy_state_machine_process-state_machine_name" ON "spy_state_machine_process" ("state_machine_name");
+
+CREATE SEQUENCE "spy_state_machine_lock_pk_seq";
+
+CREATE TABLE "spy_state_machine_lock"
+(
+    "id_state_machine_lock" INTEGER NOT NULL,
+    "identifier" VARCHAR(1024) NOT NULL,
+    "expires" TIMESTAMP NOT NULL,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_state_machine_lock"),
+    CONSTRAINT "spy_state_machine_lock-identifier" UNIQUE ("identifier")
+);
+
+CREATE SEQUENCE "spy_state_machine_item_state_pk_seq";
+
+CREATE TABLE "spy_state_machine_item_state"
+(
+    "id_state_machine_item_state" INTEGER NOT NULL,
+    "fk_state_machine_process" INTEGER NOT NULL,
+    "name" VARCHAR(255) NOT NULL,
+    "description" VARCHAR(255),
+    PRIMARY KEY ("id_state_machine_item_state"),
+    CONSTRAINT "spy_state_machine_item_state-name" UNIQUE ("name","fk_state_machine_process")
+);
+
+CREATE SEQUENCE "spy_state_machine_item_state_history_pk_seq";
+
+CREATE TABLE "spy_state_machine_item_state_history"
+(
+    "id_state_machine_item_state_history" INTEGER NOT NULL,
+    "fk_state_machine_item_state" INTEGER NOT NULL,
+    "identifier" INTEGER NOT NULL,
+    "created_at" TIMESTAMP,
+    PRIMARY KEY ("id_state_machine_item_state_history")
+);
+
+CREATE INDEX "spy_state_machine_item_state_history-identifier" ON "spy_state_machine_item_state_history" ("identifier");
+
+CREATE SEQUENCE "spy_state_machine_event_timeout_pk_seq";
+
+CREATE TABLE "spy_state_machine_event_timeout"
+(
+    "id_state_machine_event_timeout" INTEGER NOT NULL,
+    "fk_state_machine_item_state" INTEGER NOT NULL,
+    "fk_state_machine_process" INTEGER NOT NULL,
+    "identifier" INTEGER NOT NULL,
+    "timeout" TIMESTAMP NOT NULL,
+    "event" VARCHAR(255) NOT NULL,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_state_machine_event_timeout"),
+    CONSTRAINT "spy_state_machine_item_state-unique-identifier" UNIQUE ("identifier","fk_state_machine_item_state")
+);
+
+CREATE INDEX "spy_state_machine_event_timeout-timeout" ON "spy_state_machine_event_timeout" ("timeout");
+
+CREATE SEQUENCE "pyz_state_machine_example_item_pk_seq";
+
+CREATE TABLE "pyz_state_machine_example_item"
+(
+    "id_state_machine_example_item" INTEGER NOT NULL,
+    "fk_state_machine_item_state" INTEGER,
+    "name" VARCHAR,
+    PRIMARY KEY ("id_state_machine_example_item")
+);
 
 CREATE SEQUENCE "spy_stock_pk_seq";
 
@@ -1337,6 +1574,8 @@ CREATE TABLE "spy_tax_set"
 (
     "id_tax_set" INTEGER NOT NULL,
     "name" VARCHAR(255) NOT NULL,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
     PRIMARY KEY ("id_tax_set")
 );
 
@@ -1347,6 +1586,9 @@ CREATE TABLE "spy_tax_rate"
     "id_tax_rate" INTEGER NOT NULL,
     "name" VARCHAR(255) NOT NULL,
     "rate" NUMERIC(8,2) NOT NULL,
+    "fk_country" INTEGER,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
     PRIMARY KEY ("id_tax_rate")
 );
 
@@ -1573,6 +1815,26 @@ ALTER TABLE "spy_auth_reset_password" ADD CONSTRAINT "spy_auth_reset_password-fk
     REFERENCES "spy_user" ("id_user")
     ON DELETE CASCADE;
 
+ALTER TABLE "spy_payment_braintree" ADD CONSTRAINT "spy_payment_braintree-fk_sales_order"
+    FOREIGN KEY ("fk_sales_order")
+    REFERENCES "spy_sales_order" ("id_sales_order");
+
+ALTER TABLE "spy_payment_braintree_transaction_request_log" ADD CONSTRAINT "spy_braintree_transaction_request_log-fk_payment_braintree"
+    FOREIGN KEY ("fk_payment_braintree")
+    REFERENCES "spy_payment_braintree" ("id_payment_braintree");
+
+ALTER TABLE "spy_payment_braintree_transaction_status_log" ADD CONSTRAINT "spy_braintree_transaction_status_log-fk_braintree"
+    FOREIGN KEY ("fk_payment_braintree")
+    REFERENCES "spy_payment_braintree" ("id_payment_braintree");
+
+ALTER TABLE "spy_payment_braintree_order_item" ADD CONSTRAINT "spy_braintree_order_item-fk_braintree"
+    FOREIGN KEY ("fk_payment_braintree")
+    REFERENCES "spy_payment_braintree" ("id_payment_braintree");
+
+ALTER TABLE "spy_payment_braintree_order_item" ADD CONSTRAINT "spy_payment_braintree_order_item-fk_sales_order_item"
+    FOREIGN KEY ("fk_sales_order_item")
+    REFERENCES "spy_sales_order_item" ("id_sales_order_item");
+
 ALTER TABLE "spy_category_attribute" ADD CONSTRAINT "spy_category_attribute_fk_12b6d0"
     FOREIGN KEY ("fk_locale")
     REFERENCES "spy_locale" ("id_locale");
@@ -1623,15 +1885,18 @@ ALTER TABLE "spy_region" ADD CONSTRAINT "spy_region-fk_country"
 
 ALTER TABLE "spy_customer" ADD CONSTRAINT "spy_customer-default_billing_address"
     FOREIGN KEY ("default_billing_address")
-    REFERENCES "spy_customer_address" ("id_customer_address");
+    REFERENCES "spy_customer_address" ("id_customer_address")
+    ON DELETE SET NULL;
 
 ALTER TABLE "spy_customer" ADD CONSTRAINT "spy_customer-default_shipping_address"
     FOREIGN KEY ("default_shipping_address")
-    REFERENCES "spy_customer_address" ("id_customer_address");
+    REFERENCES "spy_customer_address" ("id_customer_address")
+    ON DELETE SET NULL;
 
 ALTER TABLE "spy_customer_address" ADD CONSTRAINT "spy_customer_address-fk_customer"
     FOREIGN KEY ("fk_customer")
-    REFERENCES "spy_customer" ("id_customer");
+    REFERENCES "spy_customer" ("id_customer")
+    ON DELETE CASCADE;
 
 ALTER TABLE "spy_customer_address" ADD CONSTRAINT "spy_customer_address-fk_region"
     FOREIGN KEY ("fk_region")
@@ -1644,18 +1909,6 @@ ALTER TABLE "spy_customer_address" ADD CONSTRAINT "spy_customer_address-fk_count
 ALTER TABLE "spy_discount" ADD CONSTRAINT "spy_discount-fk_discount_voucher_pool"
     FOREIGN KEY ("fk_discount_voucher_pool")
     REFERENCES "spy_discount_voucher_pool" ("id_discount_voucher_pool");
-
-ALTER TABLE "spy_discount_decision_rule" ADD CONSTRAINT "spy_discount_decision_rule-fk_discount"
-    FOREIGN KEY ("fk_discount")
-    REFERENCES "spy_discount" ("id_discount");
-
-ALTER TABLE "spy_discount_collector" ADD CONSTRAINT "spy_discount_collector-fk_discount"
-    FOREIGN KEY ("fk_discount")
-    REFERENCES "spy_discount" ("id_discount");
-
-ALTER TABLE "spy_discount_voucher_pool" ADD CONSTRAINT "spy_discount_voucher_pool-fk_discount_voucher_pool_category"
-    FOREIGN KEY ("fk_discount_voucher_pool_category")
-    REFERENCES "spy_discount_voucher_pool_category" ("id_discount_voucher_pool_category");
 
 ALTER TABLE "spy_discount_voucher" ADD CONSTRAINT "spy_discount_voucher-fk_discount_voucher_pool"
     FOREIGN KEY ("fk_discount_voucher_pool")
@@ -1827,6 +2080,26 @@ ALTER TABLE "spy_product_category" ADD CONSTRAINT "spy_product_category-fk_produ
     FOREIGN KEY ("fk_product_abstract")
     REFERENCES "spy_product_abstract" ("id_product_abstract");
 
+ALTER TABLE "spy_product_image_set" ADD CONSTRAINT "spy_product_image_set-fk_locale"
+    FOREIGN KEY ("fk_locale")
+    REFERENCES "spy_locale" ("id_locale");
+
+ALTER TABLE "spy_product_image_set" ADD CONSTRAINT "spy_product_image_set-fk_product"
+    FOREIGN KEY ("fk_product")
+    REFERENCES "spy_product" ("id_product");
+
+ALTER TABLE "spy_product_image_set" ADD CONSTRAINT "spy_product_image_set-fk_product_abstract"
+    FOREIGN KEY ("fk_product_abstract")
+    REFERENCES "spy_product_abstract" ("id_product_abstract");
+
+ALTER TABLE "spy_product_image_set_to_product_image" ADD CONSTRAINT "spy_product_image_set_to_product_image-fk_product_image_set"
+    FOREIGN KEY ("fk_product_image_set")
+    REFERENCES "spy_product_image_set" ("id_product_image_set");
+
+ALTER TABLE "spy_product_image_set_to_product_image" ADD CONSTRAINT "spy_product_image_set_to_product_image-fk_product_image"
+    FOREIGN KEY ("fk_product_image")
+    REFERENCES "spy_product_image" ("id_product_image");
+
 ALTER TABLE "spy_product_option_type" ADD CONSTRAINT "spy_product_option_type-fk_tax_set"
     FOREIGN KEY ("fk_tax_set")
     REFERENCES "spy_tax_set" ("id_tax_set")
@@ -1915,11 +2188,6 @@ ALTER TABLE "spy_product_option_configuration_preset_value" ADD CONSTRAINT "spy_
     REFERENCES "spy_product_option_value_usage" ("id_product_option_value_usage")
     ON DELETE CASCADE;
 
-ALTER TABLE "spy_product_search_attributes_operation" ADD CONSTRAINT "spy_product_search_attributes_operation-source_attribute_id"
-    FOREIGN KEY ("source_attribute_id")
-    REFERENCES "spy_product_attributes_metadata" ("id_product_attributes_metadata")
-    ON DELETE CASCADE;
-
 ALTER TABLE "spy_product_search" ADD CONSTRAINT "spy_product_search-fk_product"
     FOREIGN KEY ("fk_product")
     REFERENCES "spy_product" ("id_product");
@@ -1927,6 +2195,19 @@ ALTER TABLE "spy_product_search" ADD CONSTRAINT "spy_product_search-fk_product"
 ALTER TABLE "spy_product_search" ADD CONSTRAINT "spy_product_search-fk_locale"
     FOREIGN KEY ("fk_locale")
     REFERENCES "spy_locale" ("id_locale");
+
+ALTER TABLE "spy_product_search_attribute_map" ADD CONSTRAINT "spy_product_search_attribute_map-source_attribute_id"
+    FOREIGN KEY ("fk_product_attributes_metadata")
+    REFERENCES "spy_product_attributes_metadata" ("id_product_attributes_metadata")
+    ON DELETE CASCADE;
+
+ALTER TABLE "spy_payment_ratepay" ADD CONSTRAINT "spy_payment_ratepay-fk_sales_order"
+    FOREIGN KEY ("fk_sales_order")
+    REFERENCES "spy_sales_order" ("id_sales_order");
+
+ALTER TABLE "spy_payment_ratepay_log" ADD CONSTRAINT "spy_payment_ratepay_log-fk_sales_order"
+    FOREIGN KEY ("fk_sales_order")
+    REFERENCES "spy_sales_order" ("id_sales_order");
 
 ALTER TABLE "spy_refund" ADD CONSTRAINT "spy_refund-fk_sales_order"
     FOREIGN KEY ("fk_sales_order")
@@ -1948,33 +2229,29 @@ ALTER TABLE "spy_sales_order" ADD CONSTRAINT "spy_sales_order-fk_shipment_method
     FOREIGN KEY ("fk_shipment_method")
     REFERENCES "spy_shipment_method" ("id_shipment_method");
 
-ALTER TABLE "spy_sales_order_item" ADD CONSTRAINT "spy_sales_order_item-fk_refund"
-    FOREIGN KEY ("fk_refund")
-    REFERENCES "spy_refund" ("id_refund");
-
-ALTER TABLE "spy_sales_order_item" ADD CONSTRAINT "spy_sales_order_item-fk_sales_order"
+ALTER TABLE "spy_sales_discount" ADD CONSTRAINT "spy_sales_discount-fk_sales_order"
     FOREIGN KEY ("fk_sales_order")
     REFERENCES "spy_sales_order" ("id_sales_order");
 
-ALTER TABLE "spy_sales_order_item" ADD CONSTRAINT "spy_sales_order_item-fk_oms_order_item_state"
-    FOREIGN KEY ("fk_oms_order_item_state")
-    REFERENCES "spy_oms_order_item_state" ("id_oms_order_item_state");
+ALTER TABLE "spy_sales_discount" ADD CONSTRAINT "spy_sales_discount-fk_sales_order_item"
+    FOREIGN KEY ("fk_sales_order_item")
+    REFERENCES "spy_sales_order_item" ("id_sales_order_item");
 
-ALTER TABLE "spy_sales_order_item" ADD CONSTRAINT "spy_sales_order_item-fk_oms_order_process"
-    FOREIGN KEY ("fk_oms_order_process")
-    REFERENCES "spy_oms_order_process" ("id_oms_order_process");
+ALTER TABLE "spy_sales_discount" ADD CONSTRAINT "spy_sales_discount-fk_sales_expense"
+    FOREIGN KEY ("fk_sales_expense")
+    REFERENCES "spy_sales_expense" ("id_sales_expense");
 
-ALTER TABLE "spy_sales_order_item" ADD CONSTRAINT "spy_sales_order_item-fk_sales_order_item_bundle"
-    FOREIGN KEY ("fk_sales_order_item_bundle")
-    REFERENCES "spy_sales_order_item_bundle" ("id_sales_order_item_bundle");
+ALTER TABLE "spy_sales_discount" ADD CONSTRAINT "spy_sales_discount-fk_sales_order_item_option"
+    FOREIGN KEY ("fk_sales_order_item_option")
+    REFERENCES "spy_sales_order_item_option" ("id_sales_order_item_option");
 
-ALTER TABLE "spy_sales_expense" ADD CONSTRAINT "spy_sales_expense-fk_refund"
-    FOREIGN KEY ("fk_refund")
-    REFERENCES "spy_refund" ("id_refund");
+ALTER TABLE "spy_sales_discount_code" ADD CONSTRAINT "spy_sales_discount_code-fk_sales_discount"
+    FOREIGN KEY ("fk_sales_discount")
+    REFERENCES "spy_sales_discount" ("id_sales_discount");
 
-ALTER TABLE "spy_sales_expense" ADD CONSTRAINT "spy_sales_expense-fk_sales_order"
-    FOREIGN KEY ("fk_sales_order")
-    REFERENCES "spy_sales_order" ("id_sales_order");
+ALTER TABLE "spy_sales_order_item_option" ADD CONSTRAINT "spy_sales_order_item_option-fk_sales_order_item"
+    FOREIGN KEY ("fk_sales_order_item")
+    REFERENCES "spy_sales_order_item" ("id_sales_order_item");
 
 ALTER TABLE "spy_sales_order_address" ADD CONSTRAINT "spy_sales_order_address-fk_country"
     FOREIGN KEY ("fk_country")
@@ -1996,9 +2273,21 @@ ALTER TABLE "spy_sales_order_address_history" ADD CONSTRAINT "spy_sales_order_ad
     FOREIGN KEY ("fk_region")
     REFERENCES "spy_region" ("id_region");
 
-ALTER TABLE "spy_sales_order_item_option" ADD CONSTRAINT "spy_sales_order_item_option-fk_sales_order_item"
-    FOREIGN KEY ("fk_sales_order_item")
-    REFERENCES "spy_sales_order_item" ("id_sales_order_item");
+ALTER TABLE "spy_sales_order_item" ADD CONSTRAINT "spy_sales_order_item-fk_sales_order"
+    FOREIGN KEY ("fk_sales_order")
+    REFERENCES "spy_sales_order" ("id_sales_order");
+
+ALTER TABLE "spy_sales_order_item" ADD CONSTRAINT "spy_sales_order_item-fk_oms_order_item_state"
+    FOREIGN KEY ("fk_oms_order_item_state")
+    REFERENCES "spy_oms_order_item_state" ("id_oms_order_item_state");
+
+ALTER TABLE "spy_sales_order_item" ADD CONSTRAINT "spy_sales_order_item-fk_oms_order_process"
+    FOREIGN KEY ("fk_oms_order_process")
+    REFERENCES "spy_oms_order_process" ("id_oms_order_process");
+
+ALTER TABLE "spy_sales_order_item" ADD CONSTRAINT "spy_sales_order_item-fk_sales_order_item_bundle"
+    FOREIGN KEY ("fk_sales_order_item_bundle")
+    REFERENCES "spy_sales_order_item_bundle" ("id_sales_order_item_bundle");
 
 ALTER TABLE "spy_sales_order_note" ADD CONSTRAINT "spy_sales_order_note-fk_sales_order"
     FOREIGN KEY ("fk_sales_order")
@@ -2008,25 +2297,9 @@ ALTER TABLE "spy_sales_order_comment" ADD CONSTRAINT "spy_sales_order_comment-fk
     FOREIGN KEY ("fk_sales_order")
     REFERENCES "spy_sales_order" ("id_sales_order");
 
-ALTER TABLE "spy_sales_discount" ADD CONSTRAINT "spy_sales_discount-fk_sales_order"
+ALTER TABLE "spy_sales_expense" ADD CONSTRAINT "spy_sales_expense-fk_sales_order"
     FOREIGN KEY ("fk_sales_order")
     REFERENCES "spy_sales_order" ("id_sales_order");
-
-ALTER TABLE "spy_sales_discount" ADD CONSTRAINT "spy_sales_discount-fk_sales_order_item"
-    FOREIGN KEY ("fk_sales_order_item")
-    REFERENCES "spy_sales_order_item" ("id_sales_order_item");
-
-ALTER TABLE "spy_sales_discount" ADD CONSTRAINT "spy_sales_discount-fk_sales_expense"
-    FOREIGN KEY ("fk_sales_expense")
-    REFERENCES "spy_sales_expense" ("id_sales_expense");
-
-ALTER TABLE "spy_sales_discount" ADD CONSTRAINT "spy_sales_discount-fk_sales_order_item_option"
-    FOREIGN KEY ("fk_sales_order_item_option")
-    REFERENCES "spy_sales_order_item_option" ("id_sales_order_item_option");
-
-ALTER TABLE "spy_sales_discount_code" ADD CONSTRAINT "spy_sales_discount_code-fk_sales_discount"
-    FOREIGN KEY ("fk_sales_discount")
-    REFERENCES "spy_sales_discount" ("id_sales_discount");
 
 ALTER TABLE "spy_sales_order_item_bundle_item" ADD CONSTRAINT "spy_sales_order_item_bundle_item-fk_sales_order_item_bundle"
     FOREIGN KEY ("fk_sales_order_item_bundle")
@@ -2040,6 +2313,30 @@ ALTER TABLE "spy_shipment_method" ADD CONSTRAINT "spy_shipment_method-fk_tax_set
     FOREIGN KEY ("fk_tax_set")
     REFERENCES "spy_tax_set" ("id_tax_set");
 
+ALTER TABLE "spy_state_machine_transition_log" ADD CONSTRAINT "spy_state_machine_transition_log-fk_state_machine_process"
+    FOREIGN KEY ("fk_state_machine_process")
+    REFERENCES "spy_state_machine_process" ("id_state_machine_process");
+
+ALTER TABLE "spy_state_machine_item_state" ADD CONSTRAINT "spy_state_machine_item_state-fk_state_machine_process"
+    FOREIGN KEY ("fk_state_machine_process")
+    REFERENCES "spy_state_machine_process" ("id_state_machine_process");
+
+ALTER TABLE "spy_state_machine_item_state_history" ADD CONSTRAINT "spy_state_machine_item_state_h-fk_state_machine_item_state"
+    FOREIGN KEY ("fk_state_machine_item_state")
+    REFERENCES "spy_state_machine_item_state" ("id_state_machine_item_state");
+
+ALTER TABLE "spy_state_machine_event_timeout" ADD CONSTRAINT "spy_state_machine_event_timeout-fk_state_machine_item_state"
+    FOREIGN KEY ("fk_state_machine_item_state")
+    REFERENCES "spy_state_machine_item_state" ("id_state_machine_item_state");
+
+ALTER TABLE "spy_state_machine_event_timeout" ADD CONSTRAINT "spy_state_machine_event_timeout-fk_state_machine_process"
+    FOREIGN KEY ("fk_state_machine_process")
+    REFERENCES "spy_state_machine_process" ("id_state_machine_process");
+
+ALTER TABLE "pyz_state_machine_example_item" ADD CONSTRAINT "pyz_state_machine_example_item-fk_state_machine_item_state"
+    FOREIGN KEY ("fk_state_machine_item_state")
+    REFERENCES "spy_state_machine_item_state" ("id_state_machine_item_state");
+
 ALTER TABLE "spy_stock_product" ADD CONSTRAINT "spy_stock_product-fk_product"
     FOREIGN KEY ("fk_product")
     REFERENCES "spy_product" ("id_product");
@@ -2047,6 +2344,10 @@ ALTER TABLE "spy_stock_product" ADD CONSTRAINT "spy_stock_product-fk_product"
 ALTER TABLE "spy_stock_product" ADD CONSTRAINT "spy_stock_product-fk_stock"
     FOREIGN KEY ("fk_stock")
     REFERENCES "spy_stock" ("id_stock");
+
+ALTER TABLE "spy_tax_rate" ADD CONSTRAINT "spy_tax_rate-fk_country"
+    FOREIGN KEY ("fk_country")
+    REFERENCES "spy_country" ("id_country");
 
 ALTER TABLE "spy_tax_set_tax" ADD CONSTRAINT "spy_tax_set_tax-fk_tax_set"
     FOREIGN KEY ("fk_tax_set")
@@ -2147,6 +2448,20 @@ DROP TABLE IF EXISTS "spy_auth_reset_password" CASCADE;
 
 DROP SEQUENCE "spy_auth_reset_password_pk_seq";
 
+DROP TABLE IF EXISTS "spy_payment_braintree" CASCADE;
+
+DROP SEQUENCE "spy_payment_braintree_pk_seq";
+
+DROP TABLE IF EXISTS "spy_payment_braintree_transaction_request_log" CASCADE;
+
+DROP SEQUENCE "spy_payment_braintree_transaction_request_log_pk_seq";
+
+DROP TABLE IF EXISTS "spy_payment_braintree_transaction_status_log" CASCADE;
+
+DROP SEQUENCE "spy_payment_braintree_transaction_status_log_pk_seq";
+
+DROP TABLE IF EXISTS "spy_payment_braintree_order_item" CASCADE;
+
 DROP TABLE IF EXISTS "spy_category" CASCADE;
 
 DROP SEQUENCE "spy_category_pk_seq";
@@ -2199,14 +2514,6 @@ DROP TABLE IF EXISTS "spy_discount" CASCADE;
 
 DROP SEQUENCE "spy_discount_pk_seq";
 
-DROP TABLE IF EXISTS "spy_discount_decision_rule" CASCADE;
-
-DROP SEQUENCE "spy_discount_decision_rule_pk_seq";
-
-DROP TABLE IF EXISTS "spy_discount_collector" CASCADE;
-
-DROP SEQUENCE "spy_discount_collector_pk_seq";
-
 DROP TABLE IF EXISTS "spy_discount_voucher_pool" CASCADE;
 
 DROP SEQUENCE "spy_discount_voucher_pool_pk_seq";
@@ -2214,10 +2521,6 @@ DROP SEQUENCE "spy_discount_voucher_pool_pk_seq";
 DROP TABLE IF EXISTS "spy_discount_voucher" CASCADE;
 
 DROP SEQUENCE "spy_discount_voucher_pk_seq";
-
-DROP TABLE IF EXISTS "spy_discount_voucher_pool_category" CASCADE;
-
-DROP SEQUENCE "spy_discount_voucher_pool_category_pk_seq";
 
 DROP TABLE IF EXISTS "spy_glossary_key" CASCADE;
 
@@ -2252,6 +2555,10 @@ DROP SEQUENCE "spy_oms_transition_log_pk_seq";
 DROP TABLE IF EXISTS "spy_oms_order_process" CASCADE;
 
 DROP SEQUENCE "spy_oms_order_process_pk_seq";
+
+DROP TABLE IF EXISTS "spy_oms_state_machine_lock" CASCADE;
+
+DROP SEQUENCE "spy_oms_state_machine_lock_pk_seq";
 
 DROP TABLE IF EXISTS "spy_oms_order_item_state" CASCADE;
 
@@ -2337,6 +2644,18 @@ DROP TABLE IF EXISTS "spy_product_category" CASCADE;
 
 DROP SEQUENCE "spy_product_category_pk_seq";
 
+DROP TABLE IF EXISTS "spy_product_image_set" CASCADE;
+
+DROP SEQUENCE "spy_product_image_set_pk_seq";
+
+DROP TABLE IF EXISTS "spy_product_image" CASCADE;
+
+DROP SEQUENCE "spy_product_image_pk_seq";
+
+DROP TABLE IF EXISTS "spy_product_image_set_to_product_image" CASCADE;
+
+DROP SEQUENCE "spy_product_image_set_to_product_image_pk_seq";
+
 DROP TABLE IF EXISTS "spy_product_option_type" CASCADE;
 
 DROP SEQUENCE "spy_product_option_type_pk_seq";
@@ -2371,13 +2690,21 @@ DROP SEQUENCE "spy_product_option_configuration_preset_pk_seq";
 
 DROP TABLE IF EXISTS "spy_product_option_configuration_preset_value" CASCADE;
 
-DROP TABLE IF EXISTS "spy_product_search_attributes_operation" CASCADE;
-
 DROP TABLE IF EXISTS "spy_product_search" CASCADE;
 
 DROP SEQUENCE "spy_product_search_pk_seq";
 
+DROP TABLE IF EXISTS "spy_product_search_attribute_map" CASCADE;
+
 DROP TABLE IF EXISTS "spy_propel_heartbeat" CASCADE;
+
+DROP TABLE IF EXISTS "spy_payment_ratepay" CASCADE;
+
+DROP SEQUENCE "spy_payment_ratepay_pk_seq";
+
+DROP TABLE IF EXISTS "spy_payment_ratepay_log" CASCADE;
+
+DROP SEQUENCE "spy_payment_ratepay_log_pk_seq";
 
 DROP TABLE IF EXISTS "spy_refund" CASCADE;
 
@@ -2387,13 +2714,17 @@ DROP TABLE IF EXISTS "spy_sales_order" CASCADE;
 
 DROP SEQUENCE "spy_sales_order_pk_seq";
 
-DROP TABLE IF EXISTS "spy_sales_order_item" CASCADE;
+DROP TABLE IF EXISTS "spy_sales_discount" CASCADE;
 
-DROP SEQUENCE "spy_sales_order_item_pk_seq";
+DROP SEQUENCE "spy_sales_discount_pk_seq";
 
-DROP TABLE IF EXISTS "spy_sales_expense" CASCADE;
+DROP TABLE IF EXISTS "spy_sales_discount_code" CASCADE;
 
-DROP SEQUENCE "spy_sales_expense_pk_seq";
+DROP SEQUENCE "spy_sales_discount_code_pk_seq";
+
+DROP TABLE IF EXISTS "spy_sales_order_item_option" CASCADE;
+
+DROP SEQUENCE "spy_sales_order_item_option_pk_seq";
 
 DROP TABLE IF EXISTS "spy_sales_order_address" CASCADE;
 
@@ -2403,9 +2734,9 @@ DROP TABLE IF EXISTS "spy_sales_order_address_history" CASCADE;
 
 DROP SEQUENCE "spy_sales_order_address_history_pk_seq";
 
-DROP TABLE IF EXISTS "spy_sales_order_item_option" CASCADE;
+DROP TABLE IF EXISTS "spy_sales_order_item" CASCADE;
 
-DROP SEQUENCE "spy_sales_order_item_option_pk_seq";
+DROP SEQUENCE "spy_sales_order_item_pk_seq";
 
 DROP TABLE IF EXISTS "spy_sales_order_note" CASCADE;
 
@@ -2415,13 +2746,9 @@ DROP TABLE IF EXISTS "spy_sales_order_comment" CASCADE;
 
 DROP SEQUENCE "spy_sales_order_comment_pk_seq";
 
-DROP TABLE IF EXISTS "spy_sales_discount" CASCADE;
+DROP TABLE IF EXISTS "spy_sales_expense" CASCADE;
 
-DROP SEQUENCE "spy_sales_discount_pk_seq";
-
-DROP TABLE IF EXISTS "spy_sales_discount_code" CASCADE;
-
-DROP SEQUENCE "spy_sales_discount_code_pk_seq";
+DROP SEQUENCE "spy_sales_expense_pk_seq";
 
 DROP TABLE IF EXISTS "spy_sales_order_item_bundle" CASCADE;
 
@@ -2442,6 +2769,34 @@ DROP SEQUENCE "spy_shipment_carrier_pk_seq";
 DROP TABLE IF EXISTS "spy_shipment_method" CASCADE;
 
 DROP SEQUENCE "spy_shipment_method_pk_seq";
+
+DROP TABLE IF EXISTS "spy_state_machine_transition_log" CASCADE;
+
+DROP SEQUENCE "spy_state_machine_transition_log_pk_seq";
+
+DROP TABLE IF EXISTS "spy_state_machine_process" CASCADE;
+
+DROP SEQUENCE "spy_state_machine_process_pk_seq";
+
+DROP TABLE IF EXISTS "spy_state_machine_lock" CASCADE;
+
+DROP SEQUENCE "spy_state_machine_lock_pk_seq";
+
+DROP TABLE IF EXISTS "spy_state_machine_item_state" CASCADE;
+
+DROP SEQUENCE "spy_state_machine_item_state_pk_seq";
+
+DROP TABLE IF EXISTS "spy_state_machine_item_state_history" CASCADE;
+
+DROP SEQUENCE "spy_state_machine_item_state_history_pk_seq";
+
+DROP TABLE IF EXISTS "spy_state_machine_event_timeout" CASCADE;
+
+DROP SEQUENCE "spy_state_machine_event_timeout_pk_seq";
+
+DROP TABLE IF EXISTS "pyz_state_machine_example_item" CASCADE;
+
+DROP SEQUENCE "pyz_state_machine_example_item_pk_seq";
 
 DROP TABLE IF EXISTS "spy_stock" CASCADE;
 
