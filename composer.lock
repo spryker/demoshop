@@ -1123,7 +1123,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "ccb81c06a6380ab5691e97dec4aeceda4c03a091"
+                "reference": "d50c783a999a57a065efd2ee763734f16040fae6"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1249,6 +1249,14 @@
                     "Spryker\\Zed\\Customer\\": "Bundles/Customer/src",
                     "Unit\\Spryker\\Zed\\Customer\\": "Bundles/Customer/tests",
                     "Functional\\Spryker\\Zed\\Customer\\": "Bundles/Customer/tests",
+                    "Spryker\\Zed\\Currency\\": "Bundles/Currency/src",
+                    "Spryker\\Yves\\Currency\\": "Bundles/Currency/src",
+                    "Spryker\\Shared\\Currency\\": "Bundles/Currency/src",
+                    "Functional\\Zed\\Currency\\": "Bundles/Currency/tests",
+                    "Functional\\Yves\\Currency\\": "Bundles/Currency/tests",
+                    "Unit\\Yves\\Currency\\": "Bundles/Currency/tests",
+                    "Unit\\Zed\\Currency\\": "Bundles/Currency/tests",
+                    "Unit\\Shared\\Currency\\": "Bundles/Currency/tests",
                     "Spryker\\Shared\\CustomerMailConnector\\": "Bundles/CustomerMailConnector/src",
                     "Unit\\Spryker\\Shared\\CustomerMailConnector\\": "Bundles/CustomerMailConnector/tests",
                     "Functional\\Spryker\\Shared\\CustomerMailConnector\\": "Bundles/CustomerMailConnector/tests",
@@ -1354,6 +1362,12 @@
                     "Unit\\Spryker\\Shared\\Messenger\\": "Bundles/Messenger/tests",
                     "Spryker\\Zed\\Messenger\\": "Bundles/Messenger/src",
                     "Unit\\Spryker\\Zed\\Messenger\\": "Bundles/Messenger/tests",
+                    "Spryker\\Shared\\Money\\": "Bundles/Money/src",
+                    "Spryker\\Yves\\Money\\": "Bundles/Money/src",
+                    "Spryker\\Zed\\Money\\": "Bundles/Money/src",
+                    "Unit\\Spryker\\Shared\\Money\\": "Bundles/Money/tests",
+                    "Unit\\Spryker\\Yves\\Money\\": "Bundles/Money/tests",
+                    "Unit\\Spryker\\Zed\\Money\\": "Bundles/Money/tests",
                     "Spryker\\Shared\\NewRelic\\": "Bundles/NewRelic/src",
                     "Spryker\\Zed\\NewRelic\\": "Bundles/NewRelic/src",
                     "Spryker\\Client\\Newsletter\\": "Bundles/Newsletter/src",
@@ -1628,7 +1642,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-08-19 15:04:47"
+            "time": "2016-08-22 14:13:23"
         },
         {
             "name": "symfony-cmf/routing",
