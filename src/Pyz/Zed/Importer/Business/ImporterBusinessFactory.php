@@ -45,6 +45,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
             ImporterConfig::RESOURCE_PRODUCT_CONCRETE => $this->createInstallerFactory()->createProductConcreteInstaller(),
             ImporterConfig::RESOURCE_PRODUCT_PRICE => $this->createInstallerFactory()->createProductPriceInstaller(),
             ImporterConfig::RESOURCE_PRODUCT_STOCK => $this->createInstallerFactory()->createProductStockInstaller(),
+            ImporterConfig::RESOURCE_PRODUCT_SEARCH_ATTRIBUTE => $this->createInstallerFactory()->createProductSearchAttributeInstaller(),
             ImporterConfig::RESOURCE_PRODUCT_SEARCH => $this->createInstallerFactory()->createProductSearchInstaller(),
             ImporterConfig::RESOURCE_CMS_PAGE => $this->createInstallerFactory()->createCmsPageInstaller(),
             ImporterConfig::RESOURCE_CMS_BLOCK => $this->createInstallerFactory()->createCmsBlockInstaller(),
