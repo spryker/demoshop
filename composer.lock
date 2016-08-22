@@ -1123,7 +1123,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "3e2304e024556ff645cd50e35a3f7eaf579900c9"
+                "reference": "ccb81c06a6380ab5691e97dec4aeceda4c03a091"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1628,7 +1628,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-08-19 14:58:31"
+            "time": "2016-08-19 15:04:47"
         },
         {
             "name": "symfony-cmf/routing",
@@ -5679,16 +5679,16 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.6.1",
+            "version": "0.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "a172de843b8747123e3f1bceb2fe6c4be35a2ab5"
+                "reference": "7eb1f9caaea13a01c926de107cfb69b0c6f5a699"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/a172de843b8747123e3f1bceb2fe6c4be35a2ab5",
-                "reference": "a172de843b8747123e3f1bceb2fe6c4be35a2ab5",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/7eb1f9caaea13a01c926de107cfb69b0c6f5a699",
+                "reference": "7eb1f9caaea13a01c926de107cfb69b0c6f5a699",
                 "shasum": ""
             },
             "require": {
@@ -5699,6 +5699,11 @@
                 "phpunit/phpunit": "~5.2"
             },
             "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "Spryker"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -5717,7 +5722,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-08-18 12:36:55"
+            "time": "2016-08-19 15:03:48"
         },
         {
             "name": "squizlabs/php_codesniffer",
