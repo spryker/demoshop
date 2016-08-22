@@ -30,7 +30,6 @@ class SalesAggregatorFacadeTest extends Test
 {
 
     /**
-     * @throws \Propel\Runtime\Exception\PropelException
      *
      * @return void
      */
@@ -254,7 +253,6 @@ class SalesAggregatorFacadeTest extends Test
     /**
      * @param bool $createDiscounts
      *
-     * @throws \Propel\Runtime\Exception\PropelException
      *
      * @return \Orm\Zed\Sales\Persistence\SpySalesOrder
      */
@@ -399,7 +397,6 @@ class SalesAggregatorFacadeTest extends Test
      * @param int $discountName
      * @param array $options
      *
-     * @throws \Propel\Runtime\Exception\PropelException
      * @return \Orm\Zed\Sales\Persistence\SpySalesOrderItem
      */
     protected function createOrderItem(
@@ -466,7 +463,6 @@ class SalesAggregatorFacadeTest extends Test
      * @param int $idOrderItem
      * @param int $idExpense
      * @param int $idOrderItemOption
-     * @throws \Propel\Runtime\Exception\PropelException
      *
      * @return void
      */

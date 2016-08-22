@@ -69,7 +69,6 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @throws \Exception
      * @return \Silex\ServiceProviderInterface[]
      */
     protected function getServiceProvider(Container $container)

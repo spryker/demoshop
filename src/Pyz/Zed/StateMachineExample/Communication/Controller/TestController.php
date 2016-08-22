@@ -62,7 +62,6 @@ class TestController extends AbstractController
     }
 
     /**
-     * @throws \Propel\Runtime\Exception\PropelException
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function addItemAction()
@@ -76,7 +75,6 @@ class TestController extends AbstractController
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function deleteItemAction(Request $request)
     {

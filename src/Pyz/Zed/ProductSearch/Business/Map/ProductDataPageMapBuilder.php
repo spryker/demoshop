@@ -130,6 +130,7 @@ class ProductDataPageMapBuilder
     /**
      * @param string $data
      *
+     * @throws \RuntimeException
      * @return array
      */
     protected function getEncodedAttributeData($data)

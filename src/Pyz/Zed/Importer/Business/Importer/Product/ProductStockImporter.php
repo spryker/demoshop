@@ -94,8 +94,6 @@ class ProductStockImporter extends AbstractImporter
     /**
      * @param array $data
      *
-     * @throws \UnexpectedValueException
-     *
      * @return void
      */
     protected function importOne(array $data)
