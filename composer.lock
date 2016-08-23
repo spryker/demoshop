@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4ed47fa5b785955639d19c233be110e1",
-    "content-hash": "17425de5f4654e18b72a42bb362a0fdd",
+    "hash": "44ca6ba5732cb7a98e7f8f7b1306328e",
+    "content-hash": "6a5a1f1c688ecebcaa930076c0c9ce93",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1195,11 +1195,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-539-persist-redis-key-cache",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "ea4c56957bca0024a9d2baed879f25ff143573be"
+                "reference": "8ab0e13390ac358ec5a370af1e2f58cfc2951386"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1631,6 +1631,9 @@
                     "Spryker\\Shared\\Storage\\": "Bundles/Storage/src",
                     "Unit\\Spryker\\Shared\\Storage\\": "Bundles/Storage/tests",
                     "Functional\\Spryker\\Shared\\Storage\\": "Bundles/Storage/tests",
+                    "Spryker\\Yves\\Storage\\": "Bundles/Storage/src",
+                    "Unit\\Spryker\\Yves\\Storage\\": "Bundles/Storage/tests",
+                    "Functional\\Spryker\\Yves\\Storage\\": "Bundles/Storage/tests",
                     "Spryker\\Zed\\Storage\\": "Bundles/Storage/src",
                     "Unit\\Spryker\\Zed\\Storage\\": "Bundles/Storage/tests",
                     "Functional\\Spryker\\Zed\\Storage\\": "Bundles/Storage/tests",
@@ -1719,7 +1722,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-08-23 15:08:09"
+            "time": "2016-08-23 15:53:56"
         },
         {
             "name": "symfony-cmf/routing",

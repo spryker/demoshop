@@ -48,6 +48,7 @@ use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\MonologServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\YvesHstsServiceProvider;
+use Spryker\Yves\Storage\Plugin\Provider\StorageRequestCacheServiceProvider;
 
 class YvesBootstrap
 {
@@ -81,6 +82,7 @@ class YvesBootstrap
      */
     protected function registerServiceProviders()
     {
+        $this->application->register(new StorageRequestCacheServiceProvider());
         $this->application->register(new TwigServiceProvider());
         $this->application->register(new ApplicationServiceProvider());
         $this->application->register(new SessionServiceProvider());
