@@ -100,7 +100,7 @@ class ProductStockImporter extends AbstractImporter
     {
         $product = $this->format($data);
         $stock = $this->getStockValue();
-        $stock[self::SKU] .=  '-1';
+        $stock[self::SKU] .= '-1';
 
         if ($this->hasVariants($data[self::VARIANT_ID])) {
             return;
