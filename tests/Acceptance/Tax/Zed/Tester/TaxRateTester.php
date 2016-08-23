@@ -10,8 +10,9 @@ namespace Acceptance\Tax\Zed\Tester;
 use Acceptance\Tax\Zed\PageObject\TaxRateCreatePage;
 use Acceptance\Tax\Zed\PageObject\TaxRateListPage;
 use Orm\Zed\Tax\Persistence\SpyTaxRateQuery;
+use ZedAcceptanceTester;
 
-class TaxRateTester extends \ZedAcceptanceTester
+class TaxRateTester extends ZedAcceptanceTester
 {
 
     /**

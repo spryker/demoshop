@@ -6,9 +6,10 @@
 
 namespace YvesUnit\Spryker\Yves\Assets\Communication;
 
+use PHPUnit_Framework_TestCase;
 use Pyz\Yves\Twig\Model\UrlParameterCacheBuster;
 
-class UrlParameterCacheBusterTest extends \PHPUnit_Framework_TestCase
+class UrlParameterCacheBusterTest extends PHPUnit_Framework_TestCase
 {
 
     /**

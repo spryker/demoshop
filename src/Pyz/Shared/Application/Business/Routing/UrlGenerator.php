@@ -7,6 +7,7 @@
 
 namespace Pyz\Shared\Application\Business\Routing;
 
+use Pimple;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Routing\CompiledRoute;
 use Symfony\Component\Routing\Generator\UrlGenerator as SymfonyUrlGenerator;
@@ -32,7 +33,7 @@ class UrlGenerator extends SymfonyUrlGenerator
      * @param \Symfony\Component\Routing\RequestContext $context
      * @param \Psr\Log\LoggerInterface|null $logger
      */
-    public function __construct(\Pimple $app, RouteCollection $routes, RequestContext $context, LoggerInterface $logger = null)
+    public function __construct(Pimple $app, RouteCollection $routes, RequestContext $context, LoggerInterface $logger = null)
     {
         parent::__construct($routes, $context, $logger);
 

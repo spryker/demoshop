@@ -6,10 +6,11 @@
 namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
+use PHPUnit_Framework_TestCase;
 use Pyz\Yves\Checkout\Process\Steps\EntryStep;
 use Symfony\Component\HttpFoundation\Request;
 
-class EntryStepTest extends \PHPUnit_Framework_TestCase
+class EntryStepTest extends PHPUnit_Framework_TestCase
 {
 
     /**

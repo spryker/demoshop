@@ -11,14 +11,14 @@ use Generated\Shared\Transfer\CheckoutErrorTransfer;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\SaveOrderTransfer;
-
+use PHPUnit_Framework_TestCase;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class PlaceOrderStepTest extends \PHPUnit_Framework_TestCase
+class PlaceOrderStepTest extends PHPUnit_Framework_TestCase
 {
 
     /**

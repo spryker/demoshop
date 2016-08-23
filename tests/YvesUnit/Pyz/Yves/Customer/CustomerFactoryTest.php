@@ -7,6 +7,7 @@
 
 namespace YvesUnit\Pyz\Yves\Customer;
 
+use PHPUnit_Framework_TestCase;
 use Pyz\Client\Newsletter\NewsletterClientInterface;
 use Pyz\Yves\Customer\CustomerFactory;
 
@@ -16,7 +17,7 @@ use Pyz\Yves\Customer\CustomerFactory;
  * @group Customer
  * @group CustomerFactory
  */
-class CustomerFactoryTest extends \PHPUnit_Framework_TestCase
+class CustomerFactoryTest extends PHPUnit_Framework_TestCase
 {
 
     /**

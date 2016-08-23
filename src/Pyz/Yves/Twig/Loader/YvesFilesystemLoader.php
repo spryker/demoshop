@@ -8,8 +8,10 @@
 namespace Pyz\Yves\Twig\Loader;
 
 use Twig_Error_Loader;
+use Twig_ExistsLoaderInterface;
+use Twig_LoaderInterface;
 
-class YvesFilesystemLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderInterface
+class YvesFilesystemLoader implements Twig_LoaderInterface, Twig_ExistsLoaderInterface
 {
 
     /**
