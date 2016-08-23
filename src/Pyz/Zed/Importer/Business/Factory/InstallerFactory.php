@@ -156,12 +156,12 @@ class InstallerFactory extends AbstractFactory
      */
     public function createShipmentInstaller()
     {
-        $cmsBlockInstaller = new ShipmentInstaller(
+        $shipmentInstaller = new ShipmentInstaller(
             $this->getImporterShipmentCollection(),
             $this->getConfig()->getImportDataDirectory()
         );
 
-        return $cmsBlockInstaller;
+        return $shipmentInstaller;
     }
 
     /**
