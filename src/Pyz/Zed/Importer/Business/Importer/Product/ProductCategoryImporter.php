@@ -108,6 +108,7 @@ class ProductCategoryImporter extends AbstractImporter
      *
      * @see \Pyz\Zed\Installer\Business\Importer\Category\CategoryHierarchyImporter::getRootNode
      *
+     * @throws \LogicException
      * @return \Orm\Zed\Category\Persistence\SpyCategoryNode
      */
     protected function getRootNode()
@@ -241,7 +242,6 @@ class ProductCategoryImporter extends AbstractImporter
      * @param int $idProductAbstract
      * @param int $idCategory
      *
-     * @throws \Propel\Runtime\Exception\PropelException
      * @return void
      */
     protected function createProductCategoryMapping($idProductAbstract, $idCategory)

@@ -45,8 +45,6 @@ class StateMachineExampleItemSaver
     }
 
     /**
-     * @throws \Propel\Runtime\Exception\PropelException
-     *
      * @return bool
      */
     public function createExampleItem()

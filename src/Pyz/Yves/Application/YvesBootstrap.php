@@ -38,6 +38,7 @@ use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Application\ServiceProvider\FormFactoryServiceProvider;
 use Spryker\Shared\Application\ServiceProvider\HeadersSecurityServiceProvider;
 use Spryker\Shared\Application\ServiceProvider\RoutingServiceProvider;
 use Spryker\Shared\Application\ServiceProvider\UrlGeneratorServiceProvider;
@@ -107,6 +108,7 @@ class YvesBootstrap
         $this->application->register(new AutoloaderCacheServiceProvider());
         $this->application->register(new YvesHstsServiceProvider());
         $this->application->register(new CartServiceProvider());
+        $this->application->register(new FormFactoryServiceProvider());
     }
 
     /**

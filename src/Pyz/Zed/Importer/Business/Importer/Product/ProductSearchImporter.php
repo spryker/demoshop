@@ -119,9 +119,6 @@ class ProductSearchImporter extends AbstractImporter
      * @param int $idAttribute
      * @param string $copyTarget
      *
-     * @throws \Exception
-     * @throws \Propel\Runtime\Exception\PropelException
-     *
      * @return void
      */
     protected function addOperation($idAttribute, $copyTarget)

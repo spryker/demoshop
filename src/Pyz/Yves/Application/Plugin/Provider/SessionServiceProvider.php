@@ -201,8 +201,6 @@ class SessionServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @throws \Exception
-     *
      * @return bool
      */
     protected function secureCookie()

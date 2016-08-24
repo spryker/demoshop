@@ -8,11 +8,20 @@ namespace Pyz\Yves\Customer\Form;
 
 use Pyz\Yves\Customer\CustomerDependencyProvider;
 use Pyz\Yves\Customer\Form\DataProvider\AddressFormDataProvider;
+use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class FormFactory extends AbstractFactory
 {
+
+    /**
+     * @return \Symfony\Component\Form\FormFactory
+     */
+    protected function getFormFactory()
+    {
+        return $this->getProvidedDependency(ApplicationConstants::FORM_FACTORY);
+    }
 
     /**
      * @param array $formOptions

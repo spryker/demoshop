@@ -9,12 +9,13 @@ use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
+use PHPUnit_Framework_TestCase;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class SummaryStepTest extends \PHPUnit_Framework_TestCase
+class SummaryStepTest extends PHPUnit_Framework_TestCase
 {
 
     /**

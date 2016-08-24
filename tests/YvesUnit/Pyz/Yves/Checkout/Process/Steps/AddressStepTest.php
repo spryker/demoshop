@@ -9,11 +9,12 @@ use Generated\Shared\Transfer\AddressesTransfer;
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use PHPUnit_Framework_TestCase;
 use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Checkout\Process\Steps\AddressStep;
 use Symfony\Component\HttpFoundation\Request;
 
-class AddressStepTest extends \PHPUnit_Framework_TestCase
+class AddressStepTest extends PHPUnit_Framework_TestCase
 {
 
     /**

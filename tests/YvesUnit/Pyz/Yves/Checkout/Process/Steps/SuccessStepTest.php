@@ -7,11 +7,12 @@ namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use PHPUnit_Framework_TestCase;
 use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Symfony\Component\HttpFoundation\Request;
 
-class SuccessStepTest extends \PHPUnit_Framework_TestCase
+class SuccessStepTest extends PHPUnit_Framework_TestCase
 {
 
     /**

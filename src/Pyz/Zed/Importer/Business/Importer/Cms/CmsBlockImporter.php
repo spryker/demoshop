@@ -135,7 +135,7 @@ class CmsBlockImporter extends AbstractImporter
         $this->templateManager = $templateManager;
         $this->glossaryFacade = $glossaryFacade;
         $this->urlFacade = $urlFacade;
-        $this->cmsQueryContainer =  $cmsQueryContainer;
+        $this->cmsQueryContainer = $cmsQueryContainer;
     }
 
     /**

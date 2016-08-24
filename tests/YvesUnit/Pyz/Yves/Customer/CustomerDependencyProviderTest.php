@@ -7,6 +7,7 @@
 
 namespace YvesUnit\Pyz\Yves\Customer;
 
+use PHPUnit_Framework_TestCase;
 use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Client\Newsletter\NewsletterClientInterface;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
@@ -23,7 +24,7 @@ use Spryker\Yves\Kernel\Container;
  * @group Customer
  * @group CustomerDependencyProvider
  */
-class CustomerDependencyProviderTest extends \PHPUnit_Framework_TestCase
+class CustomerDependencyProviderTest extends PHPUnit_Framework_TestCase
 {
 
     /**

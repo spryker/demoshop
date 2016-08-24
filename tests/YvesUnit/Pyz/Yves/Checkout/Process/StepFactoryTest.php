@@ -6,6 +6,7 @@
 
 namespace YvesUnit\Pyz\Yves\Checkout\Process;
 
+use PHPUnit_Framework_TestCase;
 use Pyz\Yves\Checkout\CheckoutDependencyProvider;
 use Pyz\Yves\Checkout\Process\StepFactory;
 use Spryker\Yves\Kernel\Container;
@@ -16,7 +17,7 @@ use Spryker\Yves\Kernel\Container;
  * @group Checkout
  * @group StepFactory
  */
-class StepFactoryTest extends \PHPUnit_Framework_TestCase
+class StepFactoryTest extends PHPUnit_Framework_TestCase
 {
 
     const EXPECTED_DEPENDENCY = 'expected dependency';

@@ -17,6 +17,8 @@ GTAGS
 # OS
 .DS_Store
 
+.roboci/*
+
 # Y&Z
 /config/Shared/config_local*
 /config/Shared/console_env_local.php

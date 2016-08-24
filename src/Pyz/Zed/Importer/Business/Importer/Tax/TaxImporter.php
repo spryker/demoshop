@@ -186,8 +186,6 @@ class TaxImporter extends AbstractImporter
      * @param \Orm\Zed\Tax\Persistence\SpyTaxRate $taxRateEntity
      * @param \Orm\Zed\Tax\Persistence\SpyTaxSet $taxSetEntity
      *
-     * @throws \Propel\Runtime\Exception\PropelException
-     *
      * @return \Orm\Zed\Tax\Persistence\SpyTaxSetTax
      */
     protected function createTaxRateSetEntity(SpyTaxRate $taxRateEntity, SpyTaxSet $taxSetEntity)
@@ -205,8 +203,6 @@ class TaxImporter extends AbstractImporter
     /**
      * @param array $data
      * @param \Orm\Zed\Tax\Persistence\SpyTaxSet $taxSetEntity
-     *
-     * @throws \Propel\Runtime\Exception\PropelException
      *
      * @return void
      */
@@ -228,8 +224,6 @@ class TaxImporter extends AbstractImporter
      * @param string $rate
      * @param string $rateName
      *
-     * @throws \Propel\Runtime\Exception\PropelException
-     * @throws \Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException
      * @return \Orm\Zed\Tax\Persistence\SpyTaxRate
      */
     protected function createTaxRateEntity($idCountry, $rate, $rateName)
@@ -247,8 +241,6 @@ class TaxImporter extends AbstractImporter
 
     /**
      * @param string $setName
-     *
-     * @throws \Propel\Runtime\Exception\PropelException
      *
      * @return \Orm\Zed\Tax\Persistence\SpyTaxSet
      */

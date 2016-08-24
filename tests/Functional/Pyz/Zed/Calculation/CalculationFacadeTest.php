@@ -33,7 +33,6 @@ class CalculationFacadeTest extends Test
 {
 
     /**
-     * @throws \Propel\Runtime\Exception\PropelException
      *
      * @return void
      */
@@ -332,7 +331,6 @@ class CalculationFacadeTest extends Test
      * @param int $discountAmount
      * @param string $calculatorType
      * @return \Orm\Zed\Discount\Persistence\SpyDiscountVoucher
-     * @throws \Propel\Runtime\Exception\PropelException
      */
     protected function createDiscounts($discountAmount, $calculatorType)
     {
@@ -375,7 +373,6 @@ class CalculationFacadeTest extends Test
 
     /**
      * @return void
-     * @throws \Propel\Runtime\Exception\PropelException
      */
     protected function resetCurrentDiscounts()
     {
@@ -390,7 +387,6 @@ class CalculationFacadeTest extends Test
      * @param int $taxRate
      *
      * @return \Orm\Zed\Product\Persistence\SpyProductAbstract
-     * @throws \Propel\Runtime\Exception\PropelException
      */
     protected function createAbstractProductWithTaxSet($taxRate)
     {
@@ -412,7 +408,6 @@ class CalculationFacadeTest extends Test
     }
 
     /**
-     * @throws \Propel\Runtime\Exception\PropelException
      *
      * @return \Orm\Zed\Product\Persistence\SpyProductAbstract
      */
@@ -435,7 +430,6 @@ class CalculationFacadeTest extends Test
     /**
      * @param \Orm\Zed\Tax\Persistence\SpyTaxSet $taxSetEntity
      *
-     * @throws \Propel\Runtime\Exception\PropelException
      * @return \Orm\Zed\Product\Persistence\SpyProductAbstract
      */
     protected function createAbstractProduct(SpyTaxSet $taxSetEntity)
@@ -450,7 +444,6 @@ class CalculationFacadeTest extends Test
     }
 
     /**
-     * @throws \Propel\Runtime\Exception\PropelException
      * @return \Orm\Zed\Tax\Persistence\SpyTaxSet
      */
     protected function createTaxSet()
@@ -465,7 +458,6 @@ class CalculationFacadeTest extends Test
      * @param \Orm\Zed\Tax\Persistence\SpyTaxSet $taxSetEntity
      * @param \Orm\Zed\Tax\Persistence\SpyTaxRate $taxRateEntity
      *
-     * @throws \Propel\Runtime\Exception\PropelException
      * @return void
      */
     protected function createTaxSetTax(SpyTaxSet $taxSetEntity, SpyTaxRate $taxRateEntity)

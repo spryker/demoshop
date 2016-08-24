@@ -80,8 +80,6 @@ class AddressController extends AbstractCustomerController
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-     *
      * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function updateAction(Request $request)
