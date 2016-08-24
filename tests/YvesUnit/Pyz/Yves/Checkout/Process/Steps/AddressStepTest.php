@@ -165,7 +165,7 @@ class AddressStepTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param \PHPUnit_Framework_MockObject_MockObject|\Pyz\Client\Customer\CustomerClientInterface $customerClientMock
+     * @param \PHPUnit_Framework_MockObject_MockObject|\Pyz\Client\Customer\CustomerClientInterface|null $customerClientMock
      * @return \Pyz\Yves\Checkout\Process\Steps\AddressStep
      */
     protected function createAddressStep($customerClientMock = null)

@@ -49,7 +49,7 @@ class CartController extends AbstractController
 
     /**
      * @param string $sku
-     * @param string $groupKey
+     * @param string|null $groupKey
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
@@ -65,7 +65,7 @@ class CartController extends AbstractController
     /**
      * @param string $sku
      * @param int $quantity
-     * @param string $groupKey
+     * @param string|null $groupKey
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
