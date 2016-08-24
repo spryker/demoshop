@@ -21,8 +21,8 @@ class UrlResource
     private $referenceKey;
 
     /**
-     * @param string $referenceKey
-     * @param string $type
+     * @param string|null $referenceKey
+     * @param string|null $type
      */
     public function __construct($referenceKey = null, $type = null)
     {

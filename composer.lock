@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "44ca6ba5732cb7a98e7f8f7b1306328e",
-    "content-hash": "6a5a1f1c688ecebcaa930076c0c9ce93",
+    "hash": "4ed47fa5b785955639d19c233be110e1",
+    "content-hash": "17425de5f4654e18b72a42bb362a0fdd",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1061,16 +1061,16 @@
         },
         {
             "name": "ruflin/elastica",
-            "version": "3.2.1",
+            "version": "3.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "1f3513a3f347c64296a924b1e559d203a1470b2b"
+                "reference": "1aa1b70d0c778323cb77a46ec872475136ed8c1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/1f3513a3f347c64296a924b1e559d203a1470b2b",
-                "reference": "1f3513a3f347c64296a924b1e559d203a1470b2b",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/1aa1b70d0c778323cb77a46ec872475136ed8c1e",
+                "reference": "1aa1b70d0c778323cb77a46ec872475136ed8c1e",
                 "shasum": ""
             },
             "require": {
@@ -1114,7 +1114,7 @@
                 "client",
                 "search"
             ],
-            "time": "2016-06-15 06:16:11"
+            "time": "2016-08-23 13:01:58"
         },
         {
             "name": "silex/silex",
@@ -1195,11 +1195,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-539-persist-redis-key-cache",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "8ab0e13390ac358ec5a370af1e2f58cfc2951386"
+                "reference": "600231499d1e63f4c7cfb20c89d7e0ef413e68a0"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1631,9 +1631,6 @@
                     "Spryker\\Shared\\Storage\\": "Bundles/Storage/src",
                     "Unit\\Spryker\\Shared\\Storage\\": "Bundles/Storage/tests",
                     "Functional\\Spryker\\Shared\\Storage\\": "Bundles/Storage/tests",
-                    "Spryker\\Yves\\Storage\\": "Bundles/Storage/src",
-                    "Unit\\Spryker\\Yves\\Storage\\": "Bundles/Storage/tests",
-                    "Functional\\Spryker\\Yves\\Storage\\": "Bundles/Storage/tests",
                     "Spryker\\Zed\\Storage\\": "Bundles/Storage/src",
                     "Unit\\Spryker\\Zed\\Storage\\": "Bundles/Storage/tests",
                     "Functional\\Spryker\\Zed\\Storage\\": "Bundles/Storage/tests",
@@ -1722,7 +1719,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-08-23 15:53:56"
+            "time": "2016-08-23 15:45:37"
         },
         {
             "name": "symfony-cmf/routing",
