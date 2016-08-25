@@ -12,6 +12,7 @@ use Pyz\Yves\Customer\Plugin\AuthenticationHandler;
 use Pyz\Yves\Customer\Plugin\GuestCheckoutAuthenticationHandlerPlugin;
 use Pyz\Yves\Customer\Plugin\LoginCheckoutAuthenticationHandlerPlugin;
 use Pyz\Yves\Customer\Plugin\RegistrationCheckoutAuthenticationHandlerPlugin;
+use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Yves\Kernel\Container;
 
@@ -27,6 +28,7 @@ class CustomerDependencyProvider extends AbstractBundleDependencyProvider
     const PLUGIN_GUEST_AUTHENTICATION_HANDLER = 'guest authentication plugin';
     const PLUGIN_REGISTRATION_AUTHENTICATION_HANDLER = 'registration authentication plugin';
     const FLASH_MESSENGER = 'flash messenger';
+    const STORE = 'store';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -37,6 +39,7 @@ class CustomerDependencyProvider extends AbstractBundleDependencyProvider
     {
         $container = $this->provideClients($container);
         $container = $this->providePlugins($container);
+        $container = $this->provideStore($container);
 
         return $container;
     }
@@ -94,6 +97,20 @@ class CustomerDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[self::FLASH_MESSENGER] = function (Container $container) {
             return $container[self::PLUGIN_APPLICATION]['flash_messenger'];
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function provideStore(Container $container)
+    {
+        $container[static::STORE] = function () {
+            return Store::getInstance();
         };
 
         return $container;

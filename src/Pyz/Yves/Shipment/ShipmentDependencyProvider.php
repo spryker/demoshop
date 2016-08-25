@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Shipment;
 
+use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Yves\Kernel\Container;
 
@@ -15,6 +16,7 @@ class ShipmentDependencyProvider extends AbstractBundleDependencyProvider
 
     const CLIENT_SHIPMENT = 'shipment client';
     const CLIENT_GLOSSARY = 'glossary client';
+    const STORE = 'store';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -29,6 +31,10 @@ class ShipmentDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[self::CLIENT_GLOSSARY] = function (Container $container) {
             return $container->getLocator()->glossary()->client();
+        };
+
+        $container[static::STORE] = function () {
+            return Store::getInstance();
         };
 
         return $container;
