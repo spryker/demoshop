@@ -126,7 +126,7 @@ class FormFactory extends AbstractFactory
      */
     protected function getStore()
     {
-        return Store::getInstance();
+        return $this->getProvidedDependency(CustomerDependencyProvider::STORE);
     }
 
 }

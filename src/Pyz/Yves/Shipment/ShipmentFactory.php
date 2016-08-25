@@ -65,7 +65,7 @@ class ShipmentFactory extends AbstractFactory
      */
     protected function getStore()
     {
-        return Store::getInstance();
+        return $this->getProvidedDependency(ShipmentDependencyProvider::STORE);
     }
 
     /**

@@ -216,7 +216,7 @@ class FormFactory extends SprykerFormFactory
      */
     public function getStore()
     {
-        return Store::getInstance();
+        return $this->getProvidedDependency(CheckoutDependencyProvider::STORE);
     }
 
     /**
