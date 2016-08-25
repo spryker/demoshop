@@ -15,6 +15,15 @@ use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @group YvesUnit
+ * @group Pyz
+ * @group Yves
+ * @group Checkout
+ * @group Process
+ * @group Steps
+ * @group SummaryStepTest
+ */
 class SummaryStepTest extends PHPUnit_Framework_TestCase
 {
 

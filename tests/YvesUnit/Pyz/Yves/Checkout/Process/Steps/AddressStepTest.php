@@ -14,6 +14,15 @@ use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Checkout\Process\Steps\AddressStep;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @group YvesUnit
+ * @group Pyz
+ * @group Yves
+ * @group Checkout
+ * @group Process
+ * @group Steps
+ * @group AddressStepTest
+ */
 class AddressStepTest extends PHPUnit_Framework_TestCase
 {
 

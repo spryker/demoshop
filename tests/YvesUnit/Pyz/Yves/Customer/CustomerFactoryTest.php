@@ -12,10 +12,11 @@ use Pyz\Client\Newsletter\NewsletterClientInterface;
 use Pyz\Yves\Customer\CustomerFactory;
 
 /**
+ * @group YvesUnit
  * @group Pyz
  * @group Yves
  * @group Customer
- * @group CustomerFactory
+ * @group CustomerFactoryTest
  */
 class CustomerFactoryTest extends PHPUnit_Framework_TestCase
 {

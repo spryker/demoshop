@@ -33,10 +33,12 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
+ * @group YvesFunctional
  * @group Pyz
  * @group Yves
  * @group Checkout
- * @group CheckoutController
+ * @group Controller
+ * @group CheckoutControllerTest
  */
 class CheckoutControllerTest extends PHPUnit_Framework_TestCase
 {

@@ -4,11 +4,19 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace YvesUnit\Spryker\Yves\Assets\Communication;
+namespace YvesUnit\Pyz\Yves\Assets\Communication;
 
 use PHPUnit_Framework_TestCase;
 use Pyz\Yves\Twig\Model\MediaUrlBuilder;
 
+/**
+ * @group YvesUnit
+ * @group Pyz
+ * @group Yves
+ * @group Assets
+ * @group Communication
+ * @group MediaUrlBuilderTest
+ */
 class MediaUrlBuilderTest extends PHPUnit_Framework_TestCase
 {
 

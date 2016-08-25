@@ -12,6 +12,15 @@ use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @group YvesUnit
+ * @group Pyz
+ * @group Yves
+ * @group Checkout
+ * @group Process
+ * @group Steps
+ * @group SuccessStepTest
+ */
 class SuccessStepTest extends PHPUnit_Framework_TestCase
 {
 

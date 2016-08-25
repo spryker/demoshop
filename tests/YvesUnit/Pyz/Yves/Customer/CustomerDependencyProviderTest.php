@@ -19,10 +19,11 @@ use Spryker\Yves\Application\Application;
 use Spryker\Yves\Kernel\Container;
 
 /**
+ * @group YvesUnit
  * @group Pyz
  * @group Yves
  * @group Customer
- * @group CustomerDependencyProvider
+ * @group CustomerDependencyProviderTest
  */
 class CustomerDependencyProviderTest extends PHPUnit_Framework_TestCase
 {
