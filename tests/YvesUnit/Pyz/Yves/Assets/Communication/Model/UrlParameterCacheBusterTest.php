@@ -4,7 +4,7 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace YvesUnit\Pyz\Yves\Assets\Communication;
+namespace YvesUnit\Pyz\Yves\Assets\Communication\Model;
 
 use PHPUnit_Framework_TestCase;
 use Pyz\Yves\Twig\Model\UrlParameterCacheBuster;
@@ -15,6 +15,7 @@ use Pyz\Yves\Twig\Model\UrlParameterCacheBuster;
  * @group Yves
  * @group Assets
  * @group Communication
+ * @group Model
  * @group UrlParameterCacheBusterTest
  */
 class UrlParameterCacheBusterTest extends PHPUnit_Framework_TestCase
