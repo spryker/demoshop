@@ -8,6 +8,7 @@ namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
 use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
+use PHPUnit_Framework_TestCase;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Shared\Shipment\ShipmentConstants;
@@ -15,7 +16,16 @@ use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollectio
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class ShipmentStepTest extends \PHPUnit_Framework_TestCase
+/**
+ * @group YvesUnit
+ * @group Pyz
+ * @group Yves
+ * @group Checkout
+ * @group Process
+ * @group Steps
+ * @group ShipmentStepTest
+ */
+class ShipmentStepTest extends PHPUnit_Framework_TestCase
 {
 
     /**

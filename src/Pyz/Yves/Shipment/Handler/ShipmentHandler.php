@@ -59,7 +59,7 @@ class ShipmentHandler
         $idShipmentMethod = $quoteTransfer->getShipment()->getMethod()->getIdShipmentMethod();
 
         foreach ($shipmentMethodsTransfer->getMethods() as $shipmentMethodsTransfer) {
-            if ($shipmentMethodsTransfer->getIdShipmentMethod()  === $idShipmentMethod) {
+            if ($shipmentMethodsTransfer->getIdShipmentMethod() === $idShipmentMethod) {
                 return $shipmentMethodsTransfer;
             }
         }

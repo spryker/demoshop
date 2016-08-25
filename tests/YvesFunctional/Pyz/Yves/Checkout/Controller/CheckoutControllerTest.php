@@ -15,6 +15,7 @@ use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Generated\Shared\Transfer\TotalsTransfer;
+use PHPUnit_Framework_TestCase;
 use Pyz\Yves\Checkout\Controller\CheckoutController;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
 use Pyz\Yves\Checkout\Form\Steps\ShipmentForm;
@@ -32,12 +33,14 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
+ * @group YvesFunctional
  * @group Pyz
  * @group Yves
  * @group Checkout
- * @group CheckoutController
+ * @group Controller
+ * @group CheckoutControllerTest
  */
-class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
+class CheckoutControllerTest extends PHPUnit_Framework_TestCase
 {
 
     const CUSTOMER_URL = '/checkout/customer';

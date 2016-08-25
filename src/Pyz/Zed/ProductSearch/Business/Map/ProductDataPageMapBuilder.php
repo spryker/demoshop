@@ -13,6 +13,7 @@ use Generated\Shared\Transfer\PageMapTransfer;
 use RuntimeException;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\Price\Business\PriceFacadeInterface;
+use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
 use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 
@@ -38,13 +39,23 @@ class ProductDataPageMapBuilder
     protected $attributeMap;
 
     /**
+     * @var \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface
+     */
+    protected $productImageQueryContainer;
+
+    /**
      * @param \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface $productSearchFacade
      * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
+     * @param \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface $productImageQueryContainer
      */
-    public function __construct(ProductSearchFacadeInterface $productSearchFacade, PriceFacadeInterface $priceFacade)
-    {
+    public function __construct(
+        ProductSearchFacadeInterface $productSearchFacade,
+        PriceFacadeInterface $priceFacade,
+        ProductImageQueryContainerInterface $productImageQueryContainer
+    ) {
         $this->priceFacade = $priceFacade;
         $this->productSearchFacade = $productSearchFacade;
+        $this->productImageQueryContainer = $productImageQueryContainer;
     }
 
     /**
@@ -73,6 +84,7 @@ class ProductDataPageMapBuilder
             ->addSearchResultData($pageMapTransfer, 'price', $price)
             ->addSearchResultData($pageMapTransfer, 'url', $this->getProductUrl($productData))
             ->addSearchResultData($pageMapTransfer, 'available', $this->isAvailable($productData))
+            ->addSearchResultData($pageMapTransfer, 'images', $this->generateImages($productData['id_image_set']))
             ->addFullTextBoosted($pageMapTransfer, $productData['abstract_name'])
             ->addSuggestionTerms($pageMapTransfer, $productData['abstract_name'])
             ->addCompletionTerms($pageMapTransfer, $productData['abstract_name'])
@@ -118,6 +130,7 @@ class ProductDataPageMapBuilder
     /**
      * @param string $data
      *
+     * @throws \RuntimeException
      * @return array
      */
     protected function getEncodedAttributeData($data)
@@ -159,7 +172,6 @@ class ProductDataPageMapBuilder
      * @param array $productData
      *
      * @return bool
-     * TODO: put this to Stock or Availability facade (there's also a ticket for this: https://github.com/spryker/spryker/issues/1935 )
      */
     protected function isAvailable(array $productData)
     {
@@ -204,6 +216,32 @@ class ProductDataPageMapBuilder
         $pageMapTransfer->setIsFeatured($isFeatured);
 
         return $pageMapTransfer;
+    }
+
+    /**
+     * @param int $idImageSet
+     *
+     * @return array
+     */
+    protected function generateImages($idImageSet)
+    {
+        if ($idImageSet === null) {
+            return [];
+        }
+
+        $imagesCollection = $this->productImageQueryContainer
+            ->queryImagesByIdProductImageSet($idImageSet)
+            ->find();
+
+        $result = [];
+
+        foreach ($imagesCollection as $image) {
+            $imageArray = $image->getSpyProductImage()->toArray();
+            $imageArray += $image->toArray();
+            $result[] = $imageArray;
+        }
+
+        return $result;
     }
 
 }

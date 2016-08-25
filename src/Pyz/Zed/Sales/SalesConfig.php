@@ -20,8 +20,6 @@ class SalesConfig extends SprykerSalesConfig
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
      *
-     * @throws \BadMethodCallException
-     *
      * @return string
      */
     public function determineProcessForOrderItem(QuoteTransfer $quoteTransfer, ItemTransfer $itemTransfer)

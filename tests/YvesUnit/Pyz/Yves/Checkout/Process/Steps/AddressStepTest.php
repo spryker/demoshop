@@ -9,11 +9,21 @@ use Generated\Shared\Transfer\AddressesTransfer;
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use PHPUnit_Framework_TestCase;
 use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Checkout\Process\Steps\AddressStep;
 use Symfony\Component\HttpFoundation\Request;
 
-class AddressStepTest extends \PHPUnit_Framework_TestCase
+/**
+ * @group YvesUnit
+ * @group Pyz
+ * @group Yves
+ * @group Checkout
+ * @group Process
+ * @group Steps
+ * @group AddressStepTest
+ */
+class AddressStepTest extends PHPUnit_Framework_TestCase
 {
 
     /**
@@ -164,7 +174,7 @@ class AddressStepTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param \PHPUnit_Framework_MockObject_MockObject|\Pyz\Client\Customer\CustomerClientInterface $customerClientMock
+     * @param \PHPUnit_Framework_MockObject_MockObject|\Pyz\Client\Customer\CustomerClientInterface|null $customerClientMock
      * @return \Pyz\Yves\Checkout\Process\Steps\AddressStep
      */
     protected function createAddressStep($customerClientMock = null)

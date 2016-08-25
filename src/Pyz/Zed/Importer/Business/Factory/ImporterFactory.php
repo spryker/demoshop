@@ -241,7 +241,7 @@ class ImporterFactory extends AbstractFactory
      */
     public function createShipmentImporter()
     {
-        $cmsPageImporter = new ShipmentImporter(
+        $shipmentImporter = new ShipmentImporter(
             $this->getLocaleFacade(),
             $this->getShipmentQueryContainer(),
             $this->createShipmentMethod(),
@@ -249,7 +249,7 @@ class ImporterFactory extends AbstractFactory
             $this->getConfig()->getImportDataDirectory()
         );
 
-        return $cmsPageImporter;
+        return $shipmentImporter;
     }
 
     /**

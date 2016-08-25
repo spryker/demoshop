@@ -437,7 +437,7 @@ class ProductAbstractImporter extends AbstractImporter
     /**
      * @param array $attributes
      *
-     * @return array
+     * @return void
      */
     protected function createConcreteAttributes(array $attributes)
     {

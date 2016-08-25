@@ -46,12 +46,12 @@
 .__page {
     position: relative;
     z-index: 1;
-    
+
     @include slide();
 }
 
 .__home-banner {
-    background: linear-gradient(140deg, #4BD3AA 0%, map-get($foundation-palette, primary) 90%);
+    background: url(/assets/default/img/home-banner.jpg);
 
     .row {
         height: 300px;

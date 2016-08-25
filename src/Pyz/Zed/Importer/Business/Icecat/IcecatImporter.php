@@ -41,8 +41,6 @@ class IcecatImporter
     }
 
     /**
-     * @throws \Exception
-     *
      * @return void
      */
     public function import()

@@ -18,6 +18,7 @@ use Pyz\Yves\Customer\Form\DataProvider\CheckoutAddressFormDataProvider;
 use Pyz\Yves\Customer\Form\GuestForm;
 use Pyz\Yves\Customer\Form\LoginForm;
 use Pyz\Yves\Customer\Form\RegisterForm;
+use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Checkout\Form\FormFactory as SprykerFormFactory;
 use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
@@ -203,7 +204,7 @@ class FormFactory extends SprykerFormFactory
      */
     protected function getFormFactory()
     {
-        return $this->getApplication()['form.factory'];
+        return $this->getProvidedDependency(ApplicationConstants::FORM_FACTORY);
     }
 
     /**

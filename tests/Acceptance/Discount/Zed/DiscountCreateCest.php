@@ -14,10 +14,7 @@ use Acceptance\Discount\Zed\Tester\DiscountTester;
  * @group Acceptance
  * @group Discount
  * @group Zed
- * @group positive
- * @group overview
- * @group smoke
- * @group discount
+ * @group DiscountCreateCest
  */
 class DiscountCreateCest
 {

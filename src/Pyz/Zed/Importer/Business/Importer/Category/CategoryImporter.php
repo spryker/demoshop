@@ -193,7 +193,8 @@ class CategoryImporter extends AbstractImporter
     /**
      * @param array $data
      *
-     * @throws \InvalidArgumentException
+     * @throws \UnexpectedValueException
+     *
      * @return int|null
      */
     protected function createCategory(array $data)
