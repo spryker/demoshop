@@ -40,7 +40,7 @@ class FormFactory extends AbstractFactory
      */
     public function createAddressFormDataProvider()
     {
-        return new AddressFormDataProvider($this->getCustomerClient(), $this->createStore());
+        return new AddressFormDataProvider($this->getCustomerClient(), $this->getStore());
     }
 
     /**
@@ -124,7 +124,7 @@ class FormFactory extends AbstractFactory
     /**
      * @return \Spryker\Shared\Kernel\Store
      */
-    protected function createStore()
+    protected function getStore()
     {
         return Store::getInstance();
     }
