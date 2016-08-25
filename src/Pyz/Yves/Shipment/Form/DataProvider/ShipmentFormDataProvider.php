@@ -62,7 +62,6 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
         $this->currencyManager = $currencyManager;
     }
 
-
     /**
      * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *

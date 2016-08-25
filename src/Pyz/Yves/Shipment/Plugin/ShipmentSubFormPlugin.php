@@ -29,7 +29,7 @@ class ShipmentSubFormPlugin extends AbstractPlugin implements SubFormPluginInter
      */
     public function createSubFormDataProvider()
     {
-        return $this->getFactory()->createShipmentDataProvider();
+        return $this->getFactory()->createShipmentDataProviderPlugin();
     }
 
 }

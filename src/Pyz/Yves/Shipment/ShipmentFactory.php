@@ -8,6 +8,7 @@ namespace Pyz\Yves\Shipment;
 use Pyz\Yves\Shipment\Form\DataProvider\ShipmentFormDataProvider;
 use Pyz\Yves\Shipment\Form\ShipmentForm;
 use Pyz\Yves\Shipment\Handler\ShipmentHandler;
+use Pyz\Yves\Shipment\Plugin\ShipmentFormDataProviderPlugin;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Yves\Kernel\AbstractFactory;
@@ -21,6 +22,14 @@ class ShipmentFactory extends AbstractFactory
     public function createShipmentForm()
     {
         return new ShipmentForm();
+    }
+
+    /**
+     * @return \Pyz\Yves\Shipment\Plugin\ShipmentFormDataProviderPlugin
+     */
+    public function createShipmentDataProviderPlugin()
+    {
+        return new ShipmentFormDataProviderPlugin();
     }
 
     /**
