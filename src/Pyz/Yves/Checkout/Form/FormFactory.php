@@ -17,11 +17,9 @@ use Pyz\Yves\Customer\Form\DataProvider\CheckoutAddressFormDataProvider;
 use Pyz\Yves\Customer\Form\GuestForm;
 use Pyz\Yves\Customer\Form\LoginForm;
 use Pyz\Yves\Customer\Form\RegisterForm;
-use Pyz\Yves\Shipment\Form\DataProvider\ShipmentFormDataProvider;
 use Pyz\Yves\Shipment\Form\ShipmentForm;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Kernel\Store;
-use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Yves\Checkout\Form\FormFactory as SprykerFormFactory;
 use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection;
@@ -54,14 +52,25 @@ class FormFactory extends SprykerFormFactory
      */
     public function createShipmentFormCollection()
     {
-        return $this->createFormCollection($this->createShipmentFormTypes(), $this->createShipmentFormDataProvider());
+        return $this->createFormCollection($this->createShipmentFormTypes(), $this->getShipmentFormDataProviderPlugin());
     }
 
+    /**
+     * @return \Symfony\Component\Form\FormTypeInterface[]
+     */
     protected function createShipmentFormTypes()
     {
         return [
             new ShipmentForm(),
         ];
+    }
+
+    /**
+     * @return \Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface
+     */
+    protected function getShipmentFormDataProviderPlugin()
+    {
+        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_SHIPMENT_FORM_DATA_PROVIDER);
     }
 
     /**
@@ -248,40 +257,6 @@ class FormFactory extends SprykerFormFactory
     public function getCartClient()
     {
         return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CART);
-    }
-
-    protected function createShipmentFormDataProvider()
-    {
-        return new ShipmentFormDataProvider(
-            $this->getShipmentClient(),
-            $this->getGlossaryClient(),
-            $this->getStore(),
-            $this->getCurrencyManager()
-        );
-    }
-
-    /**
-     * @return \Spryker\Client\Shipment\ShipmentClientInterface
-     */
-    public function getShipmentClient()
-    {
-        return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_SHIPMENT);
-    }
-
-    /**
-     * @return \Spryker\Client\Glossary\GlossaryClientInterface
-     */
-    public function getGlossaryClient()
-    {
-        return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_GLOSSARY);
-    }
-
-    /**
-     * @return \Spryker\Shared\Library\Currency\CurrencyManager
-     */
-    protected function getCurrencyManager()
-    {
-        return CurrencyManager::getInstance();
     }
 
 }
