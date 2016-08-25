@@ -8,7 +8,6 @@ namespace Pyz\Yves\Shipment;
 use Pyz\Yves\Shipment\Form\DataProvider\ShipmentFormDataProvider;
 use Pyz\Yves\Shipment\Form\ShipmentForm;
 use Pyz\Yves\Shipment\Handler\ShipmentHandler;
-use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Yves\Kernel\AbstractFactory;
 
