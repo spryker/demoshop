@@ -111,6 +111,7 @@ class ProductDataPageMapBuilder
             ->addFullTextBoosted($pageMapTransfer, $productData['abstract_sku'])
             ->addFullText($pageMapTransfer, $productData['concrete_names'])
             ->addFullText($pageMapTransfer, $productData['concrete_skus'])
+//            ->addFullText($pageMapTransfer, $productData['description']) // TODO: we need to map description to full-text once we get this info from the collector
             ->addSuggestionTerms($pageMapTransfer, $productData['abstract_name'])
             ->addCompletionTerms($pageMapTransfer, $productData['abstract_name'])
             ->addStringSort($pageMapTransfer, 'name', $productData['abstract_name'])

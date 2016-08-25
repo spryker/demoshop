@@ -16,6 +16,7 @@ use Pyz\Zed\Importer\Business\Importer\Discount\DiscountImporter;
 use Pyz\Zed\Importer\Business\Importer\Glossary\TranslationImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductManagement\ProductManagementAttributeImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeImporter;
+use Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeMapImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductAbstractImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductAttributeKeyImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductCategoryImporter;
@@ -197,6 +198,19 @@ class ImporterFactory extends AbstractFactory
         );
 
         return $productSearchAttributeImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeMapImporter
+     */
+    public function createProductSearchAttributeMapImporter()
+    {
+        $productSearchImporter = new ProductSearchAttributeMapImporter(
+            $this->getLocaleFacade(),
+            $this->getProductSearchFacade()
+        );
+
+        return $productSearchImporter;
     }
 
     /**

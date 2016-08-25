@@ -22,6 +22,7 @@ use Pyz\Zed\Importer\Business\Installer\Product\ProductPriceInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductSearchInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductStockInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductSearch\ProductSearchAttributeInstaller;
+use Pyz\Zed\Importer\Business\Installer\ProductSearch\ProductSearchAttributeMapInstaller;
 use Pyz\Zed\Importer\Business\Installer\Shipment\ShipmentInstaller;
 use Pyz\Zed\Importer\Business\Installer\Tax\TaxInstaller;
 use Pyz\Zed\Importer\ImporterConfig;
@@ -256,6 +257,17 @@ class InstallerFactory extends AbstractFactory
     }
 
     /**
+     * @return \Pyz\Zed\Importer\Business\Installer\ProductSearch\ProductSearchAttributeMapInstaller
+     */
+    public function createProductSearchAttributeMapInstaller()
+    {
+        return new ProductSearchAttributeMapInstaller(
+            $this->getImporterProductSearchAttributeMapCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+    }
+
+    /**
      * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
      */
     public function getImporterTaxCollection()
@@ -364,6 +376,16 @@ class InstallerFactory extends AbstractFactory
     {
         return [
             ImporterConfig::RESOURCE_PRODUCT_SEARCH_ATTRIBUTE => $this->createImporterFactory()->createProductSearchAttributeImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
+     */
+    public function getImporterProductSearchAttributeMapCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_PRODUCT_SEARCH_ATTRIBUTE_MAP => $this->createImporterFactory()->createProductSearchAttributeMapImporter(),
         ];
     }
 

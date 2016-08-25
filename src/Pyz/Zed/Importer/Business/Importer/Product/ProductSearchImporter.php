@@ -7,9 +7,7 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\Product;
 
-use Orm\Zed\ProductSearch\Persistence\Base\SpyProductSearchAttributeMapQuery;
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
-use Orm\Zed\Product\Persistence\SpyProductAttributeKeyQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
@@ -17,7 +15,6 @@ use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 class ProductSearchImporter extends AbstractImporter
 {
 
-    const SKU = 'sku';
     const PRODUCT_ID = 'id_product';
 
     /**
@@ -68,50 +65,13 @@ class ProductSearchImporter extends AbstractImporter
     }
 
     /**
+     * @param array $data
+     *
      * @return array
      */
-    protected function getMappings()
+    protected function format(array $data)
     {
-        return [
-            /*
-             * This is the default configuration for product search attributes (spy_product_search_attribute_mapping table).
-             * You can add addition attributes here with the format of: [attribute_name => [target_field_name1, ...], ...].
-             */
-        ];
-    }
-
-    /**
-     * @param int $idAttribute
-     * @param string $copyTarget
-     *
-     * @return void
-     */
-    protected function addOperation($idAttribute, $copyTarget)
-    {
-        $spyProductSearchAttributeMapping = SpyProductSearchAttributeMapQuery::create()
-            ->filterByFkProductAttributeKey($idAttribute)
-            ->filterByTargetField($copyTarget)
-            ->findOneOrCreate();
-
-        $spyProductSearchAttributeMapping->save();
-    }
-
-    /**
-     * @return void
-     */
-    protected function before()
-    {
-        foreach ($this->getMappings() as $sourceField => $targetFields) {
-            foreach ($targetFields as $targetField) {
-                $attribute = SpyProductAttributeKeyQuery::create()
-                    ->findOneByKey($sourceField);
-
-                if ($attribute) {
-                    $idAttributeKey = $attribute->getIdProductAttributeKey();
-                    $this->addOperation($idAttributeKey, $targetField);
-                }
-            }
-        }
+        return $data;
     }
 
 }
