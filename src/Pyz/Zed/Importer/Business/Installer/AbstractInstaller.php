@@ -93,8 +93,7 @@ abstract class AbstractInstaller implements InstallerInterface
             $this->afterInstall();
 
             $connection->commit();
-        }
-        catch (\Exception $exception) {
+        } catch (\Exception $exception) {
             $connection->rollBack();
             throw $exception;
         }
