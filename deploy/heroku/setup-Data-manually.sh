@@ -16,9 +16,7 @@ ELASTIC_SEARCH_URL=$BONSAI_URL
 
 function resetElasticsearch {
     labelText "Flushing Elasticsearch"
-    curl -XDELETE "$ELASTIC_SEARCH_URL/de_development_catalog/"
-    curl -XPUT "$ELASTIC_SEARCH_URL/de_development_catalog/"
-    $CONSOLE setup:search
+    curl -XDELETE "$ELASTIC_SEARCH_URL/de_search/"
     writeErrorMessage "Elasticsearch reset failed"
 }
 
