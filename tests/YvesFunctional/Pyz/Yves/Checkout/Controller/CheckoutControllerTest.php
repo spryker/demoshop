@@ -21,7 +21,6 @@ use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Form\AddressForm;
 use Pyz\Yves\Customer\Form\GuestForm;
-use Pyz\Yves\Shipment\Form\ShipmentForm;
 use ReflectionProperty;
 use Spryker\Client\Cart\CartClient;
 use Spryker\Client\ZedRequest\Client\HttpClient;
