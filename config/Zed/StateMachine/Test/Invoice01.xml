@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <statemachine
+        xmlns="http://static.spryker.com"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="../process.xsd">
+        xsi:schemaLocation="http://static.spryker.com http://static.spryker.com/oms-01.xsd">
 
     <process name="Invoice01" main="true">
         <states>
