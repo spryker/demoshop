@@ -33,7 +33,6 @@ class CalculationFacadeTest extends Test
 {
 
     /**
-     *
      * @return void
      */
     protected function setUp()
@@ -408,7 +407,6 @@ class CalculationFacadeTest extends Test
     }
 
     /**
-     *
      * @return \Orm\Zed\Product\Persistence\SpyProductAbstract
      */
     protected function createAbstractProductWithTaxExemption()

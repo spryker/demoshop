@@ -30,7 +30,6 @@ class SalesAggregatorFacadeTest extends Test
 {
 
     /**
-     *
      * @return void
      */
     protected function setUp()
