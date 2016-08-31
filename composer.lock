@@ -1199,7 +1199,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "a618d04f17ba497fdc4d1d00de6d2f14d7513b35"
+                "reference": "d178a893f847ca0ba13de5460ce78836359d02ca"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1722,7 +1722,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-08-29 12:17:01"
+            "time": "2016-08-31 09:36:24"
         },
         {
             "name": "symfony-cmf/routing",
@@ -5675,12 +5675,12 @@
             "version": "v1.1.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/site5/phantoman.git",
+                "url": "https://github.com/grantlucas/phantoman.git",
                 "reference": "6ac9bed985d023909966a5c5b82489ced62998d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/site5/phantoman/zipball/6ac9bed985d023909966a5c5b82489ced62998d1",
+                "url": "https://api.github.com/repos/grantlucas/phantoman/zipball/6ac9bed985d023909966a5c5b82489ced62998d1",
                 "reference": "6ac9bed985d023909966a5c5b82489ced62998d1",
                 "shasum": ""
             },
