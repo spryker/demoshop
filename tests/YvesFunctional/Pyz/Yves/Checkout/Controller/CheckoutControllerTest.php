@@ -232,7 +232,7 @@ class CheckoutControllerTest extends PHPUnit_Framework_TestCase
         $shipmentData = $this->getFormData(self::SHIPMENT_URL, self::SHIPMENT_ACTION, self::SHIPMENT_ROUTE, self::SHIPMENT_FORM);
         $shipmentData['idShipmentMethod'] = 1;
         $data = [
-            self:: SHIPMENT_FORM => $shipmentData
+            self::SHIPMENT_FORM => $shipmentData
         ];
 
         $request = Request::create(self::SHIPMENT_URL, Request::METHOD_POST, $data);
