@@ -329,6 +329,7 @@ class CalculationFacadeTest extends Test
     /**
      * @param int $discountAmount
      * @param string $calculatorType
+     *
      * @return \Orm\Zed\Discount\Persistence\SpyDiscountVoucher
      */
     protected function createDiscounts($discountAmount, $calculatorType)
