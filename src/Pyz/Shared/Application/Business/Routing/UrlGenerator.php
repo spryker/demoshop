@@ -27,7 +27,6 @@ class UrlGenerator extends SymfonyUrlGenerator
     protected $app;
 
     /**
-     * UrlGenerator constructor.
      * @param \Pimple $app
      * @param \Symfony\Component\Routing\RouteCollection $routes
      * @param \Symfony\Component\Routing\RequestContext $context

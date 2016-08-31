@@ -56,7 +56,7 @@ class ShipmentHandler
     protected function getShipmentMethodById(QuoteTransfer $quoteTransfer)
     {
         $shipmentMethodsTransfer = $this->getAvailableShipmentMethods($quoteTransfer);
-        $idShipmentMethod = $quoteTransfer->getShipment()->getMethod()->getIdShipmentMethod();
+        $idShipmentMethod = $quoteTransfer->getShipment()->getShipmentSelection();
 
         foreach ($shipmentMethodsTransfer->getMethods() as $shipmentMethodsTransfer) {
             if ($shipmentMethodsTransfer->getIdShipmentMethod() === $idShipmentMethod) {
