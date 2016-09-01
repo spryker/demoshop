@@ -5283,11 +5283,11 @@
         },
         {
             "name": "spryker/new-relic",
-            "version": "2.0.1",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/NewRelic.git",
-                "reference": "0db50adc330dd2209c8d4a6ae7df8d1e6d92fa18",
+                "reference": "a4df836b692569c7bee5111646b21d3ee94ec846",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5297,8 +5297,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/NewRelic/zipball/0db50adc330dd2209c8d4a6ae7df8d1e6d92fa18",
-                "reference": "0db50adc330dd2209c8d4a6ae7df8d1e6d92fa18",
+                "url": "https://api.github.com/repos/spryker/NewRelic/zipball/a4df836b692569c7bee5111646b21d3ee94ec846",
+                "reference": "a4df836b692569c7bee5111646b21d3ee94ec846",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5312,6 +5312,8 @@
                 "spryker/console": "^2.0.0",
                 "spryker/guzzle": "^2.1.0",
                 "spryker/kernel": "^2.0.0",
+                "spryker/library": "^2.0.0",
+                "spryker/silex": "^1.0.0 || ^2.0.0",
                 "spryker/symfony": "^2.0.0"
             },
             "type": "library",
@@ -5323,11 +5325,7 @@
             "autoload": {
                 "psr-0": {
                     "Spryker": "src/",
-                    "Acceptance": "tests/",
-                    "Function": "tests/",
-                    "Integration": "tests/",
-                    "Unit": "tests/",
-                    "YvesUnit": "tests/"
+                    "Unit": "tests/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -5338,7 +5336,7 @@
             "support": {
                 "source": "https://github.com/spryker/NewRelic/tree/master"
             },
-            "time": "2016-08-19 08:28:50"
+            "time": "2016-09-01 13:19:45"
         },
         {
             "name": "spryker/newsletter",
