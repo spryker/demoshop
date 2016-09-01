@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e488b289b662e32733629e7d4f7cb195",
-    "content-hash": "643a3592cb7b38a8a6580da9e3e8a6a9",
+    "hash": "7811b5fd2da66105ace29486bc7129d2",
+    "content-hash": "af73abdc318641fbb5c5f8700fa4190d",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1196,7 +1196,7 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/update-monolog",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
