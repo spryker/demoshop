@@ -74,6 +74,7 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
      * @param string $processName
      *
      * @throws \InvalidArgumentException
+     *
      * @return string
      */
     public function getInitialStateForProcess($processName)

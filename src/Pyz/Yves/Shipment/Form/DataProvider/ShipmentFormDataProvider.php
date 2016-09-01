@@ -10,7 +10,7 @@ namespace Pyz\Yves\Shipment\Form\DataProvider;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
-use Pyz\Yves\Shipment\Form\ShipmentSubForm;
+use Pyz\Yves\Shipment\Form\ShipmentForm;
 use Spryker\Client\Glossary\GlossaryClientInterface;
 use Spryker\Client\Shipment\ShipmentClientInterface;
 use Spryker\Shared\Kernel\Store;
@@ -62,7 +62,6 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
         $this->currencyManager = $currencyManager;
     }
 
-
     /**
      * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
@@ -86,7 +85,7 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
     public function getOptions(AbstractTransfer $quoteTransfer)
     {
         return [
-            ShipmentSubForm::OPTION_SHIPMENT_METHODS => $this->createAvailableShipmentChoiceList($quoteTransfer)
+            ShipmentForm::OPTION_SHIPMENT_METHODS => $this->createAvailableShipmentChoiceList($quoteTransfer)
         ];
     }
 

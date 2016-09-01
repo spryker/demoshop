@@ -9,6 +9,7 @@ use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use PHPUnit_Framework_TestCase;
+use Pyz\Yves\Checkout\CheckoutDependencyProvider;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Shared\Shipment\ShipmentConstants;
@@ -16,6 +17,15 @@ use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollectio
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @group YvesUnit
+ * @group Pyz
+ * @group Yves
+ * @group Checkout
+ * @group Process
+ * @group Steps
+ * @group ShipmentStepTest
+ */
 class ShipmentStepTest extends PHPUnit_Framework_TestCase
 {
 
@@ -28,13 +38,13 @@ class ShipmentStepTest extends PHPUnit_Framework_TestCase
         $shipmentPluginMock->expects($this->once())->method('addToDataClass');
 
         $shipmentStepHandler = new StepHandlerPluginCollection();
-        $shipmentStepHandler->add($shipmentPluginMock, 'test');
+        $shipmentStepHandler->add($shipmentPluginMock, CheckoutDependencyProvider::PLUGIN_SHIPMENT_STEP_HANDLER);
         $shipmentStep = $this->createShipmentStep($shipmentStepHandler);
 
         $quoteTransfer = new QuoteTransfer();
 
         $shipmentTransfer = new ShipmentTransfer();
-        $shipmentTransfer->setShipmentSelection('test');
+        $shipmentTransfer->setShipmentSelection(CheckoutDependencyProvider::PLUGIN_SHIPMENT_STEP_HANDLER);
         $quoteTransfer->setShipment($shipmentTransfer);
 
         $shipmentStep->execute($this->createRequest(), $quoteTransfer);
@@ -74,7 +84,7 @@ class ShipmentStepTest extends PHPUnit_Framework_TestCase
         return new ShipmentStep(
             $this->createCalculationClientMock(),
             $shipmentPlugins,
-            'shipment',
+            CheckoutDependencyProvider::PLUGIN_SHIPMENT_STEP_HANDLER,
             'escape_route'
         );
     }

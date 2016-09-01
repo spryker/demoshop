@@ -10,14 +10,12 @@
                 <h4>{{ 'checkout.step.shipment.title' | trans }}</h4>
 
                 <ul class="no-bullet">
-                    {% for method in shipmentForm.shipmentSelection %}
+                    {% for method in shipmentForm.idShipmentMethod %}
                         <li>
-                            {{ form_widget(method, {'attr': {'class': '__toggler'}}) }}
-                            {{ form_label(method) }}
-                            <div class="__toggler-target">
-                                {{ checkout.include_subform(shipmentForm[method.vars.value]) }}
-                                {% if not loop.last %}<hr>{% endif %}
-                            </div>
+                            <label>
+                                {{ form_widget(method, {'attr': {'class': '__toggler'}}) }}
+                                {{ method.vars.label | raw }}
+                            </label>
                         </li>
                     {% endfor %}
                 </ul>

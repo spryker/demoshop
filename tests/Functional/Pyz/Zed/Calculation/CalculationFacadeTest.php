@@ -33,7 +33,6 @@ class CalculationFacadeTest extends Test
 {
 
     /**
-     *
      * @return void
      */
     protected function setUp()
@@ -330,6 +329,7 @@ class CalculationFacadeTest extends Test
     /**
      * @param int $discountAmount
      * @param string $calculatorType
+     *
      * @return \Orm\Zed\Discount\Persistence\SpyDiscountVoucher
      */
     protected function createDiscounts($discountAmount, $calculatorType)
@@ -408,7 +408,6 @@ class CalculationFacadeTest extends Test
     }
 
     /**
-     *
      * @return \Orm\Zed\Product\Persistence\SpyProductAbstract
      */
     protected function createAbstractProductWithTaxExemption()

@@ -10,6 +10,15 @@ use PHPUnit_Framework_TestCase;
 use Pyz\Yves\Checkout\Process\Steps\EntryStep;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @group YvesUnit
+ * @group Pyz
+ * @group Yves
+ * @group Checkout
+ * @group Process
+ * @group Steps
+ * @group EntryStepTest
+ */
 class EntryStepTest extends PHPUnit_Framework_TestCase
 {
 

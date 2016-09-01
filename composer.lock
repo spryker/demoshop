@@ -708,16 +708,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.17.2",
+            "version": "1.21.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "bee7f0dc9c3e0b69a6039697533dca1e845c8c24"
+                "reference": "f42fbdfd53e306bda545845e4dbfd3e72edb4952"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/bee7f0dc9c3e0b69a6039697533dca1e845c8c24",
-                "reference": "bee7f0dc9c3e0b69a6039697533dca1e845c8c24",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f42fbdfd53e306bda545845e4dbfd3e72edb4952",
+                "reference": "f42fbdfd53e306bda545845e4dbfd3e72edb4952",
                 "shasum": ""
             },
             "require": {
@@ -732,13 +732,13 @@
                 "doctrine/couchdb": "~1.0@dev",
                 "graylog2/gelf-php": "~1.0",
                 "jakub-onderka/php-parallel-lint": "0.9",
+                "php-amqplib/php-amqplib": "~2.4",
                 "php-console/php-console": "^3.1.3",
                 "phpunit/phpunit": "~4.5",
                 "phpunit/phpunit-mock-objects": "2.3.0",
-                "raven/raven": "^0.13",
                 "ruflin/elastica": ">=0.90 <3.0",
-                "swiftmailer/swiftmailer": "~5.3",
-                "videlalvaro/php-amqplib": "~2.4"
+                "sentry/sentry": "^0.13",
+                "swiftmailer/swiftmailer": "~5.3"
             },
             "suggest": {
                 "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
@@ -746,16 +746,17 @@
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-mongo": "Allow sending log messages to a MongoDB server",
                 "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
+                "mongodb/mongodb": "Allow sending log messages to a MongoDB server via PHP Driver",
+                "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
                 "php-console/php-console": "Allow sending log messages to Google Chrome",
-                "raven/raven": "Allow sending log messages to a Sentry server",
                 "rollbar/rollbar": "Allow sending log messages to Rollbar",
                 "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
-                "videlalvaro/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib"
+                "sentry/sentry": "Allow sending log messages to a Sentry server"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.16.x-dev"
+                    "dev-master": "2.0.x-dev"
                 }
             },
             "autoload": {
@@ -781,7 +782,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-10-14 12:51:02"
+            "time": "2016-07-29 03:23:52"
         },
         {
             "name": "myclabs/deep-copy",
@@ -2575,11 +2576,11 @@
         },
         {
             "name": "spryker/auth",
-            "version": "2.0.8",
+            "version": "2.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Auth.git",
-                "reference": "43369722bcf029b6b415b9bb698dbb13e2b9fff5",
+                "reference": "e60d48af193475d70577fff727d04fc5c9947d01",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -2589,8 +2590,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Auth/zipball/43369722bcf029b6b415b9bb698dbb13e2b9fff5",
-                "reference": "43369722bcf029b6b415b9bb698dbb13e2b9fff5",
+                "url": "https://api.github.com/repos/spryker/Auth/zipball/e60d48af193475d70577fff727d04fc5c9947d01",
+                "reference": "e60d48af193475d70577fff727d04fc5c9947d01",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2602,12 +2603,12 @@
             "require": {
                 "spryker/application": "^2.0.0",
                 "spryker/config": "^2.0.0",
-                "spryker/gui": "^2.0.0",
                 "spryker/kernel": "^2.0.0",
                 "spryker/library": "^2.0.0",
                 "spryker/session": "^2.0.0",
                 "spryker/silex": "^2.0.0",
                 "spryker/symfony": "^2.0.0",
+                "spryker/url": "^2.0.0",
                 "spryker/user": "^2.0.0"
             },
             "type": "library",
@@ -2633,7 +2634,7 @@
             "support": {
                 "source": "https://github.com/spryker/Auth/tree/master"
             },
-            "time": "2016-07-20 09:58:39"
+            "time": "2016-08-31 08:26:05"
         },
         {
             "name": "spryker/auth-mail-connector",
@@ -3504,11 +3505,11 @@
         },
         {
             "name": "spryker/console",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Console.git",
-                "reference": "bbaa2e00784ea37efb4b68abc46afbfc370ea81c",
+                "reference": "44d927122e0be6c2e73c45923908eb444e85d573",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3518,8 +3519,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Console/zipball/bbaa2e00784ea37efb4b68abc46afbfc370ea81c",
-                "reference": "bbaa2e00784ea37efb4b68abc46afbfc370ea81c",
+                "url": "https://api.github.com/repos/spryker/Console/zipball/44d927122e0be6c2e73c45923908eb444e85d573",
+                "reference": "44d927122e0be6c2e73c45923908eb444e85d573",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3560,11 +3561,11 @@
             "license": [
                 "proprietary"
             ],
-            "description": "console bundle",
+            "description": "Console bundle",
             "support": {
                 "source": "https://github.com/spryker/Console/tree/master"
             },
-            "time": "2016-04-25 07:18:49"
+            "time": "2016-08-25 15:11:42"
         },
         {
             "name": "spryker/country",
@@ -4375,11 +4376,11 @@
         },
         {
             "name": "spryker/gui",
-            "version": "2.1.8",
+            "version": "2.1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Gui.git",
-                "reference": "c9c6cab01e4c0f336e29ac95283db91da362dfad",
+                "reference": "350148217b9162982d898e65cbbfc7aeabf9c17a",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4389,8 +4390,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Gui/zipball/c9c6cab01e4c0f336e29ac95283db91da362dfad",
-                "reference": "c9c6cab01e4c0f336e29ac95283db91da362dfad",
+                "url": "https://api.github.com/repos/spryker/Gui/zipball/350148217b9162982d898e65cbbfc7aeabf9c17a",
+                "reference": "350148217b9162982d898e65cbbfc7aeabf9c17a",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4435,7 +4436,7 @@
             "support": {
                 "source": "https://github.com/spryker/Gui/tree/master"
             },
-            "time": "2016-08-22 13:57:42"
+            "time": "2016-08-26 10:26:10"
         },
         {
             "name": "spryker/guzzle",
@@ -5237,11 +5238,11 @@
         },
         {
             "name": "spryker/monolog",
-            "version": "2.0.0",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Monolog.git",
-                "reference": "2d0666d61c0ab9c7080b1940be49ac2b0579e74c",
+                "reference": "ef2d9bffc03b3a408907722d1191a256170da4b4",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5251,8 +5252,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Monolog/zipball/2d0666d61c0ab9c7080b1940be49ac2b0579e74c",
-                "reference": "2d0666d61c0ab9c7080b1940be49ac2b0579e74c",
+                "url": "https://api.github.com/repos/spryker/Monolog/zipball/ef2d9bffc03b3a408907722d1191a256170da4b4",
+                "reference": "ef2d9bffc03b3a408907722d1191a256170da4b4",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5262,7 +5263,7 @@
                 ]
             },
             "require": {
-                "monolog/monolog": "~1.17.2"
+                "monolog/monolog": "~1.21.0"
             },
             "type": "library",
             "extra": {
@@ -5274,11 +5275,11 @@
             "license": [
                 "proprietary"
             ],
-            "description": "monolog bundle",
+            "description": "Monolog bundle",
             "support": {
                 "source": "https://github.com/spryker/Monolog/tree/master"
             },
-            "time": "2016-04-01 13:06:05"
+            "time": "2016-09-01 09:24:33"
         },
         {
             "name": "spryker/new-relic",
@@ -5459,11 +5460,11 @@
         },
         {
             "name": "spryker/oms",
-            "version": "3.0.6",
+            "version": "3.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Oms.git",
-                "reference": "1aabc6a5837c606b7d5ac7067b025564fa32d1bd",
+                "reference": "522560a626fdd8fb455f784bfc5e81a65be6dd63",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5473,8 +5474,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Oms/zipball/1aabc6a5837c606b7d5ac7067b025564fa32d1bd",
-                "reference": "1aabc6a5837c606b7d5ac7067b025564fa32d1bd",
+                "url": "https://api.github.com/repos/spryker/Oms/zipball/522560a626fdd8fb455f784bfc5e81a65be6dd63",
+                "reference": "522560a626fdd8fb455f784bfc5e81a65be6dd63",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5525,7 +5526,7 @@
             "support": {
                 "source": "https://github.com/spryker/Oms/tree/master"
             },
-            "time": "2016-08-15 12:58:30"
+            "time": "2016-08-30 11:32:31"
         },
         {
             "name": "spryker/oms-discount-connector",
@@ -6781,11 +6782,11 @@
         },
         {
             "name": "spryker/refund",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Refund.git",
-                "reference": "ab49926766e573a069813f3068059d1ac9af6bdb",
+                "reference": "6faad3ce551612f978be5a2530d71b98d1c3684c",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6795,8 +6796,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Refund/zipball/ab49926766e573a069813f3068059d1ac9af6bdb",
-                "reference": "ab49926766e573a069813f3068059d1ac9af6bdb",
+                "url": "https://api.github.com/repos/spryker/Refund/zipball/6faad3ce551612f978be5a2530d71b98d1c3684c",
+                "reference": "6faad3ce551612f978be5a2530d71b98d1c3684c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6837,15 +6838,15 @@
             "support": {
                 "source": "https://github.com/spryker/Refund/tree/master"
             },
-            "time": "2016-07-29 12:06:11"
+            "time": "2016-08-29 07:16:09"
         },
         {
             "name": "spryker/sales",
-            "version": "2.2.5",
+            "version": "2.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Sales.git",
-                "reference": "2b4ccfeeb4f9f65b72723f30b28739f37962ebc7",
+                "reference": "fbd7dae7c735ea03d8c68b6d8b26a54e91a82860",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6855,8 +6856,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Sales/zipball/2b4ccfeeb4f9f65b72723f30b28739f37962ebc7",
-                "reference": "2b4ccfeeb4f9f65b72723f30b28739f37962ebc7",
+                "url": "https://api.github.com/repos/spryker/Sales/zipball/fbd7dae7c735ea03d8c68b6d8b26a54e91a82860",
+                "reference": "fbd7dae7c735ea03d8c68b6d8b26a54e91a82860",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6908,7 +6909,7 @@
             "support": {
                 "source": "https://github.com/spryker/Sales/tree/master"
             },
-            "time": "2016-07-29 13:24:41"
+            "time": "2016-08-29 08:46:19"
         },
         {
             "name": "spryker/sales-aggregator",
@@ -7684,11 +7685,11 @@
         },
         {
             "name": "spryker/storage",
-            "version": "2.1.5",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Storage.git",
-                "reference": "125483241378e9b56b8cf07e3655f7084995fd8d",
+                "reference": "2d1d26ae0d3ca1db2f9b5ca200c09f956e9fb87a",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7698,8 +7699,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Storage/zipball/125483241378e9b56b8cf07e3655f7084995fd8d",
-                "reference": "125483241378e9b56b8cf07e3655f7084995fd8d",
+                "url": "https://api.github.com/repos/spryker/Storage/zipball/2d1d26ae0d3ca1db2f9b5ca200c09f956e9fb87a",
+                "reference": "2d1d26ae0d3ca1db2f9b5ca200c09f956e9fb87a",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7717,6 +7718,7 @@
                 "spryker/library": "^2.0.0",
                 "spryker/redis": "^2.0.0",
                 "spryker/session": "^2.0.0",
+                "spryker/silex": "^2.0.0",
                 "spryker/symfony": "^2.0.0",
                 "spryker/url": "^2.0.0"
             },
@@ -7744,7 +7746,7 @@
             "support": {
                 "source": "https://github.com/spryker/Storage/tree/master"
             },
-            "time": "2016-08-08 13:51:45"
+            "time": "2016-08-24 12:46:51"
         },
         {
             "name": "spryker/symfony",
@@ -11377,12 +11379,12 @@
             "version": "v1.1.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/site5/phantoman.git",
+                "url": "https://github.com/grantlucas/phantoman.git",
                 "reference": "6ac9bed985d023909966a5c5b82489ced62998d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/site5/phantoman/zipball/6ac9bed985d023909966a5c5b82489ced62998d1",
+                "url": "https://api.github.com/repos/grantlucas/phantoman/zipball/6ac9bed985d023909966a5c5b82489ced62998d1",
                 "reference": "6ac9bed985d023909966a5c5b82489ced62998d1",
                 "shasum": ""
             },
@@ -11475,16 +11477,16 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.6.3",
+            "version": "0.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "c0e44d0e5837c51a3bb19494e387b9347423f35c"
+                "reference": "5f956b3a7c9966ebb8962c3cd2184d19eef26b9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/c0e44d0e5837c51a3bb19494e387b9347423f35c",
-                "reference": "c0e44d0e5837c51a3bb19494e387b9347423f35c",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/5f956b3a7c9966ebb8962c3cd2184d19eef26b9e",
+                "reference": "5f956b3a7c9966ebb8962c3cd2184d19eef26b9e",
                 "shasum": ""
             },
             "require": {
@@ -11518,7 +11520,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-08-23 09:00:10"
+            "time": "2016-08-26 10:42:58"
         },
         {
             "name": "squizlabs/php_codesniffer",

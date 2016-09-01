@@ -30,7 +30,6 @@ class SalesAggregatorFacadeTest extends Test
 {
 
     /**
-     *
      * @return void
      */
     protected function setUp()
@@ -253,7 +252,6 @@ class SalesAggregatorFacadeTest extends Test
     /**
      * @param bool $createDiscounts
      *
-     *
      * @return \Orm\Zed\Sales\Persistence\SpySalesOrder
      */
     protected function createTestOrder($createDiscounts = true)
@@ -460,9 +458,9 @@ class SalesAggregatorFacadeTest extends Test
      * @param int $amount
      * @param int $name
      * @param int $idOrder
-     * @param int $idOrderItem
-     * @param int $idExpense
-     * @param int $idOrderItemOption
+     * @param int|null $idOrderItem
+     * @param int|null $idExpense
+     * @param int|null $idOrderItemOption
      *
      * @return void
      */

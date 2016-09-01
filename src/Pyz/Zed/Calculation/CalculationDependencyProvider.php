@@ -37,6 +37,7 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
+     *
      * @return \Spryker\Zed\Calculation\Dependency\Plugin\CalculatorPluginInterface[]
      */
     protected function getCalculatorStack(Container $container)

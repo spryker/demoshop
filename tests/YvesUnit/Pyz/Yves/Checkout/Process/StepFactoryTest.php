@@ -12,10 +12,12 @@ use Pyz\Yves\Checkout\Process\StepFactory;
 use Spryker\Yves\Kernel\Container;
 
 /**
+ * @group YvesUnit
  * @group Pyz
  * @group Yves
  * @group Checkout
- * @group StepFactory
+ * @group Process
+ * @group StepFactoryTest
  */
 class StepFactoryTest extends PHPUnit_Framework_TestCase
 {

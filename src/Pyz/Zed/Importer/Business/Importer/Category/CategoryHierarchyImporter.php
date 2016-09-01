@@ -89,6 +89,7 @@ class CategoryHierarchyImporter extends AbstractImporter
      * @see \Pyz\Zed\Importer\Business\Importer\Product\ProductCategoryImporter::getRootNode()
      *
      * @throws \LogicException
+     *
      * @return \Orm\Zed\Category\Persistence\SpyCategoryNode
      */
     protected function getRootNode()

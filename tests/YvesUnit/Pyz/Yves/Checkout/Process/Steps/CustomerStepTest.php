@@ -13,6 +13,15 @@ use Pyz\Yves\Checkout\Process\Steps\CustomerStep;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @group YvesUnit
+ * @group Pyz
+ * @group Yves
+ * @group Checkout
+ * @group Process
+ * @group Steps
+ * @group CustomerStepTest
+ */
 class CustomerStepTest extends PHPUnit_Framework_TestCase
 {
 
