@@ -7748,11 +7748,11 @@
         },
         {
             "name": "spryker/symfony",
-            "version": "2.1.2",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Symfony.git",
-                "reference": "3dbc1570283e6016b152f059c3abc5c5dac99ff0",
+                "reference": "9ae86ce52264d42f4f2b560fb4920c6c2b6a479e",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7762,8 +7762,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Symfony/zipball/3dbc1570283e6016b152f059c3abc5c5dac99ff0",
-                "reference": "3dbc1570283e6016b152f059c3abc5c5dac99ff0",
+                "url": "https://api.github.com/repos/spryker/Symfony/zipball/9ae86ce52264d42f4f2b560fb4920c6c2b6a479e",
+                "reference": "9ae86ce52264d42f4f2b560fb4920c6c2b6a479e",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7782,6 +7782,7 @@
                 "symfony/form": "~2.6.13",
                 "symfony/http-foundation": "~2.6.13",
                 "symfony/http-kernel": "~2.6.13",
+                "symfony/intl": "~2.8.8",
                 "symfony/options-resolver": "~2.6.13",
                 "symfony/process": "~2.6.13",
                 "symfony/property-access": "~2.6.13",
@@ -7803,11 +7804,8 @@
             "autoload": {
                 "psr-0": {
                     "Spryker": "src/",
-                    "Acceptance": "tests/",
                     "Functional": "tests/",
-                    "Integration": "tests/",
-                    "Unit": "tests/",
-                    "YvesUnit": "tests/"
+                    "Unit": "tests/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -7818,7 +7816,7 @@
             "support": {
                 "source": "https://github.com/spryker/Symfony/tree/master"
             },
-            "time": "2016-07-27 09:40:03"
+            "time": "2016-09-02 05:15:13"
         },
         {
             "name": "spryker/tax",
