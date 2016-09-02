@@ -3866,11 +3866,11 @@
         },
         {
             "name": "spryker/discount",
-            "version": "3.1.1",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Discount.git",
-                "reference": "a7d540206c59f3d8640195ed430ea61aa34a7335",
+                "reference": "a1e505736b4e6fb51cfc1ae69822acc7fcec0aaa",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3880,8 +3880,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Discount/zipball/a7d540206c59f3d8640195ed430ea61aa34a7335",
-                "reference": "a7d540206c59f3d8640195ed430ea61aa34a7335",
+                "url": "https://api.github.com/repos/spryker/Discount/zipball/a1e505736b4e6fb51cfc1ae69822acc7fcec0aaa",
+                "reference": "a1e505736b4e6fb51cfc1ae69822acc7fcec0aaa",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3928,7 +3928,7 @@
             "support": {
                 "source": "https://github.com/spryker/Discount/tree/master"
             },
-            "time": "2016-08-08 15:28:13"
+            "time": "2016-08-31 17:12:15"
         },
         {
             "name": "spryker/discount-calculation-connector",
