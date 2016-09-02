@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8342c1c7de31315c106006db7270c789",
-    "content-hash": "dea14ce551f53ee14aa94f11b635d338",
+    "hash": "a8913cd4ee446a25e5d733401e152f05",
+    "content-hash": "17594cda72f68fd827058716da2f1056",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1203,6 +1203,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "342f12bb42b478fcf4622e254ddd8cd5ca4021ac"
 =======
 =======
@@ -1221,6 +1222,9 @@
 =======
                 "reference": "ea3d1748b5006143f933b3f3763fbd3696b4bb57"
 >>>>>>> update spryker
+=======
+                "reference": "e10da31481054e4432557a7e34030851fcce833f"
+>>>>>>> update composer
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1229,8 +1233,7 @@
                 "phpdocumentor/graphviz": "~1.0.4"
             },
             "require-dev": {
-                "spryker/code-sniffer": "*",
-                "spryker/testify": "*"
+                "spryker/code-sniffer": "*"
             },
             "bin": [
                 "Bundles/Console/bin/console"
@@ -1748,6 +1751,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-09-05 16:08:05"
 =======
 =======
@@ -1766,6 +1770,9 @@
 =======
             "time": "2016-09-02 13:44:43"
 >>>>>>> update spryker
+=======
+            "time": "2016-09-02 14:08:04"
+>>>>>>> update composer
         },
         {
             "name": "symfony-cmf/routing",
