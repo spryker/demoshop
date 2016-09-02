@@ -1200,7 +1200,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "50b6afcf82ccd86dcf85c6a20e071dbeb318627e"
+                "reference": "8f23a64ba353a3ee82e01fa38d692f90ea609e82"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1448,6 +1448,7 @@
                     "Unit\\Spryker\\Zed\\Money\\": "Bundles/Money/tests",
                     "Spryker\\Shared\\NewRelic\\": "Bundles/NewRelic/src",
                     "Spryker\\Zed\\NewRelic\\": "Bundles/NewRelic/src",
+                    "Spryker\\Yves\\NewRelic\\": "Bundles/NewRelic/src",
                     "Spryker\\Client\\Newsletter\\": "Bundles/Newsletter/src",
                     "Functional\\Spryker\\Client\\Newsletter\\": "Bundles/Newsletter/tests",
                     "Spryker\\Shared\\Newsletter\\": "Bundles/Newsletter/src",
@@ -1723,7 +1724,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-09-01 16:16:37"
+            "time": "2016-09-02 05:07:17"
         },
         {
             "name": "symfony-cmf/routing",
