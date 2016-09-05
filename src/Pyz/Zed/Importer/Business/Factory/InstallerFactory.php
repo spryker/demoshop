@@ -252,7 +252,8 @@ class InstallerFactory extends AbstractFactory
     {
         return new ProductSearchAttributeInstaller(
             $this->getImporterProductSearchAttributeCollection(),
-            $this->getConfig()->getImportDataDirectory()
+            $this->getConfig()->getImportDataDirectory(),
+            $this->getProductSearchFacade()
         );
     }
 
@@ -263,7 +264,8 @@ class InstallerFactory extends AbstractFactory
     {
         return new ProductSearchAttributeMapInstaller(
             $this->getImporterProductSearchAttributeMapCollection(),
-            $this->getConfig()->getImportDataDirectory()
+            $this->getConfig()->getImportDataDirectory(),
+            $this->getProductSearchFacade()
         );
     }
 
