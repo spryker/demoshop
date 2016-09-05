@@ -58,7 +58,8 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
                 INNER JOIN spy_stock_product 
                   ON (spy_product.id_product = spy_stock_product.fk_product)
                 LEFT JOIN spy_touch_search 
-                  ON (spy_touch_search.fk_touch = spy_touch.id_touch)
+                  ON (spy_touch_search.fk_touch = spy_touch.id_touch AND
+                      spy_touch_search.fk_locale = spy_locale.id_locale)
                 LEFT JOIN spy_product_image_set 
                   ON (spy_product_image_set.fk_product_abstract = spy_product_abstract.id_product_abstract AND
                       spy_product_image_set.fk_locale = spy_locale.id_locale)
@@ -70,7 +71,9 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
                 AND spy_locale.is_active = TRUE
                 AND spy_locale.id_locale = :id_locale
         ';
-        $this->criteriaBuilder->sql($sql)
+
+        $this->criteriaBuilder
+            ->sql($sql)
             ->setGroupBy('
                 spy_touch.id_touch,
                 spy_touch_search.id_touch_search,
