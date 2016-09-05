@@ -9,6 +9,7 @@ namespace Pyz\Client\Catalog;
 
 use Spryker\Client\Catalog\CatalogDependencyProvider as SprykerCatalogDependencyProvider;
 use Spryker\Client\Catalog\Plugin\Elasticsearch\ResultFormatter\RawCatalogSearchResultFormatterPlugin;
+use Spryker\Client\Kernel\Container;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\FacetQueryExpanderPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\LocalizedQueryExpanderPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\PaginatedQueryExpanderPlugin;
@@ -20,6 +21,23 @@ use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\SortedResultForma
 
 class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
 {
+    const FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS = 'FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS';
+    const FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS = 'FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS';
+
+    /**
+     * @param \Spryker\Client\Kernel\Container $container
+     *
+     * @return \Spryker\Client\Kernel\Container
+     */
+    public function provideServiceLayerDependencies(Container $container)
+    {
+        $container = parent::provideServiceLayerDependencies($container);
+
+        $container = $this->provideFeatureProductsResultFormatterPlugins($container);
+        $container = $this->provideFeatureProductsQueryExpanderPlugins($container);
+
+        return $container;
+    }
 
     /**
      * @return \Spryker\Client\Search\Dependency\Plugin\QueryExpanderPluginInterface[]
@@ -46,6 +64,39 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
             new PaginatedResultFormatterPlugin(),
             new RawCatalogSearchResultFormatterPlugin(),
         ];
+    }
+
+    /**
+     * @param \Spryker\Client\Kernel\Container $container
+     *
+     * @return \Spryker\Client\Kernel\Container
+     */
+    protected function provideFeatureProductsResultFormatterPlugins(Container$container)
+    {
+        $container[self::FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS] = function() {
+            return [
+                new RawCatalogSearchResultFormatterPlugin(),
+            ];
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Client\Kernel\Container $container
+     *
+     * @return \Spryker\Client\Kernel\Container
+     */
+    protected function provideFeatureProductsQueryExpanderPlugins(Container $container)
+    {
+        $container[self::FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS] = function() {
+            return [
+                new StoreQueryExpanderPlugin(),
+                new LocalizedQueryExpanderPlugin(),
+            ];
+        };
+
+        return $container;
     }
 
 }
