@@ -55,8 +55,7 @@ class PaymentForm extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $this->addPaymentMethods($builder, $options)
-             ->addSubmit($builder);
+        $this->addPaymentMethods($builder, $options);
     }
 
     /**
@@ -124,18 +123,6 @@ class PaymentForm extends AbstractType
                 ]
             );
         }
-
-        return $this;
-    }
-
-    /**
-     * @param \Symfony\Component\Form\FormBuilderInterface $builder
-     *
-     * @return $this
-     */
-    protected function addSubmit(FormBuilderInterface $builder)
-    {
-        $builder->add('checkout.step.summary', 'submit');
 
         return $this;
     }

@@ -20,3 +20,4 @@ waterproof: boolean
 battery: string
 short_description: string
 long_description: string
+is_featured: boolean

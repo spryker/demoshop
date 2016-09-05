@@ -15,9 +15,9 @@ use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Generated\Shared\Transfer\TotalsTransfer;
+use PHPUnit_Framework_TestCase;
 use Pyz\Yves\Checkout\Controller\CheckoutController;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
-use Pyz\Yves\Checkout\Form\Steps\ShipmentForm;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Form\AddressForm;
 use Pyz\Yves\Customer\Form\GuestForm;
@@ -32,12 +32,14 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
+ * @group YvesFunctional
  * @group Pyz
  * @group Yves
  * @group Checkout
- * @group CheckoutController
+ * @group Controller
+ * @group CheckoutControllerTest
  */
-class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
+class CheckoutControllerTest extends PHPUnit_Framework_TestCase
 {
 
     const CUSTOMER_URL = '/checkout/customer';
@@ -228,12 +230,9 @@ class CheckoutControllerTest extends \PHPUnit_Framework_TestCase
         $this->setQuoteForShipment();
 
         $shipmentData = $this->getFormData(self::SHIPMENT_URL, self::SHIPMENT_ACTION, self::SHIPMENT_ROUTE, self::SHIPMENT_FORM);
-        $shipmentData[ShipmentForm::SHIPMENT_SELECTION] = 'dummy_shipment';
-        $shipmentData['dummy_shipment'] = [
-            'idShipmentMethod' => 1
-        ];
+        $shipmentData['idShipmentMethod'] = 1;
         $data = [
-            self:: SHIPMENT_FORM => $shipmentData
+            self::SHIPMENT_FORM => $shipmentData
         ];
 
         $request = Request::create(self::SHIPMENT_URL, Request::METHOD_POST, $data);

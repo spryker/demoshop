@@ -6,9 +6,8 @@
 namespace Pyz\Yves\Shipment;
 
 use Pyz\Yves\Shipment\Form\DataProvider\ShipmentFormDataProvider;
-use Pyz\Yves\Shipment\Form\ShipmentSubForm;
+use Pyz\Yves\Shipment\Form\ShipmentForm;
 use Pyz\Yves\Shipment\Handler\ShipmentHandler;
-use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Yves\Kernel\AbstractFactory;
 
@@ -16,11 +15,11 @@ class ShipmentFactory extends AbstractFactory
 {
 
     /**
-     * @return \Spryker\Yves\StepEngine\Dependency\Form\SubFormInterface
+     * @return \Symfony\Component\Form\AbstractType
      */
     public function createShipmentForm()
     {
-        return new ShipmentSubForm();
+        return new ShipmentForm();
     }
 
     /**
@@ -65,7 +64,7 @@ class ShipmentFactory extends AbstractFactory
      */
     protected function getStore()
     {
-        return Store::getInstance();
+        return $this->getProvidedDependency(ShipmentDependencyProvider::STORE);
     }
 
     /**

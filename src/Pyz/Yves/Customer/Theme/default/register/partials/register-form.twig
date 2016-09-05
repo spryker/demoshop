@@ -1,0 +1,3 @@
+{{ form_start(form, {'action': url('register'), 'attr': {'class': 'callout'}}) }}
+    {% include '@Customer/register/partials/register-form-body.twig' with {'form': form} %}
+{{ form_end(form) }}

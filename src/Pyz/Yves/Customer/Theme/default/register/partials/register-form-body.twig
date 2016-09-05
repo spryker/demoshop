@@ -1,0 +1,64 @@
+<h4><i class="fa fa-lock __secondary"></i> {{ 'customer.registration.title' | trans }}</h4>
+
+<label>
+    {{ form.salutation.vars.label | trans }}*
+    {{ form_widget(form.salutation, { 'attr': {'placeholder': form.salutation.vars.label | trans } }) }}
+</label>
+{{ form_errors(form.salutation) }}
+
+<label>
+    {{ form.first_name.vars.label | trans }}*
+    {{ form_widget(form.first_name, { 'attr': {'placeholder': form.first_name.vars.label | trans } }) }}
+</label>
+{{ form_errors(form.first_name) }}
+
+<label>
+    {{ form.last_name.vars.label | trans }}*
+    {{ form_widget(form.last_name, { 'attr': {'placeholder': form.last_name.vars.label | trans } }) }}
+</label>
+{{ form_errors(form.last_name) }}
+
+<label>
+    {{ form.email.vars.label | trans }}*
+    <span class="input-group">
+        <span class="input-group-label">
+            <i class="fa fa-at"></i>
+        </span>
+        {{ form_widget(form.email, { 'attr': {'class': 'input-group-field', 'placeholder': form.email.vars.label | trans } }) }}
+    </span>
+</label>
+{{ form_errors(form.email) }}
+
+<label>
+    {{ form.password.pass.vars.label | trans }}*
+    <span class="input-group">
+        <span class="input-group-label">
+            <i class="fa fa-ellipsis-h"></i>
+        </span>
+        {{ form_widget(form.password.pass, { 'attr': {'class': 'input-group-field', 'placeholder': form.password.pass.vars.label | trans } }) }}
+    </span>
+</label>
+{{ form_errors(form.password.pass) }}
+
+<label>
+    {{ form.password.confirm.vars.label | trans }}*
+    <span class="input-group">
+        <span class="input-group-label">
+            <i class="fa fa-ellipsis-h"></i>
+        </span>
+        {{ form_widget(form.password.confirm, { 'attr': {'class': 'input-group-field', 'placeholder': form.password.confirm.vars.label | trans } }) }}
+    </span>
+</label>
+{{ form_errors(form.password.confirm) }}
+
+{{ form_widget(form.accept_terms) }}
+{{ form_label(form.accept_terms) }}
+{{ form_errors(form.accept_terms) }}
+
+<div class="row __padding-top">
+    <div class="small-12 large-offset-6 large-6 columns">
+        <button class="button success expanded __no-margin-bottom">
+            <i class="fa fa-user-plus"></i>{{ 'forms.submit.register' | trans }}
+        </button>
+    </div>
+</div>

@@ -97,7 +97,7 @@ class ProductCollector extends AbstractStoragePdoCollector
             'abstract_name' => $collectItemData[self::ABSTRACT_NAME],
             'abstract_sku' => $collectItemData[self::SKU], // FIXME
             'url' => $collectItemData[self::ABSTRACT_URL],
-            'quantity' =>  (int)$collectItemData[self::QUANTITY],
+            'quantity' => (int)$collectItemData[self::QUANTITY],
             'available' => (int)$collectItemData[self::QUANTITY] > 0,
             'price' => $this->getPriceBySku($collectItemData[self::ABSTRACT_SKU]),
             'category' => $this->generateCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
@@ -236,9 +236,11 @@ class ProductCollector extends AbstractStoragePdoCollector
      */
     protected function generateUrl($idNode)
     {
-        $urlQuery = $this->categoryQueryContainer->queryUrlByIdCategoryNode($idNode);
+        $urlQuery = $this->categoryQueryContainer
+            ->queryUrlByIdCategoryNode($idNode)
+            ->filterByFkLocale($this->locale->getIdLocale());
         $url = $urlQuery->findOne();
-        return ($url) ? $url->getUrl() : null;
+        return ($url ? $url->getUrl() : null);
     }
 
     /**

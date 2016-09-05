@@ -10,7 +10,7 @@ namespace Pyz\Yves\Shipment\Form\DataProvider;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
-use Pyz\Yves\Shipment\Form\ShipmentSubForm;
+use Pyz\Yves\Shipment\Form\ShipmentForm;
 use Spryker\Client\Glossary\GlossaryClientInterface;
 use Spryker\Client\Shipment\ShipmentClientInterface;
 use Spryker\Shared\Kernel\Store;
@@ -62,7 +62,6 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
         $this->currencyManager = $currencyManager;
     }
 
-
     /**
      * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
@@ -86,7 +85,7 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
     public function getOptions(AbstractTransfer $quoteTransfer)
     {
         return [
-            ShipmentSubForm::OPTION_SHIPMENT_METHODS => $this->createAvailableShipmentChoiceList($quoteTransfer)
+            ShipmentForm::OPTION_SHIPMENT_METHODS => $this->createAvailableShipmentChoiceList($quoteTransfer)
         ];
     }
 
@@ -121,20 +120,46 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
 
     /**
      * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
-     * 9
+     *
      * @return string
      */
     protected function getShipmentDescription(ShipmentMethodTransfer $shipmentMethodTransfer)
     {
-        $deliveryTime = $this->getDeliveryTime($shipmentMethodTransfer);
-        $shipmentPrice = $this->getFormattedShipmentPrice($shipmentMethodTransfer);
+        $shipmentDescription = $this->translate($shipmentMethodTransfer->getName());
 
-        $shipmentDescription = $this->translate($shipmentMethodTransfer->getName())
-            . ' | ' . $this->translate('page.checkout.shipping.price') . ' ' . $shipmentPrice;
+        $shipmentDescription = $this->appendDeliveryTime($shipmentMethodTransfer, $shipmentDescription);
+        $shipmentDescription = $this->appendShipmentPrice($shipmentMethodTransfer, $shipmentDescription);
+
+        return $shipmentDescription;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
+     * @param string $shipmentDescription
+     *
+     * @return string
+     */
+    protected function appendDeliveryTime(ShipmentMethodTransfer $shipmentMethodTransfer, $shipmentDescription)
+    {
+        $deliveryTime = $this->getDeliveryTime($shipmentMethodTransfer);
 
         if ($deliveryTime !== 0) {
-            $shipmentDescription .= ' | ' . $this->translate('page.checkout.shipping.delivery_time') . ' ' . $deliveryTime;
+            $shipmentDescription .= ' (' . $this->translate('page.checkout.shipping.delivery_time') . ' ' . $deliveryTime . ')';
         }
+
+        return $shipmentDescription;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
+     * @param string $shipmentDescription
+     *
+     * @return string
+     */
+    protected function appendShipmentPrice(ShipmentMethodTransfer $shipmentMethodTransfer, $shipmentDescription)
+    {
+        $shipmentPrice = $this->getFormattedShipmentPrice($shipmentMethodTransfer);
+        $shipmentDescription .= ': <strong>' . $shipmentPrice . '</strong>';
 
         return $shipmentDescription;
     }
@@ -148,7 +173,7 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
     {
         $deliveryTime = 0;
 
-        if (!empty($method->getDeliveryTime())) {
+        if ($method->getDeliveryTime()) {
             $deliveryTime = ($method->getDeliveryTime() / 3600);
         }
 

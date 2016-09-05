@@ -1,0 +1,8 @@
+<form action="/search">
+    <div class="input-group __no-margin-bottom">
+        <input name="q" type="text" class="input-group-field" placeholder="{{ 'global.search' | trans }}" value="{{ app.request.get('q') }}">
+        <div class="input-group-button">
+            <button type="submit" class="button"><i class="fa fa-search"></i></button>
+        </div>
+    </div>
+</form>

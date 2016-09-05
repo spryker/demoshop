@@ -8,8 +8,9 @@
 namespace Acceptance\Discount\Zed\Tester;
 
 use Acceptance\Discount\Zed\PageObject\DiscountCreatePage;
+use ZedAcceptanceTester;
 
-class DiscountTester extends \ZedAcceptanceTester
+class DiscountTester extends ZedAcceptanceTester
 {
 
     /**

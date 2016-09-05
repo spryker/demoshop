@@ -13,9 +13,9 @@ use Acceptance\Tax\Zed\Tester\TaxRateTester;
 
 /**
  * @group Acceptance
- * @group Taxes
+ * @group Tax
  * @group Zed
- * @group TaxRateCreate
+ * @group TaxRateCreateCest
  */
 class TaxRateCreateCest
 {

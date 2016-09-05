@@ -31,6 +31,7 @@ class ProductController extends AbstractController
 
         $productData = [
             'product' => $product,
+            'productCategories' => $categories,
             'category' => count($categories) ? end($categories) : null,
             'productOptionGroups' => $productOptionGroupsTransfer
         ];

@@ -57,7 +57,7 @@ class CartOperationHandler extends BaseHandler
 
     /**
      * @param string $sku
-     * @param string $groupKey
+     * @param string|null $groupKey
      *
      * @return void
      */
@@ -69,7 +69,7 @@ class CartOperationHandler extends BaseHandler
 
     /**
      * @param string $sku
-     * @param string $groupKey
+     * @param string|null $groupKey
      *
      * @return void
      */
@@ -81,7 +81,7 @@ class CartOperationHandler extends BaseHandler
 
     /**
      * @param string $sku
-     * @param string $groupKey
+     * @param string|null $groupKey
      *
      * @return void
      */
@@ -94,7 +94,7 @@ class CartOperationHandler extends BaseHandler
     /**
      * @param string $sku
      * @param int $quantity
-     * @param string $groupKey
+     * @param string|null $groupKey
      *
      * @return void
      */

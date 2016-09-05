@@ -9,14 +9,24 @@ namespace Pyz\Yves\Application\Controller;
 
 use Spryker\Yves\Application\Controller\AbstractController;
 
+/**
+ * @method \Pyz\Yves\Application\ApplicationFactory getFactory()
+ */
 class IndexController extends AbstractController
 {
 
+    const FEATURED_PRODUCT_LIMIT = 6;
+
     /**
-     * @return void
+     * @return array
      */
     public function indexAction()
     {
+        $searchResult = $this->getFactory()
+            ->getCatalogClient()
+            ->getFeaturedProducts(self::FEATURED_PRODUCT_LIMIT);
+
+        return $this->viewResponse($searchResult);
     }
 
 }

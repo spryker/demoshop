@@ -21,7 +21,7 @@ class SilexRouter extends SprykerSilexRouter
      */
     public function generate($name, $parameters = [], $referenceType = self::ABSOLUTE_PATH)
     {
-        $generator = new UrlGenerator($this->getRouteCollection(), $this->getContext(), $this->logger);
+        $generator = new UrlGenerator($this->app, $this->getRouteCollection(), $this->getContext(), $this->logger);
 
         return $generator->generate($name, $parameters, $referenceType);
     }

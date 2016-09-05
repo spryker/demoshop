@@ -1,7 +1,0 @@
-<section class="filter js-filter js-filter-default filter__{{ filterName }}" data-filter-name="{{filterName}}" data-filter-type="default">
-    <ul class="filter__{{ filterName }}-list">
-        {% for facet in facets %}
-        <li>{% include "@catalog/catalog/partials/filter-default-value.twig" with {displayValue:facet.name, value:facet.url, quantity: facet.amount, default:true} %}</li>
-        {% endfor %}
-    </ul>
-</section>

@@ -7,13 +7,23 @@ namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use PHPUnit_Framework_TestCase;
 use Pyz\Yves\Checkout\Process\Steps\PaymentStep;
 use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class PaymentStepTest extends \PHPUnit_Framework_TestCase
+/**
+ * @group YvesUnit
+ * @group Pyz
+ * @group Yves
+ * @group Checkout
+ * @group Process
+ * @group Steps
+ * @group PaymentStepTest
+ */
+class PaymentStepTest extends PHPUnit_Framework_TestCase
 {
 
     /**

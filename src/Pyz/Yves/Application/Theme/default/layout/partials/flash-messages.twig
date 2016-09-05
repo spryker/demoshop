@@ -1,0 +1,15 @@
+{% for message in app.session.flashbag.get('flash.messages.success') %}
+    <div class="__message">
+        <div class="callout success">{{ message | trans }}</div>
+    </div>
+{% endfor %}
+{% for message in app.session.flashbag.get('flash.messages.info') %}
+    <div class="__message">
+        <div class="callout secondary">{{ message | trans }}</div>
+    </div>
+{% endfor %}
+{% for message in app.session.flashbag.get('flash.messages.error') %}
+    <div class="__message">
+        <div class="callout alert">{{ message | trans }}</div>
+    </div>
+{% endfor %}

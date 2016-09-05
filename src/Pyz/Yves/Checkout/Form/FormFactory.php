@@ -10,7 +10,6 @@ namespace Pyz\Yves\Checkout\Form;
 use Pyz\Yves\Checkout\CheckoutDependencyProvider;
 use Pyz\Yves\Checkout\Form\DataProvider\SubFormDataProviders;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
-use Pyz\Yves\Checkout\Form\Steps\ShipmentForm;
 use Pyz\Yves\Checkout\Form\Steps\SummaryForm;
 use Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm;
 use Pyz\Yves\Customer\Form\CustomerCheckoutForm;
@@ -18,7 +17,8 @@ use Pyz\Yves\Customer\Form\DataProvider\CheckoutAddressFormDataProvider;
 use Pyz\Yves\Customer\Form\GuestForm;
 use Pyz\Yves\Customer\Form\LoginForm;
 use Pyz\Yves\Customer\Form\RegisterForm;
-use Spryker\Shared\Kernel\Store;
+use Pyz\Yves\Shipment\Form\ShipmentForm;
+use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Yves\Checkout\Form\FormFactory as SprykerFormFactory;
 use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection;
@@ -51,11 +51,25 @@ class FormFactory extends SprykerFormFactory
      */
     public function createShipmentFormCollection()
     {
-        $shipmentSubForms = $this->createShipmentMethodsSubForms();
-        $shipmentFormType = $this->createShipmentForm($shipmentSubForms);
-        $subFormDataProvider = $this->createSubFormDataProvider($shipmentSubForms);
+        return $this->createFormCollection($this->createShipmentFormTypes(), $this->getShipmentFormDataProviderPlugin());
+    }
 
-        return $this->createSubFormCollection($shipmentFormType, $subFormDataProvider);
+    /**
+     * @return \Symfony\Component\Form\FormTypeInterface[]
+     */
+    protected function createShipmentFormTypes()
+    {
+        return [
+            new ShipmentForm(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface
+     */
+    protected function getShipmentFormDataProviderPlugin()
+    {
+        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_SHIPMENT_FORM_DATA_PROVIDER);
     }
 
     /**
@@ -127,7 +141,7 @@ class FormFactory extends SprykerFormFactory
      */
     protected function createAddressFormDataProvider()
     {
-        return new CheckoutAddressFormDataProvider($this->getCustomerClient(), $this->createStore());
+        return new CheckoutAddressFormDataProvider($this->getCustomerClient(), $this->getStore());
     }
 
     /**
@@ -138,24 +152,6 @@ class FormFactory extends SprykerFormFactory
         return [
             $this->createSummaryForm(),
         ];
-    }
-
-    /**
-     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection $subForms
-     *
-     * @return \Pyz\Yves\Checkout\Form\Steps\ShipmentForm
-     */
-    protected function createShipmentForm(SubFormPluginCollection $subForms)
-    {
-        return new ShipmentForm($subForms);
-    }
-
-    /**
-     * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection
-     */
-    protected function createShipmentMethodsSubForms()
-    {
-        return $this->createShipmentFormPlugin();
     }
 
     /**
@@ -203,7 +199,7 @@ class FormFactory extends SprykerFormFactory
      */
     protected function getFormFactory()
     {
-        return $this->getApplication()['form.factory'];
+        return $this->getProvidedDependency(ApplicationConstants::FORM_FACTORY);
     }
 
     /**
@@ -217,9 +213,9 @@ class FormFactory extends SprykerFormFactory
     /**
      * @return \Spryker\Shared\Kernel\Store
      */
-    public function createStore()
+    public function getStore()
     {
-        return Store::getInstance();
+        return $this->getProvidedDependency(CheckoutDependencyProvider::STORE);
     }
 
     /**
@@ -236,14 +232,6 @@ class FormFactory extends SprykerFormFactory
     protected function createLoginForm()
     {
         return new LoginForm();
-    }
-
-    /**
-     * @return \Pyz\Yves\Shipment\Plugin\ShipmentSubFormPlugin
-     */
-    protected function createShipmentFormPlugin()
-    {
-        return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_SHIPMENT_SUB_FORM);
     }
 
     /**

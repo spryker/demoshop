@@ -1,0 +1,43 @@
+{% extends "@checkout/layout.twig" %}
+
+{% block content %}
+
+    {{ form_start(addressesForm) }}
+	    <div class="row">
+
+            <div class="small-12 large-6 columns">
+                <div class="callout">
+                    <h4>{{ 'page.checkout.summary.shipping' | trans }}</h4>
+
+                    {% include '@checkout/checkout/partials/address-selection.twig' with {'addressForm': addressesForm.shippingAddress} %}
+                </div>
+            </div>
+
+            <div class="small-12 large-6 columns">
+                <div class="callout">
+                    <h4>{{ 'page.checkout.address.billing-address' | trans }}</h4>
+
+                    {{ form_widget(addressesForm.billingSameAsShipping, {'attr': {'class': '__toggler __inverted'}}) }}
+                    <label for="addressesForm_billingSameAsShipping">{{ 'customer.billingSameAsShipping' | trans }}</label>
+
+                    <div class="__toggler-target">
+                        {% include '@checkout/checkout/partials/address-selection.twig' with {'addressForm': addressesForm.billingAddress} %}
+                    </div>
+                </div>
+			</div>
+
+            <div class="small-12 columns">
+                <div class="callout">
+                    <div class="row align-right">
+                        <div class="small-12 medium-6 large-4 xlarge-3 columns">
+                            <a href="{{ url('cart') }}" class="button expanded __no-margin-bottom">{{ 'general.back.button' | trans }}</a>
+                        </div>
+                        <div class="small-12 medium-6 large-4 xlarge-3 columns">
+                            <button type="submit" class="button success expanded __no-margin-bottom">{{ 'checkout.step.shipment' | trans }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+	    </div>
+    {{ form_end(addressesForm) }}
+{% endblock %}

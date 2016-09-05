@@ -21,7 +21,8 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     {
         return new ProductDataPageMapBuilder(
             $this->getProductSearchFacade(),
-            $this->getPriceFacade()
+            $this->getPriceFacade(),
+            $this->getProductImageQueryContainer()
         );
     }
 
@@ -39,6 +40,14 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     public function getPriceFacade()
     {
         return $this->getProvidedDependency(ProductSearchDependencyProvider::FACADE_PRICE);
+    }
+
+    /**
+     * @return \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface
+     */
+    protected function getProductImageQueryContainer()
+    {
+        return $this->getProvidedDependency(ProductSearchDependencyProvider::QUERY_CONTAINER_PRODUCT_IMAGE);
     }
 
 }
