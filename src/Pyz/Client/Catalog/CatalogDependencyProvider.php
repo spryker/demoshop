@@ -21,6 +21,7 @@ use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\SortedResultForma
 
 class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
 {
+
     const FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS = 'FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS';
     const FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS = 'FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS';
 
@@ -73,7 +74,7 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
      */
     protected function provideFeatureProductsResultFormatterPlugins(Container$container)
     {
-        $container[self::FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS] = function() {
+        $container[self::FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS] = function () {
             return [
                 new RawCatalogSearchResultFormatterPlugin(),
             ];
@@ -89,7 +90,7 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
      */
     protected function provideFeatureProductsQueryExpanderPlugins(Container $container)
     {
-        $container[self::FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS] = function() {
+        $container[self::FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS] = function () {
             return [
                 new StoreQueryExpanderPlugin(),
                 new LocalizedQueryExpanderPlugin(),
