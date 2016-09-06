@@ -1204,6 +1204,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "342f12bb42b478fcf4622e254ddd8cd5ca4021ac"
 =======
 =======
@@ -1225,6 +1226,9 @@
 =======
                 "reference": "e10da31481054e4432557a7e34030851fcce833f"
 >>>>>>> update composer
+=======
+                "reference": "4abb3a3016d05b3f42bfe47d90d17015c2d46298"
+>>>>>>> fixed wrong application name, update spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1752,6 +1756,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-09-05 16:08:05"
 =======
 =======
@@ -1773,6 +1778,9 @@
 =======
             "time": "2016-09-02 14:08:04"
 >>>>>>> update composer
+=======
+            "time": "2016-09-06 06:48:29"
+>>>>>>> fixed wrong application name, update spryker
         },
         {
             "name": "symfony-cmf/routing",
