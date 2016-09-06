@@ -3938,11 +3938,11 @@
         },
         {
             "name": "spryker/discount",
-            "version": "3.1.2",
+            "version": "3.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Discount.git",
-                "reference": "a1e505736b4e6fb51cfc1ae69822acc7fcec0aaa",
+                "reference": "649aa6904e0440a7546c442c57310b8ce7d7c12c",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3952,8 +3952,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Discount/zipball/a1e505736b4e6fb51cfc1ae69822acc7fcec0aaa",
-                "reference": "a1e505736b4e6fb51cfc1ae69822acc7fcec0aaa",
+                "url": "https://api.github.com/repos/spryker/Discount/zipball/649aa6904e0440a7546c442c57310b8ce7d7c12c",
+                "reference": "649aa6904e0440a7546c442c57310b8ce7d7c12c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3967,6 +3967,7 @@
                 "spryker/gui": "^2.0.0",
                 "spryker/kernel": "^2.0.0",
                 "spryker/library": "^2.0.0",
+                "spryker/log": "^2.0.0",
                 "spryker/messenger": "^2.0.0",
                 "spryker/propel": "^2.2.0",
                 "spryker/sales": "^2.0.0",
@@ -3974,7 +3975,9 @@
                 "spryker/url": "^2.0.0"
             },
             "require-dev": {
-                "spryker/sales-split": "^1.0.0"
+                "spryker/code-sniffer": "*",
+                "spryker/sales-split": "^1.0.0",
+                "spryker/testify": "*"
             },
             "type": "library",
             "extra": {
@@ -3985,11 +3988,14 @@
             "autoload": {
                 "psr-0": {
                     "Spryker": "src/",
-                    "Acceptance": "tests/",
                     "Functional": "tests/",
-                    "Integration": "tests/",
-                    "Unit": "tests/",
-                    "YvesUnit": "tests/"
+                    "Unit": "tests/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/",
+                    "Unit": "tests/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -4000,7 +4006,7 @@
             "support": {
                 "source": "https://github.com/spryker/Discount/tree/master"
             },
-            "time": "2016-08-31 17:12:15"
+            "time": "2016-09-06 13:42:00"
         },
         {
             "name": "spryker/discount-calculation-connector",
