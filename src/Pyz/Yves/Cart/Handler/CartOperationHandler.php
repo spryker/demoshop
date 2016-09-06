@@ -113,6 +113,10 @@ class CartOperationHandler extends BaseHandler
     protected function addProductOptions(array $optionValueUsageIds, ItemTransfer $itemTransfer)
     {
         foreach ($optionValueUsageIds as $idOptionValueUsage) {
+            if (!$idOptionValueUsage) {
+                continue;
+            }
+
             $productOptionTransfer = new ProductOptionTransfer();
             $productOptionTransfer->setIdProductOptionValue($idOptionValueUsage);
 

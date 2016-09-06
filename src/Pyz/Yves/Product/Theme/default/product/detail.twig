@@ -64,34 +64,58 @@
         </div>
 
         <div class="small-12 medium-6 xlarge-5 xxlarge-4 columns">
-            <div class="callout">
-                <h5><small>{{ 'page.product.by' | trans }}</small> {{ product.abstractAttributes.manufacturer_name }}</h5>
-                <p>
-                    <span class="stat">{{ product.price | price }}</span>
-                </p>
+                <form class="align-bottom" method="POST" action="/cart/add/{{ product.abstractSku }}">
+                    <div class="callout">
+                        <h5><small>{{ 'page.product.by' | trans }}</small> {{ product.abstractAttributes.manufacturer_name }}</h5>
+                        <p>
+                            <span class="stat">{{ product.price | price }}</span>
+                        </p>
 
-                <p>{{ product.abstractAttributes.short_description }}</p>
+                        <p>{{ product.abstractAttributes.short_description }}</p>
 
-                <form class="row align-bottom" method="POST" action="/cart/add/{{ product.abstractSku }}">
-                    {#<div class="small-12 columns">#}
+                        {#<div class="small-12 columns">#}
                         {#<label>#}
-                            {#Variants#}
-                            {#<select name="variant">#}
-                                {#<option value="red">Red</option>#}
-                                {#<option value="green">Green</option>#}
-                                {#<option value="blue">Blue</option>#}
-                                {#<option value="yellow">Yellow</option>#}
-                            {#</select>#}
+                        {#Variants#}
+                        {#<select name="variant">#}
+                        {#<option value="red">Red</option>#}
+                        {#<option value="green">Green</option>#}
+                        {#<option value="blue">Blue</option>#}
+                        {#<option value="yellow">Yellow</option>#}
+                        {#</select>#}
                         {#</label>#}
-                    {#</div>#}
-                    <div class="small-12 columns">
-                        <button type="submit" class="button expanded success">
-                            <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
-                        </button>
+                        {#</div>#}
+                        <div class="small-12 columns">
+                            <button type="submit" class="button expanded success">
+                                <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
+                            </button>
+                        </div>
+
                     </div>
+
+                    <div class="callout">
+                        {% if productOptionGroups is defined %}
+                            <h5>{{ 'product.product_options' | trans }}</h5>
+                                {% for productOptionGroup in productOptionGroups.getProductOptionGroups %}
+                                    <label>{{ productOptionGroup.name | trans }}
+                                        <select name="product-option[{{ productOptionGroup.name }}]">
+                                            <option value="0">
+                                                {{ 'None' | trans }}
+                                            </option>
+
+                                            {% for productValue in productOptionGroup.productOptionValues %}
+                                                <option value="{{ productValue.idProductOptionValue }}">
+                                                    {{ productValue.value|trans }} {{ productValue.price | price }}
+                                                </option>
+                                            {% endfor %}
+
+                                        </select>
+                                    </label>
+                                {% endfor %}
+                        {% endif %}
+                    </div>
+
                 </form>
             </div>
-        </div>
     </div>
 
     <div class="row">

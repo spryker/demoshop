@@ -2,10 +2,10 @@
 
 /**
  * Data object containing the SQL and PHP code to migrate the database
- * up to version 1467638246.
+ * up to version 1471267929.
  * Generated on 2016-07-04 13:17:26 by vagrant
  */
-class PropelMigration_1467638246
+class PropelMigration_1471267929
 {
     public $comment = '';
 
@@ -130,7 +130,11 @@ CREATE UNIQUE INDEX "spy_product_option_value-sku" ON "spy_product_option_value"
 
 ALTER TABLE "spy_sales_order_item_option" RENAME COLUMN "label_option_type" TO "group_name";
 
-ALTER TABLE "spy_sales_order_item_option" RENAME COLUMN "label_option_value" TO "value";    
+ALTER TABLE "spy_sales_order_item_option" RENAME COLUMN "label_option_value" TO "value";   
+ 
+ALTER TABLE "spy_sales_order_item_option"
+
+ADD "sku" VARCHAR(255) NOT NULL;
     
 ',
 
@@ -358,6 +362,10 @@ ALTER TABLE "spy_sales_order_item_option" RENAME COLUMN "group_name" TO "label_o
 
 
 ALTER TABLE "spy_sales_order_item_option" RENAME COLUMN "value" TO "label_option_value";
+
+ALTER TABLE "spy_sales_order_item_option"
+
+  DROP COLUMN "sku";
 
 ',
 );
