@@ -7223,11 +7223,11 @@
         },
         {
             "name": "spryker/session",
-            "version": "2.1.2",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Session.git",
-                "reference": "5f31728925b2245fe92c7cfc570953fd525e93d6",
+                "reference": "a87d09d204e223ae1e4ca549593cf02b3a2956c5",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7237,8 +7237,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Session/zipball/5f31728925b2245fe92c7cfc570953fd525e93d6",
-                "reference": "5f31728925b2245fe92c7cfc570953fd525e93d6",
+                "url": "https://api.github.com/repos/spryker/Session/zipball/a87d09d204e223ae1e4ca549593cf02b3a2956c5",
+                "reference": "a87d09d204e223ae1e4ca549593cf02b3a2956c5",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7252,11 +7252,15 @@
                 "spryker/config": "^2.2.1",
                 "spryker/kernel": "^2.0.0",
                 "spryker/library": "^2.0.0",
-                "spryker/new-relic": "^2.0.0",
+                "spryker/new-relic": "^2.1.0",
                 "spryker/redis": "^2.0.0",
                 "spryker/silex": "^2.0.0",
                 "spryker/storage": "^2.0.0",
                 "spryker/symfony": "^2.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
             },
             "type": "library",
             "extra": {
@@ -7266,8 +7270,13 @@
             },
             "autoload": {
                 "psr-0": {
-                    "Spryker": "src/",
-                    "ClientUnit": "tests/"
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "ClientUnit": "tests/",
+                    "SharedUnit": "tests/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -7278,7 +7287,7 @@
             "support": {
                 "source": "https://github.com/spryker/Session/tree/master"
             },
-            "time": "2016-07-29 09:51:36"
+            "time": "2016-09-06 13:19:30"
         },
         {
             "name": "spryker/setup",
