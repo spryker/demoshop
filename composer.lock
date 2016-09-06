@@ -6670,11 +6670,11 @@
         },
         {
             "name": "spryker/propel",
-            "version": "2.2.0",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Propel.git",
-                "reference": "657bde5f42db65a1669ef413999af952118153f7",
+                "reference": "1c5f7217ccedfd7d6a53556aebe1fc6e15013dfa",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6684,8 +6684,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Propel/zipball/657bde5f42db65a1669ef413999af952118153f7",
-                "reference": "657bde5f42db65a1669ef413999af952118153f7",
+                "url": "https://api.github.com/repos/spryker/Propel/zipball/1c5f7217ccedfd7d6a53556aebe1fc6e15013dfa",
+                "reference": "1c5f7217ccedfd7d6a53556aebe1fc6e15013dfa",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6707,7 +6707,7 @@
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
-                "spryker/testify": "^2.0.0"
+                "spryker/testify": "*"
             },
             "type": "library",
             "extra": {
@@ -6718,11 +6718,16 @@
             "autoload": {
                 "psr-0": {
                     "Spryker": "src/",
-                    "Function": "tests/",
-                    "Unit": "tests/"
+                    "Function": "tests/"
                 },
                 "psr-4": {
                     "Propel\\Module\\": "tests/_support/Module"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/",
+                    "Unit": "tests/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -6733,7 +6738,7 @@
             "support": {
                 "source": "https://github.com/spryker/Propel/tree/master"
             },
-            "time": "2016-06-22 10:49:51"
+            "time": "2016-09-06 14:29:59"
         },
         {
             "name": "spryker/ratepay",
