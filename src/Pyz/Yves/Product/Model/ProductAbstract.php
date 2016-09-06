@@ -201,9 +201,11 @@ class ProductAbstract implements ProductAbstractInterface
 
     /**
      * @param string $abstractProductId
+     * @return void
      */
     public function setAbstractProductId($abstractProductId)
     {
         $this->abstractProductId = $abstractProductId;
     }
+
 }

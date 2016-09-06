@@ -1,7 +1,8 @@
 <?php
+
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\Collector\Business\Storage;
@@ -10,8 +11,8 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\ProductOptionCollectorQuery;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollector;
 use Spryker\Zed\Collector\Business\Exporter\Writer\Storage\TouchUpdaterSet;
-use Spryker\Zed\ProductOption\ProductOptionConfig;
 use Spryker\Zed\Collector\CollectorConfig;
+use Spryker\Zed\ProductOption\ProductOptionConfig;
 
 class ProductOptionCollector extends AbstractStoragePropelCollector
 {
@@ -48,7 +49,7 @@ class ProductOptionCollector extends AbstractStoragePropelCollector
      */
     protected function collectItem($touchKey, array $collectItemData)
     {
-       return [
+        return [
            ProductOptionCollectorQuery::GROUP_NAME => $collectItemData[ProductOptionCollectorQuery::GROUP_NAME],
            ProductOptionCollectorQuery::ACTIVE => $collectItemData[ProductOptionCollectorQuery::ACTIVE],
            'value' => [
@@ -57,7 +58,7 @@ class ProductOptionCollector extends AbstractStoragePropelCollector
                ProductOptionCollectorQuery::VALUE => $collectItemData[ProductOptionCollectorQuery::VALUE],
                ProductOptionCollectorQuery::ID_PRODUCT_OPTION_VALUE => $collectItemData[ProductOptionCollectorQuery::ID_PRODUCT_OPTION_VALUE],
            ]
-       ];
+        ];
     }
 
     /**
@@ -103,4 +104,5 @@ class ProductOptionCollector extends AbstractStoragePropelCollector
 
         return $setToExport;
     }
+
 }

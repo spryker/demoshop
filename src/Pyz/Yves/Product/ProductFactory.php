@@ -10,7 +10,6 @@ namespace Pyz\Yves\Product;
 use Pyz\Yves\Product\Builder\FrontendProductBuilder;
 use Pyz\Yves\Product\Model\ProductAbstract;
 use Pyz\Yves\Product\ResourceCreator\ProductResourceCreator;
-use Spryker\Client\ProductOption\ProductOptionClientInterface;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 /**
@@ -49,10 +48,11 @@ class ProductFactory extends AbstractFactory
     }
 
     /**
-     * @return ProductOptionClientInterface
+     * @return \Spryker\Client\ProductOption\ProductOptionClientInterface
      */
     public function getProductOptionClient()
     {
         return $this->getProvidedDependency(ProductDependencyProvider::CLIENT_PRODUCT_OPTION);
     }
+
 }

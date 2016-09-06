@@ -13,11 +13,11 @@ use Pyz\Zed\Collector\Communication\Plugin\NavigationCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\PageCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\ProductCollectorSearchPlugin;
 use Pyz\Zed\Collector\Communication\Plugin\ProductCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\ProductOptionCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\RedirectCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\TranslationCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\UrlCollectorStoragePlugin;
 use Pyz\Zed\ProductSearch\Communication\Plugin\ProductDataPageMapPlugin;
-use Pyz\Zed\Collector\Communication\Plugin\ProductOptionCollectorStoragePlugin;
 use Spryker\Zed\Collector\CollectorDependencyProvider as SprykerCollectorDependencyProvider;
 use Spryker\Zed\Kernel\Container;
 

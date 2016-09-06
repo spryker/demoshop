@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\Importer\Business\Importer\ProductOption;
@@ -20,6 +20,7 @@ use Spryker\Zed\ProductOption\ProductOptionConfig;
 
 class ProductOptionImporter extends AbstractImporter
 {
+
     const COL_ABSTRACT_PRODUCT_SK_US = 'Abstract Product SKUs';
     const COL_OPTION_NAME_TRANSLATION_KEY = 'Option name translation key';
     const COL_OPTION_NAME_DE = 'Option name de_DE';
@@ -155,7 +156,7 @@ class ProductOptionImporter extends AbstractImporter
     }
 
     /**
-     * @param ProductOptionValueTransfer $productOptionValueTransfer
+     * @param \Generated\Shared\Transfer\ProductOptionValueTransfer $productOptionValueTransfer
      *
      * @return int
      */
@@ -191,6 +192,7 @@ class ProductOptionImporter extends AbstractImporter
      * @param string $enTranslation
      * @param string $deTranslation
      *
+     * @return void
      */
     protected function translate($glossaryKey, $enTranslation, $deTranslation)
     {
@@ -255,4 +257,5 @@ class ProductOptionImporter extends AbstractImporter
         $this->translate($data[self::COL_OPTION_GROUP_NAME_TRANSLATION_KEY], $data[self::COL_GROUP_NAME_EN], $data[self::COL_GROUP_NAME_DE]);
         $this->translate($data[self::COL_OPTION_NAME_TRANSLATION_KEY], $data[self::COL_OPTION_NAME_EN], $data[self::COL_OPTION_NAME_DE]);
     }
+
 }
