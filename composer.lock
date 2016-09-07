@@ -1200,7 +1200,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "fc9f899bfc7f14ae197113f3ccacbfa7daa553b8"
+                "reference": "bb0094b648db524de5aa4cd47618983f4653bae1"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1359,6 +1359,8 @@
                     "Spryker\\Yves\\DummyPayment\\": "Bundles/DummyPayment/src",
                     "Spryker\\Shared\\DummyPayment\\": "Bundles/DummyPayment/src",
                     "Spryker\\Zed\\DummyPayment\\": "Bundles/DummyPayment/src",
+                    "Spryker\\Shared\\ErrorHandler\\": "Bundles/ErrorHandler/src",
+                    "Unit\\Spryker\\Shared\\ErrorHandler\\": "Bundles/ErrorHandler/tests",
                     "Spryker\\Client\\EventJournal\\": "Bundles/EventJournal/src",
                     "Unit\\Spryker\\Client\\EventJournal\\": "Bundles/EventJournal/tests",
                     "Functional\\Spryker\\Client\\EventJournal\\": "Bundles/EventJournal/tests",
@@ -1712,6 +1714,7 @@
                     "Braintree\\Module\\": "Bundles/Braintree/tests/_support/Module",
                     "Config\\Module\\": "Bundles/Config/tests/_support/Module",
                     "Customer\\Module\\": "Bundles/Customer/tests/_support/Module",
+                    "ErroHandler\\Module\\": "Bundles/ErrorHandler/tests/_support/Module",
                     "Oms\\Module\\": "Bundles/Oms/tests/_support/Module",
                     "Propel\\Module\\": "Bundles/Propel/tests/_support/Module",
                     "Sales\\Module\\": "Bundles/Sales/tests/_support/Module",
@@ -1726,7 +1729,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-09-07 11:41:40"
+            "time": "2016-09-07 13:22:51"
         },
         {
             "name": "symfony-cmf/routing",
