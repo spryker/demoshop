@@ -786,16 +786,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.5.1",
+            "version": "1.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "a8773992b362b58498eed24bf85005f363c34771"
+                "reference": "da8529775f14f4fdae33f916eb0cf65f6afbddbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/a8773992b362b58498eed24bf85005f363c34771",
-                "reference": "a8773992b362b58498eed24bf85005f363c34771",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/da8529775f14f4fdae33f916eb0cf65f6afbddbc",
+                "reference": "da8529775f14f4fdae33f916eb0cf65f6afbddbc",
                 "shasum": ""
             },
             "require": {
@@ -824,7 +824,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2015-11-20 12:04:31"
+            "time": "2016-09-06 16:07:05"
         },
         {
             "name": "paragonie/random_compat",
@@ -8448,11 +8448,11 @@
         },
         {
             "name": "spryker/zed-request",
-            "version": "2.2.1",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ZedRequest.git",
-                "reference": "19232f8c40e00be2ee6230106da32acfe38ace58",
+                "reference": "7523e49941c64dfaf9b4c32d19f22bd403fd5cc7",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8462,8 +8462,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ZedRequest/zipball/19232f8c40e00be2ee6230106da32acfe38ace58",
-                "reference": "19232f8c40e00be2ee6230106da32acfe38ace58",
+                "url": "https://api.github.com/repos/spryker/ZedRequest/zipball/7523e49941c64dfaf9b4c32d19f22bd403fd5cc7",
+                "reference": "7523e49941c64dfaf9b4c32d19f22bd403fd5cc7",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8476,11 +8476,17 @@
                 "spryker/application": "^2.0.0",
                 "spryker/auth": "^2.0.2",
                 "spryker/config": "^2.0.0",
-                "spryker/event-journal": "^2.0.0",
+                "spryker/event-journal": "^2.0.1",
                 "spryker/guzzle": "^2.1.0",
                 "spryker/kernel": "^2.0.0",
                 "spryker/library": "^2.0.0",
+                "spryker/log": "^2.0.0",
+                "spryker/silex": "^2.0.0",
                 "spryker/transfer": "^2.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
             },
             "type": "library",
             "extra": {
@@ -8490,12 +8496,13 @@
             },
             "autoload": {
                 "psr-0": {
-                    "Spryker": "src/",
-                    "Acceptance": "tests/",
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
                     "Functional": "tests/",
-                    "Integration": "tests/",
-                    "Unit": "tests/",
-                    "YvesUnit": "tests/"
+                    "Unit": "tests/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -8506,7 +8513,7 @@
             "support": {
                 "source": "https://github.com/spryker/ZedRequest/tree/master"
             },
-            "time": "2016-08-19 08:28:50"
+            "time": "2016-09-07 08:11:43"
         },
         {
             "name": "spryker/zend",
@@ -8674,7 +8681,7 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.8.10",
+            "version": "v2.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -8955,7 +8962,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.10",
+            "version": "v2.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -9313,16 +9320,16 @@
         },
         {
             "name": "symfony/intl",
-            "version": "v2.8.10",
+            "version": "v2.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/intl.git",
-                "reference": "a3eae0f175d61100c9e533f5bd58b94693a0f381"
+                "reference": "2ec401b37460b22077643d48773e5f6a9f0b21e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/intl/zipball/a3eae0f175d61100c9e533f5bd58b94693a0f381",
-                "reference": "a3eae0f175d61100c9e533f5bd58b94693a0f381",
+                "url": "https://api.github.com/repos/symfony/intl/zipball/2ec401b37460b22077643d48773e5f6a9f0b21e8",
+                "reference": "2ec401b37460b22077643d48773e5f6a9f0b21e8",
                 "shasum": ""
             },
             "require": {
@@ -9385,7 +9392,7 @@
                 "l10n",
                 "localization"
             ],
-            "time": "2016-08-31 08:02:58"
+            "time": "2016-09-06 10:55:00"
         },
         {
             "name": "symfony/options-resolver",
@@ -11753,7 +11760,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v2.8.10",
+            "version": "v2.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
