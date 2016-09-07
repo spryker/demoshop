@@ -1359,6 +1359,7 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "570eaab70bdd0df2061b2cb990e26b5e75569e2b"
 =======
                 "reference": "c07846ab19b890e07b6d0cb57c1f453c36621c73"
@@ -1366,6 +1367,9 @@
 =======
                 "reference": "5ba889b237a35aed151435cb05420a0bc8b0d248"
 >>>>>>> add archtitecture-sniffer repo
+=======
+                "reference": "f1e4b67c8ba605b7582b31b2060fcb0297e8e7c9"
+>>>>>>> update composer
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1894,6 +1898,7 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-09-07 10:13:52"
 =======
             "time": "2016-09-07 06:43:18"
@@ -1901,6 +1906,9 @@
 =======
             "time": "2016-09-07 08:17:35"
 >>>>>>> add archtitecture-sniffer repo
+=======
+            "time": "2016-09-07 08:26:36"
+>>>>>>> update composer
         },
         {
             "name": "symfony-cmf/routing",
