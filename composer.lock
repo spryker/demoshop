@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "51ebdd166d9364969dae6ec5534c8e96",
-    "content-hash": "46f58500b5ce3a92d3b0541f60b3926f",
+    "hash": "065c234fca5ef660ee17e80b85cce759",
+    "content-hash": "7db8c2548966529bee43bcb6ccc5a0e6",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1200,7 +1200,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "9867bfade6d0be39f38eadea2bd1f74603ce3641"
+                "reference": "6ad00120296edba68876970f72b8a549581327f8"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1720,7 +1720,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-09-07 07:37:07"
+            "time": "2016-09-07 08:39:48"
         },
         {
             "name": "symfony-cmf/routing",
@@ -1781,7 +1781,7 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.8.10",
+            "version": "v2.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -1953,7 +1953,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.10",
+            "version": "v2.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -2311,16 +2311,16 @@
         },
         {
             "name": "symfony/intl",
-            "version": "v2.8.10",
+            "version": "v2.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/intl.git",
-                "reference": "a3eae0f175d61100c9e533f5bd58b94693a0f381"
+                "reference": "2ec401b37460b22077643d48773e5f6a9f0b21e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/intl/zipball/a3eae0f175d61100c9e533f5bd58b94693a0f381",
-                "reference": "a3eae0f175d61100c9e533f5bd58b94693a0f381",
+                "url": "https://api.github.com/repos/symfony/intl/zipball/2ec401b37460b22077643d48773e5f6a9f0b21e8",
+                "reference": "2ec401b37460b22077643d48773e5f6a9f0b21e8",
                 "shasum": ""
             },
             "require": {
@@ -2383,7 +2383,7 @@
                 "l10n",
                 "localization"
             ],
-            "time": "2016-08-31 08:02:58"
+            "time": "2016-09-06 10:55:00"
         },
         {
             "name": "symfony/options-resolver",
@@ -4158,16 +4158,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.5.1",
+            "version": "1.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "a8773992b362b58498eed24bf85005f363c34771"
+                "reference": "da8529775f14f4fdae33f916eb0cf65f6afbddbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/a8773992b362b58498eed24bf85005f363c34771",
-                "reference": "a8773992b362b58498eed24bf85005f363c34771",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/da8529775f14f4fdae33f916eb0cf65f6afbddbc",
+                "reference": "da8529775f14f4fdae33f916eb0cf65f6afbddbc",
                 "shasum": ""
             },
             "require": {
@@ -4196,7 +4196,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2015-11-20 12:04:31"
+            "time": "2016-09-06 16:07:05"
         },
         {
             "name": "pdepend/pdepend",
@@ -6243,7 +6243,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v2.8.10",
+            "version": "v2.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
