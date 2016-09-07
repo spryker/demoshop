@@ -3577,11 +3577,11 @@
         },
         {
             "name": "spryker/console",
-            "version": "2.0.2",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Console.git",
-                "reference": "44d927122e0be6c2e73c45923908eb444e85d573",
+                "reference": "2abcecca478d7c0cf387e4a310bb66f0ecf3773e",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3591,8 +3591,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Console/zipball/44d927122e0be6c2e73c45923908eb444e85d573",
-                "reference": "44d927122e0be6c2e73c45923908eb444e85d573",
+                "url": "https://api.github.com/repos/spryker/Console/zipball/2abcecca478d7c0cf387e4a310bb66f0ecf3773e",
+                "reference": "2abcecca478d7c0cf387e4a310bb66f0ecf3773e",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3605,10 +3605,18 @@
                 "spryker/kernel": "^2.0.0",
                 "spryker/library": "^2.0.0",
                 "spryker/messenger": "^2.0.0",
-                "spryker/new-relic": "^2.0.0",
+                "spryker/new-relic": "^2.1.0",
                 "spryker/propel": "^2.0.0",
                 "spryker/silex": "^2.0.0",
                 "spryker/symfony": "^2.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/log": "^2.0.0",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/log": "If you want to use the Log feature in console commands, install this package and add ConsoleLogPlugin to the list of EventSubscriber in your ConsoleDependencyProvider"
             },
             "bin": [
                 "bin/console"
@@ -3621,12 +3629,13 @@
             },
             "autoload": {
                 "psr-0": {
-                    "Spryker": "src/",
-                    "Acceptance": "tests/",
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
                     "Functional": "tests/",
-                    "Integration": "tests/",
-                    "Unit": "tests/",
-                    "YvesUnit": "tests/"
+                    "Unit": "tests/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -3637,7 +3646,7 @@
             "support": {
                 "source": "https://github.com/spryker/Console/tree/master"
             },
-            "time": "2016-08-25 15:11:42"
+            "time": "2016-09-07 11:41:40"
         },
         {
             "name": "spryker/country",
