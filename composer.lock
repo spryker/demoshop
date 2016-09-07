@@ -5042,11 +5042,11 @@
         },
         {
             "name": "spryker/log",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Log.git",
-                "reference": "6f4e7d79905bfffc5d28b18179909c2858324682",
+                "reference": "6d04e01d1575ec9728de80bccc4cddbaa01cd10a",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5056,8 +5056,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Log/zipball/6f4e7d79905bfffc5d28b18179909c2858324682",
-                "reference": "6f4e7d79905bfffc5d28b18179909c2858324682",
+                "url": "https://api.github.com/repos/spryker/Log/zipball/6d04e01d1575ec9728de80bccc4cddbaa01cd10a",
+                "reference": "6d04e01d1575ec9728de80bccc4cddbaa01cd10a",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5072,6 +5072,10 @@
                 "spryker/monolog": "^2.0.0",
                 "spryker/silex": "^2.0.0"
             },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -5080,7 +5084,11 @@
             },
             "autoload": {
                 "psr-0": {
-                    "Spryker": "src/",
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
                     "Unit": "tests/"
                 }
             },
@@ -5088,11 +5096,11 @@
             "license": [
                 "proprietary"
             ],
-            "description": "log bundle",
+            "description": "Log bundle",
             "support": {
                 "source": "https://github.com/spryker/Log/tree/master"
             },
-            "time": "2016-04-04 15:24:01"
+            "time": "2016-09-07 09:55:47"
         },
         {
             "name": "spryker/mail",
