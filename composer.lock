@@ -1200,7 +1200,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "fa3aaef08cf19bd2b1fc9a170d54f6b82393af01"
+                "reference": "4487a156671318004c46708105e9acf9373ecdb5"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1685,14 +1685,16 @@
                     "Unit\\Spryker\\Zed\\Wishlist\\": "Bundles/Wishlist/tests",
                     "Functional\\Spryker\\Zed\\Wishlist\\": "Bundles/Wishlist/tests",
                     "Spryker\\Client\\ZedRequest\\": "Bundles/ZedRequest/src",
-                    "Unit\\Spryker\\Client\\ZedRequest\\": "Bundles/ZedRequest/tests",
-                    "Functional\\Spryker\\Client\\ZedRequest\\": "Bundles/ZedRequest/tests",
                     "Spryker\\Shared\\ZedRequest\\": "Bundles/ZedRequest/src",
-                    "Unit\\Spryker\\Shared\\ZedRequest\\": "Bundles/ZedRequest/tests",
-                    "Functional\\Spryker\\Shared\\ZedRequest\\": "Bundles/ZedRequest/tests",
                     "Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/src",
-                    "Unit\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests",
+                    "Spryker\\Yves\\ZedRequest\\": "Bundles/ZedRequest/src",
+                    "Functional\\Spryker\\Client\\ZedRequest\\": "Bundles/ZedRequest/tests",
+                    "Functional\\Spryker\\Shared\\ZedRequest\\": "Bundles/ZedRequest/tests",
                     "Functional\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests",
+                    "Unit\\Spryker\\Client\\ZedRequest\\": "Bundles/ZedRequest/tests",
+                    "Unit\\Spryker\\Shared\\ZedRequest\\": "Bundles/ZedRequest/tests",
+                    "Unit\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests",
+                    "Unit\\Spryker\\Yves\\ZedRequest\\": "Bundles/ZedRequest/tests",
                     "Spryker\\Zed\\ProductDiscountConnector\\": "Bundles/ProductDiscountConnector/src",
                     "Unit\\Spryker\\Zed\\ProductDiscountConnector\\": "Bundles/ProductDiscountConnector/tests",
                     "Functional\\Spryker\\Zed\\ProductDiscountConnector\\": "Bundles/ProductDiscountConnector/tests",
@@ -1724,7 +1726,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-09-06 15:01:31"
+            "time": "2016-09-07 08:38:14"
         },
         {
             "name": "symfony-cmf/routing",
