@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bde2dd727698e8e663643edeac9a3b57",
-    "content-hash": "be3fafa2e0a7f5c6131ac8a1e380eea3",
+    "hash": "1a81f7c5cec756393413d8a97c4dc9eb",
+    "content-hash": "e3a16a9c8ba1cd2c9fd6d53eecddb7d2",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -4235,6 +4235,65 @@
             "time": "2016-06-14 11:55:42"
         },
         {
+            "name": "spryker/error-handler",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/ErrorHandler.git",
+                "reference": "d2736c565d9e7600545c79ba50d04e1d6c1f35a2",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/ErrorHandler/zipball/d2736c565d9e7600545c79ba50d04e1d6c1f35a2",
+                "reference": "d2736c565d9e7600545c79ba50d04e1d6c1f35a2",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/config": "^2.2.1",
+                "spryker/library": "^2.0.0",
+                "spryker/log": "^2.1.0",
+                "spryker/new-relic": "^2.1.0",
+                "spryker/propel": "^2.0.0"
+            },
+            "require-dev": {
+                "spryker/library": "^2.0.0",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/",
+                    "Unit": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ErrorHandler bundle",
+            "support": {
+                "source": "https://github.com/spryker/ErrorHandler/tree/master"
+            },
+            "time": "2016-09-07 12:18:21"
+        },
+        {
             "name": "spryker/event-journal",
             "version": "2.0.1",
             "source": {
@@ -4921,11 +4980,11 @@
         },
         {
             "name": "spryker/library",
-            "version": "2.3.7",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Library.git",
-                "reference": "42797dd43bc7a934150a14fe6abb88165c86ca58",
+                "reference": "6dfdc53dd9a666fdffc7bb5e2f30a308535f453a",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4935,8 +4994,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Library/zipball/42797dd43bc7a934150a14fe6abb88165c86ca58",
-                "reference": "42797dd43bc7a934150a14fe6abb88165c86ca58",
+                "url": "https://api.github.com/repos/spryker/Library/zipball/6dfdc53dd9a666fdffc7bb5e2f30a308535f453a",
+                "reference": "6dfdc53dd9a666fdffc7bb5e2f30a308535f453a",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4950,6 +5009,7 @@
                 "spryker/application": "^2.3.0",
                 "spryker/config": "^2.2.1",
                 "spryker/elastica": "^2.0.0 || ^3.0.0",
+                "spryker/error-handler": "^1.0.0",
                 "spryker/event-journal": "^2.0.0",
                 "spryker/guzzle": "^2.1.0",
                 "spryker/kernel": "^2.0.0",
@@ -4966,6 +5026,10 @@
                 "spryker/zed-request": "^2.0.0",
                 "spryker/zend": "^2.0.0"
             },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -4974,12 +5038,13 @@
             },
             "autoload": {
                 "psr-0": {
-                    "Spryker": "src/",
-                    "Acceptance": "tests/",
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
                     "Functional": "tests/",
-                    "Integration": "tests/",
-                    "Unit": "tests/",
-                    "YvesUnit": "tests/"
+                    "Unit": "tests/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -4990,7 +5055,7 @@
             "support": {
                 "source": "https://github.com/spryker/Library/tree/master"
             },
-            "time": "2016-08-22 13:49:58"
+            "time": "2016-09-07 12:18:23"
         },
         {
             "name": "spryker/locale",
@@ -11202,20 +11267,20 @@
         },
         {
             "name": "phpmd/phpmd",
-            "version": "2.3.3",
+            "version": "2.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpmd/phpmd.git",
-                "reference": "e46a0999e0941a6b5677cfa4117e29e70b753de1"
+                "reference": "2b9c2417a18696dfb578b38c116cd0ddc19b256e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/e46a0999e0941a6b5677cfa4117e29e70b753de1",
-                "reference": "e46a0999e0941a6b5677cfa4117e29e70b753de1",
+                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/2b9c2417a18696dfb578b38c116cd0ddc19b256e",
+                "reference": "2b9c2417a18696dfb578b38c116cd0ddc19b256e",
                 "shasum": ""
             },
             "require": {
-                "pdepend/pdepend": "~2.0",
+                "pdepend/pdepend": "^2.0.4",
                 "php": ">=5.3.0"
             },
             "require-dev": {
@@ -11263,7 +11328,7 @@
                 "phpmd",
                 "pmd"
             ],
-            "time": "2016-03-08 12:03:06"
+            "time": "2016-04-04 11:52:04"
         },
         {
             "name": "sebastian/finder-facade",
