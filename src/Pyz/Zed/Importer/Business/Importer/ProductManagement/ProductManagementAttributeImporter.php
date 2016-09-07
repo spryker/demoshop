@@ -99,8 +99,8 @@ class ProductManagementAttributeImporter extends AbstractImporter
         $productManagementAttributeTransfer = (new ProductManagementAttributeTransfer())
             ->setKey($data['key'])
             ->setInputType($data['input_type'])
-            ->setAllowInput($data['allow_input'] === 'yes')
-            ->setIsMultiple($data['is_multiple'] === 'yes');
+            ->setAllowInput($data['allow_input'])
+            ->setIsSuper($data['is_super']);
 
         $this->addAttributeKeyTranslations($data, $productManagementAttributeTransfer);
 
