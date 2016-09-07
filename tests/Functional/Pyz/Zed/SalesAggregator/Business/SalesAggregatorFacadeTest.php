@@ -434,6 +434,7 @@ class SalesAggregatorFacadeTest extends Test
             $salesOrderItemOption->setTaxRate($option['tax_rate']);
             $salesOrderItemOption->setGroupName('label1');
             $salesOrderItemOption->setValue('value1');
+            $salesOrderItemOption->setSku('123');
             $salesOrderItemOption->save();
             if (isset($option['discounts'])) {
                 foreach ($option['discounts'] as $discount) {
