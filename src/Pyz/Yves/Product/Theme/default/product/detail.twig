@@ -95,7 +95,7 @@
                     <div class="callout">
                         {% if productOptionGroups is defined %}
                             <h5>{{ 'product.product_options' | trans }}</h5>
-                                {% for productOptionGroup in productOptionGroups.getProductOptionGroups %}
+                                {% for productOptionGroup in productOptionGroups.getProductOptionGroups if productOptionGroup.active == 1 %}
                                     <label>{{ productOptionGroup.name | trans }}
                                         <select name="product-option[{{ productOptionGroup.name }}]">
                                             <option value="0">
