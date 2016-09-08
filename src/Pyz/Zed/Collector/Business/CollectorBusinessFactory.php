@@ -271,7 +271,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\BlockCollectorQuery
+     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\ProductOptionCollectorQuery
      */
     public function createProductOptionCollectorPropelQuery()
     {

@@ -74,10 +74,6 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
             return $container->getLocator()->productImage()->queryContainer();
         };
 
-        $container[self::FACADE_PRODUCT_OPTION_EXPORTER] = function (Container $container) {
-            return $container->getLocator()->productOptionExporter()->facade();
-        };
-
         $container[self::SEARCH_PLUGINS] = function (Container $container) {
             return [
                 'product_abstract' => new ProductCollectorSearchPlugin(),
