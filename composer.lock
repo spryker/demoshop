@@ -5441,11 +5441,11 @@
         },
         {
             "name": "spryker/new-relic",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/NewRelic.git",
-                "reference": "a4df836b692569c7bee5111646b21d3ee94ec846",
+                "reference": "a7a35cf1a94cc96115d90be6b37b9e915994fa79",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5455,8 +5455,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/NewRelic/zipball/a4df836b692569c7bee5111646b21d3ee94ec846",
-                "reference": "a4df836b692569c7bee5111646b21d3ee94ec846",
+                "url": "https://api.github.com/repos/spryker/NewRelic/zipball/a7a35cf1a94cc96115d90be6b37b9e915994fa79",
+                "reference": "a7a35cf1a94cc96115d90be6b37b9e915994fa79",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5474,6 +5474,10 @@
                 "spryker/silex": "^1.0.0 || ^2.0.0",
                 "spryker/symfony": "^2.0.0"
             },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -5482,7 +5486,11 @@
             },
             "autoload": {
                 "psr-0": {
-                    "Spryker": "src/",
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
                     "Unit": "tests/"
                 }
             },
@@ -5494,7 +5502,7 @@
             "support": {
                 "source": "https://github.com/spryker/NewRelic/tree/master"
             },
-            "time": "2016-09-01 13:19:45"
+            "time": "2016-09-08 10:31:59"
         },
         {
             "name": "spryker/newsletter",
