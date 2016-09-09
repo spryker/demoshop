@@ -61,7 +61,7 @@ class ProductSearchAttributeInstaller extends AbstractInstaller
     protected function afterInstall()
     {
         $this->productSearchFacade->touchProductAbstractByAsynchronousAttributes();
-        $this->productSearchFacade->saveProductSearchCacheConfig();
+        $this->productSearchFacade->touchProductSearchConfigExtension();
     }
 
 }

@@ -27,11 +27,17 @@ class UrlCollector extends AbstractStoragePdoCollector
     const VALUE = 'value';
     const TYPE = 'type';
     const REFERENCE_KEY = 'reference_key';
+    const KEYS_RESOURCE_TYPE_SUFFIX = ' keys';
 
     /**
      * @var int
      */
     protected $chunkSize = 2000;
+
+    /**
+     * @var string
+     */
+    protected $resourceType = UrlConfig::RESOURCE_TYPE_URL;
 
     /**
      * @param string $touchKey
@@ -67,7 +73,7 @@ class UrlCollector extends AbstractStoragePdoCollector
      */
     protected function collectResourceType()
     {
-        return UrlConfig::RESOURCE_TYPE_URL;
+        return $this->resourceType;
     }
 
     /**
@@ -168,6 +174,16 @@ class UrlCollector extends AbstractStoragePdoCollector
         LocaleTransfer $locale,
         OutputInterface $output
     ) {
+        parent::exportDataToStore(
+            $batchCollection,
+            $touchUpdater,
+            $batchResult,
+            $storeReader,
+            $storeWriter,
+            $locale,
+            $output
+        );
+
         $output->writeln('');
         $output->writeln(sprintf(
             '<fg=yellow>Processing URL Keys:</fg=yellow> <fg=white>%s</fg=white>',
@@ -184,16 +200,6 @@ class UrlCollector extends AbstractStoragePdoCollector
 
         $progressBar->finish();
         $output->writeln('');
-
-        parent::exportDataToStore(
-            $batchCollection,
-            $touchUpdater,
-            $batchResult,
-            $storeReader,
-            $storeWriter,
-            $locale,
-            $output
-        );
     }
 
     /**
@@ -247,7 +253,7 @@ class UrlCollector extends AbstractStoragePdoCollector
                 $collectedItemData
             );
 
-            $url = $collectedItemData[CollectorConfig::COLLECTOR_TYPE_URL];
+            $url = $collectedItemData[UrlConfig::RESOURCE_TYPE_URL];
             $touchId = $collectedItemData[CollectorConfig::COLLECTOR_TOUCH_ID];
             $urlKeyPointer = str_replace($url, $touchId, $urlTouchKey);
 

@@ -149,8 +149,8 @@ catalog.filter.main_color,Farbe,de_DE
 catalog.filter.main_color,Color,en_US
 catalog.filter.extras,"Sonstige Merkmale",de_DE
 catalog.filter.extras,"Other characteristics",en_US
-catalog.filter.pricerangeFrom,"Preisspanne von",de_DE
-catalog.filter.pricerangeFrom,"Price range of",en_US
+catalog.filter.pricerangeFrom,"von",de_DE
+catalog.filter.pricerangeFrom,"from",en_US
 catalog.filter.pricerangeTo,bis,de_DE
 catalog.filter.pricerangeTo,to,en_US
 catalog.filter.rangeFrom,"Skala von",de_DE
