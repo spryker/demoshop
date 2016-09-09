@@ -2515,11 +2515,11 @@
         },
         {
             "name": "spryker/application",
-            "version": "2.5.1",
+            "version": "2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Application.git",
-                "reference": "060eff7daaa5c1a1691902b82fc5669da1a8cc39",
+                "reference": "85cff7e2679f4979eba8e7d5c30e09bb9e63600a",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -2529,8 +2529,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Application/zipball/060eff7daaa5c1a1691902b82fc5669da1a8cc39",
-                "reference": "060eff7daaa5c1a1691902b82fc5669da1a8cc39",
+                "url": "https://api.github.com/repos/spryker/Application/zipball/85cff7e2679f4979eba8e7d5c30e09bb9e63600a",
+                "reference": "85cff7e2679f4979eba8e7d5c30e09bb9e63600a",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2545,6 +2545,7 @@
                 "spryker/config": "^2.2.0",
                 "spryker/console": "^2.0.0",
                 "spryker/gui": "^2.0.0",
+                "spryker/guzzle": "^2.1.0",
                 "spryker/kernel": "^2.5.0",
                 "spryker/library": "^2.0.0",
                 "spryker/log": "^2.0.0",
@@ -2554,6 +2555,7 @@
                 "spryker/session": "^2.1.2",
                 "spryker/silex": "^2.0.0",
                 "spryker/symfony": "^2.0.0",
+                "spryker/transfer": "^1.0.0 || ^2.0.0",
                 "spryker/twig": "^2.1.0",
                 "spryker/url": "^2.0.0",
                 "spryker/zed-request": "^2.0.0",
@@ -2592,7 +2594,7 @@
             "support": {
                 "source": "https://github.com/spryker/Application/tree/master"
             },
-            "time": "2016-09-06 11:21:33"
+            "time": "2016-09-09 06:35:01"
         },
         {
             "name": "spryker/assertion",
