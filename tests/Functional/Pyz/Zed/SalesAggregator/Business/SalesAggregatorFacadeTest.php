@@ -252,7 +252,6 @@ class SalesAggregatorFacadeTest extends Test
     /**
      * @param bool $createDiscounts
      *
-     *
      * @return \Orm\Zed\Sales\Persistence\SpySalesOrder
      */
     protected function createTestOrder($createDiscounts = true)
