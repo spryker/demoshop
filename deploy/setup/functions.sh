@@ -80,7 +80,13 @@ function dumpDevelopmentDatabase {
     export PGPASSWORD=$DATABASE_PASSWORD
     export LC_ALL="en_US.UTF-8"
 
-    pg_dump -i -h 127.0.0.1 -U $DATABASE_USER  -F c -b -v -f  $DATABASE_NAME.backup $DATABASE_NAME
+    if [[ -z "$1" ]]; then
+          DATABASE_BACKUP_PATH=$DATABASE_NAME.backup;
+    else
+          DATABASE_BACKUP_PATH=$1
+    fi
+
+    pg_dump -i -h 127.0.0.1 -U $DATABASE_USER  -F c -b -v -f  $DATABASE_BACKUP_PATH $DATABASE_NAME
 }
 
 function restoreDevelopmentDatabase {
