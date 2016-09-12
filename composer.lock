@@ -4,23 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "hash": "c615a63f218831ecb3a5709df272be67",
-    "content-hash": "56bc003e305ea11f333203c58cd8e055",
-=======
-    "hash": "0df165d0f9ff7c7de2106c0d30154bc0",
-    "content-hash": "45f19d46492c4cef4d99780f46ae1ddf",
->>>>>>> update
-=======
-    "hash": "d31be8c28860cb7a9abf3446373a6ce7",
-    "content-hash": "fabef9a2ae9052433b3b97befeb7eb5c",
->>>>>>> removed 5.6 requirement
-=======
-    "hash": "2e2b31f25dc7a50f7cf968cdc8fb9c3a",
-    "content-hash": "0293494b69d500e1076e140db5dba76a",
->>>>>>> try locally with robo
+    "hash": "961ebc79eb68e19c157662ae935dcfe7",
+    "content-hash": "27d5e16c0d3c5c529a2f9db664ce6135",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1211,10 +1196,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-travis",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1260,6 +1246,9 @@
                 "reference": "619e4ef68db6e0b65ad50f86ccd3acf90887c71e"
 >>>>>>> add robo stuff
 >>>>>>> add robo stuff
+=======
+                "reference": "cf83127051bd4e4bb7553af193a843bb671d7e1a"
+>>>>>>> merged master
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1793,6 +1782,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-09-14 05:30:52"
 =======
 =======
@@ -1833,6 +1823,9 @@
             "time": "2016-08-10 19:02:12"
 >>>>>>> add robo stuff
 >>>>>>> add robo stuff
+=======
+            "time": "2016-09-12 07:13:45"
+>>>>>>> merged master
         },
         {
             "name": "symfony-cmf/routing",
@@ -1893,7 +1886,6 @@
         },
         {
             "name": "symfony/config",
-<<<<<<< HEAD
             "version": "v2.8.11",
             "source": {
                 "type": "git",
@@ -1904,18 +1896,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/config/zipball/005bf10c156335ede2e89fb9a9ee10a0b742bc84",
                 "reference": "005bf10c156335ede2e89fb9a9ee10a0b742bc84",
-=======
-            "version": "v2.8.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/config.git",
-                "reference": "4275ef5b59f18959df0eee3991e9ca0cc208ffd4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/4275ef5b59f18959df0eee3991e9ca0cc208ffd4",
-                "reference": "4275ef5b59f18959df0eee3991e9ca0cc208ffd4",
->>>>>>> try locally with robo
                 "shasum": ""
             },
             "require": {
@@ -1955,11 +1935,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
             "time": "2016-08-16 14:56:08"
-=======
-            "time": "2016-07-26 08:02:44"
->>>>>>> try locally with robo
         },
         {
             "name": "symfony/console",
@@ -2082,11 +2058,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-<<<<<<< HEAD
             "version": "v2.8.11",
-=======
-            "version": "v2.8.9",
->>>>>>> try locally with robo
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -2444,7 +2416,6 @@
         },
         {
             "name": "symfony/intl",
-<<<<<<< HEAD
             "version": "v2.8.11",
             "source": {
                 "type": "git",
@@ -2455,18 +2426,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/intl/zipball/2ec401b37460b22077643d48773e5f6a9f0b21e8",
                 "reference": "2ec401b37460b22077643d48773e5f6a9f0b21e8",
-=======
-            "version": "v2.8.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/intl.git",
-                "reference": "eb97e62e92038f984cf8df764f79eef6f9895249"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/intl/zipball/eb97e62e92038f984cf8df764f79eef6f9895249",
-                "reference": "eb97e62e92038f984cf8df764f79eef6f9895249",
->>>>>>> try locally with robo
                 "shasum": ""
             },
             "require": {
@@ -2529,11 +2488,7 @@
                 "l10n",
                 "localization"
             ],
-<<<<<<< HEAD
             "time": "2016-09-06 10:55:00"
-=======
-            "time": "2016-07-30 07:20:35"
->>>>>>> try locally with robo
         },
         {
             "name": "symfony/options-resolver",
@@ -4157,127 +4112,6 @@
             "time": "2016-06-28 23:57:41"
         },
         {
-            "name": "codegyre/robo",
-            "version": "0.4.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/consolidation-org/Robo.git",
-                "reference": "d4f6181ddc2a06a5286bb4e1b7f069e00497d5df"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/consolidation-org/Robo/zipball/d4f6181ddc2a06a5286bb4e1b7f069e00497d5df",
-                "reference": "d4f6181ddc2a06a5286bb4e1b7f069e00497d5df",
-                "shasum": ""
-            },
-            "require": {
-                "henrikbjorn/lurker": "1.0.*@dev",
-                "php": ">=5.4.0",
-                "symfony/console": "~2.1",
-                "symfony/filesystem": "~2.1",
-                "symfony/finder": "~2.1",
-                "symfony/process": "~2.1"
-            },
-            "require-dev": {
-                "codeception/aspect-mock": "0.4.*",
-                "codeception/codeception": "~2.0",
-                "codeception/verify": "0.2.*",
-                "natxet/cssmin": "~3.0",
-                "patchwork/jsqueeze": "~1.0"
-            },
-            "bin": [
-                "robo"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Robo\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Davert",
-                    "email": "davert.php@resend.cc"
-                }
-            ],
-            "description": "Modern task runner",
-            "time": "2014-12-26 04:22:04"
-        },
-        {
-            "name": "codegyre/robo-ci",
-            "version": "0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Codegyre/RoboCI.git",
-                "reference": "d1d2312c2e20730ccc00db2291943a4dc4584402"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Codegyre/RoboCI/zipball/d1d2312c2e20730ccc00db2291943a4dc4584402",
-                "reference": "d1d2312c2e20730ccc00db2291943a4dc4584402",
-                "shasum": ""
-            },
-            "require": {
-                "codegyre/robo-docker": "*",
-                "symfony/yaml": "~2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Codegyre\\RoboCI\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Davert",
-                    "email": "davert.php@resend.cc"
-                }
-            ],
-            "description": "Travis CI cli runner",
-            "time": "2014-09-27 00:08:48"
-        },
-        {
-            "name": "codegyre/robo-docker",
-            "version": "0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Codegyre/robo-docker.git",
-                "reference": "69aec8b828890e86d5c74bb53c74045ce5ca2f70"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Codegyre/robo-docker/zipball/69aec8b828890e86d5c74bb53c74045ce5ca2f70",
-                "reference": "69aec8b828890e86d5c74bb53c74045ce5ca2f70",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Codegyre\\RoboDocker\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Davert",
-                    "email": "davert.php@resend.cc"
-                }
-            ],
-            "description": "Docker Tasks for Robo Task Runner",
-            "time": "2014-09-26 23:58:29"
-        },
-        {
             "name": "doctrine/instantiator",
             "version": "1.0.5",
             "source": {
@@ -4395,238 +4229,6 @@
                 "ext-bz2": "*",
                 "ext-openssl": "*"
             },
-<<<<<<< HEAD
-=======
-            "require-dev": {
-                "ext-curl": "*",
-                "phpunit/phpunit": "^4.0",
-                "psr/log": "^1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "6.2-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/functions_include.php"
-                ],
-                "psr-4": {
-                    "GuzzleHttp\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "Guzzle is a PHP HTTP client library",
-            "homepage": "http://guzzlephp.org/",
-            "keywords": [
-                "client",
-                "curl",
-                "framework",
-                "http",
-                "http client",
-                "rest",
-                "web service"
-            ],
-            "time": "2016-07-15 17:22:37"
-        },
-        {
-            "name": "guzzlehttp/promises",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/promises.git",
-                "reference": "c10d860e2a9595f8883527fa0021c7da9e65f579"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/c10d860e2a9595f8883527fa0021c7da9e65f579",
-                "reference": "c10d860e2a9595f8883527fa0021c7da9e65f579",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Promise\\": "src/"
-                },
-                "files": [
-                    "src/functions_include.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "Guzzle promises library",
-            "keywords": [
-                "promise"
-            ],
-            "time": "2016-05-18 16:56:05"
-        },
-        {
-            "name": "guzzlehttp/psr7",
-            "version": "1.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/psr7.git",
-                "reference": "5c6447c9df362e8f8093bda8f5d8873fe5c7f65b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/5c6447c9df362e8f8093bda8f5d8873fe5c7f65b",
-                "reference": "5c6447c9df362e8f8093bda8f5d8873fe5c7f65b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "psr/http-message": "~1.0"
-            },
-            "provide": {
-                "psr/http-message-implementation": "1.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Psr7\\": "src/"
-                },
-                "files": [
-                    "src/functions_include.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "PSR-7 message implementation",
-            "keywords": [
-                "http",
-                "message",
-                "stream",
-                "uri"
-            ],
-            "time": "2016-06-24 23:00:38"
-        },
-        {
-            "name": "henrikbjorn/lurker",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/flint/Lurker.git",
-                "reference": "a020d45b3bc37810aeafe27343c51af8a74c9419"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/flint/Lurker/zipball/a020d45b3bc37810aeafe27343c51af8a74c9419",
-                "reference": "a020d45b3bc37810aeafe27343c51af8a74c9419",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "symfony/config": "~2.2",
-                "symfony/event-dispatcher": "~2.2"
-            },
-            "suggest": {
-                "ext-inotify": ">=0.1.6"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Lurker": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Yaroslav Kiliba",
-                    "email": "om.dattaya@gmail.com"
-                },
-                {
-                    "name": "Konstantin Kudryashov",
-                    "email": "ever.zet@gmail.com"
-                },
-                {
-                    "name": "Henrik Bjrnskov",
-                    "email": "henrik@bjrnskov.dk"
-                }
-            ],
-            "description": "Resource Watcher.",
-            "keywords": [
-                "filesystem",
-                "resource",
-                "watching"
-            ],
-            "time": "2013-05-24 06:47:29"
-        },
-        {
-            "name": "jakoch/phantomjs-installer",
-            "version": "2.1.1-p05",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jakoch/phantomjs-installer.git",
-                "reference": "1aa2a29da48fee62679f7f7a3d446b0e52df494a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jakoch/phantomjs-installer/zipball/1aa2a29da48fee62679f7f7a3d446b0e52df494a",
-                "reference": "1aa2a29da48fee62679f7f7a3d446b0e52df494a",
-                "shasum": ""
-            },
-            "require": {
-                "ext-bz2": "*",
-                "ext-openssl": "*"
-            },
->>>>>>> try locally with robo
             "type": "custom-installer",
             "autoload": {
                 "psr-0": {
@@ -5497,59 +5099,6 @@
             "time": "2016-04-20 14:39:26"
         },
         {
-<<<<<<< HEAD
-=======
-            "name": "psr/http-message",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/http-message.git",
-                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
-                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Http\\Message\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for HTTP messages",
-            "homepage": "https://github.com/php-fig/http-message",
-            "keywords": [
-                "http",
-                "http-message",
-                "psr",
-                "psr-7",
-                "request",
-                "response"
-            ],
-            "time": "2016-08-06 14:39:51"
-        },
-        {
->>>>>>> try locally with robo
             "name": "sebastian/code-unit-reverse-lookup",
             "version": "1.0.0",
             "source": {
@@ -6280,7 +5829,6 @@
         },
         {
             "name": "site5/phantoman",
-<<<<<<< HEAD
             "version": "v1.1.6",
             "source": {
                 "type": "git",
@@ -6291,18 +5839,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/grantlucas/phantoman/zipball/6ac9bed985d023909966a5c5b82489ced62998d1",
                 "reference": "6ac9bed985d023909966a5c5b82489ced62998d1",
-=======
-            "version": "v1.1.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/site5/phantoman.git",
-                "reference": "7ba34bcb42c1497117ea250a5e13bdaba234382e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/site5/phantoman/zipball/7ba34bcb42c1497117ea250a5e13bdaba234382e",
-                "reference": "7ba34bcb42c1497117ea250a5e13bdaba234382e",
->>>>>>> try locally with robo
                 "shasum": ""
             },
             "require": {
@@ -6336,11 +5872,7 @@
                 "headless",
                 "phantomjs"
             ],
-<<<<<<< HEAD
             "time": "2016-08-08 19:53:21"
-=======
-            "time": "2016-08-04 13:08:45"
->>>>>>> try locally with robo
         },
         {
             "name": "sllh/composer-versions-check",
@@ -6575,11 +6107,7 @@
         },
         {
             "name": "symfony/browser-kit",
-<<<<<<< HEAD
             "version": "v3.1.4",
-=======
-            "version": "v3.1.3",
->>>>>>> try locally with robo
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
@@ -6636,11 +6164,7 @@
         },
         {
             "name": "symfony/css-selector",
-<<<<<<< HEAD
             "version": "v3.1.4",
-=======
-            "version": "v3.1.3",
->>>>>>> try locally with robo
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -6693,7 +6217,6 @@
         },
         {
             "name": "symfony/dependency-injection",
-<<<<<<< HEAD
             "version": "v3.1.4",
             "source": {
                 "type": "git",
@@ -6704,18 +6227,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/6e4f3316afdc9783d7b48a136db89bd791b55698",
                 "reference": "6e4f3316afdc9783d7b48a136db89bd791b55698",
-=======
-            "version": "v3.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "6abd4952d07042d11bbb8122f3b57469691acdb5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/6abd4952d07042d11bbb8122f3b57469691acdb5",
-                "reference": "6abd4952d07042d11bbb8122f3b57469691acdb5",
->>>>>>> try locally with robo
                 "shasum": ""
             },
             "require": {
@@ -6762,7 +6273,6 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
             "time": "2016-08-23 13:39:15"
         },
         {
@@ -6777,22 +6287,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/bb7395e8b1db3654de82b9f35d019958276de4d7",
                 "reference": "bb7395e8b1db3654de82b9f35d019958276de4d7",
-=======
-            "time": "2016-07-28 11:13:48"
-        },
-        {
-            "name": "symfony/dom-crawler",
-            "version": "v3.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "c7b9b8db3a6f2bac76dcd9a9db5446f2591897f9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/c7b9b8db3a6f2bac76dcd9a9db5446f2591897f9",
-                "reference": "c7b9b8db3a6f2bac76dcd9a9db5446f2591897f9",
->>>>>>> try locally with robo
                 "shasum": ""
             },
             "require": {
@@ -6835,11 +6329,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
             "time": "2016-08-05 08:37:39"
-=======
-            "time": "2016-07-26 08:04:17"
->>>>>>> try locally with robo
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -6902,11 +6392,7 @@
         },
         {
             "name": "symfony/stopwatch",
-<<<<<<< HEAD
             "version": "v2.8.11",
-=======
-            "version": "v2.8.9",
->>>>>>> try locally with robo
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
@@ -7104,8 +6590,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "spryker/spryker": 20,
-        "codegyre/robo-ci": 20
+        "spryker/spryker": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
