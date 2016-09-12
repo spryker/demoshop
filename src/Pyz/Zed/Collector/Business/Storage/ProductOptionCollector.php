@@ -50,9 +50,9 @@ class ProductOptionCollector extends AbstractStoragePropelCollector
     protected function collectItem($touchKey, array $collectItemData)
     {
         return [
-           ProductOptionCollectorQuery::GROUP_NAME => $collectItemData[ProductOptionCollectorQuery::GROUP_NAME],
-           ProductOptionCollectorQuery::ACTIVE => $collectItemData[ProductOptionCollectorQuery::ACTIVE],
-           'value' => [
+            ProductOptionCollectorQuery::GROUP_NAME => $collectItemData[ProductOptionCollectorQuery::GROUP_NAME],
+            ProductOptionCollectorQuery::ACTIVE => $collectItemData[ProductOptionCollectorQuery::ACTIVE],
+            ProductOptionCollectorQuery::VALUE => [
                ProductOptionCollectorQuery::SKU => $collectItemData[ProductOptionCollectorQuery::SKU],
                ProductOptionCollectorQuery::PRICE => $collectItemData[ProductOptionCollectorQuery::PRICE],
                ProductOptionCollectorQuery::VALUE => $collectItemData[ProductOptionCollectorQuery::VALUE],
@@ -94,11 +94,15 @@ class ProductOptionCollector extends AbstractStoragePropelCollector
             $setToExport[$touchKey][$groupName] = [];
         }
 
+        if ($productOption[ProductOptionCollectorQuery::ACTIVE] === false) {
+            return $setToExport;
+        }
+
         $group = $setToExport[$touchKey][$groupName];
 
         $group[ProductOptionCollectorQuery::GROUP_NAME] = $groupName;
         $group[ProductOptionCollectorQuery::ACTIVE] = $productOption[ProductOptionCollectorQuery::ACTIVE];
-        $group['values'][] = $productOption['value'];
+        $group['values'][] = $productOption[ProductOptionCollectorQuery::VALUE];
 
         $setToExport[$touchKey][$groupName] = $group;
 
