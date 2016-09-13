@@ -1200,7 +1200,11 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "77b7a0c40e7d8d9e326b7cda457b90a362ef2070"
+=======
+                "reference": "cf83127051bd4e4bb7553af193a843bb671d7e1a"
+>>>>>>> dont use sudo command for ci
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1729,7 +1733,11 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2016-09-15 09:30:26"
+=======
+            "time": "2016-09-12 07:13:45"
+>>>>>>> dont use sudo command for ci
         },
         {
             "name": "symfony-cmf/routing",
