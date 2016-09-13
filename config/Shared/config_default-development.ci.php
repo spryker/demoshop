@@ -4,16 +4,17 @@ use Pyz\Shared\Mail\MailConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\Payone\PayoneConstants;
+use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Ratepay\RatepayConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Storage\StorageConstants;
 
-$config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
-$config[ApplicationConstants::ZED_DB_USERNAME] = 'postgres';
-$config[ApplicationConstants::ZED_DB_PASSWORD] = '';
-$config[ApplicationConstants::ZED_DB_DATABASE] = 'circle_test';
-$config[ApplicationConstants::ZED_DB_HOST] = '127.0.0.1';
-$config[ApplicationConstants::ZED_DB_PORT] = 5432;
+$config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
+$config[PropelConstants::ZED_DB_USERNAME] = 'postgres';
+$config[PropelConstants::ZED_DB_PASSWORD] = '';
+$config[PropelConstants::ZED_DB_DATABASE] = 'circle_test';
+$config[PropelConstants::ZED_DB_HOST] = '127.0.0.1';
+$config[PropelConstants::ZED_DB_PORT] = 5432;
 
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_search';
 $config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
