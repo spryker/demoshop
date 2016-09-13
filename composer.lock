@@ -1207,6 +1207,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "77b7a0c40e7d8d9e326b7cda457b90a362ef2070"
 =======
 =======
@@ -1221,6 +1222,8 @@
 >>>>>>> merged master
 =======
 >>>>>>> test php7 comp branch
+=======
+>>>>>>> update fixed php7 comp branch
 <<<<<<< HEAD
                 "reference": "9715eabcc7726dc88e3eeee7de519935b567bd72"
 =======
@@ -1286,7 +1289,13 @@
 =======
                 "reference": "e11dec137d8e49afe49c094abdcd36f7b20e6d52"
 >>>>>>> test php7 comp branch
+<<<<<<< HEAD
 >>>>>>> test php7 comp branch
+=======
+=======
+                "reference": "37a52935dbab286839c1c1ce5745acd5c84406b3"
+>>>>>>> update fixed php7 comp branch
+>>>>>>> update fixed php7 comp branch
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1822,6 +1831,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-09-15 09:30:26"
 =======
 =======
@@ -1836,6 +1846,8 @@
 >>>>>>> merged master
 =======
 >>>>>>> test php7 comp branch
+=======
+>>>>>>> update fixed php7 comp branch
 <<<<<<< HEAD
             "time": "2016-09-14 05:30:52"
 =======
@@ -1901,7 +1913,13 @@
 =======
             "time": "2016-09-13 14:10:30"
 >>>>>>> test php7 comp branch
+<<<<<<< HEAD
 >>>>>>> test php7 comp branch
+=======
+=======
+            "time": "2016-09-13 14:18:13"
+>>>>>>> update fixed php7 comp branch
+>>>>>>> update fixed php7 comp branch
         },
         {
             "name": "symfony-cmf/routing",
