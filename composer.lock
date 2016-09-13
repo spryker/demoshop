@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "961ebc79eb68e19c157662ae935dcfe7",
-    "content-hash": "27d5e16c0d3c5c529a2f9db664ce6135",
+    "hash": "168a5c3f5592424655cd0fa79c07aa87",
+    "content-hash": "943a5d0fcb3862cf96393db88d18a343",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1196,10 +1196,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/php7-comp",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1249,6 +1250,9 @@
 =======
                 "reference": "cf83127051bd4e4bb7553af193a843bb671d7e1a"
 >>>>>>> merged master
+=======
+                "reference": "e11dec137d8e49afe49c094abdcd36f7b20e6d52"
+>>>>>>> test php7 comp branch
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1783,6 +1787,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-09-14 05:30:52"
 =======
 =======
@@ -1826,6 +1831,9 @@
 =======
             "time": "2016-09-12 07:13:45"
 >>>>>>> merged master
+=======
+            "time": "2016-09-13 14:10:30"
+>>>>>>> test php7 comp branch
         },
         {
             "name": "symfony-cmf/routing",
@@ -6594,6 +6602,8 @@
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=5.6"
+    },
     "platform-dev": []
 }
