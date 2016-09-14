@@ -11,6 +11,7 @@ use Elastica\Query;
 use Elastica\Query\BoolQuery;
 use Elastica\Query\Match;
 use Generated\Shared\Search\PageIndexMap;
+use Pyz\Shared\ProductSearch\ProductSearchConstants;
 use Spryker\Client\Search\Dependency\Plugin\QueryInterface;
 
 class FeaturedProductsQueryPlugin implements QueryInterface
@@ -48,11 +49,13 @@ class FeaturedProductsQueryPlugin implements QueryInterface
      */
     protected function createSearchQuery()
     {
-        $matchQuery = (new Match())
-            ->setField(PageIndexMap::IS_FEATURED, true);
-
         $boolQuery = (new BoolQuery())
-            ->addMust($matchQuery);
+            ->addMust((new Match())
+                ->setField(PageIndexMap::IS_FEATURED, true)
+            )
+            ->addMust((new Match())
+                ->setField(PageIndexMap::TYPE, ProductSearchConstants::PRODUCT_ABSTRACT_PAGE_SEARCH_TYPE)
+            );
 
         $query = (new Query())
             ->setSource([PageIndexMap::SEARCH_RESULT_DATA])

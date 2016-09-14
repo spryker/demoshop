@@ -9,6 +9,7 @@ namespace Pyz\Zed\ProductSearch\Business\Map;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
+use Pyz\Shared\ProductSearch\ProductSearchConstants;
 use Generated\Shared\Transfer\RawProductAttributesTransfer;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
@@ -92,6 +93,7 @@ class ProductDataPageMapBuilder
         $pageMapTransfer = (new PageMapTransfer())
             ->setStore(Store::getInstance()->getStoreName())
             ->setLocale($localeTransfer->getLocaleName())
+            ->setType(ProductSearchConstants::PRODUCT_ABSTRACT_PAGE_SEARCH_TYPE)
             ->setIsFeatured($productData['is_featured'] == 'true');
 
         $attributes = $this->getProductAttributes($productData);
@@ -111,7 +113,8 @@ class ProductDataPageMapBuilder
             ->addFullTextBoosted($pageMapTransfer, $productData['abstract_sku'])
             ->addFullText($pageMapTransfer, $productData['concrete_names'])
             ->addFullText($pageMapTransfer, $productData['concrete_skus'])
-//            ->addFullText($pageMapTransfer, $productData['description']) // TODO: we need to map description to full-text once we get this info from the collector
+            ->addFullText($pageMapTransfer, $productData['abstract_description'])
+            ->addFullText($pageMapTransfer, $productData['concrete_descriptions'])
             ->addSuggestionTerms($pageMapTransfer, $productData['abstract_name'])
             ->addCompletionTerms($pageMapTransfer, $productData['abstract_name'])
             ->addStringSort($pageMapTransfer, 'name', $productData['abstract_name'])
