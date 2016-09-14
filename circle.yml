@@ -10,8 +10,8 @@ machine:
     Europe/Berlin
 
   hosts:
-    zed.de.spryker.dev: 127.0.0.1
-    www.de.spryker.dev: 127.0.0.1
+    zed.de.project.local: 127.0.0.1
+    www.de.project.local: 127.0.0.1
 
 database:
   override:
