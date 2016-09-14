@@ -436,6 +436,102 @@
             "time": "2016-08-10 00:44:08"
         },
         {
+            "name": "guzzle/guzzle",
+            "version": "v3.9.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle3.git",
+                "reference": "0645b70d953bc1c067bbc8d5bc53194706b628d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/0645b70d953bc1c067bbc8d5bc53194706b628d9",
+                "reference": "0645b70d953bc1c067bbc8d5bc53194706b628d9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.3",
+                "symfony/event-dispatcher": "~2.1"
+            },
+            "replace": {
+                "guzzle/batch": "self.version",
+                "guzzle/cache": "self.version",
+                "guzzle/common": "self.version",
+                "guzzle/http": "self.version",
+                "guzzle/inflection": "self.version",
+                "guzzle/iterator": "self.version",
+                "guzzle/log": "self.version",
+                "guzzle/parser": "self.version",
+                "guzzle/plugin": "self.version",
+                "guzzle/plugin-async": "self.version",
+                "guzzle/plugin-backoff": "self.version",
+                "guzzle/plugin-cache": "self.version",
+                "guzzle/plugin-cookie": "self.version",
+                "guzzle/plugin-curlauth": "self.version",
+                "guzzle/plugin-error-response": "self.version",
+                "guzzle/plugin-history": "self.version",
+                "guzzle/plugin-log": "self.version",
+                "guzzle/plugin-md5": "self.version",
+                "guzzle/plugin-mock": "self.version",
+                "guzzle/plugin-oauth": "self.version",
+                "guzzle/service": "self.version",
+                "guzzle/stream": "self.version"
+            },
+            "require-dev": {
+                "doctrine/cache": "~1.3",
+                "monolog/monolog": "~1.0",
+                "phpunit/phpunit": "3.7.*",
+                "psr/log": "~1.0",
+                "symfony/class-loader": "~2.1",
+                "zendframework/zend-cache": "2.*,<2.3",
+                "zendframework/zend-log": "2.*,<2.3"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "Guzzle 5 has moved to a new package name. The package you have installed, Guzzle 3, is deprecated."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle": "src/",
+                    "Guzzle\\Tests": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Guzzle Community",
+                    "homepage": "https://github.com/guzzle/guzzle/contributors"
+                }
+            ],
+            "description": "PHP HTTP client. This library is deprecated in favor of https://packagist.org/packages/guzzlehttp/guzzle",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "abandoned": "guzzlehttp/guzzle",
+            "time": "2015-03-18 18:23:50"
+        },
+        {
             "name": "guzzlehttp/guzzle",
             "version": "6.2.1",
             "source": {
@@ -786,16 +882,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.5.2",
+            "version": "1.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "da8529775f14f4fdae33f916eb0cf65f6afbddbc"
+                "reference": "94e5ca3e90aa5b34663780393e10914f7438f991"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/da8529775f14f4fdae33f916eb0cf65f6afbddbc",
-                "reference": "da8529775f14f4fdae33f916eb0cf65f6afbddbc",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/94e5ca3e90aa5b34663780393e10914f7438f991",
+                "reference": "94e5ca3e90aa5b34663780393e10914f7438f991",
                 "shasum": ""
             },
             "require": {
@@ -824,7 +920,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2016-09-06 16:07:05"
+            "time": "2016-09-07 15:34:10"
         },
         {
             "name": "paragonie/random_compat",
@@ -1867,6 +1963,64 @@
             "time": "2016-08-23 13:01:58"
         },
         {
+            "name": "satooshi/php-coveralls",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/satooshi/php-coveralls.git",
+                "reference": "da51d304fe8622bf9a6da39a8446e7afd432115c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/satooshi/php-coveralls/zipball/da51d304fe8622bf9a6da39a8446e7afd432115c",
+                "reference": "da51d304fe8622bf9a6da39a8446e7afd432115c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-simplexml": "*",
+                "guzzle/guzzle": "^2.8|^3.0",
+                "php": ">=5.3.3",
+                "psr/log": "^1.0",
+                "symfony/config": "^2.1|^3.0",
+                "symfony/console": "^2.1|^3.0",
+                "symfony/stopwatch": "^2.0|^3.0",
+                "symfony/yaml": "^2.0|^3.0"
+            },
+            "suggest": {
+                "symfony/http-kernel": "Allows Symfony integration"
+            },
+            "bin": [
+                "bin/coveralls"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Satooshi\\": "src/Satooshi/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kitamura Satoshi",
+                    "email": "with.no.parachute@gmail.com",
+                    "homepage": "https://www.facebook.com/satooshi.jp"
+                }
+            ],
+            "description": "PHP client library for Coveralls API",
+            "homepage": "https://github.com/satooshi/php-coveralls",
+            "keywords": [
+                "ci",
+                "coverage",
+                "github",
+                "test"
+            ],
+            "time": "2016-01-20 17:35:46"
+        },
+        {
             "name": "sebastian/code-unit-reverse-lookup",
             "version": "1.0.0",
             "source": {
@@ -2515,11 +2669,11 @@
         },
         {
             "name": "spryker/application",
-            "version": "2.6.0",
+            "version": "2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Application.git",
-                "reference": "85cff7e2679f4979eba8e7d5c30e09bb9e63600a",
+                "reference": "f14af7299b68a76db386189247c8555f08182462",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -2529,8 +2683,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Application/zipball/85cff7e2679f4979eba8e7d5c30e09bb9e63600a",
-                "reference": "85cff7e2679f4979eba8e7d5c30e09bb9e63600a",
+                "url": "https://api.github.com/repos/spryker/Application/zipball/f14af7299b68a76db386189247c8555f08182462",
+                "reference": "f14af7299b68a76db386189247c8555f08182462",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2551,7 +2705,7 @@
                 "spryker/log": "^2.0.0",
                 "spryker/monolog": "^2.0.0",
                 "spryker/new-relic": "^2.1.0",
-                "spryker/propel": "^2.0.0",
+                "spryker/propel": "^2.3.1",
                 "spryker/session": "^2.1.2",
                 "spryker/silex": "^2.0.0",
                 "spryker/symfony": "^2.0.0",
@@ -2574,9 +2728,6 @@
             "autoload": {
                 "psr-0": {
                     "Spryker": "src/"
-                },
-                "psr-4": {
-                    "Application\\Module\\": "tests/_support/Module"
                 }
             },
             "autoload-dev": {
@@ -2584,6 +2735,9 @@
                     "Acceptance": "tests/",
                     "Functional": "tests/",
                     "Unit": "tests/"
+                },
+                "psr-4": {
+                    "Application\\Module\\": "tests/_support/Module"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -2594,7 +2748,7 @@
             "support": {
                 "source": "https://github.com/spryker/Application/tree/master"
             },
-            "time": "2016-09-09 06:35:01"
+            "time": "2016-09-14 05:30:52"
         },
         {
             "name": "spryker/assertion",
@@ -3450,11 +3604,11 @@
         },
         {
             "name": "spryker/collector",
-            "version": "3.1.1",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Collector.git",
-                "reference": "f97df80a84b34fd69ee43089b9d31769b2de2c60",
+                "reference": "029236ded6feb54cf35a4ccda04b80909a37608d",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3464,8 +3618,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Collector/zipball/f97df80a84b34fd69ee43089b9d31769b2de2c60",
-                "reference": "f97df80a84b34fd69ee43089b9d31769b2de2c60",
+                "url": "https://api.github.com/repos/spryker/Collector/zipball/029236ded6feb54cf35a4ccda04b80909a37608d",
+                "reference": "029236ded6feb54cf35a4ccda04b80909a37608d",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3483,11 +3637,15 @@
                 "spryker/kernel": "^2.4.0",
                 "spryker/library": "^2.0.0",
                 "spryker/locale": "^2.0.0",
-                "spryker/propel": "^2.0.0",
+                "spryker/propel": "^2.3.1",
                 "spryker/sql-criteria-builder": "^1.0.0",
                 "spryker/storage": "^2.0.0",
                 "spryker/symfony": "^2.0.0",
                 "spryker/touch": "^2.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
             },
             "type": "library",
             "extra": {
@@ -3497,12 +3655,12 @@
             },
             "autoload": {
                 "psr-0": {
-                    "Spryker": "src/",
-                    "Acceptance": "tests/",
-                    "Functional": "tests/",
-                    "Integration": "tests/",
-                    "Unit": "tests/",
-                    "YvesUnit": "tests/"
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Unit": "tests/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -3513,7 +3671,7 @@
             "support": {
                 "source": "https://github.com/spryker/Collector/tree/master"
             },
-            "time": "2016-07-20 09:53:37"
+            "time": "2016-09-14 05:30:52"
         },
         {
             "name": "spryker/config",
@@ -4520,11 +4678,11 @@
         },
         {
             "name": "spryker/gui",
-            "version": "2.1.10",
+            "version": "2.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Gui.git",
-                "reference": "350148217b9162982d898e65cbbfc7aeabf9c17a",
+                "reference": "4fabe590fdad35fdc0b28161064fcdcd2fa9a2ee",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4534,8 +4692,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Gui/zipball/350148217b9162982d898e65cbbfc7aeabf9c17a",
-                "reference": "350148217b9162982d898e65cbbfc7aeabf9c17a",
+                "url": "https://api.github.com/repos/spryker/Gui/zipball/4fabe590fdad35fdc0b28161064fcdcd2fa9a2ee",
+                "reference": "4fabe590fdad35fdc0b28161064fcdcd2fa9a2ee",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4549,12 +4707,16 @@
                 "spryker/config": "^2.0.0",
                 "spryker/kernel": "^2.0.0",
                 "spryker/library": "^2.0.0",
-                "spryker/propel": "^2.0.0",
+                "spryker/propel": "^2.3.1",
                 "spryker/silex": "^2.0.0",
                 "spryker/symfony": "^2.0.0",
                 "spryker/transfer": "^2.0.0",
                 "spryker/twig": "^2.1.0",
                 "spryker/url": "^2.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
             },
             "type": "library",
             "extra": {
@@ -4564,12 +4726,7 @@
             },
             "autoload": {
                 "psr-0": {
-                    "Spryker": "src/",
-                    "Acceptance": "tests/",
-                    "Functional": "tests/",
-                    "Integration": "tests/",
-                    "Unit": "tests/",
-                    "YvesUnit": "tests/"
+                    "Spryker": "src/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -4580,7 +4737,7 @@
             "support": {
                 "source": "https://github.com/spryker/Gui/tree/master"
             },
-            "time": "2016-08-26 10:26:10"
+            "time": "2016-09-14 05:30:52"
         },
         {
             "name": "spryker/guzzle",
@@ -6762,11 +6919,11 @@
         },
         {
             "name": "spryker/propel",
-            "version": "2.3.0",
+            "version": "2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Propel.git",
-                "reference": "1c5f7217ccedfd7d6a53556aebe1fc6e15013dfa",
+                "reference": "37794d738ff662af44f4b71cb02054616d0ba51a",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6776,8 +6933,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Propel/zipball/1c5f7217ccedfd7d6a53556aebe1fc6e15013dfa",
-                "reference": "1c5f7217ccedfd7d6a53556aebe1fc6e15013dfa",
+                "url": "https://api.github.com/repos/spryker/Propel/zipball/37794d738ff662af44f4b71cb02054616d0ba51a",
+                "reference": "37794d738ff662af44f4b71cb02054616d0ba51a",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6788,7 +6945,6 @@
             },
             "require": {
                 "propel/propel": "2.0.0-alpha5",
-                "spryker/application": "^2.0.0",
                 "spryker/config": "^2.0.0",
                 "spryker/console": "^2.0.0",
                 "spryker/kernel": "^2.0.0",
@@ -6809,17 +6965,16 @@
             },
             "autoload": {
                 "psr-0": {
-                    "Spryker": "src/",
-                    "Function": "tests/"
-                },
-                "psr-4": {
-                    "Propel\\Module\\": "tests/_support/Module"
+                    "Spryker": "src/"
                 }
             },
             "autoload-dev": {
                 "psr-0": {
                     "Functional": "tests/",
                     "Unit": "tests/"
+                },
+                "psr-4": {
+                    "Propel\\Module\\": "tests/_support/Module"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -6830,7 +6985,7 @@
             "support": {
                 "source": "https://github.com/spryker/Propel/tree/master"
             },
-            "time": "2016-09-06 14:29:59"
+            "time": "2016-09-14 05:30:52"
         },
         {
             "name": "spryker/ratepay",
@@ -8122,11 +8277,11 @@
         },
         {
             "name": "spryker/testify",
-            "version": "2.1.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Testify.git",
-                "reference": "4807b2d2b6c32ae0196e510bff18ef1ea2645035",
+                "reference": "c7dd695d50b37c162bda1afe8dc026994e7ad3d5",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8136,8 +8291,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Testify/zipball/4807b2d2b6c32ae0196e510bff18ef1ea2645035",
-                "reference": "4807b2d2b6c32ae0196e510bff18ef1ea2645035",
+                "url": "https://api.github.com/repos/spryker/Testify/zipball/c7dd695d50b37c162bda1afe8dc026994e7ad3d5",
+                "reference": "c7dd695d50b37c162bda1afe8dc026994e7ad3d5",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8148,7 +8303,12 @@
             },
             "require": {
                 "codeception/codeception": "~2.1.5",
-                "php-mock/php-mock": "~1.0.1"
+                "php-mock/php-mock": "~1.0.1",
+                "satooshi/php-coveralls": "^1.0.0",
+                "spryker/kernel": "^2.0.0",
+                "spryker/library": "^2.0.0",
+                "spryker/propel": "^2.0.0",
+                "spryker/silex": "^2.0.0"
             },
             "require-dev": {
                 "spryker/code-sniffer": "*"
@@ -8177,7 +8337,7 @@
             "support": {
                 "source": "https://github.com/spryker/Testify/tree/master"
             },
-            "time": "2016-09-06 07:05:50"
+            "time": "2016-09-09 08:53:52"
         },
         {
             "name": "spryker/touch",
@@ -10025,6 +10185,55 @@
             "time": "2015-05-26 21:19:30"
         },
         {
+            "name": "symfony/stopwatch",
+            "version": "v2.8.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/stopwatch.git",
+                "reference": "35bae476693150728b0eb51647faac82faf9aaca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/35bae476693150728b0eb51647faac82faf9aaca",
+                "reference": "35bae476693150728b0eb51647faac82faf9aaca",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Stopwatch\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Stopwatch Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-06-29 05:29:29"
+        },
+        {
             "name": "symfony/translation",
             "version": "v2.6.13",
             "target-dir": "Symfony/Component/Translation",
@@ -11849,55 +12058,6 @@
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
             "time": "2016-08-23 13:39:15"
-        },
-        {
-            "name": "symfony/stopwatch",
-            "version": "v2.8.11",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "35bae476693150728b0eb51647faac82faf9aaca"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/35bae476693150728b0eb51647faac82faf9aaca",
-                "reference": "35bae476693150728b0eb51647faac82faf9aaca",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.9"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.8-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Stopwatch\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Stopwatch Component",
-            "homepage": "https://symfony.com",
-            "time": "2016-06-29 05:29:29"
         },
         {
             "name": "symfony/web-profiler-bundle",
