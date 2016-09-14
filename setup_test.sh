@@ -3,6 +3,7 @@
 set -o pipefail
 
 SETUP='spryker'
+DEVELOPMENT_DATABASE_NAME='DE_development_zed'
 DATABASE_NAME='DE_test_zed'
 DATABASE_USER='development'
 DATABASE_PASSWORD='mate20mg'
@@ -40,7 +41,7 @@ function backupTestingEnvData {
 
     runCollectors
 
-    dumpDevelopmentDatabase $DATABASE_BACKUP_PATH
+    backupDevelopmentForTests
 
     successText "Backup successful."
 }
@@ -48,6 +49,13 @@ function backupTestingEnvData {
 function restoreTestingEnvData {
 
    dropAndRestoreDatabase $DATABASE_BACKUP_PATH
+}
+
+function backupDevelopmentForTests {
+    export PGPASSWORD=$DATABASE_PASSWORD
+    export LC_ALL="en_US.UTF-8"
+
+    pg_dump -i -h 127.0.0.1 -U $DATABASE_USER  -F c -b -v -f  $DATABASE_BACKUP_PATH $DEVELOPMENT_DATABASE_NAME
 }
 
 function runCollectors() {
