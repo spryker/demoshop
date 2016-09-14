@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "168a5c3f5592424655cd0fa79c07aa87",
-    "content-hash": "943a5d0fcb3862cf96393db88d18a343",
+    "hash": "2f65b98894dc374be6bb20d70db84aee",
+    "content-hash": "956208f6df15567bf3dce7173f1f12a9",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1208,6 +1208,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "9715eabcc7726dc88e3eeee7de519935b567bd72"
 =======
 =======
@@ -1257,6 +1258,9 @@
 =======
                 "reference": "37a52935dbab286839c1c1ce5745acd5c84406b3"
 >>>>>>> update fixed php7 comp branch
+=======
+                "reference": "627408b0fe0528bfc1df02c7e5c06a3fbf239133"
+>>>>>>> update spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1793,6 +1797,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-09-14 05:30:52"
 =======
 =======
@@ -1842,6 +1847,9 @@
 =======
             "time": "2016-09-13 14:18:13"
 >>>>>>> update fixed php7 comp branch
+=======
+            "time": "2016-09-14 11:25:28"
+>>>>>>> update spryker
         },
         {
             "name": "symfony-cmf/routing",
@@ -4271,16 +4279,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.5.2",
+            "version": "1.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "da8529775f14f4fdae33f916eb0cf65f6afbddbc"
+                "reference": "94e5ca3e90aa5b34663780393e10914f7438f991"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/da8529775f14f4fdae33f916eb0cf65f6afbddbc",
-                "reference": "da8529775f14f4fdae33f916eb0cf65f6afbddbc",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/94e5ca3e90aa5b34663780393e10914f7438f991",
+                "reference": "94e5ca3e90aa5b34663780393e10914f7438f991",
                 "shasum": ""
             },
             "require": {
@@ -4309,7 +4317,52 @@
                 "object",
                 "object graph"
             ],
-            "time": "2016-09-06 16:07:05"
+            "time": "2016-09-07 15:34:10"
+        },
+        {
+            "name": "nikic/php-parser",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nikic/PHP-Parser.git",
+                "reference": "f78af2c9c86107aa1a34cd1dbb5bbe9eeb0d9f51"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/f78af2c9c86107aa1a34cd1dbb5bbe9eeb0d9f51",
+                "reference": "f78af2c9c86107aa1a34cd1dbb5bbe9eeb0d9f51",
+                "shasum": ""
+            },
+            "require": {
+                "ext-tokenizer": "*",
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "lib/bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Popov"
+                }
+            ],
+            "description": "A PHP parser written in PHP",
+            "keywords": [
+                "parser",
+                "php"
+            ],
+            "time": "2015-09-19 14:15:08"
         },
         {
             "name": "pdepend/pdepend",
@@ -6120,6 +6173,48 @@
                 "standards"
             ],
             "time": "2016-09-01 23:53:02"
+        },
+        {
+            "name": "sstalle/php7cc",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sstalle/php7cc.git",
+                "reference": "f9294c1fd712b05c335a7985a0d42d4762794e77"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sstalle/php7cc/zipball/f9294c1fd712b05c335a7985a0d42d4762794e77",
+                "reference": "f9294c1fd712b05c335a7985a0d42d4762794e77",
+                "shasum": ""
+            },
+            "require": {
+                "nikic/php-parser": "~1.4",
+                "php": ">=5.3.3",
+                "pimple/pimple": "~1.1",
+                "symfony/console": "~2.3"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "~1.10",
+                "kherge/box": "~2.5",
+                "mikey179/vfsstream": "~1.5",
+                "phpunit/phpunit": "4.7.*"
+            },
+            "bin": [
+                "bin/php7cc"
+            ],
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "Sstalle\\php7cc\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A command-line tool to check PHP 5.3 - 5.6 code compatibility with PHP 7",
+            "time": "2015-08-31 18:18:27"
         },
         {
             "name": "symfony/browser-kit",
