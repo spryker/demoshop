@@ -22,6 +22,8 @@ use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
 use Symfony\Component\Finder\Finder;
 
+
+// TODO: adjust DEMODATA descriptions
 class ProductAbstractImporter extends AbstractImporter
 {
 
