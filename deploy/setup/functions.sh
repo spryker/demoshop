@@ -93,13 +93,7 @@ function restoreDevelopmentDatabase {
     read -r -p "Restore database ${DATABASE_NAME} ? [y/N] " response
     case $response in
         [yY][eE][sS]|[yY])
-            export PGPASSWORD=$DATABASE_PASSWORD
-            export LC_ALL="en_US.UTF-8"
-
-            sudo pg_ctlcluster 9.4 main restart --force
-            sudo dropdb $DATABASE_NAME
-            sudo createdb $DATABASE_NAME
-            pg_restore -i -h 127.0.0.1 -p 5432 -U $DATABASE_USER -d $DATABASE_NAME -v $DATABASE_NAME.backup
+            dropAndRestoreDatabase
             ;;
         *)
             echo "Nothing done."
@@ -107,6 +101,23 @@ function restoreDevelopmentDatabase {
     esac
 }
 
+function dropAndRestoreDatabase {
+
+    if [[ -z "$1" ]]; then
+          DATABASE_BACKUP_PATH=$DATABASE_NAME.backup;
+    else
+          DATABASE_BACKUP_PATH=$1
+    fi
+
+    export PGPASSWORD=$DATABASE_PASSWORD
+    export LC_ALL="en_US.UTF-8"
+
+    sudo pg_ctlcluster 9.4 main restart --force
+    sudo dropdb $DATABASE_NAME
+    sudo createdb $DATABASE_NAME
+    pg_restore -i -h 127.0.0.1 -p 5432 -U $DATABASE_USER -d $DATABASE_NAME -v $DATABASE_BACKUP_PATH
+
+}
 function installDemoshop {
     labelText "Preparing to install Spryker Platform..."
 

@@ -2,7 +2,6 @@
 
 set -o pipefail
 
-
 SETUP='spryker'
 DATABASE_NAME='DE_test_zed'
 DATABASE_USER='development'
@@ -10,66 +9,56 @@ DATABASE_PASSWORD='mate20mg'
 VERBOSITY='-v'
 CONSOLE=vendor/bin/console
 PHANTOMJS_CDNURL='https://github.com/Medium/phantomjs/'
+DATABASE_BACKUP_PATH='data/test.backup'
+
 export APPLICATION_ENV='test'
 
 . deploy/setup/functions.sh
 
 warningText "This script should be used only in development and NEVER IN PRODUCTION"
 
-
-function installTestingEnv {
-
-    # zed
-    labelText "Flushing Elasticsearch de_search_test"
-    curl -XDELETE 'http://localhost:10005/de_search_test/'
-    writeErrorMessage "Elasticsearch reset failed"
-
-    labelText "Flushing Redis db 3"
-    echo -e "select 3\nflushdb" | redis-cli -p 10009
-    writeErrorMessage "Redis reset failed"
+function backupTestingEnvData {
 
     dropDevelopmentDatabase
 
+    labelText "Running setup:install"
     $CONSOLE setup:install $VERBOSITY
     writeErrorMessage "Setup install failed"
 
+    labelText "Running propel code generation/migrations"
     $CONSOLE propel:install $VERBOSITY
     $CONSOLE propel:diff $VERBOSITY
     $CONSOLE propel:migrate $VERBOSITY
+
+    labelText "Importing Demo data"
+    $CONSOLE import:demo-data $VERBOSITY
+    writeErrorMessage "DemoData import failed"
 
     labelText "Initializing DB"
     $CONSOLE setup:init-db $VERBOSITY
     writeErrorMessage "DB setup failed"
 
-    labelText "Setting up data stores"
-    $CONSOLE collector:search:export $VERBOSITY
-    $CONSOLE collector:storage:export $VERBOSITY
-    writeErrorMessage "DataStore setup failed"
+    runCollectors
 
+    dumpDevelopmentDatabase $DATABASE_BACKUP_PATH
 
-    # backup
-    dumpDevelopmentDatabase "data/test.backup"
+    successText "Backup successful."
+}
 
-    labelText "Backup redis to data/test.backup"
-    echo -e "select 3\nsave" | redis-cli -p 10009
+function restoreTestingEnvData {
 
-    labelText "Backup elastic search"
-    curl -XPUT http://localhost:10005/_snapshot/test -d '{"type":"fs","settings":{"location":"test","compress":true}}'
-    curl -XPUT http://localhost:10005/_snapshot/test/de_search_test -d '{"indicies":"de_search_test"}'
+   dropAndRestoreDatabase $DATABASE_BACKUP_PATH
+}
 
-    #---
+function runCollectors() {
 
-    #antelopeInstallZed
+   export PGPASSWORD=$DATABASE_PASSWORD
+   labelText "Reset touch table."
+   psql -h 127.0.0.1 -U $DATABASE_USER  -d $DATABASE_NAME -c 'UPDATE spy_touch set touched=now()' -w
 
-    sleep 1
-
-    # yves
-    #installYves
-
-    configureCodeception
-
-    successText "Setup successful"
-    infoText "\nYves URL: http://www.de.spryker.dev/\nZed URL: http://zed.de.spryker.dev/\n"
+   labelText "Run collectors."
+   $CONSOLE collector:search:export $VERBOSITY
+   $CONSOLE collector:storage:export $VERBOSITY
 }
 
 if [ $# -eq 0 ]; then
@@ -81,9 +70,17 @@ for arg in "$@"
 do
     case $arg in
 
-         "--test" | "-t" )
-           installTestingEnv
+         "--restore" | "-r" )
+           restoreTestingEnvData
            ;;
+
+         "--backup" | "-b" )
+           backupTestingEnvData
+           ;;
+         "--collectors" | "-c" )
+           runCollectors
+           ;;
+
         *)
             displayHeader
             echo ""
@@ -92,8 +89,6 @@ do
         ;;
    esac
 done
-
-
 
 
 exit 0

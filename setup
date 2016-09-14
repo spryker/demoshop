@@ -40,7 +40,7 @@ do
            installZed
            ;;
         "--reset" | "-r" )
-           resetDevelopmentState
+           resetDevelopmentState                                                                                               ø
            ;;
         "--dump-db" | "-ddb" )
            dumpDevelopmentDatabase
