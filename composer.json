@@ -131,6 +131,11 @@
       "Acceptance": "tests"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Application\\Module\\": "vendor/spryker/application/tests/_support/Module"
+    }
+  },
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
