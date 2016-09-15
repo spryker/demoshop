@@ -383,7 +383,8 @@ class ProductAbstractImporter extends AbstractImporter
     protected function createProductConcreteCollection(array $productConcreteCollection, $idProductAbstract)
     {
         foreach ($productConcreteCollection as $productConcrete) {
-            $this->productFacade->createProductConcrete($productConcrete, $idProductAbstract);
+            $productConcrete->setFkProductAbstract($idProductAbstract);
+            $this->productFacade->createProductConcrete($productConcrete);
         }
     }
 
