@@ -1200,75 +1200,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "9715eabcc7726dc88e3eeee7de519935b567bd72"
-=======
-=======
->>>>>>> update spryker
-=======
->>>>>>> removed 5.6 requirement
-=======
->>>>>>> try locally with robo
-=======
->>>>>>> add robo stuff
-<<<<<<< HEAD
-                "reference": "a2f79b1696e526fe81b80b8aa59329106e972452"
-=======
-                "reference": "06b32c0283d27201d61fb1f195b081cc2b67e30c"
->>>>>>> update
-<<<<<<< HEAD
->>>>>>> update
-=======
-=======
-                "reference": "5167835b420e6a7faf799ea60ff5dd32128e77e9"
->>>>>>> update spryker
-<<<<<<< HEAD
->>>>>>> update spryker
-=======
-=======
-                "reference": "8e914d8f42364c81382f97df37bb3ead015a37d6"
->>>>>>> removed 5.6 requirement
-<<<<<<< HEAD
->>>>>>> removed 5.6 requirement
-=======
-=======
-                "reference": "d180f94f6dddada97d9c83ee7c4bfc7e98c48150"
->>>>>>> try locally with robo
-<<<<<<< HEAD
->>>>>>> try locally with robo
-=======
-=======
-                "reference": "619e4ef68db6e0b65ad50f86ccd3acf90887c71e"
->>>>>>> add robo stuff
->>>>>>> add robo stuff
-=======
-                "reference": "cf83127051bd4e4bb7553af193a843bb671d7e1a"
->>>>>>> merged master
-=======
-                "reference": "e11dec137d8e49afe49c094abdcd36f7b20e6d52"
->>>>>>> test php7 comp branch
-=======
-                "reference": "37a52935dbab286839c1c1ce5745acd5c84406b3"
->>>>>>> update fixed php7 comp branch
-=======
-                "reference": "627408b0fe0528bfc1df02c7e5c06a3fbf239133"
->>>>>>> update spryker
-=======
-                "reference": "61695e576889cf7c3ae6a295da099fca4f506a11"
->>>>>>> update spryker/spryker
-=======
-                "reference": "f68424fba6e8fdad12783063606b01565f7f9b7b"
->>>>>>> update spryker
+                "reference": "f12a21ccc342597c6fd4f3fab2916f4ea74fdedb"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1797,75 +1729,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2016-09-14 05:30:52"
-=======
-=======
->>>>>>> update spryker
-=======
->>>>>>> removed 5.6 requirement
-=======
->>>>>>> try locally with robo
-=======
->>>>>>> add robo stuff
-<<<<<<< HEAD
-            "time": "2016-09-09 06:35:01"
-=======
-            "time": "2016-07-29 11:56:53"
->>>>>>> update
-<<<<<<< HEAD
->>>>>>> update
-=======
-=======
-            "time": "2016-07-29 14:43:51"
->>>>>>> update spryker
-<<<<<<< HEAD
->>>>>>> update spryker
-=======
-=======
-            "time": "2016-08-04 14:58:31"
->>>>>>> removed 5.6 requirement
-<<<<<<< HEAD
->>>>>>> removed 5.6 requirement
-=======
-=======
-            "time": "2016-08-05 07:35:10"
->>>>>>> try locally with robo
-<<<<<<< HEAD
->>>>>>> try locally with robo
-=======
-=======
-            "time": "2016-08-10 19:02:12"
->>>>>>> add robo stuff
->>>>>>> add robo stuff
-=======
-            "time": "2016-09-12 07:13:45"
->>>>>>> merged master
-=======
-            "time": "2016-09-13 14:10:30"
->>>>>>> test php7 comp branch
-=======
-            "time": "2016-09-13 14:18:13"
->>>>>>> update fixed php7 comp branch
-=======
-            "time": "2016-09-14 11:25:28"
->>>>>>> update spryker
-=======
-            "time": "2016-09-14 12:11:42"
->>>>>>> update spryker/spryker
-=======
-            "time": "2016-09-15 06:38:34"
->>>>>>> update spryker
+            "time": "2016-09-15 07:06:32"
         },
         {
             "name": "symfony-cmf/routing",
