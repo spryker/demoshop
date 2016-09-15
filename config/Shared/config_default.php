@@ -69,6 +69,7 @@ $config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
  */
 $config[SearchConstants::SEARCH_CONFIG_CACHE_KEY] = 'search_config_cache';
 $config[SearchConstants::FULL_TEXT_BOOSTED_BOOSTING_VALUE] = 3;
+$config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
 
 /**
  * Hostname(s) for Yves - Shop frontend

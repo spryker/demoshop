@@ -80,25 +80,41 @@ function dumpDevelopmentDatabase {
     export PGPASSWORD=$DATABASE_PASSWORD
     export LC_ALL="en_US.UTF-8"
 
-    pg_dump -i -h 127.0.0.1 -U $DATABASE_USER  -F c -b -v -f  $DATABASE_NAME.backup $DATABASE_NAME
+    if [[ -z "$1" ]]; then
+          DATABASE_BACKUP_PATH=$DATABASE_NAME.backup;
+    else
+          DATABASE_BACKUP_PATH=$1
+    fi
+
+    pg_dump -i -h 127.0.0.1 -U $DATABASE_USER  -F c -b -v -f  $DATABASE_BACKUP_PATH $DATABASE_NAME
 }
 
 function restoreDevelopmentDatabase {
     read -r -p "Restore database ${DATABASE_NAME} ? [y/N] " response
     case $response in
         [yY][eE][sS]|[yY])
-            export PGPASSWORD=$DATABASE_PASSWORD
-            export LC_ALL="en_US.UTF-8"
-
-            sudo pg_ctlcluster 9.4 main restart --force
-            sudo dropdb $DATABASE_NAME
-            sudo createdb $DATABASE_NAME
-            pg_restore -i -h 127.0.0.1 -p 5432 -U $DATABASE_USER -d $DATABASE_NAME -v $DATABASE_NAME.backup
+            dropAndRestoreDatabase
             ;;
         *)
             echo "Nothing done."
             ;;
     esac
+}
+
+function dropAndRestoreDatabase {
+    if [[ -z "$1" ]]; then
+          DATABASE_BACKUP_PATH=$DATABASE_NAME.backup;
+    else
+          DATABASE_BACKUP_PATH=$1
+    fi
+
+    export PGPASSWORD=$DATABASE_PASSWORD
+    export LC_ALL="en_US.UTF-8"
+
+    sudo pg_ctlcluster 9.4 main restart --force
+    sudo dropdb $DATABASE_NAME
+    sudo createdb $DATABASE_NAME
+    pg_restore -i -h 127.0.0.1 -p 5432 -U $DATABASE_USER -d $DATABASE_NAME -v $DATABASE_BACKUP_PATH
 }
 
 function installDemoshop {
@@ -114,7 +130,7 @@ function installDemoshop {
     configureCodeception
 
     successText "Setup successful"
-    infoText "\nYves URL: http://www.de.spryker.dev/\nZed URL: http://zed.de.spryker.dev/\n"
+    infoText "\nYves URL: http://www.de.project.local/\nZed URL: http://zed.de.project.local/\n"
 }
 
 function installZed {
