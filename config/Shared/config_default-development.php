@@ -10,6 +10,7 @@ use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\Payone\PayoneConstants;
+use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Storage\StorageConstants;
 
@@ -68,8 +69,8 @@ $config[AclConstants::ACL_USER_RULE_WHITELIST][] = [
     'type' => 'allow',
 ];
 
-$config[ApplicationConstants::PROPEL_DEBUG] = true;
-$config[ApplicationConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = true;
+$config[PropelConstants::PROPEL_DEBUG] = true;
+$config[PropelConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = true;
 
 $config[ApplicationConstants::ALLOW_INTEGRATION_CHECKS] = true;
 $config[ApplicationConstants::DISPLAY_ERRORS] = true;
