@@ -5,8 +5,10 @@
  */
 
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Shared\Ratepay\RatepayConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Storage\StorageConstants;
@@ -82,3 +84,44 @@ $config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
 $config[ApplicationConstants::HOST_SSL_YVES] = 'https://' . $yvesHost;
 $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS] = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA] = $yvesHost;
 $config[SessionConstants::ZED_SESSION_COOKIE_SECURE] = false;
+
+
+$config[PayoneConstants::PAYONE] = [
+    PayoneConstants::PAYONE_CREDENTIALS_ENCODING => 'UTF-8',
+    PayoneConstants::PAYONE_CREDENTIALS_KEY => getenv('PAYONE_CREDENTIALS_KEY'),
+    PayoneConstants::PAYONE_CREDENTIALS_MID => getenv('PAYONE_CREDENTIALS_MID'),
+    PayoneConstants::PAYONE_CREDENTIALS_AID => getenv('PAYONE_CREDENTIALS_AID'),
+    PayoneConstants::PAYONE_CREDENTIALS_PORTAL_ID => getenv('PAYONE_CREDENTIALS_PORTAL_ID'),
+    PayoneConstants::PAYONE_PAYMENT_GATEWAY_URL => 'https://api.pay1.de/post-gateway/',
+    PayoneConstants::PAYONE_REDIRECT_SUCCESS_URL => $config[ApplicationConstants::HOST_YVES] . '/checkout/success/',
+    PayoneConstants::PAYONE_REDIRECT_ERROR_URL => $config[ApplicationConstants::HOST_YVES] . '/checkout/index/',
+    PayoneConstants::PAYONE_REDIRECT_BACK_URL => $config[ApplicationConstants::HOST_YVES] . '/checkout/regular-redirect-payment-cancellation/',
+    PayoneConstants::PAYONE_MODE => '',
+];
+
+$config[PayolutionConstants::TRANSACTION_GATEWAY_URL] = 'https://test.ctpe.net/frontend/payment.prc';
+$config[PayolutionConstants::CALCULATION_GATEWAY_URL] = 'https://test-payment.payolution.com/payolution-payment/rest/request/v2';
+$config[PayolutionConstants::TRANSACTION_SECURITY_SENDER] = '8a82941850cd6ba60150cdba275b0201';
+$config[PayolutionConstants::TRANSACTION_USER_LOGIN] = '8a82941850cd6ba60150cdba275c0205';
+$config[PayolutionConstants::TRANSACTION_USER_PASSWORD] = 'EANPb8wg';
+$config[PayolutionConstants::CALCULATION_SENDER] = 'Spryker';
+$config[PayolutionConstants::CALCULATION_USER_LOGIN] = 'spryker-installment';
+$config[PayolutionConstants::CALCULATION_USER_PASSWORD] = '0mQzn5iqhr3idfZZjvsEPOrlDvT97Tg3M5d';
+$config[PayolutionConstants::TRANSACTION_MODE] = 'CONNECTOR_TEST';
+$config[PayolutionConstants::CALCULATION_MODE] = 'TEST';
+$config[PayolutionConstants::TRANSACTION_CHANNEL_PRE_CHECK] = '8a82941850cd6ba60150cdc25e54028f';
+$config[PayolutionConstants::TRANSACTION_CHANNEL_INVOICE] = '8a82941850cd6ba60150cdbf9af40280';
+$config[PayolutionConstants::TRANSACTION_CHANNEL_INSTALLMENT] = '8a82941850cd6ba60150cdbf9af40280';
+$config[PayolutionConstants::CALCULATION_CHANNEL] = 'spryker-installment';
+$config[PayolutionConstants::MIN_ORDER_GRAND_TOTAL_INVOICE] = '500';
+$config[PayolutionConstants::MAX_ORDER_GRAND_TOTAL_INVOICE] = '500000';
+$config[PayolutionConstants::MIN_ORDER_GRAND_TOTAL_INSTALLMENT] = '500';
+$config[PayolutionConstants::MAX_ORDER_GRAND_TOTAL_INSTALLMENT] = '500000';
+$config[PayolutionConstants::PAYOLUTION_BCC_EMAIL] = 'invoices@payolution.com';
+
+$config[RatepayConstants::PROFILE_ID] = '';
+$config[RatepayConstants::SECURITY_CODE] = '';
+$config[RatepayConstants::SNIPPET_ID] = 'ratepay';
+$config[RatepayConstants::SHOP_ID] = '';
+$config[RatepayConstants::SYSTEM_ID] = 'Spryker ' . $config[ApplicationConstants::HOST_YVES];
+$config[RatepayConstants::API_URL] = 'https://gateway-int.ratepay.com/api/xml/1_0';
