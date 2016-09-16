@@ -4,8 +4,8 @@ set -o pipefail
 
 SETUP='spryker'
 DATABASE_NAME='DE_test_zed'
-DATABASE_USER='development'
-DATABASE_PASSWORD='mate20mg'
+DATABASE_USER='postgres'
+DATABASE_PASSWORD=''
 VERBOSITY='-v'
 CONSOLE=vendor/bin/console
 PHANTOMJS_CDNURL='https://github.com/Medium/phantomjs/'

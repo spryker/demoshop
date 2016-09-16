@@ -1,7 +1,7 @@
 <VirtualHost *:80>
 
   DocumentRoot %TRAVIS_BUILD_DIR%/public/Yves
-  ServerName www.de.spryker.dev
+  ServerName www.de.spryker.test
 
   <FilesMatch \.php$>
     SetHandler application/x-httpd-php
