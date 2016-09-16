@@ -217,14 +217,14 @@ function resetDevelopmentState {
 }
 
 function dropDevelopmentDatabase {
-    if [ `sudo psql -l | grep ${DATABASE_NAME} | wc -l` -ne 0 ]; then
+    if [ `psql -l | grep ${DATABASE_NAME} | wc -l` -ne 0 ]; then
 
         PG_CTL_CLUSTER=`which pg_ctlcluster`
         DROP_DB=`which dropdb`
 
         if [[ -f $PG_CTL_CLUSTER ]] && [[ -f $DROP_DB ]]; then
             labelText "Deleting PostgreSql Database: ${DATABASE_NAME} "
-            sudo pg_ctlcluster 9.4 main restart --force && sudo dropdb $DATABASE_NAME 1>/dev/null
+            pg_ctlcluster 9.4 main restart --force && dropdb $DATABASE_NAME 1>/dev/null
             writeErrorMessage "Deleting DB command failed"
         fi
     fi
