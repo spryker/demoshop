@@ -47,6 +47,13 @@ $config[ApplicationConstants::YVES_TWIG_OPTIONS] = [
     'cache' => DataDirectory::getLocalStoreSpecificPath('cache/Yves/twig'),
 ];
 
+$config[PropelConstants::ZED_DB_ENGINE_MYSQL] = PropelConfig::DB_ENGINE_MYSQL;
+$config[PropelConstants::ZED_DB_ENGINE_PGSQL] = PropelConfig::DB_ENGINE_PGSQL;
+$config[PropelConstants::ZED_DB_SUPPORTED_ENGINES] = [
+    PropelConfig::DB_ENGINE_MYSQL => 'MySql',
+    PropelConfig::DB_ENGINE_PGSQL => 'PostgreSql'
+];
+
 /**
  * Elasticsearch settings
  */
