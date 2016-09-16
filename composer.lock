@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e921ae047f6fab18d4d8bc8e54cf2403",
-    "content-hash": "2618ce8370bed8f2467e4dac860e1e79",
+    "hash": "c615a63f218831ecb3a5709df272be67",
+    "content-hash": "56bc003e305ea11f333203c58cd8e055",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1196,19 +1196,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/propel",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "reference": "77b7a0c40e7d8d9e326b7cda457b90a362ef2070"
-=======
-                "reference": "cf83127051bd4e4bb7553af193a843bb671d7e1a"
->>>>>>> dont use sudo command for ci
-=======
-                "reference": "33536a43b5b2fbe3751ccbeb2e3d18e1db9b98aa"
->>>>>>> use bugfix branch instead of beta
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1737,15 +1729,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2016-09-15 09:30:26"
-=======
-            "time": "2016-09-12 07:13:45"
->>>>>>> dont use sudo command for ci
-=======
-            "time": "2016-09-13 10:15:05"
->>>>>>> use bugfix branch instead of beta
         },
         {
             "name": "symfony-cmf/routing",
