@@ -8,6 +8,7 @@ use Spryker\Shared\CustomerMailConnector\CustomerMailConnectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Kernel\KernelConstants;
+use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\NewRelic\NewRelicConstants;
 use Spryker\Shared\Newsletter\NewsletterConstants;
@@ -44,9 +45,9 @@ $config[ApplicationConstants::YVES_TWIG_OPTIONS] = [
     'cache' => \Spryker\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Yves/twig'),
 ];
 
-$config[ApplicationConstants::ZED_DB_ENGINE_MYSQL] = PropelConfig::DB_ENGINE_MYSQL;
-$config[ApplicationConstants::ZED_DB_ENGINE_PGSQL] = PropelConfig::DB_ENGINE_PGSQL;
-$config[ApplicationConstants::ZED_DB_SUPPORTED_ENGINES] = [
+$config[PropelConstants::ZED_DB_ENGINE_MYSQL] = PropelConfig::DB_ENGINE_MYSQL;
+$config[PropelConstants::ZED_DB_ENGINE_PGSQL] = PropelConfig::DB_ENGINE_PGSQL;
+$config[PropelConstants::ZED_DB_SUPPORTED_ENGINES] = [
     PropelConfig::DB_ENGINE_MYSQL => 'MySql',
     PropelConfig::DB_ENGINE_PGSQL => 'PostgreSql'
 ];
@@ -155,8 +156,7 @@ $config[ApplicationConstants::YVES_COOKIE_VISITOR_ID_VALID_FOR] = '+30 minute';
 $config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^/customer)';
 $config[CustomerConstants::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
 
-$currentStore = \Spryker\Shared\Kernel\Store::getInstance()->getStoreName();
-$config[ApplicationConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = false;
+$currentStore = Store::getInstance()->getStoreName();
 
 $config[ApplicationConstants::CLOUD_ENABLED] = false;
 $config[ApplicationConstants::CLOUD_OBJECT_STORAGE_ENABLED] = false;
@@ -362,7 +362,6 @@ $config[EventJournalConstants::WRITER_OPTIONS] = [
     ],
 ];
 
-$config[ApplicationConstants::PROPEL_DEBUG] = false;
 $config[SequenceNumberConstants::ENVIRONMENT_PREFIX]
     = $config[SalesConstants::ENVIRONMENT_PREFIX]
     = '';
