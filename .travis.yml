@@ -65,7 +65,7 @@ script:
   #- if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance ; fi
   #- if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance ; fi
 
-  vendor/bin/codecept run
+  - vendor/bin/codecept run
 # Just in case you want to know about errors uncomment this
 #  - cat /tmp/zed-error.log
 
