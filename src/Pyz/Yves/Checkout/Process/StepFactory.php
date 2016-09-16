@@ -59,7 +59,7 @@ class StepFactory extends SprykerStepFactory
     }
 
     /**
-     * @return \Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep
+     * @return \Pyz\Yves\Checkout\Process\Steps\CustomerStep
      */
     protected function createCustomerStep()
     {
