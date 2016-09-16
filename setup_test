@@ -3,7 +3,6 @@
 set -o pipefail
 
 SETUP='spryker'
-DEVELOPMENT_DATABASE_NAME='DE_development_zed'
 DATABASE_NAME='DE_test_zed'
 DATABASE_USER='development'
 DATABASE_PASSWORD='mate20mg'
@@ -15,6 +14,30 @@ DATABASE_BACKUP_PATH='data/test.backup'
 export APPLICATION_ENV='test'
 
 . deploy/setup/functions.sh
+
+function displayHeader {
+    labelText "Spryker Test enviroment setup"
+    echo "./$(basename $0) [OPTION] [VERBOSITY]"
+}
+
+function displayHelp {
+
+    displayHeader
+
+    echo ""
+    echo "  -r, --restore"
+    echo "      Restore postgres from dump provided by --backup, collectors does not run."
+    echo " "
+    echo "  -b, --backup"
+    echo "      Backup postgress to file, run collectors writes to test enviroment stores."
+    echo " "
+    echo "  -c, --collectors"
+    echo "      Run only collectors storage, search."
+    echo " "
+    echo "  -v, -vv, -vvv"
+    echo "      Set verbosity level"
+    echo " "
+}
 
 warningText "This script should be used only in development and NEVER IN PRODUCTION"
 
@@ -41,7 +64,7 @@ function backupTestingEnvData {
 
     runCollectors
 
-    backupDevelopmentForTests
+    backupDatabaseForTests
 
     successText "Backup successful."
 }
@@ -51,11 +74,11 @@ function restoreTestingEnvData {
    dropAndRestoreDatabase $DATABASE_BACKUP_PATH
 }
 
-function backupDevelopmentForTests {
+function backupDatabaseForTests {
     export PGPASSWORD=$DATABASE_PASSWORD
     export LC_ALL="en_US.UTF-8"
 
-    pg_dump -i -h 127.0.0.1 -U $DATABASE_USER  -F c -b -v -f  $DATABASE_BACKUP_PATH $DEVELOPMENT_DATABASE_NAME
+    pg_dump -i -h 127.0.0.1 -U $DATABASE_USER  -F c -b -v -f  $DATABASE_BACKUP_PATH $DATABASE_NAME
 }
 
 function runCollectors() {
