@@ -73,7 +73,7 @@ before_script:
 
   - sudo service apache2 restart
 
-   #Install antelope and friends
+   #Install antelope
   - sudo apt-get install npm
   - npm install npm -g
   - npm install -g antelope
