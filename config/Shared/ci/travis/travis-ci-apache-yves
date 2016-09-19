@@ -2,6 +2,7 @@
 
   DocumentRoot %TRAVIS_BUILD_DIR%/public/Yves
   ServerName www.de.spryker.test
+  SetEnv APPLICATION_ENV test
 
   <FilesMatch \.php$>
     SetHandler application/x-httpd-php

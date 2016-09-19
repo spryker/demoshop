@@ -2,6 +2,7 @@
 
   DocumentRoot %TRAVIS_BUILD_DIR%/public/Zed
   ServerName zed.de.spryker.test
+  SetEnv APPLICATION_ENV test
 
   ErrorLog /tmp/zed-error.log
 
@@ -15,7 +16,5 @@
       Order allow,deny
       allow from all
   </Directory>
-
-
 
 </VirtualHost>
