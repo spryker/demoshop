@@ -51,11 +51,9 @@ class FeaturedProductsQueryPlugin implements QueryInterface
     {
         $boolQuery = (new BoolQuery())
             ->addMust((new Match())
-                ->setField(PageIndexMap::IS_FEATURED, true)
-            )
+                ->setField(PageIndexMap::IS_FEATURED, true))
             ->addMust((new Match())
-                ->setField(PageIndexMap::TYPE, ProductSearchConstants::PRODUCT_ABSTRACT_PAGE_SEARCH_TYPE)
-            );
+                ->setField(PageIndexMap::TYPE, ProductSearchConstants::PRODUCT_ABSTRACT_PAGE_SEARCH_TYPE));
 
         $query = (new Query())
             ->setSource([PageIndexMap::SEARCH_RESULT_DATA])

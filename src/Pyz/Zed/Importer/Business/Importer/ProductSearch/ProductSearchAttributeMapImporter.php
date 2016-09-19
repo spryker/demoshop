@@ -8,9 +8,9 @@
 namespace Pyz\Zed\Importer\Business\Importer\ProductSearch;
 
 use Generated\Shared\Search\PageIndexMap;
-use Orm\Zed\Product\Persistence\SpyProductAttributeKeyQuery;
 use Orm\Zed\ProductSearch\Persistence\Base\SpyProductSearchAttributeMapQuery;
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
+use Orm\Zed\Product\Persistence\SpyProductAttributeKeyQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
@@ -59,6 +59,8 @@ class ProductSearchAttributeMapImporter extends AbstractImporter
     /**
      * @param array $data
      *
+     * @throws \InvalidArgumentException
+     *
      * @return void
      */
     protected function importOne(array $data)
@@ -98,9 +100,6 @@ class ProductSearchAttributeMapImporter extends AbstractImporter
     /**
      * @param int $idProductAttributeKey
      * @param string $targetField
-     *
-     * @throws \Exception
-     * @throws \Propel\Runtime\Exception\PropelException
      *
      * @return void
      */

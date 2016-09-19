@@ -67,7 +67,6 @@ $config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
 /**
  * Page search settings
  */
-$config[SearchConstants::SEARCH_CONFIG_CACHE_KEY] = 'search_config_cache';
 $config[SearchConstants::FULL_TEXT_BOOSTED_BOOSTING_VALUE] = 3;
 
 /**
