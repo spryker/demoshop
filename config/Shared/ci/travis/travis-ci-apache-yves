@@ -4,15 +4,18 @@
   ServerName www.de.spryker.test
   SetEnv APPLICATION_ENV test
 
-  <FilesMatch \.php$>
-    SetHandler application/x-httpd-php
-  </FilesMatch>
-
   <Directory "%TRAVIS_BUILD_DIR%">
       Options Indexes FollowSymLinks MultiViews ExecCGI
       AllowOverride All
       Order allow,deny
       allow from all
   </Directory>
+
+    <Directory "%TRAVIS_BUILD_DIR%">
+        Options Indexes FollowSymLinks MultiViews ExecCGI
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
 
 </VirtualHost>
