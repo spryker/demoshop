@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e492a4ce8f22d54dd30f79ecc5aa9e4e",
-    "content-hash": "ce252d74c9e573c9762dd89fc3bcd32a",
+    "hash": "153b940e2625222d728e9a18a9c5b0ba",
+    "content-hash": "429a7dbf145fae70db541049fd69607b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1249,11 +1249,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-344-category",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "0059871c3ba0d414dda7cd394b3114891d99fd30"
+                "reference": "bd1519942fb1d4a30b692230bf4b6bc57ceb8e25"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1335,6 +1335,7 @@
                     "Spryker\\Zed\\Category\\": "Bundles/Category/src",
                     "Unit\\Spryker\\Zed\\Category\\": "Bundles/Category/tests",
                     "Functional\\Spryker\\Zed\\Category\\": "Bundles/Category/tests",
+                    "Acceptance\\Category\\": "Bundles/Category/tests",
                     "Spryker\\Client\\CategoryExporter\\": "Bundles/CategoryExporter/src",
                     "Spryker\\Shared\\CategoryExporter\\": "Bundles/CategoryExporter/src",
                     "Spryker\\Client\\Checkout\\": "Bundles/Checkout/src",
@@ -1767,6 +1768,7 @@
                 "psr-4": {
                     "Application\\Module\\": "Bundles/Application/tests/_support/Module",
                     "Braintree\\Module\\": "Bundles/Braintree/tests/_support/Module",
+                    "Catalog\\Module\\": "Bundles/Catalog/tests/_support/Module",
                     "Config\\Module\\": "Bundles/Config/tests/_support/Module",
                     "Customer\\Module\\": "Bundles/Customer/tests/_support/Module",
                     "ErrorHandler\\Module\\": "Bundles/ErrorHandler/tests/_support/Module",
@@ -1784,7 +1786,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-11-16 10:48:02"
+            "time": "2016-09-20 14:36:35"
         },
         {
             "name": "symfony-cmf/routing",
