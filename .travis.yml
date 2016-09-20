@@ -79,7 +79,8 @@ before_script:
   - sudo antelope build
 
 script:
-  - setup_test -b
+  - ./setup_test -b
+  - vendor/bin/console transfer:generate
 
   - vendor/bin/console application:build-navigation-cache
 
