@@ -92,9 +92,6 @@ script:
 # Just in case you want to know about errors uncomment this
 #  - cat /tmp/zed-error.log
 
-  - vendor/bin/console collector:storage:export
-  - vendor/bin/console collector:search:export
-
   - vendor/bin/console code:sniff
 
 notifications:
