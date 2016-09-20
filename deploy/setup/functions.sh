@@ -224,7 +224,7 @@ function dropDevelopmentDatabase {
 
         if [[ -f $PG_CTL_CLUSTER ]] && [[ -f $DROP_DB ]]; then
             labelText "Deleting PostgreSql Database: ${DATABASE_NAME} "
-            pg_ctlcluster 9.4 main restart --force && dropdb $DATABASE_NAME 1>/dev/null
+            sudo pg_ctlcluster 9.4 main restart --force && sudo dropdb $DATABASE_NAME 1>/dev/null
             writeErrorMessage "Deleting DB command failed"
         fi
     fi

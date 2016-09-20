@@ -79,11 +79,7 @@ before_script:
   - sudo antelope build
 
 script:
-  - vendor/bin/console propel:install -o
-  - vendor/bin/console transfer:generate
-  - vendor/bin/console setup:init-db
-  - vendor/bin/console setup:search
-  - vendor/bin/console import:demo-data
+  - setup_test -b
 
   - vendor/bin/console application:build-navigation-cache
 
