@@ -23,7 +23,6 @@ cache:
 
 services:
   - postgresql
-  - elasticsearch
   - redis
 
 sudo: required
@@ -39,6 +38,10 @@ env:
 install:
   - composer self-update && composer --version
   - composer install --no-interaction
+   #Use elastic search 2, travis use 1.4
+  - mkdir /tmp/elasticsearch
+  - wget -O - https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/${ES_VERSION}/elasticsearch-${ES_VERSION}.tar.gz | tar xz --directory=/tmp/elasticsearch --strip-components=1
+  - /tmp/elasticsearch/bin/elasticsearch --daemonize --path.data /tmp
 
 before_script:
   - mkdir -p shared/data/common/jenkins
@@ -60,6 +63,9 @@ before_script:
   - echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
 
+    # apache rewrites
+  - sudo cp -f config/Shared/ci/travis/.htaccess .htaccess
+
     # configure apache virtual hosts
   - sudo cp -f config/Shared/ci/travis/php5-fpm.conf /etc/apache2/conf.d/php5-fpm.conf
   - sudo cp -f config/Shared/ci/travis/travis-ci-apache-yves /etc/apache2/sites-available/yves
@@ -69,6 +75,8 @@ before_script:
   - sudo ln -s /etc/apache2/sites-available/yves /etc/apache2/sites-enabled/yves
   - sudo ln -s /etc/apache2/sites-available/zed /etc/apache2/sites-enabled/zed
   - sudo service apache2 restart
+
+
 
    #Install antelope
   - curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -

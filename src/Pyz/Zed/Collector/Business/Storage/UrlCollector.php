@@ -224,7 +224,7 @@ class UrlCollector extends AbstractStoragePdoCollector
             $storeWriter->delete($keysToDelete);
         }
 
-        return parent::deleteDataFromStore($touchUpdater, $storeWriter, $itemType);
+       return parent::deleteDataFromStore($touchUpdater, $storeWriter, $itemType);
     }
 
     /**

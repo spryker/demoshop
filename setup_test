@@ -5,8 +5,8 @@ set -o pipefail
 SETUP='spryker'
 DATABASE_NAME='DE_test_zed'
 
-DATABASE_USER='postgres'
-DATABASE_PASSWORD=''
+DATABASE_USER='development'
+DATABASE_PASSWORD='mate20mg'
 VERBOSITY='-v'
 CONSOLE=vendor/bin/console
 PHANTOMJS_CDNURL='https://github.com/Medium/phantomjs/'
@@ -89,8 +89,8 @@ function dropAndRestoreTestDatabase {
     export LC_ALL="en_US.UTF-8"
 
     sudo pg_ctlcluster 9.4 main restart --force
-    sudo -u $DATABASE_USER dropdb $DATABASE_NAME
-    sudo -u $DATABASE_USER createdb $DATABASE_NAME
+    sudo dropdb $DATABASE_NAME
+    sudo createdb $DATABASE_NAME
     pg_restore -i -h 127.0.0.1 -p 5432 -U $DATABASE_USER -d $DATABASE_NAME -v $DATABASE_BACKUP_PATH
 
 }
