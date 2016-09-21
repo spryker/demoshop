@@ -1,5 +1,6 @@
 <?php
 
+use Monolog\Logger;
 use Pyz\Shared\Mail\MailConstants;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
@@ -9,6 +10,8 @@ use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
+use Spryker\Shared\Kernel\Store;
+use Spryker\Shared\Library\DataDirectory;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\NewRelic\NewRelicConstants;
 use Spryker\Shared\Newsletter\NewsletterConstants;
@@ -38,11 +41,11 @@ $config[ApplicationConstants::PROJECT_TIMEZONE] = 'UTC';
 $config[ApplicationConstants::PROJECT_NAMESPACE] = 'Pyz';
 
 $config[ApplicationConstants::ZED_TWIG_OPTIONS] = [
-    'cache' => \Spryker\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Zed/twig'),
+    'cache' => DataDirectory::getLocalStoreSpecificPath('cache/Zed/twig'),
 ];
 
 $config[ApplicationConstants::YVES_TWIG_OPTIONS] = [
-    'cache' => \Spryker\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Yves/twig'),
+    'cache' => DataDirectory::getLocalStoreSpecificPath('cache/Yves/twig'),
 ];
 
 $config[PropelConstants::ZED_DB_ENGINE_MYSQL] = PropelConfig::DB_ENGINE_MYSQL;
@@ -104,7 +107,7 @@ $config[ApplicationConstants::ZED_HTTP_STRICT_TRANSPORT_SECURITY_CONFIG] =
     'preload' => true
     ];
 
-$config[ApplicationConstants::LOG_LEVEL] = Monolog\Logger::INFO;
+$config[ApplicationConstants::LOG_LEVEL] = Logger::INFO;
 
 $config[ApplicationConstants::TRANSFER_USERNAME] = 'yves';
 $config[ApplicationConstants::TRANSFER_PASSWORD] = 'o7&bg=Fz;nSslHBC';
@@ -376,6 +379,14 @@ $config[KernelConstants::AUTO_LOADER_CACHE_FILE_NO_LOCK] = false;
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_PROVIDER] = \Spryker\Shared\Kernel\ClassResolver\Cache\Provider\File::class;
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = false;
+
+$config[PropelConstants::ZED_DB_ENGINE_MYSQL] = PropelConfig::DB_ENGINE_MYSQL;
+$config[PropelConstants::ZED_DB_ENGINE_PGSQL] = PropelConfig::DB_ENGINE_PGSQL;
+$config[PropelConstants::ZED_DB_SUPPORTED_ENGINES] = [
+    PropelConfig::DB_ENGINE_MYSQL => 'MySql',
+    PropelConfig::DB_ENGINE_PGSQL => 'PostgreSql'
+];
+$config[PropelConstants::SCHEMA_FILE_PATH_PATTERN] = $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] . '/*/src/*/Zed/*/Persistence/Propel/Schema/';
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = true;
 
 $config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [

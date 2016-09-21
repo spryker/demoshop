@@ -7,18 +7,19 @@
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Search\SearchConstants;
+use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Storage\StorageConstants;
 
 $zedHost = 'zed.de.spryker.test';
 $yvesHost = 'www.de.spryker.test';
 
-$config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
-$config[ApplicationConstants::ZED_DB_USERNAME] = 'development';
-$config[ApplicationConstants::ZED_DB_PASSWORD] = 'mate20mg';
-$config[ApplicationConstants::ZED_DB_DATABASE] = 'DE_test_zed';
-$config[ApplicationConstants::ZED_DB_HOST] = '127.0.0.1';
-$config[ApplicationConstants::ZED_DB_PORT] = 5432;
+$config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
+$config[PropelConstants::ZED_DB_USERNAME] = 'development';
+$config[PropelConstants::ZED_DB_PASSWORD] = 'mate20mg';
+$config[PropelConstants::ZED_DB_DATABASE] = 'DE_test_zed';
+$config[PropelConstants::ZED_DB_HOST] = '127.0.0.1';
+$config[PropelConstants::ZED_DB_PORT] = 5432;
 
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_search_test';
 

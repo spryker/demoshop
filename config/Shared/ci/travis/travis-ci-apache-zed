@@ -1,10 +1,13 @@
 <VirtualHost *:80>
 
   DocumentRoot %TRAVIS_BUILD_DIR%/public/Zed
-  ServerName zed.de.spryker.test
-  SetEnv APPLICATION_ENV test
+  ServerName zed.de.spryker.dev
 
   ErrorLog /tmp/zed-error.log
+
+  <FilesMatch \.php$>
+    SetHandler application/x-httpd-php
+  </FilesMatch>
 
   <Directory "%TRAVIS_BUILD_DIR%">
       Options Indexes FollowSymLinks MultiViews ExecCGI
@@ -12,5 +15,7 @@
       Order allow,deny
       allow from all
   </Directory>
+
+
 
 </VirtualHost>

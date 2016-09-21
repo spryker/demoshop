@@ -1,9 +1,10 @@
 <?php
 
+use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Zed\Propel\PropelConfig;
 
-$currentStore = \Spryker\Shared\Kernel\Store::getInstance()->getStoreName();
+$currentStore = Store::getInstance()->getStoreName();
 
 $dsn = sprintf(
     '%s:host=%s;port=%d;dbname=%s',
