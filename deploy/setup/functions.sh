@@ -113,8 +113,8 @@ function dropAndRestoreDatabase {
     export LC_ALL="en_US.UTF-8"
 
     sudo pg_ctlcluster 9.4 main restart --force
-    sudo dropdb $DATABASE_NAME
-    sudo createdb $DATABASE_NAME
+    sudo -u postgres dropdb $DATABASE_NAME
+    sudo -u postgres $DATABASE_NAME
     pg_restore -i -h 127.0.0.1 -p 5432 -U $DATABASE_USER -d $DATABASE_NAME -v $DATABASE_BACKUP_PATH
 
 }
@@ -217,7 +217,7 @@ function resetDevelopmentState {
 }
 
 function dropDevelopmentDatabase {
-    if [ `sudo psql -l | grep ${DATABASE_NAME} | wc -l` -ne 0 ]; then
+    if [ `sudo -u postgres psql -l | grep ${DATABASE_NAME} | wc -l` -ne 0 ]; then
 
         PG_CTL_CLUSTER=`which pg_ctlcluster`
         DROP_DB=`which dropdb`
