@@ -185,7 +185,7 @@ function optimizeRepo {
 
 function resetDataStores {
     labelText "Flushing Elasticsearch"
-    curl -XDELETE 'http://localhost:'+$ELASTIC_SEARCH_PORT+'/'+$ELASTIC_SEARCH_INDEX+'/'
+    curl -XDELETE "http://localhost:$ELASTIC_SEARCH_PORT/$ELASTIC_SEARCH_INDEX/"
     writeErrorMessage "Elasticsearch reset failed"
 
     labelText "Flushing Redis"
