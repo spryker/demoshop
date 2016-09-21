@@ -185,11 +185,11 @@ function optimizeRepo {
 
 function resetDataStores {
     labelText "Flushing Elasticsearch"
-    curl -XDELETE 'http://localhost:10005/de_search/'
+    curl -XDELETE 'http://localhost:'+$ELASTIC_SEARCH_PORT+'/'+$ELASTIC_SEARCH_INDEX+'/'
     writeErrorMessage "Elasticsearch reset failed"
 
     labelText "Flushing Redis"
-    redis-cli -p 10009 FLUSHALL
+    redis-cli -p $REDIS_PORT FLUSHALL
     writeErrorMessage "Redis reset failed"
 }
 
@@ -217,7 +217,7 @@ function resetDevelopmentState {
 }
 
 function dropDevelopmentDatabase {
-    if [ `psql -l | grep ${DATABASE_NAME} | wc -l` -ne 0 ]; then
+    if [ `sudo psql -l | grep ${DATABASE_NAME} | wc -l` -ne 0 ]; then
 
         PG_CTL_CLUSTER=`which pg_ctlcluster`
         DROP_DB=`which dropdb`

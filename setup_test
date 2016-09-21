@@ -2,15 +2,9 @@
 
 set -o pipefail
 
-SETUP='spryker'
-DATABASE_NAME='DE_test_zed'
+.  deploy/setup/params.sh
 
-DATABASE_USER='development'
-DATABASE_PASSWORD='mate20mg'
-VERBOSITY='-v'
-CONSOLE=vendor/bin/console
-PHANTOMJS_CDNURL='https://github.com/Medium/phantomjs/'
-DATABASE_BACKUP_PATH='data/test.backup'
+ELASTIC_SEARCH_INDEX='de_search_test'
 
 export APPLICATION_ENV='test'
 
@@ -89,13 +83,15 @@ function dropAndRestoreTestDatabase {
     export LC_ALL="en_US.UTF-8"
 
     sudo pg_ctlcluster 9.4 main restart --force
-    sudo dropdb $DATABASE_NAME
-    sudo createdb $DATABASE_NAME
+    sudo -u postgres dropdb $DATABASE_NAME
+    sudo -u postgres createdb $DATABASE_NAME
     pg_restore -i -h 127.0.0.1 -p 5432 -U $DATABASE_USER -d $DATABASE_NAME -v $DATABASE_BACKUP_PATH
 
 }
 
 function runCollectors() {
+
+   resetDataStores
 
    export PGPASSWORD=$DATABASE_PASSWORD
    labelText "Reset touch table."
