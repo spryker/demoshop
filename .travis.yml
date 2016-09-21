@@ -46,13 +46,14 @@ install:
 before_script:
   - mkdir -p shared/data/common/jenkins
   - mkdir -p shared/data/common/jenkins/jobs
-  - mv config/Zed/propel.ci.yml config/Zed/propel.yml
-  - cp config/Shared/config_default-test.ci.php config/Shared/config_default-test.php
-  - cp config/Shared/ci/travis/params.sh deploy/setup/params.sh
-
   - mkdir -p data/DE/cache/Yves/twig -m 0777
   - mkdir -p data/DE/cache/Zed/twig -m 0777
   - mkdir -p data/DE/logs -m 0777
+  - chmod -R 777 data/
+
+  - mv config/Zed/propel.ci.yml config/Zed/propel.yml
+  - cp config/Shared/config_default-test.ci.php config/Shared/config_default-test.php
+  - cp config/Shared/ci/travis/params.sh deploy/setup/params.sh
 
     # install apache with fastcgi modules
   - sudo apt-get install apache2 libapache2-mod-fastcgi
@@ -85,18 +86,14 @@ before_script:
   - sudo antelope install
   - sudo antelope build
 
-script:
+    #prepare test data dump, run storage and search collectors
   - ./setup_test -b
 
-  - chmod -R 777 data/
-  #- if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance ; fi
-  #- if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance ; fi
+script:
+  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance ; fi
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance ; fi
 
-  - vendor/bin/codecept run
-# Just in case you want to know about errors uncomment this
-#  - cat /tmp/zed-error.log
-
-  - vendor/bin/console code:sniff
+  - vendor/bin/phpcs Bundles --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml
 
 notifications:
   email: false

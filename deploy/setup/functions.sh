@@ -373,5 +373,8 @@ function displayHelp {
     echo ""
     echo "  -v, -vv, -vvv"
     echo "      Set verbosity level"
+    echo ""
+    echo "  -t, --test-env "
+    echo "      setup test eviroment"
     echo " "
 }

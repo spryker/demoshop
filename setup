@@ -47,6 +47,10 @@ do
         "--clean" | "-c" )
            optimizeRepo
            ;;
+        "--test-env" | "-t" )
+           ./setup_test -b
+           ;;
+
         *)
             displayHeader
             echo ""
