@@ -98,6 +98,7 @@ function runCollectors() {
    psql -h 127.0.0.1 -U $DATABASE_USER  -d $DATABASE_NAME -c 'UPDATE spy_touch set touched=now()' -w
 
    labelText "Run collectors."
+   $CONSOLE setup:search $VERBOSITY
    $CONSOLE collector:search:export $VERBOSITY
    $CONSOLE collector:storage:export $VERBOSITY
 }

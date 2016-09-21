@@ -93,7 +93,7 @@ script:
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance ; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance ; fi
 
-  - vendor/bin/phpcs Bundles --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml
+  - vendor/bin/phpcs $(pwd) --standard=$(pwd)/vendor/spryker/code-sniffer/Spryker/ruleset.xml --ignore=vendor/
 
 notifications:
   email: false
