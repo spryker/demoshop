@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f8ba2bb17f4e92a747957533f714e8f0",
-    "content-hash": "e3d0d8ecddd995f2cd92cf691cc4cda4",
+    "hash": "adb035c838c4852ff4a54087ed2d43eb",
+    "content-hash": "be63771b2f1debb1edbe813841745970",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1200,7 +1200,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d96fb6dcc82b1b4fada4d15523fa31348da4125e"
+                "reference": "1b3b8aca19ae1e7a7018cd87854d6e448d5a67c0"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1729,7 +1729,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-09-16 08:41:39"
+            "time": "2016-09-21 09:23:11"
         },
         {
             "name": "symfony-cmf/routing",
