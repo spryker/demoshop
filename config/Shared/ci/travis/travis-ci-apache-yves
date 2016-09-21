@@ -1,4 +1,4 @@
-VirtualHost *:80>
+<VirtualHost *:80>
 
   DocumentRoot %TRAVIS_BUILD_DIR%/public/Yves
   ServerName www.de.spryker.test
