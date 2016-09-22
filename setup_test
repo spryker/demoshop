@@ -52,8 +52,6 @@ function backupTestingEnvData {
     $CONSOLE import:demo-data $VERBOSITY
     writeErrorMessage "DemoData import failed"
 
-    runCollectors
-
     backupDatabaseForTests
 
     successText "Backup successful."

@@ -36,6 +36,7 @@ env:
     - TEST_GROUP=acceptance
 
 install:
+  - chmod -R a+x deploy/travis/
   - composer self-update && composer --version
   - composer install --no-interaction
   - if [[ $TEST_GROUP == 'acceptance' ]]; then deploy/travis/install_elasticsearch.sh; fi
@@ -47,6 +48,7 @@ before_script:
   - mkdir -p data/DE/cache/Zed/twig -m 0777
   - mkdir -p data/DE/logs -m 0777
   - chmod -R 777 data/
+
 
   - mv config/Zed/propel.ci.yml config/Zed/propel.yml
   - cp config/Shared/config_default-test.ci.php config/Shared/config_default-test.php
