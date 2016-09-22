@@ -4,16 +4,18 @@ use Pyz\Shared\Mail\MailConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\Payone\PayoneConstants;
+use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Ratepay\RatepayConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Storage\StorageConstants;
 
-$config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
-$config[ApplicationConstants::ZED_DB_USERNAME] = 'ubuntu';
-$config[ApplicationConstants::ZED_DB_PASSWORD] = '';
-$config[ApplicationConstants::ZED_DB_DATABASE] = 'circle_test';
-$config[ApplicationConstants::ZED_DB_HOST] = '127.0.0.1';
-$config[ApplicationConstants::ZED_DB_PORT] = 5432;
+$config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
+$config[PropelConstants::ZED_DB_USERNAME] = 'postgres';
+$config[PropelConstants::ZED_DB_PASSWORD] = '';
+$config[PropelConstants::ZED_DB_DATABASE] = 'test_database';
+$config[PropelConstants::ZED_DB_HOST] = '127.0.0.1';
+$config[PropelConstants::ZED_DB_PORT] = 5432;
+$config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = false;
 
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_search';
 $config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
@@ -28,7 +30,7 @@ $config[ApplicationConstants::HOST_STATIC_ASSETS] = $config[ApplicationConstants
 $config[ApplicationConstants::HOST_SSL_YVES] = 'https://' . $yvesHost;
 $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS] = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA] = $yvesHost;
 
-$zedHost = 'zed.de.spryker.dev:8080';
+$zedHost = 'zed.de.spryker.dev:80';
 $config[ApplicationConstants::HOST_ZED_GUI]
     = 'http://' . $zedHost;
 $config[ApplicationConstants::HOST_ZED_API] = $zedHost;

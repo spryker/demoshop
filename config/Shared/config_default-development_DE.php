@@ -3,14 +3,15 @@
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Mail\MailConstants;
+use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Session\SessionConstants;
 
-$config[ApplicationConstants::ZED_DB_USERNAME] = 'development';
-$config[ApplicationConstants::ZED_DB_PASSWORD] = 'mate20mg';
-$config[ApplicationConstants::ZED_DB_DATABASE] = 'DE_development_zed';
-$config[ApplicationConstants::ZED_DB_HOST] = '127.0.0.1';
-$config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
-$config[ApplicationConstants::ZED_DB_PORT] = 5432;
+$config[PropelConstants::ZED_DB_USERNAME] = 'development';
+$config[PropelConstants::ZED_DB_PASSWORD] = 'mate20mg';
+$config[PropelConstants::ZED_DB_DATABASE] = 'DE_development_zed';
+$config[PropelConstants::ZED_DB_HOST] = '127.0.0.1';
+$config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
+$config[PropelConstants::ZED_DB_PORT] = 5432;
 
 $yvesHost = 'www.de.spryker.dev';
 $config[ApplicationConstants::HOST_YVES] = 'http://' . $yvesHost;

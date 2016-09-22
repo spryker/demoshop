@@ -3,22 +3,23 @@
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Mail\MailConstants;
+use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Session\SessionConstants;
 
-$schema = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
+$schema = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
 $dbopts = parse_url(getenv(getenv('DATABASE_URL_NAME') ?: 'DATABASE_URL'));
 switch ($dbopts['scheme']) {
     case 'postgres':
-        $schema = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
+        $schema = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
         break;
 }
 
-$config[ApplicationConstants::ZED_DB_ENGINE] = $config[ApplicationConstants::ZED_DB_ENGINE_PGSQL];
-$config[ApplicationConstants::ZED_DB_USERNAME] = $dbopts['user'];
-$config[ApplicationConstants::ZED_DB_PASSWORD] = $dbopts['pass'];
-$config[ApplicationConstants::ZED_DB_DATABASE] = ltrim($dbopts['path'], '/');
-$config[ApplicationConstants::ZED_DB_HOST] = $dbopts['host'];
-$config[ApplicationConstants::ZED_DB_PORT] = isset($dbopts['port']) ? $dbopts['port'] : 5432;
+$config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
+$config[PropelConstants::ZED_DB_USERNAME] = $dbopts['user'];
+$config[PropelConstants::ZED_DB_PASSWORD] = $dbopts['pass'];
+$config[PropelConstants::ZED_DB_DATABASE] = ltrim($dbopts['path'], '/');
+$config[PropelConstants::ZED_DB_HOST] = $dbopts['host'];
+$config[PropelConstants::ZED_DB_PORT] = isset($dbopts['port']) ? $dbopts['port'] : 5432;
 
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_search';
 

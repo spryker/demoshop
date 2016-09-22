@@ -1,15 +1,13 @@
 <VirtualHost *:80>
 
-  LoadModule php5_module /home/ubuntu/.phpenv/versions/5.6.5/libexec/apache2/libphp5.so
-
-  DocumentRoot /home/ubuntu/project/public/Zed
-  ServerName zed.de.spryker.dev
+  DocumentRoot %TRAVIS_BUILD_DIR%/public/Yves
+  ServerName www.de.spryker.dev
 
   <FilesMatch \.php$>
     SetHandler application/x-httpd-php
   </FilesMatch>
 
-  <Directory /home/ubuntu/project/public/Zed>
+  <Directory "%TRAVIS_BUILD_DIR%">
       Options Indexes FollowSymLinks MultiViews ExecCGI
       AllowOverride All
       Order allow,deny

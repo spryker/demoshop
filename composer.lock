@@ -3897,26 +3897,22 @@
     "packages-dev": [
         {
             "name": "codeception/c3",
-            "version": "2.0.7",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/c3.git",
-                "reference": "51eec2c3a8e093deb621f58004f0393dc0871983"
+                "reference": "fad23c9aec616316e611b7eb80bf118f1a3e3a89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/c3/zipball/51eec2c3a8e093deb621f58004f0393dc0871983",
-                "reference": "51eec2c3a8e093deb621f58004f0393dc0871983",
+                "url": "https://api.github.com/repos/Codeception/c3/zipball/fad23c9aec616316e611b7eb80bf118f1a3e3a89",
+                "reference": "fad23c9aec616316e611b7eb80bf118f1a3e3a89",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "^1.0",
                 "php": ">=5.4.0"
             },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "Codeception\\c3\\Installer"
-            },
+            "type": "library",
             "autoload": {
                 "psr-4": {
                     "Codeception\\c3\\": "."
@@ -3928,12 +3924,8 @@
             ],
             "authors": [
                 {
-                    "name": "Tiger Seo",
-                    "email": "tiger.seo@gmail.com"
-                },
-                {
                     "name": "Michael Bodnarchuk",
-                    "email": "davert.php@codegyre.com",
+                    "email": "davert.php@resend.cc",
                     "homepage": "http://codegyre.com"
                 }
             ],
@@ -3943,7 +3935,7 @@
                 "code coverage",
                 "codecoverage"
             ],
-            "time": "2016-06-27 16:49:12"
+            "time": "2014-10-03 00:25:28"
         },
         {
             "name": "codeception/codeception",
@@ -4173,16 +4165,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.5.2",
+            "version": "1.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "da8529775f14f4fdae33f916eb0cf65f6afbddbc"
+                "reference": "ea74994a3dc7f8d2f65a06009348f2d63c81e61f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/da8529775f14f4fdae33f916eb0cf65f6afbddbc",
-                "reference": "da8529775f14f4fdae33f916eb0cf65f6afbddbc",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/ea74994a3dc7f8d2f65a06009348f2d63c81e61f",
+                "reference": "ea74994a3dc7f8d2f65a06009348f2d63c81e61f",
                 "shasum": ""
             },
             "require": {
@@ -4211,7 +4203,52 @@
                 "object",
                 "object graph"
             ],
-            "time": "2016-09-06 16:07:05"
+            "time": "2016-09-16 13:37:59"
+        },
+        {
+            "name": "nikic/php-parser",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nikic/PHP-Parser.git",
+                "reference": "f78af2c9c86107aa1a34cd1dbb5bbe9eeb0d9f51"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/f78af2c9c86107aa1a34cd1dbb5bbe9eeb0d9f51",
+                "reference": "f78af2c9c86107aa1a34cd1dbb5bbe9eeb0d9f51",
+                "shasum": ""
+            },
+            "require": {
+                "ext-tokenizer": "*",
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "lib/bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Popov"
+                }
+            ],
+            "description": "A PHP parser written in PHP",
+            "keywords": [
+                "parser",
+                "php"
+            ],
+            "time": "2015-09-19 14:15:08"
         },
         {
             "name": "pdepend/pdepend",
@@ -5747,16 +5784,16 @@
         },
         {
             "name": "site5/phantoman",
-            "version": "v1.1.6",
+            "version": "v1.1.7",
             "source": {
                 "type": "git",
-                "url": "https://github.com/site5/phantoman.git",
-                "reference": "6ac9bed985d023909966a5c5b82489ced62998d1"
+                "url": "https://github.com/grantlucas/phantoman.git",
+                "reference": "f65d26d3311e44380692cb0255b95181743f69f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/site5/phantoman/zipball/6ac9bed985d023909966a5c5b82489ced62998d1",
-                "reference": "6ac9bed985d023909966a5c5b82489ced62998d1",
+                "url": "https://api.github.com/repos/grantlucas/phantoman/zipball/f65d26d3311e44380692cb0255b95181743f69f2",
+                "reference": "f65d26d3311e44380692cb0255b95181743f69f2",
                 "shasum": ""
             },
             "require": {
@@ -5779,18 +5816,18 @@
             "authors": [
                 {
                     "name": "Grant Lucas",
-                    "email": "grant.lucas@wwwh.com"
+                    "email": "contact@grantlucas.com"
                 }
             ],
             "description": "The Codeception extension for automatically starting and stopping PhantomJS when running tests.",
-            "homepage": "https://github.com/site5/phantoman",
+            "homepage": "https://github.com/grantlucas/phantoman",
             "keywords": [
                 "codeception",
                 "extension",
                 "headless",
                 "phantomjs"
             ],
-            "time": "2016-08-08 19:53:21"
+            "time": "2016-09-15 14:35:04"
         },
         {
             "name": "sllh/composer-versions-check",
@@ -6022,6 +6059,48 @@
                 "standards"
             ],
             "time": "2016-09-01 23:53:02"
+        },
+        {
+            "name": "sstalle/php7cc",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sstalle/php7cc.git",
+                "reference": "f9294c1fd712b05c335a7985a0d42d4762794e77"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sstalle/php7cc/zipball/f9294c1fd712b05c335a7985a0d42d4762794e77",
+                "reference": "f9294c1fd712b05c335a7985a0d42d4762794e77",
+                "shasum": ""
+            },
+            "require": {
+                "nikic/php-parser": "~1.4",
+                "php": ">=5.3.3",
+                "pimple/pimple": "~1.1",
+                "symfony/console": "~2.3"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "~1.10",
+                "kherge/box": "~2.5",
+                "mikey179/vfsstream": "~1.5",
+                "phpunit/phpunit": "4.7.*"
+            },
+            "bin": [
+                "bin/php7cc"
+            ],
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "Sstalle\\php7cc\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A command-line tool to check PHP 5.3 - 5.6 code compatibility with PHP 7",
+            "time": "2015-08-31 18:18:27"
         },
         {
             "name": "symfony/browser-kit",
@@ -6513,7 +6592,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "~5.6.0"
+        "php": ">=5.6"
     },
     "platform-dev": []
 }
