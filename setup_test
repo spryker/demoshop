@@ -122,7 +122,10 @@ do
          "--collectors" | "-c" )
            runCollectors
            ;;
-
+         "--full" | "-f" )
+            backupTestingEnvData
+            runCollectors
+           ;;
         *)
             displayHeader
             echo ""

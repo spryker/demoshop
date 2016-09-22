@@ -38,7 +38,6 @@ env:
 install:
   - composer self-update && composer --version
   - composer install --no-interaction
-
   - if [[ $TEST_GROUP == 'acceptance' ]]; then deploy/travis/install_elasticsearch.sh; fi
 
 before_script:
@@ -55,8 +54,8 @@ before_script:
 
   - if [[ $TEST_GROUP == 'acceptance' ]]; then deploy/travis/acceptance_env.sh; fi
 
-    #prepare test data dump, run storage and search collectors
-  - ./setup_test -b
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then ./setup_test -f; fi
+  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then ./setup_test -b; fi
 
 script:
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance ; fi
