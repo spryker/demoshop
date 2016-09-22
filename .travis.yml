@@ -49,7 +49,6 @@ before_script:
   - mkdir -p data/DE/logs -m 0777
   - chmod -R 777 data/
 
-
   - mv config/Zed/propel.ci.yml config/Zed/propel.yml
   - cp config/Shared/config_default-test.ci.php config/Shared/config_default-test.php
   - cp config/Shared/ci/travis/params.sh deploy/setup/params.sh
