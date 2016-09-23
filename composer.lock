@@ -1200,7 +1200,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "7caa8885c465d25869c8fc2354771b3e8d9f426d"
+                "reference": "e925da0517cbadd7027d402d0dc85e8ff09f4987"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1359,6 +1359,8 @@
                     "Spryker\\Yves\\DummyPayment\\": "Bundles/DummyPayment/src",
                     "Spryker\\Shared\\DummyPayment\\": "Bundles/DummyPayment/src",
                     "Spryker\\Zed\\DummyPayment\\": "Bundles/DummyPayment/src",
+                    "Spryker\\Shared\\ErrorHandler\\": "Bundles/ErrorHandler/src",
+                    "Unit\\Spryker\\Shared\\ErrorHandler\\": "Bundles/ErrorHandler/tests",
                     "Spryker\\Client\\EventJournal\\": "Bundles/EventJournal/src",
                     "Unit\\Spryker\\Client\\EventJournal\\": "Bundles/EventJournal/tests",
                     "Functional\\Spryker\\Client\\EventJournal\\": "Bundles/EventJournal/tests",
@@ -1681,14 +1683,16 @@
                     "Unit\\Spryker\\Zed\\Wishlist\\": "Bundles/Wishlist/tests",
                     "Functional\\Spryker\\Zed\\Wishlist\\": "Bundles/Wishlist/tests",
                     "Spryker\\Client\\ZedRequest\\": "Bundles/ZedRequest/src",
-                    "Unit\\Spryker\\Client\\ZedRequest\\": "Bundles/ZedRequest/tests",
-                    "Functional\\Spryker\\Client\\ZedRequest\\": "Bundles/ZedRequest/tests",
                     "Spryker\\Shared\\ZedRequest\\": "Bundles/ZedRequest/src",
-                    "Unit\\Spryker\\Shared\\ZedRequest\\": "Bundles/ZedRequest/tests",
-                    "Functional\\Spryker\\Shared\\ZedRequest\\": "Bundles/ZedRequest/tests",
                     "Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/src",
-                    "Unit\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests",
+                    "Spryker\\Yves\\ZedRequest\\": "Bundles/ZedRequest/src",
+                    "Functional\\Spryker\\Client\\ZedRequest\\": "Bundles/ZedRequest/tests",
+                    "Functional\\Spryker\\Shared\\ZedRequest\\": "Bundles/ZedRequest/tests",
                     "Functional\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests",
+                    "Unit\\Spryker\\Client\\ZedRequest\\": "Bundles/ZedRequest/tests",
+                    "Unit\\Spryker\\Shared\\ZedRequest\\": "Bundles/ZedRequest/tests",
+                    "Unit\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests",
+                    "Unit\\Spryker\\Yves\\ZedRequest\\": "Bundles/ZedRequest/tests",
                     "Spryker\\Zed\\ProductDiscountConnector\\": "Bundles/ProductDiscountConnector/src",
                     "Unit\\Spryker\\Zed\\ProductDiscountConnector\\": "Bundles/ProductDiscountConnector/tests",
                     "Functional\\Spryker\\Zed\\ProductDiscountConnector\\": "Bundles/ProductDiscountConnector/tests",
@@ -1706,6 +1710,7 @@
                     "Braintree\\Module\\": "Bundles/Braintree/tests/_support/Module",
                     "Config\\Module\\": "Bundles/Config/tests/_support/Module",
                     "Customer\\Module\\": "Bundles/Customer/tests/_support/Module",
+                    "ErroHandler\\Module\\": "Bundles/ErrorHandler/tests/_support/Module",
                     "Oms\\Module\\": "Bundles/Oms/tests/_support/Module",
                     "Propel\\Module\\": "Bundles/Propel/tests/_support/Module",
                     "Sales\\Module\\": "Bundles/Sales/tests/_support/Module",
@@ -1720,7 +1725,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-09-12 07:46:46"
+            "time": "2016-09-23 13:47:34"
         },
         {
             "name": "symfony-cmf/routing",
