@@ -41,13 +41,7 @@ function backupTestingEnvData {
     dropDevelopmentDatabase
 
     labelText "Running setup:install"
-    $CONSOLE cache:delete-all $VERBOSITY
-    $CONSOLE setup:remove-generated-directory $VERBOSITY
-    $CONSOLE propel:install $VERBOSITY
-    $CONSOLE transfer:generate $VERBOSITY
-    $CONSOLE setup:init-db $VERBOSITY
-    $CONSOLE setup:generate-ide-auto-completion $VERBOSITY
-    $CONSOLE application:build-navigation-cache $VERBOSITY
+    $CONSOLE setup:install $VERBOSITY
     writeErrorMessage "Setup install failed"
 
     labelText "Running propel code generation/migrations"

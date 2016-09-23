@@ -39,7 +39,7 @@ install:
   - chmod -R a+x deploy/travis/
   - composer self-update && composer --version
   - composer install --no-interaction
-  - if [[ $TEST_GROUP == 'acceptance' ]]; then deploy/travis/install_elasticsearch.sh; fi
+  - deploy/travis/install_elasticsearch.sh
 
 before_script:
   - mkdir -p shared/data/common/jenkins
