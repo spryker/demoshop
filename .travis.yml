@@ -1,0 +1,79 @@
+language: php
+
+php:
+  - 5.6
+  - 7.0
+
+matrix:
+  allow_failures:
+    - php: 7.0
+    - env: TEST_GROUP=acceptance
+
+addons:
+  postgresql: 9.4
+  apt:
+    packages:
+      - graphviz
+
+  hosts:
+    - zed.de.spryker.dev
+    - www.de.spryker.dev
+
+cache:
+  directories:
+    - vendor
+    - $HOME/.composer/cache
+
+services:
+  - postgresql
+  - elasticsearch
+  - redis
+
+sudo: required
+
+env:
+  global:
+    - APPLICATION_ENV=development
+    - APPLICATION_STORE=DE
+  matrix:
+    - TEST_GROUP=without-acceptance
+    - TEST_GROUP=acceptance
+
+install:
+  - composer self-update && composer --version
+  - composer install --no-interaction
+
+before_script:
+  - mkdir -p shared/data/common/jenkins
+  - mkdir -p shared/data/common/jenkins/jobs
+  - mv config/Zed/propel.ci.yml config/Zed/propel.yml
+  - cp config/Shared/config_default-development.ci.php config/Shared/config_default-development_DE.php
+  - cp config/Shared/config_default-development.ci.php config/Shared/config_default-test.php
+
+  - mkdir -p data/DE/cache/Yves/twig -m 0777
+  - mkdir -p data/DE/cache/Zed/twig -m 0777
+  - mkdir -p data/DE/logs -m 0777
+
+script:
+  - vendor/bin/console propel:install -o
+  - vendor/bin/console transfer:generate
+  - vendor/bin/console setup:init-db
+  - vendor/bin/console setup:search
+  - vendor/bin/console import:demo-data
+
+  - vendor/bin/console application:build-navigation-cache
+
+  - chmod -R 777 data/
+  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance ; fi
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance ; fi
+
+# Just in case you want to know about errors uncomment this
+#  - cat /tmp/zed-error.log
+
+  - vendor/bin/console collector:storage:export
+  - vendor/bin/console collector:search:export
+
+  - vendor/bin/console code:sniff
+
+notifications:
+  email: false
