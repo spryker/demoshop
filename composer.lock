@@ -1200,7 +1200,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "e925da0517cbadd7027d402d0dc85e8ff09f4987"
+                "reference": "aa9259c6d9fa627c8e59e474ddd33a6d48f15b94"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1530,6 +1530,7 @@
                     "Spryker\\Client\\ProductOption\\": "Bundles/ProductOption/src",
                     "Unit\\Spryker\\Shared\\ProductOption\\": "Bundles/ProductOption/tests",
                     "Functional\\Spryker\\Shared\\ProductOption\\": "Bundles/ProductOption/tests",
+                    "Acceptance\\ProductOption\\": "Bundles/ProductOption/tests",
                     "Spryker\\Zed\\ProductOption\\": "Bundles/ProductOption/src",
                     "Unit\\Spryker\\Zed\\ProductOption\\": "Bundles/ProductOption/tests",
                     "Functional\\Spryker\\Zed\\ProductOption\\": "Bundles/ProductOption/tests",
@@ -1725,7 +1726,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-09-23 13:47:34"
+            "time": "2016-09-26 13:44:02"
         },
         {
             "name": "symfony-cmf/routing",
