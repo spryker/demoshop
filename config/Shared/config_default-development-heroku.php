@@ -68,8 +68,8 @@ $config[AclConstants::ACL_USER_RULE_WHITELIST][] = [
     'type' => 'allow',
 ];
 
-$config[ApplicationConstants::PROPEL_DEBUG] = false;
-$config[ApplicationConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = false;
+$config[PropelConstants::PROPEL_DEBUG] = false;
+$config[PropelConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = false;
 
 $config[ApplicationConstants::ALLOW_INTEGRATION_CHECKS] = true;
 $config[ApplicationConstants::DISPLAY_ERRORS] = true;
