@@ -70,6 +70,7 @@ $config[AclConstants::ACL_USER_RULE_WHITELIST][] = [
 
 $config[PropelConstants::PROPEL_DEBUG] = false;
 $config[PropelConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = false;
+$config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = false;
 
 $config[ApplicationConstants::ALLOW_INTEGRATION_CHECKS] = true;
 $config[ApplicationConstants::DISPLAY_ERRORS] = true;
@@ -80,9 +81,8 @@ $config[ApplicationConstants::STORE_PREFIX] = 'DEV';
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = false;
 $config[ApplicationConstants::SHOW_SYMFONY_TOOLBAR] = false;
 
-$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/';
+$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
 
 $config[LogConstants::LOG_LEVEL] = 0;
 $config[EventJournalConstants::WRITERS]['YVES'] = [];
 $config[EventJournalConstants::WRITERS]['ZED'] = [];
-$config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = false;

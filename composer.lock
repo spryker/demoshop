@@ -5602,11 +5602,11 @@
         },
         {
             "name": "spryker/new-relic",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/NewRelic.git",
-                "reference": "a7a35cf1a94cc96115d90be6b37b9e915994fa79",
+                "reference": "2db7bb8b48f8a82db75fe9f6a3ca03a616756520",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5616,8 +5616,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/NewRelic/zipball/a7a35cf1a94cc96115d90be6b37b9e915994fa79",
-                "reference": "a7a35cf1a94cc96115d90be6b37b9e915994fa79",
+                "url": "https://api.github.com/repos/spryker/NewRelic/zipball/2db7bb8b48f8a82db75fe9f6a3ca03a616756520",
+                "reference": "2db7bb8b48f8a82db75fe9f6a3ca03a616756520",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5653,6 +5653,9 @@
             "autoload-dev": {
                 "psr-0": {
                     "Unit": "tests/"
+                },
+                "psr-4": {
+                    "Testify\\Module\\": "vendor/spryker/testify/tests/_support/Module"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -5663,7 +5666,7 @@
             "support": {
                 "source": "https://github.com/spryker/NewRelic/tree/master"
             },
-            "time": "2016-09-08 10:31:59"
+            "time": "2016-09-26 09:31:10"
         },
         {
             "name": "spryker/newsletter",

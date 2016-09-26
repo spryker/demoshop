@@ -1,5 +1,6 @@
 <?php
 
+use Monolog\Logger;
 use Pyz\Shared\Mail\MailConstants;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
@@ -10,6 +11,7 @@ use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Kernel\ClassResolver\Cache\Provider\File;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
+use Spryker\Shared\Library\DataDirectory;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\NewRelic\NewRelicConstants;
 use Spryker\Shared\Newsletter\NewsletterConstants;
@@ -39,11 +41,11 @@ $config[ApplicationConstants::PROJECT_TIMEZONE] = 'UTC';
 $config[ApplicationConstants::PROJECT_NAMESPACE] = 'Pyz';
 
 $config[ApplicationConstants::ZED_TWIG_OPTIONS] = [
-    'cache' => \Spryker\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Zed/twig'),
+    'cache' => DataDirectory::getLocalStoreSpecificPath('cache/Zed/twig'),
 ];
 
 $config[ApplicationConstants::YVES_TWIG_OPTIONS] = [
-    'cache' => \Spryker\Shared\Library\DataDirectory::getLocalStoreSpecificPath('cache/Yves/twig'),
+    'cache' => DataDirectory::getLocalStoreSpecificPath('cache/Yves/twig'),
 ];
 
 $config[PropelConstants::ZED_DB_ENGINE_MYSQL] = PropelConfig::DB_ENGINE_MYSQL;
@@ -111,7 +113,7 @@ $config[ApplicationConstants::TRANSFER_SSL] = false;
 $config[ApplicationConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = false;
 $config[ApplicationConstants::TRANSFER_DEBUG_SESSION_NAME] = 'XDEBUG_SESSION';
 
-$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker';
+$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
 
 $config[StorageConstants::STORAGE_KV_SOURCE] = 'redis';
 $config[StorageConstants::STORAGE_PERSISTENT_CONNECTION] = true;
@@ -155,8 +157,8 @@ $config[ApplicationConstants::YVES_COOKIE_VISITOR_ID_VALID_FOR] = '+30 minute';
 $config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^/customer)';
 $config[CustomerConstants::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
 
-$currentStore = Store::getInstance()->getStoreName();
-$config[PropelConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = false;
+$currentStore = \Spryker\Shared\Kernel\Store::getInstance()->getStoreName();
+$config[ApplicationConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = false;
 
 $config[ApplicationConstants::CLOUD_ENABLED] = false;
 $config[ApplicationConstants::CLOUD_OBJECT_STORAGE_ENABLED] = false;
@@ -362,7 +364,7 @@ $config[EventJournalConstants::WRITER_OPTIONS] = [
     ],
 ];
 
-$config[PropelConstants::PROPEL_DEBUG] = false;
+$config[ApplicationConstants::PROPEL_DEBUG] = false;
 $config[SequenceNumberConstants::ENVIRONMENT_PREFIX]
     = $config[SalesConstants::ENVIRONMENT_PREFIX]
     = '';
@@ -375,7 +377,7 @@ $config[ApplicationConstants::ERROR_LEVEL] = E_ALL;
 
 $config[KernelConstants::AUTO_LOADER_CACHE_FILE_NO_LOCK] = false;
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
-$config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_PROVIDER] = File::class;
+$config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_PROVIDER] = \Spryker\Shared\Kernel\ClassResolver\Cache\Provider\File::class;
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = false;
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = true;
 
@@ -396,7 +398,7 @@ $config[KernelConstants::DEPENDENCY_INJECTOR_ZED] = [
 
 $config[OmsConstants::PROCESS_LOCATION] = [
     OmsConfig::DEFAULT_PROCESS_LOCATION,
-    $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] . '/dummy-payment/config/Zed/Oms',
+    $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] . '/DummyPayment/config/Zed/Oms',
 ];
 
 $config[OmsConstants::ACTIVE_PROCESSES] = [
