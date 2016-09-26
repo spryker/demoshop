@@ -1024,22 +1024,30 @@
         },
         {
             "name": "psr/log",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+                "reference": "5277094ed527a1c4477177d102fe4c53551953e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/5277094ed527a1c4477177d102fe4c53551953e0",
+                "reference": "5277094ed527a1c4477177d102fe4c53551953e0",
                 "shasum": ""
             },
+            "require": {
+                "php": ">=5.3.0"
+            },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
-                "psr-0": {
-                    "Psr\\Log\\": ""
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1053,12 +1061,13 @@
                 }
             ],
             "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
             "keywords": [
                 "log",
                 "psr",
                 "psr-3"
             ],
-            "time": "2012-12-21 11:40:51"
+            "time": "2016-09-19 16:02:08"
         },
         {
             "name": "ruflin/elastica",
@@ -3897,22 +3906,26 @@
     "packages-dev": [
         {
             "name": "codeception/c3",
-            "version": "2.0.0",
+            "version": "2.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/c3.git",
-                "reference": "fad23c9aec616316e611b7eb80bf118f1a3e3a89"
+                "reference": "d71e5d2b015169fce61c923bfbf41c3d83087604"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/c3/zipball/fad23c9aec616316e611b7eb80bf118f1a3e3a89",
-                "reference": "fad23c9aec616316e611b7eb80bf118f1a3e3a89",
+                "url": "https://api.github.com/repos/Codeception/c3/zipball/d71e5d2b015169fce61c923bfbf41c3d83087604",
+                "reference": "d71e5d2b015169fce61c923bfbf41c3d83087604",
                 "shasum": ""
             },
             "require": {
+                "composer-plugin-api": "^1.0",
                 "php": ">=5.4.0"
             },
-            "type": "library",
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Codeception\\c3\\Installer"
+            },
             "autoload": {
                 "psr-4": {
                     "Codeception\\c3\\": "."
@@ -3924,8 +3937,12 @@
             ],
             "authors": [
                 {
+                    "name": "Tiger Seo",
+                    "email": "tiger.seo@gmail.com"
+                },
+                {
                     "name": "Michael Bodnarchuk",
-                    "email": "davert.php@resend.cc",
+                    "email": "davert.php@codegyre.com",
                     "homepage": "http://codegyre.com"
                 }
             ],
@@ -3935,7 +3952,7 @@
                 "code coverage",
                 "codecoverage"
             ],
-            "time": "2014-10-03 00:25:28"
+            "time": "2016-09-16 22:57:33"
         },
         {
             "name": "codeception/codeception",
@@ -4204,51 +4221,6 @@
                 "object graph"
             ],
             "time": "2016-09-16 13:37:59"
-        },
-        {
-            "name": "nikic/php-parser",
-            "version": "v1.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "f78af2c9c86107aa1a34cd1dbb5bbe9eeb0d9f51"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/f78af2c9c86107aa1a34cd1dbb5bbe9eeb0d9f51",
-                "reference": "f78af2c9c86107aa1a34cd1dbb5bbe9eeb0d9f51",
-                "shasum": ""
-            },
-            "require": {
-                "ext-tokenizer": "*",
-                "php": ">=5.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.4-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "lib/bootstrap.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nikita Popov"
-                }
-            ],
-            "description": "A PHP parser written in PHP",
-            "keywords": [
-                "parser",
-                "php"
-            ],
-            "time": "2015-09-19 14:15:08"
         },
         {
             "name": "pdepend/pdepend",
@@ -6059,48 +6031,6 @@
                 "standards"
             ],
             "time": "2016-09-01 23:53:02"
-        },
-        {
-            "name": "sstalle/php7cc",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sstalle/php7cc.git",
-                "reference": "f9294c1fd712b05c335a7985a0d42d4762794e77"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sstalle/php7cc/zipball/f9294c1fd712b05c335a7985a0d42d4762794e77",
-                "reference": "f9294c1fd712b05c335a7985a0d42d4762794e77",
-                "shasum": ""
-            },
-            "require": {
-                "nikic/php-parser": "~1.4",
-                "php": ">=5.3.3",
-                "pimple/pimple": "~1.1",
-                "symfony/console": "~2.3"
-            },
-            "require-dev": {
-                "fabpot/php-cs-fixer": "~1.10",
-                "kherge/box": "~2.5",
-                "mikey179/vfsstream": "~1.5",
-                "phpunit/phpunit": "4.7.*"
-            },
-            "bin": [
-                "bin/php7cc"
-            ],
-            "type": "project",
-            "autoload": {
-                "psr-4": {
-                    "Sstalle\\php7cc\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "A command-line tool to check PHP 5.3 - 5.6 code compatibility with PHP 7",
-            "time": "2015-08-31 18:18:27"
         },
         {
             "name": "symfony/browser-kit",
