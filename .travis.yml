@@ -64,6 +64,8 @@ script:
   - vendor/bin/console application:build-navigation-cache
 
   - chmod -R 777 data/
+  - sed -i "2 a include\:\n    - vendor/spryker/*\n" codeception.yml
+
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance ; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance ; fi
 
