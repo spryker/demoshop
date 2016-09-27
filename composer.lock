@@ -7193,11 +7193,11 @@
         },
         {
             "name": "spryker/sales",
-            "version": "2.2.7",
+            "version": "2.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Sales.git",
-                "reference": "fbd7dae7c735ea03d8c68b6d8b26a54e91a82860",
+                "reference": "62742bfe89728723793e75829e5d57462f7c921c",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7207,8 +7207,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Sales/zipball/fbd7dae7c735ea03d8c68b6d8b26a54e91a82860",
-                "reference": "fbd7dae7c735ea03d8c68b6d8b26a54e91a82860",
+                "url": "https://api.github.com/repos/spryker/Sales/zipball/62742bfe89728723793e75829e5d57462f7c921c",
+                "reference": "62742bfe89728723793e75829e5d57462f7c921c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7235,6 +7235,10 @@
                 "spryker/user": "^2.0.0",
                 "spryker/zed-request": "^2.0.0"
             },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -7243,13 +7247,17 @@
             },
             "autoload": {
                 "psr-0": {
-                    "Spryker": "src/",
-                    "Acceptance": "tests/",
-                    "Functional": "tests/",
-                    "Unit": "tests/"
+                    "Spryker": "src/"
                 },
                 "psr-4": {
                     "Sales\\Module\\": "tests/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Acceptance": "tests/",
+                    "Functional": "tests/",
+                    "Unit": "tests/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -7260,7 +7268,7 @@
             "support": {
                 "source": "https://github.com/spryker/Sales/tree/master"
             },
-            "time": "2016-08-29 08:46:19"
+            "time": "2016-09-20 12:10:45"
         },
         {
             "name": "spryker/sales-aggregator",
