@@ -11,6 +11,9 @@ use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractCreatePlugin as ImageSetProductAbstractCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as ImageSetProductAbstractReadPlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractUpdatePlugin as ImageSetProductAbstractUpdatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteCreatePlugin as ImageSetProductConcreteCreatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteReadPlugin as ImageSetProductConcreteReadPlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteUpdatePlugin as ImageSetProductConcreteUpdatePlugin;
 
 
 class ProductDependencyProvider extends SprykerProductDependencyProvider
@@ -60,6 +63,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
     protected function getProductConcreteCreatePlugins(Container $container)
     {
         return [
+            new ImageSetProductConcreteCreatePlugin()
         ];
     }
 
@@ -71,6 +75,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
     protected function getProductConcreteReadPlugins(Container $container)
     {
         return [
+            new ImageSetProductConcreteReadPlugin()
         ];
     }
 
@@ -82,6 +87,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
     protected function getProductConcreteUpdatePlugins(Container $container)
     {
         return [
+            new ImageSetProductConcreteUpdatePlugin()
         ];
     }
 
