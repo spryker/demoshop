@@ -237,7 +237,7 @@ class ProductAbstractImporter extends AbstractImporter
         $productConcreteTransfer->setAttributes($attributeData[self::PRODUCT_ABSTRACT]);
         $productConcreteTransfer->setSku($concreteSku);
         $productConcreteTransfer->setIsActive(true);
-        $productConcreteTransfer->setIdProductAbstract($idProductAbstract);
+        $productConcreteTransfer->setFkProductAbstract($idProductAbstract);
 
         unset($attributeData[self::PRODUCT_ABSTRACT]);
 
