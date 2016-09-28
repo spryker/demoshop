@@ -16,21 +16,28 @@ class CustomerOrderReader extends SprykerCustomerOrderReader
 
     /**
      * @param \Generated\Shared\Transfer\OrderListTransfer $orderListTransfer
+     * @param int $idCustomer
      *
-     * @return \Orm\Zed\Sales\Persistence\SpySalesOrder[]|\Propel\Runtime\Collection\ObjectCollection
+     * @return \Generated\Shared\Transfer\OrderListTransfer
      */
-    protected function getOrderCollection(OrderListTransfer $orderListTransfer)
+    public function getOrders(OrderListTransfer $orderListTransfer, $idCustomer)
     {
         $ordersQuery = $this->queryContainer->queryCustomerOrders(
-            $orderListTransfer->getIdCustomer(),
+            $idCustomer,
             $orderListTransfer->getFilter()
         );
 
         if ($orderListTransfer->getPagination() !== null) {
-            return $this->paginateOrderCollection($orderListTransfer, $ordersQuery);
+            $orderCollection = $this->paginateOrderCollection($orderListTransfer, $ordersQuery);
+        } else {
+            $orderCollection = $ordersQuery->find();
         }
 
-        return $ordersQuery->find();
+        $orders = $this->hydrateOrderListCollectionTransferFromEntityCollection($orderCollection);
+
+        $orderListTransfer->setOrders($orders);
+
+        return $orderListTransfer;
     }
 
     /**
@@ -56,6 +63,8 @@ class CustomerOrderReader extends SprykerCustomerOrderReader
         $paginationTransfer->setNbResults($paginationModel->getNbResults());
         $paginationTransfer->setFirstIndex($paginationModel->getFirstIndex());
         $paginationTransfer->setLastIndex($paginationModel->getLastIndex());
+        $paginationTransfer->setFirstPage($paginationModel->getFirstPage());
+        $paginationTransfer->setLastPage($paginationModel->getLastPage());
         $paginationTransfer->setNextPage($paginationModel->getNextPage());
         $paginationTransfer->setPreviousPage($paginationModel->getPreviousPage());
 
