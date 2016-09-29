@@ -135,7 +135,9 @@ class ApplicationServiceProvider extends AbstractServiceProvider
 
         if (array_key_exists(self::REQUEST_URI, $_SERVER)) {
             $requestUri = $_SERVER[self::REQUEST_URI];
-            $identifier = mb_substr($requestUri, 1, 2);
+
+            $expl = explode('/', trim($requestUri, '/'));
+            $identifier = $expl[0];
 
             if ($identifier !== false && array_key_exists($identifier, $store->getLocales())) {
                 $store->setCurrentLocale($store->getLocales()[$identifier]);
