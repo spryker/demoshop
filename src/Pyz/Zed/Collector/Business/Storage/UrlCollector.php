@@ -168,17 +168,6 @@ class UrlCollector extends AbstractStoragePdoCollector
         LocaleTransfer $locale,
         OutputInterface $output
     ) {
-
-        parent::exportDataToStore(
-            $batchCollection,
-            $touchUpdater,
-            $batchResult,
-            $storeReader,
-            $storeWriter,
-            $locale,
-            $output
-        );
-
         $output->writeln('');
         $output->writeln(sprintf(
             '<fg=yellow>Processing URL Keys:</fg=yellow> <fg=white>%s</fg=white>',
@@ -195,6 +184,16 @@ class UrlCollector extends AbstractStoragePdoCollector
 
         $progressBar->finish();
         $output->writeln('');
+
+        parent::exportDataToStore(
+            $batchCollection,
+            $touchUpdater,
+            $batchResult,
+            $storeReader,
+            $storeWriter,
+            $locale,
+            $output
+        );
     }
 
     /**
