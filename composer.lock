@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a35c44cc657607dbbee72898fed41c89",
-    "content-hash": "ac2950ccf9fc040b3540edc9a217e37c",
+    "hash": "d44a028bfca332b2b9dc9bab55e80761",
+    "content-hash": "30aa39bdb86c1885c2c66614fc47a806",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1253,7 +1253,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "22ef20287cd5489c3b58fbe4ecfa47eecec58de2"
+                "reference": "5a800c82d20f76bb3b337e830de4f8c4a9d6abd6"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1786,7 +1786,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-09-27 14:12:04"
+            "time": "2016-09-28 05:58:18"
         },
         {
             "name": "symfony-cmf/routing",
@@ -6483,34 +6483,34 @@
         },
         {
             "name": "symfony/web-profiler-bundle",
-            "version": "v2.8.11",
+            "version": "v2.7.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-profiler-bundle.git",
-                "reference": "0c9412a3744d4822e4ab86ec114a1323576bdf80"
+                "reference": "aa86e82e300c98f7b567978180406c5257829003"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/0c9412a3744d4822e4ab86ec114a1323576bdf80",
-                "reference": "0c9412a3744d4822e4ab86ec114a1323576bdf80",
+                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/aa86e82e300c98f7b567978180406c5257829003",
+                "reference": "aa86e82e300c98f7b567978180406c5257829003",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.9",
-                "symfony/http-kernel": "~2.4|~3.0.0",
-                "symfony/routing": "~2.2|~3.0.0",
-                "symfony/twig-bridge": "~2.7|~3.0.0"
+                "symfony/http-kernel": "~2.4",
+                "symfony/routing": "~2.2",
+                "symfony/twig-bridge": "~2.7"
             },
             "require-dev": {
-                "symfony/config": "~2.2|~3.0.0",
-                "symfony/console": "~2.3|~3.0.0",
-                "symfony/dependency-injection": "~2.2|~3.0.0",
-                "symfony/stopwatch": "~2.2|~3.0.0"
+                "symfony/config": "~2.2",
+                "symfony/console": "~2.3",
+                "symfony/dependency-injection": "~2.2",
+                "symfony/stopwatch": "~2.2"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {
@@ -6537,7 +6537,7 @@
             ],
             "description": "Symfony WebProfilerBundle",
             "homepage": "https://symfony.com",
-            "time": "2016-09-06 10:55:00"
+            "time": "2016-09-06 07:26:07"
         },
         {
             "name": "theseer/fdomdocument",
