@@ -14,6 +14,7 @@ use Pyz\Zed\Importer\Business\Installer\Cms\CmsBlockInstaller;
 use Pyz\Zed\Importer\Business\Installer\Cms\CmsPageInstaller;
 use Pyz\Zed\Importer\Business\Installer\Discount\DiscountInstaller;
 use Pyz\Zed\Importer\Business\Installer\Glossary\GlossaryInstaller;
+use Pyz\Zed\Importer\Business\Installer\Product\ProductAttributeKeyInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductManagement\ProductManagementAttributeInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductSearchInstaller;
@@ -81,6 +82,19 @@ class InstallerFactory extends AbstractFactory
     {
         $productInstaller = new ProductInstaller(
             $this->getImporterProductCollection(),
+            $this->getConfig()->getIcecatImportDataDirectory()
+        );
+
+        return $productInstaller;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\Product\ProductAttributeKeyInstaller
+     */
+    public function createProductAttributeKeyInstaller()
+    {
+        $productInstaller = new ProductAttributeKeyInstaller(
+            $this->getImporterProductAttributeKeyCollection(),
             $this->getConfig()->getIcecatImportDataDirectory()
         );
 
@@ -237,6 +251,16 @@ class InstallerFactory extends AbstractFactory
             ImporterConfig::RESOURCE_PRODUCT_CATEGORY => $this->createImporterFactory()->createProductCategoryImporter(),
             ImporterConfig::RESOURCE_PRODUCT_STOCK => $this->createImporterFactory()->createProductStockImporter(),
             ImporterConfig::RESOURCE_PRODUCT_PRICE => $this->createImporterFactory()->createProductPriceImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
+     */
+    public function getImporterProductAttributeKeyCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_PRODUCT_ATTRIBUTE_KEY => $this->createImporterFactory()->createProductAttributeKeyImporter(),
         ];
     }
 

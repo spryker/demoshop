@@ -14,6 +14,7 @@ use Pyz\Zed\Importer\Business\Importer\Cms\CmsBlockImporter;
 use Pyz\Zed\Importer\Business\Importer\Cms\CmsPageImporter;
 use Pyz\Zed\Importer\Business\Importer\Discount\DiscountImporter;
 use Pyz\Zed\Importer\Business\Importer\Glossary\TranslationImporter;
+use Pyz\Zed\Importer\Business\Importer\Product\ProductAttributeKeyImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductManagement\ProductManagementAttributeImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductAbstractImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductCategoryImporter;
@@ -88,7 +89,7 @@ class ImporterFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Zed\Importer\Business\Importer\Category\CategoryImporter
+     * @return \Pyz\Zed\Importer\Business\Importer\Category\CategoryHierarchyImporter
      */
     public function createCategoryHierarchyImporter()
     {
@@ -107,6 +108,20 @@ class ImporterFactory extends AbstractFactory
     public function createProductAbstractImporter()
     {
         $productAbstractImporter = new ProductAbstractImporter(
+            $this->getLocaleFacade(),
+            $this->getProductFacade(),
+            $this->getConfig()->getIcecatImportDataDirectory()
+        );
+
+        return $productAbstractImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\Product\ProductAttributeKeyImporter
+     */
+    public function createProductAttributeKeyImporter()
+    {
+        $productAbstractImporter = new ProductAttributeKeyImporter(
             $this->getLocaleFacade(),
             $this->getProductFacade(),
             $this->getConfig()->getIcecatImportDataDirectory()
