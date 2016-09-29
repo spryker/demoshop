@@ -9,7 +9,7 @@ propel:
           zed:
               adapter: mysql
               classname: Propel\Runtime\Connection\ConnectionWrapper
-              dsn: "mysql:host=localhost;dbname=circle_test"
+              dsn: "mysql:host=localhost;dbname=test_database"
               user: ubuntu
               password:
               attributes:

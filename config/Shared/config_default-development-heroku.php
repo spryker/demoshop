@@ -68,8 +68,9 @@ $config[AclConstants::ACL_USER_RULE_WHITELIST][] = [
     'type' => 'allow',
 ];
 
-$config[ApplicationConstants::PROPEL_DEBUG] = false;
-$config[ApplicationConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = false;
+$config[PropelConstants::PROPEL_DEBUG] = false;
+$config[PropelConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = false;
+$config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = false;
 
 $config[ApplicationConstants::ALLOW_INTEGRATION_CHECKS] = true;
 $config[ApplicationConstants::DISPLAY_ERRORS] = true;
@@ -85,4 +86,3 @@ $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR .
 $config[LogConstants::LOG_LEVEL] = 0;
 $config[EventJournalConstants::WRITERS]['YVES'] = [];
 $config[EventJournalConstants::WRITERS]['ZED'] = [];
-$config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = false;

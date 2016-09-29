@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "86f79c09a2109f6ceced5c0cd91dc3ae",
-    "content-hash": "4ec55f80eb4293bb38caf79fe112c944",
+    "hash": "765a26854d3304ba6b49bf521dd4ba9f",
+    "content-hash": "f5540a21f3e427bf19c4f30ef06aad54",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1024,22 +1024,30 @@
         },
         {
             "name": "psr/log",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+                "reference": "5277094ed527a1c4477177d102fe4c53551953e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/5277094ed527a1c4477177d102fe4c53551953e0",
+                "reference": "5277094ed527a1c4477177d102fe4c53551953e0",
                 "shasum": ""
             },
+            "require": {
+                "php": ">=5.3.0"
+            },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
-                "psr-0": {
-                    "Psr\\Log\\": ""
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1053,12 +1061,13 @@
                 }
             ],
             "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
             "keywords": [
                 "log",
                 "psr",
                 "psr-3"
             ],
-            "time": "2012-12-21 11:40:51"
+            "time": "2016-09-19 16:02:08"
         },
         {
             "name": "ruflin/elastica",
@@ -1196,11 +1205,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/pim",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "0b3dfef772204d1812ebce4b358a195032324dc8"
+                "reference": "80262d20b5b3c92d54d6ccf03a73abc8231e6bcf"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1534,8 +1543,6 @@
                     "Functional\\Spryker\\Zed\\ProductOption\\": "Bundles/ProductOption/tests",
                     "Spryker\\Shared\\ProductImage\\": "Bundles/ProductImage/src",
                     "Spryker\\Zed\\ProductImage\\": "Bundles/ProductImage/src",
-                    "Unit\\Spryker\\Shared\\ProductImage\\": "Bundles/ProductImage/tests",
-                    "Functional\\Spryker\\Shared\\ProductImage\\": "Bundles/ProductImage/tests",
                     "Spryker\\Shared\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/src",
                     "Unit\\Spryker\\Shared\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/tests",
                     "Functional\\Spryker\\Shared\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/tests",
@@ -1709,11 +1716,7 @@
                     "Spryker\\Shared\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/src",
                     "Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/src",
                     "Unit\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests",
-                    "Functional\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests",
-                    "Spryker\\Shared\\ProductManagement\\": "Bundles/ProductManagement/src",
-                    "Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/src",
-                    "Unit\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests",
-                    "Functional\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests"
+                    "Functional\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests"
                 },
                 "psr-4": {
                     "Application\\Module\\": "Bundles/Application/tests/_support/Module",
@@ -1735,7 +1738,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-09-12 08:18:09"
+            "time": "2016-09-28 15:56:10"
         },
         {
             "name": "symfony-cmf/routing",
@@ -3897,16 +3900,16 @@
     "packages-dev": [
         {
             "name": "codeception/c3",
-            "version": "2.0.7",
+            "version": "2.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/c3.git",
-                "reference": "51eec2c3a8e093deb621f58004f0393dc0871983"
+                "reference": "d71e5d2b015169fce61c923bfbf41c3d83087604"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/c3/zipball/51eec2c3a8e093deb621f58004f0393dc0871983",
-                "reference": "51eec2c3a8e093deb621f58004f0393dc0871983",
+                "url": "https://api.github.com/repos/Codeception/c3/zipball/d71e5d2b015169fce61c923bfbf41c3d83087604",
+                "reference": "d71e5d2b015169fce61c923bfbf41c3d83087604",
                 "shasum": ""
             },
             "require": {
@@ -3943,7 +3946,7 @@
                 "code coverage",
                 "codecoverage"
             ],
-            "time": "2016-06-27 16:49:12"
+            "time": "2016-09-16 22:57:33"
         },
         {
             "name": "codeception/codeception",
@@ -4173,16 +4176,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.5.2",
+            "version": "1.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "da8529775f14f4fdae33f916eb0cf65f6afbddbc"
+                "reference": "ea74994a3dc7f8d2f65a06009348f2d63c81e61f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/da8529775f14f4fdae33f916eb0cf65f6afbddbc",
-                "reference": "da8529775f14f4fdae33f916eb0cf65f6afbddbc",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/ea74994a3dc7f8d2f65a06009348f2d63c81e61f",
+                "reference": "ea74994a3dc7f8d2f65a06009348f2d63c81e61f",
                 "shasum": ""
             },
             "require": {
@@ -4211,7 +4214,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2016-09-06 16:07:05"
+            "time": "2016-09-16 13:37:59"
         },
         {
             "name": "pdepend/pdepend",
@@ -5747,16 +5750,16 @@
         },
         {
             "name": "site5/phantoman",
-            "version": "v1.1.6",
+            "version": "v1.1.7",
             "source": {
                 "type": "git",
-                "url": "https://github.com/site5/phantoman.git",
-                "reference": "6ac9bed985d023909966a5c5b82489ced62998d1"
+                "url": "https://github.com/grantlucas/phantoman.git",
+                "reference": "f65d26d3311e44380692cb0255b95181743f69f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/site5/phantoman/zipball/6ac9bed985d023909966a5c5b82489ced62998d1",
-                "reference": "6ac9bed985d023909966a5c5b82489ced62998d1",
+                "url": "https://api.github.com/repos/grantlucas/phantoman/zipball/f65d26d3311e44380692cb0255b95181743f69f2",
+                "reference": "f65d26d3311e44380692cb0255b95181743f69f2",
                 "shasum": ""
             },
             "require": {
@@ -5779,18 +5782,18 @@
             "authors": [
                 {
                     "name": "Grant Lucas",
-                    "email": "grant.lucas@wwwh.com"
+                    "email": "contact@grantlucas.com"
                 }
             ],
             "description": "The Codeception extension for automatically starting and stopping PhantomJS when running tests.",
-            "homepage": "https://github.com/site5/phantoman",
+            "homepage": "https://github.com/grantlucas/phantoman",
             "keywords": [
                 "codeception",
                 "extension",
                 "headless",
                 "phantomjs"
             ],
-            "time": "2016-08-08 19:53:21"
+            "time": "2016-09-15 14:35:04"
         },
         {
             "name": "sllh/composer-versions-check",
@@ -6513,7 +6516,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "~5.6.0"
+        "php": ">=5.6.0"
     },
     "platform-dev": []
 }
