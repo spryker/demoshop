@@ -10,7 +10,6 @@ namespace Pyz\Zed\Importer\Business\Importer\Product;
 use Generated\Shared\Transfer\ProductAttributeKeyTransfer;
 use Orm\Zed\Product\Persistence\Base\SpyProductAttributeKeyQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
-use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
 

@@ -296,7 +296,6 @@ class ProductAbstractImporter extends AbstractImporter
         return $this->csvReaderCollection;
     }
 
-
     /**
      * @return array
      */

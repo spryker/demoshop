@@ -61,8 +61,6 @@ class ProductManagementAttributeImporter extends AbstractImporter
     /**
      * @param array $data
      *
-     * @throws \Pyz\Zed\Importer\Business\Exception\PriceTypeNotFoundException
-     *
      * @return void
      */
     protected function importOne(array $data)
