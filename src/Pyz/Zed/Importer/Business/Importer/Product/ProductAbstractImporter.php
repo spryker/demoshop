@@ -126,6 +126,7 @@ class ProductAbstractImporter extends AbstractImporter
             $this->createProductConcreteCollection([$productConcreteCollection], $idProductAbstract);
 
             $this->productFacade->touchProductActive($idProductAbstract);
+            //TODO fix me
             $this->createAndTouchProductUrls($productAbstractTransfer, $idProductAbstract);
         }
     }
