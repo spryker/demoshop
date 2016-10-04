@@ -126,7 +126,6 @@ class ProductAbstractImporter extends AbstractImporter
             $this->createProductConcreteCollection([$productConcreteCollection], $idProductAbstract);
 
             $this->productFacade->touchProductActive($idProductAbstract);
-            //TODO fix me
             $this->createAndTouchProductUrls($productAbstractTransfer, $idProductAbstract);
         }
     }
@@ -385,11 +384,12 @@ class ProductAbstractImporter extends AbstractImporter
     {
         foreach ($productAbstract->getLocalizedAttributes() as $localizedAttributes) {
             $productAbstractUrl = $this->generateProductUrl($localizedAttributes, $idProductAbstract);
-            $this->productFacade->createAndTouchProductUrlByIdProduct(
+            //TODO replace it with new way, for now manually touch entities in spy_touch_table after import
+/*            $this->productFacade->createAndTouchProductUrlByIdProduct(
                 $idProductAbstract,
                 $productAbstractUrl,
                 $localizedAttributes->getLocale()
-            );
+            );*/
         }
     }
 
