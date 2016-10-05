@@ -15,6 +15,8 @@
         <property name="nextPage" type="int" />
         <property name="firstIndex" type="int" />
         <property name="lastIndex" type="int" />
+        <property name="firstPage" type="int" />
+        <property name="lastPage" type="int" />
     </transfer>
 
 </transfers>

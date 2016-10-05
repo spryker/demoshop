@@ -10,20 +10,16 @@ namespace Pyz\Zed\Importer\Business\Importer\Product;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
-use Generated\Shared\Transfer\ProductAttributeKeyTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Generated\Shared\Transfer\ProductImageSetTransfer;
 use Generated\Shared\Transfer\ProductImageTransfer;
 use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
-use Spryker\Shared\Library\Collection\Collection;
 use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
 use Symfony\Component\Finder\Finder;
 
-
-// TODO: adjust DEMODATA descriptions
 class ProductAbstractImporter extends AbstractImporter
 {
 
@@ -50,11 +46,6 @@ class ProductAbstractImporter extends AbstractImporter
      * @var \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface[]
      */
     protected $csvReaderCollection;
-
-    /**
-     * @var \Spryker\Shared\Library\Collection\CollectionInterface
-     */
-    protected $cacheInstalledAttributes;
 
     /**
      * @var array
@@ -85,8 +76,6 @@ class ProductAbstractImporter extends AbstractImporter
 
         $this->productFacade = $productFacade;
         $this->dataDirectory = $dataDirectory;
-
-        $this->cacheInstalledAttributes = new Collection([]);
     }
 
     /**
@@ -119,17 +108,15 @@ class ProductAbstractImporter extends AbstractImporter
 
         $product = $this->format($data);
 
-        $product = $this->useLocalIcecatImages($product);
+        $product = $this->appendImages($product);
         $concreteProductData = $this->getConcreteProductsData();
-        $this->createAttributes($product);
-        $this->createConcreteAttributes($concreteProductData);
+
         foreach ($concreteProductData as $type => $productAttributes) {
             if (empty($productAttributes)) {
                 continue;
             }
 
             $attributes = $this->generateAttributes($productAttributes);
-
             $productAbstractTransfer = $this->buildProductAbstractTransfer($product, $attributes);
 
             $idProductAbstract = $this->productFacade->createProductAbstract($productAbstractTransfer);
@@ -139,7 +126,7 @@ class ProductAbstractImporter extends AbstractImporter
             $this->createProductConcreteCollection([$productConcreteCollection], $idProductAbstract);
 
             $this->productFacade->touchProductActive($idProductAbstract);
-            $this->productFacade->createAndTouchProductUrls($idProductAbstract);
+            $this->createAndTouchProductUrls($productAbstractTransfer, $idProductAbstract);
         }
     }
 
@@ -309,7 +296,6 @@ class ProductAbstractImporter extends AbstractImporter
         return $this->csvReaderCollection;
     }
 
-
     /**
      * @return array
      */
@@ -384,52 +370,59 @@ class ProductAbstractImporter extends AbstractImporter
     {
         foreach ($productConcreteCollection as $productConcrete) {
             $productConcrete->setFkProductAbstract($idProductAbstract);
-            $idProductConcrete = $this->productFacade->createProductConcrete($productConcrete);
-
-            $this->productFacade->touchProductConcreteActive($idProductConcrete);
+            $this->productFacade->createProductConcrete($productConcrete);
         }
     }
 
     /**
-     * @param array $attributes
+     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstract
+     * @param int $idProductAbstract
      *
      * @return void
      */
-    protected function createConcreteAttributes(array $attributes)
+    protected function createAndTouchProductUrls(ProductAbstractTransfer $productAbstract, $idProductAbstract)
     {
-        foreach ($attributes as $type => $data) {
-            if (empty($data)) {
-                continue;
-            }
-
-            if ($this->cacheInstalledAttributes->has($type)) {
-                continue;
-            }
-
-            $this->createAttributes($data);
-
-            $this->cacheInstalledAttributes->set($type, true);
+        foreach ($productAbstract->getLocalizedAttributes() as $localizedAttributes) {
+            $productAbstractUrl = $this->generateProductUrl($localizedAttributes, $idProductAbstract);
+            //TODO replace it with new way, for now manually touch entities in spy_touch_table after import
+/*            $this->productFacade->createAndTouchProductUrlByIdProduct(
+                $idProductAbstract,
+                $productAbstractUrl,
+                $localizedAttributes->getLocale()
+            );*/
         }
     }
 
     /**
-     * @param array $attributes
+     * @param \Generated\Shared\Transfer\LocalizedAttributesTransfer $localizedAttributes
+     * @param int $idProductAbstract
      *
-     * @return void
+     * @return string
      */
-    protected function createAttributes(array $attributes)
+    protected function generateProductUrl(LocalizedAttributesTransfer $localizedAttributes, $idProductAbstract)
     {
-        $attributes = $this->generateMappedAttributes($attributes);
-        foreach ($attributes as $attributeName) {
-            if (!$this->productFacade->hasProductAttributeKey($attributeName)) {
-                $productAttributeKeyTransfer = new ProductAttributeKeyTransfer();
-                $productAttributeKeyTransfer->setKey($attributeName);
+        $productName = $this->slugify($localizedAttributes->getName());
 
-                $this->productFacade->createProductAttributeKey($productAttributeKeyTransfer);
-            }
-        }
+        return '/' . mb_substr($localizedAttributes->getLocale()->getLocaleName(), 0, 2) . '/' . $productName . '-' . $idProductAbstract;
     }
 
+    /**
+     * @param string $value
+     *
+     * @return string
+     */
+    public function slugify($value)
+    {
+        if (function_exists('iconv')) {
+            $value = iconv('UTF-8', 'ASCII//TRANSLIT', $value);
+        }
+
+        $value = preg_replace("/[^a-zA-Z0-9 -]/", "", $value);
+        $value = strtolower($value);
+        $value = str_replace(' ', '-', $value);
+
+        return $value;
+    }
 
     /**
      * @param string $key
@@ -499,49 +492,11 @@ class ProductAbstractImporter extends AbstractImporter
     }
 
     /**
-     * @param array $data
-     *
-     * @return array
-     */
-    protected function generateMappedAttributes(array $data)
-    {
-        $attributeNameCollection = $this->generateAttributes($data);
-
-        $localizedKeys = array_flip(array_keys(
-            current($attributeNameCollection)
-        ));
-
-        $attributesMetaData = array_merge(
-            $attributeNameCollection[self::PRODUCT_ABSTRACT],
-            $localizedKeys
-        );
-
-        return array_intersect($this->getAttributeKeys(), array_keys($attributesMetaData));
-    }
-
-    /**
-     * @return array
-     */
-    protected function getAttributeKeys()
-    {
-        if ($this->attributeKeys === null) {
-            $csvReader = new CsvReader();
-            $csvReader->load($this->dataDirectory . '/products/attribute_keys.csv');
-            while ($csvReader->valid()) {
-                $data = $csvReader->read();
-                $this->attributeKeys[] = $data['attribute_key'];
-            }
-        }
-
-        return $this->attributeKeys;
-    }
-
-    /**
      * @param array $attributes
      *
      * @return array
      */
-    protected function useLocalIcecatImages(array $attributes)
+    protected function appendImages(array $attributes)
     {
         $attributes['image_big'] = '/assets/default/img/icecat/big_' . basename($attributes['image_big']);
         $attributes['image_small'] = '/assets/default/img/icecat/small_' . basename($attributes['image_small']);

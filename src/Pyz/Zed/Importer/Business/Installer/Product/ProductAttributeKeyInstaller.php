@@ -5,12 +5,12 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Zed\Importer\Business\Installer\ProductManagement;
+namespace Pyz\Zed\Importer\Business\Installer\Product;
 
 use Pyz\Zed\Importer\Business\Installer\AbstractInstaller;
 use Spryker\Shared\Library\BatchIterator\CsvBatchIterator;
 
-class ProductManagementAttributeInstaller extends AbstractInstaller
+class ProductAttributeKeyInstaller extends AbstractInstaller
 {
 
     /**
@@ -26,7 +26,7 @@ class ProductManagementAttributeInstaller extends AbstractInstaller
      */
     protected function getCsvDataFilename()
     {
-        return $this->dataDirectory . '/product_management_attributes.csv';
+        return $this->dataDirectory . '/products/attribute_keys.csv';
     }
 
     /**
@@ -34,7 +34,7 @@ class ProductManagementAttributeInstaller extends AbstractInstaller
      */
     public function getTitle()
     {
-        return 'Product Attributes';
+        return 'Product Attribute Keys';
     }
 
 }

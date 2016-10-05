@@ -1,5 +1,4 @@
-key,input_type,allow_input,is_super,values,key.en_US,key.de_DE,values.en_US,values.de_DE
-color,text,0,1,"red, black, silver, purple",Color,Farbe,"Red, Black, Silver, Purple","Rot, Schwarz, Silber, Lila"
-storage_capacity,text,0,0,"32 GB, 64 GB, 128 GB",Storage Capacity ,Speichergröße,,
-series,text,1,0,"Jade Plus, Jade Z, Jade S",Series,Serie,,
-width,text,1,0,"4.2 cm, 3.6 cm, 4 cm",Width,Breite,,
+key,input_type,allow_input,values,key.en_US,key.de_DE,values.en_US,values.de_DE
+color,text,0,"red, black, silver, purple",Color,Farbe,"Red, Black, Silver, Purple","Rot, Schwarz, Silber, Lila"
+storage,text,1,"32 GB, 64 GB, 128 GB",Storage Capacity ,Speichergröße,,
+design,text,1,"Jade Plus, Jade Z, Jade S",Design,Design,,
