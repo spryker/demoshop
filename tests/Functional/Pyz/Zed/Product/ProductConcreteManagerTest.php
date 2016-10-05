@@ -15,8 +15,12 @@ use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Generated\Shared\Transfer\ProductImageSetTransfer;
 use Generated\Shared\Transfer\ProductImageTransfer;
+use Generated\Shared\Transfer\StockProductTransfer;
 use Spryker\Zed\Locale\Business\LocaleFacade;
 use Spryker\Zed\Price\Business\PriceFacade;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractCreatePlugin as ImageSetProductAbstractCreatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as ImageSetProductAbstractReadPlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractUpdatePlugin as ImageSetProductAbstractUpdatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteCreatePlugin as ImageSetProductConcreteCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteReadPlugin as ImageSetProductConcreteReadPlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteUpdatePlugin as ImageSetProductConcreteUpdatePlugin;
@@ -26,8 +30,6 @@ use Spryker\Zed\Product\Business\Product\ProductAbstractAssertion;
 use Spryker\Zed\Product\Business\Product\ProductAbstractManager;
 use Spryker\Zed\Product\Business\Product\ProductConcreteAssertion;
 use Spryker\Zed\Product\Business\Product\ProductConcreteManager;
-use Spryker\Zed\Product\Business\Product\ProductUrlGenerator;
-use Spryker\Zed\Product\Business\Product\ProductUrlManager;
 use Spryker\Zed\Product\Dependency\Facade\ProductToLocaleBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToPriceBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToTouchBridge;
@@ -191,6 +193,19 @@ class ProductConcreteManagerTest extends Test
             ]
         );
 
+        $this->productAbstractManager = new ProductAbstractManager(
+            $attributeManager,
+            $this->productQueryContainer,
+            new ProductToTouchBridge($this->touchFacade),
+            new ProductToUrlBridge($this->urlFacade),
+            new ProductToLocaleBridge($this->localeFacade),
+            new ProductToPriceBridge($this->priceFacade),
+            $this->productConcreteManager,
+            $productAbstractAssertion,
+            $createPlugins = [new ImageSetProductAbstractCreatePlugin()],
+            $readPlugins = [new ImageSetProductAbstractReadPlugin()],
+            $updatePlugins = [new ImageSetProductAbstractUpdatePlugin()]
+        );
     }
 
     /**
@@ -411,7 +426,8 @@ class ProductConcreteManagerTest extends Test
     protected function assertReadProductConcrete(ProductAbstractTransfer $productAbstractTransfer)
     {
         $this->assertProductPrice($productAbstractTransfer);
-        $this->assertProductImages($productAbstractTransfer);
+        //$this->assertProductStock($productAbstractTransfer);
+        //$this->assertProductImages($productAbstractTransfer);
     }
 
     /**
@@ -421,11 +437,17 @@ class ProductConcreteManagerTest extends Test
      */
     protected function assertProductPrice(ProductAbstractTransfer $productAbstractTransfer)
     {
-        $priceProduct = $productAbstractTransfer->getPrice();
-        $this->assertInstanceOf(PriceProductTransfer::class, $priceProduct);
-        $this->assertEquals(self::PRICE, $priceProduct->getPrice());
-        $this->assertNotNull($priceProduct->getIdProductAbstract());
-        $this->assertNotNull($priceProduct->getPriceTypeName());
+        $concreteProductCollection = $this->productConcreteManager->getConcreteProductsByAbstractProductId(
+            $productAbstractTransfer->getIdProductAbstract()
+        );
+
+        foreach ($concreteProductCollection as $productTransfer) {
+            $priceProduct = $productTransfer->getPrice();
+            $this->assertInstanceOf(PriceProductTransfer::class, $priceProduct);
+            $this->assertEquals(self::PRICE, $priceProduct->getPrice());
+            $this->assertNotNull($priceProduct->getIdProductAbstract());
+            $this->assertNotNull($priceProduct->getPriceTypeName());
+        }
     }
 
     /**
@@ -451,6 +473,26 @@ class ProductConcreteManagerTest extends Test
         $this->assertInstanceOf(ProductImageTransfer::class, $productImage);
         $this->assertEquals(self::IMAGE_URL_LARGE, $productImage->getExternalUrlLarge());
         $this->assertEquals(self::IMAGE_URL_SMALL, $productImage->getExternalUrlSmall());
+    }
+
+
+    protected function assertProductStock(ProductAbstractTransfer $productAbstractTransfer)
+    {
+        $concreteProductCollection = $this->productConcreteManager->getConcreteProductsByAbstractProductId(
+            $productAbstractTransfer->getIdProductAbstract()
+        );
+
+        dump($concreteProductCollection);die;
+
+        $stockCollection = (array) $productConcreteTransfer->getStock();
+
+
+
+        $this->assertInstanceOf(StockProductTransfer::class, $stock);
+
+        $this->assertEquals(self::PRICE, $stock->getPrice());
+        $this->assertNotNull($stock->getIdProductAbstract());
+        $this->assertNotNull($stock->getPriceTypeName());
     }
 
 }
