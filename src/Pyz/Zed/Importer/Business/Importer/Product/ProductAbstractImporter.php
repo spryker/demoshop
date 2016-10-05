@@ -382,15 +382,7 @@ class ProductAbstractImporter extends AbstractImporter
      */
     protected function createAndTouchProductUrls(ProductAbstractTransfer $productAbstract, $idProductAbstract)
     {
-        foreach ($productAbstract->getLocalizedAttributes() as $localizedAttributes) {
-            $productAbstractUrl = $this->generateProductUrl($localizedAttributes, $idProductAbstract);
-            //TODO replace it with new way, for now manually touch entities in spy_touch_table after import
-/*            $this->productFacade->createAndTouchProductUrlByIdProduct(
-                $idProductAbstract,
-                $productAbstractUrl,
-                $localizedAttributes->getLocale()
-            );*/
-        }
+        $productUrl = $this->productFacade->createProductUrl($productAbstract);
     }
 
     /**
