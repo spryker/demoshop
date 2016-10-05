@@ -11,30 +11,50 @@ use Pyz\Yves\Product\Model\ProductAbstract;
 
 class FrontendProductBuilder implements FrontendProductBuilderInterface
 {
-
     /**
      * @var \Pyz\Yves\Product\Model\ProductAbstract
      */
     protected $productAbstract;
 
     /**
-     * @param \Pyz\Yves\Product\Model\ProductAbstract $productAbstract
+     * @var \Pyz\Yves\Product\Builder\AttributeVariantBuilderInterface
      */
-    public function __construct(ProductAbstract $productAbstract)
-    {
+    protected $attributeVariantBuilder;
+
+    /**
+     * @param \Pyz\Yves\Product\Model\ProductAbstract $productAbstract
+     * @param \Pyz\Yves\Product\Builder\AttributeVariantBuilderInterface $attributeVariantBuilder
+     */
+    public function __construct(
+        ProductAbstract $productAbstract,
+        AttributeVariantBuilderInterface $attributeVariantBuilder
+    ) {
         $this->productAbstract = $productAbstract;
+        $this->attributeVariantBuilder = $attributeVariantBuilder;
     }
 
     /**
      * @param array $productData
+     * @param array $selectedAttributes
      *
      * @return \Pyz\Yves\Product\Model\ProductAbstract
      */
-    public function buildProduct(array $productData)
+    public function buildProduct(array $productData, array $selectedAttributes = [])
     {
         $productAbstract = $this->createProductAbstractClone();
-        $productAbstract->setName($productData['abstract_name']);
 
+        $this->mergeProductData($productData, $productAbstract);
+        $this->attributeVariantBuilder->buildAttributeVariants($selectedAttributes, $productAbstract);
+
+        return $productAbstract;
+    }
+
+    /**
+     * @param array $productData
+     * @param ProductAbstract $productAbstract
+     */
+    protected function mergeProductData(array $productData, ProductAbstract $productAbstract)
+    {
         foreach ($productData as $name => $value) {
             $arrayParts = explode('_', strtolower($name));
             $arrayParts = array_map('ucfirst', $arrayParts);
@@ -47,8 +67,6 @@ class FrontendProductBuilder implements FrontendProductBuilderInterface
                 $productAbstract->addAttribute($name, $value);
             }
         }
-
-        return $productAbstract;
     }
 
     /**

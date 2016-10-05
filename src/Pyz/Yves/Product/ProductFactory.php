@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Product;
 
+use Pyz\Yves\Product\Builder\AttributeVariantBuilder;
 use Pyz\Yves\Product\Builder\FrontendProductBuilder;
 use Pyz\Yves\Product\Model\ProductAbstract;
 use Pyz\Yves\Product\ResourceCreator\ProductResourceCreator;
@@ -14,6 +15,8 @@ use Spryker\Yves\Kernel\AbstractFactory;
 
 /**
  * Class ProductExportFactory
+ *
+ * @method \Spryker\Client\Product\ProductClientInterface getClient()
  */
 class ProductFactory extends AbstractFactory
 {
@@ -35,7 +38,18 @@ class ProductFactory extends AbstractFactory
     protected function createFrontendProductBuilder()
     {
         return new FrontendProductBuilder(
-            $this->createProductAbstract()
+            $this->createProductAbstract(),
+            $this->createAttributeVariantBuilder()
+        );
+    }
+
+    /**
+     * @return \Pyz\Yves\Product\Builder\AttributeVariantBuilder
+     */
+    protected function createAttributeVariantBuilder()
+    {
+        return new AttributeVariantBuilder(
+            $this->getClient()
         );
     }
 

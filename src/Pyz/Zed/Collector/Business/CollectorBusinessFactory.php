@@ -9,15 +9,18 @@ namespace Pyz\Zed\Collector\Business;
 
 use Exception;
 use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector;
+use Pyz\Zed\Collector\Business\Storage\AttributeMapCollector;
 use Pyz\Zed\Collector\Business\Storage\BlockCollector;
 use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector;
 use Pyz\Zed\Collector\Business\Storage\NavigationCollector;
 use Pyz\Zed\Collector\Business\Storage\PageCollector;
-use Pyz\Zed\Collector\Business\Storage\ProductCollector as StorageProductCollector;
+use Pyz\Zed\Collector\Business\Storage\ProductAbstractCollector as StorageProductCollector;
+use Pyz\Zed\Collector\Business\Storage\ProductConcreteCollector;
 use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
 use Pyz\Zed\Collector\Business\Storage\TranslationCollector;
 use Pyz\Zed\Collector\Business\Storage\UrlCollector;
 use Pyz\Zed\Collector\CollectorDependencyProvider;
+use Pyz\Zed\Collector\Persistence\Storage\Propel\AttributeMapCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\BlockCollectorQuery as StorageBlockCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\PageCollectorQuery as StoragePageCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\RedirectCollectorQuery as StorageRedirectCollectorPropelQuery;
@@ -114,9 +117,9 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Collector\Business\Storage\ProductCollector
+     * @return \Pyz\Zed\Collector\Business\Storage\ProductAbstractCollector
      */
-    public function createStorageProductCollector()
+    public function createStorageProductAbstractCollector()
     {
         $storageProductCollector = new StorageProductCollector(
             $this->getCategoryQueryContainer(),
@@ -207,6 +210,47 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         );
 
         return $storageBlockCollector;
+    }
+
+    /**
+     * @return \Pyz\Zed\Collector\Business\Storage\ProductConcreteCollector
+     */
+    public function createStorageProductConcreteCollector()
+    {
+        $productConcreteCollector = new ProductConcreteCollector(
+            $this->getPriceFacade(),
+            $this->getProductImageQueryContainer()
+        );
+
+        $productConcreteCollector->setTouchQueryContainer(
+            $this->getTouchQueryContainer()
+        );
+        $productConcreteCollector->setCriteriaBuilder(
+            $this->createCriteriaBuilder()
+        );
+        $productConcreteCollector->setQueryBuilder(
+            $this->createStoragePdoQueryAdapterByName('ProductConcreteCollectorQuery')
+        );
+
+        return $productConcreteCollector;
+    }
+
+    /**
+     * @return \Pyz\Zed\Collector\Business\Storage\AttributeMapCollector
+     */
+    public function createAttributeMapCollector()
+    {
+        $attributeMapCollector = new AttributeMapCollector();
+
+        $attributeMapCollector->setTouchQueryContainer(
+            $this->getTouchQueryContainer()
+        );
+
+        $attributeMapCollector->setQueryBuilder(
+            new AttributeMapCollectorQuery()
+        );
+
+        return $attributeMapCollector;
     }
 
     /**

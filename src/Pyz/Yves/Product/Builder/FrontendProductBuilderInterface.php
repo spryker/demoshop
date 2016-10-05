@@ -15,9 +15,10 @@ interface FrontendProductBuilderInterface
 
     /**
      * @param array $productData
+     * @param array $selectedAttributes
      *
      * @return \Pyz\Yves\Product\Model\ProductAbstract
      */
-    public function buildProduct(array $productData);
+    public function buildProduct(array $productData, array $selectedAttributes);
 
 }

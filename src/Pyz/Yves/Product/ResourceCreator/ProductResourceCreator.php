@@ -13,6 +13,7 @@ use Silex\Application;
 use Spryker\Shared\Kernel\LocatorLocatorInterface;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
+use Symfony\Component\HttpFoundation\Request;
 
 class ProductResourceCreator extends AbstractResourceCreator
 {
@@ -59,13 +60,25 @@ class ProductResourceCreator extends AbstractResourceCreator
         $routeResolver = new BundleControllerActionRouteNameResolver($bundleControllerAction);
 
         $service = $this->createServiceForController($application, $bundleControllerAction, $routeResolver);
-        $product = $this->productBuilder->buildProduct($data);
+
+        $attribute = $this->getRequest($application)->query->get('attribute', []);
+        $product = $this->productBuilder->buildProduct($data, $attribute);
 
         return [
             '_controller' => $service,
             '_route' => $routeResolver->resolve(),
             'product' => $product,
         ];
+    }
+
+    /**
+     * @param \Silex\Application $application
+     *
+     * @return \Symfony\Component\HttpFoundation\Request
+     */
+    protected function getRequest(Application $application)
+    {
+        return $application['request'];
     }
 
 }

@@ -15,7 +15,7 @@ class ProductAbstract implements ProductAbstractInterface
     /**
      * @var array
      */
-    protected $abstractAttributes = [];
+    protected $attributes = [];
 
     /**
      * @var bool
@@ -25,7 +25,7 @@ class ProductAbstract implements ProductAbstractInterface
     /**
      * @var string
      */
-    protected $abstractSku = '';
+    protected $sku = '';
 
     /**
      * @var string
@@ -35,19 +35,87 @@ class ProductAbstract implements ProductAbstractInterface
     /**
      * @var array
      */
-    protected $productConcreteCollection = [];
+    protected $category = [];
+
+    /**
+     * @var int
+     */
+    protected $id = [];
+
+    /**
+     * @var int
+     */
+    protected $price;
 
     /**
      * @var array
      */
-    protected $category = [];
+    protected $images = [];
+
+    /**
+     * @var array
+     */
+    protected $superAttributes = [];
+
+    /**
+     * @var array
+     */
+    protected $availableAttributes = [];
 
     /**
      * @return array
      */
-    public function getAbstractAttributes()
+    public function getImages()
     {
-        return $this->abstractAttributes;
+        return $this->images;
+    }
+
+    /**
+     * @param array $images
+     */
+    public function setImages($images)
+    {
+        $this->images = $images;
+    }
+
+    /**
+     * @return array
+     */
+    public function getSuperAttributes()
+    {
+        return $this->superAttributes;
+    }
+
+    /**
+     * @param array $superAttributes
+     */
+    public function setSuperAttributes(array $superAttributes)
+    {
+        $this->superAttributes = $superAttributes;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param int $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
     }
 
     /**
@@ -55,9 +123,9 @@ class ProductAbstract implements ProductAbstractInterface
      *
      * @return void
      */
-    public function setAbstractAttributes(array $attributes)
+    public function setAttributes(array $attributes)
     {
-        $this->abstractAttributes = $attributes;
+        $this->attributes = $attributes;
     }
 
     /**
@@ -68,7 +136,7 @@ class ProductAbstract implements ProductAbstractInterface
      */
     public function addAttribute($name, $value)
     {
-        $this->abstractAttributes[$name] = $value;
+        $this->attributes[$name] = $value;
     }
 
     /**
@@ -92,9 +160,9 @@ class ProductAbstract implements ProductAbstractInterface
     /**
      * @return string
      */
-    public function getAbstractSku()
+    public function getSku()
     {
-        return $this->abstractSku;
+        return $this->sku;
     }
 
     /**
@@ -102,9 +170,9 @@ class ProductAbstract implements ProductAbstractInterface
      *
      * @return void
      */
-    public function setAbstractSku($sku)
+    public function setSku($sku)
     {
-        $this->abstractSku = $sku;
+        $this->sku = $sku;
     }
 
     /**
@@ -132,8 +200,8 @@ class ProductAbstract implements ProductAbstractInterface
      */
     public function __get($name)
     {
-        if (array_key_exists($name, $this->abstractAttributes)) {
-            return $this->abstractAttributes[$name];
+        if (array_key_exists($name, $this->attributes)) {
+            return $this->attributes[$name];
         }
 
         return null;
@@ -153,24 +221,6 @@ class ProductAbstract implements ProductAbstractInterface
     /**
      * @return array
      */
-    public function getProductConcreteCollection()
-    {
-        return $this->ProductConcreteCollection;
-    }
-
-    /**
-     * @param array $products
-     *
-     * @return void
-     */
-    public function setProductConcreteCollection(array $products)
-    {
-        $this->ProductConcreteCollection = $products;
-    }
-
-    /**
-     * @return array
-     */
     public function getCategory()
     {
         return $this->category;
@@ -184,6 +234,38 @@ class ProductAbstract implements ProductAbstractInterface
     public function setCategory($category)
     {
         $this->category = $category;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAvailableAttributes()
+    {
+        return $this->availableAttributes;
+    }
+
+    /**
+     * @param array $availableAttributes
+     */
+    public function setAvailableAttributes($availableAttributes)
+    {
+        $this->availableAttributes = $availableAttributes;
     }
 
 }

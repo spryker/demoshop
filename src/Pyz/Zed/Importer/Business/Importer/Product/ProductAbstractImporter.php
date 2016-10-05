@@ -139,7 +139,7 @@ class ProductAbstractImporter extends AbstractImporter
             $this->createProductConcreteCollection([$productConcreteCollection], $idProductAbstract);
 
             $this->productFacade->touchProductActive($idProductAbstract);
-            $this->createAndTouchProductUrls($productAbstractTransfer, $idProductAbstract);
+            $this->productFacade->createAndTouchProductUrls($idProductAbstract);
         }
     }
 
@@ -237,7 +237,7 @@ class ProductAbstractImporter extends AbstractImporter
         $productConcreteTransfer->setAttributes($attributeData[self::PRODUCT_ABSTRACT]);
         $productConcreteTransfer->setSku($concreteSku);
         $productConcreteTransfer->setIsActive(true);
-        $productConcreteTransfer->setIdProductAbstract($idProductAbstract);
+        $productConcreteTransfer->setFkProductAbstract($idProductAbstract);
 
         unset($attributeData[self::PRODUCT_ABSTRACT]);
 
@@ -384,57 +384,10 @@ class ProductAbstractImporter extends AbstractImporter
     {
         foreach ($productConcreteCollection as $productConcrete) {
             $productConcrete->setFkProductAbstract($idProductAbstract);
-            $this->productFacade->createProductConcrete($productConcrete);
+            $idProductConcrete = $this->productFacade->createProductConcrete($productConcrete);
+
+            $this->productFacade->touchProductConcreteActive($idProductConcrete);
         }
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstract
-     * @param int $idProductAbstract
-     *
-     * @return void
-     */
-    protected function createAndTouchProductUrls(ProductAbstractTransfer $productAbstract, $idProductAbstract)
-    {
-        foreach ($productAbstract->getLocalizedAttributes() as $localizedAttributes) {
-            $productAbstractUrl = $this->generateProductUrl($localizedAttributes, $idProductAbstract);
-            $this->productFacade->createAndTouchProductUrlByIdProduct(
-                $idProductAbstract,
-                $productAbstractUrl,
-                $localizedAttributes->getLocale()
-            );
-        }
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\LocalizedAttributesTransfer $localizedAttributes
-     * @param int $idProductAbstract
-     *
-     * @return string
-     */
-    protected function generateProductUrl(LocalizedAttributesTransfer $localizedAttributes, $idProductAbstract)
-    {
-        $productName = $this->slugify($localizedAttributes->getName());
-
-        return '/' . mb_substr($localizedAttributes->getLocale()->getLocaleName(), 0, 2) . '/' . $productName . '-' . $idProductAbstract;
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return string
-     */
-    public function slugify($value)
-    {
-        if (function_exists('iconv')) {
-            $value = iconv('UTF-8', 'ASCII//TRANSLIT', $value);
-        }
-
-        $value = preg_replace("/[^a-zA-Z0-9 -]/", "", $value);
-        $value = strtolower($value);
-        $value = str_replace(' ', '-', $value);
-
-        return $value;
     }
 
     /**

@@ -7,12 +7,14 @@
 
 namespace Pyz\Zed\Collector;
 
+use Pyz\Zed\Collector\Communication\Plugin\AttributeMapCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\BlockCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\CategoryNodeCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\NavigationCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\PageCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\ProductCollectorSearchPlugin;
-use Pyz\Zed\Collector\Communication\Plugin\ProductCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\ProductAbstractCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\ProductConcreteCollectorPlugin;
 use Pyz\Zed\Collector\Communication\Plugin\RedirectCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\TranslationCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\UrlCollectorStoragePlugin;
@@ -85,7 +87,9 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[self::STORAGE_PLUGINS] = function (Container $container) {
             return [
-                'product_abstract' => new ProductCollectorStoragePlugin(),
+                'product_abstract' => new ProductAbstractCollectorStoragePlugin(),
+                'product_concrete' => new ProductConcreteCollectorPlugin(),
+                'attribute_map' => new AttributeMapCollectorStoragePlugin(),
                 'categorynode' => new CategoryNodeCollectorStoragePlugin(),
                 'navigation' => new NavigationCollectorStoragePlugin(),
                 'translation' => new TranslationCollectorStoragePlugin(),

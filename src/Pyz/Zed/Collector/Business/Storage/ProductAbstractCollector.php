@@ -13,6 +13,7 @@ use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\Collector\CollectorConfig;
 use Spryker\Shared\Library\Collection\Collection;
+use Spryker\Shared\Library\Json;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
@@ -20,17 +21,14 @@ use Spryker\Zed\Price\Business\PriceFacadeInterface;
 use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface;
 use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
 
-class ProductCollector extends AbstractStoragePdoCollector
+class ProductAbstractCollector extends AbstractStoragePdoCollector
 {
 
     const ID_PRODUCT = 'id_product';
     const ID_CATEGORY_NODE = 'id_category_node';
     const ID_IMAGE_SET = 'id_image_set';
     const SKU = 'sku';
-    const ABSTRACT_SKU = 'abstract_sku';
-    const ABSTRACT_NAME = 'abstract_name';
-    const ABSTRACT_URL = 'abstract_url';
-    const QUANTITY = 'quantity';
+    const URL = 'url';
     const ABSTRACT_ATTRIBUTES = 'abstract_attributes';
     const ABSTRACT_LOCALIZED_ATTRIBUTES = 'abstract_localized_attributes';
     const CONCRETE_LOCALIZED_ATTRIBUTES = 'concrete_localized_attributes';
@@ -38,6 +36,7 @@ class ProductCollector extends AbstractStoragePdoCollector
     const NAME = 'name';
     const PRICE = 'price';
     const PRICE_NAME = 'price_name';
+    const DESCRIPTION = 'description';
 
     /**
      * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
@@ -92,16 +91,17 @@ class ProductCollector extends AbstractStoragePdoCollector
     protected function collectItem($touchKey, array $collectItemData)
     {
         return [
-            'abstract_product_id' => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
-            'abstract_attributes' => $this->getAbstractAttributes($collectItemData),
-            'abstract_name' => $collectItemData[self::ABSTRACT_NAME],
-            'abstract_sku' => $collectItemData[self::SKU], // FIXME
-            'url' => $collectItemData[self::ABSTRACT_URL],
-            'quantity' => (int)$collectItemData[self::QUANTITY],
-            'available' => (int)$collectItemData[self::QUANTITY] > 0,
-            'price' => $this->getPriceBySku($collectItemData[self::ABSTRACT_SKU]),
+            'id' => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
+            'attributes' => $this->getAbstractAttributes($collectItemData),
+            'name' => $collectItemData[self::NAME],
+            'sku' => $collectItemData[self::SKU],
+            'url' => $collectItemData[self::URL],
+            'available' => true, // @TODO implement
+            'price' => $this->getPriceBySku($collectItemData[self::SKU]),
             'category' => $this->generateCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
-            'images' => $this->generateImages($collectItemData[self::ID_IMAGE_SET])
+            'images' => $this->generateImages($collectItemData[self::ID_IMAGE_SET]),
+            self::DESCRIPTION => $collectItemData[self::DESCRIPTION],
+
         ];
     }
 
@@ -120,15 +120,10 @@ class ProductCollector extends AbstractStoragePdoCollector
      */
     protected function getAbstractAttributes(array $collectItemData)
     {
-        $abstractAttributesData = json_decode($collectItemData[self::ABSTRACT_ATTRIBUTES], true);
-        $concreteAttributesData = json_decode($collectItemData[self::CONCRETE_ATTRIBUTES], true);
-        $attributesBasic = array_merge($abstractAttributesData, $concreteAttributesData);
+        $abstractAttributesData = Json::decode($collectItemData[self::ABSTRACT_ATTRIBUTES], true);
+        $abstractLocalizedAttributesData = Json::decode($collectItemData[self::ABSTRACT_LOCALIZED_ATTRIBUTES], true);
 
-        $abstractLocalizedAttributesData = json_decode($collectItemData[self::ABSTRACT_LOCALIZED_ATTRIBUTES], true);
-        $concreteLocalizedAttributesData = json_decode($collectItemData[self::CONCRETE_LOCALIZED_ATTRIBUTES], true);
-        $attributesLocalized = array_merge($abstractLocalizedAttributesData, $concreteLocalizedAttributesData);
-
-        $attributes = array_merge($attributesBasic, $attributesLocalized);
+        $attributes = array_merge($abstractAttributesData, $abstractLocalizedAttributesData);
 
         $attributes = array_filter($attributes, function ($key) {
             return !empty($key);

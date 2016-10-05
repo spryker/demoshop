@@ -1,0 +1,49 @@
+{% if product.superAttributes is defined %}
+    <p>
+    <form method="GET">
+        <h5>{{ 'product.variants' | trans }}</h5>
+        {% for attributeName,attributes in product.superAttributes %}
+            <label>{{ attributeName | trans }}
+
+                {% if selectedAttributes[attributeName] is defined and selectedAttributes[attributeName] %}
+                    : {{ selectedAttributes[attributeName] }}
+
+                    {% set attributesAfterReset = {} %}
+                    {% for selectedKey, selectedValue in selectedAttributes %}
+                        {% if selectedKey != attributeName and selectedValue %}
+                            {% set attributesAfterReset = attributesAfterReset|merge({"attribute" : { (selectedKey) : (selectedValue)}})  %}
+                        {% endif %}
+                    {% endfor %}
+
+                    <a href="?{{ attributesAfterReset | url_encode  }}">
+                        {{ 'reset' | trans }}
+                    </a>
+
+                    <input name="attribute[{{ attributeName }}]" value="{{ selectedAttributes[attributeName] }}" type="hidden" />
+                {% else %}
+
+                    {% if attributeName in product.availableAttributes|keys %}
+                        {% set attributes = product.availableAttributes[attributeName] %}
+                    {% endif %}
+
+                    {% if product.availableAttributes|length == 0 and selectedAttributes|length > 0 %}
+                        {{ 'N/A' }}
+                    {% else %}
+                        <select name="attribute[{{ attributeName }}]" onchange="this.form.submit()">
+                            <option value="0">{{ 'None' | trans }}</option>
+
+                            {% for attribute in attributes %}
+                                <option value="{{ attribute }}">
+                                    {{ attribute }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    {% endif %}
+
+                {% endif %}
+
+            </label>
+        {% endfor %}
+    </form>
+    </p>
+{% endif %}
