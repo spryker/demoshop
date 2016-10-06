@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\Category;
 
+use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
 use Orm\Zed\Category\Persistence\SpyCategoryNodeQuery;
 use Spryker\Shared\Category\CategoryConstants;
@@ -41,18 +42,18 @@ class CategoryRootImporter extends CategoryImporter
      */
     protected function importOne(array $data)
     {
-        $root = $this->format($data);
-        $this->importRootCategory($root);
+        $categoryTransfer = $this->format($data);
+        $this->importRootCategory($categoryTransfer);
     }
 
     /**
-     * @param array $data
+     * @param \Generated\Shared\Transfer\CategoryTransfer $categoryTransfer
      *
      * @return void
      */
-    protected function importRootCategory(array $data)
+    protected function importRootCategory(CategoryTransfer $categoryTransfer)
     {
-        $idCategory = $this->createCategory($data);
+        $idCategory = $this->createCategory($categoryTransfer);
 
         $rootNodeTransfer = new NodeTransfer();
         $rootNodeTransfer->setIsRoot(true);

@@ -7,7 +7,9 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\Category;
 
+use Generated\Shared\Transfer\CategoryLocalizedAttributesTransfer;
 use Generated\Shared\Transfer\CategoryTransfer;
+use Generated\Shared\Transfer\ImageTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
 use Orm\Zed\Category\Persistence\SpyCategoryNodeQuery;
@@ -17,6 +19,7 @@ use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
+use Spryker\Zed\Money\Communication\Plugin\MoneyPlugin;
 use Spryker\Zed\Touch\Business\TouchFacadeInterface;
 use Spryker\Zed\Url\Business\UrlFacadeInterface;
 use UnexpectedValueException;
@@ -105,36 +108,42 @@ class CategoryImporter extends AbstractImporter
      */
     protected function importOne(array $data)
     {
-        $category = $this->format($data);
-        $this->importCategory($category, $data[self::ORDER]);
+        $categoryTransfer = $this->format($data);
+        $this->importCategory($categoryTransfer, $data[self::ORDER]);
     }
 
     /**
      * @param array $data
      *
-     * @return array
+     * @return \Generated\Shared\Transfer\CategoryTransfer
      */
     protected function format(array $data)
     {
-        $categoryData = [];
+        $categoryTransfer = new CategoryTransfer();
+        $categoryTransfer->setCategoryKey($data[self::UCATID]);
+        $categoryTransfer->setIsActive(true);
+        $categoryTransfer->setIsClickable(true);
+        $categoryTransfer->setIsInMenu(true);
+
         foreach ($this->localeFacade->getLocaleCollection() as $code => $localeTransfer) {
             $nameKey = 'category_name.' . $code;
             $descriptionKey = 'category_description.' . $code;
             $imageKey = self::LOW_PIC . '.' . $code;
 
-            $categoryData[$code] = [
-                CategoryTransfer::NAME => $data[$nameKey],
-                CategoryTransfer::CATEGORY_KEY => $data[self::UCATID],
-                CategoryTransfer::CATEGORY_IMAGE_NAME => $data[$imageKey],
-                CategoryTransfer::IS_ACTIVE => true,
-                CategoryTransfer::IS_CLICKABLE => true,
-                CategoryTransfer::IS_IN_MENU => true,
-                CategoryTransfer::META_DESCRIPTION => $data[$descriptionKey],
-                CategoryTransfer::META_TITLE => $data[$nameKey],
-            ];
+            $imageTransfer = new ImageTransfer();
+            $imageTransfer->setName($data[$imageKey]);
+
+            $categoryLocalizedAttributesTransfer = new CategoryLocalizedAttributesTransfer();
+            $categoryLocalizedAttributesTransfer->setName($data[$nameKey]);
+            $categoryLocalizedAttributesTransfer->setLocale($localeTransfer);
+            $categoryLocalizedAttributesTransfer->setImage($imageTransfer);
+            $categoryLocalizedAttributesTransfer->setMetaTitle($data[$nameKey]);
+            $categoryLocalizedAttributesTransfer->setMetaDescription($data[$descriptionKey]);
+
+            $categoryTransfer->addLocalizedAttributes($categoryLocalizedAttributesTransfer);
         }
 
-        return $categoryData;
+        return $categoryTransfer;
     }
 
     /**
@@ -143,14 +152,14 @@ class CategoryImporter extends AbstractImporter
      *
      * @see \Pyz\Zed\Installer\Business\Importer\Category\CategoryHierarchyImporter::isImported()
      *
-     * @param array $data
+     * @param CategoryTransfer $categoryTransfer
      * @param int $order
      *
      * @return void
      */
-    protected function importCategory(array $data, $order)
+    protected function importCategory(CategoryTransfer $categoryTransfer, $order)
     {
-        $idCategory = $this->createCategory($data);
+        $idCategory = $this->createCategory($categoryTransfer);
 
         $nodeTransfer = new NodeTransfer();
         $nodeTransfer->setIsRoot(false);
@@ -191,37 +200,13 @@ class CategoryImporter extends AbstractImporter
     }
 
     /**
-     * @param array $data
+     * @param \Generated\Shared\Transfer\CategoryTransfer $categoryTransfer
      *
-     * @throws \UnexpectedValueException
-     *
-     * @return int|null
+     * @return int
      */
-    protected function createCategory(array $data)
+    protected function createCategory(CategoryTransfer $categoryTransfer)
     {
-        $idCategory = null;
-        $locales = $this->localeFacade->getLocaleCollection();
-
-        foreach ($locales as $code => $localeTransfer) {
-            $categoryTransfer = $this->buildCategoryTransfer($data[$code]);
-            $name = trim($categoryTransfer->getName());
-
-            if ($name === '') {
-                throw new UnexpectedValueException(sprintf(
-                    'Category name is empty for category with key "%"',
-                    $categoryTransfer->getCategoryKey()
-                ));
-            }
-
-            if ($idCategory === null) {
-                $idCategory = $this->categoryFacade->createCategory($categoryTransfer, $localeTransfer);
-            } else {
-                $categoryTransfer->setIdCategory($idCategory);
-                $this->categoryFacade->addCategoryAttribute($categoryTransfer, $localeTransfer);
-            }
-        }
-
-        return $idCategory;
+        return $this->categoryFacade->createCategory($categoryTransfer);
     }
 
     /**
