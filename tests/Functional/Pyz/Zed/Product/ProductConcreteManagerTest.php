@@ -15,8 +15,13 @@ use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Generated\Shared\Transfer\ProductImageSetTransfer;
 use Generated\Shared\Transfer\ProductImageTransfer;
+use Generated\Shared\Transfer\StockProductTransfer;
 use Spryker\Zed\Locale\Business\LocaleFacade;
 use Spryker\Zed\Price\Business\PriceFacade;
+use Spryker\Zed\Product\Business\Product\ProductManager;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractCreatePlugin as ImageSetProductAbstractCreatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as ImageSetProductAbstractReadPlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractUpdatePlugin as ImageSetProductAbstractUpdatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteCreatePlugin as ImageSetProductConcreteCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteReadPlugin as ImageSetProductConcreteReadPlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteUpdatePlugin as ImageSetProductConcreteUpdatePlugin;
@@ -26,8 +31,6 @@ use Spryker\Zed\Product\Business\Product\ProductAbstractAssertion;
 use Spryker\Zed\Product\Business\Product\ProductAbstractManager;
 use Spryker\Zed\Product\Business\Product\ProductConcreteAssertion;
 use Spryker\Zed\Product\Business\Product\ProductConcreteManager;
-use Spryker\Zed\Product\Business\Product\ProductUrlGenerator;
-use Spryker\Zed\Product\Business\Product\ProductUrlManager;
 use Spryker\Zed\Product\Dependency\Facade\ProductToLocaleBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToPriceBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToTouchBridge;
@@ -118,7 +121,7 @@ class ProductConcreteManagerTest extends Test
      */
     protected $priceFacade;
 
-    /**
+     /**
      * @var \Spryker\Zed\Product\Business\Product\ProductAbstractManagerInterface
      */
     protected $productAbstractManager;
@@ -191,6 +194,19 @@ class ProductConcreteManagerTest extends Test
             ]
         );
 
+        $this->productAbstractManager = new ProductAbstractManager(
+            $attributeManager,
+            $this->productQueryContainer,
+            new ProductToTouchBridge($this->touchFacade),
+            new ProductToUrlBridge($this->urlFacade),
+            new ProductToLocaleBridge($this->localeFacade),
+            new ProductToPriceBridge($this->priceFacade),
+            $this->productConcreteManager,
+            $productAbstractAssertion,
+            $createPlugins = [new ImageSetProductAbstractCreatePlugin()],
+            $readPlugins = [new ImageSetProductAbstractReadPlugin()],
+            $updatePlugins = [new ImageSetProductAbstractUpdatePlugin()]
+        );
     }
 
     /**
@@ -299,66 +315,6 @@ class ProductConcreteManagerTest extends Test
     }
 
     /**
-     * @return void
-     */
-    public function testGetProductConcreteByIdShouldReturnFullyLoadedTransferObject()
-    {
-        $productAbstract = $this->buildNewProductAbstractTransfer();
-
-        $this->assertNotNull($productAbstract);
-
-        $idProductAbstract = $this->productAbstractManager->createProductAbstract($productAbstract);
-
-        $this->assertTrue($idProductAbstract > 0);
-        $this->assertReadProductConcrete($productAbstract);
-    }
-
-    /**
-     * @return \Generated\Shared\Transfer\ProductAbstractTransfer
-     */
-    protected function buildNewProductAbstractTransfer()
-    {
-        $productAbstract = new ProductAbstractTransfer();
-        $productAbstract
-            ->setAttributes(['foo' => 'bar'])
-            ->setSku('Test Sku');
-
-        foreach ($this->locales as $code => $localeTransfer) {
-            $localizedValue = 'Foo Bar ' . $localeTransfer->getLocaleName();
-
-            $localizedAttribute = (new LocalizedAttributesTransfer())
-                ->setLocale($localeTransfer)
-                ->setName($localizedValue)
-                ->setDescription($localizedValue)
-                ->setAttributes(['foo' => $localizedValue]);
-
-            $productAbstract->addLocalizedAttributes($localizedAttribute);
-        }
-
-        $priceTransfer = (new PriceProductTransfer())
-            ->setPrice(self::PRICE);
-
-        $productAbstract->setPrice($priceTransfer);
-
-        $imageSetTransfer = (new ProductImageSetTransfer())
-            ->setName(self::IMAGE_SET_NAME);
-
-        $imageTransfer = (new ProductImageTransfer())
-            ->setExternalUrlLarge(self::IMAGE_URL_LARGE)
-            ->setExternalUrlSmall(self::IMAGE_URL_SMALL);
-
-        $imageSetTransfer->setProductImages(
-            new \ArrayObject([$imageTransfer])
-        );
-
-        $productAbstract->setImageSets(
-            new \ArrayObject([$imageSetTransfer])
-        );
-
-        return $productAbstract;
-    }
-
-    /**
      * @param int $idProductConcrete
      *
      * @return \Orm\Zed\Product\Persistence\SpyProduct
@@ -401,56 +357,6 @@ class ProductConcreteManagerTest extends Test
 
             $this->assertEquals($expectedProductName, $localizedAttribute->getName());
         }
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     *
-     * @return void
-     */
-    protected function assertReadProductConcrete(ProductAbstractTransfer $productAbstractTransfer)
-    {
-        $this->assertProductPrice($productAbstractTransfer);
-        $this->assertProductImages($productAbstractTransfer);
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     *
-     * @return void
-     */
-    protected function assertProductPrice(ProductAbstractTransfer $productAbstractTransfer)
-    {
-        $priceProduct = $productAbstractTransfer->getPrice();
-        $this->assertInstanceOf(PriceProductTransfer::class, $priceProduct);
-        $this->assertEquals(self::PRICE, $priceProduct->getPrice());
-        $this->assertNotNull($priceProduct->getIdProductAbstract());
-        $this->assertNotNull($priceProduct->getPriceTypeName());
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     *
-     * @return void
-     */
-    protected function assertProductImages(ProductAbstractTransfer $productAbstractTransfer)
-    {
-        /* @var ProductImageSetTransfer $imageSet */
-        $imageSetCollection = (array)$productAbstractTransfer->getImageSets();
-        $this->assertNotEmpty($imageSetCollection);
-        $imageSet = $imageSetCollection[0];
-        $this->assertInstanceOf(ProductImageSetTransfer::class, $imageSet);
-        $this->assertNotNull($imageSet->getIdProductImageSet());
-        $this->assertEquals($productAbstractTransfer->getIdProductAbstract(), $imageSet->getIdProductAbstract());
-
-        $productImageCollection = (array)$imageSet->getProductImages();
-        $this->assertNotEmpty($imageSetCollection);
-
-        /* @var ProductImageTransfer $productImage */
-        $productImage = $productImageCollection[0];
-        $this->assertInstanceOf(ProductImageTransfer::class, $productImage);
-        $this->assertEquals(self::IMAGE_URL_LARGE, $productImage->getExternalUrlLarge());
-        $this->assertEquals(self::IMAGE_URL_SMALL, $productImage->getExternalUrlSmall());
     }
 
 }
