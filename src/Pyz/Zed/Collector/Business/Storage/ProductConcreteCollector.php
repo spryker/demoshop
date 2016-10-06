@@ -6,6 +6,7 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
+use Generated\Shared\Transfer\StorageProductTransfer;
 use Spryker\Shared\Library\Json;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
@@ -72,15 +73,15 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
     protected function collectItem($touchKey, array $collectItemData)
     {
         return [
-            'id' => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
-            'name' => $collectItemData[self::NAME],
-            'description' => $this->getDescription($collectItemData),
-            'attributes' => $this->getConcreteAttributes($collectItemData),
-            'sku' => $collectItemData[self::SKU],
-            'quantity' => $collectItemData[self::QUANTITY],
-            'available' => (int)$collectItemData[self::QUANTITY] > 0,
-            'images' => $this->generateImages($collectItemData[self::ID_IMAGE_SET]),
-            'price' => $this->getPriceBySku($collectItemData[self::SKU]),
+            StorageProductTransfer::ID => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
+            StorageProductTransfer::NAME => $collectItemData[self::NAME],
+            StorageProductTransfer::DESCRIPTION => $this->getDescription($collectItemData),
+            StorageProductTransfer::ATTRIBUTES => $this->getConcreteAttributes($collectItemData),
+            StorageProductTransfer::SKU => $collectItemData[self::SKU],
+            StorageProductTransfer::QUANTITY => $collectItemData[self::QUANTITY],
+            StorageProductTransfer::AVAILABLE => (int)$collectItemData[self::QUANTITY] > 0,
+            StorageProductTransfer::IMAGES => $this->generateImages($collectItemData[self::ID_IMAGE_SET]),
+            StorageProductTransfer::PRICE => $this->getPriceBySku($collectItemData[self::SKU]),
         ];
     }
 
@@ -100,8 +101,8 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
         $attributeProcess = new AttributeProcessor(
             $abstractAttributesData,
             $concreteAttributesData,
-            $abstractLocalizedAttributesData,
-            $concreteLocalizedAttributesData
+            [$this->locale->getLocaleName() => $abstractLocalizedAttributesData],
+            [$this->locale->getLocaleName() => $concreteLocalizedAttributesData]
         );
 
         return $attributeProcess->mergeAttributes($this->locale->getLocaleName());

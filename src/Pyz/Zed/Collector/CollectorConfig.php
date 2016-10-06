@@ -34,7 +34,6 @@ class CollectorConfig extends SprykerCollectorConfig
                 'ProductCollectorQuery' => ProductAbstractCollectorQuery::class,
                 'UrlCollectorQuery' => UrlCollectorQuery::class,
                 'ProductConcreteCollectorQuery' => ProductConcreteCollectorQuery::class,
-               // 'AttributeMapCollectorQuery' => AttributeMapCollectorQuery::class,
             ]
         ];
 

@@ -8,8 +8,7 @@
 namespace Pyz\Yves\Product;
 
 use Pyz\Yves\Product\Builder\AttributeVariantBuilder;
-use Pyz\Yves\Product\Builder\FrontendProductBuilder;
-use Pyz\Yves\Product\Model\ProductAbstract;
+use Pyz\Yves\Product\Builder\StorageProductBuilder;
 use Pyz\Yves\Product\ResourceCreator\ProductResourceCreator;
 use Spryker\Yves\Kernel\AbstractFactory;
 
@@ -27,18 +26,17 @@ class ProductFactory extends AbstractFactory
     public function createProductResourceCreator()
     {
         return new ProductResourceCreator(
-            $this->createFrontendProductBuilder(),
+            $this->createStorageProductBuilder(),
             $this->getLocator()
         );
     }
 
     /**
-     * @return Builder\FrontendProductBuilder
+     * @return Builder\StorageProductBuilder
      */
-    protected function createFrontendProductBuilder()
+    protected function createStorageProductBuilder()
     {
-        return new FrontendProductBuilder(
-            $this->createProductAbstract(),
+        return new StorageProductBuilder(
             $this->createAttributeVariantBuilder()
         );
     }
@@ -51,14 +49,6 @@ class ProductFactory extends AbstractFactory
         return new AttributeVariantBuilder(
             $this->getClient()
         );
-    }
-
-    /**
-     * @return \Pyz\Yves\Product\Model\ProductAbstract
-     */
-    protected function createProductAbstract()
-    {
-        return new ProductAbstract();
     }
 
 }

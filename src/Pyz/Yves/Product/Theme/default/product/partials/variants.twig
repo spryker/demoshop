@@ -1,9 +1,9 @@
-{% if product.superAttributes is defined %}
+{% if product.superAttributes|length > 0 %}
     <p>
     <form method="GET">
         <h5>{{ 'product.variants' | trans }}</h5>
         {% for attributeName,attributes in product.superAttributes %}
-            <label>{{ attributeName | trans }}
+            <label><strong>{{ 'product.attribute.' ~ attributeName | trans }}</strong>
 
                 {% if selectedAttributes[attributeName] is defined and selectedAttributes[attributeName] %}
                     : {{ selectedAttributes[attributeName] }}
@@ -11,10 +11,11 @@
                     {% set attributesAfterReset = {} %}
                     {% for selectedKey, selectedValue in selectedAttributes %}
                         {% if selectedKey != attributeName and selectedValue %}
-                            {% set attributesAfterReset = attributesAfterReset|merge({"attribute" : { (selectedKey) : (selectedValue)}})  %}
+                            {% set attributesAfterReset = attributesAfterReset|merge({ (selectedKey) : (selectedValue)})  %}
                         {% endif %}
                     {% endfor %}
 
+                    {% set attributesAfterReset = {"attribute" : attributesAfterReset} %}
                     <a href="?{{ attributesAfterReset | url_encode  }}">
                         {{ 'reset' | trans }}
                     </a>
@@ -26,11 +27,11 @@
                         {% set attributes = product.availableAttributes[attributeName] %}
                     {% endif %}
 
-                    {% if product.availableAttributes|length == 0 and selectedAttributes|length > 0 %}
-                        {{ 'N/A' }}
+                    {% if product.availableAttributes[attributeName] is not defined and selectedAttributes|length > 0 %}
+                        {{ 'product.attribute.not_available' | trans }}
                     {% else %}
                         <select name="attribute[{{ attributeName }}]" onchange="this.form.submit()">
-                            <option value="0">{{ 'None' | trans }}</option>
+                            <option value="0">{{ 'product.attribute._none' | trans | trans }}</option>
 
                             {% for attribute in attributes %}
                                 <option value="{{ attribute }}">

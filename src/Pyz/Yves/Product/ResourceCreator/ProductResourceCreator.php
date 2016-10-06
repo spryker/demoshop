@@ -8,20 +8,20 @@
 namespace Pyz\Yves\Product\ResourceCreator;
 
 use Pyz\Yves\Collector\Creator\AbstractResourceCreator;
-use Pyz\Yves\Product\Builder\FrontendProductBuilderInterface;
+use Pyz\Yves\Product\Builder\StorageProductBuilderInterface;
 use Silex\Application;
 use Spryker\Shared\Kernel\LocatorLocatorInterface;
+use Spryker\Shared\Product\ProductConstants;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
-use Symfony\Component\HttpFoundation\Request;
 
 class ProductResourceCreator extends AbstractResourceCreator
 {
 
     /**
-     * @var \Pyz\Yves\Product\Builder\FrontendProductBuilderInterface
+     * @var \Pyz\Yves\Product\Builder\StorageProductBuilderInterface
      */
-    protected $productBuilder;
+    protected $storageProductBuilder;
 
     /**
      * @var \Spryker\Shared\Kernel\LocatorLocatorInterface
@@ -29,14 +29,14 @@ class ProductResourceCreator extends AbstractResourceCreator
     protected $locator;
 
     /**
-     * @param \Pyz\Yves\Product\Builder\FrontendProductBuilderInterface $productBuilder
+     * @param \Pyz\Yves\Product\Builder\StorageProductBuilderInterface $storageProductBuilder
      * @param \Spryker\Shared\Kernel\LocatorLocatorInterface $locator
      */
     public function __construct(
-        FrontendProductBuilderInterface $productBuilder,
+        StorageProductBuilderInterface $storageProductBuilder,
         LocatorLocatorInterface $locator
     ) {
-        $this->productBuilder = $productBuilder;
+        $this->storageProductBuilder = $storageProductBuilder;
         $this->locator = $locator;
     }
 
@@ -45,7 +45,7 @@ class ProductResourceCreator extends AbstractResourceCreator
      */
     public function getType()
     {
-        return 'product_abstract';
+        return ProductConstants::RESOURCE_TYPE_PRODUCT_ABSTRACT;
     }
 
     /**
@@ -62,12 +62,12 @@ class ProductResourceCreator extends AbstractResourceCreator
         $service = $this->createServiceForController($application, $bundleControllerAction, $routeResolver);
 
         $attribute = $this->getRequest($application)->query->get('attribute', []);
-        $product = $this->productBuilder->buildProduct($data, $attribute);
+        $storageProductTransfer = $this->storageProductBuilder->buildProduct($data, $attribute);
 
         return [
             '_controller' => $service,
             '_route' => $routeResolver->resolve(),
-            'product' => $product,
+            'storageProductTransfer' => $storageProductTransfer,
         ];
     }
 

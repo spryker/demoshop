@@ -6,17 +6,23 @@
 
 namespace Pyz\Yves\Product\Builder;
 
-use Pyz\Yves\Product\Model\ProductAbstract;
+use Generated\Shared\Transfer\StorageAttributeMapTransfer;
+use Generated\Shared\Transfer\StorageProductTransfer;
 use Spryker\Client\Product\ProductClientInterface;
+use Spryker\Shared\Product\ProductConstants;
 
 class AttributeVariantBuilder implements AttributeVariantBuilderInterface
 {
-    const ID_PRODUCT_CONCRETE = 'idProductConcrete';
 
     /**
      * @var \Spryker\Client\Product\ProductClientInterface
      */
     protected $productClient;
+
+    /**
+     * @var array
+     */
+    protected $attributeMap = [];
 
     /**
      * @param \Spryker\Client\Product\ProductClientInterface $productClient
@@ -27,40 +33,96 @@ class AttributeVariantBuilder implements AttributeVariantBuilderInterface
     }
 
     /**
-     * @param array $selectedAttributes
-     * @param \Pyz\Yves\Product\Model\ProductAbstract $productAbstract
+     * @param StorageProductTransfer $storageProductTransfer
      *
-     * @return ProductAbstract
+     * @return StorageProductTransfer
      */
-    public function buildAttributeVariants(array $selectedAttributes, ProductAbstract $productAbstract)
+    public function setSuperAttributes(StorageProductTransfer $storageProductTransfer)
     {
-        $attributeMap = $this->productClient
-            ->getAttributeMapByIdProductAbstractForCurrectLocale($productAbstract->getId());
-
-        $productAbstract->setSuperAttributes($attributeMap['super_attributes']);
-
-        if (count($selectedAttributes) === 0) {
-            return;
+        $attributeMap = $this->getAttributeMapFromStorage($storageProductTransfer->getId());
+        if (count($attributeMap) === 0) {
+            return $storageProductTransfer;
         }
 
-        $selectedVariantNode = $this->buildAttributeMapFromSelected(
+        $storageAttributeMapTransfer = $this->mapStorageAttributeMap($attributeMap);
+        if (count($storageAttributeMapTransfer->getProductConcreteIds()) === 1) {
+            $productConcreteIds = $storageAttributeMapTransfer->getProductConcreteIds();
+            $idProductConcrete = array_shift($productConcreteIds);
+            $productConcrete = $this->getProductConcreteFromStorage($idProductConcrete);
+            return $this->mapConcreteStorageProductTransfer($storageProductTransfer, $productConcrete);
+        }
+
+        $storageProductTransfer->setSuperAttributes(
+            $storageAttributeMapTransfer->getSuperAttributes()
+        );
+
+        return $storageProductTransfer;
+    }
+
+    /**
+     * @param array $selectedAttributes
+     * @param int $idProductAbstract
+     *
+     * @return array
+     */
+    public function getSelectedVariantNode(array $selectedAttributes, $idProductAbstract)
+    {
+        $attributeMap = $this->getAttributeMapFromStorage($idProductAbstract);
+
+        if (count($attributeMap) === 0) {
+            return [];
+        }
+
+        $storageAttributeMapTransfer = $this->mapStorageAttributeMap($attributeMap);
+
+        return $this->buildAttributeMapFromSelected(
             $selectedAttributes,
-            $attributeMap['attribute_variants']
+            $storageAttributeMapTransfer->getAttributeVariants()
         );
 
-        if ($this->isProductConcreteNode($selectedVariantNode)) {
-            $idProductConcrete = $this->extractIdOfProductConcrete($selectedVariantNode);
-            $productConcrete = $this->getProductConcreteData($idProductConcrete);
-            $productAbstract->setName($productConcrete['name']);
-            $productAbstract->setPrice($productConcrete['price']);
-            return;
+    }
+
+    /**
+     * @param int $idProductConcrete
+     * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
+     *
+     * @return \Generated\Shared\Transfer\StorageProductTransfer
+     */
+    public function mergeAbstractAndConcreteProducts(
+        $idProductConcrete,
+        StorageProductTransfer $storageProductTransfer
+    ) {
+
+        $productConcrete = $this->getProductConcreteFromStorage($idProductConcrete);
+
+        if (count($productConcrete) === 0) {
+            return $storageProductTransfer;
         }
 
-        $productAbstract->setAvailableAttributes(
-            $this->findAvailableAttributes($selectedVariantNode)
-        );
+        return $this->mapConcreteStorageProductTransfer($storageProductTransfer, $productConcrete);
+    }
 
-        return $productAbstract;
+    /**
+     * @param array $selectedVariantNode
+     *
+     * @return bool
+     */
+    public function isProductConcreteNodeReached(array $selectedVariantNode)
+    {
+        return isset($selectedVariantNode[StorageProductTransfer::ID]);
+    }
+
+    /**
+     * @param array $selectedVariantNode
+     * @param StorageProductTransfer $storageProductTransfer
+     *
+     * @return StorageProductTransfer
+     */
+    public function setAvailableAttributes(array $selectedVariantNode, StorageProductTransfer $storageProductTransfer)
+    {
+        $storageProductTransfer->setAvailableAttributes($this->findAvailableAttributes($selectedVariantNode));
+
+        return $storageProductTransfer;
     }
 
     /**
@@ -68,7 +130,7 @@ class AttributeVariantBuilder implements AttributeVariantBuilderInterface
      *
      * @return array
      */
-    protected function getProductConcreteData($idProductConcrete)
+    protected function getProductConcreteFromStorage($idProductConcrete)
     {
         return $this->productClient->getProductConcreteByIdForCurrentLocale($idProductConcrete);
     }
@@ -98,7 +160,7 @@ class AttributeVariantBuilder implements AttributeVariantBuilderInterface
         static $filteredAttributes = [];
 
         foreach ($selectedNode as $attributePath => $attributeValue) {
-            list($key, $value) = explode(':', $attributePath);
+            list($key, $value) = explode(ProductConstants::ATTRIBUTE_MAP_PATH_DELIMITER, $attributePath);
             $filteredAttributes[$key][] = $value;
             if (is_array($value)) {
                 return $this->findAvailableAttributes($value);
@@ -138,25 +200,15 @@ class AttributeVariantBuilder implements AttributeVariantBuilderInterface
     /**
      * @param array $selectedVariantNode
      *
-     * @return bool
-     */
-    protected function isProductConcreteNode(array $selectedVariantNode)
-    {
-        return isset($selectedVariantNode[self::ID_PRODUCT_CONCRETE]);
-    }
-
-    /**
-     * @param array $selectedVariantNode
-     *
      * @return int
      */
-    protected function extractIdOfProductConcrete(array $selectedVariantNode)
+    public function extractIdOfProductConcrete(array $selectedVariantNode)
     {
-        if (is_array($selectedVariantNode[self::ID_PRODUCT_CONCRETE])) {
-            return array_shift($selectedVariantNode[self::ID_PRODUCT_CONCRETE]);
+        if (is_array($selectedVariantNode[StorageProductTransfer::ID])) {
+            return array_shift($selectedVariantNode[StorageProductTransfer::ID]);
         }
 
-        return $selectedVariantNode[self::ID_PRODUCT_CONCRETE];
+        return $selectedVariantNode[StorageProductTransfer::ID];
     }
 
     /**
@@ -172,9 +224,51 @@ class AttributeVariantBuilder implements AttributeVariantBuilderInterface
                 continue;
             }
 
-            $attributePath[] = $attributeName . ':' . $attributeValue;
+            $attributePath[] = $attributeName . ProductConstants::ATTRIBUTE_MAP_PATH_DELIMITER . $attributeValue;
         }
         return $attributePath;
+    }
+
+    /**
+     *
+     * @param int $idProductConcrete
+     *
+     * @return array
+     */
+    protected function getAttributeMapFromStorage($idProductConcrete)
+    {
+        if (!isset($this->attributeMap[$idProductConcrete])) {
+            $this->attributeMap[$idProductConcrete] = $this->productClient->getAttributeMapByIdProductAbstractForCurrectLocale($idProductConcrete);
+        }
+
+        return $this->attributeMap[$idProductConcrete];
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
+     * @param array $productConcrete
+     *
+     * @return StorageProductTransfer;
+     */
+    protected function mapConcreteStorageProductTransfer(StorageProductTransfer $storageProductTransfer, array $productConcrete)
+    {
+        $storageProductTransfer->fromArray($productConcrete, true);
+        $storageProductTransfer->setIsVariant(true);
+
+        return $storageProductTransfer;
+    }
+
+    /**
+     * @param array $attributeMap
+     *
+     * @return \Generated\Shared\Transfer\StorageAttributeMapTransfer
+     */
+    protected function mapStorageAttributeMap(array $attributeMap)
+    {
+        $storageAttributeMapTransfer = new StorageAttributeMapTransfer();
+        $storageAttributeMapTransfer->fromArray($attributeMap, true);
+
+        return $storageAttributeMapTransfer;
     }
 
 }

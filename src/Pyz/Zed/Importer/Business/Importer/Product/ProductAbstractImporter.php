@@ -126,7 +126,7 @@ class ProductAbstractImporter extends AbstractImporter
             $this->createProductConcreteCollection([$productConcreteCollection], $idProductAbstract);
 
             $this->productFacade->touchProductActive($idProductAbstract);
-            $this->createAndTouchProductUrls($productAbstractTransfer, $idProductAbstract);
+            $this->productFacade->createProductUrl($productAbstractTransfer);
         }
     }
 
@@ -361,7 +361,7 @@ class ProductAbstractImporter extends AbstractImporter
     }
 
     /**
-     * @param array $productConcreteCollection
+     * @param array|ProductConcreteTransfer[] $productConcreteCollection
      * @param int $idProductAbstract
      *
      * @return void
@@ -371,12 +371,12 @@ class ProductAbstractImporter extends AbstractImporter
         foreach ($productConcreteCollection as $productConcrete) {
             $productConcrete->setFkProductAbstract($idProductAbstract);
             $this->productFacade->createProductConcrete($productConcrete);
+            $this->productFacade->touchProductConcreteActive($productConcrete->getIdProductConcrete()); //@todo move product bundle, add touch plugin.
         }
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstract
-     * @param int $idProductAbstract
+     * @todo remove slugify, use facade instead.
      *
      * @return void
      */

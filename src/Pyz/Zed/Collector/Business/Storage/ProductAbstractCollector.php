@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
+use Generated\Shared\Transfer\StorageProductTransfer;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryTableMap;
 use Orm\Zed\Category\Persistence\SpyCategoryNode;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
@@ -91,17 +92,16 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     protected function collectItem($touchKey, array $collectItemData)
     {
         return [
-            'id' => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
-            'attributes' => $this->getAbstractAttributes($collectItemData),
-            'name' => $collectItemData[self::NAME],
-            'sku' => $collectItemData[self::SKU],
-            'url' => $collectItemData[self::URL],
-            'available' => true, // @TODO implement
-            'price' => $this->getPriceBySku($collectItemData[self::SKU]),
-            'category' => $this->generateCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
-            'images' => $this->generateImages($collectItemData[self::ID_IMAGE_SET]),
-            self::DESCRIPTION => $collectItemData[self::DESCRIPTION],
-
+            StorageProductTransfer::ID => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
+            StorageProductTransfer::ATTRIBUTES => $this->getAbstractAttributes($collectItemData),
+            StorageProductTransfer::NAME => $collectItemData[self::NAME],
+            StorageProductTransfer::SKU => $collectItemData[self::SKU],
+            StorageProductTransfer::URL => $collectItemData[self::URL],
+            StorageProductTransfer::AVAILABLE => true, // @TODO implement
+            StorageProductTransfer::PRICE => $this->getPriceBySku($collectItemData[self::SKU]),
+            StorageProductTransfer::CATEGORIES => $this->generateCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
+            StorageProductTransfer::IMAGES => $this->generateImages($collectItemData[self::ID_IMAGE_SET]),
+            StorageProductTransfer::DESCRIPTION=> $collectItemData[self::DESCRIPTION],
         ];
     }
 
