@@ -57,7 +57,7 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
         return [
             StorageAttributeMapTransfer::ATTRIBUTE_VARIANTS => $this->buildProductVariants($productConcreteSuperAttributes),
             StorageAttributeMapTransfer::SUPER_ATTRIBUTES => $superAttributeVariations,
-            StorageAttributeMapTransfer::PRODUCT_CONCRETE_IDS => array_keys($concreteProductIds),
+            StorageAttributeMapTransfer::PRODUCT_CONCRETE_IDS => $concreteProductIds,
         ];
     }
 
