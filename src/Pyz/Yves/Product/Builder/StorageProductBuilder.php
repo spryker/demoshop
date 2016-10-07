@@ -34,10 +34,14 @@ class StorageProductBuilder implements StorageProductBuilderInterface
     public function buildProduct(array $productData, array $selectedAttributes = [])
     {
         $storageProductTransfer = $this->mapAbstractStorageProduct($productData);
+        $storageProductTransfer->setSelectedAttributes($selectedAttributes);
 
         $storageProductTransfer = $this->attributeVariantBuilder->setSuperAttributes($storageProductTransfer);
         if (count($selectedAttributes) > 0) {
-            $storageProductTransfer = $this->setSelectedVariants($selectedAttributes, $storageProductTransfer);
+            $storageProductTransfer = $this->attributeVariantBuilder->setSelectedVariants(
+                $selectedAttributes,
+                $storageProductTransfer
+            );
         }
 
         return $storageProductTransfer;
@@ -56,32 +60,5 @@ class StorageProductBuilder implements StorageProductBuilderInterface
         return $storageProductTransfer;
     }
 
-    /**
-     * @param array $selectedAttributes
-     * @param StorageProductTransfer $storageProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\StorageProductTransfer
-     */
-    protected function setSelectedVariants(array $selectedAttributes, StorageProductTransfer $storageProductTransfer)
-    {
-        $selectedVariantNode = $this->attributeVariantBuilder->getSelectedVariantNode(
-            $selectedAttributes,
-            $storageProductTransfer->getId()
-        );
-
-        if ($this->attributeVariantBuilder->isProductConcreteNodeReached($selectedVariantNode)) {
-            $idProductConcrete = $this->attributeVariantBuilder->extractIdOfProductConcrete($selectedVariantNode);
-            return $this->attributeVariantBuilder->mergeAbstractAndConcreteProducts(
-                $idProductConcrete,
-                $storageProductTransfer
-            );
-        }
-
-        return $this->attributeVariantBuilder->setAvailableAttributes(
-            $selectedVariantNode,
-            $storageProductTransfer
-        );
-
-    }
 
 }

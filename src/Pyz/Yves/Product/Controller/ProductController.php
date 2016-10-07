@@ -26,13 +26,11 @@ class ProductController extends AbstractController
     public function detailAction(StorageProductTransfer $storageProductTransfer)
     {
         $categories = $storageProductTransfer->getCategories();
-        $selectedAttributes = $this->getRequest()->query->get('attribute', []);
 
         $productData = [
             'product' => $storageProductTransfer,
             'productCategories' => $categories,
             'category' => count($categories) ? end($categories) : null,
-            'selectedAttributes' => $selectedAttributes,
         ];
 
         return $productData;

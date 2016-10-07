@@ -37,25 +37,27 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
 
         $productConcreteSuperAttributes = [];
         $superAttributeVariations = [];
-        foreach ($productAttributes as $productId => $attributes) {
+        foreach ($productAttributes as $idProductConcrete => $attributes) {
             foreach ($attributes as $key => $value) {
                 if (!isset($superAttributes[$key])) {
                     continue;
                 }
 
-                $productConcreteSuperAttributes[$productId][$key] = $value;
+                $productConcreteSuperAttributes[$idProductConcrete][$key] = $value;
                 if (!isset($superAttributeVariations[$key]) || !in_array($value, $superAttributeVariations[$key])) {
                     $superAttributeVariations[$key][] = $value;
                 }
             }
         }
 
-        $br = 1;
+        $concreteProductIds = array_keys($productConcreteSuperAttributes);
+
+        sort($concreteProductIds);
 
         return [
             StorageAttributeMapTransfer::ATTRIBUTE_VARIANTS => $this->buildProductVariants($productConcreteSuperAttributes),
             StorageAttributeMapTransfer::SUPER_ATTRIBUTES => $superAttributeVariations,
-            StorageAttributeMapTransfer::PRODUCT_CONCRETE_IDS => array_keys($productConcreteSuperAttributes),
+            StorageAttributeMapTransfer::PRODUCT_CONCRETE_IDS => array_keys($concreteProductIds),
         ];
     }
 

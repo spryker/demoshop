@@ -40,6 +40,6 @@ class AttributeMapCollectorQuery extends AbstractPropelCollectorQuery
             Criteria::EQUAL
         );
 
-        $this->touchQuery->withColumn(SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT, 'id_product_abstract');
+        $this->touchQuery->withColumn(SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT, static::ID_PRODUCT_ABSTRACT);
     }
 }

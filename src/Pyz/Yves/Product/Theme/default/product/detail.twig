@@ -98,7 +98,7 @@
                     {% for attributeName, attributeValue in product.attributes %}
                         {% if attributeName not in ['short_description', 'long_description', 'url', 'variant_id', 'abstract_name', 'quantity', 'available', 'price', 'manufacturer_name', 'license', 'sku', 'images'] %}
                             <p class="small-12 medium-6 xlarge-4 xxlarge-3 columns">
-                                <strong>{{ ('product.attribute.'~attributeName) | trans }}</strong><br>
+                                <strong>{{ ('product.attribute.'~attributeName) | trans }} </strong><br>
                                 {{ attributeValue }}
                             </p>
                         {% endif %}

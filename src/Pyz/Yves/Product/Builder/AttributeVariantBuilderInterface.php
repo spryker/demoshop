@@ -19,43 +19,9 @@ interface AttributeVariantBuilderInterface
 
     /**
      * @param array $selectedAttributes
-     * @param int $idProductAbstract
-     *
-     * @return array
-     */
-    public function getSelectedVariantNode(array $selectedAttributes, $idProductAbstract);
-
-    /**
-     * @param array $selectedVariantNode
-     *
-     * @return bool
-     */
-    public function isProductConcreteNodeReached(array $selectedVariantNode);
-
-    /**
-     * @param int $idProductConcrete
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\StorageProductTransfer
-     */
-    public function mergeAbstractAndConcreteProducts(
-        $idProductConcrete,
-        StorageProductTransfer $storageProductTransfer
-    );
-
-    /**
-     * @param array $selectedVariantNode
-     * @param StorageProductTransfer $storageProductTransfer
      *
      * @return StorageProductTransfer
      */
-    public function setAvailableAttributes(array $selectedVariantNode, StorageProductTransfer $storageProductTransfer);
-
-    /**
-     * @param array $selectedVariantNode
-     *
-     * @return int
-     */
-    public function extractIdOfProductConcrete(array $selectedVariantNode);
-
+    public function setSelectedVariants(array $selectedAttributes, StorageProductTransfer $storageProductTransfer);
 }
