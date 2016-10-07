@@ -240,7 +240,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createAttributeMapCollector()
     {
-        $attributeMapCollector = new AttributeMapCollector();
+        $attributeMapCollector = new AttributeMapCollector($this->getProductFacade());
 
         $attributeMapCollector->setTouchQueryContainer(
             $this->getTouchQueryContainer()
@@ -408,6 +408,14 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     protected function getPropelFacade()
     {
         return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PROPEL);
+    }
+
+    /**
+     * @return \Spryker\Zed\Propel\Business\PropelFacadeInterface
+     */
+    protected function getProductFacade()
+    {
+        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT);
     }
 
     /**

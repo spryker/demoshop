@@ -29,6 +29,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
     const FACADE_PRICE = 'price facade';
     const FACADE_SEARCH = 'search facade';
     const FACADE_PRODUCT_SEARCH = 'product search facade';
+    const FACADE_PRODUCT = 'FACADE_PRODUCT';
     const FACADE_PRODUCT_OPTION_EXPORTER = 'product option exporter facade';
 
     const QUERY_CONTAINER_PRICE = 'price query container';
@@ -69,6 +70,10 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[self::FACADE_SEARCH] = function (Container $container) {
             return $container->getLocator()->search()->facade();
+        };
+
+        $container[self::FACADE_PRODUCT] = function (Container $container) {
+            return $container->getLocator()->product()->facade();
         };
 
         $container[self::QUERY_CONTAINER_PRODUCT_IMAGE] = function (Container $container) {

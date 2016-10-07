@@ -7,7 +7,6 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\StorageAttributeMapTransfer;
-use Generated\Shared\Transfer\StorageProductTransfer;
 use Orm\Zed\Product\Persistence\Base\SpyProductAttributeKeyQuery;
 use Orm\Zed\Product\Persistence\Map\SpyProductAttributeKeyTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
@@ -18,9 +17,22 @@ use Pyz\Zed\Collector\Persistence\Storage\Propel\AttributeMapCollectorQuery;
 use Spryker\Shared\Library\Json;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollector;
+use Spryker\Zed\Product\Business\ProductFacadeInterface;
 
 class AttributeMapCollector extends AbstractStoragePropelCollector
 {
+    /**
+     * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
+     */
+    protected $productFacade;
+
+    /**
+     * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
+     */
+    public function __construct(ProductFacadeInterface $productFacade)
+    {
+        $this->productFacade = $productFacade;
+    }
 
     /**
      * @param string $touchKey
@@ -51,51 +63,13 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
             }
         }
 
-        $concreteProductIds = array_map(function($product) {
-            return $product[SpyProductTableMap::COL_ID_PRODUCT];
-        }, $concreteProducts);
-
-        sort($concreteProductIds);
+        $concreteProductIds = $this->filterConcreteProductIds($concreteProducts);
 
         return [
             StorageAttributeMapTransfer::ATTRIBUTE_VARIANTS => $this->buildProductVariants($productConcreteSuperAttributes),
             StorageAttributeMapTransfer::SUPER_ATTRIBUTES => $superAttributeVariations,
             StorageAttributeMapTransfer::PRODUCT_CONCRETE_IDS => $concreteProductIds,
         ];
-    }
-
-    /**
-     * @param array $superAttributes
-     * @param int $idProductConcrete
-     * @param array $variants
-     *
-     * @return array
-     */
-    public function buildAttributeVariants(array $superAttributes, $idProductConcrete, array $variants = [])
-    {
-        if (empty($superAttributes)) {
-            $result = [
-                StorageProductTransfer::ID => $idProductConcrete //set leaf node to id of concrete product
-            ];
-        }  else {
-            $result = [];
-
-            $index = 0;
-            foreach ($superAttributes as $key => $value) {
-                $newAttributes = $superAttributes;
-                $newVariants = $variants;
-
-                $newVariants[] = array_splice($newAttributes, $index++, 1);
-
-                $recurseResult = $this->buildAttributeVariants($newAttributes, $idProductConcrete, $newVariants);
-                if (is_array($recurseResult)) {
-                    $recurseResult = array_merge($result, $recurseResult);
-                }
-
-                $result[$key . ProductConstants::ATTRIBUTE_MAP_PATH_DELIMITER . $value] = $recurseResult;
-            }
-        }
-        return $result;
     }
 
     /**
@@ -201,13 +175,29 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
             foreach ($productSuperAttributes as $productId => $attributes) {
                 $attributeVariants = array_merge_recursive(
                     $attributeVariants,
-                    $this->buildAttributeVariants($attributes, $productId)
+                    $this->productFacade->generateAttributePermutations($attributes, $productId)
                 );
             }
         }
 
         return $attributeVariants;
 
+    }
+
+    /**
+     * @param array $concreteProducts
+     *
+     * @return array
+     */
+    protected function filterConcreteProductIds(array $concreteProducts)
+    {
+        $concreteProductIds = array_map(function ($product) {
+            return $product[SpyProductTableMap::COL_ID_PRODUCT];
+        }, $concreteProducts);
+
+        sort($concreteProductIds);
+
+        return $concreteProductIds;
     }
 
 }
