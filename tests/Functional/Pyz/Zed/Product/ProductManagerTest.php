@@ -214,6 +214,7 @@ class ProductManagerTest extends Test
         );
 
         $this->productManager = new ProductManager(
+            $attributeManager,
             $this->productAbstractManager,
             $this->productConcreteManager,
             $this->productQueryContainer
