@@ -71,15 +71,6 @@ class AttributeVariantBuilder implements AttributeVariantBuilderInterface
             return $this->mergeAbstractAndConcreteProducts($idProductConcrete, $storageProductTransfer);
         }
 
-        $productVariantIds = $this->findVariantNodeLeafs($selectedVariantNode);
-        if (count($productVariantIds) === 1) {
-
-            $this->preSelectVariants($storageProductTransfer, $selectedVariantNode);
-
-            $idProductConcrete = array_shift($productVariantIds);
-            return $this->mergeAbstractAndConcreteProducts($idProductConcrete, $storageProductTransfer);
-        }
-
         return $this->setAvailableAttributes($selectedVariantNode, $storageProductTransfer);
 
     }
@@ -196,28 +187,6 @@ class AttributeVariantBuilder implements AttributeVariantBuilderInterface
     }
 
     /**
-     * @param array $selectedVariants
-     *
-     * @return array
-     */
-    protected function findVariantNodeLeafs(array $selectedVariants)
-    {
-        static $leafNodes = [];
-
-        foreach ($selectedVariants as $key => $selectedVariant) {
-            if (is_numeric($selectedVariant) && !isset($leafNodes[$selectedVariant])) {
-                $leafNodes[$selectedVariant] = $selectedVariant;
-            }
-
-            if (is_array($selectedVariant)) {
-                $this->findVariantNodeLeafs($selectedVariant);
-            }
-        }
-
-        return $leafNodes;
-    }
-
-    /**
      * @param array $attributeMap
      * @param array $selectedAttributes
      *
@@ -320,34 +289,21 @@ class AttributeVariantBuilder implements AttributeVariantBuilderInterface
 
     /**
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
-     * @param array $selectedVariantNode
+     * @param StorageAttributeMapTransfer $storageAttributeMapTransfer
      *
      * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
-    protected function preSelectVariants(StorageProductTransfer $storageProductTransfer, array $selectedVariantNode)
-    {
-        $selectedAttributes = $storageProductTransfer->getSelectedAttributes();
-        foreach ($selectedVariantNode as $variantAttributeKey => $variantAttributeValue) {
-            list ($key, $value) = explode(ProductConstants::ATTRIBUTE_MAP_PATH_DELIMITER, $variantAttributeKey);
-            $selectedAttributes[$key] = $value;
-        }
-
-        $storageProductTransfer->setSelectedAttributes($selectedAttributes);
-
-        return $storageProductTransfer;
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
-     * @param StorageProductTransfer $storageAttributeMapTransfer
-     *
-     * @return \Generated\Shared\Transfer\StorageProductTransfer
-     */
-    protected function getFirstProductVariant(StorageProductTransfer $storageProductTransfer, $storageAttributeMapTransfer)
-    {
+    protected function getFirstProductVariant(
+        StorageProductTransfer $storageProductTransfer,
+        StorageAttributeMapTransfer $storageAttributeMapTransfer
+    ) {
         $productConcreteIds = $storageAttributeMapTransfer->getProductConcreteIds();
         $idProductConcrete = array_shift($productConcreteIds);
         $productConcrete = $this->getProductConcreteFromStorage($idProductConcrete);
+
+        if (count($productConcrete) === 0){
+            return $storageProductTransfer;
+        }
 
         return $this->mapVariantStorageProductTransfer($storageProductTransfer, $productConcrete);
     }

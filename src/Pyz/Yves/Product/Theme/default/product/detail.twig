@@ -66,12 +66,10 @@
         <div class="small-12 medium-6 xlarge-5 xxlarge-4 columns">
 
             <div class="callout">
-                <h5><small>{{ 'page.product.by' | trans }}</small> {{ product.attributes.manufacturer_name }}</h5>
+                <h5><small>{{ 'page.product.by' | trans }}</small></h5>
                 <p>
                     <span class="stat">{{ product.price | price }}</span>
                 </p>
-
-                <p>{{ product.attributes.short_description }}</p>
 
                 {% include '@Product/product/partials/variants.twig' %}
 
@@ -91,17 +89,15 @@
         <div class="small-12 columns">
             <div class="callout">
                 <h5>{{ 'product.attribute.long_description' | trans }}</h5>
-                <p>{{ product.attributes.long_description }}</p>
+                <p>{{ product.description }}</p>
 
                 <h5>{{ 'page.product.details' | trans }}</h5>
                 <div class="row">
                     {% for attributeName, attributeValue in product.attributes %}
-                        {% if attributeName not in ['short_description', 'long_description', 'url', 'variant_id', 'abstract_name', 'quantity', 'available', 'price', 'manufacturer_name', 'license', 'sku', 'images'] %}
-                            <p class="small-12 medium-6 xlarge-4 xxlarge-3 columns">
-                                <strong>{{ ('product.attribute.'~attributeName) | trans }} </strong><br>
-                                {{ attributeValue }}
-                            </p>
-                        {% endif %}
+                        <p class="small-12 medium-6 xlarge-4 xxlarge-3 columns">
+                            <strong>{{ ('product.attribute.'~attributeName) | trans }} </strong><br>
+                            {{ attributeValue }}
+                        </p>
                     {% endfor %}
                 </div>
             </div>

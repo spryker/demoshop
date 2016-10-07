@@ -121,6 +121,7 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
         return SpyProductQuery::create()
             ->select([SpyProductTableMap::COL_ATTRIBUTES, SpyProductTableMap::COL_ID_PRODUCT])
             ->filterByFkProductAbstract($idProductAbstract)
+            ->filterByIsActive(true)
             ->find()
             ->toArray();
     }
