@@ -136,6 +136,7 @@ function installDemoshop {
 function installZed {
     setupText "Zed setup"
 
+    setupSearch
     resetDataStores
 
     dropDevelopmentDatabase
@@ -180,6 +181,12 @@ function optimizeRepo {
     git gc              # garbage collector
     git prune           # kills loose garbage
     writeErrorMessage "Repository optimization failed"
+}
+
+function setupSearch {
+    labelText "Setup search"
+    $CONSOLE setup:search
+    writeErrorMessage "Setup search failed"
 }
 
 function resetDataStores {
