@@ -13,6 +13,7 @@ use Orm\Zed\Product\Persistence\Map\SpyProductAttributeKeyTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
 use Orm\Zed\Product\Persistence\SpyProductQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
+use Propel\Runtime\Map\TableMap;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AttributeMapCollectorQuery;
 use Spryker\Shared\Library\Json;
 use Spryker\Shared\Product\ProductConstants;
@@ -50,7 +51,9 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
             }
         }
 
-        $concreteProductIds = array_keys($productConcreteSuperAttributes);
+        $concreteProductIds = array_map(function($product) {
+            return $product[SpyProductTableMap::COL_ID_PRODUCT];
+        }, $concreteProducts);
 
         sort($concreteProductIds);
 
@@ -123,7 +126,8 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
             ->filterByFkProductAbstract($idProductAbstract)
             ->filterByIsActive(true)
             ->find()
-            ->toArray();
+            ->toArray(null, false, TableMap::TYPE_CAMELNAME);
+
     }
 
     /**

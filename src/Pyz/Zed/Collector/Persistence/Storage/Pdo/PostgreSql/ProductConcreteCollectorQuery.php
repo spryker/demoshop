@@ -46,7 +46,7 @@ FROM spy_touch t
   LEFT JOIN spy_price_product concrete_price_table ON (spy_product.id_product = concrete_price_table.fk_product AND concrete_price_table.fk_price_type = 1)
   LEFT JOIN spy_price_type spy_price_type ON (concrete_price_table.fk_price_type = spy_price_type.id_price_type)
   LEFT JOIN spy_touch_storage ON spy_touch_storage.fk_touch = t.id_touch AND spy_touch_storage.fk_locale = :fk_locale_2
-  LEFT JOIN spy_product_image_set ON (spy_product_image_set.fk_product = spy_product.id_product OR spy_product_image_set.fk_product = spy_product.id_product) AND spy_product_image_set.fk_locale = spy_locale.id_locale
+  LEFT JOIN spy_product_image_set ON (spy_product_image_set.fk_product = spy_product.id_product OR spy_product_image_set.fk_product_abstract = spy_product_abstract.id_product_abstract) AND spy_product_image_set.fk_locale = spy_locale.id_locale
 WHERE
   t.item_event = :spy_touch_item_event
   AND t.touched >= :spy_touch_touched
