@@ -361,7 +361,7 @@ class ProductAbstractImporter extends AbstractImporter
     }
 
     /**
-     * @param array|ProductConcreteTransfer[] $productConcreteCollection
+     * @param array|\Generated\Shared\Transfer\ProductConcreteTransfer[] $productConcreteCollection
      * @param int $idProductAbstract
      *
      * @return void
@@ -373,47 +373,6 @@ class ProductAbstractImporter extends AbstractImporter
             $this->productFacade->createProductConcrete($productConcrete);
             $this->productFacade->touchProductConcreteActive($productConcrete->getIdProductConcrete()); //@todo move product bundle, add touch plugin.
         }
-    }
-
-    /**
-     * @todo remove slugify, use facade instead.
-     *
-     * @return void
-     */
-    protected function createAndTouchProductUrls(ProductAbstractTransfer $productAbstract, $idProductAbstract)
-    {
-        $productUrl = $this->productFacade->createProductUrl($productAbstract);
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\LocalizedAttributesTransfer $localizedAttributes
-     * @param int $idProductAbstract
-     *
-     * @return string
-     */
-    protected function generateProductUrl(LocalizedAttributesTransfer $localizedAttributes, $idProductAbstract)
-    {
-        $productName = $this->slugify($localizedAttributes->getName());
-
-        return '/' . mb_substr($localizedAttributes->getLocale()->getLocaleName(), 0, 2) . '/' . $productName . '-' . $idProductAbstract;
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return string
-     */
-    public function slugify($value)
-    {
-        if (function_exists('iconv')) {
-            $value = iconv('UTF-8', 'ASCII//TRANSLIT', $value);
-        }
-
-        $value = preg_replace("/[^a-zA-Z0-9 -]/", "", $value);
-        $value = strtolower($value);
-        $value = str_replace(' ', '-', $value);
-
-        return $value;
     }
 
     /**
