@@ -1730,7 +1730,7 @@
                     "Braintree\\Module\\": "Bundles/Braintree/tests/_support/Module",
                     "Config\\Module\\": "Bundles/Config/tests/_support/Module",
                     "Customer\\Module\\": "Bundles/Customer/tests/_support/Module",
-                    "ErroHandler\\Module\\": "Bundles/ErrorHandler/tests/_support/Module",
+                    "ErrorHandler\\Module\\": "Bundles/ErrorHandler/tests/_support/Module",
                     "Oms\\Module\\": "Bundles/Oms/tests/_support/Module",
                     "Propel\\Module\\": "Bundles/Propel/tests/_support/Module",
                     "Sales\\Module\\": "Bundles/Sales/tests/_support/Module",
