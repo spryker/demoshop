@@ -17,6 +17,10 @@ class ProductBusinessFactory extends SprykerProductBusinessFactory
      */
     public function createProductUrlGenerator()
     {
-        return new ProductUrlGenerator($this->createProductAbstractManager(),  $this->getLocaleFacade());
+        return new ProductUrlGenerator(
+            $this->createProductAbstractManager(),
+            $this->getLocaleFacade(),
+            $this->getUrlFacade()
+        );
     }
 }
