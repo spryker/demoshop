@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "30047b4e4787eadfd60f85bb1be03ece",
-    "content-hash": "9df43aefbbd08b25c85b709ef5494ce2",
+    "hash": "4374a115601b71e24af2754ed6cb96db",
+    "content-hash": "52876270a41394fb31159ef66ca84985",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1200,7 +1200,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "aa9259c6d9fa627c8e59e474ddd33a6d48f15b94"
+                "reference": "4156b24741411ab1acc38eb256422aa04354cf7d"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1711,7 +1711,7 @@
                     "Braintree\\Module\\": "Bundles/Braintree/tests/_support/Module",
                     "Config\\Module\\": "Bundles/Config/tests/_support/Module",
                     "Customer\\Module\\": "Bundles/Customer/tests/_support/Module",
-                    "ErroHandler\\Module\\": "Bundles/ErrorHandler/tests/_support/Module",
+                    "ErrorHandler\\Module\\": "Bundles/ErrorHandler/tests/_support/Module",
                     "Oms\\Module\\": "Bundles/Oms/tests/_support/Module",
                     "Propel\\Module\\": "Bundles/Propel/tests/_support/Module",
                     "Sales\\Module\\": "Bundles/Sales/tests/_support/Module",
@@ -1726,7 +1726,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-09-26 13:44:02"
+            "time": "2016-10-10 11:24:24"
         },
         {
             "name": "symfony-cmf/routing",
@@ -6504,7 +6504,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "~5.6.0"
+        "php": ">=5.6.0"
     },
     "platform-dev": []
 }
