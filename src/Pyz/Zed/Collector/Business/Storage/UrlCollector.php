@@ -174,13 +174,6 @@ class UrlCollector extends AbstractStoragePdoCollector
         LocaleTransfer $locale,
         OutputInterface $output
     ) {
-        $output->writeln('');
-        $output->writeln(sprintf(
-            '<fg=yellow>Processing URL Keys:</fg=yellow> <fg=white>%s</fg=white>',
-            $locale->getLocaleName()
-        ));
-        $output->writeln('<fg=yellow>--------------------------</fg=yellow>');
-
         $progressBar = $this->startProgressBar($batchCollection, $batchResult, $output);
 
         foreach ($batchCollection as $batch) {
