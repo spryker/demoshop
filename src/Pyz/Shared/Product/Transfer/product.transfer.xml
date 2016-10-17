@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<transfers xmlns="http://xsd.spryker.com"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://static.spryker.com http://static.spryker.com/transfer-01.xsd" >
+
+    <transfer name="StorageProduct">
+        <property name="id" type="int" />
+        <property name="attributes" type="array" singular="attribute" />
+        <property name="name" type="string" />
+        <property name="sku" type="string" />
+        <property name="url" type="string" />
+        <property name="available" type="bool" />
+        <property name="price" type="int" />
+        <property name="categories" type="array" singular="category" />
+        <property name="images" type="array" singular="images" />
+        <property name="description" type="string" />
+        <property name="quantity" type="int" />
+        <property name="isVariant" type="bool" />
+        <property name="superAttributes" type="array" singular="superAttribute"/>
+        <property name="availableAttributes" type="array" singular="availableAttribute"/>
+        <property name="selectedAttributes" type="array" singular="selectedAttribute"/>
+        <property name="metaTitle" type="string" />
+        <property name="metaKeywords" type="string" />
+        <property name="metaDescription" type="string" />
+    </transfer>
+
+    <transfer name="StorageAttributeMap">
+        <property name="attributeVariants" type="array" singular="attributeVariant" />
+        <property name="superAttributes" type="array" singular="superAttribute" />
+        <property name="productConcreteIds" type="array" singular="productConcreteId" />
+    </transfer>
+
+</transfers>
