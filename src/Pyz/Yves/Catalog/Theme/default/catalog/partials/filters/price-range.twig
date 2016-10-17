@@ -6,6 +6,7 @@
                     {{ "catalog.filter.pricerangeFrom"|trans }}
                     <input type="number" name="{{ filter.name }}[min]"
                            value="{{ (filter.activeMin | default(0)) | priceRaw | floor }}"
+                           required="required"
                            min="{{ (filter.min | default(0)) | priceRaw | floor }}"
                            max="{{ (filter.max | default(0)) | priceRaw | ceil }}"
                     />
@@ -16,6 +17,7 @@
                     {{ "catalog.filter.pricerangeTo"|trans }}
                     <input type="number" name="{{ filter.name }}[max]"
                            value="{{ (filter.activeMax | default(0)) | priceRaw | floor }}"
+                           required="required"
                            min="{{ (filter.min | default(0)) | priceRaw | floor }}"
                            max="{{ (filter.max | default(0)) | priceRaw | ceil }}"
                     />

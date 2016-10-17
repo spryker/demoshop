@@ -6,6 +6,7 @@
                    {{ "catalog.filter.rangeFrom"|trans }}
                    <input type="number" name="{{ filter.name }}[min]"
                           value="{{ filter.activeMin }}"
+                          required="required"
                           min="{{ filter.min }}"
                           max="{{ filter.max }}"
                    />
@@ -16,6 +17,7 @@
                     {{ "catalog.filter.rangeTo"|trans }}
                     <input type="number" name="{{ filter.name }}[max]"
                            value="{{ filter.activeMax }}"
+                           required="required"
                            min="{{ filter.min }}"
                            max="{{ filter.max }}"
                     />
