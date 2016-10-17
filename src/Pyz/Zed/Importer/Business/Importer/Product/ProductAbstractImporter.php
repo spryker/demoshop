@@ -16,7 +16,6 @@ use Generated\Shared\Transfer\ProductImageTransfer;
 use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Shared\Library\Reader\Csv\CsvReader;
-use Spryker\Shared\ProductImage\ProductImageConstants;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
 use Symfony\Component\Finder\Finder;
@@ -119,12 +118,11 @@ class ProductAbstractImporter extends AbstractImporter
 
             $attributes = $this->generateAttributes($productAttributes);
             $productAbstractTransfer = $this->buildProductAbstractTransfer($product, $attributes);
+            $productConcrete = $this->buildProductConcreteTransfer($product, $attributes);
 
-            $idProductAbstract = $this->productFacade->createProductAbstract($productAbstractTransfer);
+            $idProductAbstract = $this->productFacade->addProduct($productAbstractTransfer, [$productConcrete]);
             $productAbstractTransfer->setIdProductAbstract($idProductAbstract);
-
-            $productConcreteCollection = $this->buildProductConcreteTransfer($idProductAbstract, $product, $attributes);
-            $this->createProductConcreteCollection([$productConcreteCollection], $idProductAbstract);
+            //$this->createProductConcreteCollection([$productConcrete], $idProductAbstract);
 
             $this->productFacade->touchProductActive($idProductAbstract);
             $this->productFacade->createProductUrl($productAbstractTransfer);
@@ -166,34 +164,35 @@ class ProductAbstractImporter extends AbstractImporter
             $productAbstractTransfer->addLocalizedAttributes($localizedAttributesTransfer);
         }
 
-        $productAbstractTransfer = $this->addProductImageSets($product, $productAbstractTransfer);
+        $imageSets = $this->buildProductImageSets($product);
+        $productAbstractTransfer->setImageSets(new \ArrayObject($imageSets));
 
         return $productAbstractTransfer;
     }
 
     /**
      * @param array $product
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
      *
-     * @return \Generated\Shared\Transfer\ProductAbstractTransfer
+     * @return \Generated\Shared\Transfer\ProductImageTransfer[]
      */
-    protected function addProductImageSets(array $product, ProductAbstractTransfer $productAbstractTransfer)
+    protected function buildProductImageSets(array $product)
     {
-        $productImage = new ProductImageTransfer();
-        $productImage->setSortOrder(0);
-        $productImage->setExternalUrlSmall($product[self::IMAGE_SMALL]);
-        $productImage->setExternalUrlLarge($product[self::IMAGE_LARGE]);
+        $productImage = (new ProductImageTransfer())
+            ->setSortOrder(0)
+            ->setExternalUrlSmall($product[self::IMAGE_SMALL])
+            ->setExternalUrlLarge($product[self::IMAGE_LARGE]);
 
+        $result = [];
         foreach ($this->localeFacade->getLocaleCollection() as $localeTransfer) {
-            $productImageSet = new ProductImageSetTransfer();
-            $productImageSet->setName(ProductImageConstants::DEFAULT_IMAGE_SET_NAME);
-            $productImageSet->setLocale($localeTransfer);
-            $productImageSet->addProductImage($productImage);
+            $productImageSet = (new ProductImageSetTransfer())
+                ->setName('Default')
+                ->setLocale($localeTransfer)
+                ->addProductImage($productImage);
 
-            $productAbstractTransfer->addImageSet($productImageSet);
+            $result[] = $productImageSet;
         }
 
-        return $productAbstractTransfer;
+        return $result;
     }
 
     /**
@@ -210,13 +209,12 @@ class ProductAbstractImporter extends AbstractImporter
     }
 
     /**
-     * @param int $idProductAbstract
      * @param array $product
      * @param array $attributeData
      *
      * @return \Generated\Shared\Transfer\ProductConcreteTransfer
      */
-    protected function buildProductConcreteTransfer($idProductAbstract, array $product, array $attributeData)
+    protected function buildProductConcreteTransfer(array $product, array $attributeData)
     {
         $productAbstractData = $attributeData[self::PRODUCT_ABSTRACT];
         $concreteSku = $product[self::SKU] . '-' . $productAbstractData[self::VARIANT_ID];
@@ -225,7 +223,6 @@ class ProductAbstractImporter extends AbstractImporter
         $productConcreteTransfer->setAttributes($attributeData[self::PRODUCT_ABSTRACT]);
         $productConcreteTransfer->setSku($concreteSku);
         $productConcreteTransfer->setIsActive(true);
-        $productConcreteTransfer->setFkProductAbstract($idProductAbstract);
 
         unset($attributeData[self::PRODUCT_ABSTRACT]);
 
