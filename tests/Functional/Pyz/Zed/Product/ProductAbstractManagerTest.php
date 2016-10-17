@@ -17,13 +17,14 @@ use Generated\Shared\Transfer\ProductImageSetTransfer;
 use Generated\Shared\Transfer\ProductImageTransfer;
 use Spryker\Zed\Locale\Business\LocaleFacade;
 use Spryker\Zed\Price\Business\PriceFacade;
+use Spryker\Zed\Product\Business\Product\PluginAbstractManager;
 use Spryker\Zed\Product\Business\Product\PluginConcreteManager;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractCreatePlugin as ImageSetProductAbstractCreatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterCreatePlugin as ImageSetProductAbstractAfterCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as ImageSetProductAbstractReadPlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractUpdatePlugin as ImageSetProductAbstractUpdatePlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteCreatePlugin as ImageSetProductConcreteCreatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterUpdatePlugin as ImageSetProductAbstractAfterUpdatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterCreatePlugin as ImageSetProductConcreteAfterCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteReadPlugin as ImageSetProductConcreteReadPlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteUpdatePlugin as ImageSetProductConcreteUpdatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterUpdatePlugin as ImageSetProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\Product\Business\Attribute\AttributeManager;
 use Spryker\Zed\Product\Business\ProductFacade;
 use Spryker\Zed\Product\Business\Product\ProductAbstractAssertion;
@@ -37,9 +38,9 @@ use Spryker\Zed\Product\Dependency\Facade\ProductToPriceBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToTouchBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToUrlBridge;
 use Spryker\Zed\Product\Persistence\ProductQueryContainer;
-use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteCreatePlugin as StockProductConcreteCreatePlugin;
+use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterCreatePlugin as StockProductConcreteAfterCreatePlugin;
 use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteReadPlugin as StockProductConcreteReadPlugin;
-use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteUpdatePlugin as StockProductConcreteUpdatePlugin;
+use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterUpdatePlugin as StockProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\Touch\Persistence\TouchQueryContainer;
 use Spryker\Zed\Url\Business\UrlFacade;
 
@@ -73,9 +74,6 @@ class ProductAbstractManagerTest extends Test
         'en_US' => 'Updated Product concrete name en_US',
         'de_DE' => 'Updated Product concrete name de_DE',
     ];
-
-    const ID_PRODUCT_ABSTRACT = 1;
-    const ID_PRODUCT_CONCRETE = 1;
 
     const IMAGE_SET_NAME = 'Default';
     const IMAGE_URL_LARGE = 'large';
@@ -172,11 +170,11 @@ class ProductAbstractManagerTest extends Test
             $this->productQueryContainer
         );
 
-        $productConcretePluginManager = new PluginConcreteManager(
+        $concretePluginManager = new PluginConcreteManager(
             $beforeCreatePlugins = [],
             $afterCreatePlugins = [
-                new ImageSetProductConcreteCreatePlugin(),
-                new StockProductConcreteCreatePlugin()
+                new ImageSetProductConcreteAfterCreatePlugin(),
+                new StockProductConcreteAfterCreatePlugin()
             ],
             $readPlugins = [
                 new ImageSetProductConcreteReadPlugin(),
@@ -184,8 +182,8 @@ class ProductAbstractManagerTest extends Test
             ],
             $beforeUpdatePlugins = [],
             $afterUpdatePlugins = [
-                new ImageSetProductConcreteUpdatePlugin(),
-                new StockProductConcreteUpdatePlugin()
+                new ImageSetProductConcreteAfterUpdatePlugin(),
+                new StockProductConcreteAfterUpdatePlugin()
             ]
         );
 
@@ -198,7 +196,21 @@ class ProductAbstractManagerTest extends Test
             new ProductToPriceBridge($this->priceFacade),
             $productAbstractAssertion,
             $productConcreteAssertion,
-            $productConcretePluginManager
+            $concretePluginManager
+        );
+
+        $abstractPluginManager = new PluginAbstractManager(
+            $beforeCreatePlugins = [],
+            $afterCreatePlugins = [
+                new ImageSetProductAbstractAfterCreatePlugin(),
+            ],
+            $readPlugins = [
+                new ImageSetProductAbstractReadPlugin(),
+            ],
+            $beforeUpdatePlugins = [],
+            $afterUpdatePlugins = [
+                new ImageSetProductAbstractAfterUpdatePlugin(),
+            ]
         );
 
         $this->productAbstractManager = new ProductAbstractManager(
@@ -210,9 +222,7 @@ class ProductAbstractManagerTest extends Test
             new ProductToPriceBridge($this->priceFacade),
             $this->productConcreteManager,
             $productAbstractAssertion,
-            $createPlugins = [new ImageSetProductAbstractCreatePlugin()],
-            $readPlugins = [new ImageSetProductAbstractReadPlugin()],
-            $updatePlugins = [new ImageSetProductAbstractUpdatePlugin()]
+            $abstractPluginManager
         );
 
         $urlGenerator = new ProductUrlGenerator(
@@ -255,8 +265,7 @@ class ProductAbstractManagerTest extends Test
     {
         $this->productAbstractTransfer = new ProductAbstractTransfer();
         $this->productAbstractTransfer
-            ->setSku('foo')
-            ->setIdProductAbstract(self::ID_PRODUCT_ABSTRACT);
+            ->setSku('foo');
 
         $localizedAttribute = new LocalizedAttributesTransfer();
         $localizedAttribute
@@ -280,8 +289,7 @@ class ProductAbstractManagerTest extends Test
     {
         $this->productConcreteTransfer = new ProductConcreteTransfer();
         $this->productConcreteTransfer
-            ->setSku('foo-concrete')
-            ->setIdProductConcrete(self::ID_PRODUCT_CONCRETE);
+            ->setSku('foo-concrete');
 
         $localizedAttribute = new LocalizedAttributesTransfer();
         $localizedAttribute
@@ -303,15 +311,13 @@ class ProductAbstractManagerTest extends Test
      */
     public function testCreateProductAbstractShouldCreateProductAbstractAndTriggerPlugins()
     {
-        $newProductAbstract = clone $this->productAbstractTransfer;
-        $newProductAbstract->setIdProductAbstract(null);
-        $newProductAbstract->setSku('new-sku');
+        $this->productAbstractTransfer->setSku('new-sku');
 
-        $idProductAbstract = $this->productAbstractManager->createProductAbstract($newProductAbstract);
+        $idProductAbstract = $this->productAbstractManager->createProductAbstract($this->productAbstractTransfer);
 
         $this->assertTrue($idProductAbstract > 0);
-        $newProductAbstract->setIdProductAbstract($idProductAbstract);
-        $this->assertCreateProductAbstract($newProductAbstract);
+        $this->productAbstractTransfer->setIdProductAbstract($idProductAbstract);
+        $this->assertCreateProductAbstract($this->productAbstractTransfer);
     }
 
     /**
@@ -319,17 +325,19 @@ class ProductAbstractManagerTest extends Test
      */
     public function testSaveProductAbstractShouldUpdateProductAbstractAndTriggerPlugins()
     {
-        $updateProductAbstract = clone $this->productAbstractTransfer;
-        foreach ($updateProductAbstract->getLocalizedAttributes() as $localizedAttribute) {
+        $idProductAbstract = $this->productAbstractManager->createProductAbstract($this->productAbstractTransfer);
+        $this->productAbstractTransfer->setIdProductAbstract($idProductAbstract);
+
+        foreach ($this->productAbstractTransfer->getLocalizedAttributes() as $localizedAttribute) {
             $localizedAttribute->setName(
                 self::UPDATED_PRODUCT_ABSTRACT_NAME[$localizedAttribute->getLocale()->getLocaleName()]
             );
         }
 
-        $idProductAbstract = $this->productAbstractManager->saveProductAbstract($updateProductAbstract);
+        $idProductAbstract = $this->productAbstractManager->saveProductAbstract($this->productAbstractTransfer);
 
-        $updateProductAbstract->setIdProductAbstract($idProductAbstract);
-        $this->assertSaveProductAbstract($updateProductAbstract);
+        $this->productAbstractTransfer->setIdProductAbstract($idProductAbstract);
+        $this->assertSaveProductAbstract($this->productAbstractTransfer);
     }
 
     /**

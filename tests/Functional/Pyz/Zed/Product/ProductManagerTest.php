@@ -18,13 +18,14 @@ use Generated\Shared\Transfer\ProductImageTransfer;
 use Generated\Shared\Transfer\StockProductTransfer;
 use Spryker\Zed\Locale\Business\LocaleFacade;
 use Spryker\Zed\Price\Business\PriceFacade;
+use Spryker\Zed\Product\Business\Product\PluginAbstractManager;
 use Spryker\Zed\Product\Business\Product\PluginConcreteManager;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractCreatePlugin as ImageSetProductAbstractCreatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterCreatePlugin as ImageSetProductAbstractCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as ImageSetProductAbstractReadPlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractUpdatePlugin as ImageSetProductAbstractUpdatePlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteCreatePlugin as ImageSetProductConcreteCreatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterUpdatePlugin as ImageSetProductAbstractUpdatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterCreatePlugin as ImageSetProductConcreteCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteReadPlugin as ImageSetProductConcreteReadPlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteUpdatePlugin as ImageSetProductConcreteUpdatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterUpdatePlugin as ImageSetProductConcreteUpdatePlugin;
 use Spryker\Zed\Product\Business\Attribute\AttributeManager;
 use Spryker\Zed\Product\Business\ProductFacade;
 use Spryker\Zed\Product\Business\Product\ProductAbstractAssertion;
@@ -37,9 +38,9 @@ use Spryker\Zed\Product\Dependency\Facade\ProductToPriceBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToTouchBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToUrlBridge;
 use Spryker\Zed\Product\Persistence\ProductQueryContainer;
-use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteCreatePlugin as StockProductConcreteCreatePlugin;
+use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterCreatePlugin as StockProductConcreteCreatePlugin;
 use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteReadPlugin as StockProductConcreteReadPlugin;
-use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteUpdatePlugin as StockProductConcreteUpdatePlugin;
+use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterUpdatePlugin as StockProductConcreteUpdatePlugin;
 use Spryker\Zed\Touch\Persistence\TouchQueryContainer;
 use Spryker\Zed\Url\Business\UrlFacade;
 
@@ -73,9 +74,6 @@ class ProductManagerTest extends Test
         'en_US' => 'Updated Product concrete name en_US',
         'de_DE' => 'Updated Product concrete name de_DE',
     ];
-
-    const ID_PRODUCT_ABSTRACT = 1;
-    const ID_PRODUCT_CONCRETE = 1;
 
     const IMAGE_SET_NAME = 'Default';
     const IMAGE_URL_LARGE = 'large';
@@ -206,6 +204,20 @@ class ProductManagerTest extends Test
             $productConcretePluginManager
         );
 
+        $abstractPluginManager = new PluginAbstractManager(
+            $beforeCreatePlugins = [],
+            $afterCreatePlugins = [
+                new ImageSetProductAbstractCreatePlugin(),
+            ],
+            $readPlugins = [
+                new ImageSetProductAbstractReadPlugin(),
+            ],
+            $beforeUpdatePlugins = [],
+            $afterUpdatePlugins = [
+                new ImageSetProductAbstractUpdatePlugin(),
+            ]
+        );
+
         $this->productAbstractManager = new ProductAbstractManager(
             $attributeManager,
             $this->productQueryContainer,
@@ -215,9 +227,7 @@ class ProductManagerTest extends Test
             new ProductToPriceBridge($this->priceFacade),
             $this->productConcreteManager,
             $productAbstractAssertion,
-            $createPlugins = [new ImageSetProductAbstractCreatePlugin()],
-            $readPlugins = [new ImageSetProductAbstractReadPlugin()],
-            $updatePlugins = [new ImageSetProductAbstractUpdatePlugin()]
+            $abstractPluginManager
         );
 
         $this->productManager = new ProductManager(
@@ -253,8 +263,7 @@ class ProductManagerTest extends Test
     {
         $this->productAbstractTransfer = new ProductAbstractTransfer();
         $this->productAbstractTransfer
-            ->setSku('foo')
-            ->setIdProductAbstract(self::ID_PRODUCT_ABSTRACT);
+            ->setSku('foo');
 
         $localizedAttribute = new LocalizedAttributesTransfer();
         $localizedAttribute
@@ -278,8 +287,7 @@ class ProductManagerTest extends Test
     {
         $this->productConcreteTransfer = new ProductConcreteTransfer();
         $this->productConcreteTransfer
-            ->setSku('foo-concrete')
-            ->setIdProductConcrete(self::ID_PRODUCT_CONCRETE);
+            ->setSku('foo-concrete');
 
         $localizedAttribute = new LocalizedAttributesTransfer();
         $localizedAttribute

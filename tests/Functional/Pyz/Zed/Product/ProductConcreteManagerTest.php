@@ -14,13 +14,14 @@ use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Spryker\Zed\Locale\Business\LocaleFacade;
 use Spryker\Zed\Price\Business\PriceFacade;
+use Spryker\Zed\Product\Business\Product\PluginAbstractManager;
 use Spryker\Zed\Product\Business\Product\PluginConcreteManager;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractCreatePlugin as ImageSetProductAbstractCreatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterCreatePlugin as ImageSetProductAbstractCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as ImageSetProductAbstractReadPlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractUpdatePlugin as ImageSetProductAbstractUpdatePlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteCreatePlugin as ImageSetProductConcreteCreatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterUpdatePlugin as ImageSetProductAbstractUpdatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterCreatePlugin as ImageSetProductConcreteCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteReadPlugin as ImageSetProductConcreteReadPlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteUpdatePlugin as ImageSetProductConcreteUpdatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterUpdatePlugin as ImageSetProductConcreteUpdatePlugin;
 use Spryker\Zed\Product\Business\Attribute\AttributeManager;
 use Spryker\Zed\Product\Business\ProductFacade;
 use Spryker\Zed\Product\Business\Product\ProductAbstractAssertion;
@@ -32,9 +33,9 @@ use Spryker\Zed\Product\Dependency\Facade\ProductToPriceBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToTouchBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToUrlBridge;
 use Spryker\Zed\Product\Persistence\ProductQueryContainer;
-use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteCreatePlugin as StockProductConcreteCreatePlugin;
+use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterCreatePlugin as StockProductConcreteCreatePlugin;
 use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteReadPlugin as StockProductConcreteReadPlugin;
-use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteUpdatePlugin as StockProductConcreteUpdatePlugin;
+use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterUpdatePlugin as StockProductConcreteUpdatePlugin;
 use Spryker\Zed\Touch\Persistence\TouchQueryContainer;
 use Spryker\Zed\Url\Business\UrlFacade;
 
@@ -68,9 +69,6 @@ class ProductConcreteManagerTest extends Test
         'en_US' => 'Updated Product concrete name en_US',
         'de_DE' => 'Updated Product concrete name de_DE',
     ];
-
-    const ID_PRODUCT_ABSTRACT = 1;
-    const ID_PRODUCT_CONCRETE = 1;
 
     const IMAGE_SET_NAME = 'Default';
     const IMAGE_URL_LARGE = 'large';
@@ -196,6 +194,20 @@ class ProductConcreteManagerTest extends Test
             $productConcretePluginManager
         );
 
+        $abstractPluginManager = new PluginAbstractManager(
+            $beforeCreatePlugins = [],
+            $afterCreatePlugins = [
+                new ImageSetProductAbstractCreatePlugin(),
+            ],
+            $readPlugins = [
+                new ImageSetProductAbstractReadPlugin(),
+            ],
+            $beforeUpdatePlugins = [],
+            $afterUpdatePlugins = [
+                new ImageSetProductAbstractUpdatePlugin(),
+            ]
+        );
+
         $this->productAbstractManager = new ProductAbstractManager(
             $attributeManager,
             $this->productQueryContainer,
@@ -205,9 +217,7 @@ class ProductConcreteManagerTest extends Test
             new ProductToPriceBridge($this->priceFacade),
             $this->productConcreteManager,
             $productAbstractAssertion,
-            $createPlugins = [new ImageSetProductAbstractCreatePlugin()],
-            $readPlugins = [new ImageSetProductAbstractReadPlugin()],
-            $updatePlugins = [new ImageSetProductAbstractUpdatePlugin()]
+            $abstractPluginManager
         );
     }
 
@@ -236,8 +246,7 @@ class ProductConcreteManagerTest extends Test
     {
         $this->productAbstractTransfer = new ProductAbstractTransfer();
         $this->productAbstractTransfer
-            ->setSku('foo')
-            ->setIdProductAbstract(self::ID_PRODUCT_ABSTRACT);
+            ->setSku('foo');
 
         $localizedAttribute = new LocalizedAttributesTransfer();
         $localizedAttribute
@@ -261,8 +270,7 @@ class ProductConcreteManagerTest extends Test
     {
         $this->productConcreteTransfer = new ProductConcreteTransfer();
         $this->productConcreteTransfer
-            ->setSku('foo-concrete')
-            ->setIdProductConcrete(self::ID_PRODUCT_CONCRETE);
+            ->setSku('foo-concrete');
 
         $localizedAttribute = new LocalizedAttributesTransfer();
         $localizedAttribute
@@ -284,16 +292,19 @@ class ProductConcreteManagerTest extends Test
      */
     public function testCreateProductConcreteShouldCreateProductAndTriggerPlugins()
     {
-        $newProductConcrete = clone $this->productConcreteTransfer;
-        $newProductConcrete->setIdProductConcrete(null);
-        $newProductConcrete->setFkProductAbstract(self::ID_PRODUCT_ABSTRACT);
-        $newProductConcrete->setSku('new-concrete-sku');
+        $idProductAbstract = $this->productAbstractManager->createProductAbstract($this->productAbstractTransfer);
+        $this->productConcreteTransfer->setFkProductAbstract($idProductAbstract);
 
-        $idProductConcrete = $this->productConcreteManager->createProductConcrete($newProductConcrete);
+        $idProductConcrete = $this->productConcreteManager->createProductConcrete($this->productConcreteTransfer);
+        $this->productConcreteTransfer->setIdProductConcrete($idProductConcrete);
+        $this->productConcreteTransfer->setFkProductAbstract($idProductAbstract);
+        $this->productConcreteTransfer->setSku('new-concrete-sku');
+
+        $idProductConcrete = $this->productConcreteManager->createProductConcrete($this->productConcreteTransfer);
 
         $this->assertTrue($idProductConcrete > 0);
-        $newProductConcrete->setIdProductConcrete($idProductConcrete);
-        $this->assertCreateProductConcrete($newProductConcrete);
+        $this->productConcreteTransfer->setIdProductConcrete($idProductConcrete);
+        $this->assertCreateProductConcrete($this->productConcreteTransfer);
     }
 
     /**
@@ -301,19 +312,23 @@ class ProductConcreteManagerTest extends Test
      */
     public function testSaveProductConcreteShouldUpdateProductAndTriggerPlugins()
     {
-        $updateProductConcrete = clone $this->productConcreteTransfer;
-        $updateProductConcrete->setFkProductAbstract(self::ID_PRODUCT_ABSTRACT);
+        $idProductAbstract = $this->productAbstractManager->createProductAbstract($this->productAbstractTransfer);
+        $this->productConcreteTransfer->setFkProductAbstract($idProductAbstract);
 
-        foreach ($updateProductConcrete->getLocalizedAttributes() as $localizedAttribute) {
+        $idProductConcrete = $this->productConcreteManager->createProductConcrete($this->productConcreteTransfer);
+        $this->productConcreteTransfer->setIdProductConcrete($idProductConcrete);
+        $this->productConcreteTransfer->setFkProductAbstract($idProductAbstract);
+
+        foreach ($this->productConcreteTransfer->getLocalizedAttributes() as $localizedAttribute) {
             $localizedAttribute->setName(
                 self::UPDATED_PRODUCT_ABSTRACT_NAME[$localizedAttribute->getLocale()->getLocaleName()]
             );
         }
 
-        $idProductConcrete = $this->productConcreteManager->saveProductConcrete($updateProductConcrete);
+        $idProductConcrete = $this->productConcreteManager->saveProductConcrete($this->productConcreteTransfer);
 
-        $updateProductConcrete->setIdProductConcrete($idProductConcrete);
-        $this->assertSaveProductConcrete($updateProductConcrete);
+        $this->productConcreteTransfer->setIdProductConcrete($idProductConcrete);
+        $this->assertSaveProductConcrete($this->productConcreteTransfer);
     }
 
     /**

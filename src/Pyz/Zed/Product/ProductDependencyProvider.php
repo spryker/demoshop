@@ -7,16 +7,16 @@
 namespace Pyz\Zed\Product;
 
 use Spryker\Zed\Kernel\Container;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractCreatePlugin as ImageSetProductAbstractCreatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterCreatePlugin as ImageSetProductAbstractAfterCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as ImageSetProductAbstractReadPlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractUpdatePlugin as ImageSetProductAbstractUpdatePlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteCreatePlugin as ImageSetProductConcreteCreatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterUpdatePlugin as ImageSetProductAbstractAfterUpdatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterCreatePlugin as ImageSetProductConcreteAfterCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteReadPlugin as ImageSetProductConcreteReadPlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteUpdatePlugin as ImageSetProductConcreteUpdatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterUpdatePlugin as ImageSetProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\Product\ProductDependencyProvider as SprykerProductDependencyProvider;
-use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteCreatePlugin as StockProductConcreteCreatePlugin;
+use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterCreatePlugin as StockProductConcreteAfterCreatePlugin;
 use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteReadPlugin as StockProductConcreteReadPlugin;
-use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteUpdatePlugin as StockProductConcreteUpdatePlugin;
+use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterUpdatePlugin as StockProductConcreteAfterUpdatePlugin;
 
 class ProductDependencyProvider extends SprykerProductDependencyProvider
 {
@@ -26,10 +26,20 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
      *
      * @return \Spryker\Zed\Product\Dependency\Plugin\ProductAbstractPluginInterface[]
      */
-    protected function getProductAbstractCreatePlugins(Container $container)
+    protected function getProductAbstractBeforeCreatePlugins(Container $container)
+    {
+        return [];
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Product\Dependency\Plugin\ProductAbstractPluginInterface[]
+     */
+    protected function getProductAbstractAfterCreatePlugins(Container $container)
     {
         return [
-            new ImageSetProductAbstractCreatePlugin()
+            new ImageSetProductAbstractAfterCreatePlugin()
         ];
     }
 
@@ -50,10 +60,20 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
      *
      * @return \Spryker\Zed\Product\Dependency\Plugin\ProductAbstractPluginInterface[]
      */
-    protected function getProductAbstractUpdatePlugins(Container $container)
+    protected function getProductAbstractBeforeUpdatePlugins(Container $container)
+    {
+        return [];
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Product\Dependency\Plugin\ProductAbstractPluginInterface[]
+     */
+    protected function getProductAbstractAfterUpdatePlugins(Container $container)
     {
         return [
-            new ImageSetProductAbstractUpdatePlugin()
+            new ImageSetProductAbstractAfterUpdatePlugin()
         ];
     }
 
@@ -75,8 +95,8 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
     protected function getProductConcreteAfterCreatePlugins(Container $container)
     {
         return [
-            new ImageSetProductConcreteCreatePlugin(),
-            new StockProductConcreteCreatePlugin()
+            new ImageSetProductConcreteAfterCreatePlugin(),
+            new StockProductConcreteAfterCreatePlugin()
         ];
     }
 
@@ -111,8 +131,8 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
     protected function getProductConcreteAfterUpdatePlugins(Container $container)
     {
         return [
-            new ImageSetProductConcreteUpdatePlugin(),
-            new StockProductConcreteUpdatePlugin()
+            new ImageSetProductConcreteAfterUpdatePlugin(),
+            new StockProductConcreteAfterUpdatePlugin()
         ];
     }
 
