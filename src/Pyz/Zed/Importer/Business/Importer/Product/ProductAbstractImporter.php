@@ -120,9 +120,9 @@ class ProductAbstractImporter extends AbstractImporter
             $productAbstractTransfer = $this->buildProductAbstractTransfer($product, $attributes);
             $productConcrete = $this->buildProductConcreteTransfer($product, $attributes);
 
-            $idProductAbstract = $this->productFacade->addProduct($productAbstractTransfer, [$productConcrete]);
+            $idProductAbstract = $this->productFacade->createProductAbstract($productAbstractTransfer);
             $productAbstractTransfer->setIdProductAbstract($idProductAbstract);
-            //$this->createProductConcreteCollection([$productConcrete], $idProductAbstract);
+            $this->createProductConcreteCollection([$productConcrete], $idProductAbstract);
 
             $this->productFacade->touchProductActive($idProductAbstract);
             $this->productFacade->createProductUrl($productAbstractTransfer);
