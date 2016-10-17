@@ -7,10 +7,11 @@
     <cms/>
     <glossary/>
     <product/>
-    <product-management/>
     <discount/>
     <tax/>
     <shipment/>
+    <payment/>
     <acl/>
     <maintenance/>
+    <auth/>
 </config>
