@@ -17,6 +17,7 @@ use Generated\Shared\Transfer\ProductImageSetTransfer;
 use Generated\Shared\Transfer\ProductImageTransfer;
 use Spryker\Zed\Locale\Business\LocaleFacade;
 use Spryker\Zed\Price\Business\PriceFacade;
+use Spryker\Zed\Product\Business\Product\PluginConcreteManager;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractCreatePlugin as ImageSetProductAbstractCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as ImageSetProductAbstractReadPlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractUpdatePlugin as ImageSetProductAbstractUpdatePlugin;
@@ -171,6 +172,23 @@ class ProductAbstractManagerTest extends Test
             $this->productQueryContainer
         );
 
+        $productConcretePluginManager = new PluginConcreteManager(
+            $beforeCreatePlugins = [],
+            $afterCreatePlugins = [
+                new ImageSetProductConcreteCreatePlugin(),
+                new StockProductConcreteCreatePlugin()
+            ],
+            $readPlugins = [
+                new ImageSetProductConcreteReadPlugin(),
+                new StockProductConcreteReadPlugin()
+            ],
+            $beforeUpdatePlugins = [],
+            $afterUpdatePlugins = [
+                new ImageSetProductConcreteUpdatePlugin(),
+                new StockProductConcreteUpdatePlugin()
+            ]
+        );
+
         $this->productConcreteManager = new ProductConcreteManager(
             $attributeManager,
             $this->productQueryContainer,
@@ -180,18 +198,7 @@ class ProductAbstractManagerTest extends Test
             new ProductToPriceBridge($this->priceFacade),
             $productAbstractAssertion,
             $productConcreteAssertion,
-            $createPlugins = [
-                new ImageSetProductConcreteCreatePlugin(),
-                new StockProductConcreteCreatePlugin()
-            ],
-            $readPlugins = [
-                new ImageSetProductConcreteReadPlugin(),
-                new StockProductConcreteReadPlugin()
-            ],
-            $updatePlugins = [
-                new ImageSetProductConcreteUpdatePlugin(),
-                new StockProductConcreteUpdatePlugin()
-            ]
+            $productConcretePluginManager
         );
 
         $this->productAbstractManager = new ProductAbstractManager(

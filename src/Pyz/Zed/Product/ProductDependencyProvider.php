@@ -62,7 +62,17 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
      *
      * @return \Spryker\Zed\Product\Dependency\Plugin\ProductConcretePluginInterface[]
      */
-    protected function getProductConcreteCreatePlugins(Container $container)
+    protected function getProductConcreteBeforeCreatePlugins(Container $container)
+    {
+        return [];
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Product\Dependency\Plugin\ProductConcretePluginInterface[]
+     */
+    protected function getProductConcreteAfterCreatePlugins(Container $container)
     {
         return [
             new ImageSetProductConcreteCreatePlugin(),
@@ -88,7 +98,17 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
      *
      * @return \Spryker\Zed\Product\Dependency\Plugin\ProductConcretePluginInterface[]
      */
-    protected function getProductConcreteUpdatePlugins(Container $container)
+    protected function getProductConcreteBeforeUpdatePlugins(Container $container)
+    {
+        return [];
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Product\Dependency\Plugin\ProductConcretePluginInterface[]
+     */
+    protected function getProductConcreteAfterUpdatePlugins(Container $container)
     {
         return [
             new ImageSetProductConcreteUpdatePlugin(),
