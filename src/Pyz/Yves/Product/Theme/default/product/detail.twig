@@ -1,6 +1,12 @@
 {% extends "@application/layout/layout.twig" %}
 
-{% block page_title %}{{ product.name }}{% endblock %}
+{% block page_title %}
+    {% if product.metaTitle %}
+        {{ product.metaTitle }}
+    {% else %}
+        {{ product.name }}
+    {% endif %}
+{% endblock %}
 
 {% block breadcrumbItems %}
     <li><a href="/">{{ 'global.home' | trans }}</a></li>

@@ -30,6 +30,8 @@ class ProductController extends AbstractController
             'product' => $storageProductTransfer,
             'productCategories' => $categories,
             'category' => count($categories) ? end($categories) : null,
+            'page_keywords' => $storageProductTransfer->getMetaKeywords(),
+            'page_description' => $storageProductTransfer->getMetaDescription(),
         ];
 
         return $productData;
