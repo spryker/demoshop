@@ -130,7 +130,7 @@ class AttributeVariantBuilder implements AttributeVariantBuilderInterface
      */
     protected function isProductConcreteNodeReached(array $selectedVariantNode)
     {
-        return isset($selectedVariantNode[StorageProductTransfer::ID]);
+        return isset($selectedVariantNode[ProductConstants::VARIANT_LEAF_NODE_ID]);
     }
 
     /**
@@ -225,11 +225,11 @@ class AttributeVariantBuilder implements AttributeVariantBuilderInterface
      */
     protected function extractIdOfProductConcrete(array $selectedVariantNode)
     {
-        if (is_array($selectedVariantNode[StorageProductTransfer::ID])) {
-            return array_shift($selectedVariantNode[StorageProductTransfer::ID]);
+        if (is_array($selectedVariantNode[ProductConstants::VARIANT_LEAF_NODE_ID])) {
+            return array_shift($selectedVariantNode[ProductConstants::VARIANT_LEAF_NODE_ID]);
         }
 
-        return $selectedVariantNode[StorageProductTransfer::ID];
+        return $selectedVariantNode[ProductConstants::VARIANT_LEAF_NODE_ID];
     }
 
     /**
