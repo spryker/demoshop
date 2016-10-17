@@ -18,16 +18,16 @@ use Generated\Shared\Transfer\ProductImageTransfer;
 use Generated\Shared\Transfer\StockProductTransfer;
 use Spryker\Zed\Locale\Business\LocaleFacade;
 use Spryker\Zed\Price\Business\PriceFacade;
-use Spryker\Zed\Product\Business\Product\PluginAbstractManager;
-use Spryker\Zed\Product\Business\Product\PluginConcreteManager;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterCreatePlugin as ImageSetProductAbstractCreatePlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as ImageSetProductAbstractReadPlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterUpdatePlugin as ImageSetProductAbstractUpdatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as ImageSetProductAbstractReadPlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterCreatePlugin as ImageSetProductConcreteCreatePlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteReadPlugin as ImageSetProductConcreteReadPlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterUpdatePlugin as ImageSetProductConcreteUpdatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteReadPlugin as ImageSetProductConcreteReadPlugin;
 use Spryker\Zed\Product\Business\Attribute\AttributeManager;
 use Spryker\Zed\Product\Business\ProductFacade;
+use Spryker\Zed\Product\Business\Product\PluginAbstractManager;
+use Spryker\Zed\Product\Business\Product\PluginConcreteManager;
 use Spryker\Zed\Product\Business\Product\ProductAbstractAssertion;
 use Spryker\Zed\Product\Business\Product\ProductAbstractManager;
 use Spryker\Zed\Product\Business\Product\ProductConcreteAssertion;
@@ -39,8 +39,8 @@ use Spryker\Zed\Product\Dependency\Facade\ProductToTouchBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToUrlBridge;
 use Spryker\Zed\Product\Persistence\ProductQueryContainer;
 use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterCreatePlugin as StockProductConcreteCreatePlugin;
-use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteReadPlugin as StockProductConcreteReadPlugin;
 use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterUpdatePlugin as StockProductConcreteUpdatePlugin;
+use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteReadPlugin as StockProductConcreteReadPlugin;
 use Spryker\Zed\Touch\Persistence\TouchQueryContainer;
 use Spryker\Zed\Url\Business\UrlFacade;
 
@@ -317,7 +317,7 @@ class ProductManagerTest extends Test
         $idProductAbstract = $this->productManager->addProduct($productAbstract, [$productConcrete]);
 
         $this->assertTrue($idProductAbstract > 0);
-        //$this->assertReadProductAbstract($productAbstract);
+        $this->assertReadProductAbstract($productAbstract);
         $this->assertReadProductConcrete($productAbstract);
     }
 
@@ -461,11 +461,21 @@ class ProductManagerTest extends Test
      *
      * @return void
      */
-    protected function assertReadProductConcrete(ProductAbstractTransfer $productAbstractTransfer)
+    protected function assertReadProductAbstract(ProductAbstractTransfer $productAbstractTransfer)
     {
         $this->assertProductPrice($productAbstractTransfer);
-        //$this->assertProductStock($productAbstractTransfer);
-        //$this->assertProductImages($productAbstractTransfer);
+        //TODO tax?
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
+     *
+     * @return void
+     */
+    protected function assertReadProductConcrete(ProductAbstractTransfer $productAbstractTransfer)
+    {
+        $this->assertProductStock($productAbstractTransfer);
+        $this->assertProductImages($productAbstractTransfer);
     }
 
     /**
@@ -513,23 +523,26 @@ class ProductManagerTest extends Test
         $this->assertEquals(self::IMAGE_URL_SMALL, $productImage->getExternalUrlSmall());
     }
 
-
+    /**
+     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
+     *
+     * @return void
+     */
     protected function assertProductStock(ProductAbstractTransfer $productAbstractTransfer)
     {
         $concreteProductCollection = $this->productConcreteManager->getConcreteProductsByAbstractProductId(
-            $productAbstractTransfer->getIdProductAbstract()
+            $productAbstractTransfer->requireIdProductAbstract()->getIdProductAbstract()
         );
 
-        dump($concreteProductCollection);
-        die;
+        foreach ($concreteProductCollection as $concreteProduct) {
+            foreach ($concreteProduct->getStocks() as $stock) {
+                $this->assertInstanceOf(StockProductTransfer::class, $stock);
 
-        $stockCollection = (array)$productConcreteTransfer->getStock();
-
-        $this->assertInstanceOf(StockProductTransfer::class, $stock);
-
-        $this->assertEquals(self::PRICE, $stock->getPrice());
-        $this->assertNotNull($stock->getIdProductAbstract());
-        $this->assertNotNull($stock->getPriceTypeName());
+                $this->assertEquals(self::PRICE, $stock->getPrice());
+                $this->assertNotNull($stock->getIdProductAbstract());
+                $this->assertNotNull($stock->getPriceTypeName());
+            }
+        }
     }
 
 }
