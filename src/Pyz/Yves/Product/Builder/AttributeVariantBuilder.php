@@ -1,7 +1,8 @@
 <?php
+
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Yves\Product\Builder;
@@ -25,17 +26,23 @@ class AttributeVariantBuilder implements AttributeVariantBuilderInterface
     protected $attributeMap = [];
 
     /**
+     * @var \Pyz\Yves\Product\Builder\ImageSetBuilderInterface
+     */
+    protected $imageSetBuilder;
+
+    /**
      * @param \Spryker\Client\Product\ProductClientInterface $productClient
      */
-    public function __construct(ProductClientInterface $productClient)
+    public function __construct(ProductClientInterface $productClient, ImageSetBuilderInterface $imageSetBuilder)
     {
         $this->productClient = $productClient;
+        $this->imageSetBuilder = $imageSetBuilder;
     }
 
     /**
-     * @param StorageProductTransfer $storageProductTransfer
+     * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      *
-     * @return StorageProductTransfer
+     * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
     public function setSuperAttributes(StorageProductTransfer $storageProductTransfer)
     {
@@ -45,7 +52,7 @@ class AttributeVariantBuilder implements AttributeVariantBuilderInterface
         }
 
         $storageAttributeMapTransfer = $this->mapStorageAttributeMap($attributeMap);
-        if (count($storageAttributeMapTransfer->getProductConcreteIds()) === 1) {
+        if (count($storageAttributeMapTransfer->getProductConcreteIds()) === 1 || count($storageAttributeMapTransfer->getSuperAttributes()) === 0) {
             return $this->getFirstProductVariant($storageProductTransfer, $storageAttributeMapTransfer);
         }
 
@@ -58,7 +65,7 @@ class AttributeVariantBuilder implements AttributeVariantBuilderInterface
 
     /**
      * @param array $selectedAttributes
-     * @param StorageProductTransfer $storageProductTransfer
+     * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      *
      * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
@@ -72,7 +79,6 @@ class AttributeVariantBuilder implements AttributeVariantBuilderInterface
         }
 
         return $this->setAvailableAttributes($selectedVariantNode, $storageProductTransfer);
-
     }
 
     /**
@@ -95,7 +101,6 @@ class AttributeVariantBuilder implements AttributeVariantBuilderInterface
             $selectedAttributes,
             $storageAttributeMapTransfer->getAttributeVariants()
         );
-
     }
 
     /**
@@ -130,9 +135,9 @@ class AttributeVariantBuilder implements AttributeVariantBuilderInterface
 
     /**
      * @param array $selectedVariantNode
-     * @param StorageProductTransfer $storageProductTransfer
+     * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      *
-     * @return StorageProductTransfer
+     * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
     protected function setAvailableAttributes(array $selectedVariantNode, StorageProductTransfer $storageProductTransfer)
     {
@@ -246,7 +251,6 @@ class AttributeVariantBuilder implements AttributeVariantBuilderInterface
     }
 
     /**
-     *
      * @param int $idProductConcrete
      *
      * @return array
@@ -269,6 +273,9 @@ class AttributeVariantBuilder implements AttributeVariantBuilderInterface
     protected function mapVariantStorageProductTransfer(StorageProductTransfer $storageProductTransfer, array $productConcrete)
     {
         $storageProductTransfer->fromArray($productConcrete, true);
+        $storageProductTransfer->setImages(
+            $this->imageSetBuilder->getDisplayImagesFromPersistedProduct($productConcrete)
+        );
         $storageProductTransfer->setIsVariant(true);
 
         return $storageProductTransfer;
@@ -289,7 +296,7 @@ class AttributeVariantBuilder implements AttributeVariantBuilderInterface
 
     /**
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
-     * @param StorageAttributeMapTransfer $storageAttributeMapTransfer
+     * @param \Generated\Shared\Transfer\StorageAttributeMapTransfer $storageAttributeMapTransfer
      *
      * @return \Generated\Shared\Transfer\StorageProductTransfer
      */

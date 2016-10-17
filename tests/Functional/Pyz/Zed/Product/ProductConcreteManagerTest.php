@@ -10,15 +10,10 @@ namespace Functional\Pyz\Zed\Product;
 use Codeception\TestCase\Test;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
-use Generated\Shared\Transfer\PriceProductTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
-use Generated\Shared\Transfer\ProductImageSetTransfer;
-use Generated\Shared\Transfer\ProductImageTransfer;
-use Generated\Shared\Transfer\StockProductTransfer;
 use Spryker\Zed\Locale\Business\LocaleFacade;
 use Spryker\Zed\Price\Business\PriceFacade;
-use Spryker\Zed\Product\Business\Product\ProductManager;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractCreatePlugin as ImageSetProductAbstractCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as ImageSetProductAbstractReadPlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractUpdatePlugin as ImageSetProductAbstractUpdatePlugin;
@@ -122,8 +117,8 @@ class ProductConcreteManagerTest extends Test
     protected $priceFacade;
 
      /**
-     * @var \Spryker\Zed\Product\Business\Product\ProductAbstractManagerInterface
-     */
+      * @var \Spryker\Zed\Product\Business\Product\ProductAbstractManagerInterface
+      */
     protected $productAbstractManager;
 
     /**

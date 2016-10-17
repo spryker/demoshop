@@ -1,7 +1,8 @@
 <?php
+
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\Collector\Business\Storage;
@@ -21,6 +22,7 @@ use Spryker\Zed\Product\Business\ProductFacadeInterface;
 
 class AttributeMapCollector extends AbstractStoragePropelCollector
 {
+
     /**
      * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
      */
@@ -45,8 +47,13 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
         $idProductAbstract = $collectItemData[AttributeMapCollectorQuery::ID_PRODUCT_ABSTRACT];
 
         $concreteProducts = $this->getConcreteProducts($idProductAbstract);
+        $concreteProductIds = $this->filterConcreteProductIds($concreteProducts);
         $productAttributes = $this->getProductAttributes($concreteProducts);
         $superAttributes = $this->getSuperAttributes($productAttributes);
+
+        if (count($superAttributes) <= 1) {
+            return $this->createStorageImport($concreteProductIds);
+        }
 
         $productConcreteSuperAttributes = [];
         $superAttributeVariations = [];
@@ -63,12 +70,29 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
             }
         }
 
-        $concreteProductIds = $this->filterConcreteProductIds($concreteProducts);
+        return $this->createStorageImport(
+            $concreteProductIds,
+            $superAttributeVariations,
+            $this->buildProductVariants($productConcreteSuperAttributes)
+        );
+    }
 
+    /**
+     * @param array $concreteProductIds
+     * @param array $superAttributes
+     * @param array $attributeVariants
+     *
+     * @return array
+     */
+    protected function createStorageImport(
+        array $concreteProductIds,
+        array $superAttributes = [],
+        array $attributeVariants = []
+    ) {
         return [
-            StorageAttributeMapTransfer::ATTRIBUTE_VARIANTS => $this->buildProductVariants($productConcreteSuperAttributes),
-            StorageAttributeMapTransfer::SUPER_ATTRIBUTES => $superAttributeVariations,
             StorageAttributeMapTransfer::PRODUCT_CONCRETE_IDS => $concreteProductIds,
+            StorageAttributeMapTransfer::SUPER_ATTRIBUTES => $superAttributes,
+            StorageAttributeMapTransfer::ATTRIBUTE_VARIANTS => $attributeVariants,
         ];
     }
 
@@ -101,7 +125,6 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
             ->filterByIsActive(true)
             ->find()
             ->toArray(null, false, TableMap::TYPE_CAMELNAME);
-
     }
 
     /**
@@ -181,7 +204,6 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
         }
 
         return $attributeVariants;
-
     }
 
     /**

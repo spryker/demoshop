@@ -1,19 +1,21 @@
 <?php
+
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\StorageProductTransfer;
+use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Shared\Library\Json;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
 use Spryker\Zed\Collector\CollectorConfig;
 use Spryker\Zed\Price\Business\PriceFacadeInterface;
-use Spryker\Zed\Product\Business\Attribute\AttributeProcessor;
 use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
+use Spryker\Zed\Product\Business\Attribute\AttributeProcessor;
 
 class ProductConcreteCollector extends AbstractStoragePdoCollector
 {
@@ -33,6 +35,10 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
     const ABSTRACT_LOCALIZED_ATTRIBUTES = 'abstract_localized_attributes';
     const CONCRETE_DESCRIPTION = 'concrete_description';
     const ABSTRACT_DESCRIPTION = 'abstract_description';
+    const ID_PRODUCT_ABSTRACT = 'id_product_abstract';
+    const META_KEYWORDS = 'meta_keywords';
+    const META_TITLE = 'meta_title';
+    const META_DESCRIPTION = 'meta_description';
 
     /**
      * @var \Pyz\Zed\Collector\Business\Storage\PriceFacadeInterface
@@ -80,8 +86,14 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
             StorageProductTransfer::SKU => $collectItemData[self::SKU],
             StorageProductTransfer::QUANTITY => $collectItemData[self::QUANTITY],
             StorageProductTransfer::AVAILABLE => (int)$collectItemData[self::QUANTITY] > 0,
-            StorageProductTransfer::IMAGES => $this->generateImages($collectItemData[self::ID_IMAGE_SET]),
+            StorageProductTransfer::IMAGES => $this->generateProductConcreteImages(
+                $collectItemData[self::ID_PRODUCT_ABSTRACT],
+                $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]
+            ),
             StorageProductTransfer::PRICE => $this->getPriceBySku($collectItemData[self::SKU]),
+            StorageProductTransfer::META_TITLE => $collectItemData[self::META_TITLE],
+            StorageProductTransfer::META_KEYWORDS => $collectItemData[self::META_KEYWORDS],
+            StorageProductTransfer::META_DESCRIPTION => $collectItemData[self::META_DESCRIPTION],
         ];
     }
 
@@ -109,26 +121,30 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
     }
 
     /**
-     * @param int $idImageSet
+     * @param int $idProductAbstract
+     * @param int $idProductConcrete
      *
      * @return array
      */
-    protected function generateImages($idImageSet)
+    protected function generateProductConcreteImages($idProductAbstract, $idProductConcrete)
     {
-        if ($idImageSet === null) {
-            return [];
-        }
-
-        $imagesCollection = $this->productImageQueryContainer
-            ->queryImagesByIdProductImageSet($idImageSet)
+        $imageSets = $this->productImageQueryContainer
+            ->queryProductImageSet()
+                ->filterByFkProductAbstract($idProductAbstract)
+                ->_or()
+                ->filterByFkProduct($idProductConcrete)
             ->find();
 
         $result = [];
-
-        foreach ($imagesCollection as $image) {
-            $imageArray = $image->getSpyProductImage()->toArray();
-            $imageArray += $image->toArray();
-            $result[] = $imageArray;
+        foreach ($imageSets as $imageSetEntity) {
+            $result[$imageSetEntity->getName()] = [];
+            $images = $imageSetEntity->getSpyProductImageSetToProductImages(
+                $this->productImageQueryContainer->queryProductImageSetToProductImage()
+                    ->orderBySortOrder(Criteria::DESC)
+            );
+            foreach ($images as $imageEntity) {
+                $result[$imageSetEntity->getName()][] = $imageEntity->getSpyProductImage()->toArray();
+            }
         }
 
         return $result;
@@ -166,6 +182,6 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
         }
 
         return $description;
-
     }
+
 }

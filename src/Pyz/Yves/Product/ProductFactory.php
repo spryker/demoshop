@@ -8,6 +8,7 @@
 namespace Pyz\Yves\Product;
 
 use Pyz\Yves\Product\Builder\AttributeVariantBuilder;
+use Pyz\Yves\Product\Builder\ImageSetBuilder;
 use Pyz\Yves\Product\Builder\StorageProductBuilder;
 use Pyz\Yves\Product\ResourceCreator\ProductResourceCreator;
 use Spryker\Yves\Kernel\AbstractFactory;
@@ -37,7 +38,8 @@ class ProductFactory extends AbstractFactory
     protected function createStorageProductBuilder()
     {
         return new StorageProductBuilder(
-            $this->createAttributeVariantBuilder()
+            $this->createAttributeVariantBuilder(),
+            $this->creteImageSetBuilder()
         );
     }
 
@@ -47,8 +49,17 @@ class ProductFactory extends AbstractFactory
     protected function createAttributeVariantBuilder()
     {
         return new AttributeVariantBuilder(
-            $this->getClient()
+            $this->getClient(),
+            $this->creteImageSetBuilder()
         );
+    }
+
+    /**
+     * @return \Pyz\Yves\Product\Builder\ImageSetBuilder
+     */
+    protected function creteImageSetBuilder()
+    {
+        return new ImageSetBuilder();
     }
 
 }

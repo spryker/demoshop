@@ -9,7 +9,6 @@ namespace Pyz\Yves\Product\Controller;
 
 use Generated\Shared\Transfer\StorageProductTransfer;
 use Spryker\Yves\Application\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @method \Spryker\Client\Product\ProductClientInterface getClient()
@@ -19,7 +18,7 @@ class ProductController extends AbstractController
 {
 
     /**
-     * @param StorageProductTransfer $storageProductTransfer
+     * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      *
      * @return array
      */
@@ -37,7 +36,7 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @return Request
+     * @return \Symfony\Component\HttpFoundation\Request
      */
     protected function getRequest()
     {

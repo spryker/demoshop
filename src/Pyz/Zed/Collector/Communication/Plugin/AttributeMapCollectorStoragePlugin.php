@@ -1,7 +1,8 @@
 <?php
+
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\Collector\Communication\Plugin;
@@ -42,8 +43,8 @@ class AttributeMapCollectorStoragePlugin extends AbstractCollectorPlugin
         WriterInterface $dataWriter,
         TouchUpdaterInterface $touchUpdater,
         OutputInterface $output
-    )
-    {
+    ) {
+
         $this->getFacade()->runStorageAttributeMapCollector(
             $baseQuery,
             $locale,
@@ -54,4 +55,5 @@ class AttributeMapCollectorStoragePlugin extends AbstractCollectorPlugin
             $output
         );
     }
+
 }

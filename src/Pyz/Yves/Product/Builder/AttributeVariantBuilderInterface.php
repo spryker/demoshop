@@ -1,8 +1,10 @@
 <?php
+
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
+
 namespace Pyz\Yves\Product\Builder;
 
 use Generated\Shared\Transfer\StorageProductTransfer;
@@ -11,9 +13,9 @@ interface AttributeVariantBuilderInterface
 {
 
     /**
-     * @param StorageProductTransfer $storageProductTransfer
+     * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      *
-     * @return StorageProductTransfer
+     * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
     public function setSuperAttributes(StorageProductTransfer $storageProductTransfer);
 
@@ -21,7 +23,8 @@ interface AttributeVariantBuilderInterface
      * @param array $selectedAttributes
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      *
-     * @return StorageProductTransfer
+     * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
     public function setSelectedVariants(array $selectedAttributes, StorageProductTransfer $storageProductTransfer);
+
 }

@@ -18,18 +18,25 @@ class StorageProductBuilder implements StorageProductBuilderInterface
     protected $attributeVariantBuilder;
 
     /**
-     * @param \Pyz\Yves\Product\Builder\AttributeVariantBuilderInterface $attributeVariantBuilder
+     * @var \Pyz\Yves\Product\Builder\ImageSetBuilderInterface
      */
-    public function __construct(AttributeVariantBuilderInterface $attributeVariantBuilder)
+    protected $imageSetBuilder;
+
+    /**
+     * @param \Pyz\Yves\Product\Builder\AttributeVariantBuilderInterface $attributeVariantBuilder
+     * @param \Pyz\Yves\Product\Builder\ImageSetBuilderInterface $imageSetBuilder
+     */
+    public function __construct(AttributeVariantBuilderInterface $attributeVariantBuilder, ImageSetBuilderInterface $imageSetBuilder)
     {
         $this->attributeVariantBuilder = $attributeVariantBuilder;
+        $this->imageSetBuilder = $imageSetBuilder;
     }
 
     /**
      * @param array $productData
      * @param array $selectedAttributes
      *
-     * @return StorageProductTransfer
+     * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
     public function buildProduct(array $productData, array $selectedAttributes = [])
     {
@@ -56,9 +63,11 @@ class StorageProductBuilder implements StorageProductBuilderInterface
     {
         $storageProductTransfer = new StorageProductTransfer();
         $storageProductTransfer->fromArray($productData, true);
+        $storageProductTransfer->setImages(
+            $this->imageSetBuilder->getDisplayImagesFromPersistedProduct($productData)
+        );
 
         return $storageProductTransfer;
     }
-
 
 }

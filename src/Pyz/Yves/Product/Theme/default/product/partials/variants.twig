@@ -3,10 +3,10 @@
     <form method="GET">
         <h5>{{ 'product.variants' | trans }}</h5>
         {% for attributeName,attributes in product.superAttributes %}
-            <label><strong>{{ ('product.attribute.' ~ attributeName) | trans }}</strong>
+            <label><strong>{{ ('product.attribute.' ~ attributeName) | trans }}: </strong>
 
                 {% if product.selectedAttributes[attributeName] is defined and product.selectedAttributes[attributeName] %}
-                    : {{ product.selectedAttributes[attributeName] }}
+                    {{ product.selectedAttributes[attributeName] }}
 
                     {% set attributesAfterReset = {} %}
                     {% for selectedKey, selectedValue in product.selectedAttributes %}

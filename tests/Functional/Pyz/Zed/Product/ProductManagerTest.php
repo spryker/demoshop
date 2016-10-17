@@ -18,7 +18,6 @@ use Generated\Shared\Transfer\ProductImageTransfer;
 use Generated\Shared\Transfer\StockProductTransfer;
 use Spryker\Zed\Locale\Business\LocaleFacade;
 use Spryker\Zed\Price\Business\PriceFacade;
-use Spryker\Zed\Product\Business\Product\ProductManager;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractCreatePlugin as ImageSetProductAbstractCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as ImageSetProductAbstractReadPlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractUpdatePlugin as ImageSetProductAbstractUpdatePlugin;
@@ -31,6 +30,7 @@ use Spryker\Zed\Product\Business\Product\ProductAbstractAssertion;
 use Spryker\Zed\Product\Business\Product\ProductAbstractManager;
 use Spryker\Zed\Product\Business\Product\ProductConcreteAssertion;
 use Spryker\Zed\Product\Business\Product\ProductConcreteManager;
+use Spryker\Zed\Product\Business\Product\ProductManager;
 use Spryker\Zed\Product\Dependency\Facade\ProductToLocaleBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToPriceBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToTouchBridge;
@@ -505,11 +505,10 @@ class ProductManagerTest extends Test
             $productAbstractTransfer->getIdProductAbstract()
         );
 
-        dump($concreteProductCollection);die;
+        dump($concreteProductCollection);
+        die;
 
-        $stockCollection = (array) $productConcreteTransfer->getStock();
-
-
+        $stockCollection = (array)$productConcreteTransfer->getStock();
 
         $this->assertInstanceOf(StockProductTransfer::class, $stock);
 

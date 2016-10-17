@@ -38,6 +38,9 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     const PRICE = 'price';
     const PRICE_NAME = 'price_name';
     const DESCRIPTION = 'description';
+    const META_KEYWORDS = 'meta_keywords';
+    const META_TITLE = 'meta_title';
+    const META_DESCRIPTION = 'meta_description';
 
     /**
      * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
@@ -100,8 +103,11 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
             StorageProductTransfer::AVAILABLE => true, // @TODO implement
             StorageProductTransfer::PRICE => $this->getPriceBySku($collectItemData[self::SKU]),
             StorageProductTransfer::CATEGORIES => $this->generateCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
-            StorageProductTransfer::IMAGES => $this->generateImages($collectItemData[self::ID_IMAGE_SET]),
-            StorageProductTransfer::DESCRIPTION=> $collectItemData[self::DESCRIPTION],
+            StorageProductTransfer::IMAGES => $this->generateProductAbstractImages($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
+            StorageProductTransfer::DESCRIPTION => $collectItemData[self::DESCRIPTION],
+            StorageProductTransfer::META_TITLE => $collectItemData[self::META_TITLE],
+            StorageProductTransfer::META_KEYWORDS => $collectItemData[self::META_KEYWORDS],
+            StorageProductTransfer::META_DESCRIPTION => $collectItemData[self::META_DESCRIPTION],
         ];
     }
 
@@ -294,26 +300,26 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     }
 
     /**
-     * @param int $idImageSet
+     * @param int $idProductAbstract
      *
      * @return array
      */
-    protected function generateImages($idImageSet)
+    protected function generateProductAbstractImages($idProductAbstract)
     {
-        if ($idImageSet === null) {
+        if ($idProductAbstract === null) {
             return [];
         }
 
-        $imagesCollection = $this->productImageQueryContainer
-            ->queryImagesByIdProductImageSet($idImageSet)
+        $imageSets = $this->productImageQueryContainer
+            ->queryImageSetByProductAbstractId($idProductAbstract)
             ->find();
 
         $result = [];
-
-        foreach ($imagesCollection as $image) {
-            $imageArray = $image->getSpyProductImage()->toArray();
-            $imageArray += $image->toArray();
-            $result[] = $imageArray;
+        foreach ($imageSets as $imageSetEntity) {
+            $result[$imageSetEntity->getName()] = [];
+            foreach ($imageSetEntity->getSpyProductImageSetToProductImages() as $image) {
+                $result[$imageSetEntity->getName()][] = $image->getSpyProductImage()->toArray();
+            }
         }
 
         return $result;

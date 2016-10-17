@@ -13,7 +13,6 @@ use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\NavigationCollectorQuer
 use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductAbstractCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductConcreteCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\UrlCollectorQuery;
-use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\AttributeMapCollectorQuery;
 use Spryker\Zed\Collector\CollectorConfig as SprykerCollectorConfig;
 
 class CollectorConfig extends SprykerCollectorConfig

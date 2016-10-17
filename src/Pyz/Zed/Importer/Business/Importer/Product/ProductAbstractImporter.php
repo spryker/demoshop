@@ -16,6 +16,7 @@ use Generated\Shared\Transfer\ProductImageTransfer;
 use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Shared\Library\Reader\Csv\CsvReader;
+use Spryker\Shared\ProductImage\ProductImageConstants;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
 use Symfony\Component\Finder\Finder;
@@ -185,7 +186,7 @@ class ProductAbstractImporter extends AbstractImporter
 
         foreach ($this->localeFacade->getLocaleCollection() as $localeTransfer) {
             $productImageSet = new ProductImageSetTransfer();
-            $productImageSet->setName('Default');
+            $productImageSet->setName(ProductImageConstants::DEFAULT_IMAGE_SET_NAME);
             $productImageSet->setLocale($localeTransfer);
             $productImageSet->addProductImage($productImage);
 
