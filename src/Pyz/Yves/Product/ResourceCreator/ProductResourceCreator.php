@@ -8,18 +8,18 @@
 namespace Pyz\Yves\Product\ResourceCreator;
 
 use Pyz\Yves\Collector\Creator\AbstractResourceCreator;
-use Pyz\Yves\Product\Builder\StorageProductBuilderInterface;
 use Silex\Application;
 use Spryker\Shared\Kernel\LocatorLocatorInterface;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
+use Spryker\Yves\Product\Builder\StorageProductBuilderInterface;
 
 class ProductResourceCreator extends AbstractResourceCreator
 {
 
     /**
-     * @var \Pyz\Yves\Product\Builder\StorageProductBuilderInterface
+     * @var \Spryker\Yves\Product\Builder\StorageProductBuilderInterface
      */
     protected $storageProductBuilder;
 
@@ -29,7 +29,7 @@ class ProductResourceCreator extends AbstractResourceCreator
     protected $locator;
 
     /**
-     * @param \Pyz\Yves\Product\Builder\StorageProductBuilderInterface $storageProductBuilder
+     * @param \Spryker\Yves\Product\Builder\StorageProductBuilderInterface $storageProductBuilder
      * @param \Spryker\Shared\Kernel\LocatorLocatorInterface $locator
      */
     public function __construct(
