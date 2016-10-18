@@ -4,6 +4,8 @@ modules:
         - WebDriver:
             url: ''
             browser: chrome
+            window_size: 1920x1080
         - \Application\Module\Yves
         - \Application\Module\Zed
+        - \Module\Customer
         - Cli
