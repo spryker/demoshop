@@ -13,16 +13,17 @@ use Spryker\Shared\Kernel\LocatorLocatorInterface;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
-use Spryker\Yves\Product\Builder\StorageProductBuilderInterface;
-use Spryker\Yves\ProductImage\Builder\StorageImageBuilderInterface;
+use Spryker\Yves\Product\Mapper\StorageProductMapperInterface;
+use Spryker\Yves\ProductCategory\Mapper\StorageProductCategoryMapperInterface;
+use Spryker\Yves\ProductImage\Mapper\StorageImageMapperInterface;
 
 class ProductResourceCreator extends AbstractResourceCreator
 {
 
     /**
-     * @var \Spryker\Yves\Product\Builder\StorageProductBuilderInterface
+     * @var \Spryker\Yves\Product\Mapper\StorageProductMapperInterface
      */
-    protected $storageProductBuilder;
+    protected $storageProductMapper;
 
     /**
      * @var \Spryker\Shared\Kernel\LocatorLocatorInterface
@@ -30,23 +31,31 @@ class ProductResourceCreator extends AbstractResourceCreator
     protected $locator;
 
     /**
-     * @var \Pyz\Yves\Product\ResourceCreator\StorageImageBuilderInterface|\Spryker\Yves\ProductImage\Builder\StorageImageBuilderInterface
+     * @var \Spryker\Yves\ProductImage\Mapper\StorageImageMapperInterface
      */
-    protected $storageImageBuilder;
+    protected $storageImageMapper;
 
     /**
-     * @param \Spryker\Yves\Product\Builder\StorageProductBuilderInterface $storageProductBuilder
-     * @param \Spryker\Yves\ProductImage\Builder\StorageImageBuilderInterface $storageImageBuilder
+     * @var \Spryker\Yves\ProductCategory\Mapper\StorageProductCategoryMapperInterface
+     */
+    protected $storageProductCategoryMapper;
+
+    /**
+     * @param \Spryker\Yves\Product\Mapper\StorageProductMapperInterface $storageProductMapper
+     * @param \Spryker\Yves\ProductImage\Mapper\StorageImageMapperInterface $storageImageMapper
+     * @param \Spryker\Yves\ProductCategory\Mapper\StorageProductCategoryMapperInterface $storageProductCategoryMapper
      * @param \Spryker\Shared\Kernel\LocatorLocatorInterface $locator
      */
     public function __construct(
-        StorageProductBuilderInterface $storageProductBuilder,
-        StorageImageBuilderInterface $storageImageBuilder,
+        StorageProductMapperInterface $storageProductMapper,
+        StorageImageMapperInterface $storageImageMapper,
+        StorageProductCategoryMapperInterface $storageProductCategoryMapper,
         LocatorLocatorInterface $locator
     ) {
-        $this->storageProductBuilder = $storageProductBuilder;
+        $this->storageProductMapper = $storageProductMapper;
         $this->locator = $locator;
-        $this->storageImageBuilder = $storageImageBuilder;
+        $this->storageImageMapper = $storageImageMapper;
+        $this->storageProductCategoryMapper = $storageProductCategoryMapper;
     }
 
     /**
@@ -70,9 +79,9 @@ class ProductResourceCreator extends AbstractResourceCreator
 
         $service = $this->createServiceForController($application, $bundleControllerAction, $routeResolver);
 
-        $attribute = $this->getRequest($application)->query->get('attribute', []);
-        $storageProductTransfer = $this->storageProductBuilder->buildProduct($data, $attribute);
-        $storageProductTransfer = $this->storageImageBuilder->setSelectedProductDisplayImages($storageProductTransfer);
+        $storageProductTransfer = $this->storageProductMapper->mapStorageProduct($data, $this->getSelectedAttributes($application));
+        $storageProductTransfer = $this->storageImageMapper->mapProductImages($storageProductTransfer);
+        $storageProductTransfer = $this->storageProductCategoryMapper->mapProductCategories($storageProductTransfer, $data);
 
         return [
             '_controller' => $service,
@@ -89,6 +98,16 @@ class ProductResourceCreator extends AbstractResourceCreator
     protected function getRequest(Application $application)
     {
         return $application['request'];
+    }
+
+    /**
+     * @param \Silex\Application $application
+     *
+     * @return array
+     */
+    protected function getSelectedAttributes(Application $application)
+    {
+        return $this->getRequest($application)->query->get('attribute', []);
     }
 
 }

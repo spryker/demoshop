@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
+use Generated\Shared\Transfer\StorageProductCategoryTransfer;
 use Generated\Shared\Transfer\StorageProductImageTransfer;
 use Generated\Shared\Transfer\StorageProductTransfer;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryTableMap;
@@ -205,9 +206,9 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
             $url = $this->generateUrl($idNode);
 
             $productCategoryCollection[$idNode] = [
-                'node_id' => $idNode,
-                'name' => $pathItem[self::NAME],
-                'url' => $url,
+                StorageProductCategoryTransfer::NODE_ID => $idNode,
+                StorageProductCategoryTransfer::NAME => $pathItem[self::NAME],
+                StorageProductCategoryTransfer::URL => $url,
             ];
         }
 
@@ -243,6 +244,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
         $urlQuery = $this->categoryQueryContainer
             ->queryUrlByIdCategoryNode($idNode)
             ->filterByFkLocale($this->locale->getIdLocale());
+
         $url = $urlQuery->findOne();
         return ($url ? $url->getUrl() : null);
     }
