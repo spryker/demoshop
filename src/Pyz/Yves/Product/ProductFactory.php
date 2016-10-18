@@ -9,6 +9,7 @@ namespace Pyz\Yves\Product;
 
 use Pyz\Yves\Product\ResourceCreator\ProductResourceCreator;
 use Spryker\Yves\Product\ProductFactory as SprykerProductFactory;
+use Spryker\Yves\ProductImage\Builder\StorageImageBuilder;
 
 /**
  * Class ProductExportFactory
@@ -25,8 +26,17 @@ class ProductFactory extends SprykerProductFactory
     {
         return new ProductResourceCreator(
             $this->createStorageProductBuilder(),
+            $this->createStorageImageBuilder(),
             $this->getLocator()
         );
+    }
+
+    /**
+     * @return \Spryker\Yves\ProductImage\Builder\StorageImageBuilder
+     */
+    protected function createStorageImageBuilder()
+    {
+        return new StorageImageBuilder();
     }
 
 }

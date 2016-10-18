@@ -14,6 +14,7 @@ use Spryker\Shared\Product\ProductConstants;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
 use Spryker\Yves\Product\Builder\StorageProductBuilderInterface;
+use Spryker\Yves\ProductImage\Builder\StorageImageBuilderInterface;
 
 class ProductResourceCreator extends AbstractResourceCreator
 {
@@ -29,15 +30,23 @@ class ProductResourceCreator extends AbstractResourceCreator
     protected $locator;
 
     /**
+     * @var \Pyz\Yves\Product\ResourceCreator\StorageImageBuilderInterface|\Spryker\Yves\ProductImage\Builder\StorageImageBuilderInterface
+     */
+    protected $storageImageBuilder;
+
+    /**
      * @param \Spryker\Yves\Product\Builder\StorageProductBuilderInterface $storageProductBuilder
+     * @param \Spryker\Yves\ProductImage\Builder\StorageImageBuilderInterface $storageImageBuilder
      * @param \Spryker\Shared\Kernel\LocatorLocatorInterface $locator
      */
     public function __construct(
         StorageProductBuilderInterface $storageProductBuilder,
+        StorageImageBuilderInterface $storageImageBuilder,
         LocatorLocatorInterface $locator
     ) {
         $this->storageProductBuilder = $storageProductBuilder;
         $this->locator = $locator;
+        $this->storageImageBuilder = $storageImageBuilder;
     }
 
     /**
@@ -63,6 +72,7 @@ class ProductResourceCreator extends AbstractResourceCreator
 
         $attribute = $this->getRequest($application)->query->get('attribute', []);
         $storageProductTransfer = $this->storageProductBuilder->buildProduct($data, $attribute);
+        $storageProductTransfer = $this->storageImageBuilder->setSelectedProductDisplayImages($storageProductTransfer);
 
         return [
             '_controller' => $service,

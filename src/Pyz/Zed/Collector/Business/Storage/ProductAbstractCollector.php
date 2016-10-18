@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
+use Generated\Shared\Transfer\StorageProductImageTransfer;
 use Generated\Shared\Transfer\StorageProductTransfer;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryTableMap;
 use Orm\Zed\Category\Persistence\SpyCategoryNode;
@@ -103,7 +104,9 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
             StorageProductTransfer::AVAILABLE => true, // @TODO implement
             StorageProductTransfer::PRICE => $this->getPriceBySku($collectItemData[self::SKU]),
             StorageProductTransfer::CATEGORIES => $this->generateCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
-            StorageProductTransfer::IMAGES => $this->generateProductAbstractImages($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
+            StorageProductTransfer::IMAGE_SETS => $this->generateProductAbstractImageSets(
+                $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]
+            ),
             StorageProductTransfer::DESCRIPTION => $collectItemData[self::DESCRIPTION],
             StorageProductTransfer::META_TITLE => $collectItemData[self::META_TITLE],
             StorageProductTransfer::META_KEYWORDS => $collectItemData[self::META_KEYWORDS],
@@ -304,12 +307,8 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
      *
      * @return array
      */
-    protected function generateProductAbstractImages($idProductAbstract)
+    protected function generateProductAbstractImageSets($idProductAbstract)
     {
-        if ($idProductAbstract === null) {
-            return [];
-        }
-
         $imageSets = $this->productImageQueryContainer
             ->queryImageSetByProductAbstractId($idProductAbstract)
             ->find();
@@ -317,8 +316,13 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
         $result = [];
         foreach ($imageSets as $imageSetEntity) {
             $result[$imageSetEntity->getName()] = [];
-            foreach ($imageSetEntity->getSpyProductImageSetToProductImages() as $image) {
-                $result[$imageSetEntity->getName()][] = $image->getSpyProductImage()->toArray();
+            foreach ($imageSetEntity->getSpyProductImageSetToProductImages() as $productsToImageEntity) {
+                $imageEntity = $productsToImageEntity->getSpyProductImage();
+                $result[$imageSetEntity->getName()][] = [
+                    StorageProductImageTransfer::ID_PRODUCT_IMAGE => $imageEntity->getIdProductImage(),
+                    StorageProductImageTransfer::EXTERNAL_URL_LARGE => $imageEntity->getExternalUrlLarge(),
+                    StorageProductImageTransfer::EXTERNAL_URL_SMALL => $imageEntity->getExternalUrlSmall(),
+                ];
             }
         }
 
