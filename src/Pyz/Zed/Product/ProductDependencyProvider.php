@@ -7,8 +7,13 @@
 namespace Pyz\Zed\Product;
 
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Price\Communication\Plugin\ProductAbstract\PriceProductAbstractAfterCreatePlugin;
+use Spryker\Zed\Price\Communication\Plugin\ProductAbstract\PriceProductAbstractAfterUpdatePlugin;
+use Spryker\Zed\Price\Communication\Plugin\ProductAbstract\PriceProductAbstractReadPlugin;
+use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteAfterCreatePlugin;
+use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteAfterUpdatePlugin;
+use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteReadPlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterCreatePlugin as ImageSetProductAbstractAfterCreatePlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as ImageSetProductAbstractReadPlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterUpdatePlugin as ImageSetProductAbstractAfterUpdatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterCreatePlugin as ImageSetProductConcreteAfterCreatePlugin;
@@ -45,6 +50,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
         return [
             new ImageSetProductAbstractAfterCreatePlugin(),
             new TaxSetProductAbstractAfterCreatePlugin(),
+            new PriceProductAbstractAfterCreatePlugin(),
         ];
     }
 
@@ -58,6 +64,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
         return [
             new ImageSetProductAbstractReadPlugin(),
             new TaxSetProductAbstractReadPlugin(),
+            new PriceProductAbstractReadPlugin(),
         ];
     }
 
@@ -81,6 +88,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
         return [
             new ImageSetProductAbstractAfterUpdatePlugin(),
             new TaxSetProductAbstractAfterUpdatePlugin(),
+            new PriceProductAbstractAfterUpdatePlugin(),
         ];
     }
 
@@ -103,7 +111,8 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
     {
         return [
             new ImageSetProductConcreteAfterCreatePlugin(),
-            new StockProductConcreteAfterCreatePlugin()
+            new StockProductConcreteAfterCreatePlugin(),
+            new PriceProductConcreteAfterCreatePlugin(),
         ];
     }
 
@@ -116,7 +125,8 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
     {
         return [
             new ImageSetProductConcreteReadPlugin(),
-            new StockProductConcreteReadPlugin()
+            new StockProductConcreteReadPlugin(),
+            new PriceProductConcreteReadPlugin(),
         ];
     }
 
@@ -139,7 +149,8 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
     {
         return [
             new ImageSetProductConcreteAfterUpdatePlugin(),
-            new StockProductConcreteAfterUpdatePlugin()
+            new StockProductConcreteAfterUpdatePlugin(),
+            new PriceProductConcreteAfterUpdatePlugin(),
         ];
     }
 
