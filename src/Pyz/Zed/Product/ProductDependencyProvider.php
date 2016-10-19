@@ -8,6 +8,7 @@ namespace Pyz\Zed\Product;
 
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterCreatePlugin as ImageSetProductAbstractAfterCreatePlugin;
+use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as ImageSetProductAbstractReadPlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterUpdatePlugin as ImageSetProductAbstractAfterUpdatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterCreatePlugin as ImageSetProductConcreteAfterCreatePlugin;
@@ -17,6 +18,9 @@ use Spryker\Zed\Product\ProductDependencyProvider as SprykerProductDependencyPro
 use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterCreatePlugin as StockProductConcreteAfterCreatePlugin;
 use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteReadPlugin as StockProductConcreteReadPlugin;
 use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterUpdatePlugin as StockProductConcreteAfterUpdatePlugin;
+use Spryker\Zed\TaxProductConnector\Communication\Plugin\TaxSetProductAbstractAfterCreatePlugin;
+use Spryker\Zed\TaxProductConnector\Communication\Plugin\TaxSetProductAbstractAfterUpdatePlugin;
+use Spryker\Zed\TaxProductConnector\Communication\Plugin\TaxSetProductAbstractReadPlugin;
 
 class ProductDependencyProvider extends SprykerProductDependencyProvider
 {
@@ -39,7 +43,8 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
     protected function getProductAbstractAfterCreatePlugins(Container $container)
     {
         return [
-            new ImageSetProductAbstractAfterCreatePlugin()
+            new ImageSetProductAbstractAfterCreatePlugin(),
+            new TaxSetProductAbstractAfterCreatePlugin(),
         ];
     }
 
@@ -51,7 +56,8 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
     protected function getProductAbstractReadPlugins(Container $container)
     {
         return [
-            new ImageSetProductAbstractReadPlugin()
+            new ImageSetProductAbstractReadPlugin(),
+            new TaxSetProductAbstractReadPlugin(),
         ];
     }
 
@@ -73,7 +79,8 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
     protected function getProductAbstractAfterUpdatePlugins(Container $container)
     {
         return [
-            new ImageSetProductAbstractAfterUpdatePlugin()
+            new ImageSetProductAbstractAfterUpdatePlugin(),
+            new TaxSetProductAbstractAfterUpdatePlugin(),
         ];
     }
 
