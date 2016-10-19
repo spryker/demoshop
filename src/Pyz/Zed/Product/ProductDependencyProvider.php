@@ -49,7 +49,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
     {
         return [
             new ImageSetProductAbstractAfterCreatePlugin(),
-            new TaxSetProductAbstractAfterCreatePlugin(),
+            //new TaxSetProductAbstractAfterCreatePlugin(),
             new PriceProductAbstractAfterCreatePlugin(),
         ];
     }
@@ -63,7 +63,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
     {
         return [
             new ImageSetProductAbstractReadPlugin(),
-            new TaxSetProductAbstractReadPlugin(),
+            //new TaxSetProductAbstractReadPlugin(),
             new PriceProductAbstractReadPlugin(),
         ];
     }
@@ -87,7 +87,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
     {
         return [
             new ImageSetProductAbstractAfterUpdatePlugin(),
-            new TaxSetProductAbstractAfterUpdatePlugin(),
+            //new TaxSetProductAbstractAfterUpdatePlugin(),
             new PriceProductAbstractAfterUpdatePlugin(),
         ];
     }
