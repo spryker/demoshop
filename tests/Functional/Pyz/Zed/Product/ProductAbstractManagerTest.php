@@ -7,44 +7,10 @@
 
 namespace Functional\Pyz\Zed\Product;
 
-use Codeception\TestCase\Test;
-use Generated\Shared\Transfer\LocaleTransfer;
-use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Shared\Transfer\PriceProductTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
-use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Generated\Shared\Transfer\ProductImageSetTransfer;
 use Generated\Shared\Transfer\ProductImageTransfer;
-use Spryker\Zed\Locale\Business\LocaleFacade;
-use Spryker\Zed\Price\Business\PriceFacade;
-use Spryker\Zed\Product\Business\Product\PluginAbstractManager;
-use Spryker\Zed\Product\Business\Product\PluginConcreteManager;
-use Spryker\Zed\Product\Dependency\Facade\ProductToUtilBridge;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterCreatePlugin as ImageSetProductAbstractAfterCreatePlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as ImageSetProductAbstractReadPlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterUpdatePlugin as ImageSetProductAbstractAfterUpdatePlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterCreatePlugin as ImageSetProductConcreteAfterCreatePlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteReadPlugin as ImageSetProductConcreteReadPlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterUpdatePlugin as ImageSetProductConcreteAfterUpdatePlugin;
-use Spryker\Zed\Product\Business\Attribute\AttributeManager;
-use Spryker\Zed\Product\Business\ProductFacade;
-use Spryker\Zed\Product\Business\Product\ProductAbstractAssertion;
-use Spryker\Zed\Product\Business\Product\ProductAbstractManager;
-use Spryker\Zed\Product\Business\Product\ProductConcreteAssertion;
-use Spryker\Zed\Product\Business\Product\ProductConcreteManager;
-use Spryker\Zed\Product\Business\Product\ProductUrlGenerator;
-use Spryker\Zed\Product\Business\Product\ProductUrlManager;
-use Spryker\Zed\Product\Dependency\Facade\ProductToLocaleBridge;
-use Spryker\Zed\Product\Dependency\Facade\ProductToPriceBridge;
-use Spryker\Zed\Product\Dependency\Facade\ProductToTouchBridge;
-use Spryker\Zed\Product\Dependency\Facade\ProductToUrlBridge;
-use Spryker\Zed\Product\Persistence\ProductQueryContainer;
-use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterCreatePlugin as StockProductConcreteAfterCreatePlugin;
-use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteReadPlugin as StockProductConcreteReadPlugin;
-use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterUpdatePlugin as StockProductConcreteAfterUpdatePlugin;
-use Spryker\Zed\Touch\Persistence\TouchQueryContainer;
-use Spryker\Zed\Url\Business\UrlFacade;
-use Spryker\Zed\Util\Business\UtilFacade;
 
 /**
  * @group Functional
@@ -54,273 +20,14 @@ use Spryker\Zed\Util\Business\UtilFacade;
  * @group Product
  * @group ProductAbstractManagerTest
  */
-class ProductAbstractManagerTest extends Test
+class ProductAbstractManagerTest extends ProductTestAbstract
 {
-
-    const PRODUCT_ABSTRACT_NAME = [
-        'en_US' => 'Product name en_US',
-        'de_DE' => 'Product name de_DE',
-    ];
-
-    const PRODUCT_CONCRETE_NAME = [
-        'en_US' => 'Product concrete name en_US',
-        'de_DE' => 'Product concrete name de_DE',
-    ];
-
-    const UPDATED_PRODUCT_ABSTRACT_NAME = [
-        'en_US' => 'Updated Product name en_US',
-        'de_DE' => 'Updated Product name de_DE',
-    ];
-
-    const UPDATED_PRODUCT_CONCRETE_NAME = [
-        'en_US' => 'Updated Product concrete name en_US',
-        'de_DE' => 'Updated Product concrete name de_DE',
-    ];
-
-    const IMAGE_SET_NAME = 'Default';
-    const IMAGE_URL_LARGE = 'large';
-    const IMAGE_URL_SMALL = 'small';
-    const PRICE = 1234;
-
-    /**
-     * @var \Generated\Shared\Transfer\LocaleTransfer[]
-     */
-    protected $locales;
-
-    /**
-     * @var \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface
-     */
-    protected $productQueryContainer;
-
-    /**
-     * @var \Spryker\Zed\Touch\Persistence\TouchQueryContainerInterface
-     */
-    protected $touchQueryContainer;
-
-    /**
-     * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
-     */
-    protected $productFacade;
-
-    /**
-     * @var \Spryker\Zed\Locale\Business\LocaleFacadeInterface
-     */
-    protected $localeFacade;
-
-    /**
-     * @var \Spryker\Zed\Url\Business\UrlFacadeInterface
-     */
-    protected $urlFacade;
-
-    /**
-     * @var \Spryker\Zed\Touch\Business\TouchFacadeInterface
-     */
-    protected $touchFacade;
-
-    /**
-     * @var \Spryker\Zed\Price\Business\PriceFacadeInterface
-     */
-    protected $priceFacade;
-
-    /**
-     * @var \Spryker\Zed\Util\Business\UtilFacadeInterface
-     */
-    protected $utilFacade;
-
-    /**
-     * @var \Spryker\Zed\Product\Business\Product\ProductAbstractManagerInterface
-     */
-    protected $productAbstractManager;
-
-    /**
-     * @var \Spryker\Zed\Product\Business\Product\ProductConcreteManagerInterface
-     */
-    protected $productConcreteManager;
-
-    /**
-     * @var \Generated\Shared\Transfer\ProductAbstractTransfer
-     */
-    protected $productAbstractTransfer;
-
-    /**
-     * @var \Generated\Shared\Transfer\ProductConcreteTransfer
-     */
-    protected $productConcreteTransfer;
-
-    /**
-     * @return void
-     */
-    protected function setUp()
-    {
-        parent::setUp();
-
-        $this->setupLocales();
-        $this->setupProductAbstract();
-        $this->setupProductConcrete();
-
-        $this->localeFacade = new LocaleFacade();
-        $this->productFacade = new ProductFacade();
-        $this->urlFacade = new UrlFacade();
-        $this->priceFacade = new PriceFacade();
-        $this->utilFacade = new UtilFacade();
-        $this->productQueryContainer = new ProductQueryContainer();
-        $this->touchQueryContainer = new TouchQueryContainer();
-
-        $attributeManager = new AttributeManager(
-            $this->productQueryContainer
-        );
-
-        $productAbstractAssertion = new ProductAbstractAssertion(
-            $this->productQueryContainer
-        );
-
-        $productConcreteAssertion = new ProductConcreteAssertion(
-            $this->productQueryContainer
-        );
-
-        $concretePluginManager = new PluginConcreteManager(
-            $beforeCreatePlugins = [],
-            $afterCreatePlugins = [
-                new ImageSetProductConcreteAfterCreatePlugin(),
-                new StockProductConcreteAfterCreatePlugin()
-            ],
-            $readPlugins = [
-                new ImageSetProductConcreteReadPlugin(),
-                new StockProductConcreteReadPlugin()
-            ],
-            $beforeUpdatePlugins = [],
-            $afterUpdatePlugins = [
-                new ImageSetProductConcreteAfterUpdatePlugin(),
-                new StockProductConcreteAfterUpdatePlugin()
-            ]
-        );
-
-        $this->productConcreteManager = new ProductConcreteManager(
-            $attributeManager,
-            $this->productQueryContainer,
-            new ProductToTouchBridge($this->touchFacade),
-            new ProductToUrlBridge($this->urlFacade),
-            new ProductToLocaleBridge($this->localeFacade),
-            new ProductToPriceBridge($this->priceFacade),
-            $productAbstractAssertion,
-            $productConcreteAssertion,
-            $concretePluginManager
-        );
-
-        $abstractPluginManager = new PluginAbstractManager(
-            $beforeCreatePlugins = [],
-            $afterCreatePlugins = [
-                new ImageSetProductAbstractAfterCreatePlugin(),
-            ],
-            $readPlugins = [
-                new ImageSetProductAbstractReadPlugin(),
-            ],
-            $beforeUpdatePlugins = [],
-            $afterUpdatePlugins = [
-                new ImageSetProductAbstractAfterUpdatePlugin(),
-            ]
-        );
-
-        $this->productAbstractManager = new ProductAbstractManager(
-            $attributeManager,
-            $this->productQueryContainer,
-            new ProductToTouchBridge($this->touchFacade),
-            new ProductToUrlBridge($this->urlFacade),
-            new ProductToLocaleBridge($this->localeFacade),
-            new ProductToPriceBridge($this->priceFacade),
-            $this->productConcreteManager,
-            $productAbstractAssertion,
-            $abstractPluginManager
-        );
-
-        $urlGenerator = new ProductUrlGenerator(
-            $this->productAbstractManager,
-            new ProductToLocaleBridge($this->localeFacade),
-            new ProductToUtilBridge($this->utilFacade)
-        );
-
-        $productUrlManager = new ProductUrlManager(
-            new ProductToUrlBridge($this->urlFacade),
-            new ProductToTouchBridge($this->touchFacade),
-            new ProductToLocaleBridge($this->localeFacade),
-            $this->productQueryContainer,
-            $urlGenerator
-        );
-    }
-
-    /**
-     * @return void
-     */
-    protected function setupLocales()
-    {
-        $this->locales['de_DE'] = new LocaleTransfer();
-        $this->locales['de_DE']
-            ->setIdLocale(46)
-            ->setIsActive(true)
-            ->setLocaleName('de_DE');
-
-        $this->locales['en_US'] = new LocaleTransfer();
-        $this->locales['en_US']
-            ->setIdLocale(66)
-            ->setIsActive(true)
-            ->setLocaleName('en_US');
-    }
-
-    /**
-     * @return void
-     */
-    protected function setupProductAbstract()
-    {
-        $this->productAbstractTransfer = new ProductAbstractTransfer();
-        $this->productAbstractTransfer
-            ->setSku('foo');
-
-        $localizedAttribute = new LocalizedAttributesTransfer();
-        $localizedAttribute
-            ->setName(self::PRODUCT_ABSTRACT_NAME['de_DE'])
-            ->setLocale($this->locales['de_DE']);
-
-        $this->productAbstractTransfer->addLocalizedAttributes($localizedAttribute);
-
-        $localizedAttribute = new LocalizedAttributesTransfer();
-        $localizedAttribute
-            ->setName(self::PRODUCT_ABSTRACT_NAME['en_US'])
-            ->setLocale($this->locales['en_US']);
-
-        $this->productAbstractTransfer->addLocalizedAttributes($localizedAttribute);
-    }
-
-    /**
-     * @return void
-     */
-    protected function setupProductConcrete()
-    {
-        $this->productConcreteTransfer = new ProductConcreteTransfer();
-        $this->productConcreteTransfer
-            ->setSku('foo-concrete');
-
-        $localizedAttribute = new LocalizedAttributesTransfer();
-        $localizedAttribute
-            ->setName(self::PRODUCT_CONCRETE_NAME['de_DE'])
-            ->setLocale($this->locales['de_DE']);
-
-        $this->productConcreteTransfer->addLocalizedAttributes($localizedAttribute);
-
-        $localizedAttribute = new LocalizedAttributesTransfer();
-        $localizedAttribute
-            ->setName(self::PRODUCT_CONCRETE_NAME['en_US'])
-            ->setLocale($this->locales['en_US']);
-
-        $this->productConcreteTransfer->addLocalizedAttributes($localizedAttribute);
-    }
 
     /**
      * @return void
      */
     public function testCreateProductAbstractShouldCreateProductAbstractAndTriggerPlugins()
     {
-        $this->productAbstractTransfer->setSku('new-sku');
-
         $idProductAbstract = $this->productAbstractManager->createProductAbstract($this->productAbstractTransfer);
 
         $this->assertTrue($idProductAbstract > 0);
@@ -353,64 +60,13 @@ class ProductAbstractManagerTest extends Test
      */
     public function testGetProductAbstractByIdShouldReturnFullyLoadedTransferObject()
     {
-        $productAbstract = $this->buildNewProductAbstractTransfer();
+        $this->setupDefaultProducts();
 
-        $this->assertNotNull($productAbstract);
-
-        $idProductAbstract = $this->productAbstractManager->createProductAbstract($productAbstract);
-
-        $this->assertTrue($idProductAbstract > 0);
-        $productAbstract->setIdProductAbstract($idProductAbstract);
-        $this->assertCreateProductAbstract($productAbstract);
-
-        $productAbstractLoaded = $this->productAbstractManager->getProductAbstractById($idProductAbstract);
-
-        $this->assertReadProductAbstract($productAbstractLoaded);
-    }
-
-    /**
-     * @return \Generated\Shared\Transfer\ProductAbstractTransfer
-     */
-    protected function buildNewProductAbstractTransfer()
-    {
-        $productAbstract = new ProductAbstractTransfer();
-        $productAbstract
-            ->setAttributes(['foo' => 'bar'])
-            ->setSku('Test Sku');
-
-        foreach ($this->locales as $code => $localeTransfer) {
-            $localizedValue = 'Foo Bar ' . $localeTransfer->getLocaleName();
-
-            $localizedAttribute = (new LocalizedAttributesTransfer())
-                ->setLocale($localeTransfer)
-                ->setName($localizedValue)
-                ->setDescription($localizedValue)
-                ->setAttributes(['foo' => $localizedValue]);
-
-            $productAbstract->addLocalizedAttributes($localizedAttribute);
-        }
-
-        $priceTransfer = (new PriceProductTransfer())
-            ->setPrice(self::PRICE);
-
-        $productAbstract->setPrice($priceTransfer);
-
-        $imageSetTransfer = (new ProductImageSetTransfer())
-            ->setName(self::IMAGE_SET_NAME);
-
-        $imageTransfer = (new ProductImageTransfer())
-            ->setExternalUrlLarge(self::IMAGE_URL_LARGE)
-            ->setExternalUrlSmall(self::IMAGE_URL_SMALL);
-
-        $imageSetTransfer->setProductImages(
-            new \ArrayObject([$imageTransfer])
+        $productAbstract = $this->productAbstractManager->getProductAbstractById(
+            $this->productAbstractTransfer->getIdProductAbstract()
         );
 
-        $productAbstract->setImageSets(
-            new \ArrayObject([$imageSetTransfer])
-        );
-
-        return $productAbstract;
+        $this->assertReadProductAbstract($productAbstract);
     }
 
     /**
