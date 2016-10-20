@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\Product\Business\Product;
 
-use Spryker\Zed\Product\Business\Product\ProductUrlGenerator as SprykerProductUrlGenerator;
+use Spryker\Zed\Product\Business\Product\Url\ProductUrlGenerator as SprykerProductUrlGenerator;
 
 class ProductUrlGenerator extends SprykerProductUrlGenerator
 {

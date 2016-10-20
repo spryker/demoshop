@@ -14,7 +14,7 @@ class ProductBusinessFactory extends SprykerProductBusinessFactory
 {
 
     /**
-     * @return \Spryker\Zed\Product\Business\Product\ProductUrlGenerator
+     * @return \Spryker\Zed\Product\Business\Product\Url\ProductUrlGenerator
      */
     public function createProductUrlGenerator()
     {
