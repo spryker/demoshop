@@ -51,7 +51,7 @@ use Spryker\Zed\Product\Business\Product\Sku\SkuGenerator;
 use Spryker\Zed\Product\Dependency\Facade\ProductToLocaleBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToTouchBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToUrlBridge;
-use Spryker\Zed\Product\Dependency\Facade\ProductToUtilBridge;
+use Spryker\Zed\Product\Dependency\Facade\ProductToUtilTextBridge;
 use Spryker\Zed\Product\Persistence\ProductQueryContainer;
 use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterCreatePlugin as StockProductConcreteAfterCreatePlugin;
 use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterUpdatePlugin as StockProductConcreteAfterUpdatePlugin;
@@ -63,7 +63,7 @@ use Spryker\Zed\Tax\Persistence\TaxQueryContainer;
 use Spryker\Zed\Touch\Business\TouchFacade;
 use Spryker\Zed\Touch\Persistence\TouchQueryContainer;
 use Spryker\Zed\Url\Business\UrlFacade;
-use Spryker\Zed\Util\Business\UtilFacade;
+use Spryker\Zed\UtilText\Business\UtilTextFacade;
 
 abstract class ProductTestAbstract extends Test
 {
@@ -147,9 +147,9 @@ abstract class ProductTestAbstract extends Test
     protected $urlFacade;
 
     /**
-     * @var \Spryker\Zed\Util\Business\UtilFacadeInterface
+     * @var \Spryker\Zed\UtilText\Business\UtilTextFacadeInterface
      */
-    protected $utilFacade;
+    protected $utilTextFacade;
 
     /**
      * @var \Spryker\Zed\Touch\Business\TouchFacadeInterface
@@ -206,7 +206,7 @@ abstract class ProductTestAbstract extends Test
         $this->urlFacade = new UrlFacade();
         $this->priceFacade = new PriceFacade();
         $this->touchFacade = new TouchFacade();
-        $this->utilFacade = new UtilFacade();
+        $this->utilTextFacade = new UtilTextFacade();
         $this->productQueryContainer = new ProductQueryContainer();
         $this->touchQueryContainer = new TouchQueryContainer();
         $this->priceQueryContainer = new PriceQueryContainer();
@@ -216,7 +216,7 @@ abstract class ProductTestAbstract extends Test
         $urlBridge = new ProductToUrlBridge($this->urlFacade);
         $touchBridge = new ProductToTouchBridge($this->touchFacade);
         $localeBridge = new ProductToLocaleBridge($this->localeFacade);
-        $utilBridge = new ProductToUtilBridge($this->utilFacade);
+        $utilTextBridge = new ProductToUtilTextBridge($this->utilTextFacade);
 
         $attributeManager = new AttributeManager($this->productQueryContainer);
         $productAbstractAssertion = new ProductAbstractAssertion($this->productQueryContainer);
@@ -273,13 +273,13 @@ abstract class ProductTestAbstract extends Test
             $this->productConcreteManager,
             $productAbstractAssertion,
             $productAbstractPluginManager,
-            new SkuGenerator($utilBridge)
+            new SkuGenerator($utilTextBridge)
         );
 
         $urlGenerator = new ProductUrlGenerator(
             $this->productAbstractManager,
             $localeBridge,
-            $utilBridge
+            $utilTextBridge
         );
 
         $this->productUrlManager = new ProductUrlManager(
