@@ -145,6 +145,55 @@ ALTER TABLE "spy_product_management_attribute_value_translation" ADD CONSTRAINT 
 ALTER TABLE "spy_product_management_attribute_value_translation" ADD CONSTRAINT "spy_product_management_attribute_value_translation-fk_product_management_attribute_value"
     FOREIGN KEY ("fk_product_management_attribute_value")
     REFERENCES "spy_product_management_attribute_value" ("id_product_management_attribute_value");
+
+    
+DROP TABLE IF EXISTS "spy_product_attribute_type" CASCADE;
+
+DROP TABLE IF EXISTS "spy_product_attribute_type_value" CASCADE;
+
+DROP TABLE IF EXISTS "spy_product_attributes_metadata" CASCADE;
+
+ALTER TABLE "spy_product_attribute_key"
+
+  ADD "is_super" BOOLEAN DEFAULT \'f\' NOT NULL;
+
+ALTER TABLE "spy_product_management_attribute" DROP CONSTRAINT "spy_product_management_attribute-fk_product_attribute_key";
+
+    ALTER TABLE "spy_product_management_attribute" DROP CONSTRAINT "spy_product_management_attribute-unique-fk_product_attribute_ke";
+    
+ALTER TABLE "spy_product_management_attribute"
+
+  DROP COLUMN "is_multiple";
+
+CREATE UNIQUE INDEX "spy_pim_attribute-unique-fk_product_attribute_key" ON "spy_product_management_attribute" ("fk_product_attribute_key");
+
+ALTER TABLE "spy_product_management_attribute" ADD CONSTRAINT "spy_pim_attribute-fk_product_attribute_key"
+    FOREIGN KEY ("fk_product_attribute_key")
+    REFERENCES "spy_product_attribute_key" ("id_product_attribute_key");
+
+ALTER TABLE "spy_product_management_attribute_value" DROP CONSTRAINT "spy_product_management_attribute_value-fk_product_management_at";
+
+ALTER TABLE "spy_product_management_attribute_value" ADD CONSTRAINT "spy_pim_attribute_value-fk_pim_attribute"
+    FOREIGN KEY ("fk_product_management_attribute")
+    REFERENCES "spy_product_management_attribute" ("id_product_management_attribute");
+
+ALTER TABLE "spy_product_management_attribute_value_translation" DROP CONSTRAINT "spy_product_management_attribute_value-fk_locale";
+
+ALTER TABLE "spy_product_management_attribute_value_translation" DROP CONSTRAINT "spy_product_management_attribute_value_translation-fk_product_m";
+
+    ALTER TABLE "spy_product_management_attribute_value_translation" DROP CONSTRAINT "spy_product_management_attribute_value_translation-unique-local";
+    
+CREATE UNIQUE INDEX "spy_pim_attribute_value_translation-unique-locale_attribute_val" ON "spy_product_management_attribute_value_translation" ("fk_locale","fk_product_management_attribute_value");
+
+ALTER TABLE "spy_product_management_attribute_value_translation" ADD CONSTRAINT "spy_pim_attribute_value-fk_locale"
+    FOREIGN KEY ("fk_locale")
+    REFERENCES "spy_locale" ("id_locale");
+
+ALTER TABLE "spy_product_management_attribute_value_translation" ADD CONSTRAINT "spy_pim_attribute_value_translation-fk_pim_attribute_value"
+    FOREIGN KEY ("fk_product_management_attribute_value")
+    REFERENCES "spy_product_management_attribute_value" ("id_product_management_attribute_value");
+    
+    
 ',
 );
     }
@@ -220,6 +269,89 @@ ALTER TABLE "spy_product_search_attribute_map" ADD CONSTRAINT "spy_product_searc
     FOREIGN KEY ("fk_product_attributes_metadata")
     REFERENCES "spy_product_attributes_metadata" ("id_product_attributes_metadata")
     ON DELETE CASCADE;
+
+CREATE TABLE "spy_product_attribute_type"
+(
+    "id_product_attribute_type" INTEGER NOT NULL,
+    "name" VARCHAR NOT NULL,
+    "fk_product_attribute_type_parent" INTEGER,
+    "input_representation" VARCHAR NOT NULL,
+    PRIMARY KEY ("id_product_attribute_type")
+);
+
+CREATE TABLE "spy_product_attribute_type_value"
+(
+    "id" INTEGER NOT NULL,
+    "fk_type" INTEGER NOT NULL,
+    "key" VARCHAR NOT NULL,
+    "value" VARCHAR NOT NULL,
+    "fk_locale" INTEGER,
+    PRIMARY KEY ("id"),
+    CONSTRAINT "spy_product_attribute_type_value-unique-fk_locale" UNIQUE ("fk_locale","fk_type","key")
+);
+
+CREATE TABLE "spy_product_attributes_metadata"
+(
+    "id_product_attributes_metadata" INTEGER NOT NULL,
+    "key" VARCHAR NOT NULL,
+    "is_editable" BOOLEAN DEFAULT \'t\' NOT NULL,
+    "fk_type" INTEGER,
+    PRIMARY KEY ("id_product_attributes_metadata")
+);
+
+ALTER TABLE "spy_product_attribute_key"
+
+  DROP COLUMN "is_super";
+
+ALTER TABLE "spy_product_management_attribute" DROP CONSTRAINT "spy_pim_attribute-fk_product_attribute_key";
+
+    ALTER TABLE "spy_product_management_attribute" DROP CONSTRAINT "spy_pim_attribute-unique-fk_product_attribute_key";
+    
+ALTER TABLE "spy_product_management_attribute"
+
+  ADD "is_multiple" BOOLEAN DEFAULT \'f\' NOT NULL;
+
+CREATE UNIQUE INDEX "spy_product_management_attribute-unique-fk_product_attribute_ke" ON "spy_product_management_attribute" ("fk_product_attribute_key");
+
+ALTER TABLE "spy_product_management_attribute" ADD CONSTRAINT "spy_product_management_attribute-fk_product_attribute_key"
+    FOREIGN KEY ("fk_product_attribute_key")
+    REFERENCES "spy_product_attribute_key" ("id_product_attribute_key");
+
+ALTER TABLE "spy_product_management_attribute_value" DROP CONSTRAINT "spy_pim_attribute_value-fk_pim_attribute";
+
+ALTER TABLE "spy_product_management_attribute_value" ADD CONSTRAINT "spy_product_management_attribute_value-fk_product_management_at"
+    FOREIGN KEY ("fk_product_management_attribute")
+    REFERENCES "spy_product_management_attribute" ("id_product_management_attribute");
+
+ALTER TABLE "spy_product_management_attribute_value_translation" DROP CONSTRAINT "spy_pim_attribute_value-fk_locale";
+
+ALTER TABLE "spy_product_management_attribute_value_translation" DROP CONSTRAINT "spy_pim_attribute_value_translation-fk_pim_attribute_value";
+
+    ALTER TABLE "spy_product_management_attribute_value_translation" DROP CONSTRAINT "spy_pim_attribute_value_translation-unique-locale_attribute_val";
+    
+CREATE UNIQUE INDEX "spy_product_management_attribute_value_translation-unique-local" ON "spy_product_management_attribute_value_translation" ("fk_locale","fk_product_management_attribute_value");
+
+ALTER TABLE "spy_product_management_attribute_value_translation" ADD CONSTRAINT "spy_product_management_attribute_value-fk_locale"
+    FOREIGN KEY ("fk_locale")
+    REFERENCES "spy_locale" ("id_locale");
+
+ALTER TABLE "spy_product_management_attribute_value_translation" ADD CONSTRAINT "spy_product_management_attribute_value_translation-fk_product_m"
+    FOREIGN KEY ("fk_product_management_attribute_value")
+    REFERENCES "spy_product_management_attribute_value" ("id_product_management_attribute_value");
+
+ALTER TABLE "spy_product_attribute_type" ADD CONSTRAINT "spy_product_attribute_type-fk_product_attribute_type_parent"
+    FOREIGN KEY ("fk_product_attribute_type_parent")
+    REFERENCES "spy_product_attribute_type" ("id_product_attribute_type");
+
+ALTER TABLE "spy_product_attribute_type_value" ADD CONSTRAINT "spy_product_attribute_type_value-fk_locale"
+    FOREIGN KEY ("fk_locale")
+    REFERENCES "spy_locale" ("id_locale");
+
+ALTER TABLE "spy_product_attributes_metadata" ADD CONSTRAINT "spy_product_attributes_metadata-fk_type"
+    FOREIGN KEY ("fk_type")
+    REFERENCES "spy_product_attribute_type" ("id_product_attribute_type");
+    
+    
 ',
 );
     }
