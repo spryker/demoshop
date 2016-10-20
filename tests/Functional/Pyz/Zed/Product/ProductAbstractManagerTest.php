@@ -19,6 +19,7 @@ use Spryker\Zed\Locale\Business\LocaleFacade;
 use Spryker\Zed\Price\Business\PriceFacade;
 use Spryker\Zed\Product\Business\Product\PluginAbstractManager;
 use Spryker\Zed\Product\Business\Product\PluginConcreteManager;
+use Spryker\Zed\Product\Dependency\Facade\ProductToUtilBridge;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterCreatePlugin as ImageSetProductAbstractAfterCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as ImageSetProductAbstractReadPlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterUpdatePlugin as ImageSetProductAbstractAfterUpdatePlugin;
@@ -43,6 +44,7 @@ use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteReadPlugin as StockPro
 use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterUpdatePlugin as StockProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\Touch\Persistence\TouchQueryContainer;
 use Spryker\Zed\Url\Business\UrlFacade;
+use Spryker\Zed\Util\Business\UtilFacade;
 
 /**
  * @group Functional
@@ -121,6 +123,11 @@ class ProductAbstractManagerTest extends Test
     protected $priceFacade;
 
     /**
+     * @var \Spryker\Zed\Util\Business\UtilFacadeInterface
+     */
+    protected $utilFacade;
+
+    /**
      * @var \Spryker\Zed\Product\Business\Product\ProductAbstractManagerInterface
      */
     protected $productAbstractManager;
@@ -155,6 +162,7 @@ class ProductAbstractManagerTest extends Test
         $this->productFacade = new ProductFacade();
         $this->urlFacade = new UrlFacade();
         $this->priceFacade = new PriceFacade();
+        $this->utilFacade = new UtilFacade();
         $this->productQueryContainer = new ProductQueryContainer();
         $this->touchQueryContainer = new TouchQueryContainer();
 
@@ -228,7 +236,7 @@ class ProductAbstractManagerTest extends Test
         $urlGenerator = new ProductUrlGenerator(
             $this->productAbstractManager,
             new ProductToLocaleBridge($this->localeFacade),
-            new ProductToUrlBridge($this->urlFacade)
+            new ProductToUtilBridge($this->utilFacade)
         );
 
         $productUrlManager = new ProductUrlManager(
