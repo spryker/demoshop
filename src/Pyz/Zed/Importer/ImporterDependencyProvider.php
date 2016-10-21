@@ -33,7 +33,6 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     const FACADE_TAX = 'FACADE_TAX';
     const FACADE_COUNTRY = 'FACADE_COUNTRY';
 
-
     const FACADE_DISCOUNT = 'FACADE_DISCOUNT';
 
     const QUERY_CONTAINER_CMS = 'QUERY_CONTAINER_CMS';

@@ -82,7 +82,6 @@ class TaxImporter extends AbstractImporter
         $this->shipmentQueryContainer = $shipmentQueryContainer;
     }
 
-
     /**
      * @param array $data
      *
