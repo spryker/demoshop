@@ -67,7 +67,6 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
         ];
     }
 
-
     /**
      * Provide initial state name for item when state machine initialized. Useing proces name.
      *
