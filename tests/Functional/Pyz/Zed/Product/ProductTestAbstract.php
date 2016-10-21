@@ -39,16 +39,16 @@ use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteReadPlugin as I
 use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainer;
 use Spryker\Zed\Product\Business\Attribute\AttributeManager;
 use Spryker\Zed\Product\Business\ProductFacade;
+use Spryker\Zed\Product\Business\Product\Assertion\ProductAbstractAssertion;
+use Spryker\Zed\Product\Business\Product\Assertion\ProductConcreteAssertion;
 use Spryker\Zed\Product\Business\Product\Plugin\PluginAbstractManager;
 use Spryker\Zed\Product\Business\Product\Plugin\PluginConcreteManager;
-use Spryker\Zed\Product\Business\Product\Assertion\ProductAbstractAssertion;
 use Spryker\Zed\Product\Business\Product\ProductAbstractManager;
-use Spryker\Zed\Product\Business\Product\Assertion\ProductConcreteAssertion;
 use Spryker\Zed\Product\Business\Product\ProductConcreteManager;
 use Spryker\Zed\Product\Business\Product\ProductManager;
+use Spryker\Zed\Product\Business\Product\Sku\SkuGenerator;
 use Spryker\Zed\Product\Business\Product\Url\ProductUrlGenerator;
 use Spryker\Zed\Product\Business\Product\Url\ProductUrlManager;
-use Spryker\Zed\Product\Business\Product\Sku\SkuGenerator;
 use Spryker\Zed\Product\Dependency\Facade\ProductToLocaleBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToTouchBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToUrlBridge;
@@ -237,11 +237,14 @@ abstract class ProductTestAbstract extends Test
                 new ImageSetProductConcreteAfterCreatePlugin(),
                 new StockProductConcreteAfterCreatePlugin(),
                 new PriceProductConcreteAfterCreatePlugin(),
-            ], $readPlugins = [
+            ],
+            $readPlugins = [
                 new ImageSetProductConcreteReadPlugin(),
                 new StockProductConcreteReadPlugin(),
                 new PriceProductConcreteReadPlugin(),
-            ], $beforeUpdatePlugins = [], $afterUpdatePlugins = [
+            ],
+            $beforeUpdatePlugins = [],
+            $afterUpdatePlugins = [
                 new ImageSetProductConcreteAfterUpdatePlugin(),
                 new StockProductConcreteAfterUpdatePlugin(),
                 new PriceProductConcreteAfterUpdatePlugin(),
@@ -386,7 +389,9 @@ abstract class ProductTestAbstract extends Test
         $stockEntity->setName('TEST');
         $stockEntity->save();
 
-        $stock = (new StockProductTransfer())->setStockType($stockEntity->getName())->setQuantity(self::STOCK_QUANTITY);
+        $stock = (new StockProductTransfer())
+            ->setStockType($stockEntity->getName())
+            ->setQuantity(self::STOCK_QUANTITY);
 
         $this->productConcreteTransfer->setStocks(new \ArrayObject($stock));
     }
