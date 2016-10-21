@@ -1209,7 +1209,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "676a5c850b295271c45775e61f4b4f4eb2474b6a"
+                "reference": "2fa400045beb0a4c576e1b95ce8a5f12849249c6"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1726,10 +1726,14 @@
                     "Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/src",
                     "Unit\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests",
                     "Functional\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests",
-                    "Spryker\\Shared\\Util\\": "Bundles/Util/src",
-                    "Spryker\\Zed\\Util\\": "Bundles/Util/src",
-                    "Unit\\Spryker\\Zed\\Util\\": "Bundles/Util/tests",
-                    "Functional\\Spryker\\Zed\\Util\\": "Bundles/Util/tests"
+                    "Spryker\\Shared\\UtilText\\": "Bundles/UtilText/src",
+                    "Spryker\\Zed\\UtilText\\": "Bundles/UtilText/src",
+                    "Unit\\Spryker\\Zed\\UtilText\\": "Bundles/UtilText/tests",
+                    "Functional\\Spryker\\Zed\\UtilText\\": "Bundles/UtilText/tests",
+                    "Spryker\\Shared\\UtilEncoding\\": "Bundles/UtilEncoding/src",
+                    "Spryker\\Zed\\UtilEncoding\\": "Bundles/UtilEncoding/src",
+                    "Unit\\Spryker\\Zed\\UtilEncoding\\": "Bundles/UtilEncoding/tests",
+                    "Functional\\Spryker\\Zed\\UtilEncoding\\": "Bundles/UtilEncoding/tests"
                 },
                 "psr-4": {
                     "Application\\Module\\": "Bundles/Application/tests/_support/Module",
@@ -1751,7 +1755,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-10-20 11:09:32"
+            "time": "2016-10-21 08:18:31"
         },
         {
             "name": "symfony-cmf/routing",

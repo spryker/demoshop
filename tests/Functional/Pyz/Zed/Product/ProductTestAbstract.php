@@ -29,6 +29,7 @@ use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteA
 use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteReadPlugin;
 use Spryker\Zed\Price\Persistence\PriceQueryContainer;
+use Spryker\Zed\Product\Dependency\Facade\ProductToUtilEncodingBridge;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterCreatePlugin as ImageSetProductAbstractAfterCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterUpdatePlugin as ImageSetProductAbstractAfterUpdatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as ImageSetProductAbstractReadPlugin;
@@ -63,6 +64,7 @@ use Spryker\Zed\Tax\Persistence\TaxQueryContainer;
 use Spryker\Zed\Touch\Business\TouchFacade;
 use Spryker\Zed\Touch\Persistence\TouchQueryContainer;
 use Spryker\Zed\Url\Business\UrlFacade;
+use Spryker\Zed\UtilEncoding\Business\UtilEncodingFacade;
 use Spryker\Zed\UtilText\Business\UtilTextFacade;
 
 abstract class ProductTestAbstract extends Test
@@ -187,6 +189,11 @@ abstract class ProductTestAbstract extends Test
     protected $productConcreteTransfer;
 
     /**
+     * @var \Spryker\Zed\Product\Dependency\Facade\ProductToUtilEncodingInterface
+     */
+    protected $utilEncodingFacade;
+
+    /**
      * @return void
      */
     protected function setUp()
@@ -212,13 +219,15 @@ abstract class ProductTestAbstract extends Test
         $this->priceQueryContainer = new PriceQueryContainer();
         $this->productImageQueryContainer = new ProductImageQueryContainer();
         $this->taxQueryContainer = new TaxQueryContainer();
+        $this->utilEncodingFacade = new UtilEncodingFacade();
 
         $urlBridge = new ProductToUrlBridge($this->urlFacade);
         $touchBridge = new ProductToTouchBridge($this->touchFacade);
         $localeBridge = new ProductToLocaleBridge($this->localeFacade);
         $utilTextBridge = new ProductToUtilTextBridge($this->utilTextFacade);
+        $utilEncodingBridge = new ProductToUtilEncodingBridge($this->utilEncodingFacade);
 
-        $attributeManager = new AttributeManager($this->productQueryContainer);
+        $attributeManager = new AttributeManager($this->productQueryContainer, $utilEncodingBridge);
         $productAbstractAssertion = new ProductAbstractAssertion($this->productQueryContainer);
         $productConcreteAssertion = new ProductConcreteAssertion($this->productQueryContainer);
 
