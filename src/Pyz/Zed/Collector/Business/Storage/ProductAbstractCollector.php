@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
+use Generated\Shared\Transfer\RawProductAttributesTransfer;
 use Generated\Shared\Transfer\StorageProductCategoryTransfer;
 use Generated\Shared\Transfer\StorageProductImageTransfer;
 use Generated\Shared\Transfer\StorageProductTransfer;
@@ -16,13 +17,13 @@ use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\Collector\CollectorConfig;
 use Spryker\Shared\Library\Collection\Collection;
-use Spryker\Shared\Library\Json;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
 use Spryker\Zed\Price\Business\PriceFacadeInterface;
 use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface;
 use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
+use Spryker\Zed\Product\Business\ProductFacadeInterface;
 
 class ProductAbstractCollector extends AbstractStoragePdoCollector
 {
@@ -34,8 +35,6 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     const URL = 'url';
     const ABSTRACT_ATTRIBUTES = 'abstract_attributes';
     const ABSTRACT_LOCALIZED_ATTRIBUTES = 'abstract_localized_attributes';
-    const CONCRETE_LOCALIZED_ATTRIBUTES = 'concrete_localized_attributes';
-    const CONCRETE_ATTRIBUTES = 'concrete_attributes';
     const NAME = 'name';
     const PRICE = 'price';
     const PRICE_NAME = 'price_name';
@@ -70,15 +69,22 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     protected $productImageQueryContainer;
 
     /**
+     * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
+     */
+    private $productFacade;
+
+    /**
      * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
      * @param \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface $productCategoryQueryContainer
      * @param \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface $productImageQueryContainer
+     * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
      * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
      */
     public function __construct(
         CategoryQueryContainerInterface $categoryQueryContainer,
         ProductCategoryQueryContainerInterface $productCategoryQueryContainer,
         ProductImageQueryContainerInterface $productImageQueryContainer,
+        ProductFacadeInterface $productFacade,
         PriceFacadeInterface $priceFacade
     ) {
         $this->categoryQueryContainer = $categoryQueryContainer;
@@ -86,6 +92,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
         $this->productImageQueryContainer = $productImageQueryContainer;
         $this->priceFacade = $priceFacade;
         $this->categoryCacheCollection = new Collection([]);
+        $this->productFacade = $productFacade;
     }
 
     /**
@@ -130,10 +137,15 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
      */
     protected function getAbstractAttributes(array $collectItemData)
     {
-        $abstractAttributesData = Json::decode($collectItemData[self::ABSTRACT_ATTRIBUTES], true);
-        $abstractLocalizedAttributesData = Json::decode($collectItemData[self::ABSTRACT_LOCALIZED_ATTRIBUTES], true);
+        $abstractAttributesData = $this->productFacade->decodeProductAttributes($collectItemData[self::ABSTRACT_ATTRIBUTES]);
+        $abstractLocalizedAttributesData = $this->productFacade->decodeProductAttributes($collectItemData[self::ABSTRACT_LOCALIZED_ATTRIBUTES]);
 
-        $attributes = array_merge($abstractAttributesData, $abstractLocalizedAttributesData);
+        $rawProductAttributesTransfer = new RawProductAttributesTransfer();
+        $rawProductAttributesTransfer
+            ->setAbstractAttributes($abstractAttributesData)
+            ->setAbstractLocalizedAttributes($abstractLocalizedAttributesData);
+
+        $attributes = $this->productFacade->combineRawProductAttributes($rawProductAttributesTransfer);
 
         $attributes = array_filter($attributes, function ($key) {
             return !empty($key);

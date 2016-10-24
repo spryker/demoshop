@@ -7,16 +7,16 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
+use Generated\Shared\Transfer\RawProductAttributesTransfer;
 use Generated\Shared\Transfer\StorageProductImageTransfer;
 use Generated\Shared\Transfer\StorageProductTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
-use Spryker\Shared\Library\Json;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
 use Spryker\Zed\Collector\CollectorConfig;
 use Spryker\Zed\Price\Business\PriceFacadeInterface;
 use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
-use Spryker\Zed\Product\Business\Attribute\AttributeProcessor;
+use Spryker\Zed\Product\Business\ProductFacadeInterface;
 
 class ProductConcreteCollector extends AbstractStoragePdoCollector
 {
@@ -42,25 +42,33 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
     const META_DESCRIPTION = 'meta_description';
 
     /**
-     * @var \Pyz\Zed\Collector\Business\Storage\PriceFacadeInterface
+     * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
      */
     protected $priceFacade;
 
     /**
-     * @var \Pyz\Zed\Collector\Business\Storage\ProductImageQueryContainerInterface|\Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface
+     * @var \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface
      */
     protected $productImageQueryContainer;
 
     /**
+     * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
+     */
+    private $productFacade;
+
+    /**
+     * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
      * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
      * @param \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface $productImageQueryContainer
      */
     public function __construct(
+        ProductFacadeInterface $productFacade,
         PriceFacadeInterface $priceFacade,
         ProductImageQueryContainerInterface $productImageQueryContainer
     ) {
         $this->priceFacade = $priceFacade;
         $this->productImageQueryContainer = $productImageQueryContainer;
+        $this->productFacade = $productFacade;
     }
 
     /**
@@ -105,20 +113,20 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
      */
     protected function getConcreteAttributes(array $collectItemData)
     {
-        $abstractAttributesData = Json::decode($collectItemData[self::ABSTRACT_ATTRIBUTES], true);
-        $concreteAttributesData = Json::decode($collectItemData[self::CONCRETE_ATTRIBUTES], true);
+        $abstractAttributesData = $this->productFacade->decodeProductAttributes($collectItemData[self::ABSTRACT_ATTRIBUTES]);
+        $concreteAttributesData = $this->productFacade->decodeProductAttributes($collectItemData[self::CONCRETE_ATTRIBUTES]);
 
-        $abstractLocalizedAttributesData = Json::decode($collectItemData[self::ABSTRACT_LOCALIZED_ATTRIBUTES], true);
-        $concreteLocalizedAttributesData = Json::decode($collectItemData[self::CONCRETE_LOCALIZED_ATTRIBUTES], true);
+        $abstractLocalizedAttributesData = $this->productFacade->decodeProductAttributes($collectItemData[self::ABSTRACT_LOCALIZED_ATTRIBUTES]);
+        $concreteLocalizedAttributesData = $this->productFacade->decodeProductAttributes($collectItemData[self::CONCRETE_LOCALIZED_ATTRIBUTES]);
 
-        $attributeProcess = new AttributeProcessor(
-            $abstractAttributesData,
-            $concreteAttributesData,
-            [$this->locale->getLocaleName() => $abstractLocalizedAttributesData],
-            [$this->locale->getLocaleName() => $concreteLocalizedAttributesData]
-        );
+        $rawProductAttributesTransfer = new RawProductAttributesTransfer();
+        $rawProductAttributesTransfer
+            ->setAbstractAttributes($abstractAttributesData)
+            ->setAbstractLocalizedAttributes($abstractLocalizedAttributesData)
+            ->setConcreteAttributes($concreteAttributesData)
+            ->setConcreteLocalizedAttributes($concreteLocalizedAttributesData);
 
-        return $attributeProcess->mergeAttributes($this->locale->getLocaleName());
+        return $this->productFacade->combineRawProductAttributes($rawProductAttributesTransfer);
     }
 
     /**

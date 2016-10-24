@@ -125,6 +125,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->getCategoryQueryContainer(),
             $this->getProductCategoryQueryContainer(),
             $this->getProductImageQueryContainer(),
+            $this->getProductFacade(),
             $this->getPriceFacade()
         );
 
@@ -218,6 +219,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createStorageProductConcreteCollector()
     {
         $productConcreteCollector = new ProductConcreteCollector(
+            $this->getProductFacade(),
             $this->getPriceFacade(),
             $this->getProductImageQueryContainer()
         );
@@ -411,7 +413,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\Propel\Business\PropelFacadeInterface
+     * @return \Spryker\Zed\Product\Business\ProductFacadeInterface
      */
     protected function getProductFacade()
     {

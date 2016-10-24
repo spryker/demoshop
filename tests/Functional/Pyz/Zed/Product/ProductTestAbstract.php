@@ -37,7 +37,6 @@ use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterCreatePlug
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterUpdatePlugin as ImageSetProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteReadPlugin as ImageSetProductConcreteReadPlugin;
 use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainer;
-use Spryker\Zed\Product\Business\Attribute\AttributeManager;
 use Spryker\Zed\Product\Business\ProductFacade;
 use Spryker\Zed\Product\Business\Product\Assertion\ProductAbstractAssertion;
 use Spryker\Zed\Product\Business\Product\Assertion\ProductConcreteAssertion;
@@ -227,7 +226,7 @@ abstract class ProductTestAbstract extends Test
         $utilTextBridge = new ProductToUtilTextBridge($this->utilTextFacade);
         $utilEncodingBridge = new ProductToUtilEncodingBridge($this->utilEncodingFacade);
 
-        $attributeManager = new AttributeManager($this->productQueryContainer, $utilEncodingBridge);
+//        $attributeManager = new AttributeManager($this->productQueryContainer);
         $productAbstractAssertion = new ProductAbstractAssertion($this->productQueryContainer);
         $productConcreteAssertion = new ProductConcreteAssertion($this->productQueryContainer);
 
@@ -250,12 +249,10 @@ abstract class ProductTestAbstract extends Test
                 new PriceProductConcreteAfterUpdatePlugin(),
             ]
         );
-
+// TODO fix me
         $this->productConcreteManager = new ProductConcreteManager(
-            $attributeManager,
             $this->productQueryContainer,
             $touchBridge,
-            $urlBridge,
             $localeBridge,
             $productAbstractAssertion,
             $productConcreteAssertion,
