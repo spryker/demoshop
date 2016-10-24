@@ -7,24 +7,44 @@
 namespace Pyz\Zed\Category;
 
 use Spryker\Zed\Category\CategoryDependencyProvider as SprykerDependencyProvider;
-use Spryker\Zed\ProductCategory\Communication\Plugin\RemoveProductsAssignmentPlugin;
+use Spryker\Zed\Cms\Communication\Plugin\ReadCmsBlockCategoryRelationPlugin;
+use Spryker\Zed\Cms\Communication\Plugin\RemoveCmsBlockCategoryRelationPlugin;
+use Spryker\Zed\ProductCategory\Communication\Plugin\ReadProductCategoryRelationPlugin;
+use Spryker\Zed\ProductCategory\Communication\Plugin\RemoveProductCategoryRelationPlugin;
 
 class CategoryDependencyProvider extends SprykerDependencyProvider
 {
 
     /**
-     * @return \Spryker\Zed\Category\Dependency\Plugin\CategoryDeletePluginInterface[]
+     * @return \Spryker\Zed\Category\Dependency\Plugin\CategoryDeleteRelationPluginInterface[]
      */
-    protected function getDeletePluginStack()
+    protected function getRelationDeletePluginStack()
     {
         $deletePlugins = array_merge(
             [
-                new RemoveProductsAssignmentPlugin(),
+                new RemoveProductCategoryRelationPlugin(),
+                new RemoveCmsBlockCategoryRelationPlugin(),
             ],
-            parent::getDeletePluginStack()
+            parent::getRelationDeletePluginStack()
         );
 
         return $deletePlugins;
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Dependency\Plugin\CategoryReadRelationPluginInterface[]
+     */
+    protected function getRelationReadPluginStack()
+    {
+        $readPlugins = array_merge(
+            [
+                new ReadProductCategoryRelationPlugin(),
+                new ReadCmsBlockCategoryRelationPlugin(),
+            ],
+            parent::getRelationReadPluginStack()
+        );
+
+        return $readPlugins;
     }
 
 }
