@@ -20,6 +20,7 @@ use Orm\Zed\Stock\Persistence\SpyStock;
 use Orm\Zed\Tax\Persistence\SpyTaxRate;
 use Orm\Zed\Tax\Persistence\SpyTaxSet;
 use Orm\Zed\Tax\Persistence\SpyTaxSetTax;
+use Pyz\Zed\Product\Business\ProductBusinessFactory;
 use Spryker\Zed\Locale\Business\LocaleFacade;
 use Spryker\Zed\Price\Business\PriceFacade;
 use Spryker\Zed\Price\Communication\Plugin\ProductAbstract\PriceProductAbstractAfterCreatePlugin;
@@ -29,7 +30,6 @@ use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteA
 use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteReadPlugin;
 use Spryker\Zed\Price\Persistence\PriceQueryContainer;
-use Spryker\Zed\Product\Dependency\Facade\ProductToUtilEncodingBridge;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterCreatePlugin as ImageSetProductAbstractAfterCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterUpdatePlugin as ImageSetProductAbstractAfterUpdatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as ImageSetProductAbstractReadPlugin;
@@ -220,13 +220,12 @@ abstract class ProductTestAbstract extends Test
         $this->taxQueryContainer = new TaxQueryContainer();
         $this->utilEncodingFacade = new UtilEncodingFacade();
 
+        $productBusinessFactory = new ProductBusinessFactory();
         $urlBridge = new ProductToUrlBridge($this->urlFacade);
         $touchBridge = new ProductToTouchBridge($this->touchFacade);
         $localeBridge = new ProductToLocaleBridge($this->localeFacade);
         $utilTextBridge = new ProductToUtilTextBridge($this->utilTextFacade);
-        $utilEncodingBridge = new ProductToUtilEncodingBridge($this->utilEncodingFacade);
 
-//        $attributeManager = new AttributeManager($this->productQueryContainer);
         $productAbstractAssertion = new ProductAbstractAssertion($this->productQueryContainer);
         $productConcreteAssertion = new ProductConcreteAssertion($this->productQueryContainer);
 
@@ -249,14 +248,16 @@ abstract class ProductTestAbstract extends Test
                 new PriceProductConcreteAfterUpdatePlugin(),
             ]
         );
-// TODO fix me
+
         $this->productConcreteManager = new ProductConcreteManager(
             $this->productQueryContainer,
             $touchBridge,
             $localeBridge,
             $productAbstractAssertion,
             $productConcreteAssertion,
-            $productConcretePluginManager
+            $productConcretePluginManager,
+            $productBusinessFactory->createAttributeEncoder(),
+            $productBusinessFactory->createProductTransferMapper()
         );
 
         $productAbstractPluginManager = new PluginAbstractManager($beforeCreatePlugins = [], $afterCreatePlugins = [
@@ -274,15 +275,14 @@ abstract class ProductTestAbstract extends Test
         ]);
 
         $this->productAbstractManager = new ProductAbstractManager(
-            $attributeManager,
             $this->productQueryContainer,
             $touchBridge,
-            $urlBridge,
             $localeBridge,
-            $this->productConcreteManager,
             $productAbstractAssertion,
             $productAbstractPluginManager,
-            new SkuGenerator($utilTextBridge)
+            new SkuGenerator($utilTextBridge),
+            $productBusinessFactory->createAttributeEncoder(),
+            $productBusinessFactory->createProductTransferMapper()
         );
 
         $urlGenerator = new ProductUrlGenerator(
@@ -300,7 +300,6 @@ abstract class ProductTestAbstract extends Test
         );
 
         $this->productManager = new ProductManager(
-            $attributeManager,
             $this->productAbstractManager,
             $this->productConcreteManager,
             $this->productQueryContainer
