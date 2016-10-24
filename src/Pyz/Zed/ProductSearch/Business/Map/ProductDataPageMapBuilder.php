@@ -9,14 +9,14 @@ namespace Pyz\Zed\ProductSearch\Business\Map;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
-use Pyz\Shared\ProductSearch\ProductSearchConstants;
 use Generated\Shared\Transfer\RawProductAttributesTransfer;
+use Pyz\Shared\ProductSearch\ProductSearchConstants;
+use Pyz\Zed\ProductSearch\Dependency\ProductSearchToProductInterface;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Price\Business\PriceFacadeInterface;
 use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
 use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
-use Spryker\Zed\Product\Business\ProductFacadeInterface;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 
 /**
@@ -51,7 +51,7 @@ class ProductDataPageMapBuilder
     protected $categoryQueryContainer;
 
     /**
-     * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
+     * @var \Pyz\Zed\ProductSearch\Dependency\ProductSearchToProductInterface
      */
     protected $productFacade;
 
@@ -62,14 +62,14 @@ class ProductDataPageMapBuilder
 
     /**
      * @param \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface $productSearchFacade
-     * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
+     * @param \Pyz\Zed\ProductSearch\Dependency\ProductSearchToProductInterface $productFacade
      * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
      * @param \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface $productImageQueryContainer
      * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
      */
     public function __construct(
         ProductSearchFacadeInterface $productSearchFacade,
-        ProductFacadeInterface $productFacade,
+        ProductSearchToProductInterface $productFacade,
         PriceFacadeInterface $priceFacade,
         ProductImageQueryContainerInterface $productImageQueryContainer,
         CategoryQueryContainerInterface $categoryQueryContainer
