@@ -133,7 +133,8 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Application\\Module\\": "vendor/spryker/application/tests/_support/Module"
+      "Application\\Module\\": "vendor/spryker/application/tests/_support/Module",
+      "Auth\\Module\\": "vendor/spryker/auth/tests/_support/Module"
     }
   },
   "minimum-stability": "dev",
