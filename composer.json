@@ -135,6 +135,9 @@
     "psr-4": {
       "Application\\Module\\": "vendor/spryker/application/tests/_support/Module",
       "Auth\\Module\\": "vendor/spryker/auth/tests/_support/Module"
+    },
+    "psr-0": {
+      "Acceptance\\Auth\\": "vendor/spryker/auth/tests/"
     }
   },
   "minimum-stability": "dev",
