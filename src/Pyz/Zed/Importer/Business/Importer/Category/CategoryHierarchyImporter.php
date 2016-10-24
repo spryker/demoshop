@@ -12,22 +12,14 @@ use LogicException;
 use Orm\Zed\Category\Persistence\Base\SpyCategoryNodeQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
-use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Shared\Library\Collection\Collection;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 
-class CategoryHierarchyImporter extends AbstractImporter
+class CategoryHierarchyImporter extends AbstractCategoryImporter
 {
 
     const PARENT_KEY = 'parentKey';
-    const UCATID = 'ucatid';
-    const LOW_PIC = 'low_pic';
-
-    /**
-     * @var \Pyz\Zed\Category\Business\CategoryFacadeInterface
-     */
-    protected $categoryFacade;
 
     /**
      * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
@@ -54,12 +46,9 @@ class CategoryHierarchyImporter extends AbstractImporter
         CategoryFacadeInterface $categoryFacade,
         CategoryQueryContainerInterface $categoryQueryContainer
     ) {
-        parent::__construct($localeFacade);
+        parent::__construct($localeFacade, $categoryFacade);
 
-        $this->localeFacade = $localeFacade;
-        $this->categoryFacade = $categoryFacade;
         $this->categoryQueryContainer = $categoryQueryContainer;
-
         $this->nodeToKeyMapperCollection = new Collection([]);
     }
 
@@ -113,23 +102,31 @@ class CategoryHierarchyImporter extends AbstractImporter
      */
     protected function importOne(array $data)
     {
-        $category = $this->format($data);
+        $categoryTransfer = $this->format($data);
 
-        $idParentNode = $this->getParentNodeId($category[self::PARENT_KEY]);
+        $categoryEntity = $this
+            ->categoryQueryContainer
+            ->queryCategoryByKey($data[static::UCATID])
+            ->findOne();
+        $categoryTransfer->fromArray($categoryEntity->toArray());
+
+        $idParentNode = $this->getParentNodeId($data[static::PARENT_KEY]);
 
         $nodes = $this->categoryQueryContainer
-            ->queryNodeByCategoryKey($category[self::UCATID])
+            ->queryNodeByCategoryKey($data[static::UCATID])
             ->filterByIsMain(true)
             ->find();
 
         foreach ($nodes as $nodeEntity) {
             $nodeTransfer = new NodeTransfer();
             $nodeTransfer->fromArray($nodeEntity->toArray());
-            $nodeTransfer->setFkParentCategoryNode($idParentNode);
+            $categoryTransfer->setCategoryNode($nodeTransfer);
 
-            foreach ($this->localeFacade->getLocaleCollection() as $code => $localeTransfer) {
-                $this->categoryFacade->updateCategoryNode($nodeTransfer, $localeTransfer);
-            }
+            $parentNodeTransfer = new NodeTransfer();
+            $parentNodeTransfer->setIdCategoryNode($idParentNode);
+            $categoryTransfer->setParentCategoryNode($parentNodeTransfer);
+
+            $this->categoryFacade->update($categoryTransfer);
         }
     }
 
