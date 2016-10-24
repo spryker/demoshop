@@ -596,6 +596,7 @@
                 "money",
                 "vo"
             ],
+            "abandoned": "moneyphp/money",
             "time": "2016-10-04 10:57:47"
         },
         {
@@ -1209,7 +1210,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "191079052ae1574885c5f785b62aca4526c2e4cb"
+                "reference": "1fe305e64400f7c1e83bcb84c331f9960217c611"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1738,7 +1739,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-10-17 08:54:07"
+            "time": "2016-10-24 12:41:17"
         },
         {
             "name": "symfony-cmf/routing",
