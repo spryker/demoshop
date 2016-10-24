@@ -175,7 +175,6 @@ class InstallerFactory extends AbstractFactory
         );
     }
 
-
     /**
      * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
      */

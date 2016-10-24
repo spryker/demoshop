@@ -62,7 +62,6 @@ class PaymentStepTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($paymentStep->postCondition($quoteTransfer));
     }
 
-
     /**
      * @return void
      */
