@@ -7,59 +7,21 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
-use Generated\Shared\Transfer\LocaleTransfer;
-use Pyz\Zed\Collector\Persistence\Storage\Propel\ProductOptionCollectorQuery;
-use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollector;
-use Spryker\Zed\Collector\Business\Exporter\Writer\Storage\TouchUpdaterSet;
-use Spryker\Zed\Collector\CollectorConfig;
+use Generated\Shared\Transfer\StorageProductOptionGroupTransfer;
+use Generated\Shared\Transfer\StorageProductOptionValueTransfer;
+use Orm\Zed\ProductOption\Persistence\Base\SpyProductOptionGroupQuery;
+use Orm\Zed\ProductOption\Persistence\SpyProductOptionGroup;
+use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductOptionCollectorQuery;
+use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
 use Spryker\Zed\ProductOption\ProductOptionConfig;
 
-class ProductOptionCollector extends AbstractStoragePropelCollector
+class ProductOptionCollector extends AbstractStoragePdoCollector
 {
 
     /**
-     * @param array $collectedSet
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
-     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\Storage\TouchUpdaterSet $touchUpdaterSet
-     *
-     * @return array
+     * @var array
      */
-    protected function collectData(array $collectedSet, LocaleTransfer $locale, TouchUpdaterSet $touchUpdaterSet)
-    {
-        $setToExport = [];
-
-        foreach ($collectedSet as $index => $collectedItemData) {
-            $touchKey = $this->collectKey(
-                $collectedItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
-                $locale->getLocaleName(),
-                $collectedItemData
-            );
-
-            $setToExport = $this->groupOptions($touchUpdaterSet, $touchKey, $collectedItemData, $setToExport);
-        }
-
-        return $setToExport;
-    }
-
-    /**
-     * @param string $touchKey
-     * @param array $collectItemData
-     *
-     * @return array
-     */
-    protected function collectItem($touchKey, array $collectItemData)
-    {
-        return [
-            ProductOptionCollectorQuery::GROUP_NAME => $collectItemData[ProductOptionCollectorQuery::GROUP_NAME],
-            ProductOptionCollectorQuery::ACTIVE => $collectItemData[ProductOptionCollectorQuery::ACTIVE],
-            ProductOptionCollectorQuery::VALUE => [
-               ProductOptionCollectorQuery::SKU => $collectItemData[ProductOptionCollectorQuery::SKU],
-               ProductOptionCollectorQuery::PRICE => $collectItemData[ProductOptionCollectorQuery::PRICE],
-               ProductOptionCollectorQuery::VALUE => $collectItemData[ProductOptionCollectorQuery::VALUE],
-               ProductOptionCollectorQuery::ID_PRODUCT_OPTION_VALUE => $collectItemData[ProductOptionCollectorQuery::ID_PRODUCT_OPTION_VALUE],
-           ]
-        ];
-    }
+    protected $optionGroupCache = [];
 
     /**
      * @return string
@@ -70,43 +32,78 @@ class ProductOptionCollector extends AbstractStoragePropelCollector
     }
 
     /**
-     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\Storage\TouchUpdaterSet $touchUpdaterSet
      * @param string $touchKey
-     * @param array $collectedItemData
-     * @param array $setToExport
+     * @param array $collectItemData
      *
      * @return array
      */
-    protected function groupOptions(
-        TouchUpdaterSet $touchUpdaterSet,
-        $touchKey,
-        array $collectedItemData,
-        array $setToExport
-    ) {
-        $productOption = $this->processCollectedItem($touchKey, $collectedItemData, $touchUpdaterSet);
+    protected function collectItem($touchKey, array $collectItemData)
+    {
+        $idGroups = explode(',', $collectItemData[ProductOptionCollectorQuery::ID_PRODUCT_OPTION_GROUP]);
 
-        if (!isset($setToExport[$touchKey])) {
-            $setToExport[$touchKey] = [];
+        $persistOptionGroups = [];
+        foreach ($idGroups as $idGroup) {
+            $persistOptionGroups[] = $this->getOptionGroupExportData($idGroup);
         }
 
-        $groupName = $productOption[ProductOptionCollectorQuery::GROUP_NAME];
-        if (!isset($setToExport[$touchKey][$groupName])) {
-            $setToExport[$touchKey][$groupName] = [];
+        return $persistOptionGroups;
+    }
+
+    /**
+     * @param int $idProductOptionGroup
+     *
+     * @return array
+     */
+    protected function getOptionGroupExportData($idProductOptionGroup)
+    {
+        if (isset($this->optionGroupCache[$idProductOptionGroup])) {
+            return $this->optionGroupCache[$idProductOptionGroup];
         }
 
-        if ($productOption[ProductOptionCollectorQuery::ACTIVE] === false) {
-            return $setToExport;
+        $optionGroupEntity = $this->getOptionGroupEntity($idProductOptionGroup);
+        if (!$optionGroupEntity) {
+            $this->optionGroupCache[$idProductOptionGroup] = [];
+            return [];
         }
 
-        $group = $setToExport[$touchKey][$groupName];
+        $this->optionGroupCache[$idProductOptionGroup][StorageProductOptionGroupTransfer::NAME] = $optionGroupEntity->getName();
+        $this->optionGroupCache[$idProductOptionGroup][StorageProductOptionGroupTransfer::VALUES] = $this->getOptionGroupValues($optionGroupEntity);
 
-        $group[ProductOptionCollectorQuery::GROUP_NAME] = $groupName;
-        $group[ProductOptionCollectorQuery::ACTIVE] = $productOption[ProductOptionCollectorQuery::ACTIVE];
-        $group['values'][] = $productOption[ProductOptionCollectorQuery::VALUE];
+        return $this->optionGroupCache[$idProductOptionGroup];
+    }
 
-        $setToExport[$touchKey][$groupName] = $group;
+    /**
+     * @param \Orm\Zed\ProductOption\Persistence\SpyProductOptionGroup $productOptionGroupEntity
+     *
+     * @return array
+     */
+    protected function getOptionGroupValues(SpyProductOptionGroup $productOptionGroupEntity)
+    {
+        $optionValues = [];
+        foreach ($productOptionGroupEntity->getSpyProductOptionValues() as $optionValueEntity) {
+            $optionValues[] = [
+                StorageProductOptionValueTransfer::ID_PRODUCT_OPTION_VALUE => $optionValueEntity->getIdProductOptionValue(),
+                StorageProductOptionValueTransfer::SKU => $optionValueEntity->getSku(),
+                StorageProductOptionValueTransfer::PRICE => $optionValueEntity->getPrice(),
+                StorageProductOptionValueTransfer::VALUE => $optionValueEntity->getValue()
+            ];
+        }
+        return $optionValues;
+    }
 
-        return $setToExport;
+    /**
+     * @param int $idOptionGroup
+     *
+     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionGroup
+     */
+    protected function getOptionGroupEntity($idOptionGroup)
+    {
+        $optionGroupEntity = SpyProductOptionGroupQuery::create()
+            ->filterByIdProductOptionGroup($idOptionGroup)
+            ->filterByActive(true)
+            ->findOne();
+
+        return $optionGroupEntity;
     }
 
 }

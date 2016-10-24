@@ -29,6 +29,7 @@ use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProv
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\ZedHstsServiceProvider;
 use Spryker\Zed\Assertion\Communication\Plugin\ServiceProvider\AssertionServiceProvider;
 use Spryker\Zed\Auth\Communication\Plugin\Bootstrap\AuthBootstrapProvider;
+use Spryker\Zed\Currency\Communication\Plugin\ServiceProvider\TwigCurrencyServiceProvider;
 use Spryker\Zed\Kernel\Communication\Plugin\GatewayControllerListenerPlugin;
 use Spryker\Zed\Kernel\Communication\Plugin\GatewayServiceProviderPlugin;
 use Spryker\Zed\Kernel\Container;
@@ -37,7 +38,6 @@ use Spryker\Zed\Price\Communication\Plugin\ServiceProvider\PriceServiceProvider;
 use Spryker\Zed\Propel\Communication\Plugin\ServiceProvider\PropelServiceProvider;
 use Spryker\Zed\Session\Communication\Plugin\ServiceProvider\SessionServiceProvider as SprykerSessionServiceProvider;
 use Spryker\Zed\User\Communication\Plugin\ServiceProvider\UserServiceProvider;
-use Spryker\Zed\Currency\Communication\Plugin\ServiceProvider\TwigCurrencyServiceProvider;
 
 class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
 {

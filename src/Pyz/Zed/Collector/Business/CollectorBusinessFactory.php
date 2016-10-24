@@ -21,7 +21,6 @@ use Pyz\Zed\Collector\Business\Storage\UrlCollector;
 use Pyz\Zed\Collector\CollectorDependencyProvider;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\BlockCollectorQuery as StorageBlockCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\PageCollectorQuery as StoragePageCollectorPropelQuery;
-use Pyz\Zed\Collector\Persistence\Storage\Propel\ProductOptionCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\RedirectCollectorQuery as StorageRedirectCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\TranslationCollectorQuery as StorageTranslationCollectorPropelQuery;
 use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderDependencyContainer;
@@ -218,11 +217,16 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     {
         $productOptionCollector = new ProductOptionCollector();
 
+        $productOptionCollector->setChunkSize(2);
+
         $productOptionCollector->setTouchQueryContainer(
             $this->getTouchQueryContainer()
         );
+        $productOptionCollector->setCriteriaBuilder(
+            $this->createCriteriaBuilder()
+        );
         $productOptionCollector->setQueryBuilder(
-            $this->createProductOptionCollectorPropelQuery()
+            $this->createStoragePdoQueryAdapterByName('ProductOptionCollectorQuery')
         );
 
         return $productOptionCollector;
