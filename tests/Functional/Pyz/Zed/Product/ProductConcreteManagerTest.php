@@ -192,5 +192,4 @@ class ProductConcreteManagerTest extends ProductTestAbstract
         $this->assertEquals(self::IMAGE_URL_SMALL, $productImage->getExternalUrlSmall());
     }
 
-
 }

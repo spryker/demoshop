@@ -8,9 +8,9 @@
 namespace Pyz\Yves\Product;
 
 use Pyz\Yves\Product\ResourceCreator\ProductResourceCreator;
-use Spryker\Yves\Product\ProductFactory as SprykerProductFactory;
 use Spryker\Yves\ProductCategory\Mapper\StorageProductCategoryMapper;
 use Spryker\Yves\ProductImage\Mapper\StorageImageMapper;
+use Spryker\Yves\Product\ProductFactory as SprykerProductFactory;
 
 /**
  * Class ProductExportFactory

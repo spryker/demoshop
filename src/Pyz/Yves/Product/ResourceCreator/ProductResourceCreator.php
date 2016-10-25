@@ -13,9 +13,9 @@ use Spryker\Shared\Kernel\LocatorLocatorInterface;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
-use Spryker\Yves\Product\Mapper\StorageProductMapperInterface;
 use Spryker\Yves\ProductCategory\Mapper\StorageProductCategoryMapperInterface;
 use Spryker\Yves\ProductImage\Mapper\StorageImageMapperInterface;
+use Spryker\Yves\Product\Mapper\StorageProductMapperInterface;
 
 class ProductResourceCreator extends AbstractResourceCreator
 {

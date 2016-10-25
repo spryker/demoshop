@@ -153,8 +153,7 @@ class ProductDataPageMapBuilder
             ->setAbstractAttributes($abstractAttributesData)
             ->setAbstractLocalizedAttributes($abstractLocalizedAttributesData)
             ->setConcreteAttributes($concreteAttributesDataCollection)
-            ->setConcreteLocalizedAttributes($concreteLocalizedAttributesDataCollection)
-        ;
+            ->setConcreteLocalizedAttributes($concreteLocalizedAttributesDataCollection);
 
         return $this->productFacade->combineRawProductAttributes($rawProductAttributesTransfer);
     }
@@ -301,7 +300,7 @@ class ProductDataPageMapBuilder
             }
         }
 
-        $result = array_map(function($attributeValues){
+        $result = array_map(function ($attributeValues) {
             $attributeValues = implode(' ', array_unique($attributeValues));
 
             return $attributeValues;
