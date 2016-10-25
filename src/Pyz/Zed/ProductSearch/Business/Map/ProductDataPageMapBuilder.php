@@ -7,10 +7,13 @@
 
 namespace Pyz\Zed\ProductSearch\Business\Map;
 
+use Generated\Shared\Search\PageIndexMap;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
+use RuntimeException;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\Price\Business\PriceFacadeInterface;
+use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
 use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 
@@ -36,13 +39,23 @@ class ProductDataPageMapBuilder
     protected $attributeMap;
 
     /**
+     * @var \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface
+     */
+    protected $productImageQueryContainer;
+
+    /**
      * @param \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface $productSearchFacade
      * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
+     * @param \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface $productImageQueryContainer
      */
-    public function __construct(ProductSearchFacadeInterface $productSearchFacade, PriceFacadeInterface $priceFacade)
-    {
+    public function __construct(
+        ProductSearchFacadeInterface $productSearchFacade,
+        PriceFacadeInterface $priceFacade,
+        ProductImageQueryContainerInterface $productImageQueryContainer
+    ) {
         $this->priceFacade = $priceFacade;
         $this->productSearchFacade = $productSearchFacade;
+        $this->productImageQueryContainer = $productImageQueryContainer;
     }
 
     /**
@@ -71,6 +84,7 @@ class ProductDataPageMapBuilder
             ->addSearchResultData($pageMapTransfer, 'price', $price)
             ->addSearchResultData($pageMapTransfer, 'url', $this->getProductUrl($productData))
             ->addSearchResultData($pageMapTransfer, 'available', $this->isAvailable($productData))
+            ->addSearchResultData($pageMapTransfer, 'images', $this->generateImages($productData['id_image_set']))
             ->addFullTextBoosted($pageMapTransfer, $productData['abstract_name'])
             ->addSuggestionTerms($pageMapTransfer, $productData['abstract_name'])
             ->addCompletionTerms($pageMapTransfer, $productData['abstract_name'])
@@ -78,6 +92,8 @@ class ProductDataPageMapBuilder
             ->addIntegerSort($pageMapTransfer, 'price', $price)
             ->addIntegerFacet($pageMapTransfer, 'price', $price)
             ->addCategory($pageMapTransfer, $this->getAllParentCategories($productData), $this->getDirectParentCategories($productData));
+
+        $pageMapTransfer = $this->setIsFeatured($pageMapTransfer, $attributes);
 
         /*
          * We'll then extend this with dynamically configured product attributes from database
@@ -114,6 +130,8 @@ class ProductDataPageMapBuilder
     /**
      * @param string $data
      *
+     * @throws \RuntimeException
+     *
      * @return array
      */
     protected function getEncodedAttributeData($data)
@@ -123,7 +141,7 @@ class ProductDataPageMapBuilder
         $array = json_decode($data, true);
 
         if (!is_array($array)) {
-            throw new \RuntimeException('Invalid JSON data: ' . json_last_error_msg() . ' - ' . print_r($data, true));
+            throw new RuntimeException('Invalid JSON data: ' . json_last_error_msg() . ' - ' . print_r($data, true));
         }
 
         return array_shift($array);
@@ -155,7 +173,6 @@ class ProductDataPageMapBuilder
      * @param array $productData
      *
      * @return bool
-     * TODO: put this to Stock or Availability facade (there's also a ticket for this: https://github.com/spryker/spryker/issues/1935 )
      */
     protected function isAvailable(array $productData)
     {
@@ -185,6 +202,47 @@ class ProductDataPageMapBuilder
     protected function getAllParentCategories(array $productData)
     {
         return explode(',', $productData['category_parent_ids']);
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\PageMapTransfer $pageMapTransfer
+     * @param array $attributes
+     *
+     * @return \Generated\Shared\Transfer\PageMapTransfer
+     */
+    protected function setIsFeatured(PageMapTransfer $pageMapTransfer, array $attributes)
+    {
+        $isFeatured = array_key_exists(PageIndexMap::IS_FEATURED, $attributes) ? (bool)$attributes[PageIndexMap::IS_FEATURED] : false;
+
+        $pageMapTransfer->setIsFeatured($isFeatured);
+
+        return $pageMapTransfer;
+    }
+
+    /**
+     * @param int $idImageSet
+     *
+     * @return array
+     */
+    protected function generateImages($idImageSet)
+    {
+        if ($idImageSet === null) {
+            return [];
+        }
+
+        $imagesCollection = $this->productImageQueryContainer
+            ->queryImagesByIdProductImageSet($idImageSet)
+            ->find();
+
+        $result = [];
+
+        foreach ($imagesCollection as $image) {
+            $imageArray = $image->getSpyProductImage()->toArray();
+            $imageArray += $image->toArray();
+            $result[] = $imageArray;
+        }
+
+        return $result;
     }
 
 }

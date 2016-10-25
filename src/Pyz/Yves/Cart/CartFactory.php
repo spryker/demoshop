@@ -6,6 +6,7 @@
 
 namespace Pyz\Yves\Cart;
 
+use Pyz\Yves\Cart\Form\VoucherForm;
 use Pyz\Yves\Cart\Handler\CartOperationHandler;
 use Pyz\Yves\Cart\Handler\CartVoucherHandler;
 use Spryker\Yves\Kernel\AbstractFactory;
@@ -67,6 +68,24 @@ class CartFactory extends AbstractFactory
     protected function getLocale()
     {
         return $this->createApplication()['locale'];
+    }
+
+    /**
+     * @return \Symfony\Component\Form\FormInterface
+     */
+    public function createVoucherForm()
+    {
+        return $this
+            ->getFormFactory()
+            ->create($this->createVoucherFormType());
+    }
+
+    /**
+     * @return \Symfony\Component\Form\AbstractType
+     */
+    protected function createVoucherFormType()
+    {
+        return new VoucherForm();
     }
 
 }

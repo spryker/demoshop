@@ -1,0 +1,9 @@
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - WebDriver:
+            url: ''
+            browser: chrome
+        - \Application\Module\Yves
+        - \Application\Module\Zed
+        - Cli

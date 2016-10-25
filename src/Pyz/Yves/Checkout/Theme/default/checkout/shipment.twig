@@ -1,0 +1,37 @@
+{% extends "@checkout/layout.twig" %}
+{% import "@checkout/checkout/_macros.twig" as checkout %}
+
+{% block content %}
+    <div class="row columns">
+
+        {{ form_start(shipmentForm, { attr: { id: 'payment-form' }}) }}
+
+            <div class="callout">
+                <h4>{{ 'checkout.step.shipment.title' | trans }}</h4>
+
+                <ul class="no-bullet">
+                    {% for method in shipmentForm.idShipmentMethod %}
+                        <li>
+                            <label>
+                                {{ form_widget(method, {'attr': {'class': '__toggler'}}) }}
+                                {{ method.vars.label | raw }}
+                            </label>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="callout">
+                <div class="row align-right">
+                    <div class="small-12 medium-6 large-4 xlarge-3 columns">
+                        <a href="{{ previousStepUrl }}" class="button expanded __no-margin-bottom">{{ 'general.back.button' | trans }}</a>
+                    </div>
+                    <div class="small-12 medium-6 large-4 xlarge-3 columns">
+                        <button type="submit" class="button success expanded __no-margin-bottom">{{ 'checkout.step.payment' | trans }}</button>
+                    </div>
+                </div>
+            </div>
+
+        {{ form_end(shipmentForm) }}
+    </div>
+{% endblock %}

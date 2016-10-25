@@ -38,7 +38,6 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
         ];
     }
 
-
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *

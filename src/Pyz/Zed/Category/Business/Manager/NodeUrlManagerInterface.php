@@ -6,6 +6,8 @@
 
 namespace Pyz\Zed\Category\Business\Manager;
 
-interface NodeUrlManagerInterface extends \Spryker\Zed\Category\Business\Manager\NodeUrlManagerInterface
+use Spryker\Zed\Category\Business\Manager\NodeUrlManagerInterface as SprykerNodeUrlManagerInterface;
+
+interface NodeUrlManagerInterface extends SprykerNodeUrlManagerInterface
 {
 }

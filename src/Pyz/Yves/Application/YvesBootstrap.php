@@ -16,6 +16,7 @@ use Pyz\Yves\Application\Plugin\Provider\FlashMessengerServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\SessionServiceProvider as ProviderSessionServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\YvesSecurityServiceProvider;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
+use Pyz\Yves\Cart\Plugin\Provider\CartServiceProvider;
 use Pyz\Yves\Catalog\Plugin\Router\SearchRouter;
 use Pyz\Yves\Category\Plugin\Provider\CategoryServiceProvider;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
@@ -26,6 +27,7 @@ use Pyz\Yves\EventJournal\Plugin\Provider\EventJournalServiceProvider;
 use Pyz\Yves\Glossary\Plugin\Provider\TranslationServiceProvider;
 use Pyz\Yves\Heartbeat\Plugin\Provider\HeartbeatControllerProvider;
 use Pyz\Yves\NewRelic\Plugin\Provider\NewRelicServiceProvider;
+use Pyz\Yves\Newsletter\Plugin\Provider\NewsletterControllerProvider;
 use Pyz\Yves\Twig\Plugin\Provider\TwigServiceProvider;
 use Pyz\Yves\Wishlist\Plugin\Provider\WishlistControllerProvider;
 use Silex\Provider\FormServiceProvider;
@@ -36,15 +38,17 @@ use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\HeadersSecurityServiceProvider;
-use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
-use Spryker\Shared\Application\Communication\Plugin\ServiceProvider\UrlGeneratorServiceProvider;
+use Spryker\Shared\Application\ServiceProvider\FormFactoryServiceProvider;
+use Spryker\Shared\Application\ServiceProvider\HeadersSecurityServiceProvider;
+use Spryker\Shared\Application\ServiceProvider\RoutingServiceProvider;
+use Spryker\Shared\Application\ServiceProvider\UrlGeneratorServiceProvider;
 use Spryker\Shared\Config\Config;
 use Spryker\Yves\Application\Application;
 use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\MonologServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\YvesHstsServiceProvider;
+use Spryker\Yves\Storage\Plugin\Provider\StorageRequestCacheServiceProvider;
 
 class YvesBootstrap
 {
@@ -78,6 +82,7 @@ class YvesBootstrap
      */
     protected function registerServiceProviders()
     {
+        $this->application->register(new StorageRequestCacheServiceProvider());
         $this->application->register(new TwigServiceProvider());
         $this->application->register(new ApplicationServiceProvider());
         $this->application->register(new SessionServiceProvider());
@@ -104,6 +109,8 @@ class YvesBootstrap
         $this->application->register(new WebProfilerServiceProvider());
         $this->application->register(new AutoloaderCacheServiceProvider());
         $this->application->register(new YvesHstsServiceProvider());
+        $this->application->register(new CartServiceProvider());
+        $this->application->register(new FormFactoryServiceProvider());
     }
 
     /**
@@ -130,6 +137,7 @@ class YvesBootstrap
             new CartControllerProvider($ssl),
             new WishlistControllerProvider($ssl),
             new HeartbeatControllerProvider($ssl),
+            new NewsletterControllerProvider($ssl),
         ];
 
         foreach ($controllerProviders as $controllerProvider) {

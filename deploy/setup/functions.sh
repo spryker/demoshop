@@ -114,7 +114,7 @@ function installDemoshop {
     configureCodeception
 
     successText "Setup successful"
-    infoText "\nYves url: http://www.de.spryker.dev/\nZed url: http://zed.de.spryker.dev/\n"
+    infoText "\nYves URL: http://www.de.spryker.dev/\nZed URL: http://zed.de.spryker.dev/\n"
 }
 
 function installZed {
@@ -285,13 +285,9 @@ function checkNodejsVersion {
 function installAntelope {
     checkNodejsVersion
 
-    ANTELOPE_TOOL=`which antelope`
-
-    if [[ ! -f $ANTELOPE_TOOL ]]; then
-        labelText "Install Antelope tool globally"
-        sudo $NPM install -g antelope
-        writeErrorMessage "Antelope setup failed"
-    fi
+    labelText "Install or Update Antelope tool globally"
+    sudo $NPM install -g antelope
+    writeErrorMessage "Antelope setup failed"
 }
 
 function antelopeInstallZed {

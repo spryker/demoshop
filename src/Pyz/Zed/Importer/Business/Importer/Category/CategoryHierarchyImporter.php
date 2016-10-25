@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Importer\Business\Importer\Category;
 
 use Generated\Shared\Transfer\NodeTransfer;
+use LogicException;
 use Orm\Zed\Category\Persistence\Base\SpyCategoryNodeQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
@@ -87,6 +88,8 @@ class CategoryHierarchyImporter extends AbstractImporter
      *
      * @see \Pyz\Zed\Importer\Business\Importer\Product\ProductCategoryImporter::getRootNode()
      *
+     * @throws \LogicException
+     *
      * @return \Orm\Zed\Category\Persistence\SpyCategoryNode
      */
     protected function getRootNode()
@@ -96,7 +99,7 @@ class CategoryHierarchyImporter extends AbstractImporter
             $this->defaultRootNode = $queryRoot->findOne();
 
             if ($this->defaultRootNode === null) {
-                throw new \LogicException('Could not find any root nodes');
+                throw new LogicException('Could not find any root nodes');
             }
         }
 

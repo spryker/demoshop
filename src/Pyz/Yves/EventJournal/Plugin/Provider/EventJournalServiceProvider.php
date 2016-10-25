@@ -7,12 +7,14 @@
 
 namespace Pyz\Yves\EventJournal\Plugin\Provider;
 
+use DateTime;
 use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
 use Silex\Application;
 use Spryker\Client\EventJournal\Event;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\Config;
 use Spryker\Shared\Library\System;
+use Spryker\Shared\Session\SessionConstants;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
@@ -146,14 +148,14 @@ class EventJournalServiceProvider extends AbstractServiceProvider
             // uniqid is based on current timestamp, a server ID should be used to prevent 2 servers generating the same ID for 2 simultaneous requests.
             $_COOKIE[$cookieName] = hash(static::COOKIE_HASH_ALGORITHM, uniqid(System::getHostname(), true));
         }
-        $dt = new \DateTime();
+        $dt = new DateTime();
         $app['cookies'][] = new Cookie(
             $cookieName,
             $_COOKIE[$cookieName],
             $dt->modify($validFor),
             '/',
-            Config::get(ApplicationConstants::YVES_COOKIE_DOMAIN),
-            Config::get(ApplicationConstants::YVES_COOKIE_SECURE, true)
+            Config::get(SessionConstants::YVES_SESSION_COOKIE_DOMAIN),
+            Config::get(SessionConstants::YVES_SESSION_COOKIE_SECURE, true)
         );
     }
 

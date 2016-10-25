@@ -1,0 +1,17 @@
+{% extends "@customer/layout.twig" %}
+
+{% block title %}
+    <h3>{{ 'customer.account.address' | trans }}</h3>
+{% endblock %}
+
+{% block customerNavigation %}
+    {% include "@customer/partials/navigation.twig" with {'active': 'address'} %}
+{% endblock %}
+
+{% block customerContent %}
+    <div class="callout">
+        <h5>{{ 'customer.account.edit_address_information' | trans }}</h5>
+        <hr>
+        {% include "@customer/address/partials/form.twig" with {'form': form, 'formAction': url('customer/address/new')} %}
+    </div>
+{% endblock %}

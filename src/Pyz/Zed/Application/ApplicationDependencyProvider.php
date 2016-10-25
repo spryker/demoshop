@@ -13,6 +13,7 @@ use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\TwigServiceProvider;
+use Spryker\Shared\Application\ServiceProvider\FormFactoryServiceProvider;
 use Spryker\Zed\Acl\Communication\Plugin\Bootstrap\AclBootstrapProvider;
 use Spryker\Zed\Application\ApplicationDependencyProvider as SprykerApplicationDependencyProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\DateFormatterServiceProvider;
@@ -69,7 +70,6 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @throws \Exception
      * @return \Silex\ServiceProviderInterface[]
      */
     protected function getServiceProvider(Container $container)
@@ -95,6 +95,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new SubRequestServiceProvider(),
             new WebProfilerServiceProvider(),
             new ZedHstsServiceProvider(),
+            new FormFactoryServiceProvider(),
         ];
 
         $providers = array_merge($providers, $coreProviders);

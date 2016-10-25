@@ -7,7 +7,9 @@
 
 namespace Pyz\Yves\Application\Plugin\Provider;
 
+use Exception;
 use Pyz\Yves\Application\Business\Model\SessionFactory;
+use SessionHandler;
 use Silex\Application;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\Config;
@@ -26,7 +28,7 @@ class SessionServiceProvider extends AbstractServiceProvider
      */
     public function register(Application $app)
     {
-        $saveHandler = Config::get(ApplicationConstants::YVES_SESSION_SAVE_HANDLER);
+        $saveHandler = Config::get(SessionConstants::YVES_SESSION_SAVE_HANDLER);
 
         $this->setSessionSaveHandler($saveHandler);
         $this->setSessionStorageOptions($app);
@@ -65,10 +67,10 @@ class SessionServiceProvider extends AbstractServiceProvider
     protected function setSessionSaveHandler($saveHandler)
     {
         if (!in_array($saveHandler, $this->getSaveHandler()) &&
-            Config::get(ApplicationConstants::YVES_SESSION_SAVE_HANDLER) &&
+            Config::get(SessionConstants::YVES_SESSION_SAVE_HANDLER) &&
             $this->getSavePath($saveHandler)
         ) {
-            ini_set('session.save_handler', Config::get(ApplicationConstants::YVES_SESSION_SAVE_HANDLER));
+            ini_set('session.save_handler', Config::get(SessionConstants::YVES_SESSION_SAVE_HANDLER));
             session_save_path($this->getSavePath($saveHandler));
         }
     }
@@ -89,11 +91,11 @@ class SessionServiceProvider extends AbstractServiceProvider
                 break;
 
             case SessionConstants::SESSION_HANDLER_FILE:
-                $path = Config::get(ApplicationConstants::YVES_STORAGE_SESSION_FILE_PATH);
+                $path = Config::get(SessionConstants::YVES_SESSION_FILE_PATH);
                 break;
 
             default:
-                throw new \Exception('Undefined session handler: ' . $saveHandler);
+                throw new Exception('Undefined session handler: ' . $saveHandler);
         }
 
         return $path;
@@ -104,17 +106,22 @@ class SessionServiceProvider extends AbstractServiceProvider
      */
     protected function getConnectionString()
     {
-        $path = Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL)
-            . '://' . Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST)
-            . ':' . Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT);
+        $path = sprintf(
+            '%s://%s:%s?database=%s',
+            Config::get(SessionConstants::YVES_SESSION_REDIS_PROTOCOL),
+            Config::get(SessionConstants::YVES_SESSION_REDIS_HOST),
+            Config::get(SessionConstants::YVES_SESSION_REDIS_PORT),
+            Config::get(SessionConstants::YVES_SESSION_REDIS_DATABASE, 0)
+        );
 
-        if (Config::hasKey(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PASSWORD)) {
+        if (Config::hasKey(SessionConstants::YVES_SESSION_REDIS_PASSWORD)) {
             $path = sprintf(
-                '%s://h:%s@%s:%s',
-                Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL),
-                Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PASSWORD),
-                Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST),
-                Config::get(ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT)
+                '%s://h:%s@%s:%s?database=%s',
+                Config::get(SessionConstants::YVES_SESSION_REDIS_PROTOCOL),
+                Config::get(SessionConstants::YVES_SESSION_REDIS_PASSWORD),
+                Config::get(SessionConstants::YVES_SESSION_REDIS_HOST),
+                Config::get(SessionConstants::YVES_SESSION_REDIS_PORT),
+                Config::get(SessionConstants::YVES_SESSION_REDIS_DATABASE, 0)
             );
         }
 
@@ -130,16 +137,16 @@ class SessionServiceProvider extends AbstractServiceProvider
     {
         $sessionStorageOptions = [
             'cookie_httponly' => true,
-            'cookie_lifetime' => Config::get(ApplicationConstants::YVES_STORAGE_SESSION_TIME_TO_LIVE),
+            'cookie_lifetime' => Config::get(SessionConstants::YVES_SESSION_TIME_TO_LIVE),
             'cookie_secure' => $this->secureCookie(),
         ];
 
-        $name = str_replace('.', '-', Config::get(ApplicationConstants::YVES_SESSION_NAME));
+        $name = str_replace('.', '-', Config::get(SessionConstants::YVES_SESSION_COOKIE_NAME));
         if ($name) {
             $sessionStorageOptions['name'] = $name;
         }
 
-        $cookieDomain = Config::get(ApplicationConstants::YVES_SESSION_COOKIE_DOMAIN);
+        $cookieDomain = Config::get(SessionConstants::YVES_SESSION_COOKIE_DOMAIN);
         if ($cookieDomain) {
             $sessionStorageOptions['cookie_domain'] = $cookieDomain;
         }
@@ -188,19 +195,17 @@ class SessionServiceProvider extends AbstractServiceProvider
 
             default:
                 $app['session.storage.handler'] = $app->share(function () {
-                    return new \SessionHandler();
+                    return new SessionHandler();
                 });
         }
     }
 
     /**
-     * @throws \Exception
-     *
      * @return bool
      */
     protected function secureCookie()
     {
-        return (Config::get(ApplicationConstants::YVES_COOKIE_SECURE, true) && Config::get(ApplicationConstants::YVES_SSL_ENABLED, true));
+        return (Config::get(SessionConstants::YVES_SESSION_COOKIE_SECURE, true) && Config::get(ApplicationConstants::YVES_SSL_ENABLED, true));
     }
 
 }

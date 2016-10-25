@@ -36,6 +36,8 @@ class CustomerUserProvider extends AbstractPlugin implements UserProviderInterfa
     /**
      * @param \Symfony\Component\Security\Core\User\UserInterface $user
      *
+     * @throws \Symfony\Component\Security\Core\Exception\UnsupportedUserException
+     *
      * @return \Symfony\Component\Security\Core\User\UserInterface
      */
     public function refreshUser(UserInterface $user)

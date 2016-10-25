@@ -1,0 +1,12 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block content %}
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="callout alert">
+                <h3>{{ 'checkout.step.error.title' | trans }}</h3>
+                {{ 'checkout.step.error.text' | trans }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

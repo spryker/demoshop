@@ -8,8 +8,10 @@
 namespace Pyz\Yves\Twig\Loader;
 
 use Twig_Error_Loader;
+use Twig_ExistsLoaderInterface;
+use Twig_LoaderInterface;
 
-class YvesFilesystemLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderInterface
+class YvesFilesystemLoader implements Twig_LoaderInterface, Twig_ExistsLoaderInterface
 {
 
     /**
@@ -69,8 +71,6 @@ class YvesFilesystemLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
      *
      * @param string $path A path where to look for templates
      *
-     * @throws \Twig_Error_Loader
-     *
      * @return void
      */
     public function addPath($path)
@@ -84,8 +84,6 @@ class YvesFilesystemLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
      * Prepends a path where templates are stored.
      *
      * @param string $path A path where to look for templates
-     *
-     * @throws \Twig_Error_Loader
      *
      * @return void
      */

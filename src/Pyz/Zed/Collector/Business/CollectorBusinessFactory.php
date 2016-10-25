@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Collector\Business;
 
+use Exception;
 use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector;
 use Pyz\Zed\Collector\Business\Storage\AvailabilityCollector;
 use Pyz\Zed\Collector\Business\Storage\BlockCollector;
@@ -41,8 +42,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     {
         $searchProductCollector = new SearchProductCollector(
             $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_PAGE_MAP),
-            $this->getSearchFacade(),
-            $this->getProductImageQueryContainer()
+            $this->getSearchFacade()
         );
 
         $searchProductCollector->setTouchQueryContainer(
@@ -241,7 +241,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->getCurrentDatabaseEngineName()
         );
         if (!array_key_exists($name, $classList)) {
-            throw new \Exception('Invalid StoragePdoQueryAdapter name: ' . $name);
+            throw new Exception('Invalid StoragePdoQueryAdapter name: ' . $name);
         }
 
         $queryBuilderClassName = $classList[$name];
@@ -262,7 +262,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->getCurrentDatabaseEngineName()
         );
         if (!array_key_exists($name, $classList)) {
-            throw new \Exception('Invalid SearchPdoQueryAdapter name: ' . $name);
+            throw new Exception('Invalid SearchPdoQueryAdapter name: ' . $name);
         }
 
         $queryBuilderClassName = $classList[$name];
@@ -338,8 +338,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
      */
     protected function getCategoryQueryContainer()
@@ -348,8 +346,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Spryker\Zed\Price\Persistence\PriceQueryContainerInterface
      */
     protected function getPriceQueryContainer()
@@ -358,8 +354,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface
      */
     protected function getProductCategoryQueryContainer()
@@ -368,8 +362,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface
      */
     protected function getProductImageQueryContainer()

@@ -1,0 +1,39 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block breadcrumb %}{% endblock %}
+
+{% block content %}
+    <div class="row small-unstack">
+        <div class="small-12 large-6 columns">
+            <div class="callout secondary">
+                <fieldset class="__checkout-proceed-as-selector">
+                    <legend>{{ 'customer.signup' | trans }}</legend>
+
+                    <input id="register" type="radio" name="checkoutProceedAs" checked data-viewer-show="user">
+                    <label for="register">{{ 'checkout.customer.proceed_as_user' | trans }}</label>
+
+                    <input id="guest" type="radio" name="checkoutProceedAs" data-viewer-show="guest">
+                    <label for="guest">{{ 'checkout.customer.proceed_as_guest' | trans }}</label>
+                </fieldset>
+            </div>
+
+            <div class="__checkout-proceed-as-method" data-viewer-id="guest">
+                {{ form_start(guestForm, {'attr': {'class': 'callout'}}) }}
+                    {% include '@Customer/guest/partials/guest-form-body.twig' with {'form': guestForm.customer} %}
+                {{ form_end(guestForm) }}
+            </div>
+
+            <div class="__checkout-proceed-as-method" data-viewer-id="user" data-viewer-default>
+                {{ form_start(registerForm, { 'attr': { 'class': 'callout' }}) }}
+                    {% include '@Customer/register/partials/register-form-body.twig' with {'form': registerForm.customer} %}
+                {{ form_end(registerForm) }}
+            </div>
+        </div>
+
+        <div class="small-12 large-6 columns __checkout-proceed-as-method">
+            {% include "@Customer/auth/partials/login-form.twig" with {'form': loginForm} %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}

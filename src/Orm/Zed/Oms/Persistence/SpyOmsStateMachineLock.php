@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Oms\Persistence;
 
-use Orm\Zed\Oms\Persistence\Base\SpyOmsStateMachineLock as BaseSpyOmsStateMachineLock;
+use Spryker\Zed\Oms\Persistence\Propel\AbstractSpyOmsStateMachineLock as BaseSpyOmsStateMachineLock;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_oms_state_machine_lock' table.

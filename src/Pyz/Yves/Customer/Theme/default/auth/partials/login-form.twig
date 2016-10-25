@@ -1,0 +1,37 @@
+{{ form_start(form, {'attr': {'class': 'callout'}}) }}
+    <h4><i class="fa fa-lock __secondary"></i> {{ 'customer.login.title' | trans }}</h4>
+
+    <label>{{ form.email.vars.label | trans }}*
+        <div class="input-group">
+            <span class="input-group-label">
+                <i class="fa fa-at"></i>
+            </span>
+            {{ form_widget(form.email, { 'attr': {'class': 'input-group-field', 'placeholder': form.email.vars.label | trans } }) }}
+        </div>
+    </label>
+    {{ form_errors(form.email) }}
+
+    <label>{{ form.password.vars.label | trans }}*
+        <div class="input-group">
+            <span class="input-group-label">
+                <i class="fa fa-ellipsis-h"></i>
+            </span>
+            {{ form_widget(form.password, { 'attr': {'class': 'input-group-field', 'placeholder': form.password.vars.label | trans } }) }}
+        </div>
+    </label>
+    {{ form_errors(form.password) }}
+
+    <div class="row __padding-top">
+        <p class="small-12 medium-6 columns align-middle">
+            <a href="{{ url('password/forgotten') }}">
+                <small><i class="fa fa-life-ring"></i>{{ 'forms.forgot-password' | trans }}</small>
+            </a>
+        </p>
+        <p class="small-12 large-6 columns">
+            <button class="button success expanded __no-margin-bottom">
+                <i class="fa fa-sign-in"></i>{{ 'forms.submit.login' | trans }}
+            </button>
+        </p>
+    </div>
+{{ form_end(form) }}
+

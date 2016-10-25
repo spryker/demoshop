@@ -37,6 +37,7 @@ use Spryker\Zed\StateMachine\Communication\Console\CheckTimeoutConsole as StateM
 use Spryker\Zed\StateMachine\Communication\Console\ClearLocksConsole as StateMachineClearLocksConsole;
 use Spryker\Zed\Touch\Communication\Console\TouchCleanUpConsole;
 use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
+use Spryker\Zed\Transfer\Communication\Console\ValidatorConsole;
 
 class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
 {
@@ -85,6 +86,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new DependencyTreeDependencyViolationConsole();
             $commands[] = new ComposerJsonUpdaterConsole();
             $commands[] = new ProductTouchConsole();
+            $commands[] = new ValidatorConsole();
         }
 
         return $commands;

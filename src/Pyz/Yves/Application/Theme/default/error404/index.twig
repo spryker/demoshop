@@ -1,0 +1,18 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block breadcrumbItems %}
+    <li><a href="/">Home</a></li>
+{% endblock %}
+
+{% block title %}ERROR 404{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="callout text-center">
+                <h1>ERROR 404</h1>
+                <p>{{ error }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

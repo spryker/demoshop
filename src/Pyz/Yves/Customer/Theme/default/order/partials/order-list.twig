@@ -1,0 +1,25 @@
+<table class="stack">
+    <thead>
+        <tr class="active">
+            <th>{{ 'customer.order.order_id' | trans }}</th>
+            <th>{{ 'customer.order.date' | trans }}</th>
+            <th class="text-right">{{ 'customer.order.total' | trans }}</th>
+            <th class="text-right">{{ 'customer.table.actions' | trans }}</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for order in orderList %}
+        {% set dateTime = date(order.createdAt) %}
+        <tr>
+            <td>{{ order.orderReference }}</td>
+            <td>{{ dateTime | formatDateShort }}</td>
+            <td class="text-right">{{ order.totals.grandTotal | default(0) | price }}</td>
+            <td class="text-right">
+                <a href="{{ path('customer/order/details', {'id': order.idSalesOrder}) }}">
+                    <small><i class="fa fa-cart-arrow-down"></i> {{ 'customer.order.view_order' | trans }}</small>
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

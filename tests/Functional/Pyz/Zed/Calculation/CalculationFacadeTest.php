@@ -7,7 +7,9 @@
 
 namespace Functional\Pyz\Zed\Calculation;
 
+use ArrayObject;
 use Codeception\TestCase\Test;
+use DateTime;
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\DiscountTransfer;
 use Generated\Shared\Transfer\ExpenseTransfer;
@@ -31,8 +33,6 @@ class CalculationFacadeTest extends Test
 {
 
     /**
-     * @throws \Propel\Runtime\Exception\PropelException
-     *
      * @return void
      */
     protected function setUp()
@@ -106,7 +106,7 @@ class CalculationFacadeTest extends Test
     {
         $calculationFacade = $this->createCalculationFacade();
 
-        $discountAmount = 20.0;
+        $discountAmount = 20;
         $quoteTransfer = $this->createFixtureDataForCalculation();
         $voucherEntity = $this->createDiscounts($discountAmount, DiscountDependencyProvider::PLUGIN_CALCULATOR_FIXED);
 
@@ -128,20 +128,20 @@ class CalculationFacadeTest extends Test
         $this->assertSame(100, $itemTransfer->getUnitGrossPrice());
         $this->assertSame(200, $itemTransfer->getSumGrossPrice());
 
-        $this->assertSame(90.0, $itemTransfer->getUnitGrossPriceWithDiscounts());
-        $this->assertSame(180.0, $itemTransfer->getSumGrossPriceWithDiscounts());
+        $this->assertSame(90, $itemTransfer->getUnitGrossPriceWithDiscounts());
+        $this->assertSame(180, $itemTransfer->getSumGrossPriceWithDiscounts());
 
         $this->assertSame(125, $itemTransfer->getUnitGrossPriceWithProductOptions());
         $this->assertSame(250, $itemTransfer->getSumGrossPriceWithProductOptions());
 
-        $this->assertSame(115.0, $itemTransfer->getUnitGrossPriceWithProductOptionAndDiscountAmounts());
-        $this->assertSame(230.0, $itemTransfer->getSumGrossPriceWithProductOptionAndDiscountAmounts());
+        $this->assertSame(115, $itemTransfer->getUnitGrossPriceWithProductOptionAndDiscountAmounts());
+        $this->assertSame(230, $itemTransfer->getSumGrossPriceWithProductOptionAndDiscountAmounts());
 
-        $this->assertSame(10.0, $itemTransfer->getUnitTotalDiscountAmount());
-        $this->assertSame(20.0, $itemTransfer->getSumTotalDiscountAmount());
+        $this->assertSame(10, $itemTransfer->getUnitTotalDiscountAmount());
+        $this->assertSame(20, $itemTransfer->getSumTotalDiscountAmount());
 
-        $this->assertSame(10.0, $itemTransfer->getUnitTotalDiscountAmountWithProductOption());
-        $this->assertSame(20.0, $itemTransfer->getSumTotalDiscountAmountWithProductOption());
+        $this->assertSame(10, $itemTransfer->getUnitTotalDiscountAmountWithProductOption());
+        $this->assertSame(20, $itemTransfer->getSumTotalDiscountAmountWithProductOption());
 
         //expenses
         $expenseTransfer = $quoteTransfer->getExpenses()[0];
@@ -156,7 +156,7 @@ class CalculationFacadeTest extends Test
 
         $this->assertSame(
             $discountAmount,
-            ($expenseTransfer->getSumTotalDiscountAmount() + $itemTransfer->getSumTotalDiscountAmountWithProductOption())
+            (int)($expenseTransfer->getSumTotalDiscountAmount() + $itemTransfer->getSumTotalDiscountAmountWithProductOption())
         );
 
         //order totals
@@ -165,9 +165,8 @@ class CalculationFacadeTest extends Test
         $this->assertSame(250, $totalsTransfer->getSubtotal());
         $this->assertSame($discountAmount, $totalsTransfer->getDiscountTotal());
         $this->assertSame(100, $totalsTransfer->getExpenseTotal());
-        $this->assertSame(330.0, $totalsTransfer->getGrandTotal());
+        $this->assertSame(330, $totalsTransfer->getGrandTotal());
         $this->assertSame(53.0, $totalsTransfer->getTaxTotal()->getAmount());
-
     }
 
     /**
@@ -179,7 +178,7 @@ class CalculationFacadeTest extends Test
 
         $quoteTransfer = $this->createFixtureDataForCalculation();
 
-        $quoteTransfer->setExpenses(new \ArrayObject());
+        $quoteTransfer->setExpenses(new ArrayObject());
 
         $abstractProductEntity = $this->createAbstractProductWithTaxSet(7);
 
@@ -188,7 +187,7 @@ class CalculationFacadeTest extends Test
         $itemTransfer->setIdProductAbstract($abstractProductEntity->getIdProductAbstract());
 
         $productOptionTransferOriginal = $itemTransfer->getProductOptions()[0];
-        $itemTransfer->setProductOptions(new \ArrayObject());
+        $itemTransfer->setProductOptions(new ArrayObject());
         $productOptionTransfer = clone $productOptionTransferOriginal;
         $productOptionTransfer->setUnitGrossPrice(200);
         $productOptionTransfer->setQuantity(1);
@@ -224,14 +223,14 @@ class CalculationFacadeTest extends Test
 
         $abstractProductEntity = $this->createAbstractProductWithTaxSet(7);
 
-        $quoteTransfer->setExpenses(new \ArrayObject());
+        $quoteTransfer->setExpenses(new ArrayObject());
 
         $itemTransfer = $quoteTransfer->getItems()[0];
         $itemTransfer->setIdProductAbstract($abstractProductEntity->getIdProductAbstract());
         $itemTransfer->setQuantity(1);
 
         $productOptionTransferOriginal = $itemTransfer->getProductOptions()[0];
-        $itemTransfer->setProductOptions(new \ArrayObject());
+        $itemTransfer->setProductOptions(new ArrayObject());
         $productOptionTransfer = clone $productOptionTransferOriginal;
         $productOptionTransfer->setUnitGrossPrice(200);
         $productOptionTransfer->setQuantity(1);
@@ -273,12 +272,12 @@ class CalculationFacadeTest extends Test
 
         $abstractProductEntity = $this->createAbstractProductWithTaxExemption();
 
-        $quoteTransfer->setExpenses(new \ArrayObject());
+        $quoteTransfer->setExpenses(new ArrayObject());
 
         $itemTransfer = $quoteTransfer->getItems()[0];
         $itemTransfer->setIdProductAbstract($abstractProductEntity->getIdProductAbstract());
         $itemTransfer->setQuantity(1);
-        $itemTransfer->setProductOptions(new \ArrayObject());
+        $itemTransfer->setProductOptions(new ArrayObject());
 
         $recalculatedQuoteTransfer = $calculationFacade->recalculate($quoteTransfer);
 
@@ -330,8 +329,8 @@ class CalculationFacadeTest extends Test
     /**
      * @param int $discountAmount
      * @param string $calculatorType
+     *
      * @return \Orm\Zed\Discount\Persistence\SpyDiscountVoucher
-     * @throws \Propel\Runtime\Exception\PropelException
      */
     protected function createDiscounts($discountAmount, $calculatorType)
     {
@@ -350,8 +349,8 @@ class CalculationFacadeTest extends Test
         $discountEntity->setAmount($discountAmount);
         $discountEntity->setDisplayName('test1');
         $discountEntity->setIsActive(1);
-        $discountEntity->setValidFrom(new \DateTime('1985-07-01'));
-        $discountEntity->setValidTo(new \DateTime('2050-07-01'));
+        $discountEntity->setValidFrom(new DateTime('1985-07-01'));
+        $discountEntity->setValidTo(new DateTime('2050-07-01'));
         $discountEntity->setCalculatorPlugin($calculatorType);
         $discountEntity->setCollectorQueryString('sku = "*"');
         $discountEntity->setFkDiscountVoucherPool($discountVoucherPoolEntity->getIdDiscountVoucherPool());
@@ -362,7 +361,6 @@ class CalculationFacadeTest extends Test
         $pool->getDiscountVouchers();
 
         return $discountVoucherEntity;
-
     }
 
     /**
@@ -375,7 +373,6 @@ class CalculationFacadeTest extends Test
 
     /**
      * @return void
-     * @throws \Propel\Runtime\Exception\PropelException
      */
     protected function resetCurrentDiscounts()
     {
@@ -390,7 +387,6 @@ class CalculationFacadeTest extends Test
      * @param int $taxRate
      *
      * @return \Orm\Zed\Product\Persistence\SpyProductAbstract
-     * @throws \Propel\Runtime\Exception\PropelException
      */
     protected function createAbstractProductWithTaxSet($taxRate)
     {
@@ -412,8 +408,6 @@ class CalculationFacadeTest extends Test
     }
 
     /**
-     * @throws \Propel\Runtime\Exception\PropelException
-     *
      * @return \Orm\Zed\Product\Persistence\SpyProductAbstract
      */
     protected function createAbstractProductWithTaxExemption()
@@ -435,7 +429,6 @@ class CalculationFacadeTest extends Test
     /**
      * @param \Orm\Zed\Tax\Persistence\SpyTaxSet $taxSetEntity
      *
-     * @throws \Propel\Runtime\Exception\PropelException
      * @return \Orm\Zed\Product\Persistence\SpyProductAbstract
      */
     protected function createAbstractProduct(SpyTaxSet $taxSetEntity)
@@ -450,7 +443,6 @@ class CalculationFacadeTest extends Test
     }
 
     /**
-     * @throws \Propel\Runtime\Exception\PropelException
      * @return \Orm\Zed\Tax\Persistence\SpyTaxSet
      */
     protected function createTaxSet()
@@ -465,7 +457,6 @@ class CalculationFacadeTest extends Test
      * @param \Orm\Zed\Tax\Persistence\SpyTaxSet $taxSetEntity
      * @param \Orm\Zed\Tax\Persistence\SpyTaxRate $taxRateEntity
      *
-     * @throws \Propel\Runtime\Exception\PropelException
      * @return void
      */
     protected function createTaxSetTax(SpyTaxSet $taxSetEntity, SpyTaxRate $taxRateEntity)

@@ -22,12 +22,12 @@ class CartController extends AbstractController
      */
     public function indexAction()
     {
-        $cartClient = $this->getClient();
-        $quoteTransfer = $cartClient->getQuote();
+        $quoteTransfer = $this->getClient()->getQuote();
+        $voucherForm = $this->getFactory()->createVoucherForm();
 
         return $this->viewResponse([
-            'cartItems' => $quoteTransfer->getItems(),
-            'totals' => $quoteTransfer->getTotals(),
+            'cart' => $quoteTransfer,
+            'voucherForm' => $voucherForm->createView(),
         ]);
     }
 
@@ -49,7 +49,7 @@ class CartController extends AbstractController
 
     /**
      * @param string $sku
-     * @param string $groupKey
+     * @param string|null $groupKey
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
@@ -65,7 +65,7 @@ class CartController extends AbstractController
     /**
      * @param string $sku
      * @param int $quantity
-     * @param string $groupKey
+     * @param string|null $groupKey
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
@@ -75,7 +75,7 @@ class CartController extends AbstractController
         $cartOperationHandler->changeQuantity($sku, $quantity, $groupKey);
         $cartOperationHandler->setFlashMessagesFromLastZedRequest($this->getClient());
 
-        return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART_OVERLAY);
+        return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
     }
 
     /**

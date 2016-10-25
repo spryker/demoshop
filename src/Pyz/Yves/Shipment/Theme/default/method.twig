@@ -1,0 +1,11 @@
+<ul class="menu vertical nested">
+	{% for dummy_shipment_option in form.dummy_shipment.idShipmentMethod %}
+		<li>
+			<label>
+				{{ form_widget(dummy_shipment_option) }}
+				{{ dummy_shipment_option.vars.label | raw }}
+			</label>
+		</li>
+	{% endfor %}
+</ul>
+{{ form_errors(form.dummy_shipment) }}

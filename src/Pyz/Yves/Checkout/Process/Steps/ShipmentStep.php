@@ -6,6 +6,7 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Yves\Checkout\CheckoutDependencyProvider;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Spryker\Shared\Transfer\AbstractTransfer;
@@ -61,12 +62,8 @@ class ShipmentStep extends AbstractBaseStep
      */
     public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
-        $shipmentSelection = $quoteTransfer->getShipment()->getShipmentSelection();
-
-        if ($this->shipmentPlugins->has($shipmentSelection)) {
-            $shipmentHandler = $this->shipmentPlugins->get($shipmentSelection);
-            $shipmentHandler->addToDataClass($request, $quoteTransfer);
-        }
+        $shipmentHandler = $this->shipmentPlugins->get(CheckoutDependencyProvider::PLUGIN_SHIPMENT_STEP_HANDLER);
+        $shipmentHandler->addToDataClass($request, $quoteTransfer);
 
         return $this->calculationClient->recalculate($quoteTransfer);
     }

@@ -101,8 +101,6 @@ class ProductPriceImporter extends AbstractImporter
     /**
      * @param array $data
      *
-     * @throws \Pyz\Zed\Importer\Business\Exception\PriceTypeNotFoundException
-     *
      * @return void
      */
     protected function importOne(array $data)
@@ -133,6 +131,7 @@ class ProductPriceImporter extends AbstractImporter
      * @param string $priceType
      *
      * @throws \Pyz\Zed\Importer\Business\Exception\PriceTypeNotFoundException
+     *
      * @return string
      */
     protected function getPriceTypeEntity($priceType)

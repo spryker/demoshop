@@ -90,8 +90,7 @@ class NodeUrlManager extends SprykerNodeUrlManager implements NodeUrlManagerInte
 
         try {
             $urlBaseTransfer = $this->urlFacade->getUrlByPath($urlBase);
-        }
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
             $urlBaseTransfer = null;
         }
 

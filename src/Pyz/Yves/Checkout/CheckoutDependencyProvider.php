@@ -9,29 +9,29 @@ namespace Pyz\Yves\Checkout;
 
 use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Customer\Plugin\CustomerStepHandler;
+use Pyz\Yves\Shipment\Plugin\ShipmentFormDataProviderPlugin;
 use Pyz\Yves\Shipment\Plugin\ShipmentHandlerPlugin;
-use Pyz\Yves\Shipment\Plugin\ShipmentSubFormPlugin;
+use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Checkout\CheckoutDependencyProvider as SprykerCheckoutDependencyProvider;
 use Spryker\Yves\Kernel\Container;
-use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
 
 class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
 {
 
-    const DUMMY_SHIPMENT = 'dummy_shipment';
-    const CLIENT_CALCULATION = 'calculation client';
-    const CLIENT_CHECKOUT = 'checkout client';
-    const CLIENT_CUSTOMER = 'customer client';
-    const PLUGIN_APPLICATION = 'application plugin';
+    const CLIENT_CALCULATION = 'CLIENT_CALCULATION';
+    const CLIENT_CHECKOUT = 'CLIENT_CHECKOUT';
+    const CLIENT_CUSTOMER = 'CLIENT_CUSTOMER';
+    const STORE = 'STORE';
 
-    const PLUGIN_SHIPMENT_SUB_FORM = 'shipment sub form plugin';
-    const PLUGIN_CUSTOMER_STEP_HANDLER = 'step handler plugin';
+    const PLUGIN_APPLICATION = 'PLUGIN_APPLICATION';
+    const PLUGIN_CUSTOMER_STEP_HANDLER = 'PLUGIN_CUSTOMER_STEP_HANDLER';
+    const PLUGIN_SHIPMENT_STEP_HANDLER = 'PLUGIN_SHIPMENT_STEP_HANDLER';
+    const PLUGIN_SHIPMENT_HANDLER = 'PLUGIN_SHIPMENT_HANDLER';
+    const PLUGIN_SHIPMENT_FORM_DATA_PROVIDER = 'PLUGIN_SHIPMENT_FORM_DATA_PROVIDER';
 
-    const PAYMENT_METHOD_HANDLER = 'payment method handler';
-    const PAYMENT_SUB_FORMS = 'payment sub forms';
-
-    const PLUGIN_SHIPMENT_HANDLER = 'shipment handler plugin';
+    const PAYMENT_METHOD_HANDLER = 'PAYMENT_METHOD_HANDLER';
+    const PAYMENT_SUB_FORMS = 'PAYMENT_SUB_FORMS';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -42,6 +42,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     {
         $container = $this->provideClients($container);
         $container = $this->providePlugins($container);
+        $container = $this->provideStore($container);
 
         return $container;
     }
@@ -79,28 +80,39 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     {
         parent::providePlugins($container);
 
-        $container[self::PLUGIN_SHIPMENT_SUB_FORM] = function () {
-            $shipmentSubForms = new SubFormPluginCollection();
-            $shipmentSubForms->add(new ShipmentSubFormPlugin());
-
-            return $shipmentSubForms;
-        };
-
         $container[self::PLUGIN_CUSTOMER_STEP_HANDLER] = function () {
             return new CustomerStepHandler();
         };
 
         $container[self::PLUGIN_SHIPMENT_HANDLER] = function () {
             $shipmentHandlerPlugins = new StepHandlerPluginCollection();
-            $shipmentHandlerPlugins->add(new ShipmentHandlerPlugin(), self::DUMMY_SHIPMENT);
+            $shipmentHandlerPlugins->add(new ShipmentHandlerPlugin(), self::PLUGIN_SHIPMENT_STEP_HANDLER);
 
             return $shipmentHandlerPlugins;
+        };
+
+        $container[self::PLUGIN_SHIPMENT_FORM_DATA_PROVIDER] = function () {
+            return new ShipmentFormDataProviderPlugin();
         };
 
         $container[self::PLUGIN_APPLICATION] = function () {
             $pimplePlugin = new Pimple();
 
             return $pimplePlugin->getApplication();
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function provideStore(Container $container)
+    {
+        $container[static::STORE] = function () {
+            return Store::getInstance();
         };
 
         return $container;

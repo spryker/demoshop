@@ -20,8 +20,6 @@ class SalesConfig extends SprykerSalesConfig
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
      *
-     * @throws \BadMethodCallException
-     *
      * @return string
      */
     public function determineProcessForOrderItem(QuoteTransfer $quoteTransfer, ItemTransfer $itemTransfer)
@@ -53,6 +51,7 @@ class SalesConfig extends SprykerSalesConfig
             'totals' => '/sales-aggregator/sales/list',
             'shipment' => '/shipment/sales/list',
             'discount' => '/discount/sales/list',
+            'refund' => '/refund/sales/list',
         ];
 
         $externalBlocks = parent::getSalesDetailExternalBlocksUrls();

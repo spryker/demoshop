@@ -6,10 +6,20 @@
 namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
+use PHPUnit_Framework_TestCase;
 use Pyz\Yves\Checkout\Process\Steps\EntryStep;
 use Symfony\Component\HttpFoundation\Request;
 
-class EntryStepTest extends \PHPUnit_Framework_TestCase
+/**
+ * @group YvesUnit
+ * @group Pyz
+ * @group Yves
+ * @group Checkout
+ * @group Process
+ * @group Steps
+ * @group EntryStepTest
+ */
+class EntryStepTest extends PHPUnit_Framework_TestCase
 {
 
     /**
@@ -49,7 +59,6 @@ class EntryStepTest extends \PHPUnit_Framework_TestCase
             'entry_route',
             'escape_route'
         );
-
     }
 
     /**

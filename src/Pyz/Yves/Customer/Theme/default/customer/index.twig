@@ -1,0 +1,108 @@
+{% extends "@Customer/layout.twig" %}
+
+{% block title %}
+    <h3>{{ 'customer.account.overview' | trans }}</h3>
+{% endblock %}
+
+{% block customerNavigation %}
+    {% include "@customer/partials/navigation.twig" with {'active': 'overview'} %}
+{% endblock %}
+
+{% block customerContent %}
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="callout">
+                {% if orderList | length %}
+                    <a href="{{ url('customer/order') }}" class="float-right">
+                        <small><i class="fa fa-cart-arrow-down"></i> {{ 'customer.order.view_all' | trans }}</small>
+                    </a>
+                {% endif %}
+
+                <h5>{{ 'customer.account.last_orders' | trans }}</h5>
+                <hr>
+                {% if orderList | length %}
+                    {% include "@customer/order/partials/order-list.twig" %}
+                {% else %}
+                    <p>{{ 'customer.account.no_order' | trans }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 medium-6 columns">
+            <div class="callout">
+                <a href="{{ url('customer/profile') }}" class="float-right">
+                    <small><i class="fa fa-user"></i> {{ 'general.edit.button' | trans }}</small>
+                </a>
+                <h5>{{ 'customer.account.profile_data' | trans }}</h5>
+                <hr>
+                <ul class="no-bullet">
+                    <li>{{ customer.firstName }} {{ customer.lastName }}</li>
+                    <li>{{ customer.email }}</li>
+                </ul>
+            </div>
+
+            <div class="callout">
+                <a href="{{ url('customer/newsletter') }}" class="float-right">
+                    <small><i class="fa fa-envelope"></i> {{ 'general.edit.button' | trans }}</small>
+                </a>
+                <h5>{{ 'customer.account.newsletter' | trans }}</h5>
+                <hr>
+                <ul class="no-bullet">
+                    <li>
+                        {% if isSubscribed %}
+                            {{ 'customer.newsletter.subscribed' | trans }}
+                        {% else %}
+                            {{ 'customer.newsletter.not_subscribed' | trans }}
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="small-12 medium-6 columns">
+            <div class="callout">
+                {% if addresses.billing is defined %}
+                    <a href="{{ url('customer/address/update', {'id': addresses.billing.idCustomerAddress}) }}" class="float-right">
+                        <small><i class="fa fa-map-marker"></i> {{ 'general.edit.button' | trans }}</small>
+                    </a>
+                {% endif %}
+                <h5>{{ 'customer.account.default_billing_address' | trans }}</h5>
+                <hr>
+                <ul class="no-bullet">
+                    <li>
+                        {% if addresses.billing is defined %}
+                            <strong>{{ addresses.billing.firstName }} {{ addresses.billing.lastName }}</strong><br/>
+                            {{ addresses.billing.address1 }} {{ addresses.billing.address2 }} {{ addresses.billing.address3 }}<br/>
+                            {{ addresses.billing.zipCode }} {{ addresses.billing.city }}
+                        {% else %}
+                            <a href="{{ url('customer/address/new') }}"><i class="fa fa-map-marker"></i> {{ 'customer.account.please_specify_billing_address' | trans }}</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+            <div class="callout">
+                {% if addresses.shipping is defined %}
+                    <a href="{{ url('customer/address/update', {'id': addresses.shipping.idCustomerAddress}) }}" class="float-right">
+                        <small><i class="fa fa-map-marker"></i> {{ 'general.edit.button' | trans }}</small>
+                    </a>
+                {% endif %}
+                <h5>{{ 'customer.account.default_shipping_address' | trans }}</h5>
+                <hr>
+                <ul class="no-bullet">
+                    <li>
+                        {% if addresses.shipping is defined %}
+                            <strong>{{ addresses.shipping.firstName }} {{ addresses.shipping.lastName }}</strong><br/>
+                            {{ addresses.shipping.address1 }} {{ addresses.shipping.address2 }} {{ addresses.shipping.address3 }}<br/>
+                            {{ addresses.shipping.zipCode }} {{ addresses.shipping.city }}
+                        {% else %}
+                            <a href="{{ url('customer/address/new') }}"><i class="fa fa-map-marker"></i> {{ 'customer.account.please_specify_shipping_address' | trans }}</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

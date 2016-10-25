@@ -1,6 +1,6 @@
 <?php
 
-$bootstrap = Spryker\Shared\Library\SystemUnderTest\SystemUnderTestBootstrap::getInstance();
+use Spryker\Shared\Testify\SystemUnderTestBootstrap;
 
-$application = 'Yves';
-$bootstrap->bootstrap($application);
+$bootstrap = SystemUnderTestBootstrap::getInstance();
+$bootstrap->bootstrap(SystemUnderTestBootstrap::APPLICATION_YVES);

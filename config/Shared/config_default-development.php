@@ -6,26 +6,34 @@
 
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\Payone\PayoneConstants;
+use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Session\SessionConstants;
+use Spryker\Shared\Storage\StorageConstants;
 
-$config[ApplicationConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
-$config[ApplicationConstants::ZED_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_FILE;
+$config[StorageConstants::STORAGE_REDIS_PROTOCOL] = 'tcp';
+$config[StorageConstants::STORAGE_REDIS_HOST] = '127.0.0.1';
+$config[StorageConstants::STORAGE_REDIS_PORT] = '10009';
+$config[StorageConstants::STORAGE_REDIS_PASSWORD] = '';
+$config[StorageConstants::STORAGE_REDIS_DATABASE] = 0;
 
-$config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL] = 'tcp';
-$config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST] = '127.0.0.1';
-$config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT] = '10009';
-$config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PASSWORD] = '';
+$config[SessionConstants::YVES_SESSION_REDIS_PROTOCOL] = $config[StorageConstants::STORAGE_REDIS_PROTOCOL];
+$config[SessionConstants::YVES_SESSION_REDIS_HOST] = $config[StorageConstants::STORAGE_REDIS_HOST];
+$config[SessionConstants::YVES_SESSION_REDIS_PORT] = $config[StorageConstants::STORAGE_REDIS_PORT];
+$config[SessionConstants::YVES_SESSION_REDIS_PASSWORD] = $config[StorageConstants::STORAGE_REDIS_PASSWORD];
+$config[SessionConstants::YVES_SESSION_REDIS_DATABASE] = 1;
 
-$config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_PROTOCOL] = $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PROTOCOL];
-$config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_HOST] = $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_HOST];
-$config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_PORT] = $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PORT];
-$config[ApplicationConstants::ZED_STORAGE_SESSION_REDIS_PASSWORD] = $config[ApplicationConstants::YVES_STORAGE_SESSION_REDIS_PASSWORD];
+$config[SessionConstants::ZED_SESSION_REDIS_PROTOCOL] = $config[SessionConstants::YVES_SESSION_REDIS_PROTOCOL];
+$config[SessionConstants::ZED_SESSION_REDIS_HOST] = $config[SessionConstants::YVES_SESSION_REDIS_HOST];
+$config[SessionConstants::ZED_SESSION_REDIS_PORT] = $config[SessionConstants::YVES_SESSION_REDIS_PORT];
+$config[SessionConstants::ZED_SESSION_REDIS_PASSWORD] = $config[SessionConstants::YVES_SESSION_REDIS_PASSWORD];
+$config[SessionConstants::ZED_SESSION_REDIS_DATABASE] = 2;
 
-$config[ApplicationConstants::YVES_SESSION_COOKIE_DOMAIN] = $config[ApplicationConstants::HOST_YVES];
-$config[ApplicationConstants::YVES_COOKIE_SECURE] = false;
+$config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $config[ApplicationConstants::HOST_YVES];
+$config[SessionConstants::YVES_SESSION_COOKIE_SECURE] = false;
 
 $config[ApplicationConstants::JENKINS_BASE_URL] = 'http://' . $config[ApplicationConstants::HOST_ZED_GUI] . ':10007/jenkins';
 $config[ApplicationConstants::JENKINS_DIRECTORY] = '/data/shop/development/shared/data/common/jenkins';
@@ -44,6 +52,14 @@ $config[PayoneConstants::PAYONE] = [
     PayoneConstants::PAYONE_MODE => '',
 ];
 
+$config[ApplicationConstants::ZED_TWIG_OPTIONS] = [
+    'cache' => false,
+];
+
+$config[ApplicationConstants::YVES_TWIG_OPTIONS] = [
+    'cache' => false,
+];
+
 $config[ApplicationConstants::NAVIGATION_CACHE_ENABLED] = true;
 
 $config[AclConstants::ACL_USER_RULE_WHITELIST][] = [
@@ -53,8 +69,8 @@ $config[AclConstants::ACL_USER_RULE_WHITELIST][] = [
     'type' => 'allow',
 ];
 
-$config[ApplicationConstants::PROPEL_DEBUG] = true;
-$config[ApplicationConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = true;
+$config[PropelConstants::PROPEL_DEBUG] = true;
+$config[PropelConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = true;
 
 $config[ApplicationConstants::ALLOW_INTEGRATION_CHECKS] = true;
 $config[ApplicationConstants::DISPLAY_ERRORS] = true;
@@ -66,5 +82,7 @@ $config[ApplicationConstants::ENABLE_WEB_PROFILER] = true;
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
 
 $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
+
+$config[EventJournalConstants::LOCK_OPTIONS][EventJournalConstants::NO_LOCK] = true;
 
 $config[LogConstants::LOG_LEVEL] = \Monolog\Logger::INFO;

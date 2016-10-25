@@ -4,12 +4,12 @@
   "license": "MIT",
   "require": {
     "spryker/spryker": "dev-feature/core-180-availability-build-calc",
-    "php": "~5.6.0",
+    "php": ">=5.6.0",
     "braintree/braintree_php": "~3.14.0",
     "guzzle/http": "~3.8.0",
     "league/csv": "~8.1.0",
     "mandrill/mandrill": "~1.0.55",
-    "monolog/monolog": "~1.17.2",
+    "monolog/monolog": "~1.21.0",
     "nesbot/carbon": "~1.13.0",
     "pimple/pimple": "~1.1.1",
     "predis/predis": "~1.0.3",
@@ -25,6 +25,7 @@
     "symfony/form": "~2.6.13",
     "symfony/http-foundation": "~2.6.13",
     "symfony/http-kernel": "~2.6.13",
+    "symfony/intl": "~2.8.8",
     "symfony/options-resolver": "~2.6.13",
     "symfony/process": "~2.6.13",
     "symfony/property-access": "~2.6.13",
@@ -46,21 +47,27 @@
   },
   "require-dev": {
     "codeception/codeception": "~2.1.10",
+    "codeception/c3": "~2.0.0",
     "pdepend/pdepend": "~2.2.2",
     "phploc/phploc": "~3.0.1",
-    "phpmd/phpmd": "~2.3.2",
+    "phpmd/phpmd": "^2.4",
     "sebastian/phpcpd": "~2.0.2",
     "sensiolabs/security-checker": "~3.0.2",
     "silex/web-profiler": "~1.0.8",
+    "site5/phantoman": "^1.1",
     "sllh/composer-versions-check": "~2.0.2",
-    "spryker/code-sniffer": "*"
+    "spryker/code-sniffer": "*",
+    "jakoch/phantomjs-installer": "^2.1",
+    "php-mock/php-mock": "^1.0",
+    "spryker/architecture-sniffer": "*"
   },
   "autoload": {
     "psr-0": {
       "": "src",
       "Unit": "tests",
       "YvesUnit": "tests",
-      "Functional": "tests"
+      "Functional": "tests",
+      "Acceptance": "tests"
     }
   },
   "minimum-stability": "dev",
@@ -73,6 +80,18 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/spryker.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/architecture-sniffer.git"
     }
-  ]
+  ],
+  "scripts": {
+    "post-install-cmd": [
+      "PhantomInstaller\\Installer::installPhantomJS"
+    ],
+    "post-update-cmd": [
+      "PhantomInstaller\\Installer::installPhantomJS"
+    ]
+  }
 }
