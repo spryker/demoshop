@@ -6,7 +6,7 @@ set -o pipefail
 
 ELASTIC_SEARCH_INDEX='de_search_test'
 
-export APPLICATION_ENV='test'
+export APPLICATION_ENV='devtest'
 
 . deploy/setup/functions.sh
 

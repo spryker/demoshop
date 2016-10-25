@@ -5,6 +5,8 @@ set -o pipefail
 . deploy/setup/params.sh
 . deploy/setup/functions.sh
 
+export APPLICATION_ENV='development'
+
 warningText "This script should be used only in development and NEVER IN PRODUCTION"
 
 if [ $# -eq 0 ]; then

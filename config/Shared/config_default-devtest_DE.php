@@ -11,8 +11,8 @@ use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Storage\StorageConstants;
 
-$zedHost = 'zed.de.spryker.test';
-$yvesHost = 'www.de.spryker.test';
+$zedHost = 'zed-test.de.project.local';
+$yvesHost = 'www-test.de.project.local';
 
 $config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
 $config[PropelConstants::ZED_DB_USERNAME] = 'development';
@@ -44,6 +44,8 @@ $config[SessionConstants::ZED_SESSION_REDIS_PROTOCOL] = $config[SessionConstants
 $config[SessionConstants::ZED_SESSION_REDIS_HOST] = $config[SessionConstants::YVES_SESSION_REDIS_HOST];
 $config[SessionConstants::ZED_SESSION_REDIS_PORT] = $config[SessionConstants::YVES_SESSION_REDIS_PORT];
 $config[SessionConstants::ZED_SESSION_REDIS_PASSWORD] = $config[SessionConstants::YVES_SESSION_REDIS_PASSWORD];
+
+$config[ApplicationConstants::YVES_TRUSTED_HOSTS] = [$yvesHost, $zedHost];
 
 $config[SessionConstants::SESSION_IS_TEST] = (bool)getenv("SESSION_IS_TEST");
 
@@ -79,3 +81,6 @@ $config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
 $config[ApplicationConstants::HOST_SSL_YVES] = 'https://' . $yvesHost;
 $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS] = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA] = $yvesHost;
 $config[SessionConstants::ZED_SESSION_COOKIE_SECURE] = false;
+
+
+
