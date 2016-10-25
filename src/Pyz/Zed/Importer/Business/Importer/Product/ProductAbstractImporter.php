@@ -14,6 +14,7 @@ use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Generated\Shared\Transfer\ProductImageSetTransfer;
 use Generated\Shared\Transfer\ProductImageTransfer;
 use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
+use Pyz\Shared\Product\ProductConstants;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
@@ -185,7 +186,7 @@ class ProductAbstractImporter extends AbstractImporter
         $result = [];
         foreach ($this->localeFacade->getLocaleCollection() as $localeTransfer) {
             $productImageSet = (new ProductImageSetTransfer())
-                ->setName('Default')
+                ->setName(ProductConstants::DEFAULT_IMAGE_SET_NAME)
                 ->setLocale($localeTransfer)
                 ->addProductImage($productImage);
 

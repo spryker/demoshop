@@ -8,52 +8,43 @@
 namespace Pyz\Yves\Product\ResourceCreator;
 
 use Pyz\Yves\Collector\Creator\AbstractResourceCreator;
+use Pyz\Yves\Product\Mapper\StorageImageMapperInterface;
+use Pyz\Yves\Product\Mapper\StorageProductCategoryMapperInterface;
+use Pyz\Yves\Product\Mapper\StorageProductMapperInterface;
 use Silex\Application;
-use Spryker\Shared\Kernel\LocatorLocatorInterface;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
-use Spryker\Yves\ProductCategory\Mapper\StorageProductCategoryMapperInterface;
-use Spryker\Yves\ProductImage\Mapper\StorageImageMapperInterface;
-use Spryker\Yves\Product\Mapper\StorageProductMapperInterface;
 
 class ProductResourceCreator extends AbstractResourceCreator
 {
 
     /**
-     * @var \Spryker\Yves\Product\Mapper\StorageProductMapperInterface
+     * @var \Pyz\Yves\Product\Mapper\StorageProductMapperInterface
      */
     protected $storageProductMapper;
 
     /**
-     * @var \Spryker\Shared\Kernel\LocatorLocatorInterface
-     */
-    protected $locator;
-
-    /**
-     * @var \Spryker\Yves\ProductImage\Mapper\StorageImageMapperInterface
+     * @var \Pyz\Yves\Product\Mapper\StorageImageMapperInterface
      */
     protected $storageImageMapper;
 
     /**
-     * @var \Spryker\Yves\ProductCategory\Mapper\StorageProductCategoryMapperInterface
+     * @var \Pyz\Yves\Product\Mapper\StorageProductCategoryMapperInterface
      */
     protected $storageProductCategoryMapper;
 
     /**
-     * @param \Spryker\Yves\Product\Mapper\StorageProductMapperInterface $storageProductMapper
-     * @param \Spryker\Yves\ProductImage\Mapper\StorageImageMapperInterface $storageImageMapper
-     * @param \Spryker\Yves\ProductCategory\Mapper\StorageProductCategoryMapperInterface $storageProductCategoryMapper
-     * @param \Spryker\Shared\Kernel\LocatorLocatorInterface $locator
+     * @param \Pyz\Yves\Product\Mapper\StorageProductMapperInterface $storageProductMapper
+     * @param \Pyz\Yves\Product\Mapper\StorageImageMapperInterface $storageImageMapper
+     * @param \Pyz\Yves\Product\Mapper\StorageProductCategoryMapperInterface $storageProductCategoryMapper
      */
     public function __construct(
         StorageProductMapperInterface $storageProductMapper,
         StorageImageMapperInterface $storageImageMapper,
-        StorageProductCategoryMapperInterface $storageProductCategoryMapper,
-        LocatorLocatorInterface $locator
+        StorageProductCategoryMapperInterface $storageProductCategoryMapper
     ) {
         $this->storageProductMapper = $storageProductMapper;
-        $this->locator = $locator;
         $this->storageImageMapper = $storageImageMapper;
         $this->storageProductCategoryMapper = $storageProductCategoryMapper;
     }

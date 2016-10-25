@@ -7,17 +7,17 @@
 
 namespace Pyz\Yves\Product;
 
+use Pyz\Yves\Product\Mapper\AttributeVariantMapper;
+use Pyz\Yves\Product\Mapper\StorageImageMapper;
+use Pyz\Yves\Product\Mapper\StorageProductCategoryMapper;
+use Pyz\Yves\Product\Mapper\StorageProductMapper;
 use Pyz\Yves\Product\ResourceCreator\ProductResourceCreator;
-use Spryker\Yves\ProductCategory\Mapper\StorageProductCategoryMapper;
-use Spryker\Yves\ProductImage\Mapper\StorageImageMapper;
-use Spryker\Yves\Product\ProductFactory as SprykerProductFactory;
+use Spryker\Yves\Kernel\AbstractFactory;
 
 /**
- * Class ProductExportFactory
- *
  * @method \Spryker\Client\Product\ProductClientInterface getClient()
  */
-class ProductFactory extends SprykerProductFactory
+class ProductFactory extends AbstractFactory
 {
 
     /**
@@ -28,13 +28,28 @@ class ProductFactory extends SprykerProductFactory
         return new ProductResourceCreator(
             $this->createStorageProductMapper(),
             $this->createStorageImageMapper(),
-            $this->createStorageProductCategoryMapper(),
-            $this->getLocator()
+            $this->createStorageProductCategoryMapper()
         );
     }
 
     /**
-     * @return \Spryker\Yves\ProductImage\Mapper\StorageImageMapper
+     * @return \Pyz\Yves\Product\Mapper\StorageProductMapperInterface
+     */
+    protected function createStorageProductMapper()
+    {
+        return new StorageProductMapper($this->createAttributeVariantMapper());
+    }
+
+    /**
+     * @return \Pyz\Yves\Product\Mapper\AttributeVariantMapperInterface
+     */
+    protected function createAttributeVariantMapper()
+    {
+        return new AttributeVariantMapper($this->getClient());
+    }
+
+    /**
+     * @return \Pyz\Yves\Product\Mapper\StorageImageMapperInterface
      */
     protected function createStorageImageMapper()
     {
@@ -42,7 +57,7 @@ class ProductFactory extends SprykerProductFactory
     }
 
     /**
-     * @return \Spryker\Yves\ProductCategory\Mapper\StorageProductCategoryMapper
+     * @return \Pyz\Yves\Product\Mapper\StorageProductCategoryMapperInterface
      */
     protected function createStorageProductCategoryMapper()
     {
