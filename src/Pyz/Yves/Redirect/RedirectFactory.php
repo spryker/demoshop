@@ -18,9 +18,7 @@ class RedirectFactory extends AbstractFactory
      */
     public function createRedirectResourceCreator()
     {
-        return new RedirectResourceCreator(
-            $this->getLocator()
-        );
+        return new RedirectResourceCreator();
     }
 
 }
