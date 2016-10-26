@@ -164,7 +164,6 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
         return $result;
     }
 
-
     /**
      * @param string $sku
      *

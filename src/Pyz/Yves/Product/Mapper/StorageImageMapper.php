@@ -55,7 +55,6 @@ class StorageImageMapper implements StorageImageMapperInterface
         return $mappedImageCollection;
     }
 
-
     /**
      * @param array $imageData
      *
