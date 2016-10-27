@@ -9,16 +9,15 @@ namespace Pyz\Zed\Oms;
 
 use Spryker\Zed\Availability\Communication\Plugin\AvailabilityHandlerPlugin;
 use Spryker\Zed\Kernel\Container;
-use Spryker\Zed\Oms\Dependency\Plugin\ReservationHandlerPluginInterface;
 use Spryker\Zed\Oms\OmsDependencyProvider as SprykerOmsDependencyProvider;
 
 class OmsDependencyProvider extends SprykerOmsDependencyProvider
 {
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return ReservationHandlerPluginInterface[]
+     * @return \Spryker\Zed\Oms\Dependency\Plugin\ReservationHandlerPluginInterface[]
      */
     protected function getReservationHandlerPlugins(Container $container)
     {

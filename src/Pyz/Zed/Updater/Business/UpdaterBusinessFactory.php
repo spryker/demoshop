@@ -7,8 +7,8 @@
 
 namespace Pyz\Zed\Updater\Business;
 
-use Pyz\Zed\Updater\Business\Factory\InstallerFactory;
 use Pyz\Zed\Updater\Business\Console\UpdaterConsole;
+use Pyz\Zed\Updater\Business\Factory\InstallerFactory;
 use Pyz\Zed\Updater\UpdaterConfig;
 use Spryker\Zed\Installer\Business\InstallerBusinessFactory as SprykerInstallerBusinessFactory;
 use Spryker\Zed\Messenger\Business\Model\MessengerInterface;

@@ -33,7 +33,7 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
      */
     protected function collectResourceType()
     {
-       return AvailabilityConstants::RESOURCE_TYPE_AVAILABILITY_ABSTRACT;
+        return AvailabilityConstants::RESOURCE_TYPE_AVAILABILITY_ABSTRACT;
     }
 
     /**

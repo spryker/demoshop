@@ -1,7 +1,8 @@
 <?php
+
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\Collector\Communication\Plugin;
@@ -14,7 +15,6 @@ use Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface;
 use Spryker\Zed\Collector\Business\Model\BatchResultInterface;
 use Spryker\Zed\Collector\Communication\Plugin\AbstractCollectorPlugin;
 use Symfony\Component\Console\Output\OutputInterface;
-
 
 /**
  * @method \Pyz\Zed\Collector\Communication\CollectorCommunicationFactory getFactory()
@@ -37,7 +37,7 @@ class AvailabilityCollectorStoragePlugin extends AbstractCollectorPlugin
     public function run(SpyTouchQuery $baseQuery, LocaleTransfer $locale, BatchResultInterface $result, ReaderInterface $dataReader, WriterInterface $dataWriter, TouchUpdaterInterface $touchUpdater, OutputInterface $output)
     {
         $this->getFacade()
-            ->runStorageAvailabilityCollector($baseQuery, $locale, $result, $dataReader, $dataWriter, $touchUpdater, $output)
-        ;
+            ->runStorageAvailabilityCollector($baseQuery, $locale, $result, $dataReader, $dataWriter, $touchUpdater, $output);
     }
+
 }

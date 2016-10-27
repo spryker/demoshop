@@ -15,21 +15,21 @@ class ProductStockInstaller extends AbstractInstaller
 {
 
     /**
-     * @var ProductStockUpdater
+     * @var \Pyz\Zed\Updater\Business\Updater\Product\ProductStockUpdater
      */
     protected $productStockUpdater;
 
     /**
      * @param array|\Pyz\Zed\Importer\Business\Importer\ImporterInterface[] $importerCollection
      * @param string $dataDirectory
-     * @param ProductStockUpdater $productStockUpdater
+     * @param \Pyz\Zed\Updater\Business\Updater\Product\ProductStockUpdater $productStockUpdater
      */
     public function __construct(
         array $importerCollection,
         $dataDirectory,
         ProductStockUpdater $productStockUpdater
-    )
-    {
+    ) {
+
         parent::__construct($importerCollection, $dataDirectory);
 
         $this->productStockUpdater = $productStockUpdater;

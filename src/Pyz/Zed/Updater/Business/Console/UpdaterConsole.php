@@ -41,8 +41,6 @@ class UpdaterConsole
     }
 
     /**
-     * @throws \Exception
-     *
      * @return void
      */
     public function import()

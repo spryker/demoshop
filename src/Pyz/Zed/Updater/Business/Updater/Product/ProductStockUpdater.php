@@ -9,7 +9,6 @@ namespace Pyz\Zed\Updater\Business\Updater\Product;
 
 use Generated\Shared\Transfer\StockProductTransfer;
 use Generated\Shared\Transfer\TypeTransfer;
-use Orm\Zed\Sales\Persistence\Base\SpySalesOrderItemQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\Updater\Business\Updater\AbstractUpdater;
 use Spryker\Shared\Library\Collection\Collection;
@@ -52,17 +51,17 @@ class ProductStockUpdater extends AbstractUpdater
     protected $stockFacade;
 
     /**
-     * @var OmsFacadeInterface
+     * @var \Spryker\Zed\Oms\Business\OmsFacadeInterface
      */
     protected $omsFacade;
 
     /**
-     * @var SalesQueryContainerInterface
+     * @var \Spryker\Zed\Sales\Persistence\SalesQueryContainerInterface
      */
     protected $salesQueryContainer;
 
     /**
-     * @var StockQueryContainerInterface
+     * @var \Spryker\Zed\Stock\Persistence\StockQueryContainerInterface
      */
     protected $stockQueryContainer;
 
@@ -74,12 +73,12 @@ class ProductStockUpdater extends AbstractUpdater
     /**
      * ProductStockUpdater constructor.
      *
-     * @param LocaleFacadeInterface $localeFacade
-     * @param StockFacadeInterface $stockFacade
-     * @param OmsFacadeInterface $omsFacade
-     * @param ProductQueryContainerInterface $productQueryContainer
-     * @param StockQueryContainerInterface $stockQueryContainer
-     * @param SalesQueryContainerInterface $salesQueryContainer
+     * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
+     * @param \Spryker\Zed\Stock\Business\StockFacadeInterface $stockFacade
+     * @param \Spryker\Zed\Oms\Business\OmsFacadeInterface $omsFacade
+     * @param \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface $productQueryContainer
+     * @param \Spryker\Zed\Stock\Persistence\StockQueryContainerInterface $stockQueryContainer
+     * @param \Spryker\Zed\Sales\Persistence\SalesQueryContainerInterface $salesQueryContainer
      * @param $dataDirectory
      */
     public function __construct(
@@ -124,14 +123,12 @@ class ProductStockUpdater extends AbstractUpdater
     /**
      * @param array $data
      *
-     * @throws \UnexpectedValueException
-     *
      * @return void
      */
     protected function importOne(array $data)
     {
         $stock = $this->getStockValue();
-        $stock[self::SKU] .=  '-1';
+        $stock[self::SKU] .= '-1';
 
         if (empty($data)) {
             return;
@@ -232,7 +229,6 @@ class ProductStockUpdater extends AbstractUpdater
                 $this->stockTypeCache->set($stockData[self::STOCK_TYPE], $stockTypeTransfer);
             }
         }
-
 
         if (!$this->stockTypeCache->has($stockData[self::STOCK_TYPE])) {
             $idStockType = $this->stockFacade->createStockType($stockTypeTransfer);

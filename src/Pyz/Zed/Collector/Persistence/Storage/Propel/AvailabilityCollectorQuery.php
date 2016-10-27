@@ -38,4 +38,5 @@ class AvailabilityCollectorQuery extends AbstractPropelCollectorQuery
         $this->touchQuery->withColumn(SpyAvailabilityAbstractTableMap::COL_QUANTITY, self::QUANTITY);
         $this->touchQuery->withColumn(SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT, self::ID_PRODUCT_ABSTRACT);
     }
+
 }

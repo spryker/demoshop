@@ -17,10 +17,7 @@ use Spryker\Zed\Category\Business\Tree\ClosureTableWriter;
 use Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter;
 use Spryker\Zed\Category\Business\Tree\NodeWriter;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
-use Spryker\Zed\Oms\Business\OmsFacadeInterface;
 use Spryker\Zed\Product\Business\Attribute\AttributeManager;
-use Spryker\Zed\Sales\Persistence\SalesQueryContainerInterface;
-use Spryker\Zed\Stock\Persistence\StockQueryContainerInterface;
 
 /**
  * @method \Pyz\Zed\Updater\UpdaterConfig getConfig()
@@ -163,7 +160,7 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return StockQueryContainerInterface
+     * @return \Spryker\Zed\Stock\Persistence\StockQueryContainerInterface
      */
     protected function getStockQueryContainer()
     {
@@ -171,7 +168,7 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return SalesQueryContainerInterface
+     * @return \Spryker\Zed\Sales\Persistence\SalesQueryContainerInterface
      */
     protected function getSalesQueryContainer()
     {
@@ -187,7 +184,7 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return OmsFacadeInterface
+     * @return \Spryker\Zed\Oms\Business\OmsFacadeInterface
      */
     protected function getOmsFacade()
     {
@@ -323,7 +320,7 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return CsvReader
+     * @return \Spryker\Shared\Library\Reader\Csv\CsvReader
      */
     public function createCsvFileReader()
     {

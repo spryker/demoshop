@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\Updater\Business\Factory;
 
-use Pyz\Zed\Importer\Business\Importer\ImporterInterface;
 use Pyz\Zed\Updater\Business\Installer\Product\ProductStockInstaller;
 use Pyz\Zed\Updater\UpdaterConfig;
 
@@ -40,7 +39,7 @@ class InstallerFactory extends AbstractFactory
     }
 
     /**
-     * @return ImporterInterface[]
+     * @return \Pyz\Zed\Importer\Business\Importer\ImporterInterface[]
      */
     public function getUpdaterProductStockCollection()
     {
