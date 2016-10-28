@@ -16,6 +16,7 @@ class AvailabilityCollectorQuery extends AbstractPropelCollectorQuery
 {
 
     const ID_PRODUCT_ABSTRACT = 'id_product_abstract';
+    const ID_AVAILABILITY_ABSTRACT = 'id_availability_abstract';
     const QUANTITY = 'quantity';
 
     /**
@@ -36,6 +37,7 @@ class AvailabilityCollectorQuery extends AbstractPropelCollectorQuery
         );
 
         $this->touchQuery->withColumn(SpyAvailabilityAbstractTableMap::COL_QUANTITY, self::QUANTITY);
+        $this->touchQuery->withColumn(SpyAvailabilityAbstractTableMap::COL_ID_AVAILABILITY_ABSTRACT, self::ID_AVAILABILITY_ABSTRACT);
         $this->touchQuery->withColumn(SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT, self::ID_PRODUCT_ABSTRACT);
     }
 
