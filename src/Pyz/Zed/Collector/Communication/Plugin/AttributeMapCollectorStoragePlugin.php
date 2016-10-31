@@ -20,7 +20,8 @@ use Symfony\Component\Console\Output\OutputInterface;
  * @method \Pyz\Zed\Collector\Communication\CollectorCommunicationFactory getFactory()
  * @method \Pyz\Zed\Collector\Business\CollectorFacade getFacade()
  */
-class ProductCollectorStoragePlugin extends AbstractCollectorPlugin
+
+class AttributeMapCollectorStoragePlugin extends AbstractCollectorPlugin
 {
 
     /**
@@ -43,8 +44,16 @@ class ProductCollectorStoragePlugin extends AbstractCollectorPlugin
         TouchUpdaterInterface $touchUpdater,
         OutputInterface $output
     ) {
-        $this->getFacade()
-            ->runStorageProductCollector($baseQuery, $locale, $result, $dataReader, $dataWriter, $touchUpdater, $output);
+
+        $this->getFacade()->runStorageAttributeMapCollector(
+            $baseQuery,
+            $locale,
+            $result,
+            $dataReader,
+            $dataWriter,
+            $touchUpdater,
+            $output
+        );
     }
 
 }

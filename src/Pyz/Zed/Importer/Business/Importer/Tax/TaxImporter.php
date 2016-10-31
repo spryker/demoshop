@@ -155,7 +155,9 @@ class TaxImporter extends AbstractImporter
      */
     public function isImported()
     {
-        return false;
+        return $this->taxQueryContainer
+            ->queryAllTaxRates()
+            ->count() > 0;
     }
 
     /**

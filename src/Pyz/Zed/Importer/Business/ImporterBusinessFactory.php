@@ -34,12 +34,14 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getInstallerCollection()
     {
         return [
+            ImporterConfig::RESOURCE_GLOSSARY => $this->createInstallerFactory()->createGlossaryInstaller(),
             ImporterConfig::RESOURCE_CATEGORY_ROOT => $this->createInstallerFactory()->createCategoryRootInstaller(),
             ImporterConfig::RESOURCE_CATEGORY => $this->createInstallerFactory()->createCategoryInstaller(),
             ImporterConfig::RESOURCE_CATEGORY_CATALOG => $this->createInstallerFactory()->createCategoryCatalogInstaller(),
+            ImporterConfig::RESOURCE_PRODUCT_ATTRIBUTE_KEY => $this->createInstallerFactory()->createProductAttributeKeyInstaller(),
+            ImporterConfig::RESOURCE_PRODUCT_MANAGEMENT_ATTRIBUTE => $this->createInstallerFactory()->createProductManagementAttributeInstaller(),
             ImporterConfig::RESOURCE_PRODUCT => $this->createInstallerFactory()->createProductInstaller(),
             ImporterConfig::RESOURCE_PRODUCT_SEARCH => $this->createInstallerFactory()->createProductSearchInstaller(),
-            ImporterConfig::RESOURCE_GLOSSARY => $this->createInstallerFactory()->createGlossaryInstaller(),
             ImporterConfig::RESOURCE_CMS_PAGE => $this->createInstallerFactory()->createCmsPageInstaller(),
             ImporterConfig::RESOURCE_CMS_BLOCK => $this->createInstallerFactory()->createCmsBlockInstaller(),
             ImporterConfig::RESOURCE_SHIPMENT => $this->createInstallerFactory()->createShipmentInstaller(),

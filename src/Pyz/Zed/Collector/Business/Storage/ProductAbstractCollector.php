@@ -7,6 +7,10 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
+use Generated\Shared\Transfer\RawProductAttributesTransfer;
+use Generated\Shared\Transfer\StorageProductCategoryTransfer;
+use Generated\Shared\Transfer\StorageProductImageTransfer;
+use Generated\Shared\Transfer\StorageProductTransfer;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryTableMap;
 use Orm\Zed\Category\Persistence\SpyCategoryNode;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
@@ -19,25 +23,25 @@ use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector
 use Spryker\Zed\Price\Business\PriceFacadeInterface;
 use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface;
 use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
+use Spryker\Zed\Product\Business\ProductFacadeInterface;
 
-class ProductCollector extends AbstractStoragePdoCollector
+class ProductAbstractCollector extends AbstractStoragePdoCollector
 {
 
     const ID_PRODUCT = 'id_product';
     const ID_CATEGORY_NODE = 'id_category_node';
     const ID_IMAGE_SET = 'id_image_set';
     const SKU = 'sku';
-    const ABSTRACT_SKU = 'abstract_sku';
-    const ABSTRACT_NAME = 'abstract_name';
-    const ABSTRACT_URL = 'abstract_url';
-    const QUANTITY = 'quantity';
+    const URL = 'url';
     const ABSTRACT_ATTRIBUTES = 'abstract_attributes';
     const ABSTRACT_LOCALIZED_ATTRIBUTES = 'abstract_localized_attributes';
-    const CONCRETE_LOCALIZED_ATTRIBUTES = 'concrete_localized_attributes';
-    const CONCRETE_ATTRIBUTES = 'concrete_attributes';
     const NAME = 'name';
     const PRICE = 'price';
     const PRICE_NAME = 'price_name';
+    const DESCRIPTION = 'description';
+    const META_KEYWORDS = 'meta_keywords';
+    const META_TITLE = 'meta_title';
+    const META_DESCRIPTION = 'meta_description';
 
     /**
      * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
@@ -65,15 +69,22 @@ class ProductCollector extends AbstractStoragePdoCollector
     protected $productImageQueryContainer;
 
     /**
+     * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
+     */
+    private $productFacade;
+
+    /**
      * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
      * @param \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface $productCategoryQueryContainer
      * @param \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface $productImageQueryContainer
+     * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
      * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
      */
     public function __construct(
         CategoryQueryContainerInterface $categoryQueryContainer,
         ProductCategoryQueryContainerInterface $productCategoryQueryContainer,
         ProductImageQueryContainerInterface $productImageQueryContainer,
+        ProductFacadeInterface $productFacade,
         PriceFacadeInterface $priceFacade
     ) {
         $this->categoryQueryContainer = $categoryQueryContainer;
@@ -81,6 +92,7 @@ class ProductCollector extends AbstractStoragePdoCollector
         $this->productImageQueryContainer = $productImageQueryContainer;
         $this->priceFacade = $priceFacade;
         $this->categoryCacheCollection = new Collection([]);
+        $this->productFacade = $productFacade;
     }
 
     /**
@@ -92,16 +104,21 @@ class ProductCollector extends AbstractStoragePdoCollector
     protected function collectItem($touchKey, array $collectItemData)
     {
         return [
-            'abstract_product_id' => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
-            'abstract_attributes' => $this->getAbstractAttributes($collectItemData),
-            'abstract_name' => $collectItemData[self::ABSTRACT_NAME],
-            'abstract_sku' => $collectItemData[self::SKU], // FIXME
-            'url' => $collectItemData[self::ABSTRACT_URL],
-            'quantity' => (int)$collectItemData[self::QUANTITY],
-            'available' => (int)$collectItemData[self::QUANTITY] > 0,
-            'price' => $this->getPriceBySku($collectItemData[self::ABSTRACT_SKU]),
-            'category' => $this->generateCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
-            'images' => $this->generateImages($collectItemData[self::ID_IMAGE_SET])
+            StorageProductTransfer::ID => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
+            StorageProductTransfer::ATTRIBUTES => $this->getAbstractAttributes($collectItemData),
+            StorageProductTransfer::NAME => $collectItemData[self::NAME],
+            StorageProductTransfer::SKU => $collectItemData[self::SKU],
+            StorageProductTransfer::URL => $collectItemData[self::URL],
+            StorageProductTransfer::AVAILABLE => true, // @TODO implement
+            StorageProductTransfer::PRICE => $this->getPriceBySku($collectItemData[self::SKU]),
+            StorageProductTransfer::CATEGORIES => $this->generateCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
+            StorageProductTransfer::IMAGE_SETS => $this->generateProductAbstractImageSets(
+                $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]
+            ),
+            StorageProductTransfer::DESCRIPTION => $collectItemData[self::DESCRIPTION],
+            StorageProductTransfer::META_TITLE => $collectItemData[self::META_TITLE],
+            StorageProductTransfer::META_KEYWORDS => $collectItemData[self::META_KEYWORDS],
+            StorageProductTransfer::META_DESCRIPTION => $collectItemData[self::META_DESCRIPTION],
         ];
     }
 
@@ -120,15 +137,15 @@ class ProductCollector extends AbstractStoragePdoCollector
      */
     protected function getAbstractAttributes(array $collectItemData)
     {
-        $abstractAttributesData = json_decode($collectItemData[self::ABSTRACT_ATTRIBUTES], true);
-        $concreteAttributesData = json_decode($collectItemData[self::CONCRETE_ATTRIBUTES], true);
-        $attributesBasic = array_merge($abstractAttributesData, $concreteAttributesData);
+        $abstractAttributesData = $this->productFacade->decodeProductAttributes($collectItemData[self::ABSTRACT_ATTRIBUTES]);
+        $abstractLocalizedAttributesData = $this->productFacade->decodeProductAttributes($collectItemData[self::ABSTRACT_LOCALIZED_ATTRIBUTES]);
 
-        $abstractLocalizedAttributesData = json_decode($collectItemData[self::ABSTRACT_LOCALIZED_ATTRIBUTES], true);
-        $concreteLocalizedAttributesData = json_decode($collectItemData[self::CONCRETE_LOCALIZED_ATTRIBUTES], true);
-        $attributesLocalized = array_merge($abstractLocalizedAttributesData, $concreteLocalizedAttributesData);
+        $rawProductAttributesTransfer = new RawProductAttributesTransfer();
+        $rawProductAttributesTransfer
+            ->setAbstractAttributes($abstractAttributesData)
+            ->setAbstractLocalizedAttributes($abstractLocalizedAttributesData);
 
-        $attributes = array_merge($attributesBasic, $attributesLocalized);
+        $attributes = $this->productFacade->combineRawProductAttributes($rawProductAttributesTransfer);
 
         $attributes = array_filter($attributes, function ($key) {
             return !empty($key);
@@ -201,9 +218,9 @@ class ProductCollector extends AbstractStoragePdoCollector
             $url = $this->generateUrl($idNode);
 
             $productCategoryCollection[$idNode] = [
-                'node_id' => $idNode,
-                'name' => $pathItem[self::NAME],
-                'url' => $url,
+                StorageProductCategoryTransfer::NODE_ID => $idNode,
+                StorageProductCategoryTransfer::NAME => $pathItem[self::NAME],
+                StorageProductCategoryTransfer::URL => $url,
             ];
         }
 
@@ -239,6 +256,7 @@ class ProductCollector extends AbstractStoragePdoCollector
         $urlQuery = $this->categoryQueryContainer
             ->queryUrlByIdCategoryNode($idNode)
             ->filterByFkLocale($this->locale->getIdLocale());
+
         $url = $urlQuery->findOne();
         return ($url ? $url->getUrl() : null);
     }
@@ -299,26 +317,27 @@ class ProductCollector extends AbstractStoragePdoCollector
     }
 
     /**
-     * @param int $idImageSet
+     * @param int $idProductAbstract
      *
      * @return array
      */
-    protected function generateImages($idImageSet)
+    protected function generateProductAbstractImageSets($idProductAbstract)
     {
-        if ($idImageSet === null) {
-            return [];
-        }
-
-        $imagesCollection = $this->productImageQueryContainer
-            ->queryImagesByIdProductImageSet($idImageSet)
+        $imageSets = $this->productImageQueryContainer
+            ->queryImageSetByProductAbstractId($idProductAbstract)
             ->find();
 
         $result = [];
-
-        foreach ($imagesCollection as $image) {
-            $imageArray = $image->getSpyProductImage()->toArray();
-            $imageArray += $image->toArray();
-            $result[] = $imageArray;
+        foreach ($imageSets as $imageSetEntity) {
+            $result[$imageSetEntity->getName()] = [];
+            foreach ($imageSetEntity->getSpyProductImageSetToProductImages() as $productsToImageEntity) {
+                $imageEntity = $productsToImageEntity->getSpyProductImage();
+                $result[$imageSetEntity->getName()][] = [
+                    StorageProductImageTransfer::ID_PRODUCT_IMAGE => $imageEntity->getIdProductImage(),
+                    StorageProductImageTransfer::EXTERNAL_URL_LARGE => $imageEntity->getExternalUrlLarge(),
+                    StorageProductImageTransfer::EXTERNAL_URL_SMALL => $imageEntity->getExternalUrlSmall(),
+                ];
+            }
         }
 
         return $result;

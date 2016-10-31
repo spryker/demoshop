@@ -8,9 +8,11 @@
 namespace Pyz\Yves\Product\ResourceCreator;
 
 use Pyz\Yves\Collector\Creator\AbstractResourceCreator;
-use Pyz\Yves\Product\Builder\FrontendProductBuilderInterface;
+use Pyz\Yves\Product\Mapper\StorageImageMapperInterface;
+use Pyz\Yves\Product\Mapper\StorageProductCategoryMapperInterface;
+use Pyz\Yves\Product\Mapper\StorageProductMapperInterface;
 use Silex\Application;
-use Spryker\Shared\Kernel\LocatorLocatorInterface;
+use Spryker\Shared\Product\ProductConstants;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
 
@@ -18,25 +20,33 @@ class ProductResourceCreator extends AbstractResourceCreator
 {
 
     /**
-     * @var \Pyz\Yves\Product\Builder\FrontendProductBuilderInterface
+     * @var \Pyz\Yves\Product\Mapper\StorageProductMapperInterface
      */
-    protected $productBuilder;
+    protected $storageProductMapper;
 
     /**
-     * @var \Spryker\Shared\Kernel\LocatorLocatorInterface
+     * @var \Pyz\Yves\Product\Mapper\StorageImageMapperInterface
      */
-    protected $locator;
+    protected $storageImageMapper;
 
     /**
-     * @param \Pyz\Yves\Product\Builder\FrontendProductBuilderInterface $productBuilder
-     * @param \Spryker\Shared\Kernel\LocatorLocatorInterface $locator
+     * @var \Pyz\Yves\Product\Mapper\StorageProductCategoryMapperInterface
+     */
+    protected $storageProductCategoryMapper;
+
+    /**
+     * @param \Pyz\Yves\Product\Mapper\StorageProductMapperInterface $storageProductMapper
+     * @param \Pyz\Yves\Product\Mapper\StorageImageMapperInterface $storageImageMapper
+     * @param \Pyz\Yves\Product\Mapper\StorageProductCategoryMapperInterface $storageProductCategoryMapper
      */
     public function __construct(
-        FrontendProductBuilderInterface $productBuilder,
-        LocatorLocatorInterface $locator
+        StorageProductMapperInterface $storageProductMapper,
+        StorageImageMapperInterface $storageImageMapper,
+        StorageProductCategoryMapperInterface $storageProductCategoryMapper
     ) {
-        $this->productBuilder = $productBuilder;
-        $this->locator = $locator;
+        $this->storageProductMapper = $storageProductMapper;
+        $this->storageImageMapper = $storageImageMapper;
+        $this->storageProductCategoryMapper = $storageProductCategoryMapper;
     }
 
     /**
@@ -44,7 +54,7 @@ class ProductResourceCreator extends AbstractResourceCreator
      */
     public function getType()
     {
-        return 'product_abstract';
+        return ProductConstants::RESOURCE_TYPE_PRODUCT_ABSTRACT;
     }
 
     /**
@@ -59,13 +69,36 @@ class ProductResourceCreator extends AbstractResourceCreator
         $routeResolver = new BundleControllerActionRouteNameResolver($bundleControllerAction);
 
         $service = $this->createServiceForController($application, $bundleControllerAction, $routeResolver);
-        $product = $this->productBuilder->buildProduct($data);
+
+        $storageProductTransfer = $this->storageProductMapper->mapStorageProduct($data, $this->getSelectedAttributes($application));
+        $storageProductTransfer = $this->storageImageMapper->mapProductImages($storageProductTransfer);
+        $storageProductTransfer = $this->storageProductCategoryMapper->mapProductCategories($storageProductTransfer, $data);
 
         return [
             '_controller' => $service,
             '_route' => $routeResolver->resolve(),
-            'product' => $product,
+            'storageProductTransfer' => $storageProductTransfer,
         ];
+    }
+
+    /**
+     * @param \Silex\Application $application
+     *
+     * @return \Symfony\Component\HttpFoundation\Request
+     */
+    protected function getRequest(Application $application)
+    {
+        return $application['request'];
+    }
+
+    /**
+     * @param \Silex\Application $application
+     *
+     * @return array
+     */
+    protected function getSelectedAttributes(Application $application)
+    {
+        return $this->getRequest($application)->query->get('attribute', []);
     }
 
 }

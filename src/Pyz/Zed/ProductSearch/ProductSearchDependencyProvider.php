@@ -14,6 +14,7 @@ class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProv
 {
 
     const FACADE_PRODUCT_SEARCH = 'product search facade';
+    const FACADE_PRODUCT = 'product facade';
     const FACADE_PRICE = 'price facade';
     const QUERY_CONTAINER_PRODUCT_IMAGE = 'product image query container';
 
@@ -25,6 +26,10 @@ class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProv
     public function provideBusinessLayerDependencies(Container $container)
     {
         $container = parent::provideBusinessLayerDependencies($container);
+
+        $container[self::FACADE_PRODUCT] = function (Container $container) {
+            return $container->getLocator()->product()->facade();
+        };
 
         $container[self::FACADE_PRICE] = function (Container $container) {
             return $container->getLocator()->price()->facade();

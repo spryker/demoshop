@@ -10,7 +10,7 @@ namespace Pyz\Zed\Importer\Business\Importer\Product;
 use Generated\Shared\Search\PageIndexMap;
 use Orm\Zed\ProductSearch\Persistence\Base\SpyProductSearchAttributeMapQuery;
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
-use Orm\Zed\Product\Persistence\SpyProductAttributesMetadataQuery;
+use Orm\Zed\Product\Persistence\SpyProductAttributeKeyQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
@@ -124,7 +124,7 @@ class ProductSearchImporter extends AbstractImporter
     protected function addOperation($idAttribute, $copyTarget)
     {
         $spyProductSearchAttributeMapping = SpyProductSearchAttributeMapQuery::create()
-            ->filterByFkProductAttributesMetadata($idAttribute)
+            ->filterByFkProductAttributeKey($idAttribute)
             ->filterByTargetField($copyTarget)
             ->findOneOrCreate();
 
@@ -138,12 +138,12 @@ class ProductSearchImporter extends AbstractImporter
     {
         foreach ($this->getMappings() as $sourceField => $targetFields) {
             foreach ($targetFields as $targetField) {
-                $attribute = SpyProductAttributesMetadataQuery::create()
+                $attribute = SpyProductAttributeKeyQuery::create()
                     ->findOneByKey($sourceField);
 
                 if ($attribute) {
-                    $idAttribute = $attribute->getIdProductAttributesMetadata();
-                    $this->addOperation($idAttribute, $targetField);
+                    $idAttributeKey = $attribute->getIdProductAttributeKey();
+                    $this->addOperation($idAttributeKey, $targetField);
                 }
             }
         }
