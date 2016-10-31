@@ -41,4 +41,3 @@ $config[ApplicationConstants::JENKINS_DIRECTORY] = '/data/shop/development/share
 
 $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
 
-$config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '_devtest';
