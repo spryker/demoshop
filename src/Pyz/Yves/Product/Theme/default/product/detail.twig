@@ -87,6 +87,13 @@
                     </div>
                 </form>
 
+                <form class="row align-bottom" method="POST" action="wishlist/add/{{ product.sku }}">
+                    <div class="small-12 columns">
+                        <button type="submit" class="button expanded info" }} {{ (not product.isVariant) ? 'disabled' : '' }}>
+                            <i class="fa fa-heart"></i>{{ 'page.detail.add-to-wishlist' | trans }}
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -109,4 +116,5 @@
             </div>
         </div>
     </div>
+
 {% endblock %}

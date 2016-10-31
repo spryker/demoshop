@@ -4,5 +4,6 @@
     <li {% if active == 'address' %}class="active"{% endif %}><a href="{{ path('customer/address') }}">{{ 'customer.account.address' | trans }}</a></li>
     <li {% if active == 'order' %}class="active"{% endif %}><a href="{{ path('customer/order') }}">{{ 'customer.account.order_history' | trans }}</a></li>
     <li {% if active == 'newsletter' %}class="active"{% endif %}><a href="{{ path('customer/newsletter') }}">{{ 'customer.account.newsletter' | trans }}</a></li>
+    <li {% if active == 'wishlist' %}class="active"{% endif %}><a href="{{ path('wishlist') }}">{{ 'wishlist.wishlist' | trans }}</a></li>
 </ul>
 

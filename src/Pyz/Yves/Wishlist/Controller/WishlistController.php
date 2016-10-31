@@ -26,7 +26,7 @@ class WishlistController extends AbstractController
         $wishlistClient = $this->getClient();
 
         return [
-          'customerWishlist' => $wishlistClient->getWishlist(),
+            'customerWishlist' => $wishlistClient->getWishlist(),
         ];
     }
 
@@ -42,12 +42,16 @@ class WishlistController extends AbstractController
         $wishlistClient = $this->getClient();
 
         $itemTransfer = new ItemTransfer();
-        $itemTransfer->setSku($sku)->setQuantity($quantity);
+        $itemTransfer
+            ->setSku($sku)
+            ->setQuantity($quantity);
 
         foreach ($optionValueUsageIds as $idOptionValueUsage) {
             $productOptionTransfer = new ProductOptionTransfer();
-            $productOptionTransfer->setIdOptionValueUsage($idOptionValueUsage)
+            $productOptionTransfer
+                ->setIdOptionValueUsage($idOptionValueUsage)
                 ->setLocaleCode($this->getLocale());
+
             $itemTransfer->addProductOption($productOptionTransfer);
         }
 
@@ -67,7 +71,10 @@ class WishlistController extends AbstractController
         $wishlistClient = $this->getClient();
 
         $itemTransfer = new ItemTransfer();
-        $itemTransfer->setSku($sku)->setGroupKey($groupKey)->setQuantity(0);
+        $itemTransfer
+            ->setSku($sku)
+            ->setGroupKey($groupKey)
+            ->setQuantity(0);
 
         $wishlistClient->removeItem($itemTransfer);
 
@@ -85,7 +92,10 @@ class WishlistController extends AbstractController
         $wishlistClient = $this->getClient();
 
         $itemTransfer = new ItemTransfer();
-        $itemTransfer->setSku($sku)->setGroupKey($groupKey)->setQuantity(1);
+        $itemTransfer
+            ->setSku($sku)
+            ->setGroupKey($groupKey)
+            ->setQuantity(1);
 
         $wishlistClient->increaseItemQuantity($itemTransfer);
 
@@ -103,7 +113,10 @@ class WishlistController extends AbstractController
         $wishlistClient = $this->getClient();
 
         $itemTransfer = new ItemTransfer();
-        $itemTransfer->setSku($sku)->setGroupKey($groupKey)->setQuantity(1);
+        $itemTransfer
+            ->setSku($sku)
+            ->setGroupKey($groupKey)
+            ->setQuantity(1);
 
         $wishlistClient->decreaseItemQuantity($itemTransfer);
 
