@@ -7,7 +7,6 @@
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Session\SessionConstants;
-use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Storage\StorageConstants;
 
 $config[SessionConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
@@ -40,4 +39,3 @@ $config[ApplicationConstants::JENKINS_BASE_URL] = 'http://' . $config[Applicatio
 $config[ApplicationConstants::JENKINS_DIRECTORY] = '/data/shop/development/shared/data/common/jenkins';
 
 $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
-
