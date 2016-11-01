@@ -66,6 +66,10 @@ class ProductAttributeKeyImporter extends AbstractImporter
      */
     public function importOne(array $data)
     {
+        if (!$data) {
+            return;
+        }
+
         $attributeKey = $this->format($data);
 
         $attributeName = $attributeKey['attribute_key'];

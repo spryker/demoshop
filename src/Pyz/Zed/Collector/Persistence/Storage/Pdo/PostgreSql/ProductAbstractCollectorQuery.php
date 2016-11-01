@@ -37,8 +37,8 @@ FROM spy_touch t
   INNER JOIN spy_product_abstract ON (t.item_id = spy_product_abstract.id_product_abstract)
   INNER JOIN spy_product_abstract_localized_attributes ON (spy_product_abstract.id_product_abstract = spy_product_abstract_localized_attributes.fk_product_abstract)
   INNER JOIN spy_locale ON (spy_product_abstract_localized_attributes.fk_locale = spy_locale.id_locale AND spy_locale.id_locale = :fk_locale_1)
+  INNER JOIN spy_price_product abstract_price ON (spy_product_abstract.id_product_abstract = abstract_price.fk_product_abstract)
   LEFT JOIN spy_url ON (spy_product_abstract.id_product_abstract = spy_url.fk_resource_product_abstract AND spy_url.fk_locale = spy_locale.id_locale)
-  LEFT JOIN spy_price_product abstract_price ON (spy_product_abstract.id_product_abstract = abstract_price.fk_product_abstract)
   LEFT JOIN spy_touch_storage ON spy_touch_storage.fk_touch = t.id_touch AND spy_touch_storage.fk_locale = :fk_locale_2
 WHERE
   t.item_event = :spy_touch_item_event

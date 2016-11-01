@@ -26,7 +26,7 @@ class ProductAttributeKeyInstaller extends AbstractInstaller
      */
     protected function getCsvDataFilename()
     {
-        return $this->dataDirectory . '/products/attribute_keys.csv';
+        return $this->dataDirectory . '/product_attribute_keys.csv';
     }
 
     /**

@@ -30,10 +30,11 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
                 MIN(spy_product_abstract.sku)                                 AS abstract_sku,
                 GROUP_CONCAT(DISTINCT spy_product.sku)                        AS concrete_skus,
                 GROUP_CONCAT(DISTINCT spy_product_category.fk_category)       AS category_ids,
+                GROUP_CONCAT(DISTINCT spy_product_abstract.is_featured)       AS is_featured,
+                MIN(spy_product_image_set.id_product_image_set)               AS id_image_set,
                 spy_touch.id_touch                                            AS %s,
                 spy_touch.item_id                                             AS %s,
-                spy_touch_search.id_touch_search                              AS %s,
-                spy_product_image_set.id_product_image_set                    AS id_image_set
+                spy_touch_search.id_touch_search                              AS %s
             FROM spy_touch
                 INNER JOIN spy_product_abstract 
                   ON (spy_touch.item_id = spy_product_abstract.id_product_abstract)
@@ -53,14 +54,14 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
                   ON (spy_product.id_product = spy_product_search.fk_product AND
                       spy_product_search.fk_locale = spy_locale.id_locale)
                 INNER JOIN spy_product_category 
-                  ON spy_product_category.fk_product_abstract = spy_product_abstract.id_product_abstract
+                  ON (spy_product_category.fk_product_abstract = spy_product_abstract.id_product_abstract)
                 INNER JOIN spy_stock_product 
                   ON (spy_product.id_product = spy_stock_product.fk_product)
                 LEFT JOIN spy_touch_search 
-                  ON spy_touch_search.fk_touch = spy_touch.id_touch
+                  ON (spy_touch_search.fk_touch = spy_touch.id_touch)
                 LEFT JOIN spy_product_image_set 
-                  ON (spy_product_image_set.fk_product_abstract = spy_product_abstract.id_product_abstract OR spy_product_image_set.fk_product = spy_product.id_product) AND
-                      spy_product_image_set.fk_locale = spy_locale.id_locale
+                  ON (spy_product_image_set.fk_product_abstract = spy_product_abstract.id_product_abstract AND
+                      spy_product_image_set.fk_locale = spy_locale.id_locale)
             WHERE
                 spy_touch.item_event = :spy_touch_item_event
                 AND spy_touch.touched >= :spy_touch_touched

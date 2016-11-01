@@ -26,7 +26,7 @@ class CategoryCatalogInstaller extends AbstractInstaller
      */
     protected function getCsvDataFilename()
     {
-        return $this->dataDirectory . '/icecat_categories.csv';
+        return $this->dataDirectory . '/categories.csv';
     }
 
     /**

@@ -22,7 +22,7 @@ use Spryker\Zed\Touch\Business\TouchFacadeInterface;
 class ProductCategoryImporter extends AbstractImporter
 {
 
-    const SKU = 'sku';
+    const ABSTRACT_SKU = 'abstract_sku';
     const PRODUCT_ID = 'product_id';
     const VARIANT_ID = 'variant_id';
     const CATEGORY_KEY = 'category_key';
@@ -104,29 +104,6 @@ class ProductCategoryImporter extends AbstractImporter
     }
 
     /**
-     * @DRY
-     *
-     * @see \Pyz\Zed\Installer\Business\Importer\Category\CategoryHierarchyImporter::getRootNode
-     *
-     * @throws \LogicException
-     *
-     * @return \Orm\Zed\Category\Persistence\SpyCategoryNode
-     */
-    protected function getRootNode()
-    {
-        if ($this->defaultRootNode === null) {
-            $queryRoot = $this->categoryQueryContainer->queryRootNode();
-            $this->defaultRootNode = $queryRoot->findOne();
-
-            if ($this->defaultRootNode === null) {
-                throw new LogicException('Could not find any root nodes');
-            }
-        }
-
-        return $this->defaultRootNode;
-    }
-
-    /**
      * @param array $data
      *
      * @throws \LogicException
@@ -135,13 +112,13 @@ class ProductCategoryImporter extends AbstractImporter
      */
     protected function importOne(array $data)
     {
-        if ($this->hasVariants($data[self::VARIANT_ID])) {
+        if (!$data) {
             return;
         }
 
         $product = $this->format($data);
 
-        $idProductAbstract = $this->getProductAbstractId($product[self::SKU]);
+        $idProductAbstract = $this->getProductAbstractId($product[self::ABSTRACT_SKU]);
         if (!$idProductAbstract) {
             return;
         }
@@ -151,7 +128,7 @@ class ProductCategoryImporter extends AbstractImporter
             throw new LogicException(sprintf(
                 'Category with key "%s" for product with sku "%" does not exist',
                 $product[self::CATEGORY_KEY],
-                $product[self::SKU]
+                $product[self::ABSTRACT_SKU]
             ));
         }
 
@@ -279,30 +256,6 @@ class ProductCategoryImporter extends AbstractImporter
             ProductConstants::RESOURCE_TYPE_PRODUCT_ABSTRACT,
             $idProductAbstract
         );
-    }
-
-    /**
-     * @param string|int $variant
-     *
-     * @return bool
-     */
-    protected function hasVariants($variant)
-    {
-        return (int)$variant > 1;
-    }
-
-    /**
-     * @param array $productConcreteCollection
-     * @param int $idProductAbstract
-     *
-     * @return void
-     */
-    protected function createProductConcreteCollection(array $productConcreteCollection, $idProductAbstract)
-    {
-        foreach ($productConcreteCollection as $productConcrete) {
-            $productConcrete->setFkProductAbstract($idProductAbstract);
-            $this->productFacade->createProductConcrete($productConcrete);
-        }
     }
 
 }

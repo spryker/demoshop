@@ -10,7 +10,7 @@ namespace Pyz\Zed\Importer\Business\Installer\Product;
 use Pyz\Zed\Importer\Business\Installer\AbstractInstaller;
 use Spryker\Shared\Library\BatchIterator\CsvBatchIterator;
 
-class ProductInstaller extends AbstractInstaller
+class ProductConcreteInstaller extends AbstractInstaller
 {
 
     /**
@@ -26,7 +26,7 @@ class ProductInstaller extends AbstractInstaller
      */
     protected function getCsvDataFilename()
     {
-        return $this->dataDirectory . '/icecat_products.csv';
+        return $this->dataDirectory . 'product_concrete.csv';
     }
 
     /**
@@ -34,7 +34,7 @@ class ProductInstaller extends AbstractInstaller
      */
     public function getTitle()
     {
-        return 'Products';
+        return 'Concrete products';
     }
 
 }

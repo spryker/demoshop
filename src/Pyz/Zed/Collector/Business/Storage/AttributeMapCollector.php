@@ -7,15 +7,16 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
+use Generated\Shared\Transfer\RawProductAttributesTransfer;
 use Generated\Shared\Transfer\StorageAttributeMapTransfer;
 use Orm\Zed\Product\Persistence\Base\SpyProductAttributeKeyQuery;
 use Orm\Zed\Product\Persistence\Map\SpyProductAttributeKeyTableMap;
+use Orm\Zed\Product\Persistence\Map\SpyProductLocalizedAttributesTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
 use Orm\Zed\Product\Persistence\SpyProductQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\Map\TableMap;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AttributeMapCollectorQuery;
-use Spryker\Shared\Library\Json;
 use Spryker\Shared\Product\ProductConstants;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollector;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
@@ -51,7 +52,7 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
         $productAttributes = $this->getProductAttributes($concreteProducts);
         $superAttributes = $this->getSuperAttributes($productAttributes);
 
-        if (count($superAttributes) <= 1) {
+        if (count($superAttributes) < 1) {
             return $this->createStorageImport($concreteProductIds);
         }
 
@@ -120,7 +121,14 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
     protected function getConcreteProducts($idProductAbstract)
     {
         return SpyProductQuery::create()
-            ->select([SpyProductTableMap::COL_ATTRIBUTES, SpyProductTableMap::COL_ID_PRODUCT])
+            ->select([
+                SpyProductTableMap::COL_ID_PRODUCT,
+                SpyProductTableMap::COL_ATTRIBUTES,
+            ])
+            ->withColumn(SpyProductLocalizedAttributesTableMap::COL_ATTRIBUTES, 'localized_attributes')
+            ->useSpyProductLocalizedAttributesQuery()
+                ->filterByFkLocale($this->locale->getIdLocale())
+            ->endUse()
             ->filterByFkProductAbstract($idProductAbstract)
             ->filterByIsActive(true)
             ->find()
@@ -136,12 +144,21 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
     {
         $productAttributes = [];
         foreach ($concreteProducts as $concreteProduct) {
+            $concreteAttributes = $this->productFacade
+                ->decodeProductAttributes($concreteProduct[SpyProductTableMap::COL_ATTRIBUTES]);
+
+            $concreteLocalizedAttributes = $this->productFacade
+                ->decodeProductAttributes($concreteProduct['localized_attributes']);
+
+            $rawProductAttributesTransfer = new RawProductAttributesTransfer();
+            $rawProductAttributesTransfer
+                ->setConcreteAttributes($concreteAttributes)
+                ->setConcreteLocalizedAttributes($concreteLocalizedAttributes);
+
             $idConcreteProduct = $concreteProduct[SpyProductTableMap::COL_ID_PRODUCT];
-            $productAttributes[$idConcreteProduct] = Json::decode(
-                $concreteProduct[SpyProductTableMap::COL_ATTRIBUTES],
-                true
-            );
+            $productAttributes[$idConcreteProduct] = $this->productFacade->combineRawProductAttributes($rawProductAttributesTransfer);
         }
+
         return $productAttributes;
     }
 
