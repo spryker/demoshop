@@ -69,7 +69,6 @@ $config[SessionConstants::ZED_SESSION_REDIS_PROTOCOL] = $config[SessionConstants
 $config[SessionConstants::ZED_SESSION_REDIS_HOST] = $config[SessionConstants::YVES_SESSION_REDIS_HOST];
 $config[SessionConstants::ZED_SESSION_REDIS_PORT] = $config[SessionConstants::YVES_SESSION_REDIS_PORT];
 $config[SessionConstants::ZED_SESSION_REDIS_PASSWORD] = $config[SessionConstants::YVES_SESSION_REDIS_PASSWORD];
-$config[SessionConstants::ZED_SESSION_REDIS_DATABASE] = $config[SessionConstants::YVES_SESSION_REDIS_DATABASE];
 $config[SessionConstants::ZED_SESSION_REDIS_DATABASE] = 2;
 
 $config[PayoneConstants::PAYONE] = [
