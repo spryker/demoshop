@@ -73,8 +73,8 @@
                 <p>{{ product.abstractAttributes.short_description }}</p>
 
                 {% set displayAddToCart = false %}
-                {% if availability.concrete_quantity[product.abstractSku] is defined %}
-                     {% if availability.concrete_quantity[product.abstractSku] > 0 %}
+                {% if availability.concreteProductQuantityItems[product.abstractSku] is defined %}
+                     {% if availability.concreteProductQuantityItems[product.abstractSku] > 0 %}
                          {% set displayAddToCart = true %}
                      {% endif %}
                 {% endif %}

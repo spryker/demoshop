@@ -25,7 +25,7 @@ class ProductController extends AbstractController
     {
         $categories = $product->getCategory();
 
-        $availability = $this->getFactory()
+        $storageAvailabilityTransfer = $this->getFactory()
             ->getAvailabilityClient()
             ->getProductAvailabilityByIdProductAbstract($product->getAbstractProductId());
 
@@ -33,7 +33,7 @@ class ProductController extends AbstractController
             'product' => $product,
             'productCategories' => $categories,
             'category' => count($categories) ? end($categories) : null,
-            'availability' => $availability,
+            'availability' => $storageAvailabilityTransfer,
         ];
         return $productData;
     }

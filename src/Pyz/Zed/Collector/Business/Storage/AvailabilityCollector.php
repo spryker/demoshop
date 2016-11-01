@@ -6,6 +6,7 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
+use Generated\Shared\Transfer\StorageAvailabilityTransfer;
 use Orm\Zed\Availability\Persistence\Base\SpyAvailabilityQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AvailabilityCollectorQuery;
 use Spryker\Shared\Availability\AvailabilityConstants;
@@ -13,10 +14,6 @@ use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollec
 
 class AvailabilityCollector extends AbstractStoragePropelCollector
 {
-
-    const AVAILABLE = 'available';
-    const NONE = 'none';
-    const ABSTRACT_PRODUCT = 'abstract_product';
 
     /**
      * @param string $touchKey
@@ -27,8 +24,8 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
     protected function collectItem($touchKey, array $collectItemData)
     {
         return [
-            'abstract_quantity' => $collectItemData[AvailabilityCollectorQuery::QUANTITY],
-            'concrete_quantity' => $this->getConcreteProductStockQuantity(
+            StorageAvailabilityTransfer::ABSTRACT_PRODUCT_QUANTITY => $collectItemData[AvailabilityCollectorQuery::QUANTITY],
+            StorageAvailabilityTransfer::CONCRETE_PRODUCT_QUANTITY_ITEMS => $this->getConcreteProductStockQuantity(
                 $collectItemData[AvailabilityCollectorQuery::ID_AVAILABILITY_ABSTRACT]
             )
         ];
