@@ -18,7 +18,7 @@ class CategoryFactory extends AbstractFactory
      */
     public function createCategoryResourceCreator()
     {
-        return new CategoryResourceCreator($this->getLocator());
+        return new CategoryResourceCreator();
     }
 
     /**
