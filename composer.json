@@ -10,7 +10,7 @@
     "spryker/auth-mail-connector": "^2.0.0",
     "spryker/availability": "^2.0.0",
     "spryker/availability-cart-connector": "^2.0.0",
-    "spryker/braintree": "^0.3.0",
+    "spryker/braintree": "^0.4.0",
     "spryker/cache": "^2.0.0",
     "spryker/calculation": "^2.0.0",
     "spryker/cart": "^2.0.0",
