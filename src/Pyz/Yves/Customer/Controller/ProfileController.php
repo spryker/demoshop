@@ -119,7 +119,7 @@ class ProfileController extends AbstractCustomerController
     protected function updateLoggedInCustomerTransfer(CustomerTransfer $customerTransfer)
     {
         $loggedInCustomerTransfer = $this->getLoggedInCustomerTransfer();
-        $loggedInCustomerTransfer->fromArray($customerTransfer->toArray());
+        $loggedInCustomerTransfer->fromArray($customerTransfer->modifiedToArray());
     }
 
 }
