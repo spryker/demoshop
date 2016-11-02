@@ -13,13 +13,11 @@
         <div class="small-12 columns">
             <div class="callout">
                 <ul class="no-bullet">
-                    {% if customerWishlist.items|length %}
-                        {% for wishlistItem in customerWishlist.items %}
-                            <li>{{ wishlistItem.getProductConcrete().getName() }} X ({{ wishlistItem.getQuantity() }})
-                                <a href="{{ path('wishlist/remove', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">Remove</a>
-                                <a href="{{ path('wishlist/decrease', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">Reduce</a>
-                                <a href="{{ path('wishlist/increase', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">Increase</a>
-                                <a href="{{ path('wishlist/add-to-cart', {groupKey:  wishlistItem.getGroupKey()  }) }}">Move to cart</a>
+                    {% if wishlistOverview.products|length %}
+                        {% for product in wishlistOverview.products %}
+                            <li>{{ product.sku }}
+                                <a href="{{ path('wishlist', {id: product.idProduct}) }}">Remove</a>
+                                <a href="{{ path('wishlist', {id: product.idProduct}) }}">Move to cart</a>
                             </li>
                         {% endfor %}
                     {% else %}

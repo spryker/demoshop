@@ -9,17 +9,13 @@ namespace Pyz\Yves\Wishlist\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Provider\AbstractYvesControllerProvider;
 use Silex\Application;
-use Symfony\Component\HttpFoundation\Request;
 
 class WishlistControllerProvider extends AbstractYvesControllerProvider
 {
 
-    const ROUTE_WISHLIST = 'wishlist';
-    const ROUTE_ADD = 'wishlist/add';
-    const ROUTE_REMOVE = 'wishlist/remove';
-    const ROUTE_DECREASE = 'wishlist/decrease';
-    const ROUTE_INCREASE = 'wishlist/increase';
-    const ROUTE_ADD_TO_GROUP = 'wishlist/add-to-cart';
+    const ROUTE_WISHLIST_OVERVIEW = 'wishlist';
+    const ROUTE_ADD_ITEM = 'wishlist/add-item';
+    const ROUTE_REMOVE_ITEM = 'wishlist/remove-item';
 
     /**
      * @param \Silex\Application $app
@@ -30,53 +26,19 @@ class WishlistControllerProvider extends AbstractYvesControllerProvider
     {
         $allowedLocalesPattern = $this->getAllowedLocalesPattern();
 
-        $this->createGetController('/{wishlist}', static::ROUTE_WISHLIST, 'Wishlist', 'Wishlist')
+        $this->createGetController('/{wishlist}', static::ROUTE_WISHLIST_OVERVIEW, 'Wishlist', 'Wishlist')
             ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
             ->value('wishlist', 'wishlist');
 
-        $this->createGetController('/{wishlist}/add/{sku}', static::ROUTE_ADD, 'Wishlist', 'Wishlist', 'add')
-            ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
-            ->assert('sku', '[a-zA-Z0-9-_]+')
-            ->convert('quantity', [$this, 'getQuantityFromRequest'])
-            ->value('wishlist', 'wishlist');
-
-        $this->createGetController('/{wishlist}/remove/{sku}/{groupKey}', static::ROUTE_REMOVE, 'Wishlist', 'Wishlist', 'remove')
+/*        $this->createGetController('/{wishlist}/add-item/{id}', static::ROUTE_ADD_ITEM, 'Wishlist', 'Wishlist', 'addItem')
             ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
             ->assert('sku', '[a-zA-Z0-9-_]+')
-            ->assert('groupKey', '[a-zA-Z0-9-_]+')
             ->value('wishlist', 'wishlist');
 
-        $this->createGetController('/{wishlist}/decrease/{sku}/{groupKey}', static::ROUTE_DECREASE, 'Wishlist', 'Wishlist', 'decrease')
+        $this->createGetController('/{wishlist}/remove-item/{sku}', static::ROUTE_REMOVE_ITEM, 'Wishlist', 'Wishlist', 'removeItem')
             ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
-            ->assert('sku', '[a-zA-Z0-9-_]+')
-            ->assert('groupKey', '[a-zA-Z0-9-_]+')
-            ->value('wishlist', 'wishlist');
-
-        $this->createGetController('/{wishlist}/increase/{sku}/{groupKey}', static::ROUTE_INCREASE, 'Wishlist', 'Wishlist', 'increase')
-            ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
-            ->assert('sku', '[a-zA-Z0-9-_]+')
-            ->assert('groupKey', '[a-zA-Z0-9-_]+')
-            ->value('wishlist', 'wishlist');
-
-        $this->createGetController('/{wishlist}/add-to-cart/{groupKey}', static::ROUTE_ADD_TO_GROUP, 'Wishlist', 'Wishlist', 'addToCart')
-            ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
-            ->assert('groupKey', '[a-zA-Z0-9-_]+')
-            ->value('wishlist', 'wishlist');
-    }
-
-    /**
-     * @param mixed $parameter
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return int
-     */
-    public function getQuantityFromRequest($parameter, Request $request)
-    {
-        if ($request->isMethod('POST')) {
-            return $request->request->getInt('quantity', 1);
-        }
-
-        return $request->query->getInt('quantity', 1);
+            ->assert('id', '[0-9]+')
+            ->value('wishlist', 'wishlist');*/
     }
 
 }

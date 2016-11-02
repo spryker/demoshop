@@ -8,146 +8,64 @@
 namespace Pyz\Yves\Wishlist\Controller;
 
 use Generated\Shared\Transfer\ItemTransfer;
+use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
+use Generated\Shared\Transfer\WishlistOverviewRequestTransfer;
+use Generated\Shared\Transfer\WishlistOverviewResponseTransfer;
+use Generated\Shared\Transfer\WishlistOverviewTransfer;
+use Generated\Shared\Transfer\WishlistTransfer;
 use Pyz\Yves\Wishlist\Plugin\Provider\WishlistControllerProvider;
+use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Application\Controller\AbstractController;
 
 /**
  * @method \Spryker\Client\Wishlist\WishlistClientInterface getClient()
+ * @method \Pyz\Yves\Wishlist\WishlistFactory getFactory()
  */
 class WishlistController extends AbstractController
 {
+
+    const DEFAULT_NAME = 'default';
 
     /**
      * @return array
      */
     public function indexAction()
     {
+        $wishlistTransfer = (new WishlistTransfer())
+            ->setName(self::DEFAULT_NAME);
+
+        $wishlistOverviewResponse = (new WishlistOverviewResponseTransfer())
+            ->setWishlist($wishlistTransfer);
+
+        $wishlistOverviewRequest = (new WishlistOverviewRequestTransfer())
+            ->setWishlist($wishlistTransfer)
+            ->setLocaleCode(Store::getInstance()->getCurrentLocale());
+
         $wishlistClient = $this->getClient();
+        $customerClient = $this->getFactory()->createCustomerClient();
+        $customerTransfer = $customerClient->getCustomer();
+
+        if ($customerTransfer && $customerTransfer->getIdCustomer()) {
+            $wishlistTransfer->setFkCustomer($customerTransfer->getIdCustomer());
+            $wishlistOverviewResponse = $wishlistClient->getWishlistOverview($wishlistOverviewRequest);
+        }
+
+        s($wishlistOverviewRequest->toArray());
+        s($wishlistOverviewResponse->toArray());
 
         return [
-            'customerWishlist' => $wishlistClient->getWishlist(),
+            'wishlistOverview' => $wishlistOverviewResponse,
         ];
     }
 
-    /**
-     * @param string $sku
-     * @param int $quantity
-     * @param array $optionValueUsageIds
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    public function addAction($sku, $quantity = 1, $optionValueUsageIds = [])
+    public function addItemAction()
     {
         $wishlistClient = $this->getClient();
 
-        $itemTransfer = new ItemTransfer();
-        $itemTransfer
-            ->setSku($sku)
-            ->setQuantity($quantity);
 
-        foreach ($optionValueUsageIds as $idOptionValueUsage) {
-            $productOptionTransfer = new ProductOptionTransfer();
-            $productOptionTransfer
-                ->setIdOptionValueUsage($idOptionValueUsage)
-                ->setLocaleCode($this->getLocale());
 
-            $itemTransfer->addProductOption($productOptionTransfer);
-        }
-
-        $wishlistClient->addItem($itemTransfer);
-
-        return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST);
-    }
-
-    /**
-     * @param string $sku
-     * @param string $groupKey
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    public function removeAction($sku, $groupKey)
-    {
-        $wishlistClient = $this->getClient();
-
-        $itemTransfer = new ItemTransfer();
-        $itemTransfer
-            ->setSku($sku)
-            ->setGroupKey($groupKey)
-            ->setQuantity(0);
-
-        $wishlistClient->removeItem($itemTransfer);
-
-        return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST);
-    }
-
-    /**
-     * @param string $sku
-     * @param string $groupKey
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    public function increaseAction($sku, $groupKey)
-    {
-        $wishlistClient = $this->getClient();
-
-        $itemTransfer = new ItemTransfer();
-        $itemTransfer
-            ->setSku($sku)
-            ->setGroupKey($groupKey)
-            ->setQuantity(1);
-
-        $wishlistClient->increaseItemQuantity($itemTransfer);
-
-        return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST);
-    }
-
-    /**
-     * @param string $sku
-     * @param string $groupKey
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    public function decreaseAction($sku, $groupKey)
-    {
-        $wishlistClient = $this->getClient();
-
-        $itemTransfer = new ItemTransfer();
-        $itemTransfer
-            ->setSku($sku)
-            ->setGroupKey($groupKey)
-            ->setQuantity(1);
-
-        $wishlistClient->decreaseItemQuantity($itemTransfer);
-
-        return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST);
-    }
-
-    /**
-     * @param string $groupKey
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    public function addToCartAction($groupKey)
-    {
-        $wishlistClient = $this->getClient();
-
-        $wishlistItems = $wishlistClient->getWishlist();
-        $wishlistItem = null;
-        foreach ($wishlistItems->getItems() as $item) {
-            if ($groupKey === $item->getGroupKey()) {
-                $wishlistItem = clone $item;
-                break;
-            }
-        }
-
-        if ($wishlistItem !== null) {
-            $cartClient = $this->getLocator()->cart()->client();
-            $wishlistItem->setGroupKey(null);
-            $cartClient->addItem($wishlistItem);
-        }
-
-        return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST);
+        return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_OVERVIEW);
     }
 
 }
