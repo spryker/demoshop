@@ -80,7 +80,7 @@ $config[ApplicationConstants::HOST_YVES]
     = $config[ApplicationConstants::HOST_SSL_YVES]
     = $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS]
     = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA]
-    = 'www.spryker.dev';
+    = 'www.de.spryker.dev';
 
 /**
  * Hostname(s) for Zed - Shop frontend
