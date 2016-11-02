@@ -18,13 +18,13 @@
                 {{ orderItem.name }}
             </td>
             <td class="text-right">
-                {{ orderItem.unitGrossPriceWithProductOptions | price }}
+                {{ orderItem.unitGrossPriceWithProductOptions | money }}
             </td>
             <td class="text-right">
                 {{ orderItem.quantity }}
             </td>
             <td class="text-right">
-                {{ orderItem.sumGrossPriceWithProductOptions | price }}
+                {{ orderItem.sumGrossPriceWithProductOptions | money }}
             </td>
         </tr>
 

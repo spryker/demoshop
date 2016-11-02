@@ -12,7 +12,7 @@
     {% endif %}
 
     <br>
-    <small class="__secondary">{{ 'product.attribute.sku' | trans }}: {{ item.sku }} - <strong>{{ item.unitGrossPriceWithProductOptions|price }}</strong> </small>
+    <small class="__secondary">{{ 'product.attribute.sku' | trans }}: {{ item.sku }} - <strong>{{ item.unitGrossPriceWithProductOptions | money }}</strong> </small>
 
     {% if not loop.last %}
         <hr>

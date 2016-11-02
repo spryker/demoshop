@@ -12,7 +12,7 @@
                         {% if cartItem.productOptions|length > 0 %}
                             <li>{{ 'product.product_options' | trans }}</li>
                             {% for productOption in cartItem.productOptions %}
-                               <li> + {{ productOption.value | trans }} <strong>{{ productOption.unitGrossPrice | price }}</strong> </li>
+                               <li> + {{ productOption.value | trans }} <strong>{{ productOption.unitGrossPrice | money }}</strong> </li>
                             {% endfor %}
                         {% endif %}
                     </ul>
