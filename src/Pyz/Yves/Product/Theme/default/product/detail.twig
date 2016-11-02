@@ -73,8 +73,8 @@
                 <p>{{ product.abstractAttributes.short_description }}</p>
 
                 {% set displayAddToCart = false %}
-                {% if availability.concreteProductQuantityItems[product.abstractSku] is defined %}
-                     {% if availability.concreteProductQuantityItems[product.abstractSku] %}
+                {% if availability.concreteProductAvailableItems[product.abstractSku] is defined %}
+                     {% if availability.concreteProductAvailableItems[product.abstractSku] %}
                          {% set displayAddToCart = true %}
                      {% endif %}
                 {% endif %}
@@ -99,8 +99,9 @@
                         </div>
                     </form>
                 {% else %}
+
                     <p>
-                       {{ "product.detail.out_of_stock" | trans }}
+                       <strong>{{ "product.detail.out_of_stock" | trans }}</strong>
                     </p>
                 {% endif %}
             </div>
