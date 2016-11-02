@@ -74,7 +74,7 @@
 
                 {% set displayAddToCart = false %}
                 {% if availability.concreteProductQuantityItems[product.abstractSku] is defined %}
-                     {% if availability.concreteProductQuantityItems[product.abstractSku] > 0 %}
+                     {% if availability.concreteProductQuantityItems[product.abstractSku] %}
                          {% set displayAddToCart = true %}
                      {% endif %}
                 {% endif %}

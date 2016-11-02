@@ -150,7 +150,13 @@ class ProductStockUpdater extends AbstractUpdater
         $stockProductTransfer = $this->buildStockProductTransfer($stock, $stockType);
 
         if ($this->stockFacade->hasStockProduct($stock[self::SKU], $stock[self::STOCK_TYPE])) {
-            $stockProductEntity = $this->stockQueryContainer->queryStockProductBySkuAndType($stock[self::SKU], $stock[self::STOCK_TYPE])->findOne();
+            $stockProductEntity = $this->stockQueryContainer
+                ->queryStockProductBySkuAndType(
+                    $stock[self::SKU],
+                    $stock[self::STOCK_TYPE]
+                )
+                ->findOne();
+
             $stockProductTransfer->setIdStockProduct($stockProductEntity->getIdStockProduct());
             $this->stockFacade->updateStockProduct($stockProductTransfer);
         } else {

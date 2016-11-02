@@ -24,7 +24,7 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
     protected function collectItem($touchKey, array $collectItemData)
     {
         return [
-            StorageAvailabilityTransfer::ABSTRACT_PRODUCT_QUANTITY => $collectItemData[AvailabilityCollectorQuery::QUANTITY],
+            StorageAvailabilityTransfer::ABSTRACT_PRODUCT_QUANTITY => $collectItemData[AvailabilityCollectorQuery::QUANTITY] > 0,
             StorageAvailabilityTransfer::CONCRETE_PRODUCT_QUANTITY_ITEMS => $this->getConcreteProductStockQuantity(
                 $collectItemData[AvailabilityCollectorQuery::ID_AVAILABILITY_ABSTRACT]
             )
@@ -43,7 +43,7 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
 
         $concreteProductStock = [];
         foreach ($productConcreteAvailability as $availabilityEntity) {
-            $concreteProductStock[$availabilityEntity->getSku()] = $availabilityEntity->getQuantity();
+            $concreteProductStock[$availabilityEntity->getSku()] = $availabilityEntity->getQuantity() > 0;
         }
 
         return $concreteProductStock;
