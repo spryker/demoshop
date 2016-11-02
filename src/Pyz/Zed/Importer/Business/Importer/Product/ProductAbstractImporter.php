@@ -62,7 +62,8 @@ class ProductAbstractImporter extends AbstractProductImporter
         $productAbstractTransfer = new ProductAbstractTransfer();
         $productAbstractTransfer
             ->setSku($data['abstract_sku'])
-            ->setAttributes($this->getAttributes($data));
+            ->setAttributes($this->getAttributes($data))
+            ->setIsFeatured($data['is_featured']);
 
         foreach ($this->localeFacade->getLocaleCollection() as $localeTransfer) {
             $localizedAttributesTransfer = $this->buildLocalizedAttributesTransfer($data, $localeTransfer);

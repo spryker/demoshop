@@ -61,7 +61,7 @@ headphone_connectivity,0
 hdmi,0
 hd_type,0
 graphics_adapter,0
-gps_(satellite),0
+gps_satellite,0
 full_hd,0
 fsb_parity,0
 front_camera_resolution,0
@@ -69,7 +69,7 @@ form_factor,1
 focus_adjustment,0
 focus,0
 flash_type,0
-flash_range_(tele),0
+flash_range_tele,0
 flash_memory,1
 fingerprint_reader,0
 filter_size,0

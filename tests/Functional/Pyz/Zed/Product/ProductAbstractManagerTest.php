@@ -62,7 +62,7 @@ class ProductAbstractManagerTest extends ProductTestAbstract
     {
         $this->setupDefaultProducts();
 
-        $productAbstract = $this->productAbstractManager->getProductAbstractById(
+        $productAbstract = $this->productAbstractManager->findProductAbstractById(
             $this->productAbstractTransfer->getIdProductAbstract()
         );
 

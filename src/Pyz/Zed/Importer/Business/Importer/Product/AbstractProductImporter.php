@@ -71,10 +71,12 @@ abstract class AbstractProductImporter extends AbstractImporter
                 continue;
             }
 
-            $attributeKey = $value;
-            $attributeValue = $data['value_' . $match[1]];
+            $attributeKey = trim($value);
+            $attributeValue = trim($data['value_' . $match[1]]);
 
-            $attributes[$attributeKey] = $attributeValue;
+            if ($attributeKey !== '') {
+                $attributes[$attributeKey] = $attributeValue;
+            }
         }
 
         return $attributes;
@@ -94,8 +96,8 @@ abstract class AbstractProductImporter extends AbstractImporter
                 continue;
             }
 
-            $attributeKey = $value;
-            $attributeValue = $data['value_' . $match[1] . '.' . $localeName];
+            $attributeKey = trim($value);
+            $attributeValue = trim($data['value_' . $match[1] . '.' . $localeName]);
 
             if ($attributeKey !== '') {
                 $attributes[$attributeKey] = $attributeValue;

@@ -641,3 +641,35 @@ pagination.previous,"Previous",en_US
 pagination.previous,"Vorherig",de_DE
 pagination.next,"Next",en_US
 pagination.next,"Nächst",de_DE
+product.attribute.iso_en,ISO,en_US
+product.attribute.iso_en,ISO,de_DE
+product.attribute.waterproof_up_to,Waterproof up to,en_US
+product.attribute.waterproof_up_to,Wasserdicht bis,de_DE
+product.attribute.width,Width,en_US
+product.attribute.width,Breite,de_DE
+product.attribute.touchscreen,Touchscreen,en_US
+product.attribute.touchscreen,Touchscreen,de_DE
+product.attribute._none,Please select an attribute value,en_US
+product.attribute._none,Bitte wähle einen Attributwert aus,de_DE
+product.variants,Product Variants,en_US
+product.variants,Produktvarianten,de_DE
+product.attribute.usb_version,USB version,en_US
+product.attribute.usb_version,USB-Version,de_DE
+product.attribute.thermal_design_power,Thermal design power,en_US
+product.attribute.thermal_design_power,Thermal Design Power,de_DE
+product.attribute.processor_boost,Processor Boost,en_US
+product.attribute.processor_boost,Prozessor Boost-Taktung,de_DE
+product.attribute.touch_technology,Touch technology,en_US
+product.attribute.touch_technology,Touch-Technologie,de_DE
+product.attribute.video_recording_modes,Video recording modes,en_US
+product.attribute.video_recording_modes,Videoaufnahme-Modi,de_DE
+product.attribute.voice_recording,Voice recording,en_US
+product.attribute.voice_recording,Sprachaufnahme,de_DE
+product.attribute.total_megapixels,Total megapixels,en_US
+product.attribute.total_megapixels,Megapixel insgesamt,de_DE
+product.attribute.white_balance,White balance,en_US
+product.attribute.white_balance,Weißabgleich,de_DE
+product.attribute.themes,Themes,en_US
+product.attribute.themes,Themen,de_DE
+product.attribute.usb_port,USB port,en_US
+product.attribute.usb_port,USB-Port,de_DE

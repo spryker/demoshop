@@ -56,7 +56,7 @@ class ProductConcreteImporter extends AbstractProductImporter
      */
     protected function buildProductConcreteTransfer(array $data)
     {
-        $abstractProduct = $this->productFacade->getProductAbstractIdBySku($data['abstract_sku']);
+        $abstractProduct = $this->productFacade->findProductAbstractIdBySku($data['abstract_sku']);
 
         $productConcreteTransfer = new ProductConcreteTransfer();
         $productConcreteTransfer

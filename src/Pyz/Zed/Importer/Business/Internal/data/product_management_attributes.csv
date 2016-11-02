@@ -61,7 +61,7 @@ headphone_connectivity,text,yes,no,3.5 mm,Headphone connectivity,Headphone Verbi
 hdmi,text,no,no,"yes, no",HDMI,HDMI,"yes, no","ja, nein"
 hd_type,text,yes,no,"Full HD, 4K Ultra HD, HD ready",HD type,HD Typ,,
 graphics_adapter,text,yes,no,HD Graphics,Graphics adapter,Graphik Adapter,,
-gps_(satellite),text,no,no,"yes, no",GPS (satellite),GPS,"yes, no","ja, nein"
+gps_satellite,text,no,no,"yes, no",GPS (satellite),GPS,"yes, no","ja, nein"
 full_hd,text,no,no,"yes, no",Full HD,Full HD,"yes, no","ja, nein"
 fsb_parity,text,no,no,"yes, no",FSB Parity,FSB Gleichwertigkeit,"yes, no","ja, nein"
 front_camera_resolution,text,yes,no,2 MP,Front camera resolution,Frontkamera Auflösung,,
@@ -69,7 +69,7 @@ form_factor,text,yes,no,"Clamshell, Bar, Slate",Form factor,Formfaktor,"Clamshel
 focus_adjustment,text,yes,no,"Auto, Auto/Manual",Focus adjustment,Fokus Anpassung,"Auto, Auto/Manual","Auto, Auto/Manuell"
 focus,text,yes,no,TTL,Focus,Fokus ,,
 flash_type,text,yes,no,LED,Flash type,Flash-Typ,,
-flash_range_(tele),text,yes,no,1.3-1.5 m,Flash range (tele),Blitzreichweiter (Tele),,
+flash_range_tele,text,yes,no,1.3-1.5 m,Flash range (tele),Blitzreichweiter (Tele),,
 flash_memory,text,yes,no,4 GB,Flash memory,Flash-Speicher,,
 fingerprint_reader,text,no,no,"yes, no",Fingerprint reader,Fingerabdruckscanner,"yes, no","ja, nein"
 filter_size,text,yes,no,"3.7 cm, 5.5 cm",Filter size,Filtergröße,,

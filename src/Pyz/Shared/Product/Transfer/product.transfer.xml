@@ -3,6 +3,10 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://static.spryker.com http://static.spryker.com/transfer-01.xsd" >
 
+    <transfer name="ProductAbstract">
+        <property name="isFeatured" type="bool" />
+    </transfer>
+
     <transfer name="StorageProduct">
         <property name="id" type="int" />
         <property name="attributes" type="array" singular="attribute" />
