@@ -14,6 +14,8 @@ use Generated\Shared\Transfer\WishlistOverviewRequestTransfer;
 use Generated\Shared\Transfer\WishlistOverviewResponseTransfer;
 use Generated\Shared\Transfer\WishlistOverviewTransfer;
 use Generated\Shared\Transfer\WishlistTransfer;
+use Orm\Zed\Product\Persistence\SpyProductAttributeKeyQuery;
+use Propel\Runtime\Formatter\SimpleArrayFormatter;
 use Pyz\Yves\Wishlist\Plugin\Provider\WishlistControllerProvider;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Application\Controller\AbstractController;
@@ -50,8 +52,7 @@ class WishlistController extends AbstractController
             $wishlistOverviewResponse = $wishlistClient->getWishlistOverview($wishlistOverviewRequest);
         }
 
-        s($wishlistOverviewRequest->toArray());
-        sd($wishlistOverviewResponse->toArray());
+        //sd($wishlistOverviewResponse->toArray());
 
         return [
             'wishlistOverview' => $wishlistOverviewResponse,
@@ -61,8 +62,6 @@ class WishlistController extends AbstractController
     public function addItemAction()
     {
         $wishlistClient = $this->getClient();
-
-
 
         return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_OVERVIEW);
     }

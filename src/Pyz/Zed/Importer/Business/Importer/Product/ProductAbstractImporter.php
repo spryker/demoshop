@@ -148,6 +148,9 @@ class ProductAbstractImporter extends AbstractImporter
         $abstractAttributes = array_intersect_key($product, array_flip($abstractAttributeNames));
         $abstractAttributes = array_merge($abstractAttributes, $attributeData[self::PRODUCT_ABSTRACT]);
         $abstractAttributes = array_filter($abstractAttributes);
+        $abstractAttributes['color'] = 'Red';
+        $abstractAttributes['design'] = 'Jade';
+        $abstractAttributes['storage'] = '32 MB';
 
         unset($attributeData[self::PRODUCT_ABSTRACT]);
 

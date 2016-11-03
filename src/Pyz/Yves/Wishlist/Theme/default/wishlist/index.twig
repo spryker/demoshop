@@ -13,13 +13,34 @@
         <div class="small-12 columns">
             <div class="callout">
                 <ul class="no-bullet">
-                    {% if wishlistOverview.products|length %}
-                        {% for product in wishlistOverview.products %}
-                            <li>{{ product.sku }}
-                                <a href="{{ path('wishlist', {id: product.idProduct}) }}">Remove</a>
-                                <a href="{{ path('wishlist', {id: product.idProduct}) }}">Move to cart</a>
-                            </li>
-                        {% endfor %}
+                    {% if wishlistOverview.items|length %}
+                        <table>
+                            <tbody>
+                                {% for item in wishlistOverview.items %}
+                                    <tr>
+                                        {% set imageUrl = '' %}
+                                        {% if item.product.imageSets is defined and item.product.imageSets.default is defined %}
+                                            {% set imageUrl = item.product.imageSets.default[0].externalUrlSmall %}
+                                        {% endif %}
+                                        <td><img width="75" src="{{ imageUrl }}" /></td>
+                                        <td>{{ item.product.sku }}</td>
+                                        <td>{{ item.product.name }}</td>
+                                        <td>{{ item.product.price | price }}</td>
+                                        <td>
+                                            {% for attribute in item.product.superAttributes %}
+                                                {% if item.product.attributes[attribute] is defined %}
+                                                    {{ attribute | trans }}: {{ item.product.attributes[attribute] }} <br/>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </td>
+                                        <td>
+                                            <a href="{{ path('wishlist', {sku: item.product.sku}) }}">Remove</a> <br/>
+                                            <a href="/cart/add/{{ item.product.sku }}">Move to cart</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
                     {% else %}
                         <li>Your wishlist is empty.</li>
                     {% endif %}
