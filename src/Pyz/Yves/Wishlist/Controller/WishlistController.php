@@ -39,8 +39,7 @@ class WishlistController extends AbstractController
             ->setWishlist($wishlistTransfer);
 
         $wishlistOverviewRequest = (new WishlistOverviewRequestTransfer())
-            ->setWishlist($wishlistTransfer)
-            ->setLocaleCode(Store::getInstance()->getCurrentLocale());
+            ->setWishlist($wishlistTransfer);
 
         $wishlistClient = $this->getClient();
         $customerClient = $this->getFactory()->createCustomerClient();
@@ -52,7 +51,7 @@ class WishlistController extends AbstractController
         }
 
         s($wishlistOverviewRequest->toArray());
-        s($wishlistOverviewResponse->toArray());
+        sd($wishlistOverviewResponse->toArray());
 
         return [
             'wishlistOverview' => $wishlistOverviewResponse,
