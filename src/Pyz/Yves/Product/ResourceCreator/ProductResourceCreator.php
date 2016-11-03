@@ -10,7 +10,6 @@ namespace Pyz\Yves\Product\ResourceCreator;
 use Pyz\Yves\Collector\Creator\AbstractResourceCreator;
 use Pyz\Yves\Product\Builder\FrontendProductBuilderInterface;
 use Silex\Application;
-use Spryker\Shared\Kernel\LocatorLocatorInterface;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
 
@@ -23,20 +22,12 @@ class ProductResourceCreator extends AbstractResourceCreator
     protected $productBuilder;
 
     /**
-     * @var \Spryker\Shared\Kernel\LocatorLocatorInterface
-     */
-    protected $locator;
-
-    /**
      * @param \Pyz\Yves\Product\Builder\FrontendProductBuilderInterface $productBuilder
-     * @param \Spryker\Shared\Kernel\LocatorLocatorInterface $locator
      */
     public function __construct(
-        FrontendProductBuilderInterface $productBuilder,
-        LocatorLocatorInterface $locator
+        FrontendProductBuilderInterface $productBuilder
     ) {
         $this->productBuilder = $productBuilder;
-        $this->locator = $locator;
     }
 
     /**

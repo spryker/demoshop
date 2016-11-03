@@ -40,7 +40,7 @@ class TwigFactory extends AbstractFactory
     protected function getSettings()
     {
         if (!isset($this->settings)) {
-            $this->settings = new TwigSettings($this->getLocator());
+            $this->settings = new TwigSettings();
         }
 
         return $this->settings;

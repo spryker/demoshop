@@ -18,9 +18,7 @@ class CmsFactory extends AbstractFactory
      */
     public function createPageResourceCreator()
     {
-        return new PageResourceCreator(
-            $this->getLocator()
-        );
+        return new PageResourceCreator();
     }
 
 }
