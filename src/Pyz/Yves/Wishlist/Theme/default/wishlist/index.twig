@@ -43,6 +43,16 @@
                                 {% endfor %}
                             </tbody>
                         </table>
+
+                        <div class="row align-center">
+                            {% include '@Application/layout/partials/pagination.twig' with {
+                            parameters: {},
+                            currentPage: currentPage,
+                            paginationPath: 'wishlist/browse',
+                            maxPage: totalPages,
+                            showAlwaysFirstAndLast: true
+                            } %}
+                        </div>
                     {% else %}
                         <li>Your wishlist is empty.</li>
                     {% endif %}

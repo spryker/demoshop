@@ -14,6 +14,7 @@ class WishlistControllerProvider extends AbstractYvesControllerProvider
 {
 
     const ROUTE_WISHLIST_OVERVIEW = 'wishlist';
+    const ROUTE_WISHLIST_OVERVIEW_BROWSE = 'wishlist/browse';
     const ROUTE_ADD_ITEM = 'wishlist/add-item';
     const ROUTE_REMOVE_ITEM = 'wishlist/remove-item';
 
@@ -27,6 +28,10 @@ class WishlistControllerProvider extends AbstractYvesControllerProvider
         $allowedLocalesPattern = $this->getAllowedLocalesPattern();
 
         $this->createGetController('/{wishlist}', static::ROUTE_WISHLIST_OVERVIEW, 'Wishlist', 'Wishlist')
+            ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
+            ->value('wishlist', 'wishlist');
+
+        $this->createGetController('/{wishlist}/browse', static::ROUTE_WISHLIST_OVERVIEW_BROWSE, 'Wishlist', 'Wishlist')
             ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
             ->value('wishlist', 'wishlist');
 
