@@ -7,7 +7,6 @@
 
 namespace Pyz\Yves\Wishlist\Controller;
 
-use Generated\Shared\Transfer\WishlistItemTransfer;
 use Generated\Shared\Transfer\WishlistItemUpdateRequestTransfer;
 use Generated\Shared\Transfer\WishlistOverviewRequestTransfer;
 use Generated\Shared\Transfer\WishlistOverviewResponseTransfer;
@@ -26,7 +25,7 @@ class WishlistController extends AbstractController
 {
 
     const DEFAULT_NAME = 'default';
-    const DEFAULT_ITEMS_PER_PAGE = 100;
+    const DEFAULT_ITEMS_PER_PAGE = 10;
     const DEFAULT_ORDER_DIRECTION = 'DESC';
 
     const PARAM_ITEMS_PER_PAGE = 'ipp';
@@ -67,13 +66,12 @@ class WishlistController extends AbstractController
             ->setOrderBy($orderBy)
             ->setOrderDirection($orderDirection);
 
-        $wishlistClient = $this->getClient();
         $customerClient = $this->getFactory()->createCustomerClient();
         $customerTransfer = $customerClient->getCustomer();
 
         if ($customerTransfer && $customerTransfer->getIdCustomer()) {
             $wishlistTransfer->setFkCustomer($customerTransfer->getIdCustomer());
-            $wishlistOverviewResponse = $wishlistClient->getWishlistOverview($wishlistOverviewRequest);
+            $wishlistOverviewResponse = $this->getClient()->getWishlistOverview($wishlistOverviewRequest);
         }
 
         return [
@@ -83,34 +81,47 @@ class WishlistController extends AbstractController
         ];
     }
 
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function addItemAction(Request $request)
     {
-        $wishlistClient = $this->getClient();
-        $customerClient = $this->getFactory()->createCustomerClient();
-        $customerTransfer = $customerClient->getCustomer();
+        $wishlistItemUpdateRequestTransfer = $this->getWishlistItemUpdateRequestTransferFromRequest($request);
 
-        $wishlistItemUpdateRequestTransfer = (new WishlistItemUpdateRequestTransfer())
-            ->setFkProduct($request->query->getInt(self::PARAM_PRODUCT_ID))
-            ->setFkCustomer($customerTransfer->getIdCustomer());
-
-        $wishlistClient->addItem($wishlistItemUpdateRequestTransfer);
+        $this->getClient()->addItem($wishlistItemUpdateRequestTransfer);
 
         return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_OVERVIEW);
     }
 
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function removeItemAction(Request $request)
     {
-        $wishlistClient = $this->getClient();
+        $wishlistItemUpdateRequestTransfer = $this->getWishlistItemUpdateRequestTransferFromRequest($request);
+        $this->getClient()->removeItem($wishlistItemUpdateRequestTransfer);
+
+        return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_OVERVIEW);
+    }
+
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return \Generated\Shared\Transfer\WishlistItemUpdateRequestTransfer
+     */
+    protected function getWishlistItemUpdateRequestTransferFromRequest(Request $request)
+    {
         $customerClient = $this->getFactory()->createCustomerClient();
         $customerTransfer = $customerClient->getCustomer();
 
-        $wishlistItemUpdateRequestTransfer = (new WishlistItemUpdateRequestTransfer())
+        return (new WishlistItemUpdateRequestTransfer())
             ->setFkProduct($request->query->getInt(self::PARAM_PRODUCT_ID))
-            ->setFkCustomer($customerTransfer->getIdCustomer());
-
-        $wishlistClient->removeItem($wishlistItemUpdateRequestTransfer);
-
-        return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_OVERVIEW);
+            ->setFkCustomer($customerTransfer->getIdCustomer())
+            ->setWishlistName(self::DEFAULT_NAME);
     }
 
 }
