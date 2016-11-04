@@ -1212,7 +1212,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "85639debba3b435b000c28563c834ce31a309f17"
+                "reference": "5b9de0a2af2af9f924986bc699eef37149157317"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1339,13 +1339,13 @@
                     "Spryker\\Zed\\Customer\\": "Bundles/Customer/src",
                     "Unit\\Spryker\\Zed\\Customer\\": "Bundles/Customer/tests",
                     "Functional\\Spryker\\Zed\\Customer\\": "Bundles/Customer/tests",
+                    "Spryker\\Client\\Currency\\": "Bundles/Currency/src",
                     "Spryker\\Zed\\Currency\\": "Bundles/Currency/src",
                     "Spryker\\Yves\\Currency\\": "Bundles/Currency/src",
                     "Spryker\\Shared\\Currency\\": "Bundles/Currency/src",
+                    "Functional\\Client\\Currency\\": "Bundles/Currency/tests",
                     "Functional\\Zed\\Currency\\": "Bundles/Currency/tests",
                     "Functional\\Yves\\Currency\\": "Bundles/Currency/tests",
-                    "Unit\\Yves\\Currency\\": "Bundles/Currency/tests",
-                    "Unit\\Zed\\Currency\\": "Bundles/Currency/tests",
                     "Unit\\Shared\\Currency\\": "Bundles/Currency/tests",
                     "Spryker\\Shared\\CustomerMailConnector\\": "Bundles/CustomerMailConnector/src",
                     "Unit\\Spryker\\Shared\\CustomerMailConnector\\": "Bundles/CustomerMailConnector/tests",
@@ -1741,7 +1741,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-11-01 17:15:06"
+            "time": "2016-11-04 09:38:27"
         },
         {
             "name": "symfony-cmf/routing",
@@ -5915,16 +5915,16 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.6.6",
+            "version": "0.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "cd4bea48db6f99b3d13eefe3afbe256528c23c97"
+                "reference": "af8c442f30d136197414f446e753937dee8fb556"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/cd4bea48db6f99b3d13eefe3afbe256528c23c97",
-                "reference": "cd4bea48db6f99b3d13eefe3afbe256528c23c97",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/af8c442f30d136197414f446e753937dee8fb556",
+                "reference": "af8c442f30d136197414f446e753937dee8fb556",
                 "shasum": ""
             },
             "require": {
@@ -5958,7 +5958,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-10-21 09:32:31"
+            "time": "2016-10-31 09:09:05"
         },
         {
             "name": "squizlabs/php_codesniffer",
