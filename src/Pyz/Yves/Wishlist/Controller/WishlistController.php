@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Wishlist\Controller;
 
+use Generated\Shared\Transfer\FilterTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
@@ -34,6 +35,9 @@ class WishlistController extends AbstractController
      */
     public function indexAction()
     {
+        $filter = (new FilterTransfer())
+            ->setLimit(5);
+
         $wishlistTransfer = (new WishlistTransfer())
             ->setName(self::DEFAULT_NAME);
 
@@ -41,7 +45,8 @@ class WishlistController extends AbstractController
             ->setWishlist($wishlistTransfer);
 
         $wishlistOverviewRequest = (new WishlistOverviewRequestTransfer())
-            ->setWishlist($wishlistTransfer);
+            ->setWishlist($wishlistTransfer)
+            ->setFilter($filter);
 
         $wishlistClient = $this->getClient();
         $customerClient = $this->getFactory()->createCustomerClient();
@@ -52,7 +57,7 @@ class WishlistController extends AbstractController
             $wishlistOverviewResponse = $wishlistClient->getWishlistOverview($wishlistOverviewRequest);
         }
 
-        //sd($wishlistOverviewResponse->toArray());
+        //s($wishlistOverviewResponse->toArray());
 
         return [
             'wishlistOverview' => $wishlistOverviewResponse,
