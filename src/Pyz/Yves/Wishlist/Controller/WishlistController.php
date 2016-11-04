@@ -42,7 +42,7 @@ class WishlistController extends AbstractController
      */
     public function indexAction(Request $request)
     {
-        $pageNumber = $request->query->getInt(self::PARAM_PAGE) * 1;
+        $pageNumber = $request->query->getInt(self::PARAM_PAGE, 1);
         $itemsPerPage = $request->query->getInt(self::PARAM_ITEMS_PER_PAGE, self::DEFAULT_ITEMS_PER_PAGE);
         $orderBy = $request->query->get(self::PARAM_ORDER_BY, SpyWishlistItemTableMap::COL_CREATED_AT);
         $orderDirection = $request->query->getAlnum(self::PARAM_ORDER_DIRECTION, self::DEFAULT_ORDER_DIRECTION);
@@ -104,6 +104,19 @@ class WishlistController extends AbstractController
     {
         $wishlistItemUpdateRequestTransfer = $this->getWishlistItemUpdateRequestTransferFromRequest($request);
         $this->getClient()->removeItem($wishlistItemUpdateRequestTransfer);
+
+        return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_OVERVIEW);
+    }
+
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function moveToCartAction(Request $request)
+    {
+        $wishlistItemUpdateRequestTransfer = $this->getWishlistItemUpdateRequestTransferFromRequest($request);
+        $this->getClient()->moveToCart($wishlistItemUpdateRequestTransfer);
 
         return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_OVERVIEW);
     }
