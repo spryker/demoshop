@@ -7,6 +7,8 @@
 
 namespace Pyz\Yves\Wishlist\Controller;
 
+use Generated\Shared\Transfer\WishlistItemTransfer;
+use Generated\Shared\Transfer\WishlistItemUpdateRequestTransfer;
 use Generated\Shared\Transfer\WishlistOverviewRequestTransfer;
 use Generated\Shared\Transfer\WishlistOverviewResponseTransfer;
 use Generated\Shared\Transfer\WishlistPaginationTransfer;
@@ -31,6 +33,8 @@ class WishlistController extends AbstractController
     const PARAM_PAGE = 'page';
     const PARAM_ORDER_BY = 'order-by';
     const PARAM_ORDER_DIRECTION = 'order-dir';
+    const PARAM_PRODUCT_ID = 'product-id';
+    const PARAM_WISHLIST_ID = 'wishlist-id';
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
@@ -79,9 +83,32 @@ class WishlistController extends AbstractController
         ];
     }
 
-    public function addItemAction()
+    public function addItemAction(Request $request)
     {
         $wishlistClient = $this->getClient();
+        $customerClient = $this->getFactory()->createCustomerClient();
+        $customerTransfer = $customerClient->getCustomer();
+
+        $wishlistItemUpdateRequestTransfer = (new WishlistItemUpdateRequestTransfer())
+            ->setFkProduct($request->query->getInt(self::PARAM_PRODUCT_ID))
+            ->setFkCustomer($customerTransfer->getIdCustomer());
+
+        $wishlistClient->addItem($wishlistItemUpdateRequestTransfer);
+
+        return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_OVERVIEW);
+    }
+
+    public function removeItemAction(Request $request)
+    {
+        $wishlistClient = $this->getClient();
+        $customerClient = $this->getFactory()->createCustomerClient();
+        $customerTransfer = $customerClient->getCustomer();
+
+        $wishlistItemUpdateRequestTransfer = (new WishlistItemUpdateRequestTransfer())
+            ->setFkProduct($request->query->getInt(self::PARAM_PRODUCT_ID))
+            ->setFkCustomer($customerTransfer->getIdCustomer());
+
+        $wishlistClient->removeItem($wishlistItemUpdateRequestTransfer);
 
         return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_OVERVIEW);
     }

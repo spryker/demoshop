@@ -17,6 +17,7 @@ class WishlistControllerProvider extends AbstractYvesControllerProvider
     const ROUTE_WISHLIST_OVERVIEW_BROWSE = 'wishlist/browse';
     const ROUTE_ADD_ITEM = 'wishlist/add-item';
     const ROUTE_REMOVE_ITEM = 'wishlist/remove-item';
+    const ROUTE_MOVE_TO_CART = 'wishlist/move-to-cart';
 
     /**
      * @param \Silex\Application $app
@@ -35,15 +36,20 @@ class WishlistControllerProvider extends AbstractYvesControllerProvider
             ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
             ->value('wishlist', 'wishlist');
 
-/*        $this->createGetController('/{wishlist}/add-item/{id}', static::ROUTE_ADD_ITEM, 'Wishlist', 'Wishlist', 'addItem')
+        $this->createGetController('/{wishlist}/add-item', static::ROUTE_ADD_ITEM, 'Wishlist', 'Wishlist', 'addItem')
             ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
-            ->assert('sku', '[a-zA-Z0-9-_]+')
-            ->value('wishlist', 'wishlist');
+            ->value('wishlist', 'wishlist')
+            ->method('POST');
 
-        $this->createGetController('/{wishlist}/remove-item/{sku}', static::ROUTE_REMOVE_ITEM, 'Wishlist', 'Wishlist', 'removeItem')
+        $this->createGetController('/{wishlist}/remove-item', static::ROUTE_REMOVE_ITEM, 'Wishlist', 'Wishlist', 'removeItem')
             ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
-            ->assert('id', '[0-9]+')
-            ->value('wishlist', 'wishlist');*/
+            ->value('wishlist', 'wishlist')
+            ->method('POST');
+
+        $this->createGetController('/{wishlist}/move-to-cart', static::ROUTE_MOVE_TO_CART, 'Wishlist', 'Wishlist', 'removeItem')
+            ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
+            ->value('wishlist', 'wishlist')
+            ->method('POST');
     }
 
 }

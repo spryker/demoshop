@@ -87,7 +87,7 @@
                     </div>
                 </form>
 
-                <form class="row align-bottom" method="POST" action="wishlist/add/{{ product.sku }}">
+                <form class="row align-bottom" method="POST" action="{{ path('wishlist/add-item', {'product-id': product.id}) }}">
                     <div class="small-12 columns">
                         <button type="submit" class="button expanded info" }} {{ (not product.isVariant) ? 'disabled' : '' }}>
                             <i class="fa fa-heart"></i>{{ 'page.detail.add-to-wishlist' | trans }}

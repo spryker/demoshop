@@ -35,8 +35,20 @@
                                             {% endfor %}
                                         </td>
                                         <td>
-                                            <a href="{{ path('wishlist', {sku: item.product.sku}) }}">Remove</a> <br/>
-                                            <a href="/cart/add/{{ item.product.sku }}">Move to cart</a>
+                                            <form class="row align-bottom" method="POST" action="{{ path('wishlist/remove-item', {'product-id': item.product.id}) }}">
+                                                <div class="small-12 columns">
+                                                    <button type="submit" class="button warning">
+                                                        <i class="fa fa-minus"></i>{{ 'customer.account.wishlist.remove' | trans }}
+                                                    </button>
+                                                </div>
+                                            </form>
+                                            <form class="row align-bottom" method="POST" action="{{ path('wishlist/move-to-cart', {'product-id': item.product.id}) }}">
+                                                <div class="small-12 columns">
+                                                    <button type="submit" class="button warning">
+                                                        <i class="fa fa-move"></i>{{ 'customer.account.wishlist.add-to-cart' | trans }}
+                                                    </button>
+                                                </div>
+                                            </form>
                                         </td>
                                     </tr>
                                     {% endif %}
