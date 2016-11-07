@@ -31,7 +31,7 @@ sudo: required
 
 env:
   global:
-    - APPLICATION_ENV=test
+    - APPLICATION_ENV=development
     - APPLICATION_STORE=DE
   matrix:
     - TEST_GROUP=without-acceptance
@@ -45,8 +45,8 @@ before_script:
   - mkdir -p shared/data/common/jenkins
   - mkdir -p shared/data/common/jenkins/jobs
   - mv config/Zed/propel.ci.yml config/Zed/propel.yml
-  - cp config/Shared/config_default-development.ci.php config/Shared/config_default-development_DE.php
-  - cp config/Shared/config_default-development.ci.php config/Shared/config_default-test.php
+  - cp config/Shared/ci/travis/config_ci.php config/Shared/config_default-development_DE.php
+  - cp config/Shared/ci/travis/config_ci.php config/Shared/config_default-test.php
 
   - mkdir -p data/DE/cache/Yves/twig -m 0777
   - mkdir -p data/DE/cache/Zed/twig -m 0777
