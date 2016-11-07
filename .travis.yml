@@ -31,7 +31,7 @@ sudo: required
 
 env:
   global:
-    - APPLICATION_ENV=development
+    - APPLICATION_ENV=test
     - APPLICATION_STORE=DE
   matrix:
     - TEST_GROUP=without-acceptance
