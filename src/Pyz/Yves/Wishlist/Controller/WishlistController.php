@@ -8,11 +8,13 @@
 namespace Pyz\Yves\Wishlist\Controller;
 
 use Generated\Shared\Transfer\WishlistItemUpdateRequestTransfer;
+use Generated\Shared\Transfer\WishlistMoveToCartRequestTransfer;
 use Generated\Shared\Transfer\WishlistOverviewRequestTransfer;
 use Generated\Shared\Transfer\WishlistOverviewResponseTransfer;
 use Generated\Shared\Transfer\WishlistPaginationTransfer;
 use Generated\Shared\Transfer\WishlistTransfer;
 use Orm\Zed\Wishlist\Persistence\Map\SpyWishlistItemTableMap;
+use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use Pyz\Yves\Wishlist\Plugin\Provider\WishlistControllerProvider;
 use Spryker\Yves\Application\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,6 +36,7 @@ class WishlistController extends AbstractController
     const PARAM_ORDER_DIRECTION = 'order-dir';
     const PARAM_PRODUCT_ID = 'product-id';
     const PARAM_WISHLIST_ID = 'wishlist-id';
+    const PARAM_SKU = 'sku';
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
@@ -89,6 +92,9 @@ class WishlistController extends AbstractController
     public function addItemAction(Request $request)
     {
         $wishlistItemUpdateRequestTransfer = $this->getWishlistItemUpdateRequestTransferFromRequest($request);
+        if (!$wishlistItemUpdateRequestTransfer) {
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
+        }
 
         $this->getClient()->addItem($wishlistItemUpdateRequestTransfer);
 
@@ -103,6 +109,10 @@ class WishlistController extends AbstractController
     public function removeItemAction(Request $request)
     {
         $wishlistItemUpdateRequestTransfer = $this->getWishlistItemUpdateRequestTransferFromRequest($request);
+        if (!$wishlistItemUpdateRequestTransfer) {
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
+        }
+
         $this->getClient()->removeItem($wishlistItemUpdateRequestTransfer);
 
         return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_OVERVIEW);
@@ -116,7 +126,15 @@ class WishlistController extends AbstractController
     public function moveToCartAction(Request $request)
     {
         $wishlistItemUpdateRequestTransfer = $this->getWishlistItemUpdateRequestTransferFromRequest($request);
-        $this->getClient()->moveToCart($wishlistItemUpdateRequestTransfer);
+        if (!$wishlistItemUpdateRequestTransfer) {
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
+        }
+
+        $wishlistMoveToCartRequestTransfer  = (new WishlistMoveToCartRequestTransfer())
+            ->setSku($request->query->get(self::PARAM_SKU))
+            ->setWishlistItem($wishlistItemUpdateRequestTransfer);
+
+        $this->getClient()->moveToCart($wishlistMoveToCartRequestTransfer);
 
         return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_OVERVIEW);
     }
@@ -130,6 +148,10 @@ class WishlistController extends AbstractController
     {
         $customerClient = $this->getFactory()->createCustomerClient();
         $customerTransfer = $customerClient->getCustomer();
+
+        if (!$customerTransfer) {
+            return null;
+        }
 
         return (new WishlistItemUpdateRequestTransfer())
             ->setFkProduct($request->query->getInt(self::PARAM_PRODUCT_ID))

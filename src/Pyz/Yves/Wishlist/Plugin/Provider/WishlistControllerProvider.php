@@ -46,10 +46,12 @@ class WishlistControllerProvider extends AbstractYvesControllerProvider
             ->value('wishlist', 'wishlist')
             ->method('POST');
 
-        $this->createGetController('/{wishlist}/move-to-cart', static::ROUTE_MOVE_TO_CART, 'Wishlist', 'Wishlist', 'removeItem')
+        $this->createController('/{wishlist}/move-to-cart', static::ROUTE_MOVE_TO_CART, 'Wishlist', 'Wishlist', 'moveToCart')
             ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
             ->value('wishlist', 'wishlist')
+            ->assert('sku', '[a-zA-Z0-9-_]+')
             ->method('POST');
+
     }
 
 }
