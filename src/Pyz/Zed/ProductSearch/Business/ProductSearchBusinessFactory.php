@@ -9,7 +9,6 @@ namespace Pyz\Zed\ProductSearch\Business;
 
 use Pyz\Zed\ProductSearch\Business\Map\ProductDataPageMapBuilder;
 use Pyz\Zed\ProductSearch\ProductSearchDependencyProvider;
-use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
 use Spryker\Zed\ProductSearch\Business\ProductSearchBusinessFactory as SprykerProductSearchBusinessFactory;
 
 class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
@@ -25,7 +24,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
             $this->getProductFacade(),
             $this->getPriceFacade(),
             $this->getProductImageQueryContainer(),
-            new CategoryQueryContainer() // FIXME
+            $this->getCategoryQueryContainer()
         );
     }
 
@@ -59,6 +58,14 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     protected function getProductImageQueryContainer()
     {
         return $this->getProvidedDependency(ProductSearchDependencyProvider::QUERY_CONTAINER_PRODUCT_IMAGE);
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
+     */
+    protected function getCategoryQueryContainer()
+    {
+        return $this->getProvidedDependency(ProductSearchDependencyProvider::QUERY_CONTAINER_CATEGORY);
     }
 
 }

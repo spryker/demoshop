@@ -252,7 +252,7 @@ class AttributeVariantMapper implements AttributeVariantMapperInterface
     protected function getAttributeMapFromStorage($idProductConcrete)
     {
         if (!isset($this->attributeMap[$idProductConcrete])) {
-            $this->attributeMap[$idProductConcrete] = $this->productClient->getAttributeMapByIdProductAbstractForCurrectLocale($idProductConcrete);
+            $this->attributeMap[$idProductConcrete] = $this->productClient->getAttributeMapByIdProductAbstractForCurrentLocale($idProductConcrete);
         }
 
         return $this->attributeMap[$idProductConcrete];
