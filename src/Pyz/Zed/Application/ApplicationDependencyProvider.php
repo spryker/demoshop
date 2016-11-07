@@ -34,7 +34,7 @@ use Spryker\Zed\Kernel\Communication\Plugin\GatewayControllerListenerPlugin;
 use Spryker\Zed\Kernel\Communication\Plugin\GatewayServiceProviderPlugin;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Log\Communication\Plugin\ServiceProvider\LogServiceProvider;
-use Spryker\Zed\Price\Communication\Plugin\ServiceProvider\PriceServiceProvider;
+use Spryker\Zed\Money\Communication\Plugin\ServiceProvider\TwigMoneyServiceProvider;
 use Spryker\Zed\Propel\Communication\Plugin\ServiceProvider\PropelServiceProvider;
 use Spryker\Zed\Session\Communication\Plugin\ServiceProvider\SessionServiceProvider as SprykerSessionServiceProvider;
 use Spryker\Zed\User\Communication\Plugin\ServiceProvider\UserServiceProvider;
@@ -90,7 +90,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             $this->getGatewayServiceProvider(),
             new AssertionServiceProvider(),
             new UserServiceProvider($container),
-            new PriceServiceProvider(),
+            new TwigMoneyServiceProvider(),
             new DateFormatterServiceProvider(),
             new TranslationServiceProvider(),
             new SubRequestServiceProvider(),
