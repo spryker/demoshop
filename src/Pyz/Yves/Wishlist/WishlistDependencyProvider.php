@@ -12,6 +12,7 @@ use Spryker\Yves\Kernel\Container;
 
 class WishlistDependencyProvider extends AbstractBundleDependencyProvider
 {
+
     const CLIENT_CUSTOMER = 'CLIENT_CUSTOMER';
 
     /**

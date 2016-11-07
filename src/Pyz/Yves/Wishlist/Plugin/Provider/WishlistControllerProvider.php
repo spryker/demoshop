@@ -51,7 +51,6 @@ class WishlistControllerProvider extends AbstractYvesControllerProvider
             ->value('wishlist', 'wishlist')
             ->assert('sku', '[a-zA-Z0-9-_]+')
             ->method('POST');
-
     }
 
 }

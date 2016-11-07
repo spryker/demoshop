@@ -225,5 +225,4 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
         return $this->superAttributes;
     }
 
-
 }

@@ -130,7 +130,7 @@ class WishlistController extends AbstractController
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
         }
 
-        $wishlistMoveToCartRequestTransfer  = (new WishlistMoveToCartRequestTransfer())
+        $wishlistMoveToCartRequestTransfer = (new WishlistMoveToCartRequestTransfer())
             ->setSku($request->query->get(self::PARAM_SKU))
             ->setWishlistItem($wishlistItemUpdateRequestTransfer);
 
