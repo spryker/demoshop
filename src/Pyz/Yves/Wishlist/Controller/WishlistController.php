@@ -46,7 +46,12 @@ class WishlistController extends AbstractController
     public function indexAction(Request $request)
     {
         $pageNumber = $request->query->getInt(self::PARAM_PAGE, 1);
+        $pageNumber = $pageNumber <= 0 ? 1 : $pageNumber;
+
         $itemsPerPage = $request->query->getInt(self::PARAM_ITEMS_PER_PAGE, self::DEFAULT_ITEMS_PER_PAGE);
+        $itemsPerPage = ($itemsPerPage <= 0) ? 1 : $itemsPerPage;
+        $itemsPerPage = ($itemsPerPage > 100) ? 10 : $itemsPerPage;
+
         $orderBy = $request->query->get(self::PARAM_ORDER_BY, SpyWishlistItemTableMap::COL_CREATED_AT);
         $orderDirection = $request->query->getAlnum(self::PARAM_ORDER_DIRECTION, self::DEFAULT_ORDER_DIRECTION);
 
