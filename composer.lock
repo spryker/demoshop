@@ -424,16 +424,16 @@
         },
         {
             "name": "league/csv",
-            "version": "8.1.1",
+            "version": "8.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/csv.git",
-                "reference": "3b22a40804aa0bc5224ffb2f5e8248edf0a9a38c"
+                "reference": "33447984f7a7038fefaa5a6177e8407b66bc85b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/csv/zipball/3b22a40804aa0bc5224ffb2f5e8248edf0a9a38c",
-                "reference": "3b22a40804aa0bc5224ffb2f5e8248edf0a9a38c",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/33447984f7a7038fefaa5a6177e8407b66bc85b4",
+                "reference": "33447984f7a7038fefaa5a6177e8407b66bc85b4",
                 "shasum": ""
             },
             "require": {
@@ -447,7 +447,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "8.0-dev"
+                    "dev-master": "8.1-dev"
                 }
             },
             "autoload": {
@@ -477,7 +477,7 @@
                 "read",
                 "write"
             ],
-            "time": "2016-09-05 08:16:07"
+            "time": "2016-10-27 11:21:24"
         },
         {
             "name": "mandrill/mandrill",
@@ -523,17 +523,17 @@
             "time": "2015-09-22 13:58:03"
         },
         {
-            "name": "mathiasverraes/money",
-            "version": "v3.0.0-beta4",
+            "name": "moneyphp/money",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "5e10cc29c8358688bfe6ace341e45d0a2f974851"
+                "reference": "ffd114125b7ed474201e67fe060ea605debfb66e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/5e10cc29c8358688bfe6ace341e45d0a2f974851",
-                "reference": "5e10cc29c8358688bfe6ace341e45d0a2f974851",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/ffd114125b7ed474201e67fe060ea605debfb66e",
+                "reference": "ffd114125b7ed474201e67fe060ea605debfb66e",
                 "shasum": ""
             },
             "require": {
@@ -546,7 +546,7 @@
                 "ext-intl": "*",
                 "florianv/swap": "^3.0",
                 "henrikbjorn/phpspec-code-coverage": "^2.0.2",
-                "moneyphp/iso-currencies": "~1.0.0",
+                "moneyphp/iso-currencies": "^1.0",
                 "php-http/message": "^1.4",
                 "php-http/mock-client": "^0.3.3",
                 "phpspec/phpspec": "^2.5",
@@ -598,8 +598,7 @@
                 "money",
                 "vo"
             ],
-            "abandoned": "moneyphp/money",
-            "time": "2016-10-21 11:32:24"
+            "time": "2016-10-26 08:11:59"
         },
         {
             "name": "monolog/monolog",
@@ -1216,7 +1215,7 @@
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
-                "mathiasverraes/money": "~3.0.0-beta2",
+                "moneyphp/money": "~3.0.0",
                 "paragonie/random_compat": "~1.2.1",
                 "phpdocumentor/graphviz": "~1.0.4"
             },
@@ -1339,13 +1338,13 @@
                     "Spryker\\Zed\\Customer\\": "Bundles/Customer/src",
                     "Unit\\Spryker\\Zed\\Customer\\": "Bundles/Customer/tests",
                     "Functional\\Spryker\\Zed\\Customer\\": "Bundles/Customer/tests",
+                    "Spryker\\Client\\Currency\\": "Bundles/Currency/src",
                     "Spryker\\Zed\\Currency\\": "Bundles/Currency/src",
                     "Spryker\\Yves\\Currency\\": "Bundles/Currency/src",
                     "Spryker\\Shared\\Currency\\": "Bundles/Currency/src",
+                    "Functional\\Client\\Currency\\": "Bundles/Currency/tests",
                     "Functional\\Zed\\Currency\\": "Bundles/Currency/tests",
                     "Functional\\Yves\\Currency\\": "Bundles/Currency/tests",
-                    "Unit\\Yves\\Currency\\": "Bundles/Currency/tests",
-                    "Unit\\Zed\\Currency\\": "Bundles/Currency/tests",
                     "Unit\\Shared\\Currency\\": "Bundles/Currency/tests",
                     "Spryker\\Shared\\CustomerMailConnector\\": "Bundles/CustomerMailConnector/src",
                     "Unit\\Spryker\\Shared\\CustomerMailConnector\\": "Bundles/CustomerMailConnector/tests",
@@ -1454,9 +1453,11 @@
                     "Unit\\Spryker\\Shared\\Messenger\\": "Bundles/Messenger/tests",
                     "Spryker\\Zed\\Messenger\\": "Bundles/Messenger/src",
                     "Unit\\Spryker\\Zed\\Messenger\\": "Bundles/Messenger/tests",
+                    "Spryker\\Client\\Money\\": "Bundles/Money/src",
                     "Spryker\\Shared\\Money\\": "Bundles/Money/src",
                     "Spryker\\Yves\\Money\\": "Bundles/Money/src",
                     "Spryker\\Zed\\Money\\": "Bundles/Money/src",
+                    "Unit\\Spryker\\Client\\Money\\": "Bundles/Money/tests",
                     "Unit\\Spryker\\Shared\\Money\\": "Bundles/Money/tests",
                     "Unit\\Spryker\\Yves\\Money\\": "Bundles/Money/tests",
                     "Unit\\Spryker\\Zed\\Money\\": "Bundles/Money/tests",
@@ -1819,7 +1820,7 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.8.12",
+            "version": "v2.8.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -1991,16 +1992,16 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.12",
+            "version": "v2.8.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "889983a79a043dfda68f38c38b6dba092dd49cd8"
+                "reference": "25c576abd4e0f212e678fe8b2bd9a9a98c7ea934"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/889983a79a043dfda68f38c38b6dba092dd49cd8",
-                "reference": "889983a79a043dfda68f38c38b6dba092dd49cd8",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/25c576abd4e0f212e678fe8b2bd9a9a98c7ea934",
+                "reference": "25c576abd4e0f212e678fe8b2bd9a9a98c7ea934",
                 "shasum": ""
             },
             "require": {
@@ -2047,7 +2048,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-28 16:56:28"
+            "time": "2016-10-13 01:43:15"
         },
         {
             "name": "symfony/filesystem",
@@ -2349,7 +2350,7 @@
         },
         {
             "name": "symfony/intl",
-            "version": "v2.8.12",
+            "version": "v2.8.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/intl.git",
@@ -4205,16 +4206,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.5.4",
+            "version": "1.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "ea74994a3dc7f8d2f65a06009348f2d63c81e61f"
+                "reference": "399c1f9781e222f6eb6cc238796f5200d1b7f108"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/ea74994a3dc7f8d2f65a06009348f2d63c81e61f",
-                "reference": "ea74994a3dc7f8d2f65a06009348f2d63c81e61f",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/399c1f9781e222f6eb6cc238796f5200d1b7f108",
+                "reference": "399c1f9781e222f6eb6cc238796f5200d1b7f108",
                 "shasum": ""
             },
             "require": {
@@ -4243,7 +4244,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2016-09-16 13:37:59"
+            "time": "2016-10-31 17:19:45"
         },
         {
             "name": "pdepend/pdepend",
@@ -5932,16 +5933,16 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.6.6",
+            "version": "0.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "cd4bea48db6f99b3d13eefe3afbe256528c23c97"
+                "reference": "af8c442f30d136197414f446e753937dee8fb556"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/cd4bea48db6f99b3d13eefe3afbe256528c23c97",
-                "reference": "cd4bea48db6f99b3d13eefe3afbe256528c23c97",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/af8c442f30d136197414f446e753937dee8fb556",
+                "reference": "af8c442f30d136197414f446e753937dee8fb556",
                 "shasum": ""
             },
             "require": {
@@ -5975,7 +5976,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-10-21 09:32:31"
+            "time": "2016-10-31 09:09:05"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -6057,7 +6058,7 @@
         },
         {
             "name": "symfony/browser-kit",
-            "version": "v3.1.5",
+            "version": "v3.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
@@ -6114,7 +6115,7 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v3.1.5",
+            "version": "v3.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -6167,16 +6168,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v3.1.5",
+            "version": "v3.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "8fa4be9a36f41e49b0c3969678c41c81ed463816"
+                "reference": "c578891216090069cd6d2e573402e13e39b3ad5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/8fa4be9a36f41e49b0c3969678c41c81ed463816",
-                "reference": "8fa4be9a36f41e49b0c3969678c41c81ed463816",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/c578891216090069cd6d2e573402e13e39b3ad5c",
+                "reference": "c578891216090069cd6d2e573402e13e39b3ad5c",
                 "shasum": ""
             },
             "require": {
@@ -6223,20 +6224,20 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2016-09-24 15:56:48"
+            "time": "2016-10-24 15:52:44"
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v3.1.5",
+            "version": "v3.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "bb7395e8b1db3654de82b9f35d019958276de4d7"
+                "reference": "59eee3c76eb89f21857798620ebdad7a05ad14f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/bb7395e8b1db3654de82b9f35d019958276de4d7",
-                "reference": "bb7395e8b1db3654de82b9f35d019958276de4d7",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/59eee3c76eb89f21857798620ebdad7a05ad14f4",
+                "reference": "59eee3c76eb89f21857798620ebdad7a05ad14f4",
                 "shasum": ""
             },
             "require": {
@@ -6279,7 +6280,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2016-08-05 08:37:39"
+            "time": "2016-10-18 15:46:07"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -6342,7 +6343,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v2.8.12",
+            "version": "v2.8.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
