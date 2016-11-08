@@ -1212,7 +1212,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "2142ee26a93d8b333219bb063b59e0459f105ea0"
+                "reference": "bfbf5044a1b3f77749bb22e8f2c4a37214e760f3"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1723,7 +1723,31 @@
                     "Spryker\\Shared\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/src",
                     "Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/src",
                     "Unit\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests",
-                    "Functional\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests"
+                    "Functional\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests",
+                    "Spryker\\Yves\\UtilText\\": "Bundles/UtilText/src",
+                    "Acceptance\\UtilText\\": "Bundles/UtilText/tests",
+                    "Spryker\\Shared\\UtilText\\": "Bundles/UtilText/src",
+                    "Unit\\Spryker\\Shared\\UtilText\\": "Bundles/UtilText/tests",
+                    "Functional\\Spryker\\Shared\\UtilText\\": "Bundles/UtilText/tests",
+                    "Spryker\\Zed\\UtilText\\": "Bundles/UtilText/src",
+                    "Unit\\Spryker\\Zed\\UtilText\\": "Bundles/UtilText/tests",
+                    "Functional\\Spryker\\Zed\\UtilText\\": "Bundles/UtilText/tests",
+                    "Spryker\\Yves\\UtilSanitize\\": "Bundles/UtilSanitize/src",
+                    "Acceptance\\UtilSanitize\\": "Bundles/UtilSanitize/tests",
+                    "Spryker\\Shared\\UtilSanitize\\": "Bundles/UtilSanitize/src",
+                    "Unit\\Spryker\\Shared\\UtilSanitize\\": "Bundles/UtilSanitize/tests",
+                    "Functional\\Spryker\\Shared\\UtilSanitize\\": "Bundles/UtilSanitize/tests",
+                    "Spryker\\Zed\\UtilSanitize\\": "Bundles/UtilSanitize/src",
+                    "Unit\\Spryker\\Zed\\UtilSanitize\\": "Bundles/UtilSanitize/tests",
+                    "Functional\\Spryker\\Zed\\UtilSanitize\\": "Bundles/UtilSanitize/tests",
+                    "Spryker\\Yves\\UtilNetwork\\": "Bundles/UtilNetwork/src",
+                    "Acceptance\\UtilNetwork\\": "Bundles/UtilNetwork/tests",
+                    "Spryker\\Shared\\UtilNetwork\\": "Bundles/UtilNetwork/src",
+                    "Unit\\Spryker\\Shared\\UtilNetwork\\": "Bundles/UtilNetwork/tests",
+                    "Functional\\Spryker\\Shared\\UtilNetwork\\": "Bundles/UtilNetwork/tests",
+                    "Spryker\\Zed\\UtilNetwork\\": "Bundles/UtilNetwork/src",
+                    "Unit\\Spryker\\Zed\\UtilNetwork\\": "Bundles/UtilNetwork/tests",
+                    "Functional\\Spryker\\Zed\\UtilNetwork\\": "Bundles/UtilNetwork/tests"
                 },
                 "psr-4": {
                     "Application\\Module\\": "Bundles/Application/tests/_support/Module",
@@ -1745,7 +1769,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-11-03 10:18:06"
+            "time": "2016-11-08 11:04:45"
         },
         {
             "name": "symfony-cmf/routing",
