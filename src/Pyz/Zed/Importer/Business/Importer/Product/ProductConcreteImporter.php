@@ -9,10 +9,10 @@ namespace Pyz\Zed\Importer\Business\Importer\Product;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
-use Generated\Shared\Transfer\ProductAbstractTransfer;
-use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
+use Generated\Shared\Transfer\ProductConcreteTransfer;
+use Orm\Zed\Product\Persistence\SpyProductQuery;
 
-class ProductAbstractImporter extends AbstractProductImporter
+class ProductConcreteImporter extends AbstractProductImporter
 {
 
     /**
@@ -20,7 +20,7 @@ class ProductAbstractImporter extends AbstractProductImporter
      */
     public function getTitle()
     {
-        return 'Product Abstract';
+        return 'Product Concrete';
     }
 
     /**
@@ -28,7 +28,7 @@ class ProductAbstractImporter extends AbstractProductImporter
      */
     public function isImported()
     {
-        $query = SpyProductAbstractQuery::create();
+        $query = SpyProductQuery::create();
 
         return $query->count() > 0;
     }
@@ -44,37 +44,37 @@ class ProductAbstractImporter extends AbstractProductImporter
             return;
         }
 
-        $productAbstractTransfer = $this->buildProductAbstractTransfer($data);
-
-        $idProductAbstract = $this->productFacade->createProductAbstract($productAbstractTransfer);
-
-        $this->productFacade->touchProductActive($idProductAbstract);
-        $this->productFacade->createProductUrl($productAbstractTransfer);
+        $productConcreteTransfer = $this->buildProductConcreteTransfer($data);
+        $idProductConcrete = $this->productFacade->createProductConcrete($productConcreteTransfer);
+        $this->productFacade->touchProductConcreteActive($idProductConcrete);
     }
 
     /**
      * @param array $data
      *
-     * @return \Generated\Shared\Transfer\ProductAbstractTransfer
+     * @return \Generated\Shared\Transfer\ProductConcreteTransfer
      */
-    protected function buildProductAbstractTransfer(array $data)
+    protected function buildProductConcreteTransfer(array $data)
     {
-        $productAbstractTransfer = new ProductAbstractTransfer();
-        $productAbstractTransfer
-            ->setSku($data['abstract_sku'])
+        $abstractProduct = $this->productFacade->findProductAbstractIdBySku($data['abstract_sku']);
+
+        $productConcreteTransfer = new ProductConcreteTransfer();
+        $productConcreteTransfer
+            ->setSku($data['concrete_sku'])
+            ->setFkProductAbstract($abstractProduct)
             ->setAttributes($this->getAttributes($data))
-            ->setIsFeatured($data['is_featured']);
+            ->setIsActive(true);
 
         foreach ($this->localeFacade->getLocaleCollection() as $localeTransfer) {
             $localizedAttributesTransfer = $this->buildLocalizedAttributesTransfer($data, $localeTransfer);
 
-            $productAbstractTransfer->addLocalizedAttributes($localizedAttributesTransfer);
+            $productConcreteTransfer->addLocalizedAttributes($localizedAttributesTransfer);
         }
 
         $imageSets = $this->buildProductImageSets($data);
-        $productAbstractTransfer->setImageSets(new \ArrayObject($imageSets));
+        $productConcreteTransfer->setImageSets(new \ArrayObject($imageSets));
 
-        return $productAbstractTransfer;
+        return $productConcreteTransfer;
     }
 
     /**
@@ -91,23 +91,9 @@ class ProductAbstractImporter extends AbstractProductImporter
         $localizedAttributesTransfer
             ->setLocale($localeTransfer)
             ->setName($this->getProductName($data, $localeTransfer->getLocaleName()))
-            ->setAttributes($localizedAttributesData)
-            ->setDescription($data[$this->getLocalizedKeyName('description', $localeTransfer->getLocaleName())]);
+            ->setAttributes($localizedAttributesData);
 
         return $localizedAttributesTransfer;
-    }
-
-    /**
-     * @param array $data
-     * @param string $localeCode
-     *
-     * @return string
-     */
-    protected function getProductName(array $data, $localeCode)
-    {
-        $localizedKeyName = $this->getLocalizedKeyName('name', $localeCode);
-
-        return $data[$localizedKeyName];
     }
 
 }

@@ -5,12 +5,12 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Zed\Importer\Business\Installer\Category;
+namespace Pyz\Zed\Importer\Business\Installer\Product;
 
 use Pyz\Zed\Importer\Business\Installer\AbstractInstaller;
 use Spryker\Shared\Library\BatchIterator\CsvBatchIterator;
 
-class CategoryInstaller extends AbstractInstaller
+class ProductPriceInstaller extends AbstractInstaller
 {
 
     /**
@@ -26,7 +26,7 @@ class CategoryInstaller extends AbstractInstaller
      */
     protected function getCsvDataFilename()
     {
-        return $this->dataDirectory . '/categories.csv';
+        return $this->dataDirectory . 'prices.csv';
     }
 
     /**
@@ -34,7 +34,7 @@ class CategoryInstaller extends AbstractInstaller
      */
     public function getTitle()
     {
-        return 'Categories';
+        return 'Product Price';
     }
 
 }

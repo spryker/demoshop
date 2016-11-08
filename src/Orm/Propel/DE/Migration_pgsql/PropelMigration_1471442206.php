@@ -193,6 +193,9 @@ ALTER TABLE "spy_product_management_attribute_value_translation" ADD CONSTRAINT 
     FOREIGN KEY ("fk_product_management_attribute_value")
     REFERENCES "spy_product_management_attribute_value" ("id_product_management_attribute_value");
     
+ALTER TABLE "spy_product_abstract"
+
+  ADD "is_featured" BOOLEAN DEFAULT \'f\';
     
 ',
 );
@@ -351,6 +354,9 @@ ALTER TABLE "spy_product_attributes_metadata" ADD CONSTRAINT "spy_product_attrib
     FOREIGN KEY ("fk_type")
     REFERENCES "spy_product_attribute_type" ("id_product_attribute_type");
     
+ALTER TABLE "spy_product_abstract"
+
+  DROP COLUMN "is_featured";
     
 ',
 );

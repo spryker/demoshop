@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\ProductSearch\Business\Map;
 
-use Generated\Shared\Search\PageIndexMap;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
 use Generated\Shared\Transfer\RawProductAttributesTransfer;
@@ -92,7 +91,8 @@ class ProductDataPageMapBuilder
     {
         $pageMapTransfer = (new PageMapTransfer())
             ->setStore(Store::getInstance()->getStoreName())
-            ->setLocale($localeTransfer->getLocaleName());
+            ->setLocale($localeTransfer->getLocaleName())
+            ->setIsFeatured($productData['is_featured'] == 'true');
 
         $attributes = $this->getProductAttributes($productData);
         $price = $this->getPriceBySku($productData['abstract_sku']);
@@ -118,8 +118,6 @@ class ProductDataPageMapBuilder
             ->addIntegerFacet($pageMapTransfer, 'price', $price);
 
         $this->setCategories($pageMapBuilder, $pageMapTransfer, $productData, $localeTransfer);
-
-        $pageMapTransfer = $this->setIsFeatured($pageMapTransfer, $attributes);
 
         /*
          * We'll then extend this with dynamically configured product attributes from database
@@ -194,8 +192,13 @@ class ProductDataPageMapBuilder
 
         $allParentCategories = [];
         foreach ($directParentCategories as $idCategory) {
-            $allParentCategories[] = $this->getAllParentCategories($idCategory, $locale->getIdLocale());
+            $allParentCategories = array_merge(
+                $allParentCategories,
+                $this->getAllParentCategories($idCategory, $locale->getIdLocale())
+            );
         }
+
+        $allParentCategories = array_values(array_unique($allParentCategories));
 
         $pageMapBuilder->addCategory($pageMapTransfer, $allParentCategories, $directParentCategories);
     }
@@ -204,7 +207,7 @@ class ProductDataPageMapBuilder
      * @param int $idCategory
      * @param int $idLocale
      *
-     * @return mixed
+     * @return array
      */
     protected function getAllParentCategories($idCategory, $idLocale)
     {
@@ -242,21 +245,6 @@ class ProductDataPageMapBuilder
                 }
             }
         }
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\PageMapTransfer $pageMapTransfer
-     * @param array $attributes
-     *
-     * @return \Generated\Shared\Transfer\PageMapTransfer
-     */
-    protected function setIsFeatured(PageMapTransfer $pageMapTransfer, array $attributes)
-    {
-        $isFeatured = array_key_exists(PageIndexMap::IS_FEATURED, $attributes) ? (bool)$attributes[PageIndexMap::IS_FEATURED] : false;
-
-        $pageMapTransfer->setIsFeatured($isFeatured);
-
-        return $pageMapTransfer;
     }
 
     /**

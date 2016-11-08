@@ -18,16 +18,10 @@ use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Touch\Business\TouchFacadeInterface;
-use Spryker\Zed\Url\Business\UrlFacadeInterface;
 use UnexpectedValueException;
 
 class CategoryImporter extends AbstractImporter
 {
-
-    const PARENT_KEY = 'parentKey';
-    const UCATID = 'ucatid';
-    const LOW_PIC = 'low_pic';
-    const ORDER = 'order';
 
     /**
      * @var \Pyz\Zed\Category\Business\CategoryFacadeInterface
@@ -45,11 +39,6 @@ class CategoryImporter extends AbstractImporter
     protected $touchFacade;
 
     /**
-     * @var \Spryker\Zed\Url\Business\UrlFacadeInterface
-     */
-    protected $urlFacade;
-
-    /**
      * @var \Pyz\Zed\Category\Business\Manager\NodeUrlManagerInterface
      */
     protected $nodeUrlManager;
@@ -58,22 +47,21 @@ class CategoryImporter extends AbstractImporter
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Pyz\Zed\Category\Business\CategoryFacadeInterface $categoryFacade
      * @param \Spryker\Zed\Touch\Business\TouchFacadeInterface $touchFacade
-     * @param \Spryker\Zed\Url\Business\UrlFacadeInterface $urlFacade
      * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
+     * @param \Pyz\Zed\Category\Business\Manager\NodeUrlManagerInterface $nodeUrlManager
      */
     public function __construct(
         LocaleFacadeInterface $localeFacade,
         CategoryFacadeInterface $categoryFacade,
         TouchFacadeInterface $touchFacade,
-        UrlFacadeInterface $urlFacade,
         CategoryQueryContainerInterface $categoryQueryContainer,
         NodeUrlManagerInterface $nodeUrlManager
     ) {
         parent::__construct($localeFacade);
+
         $this->localeFacade = $localeFacade;
         $this->categoryFacade = $categoryFacade;
         $this->touchFacade = $touchFacade;
-        $this->urlFacade = $urlFacade;
         $this->categoryQueryContainer = $categoryQueryContainer;
         $this->nodeUrlManager = $nodeUrlManager;
     }
@@ -91,9 +79,9 @@ class CategoryImporter extends AbstractImporter
      */
     public function isImported()
     {
-        $query = SpyCategoryNodeQuery::create();
-        $query->filterByIsRoot(false);
-        $query->filterByIsMain(true);
+        $query = SpyCategoryNodeQuery::create()
+            ->filterByIsRoot(false)
+            ->filterByIsMain(true);
 
         return $query->count() > 0;
     }
@@ -105,8 +93,12 @@ class CategoryImporter extends AbstractImporter
      */
     protected function importOne(array $data)
     {
+        if (!$data) {
+            return;
+        }
+
         $category = $this->format($data);
-        $this->importCategory($category, $data[self::ORDER]);
+        $this->importCategory($category, $data['order']);
     }
 
     /**
@@ -118,18 +110,14 @@ class CategoryImporter extends AbstractImporter
     {
         $categoryData = [];
         foreach ($this->localeFacade->getLocaleCollection() as $code => $localeTransfer) {
-            $nameKey = 'category_name.' . $code;
-            $descriptionKey = 'category_description.' . $code;
-            $imageKey = self::LOW_PIC . '.' . $code;
+            $nameKey = 'name.' . $code;
 
             $categoryData[$code] = [
                 CategoryTransfer::NAME => $data[$nameKey],
-                CategoryTransfer::CATEGORY_KEY => $data[self::UCATID],
-                CategoryTransfer::CATEGORY_IMAGE_NAME => $data[$imageKey],
+                CategoryTransfer::CATEGORY_KEY => $data['category_key'],
                 CategoryTransfer::IS_ACTIVE => true,
                 CategoryTransfer::IS_CLICKABLE => true,
                 CategoryTransfer::IS_IN_MENU => true,
-                CategoryTransfer::META_DESCRIPTION => $data[$descriptionKey],
                 CategoryTransfer::META_TITLE => $data[$nameKey],
             ];
         }
@@ -141,7 +129,7 @@ class CategoryImporter extends AbstractImporter
      * Do not set FkParentCategoryNode here, it will be done by CategoryHierarchy importer
      * otherwise it's hard to tell if the hierarchy importer has run or not.
      *
-     * @see \Pyz\Zed\Installer\Business\Importer\Category\CategoryHierarchyImporter::isImported()
+     * @see \Pyz\Zed\Importer\Business\Importer\Category\CategoryImporter::importOne()
      *
      * @param array $data
      * @param int $order

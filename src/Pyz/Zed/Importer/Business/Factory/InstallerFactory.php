@@ -15,9 +15,12 @@ use Pyz\Zed\Importer\Business\Installer\Cms\CmsPageInstaller;
 use Pyz\Zed\Importer\Business\Installer\Discount\DiscountInstaller;
 use Pyz\Zed\Importer\Business\Installer\Glossary\GlossaryInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductManagement\ProductManagementAttributeInstaller;
+use Pyz\Zed\Importer\Business\Installer\Product\ProductAbstractInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductAttributeKeyInstaller;
-use Pyz\Zed\Importer\Business\Installer\Product\ProductInstaller;
+use Pyz\Zed\Importer\Business\Installer\Product\ProductConcreteInstaller;
+use Pyz\Zed\Importer\Business\Installer\Product\ProductPriceInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductSearchInstaller;
+use Pyz\Zed\Importer\Business\Installer\Product\ProductStockInstaller;
 use Pyz\Zed\Importer\Business\Installer\Shipment\ShipmentInstaller;
 use Pyz\Zed\Importer\Business\Installer\Tax\TaxInstaller;
 use Pyz\Zed\Importer\ImporterConfig;
@@ -76,16 +79,55 @@ class InstallerFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Zed\Importer\Business\Installer\Product\ProductInstaller
+     * @return \Pyz\Zed\Importer\Business\Installer\Product\ProductAbstractInstaller
      */
-    public function createProductInstaller()
+    public function createProductAbstractInstaller()
     {
-        $productInstaller = new ProductInstaller(
-            $this->getImporterProductCollection(),
+        $productInstaller = new ProductAbstractInstaller(
+            $this->getImporterProductAbstractCollection(),
             $this->getConfig()->getIcecatImportDataDirectory()
         );
 
         return $productInstaller;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\Product\ProductConcreteInstaller
+     */
+    public function createProductConcreteInstaller()
+    {
+        $productInstaller = new ProductConcreteInstaller(
+            $this->getImporterProductConcreteCollection(),
+            $this->getConfig()->getIcecatImportDataDirectory()
+        );
+
+        return $productInstaller;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\Product\ProductPriceInstaller
+     */
+    public function createProductPriceInstaller()
+    {
+        $productPriceInstaller = new ProductPriceInstaller(
+            $this->getImporterProductPriceCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+
+        return $productPriceInstaller;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\Product\ProductStockInstaller
+     */
+    public function createProductStockInstaller()
+    {
+        $productStockInstaller = new ProductStockInstaller(
+            $this->getImporterProductStockCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+
+        return $productStockInstaller;
     }
 
     /**
@@ -95,7 +137,7 @@ class InstallerFactory extends AbstractFactory
     {
         $productInstaller = new ProductAttributeKeyInstaller(
             $this->getImporterProductAttributeKeyCollection(),
-            $this->getConfig()->getIcecatImportDataDirectory()
+            $this->getConfig()->getImportDataDirectory()
         );
 
         return $productInstaller;
@@ -128,16 +170,16 @@ class InstallerFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Zed\Importer\Business\Installer\Glossary\GlossaryInstaller
+     * @return \Pyz\Zed\Importer\Business\Installer\Discount\DiscountInstaller
      */
     public function createDiscountInstaller()
     {
-        $glossaryInstaller = new DiscountInstaller(
+        $discountInstaller = new DiscountInstaller(
             $this->getDiscountImporterCollection(),
             $this->getConfig()->getImportDataDirectory()
         );
 
-        return $glossaryInstaller;
+        return $discountInstaller;
     }
 
     /**
@@ -244,13 +286,42 @@ class InstallerFactory extends AbstractFactory
     /**
      * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
      */
-    public function getImporterProductCollection()
+    public function getImporterProductAbstractCollection()
     {
         return [
-            ImporterConfig::RESOURCE_PRODUCT => $this->createImporterFactory()->createProductAbstractImporter(),
+            ImporterConfig::RESOURCE_PRODUCT_ABSTRACT => $this->createImporterFactory()->createProductAbstractImporter(),
             ImporterConfig::RESOURCE_PRODUCT_CATEGORY => $this->createImporterFactory()->createProductCategoryImporter(),
-            ImporterConfig::RESOURCE_PRODUCT_STOCK => $this->createImporterFactory()->createProductStockImporter(),
+            ImporterConfig::RESOURCE_PRODUCT_TAX => $this->createImporterFactory()->createProductTaxImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
+     */
+    public function getImporterProductConcreteCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_PRODUCT_ABSTRACT => $this->createImporterFactory()->createProductConcreteImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
+     */
+    public function getImporterProductPriceCollection()
+    {
+        return [
             ImporterConfig::RESOURCE_PRODUCT_PRICE => $this->createImporterFactory()->createProductPriceImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
+     */
+    public function getImporterProductStockCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_PRODUCT_STOCK => $this->createImporterFactory()->createProductStockImporter(),
         ];
     }
 

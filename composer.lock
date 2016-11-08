@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "58551072905a648cac53d2a296d80a99",
-    "content-hash": "bf509e8f163f90056b1315584e027086",
+    "hash": "68218784b215c4970266dafe1e2206e2",
+    "content-hash": "d8a687ee876f592cbb6bff4c4ff80514",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -524,16 +524,16 @@
         },
         {
             "name": "mathiasverraes/money",
-            "version": "v3.0.0-beta.3",
+            "version": "v3.0.0-beta4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "89d537b36b5ddb3e3487e600b4bb7c26fd3f81ab"
+                "reference": "5e10cc29c8358688bfe6ace341e45d0a2f974851"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/89d537b36b5ddb3e3487e600b4bb7c26fd3f81ab",
-                "reference": "89d537b36b5ddb3e3487e600b4bb7c26fd3f81ab",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/5e10cc29c8358688bfe6ace341e45d0a2f974851",
+                "reference": "5e10cc29c8358688bfe6ace341e45d0a2f974851",
                 "shasum": ""
             },
             "require": {
@@ -541,16 +541,18 @@
             },
             "require-dev": {
                 "cache/taggable-cache": "^0.4.0",
-                "coduo/phpspec-data-provider-extension": "^1.0.3",
                 "ext-bcmath": "*",
                 "ext-gmp": "*",
                 "ext-intl": "*",
-                "florianv/swap": "^2.3",
+                "florianv/swap": "^3.0",
                 "henrikbjorn/phpspec-code-coverage": "^2.0.2",
-                "moneyphp/iso-currencies": "dev-master",
+                "moneyphp/iso-currencies": "~1.0.0",
+                "php-http/message": "^1.4",
+                "php-http/mock-client": "^0.3.3",
                 "phpspec/phpspec": "^2.5",
                 "phpunit/phpunit": "^4.5",
-                "psr/cache": "^1.0"
+                "psr/cache": "^1.0",
+                "sllh/php-cs-fixer-styleci-bridge": "^2.1"
             },
             "suggest": {
                 "ext-bcmath": "Calculate without integer limits",
@@ -597,7 +599,7 @@
                 "vo"
             ],
             "abandoned": "moneyphp/money",
-            "time": "2016-10-04 10:57:47"
+            "time": "2016-10-21 11:32:24"
         },
         {
             "name": "monolog/monolog",
@@ -1206,11 +1208,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-635-wishlist",
+            "version": "dev-feature/pim",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "f3e2d853573e6912b6d48fa34ae16c513889b359"
+                "reference": "910699782dd3922cdd32ce3ffec14158485e371f"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1756,7 +1758,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-11-03 16:45:19"
+            "time": "2016-11-07 13:25:12"
         },
         {
             "name": "symfony-cmf/routing",
@@ -5930,16 +5932,16 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.6.5",
+            "version": "0.6.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "957041a7cd96bf16425b161dad3e350be47e5281"
+                "reference": "cd4bea48db6f99b3d13eefe3afbe256528c23c97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/957041a7cd96bf16425b161dad3e350be47e5281",
-                "reference": "957041a7cd96bf16425b161dad3e350be47e5281",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/cd4bea48db6f99b3d13eefe3afbe256528c23c97",
+                "reference": "cd4bea48db6f99b3d13eefe3afbe256528c23c97",
                 "shasum": ""
             },
             "require": {
@@ -5973,7 +5975,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-09-06 10:05:37"
+            "time": "2016-10-21 09:32:31"
         },
         {
             "name": "squizlabs/php_codesniffer",

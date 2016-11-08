@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\Product;
 
-use Generated\Shared\Search\PageIndexMap;
 use Orm\Zed\ProductSearch\Persistence\Base\SpyProductSearchAttributeMapQuery;
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
 use Orm\Zed\Product\Persistence\SpyProductAttributeKeyQuery;
@@ -53,6 +52,7 @@ class ProductSearchImporter extends AbstractImporter
     public function isImported()
     {
         $query = SpyProductSearchQuery::create();
+
         return $query->count() > 0;
     }
 
@@ -68,50 +68,15 @@ class ProductSearchImporter extends AbstractImporter
     }
 
     /**
-     * @param string|int $variant
-     *
-     * @return bool
-     */
-    protected function hasVariants($variant)
-    {
-        return (int)$variant > 1;
-    }
-
-    /**
-     * @param array $data
-     *
-     * @return array
-     */
-    protected function format(array $data)
-    {
-        return $data;
-    }
-
-    /**
      * @return array
      */
     protected function getMappings()
     {
-        /*
-         * This is the default configuration for product search attributes (spy_product_search_attribute_mapping table).
-         * You can add addition attributes here with the format of: [attribute_name => [target_field_name1, ...], ...].
-         */
         return [
-            'sku' => [
-                PageIndexMap::FULL_TEXT_BOOSTED,
-                PageIndexMap::SUGGESTION_TERMS,
-                PageIndexMap::COMPLETION_TERMS,
-            ],
-            'short_description' => [
-                PageIndexMap::FULL_TEXT_BOOSTED,
-                PageIndexMap::SUGGESTION_TERMS,
-                PageIndexMap::COMPLETION_TERMS,
-            ],
-            'long_description' => [
-                PageIndexMap::FULL_TEXT,
-                PageIndexMap::SUGGESTION_TERMS,
-                PageIndexMap::COMPLETION_TERMS,
-            ],
+            /*
+             * This is the default configuration for product search attributes (spy_product_search_attribute_mapping table).
+             * You can add addition attributes here with the format of: [attribute_name => [target_field_name1, ...], ...].
+             */
         ];
     }
 
