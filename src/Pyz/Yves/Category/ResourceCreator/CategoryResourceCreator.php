@@ -10,25 +10,11 @@ namespace Pyz\Yves\Category\ResourceCreator;
 use Pyz\Yves\Collector\Creator\AbstractResourceCreator;
 use Silex\Application;
 use Spryker\Shared\Category\CategoryConstants;
-use Spryker\Shared\Kernel\LocatorLocatorInterface;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
 
 class CategoryResourceCreator extends AbstractResourceCreator
 {
-
-    /**
-     * @var \Spryker\Shared\Kernel\LocatorLocatorInterface
-     */
-    protected $locator;
-
-    /**
-     * @param \Spryker\Shared\Kernel\LocatorLocatorInterface $locator
-     */
-    public function __construct(LocatorLocatorInterface $locator)
-    {
-        $this->locator = $locator;
-    }
 
     /**
      * @return string
