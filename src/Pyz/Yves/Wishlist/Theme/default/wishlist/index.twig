@@ -49,6 +49,13 @@
                                                     </button>
                                                 </div>
                                             </form>
+                                            <form class="row align-bottom" method="GET" action="{{ item.product.url }}">
+                                                <div class="small-12 columns">
+                                                    <button type="submit" class="button warning">
+                                                        <i class="fa fa-view"></i>{{ 'customer.account.wishlist.view_in_shop' | trans }}
+                                                    </button>
+                                                </div>
+                                            </form>
                                         </td>
                                     </tr>
                                     {% endif %}

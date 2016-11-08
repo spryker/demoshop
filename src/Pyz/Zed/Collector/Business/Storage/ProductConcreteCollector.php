@@ -41,6 +41,7 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
     const META_KEYWORDS = 'meta_keywords';
     const META_TITLE = 'meta_title';
     const META_DESCRIPTION = 'meta_description';
+    const URL = 'url';
 
     /**
      * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
@@ -110,7 +111,22 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
             StorageProductTransfer::META_KEYWORDS => $collectItemData[self::META_KEYWORDS],
             StorageProductTransfer::META_DESCRIPTION => $collectItemData[self::META_DESCRIPTION],
             StorageProductTransfer::SUPER_ATTRIBUTES => $this->getSuperAttributes(),
+            StorageProductTransfer::URL => $this->getProductConcreteUrl($collectItemData),
         ];
+    }
+
+    /**
+     * @param array $data
+     *
+     * @return string
+     */
+    protected function getProductConcreteUrl(array $data)
+    {
+        $abstractUrl = $data[self::URL];
+        $superAttributeKeys = $this->getSuperAttributes();
+        $attributes = $data[self::ATTRIBUTES];
+
+        return $abstractUrl;
     }
 
     /**
