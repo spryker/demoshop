@@ -62,7 +62,6 @@ class PaymentStepTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($paymentStep->postCondition($quoteTransfer));
     }
 
-
     /**
      * @return void
      */
@@ -100,7 +99,7 @@ class PaymentStepTest extends PHPUnit_Framework_TestCase
      */
     protected function createPaymentPluginMock()
     {
-        return $this->getMock(StepHandlerPluginInterface::class);
+        return $this->getMockBuilder(StepHandlerPluginInterface::class)->getMock();
     }
 
     /**
@@ -108,7 +107,7 @@ class PaymentStepTest extends PHPUnit_Framework_TestCase
      */
     protected function getFlashMessengerMock()
     {
-        return $this->getMock(FlashMessengerInterface::class);
+        return $this->getMockBuilder(FlashMessengerInterface::class)->getMock();
     }
 
 }

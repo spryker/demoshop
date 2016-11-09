@@ -92,8 +92,6 @@ class CartVoucherHandler extends BaseHandler
         $this->cartClient->storeQuote($quoteTransfer);
     }
 
-
-
     /**
      * @param string $voucherCode
      * @param \ArrayObject|\Generated\Shared\Transfer\DiscountTransfer[] $voucherDiscounts

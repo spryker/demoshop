@@ -35,7 +35,6 @@ class DiscountImporter extends AbstractImporter
         $this->discountFacade = $discountFacade;
     }
 
-
     /**
      * @param array $discount
      *

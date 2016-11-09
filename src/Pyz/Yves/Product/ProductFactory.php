@@ -24,8 +24,7 @@ class ProductFactory extends AbstractFactory
     public function createProductResourceCreator()
     {
         return new ProductResourceCreator(
-            $this->createFrontendProductBuilder(),
-            $this->getLocator()
+            $this->createFrontendProductBuilder()
         );
     }
 

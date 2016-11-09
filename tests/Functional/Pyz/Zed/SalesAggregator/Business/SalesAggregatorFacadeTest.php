@@ -248,7 +248,6 @@ class SalesAggregatorFacadeTest extends Test
         $this->assertSame(1060, $itemTransfer->getRefundableAmount());
     }
 
-
     /**
      * @param bool $createDiscounts
      *
@@ -374,7 +373,6 @@ class SalesAggregatorFacadeTest extends Test
 
         return $salesOrderEntity;
     }
-
 
     /**
      * @return \Spryker\Zed\SalesAggregator\Business\SalesAggregatorFacade
