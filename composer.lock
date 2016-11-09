@@ -596,6 +596,7 @@
                 "money",
                 "vo"
             ],
+            "abandoned": "moneyphp/money",
             "time": "2016-08-03 12:59:54"
         },
         {
@@ -1200,7 +1201,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "9dc4228618bf8f580f43ca433d07d2fdeacf6ac4"
+                "reference": "d8fc4ad3619ab2bc33149bfa74132a4ccfe0017f"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1714,7 +1715,7 @@
                     "Braintree\\Module\\": "Bundles/Braintree/tests/_support/Module",
                     "Config\\Module\\": "Bundles/Config/tests/_support/Module",
                     "Customer\\Module\\": "Bundles/Customer/tests/_support/Module",
-                    "ErroHandler\\Module\\": "Bundles/ErrorHandler/tests/_support/Module",
+                    "ErrorHandler\\Module\\": "Bundles/ErrorHandler/tests/_support/Module",
                     "Oms\\Module\\": "Bundles/Oms/tests/_support/Module",
                     "Propel\\Module\\": "Bundles/Propel/tests/_support/Module",
                     "Sales\\Module\\": "Bundles/Sales/tests/_support/Module",
@@ -1729,7 +1730,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-09-21 12:16:10"
+            "time": "2016-11-09 15:13:27"
         },
         {
             "name": "symfony-cmf/routing",
