@@ -98,7 +98,7 @@ class SuccessStepTest extends PHPUnit_Framework_TestCase
      */
     protected function createCustomerClientMock()
     {
-        return $this->getMock(CustomerClientInterface::class);
+        return $this->getMockBuilder(CustomerClientInterface::class)->getMock();
     }
 
 }

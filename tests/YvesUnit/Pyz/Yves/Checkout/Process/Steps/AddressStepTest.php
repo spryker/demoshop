@@ -184,7 +184,11 @@ class AddressStepTest extends PHPUnit_Framework_TestCase
             $customerClientMock = $this->createCustomerClientMock();
         }
 
-        $addressStepMock = $this->getMock(AddressStep::class, ['getDataClass'], [$customerClientMock, 'address_step', 'escape_route']);
+        $addressStepMock = $this->getMockBuilder(AddressStep::class)
+            ->setMethods(['getDataClass'])
+            ->setConstructorArgs([$customerClientMock, 'address_step', 'escape_route'])
+            ->getMock();
+
         $addressStepMock->method('getDataClass')->willReturn(new QuoteTransfer());
 
         return $addressStepMock;
@@ -203,7 +207,7 @@ class AddressStepTest extends PHPUnit_Framework_TestCase
      */
     protected function createCustomerClientMock()
     {
-        return $this->getMock(CustomerClientInterface::class);
+        return $this->getMockBuilder(CustomerClientInterface::class)->getMock();
     }
 
 }
