@@ -523,17 +523,17 @@
             "time": "2015-09-22 13:58:03"
         },
         {
-            "name": "mathiasverraes/money",
-            "version": "v3.0.0-beta.2",
+            "name": "moneyphp/money",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "2a229150e3371607a3adc5fe4d3d80608e16aaaa"
+                "reference": "ffd114125b7ed474201e67fe060ea605debfb66e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/2a229150e3371607a3adc5fe4d3d80608e16aaaa",
-                "reference": "2a229150e3371607a3adc5fe4d3d80608e16aaaa",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/ffd114125b7ed474201e67fe060ea605debfb66e",
+                "reference": "ffd114125b7ed474201e67fe060ea605debfb66e",
                 "shasum": ""
             },
             "require": {
@@ -541,16 +541,18 @@
             },
             "require-dev": {
                 "cache/taggable-cache": "^0.4.0",
-                "coduo/phpspec-data-provider-extension": "^1.0.3",
                 "ext-bcmath": "*",
                 "ext-gmp": "*",
                 "ext-intl": "*",
-                "florianv/swap": "^2.3",
+                "florianv/swap": "^3.0",
                 "henrikbjorn/phpspec-code-coverage": "^2.0.2",
-                "moneyphp/iso-currencies": "dev-master",
+                "moneyphp/iso-currencies": "^1.0",
+                "php-http/message": "^1.4",
+                "php-http/mock-client": "^0.3.3",
                 "phpspec/phpspec": "^2.5",
                 "phpunit/phpunit": "^4.5",
-                "psr/cache": "^1.0"
+                "psr/cache": "^1.0",
+                "sllh/php-cs-fixer-styleci-bridge": "^2.1"
             },
             "suggest": {
                 "ext-bcmath": "Calculate without integer limits",
@@ -596,8 +598,7 @@
                 "money",
                 "vo"
             ],
-            "abandoned": "moneyphp/money",
-            "time": "2016-08-03 12:59:54"
+            "time": "2016-10-26 08:11:59"
         },
         {
             "name": "monolog/monolog",
@@ -1201,11 +1202,11 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "24fe5e89772d56fad324f3755d885f8e6e7af240"
+                "reference": "bd1d4f18be03e6f38c7c5de8fe6b432c01cc6f9b"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
-                "mathiasverraes/money": "~3.0.0-beta2",
+                "moneyphp/money": "~3.0.0",
                 "paragonie/random_compat": "~1.2.1",
                 "phpdocumentor/graphviz": "~1.0.4"
             },
@@ -1328,13 +1329,13 @@
                     "Spryker\\Zed\\Customer\\": "Bundles/Customer/src",
                     "Unit\\Spryker\\Zed\\Customer\\": "Bundles/Customer/tests",
                     "Functional\\Spryker\\Zed\\Customer\\": "Bundles/Customer/tests",
+                    "Spryker\\Client\\Currency\\": "Bundles/Currency/src",
                     "Spryker\\Zed\\Currency\\": "Bundles/Currency/src",
                     "Spryker\\Yves\\Currency\\": "Bundles/Currency/src",
                     "Spryker\\Shared\\Currency\\": "Bundles/Currency/src",
+                    "Functional\\Client\\Currency\\": "Bundles/Currency/tests",
                     "Functional\\Zed\\Currency\\": "Bundles/Currency/tests",
                     "Functional\\Yves\\Currency\\": "Bundles/Currency/tests",
-                    "Unit\\Yves\\Currency\\": "Bundles/Currency/tests",
-                    "Unit\\Zed\\Currency\\": "Bundles/Currency/tests",
                     "Unit\\Shared\\Currency\\": "Bundles/Currency/tests",
                     "Spryker\\Shared\\CustomerMailConnector\\": "Bundles/CustomerMailConnector/src",
                     "Unit\\Spryker\\Shared\\CustomerMailConnector\\": "Bundles/CustomerMailConnector/tests",
@@ -1443,9 +1444,11 @@
                     "Unit\\Spryker\\Shared\\Messenger\\": "Bundles/Messenger/tests",
                     "Spryker\\Zed\\Messenger\\": "Bundles/Messenger/src",
                     "Unit\\Spryker\\Zed\\Messenger\\": "Bundles/Messenger/tests",
+                    "Spryker\\Client\\Money\\": "Bundles/Money/src",
                     "Spryker\\Shared\\Money\\": "Bundles/Money/src",
                     "Spryker\\Yves\\Money\\": "Bundles/Money/src",
                     "Spryker\\Zed\\Money\\": "Bundles/Money/src",
+                    "Unit\\Spryker\\Client\\Money\\": "Bundles/Money/tests",
                     "Unit\\Spryker\\Shared\\Money\\": "Bundles/Money/tests",
                     "Unit\\Spryker\\Yves\\Money\\": "Bundles/Money/tests",
                     "Unit\\Spryker\\Zed\\Money\\": "Bundles/Money/tests",
@@ -1727,7 +1730,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-10-24 12:40:37"
+            "time": "2016-11-09 13:58:44"
         },
         {
             "name": "symfony-cmf/routing",
@@ -4162,6 +4165,83 @@
                 "phantomjs"
             ],
             "time": "2016-08-09 10:14:29"
+        },
+        {
+            "name": "mathiasverraes/money",
+            "version": "v3.0.0-beta.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/moneyphp/money.git",
+                "reference": "2a229150e3371607a3adc5fe4d3d80608e16aaaa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/2a229150e3371607a3adc5fe4d3d80608e16aaaa",
+                "reference": "2a229150e3371607a3adc5fe4d3d80608e16aaaa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "cache/taggable-cache": "^0.4.0",
+                "coduo/phpspec-data-provider-extension": "^1.0.3",
+                "ext-bcmath": "*",
+                "ext-gmp": "*",
+                "ext-intl": "*",
+                "florianv/swap": "^2.3",
+                "henrikbjorn/phpspec-code-coverage": "^2.0.2",
+                "moneyphp/iso-currencies": "dev-master",
+                "phpspec/phpspec": "^2.5",
+                "phpunit/phpunit": "^4.5",
+                "psr/cache": "^1.0"
+            },
+            "suggest": {
+                "ext-bcmath": "Calculate without integer limits",
+                "ext-gmp": "Calculate without integer limits",
+                "ext-intl": "Format Money objects with intl",
+                "florianv/swap": "Exchange rates library for PHP",
+                "psr/cache-implementation": "Used for Currency caching"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Money\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mathias Verraes",
+                    "email": "mathias@verraes.net",
+                    "homepage": "http://verraes.net"
+                },
+                {
+                    "name": "Frederik Bosch",
+                    "email": "f.bosch@genkgo.nl"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagi-kazar@gmail.com"
+                }
+            ],
+            "description": "PHP implementation of Fowler's Money pattern",
+            "homepage": "http://verraes.net/2011/04/fowler-money-pattern-in-php/",
+            "keywords": [
+                "Value Object",
+                "money",
+                "vo"
+            ],
+            "abandoned": "moneyphp/money",
+            "time": "2016-08-03 12:59:54"
         },
         {
             "name": "myclabs/deep-copy",
