@@ -144,7 +144,13 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
         $deliveryTime = $this->getDeliveryTime($shipmentMethodTransfer);
 
         if ($deliveryTime !== 0) {
-            $shipmentDescription .= ' (' . $this->translate('page.checkout.shipping.delivery_time') . ' ' . $deliveryTime . ')';
+            $shipmentDescription = sprintf(
+                '%s (%s %d %s)',
+                $shipmentDescription,
+                $this->translate('page.checkout.shipping.delivery_time'),
+                $deliveryTime,
+                ($deliveryTime === 1) ? 'day' : 'days'
+            );
         }
 
         return $shipmentDescription;

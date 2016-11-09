@@ -34,7 +34,6 @@ class ImporterConfig extends AbstractBundleConfig
     const RESOURCE_PRODUCT_TAX = 'RESOURCE_PRODUCT_TAX';
     const RESOURCE_DISCOUNT = 'RESOURCE_DISCOUNT';
 
-
     const RESOURCE_TAX = 'RESOURCE_TAX';
 
     /**
