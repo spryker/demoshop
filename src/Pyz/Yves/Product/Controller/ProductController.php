@@ -7,28 +7,42 @@
 
 namespace Pyz\Yves\Product\Controller;
 
-use Spryker\Shared\Product\Model\ProductAbstractInterface;
+use Generated\Shared\Transfer\StorageProductTransfer;
 use Spryker\Yves\Application\Controller\AbstractController;
 
+/**
+ * @method \Spryker\Client\Product\ProductClientInterface getClient()
+ * @method \Pyz\Yves\Product\ProductFactory getFactory()
+ */
 class ProductController extends AbstractController
 {
 
     /**
-     * @param \Spryker\Shared\Product\Model\ProductAbstractInterface $product
+     * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      *
      * @return array
      */
-    public function detailAction(ProductAbstractInterface $product)
+    public function detailAction(StorageProductTransfer $storageProductTransfer)
     {
-        $categories = $product->getCategory();
+        $categories = $storageProductTransfer->getCategories();
 
         $productData = [
-            'product' => $product,
+            'product' => $storageProductTransfer,
             'productCategories' => $categories,
             'category' => count($categories) ? end($categories) : null,
+            'page_keywords' => $storageProductTransfer->getMetaKeywords(),
+            'page_description' => $storageProductTransfer->getMetaDescription(),
         ];
 
         return $productData;
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Request
+     */
+    protected function getRequest()
+    {
+        return $this->getApplication()['request'];
     }
 
 }
