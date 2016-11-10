@@ -13,6 +13,7 @@ use Spryker\Zed\PriceCartConnector\Communication\Plugin\CartItemPricePlugin;
 use Spryker\Zed\ProductCartConnector\Communication\Plugin\ProductCartPlugin;
 use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemGroupKeyOptionPlugin;
 use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemProductOptionPlugin;
+use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\ChangeProductOptionQuantityPlugin;
 
 class CartDependencyProvider extends SprykerCartDependencyProvider
 {
@@ -30,6 +31,18 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
             new CartItemProductOptionPlugin(),
             new SkuGroupKeyPlugin(),
             new CartItemGroupKeyOptionPlugin(),
+        ];
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Cart\Dependency\PostSavePluginInterface[]
+     */
+    protected function getPostSavePlugins(Container $container)
+    {
+        return [
+            new ChangeProductOptionQuantityPlugin(),
         ];
     }
 

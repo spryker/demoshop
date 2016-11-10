@@ -19,6 +19,7 @@ use Pyz\Zed\Importer\Business\Installer\Product\ProductAbstractInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductAttributeKeyInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductConcreteInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductPriceInstaller;
+use Pyz\Zed\Importer\Business\Installer\ProductOption\ProductOptionInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductSearchInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductStockInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductSearch\ProductSearchAttributeInstaller;
@@ -221,6 +222,27 @@ class InstallerFactory extends AbstractFactory
         );
 
         return $shipmentInstaller;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\ProductOption\ProductOptionInstaller
+     */
+    public function createProductOptionsInstaller()
+    {
+        return new ProductOptionInstaller(
+            $this->getImporterProductOptionCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
+     */
+    public function getImporterProductOptionCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_PRODUCT_OPTIONS => $this->createImporterFactory()->createProductOptionImporter(),
+        ];
     }
 
     /**

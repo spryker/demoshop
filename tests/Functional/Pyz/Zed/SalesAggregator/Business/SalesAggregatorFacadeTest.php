@@ -430,8 +430,9 @@ class SalesAggregatorFacadeTest extends Test
             $salesOrderItemOption->setFkSalesOrderItem($salesOrderItem->getIdSalesOrderItem());
             $salesOrderItemOption->setGrossPrice($option['gross_price']);
             $salesOrderItemOption->setTaxRate($option['tax_rate']);
-            $salesOrderItemOption->setLabelOptionType('label1');
-            $salesOrderItemOption->setLabelOptionValue('value1');
+            $salesOrderItemOption->setGroupName('label1');
+            $salesOrderItemOption->setValue('value1');
+            $salesOrderItemOption->setSku('123');
             $salesOrderItemOption->save();
             if (isset($option['discounts'])) {
                 foreach ($option['discounts'] as $discount) {

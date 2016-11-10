@@ -64,4 +64,12 @@ class ProductFactory extends AbstractFactory
         return new StorageProductCategoryMapper();
     }
 
+    /**
+     * @return \Spryker\Client\ProductOption\ProductOptionClientInterface
+     */
+    public function getProductOptionClient()
+    {
+        return $this->getProvidedDependency(ProductDependencyProvider::CLIENT_PRODUCT_OPTION);
+    }
+
 }

@@ -16,6 +16,7 @@ use Pyz\Zed\Collector\Business\Storage\NavigationCollector;
 use Pyz\Zed\Collector\Business\Storage\PageCollector;
 use Pyz\Zed\Collector\Business\Storage\ProductAbstractCollector as StorageProductCollector;
 use Pyz\Zed\Collector\Business\Storage\ProductConcreteCollector;
+use Pyz\Zed\Collector\Business\Storage\ProductOptionCollector;
 use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
 use Pyz\Zed\Collector\Business\Storage\TranslationCollector;
 use Pyz\Zed\Collector\Business\Storage\UrlCollector;
@@ -256,6 +257,28 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
+     * @return \Pyz\Zed\Collector\Business\Storage\ProductOptionCollector
+     */
+    public function createStorageProductOptionCollector()
+    {
+        $productOptionCollector = new ProductOptionCollector();
+
+        $productOptionCollector->setChunkSize(2);
+
+        $productOptionCollector->setTouchQueryContainer(
+            $this->getTouchQueryContainer()
+        );
+        $productOptionCollector->setCriteriaBuilder(
+            $this->createCriteriaBuilder()
+        );
+        $productOptionCollector->setQueryBuilder(
+            $this->createStoragePdoQueryAdapterByName('ProductOptionCollectorQuery')
+        );
+
+        return $productOptionCollector;
+    }
+
+    /**
      * @param string $name
      *
      * @throws \Exception
@@ -295,6 +318,14 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $queryBuilderClassName = $classList[$name];
 
         return new $queryBuilderClassName();
+    }
+
+    /**
+     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\ProductOptionCollectorQuery
+     */
+    public function createProductOptionCollectorPropelQuery()
+    {
+        return new ProductOptionCollectorQuery();
     }
 
     /**
