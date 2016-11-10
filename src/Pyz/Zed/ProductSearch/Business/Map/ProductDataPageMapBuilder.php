@@ -10,12 +10,13 @@ namespace Pyz\Zed\ProductSearch\Business\Map;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
 use Generated\Shared\Transfer\RawProductAttributesTransfer;
+use Pyz\Shared\ProductSearch\ProductSearchConfig;
+use Pyz\Zed\ProductSearch\Dependency\ProductSearchToProductInterface;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Price\Business\PriceFacadeInterface;
 use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
 use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
-use Spryker\Zed\Product\Business\ProductFacadeInterface;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 
 /**
@@ -50,7 +51,7 @@ class ProductDataPageMapBuilder
     protected $categoryQueryContainer;
 
     /**
-     * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
+     * @var \Pyz\Zed\ProductSearch\Dependency\ProductSearchToProductInterface
      */
     protected $productFacade;
 
@@ -61,14 +62,14 @@ class ProductDataPageMapBuilder
 
     /**
      * @param \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface $productSearchFacade
-     * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
+     * @param \Pyz\Zed\ProductSearch\Dependency\ProductSearchToProductInterface $productFacade
      * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
      * @param \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface $productImageQueryContainer
      * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
      */
     public function __construct(
         ProductSearchFacadeInterface $productSearchFacade,
-        ProductFacadeInterface $productFacade,
+        ProductSearchToProductInterface $productFacade,
         PriceFacadeInterface $priceFacade,
         ProductImageQueryContainerInterface $productImageQueryContainer,
         CategoryQueryContainerInterface $categoryQueryContainer
@@ -92,6 +93,7 @@ class ProductDataPageMapBuilder
         $pageMapTransfer = (new PageMapTransfer())
             ->setStore(Store::getInstance()->getStoreName())
             ->setLocale($localeTransfer->getLocaleName())
+            ->setType(ProductSearchConfig::PRODUCT_ABSTRACT_PAGE_SEARCH_TYPE)
             ->setIsFeatured($productData['is_featured'] == 'true');
 
         $attributes = $this->getProductAttributes($productData);
@@ -111,6 +113,8 @@ class ProductDataPageMapBuilder
             ->addFullTextBoosted($pageMapTransfer, $productData['abstract_sku'])
             ->addFullText($pageMapTransfer, $productData['concrete_names'])
             ->addFullText($pageMapTransfer, $productData['concrete_skus'])
+            ->addFullText($pageMapTransfer, $productData['abstract_description'])
+            ->addFullText($pageMapTransfer, $productData['concrete_descriptions'])
             ->addSuggestionTerms($pageMapTransfer, $productData['abstract_name'])
             ->addCompletionTerms($pageMapTransfer, $productData['abstract_name'])
             ->addStringSort($pageMapTransfer, 'name', $productData['abstract_name'])
@@ -289,7 +293,7 @@ class ProductDataPageMapBuilder
         }
 
         $result = array_map(function ($attributeValues) {
-            $attributeValues = implode(' ', array_unique($attributeValues));
+            $attributeValues = array_unique($attributeValues);
 
             return $attributeValues;
         }, $result);

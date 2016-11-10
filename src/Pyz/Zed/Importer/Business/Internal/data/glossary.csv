@@ -149,12 +149,14 @@ catalog.filter.main_color,Farbe,de_DE
 catalog.filter.main_color,Color,en_US
 catalog.filter.extras,"Sonstige Merkmale",de_DE
 catalog.filter.extras,"Other characteristics",en_US
-catalog.filter.price,Preisspanne,de_DE
-catalog.filter.price,"Price range",en_US
-catalog.filter.pricerangeFrom,"Preisspanne von",de_DE
-catalog.filter.pricerangeFrom,"Price range of",en_US
+catalog.filter.pricerangeFrom,"von",de_DE
+catalog.filter.pricerangeFrom,"from",en_US
 catalog.filter.pricerangeTo,bis,de_DE
 catalog.filter.pricerangeTo,to,en_US
+catalog.filter.rangeFrom,"Skala von",de_DE
+catalog.filter.rangeFrom,"Range of",en_US
+catalog.filter.rangeTo,bis,de_DE
+catalog.filter.rangeTo,to,en_US
 catalog.filter.show,"Filter einblenden",de_DE
 catalog.filter.show,"insert filter",en_US
 catalog.filter.hide,"Filter ausblenden",de_DE
@@ -177,6 +179,10 @@ catalog.sort.price_asc,"Nach Preis aufsteigend sortieren",de_DE
 catalog.sort.price_asc,"Sort by price ascending",en_US
 catalog.sort.price_desc,"Nach Preis absteigend sortieren",de_DE
 catalog.sort.price_desc,"Sort by price descending",en_US
+product.filter.category,"Kategorien",de_DE
+product.filter.category,"Categories",en_US
+product.filter.price,Preisspanne,de_DE
+product.filter.price,"Price range",en_US
 shipment.dhl,DHL,de_DE
 shipment.dhl,DHL,en_US
 shipment.dhl.paket.name,Paket,de_DE

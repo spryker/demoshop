@@ -1,14 +1,8 @@
-<div class="callout">
-    {% include "@catalog/catalog/partials/filter-category-tree.twig" with {
-        filterName:'category',
-        selectedCategory:(category is defined ? category : null)
-    } %}
-</div>
-
-<div class="callout">
-    {% include "@catalog/catalog/partials/filter-range.twig" with {
-        filterName:'price',
-        min:(facets.price.min | default(0)) | priceRaw | floor,
-        max:(facets.price.max | default(0)) | priceRaw | ceil
-    } %}
-</div>
+{% for filter in facets %}
+    {% if filter.values is not defined or filter.values|length > 0 %}
+        <div class="callout">
+            <h5>{{ ('product.filter.' ~ filter.name) | trans }}</h5>
+            {% include '@catalog/catalog/partials/filters/' ~ filter.config.type ~ '.twig' %}
+        </div>
+    {% endif %}
+{% endfor %}
