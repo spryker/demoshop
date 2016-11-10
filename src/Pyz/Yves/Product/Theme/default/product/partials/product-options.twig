@@ -8,7 +8,7 @@
                         {{ 'None' | trans }}
                     </option>
 
-                    {% for productValue in productOptionGroup.productOptionValues %}
+                    {% for productValue in productOptionGroup.values %}
                         <option value="{{ productValue.idProductOptionValue }}">
                             {{ productValue.value|trans }} {{ productValue.price | price }}
                         </option>
