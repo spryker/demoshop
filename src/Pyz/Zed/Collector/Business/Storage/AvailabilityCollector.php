@@ -9,7 +9,7 @@ namespace Pyz\Zed\Collector\Business\Storage;
 use Generated\Shared\Transfer\StorageAvailabilityTransfer;
 use Orm\Zed\Availability\Persistence\Base\SpyAvailabilityQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AvailabilityCollectorQuery;
-use Spryker\Shared\Availability\AvailabilityConstants;
+use Spryker\Shared\Availability\AvailabilityConfig;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollector;
 
 class AvailabilityCollector extends AbstractStoragePropelCollector
@@ -54,7 +54,7 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
      */
     protected function collectResourceType()
     {
-        return AvailabilityConstants::RESOURCE_TYPE_AVAILABILITY_ABSTRACT;
+        return AvailabilityConfig::RESOURCE_TYPE_AVAILABILITY_ABSTRACT;
     }
 
     /**
