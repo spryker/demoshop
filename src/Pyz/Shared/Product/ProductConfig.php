@@ -7,9 +7,9 @@
 
 namespace Pyz\Shared\Product;
 
-use Spryker\Shared\Product\ProductConstants as SprykerProductConstant;
+use Spryker\Shared\Product\ProductConfig as SprykerProductConstant;
 
-interface ProductConstants extends SprykerProductConstant
+interface ProductConfig extends SprykerProductConstant
 {
 
     const DEFAULT_IMAGE_SET_NAME = 'default';

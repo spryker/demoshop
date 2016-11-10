@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\Collector\Business\Search;
 
-use Spryker\Shared\Product\ProductConstants;
+use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPdoCollector;
 use Spryker\Zed\Collector\CollectorConfig;
 use Spryker\Zed\Search\Business\SearchFacadeInterface;
@@ -43,7 +43,7 @@ class ProductCollector extends AbstractSearchPdoCollector
      */
     protected function collectResourceType()
     {
-        return ProductConstants::RESOURCE_TYPE_PRODUCT_ABSTRACT;
+        return ProductConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT;
     }
 
     /**

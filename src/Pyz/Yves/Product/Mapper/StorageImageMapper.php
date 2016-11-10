@@ -10,7 +10,7 @@ namespace Pyz\Yves\Product\Mapper;
 use ArrayObject;
 use Generated\Shared\Transfer\StorageProductImageTransfer;
 use Generated\Shared\Transfer\StorageProductTransfer;
-use Pyz\Shared\Product\ProductConstants;
+use Pyz\Shared\Product\ProductConfig;
 
 class StorageImageMapper implements StorageImageMapperInterface
 {
@@ -27,9 +27,9 @@ class StorageImageMapper implements StorageImageMapperInterface
         }
 
         $imageSets = $storageProductTransfer->getImageSets();
-        if (array_key_exists(ProductConstants::DEFAULT_IMAGE_SET_NAME, $imageSets) !== false) {
+        if (array_key_exists(ProductConfig::DEFAULT_IMAGE_SET_NAME, $imageSets) !== false) {
             $storageProductTransfer->setImages(
-                $this->mapStorageProductImageCollection($imageSets[ProductConstants::DEFAULT_IMAGE_SET_NAME])
+                $this->mapStorageProductImageCollection($imageSets[ProductConfig::DEFAULT_IMAGE_SET_NAME])
             );
         }
 

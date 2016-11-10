@@ -11,7 +11,7 @@ use Exception;
 use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 use Orm\Zed\Tax\Persistence\SpyTaxSetQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
-use Spryker\Shared\Product\ProductConstants;
+use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
 use Spryker\Zed\Propel\Business\Runtime\ActiveQuery\Criteria;
@@ -125,7 +125,7 @@ class ProductTaxImporter extends AbstractImporter
     protected function touchProductActive($idProductAbstract)
     {
         $this->touchFacade->touchActive(
-            ProductConstants::RESOURCE_TYPE_PRODUCT_ABSTRACT,
+            ProductConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT,
             $idProductAbstract
         );
     }
