@@ -804,7 +804,7 @@
             "time": "2015-09-22 13:58:03"
         },
         {
-            "name": "mathiasverraes/money",
+            "name": "moneyphp/money",
             "version": "v3.0.0",
             "source": {
                 "type": "git",
@@ -879,7 +879,6 @@
                 "money",
                 "vo"
             ],
-            "abandoned": "moneyphp/money",
             "time": "2016-10-26 08:11:59"
         },
         {
@@ -3134,11 +3133,11 @@
         },
         {
             "name": "spryker/braintree",
-            "version": "0.4.0",
+            "version": "0.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Braintree.git",
-                "reference": "c97a6f187cc22ff4b1ec6ba9d9393db27e85129f",
+                "reference": "39b3aeaa257829b6b4dbae819760ca417efde273",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3148,8 +3147,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Braintree/zipball/c97a6f187cc22ff4b1ec6ba9d9393db27e85129f",
-                "reference": "c97a6f187cc22ff4b1ec6ba9d9393db27e85129f",
+                "url": "https://api.github.com/repos/spryker/Braintree/zipball/39b3aeaa257829b6b4dbae819760ca417efde273",
+                "reference": "39b3aeaa257829b6b4dbae819760ca417efde273",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3164,10 +3163,10 @@
                 "spryker/checkout": "^2.1.3",
                 "spryker/config": "^2.0.0",
                 "spryker/country": "^2.0.0",
-                "spryker/currency": "^0.1.0",
+                "spryker/currency": "^1.0.0",
                 "spryker/gui": "^2.0.0",
                 "spryker/kernel": "^2.0.0",
-                "spryker/money": "^0.1.0",
+                "spryker/money": "^1.0.0",
                 "spryker/oms": "^2.0.0 || ^3.0.0",
                 "spryker/payment": "^2.0.0",
                 "spryker/propel": "^2.3.1",
@@ -3217,7 +3216,7 @@
             "support": {
                 "source": "https://github.com/spryker/Braintree/tree/master"
             },
-            "time": "2016-10-24 12:48:59"
+            "time": "2016-11-09 12:21:42"
         },
         {
             "name": "spryker/cache",
@@ -4032,11 +4031,11 @@
         },
         {
             "name": "spryker/currency",
-            "version": "0.1.0",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Currency.git",
-                "reference": "0fd74b690aac98aa74cb5229bbe6690d50d42a0c",
+                "reference": "a4fff52d6a541577e2266b9f0ffbf7d4adff09cf",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4046,8 +4045,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Currency/zipball/0fd74b690aac98aa74cb5229bbe6690d50d42a0c",
-                "reference": "0fd74b690aac98aa74cb5229bbe6690d50d42a0c",
+                "url": "https://api.github.com/repos/spryker/Currency/zipball/a4fff52d6a541577e2266b9f0ffbf7d4adff09cf",
+                "reference": "a4fff52d6a541577e2266b9f0ffbf7d4adff09cf",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4058,7 +4057,12 @@
             },
             "require": {
                 "spryker/kernel": "^2.0.0",
-                "symfony/intl": "~2.8.8"
+                "spryker/symfony": "^2.1.3",
+                "spryker/transfer": "^2.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
             },
             "type": "library",
             "extra": {
@@ -4068,9 +4072,18 @@
             },
             "autoload": {
                 "psr-0": {
-                    "Spryker": "src/",
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
                     "Functional": "tests/",
                     "Unit": "tests/"
+                },
+                "psr-4": {
+                    "Testify\\Module\\": "vendor/spryker/testify/tests/_support/Module",
+                    "Transfer\\Module\\": "vendor/spryker/transfer/tests/_support/Module",
+                    "Config\\Module\\": "vendor/spryker/config/tests/_support/Module"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -4081,7 +4094,7 @@
             "support": {
                 "source": "https://github.com/spryker/Currency/tree/master"
             },
-            "time": "2016-08-22 14:11:45"
+            "time": "2016-11-04 11:13:20"
         },
         {
             "name": "spryker/customer",
@@ -4480,11 +4493,11 @@
         },
         {
             "name": "spryker/dummy-payment",
-            "version": "1.3.1",
+            "version": "1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/DummyPayment.git",
-                "reference": "7d92edc4d6d1217e1ef1ff744a62295148f088c7",
+                "reference": "2ffcf3c28e909ac17d6ce755bb4c9053663eb0a6",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4494,8 +4507,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/DummyPayment/zipball/7d92edc4d6d1217e1ef1ff744a62295148f088c7",
-                "reference": "7d92edc4d6d1217e1ef1ff744a62295148f088c7",
+                "url": "https://api.github.com/repos/spryker/DummyPayment/zipball/2ffcf3c28e909ac17d6ce755bb4c9053663eb0a6",
+                "reference": "2ffcf3c28e909ac17d6ce755bb4c9053663eb0a6",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4507,7 +4520,7 @@
             "require": {
                 "spryker/checkout": "^2.1.0",
                 "spryker/kernel": "^2.4.3",
-                "spryker/library": "^2.0.0",
+                "spryker/money": "^1.0.0",
                 "spryker/oms": "^2.0.0 || ^3.0.0",
                 "spryker/payment": "^2.0.0",
                 "spryker/refund": "^3.0.0",
@@ -4515,6 +4528,11 @@
                 "spryker/step-engine": "^1.0.0",
                 "spryker/symfony": "^2.0.0",
                 "spryker/transfer": "^2.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "^2.2.0",
+                "spryker/testify": "*"
             },
             "type": "library",
             "extra": {
@@ -4527,6 +4545,18 @@
                     "Spryker": "src/"
                 }
             },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/",
+                    "Unit": "tests/"
+                },
+                "psr-4": {
+                    "Config\\Module\\": "vendor/spryker/config/tests/_support/Module",
+                    "Transfer\\Module\\": "vendor/spryker/transfer/tests/_support/Module",
+                    "Propel\\Module\\": "vendor/spryker/propel/tests/_support/Module",
+                    "Testify\\Module\\": "vendor/spryker/testify/tests/_support/Module"
+                }
+            },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "license": [
                 "proprietary"
@@ -4535,7 +4565,7 @@
             "support": {
                 "source": "https://github.com/spryker/DummyPayment/tree/master"
             },
-            "time": "2016-09-05 15:11:01"
+            "time": "2016-11-08 12:45:11"
         },
         {
             "name": "spryker/elastica",
@@ -5747,11 +5777,11 @@
         },
         {
             "name": "spryker/money",
-            "version": "0.1.0",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Money.git",
-                "reference": "d7893ca6b79792e74646cb498bf9d7c1ab4650d7",
+                "reference": "fbe115bf9d1b8e7b94448fd40bbbc8debd4cc2be",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5761,8 +5791,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Money/zipball/d7893ca6b79792e74646cb498bf9d7c1ab4650d7",
-                "reference": "d7893ca6b79792e74646cb498bf9d7c1ab4650d7",
+                "url": "https://api.github.com/repos/spryker/Money/zipball/fbe115bf9d1b8e7b94448fd40bbbc8debd4cc2be",
+                "reference": "fbe115bf9d1b8e7b94448fd40bbbc8debd4cc2be",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5772,9 +5802,16 @@
                 ]
             },
             "require": {
-                "mathiasverraes/money": "~3.0.0-beta2",
-                "spryker/currency": "^0.1.0",
-                "spryker/kernel": "^2.0.0"
+                "moneyphp/money": "~3.0.0",
+                "spryker/currency": "^1.0.0",
+                "spryker/kernel": "^2.0.0",
+                "spryker/silex": "^2.0.0",
+                "spryker/twig": "^2.1.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/config": "^2.0.0",
+                "spryker/testify": "*"
             },
             "type": "library",
             "extra": {
@@ -5784,9 +5821,18 @@
             },
             "autoload": {
                 "psr-0": {
-                    "Spryker": "src/",
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
                     "Functional": "tests/",
                     "Unit": "tests/"
+                },
+                "psr-4": {
+                    "Config\\Module\\": "vendor/spryker/Config/tests/_support/Module",
+                    "Testify\\Module\\": "vendor/spryker/Testify/tests/_support/Module",
+                    "Transfer\\Module\\": "vendor/spryker/Transfer/tests/_support/Module"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -5797,7 +5843,7 @@
             "support": {
                 "source": "https://github.com/spryker/Money/tree/master"
             },
-            "time": "2016-08-22 14:13:23"
+            "time": "2016-11-08 10:28:16"
         },
         {
             "name": "spryker/monolog",
@@ -12141,16 +12187,16 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.6.6",
+            "version": "0.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "cd4bea48db6f99b3d13eefe3afbe256528c23c97"
+                "reference": "af8c442f30d136197414f446e753937dee8fb556"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/cd4bea48db6f99b3d13eefe3afbe256528c23c97",
-                "reference": "cd4bea48db6f99b3d13eefe3afbe256528c23c97",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/af8c442f30d136197414f446e753937dee8fb556",
+                "reference": "af8c442f30d136197414f446e753937dee8fb556",
                 "shasum": ""
             },
             "require": {
@@ -12184,7 +12230,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-10-21 09:32:31"
+            "time": "2016-10-31 09:09:05"
         },
         {
             "name": "squizlabs/php_codesniffer",
