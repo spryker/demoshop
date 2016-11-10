@@ -11,7 +11,7 @@ use Elastica\Query;
 use Elastica\Query\BoolQuery;
 use Elastica\Query\Match;
 use Generated\Shared\Search\PageIndexMap;
-use Pyz\Shared\ProductSearch\ProductSearchConstants;
+use Pyz\Shared\ProductSearch\ProductSearchConfig;
 use Spryker\Client\Catalog\Plugin\Elasticsearch\Query\CatalogSearchQueryPlugin as SprykerCatalogSearchQueryPlugin;
 
 class CatalogSearchQueryPlugin extends SprykerCatalogSearchQueryPlugin
@@ -39,7 +39,7 @@ class CatalogSearchQueryPlugin extends SprykerCatalogSearchQueryPlugin
     protected function setTypeFilter(BoolQuery $boolQuery)
     {
         $typeFilter = (new Match())
-            ->setField(PageIndexMap::TYPE, ProductSearchConstants::PRODUCT_ABSTRACT_PAGE_SEARCH_TYPE);
+            ->setField(PageIndexMap::TYPE, ProductSearchConfig::PRODUCT_ABSTRACT_PAGE_SEARCH_TYPE);
 
         $boolQuery->addMust($typeFilter);
     }

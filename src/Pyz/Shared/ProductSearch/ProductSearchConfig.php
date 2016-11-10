@@ -7,9 +7,9 @@
 
 namespace Pyz\Shared\ProductSearch;
 
-use Spryker\Shared\ProductSearch\ProductSearchConstants as SprykerProductSearchConstants;
+use Spryker\Shared\ProductSearch\ProductSearchConfig as SprykerProductSearchConstants;
 
-interface ProductSearchConstants extends SprykerProductSearchConstants
+interface ProductSearchConfig extends SprykerProductSearchConstants
 {
 
     const PRODUCT_ABSTRACT_PAGE_SEARCH_TYPE = 'product_abstract';

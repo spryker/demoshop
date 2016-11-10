@@ -19,7 +19,7 @@ use Pyz\Zed\Collector\Communication\Plugin\RedirectCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\TranslationCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\UrlCollectorStoragePlugin;
 use Pyz\Zed\ProductSearch\Communication\Plugin\ProductDataPageMapPlugin;
-use Spryker\Shared\ProductSearch\ProductSearchConstants;
+use Spryker\Shared\ProductSearch\ProductSearchConfig;
 use Spryker\Zed\Collector\CollectorDependencyProvider as SprykerCollectorDependencyProvider;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\ProductSearch\Communication\Plugin\ProductSearchConfigExtensionCollectorPlugin;
@@ -104,7 +104,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 'block' => new BlockCollectorStoragePlugin(),
                 'redirect' => new RedirectCollectorStoragePlugin(),
                 'url' => new UrlCollectorStoragePlugin(),
-                ProductSearchConstants::RESOURCE_TYPE_PRODUCT_SEARCH_CONFIG_EXTENSION => new ProductSearchConfigExtensionCollectorPlugin(),
+                ProductSearchConfig::RESOURCE_TYPE_PRODUCT_SEARCH_CONFIG_EXTENSION => new ProductSearchConfigExtensionCollectorPlugin(),
             ];
         };
 

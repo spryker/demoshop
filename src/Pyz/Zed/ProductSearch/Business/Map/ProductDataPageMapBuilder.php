@@ -10,7 +10,7 @@ namespace Pyz\Zed\ProductSearch\Business\Map;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
 use Generated\Shared\Transfer\RawProductAttributesTransfer;
-use Pyz\Shared\ProductSearch\ProductSearchConstants;
+use Pyz\Shared\ProductSearch\ProductSearchConfig;
 use Pyz\Zed\ProductSearch\Dependency\ProductSearchToProductInterface;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
@@ -93,7 +93,7 @@ class ProductDataPageMapBuilder
         $pageMapTransfer = (new PageMapTransfer())
             ->setStore(Store::getInstance()->getStoreName())
             ->setLocale($localeTransfer->getLocaleName())
-            ->setType(ProductSearchConstants::PRODUCT_ABSTRACT_PAGE_SEARCH_TYPE)
+            ->setType(ProductSearchConfig::PRODUCT_ABSTRACT_PAGE_SEARCH_TYPE)
             ->setIsFeatured($productData['is_featured'] == 'true');
 
         $attributes = $this->getProductAttributes($productData);
@@ -293,7 +293,7 @@ class ProductDataPageMapBuilder
         }
 
         $result = array_map(function ($attributeValues) {
-            $attributeValues = implode(' ', array_unique($attributeValues));
+            $attributeValues = array_unique($attributeValues);
 
             return $attributeValues;
         }, $result);
