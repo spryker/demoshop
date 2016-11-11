@@ -25,7 +25,7 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
     {
         return [
             StorageAvailabilityTransfer::IS_ABSTRACT_PRODUCT_AVAILABLE => $collectItemData[AvailabilityCollectorQuery::QUANTITY] > 0,
-            StorageAvailabilityTransfer::CONCRETE_PRODUCT_AVAILABLE_ITEMS => $this->getConcreteProductStockQuantity(
+            StorageAvailabilityTransfer::CONCRETE_PRODUCT_AVAILABLE_ITEMS => $this->getConcreteProductsAvailability(
                 $collectItemData[AvailabilityCollectorQuery::ID_AVAILABILITY_ABSTRACT]
             )
         ];
@@ -36,7 +36,7 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
      *
      * @return array
      */
-    protected function getConcreteProductStockQuantity($idAvailabilityAbstact)
+    protected function getConcreteProductsAvailability($idAvailabilityAbstact)
     {
         $productConcreteAvailability = SpyAvailabilityQuery::create()
             ->findByFkAvailabilityAbstract($idAvailabilityAbstact);
