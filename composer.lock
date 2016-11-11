@@ -5329,11 +5329,11 @@
         },
         {
             "name": "spryker/kernel",
-            "version": "2.5.1",
+            "version": "2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Kernel.git",
-                "reference": "d288594b066c5d1fbd5206d354fb35e2765bb66a",
+                "reference": "1f3d22552b9ad09732889ccff9d12e1c8f37b7df",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5343,8 +5343,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Kernel/zipball/d288594b066c5d1fbd5206d354fb35e2765bb66a",
-                "reference": "d288594b066c5d1fbd5206d354fb35e2765bb66a",
+                "url": "https://api.github.com/repos/spryker/Kernel/zipball/1f3d22552b9ad09732889ccff9d12e1c8f37b7df",
+                "reference": "1f3d22552b9ad09732889ccff9d12e1c8f37b7df",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5354,7 +5354,7 @@
                 ]
             },
             "require": {
-                "php": "~5.6.0",
+                "php": ">=5.6.0",
                 "spryker/application": "^2.0.0",
                 "spryker/config": "^2.1.1",
                 "spryker/library": "^2.1.0",
@@ -5399,7 +5399,7 @@
             "support": {
                 "source": "https://github.com/spryker/Kernel/tree/master"
             },
-            "time": "2016-09-06 11:57:27"
+            "time": "2016-11-09 11:13:13"
         },
         {
             "name": "spryker/library",
