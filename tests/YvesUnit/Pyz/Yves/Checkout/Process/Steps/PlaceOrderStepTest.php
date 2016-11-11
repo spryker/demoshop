@@ -152,7 +152,7 @@ class PlaceOrderStepTest extends PHPUnit_Framework_TestCase
      */
     protected function createFlashMessengerMock()
     {
-        return $this->getMock(FlashMessengerInterface::class);
+        return $this->getMockBuilder(FlashMessengerInterface::class)->getMock();
     }
 
     /**
@@ -160,7 +160,7 @@ class PlaceOrderStepTest extends PHPUnit_Framework_TestCase
      */
     protected function createCheckoutClientMock()
     {
-        return $this->getMock(CheckoutClientInterface::class);
+        return $this->getMockBuilder(CheckoutClientInterface::class)->getMock();
     }
 
     /**
@@ -168,7 +168,7 @@ class PlaceOrderStepTest extends PHPUnit_Framework_TestCase
      */
     protected function createShipmentMock()
     {
-        return $this->getMock(StepHandlerPluginInterface::class);
+        return $this->getMockBuilder(StepHandlerPluginInterface::class)->getMock();
     }
 
 }

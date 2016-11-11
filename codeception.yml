@@ -29,7 +29,7 @@ coverage:
     enabled: true
     remote: true
     c3_url: 'http://zed.de.spryker.dev'
-    whitelist: { include: ['src/*.php'] }
+    whitelist: { include: ['src/Pyz/*.php'] }
 
 extensions:
     enabled:
