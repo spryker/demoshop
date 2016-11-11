@@ -28,13 +28,13 @@ class SessionServiceProvider extends AbstractServiceProvider
      */
     public function register(Application $app)
     {
+        $app['session.storage.handler'] = null;
+
         $saveHandler = Config::get(SessionConstants::YVES_SESSION_SAVE_HANDLER);
 
         $this->setSessionSaveHandler($saveHandler);
         $this->setSessionStorageOptions($app);
         $this->setSessionStorageHandler($app, $saveHandler);
-
-        $this->getFactory()->getSessionClient()->setContainer($app['session']);
     }
 
     /**
@@ -57,6 +57,7 @@ class SessionServiceProvider extends AbstractServiceProvider
      */
     public function boot(Application $app)
     {
+        $this->getFactory()->getSessionClient()->setContainer($app['session']);
     }
 
     /**
