@@ -15,6 +15,14 @@
                 {% if wishlistOverview.items|length %}
                     <table>
                         <tbody>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>{{ 'customer.account.wishlist.overview.sku' | trans }}</th>
+                                <th>{{ 'customer.account.wishlist.overview.name' | trans  }}</th>
+                                <th>{{ 'customer.account.wishlist.overview.price' | trans  }}</th>
+                                <th>{{ 'customer.account.wishlist.overview.variant' | trans  }}</th>
+                                <th>&nbsp;</th>
+                            </tr>
                         {% for item in wishlistOverview.items %}
                             {% if item.product is defined %}
                                 <tr>
