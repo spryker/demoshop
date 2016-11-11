@@ -9,7 +9,7 @@ namespace Pyz\Zed\Importer\Business\Importer\Product;
 
 use Generated\Shared\Transfer\ProductImageSetTransfer;
 use Generated\Shared\Transfer\ProductImageTransfer;
-use Pyz\Shared\Product\ProductConstants;
+use Pyz\Shared\Product\ProductConfig;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
@@ -122,7 +122,7 @@ abstract class AbstractProductImporter extends AbstractImporter
         $result = [];
         foreach ($this->localeFacade->getLocaleCollection() as $localeTransfer) {
             $productImageSet = (new ProductImageSetTransfer())
-                ->setName(ProductConstants::DEFAULT_IMAGE_SET_NAME)
+                ->setName(ProductConfig::DEFAULT_IMAGE_SET_NAME)
                 ->setLocale($localeTransfer)
                 ->addProductImage($productImage);
 

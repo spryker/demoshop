@@ -17,7 +17,7 @@ use Orm\Zed\Product\Persistence\SpyProductQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\Map\TableMap;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AttributeMapCollectorQuery;
-use Spryker\Shared\Product\ProductConstants;
+use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollector;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
 
@@ -110,7 +110,7 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
      */
     protected function collectResourceType()
     {
-        return ProductConstants::RESOURCE_TYPE_ATTRIBUTE_MAP;
+        return ProductConfig::RESOURCE_TYPE_ATTRIBUTE_MAP;
     }
 
     /**

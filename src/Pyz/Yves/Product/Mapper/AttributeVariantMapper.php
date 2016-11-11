@@ -10,7 +10,7 @@ namespace Pyz\Yves\Product\Mapper;
 use Generated\Shared\Transfer\StorageAttributeMapTransfer;
 use Generated\Shared\Transfer\StorageProductTransfer;
 use Spryker\Client\Product\ProductClientInterface;
-use Spryker\Shared\Product\ProductConstants;
+use Spryker\Shared\Product\ProductConfig;
 
 class AttributeVariantMapper implements AttributeVariantMapperInterface
 {
@@ -124,7 +124,7 @@ class AttributeVariantMapper implements AttributeVariantMapperInterface
      */
     protected function isProductConcreteNodeReached(array $selectedVariantNode)
     {
-        return isset($selectedVariantNode[ProductConstants::VARIANT_LEAF_NODE_ID]);
+        return isset($selectedVariantNode[ProductConfig::VARIANT_LEAF_NODE_ID]);
     }
 
     /**
@@ -175,7 +175,7 @@ class AttributeVariantMapper implements AttributeVariantMapperInterface
         static $filteredAttributes = [];
 
         foreach ($selectedNode as $attributePath => $attributeValue) {
-            list($key, $value) = explode(ProductConstants::ATTRIBUTE_MAP_PATH_DELIMITER, $attributePath);
+            list($key, $value) = explode(ProductConfig::ATTRIBUTE_MAP_PATH_DELIMITER, $attributePath);
             $filteredAttributes[$key][] = $value;
             if (is_array($value)) {
                 return $this->findAvailableAttributes($value);
@@ -219,11 +219,11 @@ class AttributeVariantMapper implements AttributeVariantMapperInterface
      */
     protected function extractIdOfProductConcrete(array $selectedVariantNode)
     {
-        if (is_array($selectedVariantNode[ProductConstants::VARIANT_LEAF_NODE_ID])) {
-            return array_shift($selectedVariantNode[ProductConstants::VARIANT_LEAF_NODE_ID]);
+        if (is_array($selectedVariantNode[ProductConfig::VARIANT_LEAF_NODE_ID])) {
+            return array_shift($selectedVariantNode[ProductConfig::VARIANT_LEAF_NODE_ID]);
         }
 
-        return $selectedVariantNode[ProductConstants::VARIANT_LEAF_NODE_ID];
+        return $selectedVariantNode[ProductConfig::VARIANT_LEAF_NODE_ID];
     }
 
     /**
@@ -239,7 +239,7 @@ class AttributeVariantMapper implements AttributeVariantMapperInterface
                 continue;
             }
 
-            $attributePath[] = $attributeName . ProductConstants::ATTRIBUTE_MAP_PATH_DELIMITER . $attributeValue;
+            $attributePath[] = $attributeName . ProductConfig::ATTRIBUTE_MAP_PATH_DELIMITER . $attributeValue;
         }
         return $attributePath;
     }

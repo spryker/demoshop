@@ -13,7 +13,7 @@ use Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Shared\Library\Collection\Collection;
-use Spryker\Shared\Product\ProductConstants;
+use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
@@ -253,7 +253,7 @@ class ProductCategoryImporter extends AbstractImporter
     protected function touchProductActive($idProductAbstract)
     {
         $this->touchFacade->touchActive(
-            ProductConstants::RESOURCE_TYPE_PRODUCT_ABSTRACT,
+            ProductConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT,
             $idProductAbstract
         );
     }

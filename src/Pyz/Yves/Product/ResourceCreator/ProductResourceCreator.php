@@ -12,7 +12,7 @@ use Pyz\Yves\Product\Mapper\StorageImageMapperInterface;
 use Pyz\Yves\Product\Mapper\StorageProductCategoryMapperInterface;
 use Pyz\Yves\Product\Mapper\StorageProductMapperInterface;
 use Silex\Application;
-use Spryker\Shared\Product\ProductConstants;
+use Spryker\Shared\Product\ProductConfig;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
 
@@ -54,7 +54,7 @@ class ProductResourceCreator extends AbstractResourceCreator
      */
     public function getType()
     {
-        return ProductConstants::RESOURCE_TYPE_PRODUCT_ABSTRACT;
+        return ProductConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT;
     }
 
     /**

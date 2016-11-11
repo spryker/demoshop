@@ -18,7 +18,7 @@ use Orm\Zed\Product\Persistence\SpyProductAttributeKeyQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\Collector\CollectorConfig;
 use Spryker\Shared\Library\Collection\Collection;
-use Spryker\Shared\Product\ProductConstants;
+use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
 use Spryker\Zed\Price\Business\PriceFacadeInterface;
@@ -134,7 +134,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
      */
     protected function collectResourceType()
     {
-        return ProductConstants::RESOURCE_TYPE_PRODUCT_ABSTRACT;
+        return ProductConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT;
     }
 
     /**
