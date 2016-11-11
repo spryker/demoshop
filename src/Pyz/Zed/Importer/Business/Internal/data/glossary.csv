@@ -717,3 +717,73 @@ product.detail.out_of_stock, "This product is currently not available.",en_US
 product.detail.out_of_stock, "Das Produkt ist zur Zeit nicht verfügbar.",de_DE
 cart.pre.check.availability.failed.empty, "Currently this product is not available. ",en_US
 cart.pre.check.availability.failed.empty, "Zurzeit diesem Produkt ist nicht Verfügbar.",de_DE
+mail.sender.name,"Spryker demoshop",en_US
+mail.sender.name,"Spryker demoshop",de_DE
+mail.sender.email,"demoshop@spryker.com",en_US
+mail.sender.email,"demoshop@spryker.de",de_DE
+mail.customer.registration.subject,"Vielen Dank für Ihre Anmeldung bei Spryker Shop!",de_DE
+mail.customer.registration.subject,"Thank you for signing up with Spryker Shop!",en_US
+mail.customer.registration.text,"Vielen Dank für Ihre Anmeldung bei Spryker Shop!",de_DE
+mail.customer.registration.text,"Thank you for signing up with Spryker Shop!",en_US
+mail.customer.restore_password.subject,"Ihr Passwort wurde erfolgreich geändert!",de_DE
+mail.customer.restore_password.subject,"Your password was changed successfully!",en_US
+mail.customer.restore_password.text,"Ihr Passwort wurde erfolgreich geändert!",de_DE
+mail.customer.restore_password.text,"Your password was changed successfully!",en_US
+mail.customer.restore_password_confirmation.subject,"Ihr Passwort wurde erfolgreich geändert!",de_DE
+mail.customer.restore_password_confirmation.subject,"Your password was changed successfully!",en_US
+mail.customer.restore_password_confirmation.text,"Ihr Passwort wurde erfolgreich geändert!",de_DE
+mail.customer.restore_password_confirmation.text,"Your password was changed successfully!",en_US
+mail.newsletter.subscribed.subject,"Willkommen beim Spryker Newsletter",de_DE
+mail.newsletter.subscribed.subject,"Welcome to Spryker newsletter",en_US
+mail.newsletter.subscribed.text,"Wir freuen uns, dass du dich für unseren Newsletter registriert hast. Wir werden unser bestes geben, um dich mich relevanten und spannenden News und Updates zu versorgen.",de_DE
+mail.newsletter.subscribed.text,"We are thrilled you have signed up for our newletter. We will do our best to deliver you the most relevant and exciting news and updates.",en_US
+mail.newsletter.subscribed.footer.text,"Viel Spaß beim Shoppen.",de_DE
+mail.newsletter.subscribed.footer.text,"Enjoy your shopping experience.",en_US
+mail.newsletter.unsubscribed.subject,"Schade, dass du uns verlässt",de_DE
+mail.newsletter.unsubscribed.subject,"Sorry to see you go…",en_US
+mail.newsletter.unsubscribed.text,"Deine E-Mailadresse wurde vom Spryker Shop Newsletter abgemeldet. Du kannst dich jeder Zeit wieder über dein Kundenkonto anmelden.",de_DE
+mail.newsletter.unsubscribed.text,"Your email address has been unsubscribed from Spryker Shop newsletter, but you can always manage your subscription in your customer profile.",en_US
+mail.order.confirmation.subject,"Vielen Dank für deine Bestellung beim Spryker Shop",de_DE
+mail.order.confirmation.subject,"Thank you for your order at Spryker Shop",en_US
+mail.order.confirmation.salutation,"Hallo",de_DE
+mail.order.confirmation.salutation,"Hello",en_US
+mail.order.confirmation.text_line_1,"danke für deine Bestellung beim Spryker Shop!",de_DE
+mail.order.confirmation.text_line_1,"Thank you for shopping at Spryker Shop!",en_US
+mail.order.confirmation.text_line_2,"Wir schreiben dir um dich wissen zu lassen, dass wir deine Bestellung erfasst haben. Du erhältst eine Versandbestätigung sobald deine Bestellung losgeschickt wurde.",de_DE
+mail.order.confirmation.text_line_2,"We are writing to let you know that we got your order. You will receive a shipping confirmation by e-mail from us as soon as the order has been sent.",en_US
+mail.order.confirmation.text_line_3,"Hoffentlich gefällt dir deine Bestellung. Falls du deine Meinung änderst kannst du deine Bestellung innerhalb von 14 Tagen zurückgeben.",de_DE
+mail.order.confirmation.text_line_3,"We hope you like your order. In case you change your mind, you can return within 14 days.",en_US
+mail.order.confirmation.details,"Bestelldetails",de_DE
+mail.order.confirmation.details,"Details of your order",en_US
+mail.order.confirmation.shipping_address,"Lieferadresse",de_DE
+mail.order.confirmation.shipping_address,"Delivery address",en_US
+mail.order.confirmation.billing_address,"Rechnungsadresse",de_DE
+mail.order.confirmation.billing_address,"Billing address",en_US
+mail.order.confirmation.order_number,"Bestellnummer",de_DE
+mail.order.confirmation.order_number,"Order number",en_US
+mail.order.confirmation.price_including_tax,"Preis inklusive Steuern",de_DE
+mail.order.confirmation.price_including_tax,"Total price including taxes",en_US
+mail.order.confirmation.date,"Datum",de_DE
+mail.order.confirmation.date,"Date of order",en_US
+mail.order.confirmation.footer.text_line_1,"Viele Grüße",de_DE
+mail.order.confirmation.footer.text_line_1,"Have a great day!",en_US
+mail.order.confirmation.footer.text_line_2,"Dein Spryker Shop",de_DE
+mail.order.confirmation.footer.text_line_2,"Your Spryker Shop",en_US
+mail.order.shipped.subject,"Ihre Bestellung %orderReference% ist schon auf dem Weg",de_DE
+mail.order.shipped.subject,"Your order %orderReference% is on its way",en_US
+mail.order.shipped.salutation,"Hallo",de_DE
+mail.order.shipped.salutation,"Hello",en_US
+mail.order.shipped.text,"Ihre Bestellung ist schon auf dem Weg!",de_DE
+mail.order.shipped.text,"Your order is already on its way.",en_US
+mail.order.shipped.details,"Bestelldetails",de_DE
+mail.order.shipped.details,"Details of your order",en_US
+mail.order.shipped.order_number,"Bestellnummer",de_DE
+mail.order.shipped.order_number,"Order number",en_US
+mail.order.shipped.price_including_tax,"Preis inklusive Steuern",de_DE
+mail.order.shipped.price_including_tax,"Total price including taxes",en_US
+mail.order.shipped.date,"Datum",de_DE
+mail.order.shipped.date,"Date of order",en_US
+mail.order.shipped.footer.text_line_1,"Viele Grüße",de_DE
+mail.order.shipped.footer.text_line_1,"Have a great day!",en_US
+mail.order.shipped.footer.text_line_2,"Dein Spryker Shop",de_DE
+mail.order.shipped.footer.text_line_2,"Your Spryker Shop",en_US
