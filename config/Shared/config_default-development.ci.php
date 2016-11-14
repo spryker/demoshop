@@ -22,7 +22,7 @@ $config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
 
 $config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = '9200';
 
-$yvesHost = 'www.de.spryker.dev';
+$yvesHost = 'www.de.demoshop.local';
 $config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
 $config[ApplicationConstants::HOST_YVES] = 'http://' . $yvesHost;
 $config[ApplicationConstants::HOST_STATIC_ASSETS] = $config[ApplicationConstants::HOST_STATIC_MEDIA] = $yvesHost;
@@ -30,7 +30,7 @@ $config[ApplicationConstants::HOST_STATIC_ASSETS] = $config[ApplicationConstants
 $config[ApplicationConstants::HOST_SSL_YVES] = 'https://' . $yvesHost;
 $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS] = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA] = $yvesHost;
 
-$zedHost = 'zed.de.spryker.dev:80';
+$zedHost = 'zed.de.demoshop.local:80';
 $config[ApplicationConstants::HOST_ZED_GUI]
     = 'http://' . $zedHost;
 $config[ApplicationConstants::HOST_ZED_API] = $zedHost;
@@ -38,8 +38,8 @@ $config[ApplicationConstants::HOST_SSL_ZED_GUI]
     = $config[ApplicationConstants::HOST_SSL_ZED_API]
     = 'https://' . $zedHost;
 
-$config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTP] = 'http://static.de.spryker.dev';
-$config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = 'https://static.de.spryker.dev';
+$config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTP] = 'http://static.de.demoshop.local';
+$config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = 'https://static.de.demoshop.local';
 
 $config[ApplicationConstants::JENKINS_BASE_URL] = 'http://localhost:10007/';
 $config[MailConstants::MAILCATCHER_GUI] = 'http://' . $config[ApplicationConstants::HOST_ZED_GUI] . ':1080';

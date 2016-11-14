@@ -3,14 +3,14 @@
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Mail\MailConstants;
 
-$yvesHost = 'www.com.project.local';
+$yvesHost = 'www.com.demoshop.local';
 $config[ApplicationConstants::HOST_YVES] = 'http://' . $yvesHost;
 $config[ApplicationConstants::HOST_STATIC_ASSETS] = $config[ApplicationConstants::HOST_STATIC_MEDIA] = $yvesHost;
 
 $config[ApplicationConstants::HOST_SSL_YVES] = 'https://' . $yvesHost;
 $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS] = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA] = $yvesHost;
 
-$zedHost = 'zed.com.project.local';
+$zedHost = 'zed.com.demoshop.local';
 $config[ApplicationConstants::HOST_ZED_GUI]
     = $config[ApplicationConstants::HOST_ZED_API]
     = 'http://' . $zedHost;
@@ -20,8 +20,8 @@ $config[ApplicationConstants::HOST_SSL_ZED_GUI]
 
 $config[ApplicationConstants::YVES_TRUSTED_HOSTS] = [];
 
-$config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTP] = 'http://static.project.local';
-$config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = 'https://static.project.local';
+$config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTP] = 'http://static.demoshop.local';
+$config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = 'https://static.demoshop.local';
 
 $config[MailConstants::MAILCATCHER_GUI] = 'http://' . $config[ApplicationConstants::HOST_ZED_GUI] . ':1080';
 

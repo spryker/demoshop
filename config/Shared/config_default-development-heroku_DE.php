@@ -48,8 +48,8 @@ $config[ApplicationConstants::HOST_SSL_ZED_GUI]
 $config[SessionConstants::ZED_SESSION_COOKIE_NAME] = $zedHost;
 $config[SessionConstants::ZED_SESSION_COOKIE_SECURE] = false;
 
-$config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTP] = 'http://static.de.spryker.dev';
-$config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = 'https://static.de.spryker.dev';
+$config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTP] = 'http://static.de.demoshop.local';
+$config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = 'https://static.de.demoshop.local';
 
 $config[ApplicationConstants::JENKINS_BASE_URL] = 'http://localhost:10007/';
 $config[MailConstants::MAILCATCHER_GUI] = 'http://' . $config[ApplicationConstants::HOST_ZED_GUI] . ':1080';

@@ -13,7 +13,7 @@ $config[PropelConstants::ZED_DB_HOST] = '127.0.0.1';
 $config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
 $config[PropelConstants::ZED_DB_PORT] = 5432;
 
-$yvesHost = 'www.de.project.local';
+$yvesHost = 'www.de.demoshop.local';
 $config[ApplicationConstants::HOST_YVES] = 'http://' . $yvesHost;
 $config[ApplicationConstants::HOST_STATIC_ASSETS] = $config[ApplicationConstants::HOST_STATIC_MEDIA] = $yvesHost;
 $config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
@@ -21,7 +21,7 @@ $config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
 $config[ApplicationConstants::HOST_SSL_YVES] = 'https://' . $yvesHost;
 $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS] = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA] = $yvesHost;
 
-$zedHost = 'zed.de.project.local';
+$zedHost = 'zed.de.demoshop.local';
 $config[ApplicationConstants::HOST_ZED_GUI]
     = 'http://' . $zedHost;
 $config[ApplicationConstants::HOST_ZED_API] = $zedHost;
@@ -32,8 +32,8 @@ $config[ApplicationConstants::HOST_SSL_ZED_GUI]
 $config[SessionConstants::ZED_SESSION_COOKIE_NAME] = $zedHost;
 $config[SessionConstants::ZED_SESSION_COOKIE_SECURE] = false;
 
-$config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTP] = 'http://static.project.local';
-$config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = 'https://static.project.local';
+$config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTP] = 'http://static.demoshop.local';
+$config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = 'https://static.demoshop.local';
 
 $config[ApplicationConstants::JENKINS_BASE_URL] = 'http://localhost:10007/';
 $config[MailConstants::MAILCATCHER_GUI] = 'http://' . $config[ApplicationConstants::HOST_ZED_GUI] . ':1080';

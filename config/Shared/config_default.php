@@ -78,7 +78,7 @@ $config[ApplicationConstants::HOST_YVES]
     = $config[ApplicationConstants::HOST_SSL_YVES]
     = $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS]
     = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA]
-    = 'www.de.spryker.dev';
+    = 'www.de.demoshop.local';
 
 /**
  * Hostname(s) for Zed - Shop frontend
@@ -88,7 +88,7 @@ $config[ApplicationConstants::HOST_ZED_GUI]
     = $config[ApplicationConstants::HOST_ZED_API]
     = $config[ApplicationConstants::HOST_SSL_ZED_GUI]
     = $config[ApplicationConstants::HOST_SSL_ZED_API]
-    = 'zed.de.project.local';
+    = 'zed.de.demoshop.local';
 
 $config[ApplicationConstants::YVES_TRUSTED_HOSTS] = [];
 
