@@ -5,10 +5,10 @@
                 <label>
                     {{ "catalog.filter.pricerangeFrom" | trans }}
                     <input type="number" name="{{ filter.name }}[min]"
-                           value="{{ (filter.activeMin | default(0)) | money(false) | floor }}"
+                           value="{{ (filter.activeMin | default(0)) | moneyRaw | floor }}"
                            required="required"
-                           min="{{ (filter.min | default(0)) | money(false) | floor }}"
-                           max="{{ (filter.max | default(0)) | money(false) | ceil }}"
+                           min="{{ (filter.min | default(0)) | moneyRaw | floor }}"
+                           max="{{ (filter.max | default(0)) | moneyRaw | ceil }}"
                     />
                 </label>
             </div>
@@ -16,10 +16,10 @@
                 <label>
                     {{ "catalog.filter.pricerangeTo" | trans }}
                     <input type="number" name="{{ filter.name }}[max]"
-                           value="{{ (filter.activeMax | default(0)) | money(false) | ceil }}"
+                           value="{{ (filter.activeMax | default(0)) | moneyRaw | ceil }}"
                            required="required"
-                           min="{{ (filter.min | default(0)) | money(false) | floor }}"
-                           max="{{ (filter.max | default(0)) | money(false) | ceil }}"
+                           min="{{ (filter.min | default(0)) | moneyRaw | floor }}"
+                           max="{{ (filter.max | default(0)) | moneyRaw | ceil }}"
                     />
                 </label>
             </div>

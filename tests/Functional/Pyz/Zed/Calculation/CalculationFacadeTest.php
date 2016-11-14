@@ -54,10 +54,10 @@ class CalculationFacadeTest extends Test
         $itemTransfer = $recalculatedQuoteTransfer->getItems()[0];
 
         $this->assertSame(19, $itemTransfer->getTaxRate());
-        $this->assertSame(15.97, $itemTransfer->getUnitTaxAmount());
-        $this->assertSame(31.93, $itemTransfer->getSumTaxAmount());
-        $this->assertSame(19.96, $itemTransfer->getUnitTaxAmountWithProductOptionAndDiscountAmounts());
-        $this->assertSame(39.91, $itemTransfer->getSumTaxAmountWithProductOptionAndDiscountAmounts());
+        $this->assertSame(16, $itemTransfer->getUnitTaxAmount());
+        $this->assertSame(32, $itemTransfer->getSumTaxAmount());
+        $this->assertSame(20, $itemTransfer->getUnitTaxAmountWithProductOptionAndDiscountAmounts());
+        $this->assertSame(40, $itemTransfer->getSumTaxAmountWithProductOptionAndDiscountAmounts());
 
         $this->assertSame(100, $itemTransfer->getUnitGrossPrice());
         $this->assertSame(200, $itemTransfer->getSumGrossPrice());
@@ -86,17 +86,17 @@ class CalculationFacadeTest extends Test
         $this->assertSame(100, $expenseTransfer->getSumGrossPriceWithDiscounts());
 
         $this->assertSame(19, $expenseTransfer->getTaxRate());
-        $this->assertSame(15.97, $expenseTransfer->getUnitTaxAmount());
-        $this->assertSame(15.96, $expenseTransfer->getSumTaxAmount());
-        $this->assertSame(15.97, $expenseTransfer->getUnitTaxAmountWithDiscounts());
-        $this->assertSame(15.96, $expenseTransfer->getSumTaxAmountWithDiscounts());
+        $this->assertSame(16, $expenseTransfer->getUnitTaxAmount());
+        $this->assertSame(16, $expenseTransfer->getSumTaxAmount());
+        $this->assertSame(16, $expenseTransfer->getUnitTaxAmountWithDiscounts());
+        $this->assertSame(16, $expenseTransfer->getSumTaxAmountWithDiscounts());
 
         $totalsTransfer = $recalculatedQuoteTransfer->getTotals();
         $this->assertSame(250, $totalsTransfer->getSubtotal());
         $this->assertSame(0, $totalsTransfer->getDiscountTotal());
         $this->assertSame(100, $totalsTransfer->getExpenseTotal());
         $this->assertSame(350, $totalsTransfer->getGrandTotal());
-        $this->assertSame(56.0, $totalsTransfer->getTaxTotal()->getAmount());
+        $this->assertSame(56, $totalsTransfer->getTaxTotal()->getAmount());
     }
 
     /**
@@ -120,10 +120,10 @@ class CalculationFacadeTest extends Test
         $itemTransfer = $recalculatedQuoteTransfer->getItems()[0];
 
         $this->assertSame(19, $itemTransfer->getTaxRate());
-        $this->assertSame(15.97, $itemTransfer->getUnitTaxAmount());
-        $this->assertSame(31.93, $itemTransfer->getSumTaxAmount());
-        $this->assertSame(18.36, $itemTransfer->getUnitTaxAmountWithProductOptionAndDiscountAmounts());
-        $this->assertSame(36.72, $itemTransfer->getSumTaxAmountWithProductOptionAndDiscountAmounts());
+        $this->assertSame(16, $itemTransfer->getUnitTaxAmount());
+        $this->assertSame(32, $itemTransfer->getSumTaxAmount());
+        $this->assertSame(18, $itemTransfer->getUnitTaxAmountWithProductOptionAndDiscountAmounts());
+        $this->assertSame(37, $itemTransfer->getSumTaxAmountWithProductOptionAndDiscountAmounts());
 
         $this->assertSame(100, $itemTransfer->getUnitGrossPrice());
         $this->assertSame(200, $itemTransfer->getSumGrossPrice());
@@ -146,10 +146,10 @@ class CalculationFacadeTest extends Test
         //expenses
         $expenseTransfer = $quoteTransfer->getExpenses()[0];
 
-        $this->assertSame(15.97, $expenseTransfer->getUnitTaxAmount());
-        $this->assertSame(15.96, $expenseTransfer->getSumTaxAmount());
-        $this->assertSame(15.97, $expenseTransfer->getUnitTaxAmountWithDiscounts());
-        $this->assertSame(15.96, $expenseTransfer->getSumTaxAmountWithDiscounts());
+        $this->assertSame(16, $expenseTransfer->getUnitTaxAmount());
+        $this->assertSame(16, $expenseTransfer->getSumTaxAmount());
+        $this->assertSame(16, $expenseTransfer->getUnitTaxAmountWithDiscounts());
+        $this->assertSame(16, $expenseTransfer->getSumTaxAmountWithDiscounts());
 
         $this->assertSame(100, $expenseTransfer->getSumGrossPriceWithDiscounts());
         $this->assertSame(0, $expenseTransfer->getSumTotalDiscountAmount());
@@ -166,7 +166,7 @@ class CalculationFacadeTest extends Test
         $this->assertSame($discountAmount, $totalsTransfer->getDiscountTotal());
         $this->assertSame(100, $totalsTransfer->getExpenseTotal());
         $this->assertSame(330, $totalsTransfer->getGrandTotal());
-        $this->assertSame(53.0, $totalsTransfer->getTaxTotal()->getAmount());
+        $this->assertSame(53, $totalsTransfer->getTaxTotal()->getAmount());
     }
 
     /**
@@ -204,12 +204,12 @@ class CalculationFacadeTest extends Test
         $totalsTransfer = $recalculatedQuoteTransfer->getTotals();
 
         $this->assertSame(7.0, $itemTransfer->getTaxRate());
-        $this->assertSame(6.54, $itemTransfer->getUnitTaxAmount());
-        $this->assertSame(6.54, $itemTransfer->getSumTaxAmount());
-        $this->assertSame(46.46, $itemTransfer->getUnitTaxAmountWithProductOptionAndDiscountAmounts());
-        $this->assertSame(46.46, $itemTransfer->getSumTaxAmountWithProductOptionAndDiscountAmounts());
+        $this->assertSame(7, $itemTransfer->getUnitTaxAmount());
+        $this->assertSame(7, $itemTransfer->getSumTaxAmount());
+        $this->assertSame(46, $itemTransfer->getUnitTaxAmountWithProductOptionAndDiscountAmounts());
+        $this->assertSame(46, $itemTransfer->getSumTaxAmountWithProductOptionAndDiscountAmounts());
 
-        $this->assertSame(46.0, $totalsTransfer->getTaxTotal()->getAmount());
+        $this->assertSame(46, $totalsTransfer->getTaxTotal()->getAmount());
     }
 
     /**
@@ -253,12 +253,12 @@ class CalculationFacadeTest extends Test
         $totalsTransfer = $recalculatedQuoteTransfer->getTotals();
 
         $this->assertSame(7.0, $itemTransfer->getTaxRate());
-        $this->assertSame(6.54, $itemTransfer->getUnitTaxAmount());
-        $this->assertSame(6.54, $itemTransfer->getSumTaxAmount());
-        $this->assertSame(45.16, $itemTransfer->getUnitTaxAmountWithProductOptionAndDiscountAmounts());
-        $this->assertSame(45.14, $itemTransfer->getSumTaxAmountWithProductOptionAndDiscountAmounts());
+        $this->assertSame(7, $itemTransfer->getUnitTaxAmount());
+        $this->assertSame(7, $itemTransfer->getSumTaxAmount());
+        $this->assertSame(45, $itemTransfer->getUnitTaxAmountWithProductOptionAndDiscountAmounts());
+        $this->assertSame(45, $itemTransfer->getSumTaxAmountWithProductOptionAndDiscountAmounts());
 
-        $this->assertSame(45.0, $totalsTransfer->getTaxTotal()->getAmount());
+        $this->assertSame(45, $totalsTransfer->getTaxTotal()->getAmount());
     }
 
     /**
@@ -288,7 +288,7 @@ class CalculationFacadeTest extends Test
         $this->assertSame(0, $itemTransfer->getUnitTaxAmount());
         $this->assertSame(0, $itemTransfer->getSumTaxAmount());
 
-        $this->assertSame(0.0, $totalsTransfer->getTaxTotal()->getAmount());
+        $this->assertSame(0, $totalsTransfer->getTaxTotal()->getAmount());
     }
 
     /**

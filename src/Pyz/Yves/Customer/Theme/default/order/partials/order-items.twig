@@ -38,10 +38,10 @@
                     <small>{{ productOption.value | trans }}</small>
                 </td>
                 <td class="text-right">
-                    <small>{{ productOption.unitGrossPrice | price }}</small>
+                    <small>{{ productOption.unitGrossPrice | money }}</small>
                 </td>
                 <td class="text-right" colspan="2">
-                    <small>{{ productOption.sumGrossPrice | price }}</small>
+                    <small>{{ productOption.sumGrossPrice | money }}</small>
                 </td>
             </tr>
             {% endfor %}

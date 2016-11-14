@@ -1,13 +1,13 @@
 <li>
     {{ item.quantity }}
     <span class="__secondary">&times;</span>
-    {{ item.name }} - <strong>{{ item.sumGrossPrice|price }}</strong>
+    {{ item.name }} - <strong>{{ item.sumGrossPrice | money }}</strong>
 
     {% if item.productOptions|length > 0 %}
         <br />
         <small>{{ 'product.product_options' | trans }} </small> <br />
         {% for productOption in item.productOptions %}
-            &nbsp; <small> + {{ productOption.value | trans }} <strong>{{ productOption.unitGrossPrice | price }}</strong> </small> <br />
+            &nbsp; <small> + {{ productOption.value | trans }} <strong>{{ productOption.unitGrossPrice | money }}</strong> </small> <br />
         {% endfor %}
     {% endif %}
 
