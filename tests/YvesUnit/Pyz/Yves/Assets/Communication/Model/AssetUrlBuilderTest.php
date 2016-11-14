@@ -71,7 +71,7 @@ class AssetUrlBuilderTest extends PHPUnit_Framework_TestCase
      */
     private function getCacheBusterMock()
     {
-        $mock = $this->getMock(CacheBusterInterface::class);
+        $mock = $this->getMockBuilder(CacheBusterInterface::class)->getMock();
         $mock->expects($this->any())
             ->method('addCacheBust')
             ->will($this->returnArgument(0));

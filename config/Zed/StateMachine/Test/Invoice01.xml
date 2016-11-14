@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <statemachine
-        xmlns="http://static.spryker.com"
+        xmlns="spryker:state-machine-01"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://static.spryker.com http://static.spryker.com/state-machine-01.xsd">
+        xsi:schemaLocation="spryker:state-machine-01 http://static.spryker.com/state-machine-01.xsd">
+<!-- Used as example XML for Pyz\Zed\StateMachineExample implementation -->
 
     <process name="Invoice01" main="true">
+
         <states>
             <state name="new"/>
             <state name="invoice created">
@@ -127,6 +129,7 @@
                 <event>item not returned</event>
             </transition>
         </transitions>
+
     </process>
 
 </statemachine>

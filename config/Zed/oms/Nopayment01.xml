@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <statemachine
-        xmlns="http://static.spryker.com"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://static.spryker.com http://static.spryker.com/oms-01.xsd">
+    xmlns="spryker:oms-01"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="spryker:oms-01 http://static.spryker.com/oms-01.xsd">
+<!-- Used as example XML for OMS implementation -->
 
     <process name="Nopayment01" main="true">
+
         <states>
             <state name="new" reserved="true"/>
             <state name="waiting for payment"/>
@@ -71,11 +73,9 @@
                 <target>returned</target>
                 <event>return</event>
             </transition>
-
         </transitions>
 
         <events>
-
             <event name="authorize" onEnter="true" manual="true"/>
             <event name="paid" manual="true" />
             <event name="pick" manual="true" />
@@ -83,8 +83,8 @@
             <event name="forward" onEnter="true" />
             <event name="close" manual="true" />
             <event name="return" manual="true" />
-
         </events>
+
     </process>
 
 </statemachine>

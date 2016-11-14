@@ -139,7 +139,7 @@ class CustomerStepTest extends PHPUnit_Framework_TestCase
      */
     protected function createAuthHandlerMock()
     {
-        return $this->getMock(StepHandlerPluginInterface::class);
+        return $this->getMockBuilder(StepHandlerPluginInterface::class)->getMock();
     }
 
     /**
@@ -155,7 +155,7 @@ class CustomerStepTest extends PHPUnit_Framework_TestCase
      */
     protected function createCustomerClientMock()
     {
-        return $this->getMock(CustomerClientInterface::class);
+        return $this->getMockBuilder(CustomerClientInterface::class)->getMock();
     }
 
 }
