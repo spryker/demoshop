@@ -97,7 +97,7 @@ class UrlGenerator extends SymfonyUrlGenerator
 
         if ($prefixLocale === $localePath) {
             $urlToMatch = preg_replace('/^' . preg_quote($baseHost, '/') . '/', $prefixLocale, $url);
-            if (preg_match($route->compile()->getRegex(), '/'.$urlToMatch)) {
+            if (preg_match($route->compile()->getRegex(), '/' . $urlToMatch)) {
                 return $baseHost . $urlToMatch;
             }
         }
