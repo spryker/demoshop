@@ -28,7 +28,7 @@ class ProductController extends AbstractController
 
         $productOptionGroupsTransfer = $this->getFactory()
             ->getProductOptionClient()
-            ->getProductOptions($storageProductTransfer->getId(), $this->getLocale()); // TODO: use only abstract product id here
+            ->getProductOptions($storageProductTransfer->getIdProductAbstract(), $this->getLocale());
 
         $productData = [
             'product' => $storageProductTransfer,

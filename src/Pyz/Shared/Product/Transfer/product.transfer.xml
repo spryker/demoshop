@@ -8,7 +8,8 @@
     </transfer>
 
     <transfer name="StorageProduct">
-        <property name="id" type="int" />
+        <property name="idProductConcrete" type="int" />
+        <property name="idProductAbstract" type="int" />
         <property name="attributes" type="array" singular="attribute" />
         <property name="name" type="string" />
         <property name="sku" type="string" />

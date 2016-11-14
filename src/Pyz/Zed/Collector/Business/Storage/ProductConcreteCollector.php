@@ -88,7 +88,7 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
     protected function collectItem($touchKey, array $collectItemData)
     {
         return [
-            StorageProductTransfer::ID => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
+            StorageProductTransfer::ID_PRODUCT_CONCRETE => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
             StorageProductTransfer::NAME => $collectItemData[self::NAME],
             StorageProductTransfer::DESCRIPTION => $this->getDescription($collectItemData),
             StorageProductTransfer::ATTRIBUTES => $this->getConcreteAttributes($collectItemData),
