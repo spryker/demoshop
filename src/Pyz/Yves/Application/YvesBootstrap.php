@@ -30,6 +30,7 @@ use Pyz\Yves\NewRelic\Plugin\Provider\NewRelicServiceProvider;
 use Pyz\Yves\Newsletter\Plugin\Provider\NewsletterControllerProvider;
 use Pyz\Yves\Twig\Plugin\Provider\TwigServiceProvider;
 use Pyz\Yves\Wishlist\Plugin\Provider\WishlistControllerProvider;
+use Pyz\Yves\SpecialOffers\Plugin\Provider\SpecialOffersControllerProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
@@ -138,6 +139,7 @@ class YvesBootstrap
             new WishlistControllerProvider($ssl),
             new HeartbeatControllerProvider($ssl),
             new NewsletterControllerProvider($ssl),
+            new SpecialOffersControllerProvider($ssl),
         ];
 
         foreach ($controllerProviders as $controllerProvider) {

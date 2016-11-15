@@ -1,0 +1,22 @@
+{% extends '@Cms/layout/full.twig' %}
+
+{% block breadcrumb %}{% endblock %}
+
+{% block content %}
+<!-- CMS_PLACEHOLDER : "marketing_text" -->
+
+<div class="row">
+    <div class="small-12 columns">
+        <div class="callout">
+            <div class="row">
+                <div class="small-12 columns">
+                    {{ spyCms('marketing_text') | raw }}
+                </div>
+            </div>
+        </div>
+
+        {{ render(path('personalized-products', {'limit': 12})) }}
+    </div>
+</div>
+
+{% endblock %}
