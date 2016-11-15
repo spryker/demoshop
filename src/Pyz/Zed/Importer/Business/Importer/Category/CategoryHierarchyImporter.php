@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\Category;
 
+use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
 use LogicException;
 use Orm\Zed\Category\Persistence\Base\SpyCategoryNodeQuery;
@@ -103,23 +104,14 @@ class CategoryHierarchyImporter extends AbstractCategoryImporter
     protected function importOne(array $data)
     {
         $categoryTransfer = $this->format($data);
-
-        $categoryEntity = $this
-            ->categoryQueryContainer
-            ->queryCategoryByKey($data[static::UCATID])
-            ->findOne();
-        $categoryTransfer->fromArray($categoryEntity->toArray());
+        $categoryTransfer = $this->updateCategoryTransferFromExistingEntity($categoryTransfer, $data[static::UCATID]);
 
         $idParentNode = $this->getParentNodeId($data[static::PARENT_KEY]);
-
-        $nodes = $this->categoryQueryContainer
-            ->queryNodeByCategoryKey($data[static::UCATID])
-            ->filterByIsMain(true)
-            ->find();
+        $nodes = $this->findMainCategoryNodesByCategoryKey($data[static::UCATID]);
 
         foreach ($nodes as $nodeEntity) {
             $nodeTransfer = new NodeTransfer();
-            $nodeTransfer->fromArray($nodeEntity->toArray());
+            $nodeTransfer->fromArray($nodeEntity->toArray(), true);
             $categoryTransfer->setCategoryNode($nodeTransfer);
 
             $parentNodeTransfer = new NodeTransfer();
@@ -128,6 +120,24 @@ class CategoryHierarchyImporter extends AbstractCategoryImporter
 
             $this->categoryFacade->update($categoryTransfer);
         }
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\CategoryTransfer $categoryTransfer
+     * @param string $categoryKey
+     *
+     * @return \Generated\Shared\Transfer\CategoryTransfer
+     */
+    protected function updateCategoryTransferFromExistingEntity(CategoryTransfer $categoryTransfer, $categoryKey)
+    {
+        $categoryEntity = $this
+            ->categoryQueryContainer
+            ->queryCategoryByKey($categoryKey)
+            ->findOne();
+
+        $categoryTransfer->fromArray($categoryEntity->toArray(), true);
+
+        return $categoryTransfer;
     }
 
     /**
@@ -153,6 +163,20 @@ class CategoryHierarchyImporter extends AbstractCategoryImporter
         }
 
         return $idParentNode;
+    }
+
+    /**
+     * @param string $categoryKey
+     *
+     * @return \Orm\Zed\Category\Persistence\SpyCategoryNode[]|\Propel\Runtime\Collection\ObjectCollection
+     */
+    protected function findMainCategoryNodesByCategoryKey($categoryKey)
+    {
+        return $this
+            ->categoryQueryContainer
+            ->queryNodeByCategoryKey($categoryKey)
+            ->filterByIsMain(true)
+            ->find();
     }
 
 }
