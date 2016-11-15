@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "69bf807805c290d0e08573f90c7ae272",
-    "content-hash": "9da5d94c360697a78cb40d75009b6432",
+    "hash": "772e5428df6ed0f4d6ee4bb7e93c8480",
+    "content-hash": "297807ffe2aa11a03e6899dc09a4a13c",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -570,12 +570,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "5e10cc29c8358688bfe6ace341e45d0a2f974851"
+                "reference": "ffd114125b7ed474201e67fe060ea605debfb66e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/5e10cc29c8358688bfe6ace341e45d0a2f974851",
-                "reference": "5e10cc29c8358688bfe6ace341e45d0a2f974851",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/ffd114125b7ed474201e67fe060ea605debfb66e",
+                "reference": "ffd114125b7ed474201e67fe060ea605debfb66e",
                 "shasum": ""
             },
             "require": {
@@ -588,7 +588,7 @@
                 "ext-intl": "*",
                 "florianv/swap": "^3.0",
                 "henrikbjorn/phpspec-code-coverage": "^2.0.2",
-                "moneyphp/iso-currencies": "~1.0.0",
+                "moneyphp/iso-currencies": "^1.0",
                 "php-http/message": "^1.4",
                 "php-http/mock-client": "^0.3.3",
                 "phpspec/phpspec": "^2.5",
@@ -1253,7 +1253,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "eee0f35e3e079676e5a0adeb93a59fd60b871ef2"
+                "reference": "93f213efa817a291ddbdeb0ed3ccfe54b7be2590"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1450,6 +1450,9 @@
                     "Spryker\\Shared\\Invoice\\": "Bundles/Invoice/src",
                     "Unit\\Spryker\\Shared\\Invoice\\": "Bundles/Invoice/tests",
                     "Functional\\Spryker\\Shared\\Invoice\\": "Bundles/Invoice/tests",
+                    "Spryker\\Service\\Kernel\\": "Bundles/Kernel/src",
+                    "Unit\\Spryker\\Service\\Kernel\\": "Bundles/Kernel/tests",
+                    "Functional\\Spryker\\Service\\Kernel\\": "Bundles/Kernel/tests",
                     "Spryker\\Client\\Kernel\\": "Bundles/Kernel/src",
                     "Unit\\Spryker\\Client\\Kernel\\": "Bundles/Kernel/tests",
                     "Functional\\Spryker\\Client\\Kernel\\": "Bundles/Kernel/tests",
@@ -1767,30 +1770,12 @@
                     "Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/src",
                     "Unit\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests",
                     "Functional\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests",
-                    "Spryker\\Yves\\UtilText\\": "Bundles/UtilText/src",
-                    "Acceptance\\UtilText\\": "Bundles/UtilText/tests",
-                    "Spryker\\Shared\\UtilText\\": "Bundles/UtilText/src",
-                    "Unit\\Spryker\\Shared\\UtilText\\": "Bundles/UtilText/tests",
-                    "Functional\\Spryker\\Shared\\UtilText\\": "Bundles/UtilText/tests",
-                    "Spryker\\Zed\\UtilText\\": "Bundles/UtilText/src",
-                    "Unit\\Spryker\\Zed\\UtilText\\": "Bundles/UtilText/tests",
-                    "Functional\\Spryker\\Zed\\UtilText\\": "Bundles/UtilText/tests",
-                    "Spryker\\Yves\\UtilSanitize\\": "Bundles/UtilSanitize/src",
-                    "Acceptance\\UtilSanitize\\": "Bundles/UtilSanitize/tests",
-                    "Spryker\\Shared\\UtilSanitize\\": "Bundles/UtilSanitize/src",
-                    "Unit\\Spryker\\Shared\\UtilSanitize\\": "Bundles/UtilSanitize/tests",
-                    "Functional\\Spryker\\Shared\\UtilSanitize\\": "Bundles/UtilSanitize/tests",
-                    "Spryker\\Zed\\UtilSanitize\\": "Bundles/UtilSanitize/src",
-                    "Unit\\Spryker\\Zed\\UtilSanitize\\": "Bundles/UtilSanitize/tests",
-                    "Functional\\Spryker\\Zed\\UtilSanitize\\": "Bundles/UtilSanitize/tests",
-                    "Spryker\\Yves\\UtilNetwork\\": "Bundles/UtilNetwork/src",
-                    "Acceptance\\UtilNetwork\\": "Bundles/UtilNetwork/tests",
-                    "Spryker\\Shared\\UtilNetwork\\": "Bundles/UtilNetwork/src",
-                    "Unit\\Spryker\\Shared\\UtilNetwork\\": "Bundles/UtilNetwork/tests",
-                    "Functional\\Spryker\\Shared\\UtilNetwork\\": "Bundles/UtilNetwork/tests",
-                    "Spryker\\Zed\\UtilNetwork\\": "Bundles/UtilNetwork/src",
-                    "Unit\\Spryker\\Zed\\UtilNetwork\\": "Bundles/UtilNetwork/tests",
-                    "Functional\\Spryker\\Zed\\UtilNetwork\\": "Bundles/UtilNetwork/tests"
+                    "Spryker\\Service\\UtilText\\": "Bundles/UtilText/src",
+                    "Functional\\Spryker\\Service\\UtilText\\": "Bundles/UtilText/tests",
+                    "Spryker\\Service\\UtilSanitize\\": "Bundles/UtilSanitize/src",
+                    "Functional\\Spryker\\Service\\UtilSanitize\\": "Bundles/UtilSanitize/tests",
+                    "Spryker\\Service\\UtilNetwork\\": "Bundles/UtilNetwork/src",
+                    "Functional\\Spryker\\Service\\UtilNetwork\\": "Bundles/UtilNetwork/tests"
                 },
                 "psr-4": {
                     "Application\\Module\\": "Bundles/Application/tests/_support/Module",
@@ -1812,7 +1797,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-11-10 14:45:23"
+            "time": "2016-11-15 10:46:42"
         },
         {
             "name": "symfony-cmf/routing",
