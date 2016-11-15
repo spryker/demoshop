@@ -159,7 +159,7 @@ class WishlistController extends AbstractController
         }
 
         return (new WishlistItemTransfer())
-            ->setFkProduct($request->query->getInt(self::PARAM_PRODUCT_ID))
+            ->setIdProduct($request->query->getInt(self::PARAM_PRODUCT_ID))
             ->setFkCustomer($customerTransfer->getIdCustomer())
             ->setWishlistName(self::DEFAULT_NAME);
     }
