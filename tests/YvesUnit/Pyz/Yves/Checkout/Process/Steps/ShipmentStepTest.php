@@ -102,7 +102,7 @@ class ShipmentStepTest extends PHPUnit_Framework_TestCase
      */
     protected function createCalculationClientMock()
     {
-        $calculationMock = $this->getMock(CalculationClientInterface::class);
+        $calculationMock = $this->getMockBuilder(CalculationClientInterface::class)->getMock();
         $calculationMock->method('recalculate')->willReturnArgument(0);
 
         return $calculationMock;
@@ -113,7 +113,7 @@ class ShipmentStepTest extends PHPUnit_Framework_TestCase
      */
     protected function createShipmentMock()
     {
-        return $this->getMock(StepHandlerPluginInterface::class);
+        return $this->getMockBuilder(StepHandlerPluginInterface::class)->getMock();
     }
 
 }
