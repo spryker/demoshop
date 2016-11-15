@@ -79,7 +79,7 @@ class ProductStockUpdater extends AbstractUpdater
      * @param \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface $productQueryContainer
      * @param \Spryker\Zed\Stock\Persistence\StockQueryContainerInterface $stockQueryContainer
      * @param \Spryker\Zed\Sales\Persistence\SalesQueryContainerInterface $salesQueryContainer
-     * @param $dataDirectory
+     * @param string $dataDirectory
      */
     public function __construct(
         CsvReader $csvReader,

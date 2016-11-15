@@ -14,7 +14,6 @@ class UpdaterConfig extends AbstractBundleConfig
 
     const RESOURCE_PRODUCT_STOCK = 'RESOURCE_PRODUCT_STOCK';
 
-
     /**
      * @return string
      */
