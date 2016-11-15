@@ -5,8 +5,10 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Acceptance\Availability\PageObject;
+namespace Acceptance\Oms\Tester;
 
-class AvailabilityPageTester
+use \ZedAcceptanceTester;
+
+class OmsTester extends ZedAcceptanceTester
 {
 }
