@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SETUP='spryker'
-DATABASE_NAME='DE_test_zed'
+DATABASE_NAME='DE_development_zed'
 DATABASE_USER='development'
 DATABASE_PASSWORD='mate20mg'
 REDIS_PORT='10009'

@@ -1,8 +1,8 @@
 <VirtualHost *:80>
 
   DocumentRoot %TRAVIS_BUILD_DIR%/public/Yves
-  ServerName www.de.spryker.test
-  SetEnv APPLICATION_ENV test
+  ServerName www.de.spryker.local
+  SetEnv APPLICATION_ENV devtest
 
   <Directory "%TRAVIS_BUILD_DIR%">
       Options Indexes FollowSymLinks MultiViews ExecCGI

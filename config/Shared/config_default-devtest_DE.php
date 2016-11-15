@@ -15,13 +15,13 @@ $zedHost = 'zed-test.de.project.local';
 $yvesHost = 'www-test.de.project.local';
 
 $config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
-$config[PropelConstants::ZED_DB_USERNAME] = 'development';
+$config[PropelConstants::ZED_DB_USERNAME] = 'devtest';
 $config[PropelConstants::ZED_DB_PASSWORD] = 'mate20mg';
-$config[PropelConstants::ZED_DB_DATABASE] = 'DE_test_zed';
+$config[PropelConstants::ZED_DB_DATABASE] = 'DE_devtest_zed';
 $config[PropelConstants::ZED_DB_HOST] = '127.0.0.1';
 $config[PropelConstants::ZED_DB_PORT] = 5432;
 
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_search_test';
+$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_search_devtest';
 
 $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '_test';
 
@@ -81,6 +81,3 @@ $config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
 $config[ApplicationConstants::HOST_SSL_YVES] = 'https://' . $yvesHost;
 $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS] = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA] = $yvesHost;
 $config[SessionConstants::ZED_SESSION_COOKIE_SECURE] = false;
-
-
-

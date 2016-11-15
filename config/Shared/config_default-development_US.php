@@ -18,7 +18,7 @@ $config[ApplicationConstants::HOST_SSL_ZED_GUI]
     = $config[ApplicationConstants::HOST_SSL_ZED_API]
     = 'https://' . $zedHost;
 
-$config[ApplicationConstants::YVES_TRUSTED_HOSTS] = [$yvesHost, $zedHost];
+$config[ApplicationConstants::YVES_TRUSTED_HOSTS] = [];
 
 $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTP] = 'http://static.project.local';
 $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = 'https://static.project.local';
