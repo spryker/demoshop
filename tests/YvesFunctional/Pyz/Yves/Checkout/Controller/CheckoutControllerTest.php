@@ -16,6 +16,7 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Generated\Shared\Transfer\TotalsTransfer;
 use PHPUnit_Framework_TestCase;
+use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Checkout\Controller\CheckoutController;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
@@ -23,6 +24,7 @@ use Pyz\Yves\Customer\Form\AddressForm;
 use Pyz\Yves\Customer\Form\GuestForm;
 use ReflectionProperty;
 use Spryker\Client\Cart\CartClient;
+use Spryker\Client\Session\SessionClient;
 use Spryker\Client\ZedRequest\Client\HttpClient;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Spryker\Yves\DummyPayment\Form\AbstractSubForm;
@@ -86,6 +88,11 @@ class CheckoutControllerTest extends PHPUnit_Framework_TestCase
     {
         $this->skipIfCircleCi();
         $this->controller = new CheckoutController();
+
+        $sessionClient = new SessionClient();
+        $pimple = new Pimple();
+        $sessionContainer = $pimple->getApplication()['session'];
+        $sessionClient->setContainer($sessionContainer);
     }
 
     /**

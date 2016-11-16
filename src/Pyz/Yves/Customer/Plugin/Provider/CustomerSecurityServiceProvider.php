@@ -9,6 +9,7 @@ namespace Pyz\Yves\Customer\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
 use Pyz\Yves\Customer\Form\LoginForm;
+use Pyz\Yves\Customer\Plugin\UsernamePasswordFormAuthenticationListener;
 use Silex\Application;
 use Spryker\Shared\Config\Config;
 use Spryker\Shared\Customer\CustomerConstants;
@@ -62,6 +63,7 @@ class CustomerSecurityServiceProvider extends AbstractServiceProvider
                     'check_path' => '/login_check',
                     'username_parameter' => LoginForm::FORM_NAME . '[' . LoginForm::FIELD_EMAIL . ']',
                     'password_parameter' => LoginForm::FORM_NAME . '[' . LoginForm::FIELD_PASSWORD . ']',
+                    'listener_class' => UsernamePasswordFormAuthenticationListener::class,
                 ],
                 'logout' => [
                     'logout_path' => '/logout',

@@ -1,6 +1,8 @@
 <?php
 
 use Pyz\Shared\Mail\MailConstants;
+use Pyz\Yves\Application\YvesBootstrap;
+use Pyz\Zed\Application\Communication\ZedBootstrap;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
@@ -10,6 +12,7 @@ use Spryker\Shared\Ratepay\RatepayConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Storage\StorageConstants;
+use Spryker\Shared\Testify\TestifyConstants;
 
 $config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
 $config[PropelConstants::ZED_DB_USERNAME] = 'postgres';
@@ -136,3 +139,6 @@ $config[RatepayConstants::SNIPPET_ID] = 'ratepay';
 $config[RatepayConstants::SHOP_ID] = '';
 $config[RatepayConstants::SYSTEM_ID] = 'Spryker ' . $config[ApplicationConstants::HOST_YVES];
 $config[RatepayConstants::API_URL] = 'https://gateway-int.ratepay.com/api/xml/1_0';
+
+$config[TestifyConstants::BOOTSTRAP_CLASS_YVES] = YvesBootstrap::class;
+$config[TestifyConstants::BOOTSTRAP_CLASS_ZED] = ZedBootstrap::class;
