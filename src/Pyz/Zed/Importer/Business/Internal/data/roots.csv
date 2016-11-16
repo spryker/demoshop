@@ -1,2 +1,2 @@
-category_key,parent_category_key,name.en_US,name.de_DE,order
-demoshop,,Demoshop EN,Demoshop DE,0
+category_key,name.en_US,description.en_US,name.de_DE,description.de_DE
+demoshop,Demoshop,English version of Demoshop,Demoshop,Deutsche Version des Demoshops
