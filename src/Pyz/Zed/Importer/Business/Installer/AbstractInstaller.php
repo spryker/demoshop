@@ -172,7 +172,7 @@ abstract class AbstractInstaller implements InstallerInterface
     protected function excludeInstalled()
     {
         return array_filter($this->importerCollection, function (ImporterInterface $importer) {
-            return true;// !$importer->isImported();
+            return !$importer->isImported();
         });
     }
 

@@ -13,6 +13,7 @@ use LogicException;
 use Orm\Zed\Category\Persistence\Base\SpyCategoryNodeQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
+use Pyz\Zed\Importer\Business\Exception\CategoryNotFoundException;
 use Spryker\Shared\Library\Collection\Collection;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
@@ -126,6 +127,8 @@ class CategoryHierarchyImporter extends AbstractCategoryImporter
      * @param \Generated\Shared\Transfer\CategoryTransfer $categoryTransfer
      * @param string $categoryKey
      *
+     * @throws \Pyz\Zed\Importer\Business\Exception\CategoryNotFoundException
+     *
      * @return \Generated\Shared\Transfer\CategoryTransfer
      */
     protected function updateCategoryTransferFromExistingEntity(CategoryTransfer $categoryTransfer, $categoryKey)
@@ -134,6 +137,10 @@ class CategoryHierarchyImporter extends AbstractCategoryImporter
             ->categoryQueryContainer
             ->queryCategoryByKey($categoryKey)
             ->findOne();
+
+        if (!$categoryEntity) {
+            throw new CategoryNotFoundException(sprintf('Could not find category for key "%s"', $categoryKey));
+        }
 
         $categoryTransfer->fromArray($categoryEntity->toArray(), true);
 
