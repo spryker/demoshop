@@ -180,7 +180,7 @@ class FormFactory extends SprykerFormFactory
      */
     protected function createFormCollection(array $formTypes, StepEngineFormDataProviderInterface $dataProvider = null)
     {
-        return new FormCollectionHandler($formTypes, $this->getFormFactory(), $dataProvider);
+        return new FormCollectionHandler($formTypes, $this->getProvidedDependency(ApplicationConstants::FORM_FACTORY), $dataProvider);
     }
 
     /**

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
@@ -9,6 +10,7 @@ namespace Pyz\Yves\Cart;
 use Pyz\Yves\Cart\Form\VoucherForm;
 use Pyz\Yves\Cart\Handler\CartOperationHandler;
 use Pyz\Yves\Cart\Handler\CartVoucherHandler;
+use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class CartFactory extends AbstractFactory
@@ -76,7 +78,7 @@ class CartFactory extends AbstractFactory
     public function createVoucherForm()
     {
         return $this
-            ->getFormFactory()
+            ->getProvidedDependency(ApplicationConstants::FORM_FACTORY)
             ->create($this->createVoucherFormType());
     }
 
