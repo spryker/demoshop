@@ -14,7 +14,7 @@ use Pyz\Yves\Shipment\Form\ShipmentForm;
 use Spryker\Client\Glossary\GlossaryClientInterface;
 use Spryker\Client\Shipment\ShipmentClientInterface;
 use Spryker\Shared\Kernel\Store;
-use Spryker\Shared\Money\Plugin\MoneyPluginInterface;
+use Spryker\Shared\Money\Dependency\Plugin\MoneyPluginInterface;
 use Spryker\Shared\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
 
@@ -39,7 +39,7 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
     protected $store;
 
     /**
-     * @var \Spryker\Shared\Money\Plugin\MoneyPluginInterface
+     * @var \Spryker\Shared\Money\Dependency\Plugin\MoneyPluginInterface
      */
     protected $moneyPlugin;
 
@@ -47,7 +47,7 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
      * @param \Spryker\Client\Shipment\ShipmentClientInterface $shipmentClient
      * @param \Spryker\Client\Glossary\GlossaryClientInterface $glossaryClient
      * @param \Spryker\Shared\Kernel\Store $store
-     * @param \Spryker\Shared\Money\Plugin\MoneyPluginInterface $moneyPlugin
+     * @param \Spryker\Shared\Money\Dependency\Plugin\MoneyPluginInterface $moneyPlugin
      */
     public function __construct(
         ShipmentClientInterface $shipmentClient,

@@ -67,7 +67,7 @@ class ShipmentFactory extends AbstractFactory
     }
 
     /**
-     * @return \Spryker\Yves\Money\Plugin\MoneyPlugin
+     * @return \Spryker\Shared\Money\Dependency\Plugin\MoneyPluginInterface
      */
     protected function getMoneyPlugin()
     {
