@@ -130,7 +130,7 @@ function installDemoshop {
     configureCodeception
 
     successText "Setup successful"
-    infoText "\nYves URL: http://www.de.project.local/\nZed URL: http://zed.de.project.local/\n"
+    infoText "\nYves URL: http://www.de.demoshop.local/\nZed URL: http://zed.de.demoshop.local/\n"
 }
 
 function installZed {
