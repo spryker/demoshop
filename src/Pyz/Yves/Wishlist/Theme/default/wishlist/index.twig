@@ -42,14 +42,14 @@
                                         {% endfor %}
                                     </td>
                                     <td>
-                                        <form class="row align-bottom" method="POST" action="{{ path('wishlist/move-to-cart', {'product-id': item.product.id, sku: item.product.sku}) }}">
+                                        <form class="row align-bottom" method="POST" action="{{ path('wishlist/move-to-cart', {sku: item.product.sku}) }}">
                                             <div class="small-12 columns">
                                                 <button type="submit" class="button success">
                                                     <i class="fa fa-shopping-cart"></i>{{ 'customer.account.wishlist.add-to-cart' | trans }}
                                                 </button>
                                             </div>
                                         </form>
-                                        <form class="row align-bottom" method="POST" action="{{ path('wishlist/remove-item', {'product-id': item.product.id}) }}">
+                                        <form class="row align-bottom" method="POST" action="{{ path('wishlist/remove-item', {sku: item.product.sku}) }}">
                                             <div class="small-12 columns">
                                                 <button type="submit" class="button warning">
                                                     <i class="fa fa-minus"></i>{{ 'customer.account.wishlist.remove' | trans }}
