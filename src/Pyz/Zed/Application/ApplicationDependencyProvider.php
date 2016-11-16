@@ -29,6 +29,7 @@ use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\TwigServiceProv
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\ZedHstsServiceProvider;
 use Spryker\Zed\Assertion\Communication\Plugin\ServiceProvider\AssertionServiceProvider;
 use Spryker\Zed\Auth\Communication\Plugin\Bootstrap\AuthBootstrapProvider;
+use Spryker\Zed\Currency\Communication\Plugin\ServiceProvider\TwigCurrencyServiceProvider;
 use Spryker\Zed\Kernel\Communication\Plugin\GatewayControllerListenerPlugin;
 use Spryker\Zed\Kernel\Communication\Plugin\GatewayServiceProviderPlugin;
 use Spryker\Zed\Kernel\Container;
@@ -96,6 +97,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new WebProfilerServiceProvider(),
             new ZedHstsServiceProvider(),
             new FormFactoryServiceProvider(),
+            new TwigCurrencyServiceProvider(),
         ];
 
         $providers = array_merge($providers, $coreProviders);

@@ -307,4 +307,12 @@ abstract class AbstractFactory extends AbstractBusinessFactory
         return $this->getProvidedDependency(ImporterDependencyProvider::QUERY_CONTAINER_TAX);
     }
 
+    /**
+     * @return \Spryker\Zed\ProductOption\Business\ProductOptionFacadeInterface
+     */
+    protected function getProductOptionFacade()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_PRODUCT_OPTION);
+    }
+
 }

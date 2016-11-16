@@ -110,7 +110,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     protected function collectItem($touchKey, array $collectItemData)
     {
         return [
-            StorageProductTransfer::ID => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
+            StorageProductTransfer::ID_PRODUCT_ABSTRACT => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
             StorageProductTransfer::ATTRIBUTES => $this->getAbstractAttributes($collectItemData),
             StorageProductTransfer::NAME => $collectItemData[self::NAME],
             StorageProductTransfer::SKU => $collectItemData[self::SKU],

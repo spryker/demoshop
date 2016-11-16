@@ -1,0 +1,21 @@
+{% if productOptionGroups is defined and productOptionGroups.getProductOptionGroups|length > 0  %}
+    <div class="callout">
+        <h5>{{ 'product.product_options' | trans }}</h5>
+        {% for productOptionGroup in productOptionGroups.getProductOptionGroups%}
+            <label>{{ productOptionGroup.name | trans }}
+                <select name="product-option[{{ productOptionGroup.name }}]">
+                    <option value="0">
+                        {{ 'None' | trans }}
+                    </option>
+
+                    {% for productValue in productOptionGroup.values %}
+                        <option value="{{ productValue.idProductOptionValue }}">
+                            {{ productValue.value|trans }} {{ productValue.price | price }}
+                        </option>
+                    {% endfor %}
+
+                </select>
+            </label>
+        {% endfor %}
+    </div>
+{% endif %}

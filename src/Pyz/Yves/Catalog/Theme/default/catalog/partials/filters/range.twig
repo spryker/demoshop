@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="small-12 columns">
+        <div class="row">
+            <div class="small-6 columns">
+               <label>
+                   {{ "catalog.filter.rangeFrom"|trans }}
+                   <input type="number" name="{{ filter.name }}[min]"
+                          value="{{ filter.activeMin }}"
+                          required="required"
+                          min="{{ filter.min }}"
+                          max="{{ filter.max }}"
+                   />
+               </label>
+            </div>
+            <div class="small-6 columns">
+                <label>
+                    {{ "catalog.filter.rangeTo"|trans }}
+                    <input type="number" name="{{ filter.name }}[max]"
+                           value="{{ filter.activeMax }}"
+                           required="required"
+                           min="{{ filter.min }}"
+                           max="{{ filter.max }}"
+                    />
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-12 columns">
+                <button type="submit" class="button hollow expanded __no-margin-bottom">
+                    <i class="fa fa-filter"></i> {{ 'catalog.filter.button' | trans }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

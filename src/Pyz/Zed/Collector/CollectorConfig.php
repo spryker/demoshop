@@ -12,6 +12,7 @@ use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\CategoryNodeCollectorQu
 use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\NavigationCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductAbstractCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductConcreteCollectorQuery;
+use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductOptionCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\UrlCollectorQuery;
 use Spryker\Zed\Collector\CollectorConfig as SprykerCollectorConfig;
 
@@ -33,6 +34,7 @@ class CollectorConfig extends SprykerCollectorConfig
                 'ProductCollectorQuery' => ProductAbstractCollectorQuery::class,
                 'UrlCollectorQuery' => UrlCollectorQuery::class,
                 'ProductConcreteCollectorQuery' => ProductConcreteCollectorQuery::class,
+                'ProductOptionCollectorQuery' => ProductOptionCollectorQuery::class,
             ]
         ];
 
@@ -54,22 +56,6 @@ class CollectorConfig extends SprykerCollectorConfig
         ];
 
         return $data[$dbEngineName];
-    }
-
-    /**
-     * @return int
-     */
-    public function getNumberOfShards()
-    {
-        return 1;
-    }
-
-    /**
-     * @return int
-     */
-    public function getNumberOfReplicas()
-    {
-        return 1;
     }
 
 }

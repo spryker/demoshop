@@ -78,23 +78,26 @@
                 </p>
 
                 {% include '@Product/product/partials/variants.twig' %}
-
-                <form class="row align-bottom" method="POST" action="/cart/add/{{ product.sku }}">
-                    <div class="small-12 columns">
-                        <button type="submit" class="button expanded success" }} {{ (not product.isVariant) ? 'disabled' : '' }}>
-                            <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
-                        </button>
-                    </div>
-                </form>
-
-                <form class="row align-bottom" method="POST" action="{{ path('wishlist/add-item', {'product-id': product.id}) }}">
-                    <div class="small-12 columns">
-                        <button type="submit" class="button expanded info" }} {{ (not product.isVariant) ? 'disabled' : '' }}>
-                            <i class="fa fa-heart"></i>{{ 'page.detail.add-to-wishlist' | trans }}
-                        </button>
-                    </div>
-                </form>
             </div>
+
+            <form method="POST" action="/cart/add/{{ product.sku }}">
+                {% include '@Product/product/partials/product-options.twig' %}
+                <div>
+                    <button type="submit" class="button expanded success" {{ (not product.isVariant) ? 'disabled' : '' }}>
+                        <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
+                    </button>
+
+                    <div class="small-12 columns"></div>
+                </div>
+            </form>
+
+            <form class="row align-bottom" method="POST" action="{{ path('wishlist/add-item', {'product-id': product.id}) }}">
+                <div class="small-12 columns">
+                    <button type="submit" class="button expanded info" }} {{ (not product.isVariant) ? 'disabled' : '' }}>
+                        <i class="fa fa-heart"></i>{{ 'page.detail.add-to-wishlist' | trans }}
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -107,6 +110,7 @@
                 <h5>{{ 'page.product.details' | trans }}</h5>
                 <div class="row">
                     {% for attributeName, attributeValue in product.attributes if attributeName  %}
+
                         <p class="small-12 medium-6 xlarge-4 xxlarge-3 columns">
                             <strong>{{ ('product.attribute.'~attributeName) | trans }} </strong><br>
                             {{ attributeValue }}

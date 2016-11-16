@@ -40,7 +40,7 @@ class AttributeVariantMapper implements AttributeVariantMapperInterface
      */
     public function setSuperAttributes(StorageProductTransfer $storageProductTransfer)
     {
-        $attributeMap = $this->getAttributeMapFromStorage($storageProductTransfer->getId());
+        $attributeMap = $this->getAttributeMapFromStorage($storageProductTransfer->getIdProductAbstract());
         if (count($attributeMap) === 0) {
             return $storageProductTransfer;
         }
@@ -65,7 +65,7 @@ class AttributeVariantMapper implements AttributeVariantMapperInterface
      */
     public function setSelectedVariants(array $selectedAttributes, StorageProductTransfer $storageProductTransfer)
     {
-        $selectedVariantNode = $this->getSelectedVariantNode($selectedAttributes, $storageProductTransfer->getId());
+        $selectedVariantNode = $this->getSelectedVariantNode($selectedAttributes, $storageProductTransfer->getIdProductAbstract());
 
         if ($this->isProductConcreteNodeReached($selectedVariantNode)) {
             $idProductConcrete = $this->extractIdOfProductConcrete($selectedVariantNode);
@@ -245,17 +245,17 @@ class AttributeVariantMapper implements AttributeVariantMapperInterface
     }
 
     /**
-     * @param int $idProductConcrete
+     * @param int $idProductAbstract
      *
      * @return array
      */
-    protected function getAttributeMapFromStorage($idProductConcrete)
+    protected function getAttributeMapFromStorage($idProductAbstract)
     {
-        if (!isset($this->attributeMap[$idProductConcrete])) {
-            $this->attributeMap[$idProductConcrete] = $this->productClient->getAttributeMapByIdProductAbstractForCurrentLocale($idProductConcrete);
+        if (!isset($this->attributeMap[$idProductAbstract])) {
+            $this->attributeMap[$idProductAbstract] = $this->productClient->getAttributeMapByIdProductAbstractForCurrentLocale($idProductAbstract);
         }
 
-        return $this->attributeMap[$idProductConcrete];
+        return $this->attributeMap[$idProductAbstract];
     }
 
     /**

@@ -16,7 +16,7 @@ use Spryker\Client\Search\Dependency\Plugin\FacetConfigBuilderInterface;
 use Spryker\Client\Search\Dependency\Plugin\PaginationConfigBuilderInterface;
 use Spryker\Client\Search\Dependency\Plugin\SearchConfigBuilderInterface;
 use Spryker\Client\Search\Dependency\Plugin\SortConfigBuilderInterface;
-use Spryker\Client\Search\Plugin\Config\FacetConfigBuilder;
+use Spryker\Shared\Search\SearchConfig;
 
 /**
  * @method \Spryker\Client\Catalog\CatalogFactory getFactory()
@@ -80,7 +80,7 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
             ->setName('category')
             ->setParameterName('category')
             ->setFieldName(PageIndexMap::CATEGORY_ALL_PARENTS)
-            ->setType(FacetConfigBuilder::TYPE_CATEGORY);
+            ->setType(SearchConfig::FACET_TYPE_CATEGORY);
 
         $facetConfigBuilder->addFacet($categoryFacet);
 
@@ -98,7 +98,7 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
             ->setName('price')
             ->setParameterName('price')
             ->setFieldName(PageIndexMap::INTEGER_FACET)
-            ->setType(FacetConfigBuilder::TYPE_PRICE_RANGE);
+            ->setType(SearchConfig::FACET_TYPE_PRICE_RANGE);
 
         $facetConfigBuilder->addFacet($priceFacet);
 

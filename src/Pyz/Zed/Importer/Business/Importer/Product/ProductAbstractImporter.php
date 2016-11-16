@@ -92,7 +92,10 @@ class ProductAbstractImporter extends AbstractProductImporter
             ->setLocale($localeTransfer)
             ->setName($this->getProductName($data, $localeTransfer->getLocaleName()))
             ->setAttributes($localizedAttributesData)
-            ->setDescription($data[$this->getLocalizedKeyName('description', $localeTransfer->getLocaleName())]);
+            ->setDescription($data[$this->getLocalizedKeyName('description', $localeTransfer->getLocaleName())])
+            ->setMetaTitle($data[$this->getLocalizedKeyName('meta_title', $localeTransfer->getLocaleName())])
+            ->setMetaKeywords($data[$this->getLocalizedKeyName('meta_keywords', $localeTransfer->getLocaleName())])
+            ->setMetaDescription($data[$this->getLocalizedKeyName('meta_description', $localeTransfer->getLocaleName())]);
 
         return $localizedAttributesTransfer;
     }

@@ -37,9 +37,9 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\Product\Business\ProductFacadeInterface
+     * @return \Pyz\Zed\ProductSearch\Dependency\ProductSearchToProductInterface
      */
-    protected function getProductFacade()
+    public function getProductFacade()
     {
         return $this->getProvidedDependency(ProductSearchDependencyProvider::FACADE_PRODUCT);
     }

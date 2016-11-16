@@ -8,8 +8,10 @@
 namespace Pyz\Client\Catalog\Plugin\Elasticsearch\Query;
 
 use Elastica\Query;
+use Elastica\Query\BoolQuery;
 use Elastica\Query\Match;
 use Generated\Shared\Search\PageIndexMap;
+use Pyz\Shared\ProductSearch\ProductSearchConfig;
 use Spryker\Client\Search\Dependency\Plugin\QueryInterface;
 
 class FeaturedProductsQueryPlugin implements QueryInterface
@@ -21,11 +23,17 @@ class FeaturedProductsQueryPlugin implements QueryInterface
     protected $limit;
 
     /**
+     * @var \Elastica\Query
+     */
+    protected $searchQuery;
+
+    /**
      * @param int $limit
      */
     public function __construct($limit)
     {
         $this->limit = $limit;
+        $this->searchQuery = $this->createSearchQuery();
     }
 
     /**
@@ -33,12 +41,23 @@ class FeaturedProductsQueryPlugin implements QueryInterface
      */
     public function getSearchQuery()
     {
-        $matchQuery = (new Match())
-            ->setField(PageIndexMap::IS_FEATURED, true);
+        return $this->searchQuery;
+    }
+
+    /**
+     * @return \Elastica\Query
+     */
+    protected function createSearchQuery()
+    {
+        $boolQuery = (new BoolQuery())
+            ->addMust((new Match())
+                ->setField(PageIndexMap::IS_FEATURED, true))
+            ->addMust((new Match())
+                ->setField(PageIndexMap::TYPE, ProductSearchConfig::PRODUCT_ABSTRACT_PAGE_SEARCH_TYPE));
 
         $query = (new Query())
             ->setSource([PageIndexMap::SEARCH_RESULT_DATA])
-            ->setQuery($matchQuery)
+            ->setQuery($boolQuery)
             ->setSize($this->limit);
 
         return $query;

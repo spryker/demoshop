@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-feature/core-635-wishlist",
+    "spryker/spryker": "dev-release/product",
     "php": ">=5.6.0",
     "braintree/braintree_php": "~3.15.0",
     "guzzlehttp/guzzle": "~6.2.1",
@@ -23,7 +23,7 @@
     "symfony/filesystem": "~2.6.13",
     "symfony/finder": "~2.6.13",
     "symfony/form": "~2.6.13",
-    "symfony/http-foundation": "~2.6.13",
+    "symfony/http-foundation": "~2.8.0",
     "symfony/http-kernel": "~2.6.13",
     "symfony/intl": "~2.8.8",
     "symfony/options-resolver": "~2.6.13",

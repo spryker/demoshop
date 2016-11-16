@@ -15,6 +15,9 @@ use Pyz\Zed\Importer\Business\Importer\Cms\CmsPageImporter;
 use Pyz\Zed\Importer\Business\Importer\Discount\DiscountImporter;
 use Pyz\Zed\Importer\Business\Importer\Glossary\TranslationImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductManagement\ProductManagementAttributeImporter;
+use Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeImporter;
+use Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeMapImporter;
+use Pyz\Zed\Importer\Business\Importer\ProductOption\ProductOptionImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductAbstractImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductAttributeKeyImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductCategoryImporter;
@@ -186,6 +189,32 @@ class ImporterFactory extends AbstractFactory
     }
 
     /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeImporter
+     */
+    public function createProductSearchAttributeImporter()
+    {
+        $productSearchAttributeImporter = new ProductSearchAttributeImporter(
+            $this->getProductSearchFacade(),
+            $this->getLocaleFacade()
+        );
+
+        return $productSearchAttributeImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeMapImporter
+     */
+    public function createProductSearchAttributeMapImporter()
+    {
+        $productSearchImporter = new ProductSearchAttributeMapImporter(
+            $this->getLocaleFacade(),
+            $this->getProductSearchFacade()
+        );
+
+        return $productSearchImporter;
+    }
+
+    /**
      * @return \Pyz\Zed\Importer\Business\Importer\Product\ProductStockImporter
      */
     public function createProductStockImporter()
@@ -303,6 +332,18 @@ class ImporterFactory extends AbstractFactory
             $this->getCountryFacade(),
             $this->getTaxQueryContainer(),
             $this->getShipmentQueryContainer()
+        );
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ProductOption\ProductOptionImporter
+     */
+    public function createProductOptionImporter()
+    {
+        return new ProductOptionImporter(
+            $this->getLocaleFacade(),
+            $this->getGlossaryFacade(),
+            $this->getProductOptionFacade()
         );
     }
 

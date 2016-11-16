@@ -97,7 +97,7 @@ class SummaryStepTest extends PHPUnit_Framework_TestCase
      */
     protected function createCalculationClientMock()
     {
-        return $this->getMock(CalculationClientInterface::class);
+        return $this->getMockBuilder(CalculationClientInterface::class)->getMock();
     }
 
     /**
@@ -105,7 +105,7 @@ class SummaryStepTest extends PHPUnit_Framework_TestCase
      */
     protected function createShipmentMock()
     {
-        return $this->getMock(StepHandlerPluginInterface::class);
+        return $this->getMockBuilder(StepHandlerPluginInterface::class)->getMock();
     }
 
 }
