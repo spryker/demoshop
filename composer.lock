@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e492a4ce8f22d54dd30f79ecc5aa9e4e",
-    "content-hash": "ce252d74c9e573c9762dd89fc3bcd32a",
+    "hash": "0ab9061f145676e1a7c418e1c802ec8d",
+    "content-hash": "8b4836e6458cc9b5c070f52004a7583e",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1253,7 +1253,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "0059871c3ba0d414dda7cd394b3114891d99fd30"
+                "reference": "b955ee6581d7e8de868155e631b13857bf5b5dc4"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1335,6 +1335,7 @@
                     "Spryker\\Zed\\Category\\": "Bundles/Category/src",
                     "Unit\\Spryker\\Zed\\Category\\": "Bundles/Category/tests",
                     "Functional\\Spryker\\Zed\\Category\\": "Bundles/Category/tests",
+                    "Acceptance\\Category\\": "Bundles/Category/tests",
                     "Spryker\\Client\\CategoryExporter\\": "Bundles/CategoryExporter/src",
                     "Spryker\\Shared\\CategoryExporter\\": "Bundles/CategoryExporter/src",
                     "Spryker\\Client\\Checkout\\": "Bundles/Checkout/src",
@@ -1581,6 +1582,7 @@
                     "Spryker\\Zed\\ProductCategory\\": "Bundles/ProductCategory/src",
                     "Unit\\Spryker\\Zed\\ProductCategory\\": "Bundles/ProductCategory/tests",
                     "Functional\\Spryker\\Zed\\ProductCategory\\": "Bundles/ProductCategory/tests",
+                    "Acceptance\\ProductCategory\\": "Bundles/ProductCategory/tests",
                     "Spryker\\Shared\\ProductOption\\": "Bundles/ProductOption/src",
                     "Unit\\Spryker\\Shared\\ProductOption\\": "Bundles/ProductOption/tests",
                     "Functional\\Spryker\\Shared\\ProductOption\\": "Bundles/ProductOption/tests",
@@ -1767,6 +1769,7 @@
                 "psr-4": {
                     "Application\\Module\\": "Bundles/Application/tests/_support/Module",
                     "Braintree\\Module\\": "Bundles/Braintree/tests/_support/Module",
+                    "Catalog\\Module\\": "Bundles/Catalog/tests/_support/Module",
                     "Config\\Module\\": "Bundles/Config/tests/_support/Module",
                     "Customer\\Module\\": "Bundles/Customer/tests/_support/Module",
                     "ErrorHandler\\Module\\": "Bundles/ErrorHandler/tests/_support/Module",
@@ -1784,7 +1787,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-11-16 10:48:02"
+            "time": "2016-11-16 14:12:30"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2177,31 +2180,34 @@
         },
         {
             "name": "symfony/form",
-            "version": "v2.6.13",
-            "target-dir": "Symfony/Component/Form",
+            "version": "v2.7.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da"
+                "reference": "613d3344c3bb064d74d40b2a11b4032c07783af5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/23394a60d49d2aa904dacda6e5eb29d88251f9da",
-                "reference": "23394a60d49d2aa904dacda6e5eb29d88251f9da",
+                "url": "https://api.github.com/repos/symfony/form/zipball/613d3344c3bb064d74d40b2a11b4032c07783af5",
+                "reference": "613d3344c3bb064d74d40b2a11b4032c07783af5",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3",
+                "php": ">=5.3.9",
                 "symfony/event-dispatcher": "~2.1",
-                "symfony/intl": "~2.3",
+                "symfony/intl": "~2.4",
                 "symfony/options-resolver": "~2.6",
                 "symfony/property-access": "~2.3"
+            },
+            "conflict": {
+                "symfony/doctrine-bridge": "<2.7",
+                "symfony/framework-bundle": "<2.7",
+                "symfony/twig-bridge": "<2.7"
             },
             "require-dev": {
                 "doctrine/collections": "~1.0",
                 "symfony/http-foundation": "~2.2",
                 "symfony/http-kernel": "~2.4",
-                "symfony/phpunit-bridge": "~2.7",
                 "symfony/security-csrf": "~2.4",
                 "symfony/translation": "~2.0,>=2.0.5",
                 "symfony/validator": "~2.6,>=2.6.8"
@@ -2215,13 +2221,16 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.6-dev"
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
+                "psr-4": {
                     "Symfony\\Component\\Form\\": ""
-                }
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2239,7 +2248,7 @@
             ],
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
-            "time": "2015-11-23 10:27:01"
+            "time": "2016-09-06 15:01:53"
         },
         {
             "name": "symfony/http-foundation",
@@ -3105,40 +3114,41 @@
         },
         {
             "name": "symfony/twig-bridge",
-            "version": "v2.6.13",
-            "target-dir": "Symfony/Bridge/Twig",
+            "version": "v2.7.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bridge.git",
-                "reference": "272b9dc0af1e70b77975c543d1917dd340c7201a"
+                "reference": "3dd44937b1e08af8c8f6b14850f4b9c4d1039c6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/272b9dc0af1e70b77975c543d1917dd340c7201a",
-                "reference": "272b9dc0af1e70b77975c543d1917dd340c7201a",
+                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/3dd44937b1e08af8c8f6b14850f4b9c4d1039c6f",
+                "reference": "3dd44937b1e08af8c8f6b14850f4b9c4d1039c6f",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3",
-                "twig/twig": "~1.13,>=1.13.1"
+                "php": ">=5.3.9",
+                "twig/twig": "~1.20|~2.0"
             },
             "require-dev": {
-                "symfony/console": "~2.4",
+                "symfony/asset": "~2.7",
+                "symfony/console": "~2.7",
                 "symfony/expression-language": "~2.4",
                 "symfony/finder": "~2.3",
-                "symfony/form": "~2.6,>=2.6.10",
+                "symfony/form": "~2.7,>=2.7.6",
                 "symfony/http-kernel": "~2.3",
                 "symfony/intl": "~2.3",
-                "symfony/phpunit-bridge": "~2.7",
                 "symfony/routing": "~2.2",
-                "symfony/security": "~2.4",
+                "symfony/security": "~2.6",
+                "symfony/security-acl": "~2.6",
                 "symfony/stopwatch": "~2.2",
                 "symfony/templating": "~2.1",
-                "symfony/translation": "~2.2",
+                "symfony/translation": "~2.7",
                 "symfony/var-dumper": "~2.6",
                 "symfony/yaml": "~2.0,>=2.0.5"
             },
             "suggest": {
+                "symfony/asset": "For using the AssetExtension",
                 "symfony/expression-language": "For using the ExpressionExtension",
                 "symfony/finder": "",
                 "symfony/form": "For using the FormExtension",
@@ -3154,11 +3164,11 @@
             "type": "symfony-bridge",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.6-dev"
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
+                "psr-4": {
                     "Symfony\\Bridge\\Twig\\": ""
                 }
             },
@@ -3178,7 +3188,7 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
-            "time": "2015-07-22 10:08:40"
+            "time": "2015-10-11 09:39:48"
         },
         {
             "name": "symfony/validator",
@@ -6474,42 +6484,43 @@
         },
         {
             "name": "symfony/web-profiler-bundle",
-            "version": "v2.6.13",
-            "target-dir": "Symfony/Bundle/WebProfilerBundle",
+            "version": "v2.7.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-profiler-bundle.git",
-                "reference": "efb04b45aacd1dd39fb814065870074784043758"
+                "reference": "aa86e82e300c98f7b567978180406c5257829003"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/efb04b45aacd1dd39fb814065870074784043758",
-                "reference": "efb04b45aacd1dd39fb814065870074784043758",
+                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/aa86e82e300c98f7b567978180406c5257829003",
+                "reference": "aa86e82e300c98f7b567978180406c5257829003",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3",
+                "php": ">=5.3.9",
                 "symfony/http-kernel": "~2.4",
                 "symfony/routing": "~2.2",
-                "symfony/twig-bridge": "~2.2"
+                "symfony/twig-bridge": "~2.7"
             },
             "require-dev": {
                 "symfony/config": "~2.2",
                 "symfony/console": "~2.3",
                 "symfony/dependency-injection": "~2.2",
-                "symfony/phpunit-bridge": "~2.7",
                 "symfony/stopwatch": "~2.2"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.6-dev"
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
+                "psr-4": {
                     "Symfony\\Bundle\\WebProfilerBundle\\": ""
-                }
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -6527,7 +6538,7 @@
             ],
             "description": "Symfony WebProfilerBundle",
             "homepage": "https://symfony.com",
-            "time": "2015-06-01 09:10:59"
+            "time": "2016-09-06 07:26:07"
         },
         {
             "name": "theseer/fdomdocument",
