@@ -72,4 +72,5 @@ class CheckoutAvailabilityCest
 
         $zedTester->leave();
     }
+
 }

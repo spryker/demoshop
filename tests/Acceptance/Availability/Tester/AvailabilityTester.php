@@ -25,4 +25,5 @@ class AvailabilityTester extends \YvesAcceptanceTester
         $checkoutTester = new CheckoutTester($this->getScenario());
         $checkoutTester->processAllCheckoutSteps();
     }
+
 }
