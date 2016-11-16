@@ -1,9 +1,9 @@
 <?php
+
 /**
- * This file is part of the Spryker Demoshop
+ * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
-
 
 namespace Pyz\Zed\Importer\Business\Importer\Category;
 
@@ -31,7 +31,8 @@ abstract class AbstractCategoryImporter extends AbstractImporter
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Pyz\Zed\Category\Business\CategoryFacadeInterface $categoryFacade
      */
-    public function __construct(LocaleFacadeInterface $localeFacade, CategoryFacadeInterface $categoryFacade) {
+    public function __construct(LocaleFacadeInterface $localeFacade, CategoryFacadeInterface $categoryFacade)
+    {
         parent::__construct($localeFacade);
 
         $this->categoryFacade = $categoryFacade;
