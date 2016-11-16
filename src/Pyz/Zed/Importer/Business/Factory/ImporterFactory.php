@@ -38,23 +38,6 @@ class ImporterFactory extends AbstractFactory
 {
 
     /**
-     * @return \Pyz\Zed\Importer\Business\Importer\Category\CategoryImporter
-     */
-    public function createCategoryImporter()
-    {
-        $categoryImporter = new CategoryImporter(
-            $this->getLocaleFacade(),
-            $this->getCategoryFacade(),
-            $this->getTouchFacade(),
-            $this->getUrlFacade(),
-            $this->getCategoryQueryContainer(),
-            $this->createNodeUrlManager()
-        );
-
-        return $categoryImporter;
-    }
-
-    /**
      * @return \Pyz\Zed\Importer\Business\Importer\Category\CategoryRootImporter
      */
     public function createCategoryRootImporter()
@@ -62,13 +45,37 @@ class ImporterFactory extends AbstractFactory
         $categoryRootImporter = new CategoryRootImporter(
             $this->getLocaleFacade(),
             $this->getCategoryFacade(),
-            $this->getTouchFacade(),
-            $this->getUrlFacade(),
-            $this->getCategoryQueryContainer(),
-            $this->createNodeUrlManager()
+            $this->getTouchFacade()
         );
 
         return $categoryRootImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\Category\CategoryImporter
+     */
+    public function createCategoryImporter()
+    {
+        $categoryImporter = new CategoryImporter(
+            $this->getLocaleFacade(),
+            $this->getCategoryFacade()
+        );
+
+        return $categoryImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\Category\CategoryHierarchyImporter
+     */
+    public function createCategoryHierarchyImporter()
+    {
+        $categoryHierarchyImporter = new CategoryHierarchyImporter(
+            $this->getLocaleFacade(),
+            $this->getCategoryFacade(),
+            $this->getCategoryQueryContainer()
+        );
+
+        return $categoryHierarchyImporter;
     }
 
     /**
@@ -84,20 +91,6 @@ class ImporterFactory extends AbstractFactory
         );
 
         return $productCategoryImporter;
-    }
-
-    /**
-     * @return \Pyz\Zed\Importer\Business\Importer\Category\CategoryImporter
-     */
-    public function createCategoryHierarchyImporter()
-    {
-        $categoryHierarchyImporter = new CategoryHierarchyImporter(
-            $this->getLocaleFacade(),
-            $this->getCategoryFacade(),
-            $this->getCategoryQueryContainer()
-        );
-
-        return $categoryHierarchyImporter;
     }
 
     /**

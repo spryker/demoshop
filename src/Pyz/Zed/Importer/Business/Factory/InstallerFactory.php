@@ -113,16 +113,16 @@ class InstallerFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Zed\Importer\Business\Installer\Glossary\GlossaryInstaller
+     * @return \Pyz\Zed\Importer\Business\Installer\Discount\DiscountInstaller
      */
     public function createDiscountInstaller()
     {
-        $glossaryInstaller = new DiscountInstaller(
+        $discountInstaller = new DiscountInstaller(
             $this->getDiscountImporterCollection(),
             $this->getConfig()->getImportDataDirectory()
         );
 
-        return $glossaryInstaller;
+        return $discountInstaller;
     }
 
     /**
