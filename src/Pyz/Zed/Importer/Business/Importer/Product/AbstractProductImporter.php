@@ -124,7 +124,7 @@ abstract class AbstractProductImporter extends AbstractImporter
             $productImageSet = (new ProductImageSetTransfer())
                 ->setName(ProductConfig::DEFAULT_IMAGE_SET_NAME)
                 ->setLocale($localeTransfer)
-                ->addProductImage($productImage);
+                ->addProductImage(clone $productImage);
 
             $result[] = $productImageSet;
         }
