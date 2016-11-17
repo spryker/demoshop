@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Collector;
 
+use Pyz\Zed\Collector\Communication\Plugin\AvailabilityCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\BlockCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\CategoryNodeCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\NavigationCollectorStoragePlugin;
@@ -85,6 +86,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[self::STORAGE_PLUGINS] = function (Container $container) {
             return [
+                'availability_abstract' => new AvailabilityCollectorStoragePlugin(),
                 'product_abstract' => new ProductCollectorStoragePlugin(),
                 'categorynode' => new CategoryNodeCollectorStoragePlugin(),
                 'navigation' => new NavigationCollectorStoragePlugin(),
