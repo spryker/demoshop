@@ -98,7 +98,6 @@ class ProductStockImporter extends AbstractImporter
      */
     protected function importOne(array $data)
     {
-        $product = $this->format($data);
         $stock = $this->getStockValue();
         $stock[self::SKU] .= '-1';
 

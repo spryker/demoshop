@@ -72,24 +72,38 @@
 
                 <p>{{ product.abstractAttributes.short_description }}</p>
 
-                <form class="row align-bottom" method="POST" action="/cart/add/{{ product.abstractSku }}">
-                    {#<div class="small-12 columns">#}
-                        {#<label>#}
-                            {#Variants#}
-                            {#<select name="variant">#}
-                                {#<option value="red">Red</option>#}
-                                {#<option value="green">Green</option>#}
-                                {#<option value="blue">Blue</option>#}
-                                {#<option value="yellow">Yellow</option>#}
-                            {#</select>#}
-                        {#</label>#}
-                    {#</div>#}
-                    <div class="small-12 columns">
-                        <button type="submit" class="button expanded success" onclick="this.form.submit(); this.disabled='disabled'; return false;">
-                            <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
-                        </button>
-                    </div>
-                </form>
+                {% set displayAddToCart = false %}
+                {% if availability.concreteProductAvailableItems[product.abstractSku] is defined %}
+                     {% if availability.concreteProductAvailableItems[product.abstractSku] %}
+                         {% set displayAddToCart = true %}
+                     {% endif %}
+                {% endif %}
+
+                {% if displayAddToCart %}
+                    <form class="row align-bottom" method="POST" action="/cart/add/{{ product.abstractSku }}">
+                        {#<div class="small-12 columns">#}
+                            {#<label>#}
+                                {#Variants#}
+                                {#<select name="variant">#}
+                                    {#<option value="red">Red</option>#}
+                                    {#<option value="green">Green</option>#}
+                                    {#<option value="blue">Blue</option>#}
+                                    {#<option value="yellow">Yellow</option>#}
+                                {#</select>#}
+                            {#</label>#}
+                        {#</div>#}
+                        <div class="small-12 columns">
+                            <button type="submit" class="button expanded success" onclick="this.form.submit(); this.disabled='disabled'; return false;">
+                                <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
+                            </button>
+                        </div>
+                    </form>
+                {% else %}
+
+                    <p>
+                       <strong>{{ "product.detail.out_of_stock" | trans }}</strong>
+                    </p>
+                {% endif %}
             </div>
         </div>
     </div>

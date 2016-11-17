@@ -43,6 +43,29 @@ class ProductAbstract implements ProductAbstractInterface
     protected $category = [];
 
     /**
+     * @var string
+     */
+    protected $abstractProductId = '';
+
+    /**
+     * @return string
+     */
+    public function getAbstractProductId()
+    {
+        return $this->abstractProductId;
+    }
+
+    /**
+     * @param string $abstractProductId
+     *
+     * @return void
+     */
+    public function setAbstractProductId($abstractProductId)
+    {
+        $this->abstractProductId = $abstractProductId;
+    }
+
+    /**
      * @return array
      */
     public function getAbstractAttributes()

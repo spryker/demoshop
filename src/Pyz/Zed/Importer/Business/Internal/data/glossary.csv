@@ -641,3 +641,9 @@ pagination.previous,"Previous",en_US
 pagination.previous,"Vorherig",de_DE
 pagination.next,"Next",en_US
 pagination.next,"Nächst",de_DE
+cart.pre.check.availability.failed, "Currently we have only stock of this product available.",en_US
+cart.pre.check.availability.failed, "Zurzeit haben wir nur stock von diesem Produkt zur Verfügung.",de_DE
+product.detail.out_of_stock, "This product is currently not available.",en_US
+product.detail.out_of_stock, "Das Produkt ist zur Zeit nicht verfügbar.",de_DE
+cart.pre.check.availability.failed.empty, "Currently this product is not available. ",en_US
+cart.pre.check.availability.failed.empty, "Zurzeit diesem Produkt ist nicht Verfügbar.",de_DE
