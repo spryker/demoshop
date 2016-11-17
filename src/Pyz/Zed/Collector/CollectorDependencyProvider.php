@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Collector;
 
 use Pyz\Zed\Collector\Communication\Plugin\AttributeMapCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\AvailabilityCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\BlockCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\CategoryNodeCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\NavigationCollectorStoragePlugin;
@@ -94,6 +95,8 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 'product_abstract' => new ProductAbstractCollectorStoragePlugin(),
                 'product_concrete' => new ProductConcreteCollectorPlugin(),
                 'attribute_map' => new AttributeMapCollectorStoragePlugin(),
+                'availability_abstract' => new AvailabilityCollectorStoragePlugin(),
+                'product_abstract' => new ProductCollectorStoragePlugin(),
                 'categorynode' => new CategoryNodeCollectorStoragePlugin(),
                 'navigation' => new NavigationCollectorStoragePlugin(),
                 'translation' => new TranslationCollectorStoragePlugin(),

@@ -80,16 +80,29 @@
                 {% include '@Product/product/partials/variants.twig' %}
             </div>
 
-            <form method="POST" action="/cart/add/{{ product.sku }}">
-                {% include '@Product/product/partials/product-options.twig' %}
-                <div>
-                    <button type="submit" class="button expanded success" {{ (not product.isVariant) ? 'disabled' : '' }} onclick="this.form.submit(); this.disabled='disabled'; return false;">
-                        <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
-                    </button>
+            {% set displayAddToCart = false %}
+            {% if availability.concreteProductAvailableItems[product.abstractSku] is defined %}
+                {% if availability.concreteProductAvailableItems[product.abstractSku] %}
+                    {% set displayAddToCart = true %}
+                {% endif %}
+            {% endif %}
 
-                    <div class="small-12 columns"></div>
-                </div>
-            </form>
+            {% if displayAddToCart %}
+                <form method="POST" action="/cart/add/{{ product.sku }}">
+                    {% include '@Product/product/partials/product-options.twig' %}
+                    <div>
+                        <button type="submit" class="button expanded success" {{ (not product.isVariant) ? 'disabled' : '' }} onclick="this.form.submit(); this.disabled='disabled'; return false;">
+                            <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
+                        </button>
+
+                        <div class="small-12 columns"></div>
+                    </div>
+                </form>
+            {% else %}
+                <p>
+                    <strong>{{ "product.detail.out_of_stock" | trans }}</strong>
+                </p>
+            {% endif %}
         </div>
     </div>
 

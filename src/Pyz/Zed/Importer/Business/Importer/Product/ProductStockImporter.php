@@ -19,6 +19,8 @@ use Spryker\Zed\Stock\Business\StockFacadeInterface;
 class ProductStockImporter extends AbstractImporter
 {
 
+    const SKU = 'sku';
+    const VARIANT_ID = 'variant_id';
     const CONCRETE_SKU = 'concrete_sku';
     const CATEGORY_KEY = 'category_key';
     const QUANTITY = 'quantity';
@@ -101,10 +103,33 @@ class ProductStockImporter extends AbstractImporter
             return;
         }
 
+        $stock = $this->getStockValue();
+        $stock[self::SKU] .= '-1';
+
         $stockType = $this->createStockTypeOnce($data);
 
         $stockProductTransfer = $this->buildStockProductTransfer($data, $stockType);
         $this->stockFacade->createStockProduct($stockProductTransfer);
+    }
+
+    /**
+     * @return array
+     */
+    protected function getStockValue()
+    {
+        $default = [
+            self::SKU => null,
+            self::VARIANT_ID => 1,
+            self::QUANTITY => 0,
+            self::NEVER_OUT_OF_STOCK => true,
+            self::STOCK_TYPE => null
+        ];
+
+        if (!$this->csvReader->valid()) {
+            return $default;
+        }
+
+        return $this->csvReader->read();
     }
 
     /**

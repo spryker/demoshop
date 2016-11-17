@@ -14,6 +14,7 @@ class ProductDependencyProvider extends AbstractBundleDependencyProvider
 {
 
     const CLIENT_PRODUCT_OPTION = 'client product option';
+    const CLIENT_AVAILABILITY = 'client availability';
 
 
     /**
@@ -37,6 +38,10 @@ class ProductDependencyProvider extends AbstractBundleDependencyProvider
     {
         $container[self::CLIENT_PRODUCT_OPTION] = function (Container $container) {
             return $container->getLocator()->productOption()->client();
+        };
+
+        $container[self::CLIENT_AVAILABILITY] = function (Container $container) {
+            return $container->getLocator()->availability()->client();
         };
 
         return $container;
