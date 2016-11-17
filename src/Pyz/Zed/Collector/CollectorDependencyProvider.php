@@ -96,7 +96,6 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 'product_concrete' => new ProductConcreteCollectorPlugin(),
                 'attribute_map' => new AttributeMapCollectorStoragePlugin(),
                 'availability_abstract' => new AvailabilityCollectorStoragePlugin(),
-                'product_abstract' => new ProductCollectorStoragePlugin(),
                 'categorynode' => new CategoryNodeCollectorStoragePlugin(),
                 'navigation' => new NavigationCollectorStoragePlugin(),
                 'translation' => new TranslationCollectorStoragePlugin(),
