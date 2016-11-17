@@ -2,10 +2,10 @@
 
 /**
  * Data object containing the SQL and PHP code to migrate the database
- * up to version 1479223336.
- * Generated on 2016-11-15 15:22:16 by vagrant
+ * up to version 1479404737.
+ * Generated on 2016-11-17 17:45:37 by vagrant
  */
-class PropelMigration_1479223336
+class PropelMigration_1479404737
 {
     public $comment = '';
 
@@ -56,12 +56,12 @@ CREATE SEQUENCE "spy_customer_group_to_customer_pk_seq";
 
 CREATE TABLE "spy_customer_group_to_customer"
 (
-    "id_customer_group_to_customers" INTEGER NOT NULL,
+    "id_customer_group_to_customer" INTEGER NOT NULL,
     "fk_customer_group" INTEGER NOT NULL,
     "fk_customer" INTEGER NOT NULL,
     "created_at" TIMESTAMP,
     "updated_at" TIMESTAMP,
-    PRIMARY KEY ("id_customer_group_to_customers"),
+    PRIMARY KEY ("id_customer_group_to_customer"),
     CONSTRAINT "fk_customer_group-fk_customer" UNIQUE ("fk_customer_group","fk_customer")
 );
 
