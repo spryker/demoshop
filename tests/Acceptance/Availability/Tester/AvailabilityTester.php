@@ -12,8 +12,8 @@ use Acceptance\Checkout\Tester\CheckoutTester;
 class AvailabilityTester extends \YvesAcceptanceTester
 {
 
-    const SONY_PRODUCT_PAGE = '/en/sony-z2-137';
-    const SAMSUNG_PRODUCT_PAGE = '/en/samsung-sm-n910f-69';
+    const FUJITSU_PRODUCT_PAGE = '/en/fujitsu-esprimo-e420-56';
+    const FUJITSU2_PRODUCT_PAGE = 'en/fujitsu-esprimo-e920-57';
 
     const CART_PRE_CHECK_AVAILABILITY_ERROR_MESSAGE = 'Currently we have only 10 of this product available.';
 
