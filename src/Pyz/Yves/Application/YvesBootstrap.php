@@ -9,7 +9,6 @@ namespace Pyz\Yves\Application;
 
 use Pyz\Shared\Application\Business\Routing\SilexRouter;
 use Pyz\Shared\Application\Plugin\Provider\WebProfilerServiceProvider;
-use Pyz\Yves\Application\Plugin\Provider\AbstractYvesControllerProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\AutoloaderCacheServiceProvider;
@@ -142,7 +141,8 @@ class YvesBootstrap
 
     /**
      * @param bool|null $isSsl
-     * @return AbstractYvesControllerProvider[]
+     *
+     * @return \Pyz\Yves\Application\Plugin\Provider\AbstractYvesControllerProvider[]
      */
     protected function getControllerProviderStack($isSsl)
     {
