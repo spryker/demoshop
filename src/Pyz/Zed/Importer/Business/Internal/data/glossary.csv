@@ -32,7 +32,7 @@ cart.voucher.redeem,"Redeem code",en_US
 cart.price.subtotal,"Zwischensumme",de_DE
 cart.price.subtotal,"Subtotal",en_US
 cart.price.grand.total,"Summe",de_DE
-cart.price.grand.total,"Grandt Total",en_US
+cart.price.grand.total,"Grand Total",en_US
 cart.total.tax_total,"Mehrwertsteuer",de_DE
 cart.total.tax_total,"Tax",en_US
 auth.login,Anmelden,de_DE
