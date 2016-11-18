@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0ab9061f145676e1a7c418e1c802ec8d",
-    "content-hash": "8b4836e6458cc9b5c070f52004a7583e",
+    "hash": "6214cde2a4cfbdbc120513695f7b7343",
+    "content-hash": "f26fdad0bb54d0d444ed6d94935d07ca",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1253,7 +1253,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "25e381633d00713d5fe951b868f0da813582013a"
+                "reference": "d925a0e44c42970b1ba06e5d4f80ac6e8ab3f289"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1807,7 +1807,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-11-17 17:50:04"
+            "time": "2016-11-18 10:19:28"
         },
         {
             "name": "symfony-cmf/routing",
@@ -6103,6 +6103,38 @@
             "time": "2016-04-11 15:32:52"
         },
         {
+            "name": "spryker/code-generator",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/code-generator.git",
+                "reference": "421e1d45b0ffd1cdfe8d91904b9a38edfda5d24d"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/",
+                    "Acceptance": "tests/",
+                    "Functional": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Code generator bundle",
+            "time": "2016-11-18 14:50:39"
+        },
+        {
             "name": "spryker/code-sniffer",
             "version": "0.6.8",
             "source": {
@@ -6654,7 +6686,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "spryker/spryker": 20
+        "spryker/spryker": 20,
+        "spryker/code-generator": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

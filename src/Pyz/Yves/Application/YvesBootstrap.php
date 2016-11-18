@@ -9,6 +9,7 @@ namespace Pyz\Yves\Application;
 
 use Pyz\Shared\Application\Business\Routing\SilexRouter;
 use Pyz\Shared\Application\Plugin\Provider\WebProfilerServiceProvider;
+use Pyz\Yves\Application\Plugin\Provider\AbstractYvesControllerProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\AutoloaderCacheServiceProvider;
@@ -130,21 +131,30 @@ class YvesBootstrap
      */
     protected function registerControllerProviders()
     {
-        $ssl = Config::get(ApplicationConstants::YVES_SSL_ENABLED);
+        $isSsl = Config::get(ApplicationConstants::YVES_SSL_ENABLED);
 
-        $controllerProviders = [
-            new ApplicationControllerProvider($ssl),
-            new CheckoutControllerProvider($ssl),
-            new CustomerControllerProvider($ssl),
-            new CartControllerProvider($ssl),
-            new WishlistControllerProvider($ssl),
-            new HeartbeatControllerProvider($ssl),
-            new NewsletterControllerProvider($ssl),
-        ];
+        $controllerProviders = $this->getControllerProviderStack($isSsl);
 
         foreach ($controllerProviders as $controllerProvider) {
             $this->application->mount($controllerProvider->getUrlPrefix(), $controllerProvider);
         }
+    }
+
+    /**
+     * @param bool|null $isSsl
+     * @return AbstractYvesControllerProvider[]
+     */
+    protected function getControllerProviderStack($isSsl)
+    {
+        return [
+            new ApplicationControllerProvider($isSsl),
+            new CheckoutControllerProvider($isSsl),
+            new CustomerControllerProvider($isSsl),
+            new CartControllerProvider($isSsl),
+            new WishlistControllerProvider($isSsl),
+            new HeartbeatControllerProvider($isSsl),
+            new NewsletterControllerProvider($isSsl),
+        ];
     }
 
 }
