@@ -61,7 +61,8 @@
     "spryker/code-sniffer": "*",
     "jakoch/phantomjs-installer": "^2.1",
     "php-mock/php-mock": "^1.0",
-    "spryker/architecture-sniffer": "*"
+    "spryker/architecture-sniffer": "*",
+    "spryker/code-generator": "dev-master"
   },
   "autoload": {
     "psr-0": {
