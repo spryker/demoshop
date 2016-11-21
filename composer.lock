@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a63cf92895285562455c7be2547d7ffa",
-    "content-hash": "d13d6b0bbb3d283ad7861c33574429fa",
+    "hash": "3e60615077328d6307098c0d9704c118",
+    "content-hash": "329a8297de1284e8962bac00ae6daee2",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -4257,6 +4257,78 @@
                 "source": "https://github.com/spryker/Customer/tree/master"
             },
             "time": "2016-11-15 10:11:52"
+        },
+        {
+            "name": "spryker/customer-group",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/CustomerGroup.git",
+                "reference": "b1fb41ffe75a4e2436561c7e4849edd91fe786ee",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/CustomerGroup/zipball/b1fb41ffe75a4e2436561c7e4849edd91fe786ee",
+                "reference": "b1fb41ffe75a4e2436561c7e4849edd91fe786ee",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/application": "^2.4.4",
+                "spryker/customer": "^2.0.0",
+                "spryker/gui": "^2.0.0",
+                "spryker/kernel": "^2.0.0",
+                "spryker/library": "^2.0.0",
+                "spryker/propel": "^2.1.0",
+                "spryker/symfony": "^2.0.0"
+            },
+            "require-dev": {
+                "spryker/assertion": "^2.0.0",
+                "spryker/code-sniffer": "*",
+                "spryker/config": "^2.1.0",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                },
+                "psr-4": {
+                    "CustomerGroup\\Module\\": "tests/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Acceptance": "tests/",
+                    "Functional": "tests/",
+                    "Unit": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "CustomerGroup bundle",
+            "support": {
+                "source": "https://github.com/spryker/CustomerGroup/tree/master"
+            },
+            "time": "2016-11-18 10:19:28"
         },
         {
             "name": "spryker/customer-mail-connector",
@@ -12559,6 +12631,45 @@
             "time": "2016-04-29 17:38:05"
         },
         {
+            "name": "spryker/code-generator",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/code-generator.git",
+                "reference": "b7273adb67c39fbab80532eb8655bed9bcd05a99"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/b7273adb67c39fbab80532eb8655bed9bcd05a99",
+                "reference": "b7273adb67c39fbab80532eb8655bed9bcd05a99",
+                "shasum": ""
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/",
+                    "Acceptance": "tests/",
+                    "Functional": "tests/",
+                    "Integration": "tests/",
+                    "Unit": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "CodeGenerator bundle",
+            "time": "2016-11-18 17:28:34"
+        },
+        {
             "name": "spryker/code-sniffer",
             "version": "0.6.8",
             "source": {
@@ -12844,7 +12955,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "spryker/code-generator": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
