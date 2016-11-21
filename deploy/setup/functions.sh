@@ -136,6 +136,10 @@ function installDemoshop {
 function installZed {
     setupText "Zed setup"
 
+    labelText "Stopping jenkins"
+    $CONSOLE setup:jenkins:disable $VERBOSITY
+    writeErrorMessage "Failed to stop jenkins"
+
     resetDataStores
 
     dropDevelopmentDatabase
@@ -153,6 +157,7 @@ function installZed {
     writeErrorMessage "DataStore setup failed"
 
     labelText "Setting up cronjobs"
+    $CONSOLE setup:jenkins:enable $VERBOSITY
     $CONSOLE setup:jenkins:generate $VERBOSITY
     writeErrorMessage "Cronjob setup failed"
 
