@@ -6108,7 +6108,13 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "421e1d45b0ffd1cdfe8d91904b9a38edfda5d24d"
+                "reference": "dcb5cc268801fa3507b3799c002b958762cf02fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/dcb5cc268801fa3507b3799c002b958762cf02fd",
+                "reference": "dcb5cc268801fa3507b3799c002b958762cf02fd",
+                "shasum": ""
             },
             "require-dev": {
                 "spryker/code-sniffer": "*"
@@ -6128,11 +6134,12 @@
                     "Unit": "tests/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-            "description": "Code generator bundle",
-            "time": "2016-11-18 14:50:39"
+            "description": "CodeGenerator bundle",
+            "time": "2016-11-21 11:50:08"
         },
         {
             "name": "spryker/code-sniffer",
