@@ -362,7 +362,6 @@ $config[EventJournalConstants::WRITER_OPTIONS] = [
     ],
 ];
 
-$config[ApplicationConstants::PROPEL_DEBUG] = false;
 $config[SequenceNumberConstants::ENVIRONMENT_PREFIX]
     = $config[SalesConstants::ENVIRONMENT_PREFIX]
     = '';
