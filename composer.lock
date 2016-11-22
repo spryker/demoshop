@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0287ccce2e6836a4954a758e24e1a3e3",
-    "content-hash": "db779969642e3311822b870e39751b9a",
+    "hash": "238a7f667710cbda76b5fe08001d1118",
+    "content-hash": "69e41cec129b473b8ba507d3a7511004",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1253,7 +1253,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "0f8cd2100ad791d3fae2ab9f999156d2e1995426"
+                "reference": "73b31589916a09812b10255e39e8b043662cd1ee"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1819,7 +1819,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-11-21 14:56:37"
+            "time": "2016-11-22 15:07:47"
         },
         {
             "name": "symfony-cmf/routing",
@@ -6556,16 +6556,16 @@
         },
         {
             "name": "symfony/web-profiler-bundle",
-            "version": "v2.7.18",
+            "version": "v2.7.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-profiler-bundle.git",
-                "reference": "aa86e82e300c98f7b567978180406c5257829003"
+                "reference": "d6a6a89a3340455a73e7efad9d6eb2bb5cac4e60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/aa86e82e300c98f7b567978180406c5257829003",
-                "reference": "aa86e82e300c98f7b567978180406c5257829003",
+                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/d6a6a89a3340455a73e7efad9d6eb2bb5cac4e60",
+                "reference": "d6a6a89a3340455a73e7efad9d6eb2bb5cac4e60",
                 "shasum": ""
             },
             "require": {
@@ -6610,7 +6610,7 @@
             ],
             "description": "Symfony WebProfilerBundle",
             "homepage": "https://symfony.com",
-            "time": "2016-09-06 07:26:07"
+            "time": "2016-10-22 15:04:15"
         },
         {
             "name": "theseer/fdomdocument",
