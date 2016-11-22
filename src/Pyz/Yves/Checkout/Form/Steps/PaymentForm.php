@@ -93,7 +93,7 @@ class PaymentForm extends AbstractType
                 'required' => true,
                 'expanded' => true,
                 'multiple' => false,
-                'empty_value' => false,
+                'placeholder' => false,
                 'property_path' => self::PAYMENT_SELECTION_PROPERTY_PATH,
                 'constraints' => [
                     new NotBlank(),

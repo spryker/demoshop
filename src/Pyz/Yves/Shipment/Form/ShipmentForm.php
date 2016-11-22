@@ -78,7 +78,7 @@ class ShipmentForm extends AbstractType
             'multiple' => false,
             'required' => true,
             'property_path' => static::SHIPMENT_SELECTION_PROPERTY_PATH,
-            'empty_value' => false,
+            'placeholder' => false,
             'constraints' => [
                 new NotBlank(),
             ],
