@@ -13,6 +13,11 @@ use Spryker\Shared\Library\Environment;
 use Spryker\Zed\Application\Communication\Console\ApplicationIntegrationCheckConsole;
 use Spryker\Zed\Application\Communication\Console\BuildNavigationConsole;
 use Spryker\Zed\Cache\Communication\Console\DeleteAllCachesConsole;
+use Spryker\Zed\CodeGenerator\Communication\Console\BundleClientCodeGeneratorConsole;
+use Spryker\Zed\CodeGenerator\Communication\Console\BundleCodeGeneratorConsole;
+use Spryker\Zed\CodeGenerator\Communication\Console\BundleSharedCodeGeneratorConsole;
+use Spryker\Zed\CodeGenerator\Communication\Console\BundleYvesCodeGeneratorConsole;
+use Spryker\Zed\CodeGenerator\Communication\Console\BundleZedCodeGeneratorConsole;
 use Spryker\Zed\Collector\Communication\Console\CollectorSearchExportConsole;
 use Spryker\Zed\Collector\Communication\Console\CollectorSearchUpdateConsole;
 use Spryker\Zed\Collector\Communication\Console\CollectorStorageExportConsole;
@@ -87,6 +92,11 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new ComposerJsonUpdaterConsole();
             $commands[] = new ProductTouchConsole();
             $commands[] = new ValidatorConsole();
+            $commands[] = new BundleCodeGeneratorConsole();
+            $commands[] = new BundleYvesCodeGeneratorConsole();
+            $commands[] = new BundleZedCodeGeneratorConsole();
+            $commands[] = new BundleSharedCodeGeneratorConsole();
+            $commands[] = new BundleClientCodeGeneratorConsole();
         }
 
         return $commands;

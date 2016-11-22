@@ -10,7 +10,7 @@ namespace Acceptance\Sales\PageObject;
 class OrderDetailPage
 {
 
-    const OMS_EVENT_TRIGGER_XPATH = '//*[@id="items"]/div[1]/div/div/div/div/div[2]/div/a';
+    const OMS_EVENT_TRIGGER_XPATH = '//a[@data-event="%s"]';
 
     const ORDER_DETAIL_PAGE_URL = '/sales/detail?id-sales-order=%d';
 

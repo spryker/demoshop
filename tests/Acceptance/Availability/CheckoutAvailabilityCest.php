@@ -59,11 +59,11 @@ class CheckoutAvailabilityCest
 
             $i->amOnPage(sprintf(OrderDetailPage::ORDER_DETAIL_PAGE_URL, $idSalesOrder));
 
-            $i->click(OrderDetailPage::OMS_EVENT_TRIGGER_XPATH); //paid
-            $i->click(OrderDetailPage::OMS_EVENT_TRIGGER_XPATH); //exported
-            $i->click(OrderDetailPage::OMS_EVENT_TRIGGER_XPATH); //shipped
-            $i->click(OrderDetailPage::OMS_EVENT_TRIGGER_XPATH); //returned
-            $i->click(OrderDetailPage::OMS_EVENT_TRIGGER_XPATH); //refunded
+            $i->click(sprintf(OrderDetailPage::OMS_EVENT_TRIGGER_XPATH, 'pay'));
+            $i->click(sprintf(OrderDetailPage::OMS_EVENT_TRIGGER_XPATH, 'ship'));
+            $i->click(sprintf(OrderDetailPage::OMS_EVENT_TRIGGER_XPATH, 'stock-update'));
+            $i->click(sprintf(OrderDetailPage::OMS_EVENT_TRIGGER_XPATH, 'return'));
+            $i->click(sprintf(OrderDetailPage::OMS_EVENT_TRIGGER_XPATH, 'refund'));
 
             $i->amOnPage(sprintf(AvailabilityViewPage::VIEW_PRODUCT_AVAILABILITY_URL, $idProductFujitsu));
 
