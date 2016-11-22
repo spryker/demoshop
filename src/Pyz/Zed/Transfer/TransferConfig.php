@@ -20,7 +20,6 @@ class TransferConfig extends SprykerTransferConfig
     public function getSourceDirectories()
     {
         $directories = parent::getSourceDirectories();
-        $directories[] = Config::get(ApplicationConstants::APPLICATION_SPRYKER_ROOT) . '/../../code-generator/src/*/Shared/*/Transfer/';
 
         return $directories;
     }
