@@ -3529,11 +3529,11 @@
         },
         {
             "name": "spryker/category",
-            "version": "2.2.0",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Category.git",
-                "reference": "ae38daa55cc1b53b1d0aa70c4b392515b3a01ca6",
+                "reference": "80f71247e6016b936c7f20fa1607d2200d4f7694",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3543,8 +3543,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Category/zipball/ae38daa55cc1b53b1d0aa70c4b392515b3a01ca6",
-                "reference": "ae38daa55cc1b53b1d0aa70c4b392515b3a01ca6",
+                "url": "https://api.github.com/repos/spryker/Category/zipball/80f71247e6016b936c7f20fa1607d2200d4f7694",
+                "reference": "80f71247e6016b936c7f20fa1607d2200d4f7694",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3598,7 +3598,7 @@
             "support": {
                 "source": "https://github.com/spryker/Category/tree/master"
             },
-            "time": "2016-11-16 13:01:49"
+            "time": "2016-11-22 09:41:44"
         },
         {
             "name": "spryker/category-exporter",
@@ -12169,16 +12169,16 @@
         },
         {
             "name": "pdepend/pdepend",
-            "version": "2.2.4",
+            "version": "2.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "b086687f3a01dc6bb92d633aef071d2c5dd0db06"
+                "reference": "ea3cae1f7abb1141be94ad0a35970169a122df54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/b086687f3a01dc6bb92d633aef071d2c5dd0db06",
-                "reference": "b086687f3a01dc6bb92d633aef071d2c5dd0db06",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/ea3cae1f7abb1141be94ad0a35970169a122df54",
+                "reference": "ea3cae1f7abb1141be94ad0a35970169a122df54",
                 "shasum": ""
             },
             "require": {
@@ -12205,7 +12205,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2016-03-10 15:15:04"
+            "time": "2016-11-21 20:32:18"
         },
         {
             "name": "phploc/phploc",
@@ -12656,12 +12656,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "dcb5cc268801fa3507b3799c002b958762cf02fd"
+                "reference": "af2c8a825d49d8cd5690f92aa3da602b2498e130"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/dcb5cc268801fa3507b3799c002b958762cf02fd",
-                "reference": "dcb5cc268801fa3507b3799c002b958762cf02fd",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/af2c8a825d49d8cd5690f92aa3da602b2498e130",
+                "reference": "af2c8a825d49d8cd5690f92aa3da602b2498e130",
                 "shasum": ""
             },
             "require-dev": {
@@ -12687,7 +12687,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2016-11-21 11:50:08"
+            "time": "2016-11-21 16:59:28"
         },
         {
             "name": "spryker/code-sniffer",
