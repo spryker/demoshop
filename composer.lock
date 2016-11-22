@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5650131ba6146ec26c21965f84710fa1",
-    "content-hash": "245732252634b932ea0151261338a984",
+    "hash": "716737dedafecea19c41309d56ddd5c6",
+    "content-hash": "a615205801157617b41c1e0e5567d992",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -12652,16 +12652,16 @@
         },
         {
             "name": "spryker/code-generator",
-            "version": "dev-master",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "af2c8a825d49d8cd5690f92aa3da602b2498e130"
+                "reference": "dcb5cc268801fa3507b3799c002b958762cf02fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/af2c8a825d49d8cd5690f92aa3da602b2498e130",
-                "reference": "af2c8a825d49d8cd5690f92aa3da602b2498e130",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/dcb5cc268801fa3507b3799c002b958762cf02fd",
+                "reference": "dcb5cc268801fa3507b3799c002b958762cf02fd",
                 "shasum": ""
             },
             "require-dev": {
@@ -12687,7 +12687,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2016-11-21 16:59:28"
+            "time": "2016-11-21 11:50:08"
         },
         {
             "name": "spryker/code-sniffer",
@@ -12975,9 +12975,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "spryker/code-generator": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],

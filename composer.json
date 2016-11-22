@@ -121,7 +121,7 @@
     "symfony/web-profiler-bundle": "v2.7.20",
     "site5/phantoman": "^1.1",
     "sllh/composer-versions-check": "~2.0.2",
-    "spryker/code-generator": "dev-master",
+    "spryker/code-generator": "*",
     "spryker/code-sniffer": "*",
     "jakoch/phantomjs-installer": "^2.1"
   },
