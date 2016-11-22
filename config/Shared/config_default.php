@@ -7,6 +7,7 @@ use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Auth\AuthConstants;
 use Spryker\Shared\CustomerMailConnector\CustomerMailConnectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
+use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
@@ -370,7 +371,7 @@ $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 
 $config[LogConstants::LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application.log';
 
-$config[ApplicationConstants::ERROR_LEVEL] = E_ALL;
+$config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL;
 
 $config[KernelConstants::AUTO_LOADER_CACHE_FILE_NO_LOCK] = false;
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
