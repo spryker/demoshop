@@ -64,8 +64,6 @@ class CheckoutTester extends \YvesAcceptanceTester
     {
         $this->see('Shipment');
 
-        $this->makeScreenshot('test');
-
         $this->click('//*[@id="shipmentForm_idShipmentMethod_1"]');
 
         return $this;
