@@ -4773,11 +4773,11 @@
         },
         {
             "name": "spryker/error-handler",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ErrorHandler.git",
-                "reference": "536af4f47393d65b4f84cbb403de90e9004abfd1",
+                "reference": "1c2d2209b7fd399dbd1c06fce326fb9a752f8397",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4787,8 +4787,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ErrorHandler/zipball/536af4f47393d65b4f84cbb403de90e9004abfd1",
-                "reference": "536af4f47393d65b4f84cbb403de90e9004abfd1",
+                "url": "https://api.github.com/repos/spryker/ErrorHandler/zipball/1c2d2209b7fd399dbd1c06fce326fb9a752f8397",
+                "reference": "1c2d2209b7fd399dbd1c06fce326fb9a752f8397",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4830,9 +4830,9 @@
             ],
             "description": "ErrorHandler bundle",
             "support": {
-                "source": "https://github.com/spryker/ErrorHandler/tree/master"
+                "source": "https://github.com/spryker/ErrorHandler/tree/hotfix/core-344-error-handling"
             },
-            "time": "2016-11-14 18:00:58"
+            "time": "2016-11-22 15:34:33"
         },
         {
             "name": "spryker/event-journal",
@@ -12262,21 +12262,21 @@
         },
         {
             "name": "phpmd/phpmd",
-            "version": "2.4.3",
+            "version": "2.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpmd/phpmd.git",
-                "reference": "2b9c2417a18696dfb578b38c116cd0ddc19b256e"
+                "reference": "148b605040ae6f7cc839e14a9e206beec9868d97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/2b9c2417a18696dfb578b38c116cd0ddc19b256e",
-                "reference": "2b9c2417a18696dfb578b38c116cd0ddc19b256e",
+                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/148b605040ae6f7cc839e14a9e206beec9868d97",
+                "reference": "148b605040ae6f7cc839e14a9e206beec9868d97",
                 "shasum": ""
             },
             "require": {
                 "pdepend/pdepend": "^2.0.4",
-                "php": ">=5.3.0"
+                "php": ">=5.3.9"
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.0",
@@ -12323,7 +12323,7 @@
                 "phpmd",
                 "pmd"
             ],
-            "time": "2016-04-04 11:52:04"
+            "time": "2016-11-22 14:35:17"
         },
         {
             "name": "sebastian/finder-facade",
