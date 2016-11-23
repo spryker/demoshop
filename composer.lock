@@ -3529,11 +3529,11 @@
         },
         {
             "name": "spryker/category",
-            "version": "2.2.1",
+            "version": "2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Category.git",
-                "reference": "80f71247e6016b936c7f20fa1607d2200d4f7694",
+                "reference": "b2fbd66a7ab40566be9e72a44d24eeb887e64020",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3543,8 +3543,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Category/zipball/80f71247e6016b936c7f20fa1607d2200d4f7694",
-                "reference": "80f71247e6016b936c7f20fa1607d2200d4f7694",
+                "url": "https://api.github.com/repos/spryker/Category/zipball/b2fbd66a7ab40566be9e72a44d24eeb887e64020",
+                "reference": "b2fbd66a7ab40566be9e72a44d24eeb887e64020",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3598,7 +3598,7 @@
             "support": {
                 "source": "https://github.com/spryker/Category/tree/master"
             },
-            "time": "2016-11-22 09:41:44"
+            "time": "2016-11-23 13:29:41"
         },
         {
             "name": "spryker/category-exporter",
@@ -4773,11 +4773,11 @@
         },
         {
             "name": "spryker/error-handler",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ErrorHandler.git",
-                "reference": "1c2d2209b7fd399dbd1c06fce326fb9a752f8397",
+                "reference": "d9ab98306eb2aabbf71d4d20a3c2c3ed75ffbcec",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4787,8 +4787,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ErrorHandler/zipball/1c2d2209b7fd399dbd1c06fce326fb9a752f8397",
-                "reference": "1c2d2209b7fd399dbd1c06fce326fb9a752f8397",
+                "url": "https://api.github.com/repos/spryker/ErrorHandler/zipball/d9ab98306eb2aabbf71d4d20a3c2c3ed75ffbcec",
+                "reference": "d9ab98306eb2aabbf71d4d20a3c2c3ed75ffbcec",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4830,9 +4830,9 @@
             ],
             "description": "ErrorHandler bundle",
             "support": {
-                "source": "https://github.com/spryker/ErrorHandler/tree/hotfix/core-344-error-handling"
+                "source": "https://github.com/spryker/ErrorHandler/tree/1.0.5"
             },
-            "time": "2016-11-22 15:34:33"
+            "time": "2016-11-23 11:11:09"
         },
         {
             "name": "spryker/event-journal",
@@ -5785,11 +5785,11 @@
         },
         {
             "name": "spryker/maintenance",
-            "version": "2.0.1",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Maintenance.git",
-                "reference": "9f7ccb8ca8285b98c39404e75a509872c899cc70",
+                "reference": "ad34fe4486ef7e2065811eda163f7dfa3cb9f5b4",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5799,8 +5799,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Maintenance/zipball/9f7ccb8ca8285b98c39404e75a509872c899cc70",
-                "reference": "9f7ccb8ca8285b98c39404e75a509872c899cc70",
+                "url": "https://api.github.com/repos/spryker/Maintenance/zipball/ad34fe4486ef7e2065811eda163f7dfa3cb9f5b4",
+                "reference": "ad34fe4486ef7e2065811eda163f7dfa3cb9f5b4",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5811,7 +5811,13 @@
             },
             "require": {
                 "spryker/application": "^2.0.0",
+                "spryker/config": "^2.2.1",
+                "spryker/error-handler": "^1.0.4",
                 "spryker/kernel": "^2.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
             },
             "type": "library",
             "extra": {
@@ -5822,9 +5828,11 @@
             "autoload": {
                 "psr-0": {
                     "Spryker": "src/",
-                    "Acceptance": "tests/",
-                    "Function": "tests/",
-                    "Integration": "tests/",
+                    "Function": "tests/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
                     "Unit": "tests/"
                 }
             },
@@ -5836,7 +5844,7 @@
             "support": {
                 "source": "https://github.com/spryker/Maintenance/tree/master"
             },
-            "time": "2016-08-09 15:14:11"
+            "time": "2016-11-23 11:18:46"
         },
         {
             "name": "spryker/mandrill",
@@ -6059,11 +6067,11 @@
         },
         {
             "name": "spryker/new-relic",
-            "version": "2.1.4",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/NewRelic.git",
-                "reference": "d5a1b32b56d11fd40dae85cbc0db8a5904bc4aa2",
+                "reference": "e64f042e536b84427174d0ee4a1ed7fba7d841c2",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6073,8 +6081,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/NewRelic/zipball/d5a1b32b56d11fd40dae85cbc0db8a5904bc4aa2",
-                "reference": "d5a1b32b56d11fd40dae85cbc0db8a5904bc4aa2",
+                "url": "https://api.github.com/repos/spryker/NewRelic/zipball/e64f042e536b84427174d0ee4a1ed7fba7d841c2",
+                "reference": "e64f042e536b84427174d0ee4a1ed7fba7d841c2",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6123,7 +6131,7 @@
             "support": {
                 "source": "https://github.com/spryker/NewRelic/tree/master"
             },
-            "time": "2016-11-01 10:41:40"
+            "time": "2016-11-23 14:06:12"
         },
         {
             "name": "spryker/newsletter",
