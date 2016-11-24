@@ -72,7 +72,7 @@
         <div class="small-12 medium-6 xlarge-5 xxlarge-4 columns">
 
             <div class="callout">
-                <h5><small>{{ 'page.product.by' | trans }}</small> {{ product.attributes.brand }}</h5>
+                {% if product.attributes.brand is defined %}<h5><small>{{ 'page.product.by' | trans }}</small> {{ product.attributes.brand }}</h5>{% endif %}
                 <p>
                     <span class="stat">{{ product.price | price }}</span>
                 </p>

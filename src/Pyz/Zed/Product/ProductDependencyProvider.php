@@ -19,6 +19,9 @@ use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as I
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterCreatePlugin as ImageSetProductConcreteAfterCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterUpdatePlugin as ImageSetProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteReadPlugin as ImageSetProductConcreteReadPlugin;
+use Spryker\Zed\ProductSearch\Communication\Plugin\ProductConcrete\ProductSearchProductConcreteAfterCreatePlugin;
+use Spryker\Zed\ProductSearch\Communication\Plugin\ProductConcrete\ProductSearchProductConcreteAfterUpdatePlugin;
+use Spryker\Zed\ProductSearch\Communication\Plugin\ProductConcrete\ProductSearchProductConcreteReadPlugin;
 use Spryker\Zed\Product\ProductDependencyProvider as SprykerProductDependencyProvider;
 use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterCreatePlugin as StockProductConcreteAfterCreatePlugin;
 use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterUpdatePlugin as StockProductConcreteAfterUpdatePlugin;
@@ -113,6 +116,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
             new ImageSetProductConcreteAfterCreatePlugin(),
             new StockProductConcreteAfterCreatePlugin(),
             new PriceProductConcreteAfterCreatePlugin(),
+            new ProductSearchProductConcreteAfterCreatePlugin(),
         ];
     }
 
@@ -127,6 +131,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
             new ImageSetProductConcreteReadPlugin(),
             new StockProductConcreteReadPlugin(),
             new PriceProductConcreteReadPlugin(),
+            new ProductSearchProductConcreteReadPlugin(),
         ];
     }
 
@@ -151,6 +156,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
             new ImageSetProductConcreteAfterUpdatePlugin(),
             new StockProductConcreteAfterUpdatePlugin(),
             new PriceProductConcreteAfterUpdatePlugin(),
+            new ProductSearchProductConcreteAfterUpdatePlugin(),
         ];
     }
 

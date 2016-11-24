@@ -8,6 +8,7 @@ namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\StorageAvailabilityTransfer;
 use Orm\Zed\Availability\Persistence\Base\SpyAvailabilityQuery;
+use Orm\Zed\Availability\Persistence\SpyAvailability;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AvailabilityCollectorQuery;
 use Spryker\Shared\Availability\AvailabilityConfig;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollector;
@@ -43,7 +44,7 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
 
         $concreteProductStock = [];
         foreach ($productConcreteAvailability as $availabilityEntity) {
-            $concreteProductStock[$availabilityEntity->getSku()] = $availabilityEntity->getQuantity() > 0;
+            $concreteProductStock[$availabilityEntity->getSku()] = $this->isProductConcreteAvailable($availabilityEntity);
         }
 
         return $concreteProductStock;
@@ -67,6 +68,16 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
     protected function collectKey($data, $localeName, array $collectedItemData)
     {
         return $this->generateKey($collectedItemData[AvailabilityCollectorQuery::ID_PRODUCT_ABSTRACT], $localeName);
+    }
+
+    /**
+     * @param \Orm\Zed\Availability\Persistence\SpyAvailability $availabilityEntity
+     *
+     * @return bool
+     */
+    protected function isProductConcreteAvailable(SpyAvailability $availabilityEntity)
+    {
+        return $availabilityEntity->getQuantity() > 0 || $availabilityEntity->getIsNeverOutOfStock();
     }
 
 }
