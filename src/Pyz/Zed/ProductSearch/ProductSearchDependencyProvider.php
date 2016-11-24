@@ -48,7 +48,7 @@ class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProv
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
      * @return void
      */

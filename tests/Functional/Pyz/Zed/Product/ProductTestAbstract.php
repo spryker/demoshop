@@ -21,6 +21,8 @@ use Orm\Zed\Tax\Persistence\SpyTaxRate;
 use Orm\Zed\Tax\Persistence\SpyTaxSet;
 use Orm\Zed\Tax\Persistence\SpyTaxSetTax;
 use Pyz\Zed\Product\Business\ProductBusinessFactory;
+use Spryker\Service\UtilEncoding\UtilEncodingService;
+use Spryker\Service\UtilText\UtilTextService;
 use Spryker\Zed\Locale\Business\LocaleFacade;
 use Spryker\Zed\Price\Business\PriceFacade;
 use Spryker\Zed\Price\Communication\Plugin\ProductAbstract\PriceProductAbstractAfterCreatePlugin;
@@ -63,8 +65,6 @@ use Spryker\Zed\Tax\Persistence\TaxQueryContainer;
 use Spryker\Zed\Touch\Business\TouchFacade;
 use Spryker\Zed\Touch\Persistence\TouchQueryContainer;
 use Spryker\Zed\Url\Business\UrlFacade;
-use Spryker\Service\UtilEncoding\UtilEncodingService;
-use Spryker\Service\UtilText\UtilTextService;
 
 abstract class ProductTestAbstract extends Test
 {

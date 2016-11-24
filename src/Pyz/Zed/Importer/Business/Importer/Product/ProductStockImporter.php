@@ -109,7 +109,6 @@ class ProductStockImporter extends AbstractImporter
         $this->stockFacade->createStockProduct($stockProductTransfer);
     }
 
-
     /**
      * @param array $stockData
      *

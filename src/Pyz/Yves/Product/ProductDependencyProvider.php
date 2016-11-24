@@ -16,7 +16,6 @@ class ProductDependencyProvider extends AbstractBundleDependencyProvider
     const CLIENT_PRODUCT_OPTION = 'client product option';
     const CLIENT_AVAILABILITY = 'client availability';
 
-
     /**
      * @param \Spryker\Yves\Kernel\Container $container
      *

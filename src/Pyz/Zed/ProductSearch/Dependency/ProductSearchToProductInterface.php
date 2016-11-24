@@ -28,4 +28,3 @@ interface ProductSearchToProductInterface extends SprykerProductSearchToProductI
     public function decodeProductAttributes($attributes);
 
 }
-
