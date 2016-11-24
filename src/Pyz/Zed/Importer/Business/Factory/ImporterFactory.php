@@ -225,19 +225,6 @@ class ImporterFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Zed\Importer\Business\Importer\Product\ProductSearchImporter
-     */
-    public function createProductSearchImporter()
-    {
-        $productSearchImporter = new ProductSearchImporter(
-            $this->getLocaleFacade(),
-            $this->getProductSearchFacade()
-        );
-
-        return $productSearchImporter;
-    }
-
-    /**
      * @return \Pyz\Zed\Importer\Business\Importer\Glossary\TranslationImporter
      */
     public function createGlossaryImporter()

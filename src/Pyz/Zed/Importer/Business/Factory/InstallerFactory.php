@@ -147,19 +147,6 @@ class InstallerFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Zed\Importer\Business\Installer\Product\ProductSearchInstaller
-     */
-    public function createProductSearchInstaller()
-    {
-        $productSearchInstaller = new ProductSearchInstaller(
-            $this->getImporterProductSearchCollection(),
-            $this->getConfig()->getImportDataDirectory()
-        );
-
-        return $productSearchInstaller;
-    }
-
-    /**
      * @return \Pyz\Zed\Importer\Business\Installer\Glossary\GlossaryInstaller
      */
     public function createGlossaryInstaller()
@@ -410,16 +397,6 @@ class InstallerFactory extends AbstractFactory
     {
         return [
             ImporterConfig::RESOURCE_PRODUCT_SEARCH_ATTRIBUTE_MAP => $this->createImporterFactory()->createProductSearchAttributeMapImporter(),
-        ];
-    }
-
-    /**
-     * @return \Pyz\Zed\Importer\Business\Importer\ImporterInterface[]
-     */
-    public function getImporterProductSearchCollection()
-    {
-        return [
-            ImporterConfig::RESOURCE_PRODUCT_SEARCH => $this->createImporterFactory()->createProductSearchImporter(),
         ];
     }
 

@@ -92,7 +92,8 @@ class ProductConcreteImporter extends AbstractProductImporter
             ->setLocale($localeTransfer)
             ->setName($this->getProductName($data, $localeTransfer->getLocaleName()))
             ->setAttributes($localizedAttributesData)
-            ->setDescription($data[$this->getLocalizedKeyName('description', $localeTransfer->getLocaleName())]);
+            ->setDescription($data[$this->getLocalizedKeyName('description', $localeTransfer->getLocaleName())])
+            ->setIsSearchable((bool)(int)$data[$this->getLocalizedKeyName('is_searchable', $localeTransfer->getLocaleName())]);
 
         return $localizedAttributesTransfer;
     }
