@@ -31,6 +31,7 @@ use Spryker\Zed\Tax\Communication\Plugin\ExpenseTaxCalculatorPlugin;
 use Spryker\Zed\Tax\Communication\Plugin\ItemTaxCalculatorPlugin;
 use Spryker\Zed\Tax\Communication\Plugin\ProductItemTaxRateCalculatorPlugin;
 use Spryker\Zed\Tax\Communication\Plugin\TaxTotalsCalculatorPlugin;
+use Spryker\Zed\ProductBundle\Communication\Plugin\Calculation\CalculateBundlePricePlugin;
 
 class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
 {
@@ -74,6 +75,8 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
             new DiscountTotalsCalculatorPlugin(),
             new DiscountTotalsWithProductOptionsCalculatorPlugin(),
             new ExpenseTaxWithDiscountsCalculatorPlugin(),
+
+            new CalculateBundlePricePlugin(),
 
             //GrandTotal with discounts
             new GrandTotalWithDiscountsCalculatorPlugin(),

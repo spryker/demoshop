@@ -25,6 +25,8 @@ class CartController extends AbstractController
         $quoteTransfer = $this->getClient()->getQuote();
         $voucherForm = $this->getFactory()->createVoucherForm();
 
+        $br = 1;
+
         return $this->viewResponse([
             'cart' => $quoteTransfer,
             'voucherForm' => $voucherForm->createView(),

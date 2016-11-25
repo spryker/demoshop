@@ -15,8 +15,15 @@
         {% if cart.items|length > 0 %}
             <div class="small-12 large-6 columns">
                 {% for cartItem in cart.items %}
+                     {% if cartItem.relatedBundleItemIdentifier is empty %}
+                        {% include '@cart/cart/parts/cart-item.twig' %}
+                     {% endif %}
+                {% endfor %}
+
+                {% for cartItem in cart.bundleProducts %}
                     {% include '@cart/cart/parts/cart-item.twig' %}
                 {% endfor %}
+
             </div>
 
             <div class="small-12 large-6 columns">

@@ -8,6 +8,7 @@ namespace Pyz\Yves\Cart\Handler;
 
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
+use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Client\Cart\CartClientInterface;
 
@@ -52,6 +53,7 @@ class CartOperationHandler extends BaseHandler
         $this->addProductOptions($optionValueUsageIds, $itemTransfer);
 
         $quoteTransfer = $this->cartClient->addItem($itemTransfer);
+        $this->updateNumberOfItemsInCart($quoteTransfer);
         $this->cartClient->storeQuote($quoteTransfer);
     }
 
@@ -63,7 +65,28 @@ class CartOperationHandler extends BaseHandler
      */
     public function remove($sku, $groupKey = null)
     {
-        $quoteTransfer = $this->cartClient->removeItem($sku, $groupKey);
+        $quoteTransfer = $this->cartClient->getQuote();
+        $bundledProductsRemove = new \ArrayObject();
+        foreach ($quoteTransfer->getBundleProducts() as $bundleItemTransfer) {
+            if ($bundleItemTransfer->getSku() != $sku || $bundleItemTransfer->getGroupKey() != $groupKey) {
+                continue;
+            }
+
+            foreach ($quoteTransfer->getItems() as $itemTransfer) {
+                if ($itemTransfer->getRelatedBundleItemIdentifier() == $bundleItemTransfer->getBundleItemIdentifier()) {
+                    $bundledProductsRemove->append($itemTransfer);
+                }
+            }
+
+        }
+
+        if (count($bundledProductsRemove) == 0) {
+            $quoteTransfer = $this->cartClient->removeItem($sku, $groupKey);
+        } else {
+            $quoteTransfer = $this->cartClient->removeItems($bundledProductsRemove);
+        }
+
+        $this->updateNumberOfItemsInCart($quoteTransfer);
         $this->cartClient->storeQuote($quoteTransfer);
     }
 
@@ -76,6 +99,7 @@ class CartOperationHandler extends BaseHandler
     public function increase($sku, $groupKey = null)
     {
         $quoteTransfer = $this->cartClient->increaseItemQuantity($sku, $groupKey);
+        $this->updateNumberOfItemsInCart($quoteTransfer);
         $this->cartClient->storeQuote($quoteTransfer);
     }
 
@@ -88,6 +112,7 @@ class CartOperationHandler extends BaseHandler
     public function decrease($sku, $groupKey = null)
     {
         $quoteTransfer = $this->cartClient->decreaseItemQuantity($sku, $groupKey);
+        $this->updateNumberOfItemsInCart($quoteTransfer);
         $this->cartClient->storeQuote($quoteTransfer);
     }
 
@@ -101,6 +126,7 @@ class CartOperationHandler extends BaseHandler
     public function changeQuantity($sku, $quantity, $groupKey = null)
     {
         $quoteTransfer = $this->cartClient->changeItemQuantity($sku, $groupKey, $quantity);
+        $this->updateNumberOfItemsInCart($quoteTransfer);
         $this->cartClient->storeQuote($quoteTransfer);
     }
 
@@ -122,6 +148,34 @@ class CartOperationHandler extends BaseHandler
 
             $itemTransfer->addProductOption($productOptionTransfer);
         }
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     */
+    public function updateNumberOfItemsInCart(QuoteTransfer $quoteTransfer)
+    {
+        $numberOfItems = $this->getNumberOfItemsInCart($quoteTransfer);;
+        $this->cartClient->setItemCount($numberOfItems);
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return int
+     */
+    protected function getNumberOfItemsInCart(QuoteTransfer $quoteTransfer)
+    {
+        $numberOfItems = $quoteTransfer->getBundleProducts()->count();
+        foreach ($quoteTransfer->getItems() as $itemTransfer) {
+            if ($itemTransfer->getRelatedBundleItemIdentifier()) {
+                continue;
+            }
+            $numberOfItems++;
+        }
+
+        return $numberOfItems;
+
     }
 
 }

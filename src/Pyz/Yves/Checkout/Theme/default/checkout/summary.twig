@@ -44,8 +44,15 @@
             <div class="callout">
                 <ul class="no-bullet">
                     {% for item in quoteTransfer.items %}
+                        {% if item.relatedBundleItemIdentifier is empty %}
+                            {% include '@checkout/checkout/partials/summary-item.twig' %}
+                        {% endif %}
+                    {% endfor %}
+
+                    {% for item in quoteTransfer.bundleProducts %}
                         {% include '@checkout/checkout/partials/summary-item.twig' %}
                     {% endfor %}
+
                 </ul>
             </div>
         </div>
