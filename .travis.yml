@@ -71,7 +71,9 @@ script:
   - vendor/bin/console collector:storage:export
   - vendor/bin/console collector:search:export
 
-  - vendor/bin/console code:sniff
+  - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console code:sniff ; fi
+  - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console dev:dependency-tree:build ; fi
+  - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console dev:dependency-violation:find ; fi
 
 notifications:
   email: false
