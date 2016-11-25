@@ -23,7 +23,6 @@ use Pyz\Zed\Importer\Business\Importer\Product\ProductAttributeKeyImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductCategoryImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductConcreteImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductPriceImporter;
-use Pyz\Zed\Importer\Business\Importer\Product\ProductSearchImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductStockImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductTaxImporter;
 use Pyz\Zed\Importer\Business\Importer\Shipment\ShipmentImporter;

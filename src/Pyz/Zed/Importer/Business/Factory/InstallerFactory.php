@@ -22,7 +22,6 @@ use Pyz\Zed\Importer\Business\Installer\Product\ProductAbstractInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductAttributeKeyInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductConcreteInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductPriceInstaller;
-use Pyz\Zed\Importer\Business\Installer\Product\ProductSearchInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductStockInstaller;
 use Pyz\Zed\Importer\Business\Installer\Shipment\ShipmentInstaller;
 use Pyz\Zed\Importer\Business\Installer\Tax\TaxInstaller;
