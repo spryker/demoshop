@@ -1,7 +1,9 @@
 <?php
 
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Mail\MailConstants;
+use Spryker\Shared\Search\SearchConstants;
 
 $yvesHost = 'www.com.demoshop.local';
 $config[ApplicationConstants::HOST_YVES] = 'http://' . $yvesHost;
@@ -33,4 +35,7 @@ $config[ApplicationConstants::ZED_RABBITMQ_PASSWORD] = 'mate20mg';
 $config[ApplicationConstants::ZED_RABBITMQ_VHOST] = '/US_development_zed';
 
 /* Elasticsearch */
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'us_search';
+$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME]
+    = $config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME]
+    = $config[SearchConstants::ELASTICA_PARAMETER__INDEX_NAME]
+    = 'us_search';

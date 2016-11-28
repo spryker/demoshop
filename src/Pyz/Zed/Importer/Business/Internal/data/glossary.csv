@@ -32,7 +32,7 @@ cart.voucher.redeem,"Redeem code",en_US
 cart.price.subtotal,"Zwischensumme",de_DE
 cart.price.subtotal,"Subtotal",en_US
 cart.price.grand.total,"Summe",de_DE
-cart.price.grand.total,"Grandt Total",en_US
+cart.price.grand.total,"Grand Total",en_US
 cart.total.tax_total,"Mehrwertsteuer",de_DE
 cart.total.tax_total,"Tax",en_US
 auth.login,Anmelden,de_DE
@@ -149,12 +149,14 @@ catalog.filter.main_color,Farbe,de_DE
 catalog.filter.main_color,Color,en_US
 catalog.filter.extras,"Sonstige Merkmale",de_DE
 catalog.filter.extras,"Other characteristics",en_US
-catalog.filter.price,Preisspanne,de_DE
-catalog.filter.price,"Price range",en_US
-catalog.filter.pricerangeFrom,"Preisspanne von",de_DE
-catalog.filter.pricerangeFrom,"Price range of",en_US
+catalog.filter.pricerangeFrom,"von",de_DE
+catalog.filter.pricerangeFrom,"from",en_US
 catalog.filter.pricerangeTo,bis,de_DE
 catalog.filter.pricerangeTo,to,en_US
+catalog.filter.rangeFrom,"Skala von",de_DE
+catalog.filter.rangeFrom,"Range of",en_US
+catalog.filter.rangeTo,bis,de_DE
+catalog.filter.rangeTo,to,en_US
 catalog.filter.show,"Filter einblenden",de_DE
 catalog.filter.show,"insert filter",en_US
 catalog.filter.hide,"Filter ausblenden",de_DE
@@ -177,6 +179,10 @@ catalog.sort.price_asc,"Nach Preis aufsteigend sortieren",de_DE
 catalog.sort.price_asc,"Sort by price ascending",en_US
 catalog.sort.price_desc,"Nach Preis absteigend sortieren",de_DE
 catalog.sort.price_desc,"Sort by price descending",en_US
+product.filter.category,"Kategorien",de_DE
+product.filter.category,"Categories",en_US
+product.filter.price,Preisspanne,de_DE
+product.filter.price,"Price range",en_US
 shipment.dhl,DHL,de_DE
 shipment.dhl,DHL,en_US
 shipment.dhl.paket.name,Paket,de_DE
@@ -633,6 +639,8 @@ product.attribute.image_small,"Image small",en_US
 product.attribute.image_small,"Bild klein",de_DE
 product.attribute.license,License,en_US
 product.attribute.license,Lizenz,de_DE
+product.product_options,"Product option",en_US
+product.product_options,"Produktoption",de_DE
 wishlist.title,"Wishlist",en_US
 wishlist.title,"Wunschliste",de_DE
 newsletter.subscribe,"Subscribe for newsletter",en_US
@@ -641,6 +649,38 @@ pagination.previous,"Previous",en_US
 pagination.previous,"Vorherig",de_DE
 pagination.next,"Next",en_US
 pagination.next,"Nächst",de_DE
+product.attribute.iso_en,ISO,en_US
+product.attribute.iso_en,ISO,de_DE
+product.attribute.waterproof_up_to,Waterproof up to,en_US
+product.attribute.waterproof_up_to,Wasserdicht bis,de_DE
+product.attribute.width,Width,en_US
+product.attribute.width,Breite,de_DE
+product.attribute.touchscreen,Touchscreen,en_US
+product.attribute.touchscreen,Touchscreen,de_DE
+product.attribute._none,Please select an attribute value,en_US
+product.attribute._none,Bitte wähle einen Attributwert aus,de_DE
+product.variants,Product Variants,en_US
+product.variants,Produktvarianten,de_DE
+product.attribute.usb_version,USB version,en_US
+product.attribute.usb_version,USB-Version,de_DE
+product.attribute.thermal_design_power,Thermal design power,en_US
+product.attribute.thermal_design_power,Thermal Design Power,de_DE
+product.attribute.processor_boost,Processor Boost,en_US
+product.attribute.processor_boost,Prozessor Boost-Taktung,de_DE
+product.attribute.touch_technology,Touch technology,en_US
+product.attribute.touch_technology,Touch-Technologie,de_DE
+product.attribute.video_recording_modes,Video recording modes,en_US
+product.attribute.video_recording_modes,Videoaufnahme-Modi,de_DE
+product.attribute.voice_recording,Voice recording,en_US
+product.attribute.voice_recording,Sprachaufnahme,de_DE
+product.attribute.total_megapixels,Total megapixels,en_US
+product.attribute.total_megapixels,Megapixel insgesamt,de_DE
+product.attribute.white_balance,White balance,en_US
+product.attribute.white_balance,Weißabgleich,de_DE
+product.attribute.themes,Themes,en_US
+product.attribute.themes,Themen,de_DE
+product.attribute.usb_port,USB port,en_US
+product.attribute.usb_port,USB-Port,de_DE
 cart.pre.check.availability.failed, "Currently we have only stock of this product available.",en_US
 cart.pre.check.availability.failed, "Zurzeit haben wir nur stock von diesem Produkt zur Verfügung.",de_DE
 product.detail.out_of_stock, "This product is currently not available.",en_US

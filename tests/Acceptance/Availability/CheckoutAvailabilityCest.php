@@ -32,7 +32,7 @@ class CheckoutAvailabilityCest
         $i->wantTo('Checkout item with stock');
         $i->expectTo('Availability changed during SM processing.');
 
-        $i->amOnPage(AvailabilityTester::SONY_PRODUCT_PAGE);
+        $i->amOnPage(AvailabilityTester::FUJITSU_PRODUCT_PAGE);
 
         $i->click(ProductDetailPage::ADD_TO_CART_XPATH);
 
@@ -45,7 +45,10 @@ class CheckoutAvailabilityCest
 
         $zedTester->does(function (ZedAcceptanceTester $i) {
             $i->amLoggedInUser();
-            $i->amOnPage(sprintf(AvailabilityViewPage::VIEW_PRODUCT_AVAILABILITY_URL, 137));
+
+            $idProductFujitsu = 56;
+
+            $i->amOnPage(sprintf(AvailabilityViewPage::VIEW_PRODUCT_AVAILABILITY_URL, $idProductFujitsu));
 
             $reservedProductsBefore = $i->grabTextFrom('//*[@id="page-wrapper"]/div[3]/div[2]/div/div/div[2]/div/div[5]/p[2]');
 
@@ -62,7 +65,7 @@ class CheckoutAvailabilityCest
             $i->click(sprintf(OrderDetailPage::OMS_EVENT_TRIGGER_XPATH, 'return'));
             $i->click(sprintf(OrderDetailPage::OMS_EVENT_TRIGGER_XPATH, 'refund'));
 
-            $i->amOnPage(sprintf(AvailabilityViewPage::VIEW_PRODUCT_AVAILABILITY_URL, 137));
+            $i->amOnPage(sprintf(AvailabilityViewPage::VIEW_PRODUCT_AVAILABILITY_URL, $idProductFujitsu));
 
             $reservedProductsAfter = $i->grabTextFrom('//*[@id="page-wrapper"]/div[3]/div[2]/div/div/div[2]/div/div[5]/p[2]');
 

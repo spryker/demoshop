@@ -1,6 +1,12 @@
 {% extends "@application/layout/layout.twig" %}
 
-{% block page_title %}{{ product.abstract_name }}{% endblock %}
+{% block page_title %}
+    {% if product.metaTitle %}
+        {{ product.metaTitle }}
+    {% else %}
+        {{ product.name }}
+    {% endif %}
+{% endblock %}
 
 {% block breadcrumbItems %}
     <li><a href="/">{{ 'global.home' | trans }}</a></li>
@@ -12,17 +18,17 @@
 {% endblock %}
 
 {% block title %}
-    <h3>{{ product.abstract_name }}</h3>
+    <h3>{{ product.name }}</h3>
 {% endblock %}
 
 {% block outside %}
     <div class="row hide-for-xlarge">
         <div class="small-12 columns">
             <div class="__image-viewer-block">
-                {% for image in product.abstractAttributes.images %}
-                    <div data-viewer-id="{{ image.external_url_large }}" data-viewer-reset>
+                {% for image in product.images %}
+                    <div data-viewer-id="{{ image.externalUrlLarge }}" data-viewer-reset>
                         <a class="close-button">&times;</a>
-                        <img class="thumbnail" src="{{ image.external_url_large }}">
+                        <img class="thumbnail" src="{{ image.externalUrlLarge }}">
                     </div>
                 {% endfor %}
             </div>
@@ -37,10 +43,10 @@
                 <div class="row show-for-xlarge">
                     <div class="small-12 columns">
                         <div class="__image-viewer-inline">
-                            {% for image in product.abstractAttributes.images %}
-                                <div data-viewer-id="{{ image.external_url_large }}" {% if loop.first %}data-viewer-default{% endif %}>
+                            {% for image in product.images %}
+                                <div data-viewer-id="{{ image.externalUrlLarge }}" {% if loop.first %}data-viewer-default{% endif %}>
                                     <span class="thumbnail __preview-image __preview-image--large">
-                                        <img src="{{ image.external_url_large }}">
+                                        <img src="{{ image.externalUrlLarge }}">
                                     </span>
                                 </div>
                             {% endfor %}
@@ -50,10 +56,10 @@
                 <div class="row">
                     <div class="small-12 columns">
                         <div class="row">
-                            {% for image in product.abstractAttributes.images %}
-                                <a class="small-6 medium-6 large-6 xlarge-expand columns" href="{{ image.external_url_large }}" target="_blank" data-viewer-show="{{ image.external_url_large }}">
+                            {% for image in product.images %}
+                                <a class="small-6 medium-6 large-6 xlarge-expand columns" href="{{ image.externalUrlLarge }}" target="_blank" data-viewer-show="{{ image.externalUrlLarge }}">
                                     <span class="thumbnail __preview-image __preview-image--small">
-                                        <img src="{{ image.external_url_large }}">
+                                        <img src="{{ image.externalUrlLarge }}">
                                     </span>
                                 </a>
                             {% endfor %}
@@ -64,47 +70,40 @@
         </div>
 
         <div class="small-12 medium-6 xlarge-5 xxlarge-4 columns">
+
             <div class="callout">
-                <h5><small>{{ 'page.product.by' | trans }}</small> {{ product.abstractAttributes.manufacturer_name }}</h5>
+                {% if product.attributes.brand is defined %}<h5><small>{{ 'page.product.by' | trans }}</small> {{ product.attributes.brand }}</h5>{% endif %}
                 <p>
                     <span class="stat">{{ product.price | price }}</span>
                 </p>
 
-                <p>{{ product.abstractAttributes.short_description }}</p>
-
-                {% set displayAddToCart = false %}
-                {% if availability.concreteProductAvailableItems[product.abstractSku] is defined %}
-                     {% if availability.concreteProductAvailableItems[product.abstractSku] %}
-                         {% set displayAddToCart = true %}
-                     {% endif %}
-                {% endif %}
-
-                {% if displayAddToCart %}
-                    <form class="row align-bottom" method="POST" action="/cart/add/{{ product.abstractSku }}">
-                        {#<div class="small-12 columns">#}
-                            {#<label>#}
-                                {#Variants#}
-                                {#<select name="variant">#}
-                                    {#<option value="red">Red</option>#}
-                                    {#<option value="green">Green</option>#}
-                                    {#<option value="blue">Blue</option>#}
-                                    {#<option value="yellow">Yellow</option>#}
-                                {#</select>#}
-                            {#</label>#}
-                        {#</div>#}
-                        <div class="small-12 columns">
-                            <button type="submit" class="button expanded success" onclick="this.form.submit(); this.disabled='disabled'; return false;">
-                                <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
-                            </button>
-                        </div>
-                    </form>
-                {% else %}
-
-                    <p>
-                       <strong>{{ "product.detail.out_of_stock" | trans }}</strong>
-                    </p>
-                {% endif %}
+                {% include '@Product/product/partials/variants.twig' %}
             </div>
+
+            {% set available = false %}
+
+            {% if availability.concreteProductAvailableItems[product.sku] is defined %}
+                {% if availability.concreteProductAvailableItems[product.sku] %}
+                    {% set available = true %}
+                {% endif %}
+            {% endif %}
+
+            <form method="POST" action="/cart/add/{{ product.sku }}">
+                {% include '@Product/product/partials/product-options.twig' %}
+                <div>
+                    <button type="submit" class="button expanded success" {{ (not product.isVariant or not available) ? 'disabled' : '' }} onclick="this.form.submit(); this.disabled='disabled'; return false;">
+                        <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
+                    </button>
+
+                    <div class="small-12 columns"></div>
+                </div>
+            </form>
+
+            {% if not available and product.isVariant %}
+                <p>
+                    <strong>{{ "product.detail.out_of_stock" | trans }}</strong>
+                </p>
+            {% endif %}
         </div>
     </div>
 
@@ -112,17 +111,16 @@
         <div class="small-12 columns">
             <div class="callout">
                 <h5>{{ 'product.attribute.long_description' | trans }}</h5>
-                <p>{{ product.abstractAttributes.long_description }}</p>
+                <p>{{ product.description }}</p>
 
                 <h5>{{ 'page.product.details' | trans }}</h5>
                 <div class="row">
-                    {% for attributeName, attributeValue in product.abstractAttributes %}
-                        {% if attributeName not in ['short_description', 'long_description', 'url', 'variant_id', 'abstract_name', 'quantity', 'available', 'price', 'manufacturer_name', 'license', 'sku', 'images'] %}
-                            <p class="small-12 medium-6 xlarge-4 xxlarge-3 columns">
-                                <strong>{{ ('product.attribute.'~attributeName) | trans }}</strong><br>
-                                {{ attributeValue }}
-                            </p>
-                        {% endif %}
+                    {% for attributeName, attributeValue in product.attributes if attributeName  %}
+
+                        <p class="small-12 medium-6 xlarge-4 xxlarge-3 columns">
+                            <strong>{{ ('product.attribute.'~attributeName) | trans }} </strong><br>
+                            {{ attributeValue }}
+                        </p>
                     {% endfor %}
                 </div>
             </div>

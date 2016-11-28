@@ -26,9 +26,9 @@ class CategoryImporter extends AbstractCategoryImporter
      */
     public function isImported()
     {
-        $query = SpyCategoryNodeQuery::create();
-        $query->filterByIsRoot(false);
-        $query->filterByIsMain(true);
+        $query = SpyCategoryNodeQuery::create()
+            ->filterByIsRoot(false)
+            ->filterByIsMain(true);
 
         return $query->count() > 0;
     }
@@ -40,6 +40,10 @@ class CategoryImporter extends AbstractCategoryImporter
      */
     protected function importOne(array $data)
     {
+        if (!$data) {
+            return;
+        }
+
         $categoryTransfer = $this->format($data);
         $this->importCategory($categoryTransfer);
     }

@@ -22,9 +22,7 @@ class CatalogClient extends SprykerCatalogClient implements CatalogClientInterfa
      */
     public function getFeaturedProducts($limit)
     {
-        $searchQuery = $this
-            ->getFactory()
-            ->createFeaturedProductsQueryPlugin($limit);
+        $searchQuery = $this->createFeaturedProductsQuery($limit);
 
         $resultFormatters = $this
             ->getFactory()
@@ -34,6 +32,25 @@ class CatalogClient extends SprykerCatalogClient implements CatalogClientInterfa
             ->getFactory()
             ->getSearchClient()
             ->search($searchQuery, $resultFormatters);
+    }
+
+    /**
+     * @param int $limit
+     *
+     * @return \Spryker\Client\Search\Dependency\Plugin\QueryInterface
+     */
+    protected function createFeaturedProductsQuery($limit)
+    {
+        $searchQuery = $this
+            ->getFactory()
+            ->createFeaturedProductsQueryPlugin($limit);
+
+        $searchQuery = $this
+            ->getFactory()
+            ->getSearchClient()
+            ->expandQuery($searchQuery, $this->getFactory()->getFeaturedProductsQueryExpanderPlugins());
+
+        return $searchQuery;
     }
 
 }

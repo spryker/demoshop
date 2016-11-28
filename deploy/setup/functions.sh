@@ -130,7 +130,6 @@ function installDemoshop {
     configureCodeception
 
     successText "Setup successful"
-    infoText "\nYves URL: http://www.de.demoshop.local/\nZed URL: http://zed.de.demoshop.local/\n"
 }
 
 function installZed {
@@ -152,6 +151,7 @@ function installZed {
     writeErrorMessage "DemoData import failed"
 
     labelText "Setting up data stores"
+
     $CONSOLE collector:search:export $VERBOSITY
     $CONSOLE collector:storage:export $VERBOSITY
     writeErrorMessage "DataStore setup failed"
@@ -162,6 +162,8 @@ function installZed {
     writeErrorMessage "Cronjob setup failed"
 
     antelopeInstallZed
+
+
 
     labelText "Zed setup successful"
 }

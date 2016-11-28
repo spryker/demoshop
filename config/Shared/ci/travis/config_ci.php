@@ -4,10 +4,12 @@ use Pyz\Shared\Mail\MailConstants;
 use Pyz\Yves\Application\YvesBootstrap;
 use Pyz\Zed\Application\Communication\ZedBootstrap;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Ratepay\RatepayConstants;
+use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Storage\StorageConstants;
 use Spryker\Shared\Testify\TestifyConstants;
@@ -20,10 +22,17 @@ $config[PropelConstants::ZED_DB_HOST] = '127.0.0.1';
 $config[PropelConstants::ZED_DB_PORT] = 5432;
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = false;
 
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_search';
-$config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
-
-$config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = '9200';
+$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME]
+    = $config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME]
+    = $config[SearchConstants::ELASTICA_PARAMETER__INDEX_NAME]
+    = 'de_search';
+$config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE]
+    = $config[CollectorConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE]
+    = $config[SearchConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE]
+    = 'page';
+$config[ApplicationConstants::ELASTICA_PARAMETER__PORT]
+    = $config[SearchConstants::ELASTICA_PARAMETER__PORT]
+    = '9200';
 
 $yvesHost = 'www.de.demoshop.local';
 $config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;

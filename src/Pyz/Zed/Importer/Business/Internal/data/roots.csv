@@ -1,2 +1,2 @@
-catid,ucatid,pcatid,low_pic.en_US,low_pic.de_DE,category_name.en_US,category_description.en_US,category_name.de_DE,category_description.de_DE,parentKey,isClickable
-1,demoshop,,,,Demoshop,English version of Demoshop,Demoshop,Deutsche Version des Demoshops,,0
+category_key,name.en_US,description.en_US,name.de_DE,description.de_DE
+demoshop,Demoshop,English version of Demoshop,Demoshop,Deutsche Version des Demoshops

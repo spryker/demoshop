@@ -7,21 +7,20 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\Product;
 
+use Exception;
 use Orm\Zed\Price\Persistence\SpyPriceProduct;
 use Orm\Zed\Price\Persistence\SpyPriceProductQuery;
 use Pyz\Zed\Importer\Business\Exception\PriceTypeNotFoundException;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Shared\Library\Collection\Collection;
-use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Price\Persistence\PriceQueryContainerInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
-use Spryker\Zed\Stock\Business\StockFacadeInterface;
 
 class ProductPriceImporter extends AbstractImporter
 {
 
-    const SKU = 'sku';
+    const ABSTRACT_SKU = 'abstract_sku';
     const PRODUCT_ID = 'product_id';
     const VARIANT_ID = 'variant_id';
     const PRICE = 'price';
@@ -48,35 +47,24 @@ class ProductPriceImporter extends AbstractImporter
     protected $productQueryContainer;
 
     /**
-     * @var \Spryker\Zed\Stock\Business\StockFacadeInterface
-     */
-    protected $stockFacade;
-
-    /**
      * @var \Spryker\Shared\Library\Collection\CollectionInterface
      */
     protected $cachePriceType;
 
     /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
-     * @param \Spryker\Zed\Stock\Business\StockFacadeInterface $stockFacade
      * @param \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface $productQueryContainer
      * @param \Spryker\Zed\Price\Persistence\PriceQueryContainerInterface $priceQueryContainer
-     * @param string $dataDirectory
      */
     public function __construct(
         LocaleFacadeInterface $localeFacade,
-        StockFacadeInterface $stockFacade,
         ProductQueryContainerInterface $productQueryContainer,
-        PriceQueryContainerInterface $priceQueryContainer,
-        $dataDirectory
+        PriceQueryContainerInterface $priceQueryContainer
     ) {
         parent::__construct($localeFacade);
 
-        $this->stockFacade = $stockFacade;
         $this->productQueryContainer = $productQueryContainer;
         $this->priceQueryContainer = $priceQueryContainer;
-        $this->dataDirectory = $dataDirectory;
 
         $this->cachePriceType = new Collection([]);
     }
@@ -95,36 +83,42 @@ class ProductPriceImporter extends AbstractImporter
     public function isImported()
     {
         $query = SpyPriceProductQuery::create();
+
         return $query->count() > 0;
     }
 
     /**
      * @param array $data
      *
+     * @throws \Exception
+     *
      * @return void
      */
     protected function importOne(array $data)
     {
-        $price = $this->getPriceValue();
-
-        $productAbstract = $this->productQueryContainer
-            ->queryProductAbstractBySku($price[self::SKU])
-            ->findOne();
-
-        if (!$productAbstract) {
+        if (!$data) {
             return;
         }
 
-        $priceType = $this->getPriceTypeEntity($price[self::PRICE_TYPE]);
+        $priceType = $this->getPriceTypeEntity($data['price_type']);
 
-        $entity = new SpyPriceProduct();
-        $entity
-            ->setPrice($price[self::PRICE])
-            ->setPriceType($priceType)
-            ->setFkProduct($productAbstract->getIdProductAbstract())
-            ->setFkProductAbstract($productAbstract->getIdProductAbstract());
+        $priceProductEntity = (new SpyPriceProduct())
+            ->setPrice($data['price'])
+            ->setPriceType($priceType);
 
-        $entity->save();
+        if ($data['abstract_sku']) {
+            $productAbstractEntity = $this->getProductAbstractEntity($data['abstract_sku']);
+
+            $priceProductEntity->setFkProductAbstract($productAbstractEntity->getIdProductAbstract());
+        } elseif ($data['concrete_sku']) {
+            $productConcreteEntity = $this->getProductConcreteEntity($data['concrete_sku']);
+
+            $priceProductEntity->setFkProduct($productConcreteEntity->getIdProduct());
+        } else {
+            throw new Exception(sprintf('Missing abstract or concrete sku from imported data: %s.', print_r($data, true)));
+        }
+
+        $priceProductEntity->save();
     }
 
     /**
@@ -156,41 +150,42 @@ class ProductPriceImporter extends AbstractImporter
     }
 
     /**
-     * @return array
+     * @param string $abstractSku
+     *
+     * @throws \Exception
+     *
+     * @return \Orm\Zed\Product\Persistence\SpyProductAbstract
      */
-    protected function getPriceValue()
+    protected function getProductAbstractEntity($abstractSku)
     {
-        $default = [
-            self::SKU => null,
-            self::VARIANT_ID => 1,
-            self::PRICE => 0,
-            self::PRICE_TYPE => 'DEFAULT',
-        ];
+        $productAbstractEntity = $this->productQueryContainer
+            ->queryProductAbstractBySku($abstractSku)
+            ->findOne();
 
-        if (!$this->cvsPriceReader->valid()) {
-            return $default;
+        if (!$productAbstractEntity) {
+            throw new Exception(sprintf('Invalid abstract product with sku "%s".', $abstractSku));
+        }
+        return $productAbstractEntity;
+    }
+
+    /**
+     * @param string $concreteSku
+     *
+     * @throws \Exception
+     *
+     * @return \Orm\Zed\Product\Persistence\SpyProduct
+     */
+    protected function getProductConcreteEntity($concreteSku)
+    {
+        $productConcreteEntity = $this->productQueryContainer
+            ->queryProductConcreteBySku($concreteSku)
+            ->findOne();
+
+        if (!$productConcreteEntity) {
+            throw new Exception(sprintf('Invalid concrete product with sku "%s".', $concreteSku));
         }
 
-        return $this->cvsPriceReader->read();
-    }
-
-    /**
-     * @return void
-     */
-    protected function before()
-    {
-        $this->cvsPriceReader = new CsvReader();
-        $this->cvsPriceReader->load($this->dataDirectory . '/prices.csv');
-    }
-
-    /**
-     * @param string|int $variant
-     *
-     * @return bool
-     */
-    protected function hasVariants($variant)
-    {
-        return (int)$variant > 1;
+        return $productConcreteEntity;
     }
 
 }

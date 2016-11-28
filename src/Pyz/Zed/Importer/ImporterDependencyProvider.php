@@ -24,6 +24,7 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     const FACADE_LOCALE = 'FACADE_LOCALE';
     const FACADE_GLOSSARY = 'FACADE_GLOSSARY';
     const FACADE_PRODUCT = 'FACADE_PRODUCT';
+    const FACADE_PRODUCT_MANAGEMENT = 'FACADE_PRODUCT_MANAGEMENT';
     const FACADE_PRODUCT_CATEGORY = 'FACADE_PRODUCT_CATEGORY';
     const FACADE_PRODUCT_SEARCH = 'FACADE_PRODUCT_SEARCH';
     const FACADE_TOUCH = 'FACADE_TOUCH';
@@ -33,6 +34,7 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     const FACADE_COUNTRY = 'FACADE_COUNTRY';
 
     const FACADE_DISCOUNT = 'FACADE_DISCOUNT';
+    const FACADE_PRODUCT_OPTION = 'FACADE_PRODUCT_OPTION';
 
     const QUERY_CONTAINER_CMS = 'QUERY_CONTAINER_CMS';
     const QUERY_CONTAINER_CATEGORY = 'QUERY_CONTAINER_CATEGORY';
@@ -63,6 +65,10 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     {
         $container = parent::provideBusinessLayerDependencies($container);
 
+        $container[static::FACADE_PRODUCT_OPTION] = function (Container $container) {
+            return $container->getLocator()->productOption()->facade();
+        };
+
         $container[static::FACADE_CATEGORY] = function (Container $container) {
             return $container->getLocator()->category()->facade();
         };
@@ -77,6 +83,10 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[static::FACADE_PRODUCT] = function (Container $container) {
             return $container->getLocator()->product()->facade();
+        };
+
+        $container[static::FACADE_PRODUCT_MANAGEMENT] = function (Container $container) {
+            return $container->getLocator()->productManagement()->facade();
         };
 
         $container[static::FACADE_PRODUCT_CATEGORY] = function (Container $container) {

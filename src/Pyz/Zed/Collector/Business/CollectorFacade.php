@@ -172,7 +172,7 @@ class CollectorFacade extends SprykerCollectorFacade implements CollectorFacadeI
      *
      * @return void
      */
-    public function runStorageProductCollector(
+    public function runStorageProductAbstractCollector(
         SpyTouchQuery $baseQuery,
         LocaleTransfer $localeTransfer,
         BatchResultInterface $result,
@@ -183,7 +183,7 @@ class CollectorFacade extends SprykerCollectorFacade implements CollectorFacadeI
     ) {
 
         $collector = $this->getFactory()
-            ->createStorageProductCollector();
+            ->createStorageProductAbstractCollector();
 
         $this->runCollector(
             $collector,
@@ -323,6 +323,109 @@ class CollectorFacade extends SprykerCollectorFacade implements CollectorFacadeI
 
         $collector = $this->getFactory()
             ->createStorageBlockCollector();
+
+        $this->runCollector(
+            $collector,
+            $baseQuery,
+            $localeTransfer,
+            $result,
+            $dataReader,
+            $dataWriter,
+            $touchUpdater,
+            $output
+        );
+    }
+
+    /**
+     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
+     * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
+     * @param \Spryker\Zed\Collector\Business\Exporter\Reader\ReaderInterface $dataReader
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     *
+     * @return void
+     */
+    public function runStorageProductConcreteCollector(
+        SpyTouchQuery $baseQuery,
+        LocaleTransfer $localeTransfer,
+        BatchResultInterface $result,
+        ReaderInterface $dataReader,
+        WriterInterface $dataWriter,
+        TouchUpdaterInterface $touchUpdater,
+        OutputInterface $output
+    ) {
+        $collector = $this->getFactory()->createStorageProductConcreteCollector();
+
+        $this->runCollector(
+            $collector,
+            $baseQuery,
+            $localeTransfer,
+            $result,
+            $dataReader,
+            $dataWriter,
+            $touchUpdater,
+            $output
+        );
+    }
+
+    /**
+     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
+     * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
+     * @param \Spryker\Zed\Collector\Business\Exporter\Reader\ReaderInterface $dataReader
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     *
+     * @return void
+     */
+    public function runStorageAttributeMapCollector(
+        SpyTouchQuery $baseQuery,
+        LocaleTransfer $localeTransfer,
+        BatchResultInterface $result,
+        ReaderInterface $dataReader,
+        WriterInterface $dataWriter,
+        TouchUpdaterInterface $touchUpdater,
+        OutputInterface $output
+    ) {
+        $collector = $this->getFactory()->createAttributeMapCollector();
+
+        $this->runCollector(
+            $collector,
+            $baseQuery,
+            $localeTransfer,
+            $result,
+            $dataReader,
+            $dataWriter,
+            $touchUpdater,
+            $output
+        );
+    }
+
+    /**
+     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
+     * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
+     * @param \Spryker\Zed\Collector\Business\Exporter\Reader\ReaderInterface $dataReader
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
+     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
+     *
+     * @return void
+     */
+    public function runStorageProductOptionCollector(
+        SpyTouchQuery $baseQuery,
+        LocaleTransfer $localeTransfer,
+        BatchResultInterface $result,
+        ReaderInterface $dataReader,
+        WriterInterface $dataWriter,
+        TouchUpdaterInterface $touchUpdater,
+        OutputInterface $output
+    ) {
+
+        $collector = $this->getFactory()
+            ->createStorageProductOptionCollector();
 
         $this->runCollector(
             $collector,

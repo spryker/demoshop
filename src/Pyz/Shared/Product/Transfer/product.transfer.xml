@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<transfers xmlns="http://xsd.spryker.com"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://static.spryker.com http://static.spryker.com/transfer-01.xsd" >
+
+    <transfer name="ProductAbstract">
+        <property name="isFeatured" type="bool" />
+    </transfer>
+
+    <transfer name="StorageProduct">
+        <property name="idProductConcrete" type="int" />
+        <property name="idProductAbstract" type="int" />
+        <property name="attributes" type="array" singular="attribute" />
+        <property name="name" type="string" />
+        <property name="sku" type="string" />
+        <property name="url" type="string" />
+        <property name="available" type="bool" />
+        <property name="description" type="string" />
+        <property name="quantity" type="int" />
+        <property name="isVariant" type="bool" />
+        <property name="superAttributes" type="array" singular="superAttribute"/>
+        <property name="availableAttributes" type="array" singular="availableAttribute"/>
+        <property name="selectedAttributes" type="array" singular="selectedAttribute"/>
+        <property name="metaTitle" type="string" />
+        <property name="metaKeywords" type="string" />
+        <property name="metaDescription" type="string" />
+        <property name="categories" type="StorageProductCategory[]" singular="category" />
+        <property name="imageSets" type="array" singular="imageSet" />
+        <property name="images" type="StorageProductImage[]" singular="image" />
+    </transfer>
+
+    <transfer name="StorageAttributeMap">
+        <property name="attributeVariants" type="array" singular="attributeVariant" />
+        <property name="superAttributes" type="array" singular="superAttribute" />
+        <property name="productConcreteIds" type="array" singular="productConcreteId" />
+    </transfer>
+
+    <transfer name="StorageProductCategory">
+        <property name="nodeId" type="int" />
+        <property name="name" type="string" />
+        <property name="url" type="string" />
+    </transfer>
+
+    <transfer name="StorageProductImage">
+        <property name="idProductImage" type="int" />
+        <property name="externalUrlSmall" type="string" />
+        <property name="externalUrlLarge" type="string" />
+    </transfer>
+
+</transfers>

@@ -3,7 +3,7 @@
     <discount>
         <display_name>10% Discount for all orders above €100</display_name>
         <description>Get a 10% discount on all orders above €100. This discount is exclusive and can only be redeemed on its own.</description>
-        <amount>100</amount>
+        <amount>1000</amount>
         <calculator_plugin>PLUGIN_CALCULATOR_PERCENTAGE</calculator_plugin>
         <is_exclusive>true</is_exclusive>
         <is_active>true</is_active>

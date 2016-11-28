@@ -1,10 +1,12 @@
 <?php
 
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\EventJournal\Model\Writer\File;
 use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 
 $schema = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
@@ -22,7 +24,10 @@ $config[PropelConstants::ZED_DB_DATABASE] = ltrim($dbopts['path'], '/');
 $config[PropelConstants::ZED_DB_HOST] = $dbopts['host'];
 $config[PropelConstants::ZED_DB_PORT] = isset($dbopts['port']) ? $dbopts['port'] : 5432;
 
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_search';
+$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME]
+    = $config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME]
+    = $config[SearchConstants::ELASTICA_PARAMETER__INDEX_NAME]
+    = 'de_search';
 
 $yvesHost = getenv('YVES_HOST');
 $yvesProtocol = getenv('YVES_HOST_PROTOCOL'); //'http://'

@@ -19,7 +19,6 @@ use Spryker\Zed\CodeGenerator\Communication\Console\BundleSharedCodeGeneratorCon
 use Spryker\Zed\CodeGenerator\Communication\Console\BundleYvesCodeGeneratorConsole;
 use Spryker\Zed\CodeGenerator\Communication\Console\BundleZedCodeGeneratorConsole;
 use Spryker\Zed\Collector\Communication\Console\CollectorSearchExportConsole;
-use Spryker\Zed\Collector\Communication\Console\CollectorSearchUpdateConsole;
 use Spryker\Zed\Collector\Communication\Console\CollectorStorageExportConsole;
 use Spryker\Zed\Console\ConsoleDependencyProvider as SprykerConsoleDependencyProvider;
 use Spryker\Zed\Development\Communication\Console\CodeCreateConsole;
@@ -59,7 +58,6 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new BuildNavigationConsole(),
             new CollectorStorageExportConsole(),
             new CollectorSearchExportConsole(),
-            new CollectorSearchUpdateConsole(),
             new TouchCleanUpConsole(),
             new DeleteAllCachesConsole(),
             new DemoDataImportConsole(),

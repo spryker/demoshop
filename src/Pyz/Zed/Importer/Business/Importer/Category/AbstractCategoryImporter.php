@@ -9,7 +9,6 @@ namespace Pyz\Zed\Importer\Business\Importer\Category;
 
 use Generated\Shared\Transfer\CategoryLocalizedAttributesTransfer;
 use Generated\Shared\Transfer\CategoryTransfer;
-use Generated\Shared\Transfer\ImageTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
@@ -18,8 +17,7 @@ use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 abstract class AbstractCategoryImporter extends AbstractImporter
 {
 
-    const UCATID = 'ucatid';
-    const LOW_PIC = 'low_pic';
+    const CATEGORY_KEY = 'category_key';
     const ORDER = 'order';
 
     /**
@@ -46,23 +44,18 @@ abstract class AbstractCategoryImporter extends AbstractImporter
     protected function format(array $data)
     {
         $categoryTransfer = new CategoryTransfer();
-        $categoryTransfer->setCategoryKey($data[self::UCATID]);
+        $categoryTransfer->setCategoryKey($data[self::CATEGORY_KEY]);
         $categoryTransfer->setIsActive(true);
         $categoryTransfer->setIsClickable(true);
         $categoryTransfer->setIsInMenu(true);
 
-        foreach ($this->localeFacade->getLocaleCollection() as $code => $localeTransfer) {
-            $nameKey = 'category_name.' . $code;
-            $descriptionKey = 'category_description.' . $code;
-            $imageKey = self::LOW_PIC . '.' . $code;
-
-            $imageTransfer = new ImageTransfer();
-            $imageTransfer->setName($data[$imageKey]);
+        foreach ($this->localeFacade->getLocaleCollection() as $localeName => $localeTransfer) {
+            $nameKey = 'name.' . $localeName;
+            $descriptionKey = 'description.' . $localeName;
 
             $categoryLocalizedAttributesTransfer = new CategoryLocalizedAttributesTransfer();
             $categoryLocalizedAttributesTransfer->setName($data[$nameKey]);
             $categoryLocalizedAttributesTransfer->setLocale($localeTransfer);
-            $categoryLocalizedAttributesTransfer->setImage($imageTransfer);
             $categoryLocalizedAttributesTransfer->setMetaTitle($data[$nameKey]);
             $categoryLocalizedAttributesTransfer->setMetaDescription($data[$descriptionKey]);
 

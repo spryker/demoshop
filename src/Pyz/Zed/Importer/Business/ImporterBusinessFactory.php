@@ -34,17 +34,24 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getInstallerCollection()
     {
         return [
+            ImporterConfig::RESOURCE_GLOSSARY => $this->createInstallerFactory()->createGlossaryInstaller(),
             ImporterConfig::RESOURCE_CATEGORY_ROOT => $this->createInstallerFactory()->createCategoryRootInstaller(),
             ImporterConfig::RESOURCE_CATEGORY => $this->createInstallerFactory()->createCategoryInstaller(),
             ImporterConfig::RESOURCE_CATEGORY_CATALOG => $this->createInstallerFactory()->createCategoryCatalogInstaller(),
-            ImporterConfig::RESOURCE_PRODUCT => $this->createInstallerFactory()->createProductInstaller(),
-            ImporterConfig::RESOURCE_PRODUCT_SEARCH => $this->createInstallerFactory()->createProductSearchInstaller(),
-            ImporterConfig::RESOURCE_GLOSSARY => $this->createInstallerFactory()->createGlossaryInstaller(),
+            ImporterConfig::RESOURCE_TAX => $this->createInstallerFactory()->createTaxInstaller(),
+            ImporterConfig::RESOURCE_PRODUCT_ATTRIBUTE_KEY => $this->createInstallerFactory()->createProductAttributeKeyInstaller(),
+            ImporterConfig::RESOURCE_PRODUCT_MANAGEMENT_ATTRIBUTE => $this->createInstallerFactory()->createProductManagementAttributeInstaller(),
+            ImporterConfig::RESOURCE_PRODUCT_ABSTRACT => $this->createInstallerFactory()->createProductAbstractInstaller(),
+            ImporterConfig::RESOURCE_PRODUCT_CONCRETE => $this->createInstallerFactory()->createProductConcreteInstaller(),
+            ImporterConfig::RESOURCE_PRODUCT_PRICE => $this->createInstallerFactory()->createProductPriceInstaller(),
+            ImporterConfig::RESOURCE_PRODUCT_STOCK => $this->createInstallerFactory()->createProductStockInstaller(),
+            ImporterConfig::RESOURCE_PRODUCT_SEARCH_ATTRIBUTE => $this->createInstallerFactory()->createProductSearchAttributeInstaller(),
+            ImporterConfig::RESOURCE_PRODUCT_SEARCH_ATTRIBUTE_MAP => $this->createInstallerFactory()->createProductSearchAttributeMapInstaller(),
             ImporterConfig::RESOURCE_CMS_PAGE => $this->createInstallerFactory()->createCmsPageInstaller(),
             ImporterConfig::RESOURCE_CMS_BLOCK => $this->createInstallerFactory()->createCmsBlockInstaller(),
             ImporterConfig::RESOURCE_SHIPMENT => $this->createInstallerFactory()->createShipmentInstaller(),
-            ImporterConfig::RESOURCE_TAX => $this->createInstallerFactory()->createTaxInstaller(),
             ImporterConfig::RESOURCE_DISCOUNT => $this->createInstallerFactory()->createDiscountInstaller(),
+            ImporterConfig::RESOURCE_PRODUCT_OPTIONS => $this->createInstallerFactory()->createProductOptionsInstaller(),
         ];
     }
 

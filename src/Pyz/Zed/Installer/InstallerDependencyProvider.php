@@ -14,7 +14,6 @@ use Spryker\Zed\Installer\InstallerDependencyProvider as SprykerInstallerDepende
 use Spryker\Zed\Locale\Communication\Plugin\Installer as LocaleInstallerPlugin;
 use Spryker\Zed\Newsletter\Communication\Plugin\Installer as NewsletterInstallerPlugin;
 use Spryker\Zed\Price\Communication\Plugin\Installer as PriceInstallerPlugin;
-use Spryker\Zed\Product\Communication\Plugin\Installer as ProductInstallerPlugin;
 use Spryker\Zed\User\Communication\Plugin\Installer as UserInstallerPlugin;
 
 class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
@@ -26,7 +25,6 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
     public function getInstallerPlugins()
     {
         return [
-            new ProductInstallerPlugin(),
             new PriceInstallerPlugin(),
             new LocaleInstallerPlugin(),
             new CountryInstallerPlugin(),

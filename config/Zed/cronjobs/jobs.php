@@ -33,14 +33,6 @@ $jobs[] = [
 $jobs[] = [
     'name' => 'export-search',
     'command' => '$PHP_BIN vendor/bin/console collector:search:export',
-    'schedule' => '*/10 * * * *',
-    'enable' => false,
-    'stores' => $allStores,
-];
-
-$jobs[] = [
-    'name' => 'update-search',
-    'command' => '$PHP_BIN vendor/bin/console collector:search:update',
     'schedule' => '* * * * *',
     'enable' => true,
     'run_on_non_production' => true,

@@ -16,7 +16,6 @@ use Spryker\Zed\Category\Business\Tree\ClosureTableWriter;
 use Spryker\Zed\Category\Business\Tree\Formatter\CategoryTreeFormatter;
 use Spryker\Zed\Category\Business\Tree\NodeWriter;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
-use Spryker\Zed\Product\Business\Attribute\AttributeManager;
 
 /**
  * @method \Pyz\Zed\Importer\ImporterConfig getConfig()
@@ -101,16 +100,6 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\Product\Business\Attribute\AttributeManagerInterface
-     */
-    protected function createAttributeManager()
-    {
-        return new AttributeManager(
-            $this->getProductQueryContainer()
-        );
-    }
-
-    /**
      * @return \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
      */
     protected function getCategoryQueryContainer()
@@ -188,6 +177,14 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     protected function getProductFacade()
     {
         return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_PRODUCT);
+    }
+
+    /**
+     * @return \Spryker\Zed\ProductMANAGEMENT\Business\ProductManagementFacadeInterface
+     */
+    protected function getProductManagementFacade()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_PRODUCT_MANAGEMENT);
     }
 
     /**
@@ -308,6 +305,14 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     protected function getTaxQueryContainer()
     {
         return $this->getProvidedDependency(ImporterDependencyProvider::QUERY_CONTAINER_TAX);
+    }
+
+    /**
+     * @return \Spryker\Zed\ProductOption\Business\ProductOptionFacadeInterface
+     */
+    protected function getProductOptionFacade()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_PRODUCT_OPTION);
     }
 
 }

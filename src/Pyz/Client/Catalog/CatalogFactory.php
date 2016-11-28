@@ -9,7 +9,6 @@ namespace Pyz\Client\Catalog;
 
 use Pyz\Client\Catalog\Plugin\Elasticsearch\Query\FeaturedProductsQueryPlugin;
 use Spryker\Client\Catalog\CatalogFactory as SprykerCatalogFactory;
-use Spryker\Client\Catalog\Plugin\Elasticsearch\ResultFormatter\RawCatalogSearchResultFormatterPlugin;
 
 class CatalogFactory extends SprykerCatalogFactory
 {
@@ -25,13 +24,19 @@ class CatalogFactory extends SprykerCatalogFactory
     }
 
     /**
-     * @return \Spryker\Client\Search\Dependency\Plugin\QueryExpanderPluginInterface[]
+     * @return \Spryker\Client\Search\Dependency\Plugin\ResultFormatterPluginInterface[]
      */
     public function createFeaturedProductsResultFormatters()
     {
-        return [
-            new RawCatalogSearchResultFormatterPlugin(),
-        ];
+        return $this->getProvidedDependency(CatalogDependencyProvider::FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS);
+    }
+
+    /**
+     * @return \Spryker\Client\Search\Dependency\Plugin\QueryExpanderPluginInterface[]
+     */
+    public function getFeaturedProductsQueryExpanderPlugins()
+    {
+        return $this->getProvidedDependency(CatalogDependencyProvider::FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS);
     }
 
 }

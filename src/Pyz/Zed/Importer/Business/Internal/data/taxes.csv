@@ -1,83 +1,83 @@
-Products with this Tax Set,Tax Set Name,Tax Rate ID,Tax Rate Country,Tax Rate Name,Tax Rate Percentage
-"21751902,25905585,25905585,25904598,25904598,30688700,30688700,30021637,30021637,18146996,18146996,25904691,25904691,26224361,26224361,29393146,29393146,22766226,22766226,26141878,26141878,12255434,12255434,17365820,17365820,18662566,18662566,25910847,25910847,25955264,25955264,30150732,30150732,17681791,17681791,828188,828188,25904123,25904123,19692589,19692589,24788780,24788780,15619960,15619960,29851280,29851280,6350138,6350138",Entertainment Electronics,1,Austria,Austria Standard,20%
-,Entertainment Electronics,2,Belgium,Belgium Standard,21%
-,Entertainment Electronics,3,Bulgaria,Bulgaria Standard,20%
-,Entertainment Electronics,4,Czech Republic,Czech Republic Standard,21%
-,Entertainment Electronics,5,Denmark,Denmark Standard,25%
-,Entertainment Electronics,6,France,France Standard,20%
-,Entertainment Electronics,7,Germany,Germany Standard,19%
-,Entertainment Electronics,8,Hungary,Hungary Standard,27%
-,Entertainment Electronics,9,Italy,Italy Standard,22%
-,Entertainment Electronics,10,Luxembourg,Luxembourg Standard,17%
-,Entertainment Electronics,11,Netherlands,Netherlands Standard,21%
-,Entertainment Electronics,12,Poland,Poland Standard,23%
-,Entertainment Electronics,13,Romania,Romania Standard,20%
-,Entertainment Electronics,14,Slovakia,Slovakia Standard,20%
-,Entertainment Electronics,15,Slovenia,Slovenia Standard,22%
-"27003893,27003893,27003893,26192836,24235707,24235707,19611864,19611864,29805780,29805780,29843537,29843537,26175504,26175504,26175505,26175505,29406183,29406183,29406182,29406182,30620196,30620196,26552089,25923236,25923236,21736789,21736789,24751053,24751053,23339155,23339155,26346564,26346564,26408559,26408559,29544908,29544908,24675870,24675870,29847624,29847624,26534020,26534020,29579058,29579058,29579056,29579056,24602396,24602396,29801571,29801571,29731567,29731567,19682158,19682158,24666697,24666697,30014805,30014805,29901936,29901936,12295890,12295890,24495842,24495842,21047360,21047360,29727910,29727910,28535676,28535676,24495852,24495852,22078075,22078075,29634940,29634940",Smart Electronics,1,Austria,Austria Standard,20%
-,Smart Electronics,2,Belgium,Belgium Standard,21%
-,Smart Electronics,3,Bulgaria,Bulgaria Standard,20%
-,Smart Electronics,4,Czech Republic,Czech Republic Standard,21%
-,Smart Electronics,5,Denmark,Denmark Standard,25%
-,Smart Electronics,6,France,France Standard,20%
-,Smart Electronics,16,Germany,Germany Reduced,7%
-,Smart Electronics,8,Hungary,Hungary Standard,27%
-,Smart Electronics,17,Italy,Italy Reduced1,4%
-,Smart Electronics,10,Luxembourg,Luxembourg Standard,17%
-,Smart Electronics,11,Netherlands,Netherlands Standard,21%
-,Smart Electronics,12,Poland,Poland Standard,23%
-,Smart Electronics,13,Romania,Romania Standard,20%
-,Smart Electronics,14,Slovakia,Slovakia Standard,20%
-,Smart Electronics,15,Slovenia,Slovenia Standard,22%
-"21416382,21416382,20849175,20849175,29545166,29545166,24401697,24401697,25905066,25905066,26231597,26231597,29885472,29885472,25558467,25558467,29900747,29900747,29853938,29853938,30375360,30375360,28548759,28548759,28463875,28463875,29406168,29406168,29750512,29750512,27104941,27104941,29376694,29376694,26058615,26058615,28467014,28467014,29755564,29755564,26512671,26512671,30783507,30783507,27277017,27277017,30579515,30579515,26427900,26427900,29885591,29885591,29911080,29911080,24403939,24403939,27128227,27128227,29804739,29804739,29804808,29804808,29374842,29374842,29804957,29804957,29374843,29374843,25885453,25885453,29406823,29406823,28552654,28552654,29891383,29891383,24801337,24801337,23061675,23061675,29891842,29891842,13710816,13710816,24673744,24673744,29891041,29891041,29529631,29529631,27107296,27107296,23087059,23087059,30648859,30648859,24788120,24788120,29545800,29545800,29525342,29525342,29525343,29525343,29518547,29518547,29518551,29518551,29565391,29565391,29565389,29565389,26289661,26289661,28586825,28586825,25893779,25893779,29414094,29414094,29414094,29743301,29743301,27262160,27262160,30274741,30274741,26072016,26072016,22626962,24980927,24980927,29385583,29385583,28547942,28547942,26981568,26981568,26564922",Communication Electronics,1,Austria,Austria Standard,20%
-,Communication Electronics,2,Belgium,Belgium Standard,21%
-,Communication Electronics,3,Bulgaria,Bulgaria Standard,20%
-,Communication Electronics,4,Czech Republic,Czech Republic Standard,21%
-,Communication Electronics,5,Denmark,Denmark Standard,25%
-,Communication Electronics,6,France,France Standard,20%
-,Communication Electronics,7,Germany,Germany Standard,19%
-,Communication Electronics,8,Hungary,Hungary Standard,27%
-,Communication Electronics,9,Italy,Italy Standard,22%
-,Communication Electronics,18,Luxembourg,Luxembourg Reduced1,3%
-,Communication Electronics,11,Netherlands,Netherlands Standard,21%
-,Communication Electronics,19,Poland,Poland Reduced1,5%
-,Communication Electronics,13,Romania,Romania Standard,20%
-,Communication Electronics,14,Slovakia,Slovakia Standard,20%
-,Communication Electronics,15,Slovenia,Slovenia Standard,22%
-,Shipment Taxes,1,Austria,Austria Standard,20%
-,Shipment Taxes,2,Belgium,Belgium Standard,21%
-,Shipment Taxes,3,Bulgaria,Bulgaria Standard,20%
-,Shipment Taxes,4,Czech Republic,Czech Republic Standard,21%
-,Shipment Taxes,5,Denmark,Denmark Standard,25%
-,Shipment Taxes,6,France,France Standard,20%
-,Shipment Taxes,7,Germany,Germany Standard,19%
-,Shipment Taxes,8,Hungary,Hungary Standard,27%
-,Shipment Taxes,9,Italy,Italy Standard,22%
-,Shipment Taxes,10,Luxembourg,Luxembourg Standard,17%
-,Shipment Taxes,11,Netherlands,Netherlands Standard,21%
-,Shipment Taxes,12,Poland,Poland Standard,23%
-,Shipment Taxes,13,Romania,Romania Standard,20%
-,Shipment Taxes,14,Slovakia,Slovakia Standard,20%
-,Shipment Taxes,15,Slovenia,Slovenia Standard,22%
-"26564922,29536449,29536449,30345097,30345097,21811723,21811723,26974234,26974234,24692598,24692598",Tax Exempt,,,Tax Exempt,0%
-,,20,Austria,Austria Reduced1,13%
-,,21,Austria,Austria Reduced2,10%
-,,22,Belgium,Belgium Reduced1,12%
-,,23,Belgium,Belgium Reduced2,6%
-,,24,Bulgaria,Bulgaria Reduced,9%
-,,25,Czech Republic,Czech Republic Reduced1,10%
-,,26,Czech Republic,Czech Republic Reduced2,15%
-,,27,France,France Reduced1,2.10%
-,,28,France,France Reduced2,5.5 %
-,,29,France,France Reduced3,10%
-,,30,Hungary,Hungary Reduced1,5%
-,,31,Hungary,Hungary Reduced2,18%
-,,32,Italy,Italy Reduced2,10%
-,,33,Luxembourg,Luxembourg Reduced2,8%
-,,34,Luxembourg,Luxembourg Reduced3,14%
-,,35,Netherlands,Netherlands Reduced1,6%
-,,36,Poland,Poland Reduced2,8%
-,,37,Romania,Romania Reduced1,5%
-,,38,Romania,Romania Reduced2,9%
-,,39,Slovakia,Slovakia Reduced1,10%
-,,40,Slovenia,Slovenia Reduced1,9.50%
+tax_set_name,tax_rate_country,tax_rate_name,tax_rate_percent
+Entertainment Electronics,Austria,Austria Standard,20
+Entertainment Electronics,Belgium,Belgium Standard,21
+Entertainment Electronics,Bulgaria,Bulgaria Standard,20
+Entertainment Electronics,Czech Republic,Czech Republic Standard,21
+Entertainment Electronics,Denmark,Denmark Standard,25
+Entertainment Electronics,France,France Standard,20
+Entertainment Electronics,Germany,Germany Standard,19
+Entertainment Electronics,Hungary,Hungary Standard,27
+Entertainment Electronics,Italy,Italy Standard,22
+Entertainment Electronics,Luxembourg,Luxembourg Standard,17
+Entertainment Electronics,Netherlands,Netherlands Standard,21
+Entertainment Electronics,Poland,Poland Standard,23
+Entertainment Electronics,Romania,Romania Standard,20
+Entertainment Electronics,Slovakia,Slovakia Standard,20
+Entertainment Electronics,Slovenia,Slovenia Standard,22
+Smart Electronics,Austria,Austria Standard,20
+Smart Electronics,Belgium,Belgium Standard,21
+Smart Electronics,Bulgaria,Bulgaria Standard,20
+Smart Electronics,Czech Republic,Czech Republic Standard,21
+Smart Electronics,Denmark,Denmark Standard,25
+Smart Electronics,France,France Standard,20
+Smart Electronics,Germany,Germany Reduced,7
+Smart Electronics,Hungary,Hungary Standard,27
+Smart Electronics,Italy,Italy Reduced1,4
+Smart Electronics,Luxembourg,Luxembourg Standard,17
+Smart Electronics,Netherlands,Netherlands Standard,21
+Smart Electronics,Poland,Poland Standard,23
+Smart Electronics,Romania,Romania Standard,20
+Smart Electronics,Slovakia,Slovakia Standard,20
+Smart Electronics,Slovenia,Slovenia Standard,22
+Communication Electronics,Austria,Austria Standard,20
+Communication Electronics,Belgium,Belgium Standard,21
+Communication Electronics,Bulgaria,Bulgaria Standard,20
+Communication Electronics,Czech Republic,Czech Republic Standard,21
+Communication Electronics,Denmark,Denmark Standard,25
+Communication Electronics,France,France Standard,20
+Communication Electronics,Germany,Germany Standard,19
+Communication Electronics,Hungary,Hungary Standard,27
+Communication Electronics,Italy,Italy Standard,22
+Communication Electronics,Luxembourg,Luxembourg Reduced1,3
+Communication Electronics,Netherlands,Netherlands Standard,21
+Communication Electronics,Poland,Poland Reduced1,5
+Communication Electronics,Romania,Romania Standard,20
+Communication Electronics,Slovakia,Slovakia Standard,20
+Communication Electronics,Slovenia,Slovenia Standard,22
+Shipment Taxes,Austria,Austria Standard,20
+Shipment Taxes,Belgium,Belgium Standard,21
+Shipment Taxes,Bulgaria,Bulgaria Standard,20
+Shipment Taxes,Czech Republic,Czech Republic Standard,21
+Shipment Taxes,Denmark,Denmark Standard,25
+Shipment Taxes,France,France Standard,20
+Shipment Taxes,Germany,Germany Standard,19
+Shipment Taxes,Hungary,Hungary Standard,27
+Shipment Taxes,Italy,Italy Standard,22
+Shipment Taxes,Luxembourg,Luxembourg Standard,17
+Shipment Taxes,Netherlands,Netherlands Standard,21
+Shipment Taxes,Poland,Poland Standard,23
+Shipment Taxes,Romania,Romania Standard,20
+Shipment Taxes,Slovakia,Slovakia Standard,20
+Shipment Taxes,Slovenia,Slovenia Standard,22
+Tax Exempt,,Tax Exempt,0
+,Austria,Austria Reduced1,13
+,Austria,Austria Reduced2,10
+,Belgium,Belgium Reduced1,12
+,Belgium,Belgium Reduced2,6
+,Bulgaria,Bulgaria Reduced,9
+,Czech Republic,Czech Republic Reduced1,10
+,Czech Republic,Czech Republic Reduced2,15
+,France,France Reduced1,2.10
+,France,France Reduced2,5.5 
+,France,France Reduced3,10
+,Hungary,Hungary Reduced1,5
+,Hungary,Hungary Reduced2,18
+,Italy,Italy Reduced2,10
+,Luxembourg,Luxembourg Reduced2,8
+,Luxembourg,Luxembourg Reduced3,14
+,Netherlands,Netherlands Reduced1,6
+,Poland,Poland Reduced2,8
+,Romania,Romania Reduced1,5
+,Romania,Romania Reduced2,9
+,Slovakia,Slovakia Reduced1,10
+,Slovenia,Slovenia Reduced1,9.50
