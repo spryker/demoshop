@@ -12,7 +12,6 @@ use Generated\Shared\Transfer\TypeTransfer;
 use Orm\Zed\Stock\Persistence\Base\SpyStockQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Shared\Library\Collection\Collection;
-use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
 use Spryker\Zed\Stock\Business\StockFacadeInterface;
@@ -22,6 +21,7 @@ class ProductStockImporter extends AbstractImporter
 
     const SKU = 'sku';
     const VARIANT_ID = 'variant_id';
+    const CONCRETE_SKU = 'concrete_sku';
     const CATEGORY_KEY = 'category_key';
     const QUANTITY = 'quantity';
     const NEVER_OUT_OF_STOCK = 'is_never_out_of_stock';
@@ -88,6 +88,7 @@ class ProductStockImporter extends AbstractImporter
     public function isImported()
     {
         $query = SpyStockQuery::create();
+
         return $query->count() > 0;
     }
 
@@ -98,63 +99,14 @@ class ProductStockImporter extends AbstractImporter
      */
     protected function importOne(array $data)
     {
-        $stock = $this->getStockValue();
-        $stock[self::SKU] .= '-1';
-
-        if ($this->hasVariants($data[self::VARIANT_ID])) {
+        if (!$data) {
             return;
         }
 
-        $productConcrete = $this->productQueryContainer
-            ->queryProductConcreteBySku($stock[self::SKU])
-            ->findOne();
+        $stockType = $this->createStockTypeOnce($data);
 
-        if (!$productConcrete) {
-            return;
-        }
-
-        $stockType = $this->createStockTypeOnce($stock);
-        $stockProductTransfer = $this->buildStockProductTransfer($stock, $stockType);
+        $stockProductTransfer = $this->buildStockProductTransfer($data, $stockType);
         $this->stockFacade->createStockProduct($stockProductTransfer);
-    }
-
-    /**
-     * @return void
-     */
-    protected function before()
-    {
-        $this->csvReader = new CsvReader();
-        $this->csvReader->load($this->dataDirectory . '/stocks.csv');
-    }
-
-    /**
-     * @return array
-     */
-    protected function getStockValue()
-    {
-        $default = [
-            self::SKU => null,
-            self::VARIANT_ID => 1,
-            self::QUANTITY => 0,
-            self::NEVER_OUT_OF_STOCK => true,
-            self::STOCK_TYPE => null
-        ];
-
-        if (!$this->csvReader->valid()) {
-            return $default;
-        }
-
-        return $this->csvReader->read();
-    }
-
-    /**
-     * @param string|int $variant
-     *
-     * @return bool
-     */
-    protected function hasVariants($variant)
-    {
-        return (int)$variant > 1;
     }
 
     /**
@@ -198,7 +150,8 @@ class ProductStockImporter extends AbstractImporter
     protected function buildStockProductTransfer(array $stockData, TypeTransfer $stockType)
     {
         $transferStockProduct = new StockProductTransfer();
-        $transferStockProduct->setSku($stockData[self::SKU])
+        $transferStockProduct
+            ->setSku($stockData[self::CONCRETE_SKU])
             ->setIsNeverOutOfStock($stockData[self::NEVER_OUT_OF_STOCK])
             ->setQuantity($stockData[self::QUANTITY])
             ->setStockType($stockType->getName());

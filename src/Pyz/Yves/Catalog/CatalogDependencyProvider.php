@@ -15,8 +15,7 @@ use Spryker\Yves\Kernel\Container;
 class CatalogDependencyProvider extends AbstractBundleDependencyProvider
 {
 
-    const CLIENT_CATALOG = 'catalog client';
-    const CLIENT_CATEGORY_EXPORTER = 'category exporter client';
+    const CLIENT_SEARCH = 'search client';
     const PLUGIN_APPLICATION = 'application plugin';
     const PLUGIN_URL_MAPPER = 'url mapper plugin';
 
@@ -40,12 +39,8 @@ class CatalogDependencyProvider extends AbstractBundleDependencyProvider
      */
     protected function provideClients(Container $container)
     {
-        $container[self::CLIENT_CATALOG] = function (Container $container) {
-            return $container->getLocator()->catalog()->client();
-        };
-
-        $container[self::CLIENT_CATEGORY_EXPORTER] = function (Container $container) {
-            return $container->getLocator()->categoryExporter()->client();
+        $container[self::CLIENT_SEARCH] = function (Container $container) {
+            return $container->getLocator()->search()->client();
         };
 
         return $container;

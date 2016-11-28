@@ -1253,7 +1253,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "a5b0e32c8ec9dc22f1c74a98ac0ce4de4e3fc585"
+                "reference": "6b48d530c89c1ffbc450a57a160aa3c6d2125034"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1582,6 +1582,7 @@
                     "Unit\\Spryker\\Shared\\Product\\": "Bundles/Product/tests",
                     "Functional\\Spryker\\Shared\\Product\\": "Bundles/Product/tests",
                     "Spryker\\Zed\\Product\\": "Bundles/Product/src",
+                    "Spryker\\Yves\\Product\\": "Bundles/Product/src",
                     "Unit\\Spryker\\Zed\\Product\\": "Bundles/Product/tests",
                     "Functional\\Spryker\\Zed\\Product\\": "Bundles/Product/tests",
                     "Spryker\\Shared\\ProductCartConnector\\": "Bundles/ProductCartConnector/src",
@@ -1594,17 +1595,23 @@
                     "Unit\\Spryker\\Shared\\ProductCategory\\": "Bundles/ProductCategory/tests",
                     "Functional\\Spryker\\Shared\\ProductCategory\\": "Bundles/ProductCategory/tests",
                     "Spryker\\Zed\\ProductCategory\\": "Bundles/ProductCategory/src",
+                    "Spryker\\Yves\\ProductCategory\\": "Bundles/ProductCategory/src",
                     "Unit\\Spryker\\Zed\\ProductCategory\\": "Bundles/ProductCategory/tests",
                     "Functional\\Spryker\\Zed\\ProductCategory\\": "Bundles/ProductCategory/tests",
                     "Acceptance\\ProductCategory\\": "Bundles/ProductCategory/tests",
                     "Spryker\\Shared\\ProductOption\\": "Bundles/ProductOption/src",
+                    "Spryker\\Client\\ProductOption\\": "Bundles/ProductOption/src",
                     "Unit\\Spryker\\Shared\\ProductOption\\": "Bundles/ProductOption/tests",
                     "Functional\\Spryker\\Shared\\ProductOption\\": "Bundles/ProductOption/tests",
+                    "Acceptance\\ProductOption\\": "Bundles/ProductOption/tests",
                     "Spryker\\Zed\\ProductOption\\": "Bundles/ProductOption/src",
                     "Unit\\Spryker\\Zed\\ProductOption\\": "Bundles/ProductOption/tests",
                     "Functional\\Spryker\\Zed\\ProductOption\\": "Bundles/ProductOption/tests",
                     "Spryker\\Shared\\ProductImage\\": "Bundles/ProductImage/src",
                     "Spryker\\Zed\\ProductImage\\": "Bundles/ProductImage/src",
+                    "Unit\\Spryker\\Shared\\ProductImage\\": "Bundles/ProductImage/tests",
+                    "Functional\\Spryker\\Shared\\ProductImage\\": "Bundles/ProductImage/tests",
+                    "Spryker\\Yves\\ProductImage\\": "Bundles/ProductImage/src",
                     "Spryker\\Shared\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/src",
                     "Unit\\Spryker\\Shared\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/tests",
                     "Functional\\Spryker\\Shared\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/tests",
@@ -1614,17 +1621,16 @@
                     "Spryker\\Zed\\ProductOptionDiscountConnector\\": "Bundles/ProductOptionDiscountConnector/src",
                     "Unit\\Spryker\\Zed\\ProductOptionDiscountConnector\\": "Bundles/ProductOptionDiscountConnector/tests",
                     "Functional\\Spryker\\Zed\\ProductOptionDiscountConnector\\": "Bundles/ProductOptionDiscountConnector/tests",
-                    "Spryker\\Zed\\ProductOptionExporter\\": "Bundles/ProductOptionExporter/src",
-                    "Unit\\Spryker\\Zed\\ProductOptionExporter\\": "Bundles/ProductOptionExporter/tests",
-                    "Functional\\Spryker\\Zed\\ProductOptionExporter\\": "Bundles/ProductOptionExporter/tests",
-                    "Spryker\\Zed\\ProductOptionWishlistConnector\\": "Bundles/ProductOptionWishlistConnector/src",
-                    "Unit\\Spryker\\Zed\\ProductOptionWishlistConnector\\": "Bundles/ProductOptionWishlistConnector/tests",
                     "Spryker\\Shared\\ProductSearch\\": "Bundles/ProductSearch/src",
                     "Unit\\Spryker\\Shared\\ProductSearch\\": "Bundles/ProductSearch/tests",
                     "Functional\\Spryker\\Shared\\ProductSearch\\": "Bundles/ProductSearch/tests",
+                    "Spryker\\Client\\ProductSearch\\": "Bundles/ProductSearch/src",
+                    "Unit\\Spryker\\Client\\ProductSearch\\": "Bundles/ProductSearch/tests",
+                    "Functional\\Spryker\\Client\\ProductSearch\\": "Bundles/ProductSearch/tests",
                     "Spryker\\Zed\\ProductSearch\\": "Bundles/ProductSearch/src",
                     "Unit\\Spryker\\Zed\\ProductSearch\\": "Bundles/ProductSearch/tests",
                     "Functional\\Spryker\\Zed\\ProductSearch\\": "Bundles/ProductSearch/tests",
+                    "Acceptance\\ProductSearch\\": "Bundles/ProductSearch/tests",
                     "Spryker\\Shared\\Propel\\": "Bundles/Propel/src",
                     "Unit\\Spryker\\Shared\\Propel\\": "Bundles/Propel/tests",
                     "Functional\\Spryker\\Shared\\Propel\\": "Bundles/Propel/tests",
@@ -1784,7 +1790,13 @@
                     "Spryker\\Service\\UtilSanitize\\": "Bundles/UtilSanitize/src",
                     "Functional\\Spryker\\Service\\UtilSanitize\\": "Bundles/UtilSanitize/tests",
                     "Spryker\\Service\\UtilNetwork\\": "Bundles/UtilNetwork/src",
-                    "Functional\\Spryker\\Service\\UtilNetwork\\": "Bundles/UtilNetwork/tests"
+                    "Functional\\Spryker\\Service\\UtilNetwork\\": "Bundles/UtilNetwork/tests",
+                    "Spryker\\Service\\UtilEncoding\\": "Bundles/UtilEncoding/src",
+                    "Functional\\Spryker\\Service\\UtilEncoding\\": "Bundles/UtilEncoding/tests",
+                    "Spryker\\Shared\\ProductManagement\\": "Bundles/ProductManagement/src",
+                    "Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/src",
+                    "Unit\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests",
+                    "Functional\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests"
                 },
                 "psr-4": {
                     "Application\\Module\\": "Bundles/Application/tests/_support/Module",
@@ -1807,7 +1819,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-11-23 15:24:14"
+            "time": "2016-11-28 13:53:47"
         },
         {
             "name": "symfony-cmf/routing",
@@ -4620,16 +4632,16 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "0.2",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "b39c7a5b194f9ed7bd0dd345c751007a41862443"
+                "reference": "e224fb2ea2fba6d3ad6fdaef91cd09a172155ccb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/b39c7a5b194f9ed7bd0dd345c751007a41862443",
-                "reference": "b39c7a5b194f9ed7bd0dd345c751007a41862443",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/e224fb2ea2fba6d3ad6fdaef91cd09a172155ccb",
+                "reference": "e224fb2ea2fba6d3ad6fdaef91cd09a172155ccb",
                 "shasum": ""
             },
             "require": {
@@ -4663,7 +4675,7 @@
                     "email": "me@mikevanriel.com"
                 }
             ],
-            "time": "2016-06-10 07:14:17"
+            "time": "2016-11-25 06:54:22"
         },
         {
             "name": "phploc/phploc",
@@ -4720,21 +4732,21 @@
         },
         {
             "name": "phpmd/phpmd",
-            "version": "2.4.3",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpmd/phpmd.git",
-                "reference": "2b9c2417a18696dfb578b38c116cd0ddc19b256e"
+                "reference": "9298602a922cd8c46666df8d540a60bc5925ce55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/2b9c2417a18696dfb578b38c116cd0ddc19b256e",
-                "reference": "2b9c2417a18696dfb578b38c116cd0ddc19b256e",
+                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/9298602a922cd8c46666df8d540a60bc5925ce55",
+                "reference": "9298602a922cd8c46666df8d540a60bc5925ce55",
                 "shasum": ""
             },
             "require": {
                 "pdepend/pdepend": "^2.0.4",
-                "php": ">=5.3.0"
+                "php": ">=5.3.9"
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.0",
@@ -4781,7 +4793,7 @@
                 "phpmd",
                 "pmd"
             ],
-            "time": "2016-04-04 11:52:04"
+            "time": "2016-11-23 20:33:32"
         },
         {
             "name": "phpspec/prophecy",
@@ -4911,16 +4923,16 @@
         },
         {
             "name": "phpunit/php-file-iterator",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
-                "reference": "6150bf2c35d3fc379e50c7602b75caceaa39dbf0"
+                "reference": "3cc8f69b3028d0f96a9078e6295d86e9bf019be5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/6150bf2c35d3fc379e50c7602b75caceaa39dbf0",
-                "reference": "6150bf2c35d3fc379e50c7602b75caceaa39dbf0",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/3cc8f69b3028d0f96a9078e6295d86e9bf019be5",
+                "reference": "3cc8f69b3028d0f96a9078e6295d86e9bf019be5",
                 "shasum": ""
             },
             "require": {
@@ -4954,7 +4966,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2015-06-21 13:08:43"
+            "time": "2016-10-03 07:40:28"
         },
         {
             "name": "phpunit/php-text-template",
@@ -6642,20 +6654,20 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "bb2d123231c095735130cc8f6d31385a44c7b308"
+                "reference": "2db61e59ff05fe5126d152bd0655c9ea113e550f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/bb2d123231c095735130cc8f6d31385a44c7b308",
-                "reference": "bb2d123231c095735130cc8f6d31385a44c7b308",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/2db61e59ff05fe5126d152bd0655c9ea113e550f",
+                "reference": "2db61e59ff05fe5126d152bd0655c9ea113e550f",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3|^7.0"
+                "php": "^5.3.3 || ^7.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.6",
@@ -6664,7 +6676,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2-dev"
+                    "dev-master": "1.3-dev"
                 }
             },
             "autoload": {
@@ -6688,7 +6700,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2016-08-09 15:02:57"
+            "time": "2016-11-23 20:04:58"
         }
     ],
     "aliases": [],

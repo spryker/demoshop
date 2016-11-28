@@ -10,6 +10,7 @@ use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Storage\StorageConstants;
 
@@ -37,10 +38,18 @@ $config[SessionConstants::YVES_SESSION_COOKIE_SECURE] = false;
 
 $elastica = parse_url(getenv(getenv('ELASTIC_SEARCH_URL_NAME') ?: 'ELASTIC_SEARCH_URL'));
 $b64 = base64_encode($elastica['user'] . ':' . $elastica['pass']);
-$config[ApplicationConstants::ELASTICA_PARAMETER__AUTH_HEADER] = str_pad($b64, strlen($b64) + strlen($b64) % 4, '=', STR_PAD_RIGHT);
-$config[ApplicationConstants::ELASTICA_PARAMETER__HOST] = $elastica['host'];
-$config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT] = $elastica['scheme'];
-$config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = $elastica['scheme'] == 'https' ? 443 : 80;
+$config[ApplicationConstants::ELASTICA_PARAMETER__AUTH_HEADER]
+    = $config[SearchConstants::ELASTICA_PARAMETER__AUTH_HEADER]
+    = str_pad($b64, strlen($b64) + strlen($b64) % 4, '=', STR_PAD_RIGHT);
+$config[ApplicationConstants::ELASTICA_PARAMETER__HOST]
+    = $config[SearchConstants::ELASTICA_PARAMETER__HOST]
+    = $elastica['host'];
+$config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT]
+    = $config[SearchConstants::ELASTICA_PARAMETER__TRANSPORT]
+    = $elastica['scheme'];
+$config[ApplicationConstants::ELASTICA_PARAMETER__PORT]
+    = $config[SearchConstants::ELASTICA_PARAMETER__PORT]
+    = ($elastica['scheme'] == 'https' ? 443 : 80);
 
 $config[ApplicationConstants::JENKINS_BASE_URL] = 'http://' . $config[ApplicationConstants::HOST_ZED_GUI] . ':10007/jenkins';
 $config[ApplicationConstants::JENKINS_DIRECTORY] = '/data/shop/development/shared/data/common/jenkins';

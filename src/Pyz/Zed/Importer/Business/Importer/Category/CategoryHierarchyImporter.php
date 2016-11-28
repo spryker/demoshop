@@ -21,7 +21,7 @@ use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 class CategoryHierarchyImporter extends AbstractCategoryImporter
 {
 
-    const PARENT_KEY = 'parentKey';
+    const PARENT_CATEGORY_KEY = 'parent_category_key';
 
     /**
      * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
@@ -67,34 +67,11 @@ class CategoryHierarchyImporter extends AbstractCategoryImporter
      */
     public function isImported()
     {
-        $query = SpyCategoryNodeQuery::create();
-        $query->filterByIsRoot(false)
+        $query = SpyCategoryNodeQuery::create()
+            ->filterByIsRoot(false)
             ->filterByFkParentCategoryNode(null, Criteria::ISNULL);
 
         return $query->count() === 0;
-    }
-
-    /**
-     * @DRY
-     *
-     * @see \Pyz\Zed\Importer\Business\Importer\Product\ProductCategoryImporter::getRootNode()
-     *
-     * @throws \LogicException
-     *
-     * @return \Orm\Zed\Category\Persistence\SpyCategoryNode
-     */
-    protected function getRootNode()
-    {
-        if ($this->defaultRootNode === null) {
-            $queryRoot = $this->categoryQueryContainer->queryRootNode();
-            $this->defaultRootNode = $queryRoot->findOne();
-
-            if ($this->defaultRootNode === null) {
-                throw new LogicException('Could not find any root nodes');
-            }
-        }
-
-        return $this->defaultRootNode;
     }
 
     /**
@@ -104,11 +81,15 @@ class CategoryHierarchyImporter extends AbstractCategoryImporter
      */
     protected function importOne(array $data)
     {
-        $categoryTransfer = $this->format($data);
-        $categoryTransfer = $this->updateCategoryTransferFromExistingEntity($categoryTransfer, $data[static::UCATID]);
+        if (!$data) {
+            return;
+        }
 
-        $idParentNode = $this->getParentNodeId($data[static::PARENT_KEY]);
-        $nodes = $this->findMainCategoryNodesByCategoryKey($data[static::UCATID]);
+        $categoryTransfer = $this->format($data);
+        $categoryTransfer = $this->updateCategoryTransferFromExistingEntity($categoryTransfer, $data[static::CATEGORY_KEY]);
+
+        $idParentNode = $this->getParentNodeId($data[static::PARENT_CATEGORY_KEY]);
+        $nodes = $this->findMainCategoryNodesByCategoryKey($data[static::CATEGORY_KEY]);
 
         foreach ($nodes as $nodeEntity) {
             $nodeTransfer = new NodeTransfer();
@@ -170,6 +151,25 @@ class CategoryHierarchyImporter extends AbstractCategoryImporter
         }
 
         return $idParentNode;
+    }
+
+    /**
+     * @throws \LogicException
+     *
+     * @return \Orm\Zed\Category\Persistence\SpyCategoryNode
+     */
+    protected function getRootNode()
+    {
+        if ($this->defaultRootNode === null) {
+            $queryRoot = $this->categoryQueryContainer->queryRootNode();
+            $this->defaultRootNode = $queryRoot->findOne();
+
+            if ($this->defaultRootNode === null) {
+                throw new LogicException('Could not find any root nodes');
+            }
+        }
+
+        return $this->defaultRootNode;
     }
 
     /**

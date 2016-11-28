@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\ProductSearch;
 
+use Pyz\Zed\ProductSearch\Dependency\ProductSearchToProductBridge;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\ProductSearch\ProductSearchDependencyProvider as SprykerProductSearchDependencyProvider;
 
@@ -16,6 +17,7 @@ class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProv
     const FACADE_PRODUCT_SEARCH = 'product search facade';
     const FACADE_PRICE = 'price facade';
     const QUERY_CONTAINER_PRODUCT_IMAGE = 'product image query container';
+    const QUERY_CONTAINER_CATEGORY = 'category query container';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -38,7 +40,23 @@ class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProv
             return $container->getLocator()->productImage()->queryContainer();
         };
 
+        $container[self::QUERY_CONTAINER_CATEGORY] = function (Container $container) {
+            return $container->getLocator()->category()->queryContainer();
+        };
+
         return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    protected function provideProductFacade(Container $container)
+    {
+        $container[self::FACADE_PRODUCT] = function (Container $container) {
+            return new ProductSearchToProductBridge($container->getLocator()->product()->facade());
+        };
     }
 
 }

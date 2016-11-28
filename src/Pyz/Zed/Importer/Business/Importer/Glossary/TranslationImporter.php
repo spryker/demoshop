@@ -59,6 +59,10 @@ class TranslationImporter extends AbstractImporter
      */
     protected function importOne(array $data)
     {
+        if (!$data) {
+            return;
+        }
+
         foreach ($data as $translationData) {
             $translationKey = $translationData['key'];
             if (!$this->glossaryFacade->hasKey($translationKey)) {

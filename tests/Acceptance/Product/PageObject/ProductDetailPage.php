@@ -10,6 +10,6 @@ namespace Acceptance\Product\PageObject;
 class ProductDetailPage
 {
 
-    const ADD_TO_CART_XPATH = '/html/body/div[3]/main/div[1]/div[2]/div/form/div/button';
+    const ADD_TO_CART_XPATH = '/html/body/div[3]/main/div[1]/div[2]/form/div/button';
 
 }
