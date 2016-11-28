@@ -48,6 +48,12 @@ class CatalogController extends AbstractController
         ];
 
         $searchResults = array_merge($searchResults, $metaAttributes);
+        $searchResults = $this->convertCategoryFacetFilters($searchResults);
+        $searchResults = $this->convertPriceFacetFilters($searchResults);
+
+        if ($request->isXmlHttpRequest()) {
+            return $this->formatJsonResponse($searchResults);
+        }
 
         return $this->viewResponse($searchResults);
     }
@@ -66,6 +72,12 @@ class CatalogController extends AbstractController
             ->catalogSearch($searchString, $request->query->all());
 
         $searchResults['searchString'] = $searchString;
+        $searchResults = $this->convertCategoryFacetFilters($searchResults);
+        $searchResults = $this->convertPriceFacetFilters($searchResults);
+
+        if ($request->isXmlHttpRequest()) {
+            return $this->formatJsonResponse($searchResults);
+        }
 
         return $this->viewResponse($searchResults);
     }
@@ -112,6 +124,25 @@ class CatalogController extends AbstractController
         }
 
         $searchResults[FacetResultFormatterPlugin::NAME]['category'] = $this->processCategoryFacetFilters($searchResults[FacetResultFormatterPlugin::NAME]['category']);
+
+        return $searchResults;
+    }
+
+    /**
+     * @param array $searchResults
+     *
+     * @return array
+     */
+    protected function convertPriceFacetFilters($searchResults)
+    {
+        if (isset($searchResults[FacetResultFormatterPlugin::NAME]['price'])) {
+            $moneyPlugin = new MoneyPlugin();
+            $rangeTransfer = $searchResults[FacetResultFormatterPlugin::NAME]['price'];
+            $rangeTransfer->setActiveMin($moneyPlugin->convertIntegerToDecimal($rangeTransfer->getActiveMin()));
+            $rangeTransfer->setMin($moneyPlugin->convertIntegerToDecimal($rangeTransfer->getMin()));
+            $rangeTransfer->setActiveMax($moneyPlugin->convertIntegerToDecimal($rangeTransfer->getActiveMax()));
+            $rangeTransfer->setMax($moneyPlugin->convertIntegerToDecimal($rangeTransfer->getMax()));
+        }
 
         return $searchResults;
     }
