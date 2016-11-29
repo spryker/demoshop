@@ -196,12 +196,9 @@ function resetDataStores {
 }
 
 function resetElasticsearch {
-    for store in "${ESSTORES[@]}"
-    do
-        labelText "Flushing Elasticsearch: ${store}"
-        curl -XDELETE "$ELASTIC_SEARCH_URL/${store}/"
-        writeErrorMessage "Elasticsearch reset failed for ${store}"
-    done
+    labelText "Flushing Elasticsearch"
+    curl -XDELETE "http://localhost:10005/_all"
+    writeErrorMessage "Elasticsearch reset failed"
 }
 
 function resetDevelopmentState {
