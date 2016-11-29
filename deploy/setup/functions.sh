@@ -146,15 +146,16 @@ function installZed {
     $CONSOLE setup:install $VERBOSITY
     writeErrorMessage "Setup install failed"
 
+    setupElasticsearch
+
     labelText "Importing Demo data"
     $CONSOLE import:demo-data $VERBOSITY
     writeErrorMessage "DemoData import failed"
 
-    labelText "Setting up data stores"
-
+    labelText "Populating data stores"
     $CONSOLE collector:search:export $VERBOSITY
     $CONSOLE collector:storage:export $VERBOSITY
-    writeErrorMessage "DataStore setup failed"
+    writeErrorMessage "DataStore population failed"
 
     labelText "Setting up cronjobs"
     $CONSOLE setup:jenkins:enable $VERBOSITY
@@ -190,13 +191,33 @@ function optimizeRepo {
 }
 
 function resetDataStores {
-    labelText "Flushing Elasticsearch"
-    curl -XDELETE 'http://localhost:10005/de_search/'
-    writeErrorMessage "Elasticsearch reset failed"
+    resetElasticsearch
 
     labelText "Flushing Redis"
     redis-cli -p 10009 FLUSHALL
     writeErrorMessage "Redis reset failed"
+}
+
+function resetElasticsearch {
+    ELASTIC_SEARCH_URL='http://localhost:10005/'
+    for store in "${ESSTORES[@]}"
+    do
+        labelText "Flushing Elasticsearch: ${store}"
+        curl -XDELETE "$ELASTIC_SEARCH_URL/${store}/"
+        writeErrorMessage "Elasticsearch reset failed for ${store}"
+    done
+}
+
+function setupElasticsearch {
+    ELASTIC_SEARCH_URL='http://localhost:10005/'
+    for store in "${ESSTORES[@]}"
+    do
+        labelText "Setting up Elasticsearch: ${store}"
+        curl -XPOST $ELASTIC_SEARCH_URL/${store}/_close
+        curl -XPUT $ELASTIC_SEARCH_URL/${store}/_settings -d '{"analysis": {"analyzer": {"lowercase_keyword_analyzer": {"tokenizer": "keyword","filter": ["lowercase"]}}}}'
+        curl -XPOST $ELASTIC_SEARCH_URL/${store}/_open
+        writeErrorMessage "Elasticsearch setup failed for ${store}"
+    done
 }
 
 function resetDevelopmentState {

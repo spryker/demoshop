@@ -4,6 +4,7 @@ set -o pipefail
 
 SETUP='spryker'
 CONSOLE=vendor/bin/console
+STORES=( de_search en_search )
 
 . deploy/setup/functions.sh
 
@@ -12,10 +13,9 @@ if [ $# -eq 0 ]; then
     exit 0
 fi
 
-ESSTORES=( de_search en_search )
 
 function resetElasticsearch {
-    for store in "${ESSTORES[@]}"
+    for store in "${STORES[@]}"
     do
         labelText "Flushing Elasticsearch: ${store}"
         curl -XDELETE "$ELASTIC_SEARCH_URL/${store}/"
@@ -24,7 +24,7 @@ function resetElasticsearch {
 }
 
 function setupElasticsearch {
-    for store in "${ESSTORES[@]}"
+    for store in "${STORES[@]}"
     do
         labelText "Setting up Elasticsearch: ${store}"
         curl -XPOST $ELASTIC_SEARCH_URL/${store}/_close
