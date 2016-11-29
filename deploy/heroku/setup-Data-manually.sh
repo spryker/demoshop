@@ -15,12 +15,9 @@ fi
 
 
 function resetElasticsearch {
-    for store in "${STORES[@]}"
-    do
-        labelText "Flushing Elasticsearch: ${store}"
-        curl -XDELETE "$ELASTIC_SEARCH_URL/${store}/"
-        writeErrorMessage "Elasticsearch reset failed for ${store}"
-    done
+    labelText "Flushing Elasticsearch"
+    curl -XDELETE "$ELASTIC_SEARCH_URL/_all/"
+    writeErrorMessage "Elasticsearch reset failed"
 }
 
 function setupElasticsearch {
