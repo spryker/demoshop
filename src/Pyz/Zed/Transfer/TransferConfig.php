@@ -16,17 +16,18 @@ class TransferConfig extends SprykerTransferConfig
 {
 
     /**
-     * @return array
+     * @return string[]
      */
-    public function getSourceDirectories()
+    protected function getAdditionalSourceDirectoryGlobPatterns()
     {
-        $directories = parent::getSourceDirectories();
+        $directoryGlobPatterns = [];
 
         if (Environment::isDevelopment()) { //only needed in Project, not in demoshop (case sensitivity vs lower-case-dash)
-            $directories[] = Config::get(ApplicationConstants::APPLICATION_SPRYKER_ROOT) . '/../../code-generator/src/*/Shared/*/Transfer/';
+            $sprykerRootDir = Config::get(ApplicationConstants::APPLICATION_SPRYKER_ROOT);
+            $directoryGlobPatterns[] = $sprykerRootDir . '/../../code-generator/src/*/Shared/*/Transfer/';
         }
 
-        return $directories;
+        return $directoryGlobPatterns;
     }
 
 }
