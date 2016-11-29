@@ -29,16 +29,12 @@ use Spryker\Zed\Product\Business\ProductFacadeInterface;
 class ProductAbstractCollector extends AbstractStoragePdoCollector
 {
 
-    const ID_PRODUCT = 'id_product';
     const ID_CATEGORY_NODE = 'id_category_node';
-    const ID_IMAGE_SET = 'id_image_set';
     const SKU = 'sku';
     const URL = 'url';
     const ABSTRACT_ATTRIBUTES = 'abstract_attributes';
     const ABSTRACT_LOCALIZED_ATTRIBUTES = 'abstract_localized_attributes';
     const NAME = 'name';
-    const PRICE = 'price';
-    const PRICE_NAME = 'price_name';
     const DESCRIPTION = 'description';
     const META_KEYWORDS = 'meta_keywords';
     const META_TITLE = 'meta_title';
@@ -115,7 +111,6 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
             StorageProductTransfer::NAME => $collectItemData[self::NAME],
             StorageProductTransfer::SKU => $collectItemData[self::SKU],
             StorageProductTransfer::URL => $collectItemData[self::URL],
-            StorageProductTransfer::AVAILABLE => true, // @TODO implement
             StorageProductTransfer::PRICE => $this->getPriceBySku($collectItemData[self::SKU]),
             StorageProductTransfer::CATEGORIES => $this->generateCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
             StorageProductTransfer::IMAGE_SETS => $this->generateProductAbstractImageSets(

@@ -293,7 +293,7 @@ class ProductDataPageMapBuilder
         }
 
         $result = array_map(function ($attributeValues) {
-            $attributeValues = array_unique($attributeValues);
+            $attributeValues = array_values(array_unique($attributeValues));
 
             return $attributeValues;
         }, $result);

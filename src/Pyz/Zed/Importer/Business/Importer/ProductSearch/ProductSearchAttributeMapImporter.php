@@ -9,7 +9,6 @@ namespace Pyz\Zed\Importer\Business\Importer\ProductSearch;
 
 use Generated\Shared\Search\PageIndexMap;
 use Orm\Zed\ProductSearch\Persistence\Base\SpyProductSearchAttributeMapQuery;
-use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
 use Orm\Zed\Product\Persistence\SpyProductAttributeKeyQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
@@ -52,7 +51,8 @@ class ProductSearchAttributeMapImporter extends AbstractImporter
      */
     public function isImported()
     {
-        $query = SpyProductSearchQuery::create();
+        $query = SpyProductSearchAttributeMapQuery::create();
+
         return $query->count() > 0;
     }
 

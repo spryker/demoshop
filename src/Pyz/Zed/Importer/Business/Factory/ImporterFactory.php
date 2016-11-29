@@ -15,15 +15,14 @@ use Pyz\Zed\Importer\Business\Importer\Cms\CmsPageImporter;
 use Pyz\Zed\Importer\Business\Importer\Discount\DiscountImporter;
 use Pyz\Zed\Importer\Business\Importer\Glossary\TranslationImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductManagement\ProductManagementAttributeImporter;
+use Pyz\Zed\Importer\Business\Importer\ProductOption\ProductOptionImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeMapImporter;
-use Pyz\Zed\Importer\Business\Importer\ProductOption\ProductOptionImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductAbstractImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductAttributeKeyImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductCategoryImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductConcreteImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductPriceImporter;
-use Pyz\Zed\Importer\Business\Importer\Product\ProductSearchImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductStockImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductTaxImporter;
 use Pyz\Zed\Importer\Business\Importer\Shipment\ShipmentImporter;
@@ -45,22 +44,6 @@ class ImporterFactory extends AbstractFactory
 {
 
     /**
-     * @return \Pyz\Zed\Importer\Business\Importer\Category\CategoryImporter
-     */
-    public function createCategoryImporter()
-    {
-        $categoryImporter = new CategoryImporter(
-            $this->getLocaleFacade(),
-            $this->getCategoryFacade(),
-            $this->getTouchFacade(),
-            $this->getCategoryQueryContainer(),
-            $this->createNodeUrlManager()
-        );
-
-        return $categoryImporter;
-    }
-
-    /**
      * @return \Pyz\Zed\Importer\Business\Importer\Category\CategoryRootImporter
      */
     public function createCategoryRootImporter()
@@ -68,12 +51,37 @@ class ImporterFactory extends AbstractFactory
         $categoryRootImporter = new CategoryRootImporter(
             $this->getLocaleFacade(),
             $this->getCategoryFacade(),
-            $this->getTouchFacade(),
-            $this->getCategoryQueryContainer(),
-            $this->createNodeUrlManager()
+            $this->getTouchFacade()
         );
 
         return $categoryRootImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\Category\CategoryImporter
+     */
+    public function createCategoryImporter()
+    {
+        $categoryImporter = new CategoryImporter(
+            $this->getLocaleFacade(),
+            $this->getCategoryFacade()
+        );
+
+        return $categoryImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\Category\CategoryHierarchyImporter
+     */
+    public function createCategoryHierarchyImporter()
+    {
+        $categoryHierarchyImporter = new CategoryHierarchyImporter(
+            $this->getLocaleFacade(),
+            $this->getCategoryFacade(),
+            $this->getCategoryQueryContainer()
+        );
+
+        return $categoryHierarchyImporter;
     }
 
     /**
@@ -103,20 +111,6 @@ class ImporterFactory extends AbstractFactory
         );
 
         return $productTaxImporter;
-    }
-
-    /**
-     * @return \Pyz\Zed\Importer\Business\Importer\Category\CategoryHierarchyImporter
-     */
-    public function createCategoryHierarchyImporter()
-    {
-        $categoryHierarchyImporter = new CategoryHierarchyImporter(
-            $this->getLocaleFacade(),
-            $this->getCategoryFacade(),
-            $this->getCategoryQueryContainer()
-        );
-
-        return $categoryHierarchyImporter;
     }
 
     /**
@@ -227,19 +221,6 @@ class ImporterFactory extends AbstractFactory
         );
 
         return $productStockImporter;
-    }
-
-    /**
-     * @return \Pyz\Zed\Importer\Business\Importer\Product\ProductSearchImporter
-     */
-    public function createProductSearchImporter()
-    {
-        $productSearchImporter = new ProductSearchImporter(
-            $this->getLocaleFacade(),
-            $this->getProductSearchFacade()
-        );
-
-        return $productSearchImporter;
     }
 
     /**

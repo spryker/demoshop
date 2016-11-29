@@ -21,6 +21,8 @@ use Orm\Zed\Tax\Persistence\SpyTaxRate;
 use Orm\Zed\Tax\Persistence\SpyTaxSet;
 use Orm\Zed\Tax\Persistence\SpyTaxSetTax;
 use Pyz\Zed\Product\Business\ProductBusinessFactory;
+use Spryker\Service\UtilEncoding\UtilEncodingService;
+use Spryker\Service\UtilText\UtilTextService;
 use Spryker\Zed\Locale\Business\LocaleFacade;
 use Spryker\Zed\Price\Business\PriceFacade;
 use Spryker\Zed\Price\Communication\Plugin\ProductAbstract\PriceProductAbstractAfterCreatePlugin;
@@ -51,7 +53,7 @@ use Spryker\Zed\Product\Business\Product\Url\ProductUrlManager;
 use Spryker\Zed\Product\Dependency\Facade\ProductToLocaleBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToTouchBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToUrlBridge;
-use Spryker\Zed\Product\Dependency\Facade\ProductToUtilTextBridge;
+use Spryker\Zed\Product\Dependency\Service\ProductToUtilTextBridge;
 use Spryker\Zed\Product\Persistence\ProductQueryContainer;
 use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterCreatePlugin as StockProductConcreteAfterCreatePlugin;
 use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterUpdatePlugin as StockProductConcreteAfterUpdatePlugin;
@@ -63,8 +65,6 @@ use Spryker\Zed\Tax\Persistence\TaxQueryContainer;
 use Spryker\Zed\Touch\Business\TouchFacade;
 use Spryker\Zed\Touch\Persistence\TouchQueryContainer;
 use Spryker\Zed\Url\Business\UrlFacade;
-use Spryker\Zed\UtilEncoding\Business\UtilEncodingFacade;
-use Spryker\Zed\UtilText\Business\UtilTextFacade;
 
 abstract class ProductTestAbstract extends Test
 {
@@ -148,9 +148,9 @@ abstract class ProductTestAbstract extends Test
     protected $urlFacade;
 
     /**
-     * @var \Spryker\Zed\UtilText\Business\UtilTextFacadeInterface
+     * @var \Spryker\Service\UtilText\UtilTextServiceInterface
      */
-    protected $utilTextFacade;
+    protected $utilTextService;
 
     /**
      * @var \Spryker\Zed\Touch\Business\TouchFacadeInterface
@@ -188,9 +188,9 @@ abstract class ProductTestAbstract extends Test
     protected $productConcreteTransfer;
 
     /**
-     * @var \Spryker\Zed\Product\Dependency\Facade\ProductToUtilEncodingInterface
+     * @var \Spryker\Zed\Product\Dependency\Service\ProductToUtilEncodingInterface
      */
-    protected $utilEncodingFacade;
+    protected $utilEncodingService;
 
     /**
      * @return void
@@ -212,19 +212,19 @@ abstract class ProductTestAbstract extends Test
         $this->urlFacade = new UrlFacade();
         $this->priceFacade = new PriceFacade();
         $this->touchFacade = new TouchFacade();
-        $this->utilTextFacade = new UtilTextFacade();
+        $this->utilTextService = new UtilTextService();
         $this->productQueryContainer = new ProductQueryContainer();
         $this->touchQueryContainer = new TouchQueryContainer();
         $this->priceQueryContainer = new PriceQueryContainer();
         $this->productImageQueryContainer = new ProductImageQueryContainer();
         $this->taxQueryContainer = new TaxQueryContainer();
-        $this->utilEncodingFacade = new UtilEncodingFacade();
+        $this->utilEncodingService = new UtilEncodingService();
 
         $productBusinessFactory = new ProductBusinessFactory();
         $urlBridge = new ProductToUrlBridge($this->urlFacade);
         $touchBridge = new ProductToTouchBridge($this->touchFacade);
         $localeBridge = new ProductToLocaleBridge($this->localeFacade);
-        $utilTextBridge = new ProductToUtilTextBridge($this->utilTextFacade);
+        $utilTextBridge = new ProductToUtilTextBridge($this->utilTextService);
 
         $productAbstractAssertion = new ProductAbstractAssertion($this->productQueryContainer);
         $productConcreteAssertion = new ProductConcreteAssertion($this->productQueryContainer);

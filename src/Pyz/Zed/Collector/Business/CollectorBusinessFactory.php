@@ -10,6 +10,7 @@ namespace Pyz\Zed\Collector\Business;
 use Exception;
 use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector;
 use Pyz\Zed\Collector\Business\Storage\AttributeMapCollector;
+use Pyz\Zed\Collector\Business\Storage\AvailabilityCollector;
 use Pyz\Zed\Collector\Business\Storage\BlockCollector;
 use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector;
 use Pyz\Zed\Collector\Business\Storage\NavigationCollector;
@@ -22,6 +23,7 @@ use Pyz\Zed\Collector\Business\Storage\TranslationCollector;
 use Pyz\Zed\Collector\Business\Storage\UrlCollector;
 use Pyz\Zed\Collector\CollectorDependencyProvider;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AttributeMapCollectorQuery;
+use Pyz\Zed\Collector\Persistence\Storage\Propel\AvailabilityCollectorQuery as StorageAvailabilityCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\BlockCollectorQuery as StorageBlockCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\PageCollectorQuery as StoragePageCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\RedirectCollectorQuery as StorageRedirectCollectorPropelQuery;
@@ -279,6 +281,23 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
+     * @return \Pyz\Zed\Collector\Business\Storage\AvailabilityCollector
+     */
+    public function createStorageAvailabilityCollector()
+    {
+        $storageAvailabilityCollector = new AvailabilityCollector();
+
+        $storageAvailabilityCollector->setTouchQueryContainer(
+            $this->getTouchQueryContainer()
+        );
+        $storageAvailabilityCollector->setQueryBuilder(
+            $this->createStorageAvailabilityCollectorPropelQuery()
+        );
+
+        return $storageAvailabilityCollector;
+    }
+
+    /**
      * @param string $name
      *
      * @throws \Exception
@@ -334,6 +353,14 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createStorageBlockCollectorPropelQuery()
     {
         return new StorageBlockCollectorPropelQuery();
+    }
+
+    /**
+     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\AvailabilityCollectorQuery
+     */
+    public function createStorageAvailabilityCollectorPropelQuery()
+    {
+        return new StorageAvailabilityCollectorPropelQuery();
     }
 
     /**

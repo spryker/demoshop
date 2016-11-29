@@ -9,3 +9,4 @@ modules:
         - \Application\Module\Zed
         - \Module\Customer
         - Cli
+        - Asserts

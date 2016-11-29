@@ -32,7 +32,7 @@ cart.voucher.redeem,"Redeem code",en_US
 cart.price.subtotal,"Zwischensumme",de_DE
 cart.price.subtotal,"Subtotal",en_US
 cart.price.grand.total,"Summe",de_DE
-cart.price.grand.total,"Grandt Total",en_US
+cart.price.grand.total,"Grand Total",en_US
 cart.total.tax_total,"Mehrwertsteuer",de_DE
 cart.total.tax_total,"Tax",en_US
 auth.login,Anmelden,de_DE
@@ -711,3 +711,9 @@ product.attribute.themes,Themes,en_US
 product.attribute.themes,Themen,de_DE
 product.attribute.usb_port,USB port,en_US
 product.attribute.usb_port,USB-Port,de_DE
+cart.pre.check.availability.failed, "Currently we have only stock of this product available.",en_US
+cart.pre.check.availability.failed, "Zurzeit haben wir nur stock von diesem Produkt zur Verfügung.",de_DE
+product.detail.out_of_stock, "This product is currently not available.",en_US
+product.detail.out_of_stock, "Das Produkt ist zur Zeit nicht verfügbar.",de_DE
+cart.pre.check.availability.failed.empty, "Currently this product is not available. ",en_US
+cart.pre.check.availability.failed.empty, "Zurzeit diesem Produkt ist nicht Verfügbar.",de_DE

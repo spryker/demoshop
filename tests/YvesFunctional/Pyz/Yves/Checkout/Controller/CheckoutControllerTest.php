@@ -86,7 +86,7 @@ class CheckoutControllerTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->skipIfCircleCi();
+        $this->skipIfCi();
         $this->controller = new CheckoutController();
 
         $sessionClient = new SessionClient();
@@ -98,7 +98,7 @@ class CheckoutControllerTest extends PHPUnit_Framework_TestCase
     /**
      * @return void
      */
-    protected function skipIfCircleCi()
+    protected function skipIfCi()
     {
         if (getenv('CIRCLECI') || getenv('TRAVIS')) {
             $this->markTestSkipped('CircleCi/Travis not set up properly');

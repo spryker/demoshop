@@ -19,6 +19,8 @@ use Spryker\Zed\Stock\Business\StockFacadeInterface;
 class ProductStockImporter extends AbstractImporter
 {
 
+    const SKU = 'sku';
+    const VARIANT_ID = 'variant_id';
     const CONCRETE_SKU = 'concrete_sku';
     const CATEGORY_KEY = 'category_key';
     const QUANTITY = 'quantity';

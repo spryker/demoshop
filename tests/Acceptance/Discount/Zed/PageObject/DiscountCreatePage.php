@@ -29,7 +29,7 @@ class DiscountCreatePage
             'excl' => '1',
             'calcType' => 'Calculator fixed',
             'amount' => '18,36',
-            'applyTo' => 'attribute.gps = \'TRUE\'',
+            'applyTo' => 'attribute.width = \'15\'',
         ],
         self::DISCOUNT_VALID_NOT_EXCLUSIVE => [
             'type' => 'Cart rule',
@@ -38,7 +38,7 @@ class DiscountCreatePage
             'excl' => '0',
             'calcType' => 'Calculator fixed',
             'amount' => '18,36',
-            'applyTo' => 'attribute.gps = \'TRUE\'',
+            'applyTo' => 'attribute.width = \'15\'',
         ]
     ];
 

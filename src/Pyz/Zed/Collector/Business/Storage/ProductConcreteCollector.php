@@ -22,17 +22,11 @@ use Spryker\Zed\Product\Business\ProductFacadeInterface;
 class ProductConcreteCollector extends AbstractStoragePdoCollector
 {
 
-    const ID_PRODUCT = 'id_product';
-    const ID_CATEGORY_NODE = 'id_category_node';
-    const ID_IMAGE_SET = 'id_image_set';
     const SKU = 'sku';
     const QUANTITY = 'quantity';
-    const ATTRIBUTES = 'attributes';
     const CONCRETE_LOCALIZED_ATTRIBUTES = 'concrete_localized_attributes';
     const CONCRETE_ATTRIBUTES = 'concrete_attributes';
     const NAME = 'name';
-    const PRICE = 'price';
-    const PRICE_NAME = 'price_name';
     const ABSTRACT_ATTRIBUTES = 'abstract_attributes';
     const ABSTRACT_LOCALIZED_ATTRIBUTES = 'abstract_localized_attributes';
     const CONCRETE_DESCRIPTION = 'concrete_description';
@@ -101,7 +95,6 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
             StorageProductTransfer::ATTRIBUTES => $this->getConcreteAttributes($collectItemData),
             StorageProductTransfer::SKU => $collectItemData[self::SKU],
             StorageProductTransfer::QUANTITY => $collectItemData[self::QUANTITY],
-            StorageProductTransfer::AVAILABLE => (int)$collectItemData[self::QUANTITY] > 0,
             StorageProductTransfer::IMAGE_SETS => $this->generateProductConcreteImageSets(
                 $collectItemData[self::ID_PRODUCT_ABSTRACT],
                 $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]

@@ -7,23 +7,21 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\Category;
 
+use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
 use LogicException;
 use Orm\Zed\Category\Persistence\Base\SpyCategoryNodeQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
-use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
+use Pyz\Zed\Importer\Business\Exception\CategoryNotFoundException;
 use Spryker\Shared\Library\Collection\Collection;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 
-class CategoryHierarchyImporter extends AbstractImporter
+class CategoryHierarchyImporter extends AbstractCategoryImporter
 {
 
-    /**
-     * @var \Pyz\Zed\Category\Business\CategoryFacadeInterface
-     */
-    protected $categoryFacade;
+    const PARENT_CATEGORY_KEY = 'parent_category_key';
 
     /**
      * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
@@ -50,12 +48,9 @@ class CategoryHierarchyImporter extends AbstractImporter
         CategoryFacadeInterface $categoryFacade,
         CategoryQueryContainerInterface $categoryQueryContainer
     ) {
-        parent::__construct($localeFacade);
+        parent::__construct($localeFacade, $categoryFacade);
 
-        $this->localeFacade = $localeFacade;
-        $this->categoryFacade = $categoryFacade;
         $this->categoryQueryContainer = $categoryQueryContainer;
-
         $this->nodeToKeyMapperCollection = new Collection([]);
     }
 
@@ -90,24 +85,47 @@ class CategoryHierarchyImporter extends AbstractImporter
             return;
         }
 
-        $category = $this->format($data);
+        $categoryTransfer = $this->format($data);
+        $categoryTransfer = $this->updateCategoryTransferFromExistingEntity($categoryTransfer, $data[static::CATEGORY_KEY]);
 
-        $idParentNode = $this->getParentNodeId($category['parent_category_key']);
-
-        $nodes = $this->categoryQueryContainer
-            ->queryNodeByCategoryKey($category['category_key'])
-            ->filterByIsMain(true)
-            ->find();
+        $idParentNode = $this->getParentNodeId($data[static::PARENT_CATEGORY_KEY]);
+        $nodes = $this->findMainCategoryNodesByCategoryKey($data[static::CATEGORY_KEY]);
 
         foreach ($nodes as $nodeEntity) {
             $nodeTransfer = new NodeTransfer();
-            $nodeTransfer->fromArray($nodeEntity->toArray());
-            $nodeTransfer->setFkParentCategoryNode($idParentNode);
+            $nodeTransfer->fromArray($nodeEntity->toArray(), true);
+            $categoryTransfer->setCategoryNode($nodeTransfer);
 
-            foreach ($this->localeFacade->getLocaleCollection() as $code => $localeTransfer) {
-                $this->categoryFacade->updateCategoryNode($nodeTransfer, $localeTransfer);
-            }
+            $parentNodeTransfer = new NodeTransfer();
+            $parentNodeTransfer->setIdCategoryNode($idParentNode);
+            $categoryTransfer->setParentCategoryNode($parentNodeTransfer);
+
+            $this->categoryFacade->update($categoryTransfer);
         }
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\CategoryTransfer $categoryTransfer
+     * @param string $categoryKey
+     *
+     * @throws \Pyz\Zed\Importer\Business\Exception\CategoryNotFoundException
+     *
+     * @return \Generated\Shared\Transfer\CategoryTransfer
+     */
+    protected function updateCategoryTransferFromExistingEntity(CategoryTransfer $categoryTransfer, $categoryKey)
+    {
+        $categoryEntity = $this
+            ->categoryQueryContainer
+            ->queryCategoryByKey($categoryKey)
+            ->findOne();
+
+        if (!$categoryEntity) {
+            throw new CategoryNotFoundException(sprintf('Could not find category for key "%s"', $categoryKey));
+        }
+
+        $categoryTransfer->fromArray($categoryEntity->toArray(), true);
+
+        return $categoryTransfer;
     }
 
     /**
@@ -152,6 +170,20 @@ class CategoryHierarchyImporter extends AbstractImporter
         }
 
         return $this->defaultRootNode;
+    }
+
+    /**
+     * @param string $categoryKey
+     *
+     * @return \Orm\Zed\Category\Persistence\SpyCategoryNode[]|\Propel\Runtime\Collection\ObjectCollection
+     */
+    protected function findMainCategoryNodesByCategoryKey($categoryKey)
+    {
+        return $this
+            ->categoryQueryContainer
+            ->queryNodeByCategoryKey($categoryKey)
+            ->filterByIsMain(true)
+            ->find();
     }
 
 }

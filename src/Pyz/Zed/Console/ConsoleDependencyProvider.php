@@ -8,12 +8,17 @@
 namespace Pyz\Zed\Console;
 
 use Pyz\Zed\Importer\Communication\Console\DemoDataImportConsole;
+use Pyz\Zed\Updater\Communication\Console\UpdaterConsole;
 use Spryker\Shared\Library\Environment;
 use Spryker\Zed\Application\Communication\Console\ApplicationIntegrationCheckConsole;
 use Spryker\Zed\Application\Communication\Console\BuildNavigationConsole;
 use Spryker\Zed\Cache\Communication\Console\DeleteAllCachesConsole;
+use Spryker\Zed\CodeGenerator\Communication\Console\BundleClientCodeGeneratorConsole;
+use Spryker\Zed\CodeGenerator\Communication\Console\BundleCodeGeneratorConsole;
+use Spryker\Zed\CodeGenerator\Communication\Console\BundleSharedCodeGeneratorConsole;
+use Spryker\Zed\CodeGenerator\Communication\Console\BundleYvesCodeGeneratorConsole;
+use Spryker\Zed\CodeGenerator\Communication\Console\BundleZedCodeGeneratorConsole;
 use Spryker\Zed\Collector\Communication\Console\CollectorSearchExportConsole;
-use Spryker\Zed\Collector\Communication\Console\CollectorSearchUpdateConsole;
 use Spryker\Zed\Collector\Communication\Console\CollectorStorageExportConsole;
 use Spryker\Zed\Console\ConsoleDependencyProvider as SprykerConsoleDependencyProvider;
 use Spryker\Zed\Development\Communication\Console\CodeCreateConsole;
@@ -53,10 +58,10 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new BuildNavigationConsole(),
             new CollectorStorageExportConsole(),
             new CollectorSearchExportConsole(),
-            new CollectorSearchUpdateConsole(),
             new TouchCleanUpConsole(),
             new DeleteAllCachesConsole(),
             new DemoDataImportConsole(),
+            new UpdaterConsole(),
             new GeneratorConsole(),
             new InitializeDatabaseConsole(),
             new RecordDeploymentConsole(),
@@ -85,6 +90,11 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new ComposerJsonUpdaterConsole();
             $commands[] = new ProductTouchConsole();
             $commands[] = new ValidatorConsole();
+            $commands[] = new BundleCodeGeneratorConsole();
+            $commands[] = new BundleYvesCodeGeneratorConsole();
+            $commands[] = new BundleZedCodeGeneratorConsole();
+            $commands[] = new BundleSharedCodeGeneratorConsole();
+            $commands[] = new BundleClientCodeGeneratorConsole();
         }
 
         return $commands;

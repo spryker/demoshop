@@ -15,15 +15,14 @@ use Pyz\Zed\Importer\Business\Installer\Cms\CmsPageInstaller;
 use Pyz\Zed\Importer\Business\Installer\Discount\DiscountInstaller;
 use Pyz\Zed\Importer\Business\Installer\Glossary\GlossaryInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductManagement\ProductManagementAttributeInstaller;
+use Pyz\Zed\Importer\Business\Installer\ProductOption\ProductOptionInstaller;
+use Pyz\Zed\Importer\Business\Installer\ProductSearch\ProductSearchAttributeInstaller;
+use Pyz\Zed\Importer\Business\Installer\ProductSearch\ProductSearchAttributeMapInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductAbstractInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductAttributeKeyInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductConcreteInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductPriceInstaller;
-use Pyz\Zed\Importer\Business\Installer\ProductOption\ProductOptionInstaller;
-use Pyz\Zed\Importer\Business\Installer\Product\ProductSearchInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductStockInstaller;
-use Pyz\Zed\Importer\Business\Installer\ProductSearch\ProductSearchAttributeInstaller;
-use Pyz\Zed\Importer\Business\Installer\ProductSearch\ProductSearchAttributeMapInstaller;
 use Pyz\Zed\Importer\Business\Installer\Shipment\ShipmentInstaller;
 use Pyz\Zed\Importer\Business\Installer\Tax\TaxInstaller;
 use Pyz\Zed\Importer\ImporterConfig;
@@ -144,19 +143,6 @@ class InstallerFactory extends AbstractFactory
         );
 
         return $productInstaller;
-    }
-
-    /**
-     * @return \Pyz\Zed\Importer\Business\Installer\Product\ProductSearchInstaller
-     */
-    public function createProductSearchInstaller()
-    {
-        $productSearchInstaller = new ProductSearchInstaller(
-            $this->getImporterProductSearchCollection(),
-            $this->getConfig()->getImportDataDirectory()
-        );
-
-        return $productSearchInstaller;
     }
 
     /**
@@ -410,16 +396,6 @@ class InstallerFactory extends AbstractFactory
     {
         return [
             ImporterConfig::RESOURCE_PRODUCT_SEARCH_ATTRIBUTE_MAP => $this->createImporterFactory()->createProductSearchAttributeMapImporter(),
-        ];
-    }
-
-    /**
-     * @return \Pyz\Zed\Importer\Business\Importer\ImporterInterface[]
-     */
-    public function getImporterProductSearchCollection()
-    {
-        return [
-            ImporterConfig::RESOURCE_PRODUCT_SEARCH => $this->createImporterFactory()->createProductSearchImporter(),
         ];
     }
 

@@ -9,6 +9,7 @@ namespace Pyz\Yves\Shipment\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
@@ -31,15 +32,25 @@ class ShipmentForm extends AbstractType
     }
 
     /**
+     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
+     *
+     * @return void
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setRequired(static::OPTION_SHIPMENT_METHODS);
+    }
+
+    /**
+     * @deprecated Use `configureOptions()` instead.
+     *
      * @param \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
      *
      * @return void
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        parent::setDefaultOptions($resolver);
-
-        $resolver->setRequired(static::OPTION_SHIPMENT_METHODS);
+        $this->configureOptions($resolver);
     }
 
     /**
@@ -67,7 +78,7 @@ class ShipmentForm extends AbstractType
             'multiple' => false,
             'required' => true,
             'property_path' => static::SHIPMENT_SELECTION_PROPERTY_PATH,
-            'empty_value' => false,
+            'placeholder' => false,
             'constraints' => [
                 new NotBlank(),
             ],

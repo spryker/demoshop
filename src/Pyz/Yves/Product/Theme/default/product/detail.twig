@@ -72,7 +72,7 @@
         <div class="small-12 medium-6 xlarge-5 xxlarge-4 columns">
 
             <div class="callout">
-                <h5><small>{{ 'page.product.by' | trans }}</small></h5>
+                {% if product.attributes.brand is defined %}<h5><small>{{ 'page.product.by' | trans }}</small> {{ product.attributes.brand }}</h5>{% endif %}
                 <p>
                     <span class="stat">{{ product.price | price }}</span>
                 </p>
@@ -80,16 +80,30 @@
                 {% include '@Product/product/partials/variants.twig' %}
             </div>
 
+            {% set available = false %}
+
+            {% if availability.concreteProductAvailableItems[product.sku] is defined %}
+                {% if availability.concreteProductAvailableItems[product.sku] %}
+                    {% set available = true %}
+                {% endif %}
+            {% endif %}
+
             <form method="POST" action="/cart/add/{{ product.sku }}">
                 {% include '@Product/product/partials/product-options.twig' %}
                 <div>
-                    <button type="submit" class="button expanded success" {{ (not product.isVariant) ? 'disabled' : '' }}>
+                    <button type="submit" class="button expanded success" {{ (not product.isVariant or not available) ? 'disabled' : '' }} onclick="this.form.submit(); this.disabled='disabled'; return false;">
                         <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
                     </button>
 
                     <div class="small-12 columns"></div>
                 </div>
             </form>
+
+            {% if not available and product.isVariant %}
+                <p>
+                    <strong>{{ "product.detail.out_of_stock" | trans }}</strong>
+                </p>
+            {% endif %}
 
             <form class="row align-bottom" method="POST" action="{{ path('wishlist/add-item', {sku: product.sku}) }}">
                 <div class="small-12 columns">
@@ -120,5 +134,4 @@
             </div>
         </div>
     </div>
-
 {% endblock %}

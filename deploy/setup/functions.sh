@@ -130,11 +130,14 @@ function installDemoshop {
     configureCodeception
 
     successText "Setup successful"
-    infoText "\nYves URL: http://www.de.project.local/\nZed URL: http://zed.de.project.local/\n"
 }
 
 function installZed {
     setupText "Zed setup"
+
+    labelText "Stopping jenkins"
+    $CONSOLE setup:jenkins:disable $VERBOSITY
+    writeErrorMessage "Failed to stop jenkins"
 
     resetDataStores
 
@@ -148,15 +151,19 @@ function installZed {
     writeErrorMessage "DemoData import failed"
 
     labelText "Setting up data stores"
+
     $CONSOLE collector:search:export $VERBOSITY
     $CONSOLE collector:storage:export $VERBOSITY
     writeErrorMessage "DataStore setup failed"
 
     labelText "Setting up cronjobs"
+    $CONSOLE setup:jenkins:enable $VERBOSITY
     $CONSOLE setup:jenkins:generate $VERBOSITY
     writeErrorMessage "Cronjob setup failed"
 
     antelopeInstallZed
+
+
 
     labelText "Zed setup successful"
 }

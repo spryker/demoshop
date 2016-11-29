@@ -72,4 +72,12 @@ class ProductFactory extends AbstractFactory
         return $this->getProvidedDependency(ProductDependencyProvider::CLIENT_PRODUCT_OPTION);
     }
 
+    /**
+     * @return \Spryker\Client\Availability\AvailabilityClient
+     */
+    public function getAvailabilityClient()
+    {
+        return $this->getProvidedDependency(ProductDependencyProvider::CLIENT_AVAILABILITY);
+    }
+
 }
