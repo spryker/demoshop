@@ -4,7 +4,7 @@ set -o pipefail
 
 SETUP='spryker'
 CONSOLE=vendor/bin/console
-STORES=( de_search en_search )
+STORES=( de_search )
 
 . deploy/setup/functions.sh
 
@@ -42,6 +42,8 @@ do
 
             $CONSOLE setup:install $VERBOSITY
             writeErrorMessage "Setup install failed"
+
+            setupElasticsearch
 
             labelText "Importing Demo data"
             $CONSOLE import:demo-data $VERBOSITY
