@@ -150,10 +150,11 @@ function installZed {
     $CONSOLE import:demo-data $VERBOSITY
     writeErrorMessage "DemoData import failed"
 
-    labelText "Populating data stores"
+    labelText "Setting up data stores"
+
     $CONSOLE collector:search:export $VERBOSITY
     $CONSOLE collector:storage:export $VERBOSITY
-    writeErrorMessage "DataStore population failed"
+    writeErrorMessage "DataStore setup failed"
 
     labelText "Setting up cronjobs"
     $CONSOLE setup:jenkins:enable $VERBOSITY
@@ -161,6 +162,7 @@ function installZed {
     writeErrorMessage "Cronjob setup failed"
 
     antelopeInstallZed
+
 
 
     labelText "Zed setup successful"
@@ -188,17 +190,13 @@ function optimizeRepo {
 }
 
 function resetDataStores {
-    resetElasticsearch
+    labelText "Flushing Elasticsearch"
+    curl -XDELETE 'http://localhost:10005/de_search/'
+    writeErrorMessage "Elasticsearch reset failed"
 
     labelText "Flushing Redis"
     redis-cli -p 10009 FLUSHALL
     writeErrorMessage "Redis reset failed"
-}
-
-function resetElasticsearch {
-    labelText "Flushing Elasticsearch"
-    curl -XDELETE "http://localhost:10005/_all"
-    writeErrorMessage "Elasticsearch reset failed"
 }
 
 function resetDevelopmentState {
