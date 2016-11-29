@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3e482c769ba1048490c2a0c412b3a1c9",
-    "content-hash": "8bbcc72ce08b038598c8a7f5e3aba5b0",
+    "hash": "5d5b46c827540ce79d1500bf23b8194d",
+    "content-hash": "5ff107a46f46f3806e83b8ab97981771",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1253,7 +1253,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "540f98ab974eb4cc034e8379948801311401c848"
+                "reference": "9e72cfb102d14bb0f5c4d8e688d20a3b1d1cebb9"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1819,7 +1819,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-11-28 14:09:52"
+            "time": "2016-11-28 16:29:40"
         },
         {
             "name": "symfony-cmf/routing",
@@ -6712,7 +6712,20 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.6.0"
+        "php": ">=5.6.0",
+        "ext-curl": "*",
+        "ext-gd": "*",
+        "ext-gmp": "*",
+        "ext-intl": "*",
+        "ext-json": "*",
+        "ext-mcrypt": "*",
+        "ext-memcached": "*",
+        "ext-pdo_pgsql": "*",
+        "ext-pdo_sqlite": "*",
+        "ext-pgsql": "*",
+        "ext-readline": "*",
+        "ext-redis": "*",
+        "ext-sqlite3": "*"
     },
     "platform-dev": []
 }
