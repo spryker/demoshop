@@ -22,7 +22,7 @@ class TransferConfig extends SprykerTransferConfig
     {
         $directories = parent::getSourceDirectories();
 
-        if (Environment::isDevelopment()) {
+        if (Environment::isDevelopment()) { //only needed in Project, not in demoshop (case sensitivity vs lower-case-dash)
             $directories[] = Config::get(ApplicationConstants::APPLICATION_SPRYKER_ROOT) . '/../../code-generator/src/*/Shared/*/Transfer/';
         }
 
