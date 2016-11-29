@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Product\Persistence;
 
-use Orm\Zed\Product\Persistence\Base\SpyProductAbstractLocalizedAttributes as BaseSpyProductAbstractLocalizedAttributes;
+use Spryker\Zed\Product\Persistence\Propel\AbstractSpyProductAbstractLocalizedAttributes as BaseSpyProductAbstractLocalizedAttributes;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_product_abstract_localized_attributes' table.
