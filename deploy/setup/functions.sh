@@ -146,7 +146,7 @@ function installZed {
     $CONSOLE setup:install $VERBOSITY
     writeErrorMessage "Setup install failed"
 
-    setupElasticsearch
+    # setupElasticsearch
 
     labelText "Importing Demo data"
     $CONSOLE import:demo-data $VERBOSITY
