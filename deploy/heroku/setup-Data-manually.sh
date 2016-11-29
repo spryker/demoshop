@@ -43,8 +43,6 @@ do
             $CONSOLE setup:install $VERBOSITY
             writeErrorMessage "Setup install failed"
 
-            setupElasticsearch
-
             labelText "Importing Demo data"
             $CONSOLE import:demo-data $VERBOSITY
             writeErrorMessage "DemoData import failed"
