@@ -23,12 +23,64 @@ class CartController extends AbstractController
     public function indexAction()
     {
         $quoteTransfer = $this->getClient()->getQuote();
-        $voucherForm = $this->getFactory()->createVoucherForm();
 
-        $br = 1;
+        $groupedBundleQuantity = [];
+        foreach ($quoteTransfer->getBundleProducts() as $bundleProductTransfer) {
+            if (!isset($groupedBundleQuantity[$bundleProductTransfer->getSku()])) {
+                $groupedBundleQuantity[$bundleProductTransfer->getSku()] = $bundleProductTransfer->getQuantity();
+            } else {
+                $groupedBundleQuantity[$bundleProductTransfer->getSku()] += $bundleProductTransfer->getQuantity();
+            }
+        }
+
+        $singleItems = [];
+        $bundleItems = [];
+        foreach ($quoteTransfer->getItems() as $itemTransfer) {
+            if (!$itemTransfer->getRelatedBundleItemIdentifier()) {
+                $singleItems[] = $itemTransfer;
+            }
+
+            foreach ($quoteTransfer->getBundleProducts() as $bundleItemTransfer) {
+                if ($bundleItemTransfer->getBundleItemIdentifier() !== $itemTransfer->getRelatedBundleItemIdentifier()) {
+                    continue;
+                }
+
+                if (!isset($bundleItems[$bundleItemTransfer->getSku()])) {
+                    $bundleProduct = clone $bundleItemTransfer;
+                    $bundleProduct->setQuantity($groupedBundleQuantity[$bundleProduct->getSku()]);
+
+                    $bundleItems[$bundleProduct->getSku()] = [
+                        'bundleProduct' => $bundleProduct,
+                        'bundleItems' => [],
+                    ];
+                }
+
+                $currentBundle = $bundleItems[$bundleItemTransfer->getSku()];
+                if ($currentBundle['bundleProduct']->getBundleItemIdentifier() !== $itemTransfer->getRelatedBundleItemIdentifier()) {
+                    continue;
+                }
+
+                $currentBundleIdentifer = $itemTransfer->getSku() . $itemTransfer->getRelatedBundleItemIdentifier();
+                if (!isset($currentBundle['bundleItems'][$currentBundleIdentifer])) {
+                    $currentBundle['bundleItems'][$currentBundleIdentifer] = clone $itemTransfer;
+                } else {
+                    $currentBundleItem = $currentBundle['bundleItems'][$currentBundleIdentifer];
+                    $currentBundleItem->setQuantity($currentBundleItem->getQuantity() + $itemTransfer->getQuantity());
+                }
+
+                $bundleItems[$bundleItemTransfer->getSku()] = $currentBundle;
+
+            }
+
+        }
+
+        $cartItems = array_merge($singleItems, $bundleItems);
+
+        $voucherForm = $this->getFactory()->createVoucherForm();
 
         return $this->viewResponse([
             'cart' => $quoteTransfer,
+            'cartItems' => $cartItems,
             'voucherForm' => $voucherForm->createView(),
         ]);
     }

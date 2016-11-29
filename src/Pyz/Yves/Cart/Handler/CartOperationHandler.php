@@ -65,25 +65,11 @@ class CartOperationHandler extends BaseHandler
      */
     public function remove($sku, $groupKey = null)
     {
-        $quoteTransfer = $this->cartClient->getQuote();
-        $bundledProductsRemove = new \ArrayObject();
-        foreach ($quoteTransfer->getBundleProducts() as $bundleItemTransfer) {
-            if ($bundleItemTransfer->getSku() != $sku || $bundleItemTransfer->getGroupKey() != $groupKey) {
-                continue;
-            }
-
-            foreach ($quoteTransfer->getItems() as $itemTransfer) {
-                if ($itemTransfer->getRelatedBundleItemIdentifier() == $bundleItemTransfer->getBundleItemIdentifier()) {
-                    $bundledProductsRemove->append($itemTransfer);
-                }
-            }
-
-        }
-
-        if (count($bundledProductsRemove) == 0) {
-            $quoteTransfer = $this->cartClient->removeItem($sku, $groupKey);
+        $bundledItemsToRemove = $this->getBundledItems($sku);
+        if (count($bundledItemsToRemove) > 0) {
+            $quoteTransfer = $this->cartClient->removeItems($bundledItemsToRemove);
         } else {
-            $quoteTransfer = $this->cartClient->removeItems($bundledProductsRemove);
+            $quoteTransfer = $this->cartClient->removeItem($sku, $groupKey);
         }
 
         $this->updateNumberOfItemsInCart($quoteTransfer);
@@ -125,7 +111,30 @@ class CartOperationHandler extends BaseHandler
      */
     public function changeQuantity($sku, $quantity, $groupKey = null)
     {
-        $quoteTransfer = $this->cartClient->changeItemQuantity($sku, $groupKey, $quantity);
+        $bundledItemsToChange = $this->getBundledItems($sku, $quantity);
+
+        if (count($bundledItemsToChange) > 0) {
+
+            $bundledProductTotalQuantity = $this->getBundledProductTotalQuantity($sku);
+
+            if ($bundledProductTotalQuantity > $quantity) {
+                $quoteTransfer = $this->cartClient->removeItems($bundledItemsToChange);
+            } else {
+
+                $delta = abs($bundledProductTotalQuantity - $quantity);
+
+                $itemTransfer = new ItemTransfer();
+                $itemTransfer->setSku($sku);
+                $itemTransfer->setGroupKey($groupKey);
+                $itemTransfer->setQuantity($delta);
+
+                $quoteTransfer = $this->cartClient->addItem($itemTransfer);
+            }
+
+        } else {
+            $quoteTransfer = $this->cartClient->changeItemQuantity($sku, $groupKey, $quantity);
+        }
+
         $this->updateNumberOfItemsInCart($quoteTransfer);
         $this->cartClient->storeQuote($quoteTransfer);
     }
@@ -176,6 +185,61 @@ class CartOperationHandler extends BaseHandler
 
         return $numberOfItems;
 
+    }
+
+    /**
+     * @param string $sku
+     * @param int $numberOfBundlesToRemove
+     *
+     * @return \ArrayObject
+     */
+    protected function getBundledItems($sku, $numberOfBundlesToRemove = 0)
+    {
+        if (!$numberOfBundlesToRemove) {
+            $numberOfBundlesToRemove = $this->getBundledProductTotalQuantity($sku);
+        }
+
+        $quoteTransfer = $this->cartClient->getQuote();
+        $bundledItems = new \ArrayObject();
+        foreach ($quoteTransfer->getBundleProducts() as $bundleItemTransfer) {
+            if ($numberOfBundlesToRemove == 0) {
+                return $bundledItems;
+            }
+
+            if ($bundleItemTransfer->getSku() != $sku) {
+                continue;
+            }
+
+            foreach ($quoteTransfer->getItems() as $itemTransfer) {
+                if ($itemTransfer->getRelatedBundleItemIdentifier() !== $bundleItemTransfer->getBundleItemIdentifier()) {
+                    continue;
+                }
+                $bundledItems->append($itemTransfer);
+            }
+            $numberOfBundlesToRemove--;
+        }
+
+        return $bundledItems;
+    }
+
+    /**
+     * @param string $sku
+     *
+     * @return int
+     */
+    protected function getBundledProductTotalQuantity($sku)
+    {
+        $quoteTransfer = $this->cartClient->getQuote();
+
+        $bundleItemQuantity = 0;
+        foreach ($quoteTransfer->getBundleProducts() as $bundleItemTransfer) {
+            if ($bundleItemTransfer->getSku() != $sku) {
+                continue;
+            }
+            $bundleItemQuantity += $bundleItemTransfer->getQuantity();
+        }
+
+        return $bundleItemQuantity;
     }
 
 }

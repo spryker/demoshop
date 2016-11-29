@@ -9,6 +9,16 @@
                             {{ cartItem.name }} - <strong>{{ cartItem.unitGrossPriceWithProductOptions | money }}</strong>
                         </li>
                         <li class="__secondary">{{ 'product.attribute.sku' | trans }} {{cartItem.sku}}</li>
+
+                        {% if bundleItems is defined %}
+                            <br />
+                            <li>{{ 'This bundle contains the following items (these items may ship separately):' | trans }}</li>
+
+                            {% for bundleItem in bundleItems %}
+                                <li> - {{ bundleItem.quantity }} x {{ bundleItem.name }}  </li>
+                            {% endfor %}
+                        {% endif %}
+
                         {% if cartItem.productOptions|length > 0 %}
                             <li>{{ 'product.product_options' | trans }}</li>
                             {% for productOption in cartItem.productOptions %}
