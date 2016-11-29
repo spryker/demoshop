@@ -45,6 +45,7 @@
     "zendframework/zend-filter": "~2.5.1",
     "zendframework/zend-http": "~2.5.3",
     "zendframework/zend-servicemanager": "~2.7.4",
+    "ext-bcmath": "*",
     "ext-curl": "*",
     "ext-gd": "*",
     "ext-gmp": "*",
@@ -52,11 +53,9 @@
     "ext-json": "*",
     "ext-mcrypt": "*",
     "ext-pdo_pgsql": "*",
-    "ext-pdo_sqlite": "*",
     "ext-pgsql": "*",
     "ext-readline": "*",
-    "ext-redis": "*",
-    "ext-sqlite3": "*"
+    "ext-redis": "*"
   },
   "require-dev": {
     "codeception/codeception": "~2.1.10",
