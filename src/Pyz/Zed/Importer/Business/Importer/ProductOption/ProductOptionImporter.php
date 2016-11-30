@@ -9,7 +9,6 @@ namespace Pyz\Zed\Importer\Business\Importer\ProductOption;
 
 use Generated\Shared\Transfer\ProductOptionGroupTransfer;
 use Generated\Shared\Transfer\ProductOptionValueTransfer;
-use Orm\Zed\ProductOption\Persistence\Map\SpyProductOptionValueTableMap;
 use Orm\Zed\ProductOption\Persistence\SpyProductOptionGroupQuery;
 use Orm\Zed\ProductOption\Persistence\SpyProductOptionValueQuery;
 use Orm\Zed\Tax\Persistence\SpyTaxSetQuery;
@@ -71,7 +70,6 @@ class ProductOptionImporter extends AbstractImporter
     /**
      * @param array $data
      *
-     * @throws \Exception
      * @return void
      */
     protected function importOne(array $data)
