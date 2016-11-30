@@ -104,7 +104,19 @@
     "spryker/url": "^2.0.0",
     "spryker/user": "^2.0.0",
     "spryker/zed-request": "^2.0.0",
-    "spryker/zend": "^2.0.0"
+    "spryker/zend": "^2.0.0",
+    "php": ">=5.6.0",
+    "ext-bcmath": "*",
+    "ext-curl": "*",
+    "ext-gd": "*",
+    "ext-gmp": "*",
+    "ext-intl": "*",
+    "ext-json": "*",
+    "ext-mcrypt": "*",
+    "ext-pdo_pgsql": "*",
+    "ext-pgsql": "*",
+    "ext-readline": "*",
+    "ext-redis": "*"
   },
   "require-dev": {
     "codeception/codeception": "~2.1.11",
