@@ -4656,11 +4656,11 @@
         },
         {
             "name": "spryker/dummy-payment",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/DummyPayment.git",
-                "reference": "542dcb9b152a33245a144b092bdcc1be9fa8af73",
+                "reference": "8cebadd093d01f5ed3efdf55a2b52327aaf88deb",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4670,8 +4670,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/DummyPayment/zipball/542dcb9b152a33245a144b092bdcc1be9fa8af73",
-                "reference": "542dcb9b152a33245a144b092bdcc1be9fa8af73",
+                "url": "https://api.github.com/repos/spryker/DummyPayment/zipball/8cebadd093d01f5ed3efdf55a2b52327aaf88deb",
+                "reference": "8cebadd093d01f5ed3efdf55a2b52327aaf88deb",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4683,7 +4683,6 @@
             "require": {
                 "spryker/checkout": "^2.1.0",
                 "spryker/kernel": "^2.4.3",
-                "spryker/money": "^1.0.0",
                 "spryker/oms": "^2.0.0 || ^3.0.0 || ^4.0.0",
                 "spryker/payment": "^2.0.0",
                 "spryker/refund": "^3.0.0",
@@ -4728,7 +4727,7 @@
             "support": {
                 "source": "https://github.com/spryker/DummyPayment/tree/master"
             },
-            "time": "2016-11-22 10:48:20"
+            "time": "2016-11-25 14:30:06"
         },
         {
             "name": "spryker/elastica",
@@ -12751,16 +12750,16 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.6.8",
+            "version": "0.6.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "400229e293bcaf22a14ebd1e69f5e65da661ea7e"
+                "reference": "9047b262f65869054032f54c1f3e7a107068e333"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/400229e293bcaf22a14ebd1e69f5e65da661ea7e",
-                "reference": "400229e293bcaf22a14ebd1e69f5e65da661ea7e",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/9047b262f65869054032f54c1f3e7a107068e333",
+                "reference": "9047b262f65869054032f54c1f3e7a107068e333",
                 "shasum": ""
             },
             "require": {
@@ -12794,7 +12793,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-11-15 13:10:10"
+            "time": "2016-11-30 09:15:23"
         },
         {
             "name": "squizlabs/php_codesniffer",
