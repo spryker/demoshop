@@ -156,6 +156,11 @@
     }
   ],
   "scripts": {
+    "compile": [
+      "mkdir -p ./data/DE/logs",
+      "echo '<?php return \"development-heroku\";' > config/Shared/console_env_local.php",
+      "./deploy/heroku/run.sh"
+    ],
     "post-install-cmd": [
       "PhantomInstaller\\Installer::installPhantomJS"
     ],
