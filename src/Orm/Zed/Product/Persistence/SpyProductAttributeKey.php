@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Product\Persistence;
 
-use Orm\Zed\Product\Persistence\Base\SpyProductAttributeKey as BaseSpyProductAttributeKey;
+use Spryker\Zed\Product\Persistence\Propel\AbstractSpyProductAttributeKey as BaseSpyProductAttributeKey;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_product_attribute_key' table.
