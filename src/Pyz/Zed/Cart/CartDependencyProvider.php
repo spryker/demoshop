@@ -6,7 +6,6 @@
 
 namespace Pyz\Zed\Cart;
 
-use Spryker\Zed\AvailabilityCartConnector\Communication\Plugin\CheckAvailabilityPlugin;
 use Spryker\Zed\Cart\CartDependencyProvider as SprykerCartDependencyProvider;
 use Spryker\Zed\Cart\Communication\Plugin\SkuGroupKeyPlugin;
 use Spryker\Zed\Kernel\Container;
@@ -33,8 +32,8 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
         return [
             new ProductCartPlugin(),
             new CartItemPricePlugin(),
-            new ExpandBundleItemsPlugin(),
             new CartItemProductOptionPlugin(),
+            new ExpandBundleItemsPlugin(),
             new SkuGroupKeyPlugin(),
             new CartItemGroupKeyOptionPlugin(),
             new CartItemWithBundleGroupKeyExpanderPlugin(),
