@@ -44,7 +44,18 @@
     "zendframework/zend-eventmanager": "~2.6.2",
     "zendframework/zend-filter": "~2.5.1",
     "zendframework/zend-http": "~2.5.3",
-    "zendframework/zend-servicemanager": "~2.7.4"
+    "zendframework/zend-servicemanager": "~2.7.4",
+    "ext-bcmath": "*",
+    "ext-curl": "*",
+    "ext-gd": "*",
+    "ext-gmp": "*",
+    "ext-intl": "*",
+    "ext-json": "*",
+    "ext-mcrypt": "*",
+    "ext-pdo_pgsql": "*",
+    "ext-pgsql": "*",
+    "ext-readline": "*",
+    "ext-redis": "*"
   },
   "require-dev": {
     "codeception/codeception": "~2.1.10",
@@ -90,6 +101,11 @@
     }
   ],
   "scripts": {
+    "compile": [
+      "mkdir -p ./data/DE/logs",
+      "echo '<?php return \"development-heroku\";' > config/Shared/console_env_local.php",
+      "./deploy/heroku/run.sh"
+    ],
     "post-install-cmd": [
       "PhantomInstaller\\Installer::installPhantomJS"
     ],
