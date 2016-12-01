@@ -111,17 +111,16 @@ class CartOperationHandler extends BaseHandler
      */
     public function changeQuantity($sku, $quantity, $groupKey = null)
     {
-        $bundledItemsToChange = $this->getBundledItems($sku, $quantity);
+        $bundledProductTotalQuantity = $this->getBundledProductTotalQuantity($sku);
 
-        if (count($bundledItemsToChange) > 0) {
+        if ($bundledProductTotalQuantity > 0) {
 
-            $bundledProductTotalQuantity = $this->getBundledProductTotalQuantity($sku);
+            $delta = abs($bundledProductTotalQuantity - $quantity);
 
             if ($bundledProductTotalQuantity > $quantity) {
+                $bundledItemsToChange = $this->getBundledItems($sku, $delta);
                 $quoteTransfer = $this->cartClient->removeItems($bundledItemsToChange);
             } else {
-
-                $delta = abs($bundledProductTotalQuantity - $quantity);
 
                 $itemTransfer = new ItemTransfer();
                 $itemTransfer->setSku($sku);
@@ -175,7 +174,7 @@ class CartOperationHandler extends BaseHandler
      */
     protected function getNumberOfItemsInCart(QuoteTransfer $quoteTransfer)
     {
-        $numberOfItems = $quoteTransfer->getBundleProducts()->count();
+        $numberOfItems = $quoteTransfer->getBundleItems()->count();
         foreach ($quoteTransfer->getItems() as $itemTransfer) {
             if ($itemTransfer->getRelatedBundleItemIdentifier()) {
                 continue;
@@ -201,7 +200,7 @@ class CartOperationHandler extends BaseHandler
 
         $quoteTransfer = $this->cartClient->getQuote();
         $bundledItems = new \ArrayObject();
-        foreach ($quoteTransfer->getBundleProducts() as $bundleItemTransfer) {
+        foreach ($quoteTransfer->getBundleItems() as $bundleItemTransfer) {
             if ($numberOfBundlesToRemove == 0) {
                 return $bundledItems;
             }
@@ -232,7 +231,7 @@ class CartOperationHandler extends BaseHandler
         $quoteTransfer = $this->cartClient->getQuote();
 
         $bundleItemQuantity = 0;
-        foreach ($quoteTransfer->getBundleProducts() as $bundleItemTransfer) {
+        foreach ($quoteTransfer->getBundleItems() as $bundleItemTransfer) {
             if ($bundleItemTransfer->getSku() != $sku) {
                 continue;
             }

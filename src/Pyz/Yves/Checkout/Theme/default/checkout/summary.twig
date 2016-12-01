@@ -43,14 +43,12 @@
         <div class="small-12 medium-6 columns">
             <div class="callout">
                 <ul class="no-bullet">
-                    {% for item in quoteTransfer.items %}
-                        {% if item.relatedBundleItemIdentifier is empty %}
+                    {% for item in cartItems %}
+                        {% if item.bundleProduct is defined %}
+                            {% include '@checkout/checkout/partials/summary-item.twig' with {'item': item.bundleProduct, 'bundleItems' : item.bundleItems} %}
+                        {% else %}
                             {% include '@checkout/checkout/partials/summary-item.twig' %}
                         {% endif %}
-                    {% endfor %}
-
-                    {% for item in quoteTransfer.bundleProducts %}
-                        {% include '@checkout/checkout/partials/summary-item.twig' %}
                     {% endfor %}
 
                 </ul>

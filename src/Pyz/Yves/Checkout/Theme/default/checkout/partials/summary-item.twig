@@ -3,6 +3,16 @@
     <span class="__secondary">&times;</span>
     {{ item.name }} - <strong>{{ item.sumGrossPrice | money }}</strong>
 
+    {% if bundleItems is defined %}
+        <br />
+        <li>{{ 'This bundle contains the following items (these items may ship separately):' | trans }}</li>
+
+        {% for bundleItem in bundleItems %}
+            <li> - {{ bundleItem.quantity }} x {{ bundleItem.name }}  </li>
+        {% endfor %}
+    {% endif %}
+
+
     {% if item.productOptions|length > 0 %}
         <br />
         <small>{{ 'product.product_options' | trans }} </small> <br />

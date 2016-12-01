@@ -8,6 +8,7 @@
 namespace Pyz\Yves\Checkout\Process;
 
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
+use Pyz\Yves\Cart\Grouper\CartItemGouper;
 use Pyz\Yves\Checkout\CheckoutDependencyProvider;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Pyz\Yves\Checkout\Process\Steps\AddressStep;
@@ -97,6 +98,14 @@ class StepFactory extends SprykerStepFactory
     }
 
     /**
+     * @return \Pyz\Yves\Cart\Grouper\CartItemGouper
+     */
+    public function createCartItemGroupper()
+    {
+        return new CartItemGouper();
+    }
+
+    /**
      * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection
      */
     public function createShipmentPlugins()
@@ -124,6 +133,7 @@ class StepFactory extends SprykerStepFactory
     {
         return new SummaryStep(
             $this->getCalculationClient(),
+            $this->createCartItemGroupper(),
             CheckoutControllerProvider::CHECKOUT_SUMMARY,
             ApplicationControllerProvider::ROUTE_HOME
         );

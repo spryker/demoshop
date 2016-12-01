@@ -8,6 +8,7 @@
 namespace Pyz\Yves\Cart;
 
 use Pyz\Yves\Cart\Form\VoucherForm;
+use Pyz\Yves\Cart\Grouper\CartItemGouper;
 use Pyz\Yves\Cart\Handler\CartOperationHandler;
 use Pyz\Yves\Cart\Handler\CartVoucherHandler;
 use Spryker\Shared\Application\ApplicationConstants;
@@ -88,6 +89,14 @@ class CartFactory extends AbstractFactory
     protected function createVoucherFormType()
     {
         return new VoucherForm();
+    }
+
+    /**
+     * @return \Pyz\Yves\Cart\Grouper\CartItemGouper
+     */
+    public function createCartItemGrouper()
+    {
+        return new CartItemGouper();
     }
 
 }
