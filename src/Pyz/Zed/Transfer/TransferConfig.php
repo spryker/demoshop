@@ -13,13 +13,13 @@ class TransferConfig extends SprykerTransferConfig
 {
 
     /**
-     * @return array
+     * @return string[]
      */
-    public function getSourceDirectories()
+    protected function getAdditionalSourceDirectoryGlobPatterns()
     {
-        $directories = parent::getSourceDirectories();
+        $directoryGlobPatterns = [];
 
-        return $directories;
+        return $directoryGlobPatterns;
     }
 
 }
