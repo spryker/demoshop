@@ -11,15 +11,4 @@ use Spryker\Zed\Transfer\TransferConfig as SprykerTransferConfig;
 
 class TransferConfig extends SprykerTransferConfig
 {
-
-    /**
-     * @return string[]
-     */
-    protected function getAdditionalSourceDirectoryGlobPatterns()
-    {
-        $directoryGlobPatterns = [];
-
-        return $directoryGlobPatterns;
-    }
-
 }

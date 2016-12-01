@@ -6662,11 +6662,11 @@
         },
         {
             "name": "spryker/price",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Price.git",
-                "reference": "9335a021d2648f1a652d63662a65698995ca560b",
+                "reference": "11a18b432765abcf1d30fe6fe2dabdd3bc03c825",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6676,8 +6676,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Price/zipball/9335a021d2648f1a652d63662a65698995ca560b",
-                "reference": "9335a021d2648f1a652d63662a65698995ca560b",
+                "url": "https://api.github.com/repos/spryker/Price/zipball/11a18b432765abcf1d30fe6fe2dabdd3bc03c825",
+                "reference": "11a18b432765abcf1d30fe6fe2dabdd3bc03c825",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6728,7 +6728,7 @@
             "support": {
                 "source": "https://github.com/spryker/Price/tree/master"
             },
-            "time": "2016-11-30 09:40:59"
+            "time": "2016-12-01 15:01:20"
         },
         {
             "name": "spryker/price-cart-connector",
@@ -8139,11 +8139,11 @@
         },
         {
             "name": "spryker/setup",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Setup.git",
-                "reference": "cfd9b47cb3960e4b8fba3f3559bcc2fa2ce042da",
+                "reference": "e6b11f2dd46d7fb3ef2d5d1cd1cc9e0e20366fbf",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8153,8 +8153,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Setup/zipball/cfd9b47cb3960e4b8fba3f3559bcc2fa2ce042da",
-                "reference": "cfd9b47cb3960e4b8fba3f3559bcc2fa2ce042da",
+                "url": "https://api.github.com/repos/spryker/Setup/zipball/e6b11f2dd46d7fb3ef2d5d1cd1cc9e0e20366fbf",
+                "reference": "e6b11f2dd46d7fb3ef2d5d1cd1cc9e0e20366fbf",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8206,7 +8206,7 @@
             "support": {
                 "source": "https://github.com/spryker/Setup/tree/master"
             },
-            "time": "2016-11-28 13:28:47"
+            "time": "2016-11-30 17:11:08"
         },
         {
             "name": "spryker/shipment",
@@ -8637,11 +8637,11 @@
         },
         {
             "name": "spryker/storage",
-            "version": "2.2.1",
+            "version": "2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Storage.git",
-                "reference": "92844ab2f927c5734036910fe3c2c4a32eb4170e",
+                "reference": "d1a82fc885ca72731036be767a60bc778295552c",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8651,8 +8651,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Storage/zipball/92844ab2f927c5734036910fe3c2c4a32eb4170e",
-                "reference": "92844ab2f927c5734036910fe3c2c4a32eb4170e",
+                "url": "https://api.github.com/repos/spryker/Storage/zipball/d1a82fc885ca72731036be767a60bc778295552c",
+                "reference": "d1a82fc885ca72731036be767a60bc778295552c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8703,7 +8703,7 @@
             "support": {
                 "source": "https://github.com/spryker/Storage/tree/master"
             },
-            "time": "2016-11-28 13:28:47"
+            "time": "2016-12-01 10:29:35"
         },
         {
             "name": "spryker/symfony",
@@ -9047,11 +9047,11 @@
         },
         {
             "name": "spryker/transfer",
-            "version": "2.2.3",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Transfer.git",
-                "reference": "bae8d488fa8332f3e4e5fc2e570583f1dc6da0c4",
+                "reference": "6cb58049e5ecff5b074f89a61a8d12c5270fcd68",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -9061,8 +9061,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Transfer/zipball/bae8d488fa8332f3e4e5fc2e570583f1dc6da0c4",
-                "reference": "bae8d488fa8332f3e4e5fc2e570583f1dc6da0c4",
+                "url": "https://api.github.com/repos/spryker/Transfer/zipball/6cb58049e5ecff5b074f89a61a8d12c5270fcd68",
+                "reference": "6cb58049e5ecff5b074f89a61a8d12c5270fcd68",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -9117,7 +9117,7 @@
             "support": {
                 "source": "https://github.com/spryker/Transfer/tree/master"
             },
-            "time": "2016-11-14 07:37:23"
+            "time": "2016-12-01 08:41:36"
         },
         {
             "name": "spryker/twig",
