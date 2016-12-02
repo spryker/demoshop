@@ -9,6 +9,7 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Pyz\Yves\Cart\Grouper\CartItemGouperInterface;
 use Spryker\Client\Calculation\CalculationClientInterface;
+use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Transfer\AbstractTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -26,14 +27,21 @@ class SummaryStep extends AbstractBaseStep
     protected $cartItemGouper;
 
     /**
+     * @var \Spryker\Client\Cart\CartClientInterface
+     */
+    protected $cartClient;
+
+    /**
      * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
      * @param \Pyz\Yves\Cart\Grouper\CartItemGouperInterface $cartItemGouper
+     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $stepRoute
      * @param string $escapeRoute
      */
     public function __construct(
         CalculationClientInterface $calculationClient,
         CartItemGouperInterface $cartItemGouper,
+        CartClientInterface $cartClient,
         $stepRoute,
         $escapeRoute
     ) {
@@ -41,6 +49,7 @@ class SummaryStep extends AbstractBaseStep
 
         $this->calculationClient = $calculationClient;
         $this->cartItemGouper = $cartItemGouper;
+        $this->cartClient = $cartClient;
     }
 
     /**
@@ -92,6 +101,7 @@ class SummaryStep extends AbstractBaseStep
         return [
             'quoteTransfer' => $quoteTransfer,
             'cartItems' => $this->cartItemGouper->groupCartItems($quoteTransfer),
+            'numberOfItems' => $this->cartClient->getItemCount(),
         ];
     }
 

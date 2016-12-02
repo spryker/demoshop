@@ -134,6 +134,7 @@ class StepFactory extends SprykerStepFactory
         return new SummaryStep(
             $this->getCalculationClient(),
             $this->createCartItemGroupper(),
+            $this->getCartClient(),
             CheckoutControllerProvider::CHECKOUT_SUMMARY,
             ApplicationControllerProvider::ROUTE_HOME
         );
@@ -162,6 +163,7 @@ class StepFactory extends SprykerStepFactory
     {
         return new SuccessStep(
             $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER),
+            $this->getCartClient(),
             CheckoutControllerProvider::CHECKOUT_SUCCESS,
             ApplicationControllerProvider::ROUTE_HOME
         );
@@ -213,6 +215,14 @@ class StepFactory extends SprykerStepFactory
     public function getCheckoutClient()
     {
         return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CHECKOUT);
+    }
+
+    /**
+     * @return \Spryker\Client\Cart\CartClientInterface
+     */
+    public function getCartClient()
+    {
+        return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CART);
     }
 
 }

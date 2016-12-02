@@ -13,6 +13,7 @@ use Spryker\Zed\Oms\Communication\Plugin\Oms\Command\SendOrderConfirmationPlugin
 use Spryker\Zed\Oms\Communication\Plugin\Oms\Command\SendOrderShippedPlugin;
 use Spryker\Zed\Oms\Dependency\Plugin\Command\CommandCollectionInterface;
 use Spryker\Zed\Oms\OmsDependencyProvider as SprykerOmsDependencyProvider;
+use Spryker\Zed\ProductBundle\Communication\Plugin\Availability\ProductBundleAvailabilityHandlerPlugin;
 
 class OmsDependencyProvider extends SprykerOmsDependencyProvider
 {
@@ -43,7 +44,8 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
     protected function getReservationHandlerPlugins(Container $container)
     {
         return [
-            new AvailabilityHandlerPlugin()
+            new AvailabilityHandlerPlugin(),
+            new ProductBundleAvailabilityHandlerPlugin(),
         ];
     }
 
