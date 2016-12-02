@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<statemachine
+    xmlns="spryker:oms-01"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="spryker:oms-01 http://static.spryker.com/oms-01.xsd">
+
+    <process name="Demo01" main="true">
+
+        <states>
+            <state name="new"/>
+            <state name="paid"/>
+            <state name="shipped"/>
+            <state name="closed"/>
+            <state name="returned"/>
+            <state name="invalid"/>
+        </states>
+
+        <transitions>
+            <transition>
+                <source>new</source>
+                <target>paid</target>
+                <event>pay</event>
+            </transition>
+
+            <transition condition="Demo/IsPaymentAuthorized">
+                <source>paid</source>
+                <target>shipped</target>
+                <event>ship</event>
+            </transition>
+
+            <transition>
+                <source>paid</source>
+                <target>invalid</target>
+                <event>ship</event>
+            </transition>
+
+            <transition>
+                <source>shipped</source>
+                <target>closed</target>
+                <event>close</event>
+            </transition>
+
+            <transition>
+                <source>shipped</source>
+                <target>returned</target>
+                <event>return</event>
+            </transition>
+
+            <transition>
+                <source>returned</source>
+                <target>closed</target>
+                <event>close after return</event>
+            </transition>
+        </transitions>
+
+        <events>
+            <event name="pay" onEnter="true" command="Demo/Pay"/>
+            <event name="ship" manual="true" command="Demo/Ship"/>
+            <event name="return" manual="true" command="Demo/Return"/>
+            <event name="close" timeout="14days" command="Demo/Close"/>
+            <event name="close after return" onEnter="true" command="Demo/Close"/>
+        </events>
+
+    </process>
+
+</statemachine>
