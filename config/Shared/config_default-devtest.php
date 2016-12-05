@@ -9,6 +9,9 @@ use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Storage\StorageConstants;
+use Spryker\Shared\Testify\TestifyConstants;
+use Pyz\Yves\Application\YvesBootstrap;
+use Pyz\Zed\Application\Communication\ZedBootstrap;
 
 $config[SessionConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
 $config[SessionConstants::ZED_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
@@ -42,3 +45,6 @@ $config[ApplicationConstants::JENKINS_DIRECTORY] = '/data/shop/development/share
 $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
 
 $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '_devtest';
+
+$config[TestifyConstants::BOOTSTRAP_CLASS_YVES] = YvesBootstrap::class;
+$config[TestifyConstants::BOOTSTRAP_CLASS_ZED] = ZedBootstrap::class;
