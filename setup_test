@@ -4,10 +4,6 @@ set -o pipefail
 
 .  deploy/setup/params.sh
 
-ELASTIC_SEARCH_INDEX='de_search_devtest'
-DATABASE_NAME='DE_devtest_zed'
-DATABASE_USER='devtest'
-
 export APPLICATION_ENV='devtest'
 
 . deploy/setup/functions.sh
