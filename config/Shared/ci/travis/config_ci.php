@@ -35,7 +35,7 @@ $config[ApplicationConstants::ELASTICA_PARAMETER__PORT]
     = $config[SearchConstants::ELASTICA_PARAMETER__PORT]
     = '9200';
 
-$yvesHost = 'www.de.spryker.dev';
+$yvesHost = 'www.de.spryker.test';
 $config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
 $config[ApplicationConstants::HOST_YVES] = 'http://' . $yvesHost;
 $config[ApplicationConstants::HOST_STATIC_ASSETS] = $config[ApplicationConstants::HOST_STATIC_MEDIA] = $yvesHost;
@@ -43,7 +43,7 @@ $config[ApplicationConstants::HOST_STATIC_ASSETS] = $config[ApplicationConstants
 $config[ApplicationConstants::HOST_SSL_YVES] = 'https://' . $yvesHost;
 $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS] = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA] = $yvesHost;
 
-$zedHost = 'zed.de.spryker.dev:80';
+$zedHost = 'zed.de.spryker.test:80';
 $config[ApplicationConstants::HOST_ZED_GUI]
     = 'http://' . $zedHost;
 $config[ApplicationConstants::HOST_ZED_API] = $zedHost;
