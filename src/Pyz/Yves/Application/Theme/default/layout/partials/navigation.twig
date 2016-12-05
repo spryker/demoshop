@@ -7,6 +7,7 @@
         </div>
         <div class="large-4 columns show-for-large">
             <ul class="menu align-right">
+                {% include '@application/layout/partials/language-navigation.twig' %}
                 {% if app['cart.quantity'] > 0 %}
                     <li><span class="warning badge float-left">{{ app['cart.quantity'] }}</span></li>
                 {% endif %}

@@ -7,18 +7,24 @@
 
 namespace Pyz\Zed\Collector;
 
+use Pyz\Zed\Collector\Communication\Plugin\AttributeMapCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\AvailabilityCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\BlockCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\CategoryNodeCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\NavigationCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\PageCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\ProductAbstractCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\ProductCollectorSearchPlugin;
-use Pyz\Zed\Collector\Communication\Plugin\ProductCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\ProductConcreteCollectorPlugin;
+use Pyz\Zed\Collector\Communication\Plugin\ProductOptionCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\RedirectCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\TranslationCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\UrlCollectorStoragePlugin;
 use Pyz\Zed\ProductSearch\Communication\Plugin\ProductDataPageMapPlugin;
+use Spryker\Shared\ProductSearch\ProductSearchConfig;
 use Spryker\Zed\Collector\CollectorDependencyProvider as SprykerCollectorDependencyProvider;
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\ProductSearch\Communication\Plugin\ProductSearchConfigExtensionCollectorPlugin;
 
 class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 {
@@ -27,6 +33,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
     const FACADE_PRICE = 'price facade';
     const FACADE_SEARCH = 'search facade';
     const FACADE_PRODUCT_SEARCH = 'product search facade';
+    const FACADE_PRODUCT = 'FACADE_PRODUCT';
     const FACADE_PRODUCT_OPTION_EXPORTER = 'product option exporter facade';
 
     const QUERY_CONTAINER_PRICE = 'price query container';
@@ -69,12 +76,12 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
             return $container->getLocator()->search()->facade();
         };
 
-        $container[self::QUERY_CONTAINER_PRODUCT_IMAGE] = function (Container $container) {
-            return $container->getLocator()->productImage()->queryContainer();
+        $container[self::FACADE_PRODUCT] = function (Container $container) {
+            return $container->getLocator()->product()->facade();
         };
 
-        $container[self::FACADE_PRODUCT_OPTION_EXPORTER] = function (Container $container) {
-            return $container->getLocator()->productOptionExporter()->facade();
+        $container[self::QUERY_CONTAINER_PRODUCT_IMAGE] = function (Container $container) {
+            return $container->getLocator()->productImage()->queryContainer();
         };
 
         $container[self::SEARCH_PLUGINS] = function (Container $container) {
@@ -85,7 +92,10 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[self::STORAGE_PLUGINS] = function (Container $container) {
             return [
-                'product_abstract' => new ProductCollectorStoragePlugin(),
+                'product_abstract' => new ProductAbstractCollectorStoragePlugin(),
+                'product_concrete' => new ProductConcreteCollectorPlugin(),
+                'attribute_map' => new AttributeMapCollectorStoragePlugin(),
+                'availability_abstract' => new AvailabilityCollectorStoragePlugin(),
                 'categorynode' => new CategoryNodeCollectorStoragePlugin(),
                 'navigation' => new NavigationCollectorStoragePlugin(),
                 'translation' => new TranslationCollectorStoragePlugin(),
@@ -93,6 +103,8 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 'block' => new BlockCollectorStoragePlugin(),
                 'redirect' => new RedirectCollectorStoragePlugin(),
                 'url' => new UrlCollectorStoragePlugin(),
+                ProductSearchConfig::RESOURCE_TYPE_PRODUCT_SEARCH_CONFIG_EXTENSION => new ProductSearchConfigExtensionCollectorPlugin(),
+                'product_option' => new ProductOptionCollectorStoragePlugin(),
             ];
         };
 

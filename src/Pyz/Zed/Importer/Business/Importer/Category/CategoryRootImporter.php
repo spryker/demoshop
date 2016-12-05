@@ -7,12 +7,38 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\Category;
 
+use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
 use Orm\Zed\Category\Persistence\SpyCategoryNodeQuery;
+use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Spryker\Shared\Category\CategoryConstants;
+use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
+use Spryker\Zed\Touch\Business\TouchFacadeInterface;
 
-class CategoryRootImporter extends CategoryImporter
+class CategoryRootImporter extends AbstractCategoryImporter
 {
+
+    /**
+     * @var \Spryker\Zed\Touch\Business\TouchFacadeInterface
+     */
+    protected $touchFacade;
+
+    /**
+     * CategoryRootImporter constructor.
+     *
+     * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
+     * @param \Pyz\Zed\Category\Business\CategoryFacadeInterface $categoryFacade
+     * @param \Spryker\Zed\Touch\Business\TouchFacadeInterface $touchFacade
+     */
+    public function __construct(
+        LocaleFacadeInterface $localeFacade,
+        CategoryFacadeInterface $categoryFacade,
+        TouchFacadeInterface $touchFacade
+    ) {
+        parent::__construct($localeFacade, $categoryFacade);
+
+        $this->touchFacade = $touchFacade;
+    }
 
     /**
      * @return string
@@ -41,27 +67,37 @@ class CategoryRootImporter extends CategoryImporter
      */
     protected function importOne(array $data)
     {
-        $root = $this->format($data);
-        $this->importRootCategory($root);
+        $categoryTransfer = $this->format($data);
+        $this->importRootCategory($categoryTransfer);
     }
 
     /**
      * @param array $data
      *
+     * @return \Generated\Shared\Transfer\CategoryTransfer
+     */
+    protected function format(array $data)
+    {
+        $categoryTransfer = parent::format($data);
+
+        $categoryNodeTransfer = $categoryTransfer->getCategoryNode();
+        $categoryNodeTransfer->setIsRoot(true);
+        $categoryNodeTransfer->setIsMain(true);
+        $categoryTransfer->setCategoryNode($categoryNodeTransfer);
+
+        return $categoryTransfer;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\CategoryTransfer $categoryTransfer
+     *
      * @return void
      */
-    protected function importRootCategory(array $data)
+    protected function importRootCategory(CategoryTransfer $categoryTransfer)
     {
-        $idCategory = $this->createCategory($data);
+        $this->categoryFacade->create($categoryTransfer);
 
-        $rootNodeTransfer = new NodeTransfer();
-        $rootNodeTransfer->setIsRoot(true);
-        $rootNodeTransfer->setIsMain(true);
-        $rootNodeTransfer->setFkCategory($idCategory);
-
-        $this->createCategoryNodeWithUrls($rootNodeTransfer);
-
-        $this->touchRootNavigation($rootNodeTransfer);
+        $this->touchRootNavigation($categoryTransfer->getCategoryNode());
     }
 
     /**
@@ -75,7 +111,10 @@ class CategoryRootImporter extends CategoryImporter
             return;
         }
 
-        $this->touchFacade->touchActive(CategoryConstants::RESOURCE_TYPE_NAVIGATION, $rootNodeTransfer->getIdCategoryNode());
+        $this->touchFacade->touchActive(
+            CategoryConstants::RESOURCE_TYPE_NAVIGATION,
+            $rootNodeTransfer->getIdCategoryNode()
+        );
     }
 
 }

@@ -1,9 +1,11 @@
 <?php
 
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 
 
@@ -41,7 +43,10 @@ $config[MailConstants::MAILCATCHER_GUI] = 'http://' . $config[ApplicationConstan
 $config[ApplicationConstants::YVES_TRUSTED_HOSTS] = [];
 
 /* Elasticsearch */
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_search';
+$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME]
+    = $config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME]
+    = $config[SearchConstants::ELASTICA_PARAMETER__INDEX_NAME]
+    = 'de_search';
 
 /* RabbitMQ */
 $config[ApplicationConstants::ZED_RABBITMQ_HOST] = 'localhost';

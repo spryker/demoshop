@@ -1,4 +1,4 @@
-<table class="stack">
+<table>
     <thead>
         <tr>
             <th class="text-left">{{ 'customer.order.item_sku' | trans }}</th>
@@ -27,6 +27,25 @@
                 {{ orderItem.sumGrossPriceWithProductOptions | price }}
             </td>
         </tr>
+
+        {% if orderItem.productOptions|length > 0 %}
+            {% for productOption in orderItem.productOptions %}
+            <tr>
+                <td class="text-left">
+                    &nbsp; + <small>{{ productOption.sku }}</small>
+                </td>
+                <td class="text-left">
+                    <small>{{ productOption.value | trans }}</small>
+                </td>
+                <td class="text-right">
+                    <small>{{ productOption.unitGrossPrice | price }}</small>
+                </td>
+                <td class="text-right" colspan="2">
+                    <small>{{ productOption.sumGrossPrice | price }}</small>
+                </td>
+            </tr>
+            {% endfor %}
+        {% endif %}
     {% endfor %}
     </tbody>
 </table>

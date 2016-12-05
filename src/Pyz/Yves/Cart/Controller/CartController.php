@@ -34,14 +34,14 @@ class CartController extends AbstractController
     /**
      * @param string $sku
      * @param int $quantity
-     * @param array $optionValueUsageIds
+     * @param array $optionValueIds
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function addAction($sku, $quantity, $optionValueUsageIds = [])
+    public function addAction($sku, $quantity, $optionValueIds = [])
     {
         $cartOperationHandler = $this->getCartOperationHandler();
-        $cartOperationHandler->add($sku, $quantity, $optionValueUsageIds);
+        $cartOperationHandler->add($sku, $quantity, $optionValueIds);
         $cartOperationHandler->setFlashMessagesFromLastZedRequest($this->getClient());
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);

@@ -13,6 +13,7 @@ use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\AutoloaderCacheServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\FlashMessengerServiceProvider;
+use Pyz\Yves\Application\Plugin\Provider\LanguageServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\SessionServiceProvider as ProviderSessionServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\YvesSecurityServiceProvider;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
@@ -111,6 +112,7 @@ class YvesBootstrap
         $this->application->register(new YvesHstsServiceProvider());
         $this->application->register(new CartServiceProvider());
         $this->application->register(new FormFactoryServiceProvider());
+        $this->application->register(new LanguageServiceProvider());
     }
 
     /**
@@ -128,21 +130,31 @@ class YvesBootstrap
      */
     protected function registerControllerProviders()
     {
-        $ssl = Config::get(ApplicationConstants::YVES_SSL_ENABLED);
+        $isSsl = Config::get(ApplicationConstants::YVES_SSL_ENABLED);
 
-        $controllerProviders = [
-            new ApplicationControllerProvider($ssl),
-            new CheckoutControllerProvider($ssl),
-            new CustomerControllerProvider($ssl),
-            new CartControllerProvider($ssl),
-            new WishlistControllerProvider($ssl),
-            new HeartbeatControllerProvider($ssl),
-            new NewsletterControllerProvider($ssl),
-        ];
+        $controllerProviders = $this->getControllerProviderStack($isSsl);
 
         foreach ($controllerProviders as $controllerProvider) {
             $this->application->mount($controllerProvider->getUrlPrefix(), $controllerProvider);
         }
+    }
+
+    /**
+     * @param bool|null $isSsl
+     *
+     * @return \Pyz\Yves\Application\Plugin\Provider\AbstractYvesControllerProvider[]
+     */
+    protected function getControllerProviderStack($isSsl)
+    {
+        return [
+            new ApplicationControllerProvider($isSsl),
+            new CheckoutControllerProvider($isSsl),
+            new CustomerControllerProvider($isSsl),
+            new CartControllerProvider($isSsl),
+            new WishlistControllerProvider($isSsl),
+            new HeartbeatControllerProvider($isSsl),
+            new NewsletterControllerProvider($isSsl),
+        ];
     }
 
 }

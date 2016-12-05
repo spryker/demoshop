@@ -1,5 +1,4 @@
 <?php
-
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
@@ -8,27 +7,44 @@
 namespace Pyz\Zed\Category;
 
 use Spryker\Zed\Category\CategoryDependencyProvider as SprykerDependencyProvider;
-use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Cms\Communication\Plugin\ReadCmsBlockCategoryRelationPlugin;
+use Spryker\Zed\Cms\Communication\Plugin\RemoveCmsBlockCategoryRelationPlugin;
+use Spryker\Zed\ProductCategory\Communication\Plugin\ReadProductCategoryRelationPlugin;
+use Spryker\Zed\ProductCategory\Communication\Plugin\RemoveProductCategoryRelationPlugin;
 
 class CategoryDependencyProvider extends SprykerDependencyProvider
 {
 
-    const QUERY_CONTAINER_LOCALE = 'locale query container';
+    /**
+     * @return \Spryker\Zed\Category\Dependency\Plugin\CategoryRelationDeletePluginInterface[]
+     */
+    protected function getRelationDeletePluginStack()
+    {
+        $deletePlugins = array_merge(
+            [
+                new RemoveProductCategoryRelationPlugin(),
+                new RemoveCmsBlockCategoryRelationPlugin(),
+            ],
+            parent::getRelationDeletePluginStack()
+        );
+
+        return $deletePlugins;
+    }
 
     /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
+     * @return \Spryker\Zed\Category\Dependency\Plugin\CategoryRelationReadPluginInterface[]
      */
-    public function provideBusinessLayerDependencies(Container $container)
+    protected function getRelationReadPluginStack()
     {
-        $container = parent::provideBusinessLayerDependencies($container);
+        $readPlugins = array_merge(
+            [
+                new ReadProductCategoryRelationPlugin(),
+                new ReadCmsBlockCategoryRelationPlugin(),
+            ],
+            parent::getRelationReadPluginStack()
+        );
 
-        $container[self::QUERY_CONTAINER_LOCALE] = function (Container $container) {
-            return $container->getLocator()->locale()->queryContainer();
-        };
-
-        return $container;
+        return $readPlugins;
     }
 
 }

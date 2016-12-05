@@ -7,13 +7,15 @@
 
 namespace Pyz\Yves\Product;
 
-use Pyz\Yves\Product\Builder\FrontendProductBuilder;
-use Pyz\Yves\Product\Model\ProductAbstract;
+use Pyz\Yves\Product\Mapper\AttributeVariantMapper;
+use Pyz\Yves\Product\Mapper\StorageImageMapper;
+use Pyz\Yves\Product\Mapper\StorageProductCategoryMapper;
+use Pyz\Yves\Product\Mapper\StorageProductMapper;
 use Pyz\Yves\Product\ResourceCreator\ProductResourceCreator;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 /**
- * Class ProductExportFactory
+ * @method \Spryker\Client\Product\ProductClientInterface getClient()
  */
 class ProductFactory extends AbstractFactory
 {
@@ -24,26 +26,58 @@ class ProductFactory extends AbstractFactory
     public function createProductResourceCreator()
     {
         return new ProductResourceCreator(
-            $this->createFrontendProductBuilder()
+            $this->createStorageProductMapper(),
+            $this->createStorageImageMapper(),
+            $this->createStorageProductCategoryMapper()
         );
     }
 
     /**
-     * @return Builder\FrontendProductBuilder
+     * @return \Pyz\Yves\Product\Mapper\StorageProductMapperInterface
      */
-    protected function createFrontendProductBuilder()
+    protected function createStorageProductMapper()
     {
-        return new FrontendProductBuilder(
-            $this->createProductAbstract()
-        );
+        return new StorageProductMapper($this->createAttributeVariantMapper());
     }
 
     /**
-     * @return \Pyz\Yves\Product\Model\ProductAbstract
+     * @return \Pyz\Yves\Product\Mapper\AttributeVariantMapperInterface
      */
-    protected function createProductAbstract()
+    protected function createAttributeVariantMapper()
     {
-        return new ProductAbstract();
+        return new AttributeVariantMapper($this->getClient());
+    }
+
+    /**
+     * @return \Pyz\Yves\Product\Mapper\StorageImageMapperInterface
+     */
+    protected function createStorageImageMapper()
+    {
+        return new StorageImageMapper();
+    }
+
+    /**
+     * @return \Pyz\Yves\Product\Mapper\StorageProductCategoryMapperInterface
+     */
+    protected function createStorageProductCategoryMapper()
+    {
+        return new StorageProductCategoryMapper();
+    }
+
+    /**
+     * @return \Spryker\Client\ProductOption\ProductOptionClientInterface
+     */
+    public function getProductOptionClient()
+    {
+        return $this->getProvidedDependency(ProductDependencyProvider::CLIENT_PRODUCT_OPTION);
+    }
+
+    /**
+     * @return \Spryker\Client\Availability\AvailabilityClient
+     */
+    public function getAvailabilityClient()
+    {
+        return $this->getProvidedDependency(ProductDependencyProvider::CLIENT_AVAILABILITY);
     }
 
 }

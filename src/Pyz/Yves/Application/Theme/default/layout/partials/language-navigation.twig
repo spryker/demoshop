@@ -1,0 +1,11 @@
+{% if availableLanguages is defined and availableLanguages|length > 0 %}
+    {% for availableLanguage in availableLanguages %}
+        <li>
+            {% if availableLanguage != currentLanguage %}
+                <a href="/{{ availableLanguage }}">{{ availableLanguage }}</a>
+            {% else %}
+                <span>{{ availableLanguage }}</span>
+            {% endif %}
+        </li>
+    {% endfor %}
+{% endif %}

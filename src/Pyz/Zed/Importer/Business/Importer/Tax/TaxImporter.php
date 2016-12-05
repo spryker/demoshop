@@ -13,7 +13,6 @@ use Orm\Zed\Tax\Persistence\SpyTaxSetTaxQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Country\Business\CountryFacadeInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
-use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
 use Spryker\Zed\Propel\Business\Runtime\ActiveQuery\Criteria;
 use Spryker\Zed\Shipment\Persistence\ShipmentQueryContainerInterface;
 use Spryker\Zed\Tax\Persistence\TaxQueryContainerInterface;
@@ -21,26 +20,15 @@ use Spryker\Zed\Tax\Persistence\TaxQueryContainerInterface;
 class TaxImporter extends AbstractImporter
 {
 
-    const COL_COUNTRY = 'Tax Rate Country';
-    const COL_RATE = 'Tax Rate Percentage';
-    const COL_RATE_NAME = 'Tax Rate Name';
-    const COL_SET_NAME = 'Tax Set Name';
-    const COL_TAX_SET = 'Products with this Tax Set';
-
-    /**
-     * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
-     */
-    protected $productFacade;
+    const COL_COUNTRY = 'tax_rate_country';
+    const COL_RATE = 'tax_rate_percent';
+    const COL_RATE_NAME = 'tax_rate_name';
+    const COL_SET_NAME = 'tax_set_name';
 
     /**
      * @var \Spryker\Zed\Country\Business\CountryFacadeInterface
      */
     protected $countryFacade;
-
-    /**
-     * @var \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface
-     */
-    protected $productQueryContainer;
 
     /**
      * @var \Spryker\Zed\Tax\Persistence\TaxQueryContainerInterface
@@ -62,21 +50,19 @@ class TaxImporter extends AbstractImporter
 
     /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
-     * @param \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface $productQueryContainer
      * @param \Spryker\Zed\Country\Business\CountryFacadeInterface $countryFacade
      * @param \Spryker\Zed\Tax\Persistence\TaxQueryContainerInterface $taxQueryContainer
+     * @param \Spryker\Zed\Shipment\Persistence\ShipmentQueryContainerInterface $shipmentQueryContainer
      */
     public function __construct(
         LocaleFacadeInterface $localeFacade,
-        ProductQueryContainerInterface $productQueryContainer,
         CountryFacadeInterface $countryFacade,
         TaxQueryContainerInterface $taxQueryContainer,
         ShipmentQueryContainerInterface $shipmentQueryContainer
     ) {
-
         parent::__construct($localeFacade);
+
         $this->countryFacade = $countryFacade;
-        $this->productQueryContainer = $productQueryContainer;
         $this->taxQueryContainer = $taxQueryContainer;
         $this->localeFacade = $localeFacade;
         $this->shipmentQueryContainer = $shipmentQueryContainer;
@@ -108,7 +94,6 @@ class TaxImporter extends AbstractImporter
         $taxSetEntity = $this->createSpyTaxSetEntity($setName);
 
         $this->createTaxRateSetEntity($taxRateEntity, $taxSetEntity);
-        $this->updateAbstractProductTaxSets($data, $taxSetEntity);
         $this->addShipmentTax($taxSetEntity);
     }
 
@@ -155,7 +140,9 @@ class TaxImporter extends AbstractImporter
      */
     public function isImported()
     {
-        return false;
+        return $this->taxQueryContainer
+            ->queryAllTaxRates()
+            ->count() > 0;
     }
 
     /**
@@ -164,21 +151,6 @@ class TaxImporter extends AbstractImporter
     public function getTitle()
     {
         return 'Tax';
-    }
-
-    /**
-     * @param array $data
-     *
-     * @return array
-     */
-    protected function getCurrentProductSkuList(array $data)
-    {
-        $currentProductSkuList = [];
-        if (!empty($data[self::COL_TAX_SET])) {
-            $currentProductSkuList = explode(',', $data[self::COL_TAX_SET]);
-        }
-
-        return $currentProductSkuList;
     }
 
     /**
@@ -197,25 +169,6 @@ class TaxImporter extends AbstractImporter
         $taxRateSetEntity->save();
 
         return $taxRateSetEntity;
-    }
-
-    /**
-     * @param array $data
-     * @param \Orm\Zed\Tax\Persistence\SpyTaxSet $taxSetEntity
-     *
-     * @return void
-     */
-    protected function updateAbstractProductTaxSets(array $data, SpyTaxSet $taxSetEntity)
-    {
-        $currentProductList = $this->getCurrentProductSkuList($data);
-        foreach ($currentProductList as $sku) {
-            $abstractSkuEntity = $this->productQueryContainer
-                ->queryProductAbstractBySku($sku)
-                ->findOne();
-
-            $abstractSkuEntity->setFkTaxSet($taxSetEntity->getIdTaxSet());
-            $abstractSkuEntity->save();
-        }
     }
 
     /**
@@ -262,7 +215,7 @@ class TaxImporter extends AbstractImporter
      */
     protected function getTaxRate(array $data)
     {
-        return str_replace('%', '', $data[self::COL_RATE]);
+        return $data[self::COL_RATE];
     }
 
 }

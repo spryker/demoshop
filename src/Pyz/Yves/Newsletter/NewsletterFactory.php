@@ -8,6 +8,7 @@
 namespace Pyz\Yves\Newsletter;
 
 use Pyz\Yves\Newsletter\Form\NewsletterSubscriptionForm;
+use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class NewsletterFactory extends AbstractFactory
@@ -18,7 +19,7 @@ class NewsletterFactory extends AbstractFactory
      */
     public function createNewsletterSubscriptionForm()
     {
-        return $this->getFormFactory()
+        return $this->getProvidedDependency(ApplicationConstants::FORM_FACTORY)
             ->create($this->createNewsletterSubscriptionFormType());
     }
 

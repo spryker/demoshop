@@ -5,8 +5,10 @@ use Pyz\Shared\Mail\MailConstants;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Auth\AuthConstants;
+use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\CustomerMailConnector\CustomerMailConnectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
+use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
@@ -57,18 +59,31 @@ $config[PropelConstants::ZED_DB_SUPPORTED_ENGINES] = [
 /**
  * Elasticsearch settings
  */
-$config[ApplicationConstants::ELASTICA_PARAMETER__HOST] = 'localhost';
-$config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT] = 'http';
-$config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = '10005';
-$config[ApplicationConstants::ELASTICA_PARAMETER__AUTH_HEADER] = '';
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = null; // Store related config
-$config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
+$config[ApplicationConstants::ELASTICA_PARAMETER__HOST]
+    = $config[SearchConstants::ELASTICA_PARAMETER__HOST]
+    = 'localhost';
+$config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT]
+    = $config[SearchConstants::ELASTICA_PARAMETER__TRANSPORT]
+    = 'http';
+$config[ApplicationConstants::ELASTICA_PARAMETER__PORT]
+    = $config[SearchConstants::ELASTICA_PARAMETER__PORT]
+    = '10005';
+$config[ApplicationConstants::ELASTICA_PARAMETER__AUTH_HEADER]
+    = $config[SearchConstants::ELASTICA_PARAMETER__AUTH_HEADER]
+    = '';
+$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME]
+    = $config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME]
+    = $config[SearchConstants::ELASTICA_PARAMETER__INDEX_NAME]
+    = null; // Store related config
+$config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE]
+    = $config[CollectorConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE]
+    = $config[SearchConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE]
+    = 'page';
 
 
 /**
  * Page search settings
  */
-$config[SearchConstants::SEARCH_CONFIG_CACHE_KEY] = 'search_config_cache';
 $config[SearchConstants::FULL_TEXT_BOOSTED_BOOSTING_VALUE] = 3;
 $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
 
@@ -82,7 +97,7 @@ $config[ApplicationConstants::HOST_YVES]
     = $config[ApplicationConstants::HOST_SSL_YVES]
     = $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS]
     = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA]
-    = 'www.de.spryker.dev';
+    = 'www.de.project.local';
 
 /**
  * Hostname(s) for Zed - Shop frontend
@@ -372,7 +387,13 @@ $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 
 $config[LogConstants::LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application.log';
 
-$config[ApplicationConstants::ERROR_LEVEL] = E_ALL;
+$config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL;
+
+// To silence e.g. deprecations completely use
+//$config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED;
+
+// To only log e.g. deprecations instead of throwing exceptions here use
+//$config[ErrorHandlerConstants::ERROR_LEVEL_LOG_ONLY] = E_DEPRECATED | E_USER_DEPRECATED;
 
 $config[KernelConstants::AUTO_LOADER_CACHE_FILE_NO_LOCK] = false;
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;

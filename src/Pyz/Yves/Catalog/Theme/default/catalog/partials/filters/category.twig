@@ -1,0 +1,24 @@
+{% if categories is not empty %}
+    <ul class="menu vertical {% if nested is defined %}nested{% endif %}">
+        {% for categoryNode in categories %}
+            {% set quantity = 0 %}
+            {% for filterValue in filter.values if (filterValue.value == categoryNode.node_id) %}
+                {% set quantity = filterValue.docCount %}
+            {% endfor %}
+
+            {% if quantity > 0 %}
+                <li>
+                    <a href="{{ categoryNode.url }}">
+                        {{ categoryNode.name }}
+                        {% if quantity is defined %}
+                            ({{ quantity }})
+                        {% endif %}
+                    </a>
+                    {% if categoryNode.children is defined and categoryNode.children is not empty %}
+                        {% include "@catalog/catalog/partials/filters/category.twig" with {'categories': categoryNode.children, 'nested': true} %}
+                    {% endif %}
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endif %}

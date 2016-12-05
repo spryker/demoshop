@@ -14,11 +14,17 @@ use Pyz\Zed\Importer\Business\Importer\Cms\CmsBlockImporter;
 use Pyz\Zed\Importer\Business\Importer\Cms\CmsPageImporter;
 use Pyz\Zed\Importer\Business\Importer\Discount\DiscountImporter;
 use Pyz\Zed\Importer\Business\Importer\Glossary\TranslationImporter;
+use Pyz\Zed\Importer\Business\Importer\ProductManagement\ProductManagementAttributeImporter;
+use Pyz\Zed\Importer\Business\Importer\ProductOption\ProductOptionImporter;
+use Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeImporter;
+use Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeMapImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductAbstractImporter;
+use Pyz\Zed\Importer\Business\Importer\Product\ProductAttributeKeyImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductCategoryImporter;
+use Pyz\Zed\Importer\Business\Importer\Product\ProductConcreteImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductPriceImporter;
-use Pyz\Zed\Importer\Business\Importer\Product\ProductSearchImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductStockImporter;
+use Pyz\Zed\Importer\Business\Importer\Product\ProductTaxImporter;
 use Pyz\Zed\Importer\Business\Importer\Shipment\ShipmentImporter;
 use Pyz\Zed\Importer\Business\Importer\Tax\TaxImporter;
 use Pyz\Zed\Importer\ImporterDependencyProvider;
@@ -38,23 +44,6 @@ class ImporterFactory extends AbstractFactory
 {
 
     /**
-     * @return \Pyz\Zed\Importer\Business\Importer\Category\CategoryImporter
-     */
-    public function createCategoryImporter()
-    {
-        $categoryImporter = new CategoryImporter(
-            $this->getLocaleFacade(),
-            $this->getCategoryFacade(),
-            $this->getTouchFacade(),
-            $this->getUrlFacade(),
-            $this->getCategoryQueryContainer(),
-            $this->createNodeUrlManager()
-        );
-
-        return $categoryImporter;
-    }
-
-    /**
      * @return \Pyz\Zed\Importer\Business\Importer\Category\CategoryRootImporter
      */
     public function createCategoryRootImporter()
@@ -62,13 +51,37 @@ class ImporterFactory extends AbstractFactory
         $categoryRootImporter = new CategoryRootImporter(
             $this->getLocaleFacade(),
             $this->getCategoryFacade(),
-            $this->getTouchFacade(),
-            $this->getUrlFacade(),
-            $this->getCategoryQueryContainer(),
-            $this->createNodeUrlManager()
+            $this->getTouchFacade()
         );
 
         return $categoryRootImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\Category\CategoryImporter
+     */
+    public function createCategoryImporter()
+    {
+        $categoryImporter = new CategoryImporter(
+            $this->getLocaleFacade(),
+            $this->getCategoryFacade()
+        );
+
+        return $categoryImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\Category\CategoryHierarchyImporter
+     */
+    public function createCategoryHierarchyImporter()
+    {
+        $categoryHierarchyImporter = new CategoryHierarchyImporter(
+            $this->getLocaleFacade(),
+            $this->getCategoryFacade(),
+            $this->getCategoryQueryContainer()
+        );
+
+        return $categoryHierarchyImporter;
     }
 
     /**
@@ -87,17 +100,17 @@ class ImporterFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Zed\Importer\Business\Importer\Category\CategoryImporter
+     * @return \Pyz\Zed\Importer\Business\Importer\Product\ProductTaxImporter
      */
-    public function createCategoryHierarchyImporter()
+    public function createProductTaxImporter()
     {
-        $categoryHierarchyImporter = new CategoryHierarchyImporter(
+        $productTaxImporter = new ProductTaxImporter(
             $this->getLocaleFacade(),
-            $this->getCategoryFacade(),
-            $this->getCategoryQueryContainer()
+            $this->getTouchFacade(),
+            $this->getProductQueryContainer()
         );
 
-        return $categoryHierarchyImporter;
+        return $productTaxImporter;
     }
 
     /**
@@ -108,8 +121,35 @@ class ImporterFactory extends AbstractFactory
         $productAbstractImporter = new ProductAbstractImporter(
             $this->getLocaleFacade(),
             $this->getProductFacade(),
-            $this->createAttributeManager(),
-            $this->getConfig()->getIcecatImportDataDirectory()
+            $this->getConfig()->getImportDataDirectory()
+        );
+
+        return $productAbstractImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\Product\ProductConcreteImporter
+     */
+    public function createProductConcreteImporter()
+    {
+        $productConcreteImporter = new ProductConcreteImporter(
+            $this->getLocaleFacade(),
+            $this->getProductFacade(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+
+        return $productConcreteImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\Product\ProductAttributeKeyImporter
+     */
+    public function createProductAttributeKeyImporter()
+    {
+        $productAbstractImporter = new ProductAttributeKeyImporter(
+            $this->getLocaleFacade(),
+            $this->getProductFacade(),
+            $this->getConfig()->getImportDataDirectory()
         );
 
         return $productAbstractImporter;
@@ -122,13 +162,50 @@ class ImporterFactory extends AbstractFactory
     {
         $productPriceImporter = new ProductPriceImporter(
             $this->getLocaleFacade(),
-            $this->getStockFacade(),
             $this->getProductQueryContainer(),
-            $this->getPriceQueryContainer(),
-            $this->getConfig()->getImportDataDirectory()
+            $this->getPriceQueryContainer()
         );
 
         return $productPriceImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ProductManagement\ProductManagementAttributeImporter
+     */
+    public function createProductManagementAttributeImporter()
+    {
+        $productManagementAttributeImporter = new ProductManagementAttributeImporter(
+            $this->getProductManagementFacade(),
+            $this->getLocaleFacade()
+        );
+
+        return $productManagementAttributeImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeImporter
+     */
+    public function createProductSearchAttributeImporter()
+    {
+        $productSearchAttributeImporter = new ProductSearchAttributeImporter(
+            $this->getProductSearchFacade(),
+            $this->getLocaleFacade()
+        );
+
+        return $productSearchAttributeImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeMapImporter
+     */
+    public function createProductSearchAttributeMapImporter()
+    {
+        $productSearchImporter = new ProductSearchAttributeMapImporter(
+            $this->getLocaleFacade(),
+            $this->getProductSearchFacade()
+        );
+
+        return $productSearchImporter;
     }
 
     /**
@@ -144,19 +221,6 @@ class ImporterFactory extends AbstractFactory
         );
 
         return $productStockImporter;
-    }
-
-    /**
-     * @return \Pyz\Zed\Importer\Business\Importer\Product\ProductSearchImporter
-     */
-    public function createProductSearchImporter()
-    {
-        $productSearchImporter = new ProductSearchImporter(
-            $this->getLocaleFacade(),
-            $this->getProductSearchFacade()
-        );
-
-        return $productSearchImporter;
     }
 
     /**
@@ -246,10 +310,21 @@ class ImporterFactory extends AbstractFactory
     {
         return new TaxImporter(
             $this->getLocaleFacade(),
-            $this->getProductQueryContainer(),
             $this->getCountryFacade(),
             $this->getTaxQueryContainer(),
             $this->getShipmentQueryContainer()
+        );
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ProductOption\ProductOptionImporter
+     */
+    public function createProductOptionImporter()
+    {
+        return new ProductOptionImporter(
+            $this->getLocaleFacade(),
+            $this->getGlossaryFacade(),
+            $this->getProductOptionFacade()
         );
     }
 
