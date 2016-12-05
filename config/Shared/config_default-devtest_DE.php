@@ -11,8 +11,8 @@ use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Storage\StorageConstants;
 
-$zedHost = 'zed-test.de.project.local';
-$yvesHost = 'www-test.de.project.local';
+$zedHost = 'zed-test.de.test.local';
+$yvesHost = 'www-test.de.test.local';
 
 $config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
 $config[PropelConstants::ZED_DB_USERNAME] = 'devtest';
@@ -23,7 +23,7 @@ $config[PropelConstants::ZED_DB_PORT] = 5432;
 
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_search_devtest';
 
-$config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '_test';
+$config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '_devtest';
 
 $config[SessionConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
 $config[SessionConstants::ZED_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_FILE;

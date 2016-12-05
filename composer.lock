@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "adb035c838c4852ff4a54087ed2d43eb",
-    "content-hash": "be63771b2f1debb1edbe813841745970",
+    "hash": "9388d1d6e8b6ff51d67aba6adada436b",
+    "content-hash": "94a925ddb6f60c80ee13379f1014fd94",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -570,12 +570,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "2a229150e3371607a3adc5fe4d3d80608e16aaaa"
+                "reference": "ffd114125b7ed474201e67fe060ea605debfb66e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/2a229150e3371607a3adc5fe4d3d80608e16aaaa",
-                "reference": "2a229150e3371607a3adc5fe4d3d80608e16aaaa",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/ffd114125b7ed474201e67fe060ea605debfb66e",
+                "reference": "ffd114125b7ed474201e67fe060ea605debfb66e",
                 "shasum": ""
             },
             "require": {
@@ -583,16 +583,18 @@
             },
             "require-dev": {
                 "cache/taggable-cache": "^0.4.0",
-                "coduo/phpspec-data-provider-extension": "^1.0.3",
                 "ext-bcmath": "*",
                 "ext-gmp": "*",
                 "ext-intl": "*",
-                "florianv/swap": "^2.3",
+                "florianv/swap": "^3.0",
                 "henrikbjorn/phpspec-code-coverage": "^2.0.2",
-                "moneyphp/iso-currencies": "dev-master",
+                "moneyphp/iso-currencies": "^1.0",
+                "php-http/message": "^1.4",
+                "php-http/mock-client": "^0.3.3",
                 "phpspec/phpspec": "^2.5",
                 "phpunit/phpunit": "^4.5",
-                "psr/cache": "^1.0"
+                "psr/cache": "^1.0",
+                "sllh/php-cs-fixer-styleci-bridge": "^2.1"
             },
             "suggest": {
                 "ext-bcmath": "Calculate without integer limits",
@@ -1242,7 +1244,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d8fc4ad3619ab2bc33149bfa74132a4ccfe0017f"
+                "reference": "cb0e4b558da21561e60275e3a9a4cc323c5e6a8f"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1773,7 +1775,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-11-09 15:13:27"
+            "time": "2016-11-14 13:21:19"
         },
         {
             "name": "symfony-cmf/routing",
@@ -6687,7 +6689,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.6"
+        "php": ">=5.6.0"
     },
     "platform-dev": []
 }
