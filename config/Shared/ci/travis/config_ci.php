@@ -22,11 +22,6 @@ $config[PropelConstants::ZED_DB_HOST] = '127.0.0.1';
 $config[PropelConstants::ZED_DB_PORT] = 5432;
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = false;
 
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_search_test';
-$config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = '9200';
-$config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
-
-$config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '_test';
 
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME]
     = $config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME]
