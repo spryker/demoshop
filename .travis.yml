@@ -31,7 +31,7 @@ sudo: required
 
 env:
   global:
-    - APPLICATION_ENV=test
+    - APPLICATION_ENV=devtest
     - APPLICATION_STORE=DE
   matrix:
     - TEST_GROUP=without-acceptance
@@ -52,7 +52,7 @@ before_script:
   - chmod -R 777 data/
 
   - mv config/Zed/propel.ci.yml config/Zed/propel.yml
-  - cp config/Shared/config_default-test.ci.php config/Shared/config_default-test.php
+  - cp config/Shared/ci/travis/config_ci.php config/Shared/config_default-devtest_DE.php
   - cp config/Shared/ci/travis/params.sh deploy/setup/params.sh
 
   - if [[ $TEST_GROUP == 'acceptance' ]]; then deploy/travis/acceptance_env.sh; fi
@@ -64,9 +64,9 @@ script:
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance ; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance ; fi
 
-    - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console code:sniff ; fi
-    - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console dev:dependency-tree:build ; fi
-    - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console dev:dependency-violation:find ; fi
+  - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console code:sniff ; fi
+  - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console dev:dependency-tree:build ; fi
+  - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console dev:dependency-violation:find ; fi
 
 
 notifications:

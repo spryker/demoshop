@@ -17,9 +17,16 @@ use Spryker\Shared\Testify\TestifyConstants;
 $config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
 $config[PropelConstants::ZED_DB_USERNAME] = 'postgres';
 $config[PropelConstants::ZED_DB_PASSWORD] = '';
-$config[PropelConstants::ZED_DB_DATABASE] = 'test_database';
+$config[PropelConstants::ZED_DB_DATABASE] = 'DE_test_zed';
 $config[PropelConstants::ZED_DB_HOST] = '127.0.0.1';
 $config[PropelConstants::ZED_DB_PORT] = 5432;
+$config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = false;
+
+$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_search_test';
+$config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = '9200';
+$config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = 'page';
+
+$config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '_test';
 
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME]
     = $config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME]
@@ -68,7 +75,7 @@ $config[StorageConstants::STORAGE_REDIS_PROTOCOL] = 'tcp';
 $config[StorageConstants::STORAGE_REDIS_HOST] = '127.0.0.1';
 $config[StorageConstants::STORAGE_REDIS_PORT] = '6379';
 $config[StorageConstants::STORAGE_REDIS_PASSWORD] = '';
-$config[StorageConstants::STORAGE_REDIS_DATABASE] = 0;
+$config[StorageConstants::STORAGE_REDIS_DATABASE] = 3;
 
 $config[SessionConstants::YVES_SESSION_REDIS_PROTOCOL] = $config[StorageConstants::STORAGE_REDIS_PROTOCOL];
 $config[SessionConstants::YVES_SESSION_REDIS_HOST] = $config[StorageConstants::STORAGE_REDIS_HOST];
