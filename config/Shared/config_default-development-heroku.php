@@ -13,6 +13,7 @@ use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Storage\StorageConstants;
+use Spryker\Shared\NewRelic\NewRelicConstants;
 
 $redis = parse_url(getenv(getenv('REDIS_URL_NAME') ?: 'REDIS_URL'));
 $config[StorageConstants::STORAGE_REDIS_PROTOCOL] = $redis['scheme'];
@@ -93,3 +94,5 @@ $config[ApplicationConstants::SHOW_SYMFONY_TOOLBAR] = false;
 $config[LogConstants::LOG_LEVEL] = 0;
 $config[EventJournalConstants::WRITERS]['YVES'] = [];
 $config[EventJournalConstants::WRITERS]['ZED'] = [];
+
+$config[NewRelicConstants::NEWRELIC_API_KEY] = getenv('NEW_RELIC_LICENSE_KEY');
