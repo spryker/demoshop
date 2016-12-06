@@ -21,6 +21,7 @@
         <property name="superAttributes" type="array" singular="superAttribute"/>
         <property name="availableAttributes" type="array" singular="availableAttribute"/>
         <property name="selectedAttributes" type="array" singular="selectedAttribute"/>
+        <property name="superAttributesDefinition" type="array" singular="superAttributeDefinition"/>
         <property name="metaTitle" type="string" />
         <property name="metaKeywords" type="string" />
         <property name="metaDescription" type="string" />
