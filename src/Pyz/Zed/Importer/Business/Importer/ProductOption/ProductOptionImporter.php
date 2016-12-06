@@ -105,7 +105,8 @@ class ProductOptionImporter extends AbstractImporter
      */
     public function isImported()
     {
-        return false;
+        $query = SpyProductOptionValueQuery::create();
+        return $query->count() > 0;
     }
 
     /**

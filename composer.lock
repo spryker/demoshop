@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4e412055cb44b74bd4e1dd290e64e71e",
-    "content-hash": "85239e15cfce3543f566ee783fdb6120",
+    "hash": "09c26afade74b23f22f775b9976b66d4",
+    "content-hash": "c8388a47ccdc6aacbd1eb43afb38c668",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1249,11 +1249,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-635-wishlist",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b5b639536f7f1dda9df8eab7aab94ab62d8ded19"
+                "reference": "a992dfe5e94b71197a21374cd62aaf97757f62e0"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1819,7 +1819,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-11-30 08:36:55"
+            "time": "2016-12-01 15:01:20"
         },
         {
             "name": "symfony-cmf/routing",
@@ -6156,16 +6156,16 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.6.8",
+            "version": "0.6.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "400229e293bcaf22a14ebd1e69f5e65da661ea7e"
+                "reference": "9047b262f65869054032f54c1f3e7a107068e333"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/400229e293bcaf22a14ebd1e69f5e65da661ea7e",
-                "reference": "400229e293bcaf22a14ebd1e69f5e65da661ea7e",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/9047b262f65869054032f54c1f3e7a107068e333",
+                "reference": "9047b262f65869054032f54c1f3e7a107068e333",
                 "shasum": ""
             },
             "require": {
@@ -6199,20 +6199,20 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-11-15 13:10:10"
+            "time": "2016-11-30 09:15:23"
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "2.7.0",
+            "version": "2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "571e27b6348e5b3a637b2abc82ac0d01e6d7bbed"
+                "reference": "9b324f3a1132459a7274a0ace2e1b766ba80930f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/571e27b6348e5b3a637b2abc82ac0d01e6d7bbed",
-                "reference": "571e27b6348e5b3a637b2abc82ac0d01e6d7bbed",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/9b324f3a1132459a7274a0ace2e1b766ba80930f",
+                "reference": "9b324f3a1132459a7274a0ace2e1b766ba80930f",
                 "shasum": ""
             },
             "require": {
@@ -6277,7 +6277,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-09-01 23:53:02"
+            "time": "2016-11-30 04:02:31"
         },
         {
             "name": "symfony/browser-kit",
@@ -6712,7 +6712,18 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.6.0"
+        "php": ">=5.6.0",
+        "ext-bcmath": "*",
+        "ext-curl": "*",
+        "ext-gd": "*",
+        "ext-gmp": "*",
+        "ext-intl": "*",
+        "ext-json": "*",
+        "ext-mcrypt": "*",
+        "ext-pdo_pgsql": "*",
+        "ext-pgsql": "*",
+        "ext-readline": "*",
+        "ext-redis": "*"
     },
     "platform-dev": []
 }
