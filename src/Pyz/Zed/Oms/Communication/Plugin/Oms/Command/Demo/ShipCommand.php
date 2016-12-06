@@ -12,7 +12,7 @@ use Spryker\Zed\Oms\Business\Util\ReadOnlyArrayObject;
 use Spryker\Zed\Oms\Communication\Plugin\Oms\Command\AbstractCommand;
 use Spryker\Zed\Oms\Communication\Plugin\Oms\Command\CommandByOrderInterface;
 
-class ClosePlugin extends AbstractCommand implements CommandByOrderInterface
+class ShipCommand extends AbstractCommand implements CommandByOrderInterface
 {
 
     /**

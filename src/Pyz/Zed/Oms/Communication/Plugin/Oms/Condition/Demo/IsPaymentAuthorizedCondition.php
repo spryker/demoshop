@@ -11,7 +11,7 @@ use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 use Spryker\Zed\Oms\Communication\Plugin\Oms\Condition\AbstractCondition;
 use Spryker\Zed\Oms\Communication\Plugin\Oms\Condition\ConditionInterface;
 
-class IsPaymentAuthorizedPlugin extends AbstractCondition implements ConditionInterface
+class IsPaymentAuthorizedCondition extends AbstractCondition implements ConditionInterface
 {
 
     /**

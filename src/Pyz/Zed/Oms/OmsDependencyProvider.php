@@ -10,9 +10,11 @@ namespace Pyz\Zed\Oms;
 use Spryker\Zed\Availability\Communication\Plugin\AvailabilityHandlerPlugin;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Oms\OmsDependencyProvider as SprykerOmsDependencyProvider;
-use Pyz\Zed\Oms\Communication\Plugin\Oms\Command\Demo\PayPlugin;
-use Pyz\Zed\Oms\Communication\Plugin\Oms\Command\Demo\ShipPlugin;
-use Pyz\Zed\Oms\Communication\Plugin\Oms\Condition\Demo\IsPaymentAuthorizedPlugin;
+use Pyz\Zed\Oms\Communication\Plugin\Oms\Command\Demo\CloseCommand;
+use Pyz\Zed\Oms\Communication\Plugin\Oms\Command\Demo\PayCommand;
+use Pyz\Zed\Oms\Communication\Plugin\Oms\Command\Demo\ReturnCommand;
+use Pyz\Zed\Oms\Communication\Plugin\Oms\Command\Demo\ShipCommand;
+use Pyz\Zed\Oms\Communication\Plugin\Oms\Condition\Demo\IsPaymentAuthorizedCondition;
 
 class OmsDependencyProvider extends SprykerOmsDependencyProvider
 {
@@ -39,7 +41,7 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
         $collection = parent::getConditionPlugins($container);
 
         $collection->add(
-            new IsPaymentAuthorizedPlugin(), 'Demo/IsPaymentAuthorized'
+            new IsPaymentAuthorizedCondition(), 'Demo/IsPaymentAuthorized'
         );
 
         return $collection;
@@ -54,10 +56,10 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
     {
         $collection = parent::getCommandPlugins($container);
 
-        $collection->add(new PayPlugin(), 'Demo/Pay');
-        $collection->add(new ShipPlugin(), 'Demo/Ship');
-        $collection->add(new ShipPlugin(), 'Demo/Return');
-        $collection->add(new ShipPlugin(), 'Demo/Close');
+        $collection->add(new PayCommand(), 'Demo/Pay');
+        $collection->add(new ShipCommand(), 'Demo/Ship');
+        $collection->add(new ReturnCommand(), 'Demo/Return');
+        $collection->add(new CloseCommand(), 'Demo/Close');
 
         return $collection;
     }

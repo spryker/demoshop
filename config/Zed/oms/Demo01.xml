@@ -16,13 +16,13 @@
         </states>
 
         <transitions>
-            <transition>
+            <transition happy="true">
                 <source>new</source>
                 <target>paid</target>
                 <event>pay</event>
             </transition>
 
-            <transition condition="Demo/IsPaymentAuthorized">
+            <transition condition="Demo/IsPaymentAuthorized" happy="true">
                 <source>paid</source>
                 <target>shipped</target>
                 <event>ship</event>
@@ -34,7 +34,7 @@
                 <event>ship</event>
             </transition>
 
-            <transition>
+            <transition happy="true">
                 <source>shipped</source>
                 <target>closed</target>
                 <event>close</event>
