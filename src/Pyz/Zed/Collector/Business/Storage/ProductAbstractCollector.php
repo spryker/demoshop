@@ -120,7 +120,6 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
             StorageProductTransfer::META_TITLE => $collectItemData[self::META_TITLE],
             StorageProductTransfer::META_KEYWORDS => $collectItemData[self::META_KEYWORDS],
             StorageProductTransfer::META_DESCRIPTION => $collectItemData[self::META_DESCRIPTION],
-            StorageProductTransfer::SUPER_ATTRIBUTES => $this->getSuperAttributes(),
         ];
     }
 
@@ -343,26 +342,6 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
         }
 
         return $result;
-    }
-
-    /**
-     * @return array
-     */
-    protected function getSuperAttributes()
-    {
-        if ($this->superAttributes) {
-            return $this->superAttributes;
-        }
-
-        $superAttributes = SpyProductAttributeKeyQuery::create()
-            ->filterByIsSuper(true)
-            ->find();
-
-        foreach ($superAttributes as $attribute) {
-            $this->superAttributes[] = $attribute->getKey();
-        }
-
-        return $this->superAttributes;
     }
 
 }
