@@ -170,6 +170,7 @@
   "scripts": {
     "compile": [
       "mkdir -p ./data/DE/logs",
+      "echo '' > c3.php",
       "echo '<?php return \"development-heroku\";' > config/Shared/console_env_local.php",
       "./deploy/heroku/run.sh"
     ],
