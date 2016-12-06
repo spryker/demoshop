@@ -143,3 +143,5 @@ $config[RatepayConstants::API_URL] = 'https://gateway-int.ratepay.com/api/xml/1_
 
 $config[TestifyConstants::BOOTSTRAP_CLASS_YVES] = YvesBootstrap::class;
 $config[TestifyConstants::BOOTSTRAP_CLASS_ZED] = ZedBootstrap::class;
+
+$config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
