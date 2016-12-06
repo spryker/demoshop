@@ -11,6 +11,8 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 class CartItemGouper implements CartItemGouperInterface
 {
+    const BUNDLE_ITEMS = 'bundleItems';
+    const BUNDLE_PRODUCT = 'bundleProduct';
 
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
@@ -40,7 +42,7 @@ class CartItemGouper implements CartItemGouperInterface
                     continue;
                 }
 
-                $bundleItems[$bundleItemTransfer->getSku()]['bundleItems'] = $this->groupBundledItems(
+                $bundleItems[$bundleItemTransfer->getSku()][static::BUNDLE_ITEMS] = $this->groupBundledItems(
                     $bundleItems,
                     $itemTransfer,
                     $bundleItemTransfer->getSku()
@@ -86,8 +88,8 @@ class CartItemGouper implements CartItemGouperInterface
             $bundleProduct->setQuantity($groupedBundleQuantity[$bundleProduct->getSku()]);
 
             $bundleItems[$bundleProduct->getSku()] = [
-                'bundleProduct' => $bundleProduct,
-                'bundleItems' => [],
+                static::BUNDLE_PRODUCT => $bundleProduct,
+                static::BUNDLE_ITEMS => [],
             ];
         }
         return $bundleItems;
@@ -125,7 +127,7 @@ class CartItemGouper implements CartItemGouperInterface
      */
     protected function getBundleProduct(array $bundleItems, $bundleSku)
     {
-        return $bundleItems[$bundleSku]['bundleProduct'];
+        return $bundleItems[$bundleSku][static::BUNDLE_PRODUCT];
     }
 
     /**
@@ -136,6 +138,6 @@ class CartItemGouper implements CartItemGouperInterface
      */
     protected function getAlreadyBundledItems(array $bundleItems, $bundleSku)
     {
-        return $bundleItems[$bundleSku]['bundleItems'];
+        return $bundleItems[$bundleSku][static::BUNDLE_ITEMS];
     }
 }

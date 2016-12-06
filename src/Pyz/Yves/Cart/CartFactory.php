@@ -10,6 +10,7 @@ namespace Pyz\Yves\Cart;
 use Pyz\Yves\Cart\Form\VoucherForm;
 use Pyz\Yves\Cart\Grouper\CartItemGouper;
 use Pyz\Yves\Cart\Handler\CartOperationHandler;
+use Pyz\Yves\Cart\Handler\ProductBundleAwareCartOperationHandler;
 use Pyz\Yves\Cart\Handler\CartVoucherHandler;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Yves\Kernel\AbstractFactory;
@@ -47,6 +48,19 @@ class CartFactory extends AbstractFactory
     public function createCartOperationHandler()
     {
         return new CartOperationHandler($this->getCartClient(), $this->getLocale(), $this->getFlashMessenger());
+    }
+
+    /**
+     * @return \Pyz\Yves\Cart\Handler\ProductBundleAwareCartOperationHandler
+     */
+    public function createProductBundleAwareCartOperationHandler()
+    {
+        return new ProductBundleAwareCartOperationHandler(
+            $this->createCartOperationHandler(),
+            $this->getCartClient(),
+            $this->getLocale(),
+            $this->getFlashMessenger()
+        );
     }
 
     /**
