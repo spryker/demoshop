@@ -26,7 +26,7 @@ do
 
             dumpAutoload
 
-            antelopeInstallYves
+            antelopeInstallZed
             ;;
             *)
             echo "Use -i to install"
