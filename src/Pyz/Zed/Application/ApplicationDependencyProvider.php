@@ -78,6 +78,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
         $coreProviders = parent::getServiceProvider($container);
 
         $providers = [
+            new NewRelicServiceProvider(),
             new LogServiceProvider(),
             new SessionServiceProvider(),
             $this->getSessionServiceProvider($container),
@@ -97,7 +98,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new WebProfilerServiceProvider(),
             new ZedHstsServiceProvider(),
             new FormFactoryServiceProvider(),
-            new TwigCurrencyServiceProvider(),
+            new TwigCurrencyServiceProvider()
         ];
 
         $providers = array_merge($providers, $coreProviders);
