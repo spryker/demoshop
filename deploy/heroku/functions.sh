@@ -19,15 +19,4 @@ function installAntelope {
     labelText "Install Antelope tool globally"
     $NPM install -g antelope
     writeErrorMessage "Antelope setup failed"
-
-    ANTELOPE_TOOL=`which antelope`
-
-    if [[ -f $ANTELOPE_TOOL ]]; then
-        labelText "Installing project dependencies"
-        $ANTELOPE_TOOL install
-
-        labelText "Building and optimizing assets"
-        $ANTELOPE_TOOL build
-        writeErrorMessage "Antelope build failed"
-    fi
 }
