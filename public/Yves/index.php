@@ -4,6 +4,8 @@ use Pyz\Yves\Application\YvesBootstrap;
 use Spryker\Shared\Library\Application\Environment;
 
 if (@extension_loaded('newrelic')) {
+    @newrelic_start_transaction('demoshop-yves', getenv('NEW_RELIC_LICENSE_KEY');
+
     if (isset($_SERVER['REQUEST_URI']) && !empty($_SERVER['REQUEST_URI'])) {
         @$page = current(explode('?', $_SERVER['REQUEST_URI']));
     } else {
