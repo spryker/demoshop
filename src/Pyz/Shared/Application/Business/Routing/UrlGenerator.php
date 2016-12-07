@@ -68,7 +68,7 @@ class UrlGenerator extends SymfonyUrlGenerator
         }
 
         $baseHost = '/';
-        if ($referenceType) {
+        if ($referenceType === self::ABSOLUTE_URL) {
             $baseHost = $this->context->getScheme() . '://' . $this->context->getHost() . '/';
         }
 
