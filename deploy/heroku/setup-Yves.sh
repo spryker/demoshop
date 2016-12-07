@@ -26,6 +26,10 @@ do
             dumpAutoload
 
             antelopeInstallYves
+
+            $CONSOLE transfer:generate
+            $CONSOLE setup:search
+
             ;;
             *)
             echo "Use -i to install"
