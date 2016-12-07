@@ -24,9 +24,9 @@ class ProductController extends AbstractController
      */
     public function detailAction(StorageProductTransfer $storageProductTransfer)
     {
-        if (@extension_loaded('newrelic')) {
+/*        if (@extension_loaded('newrelic')) {
             @newrelic_name_transaction('PDP');
-        }
+        }*/
 
         $categories = $storageProductTransfer->getCategories();
 
