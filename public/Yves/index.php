@@ -4,7 +4,12 @@ use Pyz\Yves\Application\YvesBootstrap;
 use Spryker\Shared\Library\Application\Environment;
 
 if (@extension_loaded('newrelic')) {
-    @newrelic_name_transaction(current(explode('?', $_SERVER['REQUEST_URI'])));
+    if (isset($_SERVER['REQUEST_URI']) && !empty($_SERVER['REQUEST_URI'])) {
+        @$page = current(explode('?', $_SERVER['REQUEST_URI']));
+    } else {
+        @$page = $_SERVER['SCRIPT_FILENAME'];
+    }
+    @newrelic_name_transaction($page);
 }
 
 define('APPLICATION', 'YVES');
