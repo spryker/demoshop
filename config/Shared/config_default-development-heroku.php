@@ -98,3 +98,11 @@ $config[EventJournalConstants::WRITERS]['ZED'] = [];
 
 $config[NewRelicConstants::NEWRELIC_API_KEY] = getenv('NEW_RELIC_LICENSE_KEY');
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = true;
+
+$config[ApplicationConstants::ZED_TWIG_OPTIONS] = [
+    'cache' => true,
+];
+
+$config[ApplicationConstants::YVES_TWIG_OPTIONS] = [
+    'cache' => true,
+];
