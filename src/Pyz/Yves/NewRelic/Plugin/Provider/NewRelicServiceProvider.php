@@ -12,7 +12,6 @@ use Silex\Application;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Library\System;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 
 /**
  * @method \Pyz\Yves\NewRelic\NewRelicFactory getFactory()
@@ -53,8 +52,6 @@ class NewRelicServiceProvider extends AbstractServiceProvider
      */
     public function boot(Application $app)
     {
-        //$app['dispatcher']->addListener(KernelEvents::CONTROLLER, [$this, 'onKernelController'], -255);
-
         $app->before(function (Request $request) {
             $module = $request->attributes->get('module');
             $controller = $request->attributes->get('controller');
@@ -77,36 +74,6 @@ class NewRelicServiceProvider extends AbstractServiceProvider
                 $this->newRelicApi->markIgnoreTransaction();
             }
         });
-    }
-
-    /**
-     * @param \Symfony\Component\HttpKernel\Event\FilterControllerEvent $event
-     *
-     * @return void
-     */
-    public function onKernelController(FilterControllerEvent $event)
-    {
-        $this->setNewRelicTransactionName($event->getRequest());
-    }
-
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return void
-     */
-    protected function setNewRelicTransactionName(Request $request)
-    {
-        $transactionName = $request->attributes->get('_route');
-        $host = $request->server->get('COMPUTERNAME', System::getHostname());
-        $requestUri = $request->getRequestUri();
-
-        $this->newRelicApi->setNameOfTransaction($transactionName)
-            ->addCustomParameter('request_uri', $requestUri)
-            ->addCustomParameter('host', $host);
-
-        if (strpos($transactionName, 'system/heartbeat') !== false) {
-            $this->newRelicApi->markIgnoreTransaction();
-        }
     }
 
 }

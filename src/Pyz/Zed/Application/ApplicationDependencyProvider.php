@@ -150,7 +150,6 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new MvcRoutingServiceProvider(),
             new SilexRoutingServiceProvider(),
             $this->getGatewayServiceProvider(),
-            new NewRelicServiceProvider(),
             new HttpFragmentServiceProvider(),
             new SubRequestServiceProvider(),
         ];
