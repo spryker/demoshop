@@ -96,3 +96,7 @@ $config[EventJournalConstants::WRITERS]['YVES'] = [];
 $config[EventJournalConstants::WRITERS]['ZED'] = [];
 
 $config[NewRelicConstants::NEWRELIC_API_KEY] = getenv('NEW_RELIC_LICENSE_KEY');
+
+if (@extension_loaded('newrelic')) {
+    @newrelic_start_transaction('demoshop-yves', $config[NewRelicConstants::NEWRELIC_API_KEY]);
+}
