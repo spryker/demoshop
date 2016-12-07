@@ -22,6 +22,10 @@ class IndexController extends AbstractController
      */
     public function indexAction()
     {
+        if (@extension_loaded('newrelic')) {
+            @newrelic_name_transaction('HOME');
+        }
+
         $searchResult = $this->getFactory()
             ->getCatalogClient()
             ->getFeaturedProducts(self::FEATURED_PRODUCT_LIMIT);
