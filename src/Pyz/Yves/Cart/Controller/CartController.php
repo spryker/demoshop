@@ -22,6 +22,10 @@ class CartController extends AbstractController
      */
     public function indexAction()
     {
+        if (@extension_loaded('newrelic')) {
+            @newrelic_name_transaction('CART');
+        }
+
         $quoteTransfer = $this->getClient()->getQuote();
         $voucherForm = $this->getFactory()->createVoucherForm();
 
@@ -40,6 +44,10 @@ class CartController extends AbstractController
      */
     public function addAction($sku, $quantity, $optionValueIds = [])
     {
+        if (@extension_loaded('newrelic')) {
+            @newrelic_name_transaction('CART_ADD');
+        }
+
         $cartOperationHandler = $this->getCartOperationHandler();
         $cartOperationHandler->add($sku, $quantity, $optionValueIds);
         $cartOperationHandler->setFlashMessagesFromLastZedRequest($this->getClient());
