@@ -3,6 +3,10 @@
 use Pyz\Yves\Application\YvesBootstrap;
 use Spryker\Shared\Library\Application\Environment;
 
+if (@extension_loaded('newrelic')) {
+    @newrelic_name_transaction(current(explode('?', $_SERVER['REQUEST_URI'])));
+}
+
 define('APPLICATION', 'YVES');
 defined('APPLICATION_ROOT_DIR') || define('APPLICATION_ROOT_DIR', realpath(__DIR__ . '/../..'));
 
