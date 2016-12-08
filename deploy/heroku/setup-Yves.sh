@@ -19,14 +19,17 @@ for arg in "$@"
 do
     case $arg in
         "-i" )
-            $CONSOLE setup:install $VERBOSITY
-            writeErrorMessage "Setup install failed"
+            infoText "Run zed install in order to setup the DB"
 
             updateComposerBinary
 
             dumpAutoload
 
             antelopeInstallYves
+
+            $CONSOLE transfer:generate
+            $CONSOLE setup:search
+
             ;;
             *)
             echo "Use -i to install"
