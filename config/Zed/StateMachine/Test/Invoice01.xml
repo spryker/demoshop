@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <statemachine
-        xmlns="spryker:state-machine-01"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="spryker:state-machine-01 http://static.spryker.com/state-machine-01.xsd">
+    xmlns="spryker:state-machine-01"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="spryker:state-machine-01 http://static.spryker.com/state-machine-01.xsd">
+    <!-- Used as example XML for Pyz\Zed\StateMachineExample implementation -->
 
     <process name="Invoice01" main="true">
 
