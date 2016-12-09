@@ -11,7 +11,7 @@
                         {{ voucherDiscount.displayName }}
                         <small><a href="{{ url('cart/voucher/remove', {'code': voucherDiscount.voucherCode}) }}"><span class="fa fa-remove"></span> remove</a></small>
                     </div>
-                    <div class="small-4 columns text-right">- {{ voucherDiscount.amount|price }}</div>
+                    <div class="small-4 columns text-right">- {{ voucherDiscount.amount | money }}</div>
                 </div>
             </li>
         {% endfor %}
@@ -23,7 +23,7 @@
             {% for ruleDiscount in cart.cartRuleDiscounts %}
                 <div class="row">
                     <div class="small-8 columns">{{ ruleDiscount.displayName }}</div>
-                    <div class="small-4 columns text-right">- {{ ruleDiscount.amount|price }}</div>
+                    <div class="small-4 columns text-right">- {{ ruleDiscount.amount | money }}</div>
                 </div>
             {% endfor %}
         </li>

@@ -16,5 +16,4 @@ use Spryker\Zed\Oms\Persistence\Propel\AbstractSpyOmsProductReservation as BaseS
  */
 class SpyOmsProductReservation extends BaseSpyOmsProductReservation
 {
-
 }
