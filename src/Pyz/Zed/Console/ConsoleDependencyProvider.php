@@ -84,12 +84,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
         if (Environment::isDevelopment()) {
             $commands[] = new CodeTestConsole();
             $commands[] = new CodeStyleSnifferConsole();
-            $commands[] = new CodeCreateConsole();
-            $commands[] = new BundleCreateConsole();
             $commands[] = new CodePhpMessDetectorConsole();
-            $commands[] = new DependencyTreeBuilderConsole();
-            $commands[] = new DependencyTreeDependencyViolationConsole();
-            $commands[] = new ComposerJsonUpdaterConsole();
             $commands[] = new ProductTouchConsole();
             $commands[] = new ValidatorConsole();
             $commands[] = new BundleCodeGeneratorConsole();

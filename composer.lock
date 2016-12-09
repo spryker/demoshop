@@ -2939,11 +2939,11 @@
         },
         {
             "name": "spryker/auth",
-            "version": "2.0.12",
+            "version": "2.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Auth.git",
-                "reference": "578d4a5f86bceacfd7943532aad95c703c155287",
+                "reference": "026cbcdf596281d1d2acec06fa013fec628972f1",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -2953,8 +2953,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Auth/zipball/578d4a5f86bceacfd7943532aad95c703c155287",
-                "reference": "578d4a5f86bceacfd7943532aad95c703c155287",
+                "url": "https://api.github.com/repos/spryker/Auth/zipball/026cbcdf596281d1d2acec06fa013fec628972f1",
+                "reference": "026cbcdf596281d1d2acec06fa013fec628972f1",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3005,7 +3005,7 @@
             "support": {
                 "source": "https://github.com/spryker/Auth/tree/master"
             },
-            "time": "2016-11-16 15:30:30"
+            "time": "2016-12-09 14:38:26"
         },
         {
             "name": "spryker/auth-mail-connector",
@@ -8137,11 +8137,11 @@
         },
         {
             "name": "spryker/setup",
-            "version": "2.1.2",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Setup.git",
-                "reference": "e6b11f2dd46d7fb3ef2d5d1cd1cc9e0e20366fbf",
+                "reference": "a475ebce14fe9050f440f2fe4a82a23225d446e7",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8151,8 +8151,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Setup/zipball/e6b11f2dd46d7fb3ef2d5d1cd1cc9e0e20366fbf",
-                "reference": "e6b11f2dd46d7fb3ef2d5d1cd1cc9e0e20366fbf",
+                "url": "https://api.github.com/repos/spryker/Setup/zipball/a475ebce14fe9050f440f2fe4a82a23225d446e7",
+                "reference": "a475ebce14fe9050f440f2fe4a82a23225d446e7",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8204,7 +8204,7 @@
             "support": {
                 "source": "https://github.com/spryker/Setup/tree/master"
             },
-            "time": "2016-11-30 17:11:08"
+            "time": "2016-12-09 14:23:49"
         },
         {
             "name": "spryker/shipment",
@@ -12709,17 +12709,20 @@
         },
         {
             "name": "spryker/code-generator",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "dcb5cc268801fa3507b3799c002b958762cf02fd"
+                "reference": "994cd151fd2980bcf5b886f53fdcf8ae2e96e795"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/dcb5cc268801fa3507b3799c002b958762cf02fd",
-                "reference": "dcb5cc268801fa3507b3799c002b958762cf02fd",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/994cd151fd2980bcf5b886f53fdcf8ae2e96e795",
+                "reference": "994cd151fd2980bcf5b886f53fdcf8ae2e96e795",
                 "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
             },
             "require-dev": {
                 "spryker/code-sniffer": "*"
@@ -12744,7 +12747,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2016-11-21 11:50:08"
+            "time": "2016-12-08 16:18:33"
         },
         {
             "name": "spryker/code-sniffer",
