@@ -1253,7 +1253,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "f819a7c9d91d46d8960c957c6cf4f2861276da47"
+                "reference": "643b9b571f8bc44a01e2cf591927fb0b3ba5d555"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1819,7 +1819,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-12-09 13:45:20"
+            "time": "2016-12-09 14:38:26"
         },
         {
             "name": "symfony-cmf/routing",
@@ -6121,13 +6121,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "af2c8a825d49d8cd5690f92aa3da602b2498e130"
+                "reference": "994cd151fd2980bcf5b886f53fdcf8ae2e96e795"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/af2c8a825d49d8cd5690f92aa3da602b2498e130",
-                "reference": "af2c8a825d49d8cd5690f92aa3da602b2498e130",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/994cd151fd2980bcf5b886f53fdcf8ae2e96e795",
+                "reference": "994cd151fd2980bcf5b886f53fdcf8ae2e96e795",
                 "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
             },
             "require-dev": {
                 "spryker/code-sniffer": "*"
@@ -6152,20 +6155,20 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2016-11-21 16:59:28"
+            "time": "2016-12-08 16:18:33"
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.6.9",
+            "version": "0.6.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "9047b262f65869054032f54c1f3e7a107068e333"
+                "reference": "a102430e4ecd9414233314c3c91e4735a839d43b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/9047b262f65869054032f54c1f3e7a107068e333",
-                "reference": "9047b262f65869054032f54c1f3e7a107068e333",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/a102430e4ecd9414233314c3c91e4735a839d43b",
+                "reference": "a102430e4ecd9414233314c3c91e4735a839d43b",
                 "shasum": ""
             },
             "require": {
@@ -6199,7 +6202,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-11-30 09:15:23"
+            "time": "2016-12-06 15:07:51"
         },
         {
             "name": "squizlabs/php_codesniffer",
