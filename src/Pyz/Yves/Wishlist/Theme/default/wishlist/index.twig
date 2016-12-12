@@ -33,7 +33,7 @@
                                     <td><img width="75" src="{{ imageUrl }}" /></td>
                                     <td>{{ item.product.sku }}</td>
                                     <td>{{ item.product.name }}</td>
-                                    <td nowrap="nowrap">{{ item.product.price | price }}</td>
+                                    <td nowrap="nowrap">{{ item.product.price | money }}</td>
                                     <td>
                                         {% for attribute in item.product.superAttributesDefinition %}
                                             {% if item.product.attributes[attribute] is defined %}
