@@ -10,6 +10,7 @@ namespace Pyz\Zed\Collector\Business\Storage;
 use Generated\Shared\Transfer\RawProductAttributesTransfer;
 use Generated\Shared\Transfer\StorageProductImageTransfer;
 use Generated\Shared\Transfer\StorageProductTransfer;
+use Orm\Zed\Product\Persistence\SpyProductAttributeKeyQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
@@ -34,6 +35,8 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
     const META_KEYWORDS = 'meta_keywords';
     const META_TITLE = 'meta_title';
     const META_DESCRIPTION = 'meta_description';
+    const URL = 'url';
+    const ATTRIBUTES = 'attributes';
 
     /**
      * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
@@ -49,6 +52,11 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
      * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
      */
     private $productFacade;
+
+    /**
+     * @var array
+     */
+    protected $superAttributes;
 
     /**
      * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
@@ -96,6 +104,8 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
             StorageProductTransfer::META_TITLE => $collectItemData[self::META_TITLE],
             StorageProductTransfer::META_KEYWORDS => $collectItemData[self::META_KEYWORDS],
             StorageProductTransfer::META_DESCRIPTION => $collectItemData[self::META_DESCRIPTION],
+            StorageProductTransfer::URL => $collectItemData[self::URL],
+            StorageProductTransfer::SUPER_ATTRIBUTES_DEFINITION => $this->getVariantSuperAttributes()
         ];
     }
 
@@ -188,6 +198,46 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
         }
 
         return $description;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getSuperAttributes()
+    {
+        if ($this->superAttributes) {
+            return $this->superAttributes;
+        }
+
+        $superAttributes = SpyProductAttributeKeyQuery::create()
+            ->filterByIsSuper(true)
+            ->find();
+
+        foreach ($superAttributes as $attribute) {
+            $this->superAttributes[] = $attribute->getKey();
+        }
+
+        return $this->superAttributes;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getVariantSuperAttributes()
+    {
+        if ($this->superAttributes) {
+            return $this->superAttributes;
+        }
+
+        $superAttributes = SpyProductAttributeKeyQuery::create()
+            ->filterByIsSuper(true)
+            ->find();
+
+        foreach ($superAttributes as $attribute) {
+            $this->superAttributes[] = $attribute->getKey();
+        }
+
+        return $this->superAttributes;
     }
 
 }
