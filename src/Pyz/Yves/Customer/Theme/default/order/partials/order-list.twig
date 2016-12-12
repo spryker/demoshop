@@ -13,7 +13,7 @@
         <tr>
             <td>{{ order.orderReference }}</td>
             <td>{{ dateTime | formatDateShort }}</td>
-            <td class="text-right">{{ order.totals.grandTotal | default(0) | price }}</td>
+            <td class="text-right">{{ order.totals.grandTotal | default(0) | money }}</td>
             <td class="text-right">
                 <a href="{{ path('customer/order/details', {'id': order.idSalesOrder}) }}">
                     <small><i class="fa fa-cart-arrow-down"></i> {{ 'customer.order.view_order' | trans }}</small>

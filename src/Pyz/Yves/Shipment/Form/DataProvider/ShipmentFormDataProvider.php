@@ -14,7 +14,7 @@ use Pyz\Yves\Shipment\Form\ShipmentForm;
 use Spryker\Client\Glossary\GlossaryClientInterface;
 use Spryker\Client\Shipment\ShipmentClientInterface;
 use Spryker\Shared\Kernel\Store;
-use Spryker\Shared\Library\Currency\CurrencyManager;
+use Spryker\Shared\Money\Dependency\Plugin\MoneyPluginInterface;
 use Spryker\Shared\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
 
@@ -39,27 +39,26 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
     protected $store;
 
     /**
-     * @var \Spryker\Shared\Library\Currency\CurrencyManager
+     * @var \Spryker\Shared\Money\Dependency\Plugin\MoneyPluginInterface
      */
-    protected $currencyManager;
+    protected $moneyPlugin;
 
     /**
      * @param \Spryker\Client\Shipment\ShipmentClientInterface $shipmentClient
      * @param \Spryker\Client\Glossary\GlossaryClientInterface $glossaryClient
      * @param \Spryker\Shared\Kernel\Store $store
-     * @param \Spryker\Shared\Library\Currency\CurrencyManager $currencyManager
+     * @param \Spryker\Shared\Money\Dependency\Plugin\MoneyPluginInterface $moneyPlugin
      */
     public function __construct(
         ShipmentClientInterface $shipmentClient,
         GlossaryClientInterface $glossaryClient,
         Store $store,
-        CurrencyManager $currencyManager
+        MoneyPluginInterface $moneyPlugin
     ) {
-
         $this->shipmentClient = $shipmentClient;
         $this->glossaryClient = $glossaryClient;
         $this->store = $store;
-        $this->currencyManager = $currencyManager;
+        $this->moneyPlugin = $moneyPlugin;
     }
 
     /**
@@ -189,13 +188,13 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
     /**
      * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
      *
-     * @return int
+     * @return string
      */
     protected function getFormattedShipmentPrice(ShipmentMethodTransfer $shipmentMethodTransfer)
     {
-        return $this->currencyManager->format(
-            $this->currencyManager->convertCentToDecimal($shipmentMethodTransfer->getDefaultPrice())
-        );
+        $moneyTransfer = $this->moneyPlugin->fromInteger($shipmentMethodTransfer->getDefaultPrice());
+
+        return $this->moneyPlugin->formatWithSymbol($moneyTransfer);
     }
 
     /**
