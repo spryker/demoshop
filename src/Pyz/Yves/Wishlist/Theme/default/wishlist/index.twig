@@ -1,32 +1,89 @@
-{% extends "@application/layout/layout.twig" %}
-
-{% block breadcrumbItems %}
-    <li><a href="/">{{ 'global.home' | trans }}</a></li>
-{% endblock %}
+{% extends "@customer/layout.twig" %}
 
 {% block title %}
-    <h3>{{ 'wishlist.title' | trans }}</h3>
+    <h3>{{ 'customer.account.wishlist' | trans }}</h3>
 {% endblock %}
 
-{% block content %}
-    <div class="row">
-        <div class="small-12 columns">
+{% block customerNavigation %}
+    {% include "@customer/partials/navigation.twig" with {'active': 'wishlist'} %}
+{% endblock %}
+
+{% block customerContent %}
+    <div class="row xlarge-unstack">
+        <div class="columns">
             <div class="callout">
-                <ul class="no-bullet">
-                    {% if customerWishlist.items|length %}
-                        {% for wishlistItem in customerWishlist.items %}
-                            <li>{{ wishlistItem.getProductConcrete().getName() }} X ({{ wishlistItem.getQuantity() }})
-                                <a href="{{ path('wishlist/remove', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">Remove</a>
-                                <a href="{{ path('wishlist/decrease', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">Reduce</a>
-                                <a href="{{ path('wishlist/increase', { sku: wishlistItem.sku, groupKey:  wishlistItem.getGroupKey()  }) }}">Increase</a>
-                                <a href="{{ path('wishlist/add-to-cart', {groupKey:  wishlistItem.getGroupKey()  }) }}">Move to cart</a>
-                            </li>
+                {% if wishlistOverview.items|length %}
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>{{ 'customer.account.wishlist.overview.sku' | trans }}</th>
+                                <th>{{ 'customer.account.wishlist.overview.name' | trans  }}</th>
+                                <th>{{ 'customer.account.wishlist.overview.price' | trans  }}</th>
+                                <th>{{ 'customer.account.wishlist.overview.variant' | trans  }}</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        {% for item in wishlistOverview.items %}
+                            {% if item.product is defined %}
+                                <tr>
+                                    {% set imageUrl = '' %}
+                                    {% if item.product.imageSets is defined and item.product.imageSets.default is defined %}
+                                        {% set imageUrl = item.product.imageSets.default[0].externalUrlSmall %}
+                                    {% endif %}
+                                    <td><img width="75" src="{{ imageUrl }}" /></td>
+                                    <td>{{ item.product.sku }}</td>
+                                    <td>{{ item.product.name }}</td>
+                                    <td nowrap="nowrap">{{ item.product.price | money }}</td>
+                                    <td>
+                                        {% for attribute in item.product.superAttributesDefinition %}
+                                            {% if item.product.attributes[attribute] is defined %}
+                                                {{ ('product.attribute.'~attribute) | trans }}: {{ item.product.attributes[attribute] }} <br/>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </td>
+                                    <td>
+                                        <form class="row align-bottom" method="POST" action="{{ path('wishlist/move-to-cart', {sku: item.product.sku}) }}">
+                                            <div class="small-12 columns">
+                                                <button type="submit" class="button success">
+                                                    <i class="fa fa-shopping-cart"></i>{{ 'customer.account.wishlist.add-to-cart' | trans }}
+                                                </button>
+                                            </div>
+                                        </form>
+                                        <form class="row align-bottom" method="POST" action="{{ path('wishlist/remove-item', {sku: item.product.sku}) }}">
+                                            <div class="small-12 columns">
+                                                <button type="submit" class="button warning">
+                                                    <i class="fa fa-minus"></i>{{ 'customer.account.wishlist.remove' | trans }}
+                                                </button>
+                                            </div>
+                                        </form>
+                                        <form class="row align-bottom" method="GET" action="{{ item.product.url }}">
+                                            <div class="small-12 columns">
+                                                <button type="submit" class="button info">
+                                                    <i class="fa fa-file"></i>{{ 'customer.account.wishlist.view-in-shop' | trans }}
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </td>
+                                </tr>
+                            {% endif %}
                         {% endfor %}
-                    {% else %}
-                        <li>Your wishlist is empty.</li>
-                    {% endif %}
-                </ul>
+                        </tbody>
+                    </table>
+
+                    <div class="row align-center">
+                        {% include '@Application/layout/partials/pagination.twig' with {
+                        parameters: {},
+                        currentPage: currentPage,
+                        paginationPath: 'wishlist/browse',
+                        maxPage: totalPages,
+                        showAlwaysFirstAndLast: true
+                        } %}
+                    </div>
+                {% else %}
+                    Your wishlist is empty.
+                {% endif %}
             </div>
         </div>
+
     </div>
 {% endblock %}

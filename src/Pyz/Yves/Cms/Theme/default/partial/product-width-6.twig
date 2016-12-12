@@ -4,6 +4,6 @@
     <h1>{{ product.name }}</h1>
     <img width="100%" src="{{ getFirstProductImagesBySize(product.product_images, 'xxl') }}" alt="{{ product.name }}">
 
-    <p class="price">{{ product.price|price }}</p>
+    <p class="price">{{ product.price | money }}</p>
   </a>
 </div>

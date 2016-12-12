@@ -74,7 +74,7 @@
             <div class="callout">
                 {% if product.attributes.brand is defined %}<h5><small>{{ 'page.product.by' | trans }}</small> {{ product.attributes.brand }}</h5>{% endif %}
                 <p>
-                    <span class="stat">{{ product.price | price }}</span>
+                    <span class="stat">{{ product.price | money }}</span>
                 </p>
 
                 {% include '@Product/product/partials/variants.twig' %}
@@ -104,6 +104,14 @@
                     <strong>{{ "product.detail.out_of_stock" | trans }}</strong>
                 </p>
             {% endif %}
+
+            <form class="row align-bottom" method="POST" action="{{ path('wishlist/add-item', {sku: product.sku}) }}">
+                <div class="small-12 columns">
+                    <button type="submit" class="button expanded info" {{ (not product.isVariant) ? 'disabled' : '' }}>
+                        <i class="fa fa-heart"></i>{{ 'page.detail.add-to-wishlist' | trans }}
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 

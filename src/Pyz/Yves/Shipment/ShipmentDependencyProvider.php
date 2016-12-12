@@ -10,12 +10,15 @@ namespace Pyz\Yves\Shipment;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Yves\Kernel\Container;
+use Spryker\Yves\Money\Plugin\MoneyPlugin;
 
 class ShipmentDependencyProvider extends AbstractBundleDependencyProvider
 {
 
     const CLIENT_SHIPMENT = 'shipment client';
     const CLIENT_GLOSSARY = 'glossary client';
+    const PLUGIN_MONEY = 'money plugin';
+
     const STORE = 'store';
 
     /**
@@ -35,6 +38,10 @@ class ShipmentDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[static::STORE] = function () {
             return Store::getInstance();
+        };
+
+        $container[static::PLUGIN_MONEY] = function () {
+            return new MoneyPlugin();
         };
 
         return $container;
