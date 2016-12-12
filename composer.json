@@ -54,8 +54,7 @@
     "ext-pdo_pgsql": "*",
     "ext-pgsql": "*",
     "ext-readline": "*",
-    "ext-redis": "*",
-    "jms/serializer": "^1.4"
+    "ext-redis": "*"
   },
   "require-dev": {
     "codeception/codeception": "~2.1.10",
