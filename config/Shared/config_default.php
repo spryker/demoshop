@@ -385,13 +385,12 @@ $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 
 $config[LogConstants::LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application.log';
 
-$config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL;
-
-// To silence e.g. deprecations completely use
+// Due to some deprecation notices we silence all deprecations for the time being
 $config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED;
 
 // To only log e.g. deprecations instead of throwing exceptions here use
-$config[ErrorHandlerConstants::ERROR_LEVEL_LOG_ONLY] = E_DEPRECATED | E_USER_DEPRECATED;
+//$config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL
+//$config[ErrorHandlerConstants::ERROR_LEVEL_LOG_ONLY] = E_DEPRECATED | E_USER_DEPRECATED;
 
 $config[KernelConstants::AUTO_LOADER_CACHE_FILE_NO_LOCK] = false;
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
