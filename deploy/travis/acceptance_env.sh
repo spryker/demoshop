@@ -29,3 +29,6 @@ npm install npm -g
 sudo npm install -g antelope
 sudo antelope install
 sudo antelope build
+
+
+wget https://raw.github.com/Codeception/c3/2.0/c3.php
