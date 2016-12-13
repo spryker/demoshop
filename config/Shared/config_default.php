@@ -80,7 +80,6 @@ $config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE]
     = $config[SearchConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE]
     = 'page';
 
-
 /**
  * Page search settings
  */

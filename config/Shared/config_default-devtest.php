@@ -4,14 +4,14 @@
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a development environment.
  */
 
-use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Shared\Payone\PayoneConstants;
-use Spryker\Shared\Session\SessionConstants;
-use Spryker\Shared\Search\SearchConstants;
-use Spryker\Shared\Storage\StorageConstants;
-use Spryker\Shared\Testify\TestifyConstants;
 use Pyz\Yves\Application\YvesBootstrap;
 use Pyz\Zed\Application\Communication\ZedBootstrap;
+use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Payone\PayoneConstants;
+use Spryker\Shared\Search\SearchConstants;
+use Spryker\Shared\Session\SessionConstants;
+use Spryker\Shared\Storage\StorageConstants;
+use Spryker\Shared\Testify\TestifyConstants;
 
 $config[SessionConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
 $config[SessionConstants::ZED_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;

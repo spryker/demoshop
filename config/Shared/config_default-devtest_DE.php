@@ -6,8 +6,8 @@
 
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Payone\PayoneConstants;
-use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Storage\StorageConstants;
 
@@ -63,7 +63,6 @@ $config[ApplicationConstants::HOST_ZED_GUI]
     = $config[ApplicationConstants::HOST_SSL_ZED_GUI]
     = $config[ApplicationConstants::HOST_SSL_ZED_API]
     = $zedHost;
-
 
 $config[ApplicationConstants::HOST_ZED_GUI]
     = 'http://' . $zedHost;

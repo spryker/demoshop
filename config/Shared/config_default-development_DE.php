@@ -8,7 +8,6 @@ use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 
-
 $config[PropelConstants::ZED_DB_USERNAME] = 'development';
 $config[PropelConstants::ZED_DB_PASSWORD] = 'mate20mg';
 $config[PropelConstants::ZED_DB_DATABASE] = 'DE_development_zed';
