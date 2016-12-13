@@ -13,11 +13,11 @@ use Symfony\Component\Form\Extension\Csrf\CsrfProvider\CsrfProviderAdapter;
 use Symfony\Component\Form\Extension\Csrf\CsrfProvider\CsrfProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\Exception\InvalidArgumentException;
 use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 use Symfony\Component\Security\Core\Security;
-use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Security\Csrf\CsrfToken;
 use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface;
@@ -45,7 +45,7 @@ class UsernamePasswordFormAuthenticationListener extends BaseUsernamePasswordFor
      * @throws \Symfony\Component\Security\Core\Exception\InvalidArgumentException
      */
     public function __construct(
-        SecurityContextInterface $securityContext,
+        TokenStorageInterface $securityContext,
         AuthenticationManagerInterface $authenticationManager,
         SessionAuthenticationStrategyInterface $sessionStrategy,
         HttpUtils $httpUtils,
