@@ -65,8 +65,8 @@ script:
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance ; fi
 
   - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console code:sniff ; fi
-  - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console dev:dependency-tree:build ; fi
-  - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console dev:dependency-violation:find ; fi
+  - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console dev:dependency:build-tree ; fi
+  - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console dev:dependency:find-violations ; fi
 
 
 notifications:

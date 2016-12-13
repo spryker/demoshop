@@ -68,7 +68,7 @@ class UrlGenerator extends SymfonyUrlGenerator
         }
 
         $baseHost = '/';
-        if ($referenceType) {
+        if ($referenceType === self::ABSOLUTE_URL) {
             $baseHost = $this->context->getScheme() . '://' . $this->context->getHost() . '/';
         }
 
@@ -78,7 +78,7 @@ class UrlGenerator extends SymfonyUrlGenerator
         }
 
         if (!$this->isWebProfilerUrl($url)) {
-            $url = $this->setLocalePath($url, $baseHost);
+            $url = $this->setLocalePath($url, $baseHost, $route);
         }
 
         return $url;
@@ -90,13 +90,16 @@ class UrlGenerator extends SymfonyUrlGenerator
      *
      * @return string
      */
-    protected function setLocalePath($url, $baseHost)
+    protected function setLocalePath($url, $baseHost, Route $route)
     {
         $prefixLocale = mb_substr($this->context->getParameter('_locale'), 0, 2) . '/';
         $localePath = mb_substr($this->context->getPathInfo(), 1, 3);
 
         if ($prefixLocale === $localePath) {
-            $url = preg_replace('/^' . preg_quote($baseHost, '/') . '/', $baseHost . $prefixLocale, $url);
+            $urlToMatch = preg_replace('/^' . preg_quote($baseHost, '/') . '/', $prefixLocale, $url);
+            if (preg_match($route->compile()->getRegex(), '/' . $urlToMatch)) {
+                return $baseHost . $urlToMatch;
+            }
         }
 
         return $url;

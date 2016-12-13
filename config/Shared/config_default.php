@@ -169,7 +169,7 @@ $config[ApplicationConstants::YVES_COOKIE_DEVICE_ID_VALID_FOR] = '+5 year';
 $config[ApplicationConstants::YVES_COOKIE_VISITOR_ID_NAME] = 'vid';
 $config[ApplicationConstants::YVES_COOKIE_VISITOR_ID_VALID_FOR] = '+30 minute';
 
-$config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^/customer)';
+$config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^/customer|^/wishlist)';
 $config[CustomerConstants::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
 
 $currentStore = Store::getInstance()->getStoreName();
@@ -386,12 +386,11 @@ $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 
 $config[LogConstants::LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application.log';
 
-$config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL;
-
-// To silence e.g. deprecations completely use
-//$config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED;
+// Due to some deprecation notices we silence all deprecations for the time being
+$config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED;
 
 // To only log e.g. deprecations instead of throwing exceptions here use
+//$config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL
 //$config[ErrorHandlerConstants::ERROR_LEVEL_LOG_ONLY] = E_DEPRECATED | E_USER_DEPRECATED;
 
 $config[KernelConstants::AUTO_LOADER_CACHE_FILE_NO_LOCK] = false;

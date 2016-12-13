@@ -643,6 +643,36 @@ product.product_options,"Product option",en_US
 product.product_options,"Produktoption",de_DE
 wishlist.title,"Wishlist",en_US
 wishlist.title,"Wunschliste",de_DE
+wishlist.wishlist,"Wishlist",en_US
+page.detail.add-to-wishlist,"Add to Wishlist",en_US
+customer.account.wishlist,"Wishlist",en_US
+customer.account.wishlist.empty,"Currently there are no items in your wishlist.",en_US
+customer.account.wishlist.continue-shopping,"Continue shopping",en_US
+customer.account.wishlist.product,"Product",en_US
+customer.account.wishlist.price,"Price",en_US
+customer.account.wishlist.add-to-cart,"Add to Cart",en_US
+customer.account.wishlist.remove,"Remove",en_US
+customer.account.wishlist.product-not-available,"This product is not available at the moment.",en_US
+customer.account.wishlist.view-in-shop,"View",en_US
+customer.account.wishlist.overview.sku,"Sku",en_US
+customer.account.wishlist.overview.name,"Name",en_US
+customer.account.wishlist.overview.price,"Price",en_US
+customer.account.wishlist.overview.variant,"Variant",en_US
+wishlist.wishlist,"Wunschliste",de_DE
+page.detail.add-to-wishlist,"In die Wunschliste",de_DE
+customer.account.wishlist,"Wunschliste",de_DE
+customer.account.wishlist.empty,"Zurzeit ist kein Produkt auf deiner Wunschliste.",de_DE
+customer.account.wishlist.continue-shopping,"Weiter shoppen",de_DE
+customer.account.wishlist.product,"Produkt",de_DE
+customer.account.wishlist.price,"Preis",de_DE
+customer.account.wishlist.add-to-cart,"In den Warenkorb",de_DE
+customer.account.wishlist.remove,"Lösen",de_DE
+customer.account.wishlist.product-not-available,"Dieses Produkt ist momentan nicht verfügbar.",de_DE
+customer.account.wishlist.view-in-shop,"Produktdetails",de_DE
+customer.account.wishlist.overview.sku,"Sku",en_US
+customer.account.wishlist.overview.name,"Name",en_US
+customer.account.wishlist.overview.price,"Preis",en_US
+customer.account.wishlist.overview.variant,"Produktvariante",en_US
 newsletter.subscribe,"Subscribe for newsletter",en_US
 newsletter.subscribe,"In den Newsletter eintragen",de_DE
 pagination.previous,"Previous",en_US

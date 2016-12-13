@@ -1,6 +1,7 @@
 {% if hideUserMenu is not defined or hideUserMenu != true %}
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <li><a href="{{ url('customer/overview') }}"><i class="fa fa-user"></i>{{ 'customer.profile'|trans }}</a></li>
+        <li><a href="{{ url('wishlist') }}"><i class="fa fa-list"></i>{{ 'wishlist.wishlist'|trans }}</a></li>
         <li><a href="{{ url('logout') }}"><i class="fa fa-sign-out"></i>{{ 'customer.logout'|trans }}</a></li>
     {% else %}
         <li><a href="{{ url('login') }}"><i class="fa fa-sign-in"></i>{{ 'customer.login'|trans }}</a></li>

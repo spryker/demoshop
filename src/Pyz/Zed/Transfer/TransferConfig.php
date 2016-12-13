@@ -21,7 +21,7 @@ class TransferConfig extends SprykerTransferConfig
         $directoryGlobPatterns = [];
 
         if (Environment::isDevelopment()) { //only needed in Project, not in demoshop (case sensitivity vs lower-case-dash)
-            $directoryGlobPatterns[] = APPLICATION_VENDOR_DIR . '/code-generator/src/*/Shared/*/Transfer/';
+            $directoryGlobPatterns[] = APPLICATION_VENDOR_DIR . '/spryker/code-generator/src/*/Shared/*/Transfer/';
         }
 
         return $directoryGlobPatterns;

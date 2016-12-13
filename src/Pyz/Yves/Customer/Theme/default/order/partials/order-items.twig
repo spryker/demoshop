@@ -18,13 +18,13 @@
                 {{ orderItem.name }}
             </td>
             <td class="text-right">
-                {{ orderItem.unitGrossPriceWithProductOptions | price }}
+                {{ orderItem.unitGrossPriceWithProductOptions | money }}
             </td>
             <td class="text-right">
                 {{ orderItem.quantity }}
             </td>
             <td class="text-right">
-                {{ orderItem.sumGrossPriceWithProductOptions | price }}
+                {{ orderItem.sumGrossPriceWithProductOptions | money }}
             </td>
         </tr>
 
@@ -38,10 +38,10 @@
                     <small>{{ productOption.value | trans }}</small>
                 </td>
                 <td class="text-right">
-                    <small>{{ productOption.unitGrossPrice | price }}</small>
+                    <small>{{ productOption.unitGrossPrice | money }}</small>
                 </td>
                 <td class="text-right" colspan="2">
-                    <small>{{ productOption.sumGrossPrice | price }}</small>
+                    <small>{{ productOption.sumGrossPrice | money }}</small>
                 </td>
             </tr>
             {% endfor %}

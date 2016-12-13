@@ -21,6 +21,7 @@ use Spryker\Zed\CodeGenerator\Communication\Console\BundleZedCodeGeneratorConsol
 use Spryker\Zed\Collector\Communication\Console\CollectorSearchExportConsole;
 use Spryker\Zed\Collector\Communication\Console\CollectorStorageExportConsole;
 use Spryker\Zed\Console\ConsoleDependencyProvider as SprykerConsoleDependencyProvider;
+use Spryker\Zed\Development\Communication\Console\BundleCreateConsole;
 use Spryker\Zed\Development\Communication\Console\CodeCreateConsole;
 use Spryker\Zed\Development\Communication\Console\CodePhpMessDetectorConsole;
 use Spryker\Zed\Development\Communication\Console\CodeStyleSnifferConsole;
@@ -84,6 +85,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new CodeTestConsole();
             $commands[] = new CodeStyleSnifferConsole();
             $commands[] = new CodeCreateConsole();
+            $commands[] = new BundleCreateConsole();
             $commands[] = new CodePhpMessDetectorConsole();
             $commands[] = new DependencyTreeBuilderConsole();
             $commands[] = new DependencyTreeDependencyViolationConsole();

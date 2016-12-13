@@ -16,5 +16,4 @@ use Spryker\Zed\Oms\Persistence\Propel\AbstractSpyOmsProductReservationQuery as 
  */
 class SpyOmsProductReservationQuery extends BaseSpyOmsProductReservationQuery
 {
-
 }

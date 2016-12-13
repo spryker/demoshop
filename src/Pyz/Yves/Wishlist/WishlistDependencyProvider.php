@@ -8,7 +8,37 @@
 namespace Pyz\Yves\Wishlist;
 
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
+use Spryker\Yves\Kernel\Container;
 
 class WishlistDependencyProvider extends AbstractBundleDependencyProvider
 {
+
+    const CLIENT_CUSTOMER = 'CLIENT_CUSTOMER';
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    public function provideDependencies(Container $container)
+    {
+        $container = $this->provideClients($container);
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function provideClients(Container $container)
+    {
+        $container[self::CLIENT_CUSTOMER] = function (Container $container) {
+            return $container->getLocator()->customer()->client();
+        };
+
+        return $container;
+    }
+
 }
