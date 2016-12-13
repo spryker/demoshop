@@ -80,7 +80,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
         $setupCommands = $container->getLocator()->setup()->facade()->getConsoleCommands();
         $commands = array_merge($commands, $setupCommands);
 
-        if (Environment::isDevelopment()) {
+        if (Environment::isDevelopment() || Environment::isTesting()) {
             $commands[] = new CodeTestConsole();
             $commands[] = new CodeStyleSnifferConsole();
             $commands[] = new CodeCreateConsole();
