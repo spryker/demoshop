@@ -13,7 +13,7 @@ use Spryker\Zed\Oms\Communication\Plugin\Oms\Command\SendOrderConfirmationPlugin
 use Spryker\Zed\Oms\Communication\Plugin\Oms\Command\SendOrderShippedPlugin;
 use Spryker\Zed\Oms\Dependency\Plugin\Command\CommandCollectionInterface;
 use Spryker\Zed\Oms\OmsDependencyProvider as SprykerOmsDependencyProvider;
-use Spryker\Zed\ProductBundle\Communication\Plugin\Availability\ProductBundleAvailabilityHandlerPlugin;
+use Spryker\Zed\ProductBundle\Communication\Plugin\Oms\ProductBundleAvailabilityHandlerPlugin;
 
 class OmsDependencyProvider extends SprykerOmsDependencyProvider
 {

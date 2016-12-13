@@ -6,6 +6,7 @@
 
 namespace Pyz\Yves\Cart\Handler;
 
+use ArrayObject;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
@@ -140,6 +141,8 @@ class ProductBundleAwareCartOperationHandler extends BaseHandler implements Cart
 
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return void
      */
     public function updateNumberOfItemsInCart(QuoteTransfer $quoteTransfer)
     {
@@ -170,7 +173,7 @@ class ProductBundleAwareCartOperationHandler extends BaseHandler implements Cart
      * @param string $sku
      * @param int $numberOfBundlesToRemove
      *
-     * @return \ArrayObject
+     * @return ArrayObject
      */
     protected function getBundledItems($sku, $numberOfBundlesToRemove = 0)
     {
