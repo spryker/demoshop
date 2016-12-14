@@ -1253,7 +1253,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "6020af7e1c80c4b2915747c69902d65aae9af1f6"
+                "reference": "a8aa8901493f6aba5a3a3e7b9f0a95f7e76380e3"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1820,7 +1820,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2016-12-13 11:49:31"
+            "time": "2016-12-13 16:41:09"
         },
         {
             "name": "symfony-cmf/routing",
@@ -3610,16 +3610,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.28.2",
+            "version": "v1.29.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "b22ce0eb070e41f7cba65d78fe216de29726459c"
+                "reference": "74f723e542368ca2080b252740be5f1113ebb898"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/b22ce0eb070e41f7cba65d78fe216de29726459c",
-                "reference": "b22ce0eb070e41f7cba65d78fe216de29726459c",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/74f723e542368ca2080b252740be5f1113ebb898",
+                "reference": "74f723e542368ca2080b252740be5f1113ebb898",
                 "shasum": ""
             },
             "require": {
@@ -3632,7 +3632,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.28-dev"
+                    "dev-master": "1.29-dev"
                 }
             },
             "autoload": {
@@ -3667,7 +3667,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-11-23 18:41:40"
+            "time": "2016-12-13 17:28:18"
         },
         {
             "name": "zendframework/zend-code",
@@ -6338,12 +6338,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "994cd151fd2980bcf5b886f53fdcf8ae2e96e795"
+                "reference": "5f265dbc4f536f2d06e6bd1cf8eaf6c8888fadb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/994cd151fd2980bcf5b886f53fdcf8ae2e96e795",
-                "reference": "994cd151fd2980bcf5b886f53fdcf8ae2e96e795",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/5f265dbc4f536f2d06e6bd1cf8eaf6c8888fadb1",
+                "reference": "5f265dbc4f536f2d06e6bd1cf8eaf6c8888fadb1",
                 "shasum": ""
             },
             "require": {
@@ -6372,7 +6372,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2016-12-08 16:18:33"
+            "time": "2016-12-14 18:42:41"
         },
         {
             "name": "spryker/code-sniffer",
