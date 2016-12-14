@@ -29,6 +29,10 @@ use Spryker\Zed\Development\Communication\Console\CodeTestConsole;
 use Spryker\Zed\Development\Communication\Console\ComposerJsonUpdaterConsole;
 use Spryker\Zed\Development\Communication\Console\DependencyTreeBuilderConsole;
 use Spryker\Zed\Development\Communication\Console\DependencyTreeDependencyViolationConsole;
+use Spryker\Zed\Development\Communication\Console\GenerateIdeAutoCompletionConsole;
+use Spryker\Zed\Development\Communication\Console\GenerateClientIdeAutoCompletionConsole;
+use Spryker\Zed\Development\Communication\Console\GenerateServiceIdeAutoCompletionConsole;
+use Spryker\Zed\Development\Communication\Console\GenerateZedIdeAutoCompletionConsole;
 use Spryker\Zed\Installer\Communication\Console\InitializeDatabaseConsole;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\NewRelic\Communication\Console\RecordDeploymentConsole;
@@ -97,6 +101,10 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new BundleZedCodeGeneratorConsole();
             $commands[] = new BundleSharedCodeGeneratorConsole();
             $commands[] = new BundleClientCodeGeneratorConsole();
+            $commands[] = new GenerateZedIdeAutoCompletionConsole();
+            $commands[] = new GenerateClientIdeAutoCompletionConsole();
+            $commands[] = new GenerateServiceIdeAutoCompletionConsole();
+            $commands[] = new GenerateIdeAutoCompletionConsole();
         }
 
         return $commands;
