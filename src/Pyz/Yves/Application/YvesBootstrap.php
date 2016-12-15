@@ -18,6 +18,7 @@ use Pyz\Yves\Application\Plugin\Provider\SessionServiceProvider as ProviderSessi
 use Pyz\Yves\Application\Plugin\Provider\YvesSecurityServiceProvider;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
 use Pyz\Yves\Cart\Plugin\Provider\CartServiceProvider;
+use Pyz\Yves\Catalog\Plugin\Provider\CatalogControllerProvider;
 use Pyz\Yves\Catalog\Plugin\Router\SearchRouter;
 use Pyz\Yves\Category\Plugin\Provider\CategoryServiceProvider;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
@@ -156,6 +157,7 @@ class YvesBootstrap
             new WishlistControllerProvider($isSsl),
             new HeartbeatControllerProvider($isSsl),
             new NewsletterControllerProvider($isSsl),
+            new CatalogControllerProvider($isSsl),
         ];
     }
 
