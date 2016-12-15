@@ -5975,11 +5975,11 @@
         },
         {
             "name": "spryker/money",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Money.git",
-                "reference": "fbe115bf9d1b8e7b94448fd40bbbc8debd4cc2be",
+                "reference": "a9395e562e61f7f551141d2beb2c40534ae18d4e",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5989,8 +5989,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Money/zipball/fbe115bf9d1b8e7b94448fd40bbbc8debd4cc2be",
-                "reference": "fbe115bf9d1b8e7b94448fd40bbbc8debd4cc2be",
+                "url": "https://api.github.com/repos/spryker/Money/zipball/a9395e562e61f7f551141d2beb2c40534ae18d4e",
+                "reference": "a9395e562e61f7f551141d2beb2c40534ae18d4e",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6041,7 +6041,7 @@
             "support": {
                 "source": "https://github.com/spryker/Money/tree/master"
             },
-            "time": "2016-11-08 10:28:16"
+            "time": "2016-12-09 15:52:55"
         },
         {
             "name": "spryker/monolog",
