@@ -1,14 +1,26 @@
 before_install: echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 language: php
+
 php:
   - 5.6
   - 7.0
   - 7.1
 
+env:
+  global:
+    - APPLICATION_ENV=development
+    - APPLICATION_STORE=DE
+    - TEST_GROUP=without-acceptance
+
 matrix:
+  include:
+    - php: 7.0
+      env: TEST_GROUP=acceptance
+
   allow_failures:
-    - env: TEST_GROUP=acceptance
+    - php: 7.0
+      env: TEST_GROUP=acceptance
 
 addons:
   postgresql: 9.4
@@ -32,14 +44,6 @@ services:
   - redis
 
 sudo: required
-
-env:
-  global:
-    - APPLICATION_ENV=development
-    - APPLICATION_STORE=DE
-  matrix:
-    - TEST_GROUP=without-acceptance
-    - TEST_GROUP=acceptance
 
 install:
   - composer self-update && composer --version
