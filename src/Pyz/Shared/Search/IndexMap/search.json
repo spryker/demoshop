@@ -1,7 +1,33 @@
 {
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "fulltext_search_ngram_analyzer": {
+          "tokenizer": "keyword",
+          "filter": [
+            "lowercase",
+            "suggestion_filter"
+          ]
+        }
+      },
+      "filter": {
+        "suggestion_filter": {
+          "type": "edge_ngram",
+          "min_gram": 2,
+          "max_gram": 20
+        }
+      }
+    }
+  },
   "mappings": {
     "page": {
       "properties": {
+        "full-text": {
+          "analyzer": "fulltext_search_ngram_analyzer"
+        },
+        "full-text-boosted": {
+          "analyzer": "fulltext_search_ngram_analyzer"
+        },
         "is_featured": {
           "type": "boolean",
           "include_in_all": false

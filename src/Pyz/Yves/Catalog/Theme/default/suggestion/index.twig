@@ -1,4 +1,4 @@
-{{ dump(suggestion) }}
-{{ dump(product) }}
-{{ dump(category) }}
-{{ dump(cms) }}
+{% if suggestion is defined %}{{ dump(suggestion) }}{% endif %}
+{% if products is defined %}{{ dump(products) }}{% endif %}
+{% if categories is defined %}{{ dump(categories) }}{% endif %}
+{% if cms is defined %}{{ dump(cms) }}{% endif %}
