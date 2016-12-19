@@ -11,6 +11,7 @@
   "dependencies": {
     "font-awesome": "~4.6.1",
     "foundation-sites": "~6.2.1",
+    "jquery": "~2.2.4",
     "motion-ui": "~1.1.0"
   },
   "devDependencies": {
