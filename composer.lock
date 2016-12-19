@@ -2944,11 +2944,11 @@
         },
         {
             "name": "spryker/auth",
-            "version": "2.0.13",
+            "version": "2.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Auth.git",
-                "reference": "026cbcdf596281d1d2acec06fa013fec628972f1",
+                "reference": "afdef70faa9d926bf54178ed80738b903dabd443",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -2958,8 +2958,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Auth/zipball/026cbcdf596281d1d2acec06fa013fec628972f1",
-                "reference": "026cbcdf596281d1d2acec06fa013fec628972f1",
+                "url": "https://api.github.com/repos/spryker/Auth/zipball/afdef70faa9d926bf54178ed80738b903dabd443",
+                "reference": "afdef70faa9d926bf54178ed80738b903dabd443",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3010,7 +3010,7 @@
             "support": {
                 "source": "https://github.com/spryker/Auth/tree/master"
             },
-            "time": "2016-12-09 14:38:26"
+            "time": "2016-12-16 13:29:24"
         },
         {
             "name": "spryker/auth-mail-connector",
@@ -5467,11 +5467,11 @@
         },
         {
             "name": "spryker/kernel",
-            "version": "2.6.2",
+            "version": "2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Kernel.git",
-                "reference": "bac610985b707dc175f8ac738021447d75700988",
+                "reference": "5d94bec1abbd5304590480a41c55f4c4bd95cb0f",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5481,8 +5481,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Kernel/zipball/bac610985b707dc175f8ac738021447d75700988",
-                "reference": "bac610985b707dc175f8ac738021447d75700988",
+                "url": "https://api.github.com/repos/spryker/Kernel/zipball/5d94bec1abbd5304590480a41c55f4c4bd95cb0f",
+                "reference": "5d94bec1abbd5304590480a41c55f4c4bd95cb0f",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5537,7 +5537,7 @@
             "support": {
                 "source": "https://github.com/spryker/Kernel/tree/master"
             },
-            "time": "2016-12-06 14:51:12"
+            "time": "2016-12-14 08:25:36"
         },
         {
             "name": "spryker/library",
