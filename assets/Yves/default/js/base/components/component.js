@@ -1,23 +1,24 @@
 'use strict';
 
 var Component = {
-    $el: '',
+    $root: null,
     name: '',
-    observers: [],
-
-    children: function(register) {},
+    state: {},
 
     init: function() {},
+    onChangeState: function(changes, oldState) {},
 
-    update: function() {
-        var that = this;
-        this.observers.forEach(function(observer) {
-            observer.call(that);
-        });
-    },
+    changeState: function(newState) {
+        var changes = {};
+        var oldState = Object.assign({}, this.state);
 
-    onUpdate: function(observer) {
-        this.observers.push(observer);
+        for (var key in newState) {
+            changes[key] = typeof newState[key] !== 'undefined';
+            changes[key] || (changes[key] = newState[key] === oldState[key]);
+        }
+
+        this.state = Object.assign({}, oldState, newState);
+        this.onChangeState && this.onChangeState(changes, oldState);
     }
 };
 

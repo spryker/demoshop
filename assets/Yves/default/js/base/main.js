@@ -18,15 +18,9 @@ var $ = require('jquery');
 var bootstrap = require('js/base/bootstrap');
 var Suggestions = require('js/base/components/suggestions');
 
-var Main = {
-    name: 'main',
-
-    children: function(register) {
-        register(Suggestions);
-    }
-};
-
 $(function(){
-    bootstrap(Main);
+    bootstrap([
+        Suggestions
+    ]);
 });
 
