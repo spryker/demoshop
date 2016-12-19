@@ -9,9 +9,10 @@
     "url": "http://spryker.com/"
   },
   "dependencies": {
-    "font-awesome": "^4.6.1",
-    "foundation-sites": "^6.2.1",
-    "motion-ui": "^1.1.0"
+    "font-awesome": "~4.6.1",
+    "foundation-sites": "~6.2.1",
+    "jquery": "~2.2.4",
+    "motion-ui": "~1.1.0"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^3.0.1"
