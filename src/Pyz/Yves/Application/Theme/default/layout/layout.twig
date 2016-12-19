@@ -16,7 +16,7 @@
     {% block stylesheets %}{% endblock %}
 </head>
 
-<body>
+<body data-component="main">
     {% block outside %}{% endblock %}
 
     <aside id="aside" class="hide-for-large __aside" tabindex="-1">
@@ -40,7 +40,7 @@
                             </div>
                             {% block header %}
                                 <div class="large-6 columns show-for-large">
-                                    {% include '@application/layout/partials/search-form.twig' %}
+                                    {% include '@application/layout/partials/suggestions.twig' %}
                                 </div>
 
                                 <a class="shrink columns text-right align-middle hide-for-large" href="#aside" data-aside-toggle>

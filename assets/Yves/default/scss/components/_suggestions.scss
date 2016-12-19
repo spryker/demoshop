@@ -1,0 +1,34 @@
+.suggestions {
+  position: relative;
+  font-size: 80%;
+
+  &__input {
+    position: relative;
+    z-index: 2;
+
+    &,
+    &:hover,
+    &:focus {
+      background-color: transparent;
+    }
+
+    &--shadow {
+      position: absolute;
+      height: 100%;
+      border-color: transparent;
+      color: #ccc;
+      z-index: 1;
+    }
+  }
+
+  &__submit {
+    position: relative;
+    z-index: 3;
+  }
+
+  &__panel-container {
+    position: absolute;
+    width: 100%;
+    z-index: 9;
+  }
+}

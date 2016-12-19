@@ -1,0 +1,14 @@
+{#
+    @var name
+    @var items
+#}
+
+{% if items is defined and items is not empty %}
+    <h6>{{ name }}</h6>
+
+    <ul class="no-bullet">
+        {% for item in items %}
+            <li><a href="{{ item.url }}">{{ item.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}

@@ -1,4 +1,47 @@
-{% if suggestion is defined %}{{ dump(suggestion) }}{% endif %}
-{% if products is defined %}{{ dump(products) }}{% endif %}
-{% if categories is defined %}{{ dump(categories) }}{% endif %}
-{% if cms is defined %}{{ dump(cms) }}{% endif %}
+<div class="callout suggestions-panel">
+    <div class="row">
+        <div class="columns">
+            <div class="callout">
+                {% if suggestion is defined and suggestion is not empty %}
+                    <h6>Autosuggestion</h6>
+                    <ul class="no-bullet">
+                        {% for item in suggestion %}
+                            <li><a href="/search?q={{ item }}">{{ item }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                {% include '@catalog/suggestion/partials/list.twig' with {
+                    name: 'In categories',
+                    items: categories | default()
+                } %}
+
+                {% include '@catalog/suggestion/partials/list.twig' with {
+                    name: 'In CMS',
+                    items: cms | default()
+                } %}
+            </div>
+        </div>
+
+        {% if products is defined and products is not empty %}
+            <div class="small-12 medium-8 columns">
+                {% for product in products %}
+                    {% set image = product.images | first %}
+
+                    <a class="row suggestions-panel__product" href="{{ product.url }}">
+                        <span class="small-3 columns thumbnail">
+                            <img src="{{ image.external_url_small }}">
+                        </span>
+
+                        <span class="small-9 columns">
+                            {{ product.abstract_name }}
+                            <br>
+                            <strong>{{ product.price | money }}</strong>
+                        </span>
+                    </a>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+
