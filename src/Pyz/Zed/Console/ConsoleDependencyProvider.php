@@ -24,6 +24,11 @@ use Spryker\Zed\Console\ConsoleDependencyProvider as SprykerConsoleDependencyPro
 use Spryker\Zed\Development\Communication\Console\CodePhpMessDetectorConsole;
 use Spryker\Zed\Development\Communication\Console\CodeStyleSnifferConsole;
 use Spryker\Zed\Development\Communication\Console\CodeTestConsole;
+use Spryker\Zed\Development\Communication\Console\GenerateClientIdeAutoCompletionConsole;
+use Spryker\Zed\Development\Communication\Console\GenerateIdeAutoCompletionConsole;
+use Spryker\Zed\Development\Communication\Console\GenerateServiceIdeAutoCompletionConsole;
+use Spryker\Zed\Development\Communication\Console\GenerateYvesIdeAutoCompletionConsole;
+use Spryker\Zed\Development\Communication\Console\GenerateZedIdeAutoCompletionConsole;
 use Spryker\Zed\Installer\Communication\Console\InitializeDatabaseConsole;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\NewRelic\Communication\Console\RecordDeploymentConsole;
