@@ -32,6 +32,7 @@ use Spryker\Zed\Development\Communication\Console\DependencyTreeDependencyViolat
 use Spryker\Zed\Development\Communication\Console\GenerateClientIdeAutoCompletionConsole;
 use Spryker\Zed\Development\Communication\Console\GenerateIdeAutoCompletionConsole;
 use Spryker\Zed\Development\Communication\Console\GenerateServiceIdeAutoCompletionConsole;
+use Spryker\Zed\Development\Communication\Console\GenerateYvesIdeAutoCompletionConsole;
 use Spryker\Zed\Development\Communication\Console\GenerateZedIdeAutoCompletionConsole;
 use Spryker\Zed\Installer\Communication\Console\InitializeDatabaseConsole;
 use Spryker\Zed\Kernel\Container;
@@ -117,6 +118,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new GenerateZedIdeAutoCompletionConsole();
             $commands[] = new GenerateClientIdeAutoCompletionConsole();
             $commands[] = new GenerateServiceIdeAutoCompletionConsole();
+            $commands[] = new GenerateYvesIdeAutoCompletionConsole();
             $commands[] = new GenerateIdeAutoCompletionConsole();
         }
 
