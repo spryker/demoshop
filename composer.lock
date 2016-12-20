@@ -4404,11 +4404,11 @@
         },
         {
             "name": "spryker/development",
-            "version": "2.2.0",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Development.git",
-                "reference": "a8d505b7dceb98cffdd5054df5980e08fa8492e8",
+                "reference": "85184528e3bc85f3ffa0250ed993adb1c332909e",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4418,8 +4418,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Development/zipball/a8d505b7dceb98cffdd5054df5980e08fa8492e8",
-                "reference": "a8d505b7dceb98cffdd5054df5980e08fa8492e8",
+                "url": "https://api.github.com/repos/spryker/Development/zipball/85184528e3bc85f3ffa0250ed993adb1c332909e",
+                "reference": "85184528e3bc85f3ffa0250ed993adb1c332909e",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4466,7 +4466,7 @@
             "support": {
                 "source": "https://github.com/spryker/Development/tree/master"
             },
-            "time": "2016-12-19 17:03:59"
+            "time": "2016-12-20 11:44:53"
         },
         {
             "name": "spryker/discount",
