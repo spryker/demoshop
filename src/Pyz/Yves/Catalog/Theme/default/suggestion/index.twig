@@ -6,7 +6,7 @@
                     <h6>Autosuggestion</h6>
                     <ul class="no-bullet">
                         {% for item in suggestion %}
-                            <li><a href="/search?q={{ item }}">{{ item }}</a></li>
+                            <li><a class="suggestions-panel__hint js-navigable" href="/search?q={{ item }}">{{ item }}</a></li>
                         {% endfor %}
                     </ul>
                 {% endif %}
@@ -28,7 +28,7 @@
                 {% for product in products %}
                     {% set image = product.images | first %}
 
-                    <a class="row suggestions-panel__product" href="{{ product.url }}">
+                    <a class="row suggestions-panel__product js-product js-navigable" href="{{ product.url }}">
                         <span class="small-3 columns thumbnail">
                             <img src="{{ image.external_url_small }}">
                         </span>

@@ -9,8 +9,8 @@ function register(Component) {
     $(selector).not('[data-component-registered]').each(function(index, el){
         var component = Object.assign({}, BaseComponent, Component);
 
-        component.$el = $(el);
-        component.$el.attr('data-component-registered', true);
+        component.$root = $(el);
+        component.$root.attr('data-component-registered', true);
 
         !!component.init && component.init();
     });

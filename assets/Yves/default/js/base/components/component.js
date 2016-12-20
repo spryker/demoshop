@@ -1,9 +1,9 @@
 'use strict';
 
 var Component = {
-    $root: null,
     name: '',
     state: {},
+    $root: null,
 
     init: function() {},
     onChangeState: function(changes, oldState) {},
