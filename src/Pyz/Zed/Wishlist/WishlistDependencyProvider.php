@@ -8,7 +8,7 @@ namespace Pyz\Zed\Wishlist;
 
 use Spryker\Zed\Wishlist\WishlistDependencyProvider as SprykerWishlistDependencyProvider;
 
-class CartDependencyProvider extends SprykerWishlistDependencyProvider
+class WishlistDependencyProvider extends SprykerWishlistDependencyProvider
 {
 
     /**
