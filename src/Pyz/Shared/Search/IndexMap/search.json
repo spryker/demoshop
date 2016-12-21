@@ -3,18 +3,24 @@
     "analysis": {
       "analyzer": {
         "fulltext_search_ngram_analyzer": {
-          "tokenizer": "keyword",
+          "tokenizer": "fulltext_search_ngram_tokenizer",
           "filter": [
-            "lowercase",
-            "suggestion_filter"
+            "lowercase"
           ]
+        },
+        "fulltext_search_analyzer": {
+          "tokenizer": "lowercase"
         }
       },
-      "filter": {
-        "suggestion_filter": {
+      "tokenizer": {
+        "fulltext_search_ngram_tokenizer": {
           "type": "edge_ngram",
           "min_gram": 2,
-          "max_gram": 20
+          "max_gram": 20,
+          "token_chars": [
+            "letter",
+            "digit"
+          ]
         }
       }
     }
@@ -23,10 +29,12 @@
     "page": {
       "properties": {
         "full-text": {
-          "analyzer": "fulltext_search_ngram_analyzer"
+          "analyzer": "fulltext_search_ngram_analyzer",
+          "search_analyzer": "fulltext_search_analyzer"
         },
         "full-text-boosted": {
-          "analyzer": "fulltext_search_ngram_analyzer"
+          "analyzer": "fulltext_search_ngram_analyzer",
+          "search_analyzer": "fulltext_search_analyzer"
         },
         "is_featured": {
           "type": "boolean",

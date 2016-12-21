@@ -17,12 +17,12 @@ use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\LocalizedQueryExpan
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\PaginatedQueryExpanderPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\SortedQueryExpanderPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\StoreQueryExpanderPlugin;
-use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\SuggestionQueryExpanderPlugin;
+use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\SuggestionByTypeQueryExpanderPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\CompletionResultFormatterPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\FacetResultFormatterPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\PaginatedResultFormatterPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\SortedResultFormatterPlugin;
-use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\SuggestionResultFormatterPlugin;
+use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\SuggestionByTypeResultFormatterPlugin;
 
 class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
 {
@@ -89,7 +89,7 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
             new StoreQueryExpanderPlugin(),
             new LocalizedQueryExpanderPlugin(),
             new CompletionQueryExpanderPlugin(),
-            new SuggestionQueryExpanderPlugin(),
+            new SuggestionByTypeQueryExpanderPlugin(),
         ];
     }
 
@@ -99,9 +99,8 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
     protected function createSuggestionResultFormatterPlugins()
     {
         return [
-            new RawCatalogSearchResultFormatterPlugin(),
             new CompletionResultFormatterPlugin(),
-            new SuggestionResultFormatterPlugin(),
+            new SuggestionByTypeResultFormatterPlugin(),
         ];
     }
 

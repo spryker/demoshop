@@ -2,10 +2,10 @@
     <div class="row">
         <div class="columns">
             <div class="callout">
-                {% if suggestion is defined and suggestion is not empty %}
+                {% if completion is defined and completion is not empty %}
                     <h6>Autosuggestion</h6>
                     <ul class="no-bullet">
-                        {% for item in suggestion %}
+                        {% for item in completion %}
                             <li><a class="suggestions-panel__hint js-navigable" href="/search?q={{ item }}">{{ item }}</a></li>
                         {% endfor %}
                     </ul>
@@ -13,19 +13,19 @@
 
                 {% include '@catalog/suggestion/partials/list.twig' with {
                     name: 'In categories',
-                    items: categories | default()
+                    items: suggestionByType.category | default()
                 } %}
 
                 {% include '@catalog/suggestion/partials/list.twig' with {
                     name: 'In CMS',
-                    items: cms | default()
+                    items: suggestionByType.page | default()
                 } %}
             </div>
         </div>
 
-        {% if products is defined and products is not empty %}
+        {% if suggestionByType.product_abstract is defined and suggestionByType.product_abstract is not empty %}
             <div class="small-12 medium-8 columns">
-                {% for product in products %}
+                {% for product in suggestionByType.product_abstract %}
                     {% set image = product.images | first %}
 
                     <a class="row suggestions-panel__product js-product js-navigable" href="{{ product.url }}">
