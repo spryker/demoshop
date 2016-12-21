@@ -7497,11 +7497,11 @@
         },
         {
             "name": "spryker/propel",
-            "version": "2.3.5",
+            "version": "2.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Propel.git",
-                "reference": "58acbcc73b57925732120bfedd8eba9cc896f1d4",
+                "reference": "3a56c7fd7a182b9cc6be3c2db033fb7161d21505",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7511,8 +7511,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Propel/zipball/58acbcc73b57925732120bfedd8eba9cc896f1d4",
-                "reference": "58acbcc73b57925732120bfedd8eba9cc896f1d4",
+                "url": "https://api.github.com/repos/spryker/Propel/zipball/3a56c7fd7a182b9cc6be3c2db033fb7161d21505",
+                "reference": "3a56c7fd7a182b9cc6be3c2db033fb7161d21505",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7563,7 +7563,7 @@
             "support": {
                 "source": "https://github.com/spryker/Propel/tree/master"
             },
-            "time": "2016-12-19 16:16:56"
+            "time": "2016-12-20 13:00:20"
         },
         {
             "name": "spryker/ratepay",
