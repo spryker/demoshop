@@ -1,28 +1,18 @@
 'use strict';
 
 var $ = require('jquery');
-
-var threshold = 2;
 var fetchUrl = '/search/suggest';
 
 module.exports = {
-    init: function(view) {
+    init: function(state, view) {
+        this.state = state;
         this.view = view;
+        this.state.onChange(this.dispatch.bind(this));
     },
 
     dispatch: function(hasChanged) {
-        console.log(this.state)
-
         if (hasChanged.query) {
-            if (this.state.query.length >= threshold) {
-                if (this.isQueryInlineWithHint()) {
-                    this.view.updateHint();
-                } else {
-                    this.fetch();
-                }
-            } else {
-                this.reset();
-            }
+            this.fetch();
         }
 
         if (hasChanged.hint) {
@@ -45,33 +35,17 @@ module.exports = {
     fetch: function() {
         var that = this;
 
-        $.get(fetchUrl, { q: that.state.query }, function(data) {
-            that.setState({
+        if (that.xhr) {
+            that.xhr.abort();
+        }
+
+        that.xhr = $.get(fetchUrl, { q: that.state.current.query }, function(data) {
+            that.state.set({
                 visible: true,
                 hint: data.completion,
                 suggestions: data.suggestion,
                 navigationIndex: 0
             });
         });
-    },
-
-    reset: function() {
-        this.setState({
-            visible: false,
-            hint: '',
-            suggestions: '',
-            navigationIndex: 0
-        });
-    },
-
-    isQueryInlineWithHint: function() {
-        var state = this.state;
-        var length = state.query.length;
-        var index = length - 1;
-
-        return length >= threshold
-            && state.hint
-            && state.hint.length >= index
-            && state.hint[index] === state.query[index];
     }
 };

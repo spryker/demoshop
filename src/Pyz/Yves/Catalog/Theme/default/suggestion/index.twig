@@ -1,36 +1,45 @@
+{% set leftVisible = (completion is defined and completion is not empty)
+    or (suggestionByType.category is defined and suggestionByType.category is not empty)
+    or (suggestionByType.page is defined and suggestionByType.page is not empty) %}
+
+{% set rightVisible = suggestionByType.product_abstract is defined
+    and suggestionByType.product_abstract is not empty %}
+
 <div class="callout suggestions-panel">
     <div class="row">
-        <div class="columns">
-            <div class="callout">
-                {% if completion is defined and completion is not empty %}
-                    <h6>Autosuggestion</h6>
-                    <ul class="no-bullet">
-                        {% for item in completion %}
-                            <li><a class="suggestions-panel__hint js-navigable" href="/search?q={{ item }}">{{ item }}</a></li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
+        {% if leftVisible %}
+            <div class="columns">
+                <div class="callout">
+                    {% if completion is defined and completion is not empty %}
+                        <h6>Autosuggestion</h6>
+                        <ul class="no-bullet">
+                            {% for item in completion %}
+                                <li><a class="suggestions-panel__hint js-navigable" href="/search?q={{ item }}">{{ item }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
 
-                {% include '@catalog/suggestion/partials/list.twig' with {
-                    name: 'In categories',
-                    items: suggestionByType.category | default()
-                } %}
+                    {% include '@catalog/suggestion/partials/list.twig' with {
+                        name: 'In categories',
+                        items: suggestionByType.category | default()
+                    } %}
 
-                {% include '@catalog/suggestion/partials/list.twig' with {
-                    name: 'In CMS',
-                    items: suggestionByType.page | default()
-                } %}
+                    {% include '@catalog/suggestion/partials/list.twig' with {
+                        name: 'In CMS',
+                        items: suggestionByType.page | default()
+                    } %}
+                </div>
             </div>
-        </div>
+        {% endif %}
 
-        {% if suggestionByType.product_abstract is defined and suggestionByType.product_abstract is not empty %}
-            <div class="small-12 medium-8 columns">
+        {% if rightVisible %}
+            <div class="columns">
                 {% for product in suggestionByType.product_abstract %}
                     {% set image = product.images | first %}
 
                     <a class="row suggestions-panel__product js-product js-navigable" href="{{ product.url }}">
-                        <span class="small-3 columns thumbnail">
-                            <img src="{{ image.external_url_small }}">
+                        <span class="columns">
+                            <img class="thumbnail" src="{{ image.external_url_small }}">
                         </span>
 
                         <span class="small-9 columns">
@@ -41,6 +50,12 @@
                     </a>
                 {% endfor %}
             </div>
+        {% endif %}
+
+        {% if not leftVisible and not rightVisible %}
+           <div class="small-12 columns text-center">
+               Nothing found...
+           </div>
         {% endif %}
     </div>
 </div>

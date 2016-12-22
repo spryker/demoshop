@@ -3,15 +3,17 @@
 var $ = require('jquery');
 var _ = require('lodash');
 
-var throttleTime = 32;
+var threshold = 2;
 var debounceTime = 300;
 
 module.exports = {
-    init: function($root, options) {
+    init: function(state, $root, options) {
         this.$root = $root;
         this.$input = $('.js-input', this.$root);
         this.$inputShadow = $('.js-input-shadow', this.$root);
         this.$panel = $('.js-panel', this.$root);
+
+        this.state = state;
         this.keyboardCodes = options.keyboardCodes;
 
         this.mapEvents();
@@ -32,14 +34,14 @@ module.exports = {
     mapEvents: function() {
         this.$input
             .on('click', this.onClick.bind(this))
-            .on('keydown', _.throttle(this.onTyping.bind(this), throttleTime))
+            .on('keydown', _.debounce(this.onTyping.bind(this), debounceTime))
             .on('keyup', _.debounce(this.onTyped.bind(this), debounceTime))
             .on('focus', this.onFocus.bind(this))
             .on('blur', this.onBlur.bind(this));
     },
 
     onClick: function() {
-        this.setState({
+        this.state.set({
             navigationIndex: 0
         });
     },
@@ -58,21 +60,30 @@ module.exports = {
     },
 
     onTyped: function() {
-        var query = this.$input.val() || '';
+        var query = (this.$input.val() || '').trim();
 
-        this.setState({
-            query: query.trim()
-        });
+        if (query.length >= threshold) {
+            this.state.set({
+                query: query.trim()
+            });
+        } else {
+            this.state.set({
+                visible: false,
+                query: '',
+                hint: '',
+                suggestions: ''
+            });
+        }
     },
 
     onFocus: function() {
-        this.setState({
+        this.state.set({
             visible: true
         });
     },
 
     onBlur: function() {
-        this.setState({
+        this.state.set({
             visible: false
         });
     },
@@ -94,13 +105,13 @@ module.exports = {
     },
 
     onArrowUp: function() {
-        var index = this.state.navigationIndex - 1;
+        var index = this.state.current.navigationIndex - 1;
 
         if (index < 0) {
             index = 0;
         }
 
-        this.setState({
+        this.state.set({
             navigationIndex: index
         });
 
@@ -109,13 +120,13 @@ module.exports = {
 
     onArrowDown: function() {
         var length = this.getNavigationItems().length;
-        var index = this.state.navigationIndex + 1;
+        var index = this.state.current.navigationIndex + 1;
 
         if (index >= length) {
             index = 0;
         }
 
-        this.setState({
+        this.state.set({
             navigationIndex: index
         });
 
@@ -124,13 +135,13 @@ module.exports = {
 
     onArrowLeft: function() {
         var length = this.getNavigationItems().length;
-        var index = this.state.navigationIndex > 0 ? 1 : 0;
+        var index = this.state.current.navigationIndex > 0 ? 1 : 0;
 
         if (index >= length) {
             index = 0;
         }
 
-        this.setState({
+        this.state.set({
             navigationIndex: index
         });
     },
@@ -138,15 +149,15 @@ module.exports = {
     onArrowRight: function() {
         var itemsLength = this.getNavigationItems().length;
         var productsLength = this.getNavigationProducts().length;
-        var index = this.state.navigationIndex > 0 ? itemsLength - productsLength : 0;
+        var index = this.state.current.navigationIndex > 0 ? itemsLength - productsLength : 0;
 
-        this.setState({
+        this.state.set({
             navigationIndex: index
         });
     },
 
     updateVisibility: function() {
-        if (this.state.visible) {
+        if (this.state.current.visible) {
             return this.$panel
                 .stop()
                 .removeClass('is-hidden');
@@ -161,7 +172,11 @@ module.exports = {
     },
 
     updateInput: function() {
-        this.$input.val(this.state.hint);
+        this.$input.val(this.state.current.hint);
+    },
+
+    cleanHint: function() {
+        this.$inputShadow.val('');
     },
 
     updateHint: function() {
@@ -169,26 +184,24 @@ module.exports = {
     },
 
     updateSuggestions: function() {
-        this.$panel.html(this.state.suggestions);
+        this.$panel.html(this.state.current.suggestions);
     },
 
     updateNavigation: function() {
         this.getNavigationItems()
             .removeClass('is-active')
-            .eq(this.state.navigationIndex)
+            .eq(this.state.current.navigationIndex)
             .addClass('is-active');
     },
 
     formatHint: function() {
-        var query = this.state.query;
-        var hint = this.state.hint;
-        var value = query;
+        var query = this.state.current.query;
+        var hint = this.state.current.hint;
 
-        if (hint) {
-            value += hint.slice(query.length);
+        if (hint && hint.indexOf(query) === 0) {
+            return query + hint.slice(query.length);
         }
 
-        return value;
+        return '';
     }
-
 };

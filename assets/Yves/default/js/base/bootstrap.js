@@ -3,45 +3,76 @@
 var $ = require('jquery');
 var _ = require('lodash');
 
-function create(component) {
-    var selector = '[data-component="' + component.name + '"]';
+var View = {};
 
-    $(selector).each(function(index, root){
-        var view = _.assign({}, component.view);
-        var controller = _.assign({}, component.controller);
-        var state = _.assign({}, component.state);
-        var options = _.assign({}, component.options);
+var Controller = {};
 
-        function setState(newState) {
-            var hasChanged = {};
-            var oldState = _.assign({}, state);
+var State = {
+    current: {},
+    callbacks: $.Callbacks(),
 
-            _.keys(newState).forEach(function(key) {
-                hasChanged[key] = !_.isUndefined(newState[key]);
+    init: function() {
+        this.set(this.current);
+    },
 
-                if (hasChanged[key]) {
-                    hasChanged[key] = (newState[key] !== oldState[key]);
-                }
-            });
+    set: function(newState) {
+        var hasChanged = {};
+        var oldState = _.assign({}, this.current);
 
-            view.state = controller.state = state = _.assign({}, state, newState);
+        _.keys(newState).forEach(function(key) {
+            hasChanged[key] = !_.isUndefined(newState[key]);
 
-            controller.dispatch && controller.dispatch(hasChanged, oldState);
-            return state;
-        }
+            if (hasChanged[key]) {
+                hasChanged[key] = (newState[key] !== oldState[key]);
+            }
+        });
 
-        view.state = controller.state = _.assign({}, state);
-        view.setState = controller.setState = setState;
+        this.current = _.assign({}, oldState, newState);
+        this.callbacks.fire(hasChanged, oldState);
+        return this.clone();
+    },
 
-        view.init && view.init($(root), options);
-        controller.init && controller.init(view, options);
+    clone: function() {
+        return _.assign({}, this.current);
+    },
 
-        setState(state);
+    onChange: function(callback) {
+        this.callbacks.add(callback);
+    }
+};
+
+function createView(body) {
+    return _.assign({}, View, body);
+}
+
+function createController(body) {
+    return _.assign({}, Controller, body);
+}
+
+function createState(body) {
+    return _.assign({}, State, {
+        current: body
     });
 }
 
-function bootstrap(components) {
-    components.forEach(create);
+function createComponent(body) {
+    var selector = '[data-component="' + body.name + '"]';
+
+    $(selector).each(function(index, root){
+        var view =  createView(body.view);
+        var controller =  createController(body.controller);
+        var state = createState(body.initialState);
+        var options = _.assign({}, body.options);
+
+        view.init && view.init(state, $(root), options);
+        controller.init && controller.init(state, view, options);
+        state.init && state.init();
+    });
+}
+
+function bootstrap(array) {
+    array.forEach(createComponent);
 }
 
 module.exports = bootstrap;
+
