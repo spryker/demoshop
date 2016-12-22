@@ -255,6 +255,8 @@ global.search,Suche,de_DE
 global.search,Search,en_US
 global.search.results,"Ergebnisse für",de_DE
 global.search.results,"Results for",en_US
+global.search.spellingSuggestion,"Meinten Sie",de_DE
+global.search.spellingSuggestion,"Did you mean",en_US
 global.spryker.shop,"Spryker Shop",de_DE
 global.spryker.shop,"Spryker Shop",en_US
 global.spryker.motto,"Qualitäts-Technologie",de_DE
