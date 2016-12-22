@@ -84,6 +84,7 @@ class CategoryRootImporter extends AbstractCategoryImporter
         $categoryNodeTransfer->setIsRoot(true);
         $categoryNodeTransfer->setIsMain(true);
         $categoryTransfer->setCategoryNode($categoryNodeTransfer);
+        $categoryTransfer->setIsSearchable(false);
 
         return $categoryTransfer;
     }

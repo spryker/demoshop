@@ -43,7 +43,7 @@ class CategoryNodeCollectorQuery extends AbstractPdoCollectorQuery
                 )
                 LEFT JOIN spy_touch_search ON spy_touch.id_touch = spy_touch_search.fk_touch
             WHERE
-                spy_category_node.is_root = FALSE
+                spy_category.is_searchable = TRUE
                 AND spy_category_attribute.fk_locale = :fk_locale_2
         ';
 

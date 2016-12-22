@@ -312,9 +312,7 @@ class ProductDataPageMapBuilder
         $categoryAttributes = $this->categoryQueryContainer
             ->queryCategoryAttributesByLocale($localeTransfer)
             ->useCategoryQuery()
-                ->useNodeQuery()
-                    ->filterByIsRoot(false)
-                ->endUse()
+                ->filterByIsSearchable(true)
             ->endUse()
             ->find();
 
