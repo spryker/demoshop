@@ -14,7 +14,7 @@
                         <h6>Autosuggestion</h6>
                         <ul class="no-bullet">
                             {% for item in completion %}
-                                <li><a class="suggestions-panel__hint js-navigable" href="/search?q={{ item }}">{{ item }}</a></li>
+                                <li><a class="suggestions-panel__hint js-navigable" href="{{ path('/search', {'q': item}) }}">{{ item }}</a></li>
                             {% endfor %}
                         </ul>
                     {% endif %}
