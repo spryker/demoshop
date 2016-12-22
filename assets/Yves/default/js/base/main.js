@@ -16,11 +16,10 @@ viewer.init();
 
 var $ = require('jquery');
 var bootstrap = require('js/base/bootstrap');
-var Suggestions = require('js/base/components/suggestions');
 
 $(function(){
     bootstrap([
-        Suggestions
+        require('js/base/components/suggestions/index')
     ]);
 });
 
