@@ -7,9 +7,6 @@
 
 namespace Pyz\Zed\Importer;
 
-use Spryker\Zed\Category\Dependency\Facade\CategoryToLocaleBridge;
-use Spryker\Zed\Category\Dependency\Facade\CategoryToTouchBridge;
-use Spryker\Zed\Category\Dependency\Facade\CategoryToUrlBridge;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryBridge;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToTouchBridge;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToUrlBridge;
@@ -25,10 +22,8 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     const FACADE_GLOSSARY = 'FACADE_GLOSSARY';
     const FACADE_PRODUCT = 'FACADE_PRODUCT';
     const FACADE_PRODUCT_MANAGEMENT = 'FACADE_PRODUCT_MANAGEMENT';
-    const FACADE_PRODUCT_CATEGORY = 'FACADE_PRODUCT_CATEGORY';
     const FACADE_PRODUCT_SEARCH = 'FACADE_PRODUCT_SEARCH';
     const FACADE_TOUCH = 'FACADE_TOUCH';
-    const FACADE_URL = 'FACADE_URL';
     const FACADE_STOCK = 'FACADE_STOCK';
     const FACADE_TAX = 'FACADE_TAX';
     const FACADE_COUNTRY = 'FACADE_COUNTRY';
@@ -45,10 +40,6 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     const QUERY_CONTAINER_PRICE = 'QUERY_CONTAINER_PRICE';
     const QUERY_CONTAINER_SHIPMENT = 'QUERY_CONTAINER_SHIPMENT';
     const QUERY_CONTAINER_TAX = 'QUERY_CONTAINER_TAX';
-
-    const BRIDGE_CATEGORY_TO_URL = 'BRIDGE_CATEGORY_TO_URL';
-    const BRIDGE_CATEGORY_TO_TOUCH = 'BRIDGE_CATEGORY_TO_TOUCH';
-    const BRIDGE_CATEGORY_TO_LOCALE = 'BRIDGE_CATEGORY_TO_LOCALE';
 
     const BRIDGE_CMS_TO_GLOSSARY = 'BRIDGE_CMS_TO_GLOSSARY';
     const BRIDGE_CMS_TO_TOUCH = 'BRIDGE_CMS_TO_TOUCH';
@@ -89,16 +80,8 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
             return $container->getLocator()->productManagement()->facade();
         };
 
-        $container[static::FACADE_PRODUCT_CATEGORY] = function (Container $container) {
-            return $container->getLocator()->productCategory()->facade();
-        };
-
         $container[static::FACADE_TOUCH] = function (Container $container) {
             return $container->getLocator()->touch()->facade();
-        };
-
-        $container[static::FACADE_URL] = function (Container $container) {
-            return $container->getLocator()->url()->facade();
         };
 
         $container[static::FACADE_STOCK] = function (Container $container) {
@@ -129,10 +112,6 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
             return $container->getLocator()->product()->queryContainer();
         };
 
-        $container[static::QUERY_CONTAINER_PRODUCT_CATEGORY] = function (Container $container) {
-            return $container->getLocator()->productCategory()->queryContainer();
-        };
-
         $container[static::QUERY_CONTAINER_PRODUCT_SEARCH] = function (Container $container) {
             return $container->getLocator()->productSearch()->queryContainer();
         };
@@ -151,18 +130,6 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[static::QUERY_CONTAINER_SHIPMENT] = function (Container $container) {
             return $container->getLocator()->shipment()->queryContainer();
-        };
-
-        $container[static::BRIDGE_CATEGORY_TO_URL] = function (Container $container) {
-            return new CategoryToUrlBridge($container->getLocator()->url()->facade());
-        };
-
-        $container[static::BRIDGE_CATEGORY_TO_TOUCH] = function (Container $container) {
-            return new CategoryToTouchBridge($container->getLocator()->touch()->facade());
-        };
-
-        $container[static::BRIDGE_CATEGORY_TO_LOCALE] = function (Container $container) {
-            return new CategoryToLocaleBridge($container->getLocator()->locale()->facade());
         };
 
         $container[static::BRIDGE_CMS_TO_GLOSSARY] = function (Container $container) {
