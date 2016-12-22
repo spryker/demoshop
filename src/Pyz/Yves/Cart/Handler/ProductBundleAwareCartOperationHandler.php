@@ -76,7 +76,7 @@ class ProductBundleAwareCartOperationHandler extends BaseHandler implements Cart
             $this->updateNumberOfItemsInCart($quoteTransfer);
             $this->cartClient->storeQuote($quoteTransfer);
         } else {
-            $this->remove($sku, $groupKey);
+            $this->cartOperationHandler->remove($sku, $groupKey);
         }
     }
 
@@ -134,7 +134,7 @@ class ProductBundleAwareCartOperationHandler extends BaseHandler implements Cart
             $this->cartClient->storeQuote($quoteTransfer);
 
         } else {
-            $this->changeQuantity($sku, $quantity, $groupKey);
+            $this->cartOperationHandler->changeQuantity($sku, $quantity, $groupKey);
         }
 
     }
