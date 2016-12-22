@@ -117,6 +117,10 @@ class ProductBundleAwareCartOperationHandler extends BaseHandler implements Cart
 
             $delta = abs($bundledProductTotalQuantity - $quantity);
 
+            if ($delta == 0) {
+                return;
+            }
+
             if ($bundledProductTotalQuantity > $quantity) {
                 $bundledItemsToChange = $this->getBundledItems($sku, $delta);
                 $quoteTransfer = $this->cartClient->removeItems($bundledItemsToChange);
