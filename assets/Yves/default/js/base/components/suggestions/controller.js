@@ -1,7 +1,6 @@
 'use strict';
 
 var $ = require('jquery');
-var fetchUrl = '/search/suggest';
 
 module.exports = {
     init: function(state, view) {
@@ -34,12 +33,16 @@ module.exports = {
 
     fetch: function() {
         var that = this;
+        var url = that.view.getSuggestionsUrl();
+        var params = {
+            q: that.state.current.query
+        };
 
         if (that.xhr) {
             that.xhr.abort();
         }
 
-        that.xhr = $.get(fetchUrl, { q: that.state.current.query }, function(data) {
+        that.xhr = $.get(url, params, function(data) {
             that.state.set({
                 visible: true,
                 hint: data.completion,

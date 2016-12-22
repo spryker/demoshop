@@ -19,6 +19,10 @@ module.exports = {
         this.mapEvents();
     },
 
+    getSuggestionsUrl: function() {
+        return this.$root.data('suggestions-url');
+    },
+
     getNavigationItems: function() {
         return $('.js-navigable', this.$root);
     },
