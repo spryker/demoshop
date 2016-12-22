@@ -4470,11 +4470,11 @@
         },
         {
             "name": "spryker/discount",
-            "version": "3.3.0",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Discount.git",
-                "reference": "39cd55e740ddf3b4a68a356c0f9730dc503a4f20",
+                "reference": "64891c72a8ff01364f99722b6634b62babe3ae42",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4484,8 +4484,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Discount/zipball/39cd55e740ddf3b4a68a356c0f9730dc503a4f20",
-                "reference": "39cd55e740ddf3b4a68a356c0f9730dc503a4f20",
+                "url": "https://api.github.com/repos/spryker/Discount/zipball/64891c72a8ff01364f99722b6634b62babe3ae42",
+                "reference": "64891c72a8ff01364f99722b6634b62babe3ae42",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4543,7 +4543,7 @@
             "support": {
                 "source": "https://github.com/spryker/Discount/tree/master"
             },
-            "time": "2016-12-09 15:52:55"
+            "time": "2016-12-21 11:38:14"
         },
         {
             "name": "spryker/discount-calculation-connector",
@@ -9571,11 +9571,11 @@
         },
         {
             "name": "spryker/wishlist",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Wishlist.git",
-                "reference": "d066dc22b3ef5f2c05898a26297d6d68b38b62a1",
+                "reference": "bcc8baa38a43bf8a8290651ac4d073d1d04a080a",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -9585,8 +9585,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Wishlist/zipball/d066dc22b3ef5f2c05898a26297d6d68b38b62a1",
-                "reference": "d066dc22b3ef5f2c05898a26297d6d68b38b62a1",
+                "url": "https://api.github.com/repos/spryker/Wishlist/zipball/bcc8baa38a43bf8a8290651ac4d073d1d04a080a",
+                "reference": "bcc8baa38a43bf8a8290651ac4d073d1d04a080a",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -9632,7 +9632,7 @@
             "support": {
                 "source": "https://github.com/spryker/Wishlist/tree/master"
             },
-            "time": "2016-12-12 15:01:43"
+            "time": "2016-12-21 11:27:38"
         },
         {
             "name": "spryker/zed-request",
