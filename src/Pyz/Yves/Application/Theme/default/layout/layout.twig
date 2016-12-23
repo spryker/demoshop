@@ -19,7 +19,7 @@
 <body data-component="main">
     {% block outside %}{% endblock %}
 
-    <aside id="aside" class="hide-for-large __aside" tabindex="-1">
+    <aside id="aside" class="hide-for-large __aside" tabindex="-1" data-component="aside">
         {% include "@application/layout/partials/mobile-navigation.twig" %}
         {% block aside %}{% endblock %}
     </aside>

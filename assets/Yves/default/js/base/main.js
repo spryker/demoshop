@@ -8,18 +8,14 @@
 // add your custom common js here
 // and/or change the existing one
 
-var aside = require('js/base/components/aside');
-var viewer = require('js/base/components/viewer');
-
-aside.init();
-viewer.init();
-
 var $ = require('jquery');
-var bootstrap = require('js/base/libs/bootstrap');
+var bootstrap = require('./libs/bootstrap');
 
 $(function(){
     bootstrap([
-        require('js/base/components/suggestions/index')
+        require('./components/aside'),
+        require('./components/viewer'),
+        require('./components/suggestions')
     ]);
 });
 
