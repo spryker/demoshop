@@ -4,13 +4,14 @@ var $ = require('jquery');
 var _ = require('lodash');
 
 var threshold = 2;
+var throttleTime = 150;
 var debounceTime = 300;
 
 module.exports = {
-    init: function(state, $root, options) {
+    init: function($root, state, options) {
         this.$root = $root;
         this.$input = $('.js-input', this.$root);
-        this.$inputShadow = $('.js-input-shadow', this.$root);
+        this.$inputHint = $('.js-input-hint', this.$root);
         this.$panel = $('.js-panel', this.$root);
 
         this.state = state;
@@ -37,9 +38,9 @@ module.exports = {
 
     mapEvents: function() {
         this.$input
-            .on('click', this.onClick.bind(this))
-            .on('keydown', _.debounce(this.onTyping.bind(this), debounceTime))
-            .on('keyup', _.debounce(this.onTyped.bind(this), debounceTime))
+            .on('click', _.throttle(this.onClick.bind(this), throttleTime))
+            .on('keydown', _.throttle(this.onKeyDown.bind(this), throttleTime))
+            .on('keyup', _.debounce(this.onKeyUp.bind(this), debounceTime))
             .on('focus', this.onFocus.bind(this))
             .on('blur', this.onBlur.bind(this));
     },
@@ -50,20 +51,21 @@ module.exports = {
         });
     },
 
-    onTyping: function(e) {
+    onKeyDown: function(e) {
         var code = e.keyCode || e.which;
 
         switch (this.keyboardCodes[code]) {
-            case 'tab': return this.onTab();
-            case 'enter': return this.onEnter();
-            case 'arrowUp':return this.onArrowUp();
-            case 'arrowDown': return this.onArrowDown();
-            case 'arrowLeft': return this.onArrowLeft();
-            case 'arrowRight': return this.onArrowRight();
+            case 'tab': return this.onTab(e);
+            case 'enter': return this.onEnter(e);
+            case 'arrowUp':return this.onArrowUp(e);
+            case 'arrowDown': return this.onArrowDown(e);
+            case 'arrowLeft': return this.onArrowLeft(e);
+            case 'arrowRight': return this.onArrowRight(e);
+            default: return this.toggleHintVisibility(false)
         }
     },
 
-    onTyped: function() {
+    onKeyUp: function() {
         var query = (this.$input.val() || '').trim();
 
         if (query.length >= threshold) {
@@ -82,18 +84,20 @@ module.exports = {
 
     onFocus: function() {
         this.state.set({
-            visible: true
+            visible: true,
+            navigationIndex: 0
         });
     },
 
     onBlur: function() {
         this.state.set({
-            visible: false
+            visible: false,
+            navigationIndex: 0
         });
     },
 
     onTab: function() {
-        this.updateInput();
+        this.setQuery(this.state.current.hint);
         return false;
     },
 
@@ -175,16 +179,16 @@ module.exports = {
             });
     },
 
-    updateInput: function() {
-        this.$input.val(this.state.current.hint);
+    setQuery: function(query) {
+        this.$input.val(query);
     },
 
-    cleanHint: function() {
-        this.$inputShadow.val('');
+    toggleHintVisibility: function(show) {
+        this.$inputHint.toggleClass('is-hidden', !show);
     },
 
     updateHint: function() {
-        this.$inputShadow.val(this.formatHint());
+        this.$inputHint.val(this.formatHint());
     },
 
     updateSuggestions: function() {
@@ -202,7 +206,7 @@ module.exports = {
         var query = this.state.current.query;
         var hint = this.state.current.hint;
 
-        if (hint && hint.indexOf(query) === 0) {
+        if (hint && hint.toLowerCase().indexOf(query.toLowerCase()) === 0) {
             return query + hint.slice(query.length);
         }
 

@@ -1,13 +1,13 @@
 {#
     @var name
     @var items
+    @var length
 #}
 
 {% if items is defined and items is not empty %}
     <h6>{{ name }}</h6>
-
     <ul class="no-bullet">
-        {% for item in items %}
+        {% for item in items | slice(0, length) %}
             <li><a class="suggestions-panel__hint js-navigable" href="{{ item.url }}">{{ item.name }}</a></li>
         {% endfor %}
     </ul>

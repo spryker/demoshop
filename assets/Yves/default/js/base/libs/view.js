@@ -1,14 +1,13 @@
 'use strict';
 
 var _ = require('lodash');
-var Base = require('./base');
 
 var View = {
-    $root: null
+    init: function() {}
 };
 
 function create(body) {
-    return _.create(Base.prototype, View, body);
+    return _.assign({}, View, body);
 }
 
 module.exports = create;

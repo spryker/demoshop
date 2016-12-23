@@ -1,3 +1,8 @@
+{% set suggestionsLength = 6 %}
+{% set categoriesLength = 3 %}
+{% set pagesLength = 3 %}
+{% set productsLength = 6 %}
+
 {% set leftVisible = (completion is defined and completion is not empty)
     or (suggestionByType.category is defined and suggestionByType.category is not empty)
     or (suggestionByType.page is defined and suggestionByType.page is not empty) %}
@@ -8,35 +13,45 @@
 <div class="callout suggestions-panel">
     <div class="row">
         {% if leftVisible %}
-            <div class="columns">
-                <div class="callout">
-                    {% if completion is defined and completion is not empty %}
-                        <h6>{{ 'global.search.suggestions' | trans }}</h6>
-                        <ul class="no-bullet">
-                            {% for item in completion %}
-                                <li><a class="suggestions-panel__hint js-navigable" href="{{ path('search', {'q': item}) }}">{{ item }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
+            <div class="columns __no-margin-bottom">
+                {% if completion is defined and completion is not empty %}
+                    <h6 class="show-for-medium">{{ 'global.search.suggestions' | trans }}</h6>
+                    <ul class="no-bullet">
+                        {% for item in completion | slice(0, suggestionsLength) %}
+                            <li><a class="suggestions-panel__hint js-navigable" href="{{ path('search', {'q': item}) }}">{{ item }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
 
+                <div class="show-for-medium">
                     {% include '@catalog/suggestion/partials/list.twig' with {
                         name: ('global.search.suggestion.in_categories' | trans),
-                        items: suggestionByType.category | default()
+                        items: suggestionByType.category | default(),
+                        length: categoriesLength
                     } %}
+                </div>
 
+                <div class="show-for-medium">
                     {% include '@catalog/suggestion/partials/list.twig' with {
                         name: ('global.search.suggestion.in_cms' | trans),
-                        items: suggestionByType.page | default()
+                        items: suggestionByType.page | default(),
+                        length: pagesLength
                     } %}
                 </div>
             </div>
         {% endif %}
 
         {% if rightVisible %}
-            <div class="columns">
-                {% for product in suggestionByType.product_abstract %}
-                    {% include '@catalog/suggestion/partials/product.twig' %}
-                {% endfor %}
+            <div class="columns __no-margin-bottom">
+                <div class="show-for-medium">
+                    {% for product in suggestionByType.product_abstract | slice(0, productsLength)  %}
+                        {% include '@catalog/suggestion/partials/product.twig' %}
+                    {% endfor %}
+                </div>
+
+                <div class="__padding-top">
+                    <button class="hollow button expanded" type="submit">See all products</button>
+                </div>
             </div>
         {% endif %}
 
