@@ -10,6 +10,7 @@ var debounceTime = 300;
 module.exports = {
     init: function($root, state, options) {
         this.$root = $root;
+        this.$form = $('.js-form', this.$root);
         this.$input = $('.js-input', this.$root);
         this.$inputHint = $('.js-input-hint', this.$root);
         this.$panel = $('.js-panel', this.$root);
@@ -43,6 +44,9 @@ module.exports = {
             .on('keyup', _.debounce(this.onKeyUp.bind(this), debounceTime))
             .on('focus', this.onFocus.bind(this))
             .on('blur', this.onBlur.bind(this));
+
+        this.$root
+            .on('click', '.js-all-products', this.onClickAllProducts.bind(this));
     },
 
     onClick: function() {
@@ -164,6 +168,19 @@ module.exports = {
         });
     },
 
+    onClickAllProducts: function() {
+        this.$form.submit();
+        return false;
+    },
+
+    setQuery: function(query) {
+        this.$input.val(query);
+    },
+
+    toggleHintVisibility: function(show) {
+        this.$inputHint.toggleClass('is-hidden', !show);
+    },
+
     updateVisibility: function() {
         if (this.state.current.visible) {
             return this.$panel
@@ -177,14 +194,6 @@ module.exports = {
                 $(this).addClass('is-hidden');
                 next();
             });
-    },
-
-    setQuery: function(query) {
-        this.$input.val(query);
-    },
-
-    toggleHintVisibility: function(show) {
-        this.$inputHint.toggleClass('is-hidden', !show);
     },
 
     updateHint: function() {
