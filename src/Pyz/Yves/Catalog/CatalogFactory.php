@@ -11,29 +11,4 @@ use Spryker\Yves\Kernel\AbstractFactory;
 
 class CatalogFactory extends AbstractFactory
 {
-
-    /**
-     * @return \Pyz\Yves\Collector\Plugin\UrlMapperPlugin
-     */
-    public function createUrlMapperPlugin()
-    {
-        return $this->getProvidedDependency(CatalogDependencyProvider::PLUGIN_URL_MAPPER);
-    }
-
-    /**
-     * @return \Silex\Application
-     */
-    public function createApplication()
-    {
-        return $this->getProvidedDependency(CatalogDependencyProvider::PLUGIN_APPLICATION);
-    }
-
-    /**
-     * @return \Spryker\Client\Search\SearchClientInterface
-     */
-    public function getSearchClient()
-    {
-        return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_SEARCH);
-    }
-
 }

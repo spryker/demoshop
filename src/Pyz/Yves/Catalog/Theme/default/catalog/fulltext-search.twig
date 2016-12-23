@@ -9,5 +9,5 @@
 {% endblock %}
 
 {% block content %}
-    {% include "@catalog/catalog/catalog.twig" %}
+    {% include "@catalog/catalog/catalog.twig" with {paginationPath: app.request.attributes.get('_route')} %}
 {% endblock %}

@@ -13,6 +13,7 @@ use Silex\Application;
 class CatalogControllerProvider extends AbstractYvesControllerProvider
 {
 
+    const ROUTE_SEARCH = 'search';
     const ROUTE_SUGGESTION = 'search/suggestion';
 
     /**
@@ -23,6 +24,10 @@ class CatalogControllerProvider extends AbstractYvesControllerProvider
     protected function defineControllers(Application $app)
     {
         $allowedLocalesPattern = $this->getAllowedLocalesPattern();
+
+        $this->createController('/{search}', self::ROUTE_SEARCH, 'Catalog', 'Catalog', 'fulltextSearch')
+            ->assert('search', $allowedLocalesPattern . 'search|search')
+            ->value('search', 'search');
 
         $this->createController('/{search}/suggestion', self::ROUTE_SUGGESTION, 'Catalog', 'Suggestion', 'index')
             ->assert('search', $allowedLocalesPattern . 'search|search')
