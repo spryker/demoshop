@@ -265,6 +265,8 @@ global.search.suggestion.in_cms,"In CMS", "de_DE"
 global.search.suggestion.in_cms,"In CMS", "en_US"
 global.search.suggestion.no_result,"Nichts gefunden...",de_DE
 global.search.suggestion.no_result,"Nothing found...",en_US
+global.search.suggestion.see_all_products,"Alle Produkte anzeigen",de_DE
+global.search.suggestion.see_all_products,"See all products",en_US
 global.spryker.shop,"Spryker Shop",de_DE
 global.spryker.shop,"Spryker Shop",en_US
 global.spryker.motto,"Qualitäts-Technologie",de_DE
