@@ -11,7 +11,7 @@
             <div class="columns">
                 <div class="callout">
                     {% if completion is defined and completion is not empty %}
-                        <h6>Autosuggestion</h6>
+                        <h6>{{ 'global.search.suggestions' | trans }}</h6>
                         <ul class="no-bullet">
                             {% for item in completion %}
                                 <li><a class="suggestions-panel__hint js-navigable" href="{{ path('search', {'q': item}) }}">{{ item }}</a></li>
@@ -20,12 +20,12 @@
                     {% endif %}
 
                     {% include '@catalog/suggestion/partials/list.twig' with {
-                        name: 'In categories',
+                        name: ('global.search.suggestion.in_categories' | trans),
                         items: suggestionByType.category | default()
                     } %}
 
                     {% include '@catalog/suggestion/partials/list.twig' with {
-                        name: 'In CMS',
+                        name: ('global.search.suggestion.in_cms' | trans),
                         items: suggestionByType.page | default()
                     } %}
                 </div>
@@ -35,28 +35,15 @@
         {% if rightVisible %}
             <div class="columns">
                 {% for product in suggestionByType.product_abstract %}
-                    {% set image = product.images | first %}
-
-                    <a class="row suggestions-panel__product js-product js-navigable" href="{{ product.url }}">
-                        <span class="columns">
-                            <img class="thumbnail" src="{{ image.external_url_small }}">
-                        </span>
-
-                        <span class="small-9 columns">
-                            {{ product.abstract_name }}
-                            <br>
-                            <strong>{{ product.price | money }}</strong>
-                        </span>
-                    </a>
+                    {% include '@catalog/suggestion/partials/product.twig' %}
                 {% endfor %}
             </div>
         {% endif %}
 
         {% if not leftVisible and not rightVisible %}
            <div class="small-12 columns text-center">
-               Nothing found...
+               {{ 'global.search.suggestion.no_result' | trans }}
            </div>
         {% endif %}
     </div>
 </div>
-

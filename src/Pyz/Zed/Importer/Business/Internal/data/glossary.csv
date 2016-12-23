@@ -257,6 +257,14 @@ global.search.results,"Ergebnisse für",de_DE
 global.search.results,"Results for",en_US
 global.search.spellingSuggestion,"Meinten Sie",de_DE
 global.search.spellingSuggestion,"Did you mean",en_US
+global.search.suggestions,"Suchvorschläge",de_DE
+global.search.suggestions,"Search suggestions",en_US
+global.search.suggestion.in_categories,"In den Kategorien", "de_DE"
+global.search.suggestion.in_categories,"In categories", "en_US"
+global.search.suggestion.in_cms,"In CMS", "de_DE"
+global.search.suggestion.in_cms,"In CMS", "en_US"
+global.search.suggestion.no_result,"Nichts gefunden...",de_DE
+global.search.suggestion.no_result,"Nothing found...",en_US
 global.spryker.shop,"Spryker Shop",de_DE
 global.spryker.shop,"Spryker Shop",en_US
 global.spryker.motto,"Qualitäts-Technologie",de_DE
