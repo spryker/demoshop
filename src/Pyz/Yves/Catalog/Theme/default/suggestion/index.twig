@@ -42,12 +42,10 @@
         {% endif %}
 
         {% if rightVisible %}
-            <div class="columns __no-margin-bottom">
-                <div class="show-for-medium">
-                    {% for product in suggestionByType.product_abstract | slice(0, productsLength)  %}
-                        {% include '@catalog/suggestion/partials/product.twig' %}
-                    {% endfor %}
-                </div>
+            <div class="columns show-for-medium __no-margin-bottom">
+                {% for product in suggestionByType.product_abstract | slice(0, productsLength)  %}
+                    {% include '@catalog/suggestion/partials/product.twig' %}
+                {% endfor %}
 
                 <div class="__padding-top">
                     <button class="hollow button expanded" type="submit">See all products</button>
