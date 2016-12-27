@@ -60,6 +60,8 @@ class ProductBundleAwareCartOperationHandler extends BaseHandler implements Cart
     public function add($sku, $quantity, $optionValueUsageIds = [])
     {
         $this->cartOperationHandler->add($sku, $quantity, $optionValueUsageIds);
+
+        $this->updateNumberOfItemsInCart($this->cartClient->getQuote());
     }
 
     /**
@@ -89,6 +91,7 @@ class ProductBundleAwareCartOperationHandler extends BaseHandler implements Cart
     public function increase($sku, $groupKey = null)
     {
         $this->cartOperationHandler->increase($sku, $groupKey);
+
     }
 
     /**
