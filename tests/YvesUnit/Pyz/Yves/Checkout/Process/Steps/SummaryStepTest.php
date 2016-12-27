@@ -10,8 +10,10 @@ use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use PHPUnit_Framework_TestCase;
+use Pyz\Yves\Cart\Grouper\CartItemGouperInterface;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
 use Spryker\Client\Calculation\CalculationClientInterface;
+use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -77,11 +79,32 @@ class SummaryStepTest extends PHPUnit_Framework_TestCase
      */
     protected function createSummaryStep(CalculationClientInterface $calculationClientMock)
     {
+        $cartItemGrouperMock = $this->createCartItemGrouperMock();
+        $cartClientMock = $this->createCartClientMock();
+
         return new SummaryStep(
             $calculationClientMock,
+            $cartItemGrouperMock,
+            $cartClientMock,
             'shipment',
             'escape_route'
         );
+    }
+
+    /**
+     * @return \PHPUnit_Framework_MockObject_MockObject|CartItemGouperInterface
+     */
+    protected function createCartItemGrouperMock()
+    {
+        return $this->getMockBuilder(CartItemGouperInterface::class)->getMock();
+    }
+
+    /**
+     * @return \PHPUnit_Framework_MockObject_MockObject|CartClientInterface
+     */
+    protected function createCartClientMock()
+    {
+        return $this->getMockBuilder(CartClientInterface::class)->getMock();
     }
 
     /**
