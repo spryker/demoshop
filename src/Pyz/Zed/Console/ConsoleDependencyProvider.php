@@ -21,13 +21,14 @@ use Spryker\Zed\CodeGenerator\Communication\Console\BundleZedCodeGeneratorConsol
 use Spryker\Zed\Collector\Communication\Console\CollectorSearchExportConsole;
 use Spryker\Zed\Collector\Communication\Console\CollectorStorageExportConsole;
 use Spryker\Zed\Console\ConsoleDependencyProvider as SprykerConsoleDependencyProvider;
-use Spryker\Zed\Development\Communication\Console\CodeCreateConsole;
 use Spryker\Zed\Development\Communication\Console\CodePhpMessDetectorConsole;
 use Spryker\Zed\Development\Communication\Console\CodeStyleSnifferConsole;
 use Spryker\Zed\Development\Communication\Console\CodeTestConsole;
-use Spryker\Zed\Development\Communication\Console\ComposerJsonUpdaterConsole;
-use Spryker\Zed\Development\Communication\Console\DependencyTreeBuilderConsole;
-use Spryker\Zed\Development\Communication\Console\DependencyTreeDependencyViolationConsole;
+use Spryker\Zed\Development\Communication\Console\GenerateClientIdeAutoCompletionConsole;
+use Spryker\Zed\Development\Communication\Console\GenerateIdeAutoCompletionConsole;
+use Spryker\Zed\Development\Communication\Console\GenerateServiceIdeAutoCompletionConsole;
+use Spryker\Zed\Development\Communication\Console\GenerateYvesIdeAutoCompletionConsole;
+use Spryker\Zed\Development\Communication\Console\GenerateZedIdeAutoCompletionConsole;
 use Spryker\Zed\Installer\Communication\Console\InitializeDatabaseConsole;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\NewRelic\Communication\Console\RecordDeploymentConsole;
@@ -36,6 +37,13 @@ use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole as OmsCheckTimeout
 use Spryker\Zed\Oms\Communication\Console\ClearLocksConsole as OmsClearLocksConsole;
 use Spryker\Zed\Product\Communication\Console\ProductTouchConsole;
 use Spryker\Zed\Search\Communication\Console\SearchConsole;
+use Spryker\Zed\Setup\Communication\Console\DeployPreparePropelConsole;
+use Spryker\Zed\Setup\Communication\Console\InstallConsole;
+use Spryker\Zed\Setup\Communication\Console\JenkinsDisableConsole;
+use Spryker\Zed\Setup\Communication\Console\JenkinsEnableConsole;
+use Spryker\Zed\Setup\Communication\Console\JenkinsGenerateConsole;
+use Spryker\Zed\Setup\Communication\Console\Npm\RunnerConsole;
+use Spryker\Zed\Setup\Communication\Console\RemoveGeneratedDirectoryConsole;
 use Spryker\Zed\StateMachine\Communication\Console\CheckConditionConsole as StateMachineCheckConditionConsole;
 use Spryker\Zed\StateMachine\Communication\Console\CheckTimeoutConsole as StateMachineCheckTimeoutConsole;
 use Spryker\Zed\StateMachine\Communication\Console\ClearLocksConsole as StateMachineClearLocksConsole;
@@ -71,23 +79,25 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new OmsClearLocksConsole(),
             new StateMachineCheckTimeoutConsole(),
             new StateMachineCheckConditionConsole(),
-            new StateMachineClearLocksConsole()
+            new StateMachineClearLocksConsole(),
+
+            // Setup commands
+            new RunnerConsole(),
+            new RemoveGeneratedDirectoryConsole(),
+            new InstallConsole(),
+            new JenkinsEnableConsole(),
+            new JenkinsDisableConsole(),
+            new JenkinsGenerateConsole(),
+            new DeployPreparePropelConsole(),
         ];
 
         $propelCommands = $container->getLocator()->propel()->facade()->getConsoleCommands();
         $commands = array_merge($commands, $propelCommands);
 
-        $setupCommands = $container->getLocator()->setup()->facade()->getConsoleCommands();
-        $commands = array_merge($commands, $setupCommands);
-
         if (Environment::isDevelopment()) {
             $commands[] = new CodeTestConsole();
             $commands[] = new CodeStyleSnifferConsole();
-            $commands[] = new CodeCreateConsole();
             $commands[] = new CodePhpMessDetectorConsole();
-            $commands[] = new DependencyTreeBuilderConsole();
-            $commands[] = new DependencyTreeDependencyViolationConsole();
-            $commands[] = new ComposerJsonUpdaterConsole();
             $commands[] = new ProductTouchConsole();
             $commands[] = new ValidatorConsole();
             $commands[] = new BundleCodeGeneratorConsole();
@@ -95,6 +105,11 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new BundleZedCodeGeneratorConsole();
             $commands[] = new BundleSharedCodeGeneratorConsole();
             $commands[] = new BundleClientCodeGeneratorConsole();
+            $commands[] = new GenerateZedIdeAutoCompletionConsole();
+            $commands[] = new GenerateClientIdeAutoCompletionConsole();
+            $commands[] = new GenerateServiceIdeAutoCompletionConsole();
+            $commands[] = new GenerateYvesIdeAutoCompletionConsole();
+            $commands[] = new GenerateIdeAutoCompletionConsole();
         }
 
         return $commands;

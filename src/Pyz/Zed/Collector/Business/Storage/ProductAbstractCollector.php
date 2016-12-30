@@ -14,6 +14,7 @@ use Generated\Shared\Transfer\StorageProductTransfer;
 use Orm\Zed\Category\Persistence\Map\SpyCategoryTableMap;
 use Orm\Zed\Category\Persistence\SpyCategoryNode;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
+use Orm\Zed\Product\Persistence\SpyProductAttributeKeyQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\Collector\CollectorConfig;
 use Spryker\Shared\Library\Collection\Collection;
@@ -38,6 +39,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     const META_KEYWORDS = 'meta_keywords';
     const META_TITLE = 'meta_title';
     const META_DESCRIPTION = 'meta_description';
+    const SUPER_ATTRIBUTES_DEFINITION = 'super_attributes_definition';
 
     /**
      * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
@@ -68,6 +70,11 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
      * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
      */
     private $productFacade;
+
+    /**
+     * @var array
+     */
+    protected $superAttributes;
 
     /**
      * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
@@ -114,6 +121,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
             StorageProductTransfer::META_TITLE => $collectItemData[self::META_TITLE],
             StorageProductTransfer::META_KEYWORDS => $collectItemData[self::META_KEYWORDS],
             StorageProductTransfer::META_DESCRIPTION => $collectItemData[self::META_DESCRIPTION],
+            StorageProductTransfer::SUPER_ATTRIBUTES_DEFINITION => $this->getVariantSuperAttributes()
         ];
     }
 
@@ -336,6 +344,26 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
         }
 
         return $result;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getVariantSuperAttributes()
+    {
+        if ($this->superAttributes) {
+            return $this->superAttributes;
+        }
+
+        $superAttributes = SpyProductAttributeKeyQuery::create()
+            ->filterByIsSuper(true)
+            ->find();
+
+        foreach ($superAttributes as $attribute) {
+            $this->superAttributes[] = $attribute->getKey();
+        }
+
+        return $this->superAttributes;
     }
 
 }

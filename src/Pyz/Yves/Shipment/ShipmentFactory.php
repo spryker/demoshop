@@ -8,7 +8,6 @@ namespace Pyz\Yves\Shipment;
 use Pyz\Yves\Shipment\Form\DataProvider\ShipmentFormDataProvider;
 use Pyz\Yves\Shipment\Form\ShipmentForm;
 use Pyz\Yves\Shipment\Handler\ShipmentHandler;
-use Spryker\Shared\Library\Currency\CurrencyManager;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class ShipmentFactory extends AbstractFactory
@@ -31,7 +30,7 @@ class ShipmentFactory extends AbstractFactory
             $this->getShipmentClient(),
             $this->getGlossaryClient(),
             $this->getStore(),
-            $this->getCurrencyManager()
+            $this->getMoneyPlugin()
         );
     }
 
@@ -68,11 +67,11 @@ class ShipmentFactory extends AbstractFactory
     }
 
     /**
-     * @return \Spryker\Shared\Library\Currency\CurrencyManager
+     * @return \Spryker\Shared\Money\Dependency\Plugin\MoneyPluginInterface
      */
-    protected function getCurrencyManager()
+    protected function getMoneyPlugin()
     {
-        return CurrencyManager::getInstance();
+        return $this->getProvidedDependency(ShipmentDependencyProvider::PLUGIN_MONEY);
     }
 
 }

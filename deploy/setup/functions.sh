@@ -161,9 +161,10 @@ function installZed {
     $CONSOLE setup:jenkins:generate $VERBOSITY
     writeErrorMessage "Cronjob setup failed"
 
+    labelText "Setting up IDE autocompletion"
+    $CONSOLE dev:ide:generate-auto-completion $VERBOSITY
+
     antelopeInstallZed
-
-
 
     labelText "Zed setup successful"
 }

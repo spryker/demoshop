@@ -24,15 +24,15 @@
                     <h5 class="subheader float-right">{{cart.items | length}} {{ 'item' | trans }}</h5>
                     <h5>{{ 'cart.your-order' | trans }}</h5>
                     <ul class="no-bullet">
-                        <li>{{ 'cart.price.subtotal' | trans }} <span class="float-right">{{ cart.totals.subtotal | price }}</span></li>
+                        <li>{{ 'cart.price.subtotal' | trans }} <span class="float-right">{{ cart.totals.subtotal | money }}</span></li>
 
                         <li><hr/></li>
 
                         {% include '@cart/cart/parts/cart-discounts.twig' %}
 
-                        <li>{{ 'cart.price.grand.total' | trans }} <strong class="float-right">{{ cart.totals.grandTotal | price }}</strong></li>
+                        <li>{{ 'cart.price.grand.total' | trans }} <strong class="float-right">{{ cart.totals.grandTotal | money }}</strong></li>
 
-                        <li>{{ 'cart.total.tax_total' | trans }} <span class="float-right">{{ cart.totals.taxTotal.amount | price }}</span></li>
+                        <li>{{ 'cart.total.tax_total' | trans }} <span class="float-right">{{ cart.totals.taxTotal.amount | money }}</span></li>
                     </ul>
                     {% if cart.items|length %}
                         <p class="__padding-top">
