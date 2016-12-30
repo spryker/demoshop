@@ -3,8 +3,8 @@
 use Pyz\Yves\Application\YvesBootstrap;
 use Spryker\Shared\Library\Application\Environment;
 
-if (@extension_loaded('newrelic')) {
-    @newrelic_start_transaction(getenv('NEW_RELIC_APP_NAME'), getenv('NEW_RELIC_LICENSE_KEY'));
+if (extension_loaded('newrelic')) {
+    newrelic_start_transaction(getenv('NEW_RELIC_APP_NAME'), getenv('NEW_RELIC_LICENSE_KEY'));
 }
 
 define('APPLICATION', 'YVES');
