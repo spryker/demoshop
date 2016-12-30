@@ -1,6 +1,5 @@
 <?php
 
-use Monolog\Logger;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Auth\AuthConstants;
