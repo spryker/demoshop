@@ -89,17 +89,6 @@ $config[PayoneConstants::PAYONE] = [
 
 $config[SessionConstants::SESSION_IS_TEST] = true;
 
-$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
-
-$config[MailConstants::MAIL_PROVIDER_MANDRILL] = [
-    'api-key' => getenv('MAIL_PROVIDER_MANDRILL_API_KEY'),
-    'host' => 'smtp.mandrillapp.com',
-    'port' => '587',
-    'username' => 'John Doe',
-    'from_mail' => 'john.doe@spryker.com',
-    'from_name' => 'Spryker Demoshop',
-];
-
 $config[PayoneConstants::PAYONE] = [
     PayoneConstants::PAYONE_CREDENTIALS_ENCODING => 'UTF-8',
     PayoneConstants::PAYONE_CREDENTIALS_KEY => getenv('PAYONE_CREDENTIALS_KEY'),
