@@ -122,6 +122,8 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new NewRelicServiceProvider(),
             new HttpFragmentServiceProvider(),
             new SubRequestServiceProvider(),
+            new TwigServiceProvider(),
+            new SprykerTwigServiceProvider(),
         ];
     }
 
@@ -148,6 +150,8 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             $this->getGatewayServiceProvider(),
             new HttpFragmentServiceProvider(),
             new SubRequestServiceProvider(),
+            new TwigServiceProvider(),
+            new SprykerTwigServiceProvider(),
         ];
     }
 

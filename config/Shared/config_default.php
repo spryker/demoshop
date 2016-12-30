@@ -1,11 +1,10 @@
 <?php
 
-use Pyz\Shared\Mail\MailConstants;
+use Monolog\Logger;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Auth\AuthConstants;
 use Spryker\Shared\Collector\CollectorConstants;
-use Spryker\Shared\CustomerMailConnector\CustomerMailConnectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
@@ -13,7 +12,6 @@ use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Library\DataDirectory;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\NewRelic\NewRelicConstants;
-use Spryker\Shared\Newsletter\NewsletterConstants;
 use Spryker\Shared\Oms\OmsConstants;
 use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
 use Spryker\Shared\Price\PriceConstants;
@@ -180,46 +178,8 @@ $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTP] = '';
 $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = '';
 $config[ApplicationConstants::CLOUD_CDN_PRODUCT_IMAGES_PATH_NAME] = '/images/products/';
 
-$config[MailConstants::MAIL_PROVIDER_MANDRILL] = [
-    'api-key' => '',
-    'host' => 'smtp.mandrillapp.com',
-    'port' => '587',
-    'username' => '',
-    'from_mail' => 'john.doe@spryker.com',
-    'from_name' => 'John Doe',
-];
-
 $config[PriceConstants::DEFAULT_PRICE_TYPE] =
     $config[PriceCartConnectorConstants::DEFAULT_PRICE_TYPE] = 'DEFAULT';
-
-$config[CustomerConstants::MERGE_LANGUAGE_HANDLEBARS] =
-    $config[MailConstants::MERGE_LANGUAGE_HANDLEBARS] =
-    $config[NewsletterConstants::MERGE_LANGUAGE_HANDLEBARS] =
-    $config[CustomerMailConnectorConstants::MERGE_LANGUAGE_HANDLEBARS] = 'handlebars';
-
-$config[CustomerConstants::SHOP_MAIL_FROM_EMAIL_NAME] =
-    $config[CustomerMailConnectorConstants::SHOP_MAIL_FROM_EMAIL_NAME] = '';
-
-$config[CustomerConstants::SHOP_MAIL_FROM_EMAIL_ADDRESS] =
-    $config[CustomerMailConnectorConstants::SHOP_MAIL_FROM_EMAIL_ADDRESS] = 'john.doe@spryker.com';
-
-$config[CustomerConstants::SHOP_MAIL_REGISTRATION_TOKEN] =
-    $config[CustomerMailConnectorConstants::SHOP_MAIL_REGISTRATION_TOKEN] = 'registration.token';
-
-$config[CustomerConstants::SHOP_MAIL_REGISTRATION_SUBJECT] =
-    $config[CustomerMailConnectorConstants::SHOP_MAIL_REGISTRATION_SUBJECT] = 'registration.mail.subject';
-
-$config[CustomerConstants::SHOP_MAIL_PASSWORD_RESTORE_TOKEN] =
-    $config[CustomerMailConnectorConstants::SHOP_MAIL_PASSWORD_RESTORE_TOKEN] = 'password.restore';
-
-$config[CustomerConstants::SHOP_MAIL_PASSWORD_RESTORE_SUBJECT] =
-    $config[CustomerMailConnectorConstants::SHOP_MAIL_PASSWORD_RESTORE_SUBJECT] = 'password.restore.mail.subject';
-
-$config[CustomerConstants::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_TOKEN] =
-    $config[CustomerMailConnectorConstants::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_TOKEN] = 'password.change.confirmation';
-
-$config[CustomerConstants::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_SUBJECT] =
-    $config[CustomerMailConnectorConstants::SHOP_MAIL_PASSWORD_RESTORED_CONFIRMATION_SUBJECT] = 'password.change.confirmation.mail.subject';
 
 $config[UserConstants::USER_SYSTEM_USERS] = [
     'yves_system',
