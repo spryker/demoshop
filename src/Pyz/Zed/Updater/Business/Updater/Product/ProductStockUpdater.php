@@ -203,7 +203,7 @@ class ProductStockUpdater extends AbstractUpdater
             self::VARIANT_ID => 1,
             self::QUANTITY => 0,
             self::NEVER_OUT_OF_STOCK => true,
-            self::STOCK_TYPE => null
+            self::STOCK_TYPE => null,
         ];
 
         if (!$this->csvReader->valid()) {

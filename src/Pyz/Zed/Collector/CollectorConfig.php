@@ -35,7 +35,7 @@ class CollectorConfig extends SprykerCollectorConfig
                 'UrlCollectorQuery' => UrlCollectorQuery::class,
                 'ProductConcreteCollectorQuery' => ProductConcreteCollectorQuery::class,
                 'ProductOptionCollectorQuery' => ProductOptionCollectorQuery::class,
-            ]
+            ],
         ];
 
         return $data[$dbEngineName];
@@ -52,7 +52,7 @@ class CollectorConfig extends SprykerCollectorConfig
             ],
             'PostgreSql' => [
                 'ProductCollectorQuery' => SearchProductCollector::class,
-            ]
+            ],
         ];
 
         return $data[$dbEngineName];

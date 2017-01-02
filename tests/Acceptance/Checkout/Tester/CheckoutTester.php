@@ -7,7 +7,9 @@
 
 namespace Acceptance\Checkout\Tester;
 
-class CheckoutTester extends \YvesAcceptanceTester
+use YvesAcceptanceTester;
+
+class CheckoutTester extends YvesAcceptanceTester
 {
 
     /**

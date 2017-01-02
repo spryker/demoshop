@@ -49,7 +49,7 @@ class GlossaryInstaller extends AbstractInstaller
         foreach ($batchIterator as $batchCollection) {
             foreach ($batchCollection as $translationKey => $translationData) {
                 $this->runImporters([
-                    $translationKey => $translationData
+                    $translationKey => $translationData,
                 ], $importersToExecute);
             }
         }

@@ -39,7 +39,7 @@ class DiscountCreatePage
             'calcType' => 'Calculator fixed',
             'amount' => '18,36',
             'applyTo' => 'attribute.width = \'15\'',
-        ]
+        ],
     ];
 
 }

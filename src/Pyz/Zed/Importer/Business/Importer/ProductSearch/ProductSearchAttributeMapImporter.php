@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Importer\Business\Importer\ProductSearch;
 
 use Generated\Shared\Search\PageIndexMap;
+use InvalidArgumentException;
 use Orm\Zed\ProductSearch\Persistence\Base\SpyProductSearchAttributeMapQuery;
 use Orm\Zed\Product\Persistence\SpyProductAttributeKeyQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
@@ -69,7 +70,7 @@ class ProductSearchAttributeMapImporter extends AbstractImporter
 
         $validTargetFields = $pageIndexMap->getProperties();
         if (!in_array($data['target_field'], $validTargetFields)) {
-            throw new \InvalidArgumentException(sprintf(
+            throw new InvalidArgumentException(sprintf(
                 'Invalid target field "%s" for attribute "%s"',
                 $data['target_field'],
                 $data['attribute_key']

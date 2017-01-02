@@ -7,6 +7,8 @@
 
 namespace Acceptance\Homepage\Yves\Tester;
 
-class HomepageTester extends \YvesAcceptanceTester
+use YvesAcceptanceTester;
+
+class HomepageTester extends YvesAcceptanceTester
 {
 }

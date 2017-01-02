@@ -105,7 +105,7 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
             StorageProductTransfer::META_KEYWORDS => $collectItemData[self::META_KEYWORDS],
             StorageProductTransfer::META_DESCRIPTION => $collectItemData[self::META_DESCRIPTION],
             StorageProductTransfer::URL => $collectItemData[self::URL],
-            StorageProductTransfer::SUPER_ATTRIBUTES_DEFINITION => $this->getVariantSuperAttributes()
+            StorageProductTransfer::SUPER_ATTRIBUTES_DEFINITION => $this->getVariantSuperAttributes(),
         ];
     }
 

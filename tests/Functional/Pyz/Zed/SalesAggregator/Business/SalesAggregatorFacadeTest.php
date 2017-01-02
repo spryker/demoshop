@@ -303,9 +303,9 @@ class SalesAggregatorFacadeTest extends Test
                     'discounts' => [
                         [
                             'amount' => 5,
-                            'name' => 'discount1'
-                        ]
-                    ]
+                            'name' => 'discount1',
+                        ],
+                    ],
                 ],
                 [
                     'gross_price' => 20,
@@ -313,10 +313,10 @@ class SalesAggregatorFacadeTest extends Test
                     'discounts' => [
                         [
                             'amount' => 5,
-                            'name' => 'discount1'
-                        ]
-                    ]
-                ]
+                            'name' => 'discount1',
+                        ],
+                    ],
+                ],
             ]
         );
 
@@ -336,9 +336,9 @@ class SalesAggregatorFacadeTest extends Test
                     'discounts' => [
                         [
                             'amount' => 5,
-                            'name' => 'discount1'
-                        ]
-                    ]
+                            'name' => 'discount1',
+                        ],
+                    ],
                 ],
                 [
                     'gross_price' => 40,
@@ -346,11 +346,11 @@ class SalesAggregatorFacadeTest extends Test
                     'discounts' => [
                         [
                             'amount' => 5,
-                            'name' => 'discount1'
-                        ]
-                    ]
+                            'name' => 'discount1',
+                        ],
+                    ],
 
-                ]
+                ],
             ]
         );
 

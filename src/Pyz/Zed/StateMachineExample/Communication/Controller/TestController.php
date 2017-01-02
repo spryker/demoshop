@@ -42,7 +42,7 @@ class TestController extends AbstractController
         return [
             'stateMachineExampleItems' => $stateMachineExampleItems,
             'manualEvents' => $manualEvents,
-            'stateMachineItems' => $this->createStateMachineLookupTable($stateMachineItems)
+            'stateMachineItems' => $this->createStateMachineLookupTable($stateMachineItems),
         ];
     }
 
