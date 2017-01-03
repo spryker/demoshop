@@ -140,7 +140,7 @@ class ProductAbstractManagerTest extends ProductTestAbstract
      */
     protected function assertProductImages(ProductAbstractTransfer $productAbstractTransfer)
     {
-        /* @var \Generated\Shared\Transfer\ProductImageSetTransfer $imageSet */
+        /** @var \Generated\Shared\Transfer\ProductImageSetTransfer $imageSet */
         $imageSetCollection = (array)$productAbstractTransfer->getImageSets();
         $this->assertNotEmpty($imageSetCollection);
         $imageSet = $imageSetCollection[0];
@@ -151,7 +151,7 @@ class ProductAbstractManagerTest extends ProductTestAbstract
         $productImageCollection = (array)$imageSet->getProductImages();
         $this->assertNotEmpty($imageSetCollection);
 
-        /* @var \Generated\Shared\Transfer\ProductImageTransfer $productImage */
+        /** @var \Generated\Shared\Transfer\ProductImageTransfer $productImage */
         $productImage = $productImageCollection[0];
         $this->assertInstanceOf(ProductImageTransfer::class, $productImage);
         $this->assertEquals(self::IMAGE_URL_LARGE, $productImage->getExternalUrlLarge());

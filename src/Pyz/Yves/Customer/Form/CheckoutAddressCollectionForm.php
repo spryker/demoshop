@@ -41,7 +41,7 @@ class CheckoutAddressCollectionForm extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        /* @var \Symfony\Component\OptionsResolver\OptionsResolver $resolver */
+        /** @var \Symfony\Component\OptionsResolver\OptionsResolver $resolver */
         $resolver->setDefaults([
             'validation_groups' => function (FormInterface $form) {
                 $validationGroups = [Constraint::DEFAULT_GROUP, self::GROUP_SHIPPING_ADDRESS];
