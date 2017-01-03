@@ -94,7 +94,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new WebProfilerServiceProvider(),
             new ZedHstsServiceProvider(),
             new FormFactoryServiceProvider(),
-            new TwigCurrencyServiceProvider()
+            new TwigCurrencyServiceProvider(),
         ];
 
         $providers = array_merge($providers, $coreProviders);
