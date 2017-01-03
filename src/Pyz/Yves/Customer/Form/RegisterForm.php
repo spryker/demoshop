@@ -137,11 +137,11 @@ class RegisterForm extends AbstractType
             'required' => true,
             'first_options' => [
                 'label' => 'forms.password',
-                'attr' => ['autocomplete' => 'off']
+                'attr' => ['autocomplete' => 'off'],
             ],
             'second_options' => [
                 'label' => 'forms.confirm-password',
-                'attr' => ['autocomplete' => 'off']
+                'attr' => ['autocomplete' => 'off'],
             ],
             'constraints' => [
                 new NotBlank(),

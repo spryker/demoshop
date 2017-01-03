@@ -8,8 +8,9 @@
 namespace Acceptance\Availability\Tester;
 
 use Acceptance\Checkout\Tester\CheckoutTester;
+use YvesAcceptanceTester;
 
-class AvailabilityTester extends \YvesAcceptanceTester
+class AvailabilityTester extends YvesAcceptanceTester
 {
 
     const FUJITSU_PRODUCT_PAGE = '/en/fujitsu-esprimo-e420-56';

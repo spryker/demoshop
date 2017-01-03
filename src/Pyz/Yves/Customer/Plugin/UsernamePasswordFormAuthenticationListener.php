@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Customer\Plugin;
 
+use InvalidArgumentException as PhpInvalidArgumentException;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\Extension\Csrf\CsrfProvider\CsrfProviderAdapter;
@@ -145,13 +146,13 @@ class UsernamePasswordFormAuthenticationListener extends BaseUsernamePasswordFor
 
             if ('[' === $char) {
                 if (null !== $currentKey) {
-                    throw new \InvalidArgumentException(sprintf('Malformed path. Unexpected "[" at position %d.', $i));
+                    throw new PhpInvalidArgumentException(sprintf('Malformed path. Unexpected "[" at position %d.', $i));
                 }
 
                 $currentKey = '';
             } elseif (']' === $char) {
                 if (null === $currentKey) {
-                    throw new \InvalidArgumentException(sprintf('Malformed path. Unexpected "]" at position %d.', $i));
+                    throw new PhpInvalidArgumentException(sprintf('Malformed path. Unexpected "]" at position %d.', $i));
                 }
 
                 if (!is_array($value) || !array_key_exists($currentKey, $value)) {
@@ -162,7 +163,7 @@ class UsernamePasswordFormAuthenticationListener extends BaseUsernamePasswordFor
                 $currentKey = null;
             } else {
                 if (null === $currentKey) {
-                    throw new \InvalidArgumentException(sprintf('Malformed path. Unexpected "%s" at position %d.', $char, $i));
+                    throw new PhpInvalidArgumentException(sprintf('Malformed path. Unexpected "%s" at position %d.', $char, $i));
                 }
 
                 $currentKey .= $char;
@@ -170,7 +171,7 @@ class UsernamePasswordFormAuthenticationListener extends BaseUsernamePasswordFor
         }
 
         if (null !== $currentKey) {
-            throw new \InvalidArgumentException(sprintf('Malformed path. Path must end with "]".'));
+            throw new PhpInvalidArgumentException(sprintf('Malformed path. Path must end with "]".'));
         }
 
         return $value;

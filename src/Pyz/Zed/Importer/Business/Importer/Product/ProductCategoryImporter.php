@@ -197,7 +197,7 @@ class ProductCategoryImporter extends AbstractImporter
 
         return [
             self::RESULT_CATEGORY_ID => $idCategory,
-            self::RESULT_NODE_ID => $idNode
+            self::RESULT_NODE_ID => $idNode,
         ];
     }
 

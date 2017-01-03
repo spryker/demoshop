@@ -129,7 +129,7 @@ class AddressForm extends AbstractType
             'required' => true,
             'constraints' => [
                 $this->createNotBlankConstraint($options),
-                $this->createMinLengthConstraint($options)
+                $this->createMinLengthConstraint($options),
             ],
         ]);
 
@@ -149,7 +149,7 @@ class AddressForm extends AbstractType
             'required' => true,
             'constraints' => [
                 $this->createNotBlankConstraint($options),
-                $this->createMinLengthConstraint($options)
+                $this->createMinLengthConstraint($options),
             ],
         ]);
 
@@ -185,7 +185,7 @@ class AddressForm extends AbstractType
             'required' => true,
             'constraints' => [
                 $this->createNotBlankConstraint($options),
-                $this->createMinLengthConstraint($options)
+                $this->createMinLengthConstraint($options),
             ],
         ]);
 
@@ -205,7 +205,7 @@ class AddressForm extends AbstractType
             'required' => true,
             'constraints' => [
                 $this->createNotBlankConstraint($options),
-                $this->createAddressNumberConstraint($options)
+                $this->createAddressNumberConstraint($options),
             ],
         ]);
 
@@ -241,7 +241,7 @@ class AddressForm extends AbstractType
             'required' => true,
             'constraints' => [
                 $this->createNotBlankConstraint($options),
-                $this->createZipCodeConstraint($options)
+                $this->createZipCodeConstraint($options),
             ],
         ]);
 
@@ -261,7 +261,7 @@ class AddressForm extends AbstractType
             'required' => true,
             'constraints' => [
                 $this->createNotBlankConstraint($options),
-                $this->createMinLengthConstraint($options)
+                $this->createMinLengthConstraint($options),
             ],
         ]);
 

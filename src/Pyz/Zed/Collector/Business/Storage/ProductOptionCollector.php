@@ -85,7 +85,7 @@ class ProductOptionCollector extends AbstractStoragePdoCollector
                 StorageProductOptionValueTransfer::ID_PRODUCT_OPTION_VALUE => $optionValueEntity->getIdProductOptionValue(),
                 StorageProductOptionValueTransfer::SKU => $optionValueEntity->getSku(),
                 StorageProductOptionValueTransfer::PRICE => $optionValueEntity->getPrice(),
-                StorageProductOptionValueTransfer::VALUE => $optionValueEntity->getValue()
+                StorageProductOptionValueTransfer::VALUE => $optionValueEntity->getValue(),
             ];
         }
         return $optionValues;

@@ -7,6 +7,7 @@
 
 namespace Functional\Pyz\Zed\Product;
 
+use ArrayObject;
 use Codeception\TestCase\Test;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
@@ -389,7 +390,7 @@ abstract class ProductTestAbstract extends Test
             ->setStockType($stockEntity->getName())
             ->setQuantity(self::STOCK_QUANTITY);
 
-        $this->productConcreteTransfer->setStocks(new \ArrayObject($stock));
+        $this->productConcreteTransfer->setStocks(new ArrayObject($stock));
     }
 
     protected function setupPluginImages()
@@ -402,15 +403,15 @@ abstract class ProductTestAbstract extends Test
             ->setExternalUrlSmall(self::IMAGE_URL_SMALL);
 
         $imageSetTransfer->setProductImages(
-            new \ArrayObject([$imageTransfer])
+            new ArrayObject([$imageTransfer])
         );
 
         $this->productAbstractTransfer->setImageSets(
-            new \ArrayObject([$imageSetTransfer])
+            new ArrayObject([$imageSetTransfer])
         );
 
         $this->productConcreteTransfer->setImageSets(
-            new \ArrayObject([$imageSetTransfer])
+            new ArrayObject([$imageSetTransfer])
         );
     }
 

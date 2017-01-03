@@ -29,7 +29,7 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
     public function getCommandPlugins()
     {
         return [
-            'Test/Command' => new TestCommandPlugin()
+            'Test/Command' => new TestCommandPlugin(),
         ];
     }
 
@@ -41,7 +41,7 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
     public function getConditionPlugins()
     {
         return [
-            'Test/Condition' => new TestConditionPlugin()
+            'Test/Condition' => new TestConditionPlugin(),
         ];
     }
 
