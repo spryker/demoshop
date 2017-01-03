@@ -7,9 +7,10 @@
 
 namespace Acceptance\Console\Tester;
 
+use AcceptanceTester;
 use Symfony\Component\Process\Process;
 
-class ConsoleTester extends \AcceptanceTester
+class ConsoleTester extends AcceptanceTester
 {
 
     /**

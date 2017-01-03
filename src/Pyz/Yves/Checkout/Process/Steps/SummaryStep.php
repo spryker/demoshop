@@ -81,7 +81,7 @@ class SummaryStep extends AbstractBaseStep
     public function getTemplateVariables(AbstractTransfer $quoteTransfer)
     {
         return [
-            'quoteTransfer' => $quoteTransfer
+            'quoteTransfer' => $quoteTransfer,
         ];
     }
 

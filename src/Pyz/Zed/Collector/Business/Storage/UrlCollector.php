@@ -272,7 +272,7 @@ class UrlCollector extends AbstractStoragePdoCollector
 
         if (!empty($oldUrl[CollectorConfig::COLLECTOR_STORAGE_KEY])) {
             $storeWriter->delete([
-                $oldUrl[CollectorConfig::COLLECTOR_STORAGE_KEY] => true
+                $oldUrl[CollectorConfig::COLLECTOR_STORAGE_KEY] => true,
             ]);
         }
     }
@@ -288,8 +288,8 @@ class UrlCollector extends AbstractStoragePdoCollector
     {
         $dataToWrite = [
             $touchKeyPointer => [
-                CollectorConfig::COLLECTOR_STORAGE_KEY => $touchKey
-            ]
+                CollectorConfig::COLLECTOR_STORAGE_KEY => $touchKey,
+            ],
         ];
 
         $storeWriter->write($dataToWrite);

@@ -28,7 +28,7 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
             StorageAvailabilityTransfer::IS_ABSTRACT_PRODUCT_AVAILABLE => $collectItemData[AvailabilityCollectorQuery::QUANTITY] > 0,
             StorageAvailabilityTransfer::CONCRETE_PRODUCT_AVAILABLE_ITEMS => $this->getConcreteProductsAvailability(
                 $collectItemData[AvailabilityCollectorQuery::ID_AVAILABILITY_ABSTRACT]
-            )
+            ),
         ];
     }
 

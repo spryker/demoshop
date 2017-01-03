@@ -59,7 +59,7 @@ class TaxRateCreatePage
             'name' => 'Acceptance Standard Edited',
             'country' => 'Germany',
             'percentage' => '10',
-        ]
+        ],
     ];
 
 }

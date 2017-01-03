@@ -152,7 +152,7 @@ class CheckoutControllerTest extends PHPUnit_Framework_TestCase
         $customerData['customer'][GuestForm::FIELD_ACCEPT_TERMS] = true;
         $customerData['customer']['is_guest'] = true;
         $data = [
-            'guestForm' => $customerData
+            'guestForm' => $customerData,
         ];
 
         $request = Request::create(self::CUSTOMER_URL, Request::METHOD_POST, $data);
@@ -201,7 +201,7 @@ class CheckoutControllerTest extends PHPUnit_Framework_TestCase
         $addressesData['billingAddress'] = $address;
         $addressesData['shippingAddress'] = $address;
         $data = [
-            self::ADDRESS_FORM => $addressesData
+            self::ADDRESS_FORM => $addressesData,
         ];
 
         $request = Request::create(self::ADDRESS_URL, Request::METHOD_POST, $data);
@@ -239,7 +239,7 @@ class CheckoutControllerTest extends PHPUnit_Framework_TestCase
         $shipmentData = $this->getFormData(self::SHIPMENT_URL, self::SHIPMENT_ACTION, self::SHIPMENT_ROUTE, self::SHIPMENT_FORM);
         $shipmentData['idShipmentMethod'] = 1;
         $data = [
-            self::SHIPMENT_FORM => $shipmentData
+            self::SHIPMENT_FORM => $shipmentData,
         ];
 
         $request = Request::create(self::SHIPMENT_URL, Request::METHOD_POST, $data);
@@ -284,11 +284,11 @@ class CheckoutControllerTest extends PHPUnit_Framework_TestCase
         $paymentData[PaymentForm::PAYMENT_SELECTION] = DummyPaymentConfig::PAYMENT_METHOD_INVOICE;
 
         $paymentData[DummyPaymentConfig::PAYMENT_METHOD_INVOICE] = [
-            AbstractSubForm::FIELD_DATE_OF_BIRTH => '06.12.1980'
+            AbstractSubForm::FIELD_DATE_OF_BIRTH => '06.12.1980',
         ];
 
         $data = [
-            self::PAYMENT_FORM => $paymentData
+            self::PAYMENT_FORM => $paymentData,
         ];
 
         $request = Request::create(self::PAYMENT_URL, Request::METHOD_POST, $data);
@@ -328,7 +328,7 @@ class CheckoutControllerTest extends PHPUnit_Framework_TestCase
 
         $summaryData = $this->getFormData(self::SUMMARY_URL, self::SUMMARY_ACTION, self::SUMMARY_ROUTE, self::SUMMARY_FORM);
         $data = [
-            self::SUMMARY_FORM => $summaryData
+            self::SUMMARY_FORM => $summaryData,
         ];
 
         $request = Request::create(self::SUMMARY_URL, Request::METHOD_POST, $data);

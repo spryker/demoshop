@@ -400,7 +400,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             return $factory->buildWorker(CriteriaBuilderFactoryWorker::class);
         });
 
-        /* @var \Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderFactoryWorker $factoryWorker */
+        /** @var \Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderFactoryWorker $factoryWorker */
         $factoryWorker = $factory->getWorkerByName('CriteriaBuilderFactoryWorker');
 
         return $factoryWorker->buildCriteriaBuilder();
