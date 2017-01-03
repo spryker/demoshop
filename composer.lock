@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f00320d245505e83bcc5af5e915ada5b",
-    "content-hash": "a7f20c55b4702a59be4f5a1752a84aa9",
+    "hash": "4c584aa1e1db532c7d231a949551a78f",
+    "content-hash": "bbe0ff3f998aaa3b4e76a1461699dcfa",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1822,6 +1822,60 @@
             ],
             "description": "Spryker Framework",
             "time": "2017-01-03 15:33:02"
+        },
+        {
+            "name": "swiftmailer/swiftmailer",
+            "version": "v5.4.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/swiftmailer/swiftmailer.git",
+                "reference": "cd142238a339459b10da3d8234220963f392540c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/cd142238a339459b10da3d8234220963f392540c",
+                "reference": "cd142238a339459b10da3d8234220963f392540c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.1",
+                "symfony/phpunit-bridge": "~3.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.4-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "lib/swift_required.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Corbyn"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Swiftmailer, free feature-rich PHP mailer",
+            "homepage": "http://swiftmailer.org",
+            "keywords": [
+                "email",
+                "mail",
+                "mailer"
+            ],
+            "time": "2016-12-29 10:02:40"
         },
         {
             "name": "symfony-cmf/routing",
@@ -6377,16 +6431,16 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.6.10",
+            "version": "0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "a102430e4ecd9414233314c3c91e4735a839d43b"
+                "reference": "b9c8259c91209591b2cd6ff433f408931da25d46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/a102430e4ecd9414233314c3c91e4735a839d43b",
-                "reference": "a102430e4ecd9414233314c3c91e4735a839d43b",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/b9c8259c91209591b2cd6ff433f408931da25d46",
+                "reference": "b9c8259c91209591b2cd6ff433f408931da25d46",
                 "shasum": ""
             },
             "require": {
@@ -6420,7 +6474,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-12-06 15:07:51"
+            "time": "2017-01-03 15:21:02"
         },
         {
             "name": "squizlabs/php_codesniffer",
