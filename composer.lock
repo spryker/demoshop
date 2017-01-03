@@ -13097,16 +13097,16 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.6.10",
+            "version": "0.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "a102430e4ecd9414233314c3c91e4735a839d43b"
+                "reference": "73dbbf3e35b05ca9cd8523eb453fc53411681f37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/a102430e4ecd9414233314c3c91e4735a839d43b",
-                "reference": "a102430e4ecd9414233314c3c91e4735a839d43b",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/73dbbf3e35b05ca9cd8523eb453fc53411681f37",
+                "reference": "73dbbf3e35b05ca9cd8523eb453fc53411681f37",
                 "shasum": ""
             },
             "require": {
@@ -13140,7 +13140,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-12-06 15:07:51"
+            "time": "2017-01-02 13:35:57"
         },
         {
             "name": "squizlabs/php_codesniffer",
