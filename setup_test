@@ -88,6 +88,12 @@ function dropAndRestoreTestDatabase {
 
 }
 
+function configureCodeception {
+    labelText "Configuring test environment"
+    vendor/bin/codecept build -q $VERBOSITY
+    writeErrorMessage "Test configuration failed"
+}
+
 function runCollectors() {
 
    resetDataStores
@@ -122,6 +128,7 @@ do
            runCollectors
            ;;
          "--full" | "-f" )
+            configureCodeception
             backupTestingEnvData
             runCollectors
            ;;

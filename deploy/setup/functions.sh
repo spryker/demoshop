@@ -102,7 +102,6 @@ function restoreDevelopmentDatabase {
 }
 
 function dropAndRestoreDatabase {
-
     if [[ -z "$1" ]]; then
           DATABASE_BACKUP_PATH=$DATABASE_NAME.backup;
     else
@@ -113,11 +112,11 @@ function dropAndRestoreDatabase {
     export LC_ALL="en_US.UTF-8"
 
     sudo pg_ctlcluster 9.4 main restart --force
-    sudo -u postgres dropdb $DATABASE_NAME
-    sudo -u postgres $DATABASE_NAME
+    sudo dropdb $DATABASE_NAME
+    sudo createdb $DATABASE_NAME
     pg_restore -i -h 127.0.0.1 -p 5432 -U $DATABASE_USER -d $DATABASE_NAME -v $DATABASE_BACKUP_PATH
-
 }
+
 function installDemoshop {
     labelText "Preparing to install Spryker Platform..."
 
@@ -127,8 +126,6 @@ function installDemoshop {
     installZed
     sleep 1
     installYves
-
-    configureCodeception
 
     successText "Setup successful"
 }
@@ -162,9 +159,10 @@ function installZed {
     $CONSOLE setup:jenkins:generate $VERBOSITY
     writeErrorMessage "Cronjob setup failed"
 
+    labelText "Setting up IDE autocompletion"
+    $CONSOLE dev:ide:generate-auto-completion $VERBOSITY
+
     antelopeInstallZed
-
-
 
     labelText "Zed setup successful"
 }
@@ -177,11 +175,7 @@ function installYves {
     labelText "Yves setup successful"
 }
 
-function configureCodeception {
-    labelText "Configuring test environment"
-    vendor/bin/codecept build -q $VERBOSITY
-    writeErrorMessage "Test configuration failed"
-}
+
 
 function optimizeRepo {
     labelText "Optimizing repository"
@@ -192,11 +186,11 @@ function optimizeRepo {
 
 function resetDataStores {
     labelText "Flushing Elasticsearch"
-    curl -XDELETE "http://localhost:$ELASTIC_SEARCH_PORT/$ELASTIC_SEARCH_INDEX/"
+    curl -XDELETE 'http://localhost:10005/de_search/'
     writeErrorMessage "Elasticsearch reset failed"
 
     labelText "Flushing Redis"
-    redis-cli -p $REDIS_PORT FLUSHALL
+    redis-cli -p 10009 FLUSHALL
     writeErrorMessage "Redis reset failed"
 }
 
@@ -224,7 +218,7 @@ function resetDevelopmentState {
 }
 
 function dropDevelopmentDatabase {
-    if [ `sudo -u postgres psql -l | grep ${DATABASE_NAME} | wc -l` -ne 0 ]; then
+    if [ `sudo psql -l | grep ${DATABASE_NAME} | wc -l` -ne 0 ]; then
 
         PG_CTL_CLUSTER=`which pg_ctlcluster`
         DROP_DB=`which dropdb`
@@ -380,8 +374,5 @@ function displayHelp {
     echo ""
     echo "  -v, -vv, -vvv"
     echo "      Set verbosity level"
-    echo ""
-    echo "  -t, --test-env "
-    echo "      setup test eviroment"
     echo " "
 }
