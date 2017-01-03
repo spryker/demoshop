@@ -259,6 +259,8 @@ global.search.spellingSuggestion,"Meinten Sie",de_DE
 global.search.spellingSuggestion,"Did you mean",en_US
 global.search.suggestions,"Suchvorschläge",de_DE
 global.search.suggestions,"Search suggestions",en_US
+global.search.suggestion.in_products,"Produkte", "de_DE"
+global.search.suggestion.in_products,"Products", "en_US"
 global.search.suggestion.in_categories,"In den Kategorien", "de_DE"
 global.search.suggestion.in_categories,"In categories", "en_US"
 global.search.suggestion.in_cms,"In CMS", "de_DE"

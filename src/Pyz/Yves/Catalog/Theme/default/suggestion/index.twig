@@ -43,6 +43,7 @@
 
         {% if rightVisible %}
             <div class="columns show-for-medium __no-margin-bottom">
+                <h6>{{ 'global.search.suggestion.in_products' | trans }}</h6>
                 {% for product in suggestionByType.product_abstract | slice(0, productsLength)  %}
                     {% include '@catalog/suggestion/partials/product.twig' %}
                 {% endfor %}
