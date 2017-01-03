@@ -315,28 +315,28 @@
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "1.3.0",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "2693c101803ca78b27972d84081d027fca790a1e"
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/2693c101803ca78b27972d84081d027fca790a1e",
-                "reference": "2693c101803ca78b27972d84081d027fca790a1e",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "^4.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -362,7 +362,7 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2016-11-18 17:47:58"
+            "time": "2016-12-20 10:07:11"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -1743,6 +1743,7 @@
                     "Unit\\Spryker\\Zed\\Transfer\\": "Bundles/Transfer/tests",
                     "Functional\\Spryker\\Zed\\Transfer\\": "Bundles/Transfer/tests",
                     "Spryker\\Shared\\Twig\\": "Bundles/Twig/src",
+                    "Spryker\\Zed\\Twig\\": "Bundles/Twig/src",
                     "Spryker\\Shared\\Url\\": "Bundles/Url/src",
                     "Unit\\Spryker\\Shared\\Url\\": "Bundles/Url/tests",
                     "Functional\\Spryker\\Shared\\Url\\": "Bundles/Url/tests",
@@ -3610,16 +3611,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.28.2",
+            "version": "v1.30.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "b22ce0eb070e41f7cba65d78fe216de29726459c"
+                "reference": "c6ff71094fde15d12398eaba029434b013dc5e59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/b22ce0eb070e41f7cba65d78fe216de29726459c",
-                "reference": "b22ce0eb070e41f7cba65d78fe216de29726459c",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/c6ff71094fde15d12398eaba029434b013dc5e59",
+                "reference": "c6ff71094fde15d12398eaba029434b013dc5e59",
                 "shasum": ""
             },
             "require": {
@@ -3632,7 +3633,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.28-dev"
+                    "dev-master": "1.30-dev"
                 }
             },
             "autoload": {
@@ -3667,7 +3668,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-11-23 18:41:40"
+            "time": "2016-12-23 11:06:22"
         },
         {
             "name": "zendframework/zend-code",
@@ -4082,16 +4083,16 @@
         },
         {
             "name": "zendframework/zend-servicemanager",
-            "version": "2.7.7",
+            "version": "2.7.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-servicemanager.git",
-                "reference": "eeecb78945c2a9f653caded36ba5274e8a8f5468"
+                "reference": "2ae3b6e4978ec2e9ff52352e661946714ed989f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-servicemanager/zipball/eeecb78945c2a9f653caded36ba5274e8a8f5468",
-                "reference": "eeecb78945c2a9f653caded36ba5274e8a8f5468",
+                "url": "https://api.github.com/repos/zendframework/zend-servicemanager/zipball/2ae3b6e4978ec2e9ff52352e661946714ed989f9",
+                "reference": "2ae3b6e4978ec2e9ff52352e661946714ed989f9",
                 "shasum": ""
             },
             "require": {
@@ -4130,7 +4131,7 @@
                 "servicemanager",
                 "zf2"
             ],
-            "time": "2016-09-01 19:03:15"
+            "time": "2016-12-19 19:14:29"
         },
         {
             "name": "zendframework/zend-stdlib",
@@ -5857,21 +5858,21 @@
         },
         {
             "name": "sebastian/object-enumerator",
-            "version": "1.0.1",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/object-enumerator.git",
-                "reference": "12dc92be4c9b1286fd37c15d54f7c9d8524f29e0"
+                "reference": "d4ca2fb70344987502567bc50081c03e6192fb26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/object-enumerator/zipball/12dc92be4c9b1286fd37c15d54f7c9d8524f29e0",
-                "reference": "12dc92be4c9b1286fd37c15d54f7c9d8524f29e0",
+                "url": "https://api.github.com/repos/sebastianbergmann/object-enumerator/zipball/d4ca2fb70344987502567bc50081c03e6192fb26",
+                "reference": "d4ca2fb70344987502567bc50081c03e6192fb26",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6",
-                "sebastian/recursion-context": "~1.0.4"
+                "sebastian/recursion-context": "~1.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "~5"
@@ -5899,7 +5900,7 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
-            "time": "2016-11-16 07:17:31"
+            "time": "2016-01-28 13:25:10"
         },
         {
             "name": "sebastian/phpcpd",
@@ -5954,16 +5955,16 @@
         },
         {
             "name": "sebastian/recursion-context",
-            "version": "1.0.4",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/recursion-context.git",
-                "reference": "938df7a6478e72795e5f8266cff24d06e3136f2e"
+                "reference": "913401df809e99e4f47b27cdd781f4a258d58791"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/938df7a6478e72795e5f8266cff24d06e3136f2e",
-                "reference": "938df7a6478e72795e5f8266cff24d06e3136f2e",
+                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/913401df809e99e4f47b27cdd781f4a258d58791",
+                "reference": "913401df809e99e4f47b27cdd781f4a258d58791",
                 "shasum": ""
             },
             "require": {
@@ -6003,7 +6004,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2016-11-15 06:55:36"
+            "time": "2015-11-11 19:50:13"
         },
         {
             "name": "sebastian/resource-operations",
@@ -6338,12 +6339,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "994cd151fd2980bcf5b886f53fdcf8ae2e96e795"
+                "reference": "5f265dbc4f536f2d06e6bd1cf8eaf6c8888fadb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/994cd151fd2980bcf5b886f53fdcf8ae2e96e795",
-                "reference": "994cd151fd2980bcf5b886f53fdcf8ae2e96e795",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/5f265dbc4f536f2d06e6bd1cf8eaf6c8888fadb1",
+                "reference": "5f265dbc4f536f2d06e6bd1cf8eaf6c8888fadb1",
                 "shasum": ""
             },
             "require": {
@@ -6372,7 +6373,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2016-12-08 16:18:33"
+            "time": "2016-12-14 18:42:41"
         },
         {
             "name": "spryker/code-sniffer",
