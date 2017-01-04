@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4c584aa1e1db532c7d231a949551a78f",
-    "content-hash": "bbe0ff3f998aaa3b4e76a1461699dcfa",
+    "hash": "29391742229560ecb5e185177e067f37",
+    "content-hash": "ed32d633143416391c1317c24427ef42",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -6431,7 +6431,7 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.7.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
@@ -6982,6 +6982,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "spryker/spryker": 20,
+        "spryker/code-sniffer": 20,
         "spryker/code-generator": 20
     },
     "prefer-stable": true,
