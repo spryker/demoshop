@@ -42,7 +42,7 @@ class CategoryNodeDataPageMapBuilder
             ->addSearchResultData($pageMapTransfer, 'name', $categoryData['name'])
             ->addSearchResultData($pageMapTransfer, 'url', $categoryData['url'])
             ->addSearchResultData($pageMapTransfer, 'type', static::TYPE_CATEGORY)
-            ->addFullText($pageMapTransfer, $categoryData['name'])
+            ->addFullTextBoosted($pageMapTransfer, $categoryData['name'])
             ->addFullText($pageMapTransfer, $categoryData['meta_title'])
             ->addFullText($pageMapTransfer, $categoryData['meta_keywords'])
             ->addFullText($pageMapTransfer, $categoryData['meta_description'])
