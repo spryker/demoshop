@@ -14,7 +14,7 @@
     "nesbot/carbon": "~1.13.0",
     "pimple/pimple": "~1.1.1",
     "predis/predis": "~1.0.3",
-    "propel/propel": "2.0.0-alpha6",
+    "propel/propel": "2.0.0-alpha7",
     "psr/log": "~1.0.0",
     "ruflin/elastica": "~3.2.0",
     "silex/silex": "^1.3.5",
@@ -69,11 +69,11 @@
     "symfony/web-profiler-bundle": "v2.7.20",
     "site5/phantoman": "^1.1",
     "sllh/composer-versions-check": "~2.0.2",
-    "spryker/code-sniffer": "dev-master",
     "jakoch/phantomjs-installer": "^2.1",
     "php-mock/php-mock": "^1.0",
     "spryker/architecture-sniffer": "*",
-    "spryker/code-generator": "dev-master"
+    "spryker/code-generator": "dev-master",
+    "spryker/code-sniffer": "dev-master"
   },
   "autoload": {
     "psr-0": {
