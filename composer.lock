@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4fb10b5c5a55a5b747333b40688d0ff7",
-    "content-hash": "f7430d4bd2347d14809b741ce57b3fb3",
+    "hash": "49d5eb356d37132113833e7ef4fb3e97",
+    "content-hash": "b3ef78c29291990842a77a2020fdc6e6",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1873,16 +1873,16 @@
         },
         {
             "name": "propel/propel",
-            "version": "2.0.0-alpha6",
+            "version": "2.0.0-alpha7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/propelorm/Propel2.git",
-                "reference": "58d57adc9509e47af757b00458d83c24b273fbfa"
+                "reference": "dc55788dd4a7945b8ddef4391474efaca06b067d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/propelorm/Propel2/zipball/58d57adc9509e47af757b00458d83c24b273fbfa",
-                "reference": "58d57adc9509e47af757b00458d83c24b273fbfa",
+                "url": "https://api.github.com/repos/propelorm/Propel2/zipball/dc55788dd4a7945b8ddef4391474efaca06b067d",
+                "reference": "dc55788dd4a7945b8ddef4391474efaca06b067d",
                 "shasum": ""
             },
             "require": {
@@ -1934,7 +1934,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2016-10-15 23:21:13"
+            "time": "2017-01-03 15:55:52"
         },
         {
             "name": "psr/http-message",
@@ -3541,11 +3541,11 @@
         },
         {
             "name": "spryker/category",
-            "version": "2.2.3",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Category.git",
-                "reference": "506de7b1684e107808e39c3f4d2fb6995903dcb1",
+                "reference": "db687a02ac32d217a630e3ec1bb0ebafed3c41af",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3555,8 +3555,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Category/zipball/506de7b1684e107808e39c3f4d2fb6995903dcb1",
-                "reference": "506de7b1684e107808e39c3f4d2fb6995903dcb1",
+                "url": "https://api.github.com/repos/spryker/Category/zipball/db687a02ac32d217a630e3ec1bb0ebafed3c41af",
+                "reference": "db687a02ac32d217a630e3ec1bb0ebafed3c41af",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3610,7 +3610,7 @@
             "support": {
                 "source": "https://github.com/spryker/Category/tree/master"
             },
-            "time": "2016-12-06 14:51:12"
+            "time": "2017-01-03 16:50:09"
         },
         {
             "name": "spryker/category-exporter",
@@ -7458,11 +7458,11 @@
         },
         {
             "name": "spryker/propel",
-            "version": "2.3.6",
+            "version": "2.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Propel.git",
-                "reference": "3a56c7fd7a182b9cc6be3c2db033fb7161d21505",
+                "reference": "7e3298e86be15cc4742677af12c21c67f8c2e65c",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7472,8 +7472,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Propel/zipball/3a56c7fd7a182b9cc6be3c2db033fb7161d21505",
-                "reference": "3a56c7fd7a182b9cc6be3c2db033fb7161d21505",
+                "url": "https://api.github.com/repos/spryker/Propel/zipball/7e3298e86be15cc4742677af12c21c67f8c2e65c",
+                "reference": "7e3298e86be15cc4742677af12c21c67f8c2e65c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7483,7 +7483,7 @@
                 ]
             },
             "require": {
-                "propel/propel": "2.0.0-alpha6",
+                "propel/propel": "2.0.0-alpha7",
                 "spryker/config": "^2.0.0",
                 "spryker/console": "^2.0.0",
                 "spryker/kernel": "^2.0.0",
@@ -7524,7 +7524,7 @@
             "support": {
                 "source": "https://github.com/spryker/Propel/tree/master"
             },
-            "time": "2016-12-20 13:00:20"
+            "time": "2017-01-04 16:02:20"
         },
         {
             "name": "spryker/ratepay",
@@ -7940,11 +7940,11 @@
         },
         {
             "name": "spryker/search",
-            "version": "5.1.0",
+            "version": "5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Search.git",
-                "reference": "86c9e85333e212aa3805801eec938d2290b3fba4",
+                "reference": "af5aa52d89fc12b5a8a5973640d25672157de1a3",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7954,8 +7954,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Search/zipball/86c9e85333e212aa3805801eec938d2290b3fba4",
-                "reference": "86c9e85333e212aa3805801eec938d2290b3fba4",
+                "url": "https://api.github.com/repos/spryker/Search/zipball/af5aa52d89fc12b5a8a5973640d25672157de1a3",
+                "reference": "af5aa52d89fc12b5a8a5973640d25672157de1a3",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8007,7 +8007,7 @@
             "support": {
                 "source": "https://github.com/spryker/Search/tree/master"
             },
-            "time": "2016-12-09 15:52:55"
+            "time": "2017-01-05 14:26:33"
         },
         {
             "name": "spryker/sequence-number",
@@ -8385,11 +8385,11 @@
         },
         {
             "name": "spryker/state-machine",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/StateMachine.git",
-                "reference": "11c7293701b43a5262406d5a1716fd16e12dae76",
+                "reference": "a40c91250da74b2b4666972a4b8b466c0c5ef548",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8399,8 +8399,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/StateMachine/zipball/11c7293701b43a5262406d5a1716fd16e12dae76",
-                "reference": "11c7293701b43a5262406d5a1716fd16e12dae76",
+                "url": "https://api.github.com/repos/spryker/StateMachine/zipball/a40c91250da74b2b4666972a4b8b466c0c5ef548",
+                "reference": "a40c91250da74b2b4666972a4b8b466c0c5ef548",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8448,7 +8448,7 @@
             "support": {
                 "source": "https://github.com/spryker/StateMachine/tree/master"
             },
-            "time": "2016-09-09 10:01:41"
+            "time": "2017-01-04 11:21:21"
         },
         {
             "name": "spryker/step-engine",
@@ -13097,16 +13097,16 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.7.0",
+            "version": "0.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "b9c8259c91209591b2cd6ff433f408931da25d46"
+                "reference": "2e11c793f6e5294c63b61f32ea7c61d16ae7b5f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/b9c8259c91209591b2cd6ff433f408931da25d46",
-                "reference": "b9c8259c91209591b2cd6ff433f408931da25d46",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/2e11c793f6e5294c63b61f32ea7c61d16ae7b5f4",
+                "reference": "2e11c793f6e5294c63b61f32ea7c61d16ae7b5f4",
                 "shasum": ""
             },
             "require": {
@@ -13140,7 +13140,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-01-03 15:21:02"
+            "time": "2017-01-05 10:01:40"
         },
         {
             "name": "squizlabs/php_codesniffer",

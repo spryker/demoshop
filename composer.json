@@ -132,7 +132,6 @@
     "sllh/composer-versions-check": "~2.0.2",
     "jakoch/phantomjs-installer": "^2.1",
     "php-mock/php-mock": "^1.0",
-    "spryker/architecture-sniffer": "*",
     "spryker/code-generator": "*",
     "spryker/code-sniffer": "*"
   },
