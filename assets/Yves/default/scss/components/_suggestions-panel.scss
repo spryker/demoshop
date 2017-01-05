@@ -1,0 +1,13 @@
+.suggestions-panel {
+  position: relative;
+  max-height: 500px;
+  overflow: auto;
+
+  &__hint.is-active {
+    text-decoration: underline;
+  }
+
+  &__product:not(.is-active) {
+    color: $black;
+  }
+}

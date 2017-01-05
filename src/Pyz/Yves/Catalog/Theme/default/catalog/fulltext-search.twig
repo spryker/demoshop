@@ -5,9 +5,9 @@
 {% endblock %}
 
 {% block title %}
-    <h3>{{ 'global.search.results'|trans }} "{{ searchString }}"</h3>
+    <h3>{{ 'global.search.results'|trans }} "<strong>{{ searchString }}</strong>"</h3>
 {% endblock %}
 
 {% block content %}
-    {% include "@catalog/catalog/catalog.twig" %}
+    {% include "@catalog/catalog/catalog.twig" with {paginationPath: app.request.attributes.get('_route')} %}
 {% endblock %}

@@ -10,6 +10,7 @@ namespace Pyz\Zed\Collector;
 use Pyz\Zed\Collector\Communication\Plugin\AttributeMapCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\AvailabilityCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\BlockCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\CategoryNodeCollectorSearchPlugin;
 use Pyz\Zed\Collector\Communication\Plugin\CategoryNodeCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\NavigationCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\PageCollectorStoragePlugin;
@@ -87,6 +88,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
         $container[self::SEARCH_PLUGINS] = function (Container $container) {
             return [
                 'product_abstract' => new ProductCollectorSearchPlugin(),
+                'categorynode' => new CategoryNodeCollectorSearchPlugin(),
             ];
         };
 

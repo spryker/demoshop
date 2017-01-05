@@ -61,7 +61,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
+     * @return \Pyz\Zed\Category\Persistence\CategoryQueryContainerInterface
      */
     protected function getCategoryQueryContainer()
     {

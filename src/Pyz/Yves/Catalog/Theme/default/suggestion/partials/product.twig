@@ -1,0 +1,13 @@
+{% set image = product.images | first %}
+
+<a class="row suggestions-panel__product js-product js-navigable" href="{{ product.url }}">
+    <span class="columns">
+        <img class="thumbnail" src="{{ image.external_url_small }}">
+    </span>
+
+    <span class="small-9 columns">
+        {{ product.abstract_name }}
+        <br>
+        <strong>{{ product.price | money }}</strong>
+    </span>
+</a>

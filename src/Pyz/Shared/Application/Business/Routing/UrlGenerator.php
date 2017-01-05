@@ -46,10 +46,15 @@ class UrlGenerator extends SymfonyUrlGenerator
     {
         $url = parent::generate($name, $parameters, $referenceType);
 
+        list($url, $queryParams) = $this->stripQueryParams($url);
+
         $route = $this->routes->get($name);
         $compiledRoute = $route->compile();
 
-        return $this->setVariablePath($name, $url, $compiledRoute, $route, $referenceType);
+        $url = $this->setVariablePath($name, $url, $compiledRoute, $route, $referenceType);
+        $url = $this->appendQueryParams($url, $queryParams);
+
+        return $url;
     }
 
     /**
@@ -117,6 +122,34 @@ class UrlGenerator extends SymfonyUrlGenerator
         }
 
         return false;
+    }
+
+    /**
+     * @param string $url
+     *
+     * @return array
+     */
+    protected function stripQueryParams($url)
+    {
+        $queryParams = parse_url($url, PHP_URL_QUERY);
+        $url = strtok($url, '?');
+
+        return [$url, $queryParams];
+    }
+
+    /**
+     * @param string $url
+     * @param string $queryParams
+     *
+     * @return string
+     */
+    protected function appendQueryParams($url, $queryParams)
+    {
+        if ($queryParams) {
+            $url .= '?' . $queryParams;
+        }
+
+        return $url;
     }
 
 }

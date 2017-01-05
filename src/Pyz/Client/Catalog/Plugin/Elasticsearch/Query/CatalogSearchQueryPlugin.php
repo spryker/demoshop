@@ -10,6 +10,7 @@ namespace Pyz\Client\Catalog\Plugin\Elasticsearch\Query;
 use Elastica\Query;
 use Elastica\Query\BoolQuery;
 use Elastica\Query\Match;
+use Elastica\Suggest;
 use Generated\Shared\Search\PageIndexMap;
 use Pyz\Shared\ProductSearch\ProductSearchConfig;
 use Spryker\Client\Catalog\Plugin\Elasticsearch\Query\CatalogSearchQueryPlugin as SprykerCatalogSearchQueryPlugin;
@@ -27,6 +28,7 @@ class CatalogSearchQueryPlugin extends SprykerCatalogSearchQueryPlugin
         $baseQuery = parent::addFulltextSearchToQuery($baseQuery);
 
         $this->setTypeFilter($baseQuery->getQuery());
+        $this->setSuggestion($baseQuery);
 
         return $baseQuery;
     }
@@ -42,6 +44,19 @@ class CatalogSearchQueryPlugin extends SprykerCatalogSearchQueryPlugin
             ->setField(PageIndexMap::TYPE, ProductSearchConfig::PRODUCT_ABSTRACT_PAGE_SEARCH_TYPE);
 
         $boolQuery->addMust($typeFilter);
+    }
+
+    /**
+     * @param \Elastica\Query $baseQuery
+     *
+     * @return void
+     */
+    protected function setSuggestion(Query $baseQuery)
+    {
+        $suggest = new Suggest();
+        $suggest->setGlobalText($this->getSearchString());
+
+        $baseQuery->setSuggest($suggest);
     }
 
 }

@@ -3,7 +3,7 @@
         {% include '@Application/layout/partials/pagination.twig' with {
             parameters: app.request.query.all(),
             currentPage: pagination.currentPage,
-            paginationPath: app.request.getPathInfo(),
+            paginationPath: paginationPath,
             maxPage: pagination.maxPage,
             showAlwaysFirstAndLast: true
         } %}
