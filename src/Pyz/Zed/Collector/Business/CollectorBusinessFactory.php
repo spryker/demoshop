@@ -8,11 +8,13 @@
 namespace Pyz\Zed\Collector\Business;
 
 use Exception;
+use Pyz\Zed\Category\Communication\Plugin\CategoryNodeDataPageMapPlugin;
+use Pyz\Zed\Collector\Business\Search\CategoryNodeCollector as SearchCategoryNodeCollector;
 use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector;
 use Pyz\Zed\Collector\Business\Storage\AttributeMapCollector;
 use Pyz\Zed\Collector\Business\Storage\AvailabilityCollector;
 use Pyz\Zed\Collector\Business\Storage\BlockCollector;
-use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector;
+use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector as StorageCategoryNodeCollector;
 use Pyz\Zed\Collector\Business\Storage\NavigationCollector;
 use Pyz\Zed\Collector\Business\Storage\PageCollector;
 use Pyz\Zed\Collector\Business\Storage\ProductAbstractCollector as StorageProductCollector;
@@ -67,7 +69,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStorageCategoryNodeCollector()
     {
-        $storageCategoryNodeCollector = new CategoryNodeCollector();
+        $storageCategoryNodeCollector = new StorageCategoryNodeCollector();
 
         $storageCategoryNodeCollector->setTouchQueryContainer(
             $this->getTouchQueryContainer()
@@ -80,6 +82,29 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         );
 
         return $storageCategoryNodeCollector;
+    }
+
+    /**
+     * @return \Pyz\Zed\Collector\Business\Search\CategoryNodeCollector
+     */
+    public function createSearchCategoryNodeCollector()
+    {
+        $categoryNodeCollector = new SearchCategoryNodeCollector(
+            new CategoryNodeDataPageMapPlugin(),
+            $this->getSearchFacade()
+        );
+
+        $categoryNodeCollector->setTouchQueryContainer(
+            $this->getTouchQueryContainer()
+        );
+        $categoryNodeCollector->setCriteriaBuilder(
+            $this->createCriteriaBuilder()
+        );
+        $categoryNodeCollector->setQueryBuilder(
+            $this->createSearchPdoQueryAdapterByName('CategoryNodeCollectorQuery')
+        );
+
+        return $categoryNodeCollector;
     }
 
     /**

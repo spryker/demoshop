@@ -1,8 +1,12 @@
-<form action="/search">
-    <div class="input-group __no-margin-bottom">
-        <input name="q" type="text" class="input-group-field" placeholder="{{ 'global.search' | trans }}" value="{{ app.request.get('q') }}">
-        <div class="input-group-button">
-            <button type="submit" class="button"><i class="fa fa-search"></i></button>
+<div class="suggestions" data-component="suggestions" data-suggestions-url="{{ path('search/suggestion') }}">
+    <form class="suggestions__search-form js-form" action="{{ path('search') }}">
+        <div class="input-group __no-margin-bottom">
+            <input type="text" class="input-group-field suggestions__input suggestions__input--hint js-input-hint" autocomplete="off" readonly>
+            <input name="q" type="text" class="input-group-field suggestions__input suggestions__input--query js-input js-navigable is-active" placeholder="{{ 'global.search' | trans }}" value="{{ app.request.get('q') }}" autocomplete="off">
+            <div class="input-group-button suggestions__submit">
+                <button type="submit" class="button"><i class="fa fa-search"></i></button>
+            </div>
         </div>
-    </div>
-</form>
+    </form>
+    <div class="suggestions__panel-container js-panel"></div>
+</div>
