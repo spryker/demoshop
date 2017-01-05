@@ -32,7 +32,7 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
     /**
      * @return \Pyz\Zed\Category\Business\Map\CategoryNodeDataPageMapBuilder
      */
-    public function createCmsDataPageMapBuilder()
+    public function createCategoryNodeDataPageMapBuilder()
     {
         return new CategoryNodeDataPageMapBuilder();
     }
