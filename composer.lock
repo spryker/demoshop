@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "29391742229560ecb5e185177e067f37",
-    "content-hash": "ed32d633143416391c1317c24427ef42",
+    "hash": "4f03734139ee5702f449c3469386823a",
+    "content-hash": "53e566f29288e9a48e3da32d77d16277",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -953,16 +953,16 @@
         },
         {
             "name": "propel/propel",
-            "version": "2.0.0-alpha6",
+            "version": "2.0.0-alpha7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/propelorm/Propel2.git",
-                "reference": "58d57adc9509e47af757b00458d83c24b273fbfa"
+                "reference": "dc55788dd4a7945b8ddef4391474efaca06b067d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/propelorm/Propel2/zipball/58d57adc9509e47af757b00458d83c24b273fbfa",
-                "reference": "58d57adc9509e47af757b00458d83c24b273fbfa",
+                "url": "https://api.github.com/repos/propelorm/Propel2/zipball/dc55788dd4a7945b8ddef4391474efaca06b067d",
+                "reference": "dc55788dd4a7945b8ddef4391474efaca06b067d",
                 "shasum": ""
             },
             "require": {
@@ -1014,7 +1014,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2016-10-15 23:21:13"
+            "time": "2017-01-03 15:55:52"
         },
         {
             "name": "psr/http-message",
@@ -1253,7 +1253,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b40ce2d96a67f9d05473c0b9bdc0fadf8d963475"
+                "reference": "8f11f29fc91154a843dae4243bf7e85a36aef30a"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1821,7 +1821,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-01-05 09:19:06"
+            "time": "2017-01-05 14:00:47"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6435,12 +6435,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "1e8b774f52edf5cb18898134ea699051e6b67ebe"
+                "reference": "797461f8efd33415a41f1b73923d443288331df8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/1e8b774f52edf5cb18898134ea699051e6b67ebe",
-                "reference": "1e8b774f52edf5cb18898134ea699051e6b67ebe",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/797461f8efd33415a41f1b73923d443288331df8",
+                "reference": "797461f8efd33415a41f1b73923d443288331df8",
                 "shasum": ""
             },
             "require": {
@@ -6474,7 +6474,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-01-04 20:41:05"
+            "time": "2017-01-05 11:01:08"
         },
         {
             "name": "squizlabs/php_codesniffer",
