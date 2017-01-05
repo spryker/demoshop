@@ -26,7 +26,7 @@
     "spryker/cache": "^2.0.0",
     "spryker/calculation": "^2.0.0",
     "spryker/cart": "^2.0.0",
-    "spryker/catalog": "^3.0.0",
+    "spryker/catalog": "^4.0.0",
     "spryker/category": "^2.0.0",
     "spryker/category-exporter": "^2.0.0",
     "spryker/checkout": "^2.0.0",

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "49d5eb356d37132113833e7ef4fb3e97",
-    "content-hash": "b3ef78c29291990842a77a2020fdc6e6",
+    "hash": "b2414a31dbd600e35cf5dad7b819a4f8",
+    "content-hash": "a4389e245565f57140b2e7af13d7a683",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -3476,11 +3476,11 @@
         },
         {
             "name": "spryker/catalog",
-            "version": "3.1.1",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Catalog.git",
-                "reference": "32ab164dd067788d2baa60d3d5a1a2479a30d885",
+                "reference": "250ce6e376261693f33163e481887144ed5610c8",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3490,8 +3490,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Catalog/zipball/32ab164dd067788d2baa60d3d5a1a2479a30d885",
-                "reference": "32ab164dd067788d2baa60d3d5a1a2479a30d885",
+                "url": "https://api.github.com/repos/spryker/Catalog/zipball/250ce6e376261693f33163e481887144ed5610c8",
+                "reference": "250ce6e376261693f33163e481887144ed5610c8",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3501,13 +3501,10 @@
                 ]
             },
             "require": {
-                "spryker/collector": "^2.0.0 || ^3.0.0 || ^4.0.0",
                 "spryker/config": "^2.0.0",
                 "spryker/elastica": "^3.0.0",
                 "spryker/kernel": "^2.4.0",
-                "spryker/library": "^2.0.0",
-                "spryker/search": "^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0",
-                "spryker/storage": "^2.0.0"
+                "spryker/search": "^5.2.0"
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
@@ -3537,7 +3534,7 @@
             "support": {
                 "source": "https://github.com/spryker/Catalog/tree/master"
             },
-            "time": "2016-11-28 13:28:47"
+            "time": "2017-01-05 14:26:33"
         },
         {
             "name": "spryker/category",
