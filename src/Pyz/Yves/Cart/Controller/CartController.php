@@ -31,8 +31,8 @@ class CartController extends AbstractController
             ->createVoucherForm();
 
         $cartItems = $this->getFactory()
-            ->createCartItemGrouper()
-            ->groupCartItems($quoteTransfer);
+            ->createProductBundleGroupper()
+            ->getGroupedBundleItems($quoteTransfer->getItems(), $quoteTransfer->getBundleItems());
 
         return $this->viewResponse([
             'cart' => $quoteTransfer,

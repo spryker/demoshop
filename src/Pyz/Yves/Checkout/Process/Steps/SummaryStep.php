@@ -7,7 +7,7 @@
 
 namespace Pyz\Yves\Checkout\Process\Steps;
 
-use Pyz\Yves\Cart\Grouper\CartItemGouperInterface;
+use Pyz\Yves\ProductBundle\Grouper\ProductBundleGouperInterface;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Transfer\AbstractTransfer;
@@ -22,9 +22,9 @@ class SummaryStep extends AbstractBaseStep
     protected $calculationClient;
 
     /**
-     * @var \Pyz\Yves\Cart\Grouper\CartItemGouper
+     * @var \Pyz\Yves\ProductBundle\Grouper\ProductBundleGrouper
      */
-    protected $cartItemGouper;
+    protected $productBundleGrouper;
 
     /**
      * @var \Spryker\Client\Cart\CartClientInterface
@@ -33,14 +33,14 @@ class SummaryStep extends AbstractBaseStep
 
     /**
      * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
-     * @param \Pyz\Yves\Cart\Grouper\CartItemGouperInterface $cartItemGouper
+     * @param \Pyz\Yves\ProductBundle\Grouper\ProductBundleGouperInterface $productBundleGrouper
      * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $stepRoute
      * @param string $escapeRoute
      */
     public function __construct(
         CalculationClientInterface $calculationClient,
-        CartItemGouperInterface $cartItemGouper,
+        ProductBundleGouperInterface $productBundleGrouper,
         CartClientInterface $cartClient,
         $stepRoute,
         $escapeRoute
@@ -48,7 +48,7 @@ class SummaryStep extends AbstractBaseStep
         parent::__construct($stepRoute, $escapeRoute);
 
         $this->calculationClient = $calculationClient;
-        $this->cartItemGouper = $cartItemGouper;
+        $this->productBundleGrouper = $productBundleGrouper;
         $this->cartClient = $cartClient;
     }
 
@@ -100,7 +100,10 @@ class SummaryStep extends AbstractBaseStep
     {
         return [
             'quoteTransfer' => $quoteTransfer,
-            'cartItems' => $this->cartItemGouper->groupCartItems($quoteTransfer),
+            'cartItems' => $this->productBundleGrouper->getGroupedBundleItems(
+                $quoteTransfer->getItems(),
+                $quoteTransfer->getBundleItems()
+            ),
             'numberOfItems' => $this->cartClient->getItemCount(),
         ];
     }

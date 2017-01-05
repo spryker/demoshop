@@ -1,0 +1,18 @@
+{% if orderItem.productOptions|length > 0 %}
+    {% for productOption in orderItem.productOptions %}
+        <tr>
+            <td class="text-left">
+                &nbsp; + <small>{{ productOption.sku }}</small>
+            </td>
+            <td class="text-left">
+                <small>{{ productOption.value | trans }}</small>
+            </td>
+            <td class="text-right">
+                <small>{{ productOption.unitGrossPrice | money }}</small>
+            </td>
+            <td class="text-right" colspan="2">
+                <small>{{ productOption.sumGrossPrice | money }}</small>
+            </td>
+        </tr>
+    {% endfor %}
+{% endif %}

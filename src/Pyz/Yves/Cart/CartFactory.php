@@ -8,10 +8,10 @@
 namespace Pyz\Yves\Cart;
 
 use Pyz\Yves\Cart\Form\VoucherForm;
-use Pyz\Yves\Cart\Grouper\CartItemGouper;
 use Pyz\Yves\Cart\Handler\CartOperationHandler;
 use Pyz\Yves\Cart\Handler\ProductBundleAwareCartOperationHandler;
 use Pyz\Yves\Cart\Handler\CartVoucherHandler;
+use Pyz\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Yves\Kernel\AbstractFactory;
 
@@ -64,6 +64,14 @@ class CartFactory extends AbstractFactory
     }
 
     /**
+     * @return \Pyz\Yves\ProductBundle\Grouper\ProductBundleGrouper
+     */
+    public function createProductBundleGroupper()
+    {
+        return new ProductBundleGrouper();
+    }
+
+    /**
      * @return \Spryker\Yves\Application\Application
      */
     protected function createApplication()
@@ -92,8 +100,7 @@ class CartFactory extends AbstractFactory
      */
     public function createVoucherForm()
     {
-        return $this
-            ->getProvidedDependency(ApplicationConstants::FORM_FACTORY)
+        return $this->getProvidedDependency(ApplicationConstants::FORM_FACTORY)
             ->create($this->createVoucherFormType());
     }
 
@@ -103,14 +110,6 @@ class CartFactory extends AbstractFactory
     protected function createVoucherFormType()
     {
         return new VoucherForm();
-    }
-
-    /**
-     * @return \Pyz\Yves\Cart\Grouper\CartItemGouper
-     */
-    public function createCartItemGrouper()
-    {
-        return new CartItemGouper();
     }
 
 }

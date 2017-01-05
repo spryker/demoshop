@@ -4,46 +4,47 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Pyz\Yves\Cart\Grouper;
+namespace Pyz\Yves\ProductBundle\Grouper;
 
+use ArrayObject;
 use Generated\Shared\Transfer\ItemTransfer;
-use Generated\Shared\Transfer\QuoteTransfer;
 
-class CartItemGouper implements CartItemGouperInterface
+class ProductBundleGrouper implements ProductBundleGouperInterface
 {
     const BUNDLE_ITEMS = 'bundleItems';
     const BUNDLE_PRODUCT = 'bundleProduct';
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \ArrayObject $items
+     * @param \ArrayObject $bundleItems
      *
      * @return array
      */
-    public function groupCartItems(QuoteTransfer $quoteTransfer)
+    public function getGroupedBundleItems(ArrayObject $items, ArrayObject $bundleItems)
     {
-        $groupedBundleQuantity = $this->getGroupedBundleQuantity($quoteTransfer);
+        $groupedBundleQuantity = $this->getGroupedBundleQuantity($bundleItems);
 
         $singleItems = [];
-        $bundleItems = [];
-        foreach ($quoteTransfer->getItems() as $itemTransfer) {
+        $groupedBundleItems = [];
+        foreach ($items as $itemTransfer) {
             if (!$itemTransfer->getRelatedBundleItemIdentifier()) {
                 $singleItems[] = $itemTransfer;
             }
 
-            foreach ($quoteTransfer->getBundleItems() as $bundleItemTransfer) {
+            foreach ($bundleItems as $bundleItemTransfer) {
                 if ($bundleItemTransfer->getBundleItemIdentifier() !== $itemTransfer->getRelatedBundleItemIdentifier()) {
                     continue;
                 }
 
-                $bundleItems = $this->getCurrentBundle($bundleItems, $bundleItemTransfer, $groupedBundleQuantity);
+                $groupedBundleItems = $this->getCurrentBundle($groupedBundleItems, $bundleItemTransfer, $groupedBundleQuantity);
 
-                $currentBundleItemTransfer = $this->getBundleProduct($bundleItems, $bundleItemTransfer->getSku());
+                $currentBundleItemTransfer = $this->getBundleProduct($groupedBundleItems, $bundleItemTransfer->getSku());
                 if ($currentBundleItemTransfer->getBundleItemIdentifier() !== $itemTransfer->getRelatedBundleItemIdentifier()) {
                     continue;
                 }
 
-                $bundleItems[$bundleItemTransfer->getSku()][static::BUNDLE_ITEMS] = $this->groupBundledItems(
-                    $bundleItems,
+                $groupedBundleItems[$bundleItemTransfer->getSku()][static::BUNDLE_ITEMS] = $this->groupBundledItems(
+                    $groupedBundleItems,
                     $itemTransfer,
                     $bundleItemTransfer->getSku()
                 );
@@ -51,20 +52,21 @@ class CartItemGouper implements CartItemGouperInterface
 
         }
 
-        $cartItems = array_merge($singleItems, $bundleItems);
-
-        return $cartItems;
+        return array_merge(
+            $singleItems,
+            $groupedBundleItems
+        );
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param ArrayObject $bundleItems
      *
      * @return array
      */
-    protected function getGroupedBundleQuantity(QuoteTransfer $quoteTransfer)
+    protected function getGroupedBundleQuantity(ArrayObject $bundleItems)
     {
         $groupedBundleQuantity = [];
-        foreach ($quoteTransfer->getBundleItems() as $bundleProductTransfer) {
+        foreach ($bundleItems as $bundleProductTransfer) {
             if (!isset($groupedBundleQuantity[$bundleProductTransfer->getSku()])) {
                 $groupedBundleQuantity[$bundleProductTransfer->getSku()] = $bundleProductTransfer->getQuantity();
             } else {
@@ -77,7 +79,7 @@ class CartItemGouper implements CartItemGouperInterface
     /**
      * @param array $bundleItems
      * @param ItemTransfer $bundleItemTransfer
-     * @param int $groupedBundleQuantity
+     * @param array $groupedBundleQuantity
      *
      * @return array
      */
