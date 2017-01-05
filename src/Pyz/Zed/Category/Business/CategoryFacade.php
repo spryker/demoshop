@@ -28,7 +28,7 @@ class CategoryFacade extends SprykerCategoryFacade implements CategoryFacadeInte
     {
         return $this
             ->getFactory()
-            ->createCmsDataPageMapBuilder()
+            ->createCategoryNodeDataPageMapBuilder()
             ->buildPageMap($pageMapBuilder, $cmsData, $locale);
     }
 
