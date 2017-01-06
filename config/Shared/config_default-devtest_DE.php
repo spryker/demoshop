@@ -11,8 +11,8 @@ use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Storage\StorageConstants;
 
-$zedHost = 'zed-test.de.test.local';
-$yvesHost = 'www-test.de.test.local';
+$zedHost = 'zed-test.de.project.local';
+$yvesHost = 'www-test.de.project.local';
 
 $config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
 $config[PropelConstants::ZED_DB_USERNAME] = 'devtest';
