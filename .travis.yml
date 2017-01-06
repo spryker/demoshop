@@ -11,14 +11,24 @@ env:
   global:
     - APPLICATION_ENV=devtest
     - APPLICATION_STORE=DE
-  matrix:
-    - TEST_GROUP=without-acceptance
-    - TEST_GROUP=acceptance
 
 matrix:
   include:
-    - php: 7.1
-      env: TEST_GROUP=acceptance
+  - php: 5.6
+    env: TEST_GROUP=without-acceptance
+  - php: 5.6
+    env: TEST_GROUP=acceptance
+    on: "$TRAVIS_EVENT_TYPE == 'cron'"
+  - php: 7.0
+    env: TEST_GROUP=without-acceptance
+  - php: 7.0
+    env: TEST_GROUP=acceptance
+    on: "$TRAVIS_EVENT_TYPE == 'cron'"
+  - php: 7.1
+    env: TEST_GROUP=without-acceptance
+  - php: 7.1
+    env: TEST_GROUP=acceptance
+    on: "$TRAVIS_EVENT_TYPE == 'cron'"
 
 addons:
   postgresql: 9.4
@@ -60,14 +70,14 @@ before_script:
   - cp config/Shared/ci/travis/config_ci.php config/Shared/config_default-devtest_DE.php
   - cp config/Shared/ci/travis/params.sh deploy/setup/params.sh
 
-  - if [[ $TEST_GROUP == 'acceptance' ]]; then deploy/travis/acceptance_env.sh; fi
+  - if [[ $TEST_GROUP == 'acceptance']]; then deploy/travis/acceptance_env.sh; fi
 
-  - if [[ $TEST_GROUP == 'acceptance' ]]; then ./setup_test -f; fi
+  - if [[ $TEST_GROUP == 'acceptance']]; then ./setup_test -f; fi
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then ./setup_test -b; fi
 
 script:
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance ; fi
-  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance ; fi
+  - if [[ $TEST_GROUP == 'acceptance']]; then vendor/bin/codecept run -g Acceptance ; fi
 
   - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console code:sniff ; fi
   - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console dev:dependency:build-tree ; fi
