@@ -2,7 +2,7 @@
 
 set -o pipefail
 
-.  deploy/setup/params.sh
+.  deploy/setup/params_test_env.sh
 
 export APPLICATION_ENV='devtest'
 
