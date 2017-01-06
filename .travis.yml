@@ -1,6 +1,6 @@
 before_install:
   - echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  - if ["$TRAVIS_EVENT_TYPE" != "cron" && "$TEST_GROUP" == "acceptance"]; then exit; fi
+  - if [ $TRAVIS_EVENT_TYPE != "cron" && $TEST_GROUP == "acceptance"]; then exit; fi
 
 language: php
 
