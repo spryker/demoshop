@@ -2,15 +2,13 @@ before_install: echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv versi
 
 language: php
 
-php:
-  - 5.6
-  - 7.0
-  - 7.1
-
 env:
   global:
     - APPLICATION_ENV=devtest
     - APPLICATION_STORE=DE
+  matrix:
+    - TEST_GROUP=without-acceptance
+    - TEST_GROUP=acceptance
 
 matrix:
   include:
