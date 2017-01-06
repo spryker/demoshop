@@ -20,10 +20,6 @@ matrix:
     - php: 7.1
       env: TEST_GROUP=acceptance
 
-  allow_failures:
-    - php: 7.1
-      env: TEST_GROUP=acceptance
-
 addons:
   postgresql: 9.4
 
