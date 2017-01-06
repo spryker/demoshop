@@ -12,7 +12,7 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Client\Cart\CartClientInterface;
 
-class ProductBundleAwareCartOperationHandler extends BaseHandler implements CartOperationInterface
+class ProductBundleCartOperationHandler extends BaseHandler implements CartOperationInterface
 {
 
     /**

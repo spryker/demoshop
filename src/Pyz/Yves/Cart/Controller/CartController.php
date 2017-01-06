@@ -90,7 +90,7 @@ class CartController extends AbstractController
     }
 
     /**
-     * @return \Pyz\Yves\Cart\Handler\ProductBundleAwareCartOperationHandler
+     * @return \Pyz\Yves\Cart\Handler\ProductBundleCartOperationHandler
      */
     protected function getCartOperationHandler()
     {
