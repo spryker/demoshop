@@ -139,4 +139,5 @@ class CartOperationHandler extends BaseHandler implements CartOperationInterface
     {
         $this->cartClient->setItemCount($quoteTransfer->getItems()->count());
     }
+
 }

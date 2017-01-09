@@ -1,7 +1,8 @@
 <?php
+
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Yves\Cart\Handler;
@@ -49,7 +50,6 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
         $this->locale = $locale;
     }
 
-
     /**
      * @param string $sku
      * @param string $quantity
@@ -91,7 +91,6 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
     public function increase($sku, $groupKey = null)
     {
         $this->cartOperationHandler->increase($sku, $groupKey);
-
     }
 
     /**
@@ -143,7 +142,6 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
         } else {
             $this->cartOperationHandler->changeQuantity($sku, $quantity, $groupKey);
         }
-
     }
 
     /**
@@ -153,7 +151,8 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
      */
     public function updateNumberOfItemsInCart(QuoteTransfer $quoteTransfer)
     {
-        $numberOfItems = $this->getNumberOfItemsInCart($quoteTransfer);;
+        $numberOfItems = $this->getNumberOfItemsInCart($quoteTransfer);
+        ;
         $this->cartClient->setItemCount($numberOfItems);
     }
 
@@ -173,14 +172,13 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
         }
 
         return $numberOfItems;
-
     }
 
     /**
      * @param string $sku
      * @param int $numberOfBundlesToRemove
      *
-     * @return ArrayObject
+     * @return \ArrayObject
      */
     protected function getBundledItems($sku, $numberOfBundlesToRemove = 0)
     {
@@ -189,7 +187,7 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
         }
 
         $quoteTransfer = $this->cartClient->getQuote();
-        $bundledItems = new \ArrayObject();
+        $bundledItems = new ArrayObject();
         foreach ($quoteTransfer->getBundleItems() as $bundleItemTransfer) {
             if ($numberOfBundlesToRemove == 0) {
                 return $bundledItems;
@@ -230,4 +228,5 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
 
         return $bundleItemQuantity;
     }
+
 }

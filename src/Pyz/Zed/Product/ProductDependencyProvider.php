@@ -118,7 +118,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
             new ImageSetProductConcreteAfterCreatePlugin(),
             new StockProductConcreteAfterCreatePlugin(),
             new PriceProductConcreteAfterCreatePlugin(),
-            new ProductSearchProductConcreteAfterCreatePlugin()
+            new ProductSearchProductConcreteAfterCreatePlugin(),
         ];
     }
 

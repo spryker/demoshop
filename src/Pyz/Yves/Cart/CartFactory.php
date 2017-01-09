@@ -9,8 +9,8 @@ namespace Pyz\Yves\Cart;
 
 use Pyz\Yves\Cart\Form\VoucherForm;
 use Pyz\Yves\Cart\Handler\CartOperationHandler;
-use Pyz\Yves\Cart\Handler\ProductBundleCartOperationHandler;
 use Pyz\Yves\Cart\Handler\CartVoucherHandler;
+use Pyz\Yves\Cart\Handler\ProductBundleCartOperationHandler;
 use Pyz\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Yves\Kernel\AbstractFactory;

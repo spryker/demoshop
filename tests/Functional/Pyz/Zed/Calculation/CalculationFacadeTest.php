@@ -91,7 +91,6 @@ class CalculationFacadeTest extends Test
         $this->assertSame(16, $expenseTransfer->getUnitTaxAmountWithDiscounts());
         $this->assertSame(16, $expenseTransfer->getSumTaxAmountWithDiscounts());
 
-
         $totalsTransfer = $recalculatedQuoteTransfer->getTotals();
         $this->assertSame(250, $totalsTransfer->getSubtotal());
         $this->assertSame(0, $totalsTransfer->getDiscountTotal());

@@ -11,7 +11,6 @@ use Generated\Shared\Transfer\FilterTransfer;
 use Generated\Shared\Transfer\OrderListTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
 use Generated\Shared\Transfer\PaginationTransfer;
-use Pyz\Yves\Cart\Grouper\ProductBundleGrouper;
 use Symfony\Component\HttpFoundation\Request;
 
 class OrderController extends AbstractCustomerController
@@ -130,7 +129,7 @@ class OrderController extends AbstractCustomerController
 
         return [
             'order' => $orderTransfer,
-            'items' => $items
+            'items' => $items,
         ];
     }
 

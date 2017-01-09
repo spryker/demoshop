@@ -1,7 +1,8 @@
 <?php
+
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Yves\ProductBundle\Grouper;
@@ -11,6 +12,7 @@ use Generated\Shared\Transfer\ItemTransfer;
 
 class ProductBundleGrouper implements ProductBundleGouperInterface
 {
+
     const BUNDLE_ITEMS = 'bundleItems';
     const BUNDLE_PRODUCT = 'bundleProduct';
 
@@ -59,7 +61,7 @@ class ProductBundleGrouper implements ProductBundleGouperInterface
     }
 
     /**
-     * @param ArrayObject $bundleItems
+     * @param \ArrayObject $bundleItems
      *
      * @return array
      */
@@ -78,7 +80,7 @@ class ProductBundleGrouper implements ProductBundleGouperInterface
 
     /**
      * @param array $bundleItems
-     * @param ItemTransfer $bundleItemTransfer
+     * @param \Generated\Shared\Transfer\ItemTransfer $bundleItemTransfer
      * @param array $groupedBundleQuantity
      *
      * @return array
@@ -99,7 +101,7 @@ class ProductBundleGrouper implements ProductBundleGouperInterface
 
     /**
      * @param array $bundleItems
-     * @param ItemTransfer $itemTransfer
+     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
      *
      * @return array
      */
@@ -118,14 +120,14 @@ class ProductBundleGrouper implements ProductBundleGouperInterface
 
         }
 
-        return $currentBundleItems;;
+        return $currentBundleItems;
     }
 
     /**
      * @param array $bundleItems
      * @param string $bundleSku
      *
-     * @return ItemTransfer
+     * @return \Generated\Shared\Transfer\ItemTransfer
      */
     protected function getBundleProduct(array $bundleItems, $bundleSku)
     {
@@ -142,4 +144,5 @@ class ProductBundleGrouper implements ProductBundleGouperInterface
     {
         return $bundleItems[$bundleSku][static::BUNDLE_ITEMS];
     }
+
 }

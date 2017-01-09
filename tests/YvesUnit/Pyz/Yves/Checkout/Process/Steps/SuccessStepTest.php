@@ -90,7 +90,7 @@ class SuccessStepTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|CartClientInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Cart\CartClientInterface
      */
     protected function createCartClientMock()
     {
