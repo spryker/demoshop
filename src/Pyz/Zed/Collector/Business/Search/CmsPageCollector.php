@@ -7,19 +7,19 @@
 
 namespace Pyz\Zed\Collector\Business\Search;
 
-use Spryker\Shared\Category\CategoryConstants;
+use Spryker\Shared\Cms\CmsConstants;
 use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPdoCollector;
 use Spryker\Zed\Collector\CollectorConfig;
 use Spryker\Zed\Search\Business\SearchFacadeInterface;
 use Spryker\Zed\Search\Dependency\Plugin\PageMapInterface;
 
-class CategoryNodeCollector extends AbstractSearchPdoCollector
+class CmsPageCollector extends AbstractSearchPdoCollector
 {
 
     /**
      * @var \Spryker\Zed\Search\Dependency\Plugin\PageMapInterface
      */
-    protected $categoryNodeDataPageMapPlugin;
+    protected $cmsPageDataPageMapPlugin;
 
     /**
      * @var \Spryker\Zed\Search\Business\SearchFacadeInterface
@@ -27,14 +27,14 @@ class CategoryNodeCollector extends AbstractSearchPdoCollector
     protected $searchFacade;
 
     /**
-     * @param \Spryker\Zed\Search\Dependency\Plugin\PageMapInterface $categoryNodeDataPageMapPlugin
+     * @param \Spryker\Zed\Search\Dependency\Plugin\PageMapInterface $cmsPageDataPageMapPlugin
      * @param \Spryker\Zed\Search\Business\SearchFacadeInterface $searchFacade
      */
     public function __construct(
-        PageMapInterface $categoryNodeDataPageMapPlugin,
+        PageMapInterface $cmsPageDataPageMapPlugin,
         SearchFacadeInterface $searchFacade
     ) {
-        $this->categoryNodeDataPageMapPlugin = $categoryNodeDataPageMapPlugin;
+        $this->cmsPageDataPageMapPlugin = $cmsPageDataPageMapPlugin;
         $this->searchFacade = $searchFacade;
     }
 
@@ -43,7 +43,7 @@ class CategoryNodeCollector extends AbstractSearchPdoCollector
      */
     protected function collectResourceType()
     {
-        return CategoryConstants::RESOURCE_TYPE_CATEGORY_NODE;
+        return CmsConstants::RESOURCE_TYPE_PAGE;
     }
 
     /**
@@ -56,7 +56,7 @@ class CategoryNodeCollector extends AbstractSearchPdoCollector
     {
         $result = $this
             ->searchFacade
-            ->transformPageMapToDocument($this->categoryNodeDataPageMapPlugin, $collectItemData, $this->locale);
+            ->transformPageMapToDocument($this->cmsPageDataPageMapPlugin, $collectItemData, $this->locale);
 
         $result = $this->addExtraCollectorFields($result, $collectItemData);
 

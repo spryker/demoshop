@@ -33,6 +33,9 @@ class CmsController extends AbstractController
         return $this->renderView($meta['template'], [
             'placeholders' => $meta['placeholders'],
             'edit' => $edit,
+            'page_title' => $meta['meta_title'],
+            'page_description' => $meta['meta_description'],
+            'page_keywords' => $meta['meta_keywords'],
         ]);
     }
 

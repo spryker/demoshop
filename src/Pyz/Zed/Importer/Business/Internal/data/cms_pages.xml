@@ -2,9 +2,16 @@
 <pages>
     <page>
         <template>static</template>
+        <is_searchable>1</is_searchable>
         <locales>
             <de_DE>
                 <url>/de/impressum</url>
+                <localized_attributes>
+                    <name>Impressum</name>
+                    <meta_title>Impressum</meta_title>
+                    <meta_keywords>Impressum</meta_keywords>
+                    <meta_description>Impressum</meta_description>
+                </localized_attributes>
                 <placeholders>
                     <placeholder>
                         <name>title</name>
@@ -73,6 +80,12 @@
             </de_DE>
             <en_US>
                 <url>/en/imprint</url>
+                <localized_attributes>
+                    <name>Imprint</name>
+                    <meta_title>Imprint</meta_title>
+                    <meta_keywords>Imprint</meta_keywords>
+                    <meta_description>Imprint</meta_description>
+                </localized_attributes>
                 <placeholders>
                     <placeholder>
                         <name>title</name>
@@ -128,9 +141,16 @@
     </page>
     <page>
         <template>static</template>
+        <is_searchable>1</is_searchable>
         <locales>
             <de_DE>
                 <url>/de/agb</url>
+                <localized_attributes>
+                    <name>AGB</name>
+                    <meta_title>AGB</meta_title>
+                    <meta_keywords>AGB</meta_keywords>
+                    <meta_description>AGB</meta_description>
+                </localized_attributes>
                 <placeholders>
                     <placeholder>
                         <name>title</name>
@@ -278,6 +298,12 @@
             </de_DE>
             <en_US>
                 <url>/en/gtc</url>
+                <localized_attributes>
+                    <name>GTC</name>
+                    <meta_title>GTC</meta_title>
+                    <meta_keywords>GTC</meta_keywords>
+                    <meta_description>GTC</meta_description>
+                </localized_attributes>
                 <placeholders>
                     <placeholder>
                         <name>title</name>
@@ -368,9 +394,16 @@
     </page>
     <page>
         <template>static</template>
+        <is_searchable>1</is_searchable>
         <locales>
             <de_DE>
                 <url>/de/datenschutz</url>
+                <localized_attributes>
+                    <name>Datenschutzerklärung</name>
+                    <meta_title>Datenschutzerklärung</meta_title>
+                    <meta_keywords>Datenschutzerklärung</meta_keywords>
+                    <meta_description>Datenschutzerklärung</meta_description>
+                </localized_attributes>
                 <placeholders>
                     <placeholder>
                         <name>title</name>
@@ -412,6 +445,12 @@
             </de_DE>
             <en_US>
                 <url>/en/privacy</url>
+                <localized_attributes>
+                    <name>Data Privacy</name>
+                    <meta_title>Data Privacy</meta_title>
+                    <meta_keywords>Data Privacy</meta_keywords>
+                    <meta_description>Data Privacy</meta_description>
+                </localized_attributes>
                 <placeholders>
                     <placeholder>
                         <name>title</name>
