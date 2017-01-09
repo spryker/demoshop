@@ -55,7 +55,7 @@ before_script:
 
   - mv config/Zed/propel.ci.yml config/Zed/propel.yml
   - cp config/Shared/ci/travis/config_ci.php config/Shared/config_default-devtest_DE.php
-  - cp config/Shared/ci/travis/params.sh deploy/setup/params.sh
+  - cp config/Shared/ci/travis/params.sh deploy/setup/params_test_env.sh
 
   - if [[ $TEST_GROUP == 'acceptance' ]]; then deploy/travis/acceptance_env.sh; fi
 
