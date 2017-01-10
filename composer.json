@@ -116,7 +116,8 @@
     "spryker/user": "^2.0.0",
     "spryker/wishlist": "^3.0.0",
     "spryker/zed-request": "^2.0.0",
-    "spryker/zend": "^2.0.0"
+    "spryker/zend": "^2.0.0",
+    "swiftmailer/swiftmailer": "^5.4.5"
   },
   "require-dev": {
     "codeception/codeception": "~2.1.11",
