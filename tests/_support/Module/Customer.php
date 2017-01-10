@@ -20,8 +20,10 @@ use Orm\Zed\Customer\Persistence\SpyCustomer;
 use Orm\Zed\Customer\Persistence\SpyCustomerAddress;
 use Orm\Zed\Customer\Persistence\SpyCustomerQuery;
 use Pyz\Shared\Newsletter\NewsletterConstants;
+use Spryker\Client\Session\SessionClient;
 use Spryker\Zed\Customer\Business\CustomerFacade;
 use Spryker\Zed\Newsletter\Business\NewsletterFacade;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class Customer extends Module
 {
@@ -123,7 +125,10 @@ class Customer extends Module
             return;
         }
 
+        $this->setupSession();
+
         $customerTransfer = PageObjectCustomer::getCustomerData($email);
+
         $customerFacade = new CustomerFacade();
         $customerFacade->registerCustomer($customerTransfer);
     }
@@ -209,6 +214,16 @@ class Customer extends Module
     protected function getWebDriver()
     {
         return $this->getModule('WebDriver');
+    }
+
+    /**
+     * @return void
+     */
+    protected function setupSession()
+    {
+        $sessionContainer = new Session();
+        $sessionClient = new SessionClient();
+        $sessionClient->setContainer($sessionContainer);
     }
 
 }
