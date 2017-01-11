@@ -2,10 +2,11 @@
   "settings": {
     "analysis": {
       "analyzer": {
-        "fulltext_search_ngram_analyzer": {
-          "tokenizer": "fulltext_search_ngram_tokenizer",
+        "fulltext_index_analyzer": {
+          "tokenizer": "standard",
           "filter": [
-            "lowercase"
+            "lowercase",
+            "fulltext_index_ngram_filter"
           ]
         },
         "fulltext_search_analyzer": {
@@ -15,16 +16,11 @@
           ]
         }
       },
-      "tokenizer": {
-        "fulltext_search_ngram_tokenizer": {
+      "filter": {
+        "fulltext_index_ngram_filter": {
           "type": "edge_ngram",
           "min_gram": 2,
-          "max_gram": 20,
-          "token_chars": [
-            "letter",
-            "digit",
-            "punctuation"
-          ]
+          "max_gram": 20
         }
       }
     }
@@ -33,11 +29,11 @@
     "page": {
       "properties": {
         "full-text": {
-          "analyzer": "fulltext_search_ngram_analyzer",
+          "analyzer": "fulltext_index_analyzer",
           "search_analyzer": "fulltext_search_analyzer"
         },
         "full-text-boosted": {
-          "analyzer": "fulltext_search_ngram_analyzer",
+          "analyzer": "fulltext_index_analyzer",
           "search_analyzer": "fulltext_search_analyzer"
         },
         "is_featured": {
