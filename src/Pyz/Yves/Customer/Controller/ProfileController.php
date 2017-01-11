@@ -31,11 +31,11 @@ class ProfileController extends AbstractCustomerController
             ->handleRequest($request);
 
         if ($profileForm->isSubmitted() === false) {
-            $customerTransfer = $this->getLoggedInCustomerTransfer();
+            $loggedInCustomerTransfer = $this->getLoggedInCustomerTransfer();
 
             $customerTransfer = $this
                 ->getClient()
-                ->getCustomerByEmail($customerTransfer);
+                ->getCustomerByEmail($loggedInCustomerTransfer);
 
             $profileForm->setData($customerTransfer->toArray());
         }
