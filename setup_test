@@ -96,8 +96,6 @@ function configureCodeception {
 
 function runCollectors() {
 
-   resetDataStores
-
    export PGPASSWORD=$DATABASE_PASSWORD
    labelText "Reset touch table."
    psql -h 127.0.0.1 -U $DATABASE_USER  -d $DATABASE_NAME -c 'UPDATE spy_touch set touched=now()' -w
@@ -122,13 +120,14 @@ do
            ;;
 
          "--backup" | "-b" )
+           resetDataStores
            backupTestingEnvData
            ;;
          "--collectors" | "-c" )
            runCollectors
            ;;
          "--full" | "-f" )
-
+            resetDataStores
             backupTestingEnvData
             runCollectors
             configureCodeception
