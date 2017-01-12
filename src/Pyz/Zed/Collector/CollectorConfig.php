@@ -7,8 +7,9 @@
 
 namespace Pyz\Zed\Collector;
 
+use Pyz\Zed\Collector\Persistence\Search\Pdo\PostgreSql\CategoryNodeCollectorQuery as SearchCategoryNodeCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Search\Pdo\PostgreSql\ProductCollectorQuery as SearchProductCollector;
-use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\CategoryNodeCollectorQuery;
+use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\CategoryNodeCollectorQuery as StorageCategoryNodeCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\NavigationCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductAbstractCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductConcreteCollectorQuery;
@@ -29,13 +30,13 @@ class CollectorConfig extends SprykerCollectorConfig
 
             ],
             'PostgreSql' => [
-                'CategoryNodeCollectorQuery' => CategoryNodeCollectorQuery::class,
+                'CategoryNodeCollectorQuery' => StorageCategoryNodeCollectorQuery::class,
                 'NavigationCollectorQuery' => NavigationCollectorQuery::class,
                 'ProductCollectorQuery' => ProductAbstractCollectorQuery::class,
                 'UrlCollectorQuery' => UrlCollectorQuery::class,
                 'ProductConcreteCollectorQuery' => ProductConcreteCollectorQuery::class,
                 'ProductOptionCollectorQuery' => ProductOptionCollectorQuery::class,
-            ]
+            ],
         ];
 
         return $data[$dbEngineName];
@@ -52,7 +53,8 @@ class CollectorConfig extends SprykerCollectorConfig
             ],
             'PostgreSql' => [
                 'ProductCollectorQuery' => SearchProductCollector::class,
-            ]
+                'CategoryNodeCollectorQuery' => SearchCategoryNodeCollectorQuery::class,
+            ],
         ];
 
         return $data[$dbEngineName];

@@ -120,7 +120,7 @@ class PaymentForm extends AbstractType
                 [
                     'property_path' => self::PAYMENT_PROPERTY_PATH . '.' . $paymentMethodSubForm->getPropertyPath(),
                     'error_bubbling' => true,
-                    'select_options' => $options['select_options']
+                    'select_options' => $options['select_options'],
                 ]
             );
         }

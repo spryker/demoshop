@@ -85,7 +85,7 @@ class WishlistController extends AbstractController
         return [
             'wishlistOverview' => $wishlistOverviewResponse,
             'currentPage' => $wishlistOverviewResponse->getPagination()->getPage(),
-            'totalPages' => $wishlistOverviewResponse->getPagination()->getPagesTotal()
+            'totalPages' => $wishlistOverviewResponse->getPagination()->getPagesTotal(),
         ];
     }
 

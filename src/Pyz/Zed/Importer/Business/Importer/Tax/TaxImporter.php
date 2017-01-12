@@ -45,7 +45,7 @@ class TaxImporter extends AbstractImporter
      */
     protected $shipmentSets = [
         'Shipment Taxes' => true,
-        'Tax Exempt' => true
+        'Tax Exempt' => true,
     ];
 
     /**

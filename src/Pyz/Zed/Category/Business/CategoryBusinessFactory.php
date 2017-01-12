@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Category\Business;
 
+use Pyz\Zed\Category\Business\Map\CategoryNodeDataPageMapBuilder;
 use Pyz\Zed\Category\Business\Model\CategoryUrl\CategoryUrl;
 use Spryker\Zed\Category\Business\CategoryBusinessFactory as SprykerCategoryBusinessFactory;
 
@@ -26,6 +27,14 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
         $urlPathGenerator = $this->createUrlPathGenerator();
 
         return new CategoryUrl($queryContainer, $urlFacade, $urlPathGenerator);
+    }
+
+    /**
+     * @return \Pyz\Zed\Category\Business\Map\CategoryNodeDataPageMapBuilder
+     */
+    public function createCategoryNodeDataPageMapBuilder()
+    {
+        return new CategoryNodeDataPageMapBuilder();
     }
 
 }

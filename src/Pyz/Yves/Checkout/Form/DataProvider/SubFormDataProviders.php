@@ -58,7 +58,7 @@ class SubFormDataProviders implements StepEngineFormDataProviderInterface
         }
 
         return [
-            SubFormInterface::OPTIONS_FIELD_NAME => $options
+            SubFormInterface::OPTIONS_FIELD_NAME => $options,
         ];
     }
 

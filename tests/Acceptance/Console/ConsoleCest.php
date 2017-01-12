@@ -8,6 +8,7 @@
 namespace Acceptance\Console;
 
 use Acceptance\Console\Tester\ConsoleTester;
+use PHPUnit_Framework_Assert;
 
 /**
  * @group Acceptance
@@ -27,8 +28,8 @@ class ConsoleCest
         $i->wantTo('See that console is running');
 
         $output = $i->runConsoleApplication();
-        \PHPUnit_Framework_Assert::assertRegExp('/Store/', $output);
-        \PHPUnit_Framework_Assert::assertRegExp('/Environment/', $output);
+        PHPUnit_Framework_Assert::assertRegExp('/Store/', $output);
+        PHPUnit_Framework_Assert::assertRegExp('/Environment/', $output);
     }
 
 }

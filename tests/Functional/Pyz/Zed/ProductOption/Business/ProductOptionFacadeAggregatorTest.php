@@ -8,6 +8,7 @@
 namespace Functional\Pyz\Zed\ProductOption\Business;
 
 use Codeception\TestCase\Test;
+use DateTime;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
@@ -126,8 +127,8 @@ class ProductOptionFacadeAggregatorTest extends Test
         $salesOrderAddressEntity->setSalutation('Mr');
         $salesOrderAddressEntity->setCellPhone('123456789');
         $salesOrderAddressEntity->setCity('City');
-        $salesOrderAddressEntity->setCreatedAt(new \DateTime());
-        $salesOrderAddressEntity->setUpdatedAt(new \DateTime());
+        $salesOrderAddressEntity->setCreatedAt(new DateTime());
+        $salesOrderAddressEntity->setUpdatedAt(new DateTime());
         $salesOrderAddressEntity->setComment('Comment');
         $salesOrderAddressEntity->setDescription('Description');
         $salesOrderAddressEntity->setCompany('Company');
@@ -217,7 +218,7 @@ class ProductOptionFacadeAggregatorTest extends Test
         $salesOrderItemEntity->setSku('sku-123-321');
         $salesOrderItemEntity->setName('name-of-order-item');
         $salesOrderItemEntity->setTaxRate(19);
-        $salesOrderItemEntity->setLastStateChange(new \DateTime());
+        $salesOrderItemEntity->setLastStateChange(new DateTime());
         $salesOrderItemEntity->save();
 
         return $salesOrderItemEntity;

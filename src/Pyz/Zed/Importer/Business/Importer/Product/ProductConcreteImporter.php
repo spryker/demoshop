@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\Product;
 
+use ArrayObject;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
@@ -72,7 +73,7 @@ class ProductConcreteImporter extends AbstractProductImporter
         }
 
         $imageSets = $this->buildProductImageSets($data);
-        $productConcreteTransfer->setImageSets(new \ArrayObject($imageSets));
+        $productConcreteTransfer->setImageSets(new ArrayObject($imageSets));
 
         return $productConcreteTransfer;
     }

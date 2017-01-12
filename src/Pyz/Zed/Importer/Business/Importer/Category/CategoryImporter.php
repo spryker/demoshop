@@ -63,6 +63,7 @@ class CategoryImporter extends AbstractCategoryImporter
         $categoryNodeTransfer = $categoryTransfer->getCategoryNode();
         $categoryNodeTransfer->setNodeOrder($data[self::ORDER]);
         $categoryTransfer->setCategoryNode($categoryNodeTransfer);
+        $categoryTransfer->setIsSearchable(true);
 
         return $categoryTransfer;
     }

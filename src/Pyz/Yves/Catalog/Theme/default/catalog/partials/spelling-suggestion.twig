@@ -1,0 +1,7 @@
+{% if spellingSuggestion is defined and spellingSuggestion is not null  %}
+    <div class="small-12 columns">
+        <div class="callout warning">
+            {{ 'global.search.spellingSuggestion' | trans }}: <strong><a href="{{ path('search', {'q': spellingSuggestion}) }}">{{ spellingSuggestion }}</a></strong>
+        </div>
+    </div>
+{% endif %}

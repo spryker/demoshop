@@ -171,6 +171,8 @@ catalog.prev,zurück,de_DE
 catalog.prev,back,en_US
 catalog.sort,Sortierung,de_DE
 catalog.sort,Sorting,en_US
+catalog.sort.relevance,"Nach Relevanz sortieren",de_DE
+catalog.sort.relevance,"Sort by relevance",en_US
 catalog.sort.name_asc,"Nach Name aufsteigend sortieren",de_DE
 catalog.sort.name_asc,"Sort by name ascending",en_US
 catalog.sort.name_desc,"Nach Name absteigend sortieren",de_DE
@@ -255,6 +257,20 @@ global.search,Suche,de_DE
 global.search,Search,en_US
 global.search.results,"Ergebnisse für",de_DE
 global.search.results,"Results for",en_US
+global.search.spellingSuggestion,"Meinten Sie",de_DE
+global.search.spellingSuggestion,"Did you mean",en_US
+global.search.suggestions,"Suchvorschläge",de_DE
+global.search.suggestions,"Search suggestions",en_US
+global.search.suggestion.in_products,"Produkte", "de_DE"
+global.search.suggestion.in_products,"Products", "en_US"
+global.search.suggestion.in_categories,"In den Kategorien", "de_DE"
+global.search.suggestion.in_categories,"In categories", "en_US"
+global.search.suggestion.in_cms,"In CMS", "de_DE"
+global.search.suggestion.in_cms,"In CMS", "en_US"
+global.search.suggestion.no_result,"Nichts gefunden...",de_DE
+global.search.suggestion.no_result,"Nothing found...",en_US
+global.search.suggestion.see_all_products,"Alle Produkte anzeigen",de_DE
+global.search.suggestion.see_all_products,"See all products",en_US
 global.spryker.shop,"Spryker Shop",de_DE
 global.spryker.shop,"Spryker Shop",en_US
 global.spryker.motto,"Qualitäts-Technologie",de_DE

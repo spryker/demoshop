@@ -953,16 +953,16 @@
         },
         {
             "name": "propel/propel",
-            "version": "2.0.0-alpha6",
+            "version": "2.0.0-alpha7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/propelorm/Propel2.git",
-                "reference": "58d57adc9509e47af757b00458d83c24b273fbfa"
+                "reference": "dc55788dd4a7945b8ddef4391474efaca06b067d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/propelorm/Propel2/zipball/58d57adc9509e47af757b00458d83c24b273fbfa",
-                "reference": "58d57adc9509e47af757b00458d83c24b273fbfa",
+                "url": "https://api.github.com/repos/propelorm/Propel2/zipball/dc55788dd4a7945b8ddef4391474efaca06b067d",
+                "reference": "dc55788dd4a7945b8ddef4391474efaca06b067d",
                 "shasum": ""
             },
             "require": {
@@ -1014,7 +1014,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2016-10-15 23:21:13"
+            "time": "2017-01-03 15:55:52"
         },
         {
             "name": "psr/http-message",
@@ -6431,16 +6431,16 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.6.11",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "73dbbf3e35b05ca9cd8523eb453fc53411681f37"
+                "reference": "797461f8efd33415a41f1b73923d443288331df8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/73dbbf3e35b05ca9cd8523eb453fc53411681f37",
-                "reference": "73dbbf3e35b05ca9cd8523eb453fc53411681f37",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/797461f8efd33415a41f1b73923d443288331df8",
+                "reference": "797461f8efd33415a41f1b73923d443288331df8",
                 "shasum": ""
             },
             "require": {
@@ -6474,7 +6474,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-01-02 13:35:57"
+            "time": "2017-01-05 11:01:08"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -6982,7 +6982,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "spryker/spryker": 20,
-        "spryker/code-generator": 20
+        "spryker/code-generator": 20,
+        "spryker/code-sniffer": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
