@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Importer\Business\Importer\Cms;
 
 use Generated\Shared\Transfer\CmsBlockTransfer;
+use Generated\Shared\Transfer\CmsPageLocalizedAttributesTransfer;
 use Generated\Shared\Transfer\CmsTemplateTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageTransfer;
@@ -45,6 +46,7 @@ class CmsBlockImporter extends AbstractImporter
     const LOCALE = 'locale';
     const LOCALES = 'locales';
     const NAME = 'name';
+    const LOCALIZED_ATTRIBUTES = 'localized_attributes';
 
     const BLOCK_DEMO_TYPE = 'static';
     const BLOCK_DEMO_VALUE = 0;
@@ -174,7 +176,7 @@ class CmsBlockImporter extends AbstractImporter
         }
 
         $templateTransfer = $this->findOrCreateTemplate($block[self::TEMPLATE]);
-        $pageTransfer = $this->createPage($templateTransfer);
+        $pageTransfer = $this->createPage($templateTransfer, $block);
 
         foreach ($this->localeFacade->getLocaleCollection() as $locale => $localeTransfer) {
             $this->createPlaceholder($block[self::LOCALES][$locale][self::PLACEHOLDERS], $pageTransfer, $localeTransfer);
@@ -201,14 +203,21 @@ class CmsBlockImporter extends AbstractImporter
 
     /**
      * @param \Generated\Shared\Transfer\CmsTemplateTransfer $templateTransfer
+     * @param array $block
      *
      * @return \Generated\Shared\Transfer\PageTransfer
      */
-    protected function createPage(CmsTemplateTransfer $templateTransfer)
+    protected function createPage(CmsTemplateTransfer $templateTransfer, array $block)
     {
         $pageTransfer = new PageTransfer();
         $pageTransfer->setFkTemplate($templateTransfer->getIdCmsTemplate());
         $pageTransfer->setIsActive(true);
+
+        if (isset($block['is_searchable'])) {
+            $pageTransfer->setIsSearchable((int)$block['is_searchable']);
+        }
+
+        $this->setLocalizedAttributes($pageTransfer, $block);
 
         return $this->pageManager->savePage($pageTransfer);
     }
@@ -262,6 +271,28 @@ class CmsBlockImporter extends AbstractImporter
         $cmsBlockTransfer->setFkPage($pageTransfer->getIdCmsPage());
 
         return $cmsBlockTransfer;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\PageTransfer $pageTransfer
+     * @param array $block
+     *
+     * @return void
+     */
+    protected function setLocalizedAttributes(PageTransfer $pageTransfer, array $block)
+    {
+        foreach ($this->localeFacade->getLocaleCollection() as $locale => $localeTransfer) {
+            if (!isset($block[self::LOCALES][$locale][self::LOCALIZED_ATTRIBUTES])) {
+                continue;
+            }
+
+            $localizedAttributesTransfer = new CmsPageLocalizedAttributesTransfer();
+            $localizedAttributesTransfer
+                ->fromArray($block[self::LOCALES][$locale][self::LOCALIZED_ATTRIBUTES], true)
+                ->setFkLocale($localeTransfer->getIdLocale());
+
+            $pageTransfer->addLocalizedAttribute($localizedAttributesTransfer);
+        }
     }
 
 }

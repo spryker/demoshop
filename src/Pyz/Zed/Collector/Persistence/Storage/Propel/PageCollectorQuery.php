@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Collector\Persistence\Storage\Propel;
 
 use Orm\Zed\Cms\Persistence\Map\SpyCmsGlossaryKeyMappingTableMap;
+use Orm\Zed\Cms\Persistence\Map\SpyCmsPageLocalizedAttributesTableMap;
 use Orm\Zed\Cms\Persistence\Map\SpyCmsPageTableMap;
 use Orm\Zed\Cms\Persistence\Map\SpyCmsTemplateTableMap;
 use Orm\Zed\Glossary\Persistence\Map\SpyGlossaryKeyTableMap;
@@ -29,6 +30,11 @@ class PageCollectorQuery extends AbstractPropelCollectorQuery
         $this->touchQuery->addJoin(
             SpyTouchTableMap::COL_ITEM_ID,
             SpyCmsPageTableMap::COL_ID_CMS_PAGE,
+            Criteria::INNER_JOIN
+        );
+        $this->touchQuery->addJoin(
+            SpyCmsPageTableMap::COL_ID_CMS_PAGE,
+            SpyCmsPageLocalizedAttributesTableMap::COL_FK_CMS_PAGE,
             Criteria::INNER_JOIN
         );
         $this->touchQuery->addJoin(
@@ -63,6 +69,12 @@ class PageCollectorQuery extends AbstractPropelCollectorQuery
             Criteria::EQUAL
         );
 
+        $this->touchQuery->addAnd(
+            SpyCmsPageLocalizedAttributesTableMap::COL_FK_LOCALE,
+            $this->getLocale()->getIdLocale(),
+            Criteria::EQUAL
+        );
+
         $this->touchQuery->withColumn(
             'GROUP_CONCAT(' . SpyCmsGlossaryKeyMappingTableMap::COL_PLACEHOLDER . ')',
             'placeholder'
@@ -81,6 +93,10 @@ class PageCollectorQuery extends AbstractPropelCollectorQuery
         $this->touchQuery->withColumn(SpyCmsPageTableMap::COL_ID_CMS_PAGE, 'page_id');
         $this->touchQuery->withColumn(SpyCmsPageTableMap::COL_IS_ACTIVE, 'is_active');
         $this->touchQuery->withColumn(SpyUrlTableMap::COL_URL, 'page_url');
+        $this->touchQuery->withColumn(SpyCmsPageLocalizedAttributesTableMap::COL_NAME, 'name');
+        $this->touchQuery->withColumn(SpyCmsPageLocalizedAttributesTableMap::COL_META_TITLE, 'meta_title');
+        $this->touchQuery->withColumn(SpyCmsPageLocalizedAttributesTableMap::COL_META_KEYWORDS, 'meta_keywords');
+        $this->touchQuery->withColumn(SpyCmsPageLocalizedAttributesTableMap::COL_META_DESCRIPTION, 'meta_description');
 
         $this->touchQuery->addGroupByColumn(SpyTouchTableMap::COL_ID_TOUCH);
         $this->touchQuery->addGroupByColumn(SpyTouchTableMap::COL_ITEM_EVENT);

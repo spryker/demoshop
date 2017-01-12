@@ -5,7 +5,7 @@
 
 {% set leftVisible = (completion is defined and completion is not empty)
     or (suggestionByType.category is defined and suggestionByType.category is not empty)
-    or (suggestionByType.page is defined and suggestionByType.page is not empty) %}
+    or (suggestionByType.cms_page is defined and suggestionByType.cms_page is not empty) %}
 
 {% set rightVisible = suggestionByType.product_abstract is defined
     and suggestionByType.product_abstract is not empty %}
@@ -34,7 +34,7 @@
                 <div class="show-for-medium">
                     {% include '@catalog/suggestion/partials/list.twig' with {
                         name: ('global.search.suggestion.in_cms' | trans),
-                        items: suggestionByType.page | default(),
+                        items: suggestionByType.cms_page | default(),
                         length: pagesLength
                     } %}
                 </div>

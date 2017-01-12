@@ -8,8 +8,8 @@
 namespace Pyz\Zed\Collector\Business;
 
 use Exception;
-use Pyz\Zed\Category\Communication\Plugin\CategoryNodeDataPageMapPlugin;
 use Pyz\Zed\Collector\Business\Search\CategoryNodeCollector as SearchCategoryNodeCollector;
+use Pyz\Zed\Collector\Business\Search\CmsPageCollector as SearchCmsPageCollector;
 use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector;
 use Pyz\Zed\Collector\Business\Storage\AttributeMapCollector;
 use Pyz\Zed\Collector\Business\Storage\AvailabilityCollector;
@@ -47,7 +47,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createSearchProductCollector()
     {
         $searchProductCollector = new SearchProductCollector(
-            $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_PAGE_MAP),
+            $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_PRODUCT_DATA_PAGE_MAP),
             $this->getSearchFacade()
         );
 
@@ -90,7 +90,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createSearchCategoryNodeCollector()
     {
         $categoryNodeCollector = new SearchCategoryNodeCollector(
-            new CategoryNodeDataPageMapPlugin(),
+            $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_CATEGORY_NODE_DATA_PAGE_MAP),
             $this->getSearchFacade()
         );
 
@@ -105,6 +105,29 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         );
 
         return $categoryNodeCollector;
+    }
+
+    /**
+     * @return \Pyz\Zed\Collector\Business\Search\CmsPageCollector
+     */
+    public function createSearchCmsPageCollector()
+    {
+        $cmsPageCollector = new SearchCmsPageCollector(
+            $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_CMS_PAGE_DATA_PAGE_MAP),
+            $this->getSearchFacade()
+        );
+
+        $cmsPageCollector->setTouchQueryContainer(
+            $this->getTouchQueryContainer()
+        );
+        $cmsPageCollector->setCriteriaBuilder(
+            $this->createCriteriaBuilder()
+        );
+        $cmsPageCollector->setQueryBuilder(
+            $this->createSearchPdoQueryAdapterByName('CmsPageCollectorQuery')
+        );
+
+        return $cmsPageCollector;
     }
 
     /**
