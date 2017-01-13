@@ -152,7 +152,6 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
     public function updateNumberOfItemsInCart(QuoteTransfer $quoteTransfer)
     {
         $numberOfItems = $this->getNumberOfItemsInCart($quoteTransfer);
-        ;
         $this->cartClient->setItemCount($numberOfItems);
     }
 
@@ -193,7 +192,7 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
                 return $bundledItems;
             }
 
-            if ($bundleItemTransfer->getSku() != $sku) {
+            if ($bundleItemTransfer->getSku() !== $sku) {
                 continue;
             }
 
@@ -220,7 +219,7 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
 
         $bundleItemQuantity = 0;
         foreach ($quoteTransfer->getBundleItems() as $bundleItemTransfer) {
-            if ($bundleItemTransfer->getSku() != $sku) {
+            if ($bundleItemTransfer->getSku() !== $sku) {
                 continue;
             }
             $bundleItemQuantity += $bundleItemTransfer->getQuantity();
