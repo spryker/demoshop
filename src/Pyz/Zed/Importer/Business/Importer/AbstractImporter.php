@@ -72,7 +72,6 @@ abstract class AbstractImporter implements ImporterInterface
      */
     protected function before()
     {
-
     }
 
     /**
@@ -80,7 +79,6 @@ abstract class AbstractImporter implements ImporterInterface
      */
     protected function after()
     {
-
     }
 
     /**
