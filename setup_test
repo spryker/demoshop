@@ -22,7 +22,7 @@ function displayHelp {
     echo "      Restore postgres from dump provided by --backup, collectors does not run."
     echo " "
     echo "  -b, --backup"
-    echo "      Backup postgress to file, run collectors writes to test enviroment stores."
+    echo "      Backup postgress to file, run collectors writes to test enviroment storages (Elasticsearch, Redis)."
     echo " "
     echo "  -c, --collectors"
     echo "      Run only collectors storage, search."
