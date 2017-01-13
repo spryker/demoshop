@@ -51,7 +51,7 @@ class TestController extends AbstractController
      *
      * @return array|\Generated\Shared\Transfer\StateMachineItemTransfer[]
      */
-    public function createStateMachineLookupTable(array $stateMachineItems)
+    protected function createStateMachineLookupTable(array $stateMachineItems)
     {
         $lookupIndex = [];
         foreach ($stateMachineItems as $stateMachineItemTransfer) {
