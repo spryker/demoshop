@@ -30,7 +30,7 @@
     "spryker/category": "^2.0.0",
     "spryker/category-exporter": "^2.0.0",
     "spryker/checkout": "^2.0.0",
-    "spryker/cms": "^2.0.0",
+    "spryker/cms": "^3.0.0",
     "spryker/collector": "^4.0.0",
     "spryker/config": "^2.0.0",
     "spryker/console": "^2.0.0",
