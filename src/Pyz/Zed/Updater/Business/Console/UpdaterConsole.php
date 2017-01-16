@@ -24,7 +24,7 @@ class UpdaterConsole
     protected $messenger;
 
     /**
-     * @var \Pyz\Zed\Updater\Business\Installer\InstallerInterface[]
+     * @var \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
      */
     protected $installerCollection;
 
