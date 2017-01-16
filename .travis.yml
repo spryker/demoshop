@@ -1,6 +1,6 @@
 before_install:
   - echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  - if [[ $TRAVIS_EVENT_TYPE == "push" &&  $TEST_GROUP == "acceptance" ]]; then exit; fi
+  - if [[ $TRAVIS_EVENT_TYPE == "push" && $TEST_GROUP == "acceptance" ]]; then exit; fi
 
 language: php
 
@@ -13,9 +13,21 @@ env:
   global:
     - APPLICATION_ENV=devtest
     - APPLICATION_STORE=DE
-  matrix:
-    - TEST_GROUP=without-acceptance
-    - TEST_GROUP=acceptance
+
+matrix:
+  include:
+     - php: "5.6"
+       env: TEST_GROUP=without-acceptance
+     - php: "7.0"
+       env: TEST_GROUP=without-acceptance
+     - php: "7.1"
+       env: TEST_GROUP=without-acceptance
+     - php: "5.6"
+       env: TEST_GROUP=acceptance
+     - php: "7.0"
+       env: TEST_GROUP=acceptance
+     - php: "7.1"
+       env: TEST_GROUP=acceptance
 
 addons:
   postgresql: 9.4
