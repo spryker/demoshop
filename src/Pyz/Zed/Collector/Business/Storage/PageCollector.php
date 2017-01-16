@@ -31,6 +31,10 @@ class PageCollector extends AbstractStoragePropelCollector
             'id' => $collectItemData['page_id'],
             'template' => $collectItemData['template_path'],
             'placeholders' => $placeholderCollection,
+            'name' => $collectItemData['name'],
+            'meta_title' => $collectItemData['meta_title'],
+            'meta_keywords' => $collectItemData['meta_keywords'],
+            'meta_description' => $collectItemData['meta_description'],
         ];
     }
 

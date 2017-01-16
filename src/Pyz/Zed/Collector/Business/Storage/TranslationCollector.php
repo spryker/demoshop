@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollector;
+use Spryker\Zed\Glossary\Business\Translation\TranslationManager;
 
 class TranslationCollector extends AbstractStoragePropelCollector
 {
@@ -28,7 +29,7 @@ class TranslationCollector extends AbstractStoragePropelCollector
      */
     protected function collectResourceType()
     {
-        return 'translation';
+        return TranslationManager::TOUCH_TRANSLATION;
     }
 
     /**

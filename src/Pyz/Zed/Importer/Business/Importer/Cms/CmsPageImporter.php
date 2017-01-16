@@ -45,7 +45,7 @@ class CmsPageImporter extends CmsBlockImporter
                 return;
             }
 
-            $pageTransfer = $this->createPage($templateTransfer);
+            $pageTransfer = $this->createPage($templateTransfer, $page);
 
             $placeholders = $page[self::LOCALES][$locale][self::PLACEHOLDERS];
 
