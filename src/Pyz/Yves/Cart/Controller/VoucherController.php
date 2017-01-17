@@ -35,6 +35,7 @@ class VoucherController extends AbstractController
             $this->getFactory()
                 ->createCartVoucherHandler()
                 ->add($voucherCode);
+
         }
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
