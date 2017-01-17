@@ -804,7 +804,7 @@ mail.order.shipped.footer.text_line_1,"Have a great day!",en_US
 mail.order.shipped.footer.text_line_2,"Dein Spryker Shop",de_DE
 mail.order.shipped.footer.text_line_2,"Your Spryker Shop",en_US
 cart.voucher.remove,"Remove",en_US
-cart.voucher.remove,"Lösen",de_DE,
+cart.voucher.remove,"Lösen",de_DE
 cart.vouchers.clear-all,"Clear all",en_US
 cart.vouchers.clear-all,"Lösen alles",de_DE
 cart.voucher.apply.failed,"Your voucher code is invalid.",en_US
