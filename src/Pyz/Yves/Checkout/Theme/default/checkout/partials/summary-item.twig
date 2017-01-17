@@ -5,11 +5,13 @@
 
     {% if bundleItems is defined %}
         <br />
+        <small>
         <li>{{ 'This bundle contains the following items (these items may ship separately):' | trans }}</li>
 
         {% for bundleItem in bundleItems %}
             <li> - {{ bundleItem.quantity }} x {{ bundleItem.name }}  </li>
         {% endfor %}
+         </small>
     {% endif %}
 
     {% if item.productOptions|length > 0 %}
