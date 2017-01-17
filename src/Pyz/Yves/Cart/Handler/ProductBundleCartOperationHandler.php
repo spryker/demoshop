@@ -78,7 +78,9 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
             $this->updateNumberOfItemsInCart($quoteTransfer);
             $this->cartClient->storeQuote($quoteTransfer);
         } else {
-            $this->cartOperationHandler->remove($sku, $groupKey);
+            $quoteTransfer = $this->cartClient->removeItem($sku, $groupKey);
+            $this->updateNumberOfItemsInCart($quoteTransfer);
+            $this->cartClient->storeQuote($quoteTransfer);
         }
     }
 
@@ -124,24 +126,24 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
             }
 
             if ($bundledProductTotalQuantity > $quantity) {
-                $bundledItemsToChange = $this->getBundledItems($sku, $delta);
-                $quoteTransfer = $this->cartClient->removeItems($bundledItemsToChange);
+                $bundledItemsToRemove = $this->getBundledItems($sku, $delta);
+                $quoteTransfer = $this->cartClient->removeItems($bundledItemsToRemove);
             } else {
 
                 $itemTransfer = new ItemTransfer();
                 $itemTransfer->setSku($sku);
-                $itemTransfer->setGroupKey($groupKey);
                 $itemTransfer->setQuantity($delta);
+                $itemTransfer->setProductOptions($this->getBundleProductOptions($sku));
 
                 $quoteTransfer = $this->cartClient->addItem($itemTransfer);
             }
-
-            $this->updateNumberOfItemsInCart($quoteTransfer);
-            $this->cartClient->storeQuote($quoteTransfer);
-
         } else {
-            $this->cartOperationHandler->changeQuantity($sku, $quantity, $groupKey);
+            $quoteTransfer = $this->cartClient->changeItemQuantity($sku, $groupKey, $quantity);
+
         }
+
+        $this->updateNumberOfItemsInCart($quoteTransfer);
+        $this->cartClient->storeQuote($quoteTransfer);
     }
 
     /**
@@ -162,15 +164,42 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
      */
     protected function getNumberOfItemsInCart(QuoteTransfer $quoteTransfer)
     {
-        $numberOfItems = $quoteTransfer->getBundleItems()->count();
+        $uniqueBundleItems = [];
+        foreach ($quoteTransfer->getBundleItems() as $bundleItemTransfer) {
+            if (!isset($uniqueBundleItems[$bundleItemTransfer->getSku()])) {
+                $uniqueBundleItems[$bundleItemTransfer->getSku()] = true;
+            }
+        }
+
+        $numberOfItems = count($uniqueBundleItems);
         foreach ($quoteTransfer->getItems() as $itemTransfer) {
             if ($itemTransfer->getRelatedBundleItemIdentifier()) {
                 continue;
             }
+
             $numberOfItems++;
         }
 
         return $numberOfItems;
+    }
+
+
+    /**
+     * @param string $sku
+     *
+     * @return \ArrayObject|\Generated\Shared\Transfer\ProductOptionTransfer[]
+     */
+    protected function getBundleProductOptions($sku)
+    {
+        $quoteTransfer = $this->cartClient->getQuote();
+        foreach ($quoteTransfer->getBundleItems() as $bundleItemtransfer) {
+            if ($bundleItemtransfer->getSku() !== $sku) {
+                continue;
+            }
+            return $bundleItemtransfer->getProductOptions();
+        }
+
+        return new ArrayObject();
     }
 
     /**
