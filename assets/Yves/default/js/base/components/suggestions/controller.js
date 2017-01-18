@@ -11,6 +11,7 @@ module.exports = {
     init: function(view, state) {
         this.state = state;
         this.view = view;
+        this.suggestionsUrl = this.view.getSuggestionsUrl();
     },
 
     dispatch: function(hasChanged) {
@@ -42,7 +43,6 @@ module.exports = {
         var that = this;
 
         setTimeout(function() {
-            var url = that.view.getSuggestionsUrl();
             var params = {
                 q: that.state.current.query
             };
@@ -51,7 +51,7 @@ module.exports = {
                 that.xhr.abort();
             }
 
-            that.xhr = $.get(url, params, function(data) {
+            that.xhr = $.get(that.suggestionsUrl, params, function(data) {
                 that.state.set({
                     visible: true,
                     hint: data.completion,

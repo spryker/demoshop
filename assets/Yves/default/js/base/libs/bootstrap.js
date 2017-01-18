@@ -5,11 +5,15 @@
 
 'use strict';
 
-var mount = require('./mount');
+var _ = require('lodash');
+var Component = require('./component');
 
 function bootstrap(array) {
     array = array || [];
-    array.forEach(mount);
+
+    _.forEach(array, function(component) {
+        Component.mount(Component.create(component));
+    });
 }
 
 module.exports = bootstrap;

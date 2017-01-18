@@ -4,7 +4,7 @@
 
 {% block content %}
 
-    <div class="row small-unstack">
+    <div class="row small-unstack" data-component="viewer">
         <div class="columns __checkout-proceed-as-method" data-viewer-id="user" data-viewer-default>
             {% include "@customer/register/partials/register-form.twig" with {'form': registerForm} %}
         </div>

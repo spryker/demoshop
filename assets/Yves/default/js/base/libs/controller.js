@@ -7,14 +7,16 @@
 
 var _ = require('lodash');
 
-var Controller = {
+var BaseController = {
     init: function() {},
     dispatch: function() {}
 };
 
-function create(body) {
-    return _.assign({}, Controller, body);
+function create(controller) {
+    return _.assign({}, BaseController, controller);
 }
 
-module.exports = create;
+module.exports = {
+    create: create
+};
 
