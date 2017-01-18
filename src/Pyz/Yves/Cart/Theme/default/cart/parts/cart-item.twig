@@ -12,7 +12,7 @@
 
                         {% if bundleItems is defined %}
                             <br />
-                            <li>{{ 'This bundle contains the following items (these items may ship separately):' | trans }}</li>
+                            <li>{{ 'cart.item.bundle.description' | trans }}</li>
 
                             {% for bundleItem in bundleItems %}
                                 <li> - {{ bundleItem.quantity }} x {{ bundleItem.name }}  </li>
