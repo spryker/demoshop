@@ -14,7 +14,7 @@ interface CartOperationInterface
 
     /**
      * @param string $sku
-     * @param string $quantity
+     * @param int $quantity
      * @param array $optionValueUsageIds
      *
      * @return void

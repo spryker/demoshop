@@ -10,8 +10,8 @@ namespace Pyz\Yves\Cart\Handler;
 use ArrayObject;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Client\Cart\CartClientInterface;
+use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
 class ProductBundleCartOperationHandler extends BaseHandler implements CartOperationInterface
 {
@@ -35,7 +35,7 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
      * @param \Pyz\Yves\Cart\Handler\CartOperationInterface $cartOperationHandler
      * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $locale
-     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
+     * @param \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface $flashMessenger
      */
     public function __construct(
         CartOperationInterface $cartOperationHandler,
@@ -52,7 +52,7 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
 
     /**
      * @param string $sku
-     * @param string $quantity
+     * @param int $quantity
      * @param array $optionValueUsageIds
      *
      * @return void
@@ -92,7 +92,8 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
      */
     public function increase($sku, $groupKey = null)
     {
-        $this->cartOperationHandler->increase($sku, $groupKey);
+        $bundledProductTotalQuantity = $this->getBundledProductTotalQuantity($sku);
+        $this->cartOperationHandler->changeQuantity($sku, $bundledProductTotalQuantity + 1, $groupKey);
     }
 
     /**
@@ -103,7 +104,8 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
      */
     public function decrease($sku, $groupKey = null)
     {
-        $this->cartOperationHandler->decrease($sku, $groupKey);
+        $bundledProductTotalQuantity = $this->getBundledProductTotalQuantity($sku);
+        $this->cartOperationHandler->changeQuantity($sku, $bundledProductTotalQuantity - 1, $groupKey);
     }
 
     /**
@@ -182,7 +184,6 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
 
         return $numberOfItems;
     }
-
 
     /**
      * @param string $sku

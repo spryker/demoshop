@@ -39,17 +39,42 @@ class PropelMigration_1480321947
     {
         return array (
   'zed' => '
+
+CREATE SEQUENCE "spy_product_bundle_pk_seq";
+
+CREATE TABLE "spy_product_bundle"
+(
+    "id_product_bundle" INTEGER NOT NULL,
+    "fk_bundled_product" INTEGER NOT NULL,
+    "fk_product" INTEGER NOT NULL,
+    "quantity" SET DEFAULT 1,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_bundle")
+);
+
+ALTER TABLE "spy_product_bundle" ADD CONSTRAINT "spy_product_bundle-fk_bundled_product"
+    FOREIGN KEY ("fk_bundled_product")
+    REFERENCES "spy_product" ("id_product")
+    ON UPDATE CASCADE
+    ON DELETE CASCADE;
+
+ALTER TABLE "spy_product_bundle" ADD CONSTRAINT "spy_product_bundle-fk_product"
+    FOREIGN KEY ("fk_product")
+    REFERENCES "spy_product" ("id_product")
+    ON UPDATE CASCADE
+    ON DELETE CASCADE;
+
 DROP TABLE IF EXISTS "spy_sales_order_item_bundle_item" CASCADE;
-
-ALTER TABLE "spy_product_bundle"
-
-  ADD "quantity" INTEGER NOT NULL;
 
 ALTER TABLE "spy_sales_order_item_bundle"
 
   DROP COLUMN "tax_rate",
 
   DROP COLUMN "bundle_type";
+  
+DROP TABLE IF EXISTS "spy_product_to_bundle" CASCADE; 
+  
 ',
 );
     }
@@ -78,10 +103,6 @@ CREATE TABLE "spy_sales_order_item_bundle_item"
     PRIMARY KEY ("id_sales_order_item_bundle_item")
 );
 
-ALTER TABLE "spy_product_bundle"
-
-  DROP COLUMN "quantity";
-
 ALTER TABLE "spy_sales_order_item_bundle"
 
   ADD "tax_rate" NUMERIC(8,2),
@@ -91,6 +112,27 @@ ALTER TABLE "spy_sales_order_item_bundle"
 ALTER TABLE "spy_sales_order_item_bundle_item" ADD CONSTRAINT "spy_sales_order_item_bundle_item-fk_sales_order_item_bundle"
     FOREIGN KEY ("fk_sales_order_item_bundle")
     REFERENCES "spy_sales_order_item_bundle" ("id_sales_order_item_bundle");
+    
+
+CREATE TABLE "spy_product_to_bundle"
+(
+    "fk_product" INTEGER NOT NULL,
+    "fk_related_product" INTEGER NOT NULL,
+    PRIMARY KEY ("fk_product","fk_related_product")
+);
+
+ALTER TABLE "spy_product_to_bundle" ADD CONSTRAINT "spy_product_to_bundle-fk_product"
+    FOREIGN KEY ("fk_product")
+    REFERENCES "spy_product" ("id_product");
+
+ALTER TABLE "spy_product_to_bundle" ADD CONSTRAINT "spy_product_to_bundle-fk_related_product"
+    FOREIGN KEY ("fk_related_product")
+    REFERENCES "spy_product" ("id_product");    
+    
+DROP TABLE IF EXISTS "spy_product_bundle" CASCADE;
+
+DROP SEQUENCE "spy_product_bundle_pk_seq";  
+    
 ',
 );
     }

@@ -7,10 +7,10 @@
 
 namespace Pyz\Yves\Checkout\Process\Steps;
 
-use Pyz\Yves\ProductBundle\Grouper\ProductBundleGouperInterface;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Transfer\AbstractTransfer;
+use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouperInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class SummaryStep extends AbstractBaseStep
@@ -22,7 +22,7 @@ class SummaryStep extends AbstractBaseStep
     protected $calculationClient;
 
     /**
-     * @var \Pyz\Yves\ProductBundle\Grouper\ProductBundleGrouper
+     * @var \Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper
      */
     protected $productBundleGrouper;
 
@@ -33,14 +33,14 @@ class SummaryStep extends AbstractBaseStep
 
     /**
      * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
-     * @param \Pyz\Yves\ProductBundle\Grouper\ProductBundleGouperInterface $productBundleGrouper
+     * @param \Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouperInterface $productBundleGrouper
      * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $stepRoute
      * @param string $escapeRoute
      */
     public function __construct(
         CalculationClientInterface $calculationClient,
-        ProductBundleGouperInterface $productBundleGrouper,
+        ProductBundleGrouperInterface $productBundleGrouper,
         CartClientInterface $cartClient,
         $stepRoute,
         $escapeRoute

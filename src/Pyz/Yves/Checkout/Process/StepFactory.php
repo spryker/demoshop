@@ -18,8 +18,8 @@ use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
-use Pyz\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 use Spryker\Yves\Checkout\Process\StepFactory as SprykerStepFactory;
+use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 use Spryker\Yves\StepEngine\Process\StepCollection;
 
 class StepFactory extends SprykerStepFactory
@@ -98,9 +98,9 @@ class StepFactory extends SprykerStepFactory
     }
 
     /**
-     * @return \Pyz\Yves\ProductBundle\Grouper\ProductBundleGrouper
+     * @return \Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper
      */
-    public function createProductBundleGroupper()
+    public function createProductBundleGrouper()
     {
         return new ProductBundleGrouper();
     }
@@ -133,7 +133,7 @@ class StepFactory extends SprykerStepFactory
     {
         return new SummaryStep(
             $this->getCalculationClient(),
-            $this->createProductBundleGroupper(),
+            $this->createProductBundleGrouper(),
             $this->getCartClient(),
             CheckoutControllerProvider::CHECKOUT_SUMMARY,
             ApplicationControllerProvider::ROUTE_HOME

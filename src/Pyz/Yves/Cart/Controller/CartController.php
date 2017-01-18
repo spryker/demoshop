@@ -94,7 +94,7 @@ class CartController extends AbstractController
      */
     protected function getCartOperationHandler()
     {
-        return $this->getFactory()->createProductBundleAwareCartOperationHandler();
+        return $this->getFactory()->createProductBundleCartOperationHandler();
     }
 
 }

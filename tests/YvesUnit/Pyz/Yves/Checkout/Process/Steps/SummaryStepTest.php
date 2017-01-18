@@ -11,7 +11,7 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use PHPUnit_Framework_TestCase;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
-use Pyz\Yves\ProductBundle\Grouper\ProductBundleGouperInterface;
+use Pyz\Yves\ProductBundle\Grouper\ProductBundleGrouperInterface;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
@@ -92,11 +92,11 @@ class SummaryStepTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\ProductBundle\Grouper\ProductBundleGouperInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\ProductBundle\Grouper\ProductBundleGrouperInterface
      */
     protected function createProductBundleGrouperMock()
     {
-        return $this->getMockBuilder(ProductBundleGouperInterface::class)->getMock();
+        return $this->getMockBuilder(ProductBundleGrouperInterface::class)->getMock();
     }
 
     /**

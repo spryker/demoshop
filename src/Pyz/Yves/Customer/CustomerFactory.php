@@ -14,8 +14,8 @@ use Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationSuccessHandler;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerUserProvider;
 use Pyz\Yves\Customer\Security\Customer;
-use Pyz\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 use Spryker\Yves\Kernel\AbstractFactory;
+use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
@@ -121,7 +121,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Yves\ProductBundle\Grouper\ProductBundleGrouper
+     * @return \Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper
      */
     public function createProductBundleGroupper()
     {

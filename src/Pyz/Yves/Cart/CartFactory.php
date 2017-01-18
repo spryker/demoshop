@@ -11,9 +11,9 @@ use Pyz\Yves\Cart\Form\VoucherForm;
 use Pyz\Yves\Cart\Handler\CartOperationHandler;
 use Pyz\Yves\Cart\Handler\CartVoucherHandler;
 use Pyz\Yves\Cart\Handler\ProductBundleCartOperationHandler;
-use Pyz\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Yves\Kernel\AbstractFactory;
+use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 
 class CartFactory extends AbstractFactory
 {
@@ -53,7 +53,7 @@ class CartFactory extends AbstractFactory
     /**
      * @return \Pyz\Yves\Cart\Handler\ProductBundleCartOperationHandler
      */
-    public function createProductBundleAwareCartOperationHandler()
+    public function createProductBundleCartOperationHandler()
     {
         return new ProductBundleCartOperationHandler(
             $this->createCartOperationHandler(),
@@ -64,7 +64,7 @@ class CartFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Yves\ProductBundle\Grouper\ProductBundleGrouper
+     * @return \Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper
      */
     public function createProductBundleGroupper()
     {
