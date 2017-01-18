@@ -9,13 +9,12 @@
 // and/or change the existing one
 
 var $ = require('jquery');
-var bootstrap = require('./libs/bootstrap');
+var run = require('./libs/run');
 
 $(function(){
-    bootstrap([
+    run([
         require('./components/aside'),
         require('./components/viewer'),
         require('./components/suggestions')
     ]);
 });
-

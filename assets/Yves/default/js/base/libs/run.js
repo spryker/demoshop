@@ -8,14 +8,12 @@
 var _ = require('lodash');
 var Component = require('./component');
 
-function bootstrap(array) {
-    array = array || [];
+function run(components) {
+    components = components || [];
 
-    _.forEach(array, function(component) {
+    _.forEach(components, function(component) {
         Component.mount(Component.create(component));
     });
 }
 
-module.exports = bootstrap;
-
-
+module.exports = run;
