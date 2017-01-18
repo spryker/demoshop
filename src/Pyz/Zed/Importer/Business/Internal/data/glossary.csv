@@ -682,13 +682,13 @@ customer.account.wishlist.continue-shopping,"Weiter shoppen",de_DE
 customer.account.wishlist.product,"Produkt",de_DE
 customer.account.wishlist.price,"Preis",de_DE
 customer.account.wishlist.add-to-cart,"In den Warenkorb",de_DE
-customer.account.wishlist.remove,"Lösen",de_DE
+customer.account.wishlist.remove,"Löschen",de_DE
 customer.account.wishlist.product-not-available,"Dieses Produkt ist momentan nicht verfügbar.",de_DE
 customer.account.wishlist.view-in-shop,"Produktdetails",de_DE
-customer.account.wishlist.overview.sku,"Sku",en_US
-customer.account.wishlist.overview.name,"Name",en_US
-customer.account.wishlist.overview.price,"Preis",en_US
-customer.account.wishlist.overview.variant,"Produktvariante",en_US
+customer.account.wishlist.overview.sku,"Sku",de_DE
+customer.account.wishlist.overview.name,"Name",de_DE
+customer.account.wishlist.overview.price,"Preis",de_DE
+customer.account.wishlist.overview.variant,"Produktvariante",de_DE
 newsletter.subscribe,"Subscribe for newsletter",en_US
 newsletter.subscribe,"In den Newsletter eintragen",de_DE
 pagination.previous,"Previous",en_US
