@@ -47,7 +47,7 @@ CREATE TABLE "spy_product_bundle"
     "id_product_bundle" INTEGER NOT NULL,
     "fk_bundled_product" INTEGER NOT NULL,
     "fk_product" INTEGER NOT NULL,
-    "quantity" SET DEFAULT 1,
+    "quantity" INTEGER DEFAULT 1 NOT NULL,
     "created_at" TIMESTAMP,
     "updated_at" TIMESTAMP,
     PRIMARY KEY ("id_product_bundle")
