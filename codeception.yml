@@ -3,6 +3,7 @@ actor: Tester
 include:
   - vendor/spryker/spryker/Bundles/*
 
+
 paths:
     tests: tests
     log: tests/_output
