@@ -1,22 +1,42 @@
 before_install:
   - echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  - if [[ $TRAVIS_EVENT_TYPE == "push" &&  $TEST_GROUP == "acceptance" ]]; then exit; fi
+  - if [[ $ON_EVENTS != *$TRAVIS_EVENT_TYPE* ]]; then exit; fi
 
 language: php
-
-php:
-  - 5.6
-  - 7.0
-  - 7.1
 
 env:
   global:
     - APPLICATION_ENV=devtest
     - APPLICATION_STORE=DE
-  matrix:
-    - TEST_GROUP=without-acceptance
-    - TEST_GROUP=acceptance
 
+
+#Possible travis events (push, pull_request, cron, or api)
+matrix:
+  include:
+     - php: "5.6"
+       env:
+          - TEST_GROUP=without-acceptance
+          - ON_EVENTS=cron,push
+     - php: "7.0"
+       env:
+          - TEST_GROUP=without-acceptance
+          - ON_EVENTS=cron,push
+     - php: "7.1"
+       env:
+          - TEST_GROUP=without-acceptance
+          - ON_EVENTS=cron,push
+     - php: "5.6"
+       env:
+          - TEST_GROUP=acceptance
+          - ON_EVENTS=cron
+     - php: "7.0"
+       env:
+          - TEST_GROUP=acceptance
+          - ON_EVENTS=cron
+     - php: "7.1"
+       env:
+          - TEST_GROUP=acceptance
+          - ON_EVENTS=push,cron
 addons:
   postgresql: 9.4
 
