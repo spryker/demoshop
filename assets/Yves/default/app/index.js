@@ -9,7 +9,7 @@
 // and/or change the existing one
 
 var $ = require('jquery');
-var run = require('./lib/run');
+var run = require('../lib/run');
 
 function setJsEnabledMode() {
     $('html')
