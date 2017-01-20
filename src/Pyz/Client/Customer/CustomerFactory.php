@@ -8,7 +8,6 @@
 namespace Pyz\Client\Customer;
 
 use Pyz\Client\Customer\Zed\CustomerStub;
-use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Client\Customer\CustomerFactory as SprykerCustomerFactory;
 
 class CustomerFactory extends SprykerCustomerFactory
@@ -25,7 +24,7 @@ class CustomerFactory extends SprykerCustomerFactory
     }
 
     /**
-     * @return CartClientInterface
+     * @return \Spryker\Client\Cart\CartClientInterface
      */
     public function getCartClient()
     {
