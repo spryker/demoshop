@@ -7,9 +7,9 @@
 
 namespace Pyz\Zed\Propel;
 
-use Spryker\Zed\Propel\PropelConfig as CorePropelConfig;
+use Spryker\Zed\Propel\PropelConfig as SprykerPropelConfig;
 
-class PropelConfig extends CorePropelConfig
+class PropelConfig extends SprykerPropelConfig
 {
 
     /**
