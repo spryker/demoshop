@@ -5,8 +5,8 @@
 
 'use strict';
 
-var view = require('js/base/components/suggestions/view');
-var controller = require('js/base/components/suggestions/controller');
+var view = require('./view');
+var controller = require('./controller');
 
 module.exports = {
     name: 'suggestions',

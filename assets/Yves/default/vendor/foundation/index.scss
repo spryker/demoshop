@@ -8,7 +8,7 @@ $fa-font-path: '~font-awesome/fonts';
 @import '~motion-ui/motion-ui';
 @import '~foundation-sites/scss/foundation';
 
-@import 'shared/settings';
+@import 'settings';
 
 @include foundation-global-styles;
 @include foundation-flex-grid;

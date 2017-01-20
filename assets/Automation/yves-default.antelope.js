@@ -15,8 +15,8 @@ let cssOptions = antelope.options.production ? '' : '?sourceMap';
 let config = {
     cwd: cwd,
     entry: Object.assign({
-        'externals': path.join(cwd, `./assets/Yves/${themeName}/externals.entry.js`),
-        'base': path.join(cwd, `./assets/Yves/${themeName}/base.entry.js`)
+        'vendor': path.join(cwd, `./assets/Yves/${themeName}/vendor.entry.js`),
+        'app': path.join(cwd, `./assets/Yves/${themeName}/app.entry.js`)
     }, antelope.entryPoints),
     resolve: {
         root: [
@@ -38,13 +38,6 @@ let config = {
             test: /\.scss$/i,
             exclude: /.*nojs.*/i,
             loader: style.extract([
-                'css' + cssOptions,
-                'postcss' + cssOptions,
-                'sass'
-            ])
-        }, {
-            test: /.*nojs.*\.scss$/i,
-            loader: nojs.extract([
                 'css' + cssOptions,
                 'postcss' + cssOptions,
                 'sass'
