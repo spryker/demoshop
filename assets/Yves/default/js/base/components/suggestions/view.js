@@ -1,22 +1,26 @@
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 'use strict';
 
 var $ = require('jquery');
 var _ = require('lodash');
+var keyboardCodes = require('js/base/utils/keyboard-codes');
 
 var threshold = 2;
 var throttleTime = 150;
 var debounceTime = 300;
 
 module.exports = {
-    init: function($root, state, options) {
+    init: function($root, state) {
         this.$root = $root;
         this.$form = $('.js-form', this.$root);
         this.$input = $('.js-input', this.$root);
         this.$inputHint = $('.js-input-hint', this.$root);
         this.$panel = $('.js-panel', this.$root);
-
         this.state = state;
-        this.keyboardCodes = options.keyboardCodes;
 
         this.mapEvents();
     },
@@ -58,7 +62,7 @@ module.exports = {
     onKeyDown: function(e) {
         var code = e.keyCode || e.which;
 
-        switch (this.keyboardCodes[code]) {
+        switch (keyboardCodes[code]) {
             case 'tab': return this.onTab(e);
             case 'enter': return this.onEnter(e);
             case 'arrowUp':return this.onArrowUp(e);
@@ -74,7 +78,7 @@ module.exports = {
 
         if (query.length >= threshold) {
             this.state.set({
-                query: query.trim()
+                query: query
             });
         } else {
             this.state.set({

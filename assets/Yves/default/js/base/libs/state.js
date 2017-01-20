@@ -1,45 +1,41 @@
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 'use strict';
 
 var _ = require('lodash');
 
-var State = {
+var BaseState = {
     current: {},
 
-    init: function(initialState) {
-        this.set(initialState);
-    },
+    init: function(controller) {
+        this.set = createStateSetter(controller);
+    }
+};
 
-    set: function(newState) {
+function createStateSetter(controller) {
+    return function(newState) {
         var that = this;
 
         setTimeout(function() {
-            var hasChanged = {};
             var oldState = _.assign({}, that.current);
-
-            _.keys(newState).forEach(function(key) {
-                hasChanged[key] = !_.isUndefined(newState[key]);
-
-                if (hasChanged[key]) {
-                    hasChanged[key] = (newState[key] !== oldState[key]);
-                }
-            });
+            var hasChanged = _.reduce(newState, function(changes, value, key) {
+                changes[key] = !_.isEqual(value, oldState[key]);
+                return changes;
+            }, {});
 
             that.current = _.assign({}, oldState, newState);
-            that.dispatch(hasChanged, oldState);
+            controller.dispatch(hasChanged, oldState);
         }, 0);
-    },
-
-    clone: function() {
-        return _.assign({}, this.current);
-    },
-
-    dispatch: function() {}
-};
-
-function create(controller) {
-    return _.assign({}, State, {
-        dispatch: controller.dispatch.bind(controller)
-    });
+    }
 }
 
-module.exports = create;
+function create() {
+    return _.assign({}, BaseState);
+}
+
+module.exports = {
+    create: create
+};
