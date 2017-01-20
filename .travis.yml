@@ -77,23 +77,19 @@ before_script:
   - cp config/Shared/ci/travis/config_ci.php config/Shared/config_default-devtest_DE.php
   - cp config/Shared/ci/travis/params.sh deploy/setup/params_test_env.sh
 
-script:
-  - vendor/bin/console propel:install -o
-  - vendor/bin/console transfer:generate
-  - vendor/bin/console setup:init-db
-  - vendor/bin/console setup:search
-  - vendor/bin/console import:demo-data
-  - vendor/bin/console application:build-navigation-cache
-
   - if [[ $TEST_GROUP == 'acceptance' ]]; then deploy/travis/acceptance_env.sh; fi
 
   - if [[ $TEST_GROUP == 'acceptance' ]]; then ./setup_test -f; fi
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then ./setup_test -b; fi
 
+script:
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance ; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance ; fi
 
   - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console code:sniff ; fi
+  - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console dev:dependency:build-tree ; fi
+  - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console dev:dependency:find-violations ; fi
+
 
 notifications:
   email: false
