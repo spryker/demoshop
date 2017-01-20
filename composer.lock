@@ -1252,7 +1252,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "51bf074b7b7b43419dc5aa5bb77980dcf6616ed5"
+                "reference": "088ed2bdc50f230748aa155cda9492b5417db94b"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1797,7 +1797,11 @@
                     "Spryker\\Shared\\ProductManagement\\": "Bundles/ProductManagement/src",
                     "Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/src",
                     "Unit\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests",
-                    "Functional\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests"
+                    "Functional\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests",
+                    "Spryker\\Shared\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/src",
+                    "Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/src",
+                    "Unit\\Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/tests",
+                    "Functional\\Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/tests"
                 },
                 "psr-4": {
                     "Application\\Module\\": "Bundles/Application/tests/_support/Module",
@@ -1820,7 +1824,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-01-20 13:23:13"
+            "time": "2017-01-20 16:28:15"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6429,7 +6433,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-01-20T11:55:30+00:00"
+            "time": "2017-01-20 11:55:30"
         },
         {
             "name": "spryker/code-sniffer",
@@ -6476,7 +6480,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-01-17T10:23:06+00:00"
+            "time": "2017-01-17 10:23:06"
         },
         {
             "name": "squizlabs/php_codesniffer",
