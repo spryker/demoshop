@@ -13,6 +13,8 @@ if [ $# -eq 0 ]; then
     exit 0
 fi
 
+eval "ELASTIC_SEARCH_URL=\$$ELASTIC_SEARCH_URL_NAME"
+
 
 function resetElasticsearch {
     for store in "${STORES[@]}"
@@ -20,17 +22,6 @@ function resetElasticsearch {
         labelText "Flushing Elasticsearch: ${store}"
         curl -XDELETE "$ELASTIC_SEARCH_URL/${store}/"
         writeErrorMessage "Elasticsearch reset failed for ${store}"
-    done
-}
-
-function setupElasticsearch {
-    for store in "${STORES[@]}"
-    do
-        labelText "Setting up Elasticsearch: ${store}"
-        curl -XPOST $ELASTIC_SEARCH_URL/${store}/_close
-        curl -XPUT $ELASTIC_SEARCH_URL/${store}/_settings -d '{"analysis":{"filter":{"fulltext_index_ngram_filter":{"type":"edge_ngram","min_gram":"2","max_gram":"20"}},"analyzer":{"fulltext_index_analyzer":{"filter":["lowercase","fulltext_index_ngram_filter"],"tokenizer":"standard"},"suggestion_analyzer":{"filter":["lowercase"],"tokenizer":"standard"},"completion_analyzer":{"filter":["lowercase"],"tokenizer":"keyword"},"fulltext_search_analyzer":{"filter":["lowercase"],"tokenizer":"standard"},"lowercase_keyword_analyzer":{"filter":["lowercase"],"tokenizer":"keyword"}}}}'
-        curl -XPOST $ELASTIC_SEARCH_URL/${store}/_open
-        writeErrorMessage "Elasticsearch setup failed for ${store}"
     done
 }
 

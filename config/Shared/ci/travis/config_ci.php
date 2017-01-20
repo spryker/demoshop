@@ -17,7 +17,7 @@ use Spryker\Shared\Testify\TestifyConstants;
 $config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
 $config[PropelConstants::ZED_DB_USERNAME] = 'postgres';
 $config[PropelConstants::ZED_DB_PASSWORD] = '';
-$config[PropelConstants::ZED_DB_DATABASE] = 'test_database';
+$config[PropelConstants::ZED_DB_DATABASE] = 'DE_test_zed';
 $config[PropelConstants::ZED_DB_HOST] = '127.0.0.1';
 $config[PropelConstants::ZED_DB_PORT] = 5432;
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = false;
@@ -34,7 +34,7 @@ $config[ApplicationConstants::ELASTICA_PARAMETER__PORT]
     = $config[SearchConstants::ELASTICA_PARAMETER__PORT]
     = '9200';
 
-$yvesHost = 'www.de.demoshop.local';
+$yvesHost = 'www.de.spryker.test';
 $config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
 $config[ApplicationConstants::HOST_YVES] = 'http://' . $yvesHost;
 $config[ApplicationConstants::HOST_STATIC_ASSETS] = $config[ApplicationConstants::HOST_STATIC_MEDIA] = $yvesHost;
@@ -42,7 +42,7 @@ $config[ApplicationConstants::HOST_STATIC_ASSETS] = $config[ApplicationConstants
 $config[ApplicationConstants::HOST_SSL_YVES] = 'https://' . $yvesHost;
 $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS] = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA] = $yvesHost;
 
-$zedHost = 'zed.de.demoshop.local:80';
+$zedHost = 'zed.de.spryker.test:80';
 $config[ApplicationConstants::HOST_ZED_GUI]
     = 'http://' . $zedHost;
 $config[ApplicationConstants::HOST_ZED_API] = $zedHost;
@@ -69,7 +69,7 @@ $config[StorageConstants::STORAGE_REDIS_PROTOCOL] = 'tcp';
 $config[StorageConstants::STORAGE_REDIS_HOST] = '127.0.0.1';
 $config[StorageConstants::STORAGE_REDIS_PORT] = '6379';
 $config[StorageConstants::STORAGE_REDIS_PASSWORD] = '';
-$config[StorageConstants::STORAGE_REDIS_DATABASE] = 0;
+$config[StorageConstants::STORAGE_REDIS_DATABASE] = 3;
 
 $config[SessionConstants::YVES_SESSION_REDIS_PROTOCOL] = $config[StorageConstants::STORAGE_REDIS_PROTOCOL];
 $config[SessionConstants::YVES_SESSION_REDIS_HOST] = $config[StorageConstants::STORAGE_REDIS_HOST];
@@ -87,7 +87,7 @@ $config[PayoneConstants::PAYONE] = [
     PayoneConstants::PAYONE_MODE => '',
 ];
 
-$config[SessionConstants::SESSION_IS_TEST] = true;
+$config[SessionConstants::SESSION_IS_TEST] = (bool)getenv("SESSION_IS_TEST");
 
 $config[PayoneConstants::PAYONE] = [
     PayoneConstants::PAYONE_CREDENTIALS_ENCODING => 'UTF-8',
@@ -131,3 +131,5 @@ $config[RatepayConstants::API_URL] = 'https://gateway-int.ratepay.com/api/xml/1_
 
 $config[TestifyConstants::BOOTSTRAP_CLASS_YVES] = YvesBootstrap::class;
 $config[TestifyConstants::BOOTSTRAP_CLASS_ZED] = ZedBootstrap::class;
+
+$config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';

@@ -95,8 +95,6 @@ class TaxRateCreateCest
 
         $i->createTaxRate(TaxRateCreatePage::TAX_RATE_VALID);
         $i->see(TaxRateCreatePage::ERROR_MESSAGE_TAX_RATE_ALREADY_EXISTS);
-
-        $i->removeTaxRateFromDatabase(TaxRateCreatePage::TAX_RATE_VALID);
     }
 
     /**
@@ -116,8 +114,6 @@ class TaxRateCreateCest
         $i->wait(2);
 
         $i->see(TaxRateCreatePage::ERROR_MESSAGE_TAX_RATE_ALREADY_EXISTS);
-
-        $i->removeTaxRateFromDatabase(TaxRateCreatePage::TAX_RATE_VALID);
     }
 
 }

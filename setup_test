@@ -2,19 +2,38 @@
 
 set -o pipefail
 
-SETUP='spryker'
-DEVELOPMENT_DATABASE_NAME='DE_development_zed'
-DATABASE_NAME='DE_devtest_zed'
-DATABASE_USER='devtest'
-DATABASE_PASSWORD='mate20mg'
-VERBOSITY='-v'
-CONSOLE=vendor/bin/console
-PHANTOMJS_CDNURL='https://github.com/Medium/phantomjs/'
-DATABASE_BACKUP_PATH='data/test.backup'
+.  deploy/setup/params_test_env.sh
 
 export APPLICATION_ENV='devtest'
 
 . deploy/setup/functions.sh
+
+function displayHeader {
+    labelText "Spryker Test enviroment setup."
+    echo "./$(basename $0) [OPTION] [VERBOSITY]"
+}
+
+function displayHelp {
+
+    displayHeader
+
+    echo ""
+    echo "  -r, --restore"
+    echo "      Restore postgres from dump provided by --backup, collectors does not run."
+    echo " "
+    echo "  -b, --backup"
+    echo "      Backup postgress to file, run collectors writes to test enviroment storages (Elasticsearch, Redis)."
+    echo " "
+    echo "  -c, --collectors"
+    echo "      Run only collectors storage, search."
+    echo " "
+    echo "  -f, --full"
+    echo "      Run collectors storage, search and backup database."
+    echo " "
+    echo "  -v, -vv, -vvv"
+    echo "      Set verbosity level"
+    echo " "
+}
 
 warningText "This script should be used only in development and NEVER IN PRODUCTION"
 
@@ -27,7 +46,6 @@ function backupTestingEnvData {
     writeErrorMessage "Setup install failed"
 
     labelText "Running propel code generation/migrations"
-    $CONSOLE propel:install $VERBOSITY
     $CONSOLE propel:diff $VERBOSITY
     $CONSOLE propel:migrate $VERBOSITY
 
@@ -35,34 +53,55 @@ function backupTestingEnvData {
     $CONSOLE import:demo-data $VERBOSITY
     writeErrorMessage "DemoData import failed"
 
-    labelText "Initializing DB"
-    $CONSOLE setup:init-db $VERBOSITY
-    writeErrorMessage "DB setup failed"
-
-    runCollectors
-
-    backupDevelopmentForTests
+    backupDatabaseForTests
 
     successText "Backup successful."
 }
 
 function restoreTestingEnvData {
-    dropAndRestoreDatabase $DATABASE_BACKUP_PATH
+
+   dropAndRestoreTestDatabase $DATABASE_BACKUP_PATH
 }
 
-function backupDevelopmentForTests {
+function backupDatabaseForTests {
     export PGPASSWORD=$DATABASE_PASSWORD
     export LC_ALL="en_US.UTF-8"
 
     pg_dump -i -h 127.0.0.1 -U $DATABASE_USER  -F c -b -v -f  $DATABASE_BACKUP_PATH $DATABASE_NAME
 }
 
+function dropAndRestoreTestDatabase {
+
+    if [[ -z "$1" ]]; then
+          DATABASE_BACKUP_PATH=$DATABASE_NAME.backup;
+    else
+          DATABASE_BACKUP_PATH=$1
+    fi
+
+    export PGPASSWORD=$DATABASE_PASSWORD
+    export LC_ALL="en_US.UTF-8"
+
+    sudo pg_ctlcluster 9.4 main restart --force
+    sudo -u postgres dropdb $DATABASE_NAME
+    sudo -u postgres createdb $DATABASE_NAME
+    pg_restore -i -h 127.0.0.1 -p 5432 -U $DATABASE_USER -d $DATABASE_NAME -v $DATABASE_BACKUP_PATH
+
+}
+
+function configureCodeception {
+    labelText "Configuring test environment"
+    vendor/bin/codecept build -q $VERBOSITY
+    writeErrorMessage "Test configuration failed"
+}
+
 function runCollectors() {
+
    export PGPASSWORD=$DATABASE_PASSWORD
    labelText "Reset touch table."
    psql -h 127.0.0.1 -U $DATABASE_USER  -d $DATABASE_NAME -c 'UPDATE spy_touch set touched=now()' -w
 
    labelText "Run collectors."
+   $CONSOLE setup:search $VERBOSITY
    $CONSOLE collector:search:export $VERBOSITY
    $CONSOLE collector:storage:export $VERBOSITY
 }
@@ -84,9 +123,15 @@ do
            backupTestingEnvData
            ;;
          "--collectors" | "-c" )
+           resetDataStores
            runCollectors
            ;;
-
+         "--full" | "-f" )
+            resetDataStores
+            backupTestingEnvData
+            runCollectors
+            configureCodeception
+           ;;
         *)
             displayHeader
             echo ""
@@ -98,4 +143,3 @@ done
 
 
 exit 0
-
