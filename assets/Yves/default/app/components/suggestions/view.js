@@ -7,7 +7,7 @@
 
 var $ = require('jquery');
 var _ = require('lodash');
-var keyboardCodes = require('js/base/utils/keyboard-codes');
+var keyboardCodes = require('../../utils/keyboard-codes');
 
 var threshold = 2;
 var throttleTime = 150;

@@ -9,4 +9,4 @@
 // add your external dependencies here
 
 // css
-require('scss/externals');
+require('./vendor/foundation');

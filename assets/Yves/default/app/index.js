@@ -9,9 +9,17 @@
 // and/or change the existing one
 
 var $ = require('jquery');
-var run = require('./libs/run');
+var run = require('../lib/run');
+
+function setJsEnabledMode() {
+    $('html')
+        .removeClass('no-js')
+        .addClass('js');
+}
 
 $(function(){
+    setJsEnabledMode();
+
     run([
         require('./components/aside'),
         require('./components/viewer'),

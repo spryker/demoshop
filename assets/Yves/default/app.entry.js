@@ -3,11 +3,7 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-.__image-viewer-inline,
-.__checkout-proceed-as-selector {
-    display: none;
-}
+'use strict';
 
-.__checkout-proceed-as-method {
-    display: block;
-}
+require('./app/style');
+require('./app');

@@ -3,10 +3,16 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-// shared
-@import 'shared/settings';
-@import 'shared/settings-custom';
-@import 'shared/functions';
+.no-js {
+  .__image-viewer-inline,
+  .__checkout-proceed-as-selector {
+    display: none;
+  }
 
-// no js
-@import 'nojs/modules';
+  .__checkout-proceed-as-method {
+    display: block;
+  }
+}
+
+
+
