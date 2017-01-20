@@ -1,9 +1,9 @@
 #### Overview
 
-- Ticket: URL
+- Ticket: URL_HERE
 
 ###### Optional
-- [ ] Core changes: [PR](https://github.com/spryker/spryker/pull/pr_number)
+- Core PR: URL_HERE
 
 ###### Change log
-Relevant changes go here. Those will be copied to the release log for demoshop if necessary.
+{Relevant changes for project level go here. Those will be copied to the release log for demoshop if necessary.}
