@@ -8,6 +8,7 @@ namespace Pyz\Yves\Cart\Handler;
 
 use ArrayObject;
 use Generated\Shared\Transfer\DiscountTransfer;
+use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Client\Cart\CartClientInterface;
@@ -56,6 +57,10 @@ class CartVoucherHandler extends BaseHandler
 
         $quoteTransfer = $this->calculationClient->recalculate($quoteTransfer);
 
+        if (!$this->isVoucherCodeApplied($quoteTransfer, $voucherCode)) {
+            $this->flashMessenger->addErrorMessage('cart.voucher.apply.failed');
+        }
+
         $this->setFlashMessagesFromLastZedRequest($this->calculationClient);
         $this->cartClient->storeQuote($quoteTransfer);
     }
@@ -90,6 +95,23 @@ class CartVoucherHandler extends BaseHandler
 
         $this->setFlashMessagesFromLastZedRequest($this->calculationClient);
         $this->cartClient->storeQuote($quoteTransfer);
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param string $voucherCode
+     *
+     * @return bool
+     */
+    protected function isVoucherCodeApplied(QuoteTransfer $quoteTransfer, $voucherCode)
+    {
+        foreach ($quoteTransfer->getVoucherDiscounts() as $discountTransfer) {
+            if ($discountTransfer->getVoucherCode() === $voucherCode) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

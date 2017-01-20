@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="small-8 columns">
                         {{ voucherDiscount.displayName }}
-                        <small><a href="{{ url('cart/voucher/remove', {'code': voucherDiscount.voucherCode}) }}"><span class="fa fa-remove"></span> remove</a></small>
+                        <small><a href="{{ url('cart/voucher/remove', {'code': voucherDiscount.voucherCode}) }}"><span class="fa fa-remove"></span> {{ 'cart.voucher.remove' | trans }}</a></small>
                     </div>
                     <div class="small-4 columns text-right">- {{ voucherDiscount.amount | money }}</div>
                 </div>

@@ -8,7 +8,7 @@
 namespace Pyz\Client\Customer;
 
 use Pyz\Client\Customer\Zed\CustomerStub;
-use Spryker\Client\Customer\CustomerDependencyProvider;
+use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Client\Customer\CustomerFactory as SprykerCustomerFactory;
 
 class CustomerFactory extends SprykerCustomerFactory
@@ -22,6 +22,14 @@ class CustomerFactory extends SprykerCustomerFactory
         return new CustomerStub(
             $this->getProvidedDependency(CustomerDependencyProvider::SERVICE_ZED)
         );
+    }
+
+    /**
+     * @return CartClientInterface
+     */
+    public function getCartClient()
+    {
+        return $this->getProvidedDependency(CustomerDependencyProvider::CART_CLIENT);
     }
 
 }
