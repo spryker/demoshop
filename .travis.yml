@@ -9,6 +9,8 @@ env:
     - APPLICATION_ENV=devtest
     - APPLICATION_STORE=DE
 
+
+#Possible travis events (push, pull_request, cron, or api)
 matrix:
   include:
      - php: "5.6"
