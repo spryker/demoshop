@@ -2,15 +2,10 @@
 
 set -o pipefail
 
-SETUP='spryker'
-DATABASE_NAME='DE_development_zed'
-DATABASE_USER='development'
-DATABASE_PASSWORD='mate20mg'
-VERBOSITY='-v'
-CONSOLE=vendor/bin/console
-PHANTOMJS_CDNURL='https://github.com/Medium/phantomjs/'
-
+. deploy/setup/params.sh
 . deploy/setup/functions.sh
+
+export APPLICATION_ENV='development'
 
 warningText "This script should be used only in development and NEVER IN PRODUCTION"
 
@@ -54,6 +49,10 @@ do
         "--clean" | "-c" )
            optimizeRepo
            ;;
+        "--test-env" | "-t" )
+           ./setup_test -b
+           ;;
+
         *)
             displayHeader
             echo ""

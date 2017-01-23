@@ -1,27 +1,42 @@
-before_install: echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+before_install:
+  - echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - if [[ $ON_EVENTS != *$TRAVIS_EVENT_TYPE* ]]; then exit; fi
 
 language: php
 
-php:
-  - 5.6
-  - 7.0
-  - 7.1
-
 env:
   global:
-    - APPLICATION_ENV=development
+    - APPLICATION_ENV=devtest
     - APPLICATION_STORE=DE
-    - TEST_GROUP=without-acceptance
 
+
+#Possible travis events (push, pull_request, cron, or api)
 matrix:
   include:
-    - php: 7.1
-      env: TEST_GROUP=acceptance
-
-  allow_failures:
-    - php: 7.1
-      env: TEST_GROUP=acceptance
-
+     - php: "5.6"
+       env:
+          - TEST_GROUP=without-acceptance
+          - ON_EVENTS=cron,push
+     - php: "7.0"
+       env:
+          - TEST_GROUP=without-acceptance
+          - ON_EVENTS=cron,push
+     - php: "7.1"
+       env:
+          - TEST_GROUP=without-acceptance
+          - ON_EVENTS=cron,push
+     - php: "5.6"
+       env:
+          - TEST_GROUP=acceptance
+          - ON_EVENTS=cron
+     - php: "7.0"
+       env:
+          - TEST_GROUP=acceptance
+          - ON_EVENTS=cron
+     - php: "7.1"
+       env:
+          - TEST_GROUP=acceptance
+          - ON_EVENTS=push,cron
 addons:
   postgresql: 9.4
 
@@ -30,8 +45,8 @@ addons:
       - graphviz
 
   hosts:
-    - zed.de.spryker.dev
-    - www.de.spryker.dev
+    - zed.de.spryker.test
+    - www.de.spryker.test
 
 cache:
   directories:
@@ -40,45 +55,38 @@ cache:
 
 services:
   - postgresql
-  - elasticsearch
   - redis
 
 sudo: required
 
 install:
+  - chmod -R a+x deploy/travis/
   - composer self-update && composer --version
   - composer install --no-interaction
+  - deploy/travis/install_elasticsearch.sh
 
 before_script:
   - mkdir -p shared/data/common/jenkins
   - mkdir -p shared/data/common/jenkins/jobs
-  - mv config/Zed/propel.ci.yml config/Zed/propel.yml
-  - cp config/Shared/ci/travis/config_ci.php config/Shared/config_default-development_DE.php
-  - cp config/Shared/ci/travis/config_ci.php config/Shared/config_default-test.php
-
   - mkdir -p data/DE/cache/Yves/twig -m 0777
   - mkdir -p data/DE/cache/Zed/twig -m 0777
   - mkdir -p data/DE/logs -m 0777
+  - chmod -R 777 data/
+
+  - mv config/Zed/propel.ci.yml config/Zed/propel.yml
+  - cp config/Shared/ci/travis/config_ci.php config/Shared/config_default-devtest_DE.php
+  - cp config/Shared/ci/travis/params.sh deploy/setup/params_test_env.sh
+
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then deploy/travis/acceptance_env.sh; fi
 
 script:
-  - vendor/bin/console propel:install -o
   - vendor/bin/console transfer:generate
-  - vendor/bin/console setup:init-db
-  - vendor/bin/console setup:search
-  - vendor/bin/console import:demo-data
 
-  - vendor/bin/console application:build-navigation-cache
-
-  - chmod -R 777 data/
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then ./setup_test -f; fi
+  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then ./setup_test -b; fi
 
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance ; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance ; fi
-
-# Just in case you want to know about errors uncomment this
-#  - cat /tmp/zed-error.log
-
-  - vendor/bin/console collector:storage:export
-  - vendor/bin/console collector:search:export
 
   - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console code:sniff ; fi
 

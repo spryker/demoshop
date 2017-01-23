@@ -2810,11 +2810,11 @@
         },
         {
             "name": "spryker/application",
-            "version": "2.6.3",
+            "version": "2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Application.git",
-                "reference": "983b21e9c8f2c88a9cca1e09808fcf10de7276af",
+                "reference": "5fb1810b1b7bc20d9056212070f3f8039871ed5f",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -2824,8 +2824,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Application/zipball/983b21e9c8f2c88a9cca1e09808fcf10de7276af",
-                "reference": "983b21e9c8f2c88a9cca1e09808fcf10de7276af",
+                "url": "https://api.github.com/repos/spryker/Application/zipball/5fb1810b1b7bc20d9056212070f3f8039871ed5f",
+                "reference": "5fb1810b1b7bc20d9056212070f3f8039871ed5f",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2887,9 +2887,9 @@
             ],
             "description": "Application bundle",
             "support": {
-                "source": "https://github.com/spryker/Application/tree/master"
+                "source": "https://github.com/spryker/Application/tree/beta/payone"
             },
-            "time": "2016-11-14T18:02:42+00:00"
+            "time": "2017-01-20T08:44:47+00:00"
         },
         {
             "name": "spryker/assertion",
@@ -3075,11 +3075,11 @@
         },
         {
             "name": "spryker/availability",
-            "version": "3.0.2",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Availability.git",
-                "reference": "e2b4595117c387b21a8d15849547c62fc3bd5582",
+                "reference": "514756977d76cf372e4a81bf75e7600d502bf305",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3089,8 +3089,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Availability/zipball/e2b4595117c387b21a8d15849547c62fc3bd5582",
-                "reference": "e2b4595117c387b21a8d15849547c62fc3bd5582",
+                "url": "https://api.github.com/repos/spryker/Availability/zipball/514756977d76cf372e4a81bf75e7600d502bf305",
+                "reference": "514756977d76cf372e4a81bf75e7600d502bf305",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3142,9 +3142,9 @@
             ],
             "description": "Availability bundle",
             "support": {
-                "source": "https://github.com/spryker/Availability/tree/master"
+                "source": "https://github.com/spryker/Availability/tree/beta/payone"
             },
-            "time": "2016-12-29T13:04:45+00:00"
+            "time": "2017-01-13T09:07:13+00:00"
         },
         {
             "name": "spryker/availability-cart-connector",
@@ -5494,11 +5494,11 @@
         },
         {
             "name": "spryker/library",
-            "version": "2.6.0",
+            "version": "2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Library.git",
-                "reference": "5afb00d623f23239e77f5aac4c548d485c5e8437",
+                "reference": "17ba57c7e78492fff1f9e9c9363d27ffe4921a18",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5508,8 +5508,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Library/zipball/5afb00d623f23239e77f5aac4c548d485c5e8437",
-                "reference": "5afb00d623f23239e77f5aac4c548d485c5e8437",
+                "url": "https://api.github.com/repos/spryker/Library/zipball/17ba57c7e78492fff1f9e9c9363d27ffe4921a18",
+                "reference": "17ba57c7e78492fff1f9e9c9363d27ffe4921a18",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5572,9 +5572,9 @@
             ],
             "description": "Library bundle",
             "support": {
-                "source": "https://github.com/spryker/Library/tree/master"
+                "source": "https://github.com/spryker/Library/tree/beta/payone"
             },
-            "time": "2016-11-28T10:24:04+00:00"
+            "time": "2017-01-09T13:58:56+00:00"
         },
         {
             "name": "spryker/locale",
@@ -6251,11 +6251,11 @@
         },
         {
             "name": "spryker/oms",
-            "version": "5.0.0",
+            "version": "5.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Oms.git",
-                "reference": "9d02d3aa25cb221f8b3240161877f3a7b2ecf8f5",
+                "reference": "b4d62c8dff773cf2f61e3d565df92fd3443820ef",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6265,8 +6265,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Oms/zipball/9d02d3aa25cb221f8b3240161877f3a7b2ecf8f5",
-                "reference": "9d02d3aa25cb221f8b3240161877f3a7b2ecf8f5",
+                "url": "https://api.github.com/repos/spryker/Oms/zipball/b4d62c8dff773cf2f61e3d565df92fd3443820ef",
+                "reference": "b4d62c8dff773cf2f61e3d565df92fd3443820ef",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6325,7 +6325,7 @@
             "support": {
                 "source": "https://github.com/spryker/Oms/tree/master"
             },
-            "time": "2016-12-29T13:04:45+00:00"
+            "time": "2017-01-03T14:49:09+00:00"
         },
         {
             "name": "spryker/oms-discount-connector",
@@ -7938,11 +7938,11 @@
         },
         {
             "name": "spryker/search",
-            "version": "5.2.0",
+            "version": "5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Search.git",
-                "reference": "af5aa52d89fc12b5a8a5973640d25672157de1a3",
+                "reference": "fecfc7055e5e18d2a9462ba3d3ea88af3a35158d",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7952,8 +7952,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Search/zipball/af5aa52d89fc12b5a8a5973640d25672157de1a3",
-                "reference": "af5aa52d89fc12b5a8a5973640d25672157de1a3",
+                "url": "https://api.github.com/repos/spryker/Search/zipball/fecfc7055e5e18d2a9462ba3d3ea88af3a35158d",
+                "reference": "fecfc7055e5e18d2a9462ba3d3ea88af3a35158d",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8005,7 +8005,7 @@
             "support": {
                 "source": "https://github.com/spryker/Search/tree/master"
             },
-            "time": "2017-01-05T14:26:33+00:00"
+            "time": "2017-01-09T13:58:56+00:00"
         },
         {
             "name": "spryker/sequence-number",
@@ -8921,11 +8921,11 @@
         },
         {
             "name": "spryker/testify",
-            "version": "2.3.1",
+            "version": "2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Testify.git",
-                "reference": "9f6996bacb7abfe5b70ca12b7dda3f73c49571d1",
+                "reference": "0e784354ed9638a250e6f5596b1b799e2c9afb79",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8935,8 +8935,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Testify/zipball/9f6996bacb7abfe5b70ca12b7dda3f73c49571d1",
-                "reference": "9f6996bacb7abfe5b70ca12b7dda3f73c49571d1",
+                "url": "https://api.github.com/repos/spryker/Testify/zipball/0e784354ed9638a250e6f5596b1b799e2c9afb79",
+                "reference": "0e784354ed9638a250e6f5596b1b799e2c9afb79",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8955,7 +8955,8 @@
                 "spryker/silex": "^2.0.0"
             },
             "require-dev": {
-                "spryker/code-sniffer": "*"
+                "spryker/code-sniffer": "*",
+                "spryker/config": "^2.0.0"
             },
             "type": "library",
             "extra": {
@@ -8979,9 +8980,9 @@
             ],
             "description": "Testify bundle",
             "support": {
-                "source": "https://github.com/spryker/Testify/tree/master"
+                "source": "https://github.com/spryker/Testify/tree/beta/payone"
             },
-            "time": "2016-11-15T15:07:34+00:00"
+            "time": "2017-01-09T13:58:56+00:00"
         },
         {
             "name": "spryker/touch",
