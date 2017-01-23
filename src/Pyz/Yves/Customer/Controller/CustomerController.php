@@ -31,7 +31,11 @@ class CustomerController extends AbstractCustomerController
      */
     public function indexAction()
     {
-        $customerTransfer = $this->getLoggedInCustomerTransfer();
+        $loggedInCustomerTransfer = $this->getLoggedInCustomerTransfer();
+        $customerTransfer = $this
+            ->getClient()
+            ->getCustomerByEmail($loggedInCustomerTransfer);
+
         $overviewRequest = $this->createOverviewRequest($customerTransfer);
 
         $overviewResponse = $this

@@ -9,6 +9,7 @@ namespace Pyz\Client\Customer;
 
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CustomerOverviewRequestTransfer;
+use Generated\Shared\Transfer\CustomerTransfer;
 use Spryker\Client\Customer\CustomerClient as SprykerCustomerClient;
 
 /**
@@ -53,6 +54,25 @@ class CustomerClient extends SprykerCustomerClient implements CustomerClientInte
         $customerTransfer = parent::updateAddressAndCustomerDefaultAddresses($addressTransfer);
 
         $this->setCustomer($customerTransfer);
+
+        return $customerTransfer;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
+     *
+     * @return \Generated\Shared\Transfer\CustomerTransfer
+     */
+    public function setCustomer(CustomerTransfer $customerTransfer)
+    {
+        parent::setCustomer($customerTransfer);
+
+        $cartClient = $this->getFactory()->getCartClient();
+
+        $quoteTransfer = $cartClient->getQuote();
+        $quoteTransfer->setCustomer($customerTransfer);
+
+        $cartClient->storeQuote($quoteTransfer);
 
         return $customerTransfer;
     }

@@ -26,7 +26,11 @@ class AddressController extends AbstractCustomerController
      */
     public function indexAction()
     {
-        $customerTransfer = $this->getLoggedInCustomerTransfer();
+        $loggedInCustomerTransfer = $this->getLoggedInCustomerTransfer();
+
+        $customerTransfer = $this
+            ->getClient()
+            ->getCustomerByEmail($loggedInCustomerTransfer);
 
         $addressesTransfer = $this
             ->getClient()

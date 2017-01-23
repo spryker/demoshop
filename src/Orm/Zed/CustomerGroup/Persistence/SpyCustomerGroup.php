@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\CustomerGroup\Persistence;
 
-use Orm\Zed\CustomerGroup\Persistence\Base\SpyCustomerGroup as BaseSpyCustomerGroup;
+use Spryker\Zed\CustomerGroup\Persistence\Propel\AbstractSpyCustomerGroup as BaseSpyCustomerGroup;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_customer_group' table.

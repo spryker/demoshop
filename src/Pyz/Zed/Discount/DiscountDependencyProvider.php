@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Discount;
 
+use Spryker\Zed\CustomerGroupDiscountConnector\Communication\Plugin\DecisionRule\CustomerGroupDecisionRulePlugin;
 use Spryker\Zed\Discount\DiscountDependencyProvider as SprykerDiscountDependencyProvider;
 use Spryker\Zed\ProductDiscountConnector\Communication\Plugin\Collector\ProductAttributeCollectorPlugin;
 use Spryker\Zed\ProductDiscountConnector\Communication\Plugin\DecisionRule\ProductAttributeDecisionRulePlugin;
@@ -22,6 +23,7 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
         $decisionRulePlugins = parent::getDecisionRulePlugins();
 
         $decisionRulePlugins[] = new ProductAttributeDecisionRulePlugin();
+        $decisionRulePlugins[] = new CustomerGroupDecisionRulePlugin();
 
         return $decisionRulePlugins;
     }

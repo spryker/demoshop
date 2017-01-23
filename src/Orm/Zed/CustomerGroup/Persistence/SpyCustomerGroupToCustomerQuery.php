@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\CustomerGroup\Persistence;
 
-use Orm\Zed\CustomerGroup\Persistence\Base\SpyCustomerGroupToCustomerQuery as BaseSpyCustomerGroupToCustomerQuery;
+use Spryker\Zed\CustomerGroup\Persistence\Propel\AbstractSpyCustomerGroupToCustomerQuery as BaseSpyCustomerGroupToCustomerQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_customer_group_to_customer' table.
