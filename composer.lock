@@ -1252,7 +1252,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "088ed2bdc50f230748aa155cda9492b5417db94b"
+                "reference": "dc6d22d764c7114bd0ab796b3ca00d1dff5b0ad3"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1824,7 +1824,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-01-20 16:28:15"
+            "time": "2017-01-23 10:14:28"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4371,16 +4371,16 @@
     "packages-dev": [
         {
             "name": "codeception/c3",
-            "version": "2.0.8",
+            "version": "2.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/c3.git",
-                "reference": "d71e5d2b015169fce61c923bfbf41c3d83087604"
+                "reference": "85c8e405a03c1d5055f1977673b20377aaa0bd22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/c3/zipball/d71e5d2b015169fce61c923bfbf41c3d83087604",
-                "reference": "d71e5d2b015169fce61c923bfbf41c3d83087604",
+                "url": "https://api.github.com/repos/Codeception/c3/zipball/85c8e405a03c1d5055f1977673b20377aaa0bd22",
+                "reference": "85c8e405a03c1d5055f1977673b20377aaa0bd22",
                 "shasum": ""
             },
             "require": {
@@ -4417,7 +4417,7 @@
                 "code coverage",
                 "codecoverage"
             ],
-            "time": "2016-09-16T22:57:33+00:00"
+            "time": "2017-01-21T00:34:49+00:00"
         },
         {
             "name": "codeception/codeception",
