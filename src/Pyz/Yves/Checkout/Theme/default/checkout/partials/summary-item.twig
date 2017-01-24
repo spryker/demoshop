@@ -22,9 +22,6 @@
         {% endfor %}
     {% endif %}
 
-    <br>
-    <small class="__secondary">{{ 'product.attribute.sku' | trans }}: {{ item.sku }} - <strong>{{ item.sumItemTotal|price }}</strong> </small>
-
     {% if not loop.last %}
         <hr>
     {% else %}

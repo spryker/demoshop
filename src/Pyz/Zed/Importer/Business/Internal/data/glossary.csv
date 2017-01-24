@@ -813,3 +813,9 @@ cart.item.bundle.description,"Items in the bundle:",en_US
 cart.item.bundle.description,"Produkte in diesem Bündel:",de_DE
 checkout.summary.item.bundle.description,"Items in the bundle:",en_US
 checkout.summary.item.bundle.description,"Produkte in diesem Bündel:",de_DE
+customer.order.bundled_items,"Produkte in diesem Bündel:",de_DE
+customer.order.bundled_items,"Items in the bundle:",en_US
+customer.order.options,"Produktoptionen:",de_DE
+customer.order.options,"Product Options:",en_US
+countries.iso.AT,"Österreich",de_DE
+countries.iso.AT,"Austria",en_US

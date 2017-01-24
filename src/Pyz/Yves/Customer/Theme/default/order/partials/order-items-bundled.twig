@@ -22,5 +22,13 @@
         {% for bundledItem in orderItem.bundleItems %}
             - {{ bundledItem.quantity }} x {{ bundledItem.name }} <br />
         {% endfor %}
+
+        {% if orderItem.bundleProduct.productOptions|length > 0 %}
+            {{ "customer.order.options" | trans }} <br />
+            {% for productOption in orderItem.bundleProduct.productOptions %}
+                &nbsp; - {{ productOption.value | trans }} {{ productOption.sumGrossPrice | money }}  <br />
+            {% endfor %}
+        {% endif %}
+
     </td>
 </tr>
