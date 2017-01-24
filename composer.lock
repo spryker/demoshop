@@ -3539,11 +3539,11 @@
         },
         {
             "name": "spryker/category",
-            "version": "2.3.1",
+            "version": "2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Category.git",
-                "reference": "2b891a887dc639c2063614a438d3502548f38c72",
+                "reference": "dd9c1e87272ab470aa098f42dad2423d2849604e",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3553,8 +3553,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Category/zipball/2b891a887dc639c2063614a438d3502548f38c72",
-                "reference": "2b891a887dc639c2063614a438d3502548f38c72",
+                "url": "https://api.github.com/repos/spryker/Category/zipball/dd9c1e87272ab470aa098f42dad2423d2849604e",
+                "reference": "dd9c1e87272ab470aa098f42dad2423d2849604e",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3608,7 +3608,7 @@
             "support": {
                 "source": "https://github.com/spryker/Category/tree/master"
             },
-            "time": "2017-01-23T09:54:41+00:00"
+            "time": "2017-01-23T10:46:39+00:00"
         },
         {
             "name": "spryker/category-exporter",
@@ -5100,11 +5100,11 @@
         },
         {
             "name": "spryker/gui",
-            "version": "2.3.1",
+            "version": "2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Gui.git",
-                "reference": "0973fdb7ed21e46315409b9ea9c4155b32293926",
+                "reference": "e27543af58a82c3350ec022fda0582f5305fea21",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5114,8 +5114,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Gui/zipball/0973fdb7ed21e46315409b9ea9c4155b32293926",
-                "reference": "0973fdb7ed21e46315409b9ea9c4155b32293926",
+                "url": "https://api.github.com/repos/spryker/Gui/zipball/e27543af58a82c3350ec022fda0582f5305fea21",
+                "reference": "e27543af58a82c3350ec022fda0582f5305fea21",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5160,7 +5160,7 @@
             "support": {
                 "source": "https://github.com/spryker/Gui/tree/master"
             },
-            "time": "2016-12-09T15:52:55+00:00"
+            "time": "2017-01-24T10:51:00+00:00"
         },
         {
             "name": "spryker/guzzle",
@@ -7795,11 +7795,11 @@
         },
         {
             "name": "spryker/sales",
-            "version": "3.0.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Sales.git",
-                "reference": "9dc27161f74129c491611f09f5685c93ecb139b7",
+                "reference": "034f50057023ffa0942fb8a1116c0ffc557f8cf8",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7809,8 +7809,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Sales/zipball/9dc27161f74129c491611f09f5685c93ecb139b7",
-                "reference": "9dc27161f74129c491611f09f5685c93ecb139b7",
+                "url": "https://api.github.com/repos/spryker/Sales/zipball/034f50057023ffa0942fb8a1116c0ffc557f8cf8",
+                "reference": "034f50057023ffa0942fb8a1116c0ffc557f8cf8",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7837,6 +7837,7 @@
                 "spryker/symfony": "^2.1.6",
                 "spryker/url": "^2.0.0",
                 "spryker/user": "^2.0.0",
+                "spryker/util-sanitize": "^1.0.0",
                 "spryker/zed-request": "^2.0.0"
             },
             "require-dev": {
@@ -7872,7 +7873,7 @@
             "support": {
                 "source": "https://github.com/spryker/Sales/tree/master"
             },
-            "time": "2016-12-29T13:04:45+00:00"
+            "time": "2017-01-24T11:16:41+00:00"
         },
         {
             "name": "spryker/sales-aggregator",
