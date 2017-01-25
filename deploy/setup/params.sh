@@ -10,5 +10,9 @@ ELASTIC_SEARCH_INDEX='de_search'
 VERBOSITY='-v'
 CONSOLE=vendor/bin/console
 
+#frontend
+FRONTEND_PKG_MANAGER='npm'
+FRONTEND_YVES_COMMAND='yves:dev'
+FRONTEND_ZED_COMMAND='zed:dev'
 
 

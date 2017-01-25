@@ -162,7 +162,7 @@ function installZed {
     labelText "Setting up IDE autocompletion"
     $CONSOLE dev:ide:generate-auto-completion $VERBOSITY
 
-    antelopeInstallZed
+    frontendInstallZed
 
     labelText "Zed setup successful"
 }
@@ -170,7 +170,7 @@ function installZed {
 function installYves {
     setupText "Yves setup"
 
-    antelopeInstallYves
+    frontendInstallYves
 
     labelText "Yves setup successful"
 }
@@ -289,9 +289,9 @@ function resetYves {
 }
 
 function checkNodejsVersion {
-    if [[ `node -v | grep -E '^v[0-4]'` ]]; then
+    if [[ `node -v | grep -E '^v[0-5]'` ]]; then
         labelText "Upgrade Node.js"
-        $CURL -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+        $CURL -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
         sudo apt-get install -y nodejs
 
@@ -300,42 +300,26 @@ function checkNodejsVersion {
     fi
 }
 
-function installAntelope {
+function frontendInstallZed {
     checkNodejsVersion
 
-    labelText "Install or Update Antelope tool globally"
-    sudo $NPM install -g antelope
-    writeErrorMessage "Antelope setup failed"
+    labelText "Installing core dependencies"
+    $FRONTEND_PKG_MANAGER install
+
+    labelText "Building and optimizing assets for Zed"
+    $FRONTEND_PKG_MANAGER run $FRONTEND_ZED_COMMAND
+    writeErrorMessage "Build failed"
 }
 
-function antelopeInstallZed {
-    installAntelope
+function frontendInstallYves {
+    checkNodejsVersion
 
-    ANTELOPE_TOOL=`which antelope`
+    labelText "Installing project dependencies"
+    $FRONTEND_PKG_MANAGER install
 
-    if [[ -f $ANTELOPE_TOOL ]]; then
-        labelText "Installing project dependencies"
-        $ANTELOPE_TOOL install
-
-        labelText "Building and optimizing assets for Zed"
-        $ANTELOPE_TOOL build zed
-        writeErrorMessage "Antelope build failed"
-    fi
-}
-
-function antelopeInstallYves {
-    installAntelope
-
-    ANTELOPE_TOOL=`which antelope`
-
-    if [[ -f $ANTELOPE_TOOL ]]; then
-        labelText "Installing project dependencies"
-        $ANTELOPE_TOOL install
-
-        labelText "Building and optimizing assets for Yves"
-        $ANTELOPE_TOOL build yves
-        writeErrorMessage "Antelope build failed"
-    fi
+    labelText "Building and optimizing assets for Zed"
+    $FRONTEND_PKG_MANAGER run $FRONTEND_YVES_COMMAND
+    writeErrorMessage "Build failed"
 }
 
 function displayHeader {
