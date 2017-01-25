@@ -116,6 +116,23 @@ class PropelTransactionHandlerTest extends Test
     }
 
     /**
+     * @depends testAddProductWithoutTransactionHandling
+     *
+     * @return void
+     */
+    public function testAddProductWithTransactionHandlingShouldCommitAndReturnValue()
+    {
+        $productManager = new ProductManagerStub(
+            $this->productQueryContainer
+        );
+
+        $localizedAttributeEntity = $productManager->addProductWithTransactionHandlingShouldCommitAndReturnValue(static::TEST_SKU, static::TEST_NAME);
+
+        $this->assertEntityCreatedWithinTransaction();
+        $this->assertSame($localizedAttributeEntity->getName(), static::TEST_NAME);
+    }
+
+    /**
      * @param int $idProductAbstract
      *
      * @return \Orm\Zed\Product\Persistence\SpyProductAbstract

@@ -121,7 +121,7 @@ class ProductManagerStub
      */
     public function addProductWithTransactionHandlingShouldRollbackAndThrowException($sku, $name)
     {
-        $this->handleDatabaseTransaction($this->productQueryContainer->getConnection(), function () use ($sku, $name) {
+        $this->handleDatabaseTransaction(function () use ($sku, $name) {
             $productAbstractEntity = new SpyProductAbstract();
             $productAbstractEntity->setSku($sku);
             $productAbstractEntity->setAttributes('{}');
@@ -135,7 +135,33 @@ class ProductManagerStub
             $localizedAttributeEntity->save();
 
             throw new Exception('DB error occured');
-        });
+        }, $this->productQueryContainer->getConnection());
+    }
+
+    /**
+     * @param string $sku
+     * @param string $name
+     *
+     * @return \Orm\Zed\Product\Persistence\SpyProductAbstractLocalizedAttributes
+     */
+    public function addProductWithTransactionHandlingShouldCommitAndReturnValue($sku, $name)
+    {
+        return $this->handleDatabaseTransaction(function () use ($sku, $name) {
+            $productAbstractEntity = new SpyProductAbstract();
+            $productAbstractEntity->setSku($sku);
+            $productAbstractEntity->setAttributes('{}');
+            $productAbstractEntity->save();
+
+            $localizedAttributeEntity = new SpyProductAbstractLocalizedAttributes();
+            $localizedAttributeEntity->setAttributes('{}');
+            $localizedAttributeEntity->setFkLocale(66);
+            $localizedAttributeEntity->setName($name);
+            $localizedAttributeEntity->setFkProductAbstract($productAbstractEntity->getIdProductAbstract());
+            $localizedAttributeEntity->save();
+
+            return $localizedAttributeEntity;
+
+        }, $this->productQueryContainer->getConnection());
     }
 
 }
