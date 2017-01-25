@@ -10,7 +10,7 @@
   },
   "scripts": {
     "yves:dev": "node ./assets/Yves/default/build",
-    "zed:dev": "node ./assets/Zed/build"
+    "zed:dev": "node ./node_modules/impala-for-zed/run"
   },
   "dependencies": {
     "font-awesome": "~4.6.1",
@@ -32,6 +32,9 @@
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^2.0.0"
+    "webpack": "^2.0.0",
+
+    "impala": "git+https://git@github.com/spryker/impala.git#8dc61020e076b1956f3a59790eda6d63675bfff8",
+    "impala-for-zed": "git+https://git@github.com/spryker/impala-for-zed.git#43872b4563090fa21e01ff42852fa503299e4894"
   }
 }

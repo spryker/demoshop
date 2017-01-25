@@ -16,7 +16,7 @@ let configuration = {
     context: cwd,
     devtool: false,
     watch: false,
-    stats: 'minimal',
+    stats: 'errors-only',
 
     entry: {
         'vendor': path.join(sourceDir, 'vendor.entry.js'),
@@ -87,6 +87,4 @@ let configuration = {
     ]
 };
 
-module.exports = {
-    configuration
-};
+module.exports = configuration;

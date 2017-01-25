@@ -11,6 +11,8 @@ CURL=`which curl`
 NPM=`which npm`
 GIT=`which git`
 PHP=`which php`
+FIND=`which find`
+FE_TOOL=`which $FE_PKG_MANAGER`
 
 ERROR_BKG=`tput setab 1` # background red
 GREEN_BKG=`tput setab 2` # background green
@@ -53,7 +55,7 @@ function successText {
 }
 
 function warningText {
-    echo -e "\n${YELLOW_BKG}${RED_TEXT}=> ${1} <=${NC}\n"
+    echo -e "\n${YELLOW_BKG}${BLACK_TEXT}=> ${1} <=${NC}\n"
 }
 
 function setupText {
@@ -293,7 +295,7 @@ function checkNodejsVersion {
         labelText "Upgrade Node.js"
         $CURL -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
-        sudo apt-get install -y nodejs
+        sudo -i apt-get install -y nodejs
 
         successText "Node.js updated to version `node -v`"
         successText "NPM updated to version `$NPM -v`"
@@ -303,23 +305,36 @@ function checkNodejsVersion {
 function frontendInstallZed {
     checkNodejsVersion
 
-    labelText "Installing core dependencies"
-    $FRONTEND_PKG_MANAGER install
+    if [[ -f $FE_TOOL ]]; then
+        labelText "Frontend: installing bundle dependencies"
+        bundlePkgJsonPaths=($($FIND vendor/ -regex "$FE_ZED_BUNDLE_PKGJSON_PATTERN"))
 
-    labelText "Building and optimizing assets for Zed"
-    $FRONTEND_PKG_MANAGER run $FRONTEND_ZED_COMMAND
-    writeErrorMessage "Build failed"
+        for bundlePkgJsonPath in ${bundlePkgJsonPaths[*]}
+        do
+            bundlePkgJsonParentPath=`dirname $bundlePkgJsonPath`
+            echo $bundlePkgJsonParentPath
+            (cd $bundlePkgJsonParentPath && $FE_TOOL install)
+            writeErrorMessage "Installation failed"
+        done
+
+        echo "done"
+        labelText "Frontend: building assets for Zed"
+        $FE_TOOL run $FE_ZED_SCRIPT
+        writeErrorMessage "Build failed"
+    fi
 }
 
 function frontendInstallYves {
     checkNodejsVersion
 
-    labelText "Installing project dependencies"
-    $FRONTEND_PKG_MANAGER install
+    if [[ -f $FE_TOOL ]]; then
+        labelText "Frontend: installing project dependencies"
+        $FE_TOOL install
 
-    labelText "Building and optimizing assets for Zed"
-    $FRONTEND_PKG_MANAGER run $FRONTEND_YVES_COMMAND
-    writeErrorMessage "Build failed"
+        labelText "Frontend: building assets for Yves"
+        $FE_TOOL run $FE_YVES_SCRIPT
+        writeErrorMessage "Build failed"
+    fi
 }
 
 function displayHeader {

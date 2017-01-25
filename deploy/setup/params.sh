@@ -10,9 +10,10 @@ ELASTIC_SEARCH_INDEX='de_search'
 VERBOSITY='-v'
 CONSOLE=vendor/bin/console
 
-#frontend
-FRONTEND_PKG_MANAGER='npm'
-FRONTEND_YVES_COMMAND='yves:dev'
-FRONTEND_ZED_COMMAND='zed:dev'
+# frontend (FE)
+FE_PKG_MANAGER='yarn'
+FE_YVES_SCRIPT='yves:dev'
+FE_ZED_SCRIPT='zed:dev'
+FE_ZED_BUNDLE_PKGJSON_PATTERN=".+/assets/Zed/package.json$"
 
 

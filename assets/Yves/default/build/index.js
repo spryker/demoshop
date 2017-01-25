@@ -2,21 +2,24 @@
 
 const path = require('path');
 const Impala = require('impala');
-const cwd = process.cwd();
-const webpack = require('./webpack');
+const configuration = require('./webpack.config');
 
-const app = Impala.create({
-    name: 'demoshop:yves'
-});
+const settings = {
+    app: {
+        name: 'demoshop-yves',
+        verbosity: Impala.Api.Logger.Verbosity.VERBOSE
+    },
 
-const paths = app.finder.find([
-    '**/Yves/**/*.entry.js'
-], [
-    path.join(cwd, 'vendor/spryker/spryker/Bundles')
-]);
+    entryPoints: {
+        patterns: ['**/Yves/**/*.entry.js'],
+        paths: [path.resolve('vendor/spryker')],
+        description: 'looking for entry points...'
+    }
+};
 
-const entryPoints = app.finder.toObject(paths, '.entry.js');
+let app = Impala.create(settings.app);
+let paths = app.finder.find(settings.entryPoints);
+let entryPoints = app.finder.toObject(paths, '.entry.js');
 
-webpack.configuration.entry = Object.assign({}, webpack.configuration.entry, entryPoints);
-
-app.builder.build(webpack.configuration);
+configuration.entry = Object.assign({}, configuration.entry, entryPoints);
+return app.builder.build(configuration);
