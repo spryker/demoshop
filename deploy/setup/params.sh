@@ -11,7 +11,7 @@ VERBOSITY='-v'
 CONSOLE=vendor/bin/console
 
 # frontend (FE)
-FE_ANTELOPE_LEGACY=true
+FE_ANTELOPE_LEGACY=false
 FE_PKG_MANAGER='npm'
 FE_YVES_SCRIPT='yves'
 FE_ZED_SCRIPT='zed'
