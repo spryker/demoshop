@@ -2,34 +2,45 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const settings = require('./settings');
 
-const themeName = 'default';
-const cwd = process.cwd();
-const sourcePath = './assets/Yves/' + themeName;
-const publicPath = '/assets/' + themeName;
-const sourceDir = path.join(cwd, sourcePath);
-const publicDir = path.join(cwd, 'public/Yves', publicPath);
+let postCssPlugins = [];
 
-let configuration = {
-    context: cwd,
-    devtool: false,
-    watch: false,
-    stats: 'errors-only',
+if (settings.options.isProduction) {
+    postCssPlugins = [
+        autoprefixer({
+            browsers: ['last 4 versions']
+        })
+    ];
+}
+
+let config = {
+    context: settings.build.rootDir,
+    stats: settings.options.isVerbose ? 'normal' : 'errors-only',
+    devtool: settings.options.isProduction ? false : 'cheap-module-eval-source-map',
+
+    watch: settings.options.isWatching,
+    watchOptions: {
+        aggregateTimeout: 300,
+        poll: 500,
+        ignored: /(node_modules|vendor|public|src)/
+    },
 
     entry: {
-        'vendor': path.join(sourceDir, 'vendor.entry.js'),
-        'app': path.join(sourceDir, 'app.entry.js')
+        'vendor': path.join(settings.build.sourceDir, 'vendor.entry.js'),
+        'app': path.join(settings.build.sourceDir, 'app.entry.js')
     },
 
     output: {
-        path: publicDir,
+        path: settings.build.publicDir,
         filename: `/js/[name].js`
     },
 
     resolve: {
-        modules: ['node_modules', sourcePath],
+        modules: ['node_modules', settings.build.sourcePath],
         extensions: ['.js', '.css', '.scss']
     },
 
@@ -41,8 +52,10 @@ let configuration = {
                 loader: [{
                     loader: 'css-loader',
                     query: {
-                        sourceMap: true
+                        sourceMap: !settings.options.isProduction
                     }
+                }, {
+                    loader: 'postcss-loader'
                 }]
             })
         }, {
@@ -52,12 +65,15 @@ let configuration = {
                 loader: [{
                     loader: 'css-loader',
                     query: {
-                        sourceMap: true
+                        sourceMap: !settings.options.isProduction
                     }
+                }, {
+                    loader: 'postcss-loader'
                 }, {
                     loader: 'sass-loader',
                     query: {
-                        sourceMap: true
+                        sourceMap: !settings.options.isProduction,
+                        outputStyle: settings.options.isProduction ? 'compressed' : 'expanded',
                     }
                 }]
             })
@@ -67,24 +83,51 @@ let configuration = {
                 loader: 'file-loader',
                 options: {
                     name: '/fonts/[name].[ext]',
-                    publicPath: publicPath
+                    publicPath: settings.build.publicPath
                 }
             }]
         }]
     },
 
     plugins: [
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                context: settings.build.rootDir,
+                postcss: postCssPlugins
+            }
+        }),
         new webpack.DefinePlugin({
-            DEV: true,
+            DEV: !settings.options.isProduction,
+            'process.env': {
+                'NODE_ENV': settings.options.isProduction ? '"production"' : '"development"'
+            }
         }),
         new ExtractTextPlugin({
             filename: 'css/[name].css'
         }),
         new CopyPlugin([{
-            from: path.resolve(sourceDir, 'img'),
+            from: path.join(settings.build.sourceDir, 'img'),
             to: 'img'
         }])
     ]
 };
 
-module.exports = configuration;
+if (settings.options.isProduction) {
+    config.plugins = [
+        ...config.plugins,
+        new webpack.optimize.UglifyJsPlugin({
+            output: {
+                comments: false,
+                source_map: null
+            },
+            sourceMap: true,
+            mangle: false,
+            compress: {
+                warnings: false,
+                dead_code: true
+            }
+        })
+    ];
+}
+
+module.exports = config;

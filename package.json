@@ -9,32 +9,35 @@
     "url": "http://spryker.com/"
   },
   "scripts": {
-    "yves:dev": "node ./assets/Yves/default/build",
-    "zed:dev": "node ./node_modules/impala-for-zed/run"
+    "yves": "node ./assets/Yves/default/build",
+    "yves:dev": "node ./assets/Yves/default/build --dev",
+    "yves:prod": "node ./assets/Yves/default/build --prod",
+    "zed": "node ./node_modules/impala-for-zed/build",
+    "zed:dev": "node ./node_modules/impala-for-zed/build --dev",
+    "zed:prod": "node ./node_modules/impala-for-zed/build --prod"
+  },
+  "engines": {
+    "node": "^6.0.0"
   },
   "dependencies": {
     "font-awesome": "~4.6.1",
     "foundation-sites": "~6.2.1",
     "jquery": "~2.2.4",
-    "lodash": "^4.17.2",
+    "lodash": "~4.17.2",
     "motion-ui": "~1.1.0"
   },
   "devDependencies": {
-    "autoprefixer": "~6.5.1",
-    "clean-webpack-plugin": "~0.1.13",
-    "copy-webpack-plugin": "~3.0.1",
-    "css-loader": "~0.25.0",
+    "autoprefixer": "~6.7.0",
+    "clean-webpack-plugin": "~0.1.15",
+    "copy-webpack-plugin": "~4.0.1",
+    "css-loader": "~0.26.1",
     "extract-text-webpack-plugin": "2.0.0-beta.5",
-    "file-loader": "^0.9.0",
-    "node-sass": "^3.10.1",
-    "postcss-loader": "~0.13.0",
-    "resolve-url-loader": "~1.6.0",
-    "sass-loader": "^4.0.2",
-    "style-loader": "^0.13.1",
-    "url-loader": "^0.5.7",
-    "webpack": "^2.0.0",
-
-    "impala": "git+https://git@github.com/spryker/impala.git#8dc61020e076b1956f3a59790eda6d63675bfff8",
-    "impala-for-zed": "git+https://git@github.com/spryker/impala-for-zed.git#43872b4563090fa21e01ff42852fa503299e4894"
+    "file-loader": "~0.9.0",
+    "node-sass": "~4.3.0",
+    "postcss-loader": "~1.2.2",
+    "sass-loader": "~4.1.1",
+    "style-loader": "~0.13.1",
+    "webpack": "~2.2.0",
+    "yargs": "~6.6.0"
   }
 }

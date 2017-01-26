@@ -11,9 +11,10 @@ VERBOSITY='-v'
 CONSOLE=vendor/bin/console
 
 # frontend (FE)
-FE_PKG_MANAGER='yarn'
-FE_YVES_SCRIPT='yves:dev'
-FE_ZED_SCRIPT='zed:dev'
+FE_ANTELOPE_LEGACY=true
+FE_PKG_MANAGER='npm'
+FE_YVES_SCRIPT='yves'
+FE_ZED_SCRIPT='zed'
 FE_ZED_BUNDLE_PKGJSON_PATTERN=".+/assets/Zed/package.json$"
 
 

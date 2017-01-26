@@ -1,25 +1,19 @@
 'use strict';
 
 const path = require('path');
-const Impala = require('impala');
+const impala = require('impala');
+const settings = require('./settings');
 const configuration = require('./webpack.config');
 
-const settings = {
-    app: {
-        name: 'demoshop-yves',
-        verbosity: Impala.Api.Logger.Verbosity.VERBOSE
-    },
+const app = impala.App.create(settings.impala.app);
 
-    entryPoints: {
-        patterns: ['**/Yves/**/*.entry.js'],
-        paths: [path.resolve('vendor/spryker')],
-        description: 'looking for entry points...'
-    }
-};
-
-let app = Impala.create(settings.app);
-let paths = app.finder.find(settings.entryPoints);
-let entryPoints = app.finder.toObject(paths, '.entry.js');
+const entryPoints = app.finder
+    .find(settings.impala.entryPoints)
+    .reduce((results, currentPath) => {
+        let key = path.basename(currentPath, '.entry.js');
+        results[key] = currentPath;
+        return results;
+    }, {});
 
 configuration.entry = Object.assign({}, configuration.entry, entryPoints);
 return app.builder.build(configuration);
