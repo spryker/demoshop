@@ -86,8 +86,6 @@ class ProductManagerStub
      * @param string $sku
      * @param string $name
      *
-     * @throws \Exception
-     *
      * @return void
      */
     public function addProductWithoutTransactionHandlingShouldThrowException($sku, $name)
@@ -99,7 +97,7 @@ class ProductManagerStub
         $productAbstractEntity->setAttributes('{}');
         $productAbstractEntity->save();
 
-        throw new Exception('DB error occured');
+        $this->throwSampleException();
 
         $localizedAttributeEntity = new SpyProductAbstractLocalizedAttributes();
         $localizedAttributeEntity->setAttributes('{}');
@@ -114,8 +112,6 @@ class ProductManagerStub
     /**
      * @param string $sku
      * @param string $name
-     *
-     * @throws \Exception
      *
      * @return void
      */
@@ -134,7 +130,8 @@ class ProductManagerStub
             $localizedAttributeEntity->setFkProductAbstract($productAbstractEntity->getIdProductAbstract());
             $localizedAttributeEntity->save();
 
-            throw new Exception('DB error occured');
+            $this->throwSampleException();
+
         }, $this->productQueryContainer->getConnection());
     }
 
@@ -162,6 +159,16 @@ class ProductManagerStub
             return $localizedAttributeEntity;
 
         }, $this->productQueryContainer->getConnection());
+    }
+
+    /**
+     * @throws \Exception
+     *
+     * @return void
+     */
+    protected function throwSampleException()
+    {
+        throw new Exception('DB error occured');
     }
 
 }
