@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e90b10216c99c06b6168294b81be5c4",
+    "content-hash": "2b0c4d23cdb17d7c3ee6ccf74503d29a",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1248,11 +1248,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-819-propel-transactions",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "cc05ba687aeed3318d0d915d9ba157e4055a82ed"
+                "reference": "c67cc6641a0ca9fb3e5559a8c878cf9e2b74884f"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1449,6 +1449,7 @@
                     "Unit\\Spryker\\Zed\\Graph\\": "Bundles/Graph/tests",
                     "Spryker\\Shared\\Gui\\": "Bundles/Gui/src",
                     "Spryker\\Zed\\Gui\\": "Bundles/Gui/src",
+                    "Unit\\Spryker\\Zed\\Gui\\": "Bundles/Gui/tests",
                     "Spryker\\Shared\\Heartbeat\\": "Bundles/Heartbeat/src",
                     "Unit\\Spryker\\Shared\\Heartbeat\\": "Bundles/Heartbeat/tests",
                     "Spryker\\Zed\\Heartbeat\\": "Bundles/Heartbeat/src",
@@ -1824,7 +1825,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-01-24 11:16:41"
+            "time": "2017-01-26 09:32:44"
         },
         {
             "name": "swiftmailer/swiftmailer",
