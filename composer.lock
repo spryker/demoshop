@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2b0c4d23cdb17d7c3ee6ccf74503d29a",
+    "content-hash": "7e90b10216c99c06b6168294b81be5c4",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1248,11 +1248,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-819-propel-transactions",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "fc4cfc5ba6258d55565aac2b2f88d40dab3ccedc"
+                "reference": "cc05ba687aeed3318d0d915d9ba157e4055a82ed"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1824,7 +1824,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-01-25 16:20:29"
+            "time": "2017-01-24 11:16:41"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4371,16 +4371,16 @@
     "packages-dev": [
         {
             "name": "codeception/c3",
-            "version": "2.0.8",
+            "version": "2.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/c3.git",
-                "reference": "d71e5d2b015169fce61c923bfbf41c3d83087604"
+                "reference": "85c8e405a03c1d5055f1977673b20377aaa0bd22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/c3/zipball/d71e5d2b015169fce61c923bfbf41c3d83087604",
-                "reference": "d71e5d2b015169fce61c923bfbf41c3d83087604",
+                "url": "https://api.github.com/repos/Codeception/c3/zipball/85c8e405a03c1d5055f1977673b20377aaa0bd22",
+                "reference": "85c8e405a03c1d5055f1977673b20377aaa0bd22",
                 "shasum": ""
             },
             "require": {
@@ -4417,7 +4417,7 @@
                 "code coverage",
                 "codecoverage"
             ],
-            "time": "2016-09-16T22:57:33+00:00"
+            "time": "2017-01-21T00:34:49+00:00"
         },
         {
             "name": "codeception/codeception",
