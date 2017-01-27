@@ -45,6 +45,7 @@ const settings = {
 
     // impala settings
     impala: {
+
         // application settings
         app: {
             // application name (shown by the logger)
