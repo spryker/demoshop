@@ -1,4 +1,13 @@
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 'use strict';
+
+// this is a very pure webpack 2 configuration
+// for more info and docs:
+// https://webpack.js.org
 
 const path = require('path');
 const webpack = require('webpack');
