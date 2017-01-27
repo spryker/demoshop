@@ -12,7 +12,7 @@ CONSOLE=vendor/bin/console
 
 # frontend (FE)
 FE_ANTELOPE_LEGACY=false
-FE_PKG_MANAGER='npm'
+FE_PACKAGE_MANAGER='yarn'
 FE_YVES_SCRIPT='yves'
 FE_ZED_SCRIPT='zed'
 FE_ZED_BUNDLE_PKGJSON_PATTERN=".+/assets/Zed/package.json$"

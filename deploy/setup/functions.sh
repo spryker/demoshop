@@ -11,8 +11,6 @@ CURL=`which curl`
 NPM=`which npm`
 GIT=`which git`
 PHP=`which php`
-FIND=`which find`
-FE_TOOL=`which $FE_PKG_MANAGER`
 
 ERROR_BKG=`tput setab 1` # background red
 GREEN_BKG=`tput setab 2` # background green
@@ -164,28 +162,18 @@ function installZed {
     labelText "Setting up IDE autocompletion"
     $CONSOLE dev:ide:generate-auto-completion $VERBOSITY
 
-    if [ $FE_ANTELOPE_LEGACY = true ] ; then
-        antelopeInstallZed
-    else
-        frontendInstallZed
-    fi
+    setupZedFrontend
 
-    labelText "Zed setup successful"
+    labelText "Zed setup completed successfully"
 }
 
 function installYves {
     setupText "Yves setup"
 
-    if [ $FE_ANTELOPE_LEGACY = true ] ; then
-        antelopeInstallYves
-    else
-        frontendInstallYves
-    fi
+    setupYvesFrontend
 
-    labelText "Yves setup successful"
+    labelText "Yves setup completed successfully"
 }
-
-
 
 function optimizeRepo {
     labelText "Optimizing repository"
@@ -335,97 +323,4 @@ function displayHelp {
     echo "  -v, -vv, -vvv"
     echo "      Set verbosity level"
     echo " "
-}
-
-# frontend
-
-function checkNodejsVersion {
-    if [[ `node -v | grep -E '^v[0-5]'` ]]; then
-        labelText "Upgrade Node.js"
-        $CURL -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-
-        sudo -i apt-get install -y nodejs
-
-        successText "Node.js updated to version `node -v`"
-        successText "NPM updated to version `$NPM -v`"
-    fi
-}
-
-function frontendInstallZed {
-    checkNodejsVersion
-
-    if [[ -f $FE_TOOL ]]; then
-        labelText "Frontend: installing project dependencies"
-        $FE_TOOL install
-
-        labelText "Frontend: installing bundle dependencies"
-        bundlePkgJsonPaths=($($FIND vendor/ -regex "$FE_ZED_BUNDLE_PKGJSON_PATTERN"))
-
-        for bundlePkgJsonPath in ${bundlePkgJsonPaths[*]}
-        do
-            bundlePkgJsonParentPath=`dirname $bundlePkgJsonPath`
-            echo $bundlePkgJsonParentPath
-            (cd $bundlePkgJsonParentPath && $FE_TOOL install)
-            writeErrorMessage "Installation failed"
-        done
-
-        labelText "Frontend: building assets for Zed"
-        $FE_TOOL run $FE_ZED_SCRIPT
-        writeErrorMessage "Build failed"
-    fi
-}
-
-function frontendInstallYves {
-    checkNodejsVersion
-
-    if [[ -f $FE_TOOL ]]; then
-        labelText "Frontend: installing project dependencies"
-        $FE_TOOL install
-
-        labelText "Frontend: building assets for Yves"
-        $FE_TOOL run $FE_YVES_SCRIPT
-        writeErrorMessage "Build failed"
-    fi
-}
-
-# frontend: antelope (legacy)
-
-function installAntelope {
-    checkNodejsVersion
-
-    if [[ -f $FE_TOOL ]]; then
-        labelText "Install or Update Antelope tool globally"
-        sudo $FE_TOOL install -g antelope
-        writeErrorMessage "Antelope setup failed"
-    fi
-}
-
-function antelopeInstallZed {
-    installAntelope
-
-    ANTELOPE_TOOL=`which antelope`
-
-    if [[ -f $ANTELOPE_TOOL ]]; then
-        labelText "Installing project dependencies"
-        $ANTELOPE_TOOL install
-
-        labelText "Building and optimizing assets for Zed"
-        $ANTELOPE_TOOL build zed
-        writeErrorMessage "Antelope build failed"
-    fi
-}
-
-function antelopeInstallYves {
-    installAntelope
-
-    ANTELOPE_TOOL=`which antelope`
-
-    if [[ -f $ANTELOPE_TOOL ]]; then
-        labelText "Installing project dependencies"
-        $ANTELOPE_TOOL install
-
-        labelText "Building and optimizing assets for Yves"
-        $ANTELOPE_TOOL build yves
-        writeErrorMessage "Antelope build failed"
-    fi
 }
