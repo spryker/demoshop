@@ -9,7 +9,7 @@ const path = require('path');
 const argv = require('yargs').argv;
 
 // impala logger verbosity: SILENT, DEFAULT, VERBOSE, LOUD
-const Verbosity = require('Impala').Logger.Verbosity;
+const Verbosity = require('impala').Logger.Verbosity;
 
 // cli verbose arg can be invoked:
 // $ npm run script-name -- --verbose

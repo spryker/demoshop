@@ -65,7 +65,7 @@ function setupZedFrontend {
 function installProjectFrontendDeps {
     labelText "Frontend: installing project dependencies"
 
-    $FE_PM install
+    $FE_PM $FE_INSTALL_COMMAND
 
     writeErrorMessage "Installation failed"
 }
@@ -111,7 +111,7 @@ function installAntelope {
     labelText "Installing/updating Antelope tool globally"
 
     ANTELOPE_INSTALLED=true
-    sudo $FE_PM install -g antelope
+    sudo $FE_PM $FE_INSTALL_COMMAND -g antelope
 
     writeErrorMessage "Antelope installation failed"
 }
@@ -126,7 +126,7 @@ function checkAntelope {
 function installFrontendDepsWithAntelope {
     labelText "Antelope: installing dependencies"
 
-    $ANTELOPE_TOOL install
+    $ANTELOPE_TOOL $FE_INSTALL_COMMAND
 
     writeErrorMessage "Installation failed"
 }
