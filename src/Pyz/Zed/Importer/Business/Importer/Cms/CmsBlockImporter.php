@@ -251,9 +251,8 @@ class CmsBlockImporter extends AbstractImporter
      */
     protected function createPageUrl($pageTransfer, $url, LocaleTransfer $localeTransfer)
     {
-        $urlTransfer = $this->pageManager->createPageUrlWithLocale($pageTransfer, $url, $localeTransfer);
+        $this->pageManager->createPageUrlWithLocale($pageTransfer, $url, $localeTransfer);
         $this->pageManager->touchPageActive($pageTransfer);
-        $this->urlFacade->touchUrlActive($urlTransfer->getIdUrl());
     }
 
     /**
