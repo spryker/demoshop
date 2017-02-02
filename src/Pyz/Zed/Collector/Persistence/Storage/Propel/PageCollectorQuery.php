@@ -92,6 +92,8 @@ class PageCollectorQuery extends AbstractPropelCollectorQuery
 
         $this->touchQuery->withColumn(SpyCmsPageTableMap::COL_ID_CMS_PAGE, 'page_id');
         $this->touchQuery->withColumn(SpyCmsPageTableMap::COL_IS_ACTIVE, 'is_active');
+        $this->touchQuery->withColumn(SpyCmsPageTableMap::COL_VALID_FROM, 'valid_from');
+        $this->touchQuery->withColumn(SpyCmsPageTableMap::COL_VALID_TO, 'valid_to');
         $this->touchQuery->withColumn(SpyUrlTableMap::COL_URL, 'page_url');
         $this->touchQuery->withColumn(SpyCmsPageLocalizedAttributesTableMap::COL_NAME, 'name');
         $this->touchQuery->withColumn(SpyCmsPageLocalizedAttributesTableMap::COL_META_TITLE, 'meta_title');

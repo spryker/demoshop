@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Cms\Controller;
 
+use DateTime;
 use Spryker\Yves\Application\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -30,6 +31,10 @@ class CmsController extends AbstractController
             throw new NotFoundHttpException();
         }
 
+        if (!$this->isPageTodayActive($meta)) {
+            throw new NotFoundHttpException();
+        }
+
         return $this->renderView($meta['template'], [
             'placeholders' => $meta['placeholders'],
             'edit' => $edit,
@@ -37,6 +42,29 @@ class CmsController extends AbstractController
             'page_description' => $meta['meta_description'],
             'page_keywords' => $meta['meta_keywords'],
         ]);
+    }
+
+    /**
+     * @param array $meta
+     *
+     * @return bool
+     */
+    protected function isPageTodayActive(array $meta)
+    {
+        $currentDate = new DateTime();
+        if (isset($meta['valid_from']) && isset($meta['valid_to'])) {
+
+            $validFrom = new DateTime($meta['valid_from']);
+            $validTo = new DateTime($meta['valid_to']);
+
+            if ($currentDate >= $validFrom && $currentDate <= $validTo) {
+                return true;
+            }
+
+            return false;
+        }
+
+        return true;
     }
 
 }
