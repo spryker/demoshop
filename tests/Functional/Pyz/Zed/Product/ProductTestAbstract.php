@@ -393,6 +393,9 @@ abstract class ProductTestAbstract extends Test
         $this->productConcreteTransfer->setStocks(new ArrayObject($stock));
     }
 
+    /**
+     * @return void
+     */
     protected function setupPluginImages()
     {
         $imageSetTransfer = (new ProductImageSetTransfer())
@@ -415,6 +418,9 @@ abstract class ProductTestAbstract extends Test
         );
     }
 
+    /**
+     * @return void
+     */
     protected function setupPluginPrices()
     {
         $price = (new PriceProductTransfer())
