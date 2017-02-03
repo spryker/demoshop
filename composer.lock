@@ -4197,11 +4197,11 @@
         },
         {
             "name": "spryker/customer",
-            "version": "3.0.2",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Customer.git",
-                "reference": "c828e7785de42b3492da37b43f65730d19319543",
+                "reference": "2b6b38cd1f3c02ce9d64f0c2d4a7eead91a15a27",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4211,8 +4211,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Customer/zipball/c828e7785de42b3492da37b43f65730d19319543",
-                "reference": "c828e7785de42b3492da37b43f65730d19319543",
+                "url": "https://api.github.com/repos/spryker/Customer/zipball/2b6b38cd1f3c02ce9d64f0c2d4a7eead91a15a27",
+                "reference": "2b6b38cd1f3c02ce9d64f0c2d4a7eead91a15a27",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4273,7 +4273,7 @@
             "support": {
                 "source": "https://github.com/spryker/Customer/tree/master"
             },
-            "time": "2017-01-20T13:23:13+00:00"
+            "time": "2017-02-03T15:25:26+00:00"
         },
         {
             "name": "spryker/customer-group",
