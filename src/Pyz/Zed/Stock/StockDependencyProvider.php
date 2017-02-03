@@ -13,6 +13,11 @@ use Spryker\Zed\Stock\StockDependencyProvider as SprykerStockDependencyProvider;
 class StockDependencyProvider extends SprykerStockDependencyProvider
 {
 
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Stock\Dependency\Plugin\StockUpdateHandlerPluginInterface[]
+     */
     protected function getStockUpdateHandlerPlugins($container)
     {
         return [
