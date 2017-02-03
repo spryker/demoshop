@@ -44,7 +44,7 @@ class CmsCreatePageTester extends ZedAcceptanceTester
     public function fillLocalizedUrlForm($formIndex, $name, $url)
     {
         $this->fillField('//*[@id="cms_page_pageAttributes_' . $formIndex .'_name"]', $name);
-        $this->fillField('//*[@id="cms_page_pageAttributes_' . $formIndex .'_url"]', $url . rand(1, 999));
+        $this->fillField('//*[@id="cms_page_pageAttributes_' . $formIndex .'_url"]', $url);
 
         return $this;
     }
@@ -65,6 +65,16 @@ class CmsCreatePageTester extends ZedAcceptanceTester
     public function clickSubmit()
     {
         $this->click('//*[@id="submit-cms"]');
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function clickActivateButton()
+    {
+        $this->click('//*[@id="page-wrapper"]/div[2]/div[2]/div/a[1]');
 
         return $this;
     }
