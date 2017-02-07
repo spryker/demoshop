@@ -13,6 +13,7 @@ use Spryker\Zed\Price\Communication\Plugin\ProductAbstract\PriceProductAbstractR
 use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteAfterCreatePlugin;
 use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteReadPlugin;
+use Spryker\Zed\ProductBundle\Communication\Plugin\Product\ProductBundleProductConcreteAfterCreatePlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Product\ProductBundleProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Product\ProductBundleProductConcreteReadPlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterCreatePlugin as ImageSetProductAbstractAfterCreatePlugin;
@@ -119,6 +120,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
             new StockProductConcreteAfterCreatePlugin(),
             new PriceProductConcreteAfterCreatePlugin(),
             new ProductSearchProductConcreteAfterCreatePlugin(),
+            new ProductBundleProductConcreteAfterCreatePlugin(),
         ];
     }
 
