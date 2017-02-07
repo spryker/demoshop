@@ -31,7 +31,7 @@ class CmsController extends AbstractController
             throw new NotFoundHttpException();
         }
 
-        if (!$this->isPageTodayActive($meta)) {
+        if (!$this->isPageActiveInGivenDate($meta, new DateTime())) {
             throw new NotFoundHttpException();
         }
 
@@ -46,18 +46,18 @@ class CmsController extends AbstractController
 
     /**
      * @param array $meta
+     * @param \DateTime $dateToCompare
      *
      * @return bool
      */
-    protected function isPageTodayActive(array $meta)
+    protected function isPageActiveInGivenDate(array $meta, DateTime $dateToCompare)
     {
-        $currentDate = new DateTime();
         if (isset($meta['valid_from']) && isset($meta['valid_to'])) {
 
             $validFrom = new DateTime($meta['valid_from']);
             $validTo = new DateTime($meta['valid_to']);
 
-            if ($currentDate >= $validFrom && $currentDate <= $validTo) {
+            if ($dateToCompare >= $validFrom && $dateToCompare <= $validTo) {
                 return true;
             }
 
