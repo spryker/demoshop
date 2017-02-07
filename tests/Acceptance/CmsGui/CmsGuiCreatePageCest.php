@@ -6,18 +6,17 @@
 
 namespace Acceptance\CmsGui;
 
+use Acceptance\CmsGui\PageObject\CmsCreateGlossaryPage;
 use Acceptance\CmsGui\PageObject\CmsCreatePage;
+use Acceptance\CmsGui\PageObject\CmsEditPage;
 use Acceptance\CmsGui\Tester\CmsCreateGlossaryTester;
 use Acceptance\CmsGui\Tester\CmsCreatePageTester;
-use Acceptance\CmsGui\PageObject\CmsEditPage;
 use YvesAcceptanceTester;
-use Acceptance\CmsGui\PageObject\CmsCreateGlossaryPage;
 
 /**
  * @group Acceptance
  * @group CmsGui
- * @group Yves
- * @group CmsGuiCreatePageTester
+ * @group CmsGuiCreatePageCest
  */
 class CmsGuiCreatePageCest
 {
@@ -80,6 +79,6 @@ class CmsGuiCreatePageCest
             $i->see(CmsCreateGlossaryPage::getLocalizedPlaceholderData('contents', 'en'));
 
         });
-
     }
+
 }

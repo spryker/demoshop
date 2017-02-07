@@ -15,10 +15,12 @@ class CmsCreateGlossaryTester extends ZedAcceptanceTester
      * @param int $placeHolderIndex
      * @param int $localeIndex
      * @param string $contents
+     *
+     * @return void
      */
     public function fillPlaceholderContents($placeHolderIndex, $localeIndex, $contents)
     {
-        $translationElementId = 'cms_glossary_glossaryAttributes_' . $placeHolderIndex . '_translations_' . $localeIndex .'_translation';
+        $translationElementId = 'cms_glossary_glossaryAttributes_' . $placeHolderIndex . '_translations_' . $localeIndex . '_translation';
 
         $this->executeJS("$('#$translationElementId').text('$contents');");
     }
@@ -47,7 +49,6 @@ class CmsCreateGlossaryTester extends ZedAcceptanceTester
     public function grabCmsPageId()
     {
         return $this->grabFromCurrentUrl('/id-cms-page=(\d+)/');
-
     }
 
     /**

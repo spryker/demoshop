@@ -12,7 +12,6 @@ use Acceptance\CmsGui\Tester\CmsPageListTester;
 /**
  * @group Acceptance
  * @group CmsGui
- * @group Yves
  * @group CmsGuiPageListCest
  */
 class CmsGuiPageListCest
@@ -30,4 +29,5 @@ class CmsGuiPageListCest
 
         $i->waitForElementVisible(CmsListPage::PAGE_LIST_TABLE_XPATH, 5);
     }
+
 }

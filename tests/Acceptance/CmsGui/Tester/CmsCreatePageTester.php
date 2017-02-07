@@ -10,6 +10,7 @@ use ZedAcceptanceTester;
 
 class CmsCreatePageTester extends ZedAcceptanceTester
 {
+
     /**
      * @param string $date
      *
@@ -43,8 +44,8 @@ class CmsCreatePageTester extends ZedAcceptanceTester
      */
     public function fillLocalizedUrlForm($formIndex, $name, $url)
     {
-        $this->fillField('//*[@id="cms_page_pageAttributes_' . $formIndex .'_name"]', $name);
-        $this->fillField('//*[@id="cms_page_pageAttributes_' . $formIndex .'_url"]', $url);
+        $this->fillField('//*[@id="cms_page_pageAttributes_' . $formIndex . '_name"]', $name);
+        $this->fillField('//*[@id="cms_page_pageAttributes_' . $formIndex . '_url"]', $url);
 
         return $this;
     }

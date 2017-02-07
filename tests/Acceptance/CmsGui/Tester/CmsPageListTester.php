@@ -10,5 +10,4 @@ use ZedAcceptanceTester;
 
 class CmsPageListTester extends ZedAcceptanceTester
 {
-
 }

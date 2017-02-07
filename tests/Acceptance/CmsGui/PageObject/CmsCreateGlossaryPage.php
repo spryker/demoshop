@@ -8,12 +8,13 @@ namespace Acceptance\CmsGui\PageObject;
 
 class CmsCreateGlossaryPage
 {
+
     const URL = 'cms-gui/create-glossary/index?id-cms-page=%d';
 
     /**
      * @var array
      */
-    protected static $localizedPlaceholders= [
+    protected static $localizedPlaceholders = [
         'title' => [
             'en' => 'english title',
             'de' => 'german title',
@@ -21,7 +22,7 @@ class CmsCreateGlossaryPage
         'contents' => [
             'en' => 'english contents',
             'de' => 'german contents',
-        ]
+        ],
     ];
 
     /**
@@ -34,4 +35,5 @@ class CmsCreateGlossaryPage
     {
         return static::$localizedPlaceholders[$placeholder][$locale];
     }
+
 }
