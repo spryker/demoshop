@@ -46,7 +46,7 @@ per application: APPLICATION_NAME. The others are still required even though the
 
 Yves
 ===================================
-APPLICATION_ENV="development_heroku"
+APPLICATION_ENV="development-heroku"
 APPLICATION_NAME="Yves"
 APPLICATION_STORE="DE"
 BONSAI_URL="http://foo:bar@cloud"
@@ -61,7 +61,7 @@ ZED_HOST_PROTOCOL="https://"
 
 Zed
 ===================================
-APPLICATION_ENV="development_heroku"
+APPLICATION_ENV="development-heroku"
 APPLICATION_NAME="Zed"
 APPLICATION_STORE="DE"
 BONSAI_URL="http://foo:bar@cloud"
@@ -76,7 +76,7 @@ ZED_HOST_PROTOCOL="https://"
 
 Data (development only)
 ===================================
-APPLICATION_ENV="development_heroku"
+APPLICATION_ENV="development-heroku"
 APPLICATION_NAME="Data"
 APPLICATION_STORE="DE"
 BONSAI_URL="http://foo:bar@cloud"
@@ -105,7 +105,7 @@ SPRYKER CONFIGURATION
 ------------------------------------------------------------------------------------------------------------------------
 The general idea is that the all the Heroku specific configuration is read from the environment variables, which are
 configured in Heroku Config Vars.
-Check config_default-development_heroku.php and config_default-development_heroku_DE.php under config/Shared, for
+Check config_default-development-heroku.php and config_default-development-heroku_DE.php under config/Shared, for
 configuration examples and how to use Heroku config vars inside Spryker config.
 
 
@@ -114,12 +114,12 @@ BUILD & COMPOSER
 The build process on Heroku must trigger setup script for each of the applications.
 
 Add this to composer.json to trigger setup process during Heroku deployment (assuming your configuration is stored under
-development_heroku* configuration files).
+development-heroku* configuration files).
 
   "scripts": {
     "compile": [
       "mkdir -p ./data/DE/logs",
-      "echo '<?php return \"development_heroku\";' > config/Shared/console_env_local.php",
+      "echo '<?php return \"development-heroku\";' > config/Shared/console_env_local.php",
       "./deploy/heroku/run.sh"
     ]
   }
