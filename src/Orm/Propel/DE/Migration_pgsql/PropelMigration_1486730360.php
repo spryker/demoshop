@@ -4,10 +4,10 @@ use Propel\Generator\Manager\MigrationManager;
 
 /**
  * Data object containing the SQL and PHP code to migrate the database
- * up to version 1486138753.
- * Generated on 2017-02-03 16:19:13 by vagrant
+ * up to version 1486730360.
+ * Generated on 2017-02-10 12:39:20 by vagrant
  */
-class PropelMigration_1486138753
+class PropelMigration_1486730360
 {
     public $comment = '';
 
@@ -75,11 +75,11 @@ CREATE TABLE "spy_navigation_node"
 
 CREATE INDEX "spy_navigation_node_i_60e5be" ON "spy_navigation_node" ("weight");
 
-CREATE SEQUENCE "spy_navigation_node_url_pk_seq";
+CREATE SEQUENCE "spy_navigation_node_localized_attributes_pk_seq";
 
-CREATE TABLE "spy_navigation_node_url"
+CREATE TABLE "spy_navigation_node_localized_attributes"
 (
-    "id_navigation_node_url" INTEGER NOT NULL,
+    "id_navigation_node_localized_attributes" INTEGER NOT NULL,
     "fk_navigation_node" INTEGER NOT NULL,
     "fk_locale" INTEGER NOT NULL,
     "fk_url" INTEGER,
@@ -87,7 +87,7 @@ CREATE TABLE "spy_navigation_node_url"
     "external_url" VARCHAR(255),
     "created_at" TIMESTAMP,
     "updated_at" TIMESTAMP,
-    PRIMARY KEY ("id_navigation_node_url")
+    PRIMARY KEY ("id_navigation_node_localized_attributes")
 );
 
 ALTER TABLE "spy_navigation_node" ADD CONSTRAINT "spy_navigation_node_fk_07636b"
@@ -96,17 +96,19 @@ ALTER TABLE "spy_navigation_node" ADD CONSTRAINT "spy_navigation_node_fk_07636b"
 
 ALTER TABLE "spy_navigation_node" ADD CONSTRAINT "spy_navigation_node_fk_6f985c"
     FOREIGN KEY ("fk_navigation")
-    REFERENCES "spy_navigation" ("id_navigation");
+    REFERENCES "spy_navigation" ("id_navigation")
+    ON DELETE CASCADE;
 
-ALTER TABLE "spy_navigation_node_url" ADD CONSTRAINT "spy_navigation_node_url_fk_43843f"
+ALTER TABLE "spy_navigation_node_localized_attributes" ADD CONSTRAINT "spy_navigation_node_localized_attributes_fk_43843f"
     FOREIGN KEY ("fk_navigation_node")
-    REFERENCES "spy_navigation_node" ("id_navigation_node");
+    REFERENCES "spy_navigation_node" ("id_navigation_node")
+    ON DELETE CASCADE;
 
-ALTER TABLE "spy_navigation_node_url" ADD CONSTRAINT "spy_navigation_node_url_fk_12b6d0"
+ALTER TABLE "spy_navigation_node_localized_attributes" ADD CONSTRAINT "spy_navigation_node_localized_attributes_fk_12b6d0"
     FOREIGN KEY ("fk_locale")
     REFERENCES "spy_locale" ("id_locale");
 
-ALTER TABLE "spy_navigation_node_url" ADD CONSTRAINT "spy_navigation_node_url_fk_76593a"
+ALTER TABLE "spy_navigation_node_localized_attributes" ADD CONSTRAINT "spy_navigation_node_localized_attributes_fk_76593a"
     FOREIGN KEY ("fk_url")
     REFERENCES "spy_url" ("id_url");
 
@@ -135,9 +137,9 @@ DROP TABLE IF EXISTS "spy_navigation_node" CASCADE;
 
 DROP SEQUENCE "spy_navigation_node_pk_seq";
 
-DROP TABLE IF EXISTS "spy_navigation_node_url" CASCADE;
+DROP TABLE IF EXISTS "spy_navigation_node_localized_attributes" CASCADE;
 
-DROP SEQUENCE "spy_navigation_node_url_pk_seq";
+DROP SEQUENCE "spy_navigation_node_localized_attributes_pk_seq";
 
 COMMIT;
 ',
