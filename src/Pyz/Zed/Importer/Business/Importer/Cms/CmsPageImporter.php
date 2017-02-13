@@ -40,6 +40,8 @@ class CmsPageImporter extends CmsBlockImporter
         $page = $this->format($data);
         $templateTransfer = $this->findOrCreateTemplate($page[self::TEMPLATE]);
 
+        $pageTransfer = $this->createPage($templateTransfer, $page);
+
         foreach ($this->localeFacade->getLocaleCollection() as $locale => $localeTransfer) {
             $urlTransfer = new UrlTransfer();
             $urlTransfer->setUrl($page[self::LOCALES][$locale][self::URL]);
@@ -47,8 +49,6 @@ class CmsPageImporter extends CmsBlockImporter
             if ($this->urlFacade->hasUrl($urlTransfer)) {
                 return;
             }
-
-            $pageTransfer = $this->createPage($templateTransfer, $page);
 
             $placeholders = $page[self::LOCALES][$locale][self::PLACEHOLDERS];
 
