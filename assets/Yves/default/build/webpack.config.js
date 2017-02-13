@@ -40,8 +40,8 @@ let config = {
     },
 
     entry: impala.find(settings.entry, {
-        'commons': path.join(settings.paths.sourceDir, 'commons.entry.js'),
-        'app': path.join(settings.paths.sourceDir, 'app.entry.js')
+        'app': path.join(settings.paths.sourceDir, 'app.entry.js'),
+        'vendor': path.join(settings.paths.sourceDir, 'vendor.entry.js')
     }),
 
     output: {
