@@ -10,6 +10,7 @@
 // https://webpack.js.org
 
 const path = require('path');
+const impala = require('impala');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -27,7 +28,7 @@ if (settings.options.isProduction) {
 }
 
 let config = {
-    context: settings.build.rootDir,
+    context: settings.paths.rootDir,
     stats: settings.options.isVerbose ? 'normal' : 'errors-only',
     devtool: settings.options.isProduction ? false : 'cheap-module-eval-source-map',
 
@@ -38,18 +39,18 @@ let config = {
         ignored: /(node_modules|vendor|public|src)/
     },
 
-    entry: {
-        'vendor': path.join(settings.build.sourceDir, 'vendor.entry.js'),
-        'app': path.join(settings.build.sourceDir, 'app.entry.js')
-    },
+    entry: impala.find(settings.entry, {
+        'commons': path.join(settings.paths.sourceDir, 'commons.entry.js'),
+        'app': path.join(settings.paths.sourceDir, 'app.entry.js')
+    }),
 
     output: {
-        path: settings.build.publicDir,
+        path: settings.paths.publicDir,
         filename: `/js/[name].js`
     },
 
     resolve: {
-        modules: ['node_modules', settings.build.sourcePath],
+        modules: ['node_modules', settings.paths.sourcePath],
         extensions: ['.js', '.css', '.scss']
     },
 
@@ -92,7 +93,7 @@ let config = {
                 loader: 'file-loader',
                 options: {
                     name: '/fonts/[name].[ext]',
-                    publicPath: settings.build.publicPath
+                    publicPath: settings.paths.publicPath
                 }
             }]
         }]
@@ -101,7 +102,7 @@ let config = {
     plugins: [
         new webpack.LoaderOptionsPlugin({
             options: {
-                context: settings.build.rootDir,
+                context: settings.paths.rootDir,
                 postcss: postCssPlugins
             }
         }),
@@ -115,7 +116,7 @@ let config = {
             filename: 'css/[name].css'
         }),
         new CopyPlugin([{
-            from: path.join(settings.build.sourceDir, 'img'),
+            from: path.join(settings.paths.sourceDir, 'img'),
             to: 'img'
         }])
     ]

@@ -33,8 +33,8 @@ const settings = {
         isVerbose
     },
 
-    // build settings
-    build: {
+    // paths/dirs
+    paths: {
         themeName,
         sourcePath,
         publicPath,
@@ -43,27 +43,12 @@ const settings = {
         publicDir
     },
 
-    // impala settings
-    impala: {
-
-        // application settings
-        app: {
-            // application name (shown by the logger)
-            name: 'demoshop-yves',
-            // impala logger verbosity level
-            // webpack verbosity must be set in the config
-            verbosity: isVerbose ? Verbosity.LOUD : Verbosity.DEFAULT
-        },
-
-        // entry points settings
-        entryPoints: {
-            // default pattern
-            patterns: ['**/Yves/**/*.entry.js'],
-            // where to search for entry points
-            paths: [path.resolve('vendor/spryker')],
-            // description for the logger
-            description: 'looking for entry points...'
-        }
+    // impala entry settings
+    entry: {
+        description: 'looking for entry points...',
+        roots: [path.resolve('vendor/spryker')],
+        patterns: ['**/Yves/**/*.entry.js'],
+        toObject: p => path.basename(p, '.entry.js')
     }
 };
 
