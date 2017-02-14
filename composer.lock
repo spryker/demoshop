@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2fdd3f9d185801e59c0682784b72eda5",
+    "content-hash": "547646308292b39915cf2a78ef05ed48",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -4281,7 +4281,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/CustomerGroup.git",
-                "reference": "211d5dfb8906539d36d456e4270e52523d04b689",
+                "reference": "b198bad8b403f1e4ffcb500268d4b902a280c9b6",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4291,8 +4291,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/CustomerGroup/zipball/211d5dfb8906539d36d456e4270e52523d04b689",
-                "reference": "211d5dfb8906539d36d456e4270e52523d04b689",
+                "url": "https://api.github.com/repos/spryker/CustomerGroup/zipball/b198bad8b403f1e4ffcb500268d4b902a280c9b6",
+                "reference": "b198bad8b403f1e4ffcb500268d4b902a280c9b6",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4346,7 +4346,7 @@
             "support": {
                 "source": "https://github.com/spryker/CustomerGroup/tree/master"
             },
-            "time": "2017-01-03 14:49:09"
+            "time": "2017-01-18 13:12:33"
         },
         {
             "name": "spryker/customer-group-discount-connector",
@@ -13508,9 +13508,18 @@
             "time": "2015-05-27T22:58:02+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "1.0.0",
+            "alias_normalized": "1.0.0.0",
+            "version": "9999999-dev",
+            "package": "spryker/customer-group"
+        }
+    ],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "spryker/customer-group": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
