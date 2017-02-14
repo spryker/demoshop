@@ -55,7 +55,7 @@ class CmsCreatePageTester extends ZedAcceptanceTester
      */
     public function expandLocalizedUrlPane()
     {
-        $this->click('//*[@id="tab-content-general"]/div/div[6]/div[1]/a');
+        $this->click('//*[@id="tab-content-general"]/div/div[5]/div[1]/a');
 
         return $this;
     }
