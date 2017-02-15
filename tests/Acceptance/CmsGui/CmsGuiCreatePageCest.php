@@ -34,6 +34,7 @@ class CmsGuiCreatePageCest
 
         $iPage->amLoggedInUser();
         $iPage->amOnPage(CmsCreatePage::URL);
+        $iPage->selectOption('//*[@id="cms_page_fkTemplate"]', 'static_full_page');
 
         $iPage->setValidFrom('1985-07-01');
         $iPage->setValidTo('2050-07-01');
