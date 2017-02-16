@@ -37,7 +37,7 @@
     "spryker/country": "^2.0.0",
     "spryker/csv": "^2.0.0",
     "spryker/customer": "^3.0.0",
-    "spryker/customer-group": "dev-master#b198bad8b403f1e4ffcb500268d4b902a280c9b6 as 1.0.0",
+    "spryker/customer-group": "^1.0.0",
     "spryker/customer-group-discount-connector": "^1.0.0",
     "spryker/development": "^2.0.0",
     "spryker/discount": "^3.0.0",
@@ -88,6 +88,7 @@
     "spryker/product-option-discount-connector": "^3.0.0",
     "spryker/product-search": "^4.0.0",
     "spryker/propel": "^2.2.0",
+    "spryker/queue": "^0.1.0",
     "spryker/ratepay": "^0.4.0",
     "spryker/redis": "^2.0.0",
     "spryker/refund": "^3.0.0",
@@ -167,10 +168,6 @@
     {
       "type": "composer",
       "url": "https://code.spryker.com/repo/private"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/spryker/CustomerGroup.git"
     }
   ],
   "scripts": {
