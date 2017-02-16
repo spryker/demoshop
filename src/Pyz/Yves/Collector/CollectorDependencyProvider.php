@@ -7,16 +7,24 @@
 
 namespace Pyz\Yves\Collector;
 
-use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Category\Plugin\CategoryResourceCreator;
 use Pyz\Yves\Cms\Plugin\PageResourceCreator;
 use Pyz\Yves\Product\Plugin\ProductResourceCreator;
 use Pyz\Yves\Redirect\Plugin\RedirectResourceCreator;
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Yves\Kernel\Container;
+use Spryker\Yves\Kernel\Plugin\Pimple;
 
 class CollectorDependencyProvider extends AbstractBundleDependencyProvider
 {
+
+    const SERVICE_UTIL_DATE_TIME = 'util date time service';
+
+    const SERVICE_NETWORK = 'util network service';
+
+    const SERVICE_UTIL_IO = 'util io service';
+
+    const SERVICE_DATA = 'util data service';
 
     const CLIENT_COLLECTOR = 'collector client';
     const CLIENT_CATALOG = 'client client';

@@ -9,13 +9,13 @@ namespace Pyz\Yves\Twig\Model;
 
 use Pyz\Yves\Twig\TwigSettings;
 use Spryker\Shared\Twig\TwigExtension;
-use Spryker\Yves\Application\Application;
+use Spryker\Yves\Kernel\Application;
 
 class YvesExtension extends TwigExtension
 {
 
     /**
-     * @var \Spryker\Yves\Application\Application
+     * @var \Spryker\Yves\Kernel\Application
      */
     protected $application;
 
@@ -25,7 +25,7 @@ class YvesExtension extends TwigExtension
     protected $settings;
 
     /**
-     * @param \Spryker\Yves\Application\Application $application
+     * @param \Spryker\Yves\Kernel\Application $application
      * @param \Pyz\Yves\Twig\TwigSettings $twigSettings
      */
     public function __construct(Application $application, TwigSettings $twigSettings)

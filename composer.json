@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-master",
+    "spryker/spryker": "dev-feature/core-714-big-core-cleanup",
 
     "php": ">=5.6.0",
     "braintree/braintree_php": "~3.15.0",
@@ -68,12 +68,13 @@
     "sensiolabs/security-checker": "~3.0.2",
     "silex/web-profiler": "~1.0.8",
     "symfony/web-profiler-bundle": "v2.7.20",
+    "symfony/var-dumper": "*",
     "site5/phantoman": "^1.1",
     "sllh/composer-versions-check": "~2.0.2",
-    "jakoch/phantomjs-installer": "^2.1",
+    "jakoch/phantomjs-installer": "^2.1.0",
     "php-mock/php-mock": "^1.0",
     "spryker/architecture-sniffer": "*",
-    "spryker/code-generator": "dev-master",
+    "spryker/code-generator": "dev-feature/core-714-big-core-cleanup",
     "spryker/code-sniffer": "dev-master"
   },
   "autoload": {

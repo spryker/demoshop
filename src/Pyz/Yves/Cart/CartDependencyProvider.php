@@ -7,9 +7,9 @@
 
 namespace Pyz\Yves\Cart;
 
-use Pyz\Yves\Application\Plugin\Pimple;
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Yves\Kernel\Container;
+use Spryker\Yves\Kernel\Plugin\Pimple;
 
 class CartDependencyProvider extends AbstractBundleDependencyProvider
 {

@@ -9,8 +9,12 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
+<<<<<<< HEAD
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Transfer\AbstractTransfer;
+=======
+use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
+>>>>>>> core-714 run auto update
 use Symfony\Component\HttpFoundation\Request;
 
 class SuccessStep extends AbstractBaseStep
@@ -46,7 +50,7 @@ class SuccessStep extends AbstractBaseStep
     }
 
     /**
-     * @param \Spryker\Shared\Transfer\AbstractTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -59,7 +63,7 @@ class SuccessStep extends AbstractBaseStep
      * Empty quote transfer and mark logged in customer as "dirty" to force update it in the next request.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
@@ -72,7 +76,7 @@ class SuccessStep extends AbstractBaseStep
     }
 
     /**
-     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */

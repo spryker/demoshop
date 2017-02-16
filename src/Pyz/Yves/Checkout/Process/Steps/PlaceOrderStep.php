@@ -10,7 +10,7 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Client\Checkout\CheckoutClientInterface;
-use Spryker\Shared\Transfer\AbstractTransfer;
+use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Spryker\Yves\Checkout\Process\Steps\AbstractPlaceOrderStep;
 use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
@@ -18,7 +18,7 @@ class PlaceOrderStep extends AbstractPlaceOrderStep
 {
 
     /**
-     * @var \Pyz\Yves\Application\Business\Model\FlashMessengerInterface
+     * @var \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface
      */
     protected $flashMessenger;
 
@@ -42,7 +42,7 @@ class PlaceOrderStep extends AbstractPlaceOrderStep
     }
 
     /**
-     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $dataTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $dataTransfer
      *
      * @return bool
      */

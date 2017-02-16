@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\Transfer;
 
-use Spryker\Shared\Library\Environment;
+use Spryker\Shared\Config\Environment;
 use Spryker\Zed\Transfer\TransferConfig as SprykerTransferConfig;
 
 class TransferConfig extends SprykerTransferConfig

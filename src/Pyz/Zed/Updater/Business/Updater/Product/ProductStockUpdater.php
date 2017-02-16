@@ -7,12 +7,13 @@
 
 namespace Pyz\Zed\Updater\Business\Updater\Product;
 
+use Everon\Component\Collection\Collection;
+
 use Generated\Shared\Transfer\StockProductTransfer;
 use Generated\Shared\Transfer\TypeTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\Updater\Business\Updater\AbstractUpdater;
-use Spryker\Shared\Library\Collection\Collection;
-use Spryker\Shared\Library\Reader\Csv\CsvReader;
+use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Oms\Business\OmsFacadeInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
@@ -31,7 +32,7 @@ class ProductStockUpdater extends AbstractUpdater
     const STOCK_UPDATE = 'stock-update';
 
     /**
-     * @var \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface
+     * @var \Spryker\Service\UtilDataReader\Model\Reader\Csv\CsvReaderInterface
      */
     protected $csvReader;
 
@@ -66,13 +67,17 @@ class ProductStockUpdater extends AbstractUpdater
     protected $stockQueryContainer;
 
     /**
-     * @var \Spryker\Shared\Library\Collection\CollectionInterface
+     * @var \Everon\Component\Collection\CollectionInterface
      */
     protected $stockTypeCache;
 
     /**
-     * ProductStockUpdater constructor.
-     *
+     * @var \Spryker\Service\UtilDataReader\UtilDataReaderService
+     */
+    protected $utilDataReaderService;
+
+    /**
+     * @param \Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface $utilDataReaderService
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Spryker\Zed\Stock\Business\StockFacadeInterface $stockFacade
      * @param \Spryker\Zed\Oms\Business\OmsFacadeInterface $omsFacade
@@ -82,7 +87,7 @@ class ProductStockUpdater extends AbstractUpdater
      * @param string $dataDirectory
      */
     public function __construct(
-        CsvReader $csvReader,
+        UtilDataReaderServiceInterface $utilDataReaderService,
         LocaleFacadeInterface $localeFacade,
         StockFacadeInterface $stockFacade,
         OmsFacadeInterface $omsFacade,
@@ -93,7 +98,7 @@ class ProductStockUpdater extends AbstractUpdater
     ) {
         parent::__construct($localeFacade);
 
-        $this->csvReader = $csvReader;
+        $this->utilDataReaderService = $utilDataReaderService;
         $this->stockFacade = $stockFacade;
         $this->omsFacade = $omsFacade;
         $this->productQueryContainer = $productQueryContainer;
@@ -282,7 +287,9 @@ class ProductStockUpdater extends AbstractUpdater
      */
     protected function loadCsvFile()
     {
-        $this->csvReader->load($this->dataDirectory . '/stocks.csv');
+        if (!$this->csvReader) {
+            $this->csvReader = $this->utilDataReaderService->getCsvReader()->load($this->dataDirectory . '/stocks.csv');
+        }
     }
 
     /**

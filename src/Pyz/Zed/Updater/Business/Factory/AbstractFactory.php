@@ -9,7 +9,6 @@ namespace Pyz\Zed\Updater\Business\Factory;
 
 use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
 use Pyz\Zed\Updater\UpdaterDependencyProvider;
-use Spryker\Shared\Library\Reader\Csv\CsvReader;
 use Spryker\Zed\Category\Business\Generator\UrlPathGenerator;
 use Spryker\Zed\Category\Business\Tree\CategoryTreeReader;
 use Spryker\Zed\Category\Business\Tree\CategoryTreeWriter;
@@ -320,11 +319,11 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \Spryker\Shared\Library\Reader\Csv\CsvReader
+     * @return \Spryker\Service\UtilDataReader\Model\Reader\Csv\CsvReader
      */
-    public function createCsvFileReader()
+    public function getUtilDataReaderService()
     {
-        return new CsvReader();
+        return $this->getProvidedDependency(UpdaterDependencyProvider::SERVICE_UTIL_IO);
     }
 
 }

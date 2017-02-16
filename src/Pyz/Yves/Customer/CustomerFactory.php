@@ -137,7 +137,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Yves\Application\Business\Model\FlashMessengerInterface
+     * @return \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface
      */
     protected function getFlashMessenger()
     {
@@ -181,7 +181,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Yves\Application\Business\Model\FlashMessengerInterface
+     * @return \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface
      */
     public function createMessenger()
     {

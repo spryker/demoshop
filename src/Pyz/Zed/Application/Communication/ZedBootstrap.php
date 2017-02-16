@@ -8,6 +8,8 @@
 namespace Pyz\Zed\Application\Communication;
 
 use Pyz\Zed\Application\ApplicationDependencyProvider;
+use Spryker\Shared\Auth\AuthConstants;
+use Spryker\Shared\Config\Config;
 use Spryker\Zed\Application\Communication\ZedBootstrap as SprykerZedBootstrap;
 
 class ZedBootstrap extends SprykerZedBootstrap
@@ -35,6 +37,14 @@ class ZedBootstrap extends SprykerZedBootstrap
     protected function getInternalCallServiceProviderWithAuthentication()
     {
         return $this->getProvidedDependency(ApplicationDependencyProvider::INTERNAL_CALL_SERVICE_PROVIDER_WITH_AUTHENTICATION);
+    }
+
+    /**
+     * @return bool
+     */
+    protected function isAuthenticationEnabled()
+    {
+        return Config::get(AuthConstants::AUTH_ZED_ENABLED, true);
     }
 
 }

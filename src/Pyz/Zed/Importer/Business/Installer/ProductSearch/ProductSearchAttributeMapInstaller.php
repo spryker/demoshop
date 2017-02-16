@@ -8,7 +8,7 @@
 namespace Pyz\Zed\Importer\Business\Installer\ProductSearch;
 
 use Pyz\Zed\Importer\Business\Installer\AbstractInstaller;
-use Spryker\Shared\Library\BatchIterator\CsvBatchIterator;
+use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
 use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 
 class ProductSearchAttributeMapInstaller extends AbstractInstaller
@@ -24,19 +24,19 @@ class ProductSearchAttributeMapInstaller extends AbstractInstaller
      * @param string $dataDirectory
      * @param \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface $productSearchFacade
      */
-    public function __construct(array $importerCollection, $dataDirectory, ProductSearchFacadeInterface $productSearchFacade)
+    public function __construct(UtilDataReaderServiceInterface $utilDataReaderService, array $importerCollection, $dataDirectory, ProductSearchFacadeInterface $productSearchFacade)
     {
-        parent::__construct($importerCollection, $dataDirectory);
+        parent::__construct($utilDataReaderService, $importerCollection, $dataDirectory);
 
         $this->productSearchFacade = $productSearchFacade;
     }
 
     /**
-     * @return \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface
+     * @return \Spryker\Service\UtilDataReader\Model\BatchIterator\CountableIteratorInterface
      */
     protected function buildBatchIterator()
     {
-        return new CsvBatchIterator($this->getCsvDataFilename());
+        return $this->utilDataReaderService->getCsvBatchIterator($this->getCsvDataFilename());
     }
 
     /**

@@ -8,7 +8,7 @@
 namespace Pyz\Yves\Cms\Controller;
 
 use DateTime;
-use Spryker\Yves\Application\Controller\AbstractController;
+use Spryker\Yves\Kernel\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -65,6 +65,17 @@ class CmsController extends AbstractController
         }
 
         return true;
+    }
+
+    /**
+     * @param string $viewPath
+     * @param array $parameters
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    protected function renderView($viewPath, array $parameters = [])
+    {
+        return $this->getApplication()->render($viewPath, $parameters);
     }
 
 }

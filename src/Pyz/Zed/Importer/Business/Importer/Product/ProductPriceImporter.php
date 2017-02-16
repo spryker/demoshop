@@ -7,12 +7,12 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\Product;
 
+use Everon\Component\Collection\Collection;
 use Exception;
 use Orm\Zed\Price\Persistence\SpyPriceProduct;
 use Orm\Zed\Price\Persistence\SpyPriceProductQuery;
 use Pyz\Zed\Importer\Business\Exception\PriceTypeNotFoundException;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
-use Spryker\Shared\Library\Collection\Collection;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Price\Persistence\PriceQueryContainerInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
@@ -27,7 +27,7 @@ class ProductPriceImporter extends AbstractImporter
     const PRICE_TYPE = 'price_type';
 
     /**
-     * @var \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface
+     * @var \Spryker\Service\UtilDataReader\Model\Reader\Csv\CsvReaderInterface
      */
     protected $cvsPriceReader;
 
@@ -47,7 +47,7 @@ class ProductPriceImporter extends AbstractImporter
     protected $productQueryContainer;
 
     /**
-     * @var \Spryker\Shared\Library\Collection\CollectionInterface
+     * @var \Everon\Component\Collection\CollectionInterface
      */
     protected $cachePriceType;
 

@@ -13,7 +13,7 @@ class BaseHandler
 {
 
     /**
-     * @var \Pyz\Yves\Application\Business\Model\FlashMessengerInterface
+     * @var \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface
      */
     protected $flashMessenger;
 
@@ -32,16 +32,16 @@ class BaseHandler
      */
     public function setFlashMessagesFromLastZedRequest(AbstractClient $client)
     {
-        foreach ($client->getZedErrorMessages() as $errorMessage) {
-            $this->flashMessenger->addErrorMessage($errorMessage->getMessage());
+        foreach ($client->getZedStub()->getErrorMessages() as $errorMessage) {
+            $this->flashMessenger->addErrorMessage($errorMessage->getValue());
         }
 
-        foreach ($client->getZedSuccessMessages() as $successMessage) {
-            $this->flashMessenger->addSuccessMessage($successMessage->getMessage());
+        foreach ($client->getZedStub()->getSuccessMessages() as $successMessage) {
+            $this->flashMessenger->addSuccessMessage($successMessage->getValue());
         }
 
-        foreach ($client->getZedInfoMessages() as $infoMessage) {
-            $this->flashMessenger->addInfoMessage($infoMessage->getMessage());
+        foreach ($client->getZedStub()->getInfoMessages() as $infoMessage) {
+            $this->flashMessenger->addInfoMessage($infoMessage->getValue());
         }
     }
 
