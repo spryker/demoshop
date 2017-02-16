@@ -1305,7 +1305,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "920b2e818369afaabb7756b5255da73025f76b9e"
+                "reference": "dd803d85abb88fda13ae536fd983105263b092ca"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1855,7 +1855,13 @@
                     "Spryker\\Shared\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/src",
                     "Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/src",
                     "Unit\\Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/tests",
-                    "Functional\\Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/tests"
+                    "Functional\\Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/tests",
+                    "Spryker\\Client\\Queue\\": "Bundles/Queue/src",
+                    "Functional\\Spryker\\Client\\Queue\\": "Bundles/Queue/tests",
+                    "Spryker\\Shared\\Queue\\": "Bundles/Queue/src",
+                    "Functional\\Spryker\\Shared\\Queue\\": "Bundles/Queue/tests",
+                    "Spryker\\Zed\\Queue\\": "Bundles/Queue/src",
+                    "Functional\\Spryker\\Zed\\Queue\\": "Bundles/Queue/tests"
                 },
                 "psr-4": {
                     "Application\\Module\\": "Bundles/Application/tests/_support/Module",
@@ -1878,7 +1884,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-02-16 11:30:36"
+            "time": "2017-02-16 14:07:50"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6534,7 +6540,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-02-06T12:19:49+00:00"
+            "time": "2017-02-06 12:19:49"
         },
         {
             "name": "squizlabs/php_codesniffer",
