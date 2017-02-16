@@ -12,9 +12,9 @@
     "yves": "node ./assets/Yves/default/build",
     "yves:dev": "node ./assets/Yves/default/build --dev",
     "yves:prod": "node ./assets/Yves/default/build --prod",
-    "zed": "node ./node_modules/impala-for-zed/build",
-    "zed:dev": "node ./node_modules/impala-for-zed/build --dev",
-    "zed:prod": "node ./node_modules/impala-for-zed/build --prod"
+    "zed": "node ./node_modules/@spryker/oryx-for-zed/build",
+    "zed:dev": "node ./node_modules/@spryker/oryx-for-zed/build --dev",
+    "zed:prod": "node ./node_modules/@spryker/oryx-for-zed/build --prod"
   },
   "engines": {
     "node": "^6.0.0"
@@ -27,14 +27,15 @@
     "motion-ui": "~1.1.0"
   },
   "devDependencies": {
+    "@spryker/oryx": "^0.3.0",
+    "@spryker/oryx-for-zed": "^0.4.0",
+
     "autoprefixer": "~6.7.0",
     "clean-webpack-plugin": "~0.1.15",
     "copy-webpack-plugin": "~4.0.1",
     "css-loader": "~0.26.1",
     "extract-text-webpack-plugin": "2.0.0-beta.5",
     "file-loader": "~0.9.0",
-    "impala": "git+https://git@github.com/spryker/impala.git#1.0.0-alpha.4",
-    "impala-for-zed": "git+https://git@github.com/spryker/impala-for-zed.git#1.0.0-alpha.4",
     "node-sass": "~4.3.0",
     "postcss-loader": "~1.2.2",
     "sass-loader": "~4.1.1",
