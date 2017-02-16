@@ -30,6 +30,7 @@ $config[ApplicationConstants::PROJECT_NAMESPACES] = [
     'Pyz',
 ];
 $config[ApplicationConstants::CORE_NAMESPACES] = [
+    'SprykerEco',
     'Spryker',
 ];
 

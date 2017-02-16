@@ -53,7 +53,7 @@ function successText {
 }
 
 function warningText {
-    echo -e "\n${YELLOW_BKG}${RED_TEXT}=> ${1} <=${NC}\n"
+    echo -e "\n${YELLOW_BKG}${BLACK_TEXT}=> ${1} <=${NC}\n"
 }
 
 function setupText {
@@ -162,20 +162,18 @@ function installZed {
     labelText "Setting up IDE autocompletion"
     $CONSOLE dev:ide:generate-auto-completion $VERBOSITY
 
-    antelopeInstallZed
+    setupZedFrontend
 
-    labelText "Zed setup successful"
+    labelText "Zed setup completed successfully"
 }
 
 function installYves {
     setupText "Yves setup"
 
-    antelopeInstallYves
+    setupYvesFrontend
 
-    labelText "Yves setup successful"
+    labelText "Yves setup completed successfully"
 }
-
-
 
 function optimizeRepo {
     labelText "Optimizing repository"
@@ -285,56 +283,6 @@ function resetYves {
         labelText "Clear cache"
         rm -rf "./data/DE/cache"
         writeErrorMessage "Could not remove cache directory"
-    fi
-}
-
-function checkNodejsVersion {
-    if [[ `node -v | grep -E '^v[0-4]'` ]]; then
-        labelText "Upgrade Node.js"
-        $CURL -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
-
-        sudo apt-get install -y nodejs
-
-        successText "Node.js updated to version `node -v`"
-        successText "NPM updated to version `$NPM -v`"
-    fi
-}
-
-function installAntelope {
-    checkNodejsVersion
-
-    labelText "Install or Update Antelope tool globally"
-    sudo $NPM install -g antelope
-    writeErrorMessage "Antelope setup failed"
-}
-
-function antelopeInstallZed {
-    installAntelope
-
-    ANTELOPE_TOOL=`which antelope`
-
-    if [[ -f $ANTELOPE_TOOL ]]; then
-        labelText "Installing project dependencies"
-        $ANTELOPE_TOOL install
-
-        labelText "Building and optimizing assets for Zed"
-        $ANTELOPE_TOOL build zed
-        writeErrorMessage "Antelope build failed"
-    fi
-}
-
-function antelopeInstallYves {
-    installAntelope
-
-    ANTELOPE_TOOL=`which antelope`
-
-    if [[ -f $ANTELOPE_TOOL ]]; then
-        labelText "Installing project dependencies"
-        $ANTELOPE_TOOL install
-
-        labelText "Building and optimizing assets for Yves"
-        $ANTELOPE_TOOL build yves
-        writeErrorMessage "Antelope build failed"
     fi
 }
 

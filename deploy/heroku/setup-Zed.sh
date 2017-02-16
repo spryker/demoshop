@@ -19,12 +19,37 @@ for arg in "$@"
 do
     case $arg in
         "-i" )
-            $CONSOLE setup:install $VERBOSITY
-            writeErrorMessage "Setup install failed"
+            infoText "After the code has been deployed, run setup-Data-manually.sh"
+            # $CONSOLE setup:install $VERBOSITY
+            # writeErrorMessage "Setup install failed"
 
             updateComposerBinary
 
             dumpAutoload
+
+            infoText "Transfer generate"
+            $CONSOLE transfer:generate $VERBOSITY
+            writeErrorMessage "transfer:generate failed"
+
+            infoText "Building navigation cache"
+            $CONSOLE application:build-navigation-cache $VERBOSITY
+            writeErrorMessage "application:build-navigation-cache failed"
+
+            infoText "Setup search"
+            $CONSOLE setup:search $VERBOSITY
+            writeErrorMessage "setup:search failed"
+
+            infoText "Propel config convert"
+            $CONSOLE propel:config:convert $VERBOSITY
+            writeErrorMessage "propel:config:convert failed"
+
+            infoText "Propel schema copy"
+            $CONSOLE propel:schema:copy $VERBOSITY
+            writeErrorMessage "propel:schema:copy failed"
+
+            infoText "Propel model build"
+            $CONSOLE propel:model:build $VERBOSITY
+            writeErrorMessage "propel:model:build failed"
 
             antelopeInstallZed
             ;;

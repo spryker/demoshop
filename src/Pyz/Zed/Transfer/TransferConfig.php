@@ -11,4 +11,17 @@ use Spryker\Zed\Transfer\TransferConfig as SprykerTransferConfig;
 
 class TransferConfig extends SprykerTransferConfig
 {
+
+    /**
+     * @return string[]
+     */
+    protected function getAdditionalSourceDirectoryGlobPatterns()
+    {
+        $directoryGlobPatterns = [];
+
+        $directoryGlobPatterns[] = APPLICATION_VENDOR_DIR . '/spryker-eco/*/src/*/Shared/*/Transfer/';
+
+        return $directoryGlobPatterns;
+    }
+
 }

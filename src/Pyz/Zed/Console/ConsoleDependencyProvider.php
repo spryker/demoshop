@@ -36,6 +36,7 @@ use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole as OmsCheckCondi
 use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole as OmsCheckTimeoutConsole;
 use Spryker\Zed\Oms\Communication\Console\ClearLocksConsole as OmsClearLocksConsole;
 use Spryker\Zed\Product\Communication\Console\ProductTouchConsole;
+use Spryker\Zed\Search\Communication\Console\GenerateIndexMapConsole;
 use Spryker\Zed\Search\Communication\Console\SearchConsole;
 use Spryker\Zed\Setup\Communication\Console\DeployPreparePropelConsole;
 use Spryker\Zed\Setup\Communication\Console\InstallConsole;
@@ -74,6 +75,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new InitializeDatabaseConsole(),
             new RecordDeploymentConsole(),
             new SearchConsole(),
+            new GenerateIndexMapConsole(),
             new OmsCheckConditionConsole(),
             new OmsCheckTimeoutConsole(),
             new OmsClearLocksConsole(),

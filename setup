@@ -4,6 +4,7 @@ set -o pipefail
 
 . deploy/setup/params.sh
 . deploy/setup/functions.sh
+. deploy/setup/functions_frontend.sh
 
 export APPLICATION_ENV='development'
 
