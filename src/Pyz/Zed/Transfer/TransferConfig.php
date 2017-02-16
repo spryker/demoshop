@@ -24,6 +24,8 @@ class TransferConfig extends SprykerTransferConfig
             $directoryGlobPatterns[] = APPLICATION_VENDOR_DIR . '/spryker/code-generator/src/*/Shared/*/Transfer/';
         }
 
+        $directoryGlobPatterns[] = APPLICATION_VENDOR_DIR . '/spryker-eco/*/src/*/Shared/*/Transfer/';
+
         return $directoryGlobPatterns;
     }
 
