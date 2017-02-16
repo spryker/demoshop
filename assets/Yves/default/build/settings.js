@@ -40,12 +40,12 @@ const settings = {
         publicDir
     },
 
-    // impala entry settings
+    // oryx entry settings
     entry: {
-        description: 'looking for entry points...',
-        roots: [path.resolve('vendor/spryker')],
+        dirs: [path.resolve('vendor/spryker')],
         patterns: ['**/Yves/**/*.entry.js'],
-        toObject: p => path.basename(p, '.entry.js')
+        defineName: p => path.basename(p, '.entry.js'),
+        description: 'looking for entry points...'
     }
 };
 

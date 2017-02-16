@@ -5,8 +5,8 @@
 
 'use strict';
 
-const impala = require('impala');
+const oryx = require('@spryker/oryx');
 const configuration = require('./webpack.config');
 
 // build the assets with webpack
-impala.build(configuration);
+oryx.build(configuration);
