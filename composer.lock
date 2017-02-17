@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e90b10216c99c06b6168294b81be5c4",
+    "content-hash": "cbf24ff6320d8e7798aeda82b57b6aea",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -253,6 +253,66 @@
             ],
             "description": "Everon Utils Component",
             "time": "2016-03-20T14:52:54+00:00"
+        },
+        {
+            "name": "filp/whoops",
+            "version": "2.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/filp/whoops.git",
+                "reference": "2abce9d956589122c6443d6265f01cf7e9388e3c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/2abce9d956589122c6443d6265f01cf7e9388e3c",
+                "reference": "2abce9d956589122c6443d6265f01cf7e9388e3c",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9 || ^7.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "^4.8 || ^5.0",
+                "symfony/var-dumper": "^2.6 || ^3.0"
+            },
+            "suggest": {
+                "symfony/var-dumper": "Pretty print complex values better with var-dumper available",
+                "whoops/soap": "Formats errors as SOAP responses"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Whoops\\": "src/Whoops/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Filipe Dobreira",
+                    "homepage": "https://github.com/filp",
+                    "role": "Developer"
+                }
+            ],
+            "description": "php error handling for cool kids",
+            "homepage": "https://filp.github.io/whoops/",
+            "keywords": [
+                "error",
+                "exception",
+                "handling",
+                "library",
+                "whoops",
+                "zf2"
+            ],
+            "time": "2016-12-26T16:13:31+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -1305,7 +1365,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "272f1868240703e7488d363d2bf134baae4a3ac1"
+                "reference": "ea6cc45b2c9526e4a31212017f1dc1a752b9b616"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1884,7 +1944,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-02-16 17:36:45"
+            "time": "2017-02-17 17:28:59"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2001,16 +2061,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v3.2.3",
+            "version": "v3.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "2ffa7b84d647b8be1788d46b44e438cb3d62056c"
+                "reference": "9f99453e77771e629af8a25eeb0a6c4ed1e19da2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/2ffa7b84d647b8be1788d46b44e438cb3d62056c",
-                "reference": "2ffa7b84d647b8be1788d46b44e438cb3d62056c",
+                "url": "https://api.github.com/repos/symfony/config/zipball/9f99453e77771e629af8a25eeb0a6c4ed1e19da2",
+                "reference": "9f99453e77771e629af8a25eeb0a6c4ed1e19da2",
                 "shasum": ""
             },
             "require": {
@@ -2053,7 +2113,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-06T12:04:21+00:00"
+            "time": "2017-02-14T16:27:43+00:00"
         },
         {
             "name": "symfony/console",

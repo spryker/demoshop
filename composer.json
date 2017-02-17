@@ -9,6 +9,7 @@
     "braintree/braintree_php": "~3.15.0",
     "guzzlehttp/guzzle": "~6.2.1",
     "league/csv": "~8.1.0",
+    "filp/whoops": "^2.1",
     "mandrill/mandrill": "~1.0.55",
     "monolog/monolog": "~1.21.0",
     "nesbot/carbon": "~1.13.0",
