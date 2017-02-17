@@ -12,7 +12,6 @@ function assureNodeJsVersion {
     if [[ `node -v | grep -E '^v[0-5]'` ]]; then
         labelText "Upgrade Node.js"
         $CURL -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-
         sudo -i apt-get install -y nodejs
 
         successText "Node.js updated to version `node -v`"
@@ -110,6 +109,11 @@ function installAntelope {
 
     labelText "Installing/updating Antelope tool globally"
 
+    if [ "$FE_PACKAGE_MANAGER" != "npm" ] ; then
+        errorText "${FE_PACKAGE_MANAGER} package manager is not supported by Antelope: please switch to npm"
+        exit 1
+    fi
+
     ANTELOPE_INSTALLED=true
     sudo $FE_PM $FE_INSTALL_COMMAND -g antelope
 
@@ -117,6 +121,8 @@ function installAntelope {
 }
 
 function checkAntelope {
+    ANTELOPE_TOOL=`which antelope`
+
     if [[ ! -f $ANTELOPE_TOOL ]]; then
         errorText "Antelope is not available/properly installed"
         exit 1
