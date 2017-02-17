@@ -10,7 +10,7 @@
 // https://webpack.js.org
 
 const path = require('path');
-const impala = require('impala');
+const oryx = require('@spryker/oryx');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -39,7 +39,7 @@ let config = {
         ignored: /(node_modules|vendor|public|src)/
     },
 
-    entry: impala.find(settings.entry, {
+    entry: oryx.find(settings.entry, {
         'app': path.join(settings.paths.sourceDir, 'app.entry.js'),
         'vendor': path.join(settings.paths.sourceDir, 'vendor.entry.js')
     }),
