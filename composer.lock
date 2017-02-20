@@ -1365,7 +1365,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b046dc2438df0443dc76d1da0df83d5a7777a004"
+                "reference": "d9a03c3e90c6e753e1bd4dbcce30595a1abef506"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1472,6 +1472,7 @@
                     "Functional\\Spryker\\Shared\\Cms\\": "Bundles/Cms/tests",
                     "Spryker\\Zed\\Cms\\": "Bundles/Cms/src",
                     "Functional\\Spryker\\Zed\\Cms\\": "Bundles/Cms/tests",
+                    "Unit\\Spryker\\Zed\\Cms\\": "Bundles/Cms/tests",
                     "Spryker\\Client\\Collector\\": "Bundles/Collector/src",
                     "Unit\\Spryker\\Client\\Collector\\": "Bundles/Collector/tests",
                     "Spryker\\Shared\\Collector\\": "Bundles/Collector/src",
@@ -1912,6 +1913,10 @@
                     "Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/src",
                     "Unit\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests",
                     "Functional\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests",
+                    "Spryker\\Shared\\CmsGui\\": "Bundles/CmsGui/src",
+                    "Spryker\\Zed\\CmsGui\\": "Bundles/CmsGui/src",
+                    "Unit\\Spryker\\Zed\\CmsGui\\": "Bundles/CmsGui/tests",
+                    "Functional\\Spryker\\Zed\\CmsGui\\": "Bundles/CmsGui/tests",
                     "Spryker\\Shared\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/src",
                     "Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/src",
                     "Unit\\Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/tests",
@@ -1944,7 +1949,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-02-20 10:28:23"
+            "time": "2017-02-20 15:10:59"
         },
         {
             "name": "swiftmailer/swiftmailer",
