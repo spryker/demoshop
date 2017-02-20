@@ -256,16 +256,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.1.5",
+            "version": "2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "2abce9d956589122c6443d6265f01cf7e9388e3c"
+                "reference": "92bdc6800ac6e233c9e161a1768e082389a73530"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/2abce9d956589122c6443d6265f01cf7e9388e3c",
-                "reference": "2abce9d956589122c6443d6265f01cf7e9388e3c",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/92bdc6800ac6e233c9e161a1768e082389a73530",
+                "reference": "92bdc6800ac6e233c9e161a1768e082389a73530",
                 "shasum": ""
             },
             "require": {
@@ -312,7 +312,7 @@
                 "whoops",
                 "zf2"
             ],
-            "time": "2016-12-26T16:13:31+00:00"
+            "time": "2017-02-18T14:22:27+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -1365,7 +1365,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "ea6cc45b2c9526e4a31212017f1dc1a752b9b616"
+                "reference": "b046dc2438df0443dc76d1da0df83d5a7777a004"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1944,7 +1944,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-02-17 17:28:59"
+            "time": "2017-02-20 10:28:23"
         },
         {
             "name": "swiftmailer/swiftmailer",
