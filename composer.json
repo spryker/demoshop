@@ -97,7 +97,6 @@
     "spryker/propel-orm": "^1.0.0",
     "spryker/queue": "^0.2.0",
     "spryker/quote": "^1.0.0",
-    "spryker/ratepay": "^0.5.0",
     "spryker/redis": "^2.0.0",
     "spryker/refund": "^4.0.0",
     "spryker/sales": "^5.0.0",

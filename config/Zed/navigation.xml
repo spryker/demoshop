@@ -11,7 +11,6 @@
     <discount/>
     <tax/>
     <shipment/>
-    <payment/>
     <acl/>
     <maintenance/>
 </config>

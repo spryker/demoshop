@@ -15,11 +15,6 @@
                             <li>
                                 <span class="__secondary">{{ 'checkout.step.summary.with_method' | trans }}</span> {{ quoteTransfer.payment.paymentMethod }}
                             </li>
-                            {% if quoteTransfer.payment.summaryPartialPath %}
-                                <li>
-                                    {% include '@' ~ quoteTransfer.payment.summaryPartialPath ~ '.twig' with {'quoteTransfer': quoteTransfer} %}
-                                </li>
-                            {% endif %}
                             <li>
                                 {% include '@checkout/checkout/partials/summary-address.twig' with {'address': quoteTransfer.billingAddress} %}
                             </li>
