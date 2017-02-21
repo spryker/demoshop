@@ -20,6 +20,7 @@ class CategoryNodeCollectorQuery extends AbstractPdoCollectorQuery
         $sql = '
             SELECT 
                 spy_category.id_category,
+                spy_category_node.id_category_node,
                 spy_category_attribute.name,
                 spy_category_attribute.meta_keywords,
                 spy_category_attribute.meta_description,
