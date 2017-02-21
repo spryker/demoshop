@@ -1372,7 +1372,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "cbfa016852cf98011d0e5c5284491a51f6818ac6"
+                "reference": "f48075b06b85b44c556efa7a08ed38a5e629baa9"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1479,6 +1479,7 @@
                     "Functional\\Spryker\\Shared\\Cms\\": "Bundles/Cms/tests",
                     "Spryker\\Zed\\Cms\\": "Bundles/Cms/src",
                     "Functional\\Spryker\\Zed\\Cms\\": "Bundles/Cms/tests",
+                    "Unit\\Spryker\\Zed\\Cms\\": "Bundles/Cms/tests",
                     "Spryker\\Client\\Collector\\": "Bundles/Collector/src",
                     "Unit\\Spryker\\Client\\Collector\\": "Bundles/Collector/tests",
                     "Spryker\\Shared\\Collector\\": "Bundles/Collector/src",
@@ -1919,6 +1920,10 @@
                     "Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/src",
                     "Unit\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests",
                     "Functional\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests",
+                    "Spryker\\Shared\\CmsGui\\": "Bundles/CmsGui/src",
+                    "Spryker\\Zed\\CmsGui\\": "Bundles/CmsGui/src",
+                    "Unit\\Spryker\\Zed\\CmsGui\\": "Bundles/CmsGui/tests",
+                    "Functional\\Spryker\\Zed\\CmsGui\\": "Bundles/CmsGui/tests",
                     "Spryker\\Shared\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/src",
                     "Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/src",
                     "Unit\\Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/tests",
@@ -1931,7 +1936,13 @@
                     "Acceptance\\Spryker\\Zed\\ProductBundle\\": "Bundles/ProductBundle/tests",
                     "Spryker\\Zed\\AvailabilityGui\\": "Bundles/AvailabilityGui/src",
                     "Functional\\Spryker\\Zed\\AvailabilityGui\\": "Bundles/AvailabilityGui/tests",
-                    "Acceptance\\AvailabilityGui\\": "Bundles/AvailabilityGui/tests"
+                    "Acceptance\\AvailabilityGui\\": "Bundles/AvailabilityGui/tests",
+                    "Spryker\\Client\\Queue\\": "Bundles/Queue/src",
+                    "Functional\\Spryker\\Client\\Queue\\": "Bundles/Queue/tests",
+                    "Spryker\\Shared\\Queue\\": "Bundles/Queue/src",
+                    "Functional\\Spryker\\Shared\\Queue\\": "Bundles/Queue/tests",
+                    "Spryker\\Zed\\Queue\\": "Bundles/Queue/src",
+                    "Functional\\Spryker\\Zed\\Queue\\": "Bundles/Queue/tests"
                 },
                 "psr-4": {
                     "Application\\Module\\": "Bundles/Application/tests/_support/Module",
@@ -1954,7 +1965,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-02-08 13:17:53"
+            "time": "2017-02-21 11:38:57"
         },
         {
             "name": "swiftmailer/swiftmailer",
