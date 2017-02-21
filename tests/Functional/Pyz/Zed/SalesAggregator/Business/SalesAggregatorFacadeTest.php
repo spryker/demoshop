@@ -69,11 +69,11 @@ class SalesAggregatorFacadeTest extends Test
         $this->assertSame(840, $itemTransfer1->getSumGrossPriceWithProductOptionAndDiscountAmounts());
         $this->assertSame(750, $itemTransfer2->getSumGrossPriceWithProductOptionAndDiscountAmounts());
 
-        $this->assertSame(840.0, $itemTransfer1->getSumItemTotal());
-        $this->assertSame(750.0, $itemTransfer2->getSumItemTotal());
+        $this->assertSame(840, $itemTransfer1->getSumItemTotal());
+        $this->assertSame(750, $itemTransfer2->getSumItemTotal());
 
-        $this->assertSame(79.83, $itemTransfer1->getUnitTaxAmount());
-        $this->assertSame(127.73, $itemTransfer2->getUnitTaxAmount());
+        $this->assertSame(80, $itemTransfer1->getUnitTaxAmount());
+        $this->assertSame(128, $itemTransfer2->getUnitTaxAmount());
 
         $this->assertSame(100, $itemTransfer1->getUnitTotalDiscountAmount());
         $this->assertSame(100, $itemTransfer2->getUnitTotalDiscountAmount());
