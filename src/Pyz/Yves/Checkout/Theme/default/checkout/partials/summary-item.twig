@@ -3,16 +3,24 @@
     <span class="__secondary">&times;</span>
     {{ item.name }} - <strong>{{ item.sumGrossPrice | money }}</strong>
 
-    {% if item.productOptions|length > 0 %}
+    {% if bundleItems is defined %}
         <br />
-        <small>{{ 'product.product_options' | trans }} </small> <br />
-        {% for productOption in item.productOptions %}
-            &nbsp; <small> + {{ productOption.value | trans }} <strong>{{ productOption.unitGrossPrice | money }}</strong> </small> <br />
+        <small>
+        <li>{{ 'checkout.summary.item.bundle.description' | trans }}</li>
+
+        {% for bundleItem in bundleItems %}
+            <li> - {{ bundleItem.quantity }} x {{ bundleItem.name }}  </li>
         {% endfor %}
+         </small>
     {% endif %}
 
-    <br>
-    <small class="__secondary">{{ 'product.attribute.sku' | trans }}: {{ item.sku }} - <strong>{{ item.unitGrossPriceWithProductOptions | money }}</strong> </small>
+    {% if item.productOptions|length > 0 %}
+        <br />
+        <small>{{ 'checkout.summary.item.option.description' | trans }} </small> <br />
+        {% for productOption in item.productOptions %}
+            &nbsp; <small> + {{ productOption.value | trans }} <strong>{{ productOption.sumGrossPrice | money }}</strong> </small> <br />
+        {% endfor %}
+    {% endif %}
 
     {% if not loop.last %}
         <hr>

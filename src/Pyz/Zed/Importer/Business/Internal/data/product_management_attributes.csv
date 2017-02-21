@@ -3,31 +3,31 @@ storage_capacity,text,yes,no,"16 GB, 32 GB, 64 GB, 128 GB",Storage Capacity ,Spe
 series,text,yes,no,"Jade Plus, Jade Z, Jade S, Ace Plus, Ace 3, Ace 2",Series,Serie,,
 width,text,yes,no,"4.2 cm, 3.6 cm, 4 cm",Width,Breite,,
 white_balance,text,no,,"auto, manual",White balance,Weißabgleich,"Auto, Manual","Auto, Manuell"
-weight,text,yes,,"63.5 g, 118 g, 125 g, 132 g, 141 g, 152 g, 155 g, 168 g, 18 g, 20 g, 389 g, 45 g, 46 g, 50 g, 58 g, 63.5 g, 73.5 g, 88 g",Weight,Gewicht,,
-waterproof_up_to,text,yes,,"1.5 m, 1 m, 40 m, 50 m, 1 m",Waterproof up to,Wasserdicht bis zu,,
+weight,text,yes,,"63.5 g, 118 g, 125 g, 132 g, 141 g, 152 g, 155 g, 168 g, 18 g, 20 g, 389 g, 45 g, 46 g, 50 g, 58 g, 63.5 g, 73.5 g, 88 g",Weight,Gewicht,,
+waterproof_up_to,text,yes,,"1.5 m, 1 m, 40 m, 50 m, 1 m",Waterproof up to,Wasserdicht bis zu,,
 waterproof,text,no,yes,"yes, no",Waterproof,Wasserdicht,"Yes, No","Ja, Nein"
 voice_recording,text,no,yes,"yes, no",Voice recording,Stimmenaufzeichnung,"Yes, No","Ja, Nein"
-video_recording_modes,text,yes,no,"1080p, 720p",Video recording modes,Video-Aufnahmemodi,,
+video_recording_modes,text,yes,no,"1080p, 720p",Video recording modes,Video-Aufnahmemodi,,
 usb_version,number,yes,no,2,USB version,USB Version,,
 usb_port,text,no,yes,"yes, no",USB port,USB-Anschluss,"Yes, No","Ja, Nein"
 touchscreen,text,no,yes,"yes, no",Touchscreen,Touchscreen,"Yes, No","Ja, Nein"
-touch_technology,text,yes,yes,"multi-touch, single touch",Touch Technology,Touch Technologie,"Multi-touch, Single-touch","Multi-touch, Single-touch"
+touch_technology,text,yes,yes,"multi-touch, single touch",Touch Technology,Touch Technologie,"Multi-touch, Single-touch","Multi-touch, Single-touch"
 total_megapixels,text,yes,no,"2.37 MP, 5 MP, 16.8 MP, 8 MP, 3.28 MP, 14 MP, 14.6 MP, 16.1 MP",Total Megapixels,Megapixel Gesamt,,
-thermal_design_power,text,yes,no,"65 W, 4.5 W, 15 W",Thermal Design Power (TDP),Thermal Design Power (TDP),,
+thermal_design_power,text,yes,no,"65 W, 4.5 W, 15 W",Thermal Design Power (TDP),Thermal Design Power (TDP),,
 themes,text,yes,yes,wallpapers,Themes,Themen,Wallpapers,Wallpapers
-tcase,text,yes,no,"72 °, 66 °, 65 °",Tcase,Tcase,,
-system_bus_rate,text,yes,yes,"5 GT/s, 8 GT/s, 4 GT/s",System bus rate,Sysrtem-Bus,,
+tcase,text,yes,no,"72 °, 66 °, 65 °",Tcase,Tcase,,
+system_bus_rate,text,yes,yes,"5 GT/s, 8 GT/s, 4 GT/s",System bus rate,Sysrtem-Bus,,
 storage_media,text,yes,yes,"SSD, Flash",Storage media,Speichermedium,,
-stepping,text,yes,yes,"C0, R0, D1, R2",Stepping,Stepping,,
+stepping,text,yes,yes,"C0, R0, D1, R2",Stepping,Stepping,,
 sim_card_type,text,yes,no,NanoSIM,SIM card type,SIM Kartentyp,,
-shape,text,yes,no,"square, round",Shape,Form,"square, round","viereckig, rund"
-sensor_type,text,yes,no,"CMOS, CCD",Sensor type,Sensor Typ,,
-self_timer,text,yes,no,"2.10 s, 10 s",Self-timer,Selbstauslöser,,
+shape,text,yes,no,"square, round",Shape,Form,"square, round","viereckig, rund"
+sensor_type,text,yes,no,"CMOS, CCD",Sensor type,Sensor Typ,,
+self_timer,text,yes,no,"2.10 s, 10 s",Self-timer,Selbstauslöser,,
 scenario_design_power,text,yes,no,4.5 W,Scenario Design Power,Scenario Design Power,,
 recording_time,text,yes,no,65 min,Recording Time,Aufnahmezeit,,
 rear_camera_resolution,text,yes,no,5 MP,Rear camera resolution,Rückkamera Auflösung,,
 rear_camera,text,no,no,"yes, no",Rear camera,Rückkamera,"Yes, No","Ja, Nein"
-protection_feature,text,yes,no,"Water resistent, Waterproof",Protection feature,Schutzfunktion,"Water resistent, Waterproof","Wasserfest, Wasserdicht"
+protection_feature,text,yes,no,"Water resistent, Waterproof",Protection feature,Schutzfunktion,"Water resistent, Waterproof","Wasserfest, Wasserdicht"
 product_type,text,yes,no,"Hybrid(2-in-1), Chromebook, Ultrabook",Product type,Produkt Typ,"Hybrid(2-in-1), Chromebook, Ultrabook","Hybrid(2-in-1), Chromebook, Ultrabook"
 processor_threads,text,yes,no,"2, 4, 8, 12, 16, no",Processor Threads,Prozessor Threads,"2, 4, 8, 12, 16, no","2, 4, 8, 12, 16, nein"
 processor_socket,text,yes,no,BGA1168,Processor Socket,Prozessorsockel,,
@@ -107,3 +107,4 @@ alarm_clock,text,no,no,"yes, no",Alarm clock,Wecker,"yes, no","ja, nein"
 os_system,number,yes,no,5.1,OS system,OS System,,
 wi_fi,text,no,no,"yes, no",Wi-Fi,WLAN,"yes, no","ja, nein"
 total_storage_capacity,text,yes,no,"128 GB, 256 GB, 500 GB, 512 GB",Total storage capacity,Speichergröße insgesamt,,
+bundled_product,text,no,no,"yes, no",Bundled Product,Bündelprodukt,"yes, no","ja, nein"

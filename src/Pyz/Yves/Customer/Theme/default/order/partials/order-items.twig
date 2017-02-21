@@ -9,43 +9,31 @@
         </tr>
     </thead>
     <tbody>
-    {% for orderItem in order.items %}
-        <tr>
-            <td class="text-left">
-                {{ orderItem.sku }}
-            </td>
-            <td class="text-left">
-                {{ orderItem.name }}
-            </td>
-            <td class="text-right">
-                {{ orderItem.unitGrossPriceWithProductOptions | money }}
-            </td>
-            <td class="text-right">
-                {{ orderItem.quantity }}
-            </td>
-            <td class="text-right">
-                {{ orderItem.sumGrossPriceWithProductOptions | money }}
-            </td>
-        </tr>
+    {% for orderItem in items %}
 
-        {% if orderItem.productOptions|length > 0 %}
-            {% for productOption in orderItem.productOptions %}
+        {% if orderItem.bundleItems is defined  %}
+            {% include "@customer/order/partials/order-items-bundled.twig" %}
+        {% else %}
             <tr>
                 <td class="text-left">
-                    &nbsp; + <small>{{ productOption.sku }}</small>
+                    {{ orderItem.sku }}
                 </td>
                 <td class="text-left">
-                    <small>{{ productOption.value | trans }}</small>
+                    {{ orderItem.name }}
                 </td>
                 <td class="text-right">
-                    <small>{{ productOption.unitGrossPrice | money }}</small>
+                    {{ orderItem.unitGrossPriceWithProductOptions | money }}
                 </td>
-                <td class="text-right" colspan="2">
-                    <small>{{ productOption.sumGrossPrice | money }}</small>
+                <td class="text-right">
+                    {{ orderItem.quantity }}
+                </td>
+                <td class="text-right">
+                    {{ orderItem.sumGrossPriceWithProductOptions | money }}
                 </td>
             </tr>
-            {% endfor %}
+            {% include "@customer/order/partials/order-items-options.twig" %}
         {% endif %}
+
     {% endfor %}
     </tbody>
 </table>

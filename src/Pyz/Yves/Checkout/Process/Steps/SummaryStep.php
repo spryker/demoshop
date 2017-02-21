@@ -8,7 +8,9 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Spryker\Client\Calculation\CalculationClientInterface;
+use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Transfer\AbstractTransfer;
+use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouperInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class SummaryStep extends AbstractBaseStep
@@ -20,18 +22,34 @@ class SummaryStep extends AbstractBaseStep
     protected $calculationClient;
 
     /**
+     * @var \Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper
+     */
+    protected $productBundleGrouper;
+
+    /**
+     * @var \Spryker\Client\Cart\CartClientInterface
+     */
+    protected $cartClient;
+
+    /**
      * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
+     * @param \Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouperInterface $productBundleGrouper
+     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $stepRoute
      * @param string $escapeRoute
      */
     public function __construct(
         CalculationClientInterface $calculationClient,
+        ProductBundleGrouperInterface $productBundleGrouper,
+        CartClientInterface $cartClient,
         $stepRoute,
         $escapeRoute
     ) {
         parent::__construct($stepRoute, $escapeRoute);
 
         $this->calculationClient = $calculationClient;
+        $this->productBundleGrouper = $productBundleGrouper;
+        $this->cartClient = $cartClient;
     }
 
     /**
@@ -82,6 +100,11 @@ class SummaryStep extends AbstractBaseStep
     {
         return [
             'quoteTransfer' => $quoteTransfer,
+            'cartItems' => $this->productBundleGrouper->getGroupedBundleItems(
+                $quoteTransfer->getItems(),
+                $quoteTransfer->getBundleItems()
+            ),
+            'numberOfItems' => $this->cartClient->getItemCount(),
         ];
     }
 

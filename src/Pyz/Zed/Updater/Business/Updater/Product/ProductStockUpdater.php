@@ -142,7 +142,7 @@ class ProductStockUpdater extends AbstractUpdater
             ->queryProductConcreteBySku($stock[self::SKU])
             ->findOne();
 
-        if (!$productConcrete) {
+        if (!$productConcrete || $productConcrete->getSpyProductBundlesRelatedByFkProduct()->count() > 0) {
             return;
         }
 

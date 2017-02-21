@@ -9,6 +9,7 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
+use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Transfer\AbstractTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -21,15 +22,27 @@ class SuccessStep extends AbstractBaseStep
     protected $customerClient;
 
     /**
+     * @var \Spryker\Client\Cart\CartClientInterface
+     */
+    protected $cartClient;
+
+    /**
      * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
+     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $stepRoute
      * @param string $escapeRoute
      */
-    public function __construct(CustomerClientInterface $customerClient, $stepRoute, $escapeRoute)
-    {
+    public function __construct(
+        CustomerClientInterface $customerClient,
+        CartClientInterface $cartClient,
+        $stepRoute,
+        $escapeRoute
+    ) {
         parent::__construct($stepRoute, $escapeRoute);
 
         $this->customerClient = $customerClient;
+        $this->stepRoute = $stepRoute;
+        $this->cartClient = $cartClient;
     }
 
     /**
@@ -53,6 +66,7 @@ class SuccessStep extends AbstractBaseStep
     public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
         $this->customerClient->markCustomerAsDirty();
+        $this->cartClient->clearQuote();
 
         return new QuoteTransfer();
     }

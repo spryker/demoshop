@@ -268,3 +268,8 @@ concrete_sku,stock_type,quantity,is_never_out_of_stock
 139_15721464,Warehouse2,20,0
 139_14678762,Warehouse2,20,0
 140_12554247,Warehouse2,20,0
+141_1284254,Warehouse1,0,0
+142_1284254,Warehouse2,0,0
+143_1284254,Warehouse3,0,0
+144_1284254,Warehouse4,0,0
+145_1284254,Warehouse5,0,0

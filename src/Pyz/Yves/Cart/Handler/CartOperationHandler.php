@@ -8,10 +8,11 @@ namespace Pyz\Yves\Cart\Handler;
 
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
+use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Client\Cart\CartClientInterface;
+use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
-class CartOperationHandler extends BaseHandler
+class CartOperationHandler extends BaseHandler implements CartOperationInterface
 {
 
     /**
@@ -27,7 +28,7 @@ class CartOperationHandler extends BaseHandler
     /**
      * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $locale
-     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
+     * @param \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface $flashMessenger
      */
     public function __construct(CartClientInterface $cartClient, $locale, FlashMessengerInterface $flashMessenger)
     {
@@ -38,7 +39,7 @@ class CartOperationHandler extends BaseHandler
 
     /**
      * @param string $sku
-     * @param string $quantity
+     * @param int $quantity
      * @param array $optionValueUsageIds
      *
      * @return void
@@ -52,6 +53,7 @@ class CartOperationHandler extends BaseHandler
         $this->addProductOptions($optionValueUsageIds, $itemTransfer);
 
         $quoteTransfer = $this->cartClient->addItem($itemTransfer);
+        $this->updateNumberOfItemsInCart($quoteTransfer);
         $this->cartClient->storeQuote($quoteTransfer);
     }
 
@@ -64,6 +66,7 @@ class CartOperationHandler extends BaseHandler
     public function remove($sku, $groupKey = null)
     {
         $quoteTransfer = $this->cartClient->removeItem($sku, $groupKey);
+        $this->updateNumberOfItemsInCart($quoteTransfer);
         $this->cartClient->storeQuote($quoteTransfer);
     }
 
@@ -76,6 +79,7 @@ class CartOperationHandler extends BaseHandler
     public function increase($sku, $groupKey = null)
     {
         $quoteTransfer = $this->cartClient->increaseItemQuantity($sku, $groupKey);
+        $this->updateNumberOfItemsInCart($quoteTransfer);
         $this->cartClient->storeQuote($quoteTransfer);
     }
 
@@ -88,6 +92,7 @@ class CartOperationHandler extends BaseHandler
     public function decrease($sku, $groupKey = null)
     {
         $quoteTransfer = $this->cartClient->decreaseItemQuantity($sku, $groupKey);
+        $this->updateNumberOfItemsInCart($quoteTransfer);
         $this->cartClient->storeQuote($quoteTransfer);
     }
 
@@ -101,6 +106,7 @@ class CartOperationHandler extends BaseHandler
     public function changeQuantity($sku, $quantity, $groupKey = null)
     {
         $quoteTransfer = $this->cartClient->changeItemQuantity($sku, $groupKey, $quantity);
+        $this->updateNumberOfItemsInCart($quoteTransfer);
         $this->cartClient->storeQuote($quoteTransfer);
     }
 
@@ -122,6 +128,16 @@ class CartOperationHandler extends BaseHandler
 
             $itemTransfer->addProductOption($productOptionTransfer);
         }
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return void
+     */
+    public function updateNumberOfItemsInCart(QuoteTransfer $quoteTransfer)
+    {
+        $this->cartClient->setItemCount($quoteTransfer->getItems()->count());
     }
 
 }

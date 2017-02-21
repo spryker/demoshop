@@ -9,10 +9,10 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 use Spryker\Shared\Transfer\AbstractTransfer;
 use Spryker\Yves\Checkout\Process\Steps\AbstractPlaceOrderStep;
+use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
 class PlaceOrderStep extends AbstractPlaceOrderStep
 {
@@ -24,7 +24,7 @@ class PlaceOrderStep extends AbstractPlaceOrderStep
 
     /**
      * @param \Spryker\Client\Checkout\CheckoutClientInterface $checkoutClient
-     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
+     * @param \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface $flashMessenger
      * @param string $stepRoute
      * @param string $route
      * @param array $errorCodeToRouteMatching

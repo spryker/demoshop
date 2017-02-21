@@ -43,16 +43,21 @@
         <div class="small-12 medium-6 columns">
             <div class="callout">
                 <ul class="no-bullet">
-                    {% for item in quoteTransfer.items %}
-                        {% include '@checkout/checkout/partials/summary-item.twig' %}
+                    {% for item in cartItems %}
+                        {% if item.bundleProduct is defined %}
+                            {% include '@checkout/checkout/partials/summary-item.twig' with {'item': item.bundleProduct, 'bundleItems' : item.bundleItems} %}
+                        {% else %}
+                            {% include '@checkout/checkout/partials/summary-item.twig' %}
+                        {% endif %}
                     {% endfor %}
+
                 </ul>
             </div>
         </div>
 
         <div class="small-12 medium-6 columns">
             <div class="callout">
-                <h5 class="float-right __secondary">{{quoteTransfer.items|length }} {{ 'checkout.step.summary.items' | trans }}</h5>
+                <h5 class="float-right __secondary">{{ numberOfItems }} {{ 'checkout.step.summary.items' | trans }}</h5>
                 <h5>{{ 'checkout.step.summary.overview' | trans }}</h5>
                 <ul class="no-bullet">
                     <li>
