@@ -18,7 +18,7 @@
         <br />
         <small>{{ 'checkout.summary.item.option.description' | trans }} </small> <br />
         {% for productOption in item.productOptions %}
-            &nbsp; <small> + {{ productOption.value | trans }} <strong>{{ productOption.sumGrossPrice | price }}</strong> </small> <br />
+            &nbsp; <small> + {{ productOption.value | trans }} <strong>{{ productOption.sumGrossPrice | money }}</strong> </small> <br />
         {% endfor %}
     {% endif %}
 
