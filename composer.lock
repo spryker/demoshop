@@ -1372,7 +1372,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "69567a7d4b62c18613c09105df5d8d2138d0924b"
+                "reference": "3007bca4708dc6ca8f9acf8bbf55e65272e8d13f"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1928,6 +1928,15 @@
                     "Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/src",
                     "Unit\\Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/tests",
                     "Functional\\Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/tests",
+                    "Spryker\\Shared\\ProductBundle\\": "Bundles/ProductBundle/src",
+                    "Spryker\\Zed\\ProductBundle\\": "Bundles/ProductBundle/src",
+                    "Spryker\\Yves\\ProductBundle\\": "Bundles/ProductBundle/src",
+                    "Unit\\Spryker\\Zed\\ProductBundle\\": "Bundles/ProductBundle/tests",
+                    "Functional\\Spryker\\Zed\\ProductBundle\\": "Bundles/ProductBundle/tests",
+                    "Acceptance\\Spryker\\Zed\\ProductBundle\\": "Bundles/ProductBundle/tests",
+                    "Spryker\\Zed\\AvailabilityGui\\": "Bundles/AvailabilityGui/src",
+                    "Functional\\Spryker\\Zed\\AvailabilityGui\\": "Bundles/AvailabilityGui/tests",
+                    "Acceptance\\AvailabilityGui\\": "Bundles/AvailabilityGui/tests",
                     "Spryker\\Client\\Queue\\": "Bundles/Queue/src",
                     "Functional\\Spryker\\Client\\Queue\\": "Bundles/Queue/tests",
                     "Spryker\\Shared\\Queue\\": "Bundles/Queue/src",
@@ -1956,7 +1965,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-02-20 18:38:28"
+            "time": "2017-02-21 15:14:39"
         },
         {
             "name": "swiftmailer/swiftmailer",

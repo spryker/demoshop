@@ -6,8 +6,8 @@
 
 namespace Pyz\Yves\Cart\Handler;
 
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Client\Kernel\AbstractClient;
+use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
 class BaseHandler
 {
@@ -18,7 +18,7 @@ class BaseHandler
     protected $flashMessenger;
 
     /**
-     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
+     * @param \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface $flashMessenger
      */
     public function __construct(FlashMessengerInterface $flashMessenger)
     {

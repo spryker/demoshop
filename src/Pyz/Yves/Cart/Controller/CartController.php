@@ -22,12 +22,23 @@ class CartController extends AbstractController
      */
     public function indexAction()
     {
-        $quoteTransfer = $this->getClient()->getQuote();
-        $voucherForm = $this->getFactory()->createVoucherForm();
+        $quoteTransfer = $this->getClient()
+            ->getQuote();
+
+        $numberOfItems = $this->getClient()->getItemCount();
+
+        $voucherForm = $this->getFactory()
+            ->createVoucherForm();
+
+        $cartItems = $this->getFactory()
+            ->createProductBundleGroupper()
+            ->getGroupedBundleItems($quoteTransfer->getItems(), $quoteTransfer->getBundleItems());
 
         return $this->viewResponse([
             'cart' => $quoteTransfer,
+            'cartItems' => $cartItems,
             'voucherForm' => $voucherForm->createView(),
+            'numberOfItems' => $numberOfItems,
         ]);
     }
 
@@ -79,11 +90,11 @@ class CartController extends AbstractController
     }
 
     /**
-     * @return \Pyz\Yves\Cart\Handler\CartOperationHandler
+     * @return \Pyz\Yves\Cart\Handler\ProductBundleCartOperationHandler
      */
     protected function getCartOperationHandler()
     {
-        return $this->getFactory()->createCartOperationHandler();
+        return $this->getFactory()->createProductBundleCartOperationHandler();
     }
 
 }

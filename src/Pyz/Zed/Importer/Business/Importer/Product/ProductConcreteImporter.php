@@ -10,7 +10,9 @@ namespace Pyz\Zed\Importer\Business\Importer\Product;
 use ArrayObject;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
+use Generated\Shared\Transfer\ProductBundleTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
+use Generated\Shared\Transfer\ProductForBundleTransfer;
 use Orm\Zed\Product\Persistence\SpyProductQuery;
 
 class ProductConcreteImporter extends AbstractProductImporter
@@ -46,7 +48,9 @@ class ProductConcreteImporter extends AbstractProductImporter
         }
 
         $productConcreteTransfer = $this->buildProductConcreteTransfer($data);
+
         $idProductConcrete = $this->productFacade->createProductConcrete($productConcreteTransfer);
+
         $this->productFacade->touchProductConcreteActive($idProductConcrete);
     }
 
@@ -75,6 +79,8 @@ class ProductConcreteImporter extends AbstractProductImporter
         $imageSets = $this->buildProductImageSets($data);
         $productConcreteTransfer->setImageSets(new ArrayObject($imageSets));
 
+        $this->setProductBundle($data, $productConcreteTransfer);
+
         return $productConcreteTransfer;
     }
 
@@ -97,6 +103,35 @@ class ProductConcreteImporter extends AbstractProductImporter
             ->setIsSearchable((bool)(int)$data[$this->getLocalizedKeyName('is_searchable', $localeTransfer->getLocaleName())]);
 
         return $localizedAttributesTransfer;
+    }
+
+    /**
+     * @param array $data
+     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
+     *
+     * @return void
+     */
+    protected function setProductBundle(array $data, $productConcreteTransfer)
+    {
+        if (isset($data['bundled']) && $data['bundled']) {
+
+            $bundledProducts = explode(',', $data['bundled']);
+
+            $productBundleTransfer = new ProductBundleTransfer();
+            foreach ($bundledProducts as $bundleProduct) {
+                list($sku, $quantity) = explode('/', $bundleProduct);
+
+                $idProductConcrete = $this->productFacade->findProductConcreteIdBySku(trim($sku));
+
+                $bundledProductTransfer = new ProductForBundleTransfer();
+                $bundledProductTransfer->setIdProductConcrete($idProductConcrete);
+                $bundledProductTransfer->setSku($sku);
+                $bundledProductTransfer->setQuantity($quantity);
+
+                $productBundleTransfer->addBundledProduct($bundledProductTransfer);
+            }
+            $productConcreteTransfer->setProductBundle($productBundleTransfer);
+        }
     }
 
 }

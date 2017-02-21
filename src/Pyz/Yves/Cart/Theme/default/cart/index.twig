@@ -14,14 +14,18 @@
     <div class="row">
         {% if cart.items|length > 0 %}
             <div class="small-12 large-6 columns">
-                {% for cartItem in cart.items %}
-                    {% include '@cart/cart/parts/cart-item.twig' %}
+                {% for cartItem in cartItems %}
+                     {% if cartItem.bundleProduct is defined %}
+                         {% include '@cart/cart/parts/cart-item.twig' with {'cartItem': cartItem.bundleProduct, 'bundleItems' : cartItem.bundleItems} %}
+                     {% else %}
+                         {% include '@cart/cart/parts/cart-item.twig' %}
+                     {% endif %}
                 {% endfor %}
             </div>
 
             <div class="small-12 large-6 columns">
                 <div class="callout">
-                    <h5 class="subheader float-right">{{cart.items | length}} {{ 'item' | trans }}</h5>
+                    <h5 class="subheader float-right">{{ numberOfItems }} {{ 'item' | trans }}</h5>
                     <h5>{{ 'cart.your-order' | trans }}</h5>
                     <ul class="no-bullet">
                         <li>{{ 'cart.price.subtotal' | trans }} <span class="float-right">{{ cart.totals.subtotal | money }}</span></li>

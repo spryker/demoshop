@@ -15,6 +15,7 @@ use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerUserProvider;
 use Pyz\Yves\Customer\Security\Customer;
 use Spryker\Yves\Kernel\AbstractFactory;
+use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
@@ -117,6 +118,14 @@ class CustomerFactory extends AbstractFactory
     public function createAuthenticationHandler()
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::PLUGIN_AUTHENTICATION_HANDLER);
+    }
+
+    /**
+     * @return \Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper
+     */
+    public function createProductBundleGroupper()
+    {
+        return new ProductBundleGrouper();
     }
 
     /**

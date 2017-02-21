@@ -10,6 +10,7 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use PHPUnit_Framework_TestCase;
 use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
+use Spryker\Client\Cart\CartClientInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -78,11 +79,22 @@ class SuccessStepTest extends PHPUnit_Framework_TestCase
             $customerClientMock = $this->createCustomerClientMock();
         }
 
+        $cartClientMock = $this->createCartClientMock();
+
         return new SuccessStep(
             $customerClientMock,
+            $cartClientMock,
             'success_route',
             'escape_route'
         );
+    }
+
+    /**
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Cart\CartClientInterface
+     */
+    protected function createCartClientMock()
+    {
+        return $this->getMockBuilder(CartClientInterface::class)->getMock();
     }
 
     /**

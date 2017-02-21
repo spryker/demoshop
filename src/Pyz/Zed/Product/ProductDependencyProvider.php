@@ -13,6 +13,9 @@ use Spryker\Zed\Price\Communication\Plugin\ProductAbstract\PriceProductAbstractR
 use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteAfterCreatePlugin;
 use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteReadPlugin;
+use Spryker\Zed\ProductBundle\Communication\Plugin\Product\ProductBundleProductConcreteAfterCreatePlugin;
+use Spryker\Zed\ProductBundle\Communication\Plugin\Product\ProductBundleProductConcreteAfterUpdatePlugin;
+use Spryker\Zed\ProductBundle\Communication\Plugin\Product\ProductBundleProductConcreteReadPlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterCreatePlugin as ImageSetProductAbstractAfterCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterUpdatePlugin as ImageSetProductAbstractAfterUpdatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as ImageSetProductAbstractReadPlugin;
@@ -117,6 +120,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
             new StockProductConcreteAfterCreatePlugin(),
             new PriceProductConcreteAfterCreatePlugin(),
             new ProductSearchProductConcreteAfterCreatePlugin(),
+            new ProductBundleProductConcreteAfterCreatePlugin(),
         ];
     }
 
@@ -132,6 +136,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
             new StockProductConcreteReadPlugin(),
             new PriceProductConcreteReadPlugin(),
             new ProductSearchProductConcreteReadPlugin(),
+            new ProductBundleProductConcreteReadPlugin(),
         ];
     }
 
@@ -157,6 +162,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
             new StockProductConcreteAfterUpdatePlugin(),
             new PriceProductConcreteAfterUpdatePlugin(),
             new ProductSearchProductConcreteAfterUpdatePlugin(),
+            new ProductBundleProductConcreteAfterUpdatePlugin(),
         ];
     }
 
