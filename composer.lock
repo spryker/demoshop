@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "25660a97debe17147c0f95b252f6b53b",
+    "content-hash": "6c4818e7b0efa1240fdaba79efd827b1",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -709,16 +709,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.3.1",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "5c6447c9df362e8f8093bda8f5d8873fe5c7f65b"
+                "reference": "04a6d1a00ea5da0727ee94309a9f0d3dbaecb569"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/5c6447c9df362e8f8093bda8f5d8873fe5c7f65b",
-                "reference": "5c6447c9df362e8f8093bda8f5d8873fe5c7f65b",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/04a6d1a00ea5da0727ee94309a9f0d3dbaecb569",
+                "reference": "04a6d1a00ea5da0727ee94309a9f0d3dbaecb569",
                 "shasum": ""
             },
             "require": {
@@ -754,16 +754,23 @@
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "homepage": "https://github.com/Tobion"
                 }
             ],
-            "description": "PSR-7 message implementation",
+            "description": "PSR-7 message implementation that also provides common utility methods",
             "keywords": [
                 "http",
                 "message",
+                "request",
+                "response",
                 "stream",
-                "uri"
+                "uri",
+                "url"
             ],
-            "time": "2016-06-24T23:00:38+00:00"
+            "time": "2017-02-21T01:20:32+00:00"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -3859,11 +3866,11 @@
         },
         {
             "name": "spryker/cms",
-            "version": "3.1.2",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Cms.git",
-                "reference": "e30ad017cdde48efa218813070972ff43634796c",
+                "reference": "26990af4122169739d3609c24d2426776e6be4f2",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3873,8 +3880,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Cms/zipball/e30ad017cdde48efa218813070972ff43634796c",
-                "reference": "e30ad017cdde48efa218813070972ff43634796c",
+                "url": "https://api.github.com/repos/spryker/Cms/zipball/26990af4122169739d3609c24d2426776e6be4f2",
+                "reference": "26990af4122169739d3609c24d2426776e6be4f2",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3925,7 +3932,73 @@
             "support": {
                 "source": "https://github.com/spryker/Cms/tree/master"
             },
-            "time": "2017-02-02T15:20:05+00:00"
+            "time": "2017-02-20T15:05:00+00:00"
+        },
+        {
+            "name": "spryker/cms-gui",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/CmsGui.git",
+                "reference": "37e0ea583ce28387d44194f2990a067f87ef9fba",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/CmsGui/zipball/37e0ea583ce28387d44194f2990a067f87ef9fba",
+                "reference": "37e0ea583ce28387d44194f2990a067f87ef9fba",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/application": "^2.0.0",
+                "spryker/cms": "^3.2.0",
+                "spryker/glossary": "^2.2.0",
+                "spryker/gui": "^2.6.1",
+                "spryker/kernel": "^2.0.0",
+                "spryker/locale": "^2.0.0",
+                "spryker/symfony": "^2.1.6",
+                "spryker/url": "^2.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "CmsGui bundle",
+            "support": {
+                "source": "https://github.com/spryker/CmsGui/tree/1.0.0"
+            },
+            "time": "2017-02-20T16:04:15+00:00"
         },
         {
             "name": "spryker/collector",
@@ -5216,11 +5289,11 @@
         },
         {
             "name": "spryker/gui",
-            "version": "2.6.0",
+            "version": "2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Gui.git",
-                "reference": "a1d9b44055f461aea37c87c6726f12644fff5467",
+                "reference": "43ce199f06c303a60d44163b87e3836a6b4523a5",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5230,8 +5303,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Gui/zipball/a1d9b44055f461aea37c87c6726f12644fff5467",
-                "reference": "a1d9b44055f461aea37c87c6726f12644fff5467",
+                "url": "https://api.github.com/repos/spryker/Gui/zipball/43ce199f06c303a60d44163b87e3836a6b4523a5",
+                "reference": "43ce199f06c303a60d44163b87e3836a6b4523a5",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5281,7 +5354,7 @@
             "support": {
                 "source": "https://github.com/spryker/Gui/tree/master"
             },
-            "time": "2017-02-02T14:29:44+00:00"
+            "time": "2017-02-20T18:30:46+00:00"
         },
         {
             "name": "spryker/guzzle",
