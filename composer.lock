@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b396eb6ee313a278883f1bd457e3c69",
+    "content-hash": "cbf24ff6320d8e7798aeda82b57b6aea",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1368,11 +1368,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-520-product-bundles",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "6f2f46bbbc5c0830d48a08479015d7ee67b8d837"
+                "reference": "3007bca4708dc6ca8f9acf8bbf55e65272e8d13f"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1965,7 +1965,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-02-21 14:40:36"
+            "time": "2017-02-21 15:14:39"
         },
         {
             "name": "swiftmailer/swiftmailer",
