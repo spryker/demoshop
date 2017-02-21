@@ -9,12 +9,8 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
-<<<<<<< HEAD
 use Spryker\Client\Cart\CartClientInterface;
-use Spryker\Shared\Transfer\AbstractTransfer;
-=======
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
->>>>>>> core-714 run auto update
 use Symfony\Component\HttpFoundation\Request;
 
 class SuccessStep extends AbstractBaseStep

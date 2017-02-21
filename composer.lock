@@ -1372,37 +1372,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "3007bca4708dc6ca8f9acf8bbf55e65272e8d13f"
-=======
-=======
->>>>>>> core-714 upadte spryker/spryker
-=======
->>>>>>> lock
-<<<<<<< HEAD
-                "reference": "69567a7d4b62c18613c09105df5d8d2138d0924b"
-=======
-                "reference": "79e02b945639ec3071674dd751d26d75589949a8"
->>>>>>> core-714 run auto update
-<<<<<<< HEAD
->>>>>>> core-714 run auto update
-=======
-=======
-                "reference": "4bf3c1840d937634a32f849985ee117e9a3a6ba3"
->>>>>>> core-714 upadte spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-714 upadte spryker/spryker
-=======
-=======
-                "reference": "a08dc4a9ed1d7a65ded9c2c7b9870a083351cde7"
->>>>>>> lock
->>>>>>> lock
-=======
-                "reference": "a08dc4a9ed1d7a65ded9c2c7b9870a083351cde7"
->>>>>>> core-714 updater composer
+                "reference": "f2a836d946e78659dcd68417febb966670b52634"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2003,37 +1973,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-02-21 15:14:39"
-=======
-=======
->>>>>>> core-714 upadte spryker/spryker
-=======
->>>>>>> lock
-<<<<<<< HEAD
-            "time": "2017-02-20 18:38:28"
-=======
-            "time": "2017-02-20 19:34:57"
->>>>>>> core-714 run auto update
-<<<<<<< HEAD
->>>>>>> core-714 run auto update
-=======
-=======
-            "time": "2017-02-21 10:17:42"
->>>>>>> core-714 upadte spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-714 upadte spryker/spryker
-=======
-=======
-            "time": "2017-02-21 10:32:16"
->>>>>>> lock
->>>>>>> lock
-=======
-            "time": "2017-02-21 10:32:16"
->>>>>>> core-714 updater composer
+            "time": "2017-02-21 16:03:14"
         },
         {
             "name": "swiftmailer/swiftmailer",
