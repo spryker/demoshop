@@ -6,6 +6,7 @@ SETUP='spryker'
 CONSOLE=vendor/bin/console
 STORES=( de_search )
 
+. deploy/setup/util/print.sh
 . deploy/setup/functions.sh
 
 if [ $# -eq 0 ]; then

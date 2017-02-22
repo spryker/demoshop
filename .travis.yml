@@ -73,6 +73,8 @@ before_script:
   - mkdir -p data/DE/logs -m 0777
   - chmod -R 777 data/
 
+  - nvm install 6
+
   - mv config/Zed/propel.ci.yml config/Zed/propel.yml
   - cp config/Shared/ci/travis/config_ci.php config/Shared/config_default-devtest_DE.php
   - cp config/Shared/ci/travis/params.sh deploy/setup/params_test_env.sh
