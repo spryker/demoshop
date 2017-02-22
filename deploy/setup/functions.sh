@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# [!] include deploy/setup/util/print.sh before this file
+# [!] include deploy/setup/params.sh before this file
+# [!] include deploy/setup/frontend/params.sh with this file
+# [!] include deploy/setup/frontend/function.sh with this file
+# provide deploy functions
+
 if [[ -z "$SETUP" ]]; then
     tput setab 1
     echo "Please do not run this script individually"
@@ -222,12 +228,6 @@ function dumpAutoload {
 }
 
 function resetYves {
-    if [[ -d "./node_modules" ]]; then
-        labelText "Remove node_modules directory"
-        rm -rf "./node_modules"
-        writeErrorMessage "Could not remove node_modules directory"
-    fi
-
     if [[ -d "./data/DE/logs" ]]; then
         labelText "Clear logs"
         rm -rf "./data/DE/logs"
@@ -240,6 +240,8 @@ function resetYves {
         rm -rf "./data/DE/cache"
         writeErrorMessage "Could not remove cache directory"
     fi
+
+    cleanupProjectFrontend
 }
 
 function displayHeader {

@@ -15,6 +15,8 @@ BLACK_TEXT=`tput setaf 0` # text black
 RED_TEXT=`tput setaf 1` # text red
 NC=`tput sgr0` # reset
 
+# functions
+
 function labelText {
     echo -e "\n${BLUE_BKG}${WHITE_TEXT}-> ${1} ${NC}\n"
 }
