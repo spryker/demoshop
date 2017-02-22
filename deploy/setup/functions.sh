@@ -241,7 +241,8 @@ function resetYves {
         writeErrorMessage "Could not remove cache directory"
     fi
 
-    cleanupProjectFrontend
+    cleanupProjectFrontendDeps
+    cleanupYvesFrontendPublicAssets
 }
 
 function displayHeader {
