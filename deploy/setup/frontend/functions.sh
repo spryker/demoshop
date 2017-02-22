@@ -10,7 +10,7 @@ ANTELOPE_TOOL=`which antelope`
 
 # status flags
 STATUS_ANTELOPE_INSTALLED=false
-STATUS_CLEANED_UP=false
+STATUS_PROJECT_DEPS_CLEANED_UP=false
 STATUS_PROJECT_DEPS_INSTALLED=false
 
 # main functions
@@ -18,6 +18,9 @@ STATUS_PROJECT_DEPS_INSTALLED=false
 function setupYvesFrontend {
     assureNodeJsVersion
     checkFrontendPackageManager
+
+    cleanupProjectFrontendDeps
+    cleanupYvesFrontendPublicAssets
 
     if $FE_ANTELOPE_LEGACY ; then
         installAntelope
@@ -27,7 +30,6 @@ function setupYvesFrontend {
         return
     fi
 
-    cleanupProjectFrontend
     installProjectFrontendDeps
     installYvesCoreFrontendDeps
     buildYvesFrontend
@@ -37,6 +39,9 @@ function setupZedFrontend {
     assureNodeJsVersion
     checkFrontendPackageManager
 
+    cleanupProjectFrontendDeps
+    cleanupZedFrontendPublicAssets
+
     if $FE_ANTELOPE_LEGACY ; then
         installAntelope
         checkAntelope
@@ -45,7 +50,6 @@ function setupZedFrontend {
         return
     fi
 
-    cleanupProjectFrontend
     installProjectFrontendDeps
     installZedCoreFrontendDeps
     buildZedFrontend
@@ -71,14 +75,14 @@ function checkFrontendPackageManager {
     fi
 }
 
-# default build
+# cleanup functions
 
-function cleanupProjectFrontend {
-    if $STATUS_CLEANED_UP ; then
+function cleanupProjectFrontendDeps {
+    if $STATUS_PROJECT_DEPS_CLEANED_UP ; then
         return
     fi
 
-    labelText "Frontend: cleaning up project"
+    labelText "Frontend: cleaning up project dependencies"
 
     if [[ -d "./node_modules" ]]; then
         echo "removing ./node_modules folder..."
@@ -86,11 +90,24 @@ function cleanupProjectFrontend {
         writeErrorMessage "Could not delete node_modules folder"
     fi
 
+    STATUS_PROJECT_DEPS_CLEANED_UP=true
+    echo "done"
+}
+
+function cleanupYvesFrontendPublicAssets {
+    labelText "Frontend: cleaning up Yves old built assets"
+
     if [[ -d "./public/Yves/assets" ]]; then
         echo "removing ./public/Yves/assets folder..."
         rm -fR ./public/Yves/assets
         writeErrorMessage "Could not delete Yves/assets folder"
     fi
+
+    echo "done"
+}
+
+function cleanupZedFrontendPublicAssets {
+    labelText "Frontend: cleaning up Zed old built assets"
 
     if [[ -d "./public/Zed/assets" ]]; then
         echo "removing ./public/Zed/assets folder..."
@@ -98,9 +115,10 @@ function cleanupProjectFrontend {
         writeErrorMessage "Could not delete Zed/assets folder"
     fi
 
-    STATUS_CLEANED_UP=true
     echo "done"
 }
+
+# default build
 
 function installProjectFrontendDeps {
     if $STATUS_PROJECT_DEPS_INSTALLED ; then
