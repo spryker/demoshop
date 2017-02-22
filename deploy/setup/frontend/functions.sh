@@ -8,9 +8,50 @@ FIND=`which find`
 FE_PM=`which $FE_PACKAGE_MANAGER`
 ANTELOPE_TOOL=`which antelope`
 
-ANTELOPE_INSTALLED=false
-SUCCESS=0
-FAILURE=1
+# status flags
+STATUS_ANTELOPE_INSTALLED=false
+STATUS_CLEANED_UP=false
+STATUS_PROJECT_DEPS_INSTALLED=false
+
+# main functions
+
+function setupYvesFrontend {
+    assureNodeJsVersion
+    checkFrontendPackageManager
+
+    if $FE_ANTELOPE_LEGACY ; then
+        installAntelope
+        checkAntelope
+        installFrontendDepsWithAntelope
+        buildYvesFrontendWithAntelope
+        return
+    fi
+
+    cleanupProjectFrontend
+    installProjectFrontendDeps
+    installYvesCoreFrontendDeps
+    buildYvesFrontend
+}
+
+function setupZedFrontend {
+    assureNodeJsVersion
+    checkFrontendPackageManager
+
+    if $FE_ANTELOPE_LEGACY ; then
+        installAntelope
+        checkAntelope
+        installFrontendDepsWithAntelope
+        buildZedFrontendWithAntelope
+        return
+    fi
+
+    cleanupProjectFrontend
+    installProjectFrontendDeps
+    installZedCoreFrontendDeps
+    buildZedFrontend
+}
+
+# checks
 
 function assureNodeJsVersion {
     if [[ `node -v | grep -E '^v[0-5]'` ]]; then
@@ -30,48 +71,49 @@ function checkFrontendPackageManager {
     fi
 }
 
-function setupYvesFrontend {
-    assureNodeJsVersion
-    checkFrontendPackageManager
+# default build
 
-    if $FE_ANTELOPE_LEGACY ; then
-        installAntelope
-        checkAntelope
-        installFrontendDepsWithAntelope
-        buildYvesFrontendWithAntelope
+function cleanupProjectFrontend {
+    if $STATUS_CLEANED_UP ; then
         return
     fi
 
-    installProjectFrontendDeps
-    installYvesCoreFrontendDeps
-    buildYvesFrontend
-}
+    labelText "Frontend: cleaning up project"
 
-function setupZedFrontend {
-    assureNodeJsVersion
-    checkFrontendPackageManager
-
-    if $FE_ANTELOPE_LEGACY ; then
-        installAntelope
-        checkAntelope
-        installFrontendDepsWithAntelope
-        buildZedFrontendWithAntelope
-        return
+    if [[ -d "./node_modules" ]]; then
+        echo "removing ./node_modules folder..."
+        rm -fR ./node_modules
+        writeErrorMessage "Could not delete node_modules folder"
     fi
 
-    installProjectFrontendDeps
-    installZedCoreFrontendDeps
-    buildZedFrontend
-}
+    if [[ -d "./public/Yves/assets" ]]; then
+        echo "removing ./public/Yves/assets folder..."
+        rm -fR ./public/Yves/assets
+        writeErrorMessage "Could not delete Yves/assets folder"
+    fi
 
-# default
+    if [[ -d "./public/Zed/assets" ]]; then
+        echo "removing ./public/Zed/assets folder..."
+        rm -fR ./public/Zed/assets
+        writeErrorMessage "Could not delete Zed/assets folder"
+    fi
+
+    STATUS_CLEANED_UP=true
+    echo "done"
+}
 
 function installProjectFrontendDeps {
+    if $STATUS_PROJECT_DEPS_INSTALLED ; then
+        return
+    fi
+
     labelText "Frontend: installing project dependencies"
 
     $FE_PM $FE_INSTALL_COMMAND
 
     writeErrorMessage "Installation failed"
+
+    STATUS_PROJECT_DEPS_INSTALLED=true
 }
 
 function installYvesCoreFrontendDeps {
@@ -82,11 +124,13 @@ function installYvesCoreFrontendDeps {
     do
         bundlePkgJsonParentPath=`dirname $bundlePkgJsonPath`
 
-        echo "-> $bundlePkgJsonParentPath"
+        echo "installing $bundlePkgJsonParentPath..."
         (cd $bundlePkgJsonParentPath && $FE_PM $FE_INSTALL_COMMAND)
 
         writeErrorMessage "Installation failed"
     done
+
+    echo "done"
 }
 
 function installZedCoreFrontendDeps {
@@ -97,11 +141,13 @@ function installZedCoreFrontendDeps {
     do
         bundlePkgJsonParentPath=`dirname $bundlePkgJsonPath`
 
-        echo "-> $bundlePkgJsonParentPath"
+        echo "installing $bundlePkgJsonParentPath..."
         (cd $bundlePkgJsonParentPath && $FE_PM $FE_INSTALL_COMMAND)
 
         writeErrorMessage "Installation failed"
     done
+
+    echo "done"
 }
 
 function buildYvesFrontend {
@@ -120,10 +166,10 @@ function buildZedFrontend {
     writeErrorMessage "Build failed"
 }
 
-# antelope (legacy)
+# antelope build (legacy)
 
 function installAntelope {
-    if $ANTELOPE_INSTALLED ; then
+    if $STATUS_ANTELOPE_INSTALLED ; then
         return
     fi
 
@@ -134,10 +180,11 @@ function installAntelope {
         exit 1
     fi
 
-    ANTELOPE_INSTALLED=true
     sudo $FE_PM $FE_INSTALL_COMMAND -g antelope
 
     writeErrorMessage "Antelope installation failed"
+
+    STATUS_ANTELOPE_INSTALLED=true
 }
 
 function checkAntelope {

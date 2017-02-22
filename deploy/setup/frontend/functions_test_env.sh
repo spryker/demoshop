@@ -2,20 +2,15 @@
 
 # [!] include deploy/setup/util/print.sh before this file
 # [!] include deploy/setup/frontend/params.sh before this file
-# [!] include deploy/setup/frontend/params_heroku.sh before this file
+# [!] include deploy/setup/frontend/params_test_env.sh before this file
 # [!] include deploy/setup/frontend/functions.sh before this file
-# create/override some function to allow deploy on heroku
+# create/override some function to allow deploy on travis
 
-function setupYvesFrontend {
+function setupFrontendForTest {
     checkFrontendPackageManager
     installProjectFrontendDeps
     installYvesCoreFrontendDeps
     buildYvesFrontend
-}
-
-function setupZedFrontend {
-    checkFrontendPackageManager
-    installProjectFrontendDeps
     installZedCoreFrontendDeps
     buildZedFrontend
 }

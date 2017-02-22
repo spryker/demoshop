@@ -4,6 +4,7 @@
 . deploy/setup/frontend/params.sh
 . deploy/setup/frontend/params_test_env.sh
 . deploy/setup/frontend/functions.sh
+. deploy/setup/frontend/functions_test_env.sh
 
 sudo apt-get install apache2 libapache2-mod-fastcgi
 
@@ -31,11 +32,6 @@ sudo service apache2 restart
 # node 6 is required
 # installed by '- nvm install 6' in .travis.yml
 
-checkFrontendPackageManager
-installProjectFrontendDeps
-installYvesCoreFrontendDeps
-buildYvesFrontend
-installZedCoreFrontendDeps
-buildZedFrontend
+setupFrontendForTest
 
 wget https://raw.github.com/Codeception/c3/2.0/c3.php
