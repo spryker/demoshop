@@ -12,3 +12,4 @@ CONSOLE=vendor/bin/console
 PHANTOMJS_CDNURL='https://github.com/Medium/phantomjs/'
 DATABASE_BACKUP_PATH='data/test.backup'
 
+. deploy/setup/frontend/params_test_env.sh
