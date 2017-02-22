@@ -9,7 +9,6 @@ namespace Pyz\Yves\Cart\Handler;
 
 use ArrayObject;
 use Generated\Shared\Transfer\ItemTransfer;
-use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
@@ -60,8 +59,6 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
     public function add($sku, $quantity, $optionValueUsageIds = [])
     {
         $this->cartOperationHandler->add($sku, $quantity, $optionValueUsageIds);
-
-        $this->updateNumberOfItemsInCart($this->cartClient->getQuote());
     }
 
     /**
@@ -75,11 +72,9 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
         $bundledItemsToRemove = $this->getBundledItems($groupKey);
         if (count($bundledItemsToRemove) > 0) {
             $quoteTransfer = $this->cartClient->removeItems($bundledItemsToRemove);
-            $this->updateNumberOfItemsInCart($quoteTransfer);
             $this->cartClient->storeQuote($quoteTransfer);
         } else {
             $quoteTransfer = $this->cartClient->removeItem($sku, $groupKey);
-            $this->updateNumberOfItemsInCart($quoteTransfer);
             $this->cartClient->storeQuote($quoteTransfer);
         }
     }
@@ -143,45 +138,7 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
             $quoteTransfer = $this->cartClient->changeItemQuantity($sku, $groupKey, $quantity);
         }
 
-        $this->updateNumberOfItemsInCart($quoteTransfer);
         $this->cartClient->storeQuote($quoteTransfer);
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
-    public function updateNumberOfItemsInCart(QuoteTransfer $quoteTransfer)
-    {
-        $numberOfItems = $this->getNumberOfItemsInCart($quoteTransfer);
-        $this->cartClient->setItemCount($numberOfItems);
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return int
-     */
-    protected function getNumberOfItemsInCart(QuoteTransfer $quoteTransfer)
-    {
-        $uniqueBundleItems = [];
-        foreach ($quoteTransfer->getBundleItems() as $bundleItemTransfer) {
-            if (!isset($uniqueBundleItems[$bundleItemTransfer->getSku()])) {
-                $uniqueBundleItems[$bundleItemTransfer->getSku()] = true;
-            }
-        }
-
-        $numberOfItems = count($uniqueBundleItems);
-        foreach ($quoteTransfer->getItems() as $itemTransfer) {
-            if ($itemTransfer->getRelatedBundleItemIdentifier()) {
-                continue;
-            }
-
-            $numberOfItems++;
-        }
-
-        return $numberOfItems;
     }
 
     /**

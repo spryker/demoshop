@@ -104,7 +104,6 @@ class SummaryStep extends AbstractBaseStep
                 $quoteTransfer->getItems(),
                 $quoteTransfer->getBundleItems()
             ),
-            'numberOfItems' => $this->cartClient->getItemCount(),
         ];
     }
 

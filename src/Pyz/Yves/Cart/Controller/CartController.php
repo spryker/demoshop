@@ -25,8 +25,6 @@ class CartController extends AbstractController
         $quoteTransfer = $this->getClient()
             ->getQuote();
 
-        $numberOfItems = $this->getClient()->getItemCount();
-
         $voucherForm = $this->getFactory()
             ->createVoucherForm();
 
@@ -38,7 +36,6 @@ class CartController extends AbstractController
             'cart' => $quoteTransfer,
             'cartItems' => $cartItems,
             'voucherForm' => $voucherForm->createView(),
-            'numberOfItems' => $numberOfItems,
         ]);
     }
 
