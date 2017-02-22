@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# [!] include deploy/setup/util/print.sh before this file
+# [!] include deploy/setup/frontend/params.sh before this file
+# provide deploy functions for frontend
+
 FIND=`which find`
 FE_PM=`which $FE_PACKAGE_MANAGER`
 ANTELOPE_TOOL=`which antelope`
@@ -39,6 +43,7 @@ function setupYvesFrontend {
     fi
 
     installProjectFrontendDeps
+    installYvesCoreFrontendDeps
     buildYvesFrontend
 }
 
@@ -55,7 +60,7 @@ function setupZedFrontend {
     fi
 
     installProjectFrontendDeps
-    installCoreFrontendDeps
+    installZedCoreFrontendDeps
     buildZedFrontend
 }
 
@@ -69,8 +74,23 @@ function installProjectFrontendDeps {
     writeErrorMessage "Installation failed"
 }
 
-function installCoreFrontendDeps {
-    labelText "Frontend: installing bundle dependencies"
+function installYvesCoreFrontendDeps {
+    labelText "Frontend: installing Yves bundle dependencies"
+    bundlePkgJsonPaths=($($FIND vendor/ -regex "$FE_YVES_BUNDLE_PKGJSON_PATTERN"))
+
+    for bundlePkgJsonPath in ${bundlePkgJsonPaths[*]}
+    do
+        bundlePkgJsonParentPath=`dirname $bundlePkgJsonPath`
+
+        echo "-> $bundlePkgJsonParentPath"
+        (cd $bundlePkgJsonParentPath && $FE_PM $FE_INSTALL_COMMAND)
+
+        writeErrorMessage "Installation failed"
+    done
+}
+
+function installZedCoreFrontendDeps {
+    labelText "Frontend: installing Zed bundle dependencies"
     bundlePkgJsonPaths=($($FIND vendor/ -regex "$FE_ZED_BUNDLE_PKGJSON_PATTERN"))
 
     for bundlePkgJsonPath in ${bundlePkgJsonPaths[*]}
@@ -78,7 +98,7 @@ function installCoreFrontendDeps {
         bundlePkgJsonParentPath=`dirname $bundlePkgJsonPath`
 
         echo "-> $bundlePkgJsonParentPath"
-        (cd $bundlePkgJsonParentPath && $FE_PM install)
+        (cd $bundlePkgJsonParentPath && $FE_PM $FE_INSTALL_COMMAND)
 
         writeErrorMessage "Installation failed"
     done
