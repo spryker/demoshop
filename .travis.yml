@@ -60,7 +60,7 @@ services:
 sudo: required
 
 install:
-  - chmod -R a+x deploy/travis/
+  - chmod -R a+x config/Shared/ci/travis/
   - composer self-update && composer --version
   - composer install --no-interaction
   - config/Shared/ci/travis/install_elasticsearch.sh
