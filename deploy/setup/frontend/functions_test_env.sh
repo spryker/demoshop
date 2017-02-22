@@ -10,7 +10,7 @@ function setupFrontendForTest {
     checkFrontendPackageManager
     installProjectFrontendDeps
     installYvesCoreFrontendDeps
-    buildYvesFrontend
     installZedCoreFrontendDeps
+    buildYvesFrontend
     buildZedFrontend
 }
