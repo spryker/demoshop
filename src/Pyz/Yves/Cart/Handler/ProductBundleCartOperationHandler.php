@@ -73,10 +73,13 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
         if (count($bundledItemsToRemove) > 0) {
             $quoteTransfer = $this->cartClient->removeItems($bundledItemsToRemove);
             $this->cartClient->storeQuote($quoteTransfer);
-        } else {
-            $quoteTransfer = $this->cartClient->removeItem($sku, $groupKey);
-            $this->cartClient->storeQuote($quoteTransfer);
+
+            return;
         }
+
+        $quoteTransfer = $this->cartClient->removeItem($sku, $groupKey);
+        $this->updateNumberOfItemsInCart($quoteTransfer);
+        $this->cartClient->storeQuote($quoteTransfer);
     }
 
     /**

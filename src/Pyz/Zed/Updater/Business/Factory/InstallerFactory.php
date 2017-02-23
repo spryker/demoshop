@@ -32,7 +32,7 @@ class InstallerFactory extends AbstractFactory
         $productStockUpdater = new ProductStockInstaller(
             $this->getUpdaterProductStockCollection(),
             $this->getConfig()->getImportDataDirectory(),
-            $this->createProductStockUpdater()
+            $this->getProductStockUpdater()
         );
 
         return $productStockUpdater;
@@ -44,14 +44,14 @@ class InstallerFactory extends AbstractFactory
     public function getUpdaterProductStockCollection()
     {
         return [
-            UpdaterConfig::RESOURCE_PRODUCT_STOCK => $this->createProductStockUpdater(),
+            UpdaterConfig::RESOURCE_PRODUCT_STOCK => $this->getProductStockUpdater(),
         ];
     }
 
     /**
      * @return \Pyz\Zed\Updater\Business\Updater\Product\ProductStockUpdater
      */
-    protected function createProductStockUpdater()
+    protected function getProductStockUpdater()
     {
         return $this->createUpdaterFactory()->createProductStockUpdater();
     }

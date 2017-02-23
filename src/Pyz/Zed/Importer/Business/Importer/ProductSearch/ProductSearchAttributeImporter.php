@@ -67,9 +67,9 @@ class ProductSearchAttributeImporter extends AbstractImporter
             return;
         }
 
-        $ProductSearchAttributeTransfer = $this->createAttributeTransfer($data);
+        $productSearchAttributeTransfer = $this->createAttributeTransfer($data);
 
-        $this->productSearchFacade->createProductSearchAttribute($ProductSearchAttributeTransfer);
+        $this->productSearchFacade->createProductSearchAttribute($productSearchAttributeTransfer);
     }
 
     /**

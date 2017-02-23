@@ -23,7 +23,7 @@ class AutoloaderCacheServiceProvider extends AbstractPlugin implements ServicePr
      */
     public function register(Application $app)
     {
-        $app->finish(function (Request $request, Response $response) {
+        $app->finish(function () {
             $this->persistClassResolverCache();
         });
     }
