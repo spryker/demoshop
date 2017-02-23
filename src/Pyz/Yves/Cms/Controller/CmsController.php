@@ -67,4 +67,15 @@ class CmsController extends AbstractController
         return true;
     }
 
+    /**
+     * @param string $viewPath
+     * @param array $parameters
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    protected function renderView($viewPath, array $parameters = [])
+    {
+        return $this->getApplication()->render($viewPath, $parameters);
+    }
+
 }

@@ -4,10 +4,10 @@ use Propel\Generator\Manager\MigrationManager;
 
 /**
  * Data object containing the SQL and PHP code to migrate the database
- * up to version 1486730360.
- * Generated on 2017-02-10 12:39:20 by vagrant
+ * up to version 1487759432.
+ * Generated on 2017-02-22 10:30:32 by vagrant
  */
-class PropelMigration_1486730360
+class PropelMigration_1487759432
 {
     public $comment = '';
 
@@ -68,12 +68,12 @@ CREATE TABLE "spy_navigation_node"
     "id_navigation_node" INTEGER NOT NULL,
     "fk_navigation" INTEGER NOT NULL,
     "fk_parent_navigation_node" INTEGER,
-    "weight" INTEGER DEFAULT 0,
+    "position" INTEGER,
     "is_active" BOOLEAN DEFAULT \'t\' NOT NULL,
     PRIMARY KEY ("id_navigation_node")
 );
 
-CREATE INDEX "spy_navigation_node_i_60e5be" ON "spy_navigation_node" ("weight");
+CREATE INDEX "spy_navigation_node_i_ba7161" ON "spy_navigation_node" ("position");
 
 CREATE SEQUENCE "spy_navigation_node_localized_attributes_pk_seq";
 
@@ -90,9 +90,14 @@ CREATE TABLE "spy_navigation_node_localized_attributes"
     PRIMARY KEY ("id_navigation_node_localized_attributes")
 );
 
+ALTER TABLE "spy_state_machine_lock"
+
+  ALTER COLUMN "identifier" TYPE VARCHAR(255);
+
 ALTER TABLE "spy_navigation_node" ADD CONSTRAINT "spy_navigation_node_fk_07636b"
     FOREIGN KEY ("fk_parent_navigation_node")
-    REFERENCES "spy_navigation_node" ("id_navigation_node");
+    REFERENCES "spy_navigation_node" ("id_navigation_node")
+    ON DELETE CASCADE;
 
 ALTER TABLE "spy_navigation_node" ADD CONSTRAINT "spy_navigation_node_fk_6f985c"
     FOREIGN KEY ("fk_navigation")
@@ -140,6 +145,10 @@ DROP SEQUENCE "spy_navigation_node_pk_seq";
 DROP TABLE IF EXISTS "spy_navigation_node_localized_attributes" CASCADE;
 
 DROP SEQUENCE "spy_navigation_node_localized_attributes_pk_seq";
+
+ALTER TABLE "spy_state_machine_lock"
+
+  ALTER COLUMN "identifier" TYPE VARCHAR(1024);
 
 COMMIT;
 ',
