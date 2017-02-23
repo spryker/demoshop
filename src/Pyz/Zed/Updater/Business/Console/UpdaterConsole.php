@@ -48,11 +48,12 @@ class UpdaterConsole
         $this->output->writeln('Updating...');
 
         foreach ($this->installerCollection as $installer) {
-            if (!$installer->isInstalled()) {
-                $installer->install($this->output, $this->messenger);
-            } else {
+            if ($installer->isInstalled()) {
                 $this->output->writeln($installer->getTitle() . ' already updated.');
+                continue;
             }
+
+            $installer->install($this->output, $this->messenger);
         }
 
         $this->output->writeln('All done.');

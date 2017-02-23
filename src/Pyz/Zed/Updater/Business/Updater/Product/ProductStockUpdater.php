@@ -154,19 +154,21 @@ class ProductStockUpdater extends AbstractUpdater
         $stockType = $this->createStockTypeOnce($stock);
         $stockProductTransfer = $this->buildStockProductTransfer($stock, $stockType);
 
-        if ($this->stockFacade->hasStockProduct($stock[self::SKU], $stock[self::STOCK_TYPE])) {
-            $stockProductEntity = $this->stockQueryContainer
-                ->queryStockProductBySkuAndType(
-                    $stock[self::SKU],
-                    $stock[self::STOCK_TYPE]
-                )
-                ->findOne();
-
-            $stockProductTransfer->setIdStockProduct($stockProductEntity->getIdStockProduct());
-            $this->stockFacade->updateStockProduct($stockProductTransfer);
-        } else {
+        if (!$this->stockFacade->hasStockProduct($stock[self::SKU], $stock[self::STOCK_TYPE])) {
             $this->stockFacade->createStockProduct($stockProductTransfer);
+
+            return;
         }
+
+        $stockProductEntity = $this->stockQueryContainer
+            ->queryStockProductBySkuAndType(
+                $stock[self::SKU],
+                $stock[self::STOCK_TYPE]
+            )
+            ->findOne();
+
+        $stockProductTransfer->setIdStockProduct($stockProductEntity->getIdStockProduct());
+        $this->stockFacade->updateStockProduct($stockProductTransfer);
     }
 
     /**
@@ -241,13 +243,14 @@ class ProductStockUpdater extends AbstractUpdater
             }
         }
 
-        if (!$this->stockTypeCache->has($stockData[self::STOCK_TYPE])) {
-            $idStockType = $this->stockFacade->createStockType($stockTypeTransfer);
-            $stockTypeTransfer->setIdStock($idStockType);
-            $this->stockTypeCache->set($stockData[self::STOCK_TYPE], $stockTypeTransfer);
-        } else {
-            $stockTypeTransfer = $this->stockTypeCache->get($stockData[self::STOCK_TYPE]);
+
+        if ($this->stockTypeCache->has($stockData[self::STOCK_TYPE])) {
+            return $this->stockTypeCache->get($stockData[self::STOCK_TYPE]);
         }
+
+        $idStockType = $this->stockFacade->createStockType($stockTypeTransfer);
+        $stockTypeTransfer->setIdStock($idStockType);
+        $this->stockTypeCache->set($stockData[self::STOCK_TYPE], $stockTypeTransfer);
 
         return $stockTypeTransfer;
     }
