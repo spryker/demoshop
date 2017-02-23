@@ -9,6 +9,7 @@ namespace Pyz\Zed\Updater\Business\Installer\Product;
 
 use Pyz\Zed\Importer\Business\Installer\AbstractInstaller;
 use Pyz\Zed\Updater\Business\Updater\Product\ProductStockUpdater;
+use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
 
 class ProductStockInstaller extends AbstractInstaller
 {
@@ -19,16 +20,17 @@ class ProductStockInstaller extends AbstractInstaller
     protected $productStockUpdater;
 
     /**
-     * @param array|\Pyz\Zed\Importer\Business\Importer\ImporterInterface[] $importerCollection
+     * @param \Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface $utilDataReaderService
+     * @param array $importerCollection
      * @param string $dataDirectory
      * @param \Pyz\Zed\Updater\Business\Updater\Product\ProductStockUpdater $productStockUpdater
      */
     public function __construct(
+        UtilDataReaderServiceInterface $utilDataReaderService,
         array $importerCollection,
         $dataDirectory,
         ProductStockUpdater $productStockUpdater
     ) {
-
         parent::__construct($utilDataReaderService, $importerCollection, $dataDirectory);
 
         $this->productStockUpdater = $productStockUpdater;

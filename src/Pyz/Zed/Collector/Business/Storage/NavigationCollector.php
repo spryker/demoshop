@@ -28,7 +28,7 @@ class NavigationCollector extends CategoryNodeCollector
         $formattedCategoryNodes = [];
         $touchKey = $this->generateTouchKey($locale, []);
 
-        foreach ($collectedSet as $index => $collectedItemData) {
+        foreach ($collectedSet as $collectedItemData) {
             $parentId = $collectedItemData['fk_parent_category_node'];
 
             if ($parentId !== null) {

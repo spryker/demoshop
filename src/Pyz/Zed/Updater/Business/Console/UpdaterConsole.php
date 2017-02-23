@@ -47,7 +47,7 @@ class UpdaterConsole
     {
         $this->output->writeln('Updating...');
 
-        foreach ($this->installerCollection as $name => $installer) {
+        foreach ($this->installerCollection as $installer) {
             if (!$installer->isInstalled()) {
                 $installer->install($this->output, $this->messenger);
             } else {

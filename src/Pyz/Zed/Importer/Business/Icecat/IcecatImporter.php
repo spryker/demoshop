@@ -47,12 +47,12 @@ class IcecatImporter
     {
         $this->output->writeln('Importing Demo data...');
 
-        foreach ($this->installerCollection as $name => $installer) {
-            if (!$installer->isInstalled()) {
-                $installer->install($this->output, $this->messenger);
-            } else {
+        foreach ($this->installerCollection as $installer) {
+            if ($installer->isInstalled()) {
                 $this->output->writeln($installer->getTitle() . ' already imported.');
+                continue;
             }
+            $installer->install($this->output, $this->messenger);
         }
 
         $this->output->writeln('All done.');

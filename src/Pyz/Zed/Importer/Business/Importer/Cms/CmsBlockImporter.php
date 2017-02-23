@@ -231,7 +231,7 @@ class CmsBlockImporter extends AbstractImporter
      */
     protected function createPlaceholder(array $placeholders, PageTransfer $pageTransfer, LocaleTransfer $localeTransfer)
     {
-        foreach ($placeholders['placeholder'] as $index => $placeholder) {
+        foreach ($placeholders['placeholder'] as $placeholder) {
             $this->keyMappingManager->addPlaceholderText(
                 $pageTransfer,
                 $placeholder[self::NAME],

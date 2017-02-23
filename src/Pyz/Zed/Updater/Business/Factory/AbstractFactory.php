@@ -319,7 +319,7 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \Spryker\Service\UtilDataReader\Model\Reader\Csv\CsvReader
+     * @return \Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface
      */
     public function getUtilDataReaderService()
     {

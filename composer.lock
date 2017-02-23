@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "9f21a2f530a4dba73e9a79fa56ab115f",
+=======
+    "content-hash": "002ba16c14fb0c30ae2dc08391443435",
+>>>>>>> core-919 fixed some PhpMd warnings
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1369,11 +1373,27 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-919-fix-phpmd-violations-in-demoshop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "73084230e89edfceb5d2ff9487eed37df534d535"
+=======
+<<<<<<< HEAD
+                "reference": "29d77acf94165da1624828f5bf6ae0a4937c2f62"
+=======
+<<<<<<< HEAD
+                "reference": "cf4344e4af01db8fc10e642e3f4c3f085e104ead"
+=======
+<<<<<<< HEAD
+                "reference": "5ca3f43c5a99b8704c26ecc765b072c142bbd752"
+=======
+                "reference": "e599b0b7c141ab40d2207a8316d2266b53445fae"
+>>>>>>> core-919 fixed some PhpMd warnings
+>>>>>>> core-919 fixed some PhpMd warnings
+>>>>>>> core-919 fixed some PhpMd warnings
+>>>>>>> core-919 fixed some PhpMd warnings
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1975,7 +1995,23 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2017-03-08 14:59:48"
+=======
+<<<<<<< HEAD
+            "time": "2017-03-06 09:12:18"
+=======
+<<<<<<< HEAD
+            "time": "2017-03-01 10:33:28"
+=======
+<<<<<<< HEAD
+            "time": "2017-02-24 11:14:17"
+=======
+            "time": "2017-02-23 13:23:57"
+>>>>>>> core-919 fixed some PhpMd warnings
+>>>>>>> core-919 fixed some PhpMd warnings
+>>>>>>> core-919 fixed some PhpMd warnings
+>>>>>>> core-919 fixed some PhpMd warnings
         },
         {
             "name": "swiftmailer/swiftmailer",

@@ -30,6 +30,7 @@ class InstallerFactory extends AbstractFactory
     public function createProductStockInstaller()
     {
         $productStockUpdater = new ProductStockInstaller(
+            $this->getUtilDataReaderService(),
             $this->getUpdaterProductStockCollection(),
             $this->getConfig()->getImportDataDirectory(),
             $this->getProductStockUpdater()

@@ -78,7 +78,6 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
         }
 
         $quoteTransfer = $this->cartClient->removeItem($sku, $groupKey);
-        $this->updateNumberOfItemsInCart($quoteTransfer);
         $this->cartClient->storeQuote($quoteTransfer);
     }
 
@@ -152,11 +151,11 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
     protected function getBundleProductOptions($groupKey)
     {
         $quoteTransfer = $this->cartClient->getQuote();
-        foreach ($quoteTransfer->getBundleItems() as $bundleItemtransfer) {
-            if ($bundleItemtransfer->getGroupKey() !== $groupKey) {
+        foreach ($quoteTransfer->getBundleItems() as $bundleItemTransfer) {
+            if ($bundleItemTransfer->getGroupKey() !== $groupKey) {
                 continue;
             }
-            return $bundleItemtransfer->getProductOptions();
+            return $bundleItemTransfer->getProductOptions();
         }
 
         return new ArrayObject();

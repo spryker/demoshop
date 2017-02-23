@@ -196,8 +196,8 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
     protected function filterUniqueAttributeKeys(array $productAttributes)
     {
         $uniqueAttributes = [];
-        foreach ($productAttributes as $idProductConcrete => $attributes) {
-            foreach ($attributes as $key => $value) {
+        foreach ($productAttributes as $attributes) {
+            foreach (array_keys($attributes) as $key) {
                 if (isset($uniqueAttributes[$key])) {
                     continue;
                 }

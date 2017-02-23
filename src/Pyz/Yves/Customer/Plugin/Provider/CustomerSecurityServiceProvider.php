@@ -101,8 +101,8 @@ class CustomerSecurityServiceProvider extends AbstractServiceProvider
      */
     protected function setAuthenticationSuccessHandler(Application &$app)
     {
-        $app['security.authentication.success_handler._proto'] = $app->protect(function ($name, $options) use ($app) {
-            return $app->share(function () use ($name, $options, $app) {
+        $app['security.authentication.success_handler._proto'] = $app->protect(function () use ($app) {
+            return $app->share(function () {
                 return $this->getFactory()->createCustomerAuthenticationSuccessHandler();
             });
         });
@@ -115,8 +115,8 @@ class CustomerSecurityServiceProvider extends AbstractServiceProvider
      */
     protected function setAuthenticationFailureHandler(Application &$app)
     {
-        $app['security.authentication.failure_handler._proto'] = $app->protect(function ($name, $options) use ($app) {
-            return $app->share(function () use ($name, $options, $app) {
+        $app['security.authentication.failure_handler._proto'] = $app->protect(function () use ($app) {
+            return $app->share(function () {
                 return $this->getFactory()->createCustomerAuthenticationFailureHandler();
             });
         });

@@ -105,12 +105,11 @@ class UsernamePasswordFormAuthenticationListener extends BaseUsernamePasswordFor
         }
 
         if ($this->options['post_only']) {
-            $username = trim($this->findRequestParameterDeep($postParams, $this->options['username_parameter']));
-            $password = $this->findRequestParameterDeep($postParams, $this->options['password_parameter']);
-        } else {
-            $username = trim($this->findRequestParameterDeep($params, $this->options['username_parameter']));
-            $password = $this->findRequestParameterDeep($params, $this->options['password_parameter']);
+            $params = $postParams;
         }
+
+        $username = trim($this->findRequestParameterDeep($params, $this->options['username_parameter']));
+        $password = $this->findRequestParameterDeep($params, $this->options['password_parameter']);
 
         $request->getSession()->set(Security::LAST_USERNAME, $username);
 
