@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e04b30fd2d0e9034f81ba8c0a2d36dad",
+    "content-hash": "ccbb096268d3a0a365aa80b780e17d10",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1368,11 +1368,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-714-big-core-cleanup",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "1464e6467265094ff222f78d8ba6f9cd47c04bb7"
+                "reference": "cd2a466cc387933ad1b8aabc2933023689c23ab7"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1974,7 +1974,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-02-22 12:08:46"
+            "time": "2017-02-23 10:47:52"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5474,16 +5474,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "1.4.9",
+            "version": "1.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "3b402f65a4cc90abf6e1104e388b896ce209631b"
+                "reference": "284fb0679dd25fb5ffb56dad92c72860c0a22f1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/3b402f65a4cc90abf6e1104e388b896ce209631b",
-                "reference": "3b402f65a4cc90abf6e1104e388b896ce209631b",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/284fb0679dd25fb5ffb56dad92c72860c0a22f1b",
+                "reference": "284fb0679dd25fb5ffb56dad92c72860c0a22f1b",
                 "shasum": ""
             },
             "require": {
@@ -5519,7 +5519,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2016-11-15T14:06:22+00:00"
+            "time": "2017-02-23T06:14:45+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -6583,7 +6583,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-01-20 12:13:43"
+            "time": "2017-01-20T12:13:43+00:00"
         },
         {
             "name": "spryker/code-sniffer",
