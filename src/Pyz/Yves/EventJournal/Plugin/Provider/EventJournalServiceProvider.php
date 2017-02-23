@@ -11,9 +11,10 @@ use DateTime;
 use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
 use Silex\Application;
 use Spryker\Client\EventJournal\Event;
+use Spryker\Service\UtilNetwork\UtilNetworkService;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\Config;
-use Spryker\Shared\Library\System;
+
 use Spryker\Shared\Session\SessionConstants;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
@@ -145,8 +146,9 @@ class EventJournalServiceProvider extends AbstractServiceProvider
     {
         // An unsafe value might have been set in browser by JS or XSS, it should be replaced with a safe one.
         if (empty($_COOKIE[$cookieName]) || !$this->isTrackingValueSafe($_COOKIE[$cookieName])) {
+            $utilNetworkService = new UtilNetworkService();
             // uniqid is based on current timestamp, a server ID should be used to prevent 2 servers generating the same ID for 2 simultaneous requests.
-            $_COOKIE[$cookieName] = hash(static::COOKIE_HASH_ALGORITHM, uniqid(System::getHostname(), true));
+            $_COOKIE[$cookieName] = hash(static::COOKIE_HASH_ALGORITHM, uniqid($utilNetworkService->getHostName(), true));
         }
         $dt = new DateTime();
         $app['cookies'][] = new Cookie(

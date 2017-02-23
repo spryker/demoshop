@@ -1,12 +1,19 @@
 <?php
 
+use Pyz\Shared\Newsletter\NewsletterConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Collector\CollectorConstants;
+use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Mail\MailConstants;
+use Spryker\Shared\Payolution\PayolutionConstants;
+use Spryker\Shared\Payone\PayoneConstants;
+use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
+use Spryker\Shared\Setup\SetupConstants;
+use Spryker\Shared\ZedRequest\ZedRequestConstants;
 
 $config[PropelConstants::ZED_DB_USERNAME] = 'development';
 $config[PropelConstants::ZED_DB_PASSWORD] = 'mate20mg';
@@ -16,7 +23,12 @@ $config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE
 $config[PropelConstants::ZED_DB_PORT] = 5432;
 
 $yvesHost = 'www.de.demoshop.local';
-$config[ApplicationConstants::HOST_YVES] = 'http://' . $yvesHost;
+$config[ApplicationConstants::HOST_YVES]
+    = $config[ProductManagementConstants::HOST_YVES]
+    = $config[PayoneConstants::HOST_YVES]
+    = $config[PayolutionConstants::HOST_YVES]
+    = $config[NewsletterConstants::HOST_YVES]
+    = $config[CustomerConstants::HOST_YVES] = 'http://' . $yvesHost;
 $config[ApplicationConstants::HOST_STATIC_ASSETS] = $config[ApplicationConstants::HOST_STATIC_MEDIA] = $yvesHost;
 $config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
 
@@ -26,7 +38,8 @@ $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS] = $config[ApplicationConst
 $zedHost = 'zed.de.demoshop.local';
 $config[ApplicationConstants::HOST_ZED_GUI]
     = 'http://' . $zedHost;
-$config[ApplicationConstants::HOST_ZED_API] = $zedHost;
+$config[ApplicationConstants::HOST_ZED_API]
+    = $config[ZedRequestConstants::HOST_ZED_API] = $zedHost;
 $config[ApplicationConstants::HOST_SSL_ZED_GUI]
     = $config[ApplicationConstants::HOST_SSL_ZED_API]
     = 'https://' . $zedHost;
@@ -37,7 +50,7 @@ $config[SessionConstants::ZED_SESSION_COOKIE_SECURE] = false;
 $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTP] = 'http://static.demoshop.local';
 $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = 'https://static.demoshop.local';
 
-$config[ApplicationConstants::JENKINS_BASE_URL] = 'http://localhost:10007/';
+$config[SetupConstants::JENKINS_BASE_URL] = 'http://localhost:10007/';
 $config[MailConstants::MAILCATCHER_GUI] = 'http://' . $config[ApplicationConstants::HOST_ZED_GUI] . ':1080';
 $config[ApplicationConstants::YVES_TRUSTED_HOSTS] = [];
 

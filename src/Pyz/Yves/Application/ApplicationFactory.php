@@ -7,9 +7,7 @@
 
 namespace Pyz\Yves\Application;
 
-use Spryker\Shared\Library\Context;
-use Spryker\Shared\Library\DateFormatter;
-use Spryker\Shared\Library\Twig\DateFormatterTwigExtension;
+use Spryker\Service\UtilDateTime\Model\DateTimeFormatterTwigExtension;
 use Spryker\Yves\Application\ApplicationFactory as SprykerApplicationFactory;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionService\SubRequestExceptionHandler;
 use Symfony\Component\HttpFoundation\Response;
@@ -44,7 +42,7 @@ class ApplicationFactory extends SprykerApplicationFactory
     }
 
     /**
-     * @return \Spryker\Yves\Application\Application
+     * @return \Spryker\Yves\Kernel\Application
      */
     protected function createApplication()
     {
@@ -68,19 +66,19 @@ class ApplicationFactory extends SprykerApplicationFactory
     }
 
     /**
-     * @return \Spryker\Shared\Library\Twig\DateFormatterTwigExtension
+     * @return \Spryker\Service\UtilDateTime\Model\DateTimeFormatterTwigExtension
      */
     public function createDateFormatterTwigExtension()
     {
-        return new DateFormatterTwigExtension($this->createDateFormatter());
+        return new DateTimeFormatterTwigExtension($this->getUtilDateTimeService());
     }
 
     /**
-     * @return \Spryker\Shared\Library\DateFormatter
+     * @return \Spryker\Service\UtilDateTime\UtilDateTimeServiceInterface
      */
-    public function createDateFormatter()
+    protected function getUtilDateTimeService()
     {
-        return new DateFormatter(Context::getInstance());
+        return $this->getProvidedDependency(ApplicationDependencyProvider::SERVICE_UTIL_DATE_TIME);
     }
 
     /**

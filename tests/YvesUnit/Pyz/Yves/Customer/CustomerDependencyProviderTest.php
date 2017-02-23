@@ -10,13 +10,13 @@ namespace YvesUnit\Pyz\Yves\Customer;
 use PHPUnit_Framework_TestCase;
 use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Client\Newsletter\NewsletterClientInterface;
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Customer\CustomerDependencyProvider;
 use Pyz\Yves\Customer\Plugin\AuthenticationHandler;
 use Pyz\Yves\Customer\Plugin\CheckoutAuthenticationHandlerPluginInterface;
 use Spryker\Client\Sales\SalesClientInterface;
-use Spryker\Yves\Application\Application;
+use Spryker\Yves\Kernel\Application;
 use Spryker\Yves\Kernel\Container;
+use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
 /**
  * @group YvesUnit

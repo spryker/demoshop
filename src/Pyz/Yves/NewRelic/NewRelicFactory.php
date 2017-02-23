@@ -7,18 +7,26 @@
 
 namespace Pyz\Yves\NewRelic;
 
-use Spryker\Shared\NewRelic\NewRelicApi;
+use Spryker\Shared\NewRelicApi\NewRelicApi;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class NewRelicFactory extends AbstractFactory
 {
 
     /**
-     * @return \Spryker\Shared\NewRelic\NewRelicApiInterface
+     * @return \Spryker\Shared\NewRelicApi\NewRelicApiInterface
      */
     public function createNewRelicApi()
     {
         return new NewRelicApi();
+    }
+
+    /**
+     * @return \Spryker\Service\UtilNetwork\UtilNetworkServiceInterface
+     */
+    public function getUtilNetworkService()
+    {
+        return $this->getProvidedDependency(NewRelicDependencyProvider::SERVICE_NETWORK);
     }
 
 }

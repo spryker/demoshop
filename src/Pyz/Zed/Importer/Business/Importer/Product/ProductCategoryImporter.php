@@ -7,12 +7,12 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\Product;
 
+use Everon\Component\Collection\Collection;
 use LogicException;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Shared\Category\CategoryConstants;
-use Spryker\Shared\Library\Collection\Collection;
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
@@ -50,12 +50,12 @@ class ProductCategoryImporter extends AbstractImporter
     protected $touchFacade;
 
     /**
-     * @var \Spryker\Shared\Library\Collection\CollectionInterface
+     * @var \Everon\Component\Collection\CollectionInterface
      */
     protected $cacheCategories;
 
     /**
-     * @var \Spryker\Shared\Library\Collection\CollectionInterface
+     * @var \Everon\Component\Collection\CollectionInterface
      */
     protected $cacheNodes;
 

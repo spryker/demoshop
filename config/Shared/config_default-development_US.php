@@ -1,12 +1,22 @@
 <?php
 
+use Pyz\Shared\Newsletter\NewsletterConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Collector\CollectorConstants;
+use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\Mail\MailConstants;
+use Spryker\Shared\Payolution\PayolutionConstants;
+use Spryker\Shared\Payone\PayoneConstants;
+use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Search\SearchConstants;
 
 $yvesHost = 'www.com.demoshop.local';
-$config[ApplicationConstants::HOST_YVES] = 'http://' . $yvesHost;
+$config[ApplicationConstants::HOST_YVES]
+    = $config[ProductManagementConstants::HOST_YVES]
+    = $config[PayoneConstants::HOST_YVES]
+    = $config[PayolutionConstants::HOST_YVES]
+    = $config[NewsletterConstants::HOST_YVES]
+    = $config[CustomerConstants::HOST_YVES] = 'http://' . $yvesHost;
 $config[ApplicationConstants::HOST_STATIC_ASSETS] = $config[ApplicationConstants::HOST_STATIC_MEDIA] = $yvesHost;
 
 $config[ApplicationConstants::HOST_SSL_YVES] = 'https://' . $yvesHost;

@@ -4,12 +4,19 @@
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a development environment.
  */
 
+use Pyz\Shared\Newsletter\NewsletterConstants;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Customer\CustomerConstants;
+use Spryker\Shared\Kernel\KernelConstants;
+use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\Payone\PayoneConstants;
+use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
+use Spryker\Shared\Setup\SetupConstants;
 use Spryker\Shared\Storage\StorageConstants;
+use Spryker\Shared\ZedRequest\ZedRequestConstants;
 
 $zedHost = 'zed-test.de.demoshop.local';
 $yvesHost = 'www-test.de.demoshop.local';
@@ -53,10 +60,10 @@ $config[PayoneConstants::PAYONE] = [
     PayoneConstants::PAYONE_MODE => '',
 ];
 
-$config[ApplicationConstants::JENKINS_BASE_URL] = 'http://' . $config[ApplicationConstants::HOST_ZED_GUI] . ':10007/jenkins';
-$config[ApplicationConstants::JENKINS_DIRECTORY] = '/data/shop/development/shared/data/common/jenkins';
+$config[SetupConstants::JENKINS_BASE_URL] = 'http://' . $config[ApplicationConstants::HOST_ZED_GUI] . ':10007/jenkins';
+$config[SetupConstants::JENKINS_DIRECTORY] = '/data/shop/development/shared/data/common/jenkins';
 
-$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker';
+$config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker';
 
 $config[ApplicationConstants::HOST_ZED_GUI]
     = $config[ApplicationConstants::HOST_ZED_API]
@@ -66,14 +73,20 @@ $config[ApplicationConstants::HOST_ZED_GUI]
 
 $config[ApplicationConstants::HOST_ZED_GUI]
     = 'http://' . $zedHost;
-$config[ApplicationConstants::HOST_ZED_API] = $zedHost;
+$config[ApplicationConstants::HOST_ZED_API]
+    = $config[ZedRequestConstants::HOST_ZED_API] = $zedHost;
 $config[ApplicationConstants::HOST_SSL_ZED_GUI]
     = $config[ApplicationConstants::HOST_SSL_ZED_API]
     = 'https://' . $zedHost;
 
 $config[SessionConstants::ZED_SESSION_COOKIE_NAME] = $zedHost;
 
-$config[ApplicationConstants::HOST_YVES] = 'http://' . $yvesHost;
+$config[ApplicationConstants::HOST_YVES]
+    = $config[ProductManagementConstants::HOST_YVES]
+    = $config[PayoneConstants::HOST_YVES]
+    = $config[PayolutionConstants::HOST_YVES]
+    = $config[NewsletterConstants::HOST_YVES]
+    = $config[CustomerConstants::HOST_YVES] = 'http://' . $yvesHost;
 $config[ApplicationConstants::HOST_STATIC_ASSETS] = $config[ApplicationConstants::HOST_STATIC_MEDIA] = $yvesHost;
 $config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
 

@@ -7,13 +7,21 @@
 
 namespace Pyz\Yves\Application;
 
-use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Twig\Plugin\TwigYves;
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Yves\Kernel\Container;
+use Spryker\Yves\Kernel\Plugin\Pimple;
 
 class ApplicationDependencyProvider extends AbstractBundleDependencyProvider
 {
+
+    const SERVICE_UTIL_DATE_TIME = 'util date time service';
+
+    const SERVICE_NETWORK = 'util network service';
+
+    const SERVICE_UTIL_IO = 'util io service';
+
+    const SERVICE_DATA = 'util data service';
 
     const CLIENT_SESSION = 'session client';
     const CLIENT_CATALOG = 'catalog client';
@@ -29,6 +37,7 @@ class ApplicationDependencyProvider extends AbstractBundleDependencyProvider
     {
         $container = $this->provideClients($container);
         $container = $this->providePlugins($container);
+        $container = $this->addUtilDateTimeService($container);
 
         return $container;
     }
@@ -67,6 +76,20 @@ class ApplicationDependencyProvider extends AbstractBundleDependencyProvider
             $twigPlugin = new TwigYves();
 
             return $twigPlugin->getTwigYvesExtension($container[self::PLUGIN_APPLICATION]);
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function addUtilDateTimeService(Container $container)
+    {
+        $container[self::SERVICE_UTIL_DATE_TIME] = function (Container $container) {
+            return $container->getLocator()->utilDateTime()->service();
         };
 
         return $container;

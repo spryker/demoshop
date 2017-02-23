@@ -24,7 +24,9 @@ class CartServiceProvider extends AbstractServiceProvider
     public function register(Application $app)
     {
         $app['cart.quantity'] = $app->share(function () {
-            return $this->getClient()->getItemCount();
+            $quantity = $this->getClient()->getItemCount();
+
+            return $quantity;
         });
     }
 

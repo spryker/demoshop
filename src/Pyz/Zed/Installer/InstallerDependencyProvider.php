@@ -7,20 +7,20 @@
 
 namespace Pyz\Zed\Installer;
 
-use Spryker\Zed\Acl\Communication\Plugin\Installer as AclInstallerPlugin;
-use Spryker\Zed\Country\Communication\Plugin\Installer as CountryInstallerPlugin;
-use Spryker\Zed\Glossary\Communication\Plugin\Installer as GlossaryInstallerPlugin;
+use Spryker\Zed\Acl\Communication\Plugin\AclInstallerPlugin;
+use Spryker\Zed\Country\Communication\Plugin\CountryInstallerPlugin;
+use Spryker\Zed\Glossary\Communication\Plugin\GlossaryInstallerPlugin;
 use Spryker\Zed\Installer\InstallerDependencyProvider as SprykerInstallerDependencyProvider;
-use Spryker\Zed\Locale\Communication\Plugin\Installer as LocaleInstallerPlugin;
-use Spryker\Zed\Newsletter\Communication\Plugin\Installer as NewsletterInstallerPlugin;
-use Spryker\Zed\Price\Communication\Plugin\Installer as PriceInstallerPlugin;
-use Spryker\Zed\User\Communication\Plugin\Installer as UserInstallerPlugin;
+use Spryker\Zed\Locale\Communication\Plugin\LocaleInstallerPlugin;
+use Spryker\Zed\Newsletter\Communication\Plugin\NewsletterInstallerPlugin;
+use Spryker\Zed\Price\Communication\Plugin\PriceInstallerPlugin;
+use Spryker\Zed\User\Communication\Plugin\UserInstallerPlugin;
 
 class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
 {
 
     /**
-     * @return \Spryker\Zed\Installer\Communication\Plugin\AbstractInstallerPlugin[]
+     * @return \Spryker\Zed\Installer\Dependency\Plugin\InstallerPluginInterface[]
      */
     public function getInstallerPlugins()
     {

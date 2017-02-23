@@ -5,9 +5,9 @@
  */
 namespace Pyz\Yves\Customer\Plugin\Provider;
 
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Spryker\Yves\Kernel\AbstractPlugin;
+use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface;
@@ -22,12 +22,12 @@ class CustomerAuthenticationFailureHandler extends AbstractPlugin implements Aut
     const MESSAGE_CUSTOMER_AUTHENTICATION_FAILED = 'customer.authentication.failed';
 
     /**
-     * @var \Pyz\Yves\Application\Business\Model\FlashMessengerInterface
+     * @var \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface
      */
     protected $flashMessenger;
 
     /**
-     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
+     * @param \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface $flashMessenger
      */
     public function __construct(FlashMessengerInterface $flashMessenger)
     {

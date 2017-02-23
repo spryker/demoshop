@@ -7,7 +7,6 @@
 
 namespace Pyz\Yves\Customer;
 
-use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Customer\Plugin\AuthenticationHandler;
 use Pyz\Yves\Customer\Plugin\GuestCheckoutAuthenticationHandlerPlugin;
 use Pyz\Yves\Customer\Plugin\LoginCheckoutAuthenticationHandlerPlugin;
@@ -15,6 +14,7 @@ use Pyz\Yves\Customer\Plugin\RegistrationCheckoutAuthenticationHandlerPlugin;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Yves\Kernel\Container;
+use Spryker\Yves\Kernel\Plugin\Pimple;
 
 class CustomerDependencyProvider extends AbstractBundleDependencyProvider
 {

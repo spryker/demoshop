@@ -9,7 +9,7 @@ namespace Pyz\Yves\Cart\Controller;
 
 use Pyz\Yves\Cart\Form\VoucherForm;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
-use Spryker\Yves\Application\Controller\AbstractController;
+use Spryker\Yves\Kernel\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
 /**

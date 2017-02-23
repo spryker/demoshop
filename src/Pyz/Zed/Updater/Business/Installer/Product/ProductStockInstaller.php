@@ -9,7 +9,6 @@ namespace Pyz\Zed\Updater\Business\Installer\Product;
 
 use Pyz\Zed\Importer\Business\Installer\AbstractInstaller;
 use Pyz\Zed\Updater\Business\Updater\Product\ProductStockUpdater;
-use Spryker\Shared\Library\BatchIterator\CsvBatchIterator;
 
 class ProductStockInstaller extends AbstractInstaller
 {
@@ -30,17 +29,17 @@ class ProductStockInstaller extends AbstractInstaller
         ProductStockUpdater $productStockUpdater
     ) {
 
-        parent::__construct($importerCollection, $dataDirectory);
+        parent::__construct($utilDataReaderService, $importerCollection, $dataDirectory);
 
         $this->productStockUpdater = $productStockUpdater;
     }
 
     /**
-     * @return \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface
+     * @return \Spryker\Service\UtilDataReader\Model\BatchIterator\CountableIteratorInterface
      */
     protected function buildBatchIterator()
     {
-        return new CsvBatchIterator($this->getCsvDataFilename());
+        return $this->utilDataReaderService->getCsvBatchIterator($this->getCsvDataFilename());
     }
 
     /**

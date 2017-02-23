@@ -8,18 +8,17 @@
 namespace Pyz\Zed\Importer\Business\Installer\Glossary;
 
 use Pyz\Zed\Importer\Business\Installer\AbstractInstaller;
-use Spryker\Shared\Library\BatchIterator\CountableIteratorInterface;
-use Spryker\Shared\Library\BatchIterator\CsvBatchIterator;
+use Spryker\Service\UtilDataReader\Model\BatchIterator\CountableIteratorInterface;
 
 class GlossaryInstaller extends AbstractInstaller
 {
 
     /**
-     * @return \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface
+     * @return \Spryker\Service\UtilDataReader\Model\BatchIterator\CountableIteratorInterface
      */
     protected function buildBatchIterator()
     {
-        return new CsvBatchIterator($this->getFilename());
+        return $this->utilDataReaderService->getCsvBatchIterator($this->getFilename());
     }
 
     /**
@@ -39,7 +38,7 @@ class GlossaryInstaller extends AbstractInstaller
     }
 
     /**
-     * @param \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface $batchIterator
+     * @param \Spryker\Service\UtilDataReader\Model\BatchIterator\CountableIteratorInterface $batchIterator
      * @param array|\Pyz\Zed\Importer\Business\Importer\ImporterInterface[] $importersToExecute
      *
      * @return void

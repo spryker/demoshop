@@ -8,17 +8,16 @@
 namespace Pyz\Zed\Importer\Business\Installer\Product;
 
 use Pyz\Zed\Importer\Business\Installer\AbstractInstaller;
-use Spryker\Shared\Library\BatchIterator\CsvBatchIterator;
 
 class ProductPriceInstaller extends AbstractInstaller
 {
 
     /**
-     * @return \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface
+     * @return \Spryker\Service\UtilDataReader\Model\BatchIterator\CountableIteratorInterface
      */
     protected function buildBatchIterator()
     {
-        return new CsvBatchIterator($this->getCsvDataFilename());
+        return $this->utilDataReaderService->getCsvBatchIterator($this->getCsvDataFilename());
     }
 
     /**

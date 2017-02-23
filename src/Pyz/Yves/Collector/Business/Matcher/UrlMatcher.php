@@ -7,25 +7,25 @@
 
 namespace Pyz\Yves\Collector\Business\Matcher;
 
-use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderInterface;
-use Spryker\Shared\Library\Storage\Adapter\KeyValue\ReadInterface;
+use Spryker\Shared\KeyBuilder\KeyBuilder\KeyBuilderInterface;
+use Spryker\Zed\Collector\Business\Storage\Adapter\KeyValue\ReadInterface;
 
 class UrlMatcher implements UrlMatcherInterface
 {
 
     /**
-     * @var \Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderInterface
+     * @var \Spryker\Shared\KeyBuilder\KeyBuilderInterface
      */
     private $urlKeyBuilder;
 
     /**
-     * @var \Spryker\Shared\Library\Storage\Adapter\KeyValue\ReadInterface
+     * @var \Spryker\Zed\Collector\Business\Storage\Adapter\KeyValue\ReadInterface
      */
     private $keyValueReader;
 
     /**
-     * @param \Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderInterface $urlKeyBuilder
-     * @param \Spryker\Shared\Library\Storage\Adapter\KeyValue\ReadInterface $keyValueReader
+     * @param \Spryker\Shared\KeyBuilder\KeyBuilderInterface $urlKeyBuilder
+     * @param \Spryker\Zed\Collector\Business\Storage\Adapter\KeyValue\ReadInterface $keyValueReader
      */
     public function __construct(KeyBuilderInterface $urlKeyBuilder, ReadInterface $keyValueReader)
     {

@@ -9,9 +9,9 @@ namespace Pyz\Yves\Cart\Handler;
 use ArrayObject;
 use Generated\Shared\Transfer\DiscountTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Client\Cart\CartClientInterface;
+use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
 class CartVoucherHandler extends BaseHandler
 {
@@ -29,7 +29,7 @@ class CartVoucherHandler extends BaseHandler
     /**
      * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
      * @param \Spryker\Client\Cart\CartClientInterface $cartClient
-     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
+     * @param \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface $flashMessenger
      */
     public function __construct(
         CalculationClientInterface $calculationClient,

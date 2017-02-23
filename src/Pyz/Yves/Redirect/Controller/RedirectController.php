@@ -7,7 +7,7 @@
 
 namespace Pyz\Yves\Redirect\Controller;
 
-use Spryker\Yves\Application\Controller\AbstractController;
+use Spryker\Yves\Kernel\Controller\AbstractController;
 
 class RedirectController extends AbstractController
 {
