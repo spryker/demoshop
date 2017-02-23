@@ -14080,16 +14080,16 @@
         },
         {
             "name": "spryker/code-generator",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "4f03ee25e399cb44bf169958889bef7307524d65"
+                "reference": "f5b3b6234233f083cff2d7b740d3c633e74089bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/4f03ee25e399cb44bf169958889bef7307524d65",
-                "reference": "4f03ee25e399cb44bf169958889bef7307524d65",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/f5b3b6234233f083cff2d7b740d3c633e74089bd",
+                "reference": "f5b3b6234233f083cff2d7b740d3c633e74089bd",
                 "shasum": ""
             },
             "require": {
@@ -14119,7 +14119,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-01-20T11:55:30+00:00"
+            "time": "2017-02-23T17:18:43+00:00"
         },
         {
             "name": "spryker/code-sniffer",
