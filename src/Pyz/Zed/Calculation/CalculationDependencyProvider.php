@@ -28,9 +28,9 @@ use Spryker\Zed\ProductOptionDiscountConnector\Communication\Plugin\Calculator\I
 use Spryker\Zed\ProductOptionDiscountConnector\Communication\Plugin\Calculator\TaxTotalAmountWithProductOptionsAndDiscountsCalculatorPlugin;
 use Spryker\Zed\ProductOption\Communication\Plugin\ProductOptionTaxRateCalculatorPlugin;
 use Spryker\Zed\Shipment\Communication\Plugin\ShipmentTaxRateCalculatorPlugin;
+use Spryker\Zed\TaxProductConnector\Communication\Plugin\ProductItemTaxRateCalculatorPlugin;
 use Spryker\Zed\Tax\Communication\Plugin\ExpenseTaxCalculatorPlugin;
 use Spryker\Zed\Tax\Communication\Plugin\ItemTaxCalculatorPlugin;
-use Spryker\Zed\Tax\Communication\Plugin\ProductItemTaxRateCalculatorPlugin;
 use Spryker\Zed\Tax\Communication\Plugin\TaxTotalsCalculatorPlugin;
 
 class CalculationDependencyProvider extends SprykerCalculationDependencyProvider

@@ -14,8 +14,8 @@ use Pyz\Yves\Shipment\Form\ShipmentForm;
 use Spryker\Client\Glossary\GlossaryClientInterface;
 use Spryker\Client\Shipment\ShipmentClientInterface;
 use Spryker\Shared\Kernel\Store;
+use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Spryker\Shared\Money\Dependency\Plugin\MoneyPluginInterface;
-use Spryker\Shared\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
 
 class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
@@ -62,9 +62,9 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
     }
 
     /**
-     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return \Spryker\Shared\Transfer\AbstractTransfer
+     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
      */
     public function getData(AbstractTransfer $quoteTransfer)
     {
@@ -77,7 +77,7 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
     }
 
     /**
-     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return array
      */

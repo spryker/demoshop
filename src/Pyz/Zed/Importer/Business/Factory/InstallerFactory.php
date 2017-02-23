@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Importer\Business\Factory;
 
 use Pyz\Zed\Importer\Business\Installer\Category\CategoryCatalogInstaller;
+
 use Pyz\Zed\Importer\Business\Installer\Category\CategoryInstaller;
 use Pyz\Zed\Importer\Business\Installer\Category\CategoryRootInstaller;
 use Pyz\Zed\Importer\Business\Installer\Cms\CmsBlockInstaller;
@@ -26,6 +27,7 @@ use Pyz\Zed\Importer\Business\Installer\Product\ProductStockInstaller;
 use Pyz\Zed\Importer\Business\Installer\Shipment\ShipmentInstaller;
 use Pyz\Zed\Importer\Business\Installer\Tax\TaxInstaller;
 use Pyz\Zed\Importer\ImporterConfig;
+use Pyz\Zed\Importer\ImporterDependencyProvider;
 
 /**
  * @method \Pyz\Zed\Importer\ImporterConfig getConfig()
@@ -47,6 +49,7 @@ class InstallerFactory extends AbstractFactory
     public function createCategoryInstaller()
     {
         $categoryInstaller = new CategoryInstaller(
+            $this->getUtilDataReaderService(),
             $this->getImporterCategoryCollection(),
             $this->getConfig()->getIcecatImportDataDirectory()
         );
@@ -60,6 +63,7 @@ class InstallerFactory extends AbstractFactory
     public function createCategoryCatalogInstaller()
     {
         $categoryHierarchyInstaller = new CategoryCatalogInstaller(
+            $this->getUtilDataReaderService(),
             $this->getImporterCategoryCatalogCollection(),
             $this->getConfig()->getIcecatImportDataDirectory()
         );
@@ -73,6 +77,7 @@ class InstallerFactory extends AbstractFactory
     public function createCategoryRootInstaller()
     {
         $categoryRootInstaller = new CategoryRootInstaller(
+            $this->getUtilDataReaderService(),
             $this->getImporterCategoryRootCollection(),
             $this->getConfig()->getImportDataDirectory()
         );
@@ -86,6 +91,7 @@ class InstallerFactory extends AbstractFactory
     public function createProductAbstractInstaller()
     {
         $productInstaller = new ProductAbstractInstaller(
+            $this->getUtilDataReaderService(),
             $this->getImporterProductAbstractCollection(),
             $this->getConfig()->getIcecatImportDataDirectory()
         );
@@ -99,6 +105,7 @@ class InstallerFactory extends AbstractFactory
     public function createProductConcreteInstaller()
     {
         $productInstaller = new ProductConcreteInstaller(
+            $this->getUtilDataReaderService(),
             $this->getImporterProductConcreteCollection(),
             $this->getConfig()->getIcecatImportDataDirectory()
         );
@@ -112,6 +119,7 @@ class InstallerFactory extends AbstractFactory
     public function createProductPriceInstaller()
     {
         $productPriceInstaller = new ProductPriceInstaller(
+            $this->getUtilDataReaderService(),
             $this->getImporterProductPriceCollection(),
             $this->getConfig()->getImportDataDirectory()
         );
@@ -125,6 +133,7 @@ class InstallerFactory extends AbstractFactory
     public function createProductStockInstaller()
     {
         $productStockInstaller = new ProductStockInstaller(
+            $this->getUtilDataReaderService(),
             $this->getImporterProductStockCollection(),
             $this->getConfig()->getImportDataDirectory()
         );
@@ -138,6 +147,7 @@ class InstallerFactory extends AbstractFactory
     public function createProductAttributeKeyInstaller()
     {
         $productInstaller = new ProductAttributeKeyInstaller(
+            $this->getUtilDataReaderService(),
             $this->getImporterProductAttributeKeyCollection(),
             $this->getConfig()->getImportDataDirectory()
         );
@@ -151,6 +161,7 @@ class InstallerFactory extends AbstractFactory
     public function createGlossaryInstaller()
     {
         $glossaryInstaller = new GlossaryInstaller(
+            $this->getUtilDataReaderService(),
             $this->getImporterGlossaryCollection(),
             $this->getConfig()->getImportDataDirectory()
         );
@@ -164,6 +175,7 @@ class InstallerFactory extends AbstractFactory
     public function createDiscountInstaller()
     {
         $discountInstaller = new DiscountInstaller(
+            $this->getUtilDataReaderService(),
             $this->getDiscountImporterCollection(),
             $this->getConfig()->getImportDataDirectory()
         );
@@ -177,6 +189,7 @@ class InstallerFactory extends AbstractFactory
     public function createCmsBlockInstaller()
     {
         $cmsBlockInstaller = new CmsBlockInstaller(
+            $this->getUtilDataReaderService(),
             $this->getImporterCmsBlockCollection(),
             $this->getConfig()->getImportDataDirectory()
         );
@@ -190,6 +203,7 @@ class InstallerFactory extends AbstractFactory
     public function createCmsPageInstaller()
     {
         $cmsBlockInstaller = new CmsPageInstaller(
+            $this->getUtilDataReaderService(),
             $this->getImporterCmsPageCollection(),
             $this->getConfig()->getImportDataDirectory()
         );
@@ -203,6 +217,7 @@ class InstallerFactory extends AbstractFactory
     public function createShipmentInstaller()
     {
         $shipmentInstaller = new ShipmentInstaller(
+            $this->getUtilDataReaderService(),
             $this->getImporterShipmentCollection(),
             $this->getConfig()->getImportDataDirectory()
         );
@@ -216,6 +231,7 @@ class InstallerFactory extends AbstractFactory
     public function createProductOptionsInstaller()
     {
         return new ProductOptionInstaller(
+            $this->getUtilDataReaderService(),
             $this->getImporterProductOptionCollection(),
             $this->getConfig()->getImportDataDirectory()
         );
@@ -237,6 +253,7 @@ class InstallerFactory extends AbstractFactory
     public function createTaxInstaller()
     {
         return new TaxInstaller(
+            $this->getUtilDataReaderService(),
             $this->getImporterTaxCollection(),
             $this->getConfig()->getImportDataDirectory()
         );
@@ -248,6 +265,7 @@ class InstallerFactory extends AbstractFactory
     public function createProductManagementAttributeInstaller()
     {
         return new ProductManagementAttributeInstaller(
+            $this->getUtilDataReaderService(),
             $this->getImporterProductManagementAttributeCollection(),
             $this->getConfig()->getImportDataDirectory()
         );
@@ -259,6 +277,7 @@ class InstallerFactory extends AbstractFactory
     public function createProductSearchAttributeInstaller()
     {
         return new ProductSearchAttributeInstaller(
+            $this->getUtilDataReaderService(),
             $this->getImporterProductSearchAttributeCollection(),
             $this->getConfig()->getImportDataDirectory(),
             $this->getProductSearchFacade()
@@ -271,6 +290,7 @@ class InstallerFactory extends AbstractFactory
     public function createProductSearchAttributeMapInstaller()
     {
         return new ProductSearchAttributeMapInstaller(
+            $this->getUtilDataReaderService(),
             $this->getImporterProductSearchAttributeMapCollection(),
             $this->getConfig()->getImportDataDirectory(),
             $this->getProductSearchFacade()
@@ -447,6 +467,14 @@ class InstallerFactory extends AbstractFactory
         return [
             ImporterConfig::RESOURCE_SHIPMENT => $this->createImporterFactory()->createShipmentImporter(),
         ];
+    }
+
+    /**
+     * @return \Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface
+     */
+    protected function getUtilDataReaderService()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::SERVICE_DATA);
     }
 
 }

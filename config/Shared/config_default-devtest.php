@@ -7,9 +7,11 @@
 use Pyz\Yves\Application\YvesBootstrap;
 use Pyz\Zed\Application\Communication\ZedBootstrap;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
+use Spryker\Shared\Setup\SetupConstants;
 use Spryker\Shared\Storage\StorageConstants;
 use Spryker\Shared\Testify\TestifyConstants;
 
@@ -39,10 +41,10 @@ $config[PayoneConstants::PAYONE] = [
     PayoneConstants::PAYONE_MODE => '',
 ];
 
-$config[ApplicationConstants::JENKINS_BASE_URL] = 'http://' . $config[ApplicationConstants::HOST_ZED_GUI] . ':10007/jenkins';
-$config[ApplicationConstants::JENKINS_DIRECTORY] = '/data/shop/development/shared/data/common/jenkins';
+$config[SetupConstants::JENKINS_BASE_URL] = 'http://' . $config[ApplicationConstants::HOST_ZED_GUI] . ':10007/jenkins';
+$config[SetupConstants::JENKINS_DIRECTORY] = '/data/shop/development/shared/data/common/jenkins';
 
-$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
+$config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
 
 $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '_devtest';
 

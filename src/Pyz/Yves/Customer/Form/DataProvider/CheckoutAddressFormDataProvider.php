@@ -10,7 +10,7 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm;
 use Spryker\Shared\Kernel\Store;
-use Spryker\Shared\Transfer\AbstractTransfer;
+use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
 
 class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider implements StepEngineFormDataProviderInterface
@@ -33,9 +33,9 @@ class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider im
     }
 
     /**
-     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return \Spryker\Shared\Transfer\AbstractTransfer
+     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
      */
     public function getData(AbstractTransfer $quoteTransfer)
     {
@@ -50,7 +50,7 @@ class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider im
     }
 
     /**
-     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return array
      */

@@ -7,6 +7,8 @@
 
 namespace Pyz\Zed\Collector\Business\Search;
 
+use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
+
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPdoCollector;
 use Spryker\Zed\Collector\CollectorConfig;
@@ -27,13 +29,17 @@ class ProductCollector extends AbstractSearchPdoCollector
     protected $searchFacade;
 
     /**
+     * @param \Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface $utilDataReaderService
      * @param \Spryker\Zed\Search\Dependency\Plugin\PageMapInterface $productDataPageMapPlugin
      * @param \Spryker\Zed\Search\Business\SearchFacadeInterface $searchFacade
      */
     public function __construct(
+        UtilDataReaderServiceInterface $utilDataReaderService,
         PageMapInterface $productDataPageMapPlugin,
         SearchFacadeInterface $searchFacade
     ) {
+        parent::__construct($utilDataReaderService);
+
         $this->productDataPageMapPlugin = $productDataPageMapPlugin;
         $this->searchFacade = $searchFacade;
     }

@@ -66,13 +66,13 @@ class CartFactory extends AbstractFactory
     /**
      * @return \Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper
      */
-    public function createProductBundleGroupper()
+    public function createProductBundleGrouper()
     {
         return new ProductBundleGrouper();
     }
 
     /**
-     * @return \Spryker\Yves\Application\Application
+     * @return \Spryker\Yves\Kernel\Application
      */
     protected function createApplication()
     {
@@ -80,7 +80,7 @@ class CartFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Yves\Application\Business\Model\FlashMessengerInterface
+     * @return \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface
      */
     protected function getFlashMessenger()
     {

@@ -7,8 +7,8 @@
 
 namespace Pyz\Yves\Twig\Plugin;
 
-use Spryker\Yves\Application\Application;
 use Spryker\Yves\Kernel\AbstractPlugin;
+use Spryker\Yves\Kernel\Application;
 
 /**
  * @method \Pyz\Yves\Twig\TwigFactory getFactory()
@@ -17,7 +17,7 @@ class TwigYves extends AbstractPlugin
 {
 
     /**
-     * @param \Spryker\Yves\Application\Application $application
+     * @param \Spryker\Yves\Kernel\Application $application
      *
      * @return \Twig_Extension
      */

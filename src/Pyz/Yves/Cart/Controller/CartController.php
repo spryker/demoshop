@@ -8,7 +8,7 @@
 namespace Pyz\Yves\Cart\Controller;
 
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
-use Spryker\Yves\Application\Controller\AbstractController;
+use Spryker\Yves\Kernel\Controller\AbstractController;
 
 /**
  * @method \Spryker\Client\Cart\CartClientInterface getClient()
@@ -25,20 +25,17 @@ class CartController extends AbstractController
         $quoteTransfer = $this->getClient()
             ->getQuote();
 
-        $numberOfItems = $this->getClient()->getItemCount();
-
         $voucherForm = $this->getFactory()
             ->createVoucherForm();
 
         $cartItems = $this->getFactory()
-            ->createProductBundleGroupper()
+            ->createProductBundleGrouper()
             ->getGroupedBundleItems($quoteTransfer->getItems(), $quoteTransfer->getBundleItems());
 
         return $this->viewResponse([
             'cart' => $quoteTransfer,
             'cartItems' => $cartItems,
             'voucherForm' => $voucherForm->createView(),
-            'numberOfItems' => $numberOfItems,
         ]);
     }
 

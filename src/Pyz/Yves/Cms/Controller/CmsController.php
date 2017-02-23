@@ -8,7 +8,7 @@
 namespace Pyz\Yves\Cms\Controller;
 
 use DateTime;
-use Spryker\Yves\Application\Controller\AbstractController;
+use Spryker\Yves\Kernel\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 

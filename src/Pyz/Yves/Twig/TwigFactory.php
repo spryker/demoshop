@@ -13,8 +13,8 @@ use Pyz\Yves\Twig\Model\UrlParameterCacheBuster;
 use Pyz\Yves\Twig\Model\YvesExtension;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\Config;
-use Spryker\Yves\Application\Application;
 use Spryker\Yves\Kernel\AbstractFactory;
+use Spryker\Yves\Kernel\Application;
 
 class TwigFactory extends AbstractFactory
 {
@@ -25,7 +25,7 @@ class TwigFactory extends AbstractFactory
     private $settings;
 
     /**
-     * @param \Spryker\Yves\Application\Application
+     * @param \Spryker\Yves\Kernel\Application
      *
      * @return \Pyz\Yves\Twig\Model\YvesExtension
      */

@@ -7,11 +7,11 @@
 
 namespace Pyz\Zed\Updater\Business;
 
+use Psr\Log\LoggerInterface as MessengerInterface;
 use Pyz\Zed\Updater\Business\Console\UpdaterConsole;
 use Pyz\Zed\Updater\Business\Factory\InstallerFactory;
 use Pyz\Zed\Updater\UpdaterConfig;
 use Spryker\Zed\Installer\Business\InstallerBusinessFactory as SprykerInstallerBusinessFactory;
-use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
@@ -40,7 +40,7 @@ class UpdaterBusinessFactory extends SprykerInstallerBusinessFactory
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      *
      * @return \Pyz\Zed\Updater\Business\Console\UpdaterConsole
      */

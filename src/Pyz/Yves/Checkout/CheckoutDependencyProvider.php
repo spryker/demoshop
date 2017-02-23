@@ -7,13 +7,13 @@
 
 namespace Pyz\Yves\Checkout;
 
-use Pyz\Yves\Application\Plugin\Pimple;
 use Pyz\Yves\Customer\Plugin\CustomerStepHandler;
 use Pyz\Yves\Shipment\Plugin\ShipmentFormDataProviderPlugin;
 use Pyz\Yves\Shipment\Plugin\ShipmentHandlerPlugin;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Checkout\CheckoutDependencyProvider as SprykerCheckoutDependencyProvider;
 use Spryker\Yves\Kernel\Container;
+use Spryker\Yves\Kernel\Plugin\Pimple;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
 
 class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider

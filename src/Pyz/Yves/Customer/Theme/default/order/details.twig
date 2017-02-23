@@ -15,7 +15,7 @@
 
         <p>
             <strong>{{ 'customer.order.order_id' | trans }}:</strong> {{ order.orderReference }}<br/>
-            <strong>{{ 'customer.order.date' | trans }}:</strong> {{ order.createdAt|formatDateShort }}
+            <strong>{{ 'customer.order.date' | trans }}:</strong> {{ order.createdAt| formatDateTime }}
         </p>
 
         {% block orderItems %}

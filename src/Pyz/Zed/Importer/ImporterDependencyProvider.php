@@ -7,15 +7,23 @@
 
 namespace Pyz\Zed\Importer;
 
+use Propel\Runtime\Propel;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryBridge;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToTouchBridge;
 use Spryker\Zed\Cms\Dependency\Facade\CmsToUrlBridge;
 use Spryker\Zed\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Zed\Kernel\Container;
-use Spryker\Zed\Propel\Communication\Plugin\Connection;
 
 class ImporterDependencyProvider extends AbstractBundleDependencyProvider
 {
+
+    const SERVICE_UTIL_DATE_TIME = 'util date time service';
+
+    const SERVICE_NETWORK = 'util network service';
+
+    const SERVICE_UTIL_IO = 'util io service';
+
+    const SERVICE_DATA = 'util data service';
 
     const FACADE_CATEGORY = 'FACADE_CATEGORY';
     const FACADE_LOCALE = 'FACADE_LOCALE';
@@ -149,7 +157,11 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
         };
 
         $container[static::PLUGIN_PROPEL_CONNECTION] = function () {
-            return (new Connection())->get();
+            return Propel::getConnection();
+        };
+
+        $container[static::SERVICE_DATA] = function (Container $container) {
+            return $container->getLocator()->utilDataReader()->service();
         };
 
         return $container;

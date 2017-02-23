@@ -7,8 +7,6 @@
 
 namespace Pyz\Yves\Cart\Handler;
 
-use Generated\Shared\Transfer\QuoteTransfer;
-
 interface CartOperationInterface
 {
 
@@ -53,12 +51,5 @@ interface CartOperationInterface
      * @return void
      */
     public function changeQuantity($sku, $quantity, $groupKey = null);
-
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
-    public function updateNumberOfItemsInCart(QuoteTransfer $quoteTransfer);
 
 }

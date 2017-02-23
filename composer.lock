@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cbf24ff6320d8e7798aeda82b57b6aea",
+    "content-hash": "ccbb096268d3a0a365aa80b780e17d10",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1372,7 +1372,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "3007bca4708dc6ca8f9acf8bbf55e65272e8d13f"
+                "reference": "cd2a466cc387933ad1b8aabc2933023689c23ab7"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1486,6 +1486,8 @@
                     "Unit\\Spryker\\Shared\\Collector\\": "Bundles/Collector/tests",
                     "Spryker\\Zed\\Collector\\": "Bundles/Collector/src",
                     "Unit\\Spryker\\Zed\\Collector\\": "Bundles/Collector/tests",
+                    "Spryker\\Zed\\CollectorStorageConnector\\": "Bundles/CollectorStorageConnector/src",
+                    "Spryker\\Zed\\CollectorSearchConnector\\": "Bundles/CollectorSearchConnector/src",
                     "Spryker\\Shared\\Config\\": "Bundles/Config/src",
                     "Unit\\Spryker\\Shared\\Config\\": "Bundles/Config/tests",
                     "Spryker\\Zed\\Console\\": "Bundles/Console/src",
@@ -1594,15 +1596,8 @@
                     "Spryker\\Zed\\Kernel\\": "Bundles/Kernel/src",
                     "Unit\\Spryker\\Zed\\Kernel\\": "Bundles/Kernel/tests",
                     "Functional\\Spryker\\Zed\\Kernel\\": "Bundles/Kernel/tests",
-                    "Spryker\\Shared\\Library\\": "Bundles/Library/src",
-                    "Unit\\Spryker\\Shared\\Library\\": "Bundles/Library/tests",
-                    "Functional\\Spryker\\Shared\\Library\\": "Bundles/Library/tests",
-                    "Spryker\\Yves\\Library\\": "Bundles/Library/src",
-                    "Unit\\Spryker\\Yves\\Library\\": "Bundles/Library/tests",
-                    "Functional\\Spryker\\Yves\\Library\\": "Bundles/Library/tests",
-                    "Spryker\\Zed\\Library\\": "Bundles/Library/src",
-                    "Unit\\Spryker\\Zed\\Library\\": "Bundles/Library/tests",
-                    "Functional\\Spryker\\Zed\\Library\\": "Bundles/Library/tests",
+                    "Spryker\\Shared\\KeyBuilder\\": "Bundles/KeyBuilder/src",
+                    "Unit\\Spryker\\Shared\\KeyBuilder\\": "Bundles/KeyBuilder/tests",
                     "Spryker\\Client\\Locale\\": "Bundles/Locale/src",
                     "Unit\\Spryker\\Client\\Locale\\": "Bundles/Locale/tests",
                     "Functional\\Spryker\\Client\\Locale\\": "Bundles/Locale/tests",
@@ -1639,9 +1634,13 @@
                     "Unit\\Spryker\\Shared\\Money\\": "Bundles/Money/tests",
                     "Unit\\Spryker\\Yves\\Money\\": "Bundles/Money/tests",
                     "Unit\\Spryker\\Zed\\Money\\": "Bundles/Money/tests",
+                    "Spryker\\Shared\\ZedNavigation\\": "Bundles/ZedNavigation/src",
+                    "Spryker\\Zed\\ZedNavigation\\": "Bundles/ZedNavigation/src",
+                    "Unit\\Spryker\\Zed\\ZedNavigation\\": "Bundles/ZedNavigation/tests",
                     "Spryker\\Shared\\NewRelic\\": "Bundles/NewRelic/src",
                     "Spryker\\Zed\\NewRelic\\": "Bundles/NewRelic/src",
                     "Spryker\\Yves\\NewRelic\\": "Bundles/NewRelic/src",
+                    "Spryker\\Shared\\NewRelicApi\\": "Bundles/NewRelicApi/src",
                     "Spryker\\Client\\Newsletter\\": "Bundles/Newsletter/src",
                     "Functional\\Spryker\\Client\\Newsletter\\": "Bundles/Newsletter/tests",
                     "Spryker\\Shared\\Newsletter\\": "Bundles/Newsletter/src",
@@ -1758,6 +1757,8 @@
                     "Spryker\\Zed\\Propel\\": "Bundles/Propel/src",
                     "Unit\\Spryker\\Zed\\Propel\\": "Bundles/Propel/tests",
                     "Functional\\Spryker\\Zed\\Propel\\": "Bundles/Propel/tests",
+                    "Spryker\\Zed\\PropelOrm\\": "Bundles/PropelOrm/src",
+                    "Spryker\\Client\\Quote\\": "Bundles/Quote/src",
                     "Spryker\\Shared\\Refund\\": "Bundles/Refund/src",
                     "Spryker\\Zed\\Refund\\": "Bundles/Refund/src",
                     "Acceptance\\Refund\\": "Bundles/Refund/tests",
@@ -1908,8 +1909,15 @@
                     "Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/src",
                     "Unit\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests",
                     "Functional\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests",
+                    "Spryker\\Service\\UtilDataReader\\": "Bundles/UtilDataReader/src",
+                    "Unit\\Service\\UtilDataReader\\": "Bundles/UtilDataReader/tests",
+                    "Spryker\\Service\\UtilDateTime\\": "Bundles/UtilDateTime/src",
+                    "Unit\\Service\\UtilDateTime\\": "Bundles/UtilDateTime/tests",
+                    "Functional\\Service\\UtilDateTime\\": "Bundles/UtilDateTime/tests",
                     "Spryker\\Service\\UtilText\\": "Bundles/UtilText/src",
-                    "Functional\\Spryker\\Service\\UtilText\\": "Bundles/UtilText/tests",
+                    "Unit\\Spryker\\Service\\UtilText\\": "Bundles/UtilText/tests",
+                    "Functional\\Spryker\\Service\\UtilText\\": "Bundles/UtilDataReader/tests",
+                    "Spryker\\Shared\\UtilDateTime\\": "Bundles/UtilDateTime/src",
                     "Spryker\\Service\\UtilSanitize\\": "Bundles/UtilSanitize/src",
                     "Functional\\Spryker\\Service\\UtilSanitize\\": "Bundles/UtilSanitize/tests",
                     "Spryker\\Service\\UtilNetwork\\": "Bundles/UtilNetwork/src",
@@ -1928,6 +1936,7 @@
                     "Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/src",
                     "Unit\\Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/tests",
                     "Functional\\Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/tests",
+                    "Spryker\\Client\\ProductBundle\\": "Bundles/ProductBundle/src",
                     "Spryker\\Shared\\ProductBundle\\": "Bundles/ProductBundle/src",
                     "Spryker\\Zed\\ProductBundle\\": "Bundles/ProductBundle/src",
                     "Spryker\\Yves\\ProductBundle\\": "Bundles/ProductBundle/src",
@@ -1965,7 +1974,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-02-21 15:14:39"
+            "time": "2017-02-23 10:47:52"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5465,16 +5474,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "1.4.9",
+            "version": "1.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "3b402f65a4cc90abf6e1104e388b896ce209631b"
+                "reference": "284fb0679dd25fb5ffb56dad92c72860c0a22f1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/3b402f65a4cc90abf6e1104e388b896ce209631b",
-                "reference": "3b402f65a4cc90abf6e1104e388b896ce209631b",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/284fb0679dd25fb5ffb56dad92c72860c0a22f1b",
+                "reference": "284fb0679dd25fb5ffb56dad92c72860c0a22f1b",
                 "shasum": ""
             },
             "require": {
@@ -5510,7 +5519,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2016-11-15T14:06:22+00:00"
+            "time": "2017-02-23T06:14:45+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -6535,16 +6544,16 @@
         },
         {
             "name": "spryker/code-generator",
-            "version": "dev-master",
+            "version": "dev-feature/core-714-big-core-cleanup",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "4f03ee25e399cb44bf169958889bef7307524d65"
+                "reference": "ab32b38cc9cb250304b07a582d44bea7c52114ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/4f03ee25e399cb44bf169958889bef7307524d65",
-                "reference": "4f03ee25e399cb44bf169958889bef7307524d65",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/ab32b38cc9cb250304b07a582d44bea7c52114ed",
+                "reference": "ab32b38cc9cb250304b07a582d44bea7c52114ed",
                 "shasum": ""
             },
             "require": {
@@ -6574,7 +6583,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-01-20 11:55:30"
+            "time": "2017-01-20T12:13:43+00:00"
         },
         {
             "name": "spryker/code-sniffer",
@@ -6975,6 +6984,69 @@
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
             "time": "2017-01-02T20:30:24+00:00"
+        },
+        {
+            "name": "symfony/var-dumper",
+            "version": "v3.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/var-dumper.git",
+                "reference": "cb50260b674ee1c2d4ab49f2395a42e0b4681e20"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/cb50260b674ee1c2d4ab49f2395a42e0b4681e20",
+                "reference": "cb50260b674ee1c2d4ab49f2395a42e0b4681e20",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "require-dev": {
+                "twig/twig": "~1.20|~2.0"
+            },
+            "suggest": {
+                "ext-symfony_debug": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.2-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "Resources/functions/dump.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Component\\VarDumper\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony mechanism for exploring and dumping PHP variables",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "debug",
+                "dump"
+            ],
+            "time": "2017-02-16T22:46:52+00:00"
         },
         {
             "name": "symfony/web-profiler-bundle",

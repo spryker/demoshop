@@ -13,7 +13,7 @@ use Orm\Zed\Tax\Persistence\SpyTaxSetTaxQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Country\Business\CountryFacadeInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
-use Spryker\Zed\Propel\Business\Runtime\ActiveQuery\Criteria;
+use Spryker\Zed\PropelOrm\Business\Runtime\ActiveQuery\Criteria;
 use Spryker\Zed\Shipment\Persistence\ShipmentQueryContainerInterface;
 use Spryker\Zed\Tax\Persistence\TaxQueryContainerInterface;
 

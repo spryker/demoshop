@@ -8,7 +8,7 @@
 namespace Pyz\Yves\Product\Controller;
 
 use Generated\Shared\Transfer\StorageProductTransfer;
-use Spryker\Yves\Application\Controller\AbstractController;
+use Spryker\Yves\Kernel\Controller\AbstractController;
 
 /**
  * @method \Spryker\Client\Product\ProductClientInterface getClient()

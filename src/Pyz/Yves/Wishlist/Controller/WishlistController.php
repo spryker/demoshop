@@ -16,7 +16,7 @@ use Generated\Shared\Transfer\WishlistTransfer;
 use Orm\Zed\Wishlist\Persistence\Map\SpyWishlistItemTableMap;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use Pyz\Yves\Wishlist\Plugin\Provider\WishlistControllerProvider;
-use Spryker\Yves\Application\Controller\AbstractController;
+use Spryker\Yves\Kernel\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
 /**

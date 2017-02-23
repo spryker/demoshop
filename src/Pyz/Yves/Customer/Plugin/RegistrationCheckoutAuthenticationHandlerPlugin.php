@@ -40,7 +40,7 @@ class RegistrationCheckoutAuthenticationHandlerPlugin extends AbstractPlugin imp
     }
 
     /**
-     * @return \Pyz\Yves\Application\Business\Model\FlashMessengerInterface
+     * @return \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface
      */
     protected function getMessenger()
     {

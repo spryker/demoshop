@@ -8,10 +8,12 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\RawProductAttributesTransfer;
+
 use Generated\Shared\Transfer\StorageProductImageTransfer;
 use Generated\Shared\Transfer\StorageProductTransfer;
 use Orm\Zed\Product\Persistence\SpyProductAttributeKeyQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
+use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
 use Spryker\Zed\Collector\CollectorConfig;
@@ -59,15 +61,19 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
     protected $superAttributes;
 
     /**
+     * @param \Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface $utilDataReaderService
      * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
      * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
      * @param \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface $productImageQueryContainer
      */
     public function __construct(
+        UtilDataReaderServiceInterface $utilDataReaderService,
         ProductFacadeInterface $productFacade,
         PriceFacadeInterface $priceFacade,
         ProductImageQueryContainerInterface $productImageQueryContainer
     ) {
+        parent::__construct($utilDataReaderService);
+
         $this->priceFacade = $priceFacade;
         $this->productImageQueryContainer = $productImageQueryContainer;
         $this->productFacade = $productFacade;

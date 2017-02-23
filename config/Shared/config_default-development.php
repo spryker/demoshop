@@ -6,13 +6,18 @@
 
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Session\SessionConstants;
+use Spryker\Shared\Setup\SetupConstants;
 use Spryker\Shared\Storage\StorageConstants;
+use Spryker\Shared\Twig\TwigConstants;
+use Spryker\Shared\ZedNavigation\ZedNavigationConstants;
+use Spryker\Shared\ZedRequest\ZedRequestConstants;
 
 $config[StorageConstants::STORAGE_REDIS_PROTOCOL] = 'tcp';
 $config[StorageConstants::STORAGE_REDIS_HOST] = '127.0.0.1';
@@ -35,9 +40,9 @@ $config[SessionConstants::ZED_SESSION_REDIS_DATABASE] = 2;
 $config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $config[ApplicationConstants::HOST_YVES];
 $config[SessionConstants::YVES_SESSION_COOKIE_SECURE] = false;
 
-$config[ApplicationConstants::JENKINS_BASE_URL] = 'http://' . $config[ApplicationConstants::HOST_ZED_GUI] . ':10007/jenkins';
-$config[ApplicationConstants::JENKINS_DIRECTORY] = '/data/shop/development/shared/data/common/jenkins';
-$config[ApplicationConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = true;
+$config[SetupConstants::JENKINS_BASE_URL] = 'http://' . $config[ApplicationConstants::HOST_ZED_GUI] . ':10007/jenkins';
+$config[SetupConstants::JENKINS_DIRECTORY] = '/data/shop/development/shared/data/common/jenkins';
+$config[ZedRequestConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = true;
 
 $config[PayoneConstants::PAYONE] = [
     PayoneConstants::PAYONE_CREDENTIALS_ENCODING => 'UTF-8',
@@ -52,15 +57,15 @@ $config[PayoneConstants::PAYONE] = [
     PayoneConstants::PAYONE_MODE => '',
 ];
 
-$config[ApplicationConstants::ZED_TWIG_OPTIONS] = [
+$config[TwigConstants::ZED_TWIG_OPTIONS] = [
     'cache' => false,
 ];
 
-$config[ApplicationConstants::YVES_TWIG_OPTIONS] = [
+$config[TwigConstants::YVES_TWIG_OPTIONS] = [
     'cache' => false,
 ];
 
-$config[ApplicationConstants::NAVIGATION_CACHE_ENABLED] = true;
+$config[ZedNavigationConstants::ZED_NAVIGATION_CACHE_ENABLED] = true;
 
 $config[AclConstants::ACL_USER_RULE_WHITELIST][] = [
     'bundle' => 'wdt',
@@ -72,16 +77,15 @@ $config[AclConstants::ACL_USER_RULE_WHITELIST][] = [
 $config[PropelConstants::PROPEL_DEBUG] = true;
 $config[PropelConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = true;
 
-$config[ApplicationConstants::ALLOW_INTEGRATION_CHECKS] = true;
-$config[ApplicationConstants::DISPLAY_ERRORS] = true;
+$config[ErrorHandlerConstants::DISPLAY_ERRORS] = true;
 $config[ApplicationConstants::ENABLE_APPLICATION_DEBUG] = true;
-$config[ApplicationConstants::SET_REPEAT_DATA] = true;
-$config[ApplicationConstants::STORE_PREFIX] = 'DEV';
+$config[ZedRequestConstants::SET_REPEAT_DATA] = true;
+$config[KernelConstants::STORE_PREFIX] = 'DEV';
 
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = true;
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
 
-$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
+$config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
 
 $config[EventJournalConstants::LOCK_OPTIONS][EventJournalConstants::NO_LOCK] = true;
 

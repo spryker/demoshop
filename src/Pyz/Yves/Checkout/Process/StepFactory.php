@@ -194,7 +194,7 @@ class StepFactory extends SprykerStepFactory
     }
 
     /**
-     * @return \Spryker\Yves\Application\Application
+     * @return \Spryker\Yves\Kernel\Application
      */
     protected function getApplication()
     {
