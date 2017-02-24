@@ -7,6 +7,7 @@
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
+use Spryker\Shared\ErrorHandler\ErrorRenderer\WebExceptionErrorRenderer;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Log\LogConstants;
@@ -78,6 +79,8 @@ $config[PropelConstants::PROPEL_DEBUG] = true;
 $config[PropelConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = true;
 
 $config[ErrorHandlerConstants::DISPLAY_ERRORS] = true;
+$config[ErrorHandlerConstants::ERROR_RENDERER] = WebExceptionErrorRenderer::class;
+
 $config[ApplicationConstants::ENABLE_APPLICATION_DEBUG] = true;
 $config[ZedRequestConstants::SET_REPEAT_DATA] = true;
 $config[KernelConstants::STORE_PREFIX] = 'DEV';
