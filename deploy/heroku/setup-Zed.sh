@@ -10,9 +10,12 @@ fi
 SETUP='spryker'
 CONSOLE=vendor/bin/console
 
+. deploy/setup/util/print.sh
 . deploy/setup/functions.sh
-
-. deploy/heroku/functions.sh
+. deploy/setup/frontend/params.sh
+. deploy/setup/frontend/params_heroku.sh
+. deploy/setup/frontend/functions.sh
+. deploy/setup/frontend/functions_heroku.sh
 
 
 for arg in "$@"
@@ -51,7 +54,8 @@ do
             $CONSOLE propel:model:build $VERBOSITY
             writeErrorMessage "propel:model:build failed"
 
-            antelopeInstallZed
+            setupZedFrontend
+
             ;;
             *)
             echo "Use -i to install"

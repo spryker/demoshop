@@ -5,6 +5,7 @@ set -o pipefail
 SETUP='spryker'
 CONSOLE=vendor/bin/console
 
+. deploy/setup/util/print.sh
 . deploy/setup/functions.sh
 
 updateComposerBinary

@@ -1,5 +1,11 @@
 #!/bin/bash
 
+. deploy/setup/util/print.sh
+. deploy/setup/frontend/params.sh
+. deploy/setup/frontend/params_test_env.sh
+. deploy/setup/frontend/functions.sh
+. deploy/setup/frontend/functions_test_env.sh
+
 sudo apt-get install apache2 libapache2-mod-fastcgi
 
 # enable php-fpm
@@ -23,12 +29,9 @@ sudo ln -s /etc/apache2/sites-available/yves /etc/apache2/sites-enabled/yves
 sudo ln -s /etc/apache2/sites-available/zed /etc/apache2/sites-enabled/zed
 sudo service apache2 restart
 
-curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
-sudo apt-get install -y nodejs
-npm install npm -g
-sudo npm install -g antelope
-sudo antelope install
-sudo antelope build
+# node 6 is required
+# installed by '- nvm install 6' in .travis.yml
 
+setupFrontendForTest
 
 wget https://raw.github.com/Codeception/c3/2.0/c3.php
