@@ -7,15 +7,16 @@
 
 namespace Pyz\Yves\Application\Plugin\Provider;
 
-use Pyz\Yves\Application\Plugin\Pimple;
 use Silex\Application;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Config\Application\Environment as ApplicationEnvironment;
 use Spryker\Shared\Config\Config;
+use Spryker\Shared\Config\Environment;
 use Spryker\Shared\Kernel\Store;
-use Spryker\Shared\Library\Application\Environment as ApplicationEnvironment;
-use Spryker\Shared\Library\DataDirectory;
-use Spryker\Shared\Library\Environment;
+use Spryker\Shared\Log\LogConstants;
+
 use Spryker\Yves\Kernel\ControllerResolver\YvesFragmentControllerResolver;
+use Spryker\Yves\Kernel\Plugin\Pimple;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -102,7 +103,7 @@ class ApplicationServiceProvider extends AbstractServiceProvider
     protected function setProfilerCacheDirectory()
     {
         if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER, false)) {
-            $this->application['profiler.cache_dir'] = DataDirectory::getLocalStoreSpecificPath('cache/profiler');
+            $this->application['profiler.cache_dir'] = APPLICATION_ROOT_DIR . '/data/' . Store::getInstance()->getStoreName() . '/cache/profiler';
         }
     }
 
@@ -153,7 +154,7 @@ class ApplicationServiceProvider extends AbstractServiceProvider
      */
     protected function setLogLevel()
     {
-        $this->application['monolog.level'] = Config::get(ApplicationConstants::LOG_LEVEL);
+        $this->application['monolog.level'] = Config::get(LogConstants::LOG_LEVEL);
     }
 
     /**

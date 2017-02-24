@@ -7,11 +7,11 @@
 
 namespace Pyz\Zed\Importer\Business;
 
+use Psr\Log\LoggerInterface as MessengerInterface;
 use Pyz\Zed\Importer\Business\Factory\InstallerFactory;
 use Pyz\Zed\Importer\Business\Icecat\IcecatImporter;
 use Pyz\Zed\Importer\ImporterConfig;
 use Spryker\Zed\Installer\Business\InstallerBusinessFactory as SprykerInstallerBusinessFactory;
-use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
@@ -57,7 +57,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      *
      * @return \Pyz\Zed\Importer\Business\Icecat\IcecatImporter
      */

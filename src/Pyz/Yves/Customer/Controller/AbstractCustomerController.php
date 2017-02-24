@@ -8,7 +8,7 @@
 namespace Pyz\Yves\Customer\Controller;
 
 use Generated\Shared\Transfer\CustomerResponseTransfer;
-use Spryker\Yves\Application\Controller\AbstractController;
+use Spryker\Yves\Kernel\Controller\AbstractController;
 
 /**
  * @method \Pyz\Yves\Customer\CustomerFactory getFactory()

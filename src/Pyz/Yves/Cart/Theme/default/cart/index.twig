@@ -25,7 +25,7 @@
 
             <div class="small-12 large-6 columns">
                 <div class="callout">
-                    <h5 class="subheader float-right">{{ numberOfItems }} {{ 'item' | trans }}</h5>
+                    <h5 class="subheader float-right">{{ app['cart.quantity'] }} {{ 'item' | trans }}</h5>
                     <h5>{{ 'cart.your-order' | trans }}</h5>
                     <ul class="no-bullet">
                         <li>{{ 'cart.price.subtotal' | trans }} <span class="float-right">{{ cart.totals.subtotal | money }}</span></li>

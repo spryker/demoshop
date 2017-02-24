@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\Importer\Business\Icecat;
 
-use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
+use Psr\Log\LoggerInterface as MessengerInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class IcecatImporter
@@ -19,7 +19,7 @@ class IcecatImporter
     protected $output;
 
     /**
-     * @var \Spryker\Zed\Messenger\Business\Model\MessengerInterface
+     * @var \Psr\Log\LoggerInterface
      */
     protected $messenger;
 
@@ -30,7 +30,7 @@ class IcecatImporter
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      * @param \Pyz\Zed\Importer\Business\Installer\InstallerInterface[] $installerCollection
      */
     public function __construct(OutputInterface $output, MessengerInterface $messenger, array $installerCollection)

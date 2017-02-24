@@ -7,6 +7,8 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
+use Everon\Component\Collection\Collection;
+
 use Generated\Shared\Transfer\RawProductAttributesTransfer;
 use Generated\Shared\Transfer\StorageProductCategoryTransfer;
 use Generated\Shared\Transfer\StorageProductImageTransfer;
@@ -17,7 +19,7 @@ use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
 use Orm\Zed\Product\Persistence\SpyProductAttributeKeyQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\Collector\CollectorConfig;
-use Spryker\Shared\Library\Collection\Collection;
+use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
@@ -57,7 +59,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     protected $priceFacade;
 
     /**
-     * @var \Spryker\Shared\Library\Collection\CollectionInterface
+     * @var \Everon\Component\Collection\CollectionInterface
      */
     protected $categoryCacheCollection;
 
@@ -77,6 +79,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     protected $superAttributes;
 
     /**
+     * @param \Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface $utilDataReaderService
      * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
      * @param \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface $productCategoryQueryContainer
      * @param \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface $productImageQueryContainer
@@ -84,12 +87,15 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
      * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
      */
     public function __construct(
+        UtilDataReaderServiceInterface $utilDataReaderService,
         CategoryQueryContainerInterface $categoryQueryContainer,
         ProductCategoryQueryContainerInterface $productCategoryQueryContainer,
         ProductImageQueryContainerInterface $productImageQueryContainer,
         ProductFacadeInterface $productFacade,
         PriceFacadeInterface $priceFacade
     ) {
+        parent::__construct($utilDataReaderService);
+
         $this->categoryQueryContainer = $categoryQueryContainer;
         $this->productCategoryQueryContainer = $productCategoryQueryContainer;
         $this->productImageQueryContainer = $productImageQueryContainer;

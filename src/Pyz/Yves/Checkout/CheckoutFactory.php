@@ -49,7 +49,7 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @return \Spryker\Yves\Application\Application
+     * @return \Spryker\Yves\Kernel\Application
      */
     protected function getApplication()
     {
