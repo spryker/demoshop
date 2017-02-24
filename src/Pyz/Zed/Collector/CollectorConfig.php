@@ -62,4 +62,12 @@ class CollectorConfig extends SprykerCollectorConfig
         return $data[$dbEngineName];
     }
 
+    /**
+     * @return bool
+     */
+    public function getEnablePrepareScopeKeyJoinFixFeatureFlag()
+    {
+        return true;
+    }
+
 }
