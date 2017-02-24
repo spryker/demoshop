@@ -110,15 +110,18 @@ class ProductPriceImporter extends AbstractImporter
             $productAbstractEntity = $this->getProductAbstractEntity($data['abstract_sku']);
 
             $priceProductEntity->setFkProductAbstract($productAbstractEntity->getIdProductAbstract());
-        } elseif ($data['concrete_sku']) {
+            $priceProductEntity->save();
+        }
+
+        if ($data['concrete_sku']) {
             $productConcreteEntity = $this->getProductConcreteEntity($data['concrete_sku']);
 
             $priceProductEntity->setFkProduct($productConcreteEntity->getIdProduct());
-        } else {
-            throw new Exception(sprintf('Missing abstract or concrete sku from imported data: %s.', print_r($data, true)));
+            $priceProductEntity->save();
         }
 
-        $priceProductEntity->save();
+        throw new Exception(sprintf('Missing abstract or concrete sku from imported data: %s.', print_r($data, true)));
+
     }
 
     /**
@@ -132,19 +135,19 @@ class ProductPriceImporter extends AbstractImporter
     {
         $priceTypeEntity = null;
 
-        if (!$this->cachePriceType->has($priceType)) {
-            $priceTypeEntity = $this->priceQueryContainer
-                ->queryPriceType($priceType)
-                ->findOne();
-
-            if (!$priceTypeEntity) {
-                throw new PriceTypeNotFoundException($priceType);
-            }
-
-            $this->cachePriceType->set($priceType, $priceTypeEntity);
-        } else {
-            $priceTypeEntity = $this->cachePriceType->get($priceType);
+        if ($this->cachePriceType->has($priceType)) {
+            return $this->cachePriceType->get($priceType);;
         }
+
+        $priceTypeEntity = $this->priceQueryContainer
+            ->queryPriceType($priceType)
+            ->findOne();
+
+        if (!$priceTypeEntity) {
+            throw new PriceTypeNotFoundException($priceType);
+        }
+
+        $this->cachePriceType->set($priceType, $priceTypeEntity);
 
         return $priceTypeEntity;
     }

@@ -117,28 +117,45 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
         $bundledProductTotalQuantity = $this->getBundledProductTotalQuantity($groupKey);
 
         if ($bundledProductTotalQuantity > 0) {
+            $this->handleBundleProductQuantity($bundledProductTotalQuantity, $sku, $quantity, $groupKey);
 
-            $delta = abs($bundledProductTotalQuantity - $quantity);
-
-            if ($delta === 0) {
-                return;
-            }
-
-            if ($bundledProductTotalQuantity > $quantity) {
-                $bundledItemsToRemove = $this->getBundledItems($groupKey, $delta);
-                $quoteTransfer = $this->cartClient->removeItems($bundledItemsToRemove);
-            } else {
-
-                $itemTransfer = new ItemTransfer();
-                $itemTransfer->setSku($sku);
-                $itemTransfer->setQuantity($delta);
-                $itemTransfer->setProductOptions($this->getBundleProductOptions($groupKey));
-
-                $quoteTransfer = $this->cartClient->addItem($itemTransfer);
-            }
-        } else {
-            $quoteTransfer = $this->cartClient->changeItemQuantity($sku, $groupKey, $quantity);
+            return;
         }
+
+        $quoteTransfer = $this->cartClient->changeItemQuantity($sku, $groupKey, $quantity);
+        $this->cartClient->storeQuote($quoteTransfer);
+    }
+
+    /**
+     * @param int $bundledProductTotalQuantity
+     * @param string $sku
+     * @param int $quantity
+     * @param string $groupKey
+     *
+     * @return void
+     */
+    protected function handleBundleProductQuantity($bundledProductTotalQuantity, $sku, $quantity, $groupKey)
+    {
+        $delta = abs($bundledProductTotalQuantity - $quantity);
+
+        if ($delta === 0) {
+            return;
+        }
+
+        if ($bundledProductTotalQuantity > $quantity) {
+            $bundledItemsToRemove = $this->getBundledItems($groupKey, $delta);
+            $quoteTransfer = $this->cartClient->removeItems($bundledItemsToRemove);
+            $this->cartClient->storeQuote($quoteTransfer);
+
+            return;
+        }
+
+        $itemTransfer = new ItemTransfer();
+        $itemTransfer->setSku($sku);
+        $itemTransfer->setQuantity($delta);
+        $itemTransfer->setProductOptions($this->getBundleProductOptions($groupKey));
+
+        $quoteTransfer = $this->cartClient->addItem($itemTransfer);
 
         $this->cartClient->storeQuote($quoteTransfer);
     }
