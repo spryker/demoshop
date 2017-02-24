@@ -9,6 +9,7 @@ use Spryker\Shared\Cms\CmsConstants;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
+use Spryker\Shared\ErrorHandler\ErrorRenderer\WebHtmlErrorRenderer;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
@@ -171,9 +172,8 @@ $config[ApplicationConstants::YVES_SSL_EXCLUDED] = [
     'heartbeat' => '/heartbeat',
 ];
 
-$config[ErrorHandlerConstants::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
-$config[ErrorHandlerConstants::ERROR_RENDERER] = WebHtmlErrorRenderer::class;
-$config[ErrorHandlerConstants::ZED_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
+$config[ErrorHandlerConstants::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/public/Yves/errorpage/error.html';
+$config[ErrorHandlerConstants::ZED_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/public/Yves/errorpage/error.html';
 $config[ErrorHandlerConstants::ERROR_RENDERER] = WebHtmlErrorRenderer::class;
 
 $config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $config[ApplicationConstants::HOST_YVES];
