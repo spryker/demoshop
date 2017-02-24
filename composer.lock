@@ -1669,16 +1669,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "1.4.9",
+            "version": "1.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "3b402f65a4cc90abf6e1104e388b896ce209631b"
+                "reference": "284fb0679dd25fb5ffb56dad92c72860c0a22f1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/3b402f65a4cc90abf6e1104e388b896ce209631b",
-                "reference": "3b402f65a4cc90abf6e1104e388b896ce209631b",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/284fb0679dd25fb5ffb56dad92c72860c0a22f1b",
+                "reference": "284fb0679dd25fb5ffb56dad92c72860c0a22f1b",
                 "shasum": ""
             },
             "require": {
@@ -1714,7 +1714,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2016-11-15T14:06:22+00:00"
+            "time": "2017-02-23T06:14:45+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -5590,11 +5590,11 @@
         },
         {
             "name": "spryker/invoice",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Invoice.git",
-                "reference": "004bc21663dd888a12470a71a1c8bb4029750e99",
+                "reference": "d472459b08520dbeb45ce7ea0f54079fbae16b2d",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5604,8 +5604,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Invoice/zipball/004bc21663dd888a12470a71a1c8bb4029750e99",
-                "reference": "004bc21663dd888a12470a71a1c8bb4029750e99",
+                "url": "https://api.github.com/repos/spryker/Invoice/zipball/d472459b08520dbeb45ce7ea0f54079fbae16b2d",
+                "reference": "d472459b08520dbeb45ce7ea0f54079fbae16b2d",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5613,6 +5613,10 @@
                         "preferred": true
                     }
                 ]
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
             },
             "type": "library",
             "extra": {
@@ -5622,23 +5626,24 @@
             },
             "autoload": {
                 "psr-0": {
-                    "Spryker": "src/",
-                    "Acceptance": "tests/",
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
                     "Functional": "tests/",
-                    "Integration": "tests/",
-                    "Unit": "tests/",
-                    "YvesUnit": "tests/"
+                    "Unit": "tests/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "license": [
                 "proprietary"
             ],
-            "description": "invoice bundle",
+            "description": "Invoice bundle",
             "support": {
                 "source": "https://github.com/spryker/Invoice/tree/master"
             },
-            "time": "2016-04-01T13:06:05+00:00"
+            "time": "2017-02-22T11:53:10+00:00"
         },
         {
             "name": "spryker/item-grouper",
@@ -9831,11 +9836,11 @@
         },
         {
             "name": "spryker/util-network",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/UtilNetwork.git",
-                "reference": "c595cb5b2ba2b2d7ea18c57920a2247e969f9846",
+                "reference": "1865ad10c90b965c087178023a798f1cdcd5ba07",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -9845,8 +9850,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/UtilNetwork/zipball/c595cb5b2ba2b2d7ea18c57920a2247e969f9846",
-                "reference": "c595cb5b2ba2b2d7ea18c57920a2247e969f9846",
+                "url": "https://api.github.com/repos/spryker/UtilNetwork/zipball/1865ad10c90b965c087178023a798f1cdcd5ba07",
+                "reference": "1865ad10c90b965c087178023a798f1cdcd5ba07",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -9858,7 +9863,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "1.0.x-dev"
                 }
             },
             "autoload": {
@@ -9880,7 +9885,7 @@
             "support": {
                 "source": "https://github.com/spryker/UtilNetwork/tree/master"
             },
-            "time": "2016-11-15T11:06:18+00:00"
+            "time": "2017-02-22T11:58:40+00:00"
         },
         {
             "name": "spryker/util-sanitize",
@@ -9937,11 +9942,11 @@
         },
         {
             "name": "spryker/util-text",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/UtilText.git",
-                "reference": "516242243f4d0e8ad4d37ff39236a6a4941181a8",
+                "reference": "d26c268158314a71bdff81fa407bad4796f326c7",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -9951,8 +9956,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/UtilText/zipball/516242243f4d0e8ad4d37ff39236a6a4941181a8",
-                "reference": "516242243f4d0e8ad4d37ff39236a6a4941181a8",
+                "url": "https://api.github.com/repos/spryker/UtilText/zipball/d26c268158314a71bdff81fa407bad4796f326c7",
+                "reference": "d26c268158314a71bdff81fa407bad4796f326c7",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -9964,7 +9969,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "1.0.x-dev"
                 }
             },
             "autoload": {
@@ -9986,7 +9991,7 @@
             "support": {
                 "source": "https://github.com/spryker/UtilText/tree/master"
             },
-            "time": "2016-11-15T11:06:18+00:00"
+            "time": "2017-02-22T11:53:10+00:00"
         },
         {
             "name": "spryker/wishlist",
@@ -13565,16 +13570,16 @@
         },
         {
             "name": "spryker/code-generator",
-            "version": "0.1.3",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "4f03ee25e399cb44bf169958889bef7307524d65"
+                "reference": "f5b3b6234233f083cff2d7b740d3c633e74089bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/4f03ee25e399cb44bf169958889bef7307524d65",
-                "reference": "4f03ee25e399cb44bf169958889bef7307524d65",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/f5b3b6234233f083cff2d7b740d3c633e74089bd",
+                "reference": "f5b3b6234233f083cff2d7b740d3c633e74089bd",
                 "shasum": ""
             },
             "require": {
@@ -13604,7 +13609,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-01-20T11:55:30+00:00"
+            "time": "2017-02-23T17:18:43+00:00"
         },
         {
             "name": "spryker/code-sniffer",
