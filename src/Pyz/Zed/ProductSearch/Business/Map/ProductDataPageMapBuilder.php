@@ -176,7 +176,7 @@ class ProductDataPageMapBuilder
     /**
      * @param array $productData
      *
-     * @return bool
+     * @return string
      */
     protected function getProductUrl(array $productData)
     {

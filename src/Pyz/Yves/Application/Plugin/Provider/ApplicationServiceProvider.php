@@ -134,19 +134,21 @@ class ApplicationServiceProvider extends AbstractServiceProvider
         $store->setCurrentLocale(current($store->getLocales()));
         $this->application[self::LOCALE] = $store->getCurrentLocale();
 
-        if (array_key_exists(self::REQUEST_URI, $_SERVER)) {
-            $requestUri = $_SERVER[self::REQUEST_URI];
+        $this->application->before(function (Request $request) use ($store) {
+            if ($request->server->has(self::REQUEST_URI)) {
+                $requestUri = $request->server->get(self::REQUEST_URI);
 
-            $expl = explode('/', trim($requestUri, '/'));
-            $identifier = $expl[0];
+                $pathElements = explode('/', trim($requestUri, '/'));
+                $identifier = $pathElements[0];
 
-            if ($identifier !== false && array_key_exists($identifier, $store->getLocales())) {
-                $store->setCurrentLocale($store->getLocales()[$identifier]);
-                $this->application[self::LOCALE] = $store->getCurrentLocale();
+                if ($identifier !== false && array_key_exists($identifier, $store->getLocales())) {
+                    $store->setCurrentLocale($store->getLocales()[$identifier]);
+                    $this->application[self::LOCALE] = $store->getCurrentLocale();
 
-                ApplicationEnvironment::initializeLocale($store->getCurrentLocale());
+                    ApplicationEnvironment::initializeLocale($store->getCurrentLocale());
+                }
             }
-        }
+        });
     }
 
     /**

@@ -22,6 +22,8 @@ use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
+ * @SuppressWarnings(PHPMD.Superglobals)
+ *
  * @method \Pyz\Yves\EventJournal\EventJournalFactory getFactory()
  */
 class EventJournalServiceProvider extends AbstractServiceProvider
