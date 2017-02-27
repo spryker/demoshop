@@ -88,7 +88,7 @@ $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = false;
 
 $config[ErrorHandlerConstants::DISPLAY_ERRORS] = true;
 $config[ApplicationConstants::ENABLE_APPLICATION_DEBUG] = false;
-$config[ZedRequestConstants::SET_REPEAT_DATA] = true;
+$config[ZedRequestConstants::SET_REPEAT_DATA] = false;
 $config[KernelConstants::STORE_PREFIX] = 'DEV';
 
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = false;
