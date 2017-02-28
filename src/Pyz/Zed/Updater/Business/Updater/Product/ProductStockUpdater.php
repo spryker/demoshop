@@ -8,7 +8,6 @@
 namespace Pyz\Zed\Updater\Business\Updater\Product;
 
 use Everon\Component\Collection\Collection;
-
 use Generated\Shared\Transfer\StockProductTransfer;
 use Generated\Shared\Transfer\TypeTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
