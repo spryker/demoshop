@@ -20,6 +20,7 @@
     "node": "^6.0.0"
   },
   "dependencies": {
+    "es6-promise": "~4.0.5",
     "font-awesome": "~4.6.1",
     "foundation-sites": "~6.2.1",
     "jquery": "~2.2.4",
@@ -29,7 +30,6 @@
   "devDependencies": {
     "@spryker/oryx": "^0.3.0",
     "@spryker/oryx-for-zed": "^0.4.0",
-
     "autoprefixer": "~6.7.0",
     "clean-webpack-plugin": "~0.1.15",
     "copy-webpack-plugin": "~4.0.1",

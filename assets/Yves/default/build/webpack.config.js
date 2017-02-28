@@ -36,7 +36,7 @@ let config = {
     watchOptions: {
         aggregateTimeout: 300,
         poll: 500,
-        ignored: /(node_modules|vendor|public|src)/
+        ignored: /node_modules/
     },
 
     entry: oryx.find(settings.entry, {
