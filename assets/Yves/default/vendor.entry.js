@@ -5,7 +5,9 @@
 
 'use strict';
 
-// there is no javascript, on purpose
+// es6 promise fix (webpack 2)
+require('es6-promise/auto');
+
 // add your external dependencies here
 
 // css
