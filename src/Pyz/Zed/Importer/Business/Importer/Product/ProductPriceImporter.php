@@ -111,6 +111,8 @@ class ProductPriceImporter extends AbstractImporter
 
             $priceProductEntity->setFkProductAbstract($productAbstractEntity->getIdProductAbstract());
             $priceProductEntity->save();
+
+            return;
         }
 
         if ($data['concrete_sku']) {
@@ -118,10 +120,11 @@ class ProductPriceImporter extends AbstractImporter
 
             $priceProductEntity->setFkProduct($productConcreteEntity->getIdProduct());
             $priceProductEntity->save();
+
+            return;
         }
 
         throw new Exception(sprintf('Missing abstract or concrete sku from imported data: %s.', print_r($data, true)));
-
     }
 
     /**
@@ -136,7 +139,7 @@ class ProductPriceImporter extends AbstractImporter
         $priceTypeEntity = null;
 
         if ($this->cachePriceType->has($priceType)) {
-            return $this->cachePriceType->get($priceType);;
+            return $this->cachePriceType->get($priceType);
         }
 
         $priceTypeEntity = $this->priceQueryContainer

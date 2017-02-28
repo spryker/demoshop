@@ -17,6 +17,11 @@ class NewsletterClient extends SprykerNewsletterClient implements NewsletterClie
 {
 
     /**
+     * Specification:
+     * - Subscribes a Customer to editorial Newsletter.
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
      * @return \Generated\Shared\Transfer\NewsletterSubscriptionResultTransfer
@@ -33,6 +38,11 @@ class NewsletterClient extends SprykerNewsletterClient implements NewsletterClie
     }
 
     /**
+     * Specification:
+     * - Unsubscribes a Customer to editorial Newsletter.
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      * @param string|null $subscriberKey
      *
@@ -48,6 +58,11 @@ class NewsletterClient extends SprykerNewsletterClient implements NewsletterClie
     }
 
     /**
+     * Specification:
+     * - Checks a editorial Newsletter subscription.
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
      * @return \Generated\Shared\Transfer\NewsletterSubscriptionResultTransfer

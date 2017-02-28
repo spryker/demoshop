@@ -11,8 +11,6 @@ use Pyz\Yves\Twig\Model\AssetUrlBuilder;
 use Pyz\Yves\Twig\Model\MediaUrlBuilder;
 use Pyz\Yves\Twig\Model\UrlParameterCacheBuster;
 use Pyz\Yves\Twig\Model\YvesExtension;
-use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Shared\Config\Config;
 use Spryker\Yves\Kernel\AbstractFactory;
 use Spryker\Yves\Kernel\Application;
 
@@ -47,7 +45,7 @@ class TwigFactory extends AbstractFactory
     }
 
     /**
-      * @param string $host
+     * @param string $host
      *
      * @return \Pyz\Yves\Twig\Model\AssetUrlBuilderInterface
      */

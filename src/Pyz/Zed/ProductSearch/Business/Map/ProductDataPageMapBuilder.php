@@ -20,6 +20,7 @@ use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 
 /**
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  * @method \Pyz\Zed\Collector\Communication\CollectorCommunicationFactory getFactory()
  */
 class ProductDataPageMapBuilder

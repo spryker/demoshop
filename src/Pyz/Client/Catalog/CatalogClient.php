@@ -16,6 +16,11 @@ class CatalogClient extends SprykerCatalogClient implements CatalogClientInterfa
 {
 
     /**
+     * Specification:
+     * - Returns a list of featured products.
+     *
+     * @api
+     *
      * @param int $limit
      *
      * @return mixed

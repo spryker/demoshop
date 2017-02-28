@@ -5,9 +5,13 @@
         "This file is @generated automatically"
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "9f21a2f530a4dba73e9a79fa56ab115f",
 =======
     "content-hash": "002ba16c14fb0c30ae2dc08391443435",
+>>>>>>> core-919 fixed some PhpMd warnings
+=======
+    "content-hash": "4a73ef2bc9bba26ae37688bbbca56216",
 >>>>>>> core-919 fixed some PhpMd warnings
     "packages": [
         {
@@ -1379,15 +1383,20 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "73084230e89edfceb5d2ff9487eed37df534d535"
 =======
 =======
 >>>>>>> core-919 phpmd fixes
+=======
+>>>>>>> core-919 fixed some PhpMd warnings
 <<<<<<< HEAD
                 "reference": "29d77acf94165da1624828f5bf6ae0a4937c2f62"
 =======
 =======
 >>>>>>> core-919 phpmd fixes
+=======
+>>>>>>> core-919 fixed some PhpMd warnings
 <<<<<<< HEAD
                 "reference": "cf4344e4af01db8fc10e642e3f4c3f085e104ead"
 =======
@@ -1406,8 +1415,17 @@
 =======
                 "reference": "e599b0b7c141ab40d2207a8316d2266b53445fae"
 >>>>>>> core-919 phpmd fixes
+<<<<<<< HEAD
 >>>>>>> core-919 phpmd fixes
+<<<<<<< HEAD
 >>>>>>> core-919 phpmd fixes
+=======
+=======
+=======
+                "reference": "05e984e0ace6247a9ad0311d7c61e6294e6aacea"
+>>>>>>> core-919 fixed some PhpMd warnings
+>>>>>>> core-919 fixed some PhpMd warnings
+>>>>>>> core-919 fixed some PhpMd warnings
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2011,15 +2029,20 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-03-08 14:59:48"
 =======
 =======
 >>>>>>> core-919 phpmd fixes
+=======
+>>>>>>> core-919 fixed some PhpMd warnings
 <<<<<<< HEAD
             "time": "2017-03-06 09:12:18"
 =======
 =======
 >>>>>>> core-919 phpmd fixes
+=======
+>>>>>>> core-919 fixed some PhpMd warnings
 <<<<<<< HEAD
             "time": "2017-03-01 10:33:28"
 =======
@@ -2038,8 +2061,17 @@
 =======
             "time": "2017-02-23 13:23:57"
 >>>>>>> core-919 phpmd fixes
+<<<<<<< HEAD
 >>>>>>> core-919 phpmd fixes
+<<<<<<< HEAD
 >>>>>>> core-919 phpmd fixes
+=======
+=======
+=======
+            "time": "2017-02-28 14:34:26"
+>>>>>>> core-919 fixed some PhpMd warnings
+>>>>>>> core-919 fixed some PhpMd warnings
+>>>>>>> core-919 fixed some PhpMd warnings
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6563,11 +6595,11 @@
         },
         {
             "name": "spryker/architecture-sniffer",
-            "version": "0.2.0",
+            "version": "dev-feature/core-919-fix-phpmd-violations-in-demoshop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/architecture-sniffer.git",
-                "reference": "76634a4cf6cd37705d8f94b3c8d3b0fcb7cc979f"
+                "reference": "233fd48b8be258aa40d8ae8eaa05b189635cc0b9"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6611,7 +6643,7 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-            "time": "2016-04-11T15:32:52+00:00"
+            "time": "2017-02-28 14:16:30"
         },
         {
             "name": "spryker/code-generator",
@@ -6654,7 +6686,19 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
+<<<<<<< HEAD
             "time": "2017-03-07T12:41:16+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-02-23 17:18:43"
+=======
+<<<<<<< HEAD
+            "time": "2017-01-20T12:13:43+00:00"
+=======
+            "time": "2017-02-23 17:18:43"
+>>>>>>> core-919 fixed some PhpMd warnings
+>>>>>>> core-919 fixed some PhpMd warnings
+>>>>>>> core-919 fixed some PhpMd warnings
         },
         {
             "name": "spryker/code-sniffer",
@@ -7272,6 +7316,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "spryker/spryker": 20,
+        "spryker/architecture-sniffer": 20,
         "spryker/code-generator": 20,
         "spryker/code-sniffer": 20
     },

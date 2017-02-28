@@ -7,9 +7,9 @@
 
 namespace Pyz\Zed\Updater\Business\Factory;
 
-use Pyz\Zed\Category\Business\Manager\NodeUrlManager;
 use Pyz\Zed\Updater\UpdaterDependencyProvider;
 use Spryker\Zed\Category\Business\Generator\UrlPathGenerator;
+use Spryker\Zed\Category\Business\Manager\NodeUrlManager;
 use Spryker\Zed\Category\Business\Tree\CategoryTreeReader;
 use Spryker\Zed\Category\Business\Tree\CategoryTreeWriter;
 use Spryker\Zed\Category\Business\Tree\ClosureTableWriter;
@@ -25,7 +25,7 @@ abstract class AbstractFactory extends AbstractBusinessFactory
 {
 
     /**
-     * @return \Pyz\Zed\Category\Business\Manager\NodeUrlManager
+     * @return \Spryker\Zed\Category\Business\Manager\NodeUrlManager
      */
     protected function createNodeUrlManager()
     {

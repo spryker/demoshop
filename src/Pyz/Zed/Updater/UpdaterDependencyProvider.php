@@ -21,11 +21,8 @@ class UpdaterDependencyProvider extends AbstractBundleDependencyProvider
 {
 
     const SERVICE_UTIL_DATE_TIME = 'util date time service';
-
     const SERVICE_NETWORK = 'util network service';
-
     const SERVICE_UTIL_IO = 'util io service';
-
     const SERVICE_DATA = 'util data service';
 
     const FACADE_CATEGORY = 'FACADE_CATEGORY';

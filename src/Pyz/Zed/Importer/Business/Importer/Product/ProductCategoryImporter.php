@@ -19,6 +19,9 @@ use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
 use Spryker\Zed\Touch\Business\TouchFacadeInterface;
 
+/**
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 class ProductCategoryImporter extends AbstractImporter
 {
 
@@ -68,6 +71,7 @@ class ProductCategoryImporter extends AbstractImporter
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Spryker\Zed\Touch\Business\TouchFacadeInterface $touchFacade
      * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
+     * @param \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface $productQueryContainer
      */
     public function __construct(
         LocaleFacadeInterface $localeFacade,
@@ -215,8 +219,8 @@ class ProductCategoryImporter extends AbstractImporter
     }
 
     /**
-     * @param $idCategory
-     * @param $idNode
+     * @param int $idCategory
+     * @param int $idNode
      *
      * @return array
      */

@@ -23,6 +23,9 @@ use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollector;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
 
+/**
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 class AttributeMapCollector extends AbstractStoragePropelCollector
 {
 

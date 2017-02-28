@@ -38,6 +38,7 @@ use Spryker\Zed\Shipment\Business\Model\Method;
 use Symfony\Component\Finder\Finder;
 
 /**
+ * @SuppressWarnings(PHPMD.TooManyMethods)
  * @method \Pyz\Zed\Importer\ImporterConfig getConfig()
  */
 class ImporterFactory extends AbstractFactory

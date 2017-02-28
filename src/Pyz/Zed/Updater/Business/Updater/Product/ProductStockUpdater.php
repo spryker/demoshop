@@ -20,6 +20,9 @@ use Spryker\Zed\Sales\Persistence\SalesQueryContainerInterface;
 use Spryker\Zed\Stock\Business\StockFacadeInterface;
 use Spryker\Zed\Stock\Persistence\StockQueryContainerInterface;
 
+/**
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 class ProductStockUpdater extends AbstractUpdater
 {
 
@@ -241,7 +244,6 @@ class ProductStockUpdater extends AbstractUpdater
                 $this->stockTypeCache->set($stockData[self::STOCK_TYPE], $stockTypeTransfer);
             }
         }
-
 
         if ($this->stockTypeCache->has($stockData[self::STOCK_TYPE])) {
             return $this->stockTypeCache->get($stockData[self::STOCK_TYPE]);

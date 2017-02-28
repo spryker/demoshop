@@ -28,6 +28,9 @@ use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterfa
 use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
 
+/**
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 class ProductAbstractCollector extends AbstractStoragePdoCollector
 {
 

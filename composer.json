@@ -73,8 +73,8 @@
     "sllh/composer-versions-check": "~2.0.2",
     "jakoch/phantomjs-installer": "^2.1.0",
     "php-mock/php-mock": "^1.0",
-    "spryker/architecture-sniffer": "*",
     "phpunit/phpunit": "^5.0",
+    "spryker/architecture-sniffer": "dev-feature/core-919-fix-phpmd-violations-in-demoshop",
     "spryker/code-generator": "dev-master",
     "spryker/code-sniffer": "dev-master"
   },

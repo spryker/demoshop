@@ -7,8 +7,6 @@
 
 namespace Pyz\Yves\Twig\Model;
 
-use Silex\Application;
-
 abstract class AbstractUrlBuilder
 {
 
