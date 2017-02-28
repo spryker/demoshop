@@ -5,8 +5,6 @@
 
 'use strict';
 
-var $ = require('jquery');
-
 module.exports = {
     init: function(view, state) {
         this.state = state;
