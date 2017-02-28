@@ -56,7 +56,8 @@
     "ext-pdo_pgsql": "*",
     "ext-pgsql": "*",
     "ext-readline": "*",
-    "ext-redis": "*"
+    "ext-redis": "*",
+    "php-amqplib/php-amqplib": "^2.6"
   },
   "require-dev": {
     "codeception/codeception": "~2.1.10",

@@ -1,6 +1,8 @@
 <?php
 
 use Pyz\Shared\Newsletter\NewsletterConstants;
+use Pyz\Shared\RabbitMq\RabbitMqConstants;
+use Spryker\Shared\Queue\QueueConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
@@ -69,6 +71,17 @@ $config[ApplicationConstants::ZED_RABBITMQ_PORT] = '5672';
 $config[ApplicationConstants::ZED_RABBITMQ_USERNAME] = 'DE_development';
 $config[ApplicationConstants::ZED_RABBITMQ_PASSWORD] = 'mate20mg';
 $config[ApplicationConstants::ZED_RABBITMQ_VHOST] = '/DE_development_zed';
+
+$config[QueueConstants::QUEUE_ADAPTOR_NAME_DEFAULT] = 'rabbitmq';
+$config[QueueConstants::QUEUE_ADAPTOR_NAME_MAPPING] = [
+    'Mail' => 'rabbitmq',
+];
+
+$config[RabbitMqConstants::QUEUE_HOST] = 'localhost';
+$config[RabbitMqConstants::QUEUE_PORT] = '5672';
+$config[RabbitMqConstants::QUEUE_USERNAME] = 'DE_development';
+$config[RabbitMqConstants::QUEUE_PASSWORD] = 'mate20mg';
+$config[RabbitMqConstants::QUEUE_VIRTUAL_HOST] = '/DE_development_zed';
 
 $config[EventJournalConstants::WRITER_OPTIONS] = [
     '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File' => ['log_path' => APPLICATION_ROOT_DIR . '/data/DE/logs/'],
