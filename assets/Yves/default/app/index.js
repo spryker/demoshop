@@ -22,6 +22,7 @@ $(function(){
 
     run([
         require('./components/aside'),
+        require('./components/toggle'),
         require('./components/viewer'),
         require('./components/suggestions')
     ]);
