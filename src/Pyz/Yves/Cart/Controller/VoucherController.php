@@ -7,9 +7,9 @@
 
 namespace Pyz\Yves\Cart\Controller;
 
+use Pyz\Yves\Application\Controller\AbstractController;
 use Pyz\Yves\Cart\Form\VoucherForm;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
-use Pyz\Yves\Application\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
 /**

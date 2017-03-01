@@ -1,7 +1,8 @@
 <?php
 
 /**
- * (c) Spryker Systems GmbH copyright protected
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Yves\Application\Controller;
@@ -10,7 +11,8 @@ use Spryker\Shared\Storage\StorageConstants;
 use Spryker\Yves\Kernel\Controller\AbstractController as SprykerAbstractController;
 use Spryker\Yves\Storage\Controller\StorageCacheControllerTrait;
 
-abstract class AbstractController extends SprykerAbstractController {
+abstract class AbstractController extends SprykerAbstractController
+{
 
     use StorageCacheControllerTrait;
 

@@ -8,8 +8,8 @@
 namespace Pyz\Yves\Newsletter\Controller;
 
 use Generated\Shared\Transfer\CustomerTransfer;
-use Pyz\Yves\Newsletter\Form\NewsletterSubscriptionForm;
 use Pyz\Yves\Application\Controller\AbstractController;
+use Pyz\Yves\Newsletter\Form\NewsletterSubscriptionForm;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
