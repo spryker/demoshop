@@ -4,10 +4,10 @@ use Propel\Generator\Manager\MigrationManager;
 
 /**
  * Data object containing the SQL and PHP code to migrate the database
- * up to version 1487759432.
- * Generated on 2017-02-22 10:30:32 by vagrant
+ * up to version 1488203973.
+ * Generated on 2017-02-27 13:59:33 by vagrant
  */
-class PropelMigration_1487759432
+class PropelMigration_1488203973
 {
     public $comment = '';
 
@@ -68,6 +68,7 @@ CREATE TABLE "spy_navigation_node"
     "id_navigation_node" INTEGER NOT NULL,
     "fk_navigation" INTEGER NOT NULL,
     "fk_parent_navigation_node" INTEGER,
+    "node_type" VARCHAR(255),
     "position" INTEGER,
     "is_active" BOOLEAN DEFAULT \'t\' NOT NULL,
     PRIMARY KEY ("id_navigation_node")
@@ -89,10 +90,6 @@ CREATE TABLE "spy_navigation_node_localized_attributes"
     "updated_at" TIMESTAMP,
     PRIMARY KEY ("id_navigation_node_localized_attributes")
 );
-
-ALTER TABLE "spy_state_machine_lock"
-
-  ALTER COLUMN "identifier" TYPE VARCHAR(255);
 
 ALTER TABLE "spy_navigation_node" ADD CONSTRAINT "spy_navigation_node_fk_07636b"
     FOREIGN KEY ("fk_parent_navigation_node")
@@ -145,10 +142,6 @@ DROP SEQUENCE "spy_navigation_node_pk_seq";
 DROP TABLE IF EXISTS "spy_navigation_node_localized_attributes" CASCADE;
 
 DROP SEQUENCE "spy_navigation_node_localized_attributes_pk_seq";
-
-ALTER TABLE "spy_state_machine_lock"
-
-  ALTER COLUMN "identifier" TYPE VARCHAR(1024);
 
 COMMIT;
 ',
