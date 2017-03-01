@@ -148,7 +148,7 @@ class ApplicationServiceProvider extends AbstractServiceProvider
                     ApplicationEnvironment::initializeLocale($store->getCurrentLocale());
                 }
             }
-        });
+        }, Application::EARLY_EVENT);
     }
 
     /**
