@@ -10,8 +10,10 @@ env:
     - APPLICATION_STORE=DE
 
 
+
 #Possible travis events (push, pull_request, cron, or api)
 matrix:
+  fast_finish: true
   include:
      - php: "5.6"
        env:
@@ -89,8 +91,10 @@ script:
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance ; fi
 
   - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console code:sniff ; fi
+
   - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/phpmd src/ text vendor/spryker/spryker/Bundles/Development/src/Spryker/Zed/Development/Business/PhpMd/ruleset.xml ; fi
-  - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 1 ; fi
+  - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 2 ; fi
+
   - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console dev:dependency:build-tree ; fi
   - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console dev:dependency:find-violations ; fi
 
