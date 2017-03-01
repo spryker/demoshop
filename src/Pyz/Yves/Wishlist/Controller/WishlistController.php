@@ -15,7 +15,7 @@ use Generated\Shared\Transfer\WishlistTransfer;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use Pyz\Yves\Wishlist\Form\AddAllAvailableProductsToCartFormType;
 use Pyz\Yves\Wishlist\Plugin\Provider\WishlistControllerProvider;
-use Spryker\Yves\Kernel\Controller\AbstractController;
+use Pyz\Yves\Application\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 

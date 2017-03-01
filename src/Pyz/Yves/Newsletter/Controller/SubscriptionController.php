@@ -9,7 +9,7 @@ namespace Pyz\Yves\Newsletter\Controller;
 
 use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Yves\Newsletter\Form\NewsletterSubscriptionForm;
-use Spryker\Yves\Kernel\Controller\AbstractController;
+use Pyz\Yves\Application\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
