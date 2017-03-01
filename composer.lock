@@ -1384,12 +1384,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "73084230e89edfceb5d2ff9487eed37df534d535"
 =======
 =======
 >>>>>>> core-919 phpmd fixes
 =======
 >>>>>>> core-919 fixed some PhpMd warnings
+=======
+>>>>>>> core-919 cleanup Importer
 <<<<<<< HEAD
                 "reference": "29d77acf94165da1624828f5bf6ae0a4937c2f62"
 =======
@@ -1425,7 +1428,13 @@
                 "reference": "05e984e0ace6247a9ad0311d7c61e6294e6aacea"
 >>>>>>> core-919 fixed some PhpMd warnings
 >>>>>>> core-919 fixed some PhpMd warnings
+<<<<<<< HEAD
 >>>>>>> core-919 fixed some PhpMd warnings
+=======
+=======
+                "reference": "05e984e0ace6247a9ad0311d7c61e6294e6aacea"
+>>>>>>> core-919 cleanup Importer
+>>>>>>> core-919 cleanup Importer
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2030,12 +2039,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-03-08 14:59:48"
 =======
 =======
 >>>>>>> core-919 phpmd fixes
 =======
 >>>>>>> core-919 fixed some PhpMd warnings
+=======
+>>>>>>> core-919 cleanup Importer
 <<<<<<< HEAD
             "time": "2017-03-06 09:12:18"
 =======
@@ -2071,7 +2083,13 @@
             "time": "2017-02-28 14:34:26"
 >>>>>>> core-919 fixed some PhpMd warnings
 >>>>>>> core-919 fixed some PhpMd warnings
+<<<<<<< HEAD
 >>>>>>> core-919 fixed some PhpMd warnings
+=======
+=======
+            "time": "2017-02-28 14:34:26"
+>>>>>>> core-919 cleanup Importer
+>>>>>>> core-919 cleanup Importer
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6266,6 +6284,61 @@
             "time": "2016-04-17T19:32:49+00:00"
         },
         {
+            "name": "sebastian/phpdcd",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/phpdcd.git",
+                "reference": "10246f167713d0bd0b74540ca81e4caf30b72157"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpdcd/zipball/10246f167713d0bd0b74540ca81e4caf30b72157",
+                "reference": "10246f167713d0bd0b74540ca81e4caf30b72157",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "phpunit/php-timer": ">=1.0.4",
+                "phpunit/php-token-stream": ">=1.1.3",
+                "sebastian/finder-facade": ">=1.1.0",
+                "sebastian/version": ">=1.0.3",
+                "symfony/console": ">=2.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7"
+            },
+            "bin": [
+                "phpdcd"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
+                }
+            ],
+            "description": "Dead Code Detector (DCD) for PHP code.",
+            "homepage": "https://github.com/sebastianbergmann/phpdcd",
+            "abandoned": true,
+            "time": "2014-04-27T06:42:32+00:00"
+        },
+        {
             "name": "sebastian/recursion-context",
             "version": "1.0.5",
             "source": {
@@ -6687,8 +6760,11 @@
             ],
             "description": "CodeGenerator bundle",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-03-07T12:41:16+00:00"
 =======
+=======
+>>>>>>> core-919 cleanup Importer
 <<<<<<< HEAD
             "time": "2017-02-23 17:18:43"
 =======
@@ -6698,7 +6774,13 @@
             "time": "2017-02-23 17:18:43"
 >>>>>>> core-919 fixed some PhpMd warnings
 >>>>>>> core-919 fixed some PhpMd warnings
+<<<<<<< HEAD
 >>>>>>> core-919 fixed some PhpMd warnings
+=======
+=======
+            "time": "2017-02-23 17:18:43"
+>>>>>>> core-919 cleanup Importer
+>>>>>>> core-919 cleanup Importer
         },
         {
             "name": "spryker/code-sniffer",
@@ -6745,7 +6827,15 @@
                 "phpcs",
                 "standards"
             ],
+<<<<<<< HEAD
             "time": "2017-03-08T10:04:51+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-03-03 14:36:38"
+=======
+            "time": "2017-02-06 12:19:49"
+>>>>>>> core-919 cleanup Importer
+>>>>>>> core-919 cleanup Importer
         },
         {
             "name": "squizlabs/php_codesniffer",

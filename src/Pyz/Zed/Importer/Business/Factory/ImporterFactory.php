@@ -28,14 +28,8 @@ use Pyz\Zed\Importer\Business\Importer\Product\ProductTaxImporter;
 use Pyz\Zed\Importer\Business\Importer\Shipment\ShipmentImporter;
 use Pyz\Zed\Importer\Business\Importer\Tax\TaxImporter;
 use Pyz\Zed\Importer\ImporterDependencyProvider;
-use Spryker\Zed\Cms\Business\Block\BlockManager;
-use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManager;
-use Spryker\Zed\Cms\Business\Page\PageManager;
-use Spryker\Zed\Cms\Business\Template\TemplateManager;
-use Spryker\Zed\Cms\CmsConfig;
 use Spryker\Zed\Shipment\Business\Model\Carrier;
 use Spryker\Zed\Shipment\Business\Model\Method;
-use Symfony\Component\Finder\Finder;
 
 /**
  * @SuppressWarnings(PHPMD.TooManyMethods)
@@ -257,12 +251,7 @@ class ImporterFactory extends AbstractFactory
     {
         $cmsBlockImporter = new CmsBlockImporter(
             $this->getLocaleFacade(),
-            $this->createCmsBlockManager(),
-            $this->createCmsPageManager(),
-            $this->createCmsGlossaryKeyMappingManager(),
-            $this->createCmsTemplateManager(),
-            $this->getCmsToGlossaryBridge(),
-            $this->getCmsToUrlBridge(),
+            $this->getCmsFacade(),
             $this->getCmsQueryContainer()
         );
 
@@ -276,16 +265,20 @@ class ImporterFactory extends AbstractFactory
     {
         $cmsPageImporter = new CmsPageImporter(
             $this->getLocaleFacade(),
-            $this->createCmsBlockManager(),
-            $this->createCmsPageManager(),
-            $this->createCmsGlossaryKeyMappingManager(),
-            $this->createCmsTemplateManager(),
-            $this->getCmsToGlossaryBridge(),
-            $this->getCmsToUrlBridge(),
+            $this->getCmsFacade(),
+            $this->getUrlFacade(),
             $this->getCmsQueryContainer()
         );
 
         return $cmsPageImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Cms\Business\CmsFacadeInterface
+     */
+    protected function getCmsFacade()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_CMS);
     }
 
     /**
@@ -326,75 +319,6 @@ class ImporterFactory extends AbstractFactory
             $this->getLocaleFacade(),
             $this->getGlossaryFacade(),
             $this->getProductOptionFacade()
-        );
-    }
-
-    /**
-     * @return \Spryker\Zed\Cms\Business\Template\TemplateManagerInterface
-     */
-    protected function createCmsTemplateManager()
-    {
-        return new TemplateManager(
-            $this->getCmsQueryContainer(),
-            $this->createCmsConfig(),
-            $this->createFinder()
-        );
-    }
-
-    /**
-     * @return \Spryker\Zed\Cms\CmsConfig
-     */
-    protected function createCmsConfig()
-    {
-        return new CmsConfig();
-    }
-
-    /**
-     * @return \Symfony\Component\Finder\Finder
-     */
-    protected function createFinder()
-    {
-        return new Finder();
-    }
-
-    /**
-     * @return \Spryker\Zed\Cms\Business\Page\PageManagerInterface
-     */
-    protected function createCmsPageManager()
-    {
-        return new PageManager(
-            $this->getCmsQueryContainer(),
-            $this->createCmsTemplateManager(),
-            $this->createCmsBlockManager(),
-            $this->getCmsToGlossaryBridge(),
-            $this->getCmsToTouchBridge(),
-            $this->getCmsToUrlBridge()
-        );
-    }
-
-    /**
-     * @return \Spryker\Zed\Cms\Business\Block\BlockManagerInterface
-     */
-    protected function createCmsBlockManager()
-    {
-        return new BlockManager(
-            $this->getCmsQueryContainer(),
-            $this->getCmsToTouchBridge(),
-            $this->getProvidedDependency(ImporterDependencyProvider::PLUGIN_PROPEL_CONNECTION)
-        );
-    }
-
-    /**
-     * @return \Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface
-     */
-    protected function createCmsGlossaryKeyMappingManager()
-    {
-        return new GlossaryKeyMappingManager(
-            $this->getCmsToGlossaryBridge(),
-            $this->getCmsQueryContainer(),
-            $this->createCmsTemplateManager(),
-            $this->createCmsPageManager(),
-            $this->getProvidedDependency(ImporterDependencyProvider::PLUGIN_PROPEL_CONNECTION)
         );
     }
 
