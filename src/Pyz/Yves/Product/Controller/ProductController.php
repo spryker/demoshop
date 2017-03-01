@@ -9,6 +9,7 @@ namespace Pyz\Yves\Product\Controller;
 
 use Generated\Shared\Transfer\StorageProductTransfer;
 use Pyz\Yves\Application\Controller\AbstractController;
+use Spryker\Shared\Storage\StorageConstants;
 
 /**
  * @method \Spryker\Client\Product\ProductClientInterface getClient()
@@ -16,6 +17,8 @@ use Pyz\Yves\Application\Controller\AbstractController;
  */
 class ProductController extends AbstractController
 {
+
+    const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INCREMENTAL;
 
     /**
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
