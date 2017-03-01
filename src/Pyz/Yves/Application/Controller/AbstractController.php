@@ -18,11 +18,14 @@ abstract class AbstractController extends SprykerAbstractController
 
     const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_REPLACE;
 
+    /**
+     * @return void
+     */
     public function initialize()
     {
         parent::initialize();
 
-        $this->setStorageCacheStrategy(static::STORAGE_CACHE_STRATEGY);
+        $this->initializeStorageCacheStrategy(static::STORAGE_CACHE_STRATEGY);
     }
 
 }
