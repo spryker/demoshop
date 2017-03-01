@@ -3,14 +3,20 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
+// foundation settings
+
 @import '../../vendor/foundation/settings';
+
+// base
+
 @import 'settings';
 @import 'functions';
 @import 'base';
 @import 'layout';
 @import 'nojs';
 
-//to be removed
+// components
+
 @import '../components/aside/aside';
 @import '../components/message/message';
 @import '../components/suggestions/suggestions';
