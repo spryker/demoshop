@@ -7,8 +7,8 @@
 
 namespace Pyz\Yves\Customer\Controller;
 
-use Pyz\Yves\Application\Controller\AbstractController;
 use Generated\Shared\Transfer\CustomerResponseTransfer;
+use Pyz\Yves\Application\Controller\AbstractController;
 
 /**
  * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
