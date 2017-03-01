@@ -173,6 +173,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storagePageCollector->setQueryBuilder(
             $this->createStoragePageCollectorPropelQuery()
         );
+        $storagePageCollector->setConfig($this->getConfig());
 
         return $storagePageCollector;
     }
@@ -219,6 +220,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storageRedirectCollector->setQueryBuilder(
             $this->createStorageRedirectCollectorPropelQuery()
         );
+        $storageRedirectCollector->setConfig($this->getConfig());
 
         return $storageRedirectCollector;
     }
@@ -238,6 +240,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storageTranslationCollector->setQueryBuilder(
             $this->createStorageTranslationCollectorPropelQuery()
         );
+        $storageTranslationCollector->setConfig($this->getConfig());
 
         return $storageTranslationCollector;
     }
@@ -279,6 +282,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storageBlockCollector->setQueryBuilder(
             $this->createStorageBlockCollectorPropelQuery()
         );
+        $storageBlockCollector->setConfig($this->getConfig());
 
         return $storageBlockCollector;
     }
@@ -325,6 +329,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $attributeMapCollector->setQueryBuilder(
             new AttributeMapCollectorQuery()
         );
+        $attributeMapCollector->setConfig($this->getConfig());
 
         return $attributeMapCollector;
     }
@@ -368,6 +373,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storageAvailabilityCollector->setQueryBuilder(
             $this->createStorageAvailabilityCollectorPropelQuery()
         );
+        $storageAvailabilityCollector->setConfig($this->getConfig());
 
         return $storageAvailabilityCollector;
     }
