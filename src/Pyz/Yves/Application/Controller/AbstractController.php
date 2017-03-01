@@ -11,6 +11,7 @@ use Spryker\Shared\Storage\StorageConstants;
 use Spryker\Yves\Kernel\Controller\AbstractController as SprykerAbstractController;
 use Spryker\Yves\Storage\Controller\StorageCacheControllerTrait;
 
+
 abstract class AbstractController extends SprykerAbstractController
 {
 
