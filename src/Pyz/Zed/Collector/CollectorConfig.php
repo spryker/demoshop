@@ -22,7 +22,9 @@ class CollectorConfig extends SprykerCollectorConfig
 {
 
     /**
-     * @return array
+     * @param string $dbEngineName
+     *
+     * @return mixed
      */
     public function getStoragePdoQueryAdapterClassNames($dbEngineName)
     {
@@ -44,7 +46,9 @@ class CollectorConfig extends SprykerCollectorConfig
     }
 
     /**
-     * @return array
+     * @param string $dbEngineName
+     *
+     * @return mixed
      */
     public function getSearchPdoQueryAdapterClassNames($dbEngineName)
     {
@@ -65,7 +69,7 @@ class CollectorConfig extends SprykerCollectorConfig
     /**
      * @return bool
      */
-    public function getEnablePrepareScopeKeyJoinFixFeatureFlag()
+    public function isPrepareScopeKeyJoinFixFeatureEnabled()
     {
         return true;
     }

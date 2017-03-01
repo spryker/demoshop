@@ -134,21 +134,17 @@ class ApplicationServiceProvider extends AbstractServiceProvider
         $store->setCurrentLocale(current($store->getLocales()));
         $this->application[self::LOCALE] = $store->getCurrentLocale();
 
-        $this->application->before(function (Request $request) use ($store) {
-            if ($request->server->has(self::REQUEST_URI)) {
-                $requestUri = $request->server->get(self::REQUEST_URI);
+        $requestUri = $this->getRequestUri();
 
-                $pathElements = explode('/', trim($requestUri, '/'));
-                $identifier = $pathElements[0];
-
-                if ($identifier !== false && array_key_exists($identifier, $store->getLocales())) {
-                    $store->setCurrentLocale($store->getLocales()[$identifier]);
-                    $this->application[self::LOCALE] = $store->getCurrentLocale();
-
-                    ApplicationEnvironment::initializeLocale($store->getCurrentLocale());
-                }
+        if ($requestUri) {
+            $pathElements = explode('/', trim($requestUri, '/'));
+            $identifier = $pathElements[0];
+            if ($identifier !== false && array_key_exists($identifier, $store->getLocales())) {
+                $store->setCurrentLocale($store->getLocales()[$identifier]);
+                $this->application[self::LOCALE] = $store->getCurrentLocale();
+                ApplicationEnvironment::initializeLocale($store->getCurrentLocale());
             }
-        }, Application::EARLY_EVENT);
+        }
     }
 
     /**
@@ -183,6 +179,17 @@ class ApplicationServiceProvider extends AbstractServiceProvider
             },
             255
         );
+    }
+
+    /**
+     * @return string
+     */
+    protected function getRequestUri()
+    {
+        $requestUri = Request::createFromGlobals()
+            ->server->get(self::REQUEST_URI);
+
+        return $requestUri;
     }
 
 }
