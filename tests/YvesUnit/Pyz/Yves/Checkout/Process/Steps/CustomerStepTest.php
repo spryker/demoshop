@@ -111,8 +111,8 @@ class CustomerStepTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param null $authHandlerMock
-     * @param null $customerClientMock
+     * @param \PHPUnit_Framework_MockObject_MockObject|\Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface|null $authHandlerMock
+     * @param \PHPUnit_Framework_MockObject_MockObject|\Pyz\Client\Customer\CustomerClientInterface|null $customerClientMock
      *
      * @return \Pyz\Yves\Checkout\Process\Steps\CustomerStep
      */
