@@ -12,6 +12,7 @@ use Pyz\Zed\Collector\Persistence\Search\Pdo\PostgreSql\CmsPageCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Search\Pdo\PostgreSql\ProductCollectorQuery as SearchProductCollector;
 use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\CategoryNodeCollectorQuery as StorageCategoryNodeCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\NavigationCollectorQuery;
+use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\NavigationMenuCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductAbstractCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductConcreteCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductOptionCollectorQuery;
@@ -33,6 +34,7 @@ class CollectorConfig extends SprykerCollectorConfig
             'PostgreSql' => [
                 'CategoryNodeCollectorQuery' => StorageCategoryNodeCollectorQuery::class,
                 'NavigationCollectorQuery' => NavigationCollectorQuery::class,
+                'NavigationMenuCollectorQuery' => NavigationMenuCollectorQuery::class,
                 'ProductCollectorQuery' => ProductAbstractCollectorQuery::class,
                 'UrlCollectorQuery' => UrlCollectorQuery::class,
                 'ProductConcreteCollectorQuery' => ProductConcreteCollectorQuery::class,

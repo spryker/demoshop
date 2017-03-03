@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Collector\Business;
 
 use Exception;
+use Pyz\Shared\Navigation\KeyBuilder\NavigationKeyBuilder;
 use Pyz\Zed\Collector\Business\Search\CategoryNodeCollector as SearchCategoryNodeCollector;
 use Pyz\Zed\Collector\Business\Search\CmsPageCollector as SearchCmsPageCollector;
 use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector;
@@ -16,6 +17,7 @@ use Pyz\Zed\Collector\Business\Storage\AvailabilityCollector;
 use Pyz\Zed\Collector\Business\Storage\BlockCollector;
 use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector as StorageCategoryNodeCollector;
 use Pyz\Zed\Collector\Business\Storage\NavigationCollector;
+use Pyz\Zed\Collector\Business\Storage\NavigationMenuCollector;
 use Pyz\Zed\Collector\Business\Storage\PageCollector;
 use Pyz\Zed\Collector\Business\Storage\ProductAbstractCollector as StorageProductCollector;
 use Pyz\Zed\Collector\Business\Storage\ProductConcreteCollector;
@@ -35,6 +37,7 @@ use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderDependencyC
 use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderFactory;
 use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderFactoryWorker;
 use Spryker\Zed\Collector\Business\CollectorBusinessFactory as SprykerCollectorBusinessFactory;
+use Spryker\Zed\Navigation\Business\NavigationFacade;
 
 /**
  * @method \Pyz\Zed\Collector\CollectorConfig getConfig()
@@ -156,6 +159,30 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         );
 
         return $storageNavigationCollector;
+    }
+
+    /**
+     * @return \Pyz\Zed\Collector\Business\Storage\NavigationMenuCollector
+     */
+    public function createStorageNavigationMenuCollector()
+    {
+        $storageNavigationMenuCollector = new NavigationMenuCollector(
+            $this->getUtilDataReaderService(),
+            new NavigationKeyBuilder(), // TODO: use dependency provider and/or factory
+            new NavigationFacade()
+        );
+
+        $storageNavigationMenuCollector->setTouchQueryContainer(
+            $this->getTouchQueryContainer()
+        );
+        $storageNavigationMenuCollector->setCriteriaBuilder(
+            $this->createCriteriaBuilder()
+        );
+        $storageNavigationMenuCollector->setQueryBuilder(
+            $this->createStoragePdoQueryAdapterByName('NavigationMenuCollectorQuery')
+        );
+
+        return $storageNavigationMenuCollector;
     }
 
     /**

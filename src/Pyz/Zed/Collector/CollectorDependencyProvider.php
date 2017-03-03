@@ -16,6 +16,7 @@ use Pyz\Zed\Collector\Communication\Plugin\CategoryNodeCollectorSearchPlugin;
 use Pyz\Zed\Collector\Communication\Plugin\CategoryNodeCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\CmsPageCollectorSearchPlugin;
 use Pyz\Zed\Collector\Communication\Plugin\NavigationCollectorStoragePlugin;
+use Pyz\Zed\Collector\Communication\Plugin\NavigationMenuCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\PageCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\ProductAbstractCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\ProductCollectorSearchPlugin;
@@ -28,6 +29,7 @@ use Pyz\Zed\ProductSearch\Communication\Plugin\ProductDataPageMapPlugin;
 use Spryker\Shared\Availability\AvailabilityConfig;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Shared\Cms\CmsConstants;
+use Spryker\Shared\Navigation\NavigationConfig;
 use Spryker\Shared\ProductSearch\ProductSearchConfig;
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Collector\CollectorDependencyProvider as SprykerCollectorDependencyProvider;
@@ -121,6 +123,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 AvailabilityConfig::RESOURCE_TYPE_AVAILABILITY_ABSTRACT => new AvailabilityCollectorStoragePlugin(),
                 CategoryConstants::RESOURCE_TYPE_CATEGORY_NODE => new CategoryNodeCollectorStoragePlugin(),
                 CategoryConstants::RESOURCE_TYPE_NAVIGATION => new NavigationCollectorStoragePlugin(),
+                NavigationConfig::RESOURCE_TYPE_NAVIGATION_MENU => new NavigationMenuCollectorStoragePlugin(),
                 TranslationManager::TOUCH_TRANSLATION => new TranslationCollectorStoragePlugin(),
                 CmsConstants::RESOURCE_TYPE_PAGE => new PageCollectorStoragePlugin(),
                 CmsConstants::RESOURCE_TYPE_BLOCK => new BlockCollectorStoragePlugin(),
