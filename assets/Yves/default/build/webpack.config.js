@@ -112,6 +112,11 @@ let config = {
                 'NODE_ENV': settings.options.isProduction ? '"production"' : '"development"'
             }
         }),
+        new webpack.ProvidePlugin({
+            '$': 'jquery',
+            'jQuery': 'jquery',
+            'jquery': 'jquery'
+        }),
         new ExtractTextPlugin({
             filename: 'css/[name].css'
         }),
