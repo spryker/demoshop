@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ccbb096268d3a0a365aa80b780e17d10",
+    "content-hash": "441eabe9ca54a64d6b0dda841d4bca8b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1373,7 +1373,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "abe8885c873b6cd2b3af7ab0b4cc161b07c4f3cd"
+                "reference": "40b4b514999c4dfb40b0b15ee8c04d16e56d3af9"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1975,7 +1975,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-03-03 14:13:43"
+            "time": "2017-03-03 14:36:03"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6551,16 +6551,16 @@
         },
         {
             "name": "spryker/code-generator",
-            "version": "dev-feature/core-714-big-core-cleanup",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "ab32b38cc9cb250304b07a582d44bea7c52114ed"
+                "reference": "f5b3b6234233f083cff2d7b740d3c633e74089bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/ab32b38cc9cb250304b07a582d44bea7c52114ed",
-                "reference": "ab32b38cc9cb250304b07a582d44bea7c52114ed",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/f5b3b6234233f083cff2d7b740d3c633e74089bd",
+                "reference": "f5b3b6234233f083cff2d7b740d3c633e74089bd",
                 "shasum": ""
             },
             "require": {
@@ -6590,7 +6590,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-01-20T12:13:43+00:00"
+            "time": "2017-02-23T17:18:43+00:00"
         },
         {
             "name": "spryker/code-sniffer",
@@ -6598,12 +6598,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "8a173533be7d3cd88d11dd7ac7e8b1d088e43bae"
+                "reference": "66af5bd2fb8ac117fcfe45b0dfcb5e94ab14ef6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/8a173533be7d3cd88d11dd7ac7e8b1d088e43bae",
-                "reference": "8a173533be7d3cd88d11dd7ac7e8b1d088e43bae",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/66af5bd2fb8ac117fcfe45b0dfcb5e94ab14ef6c",
+                "reference": "66af5bd2fb8ac117fcfe45b0dfcb5e94ab14ef6c",
                 "shasum": ""
             },
             "require": {
@@ -6637,7 +6637,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-03-03 13:19:06"
+            "time": "2017-03-03T14:36:38+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
