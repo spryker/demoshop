@@ -1,4 +1,4 @@
-<ul>
+<ul class="vertical menu {% if nested|default(false) %}nested{% endif %}">
     {% for node in nodes %}
         {%  if node.navigationNode.isActive %}
             <li id="navigation-node-{{ node.navigationNode.idNavigationNode }}" data-id-navigation-node="{{ node.navigationNode.idNavigationNode }}">
@@ -10,7 +10,9 @@
                     {{ node.navigationNode.navigationNodeLocalizedAttributes[0].title }}
                 {% endif %}
 
-                {% include '@Application/layout/navigation/_partials/nodes.twig' with {nodes: node.children} %}
+                {% if node.children|length %}
+                    {% include '@Application/layout/navigation/_partials/nodes.twig' with {nodes: node.children, nested:true} %}
+                {% endif %}
             </li>
         {% endif %}
     {% endfor %}

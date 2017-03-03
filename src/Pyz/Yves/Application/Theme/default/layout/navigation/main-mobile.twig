@@ -1,0 +1,23 @@
+<ul class="vertical menu">
+    {% for node in navigationTree.nodes %}
+        {% if node.navigationNode.isActive %}
+            <li>
+                {% if node.navigationNode.navigationNodeLocalizedAttributes[0].url %}
+                    <a href="{{ node.navigationNode.navigationNodeLocalizedAttributes[0].url }}">
+                        {{ node.navigationNode.navigationNodeLocalizedAttributes[0].title }}
+                    </a>
+                {% elseif node.navigationNode.navigationNodeLocalizedAttributes[0].externalUrl %}
+                    <a href="{{ node.navigationNode.navigationNodeLocalizedAttributes[0].externalUrl }}" target="_blank">
+                        {{ node.navigationNode.navigationNodeLocalizedAttributes[0].title }}
+                    </a>
+                {% else %}
+                    {{ node.navigationNode.navigationNodeLocalizedAttributes[0].title }} {# TODO: fix margin problem #}
+                {% endif %}
+
+                {% if node.children|length %}
+                    {% include '@Application/layout/navigation/_partials/nodes.twig' with {nodes: node.children, nested: true} %}
+                {% endif %}
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>

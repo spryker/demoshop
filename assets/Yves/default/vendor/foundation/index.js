@@ -10,6 +10,9 @@ require('foundation-sites/dist/plugins/foundation.toggler');
 require('foundation-sites/dist/plugins/foundation.util.mediaQuery.js');
 require('foundation-sites/dist/plugins/foundation.util.motion.js');
 require('foundation-sites/dist/plugins/foundation.util.triggers.js');
+require('foundation-sites/dist/plugins/foundation.util.keyboard.js');
+require('foundation-sites/dist/plugins/foundation.util.box.js');
+require('foundation-sites/dist/plugins/foundation.dropdown.js');
 
 $(document).ready(function(){
     $(document).foundation();

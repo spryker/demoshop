@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     {% block navigation %}
-                        {{ spyNavigation('navigation1', '@application/layout/navigation/main.twig') }}
+                        {% include "@application/layout/partials/navigation.twig" %}
                     {% endblock %}
 
                     {% block breadcrumb %}
