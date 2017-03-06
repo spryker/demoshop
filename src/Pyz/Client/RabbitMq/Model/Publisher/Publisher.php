@@ -44,7 +44,12 @@ class Publisher implements PublisherInterface
      */
     public function sendMessages($queueName, array $queueMessageTransfers)
     {
-        // TODO: Implement sendMessages() method.
+        foreach ($queueMessageTransfers as $queueMessageTransfer) {
+            $msg = new AMQPMessage($queueMessageTransfer->getBody());
+            $this->channel->batch_basic_publish($msg, $queueName, $queueMessageTransfer->getRoutingKey());
+        }
+
+        $this->channel->publish_batch();
     }
 
     /**

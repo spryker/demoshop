@@ -21,7 +21,18 @@ class MailQueueMessageProcessorPlugin implements QueueMessageProcessorInterface
     public function processMessages(array $queueMessageTransfers)
     {
         foreach ($queueMessageTransfers as $queueMessageTransfer) {
-            echo 'Sending Mail to '. $queueMessageTransfer->getBody() . "\r\n";
+            $errorNumber = 0;
+            $errorChance = rand (0,1);
+
+            sleep($errorChance * 5);
+
+            if ($errorChance === $errorNumber) {
+                echo '[ X ] Failed '. $queueMessageTransfer->getBody() . "\r\n";
+                $queueMessageTransfer->setHasError(true);
+                $queueMessageTransfer->setReject(true);
+                continue;
+            }
+            echo '[ OK ] Sending Mail to '. $queueMessageTransfer->getBody() . "\r\n";
             $queueMessageTransfer->setAcknowledge(true);
         }
 

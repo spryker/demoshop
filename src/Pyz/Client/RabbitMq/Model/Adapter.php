@@ -106,6 +106,16 @@ class Adapter implements AdapterInterface
     /**
      * @param QueueMessageTransfer $queueMessageTransfer
      *
+     * @return bool
+     */
+    public function reject(QueueMessageTransfer $queueMessageTransfer)
+    {
+        return $this->consumer->reject($queueMessageTransfer);
+    }
+
+    /**
+     * @param QueueMessageTransfer $queueMessageTransfer
+     *
      * @return QueueMessageTransfer
      */
     public function handleErrorMessage(QueueMessageTransfer $queueMessageTransfer)

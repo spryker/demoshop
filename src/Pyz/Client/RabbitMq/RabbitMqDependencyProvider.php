@@ -54,7 +54,8 @@ class RabbitMqDependencyProvider extends AbstractDependencyProvider
     protected function getQueueOptions()
     {
         $queueOptionCollection = new \ArrayObject();
-        $queueOptionCollection->append($this->createCartExchangeQueueOption());
+        $queueOptionCollection->append($this->createMailExchangeQueueOption());
+        $queueOptionCollection->append($this->createMailErrorExchangeQueueOption());
 
         return $queueOptionCollection;
     }
@@ -62,7 +63,7 @@ class RabbitMqDependencyProvider extends AbstractDependencyProvider
     /**
      * @return \Generated\Shared\Transfer\QueueOptionTransfer
      */
-    protected function createCartExchangeQueueOption()
+    protected function createMailExchangeQueueOption()
     {
         $queueOption = new QueueOptionTransfer();
         $queueOption->setQueueName('Mail');
@@ -71,7 +72,7 @@ class RabbitMqDependencyProvider extends AbstractDependencyProvider
         $queueOption->setPassive(false);
         $queueOption->setType('direct');
         $queueOption->setDeclarationType(Connection::RABBIT_MQ_EXCHANGE);
-        $queueOption->setBindingQueue($this->createCartQueueBinding());
+        $queueOption->setBindingQueue($this->createMailQueueBinding());
 
         return $queueOption;
     }
@@ -79,7 +80,24 @@ class RabbitMqDependencyProvider extends AbstractDependencyProvider
     /**
      * @return \Generated\Shared\Transfer\QueueOptionTransfer
      */
-    protected function createCartQueueBinding()
+    protected function createMailErrorExchangeQueueOption()
+    {
+        $queueOption = new QueueOptionTransfer();
+        $queueOption->setQueueName('Mail');
+        $queueOption->setAutoDelete(false);
+        $queueOption->setDurable(true);
+        $queueOption->setPassive(false);
+        $queueOption->setType('direct');
+        $queueOption->setDeclarationType(Connection::RABBIT_MQ_EXCHANGE);
+        $queueOption->setBindingQueue($this->createMailErrorQueueBinding());
+
+        return $queueOption;
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\QueueOptionTransfer
+     */
+    protected function createMailQueueBinding()
     {
         $queueOption = new QueueOptionTransfer();
         $queueOption->setQueueName('Mail');
@@ -87,6 +105,22 @@ class RabbitMqDependencyProvider extends AbstractDependencyProvider
         $queueOption->setDurable(true);
         $queueOption->setExclusive(false);
         $queueOption->setPassive(false);
+
+        return $queueOption;
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\QueueOptionTransfer
+     */
+    protected function createMailErrorQueueBinding()
+    {
+        $queueOption = new QueueOptionTransfer();
+        $queueOption->setQueueName('Mail.Error');
+        $queueOption->setAutoDelete(false);
+        $queueOption->setDurable(true);
+        $queueOption->setExclusive(false);
+        $queueOption->setPassive(false);
+        $queueOption->setRoutingKey('error');
 
         return $queueOption;
     }

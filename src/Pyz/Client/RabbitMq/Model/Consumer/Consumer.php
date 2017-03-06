@@ -69,6 +69,22 @@ class Consumer implements ConsumerInterface
     }
 
     /**
+     * @param QueueOptionTransfer $queueOptionTransfer
+     *
+     * @return QueueMessageTransfer
+     */
+    public function receiveMessage(QueueOptionTransfer $queueOptionTransfer)
+    {
+        $message = $this->channel->basic_get($queueOptionTransfer->getQueueName(), $queueOptionTransfer->getNoAck());
+        $queueMessageTransfer = new QueueMessageTransfer();
+        $queueMessageTransfer->setBody($message->getBody());
+        $queueMessageTransfer->setQueueName($queueOptionTransfer->getQueueName());
+        $queueMessageTransfer->setDeliveryTag($message->delivery_info['delivery_tag']);
+
+        return $queueMessageTransfer;
+    }
+
+    /**
      * @param AMQPMessage $message
      *
      * @return void
@@ -77,6 +93,7 @@ class Consumer implements ConsumerInterface
     {
         $queueMessageTransfer = new QueueMessageTransfer();
         $queueMessageTransfer->setBody($message->getBody());
+        $queueMessageTransfer->setQueueName($message->delivery_info['exchange']);
         $queueMessageTransfer->setDeliveryTag($message->delivery_info['delivery_tag']);
 
         $this->collectedMessages[] = $queueMessageTransfer;
@@ -95,20 +112,10 @@ class Consumer implements ConsumerInterface
     /**
      * @param QueueMessageTransfer $queueMessageTransfer
      *
-     * @return mixed
+     * @return bool
      */
-    public function handleError(QueueMessageTransfer $queueMessageTransfer)
+    public function reject(QueueMessageTransfer $queueMessageTransfer)
     {
-        //TODO send it to QueueError
-    }
-
-    /**
-     * @param QueueOptionTransfer $queueOptionTransfer
-     *
-     * @return QueueMessageTransfer
-     */
-    public function receiveMessage(QueueOptionTransfer $queueOptionTransfer)
-    {
-        // TODO: Implement receiveMessage() method.
+        $this->channel->basic_reject($queueMessageTransfer->getDeliveryTag(), false);
     }
 }

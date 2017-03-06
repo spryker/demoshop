@@ -9,6 +9,7 @@ namespace Pyz\Client\RabbitMq\Model\Manager;
 use Generated\Shared\Transfer\QueueMessageTransfer;
 use Generated\Shared\Transfer\QueueOptionTransfer;
 use PhpAmqpLib\Channel\AMQPChannel;
+use PhpAmqpLib\Message\AMQPMessage;
 use Pyz\Client\RabbitMq\Model\Helper\QueueEstablishmentHelperInterface;
 
 class Manager implements ManagerInterface
@@ -61,7 +62,10 @@ class Manager implements ManagerInterface
      */
     public function handleErrorMessage(QueueMessageTransfer $queueMessageTransfer)
     {
-        // TODO: Implement handleErrorMessage() method.
+        $message = new AMQPMessage($queueMessageTransfer->getBody());
+        $this->channel->basic_publish($message, $queueMessageTransfer->getQueueName(), 'error');
+
+        return $queueMessageTransfer;
     }
 
     /**

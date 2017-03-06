@@ -23,6 +23,7 @@
         <property name="type" type="string"/>
         <property name="declarationType" type="string"/>
         <property name="bindingQueue" type="QueueOption"/>
+        <property name="routingKey" type="string"/>
     </transfer>
 
     <transfer name="QueueMessage">

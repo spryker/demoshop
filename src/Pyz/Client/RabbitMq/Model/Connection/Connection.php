@@ -96,18 +96,19 @@ class Connection implements ConnectionInterface
     {
         $this->queueEstablishmentHelper->createQueue($this->channel, $queueOption);
 
-        $this->bindQueues($queueOption->getQueueName(), $exchangeQueueName);
+        $this->bindQueues($queueOption->getQueueName(), $exchangeQueueName, $queueOption->getRoutingKey());
     }
 
     /**
      * @param string $queueName
      * @param string $exchangeName
+     * @param string $routingKey
      *
      * @return void
      */
-    protected function bindQueues($queueName, $exchangeName)
+    protected function bindQueues($queueName, $exchangeName, $routingKey = '')
     {
-        $this->channel->queue_bind($queueName, $exchangeName);
+        $this->channel->queue_bind($queueName, $exchangeName, $routingKey);
     }
 
     /**
