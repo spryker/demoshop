@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f21a2f530a4dba73e9a79fa56ab115f",
+    "content-hash": "ffe11d795d923d27840304fea36084e3",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1369,11 +1369,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-983-generated-directory-removal",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "29d77acf94165da1624828f5bf6ae0a4937c2f62"
+                "reference": "f693b22228e0920ec46eb2babc1dd9291e11e592"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1912,13 +1912,13 @@
                     "Functional\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests",
                     "Spryker\\Service\\UtilDataReader\\": "Bundles/UtilDataReader/src",
                     "Unit\\Service\\UtilDataReader\\": "Bundles/UtilDataReader/tests",
+                    "Functional\\Spryker\\Service\\UtilText\\": "Bundles/UtilDataReader/tests",
                     "Spryker\\Service\\UtilDateTime\\": "Bundles/UtilDateTime/src",
                     "Unit\\Service\\UtilDateTime\\": "Bundles/UtilDateTime/tests",
                     "Functional\\Service\\UtilDateTime\\": "Bundles/UtilDateTime/tests",
+                    "Spryker\\Shared\\UtilDateTime\\": "Bundles/UtilDateTime/src",
                     "Spryker\\Service\\UtilText\\": "Bundles/UtilText/src",
                     "Unit\\Spryker\\Service\\UtilText\\": "Bundles/UtilText/tests",
-                    "Functional\\Spryker\\Service\\UtilText\\": "Bundles/UtilDataReader/tests",
-                    "Spryker\\Shared\\UtilDateTime\\": "Bundles/UtilDateTime/src",
                     "Spryker\\Service\\UtilSanitize\\": "Bundles/UtilSanitize/src",
                     "Functional\\Spryker\\Service\\UtilSanitize\\": "Bundles/UtilSanitize/tests",
                     "Spryker\\Service\\UtilNetwork\\": "Bundles/UtilNetwork/src",
@@ -1975,7 +1975,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-03-06 09:12:18"
+            "time": "2017-03-16 16:56:31"
         },
         {
             "name": "swiftmailer/swiftmailer",
