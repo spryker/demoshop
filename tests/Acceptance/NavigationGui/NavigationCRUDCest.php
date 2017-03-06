@@ -89,7 +89,6 @@ class NavigationCRUDCest
 
         $i->amOnPage(sprintf(NavigationUpdatePage::URL, $idNavigation));
         $i->setNameField('Acceptance navigation (1) - edited');
-        $i->setKeyField('acceptance1-edited');
         $i->checkIsActiveField(false);
         $i->submitNavigationForm();
         $i->seeCurrentUrlEquals(NavigationPage::URL);
