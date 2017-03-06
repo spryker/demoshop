@@ -121,7 +121,7 @@ class PlaceOrderStepTest extends PHPUnit_Framework_TestCase
 
     /**
      * @param \Spryker\Client\Checkout\CheckoutClientInterface $checkoutClientMock
-     * @param null $flashMessengerMock
+     * @param \PHPUnit_Framework_MockObject_MockObject|\Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface|null $flashMessengerMock
      *
      * @return \Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep
      */
@@ -148,7 +148,7 @@ class PlaceOrderStepTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Pyz\Yves\Application\Business\Model\FlashMessengerInterface
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface
      */
     protected function createFlashMessengerMock()
     {
