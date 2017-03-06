@@ -77,6 +77,11 @@ $config[QueueConstants::QUEUE_ADAPTOR_NAME_MAPPING] = [
     'Mail' => 'rabbitmq',
 ];
 
+$config[QueueConstants::QUEUE_WORKER_PROCESSOR] = 10;
+$config[QueueConstants::QUEUE_WORKER_INTERVAL_SECONDS] = 1;
+$config[QueueConstants::QUEUE_WORKER_MAX_THRESHOLD_SECONDS] = 60;
+$config[QueueConstants::QUEUE_WORKER_OUTPUT_FILE] = 'data/DE/logs/ZED/queue.out';
+
 $config[RabbitMqConstants::QUEUE_HOST] = 'localhost';
 $config[RabbitMqConstants::QUEUE_PORT] = '5672';
 $config[RabbitMqConstants::QUEUE_USERNAME] = 'DE_development';

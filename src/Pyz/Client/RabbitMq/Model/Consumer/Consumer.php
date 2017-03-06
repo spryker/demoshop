@@ -78,7 +78,6 @@ class Consumer implements ConsumerInterface
         $queueMessageTransfer = new QueueMessageTransfer();
         $queueMessageTransfer->setBody($message->getBody());
         $queueMessageTransfer->setDeliveryTag($message->delivery_info['delivery_tag']);
-        $queueMessageTransfer->setDeliveryInfo($message->delivery_info);
 
         $this->collectedMessages[] = $queueMessageTransfer;
     }
@@ -90,9 +89,7 @@ class Consumer implements ConsumerInterface
      */
     public function acknowledge(QueueMessageTransfer $queueMessageTransfer)
     {
-        $deliverInfo = $queueMessageTransfer->getDeliveryInfo();
-
-        $deliverInfo['channel']->basic_ack($queueMessageTransfer->getDeliveryTag());
+        $this->channel->basic_ack($queueMessageTransfer->getDeliveryTag());
     }
 
     /**

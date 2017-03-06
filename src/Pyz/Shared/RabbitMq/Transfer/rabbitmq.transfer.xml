@@ -27,7 +27,6 @@
 
     <transfer name="QueueMessage">
         <property name="deliveryTag" type="string" />
-        <property name="deliveryInfo" type="array" />
         <property name="routingKey" type="string" />
     </transfer>
 </transfers>
