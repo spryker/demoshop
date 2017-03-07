@@ -7,7 +7,12 @@
 
 namespace Pyz\Yves\Cart\Controller;
 
+use Generated\Shared\Transfer\QueueMessageTransfer;
+use Generated\Shared\Transfer\QueueOptionTransfer;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
+use Spryker\Client\Kernel\Locator;
+use Spryker\Shared\Log\LoggerFactory;
+use Spryker\Yves\Kernel\Container;
 use Spryker\Yves\Kernel\Controller\AbstractController;
 
 /**
@@ -24,6 +29,18 @@ class CartController extends AbstractController
     {
         $quoteTransfer = $this->getClient()
             ->getQuote();
+
+        $locator = Locator::getInstance();
+        $queueClient = $locator->queue()->client();
+
+        $batchMessages = [];
+        for ($i = 0; $i < 100; $i++) {
+            $messageTransfer = new QueueMessageTransfer();
+            $messageTransfer->setBody(uniqid() .'@gmail.com');
+            $batchMessages[] = $messageTransfer;
+        }
+
+        $queueClient->sendMessages('Mail' ,$batchMessages);
 
         $voucherForm = $this->getFactory()
             ->createVoucherForm();

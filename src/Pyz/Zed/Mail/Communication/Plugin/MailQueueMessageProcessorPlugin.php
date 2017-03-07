@@ -24,10 +24,10 @@ class MailQueueMessageProcessorPlugin implements QueueMessageProcessorInterface
             $errorNumber = 0;
             $errorChance = rand (0,1);
 
-            sleep($errorChance * 5);
+            sleep($errorChance * 1);
 
             if ($errorChance === $errorNumber) {
-                echo '[ X ] Failed '. $queueMessageTransfer->getBody() . "\r\n";
+                echo '[ XX ] Failed '. $queueMessageTransfer->getBody() . "\r\n";
                 $queueMessageTransfer->setHasError(true);
                 $queueMessageTransfer->setReject(true);
                 continue;
