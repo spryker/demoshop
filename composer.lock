@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2e4b847cdf04d7f23fc0a494d38f5b2d",
+    "content-hash": "ca4a21280cff2810a6317a0153cd6859",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1379,6 +1379,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "73084230e89edfceb5d2ff9487eed37df534d535"
 =======
 =======
@@ -1440,6 +1441,9 @@
 =======
                 "reference": "56d1eec2a2047b8eb593c1809aa86f81de3bb394"
 >>>>>>> core-919 suppress warning
+=======
+                "reference": "ca1b5603ea94d59296bcbf5ffd63e4327fbe31b7"
+>>>>>>> core-919 update to latest architecture-sniffer
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2047,6 +2051,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-03-08 14:59:48"
 =======
 =======
@@ -2108,6 +2113,9 @@
 =======
             "time": "2017-03-07 09:17:41"
 >>>>>>> core-919 suppress warning
+=======
+            "time": "2017-03-07 13:34:02"
+>>>>>>> core-919 update to latest architecture-sniffer
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6631,11 +6639,11 @@
         },
         {
             "name": "spryker/architecture-sniffer",
-            "version": "dev-feature/core-919-fix-phpmd-violations-in-demoshop",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/architecture-sniffer.git",
-                "reference": "d60b89b28d7e1a5494de20042d702e1e71fc5410"
+                "reference": "49c86423e56e36439e883b986693cdcb222e19d4"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6643,7 +6651,7 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "~5.2",
-                "spryker/code-sniffer": "dev-master"
+                "spryker/code-sniffer": "*"
             },
             "type": "library",
             "autoload": {
@@ -6659,8 +6667,16 @@
             "include-path": [
                 "src/"
             ],
+            "scripts": {
+                "cs-check": [
+                    "vendor/bin/phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/architecture-sniffer/vendor/ ./"
+                ],
+                "cs-fix": [
+                    "vendor/bin/phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/architecture-sniffer/vendor/ ./"
+                ]
+            },
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
@@ -6679,7 +6695,7 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-            "time": "2017-03-01 06:20:58"
+            "time": "2017-03-07 12:01:35"
         },
         {
             "name": "spryker/code-generator",
