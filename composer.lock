@@ -1380,6 +1380,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "73084230e89edfceb5d2ff9487eed37df534d535"
 =======
 =======
@@ -1444,6 +1445,9 @@
 =======
                 "reference": "ca1b5603ea94d59296bcbf5ffd63e4327fbe31b7"
 >>>>>>> core-919 update to latest architecture-sniffer
+=======
+                "reference": "1ec5444d6e74e5efa3a02cc9bbf83faae0d76a79"
+>>>>>>> core-919 code review changes
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2052,6 +2056,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-03-08 14:59:48"
 =======
 =======
@@ -2116,6 +2121,9 @@
 =======
             "time": "2017-03-07 13:34:02"
 >>>>>>> core-919 update to latest architecture-sniffer
+=======
+            "time": "2017-03-07 15:26:39"
+>>>>>>> core-919 code review changes
         },
         {
             "name": "swiftmailer/swiftmailer",

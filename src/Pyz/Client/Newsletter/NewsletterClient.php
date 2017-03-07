@@ -17,8 +17,7 @@ class NewsletterClient extends SprykerNewsletterClient implements NewsletterClie
 {
 
     /**
-     * Specification:
-     * - Subscribes a Customer to editorial Newsletter.
+     * {@inheritdoc}
      *
      * @api
      *
@@ -38,8 +37,7 @@ class NewsletterClient extends SprykerNewsletterClient implements NewsletterClie
     }
 
     /**
-     * Specification:
-     * - Unsubscribes a Customer to editorial Newsletter.
+     * {@inheritdoc}
      *
      * @api
      *
@@ -58,8 +56,7 @@ class NewsletterClient extends SprykerNewsletterClient implements NewsletterClie
     }
 
     /**
-     * Specification:
-     * - Checks a editorial Newsletter subscription.
+     * {@inheritdoc}
      *
      * @api
      *
