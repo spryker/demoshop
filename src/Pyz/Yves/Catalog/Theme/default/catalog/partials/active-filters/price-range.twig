@@ -1,0 +1,3 @@
+{% if app.request.query.has(filter.config.parameterName) %}
+    {% include '@catalog/catalog/partials/active-filters/filter.twig' with {filterValue: ((filter.activeMin | moneyRaw | floor) ~ ' - ' ~ (filter.activeMax | moneyRaw | ceil))} %}
+{% endif %}

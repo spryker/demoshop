@@ -1,4 +1,4 @@
-<form method="GET">
+<form method="GET" enctype="text/plain">
     <div class="row">
 
         {% include '@Catalog/catalog/partials/spelling-suggestion.twig' %}
@@ -18,6 +18,8 @@
         <div class="small-12 medium-12 large-8 xlarge-9 columns">
 
             {% include '@Catalog/catalog/partials/sort.twig' %}
+
+            {% include '@Catalog/catalog/partials/active-filters.twig' %}
 
             {% include '@Catalog/catalog/partials/pagination.twig' %}
 

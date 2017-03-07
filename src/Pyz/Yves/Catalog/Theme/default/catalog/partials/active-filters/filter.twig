@@ -1,0 +1,3 @@
+<a href="{{ generateUrlWithoutActiveFilter(filter, filterValue) }}" class="button hollow small active-filters__filter">
+    {{ ('product.filter.' ~ filter.name) | trans }}: {{ filterValue }}<i class="fa fa-close"></i>
+</a>
