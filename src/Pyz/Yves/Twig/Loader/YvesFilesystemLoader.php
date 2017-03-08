@@ -182,9 +182,6 @@ class YvesFilesystemLoader implements Twig_LoaderInterface, Twig_ExistsLoaderInt
     {
         $name = (string)$name;
 
-        // normalize name
-        $name = str_replace(['///', '//', '\\'], '/', $name);
-
         if (isset($this->cache[$name])) {
             if ($this->cache[$name] !== false) {
                 return $this->cache[$name];
@@ -192,6 +189,9 @@ class YvesFilesystemLoader implements Twig_LoaderInterface, Twig_ExistsLoaderInt
 
             throw new Twig_Error_Loader(sprintf('Unable to find template "%s" (cached).', $name));
         }
+
+        // normalize name
+        $name = str_replace(['///', '//', '\\'], '/', $name);
 
         $this->validateName($name);
 
@@ -216,6 +216,7 @@ class YvesFilesystemLoader implements Twig_LoaderInterface, Twig_ExistsLoaderInt
         }
 
         $this->cache[$name] = false;
+
         throw new Twig_Error_Loader(sprintf('Unable to find template "%s" (looked into: %s).', $templateName, implode(', ', $paths)));
     }
 

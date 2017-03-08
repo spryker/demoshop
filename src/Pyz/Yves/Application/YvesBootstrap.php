@@ -51,6 +51,7 @@ use Spryker\Yves\Messenger\Plugin\Provider\FlashMessengerServiceProvider;
 use Spryker\Yves\Money\Plugin\ServiceProvider\TwigMoneyServiceProvider;
 use Spryker\Yves\Navigation\Plugin\Provider\NavigationTwigServiceProvider;
 use Spryker\Yves\Storage\Plugin\Provider\StorageRequestCacheServiceProvider;
+use SprykerEco\Yves\Showcase\Plugin\Provider\ShowcaseControllerProvider;
 
 class YvesBootstrap
 {
@@ -157,6 +158,7 @@ class YvesBootstrap
             new HeartbeatControllerProvider($isSsl),
             new NewsletterControllerProvider($isSsl),
             new CatalogControllerProvider($isSsl),
+            new ShowcaseControllerProvider($isSsl),
         ];
     }
 
