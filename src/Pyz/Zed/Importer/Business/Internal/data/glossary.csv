@@ -181,6 +181,10 @@ catalog.sort.price_asc,"Nach Preis aufsteigend sortieren",de_DE
 catalog.sort.price_asc,"Sort by price ascending",en_US
 catalog.sort.price_desc,"Nach Preis absteigend sortieren",de_DE
 catalog.sort.price_desc,"Sort by price descending",en_US
+catalog.filter.activeFilters,"Aktive Filter",de_DE
+catalog.filter.activeFilters,"Active filters",en_US
+catalog.filter.resetAllFilters,"Alle Filter zurücksetzen",de_DE
+catalog.filter.resetAllFilters,"Reset all filters",en_US
 product.filter.category,"Kategorien",de_DE
 product.filter.category,"Categories",en_US
 product.filter.price,Preisspanne,de_DE

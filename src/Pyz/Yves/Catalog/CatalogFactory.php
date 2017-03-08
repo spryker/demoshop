@@ -7,8 +7,26 @@
 
 namespace Pyz\Yves\Catalog;
 
+use Pyz\Yves\Catalog\ActiveSearchFilter\UrlGenerator;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class CatalogFactory extends AbstractFactory
 {
+
+    /**
+     * @return \Pyz\Yves\Catalog\ActiveSearchFilter\UrlGeneratorInterface
+     */
+    public function createActiveSearchFilterUrlGenerator()
+    {
+        return new UrlGenerator($this->getSearchClient());
+    }
+
+    /**
+     * @return \Spryker\Client\Search\SearchClientInterface
+     */
+    protected function getSearchClient()
+    {
+        return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_SEARCH);
+    }
+
 }

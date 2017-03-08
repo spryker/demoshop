@@ -5,8 +5,6 @@
 
 'use strict';
 
-var $ = require('jquery');
-
 module.exports = {
     name: 'aside',
     view: {

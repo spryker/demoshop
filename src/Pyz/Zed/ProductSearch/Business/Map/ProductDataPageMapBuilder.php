@@ -195,7 +195,7 @@ class ProductDataPageMapBuilder
      */
     protected function setCategories(PageMapBuilderInterface $pageMapBuilder, PageMapTransfer $pageMapTransfer, array $productData, LocaleTransfer $localeTransfer)
     {
-        $directParentCategories = array_map('intval', explode(',', $productData['category_ids']));
+        $directParentCategories = array_map('intval', explode(',', $productData['category_node_ids']));
 
         $allParentCategories = [];
         foreach ($directParentCategories as $idCategory) {
@@ -213,18 +213,18 @@ class ProductDataPageMapBuilder
     }
 
     /**
-     * @param int $idCategory
+     * @param int $idCategoryNode
      * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
      * @return array
      */
-    protected function getAllParentCategories($idCategory, LocaleTransfer $localeTransfer)
+    protected function getAllParentCategories($idCategoryNode, LocaleTransfer $localeTransfer)
     {
         if (static::$categoryTree === null) {
             $this->loadCategoryTree($localeTransfer);
         }
 
-        return static::$categoryTree[$idCategory];
+        return static::$categoryTree[$idCategoryNode];
     }
 
     /**
@@ -245,12 +245,12 @@ class ProductDataPageMapBuilder
                 ->queryPath($categoryNodeEntity->getIdCategoryNode(), $localeTransfer->getIdLocale(), false)
                 ->find();
 
-            static::$categoryTree[$categoryNodeEntity->getFkCategory()] = [];
+            static::$categoryTree[$categoryNodeEntity->getIdCategoryNode()] = [];
 
             foreach ($pathData as $path) {
-                $idCategory = (int)$path['fk_category'];
-                if (!in_array($idCategory, static::$categoryTree[$categoryNodeEntity->getFkCategory()])) {
-                    static::$categoryTree[$categoryNodeEntity->getFkCategory()][] = $idCategory;
+                $idCategory = (int)$path['id_category_node'];
+                if (!in_array($idCategory, static::$categoryTree[$categoryNodeEntity->getIdCategoryNode()])) {
+                    static::$categoryTree[$categoryNodeEntity->getIdCategoryNode()][] = $idCategory;
                 }
             }
         }
