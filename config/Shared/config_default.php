@@ -22,7 +22,6 @@ use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
 use Spryker\Shared\Price\PriceConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
-use Spryker\Shared\QueryPropelRule\QueryPropelRuleConstants;
 use Spryker\Shared\Sales\SalesConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
@@ -63,9 +62,6 @@ $config[PropelConstants::ZED_DB_SUPPORTED_ENGINES] = [
     PropelConfig::DB_ENGINE_MYSQL => 'MySql',
     PropelConfig::DB_ENGINE_PGSQL => 'PostgreSql',
 ];
-$config[PropelConstants::ZED_DB_ENGINE]
-    = $config[QueryPropelRuleConstants::ZED_DB_ENGINE]
-    = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
 
 /**
  * Elasticsearch settings

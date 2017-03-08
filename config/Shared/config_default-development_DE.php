@@ -10,6 +10,7 @@ use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Shared\QueryPropelRule\QueryPropelRuleConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Setup\SetupConstants;
@@ -19,8 +20,11 @@ $config[PropelConstants::ZED_DB_USERNAME] = 'development';
 $config[PropelConstants::ZED_DB_PASSWORD] = 'mate20mg';
 $config[PropelConstants::ZED_DB_DATABASE] = 'DE_development_zed';
 $config[PropelConstants::ZED_DB_HOST] = '127.0.0.1';
-$config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
 $config[PropelConstants::ZED_DB_PORT] = 5432;
+$config[PropelConstants::ZED_DB_ENGINE]
+    = $config[QueryPropelRuleConstants::ZED_DB_ENGINE]
+    = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
+
 
 $yvesHost = 'www.de.project.local';
 $config[ApplicationConstants::HOST_YVES]
