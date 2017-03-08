@@ -5,7 +5,7 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Yves\Catalog\ActiveFilter;
+namespace Pyz\Yves\Catalog\ActiveSearchFilter;
 
 use Spryker\Shared\Kernel\Transfer\TransferInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,7 +20,7 @@ interface UrlGeneratorInterface
      *
      * @return string
      */
-    public function generateUrlWithoutActiveFilter(Request $request, TransferInterface $searchResultTransfer, $filterValue);
+    public function generateUrlWithoutActiveSearchFilter(Request $request, TransferInterface $searchResultTransfer, $filterValue);
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
@@ -28,6 +28,6 @@ interface UrlGeneratorInterface
      *
      * @return string
      */
-    public function generateUrlWithoutAllActiveFilters(Request $request, array $facetFilters);
+    public function generateUrlWithoutAllActiveSearchFilters(Request $request, array $facetFilters);
 
 }

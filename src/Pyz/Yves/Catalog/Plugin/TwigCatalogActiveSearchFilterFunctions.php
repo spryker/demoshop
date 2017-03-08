@@ -16,11 +16,11 @@ use Twig_SimpleFunction;
 /**
  * @method \Pyz\Yves\Catalog\CatalogFactory getFactory()
  */
-class TwigCatalogActiveFilterFunctions extends AbstractPlugin implements TwigFunctionPluginInterface
+class TwigCatalogActiveSearchFilterFunctions extends AbstractPlugin implements TwigFunctionPluginInterface
 {
 
-    const FUNCTION_GET_URL_WITHOUT_ACTIVE_FILTER = 'generateUrlWithoutActiveFilter';
-    const FUNCTION_GET_URL_WITHOUT_ALL_ACTIVE_FILTERS = 'generateUrlWithoutAllActiveFilters';
+    const FUNCTION_GET_URL_WITHOUT_ACTIVE_SEARCH_FILTER = 'generateUrlWithoutActiveSearchFilter';
+    const FUNCTION_GET_URL_WITHOUT_ALL_ACTIVE_SEARCH_FILTERS = 'generateUrlWithoutAllActiveSearchFilters';
 
     /**
      * @param \Silex\Application $application
@@ -30,11 +30,11 @@ class TwigCatalogActiveFilterFunctions extends AbstractPlugin implements TwigFun
     public function getFunctions(Application $application)
     {
         return [
-            new Twig_SimpleFunction(self::FUNCTION_GET_URL_WITHOUT_ACTIVE_FILTER, [$this, self::FUNCTION_GET_URL_WITHOUT_ACTIVE_FILTER], [
+            new Twig_SimpleFunction(self::FUNCTION_GET_URL_WITHOUT_ACTIVE_SEARCH_FILTER, [$this, self::FUNCTION_GET_URL_WITHOUT_ACTIVE_SEARCH_FILTER], [
                 'needs_context' => true,
                 'is_safe' => ['html'],
             ]),
-            new Twig_SimpleFunction(self::FUNCTION_GET_URL_WITHOUT_ALL_ACTIVE_FILTERS, [$this, self::FUNCTION_GET_URL_WITHOUT_ALL_ACTIVE_FILTERS], [
+            new Twig_SimpleFunction(self::FUNCTION_GET_URL_WITHOUT_ALL_ACTIVE_SEARCH_FILTERS, [$this, self::FUNCTION_GET_URL_WITHOUT_ALL_ACTIVE_SEARCH_FILTERS], [
                 'needs_context' => true,
                 'is_safe' => ['html'],
             ]),
@@ -48,13 +48,13 @@ class TwigCatalogActiveFilterFunctions extends AbstractPlugin implements TwigFun
      *
      * @return string
      */
-    public function generateUrlWithoutActiveFilter(array $context, TransferInterface $searchResultTransfer, $filterValue)
+    public function generateUrlWithoutActiveSearchFilter(array $context, TransferInterface $searchResultTransfer, $filterValue)
     {
         $request = $this->getRequestFromContext($context);
 
         return $this->getFactory()
-            ->createActiveFilterUrlGenerator()
-            ->generateUrlWithoutActiveFilter($request, $searchResultTransfer, $filterValue);
+            ->createActiveSearchFilterUrlGenerator()
+            ->generateUrlWithoutActiveSearchFilter($request, $searchResultTransfer, $filterValue);
     }
 
     /**
@@ -63,13 +63,13 @@ class TwigCatalogActiveFilterFunctions extends AbstractPlugin implements TwigFun
      *
      * @return string
      */
-    public function generateUrlWithoutAllActiveFilters($context, array $facetFilters)
+    public function generateUrlWithoutAllActiveSearchFilters($context, array $facetFilters)
     {
         $request = $this->getRequestFromContext($context);
 
         return $this->getFactory()
-            ->createActiveFilterUrlGenerator()
-            ->generateUrlWithoutAllActiveFilters($request, $facetFilters);
+            ->createActiveSearchFilterUrlGenerator()
+            ->generateUrlWithoutAllActiveSearchFilters($request, $facetFilters);
     }
 
     /**

@@ -7,7 +7,7 @@
 
 namespace Pyz\Yves\Twig;
 
-use Pyz\Yves\Catalog\Plugin\TwigCatalogActiveFilterFunctions;
+use Pyz\Yves\Catalog\Plugin\TwigCatalogActiveSearchFilterFunctions;
 use Pyz\Yves\Cms\Plugin\TwigCms;
 use Pyz\Yves\Cms\Plugin\TwigCmsBlock;
 use Pyz\Yves\Customer\Plugin\TwigCustomer;
@@ -37,7 +37,7 @@ class TwigSettings
             new TwigCmsBlock(),
             new TwigCustomer(),
             new TwigAsset(),
-            new TwigCatalogActiveFilterFunctions(),
+            new TwigCatalogActiveSearchFilterFunctions(),
         ];
     }
 
