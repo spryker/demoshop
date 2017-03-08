@@ -71,14 +71,14 @@ class UrlGenerator implements UrlGeneratorInterface
 
     /**
      * @param array $params
-     * @param mixed $searchResultTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\TransferInterface $searchResultTransfer
      * @param string|null $filterValue
      *
      * @throws \InvalidArgumentException
      *
      * @return array
      */
-    protected function processSearchResultTransfer(array $params, $searchResultTransfer, $filterValue = null)
+    protected function processSearchResultTransfer(array $params, TransferInterface $searchResultTransfer, $filterValue = null)
     {
         switch (get_class($searchResultTransfer)) {
             case FacetSearchResultTransfer::class:
