@@ -1535,7 +1535,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker-eco/showcase.git",
-                "reference": "11fcc07ccc96972997e8ad7ffe6cbcee6cd2d28e"
+                "reference": "04ff38c92f3171f6b02bb57adee0dd1a094a4af9"
             },
             "require": {
                 "spryker/kernel": "^3.0.0"
@@ -1547,18 +1547,15 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "SprykerEco\\Zed\\Showcase\\": "src/SprykerEco/Zed/Showcase/",
-                    "SprykerEco\\Yves\\Showcase\\": "src/SprykerEco/Yves/Showcase/",
-                    "SprykerEco\\Client\\Showcase\\": "src/SprykerEco/Client/Showcase/",
-                    "SprykerEco\\Service\\Showcase\\": "src/SprykerEco/Service/Showcase/",
-                    "SprykerEco\\Shared\\Showcase\\": "src/SprykerEco/Shared/Showcase/"
+                "psr-0": {
+                    "SprykerEco": "src/"
                 }
             },
             "license": [
                 "proprietary"
             ],
             "description": "Showcase for 3rd party vendor namespace'd bundles",
+<<<<<<< HEAD
 <<<<<<< HEAD
             "time": "2017-03-08 07:39:35"
         },
@@ -1799,6 +1796,9 @@
 =======
             "time": "2017-03-08 15:06:34"
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+            "time": "2017-03-09 13:20:46"
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
         },
         {
 >>>>>>> core-1012 added more open glob patterns
@@ -1810,30 +1810,41 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "c721e3f223dd5f4f7ef522206f1747baeda236dd"
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
 <<<<<<< HEAD
                 "reference": "0ae996092bfd1d61126d630508608967b73c4db2"
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
 <<<<<<< HEAD
                 "reference": "2a35f3e4b8da944c20def9649a5dc78f79d6a466"
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
 <<<<<<< HEAD
                 "reference": "5e4ad17255c912ad39b68ec0dc19d264a59fc784"
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
 <<<<<<< HEAD
                 "reference": "0ae996092bfd1d61126d630508608967b73c4db2"
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
 <<<<<<< HEAD
                 "reference": "73084230e89edfceb5d2ff9487eed37df534d535"
 =======
@@ -1857,11 +1868,29 @@
 =======
                 "reference": "390d20f07a9f02075fe3e03fe358e38b9b62b8e7"
 >>>>>>> core-1012 added spryker/spryker template paths in project
+<<<<<<< HEAD
 >>>>>>> core-1012 added spryker/spryker template paths in project
+<<<<<<< HEAD
 >>>>>>> core-1012 added spryker/spryker template paths in project
+<<<<<<< HEAD
 >>>>>>> core-1012 added spryker/spryker template paths in project
+<<<<<<< HEAD
 >>>>>>> core-1012 added spryker/spryker template paths in project
+<<<<<<< HEAD
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "8816f968964cd190f06890d35ec341449ff70645"
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2613,30 +2642,41 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-03-23 13:32:10"
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
 <<<<<<< HEAD
             "time": "2017-03-13 14:07:00"
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
 <<<<<<< HEAD
             "time": "2017-03-22 15:41:58"
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
 <<<<<<< HEAD
             "time": "2017-03-20 11:42:08"
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
 <<<<<<< HEAD
             "time": "2017-03-13 14:07:00"
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
 <<<<<<< HEAD
             "time": "2017-03-08 14:59:48"
 =======
@@ -2840,11 +2880,29 @@
 =======
             "time": "2017-03-09 11:11:10"
 >>>>>>> core-1012 added spryker/spryker template paths in project
+<<<<<<< HEAD
 >>>>>>> core-1012 added spryker/spryker template paths in project
+<<<<<<< HEAD
 >>>>>>> core-1012 added spryker/spryker template paths in project
+<<<<<<< HEAD
 >>>>>>> core-1012 added spryker/spryker template paths in project
+<<<<<<< HEAD
 >>>>>>> core-1012 added spryker/spryker template paths in project
+<<<<<<< HEAD
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-03-09 14:05:10"
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+>>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
         },
         {
             "name": "swiftmailer/swiftmailer",

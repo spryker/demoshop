@@ -13,6 +13,8 @@ class TwigConfig extends SprykerTwigConfig
 {
 
     /**
+     * Only needed in Project, not in demoshop
+     * 
      * @param array $paths
      *
      * @return array

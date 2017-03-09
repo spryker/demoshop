@@ -39,7 +39,7 @@ $stores['DE'] = [
 ];
 
 
-$stores['EN'] = [
+$stores['US'] = [
     // different contexts
     'contexts' => [
         // shared settings for all contexts

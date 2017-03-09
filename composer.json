@@ -85,15 +85,7 @@
       "Unit": "tests",
       "YvesUnit": "tests",
       "Functional": "tests",
-      "Acceptance": "tests",
-      "Spryker\\Yves\\Twig\\": "vendor/spryker/spryker/Bundles/Twig/src"
-    },
-    "psr-4": {
-      "SprykerEco\\Zed\\Showcase\\": "vendor/spryker-eco/showcase/src/SprykerEco/Zed/Showcase/",
-      "SprykerEco\\Yves\\Showcase\\": "vendor/spryker-eco/showcase/src/SprykerEco/Yves/Showcase/",
-      "SprykerEco\\Client\\Showcase\\": "vendor/spryker-eco/showcase/src/SprykerEco/Client/Showcase/",
-      "SprykerEco\\Service\\Showcase\\": "vendor/spryker-eco/showcase/src/SprykerEco/Service/Showcase/",
-      "SprykerEco\\Shared\\Showcase\\": "vendor/spryker-eco/showcase/src/SprykerEco/Shared/Showcase/"
+      "Acceptance": "tests"
     }
   },
   "minimum-stability": "dev",

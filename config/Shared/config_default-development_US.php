@@ -8,7 +8,15 @@ use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
+use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Search\SearchConstants;
+
+$config[PropelConstants::ZED_DB_USERNAME] = 'development';
+$config[PropelConstants::ZED_DB_PASSWORD] = 'mate20mg';
+$config[PropelConstants::ZED_DB_DATABASE] = 'US_development_zed';
+$config[PropelConstants::ZED_DB_HOST] = '127.0.0.1';
+$config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
+$config[PropelConstants::ZED_DB_PORT] = 5432;
 
 $yvesHost = 'www.com.project.local';
 $config[ApplicationConstants::HOST_YVES]
