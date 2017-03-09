@@ -25,7 +25,6 @@ use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Sales\SalesConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
-use Spryker\Shared\Session\Business\Handler\Locker\RedisSpinLockLocker;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Storage\StorageConstants;
 use Spryker\Shared\Tax\TaxConstants;
