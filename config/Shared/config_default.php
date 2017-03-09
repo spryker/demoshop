@@ -167,8 +167,9 @@ $config[ApplicationConstants::ZED_SSL_ENABLED] = false;
 $config[ZedRequestConstants::ZED_API_SSL_ENABLED] = false;
 $config[ApplicationConstants::ZED_SSL_EXCLUDED] = ['heartbeat/index'];
 
-$config[ApplicationConstants::YVES_THEME]
+$config[TwigConstants::YVES_THEME]
     = $config[CmsConstants::YVES_THEME] = 'default';
+
 $config[ApplicationConstants::YVES_TRUSTED_PROXIES] = [];
 $config[ApplicationConstants::YVES_SSL_ENABLED] = false;
 $config[ApplicationConstants::YVES_COMPLETE_SSL_ENABLED] = false;
