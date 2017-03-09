@@ -1373,81 +1373,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "73084230e89edfceb5d2ff9487eed37df534d535"
-=======
-=======
->>>>>>> core-919 phpmd fixes
-=======
->>>>>>> core-919 fixed some PhpMd warnings
-=======
->>>>>>> core-919 cleanup Importer
-=======
->>>>>>> core-919 update spryker/spryker
-<<<<<<< HEAD
-                "reference": "29d77acf94165da1624828f5bf6ae0a4937c2f62"
-=======
-=======
->>>>>>> core-919 phpmd fixes
-=======
->>>>>>> core-919 fixed some PhpMd warnings
-<<<<<<< HEAD
-                "reference": "cf4344e4af01db8fc10e642e3f4c3f085e104ead"
-=======
-<<<<<<< HEAD
-                "reference": "5ca3f43c5a99b8704c26ecc765b072c142bbd752"
-=======
-                "reference": "e599b0b7c141ab40d2207a8316d2266b53445fae"
->>>>>>> core-919 fixed some PhpMd warnings
->>>>>>> core-919 fixed some PhpMd warnings
-<<<<<<< HEAD
->>>>>>> core-919 fixed some PhpMd warnings
-<<<<<<< HEAD
->>>>>>> core-919 fixed some PhpMd warnings
-=======
-=======
-=======
-                "reference": "e599b0b7c141ab40d2207a8316d2266b53445fae"
->>>>>>> core-919 phpmd fixes
-<<<<<<< HEAD
->>>>>>> core-919 phpmd fixes
-<<<<<<< HEAD
->>>>>>> core-919 phpmd fixes
-=======
-=======
-=======
-                "reference": "05e984e0ace6247a9ad0311d7c61e6294e6aacea"
->>>>>>> core-919 fixed some PhpMd warnings
->>>>>>> core-919 fixed some PhpMd warnings
-<<<<<<< HEAD
->>>>>>> core-919 fixed some PhpMd warnings
-=======
-=======
-                "reference": "05e984e0ace6247a9ad0311d7c61e6294e6aacea"
->>>>>>> core-919 cleanup Importer
-<<<<<<< HEAD
->>>>>>> core-919 cleanup Importer
-=======
-=======
-                "reference": "2ab93188a30240f2ff0f3b9e4868b38861f811af"
->>>>>>> core-919 update spryker/spryker
->>>>>>> core-919 update spryker/spryker
-=======
-                "reference": "56d1eec2a2047b8eb593c1809aa86f81de3bb394"
->>>>>>> core-919 suppress warning
-=======
-                "reference": "ca1b5603ea94d59296bcbf5ffd63e4327fbe31b7"
->>>>>>> core-919 update to latest architecture-sniffer
-=======
-                "reference": "1ec5444d6e74e5efa3a02cc9bbf83faae0d76a79"
->>>>>>> core-919 code review changes
+                "reference": "52e383a43c3a6f610644de9bfc1757b7d64610a5"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2049,81 +1975,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-03-08 14:59:48"
-=======
-=======
->>>>>>> core-919 phpmd fixes
-=======
->>>>>>> core-919 fixed some PhpMd warnings
-=======
->>>>>>> core-919 cleanup Importer
-=======
->>>>>>> core-919 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-03-06 09:12:18"
-=======
-=======
->>>>>>> core-919 phpmd fixes
-=======
->>>>>>> core-919 fixed some PhpMd warnings
-<<<<<<< HEAD
-            "time": "2017-03-01 10:33:28"
-=======
-<<<<<<< HEAD
-            "time": "2017-02-24 11:14:17"
-=======
-            "time": "2017-02-23 13:23:57"
->>>>>>> core-919 fixed some PhpMd warnings
->>>>>>> core-919 fixed some PhpMd warnings
-<<<<<<< HEAD
->>>>>>> core-919 fixed some PhpMd warnings
-<<<<<<< HEAD
->>>>>>> core-919 fixed some PhpMd warnings
-=======
-=======
-=======
-            "time": "2017-02-23 13:23:57"
->>>>>>> core-919 phpmd fixes
-<<<<<<< HEAD
->>>>>>> core-919 phpmd fixes
-<<<<<<< HEAD
->>>>>>> core-919 phpmd fixes
-=======
-=======
-=======
-            "time": "2017-02-28 14:34:26"
->>>>>>> core-919 fixed some PhpMd warnings
->>>>>>> core-919 fixed some PhpMd warnings
-<<<<<<< HEAD
->>>>>>> core-919 fixed some PhpMd warnings
-=======
-=======
-            "time": "2017-02-28 14:34:26"
->>>>>>> core-919 cleanup Importer
-<<<<<<< HEAD
->>>>>>> core-919 cleanup Importer
-=======
-=======
-            "time": "2017-03-01 13:27:59"
->>>>>>> core-919 update spryker/spryker
->>>>>>> core-919 update spryker/spryker
-=======
-            "time": "2017-03-07 09:17:41"
->>>>>>> core-919 suppress warning
-=======
-            "time": "2017-03-07 13:34:02"
->>>>>>> core-919 update to latest architecture-sniffer
-=======
-            "time": "2017-03-07 15:26:39"
->>>>>>> core-919 code review changes
+            "time": "2017-03-09 14:48:41"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6746,36 +6598,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-03-07T12:41:16+00:00"
-=======
-=======
->>>>>>> core-919 cleanup Importer
-<<<<<<< HEAD
-            "time": "2017-02-23 17:18:43"
-=======
-<<<<<<< HEAD
-            "time": "2017-01-20T12:13:43+00:00"
-=======
-            "time": "2017-02-23 17:18:43"
->>>>>>> core-919 fixed some PhpMd warnings
->>>>>>> core-919 fixed some PhpMd warnings
-<<<<<<< HEAD
->>>>>>> core-919 fixed some PhpMd warnings
-=======
-=======
-            "time": "2017-02-23 17:18:43"
->>>>>>> core-919 cleanup Importer
->>>>>>> core-919 cleanup Importer
-=======
-            "time": "2017-02-23 17:18:43"
->>>>>>> core-919 suppress warning
-=======
-            "time": "2017-03-07T12:41:16+00:00"
->>>>>>> core-919 update architecture-sniffer
+            "time": "2017-03-07 12:41:16"
         },
         {
             "name": "spryker/code-sniffer",
@@ -6783,30 +6606,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "837b6b1414854e2df616e3a22c237c00e56e5eb9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/837b6b1414854e2df616e3a22c237c00e56e5eb9",
-                "reference": "837b6b1414854e2df616e3a22c237c00e56e5eb9",
-=======
                 "reference": "bc202be12d221f290fa0bdc9ab2d053e5efb5cac"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/bc202be12d221f290fa0bdc9ab2d053e5efb5cac",
                 "reference": "bc202be12d221f290fa0bdc9ab2d053e5efb5cac",
->>>>>>> core-919 suppress warning
-=======
-                "reference": "837b6b1414854e2df616e3a22c237c00e56e5eb9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/837b6b1414854e2df616e3a22c237c00e56e5eb9",
-                "reference": "837b6b1414854e2df616e3a22c237c00e56e5eb9",
->>>>>>> core-919 update architecture-sniffer
                 "shasum": ""
             },
             "require": {
@@ -6840,23 +6645,7 @@
                 "phpcs",
                 "standards"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-03-08T10:04:51+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2017-03-03 14:36:38"
-=======
-            "time": "2017-02-06 12:19:49"
->>>>>>> core-919 cleanup Importer
->>>>>>> core-919 cleanup Importer
-=======
             "time": "2017-03-06 11:14:49"
->>>>>>> core-919 suppress warning
-=======
-            "time": "2017-03-08T10:04:51+00:00"
->>>>>>> core-919 update architecture-sniffer
         },
         {
             "name": "squizlabs/php_codesniffer",

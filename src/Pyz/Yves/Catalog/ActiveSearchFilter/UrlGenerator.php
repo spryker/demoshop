@@ -110,8 +110,8 @@ class UrlGenerator implements UrlGeneratorInterface
     {
         $param = $params[$searchResultTransfer->getName()];
         if (is_array($param) && $filterValue !== null) {
-            $i = array_search($filterValue, $param);
-            unset($params[$searchResultTransfer->getName()][$i]);
+            $index = array_search($filterValue, $param);
+            unset($params[$searchResultTransfer->getName()][$index]);
 
             return $params;
         }
