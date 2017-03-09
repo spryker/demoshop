@@ -85,7 +85,8 @@
       "Unit": "tests",
       "YvesUnit": "tests",
       "Functional": "tests",
-      "Acceptance": "tests"
+      "Acceptance": "tests",
+      "Spryker\\Yves\\Twig\\": "vendor/spryker/spryker/Bundles/Twig/src"
     },
     "psr-4": {
       "SprykerEco\\Zed\\Showcase\\": "vendor/spryker-eco/showcase/src/SprykerEco/Zed/Showcase/",

@@ -11,10 +11,12 @@ use Pyz\Yves\Twig\Model\AssetUrlBuilder;
 use Pyz\Yves\Twig\Model\MediaUrlBuilder;
 use Pyz\Yves\Twig\Model\UrlParameterCacheBuster;
 use Pyz\Yves\Twig\Model\YvesExtension;
-use Spryker\Yves\Kernel\AbstractFactory;
+use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Config\Config;
 use Spryker\Yves\Kernel\Application;
+use Spryker\Yves\Twig\TwigFactory as SprykerTwigFactory;
 
-class TwigFactory extends AbstractFactory
+class TwigFactory extends SprykerTwigFactory
 {
 
     /**

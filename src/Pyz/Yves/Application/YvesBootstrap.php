@@ -29,6 +29,7 @@ use Pyz\Yves\Heartbeat\Plugin\Provider\HeartbeatControllerProvider;
 use Pyz\Yves\NewRelic\Plugin\Provider\NewRelicServiceProvider;
 use Pyz\Yves\Newsletter\Plugin\Provider\NewsletterControllerProvider;
 use Pyz\Yves\Twig\Plugin\Provider\TwigServiceProvider;
+use Spryker\Yves\Twig\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigServiceProvider;
 use Pyz\Yves\Wishlist\Plugin\Provider\WishlistControllerProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
@@ -86,6 +87,7 @@ class YvesBootstrap
     protected function registerServiceProviders()
     {
         $this->application->register(new StorageRequestCacheServiceProvider());
+        $this->application->register(new SprykerTwigServiceProvider());
         $this->application->register(new TwigServiceProvider());
         $this->application->register(new ApplicationServiceProvider());
         $this->application->register(new SessionServiceProvider());
