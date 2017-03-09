@@ -2240,16 +2240,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v3.2.4",
+            "version": "v3.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "9f99453e77771e629af8a25eeb0a6c4ed1e19da2"
+                "reference": "741d6d4cd1414d67d48eb71aba6072b46ba740c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/9f99453e77771e629af8a25eeb0a6c4ed1e19da2",
-                "reference": "9f99453e77771e629af8a25eeb0a6c4ed1e19da2",
+                "url": "https://api.github.com/repos/symfony/config/zipball/741d6d4cd1414d67d48eb71aba6072b46ba740c2",
+                "reference": "741d6d4cd1414d67d48eb71aba6072b46ba740c2",
                 "shasum": ""
             },
             "require": {
@@ -2292,7 +2292,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-14T16:27:43+00:00"
+            "time": "2017-03-01T18:18:25+00:00"
         },
         {
             "name": "symfony/console",
@@ -6651,7 +6651,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/architecture-sniffer.git",
-                "reference": "49c86423e56e36439e883b986693cdcb222e19d4"
+                "reference": "2811ba37c774f16a619f278daae5d836ce8e578f"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6703,7 +6703,7 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-            "time": "2017-03-07 12:01:35"
+            "time": "2017-03-08T12:29:10+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -6749,6 +6749,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-03-07T12:41:16+00:00"
 =======
 =======
@@ -6772,6 +6773,9 @@
 =======
             "time": "2017-02-23 17:18:43"
 >>>>>>> core-919 suppress warning
+=======
+            "time": "2017-03-07T12:41:16+00:00"
+>>>>>>> core-919 update architecture-sniffer
         },
         {
             "name": "spryker/code-sniffer",
@@ -6779,6 +6783,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
                 "reference": "837b6b1414854e2df616e3a22c237c00e56e5eb9"
             },
@@ -6794,6 +6799,14 @@
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/bc202be12d221f290fa0bdc9ab2d053e5efb5cac",
                 "reference": "bc202be12d221f290fa0bdc9ab2d053e5efb5cac",
 >>>>>>> core-919 suppress warning
+=======
+                "reference": "837b6b1414854e2df616e3a22c237c00e56e5eb9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/837b6b1414854e2df616e3a22c237c00e56e5eb9",
+                "reference": "837b6b1414854e2df616e3a22c237c00e56e5eb9",
+>>>>>>> core-919 update architecture-sniffer
                 "shasum": ""
             },
             "require": {
@@ -6829,6 +6842,7 @@
             ],
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-03-08T10:04:51+00:00"
 =======
 <<<<<<< HEAD
@@ -6840,6 +6854,9 @@
 =======
             "time": "2017-03-06 11:14:49"
 >>>>>>> core-919 suppress warning
+=======
+            "time": "2017-03-08T10:04:51+00:00"
+>>>>>>> core-919 update architecture-sniffer
         },
         {
             "name": "squizlabs/php_codesniffer",
