@@ -549,6 +549,8 @@ checkout.customer.proceed_as_guest,"Proceed as a guest",en_US
 checkout.customer.proceed_as_guest,"Als Gast weiterverfahren",de_DE
 checkout.customer.order_as_guest,"Order as guest",en_US
 checkout.customer.order_as_guest,"Als Gast bestellen",de_DE
+checkout.step.customer.title,Login,en_US
+checkout.step.customer.title,Anmelden,de_DE
 checkout.step.address.title,Address,en_US
 checkout.step.address.title,Adresse,de_DE
 checkout.step.shipment.title,Shipment,en_US

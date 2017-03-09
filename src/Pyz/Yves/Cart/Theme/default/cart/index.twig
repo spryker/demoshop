@@ -7,7 +7,7 @@
 {% block breadcrumbItems %}
     <li><a href="/">{{ 'global.home' | trans }}</a></li>
     <li>{{ 'cart.cart'|trans }}</li>
-    <li class="disabled">{{ 'cart.checkout' | trans }}</li>
+    {% include '@Checkout/checkout/partials/breadcrumb.twig' %}
 {% endblock %}
 
 {% block content %}

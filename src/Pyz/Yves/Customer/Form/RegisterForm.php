@@ -8,6 +8,7 @@
 namespace Pyz\Yves\Customer\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
@@ -20,6 +21,7 @@ class RegisterForm extends AbstractType
     const FIELD_EMAIL = 'email';
     const FIELD_PASSWORD = 'password';
     const FIELD_ACCEPT_TERMS = 'accept_terms';
+    const FIELD_IS_GUEST = 'is_guest';
 
     /**
      * @return string
@@ -43,7 +45,8 @@ class RegisterForm extends AbstractType
             ->addLastNameField($builder)
             ->addEmailField($builder)
             ->addPasswordField($builder)
-            ->addAcceptTermsField($builder);
+            ->addAcceptTermsField($builder)
+            ->addIsGuestField($builder);
     }
 
     /**
@@ -168,6 +171,39 @@ class RegisterForm extends AbstractType
         ]);
 
         return $this;
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     *
+     * @return $this
+     */
+    protected function addIsGuestField(FormBuilderInterface $builder)
+    {
+        $builder->add(self::FIELD_IS_GUEST, 'hidden', [
+            'data' => false,
+        ]);
+
+        $this->addIsGuestTransformer($builder);
+
+        return $this;
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     *
+     * @return void
+     */
+    protected function addIsGuestTransformer(FormBuilderInterface $builder)
+    {
+        $builder->get(self::FIELD_IS_GUEST)->addModelTransformer(new CallbackTransformer(
+            function ($isGuest) {
+                return $isGuest;
+            },
+            function ($isGuestSubmittedValue) {
+                return (bool)$isGuestSubmittedValue;
+            }
+        ));
     }
 
 }

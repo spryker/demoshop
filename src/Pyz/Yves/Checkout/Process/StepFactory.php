@@ -20,10 +20,23 @@ use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
 use Spryker\Yves\Checkout\Process\StepFactory as SprykerStepFactory;
 use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
+use Spryker\Yves\StepEngine\Process\StepBreadcrumbGenerator;
 use Spryker\Yves\StepEngine\Process\StepCollection;
+use Spryker\Yves\StepEngine\Process\StepCollectionInterface;
+use Spryker\Yves\StepEngine\Process\StepEngineWithBreadcrumb;
 
 class StepFactory extends SprykerStepFactory
 {
+
+    /**
+     * @param \Spryker\Yves\StepEngine\Process\StepCollectionInterface $stepCollection
+     *
+     * @return \Spryker\Yves\StepEngine\Process\StepEngine
+     */
+    public function createStepEngine(StepCollectionInterface $stepCollection)
+    {
+        return new StepEngineWithBreadcrumb($stepCollection, $this->createDataContainer(), $this->createStepBreadcrumbGenerator());
+    }
 
     /**
      * @return \Spryker\Yves\StepEngine\Process\StepCollectionInterface
@@ -223,6 +236,14 @@ class StepFactory extends SprykerStepFactory
     public function getCartClient()
     {
         return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CART);
+    }
+
+    /**
+     * @return \Spryker\Yves\StepEngine\Process\StepBreadcrumbGeneratorInterface
+     */
+    public function createStepBreadcrumbGenerator()
+    {
+        return new StepBreadcrumbGenerator();
     }
 
 }

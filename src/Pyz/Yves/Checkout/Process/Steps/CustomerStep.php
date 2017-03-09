@@ -11,9 +11,10 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
+use Spryker\Yves\StepEngine\Dependency\Step\StepWithBreadcrumbInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class CustomerStep extends AbstractBaseStep
+class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterface
 {
 
     /**
@@ -30,15 +31,15 @@ class CustomerStep extends AbstractBaseStep
      * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
      * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface $customerStepHandler
      * @param string $stepRoute
-     * @param string $route
+     * @param string $escapeRoute
      */
     public function __construct(
         CustomerClientInterface $customerClient,
         StepHandlerPluginInterface $customerStepHandler,
         $stepRoute,
-        $route
+        $escapeRoute
     ) {
-        parent::__construct($stepRoute, $route);
+        parent::__construct($stepRoute, $escapeRoute);
 
         $this->customerClient = $customerClient;
         $this->customerStepHandler = $customerStepHandler;
@@ -51,10 +52,6 @@ class CustomerStep extends AbstractBaseStep
      */
     public function requireInput(AbstractTransfer $quoteTransfer)
     {
-        if ($this->isCustomerInQuote($quoteTransfer)) {
-            return false;
-        }
-
         if ($this->isCustomerLoggedIn()) {
             return false;
         }
@@ -124,6 +121,34 @@ class CustomerStep extends AbstractBaseStep
     protected function isGuestCustomerSelected(QuoteTransfer $quoteTransfer)
     {
         return $quoteTransfer->getCustomer()->getIsGuest();
+    }
+
+    /**
+     * @return string
+     */
+    public function getBreadcrumbItemTitle()
+    {
+        return 'checkout.step.customer.title';
+    }
+
+    /**
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $quoteTransfer
+     *
+     * @return bool
+     */
+    public function isBreadcrumbItemEnabled(AbstractTransfer $quoteTransfer)
+    {
+        return $this->postCondition($quoteTransfer);
+    }
+
+    /**
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $quoteTransfer
+     *
+     * @return bool
+     */
+    public function isBreadcrumbItemHidden(AbstractTransfer $quoteTransfer)
+    {
+        return $this->isCustomerLoggedIn();
     }
 
 }

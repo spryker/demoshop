@@ -30,7 +30,7 @@
                 <div class="callout">
                     <div class="row align-right">
                         <div class="small-12 medium-6 large-4 xlarge-3 columns">
-                            <a href="{{ url('cart') }}" class="button expanded __no-margin-bottom">{{ 'general.back.button' | trans }}</a>
+                            <a href="{% if addressesForm.vars.data.customer.isGuest %}{{ previousStepUrl }}{% else %}{{ url('cart') }}{% endif %}" class="button expanded __no-margin-bottom">{{ 'general.back.button' | trans }}</a>
                         </div>
                         <div class="small-12 medium-6 large-4 xlarge-3 columns">
                             <button type="submit" class="button success expanded __no-margin-bottom">{{ 'checkout.step.shipment' | trans }}</button>
