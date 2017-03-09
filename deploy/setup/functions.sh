@@ -30,6 +30,12 @@ if [[ `echo "$@" | grep '\-vvv'` ]]; then
     VERBOSITY='-vvv'
 fi
 
+function generateTwigCacheFiles {
+    labelText "Generating twig cache files"
+    vendor/bin/console twig:cache:warmer
+    writeErrorMessage "Cache WarmUp failed"
+}
+
 function createDevelopmentDatabase {
     # postgres
     sudo createdb ${DATABASE_NAME}
@@ -88,6 +94,8 @@ function installDemoshop {
     installZed
     sleep 1
     installYves
+
+    generateTwigCacheFiles
 
     successText "Setup successful"
 }
@@ -175,6 +183,8 @@ function resetDevelopmentState {
     labelText "Initializing DB"
     $CONSOLE setup:init-db $VERBOSITY
     writeErrorMessage "DB setup failed"
+
+    generateTwigCacheFiles
 }
 
 function dropDevelopmentDatabase {

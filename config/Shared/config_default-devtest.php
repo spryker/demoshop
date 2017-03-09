@@ -8,6 +8,7 @@ use Pyz\Yves\Application\YvesBootstrap;
 use Pyz\Zed\Application\Communication\ZedBootstrap;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Kernel\KernelConstants;
+use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;

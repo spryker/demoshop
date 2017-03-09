@@ -1,7 +1,8 @@
 <?php
+
 /**
- * Copyright © 2017-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\ZedNavigation;
@@ -16,12 +17,24 @@ class ZedNavigationConfig extends SprykerZedNavigationConfig
      */
     public function getNavigationSchemaPathPattern()
     {
-        $globPatterns = parent::getNavigationSchemaPathPattern();
-        $globPatterns[] = APPLICATION_SOURCE_DIR . '/*/Zed/*/Communication';
+        $paths = parent::getNavigationSchemaPathPattern();
+        $paths = $this->addSprykerFilePath($paths);
 
-        /* Only needed in Project, not in demoshop  */
-        $globPatterns[] = APPLICATION_VENDOR_DIR . '/spryker/spryker/Bundles/*/src/*/Zed/*/Communication';
-
-        return $globPatterns;
+        return $paths;
     }
+
+    /**
+     * Only needed in Project, not in demoshop
+     *
+     * @param array $paths
+     *
+     * @return array
+     */
+    private function addSprykerFilePath($paths)
+    {
+        $paths[] = APPLICATION_VENDOR_DIR . '/spryker/spryker/Bundles/*/src/*/Zed/*/Communication';
+
+        return $paths;
+    }
+
 }

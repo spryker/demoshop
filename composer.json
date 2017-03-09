@@ -39,7 +39,6 @@
     "symfony/yaml": "^2.6.13",
     "swiftmailer/swiftmailer" : "^5.4.5",
     "twig/twig": "^1.20.0",
-    "spryker-eco/showcase": "dev-master",
     "zendframework/zend-code": "^2.6.2",
     "zendframework/zend-config": "^2.5.1",
     "zendframework/zend-eventmanager": "^2.6.2",
@@ -85,7 +84,8 @@
       "Unit": "tests",
       "YvesUnit": "tests",
       "Functional": "tests",
-      "Acceptance": "tests"
+      "Acceptance": "tests",
+      "Unit\\Spryker\\Shared\\Twig\\": "vendor/spryker/spryker/Bundles/Twig/tests"
     }
   },
   "minimum-stability": "dev",

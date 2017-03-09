@@ -1,7 +1,8 @@
 <?php
+
 /**
- * Copyright © 2017-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\Glossary;
@@ -16,19 +17,27 @@ class GlossaryConfig extends SprykerGlossaryConfig
      */
     public function getGlossaryFilePaths()
     {
-        $projectFilePaths = glob(
-            APPLICATION_SOURCE_DIR . '/*/*/*/Resources/glossary.yml'
-        );
+        $paths = parent::getGlossaryFilePaths();
+        $paths = $this->addSprykerFilePath($paths);
 
-        /* Only needed in Project, not in demoshop  */
-        $sprykerFilePaths = glob(
-            APPLICATION_VENDOR_DIR . '/spryker/spryker/Bundles/*/src/Spryker/*/*/Resources/glossary.yml'
-        );
-
-        $coreFilePaths = glob(
-            APPLICATION_VENDOR_DIR . '/*/*/src/*/*/*/Resources/glossary.yml'
-        );
-
-        return array_merge($projectFilePaths, $sprykerFilePaths, $coreFilePaths);
+        return $paths;
     }
+
+    /**
+     * Only needed in Project, not in demoshop
+     *
+     * @param array $paths
+     *
+     * @return array
+     */
+    private function addSprykerFilePath($paths)
+    {
+        $paths = array_merge(
+            $paths,
+            glob(APPLICATION_VENDOR_DIR . '/spryker/spryker/Bundles/*/src/Spryker/*/*/Resources/glossary.yml')
+        );
+
+        return $paths;
+    }
+
 }

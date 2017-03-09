@@ -29,7 +29,6 @@ use Pyz\Yves\Heartbeat\Plugin\Provider\HeartbeatControllerProvider;
 use Pyz\Yves\NewRelic\Plugin\Provider\NewRelicServiceProvider;
 use Pyz\Yves\Newsletter\Plugin\Provider\NewsletterControllerProvider;
 use Pyz\Yves\Twig\Plugin\Provider\TwigServiceProvider;
-use Spryker\Yves\Twig\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigServiceProvider;
 use Pyz\Yves\Wishlist\Plugin\Provider\WishlistControllerProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
@@ -52,7 +51,7 @@ use Spryker\Yves\Messenger\Plugin\Provider\FlashMessengerServiceProvider;
 use Spryker\Yves\Money\Plugin\ServiceProvider\TwigMoneyServiceProvider;
 use Spryker\Yves\Navigation\Plugin\Provider\NavigationTwigServiceProvider;
 use Spryker\Yves\Storage\Plugin\Provider\StorageRequestCacheServiceProvider;
-use SprykerEco\Yves\Showcase\Plugin\Provider\ShowcaseControllerProvider;
+use Spryker\Yves\Twig\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigServiceProvider;
 
 class YvesBootstrap
 {
@@ -160,7 +159,6 @@ class YvesBootstrap
             new HeartbeatControllerProvider($isSsl),
             new NewsletterControllerProvider($isSsl),
             new CatalogControllerProvider($isSsl),
-            new ShowcaseControllerProvider($isSsl),
         ];
     }
 

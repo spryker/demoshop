@@ -42,6 +42,7 @@ $config[KernelConstants::PROJECT_NAMESPACES] = [
 ];
 
 $config[KernelConstants::CORE_NAMESPACES] = [
+//    'spryker-eco/showcase' => 'SprykerEco',
     'SprykerEco',
     'Spryker',
 ];
@@ -56,6 +57,9 @@ $config[TwigConstants::ZED_TWIG_OPTIONS] = [
 $config[TwigConstants::YVES_TWIG_OPTIONS] = [
     'cache' => APPLICATION_ROOT_DIR . '/data/' . Store::getInstance()->getStoreName() . '/cache/Yves/twig',
 ];
+
+$config[TwigConstants::YVES_PATH_CACHE_FILE] = APPLICATION_ROOT_DIR . '/data/' . Store::getInstance()->getStoreName() . '/cache/Yves/twig/.pathCache';
+$config[TwigConstants::ZED_PATH_CACHE_FILE] = APPLICATION_ROOT_DIR . '/data/' . Store::getInstance()->getStoreName() . '/cache/Zed/twig/.pathCache';
 
 $config[PropelConstants::ZED_DB_ENGINE_MYSQL] = PropelConfig::DB_ENGINE_MYSQL;
 $config[PropelConstants::ZED_DB_ENGINE_PGSQL] = PropelConfig::DB_ENGINE_PGSQL;

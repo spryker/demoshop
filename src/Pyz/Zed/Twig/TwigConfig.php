@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Copyright © 2017-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\Twig;
@@ -14,7 +14,7 @@ class TwigConfig extends SprykerTwigConfig
 
     /**
      * Only needed in Project, not in demoshop
-     * 
+     *
      * @param array $paths
      *
      * @return array
@@ -27,5 +27,38 @@ class TwigConfig extends SprykerTwigConfig
         return $paths;
     }
 
+    /**
+     * Only needed in Project, not in demoshop
+     *
+     * @return array
+     */
+    public function getZedDirectoryPathPattern()
+    {
+        $directories = [
+            'src/*/Zed/*/Presentation',
+            'vendor/spryker/spryker/Bundles/*/src/*/Zed/*/Presentation',
+        ];
+
+        $directories = array_merge($directories, glob('vendor/*/*/src/*/Zed/*/Presentation'));
+
+        return $directories;
+    }
+
+    /**
+     * Only needed in Project, not in demoshop
+     *
+     * @return array
+     */
+    public function getYvesDirectoryPathPattern()
+    {
+        $directories = [
+            'src/*/Yves/*/Theme',
+            'vendor/spryker/spryker/Bundles/*/src/*/Yves/*/Theme',
+        ];
+
+        $directories = array_merge($directories, glob('vendor/*/*/src/*/Yves/*/Theme'));
+
+        return $directories;
+    }
 
 }

@@ -6,15 +6,20 @@
     ],
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "4a7d35a2df4cc0f7ab739d01c9d87d34",
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+>>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
     "content-hash": "6526d21e7696cb9a5ff9e32a205c5a67",
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+>>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
     "content-hash": "4a7d35a2df4cc0f7ab739d01c9d87d34",
 =======
@@ -38,8 +43,17 @@
     "content-hash": "fb3a9d9e7e53a3d4c852aa0dabb88ba3",
 >>>>>>> core-1012 added spryker/spryker template paths in project
 >>>>>>> core-1012 added spryker/spryker template paths in project
+<<<<<<< HEAD
 >>>>>>> core-1012 added spryker/spryker template paths in project
+<<<<<<< HEAD
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+=======
+=======
+    "content-hash": "081059a52bcb2493440bf0698a85ab91",
+>>>>>>> core-1012 update spryker/spryker
+>>>>>>> core-1012 update spryker/spryker
+>>>>>>> core-1012 update spryker/spryker
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1474,7 +1488,10 @@
         },
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -1801,13 +1818,22 @@
 >>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
         },
         {
+<<<<<<< HEAD
 >>>>>>> core-1012 added more open glob patterns
+<<<<<<< HEAD
 >>>>>>> core-1012 added more open glob patterns
+=======
+=======
+=======
+>>>>>>> core-1012 update spryker/spryker
+>>>>>>> core-1012 update spryker/spryker
+>>>>>>> core-1012 update spryker/spryker
             "name": "spryker/spryker",
             "version": "dev-feature/core-1012-enable-3rd-party-bundles",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1817,6 +1843,8 @@
 >>>>>>> core-1012 added spryker/spryker template paths in project
 =======
 >>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+=======
+>>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "0ae996092bfd1d61126d630508608967b73c4db2"
 =======
@@ -1824,6 +1852,8 @@
 >>>>>>> core-1012 added spryker/spryker template paths in project
 =======
 >>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+=======
+>>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "2a35f3e4b8da944c20def9649a5dc78f79d6a466"
 =======
@@ -1889,8 +1919,17 @@
 >>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
 >>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
 >>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+<<<<<<< HEAD
 >>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+<<<<<<< HEAD
 >>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+=======
+=======
+=======
+                "reference": "00e120953e9bc126da24820c4748a002f46dc33e"
+>>>>>>> core-1012 update spryker/spryker
+>>>>>>> core-1012 update spryker/spryker
+>>>>>>> core-1012 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2520,6 +2559,7 @@
                     "Spryker\\Zed\\Transfer\\": "Bundles/Transfer/src",
                     "Unit\\Spryker\\Zed\\Transfer\\": "Bundles/Transfer/tests",
                     "Functional\\Spryker\\Zed\\Transfer\\": "Bundles/Transfer/tests",
+                    "Unit\\Spryker\\Shared\\Twig\\": "Bundles/Twig/tests",
                     "Spryker\\Shared\\Twig\\": "Bundles/Twig/src",
                     "Spryker\\Yves\\Twig\\": "Bundles/Twig/src",
                     "Spryker\\Zed\\Twig\\": "Bundles/Twig/src",
@@ -2643,12 +2683,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-03-23 13:32:10"
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
 =======
 >>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+=======
+>>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-03-13 14:07:00"
 =======
@@ -2656,6 +2699,8 @@
 >>>>>>> core-1012 added spryker/spryker template paths in project
 =======
 >>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+=======
+>>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-03-22 15:41:58"
 =======
@@ -2901,8 +2946,17 @@
 >>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
 >>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
 >>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+<<<<<<< HEAD
 >>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+<<<<<<< HEAD
 >>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+=======
+=======
+=======
+            "time": "2017-03-20 13:00:50"
+>>>>>>> core-1012 update spryker/spryker
+>>>>>>> core-1012 update spryker/spryker
+>>>>>>> core-1012 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3019,11 +3073,7 @@
         },
         {
             "name": "symfony/config",
-<<<<<<< HEAD
             "version": "v3.2.6",
-=======
-            "version": "v3.2.5",
->>>>>>> core-1012 added spryker/spryker template paths in project
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -7353,11 +7403,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/architecture-sniffer.git",
-<<<<<<< HEAD
                 "reference": "2811ba37c774f16a619f278daae5d836ce8e578f"
-=======
-                "reference": "3adcbb431061a4636222f8cfafe6e695cb60557d"
->>>>>>> core-1012 added more open glob patterns
             },
             "require": {
                 "php": ">=5.4.16",
@@ -7453,6 +7499,7 @@
             ],
             "description": "CodeGenerator bundle",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-03-07T12:41:16+00:00"
 =======
 <<<<<<< HEAD
@@ -7465,6 +7512,9 @@
 >>>>>>> core-1012 added more open glob patterns
 >>>>>>> core-1012 added more open glob patterns
 >>>>>>> core-1012 added more open glob patterns
+=======
+            "time": "2017-03-07 12:41:16"
+>>>>>>> core-1012 update spryker/spryker
         },
         {
             "name": "spryker/code-sniffer",
@@ -7472,6 +7522,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                 "reference": "12f5dac810fa8592aa15e357676ff2777bba3716"
@@ -7483,6 +7534,8 @@
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+>>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "0283903c14b7545138a7974be659b4af1fb7464b"
             },
@@ -7493,6 +7546,8 @@
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+>>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "12f5dac810fa8592aa15e357676ff2777bba3716"
             },
@@ -7550,8 +7605,22 @@
 >>>>>>> core-1012 added spryker/spryker template paths in project
 >>>>>>> core-1012 added spryker/spryker template paths in project
 >>>>>>> core-1012 added spryker/spryker template paths in project
+<<<<<<< HEAD
 >>>>>>> core-1012 added spryker/spryker template paths in project
+<<<<<<< HEAD
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+=======
+=======
+                "reference": "12f5dac810fa8592aa15e357676ff2777bba3716"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/12f5dac810fa8592aa15e357676ff2777bba3716",
+                "reference": "12f5dac810fa8592aa15e357676ff2777bba3716",
+>>>>>>> core-1012 update spryker/spryker
+>>>>>>> core-1012 update spryker/spryker
+>>>>>>> core-1012 update spryker/spryker
                 "shasum": ""
             },
             "require": {
@@ -7587,15 +7656,20 @@
             ],
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-03-17 13:33:48"
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+>>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-03-09 15:17:56"
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+>>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-03-17 13:33:48"
 =======
@@ -7628,8 +7702,17 @@
 >>>>>>> core-1012 added spryker/spryker template paths in project
 >>>>>>> core-1012 added spryker/spryker template paths in project
 >>>>>>> core-1012 added spryker/spryker template paths in project
+<<<<<<< HEAD
 >>>>>>> core-1012 added spryker/spryker template paths in project
+<<<<<<< HEAD
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+=======
+=======
+            "time": "2017-03-17 13:33:48"
+>>>>>>> core-1012 update spryker/spryker
+>>>>>>> core-1012 update spryker/spryker
+>>>>>>> core-1012 update spryker/spryker
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -8283,21 +8366,29 @@
     "stability-flags": {
         "spryker/spryker": 20,
 <<<<<<< HEAD
+<<<<<<< HEAD
         "spryker/rabbit-mq": 20,
 =======
+=======
+>>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
         "spryker/rabbit-mq": 20,
 =======
 <<<<<<< HEAD
 >>>>>>> core-1012 added more open glob patterns
+<<<<<<< HEAD
 >>>>>>> core-1012 added more open glob patterns
 >>>>>>> core-1012 added more open glob patterns
         "spryker/architecture-sniffer": 20,
 =======
-        "spryker-eco/showcase": 20,
->>>>>>> core-1012 added more open glob patterns
+>>>>>>> core-1012 update spryker/spryker
+=======
+>>>>>>> core-1012 update spryker/spryker
+        "spryker/architecture-sniffer": 20,
         "spryker/code-generator": 20,
         "spryker/code-sniffer": 20
     },

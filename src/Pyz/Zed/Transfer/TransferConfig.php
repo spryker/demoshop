@@ -12,7 +12,6 @@ use Spryker\Zed\Transfer\TransferConfig as SprykerTransferConfig;
 class TransferConfig extends SprykerTransferConfig
 {
 
-
     /**
      * Only needed in Project, not in demoshop
      *
@@ -31,4 +30,5 @@ class TransferConfig extends SprykerTransferConfig
 
         return $directoryGlobPatterns;
     }
+
 }
