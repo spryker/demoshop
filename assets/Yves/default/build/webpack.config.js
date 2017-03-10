@@ -58,8 +58,8 @@ let config = {
         rules: [{
             test: /\.css\??(\d*\w*=?\.?)+$/i,
             loader: ExtractTextPlugin.extract({
-                fallbackLoader: 'style-loader',
-                loader: [{
+                fallback: 'style-loader',
+                use: [{
                     loader: 'css-loader',
                     query: {
                         sourceMap: !settings.options.isProduction
@@ -71,8 +71,8 @@ let config = {
         }, {
             test: /\.scss$/i,
             loader: ExtractTextPlugin.extract({
-                fallbackLoader: 'style-loader',
-                loader: [{
+                fallback: 'style-loader',
+                use: [{
                     loader: 'css-loader',
                     query: {
                         sourceMap: !settings.options.isProduction
@@ -84,6 +84,9 @@ let config = {
                     query: {
                         sourceMap: !settings.options.isProduction,
                         outputStyle: settings.options.isProduction ? 'compressed' : 'expanded',
+                        includePaths: [
+                            'node_modules/motion-ui/src'
+                        ]
                     }
                 }]
             })
