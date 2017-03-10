@@ -27,6 +27,9 @@ GTAGS
 /config/cubes.*
 config/accumulated-config.json
 
+/deploy/setup/params_local.sh
+/deploy/setup/frontend/params_local.sh
+
 /src/Generated
 /vendor/
 FOSS.md
