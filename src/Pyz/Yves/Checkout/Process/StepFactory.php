@@ -23,7 +23,7 @@ use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 use Spryker\Yves\StepEngine\Process\StepBreadcrumbGenerator;
 use Spryker\Yves\StepEngine\Process\StepCollection;
 use Spryker\Yves\StepEngine\Process\StepCollectionInterface;
-use Spryker\Yves\StepEngine\Process\StepEngineWithBreadcrumb;
+use Spryker\Yves\StepEngine\Process\StepEngine;
 
 class StepFactory extends SprykerStepFactory
 {
@@ -35,7 +35,7 @@ class StepFactory extends SprykerStepFactory
      */
     public function createStepEngine(StepCollectionInterface $stepCollection)
     {
-        return new StepEngineWithBreadcrumb($stepCollection, $this->createDataContainer(), $this->createStepBreadcrumbGenerator());
+        return new StepEngine($stepCollection, $this->createDataContainer(), $this->createStepBreadcrumbGenerator());
     }
 
     /**
