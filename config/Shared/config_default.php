@@ -418,11 +418,13 @@ $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
 
 $config[TaxConstants::DEFAULT_TAX_RATE] = 19;
 
-$config[QueueConstants::QUEUE_WORKER_PROCESSOR] = 10;
+$config[QueueConstants::QUEUE_SERVER_ID] = (gethostname()) ?: php_uname('n');
 $config[QueueConstants::QUEUE_WORKER_INTERVAL_SECONDS] = 1;
 $config[QueueConstants::QUEUE_WORKER_MAX_THRESHOLD_SECONDS] = 55;
 $config[QueueConstants::QUEUE_ADAPTOR_NAME_DEFAULT] = 'rabbitmq';
 $config[QueueConstants::QUEUE_ADAPTOR_NAME_MAPPING] = [
     'Mail' => 'rabbitmq',
+    'Log' => 'rabbitmq',
+    'SMS' => 'sqs',
 ];
 

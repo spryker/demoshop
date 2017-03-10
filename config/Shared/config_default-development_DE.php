@@ -72,7 +72,7 @@ $config[ApplicationConstants::ZED_RABBITMQ_USERNAME] = 'DE_development';
 $config[ApplicationConstants::ZED_RABBITMQ_PASSWORD] = 'mate20mg';
 $config[ApplicationConstants::ZED_RABBITMQ_VHOST] = '/DE_development_zed';
 
-$config[QueueConstants::QUEUE_WORKER_OUTPUT_FILE] = 'data/DE/logs/ZED/queue.out';
+$config[QueueConstants::QUEUE_WORKER_OUTPUT_FILE] = 'data/DE/logs/ZED/queue.log';
 
 $config[RabbitMqConstants::QUEUE_HOST] = 'localhost';
 $config[RabbitMqConstants::QUEUE_PORT] = '5672';

@@ -13,9 +13,19 @@ class QueueConfig extends SprykerQueueConfig
 {
 
     /**
+     * @return array
+     */
+    protected function getQueueWorkerProcessorCount()
+    {
+        return [
+            'Mail' => 5,
+        ];
+    }
+
+    /**
      * @return QueueOptionTransfer
      */
-    protected function getDefaultReceiverConfig()
+    protected function getDefaultQueueReceiverConfig()
     {
         $queueOptionTransfer = new QueueOptionTransfer();
         $queueOptionTransfer->setQueueName('default');

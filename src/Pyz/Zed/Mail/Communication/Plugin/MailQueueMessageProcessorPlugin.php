@@ -24,7 +24,8 @@ class MailQueueMessageProcessorPlugin implements QueueMessageProcessorInterface
             $errorNumber = 0;
             $errorChance = rand (0,1);
 
-            sleep($errorChance * 1);
+            usleep($errorChance * 300);
+            sleep(30);
 
             if ($errorChance === $errorNumber) {
                 echo '[ XX ] Failed '. $queueMessageTransfer->getBody() . "\r\n";
@@ -44,6 +45,6 @@ class MailQueueMessageProcessorPlugin implements QueueMessageProcessorInterface
      */
     public function getChunkSize()
     {
-        return 5;
+        return 1;
     }
 }

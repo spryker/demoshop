@@ -34,7 +34,7 @@ class CartController extends AbstractController
         $queueClient = $locator->queue()->client();
 
         $batchMessages = [];
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 500; $i++) {
             $messageTransfer = new QueueMessageTransfer();
             $messageTransfer->setBody(uniqid() .'@gmail.com');
             $batchMessages[] = $messageTransfer;
