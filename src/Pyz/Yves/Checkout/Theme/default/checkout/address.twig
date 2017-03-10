@@ -1,5 +1,9 @@
 {% extends "@checkout/layout.twig" %}
 
+{% block title %}
+    <h3>{{ 'checkout.step.address.title' | trans }}</h3>
+{% endblock %}
+
 {% block content %}
 
     {{ form_start(addressesForm) }}
