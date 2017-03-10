@@ -1,0 +1,19 @@
+<ul class="small-12 medium-8 large-6 columns no-bullet">
+    {% for node in navigationTree.nodes %}
+        {% if node.navigationNode.isActive %}
+            <li>
+            {% if node.navigationNode.navigationNodeLocalizedAttributes[0].url %}
+                <a href="{{ node.navigationNode.navigationNodeLocalizedAttributes[0].url }}">
+                    {{ node.navigationNode.navigationNodeLocalizedAttributes[0].title }}
+                </a>
+            {% elseif node.navigationNode.navigationNodeLocalizedAttributes[0].externalUrl %}
+                <a href="{{ node.navigationNode.navigationNodeLocalizedAttributes[0].externalUrl }}" target="_blank">
+                    {{ node.navigationNode.navigationNodeLocalizedAttributes[0].title }}
+                </a>
+            {% else %}
+                {{ node.navigationNode.navigationNodeLocalizedAttributes[0].title }}
+            {% endif %}
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
