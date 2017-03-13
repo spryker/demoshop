@@ -23,6 +23,7 @@ use Spryker\Service\UtilDateTime\ServiceProvider\DateTimeFormatterServiceProvide
 
 use Spryker\Shared\Application\ServiceProvider\FormFactoryServiceProvider;
 use Spryker\Zed\Acl\Communication\Plugin\Bootstrap\AclBootstrapProvider;
+use Spryker\Zed\Api\Communication\Plugin\ServiceProvider\ApiServiceProvider;
 use Spryker\Zed\Application\ApplicationDependencyProvider as SprykerApplicationDependencyProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\EnvironmentInformationServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\MvcRoutingServiceProvider;
@@ -125,6 +126,8 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new RedirectAfterLoginProvider(),
             new PropelServiceProvider(),
             new GuiTwigExtensionServiceProvider(),
+            new ServiceControllerServiceProvider(),
+            new ApiServiceProvider(),
         ];
 
         $providers = array_merge($providers, $coreProviders);
