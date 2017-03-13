@@ -1373,7 +1373,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "7e024af84da54c804bc85aa40e9e3113d204beb0"
+                "reference": "2f1e9b106098fda635a1e5c1a6acf78e93d23566"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1952,7 +1952,13 @@
                     "Spryker\\Shared\\Queue\\": "Bundles/Queue/src",
                     "Functional\\Spryker\\Shared\\Queue\\": "Bundles/Queue/tests",
                     "Spryker\\Zed\\Queue\\": "Bundles/Queue/src",
-                    "Functional\\Spryker\\Zed\\Queue\\": "Bundles/Queue/tests"
+                    "Functional\\Spryker\\Zed\\Queue\\": "Bundles/Queue/tests",
+                    "Spryker\\Yves\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/src",
+                    "Spryker\\Client\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/src",
+                    "Spryker\\Shared\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/src",
+                    "Spryker\\Zed\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/src",
+                    "Unit\\Spryker\\Zed\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/tests",
+                    "Functional\\Spryker\\Zed\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/tests"
                 },
                 "psr-4": {
                     "Application\\Module\\": "Bundles/Application/tests/_support/Module",
@@ -1975,7 +1981,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-03-13 09:46:12"
+            "time": "2017-03-13 10:40:55"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6555,7 +6561,7 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-            "time": "2017-03-08T12:29:10+00:00"
+            "time": "2017-03-08 12:29:10"
         },
         {
             "name": "spryker/code-generator",
@@ -6645,7 +6651,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-03-09T15:17:56+00:00"
+            "time": "2017-03-09 15:17:56"
         },
         {
             "name": "squizlabs/php_codesniffer",
