@@ -53,6 +53,7 @@ class ApplicationServiceProvider extends AbstractServiceProvider
         $this->addTwigExtension($this->application, [
             $this->getFactory()->createTwigYvesExtension(),
             $this->getFactory()->createDateFormatterTwigExtension(),
+            $this->getFactory()->createNavigationTwigExtension(),
         ]);
 
         $this->addGlobalTemplateVariable($this->application, [

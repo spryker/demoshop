@@ -10,6 +10,7 @@ namespace Pyz\Yves\Application;
 use Spryker\Service\UtilDateTime\Model\DateTimeFormatterTwigExtension;
 use Spryker\Yves\Application\ApplicationFactory as SprykerApplicationFactory;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionService\SubRequestExceptionHandler;
+use Spryker\Yves\Navigation\Twig\NavigationTwigExtension;
 use Symfony\Component\HttpFoundation\Response;
 
 class ApplicationFactory extends SprykerApplicationFactory
@@ -74,6 +75,14 @@ class ApplicationFactory extends SprykerApplicationFactory
     }
 
     /**
+     * @return \Spryker\Yves\Navigation\Twig\NavigationTwigExtension
+     */
+    public function createNavigationTwigExtension()
+    {
+        return new NavigationTwigExtension($this->getNavigationClient(), $this->createApplication());
+    }
+
+    /**
      * @return \Spryker\Service\UtilDateTime\UtilDateTimeServiceInterface
      */
     protected function getUtilDateTimeService()
@@ -87,6 +96,14 @@ class ApplicationFactory extends SprykerApplicationFactory
     public function getCatalogClient()
     {
         return $this->getProvidedDependency(ApplicationDependencyProvider::CLIENT_CATALOG);
+    }
+
+    /**
+     * @return \Spryker\Client\Navigation\NavigationClientInterface
+     */
+    protected function getNavigationClient()
+    {
+        return $this->getProvidedDependency(ApplicationDependencyProvider::CLIENT_NAVIGATION);
     }
 
 }
