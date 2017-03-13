@@ -146,8 +146,8 @@
     "jakoch/phantomjs-installer": "^2.1.0",
     "php-mock/php-mock": "^1.0",
     "phpunit/phpunit": "^5.0",
-    "spryker/architecture-sniffer": "dev-master",
-    "spryker/code-generator": "^0.2",
+    "spryker/architecture-sniffer": "^0.3.0",
+    "spryker/code-generator": "^0.2.0",
     "spryker/code-sniffer": "*"
   },
   "autoload": {
