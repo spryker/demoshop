@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ca4a21280cff2810a6317a0153cd6859",
+    "content-hash": "6526d21e7696cb9a5ff9e32a205c5a67",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -637,16 +637,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.0.1",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "8394cdf7d85d710eae1fe929dedbaf885c68320f"
+                "reference": "fd1c642915a9c3613b8a64ede49dd37d84da82cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/8394cdf7d85d710eae1fe929dedbaf885c68320f",
-                "reference": "8394cdf7d85d710eae1fe929dedbaf885c68320f",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/fd1c642915a9c3613b8a64ede49dd37d84da82cc",
+                "reference": "fd1c642915a9c3613b8a64ede49dd37d84da82cc",
                 "shasum": ""
             },
             "require": {
@@ -711,7 +711,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2017-02-14T21:52:48+00:00"
+            "time": "2017-03-11T11:18:38+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1369,11 +1369,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-919-fix-phpmd-violations-in-demoshop",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "52e383a43c3a6f610644de9bfc1757b7d64610a5"
+                "reference": "7e024af84da54c804bc85aa40e9e3113d204beb0"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1975,7 +1975,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-03-09 14:48:41"
+            "time": "2017-03-13 09:46:12"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2092,7 +2092,7 @@
         },
         {
             "name": "symfony/config",
-            "version": "v3.2.5",
+            "version": "v3.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -6309,16 +6309,16 @@
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "v3.0.2",
+            "version": "v3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "21696b0daa731064c23cfb694c60a2584a7b6e93"
+                "reference": "462f4d089e641deef4759ac1117387c9bfd62764"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/21696b0daa731064c23cfb694c60a2584a7b6e93",
-                "reference": "21696b0daa731064c23cfb694c60a2584a7b6e93",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/462f4d089e641deef4759ac1117387c9bfd62764",
+                "reference": "462f4d089e641deef4759ac1117387c9bfd62764",
                 "shasum": ""
             },
             "require": {
@@ -6349,7 +6349,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2015-11-07T08:07:40+00:00"
+            "time": "2017-03-09T17:41:10+00:00"
         },
         {
             "name": "silex/web-profiler",
@@ -6606,12 +6606,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "bc202be12d221f290fa0bdc9ab2d053e5efb5cac"
+                "reference": "0283903c14b7545138a7974be659b4af1fb7464b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/bc202be12d221f290fa0bdc9ab2d053e5efb5cac",
-                "reference": "bc202be12d221f290fa0bdc9ab2d053e5efb5cac",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/0283903c14b7545138a7974be659b4af1fb7464b",
+                "reference": "0283903c14b7545138a7974be659b4af1fb7464b",
                 "shasum": ""
             },
             "require": {
@@ -6645,7 +6645,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-03-06 11:14:49"
+            "time": "2017-03-09T15:17:56+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
