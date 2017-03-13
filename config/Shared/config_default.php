@@ -19,7 +19,6 @@ use Spryker\Shared\Oms\OmsConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
-
 use Spryker\Shared\Price\PriceConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
