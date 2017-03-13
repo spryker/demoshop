@@ -13,13 +13,8 @@ use Generated\Shared\Transfer\CmsTemplateTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageTransfer;
 use Orm\Zed\Cms\Persistence\SpyCmsBlockQuery;
+use Pyz\Zed\Cms\Business\CmsFacadeInterface;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
-use Spryker\Zed\Cms\Business\Block\BlockManagerInterface;
-use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface;
-use Spryker\Zed\Cms\Business\Page\PageManagerInterface;
-use Spryker\Zed\Cms\Business\Template\TemplateManagerInterface;
-use Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface;
-use Spryker\Zed\Cms\Dependency\Facade\CmsToUrlInterface;
 use Spryker\Zed\Cms\Persistence\CmsQueryContainerInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 
@@ -57,39 +52,14 @@ class CmsBlockImporter extends AbstractImporter
     protected $cmsQueryContainer;
 
     /**
-     * @var \Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface
-     */
-    protected $glossaryFacade;
-
-    /**
-     * @var \Spryker\Zed\Cms\Dependency\Facade\CmsToUrlInterface
-     */
-    protected $urlFacade;
-
-    /**
      * @var \Spryker\Zed\Locale\Business\LocaleFacade
      */
     protected $localeFacade;
 
     /**
-     * @var \Spryker\Zed\Cms\Business\Block\BlockManagerInterface
+     * @var \Pyz\Zed\Cms\Business\CmsFacadeInterface
      */
-    protected $blockManager;
-
-    /**
-     * @var \Spryker\Zed\Cms\Business\Page\PageManagerInterface
-     */
-    protected $pageManager;
-
-    /**
-     * @var \Spryker\Zed\Cms\Business\Template\TemplateManagerInterface
-     */
-    protected $templateManager;
-
-    /**
-     * @var \Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface
-     */
-    protected $keyMappingManager;
+    protected $cmsFacade;
 
     /**
      * @var array
@@ -111,32 +81,17 @@ class CmsBlockImporter extends AbstractImporter
 
     /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
-     * @param \Spryker\Zed\Cms\Business\Block\BlockManagerInterface $blockManager
-     * @param \Spryker\Zed\Cms\Business\Page\PageManagerInterface $pageManager
-     * @param \Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface $keyMappingManager
-     * @param \Spryker\Zed\Cms\Business\Template\TemplateManagerInterface $templateManager
-     * @param \Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface $glossaryFacade
-     * @param \Spryker\Zed\Cms\Dependency\Facade\CmsToUrlInterface $urlFacade
+     * @param \Pyz\Zed\Cms\Business\CmsFacadeInterface $cmsFacade
      * @param \Spryker\Zed\Cms\Persistence\CmsQueryContainerInterface $cmsQueryContainer
      */
     public function __construct(
         LocaleFacadeInterface $localeFacade,
-        BlockManagerInterface $blockManager,
-        PageManagerInterface $pageManager,
-        GlossaryKeyMappingManagerInterface $keyMappingManager,
-        TemplateManagerInterface $templateManager,
-        CmsToGlossaryInterface $glossaryFacade,
-        CmsToUrlInterface $urlFacade,
+        CmsFacadeInterface $cmsFacade,
         CmsQueryContainerInterface $cmsQueryContainer
     ) {
         parent::__construct($localeFacade);
 
-        $this->blockManager = $blockManager;
-        $this->pageManager = $pageManager;
-        $this->keyMappingManager = $keyMappingManager;
-        $this->templateManager = $templateManager;
-        $this->glossaryFacade = $glossaryFacade;
-        $this->urlFacade = $urlFacade;
+        $this->cmsFacade = $cmsFacade;
         $this->cmsQueryContainer = $cmsQueryContainer;
     }
 
@@ -154,6 +109,7 @@ class CmsBlockImporter extends AbstractImporter
     public function isImported()
     {
         $query = SpyCmsBlockQuery::create();
+
         return $query->count() > 0;
     }
 
@@ -183,8 +139,8 @@ class CmsBlockImporter extends AbstractImporter
         }
 
         $cmsBlockTransfer = $this->buildCmsBlockTransfer($blockName, $pageTransfer);
-        $this->blockManager->saveBlockAndTouch($cmsBlockTransfer);
-        $this->pageManager->touchPageActive($pageTransfer);
+        $this->cmsFacade->saveBlockAndTouch($cmsBlockTransfer);
+        $this->cmsFacade->touchPageActive($pageTransfer);
     }
 
     /**
@@ -194,11 +150,11 @@ class CmsBlockImporter extends AbstractImporter
      */
     protected function findOrCreateTemplate($template)
     {
-        if ($this->templateManager->hasTemplatePath($this->templates[$template])) {
-            return $this->templateManager->getTemplateByPath($this->templates[$template]);
+        if ($this->cmsFacade->hasTemplate($this->templates[$template])) {
+            return $this->cmsFacade->getTemplate($this->templates[$template]);
         }
 
-        return $this->templateManager->createTemplate($this->templateNames[$template], $this->templates[$template]);
+        return $this->cmsFacade->createTemplate($this->templateNames[$template], $this->templates[$template]);
     }
 
     /**
@@ -219,7 +175,7 @@ class CmsBlockImporter extends AbstractImporter
 
         $this->setLocalizedAttributes($pageTransfer, $block);
 
-        return $this->pageManager->savePage($pageTransfer);
+        return $this->cmsFacade->savePage($pageTransfer);
     }
 
     /**
@@ -231,8 +187,8 @@ class CmsBlockImporter extends AbstractImporter
      */
     protected function createPlaceholder(array $placeholders, PageTransfer $pageTransfer, LocaleTransfer $localeTransfer)
     {
-        foreach ($placeholders['placeholder'] as $index => $placeholder) {
-            $this->keyMappingManager->addPlaceholderText(
+        foreach ($placeholders['placeholder'] as $placeholder) {
+            $this->cmsFacade->addPlaceholderText(
                 $pageTransfer,
                 $placeholder[self::NAME],
                 $placeholder[self::TRANSLATION],
@@ -251,8 +207,8 @@ class CmsBlockImporter extends AbstractImporter
      */
     protected function createPageUrl($pageTransfer, $url, LocaleTransfer $localeTransfer)
     {
-        $this->pageManager->createPageUrlWithLocale($pageTransfer, $url, $localeTransfer);
-        $this->pageManager->touchPageActive($pageTransfer);
+        $this->cmsFacade->createPageUrlWithLocale($pageTransfer, $url, $localeTransfer);
+        $this->cmsFacade->touchPageActive($pageTransfer);
     }
 
     /**

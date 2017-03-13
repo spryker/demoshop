@@ -156,7 +156,7 @@ abstract class AbstractInstaller implements InstallerInterface
      */
     protected function runImporters(array $itemToImport, array $importerCollection)
     {
-        foreach ($importerCollection as $type => $importer) {
+        foreach ($importerCollection as $importer) {
             $importer->beforeImport();
             $importer->import($itemToImport);
             $importer->afterImport();

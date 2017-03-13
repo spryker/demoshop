@@ -46,6 +46,7 @@ class SessionServiceProvider extends AbstractServiceProvider
             SessionConstants::SESSION_HANDLER_COUCHBASE,
             SessionConstants::SESSION_HANDLER_MYSQL,
             SessionConstants::SESSION_HANDLER_REDIS,
+            SessionConstants::SESSION_HANDLER_REDIS_LOCKING,
             SessionConstants::SESSION_HANDLER_FILE,
         ];
     }
@@ -88,6 +89,7 @@ class SessionServiceProvider extends AbstractServiceProvider
         $path = null;
         switch ($saveHandler) {
             case SessionConstants::SESSION_HANDLER_REDIS:
+            case SessionConstants::SESSION_HANDLER_REDIS_LOCKING:
                 $path = $this->getConnectionString();
                 break;
 
@@ -182,6 +184,13 @@ class SessionServiceProvider extends AbstractServiceProvider
 
             case SessionConstants::SESSION_HANDLER_REDIS:
                 $redisSessionHandler = $sessionHelper->registerRedisSessionHandler($this->getSavePath($saveHandler));
+                $app['session.storage.handler'] = $app->share(function () use ($redisSessionHandler) {
+                    return $redisSessionHandler;
+                });
+                break;
+
+            case SessionConstants::SESSION_HANDLER_REDIS_LOCKING:
+                $redisSessionHandler = $sessionHelper->createRedisLockingSessionHandler($this->getSavePath($saveHandler));
                 $app['session.storage.handler'] = $app->share(function () use ($redisSessionHandler) {
                     return $redisSessionHandler;
                 });

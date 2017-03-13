@@ -63,7 +63,7 @@ class CmsGuiCreatePageCest
 
         $iPage->see(CmsEditPage::PAGE_ACTIVATE_SUCCESS_MESSAGE);
 
-        $iPage->runCollectors();
+        $iPage->runShellCommand('vendor/bin/console collector:storage:export -q');
 
         $yvesTester = $iPage->haveFriend('yvesTester', YvesAcceptanceTester::class);
 

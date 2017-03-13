@@ -122,8 +122,8 @@ class ShipmentImporter extends AbstractImporter
         $shipmentCarrierTransfer->setName('Spryker Dummy Shipment');
         $shipmentCarrierTransfer->setIsActive(true);
 
-        $id = $this->carrierModel->create($shipmentCarrierTransfer);
-        $shipmentCarrierTransfer->setIdShipmentCarrier($id);
+        $idShipmentCarrier = $this->carrierModel->create($shipmentCarrierTransfer);
+        $shipmentCarrierTransfer->setIdShipmentCarrier($idShipmentCarrier);
 
         return $shipmentCarrierTransfer;
     }

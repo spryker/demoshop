@@ -98,7 +98,6 @@ class TwigServiceProvider extends SilexTwigServiceProvider
      */
     protected function render(array $parameters = [])
     {
-        $helper = new Helper($this->app);
         $request = $this->app['request_stack']->getCurrentRequest();
         $controller = $request->attributes->get('_controller');
 
@@ -106,13 +105,25 @@ class TwigServiceProvider extends SilexTwigServiceProvider
             return null;
         }
 
-        if (isset($parameters['alternativeRoute'])) {
-            $route = (string)$parameters['alternativeRoute'];
-        } else {
-            $route = $helper->getRouteFromDestination($controller);
-        }
+        $route = $this->getRoute($parameters, $controller);
 
         return $this->app->render('@' . $route . '.twig', $parameters);
+    }
+
+    /**
+     * @param array $parameters
+     * @param string $controller
+     *
+     * @return string
+     */
+    protected function getRoute(array $parameters, $controller)
+    {
+        if (isset($parameters['alternativeRoute'])) {
+            return (string)$parameters['alternativeRoute'];
+        }
+        $helper = new Helper($this->app);
+
+        return $helper->getRouteFromDestination($controller);
     }
 
     /**

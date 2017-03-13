@@ -51,10 +51,10 @@ class BlockCollector extends AbstractStoragePropelCollector
     protected function collectKey($data, $localeName, array $collectedItemData)
     {
         $blockName = $collectedItemData['block_name'];
+        $blockName = $blockName . '-' . $collectedItemData['block_type'] . '-0';
+
         if (!empty($collectedItemData['block_type']) && $collectedItemData['block_value'] !== 0) {
             $blockName = $blockName . '-' . $collectedItemData['block_type'] . '-' . $collectedItemData['block_value'];
-        } else {
-            $blockName = $blockName . '-' . $collectedItemData['block_type'] . '-0';
         }
 
         return $this->generateKey($blockName, $localeName);

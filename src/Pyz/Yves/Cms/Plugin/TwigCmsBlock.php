@@ -88,13 +88,15 @@ class TwigCmsBlock extends AbstractPlugin implements TwigFunctionPluginInterface
 
         $localTransfer->setLocaleName($this->locale);
         $cmsBlockTransfer->setName($blockName);
+
+        $cmsBlockTransfer->setType($blockType);
+        $cmsBlockTransfer->setValue($blockValue);
+
         if ($blockType === null && $blockValue === null) {
             $cmsBlockTransfer->setType('static');
             $cmsBlockTransfer->setValue(0);
-        } else {
-            $cmsBlockTransfer->setType($blockType);
-            $cmsBlockTransfer->setValue($blockValue);
         }
+
         $cmsBlockTransfer->setLocale($localTransfer);
 
         return $cmsBlockTransfer;

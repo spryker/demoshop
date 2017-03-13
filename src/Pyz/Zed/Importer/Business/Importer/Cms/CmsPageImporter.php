@@ -9,9 +9,39 @@ namespace Pyz\Zed\Importer\Business\Importer\Cms;
 
 use Generated\Shared\Transfer\UrlTransfer;
 use Orm\Zed\Cms\Persistence\SpyCmsPageQuery;
+use Pyz\Zed\Cms\Business\CmsFacadeInterface;
+use Spryker\Zed\Cms\Persistence\CmsQueryContainerInterface;
+use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
+use Spryker\Zed\Url\Business\UrlFacadeInterface;
 
 class CmsPageImporter extends CmsBlockImporter
 {
+
+    /**
+     * @var \Spryker\Zed\Cms\Dependency\Facade\CmsToUrlInterface
+     */
+    protected $urlFacade;
+
+    /**
+     * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
+     * @param \Pyz\Zed\Cms\Business\CmsFacadeInterface $cmsFacade
+     * @param \Spryker\Zed\Url\Business\UrlFacadeInterface $urlFacade
+     * @param \Spryker\Zed\Cms\Persistence\CmsQueryContainerInterface $cmsQueryContainer
+     */
+    public function __construct(
+        LocaleFacadeInterface $localeFacade,
+        CmsFacadeInterface $cmsFacade,
+        UrlFacadeInterface $urlFacade,
+        CmsQueryContainerInterface $cmsQueryContainer
+    ) {
+        parent::__construct(
+            $localeFacade,
+            $cmsFacade,
+            $cmsQueryContainer
+        );
+
+        $this->urlFacade = $urlFacade;
+    }
 
     /**
      * @return string
@@ -27,6 +57,7 @@ class CmsPageImporter extends CmsBlockImporter
     public function isImported()
     {
         $query = SpyCmsPageQuery::create();
+
         return $query->count() > 0;
     }
 

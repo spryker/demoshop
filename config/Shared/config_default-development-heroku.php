@@ -26,7 +26,7 @@ $config[StorageConstants::STORAGE_REDIS_HOST] = $redis['host'];
 $config[StorageConstants::STORAGE_REDIS_PORT] = $redis['port'];
 $config[StorageConstants::STORAGE_REDIS_PASSWORD] = $redis['pass'];
 
-$config[SessionConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
+$config[SessionConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS_LOCKING;
 $config[SessionConstants::ZED_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
 
 $config[SessionConstants::YVES_SESSION_REDIS_PROTOCOL] = $config[StorageConstants::STORAGE_REDIS_PROTOCOL];
@@ -89,7 +89,7 @@ $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = false;
 
 $config[ErrorHandlerConstants::DISPLAY_ERRORS] = true;
 $config[ApplicationConstants::ENABLE_APPLICATION_DEBUG] = false;
-$config[ZedRequestConstants::SET_REPEAT_DATA] = true;
+$config[ZedRequestConstants::SET_REPEAT_DATA] = false;
 $config[KernelConstants::STORE_PREFIX] = 'DEV';
 
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = false;

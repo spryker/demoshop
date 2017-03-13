@@ -6,6 +6,7 @@
  */
 namespace Pyz\Yves\Customer\Plugin;
 
+use Generated\Shared\Transfer\CustomerResponseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Yves\Kernel\AbstractPlugin;
 
@@ -27,16 +28,25 @@ class RegistrationCheckoutAuthenticationHandlerPlugin extends AbstractPlugin imp
             ->registerCustomer($quoteTransfer->getCustomer());
 
         $quoteTransfer->setCustomer(null);
+        $this->processErrorMessages($customerResponseTransfer);
 
         if ($customerResponseTransfer->getIsSuccess() === true) {
             $quoteTransfer->setCustomer($customerResponseTransfer->getCustomerTransfer());
-        } else {
-            foreach ($customerResponseTransfer->getErrors() as $errorTransfer) {
-                $this->getMessenger()->addErrorMessage($errorTransfer->getMessage());
-            }
         }
 
         return $quoteTransfer;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\CustomerResponseTransfer $customerResponseTransfer
+     *
+     * @return void
+     */
+    protected function processErrorMessages(CustomerResponseTransfer $customerResponseTransfer)
+    {
+        foreach ($customerResponseTransfer->getErrors() as $errorTransfer) {
+            $this->getMessenger()->addErrorMessage($errorTransfer->getMessage());
+        }
     }
 
     /**

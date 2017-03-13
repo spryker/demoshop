@@ -36,10 +36,10 @@ class SubscriptionController extends AbstractController
         $parentRequest = $this->getApplication()['request_stack']->getParentRequest();
 
         if ($parentRequest !== null) {
-            $subscriptionForm->handleRequest($parentRequest);
-        } else {
-            $subscriptionForm->handleRequest($request);
+            $request = $parentRequest;
         }
+
+        $subscriptionForm->handleRequest($request);
 
         if ($subscriptionForm->isValid()) {
             $customerTransfer = (new CustomerTransfer())
@@ -54,7 +54,9 @@ class SubscriptionController extends AbstractController
                     ->getFactory()
                     ->createNewsletterSubscriptionForm();
                 $success = 'newsletter.subscription.success';
-            } else {
+            }
+
+            if (!$subscriptionResponse->getIsSuccess()) {
                 $error = $subscriptionResponse->getErrorMessage();
             }
         }
