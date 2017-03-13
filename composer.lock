@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c7ccaf72fbeed51315125e08e8e8f19",
+    "content-hash": "2f9d7d5010acfbadd35bea5af99ba151",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -917,16 +917,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.0.1",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "8394cdf7d85d710eae1fe929dedbaf885c68320f"
+                "reference": "fd1c642915a9c3613b8a64ede49dd37d84da82cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/8394cdf7d85d710eae1fe929dedbaf885c68320f",
-                "reference": "8394cdf7d85d710eae1fe929dedbaf885c68320f",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/fd1c642915a9c3613b8a64ede49dd37d84da82cc",
+                "reference": "fd1c642915a9c3613b8a64ede49dd37d84da82cc",
                 "shasum": ""
             },
             "require": {
@@ -991,7 +991,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2017-02-14T21:52:48+00:00"
+            "time": "2017-03-11T11:18:38+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -4851,11 +4851,11 @@
         },
         {
             "name": "spryker/development",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Development.git",
-                "reference": "069ef546e27a091b85e8e7c9b50fc5f2a640c298",
+                "reference": "865b57d958bac2619c0e781acf2d008751c0230d",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4865,8 +4865,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Development/zipball/069ef546e27a091b85e8e7c9b50fc5f2a640c298",
-                "reference": "069ef546e27a091b85e8e7c9b50fc5f2a640c298",
+                "url": "https://api.github.com/repos/spryker/Development/zipball/865b57d958bac2619c0e781acf2d008751c0230d",
+                "reference": "865b57d958bac2619c0e781acf2d008751c0230d",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4911,9 +4911,9 @@
             ],
             "description": "Development bundle",
             "support": {
-                "source": "https://github.com/spryker/Development/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Development/tree/master"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-03-09T14:48:41+00:00"
         },
         {
             "name": "spryker/discount",
@@ -5850,11 +5850,11 @@
         },
         {
             "name": "spryker/kernel",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Kernel.git",
-                "reference": "1fa6760071779b4e88433c6ff15f510846fa41b2",
+                "reference": "a0d7f04cd3dbd10f357a794e4ddb0aba0b0e6f78",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5864,8 +5864,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Kernel/zipball/1fa6760071779b4e88433c6ff15f510846fa41b2",
-                "reference": "1fa6760071779b4e88433c6ff15f510846fa41b2",
+                "url": "https://api.github.com/repos/spryker/Kernel/zipball/a0d7f04cd3dbd10f357a794e4ddb0aba0b0e6f78",
+                "reference": "a0d7f04cd3dbd10f357a794e4ddb0aba0b0e6f78",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5913,9 +5913,9 @@
             ],
             "description": "Kernel bundle",
             "support": {
-                "source": "https://github.com/spryker/Kernel/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Kernel/tree/master"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-03-09T12:38:03+00:00"
         },
         {
             "name": "spryker/key-builder",
@@ -8767,11 +8767,11 @@
         },
         {
             "name": "spryker/session",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Session.git",
-                "reference": "8c437c7db93859da1c143dc6cfa835e30767ba11",
+                "reference": "f240a958cccb6a9aa36b37a76101151acb11f490",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8781,8 +8781,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Session/zipball/8c437c7db93859da1c143dc6cfa835e30767ba11",
-                "reference": "8c437c7db93859da1c143dc6cfa835e30767ba11",
+                "url": "https://api.github.com/repos/spryker/Session/zipball/f240a958cccb6a9aa36b37a76101151acb11f490",
+                "reference": "f240a958cccb6a9aa36b37a76101151acb11f490",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8826,9 +8826,9 @@
             ],
             "description": "Session bundle",
             "support": {
-                "source": "https://github.com/spryker/Session/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Session/tree/master"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-03-09T15:04:34+00:00"
         },
         {
             "name": "spryker/setup",
@@ -10779,16 +10779,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v3.2.4",
+            "version": "v3.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "9f99453e77771e629af8a25eeb0a6c4ed1e19da2"
+                "reference": "741d6d4cd1414d67d48eb71aba6072b46ba740c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/9f99453e77771e629af8a25eeb0a6c4ed1e19da2",
-                "reference": "9f99453e77771e629af8a25eeb0a6c4ed1e19da2",
+                "url": "https://api.github.com/repos/symfony/config/zipball/741d6d4cd1414d67d48eb71aba6072b46ba740c2",
+                "reference": "741d6d4cd1414d67d48eb71aba6072b46ba740c2",
                 "shasum": ""
             },
             "require": {
@@ -10831,7 +10831,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-14T16:27:43+00:00"
+            "time": "2017-03-01T18:18:25+00:00"
         },
         {
             "name": "symfony/console",
@@ -13811,16 +13811,16 @@
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "v3.0.2",
+            "version": "v3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "21696b0daa731064c23cfb694c60a2584a7b6e93"
+                "reference": "462f4d089e641deef4759ac1117387c9bfd62764"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/21696b0daa731064c23cfb694c60a2584a7b6e93",
-                "reference": "21696b0daa731064c23cfb694c60a2584a7b6e93",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/462f4d089e641deef4759ac1117387c9bfd62764",
+                "reference": "462f4d089e641deef4759ac1117387c9bfd62764",
                 "shasum": ""
             },
             "require": {
@@ -13851,7 +13851,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2015-11-07T08:07:40+00:00"
+            "time": "2017-03-09T17:41:10+00:00"
         },
         {
             "name": "silex/web-profiler",
@@ -14001,16 +14001,16 @@
         },
         {
             "name": "spryker/architecture-sniffer",
-            "version": "0.2.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "3adcbb431061a4636222f8cfafe6e695cb60557d"
+                "reference": "2811ba37c774f16a619f278daae5d836ce8e578f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/3adcbb431061a4636222f8cfafe6e695cb60557d",
-                "reference": "3adcbb431061a4636222f8cfafe6e695cb60557d",
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/2811ba37c774f16a619f278daae5d836ce8e578f",
+                "reference": "2811ba37c774f16a619f278daae5d836ce8e578f",
                 "shasum": ""
             },
             "require": {
@@ -14019,7 +14019,7 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "~5.2",
-                "spryker/code-sniffer": "dev-master"
+                "spryker/code-sniffer": "*"
             },
             "type": "library",
             "autoload": {
@@ -14032,7 +14032,7 @@
                 "src/"
             ],
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
@@ -14048,7 +14048,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2016-04-11T15:32:52+00:00"
+            "time": "2017-03-08T12:29:10+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -14442,7 +14442,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "spryker/architecture-sniffer": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

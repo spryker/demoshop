@@ -74,7 +74,7 @@ before_script:
   - mkdir -p shared/data/common/jenkins/jobs
   - mkdir -p data/DE/cache/Yves/twig -m 0777
   - mkdir -p data/DE/cache/Zed/twig -m 0777
-  - mkdir -p data/DE/logs -m 0777
+  - mkdir -p data/DE/logs/ZED -m 0777
   - chmod -R 777 data/
 
   - mv config/Zed/propel.ci.yml config/Zed/propel.yml
