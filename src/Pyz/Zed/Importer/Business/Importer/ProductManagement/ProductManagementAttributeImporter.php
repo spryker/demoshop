@@ -116,7 +116,7 @@ class ProductManagementAttributeImporter extends AbstractImporter
      */
     protected function addAttributeKeyTranslations(array $data, ProductManagementAttributeTransfer $productManagementAttributeTransfer)
     {
-        foreach ($this->getAvailableLocales() as $idLocale => $localeName) {
+        foreach ($this->getAvailableLocales() as $localeName) {
             if (isset($data['key.' . $localeName])) {
                 $localizedAttributeKeyTransfer = (new LocalizedProductManagementAttributeKeyTransfer())
                     ->setLocaleName($localeName)

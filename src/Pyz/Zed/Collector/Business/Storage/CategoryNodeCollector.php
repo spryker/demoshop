@@ -27,7 +27,7 @@ class CategoryNodeCollector extends AbstractStoragePdoCollector
     {
         $setToExport = [];
 
-        foreach ($collectedSet as $index => $collectedItemData) {
+        foreach ($collectedSet as $collectedItemData) {
             $touchKey = $this->collectKey(
                 $collectedItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
                 $locale->getLocaleName(),
@@ -95,21 +95,17 @@ class CategoryNodeCollector extends AbstractStoragePdoCollector
     /**
      * @param array $node
      * @param array $data
-     * @param bool $nested
      *
      * @return array
      */
-    protected function getChildren(array $node, array $data, $nested = true)
+    protected function getChildren(array $node, array $data)
     {
         $children = array_filter($data, function ($item) use ($node) {
             return ((int)$item['fk_parent_category_node'] === (int)$node['id_category_node']);
         });
 
-        foreach ($children as $index => $child) {
-            if ($nested) {
-                $children[$index]['children'] = $this->getChildren($children[$index], $data);
-            }
-
+        foreach (array_keys($children) as $index) {
+            $children[$index]['children'] = $this->getChildren($children[$index], $data);
             $children[$index] = $this->formatCategoryNode($children[$index]);
         }
 
@@ -119,20 +115,17 @@ class CategoryNodeCollector extends AbstractStoragePdoCollector
     /**
      * @param array $node
      * @param array $data
-     * @param bool $nested
      *
      * @return array
      */
-    protected function getParents(array $node, array $data, $nested = true)
+    protected function getParents(array $node, array $data)
     {
         $parents = array_filter($data, function ($item) use ($node) {
             return ((int)$item['id_category_node'] === (int)$node['fk_parent_category_node']);
         });
 
-        foreach ($parents as $index => $parent) {
-            if ($nested) {
-                $parents[$index]['parents'] = $this->getParents($parents[$index], $data);
-            }
+        foreach (array_keys($parents) as $index) {
+            $parents[$index]['parents'] = $this->getParents($parents[$index], $data);
             $parents[$index] = $this->formatCategoryNode($parents[$index]);
         }
 

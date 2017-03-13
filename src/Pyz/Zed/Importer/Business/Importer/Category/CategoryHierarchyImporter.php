@@ -135,19 +135,19 @@ class CategoryHierarchyImporter extends AbstractCategoryImporter
      */
     protected function getParentNodeId($parentKey)
     {
+        if ($this->nodeToKeyMapperCollection->has($parentKey)) {
+            return $this->nodeToKeyMapperCollection->get($parentKey);
+        }
+
         $idParentNode = $this->getRootNode()->getIdCategoryNode();
 
-        if (!$this->nodeToKeyMapperCollection->has($parentKey)) {
-            $parent = $this->categoryQueryContainer
-                ->queryMainCategoryNodeByCategoryKey($parentKey)
-                ->findOne();
+        $parent = $this->categoryQueryContainer
+            ->queryMainCategoryNodeByCategoryKey($parentKey)
+            ->findOne();
 
-            if ($parent) {
-                $idParentNode = $parent->getIdCategoryNode();
-                $this->nodeToKeyMapperCollection->set($parentKey, $idParentNode);
-            }
-        } else {
-            $idParentNode = $this->nodeToKeyMapperCollection->get($parentKey);
+        if ($parent) {
+            $idParentNode = $parent->getIdCategoryNode();
+            $this->nodeToKeyMapperCollection->set($parentKey, $idParentNode);
         }
 
         return $idParentNode;

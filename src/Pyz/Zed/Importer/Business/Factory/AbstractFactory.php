@@ -137,27 +137,11 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface
+     * @return \Spryker\Zed\Url\Business\UrlFacadeInterface
      */
-    protected function getCmsToGlossaryBridge()
+    protected function getUrlFacade()
     {
-        return $this->getProvidedDependency(ImporterDependencyProvider::BRIDGE_CMS_TO_GLOSSARY);
-    }
-
-    /**
-     * @return \Spryker\Zed\Cms\Dependency\Facade\CmsToTouchInterface
-     */
-    protected function getCmsToTouchBridge()
-    {
-        return $this->getProvidedDependency(ImporterDependencyProvider::BRIDGE_CMS_TO_TOUCH);
-    }
-
-    /**
-     * @return \Spryker\Zed\Cms\Dependency\Facade\CmsToUrlInterface
-     */
-    protected function getCmsToUrlBridge()
-    {
-        return $this->getProvidedDependency(ImporterDependencyProvider::BRIDGE_CMS_TO_URL);
+        return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_URL);
     }
 
     /**

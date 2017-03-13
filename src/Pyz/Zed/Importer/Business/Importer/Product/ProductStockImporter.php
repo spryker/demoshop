@@ -117,13 +117,14 @@ class ProductStockImporter extends AbstractImporter
     protected function createStockTypeOnce(array $stockData)
     {
         $stockTypeTransfer = $this->createTypeTransfer($stockData);
-        if (!$this->stockTypeCache->has($stockData[self::STOCK_TYPE])) {
-            $idStockType = $this->stockFacade->createStockType($stockTypeTransfer);
-            $stockTypeTransfer->setIdStock($idStockType);
-            $this->stockTypeCache->set($stockData[self::STOCK_TYPE], $stockTypeTransfer);
-        } else {
-            $stockTypeTransfer = $this->stockTypeCache->get($stockData[self::STOCK_TYPE]);
+
+        if ($this->stockTypeCache->has($stockData[self::STOCK_TYPE])) {
+            return $this->stockTypeCache->get($stockData[self::STOCK_TYPE]);
         }
+
+        $idStockType = $this->stockFacade->createStockType($stockTypeTransfer);
+        $stockTypeTransfer->setIdStock($idStockType);
+        $this->stockTypeCache->set($stockData[self::STOCK_TYPE], $stockTypeTransfer);
 
         return $stockTypeTransfer;
     }

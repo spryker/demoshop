@@ -22,6 +22,8 @@ use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
+ * @SuppressWarnings(PHPMD.Superglobals)
+ *
  * @method \Pyz\Yves\EventJournal\EventJournalFactory getFactory()
  */
 class EventJournalServiceProvider extends AbstractServiceProvider
@@ -150,11 +152,11 @@ class EventJournalServiceProvider extends AbstractServiceProvider
             // uniqid is based on current timestamp, a server ID should be used to prevent 2 servers generating the same ID for 2 simultaneous requests.
             $_COOKIE[$cookieName] = hash(static::COOKIE_HASH_ALGORITHM, uniqid($utilNetworkService->getHostName(), true));
         }
-        $dt = new DateTime();
+        $dateTime = new DateTime();
         $app['cookies'][] = new Cookie(
             $cookieName,
             $_COOKIE[$cookieName],
-            $dt->modify($validFor),
+            $dateTime->modify($validFor),
             '/',
             Config::get(SessionConstants::YVES_SESSION_COOKIE_DOMAIN),
             Config::get(SessionConstants::YVES_SESSION_COOKIE_SECURE, true)

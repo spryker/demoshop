@@ -38,11 +38,10 @@ class PasswordController extends AbstractCustomerController
             $customerTransfer->fromArray($form->getData());
 
             $customerResponseTransfer = $this->sendPasswordRestoreMail($customerTransfer);
+            $this->processResponseErrors($customerResponseTransfer);
 
             if ($customerResponseTransfer->getIsSuccess()) {
                 $this->addSuccessMessage(Messages::CUSTOMER_PASSWORD_RECOVERY_MAIL_SENT);
-            } else {
-                $this->processResponseErrors($customerResponseTransfer);
             }
         }
 

@@ -16,6 +16,10 @@ class CatalogClient extends SprykerCatalogClient implements CatalogClientInterfa
 {
 
     /**
+     * {@inheritdoc}
+     *
+     * @api
+     *
      * @param int $limit
      *
      * @return mixed

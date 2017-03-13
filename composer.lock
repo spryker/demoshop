@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f21a2f530a4dba73e9a79fa56ab115f",
+    "content-hash": "6526d21e7696cb9a5ff9e32a205c5a67",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -637,16 +637,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.0.1",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "8394cdf7d85d710eae1fe929dedbaf885c68320f"
+                "reference": "fd1c642915a9c3613b8a64ede49dd37d84da82cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/8394cdf7d85d710eae1fe929dedbaf885c68320f",
-                "reference": "8394cdf7d85d710eae1fe929dedbaf885c68320f",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/fd1c642915a9c3613b8a64ede49dd37d84da82cc",
+                "reference": "fd1c642915a9c3613b8a64ede49dd37d84da82cc",
                 "shasum": ""
             },
             "require": {
@@ -711,7 +711,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2017-02-14T21:52:48+00:00"
+            "time": "2017-03-11T11:18:38+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1373,7 +1373,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "73084230e89edfceb5d2ff9487eed37df534d535"
+                "reference": "7e024af84da54c804bc85aa40e9e3113d204beb0"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1975,7 +1975,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-03-08 14:59:48"
+            "time": "2017-03-13 09:46:12"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2092,16 +2092,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v3.2.4",
+            "version": "v3.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "9f99453e77771e629af8a25eeb0a6c4ed1e19da2"
+                "reference": "741d6d4cd1414d67d48eb71aba6072b46ba740c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/9f99453e77771e629af8a25eeb0a6c4ed1e19da2",
-                "reference": "9f99453e77771e629af8a25eeb0a6c4ed1e19da2",
+                "url": "https://api.github.com/repos/symfony/config/zipball/741d6d4cd1414d67d48eb71aba6072b46ba740c2",
+                "reference": "741d6d4cd1414d67d48eb71aba6072b46ba740c2",
                 "shasum": ""
             },
             "require": {
@@ -2144,7 +2144,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-14T16:27:43+00:00"
+            "time": "2017-03-01T18:18:25+00:00"
         },
         {
             "name": "symfony/console",
@@ -6309,16 +6309,16 @@
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "v3.0.2",
+            "version": "v3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "21696b0daa731064c23cfb694c60a2584a7b6e93"
+                "reference": "462f4d089e641deef4759ac1117387c9bfd62764"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/21696b0daa731064c23cfb694c60a2584a7b6e93",
-                "reference": "21696b0daa731064c23cfb694c60a2584a7b6e93",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/462f4d089e641deef4759ac1117387c9bfd62764",
+                "reference": "462f4d089e641deef4759ac1117387c9bfd62764",
                 "shasum": ""
             },
             "require": {
@@ -6349,7 +6349,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2015-11-07T08:07:40+00:00"
+            "time": "2017-03-09T17:41:10+00:00"
         },
         {
             "name": "silex/web-profiler",
@@ -6499,11 +6499,11 @@
         },
         {
             "name": "spryker/architecture-sniffer",
-            "version": "0.2.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/architecture-sniffer.git",
-                "reference": "76634a4cf6cd37705d8f94b3c8d3b0fcb7cc979f"
+                "reference": "2811ba37c774f16a619f278daae5d836ce8e578f"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6511,7 +6511,7 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "~5.2",
-                "spryker/code-sniffer": "dev-master"
+                "spryker/code-sniffer": "*"
             },
             "type": "library",
             "autoload": {
@@ -6527,8 +6527,16 @@
             "include-path": [
                 "src/"
             ],
+            "scripts": {
+                "cs-check": [
+                    "vendor/bin/phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/architecture-sniffer/vendor/ ./"
+                ],
+                "cs-fix": [
+                    "vendor/bin/phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/architecture-sniffer/vendor/ ./"
+                ]
+            },
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
@@ -6547,7 +6555,7 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-            "time": "2016-04-11T15:32:52+00:00"
+            "time": "2017-03-08T12:29:10+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -6590,7 +6598,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-03-07T12:41:16+00:00"
+            "time": "2017-03-07 12:41:16"
         },
         {
             "name": "spryker/code-sniffer",
@@ -6598,12 +6606,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "837b6b1414854e2df616e3a22c237c00e56e5eb9"
+                "reference": "0283903c14b7545138a7974be659b4af1fb7464b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/837b6b1414854e2df616e3a22c237c00e56e5eb9",
-                "reference": "837b6b1414854e2df616e3a22c237c00e56e5eb9",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/0283903c14b7545138a7974be659b4af1fb7464b",
+                "reference": "0283903c14b7545138a7974be659b4af1fb7464b",
                 "shasum": ""
             },
             "require": {
@@ -6637,7 +6645,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-03-08T10:04:51+00:00"
+            "time": "2017-03-09T15:17:56+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -7208,6 +7216,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "spryker/spryker": 20,
+        "spryker/architecture-sniffer": 20,
         "spryker/code-generator": 20,
         "spryker/code-sniffer": 20
     },

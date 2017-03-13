@@ -107,9 +107,11 @@ class AddressController extends AbstractCustomerController
 
             if ($customerTransfer !== null) {
                 $this->addSuccessMessage(Messages::CUSTOMER_ADDRESS_UPDATED);
-            } else {
-                $this->addErrorMessage(Messages::CUSTOMER_ADDRESS_NOT_ADDED);
+
+                return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_ADDRESS);
             }
+
+            $this->addErrorMessage(Messages::CUSTOMER_ADDRESS_NOT_ADDED);
 
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_ADDRESS);
         }

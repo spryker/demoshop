@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\Updater\Business\Console;
 
-use Psr\Log\LoggerInterface as MessengerInterface;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class UpdaterConsole
@@ -24,7 +24,7 @@ class UpdaterConsole
     protected $messenger;
 
     /**
-     * @var \Pyz\Zed\Updater\Business\Installer\InstallerInterface[]
+     * @var \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
      */
     protected $installerCollection;
 
@@ -33,7 +33,7 @@ class UpdaterConsole
      * @param \Psr\Log\LoggerInterface $messenger
      * @param \Pyz\Zed\Importer\Business\Installer\InstallerInterface[] $installerCollection
      */
-    public function __construct(OutputInterface $output, MessengerInterface $messenger, array $installerCollection)
+    public function __construct(OutputInterface $output, LoggerInterface $messenger, array $installerCollection)
     {
         $this->output = $output;
         $this->messenger = $messenger;
@@ -47,12 +47,13 @@ class UpdaterConsole
     {
         $this->output->writeln('Updating...');
 
-        foreach ($this->installerCollection as $name => $installer) {
-            if (!$installer->isInstalled()) {
-                $installer->install($this->output, $this->messenger);
-            } else {
+        foreach ($this->installerCollection as $installer) {
+            if ($installer->isInstalled()) {
                 $this->output->writeln($installer->getTitle() . ' already updated.');
+                continue;
             }
+
+            $installer->install($this->output, $this->messenger);
         }
 
         $this->output->writeln('All done.');

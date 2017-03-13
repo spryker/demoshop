@@ -27,17 +27,28 @@ class CustomerOrderReader extends SprykerCustomerOrderReader
             $orderListTransfer->getFilter()
         );
 
-        if ($orderListTransfer->getPagination() !== null) {
-            $orderCollection = $this->paginateOrderCollection($orderListTransfer, $ordersQuery);
-        } else {
-            $orderCollection = $ordersQuery->find();
-        }
+        $orderCollection = $this->getOrderCollection($orderListTransfer, $ordersQuery);
 
         $orders = $this->hydrateOrderListCollectionTransferFromEntityCollection($orderCollection);
 
         $orderListTransfer->setOrders($orders);
 
         return $orderListTransfer;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\OrderListTransfer $orderListTransfer
+     * @param \Orm\Zed\Sales\Persistence\SpySalesOrderQuery $ordersQuery
+     *
+     * @return \Orm\Zed\Sales\Persistence\SpySalesOrder[]|\Propel\Runtime\Collection\ObjectCollection
+     */
+    protected function getOrderCollection(OrderListTransfer $orderListTransfer, SpySalesOrderQuery $ordersQuery)
+    {
+        if ($orderListTransfer->getPagination() !== null) {
+            return $this->paginateOrderCollection($orderListTransfer, $ordersQuery);
+        }
+
+        return $ordersQuery->find();
     }
 
     /**
