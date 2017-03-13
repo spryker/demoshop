@@ -4434,11 +4434,11 @@
         },
         {
             "name": "spryker/country",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Country.git",
-                "reference": "a994218fcd2036ecea7c894caac02507d6ef5c6e",
+                "reference": "399818004acd675b29e60c0832f498463466ca5c",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4448,8 +4448,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Country/zipball/a994218fcd2036ecea7c894caac02507d6ef5c6e",
-                "reference": "a994218fcd2036ecea7c894caac02507d6ef5c6e",
+                "url": "https://api.github.com/repos/spryker/Country/zipball/399818004acd675b29e60c0832f498463466ca5c",
+                "reference": "399818004acd675b29e60c0832f498463466ca5c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4495,9 +4495,9 @@
             ],
             "description": "Country bundle",
             "support": {
-                "source": "https://github.com/spryker/Country/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Country/tree/master"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-03-10T16:32:01+00:00"
         },
         {
             "name": "spryker/csv",
