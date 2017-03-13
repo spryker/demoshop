@@ -88,6 +88,14 @@ class NavigationCRUDTester extends ZedAcceptanceTester
     /**
      * @return void
      */
+    public function activateFirstNavigationRow()
+    {
+        $this->click('//*[@id="navigation-table"]/tbody/tr[1]/td[5]/a[2]');
+    }
+
+    /**
+     * @return void
+     */
     public function deleteFirstNavigationRow()
     {
         $this->submitForm('//*[@id="navigation-table"]/tbody/tr/td[5]/form[1]', []);

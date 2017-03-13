@@ -38,7 +38,7 @@ class NavigationCRUDCest
 
         $this->update($i, $idNavigation);
 
-        $this->activate($i, $idNavigation);
+        $this->activate($i);
 
         $this->delete($i);
     }
@@ -50,7 +50,7 @@ class NavigationCRUDCest
      */
     protected function create(NavigationCRUDTester $i)
     {
-        $i->wantTo('Want to create navigation.');
+        $i->wantTo('Create navigation.');
         $i->expect('Navigation is persisted in Zed.'); // TODO: add "... exported to Yves and is accessible." with real test case
 
         $i->setNameField('Acceptance navigation (1)');
@@ -70,7 +70,7 @@ class NavigationCRUDCest
      */
     protected function read(NavigationCRUDTester $i)
     {
-        $i->wantTo('Want to see navigation list.');
+        $i->wantTo('See navigation list.');
         $i->expect('Navigation table is shown and not empty');
 
         $i->waitForElementVisible(NavigationPage::PAGE_LIST_TABLE_XPATH, 5);
@@ -97,16 +97,17 @@ class NavigationCRUDCest
 
     /**
      * @param \Acceptance\NavigationGui\Tester\NavigationCRUDTester $i
-     * @param int $idNavigation
      *
      * @return void
      */
-    protected function activate(NavigationCRUDTester $i, $idNavigation)
+    protected function activate(NavigationCRUDTester $i)
     {
-        $i->wantTo('Want to activate navigation.');
+        $i->wantTo('Activate navigation.');
         $i->expect('New navigation status persisted in Zed.'); // TODO: add "... exported to Yves and is accessible." with real test case
 
-        $i->amOnPage(sprintf(NavigationStatusTogglePage::URL, $idNavigation));
+        $i->amOnPage(NavigationPage::URL);
+        $i->waitForElementVisible(NavigationPage::PAGE_LIST_TABLE_XPATH, 5);
+        $i->activateFirstNavigationRow();
         $i->seeSuccessMessage(NavigationStatusTogglePage::MESSAGE_SUCCESS);
         $i->seeCurrentUrlEquals(NavigationPage::URL);
     }
@@ -118,10 +119,12 @@ class NavigationCRUDCest
      */
     protected function delete(NavigationCRUDTester $i)
     {
-        $i->wantTo('Want to delete navigation.');
+        $i->wantTo('Delete navigation.');
         $i->expect('Navigation is removed from Zed.'); // TODO: add "... removed from Yves and is inaccessible." with real test case
 
+        $i->amOnPage(NavigationPage::URL);
         $i->waitForElementVisible(NavigationPage::PAGE_LIST_TABLE_XPATH, 5);
+        $i->wait(1); // TODO: remove "wait" once flash messages show up consistently.
         $i->deleteFirstNavigationRow();
         $i->seeSuccessMessage(NavigationDeletePage::MESSAGE_SUCCESS);
         $i->seeCurrentUrlEquals(NavigationPage::URL);
