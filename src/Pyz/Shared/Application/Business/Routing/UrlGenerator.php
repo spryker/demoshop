@@ -9,6 +9,7 @@ namespace Pyz\Shared\Application\Business\Routing;
 
 use Pimple;
 use Psr\Log\LoggerInterface;
+use Spryker\Service\UtilText\Model\Url\Url;
 use Symfony\Component\Routing\CompiledRoute;
 use Symfony\Component\Routing\Generator\UrlGenerator as SymfonyUrlGenerator;
 use Symfony\Component\Routing\RequestContext;
@@ -74,7 +75,12 @@ class UrlGenerator extends SymfonyUrlGenerator
 
         $baseHost = '/';
         if ($referenceType === self::ABSOLUTE_URL) {
-            $baseHost = $this->context->getScheme() . '://' . $this->context->getHost() . '/';
+            $urlBuilder = new Url([
+                Url::SCHEME => $this->context->getScheme(),
+                Url::HOST => $this->context->getHost(),
+                Url::PORT => $this->getPortFromContext(),
+            ]);
+            $baseHost = $urlBuilder->build();
         }
 
         if ($name !== self::HOME && $baseHost === $url) {
@@ -87,6 +93,18 @@ class UrlGenerator extends SymfonyUrlGenerator
         }
 
         return $url;
+    }
+
+    /**
+     * @return int
+     */
+    protected function getPortFromContext()
+    {
+        if ($this->context->getScheme() === 'https') {
+            return $this->context->getHttpsPort();
+        }
+
+        return $this->context->getHttpPort();
     }
 
     /**

@@ -1535,11 +1535,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-984-support-for-hosts-with-ports",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "e273e93a077ab745c0790828c432dc94bf433e9c"
+                "reference": "ff2e1066c24739cbc2c23195ddba818b7135d474"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
