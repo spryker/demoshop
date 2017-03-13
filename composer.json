@@ -95,6 +95,7 @@
     "spryker/product-search": "^5.0.0",
     "spryker/propel": "^3.0.0",
     "spryker/propel-orm": "^1.0.0",
+    "spryker/propel-query-builder": "^0.1.1",
     "spryker/queue": "^0.2.0",
     "spryker/quote": "^1.0.0",
     "spryker/redis": "^2.0.0",

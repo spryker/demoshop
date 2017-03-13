@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f9d7d5010acfbadd35bea5af99ba151",
+    "content-hash": "55121616351a483eee9be8cc511db9b4",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -8182,6 +8182,76 @@
                 "source": "https://github.com/spryker/PropelOrm/tree/master"
             },
             "time": "2017-02-22T11:52:27+00:00"
+        },
+        {
+            "name": "spryker/propel-query-builder",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/PropelQueryBuilder.git",
+                "reference": "ddb56df711b4551e12b1759501f2c86209e99bf2",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/PropelQueryBuilder/zipball/ddb56df711b4551e12b1759501f2c86209e99bf2",
+                "reference": "ddb56df711b4551e12b1759501f2c86209e99bf2",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/kernel": "^3.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/util-encoding": "^2.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/product": "^5.0.0",
+                "spryker/propel": "^3.0.0",
+                "spryker/silex": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Acceptance": "tests/",
+                    "Functional": "tests/",
+                    "Unit": "tests/"
+                },
+                "psr-4": {
+                    "Category\\Module\\": "tests/",
+                    "Testify\\Module\\": "vendor/spryker/Testify/tests/_support/Module/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "PropelQueryBuilder bundle",
+            "support": {
+                "source": "https://github.com/spryker/PropelQueryBuilder/tree/master"
+            },
+            "time": "2017-03-13T12:48:18+00:00"
         },
         {
             "name": "spryker/queue",
