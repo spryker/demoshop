@@ -44,6 +44,7 @@ use Spryker\Zed\Oms\Communication\Console\ClearLocksConsole as OmsClearLocksCons
 use Spryker\Zed\Product\Communication\Console\ProductTouchConsole;
 use Spryker\Zed\Search\Communication\Console\GenerateIndexMapConsole;
 use Spryker\Zed\Search\Communication\Console\SearchConsole;
+use Spryker\Zed\Session\Communication\Console\SessionRemoveLockConsole;
 use Spryker\Zed\Setup\Communication\Console\DeployPreparePropelConsole;
 use Spryker\Zed\Setup\Communication\Console\InstallConsole;
 use Spryker\Zed\Setup\Communication\Console\JenkinsDisableConsole;
@@ -89,6 +90,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new StateMachineCheckTimeoutConsole(),
             new StateMachineCheckConditionConsole(),
             new StateMachineClearLocksConsole(),
+            new SessionRemoveLockConsole(),
 
             // Setup commands
             new RunnerConsole(),
