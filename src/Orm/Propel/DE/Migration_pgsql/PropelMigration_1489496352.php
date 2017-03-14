@@ -4,10 +4,10 @@ use Propel\Generator\Manager\MigrationManager;
 
 /**
  * Data object containing the SQL and PHP code to migrate the database
- * up to version 1489141130.
- * Generated on 2017-03-10 10:18:50 by vagrant
+ * up to version 1489496352.
+ * Generated on 2017-03-14 12:59:12 by vagrant
  */
-class PropelMigration_1489141130
+class PropelMigration_1489496352
 {
     public $comment = '';
 
@@ -43,20 +43,19 @@ class PropelMigration_1489141130
   'zed' => '
 BEGIN;
 
-DROP TABLE IF EXISTS "spy_showcase_dummy" CASCADE;
-
 CREATE SEQUENCE "spy_queue_process_pk_seq";
 
 CREATE TABLE "spy_queue_process"
 (
     "id_queue_process" INTEGER NOT NULL,
     "server_id" VARCHAR(255) NOT NULL,
-    "process_id" INTEGER NOT NULL,
+    "process_pid" INTEGER NOT NULL,
+    "worker_pid" INTEGER NOT NULL,
     "queue_name" VARCHAR(255) NOT NULL,
     "created_at" TIMESTAMP,
     "updated_at" TIMESTAMP,
     PRIMARY KEY ("id_queue_process"),
-    CONSTRAINT "spy_queue_process-unique-key" UNIQUE ("server_id","process_id","queue_name")
+    CONSTRAINT "spy_queue_process-unique-key" UNIQUE ("server_id","process_pid","queue_name")
 );
 
 CREATE INDEX "spy_queue_process-index-key" ON "spy_queue_process" ("server_id","queue_name");
@@ -81,13 +80,6 @@ BEGIN;
 DROP TABLE IF EXISTS "spy_queue_process" CASCADE;
 
 DROP SEQUENCE "spy_queue_process_pk_seq";
-
-CREATE TABLE "spy_showcase_dummy"
-(
-    "id_dummy" INTEGER NOT NULL,
-    "name" VARCHAR(255),
-    PRIMARY KEY ("id_dummy")
-);
 
 COMMIT;
 ',
