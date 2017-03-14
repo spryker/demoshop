@@ -30,18 +30,6 @@ class CartController extends AbstractController
         $quoteTransfer = $this->getClient()
             ->getQuote();
 
-        $locator = Locator::getInstance();
-        $queueClient = $locator->queue()->client();
-
-        $batchMessages = [];
-        for ($i = 0; $i < 500; $i++) {
-            $messageTransfer = new QueueMessageTransfer();
-            $messageTransfer->setBody(uniqid() .'@gmail.com');
-            $batchMessages[] = $messageTransfer;
-        }
-
-        $queueClient->sendMessages('Mail' ,$batchMessages);
-
         $voucherForm = $this->getFactory()
             ->createVoucherForm();
 

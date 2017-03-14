@@ -21,7 +21,6 @@ class QueueDependencyProvider extends BaseQueueDependencyProvider
     {
         return [
             'rabbitmq' => $container->getLocator()->rabbitMq()->client()->createQueueAdapter(),
-            'sqs' => $container->getLocator()->rabbitMq()->client()->createQueueAdapter(),
         ];
     }
 }

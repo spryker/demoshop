@@ -422,9 +422,11 @@ $config[QueueConstants::QUEUE_SERVER_ID] = (gethostname()) ?: php_uname('n');
 $config[QueueConstants::QUEUE_WORKER_INTERVAL_SECONDS] = 1;
 $config[QueueConstants::QUEUE_WORKER_MAX_THRESHOLD_SECONDS] = 55;
 $config[QueueConstants::QUEUE_ADAPTOR_NAME_DEFAULT] = 'rabbitmq';
-$config[QueueConstants::QUEUE_ADAPTOR_NAME_MAPPING] = [
-    'Mail' => 'rabbitmq',
-    'Log' => 'rabbitmq',
-    'SMS' => 'sqs',
-];
+
+/*
+ * Here queue with adapter will be provided
+ *
+ * e.g: 'mail' => 'rabbitmq'
+ */
+$config[QueueConstants::QUEUE_ADAPTOR_NAME_MAPPING] = [];
 
