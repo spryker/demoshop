@@ -51,7 +51,7 @@ class NavigationCRUDCest
     protected function create(NavigationCRUDTester $i)
     {
         $i->wantTo('Create navigation.');
-        $i->expect('Navigation is persisted in Zed.'); // TODO: add "... exported to Yves and is accessible." with real test case
+        $i->expect('Navigation is persisted in Zed.');
 
         $i->setNameField('Acceptance navigation (1)');
         $i->setKeyField('acceptance1');
@@ -85,7 +85,7 @@ class NavigationCRUDCest
     protected function update(NavigationCRUDTester $i, $idNavigation)
     {
         $i->wantTo('Update existing navigation.');
-        $i->expect('Navigation is persisted in Zed'); // TODO: add "... exported to Yves and is accessible." with real test case
+        $i->expect('Navigation is persisted in Zed');
 
         $i->amOnPage(sprintf(NavigationUpdatePage::URL, $idNavigation));
         $i->setNameField('Acceptance navigation (1) - edited');
@@ -103,7 +103,7 @@ class NavigationCRUDCest
     protected function activate(NavigationCRUDTester $i)
     {
         $i->wantTo('Activate navigation.');
-        $i->expect('New navigation status persisted in Zed.'); // TODO: add "... exported to Yves and is accessible." with real test case
+        $i->expect('New navigation status persisted in Zed.');
 
         $i->amOnPage(NavigationPage::URL);
         $i->waitForElementVisible(NavigationPage::PAGE_LIST_TABLE_XPATH, 5);
@@ -120,7 +120,7 @@ class NavigationCRUDCest
     protected function delete(NavigationCRUDTester $i)
     {
         $i->wantTo('Delete navigation.');
-        $i->expect('Navigation is removed from Zed.'); // TODO: add "... removed from Yves and is inaccessible." with real test case
+        $i->expect('Navigation is removed from Zed.');
 
         $i->amOnPage(NavigationPage::URL);
         $i->waitForElementVisible(NavigationPage::PAGE_LIST_TABLE_XPATH, 5);
