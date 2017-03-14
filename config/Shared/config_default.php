@@ -34,7 +34,6 @@ use Spryker\Zed\Propel\PropelConfig;
 
 $CURRENT_STORE = Store::getInstance()->getStoreName();
 
-
 // ---------- General environment
 $config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
 $config[ApplicationConstants::PROJECT_TIMEZONE] = 'UTC';
@@ -43,7 +42,6 @@ $config[SequenceNumberConstants::ENVIRONMENT_PREFIX]
     = '';
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = false;
 $config[ApplicationConstants::YVES_TRUSTED_PROXIES] = [];
-
 
 // ---------- Namespaces
 $config[KernelConstants::PROJECT_NAMESPACE] = 'Pyz';
@@ -54,7 +52,6 @@ $config[KernelConstants::CORE_NAMESPACES] = [
     'SprykerEco',
     'Spryker',
 ];
-
 
 // ---------- Propel
 $config[PropelConstants::ZED_DB_ENGINE_MYSQL] = PropelConfig::DB_ENGINE_MYSQL;
@@ -68,7 +65,6 @@ $config[PropelConstants::SCHEMA_FILE_PATH_PATTERN] = sprintf(
     $config[KernelConstants::SPRYKER_ROOT]
 );
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = true;
-
 
 // ---------- Authentication
 $config[UserConstants::USER_SYSTEM_USERS] = [
@@ -91,7 +87,6 @@ $config[AuthConstants::AUTH_DEFAULT_CREDENTIALS] = [
         'token' => 'JDJ5JDEwJFE0cXBwYnVVTTV6YVZXSnVmM2l1UWVhRE94WkQ4UjBUeHBEWTNHZlFRTEd4U2F6QVBqejQ2',
     ],
 ];
-
 
 // ---------- ACL
 // ACL: Allow or disallow of urls for Zed Admin GUI for ALL users
@@ -168,7 +163,6 @@ $config[AclConstants::ACL_DEFAULT_CREDENTIALS] = [
     ],
 ];
 
-
 // ---------- Elasticsearch
 $config[ApplicationConstants::ELASTICA_PARAMETER__HOST]
     = $config[SearchConstants::ELASTICA_PARAMETER__HOST]
@@ -191,26 +185,21 @@ $config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE]
     = $config[SearchConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE]
     = 'page';
 
-
 // ---------- Page search
 $config[SearchConstants::FULL_TEXT_BOOSTED_BOOSTING_VALUE] = 3;
 $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
-
 
 // ---------- Twig
 $config[TwigConstants::YVES_TWIG_OPTIONS] = [
     'cache' => sprintf('%s/data/%s//cache/Zed/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
 ];
-
 $config[TwigConstants::ZED_TWIG_OPTIONS] = [
     'cache' => sprintf('%s/data/%s//cache/Zed/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
 ];
 
-
 // ---------- Navigation
 // The cache should always be activated. Refresh/build with CLI command: vendor/bin/console application:build-navigation-cache
 $config[ZedNavigationConstants::ZED_NAVIGATION_CACHE_ENABLED] = true;
-
 
 // ---------- Zed request
 $config[ZedRequestConstants::TRANSFER_USERNAME] = 'yves';
@@ -218,27 +207,22 @@ $config[ZedRequestConstants::TRANSFER_PASSWORD] = 'o7&bg=Fz;nSslHBC';
 $config[ZedRequestConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = false;
 $config[ZedRequestConstants::TRANSFER_DEBUG_SESSION_NAME] = 'XDEBUG_SESSION';
 
-
 // ---------- KV storage
 $config[StorageConstants::STORAGE_KV_SOURCE] = 'redis';
 $config[StorageConstants::STORAGE_PERSISTENT_CONNECTION] = true;
-
 
 // ---------- Session
 $config[SessionConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS_LOCKING;
 $config[SessionConstants::YVES_SESSION_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_1_HOUR;
 $config[SessionConstants::YVES_SESSION_FILE_PATH] = session_save_path();
 $config[SessionConstants::YVES_SESSION_PERSISTENT_CONNECTION] = $config[StorageConstants::STORAGE_PERSISTENT_CONNECTION];
-
 $config[SessionConstants::ZED_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
 $config[SessionConstants::ZED_SESSION_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_1_HOUR;
 $config[SessionConstants::ZED_SESSION_FILE_PATH] = session_save_path();
 $config[SessionConstants::ZED_SESSION_PERSISTENT_CONNECTION] = $config[StorageConstants::STORAGE_PERSISTENT_CONNECTION];
-
 $config[SessionConstants::SESSION_HANDLER_REDIS_LOCKING_TIMEOUT_MILLISECONDS] = 0;
 $config[SessionConstants::SESSION_HANDLER_REDIS_LOCKING_RETRY_DELAY_MICROSECONDS] = 0;
 $config[SessionConstants::SESSION_HANDLER_REDIS_LOCKING_LOCK_TTL_MILLISECONDS] = 0;
-
 
 // ---------- Cookie
 $config[ApplicationConstants::YVES_COOKIE_DEVICE_ID_NAME] = 'did';
@@ -246,12 +230,10 @@ $config[ApplicationConstants::YVES_COOKIE_DEVICE_ID_VALID_FOR] = '+5 year';
 $config[ApplicationConstants::YVES_COOKIE_VISITOR_ID_NAME] = 'vid';
 $config[ApplicationConstants::YVES_COOKIE_VISITOR_ID_VALID_FOR] = '+30 minute';
 
-
 // ---------- HTTP strict transport security
 $config[ApplicationConstants::ZED_HTTP_STRICT_TRANSPORT_SECURITY_ENABLED]
     = $config[ApplicationConstants::YVES_HTTP_STRICT_TRANSPORT_SECURITY_ENABLED]
     = false;
-
 $config[ApplicationConstants::ZED_HTTP_STRICT_TRANSPORT_SECURITY_CONFIG]
     = $config[ApplicationConstants::YVES_HTTP_STRICT_TRANSPORT_SECURITY_CONFIG]
     = [
@@ -260,24 +242,20 @@ $config[ApplicationConstants::ZED_HTTP_STRICT_TRANSPORT_SECURITY_CONFIG]
         'preload' => true,
     ];
 
-
 // ---------- SSL
 $config[ApplicationConstants::YVES_SSL_ENABLED] = false;
 $config[ApplicationConstants::YVES_COMPLETE_SSL_ENABLED] = false;
 $config[ApplicationConstants::YVES_SSL_EXCLUDED] = [
     'heartbeat' => '/heartbeat',
 ];
-
 $config[ApplicationConstants::ZED_SSL_ENABLED] = false;
 $config[ZedRequestConstants::ZED_API_SSL_ENABLED] = false;
 $config[ApplicationConstants::ZED_SSL_EXCLUDED] = ['heartbeat/index'];
-
 
 // ---------- Theme
 $config[ApplicationConstants::YVES_THEME]
     = $config[CmsConstants::YVES_THEME]
     = 'default';
-
 
 // ---------- Error handling
 $config[ErrorHandlerConstants::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/public/Yves/errorpage/error.html';
@@ -289,7 +267,6 @@ $config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL & ~E_DEPRECATED & ~E_USER_DE
 //$config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL
 //$config[ErrorHandlerConstants::ERROR_LEVEL_LOG_ONLY] = E_DEPRECATED | E_USER_DEPRECATED;
 
-
 // ---------- Logging
 $config[LogConstants::LOG_LEVEL] = Logger::INFO;
 $config[LogConstants::LOG_FILE_PATH] = sprintf(
@@ -298,12 +275,10 @@ $config[LogConstants::LOG_FILE_PATH] = sprintf(
     $CURRENT_STORE
 );
 
-
 // ---------- Auto-loader
 $config[KernelConstants::AUTO_LOADER_CACHE_FILE_NO_LOCK] = false;
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_PROVIDER] = \Spryker\Shared\Kernel\ClassResolver\Cache\Provider\File::class;
-
 
 // ---------- Dependency injector
 $config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [
@@ -311,7 +286,6 @@ $config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [
         'DummyPayment',
     ],
 ];
-
 $config[KernelConstants::DEPENDENCY_INJECTOR_ZED] = [
     'Payment' => [
         'DummyPayment',
@@ -320,7 +294,6 @@ $config[KernelConstants::DEPENDENCY_INJECTOR_ZED] = [
         'DummyPayment',
     ],
 ];
-
 
 // ---------- State machine (OMS)
 $config[OmsConstants::PROCESS_LOCATION] = [
@@ -335,25 +308,20 @@ $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
     DummyPaymentConfig::PAYMENT_METHOD_CREDIT_CARD => 'DummyPayment01',
 ];
 
-
 // ---------- NewRelic
 $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
-
 
 // ---------- Customer (should go into bundle configuration)
 $config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^/customer|^/wishlist)';
 $config[CustomerConstants::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
-
 
 // ---------- Price (should go into bundle configuration)
 $config[PriceConstants::DEFAULT_PRICE_TYPE]
     = $config[PriceCartConnectorConstants::DEFAULT_PRICE_TYPE]
     = 'DEFAULT';
 
-
 // ---------- Taxes (should go into bundle configuration)
 $config[TaxConstants::DEFAULT_TAX_RATE] = 19;
-
 
 // ---------- Event journal (deprecated)
 $config[EventJournalConstants::COLLECTORS]['YVES'] = [
