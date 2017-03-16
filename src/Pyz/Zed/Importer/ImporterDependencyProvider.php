@@ -61,6 +61,7 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
         $container = $this->addDiscountFacade($container);
         $container = $this->addUrlFacade($container);
         $container = $this->addCountryFacade($container);
+        $container = $this->addNavigationFacade($container);
         $container = $this->addCmsQueryContainer($container);
         $container = $this->addProductQueryContainer($container);
         $container = $this->addPriceQueryContainer($container);
