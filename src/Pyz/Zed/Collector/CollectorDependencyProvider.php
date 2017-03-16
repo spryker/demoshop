@@ -34,7 +34,7 @@ use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Collector\CollectorDependencyProvider as SprykerCollectorDependencyProvider;
 use Spryker\Zed\Glossary\Business\Translation\TranslationManager;
 use Spryker\Zed\Kernel\Container;
-use Spryker\Zed\Navigation\Communication\Plugin\NavigationMenuCollectorStoragePlugin;
+use Spryker\Zed\NavigationCollector\Communication\Plugin\NavigationMenuCollectorStoragePlugin;
 use Spryker\Zed\ProductOption\ProductOptionConfig;
 use Spryker\Zed\ProductSearch\Communication\Plugin\ProductSearchConfigExtensionCollectorPlugin;
 use Spryker\Zed\Url\UrlConfig;

@@ -1,19 +1,29 @@
 <ul class="small-12 medium-8 large-6 columns no-bullet">
     {% for node in navigationTree.nodes %}
-        {% if node.navigationNode.isActive %}
-            <li>
-            {% if node.navigationNode.navigationNodeLocalizedAttributes[0].url %}
-                <a href="{{ node.navigationNode.navigationNodeLocalizedAttributes[0].url }}">
-                    {{ node.navigationNode.navigationNodeLocalizedAttributes[0].title }}
-                </a>
-            {% elseif node.navigationNode.navigationNodeLocalizedAttributes[0].externalUrl %}
-                <a href="{{ node.navigationNode.navigationNodeLocalizedAttributes[0].externalUrl }}" target="_blank">
-                    {{ node.navigationNode.navigationNodeLocalizedAttributes[0].title }}
-                </a>
-            {% else %}
-                {{ node.navigationNode.navigationNodeLocalizedAttributes[0].title }}
-            {% endif %}
-            </li>
-        {% endif %}
+        {% embed '@Application/layout/navigation/_partials/base-node.twig' %}
+            {% block url %}
+                <li class="{{ class }}">
+                    <a href="{{ url }}">{{ title }}</a>
+                </li>
+            {% endblock %}
+
+            {% block link %}
+                <li class="{{ class }}">
+                    <a href="{{ link }}">{{ title }}</a>
+                </li>
+            {% endblock %}
+
+            {% block externalUrl %}
+                <li class="{{ class }}">
+                    <a href="{{ externalUrl }}" target="_blank">{{ title }}</a>
+                </li>
+            {% endblock %}
+
+            {% block other %}
+                <li class="{{ class }}">
+                    {{ title }}
+                </li>
+            {% endblock %}
+        {% endembed %}
     {% endfor %}
 </ul>

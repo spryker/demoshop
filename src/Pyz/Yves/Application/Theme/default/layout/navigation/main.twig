@@ -3,25 +3,31 @@
         <div class="large-12 columns">
             <ul class="menu">
                 {% for node in navigationTree.nodes %}
-                    {% if node.navigationNode.isActive %}
-                        {% if node.navigationNode.navigationNodeLocalizedAttributes[0].url %}
-                            <li {% if node.children|length %}data-toggle="navigation-node-{{ node.navigationNode.idNavigationNode }}-children"{% endif %}>
-                                <a href="{{ node.navigationNode.navigationNodeLocalizedAttributes[0].url }}">
-                                    {{ node.navigationNode.navigationNodeLocalizedAttributes[0].title }}
-                                </a>
+                    {% embed '@Application/layout/navigation/_partials/base-node.twig' %}
+                        {% block url %}
+                            <li {% if node.children|length %}data-toggle="navigation-node-{{ node.navigationNode.idNavigationNode }}-children"{% endif %} class="{{ class }}">
+                                <a href="{{ url }}">{{ title }}</a>
                             </li>
-                        {% elseif node.navigationNode.navigationNodeLocalizedAttributes[0].externalUrl %}
-                            <li {% if node.children|length %}data-toggle="navigation-node-{{ node.navigationNode.idNavigationNode }}-children"{% endif %}>
-                                <a href="{{ node.navigationNode.navigationNodeLocalizedAttributes[0].externalUrl }}" target="_blank">
-                                    {{ node.navigationNode.navigationNodeLocalizedAttributes[0].title }}
-                                </a>
+                        {% endblock %}
+
+                        {% block link %}
+                            <li {% if node.children|length %}data-toggle="navigation-node-{{ node.navigationNode.idNavigationNode }}-children"{% endif %} class="{{ class }}">
+                                <a href="{{ link  }}">{{ title }}</a>
                             </li>
-                        {% else %}
-                            <li class="menu-text" {% if node.children|length %}data-toggle="navigation-node-{{ node.navigationNode.idNavigationNode }}-children"{% endif %}>
-                                {{ node.navigationNode.navigationNodeLocalizedAttributes[0].title }}
+                        {% endblock %}
+
+                        {% block externalUrl %}
+                            <li {% if node.children|length %}data-toggle="navigation-node-{{ node.navigationNode.idNavigationNode }}-children"{% endif %} class="{{ class }}">
+                                <a href="{{ externalUrl }}" target="_blank">{{ title }}</a>
                             </li>
-                        {% endif %}
-                    {% endif %}
+                        {% endblock %}
+
+                        {% block other %}
+                            <li {% if node.children|length %}data-toggle="navigation-node-{{ node.navigationNode.idNavigationNode }}-children"{% endif %} class="menu-text {{ class }}">
+                                {{ title }}
+                            </li>
+                        {% endblock %}
+                    {% endembed %}
                 {% endfor %}
             </ul>
 

@@ -264,7 +264,7 @@ class NavigationTreeTester extends ZedAcceptanceTester
         $this->expandLocalizedForm('de_DE');
 
         $this->submitForm(self::NODE_FORM_SELECTOR, [
-            'navigation_node[node_type]' => 'cms',
+            'navigation_node[node_type]' => 'cms_page',
             'navigation_node[navigation_node_localized_attributes][0][title]' => $title,
             'navigation_node[navigation_node_localized_attributes][0][cms_page_url]' => $cmsPageUrl_en_US,
             'navigation_node[navigation_node_localized_attributes][1][title]' => $title,

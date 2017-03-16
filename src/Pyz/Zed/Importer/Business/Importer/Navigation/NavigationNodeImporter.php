@@ -31,7 +31,7 @@ class NavigationNodeImporter extends AbstractImporter
     protected $urlFacade;
 
     /**
-     * @var
+     * @var array
      */
     protected $navigationKeyCache;
 
@@ -145,12 +145,16 @@ class NavigationNodeImporter extends AbstractImporter
 
             $navigationNodeLocalizedAttributeTransfer = (new NavigationNodeLocalizedAttributesTransfer())
                 ->setFkLocale($idLocale)
-                ->setTitle($data['title.' . $localeName]);
+                ->setTitle($data['title.' . $localeName])
+                ->setCustomClass($data['custom_class.' . $localeName]);
 
             switch($data['node_type']) {
                 case 'category':
                 case 'cms_page':
                     $navigationNodeLocalizedAttributeTransfer->setFkUrl($this->findIdUrlByUrl($data['url.' . $localeName]));
+                    break;
+                case 'link':
+                    $navigationNodeLocalizedAttributeTransfer->setLink($data['url.' . $localeName]);
                     break;
                 case 'external_url':
                     $navigationNodeLocalizedAttributeTransfer->setExternalUrl($data['url.' . $localeName]);

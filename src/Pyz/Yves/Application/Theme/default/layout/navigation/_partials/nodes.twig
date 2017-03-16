@@ -1,19 +1,31 @@
 <ul class="vertical menu {% if nested|default(false) %}nested{% endif %}">
     {% for node in nodes %}
-        {%  if node.navigationNode.isActive %}
-            <li id="navigation-node-{{ node.navigationNode.idNavigationNode }}" data-id-navigation-node="{{ node.navigationNode.idNavigationNode }}">
-                {% if node.navigationNode.navigationNodeLocalizedAttributes[0].url %}
-                    <a href="{{ node.navigationNode.navigationNodeLocalizedAttributes[0].url }}">{{ node.navigationNode.navigationNodeLocalizedAttributes[0].title }}</a>
-                {% elseif node.navigationNode.navigationNodeLocalizedAttributes[0].externalUrl %}
-                    <a href="{{ node.navigationNode.navigationNodeLocalizedAttributes[0].externalUrl }}" target="_blank">{{ node.navigationNode.navigationNodeLocalizedAttributes[0].title }}</a>
-                {% else %}
-                    {{ node.navigationNode.navigationNodeLocalizedAttributes[0].title }}
-                {% endif %}
+        {% embed '@Application/layout/navigation/_partials/base-node.twig' %}
+            {% block nodeContainer %}
+                <li id="navigation-node-{{ node.navigationNode.idNavigationNode }}" data-id-navigation-node="{{ node.navigationNode.idNavigationNode }}">
+                    {{ parent() }}
+                </li>
+            {% endblock %}
 
-                {% if node.children|length %}
-                    {% include '@Application/layout/navigation/_partials/nodes.twig' with {nodes: node.children, nested:true} %}
-                {% endif %}
-            </li>
+            {% block url %}
+                <a href="{{ url }}">{{ title }}</a>
+            {% endblock %}
+
+            {% block link %}
+                <a href="{{ link }}">{{ title }}</a>
+            {% endblock %}
+
+            {% block externalUrl %}
+                <a href="{{ externalUrl }}" target="_blank">{{ title }}</a>
+            {% endblock %}
+
+            {% block other %}
+                {{ title }}
+            {% endblock %}
+        {% endembed %}
+
+        {% if node.children|length %}
+            {% include '@Application/layout/navigation/_partials/nodes.twig' with {nodes: node.children, nested:true} %}
         {% endif %}
     {% endfor %}
 </ul>

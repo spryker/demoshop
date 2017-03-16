@@ -3,9 +3,7 @@
 <div class="small-12 medium-6 columns text-center medium-text-left">
     <div class="callout">
         <h5>{{ 'global.payment_providers' | trans }}</h5>
-        <img class="thumbnail" src="/assets/default/img/provider/foo.png">
-        <img class="thumbnail" src="/assets/default/img/provider/bar.png">
-        <img class="thumbnail" src="/assets/default/img/provider/baz.png">
+        {{ spyNavigation('PAYMENT_PROVIDERS', '@application/layout/navigation/providers.twig') }}
         <div class="clearfix"></div>
     </div>
 </div>
@@ -13,9 +11,7 @@
 <div class="small-12 medium-6 columns text-center medium-text-left">
     <div class="callout">
         <h5>{{ 'global.shipment_providers' | trans }}</h5>
-        <img class="thumbnail" src="/assets/default/img/provider/foo.png">
-        <img class="thumbnail" src="/assets/default/img/provider/bar.png">
-        <img class="thumbnail" src="/assets/default/img/provider/baz.png">
+        {{ spyNavigation('SHIPMENT_PROVIDERS', '@application/layout/navigation/providers.twig') }}
         <div class="clearfix"></div>
     </div>
 </div>
@@ -31,7 +27,7 @@
             </ul>
             <div class="large-3 columns show-for-large">
                 <h5>{{ 'global.social' | trans }}</h5>
-                {% include '@application/layout/partials/social-links.twig' %}
+                {{ spyNavigation('SOCIAL_LINKS', '@application/layout/navigation/social-links.twig') }}
                 <div class="clearfix"></div>
             </div>
         </div>
@@ -40,7 +36,7 @@
         <div class="row">
             <div class="small-12 columns text-center">
                 <h5>{{ 'global.social' | trans }}</h5>
-                {% include '@application/layout/partials/social-links.twig' %}
+                {{ spyNavigation('SOCIAL_LINKS', '@application/layout/navigation/social-links.twig') }}
                 <div class="clearfix"></div>
             </div>
         </div>

@@ -4,10 +4,10 @@ use Propel\Generator\Manager\MigrationManager;
 
 /**
  * Data object containing the SQL and PHP code to migrate the database
- * up to version 1488203973.
- * Generated on 2017-02-27 13:59:33 by vagrant
+ * up to version 1489585832.
+ * Generated on 2017-03-15 13:50:32 by vagrant
  */
-class PropelMigration_1488203973
+class PropelMigration_1489585832
 {
     public $comment = '';
 
@@ -85,7 +85,9 @@ CREATE TABLE "spy_navigation_node_localized_attributes"
     "fk_locale" INTEGER NOT NULL,
     "fk_url" INTEGER,
     "title" VARCHAR(255) NOT NULL,
+    "link" VARCHAR(255),
     "external_url" VARCHAR(255),
+    "custom_class" VARCHAR(255),
     "created_at" TIMESTAMP,
     "updated_at" TIMESTAMP,
     PRIMARY KEY ("id_navigation_node_localized_attributes")

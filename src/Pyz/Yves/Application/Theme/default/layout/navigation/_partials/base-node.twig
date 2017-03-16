@@ -1,0 +1,19 @@
+{% set class = node.navigationNode.navigationNodeLocalizedAttributes[0].customClass %}
+{% set url = node.navigationNode.navigationNodeLocalizedAttributes[0].url %}
+{% set externalUrl = node.navigationNode.navigationNodeLocalizedAttributes[0].externalUrl %}
+{% set link = node.navigationNode.navigationNodeLocalizedAttributes[0].link %}
+{% set title = node.navigationNode.navigationNodeLocalizedAttributes[0].title %}
+
+{% if node.navigationNode.isActive %}
+    {% block nodeContainer %}
+        {% if url %}
+            {% block url %}{% endblock %}
+        {% elseif link %}
+            {% block link %}{% endblock %}
+        {% elseif externalUrl %}
+            {% block externalUrl %}{% endblock %}
+        {% else %}
+            {% block other %}{% endblock %}
+        {% endif %}
+    {% endblock %}
+{% endif %}
