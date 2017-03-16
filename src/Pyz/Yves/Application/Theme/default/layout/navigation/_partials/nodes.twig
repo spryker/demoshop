@@ -4,6 +4,10 @@
             {% block nodeContainer %}
                 <li id="navigation-node-{{ node.navigationNode.idNavigationNode }}" data-id-navigation-node="{{ node.navigationNode.idNavigationNode }}">
                     {{ parent() }}
+
+                    {% if node.children|length %}
+                        {% include '@Application/layout/navigation/_partials/nodes.twig' with {nodes: node.children, nested:true} %}
+                    {% endif %}
                 </li>
             {% endblock %}
 
@@ -20,12 +24,8 @@
             {% endblock %}
 
             {% block other %}
-                {{ title }}
+                <span class="menu-text">{{ title }}</span>
             {% endblock %}
         {% endembed %}
-
-        {% if node.children|length %}
-            {% include '@Application/layout/navigation/_partials/nodes.twig' with {nodes: node.children, nested:true} %}
-        {% endif %}
     {% endfor %}
 </ul>
