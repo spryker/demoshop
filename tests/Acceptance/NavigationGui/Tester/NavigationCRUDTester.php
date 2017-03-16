@@ -82,7 +82,9 @@ class NavigationCRUDTester extends ZedAcceptanceTester
         $successMessage = $this->grabTextFrom('//*[@id="page-wrapper"]/div[3]/div[1]/div');
         $this->seeMatches($expectedMessagePattern, $successMessage);
 
-        return preg_match($expectedMessagePattern, $successMessage);
+        preg_match($expectedMessagePattern, $successMessage, $matches);
+
+        return $matches[1];
     }
 
     /**
