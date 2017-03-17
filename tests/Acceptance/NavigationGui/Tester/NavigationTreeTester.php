@@ -6,7 +6,12 @@
 
 namespace Acceptance\NavigationGui\Tester;
 
+use Codeception\Scenario;
+use Generated\Shared\Transfer\NavigationTreeNodeTransfer;
+use Generated\Shared\Transfer\NavigationTreeTransfer;
 use Orm\Zed\Navigation\Persistence\SpyNavigation;
+use Spryker\Zed\Locale\Business\LocaleFacade;
+use Spryker\Zed\Navigation\Business\NavigationFacade;
 use ZedAcceptanceTester;
 
 class NavigationTreeTester extends ZedAcceptanceTester
@@ -26,6 +31,27 @@ class NavigationTreeTester extends ZedAcceptanceTester
     const SWEET_ALERT_SELECTOR = '.sweet-alert';
     const SWEET_ALERT_CONFIRM_SELECTOR = '.sweet-alert button.confirm';
     const NODE_FORM_SELECTOR = 'form';
+
+    /**
+     * @var \Spryker\Zed\Navigation\Business\NavigationFacade
+     */
+    protected $navigationFacade;
+
+    /**
+     * @var \Spryker\Zed\Locale\Business\LocaleFacade
+     */
+    protected $localeFacade;
+
+    /**
+     * @param \Codeception\Scenario $scenario
+     */
+    public function __construct(Scenario $scenario)
+    {
+        parent::__construct($scenario);
+
+        $this->navigationFacade = new NavigationFacade();
+        $this->localeFacade = new LocaleFacade();
+    }
 
     /**
      * @return int
@@ -271,6 +297,53 @@ class NavigationTreeTester extends ZedAcceptanceTester
             'navigation_node[navigation_node_localized_attributes][1][cms_page_url]' => $cmsPageUrl_de_DE,
             'navigation_node[is_active]' => true,
         ]);
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\NavigationTreeTransfer $navigationTreeTransfer
+     *
+     * @return \Generated\Shared\Transfer\NavigationTreeTransfer
+     */
+    public function prepareTestNavigationTreeEntities(NavigationTreeTransfer $navigationTreeTransfer)
+    {
+        $navigationTransfer = $this->navigationFacade->createNavigation($navigationTreeTransfer->getNavigation());
+
+        foreach ($navigationTreeTransfer->getNodes() as $navigationTreeNodeTransfer) {
+            $this->createNavigationNodesRecursively($navigationTreeNodeTransfer, $navigationTransfer->getIdNavigation());
+        }
+
+        return $navigationTreeTransfer;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\NavigationTreeNodeTransfer $navigationTreeNodeTransfer
+     * @param int $idNavigation
+     * @param int|null $idParentNavigationNode
+     *
+     * @return void
+     */
+    protected function createNavigationNodesRecursively(NavigationTreeNodeTransfer $navigationTreeNodeTransfer, $idNavigation, $idParentNavigationNode = null)
+    {
+        $navigationNodeTransfer = $navigationTreeNodeTransfer->getNavigationNode();
+        $navigationNodeTransfer
+            ->setFkNavigation($idNavigation)
+            ->setFkParentNavigationNode($idParentNavigationNode);
+
+        $navigationNodeTransfer = $this->navigationFacade->createNavigationNode($navigationNodeTransfer);
+
+        foreach ($navigationTreeNodeTransfer->getChildren() as $childNavigationTreeNodeTransfer) {
+            $this->createNavigationNodesRecursively($childNavigationTreeNodeTransfer, $idNavigation, $navigationNodeTransfer->getIdNavigationNode());
+        }
+    }
+
+    /**
+     * @param string $locale
+     *
+     * @return int
+     */
+    public function getIdLocale($locale)
+    {
+        return $this->localeFacade->getLocale($locale)->getIdLocale();
     }
 
 }
