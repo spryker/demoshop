@@ -22,13 +22,13 @@ use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
 use Spryker\Shared\Price\PriceConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Shared\Queue\QueueConstants;
 use Spryker\Shared\Sales\SalesConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Storage\StorageConstants;
 use Spryker\Shared\Tax\TaxConstants;
-use Spryker\Shared\Queue\QueueConstants;
 use Spryker\Shared\Twig\TwigConstants;
 use Spryker\Shared\User\UserConstants;
 use Spryker\Shared\ZedNavigation\ZedNavigationConstants;
@@ -419,14 +419,17 @@ $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
 $config[TaxConstants::DEFAULT_TAX_RATE] = 19;
 
 $config[QueueConstants::QUEUE_SERVER_ID] = (gethostname()) ?: php_uname('n');
-$config[QueueConstants::QUEUE_WORKER_INTERVAL_SECONDS] = 1;
-$config[QueueConstants::QUEUE_WORKER_MAX_THRESHOLD_SECONDS] = 55;
-$config[QueueConstants::QUEUE_ADAPTOR_NAME_DEFAULT] = 'rabbitmq';
+$config[QueueConstants::QUEUE_WORKER_INTERVAL_MILLISECONDS] = 1000;
+$config[QueueConstants::QUEUE_WORKER_MAX_THRESHOLD_SECONDS] = 59;
 
 /*
- * Here queue with adapter will be provided
+ * Queues can have different adapters and maximum worker number
+ * QUEUE_ADAPTER_CONFIGURATION can have the array like this as an example:
  *
- * e.g: 'mail' => 'rabbitmq'
+ *   'mailQueue' => [
+ *       QueueConfig::CONFIG_QUEUE_ADAPTER => \Spryker\Client\RabbitMq\Model\RabbitMqAdapter::class,
+ *       QueueConfig::CONFIG_MAX_WORKER_NUMBER => 5
+ *   ],
+ *
  */
-$config[QueueConstants::QUEUE_ADAPTOR_NAME_MAPPING] = [];
-
+$config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION] = [];

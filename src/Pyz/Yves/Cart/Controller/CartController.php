@@ -7,12 +7,7 @@
 
 namespace Pyz\Yves\Cart\Controller;
 
-use Generated\Shared\Transfer\QueueMessageTransfer;
-use Generated\Shared\Transfer\QueueOptionTransfer;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
-use Spryker\Client\Kernel\Locator;
-use Spryker\Shared\Log\LoggerFactory;
-use Spryker\Yves\Kernel\Container;
 use Spryker\Yves\Kernel\Controller\AbstractController;
 
 /**

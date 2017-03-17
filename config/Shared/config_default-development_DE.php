@@ -1,8 +1,6 @@
 <?php
 
 use Pyz\Shared\Newsletter\NewsletterConstants;
-use Pyz\Shared\RabbitMq\RabbitMqConstants;
-use Spryker\Shared\Queue\QueueConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
@@ -13,6 +11,8 @@ use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\PropelQueryBuilder\PropelQueryBuilderConstants;
 use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Shared\Queue\QueueConstants;
+use Spryker\Shared\RabbitMq\RabbitMqConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Setup\SetupConstants;
@@ -74,11 +74,11 @@ $config[ApplicationConstants::ZED_RABBITMQ_VHOST] = '/DE_development_zed';
 
 $config[QueueConstants::QUEUE_WORKER_OUTPUT_FILE] = 'data/DE/logs/ZED/queue.log';
 
-$config[RabbitMqConstants::QUEUE_HOST] = 'localhost';
-$config[RabbitMqConstants::QUEUE_PORT] = '5672';
-$config[RabbitMqConstants::QUEUE_USERNAME] = 'DE_development';
-$config[RabbitMqConstants::QUEUE_PASSWORD] = 'mate20mg';
-$config[RabbitMqConstants::QUEUE_VIRTUAL_HOST] = '/DE_development_zed';
+$config[RabbitMqConstants::RABBITMQ_HOST] = 'localhost';
+$config[RabbitMqConstants::RABBITMQ_PORT] = '5672';
+$config[RabbitMqConstants::RABBITMQ_USERNAME] = 'DE_development';
+$config[RabbitMqConstants::RABBITMQ_PASSWORD] = 'mate20mg';
+$config[RabbitMqConstants::RABBITMQ_VIRTUAL_HOST] = '/DE_development_zed';
 
 $config[EventJournalConstants::WRITER_OPTIONS] = [
     '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File' => ['log_path' => APPLICATION_ROOT_DIR . '/data/DE/logs/'],
