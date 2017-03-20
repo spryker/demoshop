@@ -11,7 +11,7 @@ use Exception;
 use Orm\Zed\Product\Persistence\SpyProductAbstract;
 use Orm\Zed\Product\Persistence\SpyProductAbstractLocalizedAttributes;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
-use Spryker\Zed\Propel\Business\Transaction\DatabaseTransactionHandlerTrait;
+use Spryker\Zed\PropelOrm\Business\Transaction\DatabaseTransactionHandlerTrait;
 
 class ProductManagerStub
 {
