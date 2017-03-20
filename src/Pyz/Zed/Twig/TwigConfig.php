@@ -9,11 +9,14 @@ namespace Pyz\Zed\Twig;
 
 use Spryker\Zed\Twig\TwigConfig as SprykerTwigConfig;
 
+/**
+ * @project Only needed in Project, not in demoshop
+ */
 class TwigConfig extends SprykerTwigConfig
 {
 
     /**
-     * Only needed in Project, not in demoshop
+     * @project Only needed in Project, not in demoshop
      *
      * @param array $paths
      *
@@ -28,7 +31,7 @@ class TwigConfig extends SprykerTwigConfig
     }
 
     /**
-     * Only needed in Project, not in demoshop
+     * @project Only needed in Project, not in demoshop
      *
      * @return array
      */
@@ -45,7 +48,7 @@ class TwigConfig extends SprykerTwigConfig
     }
 
     /**
-     * Only needed in Project, not in demoshop
+     * @project Only needed in Project, not in demoshop
      *
      * @return array
      */

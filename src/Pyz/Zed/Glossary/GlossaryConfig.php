@@ -24,7 +24,7 @@ class GlossaryConfig extends SprykerGlossaryConfig
     }
 
     /**
-     * Only needed in Project, not in demoshop
+     * @project Only needed in Project, not in demoshop
      *
      * @param array $paths
      *

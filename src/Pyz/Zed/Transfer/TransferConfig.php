@@ -13,7 +13,7 @@ class TransferConfig extends SprykerTransferConfig
 {
 
     /**
-     * Only needed in Project, not in demoshop
+     * @project Only needed in Project, not in demoshop
      *
      * @return string
      */
