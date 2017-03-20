@@ -5,22 +5,48 @@
         "This file is @generated automatically"
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "0fd33c59d9b6215f698bc64928909bb8",
 =======
+=======
+>>>>>>> update composer
 <<<<<<< HEAD
     "content-hash": "0882e407668436f239b82f0f9f09a42a",
 =======
+=======
+>>>>>>> update composer
 <<<<<<< HEAD
     "content-hash": "094e6eb9da52c217e1a80f303c9a0bb5",
 =======
+=======
+>>>>>>> update composer
 <<<<<<< HEAD
     "content-hash": "5e147bf30ceaea8ebc2335aa0741e83f",
 =======
     "content-hash": "0d7d8479cc5d366759b86489c1f85821",
 >>>>>>> added a console command to generate databuilder objects; added faker library
+<<<<<<< HEAD
 >>>>>>> added a console command to generate databuilder objects; added faker library
+<<<<<<< HEAD
 >>>>>>> added a console command to generate databuilder objects; added faker library
+<<<<<<< HEAD
 >>>>>>> added a console command to generate databuilder objects; added faker library
+=======
+=======
+=======
+=======
+    "content-hash": "0d7d8479cc5d366759b86489c1f85821",
+=======
+<<<<<<< HEAD
+    "content-hash": "4a7d35a2df4cc0f7ab739d01c9d87d34",
+=======
+    "content-hash": "85b278f6778a634f83433c5ff2ab9137",
+>>>>>>> update composer
+>>>>>>> update composer
+>>>>>>> update composer
+>>>>>>> update composer
+>>>>>>> update composer
+>>>>>>> update composer
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1503,11 +1529,35 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/new-tests-architecture",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "d83e5575d8f783cd962d5010887d38f05a2f9a57"
+=======
+<<<<<<< HEAD
+                "reference": "bd8d260d50a747408d07bbbf9a9b427407cc16ed"
+=======
+<<<<<<< HEAD
+                "reference": "ab0b4742cdcb05f522fe9456ca6be5846da7a443"
+=======
+<<<<<<< HEAD
+                "reference": "4242ef32bf960012033f22179d10d48867811938"
+=======
+<<<<<<< HEAD
+                "reference": "ff5ec0f5fb5532b12c388722bb233e0367b25b89"
+=======
+<<<<<<< HEAD
+                "reference": "c721e3f223dd5f4f7ef522206f1747baeda236dd"
+=======
+                "reference": "2812ebabac21a9bb7ae5980905c04a9b2ed44c2a"
+>>>>>>> update composer
+>>>>>>> update composer
+>>>>>>> update composer
+>>>>>>> update composer
+>>>>>>> update composer
+>>>>>>> update composer
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2286,7 +2336,31 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2017-04-12 08:57:47"
+=======
+<<<<<<< HEAD
+            "time": "2017-04-11 13:31:31"
+=======
+<<<<<<< HEAD
+            "time": "2017-03-29 09:37:26"
+=======
+<<<<<<< HEAD
+            "time": "2017-03-27 16:16:43"
+=======
+<<<<<<< HEAD
+            "time": "2017-03-27 10:20:21"
+=======
+<<<<<<< HEAD
+            "time": "2017-03-23 13:32:10"
+=======
+            "time": "2017-03-16 20:19:59"
+>>>>>>> update composer
+>>>>>>> update composer
+>>>>>>> update composer
+>>>>>>> update composer
+>>>>>>> update composer
+>>>>>>> update composer
         },
         {
             "name": "swiftmailer/swiftmailer",
