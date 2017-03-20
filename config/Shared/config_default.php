@@ -42,7 +42,6 @@ $config[KernelConstants::PROJECT_NAMESPACES] = [
 ];
 
 $config[KernelConstants::CORE_NAMESPACES] = [
-//    'spryker-eco/showcase' => 'SprykerEco',
     'SprykerEco',
     'Spryker',
 ];

@@ -1837,12 +1837,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "c721e3f223dd5f4f7ef522206f1747baeda236dd"
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
 =======
 >>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+=======
+>>>>>>> core-1012 update spryker/spryker
 =======
 >>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
@@ -1852,6 +1855,8 @@
 >>>>>>> core-1012 added spryker/spryker template paths in project
 =======
 >>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+=======
+>>>>>>> core-1012 update spryker/spryker
 =======
 >>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
@@ -1927,6 +1932,11 @@
 =======
 =======
                 "reference": "00e120953e9bc126da24820c4748a002f46dc33e"
+>>>>>>> core-1012 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "reference": "a2eebea2114ad59d89a57749684d25e04d0a8b80"
 >>>>>>> core-1012 update spryker/spryker
 >>>>>>> core-1012 update spryker/spryker
 >>>>>>> core-1012 update spryker/spryker
@@ -2684,12 +2694,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-03-23 13:32:10"
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
 =======
 >>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+=======
+>>>>>>> core-1012 update spryker/spryker
 =======
 >>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
@@ -2699,6 +2712,8 @@
 >>>>>>> core-1012 added spryker/spryker template paths in project
 =======
 >>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+=======
+>>>>>>> core-1012 update spryker/spryker
 =======
 >>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
@@ -2954,6 +2969,11 @@
 =======
 =======
             "time": "2017-03-20 13:00:50"
+>>>>>>> core-1012 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-03-20 16:01:21"
 >>>>>>> core-1012 update spryker/spryker
 >>>>>>> core-1012 update spryker/spryker
 >>>>>>> core-1012 update spryker/spryker
@@ -7657,10 +7677,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-03-17 13:33:48"
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+>>>>>>> core-1012 update spryker/spryker
 =======
 >>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
@@ -7668,6 +7691,8 @@
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
+=======
+>>>>>>> core-1012 update spryker/spryker
 =======
 >>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
@@ -7710,6 +7735,11 @@
 =======
 =======
             "time": "2017-03-17 13:33:48"
+>>>>>>> core-1012 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-03-17T13:33:48+00:00"
 >>>>>>> core-1012 update spryker/spryker
 >>>>>>> core-1012 update spryker/spryker
 >>>>>>> core-1012 update spryker/spryker
