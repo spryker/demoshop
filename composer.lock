@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6526d21e7696cb9a5ff9e32a205c5a67",
+    "content-hash": "9f9a95bef0e43b13a5ddab438f4a2b07",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1369,11 +1369,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-819-propel-transactions",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "0ae996092bfd1d61126d630508608967b73c4db2"
+                "reference": "114d8f14ead0b5d226311ecce127fd9d9c913cbf"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1759,6 +1759,8 @@
                     "Unit\\Spryker\\Zed\\Propel\\": "Bundles/Propel/tests",
                     "Functional\\Spryker\\Zed\\Propel\\": "Bundles/Propel/tests",
                     "Spryker\\Zed\\PropelOrm\\": "Bundles/PropelOrm/src",
+                    "Unit\\Spryker\\Zed\\PropelOrm\\": "Bundles/PropelOrm/tests",
+                    "Functional\\Spryker\\Zed\\PropelOrm\\": "Bundles/PropelOrm/tests",
                     "Spryker\\Client\\Quote\\": "Bundles/Quote/src",
                     "Spryker\\Shared\\Refund\\": "Bundles/Refund/src",
                     "Spryker\\Zed\\Refund\\": "Bundles/Refund/src",
@@ -1981,7 +1983,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-03-13 14:07:00"
+            "time": "2017-03-20 21:07:37"
         },
         {
             "name": "swiftmailer/swiftmailer",
