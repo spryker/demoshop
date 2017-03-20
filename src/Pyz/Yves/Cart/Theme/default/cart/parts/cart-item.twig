@@ -6,11 +6,21 @@
                 <div class="small-12 columns text-center medium-text-left">
                     <ul class="no-bullet __no-margin-bottom">
                         <li class="lead">
-                            {{ cartItem.name }} - <strong>{{ cartItem.unitGrossPriceWithProductOptions | money }}</strong>
+                            {{ cartItem.name }} - <strong>{{ cartItem.unitGrossPrice | money }}</strong>
                         </li>
-                        <li class="__secondary">{{ 'product.attribute.sku' | trans }} {{cartItem.sku}}</li>
+                            <li class="__secondary">{{ 'cart.item.sku' | trans }} {{cartItem.sku}}</li>
+
+                        {% if bundleItems is defined %}
+                            <br />
+                            <li>{{ 'cart.item.bundle.description' | trans }}</li>
+
+                            {% for bundleItem in bundleItems %}
+                                <li> - {{ bundleItem.quantity }} x {{ bundleItem.name }}  </li>
+                            {% endfor %}
+                        {% endif %}
+
                         {% if cartItem.productOptions|length > 0 %}
-                            <li>{{ 'product.product_options' | trans }}</li>
+                            <li>{{ 'cart.item.option.description' | trans }}</li>
                             {% for productOption in cartItem.productOptions %}
                                <li> + {{ productOption.value | trans }} <strong>{{ productOption.unitGrossPrice | money }}</strong> </li>
                             {% endfor %}

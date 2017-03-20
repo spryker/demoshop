@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Url\Persistence;
 
-use Orm\Zed\Url\Persistence\Base\SpyUrlRedirectQuery as BaseSpyUrlRedirectQuery;
+use Spryker\Zed\Url\Persistence\Propel\AbstractSpyUrlRedirectQuery as BaseSpyUrlRedirectQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_url_redirect' table.

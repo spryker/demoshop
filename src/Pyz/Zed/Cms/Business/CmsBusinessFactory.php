@@ -12,6 +12,7 @@ use Spryker\Zed\Cms\Business\CmsBusinessFactory as SprykerCmsBusinessFactory;
 
 /**
  * @method \Spryker\Zed\Cms\Persistence\CmsQueryContainer getQueryContainer()
+ * @method \Pyz\Zed\Cms\CmsConfig getConfig()
  */
 class CmsBusinessFactory extends SprykerCmsBusinessFactory
 {

@@ -8,14 +8,38 @@
     "email": "info@spryker.com",
     "url": "http://spryker.com/"
   },
+  "scripts": {
+    "yves": "node ./assets/Yves/default/build",
+    "yves:dev": "node ./assets/Yves/default/build --dev",
+    "yves:prod": "node ./assets/Yves/default/build --prod",
+    "zed": "node ./node_modules/@spryker/oryx-for-zed/build",
+    "zed:dev": "node ./node_modules/@spryker/oryx-for-zed/build --dev",
+    "zed:prod": "node ./node_modules/@spryker/oryx-for-zed/build --prod"
+  },
+  "engines": {
+    "node": "^6.0.0"
+  },
   "dependencies": {
-    "font-awesome": "~4.6.1",
+    "es6-promise": "~4.1.0",
+    "font-awesome": "~4.7.0",
     "foundation-sites": "~6.2.1",
     "jquery": "~2.2.4",
-    "lodash": "^4.17.2",
+    "lodash": "~4.17.2",
     "motion-ui": "~1.1.0"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^3.0.1"
+    "@spryker/oryx": "^0.4.5",
+    "@spryker/oryx-for-zed": "^0.5.4",
+    "autoprefixer": "~6.7.6",
+    "copy-webpack-plugin": "~4.0.1",
+    "css-loader": "~0.27.1",
+    "extract-text-webpack-plugin": "~2.1.0",
+    "file-loader": "~0.10.1",
+    "node-sass": "~4.5.0",
+    "postcss-loader": "~1.3.3",
+    "sass-loader": "~6.0.3",
+    "style-loader": "~0.13.1",
+    "webpack": "~2.2.0",
+    "yargs": "~7.0.2"
   }
 }

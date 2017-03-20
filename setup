@@ -2,8 +2,21 @@
 
 set -o pipefail
 
+. deploy/setup/util/print.sh
 . deploy/setup/params.sh
+
+if [[ -f deploy/setup/params_local.sh ]] ; then
+    . deploy/setup/params_local.sh
+fi
+
 . deploy/setup/functions.sh
+. deploy/setup/frontend/params.sh
+
+if [[ -f deploy/setup/frontend/params_local.sh ]] ; then
+    . deploy/setup/frontend/params_local.sh
+fi
+
+. deploy/setup/frontend/functions.sh
 
 export APPLICATION_ENV='development'
 

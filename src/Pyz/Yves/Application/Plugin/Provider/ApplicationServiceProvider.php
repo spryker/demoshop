@@ -7,15 +7,16 @@
 
 namespace Pyz\Yves\Application\Plugin\Provider;
 
-use Pyz\Yves\Application\Plugin\Pimple;
 use Silex\Application;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Config\Application\Environment as ApplicationEnvironment;
 use Spryker\Shared\Config\Config;
+use Spryker\Shared\Config\Environment;
 use Spryker\Shared\Kernel\Store;
-use Spryker\Shared\Library\Application\Environment as ApplicationEnvironment;
-use Spryker\Shared\Library\DataDirectory;
-use Spryker\Shared\Library\Environment;
+use Spryker\Shared\Log\LogConstants;
+
 use Spryker\Yves\Kernel\ControllerResolver\YvesFragmentControllerResolver;
+use Spryker\Yves\Kernel\Plugin\Pimple;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -102,7 +103,7 @@ class ApplicationServiceProvider extends AbstractServiceProvider
     protected function setProfilerCacheDirectory()
     {
         if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER, false)) {
-            $this->application['profiler.cache_dir'] = DataDirectory::getLocalStoreSpecificPath('cache/profiler');
+            $this->application['profiler.cache_dir'] = APPLICATION_ROOT_DIR . '/data/' . Store::getInstance()->getStoreName() . '/cache/profiler';
         }
     }
 
@@ -133,16 +134,14 @@ class ApplicationServiceProvider extends AbstractServiceProvider
         $store->setCurrentLocale(current($store->getLocales()));
         $this->application[self::LOCALE] = $store->getCurrentLocale();
 
-        if (array_key_exists(self::REQUEST_URI, $_SERVER)) {
-            $requestUri = $_SERVER[self::REQUEST_URI];
+        $requestUri = $this->getRequestUri();
 
-            $expl = explode('/', trim($requestUri, '/'));
-            $identifier = $expl[0];
-
+        if ($requestUri) {
+            $pathElements = explode('/', trim($requestUri, '/'));
+            $identifier = $pathElements[0];
             if ($identifier !== false && array_key_exists($identifier, $store->getLocales())) {
                 $store->setCurrentLocale($store->getLocales()[$identifier]);
                 $this->application[self::LOCALE] = $store->getCurrentLocale();
-
                 ApplicationEnvironment::initializeLocale($store->getCurrentLocale());
             }
         }
@@ -153,7 +152,7 @@ class ApplicationServiceProvider extends AbstractServiceProvider
      */
     protected function setLogLevel()
     {
-        $this->application['monolog.level'] = Config::get(ApplicationConstants::LOG_LEVEL);
+        $this->application['monolog.level'] = Config::get(LogConstants::LOG_LEVEL);
     }
 
     /**
@@ -180,6 +179,17 @@ class ApplicationServiceProvider extends AbstractServiceProvider
             },
             255
         );
+    }
+
+    /**
+     * @return string
+     */
+    protected function getRequestUri()
+    {
+        $requestUri = Request::createFromGlobals()
+            ->server->get(self::REQUEST_URI);
+
+        return $requestUri;
     }
 
 }

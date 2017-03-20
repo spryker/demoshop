@@ -8,11 +8,11 @@
 namespace Pyz\Zed\Console;
 
 use Pyz\Zed\Importer\Communication\Console\DemoDataImportConsole;
+
 use Pyz\Zed\Updater\Communication\Console\UpdaterConsole;
-use Spryker\Shared\Library\Environment;
-use Spryker\Zed\Application\Communication\Console\ApplicationIntegrationCheckConsole;
-use Spryker\Zed\Application\Communication\Console\BuildNavigationConsole;
+use Spryker\Shared\Config\Environment;
 use Spryker\Zed\Cache\Communication\Console\DeleteAllCachesConsole;
+
 use Spryker\Zed\CodeGenerator\Communication\Console\BundleClientCodeGeneratorConsole;
 use Spryker\Zed\CodeGenerator\Communication\Console\BundleCodeGeneratorConsole;
 use Spryker\Zed\CodeGenerator\Communication\Console\BundleSharedCodeGeneratorConsole;
@@ -37,11 +37,14 @@ use Spryker\Zed\Development\Communication\Console\GenerateZedIdeAutoCompletionCo
 use Spryker\Zed\Installer\Communication\Console\InitializeDatabaseConsole;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\NewRelic\Communication\Console\RecordDeploymentConsole;
+use Spryker\Zed\NewRelic\Communication\Plugin\NewRelicConsolePlugin;
 use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole as OmsCheckConditionConsole;
 use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole as OmsCheckTimeoutConsole;
 use Spryker\Zed\Oms\Communication\Console\ClearLocksConsole as OmsClearLocksConsole;
 use Spryker\Zed\Product\Communication\Console\ProductTouchConsole;
+use Spryker\Zed\Search\Communication\Console\GenerateIndexMapConsole;
 use Spryker\Zed\Search\Communication\Console\SearchConsole;
+use Spryker\Zed\Session\Communication\Console\SessionRemoveLockConsole;
 use Spryker\Zed\Setup\Communication\Console\DeployPreparePropelConsole;
 use Spryker\Zed\Setup\Communication\Console\InstallConsole;
 use Spryker\Zed\Setup\Communication\Console\JenkinsDisableConsole;
@@ -55,6 +58,7 @@ use Spryker\Zed\StateMachine\Communication\Console\ClearLocksConsole as StateMac
 use Spryker\Zed\Touch\Communication\Console\TouchCleanUpConsole;
 use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
 use Spryker\Zed\Transfer\Communication\Console\ValidatorConsole;
+use Spryker\Zed\ZedNavigation\Communication\Console\BuildNavigationConsole;
 
 class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
 {
@@ -67,7 +71,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
     public function getConsoleCommands(Container $container)
     {
         $commands = [
-            new ApplicationIntegrationCheckConsole(),
+
             new BuildNavigationConsole(),
             new CollectorStorageExportConsole(),
             new CollectorSearchExportConsole(),
@@ -79,12 +83,14 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new InitializeDatabaseConsole(),
             new RecordDeploymentConsole(),
             new SearchConsole(),
+            new GenerateIndexMapConsole(),
             new OmsCheckConditionConsole(),
             new OmsCheckTimeoutConsole(),
             new OmsClearLocksConsole(),
             new StateMachineCheckTimeoutConsole(),
             new StateMachineCheckConditionConsole(),
             new StateMachineClearLocksConsole(),
+            new SessionRemoveLockConsole(),
 
             // Setup commands
             new RunnerConsole(),
@@ -123,6 +129,26 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
         }
 
         return $commands;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Symfony\Component\EventDispatcher\EventSubscriberInterface[]
+     */
+    protected function getEventSubscriber(Container $container)
+    {
+        return [
+            $this->createNewRelicConsolePlugin()
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\NewRelic\Communication\Plugin\NewRelicConsolePlugin
+     */
+    protected function createNewRelicConsolePlugin()
+    {
+        return new NewRelicConsolePlugin();
     }
 
 }

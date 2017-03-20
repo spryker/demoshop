@@ -12,7 +12,9 @@ use Silex\Application;
 use Silex\Provider\TwigServiceProvider as SilexTwigServiceProvider;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\Config;
+use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
+use Spryker\Shared\Twig\TwigConstants;
 use Spryker\Yves\Application\Routing\Helper;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
@@ -24,7 +26,7 @@ class TwigServiceProvider extends SilexTwigServiceProvider
 {
 
     /**
-     * @var \Spryker\Yves\Application\Application
+     * @var \Spryker\Yves\Kernel\Application
      */
     private $app;
 
@@ -96,7 +98,6 @@ class TwigServiceProvider extends SilexTwigServiceProvider
      */
     protected function render(array $parameters = [])
     {
-        $helper = new Helper($this->app);
         $request = $this->app['request_stack']->getCurrentRequest();
         $controller = $request->attributes->get('_controller');
 
@@ -104,13 +105,25 @@ class TwigServiceProvider extends SilexTwigServiceProvider
             return null;
         }
 
-        if (isset($parameters['alternativeRoute'])) {
-            $route = (string)$parameters['alternativeRoute'];
-        } else {
-            $route = $helper->getRouteFromDestination($controller);
-        }
+        $route = $this->getRoute($parameters, $controller);
 
         return $this->app->render('@' . $route . '.twig', $parameters);
+    }
+
+    /**
+     * @param array $parameters
+     * @param string $controller
+     *
+     * @return string
+     */
+    protected function getRoute(array $parameters, $controller)
+    {
+        if (isset($parameters['alternativeRoute'])) {
+            return (string)$parameters['alternativeRoute'];
+        }
+        $helper = new Helper($this->app);
+
+        return $helper->getRouteFromDestination($controller);
     }
 
     /**
@@ -122,7 +135,7 @@ class TwigServiceProvider extends SilexTwigServiceProvider
     {
         $app['twig.loader.yves'] = $app->share(function () {
             $themeName = Config::get(ApplicationConstants::YVES_THEME);
-            $namespaces = Config::get(ApplicationConstants::PROJECT_NAMESPACES);
+            $namespaces = Config::get(KernelConstants::PROJECT_NAMESPACES);
             $store = Store::getInstance()->getStoreName();
 
             $paths = [];
@@ -130,7 +143,7 @@ class TwigServiceProvider extends SilexTwigServiceProvider
                 $paths[] = APPLICATION_SOURCE_DIR . '/' . $namespace . '/Yves/%s' . $store . '/Theme/' . $themeName;
                 $paths[] = APPLICATION_SOURCE_DIR . '/' . $namespace . '/Yves/%s/Theme/' . $themeName;
             }
-            $paths[] = Config::get(ApplicationConstants::APPLICATION_SPRYKER_ROOT) . '/%1$s/src/Spryker/Yves/%1$s/Theme/' . $themeName;
+            $paths[] = Config::get(KernelConstants::SPRYKER_ROOT) . '/%1$s/src/Spryker/Yves/%1$s/Theme/' . $themeName;
 
             return new YvesFilesystemLoader($paths);
 
@@ -161,7 +174,7 @@ class TwigServiceProvider extends SilexTwigServiceProvider
      */
     protected function registerTwigCache(Application $app)
     {
-        $app['twig.options'] = Config::get(ApplicationConstants::YVES_TWIG_OPTIONS);
+        $app['twig.options'] = Config::get(TwigConstants::YVES_TWIG_OPTIONS);
     }
 
     /**

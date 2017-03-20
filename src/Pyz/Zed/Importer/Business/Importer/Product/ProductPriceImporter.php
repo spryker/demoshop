@@ -7,12 +7,12 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\Product;
 
+use Everon\Component\Collection\Collection;
 use Exception;
 use Orm\Zed\Price\Persistence\SpyPriceProduct;
 use Orm\Zed\Price\Persistence\SpyPriceProductQuery;
 use Pyz\Zed\Importer\Business\Exception\PriceTypeNotFoundException;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
-use Spryker\Shared\Library\Collection\Collection;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Price\Persistence\PriceQueryContainerInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
@@ -27,7 +27,7 @@ class ProductPriceImporter extends AbstractImporter
     const PRICE_TYPE = 'price_type';
 
     /**
-     * @var \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface
+     * @var \Spryker\Service\UtilDataReader\Model\Reader\Csv\CsvReaderInterface
      */
     protected $cvsPriceReader;
 
@@ -47,7 +47,7 @@ class ProductPriceImporter extends AbstractImporter
     protected $productQueryContainer;
 
     /**
-     * @var \Spryker\Shared\Library\Collection\CollectionInterface
+     * @var \Everon\Component\Collection\CollectionInterface
      */
     protected $cachePriceType;
 
@@ -110,15 +110,21 @@ class ProductPriceImporter extends AbstractImporter
             $productAbstractEntity = $this->getProductAbstractEntity($data['abstract_sku']);
 
             $priceProductEntity->setFkProductAbstract($productAbstractEntity->getIdProductAbstract());
-        } elseif ($data['concrete_sku']) {
+            $priceProductEntity->save();
+
+            return;
+        }
+
+        if ($data['concrete_sku']) {
             $productConcreteEntity = $this->getProductConcreteEntity($data['concrete_sku']);
 
             $priceProductEntity->setFkProduct($productConcreteEntity->getIdProduct());
-        } else {
-            throw new Exception(sprintf('Missing abstract or concrete sku from imported data: %s.', print_r($data, true)));
+            $priceProductEntity->save();
+
+            return;
         }
 
-        $priceProductEntity->save();
+        throw new Exception(sprintf('Missing abstract or concrete sku from imported data: %s.', print_r($data, true)));
     }
 
     /**
@@ -132,19 +138,19 @@ class ProductPriceImporter extends AbstractImporter
     {
         $priceTypeEntity = null;
 
-        if (!$this->cachePriceType->has($priceType)) {
-            $priceTypeEntity = $this->priceQueryContainer
-                ->queryPriceType($priceType)
-                ->findOne();
-
-            if (!$priceTypeEntity) {
-                throw new PriceTypeNotFoundException($priceType);
-            }
-
-            $this->cachePriceType->set($priceType, $priceTypeEntity);
-        } else {
-            $priceTypeEntity = $this->cachePriceType->get($priceType);
+        if ($this->cachePriceType->has($priceType)) {
+            return $this->cachePriceType->get($priceType);
         }
+
+        $priceTypeEntity = $this->priceQueryContainer
+            ->queryPriceType($priceType)
+            ->findOne();
+
+        if (!$priceTypeEntity) {
+            throw new PriceTypeNotFoundException($priceType);
+        }
+
+        $this->cachePriceType->set($priceType, $priceTypeEntity);
 
         return $priceTypeEntity;
     }

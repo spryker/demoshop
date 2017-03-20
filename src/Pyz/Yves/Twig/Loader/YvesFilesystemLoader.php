@@ -96,9 +96,11 @@ class YvesFilesystemLoader implements Twig_LoaderInterface, Twig_ExistsLoaderInt
 
         if (empty($this->paths)) {
             $this->paths[] = $path;
-        } else {
-            array_unshift($this->paths, $path);
+
+            return;
         }
+
+        array_unshift($this->paths, $path);
     }
 
     /**
@@ -154,13 +156,15 @@ class YvesFilesystemLoader implements Twig_LoaderInterface, Twig_ExistsLoaderInt
         $paths = [];
         foreach ($this->paths as $path) {
             $path = sprintf($path, $bundle);
-            if (strpos($path, '*') !== false) {
-                $path = glob($path);
-                if (count($path) > 0) {
-                    $paths[] = $path[0];
-                }
-            } else {
+            if (strpos($path, '*') === false) {
                 $paths[] = $path;
+
+                continue;
+            }
+
+            $path = glob($path);
+            if (count($path) > 0) {
+                $paths[] = $path[0];
             }
         }
 
@@ -184,25 +188,25 @@ class YvesFilesystemLoader implements Twig_LoaderInterface, Twig_ExistsLoaderInt
         if (isset($this->cache[$name])) {
             if ($this->cache[$name] !== false) {
                 return $this->cache[$name];
-            } else {
-                throw new Twig_Error_Loader(sprintf('Unable to find template "%s" (cached).', $name));
             }
+
+            throw new Twig_Error_Loader(sprintf('Unable to find template "%s" (cached).', $name));
         }
 
         $this->validateName($name);
 
-        if (isset($name[0]) && $name[0] === '@') {
-            $pos = strpos($name, '/');
-            if ($pos === false) {
-                $this->cache[$name] = false;
-                throw new Twig_Error_Loader(sprintf('Malformed bundle template name "%s" (expecting "@bundle/template_name").', $name));
-            }
-            $bundle = ucfirst(substr($name, 1, $pos - 1));
-            $templateName = substr($name, $pos + 1);
-        } else {
+        if (!isset($name[0]) && $name[0] === '@') {
             $this->cache[$name] = false;
             throw new Twig_Error_Loader(sprintf('Missing bundle in template name "%s" (expecting "@bundle/template_name").', $name));
         }
+
+        $pos = strpos($name, '/');
+        if ($pos === false) {
+            $this->cache[$name] = false;
+            throw new Twig_Error_Loader(sprintf('Malformed bundle template name "%s" (expecting "@bundle/template_name").', $name));
+        }
+        $bundle = ucfirst(substr($name, 1, $pos - 1));
+        $templateName = substr($name, $pos + 1);
 
         $paths = $this->getPathsForBundle($bundle);
         foreach ($paths as $path) {

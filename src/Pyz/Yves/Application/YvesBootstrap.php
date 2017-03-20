@@ -12,7 +12,6 @@ use Pyz\Shared\Application\Plugin\Provider\WebProfilerServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\AutoloaderCacheServiceProvider;
-use Pyz\Yves\Application\Plugin\Provider\FlashMessengerServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\LanguageServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\SessionServiceProvider as ProviderSessionServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\YvesSecurityServiceProvider;
@@ -44,11 +43,11 @@ use Spryker\Shared\Application\ServiceProvider\HeadersSecurityServiceProvider;
 use Spryker\Shared\Application\ServiceProvider\RoutingServiceProvider;
 use Spryker\Shared\Application\ServiceProvider\UrlGeneratorServiceProvider;
 use Spryker\Shared\Config\Config;
-use Spryker\Yves\Application\Application;
 use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
-use Spryker\Yves\Application\Plugin\Provider\MonologServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\YvesHstsServiceProvider;
+use Spryker\Yves\Kernel\Application;
+use Spryker\Yves\Messenger\Plugin\Provider\FlashMessengerServiceProvider;
 use Spryker\Yves\Money\Plugin\ServiceProvider\TwigMoneyServiceProvider;
 use Spryker\Yves\Storage\Plugin\Provider\StorageRequestCacheServiceProvider;
 
@@ -56,7 +55,7 @@ class YvesBootstrap
 {
 
     /**
-     * @var \Spryker\Yves\Application\Application
+     * @var \Spryker\Yves\Kernel\Application
      */
     protected $application;
 
@@ -66,7 +65,7 @@ class YvesBootstrap
     }
 
     /**
-     * @return \Spryker\Yves\Application\Application
+     * @return \Spryker\Yves\Kernel\Application
      */
     public function boot()
     {
@@ -95,7 +94,7 @@ class YvesBootstrap
         $this->application->register(new ExceptionServiceProvider());
         $this->application->register(new NewRelicServiceProvider());
         $this->application->register(new EventJournalServiceProvider());
-        $this->application->register(new MonologServiceProvider());
+
         $this->application->register(new CookieServiceProvider());
         $this->application->register(new UrlGeneratorServiceProvider());
         $this->application->register(new ServiceControllerServiceProvider());

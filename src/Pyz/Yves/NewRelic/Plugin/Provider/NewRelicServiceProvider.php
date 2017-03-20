@@ -9,7 +9,7 @@ namespace Pyz\Yves\NewRelic\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
 use Silex\Application;
-use Spryker\Shared\Library\System;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
@@ -67,7 +67,7 @@ class NewRelicServiceProvider extends AbstractServiceProvider
     protected function setNewRelicTransactionName(Request $request)
     {
         $transactionName = $request->attributes->get('_route');
-        $host = $request->server->get('COMPUTERNAME', System::getHostname());
+        $host = $request->server->get('COMPUTERNAME', $this->getFactory()->getUtilNetworkService()->getHostname());
         $requestUri = $request->getRequestUri();
 
         $this->newRelicApi->setNameOfTransaction($transactionName)

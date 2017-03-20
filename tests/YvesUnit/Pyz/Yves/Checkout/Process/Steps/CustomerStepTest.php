@@ -1,6 +1,8 @@
 <?php
+
 /**
- * (c) Spryker Systems GmbH copyright protected
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
@@ -111,8 +113,8 @@ class CustomerStepTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param null $authHandlerMock
-     * @param null $customerClientMock
+     * @param \PHPUnit_Framework_MockObject_MockObject|\Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface|null $authHandlerMock
+     * @param \PHPUnit_Framework_MockObject_MockObject|\Pyz\Client\Customer\CustomerClientInterface|null $customerClientMock
      *
      * @return \Pyz\Yves\Checkout\Process\Steps\CustomerStep
      */

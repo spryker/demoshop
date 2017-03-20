@@ -62,4 +62,14 @@ class CollectorConfig extends SprykerCollectorConfig
         return $data[$dbEngineName];
     }
 
+    /**
+     * @SuppressWarnings(PHPMD.BooleanGetMethodName)
+     *
+     * @return bool
+     */
+    public function getEnablePrepareScopeKeyJoinFixFeatureFlag()
+    {
+        return true;
+    }
+
 }

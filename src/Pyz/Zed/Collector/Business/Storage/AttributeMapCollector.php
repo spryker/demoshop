@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\RawProductAttributesTransfer;
+
 use Generated\Shared\Transfer\StorageAttributeMapTransfer;
 use Orm\Zed\Product\Persistence\Base\SpyProductAttributeKeyQuery;
 use Orm\Zed\Product\Persistence\Map\SpyProductAttributeKeyTableMap;
@@ -17,10 +18,14 @@ use Orm\Zed\Product\Persistence\SpyProductQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\Map\TableMap;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AttributeMapCollectorQuery;
+use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollector;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
 
+/**
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 class AttributeMapCollector extends AbstractStoragePropelCollector
 {
 
@@ -30,10 +35,13 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
     protected $productFacade;
 
     /**
+     * @param \Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface $utilDataReaderService
      * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
      */
-    public function __construct(ProductFacadeInterface $productFacade)
+    public function __construct(UtilDataReaderServiceInterface $utilDataReaderService, ProductFacadeInterface $productFacade)
     {
+        parent::__construct($utilDataReaderService);
+
         $this->productFacade = $productFacade;
     }
 
@@ -191,8 +199,8 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
     protected function filterUniqueAttributeKeys(array $productAttributes)
     {
         $uniqueAttributes = [];
-        foreach ($productAttributes as $idProductConcrete => $attributes) {
-            foreach ($attributes as $key => $value) {
+        foreach ($productAttributes as $attributes) {
+            foreach (array_keys($attributes) as $key) {
                 if (isset($uniqueAttributes[$key])) {
                     continue;
                 }

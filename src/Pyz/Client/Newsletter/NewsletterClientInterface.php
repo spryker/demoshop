@@ -14,6 +14,11 @@ interface NewsletterClientInterface extends SprykerNewsletterClientInterface
 {
 
     /**
+     * Specification:
+     * - Subscribes a Customer to editorial Newsletter.
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
      * @return \Generated\Shared\Transfer\NewsletterSubscriptionResultTransfer
@@ -21,14 +26,24 @@ interface NewsletterClientInterface extends SprykerNewsletterClientInterface
     public function subscribeForEditorialNewsletter(CustomerTransfer $customerTransfer);
 
     /**
+     * Specification:
+     * - Unsubscribes a Customer to editorial Newsletter.
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      * @param string|null $subscriberKey
      *
-     * @return \Generated\Shared\Transfer\NewsletterSubscriptionResponseTransfer
+     * @return \Generated\Shared\Transfer\NewsletterSubscriptionResultTransfer
      */
     public function unsubscribeFromAllNewsletters(CustomerTransfer $customerTransfer, $subscriberKey = null);
 
     /**
+     * Specification:
+     * - Checks a editorial Newsletter subscription.
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
      * @return \Generated\Shared\Transfer\NewsletterSubscriptionResultTransfer

@@ -69,6 +69,9 @@ class SalesAggregatorFacadeTest extends Test
         $this->assertSame(840, $itemTransfer1->getSumGrossPriceWithProductOptionAndDiscountAmounts());
         $this->assertSame(750, $itemTransfer2->getSumGrossPriceWithProductOptionAndDiscountAmounts());
 
+        $this->assertSame(840, $itemTransfer1->getSumItemTotal());
+        $this->assertSame(750, $itemTransfer2->getSumItemTotal());
+
         $this->assertSame(80, $itemTransfer1->getUnitTaxAmount());
         $this->assertSame(128, $itemTransfer2->getUnitTaxAmount());
 
@@ -81,8 +84,14 @@ class SalesAggregatorFacadeTest extends Test
         $this->assertSame(110, $itemTransfer1->getUnitTotalDiscountAmountWithProductOption());
         $this->assertSame(110, $itemTransfer2->getUnitTotalDiscountAmountWithProductOption());
 
+        $this->assertSame(110, $itemTransfer1->getFinalUnitDiscountAmount());
+        $this->assertSame(110, $itemTransfer2->getFinalUnitDiscountAmount());
+
         $this->assertSame(220, $itemTransfer1->getSumTotalDiscountAmountWithProductOption());
         $this->assertSame(110, $itemTransfer2->getSumTotalDiscountAmountWithProductOption());
+
+        $this->assertSame(220, $itemTransfer1->getFinalSumDiscountAmount());
+        $this->assertSame(110, $itemTransfer2->getFinalSumDiscountAmount());
 
         $this->assertSame(160, $itemTransfer1->getSumTaxAmount());
         $this->assertSame(128, $itemTransfer2->getSumTaxAmount());
@@ -100,8 +109,14 @@ class SalesAggregatorFacadeTest extends Test
         $this->assertSame(14, $expenseTransfer->getUnitTaxAmountWithDiscounts());
         $this->assertSame(14, $expenseTransfer->getSumTaxAmountWithDiscounts());
 
+        $this->assertSame(14, $expenseTransfer->getUnitTaxTotal());
+        $this->assertSame(14, $expenseTransfer->getSumTaxTotal());
+
         $this->assertSame(10, $expenseTransfer->getUnitTotalDiscountAmount());
         $this->assertSame(10, $expenseTransfer->getSumTotalDiscountAmount());
+
+        $this->assertSame(10, $expenseTransfer->getFinalUnitDiscountAmount());
+        $this->assertSame(10, $expenseTransfer->getFinalSumDiscountAmount());
 
         $this->assertSame(90, $expenseTransfer->getRefundableAmount());
 

@@ -1,6 +1,8 @@
 <?php
+
 /**
- * (c) Spryker Systems GmbH copyright protected
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
@@ -10,6 +12,7 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use PHPUnit_Framework_TestCase;
 use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
+use Spryker\Client\Cart\CartClientInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -78,11 +81,22 @@ class SuccessStepTest extends PHPUnit_Framework_TestCase
             $customerClientMock = $this->createCustomerClientMock();
         }
 
+        $cartClientMock = $this->createCartClientMock();
+
         return new SuccessStep(
             $customerClientMock,
+            $cartClientMock,
             'success_route',
             'escape_route'
         );
+    }
+
+    /**
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Cart\CartClientInterface
+     */
+    protected function createCartClientMock()
+    {
+        return $this->getMockBuilder(CartClientInterface::class)->getMock();
     }
 
     /**

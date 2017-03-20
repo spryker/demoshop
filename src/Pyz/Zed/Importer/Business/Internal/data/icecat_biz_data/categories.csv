@@ -1,7 +1,7 @@
 category_key,parent_category_key,name.en_US,description.en_US,name.de_DE,description.de_DE,order
 1,,Cameras & Camcorders,,Kameras & Camcorders,,90
 2,1,Camcorders,,Digitale Videokameras,,90
-3,1,Digital Cameras,,Digitale Kameras,,100
+3,1,Digitale Cameras,,Digitale Kameras,,100
 4,,Computer,,Computer,,100
 5,4,Notebooks,,Notebooks,,100
 6,4,Pc's/Workstations,,Pc's/Workstations,,90
@@ -10,3 +10,4 @@ category_key,parent_category_key,name.en_US,description.en_US,name.de_DE,descrip
 9,8,Smartwatches,,Smartwatches,,70
 10,,Telecom & Navigation,,Telekommunikation & Navigation,,80
 11,10,Smartphones,,Smartphones,,80
+12,,Product Bundles,These are multiple products bundled to a new product.,Product Bundles,Hier findest du verschiedene Produkte zu einem Bündel kombiniert.,60

@@ -1,21 +1,26 @@
 <?php
 
 use Monolog\Logger;
+use Pyz\Shared\Newsletter\NewsletterConstants;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Auth\AuthConstants;
+use Spryker\Shared\Cms\CmsConstants;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
+use Spryker\Shared\ErrorHandler\ErrorRenderer\WebHtmlErrorRenderer;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
-use Spryker\Shared\Library\DataDirectory;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\NewRelic\NewRelicConstants;
 use Spryker\Shared\Oms\OmsConstants;
+use Spryker\Shared\Payolution\PayolutionConstants;
+use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
 use Spryker\Shared\Price\PriceConstants;
+use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Sales\SalesConstants;
 use Spryker\Shared\Search\SearchConstants;
@@ -23,27 +28,32 @@ use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Storage\StorageConstants;
 use Spryker\Shared\Tax\TaxConstants;
+use Spryker\Shared\Twig\TwigConstants;
 use Spryker\Shared\User\UserConstants;
+use Spryker\Shared\ZedNavigation\ZedNavigationConstants;
+use Spryker\Shared\ZedRequest\ZedRequestConstants;
 use Spryker\Zed\DummyPayment\DummyPaymentConfig;
 use Spryker\Zed\Oms\OmsConfig;
 use Spryker\Zed\Propel\PropelConfig;
 
-$config[ApplicationConstants::PROJECT_NAMESPACES] = [
+$config[KernelConstants::PROJECT_NAMESPACES] = [
     'Pyz',
 ];
-$config[ApplicationConstants::CORE_NAMESPACES] = [
+
+$config[KernelConstants::CORE_NAMESPACES] = [
+    'SprykerEco',
     'Spryker',
 ];
 
 $config[ApplicationConstants::PROJECT_TIMEZONE] = 'UTC';
-$config[ApplicationConstants::PROJECT_NAMESPACE] = 'Pyz';
+$config[KernelConstants::PROJECT_NAMESPACE] = 'Pyz';
 
-$config[ApplicationConstants::ZED_TWIG_OPTIONS] = [
-    'cache' => DataDirectory::getLocalStoreSpecificPath('cache/Zed/twig'),
+$config[TwigConstants::ZED_TWIG_OPTIONS] = [
+    'cache' => APPLICATION_ROOT_DIR . '/data/' . Store::getInstance()->getStoreName() . '/cache/Zed/twig',
 ];
 
-$config[ApplicationConstants::YVES_TWIG_OPTIONS] = [
-    'cache' => DataDirectory::getLocalStoreSpecificPath('cache/Yves/twig'),
+$config[TwigConstants::YVES_TWIG_OPTIONS] = [
+    'cache' => APPLICATION_ROOT_DIR . '/data/' . Store::getInstance()->getStoreName() . '/cache/Yves/twig',
 ];
 
 $config[PropelConstants::ZED_DB_ENGINE_MYSQL] = PropelConfig::DB_ENGINE_MYSQL;
@@ -88,6 +98,11 @@ $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
  * In production you probably use a CDN for static content
  */
 $config[ApplicationConstants::HOST_YVES]
+    = $config[ProductManagementConstants::HOST_YVES]
+    = $config[PayoneConstants::HOST_YVES]
+    = $config[PayolutionConstants::HOST_YVES]
+    = $config[NewsletterConstants::HOST_YVES]
+    = $config[CustomerConstants::HOST_YVES]
     = $config[ApplicationConstants::HOST_STATIC_ASSETS]
     = $config[ApplicationConstants::HOST_STATIC_MEDIA]
     = $config[ApplicationConstants::HOST_SSL_YVES]
@@ -117,20 +132,20 @@ $config[ApplicationConstants::ZED_HTTP_STRICT_TRANSPORT_SECURITY_CONFIG] =
     'preload' => true,
     ];
 
-$config[ApplicationConstants::LOG_LEVEL] = Logger::INFO;
+$config[LogConstants::LOG_LEVEL] = Logger::INFO;
 
-$config[ApplicationConstants::TRANSFER_USERNAME] = 'yves';
-$config[ApplicationConstants::TRANSFER_PASSWORD] = 'o7&bg=Fz;nSslHBC';
-$config[ApplicationConstants::TRANSFER_SSL] = false;
-$config[ApplicationConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = false;
-$config[ApplicationConstants::TRANSFER_DEBUG_SESSION_NAME] = 'XDEBUG_SESSION';
+$config[ZedRequestConstants::TRANSFER_USERNAME] = 'yves';
+$config[ZedRequestConstants::TRANSFER_PASSWORD] = 'o7&bg=Fz;nSslHBC';
 
-$config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
+$config[ZedRequestConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = false;
+$config[ZedRequestConstants::TRANSFER_DEBUG_SESSION_NAME] = 'XDEBUG_SESSION';
+
+$config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
 
 $config[StorageConstants::STORAGE_KV_SOURCE] = 'redis';
 $config[StorageConstants::STORAGE_PERSISTENT_CONNECTION] = true;
 
-$config[SessionConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
+$config[SessionConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS_LOCKING;
 $config[SessionConstants::YVES_SESSION_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_1_HOUR;
 $config[SessionConstants::YVES_SESSION_FILE_PATH] = session_save_path();
 $config[SessionConstants::YVES_SESSION_COOKIE_NAME] = $config[ApplicationConstants::HOST_YVES];
@@ -143,11 +158,16 @@ $config[SessionConstants::ZED_SESSION_FILE_PATH] = session_save_path();
 $config[SessionConstants::ZED_SESSION_COOKIE_NAME] = $config[ApplicationConstants::HOST_ZED_GUI];
 $config[SessionConstants::ZED_SESSION_PERSISTENT_CONNECTION] = $config[StorageConstants::STORAGE_PERSISTENT_CONNECTION];
 
+$config[SessionConstants::SESSION_HANDLER_REDIS_LOCKING_TIMEOUT_MILLISECONDS] = 0;
+$config[SessionConstants::SESSION_HANDLER_REDIS_LOCKING_RETRY_DELAY_MICROSECONDS] = 0;
+$config[SessionConstants::SESSION_HANDLER_REDIS_LOCKING_LOCK_TTL_MILLISECONDS] = 0;
+
 $config[ApplicationConstants::ZED_SSL_ENABLED] = false;
-$config[ApplicationConstants::ZED_API_SSL_ENABLED] = false;
+$config[ZedRequestConstants::ZED_API_SSL_ENABLED] = false;
 $config[ApplicationConstants::ZED_SSL_EXCLUDED] = ['heartbeat/index'];
 
-$config[ApplicationConstants::YVES_THEME] = 'default';
+$config[ApplicationConstants::YVES_THEME]
+    = $config[CmsConstants::YVES_THEME] = 'default';
 $config[ApplicationConstants::YVES_TRUSTED_PROXIES] = [];
 $config[ApplicationConstants::YVES_SSL_ENABLED] = false;
 $config[ApplicationConstants::YVES_COMPLETE_SSL_ENABLED] = false;
@@ -155,10 +175,9 @@ $config[ApplicationConstants::YVES_SSL_EXCLUDED] = [
     'heartbeat' => '/heartbeat',
 ];
 
-$config[ApplicationConstants::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
-$config[ApplicationConstants::YVES_SHOW_EXCEPTION_STACK_TRACE] = true;
-$config[ApplicationConstants::ZED_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/static/public/Yves/errorpage/error.html';
-$config[ApplicationConstants::ZED_SHOW_EXCEPTION_STACK_TRACE] = true;
+$config[ErrorHandlerConstants::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/public/Yves/errorpage/error.html';
+$config[ErrorHandlerConstants::ZED_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/public/Yves/errorpage/error.html';
+$config[ErrorHandlerConstants::ERROR_RENDERER] = WebHtmlErrorRenderer::class;
 
 $config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $config[ApplicationConstants::HOST_YVES];
 $config[ApplicationConstants::YVES_COOKIE_DEVICE_ID_NAME] = 'did';
@@ -187,7 +206,8 @@ $config[UserConstants::USER_SYSTEM_USERS] = [
 ];
 
 /** For a better performance you can turn off Zed authentication */
-$config[AuthConstants::AUTH_ZED_ENABLED] = true;
+$config[AuthConstants::AUTH_ZED_ENABLED]
+    = $config[ZedRequestConstants::AUTH_ZED_ENABLED] = true;
 
 $config[AuthConstants::AUTH_DEFAULT_CREDENTIALS] = [
     'yves_system' => [
@@ -289,7 +309,7 @@ $config[AclConstants::ACL_DEFAULT_CREDENTIALS] = [
  * The cache should always be activated. Refresh/build with CLI command:
  * vendor/bin/console application:build-navigation-cache
  */
-$config[ApplicationConstants::NAVIGATION_CACHE_ENABLED] = true;
+$config[ZedNavigationConstants::ZED_NAVIGATION_CACHE_ENABLED] = true;
 
 $config[EventJournalConstants::COLLECTORS]['YVES'] = [
     '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\ServerDataCollector',
@@ -363,7 +383,7 @@ $config[PropelConstants::ZED_DB_SUPPORTED_ENGINES] = [
     PropelConfig::DB_ENGINE_MYSQL => 'MySql',
     PropelConfig::DB_ENGINE_PGSQL => 'PostgreSql',
 ];
-$config[PropelConstants::SCHEMA_FILE_PATH_PATTERN] = $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] . '/*/src/*/Zed/*/Persistence/Propel/Schema/';
+$config[PropelConstants::SCHEMA_FILE_PATH_PATTERN] = $config[KernelConstants::SPRYKER_ROOT] . '/*/src/*/Zed/*/Persistence/Propel/Schema/';
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = true;
 
 $config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [
@@ -383,7 +403,7 @@ $config[KernelConstants::DEPENDENCY_INJECTOR_ZED] = [
 
 $config[OmsConstants::PROCESS_LOCATION] = [
     OmsConfig::DEFAULT_PROCESS_LOCATION,
-    $config[ApplicationConstants::APPLICATION_SPRYKER_ROOT] . '/DummyPayment/config/Zed/Oms',
+    $config[KernelConstants::SPRYKER_ROOT] . '/DummyPayment/config/Zed/Oms',
 ];
 
 $config[OmsConstants::ACTIVE_PROCESSES] = [

@@ -7,11 +7,11 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\Product;
 
+use Everon\Component\Collection\Collection;
 use Generated\Shared\Transfer\StockProductTransfer;
 use Generated\Shared\Transfer\TypeTransfer;
 use Orm\Zed\Stock\Persistence\Base\SpyStockQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
-use Spryker\Shared\Library\Collection\Collection;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
 use Spryker\Zed\Stock\Business\StockFacadeInterface;
@@ -29,7 +29,7 @@ class ProductStockImporter extends AbstractImporter
     const PRODUCT_ID = 'product_id';
 
     /**
-     * @var \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface
+     * @var \Spryker\Service\UtilDataReader\Model\Reader\Csv\CsvReaderInterface
      */
     protected $csvReader;
 
@@ -49,7 +49,7 @@ class ProductStockImporter extends AbstractImporter
     protected $stockFacade;
 
     /**
-     * @var \Spryker\Shared\Library\Collection\CollectionInterface
+     * @var \Everon\Component\Collection\CollectionInterface
      */
     protected $stockTypeCache;
 
@@ -117,13 +117,14 @@ class ProductStockImporter extends AbstractImporter
     protected function createStockTypeOnce(array $stockData)
     {
         $stockTypeTransfer = $this->createTypeTransfer($stockData);
-        if (!$this->stockTypeCache->has($stockData[self::STOCK_TYPE])) {
-            $idStockType = $this->stockFacade->createStockType($stockTypeTransfer);
-            $stockTypeTransfer->setIdStock($idStockType);
-            $this->stockTypeCache->set($stockData[self::STOCK_TYPE], $stockTypeTransfer);
-        } else {
-            $stockTypeTransfer = $this->stockTypeCache->get($stockData[self::STOCK_TYPE]);
+
+        if ($this->stockTypeCache->has($stockData[self::STOCK_TYPE])) {
+            return $this->stockTypeCache->get($stockData[self::STOCK_TYPE]);
         }
+
+        $idStockType = $this->stockFacade->createStockType($stockTypeTransfer);
+        $stockTypeTransfer->setIdStock($idStockType);
+        $this->stockTypeCache->set($stockData[self::STOCK_TYPE], $stockTypeTransfer);
 
         return $stockTypeTransfer;
     }

@@ -9,10 +9,10 @@ namespace Pyz\Yves\Customer\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Provider\AbstractServiceProvider;
 use Pyz\Yves\Customer\Form\LoginForm;
-use Pyz\Yves\Customer\Plugin\UsernamePasswordFormAuthenticationListener;
 use Silex\Application;
 use Spryker\Shared\Config\Config;
 use Spryker\Shared\Customer\CustomerConstants;
+use Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener;
 
 /**
  * @method \Spryker\Client\Customer\CustomerClientInterface getClient()
@@ -101,8 +101,8 @@ class CustomerSecurityServiceProvider extends AbstractServiceProvider
      */
     protected function setAuthenticationSuccessHandler(Application &$app)
     {
-        $app['security.authentication.success_handler._proto'] = $app->protect(function ($name, $options) use ($app) {
-            return $app->share(function () use ($name, $options, $app) {
+        $app['security.authentication.success_handler._proto'] = $app->protect(function () use ($app) {
+            return $app->share(function () {
                 return $this->getFactory()->createCustomerAuthenticationSuccessHandler();
             });
         });
@@ -115,8 +115,8 @@ class CustomerSecurityServiceProvider extends AbstractServiceProvider
      */
     protected function setAuthenticationFailureHandler(Application &$app)
     {
-        $app['security.authentication.failure_handler._proto'] = $app->protect(function ($name, $options) use ($app) {
-            return $app->share(function () use ($name, $options, $app) {
+        $app['security.authentication.failure_handler._proto'] = $app->protect(function () use ($app) {
+            return $app->share(function () {
                 return $this->getFactory()->createCustomerAuthenticationFailureHandler();
             });
         });

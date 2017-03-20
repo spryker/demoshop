@@ -8,10 +8,10 @@ namespace Pyz\Yves\Cart\Handler;
 
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
-use Pyz\Yves\Application\Business\Model\FlashMessengerInterface;
 use Spryker\Client\Cart\CartClientInterface;
+use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
-class CartOperationHandler extends BaseHandler
+class CartOperationHandler extends BaseHandler implements CartOperationInterface
 {
 
     /**
@@ -27,7 +27,7 @@ class CartOperationHandler extends BaseHandler
     /**
      * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $locale
-     * @param \Pyz\Yves\Application\Business\Model\FlashMessengerInterface $flashMessenger
+     * @param \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface $flashMessenger
      */
     public function __construct(CartClientInterface $cartClient, $locale, FlashMessengerInterface $flashMessenger)
     {
@@ -38,7 +38,7 @@ class CartOperationHandler extends BaseHandler
 
     /**
      * @param string $sku
-     * @param string $quantity
+     * @param int $quantity
      * @param array $optionValueUsageIds
      *
      * @return void

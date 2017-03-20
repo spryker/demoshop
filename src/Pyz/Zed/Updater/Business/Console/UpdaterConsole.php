@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\Updater\Business\Console;
 
-use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class UpdaterConsole
@@ -19,21 +19,21 @@ class UpdaterConsole
     protected $output;
 
     /**
-     * @var \Spryker\Zed\Messenger\Business\Model\MessengerInterface
+     * @var \Psr\Log\LoggerInterface
      */
     protected $messenger;
 
     /**
-     * @var \Pyz\Zed\Updater\Business\Installer\InstallerInterface[]
+     * @var \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
      */
     protected $installerCollection;
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      * @param \Pyz\Zed\Importer\Business\Installer\InstallerInterface[] $installerCollection
      */
-    public function __construct(OutputInterface $output, MessengerInterface $messenger, array $installerCollection)
+    public function __construct(OutputInterface $output, LoggerInterface $messenger, array $installerCollection)
     {
         $this->output = $output;
         $this->messenger = $messenger;
@@ -47,12 +47,13 @@ class UpdaterConsole
     {
         $this->output->writeln('Updating...');
 
-        foreach ($this->installerCollection as $name => $installer) {
-            if (!$installer->isInstalled()) {
-                $installer->install($this->output, $this->messenger);
-            } else {
+        foreach ($this->installerCollection as $installer) {
+            if ($installer->isInstalled()) {
                 $this->output->writeln($installer->getTitle() . ' already updated.');
+                continue;
             }
+
+            $installer->install($this->output, $this->messenger);
         }
 
         $this->output->writeln('All done.');

@@ -8,10 +8,12 @@
 namespace Pyz\Zed\Importer\Business\Installer;
 
 use Propel\Runtime\Propel;
+
+use Psr\Log\LoggerInterface as MessengerInterface;
 use Pyz\Zed\Importer\Business\Importer\ImporterInterface;
+use Spryker\Service\UtilDataReader\Model\BatchIterator\CountableIteratorInterface;
+use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
 use Spryker\Shared\Gui\ProgressBar\ProgressBarBuilder;
-use Spryker\Shared\Library\BatchIterator\CountableIteratorInterface;
-use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 abstract class AbstractInstaller implements InstallerInterface
@@ -20,7 +22,7 @@ abstract class AbstractInstaller implements InstallerInterface
     const BAR_TITLE = 'barTitle';
 
     /**
-     * @var \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface
+     * @var \Spryker\Service\UtilDataReader\Model\BatchIterator\CountableIteratorInterface
      */
     protected $batchIterator;
 
@@ -35,7 +37,7 @@ abstract class AbstractInstaller implements InstallerInterface
     protected $output;
 
     /**
-     * @var \Spryker\Zed\Messenger\Business\Model\MessengerInterface
+     * @var \Psr\Log\LoggerInterface
      */
     protected $messenger;
 
@@ -50,7 +52,12 @@ abstract class AbstractInstaller implements InstallerInterface
     protected $importerCollection = [];
 
     /**
-     * @return \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface
+     * @var \Spryker\Service\UtilDataReader\UtilDataReaderService
+     */
+    protected $utilDataReaderService;
+
+    /**
+     * @return \Spryker\Service\UtilDataReader\Model\BatchIterator\CountableIteratorInterface
      */
     abstract protected function buildBatchIterator();
 
@@ -60,18 +67,20 @@ abstract class AbstractInstaller implements InstallerInterface
     abstract public function getTitle();
 
     /**
-     * @param array|\Pyz\Zed\Importer\Business\Importer\ImporterInterface[] $importerCollection
+     * @param \Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface $utilDataReaderService
+     * @param array $importerCollection
      * @param string $dataDirectory
      */
-    public function __construct(array $importerCollection, $dataDirectory)
+    public function __construct(UtilDataReaderServiceInterface $utilDataReaderService, array $importerCollection, $dataDirectory)
     {
+        $this->utilDataReaderService = $utilDataReaderService;
         $this->importerCollection = $importerCollection;
         $this->dataDirectory = $dataDirectory;
     }
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      *
      * @throws \Exception
      *
@@ -101,7 +110,7 @@ abstract class AbstractInstaller implements InstallerInterface
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      *
      * @return void
      */
@@ -125,7 +134,7 @@ abstract class AbstractInstaller implements InstallerInterface
     }
 
     /**
-     * @param \Spryker\Shared\Library\BatchIterator\CountableIteratorInterface $batchIterator
+     * @param \Spryker\Service\UtilDataReader\Model\BatchIterator\CountableIteratorInterface $batchIterator
      * @param array|\Pyz\Zed\Importer\Business\Importer\ImporterInterface[] $importersToExecute
      *
      * @return void
@@ -147,7 +156,7 @@ abstract class AbstractInstaller implements InstallerInterface
      */
     protected function runImporters(array $itemToImport, array $importerCollection)
     {
-        foreach ($importerCollection as $type => $importer) {
+        foreach ($importerCollection as $importer) {
             $importer->beforeImport();
             $importer->import($itemToImport);
             $importer->afterImport();

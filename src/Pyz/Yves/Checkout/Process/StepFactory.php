@@ -19,6 +19,7 @@ use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
 use Spryker\Yves\Checkout\Process\StepFactory as SprykerStepFactory;
+use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 use Spryker\Yves\StepEngine\Process\StepCollection;
 
 class StepFactory extends SprykerStepFactory
@@ -97,6 +98,14 @@ class StepFactory extends SprykerStepFactory
     }
 
     /**
+     * @return \Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper
+     */
+    public function createProductBundleGrouper()
+    {
+        return new ProductBundleGrouper();
+    }
+
+    /**
      * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection
      */
     public function createShipmentPlugins()
@@ -124,6 +133,8 @@ class StepFactory extends SprykerStepFactory
     {
         return new SummaryStep(
             $this->getCalculationClient(),
+            $this->createProductBundleGrouper(),
+            $this->getCartClient(),
             CheckoutControllerProvider::CHECKOUT_SUMMARY,
             ApplicationControllerProvider::ROUTE_HOME
         );
@@ -152,6 +163,7 @@ class StepFactory extends SprykerStepFactory
     {
         return new SuccessStep(
             $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER),
+            $this->getCartClient(),
             CheckoutControllerProvider::CHECKOUT_SUCCESS,
             ApplicationControllerProvider::ROUTE_HOME
         );
@@ -182,7 +194,7 @@ class StepFactory extends SprykerStepFactory
     }
 
     /**
-     * @return \Spryker\Yves\Application\Application
+     * @return \Spryker\Yves\Kernel\Application
      */
     protected function getApplication()
     {
@@ -203,6 +215,14 @@ class StepFactory extends SprykerStepFactory
     public function getCheckoutClient()
     {
         return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CHECKOUT);
+    }
+
+    /**
+     * @return \Spryker\Client\Cart\CartClientInterface
+     */
+    public function getCartClient()
+    {
+        return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CART);
     }
 
 }

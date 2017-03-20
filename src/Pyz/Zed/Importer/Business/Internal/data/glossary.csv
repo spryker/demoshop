@@ -181,6 +181,10 @@ catalog.sort.price_asc,"Nach Preis aufsteigend sortieren",de_DE
 catalog.sort.price_asc,"Sort by price ascending",en_US
 catalog.sort.price_desc,"Nach Preis absteigend sortieren",de_DE
 catalog.sort.price_desc,"Sort by price descending",en_US
+catalog.filter.activeFilters,"Aktive Filter",de_DE
+catalog.filter.activeFilters,"Active filters",en_US
+catalog.filter.resetAllFilters,"Alle Filter zurücksetzen",de_DE
+catalog.filter.resetAllFilters,"Reset all filters",en_US
 product.filter.category,"Kategorien",de_DE
 product.filter.category,"Categories",en_US
 product.filter.price,Preisspanne,de_DE
@@ -727,7 +731,7 @@ product.attribute.themes,Themes,en_US
 product.attribute.themes,Themen,de_DE
 product.attribute.usb_port,USB port,en_US
 product.attribute.usb_port,USB-Port,de_DE
-cart.pre.check.availability.failed, "Currently we have only stock of this product available.",en_US
+cart.pre.check.availability.failed, "The availability of product sku is stock at the moment.",en_US
 cart.pre.check.availability.failed, "Zurzeit haben wir nur stock von diesem Produkt zur Verfügung.",de_DE
 product.detail.out_of_stock, "This product is currently not available.",en_US
 product.detail.out_of_stock, "Das Produkt ist zur Zeit nicht verfügbar.",de_DE
@@ -809,3 +813,19 @@ cart.vouchers.clear-all,"Clear all",en_US
 cart.vouchers.clear-all,"Alle entfernen",de_DE
 cart.voucher.apply.failed,"Your voucher code is invalid.",en_US
 cart.voucher.apply.failed,"Ihr Gutscheincode ist ungültig.",de_DE
+cart.item.bundle.description,"Items in the bundle:",en_US
+cart.item.bundle.description,"Produkte in diesem Bündel:",de_DE
+checkout.summary.item.bundle.description,"Items in the bundle:",en_US
+checkout.summary.item.bundle.description,"Produkte in diesem Bündel:",de_DE
+customer.order.bundled_items,"Produkte in diesem Bündel:",de_DE
+customer.order.bundled_items,"Items in the bundle:",en_US
+customer.order.options,"Produktoptionen:",de_DE
+customer.order.options,"Product options:",en_US
+countries.iso.AT,"Österreich",de_DE
+countries.iso.AT,"Austria",en_US
+cart.item.option.description,"Product options:",en_US
+cart.item.option.description,"Produktoptionen:",de_DE
+cart.item.sku,"SKU",en_US
+cart.item.sku,"SKU",de_DE
+checkout.summary.item.option.description,"Product options:",en_US
+checkout.summary.item.option.description,"Produktoptionen:",de_DE

@@ -26,42 +26,15 @@ use Spryker\Service\UtilEncoding\UtilEncodingService;
 use Spryker\Service\UtilText\UtilTextService;
 use Spryker\Zed\Locale\Business\LocaleFacade;
 use Spryker\Zed\Price\Business\PriceFacade;
-use Spryker\Zed\Price\Communication\Plugin\ProductAbstract\PriceProductAbstractAfterCreatePlugin;
-use Spryker\Zed\Price\Communication\Plugin\ProductAbstract\PriceProductAbstractAfterUpdatePlugin;
-use Spryker\Zed\Price\Communication\Plugin\ProductAbstract\PriceProductAbstractReadPlugin;
-use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteAfterCreatePlugin;
-use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteAfterUpdatePlugin;
-use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteReadPlugin;
 use Spryker\Zed\Price\Persistence\PriceQueryContainer;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterCreatePlugin as ImageSetProductAbstractAfterCreatePlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterUpdatePlugin as ImageSetProductAbstractAfterUpdatePlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as ImageSetProductAbstractReadPlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterCreatePlugin as ImageSetProductConcreteAfterCreatePlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterUpdatePlugin as ImageSetProductConcreteAfterUpdatePlugin;
-use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteReadPlugin as ImageSetProductConcreteReadPlugin;
 use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainer;
 use Spryker\Zed\Product\Business\ProductFacade;
-use Spryker\Zed\Product\Business\Product\Assertion\ProductAbstractAssertion;
-use Spryker\Zed\Product\Business\Product\Assertion\ProductConcreteAssertion;
-use Spryker\Zed\Product\Business\Product\Plugin\PluginAbstractManager;
-use Spryker\Zed\Product\Business\Product\Plugin\PluginConcreteManager;
-use Spryker\Zed\Product\Business\Product\ProductAbstractManager;
-use Spryker\Zed\Product\Business\Product\ProductConcreteManager;
 use Spryker\Zed\Product\Business\Product\ProductManager;
-use Spryker\Zed\Product\Business\Product\Sku\SkuGenerator;
-use Spryker\Zed\Product\Business\Product\Url\ProductUrlGenerator;
 use Spryker\Zed\Product\Business\Product\Url\ProductUrlManager;
 use Spryker\Zed\Product\Dependency\Facade\ProductToLocaleBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToTouchBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToUrlBridge;
-use Spryker\Zed\Product\Dependency\Service\ProductToUtilTextBridge;
 use Spryker\Zed\Product\Persistence\ProductQueryContainer;
-use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterCreatePlugin as StockProductConcreteAfterCreatePlugin;
-use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteAfterUpdatePlugin as StockProductConcreteAfterUpdatePlugin;
-use Spryker\Zed\Stock\Communication\Plugin\ProductConcreteReadPlugin as StockProductConcreteReadPlugin;
-use Spryker\Zed\TaxProductConnector\Communication\Plugin\TaxSetProductAbstractAfterCreatePlugin;
-use Spryker\Zed\TaxProductConnector\Communication\Plugin\TaxSetProductAbstractAfterUpdatePlugin;
-use Spryker\Zed\TaxProductConnector\Communication\Plugin\TaxSetProductAbstractReadPlugin;
 use Spryker\Zed\Tax\Persistence\TaxQueryContainer;
 use Spryker\Zed\Touch\Business\TouchFacade;
 use Spryker\Zed\Touch\Persistence\TouchQueryContainer;
@@ -225,72 +198,11 @@ abstract class ProductTestAbstract extends Test
         $urlBridge = new ProductToUrlBridge($this->urlFacade);
         $touchBridge = new ProductToTouchBridge($this->touchFacade);
         $localeBridge = new ProductToLocaleBridge($this->localeFacade);
-        $utilTextBridge = new ProductToUtilTextBridge($this->utilTextService);
 
-        $productAbstractAssertion = new ProductAbstractAssertion($this->productQueryContainer);
-        $productConcreteAssertion = new ProductConcreteAssertion($this->productQueryContainer);
+        $this->productConcreteManager = $productBusinessFactory->createProductConcreteManager();
+        $this->productAbstractManager = $productBusinessFactory->createProductAbstractManager();
 
-        $productConcretePluginManager = new PluginConcreteManager(
-            $beforeCreatePlugins = [],
-            $afterCreatePlugins = [
-                new ImageSetProductConcreteAfterCreatePlugin(),
-                new StockProductConcreteAfterCreatePlugin(),
-                new PriceProductConcreteAfterCreatePlugin(),
-            ],
-            $readPlugins = [
-                new ImageSetProductConcreteReadPlugin(),
-                new StockProductConcreteReadPlugin(),
-                new PriceProductConcreteReadPlugin(),
-            ],
-            $beforeUpdatePlugins = [],
-            $afterUpdatePlugins = [
-                new ImageSetProductConcreteAfterUpdatePlugin(),
-                new StockProductConcreteAfterUpdatePlugin(),
-                new PriceProductConcreteAfterUpdatePlugin(),
-            ]
-        );
-
-        $this->productConcreteManager = new ProductConcreteManager(
-            $this->productQueryContainer,
-            $touchBridge,
-            $localeBridge,
-            $productAbstractAssertion,
-            $productConcreteAssertion,
-            $productConcretePluginManager,
-            $productBusinessFactory->createAttributeEncoder(),
-            $productBusinessFactory->createProductTransferMapper()
-        );
-
-        $productAbstractPluginManager = new PluginAbstractManager($beforeCreatePlugins = [], $afterCreatePlugins = [
-            new ImageSetProductAbstractAfterCreatePlugin(),
-            new TaxSetProductAbstractAfterCreatePlugin(),
-            new PriceProductAbstractAfterCreatePlugin(),
-        ], $readPlugins = [
-            new ImageSetProductAbstractReadPlugin(),
-            new TaxSetProductAbstractReadPlugin(),
-            new PriceProductAbstractReadPlugin(),
-        ], $beforeUpdatePlugins = [], $afterUpdatePlugins = [
-            new ImageSetProductAbstractAfterUpdatePlugin(),
-            new TaxSetProductAbstractAfterUpdatePlugin(),
-            new PriceProductAbstractAfterUpdatePlugin(),
-        ]);
-
-        $this->productAbstractManager = new ProductAbstractManager(
-            $this->productQueryContainer,
-            $touchBridge,
-            $localeBridge,
-            $productAbstractAssertion,
-            $productAbstractPluginManager,
-            new SkuGenerator($utilTextBridge),
-            $productBusinessFactory->createAttributeEncoder(),
-            $productBusinessFactory->createProductTransferMapper()
-        );
-
-        $urlGenerator = new ProductUrlGenerator(
-            $this->productAbstractManager,
-            $localeBridge,
-            $utilTextBridge
-        );
+        $urlGenerator = $productBusinessFactory->createProductUrlGenerator();
 
         $this->productUrlManager = new ProductUrlManager(
             $urlBridge,
@@ -393,6 +305,9 @@ abstract class ProductTestAbstract extends Test
         $this->productConcreteTransfer->setStocks(new ArrayObject($stock));
     }
 
+    /**
+     * @return void
+     */
     protected function setupPluginImages()
     {
         $imageSetTransfer = (new ProductImageSetTransfer())
@@ -415,6 +330,9 @@ abstract class ProductTestAbstract extends Test
         );
     }
 
+    /**
+     * @return void
+     */
     protected function setupPluginPrices()
     {
         $price = (new PriceProductTransfer())

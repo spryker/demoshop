@@ -14,7 +14,7 @@ use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
-use Spryker\Zed\Propel\Business\Runtime\ActiveQuery\Criteria;
+use Spryker\Zed\PropelOrm\Business\Runtime\ActiveQuery\Criteria;
 use Spryker\Zed\Touch\Business\TouchFacadeInterface;
 
 class ProductTaxImporter extends AbstractImporter

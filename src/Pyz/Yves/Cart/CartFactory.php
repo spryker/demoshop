@@ -10,8 +10,10 @@ namespace Pyz\Yves\Cart;
 use Pyz\Yves\Cart\Form\VoucherForm;
 use Pyz\Yves\Cart\Handler\CartOperationHandler;
 use Pyz\Yves\Cart\Handler\CartVoucherHandler;
+use Pyz\Yves\Cart\Handler\ProductBundleCartOperationHandler;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Yves\Kernel\AbstractFactory;
+use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 
 class CartFactory extends AbstractFactory
 {
@@ -49,7 +51,28 @@ class CartFactory extends AbstractFactory
     }
 
     /**
-     * @return \Spryker\Yves\Application\Application
+     * @return \Pyz\Yves\Cart\Handler\ProductBundleCartOperationHandler
+     */
+    public function createProductBundleCartOperationHandler()
+    {
+        return new ProductBundleCartOperationHandler(
+            $this->createCartOperationHandler(),
+            $this->getCartClient(),
+            $this->getLocale(),
+            $this->getFlashMessenger()
+        );
+    }
+
+    /**
+     * @return \Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper
+     */
+    public function createProductBundleGrouper()
+    {
+        return new ProductBundleGrouper();
+    }
+
+    /**
+     * @return \Spryker\Yves\Kernel\Application
      */
     protected function createApplication()
     {
@@ -57,7 +80,7 @@ class CartFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Yves\Application\Business\Model\FlashMessengerInterface
+     * @return \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface
      */
     protected function getFlashMessenger()
     {
@@ -77,8 +100,7 @@ class CartFactory extends AbstractFactory
      */
     public function createVoucherForm()
     {
-        return $this
-            ->getProvidedDependency(ApplicationConstants::FORM_FACTORY)
+        return $this->getProvidedDependency(ApplicationConstants::FORM_FACTORY)
             ->create($this->createVoucherFormType());
     }
 

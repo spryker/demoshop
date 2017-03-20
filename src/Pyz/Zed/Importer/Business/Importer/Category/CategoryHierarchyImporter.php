@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\Category;
 
+use Everon\Component\Collection\Collection;
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
 use LogicException;
@@ -14,7 +15,6 @@ use Orm\Zed\Category\Persistence\Base\SpyCategoryNodeQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Pyz\Zed\Importer\Business\Exception\CategoryNotFoundException;
-use Spryker\Shared\Library\Collection\Collection;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 
@@ -29,7 +29,7 @@ class CategoryHierarchyImporter extends AbstractCategoryImporter
     protected $categoryQueryContainer;
 
     /**
-     * @var \Spryker\Shared\Library\Collection\CollectionInterface
+     * @var \Everon\Component\Collection\CollectionInterface
      */
     protected $nodeToKeyMapperCollection;
 
@@ -135,19 +135,19 @@ class CategoryHierarchyImporter extends AbstractCategoryImporter
      */
     protected function getParentNodeId($parentKey)
     {
+        if ($this->nodeToKeyMapperCollection->has($parentKey)) {
+            return $this->nodeToKeyMapperCollection->get($parentKey);
+        }
+
         $idParentNode = $this->getRootNode()->getIdCategoryNode();
 
-        if (!$this->nodeToKeyMapperCollection->has($parentKey)) {
-            $parent = $this->categoryQueryContainer
-                ->queryMainCategoryNodeByCategoryKey($parentKey)
-                ->findOne();
+        $parent = $this->categoryQueryContainer
+            ->queryMainCategoryNodeByCategoryKey($parentKey)
+            ->findOne();
 
-            if ($parent) {
-                $idParentNode = $parent->getIdCategoryNode();
-                $this->nodeToKeyMapperCollection->set($parentKey, $idParentNode);
-            }
-        } else {
-            $idParentNode = $this->nodeToKeyMapperCollection->get($parentKey);
+        if ($parent) {
+            $idParentNode = $parent->getIdCategoryNode();
+            $this->nodeToKeyMapperCollection->set($parentKey, $idParentNode);
         }
 
         return $idParentNode;

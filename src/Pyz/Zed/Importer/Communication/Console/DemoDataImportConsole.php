@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\Importer\Communication\Console;
 
-use Spryker\Zed\Console\Business\Model\Console as SprykerConsole;
+use Spryker\Zed\Kernel\Communication\Console\Console as SprykerConsole;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 

@@ -8,7 +8,9 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Spryker\Client\Calculation\CalculationClientInterface;
-use Spryker\Shared\Transfer\AbstractTransfer;
+use Spryker\Client\Cart\CartClientInterface;
+use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
+use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouperInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class SummaryStep extends AbstractBaseStep
@@ -20,22 +22,38 @@ class SummaryStep extends AbstractBaseStep
     protected $calculationClient;
 
     /**
+     * @var \Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper
+     */
+    protected $productBundleGrouper;
+
+    /**
+     * @var \Spryker\Client\Cart\CartClientInterface
+     */
+    protected $cartClient;
+
+    /**
      * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
+     * @param \Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouperInterface $productBundleGrouper
+     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $stepRoute
      * @param string $escapeRoute
      */
     public function __construct(
         CalculationClientInterface $calculationClient,
+        ProductBundleGrouperInterface $productBundleGrouper,
+        CartClientInterface $cartClient,
         $stepRoute,
         $escapeRoute
     ) {
         parent::__construct($stepRoute, $escapeRoute);
 
         $this->calculationClient = $calculationClient;
+        $this->productBundleGrouper = $productBundleGrouper;
+        $this->cartClient = $cartClient;
     }
 
     /**
-     * @param \Spryker\Shared\Transfer\AbstractTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -46,7 +64,7 @@ class SummaryStep extends AbstractBaseStep
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
@@ -56,7 +74,7 @@ class SummaryStep extends AbstractBaseStep
     }
 
     /**
-     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -74,7 +92,7 @@ class SummaryStep extends AbstractBaseStep
     }
 
     /**
-     * @param \Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return array
      */
@@ -82,6 +100,10 @@ class SummaryStep extends AbstractBaseStep
     {
         return [
             'quoteTransfer' => $quoteTransfer,
+            'cartItems' => $this->productBundleGrouper->getGroupedBundleItems(
+                $quoteTransfer->getItems(),
+                $quoteTransfer->getBundleItems()
+            ),
         ];
     }
 

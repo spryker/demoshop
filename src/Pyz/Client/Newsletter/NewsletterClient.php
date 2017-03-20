@@ -17,6 +17,10 @@ class NewsletterClient extends SprykerNewsletterClient implements NewsletterClie
 {
 
     /**
+     * {@inheritdoc}
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
      * @return \Generated\Shared\Transfer\NewsletterSubscriptionResultTransfer
@@ -33,6 +37,10 @@ class NewsletterClient extends SprykerNewsletterClient implements NewsletterClie
     }
 
     /**
+     * {@inheritdoc}
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      * @param string|null $subscriberKey
      *
@@ -48,6 +56,10 @@ class NewsletterClient extends SprykerNewsletterClient implements NewsletterClie
     }
 
     /**
+     * {@inheritdoc}
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
      * @return \Generated\Shared\Transfer\NewsletterSubscriptionResultTransfer

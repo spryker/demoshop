@@ -12,6 +12,9 @@ use Spryker\Shared\Config\Config;
 use Spryker\Shared\EventJournal\Model\Collector\AbstractDataCollector;
 use Spryker\Shared\EventJournal\Model\Collector\DataCollectorInterface;
 
+/**
+ * @SuppressWarnings(PHPMD.Superglobals)
+ */
 class YvesDataCollector extends AbstractDataCollector implements DataCollectorInterface
 {
 

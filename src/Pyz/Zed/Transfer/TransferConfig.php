@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\Transfer;
 
-use Spryker\Shared\Library\Environment;
+use Spryker\Shared\Config\Environment;
 use Spryker\Zed\Transfer\TransferConfig as SprykerTransferConfig;
 
 class TransferConfig extends SprykerTransferConfig
@@ -23,6 +23,8 @@ class TransferConfig extends SprykerTransferConfig
         if (Environment::isDevelopment()) { //only needed in Project, not in demoshop (case sensitivity vs lower-case-dash)
             $directoryGlobPatterns[] = APPLICATION_VENDOR_DIR . '/spryker/code-generator/src/*/Shared/*/Transfer/';
         }
+
+        $directoryGlobPatterns[] = APPLICATION_VENDOR_DIR . '/spryker-eco/*/src/*/Shared/*/Transfer/';
 
         return $directoryGlobPatterns;
     }

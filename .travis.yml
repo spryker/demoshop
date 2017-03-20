@@ -10,8 +10,10 @@ env:
     - APPLICATION_STORE=DE
 
 
+
 #Possible travis events (push, pull_request, cron, or api)
 matrix:
+  fast_finish: true
   include:
      - php: "5.6"
        env:
@@ -60,12 +62,14 @@ services:
 sudo: required
 
 install:
-  - chmod -R a+x deploy/travis/
+  - chmod -R a+x config/Shared/ci/travis/
   - composer self-update && composer --version
   - composer install --no-interaction
-  - deploy/travis/install_elasticsearch.sh
+  - config/Shared/ci/travis/install_elasticsearch.sh
 
 before_script:
+  - nvm install 6
+
   - mkdir -p shared/data/common/jenkins
   - mkdir -p shared/data/common/jenkins/jobs
   - mkdir -p data/DE/cache/Yves/twig -m 0777
@@ -75,21 +79,22 @@ before_script:
 
   - mv config/Zed/propel.ci.yml config/Zed/propel.yml
   - cp config/Shared/ci/travis/config_ci.php config/Shared/config_default-devtest_DE.php
-  - cp config/Shared/ci/travis/params.sh deploy/setup/params_test_env.sh
+  - cp config/Shared/ci/travis/params_test_env.sh deploy/setup/params_test_env.sh
 
-  - if [[ $TEST_GROUP == 'acceptance' ]]; then deploy/travis/acceptance_env.sh; fi
-
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then config/Shared/ci/travis/acceptance_env.sh; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then ./setup_test -f; fi
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then ./setup_test -b; fi
 
 script:
+  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/phpmd src/ text vendor/spryker/spryker/Bundles/Development/src/Spryker/Zed/Development/Business/PhpMd/ruleset.xml ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 1 ; fi
+
+  - if [[ $TRAVIS_PHP_VERSION == 7.0 ]] ; then vendor/bin/console code:sniff ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.0 ]] ; then vendor/bin/console dev:dependency:build-tree ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.0 ]] ; then vendor/bin/console dev:dependency:find-violations ; fi
+
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance ; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance ; fi
-
-  - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console code:sniff ; fi
-  - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console dev:dependency:build-tree ; fi
-  - if [[ $TRAVIS_PHP_VERSION = 7.0 ]] ; then vendor/bin/console dev:dependency:find-violations ; fi
-
 
 notifications:
   email: false

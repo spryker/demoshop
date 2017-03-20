@@ -40,6 +40,14 @@ use Spryker\Zed\Url\UrlConfig;
 class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 {
 
+    const SERVICE_UTIL_DATE_TIME = 'util date time service';
+
+    const SERVICE_NETWORK = 'util network service';
+
+    const SERVICE_UTIL_IO = 'util io service';
+
+    const SERVICE_DATA = 'util data service';
+
     const FACADE_PROPEL = 'propel facade';
     const FACADE_PRICE = 'price facade';
     const FACADE_SEARCH = 'search facade';
@@ -133,6 +141,10 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[self::PLUGIN_CMS_PAGE_DATA_PAGE_MAP] = function (Container $container) {
             return new CmsPageDataPageMapPlugin();
+        };
+
+        $container[static::SERVICE_DATA] = function (Container $container) {
+            return $container->getLocator()->utilDataReader()->service();
         };
 
         return $container;

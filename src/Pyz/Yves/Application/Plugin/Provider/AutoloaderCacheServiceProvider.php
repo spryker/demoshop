@@ -10,8 +10,6 @@ use Silex\Application;
 use Silex\ServiceProviderInterface;
 use Spryker\Shared\Kernel\ClassResolver\ResolverCacheManager;
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class AutoloaderCacheServiceProvider extends AbstractPlugin implements ServiceProviderInterface
 {
@@ -23,7 +21,7 @@ class AutoloaderCacheServiceProvider extends AbstractPlugin implements ServicePr
      */
     public function register(Application $app)
     {
-        $app->finish(function (Request $request, Response $response) {
+        $app->finish(function () {
             $this->persistClassResolverCache();
         });
     }

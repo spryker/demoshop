@@ -15,6 +15,7 @@ use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerUserProvider;
 use Pyz\Yves\Customer\Security\Customer;
 use Spryker\Yves\Kernel\AbstractFactory;
+use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
@@ -120,6 +121,14 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
+     * @return \Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper
+     */
+    public function createProductBundleGroupper()
+    {
+        return new ProductBundleGrouper();
+    }
+
+    /**
      * @return \Spryker\Shared\Application\Communication\Application
      */
     public function createApplication()
@@ -128,7 +137,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Yves\Application\Business\Model\FlashMessengerInterface
+     * @return \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface
      */
     protected function getFlashMessenger()
     {
@@ -172,7 +181,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Yves\Application\Business\Model\FlashMessengerInterface
+     * @return \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface
      */
     public function createMessenger()
     {

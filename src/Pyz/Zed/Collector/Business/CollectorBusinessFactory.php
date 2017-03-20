@@ -24,6 +24,7 @@ use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
 use Pyz\Zed\Collector\Business\Storage\TranslationCollector;
 use Pyz\Zed\Collector\Business\Storage\UrlCollector;
 use Pyz\Zed\Collector\CollectorDependencyProvider;
+use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductOptionCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AttributeMapCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AvailabilityCollectorQuery as StorageAvailabilityCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\BlockCollectorQuery as StorageBlockCollectorPropelQuery;
@@ -47,6 +48,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createSearchProductCollector()
     {
         $searchProductCollector = new SearchProductCollector(
+            $this->getUtilDataReaderService(),
             $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_PRODUCT_DATA_PAGE_MAP),
             $this->getSearchFacade()
         );
@@ -69,7 +71,9 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStorageCategoryNodeCollector()
     {
-        $storageCategoryNodeCollector = new StorageCategoryNodeCollector();
+        $storageCategoryNodeCollector = new StorageCategoryNodeCollector(
+            $this->getUtilDataReaderService()
+        );
 
         $storageCategoryNodeCollector->setTouchQueryContainer(
             $this->getTouchQueryContainer()
@@ -90,6 +94,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createSearchCategoryNodeCollector()
     {
         $categoryNodeCollector = new SearchCategoryNodeCollector(
+            $this->getUtilDataReaderService(),
             $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_CATEGORY_NODE_DATA_PAGE_MAP),
             $this->getSearchFacade()
         );
@@ -113,6 +118,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createSearchCmsPageCollector()
     {
         $cmsPageCollector = new SearchCmsPageCollector(
+            $this->getUtilDataReaderService(),
             $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_CMS_PAGE_DATA_PAGE_MAP),
             $this->getSearchFacade()
         );
@@ -135,7 +141,9 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStorageNavigationCollector()
     {
-        $storageNavigationCollector = new NavigationCollector();
+        $storageNavigationCollector = new NavigationCollector(
+            $this->getUtilDataReaderService()
+        );
 
         $storageNavigationCollector->setTouchQueryContainer(
             $this->getTouchQueryContainer()
@@ -155,7 +163,9 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStoragePageCollector()
     {
-        $storagePageCollector = new PageCollector();
+        $storagePageCollector = new PageCollector(
+            $this->getUtilDataReaderService()
+        );
 
         $storagePageCollector->setTouchQueryContainer(
             $this->getTouchQueryContainer()
@@ -163,6 +173,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storagePageCollector->setQueryBuilder(
             $this->createStoragePageCollectorPropelQuery()
         );
+        $storagePageCollector->setConfig($this->getConfig());
 
         return $storagePageCollector;
     }
@@ -173,6 +184,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createStorageProductAbstractCollector()
     {
         $storageProductCollector = new StorageProductCollector(
+            $this->getUtilDataReaderService(),
             $this->getCategoryQueryContainer(),
             $this->getProductCategoryQueryContainer(),
             $this->getProductImageQueryContainer(),
@@ -198,7 +210,9 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStorageRedirectCollector()
     {
-        $storageRedirectCollector = new RedirectCollector();
+        $storageRedirectCollector = new RedirectCollector(
+            $this->getUtilDataReaderService()
+        );
 
         $storageRedirectCollector->setTouchQueryContainer(
             $this->getTouchQueryContainer()
@@ -206,6 +220,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storageRedirectCollector->setQueryBuilder(
             $this->createStorageRedirectCollectorPropelQuery()
         );
+        $storageRedirectCollector->setConfig($this->getConfig());
 
         return $storageRedirectCollector;
     }
@@ -215,7 +230,9 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStorageTranslationCollector()
     {
-        $storageTranslationCollector = new TranslationCollector();
+        $storageTranslationCollector = new TranslationCollector(
+            $this->getUtilDataReaderService()
+        );
 
         $storageTranslationCollector->setTouchQueryContainer(
             $this->getTouchQueryContainer()
@@ -223,6 +240,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storageTranslationCollector->setQueryBuilder(
             $this->createStorageTranslationCollectorPropelQuery()
         );
+        $storageTranslationCollector->setConfig($this->getConfig());
 
         return $storageTranslationCollector;
     }
@@ -232,7 +250,9 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStorageUrlCollector()
     {
-        $storageUrlCollector = new UrlCollector();
+        $storageUrlCollector = new UrlCollector(
+            $this->getUtilDataReaderService()
+        );
 
         $storageUrlCollector->setTouchQueryContainer(
             $this->getTouchQueryContainer()
@@ -252,7 +272,9 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStorageBlockCollector()
     {
-        $storageBlockCollector = new BlockCollector();
+        $storageBlockCollector = new BlockCollector(
+            $this->getUtilDataReaderService()
+        );
 
         $storageBlockCollector->setTouchQueryContainer(
             $this->getTouchQueryContainer()
@@ -260,6 +282,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storageBlockCollector->setQueryBuilder(
             $this->createStorageBlockCollectorPropelQuery()
         );
+        $storageBlockCollector->setConfig($this->getConfig());
 
         return $storageBlockCollector;
     }
@@ -270,6 +293,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createStorageProductConcreteCollector()
     {
         $productConcreteCollector = new ProductConcreteCollector(
+            $this->getUtilDataReaderService(),
             $this->getProductFacade(),
             $this->getPriceFacade(),
             $this->getProductImageQueryContainer()
@@ -293,17 +317,26 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createAttributeMapCollector()
     {
-        $attributeMapCollector = new AttributeMapCollector($this->getProductFacade());
+        $attributeMapCollector = new AttributeMapCollector(
+            $this->getUtilDataReaderService(),
+            $this->getProductFacade()
+        );
 
         $attributeMapCollector->setTouchQueryContainer(
             $this->getTouchQueryContainer()
         );
-
-        $attributeMapCollector->setQueryBuilder(
-            new AttributeMapCollectorQuery()
-        );
+        $attributeMapCollector->setQueryBuilder($this->createAttributeMapCollectorQuery());
+        $attributeMapCollector->setConfig($this->getConfig());
 
         return $attributeMapCollector;
+    }
+
+    /**
+     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\AttributeMapCollectorQuery
+     */
+    protected function createAttributeMapCollectorQuery()
+    {
+        return new AttributeMapCollectorQuery();
     }
 
     /**
@@ -311,7 +344,9 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStorageProductOptionCollector()
     {
-        $productOptionCollector = new ProductOptionCollector();
+        $productOptionCollector = new ProductOptionCollector(
+            $this->getUtilDataReaderService()
+        );
 
         $productOptionCollector->setChunkSize(2);
 
@@ -333,7 +368,9 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStorageAvailabilityCollector()
     {
-        $storageAvailabilityCollector = new AvailabilityCollector();
+        $storageAvailabilityCollector = new AvailabilityCollector(
+            $this->getUtilDataReaderService()
+        );
 
         $storageAvailabilityCollector->setTouchQueryContainer(
             $this->getTouchQueryContainer()
@@ -341,6 +378,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storageAvailabilityCollector->setQueryBuilder(
             $this->createStorageAvailabilityCollectorPropelQuery()
         );
+        $storageAvailabilityCollector->setConfig($this->getConfig());
 
         return $storageAvailabilityCollector;
     }
@@ -363,6 +401,16 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
 
         $queryBuilderClassName = $classList[$name];
 
+        return $this->createQueryBuilderByClassName($queryBuilderClassName);
+    }
+
+    /**
+     * @param string $queryBuilderClassName
+     *
+     * @return \Spryker\Zed\Collector\Persistence\Collector\AbstractCollectorQuery
+     */
+    protected function createQueryBuilderByClassName($queryBuilderClassName)
+    {
         return new $queryBuilderClassName();
     }
 
@@ -384,15 +432,17 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
 
         $queryBuilderClassName = $classList[$name];
 
-        return new $queryBuilderClassName();
+        return $this->createQueryBuilderByClassName($queryBuilderClassName);
     }
 
     /**
-     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\ProductOptionCollectorQuery
+     * @return \Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductOptionCollectorQuery
      */
     public function createProductOptionCollectorPropelQuery()
     {
-        return new ProductOptionCollectorQuery();
+        return new ProductOptionCollectorQuery(
+            $this->getUtilDataReaderService()
+        );
     }
 
     /**
@@ -400,7 +450,9 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStorageBlockCollectorPropelQuery()
     {
-        return new StorageBlockCollectorPropelQuery();
+        return new StorageBlockCollectorPropelQuery(
+            $this->getUtilDataReaderService()
+        );
     }
 
     /**
@@ -532,6 +584,14 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     protected function getCurrentDatabaseEngineName()
     {
         return $this->getPropelFacade()->getCurrentDatabaseEngineName();
+    }
+
+    /**
+     * @return \Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface
+     */
+    protected function getUtilDataReaderService()
+    {
+        return $this->getProvidedDependency(CollectorDependencyProvider::SERVICE_DATA);
     }
 
 }

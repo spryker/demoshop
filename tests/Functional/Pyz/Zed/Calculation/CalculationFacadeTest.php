@@ -125,6 +125,9 @@ class CalculationFacadeTest extends Test
         $this->assertSame(18, $itemTransfer->getUnitTaxAmountWithProductOptionAndDiscountAmounts());
         $this->assertSame(37, $itemTransfer->getSumTaxAmountWithProductOptionAndDiscountAmounts());
 
+        $this->assertSame(18, $itemTransfer->getUnitTaxTotal());
+        $this->assertSame(37, $itemTransfer->getSumTaxTotal());
+
         $this->assertSame(100, $itemTransfer->getUnitGrossPrice());
         $this->assertSame(200, $itemTransfer->getSumGrossPrice());
 
@@ -137,11 +140,18 @@ class CalculationFacadeTest extends Test
         $this->assertSame(115, $itemTransfer->getUnitGrossPriceWithProductOptionAndDiscountAmounts());
         $this->assertSame(230, $itemTransfer->getSumGrossPriceWithProductOptionAndDiscountAmounts());
 
+        //final value with all options and disounts.
+        $this->assertSame(115, $itemTransfer->getUnitItemTotal());
+        $this->assertSame(230, $itemTransfer->getSumItemTotal());
+
         $this->assertSame(10, $itemTransfer->getUnitTotalDiscountAmount());
         $this->assertSame(20, $itemTransfer->getSumTotalDiscountAmount());
 
         $this->assertSame(10, $itemTransfer->getUnitTotalDiscountAmountWithProductOption());
         $this->assertSame(20, $itemTransfer->getSumTotalDiscountAmountWithProductOption());
+
+        $this->assertSame(10, $itemTransfer->getFinalUnitDiscountAmount());
+        $this->assertSame(20, $itemTransfer->getFinalSumDiscountAmount());
 
         //expenses
         $expenseTransfer = $quoteTransfer->getExpenses()[0];
@@ -150,6 +160,9 @@ class CalculationFacadeTest extends Test
         $this->assertSame(16, $expenseTransfer->getSumTaxAmount());
         $this->assertSame(16, $expenseTransfer->getUnitTaxAmountWithDiscounts());
         $this->assertSame(16, $expenseTransfer->getSumTaxAmountWithDiscounts());
+
+        $this->assertSame(16, $expenseTransfer->getUnitTaxTotal());
+        $this->assertSame(16, $expenseTransfer->getSumTaxTotal());
 
         $this->assertSame(100, $expenseTransfer->getSumGrossPriceWithDiscounts());
         $this->assertSame(0, $expenseTransfer->getSumTotalDiscountAmount());

@@ -7,7 +7,7 @@
 
 namespace Pyz\Yves\Application\Controller;
 
-use Spryker\Yves\Application\Controller\AbstractController;
+use Spryker\Yves\Kernel\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
 class StaticController extends AbstractController

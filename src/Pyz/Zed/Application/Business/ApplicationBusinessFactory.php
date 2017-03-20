@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\Application\Business;
 
-use Psr\Log\LoggerInterface;
 use Spryker\Zed\Application\Business\ApplicationBusinessFactory as SprykerApplicationBusinessFactory;
 
 /**
@@ -15,15 +14,4 @@ use Spryker\Zed\Application\Business\ApplicationBusinessFactory as SprykerApplic
  */
 class ApplicationBusinessFactory extends SprykerApplicationBusinessFactory
 {
-
-    /**
-     * @param \Psr\Log\LoggerInterface|null $logger
-     *
-     * @return \Spryker\Zed\Application\Business\Model\ApplicationCheckStep\AbstractApplicationCheckStep[]
-     */
-    public function getCheckSteps(LoggerInterface $logger = null)
-    {
-        return parent::getCheckSteps($logger);
-    }
-
 }

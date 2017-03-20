@@ -9,6 +9,7 @@
     "braintree/braintree_php": "~3.15.0",
     "guzzlehttp/guzzle": "~6.2.1",
     "league/csv": "~8.1.0",
+    "filp/whoops": "^2.1",
     "mandrill/mandrill": "~1.0.55",
     "monolog/monolog": "~1.21.0",
     "nesbot/carbon": "~1.13.0",
@@ -67,11 +68,13 @@
     "sensiolabs/security-checker": "~3.0.2",
     "silex/web-profiler": "~1.0.8",
     "symfony/web-profiler-bundle": "v2.7.20",
+    "symfony/var-dumper": "*",
     "site5/phantoman": "^1.1",
     "sllh/composer-versions-check": "~2.0.2",
-    "jakoch/phantomjs-installer": "^2.1",
+    "jakoch/phantomjs-installer": "^2.1.0",
     "php-mock/php-mock": "^1.0",
-    "spryker/architecture-sniffer": "*",
+    "phpunit/phpunit": "^5.0",
+    "spryker/architecture-sniffer": "dev-master",
     "spryker/code-generator": "dev-master",
     "spryker/code-sniffer": "dev-master"
   },
@@ -102,7 +105,7 @@
   ],
   "scripts": {
     "compile": [
-      "mkdir -p ./data/DE/logs",
+      "mkdir -p ./data/DE/logs/ZED",
       "echo '<?php return \"development-heroku\";' > config/Shared/console_env_local.php",
       "./deploy/heroku/run.sh"
     ],

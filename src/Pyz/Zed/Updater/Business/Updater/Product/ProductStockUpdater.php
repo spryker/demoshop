@@ -7,12 +7,12 @@
 
 namespace Pyz\Zed\Updater\Business\Updater\Product;
 
+use Everon\Component\Collection\Collection;
 use Generated\Shared\Transfer\StockProductTransfer;
 use Generated\Shared\Transfer\TypeTransfer;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\Updater\Business\Updater\AbstractUpdater;
-use Spryker\Shared\Library\Collection\Collection;
-use Spryker\Shared\Library\Reader\Csv\CsvReader;
+use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Oms\Business\OmsFacadeInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
@@ -20,6 +20,9 @@ use Spryker\Zed\Sales\Persistence\SalesQueryContainerInterface;
 use Spryker\Zed\Stock\Business\StockFacadeInterface;
 use Spryker\Zed\Stock\Persistence\StockQueryContainerInterface;
 
+/**
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 class ProductStockUpdater extends AbstractUpdater
 {
 
@@ -31,7 +34,7 @@ class ProductStockUpdater extends AbstractUpdater
     const STOCK_UPDATE = 'stock-update';
 
     /**
-     * @var \Spryker\Shared\Library\Reader\Csv\CsvReaderInterface
+     * @var \Spryker\Service\UtilDataReader\Model\Reader\Csv\CsvReaderInterface
      */
     protected $csvReader;
 
@@ -66,13 +69,17 @@ class ProductStockUpdater extends AbstractUpdater
     protected $stockQueryContainer;
 
     /**
-     * @var \Spryker\Shared\Library\Collection\CollectionInterface
+     * @var \Everon\Component\Collection\CollectionInterface
      */
     protected $stockTypeCache;
 
     /**
-     * ProductStockUpdater constructor.
-     *
+     * @var \Spryker\Service\UtilDataReader\UtilDataReaderService
+     */
+    protected $utilDataReaderService;
+
+    /**
+     * @param \Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface $utilDataReaderService
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Spryker\Zed\Stock\Business\StockFacadeInterface $stockFacade
      * @param \Spryker\Zed\Oms\Business\OmsFacadeInterface $omsFacade
@@ -82,7 +89,7 @@ class ProductStockUpdater extends AbstractUpdater
      * @param string $dataDirectory
      */
     public function __construct(
-        CsvReader $csvReader,
+        UtilDataReaderServiceInterface $utilDataReaderService,
         LocaleFacadeInterface $localeFacade,
         StockFacadeInterface $stockFacade,
         OmsFacadeInterface $omsFacade,
@@ -93,7 +100,7 @@ class ProductStockUpdater extends AbstractUpdater
     ) {
         parent::__construct($localeFacade);
 
-        $this->csvReader = $csvReader;
+        $this->utilDataReaderService = $utilDataReaderService;
         $this->stockFacade = $stockFacade;
         $this->omsFacade = $omsFacade;
         $this->productQueryContainer = $productQueryContainer;
@@ -142,26 +149,28 @@ class ProductStockUpdater extends AbstractUpdater
             ->queryProductConcreteBySku($stock[self::SKU])
             ->findOne();
 
-        if (!$productConcrete) {
+        if (!$productConcrete || $productConcrete->getSpyProductBundlesRelatedByFkProduct()->count() > 0) {
             return;
         }
 
         $stockType = $this->createStockTypeOnce($stock);
         $stockProductTransfer = $this->buildStockProductTransfer($stock, $stockType);
 
-        if ($this->stockFacade->hasStockProduct($stock[self::SKU], $stock[self::STOCK_TYPE])) {
-            $stockProductEntity = $this->stockQueryContainer
-                ->queryStockProductBySkuAndType(
-                    $stock[self::SKU],
-                    $stock[self::STOCK_TYPE]
-                )
-                ->findOne();
-
-            $stockProductTransfer->setIdStockProduct($stockProductEntity->getIdStockProduct());
-            $this->stockFacade->updateStockProduct($stockProductTransfer);
-        } else {
+        if (!$this->stockFacade->hasStockProduct($stock[self::SKU], $stock[self::STOCK_TYPE])) {
             $this->stockFacade->createStockProduct($stockProductTransfer);
+
+            return;
         }
+
+        $stockProductEntity = $this->stockQueryContainer
+            ->queryStockProductBySkuAndType(
+                $stock[self::SKU],
+                $stock[self::STOCK_TYPE]
+            )
+            ->findOne();
+
+        $stockProductTransfer->setIdStockProduct($stockProductEntity->getIdStockProduct());
+        $this->stockFacade->updateStockProduct($stockProductTransfer);
     }
 
     /**
@@ -236,13 +245,13 @@ class ProductStockUpdater extends AbstractUpdater
             }
         }
 
-        if (!$this->stockTypeCache->has($stockData[self::STOCK_TYPE])) {
-            $idStockType = $this->stockFacade->createStockType($stockTypeTransfer);
-            $stockTypeTransfer->setIdStock($idStockType);
-            $this->stockTypeCache->set($stockData[self::STOCK_TYPE], $stockTypeTransfer);
-        } else {
-            $stockTypeTransfer = $this->stockTypeCache->get($stockData[self::STOCK_TYPE]);
+        if ($this->stockTypeCache->has($stockData[self::STOCK_TYPE])) {
+            return $this->stockTypeCache->get($stockData[self::STOCK_TYPE]);
         }
+
+        $idStockType = $this->stockFacade->createStockType($stockTypeTransfer);
+        $stockTypeTransfer->setIdStock($idStockType);
+        $this->stockTypeCache->set($stockData[self::STOCK_TYPE], $stockTypeTransfer);
 
         return $stockTypeTransfer;
     }
@@ -282,7 +291,9 @@ class ProductStockUpdater extends AbstractUpdater
      */
     protected function loadCsvFile()
     {
-        $this->csvReader->load($this->dataDirectory . '/stocks.csv');
+        if (!$this->csvReader) {
+            $this->csvReader = $this->utilDataReaderService->getCsvReader()->load($this->dataDirectory . '/stocks.csv');
+        }
     }
 
     /**

@@ -67,9 +67,9 @@ class ProductSearchAttributeImporter extends AbstractImporter
             return;
         }
 
-        $ProductSearchAttributeTransfer = $this->createAttributeTransfer($data);
+        $productSearchAttributeTransfer = $this->createAttributeTransfer($data);
 
-        $this->productSearchFacade->createProductSearchAttribute($ProductSearchAttributeTransfer);
+        $this->productSearchFacade->createProductSearchAttribute($productSearchAttributeTransfer);
     }
 
     /**
@@ -91,31 +91,31 @@ class ProductSearchAttributeImporter extends AbstractImporter
      */
     protected function createAttributeTransfer(array $data)
     {
-        $ProductSearchAttributeTransfer = (new ProductSearchAttributeTransfer())
+        $productSearchAttributeTransfer = (new ProductSearchAttributeTransfer())
             ->setKey($data['key'])
             ->setFilterType($data['filter_type'])
             ->setPosition($data['position']);
 
-        $this->addAttributeKeyTranslations($data, $ProductSearchAttributeTransfer);
+        $this->addAttributeKeyTranslations($data, $productSearchAttributeTransfer);
 
-        return $ProductSearchAttributeTransfer;
+        return $productSearchAttributeTransfer;
     }
 
     /**
      * @param array $data
-     * @param \Generated\Shared\Transfer\ProductSearchAttributeTransfer $ProductSearchAttributeTransfer
+     * @param \Generated\Shared\Transfer\ProductSearchAttributeTransfer $productSearchAttributeTransfer
      *
      * @return void
      */
-    protected function addAttributeKeyTranslations(array $data, ProductSearchAttributeTransfer $ProductSearchAttributeTransfer)
+    protected function addAttributeKeyTranslations(array $data, ProductSearchAttributeTransfer $productSearchAttributeTransfer)
     {
-        foreach ($this->getAvailableLocales() as $idLocale => $localeName) {
+        foreach ($this->getAvailableLocales() as $localeName) {
             if (isset($data['key.' . $localeName])) {
                 $localizedAttributeKeyTransfer = (new LocalizedProductSearchAttributeKeyTransfer())
                     ->setLocaleName($localeName)
                     ->setKeyTranslation($data['key.' . $localeName]);
 
-                $ProductSearchAttributeTransfer->addLocalizedKey($localizedAttributeKeyTransfer);
+                $productSearchAttributeTransfer->addLocalizedKey($localizedAttributeKeyTransfer);
             }
         }
     }

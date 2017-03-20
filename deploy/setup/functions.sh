@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# [!] include deploy/setup/util/print.sh before this file
+# [!] include deploy/setup/params.sh before this file
+# [!] include deploy/setup/frontend/params.sh with this file
+# [!] include deploy/setup/frontend/function.sh with this file
+# provide deploy functions
+
 if [[ -z "$SETUP" ]]; then
     tput setab 1
     echo "Please do not run this script individually"
@@ -12,18 +18,6 @@ NPM=`which npm`
 GIT=`which git`
 PHP=`which php`
 
-ERROR_BKG=`tput setab 1` # background red
-GREEN_BKG=`tput setab 2` # background green
-BLUE_BKG=`tput setab 4` # background blue
-YELLOW_BKG=`tput setab 3` # background yellow
-MAGENTA_BKG=`tput setab 5` # background magenta
-
-INFO_TEXT=`tput setaf 3` # yellow text
-WHITE_TEXT=`tput setaf 7` # text white
-BLACK_TEXT=`tput setaf 0` # text black
-RED_TEXT=`tput setaf 1` # text red
-NC=`tput sgr0` # reset
-
 if [[ `echo "$@" | grep '\-v'` ]]; then
     VERBOSITY='-v'
 fi
@@ -35,38 +29,6 @@ fi
 if [[ `echo "$@" | grep '\-vvv'` ]]; then
     VERBOSITY='-vvv'
 fi
-
-function labelText {
-    echo -e "\n${BLUE_BKG}${WHITE_TEXT}-> ${1} ${NC}\n"
-}
-
-function errorText {
-    echo -e "\n${ERROR_BKG}${WHITE_TEXT}=> ${1} <=${NC}\n"
-}
-
-function infoText {
-    echo -e "\n${INFO_TEXT}=> ${1} <=${NC}\n"
-}
-
-function successText {
-    echo -e "\n${GREEN_BKG}${BLACK_TEXT}=> ${1} <=${NC}\n"
-}
-
-function warningText {
-    echo -e "\n${YELLOW_BKG}${RED_TEXT}=> ${1} <=${NC}\n"
-}
-
-function setupText {
-    echo -e "\n${MAGENTA_BKG}${WHITE_TEXT}=> ${1} <=${NC}\n"
-}
-
-function writeErrorMessage {
-    if [[ $? != 0 ]]; then
-        errorText "${1}"
-        errorText "Command unsuccessful"
-        exit 1
-    fi
-}
 
 function createDevelopmentDatabase {
     # postgres
@@ -162,20 +124,18 @@ function installZed {
     labelText "Setting up IDE autocompletion"
     $CONSOLE dev:ide:generate-auto-completion $VERBOSITY
 
-    antelopeInstallZed
+    setupZedFrontend
 
-    labelText "Zed setup successful"
+    labelText "Zed setup completed successfully"
 }
 
 function installYves {
     setupText "Yves setup"
 
-    antelopeInstallYves
+    setupYvesFrontend
 
-    labelText "Yves setup successful"
+    labelText "Yves setup completed successfully"
 }
-
-
 
 function optimizeRepo {
     labelText "Optimizing repository"
@@ -268,12 +228,6 @@ function dumpAutoload {
 }
 
 function resetYves {
-    if [[ -d "./node_modules" ]]; then
-        labelText "Remove node_modules directory"
-        rm -rf "./node_modules"
-        writeErrorMessage "Could not remove node_modules directory"
-    fi
-
     if [[ -d "./data/DE/logs" ]]; then
         labelText "Clear logs"
         rm -rf "./data/DE/logs"
@@ -286,56 +240,9 @@ function resetYves {
         rm -rf "./data/DE/cache"
         writeErrorMessage "Could not remove cache directory"
     fi
-}
 
-function checkNodejsVersion {
-    if [[ `node -v | grep -E '^v[0-4]'` ]]; then
-        labelText "Upgrade Node.js"
-        $CURL -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
-
-        sudo apt-get install -y nodejs
-
-        successText "Node.js updated to version `node -v`"
-        successText "NPM updated to version `$NPM -v`"
-    fi
-}
-
-function installAntelope {
-    checkNodejsVersion
-
-    labelText "Install or Update Antelope tool globally"
-    sudo $NPM install -g antelope
-    writeErrorMessage "Antelope setup failed"
-}
-
-function antelopeInstallZed {
-    installAntelope
-
-    ANTELOPE_TOOL=`which antelope`
-
-    if [[ -f $ANTELOPE_TOOL ]]; then
-        labelText "Installing project dependencies"
-        $ANTELOPE_TOOL install
-
-        labelText "Building and optimizing assets for Zed"
-        $ANTELOPE_TOOL build zed
-        writeErrorMessage "Antelope build failed"
-    fi
-}
-
-function antelopeInstallYves {
-    installAntelope
-
-    ANTELOPE_TOOL=`which antelope`
-
-    if [[ -f $ANTELOPE_TOOL ]]; then
-        labelText "Installing project dependencies"
-        $ANTELOPE_TOOL install
-
-        labelText "Building and optimizing assets for Yves"
-        $ANTELOPE_TOOL build yves
-        writeErrorMessage "Antelope build failed"
-    fi
+    cleanupProjectFrontendDeps
+    cleanupYvesFrontendPublicAssets
 }
 
 function displayHeader {

@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\Importer\Business\Installer;
 
-use Spryker\Zed\Messenger\Business\Model\MessengerInterface;
+use Psr\Log\LoggerInterface as MessengerInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 interface InstallerInterface
@@ -15,7 +15,7 @@ interface InstallerInterface
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @param \Spryker\Zed\Messenger\Business\Model\MessengerInterface $messenger
+     * @param \Psr\Log\LoggerInterface $messenger
      *
      * @return void
      */

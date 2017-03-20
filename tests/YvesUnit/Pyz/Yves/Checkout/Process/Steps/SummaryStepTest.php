@@ -1,6 +1,8 @@
 <?php
+
 /**
- * (c) Spryker Systems GmbH copyright protected
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
@@ -12,6 +14,8 @@ use Generated\Shared\Transfer\ShipmentTransfer;
 use PHPUnit_Framework_TestCase;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
 use Spryker\Client\Calculation\CalculationClientInterface;
+use Spryker\Client\Cart\CartClientInterface;
+use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouperInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -77,11 +81,32 @@ class SummaryStepTest extends PHPUnit_Framework_TestCase
      */
     protected function createSummaryStep(CalculationClientInterface $calculationClientMock)
     {
+        $productBundleGroupeMock = $this->createProductBundleGrouperMock();
+        $cartClientMock = $this->createCartClientMock();
+
         return new SummaryStep(
             $calculationClientMock,
+            $productBundleGroupeMock,
+            $cartClientMock,
             'shipment',
             'escape_route'
         );
+    }
+
+    /**
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouperInterface
+     */
+    protected function createProductBundleGrouperMock()
+    {
+        return $this->getMockBuilder(ProductBundleGrouperInterface::class)->getMock();
+    }
+
+    /**
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Cart\CartClientInterface
+     */
+    protected function createCartClientMock()
+    {
+        return $this->getMockBuilder(CartClientInterface::class)->getMock();
     }
 
     /**

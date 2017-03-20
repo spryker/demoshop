@@ -39,20 +39,20 @@ class TwigTranslator implements TranslatorInterface
      *
      * @api
      *
-     * @param string $id The message id (may also be an object that can be cast to string)
+     * @param string $identifier The message id (may also be an object that can be cast to string)
      * @param array $parameters An array of parameters for the message
      * @param string|null $domain The domain for the message or null to use the default
      * @param string|null $locale The locale or null to use the default
      *
      * @return string The translated string
      */
-    public function trans($id, array $parameters = [], $domain = null, $locale = null)
+    public function trans($identifier, array $parameters = [], $domain = null, $locale = null)
     {
         if ($locale === null) {
             $locale = $this->localeName;
         }
 
-        return $this->client->translate($id, $locale, $parameters);
+        return $this->client->translate($identifier, $locale, $parameters);
     }
 
     /**
@@ -60,7 +60,7 @@ class TwigTranslator implements TranslatorInterface
      *
      * @api
      *
-     * @param string $id The message id (may also be an object that can be cast to string)
+     * @param string $identifier The message id (may also be an object that can be cast to string)
      * @param int $number The number to use to find the indice of the message
      * @param array $parameters An array of parameters for the message
      * @param string|null $domain The domain for the message or null to use the default
@@ -70,20 +70,20 @@ class TwigTranslator implements TranslatorInterface
      *
      * @return string The translated string
      */
-    public function transChoice($id, $number, array $parameters = [], $domain = null, $locale = null)
+    public function transChoice($identifier, $number, array $parameters = [], $domain = null, $locale = null)
     {
         if ($locale === null) {
             $locale = $this->localeName;
         }
 
-        $ids = explode('|', $id);
+        $ids = explode('|', $identifier);
 
         if ($number === 1) {
             return $this->client->translate($ids[0], $locale, $parameters);
         }
 
         if (!isset($ids[1])) {
-            throw new InvalidArgumentException(sprintf('The message "%s" cannot be pluralized, because it is missing a plural (e.g. "There is one apple|There are %%count%% apples").', $id));
+            throw new InvalidArgumentException(sprintf('The message "%s" cannot be pluralized, because it is missing a plural (e.g. "There is one apple|There are %%count%% apples").', $identifier));
         }
 
         return $this->client->translate($ids[1], $locale, $parameters);
