@@ -5,7 +5,7 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Functional\Pyz\Zed\Propel;
+namespace Functional\Pyz\Zed\PropelOrm;
 
 use Codeception\TestCase\Test;
 use Exception;
@@ -18,9 +18,9 @@ use Stub\ProductManagerStub;
  * @group Pyz
  * @group Zed
  * @group Propel
- * @group PropelTransactionHandlerTest
+ * @group PropelOrmTransactionHandlerTest
  */
-class PropelTransactionHandlerTest extends Test
+class PropelOrmTransactionHandlerTest extends Test
 {
 
     const TEST_SKU = 'foo';
