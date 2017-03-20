@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This is the global runtime configuration for Yves and Generated_Yves_Zed in a development environment.
+ * This is the global runtime configuration for Yves and Generated_Yves_Zed in a devtest environment.
  */
 
 use Pyz\Yves\Application\YvesBootstrap;

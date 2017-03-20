@@ -73,26 +73,35 @@ class UrlGenerator extends SymfonyUrlGenerator
             return $url;
         }
 
-        $baseHost = '/';
+        $baseUrl = '/';
         if ($referenceType === self::ABSOLUTE_URL) {
-            $urlBuilder = new Url([
-                Url::SCHEME => $this->context->getScheme(),
-                Url::HOST => $this->context->getHost(),
-                Url::PORT => $this->getPortFromContext(),
-            ]);
-            $baseHost = $urlBuilder->build();
+            $baseUrl = $this->generateBaseUrl();
         }
 
-        if ($name !== self::HOME && $baseHost === $url) {
+        if ($name !== self::HOME && $baseUrl === $url) {
             $firstPathVariable = current($compiledRoute->getPathVariables());
             $url .= $route->getDefault($firstPathVariable);
         }
 
         if (!$this->isWebProfilerUrl($url)) {
-            $url = $this->setLocalePath($url, $baseHost, $route);
+            $url = $this->setLocalePath($url, $baseUrl, $route);
         }
 
         return $url;
+    }
+
+    /**
+     * @return string
+     */
+    protected function generateBaseUrl()
+    {
+        $urlBuilder = new Url([
+            Url::SCHEME => $this->context->getScheme(),
+            Url::HOST => $this->context->getHost(),
+            Url::PORT => $this->getPortFromContext(),
+        ]);
+
+        return $urlBuilder->build();
     }
 
     /**
