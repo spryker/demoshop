@@ -71,8 +71,8 @@ $jobs[] = [
     'name' => 'queue-worker-start',
     'command' => '$PHP_BIN vendor/bin/console queue:worker:start -vvv',
     'schedule' => '* * * * *',
-    'enable' => true,
-    'run_on_non_production' => true,
+    'enable' => false,
+    'run_on_non_production' => false,
     'stores' => $allStores,
 ];
 
