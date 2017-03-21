@@ -16,46 +16,42 @@ use Spryker\Shared\Setup\SetupConstants;
 use Spryker\Shared\ZedRequest\ZedRequestConstants;
 
 // ---------- Yves host
+$config[ApplicationConstants::HOST_YVES] = 'www-test.de.project.local';
 $config[ApplicationConstants::PORT_YVES] = '';
 $config[ApplicationConstants::PORT_SSL_YVES] = '';
-$config[ApplicationConstants::HOST_YVES] = 'www-test.de.project.local';
-$config[ApplicationConstants::BASE_URL_YVES]
-    = $config[ProductManagementConstants::BASE_URL_YVES]
-    = $config[PayoneConstants::BASE_URL_YVES]
-    = $config[PayolutionConstants::BASE_URL_YVES]
-    = $config[NewsletterConstants::BASE_URL_YVES]
-    = $config[CustomerConstants::BASE_URL_YVES]
-    = sprintf(
-        'http://%s%s',
-        $config[ApplicationConstants::HOST_YVES],
-        $config[ApplicationConstants::PORT_YVES]
-    );
-$config[ApplicationConstants::BASE_URL_SSL_YVES]
-    = sprintf(
-        'https://%s%s',
-        $config[ApplicationConstants::HOST_YVES],
-        $config[ApplicationConstants::PORT_SSL_YVES]
-    );
+$config[ApplicationConstants::BASE_URL_YVES] = sprintf(
+    'http://%s%s',
+    $config[ApplicationConstants::HOST_YVES],
+    $config[ApplicationConstants::PORT_YVES]
+);
+$config[ApplicationConstants::BASE_URL_SSL_YVES] = sprintf(
+    'https://%s%s',
+    $config[ApplicationConstants::HOST_YVES],
+    $config[ApplicationConstants::PORT_SSL_YVES]
+);
+$config[ProductManagementConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
+$config[PayoneConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
+$config[PayolutionConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
+$config[NewsletterConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
+$config[CustomerConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
 
 // ---------- Zed host
+$config[ApplicationConstants::HOST_ZED] = 'zed-test.de.project.local';
 $config[ApplicationConstants::PORT_ZED] = '';
 $config[ApplicationConstants::PORT_SSL_ZED] = '';
-$config[ApplicationConstants::HOST_ZED]
-    = $config[ZedRequestConstants::HOST_ZED_API]
-    = 'zed-test.de.project.local';
-$config[ApplicationConstants::BASE_URL_ZED]
-    = $config[ZedRequestConstants::BASE_URL_ZED_API]
-    = sprintf(
-        'http://%s%s',
-        $config[ApplicationConstants::HOST_ZED],
-        $config[ApplicationConstants::PORT_ZED]
-    );
-$config[ZedRequestConstants::BASE_URL_SSL_ZED_API]
-    = sprintf(
-        'https://%s%s',
-        $config[ApplicationConstants::HOST_ZED],
-        $config[ApplicationConstants::PORT_SSL_ZED]
-    );
+$config[ApplicationConstants::BASE_URL_ZED] = sprintf(
+    'http://%s%s',
+    $config[ApplicationConstants::HOST_ZED],
+    $config[ApplicationConstants::PORT_ZED]
+);
+$config[ApplicationConstants::BASE_URL_SSL_ZED] = sprintf(
+    'https://%s%s',
+    $config[ApplicationConstants::HOST_ZED],
+    $config[ApplicationConstants::PORT_SSL_ZED]
+);
+$config[ZedRequestConstants::HOST_ZED_API] = $config[ApplicationConstants::HOST_ZED];
+$config[ZedRequestConstants::BASE_URL_ZED_API] = $config[ApplicationConstants::BASE_URL_ZED];
+$config[ZedRequestConstants::BASE_URL_SSL_ZED_API] = $config[ApplicationConstants::BASE_URL_SSL_ZED];
 
 // ---------- Trusted hosts
 $config[ApplicationConstants::YVES_TRUSTED_HOSTS] = [

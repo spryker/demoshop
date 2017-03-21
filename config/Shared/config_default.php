@@ -37,11 +37,11 @@ $CURRENT_STORE = Store::getInstance()->getStoreName();
 // ---------- General environment
 $config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
 $config[ApplicationConstants::PROJECT_TIMEZONE] = 'UTC';
-$config[SequenceNumberConstants::ENVIRONMENT_PREFIX]
-    = $config[SalesConstants::ENVIRONMENT_PREFIX]
-    = '';
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = false;
 $config[ApplicationConstants::YVES_TRUSTED_PROXIES] = [];
+$ENVIRONMENT_PREFIX = '';
+$config[SequenceNumberConstants::ENVIRONMENT_PREFIX] = $ENVIRONMENT_PREFIX;
+$config[SalesConstants::ENVIRONMENT_PREFIX] = $ENVIRONMENT_PREFIX;
 
 // ---------- Namespaces
 $config[KernelConstants::PROJECT_NAMESPACE] = 'Pyz';
@@ -71,9 +71,9 @@ $config[UserConstants::USER_SYSTEM_USERS] = [
     'yves_system',
 ];
 // For a better performance you can turn off Zed authentication
-$config[AuthConstants::AUTH_ZED_ENABLED]
-    = $config[ZedRequestConstants::AUTH_ZED_ENABLED]
-    = true;
+$AUTH_ZED_ENABLED = true;
+$config[AuthConstants::AUTH_ZED_ENABLED] = $AUTH_ZED_ENABLED;
+$config[ZedRequestConstants::AUTH_ZED_ENABLED] = $AUTH_ZED_ENABLED;
 $config[AuthConstants::AUTH_DEFAULT_CREDENTIALS] = [
     'yves_system' => [
         'rules' => [
@@ -164,26 +164,26 @@ $config[AclConstants::ACL_DEFAULT_CREDENTIALS] = [
 ];
 
 // ---------- Elasticsearch
-$config[ApplicationConstants::ELASTICA_PARAMETER__HOST]
-    = $config[SearchConstants::ELASTICA_PARAMETER__HOST]
-    = 'localhost';
-$config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT]
-    = $config[SearchConstants::ELASTICA_PARAMETER__TRANSPORT]
-    = 'http';
-$config[ApplicationConstants::ELASTICA_PARAMETER__PORT]
-    = $config[SearchConstants::ELASTICA_PARAMETER__PORT]
-    = '10005';
-$config[ApplicationConstants::ELASTICA_PARAMETER__AUTH_HEADER]
-    = $config[SearchConstants::ELASTICA_PARAMETER__AUTH_HEADER]
-    = '';
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME]
-    = $config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME]
-    = $config[SearchConstants::ELASTICA_PARAMETER__INDEX_NAME]
-    = null; // Store related config
-$config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE]
-    = $config[CollectorConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE]
-    = $config[SearchConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE]
-    = 'page';
+$ELASTICA_HOST = 'localhost';
+$config[ApplicationConstants::ELASTICA_PARAMETER__HOST] = $ELASTICA_HOST;
+$config[SearchConstants::ELASTICA_PARAMETER__HOST] = $ELASTICA_HOST;
+$ELASTICA_TRANSPORT_PROTOCOL = 'http';
+$config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT] = $ELASTICA_TRANSPORT_PROTOCOL;
+$config[SearchConstants::ELASTICA_PARAMETER__TRANSPORT] = $ELASTICA_TRANSPORT_PROTOCOL;
+$ELASTICA_PORT = '10005';
+$config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = $ELASTICA_PORT;
+$config[SearchConstants::ELASTICA_PARAMETER__PORT] = $ELASTICA_PORT;
+$ELASTICA_AUTH_HEADER = '';
+$config[ApplicationConstants::ELASTICA_PARAMETER__AUTH_HEADER] = $ELASTICA_AUTH_HEADER;
+$config[SearchConstants::ELASTICA_PARAMETER__AUTH_HEADER] = $ELASTICA_AUTH_HEADER;
+$ELASTICA_INDEX_NAME = null;// Store related config
+$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
+$config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
+$config[SearchConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
+$ELASTICA_DOCUMENT_TYPE = 'page';
+$config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
+$config[CollectorConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
+$config[SearchConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
 
 // ---------- Page search
 $config[SearchConstants::FULL_TEXT_BOOSTED_BOOSTING_VALUE] = 3;
@@ -231,16 +231,16 @@ $config[ApplicationConstants::YVES_COOKIE_VISITOR_ID_NAME] = 'vid';
 $config[ApplicationConstants::YVES_COOKIE_VISITOR_ID_VALID_FOR] = '+30 minute';
 
 // ---------- HTTP strict transport security
-$config[ApplicationConstants::ZED_HTTP_STRICT_TRANSPORT_SECURITY_ENABLED]
-    = $config[ApplicationConstants::YVES_HTTP_STRICT_TRANSPORT_SECURITY_ENABLED]
-    = false;
-$config[ApplicationConstants::ZED_HTTP_STRICT_TRANSPORT_SECURITY_CONFIG]
-    = $config[ApplicationConstants::YVES_HTTP_STRICT_TRANSPORT_SECURITY_CONFIG]
-    = [
-        'max_age' => 31536000,
-        'include_sub_domains' => true,
-        'preload' => true,
-    ];
+$HSTS_ENABLED = false;
+$config[ApplicationConstants::ZED_HTTP_STRICT_TRANSPORT_SECURITY_ENABLED] = $HSTS_ENABLED;
+$config[ApplicationConstants::YVES_HTTP_STRICT_TRANSPORT_SECURITY_ENABLED] = $HSTS_ENABLED;
+$HSTS_CONFIG = [
+    'max_age' => 31536000,
+    'include_sub_domains' => true,
+    'preload' => true,
+];
+$config[ApplicationConstants::ZED_HTTP_STRICT_TRANSPORT_SECURITY_CONFIG] = $HSTS_CONFIG;
+$config[ApplicationConstants::YVES_HTTP_STRICT_TRANSPORT_SECURITY_CONFIG] = $HSTS_CONFIG;
 
 // ---------- SSL
 $config[ApplicationConstants::YVES_SSL_ENABLED] = false;
@@ -253,9 +253,9 @@ $config[ZedRequestConstants::ZED_API_SSL_ENABLED] = false;
 $config[ApplicationConstants::ZED_SSL_EXCLUDED] = ['heartbeat/index'];
 
 // ---------- Theme
-$config[ApplicationConstants::YVES_THEME]
-    = $config[CmsConstants::YVES_THEME]
-    = 'default';
+$YVES_THEME = 'default';
+$config[ApplicationConstants::YVES_THEME] = $YVES_THEME;
+$config[CmsConstants::YVES_THEME] = $YVES_THEME;
 
 // ---------- Error handling
 $config[ErrorHandlerConstants::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/public/Yves/errorpage/error.html';
@@ -316,9 +316,9 @@ $config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^/custom
 $config[CustomerConstants::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
 
 // ---------- Price (should go into bundle configuration)
-$config[PriceConstants::DEFAULT_PRICE_TYPE]
-    = $config[PriceCartConnectorConstants::DEFAULT_PRICE_TYPE]
-    = 'DEFAULT';
+$DEFAULT_PRICE_TYPE = 'DEFAULT';
+$config[PriceConstants::DEFAULT_PRICE_TYPE] = $DEFAULT_PRICE_TYPE;
+$config[PriceCartConnectorConstants::DEFAULT_PRICE_TYPE] = $DEFAULT_PRICE_TYPE;
 
 // ---------- Taxes (should go into bundle configuration)
 $config[TaxConstants::DEFAULT_TAX_RATE] = 19;

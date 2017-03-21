@@ -31,20 +31,20 @@ $config[KernelConstants::STORE_PREFIX] = 'DEV';
 $config[PropelConstants::PROPEL_DEBUG] = false;
 $config[PropelConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = false;
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = false;
-$dbopts = parse_url(getenv(getenv('DATABASE_URL_NAME') ?: 'DATABASE_URL'));
+$ENV_DB_CONNECTION_DATA = parse_url(getenv(getenv('DATABASE_URL_NAME') ?: 'DATABASE_URL'));
 $config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
-$config[PropelConstants::ZED_DB_USERNAME] = $dbopts['user'];
-$config[PropelConstants::ZED_DB_PASSWORD] = $dbopts['pass'];
-$config[PropelConstants::ZED_DB_DATABASE] = ltrim($dbopts['path'], '/');
-$config[PropelConstants::ZED_DB_HOST] = $dbopts['host'];
-$config[PropelConstants::ZED_DB_PORT] = isset($dbopts['port']) ? $dbopts['port'] : 5432;
+$config[PropelConstants::ZED_DB_USERNAME] = $ENV_DB_CONNECTION_DATA['user'];
+$config[PropelConstants::ZED_DB_PASSWORD] = $ENV_DB_CONNECTION_DATA['pass'];
+$config[PropelConstants::ZED_DB_DATABASE] = ltrim($ENV_DB_CONNECTION_DATA['path'], '/');
+$config[PropelConstants::ZED_DB_HOST] = $ENV_DB_CONNECTION_DATA['host'];
+$config[PropelConstants::ZED_DB_PORT] = isset($ENV_DB_CONNECTION_DATA['port']) ? $ENV_DB_CONNECTION_DATA['port'] : 5432;
 
 // ---------- Redis
-$redis = parse_url(getenv(getenv('REDIS_URL_NAME') ?: 'REDIS_URL'));
-$config[StorageConstants::STORAGE_REDIS_PROTOCOL] = $redis['scheme'];
-$config[StorageConstants::STORAGE_REDIS_HOST] = $redis['host'];
-$config[StorageConstants::STORAGE_REDIS_PORT] = $redis['port'];
-$config[StorageConstants::STORAGE_REDIS_PASSWORD] = $redis['pass'];
+$ENV_REDIS_CONNECTION_DATA = parse_url(getenv(getenv('REDIS_URL_NAME') ?: 'REDIS_URL'));
+$config[StorageConstants::STORAGE_REDIS_PROTOCOL] = $ENV_REDIS_CONNECTION_DATA['scheme'];
+$config[StorageConstants::STORAGE_REDIS_HOST] = $ENV_REDIS_CONNECTION_DATA['host'];
+$config[StorageConstants::STORAGE_REDIS_PORT] = $ENV_REDIS_CONNECTION_DATA['port'];
+$config[StorageConstants::STORAGE_REDIS_PASSWORD] = $ENV_REDIS_CONNECTION_DATA['pass'];
 
 // ---------- RabbitMQ
 $config[ApplicationConstants::ZED_RABBITMQ_HOST] = 'localhost';
@@ -65,20 +65,23 @@ $config[SessionConstants::ZED_SESSION_REDIS_PORT] = $config[SessionConstants::YV
 $config[SessionConstants::ZED_SESSION_REDIS_PASSWORD] = $config[SessionConstants::YVES_SESSION_REDIS_PASSWORD];
 
 // ---------- Elasticsearch
-$elastica = parse_url(getenv(getenv('ELASTIC_SEARCH_URL_NAME') ?: 'ELASTIC_SEARCH_URL'));
-$b64 = base64_encode($elastica['user'] . ':' . $elastica['pass']);
-$config[ApplicationConstants::ELASTICA_PARAMETER__AUTH_HEADER]
-    = $config[SearchConstants::ELASTICA_PARAMETER__AUTH_HEADER]
-    = str_pad($b64, strlen($b64) + strlen($b64) % 4, '=', STR_PAD_RIGHT);
-$config[ApplicationConstants::ELASTICA_PARAMETER__HOST]
-    = $config[SearchConstants::ELASTICA_PARAMETER__HOST]
-    = $elastica['host'];
-$config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT]
-    = $config[SearchConstants::ELASTICA_PARAMETER__TRANSPORT]
-    = $elastica['scheme'];
-$config[ApplicationConstants::ELASTICA_PARAMETER__PORT]
-    = $config[SearchConstants::ELASTICA_PARAMETER__PORT]
-    = ($elastica['scheme'] == 'https' ? 443 : 80);
+$ENV_ELASTICA_CONNECTION_DATA = parse_url(getenv(getenv('ELASTIC_SEARCH_URL_NAME') ?: 'ELASTIC_SEARCH_URL'));
+$ELASTICA_BASIC_AUTH = base64_encode($ENV_ELASTICA_CONNECTION_DATA['user'] . ':' . $ENV_ELASTICA_CONNECTION_DATA['pass']);
+$ELASTICA_AUTH_HEADER = str_pad(
+    $ELASTICA_BASIC_AUTH,
+    strlen($ELASTICA_BASIC_AUTH) + strlen($ELASTICA_BASIC_AUTH) % 4,
+    '=',
+    STR_PAD_RIGHT
+);
+$ELASTICA_PORT = ($ENV_ELASTICA_CONNECTION_DATA['scheme'] == 'https' ? 443 : 80);
+$config[ApplicationConstants::ELASTICA_PARAMETER__AUTH_HEADER] = $ELASTICA_AUTH_HEADER;
+$config[SearchConstants::ELASTICA_PARAMETER__AUTH_HEADER] = $ELASTICA_AUTH_HEADER;
+$config[ApplicationConstants::ELASTICA_PARAMETER__HOST] = $ENV_ELASTICA_CONNECTION_DATA['host'];
+$config[SearchConstants::ELASTICA_PARAMETER__HOST] = $ENV_ELASTICA_CONNECTION_DATA['host'];
+$config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT] = $ENV_ELASTICA_CONNECTION_DATA['scheme'];
+$config[SearchConstants::ELASTICA_PARAMETER__TRANSPORT] = $ENV_ELASTICA_CONNECTION_DATA['scheme'];
+$config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = $ELASTICA_PORT;
+$config[SearchConstants::ELASTICA_PARAMETER__PORT] = $ELASTICA_PORT;
 
 // ---------- Jenkins
 $config[SetupConstants::JENKINS_DIRECTORY] = '/data/shop/development/shared/data/common/jenkins';
