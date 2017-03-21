@@ -87,7 +87,7 @@ CREATE TABLE "spy_navigation_node_localized_attributes"
     "title" VARCHAR(255) NOT NULL,
     "link" VARCHAR(255),
     "external_url" VARCHAR(255),
-    "custom_class" VARCHAR(255),
+    "css_class" VARCHAR(255),
     "created_at" TIMESTAMP,
     "updated_at" TIMESTAMP,
     PRIMARY KEY ("id_navigation_node_localized_attributes")

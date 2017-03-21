@@ -1,4 +1,4 @@
-navigation_key,node_key,parent,node_type,title.en_US,url.en_US,custom_class.en_US,title.de_DE,url.de_DE,custom_class.de_DE
+navigation_key,node_key,parent,node_type,title.en_US,url.en_US,css_class.en_US,title.de_DE,url.de_DE,css_class.de_DE
 MAIN_NAVIGATION,1,,label,Top Categories,,,Top Kategorien,,
 MAIN_NAVIGATION,2,1,category,Notebooks,/en/computer/notebooks,,Notebooks,/de/computer/notebooks,
 MAIN_NAVIGATION,3,1,category,Tablets,/en/computer/tablets,,Tablets,/de/computer/tablets,

@@ -146,7 +146,7 @@ class NavigationNodeImporter extends AbstractImporter
             $navigationNodeLocalizedAttributeTransfer = (new NavigationNodeLocalizedAttributesTransfer())
                 ->setFkLocale($idLocale)
                 ->setTitle($data['title.' . $localeName])
-                ->setCustomClass($data['custom_class.' . $localeName]);
+                ->setCssClass($data['css_class.' . $localeName]);
 
             switch($data['node_type']) {
                 case 'category':

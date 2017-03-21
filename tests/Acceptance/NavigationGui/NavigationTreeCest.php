@@ -260,38 +260,38 @@ class NavigationTreeCest
          * TODO: once we have Selenium, enable this test case.
          */
         return;
-
-        $i->wantTo('Remove child node.');
-        $i->expect('Node should be removed from Zed.');
-
-        $i->amLoggedInUser();
-        $navigationTreeTransfer = $i->prepareTestNavigationTreeEntities((new NavigationTreeTransfer())
-            ->setNavigation((new NavigationTransfer())
-                ->setName('Delete navigation node')
-                ->setKey('Delete navigation node')
-                ->setIsActive(true))
-            ->addNode((new NavigationTreeNodeTransfer())
-                ->setNavigationNode((new NavigationNodeTransfer())
-                    ->addNavigationNodeLocalizedAttribute((new NavigationNodeLocalizedAttributesTransfer())
-                        ->setFkLocale($i->getIdLocale('en_US'))
-                        ->setTitle('foo'))
-                    ->addNavigationNodeLocalizedAttribute((new NavigationNodeLocalizedAttributesTransfer())
-                        ->setFkLocale($i->getIdLocale('de_DE'))
-                        ->setTitle('foo')))));
-        $i->amOnPage(NavigationPage::URL);
-
-        $idNavigationNode = $navigationTreeTransfer->getNodes()[0]->getNavigationNode()->getIdNavigationNode();
-
-        $i->waitForNavigationTree();
-        $i->clickNode($idNavigationNode);
-        $i->switchToNodeForm();
-        $i->clickRemoveNodeButton();
-        $i->canSeeInPopup('Are you sure you remove the selected node and all its children?');
-        $i->acceptPopup();
-
-        $i->seeSuccessMessage(NavigationNodeDeletePage::MESSAGE_SUCCESS);
-        $i->switchToNavigationTree();
-        $i->seeNumberOfNavigationNodes(1);
+//
+//        $i->wantTo('Remove child node.');
+//        $i->expect('Node should be removed from Zed.');
+//
+//        $i->amLoggedInUser();
+//        $navigationTreeTransfer = $i->prepareTestNavigationTreeEntities((new NavigationTreeTransfer())
+//            ->setNavigation((new NavigationTransfer())
+//                ->setName('Delete navigation node')
+//                ->setKey('Delete navigation node')
+//                ->setIsActive(true))
+//            ->addNode((new NavigationTreeNodeTransfer())
+//                ->setNavigationNode((new NavigationNodeTransfer())
+//                    ->addNavigationNodeLocalizedAttribute((new NavigationNodeLocalizedAttributesTransfer())
+//                        ->setFkLocale($i->getIdLocale('en_US'))
+//                        ->setTitle('foo'))
+//                    ->addNavigationNodeLocalizedAttribute((new NavigationNodeLocalizedAttributesTransfer())
+//                        ->setFkLocale($i->getIdLocale('de_DE'))
+//                        ->setTitle('foo')))));
+//        $i->amOnPage(NavigationPage::URL);
+//
+//        $idNavigationNode = $navigationTreeTransfer->getNodes()[0]->getNavigationNode()->getIdNavigationNode();
+//
+//        $i->waitForNavigationTree();
+//        $i->clickNode($idNavigationNode);
+//        $i->switchToNodeForm();
+//        $i->clickRemoveNodeButton();
+//        $i->canSeeInPopup('Are you sure you remove the selected node and all its children?');
+//        $i->acceptPopup();
+//
+//        $i->seeSuccessMessage(NavigationNodeDeletePage::MESSAGE_SUCCESS);
+//        $i->switchToNavigationTree();
+//        $i->seeNumberOfNavigationNodes(1);
     }
 
 }
