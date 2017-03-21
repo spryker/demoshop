@@ -41,6 +41,9 @@ class PropelOrmTransactionHandlerTest extends Test
      */
     protected $outsideConnection;
 
+    /**
+     * @return void
+     */
     protected function setUp()
     {
         parent::setUp();
