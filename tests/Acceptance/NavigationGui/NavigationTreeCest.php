@@ -8,7 +8,6 @@
 namespace Acceptance\NavigationGui;
 
 use Acceptance\NavigationGui\PageObject\NavigationNodeCreatePage;
-use Acceptance\NavigationGui\PageObject\NavigationNodeDeletePage;
 use Acceptance\NavigationGui\PageObject\NavigationNodeUpdatePage;
 use Acceptance\NavigationGui\PageObject\NavigationPage;
 use Acceptance\NavigationGui\Tester\NavigationTreeTester;
