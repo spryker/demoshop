@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6526d21e7696cb9a5ff9e32a205c5a67",
+    "content-hash": "4a7d35a2df4cc0f7ab739d01c9d87d34",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -886,6 +886,76 @@
             "time": "2016-03-18T15:55:46+00:00"
         },
         {
+            "name": "php-amqplib/php-amqplib",
+            "version": "v2.6.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-amqplib/php-amqplib.git",
+                "reference": "fa2f0d4410a11008cb36b379177291be7ee9e4f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-amqplib/php-amqplib/zipball/fa2f0d4410a11008cb36b379177291be7ee9e4f6",
+                "reference": "fa2f0d4410a11008cb36b379177291be7ee9e4f6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-bcmath": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.3.0"
+            },
+            "replace": {
+                "videlalvaro/php-amqplib": "self.version"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8",
+                "scrutinizer/ocular": "^1.1",
+                "squizlabs/php_codesniffer": "^2.5"
+            },
+            "suggest": {
+                "ext-sockets": "Use AMQPSocketConnection"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PhpAmqpLib\\": "PhpAmqpLib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "Alvaro Videla",
+                    "role": "Original Maintainer"
+                },
+                {
+                    "name": "John Kelly",
+                    "email": "johnmkelly86@gmail.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Raúl Araya",
+                    "email": "nubeiro@gmail.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Formerly videlalvaro/php-amqplib.  This library is a pure PHP implementation of the AMQP protocol. It's been tested against RabbitMQ.",
+            "homepage": "https://github.com/php-amqplib/php-amqplib/",
+            "keywords": [
+                "message",
+                "queue",
+                "rabbitmq"
+            ],
+            "time": "2016-04-11T14:30:01+00:00"
+        },
+        {
             "name": "phpdocumentor/graphviz",
             "version": "1.0.4",
             "source": {
@@ -1368,12 +1438,60 @@
             "time": "2016-01-06T14:59:35+00:00"
         },
         {
+            "name": "spryker/rabbit-mq",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/rabbit-mq.git",
+                "reference": "ad28b94faf72770e3a929bfcf6a204f419c3abee"
+            },
+            "require": {
+                "php": ">=5.4.16",
+                "php-amqplib/php-amqplib": "^2.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RabbitMq\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "RabbitMq\\Test\\": "tests"
+                }
+            },
+            "include-path": [
+                "src/"
+            ],
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Spryker",
+                    "homepage": "http://spryker.com"
+                }
+            ],
+            "description": "Spryker RabbitMq adapter",
+            "homepage": "http://spryker.com",
+            "keywords": [
+                "framework",
+                "queue",
+                "rabbit-mq",
+                "standards"
+            ],
+            "support": {
+                "source": "https://github.com/spryker/rabbit-mq"
+            },
+            "time": "2017-03-20 15:48:36"
+        },
+        {
             "name": "spryker/spryker",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "4bedc5beb72427c6c0dae4120c288853e7a32c46"
+                "reference": "2a35f3e4b8da944c20def9649a5dc78f79d6a466"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1950,10 +2068,13 @@
                     "Functional\\Spryker\\Zed\\AvailabilityGui\\": "Bundles/AvailabilityGui/tests",
                     "Acceptance\\AvailabilityGui\\": "Bundles/AvailabilityGui/tests",
                     "Spryker\\Client\\Queue\\": "Bundles/Queue/src",
+                    "Unit\\Spryker\\Client\\Queue\\": "Bundles/Queue/tests",
                     "Functional\\Spryker\\Client\\Queue\\": "Bundles/Queue/tests",
                     "Spryker\\Shared\\Queue\\": "Bundles/Queue/src",
+                    "Unit\\Spryker\\Shared\\Queue\\": "Bundles/Queue/tests",
                     "Functional\\Spryker\\Shared\\Queue\\": "Bundles/Queue/tests",
                     "Spryker\\Zed\\Queue\\": "Bundles/Queue/src",
+                    "Unit\\Spryker\\Zed\\Queue\\": "Bundles/Queue/tests",
                     "Functional\\Spryker\\Zed\\Queue\\": "Bundles/Queue/tests",
                     "Spryker\\Yves\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/src",
                     "Spryker\\Client\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/src",
@@ -1983,7 +2104,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-03-21 12:51:38"
+            "time": "2017-03-22 15:41:58"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6606,7 +6727,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-03-07T12:41:16+00:00"
+            "time": "2017-03-07 12:41:16"
         },
         {
             "name": "spryker/code-sniffer",
@@ -6653,7 +6774,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-03-17T13:33:48+00:00"
+            "time": "2017-03-17 13:33:48"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -7224,6 +7345,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "spryker/spryker": 20,
+        "spryker/rabbit-mq": 20,
         "spryker/architecture-sniffer": 20,
         "spryker/code-generator": 20,
         "spryker/code-sniffer": 20
