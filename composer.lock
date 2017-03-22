@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3ad7288de5e36486bcb1710aab1e3c3e",
+    "content-hash": "73c176a376a77aacd4af86322c1d22d0",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -8325,11 +8325,11 @@
         },
         {
             "name": "spryker/queue",
-            "version": "0.2.0",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Queue.git",
-                "reference": "a7c995e06a3f386515a145ceeeb9a179bc1bdf54",
+                "reference": "1e181b09edd095839c16ca6a295c4dc8e6bc1cda",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8339,8 +8339,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Queue/zipball/a7c995e06a3f386515a145ceeeb9a179bc1bdf54",
-                "reference": "a7c995e06a3f386515a145ceeeb9a179bc1bdf54",
+                "url": "https://api.github.com/repos/spryker/Queue/zipball/1e181b09edd095839c16ca6a295c4dc8e6bc1cda",
+                "reference": "1e181b09edd095839c16ca6a295c4dc8e6bc1cda",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8350,7 +8350,10 @@
                 ]
             },
             "require": {
-                "spryker/kernel": "^3.0.0"
+                "spryker/gui": "^3.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/symfony": "^3.0.0"
             },
             "type": "library",
             "extra": {
@@ -8371,7 +8374,7 @@
             "support": {
                 "source": "https://github.com/spryker/Queue/tree/master"
             },
-            "time": "2017-02-23T15:00:28+00:00"
+            "time": "2017-03-21T14:00:45+00:00"
         },
         {
             "name": "spryker/quote",
