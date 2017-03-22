@@ -57,7 +57,7 @@
     "ext-pgsql": "*",
     "ext-readline": "*",
     "ext-redis": "*",
-    "php-amqplib/php-amqplib": "^2.6"
+    "spryker/rabbit-mq": "dev-master"
   },
   "require-dev": {
     "codeception/codeception": "~2.1.10",
@@ -102,6 +102,10 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/architecture-sniffer.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/rabbit-mq.git"
     }
   ],
   "scripts": {
