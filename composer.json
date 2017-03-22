@@ -87,8 +87,7 @@
       "Unit": "tests",
       "YvesUnit": "tests",
       "Functional": "tests",
-      "Acceptance": "tests",
-      "Unit\\Spryker\\Shared\\Twig\\": "vendor/spryker/spryker/Bundles/Twig/tests"
+      "Acceptance": "tests"
     }
   },
   "minimum-stability": "dev",
