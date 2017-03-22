@@ -67,6 +67,15 @@ $jobs[] = [
     'stores' => $allStores,
 ];
 
+$jobs[] = [
+    'name' => 'queue-worker-start',
+    'command' => '$PHP_BIN vendor/bin/console queue:worker:start -vvv',
+    'schedule' => '* * * * *',
+    'enable' => false,
+    'run_on_non_production' => false,
+    'stores' => $allStores,
+];
+
 /* StateMachine */
 /*
 $jobs[] = [

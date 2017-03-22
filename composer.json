@@ -128,7 +128,8 @@
     "spryker/zed-navigation": "^1.0.0",
     "spryker/zed-request": "^3.0.0",
     "spryker/zend": "^2.0.0",
-    "swiftmailer/swiftmailer": "^5.4.5"
+    "swiftmailer/swiftmailer": "^5.4.5",
+    "spryker/rabbit-mq": "dev-master"
   },
   "require-dev": {
     "codeception/codeception": "~2.1.11",
@@ -180,6 +181,10 @@
     {
       "type": "composer",
       "url": "https://code.spryker.com/repo/private"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/rabbit-mq.git"
     }
   ],
   "scripts": {
