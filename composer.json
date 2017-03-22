@@ -88,10 +88,7 @@
       "YvesUnit": "tests",
       "Functional": "tests",
       "Acceptance": "tests"
-    },
-    "files": [
-      "vendor/spryker/spryker/autoload.php"
-    ]
+    }
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
