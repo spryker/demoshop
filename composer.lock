@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4312a73db84fc56a3b6f1894fcd2f8e0",
+    "content-hash": "3ad7288de5e36486bcb1710aab1e3c3e",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -710,16 +710,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "0d6c7ca039329247e4f0f8f8f6506810e8248855"
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/0d6c7ca039329247e4f0f8f8f6506810e8248855",
-                "reference": "0d6c7ca039329247e4f0f8f8f6506810e8248855",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
                 "shasum": ""
             },
             "require": {
@@ -771,7 +771,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-02-27T10:51:17+00:00"
+            "time": "2017-03-20T17:10:46+00:00"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1115,16 +1115,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v2.0.9",
+            "version": "v2.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "6968531206671f94377b01dc7888d5d1b858a01b"
+                "reference": "634bae8e911eefa89c1abfbf1b66da679ac8f54d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/6968531206671f94377b01dc7888d5d1b858a01b",
-                "reference": "6968531206671f94377b01dc7888d5d1b858a01b",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/634bae8e911eefa89c1abfbf1b66da679ac8f54d",
+                "reference": "634bae8e911eefa89c1abfbf1b66da679ac8f54d",
                 "shasum": ""
             },
             "require": {
@@ -1159,7 +1159,77 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2017-03-03T20:43:42+00:00"
+            "time": "2017-03-13T16:27:32+00:00"
+        },
+        {
+            "name": "php-amqplib/php-amqplib",
+            "version": "v2.6.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-amqplib/php-amqplib.git",
+                "reference": "fa2f0d4410a11008cb36b379177291be7ee9e4f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-amqplib/php-amqplib/zipball/fa2f0d4410a11008cb36b379177291be7ee9e4f6",
+                "reference": "fa2f0d4410a11008cb36b379177291be7ee9e4f6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-bcmath": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.3.0"
+            },
+            "replace": {
+                "videlalvaro/php-amqplib": "self.version"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8",
+                "scrutinizer/ocular": "^1.1",
+                "squizlabs/php_codesniffer": "^2.5"
+            },
+            "suggest": {
+                "ext-sockets": "Use AMQPSocketConnection"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PhpAmqpLib\\": "PhpAmqpLib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "Alvaro Videla",
+                    "role": "Original Maintainer"
+                },
+                {
+                    "name": "John Kelly",
+                    "email": "johnmkelly86@gmail.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Raúl Araya",
+                    "email": "nubeiro@gmail.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Formerly videlalvaro/php-amqplib.  This library is a pure PHP implementation of the AMQP protocol. It's been tested against RabbitMQ.",
+            "homepage": "https://github.com/php-amqplib/php-amqplib/",
+            "keywords": [
+                "message",
+                "queue",
+                "rabbitmq"
+            ],
+            "time": "2016-04-11T14:30:01+00:00"
         },
         {
             "name": "php-mock/php-mock",
@@ -4110,11 +4180,11 @@
         },
         {
             "name": "spryker/collector",
-            "version": "5.1.0",
+            "version": "5.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Collector.git",
-                "reference": "b455a8c3ecb1256f31ca7adf70028d7591a8f7b7",
+                "reference": "d3c5b87a16db85eb741b943534724fada9960e56",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4124,8 +4194,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Collector/zipball/b455a8c3ecb1256f31ca7adf70028d7591a8f7b7",
-                "reference": "b455a8c3ecb1256f31ca7adf70028d7591a8f7b7",
+                "url": "https://api.github.com/repos/spryker/Collector/zipball/d3c5b87a16db85eb741b943534724fada9960e56",
+                "reference": "d3c5b87a16db85eb741b943534724fada9960e56",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4179,7 +4249,7 @@
             "support": {
                 "source": "https://github.com/spryker/Collector/tree/master"
             },
-            "time": "2017-03-01T10:33:28+00:00"
+            "time": "2017-03-15T17:25:37+00:00"
         },
         {
             "name": "spryker/collector-search-connector",
@@ -7987,11 +8057,11 @@
         },
         {
             "name": "spryker/product-search",
-            "version": "5.0.0",
+            "version": "5.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ProductSearch.git",
-                "reference": "166339d11d677ac711a5f46f3bdde7ae082a722d",
+                "reference": "0bcb05b87c1efc7a5ac1783258a94b5a9031ae27",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8001,8 +8071,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductSearch/zipball/166339d11d677ac711a5f46f3bdde7ae082a722d",
-                "reference": "166339d11d677ac711a5f46f3bdde7ae082a722d",
+                "url": "https://api.github.com/repos/spryker/ProductSearch/zipball/0bcb05b87c1efc7a5ac1783258a94b5a9031ae27",
+                "reference": "0bcb05b87c1efc7a5ac1783258a94b5a9031ae27",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8012,7 +8082,7 @@
                 ]
             },
             "require": {
-                "spryker/collector": "^5.0.0",
+                "spryker/collector": "^5.1.1",
                 "spryker/glossary": "^3.0.0",
                 "spryker/gui": "^3.0.0",
                 "spryker/kernel": "^3.0.0",
@@ -8056,9 +8126,9 @@
             ],
             "description": "ProductSearch bundle",
             "support": {
-                "source": "https://github.com/spryker/ProductSearch/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/ProductSearch/tree/master"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-03-20T11:40:54+00:00"
         },
         {
             "name": "spryker/propel",
@@ -8135,11 +8205,11 @@
         },
         {
             "name": "spryker/propel-orm",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/PropelOrm.git",
-                "reference": "4c30599d6fab6ca1cc9bae221f524bf10914e9fc",
+                "reference": "b2460bc00f6dd320bcee8270af5c77863d1d7212",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8149,8 +8219,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/PropelOrm/zipball/4c30599d6fab6ca1cc9bae221f524bf10914e9fc",
-                "reference": "4c30599d6fab6ca1cc9bae221f524bf10914e9fc",
+                "url": "https://api.github.com/repos/spryker/PropelOrm/zipball/b2460bc00f6dd320bcee8270af5c77863d1d7212",
+                "reference": "b2460bc00f6dd320bcee8270af5c77863d1d7212",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8181,7 +8251,7 @@
             "support": {
                 "source": "https://github.com/spryker/PropelOrm/tree/master"
             },
-            "time": "2017-02-22T11:52:27+00:00"
+            "time": "2017-03-20T21:09:33+00:00"
         },
         {
             "name": "spryker/propel-query-builder",
@@ -8363,6 +8433,54 @@
                 "source": "https://github.com/spryker/Quote/tree/beta/core-714-big-core-cleanup"
             },
             "time": "2017-02-22T12:08:46+00:00"
+        },
+        {
+            "name": "spryker/rabbit-mq",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/rabbit-mq.git",
+                "reference": "ad28b94faf72770e3a929bfcf6a204f419c3abee"
+            },
+            "require": {
+                "php": ">=5.4.16",
+                "php-amqplib/php-amqplib": "^2.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RabbitMq\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "RabbitMq\\Test\\": "tests"
+                }
+            },
+            "include-path": [
+                "src/"
+            ],
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Spryker",
+                    "homepage": "http://spryker.com"
+                }
+            ],
+            "description": "Spryker RabbitMq adapter",
+            "homepage": "http://spryker.com",
+            "keywords": [
+                "framework",
+                "queue",
+                "rabbit-mq",
+                "standards"
+            ],
+            "support": {
+                "source": "https://github.com/spryker/rabbit-mq"
+            },
+            "time": "2017-03-20 15:48:36"
         },
         {
             "name": "spryker/redis",
@@ -12734,16 +12852,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.32.0",
+            "version": "v1.33.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "9935b662e24d6e634da88901ab534cc12e8c728f"
+                "reference": "05cf49921b13f6f01d3cfdf9018cfa7a8086fd5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/9935b662e24d6e634da88901ab534cc12e8c728f",
-                "reference": "9935b662e24d6e634da88901ab534cc12e8c728f",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/05cf49921b13f6f01d3cfdf9018cfa7a8086fd5a",
+                "reference": "05cf49921b13f6f01d3cfdf9018cfa7a8086fd5a",
                 "shasum": ""
             },
             "require": {
@@ -12752,12 +12870,12 @@
             "require-dev": {
                 "psr/container": "^1.0",
                 "symfony/debug": "~2.7",
-                "symfony/phpunit-bridge": "~3.2"
+                "symfony/phpunit-bridge": "~3.3@dev"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.32-dev"
+                    "dev-master": "1.33-dev"
                 }
             },
             "autoload": {
@@ -12792,7 +12910,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-02-27T00:07:03+00:00"
+            "time": "2017-03-22T15:40:09+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -13415,27 +13533,27 @@
         },
         {
             "name": "zendframework/zend-validator",
-            "version": "2.8.2",
+            "version": "2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-validator.git",
-                "reference": "99b528e01276054458da9553b587cfb959dfa436"
+                "reference": "b71641582297eab52753b72cd4eb45a5ded4485c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/99b528e01276054458da9553b587cfb959dfa436",
-                "reference": "99b528e01276054458da9553b587cfb959dfa436",
+                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/b71641582297eab52753b72cd4eb45a5ded4485c",
+                "reference": "b71641582297eab52753b72cd4eb45a5ded4485c",
                 "shasum": ""
             },
             "require": {
                 "container-interop/container-interop": "^1.1",
-                "php": "^5.5 || ^7.0",
-                "zendframework/zend-stdlib": "^2.7 || ^3.0"
+                "php": "^5.6 || ^7.0",
+                "zendframework/zend-stdlib": "^2.7.6 || ^3.1"
             },
             "require-dev": {
-                "fabpot/php-cs-fixer": "1.7.*",
-                "phpunit/phpunit": "^4.0",
+                "phpunit/phpunit": "^6.0.8 || ^5.7.15",
                 "zendframework/zend-cache": "^2.6.1",
+                "zendframework/zend-coding-standard": "~1.0.0",
                 "zendframework/zend-config": "^2.6",
                 "zendframework/zend-db": "^2.7",
                 "zendframework/zend-filter": "^2.6",
@@ -13447,20 +13565,20 @@
                 "zendframework/zend-uri": "^2.5"
             },
             "suggest": {
-                "zendframework/zend-db": "Zend\\Db component",
+                "zendframework/zend-db": "Zend\\Db component, required by the (No)RecordExists validator",
                 "zendframework/zend-filter": "Zend\\Filter component, required by the Digits validator",
-                "zendframework/zend-i18n": "Zend\\I18n component to allow translation of validation error messages as well as to use the various Date validators",
+                "zendframework/zend-i18n": "Zend\\I18n component to allow translation of validation error messages",
                 "zendframework/zend-i18n-resources": "Translations of validator messages",
-                "zendframework/zend-math": "Zend\\Math component",
+                "zendframework/zend-math": "Zend\\Math component, required by the Csrf validator",
                 "zendframework/zend-servicemanager": "Zend\\ServiceManager component to allow using the ValidatorPluginManager and validator chains",
-                "zendframework/zend-session": "Zend\\Session component",
+                "zendframework/zend-session": "Zend\\Session component, required by the Csrf validator",
                 "zendframework/zend-uri": "Zend\\Uri component, required by the Uri and Sitemap\\Loc validators"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev",
-                    "dev-develop": "2.9-dev"
+                    "dev-master": "2.9-dev",
+                    "dev-develop": "2.10-dev"
                 },
                 "zf": {
                     "component": "Zend\\Validator",
@@ -13482,7 +13600,7 @@
                 "validator",
                 "zf2"
             ],
-            "time": "2017-01-29T17:24:24+00:00"
+            "time": "2017-03-17T10:15:50+00:00"
         }
     ],
     "packages-dev": [
@@ -14165,16 +14283,16 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.8.0",
+            "version": "0.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "bc202be12d221f290fa0bdc9ab2d053e5efb5cac"
+                "reference": "12f5dac810fa8592aa15e357676ff2777bba3716"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/bc202be12d221f290fa0bdc9ab2d053e5efb5cac",
-                "reference": "bc202be12d221f290fa0bdc9ab2d053e5efb5cac",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/12f5dac810fa8592aa15e357676ff2777bba3716",
+                "reference": "12f5dac810fa8592aa15e357676ff2777bba3716",
                 "shasum": ""
             },
             "require": {
@@ -14208,7 +14326,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-03-06T11:14:49+00:00"
+            "time": "2017-03-17T13:33:48+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -14512,7 +14630,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "spryker/rabbit-mq": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
