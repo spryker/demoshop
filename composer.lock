@@ -1859,6 +1859,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "c721e3f223dd5f4f7ef522206f1747baeda236dd"
 =======
 =======
@@ -1871,6 +1872,8 @@
 >>>>>>> core-1012 update spryker/spryker
 =======
 >>>>>>> core-1012 update TransferConfig and spryker/spryker
+=======
+>>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "0ae996092bfd1d61126d630508608967b73c4db2"
 =======
@@ -1968,7 +1971,13 @@
 =======
                 "reference": "7b7517fff308ae971d87f53275e480b8e89ff7b8"
 >>>>>>> core-1012 update TransferConfig and spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1012 update TransferConfig and spryker/spryker
+=======
+=======
+                "reference": "cd17f6d2d03381d6ea8778d74baf33689ce7d539"
+>>>>>>> core-1012 update spryker/spryker
+>>>>>>> core-1012 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2725,6 +2734,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-03-23 13:32:10"
 =======
 =======
@@ -2737,6 +2747,8 @@
 >>>>>>> core-1012 update spryker/spryker
 =======
 >>>>>>> core-1012 update TransferConfig and spryker/spryker
+=======
+>>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-03-13 14:07:00"
 =======
@@ -3014,7 +3026,13 @@
 =======
             "time": "2017-03-23 08:07:13"
 >>>>>>> core-1012 update TransferConfig and spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1012 update TransferConfig and spryker/spryker
+=======
+=======
+            "time": "2017-03-23 09:40:23"
+>>>>>>> core-1012 update spryker/spryker
+>>>>>>> core-1012 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
