@@ -1,0 +1,45 @@
+<div class="callout show-for-large">
+    <div class="row">
+        <div class="large-12 columns">
+            <ul class="menu">
+                {% for node in navigationTree.nodes %}
+                    {% embed '@Application/layout/navigation/_partials/base-node.twig' %}
+                        {% block url %}
+                            <li {% if node.children|length %}data-toggle="navigation-node-{{ node.navigationNode.idNavigationNode }}-children"{% endif %} class="{{ class }}">
+                                <a href="{{ url }}">{{ title }}</a>
+                            </li>
+                        {% endblock %}
+
+                        {% block link %}
+                            <li {% if node.children|length %}data-toggle="navigation-node-{{ node.navigationNode.idNavigationNode }}-children"{% endif %} class="{{ class }}">
+                                <a href="{{ link  }}">{{ title }}</a>
+                            </li>
+                        {% endblock %}
+
+                        {% block externalUrl %}
+                            <li {% if node.children|length %}data-toggle="navigation-node-{{ node.navigationNode.idNavigationNode }}-children"{% endif %} class="{{ class }}">
+                                <a href="{{ externalUrl }}" target="_blank">{{ title }}</a>
+                            </li>
+                        {% endblock %}
+
+                        {% block other %}
+                            <li {% if node.children|length %}data-toggle="navigation-node-{{ node.navigationNode.idNavigationNode }}-children"{% endif %} class="menu-text {{ class }}">
+                                {{ title }}
+                            </li>
+                        {% endblock %}
+                    {% endembed %}
+                {% endfor %}
+            </ul>
+
+            {% for node in navigationTree.nodes %}
+                {% if node.navigationNode.isActive %}
+                    {% if node.children|length %}
+                        <div class="dropdown-pane" id="navigation-node-{{ node.navigationNode.idNavigationNode }}-children" data-dropdown data-hover="true" data-hover-pane="true">
+                            {% include '@Application/layout/navigation/_partials/nodes.twig' with {nodes: node.children} %}
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

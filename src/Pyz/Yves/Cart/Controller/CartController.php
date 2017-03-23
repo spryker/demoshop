@@ -32,10 +32,15 @@ class CartController extends AbstractController
             ->createProductBundleGrouper()
             ->getGroupedBundleItems($quoteTransfer->getItems(), $quoteTransfer->getBundleItems());
 
+        $stepBreadcrumbsTransfer = $this->getFactory()
+            ->getCheckoutBreadcrumbPlugin()
+            ->generateStepBreadcrumbs($quoteTransfer);
+
         return $this->viewResponse([
             'cart' => $quoteTransfer,
             'cartItems' => $cartItems,
             'voucherForm' => $voucherForm->createView(),
+            'stepBreadcrumbs' => $stepBreadcrumbsTransfer,
         ]);
     }
 

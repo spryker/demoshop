@@ -80,19 +80,19 @@ class CustomerStepTest extends PHPUnit_Framework_TestCase
     /**
      * @return void
      */
-    public function testRequireInputWhenCustomerIsSetShouldReturnFalse()
+    public function testRequireInputWhenCustomerIsSetShouldReturnTrue()
     {
         $customerStep = $this->createCustomerStep();
         $quoteTransfer = new QuoteTransfer();
         $quoteTransfer->setCustomer(new CustomerTransfer());
 
-        $this->assertFalse($customerStep->requireInput($quoteTransfer));
+        $this->assertTrue($customerStep->requireInput($quoteTransfer));
     }
 
     /**
      * @return void
      */
-    public function testRequireInputWhenCustomerLogedInShouldReturnFalse()
+    public function testRequireInputWhenCustomerLoggedInShouldReturnFalse()
     {
         $customerClientMock = $this->createCustomerClientMock();
         $customerClientMock->expects($this->once())->method('getCustomer')->willReturn(new CustomerTransfer());

@@ -1,0 +1,31 @@
+<ul class="vertical menu">
+    {% for node in navigationTree.nodes %}
+        {% embed '@Application/layout/navigation/_partials/base-node.twig' %}
+            {% block nodeContainer %}
+                <li class="{{ class }}">
+                    {{ parent() }}
+
+                    {% if node.children|length %}
+                        {% include '@Application/layout/navigation/_partials/nodes.twig' with {nodes: node.children, nested: true} %}
+                    {% endif %}
+                </li>
+            {% endblock %}
+
+            {% block url %}
+                <a href="{{ url }}">{{ title }}</a>
+            {% endblock %}
+
+            {% block link %}
+                <a href="{{ link  }}">{{ title }}</a>
+            {% endblock %}
+
+            {% block externalUrl %}
+                <a href="{{ externalUrl }}" target="_blank">{{ title }}</a>
+            {% endblock %}
+
+            {% block other %}
+                <span class="menu-text">{{ title }}</span>
+            {% endblock %}
+        {% endembed %}
+    {% endfor %}
+</ul>
