@@ -20,14 +20,14 @@ class CheckoutBreadcrumbPlugin extends AbstractPlugin
     /**
      * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|null $dataTransfer
      *
-     * @return \Generated\Shared\Transfer\StepBreadcrumbTransfer
+     * @return \Generated\Shared\Transfer\StepBreadcrumbsTransfer
      */
-    public function generateStepBreadcrumb(AbstractTransfer $dataTransfer = null)
+    public function generateStepBreadcrumbs(AbstractTransfer $dataTransfer = null)
     {
         $stepFactory = $this->getFactory()->createStepFactory();
         $stepCollection = $stepFactory->createStepCollection();
 
-        return $stepFactory->createStepBreadcrumbGenerator()->generateStepBreadcrumb($stepCollection, $dataTransfer);
+        return $stepFactory->createStepBreadcrumbGenerator()->generateStepBreadcrumbs($stepCollection, $dataTransfer);
     }
 
 }
